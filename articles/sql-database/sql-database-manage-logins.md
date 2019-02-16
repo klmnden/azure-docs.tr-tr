@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164626"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301766"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Denetleme ve SQL veritabanı ve SQL veri ambarı veritabanına erişim izni verme
 
@@ -84,9 +84,9 @@ Daha önce anlatılan sunucu düzeyi yönetim rollerine ek olarak SQL Veritaban�
 
 ### <a name="database-creators"></a>Veritabanı oluşturucuları
 
-Bu yönetici rollerinden biri, **dbmanager** rolüdür. Bu rolün üyeleri yeni veritabanları oluşturabilir. Bu rolü kullanmak için `master` veritabanında bir kullanıcı oluşturmanız ve bu kullanıcıyı **dbmanager** veritabanı rolüne eklemeniz gerekir. Bir veritabanı oluşturmak için kullanıcının, ana veritabanındaki SQL Server oturumunu temel alan bir kullanıcı ya da Azure Active Directory kullanıcısını temel alan bağımsız bir veritabanı kullanıcısı olması gerekir.
+Bu yönetici rollerinden biri, **dbmanager** rolüdür. Bu rolün üyeleri yeni veritabanları oluşturabilir. Bu rolü kullanmak için `master` veritabanında bir kullanıcı oluşturmanız ve bu kullanıcıyı **dbmanager** veritabanı rolüne eklemeniz gerekir. Bir veritabanı oluşturmak için kullanıcı bir SQL Server oturumunu temel bir kullanıcı olmalıdır `master` veritabanı veya bağımsız veritabanı kullanıcısı temel bir Azure Active Directory kullanıcı.
 
-1. Bir yönetici hesabını kullanarak ana veritabanına bağlanın.
+1. Bir yönetici hesabını kullanarak bağlanmak için `master` veritabanı.
 2. Bir SQL Server kimlik doğrulama oturumu kullanarak [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) deyimi. Örnek deyim:
 
    ```sql
@@ -98,7 +98,7 @@ Bu yönetici rollerinden biri, **dbmanager** rolüdür. Bu rolün üyeleri yeni 
 
    Performansı artırmak için oturum açma bilgileri (sunucu düzeyi asıl hesaplar) veritabanı düzeyinde geçici olarak önbelleğe alınır. Kimlik doğrulaması önbelleğini yenilemek için bkz. [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3. Ana veritabanında [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) deyimini kullanarak bir kullanıcı oluşturun. Kullanıcı Azure Active Directory kimlik doğrulaması bağımsız veritabanı kullanıcısı (ortamınızı Azure AD kimlik doğrulaması için yapılandırdıysanız) veya SQL Server kimlik doğrulaması bağımsız veritabanı kullanıcısı ya da SQL Server kimlik doğrulaması oturum açma bilgilerini kullanan SQL Server kimlik doğrulaması kullanıcısı (önceki adımda oluşturulan) olabilir. Örnek deyimler:
+3. İçinde `master` kullanarak bir kullanıcı oluşturun, veritabanı [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) deyimi. Kullanıcı Azure Active Directory kimlik doğrulaması bağımsız veritabanı kullanıcısı (ortamınızı Azure AD kimlik doğrulaması için yapılandırdıysanız) veya SQL Server kimlik doğrulaması bağımsız veritabanı kullanıcısı ya da SQL Server kimlik doğrulaması oturum açma bilgilerini kullanan SQL Server kimlik doğrulaması kullanıcısı (önceki adımda oluşturulan) olabilir. Örnek deyimler:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -106,7 +106,7 @@ Bu yönetici rollerinden biri, **dbmanager** rolüdür. Bu rolün üyeleri yeni 
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) deyimini kullanarak yeni kullanıcıyı **dbmanager** veritabanı rolüne ekleyin. Örnek deyimler:
+4. Yeni kullanıcıyı ekleyin **dbmanager** veritabanı rolünün `master` kullanarak [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) deyimi. Örnek deyimler:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -118,7 +118,7 @@ Bu yönetici rollerinden biri, **dbmanager** rolüdür. Bu rolün üyeleri yeni 
 
 5. Gerekirse, yeni kullanıcının bağlantı kurabilmesi için bir güvenlik duvarı kuralı yapılandırın. (Yeni kullanıcı, mevcut bir güvenlik duvarı kuralı kapsamında olabilir.)
 
-Kullanıcı artık, ana veritabanına bağlanabilir ve yeni veritabanları oluşturabilir. Veritabanını oluşturan hesap, veritabanının sahibi olur.
+Bir kullanıcı bağlanabilir artık `master` veritabanı ve yeni veritabanları oluşturabilir. Veritabanını oluşturan hesap, veritabanının sahibi olur.
 
 ### <a name="login-managers"></a>Oturum açma yöneticileri
 
@@ -141,11 +141,19 @@ Başlangıçta veritabanı yöneticilerinden yalnızca biri veya veritabanının
 GRANT ALTER ANY USER TO Mary;
 ```
 
-Daha fazla kullanıcıya veritabanı üzerinde tam denetim vermek için `ALTER ROLE` deyimini kullanarak **db_owner** sabit veritabanı rolünün üyesi yapın.
+Ek kullanıcılar veritabanı üzerinde tam denetim vermek için bunları bir üyesi olun **db_owner** sabit veritabanı rolü.
+
+Azure SQL veritabanı kullanımda `ALTER ROLE` deyimi.
 
 ```sql
-ALTER ROLE db_owner ADD MEMBER Mary; 
+ALTER ROLE db_owner ADD MEMBER Mary;
 ```
+
+Azure SQL veri ambarı kullanımda [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+```sql
+EXEC sp_addrolemember 'db_owner', 'Mary';
+```
+
 
 > [!NOTE]
 > Bir SQL veritabanı sunucu oturumuna dayanarak bir veritabanı kullanıcısı oluşturmak için yaygın nedenlerinden biri, birden fazla veritabanına erişmesi gereken kullanıcılar içindir. Bulunan olduğundan veritabanı kullanıcıları tek tek varlıklarla, kendi kullanıcı ve kendi parolasını her veritabanı tutar. Kullanıcı daha sonra her veritabanı için her parola unutmamanız gerekir ve bunu çok sayıda veritabanı için birden çok parola sıfırlama gereksinimiyle olduğunda untenable olabilmesi için bu ek yükü neden olabilir. Ancak, SQL Server oturumları ve yüksek kullanılabilirlik (etkin coğrafi çoğaltma ve yük devretme grupları) kullanmayı düşünüyorsanız, SQL Server oturum açma bilgileri el ile her sunucuda ayarlanmalıdır. Aksi takdirde, bir yük devretme gerçekleşir ve veritabanı yük devretme sonrasında erişmek mümkün olmayacaktır sonra veritabanı kullanıcısı artık sunucu oturum açma eşleştirilir. Oturum açma bilgileri için coğrafi çoğaltmayı yapılandırma hakkında daha fazla bilgi için lütfen bkz [yapılandırma ve Azure SQL veritabanı güvenliğini coğrafi geri yükleme ya da yük devretme için yönetme](sql-database-geo-replication-security-config.md).

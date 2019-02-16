@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 649fe5ebadf69a90b4794fcaf4519ea5bcc0c4a2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f1f4cb036f4df226d651f8f4d0f5c7492f453a0a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874201"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269749"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake depolama 2. nesil ile HDFS CLI'yı kullanma
 
@@ -26,17 +26,37 @@ HDInsight, işlem düğümlerine yerel olarak bağlı olan dağıtılmış dosya
 >[!IMPORTANT]
 >HDInsight kümesi faturalandırması küme oluşturulur ve küme silindiğinde sona erer sonra başlar. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz. Küme silme hakkında bilgi edinmek için müşterilerimize [makale konusunda](../../hdinsight/hdinsight-delete-cluster.md). Ancak, Data Lake depolama etkin Gen2 ile bir depolama hesabına depolanan verilerinizin bile bir HDInsight kümesi silindikten sonra devam ettirir.
 
+### <a name="create-a-file-system"></a>Bir dosya sistemi oluşturun
+
+    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+
+* Değiştirin `<file-system-name>` dosya sisteminize vermek istediğiniz adla yer tutucu.
+
+* Değiştirin `<storage-account-name>` depolama hesabınızın adıyla yer tutucu.
+
 ### <a name="get-a-list-of-files-or-directories"></a>Dosya veya dizinlerin bir listesini alın
 
-    hdfs dfs -ls <args>
+    hdfs dfs -ls <path>
+
+Değiştirin `<path>` yer tutucusunu dosya sisteminde veya dosya sistem klasöründe URI'si ile.
+
+Örneğin, `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ### <a name="create-a-directory"></a>Dizin oluşturma
 
-    hdfs dfs -mkdir [-p] <paths>
+    hdfs dfs -mkdir [-p] <path>
 
-### <a name="delete-a-file-or-a-directory"></a>Bir dosya veya dizin Sil
+Değiştirin `<path>` kök dosya sistemi adına veya bir klasördeki bir dosya sisteminize ile yer tutucu.
 
-    hdfs dfs -rm [-skipTrash] URI [URI ...]
+Örneğin, `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+### <a name="delete-a-file-or-directory"></a>Bir dosya veya dizin Sil
+
+    hdfs dfs -rm <path>
+
+Değiştirin `<path>` dosya ya da silmek istediğiniz klasör URI'si ile yer tutucu.
+
+Örneğin, `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ### <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Linux'ta bir HDInsight Hadoop kümesi ile HDFS CLI'yı kullanma
 
@@ -52,11 +72,15 @@ hdfs dfs -mkdir /samplefolder
 ```
 Bağlantı dizesi şu yolda bulunabilir: "SSH + küme oturum açma" bölümünde Azure portalında HDInsight küme dikey penceresi. Küme oluşturma sırasında SSH kimlik bilgileri belirtildi.
 
-HDFS CLI hakkında daha fazla bilgi için bkz. [resmi belgelerine](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) ve [HDFS izinleri Kılavuzu](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). Databricks'te ACL'ler hakkında daha fazla bilgi için bkz: [gizli dizileri CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli). 
+HDFS CLI hakkında daha fazla bilgi için bkz. [resmi belgelerine](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) ve [HDFS izinleri Kılavuzu](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). Databricks'te ACL'ler hakkında daha fazla bilgi için bkz: [gizli dizileri CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli).
 
 ## <a name="hdfs-cli-with-azure-databricks"></a>HDFS CLI ile Azure Databricks
 
 Databricks Databricks REST API üzerinde derlenmiş bir kolayca kullanıma CLI sağlar. Açık kaynaklı proje üzerinde barındırılan [GitHub](https://github.com/databricks/databricks-cli). Sık kullanılan komutlar aşağıda verilmiştir.
+
+### <a name="create-a-file-system"></a>Bir dosya sistemi oluşturun
+
+Kılavuz buraya koyun.
 
 ### <a name="get-a-list-of-files-or-directories"></a>Dosya veya dizinlerin bir listesini alın
 

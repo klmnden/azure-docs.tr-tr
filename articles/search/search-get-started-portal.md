@@ -1,21 +1,21 @@
 ---
 title: Azure portal - Azure Search kullanarak dizin oluşturma ve sorgulama hızlı başlangıç Öğreticisi
-description: Bu hızlı başlangıç öğreticisinde Azure Search'te bir dizin oluşturmak için yerleşik örnek veriler ve Azure Portalı'nı kullanın. Tam metin arama, filtreler, modeller, belirsiz arama, coğrafi arama ve daha fazlasını keşfedin.
+description: Derleme ve Azure portalında yerleşik örnek veriler ve verileri İçeri Aktarma Sihirbazı'nı kullanarak Azure Search'te ilk dizininizi sorgulama hakkında bilgi edinin.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 53be1180f074c075ed2ca2d544b9b164a3a1bdd6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991319"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270343"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Hızlı Başlangıç: Azure Search içeri aktarma, dizin oluşturma ve sorgular için yerleşik portal araçlarını kullanma
 
@@ -94,15 +94,17 @@ Alanların veri türleri ve öznitelikleri vardır. Üstteki onay kutuları, ala
 
 Depolama gereksinimleri seçiminizi sonucunda değişiklik yok. Örneğin, ayarlarsanız **alınabilir** depolama gereksinimleri değil Yukarı Git özniteliği birden çok alan.
 
-Varsayılan olarak sihirbaz tarafından anahtar alanının temeli olarak benzersiz tanımlayıcıların bulunması için veri kaynağı taranır. Dizelere alınabilir ve aranabilir öznitelikler atanmıştır. Tam sayılara alınabilir, filtrelenebilir, sıralanabilir ve modellenebilir öznitelikler atanmıştır.
+Varsayılan olarak sihirbaz tarafından anahtar alanının temeli olarak benzersiz tanımlayıcıların bulunması için veri kaynağı taranır. *Dizeleri* olarak öznitelikli **alınabilir** ve **aranabilir**. *Tamsayıları* olarak öznitelikli **alınabilir**, **filtrelenebilir**, **sıralanabilir**, ve **modellenebilir**.
 
-1. Tüm Varsayılanları kabul edin.
+1. Varsayılanları kabul edin. 
 
-  ![Emlak dizini oluşturuldu](media/search-get-started-portal/realestateindex2.png)
+   Varolan bir realestate veri kaynağını kullanarak ikinci bir kez Sihirbazı yeniden çalıştırın, varsayılan öznitelikler içeren dizin yapılandırılmaz. İleride içeri aktarmalar özniteliklerinde el ile seçmeniz gerekir.
+
+   ![Emlak dizini oluşturuldu](media/search-get-started-portal/realestateindex2.png)
 
 2. Bir sonraki sayfasına devam edin.
 
-  ![Sonraki sayfaya dizin oluşturucu oluşturma](media/search-get-started-portal/next-button-create-indexer.png)
+   ![Sonraki sayfaya dizin oluşturucu oluşturma](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>4. adım: dizin oluşturucuyu yapılandırma
 

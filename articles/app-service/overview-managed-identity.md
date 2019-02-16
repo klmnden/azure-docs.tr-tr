@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 68f640f6962802c45ca369786c4e5d0d4f785fa6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3f064769728d5d081c4a110e6c981c4b36aad384
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105086"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300593"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service ve Azure işlevleri için yönetilen kimliklerini kullanma
 
@@ -280,8 +280,8 @@ Microsoft.Azure.Services.AppAuthentication ve kullanıma sunduğu işlemleri hak
 
 Yönetilen bir kimlik ile bir uygulama tanımlı iki ortam değişkenleri vardır:
 
-- MSI_ENDPOINT
-- MSI_SECRET
+- MSI_ENDPOINT - yerel belirteç Hizmeti'ne URL.
+- MSI_SECRET - sunucu tarafı istek sahteciliği (SSRF) saldırılarını önlemeye yardımcı olmak için kullanılan üstbilgi. Değer, platform tarafından döndürülür.
 
 **MSI_ENDPOINT** içinden uygulamanızın belirteçleri isteyebilir yerel bir URL. Bir kaynak için bir belirteç almak için aşağıdaki parametreleri de dahil olmak üzere bu uç nokta için bir HTTP GET isteği olun:
 
@@ -289,7 +289,7 @@ Yönetilen bir kimlik ile bir uygulama tanımlı iki ortam değişkenleri vardı
 > |-----|-----|-----|
 > |kaynak|Sorgu|AAD kaynak kaynağın URI'sini için bir belirteç elde edilmelidir. Bu, aşağıdakilerden biri olabilir [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) veya başka bir kaynağa bir URI.|
 > |API sürümü|Sorgu|Kullanılacak belirteç API sürümü. "2017-09-01", şu anda desteklenen tek sürüm aşamasındadır.|
-> |gizli dizi|Üst bilgi|MSI_SECRET ortam değişkeninin değeri.|
+> |gizli dizi|Üst bilgi|MSI_SECRET ortam değişkeninin değeri. Bu üst bilgi, sunucu tarafı istek sahteciliği (SSRF) saldırılarını önlemeye yardımcı olmak için kullanılır.|
 > |ClientID|Sorgu|(İsteğe bağlı) Kullanılacak kullanıcı tarafından atanan kimlik kimliği. Atlanırsa, sistem tarafından atanan kimlik kullanılır.|
 
 Başarılı 200 Tamam yanıtı bir JSON gövdesi aşağıdaki özellikleri içerir:

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8be7a3d862e7b496a4e3b3077e4c53018bf97bb8
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: cd692442791f57e1560a97f09253ccd1a8264fb3
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233328"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269102"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Öğretici: Azure Resource Manager şablon dağıtımları güvenli yapıları
 
@@ -36,8 +36,6 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > * Dağıtımı doğrulama
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -218,6 +216,9 @@ New-AzResourceGroupDeployment `
     -bacpacFileName $bacpacFileName `
     -TemplateFile azuredeploy.json
 ```
+
+> [!NOTE]
+> Dosya g/ç Cloud shell'de Azure PowerShell kullanarak sorun yoktur.  Hata iletisi *cmdlet'i için dinamik parametreler alınamıyor. Bunu mevcut olmadığından 'Azure:/azuredeploy.json' yolu bulunamıyor.*  Dahil edilmemesi için geçici bir çözüm olan **- TemplateFile** anahtarının `New-AzResourceGroupDeploy` komutu. Komut dosya adını girmenizi ister.
 
 Oluşturulan bir parola kullanın. [Ön koşullara](#prerequisites) bakın.
 _ArtifactsLocation ve _artifactsLocationSasToken bacpacFileName değerleri için bkz. [bir SAS belirteci oluşturmak](#generate-a-sas-token).

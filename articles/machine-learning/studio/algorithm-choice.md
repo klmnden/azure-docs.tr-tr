@@ -10,16 +10,20 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 222891df5b54a8f2c3464fc3bddf9f6b32c28d36
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6442facf680c934d976e7fa8008f2f3c3551045f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244802"
+ms.locfileid: "56268113"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için algoritma seçme
 
 "Hangi makine öğrenme algoritmasına kullanmam gerekir?" sorusuna verilen yanıt her zaman "Duruma göre değişir." şeklindedir. Bu boyut, kalite ve verilerin niteliğine bağlıdır. Bu, Yanıtla yapmak istediğiniz üzerinde bağlıdır. Bu, nasıl algoritmasının matematik kullanmakta olduğunuz bilgisayar için yönergeler içine çevrilmiştir üzerinde bağlıdır. Ve duruma göre değişir üzerinde ne kadar süre sahip. Hatta en deneyimli veri uzmanları, denemeden önce en iyi algoritmayı gerçekleştirecek bildiremez.
+
+Machine Learning Studio, Microsoft Research'te geliştirilen Ölçeklenebilir Artırılmış Karar ağaçları, Bayes Önerisi sistemleri, Derin Sinir Ağları ve Karar Ormanları gibi teknoloji harikası algoritmaları sağlar. Vowpal Wabbit gibi ölçeklenebilir açık kaynaklı makine öğrenimi paketleri de dahildir. Machine Learning Studio, çok sınıflı ve ikili sınıflandırma, regresyon ve kümeleme için makine öğrenimi algoritmalarını destekler. Tam listesi görmek [Machine Learning modüllerinin](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index).
+Belgeler, her bir algoritmanın ve parametreler, kullanımınız için algoritmayı en iyi duruma getirmek için nasıl ayarlanacağını hakkında bazı bilgiler sağlar.  
+
 
 ## <a name="the-machine-learning-algorithm-cheat-sheet"></a>Machine Learning algoritmasını kural sayfası
 

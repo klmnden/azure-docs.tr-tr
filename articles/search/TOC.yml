@@ -118,9 +118,9 @@ items:
       href: search-create-index-portal.md
     - name: Çözümleyiciler
       items:
-      - name: Metin çözümleyici ekleme
+      - name: Çözümleyici ekleme
         href: search-analyzers.md
-      - name: Dil çözümleyici ekleme
+      - name: Dil çözümleyicisi ekleme
         href: index-add-language-analyzers.md
       - name: Özel çözümleyici ekleme
         href: index-add-custom-analyzers.md
@@ -196,17 +196,17 @@ items:
       href: search-query-overview.md
     - name: Arama Gezgini (portal)
       href: search-explorer.md
-    - name: Basit söz dizimi örnekleri
+    - name: Basit sorgu söz dizimi
+      href: query-simple-syntax.md
+    - name: Tam Lucene sorgu söz dizimi
+      href: query-lucene-syntax.md
+    - name: Sorgu örnekleri (basit söz dizimi)
       href: search-query-simple-examples.md
-    - name: Lucene söz dizimi örnekleri
+    - name: Sorgu örnekleri (tam Lucene)
       href: search-query-lucene-examples.md
-    - name: Sorgu söz dizimi
-      items:
-      - name: Basit sorgu söz dizimi
-        href: query-simple-syntax.md
-      - name: Lucene sorgu söz dizimi
-        href: query-lucene-syntax.md
-    - name: Disk belleği sonuçları
+  - name: İşleme sonuçları
+    items:
+    - name: Sayfayla ilgili özellikler
       href: search-pagination-page-layout.md
   - name: Verileri filtreleme ve sıralama
     items:
@@ -307,9 +307,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Videolar
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: eeac3c7bf976bf1a3ccc44c30127420e00c7a776
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: a38dd0b739b5f34826798370b4ffa4ad84cc525d
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099063"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299488"

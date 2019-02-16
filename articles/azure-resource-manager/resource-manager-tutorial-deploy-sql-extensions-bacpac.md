@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 53a2f20254d2f206d014e6643c6fd883828a63db
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c0aa88704f699334cacf12ec24284e61fca7d2bc
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238343"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267606"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Öğretici: Azure Resource Manager şablonları ile SQL BACPAC dosyalarını içeri aktarın
 
@@ -34,8 +34,6 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > * Dağıtımı doğrulama
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -154,6 +152,9 @@ New-AzResourceGroupDeployment `
     -adminPassword $adminPassword `
     -TemplateFile azuredeploy.json
 ```
+
+> [!NOTE]
+> Dosya g/ç Cloud shell'de Azure PowerShell kullanarak sorun yoktur.  Hata iletisi *"* cmdlet'i için dinamik parametreler alınamıyor. Geçici bir çözüm olan dahil edilmemesi için exist.* gerçekleştirdiğinden 'Azure:/azuredeploy.json' yolu bulunamıyor **- TemplateFile** anahtarının `New-AzResourceGroupDeploy` komutu. Komut dosya adını girmenizi ister.
 
 Oluşturulan bir parola kullanın. [Ön koşullara](#prerequisites) bakın.
 

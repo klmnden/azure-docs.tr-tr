@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9c337f147eaebc376c7953e7f585b5b9f6a10f94
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f4b66f79e415be8f9598a0e6f5c875d8a2597514
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471693"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300032"
 documentType: LandingData
 title: Azure Machine Learning Hizmeti Belgeleri
 metadata:
@@ -22,12 +22,17 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning hizmeti, makine öğrenmesi modellerini geliştirmek, eğitmek, test etmek, dağıtmak, yönetmek ve izlemek için kullanabileceğiniz bulut tabanlı bir ortam sağlar. Bu hizmet Scikit-learn, Tensorflow, Pytorch veya diğer Python tabanlı herhangi bir çerçeve gibi açık kaynak teknolojilerini tümüyle destekler. Hızlı başlangıçlarımız ve öğreticilerimizden yararlanarak, bu hizmeti makine öğrenimi iş akışlarınızda nasıl kullanacağınızı öğrenin.
+  description: Azure Machine Learning hizmeti, makine öğrenmesi modellerinizi hızla oluşturmanız, eğitmeniz ve dağıtmanız için bulut tabanlı bir ortam sağlar. Algoritmaları belirlemek ve hiper parametreleri daha hızlı ayarlamak için otomatik makine öğrenmesini kullanın. Makine öğrenmesi için otomatik ölçeklendirme bilgi işlemi ve Azure DevOps ile üretkenliği artırıp maliyetleri düşürün. Hizmet SDK’larının yanı sıra PyTorch, TensorFlow ve scikit-learn gibi açık kaynak çerçeveleri kullanarak Python ortamından bu özelliklere erişin. Hızlı başlangıç ve öğreticilerimizle nasıl yapılacağını öğrenin.
 sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: Başlangıç olarak <a href="quickstart-get-started">Azure portalında</a> veya <a href="quickstart-create-workspace-with-python">Python'da</a> hizmet çalışma alanını ve kaynakları oluşturun.
+    text: 'Bu hizmeti kullanmak için bir çalışma alanı ve ilgili kaynaklar gerekir.  Başlarken:'
+  - type: list
+    style: unordered
+    items:
+    - html: Çalışma alanı edinmek ve herhangi bir şey yüklemeden bir deneme çalıştırmak için <a href="quickstart-get-started">Azure portalı hızlı başlangıcını kullanın</a>.
+    - html: Ana SDK’yı yüklemek, bir çalışma alanı oluşturmak ve yerel not defteri sunucusunda bir deneme çalıştırmak için <a href="quickstart-create-workspace-with-python">Python hızlı başlangıcını kullanın</a>.
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
@@ -35,7 +40,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: Görüntü sınıflandırma modellerini <a href="tutorial-train-models-with-aml">eğitme</a> ve <a href="tutorial-deploy-models-with-aml">dağıtma</a> (<b>iki parçalı seri</b>).<br>&nbsp;
+    - html: Görüntü sınıflandırma modellerini <a href="tutorial-train-models-with-aml">eğitme</a> ve <a href="tutorial-deploy-models-with-aml">dağıtma</a> (<b>iki parçalı seri</b>).
     - html: Regresyon modellerini eğitmek ve ayarlamak için <a href="tutorial-data-prep">veri hazırlama</a> ve <a href="tutorial-auto-train-models">otomatik makine öğrenmesini kullanma</a> (<b>iki parçalı seri</b>).
 - title: Örnekler
   items:

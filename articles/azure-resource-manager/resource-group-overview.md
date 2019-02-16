@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: fbfbb4e452032073d92e7c2b93f78669da0ceaf5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1d576b24e96d6c4c88d6fbef86cb1c6cf7f7c61a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691566"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268142"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
 
 Azure Resource Manager Azure için dağıtım ve yönetim hizmetidir. Bu, oluşturmak, güncelleştirmek ve Azure aboneliğinizdeki kaynakları silmek sağlayan bir tutarlı yönetim katmanı sağlar. Güvenli ve dağıtımdan sonra kaynaklarınızı düzenlemek için denetleme ve etiketleme özellikleri kendi erişim denetimini kullanabilirsiniz.
 
-Portal, PowerShell, Azure CLI, REST API veya istemci SDK'ları aracılığıyla eylemleri, Azure Resource Manager API'si isteği işler. Aynı API aracılığıyla işlenen tüm istekleri dolayı tutarlı sonuçlar ve farklı araçlar özelliklerini görebilirsiniz.
+Portal, PowerShell, Azure CLI, REST API veya istemci SDK'ları aracılığıyla eylemleri, Azure Resource Manager API'si isteği işler. Aynı API aracılığıyla işlenen tüm istekleri dolayı tutarlı sonuçlar ve farklı araçlar özelliklerini görebilirsiniz. Portalda mevcut olan tüm özellikleri, ayrıca PowerShell, Azure CLI, REST API'leri ve istemci SDK'ları kullanılabilir. İlk olarak API'lerle başlatılan işlevler 180 gün içinde portalda kullanıma sunulacaktır.
 
 Aşağıdaki görüntüde nasıl tüm araçları, Azure Resource Manager API ile etkileşim kurar. API, istekleri kimlik doğrulamasından geçiren ve yetkilendiren Resource Manager hizmetine iletir. Kaynak Yöneticisi'ni, sonra istekleri uygun hizmete yönlendirir.
 

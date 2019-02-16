@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 98d2d3a54ff2f0c4ef326f8aae26e5ba8845d603
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 04d7bfcf0527b490bc18f6d85977d899823d5e69
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882363"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301885"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 V3 geçiş
 
@@ -41,19 +41,19 @@ Aşağıdaki listede yer alan V2 ve V3 yöntemleri V2 ile gelen işlevselliği s
 
 | V2 API yöntemi   | V3 API uyumluluğu |
 |:----------- |:-------------|
-| Translate     | [Çevir](reference/v3-0-translate.md)          |
-| TranslateArray      | [Çevir](reference/v3-0-translate.md)        |
-| GetLanguageNames      | [Diller](reference/v3-0-languages.md)         |
-| GetLanguagesForTranslate     | [Diller](reference/v3-0-languages.md)       |
-| GetLanguagesForSpeak      | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Speak     | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detect     | [Algılama](reference/v3-0-detect.md)         |
-| DetectArray     | [Algılama](reference/v3-0-detect.md)         |
-| AddTranslation     | [Microsoft Translator API hub'ı](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
-| AddTranslationArray    | [Microsoft Translator API hub'ı](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
-| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
-| GetTranslations      | Özelliği artık desteklenmiyor         |
-| GetTranslationsArray      | Özelliği artık desteklenmiyor         |
+| `Translate`     | [Çevir](reference/v3-0-translate.md)          |
+| `TranslateArray`      | [Çevir](reference/v3-0-translate.md)        |
+| `GetLanguageNames`      | [Diller](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Diller](reference/v3-0-languages.md)       |
+| `GetLanguagesForSpeak`      | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| `Speak`     | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `Detect`     | [Algılama](reference/v3-0-detect.md)         |
+| `DetectArray`     | [Algılama](reference/v3-0-detect.md)         |
+| `AddTranslation`     | [Microsoft Translator API hub'ı](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| `AddTranslationArray`    | [Microsoft Translator API hub'ı](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
+| `GetTranslations`      | Özelliği artık desteklenmiyor         |
+| `GetTranslationsArray`      | Özelliği artık desteklenmiyor         |
 
 ## <a name="move-to-json-format"></a>JSON biçimine Taşı
 
@@ -75,12 +75,12 @@ Microsoft Translator V3 V2 fiyatlandırılır aynı şekilde fiyatlandırılır;
 
 | V3 yöntemi   | Faturalandırma için sayılan karakterler |
 |:----------- |:-------------|
-| Languages     | Gönderilen herhangi bir karakter yok sayılan, ücret alınmaz.          |
-| Translate     | Sayısı temel karakterlerinin kaçının tutulacağını gönderilen çeviri ve kaç diller için karakter çevrilir. 50 karakteri gönderildi ve istenen 5 dilleri 50 x 5 olacaktır.           |
-| Transliterate     | Harf çevirisi için gönderilen karakter sayısına göre sayılır.         |
-| Dictionary lookup &amp; example     | Sözlük Arama ve örnekler için gönderilen karakter sayısına göre sayılır.         |
-| BreakSentence     | Ücret alınmaz.       |
-| Detect     | Ücret alınmaz.      |
+| `Languages`     | Gönderilen herhangi bir karakter yok sayılan, ücret alınmaz.          |
+| `Translate`     | Sayısı temel karakterlerinin kaçının tutulacağını gönderilen çeviri ve kaç diller için karakter çevrilir. 50 karakteri gönderildi ve istenen 5 dilleri 50 x 5 olacaktır.           |
+| `Transliterate`     | Harf çevirisi için gönderilen karakter sayısına göre sayılır.         |
+| `Dictionary lookup & example`     | Sözlük Arama ve örnekler için gönderilen karakter sayısına göre sayılır.         |
+| `BreakSentence`     | Ücret alınmaz.       |
+| `Detect`     | Ücret alınmaz.      |
 
 ## <a name="v3-end-points"></a>V3 uç noktaları
 
@@ -88,22 +88,21 @@ Genel
 
 * api.cognitive.microsofttranslator.com
 
-
 ## <a name="v3-api-text-translations-methods"></a>V3 API metin çevirileri yöntemleri
 
-[Diller](reference/v3-0-languages.md)
+[`Languages`](reference/v3-0-languages.md)
 
-[Çevir](reference/v3-0-translate.md)
+[`Translate`](reference/v3-0-translate.md)
 
-[Alfabeye](reference/v3-0-transliterate.md)
+[`Transliterate`](reference/v3-0-transliterate.md)
 
-[BreakSentence](reference/v3-0-break-sentence.md)
+[`BreakSentence`](reference/v3-0-break-sentence.md)
 
-[Algılama](reference/v3-0-detect.md)
+[`Detect`](reference/v3-0-detect.md)
 
-[Sözlük/Arama](reference/v3-0-dictionary-lookup.md)
+[`Dictionary/lookup`](reference/v3-0-dictionary-lookup.md)
 
-[Sözlük/örnek](reference/v3-0-dictionary-examples.md)
+[`Dictionary/example`](reference/v3-0-dictionary-examples.md)
 
 ## <a name="compatibility-and-customization"></a>Uyumluluk ve özelleştirme
 
@@ -132,7 +131,6 @@ Translator metin çevirisi API'si, sürüm 3 api.cognitive.microsofttranslator.c
 * Translator metin çevirisi API'si, sürüm 2, api.microsofttranslator.com uç noktası kullanıyorsanız kullanıyor.
 
 Translator API sürümü yok çevirilerinizi bir kaydını oluşturur. Hiçbir zaman çevirilerinizi kimseyle paylaşılmaz. Daha fazla bilgi [Translator yapmama](http://www.aka.ms/NoTrace) Web sayfası.
-
 
 ## <a name="links"></a>Bağlantılar
 

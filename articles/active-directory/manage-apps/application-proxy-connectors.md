@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c48bbffd6a6312588d071841000b9211266285e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 907511b7f20311479e7b11a30f3d5719daea3f87
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163045"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301477"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD uygulama ara sunucusu bağlayıcıları anlama
 
@@ -25,14 +25,14 @@ Bağlayıcılar, hangi Azure AD uygulama proxy'si olası yaptıran şeydir. Bunl
 
 ## <a name="what-is-an-application-proxy-connector"></a>Uygulama Ara sunucusu bağlayıcısını nedir?
 
-Bağlayıcılar, şirket içi yaslanın ve uygulama proxy'si Hizmeti giden bağlantı kolaylaştırmak basit aracılardır. Bağlayıcılar, arka uç uygulaması erişimi olan bir Windows Server üzerinde yüklenmelidir. Bağlayıcılar, belirli uygulamalara trafiği işleme her grubuyla bağlayıcı gruplar halinde düzenleyebilirsiniz. Bağlayıcılar Yük Dengeleme otomatik olarak ve ağ yapınızı iyileştirmek için yardımcı olabilir. 
+Bağlayıcılar, şirket içi yaslanın ve uygulama proxy'si Hizmeti giden bağlantı kolaylaştırmak basit aracılardır. Bağlayıcılar, arka uç uygulaması erişimi olan bir Windows Server üzerinde yüklenmelidir. Bağlayıcılar, belirli uygulamalara trafiği işleme her grubuyla bağlayıcı gruplar halinde düzenleyebilirsiniz.
 
 ## <a name="requirements-and-deployment"></a>Gereksinimler ve dağıtım
 
-Uygulama proxy'si başarıyla dağıtmak için en az bir bağlayıcı gerekir, ancak iki veya daha fazla dayanıklılık için daha fazla öneririz. Bağlayıcı, Windows Server 2012 R2 veya 2016 makinesine yükleyin. Bağlayıcısının yayımladığınız şirket içi uygulamaların yanı sıra uygulama proxy'si hizmeti ile iletişim kurabilmesi gerekir. 
+Uygulama proxy'si başarıyla dağıtmak için en az bir bağlayıcı gerekir, ancak iki veya daha fazla dayanıklılık için daha fazla öneririz. Bağlayıcı, Windows Server 2012 R2 veya 2016 makinesine yükleyin. Yayımladığınız şirket içi uygulamalar ve uygulama proxy'si hizmeti ile iletişim kurmak bağlayıcıyı gerekir. 
 
 ### <a name="windows-server"></a>Windows server
-Windows Server 2012 R2 çalıştıran bir sunucuya ihtiyacınız veya daha sonra uygulama ara sunucusu Bağlayıcısı'nı yükleyebilirsiniz. Azure'da uygulama ara sunucusu hizmetlerini ve yayımlamakta olduğunuz şirket içi uygulamalara bağlanmak sunucunun gerekir.
+Windows Server 2012 R2 çalıştıran bir sunucuya ihtiyacınız veya daha sonra uygulama ara sunucusu Bağlayıcısı'nı yükleyebilirsiniz. Azure'da uygulama ara sunucusu hizmetlerini ve yayımlamakta şirket içi uygulamalara bağlanmak sunucunun gerekir.
 
 Windows server TLS 1.2 uygulama ara sunucusu bağlayıcısını yüklemeden önce etkin olmalıdır. Var olan Bağlayıcılarla 1.5.612.0 sürümleri yapılana kadar önceki TLS sürümlerini üzerinde çalışmaya devam eder. TLS 1.2 etkinleştirmek için:
 
@@ -67,12 +67,12 @@ Kullanılmayan bağlayıcılar el ile silmeniz gerekmez. Bir bağlayıcı çalı
 
 Azure AD, dağıttığınız tüm bağlayıcıları otomatik güncelleştirmeler sağlar. Application Proxy Connector Updater hizmeti çalışıyor olduğu sürece, bağlayıcılarınızı otomatik olarak güncelleştirilir. Connector Updater hizmeti sunucunuzda görmüyorsanız, istediğiniz [Bağlayıcınızı yeniden](application-proxy-add-on-premises-application.md) güncelleştirmeleri almak için. 
 
-Bir otomatik güncelleştirme için Bağlayıcınızı gelmesini beklemek istemiyorsanız, el ile yükseltme gerçekleştirebilirsiniz. Git [Bağlayıcısı indirme sayfası](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) bulunduğu ve select Bağlayıcınızı olduğu sunucu üzerindeki **indirme**. Bu işlem yerel bağlayıcı için bir yükseltme başlatan. 
+Bir otomatik güncelleştirme için Bağlayıcınızı gelmesini beklemek istemiyorsanız, bunu el ile yükseltme yapabilirsiniz. Git [Bağlayıcısı indirme sayfası](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) bulunduğu ve select Bağlayıcınızı olduğu sunucu üzerindeki **indirme**. Bu işlem yerel bağlayıcı için bir yükseltme başlatan. 
 
 Birden çok Bağlayıcılarla kiracılar için Otomatik Güncelleştirmeler ortamınızdaki kesinti süresini önlemek için her grupta bir anda tek bir bağlayıcıyı hedefleyin. 
 
 Bağlayıcınızı güncelleştirir, kapalı kalma süresi karşılaşabilirsiniz:  
-- Yalnızca tek bir bağlayıcıyı gerekir. Bu kapalı kalma süresini önlemek ve yüksek kullanılabilirliği geliştirmek için ikinci bir bağlayıcı öneririz ve [bir bağlayıcı grubu oluşturma](application-proxy-connector-groups.md).  
+- Yalnızca tek bir bağlayıcıyı sahip ikinci bir bağlayıcı öneririz ve [bir bağlayıcı grubu oluşturma](application-proxy-connector-groups.md). Kapalı kalma süresini önlemek ve daha yüksek kullanılabilirlik sağlayın.  
 - Güncelleştirme başladığında bir bağlayıcı ortasında bir işlem oluştu. İlk işlem kayıp olsa da, tarayıcınız otomatik olarak işlemi yeniden denemesinin veya sayfanızı yenileyebilirsiniz. İstek gönderilir, trafik için yedek bir bağlayıcı yönlendirilir.
 
 ## <a name="creating-connector-groups"></a>Bağlayıcı grupları oluşturma
@@ -85,7 +85,7 @@ Bağlayıcı grupları hakkında daha fazla bilgi için bkz: [ayrı ağlar ve ko
 
 ## <a name="capacity-planning"></a>Kapasite Planlaması 
 
-Bağlayıcılar otomatik olarak yük dengelemesi bir bağlayıcı grubu içinde olsa da beklenen trafik hacmini işlemeye yetecek bağlayıcılar arasında yeterli kapasite planladığınızdan emin olmak önemlidir. Genel olarak daha fazla kullanıcı varsa, daha büyük bir makine ihtiyacınız olacak. Farklı makineler birimin bir özetini veren bir tablo işleyebilir aşağıdadır. Tüm beklenen işlem başına ikinci (TPS üzerinde) temel kullanım bu yana bir kullanıcı tarafından desenleri değişir ve yük tahmin kullanılamaz yerine lütfen unutmayın.  Ayrıca, yanıtları ve arka uç uygulama yanıt süresini boyutuna bağlı olarak bazı farklılıklar olacaktır - büyük yanıt boyutu ve daha yavaş yanıt süresi daha düşük bir maksimum TPS sonuçlanır unutmayın.
+Beklenen trafik hacmini işlemeye yetecek bağlayıcılar arasında yeterli kapasite planladığınızdan emin olmak önemlidir. Genel, sahip olduğunuz daha fazla kullanıcı, daha büyük içinde bir makine gerekir. Farklı makineler birimin bir özetini veren bir tablo işleyebilir aşağıdadır. Tüm beklenen işlem başına ikinci (TPS üzerinde) temel kullanım bu yana bir kullanıcı tarafından desenleri değişir ve yük tahmin kullanılamaz yerine unutmayın. Ayrıca yanıtları ve arka uç uygulama yanıt süresini boyutuna bağlı olarak bazı farklılıklar da olacaktır - büyük yanıt boyutu ve daha yavaş yanıt süresi daha düşük bir maksimum TPS neden olur. Böylece makinelerdeki dağıtılmış yük yaklaşık % 50 ek makineler olması önerilir. Ek kapasite, yüksek kullanılabilirlik ve dayanıklılığı sahip olmanızı sağlar.
 
 |Çekirdek|RAM|Gecikme süresi (MS) bekleniyordu-P99|En fazla TPS|
 | ----- | ----- | ----- | ----- |
@@ -102,28 +102,26 @@ Bağlayıcılar otomatik olarak yük dengelemesi bir bağlayıcı grubu içinde 
 
 Bağlayıcılar için uygulama proxy'si hizmeti istekleri göndermesine izin veren ağ her yerden yüklenebilir. Önemli olan, ayrıca bağlayıcıyı çalıştıran bilgisayarın uygulamalarınıza erişim sahip olur. Bağlayıcılar, Kurumsal ağınızın içinde veya bulutta çalışan bir sanal makine üzerinde yükleyebilirsiniz. Bağlayıcılar bir (DMZ) arındırılmış bölge içinde çalıştırabilirsiniz, ancak tüm trafik ağınıza güvenli kalmasını giden olduğu için gerekli değildir.
 
-Bağlayıcılar, yalnızca giden istekler gönderin. Giden trafik uygulama proxy'si hizmeti ve yayımlanan uygulamalara gönderilir. Oturum kurulduktan sonra iki yolu vardır ve trafik akışları için gelen bağlantı noktalarını açmanız gerekmez. Bağlayıcılar arasında yük dengelemeyi ayarlama ya da, güvenlik duvarları üzerinden gelen erişimi yapılandırmak gerekmez. 
+Bağlayıcılar, yalnızca giden istekler gönderin. Giden trafik uygulama proxy'si hizmeti ve yayımlanan uygulamalara gönderilir. Oturum kurulduktan sonra iki yolu vardır ve trafik akışları için gelen bağlantı noktalarını açmanız gerekmez. Ayrıca, güvenlik duvarları üzerinden gelen erişimi yapılandırmak gerekmez. 
 
 Giden güvenlik duvarı kurallarını yapılandırma hakkında daha fazla bilgi için bkz. [iş mevcut şirket içi proxy sunucuları](application-proxy-configure-connectors-with-proxy-servers.md).
 
 
 ## <a name="performance-and-scalability"></a>Performans ve ölçeklenebilirlik
 
-Uygulama proxy'si hizmeti için ölçek saydamdır, ancak ölçek bağlayıcıların bir faktördür. Yoğun trafiği işlemek için yeterli bağlayıcılar olması gerekir. Ancak, tüm bağlayıcılar bir bağlayıcı grubu içinde otomatik olarak dengelemek için Yük Dengeleme yapılandırmanız gerekmez.
-
-Bağlayıcılar, durum bilgisiz olduğundan, kullanıcılar veya oturum sayısı tarafından etkilenmez. Bunun yerine, istek sayısı ve bunların yükü boyutu için yanıt. Standart web trafiği ile ortalama bir makine saniyede birkaç bin istekleri işleyebilir. Belirli kapasite tam makine özelliklerine bağlıdır. 
+Uygulama proxy'si hizmeti için ölçek saydamdır, ancak ölçek bağlayıcıların bir faktördür. Yoğun trafiği işlemek için yeterli bağlayıcılar olması gerekir. Bağlayıcılar, durum bilgisiz olduğundan, bunlar sayısı kullanıcı veya oturum tarafından etkilenmez. Bunun yerine, istek sayısı ve bunların yükü boyutu için yanıt. Standart web trafiği ile ortalama bir makine saniyede birkaç bin istekleri işleyebilir. Belirli kapasite tam makine özelliklerine bağlıdır. 
 
 Bağlayıcı performansı CPU ve ağ ile ilişkilidir. Ağ Azure'da hızlı bağlantı uygulamalara ve çevrimiçi hizmete almak önemli olmakla birlikte bir CPU performans SSL şifreleme ve şifre çözme, için gereklidir.
 
 Buna karşılık, Bağlayıcılarla ilgili sorun bellektir. Çevrimiçi hizmet işleme çoğunu ve kimliği doğrulanmamış tüm trafiği üstlenir. Bulutta yapılabilir her şey bulutta yapılır. 
 
-Yük Dengeleme arasında belirli bir bağlayıcı grubu bağlayıcıları gerçekleşir. Belirli bir istek hangi bağlayıcı grubunda hizmet belirlemek için bir hepsini çeşitlemesi desteklemiyoruz. Bağlayıcısı veya makine kullanılamaz hale herhangi bir nedenle, başka bir bağlayıcı grubunda gidip trafik başlar. Bu da neden olan birden fazla bağlayıcıyı öneririz dayanıklılıktır.
+Bağlayıcısı veya makine kullanılamaz hale herhangi bir nedenle, başka bir bağlayıcı grubunda gidip trafik başlar. Bu da neden olan birden fazla bağlayıcıyı öneririz dayanıklılıktır.
 
 Performansını etkileyen başka bir ağ dahil olmak üzere bu bağlayıcıları arasında kalitesini etkendir: 
 
 * **Çevrimiçi hizmet**: Azure'daki uygulama proxy'si hizmeti yavaş veya Yüksek gecikmeli bağlantılar bağlayıcı performansı etkiler. En iyi performans için kuruluşunuz Azure Express Route ile bağlanın. Aksi takdirde, ağ ekibiniz Azure bağlantıları mümkün olduğunca verimli bir şekilde işlendiğinden emin olmak gerekir. 
 * **Arka uç uygulamaları**: Bazı durumlarda, bağlayıcı ve yavaş veya bağlantıları engelle arka uç uygulamaları arasında ek bir proxy vardır. Bu senaryoyla ilgili sorunları gidermek için bağlayıcı sunucusundan bir tarayıcı açın ve uygulamaya erişmeyi deneyin. Bağlayıcılar Azure'da çalıştırdığınız ancak şirket içi uygulamaları, ne kullanıcılarınızın beklediği deneyimi olmayabilir.
-* **Etki alanı denetleyicileri**: Bağlayıcılar SSO Kerberos kısıtlanmış temsil kullanarak gerçekleştirirseniz, arka uca istek göndermeden önce etki alanı denetleyicileriyle iletişim. Kerberos biletlerinin bir önbellek bağlayıcılara sahiptir, ancak meşgul bir ortamda, etki alanı denetleyicilerinin yanıtlama performansını etkileyebilir. Bu sorun, Azure'da çalıştırmak, ancak şirket içi etki alanı denetleyicileriyle iletişim bağlayıcıların daha yaygındır. 
+* **Etki alanı denetleyicileri**: Bağlayıcılar, çoklu oturum Kerberos kısıtlanmış temsil kullanarak açma (SSO) gerçekleştirirseniz arka ucuna istek göndermeden önce etki alanı denetleyicileriyle iletişim. Kerberos biletlerinin bir önbellek bağlayıcılara sahiptir, ancak meşgul bir ortamda, etki alanı denetleyicilerinin yanıtlama performansını etkileyebilir. Bu sorun, Azure'da çalıştırmak, ancak şirket içi etki alanı denetleyicileriyle iletişim bağlayıcıların daha yaygındır. 
 
 Ağınızın en iyi duruma getirme hakkında daha fazla bilgi için bkz. [Azure Active Directory Uygulama proxy'si kullanılırken ağ topolojisi hakkında önemli noktalar](application-proxy-network-topology.md).
 
@@ -169,7 +167,7 @@ Hem yönetim hem de oturum takılabilecek günlükleri. Yönetici günlükler an
 
 Günlükleri görmek için açık Olay Görüntüleyicisi'ne gidin. **görünümü** menü ve etkinleştirme **Göster Analitik ve hata ayıklama günlüklerini**. Ardından, bunları olayları toplamaya başlamak etkinleştirin. Bağlayıcılar daha yeni bir sürümü üzerinde dayalı olarak bu günlükleri Web uygulaması Ara sunucusu Windows Server 2012 R2'de görünmez.
 
-Hizmetler penceresini hizmeti durumunu inceleyebilirsiniz. İki Windows hizmet Bağlayıcısı'nı kapsar: Gerçek bağlayıcı ve güncelleştirici. Her ikisi de her zaman çalıştırmalısınız.
+Hizmetler penceresini hizmeti durumunu inceleyebilirsiniz. Bağlayıcı iki Windows hizmetten oluşur: Gerçek bağlayıcı ve güncelleştirici. Her ikisi de her zaman çalıştırmalısınız.
 
  ![AzureAD Hizmetleri yerel](./media/application-proxy-connectors/aad-connector-services.png)
 

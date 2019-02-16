@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c1718c5a2acfe49fba4974bcf7e580c45553113d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2bb6237e53f945b645f1ee757a53ef67270e2416
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108747"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268388"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web Apps için uygulama performansı ile ilgili SSS
 
@@ -113,7 +113,7 @@ Başarısız istek izlemeyi etkinleştirmek için:
 10. Seçin **Web.config**.
 11. System.webServer bu yapılandırma (belirli bir URL'ye yakalamak için) ekleyin:
 
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*api*" />
@@ -129,7 +129,7 @@ Başarısız istek izlemeyi etkinleştirmek için:
     </tracing>
     ```
 12. Yavaş performans sorunlarını gidermek için bu yapılandırma (Yakalama isteği 30 saniyeden uzun sürerse) ekleyin:
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*" />

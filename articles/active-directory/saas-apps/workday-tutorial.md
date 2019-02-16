@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e3f60c3b0578647e68109a21ba7d57b083bea11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae93cce7a26666383b609ac898a25fb84caee517
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184542"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Öğretici: Workday ile Azure Active Directory Tümleştirme
 
@@ -113,7 +113,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve W
 
     ![Çoklu oturum açma bilgileri workday etki alanı ve URL'ler](./media/workday-tutorial/tutorial_workday_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL: `https://www.workday.com`
 
@@ -166,7 +166,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve W
 
     >[!NOTE]
     > Ortam özniteliğinin değeri, Kiracı URL'si değerine bağlıdır:  
-    >-Workday kiracısı URL'si etki alanı adı ile Impl örneğin başlayıp başlamadığını: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), **ortam** özniteliği, uygulama için ayarlanmış olması gerekir.  
+    >-Workday kiracısı URL'si etki alanı adı ile Impl örneğin başlayıp başlamadığını: *https://impl.workday.com/\<tenant\>/login-saml2.flex*), **ortam** özniteliği, uygulama için ayarlanmış olması gerekir.  
     >-Etki alanı adı başka bir şey ile başlar, iletişime geçmeniz [Workday istemci Destek ekibine](https://www.workday.com/en-us/partners-services/services/support.html) eşleşen almak için **ortam** değeri.
 
 12. İçinde **SAML Kurulumu** bölümünde, aşağıdaki adımları gerçekleştirin:

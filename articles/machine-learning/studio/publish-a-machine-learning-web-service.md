@@ -10,21 +10,32 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 8e9d41131228c2399277e59a6d0edd78efda307b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 67d0ef88072985141c05d9da77377e5d4228a669
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999122"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270326"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini dağıtma
-Azure Machine Learning, derleme, test etme ve Tahmine dayalı analiz çözümlerini dağıtmak sağlar.
 
-Bir üst düzey noktası-ın-görünümünden, bu üç adımda gerçekleştirilir:
+Azure Machine Learning Studio Tahmine dayalı bir analiz çözümü test etmek ve oluşturmanıza olanak sağlar. Ardından, çözümü bir web hizmeti olarak dağıtabilirsiniz.
 
-* **[Eğitim denemenizi oluşturma]**  -Azure Machine Learning Studio olan eğitmek ve sağladığınız eğitim verilerini kullanarak bir Tahmine dayalı analiz modeli test etmek için kullandığınız bir işbirliğine dayalı visual geliştirme ortamı.
+Machine Learning Studio web Hizmetleri, uygulama ile Machine Learning Studio iş akışı Puanlama modeli arasında bir arabirim sağlar. Bir dış uygulama, Machine Learning Studio'da bir iş akışı Puanlama modeli ile gerçek zamanlı iletişim kurabilir. Machine Learning Studio web hizmeti çağrısı bir dış uygulamaya tahmin sonuçlarını döndürür. Bir web hizmetine çağrı yapmak için web hizmeti dağıtılırken oluşturulan bir API anahtarını geçirirsiniz. Bir Machine Learning Studio web hizmeti bir web programlama projeleri için popüler bir mimari seçimi olan REST'i temel alır.
+
+Azure Machine Learning Studio web hizmetleri iki tür vardır:
+
+* İstek-yanıt hizmeti (RRS): Düşük gecikme süreli, bir tek veri kaydı puanlar yüksek oranda ölçeklenebilir bir hizmettir.
+* Toplu yürütme hizmeti (BES): Zaman uyumsuz bir hizmettir, toplu veri kayıtlarının.
+
+BES girişi, RRS’nin kullandığı veri girişi gibidir. Aralarındaki temel fark, BES'nin Azure Blob depolama, Azure Tablo depolama, Azure SQL Veritabanı, HDInsight (hive sorgusu) ve HTTP kaynakları gibi çeşitli kaynaklardan bir kayıt bloğunu okumasıdır.
+
+
+Bir üst düzey noktası-ın-görünümünden modelinizi üç adımda dağıtın:
+
+* **[Eğitim denemenizi oluşturma]**  -Studio'da, eğitin ve test çok sayıda yerleşik makine öğrenimi algoritmalarını kullanarak, sağladığınız eğitim verilerini kullanarak bir Tahmine dayalı analiz modeli.
 * **[Öngörücü bir denemeye dönüştürme]**  -modelinizi mevcut verilerle eğitim almış ve yeni verileri puanlamak için kullanıma hazır sonra hazırlama ve tahminler elde etmek için denemenizin kolaylaştırın.
-* **[Bir web hizmeti olarak dağıtma]**  -deneyiminizi Tahmine dayalı olarak dağıtabileceğiniz bir [yeni] veya [Klasik] Azure web hizmeti. Kullanıcılar, modelinize veri göndermek ve modelinizin Öngörüler alırsınız.
+* **[Bir web hizmeti olarak dağıtma]**  -deneyiminizi Tahmine dayalı olarak dağıtabileceğiniz bir *Klasik* veya *yeni* (Resource Manager tabanlı), Azure web hizmeti. Kullanıcılar, modelinize veri göndermek ve modelinizin Öngörüler alırsınız.
 
 
 
@@ -34,7 +45,7 @@ Tahmine dayalı analiz modeli eğitmek için Azure Machine Learning Studio eğit
 Oluşturma ve eğitim denemeleri yönetme işlemini başka bir yerde daha kapsamlı olarak ele alınmıştır. Daha fazla bilgi için şu makalelere bakın:
 
 * [Azure Machine Learning Studio'da basit bir deneme oluşturma](create-experiment.md)
-* [Azure Machine Learning ile Tahmine dayalı bir çözüm geliştirin](tutorial-part1-credit-risk.md)
+* [Azure Machine Learning Studio'da öngörülebilir bir çözüm geliştirin](tutorial-part1-credit-risk.md)
 * [Eğitim verilerinizi Azure Machine Learning Studio'ya alma](import-data.md)
 * [Azure Machine Learning Studio'da deneme yinelemelerini yönetme](manage-experiment-iterations.md)
 
@@ -58,12 +69,12 @@ Tahmine dayalı denemeye yeni bir web hizmeti olarak veya bir Klasik web hizmeti
 ### <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Tahmine dayalı denemeye yeni bir web hizmeti olarak dağıtma
 Tahmine dayalı denemeye hazır olduktan sonra yeni bir Azure web hizmeti olarak dağıtabilirsiniz. Web hizmetini kullanarak, kullanıcılar, modelinize veri gönderebilir ve modeli, Öngörüler döndürür.
 
-Tahmine dayalı denemenizi dağıtmak için **çalıştırma** deneme tuvalinin altındaki. Denemeyi çalıştırma tamamlandıktan sonra tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti Dağıt [yeni]**.  Machine Learning Web hizmeti Portalı'nın dağıtım sayfası açılır.
+Tahmine dayalı denemenizi dağıtmak için **çalıştırma** deneme tuvalinin altındaki. Denemeyi çalıştırma tamamlandıktan sonra tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti Dağıt [yeni]**.  Machine Learning Studio Web hizmeti Portalı'nın dağıtım sayfası açılır.
 
 > [!NOTE] 
 > Yeni bir web hizmetini dağıtmak için yeterli olan aboneliği, web hizmetini dağıtma olması gerekir. Daha fazla bilgi edinmek, [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md). 
 
-#### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Machine Learning Web hizmeti portalı Dağıt deneme sayfası
+#### <a name="machine-learning-studio-web-service-portal-deploy-experiment-page"></a>Machine Learning Studio Web hizmeti Portalı'nı dağıtma deneme sayfası
 Deneme dağıtma sayfasında, web hizmeti için bir ad girin.
 Fiyatlandırma planı seçin. Aksi takdirde, seçebileceğiniz bir devrenin fiyatlandırma planını varsa, hizmet için yeni bir fiyat planı oluşturmanız gerekir.
 
@@ -105,7 +116,7 @@ Tıklayın **Test**. Toplu iş yürütmeye ilişkin iş durumunu görüntüler a
 Web hizmeti dağıttıktan sonra şunları yapabilirsiniz:
 
 * **Erişim** web hizmeti API'si üzerinden.
-* **Yönetme** , Azure Machine Learning web hizmetleri portalından.
+* **Yönetme** , Azure Machine Learning Studio web hizmetleri portalından.
 * **Güncelleştirme** , modelinizi değişirse.
 
 #### <a name="access-your-new-web-service"></a>Yeni, web hizmetine erişme
@@ -113,10 +124,10 @@ Machine Learning Studio'dan web hizmetini dağıttığınızda, hizmete veri gö
 
 **Tüket** sayfası, web hizmetine erişmek için gereksinim duyduğunuz tüm bilgileri sağlar. Örneğin, hizmet yetkili erişime izin vermek için API anahtarı sağlanır.
 
-Machine Learning web hizmetine erişim hakkında daha fazla bilgi için bkz. [bir Azure Machine Learning Web hizmetini kullanma](consume-web-services.md).
+Machine Learning Studio web hizmetine erişim hakkında daha fazla bilgi için bkz. [bir Azure Machine Learning Studio Web hizmetinin nasıl kullanılacağı hakkında](consume-web-services.md).
 
 #### <a name="manage-your-new-web-service"></a>Yeni web hizmetinizi yönetin
-Yeni web hizmetleri Machine Learning Web Hizmetleri portalınızı yönetebilirsiniz. Gelen [ana portal sayfasına](https://services.azureml-test.net/), tıklayın **Web Hizmetleri**. Web Hizmetleri sayfasından silin veya hizmet kopyalayın. Belirli bir hizmeti izlemek için hizmete tıklayın ve ardından **Pano**. Web hizmeti ile ilişkilendirilen toplu işleri izlemek için tıklayın **Batch istek günlüğü**.
+Yeni web hizmetleri Machine Learning Studio Web Hizmetleri portalınızı yönetebilirsiniz. Gelen [ana portal sayfasına](https://services.azureml-test.net/), tıklayın **Web Hizmetleri**. Web Hizmetleri sayfasından silin veya hizmet kopyalayın. Belirli bir hizmeti izlemek için hizmete tıklayın ve ardından **Pano**. Web hizmeti ile ilişkilendirilen toplu işleri izlemek için tıklayın **Batch istek günlüğü**.
 
 ### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Tahmine dayalı denemeye Klasik web hizmeti olarak dağıtma
 
@@ -128,11 +139,11 @@ Tahmine dayalı denemenizi dağıtmak için **çalıştırma** denemeyi alt kıs
 
 #### <a name="test-your-classic-web-service"></a>Klasik web hizmetini test edin
 
-Machine Learning Web Hizmetleri portalından veya Machine Learning Studio web hizmeti test edebilirsiniz.
+Machine Learning Studio Web Hizmetleri portalından veya Machine Learning Studio web hizmeti test edebilirsiniz.
 
 İstek yanıtı web hizmeti test etmek için **Test** web hizmeti panosundaki düğmesi. Hizmeti giriş verileri için soran bir iletişim kutusu açılır. Puanlama deney tarafından beklenen sütunlar şunlardır. Bir veri kümesini girin ve ardından **Tamam**. Web hizmeti tarafından oluşturulan sonuçlar, panonun alt kısmında görüntülenir.
 
-Tıklayabilirsiniz **Test** Önizleme bağlantı, daha önce yeni web hizmeti bölümünde gösterildiği gibi Azure Machine Learning Web Hizmetleri portalında, hizmeti test etmek için.
+Tıklayabilirsiniz **Test** Önizleme bağlantı, daha önce yeni web hizmeti bölümünde gösterildiği gibi Azure Machine Learning Studio Web Hizmetleri portalında, hizmeti test etmek için.
 
 Toplu yürütme hizmeti test etmek için **Test** Önizleme bağlantı. Toplu test sayfasında girişinizi altında Gözat'a tıklayın ve uygun örnek değerleri içeren bir CSV dosyası seçin. Bir CSV dosyası yoksa ve Machine Learning Studio'yu kullanarak Tahmine dayalı denemenizi oluşturduğunuz, Tahmine dayalı denemeniz için veri kümesini indirin ve kullanın.
 
@@ -142,7 +153,7 @@ Toplu yürütme hizmeti test etmek için **Test** Önizleme bağlantı. Toplu te
 
 Bir açıklama için girdi verilerini, çıktı verilerini ve web hizmeti parametreleri altındaki her sütun için bir dize girerek sağlayabilirsiniz **giriş ŞEMASINI**, **çıkış ŞEMASI**, ve **Web hizmeti PARAMETRE**. Bu açıklamalar web hizmeti için sağlanan örnek kod belgelerinde kullanılır.
 
-Web hizmetinizi erişildiğinde sizin gördüğünüz tüm hataları tanılamak günlük kaydını etkinleştirebilirsiniz. Daha fazla bilgi için [Machine Learning web hizmetleri için günlüğe kaydetmeyi etkinleştirme](web-services-logging.md).
+Web hizmetinizi erişildiğinde sizin gördüğünüz tüm hataları tanılamak günlük kaydını etkinleştirebilirsiniz. Daha fazla bilgi için [Machine Learning Studio web hizmetleri için günlüğe kaydetmeyi etkinleştirme](web-services-logging.md).
 
 ![Web hizmetini yapılandır](./media/publish-a-machine-learning-web-service/figure-4.png)
 
@@ -153,15 +164,15 @@ Machine Learning Studio'dan web hizmetini dağıttığınızda, hizmete veri gö
 
 Pano, web hizmetine erişmek gereken tüm bilgileri sağlar. Örneğin, API anahtarını hizmet yetkili erişime izin vermek için sağlanır ve API Yardım sayfaları yardımcı olması için sağlanmıştır, kod yazmaya başlayın.
 
-Machine Learning web hizmetine erişim hakkında daha fazla bilgi için bkz. [bir Azure Machine Learning Web hizmetini kullanma](consume-web-services.md).
+Machine Learning Studio web hizmetine erişim hakkında daha fazla bilgi için bkz. [bir Azure Machine Learning Studio Web hizmetinin nasıl kullanılacağı hakkında](consume-web-services.md).
 
 #### <a name="manage-your-classic-web-service"></a>Klasik web hizmetini yönetme
 Çeşitli eylemler gerçekleştirebilirsiniz vardır bir web hizmetini izlemek için. Güncelleştirin ve silin. Ayrıca, bir Klasik web hizmeti, dağıtım sırasında oluşturulan varsayılan uç nokta yanı sıra ek uç noktalar ekleyebilirsiniz.
 
-Daha fazla bilgi için [bir Azure Machine Learning çalışma alanını yönetme](manage-workspace.md) ve [Azure Machine Learning Web Hizmetleri portalını kullanarak bir web hizmetini yönetme](manage-new-webservice.md).
+Daha fazla bilgi için [bir Azure Machine Learning Studio çalışma alanını yönetme](manage-workspace.md) ve [Azure Machine Learning Studio Web Hizmetleri portalını kullanarak bir web hizmetini yönetme](manage-new-webservice.md).
 
 <!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
+For more information on how to manage Azure Machine Learning Studio web service endpoints using the REST API, see **Azure Machine Learning Studio web service endpoints**.
 -->
 
 ## <a name="update-the-web-service"></a>Web hizmetini güncelleştirmek
@@ -173,17 +184,24 @@ Bu deneyde önce dağıttınız olduğundan (Klasik Web hizmeti) üzerine veya (
 
 > [!NOTE]
 > Özgün web hizmetinde yapılan yapılandırma değişiklikleri, örneğin, bir yeni görünen adını veya açıklamasını girme, bu değerleri yeniden girmeniz gerekir.
-> 
-> 
 
-Web hizmetini güncelleştirmek için bir model programlama yoluyla yeniden eğitme seçenektir. Daha fazla bilgi için bkz. [Machine Learning modellerini programlama aracılığıyla yeniden eğitme](retrain-models-programmatically.md).
+Web hizmetini güncelleştirmek için bir model programlama yoluyla yeniden eğitme seçenektir. Daha fazla bilgi için [modellerini programlama aracılığıyla yeniden eğitme Machine Learning Studio](retrain-models-programmatically.md).
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Dağıtım birlikte nasıl çalıştığı hakkında daha fazla teknik ayrıntılar için bkz [çalışır hale getirilen Web hizmetine bir denemeyi nasıl bir Machine Learning Studio'da model ilerler](model-progression-experiment-to-web-service.md).
+
+* Modelinizi dağıtmaya hazırlanma konusunda daha fazla ayrıntı için bkz. [modelinizin Azure Machine Learning Studio'da dağıtımına hazırlamak nasıl](convert-training-experiment-to-scoring-experiment.md).
+
+* REST API’sini kullanmanın ve web hizmetine erişmenin birkaç yolu vardır. Bkz: [bir Azure Machine Learning Studio web hizmetinin nasıl kullanılacağı hakkında](consume-web-services.md).
+
 
 <!-- internal links -->
 [Eğitim denemenizi oluşturma]: #create-a-training-experiment
 [Öngörücü bir denemeye dönüştürme]: #convert-the-training-experiment-to-a-predictive-experiment
 [Bir web hizmeti olarak dağıtma]: #deploy-it-as-a-web-service
 [Yeni]: #deploy-the-predictive-experiment-as-a-new-web-service
-[Klasik]: #deploy-the-predictive-experiment-as-a-classic-web-service
+[classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

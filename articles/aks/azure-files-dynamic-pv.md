@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 841c65fd8420fdfe681cb99ee7054cb4edd5fcd3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2cf9a98a2f27c9088266a976118acdb56f8a65d7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969004"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300831"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dinamik olarak oluşturabilen ve Azure dosyaları Azure Kubernetes Service (AKS) ile kalıcı hacim kullanma
 
@@ -26,32 +26,20 @@ Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS k�
 
 Ayrıca Azure CLI sürüm 2.0.46 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
-## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
+## <a name="create-a-storage-class"></a>Bir depolama sınıfı oluşturma
 
-Kubernetes birimi olarak Azure dosyaları paylaşımına dinamik olarak oluşturduğunuzda, AKS içinde olduğu sürece herhangi bir depolama hesabı kullanılabilir **düğüm** kaynak grubu. Bu grubun sahip olduğu *MC_* AKS kümesi için kaynakları sağlama tarafından oluşturulan ön eki. Kaynak grubu adını alın [az aks show] [ az-aks-show] komutu.
+Bir depolama sınıfı, bir Azure dosya paylaşımı nasıl oluşturulduğunu tanımlamak için kullanılır. Bir depolama hesabı otomatik olarak oluşturulan *_MC* Azure dosya paylaşımlarını tutmak için depolama sınıfı ile kullanmak için kaynak grubu. Aşağıdakilerden seçin [Azure depolama yedekliliği] [ storage-skus] için *skuName*:
 
-```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-
-MC_myResourceGroup_myAKSCluster_eastus
-```
-
-Kullanım [az depolama hesabı oluşturma] [ az-storage-account-create] depolama hesabı oluşturmak için komutu.
-
-Güncelleştirme `--resource-group` toplanan son adımda, kaynak grubu adını ve `--name` tercih ettiğiniz bir adı. Kendi benzersiz depolama hesabı adı girin:
-
-```azurecli
-az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --sku Standard_LRS
-```
+* *Standard_LRS* -standart yerel olarak yedekli depolama (LRS)
+* *Standard_GRS* -standart coğrafi olarak yedekli depolama (GRS)
+* *Standard_RAGRS* -standart okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)
 
 > [!NOTE]
 > Azure, şu anda yalnızca standart depolama ile çalışma dosyaları. Premium depolama kullanırsanız, birim sağlamak başarısız olur.
 
-## <a name="create-a-storage-class"></a>Bir depolama sınıfı oluşturma
+Azure dosyaları için Kubernetes depolama sınıfları hakkında daha fazla bilgi için bkz. [Kubernetes depolama sınıfları][kubernetes-storage-classes].
 
-Bir depolama sınıfı, bir Azure dosya paylaşımı nasıl oluşturulduğunu tanımlamak için kullanılır. Sınıfı, bir depolama hesabı belirtilebilir. Bir depolama hesabı belirtilmemişse bir *skuName* ve *konumu* belirtilmelidir ve ilişkili kaynak grubundaki tüm depolama hesapları için bir eşleşme olarak değerlendirilir. Azure dosyaları için Kubernetes depolama sınıfları hakkında daha fazla bilgi için bkz. [Kubernetes depolama sınıfları][kubernetes-storage-classes].
-
-Adlı bir dosya oluşturun `azure-file-sc.yaml` ve aşağıdaki örnek bildirimde kopyalayın. Güncelleştirme *storageAccount* değeri önceki adımda oluşturduğunuz depolama hesabınızın adıyla. Daha fazla bilgi için *mountOptions*, bkz: [bağlama seçenekleri] [ mount-options] bölümü.
+Adlı bir dosya oluşturun `azure-file-sc.yaml` ve aşağıdaki örnek bildirimde kopyalayın. Daha fazla bilgi için *mountOptions*, bkz: [bağlama seçenekleri] [ mount-options] bölümü.
 
 ```yaml
 kind: StorageClass
@@ -66,7 +54,6 @@ mountOptions:
   - gid=1000
 parameters:
   skuName: Standard_LRS
-  storageAccount: mystorageaccount
 ```
 
 Depolama sınıfı ile oluşturma [kubectl uygulamak] [ kubectl-apply] komutu:
@@ -216,7 +203,7 @@ Varsayılan *fileMode* ve *dirMode* değerler aşağıdaki tabloda açıklandı�
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |
 | V1.8.6 veya üzeri | 0755 |
-| V1.9.0 | 0700 |
+| v1.9.0 | 0700 |
 | V1.9.1 veya üzeri | 0755 |
 
 Bir küme 1.8.5 sürümü kullanıyorsanız veya daha büyük ve dinamik olarak kalıcı hacim, bir depolama sınıfı ile oluşturma, bağlama seçeneklerini depolama sınıfı nesne üzerinde belirtilebilir. Aşağıdaki örnek kümeleri *0777*:
@@ -295,3 +282,4 @@ Azure dosyaları'nı kullanarak Kubernetes kalıcı birimleri hakkında daha faz
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[storage-skus]: ../storage/common/storage-redundancy.md

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261511"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268881"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Kurtarma Hizmetleri kasalarını izleme ve yönetme
 
@@ -40,7 +40,7 @@ Uyarıları yönetme veya kurtarma Hizmetleri kasası ile ilgili yönetim verile
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Kasalarının listesinden bir kasa açmak için tıklayın, **genel bakış** Pano. 
+4. Kasalarının listesinden bir kasa açmak için tıklayın, **genel bakış** Pano.
 
     ![Kurtarma Hizmetleri kasa Panosu](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -75,7 +75,7 @@ Kurtarma Hizmetleri kasası menüsünde yedekleme uyarılar menüsüne erişmek 
 
 ![Yedekleme uyarıları](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-Yedekleme uyarıları rapor kasa uyarılarını listeler. 
+Yedekleme uyarıları rapor kasa uyarılarını listeler.
 
 ![Yedekleme uyarıları](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -124,7 +124,7 @@ Varsayılan olarak, tüm ayrıntıları dışında **son oluşum zamanı**, rapo
 
 ### <a name="change-the-filter-in-alerts-report"></a>Uyarılar raporu filtrede değiştirme
 
-Kullanım **filtre** durumu, başlangıç ve bitiş zamanı uyarılar önem derecesini değiştirmek için menü. 
+Kullanım **filtre** durumu, başlangıç ve bitiş zamanı uyarılar önem derecesini değiştirmek için menü.
 
 > [!NOTE]
 > Yedekleme uyarıları düzenleme filtre kritik veya uyarı uyarılar genel bakış Panosu'nu kasadaki değişikliğe neden olmaz.
@@ -184,7 +184,7 @@ Sanal makinelerin listesini yararlı verileri içeren: ilişkili kaynak grubunu 
 
 **Yedekleme işleri** menü öğesi türü, işlemi, durumu, başlangıç saati ve süresi hakkında bilgileri görüntüler.  
 
-Kasanın ana menüde yedekleme işleri menüsünden açmak için **yedekleme işleri**. 
+Kasanın ana menüde yedekleme işleri menüsünden açmak için **yedekleme işleri**.
 
 ![Yedekleme öğeleri ayarları](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
@@ -243,7 +243,7 @@ Tüm durum ya da görüntüleyebilirsiniz. İki veya üç durumları seçemezsin
 
 Gün ve sorgu başladığı zaman. 24 saatlik dönemde varsayılandır.
 
-#### <a name="end-time"></a>Sonlanma zamanı
+#### <a name="end-time"></a>Bitiş saati
 
 Gün ve saati sona erdiğinde sorgu.
 
@@ -263,17 +263,14 @@ Azure'da kullanılan depolama alanına ve yedekleme depolama alanı kutucuk Pano
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-**S1. Azure Yedekleme aracısı iş durumu Portalı'nda yansıtacak şekilde ne kadar sürüyor?**
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Azure Yedekleme aracısı iş durumu Portalı'nda yansıtacak şekilde ne kadar sürüyor?
+Azure portalı, Azure Yedekleme aracısı iş durumunu yansıtacak şekilde 15 dakika kadar sürebilir.
 
-Y1. Azure portalı, Azure Yedekleme aracısı iş durumunu yansıtacak şekilde 15 dakika kadar sürebilir.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Bir yedekleme işi başarısız olduğunda ne kadar uyarı sürer?
+Azure yedekleme hata 20 dakika içinde bir uyarı oluşturulur.
 
-**S2. Bir yedekleme işi başarısız olduğunda ne kadar uyarı sürer?**
-
-Y2. Azure yedekleme hata 20 dakika içinde bir uyarı oluşturulur.
-
-**S3. Bildirimler yapılandırıldıysa bir e-posta burada gönderilmez bir servis talebi var mı?**
-
-Y3. Evet. Aşağıdaki durumlarda bildirimleri gönderilmez.
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Bildirimler yapılandırıldıysa bir e-posta burada gönderilmez bir servis talebi var mı?
+Evet. Aşağıdaki durumlarda bildirimleri gönderilmez.
 
 * Bildirimleri saatlik yapılandırıldıysa ve bir uyarı oluşturulur ve aynı saat içinde çözülen
 * Ne zaman bir işi iptal edildi

@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0236947e578d12ff24e5993d253ec5597c53272a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2a9c0cf36459a2d23b8af8f69937ab9ded7f9c04
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819833"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301511"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API'lerine ve araçlarına genel bakış
 
@@ -69,7 +69,8 @@ Batch uygulamalarınızı ve hizmetlerinizi oluşturmak ve bunlarda hata ayıkla
 
 * [Azure portalında][portal]: Oluşturma, izleme ve Batch havuzları, işleri ve görevleri Azure portalından silin. Bu ve diğer kaynakların durum bilgilerini, işlerinizi çalıştırırken görüntüleyebilir, hatta havuzlarınızdaki işlem düğümlerinden dosya indirebilirsiniz. Örneğin, sorun giderme sırasında başarısız bir görevin `stderr.txt` öğesini indirebilirsiniz. İşlem düğümlerinde oturum açmak için kullanabileceğiniz Uzak Masaüstü (RDP) dosyalarını da indirebilirsiniz.
 * [Azure Batch Gezgini][batch_labs]: Batch Gezgini (eski adıyla. BatchLabs) oluşturma, hata ayıklama ve Azure Batch uygulamalarıyla izlemenize yardımcı olacak bir ücretsiz ve zengin özellikli tek başına istemci aracıdır. Mac, Linux veya Windows için [yükleme paketi](https://azure.github.io/BatchExplorer/) indirebilirsiniz.
-* [Microsoft Azure Depolama Gezgini][storage_explorer]: Kesinlikle olmadığında bir Azure Batch aracı Depolama Gezgini, Batch çözümlerinizi geliştirdiğiniz ve sırada için başka bir değerli araçtır.
+* [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): Batch Shipyard, sağlama yardımcı, yürütün ve kapsayıcı tabanlı toplu işlem ve HPC iş yüklerini Azure batch izlemek için kullanılan bir araçtır.
+* [Azure Depolama Gezgini][storage_explorer]: Kesinlikle olmadığında bir Azure Batch aracı Depolama Gezgini, Batch çözümlerinizi geliştirdiğiniz ve sırada için başka bir değerli araçtır.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -81,7 +82,6 @@ Batch uygulamalarınızı ve hizmetlerinizi oluşturmak ve bunlarda hata ayıkla
 * Batch kullanmaya hazırlanan herkes için gerekli bilgileri içeren [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md) konusunu okuyun. Bu makalede havuzlar, düğümler, işler ve görevler gibi Batch hizmet kaynakları ve Batch uygulamanızı oluştururken kullanabileceğiniz birçok API özelliği hakkında daha ayrıntılı bilgi verilmektedir.
 * Genel bir Batch iş akışını kullanarak basit bir iş yükü yürütmek üzere C# ve Batch .NET kitaplığını kullanma hakkında bilgi için bkz. [.NET için Azure Batch kitaplığını kullanmaya başlama](tutorial-parallel-dotnet.md). Bu öğreticinin [Python sürümü](tutorial-parallel-python.md) ve [Node.js öğreticisi](batch-nodejs-get-started.md) de vardır.
 * Hem C# hem de Python'un örnek iş yüklerini zamanlamak ve işlemek üzere Batch ile arabirim oluşturmasını görmek için [GitHub'daki kod örneklerini][github_samples] indirin.
-
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch

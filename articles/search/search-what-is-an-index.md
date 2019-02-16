@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 77f4b597ad4b87db7e720dd57191c6b192a4c93b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fd5f58a03ffd054e79f1ff4ea6d61c33c06b6e7c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000960"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268558"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Azure Search'te bir temel dizin oluşturma
 
@@ -23,6 +23,12 @@ Azure Search'te bir *dizin* kalıcı bir deposudur *belgeleri* ve Azure Search H
 Eklediğinizde veya dizin karşıya yükleme fiziksel yapıları sağladığınız şemasını temel alan Azure Search oluşturur. Örneğin, dizininizdeki bir alanın aranabilir olarak işaretlenmişse, bu alan için ters dizin oluşturulur. Daha sonra eklediğinizde veya belgeleri karşıya yüklemesine veya Azure Search'e arama sorguları göndermek için belirli bir dizin arama hizmetinizdeki istekler gönderiyor. Belge değerlerini yüklenirken çağrılır *dizin* veya veri alımı.
 
 Portalda bir dizin oluşturabilirsiniz [REST API](search-create-index-rest-api.md), veya [.NET SDK'sı](search-create-index-dotnet.md).
+
+## <a name="recommended-workflow"></a>Önerilen iş akışı
+
+Fiziksel yapılar, dizin oluşturma sırasında oluşturulduğundan gerekecektir [bırakın ve dizinleri yeniden](search-howto-reindex.md) varolan alan tanımına kullanacağıyla ilgili önemli değişiklikler yaptığınızda. Başka bir deyişle, geliştirme sırasında üzerinde sık sık yeniden planlamalısınız. Git, daha hızlı hale getirmek için verilerinizin bir alt kümesi ile çalışma oluşturur göz önünde bulundurabilirsiniz. 
+
+Portal dizin yerine kod da önerilir. Dizin tanımı için portalda güveniyorsanız, her yeniden dizin tanımını doldurmanız gerekir. Alternatif olarak, bir aracı gibi kullanarak [Postman ve REST API'si](search-fiddler.md) geliştirme projelerini hala erken bir aşamada olduğunda, kavram kanıtı test etmek için yararlıdır. Hizmetinize güncelleştirilmiş bir şemayı kullanarak bir dizini yeniden oluşturmak için bu isteği göndermek için bir dizin tanımını istek gövdesine artımlı değişiklikler yapabilirsiniz.
 
 ## <a name="components-of-an-index"></a>Bir dizinin bileşenleri
 
@@ -133,8 +139,20 @@ Azure Search'ün [desteklediği veri türleri hakkında burada](https://docs.mic
 
 Azure Search'ün [dizin öznitelikleri hakkında burada](https://docs.microsoft.com/rest/api/searchservice/Create-Index) daha ayrıntılı bilgiler edinebilirsiniz.
 
+## <a name="storage-implications-of-index-attributes"></a>Dizin özniteliklerini depolama etkileri
+
+Öznitelikleri depolama etkisi. Aşağıdaki ekran görüntüsünde, dizin depolama düzeni özniteliklerin çeşitli birleşimler kaynaklanan bir örnektir. Dizin dayanır [yerleşik realestate örnek](search-get-started-portal.md) dizine ekleyebilir, veri kaynağı ve Portalı'nda sorgu.
+
+Belgeleri bozulmadan saklanan şekilde tam eşleşme filtreleme ve sıralama işlemleri sorgu. Aranabilir alanları tam metin ve belirsiz aramayı etkinleştirin. Ters dizinleri aranabilir alanları için oluşturulan ve simgeleştirilmiş şartlarını doldurulur. Bir alanı işaretlemek odalı önemli dizin boyutu üzerinde etkisi yoktur.
+
+![Dizin öznitelik seçimi temel alınarak boyut](./media/search-what-is-an-index/realestate-index-size.png "dizin öznitelik seçimi temel alınarak boyutu")
+
+Depolama uygulaması, Azure Search'ün bir uygulama ayrıntısı kabul edilir ve uyarı değişebilir. Şu anki davranışı gelecekte kalıcı bir garanti yoktur.
+
 ## <a name="suggesters"></a>Öneri Araçları
-Bir öneri aracı hangi alanlarda dizin aramaları otomatik tamamlamayı veya yazarken tamamlanan sorgu desteklemek için kullanılan tanımlayan şemayı bölümüdür. Genellikle kısmi arama dizelerini önerileri (Azure Search Hizmeti REST API'si) kullanıcı arama sorgusu yazıyor ve API, önerilen ifadelerden bir dizi döndürür gönderilir. Dizin tanımlayan bir öneri aracı hangi alanların yazarken tamamlanan arama terimlerini oluşturmak için kullanılan belirler. Daha fazla bilgi için [öneri Araçları eklemek](index-add-suggesters.md) yapılandırma ayrıntıları için.
+Bir öneri aracı hangi alanlarda dizin aramaları otomatik tamamlamayı veya yazarken tamamlanan sorgu desteklemek için kullanılan tanımlayan şemayı bölümüdür. Genellikle kısmi arama dizelerini önerileri (Azure Search Hizmeti REST API'si) kullanıcı arama sorgusu yazıyor ve API, önerilen ifadelerden bir dizi döndürür gönderilir. 
+
+Dizin tanımlayan bir öneri aracı hangi alanların yazarken tamamlanan arama terimlerini oluşturmak için kullanılan belirler. Daha fazla bilgi için [öneri Araçları eklemek](index-add-suggesters.md) yapılandırma ayrıntıları için.
 
 ## <a name="scoring-profiles"></a>Puanlama modelleri
 

@@ -11,17 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: b3ad10c62d393e2508d3ea04f0e49d3ffbf184cd
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d1c7340038731ebde10a7ffcb0ef2adcde18e901
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886382"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267504"
 ---
 # <a name="what-is-application-insights"></a>Application Insights nedir?
-Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. Uygulamalar için çok çeşitli platformlara .NET, Node.js ve J2EE, üzerinde çalıştığı barındırılan şirket içi, karma veya herhangi bir genel bulut. DevOps işleminizle tümleştirilir ve çeşitli geliştirme araçlarıyla bağlantı noktaları vardır. Visual Studio App Center ile tümleştirerek mobil uygulamalardan telemetriyi izleyebilir ve çözümleyebilir.
+Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve Java EE dahil olmak üzere platformları üzerinde çeşitli uygulamalar için çalışır barındırılan şirket içi, karma veya herhangi bir genel bulut. DevOps işleminizle tümleştirilir ve çeşitli geliştirme araçlarıyla bağlantı noktaları vardır. Visual Studio App Center ile tümleştirerek mobil uygulamalardan telemetriyi izleyebilir ve çözümleyebilir.
 
 [Giriş animasyonuna göz atın](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
@@ -46,7 +46,7 @@ Geliştirme takımına yönelik olan Application Insights, uygulamanızın perfo
 
 * **İstek oranları, yanıt süreleri ve hata oranları**: Hangi sayfaların günün hangi saatlerinde popüler olduğunu ve kullanıcılarınızın konumunu öğrenin. En iyi performansı hangi sayfaların gösterdiğini görün. Daha fazla istek olduğunda yanıt süreleriniz ve hata oranlarınız yükseliyorsa bir kaynak atama sorununuz olabilir. 
 * **Bağımlılık oranları, yanıt süreleri ve hata oranları**: Dış hizmetlerin sizi yavaşlatıp yavaşlatmadığını öğrenin.
-* **Özel durumlar**: Toplu istatistikleri analiz edin veya belirli örnekleri seçerek yığın izlemesi ve ilgili isteklerin ayrıntılarına gidin. Hem sunucu hem de tarayıcı özel durumları raporlanır.
+* **Özel durumlar** - toplu istatistikleri analiz edin veya belirli örnekler seçin ve yığın izlemesi ve ilgili isteklerin detayına gidin. Hem sunucu hem de tarayıcı özel durumları raporlanır.
 * **Sayfa görüntüleme sayısı ve yükleme performansı**: Kullanıcılarınızın tarayıcıları tarafından gerçekleştirilir.
 * Web sayfalarından **AJAX çağrıları**: Oranlar, yanıt süreleri ve hata oranları.
 * **Kullanıcı ve oturum sayıları**.
@@ -89,7 +89,7 @@ Application Insights’ı uygulamanıza yükleyin, [kullanılabilirlik web testl
 Bir uyarı aldığınızda veya bir sorun bulduğunuzda:
 
 * Bu durumdan kaç kullanıcının etkilendiğini değerlendirin.
-* Hatalar ile özel durumlar, bağımlılık çağrıları ve izlemeler arasında bağıntı kurun.
+* Hataları, özel durumlar, bağımlılık çağrıları ve izlemeler ile ilişkilendirin.
 * Profil oluşturucuyu, anlık görüntüleri, yığın dökümlerini ve izleme günlüklerini inceleyin.
 
 ### <a name="build-measure-learn"></a>Oluşturma, Ölçme, Öğrenme
@@ -107,13 +107,13 @@ Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yönt
 * **Çalışma zamanında: Sunucuda web uygulamanızı izleyin.** Kodda herhangi bir güncelleştirme yapmaktan kaçınır. Sunucunuza yönetici erişiminizin olması gerekir.
   * [**Şirket içinde veya bir VM’de IIS**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Azure web uygulaması veya VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**J2EE**](../../azure-monitor/app/java-live.md)
+  * [**Java EE**](../../azure-monitor/app/java-live.md)
 * **Geliştirme zamanında: Application Insights’ı kodunuza ekleyin.** Özel telemetri yazmanızın yanı sıra arka uç ve masaüstü uygulamalarını izlemenize imkan tanır.
   * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 güncelleştirme 2 veya sonraki bir sürüm.
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [Diğer platformlar](../../azure-monitor/app/platforms.md)
-* Sayfa görütüleme, AJAX ve diğer istemci tarafı telemetri verileri bakımından **[web sayfalarınızı izleyin](../../azure-monitor/app/javascript.md)**.
+* **[Web sayfalarınızı araçlama](../../azure-monitor/app/javascript.md)**  sayfa görünümü, AJAX ve diğer istemci tarafı telemetri.
 * Visual Studio App Center ile tümleştirerek **[mobil uygulama kullanımını çözümleyin](../../azure-monitor/learn/mobile-center-quickstart.md)**.
 * **[Kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md)**: Sunucularımızdan web sitenize düzenli aralıklarla ping gönderin.
 
@@ -122,7 +122,7 @@ Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yönt
 Çalışma zamanında şunlarla kullanmaya başlayın:
 
 * [IIS sunucusu](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [J2EE sunucusu](../../azure-monitor/app/java-live.md)
+* [Java EE sunucusu](../../azure-monitor/app/java-live.md)
 
 Geliştirme zamanında şunlarla kullanmaya başlayın:
 

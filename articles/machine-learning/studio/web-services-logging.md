@@ -1,6 +1,6 @@
 ---
 title: Hizmet günlüğü - Azure Machine Learning Studio web | Microsoft Docs
-description: Machine Learning web hizmetleri için günlüğe kaydetmeyi etkinleştirme konusunda bilgi edinin. Günlük API'leri gidermenize yardımcı olacak ek bilgiler sağlar.
+description: Machine Learning Studio web hizmetleri için günlüğe kaydetmeyi etkinleştirme hakkında bilgi edinin. Günlük API'leri gidermenize yardımcı olacak ek bilgiler sağlar.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -15,21 +15,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 80a5ec64a2afd2367acaedd6e44ffe1a21e9c622
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 53eedd4d00b212879389d29541c4ca55ea1bfde6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474402"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270115"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio web hizmetleri için günlüğe kaydetmeyi etkinleştirme
-Bu belge, Machine Learning web hizmetleri günlüğe kaydetme olanağı hakkında bilgi sağlar. Günlük, yalnızca bir hata numarası ve Machine Learning API'leri aramalarınız gidermenize yardımcı olabilecek bir ileti ötesinde ek bilgi sağlar.  
+Bu belge, bilgi Machine Learning Studio web hizmetleri üzerinde günlüğe kaydetme olanağı sağlar. Günlük, yalnızca bir hata numarası ve Machine Learning Studio API'leri aramalarınız gidermenize yardımcı olabilecek bir ileti ötesinde ek bilgi sağlar.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Bir Web hizmeti için günlük kaydını etkinleştirme
 
-Günlük etkinleştirme [Azure Machine Learning Web Hizmetleri](https://services.azureml.net) portalı. 
+Günlük etkinleştirme [Azure Machine Learning Studio Web Hizmetleri](https://services.azureml.net) portalı. 
 
-1. Azure Machine Learning Web Hizmetleri portalında oturum açın [ https://services.azureml.net ](https://services.azureml.net). Klasik web hizmeti, ayrıca Portalı'na tıklayarak alabilirsiniz **yeni Web Hizmetleri deneyiminizin** Machine Learning Web Hizmetleri sayfasında Machine Learning Studio'da.
+1. Azure Machine Learning Studio Web Hizmetleri portalında oturum açın [ https://services.azureml.net ](https://services.azureml.net). Klasik web hizmeti, ayrıca Portalı'na tıklayarak alabilirsiniz **yeni Web Hizmetleri deneyiminizin** Machine Learning Studio Web Hizmetleri sayfasında Machine Learning Studio'da.
 
    ![Yeni Web Hizmetleri deneyiminizin bağlantı](./media/web-services-logging/new-web-services-experience-link.png)
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: spelluru
-ms.openlocfilehash: ddda9ef2b9bb716f7cdd33aa8fe9233f6c7d8e82
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 2903228a3257abe9c454c6e0720a1e228b905290
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749009"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300049"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs'de Laboratuvar sanal makineler için bir kaynak grubu belirtin
 Laboratuvar sahibi olarak, belirli bir kaynak grubunda oluşturulması için laboratuvar sanal makinelerinizi yapılandırabilirsiniz. Kaynak grubu sınırlarını Azure aboneliğinize göre ulaşana yoksa, bu özelliği kullanın. Bu özellik, tüm Laboratuvar kaynaklarını tek bir kaynak grubu içinde birleştirmenize olanak tanır. Ayrıca bu kaynakları izleme ve uygulama basitleştirir [ilkeleri](../governance/policy/overview.md) kaynak grubu düzeyinde yönetilecek.
@@ -32,7 +32,7 @@ Bu özellik sayesinde, yeni belirtmek için bir komut dosyası veya mevcut bir k
 - Girebileceğiniz bir **yeni kaynak grubu** tüm sanal makineler için ad.
 - Mevcut davranışı ile devam edebilmeniz için diğer bir deyişle, bir kaynak grubu Laboratuvardaki her VM için oluşturulur.
  
-Bu ayar, laboratuvar'da oluşturulan yeni sanal makineler için geçerlidir. Kendi kaynak grubunda oluşturulan eski Vm'leri laboratuvarınızda yapmanızdan geçin. Ancak, tüm Laboratuvar sanal makineler ortak bir kaynak grubunda ve böylelikle kendi ayrı kaynak gruplarından ortak bir kaynak grubuna bu sanal makineleri geçirebilirsiniz. Daha fazla bilgi için [kaynakları yeni kaynak grubuna taşıma](../azure-resource-manager/resource-group-move-resources.md). Laboratuvarınızda oluşturulmuş ortamları, kendi kaynak grubunda kalması için devam edin.
+Bu ayar, laboratuvar'da oluşturulan yeni sanal makineler için geçerlidir. Kendi kaynak grubunda oluşturulan eski Vm'leri laboratuvarınızda yapmanızdan geçin. Laboratuvarınızda oluşturulmuş ortamları, kendi kaynak grubunda kalması için devam edin.
 
 ### <a name="how-to-use-this-api"></a>Bu API'yi nasıl:
 - API sürümü kullanın **2018_10_15_preview** bu API kullanırken. 

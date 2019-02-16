@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4ec6e1288b34f04350a88697ca13ed044922ee50
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 19e0e5797e05589baa1e104f3e9ab8b4d9cc2d6c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002252"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267300"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
 İçinde [Azure portalında](https://portal.azure.com) web uygulamaları, mobil arka uçlar ve API apps için uygulama performans izleme özelliğini ayarlayabilirsiniz [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), uygulamanızı izleyerek uygulama etkinlikleriyle ilgili telemetriyi Application Insights hizmetine gönderir ve telemetri burada depolanıp analiz edilir. Burada, sorunların tanılanmasına, performansın geliştirilmesine ve kullanımın değerlendirilmesine yardımcı olan ölçüm grafikleri ve arama araçları kullanılabilir.
@@ -29,7 +29,7 @@ Uygulamanız için şu iki yoldan biriyle izleme yapılandırabilirsiniz:
 * **Derleme zamanı**: Geliştirme sırasında uygulamanıza bir paket yükleyebilirsiniz. Bu seçenek daha kullanışlıdır. Aynı standart paketlere ek olarak telemetriyi özelleştirmek için kod yazabilir ya da kendi telemetrinizi gönderebilirsiniz. Uygulama etki alanınızın semantiğine göre belirli etkinlikleri günlüğe kaydedebilir veya olayların kaydını tutabilirsiniz. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Application Insights ile çalışma zamanında izleme
-Azure'da zaten bir app service çalıştırıyorsanız, zaten bazı izleme alırsınız: istek ve hata oranları. Bağımlılıklara yapılan çağrılar, akıllı algılama ve güçlü veri Gezgini sorgu dili, yanıt süreleri gibi almak için Application Insights'ı ekleyin. 
+Azure'da zaten bir app service çalıştırıyorsanız, zaten bazı izleme alırsınız: istek ve hata oranları. Yanıt süreleri gibi almak için Application Insights ekleyin, bağımlılıklar, akıllı algılama ve güçlü yapılan çağrılar Kusto sorgu dili. 
 
 1. **Application Insights'ı seçin** uygulama hizmetiniz için Azure Denetim Masası'nda.
 

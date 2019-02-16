@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 02/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2b26261fdbae07bf3eea793efe6ff0755ca3f577
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1383c59ca88400868f83d30d04d9b0e5f5401282
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896001"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268966"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olaylar ve ölçümler için Application Insights API
 
@@ -400,7 +400,7 @@ Ancak, burada isteği olarak görev yapar istek telemetrisi göndermek için ön
 
 ## <a name="operation-context"></a>İşlem bağlamı
 
-İşlem bağlamı ile ilişkilendirerek telemetri öğelerinin birlikte ilişkilendirebilirsiniz. Standart istek izleme modülü, özel durumlar ve bir HTTP isteği işlenirken gönderilen diğer olayları için bunu yapar. İçinde [arama](../../azure-monitor/app/diagnostic-search.md) ve [Analytics](analytics.md), kendi işlem kimliği kullanarak istekle ilişkili olaylar kolayca bulabilirsiniz
+İşlem bağlamı ile ilişkilendirerek telemetri öğelerinin birlikte ilişkilendirebilirsiniz. Standart istek izleme modülü, özel durumlar ve bir HTTP isteği işlenirken gönderilen diğer olayları için bunu yapar. İçinde [arama](../../azure-monitor/app/diagnostic-search.md) ve [Analytics](analytics.md), işlem kimliğini kullanarak istekle ilişkili olaylar kolayca bulabilirsiniz
 
 Bkz: [Application ınsights Telemetri bağıntısı](../../azure-monitor/app/correlation.md) bağıntı hakkında daha fazla ayrıntı için.
 
@@ -508,7 +508,7 @@ catch (ex)
 Her zaman TrackException açıkça çağırmak zorunda kalmamak için SDK'ları çok sayıda özel durumları otomatik olarak yakalayın.
 
 * ASP.NET: [Özel durumları yakalamak için kod yazma](../../azure-monitor/app/asp-net-exceptions.md).
-* J2EE: [Özel durumları otomatik olarak yakalanır](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
+* Java EE: [Özel durumları otomatik olarak yakalanır](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
 * JavaScript: Özel durumları otomatik olarak yakalanır. Otomatik olarak toplanmasını devre dışı bırakmak isterseniz, bir satırı, Web sayfalarındaki eklediğiniz kod parçacığını ekleyin:
 
 ```javascript
@@ -732,7 +732,7 @@ Thread.sleep(5000);
 telemetry.flush();
 ```
 
-İşlev için zaman uyumsuz olduğunu unutmayın [sunucu telemetri kanalı](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
+İşlev için zaman uyumsuz [sunucu telemetri kanalı](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 İdeal olarak, uygulamayı kapatma etkinliğinde flush() yöntemini kullanılmalıdır.
 
@@ -1144,7 +1144,7 @@ Bu değerlerden herhangi birini kendinize ayarlarsanız, ilgili satırından kal
 * **Instrumentationkey**: Telemetri göründüğü azure'da Application Insights kaynağı. Bunu Applicationınsights.config genellikle seçilir.
 * **Konum**: Cihaz coğrafi konumu.
 * **İşlem**: Web uygulamalarında, geçerli HTTP isteği. Diğer uygulama türleri, bu grubu olayları birlikte ayarlayabilirsiniz.
-  * **Kimliği**: Tanılama araması herhangi bir olay incelediğinizde, ilgili öğeleri bulabilmesi için farklı olaylara karşılık gelen bir oluşturulan değeri.
+  * **KİMLİĞİ**: Tanılama araması herhangi bir olay incelediğinizde, ilgili öğeleri bulabilmesi için farklı olaylara karşılık gelen bir oluşturulan değeri.
   * **Ad**: Bir tanımlayıcısı, genellikle bir HTTP isteği URL'si.
   * **SyntheticSource**: Aksi takdirde null veya boş, isteğin kaynak bir robot veya web testi belirlenmiştir gösteren bir dize. Varsayılan olarak, bu hesaplamalar ölçüm Gezgini'nde'den çıkarılır.
 * **Özellikler**: Gönderilen tüm telemetri veri ile özellikleri. Tek parça * çağrılarında kılınabilir.

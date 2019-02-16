@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57c4f0595fdea3d266a56d125d6d86cba8b4f651
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 01cc85f7eba2aefd08192c4e3f4e5151e7645238
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195541"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269119"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Tasarım kavramları
 Bu belgenin amacı, Azure AD Connect uygulama tasarım sırasında düşündüğünüz alanlarını açıklayan sağlamaktır. Bu belge belirli alanları ayrıntılı bir bakış ve diğer belgelerde Bu kavramlar kısaca açıklanmaktadır.
@@ -171,7 +171,7 @@ AD FS'yi Azure AD Connect dışında yönetiyorsanız veya üçüncü taraf fede
 ![Üçüncü taraf Federasyon yapılandırması](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Yeni dizinler için mevcut dağıtım ekleme
-Azure AD Connect consistencyguid içinde özelliği etkin dağıttığınız ve artık dağıtıma başka bir dizin eklemek istediğiniz varsayalım. Azure AD Connect Sihirbazı, dizine eklemeyi denediğinizde, ms-DS-ConsistencyGuid özniteliği dizinde durumunu denetler. Öznitelik, dizinde veya daha fazla nesne yapılandırılmışsa, sihirbaz öznitelik diğer uygulamalar tarafından kullanılır ve aşağıdaki diyagramda gösterildiği gibi bir hata döndürür sona eriyor. Öznitelik mevcut uygulamalar tarafından kullanılmadığından eminseniz, hata gösterme hakkında bilgi için desteğe gerekir.
+Azure AD Connect consistencyguid içinde özelliği etkin dağıttığınız ve artık dağıtıma başka bir dizin eklemek istediğiniz varsayalım. Azure AD Connect Sihirbazı, dizine eklemeyi denediğinizde, ms-DS-ConsistencyGuid özniteliği dizinde durumunu denetler. Öznitelik, dizinde veya daha fazla nesne yapılandırılmışsa, sihirbaz öznitelik diğer uygulamalar tarafından kullanılır ve aşağıdaki diyagramda gösterildiği gibi bir hata döndürür sona eriyor. Öznitelik mevcut uygulamalar tarafından kullanılmadığından eminseniz, Azure AD Connect Sihirbazı yeniden başlatarak hata gizleyebilirsiniz **/SkipLdapSearchcontact** yukarıda açıklanan şekilde belirtilen ya da iletişime geçmeniz Daha fazla bilgi için destek.
 
 ![Yeni dizinler için mevcut dağıtım ekleme](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

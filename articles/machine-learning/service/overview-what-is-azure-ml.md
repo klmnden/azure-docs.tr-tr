@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1c369a75bbaa0853386e0139b94c119e5bb3675a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 36e0ca360cfbdfc77ce0a1768222f43f8864537c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251546"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267278"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning hizmeti nedir?
 
@@ -30,12 +30,12 @@ Makine öğreniminin öngörüleri veya tahminleri, uygulama ve cihazları daha 
 
 ## <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning hizmeti nedir?
 
-Azure Machine Learning hizmeti, makine öğrenmesi modellerini geliştirmek, eğitmek, test etmek, dağıtmak, yönetmek ve izlemek için kullanabileceğiniz bulut tabanlı bir ortam sağlar.
+Azure Machine Learning hizmeti, veri hazırlama, eğitme, test, dağıtma, yönetme ve makine öğrenimi modelleri izlemek için kullanabileceğiniz bulut tabanlı bir ortam sağlar.
 
 [ ![Azure Machine Learning hizmeti iş akışı](./media/overview-what-is-azure-ml/aml.png)] (. / media/overview-what-is-azure-ml/aml.png#lightbox)
 
-Azure Machine Learning hizmeti tamamen açık kaynak teknolojilerini destekler. Bu nedenle, makine öğrenimi bileşenleri on binlerce açık kaynak Python paketlerini kullanabilirsiniz. Örnekler TensorFlow ve scikit-öğrenin.
-Zengin araçlarınız için destek, etkileşimli olarak verileri araştırmak, dönüştürme ve ardından geliştirmesini ve model test kolaylaştırır. Örnekler [Jupyter not defterleri](http://jupyter.org) veya [Visual Studio Code için Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) uzantısı.
+Azure Machine Learning hizmeti tamamen açık kaynak teknolojilerini destekler. Bu nedenle, makine öğrenimi bileşenleri on binlerce açık kaynak Python paketlerini kullanabilirsiniz. Örnekler PyTorch, TensorFlow ve scikit-öğrenin.
+Zengin Araçlar desteği etkileşimli olarak keşfedin ve verileri hazırlama geliştirme ve test modelleri daha kolay hale getirir. Örnekler [Jupyter not defterleri](http://jupyter.org) veya [Visual Studio Code için Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) uzantısı.
 Azure Machine Learning hizmeti ayrıca kolaylık, verimlilik ve doğrulukla modeller oluşturmanıza yardımcı olan [model oluşturma ve ayarlama işlemini otomatik hale getiren](tutorial-auto-train-models.md) özellikler içerir.
 
 Azure Machine Learning hizmetini kullanarak, yerel makinenizde eğitim başlatın ve sonra ölçeği buluta genişletme. Kullanılabilir birçok [hedefleri işlem](how-to-set-up-training-targets.md), ister Azure Machine Learning işlem ve [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)ile [Hizmetleri ayarlama hiper parametre Gelişmiş](how-to-tune-hyperparameters.md), oluşturabileceğinizi bulutun gücünü kullanarak daha hızlı bir şekilde daha iyi modelleri.
@@ -49,10 +49,7 @@ Modeliniz dağıtıldıktan sonra elde edilmesi de döndürebilir [gerçek zaman
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile neler yapabilirim?
 
-Azure Machine Learning hizmeti için bir model autotrain ve Otomatik Ayarla bunu sizin için.
-Bir örnek için bkz. [otomatik machine learning ile bir regresyon modeli Eğitimi](tutorial-auto-train-models.md).
-
-Azure Machine Learning kullanarak <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> Python, açık kaynak Python paketlerini yanı sıra yapı ve yüksek oranda doğru machine learning eğitimi ve derin öğrenme modelleri kendiniz bir Azure Machine Learning hizmetinde çalışma alanı.
+Kullanarak <a href="https://aka.ms/aml-sdk" target="_blank">ana Python SDK'sını</a> ve <a href="https://aka.ms/data-prep-sdk" target="_blank">Data Prep SDK'sını</a> Azure Machine Learning yanı sıra açık kaynak Python paketlerini, derleme ve yüksek oranda doğru makine öğrenimi ve derin öğrenme modelleri eğitme kendiniz bir Azure Machine Learning hizmetinde çalışma alanı.
 Aşağıdaki örnekler gibi açık kaynak Python paketlerini de kullanılabilen bileşenler birçok makine arasından seçim yapabilirsiniz:
 
 - <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -60,6 +57,9 @@ Aşağıdaki örnekler gibi açık kaynak Python paketlerini de kullanılabilen 
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
+
+Azure Machine Learning hizmeti aynı zamanda autotrain bir model ve Otomatik Ayarla bunu sizin için.
+Bir örnek için bkz. [otomatik machine learning ile bir regresyon modeli Eğitimi](tutorial-auto-train-models.md).
 
 Bir modeli oluşturduktan sonra yerel olarak test etmek için dağıtılabilecek Docker gibi bir kapsayıcı oluşturmak için kullanın. Test tamamlandıktan sonra bir üretim web hizmetine veya Azure Container Instances, hem de Azure Kubernetes hizmeti olarak modeli dağıtabilirsiniz. Daha fazla bilgi için makaleye bakın [nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md).
 
@@ -70,7 +70,7 @@ Azure Machine Learning hizmeti ile çalışmaya başlamak için bkz: [sonraki ad
 
 ## <a name="how-is-azure-machine-learning-service-different-from-machine-learning-studio"></a>Azure Machine Learning hizmetini Machine Learning Studio'dan farklı mı?
 
-Azure Machine Learning Studio, kod yazmaya gerek olmadan makine öğrenimi çözümlerini derleyebileceğiniz, test edebileceğiniz ve dağıtabileceğiniz, iş birliğine dayalı bir sürükle bırak görsel çalışma alanıdır. Önceden oluşturulmuş ve önceden yapılandırılmış makine öğrenimi algoritmaları ve veri işleme modüllerini kullanır.
+Azure Machine Learning Studio, kod yazmaya gerek olmadan makine öğrenimi çözümlerini derleyebileceğiniz, test edebileceğiniz ve dağıtabileceğiniz, iş birliğine dayalı bir sürükle bırak görsel çalışma alanıdır. Önceden oluşturulmuş ve önceden yapılandırılmış makine öğrenimi algoritmaları ve veri işleme modüllerini kullanır. 
 
 Makine öğrenimi modelleri ile hızlı ve kolay bir şekilde deneme yapmak istediğinizde ve yerleşik makine öğrenimi algoritmaları çözümleriniz için yeterli olduğunda Machine Learning Studio’yu kullanın.
 
@@ -87,12 +87,12 @@ Azure hizmetlerinde harcayabileceğiniz krediler alırsınız. Krediler bittikte
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Başlamak için Machine Learning hizmeti çalışma alanı oluşturma [Azure portalını kullanarak](quickstart-get-started.md) veya [python'da](quickstart-create-workspace-with-python.md).
+- Başlamak için Machine Learning hizmeti çalışma alanı oluşturma [Azure portalını kullanarak](quickstart-get-started.md) (no-yükleme yaklaşım) veya [python'da](quickstart-create-workspace-with-python.md) (SDK'sını yükleyin yaklaşım).
 
-- Eksiksiz öğreticide izleyin [bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md).
-
-- [Azure Machine Learning otomatik olarak oluştur ve Otomatik Ayarla bir model kullanmak](tutorial-auto-train-models.md).
-
+- Eksiksiz öğreticileri izleyin: 
+  + [Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md) 
+  + [Veri hazırlama ve otomatik-bir regresyon modeli eğitimi için otomatik makine öğrenimi kullanıyor](tutorial-data-prep.md)
+  
 - Kullanım [Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk) verilerinizi hazırlamak için.
 
 - Makine öğrenmesi senaryolarınızı derlemek, iyileştirmek ve yönetmek için [makine öğrenmesi işlem hatları](/azure/machine-learning/service/concept-ml-pipelines) hakkında bilgi edinin.
@@ -100,18 +100,3 @@ Azure hizmetlerinde harcayabileceğiniz krediler alırsınız. Krediler bittikte
 - Ayrıntılı okuma [Azure Machine Learning hizmeti mimarisi ve kavramları](concept-azure-machine-learning-architecture.md) makalesi.
 
 - Daha fazla bilgi için [diğer makine öğrenimi ürünlerini Microsoft gelen](./overview-more-machine-learning.md).
-
-
-<!-- 
-
-An intro to AML or an end-to-end quickstart video could go here.
-
-In this 9-minute video, learn how you can benefit your app. You'll learn about key features and what a typical workflow looks like. 
-
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ 0-3 minutes covers key features and use-cases.
-+ 3-4 minutes covers service provisioning. 
-+ 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
-
--->

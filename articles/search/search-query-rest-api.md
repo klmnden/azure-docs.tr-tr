@@ -7,24 +7,16 @@ ms.author: brjohnst
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: e453e05a692e862179dcd78298b215a2384cba2c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 8dddc85d8826c2980405fd67ddc1aaab9ea12c62
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092825"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301086"
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>REST API kullanarak Azure Search dizininizi sorgulama
-> [!div class="op_single_selector"]
->
-> * [Genel Bakış](search-query-overview.md)
-> * [Portal](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
->
->
 
 Bu makale, [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)'sini kullanarak bir dizinin nasıl sorgulanacağını gösterir.
 

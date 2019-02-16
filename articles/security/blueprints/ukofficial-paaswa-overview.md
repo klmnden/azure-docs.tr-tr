@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700987"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301810"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: UK resmi iş yükleri için barındırma PaaS Web uygulaması
 
@@ -23,7 +23,7 @@ Azure bir Blueprint'i Kılavuzu belgeleri ve akreditasyon veya uyumluluk gereksi
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure güvenlik ve uyumluluk planı sağlayan bir Microsoft Azure sunmak için rehberlik ve Otomasyon betikleri [(PaaS) hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) barındırılan sınıflandırılmış iş yüklerini işlemek için uygun web uygulaması mimarisi olarak [UK-OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Bu güvenlik sınıflandırmasının oluşturulan veya Kamu sektörü tarafından işlenebilir bilgiler çoğunu kapsar. Bu yordamı işle ilgili işlemler ve hangi if medya bazıları zararlı sonuçları olabilir, yayımlanan veya çalınırsa kayıp, hizmetleri içerir. Tipik iş parçacığı profil resmi sınıflandırma için çok değerli bilgiler ve hizmetleri sağlayan özel bir iş aynıdır. UK resmi İngiltere veri ya da hizmetleri tehdit veya ile saldırganlar tarafından tehlikeye karşı korumak için gereken özellikleri ve kaynakları gibi sınırlanmış düşünmektedir (ancak bunlarla sınırlı değil) hactivists, single-issue baskısı grupları araştırma gazetecilerin, yetkin bireysel saldırganların ve çoğu cezai bireyler ve gruplar.
+Azure güvenlik ve uyumluluk planı sağlayan bir Microsoft Azure sunmak için rehberlik ve Otomasyon betikleri [(PaaS) hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) barındırılan sınıflandırılmış iş yüklerini işlemek için uygun web uygulaması mimarisi olarak [UK-OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Bu güvenlik sınıflandırmasının oluşturulan veya Kamu sektörü tarafından işlenebilir bilgiler çoğunu kapsar. Bu yordamı işle ilgili işlemler ve hangi if kaybolur veya çalınırsa medya bazıları zararlı sonuçları olabilir, yayımlanan hizmetleri içerir. Tipik iş parçacığı profil resmi sınıflandırma için çok değerli bilgiler ve hizmetleri sağlayan özel bir iş aynıdır. UK resmi İngiltere veri ya da hizmetleri tehdit veya ile saldırganlar tarafından tehlikeye karşı korumak için gereken özellikleri ve kaynakları gibi sınırlanmış düşünmektedir (ancak bunlarla sınırlı değil) hactivists, single-issue baskısı grupları araştırma gazetecilerin, yetkin bireysel saldırganların ve çoğu cezai bireyler ve gruplar.
 
 Bu plan, Birleşik Krallık Ulusal siber Güvenlik Merkezi (NCSC tarafından) Gözden geçirildi ve NCSC 14 bulut güvenliği prensipleri hizalar.
 
@@ -182,7 +182,7 @@ Azure depolama güvenliğini sağlama hakkında ayrıntılı bilgi bulunabilir [
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) birden çok platformlardaki web geliştiricilerine yönelik genişletilebilir bir uygulama performans yönetimi (APM) hizmetidir. Bunu otomatik olarak performans anomalilerini algılamayı, performansı çözümleyebilir, tanılama canlı web uygulamaları izlemek için sorunları ve anlamak için kullanıcıların uygulamayla etkileşimini kullanılır. .NET, Node.js gibi platformlarda Application Insights dağıtılabilir ve J2EE, barındırılan şirket içinde veya bulutta. DevOps işleminizle tümleştirilir ve çeşitli geliştirme araçlarıyla bağlantı noktaları vardır.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) birden çok platformlardaki web geliştiricilerine yönelik genişletilebilir bir uygulama performans yönetimi (APM) hizmetidir. Bunu otomatik olarak performans anomalilerini algılamayı, performansı çözümleyebilir, tanılama canlı web uygulamaları izlemek için sorunları ve anlamak için kullanıcıların uygulamayla etkileşimini kullanılır. .NET, Node.js gibi platformlarda Application Insights dağıtılabilir ve Java EE barındırılan şirket içinde veya bulutta. DevOps işleminizle tümleştirilir ve çeşitli geliştirme araçlarıyla bağlantı noktaları vardır.
 
 #### <a name="application-insights-in-this-blueprint"></a>Bu plan, Application Insights
 
@@ -242,7 +242,7 @@ Dağıtım için üç yaklaşımları sağlanmadı; Basit bir "express" [Azure C
 
 ### <a name="azure-b2c"></a>Azure B2C
 
-[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kaydetme, bir kimlik oluşturmak ve yetkilendirme etkinleştirme ve erişim denetimi genel web uygulaması için kullanıcılara izin vermek için bir denetim olarak uygulanabilir.
+[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kaydetmek kullanıcılara izin vermek için bir denetim bir kimlik oluşturmak ve etkinleştirme yetkilendirme ve erişim denetimi için genel bir web uygulaması olarak uygulanabilir.
 
 ## <a name="disclaimer"></a>Bildirim
 

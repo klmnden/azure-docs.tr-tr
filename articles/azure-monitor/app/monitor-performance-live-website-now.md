@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3daa1c7b3594de227c43d7e722ee9c6cae0902f8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f7d7b7f470f43d8a7a1cd94b4b1ce79503f0dfca
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301620"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301035"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights Durum İzleyicisi ile çalışma zamanında web uygulamalarını izleme
 
@@ -27,7 +27,7 @@ Durum İzleyicisi IIS'de barındırılan bir .NET uygulaması izleme için kulla
 
 - Uygulamanızı Azure app Services'e dağıtılması durumunda izleyin [bu yönergeleri](azure-web-apps.md).
 - Uygulamanızı Azure VM'deki dağıttıysanız, Azure denetim masasından Application Insights izlemeyi geçiş yapabilirsiniz.
-- ([Canlı J2EE web uygulamaları](java-live.md) ve [Azure Cloud Services](../../azure-monitor/app/cloudservices.md) izleme hakkında ayrı makaleler de vardır.)
+- (İzleme hakkında ayrı makaleler de vardır [canlı web apps Java EE](java-live.md) ve [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
 
 
 ![Başarısız istekler, sunucu yanıt süresi ve sunucu istekleri hakkında bilgi içeren App Insights ekran genel bakış grafikleri](./media/monitor-performance-live-website-now/overview-graphs.png)

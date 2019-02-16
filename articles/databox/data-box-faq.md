@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077464"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268405"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box'de: Sık Sorulan Sorular
 
@@ -70,7 +70,7 @@ A.  Azure Data Box'ı almak için Azure portalda oturum açın ve bir Data Box s
 ### <a name="q-i-was-not-able-to-create-a-data-box-order-in-the-azure-portal-why-would-this-be"></a>S. Azure portalda Data Box siparişi oluşturamadım. Neden olabilir?
 A. Data Box siparişi oluşturamadıysanız abonelik türünüz veya erişimle ilgili bir sorun olabilir. 
 
-Aboneliğinizi kontrol edin. Data Box yalnızca Kurumsal Anlaşma (EA), Bulut çözüm sağlayıcısı (CSP) veya Kullandıkça öde aboneliği ile kullanılabilir. Aboneliğiniz bunlardan biri değilse Microsoft Desteği ile iletişime geçerek aboneliğinizi yükseltin.
+Aboneliğinizi kontrol edin. Veri kutusu yalnızca Kurumsal Sözleşme (EA) ve bulut çözümü sağlayıcısı (CSP) abonelik teklifleri için kullanılabilir. Aboneliğiniz bunlardan biri değilse Microsoft Desteği ile iletişime geçerek aboneliğinizi yükseltin.
 
 Aboneliğiniz, desteklenen teklif türlerinden birine aitse abonelik erişim düzeyinizi kontrol edin. Sipariş oluşturma için aboneliğinizde katkıda bulunan veya sahip olmanız gerekir.
 

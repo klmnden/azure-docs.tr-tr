@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 0140cb4fd1721e1d13840fe27db223c0ebec7d8a
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765697"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301902"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics aracısını log verileri toplama
 
@@ -78,10 +78,10 @@ Linux ve Windows Aracısı Log Analytics ile iletişim kurmak gerekli proxy ve g
 
 |Aracı Kaynağı|Bağlantı Noktaları |Yön |HTTPS denetlemesini atlama|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Bağlantı noktası 443 |Gelen ve giden|Evet |  
-|*.oms.opinsights.azure.com |Bağlantı noktası 443 |Gelen ve giden|Evet |  
-|*.blob.core.windows.net |Bağlantı noktası 443 |Gelen ve giden|Evet |  
-|*.azure-automation.net |Bağlantı noktası 443 |Gelen ve giden|Evet |  
+|*.ods.opinsights.azure.com |Bağlantı noktası 443 |Giden|Evet |  
+|*.oms.opinsights.azure.com |Bağlantı noktası 443 |Giden|Evet |  
+|*.blob.core.windows.net |Bağlantı noktası 443 |Giden|Evet |  
+|*.azure-automation.net |Bağlantı noktası 443 |Giden|Evet |  
 
 
 Bağlanmak ve ortamınızda runbook'ları kullanmak için Otomasyon hizmetine kaydetmek için Azure Otomasyon karma Runbook çalışanı'nı kullanmayı planlıyorsanız, bağlantı noktası numarası ve bölümünde açıklanan URL'lere erişimi olmalıdır [ağınız için yapılandırma Karma Runbook çalışanı](../../automation/automation-hybrid-runbook-worker.md#network-planning). 

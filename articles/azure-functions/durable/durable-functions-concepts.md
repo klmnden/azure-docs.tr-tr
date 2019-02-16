@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: cecf7f7fb79b6d7ebeed051b018a1e18375d68b2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6eb08af9cdd19bc83d44d29874f6ac58b41ed8c8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54046150"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302055"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts"></a>Dayanıklı işlevler desenleri ve teknik kavramlar
 
-*Dayanıklı işlevler* uzantısıdır [Azure işlevleri](../functions-overview.md) ve [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) durum bilgisi olan işlevleri, sunucusuz bir ortamda yazmanızı sağlayan. Uzantı durumu ve kontrol noktaları yeniden sizin yerinize yönetir. Bu makalede Azure işlevleri ve sık karşılaşılan uygulama desenleri için dayanıklı işlevler uzantısını davranışları hakkında daha ayrıntılı bilgi sağlar.
+*Dayanıklı işlevler* uzantısıdır [Azure işlevleri](../functions-overview.md) ve [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) durum bilgisi olan işlevleri, sunucusuz bir ortamda yazmanızı sağlayan. Uzantı sizin için durumu, denetim noktalarını ve yeniden başlatmaları yönetir. Bu makalede Azure işlevleri ve sık karşılaşılan uygulama desenleri için dayanıklı işlevler uzantısını davranışları hakkında daha ayrıntılı bilgi sağlar.
 
 > [!NOTE]
 > Dayanıklı İşlevler, Gelişmiş bir uzantı için Azure işlevleri, tüm uygulamalar için uygun değil. Bu makalenin geri kalanında, güçlü bir konusunda sahibi olduğunuzu varsayar [Azure işlevleri](../functions-overview.md) kavramları ve zorluklarını sunucusuz uygulama geliştirme sürecine dahil.

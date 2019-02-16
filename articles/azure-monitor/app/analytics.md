@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: c9392d910098e8a2dfadc4842dfcfe185f01fafc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004528"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268609"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights analiz
 Analytics, güçlü arama ve sorgulama aracı [Application Insights](app-insights-overview.md). Analytics web aracı olduğundan kurulum gerekli değildir.
@@ -31,7 +31,7 @@ Ayrıca [Analytics playground](https://go.microsoft.com/fwlink/?linkid=859557) b
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Azure İzleyici günlüklerine ilişkisi
-Application Insights analytics temel [Azure Veri Gezgini](/azure/data-explorer) gibi Azure izleme günlükleri ve ayrıca kullanan [Veri Gezgini sorgu dili](/azure/kusto/query). Aynı kullanan [log analytics portalı](../log-query/get-started-portal.md) verilerini ayrı bir bölümde depolanır ancak Azure İzleyici günlükleri gibi.
+Application Insights analytics temel [Azure Veri Gezgini](/azure/data-explorer) gibi Azure izleme günlükleri ve ayrıca kullanan [Kusto sorgu dili](/azure/kusto/query). Aynı kullanan [log analytics portalı](../log-query/get-started-portal.md) verilerini ayrı bir bölümde depolanır ancak Azure İzleyici günlükleri gibi.
 
 Application Insights analiz doğrudan Log Analytics çalışma alanındaki veri erişilemiyor veya uygulama verilerini doğrudan log analytics'ten erişebilirsiniz. Her iki veri kümesini birlikte sorgulamak için yazma bir [log analytics'te sorgu](../log-query/log-query-overview.md) ve kullanımı [app() ifade](../log-query/app-expression.md) uygulama verilerine erişmek için.
 

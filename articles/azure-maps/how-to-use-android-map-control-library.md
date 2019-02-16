@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3f7579324e1218cc2e2c3594889db776da6e529
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c1258ab619b165553c55481ad67d663be65ac832
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56143859"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269612"
 ---
 # <a name="how-to-use-azure-maps-android-sdk"></a>Azure haritalar Android SDK'sını kullanma
 
-Azure haritalar Android SDK'sı, Android için vektör haritalar kitaplığıdır. Bu makalede, Azure haritalar Android SDK'sını yükleme, bir harita yükleniyor ve üzerinde bir PIN yerleştirme işleminde size yol gösterir.
+Azure haritalar Android SDK'sı, Android için vektör haritalar kitaplığıdır. Bu makalede, Azure haritalar Android SDK'sını yükleme, bir harita yükleme ve üzerinde bir PIN yerleştirme işleminde size yol gösterir.
 
 ## <a name="prerequisites-to-get-started"></a>Başlamak için Önkoşullar
 
@@ -45,7 +45,7 @@ Bkz: [Android Studio belgeleri](https://developer.android.com/studio/intro/) And
 
 ## <a name="set-up-a-virtual-device"></a>Sanal bir cihaz ayarlama
 
-Android Studio bilgisayarınızı sanal bir Android cihazında ayarlamanıza olanak tanır. Hangi geliştirirken, uygulamanızı test etmek için yardımcı olabilir. Sanal cihaz üst Android Virtual Device (AVD) Manager simgeye kurulum için proje ekranınızın sağ. Ardından **sanal cihaz oluşturma** düğmesi. Araçlar aracılığıyla yöneticisine alabilirsiniz > Android > AVD Yöneticisi'nde araç. Gelen **telefonlar** kategorisi, select **Nexus 5 X** tıklatıp **sonraki**.
+Android Studio bilgisayarınızı sanal bir Android cihazında ayarlamanıza olanak tanır. Hangi geliştirirken, uygulamanızı test etmek için yardımcı olabilir. Ayarlamak için bir sanal cihaz üst Android Virtual Device (AVD) Manager simgeye tıklayın, proje ekranınızın sağ. Ardından **sanal cihaz oluşturma** düğmesi. Manager da edinebilirsiniz **Araçlar > Android > AVD Manager** araç. Gelen **telefonlar** kategorisi, select **Nexus 5 X** tıklatıp **sonraki**.
 
 İçinde bir AVD ayarlama hakkında daha fazla bilgi [Android Studio belgeleri](https://developer.android.com/studio/run/managing-avds).
 
@@ -55,7 +55,7 @@ Android Studio bilgisayarınızı sanal bir Android cihazında ayarlamanıza ola
 
 Uygulamanızı oluşturmaya yönelik ileri taşımadan önce Azure haritalar Android SDK'sını yüklemek için aşağıdaki adımları izleyin. 
 
-1. Ekleyin **allprojects**, depoları engellenmesi, **build.gradle** dosya.
+1. Ekleyin **tüm projeleri**, depoları engellenmesi, **build.gradle** dosya.
 
     ```
     maven {
@@ -79,7 +79,7 @@ Uygulamanızı oluşturmaya yönelik ileri taşımadan önce Azure haritalar And
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. 'AndroidManifest.xml' ekleyerek izinleri ayarlama
+3. Aşağıdaki ekleyerek izinleri ayarlama, **AndroidManifest.xml**
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -90,7 +90,7 @@ Uygulamanızı oluşturmaya yönelik ileri taşımadan önce Azure haritalar And
     </manifest>
     ```
 
-4. Düzen **res > Düzen > activity_main.xml**, onu görünmesi aşağıdaki XML ister:
+4. Düzen **res > Düzen > activity_main.xml**, XML gibi görünür:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -187,7 +187,7 @@ Uygulamanızı oluşturmaya yönelik ileri taşımadan önce Azure haritalar And
 
 ## <a name="import-classes"></a>Sınıfları içeri aktarma
 
-Yukarıdaki adımları tamamladıktan sonra büyük olasılıkla uyarıları Android Studio bazı kod metni alırsınız. Bu, başvurulan sınıfların bazıları almak için sahip olacak işlemek için `MainActivity.java`.
+Yukarıdaki adımları tamamladıktan sonra büyük olasılıkla uyarıları Android Studio bazı kod metni alırsınız. Bu uyarıları gidermek için başvurulan sınıflarını içeri aktarmak `MainActivity.java`.
 
 Bu sınıfların tuşlarına basarak otomatik olarak içeri aktarabilirsiniz `Alt` + `Enter`(`Option` + `Return` Mac üzerinde). 
 

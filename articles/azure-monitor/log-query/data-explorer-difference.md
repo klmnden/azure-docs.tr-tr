@@ -1,6 +1,6 @@
 ---
 title: Azure İzleyici günlük sorgu dili farklılıkları | Microsoft Docs
-description: Azure İzleyici tarafından kullanılan veri Gezgini sorgu dili için başvuru bilgileri. Azure İzleyici belirli ek öğeler ve Azure izleyici günlüğü sorgularda desteklenmez öğeleri içerir.
+description: Azure İzleyici tarafından kullanılan Kusto sorgu dili için başvuru bilgileri. Azure İzleyici belirli ek öğeler ve Azure izleyici günlüğü sorgularda desteklenmez öğeleri içerir.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: bwren
-ms.openlocfilehash: 9c58796fa19ffb6d38582c809f7bb6ca948bd92c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1185f3f96fd39f168d138d7dbf66e7780884b1fa
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003645"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266739"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Azure İzleyici günlük sorgu dili farklılıkları
 
-Sırada [Azure İzleyici'de oturum](log-query-overview.md) üzerine kurulmuştur [Azure Veri Gezgini](/azure/data-explorer) ve kullandığı [aynı sorgu dilini](/azure/kusto/query), dil sürümü bazı farklar vardır. Bu makalede, Veri Gezgini'ni ve Azure İzleyici günlük sorguları için kullanılan sürümü için kullanılan dil sürümü arasındaki farkları öğeleri tanımlar.
+Sırada [Azure İzleyici'de oturum](log-query-overview.md) üzerine kurulmuştur [Azure Veri Gezgini](/azure/data-explorer) ndedir [Kusto sorgu dili](/azure/kusto/query), dil sürümü bazı farklılıkları vardır. Bu makalede, Veri Gezgini'ni ve Azure İzleyici günlük sorguları için kullanılan sürümü için kullanılan dil sürümü arasındaki farkları öğeleri tanımlar.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="data-explorer-elements-not-supported-in-azure-monitor"></a>Azure İzleyici'de desteklenmeyen veri Gezgini öğeleri
-Aşağıdaki bölümlerde, Azure İzleyici tarafından desteklenmeyen veri Gezgini sorgu dilinin öğelerini açıklar.
+## <a name="kql-elements-not-supported-in-azure-monitor"></a>Azure İzleyici'de desteklenmeyen KQL öğeleri
+Aşağıdaki bölümlerde, Azure İzleyici tarafından desteklenmeyen Kusto Sorgu dilinin öğelerini açıklar.
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Azure İzleyici'de desteklenmeyen ifadeler
 
@@ -64,4 +64,4 @@ Aşağıdaki işleçleri belirli Azure İzleyici özellikleri destekler ve Azure
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Başvurular farklı alma [kaynakları Azure İzleyici yazmak için oturum sorguları](query-language.md).
-- Tam erişim [başvuru belgeleri için Veri Gezgini'ni sorgu dili](/azure/kusto/query/).
+- Tam erişim [başvuru belgeleri Kusto sorgu dili için](/azure/kusto/query/).

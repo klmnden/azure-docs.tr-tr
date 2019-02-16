@@ -1,6 +1,6 @@
 ---
-title: Azure İzleyici Azure İzleyici günlük sorgu örnekleri | Microsoft Docs
-description: Azure İzleyici Veri Gezgini'ni kullanarak günlük sorgularda örnekleri sorgu dili.
+title: Azure İzleyici günlük sorgu örnekleri | Microsoft Docs
+description: Azure Kusto sorgu dilini kullanarak izleme günlüğünü sorgularda örnekleri.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c161a2fd8d1be670435d2b1a749749cea7d82bcf
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993206"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268456"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure İzleyici günlük sorgu örnekleri
-Bu makalede, çeşitli örneklerini içerir [sorguları](log-query-overview.md) kullanarak [Veri Gezgini sorgu dili](https://docs.microsoft.com/azure/kusto/query/) Azure İzleyici'den farklı türde günlük verileri alınamadı. Farklı yöntemleri, birleştirmek ve bu örnekleri kendi gereksinimleriniz için kullanabileceğiniz farklı stratejiler tanımlamak için kullanabileceğiniz şekilde, verileri analiz etmek için kullanılır.  
+Bu makalede, çeşitli örneklerini içerir [sorguları](log-query-overview.md) kullanarak [Kusto sorgu dili](/azure/kusto/query/) Azure İzleyici'den farklı türde günlük verileri alınamadı. Farklı yöntemleri, birleştirmek ve bu örnekleri kendi gereksinimleriniz için kullanabileceğiniz farklı stratejiler tanımlamak için kullanabileceğiniz şekilde, verileri analiz etmek için kullanılır.  
 
 Bkz: [Kusto dil başvurusu](https://docs.microsoft.com/azure/kusto/query/) Bu örneklerde kullanılan farklı anahtar sözcükler hakkında ayrıntılı bilgi için. Git aracılığıyla bir [sorguları oluşturma Ders](get-started-queries.md) Azure İzleyici yeniyseniz.
 

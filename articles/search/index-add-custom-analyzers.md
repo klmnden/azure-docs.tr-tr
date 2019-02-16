@@ -1,7 +1,7 @@
 ---
 title: Özel çözümleyiciler - Azure Search Ekle
 description: Metin oluşturma denenmeden ve Azure arama tam metin arama sorgularında kullanılan karakter filtreleri değiştirin.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,22 +19,24 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 150510ec09744b1350a93bde4e2a4dcb141867c0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 957c8033efc386d8e8cb13cbed921c597af4f11b
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008289"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302089"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Azure Search dizini için özel çözümleyiciler ekleme
 
-A *özel çözümleyici* simgeleştirici metin arama altyapısını işleme özelleştirmek için kullanılan isteğe bağlı filtreler ve kullanıcı tarafından belirtilen birleşimidir. Örneğin, ile özel bir çözümleyici oluşturabilirsiniz bir *char filtre* metin girişi simgeleştirilmiş önce HTML biçimlendirme kaldırmak için.
+A *özel çözümleyici* belirli bir tür [metin Çözümleyicisi](search-analyzers.md) bir kullanıcı tanımlı bir birleşimini mevcut simgeleştirici ve isteğe bağlı filtreler oluşur. Yeni yollarla oluşturma denenmeden ve filtreleri birleştirerek metin arama motoruna belirli sonuçlar elde etmek için işleme özelleştirebilirsiniz. Örneğin, ile özel bir çözümleyici oluşturabilirsiniz bir *char filtre* metin girişi simgeleştirilmiş önce HTML biçimlendirme kaldırmak için.
+
+ Filtreler birleşimi değiştirmek için birden çok özel çözümleyiciler tanımlayabilirsiniz, ancak her alanı yalnızca bir Çözümleyicisi çözümleme ve arama çözümleme için dizin oluşturma için kullanabilirsiniz. Bir müşteri Çözümleyicisi nasıl göründüğüne ilişkin bir çizim için bkz [özel çözümleyici örneği](search-analyzers.md#Example1).
 
 ## <a name="overview"></a>Genel Bakış
 
- Rolü bir [tam metin arama motoru](search-lucene-query-architecture.md), basit bir deyişle, belgeleri, etkili sorgulamayı ve alma sağlayan bir şekilde depolamak ve işlemek için olan. Yüksek bir düzeyde tüm belgeleri önemli sözcüklerin ayıklanması, bunları bir dizinde yerleştirme ve ardından belirli bir sorgu, sözcükleri eşleştirmeyi belgeleri bulmak için dizin kullanarak gelir. Belgeler ve arama sorgularından sözcükleri ayıklama işleminin sözcük analizi çağrılır. Sözcük temelli analiz bileşenleri Çözümleyicileri çağrılır.
+ Rolü bir [tam metin arama motoru](search-lucene-query-architecture.md), basit bir deyişle, belgeleri, etkili sorgulamayı ve alma sağlayan bir şekilde depolamak ve işlemek için olan. Yüksek bir düzeyde tüm belgeleri önemli sözcüklerin ayıklanması, bunları bir dizinde yerleştirme ve ardından belirli bir sorgu, sözcükleri eşleştirmeyi belgeleri bulmak için dizin kullanarak gelir. Belgeler ve arama sorgularından sözcükleri ayıklama işleminin adlı *sözcük analizi*. Sözcük temelli analiz bileşenleri çağrılır *Çözümleyicileri*.
 
- Azure Search'te bir dizi önceden tanımlanmış dil belirsiz Çözümleyicileri aralarından seçim yapabileceğiniz [Çözümleyicileri](#AnalyzerTable) listelenen tablo ve dil özel çözümleyiciler [dil Çözümleyicileri &#40;Azure arama hizmeti REST API'si&#41;](index-add-language-analyzers.md). Ayrıca kendi özel çözümleyiciler tanımlamak için bir seçeneğiniz de vardır.  
+ Azure Search'te bir dizi önceden tanımlanmış dilden Çözümleyicileri aralarından seçim yapabileceğiniz [Çözümleyicileri](#AnalyzerTable) tablo veya dile özel çözümleyiciler listelenen [dil Çözümleyicileri &#40;Azure arama hizmeti REST API'si&#41;](index-add-language-analyzers.md). Ayrıca kendi özel çözümleyiciler tanımlamak için bir seçeneğiniz de vardır.  
 
  Özel bir çözümleyici dizinlenebilir ve aranabilir belirteçlere metin dönüştürme işlemi denetime olanak sağlar. Önceden tanımlanmış tek bir belirteç Oluşturucu, bir veya daha fazla belirteç filtreleri ve bir veya daha fazla karakter filtre oluşan kullanıcı tanımlı bir yapılandırma var. Belirteç Oluşturucu simgeleri ve simgeleştirici tarafından yayınlanan belirteçleri değiştirmek için belirteç filtreler için metin parçalamak sorumludur. Char filtreleri simgeleştirici tarafından işlenmeden önce giriş metni hazırlamak için geçerlidir. Örneğin, char filtre belirli karakterler ve semboller değiştirebilirsiniz.
 
@@ -50,22 +52,13 @@ A *özel çözümleyici* simgeleştirici metin arama altyapısını işleme öze
 
 -   ASCII Katlama. Standart filtre Katlama Aksanları ö veya ê gibi arama terimlerini Normalleştirilecek ASCII ekleyin.  
 
- Filtreler birleşimi değiştirmek için birden çok özel çözümleyiciler tanımlayabilirsiniz, ancak her alanı yalnızca bir Çözümleyicisi çözümleme ve arama çözümleme için dizin oluşturma için kullanabilirsiniz.  
-
- Bu sayfa, desteklenen Çözümleyicileri, oluşturma denenmeden, belirteç filtreleri ve char filtreleri listesini sağlar. Dizin tanımını bir kullanım örneği ile yapılan değişikliklerin bir açıklaması da bulabilirsiniz. Azure Search uygulamasında kullanmalarını sağlayan temel teknoloji hakkında daha fazla bilgiler için bkz. [analiz paketi özeti (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). Çözümleyici yapılandırmaları örnekler için bkz [Azure Search'te çözümleyiciler > örnekler](https://docs.microsoft.com/azure/search/search-analyzers#examples).
-
-
-## <a name="default-analyzer"></a>Varsayılan Çözümleyicisi  
-
-Varsayılan olarak, Azure Search aranabilir alanları ile analiz [Apache Lucene standart Çözümleyicisi (standart lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) aşağıdaki öğelere metin sonu ["Unicode metin Segment"](https://unicode.org/reports/tr29/) kuralları. Ayrıca, standart Çözümleyicisi tüm karakterleri, küçük harf biçimine dönüştürür. Dizini oluşturulan belgeler hem arama terimlerini analiz dizin oluşturma ve sorgu işleme sırasında gidin.  
-
- Açıkça Bu alan tanımı içinde başka bir Çözümleyicisi ile geçersiz sürece her aranabilir alan üzerinde otomatik olarak kullanılır. Alternatif Çözümleyicileri, özel bir çözümleyici veya farklı bir önceden tanımlanmış Çözümleyicisi listesinde kullanılabilir olabilir [Çözümleyicileri](#AnalyzerTable) aşağıda.
+ Bu sayfa, desteklenen Çözümleyicileri, oluşturma denenmeden, belirteç filtreleri ve char filtreleri listesini sağlar. Dizin tanımını bir kullanım örneği ile yapılan değişikliklerin bir açıklaması da bulabilirsiniz. Azure Search uygulamasında kullanmalarını sağlayan temel teknoloji hakkında daha fazla bilgiler için bkz. [analiz paketi özeti (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). Çözümleyici yapılandırmaları örnekler için bkz [Azure Search'te çözümleyiciler ekleme](search-analyzers.md#examples).
 
 ## <a name="validation-rules"></a>Doğrulama kuralları  
  Çözümleyiciler, oluşturma denenmeden, belirteç filtreleri ve char filtreleri adları benzersiz olmalıdır ve önceden tanımlanmış Çözümleyicileri, oluşturma denenmeden, belirteç filtreleri veya char filtreleri herhangi biri ile aynı olamaz. Bkz: [Özellik Başvurusu](#PropertyReference) adları zaten kullanılıyor.
 
-## <a name="create-a-custom-analyzer"></a>Özel bir çözümleyici oluşturma
- Özel çözümleyiciler, dizin oluşturma sırasında tanımlayabilirsiniz. Özel bir çözümleyici belirtmek için sözdizimi, bu bölümde açıklanmıştır. Ayrıca sözdizimi ile örnek tanımlarını gözden geçirerek planladığınızdan [Azure Search'te çözümleyiciler](https://docs.microsoft.com/azure/search/search-analyzers#examples).  
+## <a name="create-custom-analyzers"></a>Özel çözümleyiciler oluşturma
+ Özel çözümleyiciler, dizin oluşturma sırasında tanımlayabilirsiniz. Özel bir çözümleyici belirtmek için sözdizimi, bu bölümde açıklanmıştır. Ayrıca sözdizimi ile örnek tanımlarını gözden geçirerek planladığınızdan [Azure Search'te çözümleyiciler ekleme](search-analyzers.md#examples).  
 
  Bir ad, bir tür, bir veya daha fazla karakter filtreleri, en fazla bir belirteç oluşturucu ve sonrası simgeleştirme işleme için bir veya daha fazla belirteç filtreleri Çözümleyicisi tanımı içerir. Char filtrelerin simgeleştirme önce uygulanır. Belirteç filtre ve karakter filtreleri soldan sağa uygulanır.
 
@@ -148,12 +141,13 @@ Varsayılan olarak, Azure Search aranabilir alanları ile analiz [Apache Lucene 
 Yalnızca özel seçenekleri ayarlıyorsanız, char filtreleri ve oluşturma denenmeden belirteci filtreleri için tanımları dizine eklenir. Bir var olan bir filtre veya belirteç Oluşturucu olarak kullanılacak-olduğundan, çözümleyici tanımı adı belirtin.
 
 <a name="Testing custom analyzers"></a>
-## <a name="test-a-custom-analyzer"></a>Özel bir çözümleyici test
+
+## <a name="test-custom-analyzers"></a>Test özel çözümleyiciler
 
 Kullanabileceğiniz **Testi Çözümleyicisi işlemi** içinde [REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) nasıl bir çözümleyici metin belirteçlere böler görmek için.
 
 **İstek**
-~~~~
+```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
     api-key: [admin key]
@@ -162,9 +156,9 @@ Kullanabileceğiniz **Testi Çözümleyicisi işlemi** içinde [REST API](https:
      "analyzer":"my_analyzer",
      "text": "Vis-à-vis means Opposite"
   }
-~~~~
+```
 **Yanıt**
-~~~~
+```
   {
     "tokens": [
       {
@@ -193,21 +187,21 @@ Kullanabileceğiniz **Testi Çözümleyicisi işlemi** içinde [REST API](https:
       }
     ]
   }
- ~~~~
+```
 
- ## <a name="update-a-custom-analyzer"></a>Özel bir çözümleyici güncelleştir
+ ## <a name="update-custom-analyzers"></a>Güncelleştirme özel çözümleyiciler
 
 Bir çözümleyici, bir belirteç Oluşturucu, bir belirteç filtre veya char filtre tanımlandıktan sonra değiştirilemez. Yeni bir tane varsa, yalnızca mevcut bir dizine eklenebilir `allowIndexDowntime` bayrağı ayarlandığında dizin güncelleştirme isteğinde true:
 
-~~~~
+```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
-~~~~
+```
 
 Bu işlem, dizin oluşturma ve sorgu isteklerin başarısız olmasına neden olan en az birkaç saniye boyunca dizininiz çevrimdışı alır. Birkaç dakika sonra güncelleştirilmiş ya da çok büyük dizinler için uzun dizinidir, ancak bu etkileri geçicidir ve sonuçta kendi çözmek için dizin performans ve yazma kullanılabilirliğini engelli olabilir.
 
  <a name="ReferenceIndexAttributes"></a>
 
-## <a name="index-attribute-reference"></a>Dizin öznitelik başvurusu
+## <a name="analyzer-reference"></a>Çözümleyici başvurusu
 
 Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filtreleri yapılandırma özellikleri listesi ve bir dizin tanımını filtre bölümüne karakter. Bu öznitelikler bir çözümleyici, belirteç oluşturucu veya filtre dizininizdeki yapısını oluşur. Değer atama için bilgi [Özellik Başvurusu](#PropertyReference).
 
@@ -289,7 +283,7 @@ Bu bölüm, özel Çözümleyici, tokenizer, char filtre veya belirteç filtre d
 |[Durdur](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopAnalyzer.html)|StopAnalyzer|Harf olmayan metin ayıran, küçük ve durma sözcüğü belirteci filtreler uygular.<br /><br /> **Seçenekler**<br /><br /> stopword (tür: dize dizisi)-stopword listesi. Önceden tanımlı bir listeye İngilizce için varsayılandır. |  
 |[Boşluk](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html)|(türü yalnızca seçenekleri kullanılabilir olduğunda geçerlidir) |Boşluk belirteç Oluşturucu kullanan bir çözümleyici. 255 karakterden uzun belirteçleri bölünür.|  
 
- <sup>1</sup> Çözümleyicisi türleri her zaman ön eki bulunur "#Microsoft.Azure.Search" ile koddaki "PatternAnalyzer" aslında "#Microsoft.Azure.Search.PatternAnalyzer" belirtilecek şekilde. Ön ek, kısaltma kaldırdık ancak önek, kodunuzda gereklidir. 
+ <sup>1</sup> Çözümleyicisi türleri her zaman ön eki bulunur "#Microsoft.Azure.Search" ile koddaki "PatternAnalyzer" aslında "#Microsoft.Azure.Search.PatternAnalyzer" belirtilecek şekilde. Uzatmamak için önek kaldırdık, ancak önek kodunuzda gereklidir. 
  
 Analyzer_type yalnızca özelleştirilebilir Çözümleyicileri için sağlanır. Anahtar sözcüğü Çözümleyicisi ile olduğu gibi hiçbir seçenek varsa ilişkili #Microsoft.Azure.Search türü yoktur.
 
@@ -390,5 +384,5 @@ Aşağıdaki tabloda, Apache Lucene kullanılarak uygulanan belirteç filtreleri
 
 ## <a name="see-also"></a>Ayrıca bkz.  
  [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Azure Search'te çözümleyiciler > örnekleri](https://docs.microsoft.com/azure/search/search-analyzers#examples)    
+ [Azure Search'te çözümleyiciler > örnekleri](search-analyzers.md#examples)    
  [Dizin oluşturma &#40;Azure arama hizmeti REST API'si&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

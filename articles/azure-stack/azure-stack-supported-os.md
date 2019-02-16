@@ -16,12 +16,12 @@ ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 8f53bbd65053fe9ac2bf49478944dc99dac3acfd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 67022b1d00c8982d7b6e6eff77ffb648bfc557ec
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247859"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301290"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack üzerinde desteklenen konuk işletim sistemleri
 
@@ -53,7 +53,7 @@ Datacenter Edition indirme Market; Müşteriler, diğer sürümleri dahil olmak 
 Linux dağıtımları kullanılabilir olarak Market'te listelenen gerekli Windows Azure Linux Aracısı (WALA) içerir. Azure Stack için kendi görüntünüzü getirin, yönergeleri izleyin. [ekleme Linux görüntüleri için Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Özel görüntüler, en son genel WALA sürüm ile oluşturulmalıdır. 2.2.18 eski sürümleri, Azure Stack üzerinde düzgün çalışmayabilir.
+> Özel görüntüler, en son genel WALA sürüm veya sürüm 2.2.20 ile oluşturulmalıdır. 2.2.20 2.2.35 (dışlamalı) arasında ve 2.2.20 daha eski sürümleri, Azure Stack üzerinde düzgün çalışmayabilir. 
 >
 > [cloud-init](https://cloud-init.io/) Azure Stack üzerinde şu anda desteklenmiyor.
 

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 50f6f114a4d90f48218f751e1649e8694e664491
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 02/13/2019
+ms.openlocfilehash: 748a9f4d7c2ec47a2ed9470789a4443bffdc0eba
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295755"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301749"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>SQL veritabanı etkin coğrafi çoğaltmayı kullanarak bulut uygulamaların yükseltmelerini yönetme
 
@@ -47,7 +47,7 @@ Hazırlık adımları tamamlandıktan sonra gerçek yükseltme için hazır bir 
 
 1. Birincil veritabanı salt okunur moda (3) ayarlayın. Bu mod, üretim yuvası (V1) web uygulamasının böylece V1 ve V2 veritabanı örnekleri arasında veri Geçitler önleme yükseltme sırasında salt okunur kalır garanti eder.  
 2. Planlanan sonlandırma modu (4) kullanarak ikincil veritabanı bağlantısını kesin. Birincil veritabanına eşitlenen tamamen bağımsız bir kopyasını oluşturun. Bu veritabanı yükseltilir.
-3. Birincil veritabanına okuma-yazma modunda açın ve yükseltme betiği (5) çalıştırın.
+3. İkincil veritabanı için okuma-yazma modunda açın ve yükseltme betiği (5) çalıştırın.
 
 ![SQL veritabanı coğrafi çoğaltma yapılandırması. Bulutta olağanüstü durum kurtarma.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
 

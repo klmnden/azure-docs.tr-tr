@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 1de12f2dd2e31c3f5413424793f3bf78fdc8ff27
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094538"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300270"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -41,7 +41,7 @@ Application Insights hizmetine depolar ve telemetriyi analiz eder. Analiz veya d
 
 Örneğin bir veritabanı veya harici araçlar Application Insights hizmetinden dışarı aktarılan verileri olabilir. Her aracı bir özel anahtarla hizmetten alacaktır sağlar. Gerekirse, anahtar iptal edilebilir. 
 
-Application Insights SDK'ları çeşitli uygulama türlerini için kullanılabilir: web hizmetleri kendi ASP.NET ya da J2EE sunucularınızda veya Azure; barındırılan diğer bir deyişle, bir web sayfasında çalışan kodu web istemcisi; Masaüstü uygulamaları ve Hizmetleri; cihaz uygulamaları Windows Phone, iOS ve Android gibi. Bunların tümü aynı hizmet telemetri gönderin.
+Application Insights SDK'ları çeşitli uygulama türlerini için kullanılabilir: web hizmetleri kendi Java EE veya ASP.NET sunucusu veya Azure; barındırılan diğer bir deyişle, bir web sayfasında çalışan kodu web istemcisi; Masaüstü uygulamaları ve Hizmetleri; cihaz uygulamaları Windows Phone, iOS ve Android gibi. Bunların tümü aynı hizmet telemetri gönderin.
 
 ## <a name="what-data-does-it-collect"></a>Hangi veri toplamayı?
 ### <a name="how-is-the-data-is-collected"></a>Verilerin nasıl olduğunu toplanır?
@@ -51,7 +51,7 @@ Application Insights SDK'ları çeşitli uygulama türlerini için kullanılabil
   
   * Her bir SDK çok sayıda sahiptir [modülleri](../../azure-monitor/app/configuration-with-applicationinsights-config.md), farklı tür telemetri toplamak için farklı teknikleri kullanın.
   * Geliştirme SDK'yı yüklerseniz, standart modüller yanı sıra kendi telemetrinizi göndermek için kendi API kullanabilirsiniz. Bu özel telemetri göndermek istediğiniz herhangi bir veri içerebilir.
-* Bazı web sunucuları, ayrıca yanı sıra uygulamayı çalıştırın ve CPU, bellek ve ağ doluluk hakkında telemetri gönderen aracıları vardır. Docker ana bilgisayarları, örneğin, Azure Vm'leri ve [J2EE sunucuları](../../azure-monitor/app/java-agent.md) böyle aracıları olabilir.
+* Bazı web sunucuları, ayrıca yanı sıra uygulamayı çalıştırın ve CPU, bellek ve ağ doluluk hakkında telemetri gönderen aracıları vardır. Docker ana bilgisayarları, örneğin, Azure Vm'leri ve [Java EE sunucuları](../../azure-monitor/app/java-agent.md) böyle aracıları olabilir.
 * [Kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md) işlemleri, istekleri web uygulamanıza düzenli aralıklarla göndermek Microsoft tarafından çalıştırılır. Sonuçlar Application Insights hizmetine gönderilir.
 
 ### <a name="what-kinds-of-data-are-collected"></a>Hangi tür verileri toplanır?
