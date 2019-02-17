@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d16214bf08b0e0b5a95acae380f8d644fc4461ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e2dc82ee49b240fe562f02b38c4991c644c010d3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213231"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334000"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Depolama: Yüksek Performans Tasarımı
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium Depolama: yüksek performans tasarımı
 
 Bu makalede, Azure Premium depolama kullanan yüksek performanslı uygulamalar oluşturmak için yönergeler sağlar. Performansı en iyi uygulamaları, uygulamanız tarafından kullanılan teknolojiler için geçerli bir araya geldiğinde bu belgede sağlanan yönergeleri kullanabilirsiniz. Yönergeler göstermek için bu belge boyunca örnek olarak Premium depolama üzerinde çalışan SQL Server kullandınız.
 
@@ -35,7 +35,7 @@ Premium depolama alanında çalışan iş yükleri yüksek performans duyarlı o
 > Bazen, bir disk performans sorunu görünüyor ne aslında bir ağ sorunu olabilir. Bu gibi durumlarda, iyileştirmek, [ağ performansı](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
 > Hızlandırılmış ağ, sanal Makinenizin destekliyorsa, etkin olduğundan emin olun. Etkinleştirilmezse, hem de zaten dağıtılmış vm'lerde etkinleştirebilirsiniz [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) ve [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Premium depolamaya bilginiz yoksa, başlamadan önce okumanız [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md) ve [Azure Storage ölçeklenebilirlik ve performans hedefleri](../articles/storage/common/storage-scalability-targets.md) makaleler.
+Premium depolamaya bilginiz yoksa, başlamadan önce okumanız [Iaas sanal makineleri için Azure disk türü seçin](../articles/virtual-machines/windows/disks-types.md) ve [Azure Storage ölçeklenebilirlik ve performans hedefleri](../articles/storage/common/storage-scalability-targets.md) makaleler.
 
 ## <a name="application-performance-indicators"></a>Uygulama performans göstergeleri
 
@@ -45,7 +45,7 @@ Premium depolama bağlamında yaygın performans göstergeleri Bu bölümde ele 
 
 ## <a name="iops"></a>IOPS
 
-IOPS sayısı, uygulamanızın depolama diskleri bir saniyede gönderdiği istekleri. Bir giriş/çıkış işlemi okunamadı veya sıralı veya rastgele yazma. Hemen birçok eş zamanlı kullanıcı isteği işlemek bir çevrimiçi satış Web sitesi gibi OLTP uygulamaları gerekir. Kullanıcı istekler INSERT ve update yoğun veritabanı işlemi, uygulamanın hızlı bir şekilde işlemesi gerekir. Bu nedenle, çok yüksek IOPS OLTP uygulamalar gerektirir. Bu tür uygulamalar milyonlarca küçük ve rastgele g/ç isteği işler. Bu tür bir uygulama varsa, uygulama altyapısı IOPS için en iyi duruma getirme tasarlamanız gerekir. Sonraki bölümde *uygulama performansını en iyi duruma getirme*, yüksek IOPS almak için dikkate almanız gereken tüm faktörlerin ayrıntılı olarak ele.
+IOPS veya giriş/çıkış işlem / saniye, uygulamanız için depolama diskleri bir saniyede gönderdiği isteklerin sayısıdır. Bir giriş/çıkış işlemi okunamadı veya sıralı veya rastgele yazma. Hemen birçok eş zamanlı kullanıcı isteği işlemek bir çevrimiçi satış Web sitesi gibi çevrimiçi işlem işleme (OLTP) uygulamaları gerekir. Kullanıcı istekler INSERT ve update yoğun veritabanı işlemi, uygulamanın hızlı bir şekilde işlemesi gerekir. Bu nedenle, çok yüksek IOPS OLTP uygulamalar gerektirir. Bu tür uygulamalar milyonlarca küçük ve rastgele g/ç isteği işler. Bu tür bir uygulama varsa, uygulama altyapısı IOPS için en iyi duruma getirme tasarlamanız gerekir. Sonraki bölümde *uygulama performansını en iyi duruma getirme*, yüksek IOPS almak için dikkate almanız gereken tüm faktörlerin ayrıntılı olarak ele.
 
 Ne zaman bir premium depolama disk, disk belirtimi uyarınca garantili bir IOPS sayısını Azure hükümlerinin, büyük ölçekli VM ekleyin. Örneğin, P50 disk 7500 IOPS sağlar. Her büyük ölçekli bir VM boyutu da sürdürmek belirli bir IOPS sınırı vardır. Örneğin, standart GS5 VM 80.000 IOPS sınırlama vardır.
 
@@ -53,13 +53,13 @@ Ne zaman bir premium depolama disk, disk belirtimi uyarınca garantili bir IOPS 
 
 Aktarım hızını veya bant genişliği için depolama diskleri belirli bir aralıktaki, uygulamanızın gönderdiği veri miktarıdır. Uygulamanızın büyük GÇ birim boyutları ile giriş/çıkış işlemi gerçekleştiriliyorsa, yüksek aktarım hızı gerektirir. Veri ambarı uygulamalarını teker teker büyük bölümlerinde veri erişim ve sık toplu işlemleri tarama yoğunluklu işlemlerdir sorun eğilimindedir. Diğer bir deyişle, bu tür uygulamalar daha yüksek işlem hacmi gerektiren. Bu tür bir uygulama varsa, aktarım hızını iyileştirmek için kendi altyapısını tasarlamanız gerekir. Sonraki bölümde ayrıntılı olarak bunu başarmanın ayarlamak gerekir faktörleri ele alır.
 
-Ne zaman bir premium depolama disk, disk belirtimi uyarınca Azure hükümlerinin aktarım hızı yüksek ölçeklendirme için VM ekleyin. Örneğin, P50 disk 250 MB, ikinci disk başına aktarım hızı sağlar. Her büyük ölçekli bir VM boyutu, karşılayabilir belirli aktarım hızı sınırı de vardır. Örneğin, standart GS5 VM, bir saniye başına 2.000 MB maksimum aktarım sahiptir. 
+Ne zaman bir yüksek ölçek VM, disk belirtimi uyarınca Azure hükümlerinin aktarım hızı için premium depolama diski ekleyin. Örneğin, P50 disk 250 MB disk aktarım hızı sağlar. Her büyük ölçekli bir VM boyutu, karşılayabilir belirli aktarım hızı sınırı de vardır. Örneğin, standart GS5 VM, bir saniye başına 2.000 MB maksimum aktarım sahiptir.
 
 Aktarım hızı ve IOPS formülde gösterilen şekilde arasında bir ilişki yoktur.
 
-![](media/premium-storage-performance/image1.png)
+![İlişki IOPS ve aktarım hızı](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
 
-Bu nedenle, uygulamanızın ihtiyaç duyduğu en iyi aktarım hızı ve IOPS değerlerini belirlemek önemlidir. Bir en iyi duruma getirmek çalışırken, diğeri de etkilenir. Bir sonraki bölümde *uygulama performansını en iyi duruma getirme*, IOPS ve aktarım hızını iyileştirme hakkında daha fazla ayrıntı biz ele alınacaktır.
+Bu nedenle, en iyi aktarım hızı ve uygulamanızın gerektirdiği IOPS değerlerini belirlemek önemlidir. Bir en iyi duruma getirmek çalışırken, diğeri de etkilenir. Bir sonraki bölümde *uygulama performansını en iyi duruma getirme*, IOPS ve aktarım hızını iyileştirme hakkında daha fazla ayrıntı biz ele alınacaktır.
 
 ## <a name="latency"></a>Gecikme süresi
 
@@ -67,23 +67,15 @@ Gecikme süresi uygulamanın tek bir istek alma, depolama diskleri gönderin ve 
 
 Uygulamanıza daha yüksek IOPS ve aktarım hızı alma iyileştirirken, uygulamanızın gecikme süresini etkiler. Uygulama performansı ayarlama sonra gecikme süresi yüksek oranda gecikme süreleri beklenmeyen davranışları önlemek için uygulamanın her zaman değerlendirin.
 
-Aşağıdaki denetim düzlemi işlemleri yönetilen diskler üzerindeki bir depolama konumundan diske hareketini gerektirebilir. Bu, genellikle 24 saatten az disklerde veri miktarına bağlı olarak birkaç saat sürebilir, veri arka plan kopyalama aracılığıyla yönetilir. Bu sırada bazı okuma konumuna yönlendirildi ve tamamlanması uzun sürebilir, uygulamanızın normal okuma gecikme süresi daha yüksek oluşabilir. Bu süre boyunca yazma gecikmesi üzerinde hiçbir etkisi yoktur.  
+# <a name="performance-application-checklist-for-disks"></a>Diskler için performans uygulama Denetim
 
-1.  [Güncelleştirme depolama türü](../articles/virtual-machines/windows/convert-disk-storage.md)
-2.  [Bir VM'den bir diski ekleme ve ayırma](../articles/virtual-machines/windows/attach-disk-ps.md)
-3.  [Bir VHD'den yönetilen Disk oluşturma](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
-4.  [Anlık görüntüden yönetilen Disk oluşturma](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
-5.  [Yönetilmeyen diskleri yönetilen disklere dönüştürme](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
+Azure Premium depolama üzerinde çalışan yüksek performanslı uygulamalar tasarlamanın ilk adımı, uygulamanızın performans gereksinimlerini anlamaktır. Performans gereksinimleri topladıktan sonra uygulamanızı en iyi performans elde etmek için en iyi duruma getirebilirsiniz.
 
-## <a name="gather-application-performance-requirements"></a>Uygulama Performans gereksinimlerini toplama
+Önceki bölümde, yaygın performans göstergeleri, IOPS, aktarım hızı ve gecikme süresi açıklanmıştır. Bu performans göstergelerinin uygulamanızı istenen kullanıcı deneyimini sunmak için kritik olan belirlemeniz gerekir. Örneğin, yüksek IOPS, saniyede milyonlarca işlem işleme OLTP uygulamaları için en önemlidir. Oysa yüksek aktarım hızı yüksek miktarda verilerden oluşan bir saniye içinde işleme veri ambarı uygulamaları için önemlidir. Son derece düşük gecikme süresi, Web siteleri akış canlı video gibi gerçek zamanlı uygulamalar için önemlidir.
 
-Azure Premium depolama alanında çalışan yüksek performanslı uygulamalar tasarlamanın ilk adımı, uygulamanızın performans gereksinimlerini öğrenmektir. Performans gereksinimleri topladıktan sonra uygulamanızı en iyi performans elde etmek için en iyi duruma getirebilirsiniz.
+Ardından, uygulamanızı ömrü boyunca en yüksek performans gereksinimlerini ölçer. Aşağıdaki örnek denetim listesini bir başlangıç kullanın. Normal sırasında en yüksek performans gereksinimleri, yoğun ve yoğun olmayan saatlerde iş yükü nokta kaydedin. Tüm iş yükleri düzeyleri için gereksinimleri belirleme, uygulamanızın genel performansını gereksinim belirlemek mümkün olacaktır. Örneğin, bir e-ticaret sitesi normal iş yükünü yıllık çoğu günlerde hizmet işlemleri olacaktır. Web sitesinin en yoğun iş yükü, mağazalarımızdaki ürünler veya özel satış olayları sırasında hizmet işlemleri olacaktır. En yoğun iş yükü için sınırlı bir süre genellikle deneyimli olduğu halde normal işleyişi iki veya daha fazla kez ölçeklendirmek için uygulamanızı gerektirebilir. 50. yüzdebirlik, 90. yüzdebirlik ve 99. yüzdebirlik gereksinimleri öğrenin. Bu performans gereksinimleri herhangi bir aykırı değer filtrelemek yardımcı olur ve çalışmalarınızı doğru değerleri için en iyi duruma getirme üzerinde odaklanabilirsiniz.
 
-Önceki bölümde, biz ortak performans göstergeleri, IOPS, üretilen işi ve gecikme süresi açıklanmıştır. Bu performans göstergelerinin uygulamanızı istenen kullanıcı deneyimini sunmak için kritik olan belirlemeniz gerekir. Örneğin, yüksek IOPS, saniyede milyonlarca işlem işleme OLTP uygulamaları için en önemlidir. Oysa yüksek aktarım hızı yüksek miktarda verilerden oluşan bir saniye içinde işleme veri ambarı uygulamaları için önemlidir. Son derece düşük gecikme süresi, Web siteleri akış canlı video gibi gerçek zamanlı uygulamalar için önemlidir.
-
-Ardından, uygulamanızı ömrü boyunca en yüksek performans gereksinimlerini ölçer. Aşağıdaki örnek denetim listesini bir başlangıç kullanın. Normal sırasında en yüksek performans gereksinimleri, yoğun olan ve yoğun olmayan saatlerde iş yükü nokta kaydedin. Tüm iş yükleri düzeyleri için gereksinimleri belirleme, uygulamanızın genel performansını gereksinim belirlemek mümkün olacaktır. Örneğin, bir e-ticaret sitesi normal iş yükünü yıllık çoğu günlerde hizmet işlemleri olacaktır. Web sitesinin en yoğun iş yükü, mağazalarımızdaki ürünler veya özel satış olayları sırasında hizmet işlemleri olacaktır. En yoğun iş yükü için sınırlı bir süre genellikle deneyimli olduğu halde normal işleyişi iki veya daha fazla kez ölçeklendirmek için uygulamanızı gerektirebilir. 50. yüzdebirlik, 90. yüzdebirlik ve 99. yüzdebirlik gereksinimleri öğrenin. Bu performans gereksinimleri herhangi bir aykırı değer filtrelemek yardımcı olur ve çalışmalarınızı doğru değerleri için en iyi duruma getirme üzerinde odaklanabilirsiniz.
-
-### <a name="application-performance-requirements-checklist"></a>Uygulama performans gereksinimleri denetim listesi
+## <a name="application-performance-requirements-checklist"></a>Uygulama performans gereksinimleri denetim listesi
 
 | **Performans gereksinimleri** | **50. yüzdebirlik** | **90. yüzdebirlik** | **99. yüzdebirlik** |
 | --- | --- | --- | --- |
@@ -106,9 +98,7 @@ Ardından, uygulamanızı ömrü boyunca en yüksek performans gereksinimlerini 
 > [!NOTE]
 > Bu sayı, uygulamanızın beklenen gelecekteki büyümenin üzerinde temel ölçeklendirme dikkate almanız gerekir. Daha sonra performansı artırmak için altyapıyı değiştirmek zorunda zor olabileceğinden büyüme önceden planlamak için iyi bir fikirdir.
 
-Var olan bir uygulamanız varsa ve Premium depolama birimine taşımak istiyorsanız öncelikle var olan uygulama için yukarıda bir denetim listesi oluşturun. Ardından, Premium depolama, uygulamanızın bir prototip oluşturun ve açıklanan yönergeleri göre tasarlayın *uygulama performansını en iyi duruma getirme* bu belgenin sonraki bir bölümde bulunan. Sonraki bölümde, performans ölçümleri toplamak için kullanabileceğiniz araçları açıklar.
-
-Mevcut uygulamanızı prototip için benzer bir denetim listesi oluşturun. Benchmarking araçlarını kullanarak iş yüklerini benzetimini yapmak ve prototip uygulama performansına ölçen. Bölümüne [Benchmarking](#benchmarking) daha fazla bilgi için. Premium depolama veya eşleşen uygulama performans gereksinimlerinizi aşan belirlemek için yaparak. Ardından, bir üretim uygulamanız için aynı yönergeler uygulayabilirsiniz.
+Var olan bir uygulamanız varsa ve Premium depolama birimine taşımak istiyorsanız öncelikle var olan uygulama için yukarıda bir denetim listesi oluşturun. Ardından, Premium depolama, uygulamanızın bir prototip oluşturun ve açıklanan yönergeleri göre tasarlayın *uygulama performansını en iyi duruma getirme* bu belgenin sonraki bir bölümde bulunan. Sonraki makalede, performans ölçümleri toplamak için kullanabileceğiniz araçları açıklar.
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>Uygulama performans gereksinimleri ölçmek için sayaç
 
@@ -129,13 +119,15 @@ PerfMon sayaçları işlemci, bellek ve her mantıksal disk ve sunucunuzun fizik
 
 Daha fazla bilgi edinin [iostat](https://linux.die.net/man/1/iostat) ve [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
-## <a name="optimizing-application-performance"></a>Uygulama performansını iyileştirme
+
+
+## <a name="optimize-application-performance"></a>Uygulama performansını iyileştirin
 
 Premium depolama alanında çalışan bir uygulamanın performansı etkileyen ana faktörler yapısı, GÇ, VM boyutunu, Disk boyutu, disk sayısı, Disk önbelleğe alma, çoklu iş parçacığı kullanımı ve sıra derinliğini isteklerdir. Bu etkenler bazıları, sistem tarafından sağlanan düğmelerini ile denetleyebilirsiniz. Çoğu uygulama GÇ boyutu ve sıra derinliğini doğrudan değiştirmek için bir seçenek vermeyebilir. Örneğin, SQL Server kullanıyorsanız, g/ç boyutu ve sıra derinliği seçemezsiniz. SQL Server çoğu performansı elde etmek için en iyi g/ç boyutu ve sıra derinliği değerleri seçer. Performans gereksinimlerini karşılamak için uygun kaynakların sağlayabilmeniz Etkenler her iki tür, uygulama performansı üzerindeki etkisini anlamak önemlidir.
 
 Bu bölümde, uygulama performansınızı en iyi duruma getirmek ne kadar gerektiğini belirlemek için oluşturduğunuz uygulama gereksinimleri denetim listesine bakın. Üzerinde bağlı olarak ayarlamak gerekir, bu bölümdeki hangi faktörlerin belirlemek mümkün olacaktır. Her faktör, uygulama performansı üzerindeki etkisini Tanık için uygulama kurulumunuzu Kıyaslama Araçları'nı çalıştırın. Başvurmak [Benchmarking](#Benchmarking) ortak Kıyaslama araçları, Windows ve Linux Vm'leri çalıştırma adımları için bu makalenin sonunda bölüm.
 
-### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>IOPS, üretilen işi ve gecikme süresi bir bakışta en iyi duruma getirme
+### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>IOPS, üretilen işi ve gecikme süresi bir bakışta en iyi duruma getirme
 
 Aşağıdaki tabloda, performans etmenleri ve IOPS, aktarım hızı ve gecikme süresini iyileştirmek için gereken adımları özetler. Bu Özet aşağıdaki bölümler her anlatmaktadır çok daha ayrıntılı bir faktördür.
 
@@ -298,6 +290,46 @@ Varsayılan olarak, işletim sistemi diskleri etkin okuma/yazma önbelleği sahi
 1. Yapılandırma "None" premium depolama disklerini günlük dosyalarını barındıran önbellek.  
    a.  Günlük dosyaları, öncelikli olarak yazma yoğunluklu operations sahiptir. Bu nedenle, bunlar salt okunur önbellekten yarar görmez.
 
+### <a name="optimize-performance-on-linux-vms"></a>Linux vm'lerinde performansını iyileştirme
+
+Tüm premium SSD veya ayarlamak önbellek ultra disklerle **salt okunur** veya **hiçbiri**, dosya sistemi bağladığınızda "engelleri" devre dışı bırakmanız gerekir. Premium depolama disklerini yazma işlemleri için bu önbellek ayarlarını dayanıklı olduğundan bu senaryoda engelleri gerekmez. Yazma isteği başarıyla tamamlandığında, kalıcı depoya veri yazıldı. "Engelleri" devre dışı bırakmak için aşağıdaki yöntemlerden birini kullanın. Dosya sistemi için bir tane seçin:
+  
+* İçin **reiserFS**engelleri devre dışı bırakmak, kullanmak için `barrier=none` bağlama seçeneği. (Engellerini etkinleştirmek için `barrier=flush`.)
+* İçin **ext3/ext4**engelleri devre dışı bırakmak, kullanmak için `barrier=0` bağlama seçeneği. (Engellerini etkinleştirmek için `barrier=1`.)
+* İçin **XFS**engelleri devre dışı bırakmak, kullanmak için `nobarrier` bağlama seçeneği. (Engellerini etkinleştirmek için `barrier`.)
+* Önbellek ile diskler için Premium depolama kümesine **ReadWrite**, engelleri yazma dayanıklılık için etkinleştirin.
+* Birim etiketleri VM yeniden başlatıldıktan sonra kalıcı olması diskleri evrensel benzersiz tanımlayıcı (UUID) başvurular /etc/fstab güncelleştirmeniz gerekir. Daha fazla bilgi için [bir Linux VM'ye yönetilen disk ekleme](../articles/virtual-machines/linux/add-disk.md).
+
+Aşağıdaki Linux dağıtımları için premium SSD doğrulandı. Daha iyi performans ve kararlılık premium SSD ile sanal makinelerinizin birine bu sürümleri veya daha sonra yükseltmenizi öneririz. 
+
+Bazı sürümleri, Azure için en son Linux Integration Services (LIS), v4.0, gerektirir. İndirmek ve bir dağıtım yüklemek için aşağıdaki tabloda listelenen bağlantı izleyin. Biz doğrulama tamamlandı olarak listeye görüntüleri ekleriz. Bizim doğrulamaları, performans için her görüntü değiştiğini gösterir. Performans, iş yükü özelliklerine ve görüntü ayarlarınızı bağlıdır. Farklı görüntüleri farklı türde iş yükleri için ayarlanmıştır.
+
+| Dağıtım | Sürüm | Desteklenen bir çekirdek | Ayrıntılar |
+| --- | --- | --- | --- |
+| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12| 3.12.36-38.1+| SuSE-sles-12-öncelik-v20150213 <br> sles 12 v20150213 SuSE |
+| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [Gerekli LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Sonraki bölümde nota bakın* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [Önerilen LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Sonraki bölümde nota bakın* |
+| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
+| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 veya RHCK |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 veya çakışabilmektedir RHCK[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 veya çakışabilmektedir RHCK[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+
+## <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS LIS sürücüleri
+
+OpenLogic CentOS sanal makineleri çalıştırıyorsanız, en son sürücüleri yüklemek için aşağıdaki komutu çalıştırın:
+
+```
+sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum install microsoft-hyper-v
+```
+
+Yeni sürücülerin etkinleştirmek için VM'yi yeniden başlatın.
+
 ## <a name="disk-striping"></a>Disk şeridi oluşturma
 
 Premium depolama kalıcı diski ile VM'ye yüksek ölçek, diskleri birlikte, IOPS, bant genişliği ve depolama kapasitesi toplamak için Şerit.
@@ -363,249 +395,11 @@ Yüksek bir değer, ancak uygulama için yeterli IOPS gecikmeleri etkilemeden su
 
 Azure Premium depolama hükümlerinin IOPS ve aktarım hızı sayısı VM boyutları ve seçtiğiniz disk boyutları bağlı olarak belirtilen. IOPS veya aktarım hızı ne VM veya disk başa çıkabilir, bu sınırların üzerinde sürücü uygulamanız çalıştığında zaman, Premium depolama, kısıtlama. Bu, uygulamanızdaki performans biçiminde bildirimleri. Bu daha yüksek gecikme süresi anlamına gelir, daha düşük aktarım hızı veya IOPS azaltın. Premium depolama azaltma değil, uygulamanızı tamamen kaynaklarını elde edin özellikli nelerdir aşılan başarısız olabilir. Bu nedenle, kısıtlama nedeniyle performans sorunlarından kaçınmak için her zaman uygulamanız için yeterli kaynakları sağlayın. VM boyutları ve Disk boyutları bölümlerde yukarıdaki ne Bahsettiğimiz dikkate alın. Değerlendirmesi, uygulamanızı barındırmak için ihtiyacınız olacak hangi kaynaklara anlamak için en iyi bir yoludur.
 
-## <a name="benchmarking"></a>Değerlendirmesi
+## <a name="next-steps"></a>Sonraki adımlar
 
-Değerlendirmesi, uygulamanızdaki farklı iş yükleri benzetimi ve her iş yükü için uygulama performansını ölçme işlemidir. Bir önceki bölümde açıklanan adımları kullanarak, uygulama performans gereksinimleri aldınız. Uygulama barındırma Vm'lerde Kıyaslama Araçlar çalıştırarak uygulamanızı Premium depolama ile ulaşabilir performans düzeylerini belirleyebilirsiniz. Bu bölümde, Azure Premium depolama diskleri ile sağlanan standart DS14 VM değerlendirmesi örnekleri sunuyoruz.
+Kullanılabilir disk türleri hakkında daha fazla bilgi edinin:
 
-Ortak Kıyaslama araçları Iometer ve FIO, Windows ve Linux için sırasıyla kullandık. Bu araçlar, bir üretim iş yükü gibi benzetimi birden çok iş parçacığı oluşturma ve sistem performansına ölçen. Araçları kullanarak, bir uygulama için normalde değiştiremezsiniz blok boyutu ve sıra derinliğini gibi parametreleri de yapılandırabilirsiniz. Bu, farklı uygulama iş yükleri için premium disklere sahip VM'de yüksek ölçekte en yüksek performansı sürücü daha fazla esneklik sağlar. Ziyaret Kıyaslama her araç hakkında daha fazla bilgi edinmek için [Iometer](http://www.iometer.org/) ve [FIO](http://freecode.com/projects/fio).
-
-Aşağıdaki örneklerde takip etmek için standart DS14 VM oluşturma ve 11 Premium depolama diskleri VM'e ekleyin. 11 disklerin "None" önbelleğe alma konakla 10 diskleri yapılandırın ve bunları NoCacheWrites adlı bir birime stripe. "Salt okunur olarak" kalan disk üzerinde önbelleğe alma konak yapılandırın ve bu diskle CacheReads adlı bir birim oluşturun. Bu ayarı kullanarak, bir standart DS14 VM'den en yüksek okuma ve yazma performansını görmek mümkün olacaktır. Premium diskler sayesinde DS14 VM oluşturma ile ilgili ayrıntılı adımlar için Git [oluşturma ve bir Premium depolama hesabı için sanal makine veri diski kullanma](../articles/virtual-machines/windows/premium-storage.md).
-
-*Önbelleği hazırlanıyor*  
-Salt okunur konak önbelleği disk disk sınırdan daha yüksek IOPS vermek mümkün olacaktır. Öncelikle bu en yüksek okuma performansı ana bilgisayar önbelleğe almak için bu disk önbelleği sıcak gerekir. Bu, hangi Kıyaslama aracı CacheReads birimde artıracak okuma IOs gerçekten önbellek ve diskin değil doğrudan ulaştığını sağlar. Önbellek isabet sayısı sonucu tek önbellekten ek IOPS disk etkin.
-
-> **Önemli:**  
-> VM her yeniden değerlendirmesi, çalıştırmadan önce önbelleği sıcak gerekir.
-
-#### <a name="iometer"></a>Iometer
-
-[Iometer Aracı'nı indirme](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) VM üzerinde.
-
-*Test dosyası*  
-Iometer Kıyaslama test çalıştırılacağı biriminde depolanan bir test dosyası kullanır. Okuma sürücü ve disk ölçmek için bu test dosyası üzerinde IOPS ve aktarım hızı yazar. Bir sağlamadınız Iometer bu test dosyası oluşturur. İobw.tst CacheReads ve NoCacheWrites birimlere adlı bir 200 GB test dosyası oluşturun.
-
-*Erişim belirtimleri*  
-Belirtimleri isteği % okuma/yazma g/ç boyutu, % rastgele/sıralı yapılandırılmış Iometer içinde "Access belirtimleri" sekmesini kullanarak. Aşağıda açıklanan senaryoların her biri için bir erişim belirtimini oluşturun. Erişim belirtimleri oluşturun ve "Kaydet" uygun bir ad gibi – RandomWrites\_8K, RandomReads\_8 K. Test senaryosu çalıştırırken karşılık gelen belirtimi seçin.
-
-Maksimum IOPS, yazma senaryosu için erişim belirtimleri örneği aşağıda gösterilmiştir,  
-    ![](media/premium-storage-performance/image8.png)
-
-*Maksimum IOPS Test özellikleri*  
-Maksimum IOPS göstermek için daha küçük istek boyutu kullanın. 8 K istek boyutu ve rastgele yazma ve okuma özellikleri oluşturun.
-
-| Erişim belirtimi | İstek boyutu | Rastgele % | Okuma % |
-| --- | --- | --- | --- |
-| RandomWrites\_8 K |8K |100 |0 |
-| RandomReads\_8 K |8K |100 |100 |
-
-*En fazla aktarım hızı testi belirtimleri*  
-En yüksek aktarım göstermek için istek boyutu daha büyük kullanın. 64 K istek boyutu ve rastgele yazma ve okuma özellikleri oluşturun.
-
-| Erişim belirtimi | İstek boyutu | Rastgele % | Okuma % |
-| --- | --- | --- | --- |
-| RandomWrites\_64 K |64K |100 |0 |
-| RandomReads\_64 K |64K |100 |100 |
-
-*Iometer testi çalıştırma*  
-Önbelleği sıcak için aşağıdaki adımları gerçekleştirin
-
-1. Aşağıda gösterilen değerlerle iki erişim belirtimleri oluşturun
-
-   | Ad | İstek boyutu | Rastgele % | Okuma % |
-   | --- | --- | --- | --- |
-   | RandomWrites\_1 MB |1MB |100 |0 |
-   | RandomReads\_1 MB |1MB |100 |100 |
-1. Aşağıdaki parametrelerle önbellek diski başlatma için Iometer testi çalıştırın. Hedef birim ve 128 sıra derinliği için üç çalışan iş parçacıkları kullanın. Test "çalışma zamanı" süresini 2hrs için "Test" Kurulum"sekmesinde belirleyin.
-
-   | Senaryo | Hedef birim | Ad | Süre |
-   | --- | --- | --- | --- |
-   | Önbellek diski başlatın |CacheReads |RandomWrites\_1 MB |2hrs |
-1. Önbellek diski aşağıdaki parametrelerle hazırlanıyor için Iometer testi çalıştırın. Hedef birim ve 128 sıra derinliği için üç çalışan iş parçacıkları kullanın. Test "çalışma zamanı" süresini 2hrs için "Test" Kurulum"sekmesinde belirleyin.
-
-   | Senaryo | Hedef birim | Ad | Süre |
-   | --- | --- | --- | --- |
-   | Önbellek diski ısınıyor |CacheReads |RandomReads\_1 MB |2hrs |
-
-Önbellek diski warmed sonra aşağıda listelenen test senaryoları ile devam edin. Iometer testi çalıştırmak için en az üç çalışan iş parçacıkları için kullanın. **her** hedef birim. Her iş parçacığı için hedef birimi seçin, sıra derinliğini ayarlayın ve karşılık gelen test senaryosu çalıştırmak için aşağıdaki tabloda gösterildiği gibi kaydedilmiş test belirtimleri birini seçin. Tabloda ayrıca beklenen sonuçları IOPS ve aktarım hızı için bu testleri çalıştırırken gösterir. Tüm senaryolar için 8 KB'lık bir küçük g/ç boyutu ve 128 yüksek sıra derinliğini kullanılır.
-
-| Test senaryosu | Hedef birim | Ad | Sonuç |
-| --- | --- | --- | --- |
-| En çok, Okuma IOPS |CacheReads |RandomWrites\_8 K |50.000 IOPS |
-| En çok, Yazma IOPS |NoCacheWrites |RandomReads\_8 K |64.000 IOPS |
-| En çok, Toplam IOPS |CacheReads |RandomWrites\_8 K |100.000 IOPS |
-| NoCacheWrites |RandomReads\_8 K | &nbsp; | &nbsp; |
-| En çok, Okuma MB/sn |CacheReads |RandomWrites\_64 K |524 MB/sn |
-| En çok, Yazma MB/sn |NoCacheWrites |RandomReads\_64 K |524 MB/sn |
-| Birleşik MB/sn |CacheReads |RandomWrites\_64 K |1000 MB/sn |
-| NoCacheWrites |RandomReads\_64 K | &nbsp; | &nbsp; |
-
-Iometer ekran görüntüleri için toplam IOPS ve aktarım hızı senaryoları test sonuçları aşağıda verilmiştir.
-
-*Birleşik okuma ve yazma işlemleri maksimum IOPS*  
-![](media/premium-storage-performance/image9.png)
-
-*Birleşik okuma ve yazma işlemleri, en fazla aktarım hızı*  
-![](media/premium-storage-performance/image10.png)
-
-### <a name="fio"></a>FIO
-
-FIO Linux vm'lerinde Kıyaslama depolama için popüler bir araçtır. Bu farklı GÇ boyutları, sıralı seçmek için esneklik veya rastgele okuma ve yazma. Çalışan iş parçacıkları veya belirtilen g/ç işlemleri gerçekleştirmek için işlemleri olarak çoğaltılır. Her iş parçacığı proje dosyalarını kullanarak gerçekleştirmelidir g/ç işlemleri türünü belirtebilirsiniz. Aşağıdaki örneklerde gösterildiği senaryo başına bir proje dosyası oluşturduk. Premium depolama alanında çalışan farklı iş yüklerini karşılaştırılmasıdır bu proje dosyalarındaki belirtimleri değiştirebilirsiniz. Örneklerde standart DS 14 sanal makine çalıştırma kullanıyoruz **Ubuntu**. Başında açıklanan aynı kurulumunda [bölümü değerlendirmesi](#Benchmarking) ve Kıyaslama testleri çalıştırmadan önce önbellek ısınıyor.
-
-Başlamadan önce [FIO indirme](https://github.com/axboe/fio) ve sanal makinenize yükleyin.
-
-Ubuntu için aşağıdaki komutu çalıştırın
-
-```
-apt-get install fio
-```
-
-Yazma işlemleri kullanımını dört çalışan iş parçacıkları ve dört çalışan iş parçacıkları disklerde sürüş okuma işlemleri için kullanacağız. Yazma çalışanlar, önbellek "Yok" olarak ayarlanmış olan 10 diskler olduğu "nocache" birim trafiği yönlendiren. Okuma çalışanlar, sahip 1 diski önbellek kümesi "Salt okunur" "readcache" birim trafiği yönlendiren.
-
-*Maksimum yazma IOPS*  
-Maksimum yazma IOPS almak için aşağıdaki özelliklerle iş dosyasını oluşturun. "Fiowrite.ini" olarak adlandırın.
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=256
-ioengine=libaio
-bs=8k
-
-[writer1]
-rw=randwrite
-directory=/mnt/nocache
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-```
-
-Önceki bölümlerde ele alınan tasarım ilkelerine uygun olarak izleme önemli şey unutmayın. Bu belirtimler maksimum IOPS desteklemek üzere gerekli olan,  
-
-* 256 yüksek sıra derinliği.  
-* 8 KB'lık bir küçük blok boyutu.  
-* Birden çok iş parçacığı rastgele yazma işlemlerini gerçekleştirme.
-
-30 saniye için FIO test hız kazandırın için aşağıdaki komutu çalıştırın,  
-
-```
-sudo fio --runtime 30 fiowrite.ini
-```
-
-Test çalışırken, sayısını, VM IOPS yazma ve Premium diskleri teslim görmek mümkün olacaktır. Aşağıdaki örnekte gösterildiği gibi maksimum, yazma IOPS sınırı 50.000 IOPS DS14 VM sağlıyor.  
-    ![](media/premium-storage-performance/image11.png)
-
-*En yüksek okuma IOPS*  
-Proje dosyası, maksimum okuma IOPS almak için aşağıdaki özelliklerle oluşturun. "Fioread.ini" olarak adlandırın.
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=256
-ioengine=libaio
-bs=8k
-
-[reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
-```
-
-Önceki bölümlerde ele alınan tasarım ilkelerine uygun olarak izleme önemli şey unutmayın. Bu belirtimler maksimum IOPS desteklemek üzere gerekli olan,
-
-* 256 yüksek sıra derinliği.  
-* 8 KB'lık bir küçük blok boyutu.  
-* Birden çok iş parçacığı rastgele yazma işlemlerini gerçekleştirme.
-
-30 saniye için FIO test hız kazandırın için aşağıdaki komutu çalıştırın,
-
-```
-sudo fio --runtime 30 fioread.ini
-```
-
-Test çalışırken, VM okuma IOPS sayısı ve Premium diskleri teslim görmek mümkün olacaktır. Aşağıdaki örnekte gösterildiği gibi birden fazla 64.000 okuma IOPS DS14 VM sağlıyor. Disk ve önbellek performansı budur.  
-    ![](media/premium-storage-performance/image12.png)
-
-*En yüksek okuma ve yazma IOPS*  
-Şunlarla birlikte proje dosyasını oluşturmak en fazla almak için özellikleri birleştirilmiş okuma ve yazma IOPS. "Fioreadwrite.ini" olarak adlandırın.
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=128
-ioengine=libaio
-bs=4k
-
-[reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
-
-[writer1]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-```
-
-Önceki bölümlerde ele alınan tasarım ilkelerine uygun olarak izleme önemli şey unutmayın. Bu belirtimler maksimum IOPS desteklemek üzere gerekli olan,
-
-* Yüksek sıra derinliğini 128.  
-* 4KB'lık bir küçük blok boyutu.  
-* Birden çok iş parçacığı rastgele gerçekleştirme okur ve yazar.
-
-30 saniye için FIO test hız kazandırın için aşağıdaki komutu çalıştırın,
-
-```
-sudo fio --runtime 30 fioreadwrite.ini
-```
-
-Test çalışırken, birleşik okuma sayısı görebilir ve IOPS yazmak VM olacak ve Premium diskler sunma. Aşağıdaki örnekte gösterildiği gibi DS14 VM 100. 000'den fazla birleştirilmiş okuma ve yazma IOPS sağlıyor. Disk ve önbellek performansı budur.  
-    ![](media/premium-storage-performance/image13.png)
-
-*En fazla aktarım hızı birleştirilmiş*  
-Okuma ve yazma aktarım hızı üst sınırı almak için birleştirilmiş, daha büyük blok boyutu ve büyük sıra derinliğini okuma ve yazma işlemleri gerçekleştiren birden çok iş parçacığı ile kullanın. Bir blok boyutu 64 KB'ın ve 128 sıra derinliğini kullanabilirsiniz.
-
-## <a name="next-steps"></a>Sonraki Adımlar
-
-Azure Premium depolama hakkında daha fazla bilgi edinin:
-
-* [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../articles/virtual-machines/windows/premium-storage.md)  
+* [Bir disk türü seçin](../articles/virtual-machines/windows/disks-types.md)  
 
 SQL Server kullanıcıları için SQL Server için en iyi performans uygulamaları makalelerini okuyun:
 

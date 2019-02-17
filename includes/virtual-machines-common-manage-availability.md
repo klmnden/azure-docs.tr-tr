@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084064"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334053"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM Yeniden Başlatma İşlemlerini Anlama - bakım ve kapalı kalma süresi
 Sanal makine azure'da etkilenmesine neden olabilecek üç senaryo vardır: plansız Donanım bakımı, beklenmeyen kapalı kalma süresi ve planlı Bakım.
@@ -41,7 +41,7 @@ Bu olayların bir veya daha fazlası nedeniyle kapalı kalma süresinin etkisini
 Uygulamanıza yedeklilik sağlamak için bir kullanılabilirlik kümesinde iki veya daha fazla sanal makinenin gruplandırılması önerilir. Bu yapılandırma bir veri merkezinde ya da bir planlı veya Plansız bakım olayı sırasında en az bir sanal makine kullanılabilir olduğundan ve % 99,95 oranında karşıladığından emin sağlar Azure SLA'sı. Daha fazla bilgi için bkz. [Sanal Makineler için SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Tek örnekli bir sanal makineyi bir kullanılabilirlik kümesinde tek başına bırakmaktan kaçının. Bu yapılandırmadaki sanal makineler SLA garantisine uygun değildir ve tek bir VM’nin [Azure Premium Depolama](../articles/virtual-machines/windows/premium-storage.md) kullandığı durumlar dışında planlı Azure bakım olayları sırasında kapalı kalma süresiyle karşılaşır. Premium depolama kullanan tek VM'ler için Azure SLA geçerlidir.
+> Tek örnekli bir sanal makineyi bir kullanılabilirlik kümesinde tek başına bırakmaktan kaçının. Bu yapılandırmadaki sanal makineler değil bir SLA garantisine ve tek bir VM kullanırken dışında Azure planlı bakım olayları sırasında kapalı kalma süresi yüz [Azure premium SSD](../articles/virtual-machines/windows/disks-types.md#premium-ssd). Premium SSD kullanma tek VM'ler için Azure SLA'sı geçerlidir.
 
 Kullanılabilirlik kümenizdeki her sanal makineye, temel alınan Azure platformu tarafından bir **güncelleme etki alanı** ve bir **hata etki alanı** atanır. Belirli bir kullanılabilirlik kümesi için, aynı anda yeniden başlatılabilecek sanal makine gruplarını ve temel alınan fiziksel donanımları göstermek üzere, kullanıcı tarafından yapılandırılabilen beş güncelleme etki alanı varsayılan olarak atanır (Resource Manager dağıtımları daha sonra en fazla 20 güncelleme etki alanı sağlayacak şekilde artırılabilir). Tek bir kullanılabilirlik kümesinde beşten fazla sanal makine yapılandırıldığında, altıncı sanal makine birinci sanal makine ile, yedinci sanal makine ikinci sanal makine ile aynı güncelleme etki alanına yerleştirilir ve yerleştirme işlemi bu düzende devam eder. Yeniden başlatılmakta olan güncelleme etki alanlarının sırası, planlanan bakım sırasında sıralı olarak uygulanmayabilir, ancak aynı anda yalnızca bir güncelleme etki alanı yeniden başlatılır. Yeniden başlatılmış bir güncelleme etki alanının kurtarılması için, farklı bir güncelleme etki alanında bakım başlatılmadan önce 30 dakika beklenir.
 
@@ -60,7 +60,7 @@ Hata etki alanları ortak bir güç kaynağı ve ağ anahtarını paylaşan sana
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-VM’leri [yönetilmeyen diskler](../articles/virtual-machines/windows/about-disks-and-vhds.md#types-of-disks) ile kullanmayı planlıyorsanız, VM sanal sabit disklerinin (VHD) [sayfa blobu](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) olarak depolandığı Depolama hesapları en iyi deneyimlerini uygulayın.
+Yönetilmeyen diskleri olan VM'ler kullanmayı planlıyorsanız, aşağıdaki olarak sanal sabit diskleri (VHD'ler) sanal makinelerinin depolandığı depolama hesapları için en iyi uygulamayı izleyin [sayfa blobları](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Bir VM ile ilişkili tüm diskleri (işletim sistemi ve veri) aynı depolama hesabında tutma**
 2. Bir depolama hesabına daha fazla VHD eklemeden önce **Depolama hesabındaki yönetilmeyen disk sayısına ilişkin [limitleri](../articles/storage/common/storage-scalability-targets.md) gözden geçirin**

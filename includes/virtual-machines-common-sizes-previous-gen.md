@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 36902edd7b2df472960d19b8ef9a4ebd4cdfe695
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 937ac1d892cdea849d7e5a89c8e69c6b069f2efd
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906689"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333833"
 ---
 Bu makalede, önceki nesil sanal makine boyutları hakkında bilgi sağlar. Bu boyutları hala kullanılabilir, ancak yeni nesli vardır.
 
@@ -22,11 +22,11 @@ Bu makalede, önceki nesil sanal makine boyutları hakkında bilgi sağlar. Bu b
 
 ACU: 160
 
-Premium Depolama: desteklenir
+Premium Depolama:  Desteklenen
 
-Premium depolama önbelleğe alma: desteklenir
+Premium depolama önbelleğe alma:  Desteklenen
 
-| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS / sn (önbellek boyutu gib biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS / MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3,5 |7 |4 |4000/32 (43) |3200/32 |2 / 500 |
 | Standard_DS2 |2 |7 |14 |8 |8000/64 (86) |6400/64 |2 / 1000 |
@@ -39,18 +39,18 @@ Premium depolama önbelleğe alma: desteklenir
 
 ACU: 160 <sup>1</sup>
 
-Premium Depolama: desteklenir
+Premium Depolama:  Desteklenen
 
-Premium depolama önbelleğe alma: desteklenir
+Premium depolama önbelleğe alma:  Desteklenen
 
-| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS / sn (önbellek boyutu gib biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS / MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |8 |8000/64 (72) |6400/64 |2 / 1000 |
 | Standard_DS12 |4 |28 |56 |16 |16.000/128 (144) |12.800/128 |4 / 2000 |
 | Standard_DS13 |8 |56 |112 |32 |32.000/256 (288) |25.600/256 |8 / 4000 |
 | Standard_DS14 |16 |112 |224 |64 |64.000/512 (576) |51.200/512 |8 / 8000 |
 
-<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) DS serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin.  Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) DS serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin.  Ayrıntılar için bkz [yüksek performans için tasarlama](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 
 
@@ -58,13 +58,13 @@ Premium depolama önbelleğe alma: desteklenir
 
 ACU: 160
 
-Premium Depolama: Desteklenmez
+Premium Depolama:  Desteklenmiyor
 
-Premium depolama önbelleğe alma: Desteklenmez
+Premium depolama önbelleğe alma:  Desteklenmiyor
 
-| Boyut         | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+| Boyut         | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / okuma MB/sn / yazma MB/sn | Maksimum veri diski / aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1  | 1         | 3,5         | 50             | 3000/46/23                                           | 4/4x500                         | 2 / 500                 |
+| Standard_D1  | 1         | 3,5         | 50             | 3000/46/23                                           | 4/4x500                         | 2 / 500                 |
 | Standard_D2  | 2         | 7           | 100            | 6000/93/46                                           | 8/8x500                         | 2 / 1000                     |
 | Standard_D3  | 4         | 14          | 200            | 12000/187/93                                         | 16/16x500                         | 4 / 2000                     |
 | Standard_D4  | 8         | 28          | 400            | 24000/375/187                                        | 32/32x500                       | 8 / 4000                     |
@@ -75,11 +75,11 @@ Premium depolama önbelleğe alma: Desteklenmez
 
 ACU: 160
 
-Premium Depolama: Desteklenmez
+Premium Depolama:  Desteklenmiyor
 
-Premium depolama önbelleğe alma: Desteklenmez
+Premium depolama önbelleğe alma:  Desteklenmiyor
 
-| Boyut         | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+| Boyut         | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / okuma MB/sn / yazma MB/sn | Maksimum veri diski / aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6000/93/46                                           | 8/8x500                         | 2 / 1000                     |
 | Standard_D12 | 4         | 28          | 200            | 12000/187/93                                         | 16/16x500                         | 4 / 2000                     |
@@ -92,9 +92,9 @@ Premium depolama önbelleğe alma: Desteklenmez
 
 ACU: 225
 
-Premium Depolama: Desteklenmez
+Premium Depolama:  Desteklenmiyor
 
-Premium depolama önbelleğe alma: Desteklenmez
+Premium depolama önbelleğe alma:  Desteklenmiyor
 
 A8-A11 ve H Serisi boyutlar *yoğun işlem gücü kullanımlı örnekler* olarak da bilinir. Bu boyutları çalıştıran donanım; yüksek performanslı bilgi işlem (HPC) kümesi uygulamaları, modellemeler ve simülasyonlar gibi yoğun işlem ve ağ kullanımlı uygulamalar için tasarlanmış ve iyileştirilmiştir. A8-A11 Serisinde, Intel Xeon E5-2670 @ 2,6 GHZ, H Serisinde ise Intel Xeon E5-2667 v3 @ 3,2 GHz işlemciler kullanılmaktadır.  Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar. 
 
@@ -113,9 +113,9 @@ A8-A11 ve H Serisi boyutlar *yoğun işlem gücü kullanımlı örnekler* olarak
 
 ACU: 50-100
 
-Premium Depolama: Desteklenmez
+Premium Depolama:  Desteklenmiyor
 
-Premium depolama önbelleğe alma: Desteklenmez
+Premium depolama önbelleğe alma:  Desteklenmiyor
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (HDD): GiB | Maksimum veri diskleri | Maksimum veri diski aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn)  |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -143,9 +143,9 @@ Klasik dağıtım modelinde bazı VM boyutu adları CLI ve PowerShell'dekilerden
 
 ## <a name="basic-a"></a>Temel A
 
-Premium Depolama: Desteklenmez
+Premium Depolama:  Desteklenmiyor
 
-Premium depolama önbelleğe alma: Desteklenmez
+Premium depolama önbelleğe alma:  Desteklenmiyor
 
 Temel katman boyutları genelde geliştirme iş yükleri ve yük dengeleme, otomatik ölçeklendirme veya bellek kullanımı yoğun sanal makineler gerektirmeyen diğer uygulamalar içindir.
 

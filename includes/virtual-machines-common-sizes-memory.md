@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b992947245175803f8f2f8c6a5aba70fe13bde2c
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 97efb82f104742993f7b2fac40a74f4feb9e0b38
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084030"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333801"
 ---
 Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekler ve bellek içi analiz için harika olan yüksek bellek CPU oranı VM boyutları teklifi en iyi duruma getirilmiş. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar. 
 
@@ -30,7 +30,7 @@ Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekl
 
 ## <a name="esv3-series"></a>Esv3 serisi 
 
-ACU: 160 190 <sup>1</sup>
+ACU: 160-190 <sup>1</sup>
 
 Premium Depolama:  Desteklenen
 
@@ -45,7 +45,7 @@ ESv3 serisi örnekleri, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi 
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6400/96                                | 2 / 2,000                                   |
 | Standard_E8s_v3&nbsp;<sup>2</sup> | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12.800/192                              | 4 / 4,000                                       |
 | Standard_E16s_v3&nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25.600/384                              | 8 / 8,000                                       |
-| Standard_E20s_v3                   | 20     | 160         | 320            | 32             | 40.000 / 320 (400)                                                    | 32.000 / 480                              | 8 / 10.000                                       |
+| Standard_E20s_v3                   | 20     | 160         | 320            | 32             | 40,000 / 320 (400)                                                    | 32,000 / 480                              | 8 / 10,000                                       |
 | Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51.200/768                              | 8 / 16,000                             |
 | Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
 | Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
@@ -77,10 +77,10 @@ Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Prem
 | Standard_E4_v3  | 4         | 32          | 100            | 8              | 6000/93/46                                               | 2 / 2,000                 |
 | Standard_E8_v3  | 8         | 64          | 200            | 16             | 12000/187/93                                             | 4 / 4,000                     |
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8,000                     |
-| Standard_E20_v3 | 20        | 160         | 500            | 32             | 30000/469/234                                            | 8 / 10.000                     |
+| Standard_E20_v3 | 20        | 160         | 500            | 32             | 30000/469/234                                            | 8 / 10,000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16,000                 |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
-| İşler için standart_e64i_v3&nbsp;<sup>2&nbsp;3</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
+| Standard_E64i_v3&nbsp;<sup>2,&nbsp;3</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
 
 <sup>1</sup> Ev3 serisi sanal makineler özellik Intel® Hyper-Threading Teknolojisi.
 
@@ -101,20 +101,20 @@ Hızlandırıcı yazma:  [Destekleniyor](https://docs.microsoft.com/azure/virtua
 
 | Boyut            | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS / sn (önbellek boyutu gib biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS / MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| İşler için Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10.000 / 100 (793)  | 5000 / 125 | 4 / 2.000 |
-| İşler için Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20.000 / 200 (1,587) | 10.000/250 | 8 / 4000 |
-| İşler için standart_m32ts | 32 | 192    | 1,024 | 32 | 40.000 / 400 (3,174) | 20.000/500 | 8 / 8,000 |
-| İşler için standart_m32ls | 32 | 256    | 1,024 | 32 | 40.000 / 400 (3,174) | 20.000/500 | 8 / 8,000 |
-| İşler için Standard_M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1,024 | 32 | 40.000 / 400 (3,174) | 20.000/500 | 8 / 8,000 |
-| İşler için standart_m64s  | 64 | 1,024   | 2.048 | 64 | 80.000 / 800 (6,348)| 40.000/1000 | 8 / 16,000          |
-| İşler için standart_m64ls  | 64 | 512    | 2.048 | 64 | 80.000 / 800 (6,348) | 40.000/1000 | 8 / 16,000 |
-| İşler için standart_m64ms&nbsp;<sup>3</sup>  | 64   | 1,792 | 2.048 | 64 | 80.000 / 800 (6,348)| 40.000/1000 | 8 / 16,000          |
-| İşler için standart_m128s&nbsp;<sup>2</sup> | 128  | 2.048        | 4.096  | 64 | 160,000 / 1,600 (12,696) | 80.000/2000                            | 8 / 30,000          |
-| İşler için standart_m128ms&nbsp;<sup>2&nbsp;3&nbsp;4</sup> | 128  | 3,892  | 4.096 | 64 | 160,000 / 1,600 (12,696) | 80.000/2000                            | 8 / 30,000          |
-| Standard_M64   | 64  | 1,024 | 7,168  | 64 | 80.000 / 800 (1,228) | 40.000/1000 | 8 / 16,000 |
-| Standard_M64m  | 64  | 1,792 | 7,168  | 64 | 80.000 / 800 (1,228) | 40.000/1000 | 8 / 16,000 |
-| Standard_M128&nbsp;<sup>2  | 128 | 2.048 | 14,336 | 64 | 250.000 / 1,600 (2,456) | 80.000/2000 | 8 / 32.000 |
-| Standard_M128m&nbsp;<sup>2 | 128 | 3,892 | 14,336 | 64 | 250.000 / 1,600 (2,456) | 80.000/2000 | 8 / 32.000 |
+| İşler için Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10,000 / 100 (793)  | 5,000  / 125 | 4 / 2,000 |
+| İşler için Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20,000 / 200 (1,587) | 10.000/250 | 8 / 4,000 |
+| Standard_M32ts | 32 | 192    | 1,024 | 32 | 40,000 / 400 (3,174) | 20.000/500 | 8 / 8,000 |
+| Standard_M32ls | 32 | 256    | 1,024 | 32 | 40,000 / 400 (3,174) | 20.000/500 | 8 / 8,000 |
+| Standard_M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1,024 | 32 | 40,000 / 400 (3,174) | 20.000/500 | 8 / 8,000 |
+| İşler için standart_m64s  | 64 | 1,024   | 2,048 | 64 | 80,000 / 800 (6,348)| 40.000/1000 | 8 / 16,000          |
+| İşler için standart_m64ls  | 64 | 512    | 2,048 | 64 | 80,000 / 800 (6,348) | 40.000/1000 | 8 / 16,000 |
+| İşler için standart_m64ms&nbsp;<sup>3</sup>  | 64   | 1,792 | 2,048 | 64 | 80,000 / 800 (6,348)| 40.000/1000 | 8 / 16,000          |
+| İşler için standart_m128s&nbsp;<sup>2</sup> | 128  | 2,048        | 4,096  | 64 | 160,000 / 1,600 (12,696) | 80.000/2000                            | 8 / 30,000          |
+| İşler için standart_m128ms&nbsp;<sup>2&nbsp;3&nbsp;4</sup> | 128  | 3,892  | 4,096 | 64 | 160,000 / 1,600 (12,696) | 80.000/2000                            | 8 / 30,000          |
+| Standard_M64   | 64  | 1,024 | 7,168  | 64 | 80,000  / 800  (1,228) | 40.000/1000 | 8 / 16,000 |
+| Standard_M64m  | 64  | 1,792 | 7,168  | 64 | 80,000  / 800  (1,228) | 40.000/1000 | 8 / 16,000 |
+| Standard_M128&nbsp;<sup>2  | 128 | 2,048 | 14,336 | 64 | 250,000 / 1,600 (2,456) | 80.000/2000 | 8 / 32,000 |
+| Standard_M128m&nbsp;<sup>2 | 128 | 3,892 | 14,336 | 64 | 250,000 / 1,600 (2,456) | 80.000/2000 | 8 / 32,000 |
 
 
 
@@ -143,7 +143,7 @@ Premium depolama önbelleğe alma:  Desteklenen
 | Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80.000/800 (2112) |40.000/1000 |8 / 16000 |
 | Standard_GS5&nbsp;<sup>2&nbsp;3</sup> |32 |448 |896 |64 |160.000/1600 (4224) |80.000/2000 |8 / 20000 |
 
-<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) GS serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin. Ayrıntılar için bkz [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md). 
+<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) GS serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin. Ayrıntılar için bkz [yüksek performans için tasarlama](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 <sup>2</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.
 
@@ -165,13 +165,13 @@ Premium depolama önbelleğe alma:  Desteklenmiyor
 | Standard_G2  | 4         | 56          | 768            | 12000/187/93                                         | 16/16x500                       | 2 / 4000                     |
 | Standard_G3  | 8         | 112         | 1536          | 24000/375/187                                        | 32/32x500                     | 4 / 8000                |
 | Standard_G4  | 16        | 224         | 3072          | 48000/750/375                                        | 64/64x500                     | 8 / 16000          |
-| İşler için standart_g5&nbsp;<sup>1</sup> | 32        | 448         | 6144          | 96000/1500/750                                       | 64/64x500                     | 8 / 20000           |
+| Standard_G5&nbsp;<sup>1</sup> | 32        | 448         | 6144          | 96000/1500/750                                       | 64/64x500                     | 8 / 20000           |
 
 <sup>1</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.
 <br>
 
 
-## <a name="dsv2-series-11-15"></a>DSv2 serisi 11-15
+## <a name="dsv2-series-11-15"></a>DSv2-series 11-15
 
 ACU: 210 - 250 <sup>1</sup>
 
@@ -188,7 +188,7 @@ Premium depolama önbelleğe alma:  Desteklenen
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80.000/640 (720) |64.000/960 |8 / 25000&nbsp;<sup>4</sup>
 
 
-<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) DSv2 serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin.  Ayrıntılar için bkz [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) DSv2 serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin.  Ayrıntılar için bkz [yüksek performans için tasarlama](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 <sup>2</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.
 
