@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: 231dcee1a9b330b2f8721283c39c71002a75fcac
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49476231"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333922"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure'da sanal makineler için kullanılabilirlik ve bölgeler
 Azure, dünyanın dört bir yanındaki birden fazla veri merkezinde çalışmaktadır. Bu veri merkezleri, coğrafi bölgeler halinde gruplandırılarak uygulamalarınızı oluşturacağınız yeri seçme esnekliği tanır. Sanal makinelerinizin (VM’ler) Azure’da nasıl ve hangi konumda çalıştığının yanı sıra performans, kullanılabilirlik ve yedekliliği artırmak için kullanabileceğiniz seçeneklerin de anlaşılması önemlidir. Bu makalede, Azure’un kullanılabilirlik ve yedeklilik özelliklerine genel bakış sunulmaktadır.
@@ -61,7 +61,7 @@ Kullanılabilir çoğaltma seçenekleri düşünüldüğünde Azure bölge ve co
 **Depolama hesabı temelli diskler**
 * Yerel olarak yedekli depolama (LRS)
   * Depolama hesabınızı oluşturduğunuz bölge içinde verilerinizi üç kez çoğaltır.
-* Bölgesel olarak yedekli depolama (ZRS)
+* Alanlar arası yedekli depolama (ZRS)
   * Tek bir bölge ya da iki bölgedeki iki veya üç tesiste verilerinizi üç kez çoğaltır.
 * Coğrafi olarak yedekli depolama (GRS)
   * Verilerinizi birincil bölgeden yüzlerce kilometre uzaktaki bir ikincil bölgeye çoğaltır.
@@ -92,7 +92,7 @@ Fiyatlar seçtiğiniz depolama türüne ve kullanılabilirliğe bağlı olarak d
 Farklı depolama türleri ve kullanılabilirlik seçenekleri hakkında fiyatlandırma bilgileri için bkz. [Azure Depolama Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="availability-sets"></a>Kullanılabilirlik kümeleri
-Mantıksal bir gruplandırması olan Vm'leri Azure yedeklilik ve kullanılabilirlik sağlamak için uygulamanızı nasıl oluşturulduğunu anlamasına olanak tanıyan bir veri merkezinde bir kullanılabilirlik kümesidir. İki veya daha fazla sanal makine için yüksek oranda kullanılabilir bir uygulama sağlamak ve karşılamak için bir kullanılabilirlik içinde oluşturulan önerilen [% 99,95 Azure SLA'sı](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Kullanılabilirlik kümesi için bir ücret ödemeden kendisini, yalnızca oluşturduğunuz her bir VM örneği için ödeme yaparsınız. Tek bir VM, [Azure Premium Depolama](../articles/virtual-machines/windows/premium-storage.md) kullanıyorsa, Azure SLA planlanmamış bakım olayları için geçerli olur. 
+Mantıksal bir gruplandırması olan Vm'leri Azure yedeklilik ve kullanılabilirlik sağlamak için uygulamanızı nasıl oluşturulduğunu anlamasına olanak tanıyan bir veri merkezinde bir kullanılabilirlik kümesidir. İki veya daha fazla sanal makine için yüksek oranda kullanılabilir bir uygulama sağlamak ve karşılamak için bir kullanılabilirlik içinde oluşturulan önerilen [% 99,95 Azure SLA'sı](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Kullanılabilirlik kümesi için bir ücret ödemeden kendisini, yalnızca oluşturduğunuz her bir VM örneği için ödeme yaparsınız. Tek bir VM kullandığında [Azure premium SSD](../articles/virtual-machines/windows/disks-types.md#premium-ssd), Azure SLA planlanmamış bakım olayları için geçerlidir.
 
 Bir kullanılabilirlik kümesi, donanım hatalarına karşı koruyan ve güncelleştirmelerin güvenli bir şekilde uygulanması - hata etki alanları (FD) ve güncelleştirme etki alanları (UD) izin veren iki ek gruplandırmalarını oluşur. [Linux VM](../articles/virtual-machines/linux/manage-availability.md) veya [Windows VM](../articles/virtual-machines/windows/manage-availability.md) kullanılabilirliğini yönetme hakkında daha fazla bilgi alabilirsiniz.
 

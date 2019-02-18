@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: d4c0bbdfb1afcef33727ba4b5b432c5de79168d4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 8241dc0303b7e60f9ce1e04e56d152c9a0b3906c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495229"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327519"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure’da Oracle veritabanı tasarlama ve dağıtma
 
@@ -146,9 +146,9 @@ Ağ bant genişliği gereksinimlerinize göre aralarından seçim yapabileceğin
 
 ### <a name="disk-types-and-configurations"></a>Disk türleri ve yapılandırmaları
 
-- *Varsayılan işletim sistemi diskleri*: kalıcı veri ve önbelleğe alma bu disk türlerini sunar. Başlatma sırasında işletim sistemi erişimi için optimize edilmiş ve için tasarlanmamış işlemsel veya veri ambarı (analiz) iş yükleri.
+- *Varsayılan işletim sistemi diskleri*: Bu disk türlerini kalıcı veri ve önbelleğe alma sunar. Başlatma sırasında işletim sistemi erişimi için optimize edilmiş ve için tasarlanmamış işlemsel veya veri ambarı (analiz) iş yükleri.
 
-- *Yönetilmeyen diskler*: şu disk türleri ile sanal makine disklerinizi karşılık gelen sanal sabit disk (VHD) dosyaları depolayan depolama hesaplarını yönetme. VHD dosyaları, Azure depolama hesaplarındaki sayfa blobları olarak depolanır.
+- *Yönetilmeyen diskler*: Şu disk türleri ile sanal makine disklerinizi karşılık gelen sanal sabit disk (VHD) dosyaları depolayan depolama hesapları yönetin. VHD dosyaları, Azure depolama hesaplarındaki sayfa blobları olarak depolanır.
 
 - *Yönetilen diskler*: Azure sanal makine disklerinizi için kullandığınız depolama hesapları yönetir. Disk türünü (premium veya standart) ve ihtiyacınız olan diskin boyutunu belirtin. Azure, oluşturur ve disk sizin yerinize yönetir.
 
@@ -157,8 +157,6 @@ Ağ bant genişliği gereksinimlerinize göre aralarından seçim yapabileceğin
 Portaldan yeni bir yönetilen disk oluşturduğunuzda, seçebileceğiniz **hesap türü** için kullanmak istediğiniz diskin türü. Açılan menüde tüm kullanılabilir diskleri gösterilmiştir aklınızda bulundurun. Belirli bir VM boyutu seçin sonra menü yalnızca kullanılabilir premium depolama, sanal makine boyutuna göre SKU'ları gösterir.
 
 ![Yönetilen disk sayfasının ekran görüntüsü](./media/oracle-design/premium_disk01.png)
-
-Daha fazla bilgi için [yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-premium-storage).
 
 Bir VM'de depolama alanınızı yapılandırdıktan sonra Yük isteyebilirsiniz diskleri veritabanı oluşturmadan önce test edin. G/ç hızı hem gecikme süresi ve aktarım hızı açısından bilmek, beklenen aktarım hızıyla gecikme hedefleri ile Vm'leri destekliyorsa belirlemenize yardımcı olabilir.
 
@@ -190,17 +188,15 @@ G/ç gereksinimleri NET bir görüntüsünü oluşturduktan sonra bu gereksiniml
 
 Konak önbelleği için üç seçenek vardır:
 
-- *Salt okunur*: gelecekteki okuma için tüm istekleri önbelleğe alınır. Tüm yazma işlemlerini doğrudan Azure Blob depolama alanına kalıcıdır.
+- *Salt okunur*: Tüm istekler için gelecekteki okuma önbelleğe alınır. Tüm yazma işlemlerini doğrudan Azure Blob depolama alanına kalıcıdır.
 
 - *Okuma-yazma*: "İleri okuma" algoritması budur. Okuma ve yazma işlemleri için gelecekteki okuma önbelleğe alınır. Yazma olmayan yazma aracılığıyla yerel önbelleğe ilk kalıcıdır. Anında yazma kullandığından SQL Server için Azure depolama alanına yazma kalıcıdır. Ayrıca hafif iş yükleri için düşük disk gecikme sağlar.
 
-- *Hiçbiri* (devre dışı): Bu seçeneği kullanarak, önbelleğin atlayabilir. Tüm veriler diske aktarma ve Azure Depolama'da kalıcı hale. Bu yöntem, g/ç kullanımlı iş yükleri için yüksek g/ç hızı sunar. "İşlem Maliyet" önünde bulundurmanız gerekir.
+- *Hiçbiri* (devre dışı): Bu seçeneği kullanarak, önbellek devre dışı bırakabilir. Tüm veriler diske aktarma ve Azure Depolama'da kalıcı hale. Bu yöntem, g/ç kullanımlı iş yükleri için yüksek g/ç hızı sunar. "İşlem Maliyet" önünde bulundurmanız gerekir.
 
 **Öneriler**
 
 Aktarım hızını en üst düzeye çıkarmak için ile başlamanızı öneririz **hiçbiri** için konak önbelleği. Premium depolama dosya sistemi ile bağladığınızda "engelleri" mamtelemetrydisabled aklınızda bulundurun **salt okunur** veya **hiçbiri** seçenekleri. Disklere UUID'sine sahip /etc/fstab dosyasını güncelleştirin.
-
-Daha fazla bilgi için [Linux Vm'leri için Premium depolama](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
 ![Yönetilen disk sayfasının ekran görüntüsü](./media/oracle-design/premium_disk02.png)
 
@@ -217,12 +213,12 @@ Ayarlama ve Azure ortamınızda sonra sonraki adım, ağınızın güvenliğini 
 
 - *NSG ilke*: NSG bir alt ağ veya NIC tarafından tanımlanabilir Güvenlik ve uygulama güvenlik duvarları gibi şeyler için zorla yönlendirme erişimi denetlemek alt ağ düzeyinde hem kolaydır.
 
-- *Sıçrama kutusu*: daha güvenli erişim için Yöneticiler doğrudan uygulama hizmeti veya veritabanı bağlanmayacak. Bir Sıçrama kutusu, yönetici makine ve Azure kaynakları arasında bir medya olarak kullanılır.
+- *Sıçrama kutusu*: Daha güvenli erişim için Yöneticiler doğrudan uygulama hizmeti veya veritabanı için bağlantı. Bir Sıçrama kutusu, yönetici makine ve Azure kaynakları arasında bir medya olarak kullanılır.
 ![Sıçrama kutusu topolojisi sayfasının ekran görüntüsü](./media/oracle-design/jumpbox.png)
 
     IP kısıtlı erişim Sıçrama kutusu yalnızca yönetici makine sunmalıdır. Sıçrama kutusu, uygulama ve veritabanına erişimi olmalıdır.
 
-- *Özel ağ* (alt ağlar): daha iyi denetim NSG İlkesi tarafından ayarlanabilir bu nedenle, veritabanı ve uygulama hizmeti farklı alt ağlarda olmasını öneririz.
+- *Özel ağ* (alt ağlar): Daha iyi denetim NSG İlkesi tarafından ayarlanabilir bu nedenle, veritabanı ve uygulama hizmeti farklı alt ağlarda olmasını öneririz.
 
 
 ## <a name="additional-reading"></a>Ek okuma
@@ -234,5 +230,5 @@ Ayarlama ve Azure ortamınızda sonra sonraki adım, ağınızın güvenliğini 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Öğretici: yüksek oranda kullanılabilir VM'ler oluşturma](../../linux/create-cli-complete.md)
+- [Öğretici: Yüksek oranda kullanılabilir VM'ler oluşturma](../../linux/create-cli-complete.md)
 - [VM dağıtımı Azure CLI örneklerini keşfedin](../../linux/cli-samples.md)

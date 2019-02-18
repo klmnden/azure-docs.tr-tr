@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f065a7c428f191e37449145e946b26c3133ede05
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c10f8a3f515d3401dbb469a7e4a31c4fe3501
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700051"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329822"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream analytics'te aramaları için başvuru verilerini kullanma
 Başvuru verileri (arama tablosu olarak da bilinir) statik veya yavaş doğası gereği, değişen bir arama gerçekleştirme ya da, veri akışı ile ilişkilendirmek için kullanılan sınırlı bir veri kümesi var. Örneğin, bir IOT senaryosu içinde (Bu genellikle değişmez) algılayıcıları hakkındaki meta verileri içinde başvuru verilerini depolamak ve gerçek zamanlı IOT veri akışları ile katılın. Azure Stream Analytics, düşük gecikme süreli akış işlemesi için bellek başvuru verileri yükler. Yapmak için Azure Stream Analytics işinizi başvuru verilerinde kullanımı, genel olarak kullanacağınız bir [başvuru veri birleştirme](https://msdn.microsoft.com/library/azure/dn949258.aspx) sorgunuzda. 
@@ -74,7 +74,7 @@ Azure Stream Analytics, yenilenmiş bir başvuru veri BLOB için bir dakika aral
 
 ## <a name="azure-sql-database-preview"></a>Azure SQL veritabanı (Önizleme)
 
-Azure SQL veritabanı başvuru verileri, Stream Analytics işi tarafından alınır ve işleme için bellekte bir anlık görüntü olarak depolanır. Başvuru verilerinizin anlık görüntü de yapılandırma ayarlarında belirttiğiniz bir depolama hesabında bir kapsayıcıda depolanır. Kapsayıcı otomatik-iş başlatıldığında oluşturulur ve iş durduğunda otomatik olarak silinmesini.
+Azure SQL veritabanı başvuru verileri, Stream Analytics işi tarafından alınır ve işleme için bellekte bir anlık görüntü olarak depolanır. Başvuru verilerinizin anlık görüntü de yapılandırma ayarlarında belirttiğiniz bir depolama hesabında bir kapsayıcıda depolanır. Kapsayıcı otomatik-iş başlatıldığında oluşturulur. İş durduruldu veya başarısız durumuna girer, iş yeniden başlatıldığında otomatik olarak oluşturulan kapsayıcıları silinir.  
 
 Yavaş değişen bir veri kümesi başvurusu verilerinizi ise, düzenli aralıklarla işinizde kullanılan anlık görüntü yenilemeniz gerekir. Stream Analytics, Azure SQL veritabanı giriş bağlantısını yapılandırırken, yenileme hızı ayarlamanıza olanak tanır. Stream Analytics çalışma zamanı, Azure SQL veritabanı yenileme hızı tarafından belirtilen aralıkta sorgular. Desteklenen hızlı yenileme hızı anda dakika başına ' dir. Her yenileme için Stream Analytics depolama hesabında yeni bir anlık görüntü depolar.
 
