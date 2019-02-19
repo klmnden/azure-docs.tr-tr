@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 982ed4533c34cd4a6613d289ef4712001977538f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d67c3e452da05c626721d4c3144e612e6f9e0af4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436227"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338453"
 ---
 # <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>HDInsight üzerinde Apache Pig ile DataFu Pig Apache kullanma
 
@@ -90,7 +90,9 @@ Bu bölümdeki adımlarda, üzerinde HDInsight Pig kullanımıyla ilgili bilgi s
 >
 > * Kümenizi Azure depolama kullanan kullanırsanız bir `wasb://` yolu. Örneğin, `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
 >
-> * Kümenizi Azure Data Lake Store kullanıyorsa kullanmak bir `adl://` yolu. Örneğin, `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
+> * Kümenizi Azure Data Lake Store Gen2 kullanıyorsa kullanmak bir `abfs://` yolu. Örneğin, `register abfs://home/example/jars/datafu-pig-1.4.0.jar`.
+>
+> * Kümenizi Azure Data Lake Store Gen1 kullanıyorsa kullanmak bir `adl://` yolu. Örneğin, `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
 
 Genellikle DataFu işlevleri için bir diğer ad tanımlayabilirsiniz. Aşağıdaki örnek, bir diğer adını tanımlar `SHA`:
 

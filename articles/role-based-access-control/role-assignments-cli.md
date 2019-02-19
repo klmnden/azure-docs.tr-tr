@@ -1,6 +1,6 @@
 ---
-title: RBAC ve Azure CLI kullanarak erişimini yönetme | Microsoft Docs
-description: Kullanıcılar, gruplar ve rol tabanlı erişim denetimi (RBAC) ve Azure CLI kullanarak uygulamalar için erişimi yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
+title: RBAC ve Azure CLI kullanarak Azure kaynaklarına erişimi yönetme | Microsoft Docs
+description: Kullanıcılar, gruplar ve rol tabanlı erişim denetimi (RBAC) ve Azure CLI'yı kullanarak uygulamaları için Azure kaynaklarına erişimini yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6d1e64c7630f3fd35124e6671476174ddfc16bb6
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437108"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341732"
 ---
-# <a name="manage-access-using-rbac-and-azure-cli"></a>RBAC ve Azure CLI kullanarak erişimini yönetme
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>RBAC ve Azure CLI kullanarak Azure kaynaklarına erişimi yönetme
 
-[Rol tabanlı erişim denetimi (RBAC)](overview.md), Azure'daki kaynaklara erişimi yönetmek için kullanılan sistemdir. Bu makalede, kullanıcıları, grupları ve RBAC ve Azure CLI'yı kullanan uygulamalar için erişimi nasıl yönetileceği açıklanmaktadır.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md) Azure kaynaklarına erişimi yönetme yoludur. Bu makalede, kullanıcıları, grupları ve RBAC ve Azure CLI'yı kullanan uygulamalar için erişimi nasıl yönetileceği açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -311,5 +311,5 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Öğretici: Azure CLI kullanarak bir özel rol oluşturma](tutorial-custom-role-cli.md)
-- [Azure kaynaklarını ve kaynak gruplarını yönetmek için Azure CLI kullanma](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
+- [Öğretici: Azure CLI kullanarak Azure kaynakları için özel bir rol oluşturun](tutorial-custom-role-cli.md)
+- [Azure kaynaklarını ve kaynak gruplarını yönetmek için Azure CLI kullanma](../azure-resource-manager/cli-azure-resource-manager.md)

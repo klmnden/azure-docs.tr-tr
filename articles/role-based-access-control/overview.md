@@ -1,6 +1,6 @@
 ---
-title: Azure'da rol tabanlı erişim denetimi (RBAC) nedir? | Microsoft Docs
-description: Azure'da rol tabanlı erişim denetimine (RBAC) genel bakış. Azure'daki kaynaklara erişimi denetlemek için rol atamalarını kullanın.
+title: Azure kaynakları için rol tabanlı erişim denetimi (RBAC) nedir? | Microsoft Docs
+description: Rol tabanlı erişim denetimi (RBAC) genel bir bakış için Azure kaynakları edinin. Azure kaynaklarına erişimi denetlemek için rol atamalarını kullanın.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c614ae9d157c6e4121701cb22213706020ee20a7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 2d8f3ffb4f7d90b053c8a285d62007f5655d9adb
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303338"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338640"
 ---
-# <a name="what-is-role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC) nedir?
+# <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Azure kaynakları için rol tabanlı erişim denetimi (RBAC) nedir?
 
 Bulut kaynakları için erişim yönetimi, bulutu kullanan tüm kuruluşlar için kritik öneme sahip bir işlevdir. Rol tabanlı erişim denetimi (RBAC) Azure kaynaklarına erişebilen kişileri, bu kişilerin bu kaynaklarla yapabileceklerini ve erişebildikleri alanları yönetmenize yardımcı olur.
 
-RBAC, [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)'ı temel alan, Azure kaynakları için ayrıntılı erişim yönetimi sağlayan bir yetkilendirme sistemidir.
+RBAC, üzerinde oluşturulmuş bir yetkilendirme sistemidir [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) , Azure kaynaklarının ayrıntılı erişim yönetimi sağlar.
 
 ## <a name="what-can-i-do-with-rbac"></a>RBAC ile ne yapabilirim?
 
@@ -72,15 +72,15 @@ Azure'da kullanabileceğiniz birçok [yerleşik rol](built-in-roles.md) bulunur.
 - [Okuyucu](built-in-roles.md#reader): Var olan Azure kaynaklarını görüntüleyebilirsiniz.
 - [Kullanıcı Erişimi Yöneticisi](built-in-roles.md#user-access-administrator): Azure kaynaklarına kullanıcı erişimini yönetmenizi sağlar.
 
-Yerleşik rollerin diğerleri belirli Azure kaynakları için yönetim özellikleri sunar. Örneğin [Sanal Makine Katılımcısı](built-in-roles.md#virtual-machine-contributor) rolü, kullanıcının sanal makine oluşturmasını ve yönetmesini sağlar. Yerleşik roller kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi [özel rollerinizi](custom-roles.md) oluşturabilirsiniz.
+Yerleşik rollerin diğerleri belirli Azure kaynakları için yönetim özellikleri sunar. Örneğin [Sanal Makine Katılımcısı](built-in-roles.md#virtual-machine-contributor) rolü, kullanıcının sanal makine oluşturmasını ve yönetmesini sağlar. Yerleşik roller, kuruluşunuzun özel ihtiyaçlarını karşılamıyorsa, kendi oluşturabileceğiniz [Azure kaynakları için özel roller](custom-roles.md).
 
-Azure, bir nesne içindeki verilere erişim izni vermenizi sağlayan veri işlemlerini (şu anda önizleme sürümündedir) kullanıma sunmuştur. Örneğin kullanıcının bir depolama hesabında verileri okuma erişimi varsa bu kullanıcı ilgili depolama hesabındaki blobları veya iletileri okuyabilir. Daha fazla bilgi için bkz. [Rol tanımlarını anlama](role-definitions.md).
+Azure, bir nesne içindeki verilere erişim izni vermenizi sağlayan veri işlemlerini (şu anda önizleme sürümündedir) kullanıma sunmuştur. Örneğin kullanıcının bir depolama hesabında verileri okuma erişimi varsa bu kullanıcı ilgili depolama hesabındaki blobları veya iletileri okuyabilir. Daha fazla bilgi için [Azure kaynakları için rol tanımlarını anlamak](role-definitions.md).
 
 ### <a name="scope"></a>Kapsam
 
 *Kapsam* erişim uygulanacağı kaynak kümesidir. Bir rol atadığınızda kapsam tanımlayarak izin verilen eylemleri sınırlandırabilirsiniz. Bu özellik bir kullanıcıyı yalnızca bir kaynak grubu için [Web Sitesi Katılımcısı](built-in-roles.md#website-contributor) yapmak istediğiniz durumlarda kullanışlıdır.
 
-Azure'da [yönetim grubu](../azure-resource-manager/management-groups-overview.md), abonelik, kaynak grubu veya kaynak olmak üzere birden fazla seviyede kapsam belirtebilirsiniz. Kapsamlar üst-alt öğe ilişkisiyle yapılandırılmıştır.
+Azure'da [yönetim grubu](../governance/management-groups/index.md), abonelik, kaynak grubu veya kaynak olmak üzere birden fazla seviyede kapsam belirtebilirsiniz. Kapsamlar üst-alt öğe ilişkisiyle yapılandırılmıştır.
 
 ![Rol ataması kapsamı](./media/overview/rbac-scope.png)
 
@@ -108,7 +108,7 @@ Bu nedenle, birden çok çakışan rol atamaları varsa ne olur? RBAC eklenebili
 
 ## <a name="deny-assignments"></a>Reddetme atamaları
 
-Daha önce, RBAC reddetme seçeneği olmayan yalnızca izin verme modeliydi ama şimdi RBAC sınırlı bir yoldan reddetme atamalarını da destekliyor. Bir rol ataması için benzer bir *atamasını Reddet* kümesini ekler Reddetme eylemleri bir kullanıcı, Grup, hizmet sorumlusu veya erişimi engelleme amacıyla belirli bir kapsamda yönetilen kimlik. Bir rol ataması eylemler kümesini tanımlayan *izin*Reddet atama eylemler kümesini tanımlayan korurken *izin*. Başka bir deyişle, reddetme atamaları kullanıcıların belirtilen eylemleri gerçekleştirmesini (rol ataması izin vermiş olsa bile) engeller. Reddetme atamaları rol atamalarından daha önceliklidir. Şu anda, reddetme atamaları **salt okunurdu** ve yalnızca Azure tarafından ayarlanabilir. Daha fazla bilgi için [anlayın Reddet atamaları](deny-assignments.md) ve [görünümü Reddet atamaları Azure portalını kullanarak](deny-assignments-portal.md).
+Daha önce, RBAC reddetme seçeneği olmayan yalnızca izin verme modeliydi ama şimdi RBAC sınırlı bir yoldan reddetme atamalarını da destekliyor. Bir rol ataması için benzer bir *atamasını Reddet* kümesini ekler Reddetme eylemleri bir kullanıcı, Grup, hizmet sorumlusu veya erişimi engelleme amacıyla belirli bir kapsamda yönetilen kimlik. Bir rol ataması eylemler kümesini tanımlayan *izin*Reddet atama eylemler kümesini tanımlayan korurken *izin*. Başka bir deyişle, reddetme atamaları kullanıcıların belirtilen eylemleri gerçekleştirmesini (rol ataması izin vermiş olsa bile) engeller. Reddetme atamaları rol atamalarından daha önceliklidir. Şu anda, reddetme atamaları **salt okunurdu** ve yalnızca Azure tarafından ayarlanabilir. Daha fazla bilgi için bkz [anlayın atamaları Azure kaynakları için reddetme](deny-assignments.md) ve [görünümü atamaları Azure portalını kullanarak Azure kaynakları için reddetme](deny-assignments-portal.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>RBAC kullanıcının bir kaynağa erişimi olduğunu nasıl saptar?
 
@@ -132,7 +132,7 @@ Aşağıdakiler, RBAC'nin yönetim düzleminde bir kaynağa erişiminizin olup o
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Hızlı Başlangıç: RBAC ve Azure portalını kullanarak bir kullanıcı için erişim izni ver](quickstart-assign-role-user-portal.md)
-- [RBAC ve Azure portalı kullanarak erişimi yönetme](role-assignments-portal.md)
+- [Hızlı Başlangıç: Görünüm ' % s'erişimi bir kullanıcı Azure portalını kullanarak Azure kaynaklarına sahip](check-access.md)
+- [RBAC ve Azure portalını kullanarak Azure kaynaklarına erişimi yönetme](role-assignments-portal.md)
 - [Azure'daki farklı rolleri anlama](rbac-and-directory-admin-roles.md)
 - [Kurumsal Bulutu benimseme: Azure'da kaynak erişimi Yönetimi](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

@@ -1,6 +1,6 @@
 ---
-title: Azure'da özel roller | Microsoft Docs
-description: Özel roller içeren Azure rol tabanlı erişim denetimi (RBAC) tanımlamak için ayrıntılı erişim yönetimi, Azure kaynaklarında öğrenin.
+title: Azure kaynakları için özel roller | Microsoft Docs
+description: Rol tabanlı erişim denetimi (RBAC) ile özel roller oluşturma işlemini Azure kaynakları için ayrıntılı erişim yönetimi bilgi edinin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697145"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339337"
 ---
-# <a name="custom-roles-in-azure"></a>Azure'da özel roller
+# <a name="custom-roles-for-azure-resources"></a>Azure kaynakları için özel roller
 
-[Yerleşik roller](built-in-roles.md) kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi özel rollerinizi oluşturabilirsiniz. Yerleşik roller gibi yalnızca kullanıcıları, grupları ve abonelik, kaynak grubu ve kaynak kapsamları hizmet sorumluları için özel roller atayabilirsiniz. Özel roller, bir Azure Active Directory (Azure AD) dizinde depolanır ve abonelikler arasında paylaşılabilir. Her bir dizinde en fazla 2000 özel roller olabilir. Özel roller, Azure PowerShell, Azure CLI veya REST API'yi kullanarak oluşturulabilir.
+Varsa [Azure kaynakları için yerleşik roller](built-in-roles.md) kuruluşunuzun belirli gereksinimlerine uymayan, kendi özel rollerinizi oluşturabilirsiniz. Yerleşik roller gibi yalnızca kullanıcıları, grupları ve abonelik, kaynak grubu ve kaynak kapsamları hizmet sorumluları için özel roller atayabilirsiniz. Özel roller, bir Azure Active Directory (Azure AD) dizinde depolanır ve abonelikler arasında paylaşılabilir. Her bir dizinde en fazla 2000 özel roller olabilir. Özel roller, Azure PowerShell, Azure CLI veya REST API'yi kullanarak oluşturulabilir.
 
 ## <a name="custom-role-example"></a>Özel rol örneği
 
@@ -107,7 +107,7 @@ Yerleşik roller'olduğu gibi `AssignableScopes` özellik kapsamları rol atama 
 | Özel bir rol görüntüleyin | `Microsoft.Authorization/ roleDefinition/read` | Bu işlem bir kapsamda izni verilen kullanıcıları bu kapsamda atama için uygun olan özel roller görüntüleyebilirsiniz. Tüm yerleşik roller özel roller atama için kullanılabilir olmasını sağlar. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Azure PowerShell kullanarak özel roller oluşturma](custom-roles-powershell.md)
-- [Azure CLI'yı kullanarak özel roller oluşturma](custom-roles-cli.md)
-- [Rol tanımları anlama](role-definitions.md)
-- [Azure RBAC sorunlarını giderme](troubleshooting.md)
+- [Azure PowerShell kullanarak Azure kaynakları için özel roller oluşturma](custom-roles-powershell.md)
+- [Azure CLI kullanarak Azure kaynakları için özel roller oluşturma](custom-roles-cli.md)
+- [Azure kaynakları için rol tanımları anlama](role-definitions.md)
+- [RBAC, Azure kaynakları için sorun giderme](troubleshooting.md)

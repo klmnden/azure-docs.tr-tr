@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: a3f782cdd34f2a45c58e6a98d013f949767589cb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328019"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343281"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Metin işleme Azure Search'te çözümleyiciler
 
@@ -69,7 +69,7 @@ En iyi zamanı eklemek ve çözümleyiciler atamak için active geliştirme sır
 
 Bir dizin tanımını solidifies yeni analiz yapıları için bir dizin ekleyebilir, ancak iletmeniz gerekir **allowIndexDowntime** bayrak [dizin güncelleştirme](https://docs.microsoft.com/rest/api/searchservice/update-index) bu hatadan kaçınmak istiyorsanız:
 
-*Dizin güncelleştirmesi kapalı kalma süresi neden olacağından izin verilmiyor. Mevcut bir dizine yeni Çözümleyicileri, oluşturma denenmeden, belirteç filtreleri veya karakter filtre eklemek için dizin güncelleştirme isteğinde 'allowIndexDowntime' sorgu parametresi 'true' olarak ayarlayın. Bu işlem, dizini çevrimdışı, dizin oluşturma neden en az birkaç saniye ve başarısız sorgu istekleri için sokar unutmayın. Dizin performans ve yazma kullanılabilirliğini engelliler için dizin güncelleştirildikten sonra birkaç dakika veya daha çok büyük dizinler için uzun olabilir.*
+*"Dizin güncelleştirme kapalı kalma süresi neden olacağından izin verilmiyor. Mevcut bir dizine yeni Çözümleyicileri, oluşturma denenmeden, belirteç filtreleri veya karakter filtre eklemek için dizin güncelleştirme isteğinde 'allowIndexDowntime' sorgu parametresi 'true' olarak ayarlayın. Bu işlem, dizini çevrimdışı, dizin oluşturma neden en az birkaç saniye ve başarısız sorgu istekleri için sokar unutmayın. Dizin performans ve yazma kullanılabilirliğini engelliler için dizin güncelleştirildikten sonra birkaç dakika veya daha çok büyük dizinler için uzun olabilir."*
 
 Aynı alana bir çözümleyici atamasını yaparken geçerlidir. Bir çözümleyici alanın tanımını bir parçası olduğundan alanı oluştururken, yalnızca ekleyebilirsiniz. Varolan alanlara Çözümleyicileri eklemek istiyorsanız, gerekecektir [bırakın ve yeniden](search-howto-reindex.md) dizini veya istediğiniz çözümleyiciyi ile yeni bir alan ekleyin.
 

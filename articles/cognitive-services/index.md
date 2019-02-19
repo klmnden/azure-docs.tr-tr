@@ -7,14 +7,14 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 10/23/2018
+ms.date: 02/15/2019
 ms.topic: hub-page
-ms.openlocfilehash: ceb5bb59f65e0f01d04d1aa9726b2494384b4a67
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 12957121d386afdc911bb0be954c0066d580e83e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998967"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338045"
 ---
 <h1>Azure Bilişsel Hizmetler Belgeleri</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Uygulamalarınıza, web sitelerinize ve botlarınıza, kullanıcılarınızın ihtiyaçlarını görmek, duymak, dile getirmek ve anlamak için doğal iletişim yöntemlerinden yararlanan akıllı algoritmalar oluşturmayı öğrenin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.</p>
@@ -133,7 +133,7 @@ ms.locfileid: "55998967"
                         <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">C# kullanma</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search/quickstarts/java">Java kullanma</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze">Node.js'yi kullanma</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/python-analyze">Python’u kullanma</a></p>
+                        <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk#analyze-an-image">Python’u kullanma</a></p>
                     </div>
                 </div>
             </div>
@@ -301,7 +301,6 @@ ms.locfileid: "55998967"
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>Özel Görüntü İşleme Hizmeti&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/face/">Yüz Tanıma API’si</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
-                        <p><a href="/azure/cognitive-services/emotion/home"><span>Duygu tanıma API’si&nbsp;<sup style="font-size:70%">KULLANIMDAN KALDIRILIYOR</sup></span></a></p>
                     </div>
                 </div>
             </div>

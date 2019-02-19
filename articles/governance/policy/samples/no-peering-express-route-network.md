@@ -1,6 +1,6 @@
 ---
 title: Örnek - ağ için Express Route ağ eşlemesi yok
-description: Bu örnek ilkesi, bir ağ eşlemesinin belirli bir kaynak grubundaki bir ağ ile ilişkilendirilmesini önler.
+description: Bu örnek ilke tanımı, bir ağ eşlemesi için belirtilen kaynak grubunda bir ağ ilişkili yasaklar.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: dbd7494b5104482624448fc0525a58d68138a833
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c06e750c19227d245fcf8eaeb077691ef2c8a675
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245652"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337620"
 ---
-# <a name="no-network-peering-to-express-route-network"></a>Express Route ağ eşlemesi ağ yok
+# <a name="sample---no-network-peering-to-express-route-network"></a>Örnek - ağ için Express Route ağ eşlemesi yok
 
 Bu ilke, bir ağ eşlemesinin belirli bir kaynak grubundaki bir ağ ile ilişkilendirilmesini önler. Merkezi yönetilen ağ altyapısı ile bağlantıyı engellemek için kullanın. İlişkilendirmeyi önlemek için kaynak grubunun adını belirtirsiniz.
 

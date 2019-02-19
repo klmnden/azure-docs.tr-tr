@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989796"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343970"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Market’teki Azure yönetilen uygulamaları
 
@@ -64,9 +64,9 @@ Yönetilen uygulamaya yönelik teklif, bir yayımcının ürün teklifi sınıf�
 
 **Teklif Ayarları** formuna ilişkin alanlar şunlardır:
 
-* **Teklif Kimliği**: Bu benzersiz tanıtıcı, bir yayımcı profilindeki teklifi tanımlar. Bu kimlik; ürün URL’leri, Kaynak Yöneticisi şablonları ve faturalandırma raporlarında görünürdür. Yalnızca küçük harfli alfasayısal karakterler veya tirelerden (-) oluşabilir. Kimlik tire ile bitemez. En fazla 50 karakter sınırı vardır. Teklif yayımlandıktan sonra bu alan kilitlenir.
-* **Yayımcı Kimliği**: Bu teklifi yayımlamak istediğiniz yayımcı profilini seçmek için bu açılan listeyi kullanın. Teklif yayımlandıktan sonra bu alan kilitlenir.
-* **Ad**: Teklifinize ilişkin bu görünen ad, Market’te ve portalda görünür. En fazla 50 karakter olabilir. Ürününüz için tanınabilir bir marka adı ekleyin. Pazarlanma şekli bu olmadığı sürece şirket adınızı buraya eklemeyin. Bu teklifi kendi web sitenizde pazarlıyorsanız adın, web sitenizde göründüğü şekliyle aynı olduğundan emin olun.
+* **Teklif kimliği**: Bu benzersiz tanımlayıcı bir yayımcı profilinde teklif tanımlar. Bu kimlik; ürün URL’leri, Kaynak Yöneticisi şablonları ve faturalandırma raporlarında görünürdür. Yalnızca küçük harfli alfasayısal karakterler veya tirelerden (-) oluşabilir. Kimlik tire ile bitemez. En fazla 50 karakter sınırı vardır. Teklif yayımlandıktan sonra bu alan kilitlenir.
+* **Yayımcı kimliği**: Bu teklif altında yayımlamak istediğiniz yayımcı profilini seçmek için bu açılan listeyi kullanın. Teklif yayımlandıktan sonra bu alan kilitlenir.
+* **Ad**: Bu görünen ad teklifiniz Market'te ve Portalı'nda görünür. En fazla 50 karakter olabilir. Ürününüz için tanınabilir bir marka adı ekleyin. Pazarlanma şekli bu olmadığı sürece şirket adınızı buraya eklemeyin. Bu teklifi kendi web sitenizde pazarlıyorsanız adın, web sitenizde göründüğü şekliyle aynı olduğundan emin olun.
 
 İşiniz bittiğinde ilerlemenizi kaydetmek için **Kaydet**’i seçin.
 
@@ -91,21 +91,21 @@ SKU, marketteki ana teklifin altında görünür. Azure portalında kendi başı
    Aşağıdaki alanları doldurun:
 
    * **Başlık**: Bu SKU için bir başlık girin. Bu başlık, bu öğe için olan galeride görünür.
-   * **Özet**: Bu SKU için bir kısa özet girin. Bu metin başlığın altında görünür.
-   * **Açıklama** : SKU hakkında ayrıntılı bir açıklama girin.
-   * **SKU Türü**: İzin verilen değerler *Yönetilen Uygulama* ve *Çözüm Şablonları*’dır. Bu durum için *Yönetilen Uygulama*’yı seçin.
-   * **Ülke/Bölge kullanılabilirliği**: Yönetilen uygulamanın kullanılabilir olduğu ülkeleri seçin.
-   * **Fiyatlandırma**: Uygulamanın yönetimi için bir fiyat sağlayın. Fiyatı ayarlamadan önce kullanılabilir ülkeleri seçin.
+   * **Özet**: Bu SKU için kısa bir Özet girin. Bu metin başlığın altında görünür.
+   * **Açıklama**: SKU hakkında ayrıntılı bir açıklama girin.
+   * **SKU türü**: İzin verilen değerler *yönetilen uygulamayı* ve *çözüm şablonları*. Bu durum için *Yönetilen Uygulama*’yı seçin.
+   * **Ülke/bölge kullanılabilirliği**: Yönetilen uygulama kullanılabilir olduğu ülkeleri seçin.
+   * **Fiyatlandırma**: Uygulama Yönetimi için bir fiyat sağlar. Fiyatı ayarlamadan önce kullanılabilir ülkeleri seçin.
 
 1. Yeni bir paket ekleyin. Aşağıdaki formda yer alan **Paket Ayrıntıları** bölümünü doldurun:
 
    Aşağıdaki alanları doldurun:
 
-   * **Sürüm**: Yüklediğiniz paket için bir sürüm girin. `{number}.{number}.{number}{number}` biçiminde olmalıdır.
-   * **Paket dosyası (.zip)**: Bu paket .zip paketi olarak sıkıştırılmış iki gerekli dosyayı içerir. Dosyalardan biri, yönetilen uygulamaya ilişkin dağıtılacak kaynakları tanımlayan Kaynak Yöneticisi şablonudur. İkinci dosya ise portal aracılığıyla yönetilen uygulamayı dağıtan tüketiciler için [kullanıcı arayüzünü](create-uidefinition-overview.md) tanımlamaktadır. Kullanıcı arayüzünde tüketicilerin parametre değerleri sağlamasına olanak tanıyan öğeleri belirlersiniz.
-   * **PrincipalId**: Bu özellik, müşterinin aboneliğindeki kaynaklara erişimin sağlandığı kullanıcı, kullanıcı grubu veya uygulamalanın Azure Active Directory (Azure AD) tanıtıcısıdır. Rol Tanımı izinleri açıklar.
-   * **Rol Tanımı**: Bu özellik, Azure AD tarafından sağlanan tüm yerleşik Rol Tabanlı Erişim Denetimi (RBAC) rollerinin bir listesidir. Müşteri adına kaynakları yönetmek için kullanılması en uygun olan rolü seçebilirsiniz.
-   * **İlke Ayarları**: Dağıtılan çözümlerde uyumluluk gereksinimlerini belirtmek için, yönetilen uygulamanıza bir [Azure İlkesi](../azure-policy/azure-policy-introduction.md) uygulayın. Kullanılabilir seçenekler arasından uygulanacak ilkeleri seçin. **İlke Parametreleri** için, parametre değerleriyle bir JSON dizesi sağlayın. İlke tanımları ve parametre değerlerinin biçimi için bkz. [Azure İlke Örnekleri](../azure-policy/json-samples.md).
+   * **Sürüm**: Karşıya paket için bir sürüm girin. `{number}.{number}.{number}{number}` biçiminde olmalıdır.
+   * **Paket dosyası (.zip)**: Bu paket, sıkıştırılmış .zip pakete iki gerekli dosyaları içerir. Dosyalardan biri, yönetilen uygulamaya ilişkin dağıtılacak kaynakları tanımlayan Kaynak Yöneticisi şablonudur. İkinci dosya ise portal aracılığıyla yönetilen uygulamayı dağıtan tüketiciler için [kullanıcı arayüzünü](create-uidefinition-overview.md) tanımlamaktadır. Kullanıcı arayüzünde tüketicilerin parametre değerleri sağlamasına olanak tanıyan öğeleri belirlersiniz.
+   * **Principalıd**: Bu özellik bir kullanıcı, kullanıcı grubu veya verilen uygulamanın Azure Active Directory (Azure AD) tanımlayıcısıdır müşteri abonelik içindeki kaynaklara erişim. Rol Tanımı izinleri açıklar.
+   * **Rol tanımı**: Bu özellik, Azure AD tarafından sağlanan tüm yerleşik rol tabanlı erişim denetimi (RBAC) rollerini listesidir. Müşteri adına kaynakları yönetmek için kullanılması en uygun olan rolü seçebilirsiniz.
+   * **İlke ayarları**: Geçerli bir [Azure İlkesi](../governance/policy/overview.md) yönetilen uygulamanıza dağıtılan çözümleri uyumluluk gereksinimini belirtin. Kullanılabilir seçenekler arasından uygulanacak ilkeleri seçin. **İlke Parametreleri** için, parametre değerleriyle bir JSON dizesi sağlayın. İlke tanımları ve parametre değerlerinin biçimi için bkz. [Azure İlke Örnekleri](../governance/policy/samples/index.md).
 
 Çeşitli yetkilendirmeler ekleyebilirsiniz. Bir AD kullanıcı grubu oluşturarak kimliğini **PrincipalId** olarak belirlemenizi öneririz. Bu şekilde SKU’yu güncelleştirme gereği olmadan kullanıcı grubuna daha fazla kullanıcı ekleyebilirsiniz.
 
@@ -137,7 +137,7 @@ Yönetilen uygulamanıza yönelik **Planlar + Fiyatlandırma** sekmesi aşağıd
 
 ![Market planları](./media/publish-marketplace-app/publishvm15.png)
 
-#### <a name="azure-portal"></a>Azure portalına
+#### <a name="azure-portal"></a>Azure portal
 
 Yönetilen uygulamanızın özeti aşağıdaki alanları gösterir:
 

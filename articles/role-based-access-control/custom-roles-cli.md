@@ -1,6 +1,6 @@
 ---
-title: Azure CLI kullanarak özel roller oluşturma | Microsoft Docs
-description: Azure CLI kullanarak rol tabanlı erişim denetimi (RBAC) için özel roller oluşturmayı öğrenin. Bu liste, oluşturma, güncelleştirme ve özel roller silme nasıl içerir.
+title: Azure CLI kullanarak Azure kaynakları için özel roller oluşturma | Microsoft Docs
+description: Azure CLI kullanarak Azure kaynakları için rol tabanlı erişim denetimi (RBAC) ile özel roller oluşturma konusunda bilgi edinin. Bu liste, oluşturma, güncelleştirme ve özel roller silme nasıl içerir.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3b5d18a3e0bf846137dfdf68b8e5dd9e2db58792
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b768f6e240c354369246a6d978ed3e8dd2f58f92
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437265"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338147"
 ---
-# <a name="create-custom-roles-using-azure-cli"></a>Azure CLI kullanarak özel roller oluşturma
+# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Azure CLI kullanarak Azure kaynakları için özel roller oluşturma
 
-[Yerleşik roller](built-in-roles.md) kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi özel rollerinizi oluşturabilirsiniz. Bu makalede, Azure CLI kullanarak özel roller oluşturmak ve yönetmek açıklar.
+Varsa [Azure kaynakları için yerleşik roller](built-in-roles.md) kuruluşunuzun belirli gereksinimlerine uymayan, kendi özel rollerinizi oluşturabilirsiniz. Bu makalede, Azure CLI kullanarak özel roller oluşturmak ve yönetmek açıklar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -162,6 +162,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Öğretici: Azure CLI kullanarak bir özel rol oluşturma](tutorial-custom-role-cli.md)
-- [Azure'da özel roller](custom-roles.md)
+- [Öğretici: Azure CLI kullanarak Azure kaynakları için özel bir rol oluşturun](tutorial-custom-role-cli.md)
+- [Azure kaynakları için özel roller](custom-roles.md)
 - [Azure Resource Manager kaynak sağlayıcısı işlemleri](resource-provider-operations.md)

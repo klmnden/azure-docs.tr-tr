@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d9d87e0e6427c0a0d4b16947fd0427e1c79d8f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097657"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341054"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Ağ güvenlik grupları için akış günlüğü giriş
 
@@ -72,8 +72,6 @@ Akış günlükleri aşağıdaki özellikleri içerir:
                     * **Bayt gönderilen - kaynak - yalnızca sürüm 2 için hedef** TCP ve UDP paket bayt hedeften kaynağa son güncelleştirmeden bu yana gönderilen toplam sayısı. Paket üst bilgisi ve yük paket bayt içerir.
 
 ## <a name="nsg-flow-logs-version-2"></a>Sürüm 2 NSG akış günlükleri
-> [!NOTE] 
-> Akış günlükleri sürüm 2 bulunan ve yalnızca Batı Orta ABD bölgesinde. Sürüm 2 etkinleştirme günlükleri desteklenmeyen bir bölgede depolama hesabınıza yüzdelik sürüm 1 günlüklerinde neden olur.
 
 Sürüm 2 günlüklerinin akışı durumu tanıtır. Akış günlüklerini'nın hangi sürümünün aldığınız yapılandırabilirsiniz. Akış günlüklerini etkinleştirme hakkında bilgi için bkz: [etkinleştirme NSG akış günlüğü](network-watcher-nsg-flow-logging-portal.md).
 

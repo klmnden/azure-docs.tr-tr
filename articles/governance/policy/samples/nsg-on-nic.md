@@ -1,6 +1,6 @@
 ---
 title: Örnek - NSG her NIC üzerinde x
-description: Bu örnek ilkesi, her sanal ağ arabirimiyle belirli bir ağ güvenlik grubunun kullanılmasını gerektirir.
+description: Bu örnek ilke tanımı, belirli bir ağ güvenlik grubu ile her sanal ağ arabirimi kullanılır gerektirir.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 37701a2240f5b017efdbd051972952c9f0449d69
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: d297d296f8b33122ce2b8079c5ee6c79705bcc55
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245975"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342567"
 ---
-# <a name="nsg-x-on-every-nic"></a>Her NIC üzerinde NSG x
+# <a name="sample---network-security-group-x-on-every-nic"></a>Örnek - her NIC üzerinde ağ güvenlik grubu X
 
 Bu ilke, her sanal ağ arabirimiyle belirli bir ağ güvenlik grubunun kullanılmasını gerektirir. Kullanılacak ağ güvenlik grubunun kimliğini belirtirsiniz.
 

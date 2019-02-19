@@ -1,6 +1,6 @@
 ---
 title: Örnek - kullanıcı tanımlı yönlendirme tablosundaki
-description: Bu örnek ilkesi, sanal ağların kullanıcı tanımlı bir yönlendirme tablosu ile dağıtılmasını engeller.
+description: Bu örnek ilke tanımı, bir kullanıcı tanımlı yol tablosu ile dağıtılan sanal ağlara yasaklar.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: db0e7ec5d684f71b3a8426cdf5256adaa8467383
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6155477f7ff70544032e4890cae215fb68523a11
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242881"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341428"
 ---
-# <a name="no-user-defined-route-table"></a>Kullanıcı tanımlı yol tablosu yok
+# <a name="sample---no-user-defined-route-table"></a>Örnek - kullanıcı tanımlı yönlendirme tablosundaki
 
 Bu ilke, sanal ağların kullanıcı tanımlı bir yönlendirme tablosu ile dağıtılmasını engeller.
 

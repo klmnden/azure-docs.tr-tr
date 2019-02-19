@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 02/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 4398f16e0b8179242b6bcd9a69955460291310e7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 254ebb9e23a80f71d2c46e6666362d764ff03141
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267368"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341598"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box dönün ve verileri karşıya yükleme azure'a doğrulayın
 
@@ -42,9 +42,7 @@ Başlamadan önce emin olun:
 ## <a name="ship-data-box-back"></a>Data Box'ı geri gönderme
 
 1. Cihazın kapalı olduğundan ve kabloların çıkartılmış olduğundan emin olun. Cihaz ile beraber sağlanan güç kablosunu sararak emniyetli şekilde cihazın arkasına yerleştirin.
-2. Cihaz ABD içinde gönderiliyorsa e-ink ekranda sevkiyat etiketinin görüntülendiğinden emin olun ve taşıyıcınızdan bir teslim alma randevusu alın. Etiketin zarar görmüş veya kayıp veya E-mürekkep ekranda görüntülenen değil, Microsoft desteğine başvurun. Ardından Git desteği öneriyorsa **genel bakış > Sevkiyat Etiketi indirin** Azure portalında. Sevkiyat Etiketi indirin ve cihaza eklemesi.
-
-    Cihaz Avrupa'da gönderiliyorsa E-ink ekranda sevkiyat etiketi gösterilmez. Bunun yerine iade etiketi, sevkiyat etiketinin altındaki şeffaf bölümde yer alır. Eski sevkiyat etiketini sökün ve yenisinin net bir şekilde göründüğünden emin olun.
+2. E-ink ekranda gönderi etiketinin görüntülendiğinden emin olun ve taşıyıcınızdan bir teslim alma randevusu alın. Etiketin zarar görmüş veya kayıp veya E-mürekkep ekranda görüntülenen değil, Microsoft Support başvurun. Destek önerir sonra gidebilirsiniz **genel bakış > Sevkiyat Etiketi indirin** Azure portalında. Sevkiyat Etiketi indirin ve cihaza eklemesi.
     
 3. UPS ile bir toplama cihaz döndüren, zamanlayın. Bir toplama zamanlamak için yerel UPS (ücretsiz ülkelere özgü arama numarası) çağrı yapma veya en yakın bırakma konumu Data Box'devre dışı bırakın.
 

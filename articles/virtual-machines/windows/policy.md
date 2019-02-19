@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 42b62c819fd3d26c6ea944f968e0d5956a7f055e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 654c23474ebc96a6873f82f51f969da5c7d2d20c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987467"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343264"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Azure Resource Manager ile Windows Vm'leri için ilkelerini uygula
 İlkeleri kullanarak, bir kuruluşun çeşitli kurallar ve kuruluş genelinde kuralları zorunlu kılabilir. İstenen davranışı uygulanması, kuruluşun başarısı için katkıda bulunurken risk azaltmaya Yardım olabilir. Bu makalede, kuruluşunuzun sanal makineler için istediğiniz çalışma biçimini tanımlamak için Azure Resource Manager ilkeleri nasıl kullanabileceğinizi açıklar.
 
-İlkeleri bir giriş için bkz [Azure İlkesi nedir?](../../azure-policy/azure-policy-introduction.md).
+İlkeleri bir giriş için bkz [Azure İlkesi nedir?](../../governance/policy/overview.md).
 
 ## <a name="permitted-virtual-machines"></a>İzin verilen sanal makineler
 Sanal makineler, kuruluşunuz için bir uygulama ile uyumlu olmasını sağlamak için izin verilen işletim sistemleri kısıtlayabilirsiniz. Aşağıdaki ilke örnekte, yalnızca Windows Server 2012 R2 Datacenter oluşturulması için sanal makineleri izin ver:
@@ -251,6 +251,6 @@ Bir şirket içi lisans varsa, sanal makinelerinizde lisans ücreti kaydedebilir
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* (Yukarıdaki örneklerde gösterildiği gibi) ilke kuralı tanımladıktan sonra ilke tanımı oluşturma ve bir kapsama atamak gerekir. Kapsam abonelik, kaynak grubu veya kaynak olabilir. İlkeleri atamak için bkz: [atamak ve kaynak ilkelerini yönetmek için Azure portalını kullanın](../../azure-policy/assign-policy-definition.md), [ilkeleri atamak için PowerShell kullanma](../../azure-policy/assign-policy-definition-ps.md), veya [ilkeleri atamak için Azure CLI'yı kullanmak](../../azure-policy/assign-policy-definition-cli.md).
-* Kaynak ilkeleri bir giriş için bkz [Azure İlkesi nedir?](../../azure-policy/azure-policy-introduction.md).
+* (Yukarıdaki örneklerde gösterildiği gibi) ilke kuralı tanımladıktan sonra ilke tanımı oluşturma ve bir kapsama atamak gerekir. Kapsam abonelik, kaynak grubu veya kaynak olabilir. İlkeleri atamak için bkz: [atamak ve kaynak ilkelerini yönetmek için Azure portalını kullanın](../../governance/policy/assign-policy-portal.md), [ilkeleri atamak için PowerShell kullanma](../../governance/policy/assign-policy-powershell.md), veya [ilkeleri atamak için Azure CLI'yı kullanmak](../../governance/policy/assign-policy-azurecli.md).
+* Kaynak ilkeleri bir giriş için bkz [Azure İlkesi nedir?](../../governance/policy/overview.md).
 * Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).

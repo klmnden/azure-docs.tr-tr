@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 92bbcf1285449ac21cd038e1a6d27d2e3d43430b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 55a9e373893f6f46e6c109dde947b25a36ee93ed
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259742"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343009"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>PowerShell ile ağ güvenlik grubu akış günlüklerini yapılandırma
 
@@ -30,9 +30,6 @@ ms.locfileid: "54259742"
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Ağ güvenlik grubu akış günlüklerini bir ağ güvenlik grubu üzerinden giriş ve çıkış IP trafiğini hakkındaki bilgileri görüntülemek izin veren bir Ağ İzleyicisi'nin bir özelliğidir. Bu akış günlüklerini json biçiminde yazılır ve Kural başına temelinde, akışı uygular, 5 demet bilgi (kaynak/hedef IP, kaynak/hedef bağlantı noktası, protokol) akışla ilgili NIC giden ve gelen akış Göster ve trafiğin izin verilen veya reddedilen.
-
-> [!NOTE] 
-> Akış günlükleri sürüm 2 bulunan ve yalnızca Batı Orta ABD bölgesinde. Sürüm 2 etkinleştirme sürüm 1 günlükleri depolama hesabınıza yüzdelik günlükleri desteklenmeyen bir bölgede de neden olabilir.
 
 ## <a name="register-insights-provider"></a>Insights sağlayıcısını kaydetme
 

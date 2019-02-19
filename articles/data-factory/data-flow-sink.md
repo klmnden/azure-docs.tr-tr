@@ -7,20 +7,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 795b8072bbd9b248f982d061d699f490b1b63b17
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 381dc2f9f6d3a074af00ba047472719c086f5811
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56272181"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408417"
 ---
-# <a name="azure-data-factory-mapping-data-flow-sink-transformation"></a>Azure veri fabrikası veri akışı havuz dönüştürme eşlemesi
+# <a name="mapping-data-flow-sink-transformation"></a>Veri akışı havuz dönüştürme eşlemesi
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 ![Havuz seçenekleri](media/data-flow/windows1.png "havuzu 1")
 
-Veri akışı dönüşümünüzü tamamlandığında, bir hedef veri kümesine dönüştürülmüş veri havuzu. Havuz dönüşümünde hedef çıktı verileri için kullanmak istediğiniz veri kümesi tanımı seçebilirsiniz.
+Veri akışı dönüşümünüzü tamamlandığında, bir hedef veri kümesine dönüştürülmüş veri havuzu. Havuz dönüşümünde hedef çıktı verileri için kullanmak istediğiniz veri kümesi tanımı seçebilirsiniz. Veri akışınızı gerektirdiği sayıda havuz dönüştürme olabilir.
 
 Bir ortak gelen verileri değiştirmek için hesap ve şema kayması için hesap tanımlı bir şeması çıkış veri kümesinde olmayan bir klasör için çıktı verilerini havuz uygulamadır. Ayrıca tüm sütun değişikliklerini kaynaklarınızı "İzin ver şema değişikliklerini" kaynak ve sonra eşleme seçerek havuz içindeki tüm alanlarda hesabının.
 
@@ -35,24 +35,7 @@ Azure depolama blobu veya Data Lake havuz türlerinde bir klasöre dönüştür�
 
 ![Havuz seçenekleri](media/data-flow/opt001.png "havuz seçenekleri")
 
-## <a name="blob-storage-folder"></a>BLOB Depolama klasörü
-Blob Store için veri Bağlantılarınızdaki indirme, bir blob seçin *klasör* olarak, hedef klasör yolu bir dosya değil. ADF veri akışı çıktı dosyaları bu klasörde oluşturacaktır.
-
-![Klasör yolu](media/data-flow/folderpath.png "klasör yolu")
-
-## <a name="optional-azure-sql-data-warehouse-sink"></a>İsteğe bağlı bir Azure SQL veri ambarı havuzu
-
-Veri akışı için ADW havuz veri kümesi, erken bir beta sunacağımız. Bu, bir kopyalama etkinliği, işlem hattınızda ekleme gerek kalmadan doğrudan Azure SQL DW veri akışı içinde dönüştürülen veri yerleşmesi olanak tanır.
-
-Herhangi diğer ADF ardışık düzeni için ADW kimlik bilgilerinizi içeren bir bağlı hizmeti ile olduğu gibi bir ADW veri kümesi oluşturarak başlayın ve bağlanmak istediğiniz veritabanını seçin. Tablo adında mevcut bir tabloyu seçin veya gelen alanlarda yapmanız için otomatik olarak oluşturmak için veri akışı istediğiniz tablonun adını yazın.
-
-![Havuz seçenekleri](media/data-flow/adw3.png "3 Havuz")
-
-Havuz dönüştürmesi duyulduğundan (ADW şu anda yalnızca bir havuz olarak desteklenen) ADW hazırlama verileri Polybase için ADW yüklemek için kullanmak istediğiniz depolama hesabını yanı sıra oluşturduğunuz veri kümesi seçersiniz. Yol alanı biçimi şöyledir: "containername/foldername".
-
-![Havuz seçenekleri](media/data-flow/adw1.png "4 Havuz")
-
-### <a name="save-policy"></a>İlkeyi Kaydet
+### <a name="output-settings"></a>Çıkış ayarları
 
 Üzerine yazma varsa tabloyu kesmek, ardından yeniden oluşturun ve verileri yükleme. Ekleme yeni satır ekleyin. Veri kümesini tablo adını tabloda hiç ADW hedefte mevcut değilse, veri akışı tablosu oluşturun ve sonra veri yükleme.
 
@@ -60,8 +43,46 @@ Havuz dönüştürmesi duyulduğundan (ADW şu anda yalnızca bir havuz olarak d
 
 ![Havuz ADW seçenekleri](media/data-flow/adw2.png "adw havuz")
 
-### <a name="max-concurrent-connections"></a>Maksimum eşzamanlı bağlantıları
+#### <a name="field-mapping"></a>Alan eşleme
 
-Verilerinizi Azure veritabanı bağlantınız yazarken, en fazla eşzamanlı bağlantı havuzu dönüşümünde ayarlayabilirsiniz.
+Havuz dönüşümünüzü eşleme sekmesinde hedefe (sağ taraf) gelen (sol taraf) sütun eşleyebilirsiniz. Bir veri akışı dosyalarını havuz, ADF yeni dosyaları bir klasöre her zaman yazın. Veritabanı veri kümesine eşlediğinizde, ya da bu şema ("üzerine yazmak için" ilke kaydetme ayarlanır) ile yeni bir tablo oluşturmak seçebilir veya mevcut bir yeni satır Ekle tablo ve mevcut şemaya alanları eşleyin.
 
-![Bağlantı Seçenekleri](media/data-flow/maxcon.png "bağlantıları")
+Tek tıklamayla birden çok sütun bağlantısı, birden çok sütun Delink veya birden çok satır aynı sütun adını eşleştirmek için eşleme tablosunda çoklu seçim kullanabilirsiniz.
+
+![Alan eşleme](media/data-flow/multi1.png "birden fazla seçenek")
+
+Sütunları eşlemelerinizi sıfırlamak istiyorsanız, eşlemeleri sıfırlamak için "Yeniden eşleme" düğmesine basın.
+
+![Bağlantıları](media/data-flow/maxcon.png "bağlantıları")
+
+### <a name="updates-to-sink-transformation-for-adf-v2-ga-version"></a>ADF V2 genel kullanım sürümü için dönüştürme havuz güncelleştirmeleri
+
+![Havuz seçenekleri](media/data-flow/sink1.png "bir havuz")
+
+![Havuz seçenekleri](media/data-flow/sink2.png "iç havuzları")
+
+* Şema değişikliklerini ve şema doğrulama seçenekleri artık havuzunda kullanılabilir izin verir. Bu, esnek şema tanımlarını (şema değişikliklerini) kabul edin veya tamamen (doğrulama şema) şema değişirse havuz başarısız için ADF bildirmesine olanak tanır.
+
+* Klasör temizleyin. ADF havuz klasör içeriğini hedef dosyaların hedef klasörde yazmadan önce keser.
+
+* Dosya adı seçenekleri
+
+   * Varsayılan: Spark bölümü varsayılanlara dayanan adı dosyalara izin ver
+   * Desen: Çıkış dosyaları için bir ad girin
+   * Bölüm başına: Bölüm başına bir dosya adı girin
+   * Sütundaki verilerin: Çıkış dosyası bir sütunun değerine ayarlayın.
+
+> [!NOTE]
+> Yürütme veri akışı etkinliği olmayan modda veri akışı hata ayıklama çalıştırırken dosya işlemleri yalnızca yürütme
+
+SQL havuz türleriyle ayarlayabilirsiniz:
+
+* Tablo Kes
+* (Açılan/oluşturma gerçekleştirir) tabloyu yeniden oluşturun
+* Büyük veri için toplu iş boyutu yükler. Bir sayı demetine Yazar öbeklere girin.
+
+![Alan eşleme](media/data-flow/sql001.png "SQL seçenekleri")
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Veri akışınızı oluşturduğunuza göre eklemek bir [yürütme veri akışı etkinliği ardışık](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).

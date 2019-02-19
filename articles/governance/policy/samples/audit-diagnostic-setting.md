@@ -1,6 +1,6 @@
 ---
 title: Örnek - denetim tanılama ayarı
-description: Bu örnek ilkesi, tanılama ayarları belirli kaynak türleri için etkinleştirilmediyse denetler.
+description: Bu örnek ilke tanımı, kaynak türleri için etkinleştirilmemiş tanılama ayarları belirtilmiş olup olmadığını denetler.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 77d430138ea1fe7f3a0e6e81031fb3a733f47b1c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: f5b3a5cfd8adb97918a727bd05133d6c1b9f8a42
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241470"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343732"
 ---
-# <a name="audit-diagnostic-setting"></a>Tanılama ayarını denetle
+# <a name="sample---audit-diagnostic-setting"></a>Örnek - denetim tanılama ayarı
 
 Bu yerleşik ilke, tanılama ayarları belirli kaynak türleri için etkinleştirilmediyse denetler. Tanılama ayarlarının etkin olup olmadığını denetlemek için bir kaynak türü dizisi belirtirsiniz.
 

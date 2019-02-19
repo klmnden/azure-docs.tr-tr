@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5049a5a829ce8e94b62409c9d3b1439e8431fb1
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 3274d753d33c759efa06b899a5511daf53aa9ec9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101241"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338657"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure Klasik abonelik yöneticileri
 
-Microsoft, rol tabanlı erişim denetimi (RBAC) kullanarak kaynaklarına erişimi yönetme önerir. Ancak, yine de klasik dağıtım modelini kullanıyorsanız, bir Klasik Abonelik Yöneticisi rolü kullanmak gerekir: Hizmet Yöneticisi ve ortak yönetici. Daha fazla bilgi için [Azure Resource Manager ve klasik dağıtım](../azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft, rol tabanlı erişim denetimi (RBAC) kullanarak Azure kaynaklarına erişimi yönetme önerir. Ancak, yine de klasik dağıtım modelini kullanıyorsanız, bir Klasik Abonelik Yöneticisi rolü kullanmak gerekir: Hizmet Yöneticisi ve ortak yönetici. Daha fazla bilgi için [Azure Resource Manager ve klasik dağıtım](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Bu makalede, ortak yönetici ve hizmet yöneticisi rollerini ekleme veya değiştirme yapma ve Hesap Yöneticisi görüntüleme açıklanmaktadır.
 
@@ -155,4 +155,4 @@ Hesap Yöneticisi'ni görüntülemek için aşağıdaki adımları izleyin.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure'daki farklı rolleri anlama](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [RBAC ve Azure portalı kullanarak erişimi yönetme](../role-based-access-control/role-assignments-portal.md)
+* [RBAC ve Azure portalını kullanarak Azure kaynaklarına erişimi yönetme](../role-based-access-control/role-assignments-portal.md)

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: fca4b7cc59bf191094400892a37addf1023e2f85
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2e17ab5cfe51f3772148cc730c982671d602a79a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472958"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340493"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Veri bilimi sanal makinesi tabanlı takım analizi ve yapay ZEKA ortamı 
 [Veri bilimi sanal makinesi](overview.md) (DSVM), Azure platformunda yapay zeka (AI) ve veri analizi için önceden oluşturulmuş yazılım ile zengin bir ortam sağlar. 
@@ -47,7 +47,7 @@ Bu makale serisi, rehberlik ve işaretçileri her önceki öğeler için sağlar
 * [İzleme](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) ve [Yönetimi](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
 * [Günlük kaydı ve denetim](https://docs.microsoft.com/azure/security/azure-log-audit)
 * [Rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/overview)
-* [İlke ayarı ve zorlama](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)
+* [İlke ayarı ve zorlama](../../governance/policy/overview.md)
 * [Kötü Amaçlı Yazılımdan Koruma](https://docs.microsoft.com/azure/security/azure-security-antimalware)
 * [Şifreleme](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Veri bulma ve idare](https://docs.microsoft.com/azure/data-catalog/)

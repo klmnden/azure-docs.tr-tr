@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9711e9bf94619b8cd003972d74f3bca4c45894bf
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6702bfabd27b56ce473fe8eb14aadc9dc6e8e7c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312096"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338878"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight ile betik eylemi geliştirme
 
@@ -142,7 +142,7 @@ Kümede yüklemek bileşenleri, Apache Hadoop dağıtılmış dosya sistemi (HDF
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-Bu örnekte, `hdfs` komutu şeffaf bir şekilde varsayılan küme depolama kullanır. Bazı işlemler için URI belirtmeniz gerekebilir. Örneğin, `adl:///example/jars` için Data Lake depolama Gen1 veya `wasb:///example/jars` Azure depolama için.
+Bu örnekte, `hdfs` komutu şeffaf bir şekilde varsayılan küme depolama kullanır. Bazı işlemler için URI belirtmeniz gerekebilir. Örneğin, `adl:///example/jars` için Azure Data Lake depolama Gen1 `abfs:///example/jars` için Data Lake depolama Gen2'ye veya `wasb:///example/jars` Azure depolama için.
 
 ### <a name="bPS7"></a>STDOUT ve STDERR bilgilerini yazma
 

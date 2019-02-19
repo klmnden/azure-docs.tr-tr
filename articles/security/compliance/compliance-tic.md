@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751931"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341734"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Güvenilir bir Internet bağlantıları Kılavuzu
 
@@ -198,7 +198,7 @@ Azure, ağınızın trafik akışları anlamak için gerekli olan bitenden olmas
 
 ### <a name="azure-policy"></a>Azure İlkesi
 
-[Azure İlkesi](https://azure.microsoft.com/services/azure-policy/) denetim ve uyumluluk girişimlerini zorlamak için daha iyi özelliği sayesinde kuruluşunuz tarafından sağlanan bir Azure hizmetidir. Azure İlkesi şu anda ticari olarak sunulan Azure hizmetlerine genel önizlemede kullanılabilir. Azure İlkesi, Azure Kamu'da henüz kullanılamıyor. Müşteriler, planlama ve gelecekteki TIC uyumluluğu güvence altına almak için artık Azure İlkesi kuralları test. 
+[Azure İlkesi](../../governance/policy/overview.md) denetim ve uyumluluk girişimlerini zorlamak için daha iyi özelliği sayesinde kuruluşunuz tarafından sağlanan bir Azure hizmetidir. Müşteriler, planlama ve gelecekteki TIC uyumluluğu güvence altına almak için artık Azure İlkesi kuralları test.
 
 Azure İlkesi, abonelik düzeyinde yöneliktir. Hizmeti gibi uyumluluk görevleri yapabileceğiniz merkezi bir arabirim sağlar:
 - Girişimler yönetme
@@ -213,13 +213,13 @@ Aşağıdaki örnek ilkeleri TIC uyumluluk senaryolar için kullanılabilir:
 
 |İlke  |Örnek senaryo  |Şablon  |
 |---------|---------|---------|
-|Kullanıcı tanımlı yol tablosu uygular. | Tüm sanal Ağları üzerindeki varsayılan yolu bir onaylı sanal ağ geçidi, şirket içi yönlendirme işaret ettiğinden emin olun.    | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
-|Bir bölgede Ağ İzleyicisi etkin değil olup olmadığını denetle.  | Tüm bölgeler kullanılan için Ağ İzleyicisi etkin olduğundan emin olun.  | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
-|NSG her alt ağda x.  | Internet trafiğini bloke ile bir NSG (veya bir dizi onaylanan Nsg'ler) her sanal ağ içindeki tüm alt ağlara uygulandığından emin olun. | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet). |
-|NSG her NIC üzerinde x | Internet trafiğini bloke sahip bir NSG tüm sanal makinelerinde tüm ağ arabirimlerine uygulandığından emin olun. | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic). |
-|Onaylanan bir sanal ağ, sanal makine ağ arabirimleri için kullanın.  | Tüm NIC'ler onaylı bir sanal ağda olduğundan emin olun. | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics). |
-|İzin verilen konumlar. | Tüm kaynaklar bölgelere uyumlu sanal ağlar ve Ağ İzleyicisi yapılandırmayla dağıtıldığından emin olun.  | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs). |
-|Aşağıdaki gibi izin verilmeyen kaynak türleri **Publicıp'lerinde**. | Uyumluluk planınız olmadan kaynak türleri dağıtımını engelliyor. Bu ilke, genel IP adresi kaynakları dağıtımını engellemek için kullanın. NSG kuralları etkili bir şekilde gelen internet trafiği engellemek için kullanılabilse de, daha fazla genel IP'ler kullanımını engelleyen saldırı yüzeyi küçültülür.   | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type).  |
+|Kullanıcı tanımlı yol tablosu uygular. | Tüm sanal Ağları üzerindeki varsayılan yolu bir onaylı sanal ağ geçidi, şirket içi yönlendirme işaret ettiğinden emin olun.    | Bu başlama [şablon](../../governance/policy/samples/no-user-defined-route-table.md). |
+|Bir bölgede Ağ İzleyicisi etkin değil olup olmadığını denetle.  | Tüm bölgeler kullanılan için Ağ İzleyicisi etkin olduğundan emin olun.  | Bu başlama [şablon](../../governance/policy/samples/network-watcher-not-enabled.md). |
+|NSG her alt ağda x.  | Internet trafiğini bloke ile bir NSG (veya bir dizi onaylanan Nsg'ler) her sanal ağ içindeki tüm alt ağlara uygulandığından emin olun. | Bu başlama [şablon](../../governance/policy/samples/nsg-on-subnet.md). |
+|NSG her NIC üzerinde x | Internet trafiğini bloke sahip bir NSG tüm sanal makinelerinde tüm ağ arabirimlerine uygulandığından emin olun. | Bu başlama [şablon](../../governance/policy/samples/nsg-on-nic.md). |
+|Onaylanan bir sanal ağ, sanal makine ağ arabirimleri için kullanın.  | Tüm NIC'ler onaylı bir sanal ağda olduğundan emin olun. | Bu başlama [şablon](../../governance/policy/samples/use-approved-vnet-vm-nics.md). |
+|İzin verilen konumlar. | Tüm kaynaklar bölgelere uyumlu sanal ağlar ve Ağ İzleyicisi yapılandırmayla dağıtıldığından emin olun.  | Bu başlama [şablon](../../governance/policy/samples/allowed-locations.md). |
+|Aşağıdaki gibi izin verilmeyen kaynak türleri **Publicıp'lerinde**. | Uyumluluk planınız olmadan kaynak türleri dağıtımını engelliyor. Bu ilke, genel IP adresi kaynakları dağıtımını engellemek için kullanın. NSG kuralları etkili bir şekilde gelen internet trafiği engellemek için kullanılabilse de, daha fazla genel IP'ler kullanımını engelleyen saldırı yüzeyi küçültülür.   | Bu başlama [şablon](../../governance/policy/samples/not-allowed-resource-types.md).  |
 
 ### <a name="network-watcher-traffic-analytics"></a>Ağ İzleyicisi trafik analizi
 

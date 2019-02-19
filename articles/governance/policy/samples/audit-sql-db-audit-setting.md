@@ -1,6 +1,6 @@
 ---
 title: Örnek - denetim SQL DB düzeyinde denetim ayarını denetle
-description: Bu örnek ilkesi, bu ayarlar belirli bir ayarla eşleşmiyorsa SQL veritabanı denetim ayarlarını denetler.
+description: Bu örnek ilke tanımını, bu ayarları belirli bir ayarı eşleşmiyorsa SQL veritabanının denetim ayarlarını denetler.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: e9eae6d2b9768436eb838945af32df63be160bb8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e319886333a0270bc9535607a40d73944d1e78f7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242711"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338207"
 ---
-# <a name="audit-sql-db-level-audit-setting"></a>SQL DB düzeyinde denetim ayarını denetle
+# <a name="sample---audit-sql-db-level-audit-setting"></a>Örnek - denetim SQL DB düzeyinde denetim ayarını
 
 Bu ilke, bu ayarlar belirli bir ayarla eşleşmiyorsa SQL veritabanı denetim ayarlarını denetler. Denetim ayarlarının etkin veya devre dışı olması gerektiğini gösteren bir değer belirtirsiniz.
 

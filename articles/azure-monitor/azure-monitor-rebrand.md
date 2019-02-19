@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 02/18/2019
 ms.author: bwren
-ms.openlocfilehash: 77a806d328a6dbac0e57c9d99e06debbb25e88b8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 874c0eca97ba7fea7543e41c75e642108141047f
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108390"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408502"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure İzleyici adlandırma ve terminoloji değişiklikleri
 Önemli değişiklikler için Azure İzleyici kısa bir süre önce Azure müşterileri için izlemeyi basitleştirmek için birleştirilmiş farklı hizmetlerle yapıldı. Bu makalede, en son adı ve Azure İzleyici belgeleri terminolojisi değişiklikleri açıklar.
@@ -31,7 +31,7 @@ Azure İzleyici günlük veri olmasına rağmen bir Log Analytics çalışma ala
 Terim _günlük analizi_ yazma ve sorgular çalıştırma ve günlük verilerini analiz etmek için kullanılan Azure portalının sayfası artık öncelikli olarak uygulanır. Bu işlev eşdeğerdir [ölçüm Gezgini](platform/metrics-charts.md), ölçüm verilerini analiz etmek için kullanılan Azure portal sayfasındaki olduğu.
 
 ### <a name="log-analytics-workspaces"></a>Log Analytics çalışma alanları
-[Çalışma alanları](platform/manage-access.md) günlük verilerini Azure İzleyici'de yine de adlandırılır Log Analytics çalışma alanları tutun. **Log Analytics** sayfasında Azure Portalı'ndaki adlandırıldı **Log Analytics çalışma alanları** ve yerdir, [yeni çalışma alanları oluşturma](learn/quick-create-workspace.md) ve veri kaynaklarını yapılandıracaksınız. Günlüklerinizi ve diğer izleme verilerinin analiz **Azure İzleyici** ve çalışma alanınızda yapılandırma **Log Analytics çalışma alanları**.
+[Çalışma alanları](platform/manage-access.md) günlük verilerini Azure İzleyici'de yine de adlandırılır Log Analytics çalışma alanları tutun. **Log Analytics** menü Azure Portalı'ndaki adlandırıldı **Log Analytics çalışma alanları** ve yerdir, [yeni çalışma alanları oluşturma](learn/quick-create-workspace.md) ve veri kaynaklarını yapılandıracaksınız. Günlüklerinizi ve diğer izleme verilerinin analiz **Azure İzleyici** ve çalışma alanınızda yapılandırma **Log Analytics çalışma alanları**.
 
 ### <a name="management-solutions"></a>Yönetim çözümleri
 [Yönetim çözümleri](insights/solutions.md) için adlandırılmış _izleme çözümleri_, işlevleri daha iyi açıklar.

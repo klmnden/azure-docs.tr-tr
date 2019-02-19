@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı başlangıç: Azure Veri Gezgini kümesi ve veritabanı oluşturma'
+title: 'Hızlı Başlangıç: Bir Azure Veri Gezgini kümesi ile veritabanı oluşturma'
 description: Bu hızlı başlangıçta Azure Veri Gezgini kümesi ve veritabanı oluşturup veri almayı (yüklemeyi) öğreneceksiniz.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214826"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408842"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Hızlı başlangıç: Azure Veri Gezgini kümesi ve veritabanı oluşturma
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Hızlı Başlangıç: Bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
 
 Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini'ni kullanmak için öncelikle bir *küme* ve bu kümenin içinde bir veya daha fazla *veritabanı* oluşturmanız gerekir. Ardından veritabanına veri *alarak* (yükleyerek) sorgu çalıştırabilirsiniz. Bu hızlı başlangıçta bir küme ve bir veritabanı oluşturacaksınız. Veri alma adımları sonraki makalelerde gösterilecektir.
 
@@ -77,15 +77,15 @@ Artık işlemin ikinci adımı olan veritabanı oluşturma bölümüne geçebili
     **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
     | Veritabanı adı | *TestDatabase* | Veritabanı adı küme içinde benzersiz olmalıdır.
-    | Bekletme süresi | *3650* | Verilerin sorgu için kullanılabilir durumda tutulacağının garanti olduğu süre. Zaman aralığı verilerin alındığı andan itibaren hesaplanır.
-    | Önbellek süresi | *31* | Sık sorgulanan verilerin uzun süreli depolama alanı yerine SSD depolama veya RAM üzerinde tutulacağı süre.
+    | Bekletme süresi | *3650* | Kendisi için bu verileri sorgulamak kullanılabilen tutulur sağlanır zaman aralığı (gün cinsinden). Zaman aralığı verilerin alındığı andan itibaren hesaplanır.
+    | Önbellek süresi | *31* | Zaman aralığı (gün) SSD depolama veya RAM, sık sorgulanan veriler kullanılabilir tutmak istediğiniz yerine daha uzun vadeli depolama.
     | | | |
 
-1. Veritabanını oluşturmak için **Kaydet**'i seçin. Oluşturma işlemi genellikle bir dakikadan kısa sürer. İşlem tamamlandığında yeniden **Genel bakış** sekmesi açılır.
+1. Veritabanını oluşturmak için **Kaydet**'i seçin. Oluşturma işlemi genellikle bir dakikadan kısa sürer. İşlem tamamlandığında yeniden kümenin **Genel bakış** sekmesi görüntülenir.
 
 ## <a name="run-basic-commands-in-the-database"></a>Veritabanında temel komutları çalıştırma
 
-Artık bir kümeye ve veritabanına sahip olduğunuza göre sorgu ve komut çalıştırabilirsiniz. Veritabanında henüz veri yok ancak yine de araçları nasıl çalıştığını görebilirsiniz.
+Artık bir kümeye ve veritabanına sahip olduğunuza göre sorgu ve komut çalıştırabilirsiniz. Veritabanında henüz veri yok ancak yine de araçların nasıl çalıştığını görebilirsiniz.
 
 1. Kümenizde **Sorgu**'yu seçin.
 
@@ -111,7 +111,7 @@ Artık bir kümeye ve veritabanına sahip olduğunuza göre sorgu ve komut çal�
 
 1. Kümeyi yeniden başlatmak için **Genel bakış** sekmesinin en üstünden **Başlat**'ı seçin.
 
-    Küme yeniden başlatıldığında kullanılabilir duruma gelmesi yaklaşık on dakika sürebilir (ilk sağlandığında olduğu gibi). Verilerin sık erişim önbelleğine yüklenmesi daha uzun zaman alabilir.  
+    Küme yeniden başlatıldığında kullanılabilir duruma gelmesi (ilk sağlandığında olduğu gibi) yaklaşık on dakika sürebilir. Verilerin sık erişim önbelleğine yüklenmesi daha uzun zaman alabilir.  
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -130,6 +130,6 @@ Diğer hızlı başlangıçlarımızı ve öğreticilerimizi izlemeyi planlıyor
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Hızlı başlangıç: Verileri Event Hub'dan Azure Veri Gezgini'ne alma](ingest-data-event-hub.md)
+> [Hızlı Başlangıç: Azure veri Gezgini'ne olay Hub'ından veri alma](ingest-data-event-hub.md)
 
 

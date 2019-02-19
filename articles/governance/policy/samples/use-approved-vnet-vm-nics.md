@@ -1,6 +1,6 @@
 ---
 title: Örnek - sanal makine ağ arabirimleri için sanal ağ kullanım Onaylandı
-description: Bu örnek ilkesi, ağ arabirimlerinin onaylı bir sanal ağ kullanmasını gerektirir.
+description: Bu örnek ilke tanımı, ağ arabirimleri onaylı bir sanal ağı kullanmanız gerekir.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 812ba3e5b8be19230f0a51820b28b279ede4a064
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 107074f6c173b33ce485aaaecf61ec50fb0d428b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243170"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341140"
 ---
-# <a name="use-approved-vnet-for-vm-network-interfaces"></a>VM ağ arabirimlerinde onaylanan sanal ağı kullan
+# <a name="sample---use-approved-vnet-for-vm-network-interfaces"></a>Örnek - sanal makine ağ arabirimleri için sanal ağ kullanım Onaylandı
 
 Bu ilke, ağ arabirimlerinin onaylı bir sanal ağ kullanmasını gerektirir. Onaylanan sanal ağın kimliğini belirtirsiniz.
 

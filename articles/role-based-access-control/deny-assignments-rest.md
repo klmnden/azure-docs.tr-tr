@@ -1,6 +1,6 @@
 ---
-title: RBAC ve REST API - Azure kullanarak atamaları izin verilmeyenler listesi | Microsoft Docs
-description: Liste öğrenin kullanıcıları, grupları ve uygulamaları, rol tabanlı erişim denetimi (RBAC) ve REST API kullanarak atamalarını reddet.
+title: REST API - Azure kullanarak Azure kaynakları için atamaları izin verilmeyenler listesi | Microsoft Docs
+description: Liste öğrenin kullanıcıları, grupları ve uygulamaları, Azure kaynaklarını ve REST API için rol tabanlı erişim denetimi (RBAC) kullanarak atamalarını reddet.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44c1d3b18bb9bdc63247379fe3f277cb6542f2da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975596"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341632"
 ---
-# <a name="list-deny-assignments-using-rbac-and-the-rest-api"></a>RBAC ve REST API kullanarak atamaları izin verilmeyenler listesi
+# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>REST API kullanarak Azure kaynakları için atamaları izin verilmeyenler listesi
 
-Şu anda atamaları Reddet **salt okunur** ve yalnızca Azure tarafından ayarlanabilir. Kendi oluşturulamıyor olsa bile atamaları, reddetme, listeleyebilirsiniz etkili izinlerinizi olumsuz etkilenebilir, çünkü atamaları reddet. Bu makalede, listelemek için atamaları RBAC ve REST API'sini kullanarak nasıl Reddet açıklanır.
+Şu anda, reddetme atamaları **salt okunurdu** ve yalnızca Azure tarafından ayarlanabilir. Kendi reddetme atamalarınızı oluşturamıyor olsanız bile, reddetme atamalarını listeleyebilirsiniz çünkü bunlar sizin geçerli izinlerinizi etkileyebilir. Bu makalede, listelemek için atamaları RBAC ve REST API'sini kullanarak nasıl Reddet açıklanır.
 
 ## <a name="list-a-single-deny-assignment"></a>İzin verilmeyenler listesi tek bir atama
 
@@ -36,7 +36,7 @@ ms.locfileid: "46975596"
 
 1. URI içinde değiştirin *{kapsamı}* Reddet atamalarını listelemek istediğiniz kapsama sahip.
 
-    | Kapsam | Tür |
+    | Kapsam | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -60,7 +60,7 @@ ms.locfileid: "46975596"
 
 1. URI içinde değiştirin *{kapsamı}* Reddet atamalarını listelemek istediğiniz kapsama sahip.
 
-    | Kapsam | Tür |
+    | Kapsam | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -95,6 +95,6 @@ ms.locfileid: "46975596"
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Anlamak atamaları Reddet](deny-assignments.md)
-- [İçin Azure Active Directory'de genel yönetici erişimini yükseltme](elevate-access-global-admin.md)
+- [Anlamak Azure kaynakları için atamaları Reddet](deny-assignments.md)
+- [Azure Active Directory'de Genel Yönetici erişimini yükseltme](elevate-access-global-admin.md)
 - [Azure REST API Başvurusu](/rest/api/azure/)

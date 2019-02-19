@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC rolü tanımlarında anlama | Microsoft Docs
-description: Azure kaynaklarının ayrıntılı erişim yönetimi için rol tabanlı erişim denetimi (RBAC) rol tanımlarında öğrenin.
+title: Azure kaynakları için RBAC rolü tanımlarında anlama | Microsoft Docs
+description: Rol tanımlarında rol tabanlı erişim denetimi (RBAC) ayrıntılı erişim yönetimi için Azure kaynaklarını öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991370"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342788"
 ---
-# <a name="understand-role-definitions"></a>Rol tanımlarını anlama
+# <a name="understand-role-definitions-for-azure-resources"></a>Azure kaynakları için rol tanımları anlama
 
-Bir rolü nasıl çalıştığını anlamak çalışıyorsanız veya kendi oluşturduğunuz [özel rol](custom-roles.md), rolleri nasıl tanımlandığını anlamak yararlı olabilir. Bu makalede rol tanımları ayrıntılarını açıklar ve bazı örnekler sağlar.
+Bir rolü nasıl çalıştığını anlamak çalışıyorsanız veya kendi oluşturduğunuz [Azure kaynakları için özel rol](custom-roles.md), rolleri nasıl tanımlandığını anlamak yararlı olabilir. Bu makalede rol tanımları ayrıntılarını açıklar ve bazı örnekler sağlar.
 
 ## <a name="role-definition-structure"></a>Rol tanımı yapısı
 
@@ -151,6 +151,8 @@ Alice, joker karakter olduğundan (`*`) eylem bir abonelik kapsamda kendi devral
 
 Bob'ın izinler için yalnızca sınırlı `Actions` ve `DataActions` belirtilen [depolama Blob verileri katkıda bulunan (Önizleme)](built-in-roles.md#storage-blob-data-contributor-preview) rol. Rol tabanlı, Bob hem yönetim hem de veri işlemleri gerçekleştirebilirsiniz. Örneğin, Bob okumak, yazma ve belirtilen depolama hesabında kapsayıcıları silmek ve he ayrıca okuma, yazma ve blobları silin.
 
+Yönetim ve depolama için veri düzlemi güvenliği hakkında daha fazla bilgi için bkz. [Azure depolama Güvenlik Kılavuzu](../storage/common/storage-security-guide.md).
+
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>Veri işlemleri için RBAC kullanarak hangi araçları destekliyor?
 
 Görüntülemek ve veri işlemleriyle çalışmak için doğru SDK'lar ve Araçlar sürümlerinin olması gerekir:
@@ -225,10 +227,10 @@ Yerleşik rolleri `AssignableScopes` kök kapsamı ayarlayın (`"/"`). Kök kaps
 | Rol ataması yalnızca ağ kaynak grubundaki kullanılabilir | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | Rol atamasını tüm kapsamlar için kullanılabilir | `"/"` |
 
-Hakkında bilgi için `AssignableScopes` özel roller için bkz: [özel roller](custom-roles.md).
+Hakkında bilgi için `AssignableScopes` özel roller için bkz: [Azure kaynakları için özel roller](custom-roles.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Yerleşik roller](built-in-roles.md)
-* [Özel roller](custom-roles.md)
+* [Azure kaynakları için yerleşik roller](built-in-roles.md)
+* [Azure kaynakları için özel roller](custom-roles.md)
 * [Azure Resource Manager kaynak sağlayıcısı işlemleri](resource-provider-operations.md)

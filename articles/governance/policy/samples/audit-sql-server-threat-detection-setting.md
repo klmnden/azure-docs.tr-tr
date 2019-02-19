@@ -1,6 +1,6 @@
 ---
 title: Örnek - denetim sunucu düzeyi tehdit algılama ayarı
-description: Bu örnek ilke, SQL veritabanı güvenlik uyarısı ilkeleri belirtilen duruma ayarlanmadıysa bu ilkeleri denetler.
+description: Bu ilkeler için belirli durumda ayarlanmamışsa bu örnek ilke tanımını SQL sunucusunun güvenlik uyarı ilkelerini denetler.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,16 +8,16 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9e0ea3b65a4c442358c357e9603d607d8464c21b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ba694618bf86ef8e97241c955a40790960be2f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242184"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341377"
 ---
-# <a name="audit-server-level-threat-detection-setting"></a>Sunucu düzeyi tehdit algılama ayarını denetle
+# <a name="sample---audit-server-level-threat-detection-setting"></a>Örnek - denetim sunucu düzeyi tehdit algılama ayarı
 
-Bu ilke, SQL veritabanı güvenlik uyarısı ilkeleri belirtilen duruma ayarlanmadıysa bu ilkeleri denetler. Tehdit algılamanın etkin mi devre dışı mı olduğunu gösteren bir değer belirtirsiniz.
+Bu ilkeler için belirli durumda ayarlanmazsa, bu ilke SQL server güvenlik uyarı ilkeleri denetler. Tehdit algılamanın etkin mi devre dışı mı olduğunu gösteren bir değer belirtirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

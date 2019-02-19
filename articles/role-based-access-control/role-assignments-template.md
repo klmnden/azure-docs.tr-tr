@@ -1,6 +1,6 @@
 ---
-title: RBAC ve Azure Resource Manager şablonlarını kullanarak erişimini yönetme | Microsoft Docs
-description: Kullanıcılar, gruplar ve rol tabanlı erişim denetimi (RBAC) ve Azure Resource Manager şablonlarını kullanarak uygulamalar için erişimi yönetmeyi öğrenin.
+title: RBAC ve Azure Resource Manager şablonları kullanarak Azure kaynaklarına erişimi yönetme | Microsoft Docs
+description: Kullanıcılar, gruplar ve rol tabanlı erişim denetimi (RBAC) ve Azure Resource Manager şablonlarını kullanarak uygulamaları için Azure kaynaklarına erişimini yönetmeyi öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b8c6ac78447a4e4db79ed75100222eee8d528b58
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 537ee35e96a41cd02605319e244d39c6567c3bf1
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696906"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337212"
 ---
-# <a name="manage-access-using-rbac-and-azure-resource-manager-templates"></a>RBAC ve Azure Resource Manager şablonlarını kullanarak erişimini yönetme
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>RBAC ve Azure Resource Manager şablonları kullanarak Azure kaynaklarına erişimi yönetme
 
-[Rol tabanlı erişim denetimi (RBAC)](overview.md), Azure'daki kaynaklara erişimi yönetmek için kullanılan sistemdir. Azure PowerShell veya Azure CLI kullanmanın yanı sıra, RBAC kullanarak Azure kaynaklarına erişimi yönetebilir ve [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md). Şablonlar, kaynakları tutarlı ve sürekli dağıtımı yapmanız gerekirse yararlı olabilir. Bu makalede RBAC ve şablonları kullanarak erişimini nasıl yönetebileceğiniz açıklanır.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md) Azure kaynaklarına erişimi yönetme yoludur. Azure PowerShell veya Azure CLI kullanmanın yanı sıra, RBAC kullanarak Azure kaynaklarına erişimi yönetebilir ve [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md). Şablonlar, kaynakları tutarlı ve sürekli dağıtımı yapmanız gerekirse yararlı olabilir. Bu makalede RBAC ve şablonları kullanarak erişimini nasıl yönetebileceğiniz açıklanır.
 
 ## <a name="example-template-to-create-a-role-assignment"></a>Bir rol ataması oluşturmak için örnek şablonu
 
@@ -251,6 +251,6 @@ Azure PowerShell kullanarak önceki şablonu dağıtmak için aşağıdaki adım
     
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Oluşturma ve İlk Azure Resource Manager şablonunuzu dağıtma](../azure-resource-manager/resource-manager-create-first-template.md)
+- [Hızlı Başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Azure Resource Manager şablonları, söz dizimi ve yapısı anlama](../azure-resource-manager/resource-group-authoring-templates.md)
 - [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/resources/templates/?term=rbac)

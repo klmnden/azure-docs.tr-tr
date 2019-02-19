@@ -1,6 +1,6 @@
 ---
 title: Örnek - ExpressRoute eşleme konumlarına izin
-description: Bu ilke ExpressRoute’un belirtilen eşleme konumlarını kullanmasını gerektirir.
+description: Bu örnek ilke tanımını kullanım ExpressRoute eşleme konumlarına belirtilen gerektirir.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 10e2ccb6d19872413a94dceb1438319afe57976a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 3c0fd08e5b01776454e1f4bbf1c4e837ce35e0d9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246009"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339065"
 ---
-# <a name="allowed-peering-location-for-expressroute"></a>ExpressRoute için izin verilen Eşleme konumu
+# <a name="sample---allowed-peering-location-for-expressroute"></a>ExpressRoute için eşleme konumu izin örneği-
 
 Bu ilke ExpressRoute’un belirtilen eşleme konumlarını kullanmasını gerektirir. İzin verilen bir eşleme konumu dizisi belirtirsiniz.
 

@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005531"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342992"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Nasıl iş ölçüm uyarıları anlamak Azure İzleyici'de
 
-Azure İzleyici ölçüm uyarıları çok boyutlu ölçümler üzerinde çalışır. Bu ölçümler platform ölçümleri olabilir [özel ölçümler](../../azure-monitor/platform/metrics-custom-overview.md), [popüler günlüklerinden Azure İzleyici ölçümlerine dönüştürülen](../../azure-monitor/platform/alerts-metric-logs.md), Application Insights standart ölçümleri. Ölçüm uyarıları olmadığını denetlemek için düzenli aralıklarla değerlendirin koşullara göre bir veya daha fazla ölçüm zaman serisi doğruysa ve değerlendirmeleri karşılandığında size bildirir. Ölçüm Uyarıları durum bilgisi olan, durumu değiştiğinde diğer bir deyişle, bunlar yalnızca bildirimleri gönderin.
+Azure İzleyici ölçüm uyarıları çok boyutlu ölçümler üzerinde çalışır. Bu ölçümler olabilir [platform ölçümleri](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [özel ölçümler](../../azure-monitor/platform/metrics-custom-overview.md), [popüler günlüklerinden Azure İzleyici ölçümlerine dönüştürülen](../../azure-monitor/platform/alerts-metric-logs.md) ve Application Insights ölçümleri. Ölçüm uyarıları olmadığını denetlemek için düzenli aralıklarla değerlendirin koşullara göre bir veya daha fazla ölçüm zaman serisi doğruysa ve değerlendirmeleri karşılandığında size bildirir. Ölçüm Uyarıları durum bilgisi olan, durumu değiştiğinde diğer bir deyişle, bunlar yalnızca bildirimleri gönderin.
 
 ## <a name="how-do-metric-alerts-work"></a>Ölçüm uyarıları nasıl çalışır?
 
@@ -65,8 +65,6 @@ Varsayalım "myVM" kullanımı eşiğin üstünde olmasını sonraki denetimleri
 Aşağı "myVM" kullanım geri gelirse bir süre sonra normal, diğer bir deyişle, eşiğin altında gider. Uyarı kuralı koşulu çözümlenen bildirim göndermek için iki birden fazla kez izler. Koşullar kanatların durumunda gürültüsünü azaltmak art arda üç nokta için Uyarı koşulu karşılanmadı zaman uyarı kuralı çözümlendi/devre dışı bir ileti gönderir.
 
 Çözümlenen bildirimi web kancaları ya da e-posta ile gönderilir gibi Azure portalında uyarı örneği (İzleyici durumu olarak adlandırılır) durumunu da çözümlenen ayarlanır.
-
-## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Uygun ölçekte Azure İzleyicisi'nde ölçüm uyarıları kullanarak izleme
 
 ### <a name="using-dimensions"></a>Boyutları kullanma
 
@@ -123,9 +121,9 @@ Bu kural, son 5 dakika için ortalama CPU kullanımını her örneği için bekl
 
 Görünüm sonradan süreleri ve ihlal sayısı artan ayrıca uyarı tanımınızı önemli sapmanın üzerinde yalnızca uyarıları filtrelemeye izin verebilirsiniz. [Dinamik eşikler Gelişmiş seçenekleri hakkında daha fazla bilgi](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
-### <a name="monitoring-multiple-resources-using-metric-alerts"></a>Birden çok kaynak ölçüm uyarıları kullanarak izleme
+## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Uygun ölçekte Azure İzleyicisi'nde ölçüm uyarıları kullanarak izleme
 
-Önceki bölümde görüldüğü gibi tek tek boyut birleşimi (yani her izleyen tek bir ölçüm uyarısı kuralının olma olasılığı vardır bir ölçüm zaman serisi). Ancak, daha önce bir kerede tek bir kaynak yapmayı hala sınırlıydı. Azure İzleyici ayrıca bir ölçüm uyarısı kuralının ile birden çok kaynak izlenmesini de destekler. Bu özellik şu anda Önizleme ve yalnızca sanal makineler için kullanılabilir. Ayrıca, tek bir ölçüm Uyarısı, bir Azure bölgesindeki kaynaklarını izleyebilir.
+Şu ana kadar bir veya daha çok ölçümü izlemek için tek bir ölçüm uyarısı nasıl kullanılabilir gördünüz zaman serisi, tek bir Azure kaynağına ilgili. Çoğu zaman, uygulanan birçok kaynağa aynı uyarı kuralı isteyebilirsiniz. Azure İzleyici ayrıca bir ölçüm uyarısı kuralının ile birden çok kaynak izlenmesini de destekler. Bu özellik şu anda yalnızca sanal makinelerde desteklenir. Ayrıca, tek bir ölçüm Uyarısı, bir Azure bölgesindeki kaynaklarını izleyebilir.
 
 Tek bir ölçüm uyarısı üç yoldan biriyle göre izleme kapsamını belirleyebilirsiniz:
 
@@ -133,7 +131,7 @@ Tek bir ölçüm uyarısı üç yoldan biriyle göre izleme kapsamını belirley
 - bir Abonelikteki bir veya daha fazla kaynak gruplarındaki tüm sanal makineler (bir Azure bölgesinde)
 - bir Abonelikteki tüm sanal makineler (bir Azure bölgesinde)
 
-Birden çok kaynak izleme ölçüm uyarı kuralları oluşturma, Azure portalından şu anda desteklenmiyor. Bu kuralları ile oluşturabileceğiniz [Azure Resource Manager şablonları](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Her sanal makine için ayrı bildirim alırsınız.
+Birden çok kaynak izleme ölçüm uyarı kuralları oluşturma benzer [herhangi bir ölçüm uyarısı oluşturma](alerts-metric.md) , tek bir kaynak izler. Tek fark, izlemek istediğiniz tüm kaynakları seçersiniz ' dir. Bu kurallar aracılığıyla da oluşturabilirsiniz [Azure Resource Manager şablonları](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Her sanal makine için ayrı bildirim alırsınız.
 
 ## <a name="typical-latency"></a>Tipik bir gecikme süresi
 
@@ -149,7 +147,7 @@ Bugün Klasik ölçüm uyarıları kullanarak ve ölçüm uyarıları tüm kayna
 |-------------------------------------------------|----------------------------|
 | Microsoft.ApiManagement/service | Evet |
 | Microsoft.Batch/batchAccounts| Evet|
-|Microsoft.Cache/redis| Evet
+|Microsoft.Cache/redis| Evet |
 |Microsoft.ClassicCompute/virtualMachines | Hayır |
 |Microsoft.ClassicCompute/domainNames/slots/roles | Hayır|
 |Microsoft.CognitiveServices/accounts | Hayır |
@@ -160,7 +158,7 @@ Bugün Klasik ölçüm uyarıları kullanarak ve ölçüm uyarıları tüm kayna
 |Microsoft.DBforMySQL/servers| Evet|
 |Microsoft.DBforPostgreSQL/servers| Evet|
 |Microsoft.Devices/ıothubs | Hayır|
-|Microsoft.DocumentDB/databaseAccounts| Hayır|
+|Microsoft.DocumentDB/databaseAccounts| Evet|
 |Microsoft.EventHub/namespaces | Evet|
 |Microsoft.Logic/workflows | Evet|
 |Microsoft.Network/loadBalancers |Evet|
@@ -168,16 +166,16 @@ Bugün Klasik ölçüm uyarıları kullanarak ve ölçüm uyarıları tüm kayna
 |Microsoft.Network/applicationGateways| Evet|
 |Microsoft.Network/expressRouteCircuits| Evet|
 |Microsoft.Network/trafficManagerProfiles | Evet|
-|Microsoft.Search/searchServices | Hayır|
-|Microsoft.ServiceBus/namespaces| Hayır|
+|Microsoft.Search/searchServices | Evet|
+|Microsoft.ServiceBus/namespaces| Evet |
 |Microsoft.Storage/storageAccounts | Evet|
 |Microsoft.StreamAnalytics/streamingjobs| Evet|
 |Microsoft.TimeSeriesInsights/environments | Evet|
 |Microsoft. Web/serverfarms | Evet |
 |Microsoft. Web/siteleri (işlevler hariç) | Evet|
 |Microsoft. HostingEnvironments/Web/multiRolePools | Hayır|
-|Microsoft. HostingEnvironments/Web/workerPools| Hayır
-|Microsoft.SQL/Servers | Hayır|
+|Microsoft. HostingEnvironments/Web/workerPools| Hayır |
+|Microsoft.SQL/Servers | Hayır |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

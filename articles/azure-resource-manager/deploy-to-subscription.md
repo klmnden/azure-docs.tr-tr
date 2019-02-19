@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744407"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343043"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Kaynak grubu ve kaynak abonelik düzeyinde oluşturun.
 
 Genellikle, Azure kaynakları Azure aboneliğinizde bir kaynak grubuna dağıtın. Ancak, aynı zamanda Azure kaynak grupları oluşturabilir ve abonelik düzeyinde Azure kaynakları oluşturma. Abonelik düzeyinde şablonlarını dağıtmak için Azure CLI ve Azure PowerShell kullanırsınız. Azure portalında dağıtım abonelik düzeyinde desteklemiyor.
 
-Bir Azure Resource Manager şablonunda bir kaynak grubu oluşturmak için tanımladığınız bir [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions) kaynak adı ve kaynak grubu için konum. Bir kaynak grubu oluşturun ve kaynakları bu kaynak grubunda aynı şablonu dağıtın. Abonelik düzeyinde dağıttığınız kaynakları şunlardır: [İlkeleri](../azure-policy/azure-policy-introduction.md), ve [rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
+Bir Azure Resource Manager şablonunda bir kaynak grubu oluşturmak için tanımladığınız bir [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions) kaynak adı ve kaynak grubu için konum. Bir kaynak grubu oluşturun ve kaynakları bu kaynak grubunda aynı şablonu dağıtın. Abonelik düzeyinde dağıttığınız kaynakları şunlardır: [İlkeleri](../governance/policy/overview.md), ve [rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -307,7 +307,7 @@ New-AzDeployment `
 
 ### <a name="define-and-assign-policy"></a>Tanımlar ve ilke atama
 
-Yapabilecekleriniz [tanımlamak](../azure-policy/policy-definition.md) ve aynı şablonu ilkesinde atayın.
+Yapabilecekleriniz [tanımlamak](../governance/policy/concepts/definition-structure.md) ve aynı şablonu ilkesinde atayın.
 
 ```json
 {

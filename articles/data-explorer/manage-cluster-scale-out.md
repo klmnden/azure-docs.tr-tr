@@ -7,17 +7,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 38dc7b70630276d51c75ca7e87f0b69ea7fe040a
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/18/2019
+ms.openlocfilehash: 15ef5282e0a073e870f2ac12b5fc442407535770
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735623"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408451"
 ---
-# <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Küme ölçek genişletme, değişen talepleri karşılamak için yönetme
+# <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Küme değişen talepleri karşılamak için genişleme yönetme
 
-Bir küme uygun şekilde boyutlandırma Azure Veri Gezgini performansı için kritik öneme sahiptir. Ancak, isteğe bağlı olarak bir küme % 100 doğrulukla tahmin edilemez. Bir statik küme boyutu eksik kullanımı veya aşırı kullanımı için hangi hiçbiri idealdir açabilir. Daha iyi bir yaklaşım *ölçek* ekleme ve kaldırma kapasitesini isteğe bağlı olarak değişen bir küme. Bu makalede küme ölçek genişletme yönetme gösterilmektedir.
+Bir küme uygun şekilde boyutlandırma Azure Veri Gezgini performansı için kritik öneme sahiptir. Ancak, isteğe bağlı olarak bir küme % 100 doğrulukla tahmin edilemez. Bir statik küme boyutu eksik kullanımı veya aşırı kullanımı için hangi hiçbiri idealdir açabilir. Daha iyi bir yaklaşım *ölçek* ekleme ve kaldırma kapasitesini isteğe bağlı olarak değişen bir küme. Ölçeklendirme için iki iş akışları ölçek büyütme ve ölçek genişletme vardır. Bu makalede, ölçeği genişletilen iş akışı açıklanır.
+
+Bu makalede küme ölçek genişletme, otomatik olarak da bilinen ölçeklendirme yönetme gösterilmektedir. Otomatik ölçeklendirme sayesinde genişleme örnek sayısı otomatik olarak önceden tanımlanmış kurallar ve zamanlamaları göre. Aşağıda açıklandığı gibi Azure portalında kümenizin otomatik ölçeklendirme ayarlarını belirleyin.
 
 Kümenize ve altında gidin **ayarları** seçin **ölçeğini**. Altında **yapılandırma**seçin **etkinleştirmek otomatik ölçeklendirme**.
 
@@ -35,6 +37,8 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
 
 1. İçinde **ölçek kuralı** bölümünde sağ tarafta, her ayar için değerler sağlayın.
 
+    **Ölçütler**
+
     | Ayar | Açıklama ve değer |
     | --- | --- | --- |
     | **Zaman toplama** | Gibi bir toplama ölçütü seçin **ortalama**. |
@@ -42,8 +46,14 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
     | **Zaman dilimi İstatistiği** | Arasında seçim **ortalama**, **Minimum**, **maksimum**, ve **toplam**. |
     | **İşleci** | Uygun bir seçeneği gibi belirleyin **büyüktür veya eşittir**. |
     | **Eşik** | Uygun bir değer seçin. Örneğin, önbellek kullanımı için iyi bir başlangıç noktası % 80'idir. |
-    | **Süresi** | Uygun miktarda bir sistemin geri ölçümleri hesaplanırken aramak saati seçin. Varsayılan on dakika ile başlayın. |
-    | **İşlem** | Ölçeklendirme veya ölçeği genişletmek için uygun seçeneği belirleyin. |
+    | **Süre (dakika cinsinden)** | Uygun miktarda bir sistemin geri ölçümleri hesaplanırken aramak saati seçin. Varsayılan 10 dakika ile başlayın. |
+    |  |  |
+
+    **Eylem**
+
+    | Ayar | Açıklama ve değer |
+    | --- | --- | --- |
+    | **İşlem** | Ölçek veya ölçek genişletme için uygun seçeneği belirleyin. |
     | **Örnek sayısı** | Düğümleri veya örneklerini eklemek veya bir ölçüm koşul karşılandığında kaldırmak istiyorsanız sayısını seçin. |
     | **Seyrek erişimli (dakika)** | Ölçek işlemleri arasında beklenecek bir uygun zaman aralığı seçin. Varsayılan beş dakika ile başlayın. |
     |  |  |
@@ -54,13 +64,15 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
 
     | Ayar | Açıklama ve değer |
     | --- | --- | --- |
-    | *En az* | Bu kümenizi aşağıdaki kullanımı bağımsız olarak ölçeği örnekleri sayısıdır. |
-    | *En fazla* | Kümenizi yukarıdaki kullanımı bağımsız olarak ölçeği örnekleri sayısıdır. |
-    | *Varsayılan* | Kaynak ölçümlerin okunmasıyla ilgili bir sorun varsa kullanılan örnekler, varsayılan sayısı. |
+    | *En az* | Kümenizi aşağıdaki bağımsız olarak kullanımı Ölçekle örnek sayısı. |
+    | *En fazla* | Kümenizi yukarıdaki kullanımı bağımsız olarak ölçeklendirme olmaz örnek sayısı. |
+    | *Varsayılan* | Kaynak ölçümlerin okunmasıyla ilgili sorun varsa kullanılan örnekler, varsayılan sayısı. |
     |  |  |
 
 1. **Kaydet**’i seçin.
 
 Bir ölçek genişletme işlemi, Azure Veri Gezgini kümeniz şimdi yapılandırdınız. Bir ölçeklendirme işlemi için başka bir kural ekleyin. Bu, kümenizin ölçeğini dinamik olarak belirttiğiniz ölçümlere göre sağlar.
+
+Bunu da yapabilirsiniz [ölçek kümesi oluşturan](manage-cluster-scale-up.md) bir küme uygun boyutlandırması için.
 
 Küme ölçeklendirme sorunları ile ilgili yardıma ihtiyacınız varsa, bir destek isteği açın [Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

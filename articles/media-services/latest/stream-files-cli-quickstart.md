@@ -10,15 +10,15 @@ keywords: azure media services, akış
 ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 02/13/2019
+ms.custom: ''
+ms.date: 02/15/2019
 ms.author: juliako
-ms.openlocfilehash: 6de90e6be322d5bac008adc44a4b81dfa18eba0a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: c0b1f3fb854f4ca553d24ed601749cf91c2b5f28
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331122"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339813"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>Hızlı Başlangıç: Stream video dosyaları - CLI
 
@@ -33,7 +33,9 @@ Hızlı başlangıcın sonunda bir videoyu akışa alabileceksiniz.
 
 ## <a name="create-a-media-services-account"></a>Media Services hesabı oluşturma
 
-Media Services'ı kullanmaya başlamak için bir Media Services hesabı oluşturmanız gerekir. Media Services hesabı oluşturduğunuzda aynı zamanda ilişkili bir depolama hesabı oluşturun.
+Şifreleme, kodlama, çözümleme, yönetme ve azure'da medya içeriği akışı başlatmak için bir Media Services hesabı oluşturmanız gerekir. Media Services hesabı, bir veya daha fazla depolama hesapları ile ilişkili olması gerekiyor.
+
+Media Services hesabı ve tüm ilişkili depolama hesapları aynı Azure aboneliğinde olması gerekir. Depolama hesapları Media Services hesabıyla aynı konumda ek gecikme süresi ve veri kullanım maliyetleri önlemek için önemle tavsiye edilir.
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 

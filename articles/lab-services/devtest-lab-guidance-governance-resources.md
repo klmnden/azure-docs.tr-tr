@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: aff57e58ffd247bcc697908f2f25cbf17ff9b91a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c5514a43602106cf045b575d289e02b591468359
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244139"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338470"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Azure DevTest Labs altyapı - kaynak İdaresi
 Bu makalede, hizalama ve kaynakları, kuruluşunuzdaki Yönetim için DevTest Labs yöneliktir. 
@@ -56,7 +56,7 @@ DevTest Labs ortamımın nasıl bir adlandırma kuralı korunsun mu?
 ### <a name="answer"></a>Yanıt
 Azure işlemleri için geçerli Kurumsal adlandırma kuralları'nı genişletin ve DevTest Labs'i ortam genelinde tutarlı hale getirmek isteyebilirsiniz.
 
-DevTest Labs dağıtırken, belirli bir başlangıç ilkeleri sahip olmasını öneririz. Merkezi bir betiği ve JSON şablonları tutarlılığı zorlamak için bu ilkeleri dağıtırsınız. Abonelik düzeyinde mi uygulanacağına Azure ilkeleri aracılığıyla adlandırma ilkeleri uygulanabilir. Azure İlkesi JSON örneği için bkz. [Azure ilkesi örnekleri](../azure-policy/json-samples.md).
+DevTest Labs dağıtırken, belirli bir başlangıç ilkeleri sahip olmasını öneririz. Merkezi bir betiği ve JSON şablonları tutarlılığı zorlamak için bu ilkeleri dağıtırsınız. Abonelik düzeyinde mi uygulanacağına Azure ilkeleri aracılığıyla adlandırma ilkeleri uygulanabilir. Azure İlkesi JSON örneği için bkz. [Azure ilkesi örnekleri](../governance/policy/samples/index.md).
 
 ## <a name="number-of-users-per-lab-and-labs-per-organization"></a>Laboratuvar ve kuruluş labs'te başına kullanıcı sayısı
 

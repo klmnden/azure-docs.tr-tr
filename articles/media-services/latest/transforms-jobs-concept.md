@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: e84f74fe4678a65a33c9cc728f290e7c905b2261
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d93e0de48fd10677ad30e002390dc2e8177cf2eb
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743744"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408485"
 ---
 # <a name="transforms-and-jobs"></a>Dönüşümler ve İşler
  
@@ -27,6 +27,10 @@ Güncelleştirme işlemi [dönüştürme](https://docs.microsoft.com/rest/api/me
 A [iş](https://docs.microsoft.com/rest/api/media/jobs) uygulamak için Azure Media Services için fiili istek **dönüştürme** belirli bir giriş video veya ses içeriği için. Dönüştürme oluşturulduktan sonra Media Services API'leri ve yayımlanan SDK'ları hiçbirini kullanarak işleri gönderebilirsiniz. **İş** konumun video giriş ve çıkış konumunu gibi bilgileri belirtir. Giriş video kullanarak konumu belirtebilirsiniz: HTTPS URL'leri, SAS URL'lerini veya [varlıklar](https://docs.microsoft.com/rest/api/media/assets). İşlerin durumunu ve ilerleme durumunu izleme olayları Event Grid ile tarafından alınabilir. Daha fazla bilgi için [EventGrid kullanarak olayları izleme](job-state-events-cli-how-to.md).
 
 Güncelleştirme işlemi [iş](https://docs.microsoft.com/rest/api/media/jobs) varlığı değiştirmek için kullanılabilir *açıklama*ve *öncelik* iş gönderildikten sonra özellikleri. Bir değişiklik *öncelik* özelliği yalnızca proje yine de kuyruğa alınmış bir durumda ise etkin. İş işleme başladı ya da sona önceliğini değiştirme etkisi yoktur.
+
+Dönüşümler/işleri iş akışı aşağıdaki diyagramda gösterilmiştir.
+
+![Dönüştürmeler](./media/encoding/transforms-jobs.png)
 
 > [!NOTE]
 > Özelliklerini **dönüştürme** ve **iş** DateTime türü her zaman UTC biçiminde olan.

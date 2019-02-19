@@ -1,6 +1,6 @@
 ---
-title: Azure kaynaklarını düzenlemek için Yönetim grupları oluşturma
-description: Birden çok kaynağı yönetmek için Azure yönetim gruplarının nasıl oluşturulacağını öğrenin.
+title: Azure kaynakları - Azure idare düzenlemek için Yönetim grupları oluşturma
+description: Portal, Azure PowerShell ve Azure CLI kullanarak birden çok kaynağı yönetmek için Azure yönetim gruplarının nasıl oluşturulacağını öğrenin.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 699a9b7a371a004213419567d0672f56b5365598
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 01bfd10b2f37a7990ab9a1badfcb09422baa391a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620123"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342210"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Kaynak kuruluşta ve Yönetim için Yönetim grupları oluşturma
 
@@ -78,6 +78,6 @@ Yönetim grupları hakkında daha fazla bilgi almak için bkz.:
 
 - [Azure kaynaklarını düzenlemek için yönetim grupları oluşturma](create.md)
 - [Yönetim gruplarınızı değiştirme, silme veya yönetme](manage.md)
-- [Azure PowerShell kaynakları modülündeki Yönetim gruplarını gözden geçirin](https://aka.ms/mgPSdocs)
-- [REST API Yönetim gruplarını gözden geçirin](https://aka.ms/mgAPIdocs)
-- [Azure CLI'de Yönetim gruplarını gözden geçirin](https://aka.ms/mgclidoc)
+- [Azure PowerShell Kaynak Modülünde yönetim gruplarını gözden geçirme](https://aka.ms/mgPSdocs)
+- [REST API'de yönetim gruplarını gözden geçirme](https://aka.ms/mgAPIdocs)
+- [Azure CLI'de yönetim gruplarını gözden geçirme](https://aka.ms/mgclidoc)

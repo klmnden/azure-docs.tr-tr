@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: 39019c4b11d055aa8f550928bd677e4ce33d6252
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 11fab8b546bff4c990d75bac341bec645267caea
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885603"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408536"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Öğretici: Azure veri Gezgini'nde verileri tek satırlık bir kod olmadan alma
 
@@ -210,8 +210,8 @@ Veri tablosuna eşlemek için aşağıdaki sorguyu kullanın:
             ResultType = tostring(events["resultType"]),
             ResultSignature = tostring(events["resultSignature"]),
             DurationMs = toint(events["durationMs"]),
-            IdentityAuthorization = events["identity.authorization"],
-            IdentityClaims = events["identity.claims"],
+            IdentityAuthorization = events.identity.authorization,
+            IdentityClaims = events.identity.claims,
             Location = tostring(events["location"]),
             Level = tostring(events["level"])
     }

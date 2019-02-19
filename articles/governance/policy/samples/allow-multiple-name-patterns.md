@@ -1,6 +1,6 @@
 ---
 title: Örnek - birden çok ad desenleri
-description: Bu örnek ilkesi, kaynağın sağlanan ad desenlerinden biriyle eşleşmesini gerektirir.
+description: Bu örnek ilke tanımını kaynak eşleşen adı sağlanan desenlerden birini gerektirir.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2e424b7ff79aab36a50e9b44436295cf4ff3d447
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 2c77edfcb8dbf777a14e3a5ffa5b78a5689dbcbc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242983"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342533"
 ---
-# <a name="allow-multiple-name-patterns"></a>Birden çok ad desenine izin ver
+# <a name="sample---allow-multiple-name-patterns"></a>Örnek - birden çok adı desenlerinin izin ver
 
 Birçok ad deseninden birinin kaynaklarda kullanılmasına izin verir. İlke kuralında izin verilen ad desenlerini belirtin.
 

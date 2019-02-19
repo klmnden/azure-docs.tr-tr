@@ -4,232 +4,201 @@ description: Azure Active Directory ve Chromeriver arasında çoklu oturum açma
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 445c5600-e340-4724-a9cb-3cfaf5770b70
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/26/2017
+ms.topic: tutorial
+ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6a037bf945dd6d30df0272a595babeffa2fb7d2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dd3461d771742b52e25a53d669201b3dd498d07a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178065"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340595"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chromeriver"></a>Öğretici: Chromeriver ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Chromeriver tümleştirme konusunda bilgi edinin.
-
 Azure AD ile Chromeriver tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Chromeriver erişimi, Azure AD'de denetleyebilirsiniz
-- Otomatik olarak imzalanan için Chromeriver (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
+* Chromeriver erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) Chromeriver için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile Chromeriver yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Bir Chromeriver çoklu oturum açma etkin aboneliği
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik Chromeriver çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Chromeriver ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Chromeriver destekler **IDP** tarafından başlatılan
 
 ## <a name="adding-chromeriver-from-the-gallery"></a>Galeriden Chromeriver ekleme
+
 Azure AD'de Chromeriver tümleştirmesini yapılandırmak için Chromeriver Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Chromeriver eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Uygulamalar][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Uygulamalar][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **Chromeriver**.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/chromeriver-tutorial/tutorial_chromeriver_search.png)
+4. Arama kutusuna **Chromeriver**seçin **Chromeriver** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-1. Sonuçlar panelinde seçin **Chromeriver**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Sonuç listesinde Chromeriver](common/search-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/chromeriver-tutorial/tutorial_chromeriver_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." adlı bir test kullanıcı tabanlı Chromeriver ile test etme
-
-Tek iş için oturum açma için Azure AD ne Chromeriver karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Chromeriver ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-Chromeriver içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Chromeriver adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının Chromeriver ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Chromeriver ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Chromeriver test kullanıcısı oluşturma](#creating-a-chromeriver-test-user)**  - kullanıcı Azure AD gösterimini bağlı Chromeriver Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Chromeriver çoklu oturum açmayı yapılandırma](#configure-chromeriver-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Chromeriver test kullanıcısı oluşturma](#create-chromeriver-test-user)**  - kullanıcı Azure AD gösterimini bağlı Chromeriver Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Chromeriver uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile Chromeriver yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile Chromeriver yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **Chromeriver** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Chromeriver** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/chromeriver-tutorial/tutorial_chromeriver_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **Chromeriver etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/chromeriver-tutorial/tutorial_chromeriver_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.chromeriver.com`
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.chromeriver.com/login/sso/saml/consume?customerId=<uniqueid>`
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Chromeriver Destek ekibine](https://www.chromeriver.com/services/support) bu değerleri almak için.
- 
+    ![Chromeriver etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
 
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.chromeriver.com`
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.chromeriver.com/login/sso/saml/consume?customerId=<uniqueid>`
 
-    ![Çoklu oturum açmayı yapılandırın](./media/chromeriver-tutorial/tutorial_chromeriver_certificate.png) 
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Chromeriver istemci Destek ekibine](https://www.chromeriver.com/services/support) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-1. Tıklayın **Kaydet** düğmesi.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/chromeriver-tutorial/tutorial_general_400.png)
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-1. Çoklu oturum açmayı yapılandırma **Chromeriver** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [Chromeriver Destek ekibine](https://www.chromeriver.com/services/support). SSO, aboneliğiniz için etkinleştirildiğinde bir bildirim alırsınız.
+6. Üzerinde **Chromeriver kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+    a. Oturum Açma URL'si:
+
+    b. Azure Ad tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-chromeriver-single-sign-on"></a>Chromeriver tek oturum açmayı yapılandırın
+
+Çoklu oturum açmayı yapılandırma **Chromeriver** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Chromeriver destek ekibi ](https://www.chromeriver.com/services/support). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD kullanıcısı oluşturun][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/chromeriver-tutorial/create_aaduser_01.png) 
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/chromeriver-tutorial/create_aaduser_02.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/chromeriver-tutorial/create_aaduser_03.png) 
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/chromeriver-tutorial/create_aaduser_04.png) 
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="creating-a-chromeriver-test-user"></a>Chromeriver test kullanıcısı oluşturma
 
-Chromeriver için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların Chromeriver sağlanması gerekir.  
-
-Chromeriver söz konusu olduğunda, kullanıcı hesapları tarafından oluşturulması gerekir, [Chromeriver Destek ekibine](https://www.chromeriver.com/services/support).
-
->[!NOTE]
->Herhangi diğer Chromeriver kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri tarafından Chromeriver sağlamak için Azure Active Directory kullanıcı hesaplarını sağlanan.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için Chromeriver erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı Ata][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Chromeriver**.
 
-**Britta Simon Chromeriver için atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **Chromeriver**.
 
-    ![Kullanıcı Ata][201] 
+    ![Uygulamalar listesinde Chromeriver bağlantı](common/all-applications.png)
 
-1. Uygulamalar listesinde **Chromeriver**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/chromeriver-tutorial/tutorial_chromeriver_app.png) 
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Kullanıcı Ata][202] 
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Kullanıcı Ata][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-chromeriver-test-user"></a>Chromeriver test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
+Chromeriver için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların Chromeriver sağlanması gerekir. Chromeriver söz konusu olduğunda, kullanıcı hesapları tarafından oluşturulması gerekir, [Chromeriver Destek ekibine](https://www.chromeriver.com/services/support).
 
-Bu bölümün amacı, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test sağlamaktır.
+> [!NOTE]
+> Herhangi diğer Chromeriver kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri tarafından Chromeriver sağlamak için Azure Active Directory kullanıcı hesaplarını sağlanan.
 
-Erişim panelinde Chromeriver kutucuğa tıkladığınızda, otomatik olarak Chromeriver uygulamanıza açan. Erişim paneli hakkında daha fazla ayrıntı için bkz. [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-## <a name="additional-resources"></a>Ek kaynaklar
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+Erişim paneli Chromeriver kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Chromeriver için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
+## <a name="additional-resources"></a>Ek Kaynaklar
 
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/chromeriver-tutorial/tutorial_general_01.png
-[2]: ./media/chromeriver-tutorial/tutorial_general_02.png
-[3]: ./media/chromeriver-tutorial/tutorial_general_03.png
-[4]: ./media/chromeriver-tutorial/tutorial_general_04.png
-
-[100]: ./media/chromeriver-tutorial/tutorial_general_100.png
-
-[200]: ./media/chromeriver-tutorial/tutorial_general_200.png
-[201]: ./media/chromeriver-tutorial/tutorial_general_201.png
-[202]: ./media/chromeriver-tutorial/tutorial_general_202.png
-[203]: ./media/chromeriver-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

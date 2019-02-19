@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234671"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339796"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -43,8 +43,11 @@ SQL veritabanı denetimi kullanabilirsiniz:
 > [!IMPORTANT]
 > Denetim günlüklerine yazılır **ekleme Blobları** Azure aboneliğinizde Azure Blob Depolama alanında.
 >
-> - **Premium depolama** şu anda **desteklenmiyor** tarafından ekleme Blobları.
+> - Tüm depolama türü (v1, v2, blob) desteklenir.
+> - Tüm depolama çoğaltması yapılandırmaları desteklenir.
+> - **Premium depolama** şu anda **desteklenmiyor**.
 > - **Sanal ağ içindeki depolama** şu anda **desteklenmiyor**.
+> - **Bir güvenlik duvarının arkasındaki depolama** şu anda **desteklenmiyor**
 
 ## <a id="subheading-8"></a>Sunucu düzeyinde ve veritabanı düzeyinde denetim ilkesi tanımlama
 

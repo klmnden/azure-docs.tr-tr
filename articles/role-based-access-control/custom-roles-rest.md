@@ -1,6 +1,6 @@
 ---
-title: REST API - Azure kullanarak özel roller oluşturma | Microsoft Docs
-description: REST API kullanarak rol tabanlı erişim denetimi (RBAC) için özel roller oluşturmayı öğrenin. Bu liste, oluşturma, güncelleştirme ve özel roller silme nasıl içerir.
+title: REST API - Azure kullanarak Azure kaynakları için özel roller oluşturma | Microsoft Docs
+description: REST API kullanarak Azure kaynakları için rol tabanlı erişim denetimi (RBAC) ile özel roller oluşturma konusunda bilgi edinin. Bu liste, oluşturma, güncelleştirme ve özel roller silme nasıl içerir.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8a1bbe8217e2d4a9846f56124e248e19cbe70b19
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: cfcb7ef2a4fc02932f9d03c277b105c4b1e0ff3a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436071"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338776"
 ---
-# <a name="create-custom-roles-using-the-rest-api"></a>REST API kullanarak özel roller oluşturma
+# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>REST API kullanarak Azure kaynakları için özel roller oluşturma
 
-[Yerleşik roller](built-in-roles.md) kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi özel rollerinizi oluşturabilirsiniz. Bu makalede, REST API kullanarak özel roller oluşturmak ve yönetmek açıklar.
+Varsa [Azure kaynakları için yerleşik roller](built-in-roles.md) kuruluşunuzun belirli gereksinimlerine uymayan, kendi özel rollerinizi oluşturabilirsiniz. Bu makalede, REST API kullanarak özel roller oluşturmak ve yönetmek açıklar.
 
 ## <a name="list-roles"></a>Rolleri listeleme
 
@@ -38,7 +38,7 @@ Tüm rolleri listesinde veya görünen adını kullanarak tek bir rol hakkında 
 
 1. URI içinde değiştirin *{kapsamı}* rolleri listesinde istediğiniz kapsama sahip.
 
-    | Kapsam | Tür |
+    | Kapsam | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -67,7 +67,7 @@ Görünen adını kullanarak tek bir rol hakkında bilgi almak için önceki bkz
 
 1. URI içinde değiştirin *{kapsamı}* rolleri listesinde istediğiniz kapsama sahip.
 
-    | Kapsam | Tür |
+    | Kapsam | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -115,7 +115,7 @@ Görünen adını kullanarak tek bir rol hakkında bilgi almak için önceki bkz
 
 1. URI içinde değiştirin *{kapsamı}* ilk `assignableScopes` özel rolü.
 
-    | Kapsam | Tür |
+    | Kapsam | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -179,7 +179,7 @@ Görünen adını kullanarak tek bir rol hakkında bilgi almak için önceki bkz
 
 1. URI içinde değiştirin *{kapsamı}* ilk `assignableScopes` özel rolü.
 
-    | Kapsam | Tür |
+    | Kapsam | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -262,7 +262,7 @@ Bir özel rolü silmek için kullanın [rol tanımları: silme](/rest/api/author
 
 1. URI içinde değiştirin *{kapsamı}* özel rolü silmek istediğiniz kapsama sahip.
 
-    | Kapsam | Tür |
+    | Kapsam | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -272,6 +272,6 @@ Bir özel rolü silmek için kullanın [rol tanımları: silme](/rest/api/author
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure'da özel roller](custom-roles.md)
-- [RBAC ve REST API kullanarak erişimini yönetme](role-assignments-rest.md)
+- [Azure kaynakları için özel roller](custom-roles.md)
+- [RBAC ve REST API kullanarak Azure kaynaklarına erişimi yönetme](role-assignments-rest.md)
 - [Azure REST API Başvurusu](/rest/api/azure/)

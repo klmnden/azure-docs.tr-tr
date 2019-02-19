@@ -1,6 +1,6 @@
 ---
-title: Görünüm Reddet Azure portalını kullanarak atamaları | Microsoft Docs
-description: Kullanıcılar, gruplar, hizmet sorumluları ve Azure portalını kullanarak belirli kapsamda belirli eylemler için erişim reddedildi yönetilen kimlikleri görüntülemeyi öğrenin.
+title: Görünüm atamaları Azure portalını kullanarak Azure kaynakları için reddetme | Microsoft Docs
+description: Kullanıcılar, gruplar, hizmet sorumluları ve Azure portalını kullanarak belirli kapsamda belirli bir Azure kaynak eylemlerine erişim reddedildi yönetilen kimlikleri görüntülemeyi öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5870ddbbb8be0ebbeae7656485521a327b86d5b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642812"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343247"
 ---
-# <a name="view-deny-assignments-using-the-azure-portal"></a>Azure portalını kullanarak atamaları görünümü Reddet
+# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Azure portalını kullanarak Azure kaynakları için atamaları görünümü Reddet
 
-[Atamalar Reddet](deny-assignments.md) bir rol ataması bunları erişim verse bile kullanıcıların belirli eylemleri gerçekleştirme. Kendi oluşturulamıyor olsa bile atamaları, reddetme görüntülemeye yine genel izinlerinizi etkileyebileceğinden atamaları reddet. Reddetme ataması hakkında bilgi almak için, [yerleşik rollerin](built-in-roles.md) çoğuna eklenmiş olan `Microsoft.Authorization/denyAssignments/read` izninizin olması gerekir.
+[Atamalar Reddet](deny-assignments.md) bir rol ataması bunları erişim verse bile kullanıcıların belirli bir Azure kaynak eylemler gerçekleştirme. Kendi oluşturulamıyor olsa bile atamaları, reddetme görüntülemeye yine genel izinlerinizi etkileyebileceğinden atamaları reddet. Bir reddetme atama hakkında bilgi almak için olmalıdır `Microsoft.Authorization/denyAssignments/read` çoğunda dahil izni [Azure kaynakları için yerleşik roller](built-in-roles.md).
 
 Bu makalede görüntülemek için Azure portalını kullanmayı açıklar atamaları reddet.
 
@@ -105,5 +105,5 @@ Bir reddetme ataması hakkında ek ayrıntıları görüntülemek için aşağı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Anlamak atamaları Reddet](deny-assignments.md)
-* [RBAC ve REST API kullanarak atamaları izin verilmeyenler listesi](deny-assignments-rest.md)
+* [Anlamak Azure kaynakları için atamaları Reddet](deny-assignments.md)
+* [REST API kullanarak Azure kaynakları için atamaları izin verilmeyenler listesi](deny-assignments-rest.md)

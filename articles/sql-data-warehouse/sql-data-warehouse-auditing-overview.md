@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ef791bdfafbbd49cacad1a75c7171b9a030df2a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456230"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342313"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda denetleme
 
@@ -74,10 +74,13 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
     ![Gezinti bölmesi][8]
 
     > [!IMPORTANT]
-    > Sunucu düzeyi denetim günlüklerine yazılır **ekleme Blobları** Azure aboneliğinizde bir Azure Blob Depolama alanında.
+    > Denetim günlüklerine yazılır **ekleme Blobları** Azure aboneliğinizde Azure Blob Depolama alanında.
     >
-    > * **Premium depolama** şu anda **desteklenmiyor** tarafından ekleme Blobları.
-    > * **Sanal ağ içindeki depolama** şu anda **desteklenmiyor**.
+    > - Tüm depolama türü (v1, v2, blob) desteklenir.
+    > - Tüm depolama çoğaltması yapılandırmaları desteklenir.
+    > - **Premium depolama** şu anda **desteklenmiyor**.
+    > - **Sanal ağ içindeki depolama** şu anda **desteklenmiyor**.
+    > - **Bir güvenlik duvarının arkasındaki depolama** şu anda **desteklenmiyor**
 
 8. **Kaydet**’e tıklayın.
 

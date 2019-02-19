@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e8eeb83c267d7a669f46037c2c94d69107a5edd1
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: d05ec1835bc04be0ca0fc12f41322c14b5420213
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267317"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337825"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure kaynak İlkesi ile RequestDisallowedByPolicy hatası
 
@@ -66,5 +66,5 @@ Bu sorunu çözmek için kaynak ilkelerini gözden geçirin ve bu ilkeleri ile u
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-- [Azure İlkesi nedir?](../azure-policy/azure-policy-introduction.md)
-- [Uyumluluğu zorlamak için ilkeleri oluşturma ve yönetme](../azure-policy/create-manage-policy.md)
+- [Azure İlkesi nedir?](../governance/policy/overview.md)
+- [Uyumluluğu zorlamak için ilkeleri oluşturma ve yönetme](../governance/policy/tutorials/create-and-manage.md)

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: 2e39aaae7b873174db032c5e1dda516c9a998d31
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 66d7a2ce5833729d601ae896f0903a17a40fc8a3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301919"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339508"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Azure Data Lake depolama Gen2 büyük veri gereksinimleri için kullanma
 
@@ -73,7 +73,7 @@ Bu tablo her bir Azure hizmeti veya aracı için erişimi nasıl gösterir.
 |Apache DistCp | Kullanıcı tarafından atanan bir yönetilen kimlik rol atama | [Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2) |
 |Azure Data Factory| Rol atamak için kullanıcı tarafından atanan-yönetilen bir kimlik<br>**veya**<br> Bir hizmet sorumlusuna bir rol atanıyor<br>**veya**<br> Bir depolama hesabı anahtarını kullanın | [Bağlı hizmeti özellikleri](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |Azure HDInsight| Kullanıcı tarafından atanan bir yönetilen kimlik rol atama | [Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
-|Azure Databricks| Bir hizmet sorumlusuna bir rol atayın | [Hizmet sorumlusu oluşturma](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-service-principal)|
+|Azure Databricks| Bir hizmet sorumlusuna bir rol atayın | [Nasıl yapılır: Bir Azure AD uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Belirli dosya ve klasörlere erişim izni vermek için şu makalelere bakın.
 

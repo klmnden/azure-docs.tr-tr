@@ -1,6 +1,6 @@
 ---
 title: Örnek - izin verilen kaynak türleri
-description: Bu örnek ilke yalnızca onaylanan kaynak türlerinin dağıtılmasını güvence altına alır.
+description: Bu örnek ilke tanımını yalnızca onaylanan kaynak türleri dağıtılan sağlar.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3d2f065f875cd012a808af985e36469c85532913
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0dc58bb11d6415cb1003a8b505e337ab385f7d46
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243646"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340000"
 ---
-# <a name="allowed-resource-types"></a>İzin verilen kaynak türleri
+# <a name="sample---allowed-resource-types"></a>Örnek - izin verilen kaynak türleri
 
 Bu ilke, yalnızca onaylanan kaynak türlerinin dağıtılmasını güvence altına alır. İzin verilen kaynak türü dizisini belirtirsiniz.
 

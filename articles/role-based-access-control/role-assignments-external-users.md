@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC kullanarak dış kullanıcıların erişimini yönetme | Microsoft Docs
-description: Rol tabanlı erişim denetimi (RBAC) kullanarak Azure'da bir kuruluş için dış kullanıcıların erişimini yönetmeyi öğrenin.
+title: RBAC kullanarak dış kullanıcılar için Azure kaynaklarına erişimi yönetme | Microsoft Docs
+description: Rol tabanlı erişim denetimi (RBAC) kullanarak bir kuruluş için dış kullanıcılar için Azure kaynaklarına erişimi yönetmeyi öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284532"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343869"
 ---
-# <a name="manage-access-for-external-users-using-rbac"></a>RBAC kullanarak dış kullanıcıların erişimini yönetme
+# <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>RBAC kullanarak dış kullanıcılar için Azure kaynaklarına erişimi yönetme
 
 Rol tabanlı erişim denetimi (RBAC) dış ortak çalışanlar, satıcılar, ortamınızda belirli kaynakların ancak mutlaka tüm erişmesi gereken freelancers ile çalışırken büyük kuruluşlar için ve SMB'ler için daha iyi güvenlik yönetimi sağlar. Altyapı veya herhangi bir faturalandırma ile ilgili kapsam. Bir Azure aboneliğine sahip olan esnekliği yönetici hesabı (Hizmet Yöneticisi rolü abonelik düzeyinde) tarafından yönetilen ve birden çok kullanıcı aynı abonelik altında ancak tüm yönetim haklarına sahip olmayan için çalışmaya davet RBAC sağlar .
 
 > [!NOTE]
-> Office 365 aboneliği veya Azure Active Directory lisansları (örneğin: Azure Active Directory'ye erişim) Office 365 Yönetim Merkezi için RBAC kullanarak uygun olmayan öğesinden sağlandı.
+> Office 365 aboneliği veya Azure Active Directory lisansları (örneğin: Azure Active Directory erişim) Office 365 Yönetim Merkezi için RBAC kullanarak uygun olmayan sağlandı.
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Abonelik kapsamında RBAC Rolleri Ata
 
@@ -55,7 +55,7 @@ Abonelik seçtikten sonra yönetici kullanıcı tıklatmalısınız **erişim de
 
 ![erişim denetimi IAM Özelliği Azure portalında yeni kullanıcı ekleme](./media/role-assignments-external-users/2.png)
 
-Sonraki adım, atanacak rol ve kullanıcı kim RBAC rolü atanmış seçeneğini belirlemektir. İçinde **rol** açılır menüsünde, yönetici kullanıcı, Azure'da kullanılabilen yalnızca yerleşik RBAC rolleri görür. Her rol ve bunların atanabilir kapsamlarla açıklamalarını ayrıntılı için bkz: [yerleşik roller](built-in-roles.md).
+Sonraki adım, atanacak rol ve kullanıcı kim RBAC rolü atanmış seçeneğini belirlemektir. İçinde **rol** açılır menüsünde, yönetici kullanıcı, Azure'da kullanılabilen yalnızca yerleşik RBAC rolleri görür. Her rol ve bunların atanabilir kapsamlarla açıklamalarını ayrıntılı için bkz: [Azure kaynakları için yerleşik roller](built-in-roles.md).
 
 Yönetici kullanıcı, daha sonra dış kullanıcının e-posta adresi eklemeniz gerekir. Beklenen davranış mevcut kiracıda değil gösterilecek dış kullanıcı içindir. Dış kullanıcıyı davet sonra o altında görünür olacak **abonelikler > erişim denetimi (IAM)** abonelik kapsamında bir RBAC rolü atanmış olan tüm geçerli kullanıcılar ile.
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 9154680048b90c76961142398733ed390e36e130
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: baa8be0a7da2b8f56c334f14fcdb15da0a406e15
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983908"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341836"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Öğretici: Azure PowerShell ile Windows sanal makine yönetimi hakkında bilgi edinin
 
@@ -75,7 +75,7 @@ Genellikle, kullanıcıların dağıtılmış kaynakları yönetmek için atand�
 
 ## <a name="azure-policy"></a>Azure İlkesi
 
-[Azure İlkesi](../../azure-policy/azure-policy-introduction.md) abonelikteki tüm kaynakların şirket standartlarına uyduğundan emin olmanıza yardımcı olur. Aboneliğinizde zaten birkaç ilke tanımı mevcuttur. Kullanılabilir ilke tanımlarını görmek için [Get-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/Get-AzPolicyDefinition) komutu:
+[Azure İlkesi](../../governance/policy/overview.md) abonelikteki tüm kaynakların şirket standartlarına uyduğundan emin olmanıza yardımcı olur. Aboneliğinizde zaten birkaç ilke tanımı mevcuttur. Kullanılabilir ilke tanımlarını görmek için [Get-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/Get-AzPolicyDefinition) komutu:
 
 ```azurepowershell-interactive
 (Get-AzPolicyDefinition).Properties | Format-Table displayName, policyType

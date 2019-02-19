@@ -1,6 +1,6 @@
 ---
-title: Öğretici - RBAC ve Azure portalını kullanarak bir kullanıcı için erişim verme | Microsoft Docs
-description: Kullanıcıya Azure portalda bir rol atayarak izinler vermek için rol tabanlı erişim denetimi (RBAC) kullanın.
+title: Öğretici - bir kullanıcı, RBAC ve Azure portalını kullanarak Azure kaynaklarına erişim | Microsoft Docs
+description: Azure portalında rol tabanlı erişim denetimi (RBAC) kullanarak Azure kaynaklarına kullanıcı erişim hakkında bilgi edinin.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 8caa5c3b33ac1b483429251e0c1256636c4ece1a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 41f1c6dc8904f167f34ea72aeb9b3866504b7087
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634481"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341309"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-the-azure-portal"></a>Öğretici: RBAC ve Azure portalını kullanarak bir kullanıcı için erişim verin.
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Öğretici: RBAC ve Azure portalını kullanarak Azure kaynaklarına kullanıcı erişimi
 
-[Rol tabanlı erişim denetimi (RBAC)](overview.md), Azure'daki kaynaklara erişimi yönetmek için kullanılan sistemdir. Bu öğreticide, bir kullanıcı oluşturun ve bir kaynak grubundaki sanal makineleri yönetme erişimi verin.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md) Azure kaynaklarına erişimi yönetme yoludur. Bu öğreticide, bir kullanıcı oluşturun ve bir kaynak grubundaki sanal makineleri yönetme erişimi verin.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -113,5 +113,5 @@ RBAC'de erişimi kaldırmak için rol atamasını kaldırmanız gerekir.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Öğretici: RBAC ve PowerShell kullanarak kullanıcıya erişim izni verme](tutorial-role-assignments-user-powershell.md)
+> [Öğretici: RBAC ve Azure PowerShell kullanarak Azure kaynaklarına kullanıcı erişimi](tutorial-role-assignments-user-powershell.md)
 

@@ -3,21 +3,21 @@ title: Azure haritalar Döndürürüz GeoJSON veri biçiminde | Microsoft Docs
 description: Azure haritalar Döndürürüz GeoJSON veri biçimi hakkında bilgi edinin
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/08/2018
+ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa39661c8ecc4b594478def7d0cc9be3006294c4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5a654b7fdae341da62d94499830a5e1202dff921
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008254"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339643"
 ---
 # <a name="geofencing-geojson-data"></a>Bölge sınırlaması GeoJSON veri
 
-Azure haritalar [alma Döndürürüz](https://docs.microsoft.com/rest/api/map/spatial/getgeofencepreview) ve [POST Döndürürüz](https://docs.microsoft.com/rest/api/map/spatial/postgeofencepreview) API'leri yakınlığını sağlanan döndürürüz göreli koordinat veya sınırlar kümesini almanıza olanak sağlar. Bu makalede Azure haritalar alın ve POST API'sini kullanılabilir döndürürüz verileri hazırlama işlemi açıklanmaktadır.
+Azure haritalar [alma Döndürürüz](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) ve [POST Döndürürüz](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) API'leri yakınlığını sağlanan döndürürüz göreli koordinat veya sınırlar kümesini almanıza olanak sağlar. Bu makalede Azure haritalar alın ve POST API'sini kullanılabilir döndürürüz verileri hazırlama işlemi açıklanmaktadır.
 
 Bölge sınırının veya bölge sınırlarını dizi verilerini tarafından temsil edilen `Feature` nesne ve `FeatureCollection` nesnesine `GeoJSON` tanımlanan biçimi [rfc7946](https://tools.ietf.org/html/rfc7946). Bu ek olarak:
 

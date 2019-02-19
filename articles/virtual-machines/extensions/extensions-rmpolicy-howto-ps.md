@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4dc68127f2d19426c372be027634bb2563dbfa6c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980882"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341666"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Uzantıları Yükleme Windows vm'lerinde kısıtlamak için Azure İlkesi'ni kullanın
 
@@ -30,7 +30,7 @@ Bu öğreticide, Azure PowerShell'in en son sürüme sürekli olarak güncelleş
 
 ## <a name="create-a-rules-file"></a>Kurallar dosyası oluşturma
 
-Hangi uzantıların yüklü kısıtlamak için ihtiyacınız bir [kural](/azure/azure-policy/policy-definition#policy-rule) uzantısı tanımlamak için mantığını sağlamak için.
+Hangi uzantıların yüklü kısıtlamak için ihtiyacınız bir [kural](../../governance/policy/concepts/definition-structure.md#policy-rule) uzantısı tanımlamak için mantığını sağlamak için.
 
 Bu örnekte Azure Cloud Shell'de kurallar dosyası oluşturarak 'Microsoft.Compute' tarafından yayımlanan uzantılarını reddetmek gösterilmektedir, ancak PowerShell'de yerel olarak çalışıyorsanız, ayrıca bir yerel dosya oluşturun ve yolunu değiştirin ($home/clouddrive) yoluyla makinenizde yerel dosya.
 
@@ -70,7 +70,7 @@ Kopyalayın ve aşağıdaki .json dosyaya yapıştırın.
 
 ## <a name="create-a-parameters-file"></a>Bir parametre dosyası oluşturma
 
-Ayrıca gerekir bir [parametreleri](/azure/azure-policy/policy-definition#parameters) engellemek için uzantıları listesinde geçirme için kullanabilmeniz için bir yapı oluşturur dosya. 
+Ayrıca gerekir bir [parametreleri](../../governance/policy/concepts/definition-structure.md#parameters) engellemek için uzantıları listesinde geçirme için kullanabilmeniz için bir yapı oluşturur dosya. 
 
 Bu örnekte Cloud shell'de VM'ler için bir parametre dosyası oluşturma işlemi gösterilmektedir, ancak PowerShell'de yerel olarak çalışıyorsanız, ayrıca bir yerel dosya oluşturun ve yolunu değiştirin ($home/clouddrive) ile makinenizde yerel dosya yolu.
 
@@ -166,4 +166,4 @@ Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi için [Azure İlkesi](../../azure-policy/azure-policy-introduction.md).
+Daha fazla bilgi için [Azure İlkesi](../../governance/policy/overview.md).

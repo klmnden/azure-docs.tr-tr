@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 9dabf3fd37c591525625969ac0af1873477b84d6
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: fe195ba485e6653cee4a45f4a33067bf536334ad
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311447"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338623"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Data Lake depolama Gen1 Azure HDInsight kümeleri ile kullanma
 
@@ -56,11 +56,7 @@ Ek depolama hesabı Data Lake depolama Gen1 kullanarak, performans veya okuma ve
 
 ## <a name="use-data-lake-storage-gen1-as-default-storage"></a>Varsayılan depolama alanı olarak Data Lake depolama Gen1 kullanın
 
-HDInsight ile varsayılan depolama alanı olarak Data Lake depolama Gen1 dağıtıldığında, kümeyle ilişkili dosyalar şu konumda depolanır:
-
-    adl://mydatalakestore/<cluster_root_path>/
-
-Burada `<cluster_root_path>` Data Lake Store içinde oluşturduğunuz klasörün adıdır. Her küme için kök yolu belirterek, birden fazla küme için aynı Data Lake Storage hesabını kullanabilirsiniz. Bunu yaptığınızda şöyle bir durum olabilir:
+HDInsight ile varsayılan depolama alanı olarak Data Lake depolama Gen1 dağıtıldığında, kümeyle ilişkili dosyalar depolanan `adl://mydatalakestore/<cluster_root_path>/`burada `<cluster_root_path>` Data Lake Store içinde oluşturduğunuz klasörün adıdır. Her küme için kök yolu belirterek, birden fazla küme için aynı Data Lake Storage hesabını kullanabilirsiniz. Bunu yaptığınızda şöyle bir durum olabilir:
 
 * Cluster1 `adl://mydatalakestore/cluster1storage` yolunu kullanabilir.
 * Cluster2 `adl://mydatalakestore/cluster2storage` yolunu kullanabilir.

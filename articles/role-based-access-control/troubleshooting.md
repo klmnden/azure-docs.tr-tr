@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC sorunlarını giderme | Microsoft Docs
-description: Azure rol tabanlı erişim denetimi (RBAC) ile ilgili sorunları giderin.
+title: RBAC, Azure kaynakları için sorun giderme | Microsoft Docs
+description: Azure kaynakları için rol tabanlı erişim denetimi (RBAC) ile ilgili sorunları giderin.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e204beea5bdf72c2ec5ebcf661d3c983a2e0e6b4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411246"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342482"
 ---
-# <a name="troubleshoot-rbac-in-azure"></a>Azure RBAC sorunlarını giderme
+# <a name="troubleshoot-rbac-for-azure-resources"></a>RBAC, Azure kaynakları için sorun giderme
 
-Bu makalede, Azure portalı ve rolleri erişimi sorunlarını giderme kullanırken beklenmesi gerekenler öğrenmek için rol tabanlı erişim denetimi (RBAC) hakkında sık sorulan sorular yanıtlanmaktadır.
+Azure portalı ve rolleri erişimi sorunlarını giderme kullanırken beklenmesi gerekenler öğrenmek için bu makalede, Azure kaynakları için rol tabanlı erişim denetimi (RBAC) hakkında sık sorulan sorular yanıtlanmaktadır.
 
 ## <a name="problems-with-rbac-role-assignments"></a>RBAC rol atamalarıyla ilgili sorunlar
 
@@ -119,6 +119,6 @@ Bazı özellikleri [Azure işlevleri](../azure-functions/functions-overview.md) 
 Bağlanabilmesi **Platform özellikleri** sekmesine ve ardından **tüm ayarlar** bazı ayarları görüntülemek için ilgili bir işlev uygulaması (bir web app ile benzer), ancak bu ayarlardan herhangi birini değiştiremezler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [RBAC ve Azure portalı kullanarak erişimi yönetme](role-assignments-portal.md)
-* [RBAC değişiklikler için etkinlik günlüklerini görüntüleme](change-history-report.md)
+* [RBAC ve Azure portalını kullanarak Azure kaynaklarına erişimi yönetme](role-assignments-portal.md)
+* [RBAC değişiklikler Azure kaynakları için etkinlik günlüklerini görüntüleme](change-history-report.md)
 

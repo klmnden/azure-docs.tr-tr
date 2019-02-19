@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
+ms.date: 02/18/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a0be784cdee0fd98a81c182f33dea987481aac3
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6e130da9bf12d25cc5c77c825512717bdf2ba5a1
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329141"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408825"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API'sini çağırmak bir evrensel Windows platformu uygulaması (XAML)
 
@@ -74,14 +74,11 @@ Bu kılavuz, Graph API'si sorguları ve oturum kapatma düğmesi çağrıların�
 2. Aşağıdaki komutu kopyalayıp **Paket Yöneticisi Konsolu** penceresi:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
+    Install-Package Microsoft.Identity.Client
     ```
 
 > [!NOTE]
-> Bu komut yükler [Microsoft kimlik doğrulama Kitaplığı](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL alır, önbelleğe alır ve Azure Active Directory v2.0 tarafından korunan API'lere kullanıcı belirteçleri yeniler.
-
-> [!NOTE]
-> Bu öğreticide daha önceden kullanımı henüz MSAL.NET, en son sürümünü ancak güncelleştirme üzerinde çalışıyoruz.
+> Bu komut yükler [Microsoft kimlik doğrulama Kitaplığı](https://aka.ms/msal-net). MSAL alır, önbelleğe alır ve Azure Active Directory v2.0 tarafından korunan API'lere kullanıcı belirteçleri yeniler.
 
 ## <a name="initialize-msal"></a>MSAL Başlat
 Bu adım belirteçleri işleme gibi MSAL, etkileşim işlemek için bir sınıf oluşturmanıza yardımcı olur.
@@ -159,7 +156,8 @@ Bu bölümde, Microsoft Graph API için bir belirteç almak için MSAL kullanmay
     
             try
             {
-                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, App.PublicClientApp.Users.FirstOrDefault());
+                var accounts = await App.PublicClientApp.GetAccountsAsync();
+                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
             }
             catch (MsalUiRequiredException ex)
             {
@@ -203,15 +201,15 @@ Bir çağrı `AcquireTokenAsync` oturum açmak için kullanıcıların ister bir
 
 Sonuç olarak, `AcquireTokenSilentAsync` yöntemi başarısız olur. Hatanın nedenlerini kullanıcılara oturumunuz veya başka bir cihazda kendi parola değiştirildi, olabilir. MSAL etkileşimli bir eylem gerektirerek sorun çözülebilir, harekete algıladığında bir `MsalUiRequiredException` özel durum. Uygulamanız, bu özel durumun iki şekilde işleyebilir:
 
-* Bir çağrısı yapabilirsiniz `AcquireTokenAsync` hemen. Bu çağrı, kullanıcının oturum açmasını isteyen içinde sonuçlanır. Normalde, bu düzen çevrimiçi uygulamalarda kullanılır kullanıcı için çevrimdışı kullanılabilir içerik olduğunda. Bu Kılavuzlu kurulum tarafından oluşturulan örnek deseni izler. Bu örnek çalışma eylem ilk zamanı'na bakın. 
-    * Hiçbir kullanıcı uygulama kullanıldığından `PublicClientApp.Users.FirstOrDefault()` bir null değer içeriyor ve bir `MsalUiRequiredException` özel durumu oluşturulur.
-    * Ardından kod çağırarak özel durumu işleyen `AcquireTokenAsync`. Bu çağrı, kullanıcının oturum açmasını isteyen içinde sonuçlanır.
+* Bir çağrısı yapabilirsiniz `AcquireTokenAsync` hemen. Bu çağrı, kullanıcının oturum açmasını isteyen içinde sonuçlanır. Normalde, bu düzen çevrimiçi uygulamalarda kullanılır kullanıcı için çevrimdışı kullanılabilir içerik olduğunda. Bu Kılavuzlu kurulum tarafından oluşturulan örnek deseni izler. Bu örnek çalışma eylem ilk zamanı'na bakın.
+  * Hiçbir kullanıcı uygulama kullanıldığından `accounts.FirstOrDefault()` bir null değer içeriyor ve bir `MsalUiRequiredException` özel durumu oluşturulur.
+  * Ardından kod çağırarak özel durumu işleyen `AcquireTokenAsync`. Bu çağrı, kullanıcının oturum açmasını isteyen içinde sonuçlanır.
 
 * Veya bunun yerine, görsel gösterimi kullanıcılara etkileşimli bir oturum açma gerekli olduğunu gösterir. Ardından, oturum açmak için doğru zamanda seçebilirsiniz. Veya uygulama yeniden deneyebilirsiniz `AcquireTokenSilentAsync` daha sonra. Genellikle, kullanıcılar, diğer uygulama işlevleri kesintiye uğratmadan kullanabilir bu deseni kullanılır. Çevrimdışı içeriği uygulamada kullanılabilir olduğunda bir örnektir. Korumalı kaynağa ya da eski bilgileri Yenile oturum açmaya istediğinizde, bu durumda, kullanıcılar karar verebilirsiniz. Ya da uygulama yeniden denemek başka bir karar verebilirsiniz `AcquireTokenSilentAsync` zaman ağ geri sonra geçici olarak kullanılamıyor.
 
 ## <a name="call-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Yalnızca edinilen belirteçle'ı kullanarak Microsoft Graph API çağırma
 
-* Aşağıdaki yeni yöntemi ekleyin **MainPage.xaml.cs**. Bu yöntem yapmak için kullanılan bir `GET` [Authorize] üstbilgi kullanarak Graph API'si isteği:
+* Aşağıdaki yeni yöntemi ekleyin **MainPage.xaml.cs**. Bu yöntem yapmak için kullanılan bir `GET` kullanarak Graph API'si isteğinin bir `Authorization` üst bilgi:
 
     ```csharp
     /// <summary>
@@ -255,11 +253,12 @@ Bu örnek uygulamasında `GetHttpContentWithToken` yöntemi bir HTTP yapmak içi
     /// </summary>
     private void SignOutButton_Click(object sender, RoutedEventArgs e)
     {
-        if (App.PublicClientApp.Users.Any())
+        var accounts = await App.PublicClientApp.GetAccountsAsync();
+        if (accounts.Any())
         {
             try
             {
-                App.PublicClientApp.Remove(App.PublicClientApp.Users.FirstOrDefault());
+                App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault());
                 this.ResultText.Text = "User has signed-out";
                 this.CallGraphButton.Visibility = Visibility.Visible;
                 this.SignOutButton.Visibility = Visibility.Collapsed;
@@ -333,7 +332,7 @@ Federasyon Azure Active Directory etki alanı ile kullanıldığında, Windows t
     ```
 
 > [!IMPORTANT]
-> Bu örnek için varsayılan olarak Windows tümleşik kimlik doğrulaması yapılandırılamadı. İstek uygulamaları *Kurumsal kimlik* veya *paylaşılan kullanıcı sertifikaları* doğrulaması ile Windows Store yüksek seviyede özellikleri gerektirir. Ayrıca, tüm geliştiriciler doğrulama yüksek seviyede yapmak istiyorsunuz. Yalnızca bir Federasyon Azure Active Directory etki alanı ile Windows tümleşik kimlik doğrulaması gerekiyorsa, bu ayarı etkinleştirin.
+> [Tümleşik Windows kimlik doğrulaması](https://aka.ms/msal-net-iwa) Bu örnek için varsayılan olarak yapılandırılmamış. İstek uygulamaları *Kurumsal kimlik* veya *paylaşılan kullanıcı sertifikaları* doğrulaması ile Windows Store yüksek seviyede özellikleri gerektirir. Ayrıca, tüm geliştiriciler doğrulama yüksek seviyede yapmak istiyorsunuz. Yalnızca bir Federasyon Azure Active Directory etki alanı ile Windows tümleşik kimlik doğrulaması gerekiyorsa, bu ayarı etkinleştirin.
 
 ## <a name="test-your-code"></a>Kodunuzu test etme
 

@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/10/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497426"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341411"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Kaynak Sağlayıcısı kaydı için hataları çözümleyin
 
@@ -45,13 +45,21 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 Hata iletisi desteklenen konumları ve API sürümleri için öneriler vermeniz gerekir. Önerilen değerler birine şablonunuzu değiştirebilirsiniz. Azure portalı veya komut satırı arabirimi, kullanmakta olduğunuz tarafından otomatik olarak kayıtlı ancak tüm çoğu sağlayıcıları. Bir kaynak sağlayıcısı önce kullanmadıysanız, bu sağlayıcıyı kaydetmek gerekebilir.
 
+Ya da sanal makineleri için otomatik kapatmayı devre dışı bırakılırken benzer bir hata iletisi alabilirsiniz:
+
+```
+Code: AuthorizationFailed
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+```
+
 ## <a name="cause"></a>Nedeni
 
-Üç nedenlerden biri dolayısıyla bu hataları alırsınız:
+Aşağıdaki nedenlerden biri için bu hataları alırsınız:
 
-* Aboneliğinizin kaynak sağlayıcısına kayıtlı olmayan
+* Aboneliğiniz için kaydedilmiş henüz gerekli kaynak sağlayıcısı
 * Kaynak türü için desteklenmeyen API sürümü
 * Konum kaynak türü için desteklenmiyor
+* Otomatik kapatma için sanal makinelerin, Microsoft.DevTestLab kaynak sağlayıcısı kayıtlı olması gerekir.
 
 ## <a name="solution-1---powershell"></a>Çözüm 1 - PowerShell
 

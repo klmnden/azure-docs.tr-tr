@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: be2274b5d7a0e39733440379ce9678ab012d7d27
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8ee900554371644f374e4aeed51f1eeb0c18569e
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473835"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408876"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyici ile desteklenen ölçümler
 Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümler tam listesi ile Azure İzleyicisi'nin ölçüm ardışık düzen şu anda kullanılabilir. Diğer ölçümleri portalı veya eski API'leri kullanarak mevcut olabilir. Bu listede yalnızca birleştirilmiş Azure İzleyici ölçüm ardışık düzeni'ni kullanarak mevcut olan ölçümler içerir. Sorgulamak ve erişmek için bu ölçümleri lütfen [2018-01-01 API sürümü](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -652,14 +652,52 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
-|---|---|---|---|---|---|
-|MetadataRequests|Meta veri isteği|Sayı|Sayı|Meta veri isteği sayısı. Cosmos DB koleksiyonları, veritabanları vb. listeleme olanak tanır, her hesap için sistem meta veri koleksiyonu tutar ve bunların yapılandırmalarının ücretsiz.|DatabaseName, CollectionName, bölge, StatusCode|
-|MongoRequestCharge|Mongo istek yükü|Sayı|Toplam|Tüketilen mongo istek birimleri|DatabaseName CollectionName, bölgesi CommandName, hata kodu|
-|MongoRequests|Mongo istekleri|Sayı|Sayı|Mongo istekleri sayısı|DatabaseName CollectionName, bölgesi CommandName, hata kodu|
-|TotalRequestUnits|Toplam istek birimleri|Sayı|Toplam|Tüketilen birimler iste|DatabaseName, CollectionName, bölge, StatusCode|
-|TotalRequests|Toplam İstek Sayısı|Sayı|Sayı|Yapılan istek sayısı|DatabaseName, CollectionName, bölge, StatusCode|
+### <a name="request-metrics"></a>İstek ölçümleri
 
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar| Zaman ayrıntı düzeyi| Eski ölçüm eşleme | Kullanım |
+|---|---|---|---|---|---| ---| ---| ---|
+| TotalRequests |   Toplam İstek Sayısı| Sayı   | Sayı | Yapılan istek sayısı|  DatabaseName, CollectionName, bölge, StatusCode|   Tümü |   Hizmet kullanılamıyor, istekler daraltıldı, saniye başına ortalama istek Http 2xx, 3xx, Http 400, Http 401 Http TotalRequests, iç sunucu hatası |    Durum kodu, bir dakikalık ayrıntı düzeyi, koleksiyon başına istekleri izlemek için kullanılır. Saniye başına ortalama istek almak için dakika sayısı toplama kullanın ve 60 bölün. |
+| MetadataRequests |    Meta veri isteği   |Sayı| Sayı   | Meta veri isteği sayısı. Azure Cosmos DB koleksiyonları, veritabanları vb. listeleme olanak tanır, her hesap için sistem meta veri koleksiyonu tutar ve bunların yapılandırmalarının ücretsiz.    | DatabaseName, CollectionName, bölge, StatusCode| Tümü|  |Meta veri isteği nedeniyle kısıtlamalar izlemek için kullanılır.|
+| MongoRequests |   Mongo istekleri| Sayı | Sayı|  Mongo istekleri sayısı   | DatabaseName CollectionName, bölgesi CommandName, hata kodu| Tümü |Mongo sorgusu istek hızı, Mongo güncelleştirme isteği oranı oranı, Mongo silmek, Mongo istek hızı Ekle istek Mongo sayısı istek oranı|   Mongo istek hataları izlemek için kullanılan komut başına kullanımları yazın. |
+
+
+### <a name="request-unit-metrics"></a>İstek birimi ölçümleri
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar| Zaman ayrıntı düzeyi| Eski ölçüm eşleme | Kullanım |
+|---|---|---|---|---|---| ---| ---| ---|
+| MongoRequestCharge|   Mongo istek yükü |  Sayı   |Toplam  |Tüketilen mongo istek birimleri|  DatabaseName CollectionName, bölgesi CommandName, hata kodu|   Tümü |Mongo sorgusu istek yükü, Mongo güncelleştirme ücreti, Mongo istek yükü silin, istek yükü, Mongo Ekle Mongo sayısı isteği ücret iste| Bir dakika içinde Mongo kaynak RU'ları izlemek için kullanılır.|
+| TotalRequestUnits |Toplam istek birimleri|   Sayı|  Toplam|  Tüketilen birimler iste| DatabaseName, CollectionName, bölge, StatusCode    |Tümü|   TotalRequestUnits|  Dakikalık bir ayrıntı düzeyi toplam RU kullanımını izlemek için kullanılır. Tüketilen ortalama RU almak için toplam toplama dakikada kullanın ve 60 bölün.|
+| ProvisionedThroughput |Sağlanan Aktarım Hızı|    Sayı|  Maksimum |Koleksiyon ayrıntı düzeyinde sağlanan aktarım hızı|  DatabaseName, CollectionName|   5 DK| |   Koleksiyon başına sağlanan aktarım hızı izlemek için kullanılır.|
+
+### <a name="storage-metrics"></a>Depolama ölçümleri
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar| Zaman ayrıntı düzeyi| Eski ölçüm eşleme | Kullanım |
+|---|---|---|---|---|---| ---| ---| ---|
+| AvailableStorage| Kullanılabilir depolama alanı   |Bayt| Toplam|  Bölge başına 5 dakikalık ayrıntı düzeyi, raporlanan toplam kullanılabilir depolama alanı|   DatabaseName, CollectionName, bölge|   5 DK| Kullanılabilir depolama alanı|   Kullanılabilir depolama alanı izlemek için kullanılan kapasite (yalnızca sabit depolama koleksiyonlar için geçerlidir) en az ayrıntı düzeyi 5 dakika olmalıdır.| 
+| DataUsage |Veri Kullanımı |Bayt| Toplam   |Bölge başına 5 dakikalık ayrıntı düzeyi, rapor edilen toplam veri kullanımı|    DatabaseName, CollectionName, bölge|   5 DK  |Veri boyutu  | En düşük ayrıntı düzeyi, koleksiyon ve bölge toplam veri kullanımı izlemek için kullanılan, 5 dakika olmalıdır.|
+| IndexUsage|   Dizin kullanımı|    Bayt|  Toplam   |Bölge başına 5 dakikalık ayrıntı düzeyi, toplam dizin kullanım raporlama|    DatabaseName, CollectionName, bölge|   5 DK| Dizin Boyutu| En düşük ayrıntı düzeyi, koleksiyon ve bölge toplam veri kullanımı izlemek için kullanılan, 5 dakika olmalıdır. |
+| DocumentQuota|    Belge kota| Bayt|  Toplam|  Bölge başına 5 dakikalık ayrıntı düzeyi, toplam depolama kotası bildirdi. F için geçerlidir| DatabaseName, CollectionName, bölge|   5 DK  |Depolama Kapasitesi|  En düşük ayrıntı düzeyi, koleksiyon ve bölge toplam kota izlemek için kullanılan, 5 dakika olmalıdır.|
+| DocumentCount|    Belge Sayısı| Sayı   |Toplam  |Bölge başına 5 dakikalık ayrıntı düzeyi, bildirilen Totaldocument sayısı|  DatabaseName, CollectionName, bölge|   5 DK  |Belge Sayısı|En düşük ayrıntı düzeyi, koleksiyon ve bölge belge sayısı izlemek için kullanılan, 5 dakika olmalıdır.|
+
+### <a name="latency-metrics"></a>Gecikme süresi ölçülerini
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar| Zaman ayrıntı düzeyi| Kullanım |
+|---|---|---|---|---|---| ---| ---| ---|
+| ReplicationLatency    | Çoğaltma gecikmesi|  Milisaniye|   Minimum, maksimum, ortalama | Kaynak ve hedef bölgede coğrafi özellikli hesabının P99 çoğaltma gecikmesi| SourceRegion, TargetRegion| Tümü | Coğrafi olarak çoğaltılmış bir hesap için herhangi iki bölgeleri arasında P99 çoğaltma gecikmesi izlemek için kullanılır. |
+
+### <a name="availability-metrics"></a>Kullanılabilirlik ölçümlerini
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar| Zaman ayrıntı düzeyi| Eski ölçüm eşleme | Kullanım |
+|---|---|---|---|---|---| ---| ---| ---|
+| ServiceAvailability   | Hizmet kullanılabilirliği| Yüzde |Minimum, maksimum|   Hesap istekleri kullanılabilirliğine bir saat ayrıntı düzeyi|  |   1H  | Hizmet kullanılabilirliği  | Toplam başarılı isteklerin yüzdesi budur. Bir isteği 410, durum kodu ise, sistem hatası nedeniyle başarısız olarak kabul edilir 500 veya 503 saat ayrıntı düzeyi hesabında kullanılabilirliğini izlemek için kullanılır. |
+
+### <a name="cassandra-api-metrics"></a>Cassandra API ölçümleri
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar| Zaman ayrıntı düzeyi| Kullanım |
+|---|---|---|---|---|---| ---| ---| ---|
+| CassandraRequests | Cassandra istekleri |  Sayı|  Sayı|  Yapılan Cassandra API isteklerinin sayısı|  DatabaseName, CollectionName, hata kodu, bölge, OperationType, kaynak türü|   Tümü| Dakikalık bir ayrıntı düzeyi Cassandra istekleri izlemek için kullanılır. Saniye başına ortalama istek almak için dakika sayısı toplama kullanın ve 60 bölün.|
+| CassandraRequestCharges|  Cassandra isteği ücretleri| Sayı|   Topla, Min, Max, Avg| İstek birimleri Cassandra API istekleri tarafından kullanılan|   DatabaseName, CollectionName, bölge, OperationType, kaynak türü|  Tümü| Dakika başına Cassandra API hesabı tarafından kullanılan RU'ları izlemek için kullanılır.|
+| CassandraConnectionClosures   | Cassandra bağlantı kapanışlar |Sayı| Sayı   |Cassandra kapatılan bağlantılar sayısı|    ClosureReason, bölge|  Tümü | İstemcileri ve Azure Cosmos DB Cassandra API'SİNİN arasındaki bağlantıyı izlemek için kullanılır.|
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 

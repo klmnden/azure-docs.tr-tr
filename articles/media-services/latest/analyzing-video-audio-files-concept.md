@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: 9a96edbc70eeda8acee792a71d84b4a2c6c4fef8
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 247d72396d1737d568a89656c544bbe699f11e30
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745393"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342397"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video ve ses dosyalarını analiz etme
 
 Azure Media Services v3 Video Indexer AMS v3 Çözümleyicisi hazır (Bu makalede açıklanan) aracılığıyla, video ve ses dosyalarını içgörü sağlar. Daha ayrıntılı içgörüler istiyorsanız doğrudan Video Indexer’ı kullanın. Video Indexer’ı ve Media Services çözümleyicisinin önceden belirlenmiş ayarlarını hangi durumlarda kullanacağınızı anlamak için [karşılaştırma belgesine](../video-indexer/compare-video-indexer-with-media-services-presets.md) bakın.
 
-İçeriğinizi Media Services v3 hazır kullanarak çözümlemek için oluşturduğunuz bir **dönüştürme** ve gönderme bir **iş** bu hazır birini kullanır: **AudioAnalyzerPreset** veya **VideoAnalyzerPreset**. Aşağıdaki makalede nasıl yapılacağı açıklanır **VideoAnalyzerPreset**: [Öğretici: Azure Media Services ile videoları analiz etme](analyze-videos-tutorial-with-api.md).
+İçeriğinizi Media Services v3 hazır kullanarak çözümlemek için oluşturduğunuz bir **dönüştürme** ve gönderme bir **iş** bu hazır birini kullanır: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) veya **AudioAnalyzerPreset**. Aşağıdaki makalede nasıl yapılacağı açıklanır **VideoAnalyzerPreset**: [Öğretici: Azure Media Services ile videoları analiz etme](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > Video veya Ses Çözümleyicisi önayarlarını kullanırken, hesabınızı 10 S3 Medya Ayrılmış Birimine sahip olacak şekilde ayarlamak için Azure portalı kullanın. Daha fazla bilgi için bkz. [Medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md).

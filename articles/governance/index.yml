@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d99fcc9a8bb69926da7538edc06ae2b7533c86be
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 985f620caaa329b48b00d6ce586e7dcefbf5869d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507435"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341242"
 documentType: LandingData
 title: Azure Yönetimi - Governance
 metadata:
@@ -39,21 +39,25 @@ sections:
     - href: ./management-groups/overview
       html: <p>Aboneliklerinizi gruplamayı ve diğer Governance hizmetlerinin yapılandırılmış bir şekilde dağıtılmasını destekleyen mantıksal bir hiyerarşi halinde düzenlemeyi öğrenin.<br /></p>
       image:
+        alt: Yönetim Grupları
         src: ./media/management-groups-illustration.svg
       title: Yönetim Grupları
     - href: ./resource-graph/
       html: <p>Güçlü bir komut satırı aracı (Azure CLI ve Azure PowerShell destekler) kullanarak Azure kaynaklarınızla ilgili karmaşık bilgileri hızlıca sorgulayın. Geniş ölçekteki kaynakları keşfetmek için karmaşık ve yinelemeli betikler kullanmanızı gerektiren bilgileri hızlıca bulun ve kullanıma sunun.</p>
       image:
+        alt: Kaynak Grafiği
         src: ./media/resource-graph-illustration.svg
       title: Kaynak Grafiği
     - href: ./policy/
       html: <p>Ortamınızdaki kaynaklar için standartlar belirleyin ve bunları uygulayın. İstenmeyen kaynakların oluşturulmasını önleyin, yeni kaynakları ek öğelerle geliştirin ve ortamınızdaki kaynakları denetleyip düzeltin.</p>
       image:
+        alt: İlke
         src: ./media/policy-illustration.svg
       title: İlke
     - href: ./blueprints/
       html: <p>Tutarlı ve tekrarlanabilir ortamlar oluşturmak için aboneliklere dinamik olarak dağıtılabilecek yerel Azure <i>yapıt</i> (kaynak grupları, ilkeler, rol atamaları, Resource Manager şablonları ve diğerleri) paketi oluşturun.</p>
       image:
+        alt: Şemalar
         src: ./media/blueprints-illustration.svg
       title: Şemalar
 - title: Uygulamalar

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure CLI'yı kullanarak özel bir rol oluşturma | Microsoft Docs"
-description: Azure CLI'yı kullanarak özel rol oluşturmaya başlama.
+title: Öğretici - Azure CLI kullanarak Azure kaynakları için özel bir rol oluşturun | Microsoft Docs
+description: Azure CLI kullanarak Azure kaynakları için özel bir rol oluşturarak başlayın.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: d2b34fa12836416f68d57f0147dd0364a1501c13
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9cd736272fce71f08006d32a169b88d092a48231
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698028"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340221"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-cli"></a>Öğretici: Azure CLI kullanarak bir özel rol oluşturma
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Öğretici: Azure CLI kullanarak Azure kaynakları için özel bir rol oluşturun
 
-[Yerleşik roller](built-in-roles.md) kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi özel rollerinizi oluşturabilirsiniz. Bu öğretici için Azure CLI'yı kullanarak Reader Support Tickets adlı özel bir rol oluşturacaksınız. Bu özel rol, kullanıcının abonelikteki her şeyi görüntülemesini ve destek bileti açmasını sağlar.
+Varsa [Azure kaynakları için yerleşik roller](built-in-roles.md) kuruluşunuzun belirli gereksinimlerine uymayan, kendi özel rollerinizi oluşturabilirsiniz. Bu öğretici için Azure CLI'yı kullanarak Reader Support Tickets adlı özel bir rol oluşturacaksınız. Bu özel rol, kullanıcının abonelikteki her şeyi görüntülemesini ve destek bileti açmasını sağlar.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -269,4 +269,4 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Azure CLI'yı kullanarak özel roller oluşturma](custom-roles-cli.md)
+> [Azure CLI kullanarak Azure kaynakları için özel roller oluşturma](custom-roles-cli.md)

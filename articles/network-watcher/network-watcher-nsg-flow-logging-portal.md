@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 5f304c36c2e7ec0ea61aa63a976942d0de1ca042
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332481"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343502"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir sanal makine gelen ve giden ağ trafiğini günlüğe kaydetme
 
@@ -36,9 +36,6 @@ Ağ güvenlik grubu (NSG), bir sanal makineye gelen trafiği ve sanal makineden 
 > * Günlüğe kaydedilen verileri görüntüleme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-
-> [!NOTE] 
-> Akış günlükleri sürüm 2 bulunan ve yalnızca Batı Orta ABD bölgesinde. Sürüm 2 etkinleştirme günlükleri desteklenmeyen bir bölgede depolama hesabınıza yüzdelik sürüm 1 günlüklerinde neden olur.
 
 ## <a name="create-a-vm"></a>VM oluşturma
 

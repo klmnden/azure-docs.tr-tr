@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 79bc9310eb3f7c8dd2b295405cea70c514d343d3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6eb759928d504bf1a3ccac4bc1aa983bb6a47979
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820883"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339376"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API'yi kullanarak HDInsight kümelerini yönetme
 
@@ -255,7 +255,9 @@ Dönüş değeri aşağıdaki örneklerden birini benzer:
 
 * `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` -Bu değer, kümenin varsayılan depolama alanı için bir Azure depolama hesabı kullandığını gösterir. `ACCOUNTNAME` Değerini depolama hesabının adıdır. `CONTAINER` Bölümüdür depolama hesabındaki blob kapsayıcısının adı. Kapsayıcı küme için HDFS uyumlu depolama köküdür.
 
-* `adl://home` -Bu değer, kümenin varsayılan depolama alanı için Azure Data Lake Storage kullandığını gösterir.
+* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` -Bu değer, kümenin varsayılan depolama alanı için Azure Data Lake depolama Gen2'ye kullandığını gösterir. `ACCOUNTNAME` Ve `CONTAINER` değerlerini Azure depolama, daha önce belirtildiği gibi aynı anlama sahiptir.
+
+* `adl://home` -Bu değer, kümenin varsayılan depolama alanı için Azure Data Lake depolama Gen1 kullandığını gösterir.
 
     Data Lake Store hesap adını bulmak için aşağıdaki örnekleri kullanın:
 

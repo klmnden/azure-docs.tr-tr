@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: db83cf4310cb4d74dcbbd290f650e4dcfc00c0c8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343715"
 documentType: LandingData
 title: Azure İlkesi Belgeleri
 metadata:
-  title: 'Azure İlkesi Belgeleri - Öğreticiler, API Başvurusu'
-  description: 'Azure İlkesi, kaynaklarınıza yönelik kuralları ve etkileri zorunlu kılan ilke tanımları ile BT sorunlarını yönetip önlemenize yardımcı olur. Azure İlkesi kullandığınızda kaynaklarınız, kurumsal standartlarınız ve hizmet düzeyi sözleşmeleriniz ile uyumlu kalır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle ilke tanımları oluşturmayı, atamayı ve yönetmeyi öğrenin.'
+  title: Azure İlkesi Belgeleri - Öğreticiler, API Başvurusu
+  description: Azure İlkesi, kaynaklarınıza yönelik kuralları ve etkileri zorunlu kılan ilke tanımları ile BT sorunlarını yönetip önlemenize yardımcı olur. Azure İlkesi kullandığınızda kaynaklarınız, kurumsal standartlarınız ve hizmet düzeyi sözleşmeleriniz ile uyumlu kalır.
   services: azure-policy
   author: DCtheGeek
   manager: carmonm
@@ -12,53 +18,56 @@ metadata:
   ms.date: 01/23/2019
   ms.author: dacoulte
 abstract:
-  description: 'Azure İlkesi, kaynaklarınıza yönelik kuralları ve etkileri zorunlu kılan ilke tanımları ile BT sorunlarını yönetip önlemenize yardımcı olur. Azure İlkesi kullandığınızda kaynaklarınız, kurumsal standartlarınız ve hizmet düzeyi sözleşmeleriniz ile uyumlu kalır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle ilke tanımları oluşturmayı, atamayı ve yönetmeyi öğrenin.'
+  description: Azure İlkesi, kaynaklarınıza yönelik kuralları ve etkileri zorunlu kılan ilke tanımları ile BT sorunlarını yönetip önlemenize yardımcı olur. Azure İlkesi kullandığınızda kaynaklarınız, kurumsal standartlarınız ve hizmet düzeyi sözleşmeleriniz ile uyumlu kalır.
 sections:
-  - title: 5 Dakikalık Hızlı Başlangıçlar
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: paragraph
+    text: Azure’da ilke tanımları oluşturma, atama ve yönetmeyi öğrenin.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Azure’da ilke tanımları oluşturma, atama ve yönetmeyi öğrenin.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/portal.svg
-            text: Azure Portal
-            href: ./assign-policy-portal
-          - image:
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: ./assign-policy-powershell
-          - image:
-              src: ./media/cli.svg
-            text: Azure CLI
-            href: ./assign-policy-azurecli
-  - title: Adım Adım Öğreticiler
+    - image:
+        alt: Azure Portal
+        src: ./media/portal.svg
+      text: Azure Portal
+      href: ./assign-policy-portal
+    - image:
+        alt: Azure PowerShell
+        src: ./media/powershell.svg
+      text: Azure PowerShell
+      href: ./assign-policy-powershell
+    - image:
+        alt: Azure CLI
+        src: ./media/cli.svg
+      text: Azure CLI
+      href: ./assign-policy-azurecli
+- title: Adım Adım Öğreticiler
+  items:
+  - type: paragraph
+    text: Azure’da ilke tanımları oluşturma, atama ve yönetmeyi öğrenin.
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: 'Azure’da ilke tanımları oluşturma, atama ve yönetmeyi öğrenin.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Azure İlkesi oluşturma ve yönetme</a>
-  - title: Örnekler
+    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Azure İlkesi oluşturma ve yönetme</a>
+- title: Örnekler
+  items:
+  - type: paragraph
+    text: Azure’da ilke tanımları oluşturmanıza yardımcı olması için aşağıdaki JSON örneklerini kullanın.
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Azure’da ilke tanımları oluşturmanıza yardımcı olması için aşağıdaki JSON örneklerini kullanın.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
-  - title: Başvuru
+    - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
+- title: Başvuru
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Komut Satırı
-            html: <p><a href="/cli/azure/policy">Azure CLI</a></p>
-          - title: PowerShell
-            html: '<p><a href="/powershell/module/az.resources/#policies">Azure PowerShell</a></p>'
-          - title: REST API
-            html: <p><a href="/rest/api/policy-insights/policyevents">Olaylar</a></p><p><a href="/rest/api/policy-insights/policystates">Durumlar</a></p><p><a href="/rest/api/resources/policyassignments">Atamalar</a></p><p><a href="/rest/api/resources/policydefinitions">İlke Tanımları</a></p><p><a href="/rest/api/resources/policysetdefinitions">Girişim Tanımları</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">İlke Tarafından İzlenen Kaynaklar</a></p><p><a href="/rest/api/policy-insights/remediations">Düzeltmeler</a></p>
+    - title: Komut Satırı
+      html: <p><a href="/cli/azure/policy">Azure CLI</a></p>
+    - title: PowerShell
+      html: <p><a href="/powershell/module/az.resources/#policies">Azure PowerShell</a></p>
+    - title: REST API
+      html: <p><a href="/rest/api/policy-insights/policyevents">Olaylar</a></p><p><a href="/rest/api/policy-insights/policystates">Durumlar</a></p><p><a href="/rest/api/resources/policyassignments">Atamalar</a></p><p><a href="/rest/api/resources/policydefinitions">İlke Tanımları</a></p><p><a href="/rest/api/resources/policysetdefinitions">Girişim Tanımları</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">İlke Tarafından İzlenen Kaynaklar</a></p><p><a href="/rest/api/policy-insights/remediations">Düzeltmeler</a></p>

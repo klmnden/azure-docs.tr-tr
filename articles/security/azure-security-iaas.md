@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 45fb1cbf57f54f040f9dfbc522c22a2e0884d6db
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116513"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341225"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure Iaas iş yükleri için en iyi güvenlik uygulamaları
 
@@ -39,7 +39,7 @@ Bir fikrim fikir birliği üzerinde en iyi uygulamaları temel alır ve geçerli
 Vm'lerinizi koruma ilk adımı, yeni VM'ler ve VM erişimi, yalnızca yetkili kullanıcıların emin olmak için sonuna ayarlayabilirsiniz ' dir.
 
 **En iyi yöntem**: VM erişimi denetler.   
-**Ayrıntı**: Kullanım [Azure ilkeleri](../azure-policy/azure-policy-introduction.md) , kuruluşunuzdaki kaynaklar için kuralları kurmak ve özelleştirilmiş ilkeler oluşturun. Bu ilkeler gibi kaynaklara uygulamak [kaynak grupları](../azure-resource-manager/resource-group-overview.md). Bir kaynak grubuna ait VM'lerin onun ilkelerini devralır.
+**Ayrıntı**: Kullanım [Azure ilkeleri](../governance/policy/overview.md) , kuruluşunuzdaki kaynaklar için kuralları kurmak ve özelleştirilmiş ilkeler oluşturun. Bu ilkeler gibi kaynaklara uygulamak [kaynak grupları](../azure-resource-manager/resource-group-overview.md). Bir kaynak grubuna ait VM'lerin onun ilkelerini devralır.
 
 Kuruluşunuzun fazla aboneliğiniz varsa, erişim ilkeleri ve bu Aboneliklerdeki uyumluluğunun verimli bir şekilde yönetmek için bir yol gerekebilir. [Azure Yönetim grupları](../azure-resource-manager/management-groups-overview.md) abonelikleri yukarıda kapsam düzeyini sağlamak. Yönetim gruplarına (kapsayıcılar) abonelikleri düzenlemenize ve bu gruplara, idare koşullar geçerlidir. Bir yönetim grubundaki tüm abonelikler otomatik olarak gruba uygulanan koşullar devralır. Yönetim grupları, sahip olabileceğiniz abonelik türüne bakılmaksızın kurumsal düzeyde yönetimi büyük ölçekte sunar.
 

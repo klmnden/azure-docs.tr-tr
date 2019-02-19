@@ -1,6 +1,6 @@
 ---
 title: Örneği - yönetilen disk kullanarak VM oluşturma
-description: Bu örnek ilkesi, sanal makinelerin yönetilen diskler kullanmasını gerektirir.
+description: Bu örnek ilke tanımını sanal makinelerin yönetilen diskler kullanması gerekir.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 1684d8b6c8398214b1927dfb27ff220696650294
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a8093e2db4567bf815c1e5f6f4d0f7a16420532d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242728"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343468"
 ---
-# <a name="create-vm-using-managed-disk"></a>Yönetilen diski kullanarak VM oluşturma
+# <a name="sample---create-vm-using-managed-disk"></a>Örneği - yönetilen disk kullanarak VM oluşturma
 
 Sanal makinelerin yönetilen diskler kullanmasını gerektirir.
 

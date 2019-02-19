@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: dd9314b8c61a98e6bc080503bcdd6b5c6257bd49
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: b7d498b34fa3e247d5d4688f8d87213e7707fd86
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750571"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408791"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure veri Gezgini'nde zaman serisi analizi
 
@@ -224,9 +224,9 @@ demo_many_series1
 |   |   |
 | --- | --- |
 |   | Sayı |
-|   | 23115 |
+|   | 18339 |
 
-Şimdi, okuma sayısı ölçüsünü 23115 zaman serisi bir dizi oluşturmak için vereceğiz. Eklediğimiz `by` yapma serisi deyimi yan tümcesini doğrusal regresyon uygulayın ve en önemli ölçüde azaltarak olan iki zaman serisi eğilim üst seçin:
+Şimdi, okuma sayısı ölçüsünü 18339 zaman serisi bir dizi oluşturmak için vereceğiz. Eklediğimiz `by` yapma serisi deyimi yan tümcesini doğrusal regresyon uygulayın ve en önemli ölçüde azaltarak olan iki zaman serisi eğilim üst seçin:
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -235,7 +235,7 @@ demo_many_series1
 | make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc 
-| render timechart with(title='Service Traffic Outage for 2 instances (out of 23115)')
+| render timechart with(title='Service Traffic Outage for 2 instances (out of 18339)')
 ```
 
 ![Zaman serisi iki üst](media/time-series-analysis/time-series-top-2.png)
@@ -258,6 +258,6 @@ demo_many_series1
 |   | Loc 15 | 37 | 1151 | -102743.910227889 |
 |   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
-İki dakikadan az ADX 20. 000'den zaman serisi analiz ve okuma sayısı aniden iptal edilen iki olağan dışı zaman serisi algılandı.
+İki dakikadan az ADX yakın 20.000 zaman serisi analiz ve okuma sayısı aniden iptal edilen iki olağan dışı zaman serisi algılandı.
 
 ADX hızlı performans ile birlikte bu Gelişmiş Özellikler, zaman serisi analiz için benzersiz ve güçlü bir çözüm sağlar.

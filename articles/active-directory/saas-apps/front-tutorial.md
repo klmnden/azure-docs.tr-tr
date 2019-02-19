@@ -4,155 +4,152 @@ description: Azure Active Directory ve ön arasında çoklu oturum açmayı yap�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 88270b6d-2571-434a-b139-b6ccc3a2b19f
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/15/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7edc02f6291decf28c4b3d27277545b9ad31c537
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 296008d84547b9562216725250af43cc863be17e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183658"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339727"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Öğretici: Ön ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile ön tümleştirme konusunda bilgi edinin.
-
 Azure AD ile ön tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Ön erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak imzalanan öne (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Ön erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak öne (çoklu oturum açma) ile Azure AD hesaplarına oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile ön yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Bir ön çoklu oturum açma abonelik etkin.
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik ön çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden ön ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Ön destekler **IDP** tarafından başlatılan
 
 ## <a name="adding-front-from-the-gallery"></a>Galeriden ön ekleme
+
 Azure AD'de öne tümleştirmesini yapılandırmak için ön Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden ön eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **ön**seçin **ön** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Sonuç listesinde ön](./media/front-tutorial/tutorial_front_addfromgallery.png)
+4. Arama kutusuna **ön**seçin **ön** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Sonuç listesinde ön](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı ön test.
-
-Tek çalışmak için oturum açma için Azure AD ne önde gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ile ilgili kullanıcı önde arasında bir bağlantı ilişki kurulması gerekir.
-
-Değerini önde, Ata **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma adlı bir test kullanıcı tabanlı ön test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ile ilgili kullanıcı önde arasında bir bağlantı ilişki kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma ön ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Ön test kullanıcısı oluşturma](#create-a-front-test-user)**  - kullanıcı Azure AD gösterimini bağlantılı bir karşılığı Britta simon'un önde sağlamak için.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Ön çoklu oturum açmayı yapılandırma](#configure-front-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Ön test kullanıcısı oluşturma](#create-front-test-user)**  - kullanıcı Azure AD gösterimini bağlantılı bir karşılığı Britta simon'un önde sağlamak için.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve ön uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile ön yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile ön yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **ön** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **ön** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/front-tutorial/tutorial_front_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **ön etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/front-tutorial/tutorial_front_url1.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.frontapp.com`
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.frontapp.com/sso/saml/callback`
-     
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcı ve yanıt URL'si öğretici veya kişi daha sonra açıklanacak güncelleştirme [ön istemci Destek ekibine](mailto:support@frontapp.com) bu değerleri almak için. 
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında, aşağıdaki adımları gerçekleştirin:
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    ![Çoklu oturum açma bilgileri ön etki alanı ve URL'ler](common/idp-intiated.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/front-tutorial/tutorial_front_certificate.png) 
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<companyname>.frontapp.com`
 
-1. Tıklayın **Kaydet** düğmesi.
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<companyname>.frontapp.com/sso/saml/callback`
 
-    ![Çoklu oturum açmayı yapılandırın](./media/front-tutorial/tutorial_general_400.png)
-    
-1. Üzerinde **ön yapılandırma** bölümünde **yapılandırma ön** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [ön istemci Destek ekibine](mailto:support@frontapp.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/front-tutorial/tutorial_front_configure.png) 
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
+
+6. Üzerinde **ön kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+
+    a. Oturum Açma URL'si:
+
+    b. Azure Ad tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-front-single-sign-on"></a>Ön çoklu oturum açmayı yapılandırın
 
 1. Ön kiracınıza yönetici olarak oturum.
 
-1. Git **ayarları (sol kenar alt kısmındaki dişli simgesi) > Tercihler**.
+2. Git **ayarları (sol kenar alt kısmındaki dişli simgesi) > Tercihler**.
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/front-tutorial/tutorial_front_000.png)
 
-1. Tıklayın **çoklu oturum açma** bağlantı.
+3. Tıklayın **çoklu oturum açma** bağlantı.
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/front-tutorial/tutorial_front_001.png)
 
-1. Seçin **SAML** aşağı açılan listesinde **çoklu oturum açma**.
+4. Seçin **SAML** aşağı açılan listesinde **çoklu oturum açma**.
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/front-tutorial/tutorial_front_002.png)
 
-1. İçinde **giriş noktası** metin değerini put **çoklu oturum açma hizmeti URL'si** Azure AD Uygulama Yapılandırma Sihirbazı'ndan.
+5. İçinde **giriş noktası** metin değerini put **oturum açma URL'si** Azure AD Uygulama Yapılandırma Sihirbazı'ndan.
     
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/front-tutorial/tutorial_front_003.png)
 
-1. İndirilen açın **Certificate(Base64)** dosyasını Not Defteri'nde, içeriğini, panoya kopyalayın ve ardından ona yapıştırın **imzalama sertifikası** metin.
+6. İndirilen açın **Certificate(Base64)** dosyasını Not Defteri'nde, içeriğini, panoya kopyalayın ve ardından ona yapıştırın **imzalama sertifikası** metin.
     
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/front-tutorial/tutorial_front_004.png)
 
-1. Üzerinde **hizmet sağlayıcısı ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
+7. Üzerinde **hizmet sağlayıcısı ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/front-tutorial/tutorial_front_005.png)
 
@@ -160,100 +157,74 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     b. Değerini kopyalayın **ACS URL** yapıştırın **yanıt URL'si** metin kutusunda **ön etki alanı ve URL'ler** bölümü Azure Portalı'nda.
     
-1. Tıklayın **Kaydet** düğmesi.
+8. Tıklayın **Kaydet** düğmesi.
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/front-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/front-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/front-tutorial/create_aaduser_03.png)
-
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/front-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="create-a-front-test-user"></a>Ön test kullanıcısı oluşturma
-
-Bu bölümde, Britta Simon önde adlı bir kullanıcı oluşturun. Çalışmak [ön istemci Destek ekibine](mailto:support@frontapp.com) ön platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde öne erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **ön**.
 
-**Britta Simon öne atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **ön**.
 
-    ![Kullanıcı Ata][201] 
+    ![Uygulamalar listesini ön bağlantıya](common/all-applications.png)
 
-1. Uygulamalar listesinde **ön**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Uygulamalar listesini ön bağlantıya](./media/front-tutorial/tutorial_front_app.png)  
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Atama Ekle bölmesi][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-front-test-user"></a>Ön test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+Bu bölümde, Britta Simon önde adlı bir kullanıcı oluşturun. Çalışmak [ön istemci Destek ekibine](mailto:support@frontapp.com) ön platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
-Bu bölümün amacı, Azure AD erişim panelini kullanarak SSOconfiguration test etmektir.
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
-Erişim panelinde ön kutucuğa tıkladığınızda, otomatik olarak ön uygulamanıza açan. 
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-## <a name="additional-resources"></a>Ek kaynaklar
+Erişim paneli ön kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama ön oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-<!--Image references-->
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-[1]: ./media/front-tutorial/tutorial_general_01.png
-[2]: ./media/front-tutorial/tutorial_general_02.png
-[3]: ./media/front-tutorial/tutorial_general_03.png
-[4]: ./media/front-tutorial/tutorial_general_04.png
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[100]: ./media/front-tutorial/tutorial_general_100.png
-
-[200]: ./media/front-tutorial/tutorial_general_200.png
-[201]: ./media/front-tutorial/tutorial_general_201.png
-[202]: ./media/front-tutorial/tutorial_general_202.png
-[203]: ./media/front-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

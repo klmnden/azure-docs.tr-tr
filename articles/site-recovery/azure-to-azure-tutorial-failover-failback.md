@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1866a5d86d3ee47371a5eb6e14c2976798d2b4da
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ab920094561b9143945793ddd4ea3da877a7ae90
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787860"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340544"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure bölgeleri arasında Azure VM yük devretme ve ilk duruma döndürme
 
@@ -70,6 +70,16 @@ VM’nin yük devretmesinden sonra, birincil bölgeye geri çoğaltması için V
 3. **Kaynak grubu, Ağ, Depolama ve Kullanılabilirlik kümeleri** bilgilerini gözden geçirin. (Yeni) olarak işaretli tüm kaynaklar, yeniden koruma işleminin bir parçası olarak oluşturulmuştur.
 4. Yeniden koruma işini tetiklemek için **Tamam**’a tıklayın. Bu iş, hedef siteye en son verileri sağlar. Ardından, deltaları birincil bölgeye çoğaltır. VM artık korunan bir durumdadır.
 
+> [!NOTE]
+> Bkz: ["nasıl" bölümünde](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) yeniden koruma iş akışı ve yeniden koruma sırasında ne hakkında daha fazla ayrıntı için.
+
+
 ## <a name="fail-back-to-the-primary-region"></a>Birincil bölgeye geri dönme
 
-VM’ler yeniden korunduktan sonra, gerektiği gibi birincil bölgeye geri dönebilirsiniz. Bunun için bu makalede anlatılan şekilde ikincil bölgeden birincil bölgeye yük devretme ayarlayın.
+VM'ler yeniden korunduktan sonra gerektiği gibi birincil bölgeye geri dönebilirsiniz. Bunu yapmak için bir yük devretme ikincil bölgeden birincil bölgeye, bu makalede açıklanan şekilde ayarlayın.
+
+![Yeniden korumaya sağ tıklayın](./media/azure-to-azure-tutorial-failover-failback/failback.png)
+
+Önceki ekran, "ContosoWin2016" görürseniz VM Orta ABD Doğu ABD olarak devredilir ve geri Doğu ABD Orta ABD için başarısız oldu.
+
+Yük devretme, VM olağanüstü durum kurtarma bölgesindeki başka bir deyişle, ikincil bölgede kapatır ve oluşturur ve VM birincil bölgeye önyüklenir. Lütfen **Not** DR Vm'lerine kapatma kalacak serbest durumu yukarıda da gösterildiği gibi. Azure Site Recovery birincil daha sonra ikincil bölgeye yük devretme yararlı olabilecek bilgiler sanal makinenin gerektirmediğinden, bu davranış tasarım gereğidir. Olduğu gibi tutulmalıdır şekilde serbest bırakıldığında sanal makineler için ücretlendirilmezsiniz.

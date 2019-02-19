@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: RBAC ve PowerShell kullanarak bir gruba erişim izni verme | Microsoft Docs'
-description: Bir gruba bir abonelik içindeki her şeyi görüntüleme izni vermek için rol tabanlı erişim denetimini (RBAC), bir kaynak grubundaki her şeyi yönetme izni vermek için de Azure PowerShell'i kullanın.
+title: Öğretici - bir grup RBAC ve Azure PowerShell kullanarak Azure kaynaklarına erişim | Microsoft Docs
+description: Rol tabanlı erişim denetimi (RBAC) ve Azure PowerShell kullanarak Azure kaynaklarını bir grup erişimi vermeyi öğreneceksiniz.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: ad6884067a756412efe27ce275387ff5ceb1b298
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7f080682baf42c5852e167a20bfbad7f00fe8bd3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105680"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343698"
 ---
-# <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Öğretici: RBAC ve Azure PowerShell kullanarak bir grup için erişim izni ver
+# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Öğretici: RBAC ve Azure PowerShell kullanarak Azure kaynaklarını bir grup erişimi verme
 
-[Rol tabanlı erişim denetimi (RBAC)](overview.md), Azure'daki kaynaklara erişimi yönetmek için kullanılan sistemdir. Bu öğreticide bir gruba bir abonelik içindeki her şeyi görüntüleme ve bir kaynak grubundaki her şeyi yönetme izni vermek için Azure PowerShell'i kullanacaksınız.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md) Azure kaynaklarına erişimi yönetme yoludur. Bu öğreticide bir gruba bir abonelik içindeki her şeyi görüntüleme ve bir kaynak grubundaki her şeyi yönetme izni vermek için Azure PowerShell'i kullanacaksınız.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -70,7 +70,7 @@ Rol atamak için kullanıcı, grup veya hizmet sorumlu gerekir. Grubunuz yoksa b
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-Grup oluşturma izinleri yoksa, deneyebileceğiniz [Öğreticisi: RBAC ve Azure PowerShell kullanarak bir kullanıcı için erişim verin](tutorial-role-assignments-user-powershell.md) yerine.
+Grup oluşturma izinleri yoksa, deneyebileceğiniz [Öğreticisi: RBAC ve Azure PowerShell kullanarak Azure kaynaklarına kullanıcı erişimi](tutorial-role-assignments-user-powershell.md) yerine.
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -294,4 +294,4 @@ Bu öğretici ile oluşturulan kaynakları temizlemek için kaynak grubunu ve gr
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [RBAC ve PowerShell kullanarak erişimi yönetme](role-assignments-powershell.md)
+> [RBAC ve Azure PowerShell kullanarak Azure kaynaklarına erişimi yönetme](role-assignments-powershell.md)

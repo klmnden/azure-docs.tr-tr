@@ -1,6 +1,6 @@
 ---
 title: Sorgu dil anlama
-description: Azure kaynak grafik sorgu dilini nasıl çalıştığı açıklanır.
+description: Azure kaynak graf tarafından kullanılan Kusto sorgu dilini nasıl çalıştığı açıklanır.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 62f61bfea3896fd3828253f5ec16cc38fe3ca007
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cc792d27890b5d994b62784eaa511df990f9b5ec
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316689"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339983"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure kaynak grafik sorgu dilini anlama
 
@@ -51,8 +51,8 @@ Kaynak Graph'te desteklenen işlevler listesi aşağıda verilmiştir:
 - [buildschema()](/azure/kusto/query/buildschema-aggfunction)
 - [strcat()](/azure/kusto/query/strcatfunction)
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
-- [ToString()](/azure/kusto/query/tostringfunction)
-- [Zip()](/azure/kusto/query/zipfunction)
+- [tostring()](/azure/kusto/query/tostringfunction)
+- [zip()](/azure/kusto/query/zipfunction)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

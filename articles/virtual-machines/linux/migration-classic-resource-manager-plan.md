@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 40e0c8c91c44e67c2c409d2efb1e917fdbe0bf33
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ff3fdec2f427e095c748e4a47079d783fa83802d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562105"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341343"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçişini planlama
 Azure Resource Manager çok sayıda harika özellik sunarken, geçiş yolculuğunuza emin sorunsuz şeyler yapmak için planlamak için önemlidir. Harcadığınız zamanı planlama, sorunları geçiş etkinliklerini yürütülürken karşılaşmayacağınızdan emin olursunuz. 
@@ -45,7 +45,7 @@ Teknik gereksinimler boyutu, coğrafyaları ve işletimsel uygulamalar bağlı o
 5. Operasyon Takımlarınız, artık hem Klasik hem de Azure Resource Manager uygulamalar/VM'ler desteklenecek?
 6. Nasıl (varsa) Azure Resource Manager VM dağıtımı, yönetim, izleme ve raporlama işlemlerinin değişiyor mu?  Dağıtım betiklerinizi güncelleştirilmesi gerekiyor mu?
 7. İletişim nedir (son kullanıcılar, uygulama sahipleri ve altyapı sahipleri) katılımcıları planlıyor?
-8. Ortamı karmaşıklığına bağlı olarak, uygulamanın son kullanıcılara ve uygulama sahipleri kullanılamaz olduğu bir bakım süresine var olmalıdır?  Öyleyse, ne kadar süreyle?
+8. Ortamı karmaşıklığına bağlı olarak, uygulamanın son kullanıcılara ve uygulama sahipleri kullanılamaz olduğu bir bakım süresine var olmalıdır?  Öyleyse ne kadar süreyle kullanmıştı?
 9. Proje katılımcıları bilgili ve Azure Resource Manager'daki yeterli olduğundan emin olmak için eğitim planı nedir?
 10. Geçiş proje yönetimi planlaması ve program yönetimi nedir?
 11. Azure Resource Manager'a geçiş ve diğer zaman çizelgeleri nelerdir teknoloji yol haritalarını ilgili?  Bunlar en uygun şekilde hizalanmış mı?
@@ -196,7 +196,7 @@ Artık Azure Resource Manager'da etkinleştirmek istediğiniz hangi Hizmetleri a
 - [Daha kolay ve daha denetimli dağıtımı için Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Etiketleri](../../azure-resource-manager/resource-group-using-tags.md).
 - [Etkinlik denetimi](../../azure-resource-manager/resource-group-audit.md)
-- [Azure ilkeleri](../../azure-policy/azure-policy-introduction.md)
+- [Azure ilkeleri](../../governance/policy/overview.md)
 
 ### <a name="pitfalls-to-avoid"></a>Kaçınılacak Tuzaklar
 

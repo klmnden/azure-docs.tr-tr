@@ -1,6 +1,6 @@
 ---
 title: Örnek - izin verilen depolama hesabı SKU'ları
-description: Bu örnek ilkesi, depolama hesaplarının onaylı bir SKU kullanmasını gerektirir.
+description: Bu örnek ilke tanımı, depolama hesapları, onaylanmış bir SKU kullanmanızı gerektirir.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 72af4c7fbc2f4822e15d33202b108ef45b5043ce
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 5d033255f45736440a6f860b9adacbd64f5446ff
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241589"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341326"
 ---
-# <a name="allowed-storage-account-skus"></a>İzin verilen depolama hesabı SKU'ları
+# <a name="sample---allowed-storage-account-skus"></a>Örnek - izin verilen depolama hesabı SKU'ları
 
 Bu ilke, depolama hesaplarının onaylı bir SKU kullanmasını gerektirir. Onaylı bir SKU dizisi belirtirsiniz.
 

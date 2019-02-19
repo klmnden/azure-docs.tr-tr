@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 95d8825b8359b0ba8649c4c4e145ef488a486b21
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c6763580a6693020c497c500342ff3ae4dc840d4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001932"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339237"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux’ta HDInsight kullanma ile ilgili bilgiler
 
@@ -126,7 +126,15 @@ Kullanırken __Azure depolama__, aşağıdaki URI düzenleri birini kullanın:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Varsayılan olmayan depolama hesabıyla iletişimde kullanılacak. Örneğin, ek bir depolama hesabı veya ne zaman ortak olarak erişilebilen bir depolama hesabında depolanan verilere erişme olduğunda.
 
-Kullanırken __Data Lake Storage__, aşağıdaki URI düzenleri birini kullanın:
+Kullanırken __Azure Data Lake depolama Gen2__, aşağıdaki URI düzenleri birini kullanın:
+
+* `abfs:///`: Şifrelenmemiş iletişimin kullanarak erişim varsayılan depolama alanı.
+
+* `abfss:///`: Şifreli iletişim kullanarak erişim varsayılan depolama alanı.  Abfss şeması yalnızca HDInsight sürümü 3.6 veya sonraki sürümleri ' desteklenir.
+
+* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Varsayılan olmayan depolama hesabıyla iletişimde kullanılacak. Örneğin, ek bir depolama hesabı veya ne zaman ortak olarak erişilebilen bir depolama hesabında depolanan verilere erişme olduğunda.
+
+Kullanırken __Azure Data Lake depolama Gen1__, aşağıdaki URI düzenleri birini kullanın:
 
 * `adl:///`: ' % S'varsayılan Data Lake depolama kümesi için erişim.
 
@@ -177,7 +185,7 @@ HDInsight küme dışından verileri erişmek için bir çeşitli yolları vard�
 Kullanıyorsanız __Azure depolama__, verilerinize erişebilirsiniz yolları için aşağıdaki bağlantılara bakın:
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Azure ile çalışmaya yönelik komut satırı arabirimi komutları. Yükledikten sonra `az storage` depolama kullanma hakkında Yardım için komut veya `az storage blob` blob özgü komutlar için.
-* [blobxfer.PY](https://github.com/Azure/blobxfer): Azure Depolama'daki blobları ile çalışmak için python betiği.
+* [blobxfer.py](https://github.com/Azure/blobxfer): Azure Depolama'daki blobları ile çalışmak için python betiği.
 * Çeşitli SDK'lar:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)

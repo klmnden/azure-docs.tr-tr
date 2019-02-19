@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 80d84fcede0d293b083ea75f24e9b0bd3125b265
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959690"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344038"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory'deki tümleştirme çalışma zamanı
 Integration Runtime (IR), Azure Data Factory tarafından farklı ağ ortamlarında aşağıdaki veri tümleştirme özelliklerini sunmak için kullanılan işlem altyapısıdır:
@@ -69,7 +69,7 @@ Azure IR oluşturma ve yapılandırma hakkında bilgi almak için nasıl yapıl�
 Kendinden konak IR şu özelliklere sahiptir:
 
 - Bulut veri depoları ve özel ağdaki veri deposu arasında kopyalama etkinliği çalıştırma.
-- Şirket içi veya Azure sanal ağ bilgi işlem kaynaklarının karşı şu dönüştürme etkinliklerini dağıtma: HDInsight Hive etkinliği (BYOC), HDInsight Pig etkinliği (BYOC), HDInsight MapReduce etkinliği (BYOC), HDInsight Spark etkinliği (BYOC), HDInsight Streaming etkinliği (BYOC), Machine Learning Batch Execution etkinliği, Machine Learning kaynak güncelleştirme etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .net özel etkinliği, arama etkinliği ve Get Metadata etkinliği.
+- Şirket içi veya Azure sanal ağ bilgi işlem kaynaklarının karşı şu dönüştürme etkinliklerini dağıtma: HDInsight Hive etkinliği (BYOC Getir bilgisayarınızı kendi kümesi), HDInsight Pig etkinliği (BYOC), HDInsight MapReduce etkinliği (BYOC), HDInsight Spark etkinliği (BYOC), HDInsight Streaming etkinliği (BYOC), Machine Learning Batch Execution etkinliği, Machine Learning Kaynak etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .net özel etkinliği, arama etkinliği ve Get Metadata etkinliği güncelleştirin.
 
 > [!NOTE] 
 > SAP Hana ve MySQL gibi kendi sürücünü getir düzenine sahip veri depolarını desteklemek için kendinden konak tümleştirme çalışma zamanını kullanın.  Daha fazla bilgi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

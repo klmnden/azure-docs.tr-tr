@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90c508fb5ad3caf961747f2ac10bae42dd1f4c35
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114969"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343519"
 ---
 # <a name="working-with-security-policies"></a>Güvenlik ilkeleriyle çalışma
 
-Bu makalede, güvenlik ilkeleri nasıl yapılandırılır ve bunları Güvenlik Merkezi'nde görüntülemek nasıl açıklanmaktadır. Azure Güvenlik Merkezi otomatik olarak atar, [yerleşik güvenlik ilkeleri](security-center-policy-definitions.md) eklendikten her abonelikte. Bunları yapılandırabilirsiniz [Azure İlkesi](../azure-policy/azure-policy-introduction.md), ayrıca sağlayan yönetim grupları arasında ve birden çok aboneliğe ilkeleri ayarlamak.
+Bu makalede, güvenlik ilkeleri nasıl yapılandırılır ve bunları Güvenlik Merkezi'nde görüntülemek nasıl açıklanmaktadır. Azure Güvenlik Merkezi otomatik olarak atar, [yerleşik güvenlik ilkeleri](security-center-policy-definitions.md) eklendikten her abonelikte. Bunları yapılandırabilirsiniz [Azure İlkesi](../governance/policy/overview.md), ayrıca sağlayan yönetim grupları arasında ve birden çok aboneliğe ilkeleri ayarlamak.
 
-PowerShell kullanarak ilkeler ayarlama konusunda yönergeler için bkz: [hızlı başlangıç: Azure RM PowerShell modülünü kullanarak uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma](../azure-policy/assign-policy-definition-ps.md).
+PowerShell kullanarak ilkeler ayarlama konusunda yönergeler için bkz: [hızlı başlangıç: Azure PowerShell modülü kullanarak uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma](../governance/policy/assign-policy-powershell.md).
 
 >[!NOTE]
 > Güvenlik Merkezi tümleştirmesi, Azure İlkesi ile başlatıldı. Mevcut müşteriler, Azure İlkesi ' nde yerleşik yeni girişim yerine önceki Güvenlik Merkezi'nde güvenlik ilkeleri için otomatik olarak geçirilecektir. Bu değişiklik, kaynakları veya Azure İlkesi'nde yeni girişim varlığını dışında ortamının etkilemez.
 
 ## <a name="what-are-security-policies"></a>Güvenlik ilkeleri nedir?
-Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure İlkesi'nde Azure Abonelikleriniz için ilkeler tanımlayın ve bunları iş yükü türüne veya verilerinizin duyarlılığına göre uygun hale getirin. Örneğin, kişisel bilgiler gibi düzenlenen veriler kullanan uygulamalar, diğer iş yükleri yüksek seviyede güvenliği gerektirebilir. Abonelikler arasında ya da Yönetim grupları bir ilke ayarlamak için bunları kümesinde [Azure İlkesi](../azure-policy/azure-policy-introduction.md).
+Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure İlkesi'nde Azure Abonelikleriniz için ilkeler tanımlayın ve bunları iş yükü türüne veya verilerinizin duyarlılığına göre uygun hale getirin. Örneğin, kişisel bilgiler gibi düzenlenen veriler kullanan uygulamalar, diğer iş yükleri yüksek seviyede güvenliği gerektirebilir. Abonelikler arasında ya da Yönetim grupları bir ilke ayarlamak için bunları kümesinde [Azure İlkesi](../governance/policy/overview.md).
 
 Güvenlik ilkelerinizi size Azure Güvenlik Merkezi'nde güvenlik önerilerini. Uyumluluk, olası zayıflıkları belirlemek ve tehditleri önlemeye yardımcı olmak için onlarla izleyebilirsiniz. Listesini sizin için uygun seçeneği belirleme hakkında daha fazla bilgi için bkz. [yerleşik güvenlik ilkeleri](security-center-policy-definitions.md).
 
@@ -52,7 +52,7 @@ Güvenlik Merkezi, Azure aboneliklerinizin her biri için otomatik olarak varsay
 - Bir kuruluşun tamamını veya kuruluş içindeki iş birimini temsil edebilen yönetim gruplarına ve aboneliklere ilkeler atama.
 - İlke uyumluluğunu izleme.
 
-Azure İlkesi hakkında daha fazla bilgi için [Uyumluluğu zorlamak için ilke oluşturma ve yönetme](../azure-policy/create-manage-policy.md) konusunu inceleyin.
+Azure İlkesi hakkında daha fazla bilgi için [Uyumluluğu zorlamak için ilke oluşturma ve yönetme](../governance/policy/tutorials/create-and-manage.md) konusunu inceleyin.
 
 Bir Azure ilkesi aşağıdaki bileşenlerden oluşur:
 
@@ -236,4 +236,4 @@ Bu makalede, Azure İlkesi'nde güvenlik ilkelerini düzenleme öğrendiniz. Gü
 * [Azure Güvenlik Merkezi SSS](security-center-faq.md): Hizmet kullanımı ile ilgili sık sorulan soruların yanıtlarını alın.
 * [Azure güvenlik blogu](https://blogs.msdn.com/b/azuresecurity/): Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.
 
-Azure İlkesi hakkında daha fazla bilgi için bkz. [Azure İlkesi nedir?](../azure-policy/azure-policy-introduction.md)
+Azure İlkesi hakkında daha fazla bilgi için bkz. [Azure İlkesi nedir?](../governance/policy/overview.md)

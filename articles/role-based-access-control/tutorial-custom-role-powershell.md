@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure PowerShell'i kullanarak özel bir rol oluşturma | Microsoft Docs"
-description: Azure PowerShell'i kullanarak özel rol oluşturmaya başlama.
+title: Öğretici - Azure PowerShell kullanarak Azure kaynakları için özel bir rol oluşturun | Microsoft Docs
+description: Azure PowerShell kullanarak Azure kaynakları için özel bir rol oluşturarak başlayın.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 9dddef43e1ac5f3bcedcc08b313eea300436ea61
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 23ee8aef4ab9b7ea54dae0587e2caaafbf08e5b2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106439"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339167"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak özel bir rol oluşturun
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak Azure kaynakları için özel bir rol oluşturun
 
-[Yerleşik roller](built-in-roles.md) kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi özel rollerinizi oluşturabilirsiniz. Bu öğretici için Azure PowerShell'i kullanarak Reader Support Tickets adlı özel bir rol oluşturacaksınız. Bu özel rol, kullanıcının abonelikteki her şeyi görüntülemesini ve destek bileti açmasını sağlar.
+Varsa [Azure kaynakları için yerleşik roller](built-in-roles.md) kuruluşunuzun belirli gereksinimlerine uymayan, kendi özel rollerinizi oluşturabilirsiniz. Bu öğretici için Azure PowerShell'i kullanarak Reader Support Tickets adlı özel bir rol oluşturacaksınız. Bu özel rol, kullanıcının abonelikteki her şeyi görüntülemesini ve destek bileti açmasını sağlar.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -277,4 +277,4 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [PowerShell'i kullanarak özel roller oluşturma](custom-roles-powershell.md)
+> [Azure PowerShell kullanarak Azure kaynakları için özel roller oluşturma](custom-roles-powershell.md)

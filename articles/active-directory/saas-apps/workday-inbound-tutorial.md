@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5ac06200766f37c64252599ec8a4dddb6846ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175413"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340119"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: Workday için otomatik kullanıcı sağlamayı yapılandırma
 
@@ -261,7 +261,7 @@ Bu adımda, Workday'de bir kendilerine, sınırlandırılmamış veya kısıtlı
     * **Sınırlandırılmamış:** Güvenlik grubunun tüm üyeleri güvenlik grubu tarafından korunan tüm veri örnekleri erişebilirsiniz.
     * **Kısıtlı:** Tüm güvenlik grubu üyelerini bir alt güvenlik grubunun erişimi olan veri örnekleri (satırlar) bağlamsal erişebilir.
   * Tümleştirme için uygun güvenlik grubu türünü seçin, Workday tümleştirmesi ortağınıza başvurun.
-  * Grup türü öğrendikten sonra Seç **tümleştirme sistemi güvenlik grubunu (sınırlandırılmamış)** veya **tümleştirme sistemi güvenlik grubunu (sınırlandırılmamış)** gelen **kiralanan güvenlik türü Grup** açılır.
+  * Grup türü öğrendikten sonra Seç **tümleştirme sistemi güvenlik grubunu (sınırlandırılmamış)** veya **tümleştirme sistemi güvenlik grubunu (Constrained)** gelen **kiralanan güvenlik grubu türü**  açılır.
 
     ![Güvenlik grubu](./media/workday-inbound-tutorial/wd_isu_04.png "güvenlik grubu oluştur")
 

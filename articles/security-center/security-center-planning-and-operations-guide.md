@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1532c863a7906e7f3c1e0bc98d2080513263b9f8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7419baf99e4c508806361b408968dbf851a7f76c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105103"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343332"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Güvenlik Merkezi planlama ve işlemler kılavuzu
 Bu kılavuz, kurumları Azure Güvenlik Merkezi'ni kullanmayı planlayan bilgi teknolojisi (BT) uzmanları, BT mimarları, bilgi güvenlik çözümleyicileri ve bulut yöneticilerine yöneliktir.
@@ -126,7 +126,7 @@ Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şi
 
 Güvenlik Merkezi ilkeleri aşağıdaki bileşenleri içerir:
 - [Veri toplama](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): Aracı sağlama ve veri toplama ayarları.
-- [Güvenlik İlkesi](https://docs.microsoft.com/azure/security-center/security-center-policies): bir [Azure İlkesi](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) hangi denetimlerin izlenir ve Güvenlik Merkezi veya Azure İlkesi kullanımı, yeni tanımları oluşturmak için önerilen ek ilke tanımlama ve ilkeleri atamak belirler Yönetim grupları arasında.
+- [Güvenlik İlkesi](https://docs.microsoft.com/azure/security-center/security-center-policies): bir [Azure İlkesi](../governance/policy/overview.md) hangi denetimlerin izlenir ve Güvenlik Merkezi veya Azure İlkesi kullanımı, yeni tanımları oluşturmak için önerilen ek ilke tanımlama ve ilkeleri atamak belirler Yönetim grupları arasında.
 - [E-posta bildirimleri](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): Güvenlik ilgili kişileri ve bildirim ayarları.
 - [Fiyatlandırma katmanı](https://docs.microsoft.com/azure/security-center/security-center-pricing): Kapsam dahilindeki kaynaklar (abonelikler, kaynak grupları ve çalışma alanları için belirtilebilir) için kullanılabilecek olan Güvenlik Merkezi özelliklerini belirleyen ücretsiz veya standart fiyatlandırma katmanı.
 

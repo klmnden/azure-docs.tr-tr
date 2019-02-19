@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3e7a03f1235dab7eefd63b6611890897285d86ea
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 61674cc5551fb0d1be184de0ff0ed659cc56bbbe
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332345"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340255"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Azure CLI ile ağ güvenlik grubu akış günlüklerini yapılandırma
 
@@ -32,9 +32,6 @@ ms.locfileid: "54332345"
 Ağ güvenlik grubu akış günlüklerini bir ağ güvenlik grubu üzerinden giriş ve çıkış IP trafiğini hakkındaki bilgileri görüntülemek izin veren bir Ağ İzleyicisi'nin bir özelliğidir. Bu akış günlüklerini json biçiminde yazılır ve Kural başına temelinde, akışı uygular, 5 demet bilgi (kaynak/hedef IP, kaynak/hedef bağlantı noktası, protokol) akışla ilgili NIC giden ve gelen akış Göster ve trafiğin izin verilen veya reddedilen.
 
 Bu makaledeki adımları gerçekleştirmek için yapmanız [Azure komut satırı arabirimi için Mac, Linux ve Windows (CLI) yükleme](/cli/azure/install-azure-cli).
-
-> [!NOTE] 
-> Akış günlükleri sürüm 2 bulunan ve yalnızca Batı Orta ABD bölgesinde. Sürüm 2 etkinleştirme günlükleri desteklenmeyen bir bölgede depolama hesabınıza yüzdelik sürüm 1 günlüklerinde neden olur.
 
 ## <a name="register-insights-provider"></a>Insights sağlayıcısını kaydetme
 

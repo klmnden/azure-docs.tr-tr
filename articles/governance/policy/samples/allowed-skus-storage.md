@@ -1,6 +1,6 @@
 ---
 title: Örnek - SKU'ları depolama hesapları ve sanal makineler için izin verilir.
-description: Bu örnek ilkesi, depolama hesapları ve sanal makinelerin onaylı SKU’lar kullanmasını gerektirir.
+description: Bu örnek ilke tanımı, depolama hesapları ve sanal makineler onaylı SKU'ları kullanmanızı gerektirir.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4e194e70c13fe70702e700fcaafa7cdf981e0147
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: cb6ccf87cc14424801a06cc2e9749e2fc2f6ee4a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242082"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339915"
 ---
-# <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>Depolama hesapları ve sanal makineler için izin verilen SKU'lar
+# <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Örnek - SKU'ları depolama hesapları ve sanal makineler için izin verilir.
 
 Bu ilke, depolama hesapları ve sanal makinelerin onaylı SKU’lar kullanmasını gerektirir. Onaylı SKU’ları güvence altına almak için yerleşik ilkeleri kullanır. Onaylı bir sanal makine SKU’su dizisi ve onaylı bir depolama hesabı SKU’su dizisi belirtirsiniz.
 

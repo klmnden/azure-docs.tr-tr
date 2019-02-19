@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell kullanarak özel roller oluşturma | Microsoft Docs
-description: Azure PowerShell ile rol tabanlı erişim denetimi (RBAC) için özel roller oluşturmayı öğrenin. Bu liste, oluşturma, güncelleştirme ve özel roller silme nasıl içerir.
+title: Azure PowerShell kullanarak Azure kaynakları için özel roller oluşturma | Microsoft Docs
+description: Azure PowerShell kullanarak Azure kaynakları için rol tabanlı erişim denetimi (RBAC) ile özel roller oluşturma konusunda bilgi edinin. Bu liste, oluşturma, güncelleştirme ve özel roller silme nasıl içerir.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 26e5b33504ff543e8442108e4368ce3b04f25df4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 92c061a7f854b46ab5aee07aa5e648ace8f9ae52
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696770"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343851"
 ---
-# <a name="create-custom-roles-using-azure-powershell"></a>Azure PowerShell kullanarak özel roller oluşturma
+# <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Azure PowerShell kullanarak Azure kaynakları için özel roller oluşturma
 
-[Yerleşik roller](built-in-roles.md) kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi özel rollerinizi oluşturabilirsiniz. Bu makalede, Azure PowerShell kullanarak özel roller oluşturmak ve yönetmek açıklar.
+Varsa [Azure kaynakları için yerleşik roller](built-in-roles.md) kuruluşunuzun belirli gereksinimlerine uymayan, kendi özel rollerinizi oluşturabilirsiniz. Bu makalede, Azure PowerShell kullanarak özel roller oluşturmak ve yönetmek açıklar.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -296,6 +296,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Öğretici: Azure PowerShell kullanarak özel bir rol oluşturun](tutorial-custom-role-powershell.md)
-- [Azure'da özel roller](custom-roles.md)
+- [Öğretici: Azure PowerShell kullanarak Azure kaynakları için özel bir rol oluşturun](tutorial-custom-role-powershell.md)
+- [Azure kaynakları için özel roller](custom-roles.md)
 - [Azure Resource Manager kaynak sağlayıcısı işlemleri](resource-provider-operations.md)

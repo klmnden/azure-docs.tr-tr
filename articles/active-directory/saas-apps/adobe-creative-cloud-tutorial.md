@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccb593e198e4dff8f30bddfe26071523ea7a893d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a160c604050f567f3fc0f77ca20a22349f07fd9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179238"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Öğretici: Adobe Creative Cloud ile Azure Active Directory Tümleştirme
 
@@ -45,7 +45,7 @@ Adobe Creative Cloud ile Azure AD tümleştirmesini yapılandırmak için aşağ
 
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-* Adobe Creative Cloud'a destekler **SP ve IDP** tarafından başlatılan
+* Adobe Creative Cloud'a destekler **SP** tarafından başlatılan
 
 ## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>Adobe Creative Cloud galeri ekleme
 
@@ -67,7 +67,7 @@ Azure AD'de Adobe Creative Cloud tümleştirmesini yapılandırmak için Adobe C
 
 4. Arama kutusuna **Adobe Creative Cloud**seçin **Adobe Creative Cloud** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-     ![Sonuç listesinde Adobe Creative Cloud](common/search-new-app.png)
+    ![Sonuç listesinde Adobe Creative Cloud](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
@@ -101,29 +101,23 @@ Azure AD çoklu oturum açma Adobe Creative Cloud ile yapılandırmak için aşa
 
     ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** yapılandırmak istiyorsanız, bölüm **IDP** intiated modu, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Adobe Creative Cloud etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
+    ![Adobe Creative Cloud etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
-    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.okta.com/saml2/service-provider/<token>`
+    a. İçinde **oturum açma URL'si** metin kutusunda, değer olarak girin: `https://adobe.com`.
 
-    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    b. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.okta.com/saml2/service-provider/<token>`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Yanıt URL'si gerçek tanımlayıcısı bu değerleri güncelleştirin. İlgili kişi [Adobe Creative Cloud istemci Destek ekibine](https://www.adobe.com/au/creativecloud/business/teams/plans.html) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Tanımlayıcı değerini gerçek değil. Bu değer, gerçek tanımlayıcısıyla güncelleştirin. İlgili kişi [Adobe Creative Cloud istemci Destek ekibine](https://www.adobe.com/au/creativecloud/business/teams/plans.html) bu değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
-
-    İçinde **oturum açma URL'si** metin kutusunda, değer olarak girin: `https://adobe.com`.
-
-    ![Adobe Creative Cloud etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
-
-6. Adobe Creative Cloud'a uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+5. Adobe Creative Cloud'a uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
     ![image](common/edit-attribute.png)
 
-7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
- 
+6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+
     | Ad | Kaynak özniteliği|
     |----- | --------- |
     | FirstName | User.givenName |
@@ -151,11 +145,11 @@ Azure AD çoklu oturum açma Adobe Creative Cloud ile yapılandırmak için aşa
     > [!NOTE]
     > Kullanıcıların talep SAML yanıtta doldurulacak değeri geçerli bir Office 365 ExO lisans için e-posta olması gerekir.
 
-8. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+7. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
     ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-9. Üzerinde **Adobe Creative Cloud ayarlamak** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+8. Üzerinde **Adobe Creative Cloud ayarlamak** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 

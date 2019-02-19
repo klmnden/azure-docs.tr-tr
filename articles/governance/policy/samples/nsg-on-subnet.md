@@ -1,6 +1,6 @@
 ---
 title: Örnek - NSG her alt ağda x
-description: Bu örnek ilkesi, her sanal alt ağı ile belirli bir ağ güvenlik grubunun kullanılmasını gerektirir.
+description: Bu örnek ilke tanımını, belirli bir ağ güvenlik grubu ile her bir sanal alt kullanılmasını gerektirir.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: bf02e0df860b677ed1766e083834f894251f6b63
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 1183a403c81dd71f123406991755157a4a4a1d26
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242847"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338555"
 ---
-# <a name="nsg-x-on-every-subnet"></a>Her alt ağ üzerinde NSG x
+# <a name="sample---network-security-group-x-on-every-subnet"></a>Örnek - her alt ağ üzerinde ağ güvenlik grubu x
 
 Bu ilke, her sanal alt ağ ile belirli bir ağ güvenlik grubunun kullanılmasını gerektirir. Kullanılacak ağ güvenlik grubunun kimliğini belirtirsiniz.
 

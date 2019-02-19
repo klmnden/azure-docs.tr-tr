@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 209a5a9c213a48920452230b1d684fdf0738e87d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6d2ae1d1846506424aa14cca0f597c8888eb903d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496916"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341037"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Beklenmeyen değişiklikleri önlemek için kaynakları kilitleme 
 
@@ -220,6 +220,6 @@ Kapsam abonelik, kaynak grubu veya kaynak olabilir. Kilit adı, kilit çağırma
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kaynaklarınızı mantıksal olarak düzenleme hakkında bilgi edinmek için [kaynaklarınızı düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
 * Kaynağın bulunduğu kaynak grubunu değiştirmek için bkz [kaynakları yeni kaynak grubuna taşıma](resource-group-move-resources.md)
-* Özelleştirilmiş ilkeler ile aboneliğinizin genelindeki kısıtlamaları ve kuralları uygulayabilirsiniz. Daha fazla bilgi için bkz. [Azure İlkesi nedir?](../azure-policy/azure-policy-introduction.md).
+* Özelleştirilmiş ilkeler ile aboneliğinizin genelindeki kısıtlamaları ve kuralları uygulayabilirsiniz. Daha fazla bilgi için bkz. [Azure İlkesi nedir?](../governance/policy/overview.md).
 * Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

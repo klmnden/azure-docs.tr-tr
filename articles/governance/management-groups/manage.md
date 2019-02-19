@@ -1,6 +1,6 @@
 ---
-title: Değiştirme, silme veya Azure yönetim gruplarınızı yönetme
-description: Bakımı ve yönetimi Grup hiyerarşiniz güncelleştirmesi öğrenin.
+title: Değiştirme, silme veya Azure - Azure idare yönetim gruplarınızı yönetme
+description: Görüntüleme, tutmak, güncelleştirme ve Yönetim Grup hiyerarşiniz silme hakkında bilgi edinin.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582426"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342611"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
 
@@ -39,11 +39,11 @@ Portal, PowerShell veya Azure CLI kullanarak yönetim grubu adını değiştireb
 
 1. Seçin **grubu Yeniden Adlandır** sayfanın üstündeki seçeneği.
 
-   ![Grubu Yeniden Adlandır](./media/detail_action_small.png)
+   ![Grubu Yeniden Adlandır seçeneğini](./media/detail_action_small.png)
 
 1. Menü açıldığında, görüntülenmesini istediğiniz yeni bir ad girin.
 
-   ![Grubu Yeniden Adlandır](./media/rename_context.png)
+   ![Grubu yeniden adlandır bölmesi](./media/rename_context.png)
 
 1. **Kaydet**’i seçin.
 
@@ -87,11 +87,11 @@ Bir yönetim grubunu silmek için aşağıdaki gereksinimler karşılanmalıdır
 
    - Simge devre dışı bırakılırsa, fare Seçici simgenin üzerine geldiğinizde nedenini gösterir.
 
-   ![Grubu Sil](./media/delete.png)
+   ![Grup seçeneği Sil](./media/delete.png)
 
 1. Yönetim grubu silmek istediğiniz onaylayan açılan bir pencere yoktur.
 
-   ![Grubu Sil](./media/delete_confirm.png)
+   ![Grup onay penceresi Sil](./media/delete_confirm.png)
 
 1. Seçin **Evet**.
 
@@ -195,13 +195,13 @@ Hangi izinlerin görmek için sahip, yönetim grubu seçip **IAM**. RBAC rolleri
 
 1. Abonelik için satırın sonundaki üç nokta taşımak istediğiniz listeden seçin.
 
-   ![Taşı](./media/move_small.png)
+   ![Taşıma seçeneği](./media/move_small.png)
 
 1. Seçin **taşıma**.
 
 1. Açılan menüden **üst yönetim grubu**.
 
-   ![Taşı](./media/move_small_context.png)
+   ![Taşıma bölmesi](./media/move_small_context.png)
 
 1. **Kaydet**’i seçin.
 
@@ -272,19 +272,19 @@ Azure CLI ile bir yönetim grubuna taşımak için güncelleştirme komutunu kul
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
-## <a name="audit-management-groups-using-activity-logs"></a>Etkinlik günlüklerini kullanarak denetim Yönetim grupları
+## <a name="audit-management-groups-using-activity-logs"></a>Etkinlik günlüklerini kullanarak yönetim gruplarını denetleme
 
-Yönetim grupları bu API aracılığıyla izlemek için kullanın [Kiracı etkinlik günlüğü API](/rest/api/monitor/tenantactivitylogs). Şu anda Yönetim grupları etkinliğini izlemek için PowerShell, CLI veya Azure portalını kullanmak mümkün değildir.
+Bu API yoluyla yönetim gruplarını izlemek için [Kiracı Etkinlik Günlüğü API'sini](/rest/api/monitor/tenantactivitylogs) kullanın. Şu anda PowerShell, CLI veya Azure portalını kullanarak yönetim grupları etkinliğini izlemek mümkün değildir.
 
-1. Azure AD kiracısı bir kiracı Yöneticisi olarak [erişimini yükseltme](../../role-based-access-control/elevate-access-global-admin.md) kapsamı üzerinde'da Denetim kullanıcıya bir okuyucu rolü atamak `/providers/microsoft.insights/eventtypes/management`.
-1. Denetim kullanıcı olarak çağrı [Kiracı etkinlik günlüğü API](/rest/api/monitor/tenantactivitylogs) yönetim grubu etkinlikleri görmek için. Kaynak sağlayıcısı tarafından filtrelemek istersiniz **Microsoft.Management** tüm yönetim grubu etkinlik için.  Örnek:
+1. Azure AD kiracısının kiracı yöneticisi olarak, [erişimi yükseltin](../../role-based-access-control/elevate-access-global-admin.md) ve sonra da `/providers/microsoft.insights/eventtypes/management` kapsamı üzerinden denetleyen kullanıcıya Okuyucu rolü atayın.
+1. Denetleyen kullanıcı olarak, yönetim grubu etkinliklerini görmek için [Kiracı Etkinlik Günlüğü API'sini](/rest/api/monitor/tenantactivitylogs) çağırın. Tüm yönetim grubu etkinliği için **Microsoft.Management** Kaynak Sağlayıcısına göre filtrelemek istersiniz.  Örnek:
 
 ```xml
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
 ```
 
 > [!NOTE]
-> Rahatça komut satırından bu API'yi çağırmak için deneyin [ARMClient](https://github.com/projectkudu/ARMClient).
+> Bu API'yi komut satırından rahatça çağırmak için [ARMClient](https://github.com/projectkudu/ARMClient)'ı deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -292,6 +292,6 @@ Yönetim grupları hakkında daha fazla bilgi almak için bkz.:
 
 - [Azure kaynaklarını düzenlemek için yönetim grupları oluşturma](create.md)
 - [Yönetim gruplarınızı değiştirme, silme veya yönetme](manage.md)
-- [Azure PowerShell kaynakları modülündeki Yönetim gruplarını gözden geçirin](https://aka.ms/mgPSdocs)
-- [REST API Yönetim gruplarını gözden geçirin](https://aka.ms/mgAPIdocs)
-- [Azure CLI'de Yönetim gruplarını gözden geçirin](https://aka.ms/mgclidoc)
+- [Azure PowerShell Kaynak Modülünde yönetim gruplarını gözden geçirme](https://aka.ms/mgPSdocs)
+- [REST API'de yönetim gruplarını gözden geçirme](https://aka.ms/mgAPIdocs)
+- [Azure CLI'de yönetim gruplarını gözden geçirme](https://aka.ms/mgclidoc)

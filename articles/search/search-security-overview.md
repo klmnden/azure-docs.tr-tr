@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 02/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c0f824e2be0215192ca4ca1a722e814cbf299b7a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311720"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342431"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure Search'teki güvenlik ve veri gizliliği
 
@@ -60,14 +60,16 @@ Tüm Azure Hizmetleri, erişim düzeylerini sürekli olarak tüm hizmetler aras�
 
 ## <a name="service-access-and-authentication"></a>Hizmet erişim ve kimlik doğrulaması
 
-Azure Search, Azure platformunun güvenlik önlemlerinin devralır, ancak aynı zamanda kendi anahtar tabanlı kimlik doğrulamasını sağlar. Bir API anahtarı, rastgele oluşturulmuş bir sayı ile harflerden oluşan bir dizedir. (Yönetici veya sorgu) anahtar türünü erişim düzeyini belirler. Geçerli bir anahtar teslimini kavram isteği güvenilir bir varlıktan kaynağı olarak kabul edilir. Anahtarları iki tür arama hizmetinize erişmek için kullanılır:
+Azure Search, Azure platformunun güvenlik önlemlerinin devralır, ancak aynı zamanda kendi anahtar tabanlı kimlik doğrulamasını sağlar. Bir API anahtarı, rastgele oluşturulmuş bir sayı ile harflerden oluşan bir dizedir. (Yönetici veya sorgu) anahtar türünü erişim düzeyini belirler. Geçerli bir anahtar teslimini kavram isteği güvenilir bir varlıktan kaynağı olarak kabul edilir. 
 
-* Yönetici (hizmet karşı herhangi bir okuma-yazma işlemi için geçerli)
-* Sorgu (geçerli dizin sorguları gibi salt okunur işlemler için)
+Erişim anahtarları iki tür tarafından etkin arama hizmetinize iki düzeyi vardır:
 
-Hizmetin sağlandığı yönetici anahtarları oluşturulur. Olarak belirlenen iki yönetici anahtarı mevcuttur *birincil* ve *ikincil* bunları tutmak düz, ancak aslında bunlar değiştirilebilir. Böylece, bir hizmete erişimi kaybetmeden dönebileceğinizden her hizmetin iki yönetici anahtarı vardır. İki yönetici anahtarı yeniden oluşturabilirsiniz ancak yönetici toplam anahtar sayısı için ekleyemezsiniz. İki yönetici anahtarı arama hizmeti başına en fazla yoktur.
+* Yönetici erişimi (hizmetinde herhangi bir okuma-yazma işlemi için geçerli)
+* Sorgulama erişimi (geçerli dizin sorguları gibi salt okunur işlemler için)
 
-Sorgu anahtarları gerektiğinde oluşturulur ve arama doğrudan çağıran istemci uygulamalar için tasarlanmıştır. En çok 50 sorgu anahtarları oluşturabilirsiniz. Uygulama kodunda hizmeti salt okunur erişime izin vermek için arama URL'sini ve bir sorgu api anahtarını belirtin. Uygulama kodunuz aynı zamanda uygulamanız tarafından kullanılan dizinini belirtir. Uç nokta, salt okunur erişim için bir API anahtarı ve bir hedef dizin birlikte, istemci uygulamanızın bağlantı kapsamı ve erişim düzeyini tanımlayın.
+*Yönetici anahtarları* hizmet sağlanması oluşturulur. Olarak belirlenen iki yönetici anahtarı mevcuttur *birincil* ve *ikincil* bunları tutmak düz, ancak aslında bunlar değiştirilebilir. Böylece, bir hizmete erişimi kaybetmeden dönebileceğinizden her hizmetin iki yönetici anahtarı vardır. İki yönetici anahtarı yeniden oluşturabilirsiniz ancak yönetici toplam anahtar sayısı için ekleyemezsiniz. İki yönetici anahtarı arama hizmeti başına en fazla yoktur.
+
+*Sorgu anahtarlarına* gerektiğinde oluşturulur ve arama doğrudan çağıran istemci uygulamalar için tasarlanmıştır. En çok 50 sorgu anahtarları oluşturabilirsiniz. Uygulama kodunda hizmeti salt okunur erişime izin vermek için arama URL'sini ve bir sorgu api anahtarını belirtin. Uygulama kodunuz aynı zamanda uygulamanız tarafından kullanılan dizinini belirtir. Uç nokta, salt okunur erişim için bir API anahtarı ve bir hedef dizin birlikte, istemci uygulamanızın bağlantı kapsamı ve erişim düzeyini tanımlayın.
 
 Her istekte zorunlu bir anahtar, bir işlem ve bir nesne her isteğin burada oluşur, kimlik doğrulaması gereklidir. Birbirine zincirlenmiş, iki izin düzeyleri (tam veya salt okunur) artı (örneğin, bir dizin üzerinde sorgu işlemi) bağlam hizmet işlemleri üzerinde tam spektrumlu güvenlik sağlamak için yeterlidir. Anahtarları hakkında daha fazla bilgi için bkz. [oluştur ve api anahtarlarını yönetebilirsiniz](search-security-api-keys.md).
 
@@ -93,7 +95,9 @@ Azure Search'te bir istek yapılandırılması hakkında daha fazla bilgi için 
 
 ## <a name="user-access-to-index-content"></a>Dizin içeriğe kullanıcı erişimi
 
-Dizin içeriğini kullanıcı başına erişim belgeleri belirli güvenlik kimlikle ilişkili döndüren sorgularınızı güvenlik filtreleriyle aracılığıyla uygulanır. Önceden tanımlanmış roller ve rol atamalarını yerine kimlik tabanlı erişim denetimi, arama sonuçlarını, belgeleri ve içerik kimliği temel kırpar filtre olarak uygulanır. Aşağıdaki tabloda, yetkisiz içeriği kırpma arama sonuçları için iki yaklaşım açıklanmaktadır.
+Varsayılan olarak, dizin kullanıcı erişimini erişim anahtarını temel sorgu isteği tarafından belirlenir. Çoğu geliştirici oluşturma ve atama [ *sorgu anahtarlarına* ](search-security-api-keys.md) istemci-tarafı arama istekleri için. Bir sorgu anahtarı dizini içindeki tüm içeriği okuma erişimi verir.
+
+Ayrıntılı gerektiriyorsa, kullanıcı başına içerikler üzerinde kontrol, belirli bir güvenlik kimlikle ilişkili belgeleri döndüren, sorgularınızı üzerinde güvenlik filtreleri oluşturabilirsiniz. Önceden tanımlanmış roller ve rol atamalarını yerine kimlik tabanlı erişim denetimi olarak uygulanır bir *filtre* kimlikleri temelinde tabanlı arama sonuçlarını, belgeleri ve içerik kırpar. Aşağıdaki tabloda, yetkisiz içeriği kırpma arama sonuçları için iki yaklaşım açıklanmaktadır.
 
 | Yaklaşım | Açıklama |
 |----------|-------------|

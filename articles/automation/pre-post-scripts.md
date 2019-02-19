@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3010f4ec86b25c51fae2ce8f64238ec8815adca8
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236014"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408689"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Yönetme öncesi ve sonrası betikler (Önizleme)
 
@@ -52,7 +52,19 @@ Güncelleştirme dağıtımını çalıştırmak tıklayarak öncesi ve sonrası
 
 ## <a name="passing-parameters"></a>Parametreleri geçirme
 
-Ne zaman önceden yapılandırdığınız ve sonrası betikler, runbook zamanlama gibi parametreleri geçirebilirsiniz. Parametreler, güncelleştirme dağıtımı oluşturma zamanında tanımlanır. Öncesi ve sonrası betikler parametreleri türünde olmasını gerektir `String`. Başka bir nesne türü gerekiyorsa, bunu kullanarak başka bir türüne çevirebilirsiniz `[System.Convert]` veya kendi tanıtıcı.
+Ne zaman önceden yapılandırdığınız ve sonrası betikler, runbook zamanlama gibi parametreleri geçirebilirsiniz. Parametreler, güncelleştirme dağıtımı oluşturma zamanında tanımlanır. Öncesi ve sonrası betikler aşağıdaki türlerini destekler:
+
+* [char]
+* [bayt]
+* [int]
+* [uzun]
+* [ondalık]
+* [tek]
+* [çift]
+* [DateTime]
+* [string]
+
+Başka bir nesne türü gerekiyorsa, bunu başka bir runbook'ta kendi mantığınız ile türüne atayabilirsiniz.
 
 Standart runbook parametrelerini ek olarak, ek bir parametre olarak sağlanır. Bu parametre **SoftwareUpdateConfigurationRunContext**. Bu bir JSON dizesi parametresidir ve parametresi önceki veya sonraki betiğinizde tanımlarsanız, bu otomatik olarak güncelleştirme dağıtımından geçirilir. Parametre bir alt güncelleştirme dağıtımı hakkında bilgi içeren tarafından döndürülen bilgilerin [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) aşağıdaki tabloda değişkeninde sağlanan özelliklerini gösterir:
 

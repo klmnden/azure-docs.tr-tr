@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 71e88c06dcfe935f712af473c7f496d9165107a7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267555"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344004"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları
 
@@ -44,7 +44,7 @@ Media Services v3, Ulusal Azure bulutlarında upported sunulmuştur. Tüm özell
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard ve MPI dosyaları 
 
-Medya Kodlayıcısı MP4 dosyaları üretmek için standart ile kodlarken .mpi yeni bir dosya oluşturulur ve çıktıyı eklenen varlık. Bu MPI dosya dinamik paketleme ve akış senaryoları için performansı artırmak için tasarlanmıştır.
+Medya Kodlayıcısı MP4 dosyaları üretmek için standart ile kodlarken .mpi yeni bir dosya oluşturulur ve çıktıyı eklenen varlık. Bu MPI dosya performansını artırmak için kullanılmaya [dinamik paketleme](dynamic-packaging-overview.md) ve senaryoları akış.
 
 Değiştirme veya MPI dosyayı kaldırmak veya gerekir (veya etkinleştirmezsiniz) varlığını hizmetinizdeki herhangi bir bağımlılık olması, böyle bir dosya.
 

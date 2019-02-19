@@ -1,6 +1,6 @@
 ---
 title: Başlangıç sorgu örnekleri
-description: Bazı başlangıç sorgularını çalıştırmak için Azure Kaynak Grafiği’ni kullanın.
+description: Bazı başlangıç çalıştırmak için Azure Kaynak Grafiği kullanın, kaynaklar,'sıralama sayım kaynaklar dahil olmak üzere veya belirli bir etikete göre sorgular.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 85d54503e980d8c51128c8b5235197759a536003
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fd945b5fd9f26cc65c5b049406831228a3d5f327
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852363"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338725"
 ---
 # <a name="starter-resource-graph-queries"></a>Başlangıç Kaynak Grafiği sorguları
 

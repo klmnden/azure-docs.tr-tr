@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1f71276c25e3ec1e5791d9b35f89aa95190c6afd
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770593"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341973"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Uzantıları Yükleme Linux vm'lerinde kısıtlamak için Azure İlkesi'ni kullanın
 
@@ -28,7 +28,7 @@ Bu öğreticide, en son sürüme sürekli olarak güncelleştirilen Azure Cloud 
 
 ## <a name="create-a-rules-file"></a>Kurallar dosyası oluşturma
 
-Hangi uzantıların yüklü kısıtlamak için ihtiyacınız bir [kural](/azure/azure-policy/policy-definition#policy-rule) uzantısı tanımlamak için mantığını sağlamak için.
+Hangi uzantıların yüklü kısıtlamak için ihtiyacınız bir [kural](../../governance/policy/concepts/definition-structure.md#policy-rule) uzantısı tanımlamak için mantığını sağlamak için.
 
 Bu örnekte Azure Cloud Shell'de kurallar dosyası oluşturarak 'Microsoft.OSTCExtensions' tarafından yayımlanan uzantıları yükleme reddetmeyi gösterilmektedir, ancak CLI'yi yerel olarak çalışıyorsanız, ayrıca bir yerel dosya oluşturun ve yolun (~/clouddrive) yoluyla değiştirin makinenizde yerel dosya.
 
@@ -69,7 +69,7 @@ Kopyalayın ve aşağıdaki .json dosyaya yapıştırın.
 
 ## <a name="create-a-parameters-file"></a>Bir parametre dosyası oluşturma
 
-Ayrıca gerekir bir [parametreleri](/azure/azure-policy/policy-definition#parameters) engellemek için uzantıları listesinde geçirme için kullanabilmeniz için bir yapı oluşturur dosya. 
+Ayrıca gerekir bir [parametreleri](../../governance/policy/concepts/definition-structure.md#parameters) engellemek için uzantıları listesinde geçirme için kullanabilmeniz için bir yapı oluşturur dosya. 
 
 Bu örnekte Cloud shell'de Linux VM'ler için bir parametre dosyası oluşturma işlemi gösterilmektedir, ancak CLI'yi yerel olarak çalışıyorsanız, ayrıca bir yerel dosya oluşturun ve yolun (~/clouddrive) makinenizde yerel dosyanın yoluyla değiştirin.
 
@@ -171,6 +171,6 @@ az policy assignment delete --name 'not-allowed-vmextension-linux' --resource-gr
 az policy definition delete --name 'not-allowed-vmextension-linux'
 ```
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi için [Azure İlkesi](../../azure-policy/azure-policy-introduction.md).
+
+Daha fazla bilgi için [Azure İlkesi](../../governance/policy/overview.md).

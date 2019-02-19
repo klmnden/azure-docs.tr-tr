@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Cisco Spark ile Azure Active Directory Tümleştirme | Microsoft Docs'
-description: Azure Active Directory ve Cisco Spark arasında çoklu oturum açmayı yapılandırmayı öğrenin.
+title: 'Öğretici: Cisco Webex ile Azure Active Directory Tümleştirme | Microsoft Docs'
+description: Azure Active Directory ve Cisco Webex arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87161c79bc58387d97863581675bb49f1e09160f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a1460fba4d6897dfcc6bf40b6e02ab856ffe8456
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191563"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340487"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Öğretici: Cisco Spark ile Azure Active Directory Tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Öğretici: Cisco Webex ile Azure Active Directory Tümleştirme
 
-Bu öğreticide, Cisco Spark Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
-Cisco Spark, Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Bu öğreticide, Azure Active Directory (Azure AD) ile Cisco Webex tümleştirme konusunda bilgi edinin.
+Cisco Webex Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-* Cisco Spark erişimi, Azure AD'de kontrol edebilirsiniz.
-* Azure AD hesaplarına otomatik olarak (çoklu oturum açma) Cisco Spark için oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Cisco Webex erişimi, Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak (çoklu oturum açma) Cisco Webex için oturum açmış, kullanıcıların etkinleştirebilirsiniz.
 * Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,22 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirmesi Cisco Spark'ı yapılandırmak için aşağıdaki öğeler gerekir:
+Azure AD Tümleştirmesi ile Cisco Webex yapılandırmak için aşağıdaki öğeler gerekir:
 
 * Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
-* Cisco Spark çoklu oturum açmayı abonelik etkin.
+* Cisco Webex çoklu oturum açmayı abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-* Cisco Spark destekler **SP** tarafından başlatılan
+* Cisco Webex destekler **SP** tarafından başlatılan
 
-## <a name="adding-cisco-spark-from-the-gallery"></a>Cisco Spark galeri ekleme
+## <a name="adding-cisco-webex-from-the-gallery"></a>Cisco Webex galeri ekleme
 
-Azure AD'de Cisco Spark'ın tümleştirmesini yapılandırmak için Cisco Spark Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+Azure AD'de Cisco Webex tümleştirmesini yapılandırmak için Cisco Webex Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Cisco Spark Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
+**Cisco Webex Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
 1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
@@ -65,31 +65,31 @@ Azure AD'de Cisco Spark'ın tümleştirmesini yapılandırmak için Cisco Spark 
 
     ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-4. Arama kutusuna **Cisco Spark**seçin **Cisco Spark** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Cisco Webex**seçin **Cisco Webex** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-     ![Sonuç listesinde Cisco Spark](common/search-new-app.png)
+     ![Sonuç listesinde Cisco Webex](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Cisco adlı bir test kullanıcı tabanlı Spark ile Azure AD çoklu oturum açmayı test **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısı ile ilgili kullanıcı Cisco Spark arasında bir bağlantı ilişki kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Cisco adlı bir test kullanıcı tabanlı Webex test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve Cisco Webex ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma Cisco Spark ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Cisco Webex ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Cisco Spark çoklu oturum açmayı yapılandırma](#configure-cisco-spark-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+2. **[Cisco Webex çoklu oturum açmayı yapılandırma](#configure-cisco-webex-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Cisco Spark test kullanıcısı oluşturma](#create-cisco-spark-test-user)**  - kullanıcı Azure AD gösterimini bağlı Cisco Spark Britta simon'un bir karşılığı vardır.
+5. **[Cisco Webex test kullanıcısı oluşturma](#create-cisco-webex-test-user)**  - kullanıcı Azure AD gösterimini bağlı Cisco Webex Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-Azure AD çoklu oturum açma Cisco Spark'ı yapılandırmak için aşağıdaki adımları gerçekleştirin:
+Azure AD çoklu oturum açma ile Cisco Webex yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. İçinde [Azure portalında](https://portal.azure.com/), **Cisco Spark** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Cisco Webex** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
@@ -103,24 +103,24 @@ Azure AD çoklu oturum açma Cisco Spark'ı yapılandırmak için aşağıdaki a
 
 4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Cisco Spark etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+    ![Cisco Webex etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL yazın: `https://web.ciscospark.com/#/signin`
 
-    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://idbroker.webex.com/<companyname>`
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://idbroker.webex.com/<Org Id>`
 
     > [!NOTE]
-    > Bu tanımlayıcı değerini gerçek değil. Bu değer, gerçek tanımlayıcısıyla güncelleştirin. İlgili kişi [Cisco Spark istemci Destek ekibine](https://support.ciscospark.com/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Bu tanımlayıcı değerini gerçek değil. Bu değer, gerçek tanımlayıcısıyla güncelleştirin. Hizmet sağlayıcısı meta verileri varsa, karşıya **temel SAML yapılandırma** bölümü sonra **tanımlayıcı (varlık kimliği)** değer otomatik olarak doldurulur otomatik alır.
 
-5. Cisco Spark uygulaması belirli bir biçimde SAML onaylamalarını bekliyor. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+5. Cisco Webex uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayarak **Düzenle** öznitelikleri eklemek için simge.
 
     ![image](common/edit-attribute.png)
 
-6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+6. Yukarıdaki için Ayrıca, Cisco Webex uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
     
     | Ad |  Kaynak özniteliği|
     | ---------------|--------- |
-    | Kullanıcı Kimliği | User.userPrincipalName |
+    | UID | User.userPrincipalName |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
@@ -144,7 +144,7 @@ Azure AD çoklu oturum açma Cisco Spark'ı yapılandırmak için aşağıdaki a
 
     ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-8. Üzerinde **Cisco Spark kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+8. Üzerinde **Cisco Webex kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
@@ -154,7 +154,7 @@ Azure AD çoklu oturum açma Cisco Spark'ı yapılandırmak için aşağıdaki a
 
     c. Oturum Kapatma URL'si
 
-### <a name="configure-cisco-spark-single-sign-on"></a>Cisco Spark çoklu oturum açmayı yapılandırın
+### <a name="configure-cisco-webex-single-sign-on"></a>Cisco Webex tek oturum açmayı yapılandırın
 
 1. Oturum [Cisco bulut işbirliği Yönetimi](https://admin.ciscospark.com/) tam yönetici kimlik bilgilerinizle.
 
@@ -199,15 +199,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Cisco Spark için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Cisco Webex erişim vererek Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Cisco Spark**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Cisco Webex**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **Cisco Spark**.
+2. Uygulamalar listesinde **Cisco Webex**.
 
-    ![Uygulamalar listesini Cisco Spark bağlantıdaki](common/all-applications.png)
+    ![Uygulamalar listesini Cisco Webex bağlantıdaki](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
@@ -223,9 +223,9 @@ Bu bölümde, Cisco Spark için erişim izni verdiğinizde, Azure çoklu oturum 
 
 7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-### <a name="create-cisco-spark-test-user"></a>Cisco Spark test kullanıcısı oluşturma
+### <a name="create-cisco-webex-test-user"></a>Cisco Webex test kullanıcısı oluşturma
 
-Bu bölümde, Spark, Cisco Britta Simon adlı bir kullanıcı oluşturun. Bu bölümde, Spark, Cisco Britta Simon adlı bir kullanıcı oluşturun.
+Bu bölümde, Britta Simon Cisco Webex adlı bir kullanıcı oluşturun. Bu bölümde, Britta Simon Cisco Webex adlı bir kullanıcı oluşturun.
 
 1. Git [Cisco bulut işbirliği Yönetimi](https://admin.ciscospark.com/) tam yönetici kimlik bilgilerinizle.
 
@@ -253,7 +253,7 @@ Bu bölümde, Spark, Cisco Britta Simon adlı bir kullanıcı oluşturun. Bu bö
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Cisco Spark kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Cisco Spark için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Erişim paneli Cisco Webex kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Cisco Webex için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

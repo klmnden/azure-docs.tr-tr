@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/16/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 600b79ec0b34d6b79b1b56719dd800bbe8ec803a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a5c08536614476de38c7bfde524a12163162bed4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487158"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339272"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme
 
@@ -36,7 +36,7 @@ Bu makalede bazı genel Azure dağıtım hatalarını açıklar ve hataları ç�
 | AccountPropertyCannotBeSet | Kullanılabilir depolama hesabı özelliklerini denetleyin. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | Küme veya bölge kullanılabilir kaynak yok veya istenen VM boyutu destekleyemez. Daha sonra isteği yeniden deneyin veya farklı bir VM boyutu isteyin. | [Linux için sağlama ve ayırma sorunları](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Windows için sağlama ve ayırma sorunları](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) ve [ayırma hatalarını giderme](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Eş zamanlı işlemin tamamlanmasını bekleyin. | |
-| AuthorizationFailed | Hesabınız veya hizmet sorumlusu dağıtımı tamamlamak için yeterli erişimi yok. Hesabınız için ait rolü ve dağıtım kapsamına erişim kontrol edin. | [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md) |
+| AuthorizationFailed | Hesabınız veya hizmet sorumlusu dağıtımı tamamlamak için yeterli erişimi yok. Hesabınız için ait rolü ve dağıtım kapsamına erişim kontrol edin.<br><br>Gerekli kaynak sağlayıcısı kayıtlı değilse, bu hatayı alabilirsiniz. | [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md)<br><br>[Kayıt çözümleyin](resource-manager-register-provider-errors.md) |
 | BadRequest | Resource Manager tarafından beklenen eşleşmeyen dağıtım değerler gönderdiğiniz. Sorun giderme konusunda yardım için iç durum iletisini inceleyin. | [Şablon başvurusu](/azure/templates/) ve [desteklenen konumlar](resource-manager-templates-resources.md#location) |
 | Çakışma | Kaynağın geçerli durumda izin verilmeyen bir işlem istediği. Örneğin, disk yeniden boyutlandırması yalnızca bir VM oluşturulurken veya VM serbest bırakıldığında izin verilir. | |
 | DeploymentActive | Eşzamanlı dağıtım tamamlamak için bu kaynak grubu için bekleyin. | |

@@ -12,44 +12,52 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/15/2018
+ms.date: 02/15/2019
 ms.author: aljo
-ms.openlocfilehash: 691995d0aa426766caed2f5e2458399b32332c9d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 15561969e27512c4882eccc10f75aa932bcf23df
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903511"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338997"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>İstemci kimlik doğrulaması için Azure Active Directory ayarlayın
 
-Azure üzerinde çalışan kümeler için Azure Active Directory (Azure AD), yönetim uç noktalarına erişimi güvenli hale getirmek için önerilir.  Nasıl bir Service Fabric kümesi için istemcilerin kimliğini doğrulamak için Azure AD kurulumu için önce yapılmalıdır bu makalede [kümeyi oluştururken](service-fabric-cluster-creation-via-arm.md).  Azure AD (kiracılar bilinir), kuruluşların uygulamalara kullanıcı erişimini yönetmenizi sağlar. Uygulamaları olan web tabanlı oturum açma kullanıcı Arabirimi hem de yerel istemci deneyimi ile ayrılır. Bu makalede, zaten bir kiracı oluşturmuş varsayıyoruz. Tamamlamadıysanız, okuyarak başlamanız [bir Azure Active Directory kiracısı edinme][active-directory-howto-tenant].
+Azure üzerinde çalışan kümeler için Azure Active Directory (Azure AD), yönetim uç noktalarına erişimi güvenli hale getirmek için önerilir.  Nasıl bir Service Fabric kümesi için istemcilerin kimliğini doğrulamak için Azure AD kurulumu için önce yapılmalıdır bu makalede [kümeyi oluştururken](service-fabric-cluster-creation-via-arm.md).  Azure AD (kiracılar bilinir), kuruluşların uygulamalara kullanıcı erişimini yönetmenizi sağlar. Uygulamaları olan web tabanlı oturum açma kullanıcı Arabirimi hem de yerel istemci deneyimi ile ayrılır. 
 
-## <a name="create-azure-ad-applications"></a>Azure AD uygulamaları oluşturma
 Service Fabric kümesi birden çok giriş noktası için web tabanlı dahil olmak üzere Yönetim işlevselliğini sunar [Service Fabric Explorer] [ service-fabric-visualizing-your-cluster] ve [Visual Studio] [ service-fabric-manage-application-in-visual-studio]. Sonuç olarak, kümeye erişimi denetlemek için iki Azure AD uygulamaları oluşturduğunuz: bir web uygulaması ve bir yerel uygulama.  Uygulama oluşturulduktan sonra kullanıcıları salt okunur olarak atadığınız ve yönetici rolleri.
-
-Bazı yapılandırma Azure AD'de bir Service Fabric kümesi ile yer alan adımların basitleştirmek için Windows PowerShell komutları kümesi oluşturduk.
 
 > [!NOTE]
 > Kümeyi oluşturmadan önce aşağıdaki adımları tamamlamanız gerekir. Küme adları ve uç noktaları betikleri beklediğiniz çünkü değerleri planlanmalıdır ve, zaten oluşturduğunuz değerleri değil.
 
+## <a name="prerequisites"></a>Önkoşullar
+Bu makalede, zaten bir kiracı oluşturmuş varsayıyoruz. Tamamlamadıysanız, okuyarak başlamanız [bir Azure Active Directory kiracısı edinme][active-directory-howto-tenant].
+
+Bazı yapılandırma Azure AD'de bir Service Fabric kümesi ile yer alan adımların basitleştirmek için Windows PowerShell komutları kümesi oluşturduk.
+
 1. [Betiklerini indirme](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) bilgisayarınıza.
 2. Zip dosyasını sağ tıklayın, **özellikleri**seçin **Engellemeyi Kaldır** onay kutusunu işaretleyin ve ardından **Uygula**.
 3. Zip dosyasını ayıklayın.
-4. Çalıştırma `SetupApplications.ps1`ve parametrelere Tenantıd, ClusterName ve WebApplicationReplyUrl girin. Örneğin:
+
+## <a name="create-azure-ad-applications-and-asssign-users-to-roles"></a>Azure AD uygulamaları ve asssign kullanıcı rolleri oluşturma
+Küme erişimi denetlemek için iki Azure AD uygulaması oluştur: bir web uygulaması ve bir yerel uygulama. Kümenizi temsil etmek için uygulamaları oluşturduktan sonra kullanıcılarınıza atama [Service Fabric tarafından desteklenen roller](service-fabric-cluster-security-roles.md): salt okunur ve yönetici
+
+Çalıştırma `SetupApplications.ps1`ve parametrelere Kiracı kimliği, küme adı ve web uygulamasının yanıt URL'si girin.  Ayrıca, kullanıcı adları ve kullanıcılar için parola belirtin.  Örneğin:
 
 ```PowerShell
-.\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+$Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
 ```
 
 > [!NOTE]
-> (Azure kamu, Azure Çin'de, Azure Almanya) Ulusal Bulutlar için de belirtmeniz `-Location` parametresi.
+> (Örneğin Azure devlet kurumları, Azure Çin'de, Azure Almanya) Ulusal Bulutlar için de belirtmeniz `-Location` parametresi.
 
-PowerShell komutunu yürüterek Tenantıd'nizi bulabilirsiniz `Get-AzureSubscription`. Bu komut yürütülürken, her abonelik için Tenantıd görüntüler.
+Bulabilirsiniz, *Tenantıd* PowerShell komutunu yürüterek `Get-AzureSubscription`. Bu komut yürütülürken, her abonelik için Tenantıd görüntüler.
 
-ClusterName betiği tarafından oluşturulan Azure AD uygulamaları önek olarak eklemek için kullanılır. Gerçek bir küme adı tam olarak eşleşmesi gerekmez. Yalnızca bunlar ile kullanılan Service Fabric kümesine Azure AD'ye yapıtları eşlemek kolaylaştırmak için tasarlanmıştır.
+*ClusterName* betiği tarafından oluşturulan Azure AD uygulamaları önek olarak eklemek için kullanılır. Gerçek bir küme adı tam olarak eşleşmesi gerekmez. Yalnızca bunlar ile kullanılan Service Fabric kümesine Azure AD'ye yapıtları eşlemek kolaylaştırmak için tasarlanmıştır.
 
-WebApplicationReplyUrl oturum açma işlemini tamamladıktan sonra kullanıcılara Azure AD döndüren varsayılan uç noktadır. Bu uç nokta olan varsayılan olarak, kümenizin Service Fabric Explorer uç nokta olarak ayarlayın:
+*WebApplicationReplyUrl* varsayılan uç nokta oturum açma işlemini tamamladıktan sonra kullanıcılarınız için Azure AD'ye verir. Bu uç nokta olan varsayılan olarak, kümenizin Service Fabric Explorer uç nokta olarak ayarlayın:
 
 https://&lt;cluster_domain&gt;: 19080/Explorer
 
@@ -58,7 +66,7 @@ Azure AD kiracısı için yönetici ayrıcalıklarına sahip bir hesap için otu
    * *ClusterName*\_küme
    * *ClusterName*\_istemci
 
-PowerShell penceresini açık tutmak için iyi bir fikirdir, bu nedenle sonraki bölümde, kümeyi oluşturduğunuzda Azure Resource Manager şablon tarafından gereken JSON betiği yazdırır.
+Azure Resource Manager şablon tarafından gereken JSON betiği yazdırır olduğunda, [küme oluşturma](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), PowerShell penceresi açık tutmak için iyi bir fikirdir.
 
 ```json
 "azureActiveDirectory": {
@@ -67,31 +75,6 @@ PowerShell penceresini açık tutmak için iyi bir fikirdir, bu nedenle sonraki 
   "clientApplication":"<guid>"
 },
 ```
-
-<a name="assign-roles"></a>
-
-## <a name="assign-users-to-roles"></a>Kullanıcı rollerine atama
-Kümenizi temsil etmek için uygulamaları oluşturduktan sonra kullanıcılarınızın Service Fabric tarafından desteklenen roller atama: salt okunur ve yönetici Rolleri kullanarak atayabilirsiniz [Azure portalında][azure-portal].
-
-1. Azure portalında, sağ üst köşedeki kiracınızı seçin.
-
-    ![Kiracı düğmeyi seçin][select-tenant-button]
-2. Seçin **Azure Active Directory** sol sekmesini ve ardından seçin "Kurumsal uygulamalar".
-3. "Tüm uygulamalar" seçin ve ardından bulmak ve seçmek bir ada sahip web uygulaması gibi `myTestCluster_Cluster`.
-4. Tıklayın **kullanıcılar ve gruplar** sekmesi.
-
-    ![Kullanıcılar ve Gruplar sekmesinde][users-and-groups-tab]
-5. Tıklayın **Kullanıcı Ekle** düğmesini yeni sayfada, bir kullanıcı ve rol atayın ve ardından seçin **seçin** sayfanın alt kısmındaki düğmesi.
-
-    ![Kullanıcı rolleri sayfasına atama][assign-users-to-roles-page]
-6. Tıklayın **atama** sayfanın alt kısmındaki düğmesi.
-
-    ![Atama onayı Ekle][assign-users-to-roles-confirm]
-
-> [!NOTE]
-> Service fabric'te rolleri hakkında daha fazla bilgi için bkz. [Service Fabric istemciler için rol tabanlı erişim denetimi](service-fabric-cluster-security-roles.md).
->
->
 
 ## <a name="troubleshooting-help-in-setting-up-azure-active-directory"></a>Azure Active Directory'yi ayarlama konusunda Yardım sorunlarını giderme
 Burada olduklarından bazı işaretçiler sorunla ilgili hataları ayıklamak için yapabilecekleriniz hakkında Azure AD'yi ayarlama ve kullanma, zor olabilir.
@@ -159,10 +142,6 @@ Azure Active Directory uygulamaları ve kullanıcılar için ayar rolleri ayarla
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 
 <!-- Images -->
-[select-tenant-button]: ./media/service-fabric-cluster-creation-setup-aad/select-tenant-button.png
-[users-and-groups-tab]: ./media/service-fabric-cluster-creation-setup-aad/users-and-groups-tab.png
-[assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-setup-aad/assign-users-to-roles-page.png
-[assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-setup-aad/assign-users-to-roles-confirm.png
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-setup-aad/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-setup-aad/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-setup-aad/web-application-reply-url.png

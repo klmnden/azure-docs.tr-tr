@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 9cd43172fc57443cc89f238e1d4ffaae45301936
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: addc1a0d7356cf1ba536c7ab47e376a48621e2d9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330571"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342499"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Azure Search'te bir temel dizin oluşturma
 
@@ -26,9 +26,29 @@ Portalda bir dizin oluşturabilirsiniz [REST API](search-create-index-rest-api.m
 
 ## <a name="recommended-workflow"></a>Önerilen iş akışı
 
-Fiziksel yapılar, dizin oluşturma sırasında oluşturulduğundan gerekecektir [bırakın ve dizinleri yeniden](search-howto-reindex.md) varolan alan tanımına kullanacağıyla ilgili önemli değişiklikler yaptığınızda. Başka bir deyişle, geliştirme sırasında üzerinde sık sık yeniden planlamalısınız. Git, daha hızlı hale getirmek için verilerinizin bir alt kümesi ile çalışma oluşturur göz önünde bulundurabilirsiniz. 
+En doğru dizin tasarımı ulaşan, genellikle birden fazla yineleme ile elde edilir. Araçlar ve API'ler bir birleşimini kullanarak hızla tasarımı son haline getir yardımcı olabilir.
 
-Portal dizin yerine kod da önerilir. Dizin tanımı için portalda güveniyorsanız, her yeniden dizin tanımını doldurmanız gerekir. Alternatif olarak, bir aracı gibi kullanarak [Postman ve REST API'si](search-fiddler.md) geliştirme projelerini hala erken bir aşamada olduğunda, kavram kanıtı test etmek için yararlıdır. Hizmetinize güncelleştirilmiş bir şemayı kullanarak bir dizini yeniden oluşturmak için bu isteği göndermek için bir dizin tanımını istek gövdesine artımlı değişiklikler yapabilirsiniz.
+1. Kullanıp kullanamadığını belirlemek bir [dizin oluşturucu](search-indexer-overview.md#supported-data-sources). Dış verilerinizin desteklenen veri kaynaklarından biri, prototip olabilir ve dizini kullanarak yük [ **verileri içeri aktarma** ](search-import-data-portal.md) Sihirbazı.
+
+2. Kullanamıyorsanız **verileri içeri aktarma**, yine de [portalda ilk dizin oluşturma](search-create-index-portal.md), alanları, veri türleri ekleme ve atama denetimleri kullanarak öznitelikleri **Add Index** Sayfa. Portal hangi özniteliklerin farklı veri türleri için kullanılabilen gösterir. Dizin tasarımı yeniyseniz, bu yararlı olur.
+
+   ![Öznitelikleri veri türüne göre gösteren Ekle dizin sayfası](media/search-create-index-portal/field-attributes.png "öznitelikleri veri türüne göre gösteren Ekle dizin sayfası")
+  
+   Tıkladığınızda **Oluştur**, tüm dizininizi destekleyen fiziksel yapıları arama hizmetiniz oluşturulur.
+
+3. Dizin şeması kullanarak indirin [alma dizin REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) ve bir web testi gibi araç [Postman](search-fiddler.md). Artık bir JSON temsili portalda oluşturulan bir dizin var. 
+
+   Bu noktada kod tabanlı bir yaklaşımda geçiyorsunuz. Önceden oluşturulmuş bir dizin düzenleyemediğiniz portalı yineleme için uygun değil. Ancak, kalan görevlerin Postman ve REST kullanabilirsiniz.
+
+4. [Dizininizi verilerle yük](search-what-is-data-import.md). Azure Search, JSON belgelerini kabul eder. Verilerinizi programlama yoluyla yüklemek için Postman isteği yükü JSON belgeleri ile kullanabilirsiniz. Bu adım, JSON olarak verilerinizi kolayca belirtilmiyorsa en yoğun işçilik olacaktır.
+
+5. Dizininizi sorgulama, sonuçları inceleyin ve beklediğiniz sonuçları görmek başlayana kadar dizin şeması hakkında daha fazla yineleme. Kullanabileceğiniz [ **arama Gezgini** ](search-explorer.md) veya Postman dizininizi sorgulama için.
+
+6. Kod üzerinde tasarımınızı yinelemek için kullanmaya devam edin.  
+
+Fiziksel yapılar, hizmette oluşturulduğundan [bırakarak ve dizinleri yeniden](search-howto-reindex.md) ab mevcut alan tanımı kullanacağıyla ilgili önemli değişiklikler yaptığınızda gereklidir. Başka bir deyişle, geliştirme sırasında üzerinde sık sık yeniden planlamalısınız. Git, daha hızlı hale getirmek için verilerinizin bir alt kümesi ile çalışma oluşturur göz önünde bulundurabilirsiniz. 
+
+Portal bir yaklaşım yerine kod yinelemeli tasarım için önerilir. Dizin tanımı için portalda güveniyorsanız, her yeniden dizin tanımını doldurmanız gerekir. Alternatif olarak, gibi araçları [Postman ve REST API'si](search-fiddler.md) geliştirme projelerini hala erken bir aşamada olduğunda, kavram kanıtı test etmek için yararlıdır. Bir dizin tanımını istek gövdesine artımlı değişiklikler yapmak ve sonra güncelleştirilmiş bir şemayı kullanarak bir dizini yeniden oluşturmak için hizmetinize istek gönderin.
 
 ## <a name="components-of-an-index"></a>Bir dizinin bileşenleri
 
@@ -119,13 +139,13 @@ Schematically, Azure Search dizini aşağıdaki öğelerden oluşur.
 ### <a name="data-types"></a>Veri türleri
 | Type | Açıklama |
 | --- | --- |
-| *Edm.String* |Tam metin arama için isteğe bağlı olarak belirteç haline getirilebilen metin (sözcük bölünmesi, kök ayırma, vb.). |
+| *Edm.String* |(Sözcük bölünmesi, dallanma ve diğerleri) tam metin araması için isteğe bağlı olarak getirilebilen metin. |
 | *Collection(Edm.String)* |Tam metin araması için isteğe bağlı olarak belirteç haline getirilebilen dize listesi. Bir koleksiyondaki öğelerin sayısında teorik bir üst sınır yoktur ancak yük boyutundaki 16 MB'lık üst sınır, koleksiyonlar için geçerlidir. |
 | *Edm.Boolean* |True/false değerlerini içerir. |
 | *Edm.Int32* |32 bit tamsayı değerleri. |
 | *Edm.Int64* |64 bit tamsayı değerleri. |
 | *Edm.Double* |Çift duyarlıklı sayısal veriler. |
-| *Edm.DateTimeOffset* |OData V4 biçiminde (ör. `yyyy-MM-ddTHH:mm:ss.fffZ` ve `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`) temsil edilen tarih ve saat değerleri. |
+| *Edm.DateTimeOffset* |Tarih saat değerlerini temsil edilen OData V4 biçiminde (örneğin, `yyyy-MM-ddTHH:mm:ss.fffZ` veya `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Dünya üzerindeki bir coğrafi konumu temsil eden bir nokta. |
 
 Azure Search'ün [desteklediği veri türleri hakkında burada](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) daha ayrıntılı bilgiler edinebilirsiniz.
@@ -144,32 +164,33 @@ Azure Search'ün [dizin öznitelikleri hakkında burada](https://docs.microsoft.
 
 ## <a name="storage-implications"></a>Depolama etkileri
 
-Öznitelikleri depolama etkisi. Aşağıdaki ekran görüntüsünde, dizin depolama düzeni özniteliklerin çeşitli birleşimler kaynaklanan bir örnektir. Dizin dayanır [yerleşik realestate örnek](search-get-started-portal.md) dizine ekleyebilir, veri kaynağı ve Portalı'nda sorgu.
+Öznitelikleri depolama etkisi. Aşağıdaki ekran görüntüsünde özniteliklerin çeşitli birleşimleri arasından kaynaklanan dizin depolama desenleri gösterir.
 
-Belgeleri bozulmadan saklanan şekilde tam eşleşme filtreleme ve sıralama işlemleri sorgu. Aranabilir alanları tam metin ve belirsiz aramayı etkinleştirin. Ters dizinleri aranabilir alanları için oluşturulan ve simgeleştirilmiş şartlarını doldurulur. Bir alanı işaretlemek odalı önemli dizin boyutu üzerinde etkisi yoktur.
+Dizin dayanır [yerleşik realestate örnek](search-get-started-portal.md) dizine ekleyebilir, veri kaynağı ve Portalı'nda sorgu. Dizin şemaları gösterilmese dizin adını temel alarak öznitelikleri çıkarabilir. Örneğin, *realestate-aranabilir* dizininin **aranabilir** seçili özniteliği ve başka bir şey *realestate-alınabilir* dizininin  **alınabilir** seçili özniteliği ve hiçbir şey başka ve benzeri.
 
 ![Dizin öznitelik seçimi temel alınarak boyut](./media/search-what-is-an-index/realestate-index-size.png "dizin öznitelik seçimi temel alınarak boyutu")
 
-Birkaç aşağıdaki bileşimler yapay, bir nokta illuminating için kullanışlı, ancak uygun bir dizinde neden değil. Uygulamada, hiçbir zaman tek her alan için bir öneri aracı eklediğinizde veya aranabilir ancak değil alınabilir bir dizin oluşturun.
+Bu dizin çeşitleri yapay olsa da, biz onlara öznitelikleri depolama nasıl etkileyeceğini geniş karşılaştırmalar için başvurabilir. Ayar yapar **alınabilir** dizin boyutunu artırın? Hayır. Alanları ekleme yoksa bir **öneri aracı** dizin boyutunu artırın? Evet.
 
-Depolama mimarisi, Azure Search'ün bir uygulama ayrıntısı kabul edilir ve uyarı değişebilir. Şu anki davranışı gelecekte kalıcı bir garanti yoktur.
+Filtreleme ve sıralama desteği dizinleri orantılı olarak yalnızca tam metin aramayı destekleyen dizinleri büyüktür. Nedeni bu filtreleme ve sıralama sorguyu temel tam eşleşme olduğundan belgeler bozulmadan depolanır. Buna karşılık, aranabilir alanları tam metin ve belirsiz destekleyen tüm belgeleri daha az alan tüketen parçalanmış koşullarıyla doldurulur ters kullanım dizinler, arayın.
+
+> [!Note]
+> Depolama mimarisi, Azure Search'ün bir uygulama ayrıntısı kabul edilir ve uyarı değişebilir. Şu anki davranışı gelecekte kalıcı bir garanti yoktur.
 
 ## <a name="suggesters"></a>Öneri Araçları
-Bir öneri aracı hangi alanlarda dizin aramaları otomatik tamamlamayı veya yazarken tamamlanan sorgu desteklemek için kullanılan tanımlayan şemayı bölümüdür. Genellikle kısmi arama dizelerini önerileri (Azure Search Hizmeti REST API'si) kullanıcı arama sorgusu yazıyor ve API, önerilen ifadelerden bir dizi döndürür gönderilir. 
+Bir öneri aracı hangi alanlarda dizin aramaları otomatik tamamlamayı veya yazarken tamamlanan sorgu desteklemek için kullanılan tanımlayan şemayı bölümüdür. Genellikle, kısmi arama dizelerini gönderilen [önerileri (REST API'si)](https://docs.microsoft.com/rest/api/searchservice/suggestions) kullanıcı arama sorgusu yazıyor ve API, önerilen ifadelerden bir dizi döndürür. 
 
-Dizin tanımlayan bir öneri aracı hangi alanların yazarken tamamlanan arama terimlerini oluşturmak için kullanılan belirler. Daha fazla bilgi için [öneri Araçları eklemek](index-add-suggesters.md) yapılandırma ayrıntıları için.
+Alanlar için bir öneri aracı eklenmiş, yazarken tamamlanan arama terimlerini oluşturmak için kullanılır. Arama koşulları dizin oluşturma sırasında oluşturulur ve ayrı olarak depolanır. Öneri aracı yapısı oluşturma hakkında daha fazla bilgi için bkz. [öneri Araçları eklemek](index-add-suggesters.md).
 
 ## <a name="scoring-profiles"></a>Puanlama modelleri
 
-Puanlama profili, hangi öğelerin arama sonuçlarında daha yukarıda görüntülenmesini etkilemek olanak tanıyan özel Puanlama davranışlarını tanımlayan şemayı bölümüdür. Puanlama profilleri, alan ağırlıklarını ve işlevleri yapılır. Bunları kullanmak için sorgu dizesi adına göre bir profil seçin.
+A [Puanlama profili](index-add-scoring-profiles.md) olan özel tanımlayan şemanın bir bölümünü Puanlama davranışları hangi öğelerin arama sonuçlarında daha yukarıda görünür, etkilemek bildiren. Puanlama profilleri, alan ağırlıklarını ve işlevleri yapılır. Bunları kullanmak için sorgu dizesi adına göre bir profil seçin.
 
-Puanlama profili varsayılan bir sonuç kümesi içindeki her bir öğe için arama puanını hesaplamak için arka planda çalışır. İç, Puanlama profili adlandırılmamış kullanabilirsiniz. Alternatif olarak, özel bir profil, sorgu dizesinde belirtilmedi çağrılır, varsayılan olarak özel bir profil kullanılacak defaultScoringProfile ayarlayın.
-
-Daha fazla bilgi için [Puanlama profillerini Ekle](index-add-scoring-profiles.md).
+Puanlama profili varsayılan bir sonuç kümesi içindeki her bir öğe için arama puanını hesaplamak için arka planda çalışır. İç, Puanlama profili adlandırılmamış kullanabilirsiniz. Alternatif olarak, kümesinin **defaultScoringProfile** özel bir profil varsayılan olarak kullanmak için özel bir profil sorgu dizesinde belirtilmediğinde çağrılır.
 
 ## <a name="analyzers"></a>Çözümleyiciler
 
-Çözümleyiciler öğesi alanı için kullanılacak dil Çözümleyicisi adını ayarlar. İzin verilen değerleri kümesi için bkz: [dil Çözümleyicileri Azure Search'te](index-add-language-analyzers.md). Bu seçenek yalnızca aranabilir alanları ile kullanılabilir ve onu ile birlikte ayarlanamaz **searchAnalyzer** veya **indexAnalyzer**. Çözümleyicisi seçildikten sonra alan için değiştirilemez.
+Çözümleyiciler öğesi alanı için kullanılacak dil Çözümleyicisi adını ayarlar. Çözümleyiciler kullanabileceğiniz çeşitli hakkında daha fazla bilgi için bkz. [çözümleyiciler için bir Azure Search dizini ekleme](search-analyzers.md). Çözümleyicileri yalnızca aranabilir alanları ile kullanılabilir. Çözümleyici bir alan atandıktan sonra dizini yeniden sürece değiştirilemez.
 
 ## <a name="cors"></a>CORS
 

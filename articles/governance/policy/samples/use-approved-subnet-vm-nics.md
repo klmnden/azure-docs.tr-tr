@@ -1,6 +1,6 @@
 ---
 title: Örnek - sanal makine ağ arabirimleri için alt ağ kullanın Onaylandı
-description: Bu örnek ilkesi, ağ arabirimlerinin onaylı bir alt ağ kullanmasını gerektirir.
+description: Bu örnek ilke tanımı, ağ arabirimleri onaylı bir alt ağı kullanmanız gerekir.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: d4f27b98581f7ea2adbbb69d6041e6ad190cc0e7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 854dbb6d3743c0e8af8a267a425286624453b688
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242755"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341122"
 ---
-# <a name="use-approved-subnet-for-vm-network-interfaces"></a>VM ağ arabirimlerinde onaylanan alt ağı kullan
+# <a name="sample---use-approved-subnet-for-vm-network-interfaces"></a>Örnek - sanal makine ağ arabirimleri için alt ağ kullanın Onaylandı
 
 Bu ilke ağ arabirimlerinin onaylı bir alt ağ kullanmasını gerektirir. Onaylanan alt ağın kimliğini belirtirsiniz.
 

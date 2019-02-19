@@ -1,6 +1,6 @@
 ---
-title: Azure'da RBAC değişiklikler için etkinlik günlüklerini görüntüleme | Microsoft Docs
-description: Rol tabanlı erişim denetimi (RBAC) değişikliklerin Son 90 güne ait etkinlik günlüklerini görüntüleme.
+title: Azure kaynakları için RBAC değişiklikleri için etkinlik günlüklerini görüntüleme | Microsoft Docs
+description: Rol tabanlı erişim denetimi (RBAC) değişikliklerin Son 90 güne ait Azure kaynakları için etkinlik günlüklerini görüntüleme.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117657"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338827"
 ---
-# <a name="view-activity-logs-for-rbac-changes"></a>RBAC değişiklikler için etkinlik günlüklerini görüntüleme
+# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>RBAC değişiklikler Azure kaynakları için etkinlik günlüklerini görüntüleme
 
-Bazen, rol tabanlı erişim denetimi (RBAC) değişiklikler hakkında bilgiler gibi denetim ve sorun giderme amacıyla gerekir. Birisi yapar değişiklikleri rol atamaları veya rol tanımları, Abonelikleriniz dahilindeki dilediğiniz zaman değişiklikleri günlüğe [Azure etkinlik günlüğü](../azure-monitor/platform/activity-logs-overview.md). Son 90 gün için tüm RBAC değişiklikleri görmek için etkinlik günlüklerini görüntüleyebilirsiniz.
+Bazen Azure kaynakları için rol tabanlı erişim denetimi (RBAC) değişiklikler hakkında bilgiler gibi denetim ve sorun giderme amacıyla gerekir. Birisi yapar değişiklikleri rol atamaları veya rol tanımları, Abonelikleriniz dahilindeki dilediğiniz zaman değişiklikleri günlüğe [Azure etkinlik günlüğü](../azure-monitor/platform/activity-logs-overview.md). Son 90 gün için tüm RBAC değişiklikleri görmek için etkinlik günlüklerini görüntüleyebilirsiniz.
 
 ## <a name="operations-that-are-logged"></a>Günlüğe kaydedilen işlemleri
 

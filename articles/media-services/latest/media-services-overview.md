@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 1911b851e4e219ec4c6d2d4872b75e9c18706feb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893332"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337570"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
 
@@ -62,7 +62,7 @@ Media Services kaynak adları şu karakterleri içeremez: '<', '>', '%', '&', ':
 
 Azure Resource Manager adlandırma hakkında daha fazla bilgi için bkz: [Adlandırma gereksinimlerini](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) ve [adlandırma kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
-## <a name="media-services-v3-api-design-principles"></a>Media Services v3 API tasarım ilkeleri
+## <a name="v3-api-design-principles"></a>V3 API tasarım ilkeleri
 
 v3 API’nin temel tasarım ilkelerinden biri API’yi daha güvenli hale getirmektir. v3 API’ler **Get** veya **List** işlemlerinde gizli diziler ve kimlik bilgileri döndürmez. Anahtarlar her zaman null, boş veya yanıttan ayıklanmış olur. Gizli dizileri ve kimlik bilgilerini almak için ayrı bir eylem yöntemi çağırmanız gerekir. Bazı API’ler gizli dizileri alır ve görüntülerken diğer API'lerin bunu yapmaması durumunda, ayrı eylemler farklı RBAC güvenlik izinleri ayarlamanızı sağlar. RBAC kullanarak erişimi yönetme hakkında daha fazla bilgi için bkz. [Erişimi yönetmek için RBAC kullanma](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
@@ -76,25 +76,20 @@ Bkz: [içerik anahtarı ilkesi - .NET edinme](get-content-key-policy-dotnet-howt
 
 ## <a name="how-can-i-get-started-with-v3"></a>v3’ü kullanmaya nasıl başlayabilirim?
 
-Bir geliştirici olarak, Media Services kullanabileceğiniz [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) veya kolayca oluşturmak için REST API ile etkileşimde bulunmanızı sağlayan istemci kütüphaneleri, yönetmek ve özel medya iş akışları korumak. API temel Media Services v3 [Openapı belirtimi](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) (eski adıyla bir swagger dosyası da bilinir).
+Variuos Araçlar ve SDK'lar kullanarak Media Services v3 API'si ile geliştirmeye başlamak hakkında daha fazla bilgi için bkz: [geliştirmeye başlayın](developers-guide.md).
 
-[Azure Media Services Gezgini](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE), Media Services hakkında bilgi edinmek istiyorsanız Windows müşteriler için kullanılabilir bir araçtır. AMSE olduğu bir Winforms /C# karşıya yükleyin, indirin, kodlama, VOD akışı ve Media Services ile içerik Canlı uygulama. Media Services, herhangi bir kod yazmadan test etmek istediğiniz istemciler için AMSE aracıdır. AMSE kod, Media Services ile geliştirmek isteyen müşteriler için bir kaynak olarak sağlanır.
+## <a name="v3-content-map"></a>V3 içerik haritası
 
-AMSE açık kaynak bir proje, destek, topluluk tarafından sağlanır (sorunları rapor https://github.com/Azure/Azure-Media-Services-Explorer/issues). Bu proje [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Açık Kaynak Kullanım Kuralları) belgesinde listelenen kurallara uygundur. Daha fazla bilgi için [kullanım kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/) veya başvurun opencode@microsoft.com herhangi bir ek sorularınız ya da yorumlarınız ile.
- 
-Azure Media Services, aşağıdaki istemci kitaplıklardan destekler: 
+Media Services v3 içerik (İçindekiler tablosunda da yansıtılan) aşağıdaki yapıya göre düzenlenmiştir:
 
-|API başvuruları|SDK'lar/Araçlar|Örnekler|
-|---|---|---|---|
-|[REST başvurusu](https://aka.ms/ams-v3-rest-ref)|[REST SDK'sı](https://aka.ms/ams-v3-rest-sdk)|[REST Postman örnekleri](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[Azure Resource Manager tabanlı REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
-|[Azure CLI başvurusu](https://aka.ms/ams-v3-cli-ref)|[Azure CLI](https://aka.ms/ams-v3-cli)|[Azure CLI örnekleri](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
-|[.NET başvurusu](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET örnekleri](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
-||[.NET Core SDK'sı](https://aka.ms/ams-v3-dotnet-sdk) (**.NET CLI** sekmesini seçin)|[.NET Core örnekleri](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
-|[Java başvurusu](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
-|[Node.js başvurusu](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK’sı](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js örnekleri](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
-|[Python başvurusu](https://aka.ms/ams-v3-python-ref)|[Python SDK'sı](https://aka.ms/ams-v3-python-sdk)||
-|[Go başvurusu](https://aka.ms/ams-v3-go-ref)|[Go SDK'sı](https://aka.ms/ams-v3-go-sdk)||
-|Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+|Bölümler| Açıklama|
+|---|---|
+| Genel Bakış | Medya Hizmetleri ve hizmet ile neler yapabileceğinizi işlevselliğini açıklar.|
+| Hızlı Başlangıçlar | Media Services'ı hızlı şekilde denemenize yönelik yeni müşteriler için temel gün-1 yönergeleri göster.|
+| Öğreticiler | Senaryo tabanlı yordamlar üst Media Services görevlerden bazılarını gösterir.|
+| Örnekler | Kod örneklerine bağlar. |
+| Kavramlar | Media Services v3 işlevselliği ve diyagramları ayrıntılı açıklamasını içerir. Bu konularda açıklandığı gibi temel kavramları, geliştirme başlatılmadan önce incelenmelidir.<br/><br/>* Bulut karşıya yükleme ve depolama alanı<br/>* Kodlama<br/>* Medya analizi<br/>* Paket teslimini koruma<br/>* Canlı akış<br/>* Sürekli izleme<br/>* Player istemciler<br/><br/>ve daha fazlası. |
+| Nasıl yapılır kılavuzları | Bir görevin nasıl tamamlanacağını göstermektedir.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

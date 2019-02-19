@@ -1,7 +1,7 @@
 ---
 title: Konuşma Hizmetleri ücretsiz olarak deneyin
 titleSuffix: Azure Cognitive Services
-description: Konuşma hizmeti ile çalışmaya başlama, kolay ve hesaplı. 30 günlük ücretsiz deneme, olanak tanır. hangi hizmet yapmak ve uygulamanızın ihtiyaçları için doğru olup olmadığını karar verebilirsiniz keşfedin.
+description: Konuşma Hizmetleri ile çalışmaya başlama, kolay ve hesaplı. 30 günlük ücretsiz deneme, olanak tanır. hangi hizmet yapmak ve uygulamanızın ihtiyaçları için doğru olup olmadığını karar verebilirsiniz keşfedin.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 203cb07c9450a590b45caa66092fe0199d985058
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978162"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342686"
 ---
-# <a name="try-the-speech-service-for-free"></a>Konuşma tanıma hizmetini ücretsiz olarak deneyin
+# <a name="try-speech-services-for-free"></a>Konuşma Hizmetleri ücretsiz olarak deneyin
 
-Konuşma hizmeti ile çalışmaya başlama, kolay ve hesaplı. 30 günlük ücretsiz deneme, olanak tanır. hangi hizmet yapmak ve uygulamanızın ihtiyaçları için doğru olup olmadığını karar verebilirsiniz keşfedin.
+Konuşma Hizmetleri ile çalışmaya başlama, kolay ve hesaplı. 30 günlük ücretsiz deneme, olanak tanır. hangi hizmet yapmak ve uygulamanızın ihtiyaçları için doğru olup olmadığını karar verebilirsiniz keşfedin.
 
-Daha fazla süreye ihtiyacınız varsa, Microsoft Azure hesabı için kaydolun-200 ABD Doları, ücretli bir konuşma hizmeti abonelik 30 güne kadar doğru uygulayabileceğiniz hizmet kredi ile birlikte gelir.
+Daha fazla süreye ihtiyacınız varsa, Microsoft Azure hesabı için kaydolun — konuşma Hizmetleri abonelik ödemesi 30 güne kadar doğru uygulayabileceğiniz hizmet kredisi 200 ABD doları ile birlikte gelir.
 
-Son olarak, konuşma hizmeti uygulamaları geliştirmek için uygun olan ücretsiz, düşük hacimli katmanı sunar. Hizmet kredinizin süresi dolduktan sonra bile bu ücretsiz aboneliği tutabilirsiniz.
+Son olarak, konuşma Hizmetleri, uygulamaları geliştirmek için uygun olan ücretsiz, düşük hacimli katmanı sunar. Hizmet kredinizin süresi dolduktan sonra bile bu ücretsiz aboneliği tutabilirsiniz.
 
 ## <a name="free-trial"></a>Ücretsiz deneme sürümü
 
@@ -57,17 +57,17 @@ Bilişsel hizmetler için deneyin'da oturum açtıktan sonra ücretsiz deneme s�
 
 ## <a name="new-azure-account"></a>Yeni Azure hesabı
 
-Yeni Azure hesapları 30 gün boyunca kullanılabilir 200 ABD Doları değerinde bir hizmet kredisi alırsınız. Bu kredi konuşma hizmeti daha iyi keşfedilebilmesi için veya uygulama geliştirmeye başlamak için kullanabilirsiniz.
+Yeni Azure hesapları 30 gün boyunca kullanılabilir 200 ABD Doları değerinde bir hizmet kredisi alırsınız. Bu kredi konuşma Hizmetleri daha iyi keşfedilebilmesi için veya uygulama geliştirmeye başlamak için kullanabilirsiniz.
 
 Yeni bir Azure hesabı için kaydolmak için Git [Azure kayıt sayfasına](https://azure.microsoft.com/free/ai/), tıklayın **ücretsiz Başlat** ve Microsoft hesabınızı kullanarak yeni bir Azure hesabı oluşturun.
 
 Ücretsiz bir Microsoft hesabı için kaydolabilirsiniz [Microsoft hesap portalı](https://account.microsoft.com/account). Başlamak için tıklayın **Microsoft'ta oturum açma** oturum açması istenir,'a tıklayarak **oluşturun.** Oluşturun ve yeni Microsoft hesabınızı doğrulamak için adımları izleyin.
 
-Azure hesabınızı oluşturduktan sonra konuşma hizmeti için bir abonelik başlatmak için sonraki bölümdeki adımları izleyin.
+Azure hesabınızı oluşturduktan sonra konuşma Hizmetleri için bir abonelik başlatmak için sonraki bölümdeki adımları izleyin.
 
 ## <a name="create-a-speech-resource-in-azure"></a>Azure'da bir konuşma kaynak oluşturma
 
-Azure hesabınızda bir konuşma hizmeti kaynak (ücretsiz veya Ücretli katman) eklemek için:
+Azure hesabınızda bir konuşma Hizmetleri kaynak (ücretsiz veya Ücretli katman) eklemek için:
 
 1. Oturum [Azure portalında](https://portal.azure.com/) Microsoft hesabınızı kullanarak.
 
@@ -89,7 +89,7 @@ Azure hesabınızda bir konuşma hizmeti kaynak (ücretsiz veya Ücretli katman)
 
     * Yeni kaynak için bir ad. Adı aynı hizmetin birden fazla aboneliğe arasında ayırt etmenize yardımcı olur.
     * Yeni kaynak ücretleri nasıl faturalandırılır belirlemek için ilişkili olduğu Azure aboneliğini seçin.
-    * Kaynağı nerede kullanılacak bir bölge seçin. Şu anda konuşma hizmeti Doğu Asya, Kuzey Avrupa ve Batı ABD bölgelerinde kullanılabilir.
+    * Kaynağı nerede kullanılacak bir bölge seçin. Şu anda konuşma Hizmetleri Doğu Asya, Kuzey Avrupa ve Batı ABD bölgelerinde kullanılabilir.
     * Ya da ücretsiz veya Ücretli fiyatlandırma katmanı seçin. Tıklayın **fiyatlandırma ayrıntılarının tamamını görüntüle** her katman için fiyatlandırma ve kullanım Kotalar hakkında tam bilgi için.
     * Bu konuşma abonelik için yeni bir kaynak grubu oluşturun veya mevcut bir kaynak grubu aboneliği atayın. Kaynak düzenlenir, çeşitli Azure aboneliklerinizi tutmak Yardım gruplandırır.
     * Aboneliğinize gelecekte kolay erişim için seçin **panoya Sabitle** onay kutusu.
@@ -114,7 +114,7 @@ Bir abonelikten diğerine geçmek için örneğin, ücretsiz deneme süresinin s
 > Ücretsiz deneme anahtarlarının yer olan Batı ABD'de oluşturulur (`westus`) bölge. Dilerseniz Azure Panosu oluşturulan bir aboneliği bazı başka bir bölgede olabilir.
 
 * Uygulamanız kullanıyorsa bir [Speech SDK'sı](speech-sdk.md), bölge kodu gibi sağladığınız `westus`, konuşma yapılandırma oluştururken.
-* Uygulamanızı konuşma hizmetin birini kullanıp kullanmadığını [REST API'leri](rest-apis.md), bölge uç noktası URI'si istekleri yaparken kullandığınız bir parçasıdır.
+* Uygulamanızı konuşma Services'ın birini kullanıp kullanmadığını [REST API'leri](rest-apis.md), bölge uç noktası URI'si istekleri yaparken kullandığınız bir parçasıdır.
 
 Bir bölgede oluşturulan anahtarları yalnızca bu bölgede geçerlidir. Diğer bölgeler ile kullanılmaya çalışılırsa, kimlik doğrulama hataları neden olur.
 

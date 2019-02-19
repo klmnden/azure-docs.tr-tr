@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: ef293b39d0e82cdd26e0c41af5d63d0459064017
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820802"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339525"
 ---
 # <a name="plan-virtual-networks"></a>Sanal ağları planlama
 
@@ -113,7 +113,7 @@ Azure kullanan [rol tabanlı erişim denetimi](../role-based-access-control/over
 
 Azure ilkesi oluşturmak, atamak ve ilke tanımları yönetmenize olanak sağlar. Kaynakları kuruluş standartlarınız ve hizmet düzeyi sözleşmeleri ile uyumlu kalmasını sağlar ilke tanımları, kaynaklarınız üzerinden farklı kuralları uygular. Azure İlkesi, sahip olduğunuz ilke tanımlarıyla uyumlu olmayan kaynaklar için tarama kaynaklarınızın bir değerlendirmesini çalışır. Örneğin, tanımlamak ve yalnızca belirli bir kaynak grubu veya bölgedeki sanal ağları oluşturulmasına izin veren bir ilke uygulayın. Başka bir ilke, her alt ağ ile ilişkili ağ güvenlik grubu olduğunu gerektirebilir. İlkeler, ardından kaynakların oluşturulup güncelleştirildiği sırada değerlendirilir.
 
-İlkeler aşağıdaki hiyerarşiye uygulanır: Abonelik, yönetim grubu ve kaynak grubu. Daha fazla bilgi edinin [Azure İlkesi](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya bazı sanal ağı dağıtmak [ilke şablonu](policy-samples.md) örnekleri.
+İlkeler aşağıdaki hiyerarşiye uygulanır: Abonelik, yönetim grubu ve kaynak grubu. Daha fazla bilgi edinin [Azure İlkesi](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya bazı sanal ağı dağıtmak [ilke şablonu](policy-samples.md) örnekleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

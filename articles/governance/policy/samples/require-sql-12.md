@@ -1,6 +1,6 @@
 ---
 title: Örneği - SQL Server sürüm 12.0 gerektir
-description: Bu örnek ilkesi, SQL sunucularının sürüm 12.0 kullanmasını gerektirir.
+description: Bu örnek ilke tanımını SQL sunucularının 12.0 sürümünü çalıştırıyor olmanız gerekir.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: d00ff3554666ddbe6915882baa423da319b9f54a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 33fb78ed99bff0ccf035f68cfc2d23552a822df7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244226"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340629"
 ---
-# <a name="require-sql-server-version-120"></a>SQL Server sürüm 12.0 gerektir
+# <a name="sample---require-sql-server-version-120"></a>Örneği - SQL Server sürüm 12.0 gerektir
 
 Bu ilke, SQL sunucularının sürüm 12.0 kullanmasını gerektirir.
 

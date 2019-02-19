@@ -1,6 +1,6 @@
 ---
-title: RBAC ve Azure PowerShell kullanarak erişimini yönetme | Microsoft Docs
-description: Kullanıcılar, gruplar ve rol tabanlı erişim denetimi (RBAC) ve Azure PowerShell kullanarak uygulamalar için erişimi yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
+title: RBAC ve Azure PowerShell kullanarak Azure kaynaklarına erişimi yönetme | Microsoft Docs
+description: Kullanıcılara, gruplara ve uygulamalara rol tabanlı erişim denetimi (RBAC) ve Azure PowerShell kullanarak Azure resoruces için erişimi yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4e4a920c47dc7f75dc4b6714f101d6cbda715a3a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84fd4262d3b64b369d6307a6a875e8a459324aaa
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106180"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343783"
 ---
-# <a name="manage-access-using-rbac-and-azure-powershell"></a>RBAC ve Azure PowerShell kullanarak erişimini yönetme
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>RBAC ve Azure PowerShell kullanarak Azure kaynaklarına erişimi yönetme
 
-[Rol tabanlı erişim denetimi (RBAC)](overview.md), Azure'daki kaynaklara erişimi yönetmek için kullanılan sistemdir. Bu makalede, kullanıcıları, grupları ve RBAC ve Azure PowerShell kullanarak uygulamalar için erişimi nasıl yönetileceği açıklanmaktadır.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md) Azure kaynaklarına erişimi yönetme yoludur. Bu makalede, kullanıcıları, grupları ve RBAC ve Azure PowerShell kullanarak uygulamalar için erişimi nasıl yönetileceği açıklanmaktadır.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -326,6 +326,6 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Öğretici: RBAC ve Azure PowerShell kullanarak bir grup için erişim izni ver](tutorial-role-assignments-group-powershell.md)
-- [Öğretici: Azure PowerShell kullanarak özel bir rol oluşturun](tutorial-custom-role-powershell.md)
+- [Öğretici: RBAC ve Azure PowerShell kullanarak Azure kaynaklarını bir grup erişimi verme](tutorial-role-assignments-group-powershell.md)
+- [Öğretici: Azure PowerShell kullanarak Azure kaynakları için özel bir rol oluşturun](tutorial-custom-role-powershell.md)
 - [Azure PowerShell ile kaynakları yönetme](../azure-resource-manager/powershell-azure-resource-manager.md)

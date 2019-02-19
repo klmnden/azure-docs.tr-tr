@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: RBAC ve PowerShell kullanarak bir kullanıcıya erişim izni verme | Microsoft Docs'
-description: Bir kullanıcıya bir abonelik içindeki her şeyi görüntüleme izni vermek için rol tabanlı erişim denetimini (RBAC), bir kaynak grubundaki her şeyi yönetme izni vermek için de Azure PowerShell'i kullanın.
+title: Öğretici - bir kullanıcı, RBAC ve Azure PowerShell kullanarak Azure kaynaklarına erişim | Microsoft Docs
+description: Bir kullanıcı rolü tabanlı erişim denetimi (RBAC) ve Azure PowerShell kullanarak Azure kaynaklarına erişim hakkında bilgi edinin.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7f5e67edd2a5300ae1898e2620ee8ace80ac6d92
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b9aefc8eae733d9f43d1f5399c1464b40367f09e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109036"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343485"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Öğretici: RBAC ve Azure PowerShell kullanarak bir kullanıcı için erişim izni ver
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Öğretici: RBAC ve Azure PowerShell kullanarak Azure kaynaklarına kullanıcı erişimi
 
-[Rol tabanlı erişim denetimi (RBAC)](overview.md), Azure'daki kaynaklara erişimi yönetmek için kullanılan sistemdir. Bu öğreticide bir kullanıcıya bir abonelik içindeki her şeyi görüntüleme ve bir kaynak grubundaki her şeyi yönetme izni vermek için Azure PowerShell'i kullanacaksınız.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md) Azure kaynaklarına erişimi yönetme yoludur. Bu öğreticide bir kullanıcıya bir abonelik içindeki her şeyi görüntüleme ve bir kaynak grubundaki her şeyi yönetme izni vermek için Azure PowerShell'i kullanacaksınız.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -279,4 +279,4 @@ Bu öğretici ile oluşturulan kaynakları temizlemek için kaynak grubunu ve ku
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [RBAC ve PowerShell kullanarak erişimi yönetme](role-assignments-powershell.md)
+> [RBAC ve Azure PowerShell kullanarak Azure kaynaklarına erişimi yönetme](role-assignments-powershell.md)

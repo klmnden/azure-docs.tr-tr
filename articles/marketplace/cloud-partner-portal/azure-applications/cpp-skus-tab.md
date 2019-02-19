@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7f73e71677a700ba8047246addb2d27799c5a616
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a963db0b0b1a20c110f90bacdae092846f7bdd8b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890910"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342550"
 ---
 # <a name="azure-application-skus-tab"></a>Azure uygulama SKU'ları sekmesi
 
@@ -139,7 +139,7 @@ Azure Active Directory tanıtıcısı kullanıcı, Grup veya yönetilen kaynak g
 
 #### <a name="policy-settings"></a>İlke ayarları
 
-Yönetilen uygulama ile uyumlu ilkelerini ekleyin. Azure kaynak ilkeleri hakkında daha fazla bilgi için bkz: [Azure İlkesi nedir?](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) 
+Yönetilen uygulama ile uyumlu ilkelerini ekleyin. Azure kaynak ilkeleri hakkında daha fazla bilgi için bkz: [Azure İlkesi nedir?](../../../governance/policy/overview.md)
 
 
    ![Yönetilen bir uygulama için yetkilendirme ve ilke ayarları](./media/azureapp-sku-details-managedapp-auth-policy.png)

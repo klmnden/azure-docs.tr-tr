@@ -8,13 +8,13 @@ ms.author: omidm
 ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0ab225d3579ed6a56c753f0c581709408c65f358
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 02/15/2019
+ms.openlocfilehash: b0ec8bf52b0b41aef4ea4cc2bfb6ed8fdcd170ec
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436288"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343298"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Apache Oozie HDInsight Hadoop kümeleri Kurumsal güvenlik paketi ile çalıştırın.
 
@@ -217,11 +217,12 @@ nano workflow.xml
        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
-  
-   a. Değiştirin `domainuser` etki alanı adınızı içeren.  
-   b. Değiştirin `ClusterShortName` kümenin kısa adı ile. Örneğin, küme adı https:// ise *[örnek bağlantı]* sechadoopcontoso.azurehdisnight.net, `clustershortname` kümenin ilk altı karakterdir: **sechad**.  
-   c. Değiştirin `jdbcurlvalue` Hive yapılandırmasından JDBC URL. Jdbc:hive2 örneğidir: / / headnodehost:10001 /; transportMode = http.      
-   d. Dosyayı kaydetmek için Ctrl + X seçip girin `Y`ve ardından **Enter**.
+
+   * Kullanım `adl://home` URI'sini `nameNode` , birincil küme depolama alanı olarak Azure Data Lake depolama Gen1 varsa özelliği. Azure Blob Depolama kullanıyorsanız, bu değişiklik `wasb://home`. Azure Data Lake depolama Gen2 kullanıyorsanız, bu değişiklik `abfs://home`.
+   * Değiştirin `domainuser` etki alanı adınızı içeren.  
+   * Değiştirin `ClusterShortName` kümenin kısa adı ile. Örneğin, küme adı https:// ise *[örnek bağlantı]* sechadoopcontoso.azurehdisnight.net, `clustershortname` kümenin ilk altı karakterdir: **sechad**.  
+   * Değiştirin `jdbcurlvalue` Hive yapılandırmasından JDBC URL. Jdbc:hive2 örneğidir: / / headnodehost:10001 /; transportMode = http.      
+   * Dosyayı kaydetmek için Ctrl + X seçip girin `Y`ve ardından **Enter**.
 
    Bu özellikler dosyası yerel olarak Oozie işleri çalıştırırken mevcut olması gerekir.
 
@@ -319,7 +320,7 @@ Daha fazla bilgi için [Apache Oozie yükleme ve yapılandırma](https://oozie.a
 
 Hive server burada eklenti Ranger desteklenen veya kullanılabilir değil 1 gibi bileşenleri için parçalı HDFS yetkilendirme mümkündür. Ayrıntılı yetkilendirme yalnızca Ranger eklentileri kullanılabilir.
 
-## <a name="get-the-oozie-web-ui"></a>Oozie web kullanıcı Arabirimi alın
+## <a name="get-the-oozie-web-ui"></a>Get the Oozie web UI
 
 Oozie web kullanıcı Arabirimi, küme üzerinde Oozie işlerin durumunu web tabanlı bir görünüm sağlar. Web kullanıcı Arabirimi almak için ESP kümeleri, aşağıdaki adımları uygulayın:
 

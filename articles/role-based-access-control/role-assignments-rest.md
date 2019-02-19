@@ -1,6 +1,6 @@
 ---
-title: RBAC ve REST API - Azure kullanarak erişimini yönetme | Microsoft Docs
-description: Kullanıcılar, gruplar ve rol tabanlı erişim denetimi (RBAC) ve REST API kullanarak uygulamalar için erişimi yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
+title: RBAC ve REST API - Azure'ı kullanarak Azure resoruces erişimi yönetme | Microsoft Docs
+description: Kullanıcılar, gruplar ve rol tabanlı erişim denetimi (RBAC) ve REST API kullanarak uygulamalar için Azure kaynaklarına erişimini yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 859a410a4ff9204e8e52fbd2cc3b38823f4bb830
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c2ef9b0070cc9ac190b773f023ffc18d1b251a41
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435227"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338419"
 ---
-# <a name="manage-access-using-rbac-and-the-rest-api"></a>RBAC ve REST API kullanarak erişimini yönetme
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>RBAC ve REST API kullanarak Azure kaynaklarına erişimi yönetme
 
-[Rol tabanlı erişim denetimi (RBAC)](overview.md), Azure'daki kaynaklara erişimi yönetmek için kullanılan sistemdir. Bu makalede, kullanıcıları, grupları ve RBAC ve REST API kullanarak uygulamalar için erişimi nasıl yönetileceği açıklanmaktadır.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md) Azure kaynaklarına erişimi yönetme yoludur. Bu makalede, kullanıcıları, grupları ve RBAC ve REST API kullanarak uygulamalar için erişimi nasıl yönetileceği açıklanmaktadır.
 
 ## <a name="list-access"></a>Erişimi listeleme
 
-Liste erişim, RBAC, rol atamalarını listeleyin. Rol atamalarını listesinde, aşağıdakilerden birini kullanmak için [rol atamaları: liste](/rest/api/authorization/roleassignments/list) REST API'leri. Sonuçlarınızı daraltmak için bir kapsam ve isteğe bağlı bir filtre belirtin. API'yi çağırmak için erişiminiz olması gerekir `Microsoft.Authorization/roleAssignments/read` belirtilen kapsamda işlemi. Birkaç [yerleşik roller](built-in-roles.md) bu işlem için erişim izni verilir.
+Liste erişim, RBAC, rol atamalarını listeleyin. Rol atamalarını listesinde, aşağıdakilerden birini kullanmak için [rol atamaları: liste](/rest/api/authorization/roleassignments/list) REST API'leri. Sonuçlarınızı daraltmak için bir kapsam ve isteğe bağlı bir filtre belirtin. API'yi çağırmak için erişiminiz olması gerekir `Microsoft.Authorization/roleAssignments/read` belirtilen kapsamda işlemi. Birkaç [Azure kaynakları için yerleşik roller](built-in-roles.md) bu işlem için erişim izni verilir.
 
 1. Aşağıdaki isteği başlatın:
 
@@ -38,7 +38,7 @@ Liste erişim, RBAC, rol atamalarını listeleyin. Rol atamalarını listesinde,
 
 1. URI içinde değiştirin *{kapsamı}* rol atamalarını listelemek istediğiniz kapsama sahip.
 
-    | Kapsam | Tür |
+    | Kapsam | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -77,7 +77,7 @@ RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir. Bir rol at
     
 1. URI içinde değiştirin *{kapsamı}* rol ataması kapsama sahip.
 
-    | Kapsam | Tür |
+    | Kapsam | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -105,7 +105,7 @@ RBAC'de erişimi kaldırmak için rol atamasını kaldırmanız gerekir. Bir rol
 
 1. URI içinde değiştirin *{kapsamı}* rol atamasını kaldırmak için kapsama sahip.
 
-    | Kapsam | Tür |
+    | Kapsam | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -117,4 +117,4 @@ RBAC'de erişimi kaldırmak için rol atamasını kaldırmanız gerekir. Bir rol
 
 - [Kaynakları Resource Manager şablonları ve Resource Manager REST API’si ile dağıtma](../azure-resource-manager/resource-group-template-deploy-rest.md)
 - [Azure REST API Başvurusu](/rest/api/azure/)
-- [REST API kullanarak özel roller oluşturma](custom-roles-rest.md)
+- [REST API kullanarak Azure kaynakları için özel roller oluşturma](custom-roles-rest.md)

@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: b322ca0c3a19f0a832fe50b6cfbaaad287205d5e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 136a83c586b2f797269beff3cdd0afb9973cb7c8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812914"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340527"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -357,6 +357,6 @@ Yapılandırma dosyası üç şekilde oluşturabilirsiniz:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bir model eğitip](tutorial-train-models-with-aml.md) MNIST veri kümesi ile Azure Machine Learning'i]
+- [Bir model eğitip](tutorial-train-models-with-aml.md) MNIST veri kümesi ile Azure Machine Learning hakkında
 - Görünüm [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) başvurusu
 - Hakkında bilgi edinin [Azure Machine Learning veri hazırlama SDK'sı](https://aka.ms/data-prep-sdk)

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: c59ef72f6e836b9cdf6899d917701555fc5e1988
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 01d452f97134093e9b40b6ec32f1c9fed41564aa
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268779"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343060"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları
-Azure İzleyici günlüklerine Azure Veri Gezgini oluşturulur ve Azure İzleyici günlük sorguları aynı Kusto sorgu dil sürümü kullanın. [Azure Veri Gezgini sorgu dili belgeleri](/azure/kusto/query) tüm dil ayrıntılarını sahiptir ve Azure İzleyici günlük sorguları yazmak için birincil kaynak olmalıdır. Bu sayfa, sorgu yazmayı öğrenmek ve farkları dilinin Azure İzleyici uygulaması ile diğer kaynakların bağlantılarını sağlar.
+Azure İzleyici günlüklerine Azure Veri Gezgini oluşturulur ve Azure İzleyici günlük sorguları aynı Kusto sorgu dil sürümü kullanın. [Kusto sorgu dili belgeleri](/azure/kusto/query) tüm dil ayrıntılarını sahiptir ve Azure İzleyici günlük sorguları yazmak için birincil kaynak olmalıdır. Bu sayfa, sorgu yazmayı öğrenmek ve farkları dilinin Azure İzleyici uygulaması ile diğer kaynakların bağlantılarını sağlar.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

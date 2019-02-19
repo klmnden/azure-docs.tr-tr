@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 1/14/2019
-ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 2/18/2019
+ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354629"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340187"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure Veri Gezgini veri alımı
 
@@ -39,15 +39,21 @@ Veri alımı için sorumlu olan Azure Veri Gezgini veri yönetim hizmeti, aşağ
 
 Azure Veri Gezgini, her biri kendi hedef senaryoları, avantajları ve dezavantajları birkaç alma yöntemini destekler. Azure Veri Gezgini, işlem hatları ve ortak Hizmetleri, araştırma amacıyla SDK'lar ve doğrudan erişim altyapısı kullanılarak programlı alımı bağlayıcılar sağlar.
 
-### <a name="ingestion-using-pipelines"></a>Komut zincirlerini kullanarak alımı
+### <a name="ingestion-using-pipelines-connectors-and-plugins"></a>Alım işlem hatları, bağlayıcılar ve eklentileri
 
-Azure Veri Gezgini, şu anda Azure portalında yönetim sihirbazını kullanarak yönetilen ardışık düzen olay hub'ı destekler. Daha fazla bilgi için [hızlı başlangıç: Olay hub'ı Azure veri Gezgini'ne alabilen](ingest-data-event-hub.md).
+Şu anda Azure Veri Gezgini destekler:
 
-### <a name="ingestion-using-connectors-and-plugins"></a>Bağlayıcılar ve eklentilerini kullanarak alımı
+* Azure portalında Yönetim Sihirbazı kullanılarak yönetilebilir event Grid kanal. Daha fazla bilgi için [alma Azure Blobları Azure Veri Gezgini içinde](ingest-data-event-grid.md).
 
-* Azure Veri Gezgini, Logstash eklentisini destekler. Daha fazla bilgi için [Azure Veri Gezgini için Logstash çıkış eklentisi](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+* Azure portalında yönetim sihirbazını kullanarak yönetilen olay hub'ı kanal. Daha fazla bilgi için [olay hub'ı Azure veri Gezgini'ne alabilen](ingest-data-event-hub.md).
 
-* Azure Veri Gezgini, bir Kafka bağlayıcıyı destekler. Daha fazla bilgi için [hızlı başlangıç: Azure veri Gezgini'ne kafka'dan veri alma](ingest-data-kafka.md)
+* Logstash eklentisi bkz [Logstash Azure veri Gezgini'ne alabilen](ingest-data-logstash.md).
+
+* Kafka bağlayıcı bkz [Azure veri Gezgini'ne kafka'dan veri alma](ingest-data-kafka.md).
+
+### <a name="ingestion-using-integration-services"></a>Tümleştirme hizmetlerini kullanarak alımı
+
+* Azure Data Factory (ADF), azure'da ve Azure veri Gezgini'nde verileri kopyalamak için analitik iş yükleri için bir tam olarak yönetilen bir veri tümleştirme hizmeti. Daha fazla bilgi için [ya da Azure veri Gezgini'nde Azure Data Factory kullanarak veri kopyalama](/azure/data-factory/connector-azure-data-explorer).
 
 ### <a name="programmatic-ingestion"></a>Programlı alma
 
@@ -131,21 +137,27 @@ Azure Veri Gezgini, ayrıştırabilmesi için bu yöntemleri dışında sorgudan
 Şema eşleme, kaynak veri alanları için hedef tablo sütun bağlama yardımcı olur.
 
 * [CSV eşleme](/azure/kusto/management/mappings?branch=master#csv-mapping) tüm sıra tabanlı biçimler (isteğe bağlı) çalışır. Alma komut parametresi kullanılarak gerçekleştirilebilir veya [tablosunda önceden oluşturulmuş](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) ve başvurulan alma komutunun parametre.
-* [JSON eşleme](/azure/kusto/management/mappings?branch=master#json-mapping) (zorunlu) ve [Avro eşleme](/azure/kusto/management/mappings?branch=master#avro-mapping) (zorunlu) alma komut parametresi kullanılarak yapılabilir veya [tablosunda önceden oluşturulmuş](/azure/kusto/management/tables#create-ingestion-mapping) ve başvurulan alma komutu parametre.
+* [JSON eşleme](/azure/kusto/management/mappings?branch=master#json-mapping) (zorunlu) ve [Avro eşleme](/azure/kusto/management/mappings?branch=master#avro-mapping) (zorunlu) alma komut parametresi kullanılarak gerçekleştirilebilir. Ayrıca olabilirler [tablosunda önceden oluşturulmuş](/azure/kusto/management/tables#create-ingestion-mapping) ve başvurulan alma komutunun parametre.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Azure veri Gezgini'ne olay Hub'ından veri alma](ingest-data-event-hub.md)
+> [Azure veri Gezgini'ne olay Hub'ından veri alma](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Azure veri Gezgini'ne kafka'dan veri alma](ingest-data-kafka.md)
+> [Event Grid aboneliğini Azure Veri Gezgini'ni kullanarak veri alma](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Azure Veri Gezgini Python kitaplığı kullanarak veri alma](python-ingest-data.md)
+> [Azure veri Gezgini'ne kafka'dan veri alma](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Azure Veri Gezgini düğümü kitaplığını kullanarak veri alma](node-ingest-data.md)
+> [Azure Veri Gezgini Python kitaplığı kullanarak veri alma](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Azure Veri Gezgini .NET standart SDK'sı (Önizleme) kullanarak veri alma](net-standard-ingest-data.md)
+> [Azure Veri Gezgini düğümü kitaplığını kullanarak veri alma](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Azure Veri Gezgini .NET standart SDK'sı (Önizleme) kullanarak veri alma](net-standard-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Azure Veri Gezgini Logstash verileri alma](ingest-data-logstash.md)

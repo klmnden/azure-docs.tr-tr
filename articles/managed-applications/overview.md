@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 27db3327e296dafea3af2180eeaadd0ff4680b8d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800953"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341966"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure yönetilen uygulamalarına genel bakış
 
@@ -73,11 +73,11 @@ Tüketici yönetilen uygulamayı sildiğinde, yönetilen kaynak grubu da silinir
 
 ## <a name="azure-policy"></a>Azure İlkesi
 
-Yönetilen uygulamanıza [Azure İlkesi](../azure-policy/azure-policy-introduction.md) uygulayabilirsiniz. Yönetilen uygulamanızın dağıtılan örneklerinin veri ve güvenlik gereksinimlerini yerine getirdiğinden emin olmak için ilkeleri uygularsınız. Uygulamanız hassas verilerle etkileşime geçiyorsa, bu etkileşimin nasıl koruma altına alınacağını değerlendirdiğinizden emin olun. Örneğin uygulamanız Office 365’teki verilerle etkileşimli çalışıyorsa veri şifrelemenin etkin olduğunu doğrulayan bir ilke uygulayın.
+Yönetilen uygulamanıza [Azure İlkesi](../governance/policy/overview.md) uygulayabilirsiniz. Yönetilen uygulamanızın dağıtılan örneklerinin veri ve güvenlik gereksinimlerini yerine getirdiğinden emin olmak için ilkeleri uygularsınız. Uygulamanız hassas verilerle etkileşime geçiyorsa, bu etkileşimin nasıl koruma altına alınacağını değerlendirdiğinizden emin olun. Örneğin uygulamanız Office 365’teki verilerle etkileşimli çalışıyorsa veri şifrelemenin etkin olduğunu doğrulayan bir ilke uygulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu makalede yönetilen uygulamaları kullanmanın avantajları hakkında bilgi edindiniz. Yönetilen uygulama tanımı oluşturmak için bir sonraki makaleye gidin.
 
 > [!div class="nextstepaction"]
-> [Hızlı başlangıç: Azure yönetilen uygulaması tanımı yayımlama](publish-managed-app-definition-quickstart.md)
+> [Hızlı Başlangıç: Azure yayımlama yönetilen uygulama tanımı](publish-managed-app-definition-quickstart.md)

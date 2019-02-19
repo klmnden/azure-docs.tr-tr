@@ -1,6 +1,6 @@
 ---
-title: RBAC ve Azure portalı kullanarak erişimi yönetme | Microsoft Docs
-description: Kullanıcılar, gruplar, hizmet sorumluları ve rol tabanlı erişim denetimi (RBAC) ve Azure portalını kullanarak yönetilen kimlikleri için erişimi yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
+title: RBAC ve Azure portalını kullanarak Azure resoruces erişimi yönetme | Microsoft Docs
+description: Kullanıcılar, gruplar, hizmet sorumluları ve rol tabanlı erişim denetimi (RBAC) ve Azure portalını kullanarak yönetilen kimlikleri için Azure kaynaklarına erişimini yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412317"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342346"
 ---
-# <a name="manage-access-using-rbac-and-the-azure-portal"></a>RBAC ve Azure portalı kullanarak erişimi yönetme
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>RBAC ve Azure portalını kullanarak Azure kaynaklarına erişimi yönetme
 
-[Rol tabanlı erişim denetimi (RBAC)](overview.md), Azure'daki kaynaklara erişimi yönetmek için kullanılan sistemdir. Bu makalede, kullanıcıları, grupları, hizmet sorumluları ve RBAC ve Azure portalını kullanarak yönetilen kimlikleri için erişimi nasıl yönetileceği açıklanmaktadır.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md) Azure kaynaklarına erişimi yönetme yoludur. Bu makalede, kullanıcıları, grupları, hizmet sorumluları ve RBAC ve Azure portalını kullanarak yönetilen kimlikleri için erişimi nasıl yönetileceği açıklanmaktadır.
 
 ## <a name="open-access-control-iam"></a>Erişim denetimi (IAM) açın
 
@@ -41,7 +41,7 @@ ms.locfileid: "54412317"
 
 ## <a name="view-roles-and-permissions"></a>Rolleri ve izinleri görüntüleyin
 
-Rol tanımı, rol atamaları için kullandığınız izin koleksiyonudur. Azure üzerinde sahip 70 [yerleşik roller](built-in-roles.md). Yönetim ve veri düzlemi gerçekleştirilebilir izinleri ve rolleri görüntülemek için aşağıdaki adımları izleyin.
+Rol tanımı, rol atamaları için kullandığınız izin koleksiyonudur. Azure üzerinde sahip 70 [Azure kaynakları için yerleşik roller](built-in-roles.md). Yönetim ve veri düzlemi gerçekleştirilebilir izinleri ve rolleri görüntülemek için aşağıdaki adımları izleyin.
 
 1. Açık **erişim denetimi (IAM)** rolleri ve izinleri görüntülemek istediğiniz bir kapsamda, yönetim grubu, abonelik, kaynak grubu ya da kaynağa, gibi.
 
@@ -165,7 +165,7 @@ RBAC'de erişimi kaldırmak için rol atamasını kaldırmanız gerekir. Erişim
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Öğretici: RBAC ve Azure portalını kullanarak bir kullanıcı için erişim izni ver](quickstart-assign-role-user-portal.md)
-* [Öğretici: RBAC ve Azure PowerShell kullanarak bir kullanıcı için erişim izni ver](tutorial-role-assignments-user-powershell.md)
-* [Azure RBAC sorunlarını giderme](troubleshooting.md)
-* [Kaynaklarınızı Azure Yönetim grupları ile düzenleme](../azure-resource-manager/management-groups-overview.md)
+* [Öğretici: RBAC ve Azure portalını kullanarak Azure kaynaklarına kullanıcı erişimi](quickstart-assign-role-user-portal.md)
+* [Öğretici: RBAC ve Azure PowerShell kullanarak Azure kaynaklarına kullanıcı erişimi](tutorial-role-assignments-user-powershell.md)
+* [RBAC, Azure kaynakları için sorun giderme](troubleshooting.md)
+* [Kaynaklarınızı Azure Yönetim grupları ile düzenleme](../governance/management-groups/index.md)

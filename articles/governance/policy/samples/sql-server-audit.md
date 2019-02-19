@@ -1,6 +1,6 @@
 ---
 title: Örnek - denetim SQL Server denetim ayarları
-description: Bu örnek ilke, SQL sunucusu denetim ayarlarını denetler.
+description: Bu örnek ilke tanımını auditIfNotExists ile SQL sunucusunun denetim ayarlarını denetler.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 761cef1421f8a0dca84f4142c6ae9ae1b45f33c7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 1e0731de5ce2a12fee6b203f245e42aa4bc67d6e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242031"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338181"
 ---
-# <a name="audit-sql-server-audit-settings"></a>SQL sunucusu denetim ayarlarını denetle
+# <a name="sample---audit-sql-server-audit-settings"></a>Örneği - denetim SQL server denetim ayarları
 
 Bu yerleşik ilke, denetim ayarlarının etkin olup olmamasına göre SQL sunucusunu denetler.
 

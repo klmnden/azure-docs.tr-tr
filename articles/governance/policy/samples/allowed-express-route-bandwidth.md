@@ -1,6 +1,6 @@
 ---
 title: Örnek - izin verilen ExpressRoute bant genişliği
-description: Bu örnek ilkesi için ExpressRoute'un belirli bir bant genişliği kümesini kullanması gerekir.
+description: Bu örnek ilke tanımını ExpressRoute bant genişlikleri belirlenen kullanmanızı gerektirir.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: fc98e9085844749153ee6f45466cc367eef2ffff
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: eacd2dd7ddecba47d00ea09cb45f99e991bfd2dc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244757"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341615"
 ---
-# <a name="allowed-expressroute-bandwidth"></a>İzin verilen ExpressRoute bant genişliği
+# <a name="sample---allowed-expressroute-bandwidth"></a>Örnek - izin verilen ExpressRoute bant genişliği
 
 Bu ilke için ExpressRoute'un belirli bir bant genişliği kümesini kullanması gerekir. ExpressRoute için belirtilebilen bir SKU dizisi belirtirsiniz.
 

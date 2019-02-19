@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 71ddf1d70953b721911a7315ab6875dd41a9a4db
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894182"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338606"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Öğretici: Media Services v3 ile canlı Stream .NET kullanma
 
@@ -126,7 +126,7 @@ Oluşturma çıkışları başlangıç canlı ve silindiğinde sona erer. Canlı
 #### <a name="create-a-streaming-locator"></a>Akış Bulucusu oluşturma
 
 > [!NOTE]
-> Media Services hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
+> Media Services hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve yararlanmak için [dinamik paketleme](dynamic-packaging-overview.md) ve dinamik şifreleme, içerik akışı yapmak istediğiniz akış uç noktasını sahip olması **çalıştıran** durumu. 
 
 Bir akış Bulucu kullanılarak Canlı çıktı varlığı yayımlayın, canlı olay (en fazla DVR pencere uzunluğunun) akış Bulucu'nın süre sonu veya silme kadar görüntülenebilir olmaya devam edecek, hangisinin önce geldiğine.
 

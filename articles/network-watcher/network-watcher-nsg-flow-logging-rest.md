@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 58486ab821b6b01f531f62445a9d4ade1336569a
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 565b5bcce114ab5ebd2169ece11a958013cf2ee5
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332022"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338912"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>REST API'sini kullanarak ağ güvenlik Grubu'nun yapılandırılmasına akış günlükleri
 
@@ -30,9 +30,6 @@ ms.locfileid: "54332022"
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Ağ güvenlik grubu akış günlüklerini bir ağ güvenlik grubu üzerinden giriş ve çıkış IP trafiğini hakkındaki bilgileri görüntülemek izin veren bir Ağ İzleyicisi'nin bir özelliğidir. Bu akış günlüklerini json biçiminde yazılır ve Kural başına temelinde, akışı uygular, 5 demet bilgi (kaynak/hedef IP, kaynak/hedef bağlantı noktası, protokol) akışla ilgili NIC giden ve gelen akış Göster ve trafiğin izin verilen veya reddedilen.
-
-> [!NOTE] 
-> Akış günlükleri sürüm 2 bulunan ve yalnızca Batı Orta ABD bölgesinde. Sürüm 2 etkinleştirme günlükleri desteklenmeyen bir bölgede depolama hesabınıza yüzdelik sürüm 1 günlüklerinde neden olur.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

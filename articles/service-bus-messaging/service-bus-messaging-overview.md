@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: ab1b68b8ca8339389a27d1c09aa8752cfdaec0d5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 1c99c680371d9d9601637ebeb52d9299de71b0ec
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851802"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338824"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus nedir?
 
@@ -128,4 +128,4 @@ Service Bus mesajlaşmasını kullanmaya başlamak için aşağıdaki makalelere
 * [Azure mesajlaşma hizmetlerini karşılaştırma](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
 * Azure Service Bus [Standart ve Premium](https://azure.microsoft.com/pricing/details/service-bus/) katmanları ve bunların fiyatlandırması hakkında daha fazla bilgi edinin
 * [Azure Service Bus Premium katmanının performansı ve gecikme süresi](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
-* [.NET](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md) ve [JMS](service-bus-quickstart-powershell.md) hızlı başlangıçlarını deneyin
+* [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) ve [JMS](service-bus-java-how-to-use-jms-api-amqp.md) hızlı başlangıçlarını deneyin

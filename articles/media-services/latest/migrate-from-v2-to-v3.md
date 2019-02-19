@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 02/04/2019
 ms.author: juliako
-ms.openlocfilehash: b05c174bf96e78efd66f2c673e46ab43700c09f9
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744183"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340357"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -45,11 +45,11 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
 
 * Dosya tabanlı iş işlenmesi için girdi olarak bir HTTP (S) URL kullanabilirsiniz.<br/>Zaten Azure'da depolanan içeriğe sahip gerekmez veya varlıkları oluşturmak ihtiyacınız.
 * Kavramını sunar [dönüştüren](transforms-jobs-concept.md) dosya tabanlı iş işleme için. Dönüşüm, Azure Resource Manager şablonları oluşturmak ve işleme ayarlarını birden çok müşteriler veya kiracılar arasında yalıtmak için yeniden kullanılabilir yapılandırmaları oluşturmak için kullanılabilir.
-* Bir varlık birden çok olabilir [akış bulucuları](streaming-locators-concept.md) her farklı dinamik paketleme ve dinamik şifreleme ayarları ile.
+* Bir varlık birden çok olabilir [akış bulucuları](streaming-locators-concept.md) her biri farklı [dinamik paketleme](dynamic-packaging-overview.md) ve dinamik şifreleme ayarları.
 * [İçerik koruma](content-key-policy-concept.md) birden çok anahtar özelliklerini destekler.
 * Canlı 24 tekli bit hızı katkı için medya hizmetlerine kullanarak Çoklu bit hızlarında bir çıkış akışına zaman akışı saate kadar uzun olan olay akışını yapabilirsiniz.
 * Canlı olayları yeni düşük gecikme süresi canlı akış desteği. Daha fazla bilgi için [gecikme](live-event-latency.md).
-* Canlı olay Önizleme dinamik paketleme ile dinamik şifrelemeden destekler. Bu önizleme yanı sıra DASH ve HLS paketleme içerik koruması sağlar.
+* Canlı olay Önizleme destekler [dinamik paketleme](dynamic-packaging-overview.md) ve dinamik şifreleme. Bu önizleme yanı sıra DASH ve HLS paketleme içerik koruması sağlar.
 * Canlı çıkış v2 API programı varlıkta daha basittir. 
 * Geliştirilmiş RTMP desteği (daha fazla kararlılık ve daha fazla kaynak Kodlayıcı desteği).
 * Güvenli RTMPS alın.<br/>Canlı bir olay oluşturduğunuzda, 4 alma URL'lerini alabilirsiniz. 4 alma URL'leri neredeyse aynıdır, yalnızca bir bağlantı noktası numarası bölümü farklı aynı akış belirteci (AppID) sahip. URL'lerin ikisinin, birincil ve yedek RTMPS için.   

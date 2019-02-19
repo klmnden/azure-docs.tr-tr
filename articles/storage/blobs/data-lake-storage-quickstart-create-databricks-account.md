@@ -7,13 +7,13 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/24/2019
-ms.openlocfilehash: 0ec682ea852f3c6da6248f3c16b539725ca18c0f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/15/2019
+ms.openlocfilehash: 83d1b4737e15239532f8b751d2018d5e6f783562
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895814"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342771"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Hızlı Başlangıç: Azure Databricks kullanarak Azure Data Lake depolama Gen2 verileri çözümleme
 
@@ -25,27 +25,17 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Data Lake Storage 2. Nesil etkin bir depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md)
+* Bir Data Lake Gen2'ye depolama hesabı oluşturun. Bkz: [hızlı başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md)
 
-<a id="config"/>
+  Depolama hesabı adı, bir metin dosyasına yapıştırın. Yakında gerekir.
 
-## <a name="get-the-name-of-your-storage-account"></a>Depolama hesabınızın adını alın
+*  Bir hizmet sorumlusu oluşturun. Bkz: [nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Azure portalında depolama hesabınızın adını almak için seçtiğiniz **tüm hizmetleri** ve filtre terimini *depolama*. Ardından, **depolama hesapları** ve depolama hesabınızı bulun.
+   Birkaç, bu makaledeki adımları gerçekleştirmek olarak gerçekleştirmeniz yeterli belirli bir şey yoktur.
 
-Bu ad, bir metin dosyasına yapıştırın. Yakında gerekir.
+   :heavy_check_mark: Adımları gerçekleştirirken [uygulamanızı bir role atama](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) bölümü makalenin atadığınızdan emin olun **Blob Depolama katkıda bulunan rolü** hizmet sorumlusuna Data Lake kapsamında Depolama Gen2 depolama hesabı.
 
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
-
-Bu konudaki yönergeleri izleyerek bir hizmet sorumlusu oluşturun: [Nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Birkaç, bu makaledeki adımları gerçekleştirmek olarak gerçekleştirmeniz yeterli belirli bir şey yoktur.
-
-:heavy_check_mark: Adımları gerçekleştirirken [uygulamanızı bir role atama](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) bölümü makalenin uygulamanıza atanacak emin **Blob Depolama katkıda bulunan rolü**.
-
-:heavy_check_mark: Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve kimlik doğrulama anahtarı değerleri bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
+   :heavy_check_mark: Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve kimlik doğrulama anahtarı değerleri bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks çalışma alanı oluşturma
 
@@ -126,11 +116,11 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturacak
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
- 
+
     > [!NOTE]
     > Data Lake Gen2 uç noktası doğrudan erişir OAuth kullanarak bu kod bloğu, ancak Databricks çalışma alanı, Data Lake depolama Gen2 hesabınıza bağlanmak için farklı yöntemleri vardır. Örneğin, OAuth kullanarak dosya sistemini bağlamalarına veya paylaşılan anahtar ile doğrudan bir erişim kullanın. <br>Bu yaklaşımların örneklerini görmek için bkz: [Azure Data Lake depolama Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) makale Azure Databricks Web sitesinde.
 
-5. Bu kod bloğunda değiştirin `storage-account-name`, `application-id`, `authentication-id`, ve `tenant-id` adımları tamamlandığında topladığınız değerleri bu kod bloğu içinde yer tutucu değerlerini [depolama hesabınızın adını alın ](#config) ve [hizmet sorumlusu oluşturma](#service-principal) bu makalenin bölümler.  Ayarlama `file-system-name` örneğin adı için yer tutucu değerini istediğiniz dosya sistemi sağlar.
+5. Bu kod bloğunda değiştirin `storage-account-name`, `application-id`, `authentication-id`, ve `tenant-id` Bu kod bloğu içinde yer tutucu değerlerini, hizmet sorumlusu oluştururken, toplanan değerlere sahip. Ayarlama `file-system-name` örneğin adı için yer tutucu değerini istediğiniz dosya sistemi sağlar.
 
 6. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 

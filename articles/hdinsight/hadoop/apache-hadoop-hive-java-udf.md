@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: a58c61287cfc7828fe0dc15beda9d54f02a694c3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4a3da9e2ad4d5ab83c1e906b3ab43540e819b48c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814155"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342020"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Bir Java kullanma UDF ile Apache Hive HDInsight
 
@@ -213,7 +213,7 @@ Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) 
     ```
 
     > [!NOTE]
-    > Bu örnek, Azure depolama kümesi için varsayılan depolama alanı olduğunu varsayar. Bunun yerine, küme Data Lake Storage kullanıyorsa, Değiştir `wasb:///` değerini `adl:///`.
+    > Bu örnek, Azure depolama kümesi için varsayılan depolama alanı olduğunu varsayar. Bunun yerine, küme Data Lake depolama Gen2'ye kullanıyorsa, Değiştir `wasb:///` değerini `abfs:///`. Kümeniz, Data Lake depolama Gen1 kullanıyorsa, Değiştir `wasb:///` değerini `adl:///`.
 
 3. UDF küçük dizeleri bir tablodan alınan değerlerini dönüştürmek için kullanın.
 

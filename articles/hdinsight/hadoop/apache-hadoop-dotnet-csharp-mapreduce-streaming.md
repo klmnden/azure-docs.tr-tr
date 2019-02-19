@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435319"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342932"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Kullanım C# üzerindeki HDInsight, Apache Hadoop akışı MapReduce ile
 
@@ -175,7 +175,13 @@ Uygulamayı oluşturduktan sonra bunu oluşturmak için yapı `/bin/Debug/reduce
 
 2. MapReduce işi başlatmak için aşağıdaki komutlardan birini kullanın:
 
-    * Kullanıyorsanız __Data Lake Storage__ varsayılan depolama alanı olarak:
+    * Kullanıyorsanız __Data Lake depolama Gen2__ varsayılan depolama alanı olarak:
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        ```
+
+    * Kullanıyorsanız __Data Lake depolama Gen1__ varsayılan depolama alanı olarak:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -190,7 +196,7 @@ Uygulamayı oluşturduktan sonra bunu oluşturmak için yapı `/bin/Debug/reduce
     Aşağıdaki liste, her parametre ne yaptığını açıklar:
 
     * `hadoop-streaming.jar`: Akış MapReduce işlevlerini içeren jar dosyasını.
-    * `-files`: Ekler `mapper.exe` ve `reducer.exe` bu proje dosyaları. `adl:///` Veya `wasb:///` önce her dosya kümenin varsayılan depolama alanı kökünde yoludur.
+    * `-files`: Ekler `mapper.exe` ve `reducer.exe` bu proje dosyaları. `abfs:///`,`adl:///` Veya `wasb:///` önce her dosya kümenin varsayılan depolama alanı kökünde yoludur.
     * `-mapper`: Hangi dosya Eşleyici uygulayan belirtir.
     * `-reducer`: Hangi dosya Azaltıcı uygulayan belirtir.
     * `-input`: Giriş verileri.
