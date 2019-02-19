@@ -1,5 +1,5 @@
 items:
-- name: Rol tabanlı erişim denetimi belgeleri
+- name: Azure kaynakları için RBAC belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
@@ -9,15 +9,15 @@ items:
     href: rbac-and-directory-admin-roles.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Kullanıcının rollerini görüntüleme
+  - name: Kullanıcının erişimini görüntüleme
     href: check-access.md
 - name: Öğreticiler
   items:
-  - name: Kullanıcıya erişim izni verme - Portal
+  - name: Kullanıcı erişimi verme - Portal
     href: quickstart-assign-role-user-portal.md
-  - name: Kullanıcıya erişim izni verme - PowerShell
+  - name: Kullanıcı erişimi verme - PowerShell
     href: tutorial-role-assignments-user-powershell.md
-  - name: Gruba erişim izni verme - PowerShell
+  - name: Grup erişimi verme - PowerShell
     href: tutorial-role-assignments-group-powershell.md
   - name: Özel rol oluşturma - PowerShell
     href: tutorial-custom-role-powershell.md
@@ -29,7 +29,7 @@ items:
     href: role-definitions.md
   - name: Reddetme atamalarını anlama
     href: deny-assignments.md
-  - name: RBAC için Privileged Identity Management (PIM)
+  - name: Azure kaynakları için PIM
     href: pim-azure-resource.md
   - name: Azure yönetimi için koşullu erişim
     href: conditional-access-azure-management.md
@@ -96,9 +96,9 @@ items:
   items:
   - name: Microsoft Learn ile becerilerinizi geliştirin
     href: /learn/browse/?products=azure-active-directory
-ms.openlocfilehash: 46ff0e024e2c7dc466120054b4a8e69fa47c14cd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 20500ad90e710b2c0e4359832a24a352c14ea0b2
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099216"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408774"

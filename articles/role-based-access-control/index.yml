@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6972ad521ac5622086b5294dc6b49e35f10ba178
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 2f0465b954e48822470374abeadb13e90a03fa3a
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431490"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408740"
 documentType: LandingData
-title: Rol tabanlı erişim denetimi belgeleri
+title: Azure kaynakları için RBAC belgeleri
 metadata:
   document_id: 
-  title: Azure’da rol tabanlı erişim denetimi (RBAC) belgeleri | Microsoft Docs
+  title: Azure kaynakları için rol tabanlı erişim denetimi (RBAC) belgeleri | Microsoft Docs
   description: Azure kaynaklarına erişebilen kişileri, bu kişilerin bu kaynaklarla yapabileceklerini ve erişebildikleri alanları yönetmek için rol tabanlı erişim denetimi (RBAC) hakkında bilgi edinin.
   services: active-directory
   author: rolyon
@@ -18,10 +18,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/15/2018
+  ms.date: 02/16/2019
   ms.author: rolyon
 abstract:
-  description: Rol tabanlı erişim denetimi (RBAC), Azure’daki kaynaklara yönelik ayrıntılı erişim yönetimi sağlayan bir sistemdir. RBAC kullanarak ekibiniz içinde görevleri ayırabilir, bu işlere gerek duyan kişilere sadece erişim miktarını verebilirsiniz.
+  description: Rol tabanlı erişim denetimi (RBAC), Azure kaynaklarına yönelik ayrıntılı erişim yönetimi sağlayan bir sistemdir. RBAC kullanarak ekibiniz içinde görevleri ayırabilir, bu işlere gerek duyan kişilere sadece erişim miktarını verebilirsiniz.
   aside:
     image:
       alt: 
@@ -37,13 +37,14 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Kullanıcıya erişim izni verme</a>
+    - html: <a href="/azure/role-based-access-control/check-access">Kullanıcının erişimini görüntüleme</a>
 - title: Adım adım öğreticiler
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Gruba erişim izni verme - PowerShell</a>
+    - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Kullanıcı erişimi verme - Portal</a>
+    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Grup erişimi verme - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Özel rol oluşturma - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Özel rol oluşturma - CLI</a>
 - title: Microsoft Learn ile becerilerinizi geliştirin

@@ -15,12 +15,15 @@ items:
 - name: Öğreticiler
   items:
   - name: Uzak dosyayı kodlama ve videoyu akışla aktarma – REST
+    displayName: encoding, job, transform
     href: stream-files-tutorial-with-rest.md
   - name: Karşıya yüklenen dosyayı kodlama ve videoyu akışla aktarma – .NET
+    displayName: encode, encoding, job, transform
     href: stream-files-tutorial-with-api.md
   - name: Canlı akış - .NET
     href: stream-live-tutorial-with-api.md
   - name: Videonuzu analiz etme - .NET
+    displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
   expanded: true
 - name: Örnekler
@@ -31,32 +34,54 @@ items:
     href: cli-samples.md
 - name: Kavramlar
   items:
-  - name: Alma
+  - name: Bulutta karşıya yükleme ve depolama
+    href: storage-account-concept.md
     items:
     - name: Varlıklar
       href: assets-concept.md
-  - name: Kodlama
-    href: encoding-concept.md
+  - name: Encoding
     items:
+    - name: Genel Bakış
+      displayName: Presets
+      href: encoding-concept.md
     - name: Dönüşümler ve İşler
       href: transforms-jobs-concept.md
     - name: Media Encoder Standard biçimleri
       href: media-encoder-standard-formats.md
     - name: Autogen uyarlamalı bit hızı merdiveni
       href: autogen-bitrate-ladder.md
-  - name: Çözümleme
-    href: analyzing-video-audio-files-concept.md
+  - name: Medya analizi
     items:
+    - name: Genel Bakış
+      displayName: Presets
+      href: analyzing-video-audio-files-concept.md
     - name: Dönüşümler ve İşler
       href: transforms-jobs-concept.md
-  - name: Akış
+  - name: Paketleme, teslim, koruma
     items:
+    - name: Paketleme
+      items:
+      - name: Dinamik paketleme
+        href: dynamic-packaging-overview.md
+      - name: Filtreler
+        href: filters-concept.md
+      - name: Dinamik bildirimler
+        href: filters-dynamic-manifest-overview.md
+    - name: İçerik koruma
+      href: content-protection-overview.md
+      items:
+      - name: Erişim denetimiyle çoklu DRM sistemi
+        href: design-multi-drm-system-with-access-control.md
     - name: Akış Uç Noktaları
+      displayName: Origins
       href: streaming-endpoint-concept.md
     - name: Akış Bulucuları
+      displayName: URLs
       href: streaming-locators-concept.md
     - name: Akış İlkeleri
       href: streaming-policy-concept.md
+    - name: İçerik Anahtar İlkeleri
+      href: content-key-policy-concept.md
   - name: Canlı akış
     href: live-streaming-overview.md
     items:
@@ -72,36 +97,19 @@ items:
       href: live-event-states-billing.md
     - name: Gecikme süresi
       href: live-event-latency.md
-  - name: Teslim etme
-    items:
-    - name: Filtreler ve dinamik bildirim
-      href: filters-dynamic-manifest-overview.md
   - name: İzleme
     items:
-    - name: Event Grid
+    - name: Event Grid ile olaylar
       href: reacting-to-media-services-events.md
-  - name: Koruma
-    href: content-protection-overview.md
+  - name: Yürütücü istemcileri
     items:
-    - name: İçerik Anahtar İlkeleri
-      href: content-key-policy-concept.md
-    - name: Akış İlkeleri
-      href: streaming-policy-concept.md
-    - name: Akış Bulucuları
-      href: streaming-locators-concept.md
-    - name: Erişim denetimiyle çoklu DRM sistemi
-      href: design-multi-drm-system-with-access-control.md
-  - name: Kayıttan yürütme
-    href: use-azure-media-player.md
-  - name: Hesaplar
+    - name: Azure Media Player
+      href: use-azure-media-player.md
+  - name: Media Services varlıkları
     items:
-    - name: Kotalar ve sınırlamalar
-      href: limits-quotas-constraints.md
-    - name: Depolama hesapları
-      href: storage-account-concept.md
-  - name: Filtre, düzen, sayfa varlıkları
-    href: entities-overview.md
-  - name: v2'den v3'e geçiş
+    - name: Varlıkları sıralama, filtreleme, sayfalama
+      href: entities-overview.md
+  - name: v2’den v3’e geçiş kılavuzu
     href: migrate-from-v2-to-v3.md
 - name: Nasıl yapılır kılavuzları
   items:
@@ -113,19 +121,34 @@ items:
       href: access-api-cli-how-to.md
     - name: Medya Ayrılmış Birimlerini Ölçeklendirme - CLI
       href: media-reserved-units-cli-how-to.md
-  - name: Postman'i yapılandırma
-    href: media-rest-apis-with-postman.md
+    - name: Geliştirmeye başlama
+      href: developers-guide.md
+    - name: Postman'i yapılandırma
+      href: media-rest-apis-with-postman.md
   - name: İçerik yükleme
     items:
-    - name: HTTP(s)’den - .NET
+    - name: HTTPS’ten - .NET
+      displayName: upload
       href: job-input-from-http-how-to.md
     - name: Yerel bir dosyadan - .NET
+      displayName: upload
       href: job-input-from-local-file-how-to.md
     - name: Yerel bir dosyadan - REST
+      displayName: upload
       href: upload-files-rest-how-to.md
   - name: İçerik kodlama
     items:
-    - name: Dönüştürme ön ayarlarını özelleştirme - .NET
+    - name: İş girişi olarak HTTPS - .NET
+      displayName: encode, encoding
+      href: job-input-from-http-how-to.md
+    - name: İş girişi olarak yerel dosya - .NET
+      displayName: encode, encoding
+      href: job-input-from-local-file-how-to.md
+    - name: İş girişi olarak yerel dosya - REST
+      displayName: encode
+      href: upload-files-rest-how-to.md
+    - name: Özel dönüştürme kullanma - .NET
+      displayName: encode, encoding, tranform
       href: customize-encoder-presets-how-to.md
   - name: Event Grid kullanma
     items:
@@ -215,13 +238,15 @@ items:
     href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Sürüm notları
     href: release-notes.md
+  - name: Kotalar ve sınırlamalar
+    href: limits-quotas-constraints.md
   - name: SSS
     href: frequently-asked-questions.md
   - name: Azure bulutları ve bölgeleri
     href: azure-clouds-regions.md
-ms.openlocfilehash: 0ca98ea27a77418ee5a111a67bd013ab6ad40e55
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 05b20d905a5848cfcfd0f9c6d20e4addb5c776fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330027"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340442"

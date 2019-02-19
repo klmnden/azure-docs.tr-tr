@@ -59,7 +59,11 @@ items:
 - name: Nasıl yapılır kılavuzları
   items:
   - name: Çalışma alanlarını yönetme
-    href: how-to-manage-workspace.md
+    items:
+    - name: Çalışma alanları için portalı kullanma
+      href: how-to-manage-workspace.md
+    - name: Resource Manager şablonu kullanma
+      href: how-to-create-workspace-template.md
   - name: Geliştirme ortamı ayarlama 
     items:
     - name: Geliştirme ortamlarını yapılandırma
@@ -119,8 +123,6 @@ items:
       href: how-to-deploy-fpga-web-service.md
     - name: Sorun giderme
       href: how-to-troubleshoot-deployment.md
-    - name: SSL ile web hizmetlerinin güvenliğini sağlama
-      href: how-to-secure-web-service.md
   - name: Web hizmetlerini kullanma
     items:
     - name: Gerçek zamanlı kullanma
@@ -136,25 +138,27 @@ items:
       href: how-to-enable-data-collection.md
     - name: Application Insights ile izleme
       href: how-to-enable-app-insights.md
+  - name: Güvenlik
+    items:
+    - name: Sanal ağları kullanma
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: SSL ile web hizmetlerinin güvenliğini sağlama
+      href: how-to-secure-web-service.md
   - name: İlk işlem hattınızı oluşturma
     href: how-to-create-your-first-pipeline.md
+  - name: Günlü kaydını etkinleştir
+    displayName: logging
+    href: how-to-enable-logging.md
   - name: Kaynak kotalarını yönetme
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Sanal ağlar ile güvenlik
-    displayName: vnet
-    href: how-to-enable-virtual-network.md
   - name: Machine Learning CLI’yı kullanma
     displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Verileri dışarı aktarma ve silme
     displayName: gdpr
     href: how-to-export-delete-data.md
-  - name: Resource Manager şablonu kullanma
-    href: how-to-create-workspace-template.md
-  - name: Günlü kaydını etkinleştir
-    displayName: logging
-    href: how-to-enable-logging.md
 - name: Başvuru
   items:
   - name: Machine learning SDK
@@ -166,8 +170,6 @@ items:
   - name: İzleme SDK’sı
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.machinelearningservices/allversions
 - name: Kaynaklar
   items:
   - name: Azure yol haritası
@@ -183,9 +185,9 @@ items:
     href: support-for-aml-services.md
   - name: ML ürünlerimizi karşılaştırın
     href: overview-more-machine-learning.md
-ms.openlocfilehash: eb803b44bbe72b80f4414a4de66bce519591dea7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 041a4b0f3ebecdaedb041ceb25f426a6e1825292
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268830"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338102"
