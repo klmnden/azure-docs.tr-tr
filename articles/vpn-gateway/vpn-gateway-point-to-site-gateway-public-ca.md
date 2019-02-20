@@ -5,20 +5,24 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: b89ba054040229d9925b9dbbc64d27eed171613e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: e5a75826730219adc643d7c6ca300a38c8640006
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339881"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428373"
 ---
-# <a name="transition-from-self-signed-to-public-ca-certificates-for-p2s-gateways"></a>Geçiş için ortak CA sertifikaları P2S ağ geçitleri için otomatik imzalı
+# <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>P2S için genel CA ağ geçidi sertifikasına geçiş
 
 Azure VPN ağ geçidi, ağ geçitleri P2S bağlantıları için artık Azure düzeyinde otomatik olarak imzalanan sertifikalar verir. Verilen sertifikaların artık bir ortak sertifika yetkilisi (CA) tarafından imzalanmıştır. Ancak, bazı eski ağ geçitlerinin yine de otomatik olarak imzalanan sertifikaları kullanıyor olabilir. Bu otomatik olarak imzalanan sertifikalar sona erme tarihlerinin ve ortak CA sertifikaları için geçiş gerekir.
 
 Bu bağlamda bir ek Azure düzey sertifika sertifikalardır. Kendi otomatik olarak imzalanan kök sertifika ve kimlik doğrulaması için istemci sertifikası oluştururken kullandığınız sertifika zincirleri değiller. Bu sertifikaları yapmanızdan ve tarihler, bunu yapmak için bunları oluşturulan sona erer.
+
+>[!NOTE]
+> P2S istemci kimlik doğrulaması için kullanılan otomatik olarak imzalanan sertifikaları, bu Azure düzey sertifika değişiklikten etkilenmez. Sorun ve otomatik olarak imzalanan sertifikalar normal şekilde kullanmaya devam edebilirsiniz.
+>
 
 Daha önce (arka planda, Azure tarafından verilen) ağ geçidi için kendinden imzalı bir sertifika her 18 ay güncelleştirilmesi gerekmiyor. VPN istemcisi yapılandırma dosyalarını sonra oluşturulur ve tüm P2S istemcilere imzalanmasını gerekiyordu. Ortak CA sertifikaları taşıyarak bu sınırlama ortadan kaldırır. Sertifikaları için geçiş ek olarak, bu değişiklik platform iyileştirmeleri, daha iyi ölçümleri ve kararlılığı sağlar.
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413681"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417339"
 ---
 # <a name="transform-and-protect-your-api"></a>API’nizi dönüştürme ve koruma 
 
@@ -37,12 +37,12 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ![İlkeler](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 + [Azure API Management terminolojisini](api-management-terminology.md) öğrenin.
 + [Azure API Management'ta ilke kavramını](api-management-howto-policies.md) anlayın.
 + Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-+ Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
++ Ayrıca şu öğreticiyi tamamlayın: [İçeri aktarma ve ilk API'nizi yayımlama](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -113,7 +113,7 @@ Bu bölümde, API’lerin HTTP yanıt gövdesinde görüntülenen özgün URL’
 4. **Giden işleme** bölümünde **</>** simgesine tıklayın.
 5. İmleci **&lt;giden&gt;** öğesinin içine konumlandırın.
 6. Sağ pencerede **Dönüştürme ilkeleri** bölümünde **+ Gövdedeki dizeyi bul ve değiştir** seçeneğine tıklayın.
-7. URL’yi APIM ağ geçidinizle eşleşecek şekilde değiştirmek için **find-and-replace** kodunuzu (**\<giden\>** öğesinde) değiştirin. Örnek:
+7. URL’yi APIM ağ geçidinizle eşleşecek şekilde değiştirmek için **find-and-replace** kodunuzu (**\<giden\>** öğesinde) değiştirin. Örneğin:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -126,9 +126,10 @@ Bu bölümde, hız sınırları yapılandırılarak arka uç API’niz için nas
 1. **Tanıtım Konferansı API’si** seçeneğini belirleyin.
 2. **Tüm işlemler**’i seçin.
 3. Ekranın üst kısmında **Tasarım** sekmesini seçin.
-4. **Gelen işleme** bölümünde **</>** simgesine tıklayın.5. İmleci **&lt;gelen&gt;** öğesinin içine konumlandırın.
-5. Sağ pencerede **Erişim kısıtlama ilkeleri** bölümünde **+ Anahtar başına çağrıyı sınırla** seçeneğine tıklayın.
-6. **rate-limit-by-key** kodunuzu (**\<gelen\>** öğesinde) aşağıdaki kodla değiştirin:
+4. İçinde **gelen işlem** bölümünde **</>** simgesi.
+5. İmleci **&lt;gelen&gt;** öğesinin içine konumlandırın.
+6. Sağ pencerede **Erişim kısıtlama ilkeleri** bölümünde **+ Anahtar başına çağrıyı sınırla** seçeneğine tıklayın.
+7. **rate-limit-by-key** kodunuzu (**\<gelen\>** öğesinde) aşağıdaki kodla değiştirin:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

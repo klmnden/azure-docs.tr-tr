@@ -1,7 +1,7 @@
 ---
 title: Dağıtım ve kullanım
 titleSuffix: Azure Machine Learning Studio
-description: Machine learning iş akışları ve Modellerinizi web Hizmetleri olarak dağıtmak için Azure Machine Learning'ı kullanabilirsiniz. Bu web Hizmetleri, ardından, makine öğrenme modellerini uygulamalardan gerçek zamanlı olarak veya toplu iş modunda tahminleri yapmak için internet üzerinden çağırmak için de kullanılabilir.
+description: Azure Machine Learning Studio, machine learning iş akışları ve Modellerinizi web Hizmetleri olarak dağıtmak için kullanabilirsiniz. Bu web Hizmetleri, ardından, makine öğrenme modellerini uygulamalardan gerçek zamanlı olarak veya toplu iş modunda tahminleri yapmak için internet üzerinden çağırmak için de kullanılabilir.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,41 +10,44 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: e2add42e56f939dbfeb33ac2774d404411b1fefb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a1ddf6aae9fdd661e30719fafb6000fb6559df20
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997260"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429046"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web Hizmetleri: Dağıtım ve kullanım
-Machine learning iş akışları ve Modellerinizi web Hizmetleri olarak dağıtmak için Azure Machine Learning'ı kullanabilirsiniz. Bu web Hizmetleri, ardından, makine öğrenme modellerini uygulamalardan gerçek zamanlı olarak veya toplu iş modunda tahminleri yapmak için Internet üzerinden çağırmak için de kullanılabilir. RESTful web hizmetleri olduğu için bunları çeşitli programlama dilleri ve platformları, .NET ve Java gibi ve Excel gibi uygulamaları çağırabilirsiniz.
+
+Azure Machine Learning Studio, machine learning iş akışları ve Modellerinizi web Hizmetleri olarak dağıtmak için kullanabilirsiniz. Bu web Hizmetleri, ardından, makine öğrenme modellerini uygulamalardan gerçek zamanlı olarak veya toplu iş modunda tahminleri yapmak için Internet üzerinden çağırmak için de kullanılabilir. RESTful web hizmetleri olduğu için bunları çeşitli programlama dilleri ve platformları, .NET ve Java gibi ve Excel gibi uygulamaları çağırabilirsiniz.
 
 Sonraki bölümlerde, kılavuzlar, kod ve başlamanıza yardımcı olan belgeler için bağlantılar sağlar.
 
 ## <a name="deploy-a-web-service"></a>Bir web hizmetini dağıtma
 
 ### <a name="with-azure-machine-learning-studio"></a>Azure Machine Learning Studio ile
-Machine Learning Studio ve Microsoft Azure Machine Learning Web Hizmetleri portalını dağıtma ve kod yazmaya gerek kalmadan bir web hizmetini yönetmenize yardımcı olur.
+
+Studio portalı ve Microsoft Azure Machine Learning Web Hizmetleri portalını dağıtma ve kod yazmaya gerek kalmadan bir web hizmetini yönetmenize yardımcı olur.
 
 Aşağıdaki bağlantılar, yeni bir web hizmeti dağıtma hakkında genel bilgiler sağlar:
 
 * Azure Resource Manager'a bağlı yeni bir web hizmeti dağıtma hakkında genel bir bakış için bkz. [yeni bir web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
 * Bir web hizmeti dağıtma hakkında kılavuz için bkz. [bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
-* İle bir web hizmeti oluşturma ve dağıtma konusunda tam bir kılavuz için başlangıç [ öğretici 1: Kredi riskini tahmin](tutorial-part1-credit-risk.md).
+* İle bir web hizmeti oluşturma ve dağıtma konusunda tam bir kılavuz için başlangıç [öğretici 1: Kredi riskini tahmin](tutorial-part1-credit-risk.md).
 * Bir web hizmetini dağıtma belirli örnekler için bkz:
 
   * [Öğretici 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md)
   * [Bir web hizmetini birden fazla bölgeye dağıtma](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Web Hizmetleri kaynak sağlayıcı API'leri (Azure Resource Manager API'leri)
-Web hizmetleri için Azure Machine Learning kaynak sağlayıcısı REST API çağrıları kullanarak dağıtım ve Yönetim web hizmetleri sağlar. Ek ayrıntılar için bkz. [Machine Learning Web hizmeti (REST)](/rest/api/machinelearning/index) başvuru.
+
+Web hizmetleri için Azure Machine Learning Studio kaynak sağlayıcısı REST API çağrıları kullanarak dağıtım ve Yönetim web hizmetleri sağlar. Daha fazla bilgi için [Machine Learning Web hizmeti (REST)](/rest/api/machinelearning/index) başvuru.
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 
-
 ### <a name="with-powershell-cmdlets"></a>PowerShell cmdlet'leri ile
-Azure Machine Learning web hizmetleri kaynak sağlayıcı, PowerShell cmdlet'lerini kullanarak, dağıtım ve Yönetim web hizmetleri sağlar.
+
+Azure Machine Learning Studio web hizmetleri kaynak sağlayıcı, PowerShell cmdlet'lerini kullanarak, dağıtım ve Yönetim web hizmetleri sağlar.
 
 Cmdlet'leri kullanmak için önce Azure hesabınıza PowerShell ortamında kullanarak oturum açmalısınız [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet'i. Resource Manager temel alan PowerShell komutlarını çağıran nasıl aralıklarıyla bkz [Azure PowerShell kullanarak Azure Resource Manager ile](../../azure-resource-manager/powershell-azure-resource-manager.md).
 
@@ -75,11 +78,13 @@ Bir örneği aşağıda verilmiştir:
 
 Ek ayrıntılar için örnek kod ve aşağıdaki makalelere bakın:
 
-* [Azure Machine Learning cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.machinelearning) MSDN'de başvurusu
+* [Azure Machine Learning Studio cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.machinelearning) MSDN'de başvurusu
 * Örnek [izlenecek](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) github'da
 
 ## <a name="consume-the-web-services"></a>Web hizmetlerini kullanma
+
 ### <a name="from-the-azure-machine-learning-web-services-ui-testing"></a>Azure Machine Learning Web Hizmetleri kullanıcı Arabirimi (test)
+
 Azure Machine Learning Web Hizmetleri portalında web hizmetini test edebilirsiniz. Toplu yürütme hizmeti (BES) arabirimleri ve bu istek-yanıt hizmeti (RRS) test içerir.
 
 * [Yeni bir web hizmeti dağıtma](publish-a-machine-learning-web-service.md)
@@ -87,10 +92,12 @@ Azure Machine Learning Web Hizmetleri portalında web hizmetini test edebilirsin
 * [Öğretici 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Excel'den
+
 Web hizmeti bir Excel şablonu indirebilirsiniz:
 
 * [Bir Azure Machine Learning web hizmetini Excel'den kullanma](consuming-from-excel.md)
 * [Azure Machine Learning Web Hizmetleri için Excel Eklentisi](excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>REST tabanlı bir istemciden
+
 Azure Machine Learning Web Hizmetleri, RESTful apı'lerdir. Bu API'ler, .NET, Python, R, Java, vb. gibi çeşitli platformlarından kullanabilir. **Tüket** sayfasında web hizmetiniz için [Microsoft Azure Machine Learning Web Hizmetleri portalında](https://services.azureml.net) başlamanıza yardımcı olabilecek örnek koduna sahiptir. Daha fazla bilgi için bkz. [Azure Machine Learning web hizmetini kullanma](consume-web-services.md).

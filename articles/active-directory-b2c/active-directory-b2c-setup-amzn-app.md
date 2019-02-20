@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C kullanarak bir Amazon hesabıyla kaydolma ve oturum açma ayarlama | Microsoft Docs
+title: Kaydolma ve oturum açma bir Amazon hesabıyla - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C kullanarak uygulamalarınızda Amazon hesaplar kullanan müşteriler için kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 207a33931d7be88355241ea8c282dc7c39c9971c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4f60db91a1fb667586287873245fd5face343713
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169969"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427743"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Amazon hesabıyla kaydolma ve oturum açma ayarlama
 
 ## <a name="create-an-amazon-application"></a>Amazon uygulama oluşturma
 
-Amazon hesabınız Azure Active Directory (Azure AD) B2C'de kimlik sağlayıcısı olarak kullanmak için kiracınızda temsil ettiği bir uygulama oluşturmak gerekir. Bir Amazon hesabınız zaten yoksa, ulaşabilirsiniz [ https://www.amazon.com/ ](https://www.amazon.com/).
+Bir Amazon hesabı olarak kullanılacak bir [kimlik sağlayıcısı](active-directory-b2c-reference-oauth-code.md) Azure Active Directory (Azure AD) B2C'de, temsil ettiği kiracınızda uygulama oluşturmanız gerekir. Bir Amazon hesabınız zaten yoksa, ulaşabilirsiniz [ https://www.amazon.com/ ](https://www.amazon.com/).
 
 1. Oturum [Amazon Geliştirici Merkezi](https://login.amazon.com/) Amazon hesabınızın kimlik bilgileriyle.
 2. Zaten yapmadıysanız, tıklayın **Kaydol**, geliştirici kayıt adımları izleyin ve ilkeyi kabul edin.

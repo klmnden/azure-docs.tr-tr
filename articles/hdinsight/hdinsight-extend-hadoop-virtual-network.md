@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dbb94e0dbcb1dccf8ecbc60bca47b2cc3533297c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169981"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429749"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -220,8 +220,6 @@ Aşağıdaki yöntemleri kullanarak bir Azure sanal ağlarda ağ trafiğini dene
 * **Ağ sanal Gereçleri** cihazların güvenlik duvarları ve yönlendiriciler gibi çoğaltın. Daha fazla bilgi için [ağ Gereçleri](https://azure.microsoft.com/solutions/network-appliances) belge.
 
 Yönetilen bir hizmet olarak HDInsight, Hdınsight sistem sınırsız erişim gerektirir ve sanal ağdan gelen ve giden trafiği için hem de Yönetim Hizmetleri. Nsg'leri ve Udr kullanırken, bu hizmetler HDInsight kümesiyle iletişim kurabildiğinden emin olmanız gerekir.
-
-HDInsight, çeşitli bağlantı noktaları üzerinde hizmetleri sunar. Güvenlik Duvarı sanal Gereci kullanırken, bu hizmetler için kullanılan bağlantı noktalarında trafiğe izin vermeniz gerekir. Daha fazla bilgi için [gerekli bağlantı noktaları] bölümüne bakın.
 
 ### <a id="hdinsight-ip"></a> HDInsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar
 

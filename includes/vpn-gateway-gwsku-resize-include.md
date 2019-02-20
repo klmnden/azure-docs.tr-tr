@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c06e69dd9d1997500589659e936dc25ee01ed145
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 081352a23e6a0d8f9e2daa77eca1f8ac85172ff6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "30196824"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418237"
 ---
-Geçerli için SKU'ları (VpnGw1, VpnGw2 ve VPNGW3), ağ geçidi daha güçlü bir yükseltmek için SKU yeniden boyutlandırmak istediğiniz kullanabileceğiniz `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet'i. Ayrıca ağ geçidi Bu cmdlet'i kullanarak SKU boyutunu düşürmek. Temel ağ geçidi SKU'su, kullanıyorsanız [bu yönergeleri kullanmanız](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) ağ geçidiniz yeniden boyutlandırmak için.
+Daha güçlü bir yükseltileceği SKU ağ geçidi yeniden boyutlandırmak istediğiniz geçerli için SKU'ları (VpnGw1, VpnGw2 ve VPNGW3) kullanabileceğiniz `Resize-AzVirtualNetworkGateway` PowerShell cmdlet'i. Ağ geçidi SKU boyutu bu cmdlet'ini kullanarak da düşürebilir. Temel ağ geçidi SKU'su kullanmanız durumunda [bu yönergeleri kullanmanız](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) ağ geçidi yeniden boyutlandırmak için.
 
-Aşağıdaki PowerShell örnek bir ağ geçidi için VpnGw2 yeniden boyutlandırılan SKU gösterir.
+Aşağıdaki PowerShell örneği, bir ağ geçidi SKU'sunu VpnGw2 için yeniden boyutlandırılmaya gösterir.
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
+$gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
 ```
 
-Azure portalında bir ağ geçidi giderek boyutlandırabilirsiniz **yapılandırma** sayfasında sanal ağ geçidiniz için ve farklı bir SKU aşağı açılır listeden seçerek.
+Giderek Azure portalında bir ağ geçidi de yeniden boyutlandırabilirsiniz **yapılandırma** sayfasında sanal ağ geçidiniz için ve açılan listeden farklı bir SKU seçme.

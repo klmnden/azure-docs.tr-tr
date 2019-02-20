@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: PowerShell, runbook, json, azure Otomasyonu
-ms.openlocfilehash: d13f21da88ae3fb9dfa67b11285e0c3e984d5e5b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ef97d4e2fd0951e30a725e8f2f9603a73c61f1ca
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421820"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416131"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Azure Otomasyonu PowerShell runbook’unda Azure Resource Manager şablonu dağıtma
 
@@ -23,7 +23,7 @@ Yazabileceğiniz bir [Azure Otomasyonu PowerShell runbook'unda](automation-first
 
 Bunu yaparak, Azure kaynaklarının dağıtımını otomatik hale getirebilirsiniz. Resource Manager şablonlarınızı Azure depolama gibi Merkezi, güvenli bir konumda saklayabilirsiniz.
 
-Bu konu başlığında oluşturduğumuz depolanan bir Resource Manager şablonunu kullanan bir PowerShell runbook'u [Azure depolama](../storage/common/storage-introduction.md) yeni bir Azure depolama hesabı dağıtmak için.
+Bu makalede, depolanan bir Resource Manager şablonunu kullanan bir PowerShell runbook'u oluştururuz [Azure depolama](../storage/common/storage-introduction.md) yeni bir Azure depolama hesabı dağıtmak için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -176,7 +176,7 @@ Dosyayı yerel olarak kaydedin `DeployTemplate.ps1`.
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>İçeri aktarma ve Azure Otomasyonu hesabınızı runbook yayımlama
 
 Şimdi biz runbook'un Azure Otomasyon hesabınızda içeri aktarmak için PowerShell kullanın ve ardından runbook'u yayımlayamadı.
-İçeri aktarma ve Azure Portalı'nda bir runbook yayımlama hakkında daha fazla bilgi için bkz. [oluşturma veya içeri aktarma Azure automation'da bir runbook](automation-creating-importing-runbook.md).
+İçeri aktarma ve Azure Portalı'nda bir runbook yayımlama hakkında daha fazla bilgi için bkz. [Azure Otomasyonu runbook'ları yönetme](manage-runbooks.md).
 
 İçeri aktarmak için `DeployTemplate.ps1` Otomasyon hesabınızda PowerShell runbook'u olarak aşağıdaki PowerShell komutlarını çalıştırın:
 

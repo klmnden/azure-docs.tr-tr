@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ac52e3b824efdbd5277982a7f1939e8aa0deeeb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201797"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416726"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Altyapı Backup hizmeti başvurusu
 
@@ -108,6 +108,23 @@ Altyapı yedekleme denetleyicisi verilerini isteğe bağlı olarak yedekler. En 
 > [!Note]  
 > Hiçbir gelen bağlantı noktalarının açılması gerekir.
 
+### <a name="encryption-requirements"></a>Şifreleme gereksinimleri
+
+İçinde 1901 başlayarak, altyapı yedekleme hizmeti ortak anahtara sahip bir sertifika kullanır (. Yedekleme verileri ve sertifikayı özel anahtarla şifrelemek için CER) (. PFX) bulut Kurtarma sırasında yedek verilerin şifresini çözmek için kullanılır.   
+ - Sertifika anahtarlarının taşıma için kullanılır ve güvenli bir kimliği doğrulanmış iletişim kurmak için kullanılmaz. Bu nedenle, sertifika otomatik olarak imzalanan bir sertifika olabilir. Azure Stack dış internet erişimi gerekli değildir. Bu nedenle, kök veya bu sertifikanın güven doğrulayın gerekmez.
+ 
+Otomatik olarak imzalanan sertifika, iki parça, bir ortak anahtara sahip ve bir özel anahtarla birlikte gelir:
+ - Yedekleme verilerini şifrele: (Dışarı. ortak anahtara sahip sertifika CER dosyası), yedekleme verilerini şifrelemek için kullanılır
+ - Yedekleme verilerinin şifresini: (Dışarı. Özel anahtarlı sertifika PFX dosyası) yedek verilerin şifresini çözmek için kullanılır
+
+Sertifikanın ortak anahtarı ile (. CER) iç gizli döndürme tarafından yönetilmiyor. Sertifika döndürmek için yeni bir otomatik olarak imzalanan sertifika oluşturmak ve yeni bir dosya ile Yedekleme ayarlarını güncelleştirme yapmanız gerekir (. CER).  
+ - Tüm mevcut yedeklemeler önceki ortak anahtar kullanılarak şifrelenmiş olarak kalır. Yeni yedeklemeleri yeni ortak anahtarı kullanır. 
+ 
+Bulut Kurtarma sırasında kullanılan özel anahtarla sertifikayı (. PFX) tarafından Azure Stack güvenlik nedeniyle kalıcı olmaz. Bu dosya, bulut Kurtarma sırasında açıkça sağlanması gerekir.  
+
+**Geriye dönük uyumluluk modu** içinde 1901 başlayarak, anahtar şifreleme desteği kullanım dışıdır ve gelecek sürümde kaldırılacak. Zaten bir şifreleme anahtarı kullanarak etkin yedek ile 1811 güncelleştirdiyseniz, şifreleme anahtarını kullanmak Azure Stack devam eder. Geriye dönük uyumluluk modu için en az 3 sürüm desteklenecektir. Bundan sonra bir sertifika gerekir. 
+ * Şifreleme anahtarı için sertifika güncelleştirilirken bir tek yönlü bir işlemdir.  
+ * Tüm mevcut yedeklemeler şifreleme anahtar kullanılarak şifrelenmiş olarak kalır. Yeni yedeklemeleri sertifikayı kullanır. 
 
 ## <a name="infrastructure-backup-limits"></a>Yedekleme Altyapısı sınırları
 

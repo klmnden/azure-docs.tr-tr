@@ -4,14 +4,14 @@ description: Etki alanı temsilcisi seçiminin nasıl değiştirileceğini ve et
 services: dns
 author: vhorne
 ms.service: dns
-ms.date: 1/22/2019
+ms.date: 2/19/2019
 ms.author: victorh
-ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 85f7318ac584e324f58d2ad470dc896e79e416d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461043"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417897"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Azure DNS ile DNS bölgelerinin temsilciliği
 
@@ -27,7 +27,7 @@ Etki Alanı Adı Sistemi, bir etki alanları hiyerarşisidir. Hiyerarşi, adı y
 
 **Etki alanı kayıt şirketi** - Etki alanı kayıt şirketi, İnternet etki alanı adlarını sağlayabilen bir şirkettir. Bu şirketler kullanmak istediğiniz İnternet etki alanının kullanılabilir olup olmadığını doğrular ve bu etki alanını satın almanızı sağlar. Etki alanı adı kaydedildikten sonra, etki alanı adının yasal sahibi olursunuz. Bir İnternet etki alanına zaten sahipseniz Azure DNS'ye devretmek için geçerli etki alanı kayıt şirketini kullanırsınız.
 
-Belirli bir etki alanı adının kime ait olduğu veya bir etki alanını satın alma hakkında daha fazla bilgi edinmek için bkz. [Azure AD'de İnternet etki alanı yönetimi](https://msdn.microsoft.com/library/azure/hh969248.aspx).
+Akredite bir etki alanı kayıt hakkında daha fazla bilgi için bkz: [ICANN-Accredited kaydedicilerin](https://www.icann.org/registrar-reports/accredited-list.html).
 
 ### <a name="resolution-and-delegation"></a>Çözümleme ve temsilci seçme
 

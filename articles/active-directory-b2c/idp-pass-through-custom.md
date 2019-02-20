@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f21f835ea50563497b73fb6e4505f60411029406
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cd24d4ad026af7d8bce70902376c3a31d659a203
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883007"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427881"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Uygulamanızı Azure Active Directory B2C için bir erişim belirteci ile özel bir ilke geçirin
 
@@ -24,11 +24,11 @@ ms.locfileid: "55883007"
 
 A [özel ilke](active-directory-b2c-get-started-custom.md) Azure Active Directory (Azure AD) B2C'de, uygulamanızın kullanıcıları ıntune'a kaydolma veya bir kimlik sağlayıcısı ile oturum açmak için bir fırsat sağlar. Bu durumda, Azure AD B2C alır bir [erişim belirteci](active-directory-b2c-reference-tokens.md) kimlik sağlayıcısından gelen. Azure AD B2C kullanıcı hakkında bilgi almak için bu belirteci kullanır. Belirteci aracılığıyla Azure AD B2C'de kayıt uygulamaları geçirmek için özel ilkeniz için bir talep türü ve çıkış talep ekleyin. 
 
-Azure AD B2C şu anda yalnızca destekler erişim belirtecini geçirme [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) Facebook gibi kimlik sağlayıcılarla ve [Google](active-directory-b2c-custom-setup-goog-idp.md). Diğer tüm kimlik sağlayıcıları için talep boş olarak döndürülür.
+Azure AD B2C'yi destekler erişim belirtecini geçirme [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) ve [Openıd Connect](active-directory-b2c-reference-oidc.md) kimlik sağlayıcıları. Diğer tüm kimlik sağlayıcıları için talep boş olarak döndürülür.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Özel ilkeniz, OAuth 2.0 kimlik sağlayıcısı ile yapılandırılır.
+- Özel ilkeniz, OAuth 2.0 veya Openıd Connect kimlik sağlayıcısı ile yapılandırılır.
 
 ## <a name="add-the-claim-elements"></a>Talep öğeleri Ekle 
 

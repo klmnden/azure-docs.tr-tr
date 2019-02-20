@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508343"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417982"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Portalı kullanarak farklı dağıtım modellerindeki sanal ağları bağlama
 
@@ -30,6 +30,8 @@ Bu makalede, Klasik sanal ağlar birbiriyle iletişim kurmak için ayrı dağıt
 Zaten bir sanal ağ geçidi yok ve oluşturmak istemiyorsanız, bunun yerine kullanarak VNet eşlemesi, sanal ağları bağlama düşünün isteyebilirsiniz. VNet eşlemesi VPN ağ geçidini kullanmaz. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="before"></a>Başlamadan önce
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Bu adımlar, her iki Vnet'in zaten oluşturulmuş olduğunu varsayar. Bu makalede bir alıştırma olarak kullanıyorsanız ve sanal ağlar yoksa, bunları oluşturmanıza yardımcı olması için adımlarda bağlantıları vardır.
 * Sanal ağlar için adres aralıklarını değil ile çakıştığı için ağ geçitlerinin bağlı diğer bağlantılar aralıkların hiçbiriyle olduğunu doğrulayın veya.
@@ -226,19 +228,19 @@ Bu adımlarda, Resource Manager Vnet'i Klasik VNet arasında bağlantı yapılan
 Yükseltilmiş haklarla PowerShell konsolu açın ve Azure hesabınızda oturum açın. Azure PowerShell için kullanılabilir olacak şekilde açtıktan sonra hesap ayarlarınızı indirilir. Aşağıdaki cmdlet sizden, Resource Manager dağıtım modeli için Azure hesabınız için oturum açma kimlik bilgileri ister:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Azure aboneliklerinizin bir listesini alın.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği belirtin.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzSubscription -SubscriptionName "Name of subscription"
 ```
 
 Ardından, Klasik PowerShell cmdlet'leri (Hizmet Yönetimi) kullanmak için oturum açın. Klasik dağıtım modeli için Azure hesabınızı eklemek için aşağıdaki komutu kullanın:

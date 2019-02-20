@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f1700e124d1f572d0bf0ca76ea7c465f1ecf96c1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 35367a9ebc9ff09f40defd444f6ceb8ff54efe07
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657425"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430293"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Bir karma Runbook çalışanı üzerinde runbook'ları çalıştırma
 
 Bir karma Runbook çalışanı üzerinde çalışan runbook'ları ile Azure Otomasyonu'nda çalışan runbook'ları ve yapısı içinde bir fark yoktur. Kullandığınız her runbook'ları büyük olasılıkla önemli ölçüde farklılık gösterir. Bu fark, yerel bilgisayarda veya yerel ortamda, dağıtıldığı kaynaklara karşı kaynak genellikle bir karma Runbook çalışanı hedefleyen bir runbook'ları yönetme olmasıdır. Azure Otomasyonu runbook'ları genellikle Azure bulutunda kaynakları yönetin.
 
-Bir karma Runbook çalışanı üzerinde çalıştırmak için runbook'ları geliştirdiğinizde, düzenleyin ve karma çalışanı barındıran makine içine bir runbook'ları sınamanızı gerekir. Konak makinenin tüm PowerShell modülleri ve ağ erişimi ve yerel kaynaklara erişimi yönetmesine gerek vardır. Karma çalışanı makinede bir runbook test sonra sonra bu karma çalışanı çalıştırılmak için uygun olduğu bir Azure Otomasyonu ortama yükleyebilirsiniz. Bilmek önemlidir Windows ya da özel bir kullanıcı hesabı için yerel sistem hesabı altında çalıştıran işlerin **nxautomation** Linux üzerinde. Bu davranış, runbook'ları için bir karma Runbook çalışanı yazarken farklar ortaya çıkarabilir. Runbook'larınızı yazarken bu değişikliklerin gözden geçirilmesi gerekir.
+Bir karma Runbook çalışanı üzerinde çalıştırmak için runbook'ları geliştirdiğinizde, düzenleyin ve karma çalışanı barındıran makine içine bir runbook'ları sınamanızı gerekir. Konak makinenin tüm PowerShell modülleri ve ağ erişimi ve yerel kaynaklara erişimi yönetmesine gerek vardır. Karma çalışanı makinede bir runbook test sonra sonra bu karma çalışanı çalıştırılmak için uygun olduğu bir Azure Otomasyonu ortama yükleyebilirsiniz. Bilmek önemlidir Windows ya da özel bir kullanıcı hesabı için yerel sistem hesabı altında çalıştıran işlerin `nxautomation` Linux üzerinde. Bu davranış, runbook'ları için bir karma Runbook çalışanı yazarken farklar ortaya çıkarabilir. Runbook'larınızı yazarken bu değişikliklerin gözden geçirilmesi gerekir.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Karma Runbook çalışanı üzerinde runbook başlatma
 
@@ -44,7 +44,7 @@ Bir karma Runbook çalışanı üzerinde çalışan runbook'ları genellikle bu 
 
 ### <a name="runbook-authentication"></a>Runbook kimlik doğrulaması
 
-Varsayılan olarak, Windows ve özel bir kullanıcı hesabı için yerel sistem hesabı bağlamında runbook'ları çalıştırmak **nxautomation** şirket içi bilgisayarda Linux için bu nedenle gerekir sağlarlar, erişimleri olan kaynaklar için kendi kimlik doğrulama .
+Varsayılan olarak, Windows ve özel bir kullanıcı hesabı için yerel sistem hesabı bağlamında runbook'ları çalıştırmak `nxautomation` şirket içi bilgisayarda Linux için bu nedenle gerekir sağlarlar, erişimleri olan kaynaklar için kendi kimlik doğrulama.
 
 Kullanabileceğiniz [kimlik bilgisi](automation-credentials.md) ve [sertifika](automation-certificates.md) varlıklar runbook'unuzda cmdlet'leriyle farklı kaynaklarda kimlik doğrulaması için kimlik bilgilerini belirtmenizi sağlar. Aşağıdaki örnek, bir bilgisayarı yeniden başlatan bir runbook bir bölümü gösterilmektedir. Bu kimlik bilgilerini bir kimlik bilgisi varlığı ve değişken varlığı bilgisayar adını alır ve ardından bu değerleri Restart-Computer cmdlet'ini kullanır.
 
@@ -59,7 +59,7 @@ Ayrıca [Inlinescript](automation-powershell-workflow.md#inlinescript), tarafın
 
 ### <a name="runas-account"></a>Farklı Çalıştır hesabı
 
-Varsayılan olarak karma Runbook çalışanı için yerel sistem Windows ve özel bir kullanıcı hesabı kullanan **nxautomation** runbook'ları çalıştırmak Linux için. Belirtebileceğiniz runbook'lar yerel kaynakları için kendi kimlik doğrulamalarını sağlamak yerine, bir **RunAs** hesap için bir karma çalışanı grubu. Belirttiğiniz bir [kimlik bilgisi varlığı](automation-credentials.md) yerel kaynaklara erişimi olan ve gruptaki bir karma Runbook çalışanı üzerinde çalışan tüm runbook'ları bu kimlik bilgileri altında çalıştırın.
+Varsayılan olarak karma Runbook çalışanı için yerel sistem Windows ve özel bir kullanıcı hesabı kullanan `nxautomation` runbook'ları çalıştırmak Linux için. Belirtebileceğiniz runbook'lar yerel kaynakları için kendi kimlik doğrulamalarını sağlamak yerine, bir **RunAs** hesap için bir karma çalışanı grubu. Belirttiğiniz bir [kimlik bilgisi varlığı](automation-credentials.md) yerel kaynaklara erişimi olan ve gruptaki bir karma Runbook çalışanı üzerinde çalışan tüm runbook'ları bu kimlik bilgileri altında çalıştırın.
 
 Kullanıcı adı kimlik bilgisi için aşağıdaki biçimlerden birinde olmalıdır:
 
@@ -247,7 +247,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-Runbook imzalandığında Otomasyon hesabınızda içeri aktarıldı ve gerekir imza bloğunu ile yayımlanan. Runbook'ları orchestrator'a öğrenmek için bkz. [bir runbook'u dosyadan Azure Automation'a içeri](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+Runbook imzalandığında Otomasyon hesabınızda içeri aktarıldı ve gerekir imza bloğunu ile yayımlanan. Runbook'ları orchestrator'a öğrenmek için bkz. [bir runbook'u dosyadan Azure Automation'a içeri](manage-runbooks.md#import-a-runbook).
 
 ### <a name="linux-hybrid-runbook-worker"></a>Linux karma Runbook çalışanı
 
@@ -271,7 +271,7 @@ sudo gpg --generate-key
 
 GPG anahtar çifti oluşturma adımlarında size yol gösterecektir. Makine oluşturulması gereken anahtarı için bir ad, bir e-posta adresi, sona erme saati, parola ve yeterince bekle sağlamaları gerekir.
 
-Sudo ile GPG dizini oluşturulmuş olduğundan, sahibi için nxautomation değiştirmeniz gerekir. 
+Sahibi değiştirmem gerekecek GPG dizini sudo ile güvenle `nxautomation`. 
 
 Sahibini değiştirmek için aşağıdaki komutu çalıştırın.
 
@@ -289,7 +289,7 @@ gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
 
 #### <a name="verify-signature-validation-is-on"></a>İmza doğrulaması üzerinde olduğundan emin olun
 
-İmza doğrulaması makinede devre dışı bırakılırsa, açmak gerekir. İmza doğrulamasını etkinleştirmek için aşağıdaki komutu çalıştırın. Değiştirme `<LogAnalyticsworkspaceId>` çalışma kimliği ile
+İmza doğrulaması makinede devre dışı bırakılırsa, açmak gerekir. İmza doğrulamasını etkinleştirmek için aşağıdaki komutu çalıştırın. Değiştirme `<LogAnalyticsworkspaceId>` çalışma alanı kimliğiniz ile
 
 ```bash
 sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
@@ -300,7 +300,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 İmza doğrulaması yapılandırıldıktan sonra bir runbook imzalamak için aşağıdaki komutu kullanabilirsiniz:
 
 ```bash
-gpg –clear-sign <runbook name>
+gpg –-clear-sign <runbook name>
 ```
 
 İmzalı runbook adı olacaktır `<runbook name>.asc`.

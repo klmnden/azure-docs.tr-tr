@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C kullanarak bir Google hesabı ile kaydolma ve oturum açma ayarlama | Microsoft Docs
+title: Azure Active Directory B2C - Google hesabı ile oturum açma ve kaydolma ayarlama | Microsoft Docs
 description: Google hesapları Azure Active Directory B2C kullanarak uygulamalarınızda sahip müşteriler için kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: af8a727bf9733b744b1ed429420cd8fde6e3e6f1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 29b988beff0f25bc0d4abcc1c95a70bccf9ba1cb
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176140"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427437"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Google hesabı ile kaydolma ve oturum açma ayarlama
 
 ## <a name="create-a-google-application"></a>Bir Google uygulaması oluşturun
 
-Bir Google hesabı bir Azure Active Directory (Azure AD) B2C kimlik sağlayıcısı olarak kullanmak için kiracınızda temsil ettiği bir uygulama oluşturmak gerekir. Bir Google hesabı yoksa, adresinden edinebilirsiniz [ https://accounts.google.com/SignUp ](https://accounts.google.com/SignUp).
+Google hesabı olarak kullanılacak bir [kimlik sağlayıcısı](active-directory-b2c-reference-oauth-code.md) Azure Active Directory (Azure AD) B2C'de, temsil ettiği kiracınızda uygulama oluşturmanız gerekir. Bir Google hesabı yoksa, adresinden edinebilirsiniz [ https://accounts.google.com/SignUp ](https://accounts.google.com/SignUp).
 
 1. Oturum [Google geliştiriciler konsol](https://console.developers.google.com/) Google hesabı kimlik bilgilerinizle.
 2. Seçin **proje oluştur**ve ardından **Oluştur**. Projeleri önce oluşturduysanız, proje listesi seçin ve ardından **yeni proje**.

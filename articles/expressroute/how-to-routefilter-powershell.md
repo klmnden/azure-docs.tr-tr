@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 30388185c415346b298dbada715b17e631c66769
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fc2cfcce57ad15d2bbad3242351492e184e7fd33
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096305"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415305"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Microsoft eşlemesi için rota filtreleri yapılandırma: PowerShell
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "53096305"
 
 Rota filtreleri, desteklenen servislerin bir alt kümesini Microsoft eşlemesi aracılığıyla kullanmanın bir yoludur. Bu makaledeki adımları yapılandırmak ve ExpressRoute devreleri için rota filtreleri yönetmenize yardımcı olur.
 
-Dynamics 365 Hizmetleri ve iş ve depolama ve SQL DB gibi Azure kamu hizmetleri için Exchange Online, SharePoint Online ve Skype gibi Office 365 hizmetlerine Microsoft eşlemesi üzerinden erişilebilir. Azure genel Hizmetleri tek başına bölge temelinde seçilebilir ve kamu hizmeti tanımlanamaz. 
+Dynamics 365 Hizmetleri ve iş ve depolama ve SQL DB gibi Azure kamu hizmetleri için Exchange Online, SharePoint Online ve Skype gibi Office 365 hizmetlerine Microsoft eşlemesi üzerinden erişilebilir. Azure genel Hizmetleri tek başına bölge temelinde seçilebilir ve kamu hizmeti tanımlanamaz.
 
 Microsoft eşlemesi bir ExpressRoute bağlantı hattı üzerinde yapılandırılmış ve bir rota filtresinde bağlı olduğunda, bu hizmetler için seçilen tüm ön eklerin oluşturulmuş BGP oturumları bildirilir. Ön ek aracılığıyla sunulan hizmeti tanımlamak için her ön eke BGP topluluk değeri eklenir. BGP topluluk değerlerini ve eşlemek için Hizmetler listesi için bkz: [BGP toplulukları](expressroute-routing.md#bgp).
 
@@ -99,7 +99,7 @@ Kullanmak istediğiniz aboneliği belirtin.
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="prefixes"></a>1. adım: bir ön ek listesini ve BGP topluluk değerlerini alma
+## <a name="prefixes"></a>1. adım: Bir ön ek listesini ve BGP topluluk değerlerini alma
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. BGP topluluk değerlerini bir listesini alın
 
@@ -112,7 +112,7 @@ Get-AzureRmBgpServiceCommunity
 
 Bir rota filtresinde kullanmak istediğiniz BGP topluluk değerlerini listesini hazırlayın. Örneğin, Dynamics 365 Hizmetleri için BGP topluluk değeri 12076:5040 ' dir.
 
-## <a name="filter"></a>2. adım: bir yol filtresi ve bir filtre kuralı oluşturma
+## <a name="filter"></a>2. adım: Rota filtresi ve filtre kuralı oluşturma
 
 Bir rota filtresinde yalnızca bir kuralınız olabilir ve kural 'İzin ver' türünde olmalıdır. Bu kural, kendisiyle ilişkili BGP topluluk değerlerini listesi olabilir.
 
@@ -142,7 +142,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>3. adım: bir ExpressRoute bağlantı hattı için rota filtresi ekleme
+## <a name="attach"></a>3. adım: Bir ExpressRoute bağlantı hattı için rota filtresi ekleme
 
 Rota filtresi, yalnızca Microsoft eşlemesi olduğunu varsayarsak ExpressRoute devresine eklemek için aşağıdaki komutu çalıştırın:
 

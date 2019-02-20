@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbfffa94c76de2c7c4e9f4f2e67c9744e52f22c7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39659df99951850ced07be14f81348ae9c1c1be5
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194198"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428611"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Bir kullanıcı için iki aşamalı doğrulama gerektirme
 
@@ -96,7 +96,7 @@ Modül, ilk olarak kullanarak yükleyin:
 > İlk kez bağlanırken unutmayın **Connect-MsolService**
 
 
-Toplu etkinleştirme kullanıcıları için gerektiğinde PowerShell kullanarak iyi bir seçenektir. Kullanıcıların bir listesi üzerinden döngüye girer ve bunları sağlayan bir PowerShell Betiği oluşturun:
+ Bu örnek PowerShell Betiği, tek bir kullanıcı için mfa'yı sağlar:
 
         Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
@@ -105,7 +105,7 @@ Toplu etkinleştirme kullanıcıları için gerektiğinde PowerShell kullanarak 
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-Aşağıdaki komut bir örnektir:
+PowerShell kullanarak toplu gerektiğinde iyi bir seçenek kullanıcılar gönderilir. Örneğin, aşağıdaki betiği, kullanıcıların bir listesi üzerinden döngüye girer ve mfa'yı kendi hesaplarında sağlar:
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
@@ -117,11 +117,11 @@ Aşağıdaki komut bir örnektir:
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
     
-Bu betik devre dışı bırakılmış MFA için kullanılır:
+Mfa'yı devre dışı bırakmak için bu betiği kullanın:
 
     Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
     
-veya kısaltmak için de olabilir:
+Bu da için kısaltılması:
 
     Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 

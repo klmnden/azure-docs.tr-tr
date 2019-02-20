@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 921dfc12a7353725d3f9e05d7aa3245ec8ba6084
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 43094839c9da9b00c97d1dffd53f98a3acd119d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186016"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417151"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Bir Azure Batch havuzunda işlem düğümleri için VM boyutu seçme
 
@@ -44,14 +44,16 @@ Sanal makine yapılandırmasında batch havuzları destekleyen tüm VM boyutlar�
 | B serisi | Tümü |
 | DC serisi | Tümü |
 | Aşırı bellek için iyileştirilmiş | Tümü |
-| HB serisi<sup>1</sup> | Tümü |
-| HC serisi<sup>1</sup> | Tümü |
+| HB serisi<sup>1,2</sup> | Tümü |
+| HC serisi<sup>1,2</sup> | Tümü |
 | Lsv2 serisi | Tümü |
-| NDv2 serisi<sup>1</sup> | Tümü |
-| NVv2 serisi | Tümü |
+| NDv2 serisi<sup>1,2</sup> | Tümü |
+| NVv2 serisi<sup>1</sup> | Tümü |
 | SAP HANA | Tümü |
 
-<sup>1</sup> tarafından kullanılan kullanıcı aboneliği modunda Batch hesapları; kullanıcı aboneliği modunda Batch hesabı ayarlama çekirdek kotası olması gerekir. Bkz: [kullanıcı aboneliği modu için yapılandırma](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) daha fazla bilgi için.
+
+<sup>1</sup> planlı desteği.  
+<sup>2</sup> tarafından kullanılan kullanıcı aboneliği modunda Batch hesapları; kullanıcı aboneliği modunda Batch hesabı ayarlama çekirdek kotası olması gerekir. Bkz: [kullanıcı aboneliği modu için yapılandırma](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) daha fazla bilgi için.
 
 Aşağıdaki VM boyutları, yalnızca düşük öncelikli düğümleri için desteklenir:
 

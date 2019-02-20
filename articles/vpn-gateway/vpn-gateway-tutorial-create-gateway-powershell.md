@@ -2,33 +2,26 @@
 title: PowerShell kullanarak Azure VPN ağ geçidi oluşturma ve yönetme | Microsoft Docs
 description: Öğretici - Azure PowerShell modülü ile VPN ağ geçidi oluşturma ve yönetme
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
-ms.date: 05/14/2018
+ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 17c8a55c27a276fa1e2e04ebb9f748fa6d59a9dc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: afe71953e9917ccf274742124d59cb790f15521b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55505980"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414142"
 ---
-# <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Azure PowerShell modülü ile VPN ağ geçidi oluşturma ve yönetme
+# <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Öğretici: Oluşturma ve PowerShell kullanarak VPN ağ geçidi yönetme
 
 Azure VPN ağ geçitleri, müşterinin iş yeri ile Azure arasında konumlar arası bağlantı sağlar. Bu öğretici, bir VPN ağ geçidi oluşturma ve yönetme gibi temel Azure VPN ağ geçidi dağıtım öğelerini kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * VPN ağ geçidi oluşturma
+> * Genel IP adresini görüntüleyin
 > * Bir VPN ağ geçidini yeniden boyutlandırma
 > * Bir VPN ağ geçidini sıfırlama
 
@@ -38,13 +31,13 @@ Aşağıdaki diyagramda, bu öğreticinin bir parçası olarak oluşturulan sana
 
 ### <a name="azure-cloud-shell-and-azure-powershell"></a>Azure Cloud Shell ve Azure PowerShell
 
-[!INCLUDE [working with cloudshell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.3 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
+[!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 ## <a name="common-network-parameter-values"></a>Ortak ağ parametre değerleri
 
-Aşağıdaki değerleri ortamınıza ve ağ kurulumunuza göre değiştirin.
+Temel ortam ve ağ kurulumu daha sonra kopyalama ve yapıştırma Bu öğretici için değişkenleri ayarlamak için aşağıdaki değerleri değiştirin. Cloud Shell oturumunuzu zaman aşımına uğraması veya farklı bir PowerShell penceresi kullanmanız gerekir, kopyalama ve yeni oturumunuz değişkenlere yapıştırın ve Öğreticisi ile devam edin.
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"
@@ -64,23 +57,23 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## <a name="create-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutu ile yeni bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Önce bir kaynak grubu oluşturulmalıdır. Aşağıdaki örnekte, *Doğu ABD* bölgesinde *TestRG1* adlı bir kaynak grubu oluşturulur:
+Bir kaynak grubu oluşturun [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Önce bir kaynak grubu oluşturulmalıdır. Aşağıdaki örnekte, *Doğu ABD* bölgesinde *TestRG1* adlı bir kaynak grubu oluşturulur:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
+New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
 ```
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-Azure VPN ağ geçidi, sanal ağınız için konumlar arası bağlantı ve P2S VPN sunucusu işlevselliği sağlar. VPN ağ geçidini mevcut bir sanal ağa ekleyin veya yeni bir sanal ağ ile ağ geçidi oluşturun. Bu örnek, üç alt ağa sahip yeni bir sanal ağ oluşturur: Ön uç ve arka uç GatewaySubnet kullanarak [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) ve [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
+Azure VPN ağ geçidi, sanal ağınız için konumlar arası bağlantı ve P2S VPN sunucusu işlevselliği sağlar. VPN ağ geçidini mevcut bir sanal ağa ekleyin veya yeni bir sanal ağ ile ağ geçidi oluşturun. Bu örnek, üç alt ağa sahip yeni bir sanal ağ oluşturur: Ön uç ve arka uç GatewaySubnet kullanarak [yeni AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) ve [yeni AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
 ```azurepowershell-interactive
-$fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
-$besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
-$gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubnet1 -AddressPrefix $GwPrefix1
-$vnet   = New-AzureRmVirtualNetwork `
+$fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
+$besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
+$gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubnet1 -AddressPrefix $GwPrefix1
+$vnet   = New-AzVirtualNetwork `
             -Name $VNet1 `
             -ResourceGroupName $RG1 `
             -Location $Location1 `
@@ -90,26 +83,26 @@ $vnet   = New-AzureRmVirtualNetwork `
 
 ## <a name="request-a-public-ip-address-for-the-vpn-gateway"></a>VPN ağ geçidi için genel bir IP adresi isteme
 
-Azure VPN ağ geçitleri, İnternet üzerinden şirket içi VPN cihazlarınızla iletişim kurarak IKE (İnternet Anahtar Değişimi) anlaşması gerçekleştirir ve IPSec tünelleri oluşturur. Aşağıdaki örnekte gösterildiği gibi [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) ve [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) komutlarıyla genel bir IP adresi oluşturup VPN ağ geçidinize atayın:
+Azure VPN ağ geçitleri, İnternet üzerinden şirket içi VPN cihazlarınızla iletişim kurarak IKE (İnternet Anahtar Değişimi) anlaşması gerçekleştirir ve IPSec tünelleri oluşturur. Oluşturma ve ile aşağıdaki örnekte gösterildiği gibi VPN ağ geçidinize genel bir IP adresi atama [yeni AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) ve [yeni AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig):
 
 > [!IMPORTANT]
 > Şu anda ağ geçidi için yalnızca Dinamik bir genel IP adresi kullanabilirsiniz. Azure VPN ağ geçitlerinde Statik IP adresi desteklenmez.
 
 ```azurepowershell-interactive
-$gwpip    = New-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroupName $RG1 `
+$gwpip    = New-AzPublicIpAddress -Name $GwIP1 -ResourceGroupName $RG1 `
               -Location $Location1 -AllocationMethod Dynamic
-$subnet   = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' `
+$subnet   = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' `
               -VirtualNetwork $vnet
-$gwipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 `
+$gwipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 `
               -Subnet $subnet -PublicIpAddress $gwpip
 ```
 
-## <a name="create-vpn-gateway"></a>VPN ağ geçidi oluşturma
+## <a name="create-a-vpn-gateway"></a>VPN ağ geçidi oluşturma
 
-VPN ağ geçidinin oluşturulması 45 dakika veya daha uzun sürebilir. Ağ geçidi oluşturma işlemi tamamlandığında sanal ağınız ile başka bir sanal ağ arasında bağlantı oluşturabilirsiniz. Dilerseniz sanal ağınız ile şirket içindeki bir konum arasında da bir bağlantı oluşturabilirsiniz. [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/New-AzureRmVirtualNetworkGateway) cmdlet’ini kullanarak bir VPN ağ geçidi oluşturun.
+VPN ağ geçidinin oluşturulması 45 dakika veya daha uzun sürebilir. Ağ geçidi oluşturma işlemi tamamlandığında sanal ağınız ile başka bir sanal ağ arasında bağlantı oluşturabilirsiniz. Dilerseniz sanal ağınız ile şirket içindeki bir konum arasında da bir bağlantı oluşturabilirsiniz. Kullanarak bir VPN ağ geçidi oluşturma [yeni AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway) cmdlet'i.
 
 ```azurepowershell-interactive
-New-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
+New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
   -Location $Location1 -IpConfigurations $gwipconf -GatewayType Vpn `
   -VpnType RouteBased -GatewaySku VpnGw1
 ```
@@ -119,47 +112,51 @@ Anahtar parametre değerleri:
 * VPN türü: Kullanım **RouteBased** daha geniş bir aralık, VPN cihazları ve daha fazla yönlendirme özellikleri ile etkileşim kurmak için
 * GatewaySku: **VpnGw1** daha yüksek aktarım hızı veya daha fazla bağlantı gerekiyorsa VpnGw2 veya VpnGw3 değiştirmek; varsayılandır. Daha fazla bilgi için bkz. [Ağ geçidi SKU'ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
+TryIt kullanıyorsanız, oturumunuz zaman aşımına uğrayabilir. Tamam. Ağ geçidi hala oluşturacaksınız.
+
 Ağ geçidi oluşturma işlemi tamamlandığında sanal ağınız ile başka bir sanal ağ arasında ya da sanal ağınız ile şirket içi bir konum arasında bağlantı oluşturabilirsiniz. Ayrıca, bir istemci bilgisayardan sanal ağınıza yönelik bir P2S bağlantısı yapılandırabilirsiniz.
 
-## <a name="resize-vpn-gateway"></a>VPN ağ geçidini yeniden boyutlandırma
+## <a name="view-the-gateway-public-ip-address"></a>Ağ geçidi genel IP adresini görüntüleyin
 
-Ağ geçidi oluşturulduktan sonra VPN ağ geçidi SKU’sunu değiştirebilirsiniz. Farklı ağ geçidi SKU’ları aktarım hızı, bağlantı sayısı gibi konularda farklı belirtimleri destekler. Aşağıdaki örnekte ağ geçidinizin VpnGw1 olan boyutunun VpnGw2 olarak ayarlanması için [Resize-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/Resize-AzureRmVirtualNetworkGateway) komutu kullanılır. Daha fazla bilgi için bkz. [Ağ geçidi SKU'ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+Genel IP adresini adını biliyorsanız kullanın [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azurermps-6.8.1) ağ geçidine atanan genel IP adresini göstermek için.
+
+Oturumunuz zaman aşımına uğradı, bu öğreticinin yeni oturumunuza baştan ortak ağ parametrelerini kopyalayın ve devam etmek ve sonra devam.
 
 ```azurepowershell-interactive
-$gateway = Get-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
-Resize-AzureRmVirtualNetworkGateway -GatewaySku VpnGw2 -VirtualNetworkGateway $gateway
+$myGwIp = Get-AzPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1
+$myGwIp.IpAddress
+```
+
+## <a name="resize-a-gateway"></a>Bir ağ geçidini yeniden boyutlandırın
+
+Ağ geçidi oluşturulduktan sonra VPN ağ geçidi SKU’sunu değiştirebilirsiniz. Farklı ağ geçidi SKU’ları aktarım hızı, bağlantı sayısı gibi konularda farklı belirtimleri destekler. Aşağıdaki örnekte [boyutlandırma AzVirtualNetworkGateway](/powershell/module/az.network/Resize-azVirtualNetworkGateway) VpnGw1 geçidinizden VpnGw2 için yeniden boyutlandırabilirsiniz. Daha fazla bilgi için bkz. [Ağ geçidi SKU'ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+
+```azurepowershell-interactive
+$gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
+Resize-AzVirtualNetworkGateway -GatewaySku VpnGw2 -VirtualNetworkGateway $gateway
 ```
 
 Bir VPN ağ geçidinin yeniden boyutlandırılması da yaklaşık 30-45 dakika sürer, ancak bu işlem mevcut bağlantıları ve yapılandırmaları kesintiye **uğratmaz** veya kaldırmaz.
 
-## <a name="reset-vpn-gateway"></a>VPN ağ geçidini sıfırlama
+## <a name="reset-a-gateway"></a>Bir ağ geçidini sıfırlama
 
-Sorun giderme adımlarının bir parçası olarak VPN ağ geçidinizi IPsec/IKE tünel yapılandırmalarını yeniden başlatmaya zorlamak için VPN ağ geçidini sıfırlayabilirsiniz. Ağ geçidinizi sıfırlamak için [Reset-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/Reset-AzureRmVirtualNetworkGateway) komutunu kullanın.
+Sorun giderme adımlarının bir parçası olarak VPN ağ geçidinizi IPsec/IKE tünel yapılandırmalarını yeniden başlatmaya zorlamak için VPN ağ geçidini sıfırlayabilirsiniz. Kullanım [sıfırlama AzVirtualNetworkGateway](/powershell/module/az.network/Reset-azVirtualNetworkGateway) , ağ geçidini sıfırlama.
 
 ```azurepowershell-interactive
-$gateway = Get-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
-Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gateway
+$gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
+Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 ```
 
 Daha fazla bilgi için bkz. [Bir VPN ağ geçidini sıfırlama](vpn-gateway-resetgw-classic.md).
 
-## <a name="get-the-gateway-public-ip-address"></a>Ağ geçidi genel IP adresini alma
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Genel IP adresinin adını biliyorsanız, ağ geçidine atanan genel IP adresini göstermek için [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-6.8.1) komutunu kullanın.
+Varsa, için ilerletme [sonraki öğreticiye](vpn-gateway-tutorial-vpnconnection-powershell.md), önkoşul oldukları için bu kaynakları saklamak isteyeceksiniz.
 
-```azurepowershell-interactive
-$myGwIp = Get-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1
-$myGwIp.IpAddress
-```
-
-## <a name="delete-vpn-gateway"></a>VPN ağ geçidini silme
-
-Konumlar arası ve sanal ağdan sanal ağa bağlantının tam olarak yapılandırılması için VPN ağ geçidine ek olarak birden çok kaynak türü gerekir. Ağ geçidinin kendisini silmeden önce VPN ağ geçidiyle ilişkili bağlantıları silin. Ağ geçidi silindikten sonra ağ geçidinin genel IP adreslerini silebilirsiniz. Adımların ayrıntılı bir açıklaması için bkz. [Bir VPN ağ geçidini silme](vpn-gateway-delete-vnet-gateway-powershell.md).
-
-Ağ geçidi bir prototip ya da kavram kanıtı dağıtımının bir parçasıysa [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanarak kaynak grubunu, VPN ağ geçidini ve tüm ilgili kaynakları kaldırabilirsiniz.
+Ancak, ağ geçidini bir prototip, test veya kavram kanıtı dağıtımı parçasıysa, kullanabileceğiniz [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) VPN ağ geçidi, kaynak grubunu kaldırmak için komutu ve tüm ilgili kaynakları.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $RG1
+Remove-AzResourceGroup -Name $RG1
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -168,6 +165,7 @@ Bu öğreticide, aşağıdakiler gibi temel VPN ağ geçidi oluşturma ve yönet
 
 > [!div class="checklist"]
 > * VPN ağ geçidi oluşturma
+> * Genel IP adresini görüntüleyin
 > * Bir VPN ağ geçidini yeniden boyutlandırma
 > * Bir VPN ağ geçidini sıfırlama
 

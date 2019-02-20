@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 79e031226f11d45121827795c34b0103235d8d79
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9a07a829aac9659ac7ab8d04b64a1ea1a9a2de78
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248172"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428069"
 ---
 # <a name="asdk-administration-basics"></a>ASDK yönetim temel bilgileri 
 Azure Stack geliştirme Seti'ni (ASDK) yönetim için yeni bilmeniz gereken birkaç şey vardır. Bu kılavuz değerlendirme ortamında Azure Stack operatörü olarak sizin rolünüze genel bir bakış sağlar ve test kullanıcılarınızın emin olmak nasıl hızlı şekilde üretken hale gelebilir.
@@ -37,7 +37,7 @@ Azure Stack yönetirken bilmeniz gereken birkaç hesabında dikkate alınacak no
 |-----|-----|-----|
 |Yerel yönetici (. \Administrator)|ASDK konak yönetici|ASDK konak yönetici|
 |AzureStack\AzureStackAdmin|ASDK konak yönetici<br><br>Azure Stack yönetim portalında oturum açmak için kullanılabilir<br><br>Service Fabric halkaları yönetmek ve görüntülemek için erişim|ASDK konak yönetici<br><br>Azure Stack yönetim portalına erişim yok<br><br>Service Fabric halkaları yönetmek ve görüntülemek için erişim<br><br>Artık sahibi varsayılan sağlayıcı aboneliği (DPS)|
-|AzureStack\CloudAdmin|Erişebilir ve ayrıcalıklı uç nokta içinde izin verilen komutları çalıştırın|Erişebilir ve ayrıcalıklı uç nokta içinde izin verilen komutları çalıştırın<br><br>ASDK ana bilgisayara oturum yok<br><br>Varsayılan sağlayıcı aboneliği (yu DPS) sahibi|
+|AzureStack\CloudAdmin|Erişebilir ve ayrıcalıklı uç nokta içinde izin verilen komutları çalıştırın|Erişebilir ve ayrıcalıklı uç nokta içinde izin verilen komutları çalıştırın<br><br>ASDK ana bilgisayara oturum açamıyorum<br><br>Varsayılan sağlayıcı aboneliği (yu DPS) sahibi|
 |Azure AD genel Yöneticisi|Yükleme sırasında kullanılan<br><br>Varsayılan sağlayıcı aboneliği (yu DPS) sahibi|Uygulanamaz|
 |
 

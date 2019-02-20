@@ -1,5 +1,5 @@
 ---
-title: Openıd Connect, Azure Active Directory B2C ile oturum açma Web | Microsoft Docs
+title: Openıd Connect - Azure Active Directory B2C ile oturum açma Web | Microsoft Docs
 description: Azure Active Directory uygulaması Openıd Connect kimlik doğrulama protokolü kullanarak Web uygulamaları oluşturma.
 services: active-directory-b2c
 author: davidmu1
@@ -7,24 +7,25 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c27be7da2aceea8581fd4a5baef96103faa0c1d4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bd7ecf273d4e842909d88eeaa3683203d8d9e841
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107319"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429178"
 ---
-# <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: OpenID Connect ile web oturumu açma
-Openıd Connect, kullanıcıların web uygulamalarına güvenli bir şekilde oturum açmak için kullanılan OAuth 2.0 üzerinde yerleşik bir kimlik doğrulama protokolü olan. Azure Active Directory B2C kullanarak Openıd Connect (Azure AD B2C) uygulaması, devredebilir kaydolma, oturum açma ve web uygulamalarınızı Azure Active Directory (Azure AD) içinde diğer kimlik yönetimi deneyimleri. Bu kılavuz dilden bağımsız bir şekilde bunu nasıl gösterir. Bu, HTTP iletileri gönderip bizim açık kaynak kitaplıkları hiçbirini kullanmadan nasıl açıklar.
+# <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Web oturumu açma Openıd Connect, Azure Active Directory B2C ile
 
-[Openıd Connect](https://openid.net/specs/openid-connect-core-1_0.html) OAuth 2.0 genişletir *yetkilendirme* protokolü olarak kullanılmak üzere bir *kimlik doğrulaması* protokolü. OAuth kullanarak, çoklu oturum açma gerçekleştirmenizi sağlar. Kavramını sunar bir *kimlik belirteci*, kullanıcının kimliğini doğrulamak ve kullanıcının temel profil bilgilerini almak istemci izin veren bir güvenlik belirteci olduğu.
+[Openıd Connect](https://openid.net/specs/openid-connect-core-1_0.html) güvenli bir şekilde web uygulamaları için kullanıcıların oturum açmak için kullanılan OAuth 2.0 üzerinde yerleşik bir kimlik doğrulama protokolüdür. Azure Active Directory B2C kullanarak Openıd Connect (Azure AD B2C) uygulaması, devredebilir kaydolma, oturum açma ve web uygulamalarınızı Azure Active Directory (Azure AD) içinde diğer kimlik yönetimi deneyimleri. Bu kılavuz dilden bağımsız bir şekilde bunu nasıl gösterir. Bu, HTTP iletileri gönderip bizim açık kaynak kitaplıkları hiçbirini kullanmadan nasıl açıklar.
 
-Ayrıca, OAuth 2.0 genişlettiğinden, güvenli bir şekilde almak uygulamalar sağlar *erişim belirteçlerini*. Access_tokens tarafından güvenliği sağlanan kaynaklara erişmek için kullanabileceğiniz bir [yetkilendirme sunucusu](active-directory-b2c-reference-protocols.md#the-basics). Bir sunucuda barındırılan ve tarayıcı aracılığıyla erişilen bir web uygulaması derliyorsanız, Openıd Connect öneririz. Azure AD B2C'yi kullanarak, mobil veya Masaüstü uygulamalarınız için Kimlik Yönetimi eklemek istiyorsanız, kullanması gereken [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) Openıd Connect yerine.
+Openıd Connect, OAuth 2.0 genişletir *yetkilendirme* protokolü olarak kullanılmak üzere bir *kimlik doğrulaması* protokolü. OAuth kullanarak, çoklu oturum açma gerçekleştirmenizi sağlar. Kavramını sunar bir *kimlik belirteci*, kullanıcının kimliğini doğrulamak ve kullanıcının temel profil bilgilerini almak istemci izin veren bir güvenlik belirteci olduğu.
 
-Basit kimlik doğrulaması ve yetkilendirme birden yapmak için standart olan Openıd Connect protokolü, Azure AD B2C'yi genişletir. Tanıttığı [kullanıcı akışı parametre](active-directory-b2c-reference-policies.md), Openıd Connect gibi kullanıcı deneyimlerini--eklemek için kullanmanıza olanak sağlayan kaydolma, oturum açma ve profil yönetimi--uygulamanıza. Burada, Openıd Connect ve kullanıcı akışları her biri bu deneyimler, web uygulamalarınızda uygulamak için nasıl kullanılacağını göstereceğiz. Ayrıca web API'leri erişmek için erişim belirteçlerini almak nasıl göstereceğiz.
+Ayrıca, OAuth 2.0 genişlettiğinden, güvenli bir şekilde almak uygulamalar sağlar *erişim belirteçlerini*. Erişim belirteçleri tarafından güvenliği sağlanan kaynaklara erişmek için kullanabileceğiniz bir [yetkilendirme sunucusu](active-directory-b2c-reference-protocols.md#the-basics). Bir sunucuda barındırılan ve tarayıcı aracılığıyla erişilen bir web uygulaması derliyorsanız, Openıd Connect öneririz. Azure AD B2C'yi kullanarak, mobil veya Masaüstü uygulamalarınız için Kimlik Yönetimi eklemek istiyorsanız, kullanması gereken [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) Openıd Connect yerine.
+
+Basit kimlik doğrulaması ve yetkilendirme birden yapmak için standart olan Openıd Connect protokolü, Azure AD B2C'yi genişletir. Tanıttığı [kullanıcı akışı parametre](active-directory-b2c-reference-policies.md), Openıd Connect gibi kullanıcı deneyimlerini eklemek için kullanmanıza olanak sağlayan kaydolma, oturum açma ve profil yönetimi uygulamanıza. Openıd Connect protokolünü kullanan kimlik sağlayıcılarını içerir [Microsoft hesabı](active-directory-b2c-setup-msa-app.md) ve diğer [Openıd Connect sağlayıcısının](active-directory-b2c-setup-oidc-idp.md).
 
 Bizim örnek B2C dizini, fabrikamb2c.onmicrosoft.com yanı sıra örnek uygulamamız örnek HTTP istekleri sonraki bölümde kullanmak https://aadb2cplayground.azurewebsites.netve kullanıcı akışları. İstekleri bu değerleri kullanarak kendiniz denemek ücretsiz veya bunları kendi değerlerinizle değiştirebilirsiniz.
 Bilgi edinmek için nasıl [kendi B2C Kiracı, uygulama ve kullanıcı Akışları Al](#use-your-own-b2c-tenant).

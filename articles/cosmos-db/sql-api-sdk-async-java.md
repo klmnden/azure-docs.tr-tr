@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979182"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416284"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -45,13 +45,12 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 ## <a name="release-notes"></a>Sürüm notları
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* Direct GA.
+* Doğrudan modu bağlantı Available(GA) genel kullanıma sunulmuştur. Doğrudan modu bağlantısı kullanan bir örnek için bkz. [azure cosmosdb java](https://github.com/Azure/azure-cosmosdb-java) GitHub deposu.
 * QueryMetrics desteği eklendi.
-* Java.util.Collection sipariş java.util.List yerine kabul etmek önemli kabul API'leri değiştirildi.
-  Artık ConnectionPolicy#getPreferredLocations() JsonSerialization ve PartitionKey(.) listesini kabul eder.
+* Java.util.Collection sipariş java.util.List yerine kabul etmek önemli kabul API'leri değiştirildi. Artık ConnectionPolicy#getPreferredLocations() JsonSerialization ve PartitionKey(.) listesini kabul eder.
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-Beta-1
-* Doğrudan desteği eklendi.
+* Doğrudan modu bağlantısı için destek eklendi.
 * Java.util.Collection sipariş java.util.List yerine kabul etmek önemli kabul API'leri değiştirildi.
   Artık ConnectionPolicy#getPreferredLocations() JsonSerialization ve PartitionKey(.) listesini kabul eder.
 * Ağ geçidi modunda belge sorgu için oturumu düzeltildi.

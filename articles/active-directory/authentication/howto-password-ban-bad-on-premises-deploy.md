@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4a4b760652ce38e27e12e9eb73fbe7692eddbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8d39b614c373c63cf1405c5db0f64581c481d1f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204381"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417219"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Önizleme: Azure AD parola koruması dağıtma
 
@@ -53,15 +53,18 @@ Bu tercihen Windows Update aracılığıyla makine tam olarak düzeltme eki uygu
     |`https://login.microsoftonline.com`|Kimlik doğrulama istekleri|
     |`https://enterpriseregistration.windows.net`|Azure AD parola koruması işlevi|
 
+* Azure AD parola koruması Proxy hizmetini barındıran tüm makinelerde giden TLS 1.2 HTTP trafiğine izin verecek şekilde yapılandırılması gerekir.
 * Azure AD parola koruması Proxy Hizmeti ve orman Azure AD'ye kaydetmeniz için bir genel yönetici hesabı.
 * Azure AD ile Windows Server Active Directory orman kaydetmek için orman kök etki alanındaki Active Directory etki alanı yönetici ayrıcalıklarına sahip bir hesap.
 * DC çalıştıran herhangi bir Active Directory etki alanı Aracı hizmeti yazılımı DFSR sysvol çoğaltma için kullanmanız gerekir.
 
 ## <a name="single-forest-deployment"></a>Tek ormanlı dağıtımı
 
-Aşağıdaki diyagramda, Azure AD parola koruması temel bileşenleri şirket içi Active Directory ortamında birlikte nasıl çalıştığı gösterilmektedir.  
+Aşağıdaki diyagramda, Azure AD parola koruması temel bileşenleri şirket içi Active Directory ortamında birlikte nasıl çalıştığı gösterilmektedir.
 
 ![Azure AD parola koruması bileşenleri birlikte nasıl çalışır](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+
+Dağıtımdan önce yazılımın nasıl çalıştığını gözden iyi bir fikirdir; Lütfen [Azure AD parola koruması kavramsal genel bakış](concept-password-ban-bad-on-premises.md).
 
 ### <a name="download-the-software"></a>Yazılımı indirin
 

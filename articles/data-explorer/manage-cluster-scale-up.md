@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9d265ec7f0ce2030874f38b99b07343f1d4a3f4d
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: bc3f97c798f5e040908e8103c00d3f015f8c824d
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408655"
+ms.locfileid: "56415343"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Küme ölçeklendirme-yukarı değişen talepleri karşılamak için yönetme
 
@@ -30,10 +30,7 @@ Bir küme uygun şekilde boyutlandırma Azure Veri Gezgini performansı için kr
 1. SKU'nuz değiştirmek için tuşuna basın ve istediğiniz SKU'yu seçin **seçin** düğmesi.
 
 > [!NOTE]
-> Ölçeği artırma işlemi birkaç dakika sürebilir. Bu süre boyunca, kümenizi askıya alınır.
->
-> Ölçeği, küme performansınızı zarar verebilir.
->
+> Ölçeği artırma işlemi birkaç dakika sürebilir ve bu sırada, kümenizin askıya alınacaktır. Ölçeği küme performansınızı zarar verebilir unutmayın.
 
 Bir ölçek artırma veya azaltma işlemi, Azure Veri Gezgini kümeniz şimdi gerçekleştirdiğiniz. Bunu da yapabilirsiniz [küme ölçeklendirme](manage-cluster-scale-out.md), belirttiğiniz olan ölçümler temelinde dinamik olarak ölçeklendirmek için otomatik ölçeklendirme, olarak da bilinir.
 

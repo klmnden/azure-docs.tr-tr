@@ -4,14 +4,14 @@ description: Azure geçişi hizmetinde değerlendirme hesaplamaları genel bir b
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: ab4af59b71dada84fd99df0299aeccfd5662d474
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 62683aaf7dda048b5828e9494ba8cafe6c8b8f9f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849182"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417948"
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
@@ -58,7 +58,7 @@ Windows Server 2012 R2 & tüm Sp'ler | Azure, tam destek sağlar. | Azure için 
 Windows Server 2012 & tüm Sp'ler | Azure, tam destek sağlar. | Azure için hazır
 Windows Server 2008 R2 ile tüm Sp'ler | Azure, tam destek sağlar.| Azure için hazır
 Windows Server 2008 (32-bit ve 64-bit) | Azure, tam destek sağlar. | Azure için hazır
-Windows Server 2003, Server 2003 R2 | Bu işletim sistemlerinin kendi destek tarihi ve gereksinim sonuna başarılı bir [özel destek anlaşması (CSA)](https://aka.ms/WSosstatement) Azure desteği için. | Koşullu olarak Azure için hazır, Azure'a geçiş yapmadan önce işletim sistemini yükseltmeyi düşünün.
+Windows Server 2003, 2003 R2 | Bu işletim sistemlerinin kendi destek tarihi ve gereksinim sonuna başarılı bir [özel destek anlaşması (CSA)](https://aka.ms/WSosstatement) Azure desteği için. | Koşullu olarak Azure için hazır, Azure'a geçiş yapmadan önce işletim sistemini yükseltmeyi düşünün.
 Windows 2000, 98, 95 ' NT 3.1, MS-DOS | Bu işletim sistemlerinin kendi destek sonu tarihi geçtiğinde, makine Azure'da önyüklenebilir ancak Azure tarafından işletim sistemi desteği sağlanmaz. | Azure için koşullu olarak hazır, Azure'a geçiş yapmadan önce işletim sistemi yükseltmesi önerilir.
 Windows istemci 7, 8 ve 10 | Azure desteği ile sağlar [yalnızca Visual Studio aboneliği.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Azure için koşullu olarak hazır
 Windows 10 Pro Masaüstü | Azure desteği ile sağlar [çok Kiracılı barındırma hakları.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Azure için koşullu olarak hazır
@@ -78,7 +78,7 @@ VM boyutu için performans geçmişini göz önünde bulundurun ve VM olarak alm
 
 Performansa dayalı boyutlandırma için Azure geçişi başlatır VM'ye bağlı diskleri olan ağ bağdaştırıcıları tarafından izlenen ve şirket içi VM hesaplama gereksinimlerine göre'da bir Azure VM eşlemeleri temel.
 
-- **Depolama**: azure'da bir diski makineye bağlı her disk eşlemek Azure geçişi çalışır.
+- **Depolama**: Azure geçişi, azure'da bir diski makineye bağlı her disk eşlemek çalışır.
 
     > [!NOTE]
     > Yalnızca yönetilen diskleri değerlendirmesi için Azure geçişi destekler.
@@ -89,12 +89,12 @@ Performansa dayalı boyutlandırma için Azure geçişi başlatır VM'ye bağlı
     - Birden fazla uygun disk varsa, düşük maliyetli bir seçer.
     - Performans verileri için diskler, tüm diskleri azure'da standart diskler için kullanılamaz, eşlenir.
 
-- **Ağ**: şirket içi makineye bağlı ağ bağdaştırıcıları ve bu ağ bağdaştırıcıları tarafından gerekli performansı sayısını destekleyen bir Azure VM bulmak Azure geçişi çalışır.
+- **Ağ**: Azure geçişi, şirket içi makineye bağlı ağ bağdaştırıcıları ve bu ağ bağdaştırıcıları tarafından gerekli performansı sayısını destekleyen bir Azure VM bulmayı dener.
     - Şirket içi sanal makinenin en etkili ağ performansı elde etmek Azure geçişi, tüm ağ bağdaştırıcıları (ağ) kullanıma makine dışında (MBps) saniye başına aktarılan verileri toplar ve konfor katsayısı uygular. Bu sayı, gerekli ağ performansı destekleyen bir Azure VM bulmak için kullanılır.
     - Ağ performansı ile birlikte, ayrıca Azure VM gerekli destekleyip desteklemediğini dikkate ağ bağdaştırıcılarının sayısı.
     - Ağ performansı verileri kullanılabilir ise, yalnızca ağ bağdaştırıcıları sayısı için VM boyutu olarak kabul edilir.
 
-- **İşlem**: depolama ve ağ gereksinimleri hesaplandıktan sonra Azure geçişi Azure'da uygun bir VM boyutu bulmak için CPU ve bellek gereksinimleri değerlendirir.
+- **İşlem**: Depolama ve ağ gereksinimleri hesaplandıktan sonra Azure geçişi, Azure'da uygun bir VM boyutu bulmak için CPU ve bellek gereksinimleri dikkate alır.
     - Azure geçişi, kullanılan çekirdek ve bellek arar ve konfor katsayısı etkili çekirdek ve bellek almak için geçerlidir. Bu sayıya göre Azure'da uygun bir VM boyutu bulmak çalışır.
     - Uygun boyut bulunursa, makine uygunsuz Azure için işaretlenir.
     - Azure geçişi, uygun bir boyut bulunursa, depolama ve ağ hesaplamalar geçerlidir. Ardından, konum ve fiyatlandırma katmanı ayarları, son sanal makine boyutu önerisi için de geçerlidir.
@@ -131,8 +131,8 @@ Performansa dayalı boyutlandırma için Azure Geçişi, CPU ile VM'nin belleği
 
 Boyutlandırma önerileri tamamlandıktan sonra Azure geçişi, geçiş sonrası işlem ve depolama maliyetlerini hesaplar.
 
-- **İşlem maliyetine**: önerilen Azure VM boyutu kullanarak, Azure geçişi faturalandırma API'si bir VM için aylık maliyeti hesaplamak için kullanır. Hesaplama, işletim sistemi, Yazılım Güvencesi, ayrılmış örnekler, VM çalışma süresi, konum ve para birimi ayarlarını dikkate alır. Toplam aylık işlem maliyeti hesaplamak için tüm makineler arasında maliyeti araya getirir.
-- **Depolama maliyeti**: aylık depolama maliyeti bir makineyi tüm diskler aylık maliyeti toplayarak hesaplanır makinesinde kullanıma açıldı. Azure geçişi, aylık toplam depolama maliyetlerini tüm makinelerin depolama maliyetlerini toplayarak hesaplar. Şu anda, hesaplama değerlendirme ayarlarını göz önüne belirtilen teklifler almaz.
+- **İşlem maliyetine**: Önerilen Azure VM boyutu kullanarak, Azure geçişi faturalandırma API'si bir VM için aylık maliyeti hesaplamak için kullanır. Hesaplama, işletim sistemi, Yazılım Güvencesi, ayrılmış örnekler, VM çalışma süresi, konum ve para birimi ayarlarını dikkate alır. Toplam aylık işlem maliyeti hesaplamak için tüm makineler arasında maliyeti araya getirir.
+- **Depolama maliyeti**: Aylık depolama maliyeti bir makine için aylık maliyet makineye bağlı tüm disklerin toplayarak hesaplanır. Azure geçişi, aylık toplam depolama maliyetlerini tüm makinelerin depolama maliyetlerini toplayarak hesaplar. Şu anda, hesaplama değerlendirme ayarlarını göz önüne belirtilen teklifler almaz.
 
 Maliyetleri değerlendirme ayarlarında belirtilen para birimi görüntülenir.
 

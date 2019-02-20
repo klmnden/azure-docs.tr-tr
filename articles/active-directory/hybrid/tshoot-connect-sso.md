@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9eebd695cbbc1e29ea7d2647b5955bcc2e3cfe4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6a86ce8c061450fd66b31a81ec00e51f98a39646
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175923"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415655"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma sorunlarını giderme
 
@@ -82,8 +82,8 @@ Sorunsuz çoklu oturum açma sorunlarını gidermek için aşağıdaki denetim l
 - Kullanıcı hesabının sorunsuz çoklu oturum açma yeri olan bir Active Directory ormanından kurulduğundan emin olun.
 - Cihazın şirket ağına bağlı olduğundan emin olun.
 - Cihazın saat saat Active Directory hem de etki alanı denetleyicileri ile eşitlenir ve beş dakika içinde birbiriyle olduklarından emin olun.
-- Emin `AZUREADSSOACCT` bilgisayar hesabı, sorunsuz SSO etkin istediğiniz her AD ormanında mevcut ve etkin. Bilgisayar hesabı silindi veya eksik, kullanabileceğiniz [PowerShell cmdlet'leri](#manual-reset-of-the-feature) yeniden oluşturulacak.
-- Cihazda mevcut Kerberos anahtarları listelemeniz `klist` bir komut isteminden komutu. Emin olmak için verilen anahtarların `AZUREADSSOACCT` bilgisayar hesabı. Kullanıcıların Kerberos biletleri için 10 saat genellikle geçerlidir. Active Directory'de farklı ayarlara sahip olabilir.
+- Emin `AZUREADSSOACC` bilgisayar hesabı, sorunsuz SSO etkin istediğiniz her AD ormanında mevcut ve etkin. Bilgisayar hesabı silindi veya eksik, kullanabileceğiniz [PowerShell cmdlet'leri](#manual-reset-of-the-feature) yeniden oluşturulacak.
+- Cihazda mevcut Kerberos anahtarları listelemeniz `klist` bir komut isteminden komutu. Emin olmak için verilen anahtarların `AZUREADSSOACC` bilgisayar hesabı. Kullanıcıların Kerberos biletleri için 10 saat genellikle geçerlidir. Active Directory'de farklı ayarlara sahip olabilir.
 - Devre dışı ve sorunsuz çoklu oturum açma, kiracınızda yeniden etkinleştirildi, önbelleğe alınan, Kerberos biletleri süresi dolmuş kadar kullanıcılar çoklu oturum açma deneyimini alamayacaksınız.
 - Kullanarak mevcut Kerberos biletleri CİHAZDAN Temizleme `klist purge` komutunu ve yeniden deneyin.
 - JavaScript ile ilgili sorunlar olup olmadığını belirlemek için tarayıcının yönlendirilen konsol günlüklerini gözden geçirin (altında **Geliştirici Araçları**).
@@ -123,7 +123,7 @@ Sorun giderme yaramazsa, kiracınızda özelliğini el ile de sıfırlayabilirsi
     >[!NOTE]
     >Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
 
-2. Çağrı `Disable-AzureADSSOForest -OnPremCredentials $creds`. Bu komut kaldırır `AZUREADSSOACCT` bu belirli Active Directory ormanı için şirket içi etki alanı denetleyicisi bilgisayar hesabı.
+2. Çağrı `Disable-AzureADSSOForest -OnPremCredentials $creds`. Bu komut kaldırır `AZUREADSSOACC` bu belirli Active Directory ormanı için şirket içi etki alanı denetleyicisi bilgisayar hesabı.
 3. Özelliği burada ayarladığınız her bir Active Directory ormanı için önceki adımları yineleyin.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>4. Adım: Her Active Directory ormanı için sorunsuz SSO etkinleştirme

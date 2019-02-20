@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 63d22aaa402c77b55591a15745b258cdd6f0ef0a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bfbafea13f49ada59dae88e0336f926a8ad89d36
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244360"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430259"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack’e uygulama dağıtma
 
@@ -281,7 +281,7 @@ Mevcut uç nokta bilgileri, Azure Stack bağlantı Azure DevOps Hizmetleri'nin k
 
 Aşağıdaki eşlemeyi kullanarak bir hizmet bağlantı oluşturabilirsiniz:
 
-| Name | Örnek | Açıklama |
+| Ad | Örnek | Açıklama |
 | --- | --- | --- |
 | Bağlantı adı | Azure Stack Azure AD | Bağlantının adı. |
 | Ortam | AzureStack | Ortamınızın adını. |
@@ -306,7 +306,7 @@ Azure DevOps en son güncelleştirmesi, bir hizmet sorumlusu kimlik doğrulamas�
 
 Aşağıdaki eşlemeyi kullanarak bir hizmet bağlantı oluşturabilirsiniz:
 
-| Name | Örnek | Açıklama |
+| Ad | Örnek | Açıklama |
 | --- | --- | --- |
 | Bağlantı adı | Azure Stack ADFS | Bağlantının adı. |
 | Ortam | AzureStack | Ortamınızın adını. |

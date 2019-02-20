@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: f724bba5acdda20d31d067b850634178a0650cf7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2f9b477e076b038a6a695952ee3f770b30ad179b
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859755"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429477"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Bilişsel hizmetler isteklerine kimlik doğrulaması
 
@@ -58,7 +58,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-Aşağıdaki videoda, Bilişsel hizmetler anahtarı kullanmayı gösterir. 
+Aşağıdaki videoda, Bilişsel hizmetler anahtarı kullanmayı gösterir.
 
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Bir hizmet birden çok abonelik anahtarı ile kimlik doğrulaması
 
@@ -127,16 +127,15 @@ Kimlik doğrulama belirteçlerinizi istek olarak dahil edilecek `Authorization` 
 
 ### <a name="sample-requests"></a>Örnek istekler
 
-Bir kimlik doğrulama belirteci için bir tek hizmet aboneliği anahtar değişimi için bu URL'yi kullanın: `https://api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+Bir abonelik anahtarı için bir kimlik doğrulama belirteci exchange için bu URL'yi kullanın: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 ```cURL
 curl -v -X POST \
-"https://api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
 -H "Content-type: application/x-www-form-urlencoded" \
+-H "Content-length: 0" \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
-
-Bir hizmet birden çok abonelik anahtarı kullanılırken, belirteç değişimi için bölge ile belirli bir uç nokta kullanmanız gerekir. Bir kimlik doğrulama belirteci için bir hizmet birden çok abonelik anahtar değişimi için bu URL'yi kullanın: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 Bu çok hizmet bölgeleri belirteç değişimi destekler:
 
@@ -147,13 +146,6 @@ Bu çok hizmet bölgeleri belirteç değişimi destekler:
 | `japaneast` | `northeurope` | `southcentralus` |
 | `southeastasia` | `uksouth` | `westcentralus` |
 | `westeurope` | `westus` | `westus2` |
-
-```cURL
-curl -v -X POST \
-"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
--H "Content-type: application/x-www-form-urlencoded" \
--H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
-```
 
 Bir kimlik doğrulama belirteci aldıktan sonra her isteği geçmesi gerekir `Authorization` başlığı. Bu örnek Translator Text API çağrısı.
 

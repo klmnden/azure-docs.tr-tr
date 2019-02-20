@@ -5,15 +5,15 @@ author: yossi-y
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 36be305e60806ba2cdea260fc46bc329c43284cb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c50c1a111f037b74176b5ca2cf8af518b2d3ffa0
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429795"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429392"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Azure İzleyici'de günlük uyarı sorguları
 [Uyarı kuralları Azure İzleyici günlüklerine göre](alerts-unified-log.md) düzenli aralıklarla çalıştırın, böylece emin olmanız gerekir, ek yükü ve gecikme süresini en aza indirmek için yazılır. Bu makalede, günlük uyarıları için etkili sorgular ve var olan sorguları dönüştürmek için bir işlem yazmaya öneriler sağlar. 
@@ -55,7 +55,9 @@ app('Contoso-app1').requests,
 app('Contoso-app2').requests, 
 workspace('Contoso-workspace1').Perf 
 ```
- 
+
+>[!NOTE]
+>[Kaynaklar arası sorgu](../log-query/cross-workspace-query.md) günlüğünde uyarı desteklenen yeni [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Varsayılan olarak, Azure İzleyici kullanır [eski Log Analytics uyarı API](api-alerts.md) gelen geçiş yapmadığınız sürece, yeni günlük uyarı kuralları Azure portalından oluşturmak için [eski günlük uyarıları API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Anahtardan sonra yeni API, Azure portalında yeni uyarı kuralları için varsayılan olur ve kaynaklar arası sorgu günlük uyarı kuralları oluşturmanıza olanak tanır. Oluşturabileceğiniz [kaynaklar arası sorgu](../log-query/cross-workspace-query.md) günlük uyarısı kuralları kullanarak geçiş yapmaya gerek olmadan [scheduledQueryRules API için ARM şablonu](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – ancak yine de bu uyarı kuralı yönetilebilir [ API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) ve Azure Portal'da değil.
 
 ## <a name="examples"></a>Örnekler
 Örnek olarak şunlar gösterilebilir kullanan günlük sorguları `search` ve `union` ve uyarı kuralları ile kullanmak için bu sorguları değiştirmek için kullanabileceğiniz adımlar sağlar.

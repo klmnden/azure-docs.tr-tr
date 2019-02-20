@@ -1,5 +1,5 @@
 ---
-title: Azure SQL veritabanını BACPAC dosyasına dışarı aktarma | Microsoft Docs
+title: Tek bir dışarı aktarma veya bir Azure SQL veritabanını BACPAC dosyasına havuza | Microsoft Docs
 description: Azure SQL veritabanını Azure portalını kullanarak BACPAC dosyasına dışarı aktarma
 services: sql-database
 ms.service: sql-database
@@ -11,22 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 050da5e71fd804055d0a2ece1150b79b3922170f
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/18/2019
+ms.openlocfilehash: 757d7e039b24beb170545d8055bad16410cf7883
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100593"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415893"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL veritabanını BACPAC dosyasına dışarı aktarma
 
 Arşivleme veya başka bir platformuna geçmek için bir veritabanı dışarı aktarmak, ihtiyacınız olduğunda, veritabanı şemasını ve verilerini dışa aktarabilirsiniz bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosya. Bir BACPAC dosyasına BACPAC SQL Server veritabanındaki verileri ve meta verileri içeren bir uzantıya sahip bir ZIP dosyasıdır. BACPAC dosyasını Azure Blob Depolama alanında veya bir şirket içi konuma yerel depolama alanında depolanabilir ve daha sonra içeri aktarılan arka Azure SQL veritabanı veya SQL Server şirket yükleme.
-
-> [!IMPORTANT]
-> Azure SQL veritabanı otomatik dışa aktarma, 1 Mart 2017'de devre dışı bırakılan. Kullanabileceğiniz [uzun süreli yedek saklama](sql-database-long-term-retention.md
-) veya [Azure Otomasyonu](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) düzenli aralıklarla SQL arşivlemek için veritabanları PowerShell kullanarak tercih ettiğiniz bir zamanlamaya göre. Bir örnek için indirme [PowerShell betik örneği](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) github'dan.
->
 
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>Azure SQL veritabanını dışarı aktarma durumlarda dikkat edilmesi gerekenler
 
@@ -34,23 +29,32 @@ Arşivleme veya başka bir platformuna geçmek için bir veritabanı dışarı a
 - Blob depolama alanına dışa aktarıyorsanız, bir BACPAC dosyasının en büyük boyutu 200 GB'dir. Daha büyük bir BACPAC dosyasına arşivleme için yerel depolama birimine dışarı aktarın.
 - Bu makalede bahsedilen yöntemler kullanarak Azure premium depolama için bir BACPAC dosyasına dışarı aktarma desteklenmiyor.
 - Azure SQL veritabanı'ndan dışarı aktarma işlemi 20 saat aşarsa, iptal edilebilir. Dışarı aktarma sırasında performansı artırmak için şunları yapabilirsiniz:
+
   - Geçici olarak, işlem boyutunu artırın.
   - Tüm okuma ve dışarı aktarma sırasında etkinlik yazma kesildi.
   - Kullanım bir [kümelenmiş dizin](https://msdn.microsoft.com/library/ms190457.aspx) boş olmayan değerlerinin tüm büyük tablolarda ile. 6-12 saatten uzun sürerse Kümelenmiş dizinler bir dışarı aktarım başarısız olabilir. Dışarı aktarma hizmeti tüm tabloyu dışarı aktarmak için bir tablo taraması tamamlaması gereken olmasıdır. Tablolarınızı dışarı aktarma çalıştırmak için iyileştirilmiş, belirlemek için en iyi yolu **DBCC SHOW_STATISTICS** emin olun *RANGE_HI_KEY* null değil ve iyi dağıtım değerine sahiptir. Ayrıntılar için bkz [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
 
 > [!NOTE]
-> İşlemlerinde bacpac dosyaları için yedekleme ve geri yükleme işlemleri amaçlanmamıştır. Azure SQL veritabanı, her bir kullanıcı veritabanı için Yedekleme otomatik olarak oluşturur. Ayrıntılar için bkz [iş Sürekliliğine genel bakış](sql-database-business-continuity.md) ve [SQL veritabanı yedeklemelerini](sql-database-automated-backups.md).
+> İşlemlerinde bacpac dosyaları için yedekleme ve geri yükleme işlemleri amaçlanmamıştır. Azure SQL veritabanı, her bir kullanıcı veritabanı için Yedekleme otomatik olarak oluşturur. Ayrıntılar için bkz [iş sürekliliğine genel bakış](sql-database-business-continuity.md) ve [SQL veritabanı yedeklemelerini](sql-database-automated-backups.md).
 
 ## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>Azure portalını kullanarak BACPAC dosyasına dışarı aktarma
 
-Veritabanını kullanarak dışarı aktarmak için [Azure portalında](https://portal.azure.com), veritabanınız için sayfayı açın ve tıklayın **dışarı** araç. BACPAC dosya adını belirtin, dışa aktarma için Azure depolama hesabı ve kapsayıcı sağlayabilir ve kaynak veritabanına bağlanmak için kimlik bilgilerini belirtin.
+> [!NOTE]
+> [Yönetilen örnek](sql-database-managed-instance.md) bir veritabanını Azure portalını kullanarak BACPAC dosyasına dışarı aktarma şu anda desteklemiyor. Yönetilen örnek bir BACPAC dosyasına dışarı aktarmak için SQL Server Management Studio veya SQLPackage kullanın.
 
-![Veritabanı dışarı aktarma](./media/sql-database-export/database-export.png)
+1. Veritabanını kullanarak dışarı aktarmak için [Azure portalında](https://portal.azure.com), veritabanınız için sayfayı açın ve tıklayın **dışarı** araç.
 
-Dışarı aktarma işleminin ilerleme durumunu izlemek için dışarı aktarılan veritabanını içeren SQL veritabanı sunucusu için sayfayı açın. Ekranı aşağı kaydırarak **işlemleri** ve ardından **içeri/dışarı aktarma** geçmişi.
+   ![Veritabanı dışarı aktarma](./media/sql-database-export/database-export1.png)
 
-![dışarı aktarma geçmişi](./media/sql-database-export/export-history.png)
-![geçmişi durumunu Dışarı Aktar](./media/sql-database-export/export-history2.png)
+2. BACPAC dosya adını belirtin, bir var olan Azure depolama hesabı ve kapsayıcı dışa aktarmak için seçin ve ardından kaynak veritabanı erişimi için uygun kimlik bilgilerini sağlayın.
+
+    ![Veritabanı dışarı aktarma](./media/sql-database-export/database-export2.png)
+
+3. **Tamam** düğmesine tıklayın.
+
+4. Dışarı aktarma işleminin ilerleme durumunu izlemek için dışarı aktarılan veritabanını içeren SQL veritabanı sunucusu için sayfayı açın. Altında için **ayarları** ve ardından **içeri/dışarı aktarma geçmişi**.
+
+   ![dışarı aktarma geçmişi](./media/sql-database-export/export-history.png)
 
 ## <a name="export-to-a-bacpac-file-using-the-sqlpackage-utility"></a>SQLPackage yardımcı programını kullanarak BACPAC dosyasına dışarı aktarma
 
@@ -66,9 +70,12 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.d
 
 ## <a name="export-to-a-bacpac-file-using-sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS) kullanarak bir BACPAC dosyasına aktarma
 
-SQL Server Management Studio en yeni sürümleri, Azure SQL veritabanını BACPAC dosyasına dışarı aktarmak için sihirbaz da sağlar. Bkz: [veri katmanı uygulaması dışarı aktarma](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
+SQL Server Management Studio en yeni sürümleri, Azure SQL veritabanını BACPAC dosyasına dışarı aktarmak için bir sihirbaz sağlar. Bkz: [veri katmanı uygulaması dışarı aktarma](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 
 ## <a name="export-to-a-bacpac-file-using-powershell"></a>PowerShell kullanarak BACPAC dosyasına dışarı aktarma
+
+> [!NOTE]
+> [Yönetilen örnek](sql-database-managed-instance.md) bir veritabanı, Azure PowerShell kullanarak BACPAC dosyasına dışarı aktarma şu anda desteklemiyor. Yönetilen örnek bir BACPAC dosyasına dışarı aktarmak için SQL Server Management Studio veya SQLPackage kullanın.
 
 Kullanım [yeni AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet'i bir Azure SQL veritabanı hizmet verme veritabanı isteğini göndermek için. Veritabanınızın boyutuna bağlı olarak, dışarı aktarma işleminin tamamlanması biraz zaman alabilir.
 
@@ -95,7 +102,7 @@ $exportStatus
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Arşiv amacıyla bir veritabanını alternatif dışarı gibi bir Azure SQL veritabanı yedeklemesini, uzun süreli yedek saklama hakkında bilgi edinmek için [uzun süreli yedek saklama](sql-database-long-term-retention.md).
+- Tek uzun süreli yedek saklama hakkında bilgi edinmek için alternatif bir veritabanını arşivleme amacıyla dışarı veritabanları ve havuza alınmış veritabanları görmeniz [uzun süreli yedek saklama](sql-database-long-term-retention.md). SQL Aracısı işleri zamanlamak için kullanabileceğiniz [yalnızca kopya yedekleri](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) uzun süreli yedek saklama alternatif olarak.
 - BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 - Bir SQL Server veritabanına BACPAC aktarma hakkında bilgi edinmek için [bir SQL Server veritabanına BACPAC aktarma](https://msdn.microsoft.com/library/hh710052.aspx).
 - SQL Server veritabanındaki verileri bir BACPAC aktarma hakkında bilgi edinmek için [veri katmanı uygulaması dışarı aktarma](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)

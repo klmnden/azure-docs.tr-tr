@@ -16,12 +16,12 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4714a4ee5f90194a3be47b1e5878dfa8e230f42b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4d239d372a514b24a4e022f62ceec2dfee94d187
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173496"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430412"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS'yi Azure AD Connect Health'i kullanarak izleme
 Aşağıdaki belgeler, AD FS altyapınızın Azure AD Connect Health ile izlenmesine ilişkin belgelerdir. Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](how-to-connect-health-sync.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](how-to-connect-health-adds.md).
@@ -199,7 +199,7 @@ Uyarı eşiği, Eşik Ayarları üzerinden güncelleştirilebilir. Başlangıç 
 Yük dengeleyici IP adreslerini görüyorsanız, dış yük dengeleyicinizin Web Uygulaması Ara sunucusuna isteği geçirdiğinde istemci IP adresini göndermeme olasılığı yüksektir. Lütfen, iletme istemci IP adresini geçirmek için yük dengeleyicinizi doğru şekilde yapılandırın. 
 
 3. IP adresini engellemek için ne yapmalıyım?  <br />
-Tanımlanmış kötü amaçlı IP adreslerini güvenlik duvarına eklemeniz veya Exchange’de engellemeniz gerekir.   <br />
+Tanımlanmış kötü amaçlı IP adreslerini güvenlik duvarına eklemeniz veya Exchange’de engellemeniz gerekir. AD FS 2016 için IP adresini doğrudan yasaklı IP özellikleri engelleyebilirsiniz. [Daha fazla bilgi edinin](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection#banned-ip-addresses)   <br />
 
 4. Neden bu raporda hiçbir öğe görmüyorum? <br />
    - Başarısız oturum açma etkinlikleri eşik ayarlarını aşmıyor. 

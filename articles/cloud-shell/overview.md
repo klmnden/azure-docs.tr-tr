@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4195016bb029d2cf8f5042a853fa591609bd486e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447216"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428542"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud shell'e genel bakış
 Azure Cloud Shell'i Azure kaynaklarını yönetmek için etkileşimli ve tarayıcı erişilebilir bir kabuktur.
@@ -53,7 +53,7 @@ Cloud Shell'i Microsoft tarafından yönetiliyorsa, popüler komut satırı ara�
 Tamamını görüntülemek [Cloud Shell'de yüklü Araçlar listesi.](features.md#tools)
 
 ### <a name="integrated-cloud-shell-editor"></a>Tümleşik Cloud Shell Düzenleyicisi
-Cloud Shell'i üzerinde açık kaynak Monaco düzenleyicisine alan bir Tümleşik Grafik metin düzenleyici sunar. Yalnızca oluşturup çalıştırarak yapılandırma dosyalarını düzenleyebilirsiniz `code .` için Azure CLI 2.0 veya Azure PowerShell ile sorunsuz dağıtım.
+Cloud Shell'i üzerinde açık kaynak Monaco düzenleyicisine alan bir Tümleşik Grafik metin düzenleyici sunar. Yalnızca oluşturup çalıştırarak yapılandırma dosyalarını düzenleyebilirsiniz `code .` için Azure CLI veya Azure PowerShell ile sorunsuz dağıtım.
 
 [Cloud Shell Düzenleyicisi hakkında daha fazla bilgi](using-cloud-shell-editor.md).
 
@@ -68,7 +68,7 @@ Cloud Shell'i gelen kullanılabilen esnek bir araçtır:
 * [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure)
 * [Azure PowerShell belgeleri](https://docs.microsoft.com/powershell/azure/overview)
 * [Azure mobil uygulaması](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [VS Code Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Visual Studio Code Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure dosya depolama bağlama
 Cloud Shell makine geçicidir ve takılamadı için bir yeni veya var olan Azure dosya paylaşımı gerektiren `clouddrive` dosyalarınızı kalıcı hale getirmek için.

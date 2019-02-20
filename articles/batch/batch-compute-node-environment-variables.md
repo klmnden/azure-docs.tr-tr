@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/03/2019
+ms.date: 02/07/2019
 ms.author: lahugh
-ms.openlocfilehash: 48c2172e02e935dde28ac323c776c8895b1d36b2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 734c16111ab859b55d87525cdc8a644c8114f6d2
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017370"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429053"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch işlem düğümü ortam değişkenleri
 
@@ -42,26 +42,29 @@ Görevleri tarafından yürütülen komut satırları bilgi işlem düğümleri 
 | Değişken adı                     | Açıklama                                                              | Kullanılabilirlik | Örnek |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Görevin ait bir Batch hesabı adı.                  | Tüm görevler.   | mybatchaccount |
+| AZ_BATCH_ACCOUNT_URL            | Batch hesabı URL'si. | Tüm görevler. | `https://myaccount.westus.batch.azure.com` |
+| AZ_BATCH_APP_PACKAGE            | Tüm uygulama paketi ortam değişkenlerini önek. Örneğin, "Foo" Sürüm "1" uygulama havuzu yüklüyse, ortam değişkenini AZ_BATCH_APP_PACKAGE_FOO_1 olur. (Klasör) AZ_BATCH_APP_PACKAGE_FOO_1 noktaları, paket konumuna indirildi. | Herhangi bir görev ile ilişkili uygulama paketi. Ayrıca, uygulama paketleri düğüm varsa, tüm görevler için de kullanılabilir. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | Batch hizmet işlemlerine sınırlı sayıda erişim veren bir kimlik doğrulama belirteci. Bu ortam değişkeni yalnızca var ise [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) zaman ayarlanır [görev eklendiğinde](/rest/api/batchservice/task/add#request-body). Belirteç değeri, bir Batch istemcisi gibi oluşturmak için kimlik bilgileri olarak Batch API'leri kullanılır [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Tüm görevler. | OAuth2 erişim belirteci |
 | AZ_BATCH_CERTIFICATES_DIR       | Bir dizin içinde [görev çalışma dizini] [ files_dirs] işlem düğümleri hangi sertifikaların Linux için depolanır. İşlem düğümleri unutmayın, bu ortam değişkenini Windows için geçerli değildir.                                                  | Tüm görevler.   |  /mnt/batch/Tasks/workitems/batchjob001/Job-1/task001/certs |
+| AZ_BATCH_HOST_LIST              | İçin ayrılan düğümler listesi bir [çok örnekli görev] [ multi_instance] biçimde `nodeIP,nodeIP`. | Çok örnekli birincil ve alt görevler otomatiktir. | `10.0.0.4,10.0.0.5` |
+| AZ_BATCH_IS_CURRENT_NODE_MASTER | Geçerli düğüm için ana düğüm olup olmadığını belirten bir [çok örnekli görev][multi_instance]. Olası değerler `true` ve `false`.| Çok örnekli birincil ve alt görevler otomatiktir. | `true` |
 | AZ_BATCH_JOB_ID                 | Görevin ait olduğu işin kimliği. | Başlangıç görevi dışında tüm görevler. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | İş hazırlama tam yolunu [görev dizininde] [ files_dirs] düğümde. | Başlangıç görevi ve iş hazırlama görevi dışında tüm görevler. Yalnızca iş bir iş hazırlama görevi ile yapılandırılmışsa kullanılabilir. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | İş hazırlama tam yolunu [görev çalışma dizini] [ files_dirs] düğümde. | Başlangıç görevi ve iş hazırlama görevi dışında tüm görevler. Yalnızca iş bir iş hazırlama görevi ile yapılandırılmışsa kullanılabilir. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
+| AZ_BATCH_MASTER_NODE            | IP adresi ve bağlantı noktası işlem düğümünde birincil görevin bir [çok örnekli görev] [ multi_instance] çalıştırır. | Çok örnekli birincil ve alt görevler otomatiktir. | `10.0.0.4:6000` |
 | AZ_BATCH_NODE_ID                | Görev atanan düğüm kimliği. | Tüm görevler. | tvm-1219235766_3-20160919t172711z |
+| AZ_BATCH_NODE_IS_DEDICATED      | Varsa `true`, geçerli düğüm adanmış bir düğümdür. Varsa `false`, bunun bir [düşük öncelikli düğüm](batch-low-pri-vms.md). | Tüm görevler. | `true` |
+| AZ_BATCH_NODE_LIST              | İçin ayrılan düğümler listesi bir [çok örnekli görev] [ multi_instance] biçimde `nodeIP;nodeIP`. | Çok örnekli birincil ve alt görevler otomatiktir. | `10.0.0.4;10.0.0.5` |
 | AZ_BATCH_NODE_ROOT_DIR          | Tüm kök tam yolunu [toplu dizinleri] [ files_dirs] düğümde. | Tüm görevler. | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | Tam yolunu [paylaşılan dizine] [ files_dirs] düğümde. Bir düğümde yürütülen tüm görevler bu dizinde okuma/yazma erişimi. Diğer düğümlerde çalıştırılacak görevleri uzak ("paylaşılan" ağ dizinine değildir) bu dizine erişiminiz yok. | Tüm görevler. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | Tam yolunu [görev directory başlangıç] [ files_dirs] düğümde. | Tüm görevler. | C:\user\tasks\startup |
 | AZ_BATCH_POOL_ID                | Görevin çalıştığı havuzun kimliği. | Tüm görevler. | batchpool001 |
 | AZ_BATCH_TASK_DIR               | Tam yolunu [görev dizininde] [ files_dirs] düğümde. Bu dizin içeren `stdout.txt` ve `stderr.txt` görev ve AZ_BATCH_TASK_WORKING_DIR. | Tüm görevler. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | Geçerli görevin kimliği. | Başlangıç görevi dışında tüm görevler. | task001 |
+| AZ_BATCH_TASK_SHARED_DIR | Birincil görev ve her alt görevi için aynı olan bir dizin yolu bir [çok örnekli görev][multi_instance]. Yolun var olduğundan, çok örnekli görev çalıştırır ve okuma/yazma ile ilgili düğümde çalışan görev komutları için erişilebilir olduğundan her düğüme (hem [koordinasyon komut] [ coord_cmd] ve [ Uygulama komutu][app_cmd]). Alt görevler veya diğer düğümlerde çalıştırılacak birincil görevi, uzaktan erişim ("paylaşılan" ağ dizinine değildir) bu dizine yoktur. | Çok örnekli birincil ve alt görevler otomatiktir. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
+| AZ_BATCH_TASK_SHARED_DIR        | Veri depolamak için ortak bir dizin, düğümde görevler arasında paylaşılan yöneliktir. | Tüm görevler. | C:\user\tasks\shared |
 | AZ_BATCH_TASK_WORKING_DIR       | Tam yolunu [görev çalışma dizini] [ files_dirs] düğümde. Şu anda çalışan görev bu dizinde okuma/yazma erişimi vardır. | Tüm görevler. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | Düğümler için ayrılmış düğüm başına çekirdek sayısı ve listesi bir [çok örnekli görev][multi_instance]. Düğümler ve çekirdek biçiminde listelenir `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, burada düğüm sayısını ardından bir veya daha fazla düğüm IP adresleri ve çekirdek sayısı tarafından her biri için. |  Çok örnekli birincil ve alt görevler otomatiktir. |`2 10.0.0.4 1 10.0.0.5 1` |
-| AZ_BATCH_NODE_LIST              | İçin ayrılan düğümler listesi bir [çok örnekli görev] [ multi_instance] biçimde `nodeIP;nodeIP`. | Çok örnekli birincil ve alt görevler otomatiktir. | `10.0.0.4;10.0.0.5` |
-| AZ_BATCH_HOST_LIST              | İçin ayrılan düğümler listesi bir [çok örnekli görev] [ multi_instance] biçimde `nodeIP,nodeIP`. | Çok örnekli birincil ve alt görevler otomatiktir. | `10.0.0.4,10.0.0.5` |
-| AZ_BATCH_MASTER_NODE            | IP adresi ve bağlantı noktası işlem düğümünde birincil görevin bir [çok örnekli görev] [ multi_instance] çalıştırır. | Çok örnekli birincil ve alt görevler otomatiktir. | `10.0.0.4:6000`|
-| AZ_BATCH_TASK_SHARED_DIR | Birincil görev ve her alt görevi için aynı olan bir dizin yolu bir [çok örnekli görev][multi_instance]. Yolun var olduğundan, çok örnekli görev çalıştırır ve okuma/yazma ile ilgili düğümde çalışan görev komutları için erişilebilir olduğundan her düğüme (hem [koordinasyon komut] [ coord_cmd] ve [ Uygulama komutu][app_cmd]). Alt görevler veya diğer düğümlerde çalıştırılacak birincil görevi, uzaktan erişim ("paylaşılan" ağ dizinine değildir) bu dizine yoktur. | Çok örnekli birincil ve alt görevler otomatiktir. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
-| AZ_BATCH_IS_CURRENT_NODE_MASTER | Geçerli düğüm için ana düğüm olup olmadığını belirten bir [çok örnekli görev][multi_instance]. Olası değerler `true` ve `false`.| Çok örnekli birincil ve alt görevler otomatiktir. | `true` |
-| AZ_BATCH_NODE_IS_DEDICATED | Varsa `true`, geçerli düğüm adanmış bir düğümdür. Varsa `false`, bunun bir [düşük öncelikli düğüm](batch-low-pri-vms.md). | Tüm görevler. | `true` |
 
 [files_dirs]: https://azure.microsoft.com/documentation/articles/batch-api-basics/#files-and-directories
 [multi_instance]: https://azure.microsoft.com/documentation/articles/batch-mpi/

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4d5c7c592bae32586922531781803db6622e6515
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310755"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429001"
 ---
 # <a name="setup-diagnostic-logging"></a>Tanılama günlüğüne kaydetmeyi ayarlama
 
@@ -158,7 +158,7 @@ Log Analytics çalışma alanında tanılama verilerinizi görüntülemek için 
 
 ![Azure portalında günlük arama seçenekleri](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-Sorgu Oluşturucu'da genişletin **LogManagement** > **AzureDiagnostics**. AzureDiagnostics altyapısı ve hizmet olaylarını içerir. Bir sorgu üzerinde anında oluşturulan dikkat edin. EventClass\_s alanında xEvent adları, günlüğe kaydetme için şirket içi Xevent'ler kullandıysanız tanıdık gelmiş. Tıklayın **EventClass\_s** veya Log Analytics ve olay adları birini devam bir sorgu oluşturma. Sorgularınızı daha sonra kullanmak üzere kaydettiğinizden emin olun.
+Sorgu Oluşturucu'da genişletin **LogManagement** > **AzureDiagnostics**. AzureDiagnostics altyapısı ve hizmet olaylarını içerir. Bir sorgu üzerinde anında oluşturulan dikkat edin. EventClass\_s alanında xEvent adları, günlüğe kaydetme için şirket içi Xevent'ler kullandıysanız tanıdık gelmiş. Tıklayın **EventClass\_s** veya bir olay adları ve Log Analytics çalışma alanı devam bir sorgu oluşturma. Sorgularınızı daha sonra kullanmak üzere kaydettiğinizden emin olun.
 
 ### <a name="example-query"></a>Örnek sorgu
 Bu sorgu, hesaplar ve her sorgu bitiş/yenileme bitiş olayı bir model veritabanı ve sunucu için CPU döndürür:

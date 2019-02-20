@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: kgremban
-ms.openlocfilehash: 3b56097f8805b4c6d95256ae1753daf5ded266fb
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8c575c6d34543cbd8f692c64b43cf738b4c22617
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888405"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415638"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın
 
@@ -302,12 +302,118 @@ Doğrudan yöntemler kategoriyi ayrı ayrı cihazlara gönderilen istek-yanıt e
             "category": "DirectMethods",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
             "location": "Resource location"
         }
     ]
 }
 ```
+
+#### <a name="distributed-tracing-preview"></a>Dağıtılmış izleme (Önizleme)
+
+Dağıtılmış izleme kategorisi izleme bağlamı üstbilgisine iletileri için bağıntı kimlikleri izler. Bu günlükler tam olarak etkinleştirmek için istemci tarafı koduna izleyerek güncelleştirilmelidir [analiz ve IOT uygulamaları için uçtan uca IOT hub'ı dağıtılmış izleme (Önizleme) ile tanılama](iot-hub-distributed-tracing.md).
+
+Unutmayın `correlationId` ve uyan [W3C izleme bağlamı](https://github.com/w3c/trace-context) teklifi, burada içerdiği bir `trace-id` yanı sıra bir `span-id`. 
+
+##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>IOT hub'ı D2C (cihaz-bulut) günlükleri
+
+IOT Hub, IOT Hub geçerli izleme özelliklerini içeren bir ileti geldiğinde, bu günlük kaydeder. 
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubD2C",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Receive message success",
+            "durationMs": "",
+            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+Burada, `durationMs` hesaplanmaz IOT Hub'ın saati cihaz saatiyle eşitlenmiş olmayabilir ve bu nedenle süresi hesaplaması yanıltıcı olabilir. Yazma mantığı kullanarak öneririz veritabanındaki tarih damgası `properties` CİHAZDAN buluta gecikme ani değişiklikleri yakalamak için bölüm.
+
+| Özellik | Tür | Açıklama |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **messageSize** | Tamsayı | CİHAZDAN buluta ileti bayt cinsinden boyutu |
+| **cihaz kimliği** | ASCII 7 bit alfasayısal karakter dizesi | Cihaz kimliği |
+| **callerLocalTimeUtc** | UTC zaman damgası | Cihaz yerel saat tarafından belirlendiği şekilde iletinin oluşturma zamanı |
+| **calleeLocalTimeUtc** | UTC zaman damgası | IOT Hub Hizmet tarafı saat tarafından belirlendiği şekilde, IOT Hub'ının geçidinde ileti geliş saati |
+
+##### <a name="iot-hub-ingress-logs"></a>IOT hub'ı giriş günlükleri
+
+İç veya yerleşik olay hub'ına geçerli izleme özelliklerini içeren bir ileti yazar, IOT hub'ı bu günlüğe kaydeder.
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubIngress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Ingress message success",
+            "durationMs": "10",
+            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+İçinde `properties` bölümü, bu günlük iletisi giriş hakkında ek bilgiler içerir
+
+| Özellik | Tür | Açıklama |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **isRoutingEnabled** | String | True veya false, IOT Hub'ında ileti yönlendirme etkin olup olmadığını gösterir |
+| **parentSpanId** | String | [Yayılma kimliği](https://w3c.github.io/trace-context/#parent-id) D2C iletisini izlemeyi bu durumda olabilecek üst iletisi |
+
+##### <a name="iot-hub-egress-logs"></a>IOT hub'ı çıkış günlükleri
+
+IOT hub'ı kayıtları bu oturum zaman [yönlendirme](iot-hub-devguide-messages-d2c.md) etkinleştirilir ve ileti yazılan bir [uç nokta](iot-hub-devguide-endpoints.md). Yönlendirme etkin değilse, IOT hub'ı bu günlüğe kaydetmez.
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubEgress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-98ac3578922acd26-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Egress message success",
+            "durationMs": "10",
+            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+İçinde `properties` bölümü, bu günlük iletisi giriş hakkında ek bilgiler içerir
+
+| Özellik | Tür | Açıklama |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **Uçnoktaadı** | String | Yönlendirme uç nokta adı |
+| **EndpointType** | String | Yönlendirme uç noktası türü |
+| **parentSpanId** | String | [Yayılma kimliği](https://w3c.github.io/trace-context/#parent-id) üst iletinin, IOT hub'ı giriş ileti izleme bu durumda olacaktır |
+
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Azure Event hubs'tan günlükleri okuma
 

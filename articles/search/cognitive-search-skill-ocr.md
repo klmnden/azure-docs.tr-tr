@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 485837d6235f4868665df2907c01fa1bd26db357
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6fa316452b5b9f56c33de00b96c2cf57c40edfcc
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766376"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429664"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR bilişsel beceri
 
@@ -53,7 +53,7 @@ Parametreler büyük/küçük harfe duyarlıdır.
 
 | Adı girin      | Açıklama                                          |
 |---------------|------------------------------------------------------|
-| image         | Karmaşık tür. "/ Belge/normalized_images" alan şu anda yalnızca çalışır, Azure Blob Dizin Oluşturucu tarafından üretilen olduğunda ```imageAction``` ayarlanır ```generateNormalizedImages```. Bkz: [örnek](#sample-output) daha fazla bilgi için.|
+| image         | Karmaşık tür. "/ Belge/normalized_images" alan şu anda yalnızca çalışır, Azure Blob Dizin Oluşturucu tarafından üretilen olduğunda ```imageAction``` dışında bir değere ayarlanmış ```none```. Bkz: [örnek](#sample-output) daha fazla bilgi için.|
 
 
 ## <a name="skill-outputs"></a>Beceri çıkışları

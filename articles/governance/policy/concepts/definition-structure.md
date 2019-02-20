@@ -4,17 +4,17 @@ description: Kaynak ilke tanımı hangi etkili olması için zaman ilkelerin hi�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/11/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 5a16edcb702db21b357c437b920e870a65fb155a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9dc6407a222adb06f4139d9973c168911e0faca8
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270173"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429681"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -80,7 +80,7 @@ Tüm Azure ilkesi örnekleri altındadır [ilkesi örnekleri](../samples/index.m
 
 Ayarlamanızı öneririz **modu** için `all` çoğu durumda. Portalı kullanarak oluşturulan tüm ilke tanımlarını `all` modu. PowerShell veya Azure CLI kullanıyorsanız, belirtebilmeniz için **modu** parametresi el ile. İlke tanımı içermiyorsa bir **modu** değeri, varsayılan olarak için `all` Azure PowerShell ve çok `null` Azure clı'daki. A `null` modu kullanarak aynı olup `indexed` geriye dönük uyumluluğunu desteklemek için.
 
-`indexed` etiketleri veya konumları zorunlu ilkeleri oluştururken kullanılmalıdır. Gerekli olmasa da, etiketler ve konumları olarak uyumluluk sonuçları uyumlu olmayan gösteren gelen desteklemeyen kaynakları engeller. Özel durum **kaynak grupları**. Konum veya bir kaynak grubu etiketleri takım politikaları ayarlamalıdır **modu** için `all` ve özellikle hedef `Microsoft.Resources/subscriptions/resourceGroup` türü. Bir örnek için bkz. [kaynak grubu etiketleri zorunlu](../samples/enforce-tag-rg.md).
+`indexed` etiketleri veya konumları zorunlu ilkeleri oluştururken kullanılmalıdır. Gerekli olmasa da, etiketler ve konumları olarak uyumluluk sonuçları uyumlu olmayan gösteren gelen desteklemeyen kaynakları engeller. Özel durum **kaynak grupları**. Konum veya bir kaynak grubu etiketleri takım politikaları ayarlamalıdır **modu** için `all` ve özellikle hedef `Microsoft.Resources/subscriptions/resourceGroups` türü. Bir örnek için bkz. [kaynak grubu etiketleri zorunlu](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parametreler
 
@@ -245,15 +245,41 @@ Aşağıdaki alanları desteklenir:
 - `identity.type`
   - Türünü döndüren [yönetilen kimliği](../../../active-directory/managed-identities-azure-resources/overview.md) kaynakta etkinleştirilmemiş.
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - Bu ayracı sözdizimi, kısa çizgi, nokta veya boşluk gibi noktalama sahip etiket adları destekler.
   - Burada **\<tagName\>** doğrulamak için bir koşul için etiket adıdır.
-  - Örnek: `tags.CostCenter` burada **CostCenter** etiketin adı.
-- `tags[<tagName>]`
-  - Bir süresine sahip etiket adları bu parantez sözdizimini destekler.
-  - Burada **\<tagName\>** doğrulamak için bir koşul için etiket adıdır.
-  - Örnek: `tags[Acct.CostCenter]` burada **Acct.CostCenter** etiketin adı.
-
+  - Örnekler: `tags['Acct.CostCenter']` burada **Acct.CostCenter** etiketin adı.
+- `tags['''<tagName>''']`
+  - Bu köşeli ayraç söz dizimi ile çift kesme kaçış tarafından kesme sahip etiket adları destekler.
+  - Burada **'\<tagName\>'** doğrulamak için bir koşul için etiket adıdır.
+  - Örnek: `tags['''My.Apostrophe.Tag''']` burada **'\<tagName\>'** etiketin adı.
 - özellik diğer adları - bir listesi için bkz [diğer adlar](#aliases).
+
+> [!NOTE]
+> `tags.<tagName>`, `tags[tagName]`, ve `tags[tag.with.dots]` etiketlerini alana bildirme hala kabul edilebilir yöntemlerdir.
+> Ancak, tercih edilen ifade yukarıda listelenen olanlardır.
+
+#### <a name="use-tags-with-parameters"></a>Parametrelerle etiketleri kullanma
+
+Bir parametre değeri, bir etiket alanı geçirilebilir. Bir etiket alanı için bir parametre geçirerek, ilke ataması sırasında ilke tanımı'nın esnekliği artırır.
+
+Aşağıdaki örnekte, `concat` değerini adlı etiket için etiket alanı arama oluşturmak için kullanılan **tagName** parametresi. Bu etiketi yoksa, **ekleme** etkisi denetlenen kaynakları üst kaynak grubunda ayarlamak için aynı adlı etiketi değerini kullanarak etiket eklemek için kullanılan `resourcegroup()` arama işlevi.
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
 
 ### <a name="value"></a>Değer
 
@@ -353,7 +379,7 @@ Tüm [Resource Manager şablonu işlevleri](../../../azure-resource-manager/reso
 
 Ayrıca, `field` işlevi ilke kuralları için kullanılabilir. `field` ile kullanılır **AuditIfNotExists** ve **Deployıfnotexists** değerlendirilmekte kaynak başvurusu alanlarında. Bu kullanım örneği görülebilir [Deployıfnotexists örnek](effects.md#deployifnotexists-example).
 
-#### <a name="policy-function-examples"></a>İlke işlevi örnekleri
+#### <a name="policy-function-example"></a>İlke işlevi örneği
 
 Bu ilke kuralı örnekte `resourceGroup` almak için kaynak işlevi **adı** özelliği bir araya geldiğinde, `concat` oluşturmak için dizi ve nesne işlevi bir `like` başlatmak için kaynak adı zorlar durumu kaynak grubu adı ile.
 
@@ -367,24 +393,6 @@ Bu ilke kuralı örnekte `resourceGroup` almak için kaynak işlevi **adı** öz
     },
     "then": {
         "effect": "deny"
-    }
-}
-```
-
-Bu ilke kuralı örnekte `resourceGroup` almak için kaynak işlevi **etiketleri** özelliği dizi değerinin **CostCenter** bir kaynak grubuna etiket ve eklenecek **CostCenter**  yeni kaynak etiketi.
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
     }
 }
 ```

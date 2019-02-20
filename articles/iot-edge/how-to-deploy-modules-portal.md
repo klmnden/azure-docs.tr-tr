@@ -4,18 +4,18 @@ description: Modüller IOT Edge cihazına dağıtmak için Azure portalını kul
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/03/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8b7327796cf29c8c234c0a750c90e0689f508f7e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969412"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430123"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure portalından Azure IOT Edge modüllerini dağıtmak
 
@@ -41,7 +41,7 @@ Bir dağıtım bildirimi dağıtmak için modülleri ve modül ikizlerini istene
 
 Azure portalı, JSON belgesini el ile oluşturmak yerine dağıtım bildirimini oluşturmada size yol gösterir. bir sihirbaz vardır. Bu üç adım vardır: **Modül Ekle**, **yolları belirtin**, ve **gözden geçirin, dağıtım**.
 
-### <a name="add-modules"></a>Modül Ekle
+### <a name="add-modules"></a>Modül ekle
 
 1. İçinde **kayıt defteri ayarları** Bölümü sayfasının, modül görüntüleri içeren herhangi bir özel kapsayıcı kayıt defterleri erişmek için kimlik bilgilerini sağlayın.
 
@@ -51,6 +51,7 @@ Azure portalı, JSON belgesini el ile oluşturmak yerine dağıtım bildirimini 
 
    * **IOT Edge Modülü** -varsayılan seçenek.
    * **Azure Stream Analytics Modülü** -yalnızca bir Azure Stream Analytics iş yükünden oluşturulan modüller.
+   * **Azure Machine Learning Modülü** -yalnızca bir Azure Machine Learning çalışma alanına oluşturulan görüntüleri model.
 
 1. Seçin **IOT Edge Modülü**.
 
@@ -82,6 +83,29 @@ Dağıtım bilgilerinizi gözden geçirin ve ardından **Gönder**.
 ## <a name="view-modules-on-your-device"></a>Cihazınızda modülleri görüntüleme
 
 Cihazınıza modülleri dağıttıktan sonra bunların tümünün görüntüleyebilirsiniz **cihaz ayrıntıları** portal sayfası. Bu sayfa, her dağıtılan modülü yanı sıra dağıtım durumu ve çıkış kodu gibi yararlı bilgiler adını görüntüler.
+
+## <a name="deploy-modules-from-azure-marketplace"></a>Azure Market'ten modülleri dağıtma
+
+Azure Market, burada, göz çok çeşitli Kurumsal uygulamaları ve onaylanmış ve Azure üzerinde çalıştırmak için en iyi duruma getirilmiş çözümleri aracılığıyla bir çevrimiçi uygulama ve hizmet Marketi olan dahil olmak üzere [IOT Edge modülleri](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Market de erişilebilir altında Azure portalından **kaynak Oluştur**.
+
+Azure Market veya Azure portalında bir IOT Edge modülünü yükleyebilirsiniz:
+
+1. Modülü bulun ve dağıtım işlemine başlar.
+
+   * Azure portalı: Modülü bulun ve seçin **Oluştur**.
+
+   * Azure Market:
+
+     1. Modülü bulun ve seçin **şimdi edinin**.
+     1. İşaretleyerek sağlayıcının koşulları kullanımı ve gizlilik ilkesini kabul **devam**.
+
+1. Aboneliğiniz ve hedef cihaza bağlı olduğu IOT Hub'ı seçin.
+
+1. Seçin **cihazlara dağıtma**.
+
+1. Seçin ve cihaz adını girin **cihaz bulma** hub'da kayıtlı cihazlar arasında gidin.
+
+1. Seçin **Oluştur** isterseniz diğer modüller ekleme dahil olmak üzere bir dağıtım bildirimi yapılandırma standart işlemine devam etmek için. Görüntü URI'si, gibi yeni modül ayrıntılarını oluşturma seçenekleri ve istenen özellikler önceden tanımlanmıştır, ancak değiştirilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

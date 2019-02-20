@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3010f4ec86b25c51fae2ce8f64238ec8815adca8
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408689"
+ms.locfileid: "56416794"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Yönetme öncesi ve sonrası betikler (Önizleme)
 
@@ -22,7 +22,7 @@ Otomasyon hesabınızda (öncesi görev) önce PowerShell runbook'ları çalış
 
 ## <a name="runbook-requirements"></a>Runbook gereksinimleri
 
-Önceki veya sonraki bir betik olarak kullanılacak runbook için runbook Otomasyon hesabınıza içe aktarılmaz ve yayımlanan gerekir. Bu işlem hakkında daha fazla bilgi için bkz. [runbook yayımlama](automation-creating-importing-runbook.md#publishing-a-runbook).
+Önceki veya sonraki bir betik olarak kullanılacak runbook için runbook Otomasyon hesabınıza içe aktarılmaz ve yayımlanan gerekir. Bu işlem hakkında daha fazla bilgi için bkz. [runbook yayımlama](manage-runbooks.md#publish-a-runbook).
 
 ## <a name="using-a-prepost-script"></a>Ön/son betik kullanarak
 

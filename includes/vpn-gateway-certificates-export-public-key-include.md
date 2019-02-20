@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3c6485406c67bf84b9e0fdfb9f4683abe5062d6c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: afd4836229c60ebef1536d4fa1ca4206a492e56d
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444423"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418118"
 ---
 Otomatik olarak imzalanan kök sertifika oluşturduktan sonra kök sertifika ortak anahtar .cer dosyasını (özel anahtarı değil) dışarı aktarın. Daha sonra bu dosya Azure'a yükler. Aşağıdaki adımları otomatik olarak imzalanan kök sertifikanız için .cer dosyasını dışarı aktarmanıza yardımcı olur:
 
-1. Sertifikadan bir .cer dosyası almak için **Kullanıcı sertifikalarını yönet** menüsünü açın. Otomatik olarak imzalanan kök sertifikayı bulun (genellikle 'Certificates - Current User\Personal\Certificates' konumundadır) ve sağ tıklayın. **Tüm Görevler**’e tıklayın ve ardından **Dışarı Aktar**’a tıklayın. **Sertifika Dışarı Aktarma Sihirbazı** açılır. Geçerli kullanıcı\kişisel\sertifikalar'ın altında bir sertifika bulamazsanız (başlık, "Sertifikalar - yerel değil"Sertifikalar - Geçerli kullanıcı"bilgisayar" olarak olacaktır) yerel bilgisayar sertifikaları için Sertifika Yöneticisi'ni açık olabilir. Geçerli Sertifika Yöneticisi'ni açmak için kullanıcı kapsamı başlatın sertifikaları nerede oluşturulacağını yazarak powershell'den ```certmgr```.
+1. Sertifikadan bir .cer dosyası almak için **Kullanıcı sertifikalarını yönet** menüsünü açın. Otomatik olarak imzalanan kök sertifikayı bulun (genellikle 'Certificates - Current User\Personal\Certificates' konumundadır) ve sağ tıklayın. **Tüm Görevler**’e tıklayın ve ardından **Dışarı Aktar**’a tıklayın. **Sertifika Dışarı Aktarma Sihirbazı** açılır. Geçerli kullanıcı\kişisel\sertifikalar'ın altında bir sertifika bulamazsanız, yanlışlıkla "Sertifikalar - Geçerli kullanıcı" yerine "Sertifikalar - yerel bilgisayar", açtığınız). PowerShell, yazdığınız kullanarak geçerli kullanıcı kapsamı içinde Sertifika Yöneticisi'ni açmak istiyorsanız *certmgr* konsol penceresinde.
 
    ![Dışarı Aktarma](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. Sihirbazda, **İleri**’ye tıklayın.

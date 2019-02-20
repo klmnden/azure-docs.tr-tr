@@ -4,15 +4,15 @@ description: Azure geçiş toplayıcısı adlı Gereci için yükseltme hakkınd
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 02/19/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: 88077ac965b2abb69be145f29cbadca2ff1128d6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f29556c8f2a5aa727ce80632eaccf5e1ed6d7c1a
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836653"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415553"
 ---
 # <a name="collector-update-release-history"></a>Toplayıcı güncelleştirme sürüm geçmişi
 
@@ -20,11 +20,11 @@ Bu makalede, Toplayıcı Gereci için yükseltme bilgileri özetler [Azure geçi
 
 Azure geçişi toplayıcısı bir şirket içi vCenter ortam azure'a geçiş işleminden önce değerlendirme amaçları için keşfetmek için hafif bir gereçtir. [Daha fazla bilgi edinin](concepts-collector.md).
 
-## <a name="continuous-discovery-upgrade-versions"></a>Sürekli bulma: sürüm yükseltme
+## <a name="continuous-discovery-upgrade-versions"></a>Sürekli bulma: Sürüm yükseltme
 
 Henüz hiç yükseltme sürekli bulma Gereci için kullanılabilir.
 
-## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Tek seferlik bulma (artık kullanım dışı): yükseltme önceki sürümleri
+## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Tek seferlik bulma (artık kullanım dışı): Önceki yükseltme sürümleri
 
 > [!NOTE]
 > Bu yöntem, vCenter Server'ın performans veri noktası kullanılabilirlik için istatistik ayarları yararlandı ve sanal makinelerin Azure'a geçiş için eksik boyutlandırma içinde sonuçlanan ortalama performans sayaçlarının toplanan gibi tek seferlik gereç artık kullanım dışı bırakılmıştır.

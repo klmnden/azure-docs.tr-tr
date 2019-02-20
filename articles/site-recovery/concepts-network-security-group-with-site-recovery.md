@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 4885be7547d404505b50c563036f260166cbc2cc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6b980ae7539642e67609be802b2e31b287d09f72
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833831"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415285"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Azure Site Recovery ile ağ güvenlik grupları
 
@@ -45,7 +45,7 @@ Her zaman ağ güvenlik gruplarının hem bir ağ arabirimine hem de alt ağa uy
 
 Azure Site kurtarma sağlayan olağanüstü durum kurtarma ve azure'a geçiş için şirket içi [Hyper-V sanal makinelerini](hyper-v-azure-architecture.md), [VMware sanal makinelerini](vmware-azure-architecture.md), ve [fiziksel sunucuları](physical-azure-architecture.md). Tüm şirket içi Azure senaryoları için çoğaltma verileri gönderilen ve bir Azure depolama hesabında depolanır. Çoğaltma sırasında herhangi bir sanal makine ücreti ödeme yapmayın. Azure'a yük devretme çalıştırdığınızda, Site Recovery, Azure Iaas sanal makineleri otomatik olarak oluşturur.
 
-Azure'a yük devretmenin ardından VM'ler oluşturulduktan sonra Nsg'ler sanal ağ ve VM ağ trafiği sınırlamak için kullanılabilir. Site Recovery, yük devretme işleminin bir parçası olarak Nsg'ler oluşturmaz. Yük devretmeyi başlatmadan önce gerekli Azure NGSs oluşturmanızı öneririz. Daha sonra Nsg'leri VM'lerin yükünü otomatik olarak yük devretme sırasında başarısız Otomasyon betikleri ile Site Recovery'nin güçlü kullanarak ilişkilendirebilirsiniz [kurtarma planları](site-recovery-create-recovery-plans.md).
+Azure'a yük devretmenin ardından VM'ler oluşturulduktan sonra Nsg'ler sanal ağ ve VM ağ trafiği sınırlamak için kullanılabilir. Site Recovery, yük devretme işleminin bir parçası olarak Nsg'ler oluşturmaz. Yük devretmeyi başlatmadan önce gerekli Azure Nsg'ler oluşturmanızı öneririz. Daha sonra Nsg'leri VM'lerin yükünü otomatik olarak yük devretme sırasında başarısız Otomasyon betikleri ile Site Recovery'nin güçlü kullanarak ilişkilendirebilirsiniz [kurtarma planları](site-recovery-create-recovery-plans.md).
 
 Örneğin, yük devretme sonrasında VM yapılandırmasına benzer [Örnek senaryo](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) yukarıda ayrıntılı:
 -   Oluşturabileceğiniz **Contoso VNet** ve **Contoso alt** hedef Azure bölgesi planlama DR bir parçası olarak.
@@ -61,7 +61,7 @@ Azure Site kurtarma sağlayan olağanüstü durum kurtarma [Azure sanal makinele
 
 Azure VM çoğaltma için NSG kurallarını Azure bölgesi kaynağı üzerinde izin verdiğinden emin olun [giden bağlantı](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) çoğaltma trafiği için. Ayrıca test ve gerekli kurallar bu doğrulayabilirsiniz [örnek NSG yapılandırma](azure-to-azure-about-networking.md#example-nsg-configuration).
 
-Site Recovery oluşturma veya yük devretme işleminin bir parçası olarak Nsg'ler çoğaltmak desteklemez. Yük devretmeyi başlatmadan önce hedef Azure bölgeniz gerekli NGSs oluşturmanızı öneririz. Daha sonra Nsg'leri VM'lerin yükünü otomatik olarak yük devretme sırasında başarısız Otomasyon betikleri ile Site Recovery'nin güçlü kullanarak ilişkilendirebilirsiniz [kurtarma planları](site-recovery-create-recovery-plans.md).
+Site Recovery oluşturma veya yük devretme işleminin bir parçası olarak Nsg'ler çoğaltmak desteklemez. Yük devretmeyi başlatmadan önce hedef Azure bölgeniz gerekli Nsg oluşturmanızı öneririz. Daha sonra Nsg'leri VM'lerin yükünü otomatik olarak yük devretme sırasında başarısız Otomasyon betikleri ile Site Recovery'nin güçlü kullanarak ilişkilendirebilirsiniz [kurtarma planları](site-recovery-create-recovery-plans.md).
 
 Dikkate [Örnek senaryo](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) daha önce açıklanan:
 -   Site Recovery kopyaları oluşturabilir **Contoso VNet** ve **Contoso alt** hedef VM için çoğaltma etkinleştirildiğinde Azure bölgesi.

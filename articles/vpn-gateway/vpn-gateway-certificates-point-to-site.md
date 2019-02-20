@@ -1,5 +1,5 @@
 ---
-title: 'Oluşturma ve noktadan siteye için sertifika dışarı aktarma: PowerShell: Azure | Microsoft Docs'
+title: 'Oluşturma ve noktadan siteye için sertifikalar verme: PowerShell: Azure | Microsoft Docs'
 description: Otomatik olarak imzalanan kök sertifika oluşturma, ortak anahtarını dışarı aktarmak ve Windows 10 veya Windows Server 2016 üzerinde PowerShell kullanarak istemci sertifikalarını oluşturmak.
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e574759ff8af172841db9fc94ee860a19dd14200
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850967"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415374"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Oluşturma ve noktadan siteye için sertifika dışarı aktarma PowerShell'i kullanma
 
@@ -47,7 +47,7 @@ Aşağıdaki adımlarda bir otomatik olarak imzalanan kök sertifikadan bir iste
 
 ### <a name="example-1"></a>Örnek 1
 
-Bu örnek, bildirilmiş '$cert' değişkeni önceki bölümden kullanır. Otomatik olarak imzalanan kök sertifikayı oluşturduktan sonra PowerShell konsolunu kapalı ya da ek istemci sertifikaları yeni bir PowerShell Konsolu oturumu oluşturuyorsunuz içindeki adımları kullanın [örnek 2](#ex2).
+Bu örnek, PowerShell Konsolunuzu otomatik olarak imzalanan kök sertifikayı oluşturduktan sonra kapatılmamış kullanın. Bu örnek önceki bölümden devam eder ve bildirilen '$cert' değişkenini kullanır. Otomatik olarak imzalanan kök sertifikayı oluşturduktan sonra PowerShell konsolunu kapalı ya da ek istemci sertifikaları yeni bir PowerShell Konsolu oturumu oluşturuyorsunuz içindeki adımları kullanın [örnek 2](#ex2).
 
 Değiştirebilir ve bir istemci sertifikası oluşturmak için örneği çalıştırın. Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, sonuç 'P2SChildCert' adlı bir istemci sertifikası olur.  Başka bir alt sertifikayı Adlandır istiyorsanız, CN değeri değiştirin. Bu örnekte çalıştırırken TextExtension değiştirmeyin. Oluşturduğunuz istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli kullanıcı\kişisel\sertifikalar' otomatik olarak yüklenir.
 

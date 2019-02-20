@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093049"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429256"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak iki sanal makine arasındaki ağ iletişimini izleme
 
@@ -51,7 +51,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
     |Ayar|Değer|
     |---|---|
-    |Adı|myVm1|
+    |Ad|myVm1|
     |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
     |Abonelik| Aboneliğinizi seçin.|
@@ -73,11 +73,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 |Adım|Ayar|Değer|
 |---|---|---|
-| 1 | **Ubuntu Server 17.10 VM** seçeneğini belirleyin |                                                                         |
-| 3 | Adı                              | myVm2                                                                   |
-| 3 | Kimlik doğrulaması türü               | SSH genel anahtarınızı yapıştırın veya **Parola**’yı seçin bir parola girin. |
-| 3 | Kaynak grubu                    | **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** seçeneğini belirleyin.                 |
-| 6 | Uzantılar                        | **Linux için Ağ Aracısı**                                             |
+| 1 | Bir sürümü seçmeniz **Ubuntu Server** |                                                                         |
+| 3 | Ad                                  | myVm2                                                                   |
+| 3 | Kimlik doğrulaması türü                   | SSH genel anahtarınızı yapıştırın veya **Parola**’yı seçin bir parola girin. |
+| 3 | Kaynak grubu                        | **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** seçeneğini belirleyin.                 |
+| 6 | Uzantılar                            | **Linux için Ağ Aracısı**                                             |
 
 Sanal makinenin dağıtılması birkaç dakika sürer. Kalan adımlara devam etmeden önce sanal makinenin dağıtımı tamamlamasını bekleyin.
 
@@ -93,7 +93,7 @@ Sanal makinenin dağıtılması birkaç dakika sürer. Kalan adımlara devam etm
 
     | Ayar                  | Değer               |
     | ---------                | ---------           |
-    | Adı                     | myVm1-myVm2(22)     |
+    | Ad                     | myVm1-myVm2(22)     |
     | Kaynak                   |                     |
     | Sanal makine          | myVm1               |
     | Hedef              |                     |
@@ -152,7 +152,7 @@ Varsayılan olarak Azure, aynı sanal ağ üzerindeki sanal makineler arasında 
     | Hedef bağlantı noktası aralıkları | 22             |
     | Eylem                  | Reddet           |
     | Öncelik                | 100            |
-    | Adı                    | DenySshInbound |
+    | Ad                    | DenySshInbound |
 
 5. Bağlantı izleyicisi 60’ar saniyelik aralıklarla araştırma yaptığından birkaç dakika bekleyin ve sonra portalın sol tarafında **Ağ İzleyicisi**’ni, ardından **Bağlantı izleyicisi**’ni ve sonra tekrar **myVm1-myVm2(22)** izleyicisini seçin. Aşağıdaki resimde gösterildiği gibi sonuçlar şimdi farklıdır:
 
@@ -160,7 +160,7 @@ Varsayılan olarak Azure, aynı sanal ağ üzerindeki sanal makineler arasında 
 
     **myvm2529** ağ arabirimi için durum sütununda kırmızı bir ünlem simgesi olduğunu görebilirsiniz.
 
-6. Durumun neden değiştiğini öğrenmek için önceki resimde 10.0.0.5 seçeneğini belirleyin. Bağlantı izleyicisi size iletişim hatasının nedenini bildirir: *Trafik aşağıdaki ağ güvenlik grubu kuralı nedeniyle engellendi: UserRule_DenySshInbound*.
+6. Durumun neden değiştiğini öğrenmek için önceki resimde 10.0.0.5 seçeneğini belirleyin. Bağlantı İzleyicisi iletişim hatası nedeni olduğunu bildirir: *Trafik aşağıdaki ağ güvenlik grubu kuralı nedeniyle engellendi: UserRule_DenySshInbound*.
 
     Birisinin 4. adımda oluşturduğunuz güvenlik kuralını uyguladığını bilmiyorsanız, bağlantı izleyicisinden bu kuralın iletişim sorununa yol açtığını öğrenirsiniz. Daha sonra sanal makineler arasındaki iletişimi geri yüklemek için kuralı değiştirebilir, geçersiz kılabilir veya kaldırabilirsiniz.
 

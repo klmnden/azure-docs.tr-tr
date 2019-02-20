@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b4829b0da656c648db732b2e7564de6db8fbf2eb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9e4b9d8cf3300f977824f95aeb14a614d8897abd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312621"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430276"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Bilişsel arama senaryolarda görüntülerdeki bilgileri işleme ve ayıklama nasıl
 
@@ -34,7 +34,7 @@ Görüntü normalleştirmeyi kapatamazsınız. Görüntüleri yineleme beceriler
 
 | Yapılandırma parametresi | Açıklama |
 |--------------------|-------------|
-| imageAction   | Katıştırılmış görüntüler veya görüntü dosyaları karşılaştığında, hiçbir işlem yapılmadı "none" ayarlayın. <br/>Belge kırma bir parçası olarak bir dizi normalleştirilmiş görüntüleri oluşturmak için "generateNormalizedImages için" ayarlayın. Bu görüntüleri de sağlanmaktadır *normalized_images* alan. <br/>"None". varsayılan değer Bu yapılandırma yalnızca "dataToExtract" "contentAndMetadata" olarak ayarlandığında veri kaynakları, blob testlerinizle ilgili olabilecek |
+| imageAction   | Katıştırılmış görüntüler veya görüntü dosyaları karşılaştığında, hiçbir işlem yapılmadı "none" ayarlayın. <br/>Belge kırma bir parçası olarak bir dizi normalleştirilmiş görüntüleri oluşturmak için "generateNormalizedImages için" ayarlayın.<br/>Veri kaynağınızdaki PDF için bir çıkış görüntüye her sayfanın burada işlenir normalleştirilmiş görüntüleri bir dizi oluşturmak için "generateNormalizedImagePerPage için" ayarlayın.  İşlevselliğini PDF olmayan dosya türleri için "generateNormalizedImages" ile aynıdır.<br/>"None" olmayan herhangi bir seçenek için görüntü içinde kullanıma sunulacak *normalized_images* alan. <br/>"None". varsayılan değer Bu yapılandırma yalnızca "dataToExtract" "contentAndMetadata" olarak ayarlandığında veri kaynakları, blob testlerinizle ilgili olabilecek |
 |  normalizedImageMaxWidth | Oluşturulan normalleştirilmiş görüntüleri için en büyük genişliği (piksel cinsinden). Varsayılan değer 2000'dir.|
 |  normalizedImageMaxHeight | Oluşturulan normalleştirilmiş görüntüleri için en fazla yükseklik (piksel cinsinden). Varsayılan değer 2000'dir.|
 
@@ -62,7 +62,7 @@ Varsayılan değer 2000 piksel normalleştirilmiş görüntüleri en fazla geni�
 }
 ```
 
-Zaman *imageAction* "generateNormalizedImages" ayarlanmış yeni *normalized_images* alanı görüntüleri dizisi içerir. Her görüntü aşağıdaki üyeleri içerir karmaşık bir türdür:
+Zaman *imageAction* bir değere diğer sonra "none" ayarlanmış yeni *normalized_images* alanı görüntüleri dizisi içerir. Her görüntü aşağıdaki üyeleri içerir karmaşık bir türdür:
 
 | Görüntü üyesi       | Açıklama                             |
 |--------------------|-----------------------------------------|

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: efce8379ecafe6e8e044b654a3c5b392ca8e9cea
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 5a9e3f63a484069bf8cd39f8a545d7c37f05c63c
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506371"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417321"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Sanal ağ geçidi SKU'ları (eski SKU'lar) ile çalışma
 
@@ -40,6 +40,8 @@ Bu makale, eski (eski) sanal ağ geçidi SKU'ları hakkında bilgi içerir. Eski
 
 ## <a name="resize"></a>Bir ağ geçidini yeniden boyutlandırın
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Ağ geçidi için aynı SKU ailesi içinde bir ağ geçidi SKU'sunu yeniden boyutlandırabilirsiniz. Örneğin, standart SKU varsa, yüksek performanslı SKU için yeniden boyutlandırabilirsiniz. Ancak, VPN ağ geçidiniz eski SKU'lar ve yeni SKU aileleri arasında yeniden boyutlandıramazsınız. Örneğin, bir VpnGw2 SKU ya da bir temel SKU VpnGw1 için standart bir SKU gidilemiyor.
 
 Klasik dağıtım modeli için bir ağ geçidi yeniden boyutlandırmak için aşağıdaki komutu kullanın:
@@ -51,8 +53,8 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 PowerShell kullanarak Resource Manager dağıtım modeli için bir ağ geçidi yeniden boyutlandırmak için aşağıdaki komutu kullanın:
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+$gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
 Azure portalında bir ağ geçidi yeniden boyutlandırabilirsiniz.
 

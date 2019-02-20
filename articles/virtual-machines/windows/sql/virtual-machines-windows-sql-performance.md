@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6493da0cfc86560fac8e69f4329804c628942806
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: bb9b90ca239ff03f44b76a7ee5754eb7872caa31
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328729"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415910"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure sanal Makineler'de SQL Server için performans yönergeleri
 
@@ -88,11 +88,9 @@ Geçici depolama sürücü olarak etiketlenmiş **D**: sürücü, Azure blob dep
 
 D serisi, Dv2 serisi ve G serisi VM'ler için SSD tabanlı geçici sürücüyü bu VM'ler üzerinde. İş yükünüz TempDB yoğun olarak kullanılır (örneğin, geçici nesneler veya karmaşık birleştirmeler) yaparsa TempDB depolama **D** sürücü neden TempDB daha yüksek verim ve daha düşük TempDB gecikme süresi. Örnek bir senaryo için şu blog gönderisinde TempDB tartışmalara bakın: [Azure vm'lerde SQL Server için depolama yapılandırma yönergeleri](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm).
 
-<<<<<<< HEAD için etkinleştirilmiş okuma önbelleğini ile premium SSD destekleyen bir diskte TempDB depolama öneririz premium SSD (DS serisi, DSv2 serisi ve GS serisi) destekleyen VM'ler. Bu öneri için bir istisna vardır; TempDB kullanımınızı yazma yoğunluklu ise, yerel TempDB depolayarak daha iyi performans elde **D** SSD tabanlı bu makine boyutları olan sürücü.
-=== Premium depolama (DS serisi, DSv2 serisi ve GS serisi) destekleyen Vm'leri için etkinleştirilmiş okuma önbelleğini ile Premium Storage destekleyen bir diskte TempDB depolamanızı öneririz. 
+Premium SSD (DS serisi, DSv2 serisi ve GS serisi) destekleyen VM'ler için etkinleştirilmiş okuma önbelleğini ile premium SSD destekleyen bir diskte TempDB depolamanızı öneririz.
 
-Bu öneri için bir istisna vardır: _yazma yoğunluklu TempDB kullanımınızı ise yerel TempDB depolayarak daha iyi performans elde **D** SSD tabanlı bu makine boyutları olan sürücü._ 
->>>>>>> 4326ed494fad7ef7be29e2f4ba3301ec496acf76
+Bu öneri için bir istisna vardır: _yazma yoğunluklu TempDB kullanımınızı ise yerel TempDB depolayarak daha iyi performans elde **D** SSD tabanlı bu makine boyutları olan sürücü._
 
 ### <a name="data-disks"></a>Veri diskleri
 

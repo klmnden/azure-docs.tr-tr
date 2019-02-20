@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237680"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429525"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Birden çok Azure İzleyici Application Insights kaynaklarını birleştirin 
 Bu makalede, sorgu ve farklı Azure aboneliklerinde Application Insights Bağlayıcısı kullanımdan bir ardılı olarak olduklarında bile tüm Application Insights uygulama günlük verilerini tek bir yerde görüntüleyin açıklar. 100 olarak kaynakları tek bir sorgu ekleyebilirsiniz, Application Insights kaynakları sayısı sınırlıdır.  
@@ -68,6 +68,9 @@ applicationsScoping
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Application Insights kaynaklarını ve çalışma alanı veri sorgulama 
 Bağlayıcı ve Application Insights veri saklama (90 gün) tarafından kırpılmış bir zaman aralığı boyunca sorguları gerçekleştirmek için ihtiyaç durdurduğunuzda, gerçekleştirmeniz gereken [kaynaklar arası sorgular](../../azure-monitor/log-query/cross-workspace-query.md) çalışma ve Application Insights bir ara dönem için kaynaklar. Yukarıda belirtilen yeni Application Insights veri saklama başına uygulama verilerinize biriktirir kadar budur. Application Insights ve çalışma alanı şemalarda farklı olduğundan sorgu bazı işlemeleri gerektirir. Daha sonra şema farklılıkları vurgulama bu bölümdeki tabloya bakın. 
+
+>[!NOTE]
+>[Kaynaklar arası sorgu](../log-query/cross-workspace-query.md) günlüğünde uyarı desteklenen yeni [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Varsayılan olarak, Azure İzleyici kullanır [eski Log Analytics uyarı API](../platform/api-alerts.md) gelen geçiş yapmadığınız sürece, yeni günlük uyarı kuralları Azure portalından oluşturmak için [eski günlük uyarıları API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Anahtardan sonra yeni API, Azure portalında yeni uyarı kuralları için varsayılan olur ve kaynaklar arası sorgu günlük uyarı kuralları oluşturmanıza olanak tanır. Oluşturabileceğiniz [kaynaklar arası sorgu](../log-query/cross-workspace-query.md) günlük uyarısı kuralları kullanarak geçiş yapmaya gerek olmadan [scheduledQueryRules API için ARM şablonu](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – ancak yine de bu uyarı kuralı yönetilebilir [ API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) ve Azure Portal'da değil.
 
 Örneğin, bağlayıcı, Application Insights kaynaklarını ve uygulamaların veri çalışma boyunca günlükleri sorguladığınızda, 2018-11-01 üzerinde çalışmayı durdurdu, sorgunuzu aşağıdaki örnekteki gibi oluşturulması:
 

@@ -4,14 +4,14 @@ description: Azure geçişi hakkında sık sorulan sorular adresleri
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746328"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416199"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -118,6 +118,10 @@ Toplayıcı Gereci tarafından toplanan veriler, geçiş projesi oluştururken b
 
 Aracıları Vm'lerde yüklerseniz bağımlılık görselleştirmesi için bağımlılık aracısı tarafından toplanan verileri ABD kullanıcının abonelikte oluşturulan bir Log Analytics çalışma alanında depolanır. Aboneliğinizde Log Analytics çalışma alanını sildiğinizde, bu verileri silinir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
+### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>Azure geçişi tarafından sürekli olarak profil oluşturma söz konusu olduğunda karşıya veri birimi nedir?
+
+Azure geçişi için gönderilen veri hacmini birkaç parametre göre farklılık gösterebilir. Bir göstergesi numarası vermek için on makineler (her bir disk ve bir NIC) sahip bir projeyi gönderin yaklaşık 50 MB / gün. Bu, yaklaşık bir değerdir ve NIC ve (gönderilen verilerin makineler, NIC'ler veya disk sayısını artırmak istiyorsanız doğrusal olmayan olacaktır) diskleri için veri noktalarının sayısına göre değiştirmeniz gerekir. 
+
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Veriler beklerken ve aktarım sırasında şifrelenir?
 
 Evet, toplanan verileri hem bekleyen hem aktarım sırasında şifrelenir. Gereç tarafından toplanan meta veriler güvenli bir şekilde Azure geçişi hizmetine internet üzerinden https gönderilir. Toplanan meta veriler depolanır [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) ve [Azure blob depolama](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) Microsoft Abonelikteki ve bekleme sırasında şifrelenir.
@@ -130,7 +134,7 @@ Toplayıcı Gereci vCenter Server'a (bağlantı noktası 443) bağlanan gereç k
 
 ### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Birden fazla vCenter sunucunuz için aynı Toplayıcı gerecini bağlanabilir miyim?
 
-Evet, bir tek Toplayıcı gerecini birden fazla vCenter sunucularını bulmak için kullanılabilir ancak aynı anda değil. Bulmaları birbiri ardına çalıştırmanız gerekir.
+Evet, bir tek Toplayıcı gerecini birden fazla vCenter sunucularını bulmak için kullanılabilir ancak aynı anda değil. Bulma birbiri ardına çalıştırmanız gerekir.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Site Recovery tarafından kullanılan OVA şablonu, Azure geçişi tarafından kullanılan OVA tümleşiktir?
 

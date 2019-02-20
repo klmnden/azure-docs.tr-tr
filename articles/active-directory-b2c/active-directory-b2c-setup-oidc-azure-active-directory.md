@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C, bir Azure Active Directory kuruluş için oturum açma ayarlama | Microsoft Docs
+title: Oturum açmak için bir Azure Active Directory kuruluş - Azure Active Directory B2C ayarlama | Microsoft Docs
 description: Oturum açma için Azure Active Directory B2C, belirli bir Azure Active Directory kuruluşunu ayarlayın.
 services: active-directory-b2c
 author: davidmu1
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9078cbfd14e61b2de0d513e513413ae3c79137e3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0da27c5ce872d1b4e1b4c63f6f4207bb5ca4d6ef
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166229"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428084"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C, belirli bir Azure Active Directory kuruluş için oturum açma ayarlama
 
 >[!NOTE]
 > Bu özellik genel önizleme aşamasındadır. Bu özellik, üretim ortamında kullanmayın.
 
-Bu makalede Azure Active Directory (Azure AD) B2C'de bir kullanıcı akışı kullanarak belirli bir Azure Active Directory (Azure AD) kuruluşun kullanıcıları için oturum açma olanağı tanıma gösterilmektedir.
+Bir Azure Active Directory (Azure AD) olarak kullanılacak bir [kimlik sağlayıcısı](active-directory-b2c-reference-oauth-code.md) Azure AD B2C'de, temsil ettiği bir uygulama oluşturmanız gerekir. Belirli bir Azure AD kullanıcıları için oturum açma olanağı tanıma bu makale Azure AD B2C'de bir kullanıcı kullanarak kuruluş akış.
 
 ## <a name="create-an-azure-ad-app"></a>Bir Azure AD uygulamanızı oluşturma
 

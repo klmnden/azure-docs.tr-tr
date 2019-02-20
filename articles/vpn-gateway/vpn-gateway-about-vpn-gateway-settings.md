@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 02/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3bf3dd325af48f99e109f651628883d8f946fdc8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 24b08bb843b4f1a0eb9f2471cb17b81f2c8ac4d0
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512491"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417542"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway yapılandırma ayarları hakkında
 
@@ -20,13 +20,15 @@ Bir VPN ağ geçidi, ortak bir bağlantı üzerinden sanal ağınız ile şirket
 
 Bir VPN ağ geçidi bağlantısı, her biri yapılandırılabilir ayarlar içeren yapılandırmasına birden çok kaynak kullanır. Bu makaledeki bölümler, kaynakları ve Resource Manager dağıtım modelinde oluşturulan sanal ağ için bir VPN ağ geçidi ile ilgili ayarları ele alınmıştır. Her bağlantı çözüm için açıklamalar ve topoloji diyagramlarını bulabilirsiniz [VPN Gateway hakkında](vpn-gateway-about-vpngateways.md) makalesi.
 
->[!NOTE]
-> Bu makalede değerleri, VPN ağ geçitleri (- GatewayType Vpn kullanan sanal ağ geçitleri) uygulayın. Bu makalede, tüm ağ geçidi türleri veya bölgesel olarak yedekli ağ geçitleri kapsamaz.
->
->* -GatewayType için 'ExpressRoute' geçerli değerler için bkz: [ExpressRoute için sanal ağ geçitleri](../expressroute/expressroute-about-virtual-network-gateways.md).
->* Bölgesel olarak yedekli ağ geçitleri için bkz: [bölgesel olarak yedekli ağ geçitleri hakkında](about-zone-redundant-vnet-gateways.md).
->* Sanal WAN için bkz. [hakkında sanal WAN](../virtual-wan/virtual-wan-about.md). 
->
+Bu makalede değerleri, VPN ağ geçitleri (- GatewayType Vpn kullanan sanal ağ geçitleri) uygulayın. Bu makalede, tüm ağ geçidi türleri veya bölgesel olarak yedekli ağ geçitleri kapsamaz.
+
+* -GatewayType için 'ExpressRoute' geçerli değerler için bkz: [ExpressRoute için sanal ağ geçitleri](../expressroute/expressroute-about-virtual-network-gateways.md).
+
+* Bölgesel olarak yedekli ağ geçitleri için bkz: [bölgesel olarak yedekli ağ geçitleri hakkında](about-zone-redundant-vnet-gateways.md).
+
+* Sanal WAN için bkz. [hakkında sanal WAN](../virtual-wan/virtual-wan-about.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="gwtype"></a>Ağ geçidi türleri
 
@@ -42,7 +44,7 @@ Bir VPN ağ geçidi gerektirir `-GatewayType` *Vpn*.
 Örnek:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
 ```
@@ -62,7 +64,7 @@ Resource Manager sanal ağ geçidi oluşturmak için Azure portalını kullanıy
 Aşağıdaki PowerShell örneği belirtir `-GatewaySku` VpnGw1 olarak. Bir ağ geçidi oluşturmak için PowerShell kullanırken ilk IP yapılandırmasını oluşturun ve ardından buna başvurmak için bir değişken kullanın gerekir. Bu örnekte, yapılandırma değişkeni $gwipconfig ' dir.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -101,7 +103,7 @@ Resource Manager dağıtım modelinde, her yapılandırma bir özel sanal ağ ge
 Aşağıdaki PowerShell örneği, bağlantı türü gerektiren bir S2S bağlantısı oluşturacağız *IPSec*.
 
 ```powershell
-New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
@@ -119,7 +121,7 @@ Bir sanal ağ geçidi oluşturulduktan sonra VPN türünü değiştiremezsiniz. 
 Aşağıdaki PowerShell örneği belirtir `-VpnType` olarak *RouteBased*. Bir ağ geçidi oluştururken, -VpnType öğesinin yapılandırmanız için doğru olduğundan emin olmanız gerekir.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -141,21 +143,21 @@ Ağ geçidi alt ağı oluştururken, alt ağın içerdiği IP adresi sayısını
 Resource Manager PowerShell aşağıdaki örnek GatewaySubnet adlı bir ağ geçidi alt ağı gösterir. Şu anda mevcut çoğu yapılandırma için yeterli IP adresi izin veren bir/27 CIDR gösterimini belirtir görebilirsiniz.
 
 ```powershell
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="lng"></a>Yerel ağ geçitleri
 
-Bir VPN ağ geçidi yapılandırması oluştururken, yerel ağ geçidi genellikle şirket içi konumunuzu temsil eder. Klasik dağıtım modelinde, yerel ağ geçidi için Yerel Site olara ifade edilir. 
+ Bir yerel ağ geçidi bir sanal ağ geçidi farklıdır. Bir VPN ağ geçidi yapılandırması oluştururken, yerel ağ geçidi genellikle şirket içi konumunuzu temsil eder. Klasik dağıtım modelinde, yerel ağ geçidi için Yerel Site olara ifade edilir.
 
 Yerel ağ geçidi şirket içi VPN cihazının genel IP adresini bir ad verip şirket içi konumunda yer alan adres öneklerini belirtirsiniz. Azure ağ trafiği için hedef adres öneklerine bakar, yerel ağ geçidiniz için belirttiğiniz yapılandırma bakar ve paketleri buna göre yönlendirir. VPN ağ geçidi bağlantısı VNet-VNet yapılandırmaları için yerel ağ geçitleri de belirtirsiniz.
 
 Aşağıdaki PowerShell örneği, yeni bir yerel ağ geçidi oluşturur:
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
@@ -167,7 +169,7 @@ Ek teknik kaynaklar ve REST API'ler, PowerShell cmdlet'leri veya Azure CLI için
 
 | **Klasik** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](/powershell/module/azurerm.network/#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
+| [PowerShell](/powershell/module/azurerm.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | Desteklenmiyor | [Azure CLI](/cli/azure/network/vnet-gateway)|
 

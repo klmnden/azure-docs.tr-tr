@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 074f090d295ef5eafad48e57f68dad019bf7eab9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 23618b545814e89a7343d2db4664405855051c1b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470044"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415451"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>VM ölçek kümeleri için Resource Manager şablonlarını kullanarak gelişmiş otomatik ölçeklendirme yapılandırması
 Ölçek daraltma ve sanal makine ölçek kümelerinde yinelenen bir zamanlamaya göre veya belirli bir tarihe göre performans ölçüm eşiklere dayanarak genişleme kullanabilirsiniz. Ölçek eylemleri için e-posta ve Web kancası bildirimleri de yapılandırabilirsiniz. Bu kılavuzda, bir VM ölçek kümesi'nde bir Resource Manager şablonu kullanarak bu nesneleri yapılandırma örneği gösterilir.
@@ -48,9 +48,9 @@ Bu kılavuzda kullandığımız [Azure kaynak Gezgini](https://resources.azure.c
 4. Bu kılavuz için kullandığımız kuramsal bir ölçeklendirme senaryo aşağıda verilmiştir.
 
     * **Temel yük** - veya ölçeklendirme my ölçek set.* üzerinde barındırılan Uygulamam yükü göre istiyorum
-    * **İleti sırası boyutu** -Service Bus kuyruğuna gelen iletiler için uygulamama kullanabilirim. Kuyruğun ileti sayısı ve CPU % kullanın ve ileti sayısı ya da CPU değerse threshold.* bir ölçeklendirme eylemi tetiklemek için bir varsayılan profili yapılandırın
-    * **Haftanın günü ve günün saati** -'Haftanın günü sabah saat' adlı bir haftalık yineleme 'zaman günün' temel profil istiyorum. Geçmiş verilerini temel alarak belirli sayıda sanal makine örnekleri, bu saat sırasında my uygulamanın yükünü işlemek için daha iyidir bildirin
-    * **Özel tarih** -'Başlat ürün Day' profili ekledim. Uygulamamın son pazarlama duyuruları ve biz uygulamasında yeni bir ürün yerleştirdiğinizde yükü işlemek hazır olması için devam belirli tarihleri planlıyorum
+    * **İleti sırası boyutu** -Service Bus kuyruğuna gelen iletiler için uygulamama kullanabilirim. Ben sıranın ileti sayısı ve CPU % kullanın ve ileti sayısı ya da CPU değerse eşiği bir ölçeklendirme eylemi tetiklemek için bir varsayılan profili yapılandırın.\*
+    * **Haftanın günü ve günün saati** -'Haftanın günü sabah saat' adlı bir haftalık yineleme 'zaman günün' temel profil istiyorum. Geçmiş verilerini temel alarak belirli sayıda sanal makine örneğini bu süre boyunca my uygulamanın yükü işlemek daha iyi biliyorum.\*
+    * **Özel tarih** -'Başlat ürün Day' profili ekledim. Uygulamamın son pazarlama duyuruları ve sizi yeni ürün uygulamada yerleştirdiğinizde yükü işlemek hazır olması için miyim belirli tarihleri için önceden planlayın.\*
     * *Son iki profilleri diğer performans ölçümü tabanlı kuralların bunları da olabilir. Bu durumda, bir yok karar ve bunun yerine varsayılan performans ölçümü üzerinde yararlanmayı kurallarına göre. Kurallar yinelenen ve tarih temelli profilleri için isteğe bağlıdır.*
 
     Otomatik ölçeklendirme altyapısı önceliklendirilmesi profilleri ve kuralları yakalanan ayrıca [otomatik ölçeklendirme en iyi](autoscale-best-practices.md) makalesi.

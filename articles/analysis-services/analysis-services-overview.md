@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 522ab54b612b5a66f8f4f6a794e7ccc3d44342f9
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 114dac10592213d3b2fdfff909913039b3dba344
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301987"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429443"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 
@@ -217,7 +217,7 @@ Power BI, Excel, Reporting Services ve üçüncü taraf araçlar gibi modern ver
 
 ## <a name="monitoring-and-diagnostics"></a>İzleme ve tanılama
 
-Azure Analysis Services, Azure ölçümleriyle tümleşiktir ve sunucularınızın performans ve durumunu izlemenize yardımcı olan çok sayıda kaynağa özgü ölçüm sağlar. Daha fazla bilgi için bkz. [Sunucu ölçümlerini izleme](analysis-services-monitor.md). Ölçümleri [Azure kaynak tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md) ile kaydedin. Günlükleri izleyin ve [Azure Depolama](https://azure.microsoft.com/services/storage/)’ya gönderin, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)’a akış yapın ve bir [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite) hizmeti olan [Log Analytics](https://azure.microsoft.com/services/log-analytics/)’e aktarın. Daha fazla bilgi için bkz. [Tanılama günlüğüne kaydetmeyi ayarlama](analysis-services-logging.md).
+Azure Analysis Services, Azure ölçümleriyle tümleşiktir ve sunucularınızın performans ve durumunu izlemenize yardımcı olan çok sayıda kaynağa özgü ölçüm sağlar. Daha fazla bilgi için bkz. [Sunucu ölçümlerini izleme](analysis-services-monitor.md). Ölçümleri [Azure kaynak tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md) ile kaydedin. İzleyin ve günlükleri Gönder [Azure depolama](https://azure.microsoft.com/services/storage/), kendisine akış [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve bunları dışarı aktarma [Azure İzleyici günlükleri](https://azure.microsoft.com/services/log-analytics/), hizmetinde [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Daha fazla bilgi için bkz. [Tanılama günlüğüne kaydetmeyi ayarlama](analysis-services-logging.md).
 
 Azure Analysis Services ayrıca [Dynamic Management Görünümleri (DMV)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services) kullanmayı destekler. SQL söz dizimine göre DMV’ler, sunucu örneği hakkında meta veri ve izleme bilgileri döndüren şema satır kümeleri ile arabirim oluşturur.
 

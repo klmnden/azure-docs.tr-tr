@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ed159decb51d71e8c0beddb285f6c01ae264ed2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f72cbd719cea585144be3757f0791a74bde452ab
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206676"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416777"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Hızlı Başlangıç: Web API'si Azure Active Directory ile güvenli hale getirme
 
@@ -45,21 +45,20 @@ Başlamak için, aşağıdaki kodu `package.json` adlı dosyaya ekleyin:
 
 ```Shell
 {
-  "name": "node-aad-demo",
+  "name": "active-directory-webapi-nodejs",
   "version": "0.0.1",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "passport": "0.4.0",
-    "passport-azure-ad": "3.0.8",
-    "restify": "6.0.1",
-    "restify-plugins": "1.6.0"
+    "passport-azure-ad": "4.0.0",
+    "restify": "7.7.0"
   }
 }
 ```
 
-`package.json` oluşturulduktan sonra, komut isteminizde `npm install` komutunu çalıştırarak paket bağımlılıklarını yükleyin. 
+`package.json` oluşturulduktan sonra, komut isteminizde `npm install` komutunu çalıştırarak paket bağımlılıklarını yükleyin.
 
 #### <a name="configure-the-project-to-use-active-directory"></a>Active Directory'yi kullanmak için projeyi yapılandırın
 
@@ -116,7 +115,7 @@ Tek tek yapılandırma ayarlarıyla ilgili daha fazla bilgi için, [passport-azu
 ```JavaScript
 const
       restify = require('restify')
-    , restifyPlugins = require('restify-plugins')
+    , restifyPlugins = require ('restify').plugins
     , passport = require('passport')
     , BearerStrategy = require('passport-azure-ad').BearerStrategy
     , config = require('./config')
@@ -127,7 +126,7 @@ const
 
 Kodun bu bölümünde:
 
-- Restify sunucusunu ayarlamak için `restify` ve `restify-plugins` modüllerine başvurulur.
+- `restify` Ve eklentileri modülleri bir Restify sunucusu kurmak için başvuru.
 - Azure AD ile iletişim kurmak `passport` ve `passport-azure-ad` modüllerinin sorumluluğundadır.
 - `config` değişkeni, önceki adımda oluşturulan `config.js` dosyasından alınan değerlerle başlatılır.
 - Kullanıcı belirteçleri güvenli uç noktalara geçirilirken bu belirteçleri depolamak üzere `authenticatedUserTokens` için bir dizi oluşturulur.

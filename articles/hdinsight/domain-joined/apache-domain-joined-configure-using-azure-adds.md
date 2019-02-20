@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: b6cc65d10fc8924686d01c02177a9cb76f7a9571
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 722a40dca0a64407a407ecad6d990d1651b0e998
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660927"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415740"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'i kullanarak bir HDInsight kümesi ile Kurumsal Güvenlik Paketi yapılandırma
 
@@ -95,6 +95,10 @@ Emin olmanız gerekir tüm [gerekli bağlantı noktaları](https://docs.microsof
 ## <a name="create-a-hdinsight-cluster-with-esp"></a>ESP ile bir HDInsight kümesi oluşturma
 
 Önceki adımları doğru şekilde ayarladıktan sonra sonraki adıma HDInsight kümesi ile ESP etkin oluşturmaktır. Bir HDInsight kümesi oluşturduğunuzda, Kurumsal güvenlik paketi içinde etkinleştirebilirsiniz **özel** sekmesi. Dağıtım için bir Azure Resource Manager şablonu kullanmak isterseniz, portal deneyimi kez kullanın ve sonra yeniden kullanmak için son "Özet" sayfası üzerinde önceden doldurulmuş şablonunu indirin.
+
+> [!NOTE]  
+> ESP küme adlarının ilk altı karakterinin ortamınızda benzersiz olmalıdır. Örneğin, farklı sanal ağlarda birden çok ESP kümeniz varsa, ilk altı karakter kümesi adları benzersiz garantiler bir adlandırma convension seçmeniz gerekir.
+
 
 ![Azure HDInsight, Kurumsal güvenlik paketi etki alanı doğrulama](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
 

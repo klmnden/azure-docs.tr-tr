@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C kullanarak Openıd Connect ile kaydolma ve oturum açma ayarlama | Microsoft Docs
+title: Openıd Connect - Azure Active Directory B2C ile oturum açma ve kaydolma | Microsoft Docs
 description: Azure Active Directory B2C kullanarak Openıd Connect ile kaydolma ve oturum açma ayarlayın.
 services: active-directory-b2c
 author: davidmu1
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c609ac5ebb6c0516472f00a5625a26459f49d131
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: de0c866889f15f096bea26915f58cd4e268dfed3
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171703"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428764"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak Openıd Connect ile kaydolma ve oturum açma ayarlama
 
@@ -23,8 +23,7 @@ ms.locfileid: "55171703"
 > Bu özellik genel önizleme aşamasındadır. Bu özellik, üretim ortamında kullanmayın.
 
 
-[Openıd Connect](https://openid.net/specs/openid-connect-core-1_0.html) kullanıcıların güvenli bir şekilde oturum açmak için kullanılan OAuth 2.0 üzerinde yerleşik bir kimlik doğrulama protokolüdür. Gibi bu protokolü kullanan çoğu kimlik sağlayıcıları [Azure AD'ye](active-directory-b2c-setup-oidc-azure-active-directory.md), Azure AD B2C'de desteklenir. Bu makalede, özel Openıd Connect kimlik sağlayıcıları kullanıcı akışlarınızı nasıl ekleyebileceğiniz açıklanmaktadır.
-
+[Openıd Connect](active-directory-b2c-reference-oidc.md) kullanıcıların güvenli bir şekilde oturum açmak için kullanılan OAuth 2.0 üzerinde yerleşik bir kimlik doğrulama protokolüdür. Bu protokolü kullanan çoğu kimlik sağlayıcıları, Azure AD B2C'de desteklenir. Bu makalede, özel Openıd Connect kimlik sağlayıcıları kullanıcı akışlarınızı nasıl ekleyebileceğiniz açıklanmaktadır.
 
 ## <a name="add-the-identity-provider"></a>Kimlik sağlayıcısı Ekle
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 92914b26497634de1a0c61738c6aba37acb37c17
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109326"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428646"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kümesi güvenlik senaryoları
 Bir Azure Service Fabric kümesine sahip olduğunuz bir kaynaktır. Yetkisiz kullanıcıların bunlara bağlanmasını önlemeye yardımcı olmak için kümeleri güvenli hale getirmek için sizin sorumluluğunuzdur. Üretim iş yükleri küme üzerinde çalışan, güvenli bir kümeye özellikle önemlidir. Kümenin yönetim uç noktalarını genel İnternet'e sunarsa, güvenli olmayan bir kümeye oluşturmak mümkün olsa da, anonim kullanıcılar için bağlanabilir. Güvenli olmayan kümelerini üretim iş yükleri için desteklenmez. 
@@ -73,7 +73,12 @@ Service Fabric kümesi birden çok giriş noktası için web tabanlı dahil olma
 Azure üzerinde çalışan kümeler için Azure Active Directory (Azure AD) kullanarak da Yönetim uç noktalarına erişimi güvenliğini sağlayabilirsiniz. Gerekli oluşturma hakkında bilgi edinmek için bkz: Azure AD yapıtları ve Küme oluşturduğunuzda bunları doldurmak nasıl [istemcilerin kimliğini doğrulamak için Azure AD'yi ayarlarken ayarlamak](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Güvenlik önerileri
-Düğümden düğüme güvenlik için Azure kümelerinde, istemciler ve sertifika kimlik doğrulaması için Azure AD güvenlik kullanmanızı öneririz.
+Azure üzerinde barındırılan ortak bir ağda dağıtılmış Service Fabric kümeleri için istemci düğümü karşılıklı kimlik doğrulaması için önerilir:
+*   Azure Active Directory istemci kimliği için kullan
+*   Sunucu kimliği ve http iletişim SSL şifrelemesi için bir sertifika
+
+Service Fabric kümeleri için Azure'da barındırılan bir ortak ağda dağıtılan düğümden düğüme güvenlik için düğümleri kimliğini doğrulamak için bir küme sertifikası kullanmak için önerilir. 
+
 
 Windows Server 2012 R2 ve Windows Active Directory, varsa, tek başına Windows Server kümeleri için Windows Güvenlik Grup yönetilen hizmet hesapları ile kullanmanızı öneririz. Aksi takdirde, Windows Güvenlik ile Windows hesapları kullanın.
 

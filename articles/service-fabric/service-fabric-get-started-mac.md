@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 6bcf096bd51990cf280784deceac19eea05d32b4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4dac40e9fad8361c0e6c8a8758028743f2506f56
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977143"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428100"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X’te geliştirme ortamınızı ayarlama
 > [!div class="op_single_selector"]
@@ -53,14 +53,14 @@ Yerel bir Docker kapsayıcısı ayarlamak ve üzerinde bir Service Fabric kümes
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Bu ayarları doğrudan Docker yükleme yolunuzdaki daemon.json dosyasında güncelleştirebilirsiniz.
+    Bu ayarları doğrudan Docker yükleme yolunuzdaki daemon.json dosyasında güncelleştirebilirsiniz. Doğrudan Docker daemon yapılandırma ayarlarını değiştirebilirsiniz. **Docker simgesi**’ni ve ardından **Tercihler** > **Daemon** > **Gelişmiş**’i seçin.
     
     >[!NOTE]
     >
-    >Daemon.json dosyasının konumu makineden makineye farklılık gösterebilir. Örneğin, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >Arka plan doğrudan docker'da değiştirmek önerilen, çünkü daemon.json dosyasının konumu makineden makineye farklılık gösterebilir. Örneğin, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
-    >Daemon yapılandırma ayarlarını doğrudan Docker’da değiştirmek önerilen yaklaşımdır. **Docker simgesi**’ni ve ardından **Tercihler** > **Daemon** > **Gelişmiş**’i seçin.
-    >
+
+    >[!TIP]
     >Büyük uygulamaları test ederken Docker’a ayrılan kaynakların artırılmasını öneririz. **Docker Simgesi** seçilip ardından çekirdek sayısını ve belleği ayarlamak için **Gelişmiş** öğesi seçilerek bu yapılabilir.
 
 2. Service Fabric Görüntünüzü derlemek için yeni bir dizinde `Dockerfile` adlı bir dosya oluşturun:
@@ -110,7 +110,7 @@ Yerel bir Docker kapsayıcısı ayarlamak ve üzerinde bir Service Fabric kümes
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. Kümenin başlatılması kısa bir süre sürer, aşağıdaki komutu kullanarak günlükleri görüntüleyebilir veya [http://localhost:19080](http://localhost:19080) küme durumunu görüntülemek için panoya atlayabilirsiniz:
+5. Kümenin başlatılması biraz sürer. Çalışırken, aşağıdaki komutu kullanarak günlükleri görüntüleyebilir veya küme durumunu görüntülemek için panoya atlayabilirsiniz [ http://localhost:19080 ](http://localhost:19080):
 
     ```bash 
     docker logs sftestcluster
@@ -118,7 +118,7 @@ Yerel bir Docker kapsayıcısı ayarlamak ve üzerinde bir Service Fabric kümes
 
 
 
-6. İşiniz bittiğinde, durdurun ve şu komutla kapsayıcıyı temizleme:
+6. Durdur ve temizleme kapsayıcı için aşağıdaki komutu kullanın. Ancak Biz bu kapsayıcı sonraki adımda kullanacaklardır.
 
     ```bash 
     docker rm -f sftestcluster
@@ -173,6 +173,9 @@ Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric
     brew cask install java
     brew install gradle
     ```
+
+    >[!TIP]
+    > Yüklenen JDK doğru sürümü olduğunu doğrulamak emin olun. 
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Uygulamanızı terminalden Mac’inize dağıtma
 

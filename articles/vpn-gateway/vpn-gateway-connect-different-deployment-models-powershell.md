@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b569a021dab5e6008dc61af3af8168585c5edc1b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509330"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416250"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell kullanarak farklı dağıtım modellerindeki sanal ağları birbirine bağlama
 
@@ -165,6 +165,8 @@ Kullanarak ağ geçidinin durumunu kontrol edebilirsiniz **Get-AzureVNetGateway*
 
 ## <a name="creatermgw"></a>2. Bölüm - RM sanal ağ geçidi yapılandırma
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Önkoşullar, RM VNet zaten oluşturduğunuzu varsayalım. Bu adımda, RM VNet için bir VPN ağ geçidi oluşturun. Klasik sanal ağın ağ geçidi için genel IP adresi aldıktan sonra kadar bu adımları başlamaz. 
 
 1. PowerShell konsolundaki Azure hesabınızda oturum açın. Aşağıdaki cmdlet'i Azure hesabınıza ilişkin oturum açma kimlik bilgilerini ister. Azure PowerShell için kullanılabilir olacak şekilde oturum açtıktan sonra hesap ayarlarınızı indirilir. İsteğe bağlı olarak, tarayıcıda Azure Cloud Shell'i başlatmak için "Try It" özelliğini kullanabilirsiniz.
@@ -172,18 +174,18 @@ Kullanarak ağ geçidinin durumunu kontrol edebilirsiniz **Get-AzureVNetGateway*
   Azure Cloud Shell kullanıyorsanız, aşağıdaki cmdlet'i atla:
 
   ```azurepowershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ``` 
   Doğru abonelik kullandığını doğrulamak için aşağıdaki cmdlet'i çalıştırın:  
 
   ```azurepowershell-interactive
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
    
   Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği belirtin.
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+  Select-AzSubscription -SubscriptionName "Name of subscription"
   ```
 2. Yerel ağ geçidi oluşturma. Sanal bir ağda, yerel ağ geçidi genellikle şirket içi konumunuz anlamına gelir. Bu durumda, yerel ağ geçidi Klasik sanal ağınıza anlamına gelir. Bu, tarafından Azure başvurduğu ve aynı zamanda adres alanı ön ekini belirtin. bir ad verin. Azure, belirttiğiniz IP adresi ön ekini kullanarak hangi trafiğin şirket içi konumunuza gönderileceğini belirler. Buradaki bilgiler, daha sonra ağ geçidini oluşturmadan önce ayarlamanız gerekirse, değerleri değiştirebilir ve örneği tekrar çalıştırın.
    
@@ -192,7 +194,7 @@ Kullanarak ağ geçidinin durumunu kontrol edebilirsiniz **Get-AzureVNetGateway*
    **-Gatewayıpaddress** Klasik sanal ağın ağ geçidi genel IP adresidir. Aşağıdaki örnek metni doğru IP adresini yansıtacak şekilde "n.n.n.n" değiştirdiğinizden emin olun.<br>
 
   ```azurepowershell-interactive
-  New-AzureRmLocalNetworkGateway -Name ClassicVNetLocal `
+  New-AzLocalNetworkGateway -Name ClassicVNetLocal `
   -Location "West US" -AddressPrefix "10.0.0.0/24" `
   -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
   ```
@@ -201,7 +203,7 @@ Kullanarak ağ geçidinin durumunu kontrol edebilirsiniz **Get-AzureVNetGateway*
   Bu adımda, biz de sonraki adımlardan birinde kullanılan bir değişken ayarlayın.
 
   ```azurepowershell-interactive
-  $ipaddress = New-AzureRmPublicIpAddress -Name gwpip `
+  $ipaddress = New-AzPublicIpAddress -Name gwpip `
   -ResourceGroupName RG1 -Location 'EastUS' `
   -AllocationMethod Dynamic
   ```
@@ -213,8 +215,8 @@ Kullanarak ağ geçidinin durumunu kontrol edebilirsiniz **Get-AzureVNetGateway*
    **-ResourceGroupName** sanal ağ ile ilişkili kaynak grubu. Ağ geçidi alt ağı için bu sanal ağ zaten bulunmalı ve adlandırılmalıdır *GatewaySubnet* düzgün çalışması için.<br>
 
   ```azurepowershell-interactive
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
-  -VirtualNetwork (Get-AzureRmVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
+  $subnet = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet `
+  -VirtualNetwork (Get-AzVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
   ``` 
 
 6. Ağ geçidi IP adresleme yapılandırması oluşturun. Ağ geçidi yapılandırması, kullanılacak alt ağı ve genel IP adresini tanımlar. Ağ geçidi yapılandırmanızı oluşturmak için aşağıdaki örneği kullanın.
@@ -222,14 +224,14 @@ Kullanarak ağ geçidinin durumunu kontrol edebilirsiniz **Get-AzureVNetGateway*
   Bu adımda, **- Subnetıd** ve **- Publicıpaddressıd** parametreleri geçirilmelidir ID özelliği alt ağ ve IP adresi nesnelerden, sırasıyla. Basit bir dize kullanamazsınız. Bu değişkenler adımda alt almak için genel bir IP ve adım istemek için ayarlanır.
 
   ```azurepowershell-interactive
-  $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
+  $gwipconfig = New-AzVirtualNetworkGatewayIpConfig `
   -Name gwipconfig -SubnetId $subnet.id `
   -PublicIpAddressId $ipaddress.id
   ```
 7. Resource Manager sanal ağ geçidi, aşağıdaki komutu çalıştırarak oluşturun. `-VpnType` Olmalıdır *RouteBased*. 45 dakika veya daha fazla bilgi için ağ geçidinin oluşturulması alabilir.
 
   ```azurepowershell-interactive
-  New-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
+  New-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
   -Location "EastUS" -GatewaySKU Standard -GatewayType Vpn `
   -IpConfigurations $gwipconfig `
   -EnableBgp $false -VpnType RouteBased
@@ -237,7 +239,7 @@ Kullanarak ağ geçidinin durumunu kontrol edebilirsiniz **Get-AzureVNetGateway*
 8. VPN ağ geçidi oluşturulduğunda genel IP adresini kopyalayın. Klasik sanal yerel ağ ayarlarını yapılandırırken kullanın. Genel IP adresini almak için aşağıdaki cmdlet'i kullanabilirsiniz. Genel IP adresini, dönüş listelenen *IPADDRESS*.
 
   ```azurepowershell-interactive
-  Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
+  Get-AzPublicIpAddress -Name gwpip -ResourceGroupName RG1
   ```
 
 ## <a name="localsite"></a>3. Bölüm - Klasik sanal ağ yerel sitesi ayarlarını değiştirme
@@ -274,14 +276,14 @@ Ağ geçitleri arasında bağlantı oluşturma PowerShell gerektirir. Azure Klas
   Değişkenleri ayarlayın.
 
   ```azurepowershell-interactive
-  $vnet01gateway = Get-AzureRmLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
-  $vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
+  $vnet01gateway = Get-AzLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
+  $vnet02gateway = Get-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
   ```
    
   Bağlantıyı oluşturun. Dikkat **- ConnectionType** IPSec, Vnet2Vnet değil.
 
   ```azurepowershell-interactive
-  New-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
+  New-AzVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
   -Location "East US" -VirtualNetworkGateway1 `
   $vnet02gateway -LocalNetworkGateway2 `
   $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'

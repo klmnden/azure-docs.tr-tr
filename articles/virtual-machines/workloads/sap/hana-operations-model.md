@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 776057a177904d086974258b5221ab474f4b1bcb
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 36a648e2d46cce96a8ff663f45ccf45326898a84
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028481"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417015"
 ---
 # <a name="operations-model-and-responsibilities"></a>İşlem modeli ve sorumlulukları
 
@@ -33,15 +33,15 @@ Bu hizmet, alanları, en iyi sonuçlar için temel alınan altyapı özellikleri
 
 Aşağıdaki listede her katmanları ve sizin Sorumluluklarınız daha fazla ayrıntı sağlar:
 
-**Ağ**: çalışan SAP HANA büyük örneği damgasında tüm iç ağlar. Sizin sorumluluğunuzdadır, VM'ler depolama, örnekleri (için ölçek genişletme ve diğer işlevler), yatay bağlantısı ve SAP uygulama katmanı barındırıldığı Azure bağlantısı arasında bağlantı erişimi içerir. Ayrıca, olağanüstü durum kurtarma amacıyla çoğaltma için Azure veri merkezleri arasında WAN bağlantısı içerir. Tüm ağlar, Kiracı tarafından bölümlenir ve uygulanan hizmet kalitesi sahip.
+**Ağ**: Tüm iç ağlar için çalışan SAP HANA büyük örneği damgasında. Sizin sorumluluğunuzdadır, VM'ler depolama, örnekleri (için ölçek genişletme ve diğer işlevler), yatay bağlantısı ve SAP uygulama katmanı barındırıldığı Azure bağlantısı arasında bağlantı erişimi içerir. Ayrıca, olağanüstü durum kurtarma amacıyla çoğaltma için Azure veri merkezleri arasında WAN bağlantısı içerir. Tüm ağlar, Kiracı tarafından bölümlenir ve uygulanan hizmet kalitesi sahip.
 
-**Depolama**: depolama anlık görüntüleri yanı sıra, SAP HANA sunucuları tarafından gerekli olan tüm birimler için sanallaştırılmış bölümlenmiş. 
+**Depolama**: Sanallaştırılmış depolama anlık görüntüleri yanı sıra, SAP HANA sunucuları tarafından gerekli olan tüm birimler için bölümlenmiş. 
 
-**Sunucuları**: kiracılar için atanan SAP HANA veritabanlarını çalıştırmak için ayrılmış fiziksel sunuculara. Sunucuları türü miyim sınıfı soyutlanır donanım SKU'lar. Bu sunucu türleri ile sunucu yapılandırmasını toplanır ve başka bir fiziksel donanıma taşınabilir bir fiziksel donanım profilleri, saklanır. Böyle bir (el ile) taşıma profili işlem tarafından Azure hizmet onarımı için biraz karşılaştırılabilir. Type II sınıfı SKU'ları sunucularında, böyle bir özellik sunmamaktadır.
+**Sunucuları**: SAP HANA veritabanlarını çalıştırmak için ayrılmış fiziksel sunuculara kiracılara atanmış. Sunucuları türü miyim sınıfı soyutlanır donanım SKU'lar. Bu sunucu türleri ile sunucu yapılandırmasını toplanır ve başka bir fiziksel donanıma taşınabilir bir fiziksel donanım profilleri, saklanır. Böyle bir (el ile) taşıma profili işlem tarafından Azure hizmet onarımı için biraz karşılaştırılabilir. Type II sınıfı SKU'ları sunucularında, böyle bir özellik sunmamaktadır.
 
-**SDDC**: verileri yönetmek için kullanılan yönetim yazılımı, yazılım tanımlı varlıklar olarak ortalar. Microsoft, Ölçek, kullanılabilirlik ve performansı artırmak için kaynakları havuza sağlar.
+**SDDC**: Verileri yönetmek için kullanılan yönetim yazılımı, yazılım tanımlı varlıklar olarak merkezlendirir. Microsoft, Ölçek, kullanılabilirlik ve performansı artırmak için kaynakları havuza sağlar.
 
-**İşletim sistemi**: (SUSE Linux veya Red Hat Linux) seçtiğiniz işletim sistemi çalıştıran sunucularda. İle sağlanan işletim sistemi görüntüleri, SAP HANA çalıştırmak için tek tek Linux satıcı tarafından Microsoft'a sağlanmadı. SAP HANA için iyileştirilmiş görüntü için Linux satıcıyla aboneliğiniz olmalıdır. Görüntüleri işletim sistemi satıcıyla birlikte kaydetmek için sorumlu olursunuz. 
+**İŞLETİM SİSTEMİ**: İşletim sistemi (SUSE Linux veya Red Hat Linux) seçtiğiniz sunucular üzerinde çalışıyor. İle sağlanan işletim sistemi görüntüleri, SAP HANA çalıştırmak için tek tek Linux satıcı tarafından Microsoft'a sağlanmadı. SAP HANA için iyileştirilmiş görüntü için Linux satıcıyla aboneliğiniz olmalıdır. Görüntüleri işletim sistemi satıcıyla birlikte kaydetmek için sorumlu olursunuz. 
 
 Microsoft tarafından devreden MultiPath noktasından herhangi ek Linux işletim sistemi düzeltme eki uygulama için sorumlu olursunuz. Bu düzeltme eki uygulama olabilecek başarılı bir SAP HANA yüklemesi için gerekli ve belirli kullanıcıların SAP HANA Linux satıcı tarafından dahil olmayan ek paketleri içeren işletim sistemi görüntüleri en iyi duruma getirilmiş. (Daha fazla bilgi için SAP'nin SAP notları ve HANA yükleme belgelerine bakın.) 
 
@@ -62,11 +62,11 @@ HANA büyük örneği temel altyapısını yedekleme ve geri yükleme, işletim 
 
 **Uygulamalar:** SAP uygulama örnekleri veya SAP olmayan uygulamalarınızı, söz konusu uygulamaların uygulama katmanı söz konusu olduğunda. Sizin Sorumluluklarınız dağıtım, yönetim, işlemler ve bu uygulamaların izlenmesi içerir. CPU kaynak tüketimi, bellek tüketimi, Azure depolama tüketimi ve sanal ağ içinde ağ bant genişliği tüketimi, kapasite planlaması için sorumlu olursunuz. Siz de Kapasite (büyük örnekler) Azure üzerinde SAP HANA için kaynak tüketimi sanal ağlardan planlama sorumlu olursunuz.
 
-**WAN**: iş yükleri için Azure dağıtımları için şirket içinden bilgisayarlarıyla bağlantıları. HANA büyük örneği olan tüm müşterileri, Azure ExpressRoute için bağlantı kullanın. Bu bağlantının SAP HANA (büyük örnekler) Azure çözüm üzerinde bir parçası değil. Bu bağlantının kurulumu için sorumlu olursunuz.
+**WAN**: , Şirket içinden Azure'a dağıtımlar iş yükleri için bağlantı. HANA büyük örneği olan tüm müşterileri, Azure ExpressRoute için bağlantı kullanın. Bu bağlantının SAP HANA (büyük örnekler) Azure çözüm üzerinde bir parçası değil. Bu bağlantının kurulumu için sorumlu olursunuz.
 
-**Arşiv**: verilerin kopyaları depolama hesaplarında kendi yöntemlerini kullanarak arşivlemek tercih edebilirsiniz. Arşivleme, yönetim, uyumluluk, maliyetleri ve işlemleri gerektirir. Arşiv kopyalarını oluşturma ve yedekleri Azure ve bunları uyumlu bir şekilde depolamak için sorumlu olursunuz.
+**Arşiv**: Depolama hesaplarında kendi yöntemlerini kullanarak verilerin kopyaları arşivlemek tercih edebilirsiniz. Arşivleme, yönetim, uyumluluk, maliyetleri ve işlemleri gerektirir. Arşiv kopyalarını oluşturma ve yedekleri Azure ve bunları uyumlu bir şekilde depolamak için sorumlu olursunuz.
 
-Bkz: [(büyük örnekler) Azure üzerinde SAP HANA için SLA](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/).
+Bkz: [(büyük örnekler) Azure üzerinde SAP HANA için SLA](https://azure.microsoft.com/support/legal/sla/sap-hana-large/).
 
 **Sonraki adımlar**
 - Başvuru [azure'da SAP HANA (büyük örnekler) mimarisi](hana-architecture.md)

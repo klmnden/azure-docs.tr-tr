@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: 32c47233946dacf4e80a9ff3ba25388e1231d7c9
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: c192b3e995cacd3085f343d1f6b2c243f1531acc
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301069"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415519"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Depolama Gezgini sorun giderme kılavuzu
 
@@ -61,6 +61,8 @@ Boş bir oturum açma iletişim kutuları genellikle AD FS tarafından Depolama 
 3. İçin oturum açmak istediğiniz hangi ortamı seçin.
 4. "Oturum açma" düğmesine tıklayın.
 5. Sonraki panelinde yönergeleri izleyin.
+
+Not: Bu özellik şu anda yalnızca 1.7.0 içinde kullanılabilir Önizleme.
 
 Kendiniz bulursanız hesapla açma sorunları mı yaşıyorsunuz varsayılan tarayıcınızı zaten yapabilirsiniz veya farklı bir hesaba imzalanmadığı için kullanmak istediğiniz:
 1. El ile özel bir oturuma tarayıcınızın bağlantıyı ve kodu kopyalayın.

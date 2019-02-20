@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: bbd5058be502839f83db484136d1c97bac4a3d79
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 1b0e99998aaf29c366cce1926f930174686cfee6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585960"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414907"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>CİHAZDAN buluta iletiler için ileti yollarını ve özel uç noktaları kullanma
 
@@ -34,7 +34,7 @@ Tek bir ileti birden çok yönlendirme sorgular, IOT Hub durumu ileti eşleşen 
 
 IOT hub'ı varsayılan sahip [yerleşik uç nokta](iot-hub-devguide-messages-read-builtin.md). Hub'ına aboneliğinizde diğer hizmetler arasında bağlantı kurularak iletileri yönlendirmek için özel uç noktaları oluşturabilirsiniz. IOT hub'ı Azure depolama kapsayıcıları, Event Hubs, Service Bus kuyrukları ve Service Bus konu başlıklarını şu anda özel uç noktalar destekler.
 
-Yönlendirme ve özel uç noktaları kullandığınızda, herhangi bir sorgu eşleşmiyorsa iletileri yalnızca yerleşik uç noktasına gönderilir. Yerleşik uç noktasına da özel bir uç noktası için farklı iletileri ulaştırmak üzere, iletileri gönderen bir rota ekleyin **olayları** uç noktası.
+Yönlendirme ve özel uç noktaları kullandığınızda, herhangi bir sorgu eşleşmiyorsa iletileri yalnızca yerleşik uç noktasına gönderilir. Yerleşik uç noktasına da özel bir uç noktası için farklı iletileri sunmak için yerleşik olarak iletiler gönderen bir yol ekleyin. **olayları** uç noktası.
 
 > [!NOTE]
 > * IOT hub'ı yalnızca verileri Azure depolama kapsayıcıları bloblar için yazma destekler.

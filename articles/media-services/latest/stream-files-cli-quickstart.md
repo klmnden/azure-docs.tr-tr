@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 02/15/2019
 ms.author: juliako
-ms.openlocfilehash: c0b1f3fb854f4ca553d24ed601749cf91c2b5f28
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: be1f65b291613997466d9c82782256dc28a5590f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339813"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417406"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>Hızlı Başlangıç: Stream video dosyaları - CLI
 
@@ -181,12 +181,15 @@ Bir yanıt şuna benzer alın:
 
 Media Services v3 sürümünde kullanarak videolarınızı işleyin işleri gönderdiğinizde Media Services giriş videosunun nerede bulacağını söylemeniz gerekir. Seçeneklerden birini (Bu örnekte gösterildiği gibi) giriş işi bir HTTPS URL'si belirtmek içindir. 
 
+Çalıştırdığınızda `az ams job start`, bir etiket işin çıktı olarak ayarlayın. Etiket, daha sonra bu çıktı varlığına ne olduğunu belirlemek için kullanılabilir. 
+
+- Etiket için bir değer atadığınız verilirse '--çıktı-varlıklarına "assetname label ="
+- Etiket için bir değer atamayın verilirse '--çıktı-varlıklarına "assetname =".
+  Eklediğiniz "=" için fark `output-assets`. 
+
 ```azurecli
 az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup 
 ```
-
-> [!TIP]
-> İşin label özelliği ayarlamazsanız bile "=" çıkış varlıklar adına eklemek zorunda bildirimi çıkarır.
 
 Bir yanıt şuna benzer alın:
 
@@ -318,7 +321,7 @@ Kopyalama `hostName` değeri. Bu durumda: `amsaccount-usw22.streaming.media.azur
 
 `https://amsaccount-usw22.streaming.media.azure.net/7f19e783-927b-4e0a-a1c0-8a140c49856c/ignite.ism/manifest(format=m3u8-aapl)`
 
-## <a name="play-back-with-azure-media-player"></a>Azure Media Player ile kayıttan yürütme
+## <a name="test-playback-with-azure-media-player"></a>Azure Media Player ile test yürütme
 
 Bu makalede, akışı test etmek için Azure Media Player kullanılmaktadır. 
 
@@ -327,6 +330,8 @@ Bu makalede, akışı test etmek için Azure Media Player kullanılmaktadır.
 
 1. Bir web tarayıcısı açın ve [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) sayfasına gidin.
 2. İçinde **URL:** kutusunda, önceki bölümde oluşturulan URL'yi yapıştırın. 
+
+  HLS, Dash, URL'yi yapıştırabilirsiniz ya da kesintisiz biçimi ve Azure Media Player Cihazınızda kayıttan yürütme için uygun bir akış protokolü için otomatik olarak geçiş yapar.
 3. **Oynatıcıyı Güncelleştir** düğmesine basın.
 
 Azure Media Player, test için kullanılabilir, ancak üretim ortamında kullanılmamalıdır. 
@@ -340,6 +345,11 @@ Aşağıdaki CLI komutunu yürütün:
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+Bkz: [hata kodlarına](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

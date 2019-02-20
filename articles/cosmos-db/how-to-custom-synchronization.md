@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 2/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: 05432097ee80a01458a1f2e95c48123bf7f05d57
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 43cb73784806358bccb9758be2923d3df5e9badd
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309582"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414890"
 ---
 # <a name="how-to-implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Daha yüksek kullanılabilirlik ve performans için en iyi duruma getirmek için özel eşitlemeyi uygulama
 
-Azure Cosmos DB, tutarlılık, performans ve kullanılabilirlik etmekten dengelemek, içinden seçim yapabileceğiniz için beş iyi tanımlanmış tutarlılık düzeyi sunar. Veriler zaman uyumlu olarak çoğaltılır ve Azure Cosmos hesabı kullanılabilir olduğu her bölgede dayanıklılık kalıcı güçlü tutarlılık sağlar. Bu yapılandırma, ancak en yüksek dayanıklılık düzeyini sağlar performans ve kullanılabilirlik karşılığında sunulur. Uygulama denetimi/kullanılabilirlik ödün vermeden uygulama ihtiyaçlarını uyacak şekilde veri dayanıklılığını hafifletin isterse, istenen dayanıklılık düzeyi sağlamak için uygulama katmanında özel eşitleme tercih edebilirsiniz.
+Azure Cosmos DB, tutarlılık, performans ve kullanılabilirlik etmekten dengelemek, içinden seçim yapabileceğiniz için beş iyi tanımlanmış tutarlılık düzeyi sunar. Güçlü tutarlılık, verileri eşzamanlı olarak kopyalandığı ve Azure Cosmos hesabı kullanılabilir olduğu her bölgede arızaya kalıcı sağlar. En üst düzeyde dayanıklılık, sağlarken bu yapılandırma, performans ve kullanılabilirlik karşılığında sunulur. Uygulama denetimi/kullanılabilirlik ödün vermeden uygulama ihtiyaçlarını uyacak şekilde veri dayanıklılığını hafifletin isterse, istenen dayanıklılık düzeyi sağlamak için uygulama katmanında özel eşitleme tercih edebilirsiniz.
 
 Aşağıdaki diyagramda görsel olarak özel bir eşitleme modeli gösterilmektedir.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: a35bde6e89290fd2282ba6ec829f46cb4c6fc225
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5242f31ff35e367211d48157fd4953751d1bb148
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103324"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416301"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell kullanarak ExpressRoute ve siteden siteye arada var olabilen bağlantılar yapılandırma
 > [!div class="op_single_selector"]
@@ -81,9 +81,9 @@ Aralarından seçim yapabileceğiniz iki farklı yordam kümesi vardır. Seçti�
 ## <a name="new"></a>Yeni bir sanal ağ ve bir arada var olabilen bağlantılar oluşturmak için
 Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve ExpressRoute bağlantıları oluşturma işlemleri adım adım açıklanmıştır.
 
-1. Azure PowerShell cmdlet’lerinin en son sürümünü yükleyin. Cmdlet'leri yükleme hakkında bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview). Bu yapılandırma için kullanacağınız cmdlet'ler tanıdıklarınızdan biraz farklı olabilir. Bu yönergelerde belirtilen cmdlet'leri kullandığınızdan emin olun.
+1. Azure PowerShell cmdlet’lerinin en son sürümünü yükleyin. Cmdlet'leri yükleme hakkında bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/azurerm/overview). Bu yapılandırma için kullanacağınız cmdlet'ler tanıdıklarınızdan biraz farklı olabilir. Bu yönergelerde belirtilen cmdlet'leri kullandığınızdan emin olun.
 
-2. Hesabınızda oturum açın ve ortamı ayarlayın.
+1. Hesabınızda oturum açın ve ortamı ayarlayın.
 
   ```powershell
   Connect-AzureRmAccount

@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6ece83fe3011c4e94416e12231a3d093af79704e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 191f58252aadf776465bb097207a7e76c0f92003
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666705"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415179"
 ---
-# <a name="power-bi-apps-contacts-tab"></a>Power BI uygulamaları kişiler sekmesi
+# <a name="power-bi-app-contacts-tab"></a>Power BI uygulama kişileri sekmesi
 
 Kullanım **kişiler** sekmesinde **yeni teklif** teknik ve kullanıcı kaynaklarını teklifiniz için desteği sayfası. Bu, iki bölüme ayrılır: **Mühendislik** ve **müşteri desteği**.
 
@@ -30,20 +30,20 @@ Kullanım **kişiler** sekmesinde **yeni teklif** teknik ve kullanıcı kaynakla
 
 ## <a name="contacts-fields"></a>Kişiler alanları 
 
-Aşağıdaki tabloda, bu alanların amacı ve adını açıklanmaktadır. 
+Aşağıdaki tabloda her bir alan amacını açıklar: 
 
 |   Alan               |   Açıklama                                                            |
 |-----------------------|--------------------------------------------------------------------------|
-| *Mühendislik birimi ilgili kişisi* | Teknik konular ilgili kişisi AppSource ya da kuruluşunuzun arasında görür    |
-| **Ad**              | Kişi veya teknik/mühendislik desteği hizmet veren Grup adı |
-| **E-posta**             | Bu teknik konular ilgili kişisi e-posta adresi                                  |
-| **Telefon**             | Teknik destek için telefon numarası                                       |
-| *Destek ekibiyle iletişime geçin*     | AppSource müşterileri tarafından açılmış destek biletlerini alır            |
-| **Ad**              | Kişi veya müşteri desteği hizmet veren Grup adı              |
-| **E-posta**             | E-posta adresi Müşteri desteği                                        |
+| *Mühendislik birimi ilgili kişisi* | AppSource ya da kuruluşunuzun arasında bir teknik konular ilgili kişisi olarak görev yapar.    |
+| **Ad**              | Kişi veya teknik ya da mühendislik desteği hizmet veren Grup adı. |
+| **E-posta**             | Bu teknik konular ilgili kişisi e-posta adresi.                                  |
+| **Telefon**             | Teknik destek telefon numarası.                                       |
+| *Destek ekibiyle iletişime geçin*     | AppSource müşterileri tarafından açılmış destek biletlerini alır.            |
+| **Ad**              | Kişi veya grup müşteri desteği veren adı.              |
+| **E-posta**             | Müşteri desteği e-posta adresi.                                        |
 |  |  |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Power BI uygulaması teklif tamamladıktan sonra tüm oluşturduğunuz onaylamalıdır ilişkili [teknik varlıkları](./cpp-create-technical-assets.md) Bu teklif için.
+Power BI uygulaması teklifinizin tamamladıktan sonra tüm oluşturduğunuz Onayla ilişkili [teknik varlıkları](./cpp-create-technical-assets.md) teklif için.

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3e4f5c07602d5bc1b7760793664415f092301c20
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6505b12b35ee436930ba6571c27db30c12030041
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444418"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418314"
 ---
 ### <a name="gwipnoconnection"></a> 'GatewayIpAddress' yerel ağ geçidini değiştirmek için - ağ geçidi bağlantısı yok
 
@@ -22,7 +22,7 @@ Bağlanmak istediğiniz VPN cihazının genel IP adresi değiştiyse, yerel ağ 
 Bu değeri değiştirirken aynı zamanda adres ön eklerini de değiştirebilirsiniz. Geçerli ayarların üzerine yazmak için yerel ağ geçidinizin mevcut adını kullandığınızdan emin olun. Farklı bir ad kullanırsanız mevcut olanın üzerine yazmak yerine yeni bir yerel ağ geçidi oluşturursunuz.
 
 ```azurepowershell-interactive
-New-AzureRmLocalNetworkGateway -Name Site1 `
+New-AzLocalNetworkGateway -Name Site1 `
 -Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') `
 -GatewayIpAddress "5.4.3.2" -ResourceGroupName TestRG1
 ```
@@ -32,32 +32,33 @@ New-AzureRmLocalNetworkGateway -Name Site1 `
 Bağlanmak istediğiniz VPN cihazının genel IP adresi değiştiyse, yerel ağ geçidini bu değişikliği yansıtacak şekilde değiştirmeniz gerekir. Zaten bir ağ geçidi bağlantısı varsa öncelikle bu bağlantıyı kaldırmanız gerekir. Bağlantı kaldırıldıktan sonra ağ geçidi IP adresini değiştirebilir ve yeni bir bağlantı oluşturabilirsiniz. Aynı zamanda adres ön eklerini de değiştirebilirsiniz. Bunun sonucunda, VPN bağlantınızda kesinti oluşur. Ağ geçidi IP adresini değiştirirken, VPN ağ geçidini silmeniz gerekmez. Yalnızca bağlantıyı kaldırmanız gerekir.
  
 
-1. Bağlantıyı kaldırın. 'Get-AzureRmVirtualNetworkGatewayConnection' cmdlet’ini kullanarak bağlantınızın adını bulabilirsiniz.
+1. Bağlantıyı kaldırın. 'Get-AzVirtualNetworkGatewayConnection' cmdlet'ini kullanarak bağlantınızın adını bulabilirsiniz.
 
    ```azurepowershell-interactive
-   Remove-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 `
+   Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
    -ResourceGroupName TestRG1
    ```
 2. 'GatewayIpAddress' değerini değiştirin. Aynı zamanda adres ön eklerini de değiştirebilirsiniz. Geçerli ayarların üzerine yazmak için yerel ağ geçidinizin mevcut adını kullandığınızdan emin olun. Bunu kullanmazsanız, mevcut olanın üzerine yazmak yerine yeni bir yerel ağ geçidi oluşturursunuz.
 
    ```azurepowershell-interactive
-   New-AzureRmLocalNetworkGateway -Name Site1 `
+   New-AzLocalNetworkGateway -Name Site1 `
    -Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') `
    -GatewayIpAddress "104.40.81.124" -ResourceGroupName TestRG1
    ```
-3. Bağlantıyı oluşturun. Bu örnekte bir IPsec bağlantı türü yapılandırıyoruz. Bağlantınızı yeniden oluşturduktan sonra, yapılandırmanız için belirtilen bağlantı türünü kullanın. Ek bağlantı türleri için [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) sayfasına bakın.  VirtualNetworkGateway adını almak için 'Get-AzureRmVirtualNetworkGateway' cmdlet'ini çalıştırabilirsiniz.
+3. Bağlantıyı oluşturun. Bu örnekte bir IPsec bağlantı türü yapılandırıyoruz. Bağlantınızı yeniden oluşturduktan sonra, yapılandırmanız için belirtilen bağlantı türünü kullanın. Ek bağlantı türleri için [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) sayfasına bakın.  VirtualNetworkGateway adını almak için 'Get-AzVirtualNetworkGateway' cmdlet'ini çalıştırabilirsiniz.
    
     Değişkenleri ayarlayın.
 
    ```azurepowershell-interactive
-   $local = Get-AzureRMLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
-   $vnetgw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+
+   $vnetgw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
    ```
    
     Bağlantıyı oluşturun.
 
    ```azurepowershell-interactive 
-   New-AzureRmVirtualNetworkGatewayConnection -Name VNet1Site1 -ResourceGroupName TestRG1 `
+   New-AzVirtualNetworkGatewayConnection -Name VNet1Site1 -ResourceGroupName TestRG1 `
    -Location "East US" `
    -VirtualNetworkGateway1 $vnetgw `
    -LocalNetworkGateway2 $local `

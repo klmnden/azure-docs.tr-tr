@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 646d5a1aec7387d8f7ee632f5e46f988e1bc012c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fd0f8241c07f603089b896dcfc9ece29f1e33d1c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882225"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428213"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Uygulamanızı Azure Active Directory B2C için bir kullanıcı akışı aracılığıyla erişim belirteci geçirin
 
@@ -24,12 +24,12 @@ ms.locfileid: "55882225"
 
 A [kullanıcı akışı](active-directory-b2c-reference-policies.md) Azure Active Directory (Azure AD) B2C'de, uygulamanızın kullanıcıları ıntune'a kaydolma veya bir kimlik sağlayıcısı ile oturum açmak için bir fırsat sağlar. Yolculuğunuzun başladığında, Azure AD B2C alır bir [erişim belirteci](active-directory-b2c-reference-tokens.md) kimlik sağlayıcısından gelen. Azure AD B2C kullanıcı hakkında bilgi almak için bu belirteci kullanır. Bir talep belirteci aracılığıyla Azure AD B2C'de kayıt uygulamaları geçirmek için kullanıcı akışınızı etkinleştirin.
 
-Azure AD B2C şu anda yalnızca destekler erişim belirtecini geçirme [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) içeren kimlik sağlayıcıları [Facebook](active-directory-b2c-setup-fb-app.md) ve [Google](active-directory-b2c-setup-goog-app.md). Diğer tüm kimlik sağlayıcıları için talep boş olarak döndürülür.
+Azure AD B2C'yi destekler erişim belirtecini geçirme [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) ve [Openıd Connect](active-directory-b2c-reference-oidc.md) kimlik sağlayıcıları. Diğer tüm kimlik sağlayıcıları için talep boş olarak döndürülür.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Uygulamanızı kullanarak bir [v2 kullanıcı akışı](user-flow-versions.md).
-- Kullanıcı akışı, OAuth 2.0 kimlik sağlayıcısı ile yapılandırılır.
+- Kullanıcı akışı, OAuth 2.0 veya Openıd Connect kimlik sağlayıcısı ile yapılandırılır.
 
 ## <a name="enable-the-claim"></a>Talep etkinleştir
 

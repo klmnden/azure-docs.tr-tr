@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 7/20/2018
+ms.date: 2/19/2019
 ms.author: victorh
-ms.openlocfilehash: 638d6c5740f999af2f1dac7cbc51e0b6aeb38c0b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9ed0c8763835add485d6c60a43f4e4113ecde12e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996364"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429290"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Öğretici: Bir web uygulaması için özel bir etki alanında DNS kayıtları oluşturma 
 
@@ -84,7 +84,7 @@ Uygulama Hizmetleri, bu kaydı yalnızca yapılandırma sırasında, özel etki 
 
 ```powershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
- -Name `"@" -RecordType "txt" -Ttl 600 `
+ -Name "@" -RecordType "txt" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.azurewebsites.net")
 ```
 

@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/29/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487243"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429273"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
@@ -181,6 +181,8 @@ Aşağıdaki tablo, değişiklik izleme için makine başına izlenen öğe sın
 |Hizmetler|250||
 |Program|250||
 
+Log Analytics veri kullanımı değişiklik izleme ve stok kullanarak bir makine için yaklaşık 40 MB / ay ortalamadır. Bu değer yalnızca yaklaşık ve ortamınıza bağlı değiştirilebilir. Ortamınızı sahip olduğunuz tam kullanımını görmek için izlemeniz önerilir.
+
 ### <a name="windows-service-tracking"></a>Windows hizmeti izleme
 
 Windows Hizmetleri için varsayılan toplama sıklığı 30 dakikadır. Sıklığını yapılandırmak için şu adrese gidin **değişiklik izleme**. Altında **ayarlarını Düzenle** üzerinde **Windows Hizmetleri** sekmesinde, Windows Hizmetleri'nden için toplama sıklığı için en çok 30 dakika olarak 10 saniye olan en kısa sürede değiştirmenize izin veren bir kaydırıcı yoktur. Kaydırıcı çubuğunu taşımak istediğiniz sıklığı ve onu otomatik olarak kaydeder.
@@ -257,7 +259,7 @@ Bir değişiklik veya olay'ı tıklatarak bu değişiklik hakkında ayrıntılı
 
 ![değişiklik ayrıntıları izleme görüntüsü](./media/automation-change-tracking/change-tracking-details.png)
 
-## <a name="search-logs"></a>Günlüklerinde arama yapma
+## <a name="search-logs"></a>Günlük ara
 
 Portalda sağlanan Ayrıntılar ek olarak, arama günlüklerine karşı yapılabilir. İle **değişiklik izleme** sayfası açıldığında, tıklayın **Log Analytics**, bu açılır **günlük araması** sayfası.
 

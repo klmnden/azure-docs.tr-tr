@@ -2,18 +2,17 @@
 title: 'Bir Azure sanal ağı bir VNet-VNet bağlantısı kullanarak başka bir sanal ağa bağlama: PowerShell | Microsoft Docs'
 description: Sanal ağlar arası bağlantı ve PowerShell kullanarak sanal ağları birbirine bağlayın.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/14/2018
+ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6624c28d686a584017d703889e57ef1a7126b16d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6da0511456f413924eee9d4cf622f50125b15833
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695535"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416573"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
 
@@ -28,8 +27,6 @@ Bu makaledeki adımlar Resource Manager dağıtım modeli için geçerlidir ve P
 > * [Azure portal (klasik)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Farklı dağıtım modellerini bağlama - Azure portalı](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Farklı dağıtım modellerini bağlama - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
->
->
 
 ## <a name="about"></a>Sanal ağları bağlama hakkında
 
@@ -80,7 +77,11 @@ Bu alıştırma için, yapılandırmaları birleştirebilir veya yalnızca birli
 
 ### <a name="before-you-begin"></a>Başlamadan önce
 
-Başlamadan önce Azure Resource Manager PowerShell cmdlet’lerinin en yeni sürümünü (en az 4.0 veya üzeri) yüklemeniz gerekir. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* Bir ağ geçidi oluşturma 45 dakika kadar sürer çünkü Azure Cloud Shell düzenli aralıklarla Bu alıştırmada sırasında zaman aşımı olur. Sol üst tarafındaki terminal içinde tıklayarak Cloud Shell'i yeniden başlatabilirsiniz. Terminal yeniden başlattığınızda, tüm değişkenler içeriyorsa emin olun.
+
+* Bunun yerine yerel olarak Azure PowerShell modülünün en son sürümünü yüklemeniz varsa, bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
 ### <a name="Step1"></a>1. adım -, IP adres aralıklarını planlama
 
@@ -122,10 +123,28 @@ Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla
 
 ### <a name="Step2"></a>Adım 2 - oluşturma ve TestVNet1 yapılandırma
 
-1. Değişkenlerinizi bildirin. Bu örnekte bu alıştırmaya yönelik değerleri kullanan değişkenler bildirilmektedir. Çoğu durumda değerleri kendi değerlerinizle değiştirmeniz gerekir. Ancak, bu tür yapılandırmaları tanımaya başlamak için adımları gözden geçiriyorsanız bu değişkenleri kullanabilirsiniz. Gerekirse değişkenleri değiştirin, daha sonra kopyalayın ve PowerShell konsolunuza yapıştırın.
+1. Abonelik ayarlarınızı doğrulayın.
 
-  ```powershell
-  $Sub1 = "Replace_With_Your_Subscription_Name"
+  PowerShell, bilgisayarınızda yerel olarak çalıştırıyorsanız, hesabınıza bağlanın. Azure Cloud Shell kullanıyorsanız, otomatik olarak bağlanır.
+
+  ```azurepowershell-interactive
+  Connect-AzAccount
+  ```
+
+  Hesapla ilişkili abonelikleri kontrol edin.
+
+  ```azurepowershell-interactive
+  Get-AzSubscription
+  ```
+
+  Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği belirtin.
+
+  ```azurepowershell-interactive
+  Select-AzSubscription -SubscriptionName nameofsubscription
+  ```
+2. Değişkenlerinizi bildirin. Bu örnekte bu alıştırmaya yönelik değerleri kullanan değişkenler bildirilmektedir. Çoğu durumda değerleri kendi değerlerinizle değiştirmeniz gerekir. Ancak, bu tür yapılandırmaları tanımaya başlamak için adımları gözden geçiriyorsanız bu değişkenleri kullanabilirsiniz. Gerekirse değişkenleri değiştirin, daha sonra kopyalayın ve PowerShell konsolunuza yapıştırın.
+
+  ```azurepowershell-interactive
   $RG1 = "TestRG1"
   $Location1 = "East US"
   $VNetName1 = "TestVNet1"
@@ -143,73 +162,57 @@ Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla
   $Connection14 = "VNet1toVNet4"
   $Connection15 = "VNet1toVNet5"
   ```
+3. Bir kaynak grubu oluşturun.
 
-2. Hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
-
-  ```powershell
-  Connect-AzureRmAccount
-  ```
-
-  Hesapla ilişkili abonelikleri kontrol edin.
-
-  ```powershell
-  Get-AzureRmSubscription
-  ```
-
-  Kullanmak istediğiniz aboneliği belirtin.
-
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName $Sub1
-  ```
-3. Yeni bir kaynak grubu oluşturun.
-
-  ```powershell
-  New-AzureRmResourceGroup -Name $RG1 -Location $Location1
+  ```azurepowershell-interactive
+  New-AzResourceGroup -Name $RG1 -Location $Location1
   ```
 4. TestVNet1 için alt ağ yapılandırmalarını oluşturun. Bu örnekte TestVNet1 adlı bir sanal ağ ve üç alt ağ oluşturulmaktadır. Biri GatewaySubnet, biri FrontEnd, diğeri BackEnd’dir. Kendi değerlerinizi yerleştirirken ağ geçidi alt ağınızı özellikle GatewaySubnet olarak adlandırmanız önem taşır. Başka bir ad kullanırsanız ağ geçidi oluşturma işleminiz başarısız olur.
 
   Aşağıdaki örnekte daha önce belirlediğiniz değişkenler kullanılmaktadır. Bu örnekte ağ geçidi alt ağı bir /27 kullanmaktadır. /29 kadar küçük bir ağ geçidi alt ağı oluşturmak mümkün olsa da en az /28 veya /27’yi seçerek daha fazla adres içeren büyük bir alt ağ oluşturmanızı öneririz. Bu, gelecekte isteyebileceğiniz ek yapılandırmaları da içerecek yeteri kadar adres sağlayacaktır.
 
-  ```powershell
-  $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
-  $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-  $gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+  ```azurepowershell-interactive
+  $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
+  $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
+  $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
   ```
 5. TestVNet1’i oluşturun.
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
   ```
 6. Sanal ağınız için oluşturacağınız ağ geçidine ayrılacak genel IP adresi isteyin. AllocationMethod değerinin Dinamik olduğuna dikkat edin. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, ağ geçidinize dinamik olarak ayrılır. 
 
-  ```powershell
-  $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  $gwpip1 = New-AzPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
   ```
 7. Ağ geçidi yapılandırmasını oluşturun. Ağ geçidi yapılandırması, kullanılacak alt ağı ve genel IP adresini tanımlar. Ağ geçidi yapılandırmanızı oluşturmak için örneği kullanın.
 
-  ```powershell
-  $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
-  $subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
-  $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
+  ```azurepowershell-interactive
+  $vnet1 = Get-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+  $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
+  $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
 8. TestVNet1 için ağ geçidini oluşturun. Bu adımda TestVNet1’iniz için sanal ağ geçidi oluşturursunuz. Sanal Ağdan Sanal Ağa yapılandırmaları, RouteBased bir VPNType gerektirir. Bir ağ geçidinin oluşturulması, seçili ağ geçidi SKU’suna bağlı olarak 45 dakika veya daha uzun sürebilir.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
   -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
+Komutlar tamamladıktan sonra bu ağ geçidi oluşturma 45 dakika kadar sürer. Azure Cloud Shell kullanıyorsanız, CloudShell içinde üst tıklayarak oturum Cloud Shell terminal sol yeniden sonra testvnet4'ü yapılandırın. TestVNet1 ağ geçidi tamamlanana kadar beklemesi gerekmez.
+
 ### <a name="step-3---create-and-configure-testvnet4"></a>3. Adım - TestVNet4’ü oluşturma ve yapılandırma
 
-TestVNet1 yapılandırıldıktan sonra TestVNet4’ü oluşturun. Aşağıdaki adımları, verilen değerleri gerektiğinde kendi değerlerinizle değiştirerek takip edin. Bu adım aynı PowerShell oturumunda tamamlanabilir, çünkü bağlantı aynı abonelik içindedir.
+TestVNet1 yapılandırıldıktan sonra TestVNet4’ü oluşturun. Aşağıdaki adımları, verilen değerleri gerektiğinde kendi değerlerinizle değiştirerek takip edin.
 
-1. Değişkenlerinizi bildirin. Değerleri, yapılandırma için kullanmak istediğiniz değerlerle değiştirdiğinizden emin olun.
+1. Bağlanın ve değişkenlerinizi bildirin. Değerleri, yapılandırma için kullanmak istediğiniz değerlerle değiştirdiğinizden emin olun.
 
-  ```powershell
+  ```azurepowershell-interactive
   $RG4 = "TestRG4"
   $Location4 = "West US"
   $VnetName4 = "TestVNet4"
@@ -226,64 +229,66 @@ TestVNet1 yapılandırıldıktan sonra TestVNet4’ü oluşturun. Aşağıdaki a
   $GWIPconfName4 = "gwipconf4"
   $Connection41 = "VNet4toVNet1"
   ```
-2. Yeni bir kaynak grubu oluşturun.
+2. Bir kaynak grubu oluşturun.
 
-  ```powershell
-  New-AzureRmResourceGroup -Name $RG4 -Location $Location4
+  ```azurepowershell-interactive
+  New-AzResourceGroup -Name $RG4 -Location $Location4
   ```
 3. TestVNet4 için alt ağ yapılandırmalarını oluşturun.
 
-  ```powershell
-  $fesub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
-  $besub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
-  $gwsub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
+  ```azurepowershell-interactive
+  $fesub4 = New-AzVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
+  $besub4 = New-AzVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
+  $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
   ```
 4. TestVNet4’ü oluşturun.
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AddressPrefix $VnetPrefix41,$VnetPrefix42 -Subnet $fesub4,$besub4,$gwsub4
   ```
 5. Genel bir IP adresi isteyin.
 
-  ```powershell
-  $gwpip4 = New-AzureRmPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  $gwpip4 = New-AzPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AllocationMethod Dynamic
   ```
 6. Ağ geçidi yapılandırmasını oluşturun.
 
-  ```powershell
-  $vnet4 = Get-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
-  $subnet4 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet4
-  $gwipconf4 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName4 -Subnet $subnet4 -PublicIpAddress $gwpip4
+  ```azurepowershell-interactive
+  $vnet4 = Get-AzVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
+  $subnet4 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet4
+  $gwipconf4 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName4 -Subnet $subnet4 -PublicIpAddress $gwpip4
   ```
 7. TestVNet4 ağ geçidini oluşturun. Bir ağ geçidinin oluşturulması, seçili ağ geçidi SKU’suna bağlı olarak 45 dakika veya daha uzun sürebilir.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
   -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-4---create-the-connections"></a>4. Adım - Bağlantıları oluşturma
 
-1. Her iki sanal ağ geçidini de alın. Örnekte olduğu gibi her iki ağ geçidi de aynı abonelikte bulunduğunda bu adımı aynı PowerShell oturumunda tamamlayabilirsiniz.
+İki ağ geçidi tamamlanana kadar bekleyin. Kopyalama ve Azure Cloud Shell oturumu yeniden başlatın ve değişkenleri adım 2 ve 3. adım başından itibaren değerleri içeriyorsa konsola yapıştırın.
 
-  ```powershell
-  $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-  $vnet4gw = Get-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
+1. Her iki sanal ağ geçidini de alın.
+
+  ```azurepowershell-interactive
+  $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+  $vnet4gw = Get-AzVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
   ```
 2. TestVNet1 - TestVNet4 bağlantısını oluşturun. Bu adımda TestVNet1 - TestVNet4 arasında bağlantı oluşturursunuz. Örneklerde paylaşılan bir anahtar göreceksiniz. Paylaşılan anahtar için kendi değerlerinizi kullanabilirsiniz. Paylaşılan anahtarın her iki bağlantıyla da eşleşiyor olması önemlidir. Bir bağlantı oluşturmak çok zaman almaz.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
   -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet4gw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 3. TestVNet4 - TestVNet1 bağlantısı oluşturun. Bu adım, bağlantıyı TestVNet4’ten TestVNet1’e yönüne kuracak olmanız dışında yukarıdaki adımla aynıdır. Paylaşılan anahtarların eşleştiğinden emin olun. Bağlantı birkaç dakika içerisinde kurulacaktır.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
   -VirtualNetworkGateway1 $vnet4gw -VirtualNetworkGateway2 $vnet1gw -Location $Location4 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
@@ -291,11 +296,15 @@ TestVNet1 yapılandırıldıktan sonra TestVNet4’ü oluşturun. Aşağıdaki a
 
 ## <a name="difsub"></a>Farklı abonelikleri olan Vnet'ler bağlanma
 
-Bu senaryoda TestVNet1 ve TestVNet5’i bağlarsınız. TestVNet1 ve TestVNet5 farklı bir abonelikte bulunur. Aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. Bu adımlar ve önceki adım kümesi arasındaki fark, yapılandırma adımlarının bir kısmının ikinci abonelik bağlamında farklı bir PowerShell oturumunda tamamlanması gerektiğidir. Bu durum özellikle iki aboneliğin farklı kuruluşlara ait olduğu durumlarda geçerlidir.
+Bu senaryoda TestVNet1 ve TestVNet5’i bağlarsınız. TestVNet1 ve TestVNet5 farklı Aboneliklerde yer alır. Aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez.
+
+Bu adımlar ve önceki adım kümesi arasındaki fark, yapılandırma adımlarının bir kısmının ikinci abonelik bağlamında farklı bir PowerShell oturumunda tamamlanması gerektiğidir. Bu durum özellikle iki aboneliğin farklı kuruluşlara ait olduğu durumlarda geçerlidir.
+
+Bu alıştırmada abonelik bağlamını değiştirme nedeniyle PowerShell adım 8'e aldığınızda Azure Cloud Shell'i kullanmak yerine, bilgisayar üzerinde yerel olarak kullanmak daha kolay.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>5. Adım - TestVNet1'i oluşturma ve yapılandırma
 
-TestVNet1'i ve TestVNet1 için VPN Ağ Geçidini oluşturup yapılandırmak için önceki bölümde bulunan [1. Adımı](#Step1) ve [2. Adımı](#Step2) tamamlamanız gerekir. Bu yapılandırma için önceki bölümdeki TestVNet4'ü oluşturmanız gerekmez, ancak oluştursanız dahi bu adımlarla herhangi bir çakışma ortaya çıkmaz. 1. Adım'ı ve 2. Adım'ı tamamladıktan sonra 6. Adım'a geçerek TestVNet5'i oluşturun. 
+TestVNet1'i ve TestVNet1 için VPN Ağ Geçidini oluşturup yapılandırmak için önceki bölümde bulunan [1. Adımı](#Step1) ve [2. Adımı](#Step2) tamamlamanız gerekir. Bu yapılandırma için önceki bölümdeki TestVNet4'ü oluşturmanız gerekmez, ancak oluştursanız dahi bu adımlarla herhangi bir çakışma ortaya çıkmaz. 1. Adım'ı ve 2. Adım'ı tamamladıktan sonra 6. Adım'a geçerek TestVNet5'i oluşturun.
 
 ### <a name="step-6---verify-the-ip-address-ranges"></a>6. Adım - IP adresi aralıklarını doğrulama
 
@@ -322,7 +331,7 @@ Bu adım, yeni abonelik bağlamında tamamlanmalıdır. Bu kısım, aboneliğin 
 
 1. Değişkenlerinizi bildirin. Değerleri, yapılandırma için kullanmak istediğiniz değerlerle değiştirdiğinizden emin olun.
 
-  ```powershell
+  ```azurepowershell-interactive
   $Sub5 = "Replace_With_the_New_Subscription_Name"
   $RG5 = "TestRG5"
   $Location5 = "Japan East"
@@ -342,56 +351,56 @@ Bu adım, yeni abonelik bağlamında tamamlanmalıdır. Bu kısım, aboneliğin 
   ```
 2. 5 aboneliğe bağlanın. PowerShell konsolunuzu açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
-  ```powershell
-  Connect-AzureRmAccount
+  ```azurepowershell-interactive
+  Connect-AzAccount
   ```
 
   Hesapla ilişkili abonelikleri kontrol edin.
 
-  ```powershell
-  Get-AzureRmSubscription
+  ```azurepowershell-interactive
+  Get-AzSubscription
   ```
 
   Kullanmak istediğiniz aboneliği belirtin.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName $Sub5
+  ```azurepowershell-interactive
+  Select-AzSubscription -SubscriptionName $Sub5
   ```
 3. Yeni bir kaynak grubu oluşturun.
 
-  ```powershell
-  New-AzureRmResourceGroup -Name $RG5 -Location $Location5
+  ```azurepowershell-interactive
+  New-AzResourceGroup -Name $RG5 -Location $Location5
   ```
 4. TestVNet5 için alt ağ yapılandırmalarını oluşturun.
 
-  ```powershell
-  $fesub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
-  $besub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName5 -AddressPrefix $BESubPrefix5
-  $gwsub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName5 -AddressPrefix $GWSubPrefix5
+  ```azurepowershell-interactive
+  $fesub5 = New-AzVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
+  $besub5 = New-AzVirtualNetworkSubnetConfig -Name $BESubName5 -AddressPrefix $BESubPrefix5
+  $gwsub5 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName5 -AddressPrefix $GWSubPrefix5
   ```
 5. TestVNet5’i oluşturun.
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5 -Location $Location5 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5 -Location $Location5 `
   -AddressPrefix $VnetPrefix51,$VnetPrefix52 -Subnet $fesub5,$besub5,$gwsub5
   ```
 6. Genel bir IP adresi isteyin.
 
-  ```powershell
-  $gwpip5 = New-AzureRmPublicIpAddress -Name $GWIPName5 -ResourceGroupName $RG5 `
+  ```azurepowershell-interactive
+  $gwpip5 = New-AzPublicIpAddress -Name $GWIPName5 -ResourceGroupName $RG5 `
   -Location $Location5 -AllocationMethod Dynamic
   ```
 7. Ağ geçidi yapılandırmasını oluşturun.
 
-  ```powershell
-  $vnet5 = Get-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
-  $subnet5  = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
-  $gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
+  ```azurepowershell-interactive
+  $vnet5 = Get-AzVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
+  $subnet5  = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
+  $gwipconf5 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
   ```
 8. TestVNet5 ağ geçidini oluşturun.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
   -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
@@ -399,15 +408,15 @@ Bu adım, yeni abonelik bağlamında tamamlanmalıdır. Bu kısım, aboneliğin 
 
 Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abonelik] ve [5. Abonelik] olarak iki PowerShell oturumuna ayıracağız.
 
-1. **[1. Abonelik]** 1. Abonelik için sanal ağ geçidini alın. Aşağıdaki örneği çalıştırmadan önce 1. Abonelik'te oturum açın ve bu aboneliğe bağlanın:
+1. **[1. Abonelik]** 1. Abonelik için sanal ağ geçidini alın. Oturum açın ve aşağıdaki örneği çalıştırmadan önce 1. aboneliğe bağlanın:
 
-  ```powershell
-  $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+  ```azurepowershell-interactive
+  $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   ```
 
   Aşağıdaki öğelerin çıktısını kopyalayın ve 5. Aboneliğin yöneticisine e-posta veya başka bir yöntemle gönderin. 
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet1gw.Name
   $vnet1gw.Id
   ```
@@ -420,15 +429,15 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
   PS D:\> $vnet1gw.Id
   /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
   ```
-2. **[5. Abonelik]** 5. Abonelik için sanal ağ geçidini alın. Aşağıdaki örneği çalıştırmadan önce 5. Abonelik'te oturum açın ve bu aboneliğe bağlanın:
+2. **[5. Abonelik]** 5. Abonelik için sanal ağ geçidini alın. Oturum açın ve aşağıdaki örneği çalıştırmadan önce 5. aboneliğe bağlanın:
 
-  ```powershell
-  $vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
+  ```azurepowershell-interactive
+  $vnet5gw = Get-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
   ```
 
   Aşağıdaki öğelerin çıktısını kopyalayın ve 1. Abonelik’in yöneticisine e-posta veya başka bir yöntemle gönderin
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet5gw.Name
   $vnet5gw.Id
   ```
@@ -445,23 +454,23 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
 
   Aşağıdaki örneği çalıştırmadan önce 1. Abonelik'e bağlanın:
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet5gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet5gw.Name = "VNet5GW"
   $vnet5gw.Id   = "/subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW"
   $Connection15 = "VNet1toVNet5"
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+  New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 4. **[5. Abonelik]** TestVNet5 - TestVNet1 bağlantısını oluşturun. Bu adım, bağlantıyı TestVNet5’ten TestVNet1’e doğru kuracak olmanızın dışında yukarıdaki adımla aynıdır. 1 Abonelikten elde edilen değerleri temel alan bir PowerShell nesnesi oluşturma işlemi burada da geçerlidir. Bu adımda, paylaşılan anahtarların eşleştiğinden emin olun.
 
   Aşağıdaki örneği çalıştırmadan önce 5. Abonelik'e bağlanın:
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet1gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet1gw.Name = "VNet1GW"
   $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
   $Connection51 = "VNet5toVNet1"
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+  New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 
 ## <a name="verify"></a>Nasıl bir bağlantıyı doğrulamak için

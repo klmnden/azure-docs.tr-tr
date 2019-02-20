@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: 1760c63bee6bc1b0a631499a8875bedb34e71afd
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 5e301a671551ee65e8dc56ca6f86e273fe2f6241
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308851"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417185"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Bir HTTPS URL'si iş girdisi oluşturma
 
@@ -27,6 +27,10 @@ Media Services v3 sürümünde kullanarak videolarınızı işleyin işleri gön
 Aşağıdaki kod, Giriş bir HTTPS URL'si ile bir iş oluşturma işlemini gösterir.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-quickstarts/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs#SubmitJob)]
+
+## <a name="job-error-codes"></a>İş hata kodları
+
+Bkz: [hata kodları](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

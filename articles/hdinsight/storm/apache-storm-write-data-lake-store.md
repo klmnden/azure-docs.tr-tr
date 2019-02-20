@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 301de81fc9b8bdb8b295700de33065d988379334
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819170"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428803"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Apache Hadoop HDFS'ye HDInsight üzerinde Apache Storm yazma
 
@@ -50,15 +50,18 @@ Dağıtım iş istasyonunuza Java ve JDK yüklerken aşağıdaki ortam değişke
 HdfsBolt HDFS'ye yazma anlamak için sağladığınız dosya şeması kullanır. HDInsight ile aşağıdaki düzenlerden birini kullanın:
 
 * `wasb://`: Bir Azure depolama hesabı ile kullanılır.
-* `adl://`: Azure Data Lake Store ile kullanılır.
+* `abfs://`: Bir Azure Data Lake depolama Gen2 ile kullanılır.
+* `adl://`: Azure Data Lake depolama Gen1 ile kullanılır.
 
 Aşağıdaki tabloda farklı senaryolar için dosya düzeni kullanma örnekleri verilmiştir:
 
 | Düzeni | Notlar |
 | ----- | ----- |
 | `wasb:///` | Bir Azure depolama hesabındaki bir blob kapsayıcısını varsayılan depolama hesabıdır |
-| `adl:///` | Varsayılan depolama hesabı, Azure Data Lake Storage dizinindedir. Küme oluşturma sırasında Data Lake Storage kümenin HDFS kök dizini belirtin. Örneğin, `/clusters/myclustername/` dizin. |
+| `abfs:///` | Varsayılan depolama hesabı bir Azure Data Lake depolama Gen2 hesabınız dizinindedir. |
+| `adl:///` | Varsayılan depolama hesabı, Azure Data Lake depolama Gen1 dizinindedir. Küme oluşturma sırasında Data Lake Storage kümenin HDFS kök dizini belirtin. Örneğin, `/clusters/myclustername/` dizin. |
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Kümeyle ilişkilendirilmiş varsayılan olmayan (ek) Azure depolama hesabı. |
+| `abfs://CONTAINER@ACCOUNT.dfs.core.windows.net/` | Kümeyle ilişkilendirilmiş varsayılan olmayan (ek) Azure depolama hesabı. |
 | `adl://STORENAME/` | Data Lake Storage küme tarafından kullanılan kök dizini. Bu düzen, küme dosya sistemini içeren dizininin dışında bulunan verilere erişmesini sağlar. |
 
 Daha fazla bilgi için [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) Apache.org başvuru.
@@ -180,7 +183,7 @@ Bu betik, kümesi ile kullanma hakkında daha fazla bilgi için bkz: [özelleşt
         hdfs.url: wasb:///
 
     > [!IMPORTANT]  
-    > Bu örnek, kümenizi varsayılan depolama alanı olarak Azure depolama hesabı kullandığını varsayar. Kümenizi Azure Data Lake Storage kullanıyorsa, kullanın `hdfs.url: adl:///` yerine.
+    > Bu örnek, kümenizi varsayılan depolama alanı olarak Azure depolama hesabı kullandığını varsayar. Kümenizi Azure Data Lake depolama Gen2 kullanıyorsa, kullanın `hdfs.url: abfs:///` yerine. Kümenizi Azure Data Lake depolama Gen1 kullanıyorsa, kullanın `hdfs.url: adl:///` yerine.
     
     Dosyayı kaydetmek için kullanın __Ctrl + X__, ardından __Y__ve son olarak __Enter__. Bu dosyadaki değerleri, Data Lake depolama URL'si ve veri yazılır dizin adını ayarlayın.
 

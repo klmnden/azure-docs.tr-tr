@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: 11fab8b546bff4c990d75bac341bec645267caea
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 94ecfda127422e395cf10a4fac1bb07cd0614f5c
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408536"
+ms.locfileid: "56416624"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Öğretici: Azure veri Gezgini'nde verileri tek satırlık bir kod olmadan alma
 
@@ -220,7 +220,7 @@ Veri tablosuna eşlemek için aşağıdaki sorguyu kullanın:
 2. Ekleme bir [güncelleştirme ilkesi](/azure/kusto/concepts/updatepolicy) hedef tablosu için. Yeni içe alınan tüm veriler üzerinde sorgu otomatik olarak çalıştırılacak *ActivityLogsRawRecords* ara veri tablosu ve sonuçları içine alma *ActivityLogsRecords* tablosu:
 
     ```kusto
-    .alter table ActivityLogRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## <a name="create-an-event-hub-namespace"></a>Bir olay hub'ı Namespace oluşturma

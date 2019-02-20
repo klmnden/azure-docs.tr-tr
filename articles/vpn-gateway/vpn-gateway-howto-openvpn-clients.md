@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: cd84948b5895a628fc94cc2946156d9fa2284369
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 73f8b1323f6cd22ef215fba4ec45714f099032f6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508683"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415842"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Azure VPN ağ geçidi (Önizleme) için OpenVPN istemcilerini yapılandırma
 
@@ -24,12 +24,14 @@ Bu makalede OpenVPN istemcileri yapılandırmanıza yardımcı olur.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 VPN ağ geçidiniz OpenVPN yapılandırma adımları tamamladığınızdan emin olun. Ayrıntılar için bkz [Azure VPN ağ geçidi için yapılandırma OpenVPN](vpn-gateway-howto-openvpn.md).
 
 ## <a name="windows"></a>Windows istemcileri
 
 1. OpenVPN istemci resmi yükleyip [OpenVPN Web sitesi](https://openvpn.net/index.php/open-source/downloads.html).
-2. Ağ geçidinin VPN profilini indirin. Bu noktadan siteye yapılandırma sekmesinde Azure portalında ya da 'New-AzureRmVpnClientConfiguration' PowerShell'de yapılabilir.
+2. Ağ geçidinin VPN profilini indirin. Bu noktadan siteye yapılandırma sekmesinde Azure portalında ya da 'New-AzVpnClientConfiguration' PowerShell'de yapılabilir.
 3. Profilin sıkıştırmasını açın. Ardından, açık *vpnconfig.ovpn* Not Defteri'ni kullanarak OpenVPN klasöründen yapılandırma dosyası.
 4. [Dışarı aktarma](vpn-gateway-certificates-point-to-site.md#clientexport) oluşturduğunuz ve ağ geçidi P2S yapılandırmanıza karşıya sertifika P2S istemci.
 5. Özel anahtarı ve base64 parmak izini ayıklamak *.pfx*. Bunu yapmanın birden çok yolu vardır. Makinenizde OpenSSL kullanarak bir yoludur. *Profileinfo.txt* dosyası, özel anahtarı ve parmak izini CA ve istemci sertifikasını içerir. İstemci sertifikası parmak izi kullandığınızdan emin olun.
@@ -64,7 +66,7 @@ VPN ağ geçidiniz OpenVPN yapılandırma adımları tamamladığınızdan emin 
 ## <a name="mac"></a>Mac istemcileri
 
 1. Bir OpenVPN istemci gibi yükleyip [TunnelBlik](https://tunnelblick.net/downloads.html). 
-2. Ağ geçidinin VPN profilini indirin. Bu, Azure portalında ya da 'New-AzureRmVpnClientConfiguration' PowerShell kullanarak noktadan siteye yapılandırma sekmesinden yapılabilir.
+2. Ağ geçidinin VPN profilini indirin. Bu, Azure portalında ya da 'New-AzVpnClientConfiguration' PowerShell kullanarak noktadan siteye yapılandırma sekmesinden yapılabilir.
 3. Profilin sıkıştırmasını açın. Not Defteri'ni OpenVPN klasöründeki vpnconfig.ovpn yapılandırma dosyasını açın.
 4. P2S istemci sertifikası bölümünü base64’teki P2S istemci sertifikası genel anahtarı ile doldurun. PEM biçimli bir sertifikada .cer dosyasını açıp base64 anahtarını sertifika üst bilgileri arasına kopyalamanız yeterlidir. Bkz: [ortak anahtarını dışarı aktarmak](vpn-gateway-certificates-point-to-site.md#cer) kodlanmış ortak anahtarı almak için bir sertifikayı dışarı aktarma hakkında bilgi için.
 5. Özel anahtar bölümünü, base64’teki P2S istemci sertifikası özel anahtarı ile doldurun. Bkz: [, özel anahtarı dışarı aktar](https://openvpn.net/community-resources/how-to/#pki) özel anahtarınızı ayıklamanız hakkında bilgi için.

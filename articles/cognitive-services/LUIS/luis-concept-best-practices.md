@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243425"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428916"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bilişsel hizmetler dil anlama uygulamayla oluşturmaya yönelik en iyi uygulamalar
 LUIS uygulamanızı oluşturmak için yazma işleminin hızlandırılmasının uygulamayı kullanın. 
@@ -77,23 +77,32 @@ Daha fazla bilgi için:
 * Kavram: [LUIS uygulama döngüsü yazma](luis-concept-app-iteration.md)
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>İfade listeleri ve desenler sonraki yinelemelerde ekleme
-[Tümcecik listeleri](luis-concept-feature.md) sözlükleri bir kelimelerin uygulama etki alanınızla ilişkili tanımlamanızı sağlar. Çekirdek, ifade listesi ile birkaç sözcük sonra uygulamanıza LUIS hakkında daha fazla sözcük içindeki belirli kelime bilmesi Öner özelliğini kullanın. Her sözcük, tümcecik listesi değil tam bir eşleşme olduğundan sözlüğü eklemeyin. 
+
+Uygulamanızı test önce bu uygulamaları uygulamak iyi bir uygulamadır. İfade listeleri ve desenleri eklemeden önce uygulamanın davranışını anlamanız gerekir. Uygulamanızın bu nasıl davrandığını anladıktan sonra bu özelliklerin her biri, uygulamanız için geçerli olan ekleyin. Bu özelliklerin her eklemek gerekmez [yineleme](luis-concept-app-iteration.md) veya özellikler her sürümü ile değiştirin. 
+
+Model tasarımınızı başında eklemeden hiçbir zarar yoktur ancak her bir özelliğin model Konuşma ile test edildikten sonra sonuçları nasıl değiştiğini görmek daha kolaydır. 
+
+Aracılığıyla test etmek için en iyi uygulamadır [uç nokta](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) eklenen avantajı elde etmeniz [etkin olarak öğrenmeye](luis-concept-review-endpoint-utterances.md). [Etkileşimli test bölmesini](luis-interactive-test.md) geçerli bir test yöntemi ayrıca olur. 
+ 
+
+### <a name="phrase-lists"></a>Tümcecik listeleri
+
+[Tümcecik listeleri](luis-concept-feature.md) sözlükleri bir kelimelerin uygulama etki alanınızla ilişkili tanımlamanızı sağlar. Çekirdek, ifade listesi ile birkaç sözcük sonra uygulamanıza LUIS hakkında daha fazla sözcük içindeki belirli kelime bilmesi Öner özelliğini kullanın. Bir ifade listesi, sözcük ve tümcecikleri uygulamanız için önemli olan ile ilişkili sinyal yükseltme tarafından hedefi olan algılama ve varlık sınıflandırması artırır. 
+
+Her sözcük, tümcecik listesi değil tam bir eşleşme olduğundan sözlüğü eklemeyin. 
+
+Daha fazla bilgi için:
+* Kavram: [LUIS uygulamanızı ifade listesi özellikleri](luis-concept-feature.md)
+* Nasıl yapılır: [Kullanım deyimi word listesinin boost sinyale listeler](luis-how-to-add-features.md)
+
+### <a name="patterns"></a>Desenler
 
 Gerçek kullanıcı konuşma birbirine çok benzer uç noktasından word seçim ve yerleştirme düzenlerini gösterilmesine neden olabilir. [Deseni](luis-concept-patterns.md) özelliği bu sözcük seçimi ve normal ifadeler birlikte yerleştirme, tahmin doğruluğunu artırmak için alır. Bir normal ifade deseninde sözcükler ve noktalama işaretleri hala desen eşleştirme sırasında yok saymak için istediğinize sağlar. 
 
 Kullanım deseninin [isteğe bağlı söz dizimi](luis-concept-patterns.md) noktalama göz ardı edilebilir şekilde noktalama. Kullanım [açık listesi](luis-concept-patterns.md#explicit-lists) pattern.any söz dizimi sorunları için dengelemek için. 
 
-Uç nokta isteği aldı ve uygulamanızı önce bu uygulamaları geçerli değildir. İfade listeleri ve desenleri eklemeden önce uygulamanın davranışını anlamanız gerekir. Uygulamanızın bu nasıl davrandığını anladıktan sonra bu özelliklerin her biri, uygulamanız için geçerli olan ekleyin. 
-
-Model tasarımınızı başında eklemeden hiçbir zarar yoktur ancak her bir özelliğin uygulama ile gerçek trafiği kullandıktan sonra eklerseniz sonuçları nasıl değiştiğini görmek daha kolaydır. 
-
-Her yineleme ile bu özellikler eklemek veya özellikleri her sürümüyle değiştirmek gerekmez. 
-
 Daha fazla bilgi için:
-* Kavram: [LUIS uygulama döngüsü yazma](luis-concept-app-iteration.md)
-* Kavram: [LUIS uygulamanızı ifade listesi özellikleri](luis-concept-feature.md)
 * Kavram: [Desenlerini tahmin doğruluğunu artırmak](luis-concept-patterns.md)
-* Nasıl yapılır: [Kullanım deyimi word listesinin boost sinyale listeler](luis-how-to-add-features.md)
 * Nasıl yapılır: [Nasıl tahmin doğruluğunu artırmak için düzenleri ekleyin](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>Tüm hedefleri arasında konuşma Bakiye

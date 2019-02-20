@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 254d1faf0d846cc6a0e165b68db11ac0314eab33
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747501"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430582"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Yedekleme ve geri yükleme Azure SQL veri ambarı
-Yedekleme ve geri yükleme şeklini Azure SQL veri ambarı'nda öğrenin. Kullanım verileri kurtarma anlık görüntüleri ambar veya birincil bölge içinde önceki bir geri yükleme noktası veri Ambarınızı kopyalayın. Farklı bir coğrafi bölgeye geri yüklemek için coğrafi olarak yedekli yedeklemeleri kullanım veri ambarı. 
+Yedekleme ve geri yükleme şeklini Azure SQL veri ambarı'nda öğrenin. Veri ambarı geri yükleme noktaları kurtarmak veya önceki bir duruma birincil bölgedeki veri Ambarınızı kopyalamak için kullanın. Farklı bir coğrafi bölgeye geri yüklemek için coğrafi olarak yedekli yedeklemeleri kullanım veri ambarı. 
 
 ## <a name="what-is-a-data-warehouse-snapshot"></a>Veri ambarı anlık görüntüsünü nedir?
 A *veri ambarı anlık görüntü* kurtarmak veya önceki bir duruma veri ambarınız kopyalama yararlanabilir bir geri yükleme noktası oluşturur.  SQL Data Warehouse dağıtılmış bir sistemde olduğundan, bir veri ambarı anlık görüntü, Azure depolamada bulunan çok sayıda dosya oluşur. Anlık görüntüler, artımlı değişiklikler, veri ambarında depolanan verilerden yakalar.

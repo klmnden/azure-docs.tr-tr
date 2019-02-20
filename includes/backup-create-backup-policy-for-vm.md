@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: raynew
 ms.openlocfilehash: b589c88e5b5c5991db43a9f3c10003e17094b2e1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54057430"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430874"
 ---
 ## <a name="defining-a-backup-policy"></a>Yedekleme ilkesi tanımlama
 Yedekleme ilkesi veri anlık görüntülerinin ne zaman alınacağının ve bu anlık görüntülerin ne kadar süreyle saklanacağının bir matrisini tanımlar. VM yedeklemesi için bir ilke tanımlandığında, yedekleme işini *günde bir kez* tetikleyebilirsiniz. Yeni bir ilke oluşturduğunuzda bu ilke kasaya uygulanır. Yedekleme İlkesi arabirimi şöyle görünür:

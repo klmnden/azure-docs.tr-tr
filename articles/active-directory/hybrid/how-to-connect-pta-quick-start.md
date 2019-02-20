@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c27c32f19dac4e5394ca5e2f3e3722eccffb49b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a282ef88a5112593d4d8b9e304ec6ad03f44787c
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165119"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415876"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory geçişli kimlik doğrulaması: Hızlı başlangıç
 
@@ -54,7 +54,7 @@ Aşağıdaki önkoşulların yerinde olduğundan emin olun.
 3. Bir veya daha fazla ek sunucularını belirleyin (Windows Server 2012 R2 çalıştıran veya üstünü, TLS 1.2 etkin) burada çalıştırabileceğiniz tek başına kimlik doğrulama aracılarının. Bu ek sunucular, oturum açmak için istekleri yüksek kullanılabilirliğini sağlamak için gereklidir. Sunucular aynı Active Directory ormanında parolaları doğrulamanız gereken kullanıcılar ekleyin.
 
     >[!IMPORTANT]
-    >Üretim ortamlarında, en az 3 kimlik doğrulama aracılarının yüklü kiracınızda çalıştırmanızı öneririz. Kiracı başına 12 kimlik doğrulama aracılarının sistem sınırı yoktur. Ve katman 0 sistemleri gibi kimlik doğrulama aracılarının çalıştıran tüm sunucuların en iyi uygulama olarak değerlendir (bkz [başvuru](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+    >Üretim ortamlarında, en az 3 kimlik doğrulama aracılarının yüklü kiracınızda çalıştırmanızı öneririz. Kiracı başına 40 kimlik doğrulama aracılarının sistem sınırı yoktur. Ve katman 0 sistemleri gibi kimlik doğrulama aracılarının çalıştıran tüm sunucuların en iyi uygulama olarak değerlendir (bkz [başvuru](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 4. Sunucular ve Azure AD arasında bir güvenlik duvarı varsa, aşağıdakileri yapılandırın:
    - Kimlik doğrulama aracılarının yaptığınızdan emin olun *giden* aşağıdaki bağlantı noktaları üzerinden Azure AD'ye istekler:
@@ -109,7 +109,7 @@ Bu aşamada, geçişli kimlik doğrulaması kullanarak, kiracınızdaki tüm yö
 Geçişli kimlik doğrulaması, bir üretim ortamına dağıtmayı planlıyorsanız, ek bir tek başına kimlik doğrulama aracılarının yüklemeniz gerekir. Bu kimlik doğrulama Aracısı sunucularında yükleme _diğer_ bir çalışan Azure AD connect'ten. Bu ayar, kullanıcı oturum açma istekleri için yüksek kullanılabilirlik sağlar.
 
 >[!IMPORTANT]
->Üretim ortamlarında, en az 3 kimlik doğrulama aracılarının yüklü kiracınızda çalıştırmanızı öneririz. Kiracı başına 12 kimlik doğrulama aracılarının sistem sınırı yoktur. Ve katman 0 sistemleri gibi kimlik doğrulama aracılarının çalıştıran tüm sunucuların en iyi uygulama olarak değerlendir (bkz [başvuru](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+>Üretim ortamlarında, en az 3 kimlik doğrulama aracılarının yüklü kiracınızda çalıştırmanızı öneririz. Kiracı başına 40 kimlik doğrulama aracılarının sistem sınırı yoktur. Ve katman 0 sistemleri gibi kimlik doğrulama aracılarının çalıştıran tüm sunucuların en iyi uygulama olarak değerlendir (bkz [başvuru](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Kimlik Doğrulama Aracısı yazılımını indirmek için aşağıdaki yönergeleri izleyin:
 

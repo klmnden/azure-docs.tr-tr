@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f658f6bb9e66eda13dbf4213e37dcd96b17f76e7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c70c3cc1818e85c03c78524d1e8571af6d686218
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411026"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429069"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Görüntü analizi bilişsel beceri
 
@@ -45,7 +45,7 @@ Parametreler büyük/küçük harfe duyarlıdır.
 
 | Adı girin      | Açıklama                                          |
 |---------------|------------------------------------------------------|
-| image         | Karmaşık tür. "/ Belge/normalized_images" alan şu anda yalnızca çalışır, Azure Blob Dizin Oluşturucu tarafından üretilen olduğunda ```imageAction``` ayarlanır ```generateNormalizedImages```. Bkz: [örnek](#sample-output) daha fazla bilgi için.|
+| image         | Karmaşık tür. "/ Belge/normalized_images" alan şu anda yalnızca çalışır, Azure Blob Dizin Oluşturucu tarafından üretilen olduğunda ```imageAction``` dışında bir değere ayarlanmış ```none```. Bkz: [örnek](#sample-output) daha fazla bilgi için.|
 
 
 

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
-ms.translationtype: HT
+ms.openlocfilehash: 886fa6c088f2fbabb3d3ba1cd0b15bbc488784f3
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30198120"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418313"
 ---
 **VPN cihazı yapılandırma betiklerini indirmek için**
 
@@ -27,7 +27,7 @@ Sahip olduğunuz VPN cihazına bağlı olarak, bir VPN cihazı yapılandırma be
 
 - Cihaz yapılandırma ayarlarının bağlantıları için bkz. [Doğrulanan VPN Cihazları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Mümkün olan en iyi cihaz yapılandırma bağlantıları verilmiştir. En son yapılandırma bilgileri için her zaman cihaz üreticinize başvurmanız en iyi yöntemdir. Listede, test ettiğimiz sürümler gösterilmektedir. İşletim sisteminiz bu listede yoksa, sürüm halen uyumlu olabilir. VPN cihazınız için işletim sistemi sürümünün uyumlu olduğunu doğrulamak için cihaz üreticinize başvurun.
 
-- VPN cihazı yapılandırmasına genel bakış için bkz. [3. taraf VPN cihazı yapılandırmaları](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
+- VPN cihazı yapılandırmasına genel bakış için bkz. [VPN cihazı yapılandırmasına genel bakış](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 
 - Cihaz yapılandırma örneklerini düzenleme hakkında daha fazla bilgi için bkz. [Örnekleri düzenleme](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing).
 

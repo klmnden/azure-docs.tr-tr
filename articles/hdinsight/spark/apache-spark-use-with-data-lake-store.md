@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage verileri çözümlemek için Apache Spark'ı kullanın
-description: Azure Data Lake Store içinde depolanan verileri analiz için Spark işleri çalıştırma
+title: Azure Data Lake depolama Gen1 verileri çözümlemek için Apache Spark'ı kullanın
+description: Azure Data Lake depolama Gen1 depolanan verileri analiz için Spark işleri çalıştırma
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 4f50cc46244a4fb205e0ccf60665ba892d3aa8fc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d4228091c52e65da70d91fffd8af2f2472fa8f43
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310049"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430565"
 ---
-# <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>Data Lake Storage verilerini çözümlemek için HDInsight Spark kümesi kullanın
+# <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Data Lake depolama Gen1 verilerini çözümlemek için HDInsight Spark kümesi kullanın
 
 Bu öğreticide kullandığınız [Jupyter not defteri](https://jupyter.org/) bir Data Lake Store hesabından veri okuyan bir iş çalıştırmak için HDInsight Spark kümeleri ile kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure Data Lake depolama hesabı. Konumundaki yönergeleri [Azure Data Lake Azure portalını kullanarak depolama ile çalışmaya başlama](../../data-lake-store/data-lake-store-get-started-portal.md).
+* Azure Data Lake depolama Gen1 hesabı. Konumundaki yönergeleri [Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure portalını kullanarak](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Depolama alanı olarak Data Lake Storage ile Azure HDInsight Spark kümesi. Konumundaki yönergeleri [hızlı başlangıç: HDInsight kümelerinde ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Azure HDInsight Spark kümesi ile depolama alanı olarak Data Lake depolama Gen1. Konumundaki yönergeleri [hızlı başlangıç: HDInsight kümelerinde ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     
 ## <a name="prepare-the-data"></a>Verileri hazırlama
@@ -45,7 +45,7 @@ Ek depolama alanı ve varsayılan depolama alanı olarak Azure depolama blobu ol
         AdlCopy /Source https://mydatastore.blob.core.windows.net/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv /dest swebhdfs://mydatalakestore.azuredatalakestore.net/hvac/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
    > [!WARNING]  
-   > Dosya ve yol adlarını en uygun durumda olduğundan emin olun.
+   > Dosya ve yol adlarını uygun büyük/küçük harf kullandığınızdan emin olun.
 
 3. Data Lake Store hesabınızın altında sahip Azure aboneliği için kimlik bilgilerini girmeniz istenir. Aşağıdaki kod parçacığına benzer bir çıkış görürsünüz:
 
@@ -56,7 +56,7 @@ Ek depolama alanı ve varsayılan depolama alanı olarak Azure depolama blobu ol
 
     Veri dosyası (**HVAC.csv**) altında bir klasöre kopyalanacak **/hvac** Data Lake Storage hesabında.
 
-## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage"></a>Bir HDInsight Spark kümesi ile Data Lake Storage kullanma
+## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Bir HDInsight Spark kümesi ile Data Lake depolama Gen1 kullanın
 
 1. Gelen [Azure portalı](https://portal.azure.com/), (Bu başlangıç panosuna sabitlediğiniz varsa) başlangıç Panosu, Apache Spark kümenizin kutucuğuna tıklayın. Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.
 
@@ -79,7 +79,7 @@ Ek depolama alanı ve varsayılan depolama alanı olarak Azure depolama blobu ol
 
      ![Jupyter not defteri işinin durumu](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Jupyter not defteri işinin durumu")
 
-5. Örnek verileri kullanarak bir geçici tablosuna yükleme **HVAC.csv** dosya için Data Lake Store hesabına kopyalanır. Aşağıdaki URL deseni kullanarak Data Lake Store hesabına verilerine erişebilir.
+5. Örnek verileri kullanarak bir geçici tablosuna yükleme **HVAC.csv** dosya Data Lake depolama Gen1 hesabına kopyalanır. Aşağıdaki URL deseni kullanarak Data Lake Store hesabına verilerine erişebilir.
 
     * Varsayılan depolama alanı olarak Data Lake depolama Gen1 varsa HVAC.csv yolda aşağıdaki URL'ye benzer olacaktır:
 

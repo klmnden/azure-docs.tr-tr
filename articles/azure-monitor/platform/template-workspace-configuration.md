@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: 98a81d39f698e4ea9b2db0be1dfd2a22424941ba
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 46be596cbd2641b9ecd3206f44a6e7de7beed255
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300576"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417520"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics, Azure Resource Manager şablonlarını kullanarak yönetme
 Kullanabileceğiniz [Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve Log Analytics çalışma alanları yapılandırmak için. Şablonlar ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
@@ -56,7 +56,7 @@ Aşağıdaki parametreleri varsayılan değeri ayarlayın:
 
 > [!NOTE]
 >Oluşturma veya yeni Nisan 2018 fiyatlandırma modelini tercih bir Abonelikteki Log Analytics çalışma alanını yapılandırma, yalnızca geçerli Log Analytics fiyatlandırma katmanı ise **PerGB2018**.  
->Bazı abonelikler varsa, [pre-Nisan 2018 fiyatlandırma modeline](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), belirtebileceğiniz **tek başına** fiyatlandırma katmanı ve bu başarılı olur pre-Nisan 2018 fiyatlandırma modelinde iki abonelik için ve yeni abonelikler için fiyatlandırma. Fiyatlandırma katmanını yeni proicing modeli benimseyen Aboneliklerde çalışma alanları için ayarlanacak **PerGB2018**. 
+>Bazı abonelikler varsa, [pre-Nisan 2018 fiyatlandırma modeline](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), belirtebileceğiniz **tek başına** fiyatlandırma katmanı ve bu başarılı olur pre-Nisan 2018 fiyatlandırma modelinde iki abonelik için ve yeni abonelikler için fiyatlandırma. Fiyatlandırma katmanını yeni proicing modeli benimseyen Aboneliklerde çalışma alanları için ayarlanacak **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Şablon oluşturma ve dağıtma
 

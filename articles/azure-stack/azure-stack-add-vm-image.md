@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/18/2019
+ms.date: 2/19/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: dce158e600d3bf5dbcc552aff82959208d7b47f8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0319445f946a53ace5718dce1ad593d0a8225ecc
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249070"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428525"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Azure Stack'te bir sanal makine görüntüsü kullanılabilmesini
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Stack'te, sanal makine görüntüleri kullanıcılarınıza sunabileceğiniz. Bu görüntüler, Azure Resource Manager şablonları tarafından başvurulabilir veya bir Market öğesi olarak Azure Marketi'nde UI ekleyebilirsiniz. Ya da bir görüntü formu genel Azure Marketi kullanın veya kendi özel görüntünüzü ekleyin. Portalı veya Windows PowerShell kullanarak bir VM ekleyebilirsiniz.
+Azure Stack'te, sanal makine görüntüleri kullanıcılarınıza sunabileceğiniz. Bu görüntüler, Azure Resource Manager şablonları tarafından kullanılabilir. Ayrıca bunları Azure Market Arabirimine bir Market öğesi ekleyebilirsiniz. Bir resim formu genel Azure Marketi ya da kendi özel görüntünüzü kullanın. Görüntü portalı veya Windows PowerShell kullanılarak eklenebilir.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Portal üzerinden bir VM görüntüsü ekleme
 

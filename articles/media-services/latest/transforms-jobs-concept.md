@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: d93e0de48fd10677ad30e002390dc2e8177cf2eb
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: fd93b84c251a0b2346550c79bcb8796161cb9116
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408485"
+ms.locfileid: "56417880"
 ---
 # <a name="transforms-and-jobs"></a>Dönüşümler ve İşler
  
@@ -52,6 +52,10 @@ Tüm videolarınızı ilk karesine – bir küçük resim olarak çıkarmak iste
     2. Çıktı küçük resim görüntüsü yazmak yer. 
 
 A **dönüştürme** tarif sonra (adım 1) oluşturun ve bu tarif (Adım 2) kullanarak göndermek yardımcı olur.
+
+## <a name="job-error-codes"></a>İş hata kodları
+
+Bkz: [hata kodları](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="paging"></a>Sayfalama
 

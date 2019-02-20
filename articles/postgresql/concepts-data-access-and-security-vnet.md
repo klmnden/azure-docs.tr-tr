@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 2f26c4ae352ea5385886abcaecba5f50d30c530a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537231"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417491"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Sanal ağ hizmet uç noktaları ve kuralları için PostgreSQL için Azure veritabanı kullanın.
 
@@ -23,6 +23,7 @@ Bir sanal ağ kuralı oluşturmak için öncelikle olmalıdır bir [sanal ağ] [
 
 > [!NOTE]
 > Bu özellik, PostgreSQL için Azure veritabanı genel amaçlı ve bellek için iyileştirilmiş sunucuları için dağıtıldığı Azure genel bulut, tüm bölgelerde kullanılabilir.
+> Trafiği ortak bir VNet ağ geçidi hizmet uç noktaları ile üzerinden akan ve eşler arası akışı beklenir, VNet eşlemesi olması durumunda, Azure sanal makineler PostgreSQL sunucusu için Azure veritabanına erişmek için ağ geçidi sanal ağda izin vermek için bir ACL/sanal ağ kuralı Lütfen oluşturun.
 
 <a name="anch-terminology-and-description-82f" />
 

@@ -14,23 +14,23 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d0545d7285289c7081faf51c6e3ea09071f55a51
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f3d6466ced6efdb4047f9531329b70477911bf21
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666698"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414774"
 ---
-# <a name="create-power-bi-app-technical-assets"></a>Power BI uygulaması teknik varlıkları oluşturma
+# <a name="create-power-bi-app-offer-technical-assets"></a>Power BI uygulaması teklif teknik varlıkları oluşturma
 
-Bu teklif türü bir birincil veri koleksiyonu olan bir Power BI uygulaması bildirmek için birincil teknik varlık gerekir ve Pano ve isteğe bağlı hizmetler ve katıştırılmış veri kümeleri (veya). (Power BI uygulamaları olan bir varlık türü olarak daha önce bilinen evrimi [içerik paketleri](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction).)  Bu uygulamaları geliştirme hakkında tam bilgi için bkz. [Power BI uygulamaları](https://go.microsoft.com/fwlink/?linkid=2028636).
+Bu teklif türü için gereken birincil teknik bir Power BI uygulaması varlıktır. Power BI uygulamasında, birincil veri kümeleri, raporlar veya panolar ve isteğe bağlı hizmetler ve katıştırılmış veri kümeleri oluşan bir koleksiyondur. Eski adıyla bir varlık türünden geliştirildiğini bir [içerik paketine](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). Bu tür bir uygulama geliştirme hakkında daha fazla bilgi için bkz. [Power BI şablon uygulamalar ne anlama gelir?](https://go.microsoft.com/fwlink/?linkid=2028636).
 
 
-## <a name="obtaining-an-installation-url"></a>Bir yükleme URL'si alma
+## <a name="obtain-an-installation-url"></a>Bir yükleme URL'si edinin
 
-Power BI uygulamasında, yalnızca içinde oluşturma [Power BI hizmetinde](https://powerbi.microsoft.com/) ve kullanarak oturum gerektiren bir [Power BI Pro lisansı](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). Hizmet uygulamanız oluşturulur ve Power BI'da test sonra Power BI'ı oluşturan uygulama yükleme URL'si kaydedin.  Bu URL sağlamalısınız [teknik bilgileri sekmesi](./cpp-technical-info-tab.md) bulut iş ortağı portalı gönderimi form.
+Yalnızca Power BI uygulamasının yapı [Power BI hizmetinde](https://powerbi.microsoft.com/). Başlamak için oturum bir [Power BI Pro lisansı](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). Power BI'ı oluşturan uygulama yükleme URL'si oluşturun ve Power BI hizmetinde hizmet uygulamanızı test edin sonra kaydedin. Son olarak, üzerinde bir URL sağlamanız [teknik bilgi](./cpp-technical-info-tab.md) bulut iş ortağı portalı gönderimi formunun sekmesi.
  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Oluşturduğunuz ve test Power BI uygulamanız ve ilişkili teklif oluşturduğunuza sonra [Power BI teklifi yayımlama](./cpp-publish-offer.md).  
+Oluşturulur ve Power BI uygulamanız test ve ilişkili teklif oluşturduktan sonra [Power BI uygulaması teklifi yayımlama](./cpp-publish-offer.md). 

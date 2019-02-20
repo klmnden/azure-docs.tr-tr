@@ -7,47 +7,59 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: 78b362eb75ab4e0ca17045f8c32761a65897d449
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c1c81ba0f168759ab9cc05f3441e07ff03275e84
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000191"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417389"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer nedir?
 
-Azure Video Indexer; Azure Media Analytics, Azure Search, Bilişsel Hizmetler (Yüz Tanıma API'si, Microsoft Translator, Görüntü İşleme API'si ve Özel Konuşma Tanıma Hizmeti gibi) ve temel alınarak oluşturulmuş bir bulut uygulamasıdır. Aşağıda açıklanan Video Indexer modellerini kullanarak videolarınızdan içgörü ayıklamanıza olanak sağlar:
- 
+Azure Video Indexer; Azure Media Analytics, Azure Search, Bilişsel Hizmetler (Yüz Tanıma API'si, Microsoft Translator, Görüntü İşleme API'si ve Özel Konuşma Tanıma Hizmeti gibi) ve temel alınarak oluşturulmuş bir bulut uygulamasıdır. Aşağıda açıklanan Video Indexer video ve ses modelleri kullanarak videolarınızdan içgörüleri ayıklanacak sağlar:
+  
+## <a name="video-insights"></a>Video içgörüleri
+
+- **Yüz algılama**: Algılar ve videoda görünen yüzleri gruplandırır.
+- **Ünlü belirleme**: Video Indexer, 1 milyondan ünlüleri – dünya lideri, aktörler ve Kadın Oyuncular, atletlerine, araştırmacılar, iş ve teknoloji liderleri çapında gibi otomatik olarak tanımlar. Bu ünlülerle ilgili bilgilere IMDB ve Wikipedia gibi birçok ünlü siteden de ulaşılabilir.
+- **Hesap tabanlı yüz tanıma**: Video Indexer, özel bir hesap için bir modeli eğitir. Ardından bu hesaptaki videolar için özel olarak eğitilmiş olan modeli kullanarak videodaki yüzleri tanır.
+- **Küçük resim ayıklama yüzler için** ("en iyi yüz tanıma"): Otomatik olarak (kalite, boyutu ve tamamen çıplak konuma göre) dikdörtgenlerini her grupta en iyi yakalanan yüz tanımlar ve bir resim varlığı ayıklayın.
+- **Görsel metin tanıma** (OCR): Videoda görsel olarak görüntülenen metin ayıklar.
+- **Görsel içerik denetleme**: Yetişkinlere yönelik ve/veya müstehcen görsel algılar.
+- **Etiket Kimliği**: Görsel nesneler ve görüntülenen eylemleri tanımlar.
+- **Algılama görüntüsü**: Videoda bir Sahne değiştiğinde belirler.
+- **Kare algılama siyah**: Videoda sunulan siyah çerçeveler tanımlar.
+- **Ana kare ayıklama**: Bir videoda kararlı ana kareleri algılar.
+
+## <a name="audio-insights"></a>Ses öngörüleri
+
 - **Otomatik dil algılama**: Baskın konuşulan dili otomatik olarak tanımlar. Desteklenen diller: İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince (Basitleştirilmiş), Japonca, Rusça ve Portekizce (Brezilya). Dil algılanamadığında İngilizce seçeneği kullanılır.
 - **Ses tanıma**: 12 dillerde metni konuşmaya dönüştürür ve uzantıları sağlar. Desteklenen diller şunlardır: İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince (Basitleştirilmiş), Japonca, Arapça, Rusça, Portekizce (Brezilya), Hintçe ve Kore dili.
 - **Kapalı Açıklamalı Altyazı**: Kapalı Açıklamalı Altyazı üç formatta oluşturur: VTT, TTML, SRT.
 - **İki işleme kanal**: Otomatik algılar, döküm ve tek bir zaman çizelgesinde birleştirmeler ayırın.
-- **Gürültü azaltma**:  Telefon sesini veya gürültülü kayıtları (Skype filtreleri temel alarak)'kurmak temizler.
-- **Transkript özelleştirme (CRI)**: Eğitir ve sektöre özgü dökümleri oluşturmak için metin modelleri için genişletilmiş özel konuşma yürütür.
-- **Konuşmacı numaralandırma**:  Eşler ve hangi konuşmacının uç hangi sözcükleri anlar ve ne zaman.
+- **Gürültü azaltma**: Telefon sesini veya gürültülü kayıtları (Skype filtreleri temel alarak)'kurmak temizler.
+- **Transkript özelleştirme** (CRI): Eğitir ve sektöre özgü dökümleri oluşturmak için metin modelleri için genişletilmiş özel konuşma yürütür.
+- **Konuşmacı numaralandırma**: Eşler ve hangi konuşmacının uç hangi sözcükleri anlar ve ne zaman.
 - **Konuşmacı istatistikleri**: Konuşmacılar konuşma oranları için istatistikler sağlar.
-- **Görsel metin tanıma (OCR)**: Videoda görsel olarak görüntülenen metin ayıklar.
-- **Ana kare ayıklama**: Bir videoda kararlı ana kareleri algılar.
-- **Yaklaşım analizi**: Konuşma ve görsel metin pozitif, negatif ve nötr yaklaşımları tanımlar.
-- **Görsel içerik denetleme**: Yetişkinlere yönelik ve/veya müstehcen görsel algılar.
-- **Anahtar sözcükleri ayıklama**: Anahtar sözcükler, konuşma ve görsel metin ayıklar.
-- **Etiket Kimliği**: Görsel nesneler ve görüntülenen eylemleri tanımlar.
-- **Ayıklama markalar**: Markaları, konuşma ve görsel metin ayıklar.
-- **Yüz algılama**: Algılar ve videoda görünen yüzleri gruplandırır.
-- **Yüzleri ("en iyi yüz") için küçük resim ayıklama**: Otomatik olarak (kalite, boyutu ve tamamen çıplak konuma göre) dikdörtgenlerini her grupta en iyi yakalanan yüz tanımlar ve bir resim varlığı ayıklayın.
-- **Ünlü belirleme**: Video Indexer, 1 milyondan ünlüleri – dünya lideri, aktörler ve Kadın Oyuncular, atletlerine, araştırmacılar, iş ve teknoloji liderleri çapında gibi otomatik olarak tanımlar. Bu ünlülerle ilgili bilgilere IMDB ve Wikipedia gibi birçok ünlü siteden de ulaşılabilir.
-- **Hesap tabanlı yüz tanıma**: Video Indexer, özel bir hesap için bir modeli eğitir. Ardından bu hesaptaki videolar için özel olarak eğitilmiş olan modeli kullanarak videodaki yüzleri tanır.
 - **Metinsel içerik denetleme**: Açık metin, ses transkripti algılar.
-- **Algılama görüntüsü**: Videoda bir Sahne değiştiğinde belirler.
-- **Kare algılama siyah**: Videoda sunulan siyah çerçeveler tanımlar.
 - **Ses efektleri**: Sessizlik el Islıklar ve konuşma gibi ses efekti tanımlar.
-- **Konu çıkarımı**: Dökümler ana konulardan biri çıkarımı yapar. 1. düzey [IPTC](https://iptc.org/standards/media-topics/) sınıflandırması dahildir.
 - **Duygu algılama**: Konuşma tanıma ve ses ipuçları üzerinde bağlı olarak duyguları tanımlar. Şu duygular belirlenebilir: sevinç, üzüntü, kızgınlık ve korku.
-- **Yapıtları**: "Sonraki ayrıntı düzeyini" zengin ayıklar yapıtlar modellerinin her biri için.
 - **Çeviri**: Ses transkripti 54 farklı dillere çevirileri oluşturur.
 
+## <a name="audio-and-video-insights-multi-channels"></a>Ses ve video öngörüleri (çoklu kanalı)
+
+Kısmi bir kanal tarafından dizin oluşturulurken bu modelleri için sonuç kullanıma sunulacaktır
+
+- **Anahtar sözcükleri ayıklama**: Anahtar sözcükler, konuşma ve görsel metin ayıklar.
+- **Ayıklama markalar**: Markaları, konuşma ve görsel metin ayıklar.
+- **Konu çıkarımı**: Dökümler ana konulardan biri çıkarımı yapar. 1. düzey IPTC sınıflandırma dahil edilir.
+- **Yapıtları**: "Sonraki ayrıntı düzeyini" zengin ayıklar yapıtlar modellerinin her biri için.
+- **Yaklaşım analizi**: Konuşma ve görsel metin pozitif, negatif ve nötr yaklaşımları tanımlar.
+ 
+  
+ 
 Video Indexer işlemi ve analizi tamamladıktan sonra video içgörülerini gözden geçirebilir, düzenleyebilir, içerisinde arama yapabilir ve yayımlayabilirsiniz.
 
 Video Indexer hizmeti, hem içerik yöneticilerinin hem de geliştiricilerin ihtiyaçlarını karşılayacak şekilde tasarlanmıştır. İçerik yöneticileri Video Indexer web portalını kullanarak tek bir kod satırı yazmadan hizmetten faydalanabilir, bkz. [Video Indexer web sitesini kullanmaya başlama](video-indexer-get-started.md). Geliştiriciler, büyük ölçekli verileri işlemek için API'leri kullanabilirler, bkz. [Video Indexer REST API'sini kullanma](video-indexer-use-apis.md). Hizmet ayrıca müşterilerin pencere öğelerini kullanarak video akışlarını ve ayıklanan içgörüleri kendi uygulamalarında yayımlamalarını sağlar, bkz. [Görsel pencere öğelerini uygulamanıza ekleme](video-indexer-embed-widgets.md).

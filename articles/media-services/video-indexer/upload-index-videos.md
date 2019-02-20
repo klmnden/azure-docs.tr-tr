@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: fa64d24d74a71981e3273fbdf5fa96b386a34685
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342448"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414753"
 ---
 # <a name="upload-and-index-your-videos"></a>Videolarınızı karşıya yükleme ve dizinleme  
 
@@ -29,10 +29,10 @@ Bu makalede, videolarınızı bir URL’ye dayalı olarak karşıya yüklemek ve
 Videonuz karşıya yüklendikten sonra Video Indexer, isteğe bağlı olarak kodlar videonun (makalesinde açıklanmıştır). Video Indexer hesabınızı oluştururken ücretsiz bir deneme hesabı (belirli sayıda ücretsiz dizin oluşturma dakikası elde edersiniz) veya ücretli bir seçenek (kota sınırlaması olmaz) arasından seçim yapabilirsiniz. Ücretsiz deneme kullanıldığında Video Indexer, web sitesi kullanıcılarına 600 dakikaya kadar ve API kullanıcılarına ise 2400 dakikaya kadar ücretsiz dizin oluşturma olanağı sunar. Ücretli seçenek kullanıldığında [Azure aboneliğinize ve bir Azure Media Services hesabına bağlı](connect-to-azure.md) bir Video Indexer hesabı oluşturulur. Dizin oluşturma faaliyeti yapılan dakika sayısının yanı sıra Medya Hesabı ile ilgili ücretler için ödeme yaparsınız. 
 
 ## <a name="uploading-considerations"></a>Karşıya yükleme konusunda dikkat edilmesi gerekenler
-    
+
 - Videonuzu URL’ye dayalı olarak karşıya yüklerken (tercih edilir) uç noktanın güvenliği TLS 1.2 (veya üzeri) ile sağlanmalıdır
 - URL seçeneği ile karşıya yükleme boyutu, 25 GB ile sınırlıdır
-- Bayt dizisi seçeneği ile karşıya yükleme boyutu 2 GB ile sınırlıdır 
+- Bayt dizisi seçeneği ile karşıya yükleme boyutu 2 GB ile sınırlıdır
 - Bayt dizisi seçeneği 30 dakika sonra zaman aşımına uğruyor
 - `videoURL` parametresinde sağlanan URL kodlanmış olmalıdır
 

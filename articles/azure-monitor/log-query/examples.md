@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: c161a2fd8d1be670435d2b1a749749cea7d82bcf
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268456"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416658"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure İzleyici günlük sorgu örnekleri
 Bu makalede, çeşitli örneklerini içerir [sorguları](log-query-overview.md) kullanarak [Kusto sorgu dili](/azure/kusto/query/) Azure İzleyici'den farklı türde günlük verileri alınamadı. Farklı yöntemleri, birleştirmek ve bu örnekleri kendi gereksinimleriniz için kullanabileceğiniz farklı stratejiler tanımlamak için kullanabileceğiniz şekilde, verileri analiz etmek için kullanılır.  
@@ -38,7 +38,7 @@ Event
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>Unmarshaling için ilgili arama olayları
-Arama tabloları **olay** ve **SecurityEvents** kayıtlarını bu Bahsetme _unmashaling_.
+Arama tabloları **olay** ve **SecurityEvents** kayıtlarını bu Bahsetme _unmarshaling_.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"
