@@ -81,28 +81,49 @@ items:
     - name: Rol tabanlı erişim denetimini yönetme
       displayName: RBAC
       href: automation-role-based-access-control.md
-  - name: Runbook oluşturma
+  - name: Runbook'lar
     items:
+    - name: Runbook'ları yönetme
+      href: manage-runbooks.md
     - name: Runbook türleri
       displayName: graphical, python, powershell, powershell workflow
       href: automation-runbook-types.md
-    - name: Runbook oluşturma ve çalıştırma
-      href: automation-creating-importing-runbook.md
-    - name: Grafik runbook'u oluşturma
-      href: automation-first-runbook-graphical.md
-    - name: PowerShell runbook’u oluşturma
-      href: automation-first-runbook-textual-powershell.md
-    - name: PowerShell iş akışı runbook’u oluşturma
-      href: automation-first-runbook-textual.md
-    - name: Python runbook'u oluşturma
-      href: automation-first-runbook-textual-python2.md
-    - name: Metin temelli runbook’ları düzenleme
-      displayName: powershell
-      href: automation-edit-textual-runbook.md
-    - name: Grafik temelli runbook’ları düzenleme
-      href: automation-graphical-authoring-intro.md
-    - name: Bir runbook'u test etme
-      href: automation-testing-runbook.md
+    - name: Runbook oluşturma
+      items:
+      - name: Grafik runbook
+        href: automation-first-runbook-graphical.md
+      - name: PowerShell runbook’u
+        href: automation-first-runbook-textual-powershell.md
+      - name: PowerShell iş akışı runbook’u
+        href: automation-first-runbook-textual.md
+      - name: Python runbook'u
+        href: automation-first-runbook-textual-python2.md
+      - name: Grafik runbook SDK’sı ile runbook’lar oluşturma
+        href: graphical-runbook-sdk.md
+    - name: Runbook'ları düzenleme
+      items:
+      - name: Metin temelli runbook’ları düzenleme
+        displayName: powershell
+        href: automation-edit-textual-runbook.md
+      - name: Grafik temelli runbook’ları düzenleme
+        href: automation-graphical-authoring-intro.md
+    - name: Runbook başlatma
+      href: start-runbooks.md
+    - name: Web kancasından runbook başlatma
+      href: automation-webhooks.md
+    - name: Runbook giriş parametreleri
+      displayName: input,json
+      href: runbook-input-parameters.md
+    - name: Grafik runbook'larında hata işleme
+      href: automation-runbook-graphical-error-handling.md
+    - name: Runbook işini izleme
+      displayName: fair share, activity log
+      href: automation-runbook-execution.md
+    - name: Azure Otomasyonu verilerini yönetme
+      displayName: backup
+      href: automation-managing-data.md
+    - name: Python 2 paketlerini yönetme
+      href: python-packages.md
     - name: PowerShell İş Akışını Öğrenme
       href: automation-powershell-workflow.md
     - name: Alt runbook’lar
@@ -116,28 +137,6 @@ items:
     - name: Kaynak denetimi tümleştirmesi - eski
       href: automation-source-control-integration-legacy.md
       displayname: github
-    - name: Grafik runbook SDK’sı ile runbook’lar oluşturma
-      href: graphical-runbook-sdk.md
-  - name: Otomatikleştirme
-    items:
-    - name: Runbook başlatma
-      href: automation-starting-a-runbook.md
-    - name: Web kancasından runbook başlatma
-      href: automation-webhooks.md
-    - name: Runbook girdi parametrelerini yapılandırma
-      href: automation-runbook-input-parameters.md
-    - name: Grafik runbook'larında hata işleme
-      href: automation-runbook-graphical-error-handling.md
-    - name: Runbook işini izleme
-      displayName: fair share, activity log
-      href: automation-runbook-execution.md
-    - name: Azure Otomasyonu verilerini yönetme
-      displayName: backup
-      href: automation-managing-data.md
-    - name: Azure Otomasyonu runbook’una bir JSON nesnesi geçirme
-      href: automation-pass-json-string.md
-    - name: Python 2 paketlerini yönetme
-      href: python-packages.md
   - name: Karma Runbook Çalışanı
     items:
     - name: Karma Runbook Çalışanına genel bakış
@@ -205,12 +204,6 @@ items:
       href: automation-create-alert-triggered-runbook.md
     - name: Amazon Web Hizmetleri Sanal Makinesi oluşturma
       href: automation-scenario-aws-deployment.md
-    - name: GitHub Enterprise ile kaynak denetimi tümleştirmesi
-      displayName: CI, runbooks
-      href: automation-scenario-source-control-integration-with-github-ent.md
-    - name: Azure DevOps ile kaynak denetimi tümleştirmesi
-      displayName: VSTS, CI, runbooks
-      href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Azure Otomasyonu PowerShell runbook’unda Azure Resource Manager şablonu dağıtma
       href: automation-deploy-template-runbook.md
     - name: Azure Otomasyonu’nu Event Grid ve Microsoft Teams ile tümleştirme
@@ -292,9 +285,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: a5886c5af9db6945fe33efd8198b5527f580d297
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e35c51bb1d82f2c5eda708ab8bce71c2bf5b69b7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004598"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417032"

@@ -64,7 +64,7 @@ items:
     - name: Şirket içi SQL’deki verileri kullanma
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
-  - name: Oluşturma ve eğitme modelleri
+  - name: Modelleri eğitme
     items:
     - name: Deneme yaşam döngüsü yönetimi
       href: version-control.md
@@ -87,6 +87,12 @@ items:
         href: interpret-model-results.md
       - name: Hata ayıklama
         href: debug-models.md
+    - name: Modelleri yeniden eğitme
+      items:
+      - name: "\"Yeni\" web hizmetleri"
+        href: retrain-machine-learning-model.md
+      - name: Klasik web hizmetleri
+        href: retrain-classic-web-service.md
     - name: R ve Python’u kullanma
       items:
       - name: R kullanmaya başlama
@@ -132,12 +138,6 @@ items:
     - name: Uç noktalar oluşturma
       displayName: scale, scaling
       href: create-endpoint.md
-  - name: Modelleri yeniden eğitme
-    items:
-    - name: Yeni bir web hizmetini tekrar eğitip dağıtma
-      href: retrain-machine-learning-model.md
-    - name: Klasik bir web hizmetini tekrar eğitip dağıtma
-      href: retrain-classic-web-service.md
   - name: Tüketim modelleri
     items:
     - name: Genel Bakış
@@ -146,11 +146,9 @@ items:
       href: consuming-from-excel.md
     - name: Excel eklentisi kullanma
       href: excel-add-in-for-web-services.md
-    - name: Web uygulaması şablonu kullanma
-      href: consume-web-service-with-web-app-template.md
     - name: Batch Havuzu kullanma
       href: dedicated-capacity-for-bes-jobs.md
-  - name: Örnekler
+  - name: Uygulama alanları
     items:
     - name: Telekomünikasyon dalgalanması
       href: azure-ml-customer-churn-scenario.md
@@ -158,12 +156,14 @@ items:
       href: text-analytics-module-tutorial.md
     - name: Excel'den Studio'ya analiz aktarma
       href: linear-regression-in-azure.md
-  - name: Studio verilerini görüntüleme ve silme
-    displayName: export
-    href: export-delete-personal-data-dsr.md
-  - name: Galeri verilerini görüntüleme ve silme
-    displayName: export
-    href: ai-gallery-control-personal-data-dsr.md
+  - name: Müşteri verilerini silme ve dışarı aktarma
+    items:
+    - name: Studio verileri
+      displayName: export
+      href: export-delete-personal-data-dsr.md
+    - name: Galeri verileri
+      displayName: export
+      href: ai-gallery-control-personal-data-dsr.md
 - name: Başvuru
   items:
   - name: Algoritma ve modül başvurusu
@@ -188,9 +188,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Özel sinir ağları (Net#)
     href: azure-ml-netsharp-reference-guide.md
-ms.openlocfilehash: c6d072a6e032fb4059b422d0778eb78b01d3706e
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6649d1c39bdb0a66018feff73f9e9d2b39064155
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327689"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430242"
