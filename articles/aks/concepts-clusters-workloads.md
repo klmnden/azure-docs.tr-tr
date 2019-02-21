@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f964397b476d5a97ecdde0ae22bd6662a435e1a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998084"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456529"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes kavramları Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ Küme Yöneticisi, aşağıdaki temel Kubernetes bileşenleri içerir:
 
 AKS sağlayan bir tek kiracılı Küme Yöneticisi, bir API ile ayrılmış sunucusu, Zamanlayıcı vb. Sayısı ve düğümlerin boyutu tanımlayın ve Azure platformu küme ana vm'lerde ve düğüm arasında güvenli iletişim yapılandırır. Küme Yöneticisi ile etkileşimi gerçekleşir Kubernetes API'leri aracılığıyla gibi `kubectl` veya Kubernetes panosunu.
 
-Bu yönetilen küme ana bileşenleri gibi yüksek oranda kullanılabilir bir yapılandırma gerekmez anlamına gelir. *etcd* deposu, ancak aynı zamanda anlamına gelir küme asıl doğrudan erişemiyor. Yükseltme için Kubernetes küme asıl ve düğümler yükseltmeleri Azure portalı ve Azure CLI düzenlenir. Olası sorunları gidermek için Azure Log Analytics aracılığıyla küme ana günlüklerini gözden geçirebilirsiniz.
+Bu yönetilen küme ana bileşenleri gibi yüksek oranda kullanılabilir bir yapılandırma gerekmez anlamına gelir. *etcd* deposu, ancak aynı zamanda anlamına gelir küme asıl doğrudan erişemiyor. Yükseltme için Kubernetes küme asıl ve düğümler yükseltmeleri Azure portalı ve Azure CLI düzenlenir. Olası sorunları gidermek için Azure İzleyici günlüklerine Küme Yöneticisi Günlükleri gözden geçirebilirsiniz.
 
 Küme Yöneticisi belirli bir şekilde yapılandırın veya bunlara doğrudan erişmesi gerekiyorsa kendi Kubernetes kümesi kullanarak dağıtabilirsiniz [aks altyapısı][aks-engine].
 
@@ -76,7 +76,7 @@ AKS kümenizde düğümleri için VM görüntüsü şu anda Ubuntu Linux üzerin
 
 Her düğümde temel Kubernetes bileşenleri gibi yönetmeniz gerekmez *kubelet*, *kube-proxy*, ve *kube-dns*, ancak bazı kullanılabilir kullanma işlem kaynakları. Düğümü performansı ve işlevselliği korumak için her bir düğümde aşağıdaki işlem kaynaklarını ayrılmıştır:
 
-- **CPU** - 60ms
+- **CPU** - 60 ms
 - **Bellek** -4 GiB en fazla %20
 
 Bu bellek ayırma miktarını kullanılabilir CPU ve bellek uygulamalarınız için daha az düğüm içeriyor görünebilir anlamına gelir. Kaynak kısıtlamaları nedeniyle çalıştırdığınız uygulamaların sayısı varsa, bu ayırmalar CPU emin olun ve bellek için temel Kubernetes bileşenleri kullanılabilir durumda kalır. Kaynak ayırmalar değiştirilemez.
@@ -103,7 +103,7 @@ Aynı yapılandırmaya sahip düğümler halinde gruplandırılır birlikte *dü
 
 Kubernetes kullanan *pod'ların* uygulamanızın bir örneğini çalıştırmak için. Bir pod uygulamanız tek bir örneğini temsil eder. Pod'ların, genellikle birden çok kapsayıcı bir pod burada içerebilir senaryoları var. Gelişmiş olmamakla birlikte bir kapsayıcı ile 1:1 eşleme vardır. Bu çok kapsayıcılı pod'ların aynı düğümde birlikte zamanlanır ve ilgili kaynakları paylaşmak kapsayıcılar izin verin.
 
-Bir pod oluşturduğunuzda, tanımlayabileceğiniz *kaynak sınırları* belirli miktarda CPU veya bellek kaynakları istemek için. Kubernetes Zamanlayıcı pod'ların bir düğüm isteği karşılamak için kullanılabilir kaynaklar ile çalışacak şekilde zamanlamak çalışır. Belirli bir pod temel alınan düğümünden çok fazla işlem kaynak tüketmesini önlemek en fazla kaynak sınırları da belirtebilirsiniz. Kubernetes Zamanlayıcı kaynakları gerektiği ve izin verilen anlamanıza yardımcı olması tüm pod'ları için kaynak sınırları eklemek iyi bir uygulamadır.
+Bir pod oluşturduğunuzda, tanımlayabileceğiniz *kaynak sınırları* belirli miktarda CPU veya bellek kaynakları istemek için. Kubernetes Zamanlayıcı pod'ların bir düğüm isteği karşılamak için kullanılabilir kaynaklar ile çalışacak şekilde zamanlamak çalışır. Belirli bir pod temel alınan düğümünden çok fazla işlem kaynak tüketmesini önlemek en fazla kaynak sınırları da belirtebilirsiniz. Kubernetes Zamanlayıcı hangi kaynakların gerektiği ve izin verilen anlamanıza yardımcı olması tüm pod'ları için kaynak sınırları eklemek iyi bir uygulamadır.
 
 Daha fazla bilgi için [Kubernetes pod'ların] [ kubernetes-pods] ve [Kubernetes pod yaşam döngüsü][kubernetes-pod-lifecycle].
 
@@ -203,7 +203,7 @@ AKS kümesi oluşturma, şu ad alanlarından kullanılabilir:
 
 - *Varsayılan* -hiçbiri sağlandığında burada pod'ların ve dağıtımları varsayılan olarak oluşturulur, bu ad alanıdır. Daha küçük ortamlarda uygulamalar varsayılan ad alanı doğrudan ek mantıksal ayrılma oluşturmadan dağıtabilirsiniz. Ne zaman etkileşim Kubernetes API ile gibi `kubectl get pods`, belirtilmediğinde varsayılan ad alanı kullanılır.
 - *kube-system* -çekirdek kaynakları, DNS ve proxy veya Kubernetes panosunu gibi ağ özellikleri gibi bulunduğu bu ad alanıdır. Genellikle, bu ad alanı, kendi uygulamalarınızı dağıtmayın.
-- *kube-genel* - bu ad alanı genellikle kullanılmaz, ancak için kaynaklar için tüm küme genelinde görünür olmasını kullanılması ve herhangi bir kullanıcı tarafından görüntülenen.
+- *kube-genel* - bu ad alanı genellikle kullanılmaz, ancak için kaynaklar için tüm küme genelinde görünür olmasını kullanılması ve herhangi bir kullanıcı tarafından görüntülenebilir.
 
 Daha fazla bilgi için [Kubernetes ad alanları][kubernetes-namespaces].
 

@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/20/2019
+ms.openlocfilehash: d19dabb4e74e7a108ae769f55cd65ef108019fdc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964160"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454750"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Gelişmiş veri güvenliği, sanal ağlarla ve neredeyse % 100 uyumluluk SQL veritabanını kullan
 
@@ -47,7 +47,7 @@ Tarafından yönetilen örnek hem Azure SQL veritabanı ve SQL Server veritaban�
 | --- | --- |
 |Donanım satın alma ve Yönetimi <br>Temel altyapıyı yönetmek için ek yükü yönetimi yok <br>Hızlı sağlama ve hizmet ölçeklendirme <br>Otomatik düzeltme eki uygulama ve sürüm yükseltme <br>Diğer PaaS Veri Hizmetleri ile tümleştirme |% 99,99 çalışma süresi SLA'sı  <br>Yerleşik [yüksek kullanılabilirlik](sql-database-high-availability.md) <br>İle korunan verileri [otomatik yedeklemeler](sql-database-automated-backups.md) <br>Müşteri yapılandırılabilir yedekleme bekletme süresi <br>Kullanıcı tarafından başlatılan [yedekleri](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Belirli bir veritabanı geri yükleme noktası](sql-database-recovery-using-backups.md#point-in-time-restore) özelliği |
 |**Güvenlik ve uyumluluk** | **Yönetim**|
-|Yalıtılmış ortamı ([VNet tümleştirmesi](sql-database-managed-instance-connectivity-architecture.md)çoklu kiracı hizmeti, ayrılmış hesaplama ve depolama) <br>[Saydam veri şifrelemesi (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD kimlik doğrulaması](sql-database-aad-authentication.md), çoklu oturum açma desteği <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD oturum açma bilgileri</a> (**genel Önizleme**) <br>Azure SQL veritabanı olarak aynı uyumluluk standartlarına uyar <br>[SQL denetimi](sql-database-managed-instance-auditing.md) <br>[Tehdit algılama](sql-database-managed-instance-threat-detection.md) |Hizmet sağlama ve ölçeklendirme otomatikleştirmek için Azure Resource Manager API'si <br>Sağlama ve ölçeklendirme el ile hizmeti için Azure portal işlevi <br>Veri geçiş hizmeti
+|Yalıtılmış ortamı ([VNet tümleştirmesi](sql-database-managed-instance-connectivity-architecture.md)çoklu kiracı hizmeti, ayrılmış hesaplama ve depolama) <br>[Saydam veri şifrelemesi (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD kimlik doğrulaması](sql-database-aad-authentication.md), çoklu oturum açma desteği <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD sunucusu ilkeleri (oturum açma bilgileri)</a> (**genel Önizleme**) <br>Azure SQL veritabanı olarak aynı uyumluluk standartlarına uyar <br>[SQL denetimi](sql-database-managed-instance-auditing.md) <br>[Tehdit algılama](sql-database-managed-instance-threat-detection.md) |Hizmet sağlama ve ölçeklendirme otomatikleştirmek için Azure Resource Manager API'si <br>Sağlama ve ölçeklendirme el ile hizmeti için Azure portal işlevi <br>Veri geçiş hizmeti
 
 Yönetilen örnek temel özellikleri aşağıdaki tabloda gösterilmiştir:
 
@@ -150,9 +150,9 @@ Azure veritabanı geçiş hizmeti (DMS) veya yerel bir geri yükleme ile şifrel
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory Tümleştirmesi
 
-Yönetilen örnek dağıtım seçeneği, geleneksel SQL server veritabanı altyapısı oturumları ve Azure Active Directory (AAD) ile tümleşik oturum açma bilgileri destekler. AAD oturum açma bilgileri (**genel Önizleme**) şirket içi Azure bulut sürümü, şirket içi ortamınızda kullandığınız veritabanı oturumlardır. AAD oturum açma bilgileri kullanıcıları belirtmenize imkan tanır ve grupları Azure Active Directory'den Kiracı true olarak örneği kapsamlı ilkeleri, içinde aynı yönetilen örnek veritabanları arası sorgular da dahil olmak üzere, herhangi bir örnek düzeyi işlemi gerçekleştirebilir.
+Yönetilen örnek dağıtım seçeneği, geleneksel SQL server veritabanı altyapısı oturumları ve Azure Active Directory (AAD) ile tümleşik oturum açma bilgileri destekler. Azure AD sunucusu ilkeleri (oturum açma bilgileri) (**genel Önizleme**) şirket içi Azure bulut sürümü, şirket içi ortamınızda kullandığınız veritabanı oturumlardır. Azure AD sunucusu ilkeleri (oturum açma bilgileri) kullanıcıları belirtmenize imkan tanır ve grupları Azure Active Directory'den true olarak örneği kapsamlı ilkeleri, aynı içinde platformlar arası sorguları da dahil olmak üzere, herhangi bir örnek düzeyi işlem gerçekleştirebilecek Kiracı Yönetilen örnek.
 
-AAD oturum açma bilgileri oluşturmak için yeni bir söz dizimi sunulmuştur (**genel Önizleme**), **gelen dış sağlayıcı**. Söz dizimi hakkında daha fazla bilgi için bkz. <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>ve gözden geçirme [yönetilen Örneğiniz için bir Azure Active Directory Yöneticisi sağlama](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) makalesi.
+Azure AD sunucusu ilkeleri (oturum açma bilgileri) oluşturmak için yeni bir söz dizimi sunulmuştur (**genel Önizleme**), **gelen dış sağlayıcı**. Söz dizimi hakkında daha fazla bilgi için bkz. <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>ve gözden geçirme [yönetilen Örneğiniz için bir Azure Active Directory Yöneticisi sağlama](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) makalesi.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory tümleştirmesi ve çok faktörlü kimlik doğrulaması
 
