@@ -1,24 +1,19 @@
 ---
 layout: LandingPage
 title: Azure faturalama ve maliyet yönetimi belgeleri | Microsoft Docs
-description: Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri yönetmeyi ve izlemeyi, ayrıca hesabınızla aboneliklerinizi yönetmeyi öğrenin.
+description: 'Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri yönetmeyi ve izlemeyi, ayrıca hesabınızla aboneliklerinizi yönetmeyi öğrenin.'
 services: billing
 author: cwatson-cat
 manager: dougeby
-ms.assetid: ''
+ms.assetid: null
 ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 05/24/2018
-ms.author: cwatson
-ms.openlocfilehash: ed792b03a79d2dcbb77142a51ae2641c8d0bd3ad
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583339"
+ms.date: 02/19/2019
+ms.author: banders
 ---
+
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure faturalama ve maliyet yönetimi belgeleri
 
 Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri izlemeyi, ayrıca hesabınızla aboneliklerinizi yönetmeyi öğrenin.
@@ -50,9 +45,9 @@ Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri izlemeyi, ayr�
                         <p>
                         <a href="/azure/billing/billing-getting-started">Beklenmeyen maliyetleri engelleme</a><br/>
                         <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Kaynak etiketlerini kullanma</a><br/>
-                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">Maliyet analizini başlatma - yalnızca EA</a><br/>
-                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">Bütçe oluşturma ve yönetme - yalnızca EA</a><br/>
-                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">Önerileri iyileştirme - yalnızca EA</a>
+                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">Maliyet analizini başlatma</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">Bütçe oluşturma ve yönetme</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">Önerileri iyileştirme</a>
                         </p>
                     </div>
                 </div>
@@ -184,5 +179,5 @@ Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri izlemeyi, ayr�
             </div>
         </div>
     </li>
-    
+
 </ul>

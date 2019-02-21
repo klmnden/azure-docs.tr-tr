@@ -23,26 +23,6 @@ items:
     href: active-directory-passwords-reset-register.md
   - name: Parolanızı sıfırlama
     href: user-help-reset-password.md
-- name: Güvenlik bilgileri (önizleme) yardımı
-  items:
-  - name: Genel Bakış
-    href: user-help-security-info-overview.md
-  - name: Authenticator uygulamasını ayarlama
-    href: security-info-setup-auth-app.md
-  - name: SMS mesajlaşmasını ayarlama
-    href: security-info-setup-text-msg.md
-  - name: Telefon konuşmalarını ayarlama
-    href: security-info-setup-phone-number.md
-  - name: E-postayı ayarlama
-    href: security-info-setup-email.md
-  - name: Güvenlik sorularını ayarlama
-    href: security-info-setup-questions.md
-  - name: Uygulama parolalarını yönetme
-    href: security-info-app-passwords.md
-  - name: Güvenlik bilgilerinizi yönetme
-    href: security-info-manage-settings.md
-  - name: Oturum açma
-    href: user-help-sign-in.md?toc=./toc.json
 - name: Microsoft Authenticator uygulaması yardımı
   items:
   - name: Genel Bakış
@@ -60,21 +40,49 @@ items:
       href: user-help-auth-app-add-non-ms-account.md
     - name: Hesabı el ile ekleme
       href: user-help-auth-app-add-account-manual.md
-    expanded: true
   - name: Microsoft Authenticator uygulamasını kullanarak oturum açma
     href: user-help-auth-app-sign-in.md
   - name: Hesaplarınızı yedekleme ve kurtarma
     href: user-help-auth-app-backup-recovery.md
   - name: SSS
     href: user-help-auth-app-faq.md
-- name: Uygulamalarım portalı yardımı
+- name: Profilim (önizleme) portalı yardımı
   items:
   - name: Genel Bakış
-    href: user-help-my-apps-overview.md
-  - name: Uygulamalarım portalı nedir?
-    href: active-directory-saas-access-panel-introduction.md
-  - name: Sorunları giderme
-    href: active-directory-saas-access-panel-user-help.md
+    href: myprofile-portal-overview.md
+  - name: Güvenlik bilgilerinizi yönetme
+    href: user-help-security-info-overview.md
+  - name: Oturum açma etkinliğinizi görüntüleme
+    href: myprofile-portal-recent-activity-page.md
+  - name: Kuruluşlarınızı yönetme
+    href: myprofile-portal-organizations-page.md
+  - name: Bağlı cihazlarınızı yönetme
+    href: myprofile-portal-devices-page.md
+  - name: Gizlilikle ilgili bilgilerinizi görüntüleme
+    href: myprofile-portal-privacy-page.md
+- name: Güvenlik bilgileri (önizleme) yardımı
+  items:
+  - name: Genel Bakış
+    href: user-help-security-info-overview.md
+  - name: Oturum açma sırasında güvenlik bilgileri ekleme
+    href: security-info-setup-signin.md
+  - name: Güvenlik bilgilerini ekleme veya güncelleştirme yöntemlerine genel bakış
+    href: security-info-add-update-methods-overview.md
+    items:
+    - name: Authenticator uygulamasını ayarlama
+      href: security-info-setup-auth-app.md
+    - name: SMS mesajlaşmasını ayarlama
+      href: security-info-setup-text-msg.md
+    - name: Telefon konuşmalarını ayarlama
+      href: security-info-setup-phone-number.md
+    - name: E-postayı ayarlama
+      href: security-info-setup-email.md
+    - name: Güvenlik sorularını ayarlama
+      href: security-info-setup-questions.md
+  - name: Uygulama parolalarını yönetme
+    href: security-info-app-passwords.md
+  - name: Oturum açma
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Cihazları yönetme yardımı
   items:
   - name: Genel Bakış
@@ -85,9 +93,17 @@ items:
     href: user-help-register-device-on-network.md
   - name: "\"Oraya ulaşamazsınız\" iletisi sorunlarını giderin"
     href: user-help-device-remediation.md
-ms.openlocfilehash: 604b2c204f893bf0abaaec86f85e2159c17a8656
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+- name: Uygulamalarım portalı yardımı
+  items:
+  - name: Genel Bakış
+    href: user-help-my-apps-overview.md
+  - name: Uygulamalarım portalı nedir?
+    href: active-directory-saas-access-panel-introduction.md
+  - name: Sorunları giderme
+    href: active-directory-saas-access-panel-user-help.md
+ms.openlocfilehash: b7d8c297559736c9f22b118d50423f980302018d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816059"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452583"

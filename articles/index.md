@@ -2,16 +2,10 @@
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure Belgeleri
-description: Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belge, örnek kod, öğretici ve çok daha fazlasını edinin.
+description: 'Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belge, örnek kod, öğretici ve çok daha fazlasını edinin.'
 ms.topic: hub-page
 featureFlags:
-- clicktale
-ms.openlocfilehash: 4ae03eedb96ecd1b460b06df3a80a7349c04e099
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330724"
+  - clicktale
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -195,6 +189,7 @@ Go</a>
                                                 <h4>İlişkisel Veritabanları</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">Hizmet olarak SQL veritabanı</a></li>
+                                                    <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">Azure VM’lerde SQL Server</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">Hizmet olarak SQL Veri Ambarı</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">Hizmet olarak PostgreSQL veritabanı</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">Hizmet olarak MySQL veritabanı</a></li>
