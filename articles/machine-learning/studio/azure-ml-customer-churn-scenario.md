@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243555"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453996"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio'yu kullanarak müşteri değişim sıklığını çözümleme
 ## <a name="overview"></a>Genel Bakış
-Bu makalede, Azure Machine Learning kullanılarak oluşturulan bir müşteri karmaşıklığı çözümleme projesinin referans uygulaması gösterir. Bu makalede, ilişkili genel modellerini bütünlüklü olarak endüstriyel müşteri karmaşıklığı sorununu çözmek için ele alır. Biz de Machine Learning kullanılarak oluşturulan model doğruluğunu ölçmek ve daha fazla geliştirme yönergeleri değerlendirin.  
+Bu makalede, Azure Machine Learning Studio kullanılarak oluşturulmuş bir müşteri karmaşıklığı çözümleme projesinin referans uygulaması gösterir. Bu makalede, ilişkili genel modellerini bütünlüklü olarak endüstriyel müşteri karmaşıklığı sorununu çözmek için ele alır. Biz de Machine Learning kullanılarak oluşturulan model doğruluğunu ölçmek ve daha fazla geliştirme yönergeleri değerlendirin.  
 
 ### <a name="acknowledgements"></a>Bildirimler
-Bu deneyde geliştirildiği ve Serge Berger, Microsoft'ta asıl veri uzmanı ve eski Microsoft Azure Machine Learning için ürün yöneticisi olan Roger Barga test. Azure belgeleri takımının minnettar uzmanlıklarını bildirir ve bu teknik incelemeyi paylaşmak için teşekkürler.
+Bu deneyde geliştirildiği ve Serge Berger, Microsoft'ta asıl veri uzmanı ve eski Microsoft Azure Machine Learning Studio için ürün yöneticisi olan Roger Barga test. Azure belgeleri takımının minnettar uzmanlıklarını bildirir ve bu teknik incelemeyi paylaşmak için teşekkürler.
 
 > [!NOTE]
 > Bu deneme için kullanılan verileri genel olarak kullanılabilir değil. Değişim sıklığı analiz için makine öğrenme modeli oluşturma örneği için bkz: [Perakende karmaşıklığı model şablonunun](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) içinde [Azure AI Gallery](http://gallery.azure.ai/)
@@ -54,11 +54,11 @@ Müşterilerinin büyük veri kümelerini kullanarak, kuruluşların büyük ver
 2. Bir araya modeli, değişim sıklığı ve müşteri miktarını olasılığını müdahale düzeyini nasıl etkileyebilecek göz önünde bulundurun (CLV) ömrü değeri sağlar.
 3. Bu analiz, kendisini en iyi öneri sunmak için müşteri segmentlerini hedefleyen proaktif bir pazarlama kampanyası için ilerletilmiş bir quantitative analiz için uygundur.  
 
-![][1]
+![Risk toleransı artı karar modelleri verir eyleme dönüştürülebilir Öngörüler nasıl gösteren diyagram](./media/azure-ml-customer-churn-scenario/churn-1.png)
 
 İleri görünümlü bu yaklaşım karmaşası değerlendirmek için en iyi yoludur, ancak karmaşıklığı ile gelir: çok modelli archetype ve modelleri arasındaki bağımlılıkları izleme geliştirmek sunuyoruz. Aşağıdaki diyagramda gösterildiği gibi modelleri arasındaki etkileşimi kapsüllenmiş:  
 
-![][2]
+![Model etkileşim diyagramı değişim sıklığı](./media/azure-ml-customer-churn-scenario/churn-2.png)
 
 *Şekil 4: Birleşik çok modelli archetype*  
 
@@ -71,24 +71,24 @@ Burada ilginç bir ayrıca büyük veri analizi ' dir. Günümüzün telekomüni
  
 
 ## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Machine Learning Studio'da model oluşturma archetype uygulama
-Az önce açıklanan sorunu göz önünde bulundurulduğunda, tümleşik bir model ve puanlama yaklaşımı uygulamak için en iyi yolu nedir? Bu bölümde, nasıl size bu Azure Machine Learning Studio kullanılarak gerçekleştirilen gösterilecektir.  
+Açıklanan sorunu göz önünde bulundurulduğunda, tümleşik bir model ve puanlama yaklaşımı uygulamak için en iyi yolu nedir? Bu bölümde, nasıl size bu Azure Machine Learning Studio kullanılarak gerçekleştirilen gösterilecektir.  
 
 Çok modelli bir yaklaşım genel bir archetype değişim sıklığı için tasarlarken zorunluluktur. Çok modelli bir yaklaşım bile Puanlama (Tahmine dayalı) parçası olması gerekir.  
 
 Aşağıdaki çizimde, dört Puanlama algoritmaları dalgalanmasını tahmin Machine Learning Studio'da hangi kullanan oluşturduğumuz prototip gösterir. Çok modelli bir yaklaşım kullanarak nedenini değil yalnızca bir topluluğu Sınıflandırıcısı, doğruluğunu artırmak için ancak de aşırı sığdırma karşı korumak ve öngörücü özellik seçimi artırmak için oluşturmaktır.  
 
-![][3]
+![Çok sayıda birbirine modüllerle karmaşık bir Studio çalışma alanına gösteren ekran görüntüsü](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *Şekil 5: Prototip yaklaşım modelleme bir değişim*  
 
 Aşağıdaki bölümler, Machine Learning Studio kullanılarak uygulanan model Puanlama prototip hakkında daha fazla ayrıntı sağlar.  
 
 ### <a name="data-selection-and-preparation"></a>Veri seçimi ve hazırlama
-Veri modelleri oluşturmak için kullanılan ve puanı müşterilerin müşteri gizliliğini korumak için farklı verilerle CRM dikey çözümden elde. Veri ABD'deki 8000 abonelikler hakkında bilgi içerir ve üç kaynağı birleştirir: veri (abonelik meta veriler), etkinlik verileri (kullanım sistemin) ve müşteri destek verileri sağlama. Herhangi bir iş verileri içermez ilgili; müşterilerle ilgili bilgileri Örneğin, bağlılık programı meta veriler ya da kredi puanları içermez.  
+Veri modelleri oluşturmak için kullanılan ve puanı müşterilerin müşteri gizliliğini korumak için farklı verilerle CRM dikey çözümden elde. Veri ABD'deki 8000 abonelikler hakkında bilgi içerir ve üç kaynağı birleştirir: veri (abonelik meta veriler), etkinlik verileri (kullanım sistemin) ve müşteri destek verileri sağlama. Veriler müşterilerle ilgili herhangi bir iş ile ilgili bilgi içermez; Örneğin, bağlılık programı meta veriler ya da kredi puanları içermez.  
 
-Veri hazırlama zaten sahip olduğunu varsaydığından kolaylık olması için ETL ve verileri temizleme işlemleri kapsam dışına başka bir yerde yapılır.   
+Veri hazırlama zaten sahip olduğunu varsaydığından kolaylık olması için ETL ve verileri temizleme işlemleri kapsam dışına başka bir yerde yapılır.
 
-Modelleme için özellik seçimi adaylarının, rastgele orman modülü kullanan işlemine dahil kümesinin başlangıç anlam Puanlama temel alır. Machine Learning Studio'da bir uygulama için ortalama, ORTANCA ve aralıkları temsilcisi özellikleri için hesaplanır. Örneğin, kullanıcı etkinliği için minimum ve maksimum değerleri gibi nitel veri toplamaları ekledik.    
+Modelleme için özellik seçimi adaylarının, rastgele orman modülü kullanan işlemine dahil kümesinin başlangıç anlam Puanlama temel alır. Machine Learning Studio'da bir uygulama için ortalama, ORTANCA ve aralıkları temsilcisi özellikleri için hesaplanır. Örneğin, kullanıcı etkinliği için minimum ve maksimum değerleri gibi nitel veri toplamaları ekledik.
 
 Ayrıca en son altı ay boyunca zamana bağlı bilgileri yakaladığımız. Verileri bir yıl boyunca analiz ettik ve olmasa bile istatistiksel olarak önemli eğilimleri, değişim sıklığı üzerindeki etkisini önemli ölçüde altı ay sonra düşer kuruldu.  
 
@@ -96,11 +96,11 @@ Microsoft azure'da veri kaynakları kullanarak Machine Learning Studio'da model 
 
 Aşağıdaki diyagramlarda kullanılan verileri gösterilmektedir.  
 
-![][4]
+![Ham değerler ile kullanılan verileri bir örneğini gösteren ekran görüntüsü](./media/azure-ml-customer-churn-scenario/churn-4.png)
 
 *Şekil 6: (Farklı) veri kaynağının Alıntısı*  
 
-![][5]
+![Veri kaynağından ayıklanan istatistiksel özelliklerini gösteren ekran görüntüsü](./media/azure-ml-customer-churn-scenario/churn-5.png)
 
 *Şekil 7: Veri kaynağından ayıklanan özellikleri*
  
@@ -122,7 +122,7 @@ Prototip (özelleştirme yok) oluşturmak için aşağıdaki dört makine öğre
 
 Aşağıdaki diyagram, modelleri oluşturulduğu dizisini gösterir deneme tasarım yüzeyine bir bölümünü gösterir:  
 
-![][6]  
+![Studio deneme daha küçük bir bölümünün ekran görüntüsü tuval](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
 *Şekil 8: Machine Learning Studio'da model oluşturma*  
 
@@ -135,18 +135,18 @@ Biz de SAS Kurumsal Miner 12 Masaüstü sürümü kullanılarak oluşturulan bir
 Bu bölümde, bizim bulguları Puanlama veri kümesini temel alan bir model doğruluğunu hakkında size sunar.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Doğruluk ve puanlamasını duyarlık
-Genellikle, Azure Machine learning'de SAS doğruluğu yaklaşık 10-%15 (alanı altında eğri veya AUC) içinde uygulamasıdır.  
+Genellikle, Azure Machine Learning Studio'da SAS doğruluğu yaklaşık 10-%15 (alanı altında eğri veya AUC) içinde uygulamasıdır.  
 
 Ancak, en önemli değişim sıklığı ölçümü misclassification oranıdır: diğer bir deyişle, tahmin edilen sınıflandırıcı tarafından olarak üst N churners hangisinin gerçekten yaptığınız **değil** karmaşıklığı ve özel olarak değerlendirilmesi henüz alınan? Aşağıdaki diyagram bu modelleri misclassification ücretine karşılaştırılır:  
 
-![][7]
+![4 algoritmaların performansını karşılaştırma eğri grafik alanında](./media/azure-ml-customer-churn-scenario/churn-7.png)
 
 *Şekil 9: Eğri Passau prototip alanında*
 
 ### <a name="using-auc-to-compare-results"></a>Sonuçları karşılaştırmak için AUC kullanma
 Alanı altında eğri (AUC) genel bir ölçü temsil eden bir ölçüm olan *separability* puanlar pozitif ve negatif yerleştirme için dağıtımlar arasında. Geleneksel alıcı işleci özellikleri (ROC) grafiğe benzer, ancak AUC ölçüm eşiği değeri seçmenizi gerektirmeyeceğini bir önemli fark vardır. Bunun yerine, üzerinden sonuçları özetler **tüm** olası seçenekler. Buna karşılık, dikey eksen ve hatalı pozitif sonuç oranı yatay eksende pozitif sonuç oranı geleneksel ROC grafik gösterir ve sınıflandırma eşiği değişir.   
 
-AUC değerlerine yoluyla Karşılaştırılacak modelleri izin verdiğinden AUC genellikle bir ölçü olarak farklı algoritmalar (veya farklı sistemler için) kullanılır. Bu, sektörde meteorology ve biosciences gibi popüler bir yaklaşımdır. Bu nedenle, AUC sınıflandırıcı performansını değerlendirmek için popüler bir aracı temsil eder.  
+AUC değerlerine yoluyla Karşılaştırılacak modelleri izin verdiğinden AUC bir ölçü olarak farklı algoritmalar (veya farklı sistemler için) kullanılır. Bu, sektörde meteorology ve biosciences gibi popüler bir yaklaşımdır. Bu nedenle, AUC sınıflandırıcı performansını değerlendirmek için popüler bir aracı temsil eder.  
 
 ### <a name="comparing-misclassification-rates"></a>Karşılaştırma misclassification oranları
 Biz misclassification ücretler söz konusu veri kümesinde yaklaşık 8000 aboneliklerinin CRM verilerinizi kullanarak karşılaştırılır.  
@@ -160,14 +160,14 @@ Biz genellikle olası churners doğru sınıflandırma ilgilendiğiniz aynı şe
 
 Aşağıdaki Wikipedia diyagramdan canlı, anlaşılması kolay bir grafik ilişkiyi göstermektedir:  
 
-![][8]
+![İki hedefi. Bir hedef gösterir gevşek gruplandırılmış işaretleri isabet ancak yakın olarak işaretlenmiş hedefe tam isabet etmiş göz "düşük doğruluk: iyi trueness, zayıf duyarlılık. Başka bir hedef sıkı bir şekilde gruplandırılmış ancak gölgeden uzak hedefe tam isabet etmiş göz işaretlenmiş "düşük doğruluk: zayıf trueness, iyi duyarlılık"](./media/azure-ml-customer-churn-scenario/churn-8.png)
 
 *Şekil 10: Doğruluk ve duyarlık etmekten*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Artırmalı karar ağacı modeli doğruluğu ve duyarlık sonuçları
 Aşağıdaki grafikte en doğru olan dört model arasında özelleştirmede artırmalı karar ağacı modeli için Machine Learning'i prototype kullanarak Puanlama ham sonuçları görüntüler:  
 
-![][9]
+![Doğruluk, duyarlık geri çekme, gösteren tablo parçacığı F puanı, AUC, ortalama günlük kaybı ve dört algoritmalar için eğitim günlük kaybı](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
 *Şekil 11: Artırmalı karar ağacı model özellikleri*
 
@@ -200,20 +200,20 @@ Bu önemli gözlem genellikle iş zekası odaklı bir yaklaşım analizi için g
 
 Bununla birlikte, Self Servis analizi, Machine Learning Studio'yu kullanarak bilgi, bölüm veya departmanı tarafından türünden dört kategorileri için machine learning değişim sıklığı hakkında değerli bir kaynağı haline vaattir.  
 
-Azure Machine Learning'de yakında başka bir heyecan verici özellik, özel bir modül zaten kullanılabilen önceden tanımlanmış modüllerinin depoya ekleme olanağı yöneliktir. Bu özellik, temelde, kitaplığı seçin ve dikey pazarları için şablonlar oluşturma fırsatı oluşturur. Bu bir önemli Azure Machine Learning market yerde avantajıdır.  
+Azure Machine Learning Studio'da yakında başka bir heyecan verici özellik, özel bir modül zaten kullanılabilen önceden tanımlanmış modüllerinin depoya ekleme olanağı yöneliktir. Bu özellik, temelde, kitaplığı seçin ve dikey pazarları için şablonlar oluşturma fırsatı oluşturur. Bu bir önemli Azure Machine Learning Studio'nun Pazar yerde avantajıdır.  
 
 Bu konuda daha sonra devam etmek özellikle büyük veri analizi ile ilgili umuyoruz.
   
 
 ## <a name="conclusion"></a>Sonuç
-Bu yazıda, genel framework kullanarak genel müşteri karmaşıklığı sorununu giderme mantıklı bir yaklaşım açıklanmaktadır. Biz Puanlama modelleri için prototip olarak kabul ve Azure Machine Learning kullanarak gerçekleştirmektedir. Son olarak, doğruluk ve performans SAS karşılaştırılabilir algoritmalar onaylamaz prototip çözümün değerlendirdik.  
+Bu yazıda, genel framework kullanarak genel müşteri karmaşıklığı sorununu giderme mantıklı bir yaklaşım açıklanmaktadır. Biz Puanlama modelleri için prototip olarak kabul ve Azure Machine Learning Studio kullanılarak uygulanır. Son olarak, doğruluk ve performans SAS karşılaştırılabilir algoritmalar onaylamaz prototip çözümün değerlendirdik.  
 
  
 
 ## <a name="references"></a>Başvurular
 [1] Tahmine dayalı analiz: Öngörüler, Batı McKnight bilgi yönetimi, Temmuz/Ağustos 2011 p.18 20.  
 
-[2] Wikipedia makalesinin: [Doğruluk ve duyarlık](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Wikipedia makalesi: [Doğruluk ve duyarlık](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [NET-DM 1.0: Adım adım veri araştırma Kılavuzu](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
@@ -223,17 +223,6 @@ Bu yazıda, genel framework kullanarak genel müşteri karmaşıklığı sorunun
  
 
 ## <a name="appendix"></a>Ek
-![][10]
+![Değişim sıklığı prototipinde sunu anlık görüntü](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
 *Şekil 12: Değişim sıklığı prototipinde sunu anlık görüntü*
-
-[1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
-[2]: ./media/azure-ml-customer-churn-scenario/churn-2.png
-[3]: ./media/azure-ml-customer-churn-scenario/churn-3.png
-[4]: ./media/azure-ml-customer-churn-scenario/churn-4.png
-[5]: ./media/azure-ml-customer-churn-scenario/churn-5.png
-[6]: ./media/azure-ml-customer-churn-scenario/churn-6.png
-[7]: ./media/azure-ml-customer-churn-scenario/churn-7.png
-[8]: ./media/azure-ml-customer-churn-scenario/churn-8.png
-[9]: ./media/azure-ml-customer-churn-scenario/churn-9.png
-[10]: ./media/azure-ml-customer-churn-scenario/churn-10.png

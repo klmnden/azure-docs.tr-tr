@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 82bfdfd7481b47c08f76d077585f85763e58b87b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 0d771f03f9f71151ef25140148d4dd4daf3d46ec
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331286"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443327"
 ---
 **Giden veri aktarımları**: [Giden veri aktarımları](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure veri merkezlerinden çıkan veriler) bant genişliği kullanımı için fatura doğurur.
 
@@ -25,8 +25,8 @@ Premium yönetilen disk işlemleri herhangi bir maliyet yoktur.
 
 Yönetilen diskler için fiyatlandırma hakkında ayrıntılı bilgi için bkz: [yönetilen diskler fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks).
 
-### <a name="ultra-disks-vm-reservation-fee"></a>Ultra yüksek diskleri VM ayırma ücreti
+### <a name="ultra-ssd-vm-reservation-fee"></a>Ultra yüksek SSD VM ayırma ücreti
 
-Azure sanal makineleri ultra disklerle uyumlu olup olmadığını belirtmek için özelliğine sahip. Uyumlu sanal makine ayıran bir Ultra yüksek disk adanmış işlem VM örneği ve performansı iyileştirmek ve gecikme süresini azaltmak için blok depolama ölçek birimi arasında bant genişliği kapasitesi. Ultra yüksek bir disk eklemeden VM'de Ultra yüksek disk özelliği etkinse, yalnızca uygulanan rezervasyon ücreti VM sonuçları bu özellik ekleniyor. Ultra yüksek bir disk bağlı olduğu için ultra uyumlu VM disk, bu ücret uygulanmamış. Bu ücretlendirme, VM üzerinde sağlanan vCPU başına yapılır.
+Azure sanal makineleri ultra SSD sürücüsü ile uyumlu olup olmadığını belirtmek için özelliğine sahip. Uyumlu sanal makine ayıran bir Ultra yüksek disk adanmış işlem VM örneği ve performansı iyileştirmek ve gecikme süresini azaltmak için blok depolama ölçek birimi arasında bant genişliği kapasitesi. Ultra yüksek bir disk eklemeden VM'de Ultra yüksek disk özelliği etkinse, yalnızca uygulanan rezervasyon ücreti VM sonuçları bu özellik ekleniyor. Ultra yüksek bir disk bağlı olduğu için ultra uyumlu VM disk, bu ücret uygulanmamış. Bu ücretlendirme, VM üzerinde sağlanan vCPU başına yapılır.
 
 Başvurmak [Azure fiyatlandırma sayfasını diskler](https://azure.microsoft.com/pricing/details/managed-disks/) diskler fiyatlandırma ayrıntıları için ultra disk.

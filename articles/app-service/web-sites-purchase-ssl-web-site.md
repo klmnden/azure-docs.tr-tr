@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820793"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446758"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Satın alma ve Azure App Service için SSL sertifikası yapılandırma
 
-Bu öğreticide (satın) oluşturarak web uygulamanızı güvenli hale gösterilmektedir bir App Service sertifikası [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) ve bir App Service uygulamasına bağlar.
+Bu öğretici, güvenliğinin nasıl sağlanacağını gösterir, [App Service uygulaması](https://docs.microsoft.com/azure/app-service/) veya [işlev uygulaması](https://docs.microsoft.com/azure/azure-functions/) (satın) oluşturarak bir App Service sertifikası [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) ve kendisine bağlama bir App Service uygulaması.
 
 > [!TIP]
 > App Service sertifikaları, herhangi bir Azure veya Azure Hizmetleri için kullanılabilir ve uygulama hizmetleri için sınırlı değildir. Bunu yapmak için onu istediğiniz yere kullanabileceğiniz bir App Service sertifikasının yerel PFX kopyasını oluşturmak gerekir. Daha fazla bilgi için [bir App Service sertifikasının yerel PFX kopyasını oluşturma](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
@@ -35,7 +35,7 @@ Bu öğreticide (satın) oluşturarak web uygulamanızı güvenli hale gösteril
 Bu nasıl yapılır kılavuzunda izlemek için:
 
 - [App Service uygulaması oluşturma](/azure/app-service/)
-- [Bir etki alanı adını web uygulamanıza eşleme](app-service-web-tutorial-custom-domain.md) veya [satın alma ve Azure'da yapılandırma](manage-custom-dns-buy-domain.md)
+- [Uygulamanız için bir etki alanı adını eşleme](app-service-web-tutorial-custom-domain.md) veya [satın alma ve Azure'da yapılandırma](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 

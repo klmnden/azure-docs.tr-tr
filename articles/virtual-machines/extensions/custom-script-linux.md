@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 87d15f7b351f2b8b6a8c010651d82faa66b28918
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: f8b0955afa1705dd8e3c01a943cc5e5d885f9c71
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276474"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456971"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Azure özel betik uzantısı sürüm 2 ile Linux sanal makineleri kullanın.
 Özel betik uzantısı sürüm 2 indirir ve Azure sanal makinelerinde betikleri çalıştırır. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya başka bir yapılandırma/yönetim görevi için kullanışlıdır. Betikler Azure depolama veya başka bir erişilebilir internet konuma indirebilir veya uzantı çalışma zamanında sağlayabilir. 
 
-Özel betik uzantısı, Azure Resource Manager şablonları ile tümleşir. Uygulamayı, Azure CLI, PowerShell, Azure portalında veya Azure sanal makineler REST API kullanarak da çalıştırabilirsiniz.
+Özel betik uzantısı, Azure Resource Manager şablonları ile tümleşir. Uygulamayı, Azure CLI, PowerShell veya Azure sanal makineler REST API kullanarak da çalıştırabilirsiniz.
 
 Bu makalede, Azure clı'dan özel betik uzantısı kullanma ve bir Azure Resource Manager şablonu kullanarak uzantı çalıştırma ayrıntıları. Bu makalede, Linux sistemleri için sorun giderme adımları da sağlanır.
 
@@ -115,7 +115,7 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 | typeHandlerVersion | 2.0 | int |
 | fileUris (örn.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (örn.) | Python MyPythonScript.py < param1 my > | dize |
-| komut dosyası | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | dize |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | dize |
 | skipDos2Unix (örn.) | false | boole |
 | zaman damgası (örn.) | 123456789 | 32 bit tamsayı |
 | storageAccountName (örn.) | examplestorageacct | dize |

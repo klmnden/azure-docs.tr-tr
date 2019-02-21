@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a995fd93fa8d538cd1a686ecc12fa69c718758c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: cb136391610035911af3614f88f5ea823f86922d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313509"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456340"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure İzleyici'deki Azure AD etkinlik günlükleri (önizleme)
 
@@ -31,13 +31,13 @@ Azure Active Directory (Azure AD) etkinlik günlükleri, uzun vadeli bekletme ve
 * Arşiv Azure AD etkinlik günlüklerini verileri uzun süre korumak için Azure depolama hesabınız için.
 * Azure olay hub'ına Splunk ve QRadar gibi popüler güvenlik bilgileri ve Olay yönetimi (SIEM) araçlarını kullanarak analiz için Stream Azure AD etkinlik günlükleri.
 * Azure AD tümleştirme bunları bir olay hub'ına akış tarafından kendi özel günlük çözümleri ile etkinlik günlükleri.
-* Gönderme Azure AD etkinlik günlüklerini Log Analytics, izleme ve uyarı bağlı veriler üzerinde zengin görselleştirmeler sağlamak için.
+* İzleme ve uyarı bağlı veriler üzerinde zengin görselleştirmeler etkinleştirmek için Azure İzleyici günlüklerine gönderme Azure AD etkinlik günlükleri.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>Desteklenen raporlar
 
-Azure yönlendirebilirsiniz AD denetim günlüklerini ve oturum açma günlüklerinin Azure depolama hesabı, olay hub'ı, Log Analytics veya özel bir çözüm için bu özelliği kullanarak. 
+Azure yönlendirebilirsiniz AD denetim günlüklerini ve oturum açma günlüklerinin Azure depolama hesabı, olay hub'ı, Azure İzleyici günlüklerine veya özel bir çözüm için bu özelliği kullanarak. 
 
 * **Denetim günlükleri**: [Denetim günlükleri Etkinlik Raporu](concept-audit-logs.md) kiracınızda gerçekleştirilen her görevin geçmişine erişmenizi sağlar.
 * **Oturum açma günlükleri**: İle [oturum açma etkinliği raporunu](concept-sign-ins.md), Denetim günlüklerinde bildirilen görevleri gerçekleştiren belirleyebilirsiniz.
@@ -60,7 +60,7 @@ Denetim günlüğü verilerinizi yönlendirmek istediğiniz yere bağlı olarak 
 
 * *ListKeys* izinlerine sahip olduğunuz bir Azure depolama hesabı. Blob depolama hesabı değil genel bir depolama hesabı kullanmanızı öneririz. Depolamayla fiyatlandırma bilgileri için bkz. [Azure Depolama fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Üçüncü taraf çözümlerle tümleştirmek için Azure Event Hubs ad alanı.
-* Günlükleri Log Analytics'e göndermek için bir Azure Log Analytics çalışma alanı.
+* Azure İzleyici günlüklerine günlükleri göndermek için bir Azure Log Analytics çalışma alanı.
 
 ## <a name="cost-considerations"></a>Maliyetle ilgili konular
 
@@ -94,9 +94,9 @@ Aşağıdaki tabloda Batı ABD bölgesinde yer alan temel bir olay hub'ı için 
 | Denetim | 1000 | 0.1 | 52 | 104 KB | 1 | 8640 | $10,80 |
 | Oturum açma işlemleri | 1000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
 
-### <a name="log-analytics-cost-considerations"></a>Log Analytics'e konuları maliyeti
+### <a name="azure-monitor-logs-cost-considerations"></a>Azure İzleyici maliyet konuları günlüğe kaydeder.
 
-Log Analytics çalışma alanı yönetmeyle ilgili maliyetleri gözden geçirmek için bkz: [veri hacmini ve saklamayı Log analytics'te kontrol ederek maliyet yönetme](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Azure İzleyici günlüklerine yönetmeyle ilgili maliyetleri gözden geçirmek için bkz: [veri hacmini ve saklamayı Azure İzleyici günlüklerine kontrol ederek maliyet yönetme](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -177,4 +177,4 @@ Bu bölümde, Azure İzleyici'deki Azure AD günlükleriyle ilgili sık sorulan 
 
 * [Etkinlik günlüklerini depolama hesabında arşivleme](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Etkinlik günlüklerini olay hub'ına yönlendirme](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-* [Etkinlik günlüklerini Log Analytics ile tümleştirme](howto-integrate-activity-logs-with-log-analytics.md)
+* [Etkinlik günlükleri, Azure İzleyici ile tümleştirme](howto-integrate-activity-logs-with-log-analytics.md)

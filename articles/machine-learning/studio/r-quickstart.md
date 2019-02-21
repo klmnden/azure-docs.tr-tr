@@ -10,21 +10,21 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/06/2017
-ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d4e267915338e8043138be0ca1a4922ac84d8eab
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822383"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456274"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Programlama dili için Azure Machine Learning Studio'da R için hızlı başlangıç Öğreticisi
 
 <!-- Stephen F Elston, Ph.D. -->
 
 ## <a name="introduction"></a>Giriş
-Bu hızlı başlangıç öğreticisinde, Azure Machine Learning, R programlama dilini kullanarak genişletme hızla başlamanıza yardımcı olur. Oluşturun, test ve Azure Machine Learning içinde R kod yürütmek için bu R programlama öğreticiyi izleyin. Öğreticide çalışırken, Azure Machine Learning'de R dili kullanarak eksiksiz bir tahmin çözümü oluşturur.  
+Bu hızlı başlangıç öğreticisinde, Azure Machine Learning Studio'da R programlama dilini kullanarak genişletme hızla başlamanıza yardımcı olur. Oluşturun, test ve Studio içinde R kod yürütmek için bu R programlama öğreticiyi izleyin. Öğreticide çalışırken, Studio'da R dili kullanarak eksiksiz bir tahmin çözümü oluşturur.  
 
-Microsoft Azure Machine Learning, çok sayıda güçlü makine öğrenimi ve veri işleme modüller içerir. Güçlü R dili en yaygın kullanılan analytics'in açıklanan. Sonsuza dek, analiz ve veri işleme Azure Machine learning'de r kullanarak uzatılabilir Esneklik ve ayrıntılı analizlerle r'ın bu birleşim ölçeklenebilirlik ve Azure Machine Learning, dağıtım kolaylığı sağlar
+Microsoft Azure Machine Learning Studio, çok sayıda güçlü makine öğrenimi ve veri işleme modüller içerir. Güçlü R dili en yaygın kullanılan analytics'in açıklanan. Sonsuza dek, analiz ve veri işleme Studio'da r kullanarak uzatılabilir Esneklik ve ayrıntılı analizlerle r'ın bu birleşim Studio'nun dağıtım kolaylığı ve ölçeklenebilirlik sağlar
 
 
 
@@ -38,23 +38,23 @@ Bu Hızlı Başlangıç Kılavuzu'nda biz California Süt üretim ile çalışma
 Bu makalede, R betikleri ile birlikte kullanılan veri [burada indirilen](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). Bu veriler University Wisconsin gelen bilgileri başlangıçta oluşturulan https://dairymarkets.com.
 
 ### <a name="organization"></a>Kuruluş
-Oluşturma, test ve Azure Machine Learning ortamında analiz ve veri işleme R kod yürütme öğrenirken size çeşitli adımlarda ilerleyeceğine.  
+Oluşturma, test ve Azure Machine Learning Studio ortamında analiz ve veri işleme R kod yürütme öğrenirken size çeşitli adımlarda ilerleyeceğine.  
 
 * İlk biz Azure Machine Learning Studio ortamında R dilini kullanmanın temellerini inceleyeceksiniz.
-* Ardından verilerin, R kodunu ve Azure Machine Learning ortamında grafikler için g/ç çeşitli yönlerini tartışmak için ilerleme.
+* Ardından verilerin, R kodunu ve Azure Machine Learning Studio ortamında grafikler için g/ç çeşitli yönlerini tartışmak için ilerleme.
 * Biz ardından tahmin Çözümümüzü ilk bölümünü verileri temizlemek ve dönüştürmek için kod oluşturarak oluşturmak.
 * Hazırlanmış verilerimizi ile biz birkaç veri kümemizdeki değişkenleri arasında bağıntılar analizini yapar.
 * Son olarak, Dönemsel zaman serisi tahmin modeli sütlü üretim için oluşturacağız.
 
 ## <a id="mlstudio"></a>Machine Learning Studio'da R dili ile etkileşim kurma
-Bu bölümde Machine Learning Studio ortamında olan R programlama dili ile etkileşim kurmanın bazı temel alır. R dili, özelleştirilmiş analiz ve veri işleme modülleri Azure Machine Learning ortamında oluşturmak için güçlü bir araç sağlar.
+Bu bölümde Machine Learning Studio ortamında olan R programlama dili ile etkileşim kurmanın bazı temel alır. R dili, özelleştirilmiş analytics ve Azure Machine Learning Studio ortamı içinde veri işleme modüller oluşturmak için güçlü bir araç sağlar.
 
 RStudio geliştirmek, test ve küçük ölçekli R kodu hata ayıklama için kullanır. Bu kodu ardından kesme ve yapıştırma içine bir [R betiği yürütme] [ execute-r-script] modülü Machine Learning Studio'da çalışmaya hazır.  
 
 ### <a name="the-execute-r-script-module"></a>R betiği yürütme Modülü
 Machine Learning Studio, R betikleri içinde çalıştırılan [R betiği yürütme] [ execute-r-script] modülü. Örneği [R betiği yürütme] [ execute-r-script] Machine Learning Studio'da bir modül, Şekil 1'de gösterilmiştir.
 
- ![R programlama dili: Machine Learning Studio'da seçili R betiği yürütme Modülü][1]
+ ![R programlama dili: Machine Learning Studio'da seçili R betiği yürütme Modülü](./media/r-quickstart/fig1.png)
 
 *Şekil 1. Machine Learning Studio ortam seçili R betiği yürütme modülü gösteriliyor.*
 
@@ -66,20 +66,20 @@ Machine Learning Studio, R betikleri içinde çalıştırılan [R betiği yürü
 
 Biz, görüştükten olacak [R betiği yürütme] [ execute-r-script] bu belgenin geri kalanında daha ayrıntılı.
 
-Karmaşık R işlevleri ile çalışırken, ı, düzenleme, test ve RStudio içinde hata ayıklama öneririz. Herhangi bir yazılım geliştirme ile kodunuzu kademeli olarak genişletin ve küçük basit test çalışmalarında test ederken. Ardından kesip işlevlerinizi R betik penceresine yapıştırmanız [R betiği yürütme] [ execute-r-script] modülü. Bu yaklaşım, hem RStudio tümleşik geliştirme ortamı (IDE) hem de Azure Machine Learning gücünü yararlanın olanak tanır.  
+Karmaşık R işlevleri ile çalışırken, ı, düzenleme, test ve RStudio içinde hata ayıklama öneririz. Herhangi bir yazılım geliştirme ile kodunuzu kademeli olarak genişletin ve küçük basit test çalışmalarında test ederken. Ardından kesip işlevlerinizi R betik penceresine yapıştırmanız [R betiği yürütme] [ execute-r-script] modülü. Bu yaklaşım, hem RStudio tümleşik geliştirme ortamı (IDE) hem de Azure Machine Learning Studio'nun gücünden yararlanın olanak tanır.  
 
 #### <a name="execute-r-code"></a>R kodunu yürütün
 Herhangi bir R kodu [R betiği yürütme] [ execute-r-script] modülü tıklayarak denemeyi çalıştırın, yürütülecek **çalıştırma** düğmesi. Yürütme tamamlandığında bir onay işareti görünür [R betiği yürütme] [ execute-r-script] simgesi.
 
 #### <a name="defensive-r-coding-for-azure-machine-learning"></a>Azure Machine Learning için savunma R kodlama
-Azure Machine Learning kullanarak, örneğin bir web hizmeti için R kodu geliştiriyorsanız, özel durumları ve beklenmeyen veri girişi ile kodunuzu nasıl ilgilenecektir kesinlikle planlamanız gerekir. Netlik sağlamak için ı çok denetimi veya özel durum işleme gösterilen kod örnekleri çoğu in the way of eklemediniz. Biz devam ederken ancak miyim size işlevleri çeşitli örneklerini kullanarak R'ın özel durum işleme yeteneği sunar.  
+Azure Machine Learning Studio'yu kullanarak, örneğin bir web hizmeti için R kodu geliştiriyorsanız, özel durumları ve beklenmeyen veri girişi ile kodunuzu nasıl ilgilenecektir kesinlikle planlamanız gerekir. Netlik sağlamak için ı çok denetimi veya özel durum işleme gösterilen kod örnekleri çoğu in the way of eklemediniz. Biz devam ederken ancak miyim size işlevleri çeşitli örneklerini kullanarak R'ın özel durum işleme yeteneği sunar.  
 
 Daha eksiksiz bir işlemden R özel durum işleme gerekiyorsa, listelenen Wickham kitabı geçerli bölümlerini okumak önerim [ek B - daha fazla bilgi](#appendixb).
 
 #### <a name="debug-and-test-r-in-machine-learning-studio"></a>Machine Learning Studio'da R test ve hata ayıklama
 Yinelemek için ı test ve küçük bir ölçekte RStudio içinde R kodunuzdaki hataları ayıklamanıza öneririz. Ancak, burada ihtiyaç duyacağınız içinde R kod sorunların izlemek için durumlar vardır [R betiği yürütme] [ execute-r-script] kendisi. Ayrıca, Machine Learning Studio'da sonuçlarınızı denetleyin iyi bir uygulamadır.
 
-R kodunuzun ve Azure Machine Learning platformunda yürütme çıktısını içeren öncelikli olarak bulunur. Bazı ek bilgiler error.log görülür.  
+R kodunuzun ve Azure Machine Learning Studio platformunda yürütme çıktısını içeren öncelikli olarak bulunur. Bazı ek bilgiler error.log görülür.  
 
 R kodunuzu çalıştırırken, Machine Learning Studio'da bir hata meydana gelirse, ilk kursunuzun eyleminin error.log aramak için olmalıdır. Bu dosya, hatayı düzeltmek ve anlamanıza yardımcı olması için kullanışlı hata iletileri içerebilir. Error.log görüntülemek için tıklayın **hata günlüğü görüntüle** üzerinde **Özellikler bölmesinde** için [R betiği yürütme] [ execute-r-script] hata içeren.
 
@@ -90,7 +90,7 @@ R kodunuzu çalıştırırken, Machine Learning Studio'da bir hata meydana gelir
 
 Bu kod yürütmek bir hata durumuna neden başarısız oluyor. Tıklayarak **hata günlüğü görüntüle** üzerinde **Özellikler bölmesinde** Şekil 2'de gösterilen görüntüler.
 
-  ![Hata iletisi açılır penceresi][2]
+  ![Hata iletisi açılır penceresi](./media/r-quickstart/fig2.png)
 
 *Şekil 2. Hata iletisi açılır.*
 
@@ -109,12 +109,12 @@ Bu hata iletisi artık sürprizle karşılaşmazsınız içerir ve sorun açık�
 R ile herhangi bir nesnenin değerini incelemek için bu değerleri içeren dosyayı yazdırabilir. Nesne değerlerini İnceleme için temel olarak R etkileşimli bir oturum ile aynı kurallardır. Örneğin, bir satıra bir değişken adı yazarsanız, nesnenin değerini içeren dosyaya yazdırılır.  
 
 #### <a name="packages-in-machine-learning-studio"></a>Machine Learning Studio'da paketleri
-Azure Machine Learning ile önceden yüklenmiş 350'in üzerinde R dil paketleri gelir. Aşağıdaki kodda kullanabileceğiniz [R betiği yürütme] [ execute-r-script] önceden yüklenmiş paketler listesini almak için modülü.
+Studio ile önceden yüklenmiş 350'in üzerinde R dil paketleri gelir. Aşağıdaki kodda kullanabileceğiniz [R betiği yürütme] [ execute-r-script] önceden yüklenmiş paketler listesini almak için modülü.
 
     data.set <- data.frame(installed.packages())
     maml.mapOutputPort("data.set")
 
-Şu anda bu kodu son satırının anlamıyorsanız, okumaya devam edin. Bu belgenin geri kalanında kapsamlı bir şekilde Azure Machine Learning ortamında R kullanarak ele alınacaktır.
+Şu anda bu kodu son satırının anlamıyorsanız, okumaya devam edin. Bu belgenin geri kalanında kapsamlı olarak R Studio ortamı ele alınacaktır.
 
 ### <a name="introduction-to-rstudio"></a>RStudio giriş
 RStudio r için yaygın olarak kullanılan bir ıde'dir RStudio düzenleme, test ve bu Hızlı Başlangıç Kılavuzu'nda kullanılan R kodu bazı hata ayıklama için kullanır. R kodu, test edilmiş ve hazır olduğunda, yalnızca Kes ve bir Machine Learning Studio'ya RStudio düzenleyiciye yapıştırın [R betiği yürütme] [ execute-r-script] modülü.  
@@ -157,14 +157,14 @@ Machine Learning Studio'da sahip olduğumuz bazı veriler, analiz yapmak için b
 
 Bu noktada denemenizi Şekil 3 gibi görünmelidir.
 
-![CA günlük analizi veri kümesini ve R betiği yürütme modülü ile denemeler yapın][3]
+![CA günlük analizi veri kümesini ve R betiği yürütme modülü ile denemeler yapın](./media/r-quickstart/fig3.png)
 
 *Şekil 3. CA günlük analizi veri kümesini ve R betiği yürütme modülü ile denemeler yapın.*
 
 #### <a name="check-on-the-data"></a>Veriyi denetle
 Diyelim ki bizim denemenin yüklendik veri göz vardır. Deneme, üzerinde çıkışını tıklayın **cadairydata.csv veri kümesi** seçip **görselleştirme**. Şekil 4 gibi bir şey görmeniz gerekir.  
 
-![Veri kümesinin cadairydata.csv özeti][4]
+![Veri kümesinin cadairydata.csv özeti](./media/r-quickstart/fig4.png)
 
 *Şekil 4. Cadairydata.csv dataset özeti.*
 
@@ -200,7 +200,7 @@ Betik paketi girişi sağlayan bir zip dosyası olarak içeriği geçirmeniz [R 
     load("src/yourData.rdata") # Reads a zipped R data file
 
 > [!NOTE]
-> Azure Machine Learning zip dosyaları src içine oldukları gibi davranır / dizin, bu nedenle, dosya adı bu dizin adı ön eki gerekir. Örneğin, zip dosyaları içeren `yourfile.R` ve `yourData.rdata` zip dosyasının kökünde, bu dosyaların başvuracağını `src/yourfile.R` ve `src/yourData.rdata` kullanırken `source` ve `load`.
+> Azure Machine Learning Studio zip dosyaları src içine oldukları gibi davranır / dizin, bu nedenle, dosya adı bu dizin adı ön eki gerekir. Örneğin, zip dosyaları içeren `yourfile.R` ve `yourData.rdata` zip dosyasının kökünde, bu dosyaların başvuracağını `src/yourfile.R` ve `src/yourData.rdata` kullanırken `source` ve `load`.
 > 
 > 
 
@@ -227,7 +227,7 @@ Yükleme veri kümelerinde zaten ele aldığımız [dataset yükleme](#loading).
 
 Bu adımlar tamamlandıktan sonra [R betiği yürütme] [ execute-r-script] modülü yürütülecek R betiğini zip dosyasında deneme çalıştırıldığında. Bu noktada denemenizi Şekil 5 gibi görünmelidir.
 
-![Sıkıştırılmış bir R betiği kullanarak denemeler yapın][6]
+![Sıkıştırılmış bir R betiği kullanarak denemeler yapın](./media/r-quickstart/fig6.png)
 
 *Şekil 5. Sıkıştırılmış bir R betiği kullanarak denemeler yapın.*
 
@@ -289,7 +289,7 @@ Kullanarak sonucu Dataset1 bağlantı noktası üzerinden dikdörtgen tablo olar
 
 Denemeyi çalıştırdıktan sonra sonuç Dataset1 çıkış bağlantı noktasına tıklayın ve ardından **Görselleştir**. Şekil 6 gibi'bir şey görmeniz gerekir.
 
-![Çıkış California Süt veri Görselleştirme][7]
+![Çıkış California Süt veri Görselleştirme](./media/r-quickstart/fig7.png)
 
 *Şekil 6. Çıkış California Süt veri görselleştirme.*
 
@@ -300,13 +300,13 @@ Cihaz çıktısı [R betiği yürütme] [ execute-r-script] modülü iletileri v
 
 R cihazında çıkışı görüntülemek için bağlantı noktasına tıklayın ve ardından **Görselleştir**. Standart çıktı ve standart hata Şekil 7'de R betikten görüyoruz.
 
-![Standart çıktı ve standart hata R cihazında bağlantı noktasından][8]
+![Standart çıktı ve standart hata R cihazında bağlantı noktasından](./media/r-quickstart/fig8.png)
 
 *Şekil 7. Standart çıktı ve standart hata R cihazında bağlantı noktasından.*
 
 Bkz: Şekil 8'de R betiğimizi grafik çıktısı biz kaydırma.  
 
-![Grafik çıktısı R cihazında bağlantı noktası][9]
+![Grafik çıktısı R cihazında bağlantı noktası](./media/r-quickstart/fig9.png)
 
 *Şekil 8. Grafik R cihazında bağlantı noktasından çıktı.*  
 
@@ -689,7 +689,7 @@ Bu veri kümesinde değişkenlerinin bazıları araştıralım. Bir dağılım g
 
 Bu kodu çalıştırmak ve ne olacağına bakalım. R cihazında bağlantı noktalarından üretilen çizim Şekil 16 gibi görünmelidir.
 
-![Seçilen değişkenleri dağılım grafiği Matrisi][17]
+![Seçilen değişkenleri dağılım grafiği Matrisi](./media/r-quickstart/fig17.png)
 
 *Şekil 16. Seçilen değişkenleri matrisi dağılım grafiği.*
 
@@ -753,7 +753,7 @@ Bir kez `ts.detrend()` tanımlanan değişkenler bizim dataframe gösterdiğiniz
 
 Son kod satırının, ikili bir dağılım grafiği oluşturur. R kodunu çalıştırdıktan sonra dağılım grafiği sonuçlarını şekil 17'de gösterilmektedir.
 
-![XML'deki koleksiyonunuzdaki ve standartlaştırılmış bir zaman serisinin ikili dağılım grafiği][18]
+![XML'deki koleksiyonunuzdaki ve standartlaştırılmış bir zaman serisinin ikili dağılım grafiği](./media/r-quickstart/fig18.png)
 
 *Şekil 17. XML'deki koleksiyonunuzdaki ve standartlaştırılmış bir zaman serisinin ikili dağılım grafiği.*
 
@@ -856,7 +856,7 @@ Aşağıdaki kodu, kendilerini listeleridir ccf nesnelerin listeden gecikme değ
 
 
     ## WARNING!
-    ## The following line works only in Azure Machine Learning
+    ## The following line works only in Azure Machine Learning Studio
     ## When running in RStudio, this code will result in an error
     #maml.mapOutputPort('outframe')
 
@@ -870,7 +870,7 @@ Satır adları bir veri çerçevesi sütunda olduğunu unutmayın. Elde edilen �
 
 Şekil 19'gösterilen çıkışı üretir kodu çalıştıran, ı **Görselleştir** sonuç veri kümesi bağlantı noktasında çıktı. Satır ilk sütunda, beklendiği gibi adlarıdır.
 
-![Sonuç çıktısı bağıntı analiz][20]
+![Sonuç çıktısı bağıntı analiz](./media/r-quickstart/fig20.png)
 
 *Şekil 19. Bağıntı analiz çıktı sonuçları.*
 
@@ -884,7 +884,7 @@ Bu bölüm için tüm R kod daha önce indirdiğiniz zip dosyasında ' dir.
 ### <a name="creating-the-dataframe-for-analysis"></a>Analiz için veri çerçevesi oluşturma
 Başlangıç ekleyerek bir **yeni** [R betiği yürütme] [ execute-r-script] denemenizi modülü. Connect **sonuç veri kümesini** varolan çıkış [R betiği yürütme] [ execute-r-script] modülüne **Dataset1** yeni modülünün giriş. Sonuç Şekil 20 gibi görünmelidir.
 
-![Eklenen yeni R betiği yürütme modülü ile deneme][21]
+![Eklenen yeni R betiği yürütme modülü ile deneme](./media/r-quickstart/fig21.png)
 
 *Şekil 20. Eklenen yeni R betiği yürütme modülü ile deneme.*
 
@@ -954,7 +954,7 @@ Kod çalıştırma, zaman serisi Şekil 22'de gösterilen R cihazında çıktıs
 ### <a name="a-trend-model"></a>Eğilim modeli
 Zaman serisi nesne ve verileri göz sahip oluşturulduktan sonra California sütlü üretim verileri için bir eğilim modeli oluşturmak başlayalım. Zaman serisi regresyonla biz bunu yapabilirsiniz. Ancak, size en fazla bir Eğim gerekir ve doğru bir şekilde gözlemlenen eğilimi eğitim verilerini modellemek için ıntercept çizim gelen temizleyin.
 
-Küçük ölçekli veri göz önünde bulundurulduğunda, miyim oluşturacak RStudio eğilimi modelini ve ardından kesme ve elde edilen modeli Azure Machine Learning içine yapıştırın. RStudio, bu tür bir etkileşimli analiz için etkileşimli bir ortam sağlar.
+Verilerin küçük ölçekli göz önünde bulundurulduğunda, ı RStudio eğilimi için model derleme Kes ve elde edilen modeli Azure Machine Learning Studio'ya yapıştırın. RStudio, bu tür bir etkileşimli analiz için etkileşimli bir ortam sağlar.
 
 Bir ilk deneme ben bir Polinom gerileme powers kadar 3 ile deneyin. Bu tür modelleri aşırı sığdırma gerçek olma tehlikesi yoktur. Bu nedenle, üst sıra koşulları kaçınmanız en iyisidir. `I()` İşlevi boşmuş içeriği yorumu ('olduğundan' içeriği yorumlar) ve tam anlamıyla yorumlanan bir işlev bir regresyon denklemde yazmanıza olanak sağlar.
 
@@ -1014,7 +1014,7 @@ Bu, aşağıdaki oluşturur.
 
 Bu, daha iyi görünüyor. Önemli olan tüm koşulları. Ancak, 2e-16 değer varsayılan değerdir ve aşırı ciddiye alınmamalıdır.  
 
-Sağlamlık test, bir zaman serisi çizim California Süt üretim veri gösterilen eğilim eğrinin ile olalım. Azure Machine Learning'de aşağıdaki kodu eklediğiniz [R betiği yürütme] [ execute-r-script] model oluşturmak ve bir çizim yapmak için model (RStudio değil). Sonuç, Şekil 23'te gösterilir.
+Sağlamlık test, bir zaman serisi çizim California Süt üretim veri gösterilen eğilim eğrinin ile olalım. Azure Machine Learning Studio'da aşağıdaki kodu eklediğiniz [R betiği yürütme] [ execute-r-script] model oluşturmak ve bir çizim yapmak için model (RStudio değil). Sonuç, Şekil 23'te gösterilir.
 
     milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
 
@@ -1071,14 +1071,14 @@ Bu, aşağıdaki oluşturur.
 
 Model artık ıntercept bir dönemi kapsar ve 12 ay önemli faktörler olan görüyoruz. Bu, tam olarak görmek istedik olur.
 
-Dönemsel modeli nasıl çalıştığını görmek için başka bir zaman serisi çizim California Süt üretim veri olalım. Azure Machine Learning'de aşağıdaki kodu eklediğiniz [R betiği yürütme] [ execute-r-script] model oluşturmak ve bir çizim yapmak için.
+Dönemsel modeli nasıl çalıştığını görmek için başka bir zaman serisi çizim California Süt üretim veri olalım. Azure Machine Learning Studio'da aşağıdaki kodu eklediğiniz [R betiği yürütme] [ execute-r-script] model oluşturmak ve bir çizim yapmak için.
 
     milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
 
     plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
     lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 
-Azure Machine Learning'de bu kodu çalıştırmadan şekil 24'teki çizim üretir.
+Azure Machine Learning Studio'da bu kodu çalıştırmadan şekil 24'teki çizim üretir.
 
 ![Dönemsel etkileri de dahil olmak üzere modeliyle California sütlü üretim](./media/r-quickstart/unnamed-chunk-20.png)
 
@@ -1198,7 +1198,7 @@ RMS hata ölçmek için bir işlev ile donatılmış, şimdi oluşturun ve RMS h
 
 Bu kodu çalıştırmadan şekil 27 sonuç veri kümesinin çıkış bağlantı noktasında gösterilen bir çıktı üretir.
 
-![RMS hataları modellerine yönelik karşılaştırması][26]
+![RMS hataları modellerine yönelik karşılaştırması](./media/r-quickstart/fig26.png)
 
 *Şekil 27. RMS hataları modellerine yönelik karşılaştırması.*
 
@@ -1246,31 +1246,6 @@ Harika bazı internet kaynakları:
 * Hızlı bir R öğreticiyle Clarkson University'den Kelly siyah http://www.cyclismo.org/tutorial/R/
 * R adresinde listelenmiş 60 + kaynakları http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
-<!--Image references-->
-[1]: ./media/r-quickstart/fig1.png
-[2]: ./media/r-quickstart/fig2.png
-[3]: ./media/r-quickstart/fig3.png
-[4]: ./media/r-quickstart/fig4.png
-[5]: ./media/r-quickstart/fig5.png
-[6]: ./media/r-quickstart/fig6.png
-[7]: ./media/r-quickstart/fig7.png
-[8]: ./media/r-quickstart/fig8.png
-[9]: ./media/r-quickstart/fig9.png
-[10]: ./media/r-quickstart/fig10.png
-[11]: ./media/r-quickstart/fig11.png
-[12]: ./media/r-quickstart/fig12.png
-[13]: ./media/r-quickstart/fig13.png
-[14]: ./media/r-quickstart/fig14.png
-[15]: ./media/r-quickstart/fig15.png
-[16]: ./media/r-quickstart/fig16.png
-[17]: ./media/r-quickstart/fig17.png
-[18]: ./media/r-quickstart/fig18.png
-[19]: ./media/r-quickstart/fig19.png
-[20]: ./media/r-quickstart/fig20.png
-[21]: ./media/r-quickstart/fig21.png
-[22]: ./media/r-quickstart/fig22.png
-
-[26]: ./media/r-quickstart/fig26.png
 
 <!--links-->
 [appendixa]: #appendixa

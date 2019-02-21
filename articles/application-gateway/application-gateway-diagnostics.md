@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: 6cd21448742778b0a2a27aea41f7940b1a216cdc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c93434f060525f2f53f24c511bfa748a31d1fd61
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231113"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453315"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway
 
@@ -90,7 +90,7 @@ Aşağıdaki kod parçacığı bir yanıt örneği gösterilmektedir:
 
 ## <a name="diagnostic-logging"></a>Tanılama günlükleri
 
-Azure'da günlükleri farklı türde, yönetme ve sorun giderme application gateway'ler için kullanabilirsiniz. Bu günlüklerden bazılarına portaldan erişebilirsiniz. Tüm günlükler Azure Blob depolama alanından ayıklanır ve gibi farklı araçlarında görüntülenen [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel ve Power BI. Günlükleri aşağıdaki listeden farklı türleri hakkında daha fazla bilgi edinebilirsiniz:
+Azure'da günlükleri farklı türde, yönetme ve sorun giderme application gateway'ler için kullanabilirsiniz. Bu günlüklerden bazılarına portaldan erişebilirsiniz. Tüm günlükler Azure Blob depolama alanından ayıklanır ve gibi farklı araçlarında görüntülenen [Azure İzleyici günlükleri](../azure-monitor/insights/azure-networking-analytics.md), Excel ve Power BI. Günlükleri aşağıdaki listeden farklı türleri hakkında daha fazla bilgi edinebilirsiniz:
 
 * **Etkinlik günlüğü**: Kullanabileceğiniz [Azure etkinlik günlüklerini](../monitoring-and-diagnostics/insights-debugging-with-events.md) (eski adıyla işletimsel ve Denetim günlükleri), Azure aboneliğinizin ve durumlarını gönderilen tüm işlemleri görüntülemek için. Etkinlik günlüğü girişleri varsayılan olarak toplanır ve bunları Azure portalda görüntüleyebilirsiniz.
 * **Erişim günlüğü**: Bu günlük, uygulama ağ geçidi erişim desenlerini görüntülemek ve önemli bilgileri analiz etmek için kullanabilirsiniz. Bu çağrı sahibinin IP, istenen URL, yanıt gecikme süresi, dönüş kodu ve bayt giriş ve çıkış içerir. Bir erişim günlüğü, her 300 saniyede toplanır. Bu günlük, uygulama ağ geçidi örneği başına tek bir kayıt içerir. Uygulama ağ geçidi örneğinin InstanceId özelliği tarafından tanımlanır.
@@ -104,7 +104,7 @@ Günlüklerinizi depolamak için kullanabileceğiniz üç seçenek vardır:
 
 * **Depolama hesabı**: Günlükleri uzun bir süre için depolanır ve gerektiğinde gözden depolama hesapları en iyi günlükler için kullanılır.
 * **Olay hub'ları**: Olay hub'ları, kaynaklarınız üzerinde uyarıları almak için diğer güvenlik bilgileri ve Olay yönetimi (SEIM) araçları ile tümleştirmeye yönelik mükemmel bir seçenektir ' dir.
-* **Log Analytics**: Log Analytics'e eğilimlere bakmaya ya da uygulamanızın genel gerçek zamanlı izleme için en iyi şekilde kullanılır.
+* **Azure İzleyici günlüklerine**: Azure İzleyici günlüklerine en iyi şekilde kullanılır uygulamanızın genel gerçek zamanlı izleme veya eğilimlere bakmaya.
 
 ### <a name="enable-logging-through-powershell"></a>PowerShell üzerinden günlük kaydını etkinleştirme
 
@@ -164,7 +164,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 
 |Değer  |Açıklama  |
 |---------|---------|
-|instanceId     | Hizmet isteği uygulama ağ geçidi örneği.        |
+|InstanceId     | Hizmet isteği uygulama ağ geçidi örneği.        |
 |Clientıp     | İsteğin kaynak IP.        |
 |clientPort     | İstek için kaynak bağlantı noktası.       |
 |HttpMethod     | İstek tarafından kullanılan HTTP yöntemi.       |
@@ -208,7 +208,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 
 |Değer  |Açıklama  |
 |---------|---------|
-|instanceId     |  Uygulama ağ geçidi örneği performans verileri oluşturulur. Çok örnekli application gateway için örnek başına bir satır var.        |
+|InstanceId     |  Uygulama ağ geçidi örneği performans verileri oluşturulur. Çok örnekli application gateway için örnek başına bir satır var.        |
 |HealthyHostCount     | Arka uç havuzundaki sağlıklı konakların sayısı.        |
 |unHealthyHostCount     | Arka uç havuzunda iyi durumda olmayan konak sayısı.        |
 |RequestCount     | Hizmet isteklerinin sayısı.        |
@@ -245,7 +245,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 
 |Değer  |Açıklama  |
 |---------|---------|
-|instanceId     | Uygulama ağ geçidi örneği için hangi güvenlik duvarı veri oluşturuluyor. Çok örnekli application gateway için örnek başına bir satır var.         |
+|InstanceId     | Uygulama ağ geçidi örneği için hangi güvenlik duvarı veri oluşturuluyor. Çok örnekli application gateway için örnek başına bir satır var.         |
 |Clientıp     |   İsteğin kaynak IP.      |
 |clientPort     |  İstek için kaynak bağlantı noktası.       |
 |requestUri     | Alınan istek URL'si.       |
@@ -257,7 +257,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 |site     | Günlük oluşturulduğu site. Genel kurallar olduğundan şu anda yalnızca genel listelenir.|
 |ayrıntılar     | Olay Ayrıntıları.        |
 |details.Message     | Kural açıklaması.        |
-|details.Data     | Belirli veri kural eşleşen isteğinde bulundu.         |
+|details.data     | Belirli veri kural eşleşen isteğinde bulundu.         |
 |details.File     | Kural bulunan yapılandırma dosyası.        |
 |details.Line     | Olayı tetikleyen yapılandırma dosyasındaki satır numarası.       |
 
@@ -298,7 +298,7 @@ Aşağıdaki yöntemlerden birini kullanarak etkinlik günlüğü verilerini gö
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Erişim, performans ve güvenlik duvarı günlükleri görüntüleme ve çözümleme
 
-Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) sayacını ve olay günlüğü dosyaları Blob Depolama hesabınızı sık toplayabilirsiniz. Günlüklerinizi analiz etmek için görselleştirmelere ve güçlü arama özelliklerine sahiptir.
+[Azure İzleyici günlüklerine](../azure-monitor/insights/azure-networking-analytics.md) sayacını ve olay günlüğü dosyaları Blob Depolama hesabınızı sık toplayabilirsiniz. Günlüklerinizi analiz etmek için görselleştirmelere ve güçlü arama özelliklerine sahiptir.
 
 Dilerseniz depolama hesabınıza bağlanabilir ve JSON erişim günlüklerini ve performans günlüklerini alabilirsiniz. İndirdiğiniz JSON dosyalarını CSV biçimine dönüştürebilir ve Excel, Power BI veya diğer veri görselleştirme araçlarında görüntüleyebilirsiniz.
 
@@ -374,7 +374,7 @@ Web kancaları ve nasıl uyarılarla kullanabilmek için daha iyi anlamak için 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Sayaç ve olay günlüklerini kullanarak görselleştirme [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+* Sayaç ve olay günlüklerini kullanarak görselleştirme [Azure İzleyicisi](../azure-monitor/insights/azure-networking-analytics.md).
 * [Azure etkinlik günlüğü Power BI ile görselleştirin](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog gönderisi.
 * [Görüntüleme ve Power BI ve diğer Azure etkinlik günlüklerini analiz](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog gönderisi.
 

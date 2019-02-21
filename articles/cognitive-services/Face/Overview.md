@@ -2,33 +2,36 @@
 title: Yüz Tanıma API’si nedir?
 titleSuffix: Azure Cognitive Services
 description: Yüz Tanıma hizmetini kullanarak görüntülerdeki yüzleri algılamayı ve analiz etmeyi öğrenin.
-author: SteveMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 10/29/2018
-ms.author: sbowles
-ms.openlocfilehash: 655234bfec650ef027e325ff8df23fe91eecfd43
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: pafarley
+ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861061"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455985"
 ---
 # <a name="what-is-the-azure-face-api"></a>Azure Yüz Tanıma API’si nedir?
 
 Azure Yüz Tanıma API'si görüntülerdeki insan yüzlerini algılamaya, tanımaya ve analiz etmeye yönelik algoritmalar sağlayan bilişsel bir hizmettir. İnsan yüzü bilgilerini işleyebilme özelliği; güvenlik, doğal kullanıcı arabirimi, görüntü içeriği analizi ve yönetimi, mobil uygulamalar ve robotlar gibi birçok farklı yazılım senaryosunda oldukça önemlidir.
 
-Yüz Tanıma API'si farklı işlevler sağlar. Bunlardan her biri aşağıdaki bölümlerde ele alınmıştır. Her biri hakkında daha fazla bilgi edinmek ve ihtiyaçlarınıza uygun olup olmadığını saptamak için okumaya devam edin.
+Yüz Tanıma API'si farklı işlevler sağlar. Bunlardan her biri aşağıdaki bölümlerde ele alınmıştır. İçin okumaya devam her hakkında daha fazla bilgi edinin.
 
 ## <a name="face-detection"></a>Yüz algılama
 
-Yüz Tanıma API'si görüntüdeki insan yüzlerini algılayabilir ve bunların konumunu gösteren dikdörtgen koordinatlarını döndürür. İsteğe bağlı olarak, yüz algılama; poz, cinsiyet, yaş, baş pozu, yüz kılı ve gözlük gibi yüzle ilgili bir dizi özniteliği ayıklayabilir.
+Yüz Tanıma API'si görüntüdeki insan yüzlerini algılayabilir ve bunların konumunu gösteren dikdörtgen koordinatlarını döndürür. İsteğe bağlı olarak, yüz algılama, yüz tanıma ile ilgili özniteliklere poz, baş poz, cinsiyet, yaş, duygu tanıma, bıyığın ve gözlük gibi bir dizi ayıklayabilirsiniz.
 
 ![Yüzlerinin çevresine dikdörtgenler çizilmiş, yaş ve cinsiyetlerin de görüntülendiği bir kadın ve erken resmi](./Images/Face.detection.jpg)
 
-Yüz algılama özelliği [Görüntü İşleme API'si](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) aracılığıyla da sağlanır ama yüz verileriyle başka işlemler de yapmak isterseniz Yüz Tanıma API'sini (bu hizmet) kullanmalısınız. Yüz algılama hakkında daha fazla bilgi için bkz. [Algılama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+> [!NOTE] 
+> Yüz algılama özelliği [Görüntü İşleme API'si](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) aracılığıyla da sağlanır ama yüz verileriyle başka işlemler de yapmak isterseniz Yüz Tanıma API'sini (bu hizmet) kullanmalısınız. 
+
+Yüz algılama hakkında daha fazla bilgi için bkz. [Algılama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="face-verification"></a>Yüz doğrulama
 

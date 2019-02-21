@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/08/2019
+ms.date: 02/20/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ae421ac3f87a16fc6fd2e5f3e89c13fcae50dbf8
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311639"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453061"
 ---
 # <a name="what-is-computer-vision"></a>Görüntü İşleme nedir?
 
@@ -45,13 +45,13 @@ Algılayıp, görsel özelliklerini ve özellikler hakkında bilgiler sağlamak 
 
 ## <a name="extract-text-from-images"></a>Metni ayıklayın
 
-Bir görüntüdeki [metinleri OCR kullanarak](concept-extracting-text-ocr.md) makine tarafından okunabilen bir karakter akışı halinde ayıklamak üzere Görüntü İşleme'yi kullanabilirsiniz. Gerekirse, OCR, tanınan metnin yönünü yatay görüntü ekseninde derece olarak düzeltir ve her bir sözcük için çerçeve koordinatlarını verir. OCR 25 dili destekler ve ayıklanan metnin dilini otomatik olarak algılar.
+Görüntü işleme için kullanabileceğiniz [optik karakter tanıma (OCR) ile metni Ayıkla](concept-extracting-text-ocr.md) görüntüsünden bir makine tarafından okunabilir bir karakter akışı halinde. Gerekirse, OCR tanınan metin döndürmesini düzeltir ve her sözcüğün çerçeve koordinatlarını sağlar. OCR, 25 dilleri desteklemektedir ve tanınan metin dili otomatik olarak algılar.
 
-Ayrıca görüntülerdeki [basılı veya el yazısıyla yazılmış metinleri de algılayabilirsiniz](concept-recognizing-text.md). Görüntü İşleme; makbuz, poster, kartvizit, mektup ve beyaz tahtalar gibi farklı yüzeylere ve arka planlara sahip çeşitli nesnelerin görüntülerindeki basılı ve el yazısıyla yazılmış metinleri algılayabilir ve ayıklayabilir. Şu anda, basılı ve el yazısıyla yazılmış metinleri tanıma özelliği önizlemededir ve yalnızca İngilizce dilinde kullanılabilmektedir.  
+Ayrıca [yazdırılan ve el yazısı metinleri tanıma](concept-recognizing-text.md) görüntüdeki. Görüntü İşleme; makbuz, poster, kartvizit, mektup ve beyaz tahtalar gibi farklı yüzeylere ve arka planlara sahip çeşitli nesnelerin görüntülerindeki basılı ve el yazısıyla yazılmış metinleri algılayabilir ve ayıklayabilir. Şu anda, yazdırılan ve el yazısı metinleri tanıma Önizleme aşamasındadır ve yalnızca desteklenen dil İngilizce olarak belirlenmiştir. 
 
 ## <a name="moderate-content-in-images"></a>Orta içeriklerin
 
-Görüntü İşleme'yi, görüntüde yetişkinlere yönelik veya müstehcen içerik bulunup bulunmama olasılığını derecelendirerek ve her ikisi için güvenilirlik puanı oluşturarak [yetişkinlere yönelik veya müstehcen içerikleri algılamak](concept-detecting-adult-content.md) üzere kullanabilirsiniz. Yetişkinlere yönelik veya müstehcen içeriklerin algılanmasına yönelik filtre, tercihleriniz doğrultusunda bir kaydırıcı ölçeği üzerinde ayarlanabilir.
+Görüntü işleme için kullanabileceğiniz [yetişkinlere yönelik ve müstehcen içerikleri algılama](concept-detecting-adult-content.md) bir görüntü ve bir güvenilirlik için her ikisi de puan döndürür. Yetişkinlere yönelik veya müstehcen içeriklerin algılanmasına yönelik filtre, tercihleriniz doğrultusunda bir kaydırıcı ölçeği üzerinde ayarlanabilir.
 
 ## <a name="use-containers"></a>Kapsayıcıları kullanma
 

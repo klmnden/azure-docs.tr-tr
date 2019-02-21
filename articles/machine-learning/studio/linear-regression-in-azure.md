@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 12c82d440613078e9f0593ddb9fb6c7fe7b8c362
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5db8c4be9317706fcc8a31b916cff72fd13596d6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488365"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453316"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Analytics, Azure Machine Learning Studio'da Excel'den geçirme
 
@@ -102,11 +102,11 @@ Machine Learning regresyon modelimizi eğitilmiş modelden bir web hizmeti oluş
 
 *Web Hizmetleri Pano* indirilebilir bir Excel çalışma kitabı bölüm içerir. Çalışma kitabı katıştırılmış web hizmeti API ve şema bilgilerini ile önceden biçimlendirilmiş gelir. Tıkladığınızda *Excel çalışma kitabını indirin*, çalışma kitabı açılır ve yerel bilgisayarınıza kaydedin. 
 
-![][1]
+![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
 
 Aşağıda gösterildiği gibi çalışma açık mavi parametresi bölüme önceden tanımlanmış parametrelerinizi kopyalayın. Parametreler girildikten sonra Excel için Machine Learning web hizmetini çağıran ve tahmin edilen puanlanmış etiketler yeşil tahmin edilen değerler bölümünde görüntülenir. Çalışma kitabı, eğitilen model parametreleri altında girilen tüm satır öğeleri için temel parametreleri için Öngörüler oluşturmak devam eder. Bu özelliğin nasıl kullanılacağı hakkında daha fazla bilgi için bkz. [bir Azure Machine Learning Web hizmetini Excel'den kullanma](consuming-from-excel.md). 
 
-![][2]
+![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>En iyi duruma getirme ve denemeler daha fazla
 Excel modelimizi temel vardı, önceden sunduğumuz Machine Learning doğrusal regresyon modelinin en iyi duruma getirme geçtiğimizi. Modül kullandık [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] bizim ilk veri seçimine göre iyileştirmek için öğeleri ve bunu bize bir performans geliştirmesinden %4.6 iyi Yardım Mean Absolute Error. İleride gerçekleştirilecek projeler için bize hafta doğru ortaklık modelleme için kullanılacak özellikler kümesi bulmak için veri öznitelikleri üzerinden yineleme tasarruf bu özelliğini kullanacağız. 

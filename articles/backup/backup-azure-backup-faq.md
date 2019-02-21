@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: e780a78bb2cc341ef6b2f682cd51fedad3f08494
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310867"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446673"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -39,7 +39,8 @@ Hayır. Bir kasada depolanan yedekleme verileri, farklı bir kasaya taşınamaz.
 Hayır. Bir kurtarma Hizmetleri kasası, yalnızca depolanan yedeklemelere önce depolama seçenekleri değiştirebilirsiniz.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Bir kurtarma Hizmetleri kasasına yedeklenen sanal makineler için bir öğe düzeyinde geri yükleme (ILR) yapabilirim?
-Hayır, ILR desteklenmez.
+- ILR Azure VM yedeklemesinde yedeklenen Azure Vm'leri için desteklenir. Daha fazla bilgi edinmek, [makale](backup-azure-restore-files-from-vm.md)
+- ILR şirket içi vm'leri Azure backup sunucusu veya System Center DPM tarafından yedeklenen çevrimiçi kurtarma noktaları için desteklenmiyor.
 
 
 ## <a name="azure-backup-agent"></a>Azure Backup aracısı
@@ -90,7 +91,6 @@ Evet.
 - Günde bir Azure sanal makinelerini yedekleyebilirsiniz.
 
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Yedekleme için desteklenen işletim sistemleri?
-
 Azure Backup, dosyaları ve Azure Backup sunucusu ve DPM tarafından korunan uygulamalar ve klasörleri yedeklemek için bu işletim sistemlerini destekler.
 
 **OS**| **SKU** |**Ayrıntılar**
@@ -139,7 +139,7 @@ BMR/sistem durumu |Yedeklenmekte olan makinenin BMR'yi veya sistem durumunu tek 
 Kurtarma Hizmetleri kasası kullanarak yedekleme veri miktarına bir sınır yoktur.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Neden veri boyutu, yedekleme için seçilen verileri daha küçük kurtarma Hizmetleri kasasına aktarılır?
- Azure Backup aracısını, DPM, yedeklenen verileri ve Azure Backup sunucusu sıkıştırılır ve aktarılmadan önce şifrelenir. İle sıkıştırma ve şifreleme uygulandığında, kasasındaki veriler % 30-40 daha küçük.
+Azure Backup aracısını, DPM, yedeklenen verileri ve Azure Backup sunucusu sıkıştırılır ve aktarılmadan önce şifrelenir. İle sıkıştırma ve şifreleme uygulandığında, kasasındaki veriler % 30-40 daha küçük.
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>Tek tek dosyaları kasasında bir kurtarma noktasından silebilir misiniz?
 Hayır, Azure Backup, silme veya tek tek öğeleri depolanan yedeklerden temizleme desteklemiyor.

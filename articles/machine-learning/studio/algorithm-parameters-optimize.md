@@ -10,20 +10,20 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0f324dec9349b44252a85b2f9334a1b6d847faae
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 870345148b55bc6026202fbd433d8575e421faba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247146"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456019"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da algoritmalarınızı iyileştirmek için parametreleri seçin
 
-Bu konuda, Azure Machine learning'de algoritma için doğru hiper parametre seçin açıklar. Çoğu makine öğrenimi algoritmaları ayarlanacak parametrelere sahip. Bir model eğitip yaparken bu parametrelerin değerlerini sağlamasını gerekir. Eğitilen modelin çalışıp çalışmadığını seçtiğiniz model parametreleri bağlıdır. Parametreleri en uygun kümesini bulma işlemi olarak bilinir *model seçimi*.
+Bu konuda, Azure Machine Learning Studio'da bir algoritma kümesi doğru hiper parametre seçin açıklar. Çoğu makine öğrenimi algoritmaları ayarlanacak parametrelere sahip. Bir model eğitip yaparken bu parametrelerin değerlerini sağlamasını gerekir. Eğitilen modelin çalışıp çalışmadığını seçtiğiniz model parametreleri bağlıdır. Parametreleri en uygun kümesini bulma işlemi olarak bilinir *model seçimi*.
 
 
 
-Seçimi modellemek için çeşitli yollar vardır. Machine Learning, çapraz doğrulama model seçimi için en yaygın olarak kullanılan yöntemlerden biridir ve onu varsayılan model seçimi Azure Machine Learning mekanizmasıdır. Azure Machine Learning, R ve Python hem desteklediğinden, R veya Python kullanarak her zaman kendi model seçim mekanizmalarını uygulayabilirsiniz.
+Seçimi modellemek için çeşitli yollar vardır. Machine learning'de çapraz doğrulama model seçimi için en yaygın olarak kullanılan yöntemlerden biridir ve Azure Machine Learning Studio'da model varsayılan seçim mekanizmasını olduğu. Azure Machine Learning Studio, R ve Python hem desteklediğinden, R veya Python kullanarak her zaman kendi model seçim mekanizmalarını uygulayabilirsiniz.
 
 En iyi parametre kümesi bulma işlemi dört adım vardır:
 
@@ -32,7 +32,7 @@ En iyi parametre kümesi bulma işlemi dört adım vardır:
 3. **Ölçüm tanımlama**: En iyi doğruluğu gibi parametreleri kümesini belirlemek için kullanılacak hangi ölçüm karar, hata, kesinlik, geri çağırma veya f puanı kök ortalama karesi alınmış.
 4. **Eğitim, değerlendirmek ve karşılaştırma**: Her benzersiz birleşimi parametre değerleri için çapraz doğrulama tarafından gerçekleştirilen ve tanımladığınız hata ölçüme göre. Değerlendirme ve karşılaştırma sonra en yüksek performansa modeli seçebilirsiniz.
 
-Aşağıdaki görüntüde gösterildiği Azure Machine Learning'de bunu nasıl sağlanabilir gösterir.
+Aşağıdaki görüntüde gösterildiği Azure Machine Learning Studio'da bunu nasıl sağlanabilir gösterir.
 
 ![En iyi parametre kümesi bulma](./media/algorithm-parameters-optimize/fig1.png)
 

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1e8bb6deeb66b506e1342fceb725b1563b822dff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989432"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453129"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Bir Azure Machine Learning Studio Web hizmetini Excel'den kullanma
 
@@ -34,7 +34,7 @@ Bir web hizmeti oluşturduktan sonra tıklayarak **WEB Hizmetleri** studio sol t
 
 1. Üzerinde **PANO** web hizmeti için bir satır için sekmesinde **istek/yanıt** hizmeti. Bu hizmet, tek bir çıkış olsaydı, görmelisiniz **Excel çalışma kitabını indirin** söz konusu satırdaki bağlantı.
    
-    ![][1]
+    ![](./media/consuming-from-excel/excellink.png)
 2. Tıklayarak **Excel çalışma kitabını indirin**.
 
 **Yeni Web hizmeti**
@@ -47,13 +47,13 @@ Bir web hizmeti oluşturduktan sonra tıklayarak **WEB Hizmetleri** studio sol t
 1. Çalışma kitabını açın.
 2. Bir güvenlik uyarısı görüntülenmez; tıklayarak **düzenlemeyi etkinleştir** düğmesi.
    
-    ![][2]
+    ![](./media/consuming-from-excel/enableeditting.png)
 3. Bir güvenlik uyarısı görüntülenir. Tıklayarak **içeriği etkinleştir** makroları elektronik tablonuz üzerinde çalıştırmak için düğme.
    
-    ![][3]
+    ![](./media/consuming-from-excel/enablecontent.png)
 4. Makrolar etkinleştirildikten sonra bir tablo oluşturulur. Mavi olan sütunlarda gerekli RRS web hizmeti giriş olarak veya **parametreleri**. RRS hizmet çıktısını Not **tahmin edilen değerler** yeşil. Belirli bir satır için tüm sütunları dolduğunda, çalışma kitabına otomatik olarak Puanlama API'yi çağıran ve puanlanmış sonuçların görüntüler.
    
-    ![][4]
+    ![](./media/consuming-from-excel/sampletable.png)
 5. Birden fazla satır puanlamak için dolgu verileri ve tahmin edilen değerler ikinci satırı oluşturulur. Aynı anda birden çok satır bile yapıştırabilirsiniz.
 
 Verileri görselleştirme yardımcı olmak için tahmin edilen değerleri (grafikleri power map, koşullu biçimlendirme, vb.) Excel özelliklerinden herhangi birini kullanabilirsiniz.    
@@ -66,8 +66,3 @@ Bu iki durumda bir RRS çağrısıyla yapılır:
 
 1. İlk kez bir satır sahip içerik tümünde kendi **parametreleri**
 2. İstediğiniz herhangi bir zaman **parametreleri** tüm olan bir satır değişiklikleri kendi **parametreleri** girildi.
-
-[1]: ./media/consuming-from-excel/excellink.png
-[2]: ./media/consuming-from-excel/enableeditting.png
-[3]: ./media/consuming-from-excel/enablecontent.png
-[4]: ./media/consuming-from-excel/sampletable.png

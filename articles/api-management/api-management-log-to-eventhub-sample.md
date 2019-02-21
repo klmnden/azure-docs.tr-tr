@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 8358eceedbb9214e4adb73f055bcf0db7fecec76
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: cdaaf5323543377d9c2b603ad7377d088710cde8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430395"
+ms.locfileid: "56447761"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Azure API Management, Event hubs'ı ve Moesif API'leri izleme
 [API Management hizmeti](api-management-key-concepts.md) HTTP API'nize gönderilen HTTP isteklerinin işlenmesini geliştirmek için çok sayıda özellik sağlar. Ancak istek ve yanıtların varlığını geçici olabilir. İstek yapıldığında ve arka uç API'niz için API Management hizmeti aracılığıyla akar. API isteği işler ve API tüketiciye yanıt geriye doğru akar. API Management hizmeti görüntülemek için API'ler ile ilgili bazı önemli istatistikleri Azure portal panosunda ancak ötesine ayrıntılarını kaldırılmıştır, tutar.
@@ -293,7 +293,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-`MoesifHttpMessageProcessor` Sağladığı avantajlardan yararlanarak bir [ C# Moesif API kitaplığının](https://www.moesif.com/docs/api?csharp#events) , anında iletme HTTP olay verilerini kendi hizmetine kolaylaştırır. Moesif Toplayıcı API'sine HTTP veri göndermek için bir hesap ve bir uygulama kimliği gerekir Get, üzerinde bir hesap oluşturarak Moesif uygulama kimliği alma [Moesif'ın Web sitesi](https://www.moesif.com) ve ardından _üst sağ menü_ -> _uygulaması Kurulum_.
+`MoesifHttpMessageProcessor` Sağladığı avantajlardan yararlanarak bir [ C# Moesif API kitaplığının](https://www.moesif.com/docs/api?csharp#events) , anında iletme HTTP olay verilerini kendi hizmetine kolaylaştırır. Moesif Toplayıcı API'sine HTTP veri göndermek için bir hesap ve bir uygulama kimliği gerekir Üzerinde bir hesap oluşturarak Moesif uygulama kimliği alma [Moesif'ın Web sitesi](https://www.moesif.com) ve ardından _üst sağ menü_ -> _uygulaması Kurulum_.
 
 ## <a name="complete-sample"></a>Tam örnek
 [Kaynak kodu](https://github.com/dgilling/ApimEventProcessor) ve testleri örnek için GitHub üzerinde. Gereksinim duyduğunuz bir [API Management hizmeti](get-started-create-service-instance.md), [bağlı bir olay hub'ı](api-management-howto-log-event-hubs.md)ve [depolama hesabı](../storage/common/storage-create-storage-account.md) kendiniz örneği çalıştırmak için.   

@@ -1,6 +1,6 @@
 ---
-title: Güvenlik bilgilerini - Azure Active Directory kullanarak uygulama parolaları ayarlamanız | Microsoft Docs
-description: Her bir tarayıcı olmayan uygulamayla kullanmak için parolaları (uygulama parolaları)'i otomatik olarak oluşturulan ayarlama güvenlik bilgilerini kullanarak normal bir paroladan ayırın.
+title: Güvenlik bilgileri (Önizleme) sayfası - Azure Active Directory Uygulama parolaları ayarlamanız | Microsoft Docs
+description: Tarayıcı olmayan uygulamalarda veya iki aşamalı doğrulamayı desteklemeyen herhangi bir uygulama ile kullanmak için otomatik olarak oluşturulan parolaları (uygulama parolaları) kuruluşunuzda ayarlayın. Bu uygulama parolasını normal bir paroladan ayrıdır ve güvenlik bilgileri sayfasından ayarlanabilir.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,21 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dcdfe3aef40942dd61fe604e179b61dbdd747c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211895"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456818"
 ---
-# <a name="manage-app-passwords-using-security-info-preview"></a>Güvenlik bilgilerini (Önizleme) kullanarak uygulama parolaları yönetme
+# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Uygulama parolaları, güvenlik bilgisi (Önizleme) sayfasından yönetin
+Outlook 2010 gibi bazı uygulamalar, iki aşamalı doğrulamayı desteklemez. Bu destek eksikliği kuruluşunuzda iki aşamalı doğrulama kullanıyorsanız, uygulama çalışmıyor anlamına gelir. Bu sorunla karşılaşmamak için normal parolasından ayrı her tarayıcı içi uygulaması ile birlikte kullanmak için otomatik olarak oluşturulan bir parola oluşturabilirsiniz.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Outlook 2010 gibi belirli tarayıcı olmayan uygulamalar, iki aşamalı doğrulamayı desteklemez. Bu destek eksikliği, iki aşamalı doğrulama kullanıyorsanız, uygulama çalışmıyor anlamına gelir. Bu sorunla karşılaşmamak için normal parolasından ayrı her tarayıcı içi uygulaması ile birlikte kullanmak için otomatik olarak oluşturulan bir parola oluşturabilirsiniz.
+>[!Important]
+>Yöneticiniz, uygulama parolaları kullanmak izin vermeyebilir. Görmüyorsanız **uygulama parolaları** bir seçenek olarak, bunlar kuruluşunuzda mevcut değil.
 
 Uygulama parolaları kullanırken unutmamak önemlidir:
 
@@ -36,52 +38,48 @@ Uygulama parolaları kullanırken unutmamak önemlidir:
     >[!Note]
     >(Outlook gibi) office 2013 istemcilerindeki yeni kimlik doğrulama protokolleri destekleyen ve iki aşamalı doğrulamayla birlikte kullanılabilir. Bu destek, iki aşamalı doğrulama açıldıktan sonra artık uygulama parolaları için Office 2013 istemcilerindeki gerektiğini anlamına gelir. Daha fazla bilgi için bkz. [Office 2013 ve Office 2016 istemci uygulamaları için nasıl modern kimlik doğrulaması çalıştığı](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) makalesi.
 
-## <a name="create-and-delete-app-passwords-using-security-info"></a>Oluşturma ve güvenlik bilgilerini kullanarak uygulama parolalarını Sil
+## <a name="create-new-app-passwords"></a>Yeni uygulama parolaları oluşturma
+İki aşamalı doğrulama ile iş veya Okul hesabınızı kullanın ve güvenlik bilgileri deneyimi yöneticinize etkinleştirdiyse, oluşturma ve kullanma, uygulama parolalarını Sil **güvenlik bilgisi** sayfası.
 
-İki aşamalı doğrulama ile iş veya Okul hesabı ve yöneticinize güvenlik bilgisi deneyimi açık kullanırsanız, oluşturun ve uygulamalarım portalını kullanarak, uygulama parolalarını Sil.
+>[!Note]
+>Yöneticiniz güvenlik bilgisi deneyimi etkinleştirdiyseniz, bu henüz bilgileri ve yönergeleri izlemeniz gereken [iki aşamalı doğrulama için uygulama parolaları yönetme](multi-factor-authentication-end-user-app-passwords.md) bölümü.
 
-Yöneticiniz güvenlik bilgisi deneyimi etkinleştirdiyseniz, bu henüz bilgileri ve yönergeleri izlemeniz gereken [iki aşamalı doğrulama için uygulama parolaları yönetme](multi-factor-authentication-end-user-app-passwords.md) bölümü.
+### <a name="to-create-a-new-app-password"></a>Yeni bir uygulama parolası oluşturmak için
+1. İş veya Okul hesabınızda oturum açın ve ardından Git kullanarak https://myprofile.microsoft.com/ sayfası.
 
-### <a name="to-create-app-passwords-using-the-my-apps-portal"></a>Uygulamalarım portalı kullanarak uygulama parolaları oluşturmak için
+    ![Vurgulanan güvenlik bilgisi bağlantıları gösteren profili sayfam](media/security-info/securityinfo-myprofile.png)
 
-1. İş veya Okul hesabınızda oturum açın.
+2. Seçin **güvenlik bilgisi** sol gezinti bölmesinden ya da bağlantıyı **güvenlik bilgisi** engelleyebilir ve ardından **yöntemi ekleyin** gelen **güvenlik bilgisi**  sayfası.
 
-2. Myapps.microsoft.com için sayfanın sağ üst köşesinden adınızı seçin ve ardından Git **profili**.
+    ![Güvenlik bilgileri sayfasını vurgulanan Ekle yöntemi seçeneği](media/security-info/securityinfo-myprofile-addmethod.png)
 
-3. İçinde **hesabını yönetme** alanında **güvenlik bilgilerini Düzenle**.
+3. Üzerinde **bir yöntem ekleyin** sayfasında **uygulama parolası** seçin ve açılır listede **Ekle**.
 
-    ![Profil düzenleme güvenlik bilgisi bağlantısının vurgulandığı ekran](media/security-info/security-info-profile.png)
+    ![Seçili uygulama parolasıyla yöntemi Kutusu Ekle](media/security-info/securityinfo-myprofile-addpassword.png)
 
-4. İçinde **hesabınızı güvenli tutmak** ekranındayken **güvenlik bilgisi ekleyin**.
+4. Uygulama parolası gerektiren bir uygulama adı yazın ve ardından **sonraki**.
 
-    ![Güvenlik bilgileri mevcut, düzenlenebilir bilgisi ekranla](media/security-info/security-info-edit-add-info.png)
+    ![Uygulama parolası sayfasında, uygulama adı](media/security-info/securityinfo-myprofile-password-appname.png)
 
-5. İçinde **güvenlik bilgisi ekleyin** ekranındayken **uygulama parolası**.
+5. Metni kopyalayıp **parola** kutusuna parolayı (Bu örnekte, Outlook 2010) uygulamasının parola alanına yapıştırın ve ardından **Bitti**.
 
-6. İçinde **, uygulama parolası oluşturmanız** ekranında, uygulama parolası için bir ad yazın ve ardından **sonraki**.
-
-    ![Uygulama parolanız isimlendirdiğiniz ekranı](media/security-info/security-info-name-app-password.png)
-
-7. Seçin **kopyalama** parolayı panoya kopyalayın ve ardından **sonraki**.
-
-    ![Kopyalama için uygulama parolasıyla ekran](media/security-info/security-info-create-app-password.png)
+    ![Uygulama parolası sayfasında, uygulama adı](media/security-info/securityinfo-myprofile-password-copytext.png)
     
-8. Uygulama parolası emin görünür **hesabınızı güvenli tutmak** ekran.
+    Parola eklenir ve bundan sonra uygulamanız başarıyla oturum açabilir.
 
-    ![Uygulama parolası ile güvenli ekran tutun](media/security-info/security-info-keep-secure-app-password.png)
+## <a name="delete-your-app-passwords"></a>Uygulama parolalarını Sil
+Artık bir uygulama parolası gerektiren bir uygulama kullanmanız gerekirse, ilişkili uygulama parolasını silebilirsiniz. Uygulama parolasını silme kullanmak için kullanılabilir uygulama parola Noktalar birinin gelecekte serbest bırakır.
 
-### <a name="to-delete-app-passwords-using-the-my-apps-portal"></a>Uygulama parolaları uygulamalarım portalı kullanarak silmek için
+>[!Important]
+>Bir uygulama parolası yanlışlıkla silerseniz, geri almak için hiçbir yolu yoktur. İçindeki adımları izleyerek yeni bir uygulama parolası oluşturun ve uygulamaya yeniden girmeniz gerekir [yeni uygulama parolaları oluşturmanız](#create-new-app-passwords) bu makalenin.
 
-1. Üzerinde **hesabınızı güvenli tutmak** ekranındayken **X** yanındaki silmek için uygulama parolası.
+### <a name="to-delete-an-app-password"></a>Bir uygulama parolasını silmek için
 
-    ![Güvenli ekran tutmak, uygulama parolasını silme](media/security-info/security-info-keep-secure-delete-app-password.png)
+1. Üzerinde **güvenlik bilgisi** sayfasında **Sil** yanındaki bağlantı **uygulama parolası** belirli uygulama seçeneği.
 
-2. İçinde **uygulama parolasını silme** ekranındayken **Sil**.
+    ![Uygulama parolası yöntemi güvenlik bilgisi silmek için bağlantı](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-    ![Uygulama parolası Ekranı Sil](media/security-info/security-info-keep-secure-delete-app-password2.png)
+2. Seçin **Evet** silmek için onay kutusundan **uygulama parolası**. Uygulama parolası silindi, güvenlik bilgilerinizden kaldırılır ve bu kaybolur sonra **güvenlik bilgisi** sayfası.
 
-## <a name="next-steps"></a>Sonraki adımlar
-
-- Güvenlik bilgilerinizi güncelleştirmeniz gerekiyorsa, yönergeleri izleyin [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md) makalesi.
-
-- Güvenlik bilgileri ve neler yapabileceğiniz hakkında daha fazla genel bilgi için bkz. [güvenlik bilgisi genel bakış](user-help-security-info-overview.md) 
+## <a name="for-more-information"></a>Daha fazla bilgi edinmek için
+- Hakkında daha fazla bilgi için **güvenlik bilgisi** sayfası ve bunu ayarlamak için bkz [güvenlik bilgisi genel bakış](user-help-security-info-overview.md)

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 14e631edb21c43ccde04a536760c2793ead40e90
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997092"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454710"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio web hizmetleri için Excel Eklentisi
 Excel web hizmetleri herhangi bir kod yazmak zorunda kalmadan doğrudan çağırmak kolaylaştırır.
@@ -29,13 +29,13 @@ Excel web hizmetleri herhangi bir kod yazmak zorunda kalmadan doğrudan çağır
 
 2. Web hizmeti tıklayarak seçin-"Titanic hayatta tahmin unsuru (Excel Eklentisi örneği) [puan]" Bu örnekte.
    
-    ![Web hizmeti seçin][01]
+    ![Web hizmeti seçin](./media/excel-add-in-for-web-services/image1.png)
 3. Sayfasına yönlendirileceksiniz **Predıct** bölümü.  Bu çalışma kitabı zaten örnek veriler içerir, ancak için boş bir çalışma kitabını Excel'de bir hücreyi seçin ve tıklayın **örnek verileri kullanarak**.
 4. Üst bilgileri ile verileri seçin ve giriş verilerini aralığı simgesine tıklayın.  "Verilerimin üst bilgileri var" kutunun işaretli olduğundan emin olun.
 5. Altında **çıkış**, çıktı olacak şekilde, örneğin "H1" burada istediğiniz sayı girin.
 6. Tıklayın **tahmin**. "Otomatik predıct" onay kutusunu seçerseniz seçili alanlara (giriş olarak belirtilenler) herhangi bir değişiklik isteği ve bir güncelleştirme predıct düğmesine basın etmenize gerek kalmadan çıkış hücrelerin tetikler.
    
-    ![Bölüm tahmin edin][02]
+    ![Bölüm tahmin edin](./media/excel-add-in-for-web-services/image1.png)
 
 Bir web hizmeti dağıtın veya mevcut bir Web hizmetini kullanın. Bir web hizmeti dağıtma hakkında daha fazla bilgi için bkz. [Tutorial 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md).
 
@@ -45,10 +45,10 @@ Web hizmetiniz için API anahtarını alın. Gerçekleştirdiğiniz durumlarda b
 
 1. Machine Learning Studio'da tıklayın **WEB Hizmetleri** bölümünde, sol bölmede ve web hizmeti seçin.
    
-    ![Bir Web hizmeti Studio seçin][04]
+    ![Bir Web hizmeti Studio seçin](./media/excel-add-in-for-web-services/image4.png)
 2. Web hizmeti için API anahtarını kopyalayın.
    
-    ![Studio API anahtarı][05]
+    ![Studio API anahtarı](./media/excel-add-in-for-web-services/image5.png)
 3. Üzerinde **PANO** web hizmeti için sekmesinde **istek/yanıt** bağlantı.
 4. Aranacak **istek URI** bölümü.  Kopyalayın ve URL'yi kaydedin.
 
@@ -70,23 +70,16 @@ Web hizmetiniz için API anahtarını alın. Gerçekleştirdiğiniz durumlarda b
 3. Aranacak **temel tüketim bilgileri** bölümü. Kopyalayıp kaydedin **birincil anahtar** ve **istek-yanıt** URL'si.
 4. Excel'de, Git **Web Hizmetleri** bölümü (açıksa **Predıct** bölümünde, web hizmetleri listesine dönmek için geri okuna tıklayın).
    
-    ![Web hizmet seçimi için Git][03]
+    ![Web hizmet seçimi için Git](./media/excel-add-in-for-web-services/image3.png)
 5. Tıklayın **Web hizmeti Ekle**.
 6. Eklenti metin kutusu etiketli Excel'e URL'yi yapıştırın **URL**.
 7. API/birincil anahtarı etiketli metin kutusuna yapıştırın **API anahtarı**.
 8. **Ekle**'ye tıklayın.
    
-    ![Klasik Web hizmeti URL'sini ve API anahtarı.][06]
+    ![Klasik Web hizmeti URL'sini ve API anahtarı.](./media/excel-add-in-for-web-services/image6.png)
 9. Web hizmetini kullanmak için yukarıdaki yönergeleri, "bir varolan web hizmeti kullanmak için adımlar." izleyin.
 
 ## <a name="sharing-your-workbook"></a>Çalışma kitabınızı paylaşma
 Çalışma kitabınızı kaydederseniz, eklediğiniz web hizmetleri için API/birincil anahtar da kaydedilir. Bu çalışma kitabını yalnızca güvendiğiniz kişilerle paylaşması gerekir anlamına gelir.
 
 Aşağıdaki yorum bölümünde veya herhangi bir soru sorun bizim [Forumu](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
-
-[01]: ./media/excel-add-in-for-web-services/image1.png
-[02]: ./media/excel-add-in-for-web-services/image2.png
-[03]: ./media/excel-add-in-for-web-services/image3.png
-[04]: ./media/excel-add-in-for-web-services/image4.png
-[05]: ./media/excel-add-in-for-web-services/image5.png
-[06]: ./media/excel-add-in-for-web-services/image6.png

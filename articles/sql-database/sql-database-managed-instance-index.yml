@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c9d8b875d7e5a831af52eae8abc642632cb5f635
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 287e4d63ca60200340a88dd45d6b8912a62b74cd
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238394"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454711"
 documentType: LandingData
 title: Azure SQL Veritabanı Yönetilen Örneği
 metadata:
@@ -75,7 +75,7 @@ sections:
     style: unordered
     items:
     - html: <a href="sql-database-managed-instance#business-critical-service-tier">İş kritik hizmet katmanı</a> artık <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">genel kullanılabilirlik (GA)</a>.
-    - html: (Önizleme) Oluşturma <a href="https://aka.ms/managed-instance-aadlogins">örnek düzeyi Azure AD oturum açma bilgileri</a> kullanarak <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">oluşturma oturum açma gelen dış sağlayıcı</a> .
+    - html: (Önizleme) Oluşturma <a href="https://aka.ms/managed-instance-aadlogins">örnek düzeyi Azure AD sunucu sorumlusu (oturum açma bilgileri)</a> kullanarak <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">oluşturma oturum açma gelen dış sağlayıcı</a> .
     - html: (Önizleme) Örneği oluşturma <a href="https://aka.ms/managed-instance-collation">tercih ettiğiniz sunucu düzeyinde harmanlama</a>.
     - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Yedek saklama 35 gün öncesine yapılandırma</a> -belirli bir noktaya geri yükleme. Unutmayın, kullanabilmeniz için uzun süreli yedek saklama (en fazla 10 yıl) hala etkinleştirilmedi <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">yalnızca kopya yedekleri</a> alternatif olarak.
     - html: (Önizleme) Kullanım <a href="https://aka.ms/managed-instance-failover-groups">coğrafi olarak dağıtılmış bir yük devretme grupları</a> başka bir bölgede örneğinin bir kopyasını tutmak ve verilerinizi bile bölgesel bir olağanüstü durum senaryosunda kullanılabilir olmasını sağlamak için.

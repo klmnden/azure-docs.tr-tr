@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e8e50aa49595addeab3369f74b618c31b7cf1625
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242677"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454387"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da bir yaklaşım analizi model oluşturma
 
-Azure Machine Learning, oluşturun ve metin analiz modelleri oluşturup kullanıma hazır hale getirmek için kullanabilirsiniz. Bu modeller, örneğin, belge sınıflandırma veya yaklaşım analizi sorunlarını çözmenize yardımcı olabilir.
+Azure Machine Learning Studio, derleme ve metin analiz modelleri oluşturup kullanıma hazır hale getirmek için kullanabilirsiniz. Bu modeller, örneğin, belge sınıflandırma veya yaklaşım analizi sorunlarını çözmenize yardımcı olabilir.
 
 Metin bir analiz denemesi genellikle gerekir:
 
@@ -66,7 +66,7 @@ Ayıklamak N-Gram özelliklerini kullanmak için alternatif bir yaklaşım, öze
 ## <a name="step-3-train-classification-or-regression-model"></a>3. Adım: Sınıflandırma veya regresyon modeli eğitme
 Şimdi metin için sayısal özellik sütunu dönüştürülmüş. Sütunları Seç kümesinde dışında tutmak için kullanacağız veri kümesi önceki aşamalar dize sütunlarından yine de içerir.
 
-Ardından kullandığımız [iki sınıflı Lojistik regresyon](https://msdn.microsoft.com/library/azure/dn905994.aspx) Hedefimiz tahmin etmek için: yüksek veya düşük gözden geçirme puanı. Bu noktada, metin analizi sorun, bir normal sınıflandırma sorunla dönüştürülmüş. Modeli geliştirmek için Azure Machine Learning'de kullanılabilen araçları kullanabilirsiniz. Örneğin, farklı sınıflandırıcılar verdikleri nasıl doğru sonuçları bulmayı denemek veya hiper parametre ayarı doğruluğunu artırmak için kullanın.
+Ardından kullandığımız [iki sınıflı Lojistik regresyon](https://msdn.microsoft.com/library/azure/dn905994.aspx) Hedefimiz tahmin etmek için: yüksek veya düşük gözden geçirme puanı. Bu noktada, metin analizi sorun, bir normal sınıflandırma sorunla dönüştürülmüş. Modeli geliştirmek için Azure Machine Learning Studio'da kullanılabilen araçları kullanabilirsiniz. Örneğin, farklı sınıflandırıcılar verdikleri nasıl doğru sonuçları bulmayı denemek veya hiper parametre ayarı doğruluğunu artırmak için kullanın.
 
 ![Eğitme ve puanı](./media/text-analytics-module-tutorial/scoring-text.png)
 

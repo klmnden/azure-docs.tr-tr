@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 29244c20bb4bbad8077788abbc29e6267f701d2e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/20/2019
+ms.openlocfilehash: 32e6e8ff4c37554a0c3fa50e243b241eed2953cf
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176365"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446010"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack depolama kapasitesi planlama
 Aşağıdaki bölümler solutions depolama gereksinimlerini planlama stratejilerinde destek olmak için Azure Stack depolama kapasitesini planlama bilgileri sağlar.
@@ -38,7 +38,9 @@ Tüm depolama kapasitesi ayrılan ve doğrudan Azure Stack altyapısı tarafınd
 
 ![Azure depolama kapasitesi planlama](media/azure-stack-capacity-planning/storage.png)
 
-Tüm flash yapılandırmasında NVMe kapasite SATA SSD veya NVMe seçeneğiyle bir önbellektir. Kapasite HDD olsa da karma Yapılandırması'nda önbellek bir SATA SSD ile NVMe arasındaki seçimdir.
+Tümü flash yapılandırmasında yapılandırma ya da iki katmanlı veya tek katmanlı bir yapılandırma olabilir.  Tek katmanlı yapılandırma ise tüm kapasite cihazları (örneğin NVMe veya SATA SSD veya SAS SSD) aynı tür olacaktır ve önbellek cihazları kullanılmaz. İki katmanlı tüm içinde önbellek cihazları ve ardından her iki SATA NVMe flash yapılandırma, tipik configuration olduğu veya SAS SSD kapasite cihazları olarak.
+
+Karma, iki katmanlı yapılandırma, bir seçimdir HDD arasında NVMe, SATA veya SAS SSD ve kapasite önbelleğidir. 
 
 Kısa bir özeti depolama alanları doğrudan ve Azure Stack depolama yapılandırması aşağıdaki gibidir:
 - Bir depolama alanları havuzundan (tüm depolama cihazları içinde tek bir havuz yapılandırılır) ölçek birimi başına

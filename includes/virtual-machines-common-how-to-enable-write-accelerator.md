@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 6/8/2018
+ms.date: 02/20/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 733d2896ef15d2e78073268e263a144ea25846ec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 98231ab55ce66f06d591dc9c933e4790460625c8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985527"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56458397"
 ---
 # <a name="enable-write-accelerator"></a>Yazma hızlandırıcıyı etkinleştirme
 
@@ -42,17 +42,17 @@ Yazma Hızlandırıcı Azure bir disk/VHD için kullanırken bu kısıtlamalar u
 
 - Premium disk önbelleği 'None' olarak ayarlanmalıdır ya da 'Read Only'. Diğer tüm önbelleğe alma modu desteklenmez.
 - Anlık görüntü şu anda desteklenmemektedir yazma Hızlandırıcısı etkinleştirilmiş disk için. Azure Backup hizmeti, yedekleme sırasında VM'ye yazma Hızlandırıcısı etkinleştirilmiş disk otomatik olarak dışlar.
-- Yalnızca küçük g/ç boyutları (< = 32 KiB) hızlandırılmış yolu edilmektedir. İş yükü verileri toplu sürekli olduğu durumlarda yüklenen ya da işlem günlüğü arabelleklerini farklı DBMS daha büyük bir dereceye kadar depolama alanına kalıcı önce doldurulur burada olasılığı olan yazılan g/ç diski hızlandırılmış yolu değil sürüyor.
+- Yalnızca küçük g/ç boyutları (< = 512 KiB) hızlandırılmış yolu edilmektedir. İş yükü verileri toplu sürekli olduğu durumlarda yüklenen ya da işlem günlüğü arabelleklerini farklı DBMS daha büyük bir dereceye kadar depolama alanına kalıcı önce doldurulur burada olasılığı olan yazılan g/ç diski hızlandırılmış yolu değil sürüyor.
 
 Azure Premium depolama VHD'leri yazma Hızlandırıcı tarafından desteklenen VM başına sınırları vardır. Geçerli sınırlar şu şekildedir:
 
 | VM SKU | Yazma Hızlandırıcı disk sayısı | Yazma Hızlandırıcı Disk VM başına IOPS |
 | --- | --- | --- |
-| M128ms, 128s | 16 | 8000 |
-| M64ms, M64ls, M64s | 8 | 4000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 2000 |
-| M16ms, M16s | 2 | 1000 |
-| M8ms, M8s | 1 | 500 |
+| M128ms, 128s | 16 | 20000 |
+| M64ms, M64ls, M64s | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 5000 |
+| M16ms, M16s | 2 | 2500 |
+| M8ms, M8s | 1 | 1250 |
 
 VM başına IOPS sınırları olduğundan ve *değil* disk başına. Tüm yazma Hızlandırıcı diskler, VM başına aynı IOPS sınırı paylaşır.
 

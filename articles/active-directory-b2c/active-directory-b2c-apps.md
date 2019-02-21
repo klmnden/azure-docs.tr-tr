@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7ea179ff7e4b525e86003faadfb92e090476bd81
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172655"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446384"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C'de kullanılabilir uygulama türleri
 
@@ -91,10 +91,10 @@ Web API'si daha sonra, API çağıranının kimliğini doğrulamak ve belirteçt
 Web API'si, istemcilerin, web uygulamaları, masaüstü ve mobil uygulamalar, tek sayfalık uygulamalar, sunucu tarafı Daemon'ları ve diğer web API'leri dahil olmak üzere birçok türlerinden belirteçleri alabilir. Bir web API'si çağıran bir web uygulamasına yönelik tam akış örneği aşağıda verilmiştir:
 
 1. Web uygulaması bir ilke yürütür ve kullanıcı deneyimi kullanıcının tamamlar.
-2. Azure AD B2C'in döndürdüğü bir `access_token` ve tarayıcıya bir yetkilendirme kodu.
-3. Tarayıcı gönderileri `access_token` ve yeniden yönlendirme URI'sine yetkilendirme kodu.
-4. Web sunucusu doğrulama `access token` ve oturum tanımlama bilgisini ayarlar.
-5. `access_token` Yetkilendirme kodu, uygulama istemci kimliği, Azure AD B2C'ye sağlanır ve kimlik bilgileri.
+2. Azure AD B2C'in döndürdüğü bir (Openıd Connect) `id_token` ve tarayıcıya bir yetkilendirme kodu.
+3. Tarayıcı gönderileri `id_token` ve yeniden yönlendirme URI'sine yetkilendirme kodu.
+4. Web sunucusu doğrulama `id_token` ve oturum tanımlama bilgisini ayarlar.
+5. Web sunucusu için Azure AD B2C soran bir `access_token` yetkilendirme kodu, uygulama istemci Kimliğini ve istemci kimlik bilgileri sağlayarak.
 6. `access_token` Ve `refresh_token` web sunucusuna döndürülür.
 7. Web API'si ile adlandırılır `access_token` bir yetkilendirme üst bilgisinde.
 8. Web API belirteci doğrular.

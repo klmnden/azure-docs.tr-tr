@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: af3a654010fa676096bfad895d5814b2cefa8e71
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7afc1170ba2503c8a8c97be9a19459c92e331449
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997147"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453588"
 ---
 # <a name="automated-backups"></a>Otomatik yedeklemeler
 
@@ -85,6 +85,11 @@ Tek ve havuza alınmış veritabanları, Azure Blob Depolama alanında 10 yıla 
 Coğrafi olarak yedekli ve korunan PITR gibi LTR yedekleme [Azure depolama bölgeler arası çoğaltma](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
 Daha fazla bilgi için [uzun süreli yedek saklama](sql-database-long-term-retention.md).
+
+## <a name="storage-costs"></a>Depolama maliyetleri
+Veritabanlarınızın 7 günlük otomatik yedeklemeleri, varsayılan olarak RA-GRS Standart blob depolamasına kopyalanır. Depolama alanı, haftalık tam yedeklemeler, günlük fark yedekleri ve 5 dakikada bir kopyalanan işlem günlüğü yedeklemeleri tarafından kullanılır. İşlem günlüğü boyutu veritabanı değişiklik oranına bağlıdır. Veritabanı boyutunun %100’üne eşit bir depolama alt sınırı ek ücret alınmadan sağlanır. Ek yedekleme alanı kullanımı, GB/ay üzerinden ücretlendirilir.
+
+Depolama fiyatları hakkında daha fazla bilgi için bkz. [fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/single/) sayfası. 
 
 ## <a name="are-backups-encrypted"></a>Yedeklemeleri şifrelenir
 

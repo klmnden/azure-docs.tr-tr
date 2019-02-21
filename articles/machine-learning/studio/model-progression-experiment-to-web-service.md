@@ -1,7 +1,7 @@
 ---
 title: Makine öğrenme modeli bir web hizmeti nasıl olur?
 titleSuffix: Azure Machine Learning Studio
-description: Nasıl bir geliştirme, Azure Machine Learning modeli ilerler çalışır hale getirilen bir Web hizmeti için deneme mekanizması genel bakış.
+description: Nasıl bir geliştirme, Azure Machine Learning Studio'da model ilerler çalışır hale getirilen bir Web hizmeti için deneme mekanizması genel bakış.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 31005077c9c149f9aff055432d9577a63bac8e1c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 776f33e3e550ad9a711a90732c6c4526e647aa89
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992307"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456801"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning Studio'da model denemeden bir çalışır hale getirilen Web hizmetine nasıl ilerlediğini
 Azure Machine Learning Studio geliştirin, çalıştırın, test etme ve yineleme olanak tanıyan etkileşimli bir tuvale sağlayan bir ***deneme*** Tahmine dayalı bir modeli temsil eden. Çok çeşitli için modüller vardır:
@@ -46,7 +46,7 @@ Tipik bir çözüm geliştirin ve Machine Learning Studio kullanarak dağıtma g
 *Şekil 1 - Tipik Tahmine dayalı analiz modeli aşamaları*
 
 ### <a name="the-training-experiment"></a>Eğitim denemesini
-***Eğitim denemesini*** Geliştirme Web hizmetini Machine Learning Studio'da ilk aşamasıdır. Eğitim deneyde amaç, geliştirme, test, yineleme ve sonunda bir machine learning modeli eğitmek için bir yer vermektir. Sizi bile birden çok modeli eşzamanlı olarak en uygun çözümü arayın, ancak bitirdiğinizde, denemeler tek bir eğitim seçersiniz eğitebilirsiniz model ve denemeyi geri kalanından ortadan kaldırın. Tahmine dayalı bir analiz denemesi geliştirmek ilişkin bir örnek için bkz [bir Azure Machine learning'de kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü geliştirme](tutorial-part1-credit-risk.md).
+***Eğitim denemesini*** Geliştirme Web hizmetini Machine Learning Studio'da ilk aşamasıdır. Eğitim deneyde amaç, geliştirme, test, yineleme ve sonunda bir machine learning modeli eğitmek için bir yer vermektir. Sizi bile birden çok modeli eşzamanlı olarak en uygun çözümü arayın, ancak bitirdiğinizde, denemeler tek bir eğitim seçersiniz eğitebilirsiniz model ve denemeyi geri kalanından ortadan kaldırın. Tahmine dayalı bir analiz denemesi geliştirmek ilişkin bir örnek için bkz [bir Azure Machine Learning Studio'da kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü geliştirme](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>Tahmine dayalı denemeye
 Eğitilen bir modelin eğitim denemenizi oluşturduktan sonra tıklayın **Web hizmetinin ayarı** seçip **Tahmine dayalı Web hizmeti** eğitim dönüştürme işlemini başlatmak için Machine Learning Studio'da için deneme bir ***Tahmine dayalı denemeye***. Tahmine dayalı deneyde amaç, sonunda bir Azure Web hizmeti olarak kullanıma hazır hale getirdiniz olma amacıyla yeni verileri puanlamak için eğitilen model kullanmaktır.

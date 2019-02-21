@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: ca0a6569dda89586c629cc46909862de4f27cf04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160920"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446333"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack işlem kapasitesi planlama
 [Azure Stack üzerinde desteklenen VM boyutları](./user/azure-stack-vm-sizes.md) Azure'da desteklediği bir alt kümesidir. Azure kaynak sınırları boyunca operasyonda ekstra tüketimi kaynakların (yerel ve hizmet düzeyi sunucusu) önlemek için birçok vektörleri uygular. Diğer kiracıların kaynakları overconsume, Kiracı kullanımı için bazı limitler izlenmesi olmadan Kiracı deneyimleri düşer. Sanal makineden ağ çıkışı için Azure sınırlamaları eşleşen bant genişliği sınırlaması Azure Stack'te yerinde vardır. Depolama kaynakları için depolama IOPS limitlerine depolama erişimi için kiracılar tarafından temel operasyonda ekstra tüketimi kaynak önlemek için Azure Stack üzerinde uygulanmıştır.  
@@ -43,7 +43,7 @@ Bir sunucu başarısız olursa, başarısız sunucu üzerinde bulunan VM'ler iç
 
 Kiracı VM yerleştirme için kullanılabilir toplam ve kullanılabilir bellek hesaplama aşağıdaki sonuçlanır. Azure Stack ölçek biriminin tamamı için bu bellek kapasitesidir.
 
-  VM yerleştirme için kullanılabilir bellek toplam sunucu belleği – dayanıklılık ayırma – Azure Stack altyapısını yükü = <sup>1</sup>
+  VM yerleştirme için kullanılabilir bellek VM - Azure Stack altyapısını yükü çalıştırarak kullanılan toplam sunucu belleği – dayanıklılık ayırma – bellek = <sup>1</sup>
 
   Dayanıklılık ayırma H + R = * (N-1) + V * (N-2)
 

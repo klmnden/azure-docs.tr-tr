@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0d46fc8a152c4426832669ce22d4aa78ac640e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173951"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454659"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Hesap için uygulamayı el ile Ekle
 Kameranız QR kodunu yakalamak üzere yapamıyorsa, hesap bilgilerinizi iki adımlı doğrulama için Microsoft Authenticator uygulamasını el ile ekleyebilirsiniz. Bu, iş veya Okul hesapları ve Microsoft olmayan hesapların çalışır.
@@ -29,7 +29,7 @@ Hesaplarınız için sağlanan kodları, büyük küçük harfe duyarlı değild
 
 ## <a name="add-your-work-or-school-account"></a>İş veya Okul hesabınızı ekleyin
 
-1. Bilgisayarınızda, Not **kod** ve **Url** bilgi **mobil uygulama yapılandırma** sayfası. Kodu ve URL'yi görebilmeniz için bu sayfayı açık tutun.
+1. Bilgisayarınızda Not **kod** ve **Url** bilgi **mobil uygulama yapılandırma** sayfası. Kodu ve URL'yi görebilmeniz için bu sayfayı açık tutun.
     
     ![QR kodunu sağlayan ekranı](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
@@ -47,7 +47,7 @@ Hesaplarınız için sağlanan kodları, büyük küçük harfe duyarlı değild
 
 ## <a name="add-your-google-account"></a>Google hesabınızı ekleyin
 
-1. Bilgisayarınızda, seçin **tarama BT CAN'T** gelen **Authenticator kümesi** QR kodunu içeren sayfa.
+1. Bilgisayarınızda seçin **tarama BT CAN'T** gelen **Authenticator kümesi** QR kodunu içeren sayfa.
 
     **Barkod tarayamıyor** ile gizli kod sayfası görüntülenir. Gizli kod görebilmeniz için bu sayfayı açık tutun.
 
@@ -55,7 +55,7 @@ Hesaplarınız için sağlanan kodları, büyük küçük harfe duyarlı değild
 
 3. Girin bir **hesap adı** (örneğin, Google) yazın **gizli anahtar** adım 1 ve ardından **son**.
 
-4. Üzerinde **Authenticator kümesi** sayfasında Bilgisayarınızda uygulamada Google hesabınız için sağlanan altı basamaklı doğrulama kodunu yazın ve ardından **doğrulama**.
+4. Üzerinde **Authenticator kümesi** sayfasında bilgisayarınızda uygulamada Google hesabınız için sağlanan altı basamaklı doğrulama kodunu yazın ve ardından **doğrulama**.
 
     **Hesapları** ekranında gösterir, hesabınızın adını ve altı basamaklı doğrulama kodu. Ek güvenlik için her 30 saniyede birisi bir kod birden çok kez tüketmesini doğrulama kodunu değiştirir.
 
@@ -70,7 +70,7 @@ Hesaplarınız için sağlanan kodları, büyük küçük harfe duyarlı değild
 
 3. Girin bir **hesap adı** (örneğin, Facebook) yazın **gizli anahtar** adım 1 ve ardından **son**.
 
-4. Üzerinde **iki öğeli kimlik doğrulayıcı** sayfasında Bilgisayarınızda Facebook hesabınız için uygulamada sağlanan altı basamaklı doğrulama kodunu yazın ve ardından **doğrulama**.
+4. Üzerinde **iki öğeli kimlik doğrulayıcı** sayfasında bilgisayarınızda Facebook hesabınız için uygulamada sağlanan altı basamaklı doğrulama kodunu yazın ve ardından **doğrulama**.
 
     **Hesapları** ekranında gösterir, hesabınızın adını ve altı basamaklı doğrulama kodu. Ek güvenlik için her 30 saniyede birisi bir kod birden çok kez tüketmesini doğrulama kodunu değiştirir.
 
@@ -80,7 +80,7 @@ Hesaplarınız için sağlanan kodları, büyük küçük harfe duyarlı değild
 ## <a name="add-your-amazon-account"></a>Amazon hesabınızı ekleyin
 İki aşamalı doğrulamayı açmak ve ardından hesap uygulamaya ekleyerek, Amazon hesabınızı ekleyebilirsiniz.
 
-1. Bilgisayarınızda, seçin **barkod tarayamıyor** gelen **kodları nasıl alırsınız seçin** QR kodunu içeren sayfa.
+1. Bilgisayarınızda seçin **barkod tarayamıyor** gelen **kodları nasıl alırsınız seçin** QR kodunu içeren sayfa.
 
     **Barkod tarayamıyor** gizli koduyla iletisi görüntülenir. Bu ileti, gizli kod görebilmeniz için açık tutun.
 
@@ -90,9 +90,9 @@ Hesaplarınız için sağlanan kodları, büyük küçük harfe duyarlı değild
 
 4. Bir yedekleme doğrulama yöntemi gibi bir kısa mesaj ekleme dahil olmak üzere kayıt işlemini tamamlayın ve ardından **kod Gönder**.
 
-5. Üzerinde **yedekleme doğrulama yöntemini eklemek** sayfasında Bilgisayarınızda Amazon hesabınız için yedek doğrulama yönteminizi tarafından sağlanan altı basamaklı doğrulama kodunu yazın ve ardından **kodu doğrulamak ve devam**.
+5. Üzerinde **yedekleme doğrulama yöntemini eklemek** sayfasında bilgisayarınızda Amazon hesabınız için yedek doğrulama yönteminizi tarafından sağlanan altı basamaklı doğrulama kodunu yazın ve ardından **kodu doğrulamak vedevamet**.
 
-6. Üzerinde Almost sayfasında, PC'nizi güvenilen cihazı olun ve ardından karar **anladım. İki basamaklı doğrulamayı açmak**.
+6. Üzerinde Almost sayfasında, güvenilir bir cihaz bilgisayarınızı getirin ve ardından karar **anladım. İki basamaklı doğrulamayı açmak**.
 
     **Gelişmiş güvenlik ayarları** sayfası görüntülenirse, güncelleştirilmiş iki Faktörlü doğrulama ayrıntılarınızı gösteriliyor.
 

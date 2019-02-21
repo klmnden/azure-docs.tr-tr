@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819000"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456512"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Uygulama ve kümelerin Azure Kubernetes Service (AKS) için güvenlik kavramları
 
@@ -24,7 +24,7 @@ Bu makalede aks'deki uygulamalarınızı güvenli bir temel kavramlar tanıtıl�
 - [Düğüm güvenliği](#node-security)
 - [Küme yükseltme](#cluster-upgrades)
 - [Ağ güvenliği](#network-security)
-- Kubernetes gizli dizileri
+- [Kubernetes gizli dizileri](#kubernetes-secrets)
 
 ## <a name="master-security"></a>Güvenlik Yöneticisi
 
@@ -36,9 +36,9 @@ Varsayılan olarak Kubernetes API sunucusuna bir genel IP adresini kullanır ve 
 
 AKS, yönetmek ve korumak Azure sanal makineleri düğümlerdir. Düğümlerin en iyi duruma getirilmiş bir Ubuntu Linux dağıtımı ile Docker kapsayıcı çalışma zamanı çalıştırın. Bir AKS kümesi oluşturduğunuz ya da yukarı ölçeklendirilemez düğümlerin en son işletim sistemi güvenlik güncelleştirmelerini ve yapılandırmaları ile otomatik olarak dağıtılır.
 
-Azure platformunun işletim sistemi güvenlik yamaları düğümlerine gecelik temelinde otomatik olarak uygular. Bir işletim sistemi güvenlik güncelleştirmesi ana bilgisayar yeniden başlatma gerektirirse, yeniden başlatma otomatik olarak gerçekleştirilmez. Düğümleri el ile yeniden başlatılabilir ya da ortak bir yaklaşım kullanmaktır [Kured][kured], Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured bir [DaemonSet] [daemonset aks] çalışır ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. Yeniden başlatma, aynı kümede yönetilir [kordon altına alma ve boşaltma işlemi](#cordon-and-drain) olarak bir küme yükseltmesi.
+Azure platformunun işletim sistemi güvenlik yamaları düğümlerine gecelik temelinde otomatik olarak uygular. Bir işletim sistemi güvenlik güncelleştirmesi ana bilgisayar yeniden başlatma gerektirirse, yeniden başlatma otomatik olarak gerçekleştirilmez. Düğümleri el ile yeniden başlatılabilir ya da ortak bir yaklaşım kullanmaktır [Kured][kured], Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet] [ aks-daemonsets] ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. Yeniden başlatma, aynı kümede yönetilir [kordon altına alma ve boşaltma işlemi](#cordon-and-drain) olarak bir küme yükseltmesi.
 
-Düğümleri atanan genel IP adresi ile bir özel sanal ağ alt ağa dağıtılır. Yönetim ve sorun giderme amacıyla SSH, varsayılan olarak etkindir. Bu SSH erişimini, yalnızca iç IP adresi kullanılarak erişilebilir. Azure ağ güvenlik grubu kuralları, daha fazla AKS düğümleri için IP aralığına erişimi kısıtlamak için kullanılabilir. Varsayılan ağ güvenlik grubu SSH kuralı silme ve düğümler üzerinde SSH hizmeti devre dışı bırakma Azure platformundaki bakım görevleri gerçekleştirmesini engeller.
+Düğümleri atanan genel IP adresi ile bir özel sanal ağ alt ağa dağıtılır. Yönetim ve sorun giderme amacıyla SSH, varsayılan olarak etkindir. Bu SSH erişimini, yalnızca iç IP adresi kullanılarak erişilebilir.
 
 Depolama alanı sağlamak için düğümleri Azure yönetilen diskler kullanın. Çoğu VM düğümü boyutları için yüksek performanslı SSD'ler ile desteklenir. Premium diskler şunlardır. Yönetilen diskler üzerinde depolanan verileri otomatik olarak Azure platformu içerisindeki şifrelenir. Yedekliliği artırmak için Azure veri merkezi içinde de güvenli bir şekilde bu diskler çoğaltılır.
 
@@ -46,7 +46,7 @@ Kubernetes ortamlarda AKS veya başka bir yerde, şu anda tehlikeli çok kiracı
 
 ## <a name="cluster-upgrades"></a>Küme yükseltme
 
-Azure, güvenlik ve uyumluluk için veya en son özellikleri kullanmak için bir AKS kümesi ve bileşenlerini yükseltme düzenlemek için araçlar sağlar. Bu yükseltme düzenleme Kubernetes ana ve aracı bileşenlerini içerir. AKS kümenizi için kullanılabilen Kubernetes sürümlerini listesini görüntüleyebilirsiniz. Yükseltme işlemini başlatmak için kullanılabilir bu sürümlerinden birini belirtin. Azure ardından güvenli bir şekilde cordons her AKS düğümü boşaltır ve yükseltme gerçekleştirir.
+Azure, güvenlik ve uyumluluk için veya en son özellikleri kullanmak için bir AKS kümesi ve bileşenlerini yükseltme düzenlemek için araçlar sağlar. Bu yükseltme düzenleme Kubernetes ana ve aracı bileşenlerini içerir. Görüntüleyebileceğiniz bir [kullanılabilir Kubernetes sürümlerini listesi](supported-kubernetes-versions.md) AKS kümenizin. Yükseltme işlemini başlatmak için kullanılabilir bu sürümlerinden birini belirtin. Azure ardından güvenli bir şekilde cordons her AKS düğümü boşaltır ve yükseltme gerçekleştirir.
 
 ### <a name="cordon-and-drain"></a>Cordon ve boşaltma
 
@@ -57,7 +57,7 @@ Yeni pod'ları üzerinde zamanlanmış değil için yükseltme işlemi sırasın
 - Pod'ları üzerinde yeniden çalışmak üzere zamanlanır.
 - Kümedeki sonraki düğüme kordonlanır ve tüm düğümleri başarıyla yükseltilene kadar aynı işlem kullanarak boşaltılır.
 
-Daha fazla bilgi için [yükseltme ve AKS küme][aks-upgrade-cluster].
+Daha fazla bilgi için [AKS kümesini yükseltme][aks-upgrade-cluster].
 
 ## <a name="network-security"></a>Ağ güvenliği
 

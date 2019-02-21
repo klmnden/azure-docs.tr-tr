@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 87331ed0d9e5a4ff51e3669390d1b40dea58574a
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: af6a32d7e32f23561b207c729402eaea7925f520
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389242"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453860"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service ortamı kilitleme
 
@@ -75,18 +75,18 @@ Bu uygulama ağ geçidi kullanımı, sisteminizi yapılandırmak nasıl yalnızc
 
 ## <a name="logging"></a>Günlüğe kaydetme 
 
-Azure depolama, olay hub'ı veya Log Analytics, Azure güvenlik duvarı günlüklerini gönderebilirsiniz. Uygulamanızın desteklenen herhangi bir hedefe ile tümleştirmek için Azure güvenlik duvarı portala gidin > tanılama günlükleri ve istenen hedefiniz için günlükleri etkinleştirin. Log Analytics ile tümleştirirseniz, Azure Güvenlik Duvarı'na gönderilen tüm trafik için günlüğü görebilirsiniz. Reddediliyor trafiği görmek için Log Analytics portalını açın > günlükleri gibi bir sorgu girin 
+Azure güvenlik duvarı günlükleri Olay hub'ı, Azure Depolama'ya gönderebilir veya Azure İzleyici günlüğe kaydeder. Uygulamanızın desteklenen herhangi bir hedefe ile tümleştirmek için Azure güvenlik duvarı portala gidin > tanılama günlükleri ve istenen hedefiniz için günlükleri etkinleştirin. Azure İzleyici günlüklerine ile tümleştirirseniz, Azure Güvenlik Duvarı'na gönderilen tüm trafik için günlüğü görebilirsiniz. Reddediliyor trafiği görmek için Log Analytics çalışma alanı portalınızı açın > günlükleri gibi bir sorgu girin 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-Azure güvenlik duvarınızı Log Analytics ile tümleştirme önce tüm uygulama bağımlılıklarını, uyumlu olmadığında bir uygulama çalışma başlama çok yararlı olur. Log Analytics bağlantısı hakkında daha fazla bilgi [analiz Log Analytics verilerini Azure İzleyici'de](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+Azure İzleyici günlüklerine ile Azure güvenlik duvarınızı tümleştirme önce tüm uygulama bağımlılıklarını, uyumlu olmadığında bir uygulama çalışma başlama çok yararlı olur. Azure İzleyici günlükleri hakkında daha fazla bilgi [Azure İzleyici'de günlük verileri](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
  
 ## <a name="dependencies"></a>Bağımlılıklar
 
 Aşağıdaki bilgiler yalnızca olan Azure güvenlik duvarı dışında bir güvenlik duvarı gerecini yapılandırmak isteyip istemediğinizi gerekli. 
 
 - Hizmet uç noktası uyumlu Hizmetleri hizmet uç noktaları ile yapılandırılması gerekir.
-- HTTP/S olmayan trafiği için IP adresi bağımlılıklarıdır
+- IP adresi bağımlılıklarıdır HTTP/S olmayan trafik için (TCP ve UDP trafiği)
 - FQDN HTTP/HTTPS uç noktaları güvenlik duvarı Cihazınızı yerleştirilebilir.
 - Joker karakter HTTP/HTTPS uç noktaları ile ASE'nizi niteleyicileri sayısına göre değişebilir bağımlılıklardır. 
 - ASE'niz Linux uygulamaları dağıtıyorsanız Linux bağımlılıkları yalnızca bir sorun var. Linux uygulamaları ASE'nizi değil dağıtıyorsanız, ardından bu adresleri güvenlik duvarını eklenmesi gerekmez. 

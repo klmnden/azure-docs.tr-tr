@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/20/2019
+ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217195"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453146"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>SQL kimlik doğrulaması için Azure Active Directory kimlik doğrulaması kullanın.
 
@@ -101,16 +101,16 @@ Azure SQL veritabanı yönetilen örneği veya SQL veri ambarı bağımsız veri
 
 ### <a name="manage-instances"></a>Örnekleri yönetme
 
-- Azure AD oturum açma bilgileri ve kullanıcılar için önizleme özelliği olarak desteklenir [yönetilen örnekler](sql-database-managed-instance.md).
-- Veritabanı sahibi olarak desteklenmediği için Azure AD grubu eşlenen Azure AD oturum açma bilgileri ayarlama [yönetilen örnekler](sql-database-managed-instance.md).
+- Azure AD sunucusu ilkeleri (oturum açma bilgileri) ve kullanıcılar için önizleme özelliği olarak desteklenir [yönetilen örnekler](sql-database-managed-instance.md).
+- Azure AD sunucu sorumlusu (oturum açma bilgileri) için Azure AD grubu veritabanı sahibi desteklenmiyor olarak eşleştirilen ayarlama [yönetilen örnekler](sql-database-managed-instance.md).
     - Bir grubun parçası olarak eklendiğinde olan uzantı bu `dbcreator` sunucu rolü, kullanıcıların bu Grup can yönetilen örneğine bağlanın ve yeni veritabanları oluşturmak, ancak veritabanına erişmek mümkün olmayacaktır. Yeni veritabanı sahibi SA ve Azure AD kullanıcı olmasıdır. Bireysel kullanıcı eklenirse bu sorunu bildirim değil `dbcreator` sunucu rolü.
-- SQL aracı yönetimi ve iş yürütme, Azure AD oturum açma bilgileri için desteklenir.
-- Veritabanı yedekleme ve geri yükleme işlemleri Azure AD oturum açma bilgileri tarafından yürütülebilir.
-- Azure AD oturum açma bilgileri ve kimlik doğrulama olayları ile ilgili tüm deyimler denetim desteklenir.
-- Adanmış yönetici bağlantısı sysadmin sunucu rolünün üyeleri olan Azure AD oturum açma için desteklenir.
+- SQL aracı yönetimi ve iş yürütme için Azure AD sunucusu sorumluları (oturum açma bilgileri) desteklenir.
+- Veritabanı yedekleme ve geri yükleme işlemleri (oturum açma bilgileri) Azure AD sunucu sorumlusu tarafından yürütülebilir.
+- Azure AD sunucu sorumlusu (oturum açma bilgileri) ve kimlik doğrulama olayları ile ilgili tüm deyimler denetim desteklenir.
+- Adanmış yönetici bağlantısı için sysadmin sunucu rolünün üyeleri olan Azure AD sunucu sorumlusu (oturum açma bilgileri) desteklenir.
     - SQLCMD yardımcı programını ve SQL Server Management Studio desteklenir.
-- Oturum açma tetikleyicileri, Azure AD oturum açma bilgilerinden gelen oturum açma olayları için desteklenir.
-- Hizmet aracısı ve DB posta, Azure AD oturum açma bilgilerini kullanarak kurulum olabilir.
+- Oturum açma tetikleyicileri, Azure AD sunucu sorumlusu (oturum açma bilgileri) gelen oturum açma olayları için desteklenir.
+- Hizmet aracısı ve DB posta, Azure AD sunucu sorumlusu (oturum açma) kullanarak kurulum olabilir.
 
 
 ## <a name="connecting-using-azure-ad-identities"></a>Azure AD kimlikleri kullanarak bağlanma
@@ -121,7 +121,7 @@ Azure Active Directory kimlik doğrulaması, Azure AD kimlikleri kullanarak bir 
 - Azure AD sorumlusu adı ve parola kullanarak
 - Uygulama belirteci kimlik doğrulamasını kullanma
 
-Azure AD oturum açma bilgileri için aşağıdaki kimlik doğrulama yöntemleri desteklenir (**genel Önizleme**):
+Azure AD sunucu sorumlusu (oturum açma bilgileri) için aşağıdaki kimlik doğrulama yöntemleri desteklenir (**genel Önizleme**):
 
 - Azure Active Directory parolası
 - Azure Active Directory ile tümleşik
@@ -133,7 +133,7 @@ Azure AD oturum açma bilgileri için aşağıdaki kimlik doğrulama yöntemleri
 
 - Yönetilebilirlik geliştirmek için adanmış bir Azure AD sağlama öneririz yönetici olarak grup.   
 - Yalnızca bir Azure AD Yöneticisi (kullanıcı veya grup) herhangi bir zamanda bir Azure SQL veritabanı sunucusu veya Azure SQL veri ambarı için yapılandırılabilir.
-  - Yönetilen örnek için Azure AD oturum açma bilgileri eklenmesi (**genel Önizleme**) eklenebilir birden çok Azure AD oturum açma oluşturma olanağı tanır `sysadmin` rol.
+  - Yönetilen örnek için Azure AD sunucu sorumlusu (oturum açma bilgileri) eklenmesi (**genel Önizleme**) birden çok Azure eklenebilir AD sunucusu ilkeleri (oturum açma bilgileri) oluşturma olanağı tanır `sysadmin` rol.
 - Yalnızca SQL Server için Azure AD Yöneticisi, başlangıçta Azure SQL veritabanı sunucusu, yönetilen örneği veya Azure Active Directory hesabını kullanarak Azure SQL veri ambarı bağlanabilirsiniz. Active Directory Yöneticisi sonraki Azure AD'yi yapılandırabilirsiniz veritabanı kullanıcılar.   
 - 30 saniye olarak bağlantı zaman aşımı ayarını öneririz.   
 - SQL Server 2016 Management Studio ve Visual Studio 2015 (sürüm 14.0.60311.1April 2016 veya üzeri) için SQL Server veri araçları, Azure Active Directory kimlik doğrulamasını destekler. (Azure AD kimlik doğrulaması tarafından desteklenen **SqlServer için .NET Framework veri sağlayıcısı**; en az .NET Framework 4.6 sürümü). Bu nedenle en son sürümleri bu araçlar ve veri katmanı uygulamaları (DAC ve. BACPAC), Azure AD kimlik doğrulaması kullanabilirsiniz.   
@@ -147,12 +147,12 @@ Azure AD oturum açma bilgileri için aşağıdaki kimlik doğrulama yöntemleri
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Oluşturup Azure AD'ye doldurun ve ardından Azure AD ile Azure SQL veritabanı veya Azure SQL veri ambarı yapılandırma konusunda bilgi almak için bkz: [yapılandırma ve SQL veritabanı, yönetilen örneği veya SQL veri ambarı ile Azure Active Directory kimlik doğrulamasını Yönet ](sql-database-aad-authentication-configure.md).
-- Azure AD oturum açma bilgileri ile yönetilen örnekler kullanarak ilişkin bir öğretici için bkz [Azure AD oturum açma bilgileri ile yönetilen örnekler](sql-database-managed-instance-aad-security-tutorial.md)
+- Azure AD sunucusu (oturum açma bilgileri) ile yönetilen örnekler prensiplerinin ilişkin bir öğretici için bkz [yönetilen örnekleri ile Azure AD sunucu sorumlusu (oturum açma bilgileri)](sql-database-managed-instance-aad-security-tutorial.md)
 - SQL Veritabanında erişim ve denetime genel bakış için bkz. [SQL Veritabanında erişim ve denetim](sql-database-control-access.md).
 - SQL Veritabanındaki oturum açma bilgileri, kullanıcılar ve veritabanı rollerine genel bakış için bkz. [Oturum açma bilgileri, kullanıcılar ve veritabanı rolleri](sql-database-manage-logins.md).
 - Veritabanı sorumluları hakkında daha fazla bilgi için bkz. [Sorumlular](https://msdn.microsoft.com/library/ms181127.aspx).
 - Veritabanı rolleri hakkında daha fazla bilgi için bkz. [Veritabanı rolleri](https://msdn.microsoft.com/library/ms189121.aspx).
-- Yönetilen örnek için Azure AD oturum açma oluşturma sözdizimi için bkz [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Yönetilen örnek için sunucu ilkeleri (oturum açma bilgileri) Azure AD oluşturma sözdizimi için bkz [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - SQL Veritabanındaki güvenlik duvarı kuralları hakkında daha fazla bilgi için bkz. [SQL Veritabanı güvenlik duvarı kuralları](sql-database-firewall-configure.md).
 
 <!--Image references-->

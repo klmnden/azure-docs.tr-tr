@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 83a8a7f927e78f3524128338d874334ebf0b3df1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 77cd485b7ca7f9965a8baf9026b68060067d6ebe
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884010"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453945"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Makine öğrenimi algoritma bilgi sayfasına için Azure Machine Learning Studio
 
-**Azure Machine Learning algoritması kural sayfası** öngörülebilir bir analitik model doğru algoritması seçmenize yardımcı olur.
+**Azure Machine Learning Studio algoritma sayfası hile** öngörülebilir bir analitik model doğru algoritması seçmenize yardımcı olur.
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) algoritmalarından büyük bir kitaplık olan ***regresyon***, ***sınıflandırma***, ***Kümeleme***, ve  ***anomali algılama*** aileleri. Her farklı türde bir makine öğrenme sorunu gidermek için tasarlanmıştır.
 
@@ -27,14 +27,12 @@ ms.locfileid: "55884010"
 
 **Buradaki ipuçlarını indirin: [Machine Learning algoritması kopya sayfası (11 x 17 inç)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
-![Makine öğrenimi algoritma bilgi sayfasına: Makine öğrenimi algoritma seçme hakkında bilgi edinin.][cheat-sheet]
-
-[cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
+![Makine öğrenimi algoritma bilgi sayfasına: Makine öğrenimi algoritma seçme hakkında bilgi edinin.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
 
 İndirin ve Machine Learning Studio algoritması hile kullanışlı korumak ve bir algoritma seçme konusunda yardım almak için tabloid boyutunda yazdırma sayfası.
 
 > [!NOTE]
-> Doğru algoritması yanı sıra, farklı türlerdeki makine öğrenimi algoritmaları ve bunların nasıl kullanıldığı daha ayrıntılı bir tartışma seçmek için bu kural sayfası kullanarak daha fazla yardım için bkz: [Microsoft Azure Machine Learning içinalgoritmaseçme](algorithm-choice.md).
+> Doğru algoritması yanı sıra, farklı türlerdeki makine öğrenimi algoritmaları ve bunların nasıl kullanıldığı daha ayrıntılı bir tartışma seçmek için bu kural sayfası kullanarak daha fazla yardım için bkz: [Microsoft Azure Machine Learning Studio içinalgoritmaseçme](algorithm-choice.md).
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Notlar ve terim tanımları için Machine Learning Studio algoritması kopya sayfası
 
@@ -44,7 +42,7 @@ ms.locfileid: "55884010"
 
 * Machine Learning üç ana kategori vardır: **denetimli öğrenme**, **Denetimsiz öğrenme**, ve **pekiştirmeye dayalı öğrenme**.
 
-  * İçinde **denetimli öğrenme**, her veri noktası etiketlenmiş veya bir kategori veya ilgi alanı değeri ile ilişkili.  Kategorik bir etiket örneği 'cat' veya 'dog' olarak görüntü atanmasıdır.  Satış fiyatı bir araba ile ilişkili bir değer etiketi örneğidir. Bunlar gibi pek çok etiketli örnekleri incelemek için denetimli öğrenme amacı olan ve gelecekteki veri noktaları hakkında tahminde bulunmak için. Örneğin, yeni Fotoğraf doğru donatarak veya diğer kullanılan otomobiller için doğru satış fiyatları atama ile tanımlama. Machine Learning, popüler ve kullanışlı bir türü budur. Öğrenimi algoritmaları hariç tüm modülleri Azure Machine Learning denetimli [K-ortalamaları Kümeleme][k-means-clustering].
+  * İçinde **denetimli öğrenme**, her veri noktası etiketlenmiş veya bir kategori veya ilgi alanı değeri ile ilişkili.  Kategorik bir etiket örneği 'cat' veya 'dog' olarak görüntü atanmasıdır.  Satış fiyatı bir araba ile ilişkili bir değer etiketi örneğidir. Bunlar gibi pek çok etiketli örnekleri incelemek için denetimli öğrenme amacı olan ve gelecekteki veri noktaları hakkında tahminde bulunmak için. Örneğin, yeni Fotoğraf doğru donatarak veya diğer kullanılan otomobiller için doğru satış fiyatları atama ile tanımlama. Machine Learning, popüler ve kullanışlı bir türü budur. Öğrenimi algoritmaları dışında tüm Azure Machine Learning Studio modülleri denetimli [K-ortalamaları Kümeleme][k-means-clustering].
 
   * İçinde **Denetimsiz öğrenme**, veri noktanız olması ilişkili etiket yok. Bunun yerine, Denetimsiz öğrenme algoritmasının bir şekilde verileri düzenleme veya yapısını tanımlamak için hedeftir. K-ortalamaları gibi kümeler halinde gruplandırarak ya da daha basit görünür bir karmaşık verilere baktığımızda, farklı yöntemleri sürekli düzende bulmak anlamına gelebilir.
 

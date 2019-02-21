@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244307"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455067"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Tek bir deneyden Studio modelleri ve web hizmeti uç noktaları oluşturmak için PowerShell kullanma
 
@@ -25,9 +25,9 @@ Bir ortak makine öğrenimi sorunu şu şekildedir: Aynı eğitim iş akışı, 
 
 Bir kez tüm konumlar arasında tüm veri kümelerini birleştirilmiş bir sürümünü kullanarak modelinizi eğitmek. Ancak, konumların her biri benzersiz bir ortamı sahip. Bu nedenle ayrı ayrı her konum için veri kümesini kullanarak, regresyon modeli eğitmek için daha iyi bir yaklaşım olacaktır. Bu şekilde, her eğitilen model dikkate farklı depolama boyutları, birim, Coğrafya, nüfus, bisiklet dostu trafiği ortam ve daha fazla sürebilir.
 
-En iyi yaklaşım olabilir, ancak Azure Machine Learning'de her bir benzersiz bir konumu temsil eden 1.000 eğitim denemeleri oluşturmak istemediğiniz. Her deneme aynı bileşenleri eğitim veri kümesi dışında olacağından zor bir görev olmasının yanı sıra, ayrıca verimsiz hatırlıyorum.
+En iyi yaklaşım olabilir, ancak Azure Machine Learning Studio'da her bir benzersiz bir konumu temsil eden 1.000 eğitim denemeleri oluşturmak istediğiniz yok. Her deneme aynı bileşenleri eğitim veri kümesi dışında olacağından zor bir görev olmasının yanı sıra, ayrıca verimsiz hatırlıyorum.
 
-Neyse ki, bunu kullanarak gerçekleştirebilirsiniz [Azure Machine Learning yeniden eğitme API](retrain-models-programmatically.md) ve görev ile otomatikleştirme [Azure Machine Learning PowerShell](powershell-module.md).
+Neyse ki, bunu kullanarak gerçekleştirebilirsiniz [Azure Machine Learning Studio'da API yeniden eğitme](retrain-models-programmatically.md) ve görev ile otomatikleştirme [Azure Machine Learning Studio PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Örneğinizi daha hızlı çalışır hale getirmek için 1000 konumlardan 10 sayısını azaltın. Ancak aynı ilke ve yordamlar 1.000 konumları için geçerlidir. Ancak, 1.000 veri kümelerinden eğitmek istiyorsanız, paralel olarak aşağıdaki PowerShell komut dosyalarını çalıştırmak isteyebilirsiniz. Bunu nasıl yapacağınız bu makalenin kapsamı dışındadır, ancak PowerShell örneklerini çoklu iş parçacığı Internet'te bulabilirsiniz.  

@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 87360d49892698458a021287d88240d98ba2ee19
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 83d6c430d0973d4b45fcfc40bbb93ae283d1133d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881519"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447591"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Hızlı Başlangıç: Java Speech SDK'sı ile Konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede, [Konuşma Tanıma Hizmeti SDK'sı](speech-sdk.md) kullanarak bir Java konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanlı olarak konuşmayı metne dönüştüreceksiniz. Uygulama konuşma SDK Maven paketini ve Windows 64-bit veya 64-bit Ubuntu Linux 16.04 Eclipse Java IDE (v4.8) ile oluşturulmuş / 18.04. 64 bit Java 8 çalışma zamanı ortamında (JRE) çalışır.
+Bu makalede, [Konuşma SDK'sı](speech-sdk.md) kullanarak bir Java konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanlı olarak konuşmayı metne dönüştüreceksiniz. Uygulama konuşma SDK Maven paketini ve Windows 64-bit veya 64-bit Ubuntu Linux 16.04 Eclipse Java IDE (v4.8) ile oluşturulmuş / 18.04. 64 bit Java 8 çalışma zamanı ortamında (JRE) çalışır.
 
 > [!NOTE]
 > Konuşma Cihazları SDK’sı ve Roobo cihazı için bkz. [Konuşma Cihazları SDK’sı](speech-devices-sdk.md).
@@ -39,7 +39,7 @@ Ubuntu 16.04/18.04 çalıştırıyorsanız, Eclipse başlatmadan önce bu bağı
 
 ```console
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 Windows (64-bit) çalıştırıyorsanız, lütfen Microsoft Visual C++ yeniden dağıtılabilir platformunuz için yüklediğinizden emin olun.

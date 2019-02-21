@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 71990244db859a61885968a502d9849a36d81dce
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425184"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454268"
 ---
 # <a name="web-application-firewall-waf"></a>Web uygulaması güvenlik duvarı (WAF)
 
@@ -133,7 +133,7 @@ Application Gateway WAF, aşağıdaki iki modda çalışacak şekilde yapıland�
 
 ### <a name="application-gateway-waf-reports"></a>WAF İzleme
 
-Uygulama ağ geçidinizin durumunu izlemek önemlidir. Web uygulaması güvenlik duvarınız ile koruduğu uygulamaların durumu Azure İzleyici, Azure Güvenlik Merkezi ve Log Analytics ile günlüğe kaydetme ve tümleştirme işlemleriyle izlenir.
+Uygulama ağ geçidinizin durumunu izlemek önemlidir. Sistem durumu izleme, web uygulaması güvenlik duvarı ile koruduğu uygulamaların günlüğe kaydetme ve Azure Güvenlik Merkezi, Azure İzleyici ile tümleştirmesi aracılığıyla sağlanan ve Azure İzleyici günlüğe kaydeder.
 
 ![tanılama](./media/waf-overview/diagnostics.png)
 
@@ -149,7 +149,7 @@ Her uygulama ağ geçidi günlüğü [Azure İzleyici](../monitoring-and-diagnos
 
 #### <a name="logging"></a>Günlüğe kaydetme
 
-Application Gateway WAF, algıladığı her tehdit için ayrıntılı raporlar sağlar. Günlük kaydı Azure Tanılama günlükleri ile tümleştirilir ve uyarılar json biçiminde kaydedilir. Bu günlükler [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) ile tümleştirilebilir.
+Application Gateway WAF, algıladığı her tehdit için ayrıntılı raporlar sağlar. Günlük kaydı Azure Tanılama günlükleri ile tümleştirilir ve uyarılar json biçiminde kaydedilir. Bu günlükleri ile tümleştirilebilir [Azure İzleyicisi](../azure-monitor/insights/azure-networking-analytics.md).
 
 ![imageURLroute](./media/waf-overview/waf2.png)
 

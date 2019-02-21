@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 59a04ca5a546fff1043e1e157491b218f693d0f0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333993"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443348"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure Iaas diskler için yedekleme ve olağanüstü durum kurtarma
 
@@ -170,7 +170,7 @@ Onarmak ya da bir VM'yi yeniden oluşturmak ihtiyacınız varsa, herhangi bir ka
 
 Daha fazla bilgi için yönergelerine bakın [sanal makineleri geri yükleme için Azure portalını kullanma](../articles/backup/backup-azure-arm-restore-vms.md). Bu belgede, ayrıca yedeklenen sanal makineleri, birincil veri merkezinde olağanüstü bir durum olursa, yedekleme kasanız coğrafi olarak yedekli kullanarak eşleştirilmiş bir veri merkezine geri yüklemek için belirli adımlar açıklanmaktadır. Bu durumda, Azure Backup geri yüklenen sanal makine oluşturmak için ikincil bölgeden işlem hizmetini kullanır.
 
-PowerShell için de kullanabilirsiniz [bir VM geri](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) veya [yeni VM'den oluşturma diskleri geri](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+PowerShell için de kullanabilirsiniz [yeni VM'den oluşturma diskleri geri](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## <a name="alternative-solution-consistent-snapshots"></a>Alternatif çözüm için: Tutarlı anlık görüntüler
 

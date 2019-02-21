@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: 15cbfb9babe38ba6acaf4312735ab839af3f2d99
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 74496cd3d4cd01be326baae870b075eb923983af
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371312"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443285"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Klasik modelden Azure Resource Manager’a geçişle ilgili sık sorulan sorular
 
@@ -49,24 +49,24 @@ Hayır. Yakın zamanda [ExpressRoute devrelerini klasikten Resource Manager dağ
 
 Geçiş sırasında kaynaklar klasikten Resource Manager’a dönüşür. Bu nedenle geçişten sonra gerçekleşmesi gereken RBAC İlkesi güncelleştirmelerini planlamanızı öneririz.
 
-## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Bir kasadaki my Klasik Vm'leri yedekleme yedeklendi. VM’lerimi klasik moddan Resource Manager moduna geçirip bunları bir Kurtarma Hizmetleri kasasında koruyabilir miyim?
+## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Klasik vm'lerimi bir kasada desteklenir. VM’lerimi klasik moddan Resource Manager moduna geçirip bunları bir Kurtarma Hizmetleri kasasında koruyabilir miyim?
 
-<a name="vault">Zaman</a> Klasikten Resource Manager moduna bir VM'yi taşıma, geçiş öncesinde alınan yedeklemeler değil yeni geçirilen Kaynak Yöneticisi'ni VM geçirme. Ancak, Klasik sanal makineleri yedeklerinizi korumak isterseniz, geçişten önce aşağıdaki adımları izleyin. 
+<a name="vault">Zaman</a> VM'yi Klasikten Resource Manager moduna taşıma, geçişten önce alınan yedeklemeler değil yeni geçirilen Resource Manager VM geçiş. Ancak, Klasik VM yedekleri tutmak istiyorsanız, geçiş işleminden önce bu adımları izleyin. 
 
-1. Kurtarma Hizmetleri kasasına gidin **korunan öğeler** sekmesinde ve VM seçin. 
-2. [Korumayı Durdur](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines)’a tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın.
+1. Kurtarma Hizmetleri Kasası'nda Git **korunan öğeler** sekme ve VM'yi seçin. 
+2. Korumayı durdurun tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın.
 
 > [!NOTE]
-> Verileri Tut kadar yedekleme örneği maliyet ücretlendirilir. Yedek kopyaları bekletme aralığına göre ayıklanır. Ancak, son yedek kopya açıkça yedekleme verilerini silene kadar her zaman tutulur. Bekletme aralığı bittikten sonra bekletme aralığını sanal makine ve tetikleyici "Yedekleme verilerini sil" kasadaki korunan öğe üzerinde denetlemek için önerilir. 
+> Verileri Tut kadar yedekleme örnek maliyeti ücretlendirilirsiniz. Yedek kopyaları, bekletme aralığına göre ayıklanır. Bununla birlikte, son yedek kopyasını açıkça yedekleme verilerini silene kadar her zaman tutulur. Bekletme aralığı bittikten sonra bekletme aralığı kasadaki korumalı öğe "Yedekleme verilerini sil" Tetikle ve sanal makine kontrol etmek için önerilir. 
 >
 >
 
-Resource Manager moduna sanal makineyi geçirmek için 
+Sanal makineyi Resource Manager moduna geçirmek için 
 
 1. Yedekleme/anlık görüntü uzantısını VM'den silin.
 2. Sanal makineyi, klasik moddan Resource Manager moduna geçirin. Sanal makineye karşılık gelen depolama ve ağ bilgilerinin de Resource Manager moduna geçirildiğinden emin olun.
 
-Ayrıca, geçirilen VM'yi yedeklemek istiyorsanız, sanal makine yönetim dikey penceresine gidin [yedeklemeyi etkinleştirme](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
+Ayrıca, geçirilen sanal makineyi yedeklemek istiyorsanız sanal makine yönetim dikey penceresine gidin [yedeklemeyi etkinleştirme](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Geçişe uygun olup olmadıklarını görmek için aboneliğimi ya da kaynaklarımı doğrulayabilir miyim? 
 
@@ -88,6 +88,6 @@ Klasik dağıtım modelinde adlarını özellikle belirttiğiniz tüm kaynaklar 
 
 Çapraz abonelik yetkilendirme bağlantılar kullanan ExpressRoute devreleri kapalı kalma süresi olmadan otomatik olarak geçirilemez. Bunları elle nasıl geçirebileceğiniz hakkında yönergelerimiz vardır. Adımlar ve daha fazla bilgi için bkz. [ExpressRoute devrelerini ve ilgili sanal ağları klasikten Resource Manager dağıtım modeline geçirme](../articles/expressroute/expressroute-migration-classic-resource-manager.md).
 
-## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>İleti aldı *"VM genel aracı durumu raporlama hazır olarak değil. Bu nedenle VM geçirilemiyor. VM Aracısı hazır olarak genel aracı durumu raporlama emin olun"* veya *"VM uzantısı durumu bildirilmedi sanal makineden içerir. Bu nedenle, bu VM geçirilemez."*
+## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>İletiyi aldım *"VM raporlama genel aracı durumunu hazır olarak değil. Bu nedenle VM geçirilemiyor. VM aracısının genel aracı durumunu hazır olarak bildirdiğinden emin olun"* veya *"VM uzantısı durumu bildirilmeyen VM'den içeriyor. Bu nedenle, bu VM geçirilemez."*
 
 Bu ileti, VM’nin giden İnternet bağlantısı olmadığında alınır. VM aracısı, aracı durumunu güncelleştirmek için, giden bağlantı üzerinden her beş dakikada bir Azure depolama hesabına erişir.

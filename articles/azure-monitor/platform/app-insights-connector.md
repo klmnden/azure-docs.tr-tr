@@ -11,21 +11,27 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 3013d8997660df95fb12c8b18c1120f726eead04
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8b1504961254fefcaafc22008b4cc5adaf77e9c4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216029"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447880"
 ---
-# <a name="application-insights-connector-management-solution-preview"></a>Application Insights Bağlayıcısı yönetim çözümü (Önizleme)
+# <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights Bağlayıcısı yönetim çözümü (kullanım dışı)
 
 ![Application Insights simgesi](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Desteğiyle [kaynaklar arası sorgular](../../azure-monitor/log-query/cross-workspace-query.md) ve [birden çok Azure İzleyici Application Insights kaynaklarını görüntüleme](../log-query/unify-app-resource-data.md), Application Insights Bağlayıcısı yönetim çözümü gerekli olmaz. Application Insights Bağlayıcısı kullanım dışı ve resmi olarak 15 Ocak 2019 üzerinde Azure ABD kamu Bulutu ve Azure ticari bulutundaki için devre dışı bırakma OMS portalı kullanımdan kaldırma ile birlikte Azure Marketi'nden kaldırıldı, resmi olarak Mart'ta Çekildi 30, 2019. Varolan bağlantılar 30 Haziran 2019 kadar çalışmaya devam eder. OMS portalı kullanımdan kaldırma ile yapılandırmak ve mevcut bağlantıları Portalı'ndan kaldırmak için hiçbir yolu yoktur. Bu Ocak 2019 içinde kullanılabilir hale getirilir REST API'sini kullanarak desteklenmeyecek ve bildirim tarihinde gönderildi [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/). Daha fazla bilgi için [Azure'a taşıyarak OMS portalında](../../azure-monitor/platform/oms-portal-transition.md).
+> Desteğiyle [kaynaklar arası sorgular](../../azure-monitor/log-query/cross-workspace-query.md), Application Insights Bağlayıcısı yönetim çözümü artık gerekli değildir. Bu olduğundan kullanım dışı ve 15 Ocak 2019 için Azure ticari bulutundaki resmi olarak kullanım dışı bırakılmış OMS portalında yanı sıra Azure Marketi'nde kaldırıldı. Azure ABD kamu bulutu için 30 Mart 2019 üzerinde bırakılacaktır.
+>
+>Varolan bağlantılar 30 Haziran 2019 kadar çalışmaya devam eder.  OMS portalı kullanımdan kaldırma ile yapılandırmak ve mevcut bağlantıları Portalı'ndan kaldırmak için hiçbir yolu yoktur. Bkz [PowerShell ile bağlayıcının çıkarılması](#removing-the-connector-with-powershell) aşağıda mevcut bağlantıları kaldırmak için PowerShell kullanma hakkında bir komut dosyası.
+>
+>Application Insights'ı sorgulama hakkında rehberlik için birden fazla uygulama için verileri günlüğe kaydetmek için bkz: [birden çok Azure İzleyici Application Insights kaynaklarını birleştirin](../log-query/unify-app-resource-data.md). OMS portalı kullanımdan kaldırma hakkında daha fazla bilgi için bkz. [Azure'a taşıyarak OMS portalında](../../azure-monitor/platform/oms-portal-transition.md).
+>
+> 
 
 Uygulama öngörüleri Bağlayıcısı çözümü performans sorunlarını tanılayın ve ile izlenen kullanıcıların uygulamanızla ne yaptığını anlamanıza yardımcı olur. [Application Insights](../../azure-monitor/app/app-insights-overview.md). Log Analytics'te Application Insights'ta geliştiricilerin gördüğü aynı uygulama telemetrisini görünümlerini kullanılabilir. Ancak, Application Insights uygulamalarınızı Log Analytics ile tümleştirdiğinizde, uygulamalarınızın görünürlüğünü işlemi ve uygulama verilerini tek bir yerde sağlayarak artar. Aynı görünümleri olan, uygulama geliştiricilere işbirliği yapmasına yardımcı olur. Sık kullanılan görünümler, algılamak ve hem uygulama hem de platformu sorunları çözmek için gereken süreyi azaltmaya yardımcı olabilir.
 
@@ -262,6 +268,57 @@ Bir kayıt bir *türü* , *Applicationınsights* her giriş veri türü için ol
 ## <a name="sample-log-searches"></a>Örnek günlük aramaları
 
 Bu çözüm panosunda gösterilen örnek günlük aramaları kümesi yok. Örnek günlük arama sorguları açıklamalarıyla birlikte ancak gösterilir [görünüm Application Insights Bağlayıcısı bilgi](#view-application-insights-connector-information) bölümü.
+
+## <a name="removing-the-connector-with-powershell"></a>PowerShell ile bir bağlayıcı kaldırılıyor
+OMS portalı kullanımdan kaldırma ile yapılandırmak ve mevcut bağlantıları Portalı'ndan kaldırmak için hiçbir yolu yoktur. Var olan bağlantıları aşağıdaki PowerShell Betiği ile kaldırabilirsiniz. Sahip veya bu işlemi gerçekleştirmek için çalışma alanının katkıda bulunan ve okuyucu Application Insights kaynağına ait olmalıdır.
+
+```PowerShell
+$Subscription_app = "App Subscription Name"
+$ResourceGroup_app = "App ResourceGroup"
+$Application = "Application Name"
+$Subscription_workspace = "Workspace Subscription Name"
+$ResourceGroup_workspace = "Workspace ResourceGroup"
+$Workspace = "Workspace Name"
+
+Connect-AzureRmAccount
+Set-AzureRmContext -SubscriptionId $Subscription_app
+$AIApp = Get-AzureRmApplicationInsights -ResourceGroupName $ResourceGroup_app -Name $Application 
+Set-AzureRmContext -SubscriptionId $Subscription_workspace
+Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
+```
+
+REST API çağrısı çağıran aşağıdaki PowerShell betiğini kullanarak uygulamaların bir listesini alabilirsiniz. 
+
+```PowerShell
+Connect-AzureRmAccount
+$Tenant = "TenantId"
+$Subscription_workspace = "Workspace Subscription Name"
+$ResourceGroup_workspace = "Workspace ResourceGroup"
+$Workspace = "Workspace Name"
+$AccessToken = "AAD Authentication Token" 
+
+Set-AzureRmContext -SubscriptionId $Subscription_workspace
+$LAWorkspace = Get-AzureRmOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup_workspace -Name $Workspace
+
+$Headers = @{
+    "Authorization" = "Bearer $($AccessToken)"
+    "x-ms-client-tenant-id" = $Tenant
+}
+
+$Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
+$ConnectionsJson = $Connections | ConvertTo-Json
+```
+Bu betik, Azure Active Directory kimlik doğrulaması için bir taşıyıcı kimlik doğrulaması belirteci gerektirir. Bu belirteci almak için bir yol kullanarak bir makaledeki [REST API belgeleri site](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Tıklayın **deneyin** ve Azure aboneliğinizde oturum açın. Taşıyıcı belirtecinden kopyalayabilirsiniz **istek Önizleme** aşağıdaki görüntüde gösterildiği gibi.
+
+
+![Taşıyıcı belirteç](media/app-insights-connector/bearer-token.png)
+
+
+Ayrıca, günlük sorgusu uygulamaların kullanım listesini alabilirsiniz:
+
+```Kusto
+ApplicationInsights | summarize by ApplicationName
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

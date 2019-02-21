@@ -1,5 +1,5 @@
 ---
-title: Azure sanal makinelere RDP bağlantısı iç bir hata meydana | Microsoft Docs
+title: Azure sanal makinelere RDP bağlantısı yaptığınızda bir iç hata oluşur. | Microsoft Docs
 description: Microsoft azure'da iç hatalar RDP sorunlarını gidermeyi öğrenin. | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dd75d5a3186bbb6ba82e2deb83a7e8429e32a3f2
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 4476e4732dfcf8d79c9678a7ff4719eba10e48f3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134532"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445790"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Uzak Masaüstü aracılığıyla Azure VM'ye bağlanmaya çalışırken bir iç hata oluşur.
 
 Bu makalede, Microsoft azure'da bir sanal makineye (VM) bağlanmaya çalışırken karşılaşabileceğiniz hata açıklanır.
 > [!NOTE]
-> Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Bu makale, Klasik dağıtım modeli yerine yeni dağıtımlar için kullanmanızı öneririz Resource Manager dağıtım modelini kullanarak kapsar.
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Bu makale, Klasik dağıtım modeli yerine yeni dağıtımlar için kullanmanızı öneririz Resource Manager dağıtım modelini kullanarak kapsar.
 
 ## <a name="symptoms"></a>Belirtiler
 
@@ -55,7 +55,7 @@ Bu sorunu gidermek için seri konsolu veya [çevrimdışı VM'yi onarın](#repai
 Bağlanma [seri konsol ve PowerShell örneği](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Seri konsol sanal makinenizde etkin değilse, Git [çevrimdışı VM'yi onarın](#repair-the-vm-offline) bölümü.
 
-#### <a name="step-1-check-the-rdp-port"></a>Adım: 1 RDP bağlantı noktası kontrol edin.
+#### <a name="step-1-check-the-rdp-port"></a>Adım: RDP bağlantı noktası 1 denetleyin
 
 1. Bir PowerShell örneği içinde kullanmak [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) 8080 bağlantı noktası başka bir uygulama tarafından kullanılıp kullanılmadığını kontrol etmek için:
@@ -65,31 +65,39 @@ Bağlanma [seri konsol ve PowerShell örneği](./serial-console-windows.md#use-c
 
     1. 3389 hizmetini kullanan uygulama için hizmeti durdurun:
 
-        Stop-Service - adı <ServiceName>
+            Stop-Service -Name <ServiceName> -Force
 
     2. Terminal hizmetini başlatın:
 
-        Start-Service - Termservice adı
+            Start-Service -Name Termservice
 
 2. Uygulama durdurulamaz ya da bu yöntem için geçerli değilse, bağlantı noktası için RDP değiştirin:
 
     1. Bağlantı noktasını değiştirin:
 
-        Set-Itemproperty-yolu 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP Tcp'-PortNumber ad-değer <Hexportnumber>
+            Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
 
-        Stop-Service - ad Termservice Başlat-hizmeti-adı Termservice
+            Stop-Service -Name Termservice -Force
+            
+            Start-Service -Name Termservice 
 
     2. Yeni bağlantı noktası için Güvenlik Duvarı'nı ayarlayın:
 
-        Set-NetFirewallRule-"adı RemoteDesktop-kullanıcı modu-de-TCP" - LocalPort < yeni bağlantı noktası (ondalık) >
+            Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
 
     3. [Yeni bağlantı noktası için ağ güvenlik grubu güncelleştirme](../../virtual-network/security-overview.md) Azure portal RDP bağlantı noktası.
 
-#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>2. adım: doğru izinleri RDP otomatik olarak imzalanan sertifikayı ayarlayın.
+#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>2. Adım: RDP otomatik olarak imzalanan sertifikayı doğru izinleri ayarlayın
 
 1.  Bir PowerShell örneği, RDP otomatik olarak imzalanan sertifikayı yenilemek için aşağıdaki komutları tek tek çalıştırın:
 
-        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint
+        Import-Module PKI 
+    
+        Set-Location Cert:\LocalMachine 
+        
+        $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) 
+        
+        Remove-Item -Path $RdpCertThumbprint
 
         Stop-Service -Name "SessionEnv"
 
@@ -112,7 +120,9 @@ Bağlanma [seri konsol ve PowerShell örneği](./serial-console-windows.md#use-c
 
         md c:\temp
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt 
+        
+        takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
@@ -120,11 +130,13 @@ Bağlanma [seri konsol ve PowerShell örneği](./serial-console-windows.md#use-c
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt Restart-Service TermService -Force
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt 
+        
+        Restart-Service TermService -Force
 
 4. VM'yi yeniden başlatın ve sonra Başlangıç VM'ye Uzak Masaüstü Bağlantısı'ı deneyin. Hata yine oluşursa, sonraki adıma gidin.
 
-3. adım: tüm desteklenen TLS sürümlerini etkinleştir
+3. Adım: Desteklenen tüm TLS sürümlerini etkinleştir
 
 RDP istemcisi varsayılan protokol TLS 1.0 kullanır. Ancak, bu yeni bir standart haline gelmiştir TLS 1.1 olarak değiştirilebilir. VM'de TLS 1.1 devre dışı bırakılırsa, bağlantı başarısız olur.
 1.  CMD örneğinde, TLS protokolü etkinleştirin:
@@ -161,7 +173,7 @@ Döküm günlük ve seri konsol etkinleştirmek için aşağıdaki betiği çal�
 
     Bu betikte ekli işletim sistemi diski için atanan sürücü harfini f Değiştir VM'niz için uygun değeri bu sürücü harfiyle olduğunu varsayıyoruz.
 
-    ```powershell
+    ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
     REM Enable Serial Console
@@ -191,6 +203,7 @@ Döküm günlük ve seri konsol etkinleştirmek için aşağıdaki betiği çal�
         Md F:\temp
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt
+        
         takeown /f "F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dc6407a222adb06f4139d9973c168911e0faca8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429681"
+ms.locfileid: "56447795"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -215,7 +215,9 @@ Bir koşulu değerlendirir olup olmadığını bir **alan** veya **değer** eri�
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -227,7 +229,8 @@ Bir koşulu değerlendirir olup olmadığını bir **alan** veya **değer** eri�
 Kullanırken **gibi** ve **notLike** koşullar, sağladığınız bir joker karakter `*` değerindeki değişikliği belirtir.
 Birden fazla joker karakter değeri olmamalıdır `*`.
 
-Kullanırken **eşleşen** ve **notMatch** koşulları sağlayan `#` bir rakam, eşleştirilecek `?` bir harfi için `.` tüm karakterleri ve aynı diğer herhangi bir karakterle eşleştirmek için Bu gerçek bir karakter. Örnekler için bkz [birkaç adı desenlerinin izin](../samples/allow-multiple-name-patterns.md).
+Kullanırken **eşleşen** ve **notMatch** koşulları sağlayan `#` bir rakam, eşleştirilecek `?` bir harfi için `.` tüm karakterleri ve aynı diğer herhangi bir karakterle eşleştirmek için Bu gerçek bir karakter.
+**eşleşen** ve **notMatch** büyük küçük harfe duyarlıdır. Büyük küçük harf duyarsız alternatifleri kullanılabilir **matchInsensitively** ve **notMatchInsensitively**. Örnekler için bkz [birkaç adı desenlerinin izin](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Alanlar
 

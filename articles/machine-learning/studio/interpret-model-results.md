@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0940cb9e42588990e2109d02fda462f343443876
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997014"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456087"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da model sonuçlarını yorumlama
 Bu konuda, görselleştirin ve Azure Machine Learning Studio'da tahmin sonuçlarını yorumlama açıklanmaktadır. Bir modeli eğitilir ve Öngörüler, ("modeli puanlanmış") üzerinde yapılan sonra anlamak ve yorumlamak tahmin sonuç gerekir.
 
 
 
-Makine öğrenimi modellerini Azure Machine Learning, dört ana türü vardır:
+Makine öğrenimi modellerini Azure Machine Learning Studio'da dört ana türü vardır:
 
 * Sınıflandırma
 * Kümeleme
@@ -35,11 +35,11 @@ Bu modellerin üzerinde tahmin için kullanılan modüller şunlardır:
 * [Kümeye atamak] [ assign-to-clusters] kümeleme Modülü
 * [Matchbox öneren puan] [ score-matchbox-recommender] öneri sistemleri
 
-Bu belgede, bu modüllerin her biri için tahmin sonuçlarını yorumlama açıklanmaktadır. Bu modüller genel bakış için bkz. [Azure Machine Learning algoritmalarınızı iyileştirmek için parametreleri seçme](algorithm-parameters-optimize.md).
+Bu belgede, bu modüllerin her biri için tahmin sonuçlarını yorumlama açıklanmaktadır. Bu modüller genel bakış için bkz. [algoritmalarınızı Azure Machine Learning Studio'da iyileştirmek için parametreleri seçme](algorithm-parameters-optimize.md).
 
-Bu konuda, tahmin yorumu ancak değil model değerlendirme yöneliktir. Modelinizi değerlendirilecek hakkında daha fazla bilgi için bkz. [Azure Machine learning'de model performansını değerlendirme nasıl](evaluate-model-performance.md).
+Bu konuda, tahmin yorumu ancak değil model değerlendirme yöneliktir. Modelinizi değerlendirilecek hakkında daha fazla bilgi için bkz. [Azure Machine Learning Studio'da model performansını değerlendirme nasıl](evaluate-model-performance.md).
 
-Azure Machine Learning ile yeni kullanmaya başladıysanız ve başlamak için görmek için basit bir deneme oluşturma yardıma ihtiyacınız varsa [Azure Machine Learning Studio'da basit bir deneme oluşturma](create-experiment.md) Azure Machine Learning Studio'da.
+Azure Machine Learning Studio'da yeni kullanmaya başladıysanız ve başlamak için görmek için basit bir deneme oluşturma yardıma ihtiyacınız varsa [Azure Machine Learning Studio'da basit bir deneme oluşturma](create-experiment.md) Azure Machine Learning Studio'da.
 
 ## <a name="classification"></a>Sınıflandırma
 İki alt kategorileri sınıflandırma sorunları vardır:
@@ -47,12 +47,12 @@ Azure Machine Learning ile yeni kullanmaya başladıysanız ve başlamak için g
 * Yalnızca iki sınıf (iki sınıflı veya ikili sınıflandırma) ile ilgili sorunlar
 * İkiden fazla sınıfları (çok sınıflı sınıflandırma) ile ilgili sorunlar
 
-Azure Machine Learning için sınıflandırma türlerinin her biriyle dağıtılacak farklı modülleri olsa da, kendi tahmin sonuçları yorumlayarak destek sağlama yöntemleri benzerdir.
+Azure Machine Learning Studio için sınıflandırma türlerinin her biriyle dağıtılacak farklı modülleri olsa da, kendi tahmin sonuçları yorumlayarak destek sağlama yöntemleri benzerdir.
 
 ### <a name="two-class-classification"></a>İki sınıflı sınıflandırma
 **Örnek deneme**
 
-Iris çiçek sınıflandırma iki sınıflı sınıflandırma problemi örneğidir. Iris çiçek kendi özelliklere göre sınıflandırmak için bir görevdir. Azure Machine Learning'de sağlanan kullanarak Iris veri kümesini popüler alt kümesidir [Iris veri kümesini](http://en.wikipedia.org/wiki/Iris_flower_data_set) iki türler (sınıflar 0 ve 1) çiçek yalnızca örneklerini içeren. Her çiçek (sepal uzunluğu, sepal genişliği, petal uzunluğu ve petal genişliği) için dört özellikler mevcuttur.
+Iris çiçek sınıflandırma iki sınıflı sınıflandırma problemi örneğidir. Iris çiçek kendi özelliklere göre sınıflandırmak için bir görevdir. Azure Machine Learning Studio'da sağlanan kullanarak Iris veri kümesini popüler alt kümesidir [Iris veri kümesini](http://en.wikipedia.org/wiki/Iris_flower_data_set) iki türler (sınıflar 0 ve 1) çiçek yalnızca örneklerini içeren. Her çiçek (sepal uzunluğu, sepal genişliği, petal uzunluğu ve petal genişliği) için dört özellikler mevcuttur.
 
 ![Iris deneme ekran görüntüsü](./media/interpret-model-results/1.png)
 
@@ -226,7 +226,7 @@ Sonra web hizmetini çalıştırma döndürülen sonuç şekil 19 gibi görünü
 * Müşteri özellik verileri
 * Restoran özelliği verileri
 
-Biz ile yapabilir birkaç şey vardır [eğitme Matchbox öneren] [ train-matchbox-recommender] Azure Machine learning'de Modülü:
+Biz ile yapabilir birkaç şey vardır [eğitme Matchbox öneren] [ train-matchbox-recommender] Azure Machine Learning Studio'da Modülü:
 
 * Verilen kullanıcı ve öğe dereceleri tahmin edin
 * Belirli bir kullanıcıya öğeleri önerin
@@ -237,7 +237,7 @@ Dört seçeneklerinde seçerek yapmasını istediğinizi seçebilirsiniz **öner
 
 ![Matchbox öneren](./media/interpret-model-results/19_1.png)
 
-Tipik bir Azure Machine Learning denemesi öneren sistemi Şekil 20 gibi görünüyor. Bu öneren sistem modüllerini kullanma hakkında daha fazla bilgi için bkz: [eğitme matchbox öneren] [ train-matchbox-recommender] ve [puanı matchbox öneren] [ score-matchbox-recommender].
+Tipik bir Azure Machine Learning Studio denemesine öneren sistemi için Şekil 20 gibi görünüyor. Bu öneren sistem modüllerini kullanma hakkında daha fazla bilgi için bkz: [eğitme matchbox öneren] [ train-matchbox-recommender] ve [puanı matchbox öneren] [ score-matchbox-recommender].
 
 ![Öneren sistem deneme](./media/interpret-model-results/20.png)
 

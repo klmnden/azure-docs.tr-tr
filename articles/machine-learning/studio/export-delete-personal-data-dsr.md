@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 096f310b7c82718ea836d1b2048ca665a1e1e2f4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 49f045e8da5094f583c01c514bf92f6bf3fe1c09
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994968"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453377"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Dışarı aktarma ve Azure Machine Learning Studio'dan ürün içi kullanıcı verilerini sil
 
@@ -70,8 +70,8 @@ Kullanıcılar, kendi tüm çalışma alanını silebilirsiniz:
 ![Machine Learning Studio'da ücretsiz çalışma alanını silme](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-data-with-powershell"></a>PowerShell ile Studio verileri dışarı aktarma
-Tüm bilgiler, Azure Machine Learning komutları kullanarak Studio'dan taşınabilir bir biçime dışarı aktarmak için PowerShell kullanın. Bilgi için [Azure Machine Learning için PowerShell Modülü](powershell-module.md) makalesi.
+Tüm bilgiler, Azure Machine Learning komutları kullanarak Studio'dan taşınabilir bir biçime dışarı aktarmak için PowerShell kullanın. Bilgi için [Azure Machine Learning Studio için PowerShell Modülü](powershell-module.md) makalesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Web Hizmetleri ve faturalama Taahhütlü bir plana kapsayan belgeler için bkz: [Azure Machine Learning REST API Başvurusu](https://docs.microsoft.com/rest/api/machinelearning/). 
+Web Hizmetleri ve faturalama Taahhütlü bir plana kapsayan belgeler için bkz: [Azure Machine Learning Studio REST API Başvurusu](https://docs.microsoft.com/rest/api/machinelearning/). 

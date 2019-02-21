@@ -1,28 +1,28 @@
 ---
 title: 'Hızlı Başlangıç: JavaScript (tarayıcı) - konuşma Hizmetleri konuşma tanıma'
 titleSuffix: Azure Cognitive Services
-description: Konuşma Tanıma Hizmeti SDK’sını kullanarak tarayıcıda JavaScript’te konuşma tanımayı öğrenme
+description: Konuşma SDK'sını kullanarak bir tarayıcıda JavaScript dilinde Konuşma tanımayı öğrenmesine
 services: cognitive-services
 author: fmegen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: d51624e5ae4d0e1052b562cd9142238828614597
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8e1f880c57b0db0a2f68fbe26e99679769fdee6c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872195"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448050"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma hizmeti SDK'sını kullanarak bir tarayıcıda JavaScript dilinde konuşma tanıma
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak bir tarayıcıda JavaScript dilinde konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Bu makalede, konuşmayı metne dönüştürmek için Bilişsel Hizmetler Konuşma SDK’sının JavaScript bağlamasını kullanarak bir web sitesi oluşturmayı öğreneceksiniz.
-Uygulama üzerindeki Microsoft Bilişsel hizmetler konuşma SDK bağlıdır ([indirme sürümü 1.2.0](https://aka.ms/csspeech/jsbrowserpackage)).
+Uygulama üzerindeki Microsoft Bilişsel hizmetler konuşma SDK bağlıdır ([indirme sürümü 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Önkoşullar
 

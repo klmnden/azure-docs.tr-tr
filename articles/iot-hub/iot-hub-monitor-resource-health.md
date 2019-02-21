@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: kgremban
-ms.openlocfilehash: 8c575c6d34543cbd8f692c64b43cf738b4c22617
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 86e690e5ff437d924b9c548c2d75afb1866b14aa
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415638"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446792"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın
 
@@ -340,7 +340,7 @@ IOT Hub, IOT Hub geçerli izleme özelliklerini içeren bir ileti geldiğinde, b
 }
 ```
 
-Burada, `durationMs` hesaplanmaz IOT Hub'ın saati cihaz saatiyle eşitlenmiş olmayabilir ve bu nedenle süresi hesaplaması yanıltıcı olabilir. Yazma mantığı kullanarak öneririz veritabanındaki tarih damgası `properties` CİHAZDAN buluta gecikme ani değişiklikleri yakalamak için bölüm.
+Burada, `durationMs` hesaplanmaz IOT Hub'ın saati cihaz saatiyle eşitlenmiş olmayabilir ve bu nedenle süresi hesaplaması yanıltıcı olabilir. Veritabanındaki tarih damgası kullanarak mantığı yazmak öneririz `properties` CİHAZDAN buluta gecikme ani değişiklikleri yakalamak için bölüm.
 
 | Özellik | Tür | Açıklama |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|

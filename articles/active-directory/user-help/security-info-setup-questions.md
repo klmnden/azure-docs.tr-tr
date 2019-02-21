@@ -1,6 +1,6 @@
 ---
-title: Güvenlik bilgileri ' güvenlik soruları - Azure Active Directory kullanacak şekilde | Microsoft Docs
-description: Önceden tanımlı güvenlik soruları kullanarak kimliğinizi doğrulamak için güvenlik bilgilerinizi ayarlayın.
+title: Güvenlik bilgileri (Önizleme) - Azure Active Directory güvenlik sorunuzu kullanacak şekilde | Microsoft Docs
+description: Güvenlik bilgilerinizi kullanarak kimlik doğrulamak için ayarlama güvenlik sorularını önceden tanımlanmış.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,44 +9,69 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab3817411c1285f2ca7c8aa294f90314e3545504
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b0fd2cd0250e3b3074e5632f30c8dbcc8db41e6e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203497"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455033"
 ---
-# <a name="set-up-security-info-to-use-pre-defined-security-questions-preview"></a>Önceden tanımlı güvenlik soruları (Önizleme) kullanmak için güvenlik bilgileri ' ayarlayın
+# <a name="set-up-security-info-preview-to-use-security-questions"></a>Güvenlik sorularını kullanmak için güvenlik bilgileri (Önizleme) ayarlama
+Yöntemi, parolanızı sıfırlayamıyoruz eklemek için aşağıdaki adımları izleyebilirsiniz. Bu ilk kez ayarladıktan sonra dönebilirsiniz **güvenlik bilgisi** sayfasına ekleme, güncelleştirme veya güvenlik bilgilerinizi silin.
+
+Ayarladıktan sonra parolanızı sıfırlayamıyoruz yöntemi, ayrıca, iki Faktörlü doğrulama yöntemi ayarladığını ayarlamanız gerekir kullanarak bir [authenticator uygulamasını](security-info-setup-auth-app.md), [metin Mesajlaşma](security-info-setup-text-msg.md), veya bir [telefon araması](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Güvenlik bilgilerinizi ayarlamak için iş veya Okul hesabınızda oturum açın ve ardından kayıt işlemini tamamlamak gerekir. Güvenlik bilgilerinizi daha önce oluşturmadıysanız, artık yapmanız istenir.
+## <a name="set-up-your-security-questions-from-the-security-info-page"></a>Güvenlik sorularınızı güvenlik bilgileri sayfasından ayarlama
+Kuruluşunuzun ayarlara bağlı olarak seçin ve, güvenlik bilgisi yöntemlerinden biri olarak birkaç güvenlik soruları yanıtlamak mümkün olabilir. Yöneticiniz seçin ve yanıtlamak için gereken güvenlik sorusu sayısını ayarlar.
 
-## <a name="set-up-security-questions"></a>Güvenlik sorularını ayarlama
-
-Kuruluşunuzun ayarlara bağlı olarak, oturum açtığınızda, güvenlik bilgilerinizi güvenlik soruları Ekle istenebilir. Aksi takdirde, güvenlik bilgileri güvenlik sorularını ayarlama başlamak için adımları izleyin. [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md).
-
-Güvenlik sorularını kullanıyorsanız, bunları başka bir yöntem ile birlikte kullanmanızı öneririz. Bazı kişiler, başka bir kişinin soruların yanıtlarını biliyor olabilirsiniz güvenlik sorularını diğer yöntemlerinden daha az güvenli olabilir.
+Güvenlik sorularını kullanıyorsanız, bunları başka bir yöntem ile birlikte kullanmanızı öneririz. Bazı kişiler sorularınızın yanıtlarını biliyor olabilirsiniz güvenlik sorularını diğer yöntemlerinden daha az güvenli olabilir.
 
 >[!Note]
->Güvenlik sorularını dizindeki kullanıcı nesnesinin üzerinde özel ve güvenli bir şekilde depolanır ve yalnızca sizin tarafınızdan kayıt sırasında yanıtlanması. Okuma veya soru veya yanıt değiştirmek için yöneticinize bir yolu yoktur.<br>Güvenlik soruları seçeneğini görmüyorsanız, kuruluşunuzun, doğrulama için güvenlik sorularını kullan izin vermez mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.
+>Güvenlik sorularını dizindeki kullanıcı nesnesinin üzerinde özel ve güvenli bir şekilde depolanır ve yalnızca sizin tarafınızdan kayıt sırasında yanıtlanması. Okuma veya soru veya yanıt değiştirmek için yöneticinize bir yolu yoktur.
 
-### <a name="to-choose-and-answer-your-security-questions"></a>Seçin ve güvenlik sorularınızı yanıtlayın
+>Güvenlik soruları seçeneğini görmüyorsanız, kuruluşunuzun, doğrulama için güvenlik sorularını kullan izin vermez mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.
 
-1. Seçin **güvenlik sorularını**, istediğiniz yanıtlamak için hangi güvenlik sorularını seçin. 
+### <a name="to-set-up-your-security-questions"></a>Güvenlik sorularınızı ayarlamak için
 
-    Güvenlik sorusu seçmek zorunda yöneticiniz tarafından belirlenir.
+1. İş veya Okul hesabınızda oturum açın ve ardından Git kullanarak https://myprofile.microsoft.com/ sayfası.
 
-    ![Güvenlik bilgileri sayfasında, güvenlik sorularınızı çekme](media/security-info/security-info-keep-secure-setup-pick-questions.png)
+    ![Vurgulanan güvenlik bilgisi bağlantıları gösteren profili sayfam](media/security-info/securityinfo-myprofile.png)
 
-2. Seçili sorularınızın yanıtları sağlayın ve ardından **Bitti**.
+2. Seçin **güvenlik bilgisi** sol gezinti bölmesinden ya da bağlantıyı **güvenlik bilgisi** engelleyebilir ve ardından **yöntemi ekleyin** gelen **güvenlik bilgisi**  sayfası.
 
-## <a name="additional-security-info-options"></a>Ek güvenlik bilgisi seçenekleri
+    ![Güvenlik bilgileri sayfasını vurgulanan Ekle yöntemi seçeneği](media/security-info/securityinfo-myprofile-addmethod.png)
 
-Nasıl kuruluş kişilerinizi, olduğuna göre kimliğinizi doğrulamak için yapmak çalıştığınız için seçeneğiniz vardır. Seçeneklere şunlar dahildir:
+3. Üzerinde **bir yöntem ekleyin** sayfasında **güvenlik sorularını** seçin ve açılır listede **Ekle**.
+
+    ![Yöntemi kutusunda, seçili güvenlik soruları Ekle](media/security-info/securityinfo-myprofile-addquestions.png)
+
+4. Üzerinde **güvenlik sorularını** sayfasında, seçin ve güvenlik sorularınızı yanıtlayın ve ardından **Kaydet**.
+
+    ![Telefon numarası ekleyin ve telefon aramaları seçin](media/security-info/securityinfo-myprofile-securityquestions.png)
+
+    Güvenlik bilgileriniz güncelleştirildi ve güvenlik sorularınızı parola sıfırlaması kullanırken, kimliğinizi doğrulamak için kullanabilirsiniz.
+
+## <a name="delete-security-questions-from-your-security-info-methods"></a>Güvenlik sorularını güvenlik bilgisi yöntemlerinizi Sil
+Artık bir güvenlik bilgisi yöntemi olarak güvenlik sorularını kullanmak istiyorsanız, bunları kaldırabilirsiniz **güvenlik bilgisi** sayfası.
+
+>[!Important]
+>Güvenlik sorularınızı yanlışlıkla silerseniz, geri almak için hiçbir yolu yoktur. Yöntem yeniden eklemek aşağıdaki adımları gerekir [, güvenlik sorularını](#set-up-your-security-questions-from-the-security-info-page) bu makalenin.
+
+### <a name="to-delete-your-security-questions"></a>Güvenlik sorularınızı silmek için
+
+1. Üzerinde **güvenlik bilgisi** sayfasında **Sil** yanındaki bağlantı **güvenlik sorularını** seçeneği.
+
+    ![Güvenlik bilgisi telefon yöntemi silmek için bağlantı](media/security-info/securityinfo-myprofile-questionsdelete.png)
+
+2. Seçin **Evet** silmek için onay kutusundan, **güvenlik sorularını**. Güvenlik sorularınızı silinir, yöntem güvenlik bilgilerinizden kaldırılır ve bu kaybolur sonra **güvenlik bilgisi** sayfası.
+
+## <a name="additional-security-info-methods"></a>Ek güvenlik bilgileri yöntemi
+Nasıl kuruluş kişilerinizi, olduğuna göre kimliğinizi doğrulamak için yapmak çalıştığınız için ek bir seçeneğiniz vardır. Seçeneklere şunlar dahildir:
 
 - **Authenticator uygulaması.** İndirin ve iki aşamalı doğrulama veya parola sıfırlama için bir onay bildirimi ya da bir rastgele oluşturulmuş bir onay kodu almak için bir authenticator uygulamasını kullanın. Ayarlama ve Microsoft Authenticator uygulamasını kullanma hakkında adım adım yönergeler için bkz. [authenticator uygulamasını kullanmak için güvenlik bilgileri ' ayarlamak](security-info-setup-auth-app.md).
 
@@ -60,8 +85,6 @@ Nasıl kuruluş kişilerinizi, olduğuna göre kimliğinizi doğrulamak için ya
     >Bu seçeneklerden bazısı eksikse, kuruluşunuz bu yöntemleri izin vermeyen büyük olasılıkla olmasıdır. Bu durumda, kullanılabilir bir yöntem seçin veya daha fazla yardım için yöneticinize başvurun gerekecektir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-- Güvenlik bilgilerinizi güncelleştirmeniz gerekiyorsa, yönergeleri izleyin [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md) makalesi.
 
 - Kaybolur veya, gelen unutulabilir, parolanızı sıfırlayamıyoruz [parola sıfırlama portalı](https://passwordreset.microsoftonline.com/) veya adımları [iş veya Okul parolanızı sıfırlama](user-help-reset-password.md) makalesi.
 

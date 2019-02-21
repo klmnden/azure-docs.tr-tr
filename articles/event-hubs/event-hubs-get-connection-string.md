@@ -3,27 +3,27 @@ title: Azure Event Hubs bağlantı dizesi - alın | Microsoft Docs
 description: Bu makalede, istemcilerin Azure Event Hubs'a bağlanmak için kullanabileceği bir bağlantı dizesi alma yönergeleri sağlanır.
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
+author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: ee4bd5d2acf1a029486f83ee721b9e1f72347958
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/19/2019
+ms.author: spelluru
+ms.openlocfilehash: edd197fb6d578df064c67a422767e3e70a0c8142
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238156"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445109"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Bir Event hubs'ı bağlantı dizesini alma
 
-Event Hubs'ı kullanmak için bir Event Hubs ad alanı oluşturmanız gerekir. Bir ad alanı birden çok olay hub'ları barındırmak kapsayan bir kapsayıcıdır / Kafka konularını. Bu ad benzersiz bir veren [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Bir ad alanı oluşturduktan sonra Event Hubs ile iletişim kurmak için gerekli bağlantı dizesini edinebilirsiniz.
+Event Hubs'ı kullanmak için bir Event Hubs ad alanı oluşturmanız gerekir. Bir ad alanı birden çok olay hub'ları veya Kafka konularını kapsayan bir kapsayıcıdır. Bu ad benzersiz bir veren [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Bir ad alanı oluşturduktan sonra Event Hubs ile iletişim kurmak için gerekli bağlantı dizesini edinebilirsiniz.
 
 Azure Event Hubs için bağlantı dizesi içinde gömülü aşağıdaki bileşenlere sahiptir,
 
-* FQDN oluşturduğunuz EventHubs ad alanı, FQDN = (buna servicebus.windows.net tarafından izlenen EventHubs ad alanı adı dahildir)
+* FQDN oluşturduğunuz EventHubs ad alanı, FQDN = (servicebus.windows.net tarafından izlenen EventHubs ad alanı adı içerir)
 * SharedAccessKeyName, uygulamanızın SAS anahtarları için seçtiğiniz adı =
 * SharedAccessKey oluşturulan anahtar değerini =.
 
@@ -37,30 +37,29 @@ Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 Bu makalede, bağlantı dizesini edinme çeşitli şekillerde sizi yönlendirir.
 
 ## <a name="get-connection-string-from-the-portal"></a>Portaldan bağlantı dizesini alma
+1. [Azure portalda](https://portal.azure.com) oturum açın. 
+2. Seçin **tüm hizmetleri** sol gezinti menüsünde. 
+3. Seçin **Event Hubs** içinde **Analytics** bölümü. 
+4. Event hubs listesinde, olay hub'ınızı seçin.
+6. Üzerinde **olay hub'ları Namespace** sayfasında **paylaşılan erişim ilkeleri** sol menüsünde.
 
-Event Hubs ad alanı oluşturduktan sonra portalın genel bakış bölümüne, bağlantı dizesi aşağıda gösterildiği gibi verebilirsiniz:
+    ![Paylaşılan erişim ilkeleri menü öğesi](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+7. Seçin bir **paylaşılan erişim ilkesi** ilkeleri listesinde. Varsayılan bir adı verilir: **RootManageSharedAccessPolicy**. Uygun izinleri (okuma, yazma) sahip bir ilke ekleyin ve bu ilkeyi kullanın. 
 
-![Event Hubs bağlantı dizesi](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+    ![Event hubs'ı paylaşılan erişim ilkeleri](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
+8. Seçin **kopyalama** düğmesinin yanındaki **bağlantı dizesi-birincil anahtar** alan. 
 
-Genel Bakış bölümünde bağlantı dizesi tıkladığınızda, aşağıdaki çizimde gösterildiği gibi SAS ilkeleri sekmesini açar:
-
-![Event hubs'ı SAS ilkeleri](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
-
-Yeni bir SAS ilkesi eklemek ve bağlantı dizesini alın veya sizin için önceden oluşturulmuş varsayılan ilkesini kullanın. İlke açıldığında, bağlantı dizesini gösterildiği alınır Aşağıda şekil:
-
-![Event hubs'ı bağlantı dizesini alma](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
+    ![Event Hubs - bağlantı dizesi alma](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Azure PowerShell ile bağlantı dizesi alınıyor
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Aşağıda gösterildiği gibi belirli ilke/kural adı için bağlantı dizesini almak için Get-AzEventHubNamespaceKey kullanabilirsiniz:
+Kullanabileceğiniz [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) aşağıda gösterildiği gibi belirli ilke/kural adı için bağlantı dizesini almak için:
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
-
-Başvurmak [Azure Event Hubs PowerShell Modülü](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey) daha fazla ayrıntı için.
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Azure CLI ile bağlantı dizesi alınıyor
 Ad alanı için bağlantı dizesini almak için aşağıdakileri kullanabilirsiniz:
@@ -69,7 +68,7 @@ Ad alanı için bağlantı dizesini almak için aşağıdakileri kullanabilirsin
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
-Başvurmak [Event Hubs için Azure CLI](https://docs.microsoft.com/cli/azure/eventhubs) daha fazla bilgi için.
+Event Hubs, Azure CLI komutları hakkında daha fazla bilgi için bkz. [Event Hubs için Azure CLI](/cli/azure/eventhubs).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

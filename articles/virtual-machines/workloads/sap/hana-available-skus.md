@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a62c30235fdd262f0df5937b6a829382d2b45ef
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b80f872c82061c0cb87f4f1e2714183e71cf02cd
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866296"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448135"
 ---
 # <a name="available-skus-for-hli"></a>HLI için kullanılabilir SKU'ları
 
@@ -29,11 +29,11 @@ SAP HANA (büyük örnekler) Azure hizmeti üzerinde çeşitli yapılandırmalar
 
 | SAP çözümü | CPU | Bellek | Depolama | Kullanılabilirlik |
 | --- | --- | --- | --- | --- |
-| OLAP için İyileştirildi: SAP BW, BW/4hana'yı<br /> veya genel OLAP iş yükü için SAP HANA | Azure S72 üzerinde SAP HANA<br /> – 2 x Intel® Xeon® İşlemci E7-8890 v3<br /> 36 CPU Çekirdeği ve 72 CPU iş parçacıkları |  768 GB |  3 TB | Kullanılabilir |
+| OLAP için İyileştirildi: SAP BW, BW/4HANA<br /> veya genel OLAP iş yükü için SAP HANA | Azure S72 üzerinde SAP HANA<br /> – 2 x Intel® Xeon® İşlemci E7-8890 v3<br /> 36 CPU Çekirdeği ve 72 CPU iş parçacıkları |  768 GB |  3 TB | Artık önerilmez |
 | --- | Azure S144 üzerinde SAP HANA<br /> -4 x Intel® Xeon® İşlemci E7-8890 v3<br /> 72 CPU Çekirdeği ve 144 CPU iş parçacıkları |  1,5 TB |  6 TB | Artık önerilmez |
 | --- | Azure S192 üzerinde SAP HANA<br /> -4 x Intel® Xeon® İşlemci E7-8890 v4<br /> 96 CPU Çekirdeği ve 192 CPU iş parçacıkları |  2.0 TB |  8 TB | Kullanılabilir |
 | --- | Azure S384 üzerinde SAP HANA<br /> -8 x Intel® Xeon® İşlemci E7-8890 v4<br /> 192 CPU Çekirdeği ve 384 CPU iş parçacıkları |  4.0 TB |  16 TB | Kullanılabilir |
-| OLTP için iyileştirilmiştir: SAP Business Suite<br /> SAP HANA veya S/4HANA (OLTP)<br /> Genel OLTP | Azure S72m üzerinde SAP HANA<br /> – 2 x Intel® Xeon® İşlemci E7-8890 v3<br /> 36 CPU Çekirdeği ve 72 CPU iş parçacıkları |  1,5 TB |  6 TB | Kullanılabilir |
+| OLTP için iyileştirilmiştir: SAP Business Suite<br /> SAP HANA veya S/4HANA (OLTP)<br /> Genel OLTP | Azure S72m üzerinde SAP HANA<br /> – 2 x Intel® Xeon® İşlemci E7-8890 v3<br /> 36 CPU Çekirdeği ve 72 CPU iş parçacıkları |  1,5 TB |  6 TB | Artık önerilmez |
 |---| Azure S144m üzerinde SAP HANA<br /> -4 x Intel® Xeon® İşlemci E7-8890 v3<br /> 72 CPU Çekirdeği ve 144 CPU iş parçacıkları |  3.0 TB |  12 TB | Artık önerilmez |
 |---| Azure S192m üzerinde SAP HANA<br /> -4 x Intel® Xeon® İşlemci E7-8890 v4<br /> 96 CPU Çekirdeği ve 192 CPU iş parçacıkları  |  4.0 TB |  16 TB | Kullanılabilir |
 |---| Azure S384m üzerinde SAP HANA<br /> -8 x Intel® Xeon® İşlemci E7-8890 v4<br /> 192 CPU Çekirdeği ve 384 CPU iş parçacıkları |  6.0 TB |  18 TB | Kullanılabilir |
@@ -76,9 +76,9 @@ Müşteriye özgü boyutlandırma projeleri için birim dışında teklifler iç
 
 Eksiksiz bir HANA büyük örnek damgası için tek bir müşteriye özel olarak ayrılmış değil&#39;s kullanın. Bu olgu bölmelerin de Azure'da dağıtılan bir ağ yapısı bağlı işlem ve depolama kaynakları için geçerlidir. Azure gibi HANA büyük örneği altyapı, farklı müşteri dağıtır &quot;kiracılar&quot; birbirlerinden aşağıdaki üç düzeyden birinde yalıtılmış olan:
 
-- **Ağ**: HANA büyük örneği damgasında içindeki sanal ağlar arasında yalıtım.
-- **Depolama**: depolama sanal makineler, atanan depolama birimleri ve depolama birimleri kiracılar arasında yalıtmak için yalıtımı.
-- **İşlem**: sunucu birimlerin atamasını tek bir kiracı için ayrılmış. Hayır sabit veya geçici sunucu ölçü bölümleme. Hiçbir tek bir sunucu veya konak birimi kiracılar arasında paylaştırma. 
+- **Ağ**: HANA büyük örneği damgasında içindeki sanal ağlar arasında yalıtım sağlar.
+- **Depolama**: Depolama birimi olan depolama sanal makineler için yalıtımı, atanan ve kiracılar arasında depolama birimleri yalıtır.
+- **İşlem**: Sunucu birimleri için tek bir kiracının adanmış atama. Hayır sabit veya geçici sunucu ölçü bölümleme. Hiçbir tek bir sunucu veya konak birimi kiracılar arasında paylaştırma. 
 
 HANA büyük örneği birimleri arasında farklı kiracıların dağıtımları birbirine görünmez. HANA büyük örneği birimleri farklı kiracıda dağıtılan diğer HANA büyük örnek damgası düzeyinde ile doğrudan iletişim kuramaz. Yalnızca tek bir kiracı içindeki HANA büyük örneği birimleri HANA büyük örnek damgası düzeyine birbiriyle iletişim kurabilir.
 

@@ -13,20 +13,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: d3bdcc267c55434a71c915f7d4e575d47522986b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6cc965f8e775e02e9dec9f610516739a9a2c1936
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110583"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448016"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ekleme veya Azure aboneliği yöneticileri değiştirme
 
 Azure kaynaklarına erişimi yönetmek için uygun yönetici rolüne sahip olmanız gerekir. Azure, aralarından seçim yapabileceğiniz birkaç yerleşik rol ile rol tabanlı erişim denetimi (RBAC) olarak adlandırılan bir yetkilendirme sistemine sahiptir. Yönetim grubu, abonelik veya kaynak grubu gibi farklı kapsamlarda bu roller atayabilirsiniz.
 
-Microsoft, RBAC kullanarak kaynaklara erişimi yönetme önerir. Ancak hala Klasik dağıtım modelini kullanıyorsanız, Klasik Abonelik Yöneticisi'ni kullanmanız gerekir. Daha fazla bilgi için [Azure Resource Manager ve klasik dağıtım](../azure-resource-manager/resource-manager-deployment-model.md) ve [Azure Klasik abonelik yöneticileri](../role-based-access-control/classic-administrators.md).
+Microsoft, RBAC kullanarak kaynaklara erişimi yönetme önerir. Bununla birlikte, yine de klasik dağıtım modelini kullanarak ve kullanarak Klasik kaynakları yönetmek [Azure Hizmet Yönetimi PowerShell Modülü](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure), Klasik yönetici kullanmanız gerekecektir. 
+
+> [!TIP]
+> Yalnızca klasik kaynakları yönetmek için Azure portalını kullanıyorsanız, Klasik yönetici kullanmanız gerekmez.
+
+Daha fazla bilgi için [Azure Resource Manager ve klasik dağıtım](../azure-resource-manager/resource-manager-deployment-model.md) ve [Azure Klasik abonelik yöneticileri](../role-based-access-control/classic-administrators.md).
 
 Bu makalede nasıl veya abonelik kapsamında RBAC kullanarak bir kullanıcı için Yönetici rolü değiştirin.
 

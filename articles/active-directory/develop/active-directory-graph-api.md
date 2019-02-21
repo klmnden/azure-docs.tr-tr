@@ -1,9 +1,9 @@
 ---
 title: Azure Active Directory Graph API'si | Microsoft Docs
-description: Azure AD'ye REST API uç noktaları yoluyla programlı erişim sağlayan bir Azure AD Graph API için bir genel bakış ve Hızlı Başlangıç Kılavuzu.
+description: Azure AD'ye REST API uç noktaları yoluyla programlı erişim sağlayan Azure AD Graph API için bir genel bakış ve Hızlı Başlangıç Kılavuzu.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: lleonard-msft
 manager: mtillman
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
@@ -13,21 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: alleonar
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b26c8a0d040ab91c53e04593280885ef7fd13eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 567ea09a50edc043f2022a47d08576720550e750
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173768"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448101"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API'si
 
 > [!IMPORTANT]
-> Azure Active Directory kaynaklarına erişmek için Azure AD Graph API'si yerine [Microsoft Graph](https://developer.microsoft.com/graph/) kullanmanız önemle tavsiye edilir. Geliştirme çalışmalarımız şu anda Microsoft Graph üzerine yoğunlaşmıştır ve Azure AD Graph API’si için başka bir geliştirme planlanmamaktadır. Azure AD Graph API’sinin hala uygun olabileceği senaryo sayısı çok sınırlıdır; daha fazla bilgi için Office Geliştirici Merkezi’ndeki [Microsoft Graph veya Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog gönderisine bakın.
+>
+> Şubat 2019 tarihinde Azure Active Directory Graph API'si yerine Microsoft Graph API'sini kullanımdan kaldırılıyor.  
+>
+> Geçişi kolaylaştırmak için daha yeni olanlardan önce Azure AD Graph API'sinin önceki sürümlerinde kullanımdan.  
+>
+> Ayrıntılar, güncelleştirmeleri ve zaman çerçevelerini [Microsoft Graph veya Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog gönderisinde Office Geliştirici Merkezi.
+>
+> İlerletme, uygulamaları Microsoft Graph API'si kullanmanız gerekir. 
+
+
 
 Bu makale, Azure AD Graph API için geçerlidir. Microsoft Graph API için ilgili benzer bilgileri için bkz. [Microsoft Graph API'sini](https://docs.microsoft.com/graph/use-the-api). 
 

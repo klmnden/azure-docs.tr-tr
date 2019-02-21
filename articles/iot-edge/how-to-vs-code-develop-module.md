@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/12/2019
+ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245761"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456716"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Geliştirme ve modülleri, Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
@@ -262,6 +262,7 @@ Ne zaman bu yöntemi kullanarak hata ayıklama modülleri modüllerinizi IOT Edg
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
+
    - Aşağıdaki tek satır kod hatalarını ayıklamak istediğiniz geri çağırma ekleyin:
 
       ```python
@@ -350,6 +351,12 @@ Visual Studio Code ile aynı makinede modüllerinizi çalıştırıyorsanız loc
 
 > [!NOTE]
 > Yukarıdaki örnekte, IOT Edge modülleri kapsayıcılarına hata ayıklamak gösterilmektedir. Kullanıma sunulan bağlantı noktaları, modülün kapsayıcıya eklemiş `createOptions` ayarları. Hata ayıklama modüllerinizi tamamladıktan sonra üretime hazır IOT Edge modülleri için kullanıma sunulan bu bağlantı noktalarını kaldırmanız önerilir.
+
+## <a name="build-and-debug-a-module-remotely"></a>Derleme ve modül uzaktan hata ayıklama
+
+Son zamanlarda değişiklik SSH bağlantıları desteklemek için Docker ve Moby altyapıları ve ortam ayarları komut paleti Visual Studio Code ve Azure IOT Edge terminaller ekleme sağlayan Azure IOT Araçları'nda yeni bir ayar ile artık derleme hata ayıklama ve Modül uzak cihazlarda.
+
+Bkz. Bu [IOT Geliştirici blog girişine](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) daha fazla bilgi ve adım adım yönergeler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

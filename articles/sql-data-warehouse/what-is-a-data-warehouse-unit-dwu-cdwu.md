@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 76db38a59d2239de79ebcdcfd454ac60a8f514be
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299903"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447829"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Veri ambarı birimi (Dwu) ve işlem veri ambarı birimi (cDWUs)
 Veri ambarı birimi (dwu'ları, cDWUs) fiyat ve performans ve birim sayısını değiştirmek nasıl en iyi duruma getirmek için ideal sayısını seçme önerileri. 
@@ -37,7 +37,9 @@ Dwu'lar artırma:
 - En fazla bir eş zamanlı sorguları ve eşzamanlılık yuvaları sayısını artırır.
 
 ## <a name="service-level-objective"></a>Hizmet düzeyi hedefi
-Hizmet düzeyi hedefi (SLO), veri Ambarınızı maliyet ve performans düzeyini belirler ölçeklenebilirlik ayarıdır. Hizmet düzeyleri için 2. nesil işlem data warehouse birimlerinde (cDWU), örneğin DW2000c ölçülür. Dwu'lar, örneğin DW2000 Gen1 hizmet düzeyleri ölçülür. 
+Hizmet düzeyi hedefi (SLO), veri Ambarınızı maliyet ve performans düzeyini belirler ölçeklenebilirlik ayarıdır. Hizmet düzeyleri için 2. nesil işlem data warehouse birimlerinde (cDWU), örneğin DW2000c ölçülür. Dwu'lar, örneğin DW2000 Gen1 hizmet düzeyleri ölçülür.
+  > [!NOTE]
+  > Azure SQL veri ambarı Gen2, son 100 cDWU en düşük bilgi işlem katmanını desteklemek için ek ölçek özellikleri eklendi. Alt katmanları işlem gerektiren varolan veri ambarları Gen1 üzerinde şu anda, artık şu an için ek ücret ödemeden kullanılabilir bölgelerde Gen2'ye yükseltebilirsiniz.  Bölgeniz henüz desteklenmiyor, desteklenen bir bölge için hala yükseltebilirsiniz. Daha fazla bilgi için [yükseltmek için 2. nesil](upgrade-to-latest-generation.md).
 
 T-SQL, hizmet düzeyi ve performans katmanını veri ambarınız için servıce_objectıve ayarı belirler.
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: cd6f533bcd32a307facc781c3b2207a337fc8a34
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309174"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445466"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Özel görüntü ile bir sınıflandırıcı oluşturma
 
@@ -23,26 +23,28 @@ Custom Vision Service'e görüntü sınıflandırması için kullanılacak bir s
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Geçerli bir [Microsoft hesabı](https://account.microsoft.com/account) veya bir Azure Active Directory (AAD) hesabı ("iş veya Okul hesabı").
-
-    > [!IMPORTANT] 
-    > Oturum açma AAD kullanıcıları için [Microsoft Ulusal Bulutlar](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud) şu anda desteklenmiyor.
+- Geçerli bir Azure aboneliği. [Hesap oluşturma](https://azure.microsoft.com/free/) ücretsiz.
 - Sınıflandırıcınızı eğitmek görüntüleri bir dizi. Görüntüleri seçme hakkında ipuçları için aşağıya bakın.
-- İsteğe bağlı olarak: Microsoft hesabınızı veya AAD hesabı ile ilişkili bir Azure aboneliği. Azure aboneliğiniz yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) başlamadan önce. Bir Azure aboneliği, yalnızca iki oluşturmak mümkün olmayacak __sınırlı deneme__ projeleri.
+
+
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure Portalı'nda özel görüntü işleme kaynakları oluşturma
+Özel görüntü işleme hizmeti kullanmak için Custom Vision eğitim ve tahmin kaynaklarında oluşturmanız gerekecektir içinde [Azure portalında](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Bu, eğitim ve tahmin kaynak oluşturur. 
 
 ## <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 
-Web tarayıcınızda gidin [Custom Vision web sayfası](https://customvision.ai) seçip __oturum__.
+Web tarayıcınızda gidin [Custom Vision web sayfası](https://customvision.ai) seçip __oturum__. Azure portalında oturum açmak için kullandığınız hesapla oturum açın.
 
 ![Oturum açma sayfasının görüntüsü](./media/browser-home.png)
 
-Bir Azure hesabınız varsa, özel görüntü işleme hizmeti eğitim ve tahmin kaynakları oluşturmak için istenir [Azure portalında](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) proje oluşturma sırasında.
 
 1. İlk projenizi oluşturmak için Seç **yeni proje**. **Yeni proje oluştur** iletişim kutusu görüntülenir.
 
     ![Yeni Proje iletişim kutusu, adını, açıklamasını ve etki alanları için alanlar içerir.](./media/getting-started-build-a-classifier/new-project.png)
 
-1. Bir ad ve proje için bir açıklama girin. Ardından, bir kaynak grubu seçin. Oturum açtığınız hesabınız bir Azure hesabı ile ilişkili ise, kaynak grubu açılan bir özel görüntü işleme hizmeti kaynağı içeren Azure kaynak gruplarınızdaki tüm görüntüler. Her iki durumda da seçebilirsiniz __sınırlı deneme__ bu açılır listesinden.
+1. Bir ad ve proje için bir açıklama girin. Ardından, bir kaynak grubu seçin. Oturum açtığınız hesabınız bir Azure hesabı ile ilişkili ise, kaynak grubu açılan bir özel görüntü işleme hizmeti kaynağı içeren Azure kaynak gruplarınızdaki tüm görüntüler. 
+
+> [!NOTE]
+> Hiçbir kaynak grubu varsa, Lütfen oturum açıldı onaylayın [customvision.ai](https://customvision.ai) yazarken aynı hesabı ile oturum açmak için kullanılan [Azure portalı](https://portal.azure.com/). Ayrıca, aynı "dizin" özel görüntü işleme kaynaklarınızı yer aldığı Azure portalında bir dizinle Custom Vision Portalı'nda seçtiğiniz lütfen onaylayın. Her iki site, ekranın sağ üst köşesinde hesap menüsünde açılan dizininize seçebilirsiniz. 
 
 1. Seçin __sınıflandırma__ altında __proje türleri__. Ardından, altında __sınıflandırma türleri__, seçin ya da **Multilabel** veya **veya çoklu sınıflar**kullanım Örneğinize bağlı olarak. (Gönderdiğiniz her resim büyük olasılıkla etiketine sıralanacağını) tek kategorilere görüntüleri sınıflı sınıflandırma sıralar sırada multilabel sınıflandırma etiketleri herhangi bir sayıda görüntüye (sıfır veya daha fazla) uygulanır. İsterseniz daha sonra sınıflandırma türünü değiştirmek mümkün olacaktır.
 

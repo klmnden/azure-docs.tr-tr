@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 337e7a848b6aa141ecf4f96cd4f8f391be35a619
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b216242b5c1c093c5f508adce04ef7b4bec4d1e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475542"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453197"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Azure Machine Learning Studio web hizmeti parametrelerini kullanma
 Bir Azure Machine Learning web hizmeti modülleri ile yapılandırılabilir parametreler içeren bir denemeyi yayımlayarak oluşturulur. Bazı durumlarda, web hizmetinin çalıştığı sırada modülü davranışını değiştirmek isteyebilirsiniz. *Web hizmeti parametreleri* bu işi yapmanıza olanak sağlar. 
@@ -57,7 +57,7 @@ Web hizmeti için API belgeleri, web hizmeti kullanıcı için Web hizmeti param
 
 3. Simgesini sağ tarafındaki **kapsayıcı parametresi ile başlayan blob yolu**. Şöyle görünür:
    
-   ![Web hizmeti parametre simgesi][icon]
+   ![Web hizmeti parametre simgesi](./media/web-service-parameters/icon.png)
    
    "Web hizmeti parametre olarak Ayarla" seçin.
    
@@ -65,7 +65,7 @@ Web hizmeti için API belgeleri, web hizmeti kullanıcı için Web hizmeti param
 4. Web hizmeti parametreyi yeniden adlandır, adına tıklayın, "Blob yolu" girin ve basın **Enter** anahtarı. 
 5. Web hizmeti parametresi için varsayılan bir değer sağlamak için adının sağ tarafındaki simgesine tıklayın, "sağlar. varsayılan değer"'i seçin, (örneğin, "container1/output1.csv"), bir değer girin ve basın **Enter** anahtarı.
    
-   ![Web hizmeti parametresi][parameter]
+   ![Web hizmeti parametresi](./media/web-service-parameters/parameter.png)
 6. **Çalıştır**’a tıklayın. 
 7. Tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]** veya **Web hizmeti dağıtma [Yeni]** web hizmeti dağıtmak için.
 
@@ -78,11 +78,6 @@ Web hizmeti kullanıcı için yeni bir hedef artık belirtebilirsiniz [verileri 
 Daha ayrıntılı bir örnek için bkz. [Web hizmeti parametrelerini](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) girişi [Machine Learning Web günlüğü](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
 Machine Learning web hizmetine erişim ile ilgili daha fazla bilgi için bkz: [bir Azure Machine Learning Web hizmetini kullanma](consume-web-services.md).
-
-<!-- Images -->
-[icon]: ./media/web-service-parameters/icon.png
-[parameter]: ./media/web-service-parameters/parameter.png
-
 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/

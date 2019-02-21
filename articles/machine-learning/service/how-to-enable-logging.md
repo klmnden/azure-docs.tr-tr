@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/11/2019
-ms.openlocfilehash: bff0feab7ce062c9e2515fa038d249838a809591
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/20/2019
+ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101245"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447540"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Azure Machine Learning hizmetinde günlüğe kaydetmeyi etkinleştir
 
@@ -112,7 +112,7 @@ logs = service.get_logs()
 Ayrıca özel oturum yığın izlemeler web hizmetiniz için izleme istek/yanıt süreleri, hata oranları ve özel durumları tanır Application Insights'ı etkinleştirerek. Çağrı `update()` Application Insights'ı etkinleştirmek için mevcut bir web hizmetini işlevi.
 
 ```python
-service..update(enable_app_insights=True)
+service.update(enable_app_insights=True)
 ```
 
 Bkz: [yapılır](how-to-enable-app-insights.md#enable-and-disable-in-the-portal) Azure portalında Application Insights ile çalışma konusunda daha fazla bilgi için.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981766"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447472"
 ---
 # <a name="understand-cost-management-data"></a>Maliyet Yönetimi verilerini anlama
 
@@ -61,6 +61,8 @@ Aşağıdaki tabloda, desteklenmeyen teklifler gösterilmektedir.
 | **Destek planları** | Azure kamu standart destek | MS-AZR-USGOV-0041P |
 | **Destek planları** | Azure kamu profesyonel doğrudan desteği | MS-AZR-USGOV-0042P |
 | **Destek planları** | Azure kamu Geliştirici Desteği | MS-AZR-USGOV-0043P |
+
+Kullandıkça Öde, MSDN ve Visual Studio Teklif kategorileri olan müşteriler için veriler 02/10/2018 başlayarak maliyet Yönetimi'nde kullanılabilir.
 
 Veriler için bir abonelik göremiyor ve aboneliğinizi desteklenen teklifleri altında kalırsa belirlemek istiyorsanız, aboneliğinizin desteklenip desteklenmediğini doğrulayabilirsiniz. Bir Azure aboneliği desteklendiğini doğrulamak için oturum [Azure portalında](https://portal.azure.com). Ardından **tüm hizmetleri** sol menü bölmesinde. Hizmetler listesinde seçin **abonelikleri**. Abonelik listesi menüde, doğrulamak istediğiniz aboneliğe tıklayın. Aboneliğiniz genel bakış sekmesinde gösterilen ve gördüğünüz **teklif** ve **Teklif kimliği**. Aşağıdaki resimde bir örnek gösterilir.
 

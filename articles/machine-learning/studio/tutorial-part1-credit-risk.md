@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6789e1d6e514ce107ab96fddbaa582ccbe922bbb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243731"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453622"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>1. Öğretici: Kredi riskini - Azure Machine Learning Studio tahmin
 
@@ -23,7 +23,7 @@ Bu öğreticide, bir Tahmine dayalı analiz çözümü geliştirme işleminin ge
 
 Bir kişinin kredi başvurusunda verdiği bilgilere dayanarak kredi riskini tahmin etmeniz gerektiğini varsayalım.  
 
-Kredi riski değerlendirmesi karmaşık bir sorundur ancak bu öğreticide, bir bit basitleştirir. Microsoft Azure Machine Learning kullanarak Tahmine dayalı analiz çözümü nasıl oluşturabileceğinize dair bir örnek olarak kullanacaksınız. Azure Machine Learning Studio ve Machine Learning web hizmeti bu çözüm için kullanacaksınız.  
+Kredi riski değerlendirmesi karmaşık bir sorundur ancak bu öğreticide, bir bit basitleştirir. Microsoft Azure Machine Learning Studio'yu kullanarak Tahmine dayalı analiz çözümü nasıl oluşturabileceğinize dair bir örnek olarak kullanacaksınız. Azure Machine Learning Studio ve Machine Learning web hizmeti bu çözüm için kullanacaksınız.  
 
 Üç bölümü olan Bu öğreticide, genel kullanıma açık kredi risk verileriyle başlayın.  Ardından geliştirin ve Tahmine dayalı bir model eğitip.  Son olarak modeli bir web hizmeti olarak dağıtalım.
 
@@ -55,7 +55,7 @@ Hiç kullanmadıysanız **Azure Machine Learning Studio** hızlı ile başlamak 
 
 Machine Learning Studio kullanmak için bir Microsoft Azure Machine Learning Studio çalışma alanına sahip olmanız gerekir. Bu çalışma alanı, denemeleri oluşturmak, yönetmek ve yayımlamak için ihtiyacınız olan araçları içerir.  
 
-Bir çalışma alanı oluşturmak için bkz [oluşturma ve paylaşma bir Azure Machine Learning çalışma alanı](create-workspace.md).
+Bir çalışma alanı oluşturmak için bkz [oluşturma ve paylaşma bir Azure Machine Learning Studio çalışma](create-workspace.md).
 
 Machine Learning Studio çalışma alanınızı oluşturduktan sonra açın ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Birden fazla çalışma alanı varsa, araç penceresinin sağ üst köşesindeki çalışma alanını seçebilirsiniz.
 

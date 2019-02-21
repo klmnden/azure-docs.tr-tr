@@ -1,23 +1,23 @@
 ---
 title: 'Hızlı Başlangıç: Konuşma tanıma Objective-C - konuşma Hizmetleri'
 titleSuffix: Azure Cognitive Services
-description: Konuşma Tanıma Hizmeti SDK’sını kullanarak iOS üzerinde Objective-C’de konuşma tanımayı öğrenme
+description: Speech SDK'sı kullanarak iOS üzerinde Objective-c Konuşma tanımayı öğrenmesine
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: f92a5c5ea064d91eae065c96e656416b21714e98
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5f6a66b4005a0fa7106830d7e53950a9902cd078
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878111"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447251"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma hizmeti SDK'sı kullanarak iOS Objective-C, konuşma tanıma
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak iOS Objective-C, konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -35,7 +35,7 @@ Başlamadan önce önkoşullarının listesi aşağıda verilmiştir:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.2.0`.
+Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.3.0`.
 
 Mac ve iOS için Bilişsel Hizmetler Konuşma SDK’sı şu anda bir Cocoa Framework olarak dağıtılmaktadır.
 https://aka.ms/csspeech/iosbinary konumundan indirilebilir. Dosyayı giriş dizininize indirin.

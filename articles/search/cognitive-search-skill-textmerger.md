@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a3c64a26ed5ee7454fcfd22f47c1a161f65c6de7
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a769a71fe1e99467121eb49a490fa2d0ab4339d3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445370"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446419"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Metin birleştirme bilişsel beceri
 
@@ -78,7 +78,7 @@ Bu örnek olduğunu varsayarak önceki giriş çıkış gösterir *insertPreTag*
 
 Metin birleştirme kullanmaya yönelik yaygın bir senaryo görüntüleri (OCR beceri veya görüntünün bir açıklamalı alt yazı metni) değerinin metinsel gösterimini birleştirmek için içerik bir belgenin bir alandır. 
 
-Aşağıdaki örnek becerilerine OCR beceri belgeye gömülü görüntülerinden ayıklamak için kullanmaktadır. Ardından, oluşturur bir *merged_text* hem özgün hem de her görüntü OCRed metni içeren alan. 
+Aşağıdaki örnek becerilerine OCR beceri belgeye gömülü görüntülerinden ayıklamak için kullanmaktadır. Ardından, oluşturur bir *merged_text* hem özgün hem de her görüntü OCRed metni içeren alan. OCR yetenek hakkında daha fazla bilgi [burada](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr).
 
 ```json
 {
@@ -86,7 +86,6 @@ Aşağıdaki örnek becerilerine OCR beceri belgeye gömülü görüntülerinden
   "skills":
   [
     {
-        "name": "OCR skill",
         "description": "Extract text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",

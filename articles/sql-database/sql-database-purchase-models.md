@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 80e8f0a627ea33881e21d45c8be0e8d1600e4e48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008436"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456699"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL veritabanı'nı satın alma modeli
 
@@ -50,9 +50,11 @@ Aşağıdaki tablo ve grafik karşılaştırın ve bu iki satın alma modeli.
 
 ## <a name="storage-costs"></a>Depolama maliyetleri
 
-Farklı depolama türlerini farklı faturalandırılır. Veri depolama için seçtiğiniz en fazla veritabanı veya havuz boyutuna bağlı olarak sağlanan depolama alanı için ücretlendirilirsiniz. Maliyeti azaltmak veya artırmak, en fazla sürece değiştirmez. Yedekleme depolama alanı, örneğinizin otomatik yedekleme işlemleriyle ilişkilidir ve dinamik olarak ayrılır. Yedekleme saklama döneminizin artırılması, örneğiniz tarafından kullanılan yedekleme alanının artmasına neden olur. Toplam sağlanan sunucu depolama alanınızın yüzde 100’üne ulaşana kadar yedekleme alanı için ek ücret ödemezsiniz. Ek yedekleme alanı kullanımı, GB cinsinden aylık olarak ücretlendirilir. Örneğin, veritabanı depolama alanınızın boyutu 100 GB’sa ek maliyet olmaksızın 100 GB yedekleme alanına sahip olursunuz. Ancak yedekleme boyutu 110 GB olursa fazlalık 10 GB için ödeme yapın.
+Farklı depolama türlerini farklı faturalandırılır. Veri depolama için seçtiğiniz en fazla veritabanı veya havuz boyutuna bağlı olarak sağlanan depolama alanı için ücretlendirilirsiniz. Maliyeti azaltmak veya artırmak, en fazla sürece değiştirmez. Yedekleme depolama alanı, örneğinizin otomatik yedekleme işlemleriyle ilişkilidir ve dinamik olarak ayrılır. Yedekleme saklama döneminizin artırılması, örneğiniz tarafından kullanılan yedekleme alanının artmasına neden olur. 
 
-Tek bir veritabanı yedekleme alanı için veritabanının boyutuna eksi veritabanı yedeklemeleri için ayrılan depolama alanı için günlere eşit olarak ücretlendirilir. Elastik havuz Yedekleme depolaması için veritabanı yedeklerini eksi elastik havuzun en yüksek boyut havuzdaki tüm veritabanları için ayrılan depolama alanı için günlere eşit olarak ücretlendirilir. Tüm elastik havuz ve veritabanı boyutunu artırma veya işlem hızı artış daha fazla depolama alanı gerektirir ve bu nedenle yedekleme depolama faturanız artırır.  En yüksek boyut artırdığınızda, bu yeni miktar faturalandırılan yedekleme depolama boyutundan çıkarılır.
+Veritabanlarınızın 7 günlük otomatik yedeklemeleri, varsayılan olarak RA-GRS Standart blob depolamasına kopyalanır. Depolama alanı, haftalık tam yedeklemeler, günlük fark yedekleri ve 5 dakikada bir kopyalanan işlem günlüğü yedeklemeleri tarafından kullanılır. İşlem günlüğü boyutu veritabanı değişiklik oranına bağlıdır. Veritabanı boyutunun %100’üne eşit bir depolama alt sınırı ek ücret alınmadan sağlanır. Ek yedekleme alanı kullanımı, GB/ay üzerinden ücretlendirilir.
+
+Depolama fiyatları hakkında daha fazla bilgi için bkz. [fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/single/) sayfası. 
 
 ## <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli
 

@@ -7,34 +7,34 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: a8fefdf352507f0e0c0757625297f667907eb9bc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230603"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456002"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Kubernetes Azure Kubernetes Service (AKS) ana düğüm günlüklerini gözden geçirin ve etkinleştirin
 
-Azure Kubernetes Service (AKS) ile ana bileşenleri gibi *kube-apiserver* ve *kube Denetleyici Yöneticisi* yönetilen bir hizmet olarak sağlanır. Oluşturur ve yönetirken çalıştıran düğümlere *kubelet* ve kapsayıcı çalışma zamanı ve yönetilen Kubernetes API sunucusu üzerinden uygulamalarınızı dağıtın. Uygulama ve hizmetlerin gidermeye yardımcı olmak için bu ana bileşenler tarafından oluşturulan günlükleri görüntülemek gerekebilir. Bu makalede Azure Log Analytics etkinleştirmek ve Kubernetes ana bileşenleri günlüklerinden sorgulamak için nasıl kullanılacağı gösterilmektedir.
+Azure Kubernetes Service (AKS) ile ana bileşenleri gibi *kube-apiserver* ve *kube Denetleyici Yöneticisi* yönetilen bir hizmet olarak sağlanır. Oluşturur ve yönetirken çalıştıran düğümlere *kubelet* ve kapsayıcı çalışma zamanı ve yönetilen Kubernetes API sunucusu üzerinden uygulamalarınızı dağıtın. Uygulama ve hizmetlerin gidermeye yardımcı olmak için bu ana bileşenler tarafından oluşturulan günlükleri görüntülemek gerekebilir. Bu makalede Azure İzleyici günlüklerine etkinleştirmek ve Kubernetes ana bileşenleri günlüklerinden sorgulamak için nasıl kullanılacağı gösterilmektedir.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makale, Azure hesabınızda çalışan mevcut bir AKS kümesi gerekir. Kullanarak bir AKS kümesi zaten yoksa, oluşturma [Azure CLI] [ cli-quickstart] veya [Azure portalında][portal-quickstart]. Log Analytics hem RBAC ile çalışır ve AKS küme RBAC olmayan etkin.
+Bu makale, Azure hesabınızda çalışan mevcut bir AKS kümesi gerekir. Kullanarak bir AKS kümesi zaten yoksa, oluşturma [Azure CLI] [ cli-quickstart] veya [Azure portalında][portal-quickstart]. Azure İzleyici ile hem RBAC çalışır günlüğe kaydeder ve AKS küme RBAC olmayan etkin.
 
 ## <a name="enable-diagnostics-logs"></a>Tanılama günlüklerini etkinleştirme
 
-Toplama ve birden çok kaynaktan veri gözden yardımcı olmak için Log Analytics etkilendiğine ortamınıza bir sorgu dili ve analiz altyapısı sağlar. Bir çalışma alanı collate ve verileri analiz etmek için kullanılır ve Application Insights ve Güvenlik Merkezi gibi diğer Azure hizmetleriyle tümleştirebilirsiniz. Bu günlükleri analiz etmek için farklı bir platform kullanmak için bunun yerine bir Azure depolama hesabına veya olay hub'ına tanılama günlükleri göndermek seçebilirsiniz. Daha fazla bilgi için [Azure Log Analytics nedir?] [log-analytics-overview].
+Azure İzleyici günlüklerini toplamak ve birden çok kaynaktan veri gözden yardımcı olmak için ortamınıza etkilendiğine bir sorgu dili ve analiz altyapısı sağlar. Bir çalışma alanı collate ve verileri analiz etmek için kullanılır ve Application Insights ve Güvenlik Merkezi gibi diğer Azure hizmetleriyle tümleştirebilirsiniz. Bu günlükleri analiz etmek için farklı bir platform kullanmak için bunun yerine bir Azure depolama hesabına veya olay hub'ına tanılama günlükleri göndermek seçebilirsiniz. Daha fazla bilgi için [Azure İzleyici günlüklerine nedir?] [log-analytics-overview].
 
-Log Analytics etkin ve Azure portalında yönetilir. Kubernetes AKS kümenizde ana bileşenleri için günlük toplamayı etkinleştirmek için Azure portalında bir web tarayıcısında açın ve aşağıdaki adımları tamamlayın:
+Azure İzleyici günlüklerine etkinleştirilir ve Azure portalında yönetilir. Kubernetes AKS kümenizde ana bileşenleri için günlük toplamayı etkinleştirmek için Azure portalında bir web tarayıcısında açın ve aşağıdaki adımları tamamlayın:
 
 1. AKS kümenizi için kaynak grubunu seçin *myResourceGroup*. Gibi tek tek AKS kümesi kaynakları içeren kaynak grubunu seçmeyin *MC_myResourceGroup_myAKSCluster_eastus*.
 1. Sol tarafındaki seçin **tanılama ayarları**.
 1. AKS kümenizi gibi seçin *myAKSCluster*, sonra tercih **tanılamayı Aç**.
-1. Gibi bir ad girin *myAKSClusterLogs*, ardından seçeneğini **Log Analytics'e gönderme**.
-    * Tercih *yapılandırma* Log Analytics, mevcut bir çalışma alanını seçin veya **yeni çalışma alanı oluştur**.
+1. Gibi bir ad girin *myAKSClusterLogs*, ardından seçeneğini **Log Analytics çalışma alanına gönderme**.
+    * Tercih *yapılandırma* Log Analytics çalışma alanını ve ardından mevcut bir çalışma alanını seçin veya **yeni çalışma alanı oluştur**.
     * Bir çalışma alanı oluşturmanız gerekiyorsa, bir ad, bir kaynak grubu ve bir konum sağlayın.
-1. Kullanılabilir günlükleri listesinde, etkinleştirmek istediğiniz günlükleri'ni seçin. Varsayılan olarak, *kube-apiserver*, *kube Denetleyici Yöneticisi*, ve *kube-Zamanlayıcı* Günlükleri etkinleştirildi. Gibi ek günlükleri etkinleştirebilirsiniz *kube denetim* ve *küme ölçeklendiriciyi*. Dönün ve Log Analytics etkinleştirildikten sonra toplanan günlükleri değiştirin.
+1. Kullanılabilir günlükleri listesinde, etkinleştirmek istediğiniz günlükleri'ni seçin. Varsayılan olarak, *kube-apiserver*, *kube Denetleyici Yöneticisi*, ve *kube-Zamanlayıcı* Günlükleri etkinleştirildi. Gibi ek günlükleri etkinleştirebilirsiniz *kube denetim* ve *küme ölçeklendiriciyi*. Dönün ve Log Analytics çalışma alanları etkinleştirildikten sonra toplanan günlükleri değiştirin.
 1. Hazır olduğunuzda seçin **Kaydet** seçili günlüklerin toplanmasını etkinleştirmek için.
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Log Analytics etkin ve Azure portalında yönetilir. Kubernetes AKS kümenizde a
 
 Aşağıdaki örnekte portalı ekran görüntüsü gösterildiği *tanılama ayarları* penceresi ve sonra bir Log Analytics çalışma alanı oluşturma seçeneği:
 
-![Log Analytics çalışma alanı, Log Analytics AKS kümesi için etkinleştirme](media/view-master-logs/enable-oms-log-analytics.png)
+![Azure İzleyici günlüklerine AKS kümesi için log Analytics çalışma alanı etkinleştir](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Bir AKS kümesi test pod zamanlama
 
@@ -111,11 +111,11 @@ AzureDiagnostics
 
 Aşağıdaki örnek ekran görüntüsünde gösterildiği gibi NGINX pod için özel günlüklerin görüntülenir:
 
-![Log Analytics sorgu sonuçları için örnek NGINX pod](media/view-master-logs/log-analytics-query-results.png)
+![Örnek NGINX pod için log analytics sorgusu sonuçları](media/view-master-logs/log-analytics-query-results.png)
 
 Ek günlükleri görüntülemek için sorguyu güncelleştirebilir *kategori* için ad *kube Denetleyici Yöneticisi* veya *kube-Zamanlayıcı*, ne bağlı olarak ek, günlükleri etkinleştirin. Ek *burada* deyimleri ardından aradığınız olayları iyileştirmek için kullanılabilir.
 
-Sorgulamak ve günlük verilerinizi filtrelemek hakkında daha fazla bilgi için bkz. [görünümü veya Log Analytics günlük araması ile toplanan verileri analiz etmek][analyze-log-analytics].
+Sorgulamak ve günlük verilerinizi filtrelemek hakkında daha fazla bilgi için bkz. [görünümü veya log analytics günlük araması ile toplanan verileri analiz etmek][analyze-log-analytics].
 
 ## <a name="log-event-schema"></a>Günlüğü olay şeması
 
@@ -129,7 +129,7 @@ Günlük verilerini analiz etmek amacıyla, aşağıdaki tabloda her olay için 
 | *OperationName*          | Her zaman *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
 | *Properties.log*         | Tam metin bileşeni günlüğü |
 | *Properties.Stream*      | *stderr* veya *stdout* |
-| *Properties.pod*         | Günlük geldiği pod adı |
+| *properties.pod*         | Günlük geldiği pod adı |
 | *properties.containerID* | Bu günlük geldiği docker kapsayıcının kimliği |
 
 ## <a name="next-steps"></a>Sonraki adımlar

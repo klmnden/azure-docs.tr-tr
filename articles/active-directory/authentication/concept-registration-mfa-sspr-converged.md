@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66d4dc7e6fc1545e1de1e3b50887585c4156b4c0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1923a34c5c49f16b32ed5b5d0913a65ce0b1ea21
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208800"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453384"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Yakınsanmış kaydı için Self Servis parola sıfırlama ve Azure multi-Factor Authentication (genel Önizleme)
 
@@ -78,7 +78,7 @@ Bu yeni deneyim için Denetim günlükleri, Denetim günlüğü kimlik doğrulam
 
 **Kullanıcı kısa mesaj kullanarak telefon kaydederken telefon araması set varsayılan MFA yöntemi**
 
-   * Bazı kullanıcılar, kısa mesaj kullanarak telefon numarasını kaydettikten sonra varsayılan MFA yöntemleri telefon araması olarak ayarlandığını görebilirsiniz. Kullanıcılar, kendi varsayılan yöntemini makalede bulunan yönergeleri takip ederek değiştirerek bu sorunu giderebilir [güvenlik bilgilerinizi (Önizleme) yönetme](../user-help/security-info-manage-settings.md#change-your-info).
+   * Bazı kullanıcılar, kısa mesaj kullanarak telefon numarasını kaydettikten sonra varsayılan MFA yöntemleri telefon araması olarak ayarlandığını görebilirsiniz. Kullanıcılar tarafından başvurulan makalelerdeki yönergeleri takip ederek kendi varsayılan yöntemini değiştirerek bu sorunu giderebilir [güvenlik bilgilerinizi (Önizleme) değiştirme hakkında genel bakış](../user-help/security-info-add-update-methods-overview.md).
 
 **Bir yönetici kendi varsayılan yöntemini devre dışı bırakır. sonra kullanıcı yeni kaydı deneyimini erişemiyor**
 

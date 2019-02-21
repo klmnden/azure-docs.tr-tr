@@ -1,25 +1,22 @@
 ---
-title: Birden çok web siteleri - Azure portal'ı barındıran bir uygulama ağ geçidi oluşturma | Microsoft Docs
+title: Birden çok web siteleri - Azure portal'ı barındıran bir uygulama ağ geçidi oluşturma
 description: Azure portalını kullanarak birden çok web sitesini barındıran bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/28/2017
+ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993307"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454330"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak birden çok web sitelerini barındırmak için bir uygulama ağ geçidi yapılandırma
 
-Azure portalında kullandığınız [birden çok web sitesini barındırmayı yapılandırma](multiple-site-overview.md) oluşturduğunuzda bir [uygulama ağ geçidi](overview.md). Bu öğreticide, sanal makineleri kullanarak arka uç adres havuzları tanımlayın. Ardından sahip olduğunuz dinleyicileri ve kuralları, web trafiğinin havuzlardaki uygun sunuculara ulaşması için yapılandırırsınız. Bu öğreticide birden çok etki alanına sahip olduğunuz varsayılır ve *www.contoso.com* ve *www.fabrikam.com* örnekleri kullanılır.
+Azure portalında kullandığınız [birden çok web sitesini barındırmayı yapılandırma](multiple-site-overview.md) oluşturduğunuzda bir [uygulama ağ geçidi](overview.md). Bu makalede, sanal makineleri kullanarak arka uç adres havuzları tanımlayın. Ardından sahip olduğunuz dinleyicileri ve kuralları, web trafiğinin havuzlardaki uygun sunuculara ulaşması için yapılandırırsınız. Bu makalede, birden çok etki alanları ve kullandığı örnekleri olduğunuz varsayılır *www.contoso.com* ve *www.fabrikam.com*.
 
 Bu makalede şunları öğreneceksiniz:
 
@@ -35,9 +32,9 @@ Bu makalede şunları öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
@@ -141,6 +138,8 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
 3. **Tamam** düğmesine tıklayın.
 4. Adını kullanarak ikinci bir dinleyici oluşturun *fabrikamListener* ve ikinci etki alanı adınızı kullanın. Bu örnekte, *www.fabrikam.com* kullanılır.
 
+![birden çok siteli dinleyicileri](media/create-multiple-sites-portal/be-listeners.png)
+
 ## <a name="create-routing-rules"></a>Yönlendirme kuralları oluşturma
 
 Kurallar listelendikleri sırayla işlenir ve trafik belirginlikten bağımsız olarak eşleşen ilk kural kullanarak yönlendirilir. Örneğin, aynı bağlantı noktasında temel bir dinleyici kullanan bir kuralınız ve çok siteli dinleyici kullanan bir kuralınız varsa çok siteli kuralın beklendiği gibi çalışması için çok siteli dinleyicinin kuralı temel dinleyici kuralından önce listelenmelidir. 
@@ -180,12 +179,4 @@ Uygulama ağ geçidi genel IP adresiyle oluşturulduktan sonra DNS adresini alab
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, öğrendiğiniz nasıl yapılır:
-
-> [!div class="checklist"]
-> * Uygulama ağ geçidi oluşturma
-> * Arka uç sunucuları için sanal makineler oluşturun
-> * Arka uç havuzları ile arka uç sunucular oluşturma
-> * Arka uç dinleyicileri oluşturma
-> * Yönlendirme kuralları oluşturma
-> * Etki alanınızda bir CNAME kaydı oluşturma
+[Application Gateway ile App Service'ı yapılandırma](create-web-app.md)

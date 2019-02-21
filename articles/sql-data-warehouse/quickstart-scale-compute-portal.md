@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kevin
-ms.reviewer: igorstan
-ms.openlocfilehash: 31ec1537a0075f486130a3bcf1017d35b47e499d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.reviewer: jrasnick
+ms.openlocfilehash: 2e3bb00cee679671ed382ee46690fc4dff8bddfb
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463659"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453894"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında Azure SQL veri ambarı'nda ölçek işlem
 
@@ -29,11 +29,14 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Önceden var olan bir veri ambarını ölçeklendirebilir veya [Hızlı Başlangıç: Oluşturma ve bağlanma - portal](create-data-warehouse-portal.md) bölümünü kullanarak **mySampleDataWarehouse** adlı bir veri ambarı oluşturabilirsiniz.  Bu hızlı başlangıç, **mySampleDataWarehouse** öğesini ölçeklendirir.
+Zaten sahip veya kullanan bir veri ambarını ölçeklendirebilir [hızlı başlangıç: oluşturma ve bağlanma - portal](create-data-warehouse-portal.md) adlı bir veri ambarı oluşturmak için **mySampleDataWarehouse**.  Bu hızlı başlangıç, **mySampleDataWarehouse** öğesini ölçeklendirir.
+
+>[!Note]
+>Veri ambarınızın ölçeğini için çevrimiçi olmalıdır. 
 
 ## <a name="scale-compute"></a>Hesaplamayı ölçeklendirme
 
-SQL Veri Ambarı’nda, veri ambarı birimlerini ayarlayarak işlem kaynaklarını artırabilir veya azaltabilirsiniz. [Oluşturma ve Bağlanma - portal](create-data-warehouse-portal.md) bölümünde **mySampleDataWarehouse** oluşturuldu ve 400 DWU ile başlatıldı. Aşağıdaki adımlar, **mySampleDataWarehouse** için DWU’ları ayarlar.
+SQL veri ambarı işlem kaynakları, artan veya azalan veri ambarı birimleri ölçeklendirilebilir. [Oluşturma ve bağlanma - portal] oluşturulan quickstart(create-data-warehouse-portal.md) **mySampleDataWarehouse** ve 400 Dwu ile başlatıldı. Aşağıdaki adımlar, **mySampleDataWarehouse** için DWU’ları ayarlar.
 
 Veri ambarı birimlerini değiştirmek için:
 
@@ -54,7 +57,7 @@ Veri ambarı birimlerini değiştirmek için:
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık veri ambarınız için işlemin nasıl ölçeklendirileceğini öğrendiniz. Azure SQL Veri Ambarı hakkında daha fazla bilgi edinmek için, veri yükleme öğreticisiyle devam edin.
+Artık veri ambarınız ölçeklendirileceğini öğrendiniz. Azure SQL Veri Ambarı hakkında daha fazla bilgi edinmek için, veri yükleme öğreticisiyle devam edin.
 
 > [!div class="nextstepaction"]
 >[SQL veri ambarına veri yükleme](load-data-from-azure-blob-storage-using-polybase.md)

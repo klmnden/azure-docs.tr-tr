@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/03/2018
-ms.openlocfilehash: bddb97083bd1d1538b9f60ec3c0798cf1e964b1e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7134a22532622d7de25a23897f83dc453d8a4344
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498157"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454064"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Verilerle yanıtlayabileceğiniz bir soru sorun
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Seri yeni başlayanlar için veri bilimi
@@ -89,7 +89,7 @@ Ancak, en önemli - sharp soruya verilerle yanıtlayabileceğiniz bir soru sorun
 
 Verilerle yanıtlayabileceğiniz bir soru sormaya yönelik bazı temel ilkeler hakkında konuştuk.
 
-"Veri bilimi için yeni başlayanlar" Microsoft Azure Machine learning'in diğer videoları kullanıma emin olun.
+"Veri bilimi için yeni başlayanlar" Microsoft Azure Machine Learning Studio'dan diğer videoları kullanıma emin olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bir Machine Learning Studio'da ilk veri bilimi deneyinde deneyin](create-experiment.md)

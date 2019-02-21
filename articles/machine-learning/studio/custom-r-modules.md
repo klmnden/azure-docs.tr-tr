@@ -1,7 +1,7 @@
 ---
 title: Özel R modülleri tanımlayın
 titleSuffix: Azure Machine Learning Studio
-description: Bu konuda, yazar ve Azure Machine learning'de özel bir R modülü dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar.
+description: Bu konuda, yazar ve Azure Machine Learning Studio'da özel bir R modülü dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0da5456845b940ef88ac40ffed1f53e84fe54080
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 43691988e3f4f253c642702ad19272a5267c14cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488314"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56457039"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Özel R modülleri Azure Machine Learning Studio'da tanımlayın
 
@@ -24,9 +24,9 @@ Bu konuda, yazar ve Azure Machine Learning Studio'da özel bir R modülü dağı
 
 
 ## <a name="what-is-a-custom-r-module"></a>Özel bir R Modülü nedir?
-A **Özel Modül** çalışma alanınıza yüklediğiniz ve bir Azure Machine Learning denemesi bir parçası olarak yürütülen ve kullanıcı tanımlı bir modül. A **özel R Modülü** kullanıcı tanımlı bir R işlevi yürüten özel bir modüldür. **R** istatistiksel bilgi işlem ve istatistikçilerin ve veri uzmanları tarafından algoritmaları uygulamak için yaygın olarak kullanılan grafik için bir programlama dilidir. Şu anda R özel modüller, ancak destek ek diller zamanlandığı için gelecek sürümleri için desteklenen tek bir dildir.
+A **Özel Modül** çalışma alanınıza yüklediğiniz ve bir Azure Machine Learning Studio denemesine bir parçası olarak yürütülen ve kullanıcı tanımlı bir modül. A **özel R Modülü** kullanıcı tanımlı bir R işlevi yürüten özel bir modüldür. **R** istatistiksel bilgi işlem ve istatistikçilerin ve veri uzmanları tarafından algoritmaları uygulamak için yaygın olarak kullanılan grafik için bir programlama dilidir. Şu anda R özel modüller, ancak destek ek diller zamanlandığı için gelecek sürümleri için desteklenen tek bir dildir.
 
-Özel modüller sahip **birinci sınıf durumu** diğer modülü gibi kullanılabilir olduğunu anlamında Azure Machine learning'de. Yayımlanmış denemeleri veya görselleştirmeler bulunan diğer modüllerle çalıştırılabilir. Modülü, giriş ve çıkış bağlantı noktaları, kullanılacak, modelleme parametreleri ve çeşitli diğer çalışma zamanı davranışları tarafından uygulanan algoritması üzerinde denetiminiz vardır. Özel modüller içeren bir denemeyi kolay paylaşım Azure AI Gallery içine de yayımlanabilir.
+Özel modüller sahip **birinci sınıf durumu** Azure Machine Learning Studio'da anlamında bunlar diğer modülü gibi kullanılabilir. Yayımlanmış denemeleri veya görselleştirmeler bulunan diğer modüllerle çalıştırılabilir. Modülü, giriş ve çıkış bağlantı noktaları, kullanılacak, modelleme parametreleri ve çeşitli diğer çalışma zamanı davranışları tarafından uygulanan algoritması üzerinde denetiminiz vardır. Özel modüller içeren bir denemeyi kolay paylaşım Azure AI Gallery içine de yayımlanabilir.
 
 ## <a name="files-in-a-custom-r-module"></a>Özel bir R Modülü dosyaları
 Özel bir R modülü, en az iki dosya içeren bir .zip dosyası tanımlanır:
@@ -55,7 +55,7 @@ Bu örnekte, özel bir R modülü tarafından gereken dosyaları oluşturmak, bu
     } 
 
 ### <a name="the-xml-definition-file"></a>XML tanım dosyası
-Bu kullanıma sunmak için `CustomAddRows` belirtmek için bir XML tanım dosyasını bir Azure Machine Learning modülü işlevi oluşturulmalıdır nasıl **özel Add Rows** modülü arayın ve davranır. 
+Bu kullanıma sunmak için `CustomAddRows` işlevi bir Azure Machine Learning Studio modülü, bir XML tanım dosyası olarak oluşturulan, belirtmek için nasıl **özel Add Rows** modülü arayın ve davranır. 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -105,7 +105,7 @@ Machine Learning çalışma alanınızda bunları kaydetmek için Machine Learni
 
 ## <a name="elements-in-the-xml-definition-file"></a>XML tanımı dosyasındaki öğeleri
 ### <a name="module-elements"></a>Modül öğeleri
-**Modülü** öğesi XML dosyasında özel bir modülü tanımlamak için kullanılır. Birden çok kullanarak bir XML dosyasında birden çok modül tanımlanabilir **Modülü** öğeleri. Çalışma alanınızdaki her modülün benzersiz bir ad olmalıdır. Varolan bir özel modülle aynı ada sahip bir özel modülü kaydetmek ve mevcut modülü yenisiyle değiştirir. Özel modüller olabilir ancak varolan bir Azure Machine Learning modülle aynı ada sahip kayıtlı. Bu nedenle, bunlar içinde görünüp görünmediğini **özel** modül paletinin kategorisidir.
+**Modülü** öğesi XML dosyasında özel bir modülü tanımlamak için kullanılır. Birden çok kullanarak bir XML dosyasında birden çok modül tanımlanabilir **Modülü** öğeleri. Çalışma alanınızdaki her modülün benzersiz bir ad olmalıdır. Varolan bir özel modülle aynı ada sahip bir özel modülü kaydetmek ve mevcut modülü yenisiyle değiştirir. Özel modüller olabilir ancak mevcut bir Azure Machine Learning Studio modülü aynı ada sahip kayıtlı. Bu nedenle, bunlar içinde görünüp görünmediğini **özel** modül paletinin kategorisidir.
 
     <Module name="Custom Add Rows" isDeterministic="false"> 
         <Owner>Microsoft Corporation</Owner>
@@ -330,7 +330,7 @@ Bir modül parametresi kullanılarak tanımlanır **Arg** alt öğesi **bağıms
   * **Varsayılan** -varsayılan özelliğinin değeri birinden bir ID değeriyle eşleşmelidir **öğesi** öğeleri.
 
 ### <a name="auxiliary-files"></a>Yardımcı dosyalar
-Özel Modül ZIP dosyasına yerleştirilmiş herhangi bir dosyayı yürütme sırasında kullanılabilir olacak. Mevcut herhangi bir dizin yapılarını korunur. Bu works kaynağını bu dosyayı aynı yerel olarak ve Azure Machine Learning yürütme anlamına gelir. 
+Özel Modül ZIP dosyasına yerleştirilmiş herhangi bir dosyayı yürütme sırasında kullanılabilir olacak. Mevcut herhangi bir dizin yapılarını korunur. Bu works kaynağını bu dosyayı aynı yerel olarak ve Azure Machine Learning Studio yürütme anlamına gelir. 
 
 > [!NOTE]
 > Tüm yolları böylece tüm dosyalar 'src' dizinine çıkarılır fark ' src /' öneki.

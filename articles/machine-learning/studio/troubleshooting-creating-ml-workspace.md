@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: c12c87524ac1b8d0be5b691d599510f8e4573317
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 7f0485221f0f29d08275f9508ba79e32c3f8924a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267334"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455447"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>Sorun giderme kılavuzu: Oluşturma ve bir Azure Machine Learning Studio çalışma alanına bağlayın
 Bu kılavuz, Azure Machine Learning Studio çalışma alanları ayarlarken çözümleri bazı zorluklar sık karşılaşıldı. sağlar.
@@ -39,31 +39,24 @@ Machine Learning hizmetinin veri depolamak için bir depolama hesabı gerekir. (
 
 Yeni bir Machine Learning Studio çalışma alanı oluşturulduktan sonra Machine Learning Studio çalışma alanı oluşturmak için kullandığınız Microsoft hesabı kullanarak oturum açabilirsiniz. Hata iletisi "Çalışma alanı bulunamadı" (aşağıdaki ekran görüntüsüne benzer) karşılaşırsanız, tarayıcı tanımlama bilgilerinizi silmek için aşağıdaki adımları kullanın.
 
-![Çalışma alanı bulunamadı][screen3]
+![Çalışma alanı bulunamadı](media/troubleshooting-creating-ml-workspace/screen3.png)
 
 **Tarayıcı tanımlama bilgilerini silmek için**
 
 1. Internet Explorer kullanıyorsanız, tıklatın **Araçları** sağ üst köşesinde'düğmesine tıklayın ve belirleyin **Internet Seçenekleri**.  
 
-   ![Internet Seçenekleri][screen4]
+   ![Internet Seçenekleri](media/troubleshooting-creating-ml-workspace/screen4.png)
 
 2. Altında **genel** sekmesinde **Sil...**
 
-   ![Genel sekmesi][screen5]
+   ![Genel sekmesi](media/troubleshooting-creating-ml-workspace/screen5.png)
 
 3. İçinde **Gözatma Geçmişini Sil** iletişim kutusunda, emin **tanımlama bilgileri ve Web sitesi verileriyle** seçilir ve tıklayın **Sil**.
 
-   ![Tanımlama bilgilerini silin][screen6]
+   ![Tanımlama bilgilerini silin](media/troubleshooting-creating-ml-workspace/screen6.png)
 
-Tanımlama bilgilerini silindikten sonra tarayıcıyı yeniden başlatmak ve ardından Git [Microsoft Azure Machine Learning](https://studio.azureml.net) sayfası. Bir kullanıcı adı ve parola sorulduğunda, çalışma alanı oluşturmak için kullandığınız aynı Microsoft hesabını girin.
+Tanımlama bilgilerini silindikten sonra tarayıcıyı yeniden başlatmak ve ardından Git [Microsoft Azure Machine Learning Studio](https://studio.azureml.net) sayfası. Bir kullanıcı adı ve parola sorulduğunda, çalışma alanı oluşturmak için kullandığınız aynı Microsoft hesabını girin.
 
 ## <a name="comments"></a>Yorumlar
 
 Machine Learning deneyiminizi mümkün olduğunca sorunsuz hale getirmek için Amacımız sağlamaktır. Lütfen herhangi bir yorum ve sorunu sonrası [Azure Machine Learning Forumu](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) daha iyi hizmet yardımcı olmak için.
-
-[screen1]:media/troubleshooting-creating-ml-workspace/screen1.png
-[screen2]:media/troubleshooting-creating-ml-workspace/screen2.png
-[screen3]:media/troubleshooting-creating-ml-workspace/screen3.png
-[screen4]:media/troubleshooting-creating-ml-workspace/screen4.png
-[screen5]:media/troubleshooting-creating-ml-workspace/screen5.png
-[screen6]:media/troubleshooting-creating-ml-workspace/screen6.png

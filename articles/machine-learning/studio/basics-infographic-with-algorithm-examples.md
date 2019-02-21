@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: 2db14056b6b5ccf16c8009c21bfcff00954a7802
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 78daf4534334d56c962d97e7a9aac8a7910db34c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242912"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453605"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>İndirilebilir bilgi grafiği: Makine öğrenimi algoritma örnekleri ile temelleri
 
@@ -33,7 +33,7 @@ Machine learning temel bilgileri yaygın machine learning soruları yanıtlamak 
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Yeni başlayanlar ve İleri düzey kullanıcılar için algoritmalar ile daha fazla yardım
 
-* Farklı türlerdeki makine öğrenimi algoritmaları, bunların nasıl kullanıldığı ve çözümünüz için doğru olanı seçmeleri nasıl daha ayrıntılı bir açıklaması için bkz. [Microsoft Azure Machine Learning için algoritma seçme](algorithm-choice.md).
+* Farklı türlerdeki makine öğrenimi algoritmaları, bunların nasıl kullanıldığı ve çözümünüz için doğru olanı seçmeleri nasıl daha ayrıntılı bir açıklaması için bkz. [Microsoft Azure Machine Learning Studio için algoritma seçme](algorithm-choice.md).
 * Machine Learning Studio'da kullanılabilen tüm makine öğrenimi algoritma kategoriye göre bir listesi için bkz [modeli Başlat] [ initialize-model] Machine Learning Studio algoritma ve modül Yardımı.
 * Bir tam alfabetik listesi algoritmaları ve Machine Learning Studio'daki modüller için bkz: [Machine Learning Studio modüllerinin A-Z listesi] [ a-z-list] Machine Learning Studio algoritma ve modül Yardımı.
 * Azure AI Gallery ve topluluk tarafından oluşturulan kaynaklara genel bir bakış için bkz: [paylaşımı ve Azure AI Gallery'de kaynakları bulmak](gallery-how-to-use-contribute-publish.md).

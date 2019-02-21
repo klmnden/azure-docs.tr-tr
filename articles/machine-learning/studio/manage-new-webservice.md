@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 0ffa917aa6bcfb642cd672d0a51a70b13f041635
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267572"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453877"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Azure Machine Learning Studio Web Hizmetleri portalını kullanarak bir web hizmetini yönetme
 Machine Learning yeni ve Klasik Web Hizmetleri Microsoft Azure Machine Learning Web Hizmetleri portalını kullanarak yönetebilirsiniz. Klasik Web Hizmetleri ve yeni Web hizmetleri üzerinde farklı temel teknolojileri aldığından, biraz farklı yönetim özellikleri bunların her biri için sizde.
@@ -39,7 +39,7 @@ Kullanıcı Azure Machine Learning Web Hizmetleri portalında kaynaklara erişme
 
 *Web hizmeti dağıtımı başarısız oldu. Bu hesap, çalışma alanını içeren Azure aboneliğine yeterli erişimi yok. Bir Web hizmetini Azure'a dağıtmak için aynı hesabı çalışma alanına davet edilmesi gerektiğini ve çalışma alanını içeren Azure aboneliğine erişim verilmesi.*
 
-Bir çalışma alanı oluşturma hakkında daha fazla bilgi için bkz. [oluşturma ve paylaşma bir Azure Machine Learning çalışma alanı](create-workspace.md).
+Bir çalışma alanı oluşturma hakkında daha fazla bilgi için bkz. [oluşturma ve paylaşma bir Azure Machine Learning Studio çalışma](create-workspace.md).
 
 Erişim izinleri ayarlama hakkında daha fazla bilgi için bkz. [RBAC ve Azure portalını kullanarak erişimini yönetme](../../role-based-access-control/role-assignments-portal.md).
 
@@ -108,7 +108,7 @@ Plan Panosu aşağıdaki bilgileri sağlar:
 
 ## <a name="manage-classic-web-services"></a>Klasik Web Hizmetleri yönetme
 > [!NOTE]
-> Bu bölümdeki yordamlar, Klasik web hizmetleri Azure Machine Learning Web Hizmetleri Portalı aracılığıyla yönetmek için uygundur. Klasik Web Hizmetleri Machine Learning Studio ve Azure Portalı aracılığıyla yönetme hakkında daha fazla bilgi için bkz. [bir Azure Machine Learning çalışma alanını yönetme](manage-workspace.md).
+> Bu bölümdeki yordamlar, Klasik web hizmetleri Azure Machine Learning Web Hizmetleri Portalı aracılığıyla yönetmek için uygundur. Klasik Web Hizmetleri Machine Learning Studio ve Azure Portalı aracılığıyla yönetme hakkında daha fazla bilgi için bkz. [bir Azure Machine Learning Studio çalışma alanını yönetme](manage-workspace.md).
 > 
 > 
 

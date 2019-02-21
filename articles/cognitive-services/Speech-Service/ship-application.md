@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 2e35afe996ec80411d2e0e339fd4d49adecd1239
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857949"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445126"
 ---
 # <a name="ship-an-application"></a>Bir uygulama teslim edin
 
@@ -47,19 +47,19 @@ Gerekli dosyaları Speech SDK'sı, uygulamanızın aynı dizinde dağıtılabili
 
 ## <a name="linux"></a>Linux
 
+Speech SDK'sı şu anda Ubuntu 16.04 ve 18.04 dağıtımları destekler.
 Yerel bir uygulama için Speech SDK'sı kitaplığı göndermeye gerek `libMicrosoft.CognitiveServices.Speech.core.so`.
 Uygulamanızı eşleşen sürümünü (x86, x64) seçtiğinizden emin olun. Linux sürümüne göre aşağıdaki bağımlılıkları içerecek şekilde gerekebilir:
 
 * GNU C Kitaplığı'nın paylaşılan kitaplıklar (iş parçacıkları POSIX programlama kitaplığı dahil olmak üzere `libpthreads`)
 * OpenSSL kitaplığını (`libssl.so.1.0.0`)
-* CURL kitaplığı (`libcurl.so.4`)
 * ALSA uygulamalar için paylaşılan kitaplığı (`libasound.so.2`)
 
-Örneğin, ubuntu 16.04 veya 18.04, GNU C kitaplıklarını zaten varsayılan olarak yüklenmelidir. Son üç şu komutları kullanarak yüklenebilir:
+Ubuntu'da GNU C kitaplıklarını zaten varsayılan olarak yüklü olması gerekir. Son üç şu komutları kullanarak yüklenebilir:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2 wget
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

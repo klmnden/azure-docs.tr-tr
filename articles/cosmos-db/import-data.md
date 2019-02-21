@@ -4,14 +4,14 @@ description: MongoDB, SQL Server, Tablo depolama, Amazon DynamoDB, CSV ve JSON d
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 02/19/2019
 ms.author: dech
-ms.openlocfilehash: 82c34f3dcc606ccf7103b557518cd7a54a153183
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 972602bb6c5fc80433c2479516f8d0a5d885e4dd
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034129"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446945"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Verilerinizi Azure Cosmos DB'ye geçirmek için Veri geçişi aracını kullanma
 
@@ -58,7 +58,7 @@ Veri Geçişi aracı, aşağıda örnekleri verilen çeşitli kaynaklardan Azure
 
 ## <a id="Install"></a>Yükleme
 
-Geçiş aracı kaynak koduna GitHub’da [bu depodan](https://github.com/azure/azure-documentdb-datamigrationtool) erişilebilir. Çözümü yerel olarak indirip derleyebilir veya [önceden derlenmiş bir ikiliyi indirip](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip) daha sonra aşağıdakilerden birini çalıştırabilirsiniz:
+Geçiş aracı kaynak koduna GitHub’da [bu depodan](https://github.com/azure/azure-documentdb-datamigrationtool) erişilebilir. Çözümü yerel olarak indirip derleyebilir veya [önceden derlenmiş bir ikiliyi indirip](https://cosmosdbtools.blob.core.windows.net/datamigrationtool/2019.02.19-1.8.2/dt-1.8.2.zip) daha sonra aşağıdakilerden birini çalıştırabilirsiniz:
 
 * **Dtui.exe**: Aracı'nın grafik arabirimi sürümü
 * **Dt.exe**: Komut satırı aracı sürümü
@@ -195,7 +195,7 @@ SQL kaynağına benzer şekilde, içeri aktarma sırasında hiyerarşik ilişkil
 
 DomainInfo.Domain_Name ve RedirectInfo.Redirecting gibi diğer adlara dikkat edin. İç içe geçirme ayırıcısı olarak '.' öğesi belirtildiğinde içeri aktarma aracı içeri aktarma sırasında DomainInfo ve RedirectInfo alt belgelerini oluşturur. Aşağıda, Azure Cosmos DB’de elde edilen bir belge örneği verilmiştir:
 
-*{"DomainInfo": {"Etki_alanı_adı": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV"}, "Federal kuruluş": "Amerika Birleşik Devletleri yönetim konferansı", "RedirectInfo": {"Yönlendirme": "0", "Redirect_Destination": ""}, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"}*
+*{"DomainInfo": {"Etki_alanı_adı": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV"}, "Federal kuruluş": "Amerika Birleşik Devletleri yönetim konferansı", "RedirectInfo": {"Yönlendirme": "0", "Redirect_Destination": ""}, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 İçeri aktarma Aracı (tırnak içine alınmış değerler her zaman dize olarak kabul edilir), tırnak işareti olmayan değerleri CSV dosyaları için tür bilgilerini çıkarmasına dener.  Türler şu sırayla tanımlanır: sayı, tarih saat, boole.  
 
@@ -387,8 +387,8 @@ Ayrıca veri türlerini içeri aktarırken (örneğin, SQL Server veya MongoDB�
  ![Azure Cosmos DB tarih saat içeri aktarma seçeneklerinin ekran görüntüsü](./media/import-data/datetimeoptions.png)
 
 * Dize: Dize değeri olarak Sürdür
-* Dönem: Kalıcı bir dönem sayı değeri
-* Her ikisi: Hem dize hem de sayı değerlerini dönem kalıcı hale getirin. Bu seçenek, örneğin bir alt oluşturur: "date_joined": {"Value": "2013-10-21T21:17:25.2410000Z", "Dönem": 1382390245}
+* Epoch: Kalıcı bir dönem sayı değeri
+* Her ikisi: Hem dize hem de sayı değerlerini dönem kalıcı hale getirin. Bu seçenek, örneğin bir alt oluşturur: "date_joined": {"Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 Azure Cosmos DB Toplu içeri aktarıcı aşağıdaki ek gelişmiş seçenekleri içerir:
 
@@ -442,8 +442,8 @@ Birden fazla koleksiyona içeri aktarırken, içeri aktarma aracı karma tabanl�
  ![Azure Cosmos DB tarih saat içeri aktarma seçeneklerinin ekran görüntüsü](./media/import-data/datetimeoptions.png)
 
 * Dize: Dize değeri olarak Sürdür
-* Dönem: Kalıcı bir dönem sayı değeri
-* Her ikisi: Hem dize hem de sayı değerlerini dönem kalıcı hale getirin. Bu seçenek, örneğin bir alt oluşturur: "date_joined": {"Value": "2013-10-21T21:17:25.2410000Z", "Dönem": 1382390245}
+* Epoch: Kalıcı bir dönem sayı değeri
+* Her ikisi: Hem dize hem de sayı değerlerini dönem kalıcı hale getirin. Bu seçenek, örneğin bir alt oluşturur: "date_joined": {"Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 Azure Cosmos DB: Sıralı kayıt içeri aktarıcı aşağıdaki ek gelişmiş seçenekleri içerir:
 

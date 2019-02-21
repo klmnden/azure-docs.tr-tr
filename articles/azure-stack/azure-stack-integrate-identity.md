@@ -10,12 +10,12 @@ ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a7753280c0b84b21f44e52c303b96f11cd4cd8af
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765799"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56457005"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack veri merkezi tümleştirmesi - kimlik
 Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. AD FS dağıtımı da bağlantı kesik moddayken Azure Stack dağıtımı olarak adlandırılır.
@@ -73,7 +73,7 @@ Otomasyon parametreleri için girdi olarak aşağıdaki bilgiler gereklidir:
 
 Birden çok siteye sahip Active Directory dağıtımları için Azure Stack dağıtımınıza yakın Active Directory sitesi yapılandırın. Yapılandırma, Azure Stack Graph hizmeti uzak bir siteden bir genel katalog sunucusu kullanarak sorguları gidermek olan önler.
 
-Azure Stack ekleme [genel VIP ağı](azure-stack-network.md#public-vip-network) alt ağ ile Azure Stack'e en yakın Azure AD Site. Örneğin, Seattle ve Redmond Seattle sitesinde dağıtılan Azure Stack ile iki site Active Directory'niz varsa Azure AD alanına Seattle için Azure Stack genel VIP alt ağı eklersiniz.
+Azure Stack ekleme [genel VIP ağı](azure-stack-network.md#public-vip-network) alt ağ ile Azure Stack'e en yakın Active Directory sitesi. Örneğin, Seattle ve Redmond Seattle sitesinde dağıtılan Azure Stack ile iki site Active Directory'niz varsa Active Directory sitesine Seattle için Azure Stack genel VIP alt ağı eklersiniz.
 
 Active Directory siteleri hakkında daha fazla bilgi için bkz. [site topolojisini tasarlama](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 

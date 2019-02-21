@@ -1,7 +1,7 @@
 ---
 title: Konuşma SDK - konuşma Hizmetleri sorunlarını giderme
 titleSuffix: Azure Cognitive Services
-description: Bu makalede, konuşma tanıma hizmeti SDK'sı kullanırken karşılaşabileceğiniz sorunları gidermenize yardımcı olacak bilgiler sağlar.
+description: Bu makalede Speech SDK'sı kullanırken karşılaşabileceğiniz sorunları gidermenize yardımcı olacak bilgiler sağlar.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a3741cb351b11b8cfd7c5d38713bb71232cf010e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859326"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446537"
 ---
-# <a name="troubleshoot-the-speech-service-sdk"></a>Konuşma hizmeti SDK'sını sorunlarını giderme
+# <a name="troubleshoot-the-speech-sdk"></a>Konuşma SDK’sı sorunlarını giderme
 
-Bu makalede, konuşma tanıma hizmeti SDK'sı kullanırken karşılaşabileceğiniz sorunları gidermenize yardımcı olacak bilgiler sağlar.
+Bu makalede Speech SDK'sı kullanırken karşılaşabileceğiniz sorunları gidermenize yardımcı olacak bilgiler sağlar.
 
 ## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Hata: WebSocket yükseltme (403) kimlik doğrulama hatası ile başarısız oldu
 

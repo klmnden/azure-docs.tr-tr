@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: fd93b84c251a0b2346550c79bcb8796161cb9116
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: d621afd682e6040179777f4cd6d991ff31acb5a3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417880"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445500"
 ---
 # <a name="transforms-and-jobs"></a>Dönüşümler ve İşler
  
@@ -61,6 +61,13 @@ Bkz: [hata kodları](https://docs.microsoft.com/rest/api/media/jobs/get#joberror
 
 Bkz: [filtreleme, sıralama, Media Services varlıklarının sayfalandırma](entities-overview.md).
 
+## <a name="configure-media-reserved-units"></a>Yapılandırma medya ayrılmış birimleri
+
+Ses analizi ve Video analizi işleri, Media Services v3 tarafından tetiklenen veya Video Indexer için 10 S3 medya ayrılmış birimi (MRU) hesabınızla sağlama önemle tavsiye edilir. 10'dan fazla S3 MRU gerekiyorsa, kullanarak bir destek bileti açın [Azure portalında](https://portal.azure.com/).
+
+Ayrıntılar için bkz [medya CLI ile işlemeyi ölçeklendirme](media-reserved-units-cli-how-to.md).
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Karşıya yükleme, kodlama ve video dosyaları akışla aktarma](stream-files-tutorial-with-api.md)
+- [Öğretici: Karşıya yükleme, kodlama ve .NET kullanarak video akışı](stream-files-tutorial-with-api.md)
+- [Öğretici: Media Services v3 ile .NET kullanarak videoları analiz etme](analyze-videos-tutorial-with-api.md)

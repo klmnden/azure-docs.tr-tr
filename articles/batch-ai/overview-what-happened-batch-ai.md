@@ -7,12 +7,12 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 2/14/2019
 ms.author: garye
-ms.openlocfilehash: 44c0eec97f63897173ecde170ec4ed926db8bcaa
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 87dcf18a2517561e3166726f8f1f1a70c2ec7713
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342822"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447812"
 ---
 # <a name="whats-happening-to-azure-batch-ai"></a>Azure Batch AI neler oluyor?
 
@@ -121,7 +121,7 @@ Azure Machine Learning hizmeti, otomatik ML, Hiper parametre ayarı ve ML işlem
 
 ## <a name="how-do-i-migrate"></a>Nasıl geçiş yaparım?
 
-Bu Geçiş Kılavuzu iki hizmet arasında eşleme komutlarını yardımcı adımları izlemeden önce tanıdık belgelerinde aracılığıyla Azure Machine Learning hizmeti ile başlama biraz zaman harcadığı öneririz] (.. / machine-learning/service/overview-what-is-azure-ml.md) dahil olmak üzere [python'da öğretici](../machine-learning/service/tutorial-train-models-with-aml.md).
+Bu Geçiş Kılavuzu iki hizmet arasında eşleme komutlarını yardımcı adımları izlemeden önce Azure Machine Learning hizmeti aracılığıyla alışık alma biraz zaman harcadığı öneririz, [belgeleri](../machine-learning/service/overview-what-is-azure-ml.md) dahil [python'da öğretici](../machine-learning/service/tutorial-train-models-with-aml.md).
 
 Uygulamalarınıza kesintilerinden kaçının ve en son özelliklerden yararlanmak için 31 Mart 2019'den önce aşağıdaki adımları uygulayın:
 
@@ -134,7 +134,7 @@ Uygulamalarınıza kesintilerinden kaçının ve en son özelliklerden yararlanm
 1. Azure Machine Learning işlem kullanmak için komut dosyalarını güncelleştirin.
 
 
-### <a name="sdk"></a>SDK
+### <a name="sdk-migration"></a>SDK'sı geçiş
 
 Geçerli SDK desteği Azure Machine Learning birkaç Python Sdk'leri hizmetidir. Ana SDK'sı, kabaca iki haftada bir güncelleştirilir ve aşağıdaki komutu kullanarak Pypı ' yüklenebilir:
 
@@ -147,10 +147,10 @@ Ortamınızı ayarlama ve bunları kullanarak SDK'sını yükleyin [hızlı baş
 İlgili conda ortama işaret eden çekirdeği ile jupyter not defteri açtıktan sonra iki hizmet komutlar nasıl eşleştiği şöyledir:
 
 
-### <a name="create-a-workspace"></a>Çalışma alanı oluşturma
+#### <a name="create-a-workspace"></a>Çalışma alanı oluşturma
 Bir yapılandırma dosyasında Azure ML'yi kullanarak BatchAI içinde bir configuration.json kullanarak bir çalışma alanı başlatma kavramına benzer şekilde eşler.
 
-Batch AI için bu şekilde yaptınız:
+İçin **Batch AI**, bu şekilde yaptınız:
 
 ```python
 sys.path.append('../../..')
@@ -163,7 +163,7 @@ utils.config.create_resource_group(cfg)
 _ = client.workspaces.create(cfg.resource_group, cfg.workspace, cfg.location).result()
 ```
 
-Azure Machine Learning hizmeti:
+**Azure Machine Learning hizmeti**, deneyin:
 
 ```python
 from azureml.core.workspace import Workspace
@@ -175,9 +175,10 @@ print('Workspace name: ' + ws.name,
       'Resource group: ' + ws.resource_group, sep = '\n')
 ```
 
-Ayrıca, bir çalışma alanı çalışma azureml.core gibi yapılandırma parametrelerini alma doğrudan belirterek oluşturabilirsiniz
+Ayrıca, bir çalışma alanı gibi yapılandırma parametreleri belirterek doğrudan oluşturabilirsiniz
 
 ```python
+from azureml.core import Workspace
 # Create the workspace using the specified parameters
 ws = Workspace.create(name = workspace_name,
                       subscription_id = subscription_id,
@@ -191,13 +192,13 @@ ws.get_details()
 ws.write_config()
 ```
 
-AML çalışma sınıfı ilgili işlevlerle ilgili daha ayrıntılı belgeler aşağıda verilmiştir.
+AML çalışma sınıfı hakkında daha fazla bilgi [SDK başvuru belgeleri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py).
 
 
 #### <a name="create-a-compute-cluster"></a>Bir işlem kümesini oluşturun
-Azure Machine Learning bazı hizmet ve çalışma alanınıza (örn. eklenebilecek başkaları tarafından yönetilen, birden çok bilgisayar hedefine destekler Bir HDInsight kümesi veya uzak bir VM, daha fazla bilgi burada bulunur). Bir BatchAI oluşturma kavramı Azure ML'de AmlCompute küme oluşturmak için küme haritalarını işlem. Parametreleri BatchAI içinde nasıl geçireceğiniz benzer bir işlem yapılandırmasında Amlcompute oluşturulması alır. Unutmayın, BatchAI varsayılan olarak kapalıdır ise otomatik ölçeklendirmenin AmlCompute kümenizdeki varsayılan olarak açıktır ' dir.
+Azure Machine Learning bazı hizmet ve çalışma alanınıza (örn. eklenebilecek başkaları tarafından yönetilen, birden çok bilgisayar hedefine destekler Bir HDInsight kümesi veya uzak bir VM. Çeşitli hakkında daha fazla bilgiyi [hedefleri işlem](../machine-learning/service/how-to-set-up-training-targets.md). Bir BatchAI oluşturma kavramı Azure ML'de AmlCompute küme oluşturmak için küme haritalarını işlem. Parametreleri BatchAI içinde nasıl geçireceğiniz benzer bir işlem yapılandırmasında Amlcompute oluşturulması alır. Unutmayın, BatchAI varsayılan olarak kapalıdır ise otomatik ölçeklendirmenin AmlCompute kümenizdeki varsayılan olarak açıktır ' dir.
 
-Batch AI için bu şekilde yaptınız:
+İçin **Batch AI**, bu şekilde yaptınız:
 
 ```python
 nodes_count = 2
@@ -217,7 +218,7 @@ parameters = models.ClusterCreateParameters(
 _ = client.clusters.create(cfg.resource_group, cfg.workspace, cluster_name, parameters).result()
 ```
 
-Azure Machine Learning hizmeti için deneyin:
+İçin **Azure Machine Learning hizmeti**, deneyin:
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -244,20 +245,20 @@ except ComputeTargetException:
 gpu_cluster.wait_for_completion(show_output=True)
 ```
 
-AmlCompute sınıfı ilgili işlevlerle ilgili daha ayrıntılı belgeler aşağıda verilmiştir. Yukarıdaki yapılandırmada yalnızca vm_size ve max_nodes zorunlu olan ve sanal ağlar gibi özelliklerin geri kalanı olan gelişmiş yapılandırma için olduğunu unutmayın.
+AMLCompute sınıfı hakkında daha fazla bilgi [SDK başvuru belgeleri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py). Yukarıdaki yapılandırmada yalnızca vm_size ve max_nodes zorunlu olan ve sanal ağlar gibi özelliklerin geri kalanı olan yalnızca Gelişmiş Küme kurulumu için olduğunu unutmayın.
 
 
-### <a name="monitoring-status-of-your-cluster"></a>Kümenizi durumunu izleme
-Bu aşağıdaki gibi Azure ML üzerinde daha basittir.
+#### <a name="monitoring-status-of-your-cluster"></a>Kümenizi durumunu izleme
+Bu aşağıda göreceğiniz gibi Azure ML üzerinde daha basittir.
 
-Batch AI için bu şekilde yaptınız:
+İçin **Batch AI**, bu şekilde yaptınız:
 
 ```python
 cluster = client.clusters.get(cfg.resource_group, cfg.workspace, cluster_name)
 utils.cluster.print_cluster_status(cluster)
 ```
 
-Azure Machine Learning hizmeti için deneyin:
+İçin **Azure Machine Learning hizmeti**, deneyin:
 
 ```python
 gpu_cluster.get_status().serialize()
@@ -266,7 +267,7 @@ gpu_cluster.get_status().serialize()
 #### <a name="getting-reference-to-a-storage-account"></a>Bir depolama hesabı için başvuru alma
 Bir veri depolama, blob gibi kavramı veri deposu nesnesi kullanılarak Azure ML'de Basitleştirilmiş. Varsayılan olarak, bir depolama hesabı, Azure ML çalışma alanı oluşturur, ancak kendi depolama çalışma alanı oluşturmanın bir parçası da ekleyebilirsiniz. 
 
-Batch AI için bu şekilde yaptınız:
+İçin **Batch AI**, bu şekilde yaptınız:
 
 ```python
 azure_blob_container_name = 'batchaisample'
@@ -274,20 +275,20 @@ blob_service = BlockBlobService(cfg.storage_account_name, cfg.storage_account_ke
 blob_service.create_container(azure_blob_container_name, fail_on_exist=False)
 ```
 
-Azure Machine Learning hizmeti için deneyin:
+İçin **Azure Machine Learning hizmeti**, deneyin:
 
 ```python
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-Ek depolama hesapları kaydetme veya başka bir kayıtlı veri deposu için bir başvuru alma hakkında daha fazla bilgi burada bulunabilir.
+Ek depolama hesapları kaydetme veya başka bir kayıtlı veri deposunda bir başvuru alma hakkında daha fazla bilgi [Azure ML service belgelerini](../machine-learning/service/how-to-access-data.md#create-a-datastore).
 
 
 #### <a name="downloading-and-uploading-data"></a>Karşıya veri yükleme ve indirme 
 Her iki hizmet ile kolayca Yukarıdaki veri deposu başvurusu kullanarak depolama hesabına verileri karşıya yükleyebilirsiniz. Azure ML söz konusu olduğunda işin yapılandırmanızın parçası olarak belirttiğiniz nasıl görürsünüz ancak BatchAI için dosya paylaşımını bir parçası olarak biz eğitim betiğini de dağıtın.
 
-Batch AI için bu şekilde yaptınız:
+İçin **Batch AI**, bu şekilde yaptınız:
 
 ```python
 mnist_dataset_directory = 'mnist_dataset'
@@ -303,7 +304,7 @@ blob_service.create_blob_from_path(azure_blob_container_name,
 ```
 
 
-Azure Machine Learning hizmeti için deneyin:
+İçin **Azure Machine Learning hizmeti**, deneyin:
 
 ```python
 import os
@@ -320,14 +321,14 @@ path_on_datastore = ' mnist_dataset/mnist.npz' ds_data = ds.path(path_on_datasto
 #### <a name="create-an-experiment"></a>Deneme oluşturma
 Yukarıda da belirtildiği gibi Azure ML BatchAI için benzer bir denemeyi kavramı vardır. Her deneme sonra bireysel çalışır, nasıl işleri BatchAI sahibiz için benzer olabilir. Azure ML, tek tek alt çalıştırmalar için çalışan her bir üst hiyerarşisiyle sahip olmanızı sağlar.
 
-Batch AI için bu şekilde yaptınız:
+İçin **Batch AI**, bu şekilde yaptınız:
 
 ```python
 experiment_name = 'tensorflow_experiment'
 experiment = client.experiments.create(cfg.resource_group, cfg.workspace, experiment_name).result()
 ```
 
-Azure Machine Learning hizmeti için deneyin:
+İçin **Azure Machine Learning hizmeti**, deneyin:
 
 ```python
 from azureml.core import Experiment
@@ -338,9 +339,9 @@ experiment = Experiment(ws, name=experiment_name)
 
 
 #### <a name="submit-a-job"></a>Bir iş gönderdiniz
-Bir deney oluşturduktan sonra bir farklı çalıştır gönderdikten birkaç farklı yöntemle sahip. Bu örnekte, TensorFlow kullanarak bir ayrıntılı öğrenme modeli oluşturmaya çalışıyorsunuz ve bir Azure ML tahmin, bunu yapmak için kullanır. Bir tahmin yalnızca bir sarmalayıcı çalıştırmaları göndermek kolaylaştırır ve Pytorch ve TensorFlow için şu anda yalnızca desteklenir temel alınan çalışma yapılandırması işlevidir. Veri depoları kavramını da ne kadar kolay hale göreceksiniz bağlama yollarını belirtmek için 
+Bir deney oluşturduktan sonra bir farklı çalıştır gönderdikten birkaç farklı yöntemle sahip. Bu örnekte, TensorFlow kullanarak bir ayrıntılı öğrenme modeli oluşturmaya çalışıyorsunuz ve bir Azure ML tahmin, bunu yapmak için kullanır. Bir [Estimator](../machine-learning/service/how-to-train-ml-models.md) yalnızca bir sarmalayıcı işlevi çalıştırmaları göndermek kolaylaştırır ve Pytorch ve TensorFlow için şu anda yalnızca desteklenir temel alınan çalışma yapılandırması. Veri depoları kavramını da ne kadar kolay hale göreceksiniz bağlama yollarını belirtmek için 
 
-Batch AI için bu şekilde yaptınız:
+İçin **Batch AI**, bu şekilde yaptınız:
 
 ```python
 azure_file_share = 'afs'
@@ -408,9 +409,9 @@ job = client.jobs.create(cfg.resource_group, cfg.workspace, experiment_name, job
 print('Created Job {0} in Experiment {1}'.format(job.name, experiment.name))
 ```
 
-Bu eğitim kod parçacığı (dosya paylaşımına dosyamızı mnist_replica.py dosyası dahil olmak üzere) tam bilgilerini BatchAI örnek not defteri github deposunda burada bulunabilir.
+Bu eğitim kod parçacığı (yukarıdaki dosya paylaşımına dosyamızı mnist_replica.py dosyası dahil) için tüm bilgiler bulunabilir [BatchAI örnek not defteri github deposunu](https://github.com/Azure/BatchAI/tree/2238607d5a028a0c5e037168aefca7d7bb165d5c/recipes/TensorFlow/TensorFlow-GPU-Distributed).
 
-Azure Machine Learning hizmeti için deneyin:
+İçin **Azure Machine Learning hizmeti**, deneyin:
 
 ```python
 from azureml.train.dnn import TensorFlow
@@ -433,7 +434,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-Bu eğitim kod parçacığı (tf_mnist_replica.py dosyası dahil olmak üzere) tam bilgilerini Azure ML örnek not defteri github deposunda burada bulunabilir. Datastore ya da tek düğümler üzerinden bağlanabilir veya eğitim verileri düğümde indirilebilir. Veri deposunda, tahmin başvurma hakkında daha fazla ayrıntı aşağıda verilmiştir. 
+Bu eğitim kod parçacığı (tf_mnist_replica.py dosyası dahil) için tüm bilgiler bulunabilir [Azure ML örnek not defteri github deposunu](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). Datastore ya da tek düğümler üzerinden bağlanabilir veya eğitim verileri düğümde indirilebilir. Veri deposunda, tahmin başvurma hakkında daha fazla ayrıntı konusu [Azure ML service belgelerini](../machine-learning/service/how-to-access-data.md#access-datastores-for-training). 
 
 Azure ML çalıştırmasında gönderme gönderme işlevdir.
 
@@ -442,12 +443,12 @@ run = experiment.submit(estimator)
 print(run)
 ```
 
-– Özel eğitim ortamı tanımlamak için özellikle yararlı çalışma bir yapılandırma kullanarak çalıştırmanız, parametrelerini belirtme başka bir yolu yoktur. Bu not defteri örnekte burada daha fazla ayrıntı bulabilirsiniz. 
+– Özel eğitim ortamı tanımlamak için özellikle yararlı çalışma bir yapılandırma kullanarak çalıştırmanız, parametrelerini belirtme başka bir yolu yoktur. Bu konuda daha fazla ayrıntı bulabilirsiniz [örnek AmlCompute not defteri](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb). 
 
 #### <a name="monitor-your-run"></a>Çalıştırma izleyin
 Bir farklı çalıştır gönderildikten sonra ya da tamamlamak ya da Azure ML, doğrudan kodunuzdan çağırabilirsiniz masaüstünüzdeki Jupyter pencere öğelerini kullanarak izlemek de bekleyebilirsiniz. Bir çalışma alanındaki çeşitli denemeler döngü herhangi bir önceki çalıştırma bağlamında çekebilirsiniz ve tek tek her deneme içinde çalıştırır.
 
-Batch AI için bu şekilde yaptınız:
+İçin **Batch AI**, bu şekilde yaptınız:
 
 ```python
 utils.job.wait_for_job_completion(client, cfg.resource_group, cfg.workspace, 
@@ -460,7 +461,7 @@ for f in list(files):
 ```
 
 
-Azure Machine Learning hizmeti için deneyin:
+İçin **Azure Machine Learning hizmeti**, deneyin:
 
 ```python
 run.wait_for_completion(show_output=True)
@@ -473,15 +474,15 @@ Pencere öğesi, günlükleri gerçek zamanlı olarak aramak için defterinizdek
 
 
 
-#### <a name="delete-a-cluster"></a>Küme silme
+#### <a name="editing-a-cluster"></a>Küme düzenleme
 Küme silme oldukça basittir. Ayrıca, Azure ML ayrıca düğümlerinin daha yüksek bir sayı için ölçeklendirmek veya kümeyi ölçeklendirme önce boşta bekleme süresini artırmak istiyorsanız, Not defterini içinde bir kümeden güncelleştirmenizi sağlar. Arka uçtaki etkili bir şekilde yeni bir dağıtım gerektirdiğinden, kümenin kendisi, VM boyutunu değiştirmek izin verme.
 
-Batch AI için bu şekilde yaptınız:
+İçin **Batch AI**, bu şekilde yaptınız:
 ```python
 _ = client.clusters.delete(cfg.resource_group, cfg.workspace, cluster_name)
 ```
 
-Azure Machine Learning hizmeti için deneyin:
+İçin **Azure Machine Learning hizmeti**, deneyin:
 
 ```python
 gpu_cluster.delete()
@@ -491,13 +492,13 @@ gpu_cluster.update(min_nodes=2, max_nodes=4, idle_seconds_before_scaledown=600)
 
 ## <a name="support"></a>Destek
 
-BatchAI 31 Mart devre dışı bırakmak için planlanmıştır ve desteği ile bir özel durum oluşturularak izin verilenler listesinde olmadığı sürece, hizmete kaydediliyor gelen yeni abonelikler zaten engelliyor.  Azure Batch AI eğitimi önizlemesi için ulaşın AzureBatchAITrainingPreview@service.microsoft.com ile herhangi bir sorunuz veya Azure Machine Learning hizmeti ile geçiş yaparken geri bildirimde bulunmak istiyorsanız.
+BatchAI 31 Mart devre dışı bırakmak için planlanmıştır ve desteği ile bir özel durum oluşturularak izin verilenler listesinde olmadığı sürece, hizmete kaydediliyor gelen yeni abonelikler zaten engelliyor.  Adresinden bize ulaşın [Azure Batch AI eğitimi önizlemesi](mailto:AzureBatchAITrainingPreview@service.microsoft.com) ile herhangi bir sorunuz veya Azure Machine Learning hizmeti ile geçiş yaparken geri bildirimde bulunmak istiyorsanız.
 
-Azure Machine Learning hizmeti genel kullanıma sunulan bir hizmettir. Bu, taahhüt SLA'sı ve aralarından seçim yapabileceğiniz çeşitli destekler planları ile geldiğini anlamına gelir.
+Azure Machine Learning hizmeti genel kullanıma sunulan bir hizmettir. Bu, taahhüt SLA'sı ve aralarından seçim yapabileceğiniz çeşitli destek planları ile geldiğini anlamına gelir.
 
 Yalnızca her iki durumda yalnızca temel işlem fiyatı alırız olarak Azure altyapısı BatchAI hizmeti aracılığıyla veya Azure Machine Learning hizmeti ile kullanmak için fiyatlandırma, değiştirilmemelidir. Daha fazla bilgi için [fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/details/machine-learning-service/).
 
-Bölgesel kullanılabilirlik iki hizmet arasında burada görüntülenebilir: https://azure.microsoft.com/global-infrastructure/services/?products=batch-ai, machine learning hizmeti ve bölgeler = tümü.
+Bölgesel kullanılabilirlik iki hizmet arasında görünümünde [Azure portalında](https://azure.microsoft.com/global-infrastructure/services/?products=batch-ai,machine-learning-service&regions=all).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

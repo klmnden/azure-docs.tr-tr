@@ -9,20 +9,18 @@ ms.subservice: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 22993395d60df23533b67ec48d0ea7f979d73e22
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: bd0ec4d334b581d86451e5e534e80c1fde1e33ac
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692471"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445251"
 ---
 # <a name="azure-sql-data-warehouse-gen2-support-for-lower-compute-tiers"></a>Alt bilgi işlem katmanı için Azure SQL veri ambarı Gen2 desteği
 
 Microsoft, sorgular çok hızlı Azure SQL veri ambarı Gen2 için daha düşük bilgi işlem katmanı ekleyerek yoğun işleme yeteneğine sahip bir veri ambarı'nı çalıştıran giriş düzeyi maliyetini aşağı sürücü yardımcı oluyor. Müşteriler 100 cDWU (veri ambarı birimi) ile başlayan Azure SQL veri ambarı'nın önde gelen performans, esneklik ve güvenlik deneyimi özellikleri ve 30. 000 cDWU için dakikalar içinde ölçeklendirin. Gen2 performans ve esneklik, daha düşük bilgi işlem katmanı ile müşteriler yararlanabilir. 
 
 Giriş noktası için tasarlanan yeni nesil veri ambarı bırakarak Microsoft hangi deneme ortamı için en iyi tahmin olmadan güvenli, yüksek performanslı veri ambarı tüm avantajlarını değerlendirmek istediğiniz değer temelli müşteriler kapılarını açar.  Müşteriler geçerli 500 cDWU giriş noktasından aşağı 100 cDWU düşük başlatmak mümkün olacaktır.  SQL veri ambarı Gen2'ye duraklatma destekler ve işlemleri ve yalnızca işlem esneklik ötesinde uygulanmaya devam eder.  Gen2 de sütun deposu sınırsız depolama kapasitesi sorgu başına 2,5 kat daha fazla bellek birlikte en fazla 128 eş zamanlı sorguları destekler ve ortalama 5 kat daha fazla performans üzerinde aynı veri ambarı birimine karşılaştırma yapmak deneyimleri Uyarlamalı önbelleğe alma özellikleri Gen1 aynı fiyat üzerinden.  Coğrafi olarak yedekli yedeklemeler, yerleşik garantili veri korumasıyla için 2. nesil standarttır. Azure SQL veri ambarı Gen2, işiniz ölçeklendirmek hazırdır.
-
-Şu anda portal dağıtımı veya daha düşük Katman 2. nesil örneklerine ölçeklendirme desteklemez. Bu işlevsellik, lütfen bu arada etkinleştirmek için çalışıyoruz [bilet gönderin](sql-data-warehouse-get-started-create-support-ticket.md) bu yeni katmanı avantajından istiyorsanız.
 
 ## <a name="getting-started-with-azure-sql-data-warehouse-gen2"></a>Azure SQL veri ambarı Gen2 ile çalışmaya başlama 
 
@@ -34,22 +32,7 @@ Yükseltme [Azure SQL veri ambarı işlem için iyileştirilmiş Gen1 Gen2'ye](h
 
 ## <a name="supported-regions-for-lower-compute-tiers"></a>Alt bilgi işlem katmanı için desteklenen bölgeler
 
-- Doğu US1 
-- Doğu ABD 2
-- Batı Avrupa
-- Kuzey Avrupa
-- Batı ABD 2
-- Güneydoğu Asya
-- ABD kullanımdadır
-- Orta ABD 
-- Doğu Asya
-- Japonya Doğu
-- Hindistan Orta
-- Avustralya Doğu
-- Avustralya Güneydoğu
-- Orta Kanada
-- Japonya Batı 
-- Orta Kanada
+[Desteklenen bir bölge kullanılabilirliği tablosu](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

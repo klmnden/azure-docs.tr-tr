@@ -10,12 +10,12 @@ author: mlee3gsd
 ms.author: anumjs
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 0b1c4c728c23d8bdfe439b3a3db69b06065dad8a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 2de7c335e56117f2a99db5150575ed94616467e9
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266960"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455594"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL veri ambarı sürüm notları
 Bu makalede yeni özellikler ve geliştirmeler son sürümlerinde özetlenir [Azure SQL veri ambarı](sql-data-warehouse-overview-what-is.md). Makale ayrıca doğrudan ilgili sürüme ancak aynı zaman çerçevesinde yayımlanan önemli içerik güncelleştirmeleri listelenir. Diğer Azure Hizmetleri için geliştirmeler için bkz. [hizmet güncelleştirmeleri](https://azure.microsoft.com/updates)
@@ -28,6 +28,7 @@ Bu makalede yeni özellikler ve geliştirmeler son sürümlerinde özetlenir [Az
 | --- | --- |
 |**Dönüş sırasına göre en iyi duruma getirme**|SEÇİN... ORDER BY sorguları bu sürümde performans artışının alın.   Şimdi tüm düğümleri sonuçlarını tek bir işlem birleştirir ve işlem düğümü kullanıcı tarafından döndürülen sonuçları sıralayan düğümü gönderme işlem.  Sorgu sonucu kümesini çok sayıda satır içerdiğinde aracılığıyla tek işlem düğümü sonuçlarında önemli bir performans kazancı birleştiriliyor. Daha önce sorgu yürütme altyapısı, sonuçları her işlem düğümü ve bunları daha sonra sonuçları birleştirme kontrol düğümü için akışa sipariş.|
 |**Veri taşıma iyileştirmeleri PartitionMove ve BroadcastMove**|Azure SQL veri ambarı Gen2 içinde veri taşıma adımları türü ShuffleMove, özetlenen anında veri taşıma tekniklerini kullanın [performans geliştirmeleri blog](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/). Bu sürümle birlikte, veri taşıma türleri PartitionMove ve BroadcastMove şimdi de aynı anında veri taşıma tekniklerini tarafından desteklenir. Bu tür veri taşıma adımları kullanan kullanıcı sorgularına performansı ile çalışır. Bu performans iyileştirmelerinden yararlanmak için hiçbir kod değişikliği gerekir.|
+|**Önemli hatalar**|Yanlış Azure SQL veri ambarı sürümü - ' @ seçin@VERSION' ın yanlış sürümünü 10.0.9999.0 döndürebilir. Geçerli sürüm için doğru sürüm 10.0.10106.0 ' dir. Bu hata rapor edildi ve incelenmektedir.
 
 ### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri
 

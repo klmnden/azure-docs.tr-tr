@@ -3,7 +3,7 @@ title: Sanal ağ uç noktaları ve tek ve havuza alınmış Azure SQL veritabanl
 description: Bir alt ağ, sanal ağ hizmet uç noktası olarak işaretleyin. Ardından uç noktası olarak Azure SQL veritabanınızda ACL uygulamak için bir sanal ağ kuralı. SQL veritabanı, ardından tüm sanal makineler ve alt ağdaki diğer düğümlere gelen iletişimi kabul eder.
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 6fdcf0b5baf28aee931307b28e1f161fddaa4d8e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 02/20/2019
+ms.openlocfilehash: 6ded590ac5a9c30655d8ed19c370ce476d1c9631
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118386"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456291"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Veritabanı sunucuları için sanal ağ hizmet uç noktaları ve kuralları kullanma
 

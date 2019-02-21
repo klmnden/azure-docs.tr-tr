@@ -1,7 +1,7 @@
 ---
 title: Studio çalışma alanına Azure Resource Manager ile dağıtma
 titleSuffix: Azure Machine Learning Studio
-description: Azure Resource Manager şablonu kullanarak Azure Machine Learning için bir çalışma alanı dağıtma
+description: Bir çalışma alanı için Azure Machine Learning Azure Resource Manager şablonu kullanarak Studio dağıtma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: c7f75b2553ada469f4963531fc33f6e5105084b1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 38cd41fecb98a008bbf5a93eddd0d6a346cf3ef7
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487805"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453979"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Azure Machine Learning Studio çalışma alanına Azure Resource Manager kullanarak dağıtma
 
-Kullanarak bir Azure Resource Manager dağıtım şablonu, ölçeklenebilir bir şekilde vererek, zaman tasarrufu sağlar, birbirine bağlı bileşenleri ile bir doğrulama dağıtmak ve yeniden deneme mekanizması. Azure Machine Learning çalışma alanları ayarlamak için örneğin, önce bir Azure depolama hesabı yapılandırın ve ardından çalışma alanınızı dağıtmanız gerekir. Çalışma alanları yüzlerce için el ile bunu hayal edin. Daha kolay bir alternatif bir Azure Machine Learning çalışma alanı ve tüm bağımlılıklarını dağıtmak için bir Azure Resource Manager şablonu kullanmaktır. Bu makalede bu işlemi adım adım alır. Harika bir genel bakış, Azure Resource Manager için bkz: [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md).
+Kullanarak bir Azure Resource Manager dağıtım şablonu, ölçeklenebilir bir şekilde vererek, zaman tasarrufu sağlar, birbirine bağlı bileşenleri ile bir doğrulama dağıtmak ve yeniden deneme mekanizması. Azure Machine Learning Studio çalışma alanları ayarlamak için örneğin, önce bir Azure depolama hesabı yapılandırın ve ardından çalışma alanınızı dağıtmanız gerekir. Çalışma alanları yüzlerce için el ile bunu hayal edin. Daha kolay bir alternatif bir Studio çalışma alanına ve tüm bağımlılıklarını dağıtmak için bir Azure Resource Manager şablonu kullanmaktır. Bu makalede bu işlemi adım adım alır. Harika bir genel bakış, Azure Resource Manager için bkz: [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>Adım adım: bir Machine Learning çalışma alanı oluşturma
-Biz bir Azure kaynak grubu oluşturun ve ardından yeni bir Azure depolama hesabı ve yeni Azure Machine Learning Resource Manager şablonu kullanarak bir çalışma alanı dağıtın. Dağıtım tamamlandıktan sonra biz (birincil anahtar, çalışma alanı kimliği ve çalışma alanı URL) oluşturulan çalışma alanları hakkında önemli bilgileri yazdırır.
+Biz bir Azure kaynak grubu oluşturun ve ardından yeni bir Azure depolama hesabı ve yeni Azure Machine Learning Studio Resource Manager şablonu kullanarak bir çalışma alanı dağıtın. Dağıtım tamamlandıktan sonra biz (birincil anahtar, çalışma alanı kimliği ve çalışma alanı URL) oluşturulan çalışma alanları hakkında önemli bilgileri yazdırır.
 
 ### <a name="create-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu oluşturma
 Bir Machine Learning çalışma alanı, bağlantılı veri kümesine depolamak için bir Azure depolama hesabı gerektirir.
@@ -97,7 +97,7 @@ Connect-AzureRmAccount
 ```
 Bu adımı her oturum için yinelenmesi gerekir. Kimlik doğrulandıktan sonra abonelik bilgilerinizi görüntülenmesi gerekir.
 
-![Azure Account][1]
+![Azure hesabı](./media/deploy-with-resource-manager-template/azuresubscription.png)
 
 Azure'a erişimi sahibiz, kaynak grubunu oluşturabiliriz.
 
@@ -111,7 +111,7 @@ $rg
 Kaynak grubu doğru şekilde sağlandığından emin olun. **ProvisioningState** "Başarılı olması."
 Kaynak grubu adı, depolama hesabı adı oluşturmak için şablon tarafından kullanılır. Depolama hesabı adı 3 ila 24 karakter uzunluğunda olmalı ve sayı ve yalnızca küçük harflerden oluşmalıdır.
 
-![Resource Group][2]
+![Kaynak Grubu](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
 
 * Kaynak grubu dağıtımı'nı kullanarak yeni bir Machine Learning çalışma alanı dağıtın.
 
@@ -133,14 +133,12 @@ Mevcut bir çalışma alanının belirteçlerini almak için başka bir yolu, In
 # List the primary and secondary tokens of all workspaces
 Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
-Çalışma alanı sağlandıktan sonra kullanarak birçok Azure Machine Learning Studio görevleri de otomatik hale getirebilirsiniz [Azure Machine Learning için PowerShell Modülü](https://aka.ms/amlps).
+Çalışma alanı sağlandıktan sonra kullanarak birçok Azure Machine Learning Studio görevleri de otomatik hale getirebilirsiniz [Azure Machine Learning Studio için PowerShell Modülü](https://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Daha fazla bilgi edinin [Azure Resource Manager şablonları yazma](../../azure-resource-manager/resource-group-authoring-templates.md).
 * Göz atın [Azure hızlı başlangıç şablonları depo](https://github.com/Azure/azure-quickstart-templates).
 * Bu videoyu hakkında [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
-* Bkz: [Resource Manager şablon Başvurusu Yardımı](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions) 
- <!--Image references--> [1]: [2]./media/deploy-with-resource-manager-template/azuresubscription.png: ./media/deploy-with-resource-manager-template/ resourcegroupprovisioning.PNG
-
+* Bkz: [Resource Manager şablon Başvurusu Yardımı](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
 
 <!--Link references-->

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: c3a737bdd9978e6cb02e3e8b7a34407eb1dd8fb6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: fd301967800f67d95c12f1689981b2dfd8eb2d80
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381229"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452772"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için Depolama Seçenekleri
 
@@ -29,7 +29,7 @@ Bu makalede aks'deki uygulamalarınıza depolama sağlamak için gereken temel k
 
 ## <a name="volumes"></a>Birimler
 
-Uygulamaları genellikle veri depolama ve alma gerekir. Kubernetes, tek tek pod'ları genellikle kısa ömürlü, atılabilir kaynaklar olarak değerlendirir. gibi farklı yaklaşımlar uygulamaları kullanılabilir duruma gelir ve gerektiği şekilde veriyi kalıcı olarak. A *birim* veri pod'ları arasında ve uygulama yaşam döngüsü boyunca kalıcı olarak depolamak ve almak için bir yol gösterir.
+Uygulamaları genellikle veri depolama ve alma gerekir. Kubernetes, tek tek pod'ları genellikle kısa ömürlü, atılabilir kaynaklar olarak değerlendirir. gibi farklı yaklaşımlar uygulamalarının kullanın ve gerektiğinde verileri kalıcı hale getirmek kullanılabilir. A *birim* veri pod'ları arasında ve uygulama yaşam döngüsü boyunca kalıcı olarak depolamak ve almak için bir yol gösterir.
 
 Veri depolama ve alma için geleneksel birimleri, Azure Depolama tarafından yedeklenen Kubernetes kaynakları olarak oluşturulur. El ile pod'ların doğrudan atanmak üzere bu veri birimleri oluşturmak veya bunları otomatik olarak oluşturma Kubernetes sahip. Bu veri birimleri, Azure diskleri veya Azure dosyaları kullanabilirsiniz:
 
@@ -44,7 +44,7 @@ Kubernetes'te, birimler, bilgileri burada depolanır ve alınan daha fazlasını
 
 ## <a name="persistent-volumes"></a>Kalıcı birimleri
 
-Birimleri tanımlanır ve pod silinene kadar varolması pod yaşam döngüsü bir parçası olarak oluşturulur. Pod'ları genellikle bir pod StatefulSets özellikle de bir bakım olayı sırasında farklı bir ana bilgisayarda zamanlanacağını kalır için kendi depolama bekler. A *kalıcı hacim* (PV) olan bir depolama kaynağı oluşturulur ve tek bir pod ömründen uzun bulunabilir Kubernetes API tarafından yönetilir.
+Tanımlanan ve pod yaşam döngüsü bir parçası olarak oluşturulan birimlerin yalnızca pod silinene kadar mevcut. Pod'ları genellikle bir pod StatefulSets özellikle de bir bakım olayı sırasında farklı bir ana bilgisayarda zamanlanacağını kalır için kendi depolama bekler. A *kalıcı hacim* (PV) olan bir depolama kaynağı oluşturulur ve tek bir pod ömründen uzun bulunabilir Kubernetes API tarafından yönetilir.
 
 Azure diskleri veya dosyaları PersistentVolume sağlamak için kullanılır. Birimlerde önceki bölümde belirtildiği gibi diskleri veya dosyaları genellikle veri ya da performans katmanı eş zamanlı erişim gereksinimini tarafından belirlenir.
 

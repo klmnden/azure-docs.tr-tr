@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 3571eb2471f9b3f06eb509937fd11866b4e0caa8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 9b741f8562ae2e81d297357afd3b0e0e3976a248
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430811"
+ms.locfileid: "56445449"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure vm'lerde SQL Server veritabanlarını geri yükleme 
 
@@ -34,7 +34,7 @@ Bu makalede, SQL Server veritabanlarını geri yüklemek açıklar. Veritabanlar
 Azure yedekleme gibi Azure Vm'lerinde çalışan SQL Server veritabanlarını geri yükleyebilirsiniz:
 
 - Belirli bir tarih ya da işlem günlüğü yedeklemeleri kullanarak süresi (saniye) için geri yükleyin. Azure yedekleme, otomatik olarak uygun tam değişiklik yedeği belirler ve geri yüklemek için gerekli olan günlük yedekleme zincirini seçili zamana dayalı.
-- Geri yükleme bir belirli bir zaman yerine belirli bir kurtarma noktasını geri yüklemek için belirli bir tam veya değişiklik yedeklemesinden.
+- Belirli bir zaman yerine belirli bir kurtarma noktasını geri yüklemek için belirli bir tam veya değişiklik yedeklemesinden geri yükleyin.
 
 
 ### <a name="prerequisites"></a>Önkoşullar

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7f5583bfd6089362aef51285643f5fc920005242
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 8a067474fb172d4ff7a7fdf7eb6d24536bd2d017
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331304"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443281"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure'da hangi disk türleri mevcuttur?
 
@@ -21,9 +21,9 @@ Azure yönetilen diskler, şu anda genel kullanıma (GA) ve şu anda önizlemede
 
 ## <a name="disk-comparison"></a>Disk karşılaştırması
 
-Ultra yüksek diskler (Önizleme), premium solid-state sürücüleri (SSD), standart SSD karşılaştırmasını aşağıdaki tabloda verilmiştir ve için standart sabit disk sürücülerinin (HDD) yönetilen diskler, kullanacağınız seçeneğe karar vermenize yardımcı olacak.
+Aşağıdaki tabloda, kullanacağınız seçeneğe karar vermenize yardımcı olması için ultra solid sürücüler state (SSD) (Önizleme), premium SSD, standart SSD ve yönetilen diskler için standart sabit disk sürücülerinin (HDD) bir karşılaştırması verilmiştir.
 
-|   | Ultra yüksek diskler (Önizleme)   | Premium SSD   | Standart SSD   | Standart HDD   |
+|   | Ultra yüksek SSD (Önizleme)   | Premium SSD   | Standart SSD   | Standart HDD   |
 |---------|---------|---------|---------|---------|
 |Disk türü   |SSD   |SSD   |SSD   |HDD   |
 |Senaryo   |SAP HANA, en çok katmanı veritabanları (örneğin, SQL, Oracle gibi) ve diğer işlem yoğunluklu iş yükleri gibi g/ç yoğunluklu iş yükleri.   |Üretim ve performansa duyarlı iş yükleri   |Web sunucuları, az kullanılan kurumsal uygulamalar ve geliştirme/test   |Yedekleme, kritik olmayan, seyrek erişim   |
@@ -31,19 +31,19 @@ Ultra yüksek diskler (Önizleme), premium solid-state sürücüleri (SSD), stan
 |En fazla aktarım hızı   |2. 000'mib / sn (Önizleme)   |250 (GA) MiB/sn, 750 MiB/sn (Önizleme)   |60 MiB/sn (GA), 500 MiB/sn (Önizleme)   |60 Mib/sn (GA), 500 MiB/sn (Önizleme)   |
 |Maks. IOPS   |160,000 (Önizleme)   |7500 (GA) 20.000 (Önizleme)   |500 (GA), 2.000 (Önizleme)   |500 (GA), 2.000 (Önizleme)   |
 
-## <a name="ultra-disks-preview"></a>Ultra yüksek diskler (Önizleme)
+## <a name="ultra-ssd-preview"></a>Ultra yüksek SSD (Önizleme)
 
-Azure ultra diskler (Önizleme), Azure Iaas Vm'leri için yüksek performans, yüksek IOPS ve tutarlı düşük gecikme süreli disk depolama alanı sunun. Bazı ek ultra disklerin avantajlarından iş yüklerinizi, sanal makinelerinizi yeniden başlatmaya gerek kalmadan yanı sıra, disk performansını dinamik olarak değiştirme özelliği içerir. Ultra yüksek diskler, SAP HANA, en çok katmanı veritabanları ve işlem yoğunluklu iş yükleri gibi veri kullanımı yoğun iş yükleri için uygundur. Ultra yüksek diskler yalnızca veri diskleri kullanılabilir. İşletim sistemi diski premium SSD kullanmanızı öneririz.
+Azure ultra SSD (Önizleme), Azure Iaas Vm'leri için yüksek performans, yüksek IOPS ve tutarlı düşük gecikme süreli disk depolama alanı sunun. Ultra SSD bazı ek avantajları, iş yüklerinizi, sanal makinelerinizi yeniden başlatmaya gerek kalmadan yanı sıra, disk performansını dinamik olarak değiştirme özelliği içerir. Ultra yüksek SSD SAP HANA, en çok katmanı veritabanları ve işlem yoğunluklu iş yükleri gibi veri kullanımı yoğun iş yükleri için uygundur. Ultra yüksek SSD yalnızca veri diskleri kullanılabilir. İşletim sistemi diski premium SSD kullanmanızı öneririz.
 
 ### <a name="performance"></a>Performans
 
-Ultra yüksek bir disk sağladığınızda, kapasite ve performans diskin bağımsız olarak yapılandırabilirsiniz. Ultra yüksek diskleri 64 Tib'a kadar 4 GiB arasında değişen birçok sabit boyutta gelir ve IOPS ve aktarım hızını bağımsız olarak yapılandırmanıza olanak tanıyan esnek performans yapılandırma modeli özelliği.
+Ultra yüksek bir disk sağladığınızda, kapasite ve performans diskin bağımsız olarak yapılandırabilirsiniz. Ultra yüksek SSD 64 Tib'a kadar 4 GiB arasında değişen birçok sabit boyutta gelir ve IOPS ve aktarım hızını bağımsız olarak yapılandırmanıza olanak tanıyan esnek performans yapılandırma modeli özelliği.
 
-Ultra yüksek disk bazı temel işlevler şunlardır:
+Ultra yüksek SSD, bazı temel işlevler şunlardır:
 
-- Disk kapasitesi: Ultra yüksek disk kapasitesi aralıkları 4'ten en fazla 64 TiB GiB.
-- Disk IOPS: Ultra yüksek diskler, 300 IOPS/GiB, 160 K IOPS disk başına en fazla IOPS sınırları destekler. Sağladığınız IOPS elde etmek için seçili Disk IOPS VM IOPS değerinden küçük olmasını sağlayın. Minimum disk IOPS olan 100 IOPS.
-- Disk aktarım hızı: Her 2000 MB disk başına en fazla IOPS sağlanması için ultra disklerle olan tek bir disk aktarım hızı sınırı 256 KiB/sn olan (burada MB/sn = 10 ^ 6 bayt / saniye). Minimum disk aktarım hızı 1 MiB ' dir.
+- Disk kapasitesi: Ultra yüksek SSD kapasitesi aralıkları 4'ten en fazla 64 TiB GiB.
+- Disk IOPS: Ultra yüksek SSD 300 IOPS/GiB, 160 K IOPS disk başına en fazla IOPS sınırları destekler. Sağladığınız IOPS elde etmek için seçili Disk IOPS VM IOPS değerinden küçük olmasını sağlayın. Minimum disk IOPS olan 100 IOPS.
+- Disk aktarım hızı: Her 2000 MB disk başına en fazla IOPS sağlanması için Ultra yüksek SSD ile tek bir disk aktarım hızı sınırı 256 KiB/sn olan (burada MB/sn = 10 ^ 6 bayt / saniye). Minimum disk aktarım hızı 1 MiB ' dir.
 
 ### <a name="disk-size"></a>Disk boyutu
 
@@ -61,7 +61,7 @@ Ultra yüksek disk bazı temel işlevler şunlardır:
 
 ### <a name="preview-scope-and-limitations"></a>Önizleme kapsamı ve sınırlamalar
 
-Önizleme sırasında ultra diskler:
+Önizleme sırasında ultra SSD:
 
 - Doğu ABD 2'de tek bir kullanılabilirlik alanına desteklenir  
 - Yalnızca (kullanılabilirlik kümeleri ve Ultra yüksek bir diski olanağına sahip olmayan tek VM dağıtımları bölgeleri dışında) kullanılabilirlik alanları ile kullanılabilir
@@ -81,7 +81,7 @@ Azure premium SSD giriş/çıkış (GÇ) ile sanal makineleri (VM'ler) için yü
 
 Yıldız ile işaretlenmiş boyutları şu anda Önizleme aşamasındadır.
 
-| Premium SSD boyutları  | P4               | P6               | P10             | P15 | P20              | S30              | P40              | P50              | P60 *              | P70 *              | P80 *              |
+| Premium SSD boyutları  | P4               | P6               | P10             | P15 | P20              | P30              | P40              | P50              | P60 *              | P70 *              | P80 *              |
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
 | Disk boyutu gib biriminde           | 32             | 64             | 128            | 256  | 512            | 1,024    | 2,048     | 4,095    | 8,192     | 16,384     | 32,767     |
 | Disk başına IOPS       | En fazla 120 | En fazla 240              | En fazla 500              | En fazla 1.100 | En fazla 2,300              | En fazla 5000              | En fazla 7.500             | En fazla 7.500              | En fazla 12.500              | En fazla 15000              | 20000              |

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory günlükleri Azure İzleyici (Önizleme) kullanarak Log analytics'e Stream | Microsoft Docs
-description: Azure İzleyicisi'ni (Önizleme) kullanarak Azure Active Directory günlükleri Log Analytics ile tümleştirmeyi öğrenin
+title: Azure İzleyici günlüklerine (Önizleme) Azure Active Directory günlükleri Stream | Microsoft Docs
+description: Azure Active Directory günlükleri, Azure İzleyici günlüklerine (Önizleme) ile tümleştirmeyi öğrenin
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -17,30 +17,30 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51db96523a96015822f4507731bad2a398521530
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2e9c1b2513f769b065883dc98b649a68d565ccc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165850"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456495"
 ---
-# <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Azure İzleyicisi'ni (Önizleme) kullanarak Log Analytics ile Azure AD günlükleri tümleştirme
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Azure İzleyici günlüklerine (Önizleme) ile Azure AD günlükleri tümleştirme
 
-Log Analytics, çeşitli veri kaynakları arasında bağıntı gerçekleştirmek belirli olayları bulmak ve eğilimleri analiz için veri sağlar. Azure ad ile tümleştirme, Log Analytics'te etkinlik günlükleri artık gibi görevleri gerçekleştirebilirsiniz:
+Azure İzleyici günlüklerine sayesinde belirli olayları bulmak, eğilimleri ve çeşitli veri kaynakları arasında bağıntı gerçekleştirmek için veri. Azure ad ile tümleştirme, Azure İzleyici günlüklerine etkinlik günlükleri artık gibi görevleri gerçekleştirebilirsiniz:
 
  * Azure Güvenlik Merkezi tarafından yayımlanan güvenlik günlükleri, Azure AD oturum açma günlükleri karşılaştırın
 
  * Azure Application ınsights'ı uygulama performans verilerini ilişkilendirerek, uygulamanızın oturum açma sayfasında performans sorunlarını giderin.  
 
-Ignite oturumunda aşağıdaki video Azure AD'ye günlükler pratik kullanıcı senaryoları için Log Analytics kullanmanın avantajları gösterir.
+Ignite oturumunda aşağıdaki video Azure AD'ye günlükler pratik kullanıcı senaryoları için Azure İzleyici günlüklerine kullanmanın avantajları gösterir.
 
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
-Bu makalede, Azure Active Directory (Azure AD) günlüklerini Azure İzleyicisi'ni kullanarak Log Analytics ile tümleştirme konusunda bilgi edinin.
+Bu makalede, Azure İzleyici ile Azure Active Directory (Azure AD) günlükleri tümleştirme öğrenin.
 
 ## <a name="supported-reports"></a>Desteklenen raporlar
 
-Etkinlik günlükleri denetim ve oturum açma etkinlik günlüklerini Log Analytics'e daha fazla analiz için yönlendirebilir. 
+Daha fazla analiz için Azure İzleyici günlüklerine denetim etkinlik günlüklerini ve oturum açma etkinlik günlüklerini yönlendirebilirsiniz. 
 
 * **Denetim günlükleri**: [Denetim günlükleri Etkinlik Raporu](concept-audit-logs.md) kiracınızda gerçekleştirilen her görevin geçmişine erişmenizi sağlar.
 * **Oturum açma günlükleri**: İle [oturum açma etkinliği raporunu](concept-sign-ins.md), Denetim günlüklerinde bildirilen görevleri gerçekleştiren belirleyebilirsiniz.
@@ -58,13 +58,13 @@ Bu özelliği kullanmak için şunlara ihtiyacınız vardır:
 * Azure AD kiracısında *genel yönetici* veya *güvenlik yöneticisi* olan bir kullanıcı.
 * Azure aboneliğinizdeki bir Log Analytics çalışma. Bilgi edinmek için nasıl [Log Analytics çalışma alanı oluşturma](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-log-analytics"></a>Günlükleri Log Analytics’e gönderme
+## <a name="send-logs-to-azure-monitor-logs"></a>Azure İzleyici günlüklerine günlükleri gönderme
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
 
 2. Seçin **Azure Active Directory** > **tanılama ayarları** -> **tanılama ayarı ekleme**. Belirleyebilirsiniz **dışa aktarma ayarları** gelen **denetim günlüklerini** veya **oturum açma işlemleri** tanılama ayarları yapılandırma sayfasına ulaşmak için sayfa.  
     
-3. İçinde **tanılama ayarları** menüsünde **Log Analytics'e gönderme** onay kutusunu işaretleyin ve ardından **yapılandırma**.
+3. İçinde **tanılama ayarları** menüsünde **Log Analytics çalışma alanına gönderme** onay kutusunu işaretleyin ve ardından **yapılandırma**.
 
 4. Günlükleri göndermek istediğiniz Log Analytics çalışma alanını seçin veya sağlanan iletişim kutusunda yeni bir çalışma alanı oluşturun.  
 
@@ -80,5 +80,5 @@ Bu özelliği kullanmak için şunlara ihtiyacınız vardır:
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-* [Analiz Azure AD etkinlik günlüklerini Log Analytics'te](howto-analyze-activity-logs-log-analytics.md)
-* [Yükleme ve Azure Active Directory için Log Analytics görünümleri kullanma](howto-install-use-log-analytics-views.md)
+* [Azure AD çözümleme Azure İzleyici günlükleri ile etkinlik günlükleri](howto-analyze-activity-logs-log-analytics.md)
+* [Yükleme ve Azure Active Directory için log analytics görünümleri kullanma](howto-install-use-log-analytics-views.md)

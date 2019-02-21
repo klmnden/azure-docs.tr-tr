@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 0d11f42ab8194b9d451f9d21e88db001e189e974
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 17ec7723044cec391ebe390bbcfba3aa6f2f29ca
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429460"
+ms.locfileid: "56446860"
 ---
-# <a name="back-up-sql-server-databases-on-azure-vms"></a>Azure Vm'lerinde SQL Server veritabanlarını yedekleme 
+# <a name="back-up-sql-server-databases-on-azure-vms"></a>Azure VM’lerindeki SQL Server veritabanlarını yedekleme 
 
 SQL Server veritabanları, düşük kurtarma noktası hedefi (RPO) ve uzun süreli saklama gerektiren kritik iş yükleri değildir. Azure Vm'leri üzerinde çalışan SQL Server veritabanlarını yedekleyebilirsiniz [Azure Backup](backup-overview.md). 
 
@@ -58,7 +58,7 @@ Lütfen [SSS bölümüne](https://docs.microsoft.com/azure/backup/backup-azure-s
 
 **Destek** | **Ayrıntılar**
 --- | ---
-**Desteklenen dağıtımlar** | SQL Marketplace Azure Vm'leri ve Market dışı (yüklü SQL Server manuallly) VM'ler desteklenir.
+**Desteklenen dağıtımlar** | SQL Marketplace Azure Vm'leri ve Market dışı (SQL Server el ile yüklenen) sanal makineleri desteklenir.
 **Desteklenen coğrafi bölgeler** | Avustralya Güneydoğu (ASE); Brezilya Güney (BRS); Kanada Orta (CNC); Kanada Doğu (CE); Orta ABD (CUS); Doğu Asya (EA); Doğu Avustralya (AE); Doğu ABD (EUS); Doğu ABD 2 (EUS2); Hindistan Orta (Inc); Hindistan Güney (INS); Japonya Doğu (JPE); Japonya Batı (JPW); Kore Orta (KRC); Kore Güney (KRS); Kuzey Orta ABD (NCUS); Kuzey Avrupa (NE); Güney Orta ABD (SCUS); Güney Doğu Asya (SEA); UK Güney (UKS); UK Batı (UKW); Batı Orta ABD (WCUS); Batı Avrupa (WE); Batı ABD (WUS); Batı ABD 2 (WUS 2)
 **Desteklenen işletim sistemleri** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux şu anda desteklenmemektedir.
 **Desteklenen SQL Server sürümleri** | SQL Server 2017 SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
@@ -147,8 +147,8 @@ Sanal makinede çalışan veritabanları keşfedin.
     - Azure yedekleme, iş yükü yedekleme kasası ile VM kaydedin. Tüm kayıtlı VM veritabanlarında, bu kasaya yalnızca yedeklenebilir.
     - Azure Backup'ı yükler **AzureBackupWindowsWorkload** VM uzantısı. SQL veritabanı'nda yüklü aracı yok.
     - Azure Backup, hizmet hesabı oluşturur **NT Service\AzureWLBackupPluginSvc** VM üzerinde.
-        - Tüm yedekleme ve geri yükleme işlemleri, hizmet hesabı kullanın.
-        - **NT Service\AzureWLBackupPluginSvc** SQL sysadmin izinleri olması gerekir. Azure MArkplace içinde oluşturulan tüm SQL Server Vm'lerinin gelir **SqlIaaSExtension** yüklü. **AzureBackupWindowsWorkload** uzantısı kullanan **SQLIaaSExtension** otomatik olarak gerekli izinleri almak için.
+      - Tüm yedekleme ve geri yükleme işlemleri, hizmet hesabı kullanın.
+      - **NT Service\AzureWLBackupPluginSvc** SQL sysadmin izinleri olması gerekir. Azure Market'te oluşturulan tüm SQL Server Vm'lerinin gelir **SqlIaaSExtension** yüklü. **AzureBackupWindowsWorkload** uzantısı kullanan **SQLIaaSExtension** otomatik olarak gerekli izinleri almak için.
     - Marketten VM oluşturmamışsınızdır sonra VM yok **SqlIaaSExtension** yüklü ve bulma işlemi hata iletisiyle başarısız **UserErrorSQLNoSysAdminMembership**. Bu sorunu gidermek için [#fix-sql-sysadmin-izinleri] yönergeleri izleyin.
 
         ![VM ve veritabanı seçin](./media/backup-azure-sql-database/registration-errors.png)
@@ -160,7 +160,7 @@ Sanal makinede çalışan veritabanları keşfedin.
 Yedekleme yüklerini en iyi duruma getirmek için Azure Backup bir en fazla veritabanı sayısı 50'ye bir yedekleme işi ayarlar.
 
 - 50'den fazla veritabanlarını korumak için birden çok yedekleme yapılandırın.
-- Alternatily, otomatik koruma etkinleştirebilirsiniz. Otomatik koruma, var olan bir Git veritabanlarında korur ve kullanılabilirlik grubunun örneğine eklenen yeni veritabanları otomatik olarak korur.
+- Alternatif olarak, otomatik koruma etkinleştirebilirsiniz. Otomatik koruma, var olan bir Git veritabanlarında korur ve kullanılabilirlik grubunun örneğine eklenen yeni veritabanları otomatik olarak korur.
 
 
 Yedekleme aşağıdaki gibi yapılandırın:
@@ -278,7 +278,7 @@ Bir yedekleme ilkesi oluşturmak için:
 
 Otomatik olarak mevcut tüm veritabanlarını ve gelecekte bir tek başına SQL Server örneği veya SQL Server her zaman kullanılabilirlik grubuna eklenen veritabanlarını yedeklemek otomatik korumayı etkinleştirin. 
 
-- Otomatik korumayı üzerinde ve bir ilkeyi seçtiğinizde, korumalı pexisting veritabanlarını önceki ilkesini kullanacak şekilde devam eder.
+- Otomatik korumayı üzerinde ve bir ilkeyi seçtiğinizde, korumalı veritabanlarında önceki ilkesini kullanacak şekilde devam eder.
 - Tek bir seferde otomatik koruma için seçebileceğiniz veritabanı sayısı sınırlı değildir.
 
 Otomatik koruma aşağıdaki gibi etkinleştirin:

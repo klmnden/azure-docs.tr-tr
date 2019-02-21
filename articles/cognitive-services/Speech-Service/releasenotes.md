@@ -8,17 +8,70 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: a5b8cd7da465bc2dc58c2b89852903669c18bf4b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871804"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446843"
 ---
 # <a name="release-notes"></a>Sürüm notları
+
+## <a name="speech-sdk-130-2019-february-release"></a>SDK'sı 1.3.0 konuşma: Şubat 2019 sürümü
+
+**Yeni Özellikler**
+
+* Speech SDK'sı, seçimi giriş mikrofonu AudioConfig sınıfı aracılığıyla destekler. Bu veri akışı için ses konuşma hizmeti için varsayılan olmayan mikrofondan gelen sağlar. Daha fazla ayrıntı açıklayan belgeleri görmek için [ses giriş cihaz seçimi](how-to-select-audio-input-devices.md). Bu henüz JavaScript'ten kullanılamaz.
+* Speech SDK'sı, artık bir beta sürümünde Unity destekler. Lütfen sorunu bölümünde geri bildirim sağlamak [GitHub örnek deposundan](https://aka.ms/csspeech/samples). Bu sürüm Windows x86 ve x64 (Masaüstü veya evrensel Windows platformu uygulamaları), Unity destekler ve Android (ARM32/64, x86). Daha fazla bilgi kullanılabilir bizim [Unity hızlı](quickstart-csharp-unity.md).
+
+**Örnekler**
+
+Aşağıdaki yeni içerikler ise bizim [örnek depoyu](https://aka.ms/csspeech/samples):
+
+* AudioConfig.FromMicrophoneInput için ek örnekleri.
+* Amaç tanıma ve çeviri için ek Python örnekleri.
+* Bağlantı nesnesi kullanarak iOS için ek örnekler.
+* Ses çıkış çevirisi için ek Java örnekleri.
+* Kullanımı için yeni örnek [Batch Transkripsiyonu REST API'si](batch-transcription.md).
+
+**Geliştirmeleri / değiştirir**
+
+* Python
+  * Gelişmiş parametre doğrulama ve hata iletilerinde SpeechConfig.
+  * Bağlantı nesnesi için destek eklendi.
+  * (X86) üzerinde Windows 32 bit Python desteği.
+  * Python Speech SDK'sı beta ' dir.
+* iOS
+  * SDK'sı artık iOS SDK'sı sürüm 12,1 karşı yerleşik olarak bulunur.
+  * SDK'sı artık iOS 9.2 ve sonraki sürümleri destekler.
+  * Başvuru belgelerini geliştirmeye ve birkaç özellik adları düzeltin.
+* JavaScript
+  * Bağlantı nesnesi için destek eklendi.
+  * İle birlikte gelen JavaScript için tür tanım dosyalarını ekleyin
+  * İlk destek ve uygulama tümcecik ipuçları için.
+  * Tanıma için JSON hizmetiyle özellikler koleksiyonunu döndürür
+* Windows DLL'leri, artık bir sürüm kaynağı içerir.
+
+**Hata düzeltmeleri**
+
+* Boş proxy kullanıcı adı ve Ara sunucu parolasını doğru olarak işlenen değil. Proxy kullanıcı adı ve Ara sunucu parolasını boş bir dize olarak ayarlarsanız, bu sürümle birlikte, bunlar proxy sunucusuna bağlanırken gönderilmez.
+* Oturum kimliği oluşturuldu SDK tarafından her zaman tamamen bazı diller için rastgele değildi&nbsp;/ ortamları. Bu sorunu gidermek için rasgele oluşturucunun başlatma eklendi.
+* Yetkilendirme belirteci işlenmesini geliştirin. Bir yetkilendirme belirteci kullanmak istiyorsanız, SpeechConfig içinde belirtin ve abonelik anahtarını boş bırakın. Tanıyıcı aşağıda zamanki gibi oluşturabilir.
+* Bazı durumlarda bağlantı nesnesi doğru şekilde serbest bırakılmasını değildi. Bu düzeltilmiştir.
+* JavaScript örnek ses çıkış çeviri sentezi Safari üzerinde de desteklemek için düzeltildi.
+
+## <a name="speech-sdk-121"></a>SDK'sı 1.2.1 konuşma
+
+Bu yalnızca JavaScript bir sürümdür. Herhangi bir özellik ekledik. Aşağıdaki düzeltmeleri yapıldı:
+
+* Speech.end değil, turn.end, akışın sonuna kov.
+* Geçerli gönderme başarısız olursa zamanlamaz sonraki gönderdiniz ses pompa hatayı düzeltin.
+* Sürekli tanıma ile kimlik doğrulama belirteci düzeltin.
+* Hata düzeltmesi için farklı tanıyıcı / uç noktaları.
+* Belgeleri geliştirmeleri.
 
 ## <a name="speech-sdk-120-2018-december-release"></a>SDK'sı 1.2.0 konuşma: Aralık 2018 sürüm
 

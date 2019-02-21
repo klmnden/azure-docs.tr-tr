@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: c50c1a111f037b74176b5ca2cf8af518b2d3ffa0
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 53cd84d669a3f14d5ac028cc29ae483962860f72
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429392"
+ms.locfileid: "56447223"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Azure İzleyici'de günlük uyarı sorguları
 [Uyarı kuralları Azure İzleyici günlüklerine göre](alerts-unified-log.md) düzenli aralıklarla çalıştırın, böylece emin olmanız gerekir, ek yükü ve gecikme süresini en aza indirmek için yazılır. Bu makalede, günlük uyarıları için etkili sorgular ve var olan sorguları dönüştürmek için bir işlem yazmaya öneriler sağlar. 
@@ -31,16 +31,11 @@ SecurityEvent | where EventID == 4624
 
 ```Kusto
 search "Memory"
-
 search * | where == "Memory"
-
 search ObjectName: "Memory"
-
 search ObjectName == "Memory"
-
 union * | where ObjectName == "Memory"
 ```
- 
 
 Ancak `search` ve `union` olan veri keşfi, tüm veri modeli üzerinde koşulları arama sırasında bunlar bir tablo arasında birden çok tablo tarama gerekir bu yana kullanmaktan daha az verimli yararlıdır. Uyarı kuralları sorgularda düzenli aralıklarla çalıştırıldığından, gecikme süresi için uyarı ekleme aşırı ek yükten sonuçlanabilir. Bu ek yükü nedeniyle, azure'da günlük uyarısı kuralları için sorgular her zaman sorgu performansı hem sonuçlarının ilgi geliştiren bir Temizle kapsamını tanımlamak için bir tablo ile başlamanız gerekir.
 

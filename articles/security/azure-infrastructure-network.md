@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 02/20/2019
 ms.author: terrylan
-ms.openlocfilehash: af73225e08488d490e50456d235805af17ef0066
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 48a7e52d4284e5c2db1d77d24d91fd4701aad8d7
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112232"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455767"
 ---
 # <a name="azure-network-architecture"></a>Azure ağ mimarisi
 Azure ağ mimarisi sektör standart çekirdek/dağıtım/erişim modeliyle, farklı donanım katmanları değiştirilmiş bir sürümünü izler. Katmanlar şunlardır:
@@ -28,7 +28,7 @@ Azure ağ mimarisi sektör standart çekirdek/dağıtım/erişim modeliyle, fark
 - Dağıtım (erişim yönlendiriciler ve L2 toplama). Dağıtım katman L2 geçiş yapmasını L3 yönlendirme ayırır.
 - (L2 konak anahtarlar) erişim
 
-Ağ mimarisi, iki düzeyde bir katman 2 anahtarları vardır. Bir katman bir katmandan diğerine trafiği toplar. İkinci Katman yedeklilik birleştirmek için döngüde kalır. Bu durum, daha esnek bir VLAN ayak izini sağlar ve bağlantı noktası ölçeklendirmeyi artırır. Mimari L2 ve ayrı katmanlar ağdaki her donanım kullanımına izin verir ve diğer Katmanlar etkilemesini bir katmandaki hata en aza indirir L3 ayrı tutar. Kaynak paylaşımı gibi altyapı L3 bağlantısını için trunks kullanılmasını sağlar.
+Ağ mimarisi, iki düzeyde bir katman 2 anahtarları vardır. Bir katman bir katmandan diğerine trafiği toplar. İkinci Katman yedeklilik birleştirmek için döngüde kalır. Mimari, daha esnek bir VLAN ayak izini sağlar ve bağlantı noktası ölçeklendirmeyi artırır. Mimari L2 ve ayrı katmanlar ağdaki her donanım kullanımına izin verir ve diğer Katmanlar etkilemesini bir katmandaki hata en aza indirir L3 ayrı tutar. Kaynak paylaşımı gibi altyapı L3 bağlantısını için trunks kullanılmasını sağlar.
 
 ## <a name="network-configuration"></a>Ağ yapılandırması
 Aşağıdaki cihazlar bir veri merkezinde Azure kümesine ağ mimarisini oluşur:
@@ -51,10 +51,10 @@ Kuantum 10 tasarım Katman 3 geçiş yayılan bir Clos/ağ tasarımı birden ço
 Dağıtım/erişim L3 yönlendiricileri (ARs) için dağıtım ve erişim katmanları birincil yönlendirme işlevini gerçekleştirir. Bu cihazların bir çift olarak dağıtılır ve varsayılan ağ geçidi alt ağları olan. Birden çok L2 toplama anahtar çifti, kapasite bağlı olarak her AR çifti destekler. En fazla hata etki alanları yanı sıra cihaz kapasitesini bağlıdır. AR çifti başına üç L2 toplama anahtar çifti olan tipik bir sayıdır.
 
 ### <a name="l2-aggregation-switches"></a>L2 toplama anahtarları  
-Bu cihazlar L2 trafiği için bir toplama noktasına görür. Bunlar L2 doku için dağıtım katman ve büyük miktarda trafik işleyebilir. Bu cihazlar trafiğini toplama olduğundan, 802.1Q gerektirdikleri işlevsellik ve bağlantı noktası toplama ve 10GE gibi yüksek bant genişliği teknolojileri.
+Bu cihazlar L2 trafiği için bir toplama noktasına görür. Bunlar L2 doku için dağıtım katman ve büyük miktarda trafik işleyebilir. Bu cihazlar trafiğini toplama olduğundan, 802.1Q gerektirdikleri işlevsellik ve bağlantı noktası toplama ve 10GE gibi yüksek bant genişlikli teknolojilerin.
 
 ### <a name="l2-host-switches"></a>L2 konak anahtarları
-Konaklar, bu anahtarlara doğrudan bağlanın. Bunlar, rafa monte anahtarlar veya kasa dağıtımları olabilir. Bu VLAN normal (etiketlenmemiş) Ethernet çerçeve olarak davranılması için bir VLAN atamasını olarak yerel bir VLAN 802.1Q standart sağlar. Normal koşullar altında yerel VLAN karelerden aktarılan ve üzerinde bir 802.1Q etiketlenmemiş alınan santral bağlantı noktası. Bu özellik, 802.1Q ve uyumlu olmayan geçiş için tasarlanmıştır-802.1Q özellikli cihazlarda. Bu mimaride, yerel VLAN yalnızca ağ altyapısını kullanır.
+Konaklar, bu anahtarlara doğrudan bağlanın. Bunlar, rafa monte edilen anahtarlar veya kasa dağıtımları olabilir. Bu VLAN normal (etiketlenmemiş) Ethernet çerçeve olarak davranılması için bir VLAN atamasını olarak yerel bir VLAN 802.1Q standart sağlar. Normal koşullar altında yerel VLAN karelerden aktarılan ve üzerinde bir 802.1Q etiketlenmemiş alınan santral bağlantı noktası. Bu özellik, 802.1Q ve uyumlu olmayan geçiş için tasarlanmıştır-802.1Q özellikli cihazlarda. Bu mimaride, yerel VLAN yalnızca ağ altyapısını kullanır.
 
 Bu mimari, standart bir yerel VLAN seçimi belirtir. Standart sağlar, mümkün olduğunda, AR cihazların her santral için benzersiz, yerel bir VLAN ve L2Aggregation L2Aggregation trunks için gereken. Varsayılan olmayan yerel VLAN L2Aggregation L2Host anahtar trunks için var.
 
@@ -64,7 +64,7 @@ Bağlantı toplama birlikte ve tek bir mantıksal bağlantı kabul birden fazla 
 L2Agg L2Host geçiş için belirtilen sayılar, L2Agg tarafında kullanılan bağlantı noktası kanalı sayılardır. Dizi numarası L2Host tarafında daha sınırlı olduğundan, standart L2Host tarafında sayı 1 ve 2 kullanmaktır. Bu bağlantı noktası kanalı giderek "a" yan ve "b" yan sırasıyla bakın.
 
 ### <a name="vlans"></a>VLAN'ları
-Ağ mimarisi VLAN'lar sunucuları gruplandırmanızı birlikte tek bir yayın etki alanına kullanır. Uygun için 802.1Q VLAN sayı 1 – 4094 VLAN destekleyen standartlar numaralı.
+Ağ mimarisi VLAN'lar sunucuları gruplandırmanızı birlikte tek bir yayın etki alanına kullanır. VLAN numaraları destekleyen numaralı 1 – 4094 VLAN 802.1Q için standart, uygun.
 
 ### <a name="customer-vlans"></a>Müşteri VLAN'ları
 Sahip olduğunuz çeşitli VLAN uygulama seçenekleri çözümünüzü ayrımı ve mimari ihtiyaçlarını karşılamak için Azure Portalı aracılığıyla dağıtabilirsiniz. Bu çözümleri aracılığıyla sanal makineler dağıtın. Müşteri başvuru mimarisi örnek için bkz: [Azure başvuru mimarileri](https://docs.microsoft.com/azure/architecture/reference-architectures/).
@@ -72,23 +72,15 @@ Sahip olduğunuz çeşitli VLAN uygulama seçenekleri çözümünüzü ayrımı 
 ### <a name="edge-architecture"></a>Edge mimarisi
 Azure veri merkezleri, yüksek düzeyde yedekli ve iyi sağlanan ağ altyapıları üzerinde oluşturulur. Microsoft Azure veri merkezleri "gerek artı bir" Ağ uygular (N + 1) yedeklilik mimariler veya daha iyi. Tam Yük devretme özellikleri içinde ve veri merkezleri arasında ağ ve hizmet kullanılabilirliği sağlamaya yardımcı olur. Harici olarak veri merkezleri tarafından ayrılmış olan, yüksek bant genişliğine sahip ağ devreler sunulur. Bu bağlantı hatları özellikleri üzerinde 1200 internet hizmet sağlayıcıları genel olarak noktalarda birden çok eşleme ile nedenle bağlanın. Bu, ağ üzerinden aşan 2.000 Gbps olası edge kapasitesi sağlar.
 
-Filtreleme yönlendiricileri Azure ağının edge ve erişim katmanında, paket düzeyinde tanınmış güvenlik sağlar. Bu, Azure'a bağlanmak için yetkisiz girişimleri engellemeye yardımcı olur. Yönlendiriciler, paketlerin gerçek içeriği beklenen biçimde veri içeriyor ve beklenen istemci/sunucu iletişimini düzenine uygun emin olmak için yardımcı olur. Azure aşağıdaki ağ ayırma ve erişim denetimi bileşenleri oluşan bir katmanlı mimari uygular:
+Filtreleme yönlendiricileri Azure ağının edge ve erişim katmanında, paket düzeyinde tanınmış güvenliği sağlar ve Azure'a bağlanmak için yetkisiz girişimleri engellemeye yardımcı olur. Yönlendiriciler, paketlerin gerçek içeriği beklenen biçimde veri içeriyor ve beklenen istemci/sunucu iletişimini düzenine uygun emin olmak için yardımcı olur. Azure aşağıdaki ağ ayırma ve erişim denetimi bileşenleri oluşan bir katmanlı mimari uygular:
 
 - **Uç yönlendiricileri.** Bu, internet'ten uygulama ortamı ayırabilirsiniz. Uç yönlendiricileri sızma virüsten koruma sağlar ve ACL'leri kullanarak erişimi sınırlamak üzere tasarlanmıştır.
 - **Dağıtım (erişimi) yönlendiricileri.** Bu IP adresleri yalnızca Microsoft onaylı izin, sahtekarlığına karşı koruma sağlar ve ACL'leri kullanarak bağlantı kurabilir.
 
-### <a name="a10-ddos-mitigation-architecture"></a>A10 DDOS riskini azaltma mimarisi
-Hizmet reddi saldırılarını devam gerçek bir tehdit güvenilirlik Çevrimiçi Hizmetleri sunmak. Bu saldırıların etkisini yüksek öncelik taşır, saldırıları daha hedeflenen ve karmaşık hale gelir ve daha fazla farklı coğrafi olarak tanımlayan ve en aza Microsoft hizmetleri sağlar. Aşağıdaki ayrıntıları A10 DDOS riskini azaltma sistemi bir ağ mimarisi açısından nasıl uygulandığı açıklanmaktadır.
+### <a name="ddos-mitigation"></a>DDOS riskini azaltma
+Dağıtılmış Hizmet engelleme (DDoS) saldırılarının devam gerçek bir tehdit güvenilirlik Çevrimiçi Hizmetleri sunmak. Bu saldırıların etkisini yüksek öncelik taşır, saldırıları daha hedeflenen ve karmaşık hale gelir ve daha fazla farklı coğrafi olarak tanımlayan ve en aza Microsoft hizmetleri sağlar.
 
-Azure, A10 ağ aygıtlarına otomatik algılama ve önleme sağlayan veri merkezi yönlendiricide (DCR) kullanır. A10 çözüm, Azure ağ izleme için örnek akış paketleri kullanır ve bir saldırı olup olmadığını belirler. Saldırı algılanırsa, A10 cihazları saldırıları azaltmak için kaydırın. Yalnızca o temiz DCR doğrudan gelen trafiği Azure veri merkezine taşınır verilir. Microsoft Azure ağ altyapısını korumak için A10 çözüm kullanır.
-
-DDoS koruması A10 çözümdeki şunlardır:
-
-- UDP IPv4 ve IPv6 koruma doldurmak
-- ICMP IPv4 ve IPv6 koruma doldurmak
-- TCP IPv4 ve IPv6 koruma doldurmak
-- IPv4 ve IPv6 için TCP SYN saldırı koruma
-- Parçalanma saldırı
+[Azure DDoS koruması standart](../virtual-network/ddos-protection-overview.md) DDoS saldırılarına karşı koruma sağlar. Bkz: [Azure DDoS koruması: En iyi uygulamalar ve başvuru mimarilerimize](azure-ddos-best-practices.md) daha fazla bilgi için.
 
 > [!NOTE]
 > Microsoft DDoS Koruması varsayılan olarak tüm Azure müşterileri için sağlar.

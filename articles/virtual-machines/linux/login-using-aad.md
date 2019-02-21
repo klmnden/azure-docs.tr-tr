@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: f640ea2e8af8c8ae2bc8a6a1224adca17e897b81
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5ef84f6dbabbfed802a61306eeae09e0b0ccf36f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811333"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456174"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulama (Önizleme) kullanarak Azure'da bir Linux sanal makinede oturum açın
 
@@ -50,7 +50,7 @@ Aşağıdaki Linux dağıtımı şu anda bu özellik Önizleme sırasında deste
 | openSUSE | openSUSE Leap 42.3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
 | SUSE Linux Enteprise Server | SLES 12 |
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10 ve Ubuntu Server 18.04 |
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 ve Ubuntu Server 18.04 |
 
 
 Aşağıdaki Azure bölgeleri, şu anda bu özellik Önizleme sırasında desteklenmektedir:

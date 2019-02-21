@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 65780252fe19ff1af3c37d25c7a65c2071961fb9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 455b0bb0cb6c53200edb7a0f3540006408329321
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994887"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453248"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Hızlı Başlangıç: Bir Linux x64 cihaza, ilk IOT Edge modülü dağıtma
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Hızlı Başlangıç: İlk IOT Edge modülü bir Linux cihazına dağıtma
 
 Azure IoT Edge, bulutun gücünü Nesnelerin İnterneti cihazlarınıza taşır. Bu hızlı başlangıçta, önceden derlenmiş kodu uzaktan bir IoT Edge cihazına dağıtmak için bulut arabirimini kullanmayı öğrenin.
 
@@ -29,7 +29,7 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 
 ![Diyagram - cihaz ve buluta yönelik hızlı başlangıç mimarisi](./media/quickstart-linux/install-edge-full.png)
 
-Bu hızlı başlangıç, Linux bilgisayarınızı veya sanal makinenizi bir IoT Edge cihazına dönüştürür. Bu işlemin ardından Azure portalından cihazınıza bir modül dağıtabilirsiniz. Bu hızlı başlangıçta oluşturduğunuz modül; sıcaklık, nem ve basınç verileri üreten bir sensör simülasyonudur. Diğer Azure IoT Edge öğreticileri, burada iş içgörüsü için simülasyon verilerini analiz eden modüller dağıtarak yaptığınız çalışmayı temel alır.
+Bu hızlı başlangıçta, IOT Edge cihazı olarak yapılandırılmış bir Azure sanal makine oluşturmada size yol gösterir. Bu işlemin ardından Azure portalından cihazınıza bir modül dağıtabilirsiniz. Bu hızlı başlangıçta oluşturduğunuz modül; sıcaklık, nem ve basınç verileri üreten bir sensör simülasyonudur. Diğer Azure IoT Edge öğreticileri, burada iş içgörüsü için simülasyon verilerini analiz eden modüller dağıtarak yaptığınız çalışmayı temel alır.
 
 Etkin bir Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturun.
 
@@ -62,12 +62,12 @@ IoT Edge cihazı:
    ```
 
    Bu, oluşturmak ve yeni sanal makineyi başlatmak için birkaç dakika sürebilir. 
+   
+   Alabilirsiniz bir `MarketplacePurchaseEligibilityFailed` bu noktada hata. Böyle bir durumda giderek koşulları kabul etmeniz gerekir [Azure IOT Edge üzerinde Ubuntu'da](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) tıklayıp `Get It Now`. Oturum açın ve komutu yeniden denemeden önce koşullarını var. kabul edin.
 
    Yeni bir sanal makine oluşturduğunuzda, Not **Publicıpaddress**, oluşturma komut çıktısı bir parçası olarak sağlanır. Bu hızlı başlangıcın sonraki bölümlerinde sanal makineye bağlanmak için bu genel IP adresi kullanır.
 
-* Azure IOT Edge çalışma zamanı yerel sisteminizde çalıştırmayı tercih ederseniz konumundaki yönergeleri [(x64) Linux üzerinde Azure IOT Edge çalışma zamanı yükleme](how-to-install-iot-edge-linux.md).
-
-* Raspberry Pi gibi bir temel ARM32 cihazı kullanmak istiyorsanız, konumundaki yönergeleri [yükleme Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta](how-to-install-iot-edge-linux-arm.md).
+* Azure IOT Edge çalışma zamanı kendi Cihazınızda çalıştırmak isterseniz, konumundaki yönergeleri [(x64) Linux üzerinde Azure IOT Edge çalışma zamanı yükleme](how-to-install-iot-edge-linux.md) veya [yükleme Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta](how-to-install-iot-edge-linux-arm.md).
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 

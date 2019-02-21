@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84a1fd3efb9eac30e70fea9622716a54769369e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 78fc7441b109c87f1ab9ff5b56ed8e055c152d10
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184134"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456070"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator uygulaması hakkında SSS
 
@@ -49,7 +49,7 @@ Microsoft Authenticator uygulamasını yerini Azure Authenticator uygulaması ve
 |Neden olmayan Apple Watch için Microsoft Authenticator companion uygulaması eşitleniyor veya my watch'ta görünmeye?|Uygulama, saatin listemde, aşağıdakileri deneyin: <ol><li>Watch cihazınıza watchOS 4.0 veya üzerini çalıştırdığından emin olun.</li><li>Watch cihazınıza yeniden eşitleyin.</li></ol>|
 |Apple Watch Yardımcısı uygulamamı kilitlendi. İnceleme yapmak amacıyla, my kilitlenme günlüklerini gönderebilirim? |İlk kez analiz bizimle paylaşmak seçtiğiniz emin olmak sahip. TestFlight kullanıcısıysanız, henüz oturum açmadıysanız. Aksi takdirde, gidebilirsiniz **Ayarları > Gizlilik > Analytics** ve her ikisini de seçin **paylaşmak iPhone & Watch analytics** ve **uygulama geliştiricileri paylaşımıyla** seçenekleri.<br><br>Kaydolduktan sonra kilitlenme günlüklerini otomatik olarak bize araştırma için gönderilir, kilitlenmesini yeniden oluşturamadığınızda deneyebilirsiniz. Ancak, kilitlenme oluşturamıyorsanız, el ile günlük dosyaları kopyalayabilir ve bize gönderin.<ol><li>Watch uygulaması, telefonunuza Aç'ı Git **ayarlar > Genel**ve ardından **kopyalama Watch Analytics**.</li><li>Altında ilgili kilitlenme bulmak **ayarlar > Gizlilik > Analytics > Analiz verilerini**ve tüm metin el ile kopyalayın.</li><li>Telefon ve kopyalanan metni içine yapıştırma Microsoft Authenticator uygulamasını açın **uygulama geliştiricileri paylaşımıyla** metin kutusunu **günlükleri gönderin** sayfası.</li></ol>|
 |Uygulama kilidi özelliği nedir ve nasıl bana daha güvenli tutmak için yardımcı?|Bir kerelik geçiş kodları, uygulama bilgilerini ve uygulama ayarlarını daha güvenli tutmak için Microsoft Authenticator uygulamasını Uygulama kilidi özelliğini kapatabilirsiniz. Uygulama Kilidi açmak **ayarları** Microsoft Authenticator uygulamasının ekran anlamına gelir, Microsoft Authenticator uygulamasını her açtığınızda, PIN veya biyometrik kullanılarak kimlik doğrulaması istenir. Bu özellik ek koruma sağlar, bildirimlerinizde Microsoft Authenticator uygulamasını onaylamanız biçimini değiştirmez.<br><br>**Not**<br>Bir Android cihazında 30 saniyeden kısa bir süre içinde çalışan Microsoft Authenticator uygulamasını dönün, yeniden kimlik doğrulaması istenmez.|
-|Hesap etkinliğim hakkında bildirimler neden alıyorum?|Kişisel Microsoft hesabınız ile neler hakkında daha fazla bilgi sahibi olmasını sağlamak için etkinlik bildirimleri, Microsoft Authenticator uygulamanıza gönderiyoruz. Hemen bir şey değiştirdikten sonra bu bildirimleri daha güvenli tutmak için yardımcı oluyor görünür. Biz daha önce gönderilen e-posta ve SMS yoluyla bu bildirimleri ve artık uygulamayı içerecek şekilde büyüdü. Bu etkinlik bildirimleri hakkında daha fazla bilgi için bkz: [varsa bir olağan dışı oturum açma hesabınıza ne](https://support.microsoft.com/en-us/help/13967/microsoft-account-unusual-sign-in). Bildirimlerini nereden alacağınızı değiştirmek için oturum açın https://account.live.com/SecurityNotifications/Update.|
+|Hesap etkinliğim hakkında bildirimler neden alıyorum?|Kişisel Microsoft hesabınız ile neler hakkında daha fazla bilgi sahibi olmasını sağlamak için etkinlik bildirimleri, Microsoft Authenticator uygulamanıza gönderiyoruz. Hemen bir şey değiştirdikten sonra bu bildirimleri daha güvenli tutmak için yardımcı oluyor görünür. Biz daha önce gönderilen e-posta ve SMS yoluyla bu bildirimleri ve artık uygulamayı içerecek şekilde büyüdü. Bu etkinlik bildirimleri hakkında daha fazla bilgi için bkz: [varsa bir olağan dışı oturum açma hesabınıza ne](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Bildirimlerini nereden alacağınızı değiştirmek için oturum açın https://account.live.com/SecurityNotifications/Update.|
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -58,4 +58,4 @@ Microsoft Authenticator uygulamasını yerini Azure Authenticator uygulaması ve
 
 -   Güvenlik bilgileri hakkında daha fazla bilgi istiyorsanız bkz [güvenlik bilgilerinizi yönetin](security-info-manage-settings.md)
 
-- Sorunuzu burada cevaplanmamış değildi, görüşlerinizi almak isteriz. Git [Microsoft Authenticator uygulaması Forumu](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) sorunuzu gönderin ve topluluktan yardım alın veya bu sayfada bir yorum yazın.
+- Sorunuzu burada cevaplanmamış değildi, görüşlerinizi almak isteriz. Git [Microsoft Authenticator uygulaması Forumu](https://social.technet.microsoft.com/Forums/en-us/home?forum=MicrosoftAuthenticatorApp) sorunuzu gönderin ve topluluktan yardım alın veya bu sayfada bir yorum yazın.

@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: f57f6bf93fce2526bdc478558551616ba1fa3c4c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 4f474fd6ac2fa6a4f44aacf0eacb85a92fdf1de9
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496032"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456478"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Verileriniz veri bilimi için hazır mı?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Seri yeni başlayanlar için veri bilimi
@@ -100,7 +100,7 @@ Daha fazla veri ekledikçe resmi daha anlaşılır hale gelir ve daha ayrıntıl
 
 İlgili, bağlı olarak doğru veri ile yeteri kadar sahip tüm malzemeleri gereken bazı yüksek kaliteli veri bilimi.
 
-Diğer dört videoları kullanıma mutlaka *yeni başlayanlar için veri bilimi* Microsoft Azure Machine learning'in.
+Diğer dört videoları kullanıma mutlaka *yeni başlayanlar için veri bilimi* Microsoft Azure Machine Learning Studio'dan.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bir Machine Learning Studio'da ilk veri bilimi deneyinde deneyin](create-experiment.md)

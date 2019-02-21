@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 8ffcfc86823d46e65e116eed86ef35fcba2a99bf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 45407e183c70fe67e6bd59e3fd86a50a31844c47
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008013"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453496"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio"></a>2. Öğretici: Kredi riski modelleri - Azure Machine Learning Studio'da eğitim
 
@@ -23,7 +23,7 @@ Bu öğreticide, bir Tahmine dayalı analiz çözümü geliştirme işleminin ge
 
 Bir kişinin kredi başvurusunda verdiği bilgilere dayanarak kredi riskini tahmin etmeniz gerektiğini varsayalım.  
 
-Kredi riski değerlendirmesi karmaşık bir sorundur ancak bu öğreticide, bir bit basitleştirir. Microsoft Azure Machine Learning kullanarak Tahmine dayalı analiz çözümü nasıl oluşturabileceğinize dair bir örnek olarak kullanacaksınız. Azure Machine Learning Studio ve Machine Learning web hizmeti bu çözüm için kullanacaksınız.  
+Kredi riski değerlendirmesi karmaşık bir sorundur ancak bu öğreticide, bir bit basitleştirir. Microsoft Azure Machine Learning Studio'yu kullanarak Tahmine dayalı analiz çözümü nasıl oluşturabileceğinize dair bir örnek olarak kullanacaksınız. Azure Machine Learning Studio ve Machine Learning web hizmeti bu çözüm için kullanacaksınız.  
 
 Üç bölümü olan Bu öğreticide, genel kullanıma açık kredi risk verileriyle başlayın.  Ardından geliştirin ve Tahmine dayalı bir model eğitip.  Son olarak modeli bir web hizmeti olarak dağıtalım.
 
@@ -191,9 +191,9 @@ Graf sağında tıklayın **veri kümesi Puanlanmış** veya **karşılaştırma
 Bu değerleri inceleyerek hangi Aradığınız sonuçları vermiş, en yakın modeldir karar verebilirsiniz. Geri dönün ve farklı modelleri değerlerde parametresi değiştirerek üzerinde denemenizi yineleme. 
 
 Bilim ve son teknoloji ürünü bu sonuçları yorumlayarak destek sağlama ve model performansını ayarlama, bu öğreticinin kapsamı dışında olan. Ek Yardım için bu makaleleri okuyun:
-- [Azure Machine learning'de model performansını değerlendirme](evaluate-model-performance.md)
-- [Azure Machine Learning algoritmalarınızı iyileştirmek için parametreleri seçin](algorithm-parameters-optimize.md)
-- [Azure Machine learning'de model sonuçlarını yorumlama](interpret-model-results.md)
+- [Azure Machine Learning Studio'da model performansını değerlendirme](evaluate-model-performance.md)
+- [Azure Machine Learning Studio'da algoritmalarınızı iyileştirmek için parametreleri seçin](algorithm-parameters-optimize.md)
+- [Azure Machine Learning Studio'da model sonuçlarını yorumlama](interpret-model-results.md)
 
 > [!TIP]
 > Denemeyi bu yineleme kaydını her çalıştırdığınızda, çalıştırma geçmişi tutulur. Bu yinelemeler görüntülemek ve herhangi biri, tıklayarak dönüş **ÇALIŞTIRMA GEÇMİŞİNİ GÖRÜNTÜLE** tuval aşağıda. Ayrıca **önceki çalıştırma** içinde **özellikleri** , hemen bir önceki yinelemeye döndürülecek bölmesi açık olması.

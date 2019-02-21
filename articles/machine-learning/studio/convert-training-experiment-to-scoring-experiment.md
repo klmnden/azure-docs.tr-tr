@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1d07ad7e60e1ee9ff3216767fcfc77405d557f44
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001706"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455118"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Modelinizin Azure Machine Learning Studio'da dağıtımı için hazırlama
 
@@ -50,11 +50,11 @@ Denemenizi çalıştırdıktan sonra (tıklayın **ÇALIŞTIRMA** deneme tuvalin
 
 Örneğin, aşağıdaki denemenin örnek görselleştirmenizdeki verilerin kullanarak iki sınıflı artırmalı karar ağacı modeli eğitir:
 
-![Eğitim denemesini][figure1]
+![Eğitim denemesini](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
 Bu deneyde modülleri temelde dört farklı işlevleri gerçekleştirir:
 
-![Modül işlevleri][figure2]
+![Modül işlevleri](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
 
 Bu eğitim denemesini öngörücü bir denemeye dönüştürme yaptığınızda, bazı bu modüllerin artık gerekli olmayan veya artık farklı bir amaç sağladıkları:
 
@@ -70,7 +70,7 @@ Bu eğitim denemesini öngörücü bir denemeye dönüştürme yaptığınızda,
 
 İşte tıklandıktan sonra Örneğimizdeki nasıl göründüğünü **Web hizmetinin ayarı**:
 
-![Tahmine dayalı denemeye dönüştürüldü][figure3]
+![Tahmine dayalı denemeye dönüştürüldü](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
 İşleri halletmek **Web hizmetinin ayarı** deneyiminizi bir web hizmeti olarak dağıtılması hazırlamak yeterli olabilir. Ancak, bazı ek işleri denemenizi için belirli yapmak isteyebilirsiniz.
 
@@ -79,7 +79,7 @@ Eğitim denemenizi bir eğitim veri kümesi kullanılan ve daha sonra machine le
 
 Örneğin, varsayılan olarak **Web hizmetinin ayarı** koyar **Web hizmeti giriş** Yukarıdaki şekilde gösterildiği gibi veri akışı üst kısmındaki modülü. Ancak biz elle konumlandırabilirsiniz **Web hizmeti giriş** veri işleme modülleri geçmiş:
 
-![Web hizmeti girişini taşıma][figure4]
+![Web hizmeti girişini taşıma](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
 Tüm ön işleme olmadan web hizmeti aracılığıyla sağlanan giriş verilerini artık doğrudan Score Model modüle geçirin.
 
@@ -88,14 +88,14 @@ Farklı bir döndürülecek tercih ederseniz, ancak daha sonra önce ek modülle
 
 Örneğin, yalnızca Puanlama sonuçları ve giriş verileri değil tüm vektörü döndürmek için ekleme bir [kümesindeki sütunları seçme] [ select-columns] Puanlama sonuçları dışındaki tüm sütunları dışlamak için modülü. Ettirin **Web hizmeti çıkış** modülünün çıkışını [kümesindeki sütunları seçme] [ select-columns] modülü. Denemeyi şöyle görünür:
 
-![Web hizmeti çıkış taşıma][figure5]
+![Web hizmeti çıkış taşıma](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
 ### <a name="add-or-remove-additional-data-processing-modules"></a>Ek veri işleme modülleri Ekle Kaldır
 Puanlama sırasında ihtiyaç bildiğiniz denemenizi daha fazla modülleri varsa bunlar kaldırılabilir. Örneğin, geçtiğimizi çünkü **Web hizmeti giriş** modülü bir noktadan sonra veri işleme modüller için biz kaldırabilirsiniz [eksik verileri temizleme] [ clean-missing-data] modülünden Tahmine dayalı denemeye.
 
 Bizim Tahmine dayalı denemeye artık şöyle görünür:
 
-![Ek modülü kaldırılıyor][figure6]
+![Ek modülü kaldırılıyor](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
 
 
 ### <a name="add-optional-web-service-parameters"></a>İsteğe bağlı Web hizmeti parametrelerini Ekle
@@ -116,16 +116,6 @@ Tahmine dayalı denemeye yeterince hazırlandığından, bir Azure web hizmeti o
 Tam dağıtım işlemi hakkında daha fazla bilgi için bkz. [bir Azure Machine Learning web hizmetini dağıtma][deploy]
 
 [deploy]: publish-a-machine-learning-web-service.md
-
-
-<!-- Images -->
-[figure1]:./media/convert-training-experiment-to-scoring-experiment/figure1.png
-[figure2]:./media/convert-training-experiment-to-scoring-experiment/figure2.png
-[figure3]:./media/convert-training-experiment-to-scoring-experiment/figure3.png
-[figure4]:./media/convert-training-experiment-to-scoring-experiment/figure4.png
-[figure5]:./media/convert-training-experiment-to-scoring-experiment/figure5.png
-[figure6]:./media/convert-training-experiment-to-scoring-experiment/figure6.png
-
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 87c3633bb3ed3537d1e258b9d8d50fd6d6356d81
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 02/20/2019
+ms.openlocfilehash: ced83fc31e9e4944f7392169b703056dc5b4fd98
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960040"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454846"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Yapılandırma ve Azure Active Directory kimlik doğrulaması SQL ile yönetme
 
@@ -39,7 +39,7 @@ Daha fazla bilgi edinmek için bkz. [Şirket içi kimliklerinizi Azure Active Di
 1. Azure aboneliğinize Azure Active Directory dizin veritabanını barındıran Azure aboneliği için güvenilir bir dizin sağlayarak ilişkilendirin. Ayrıntılar için bkz [Azure aboneliklerinin Azure AD ile ilişkisi](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 2. Dizin değiştiricisini, etki alanı ile ilişkili aboneliğe geçmek için Azure Portalı'nda kullanın.
 
-   **Ek bilgi:** her Azure aboneliği bir Azure AD örneğiyle güven ilişkisi vardır. Bu; Azure aboneliğinin kullanıcılar, hizmetler ve cihazlar için kimlik doğrulaması yapmak üzere bu dizine güvendiği anlamına gelir. Birden çok abonelik aynı dizine güvenebilir ancak bir abonelik yalnızca bir dizine güvenir. Aboneliğin bir dizinle arasındaki bu güven ilişkisi, bir aboneliğin daha çok abonelik alt kaynakları gibi olan, Azure'daki tüm diğer kaynaklarla (web siteleri, veritabanları ve benzeri) sahip olduğu ilişkiye benzer nitelikte değildir. Bir aboneliğin süresi dolarsa abonelikle ilişkili bu diğer kaynaklara erişim de durdurulur. Ancak dizin Azure içinde kalır, siz de başka bir aboneliği bu dizinle ilişkilendirebilir, dizin kullanıcılarını yönetmeye devam edebilirsiniz. Kaynaklar hakkında daha fazla bilgi için bkz. [azure'da kaynak erişimini anlama](../active-directory/active-directory-b2b-admin-add-users.md). İlişki bakın güvenilen Bunun hakkında daha fazla bilgi edinmek için [veya Azure Active Directory'ye bir Azure aboneliği ekleme ilişkilendirmek nasıl](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+   **Ek bilgi:** Her Azure aboneliği bir Azure AD örneğiyle güven ilişkisine sahiptir. Bu; Azure aboneliğinin kullanıcılar, hizmetler ve cihazlar için kimlik doğrulaması yapmak üzere bu dizine güvendiği anlamına gelir. Birden çok abonelik aynı dizine güvenebilir ancak bir abonelik yalnızca bir dizine güvenir. Aboneliğin bir dizinle arasındaki bu güven ilişkisi, bir aboneliğin daha çok abonelik alt kaynakları gibi olan, Azure'daki tüm diğer kaynaklarla (web siteleri, veritabanları ve benzeri) sahip olduğu ilişkiye benzer nitelikte değildir. Bir aboneliğin süresi dolarsa abonelikle ilişkili bu diğer kaynaklara erişim de durdurulur. Ancak dizin Azure içinde kalır, siz de başka bir aboneliği bu dizinle ilişkilendirebilir, dizin kullanıcılarını yönetmeye devam edebilirsiniz. Kaynaklar hakkında daha fazla bilgi için bkz. [azure'da kaynak erişimini anlama](../active-directory/active-directory-b2b-admin-add-users.md). İlişki bakın güvenilen Bunun hakkında daha fazla bilgi edinmek için [veya Azure Active Directory'ye bir Azure aboneliği ekleme ilişkilendirmek nasıl](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Azure SQL server için Azure AD Yöneticisi oluşturma
 
@@ -143,7 +143,7 @@ Yönetilen örneğiniz başarıyla güvenlik grubu üyeliği aracılığıyla ku
 
     Yönetici değiştirme işlemini birkaç dakika sürebilir. Ardından yeni yönetici Active Directory Yönetici kutusunda görüntülenir.
 
-Yönetilen Örneğiniz için bir Azure AD Yöneticisi sağladıktan sonra Azure AD oturum açma bilgileri oluşturmaya başlayabilirsiniz (**genel Önizleme**) ile <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> söz dizimi. Daha fazla bilgi için [yönetilen örnek genel bakış](sql-database-managed-instance.md#azure-active-directory-integration).
+Yönetilen Örneğiniz için bir Azure AD Yöneticisi sağladıktan sonra Azure AD sunucusu ilkeleri (oturum açma bilgileri) oluşturmaya başlayabilirsiniz (**genel Önizleme**) ile <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> söz dizimi. Daha fazla bilgi için [yönetilen örnek genel bakış](sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > Daha sonra yönetici, Active Directory yönetici sayfasının üst kısmındaki kaldırmak için seçin **yönetici kaldırma**ve ardından **Kaydet**.
@@ -161,7 +161,7 @@ Aşağıdaki iki yordamdan Azure portalında ve PowerShell kullanarak Azure SQL 
 
 2. Sol başlığında seçin **tüm hizmetleri**ve filtre türü içinde **SQL server**. Seçin **Sql sunucuları**.
 
-    ![sqlservers.PNG](media/sql-database-aad-authentication/sqlservers.png)
+    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)
 
     >[!NOTE]
     > Bu sayfada daha önce seçtiğiniz **SQL sunucuları**, seçebileceğiniz **yıldız** için adının yanındaki *sık kullanılan* kategori ekleyin **SQL sunucuları**sol gezinti çubuğu.
@@ -264,7 +264,7 @@ Tarafından bu gereksinimleri karşılayabilirsiniz:
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Azure AD kimlikleri için eşlenmiş veritabanında bağımsız veritabanı kullanıcılarını oluşturun.
 
 >[!IMPORTANT]
->Yönetilen örnek, Azure AD oturum açma bilgileri artık destekler (**genel Önizleme**), oturum açma bilgileri, Azure AD kullanıcıları, grupları veya uygulamaları oluşturmanıza olanak sağlar. Azure AD oturum açma bilgileri, yönetilen Örneğinize bağımsız veritabanı kullanıcısı oluşturulacak veritabanı kullanıcıları gerek kalmadan kimlik doğrulama yeteneği sağlar. Daha fazla bilgi için [yönetilen örnek genel bakış](sql-database-managed-instance.md#azure-active-directory-integration). Azure AD oturum açma oluşturma sözdizimi için bkz <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+>Yönetilen örnek, artık Azure AD sunucu sorumlusu (oturum açma bilgileri) destekler (**genel Önizleme**), oturum açma bilgileri, Azure AD kullanıcıları, grupları veya uygulamaları oluşturmanıza olanak sağlar. Azure AD sunucusu ilkeleri (oturum açma bilgileri), yönetilen Örneğinize bağımsız veritabanı kullanıcısı oluşturulacak veritabanı kullanıcıları gerek kalmadan kimlik doğrulama yeteneği sağlar. Daha fazla bilgi için [yönetilen örnek genel bakış](sql-database-managed-instance.md#azure-active-directory-integration). Azure AD sunucusu ilkeleri (oturum açma bilgileri) oluşturma sözdizimi için bkz <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 Azure Active Directory kimlik doğrulaması bağımsız veritabanı kullanıcılarını oluşturulacak veritabanı kullanıcıları gerektirir. Bir Azure AD kimliğine göre bir bağımsız veritabanı kullanıcısı olan bir oturum açma ana veritabanında sahip olmayan bir veritabanı kullanıcısı ve veritabanı ile ilişkili Azure AD dizininde bir kimliğe eşler. Azure AD kimlik, tek bir kullanıcı hesabı veya grup olabilir. Kapsanan veritabanı kullanıcıları hakkında daha fazla bilgi için bkz: [bağımsız veritabanı kullanıcıları-yapma veritabanınızı taşınabilir](https://msdn.microsoft.com/library/ff929188.aspx).
 
@@ -281,7 +281,7 @@ CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
 
 *Azure_AD_principal_name* bir Azure AD kullanıcısının kullanıcı asıl adı veya bir Azure AD grubunun görünen adı olabilir.
 
-**Örnekler:** kapsanan bir veritabanı oluşturmak için temsil eden bir Azure AD kullanıcı federe veya yönetilen etki alanı kullanıcısı:
+**Örnekler:** Kapsanan bir veritabanı oluşturmak için temsil eden bir Azure AD kullanıcı federe veya yönetilen etki alanı kullanıcısı:
 
 ```sql
 CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
@@ -323,14 +323,11 @@ Azure AD Yöneticisi ayarlandığından doğrulamak için bağlanın **ana** Azu
 Bir Azure AD tabanlı yer alan veritabanı kullanıcısı (veritabanı sahibi olan sunucu yönetici dışında) sağlamak için veritabanına erişimi olan bir Azure AD kimlik ile veritabanına bağlanın.
 
 > [!IMPORTANT]
-> Azure Active Directory kimlik doğrulaması için destek, kullanılabilir [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ve [SQL Server veri Araçları](https://msdn.microsoft.com/library/mt204009.aspx) Visual Studio 2015'te. SSMS Ağustos 2016 sürümü, Active Directory Evrensel yöneticilerin multi-Factor Authentication kullanarak bir telefon araması, SMS mesajı, akıllı kart PIN ya da mobil uygulama bildirimi ile gerektiren olanak sağlayan kimlik doğrulaması için destek de içerir. Azure AD oturum açma bilgileri ve kullanıcılar kullanarak (**genel Önizleme**) SSDT ile şu anda desteklenmiyor.
+> Azure Active Directory kimlik doğrulaması için destek, kullanılabilir [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ve [SQL Server veri Araçları](https://msdn.microsoft.com/library/mt204009.aspx) Visual Studio 2015'te. SSMS Ağustos 2016 sürümü, Active Directory Evrensel yöneticilerin multi-Factor Authentication kullanarak bir telefon araması, SMS mesajı, akıllı kart PIN ya da mobil uygulama bildirimi ile gerektiren olanak sağlayan kimlik doğrulaması için destek de içerir.
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Bir Azure AD kimlik kullanarak SSMS veya SSDT kullanarak bağlanma
 
 Aşağıdaki yordamlar SQL Server Management Studio veya SQL Server Veritabanı Araçları'nı kullanarak bir Azure AD kimlik ile bir SQL veritabanına bağlanmak nasıl gösterir.
-
->[!IMPORTANT]
->Azure AD oturum açma bilgileri ve kullanıcılar kullanarak (**genel Önizleme**) SSDT ile şu anda desteklenmiyor.
 
 ### <a name="active-directory-integrated-authentication"></a>Active Directory tümleşik kimlik doğrulaması
 

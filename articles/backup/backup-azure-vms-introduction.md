@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: c331c3617f421c913abbc3554aa5ba17e86cb978
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: c38c457bbf428d7252cf57168685201a2ca227ba
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429188"
+ms.locfileid: "56446809"
 ---
 # <a name="about-azure-vm-backup"></a>Azure VM yedeklemesi hakkında
 
@@ -48,7 +48,7 @@ Azure sanal makinelerini Azure Backup ile yedekleme, sanal makineleri bekleyen d
 
 **Şifreleme** | **Ayrıntılar** | **Destek**
 --- | --- | ---
-**ADE** | ADE şifreler Azure Vm'leri için hem işletim sistemi ve veri disklerini şifreler.<br/><br/> ADE anahtar kasasında gizli dizi olarak korunması BitLocker şifreleme anahtarları (BEK) veya Azure anahtar kasası anahtar şifreleme anahtarı (KEK) ile tümleşir. | Azure Backup, yönetilen ve yönetilmeyen Azure yalnızca BEK veya BEK birlikte KEK ile şifrelenmiş VM'ler yedeklemesini destekler.<br/><br/> Her iki BEK ve yedeklenen ve şifrelenmiş.<br/><br/> KEK ve BEK izinlerine sahip olan kullanıcıların gerekirse yedeklediğiniz beri anahtarları ve gizli anahtarları geri anahtar Kasası'na geri yükleyebilir ve şifrelenmiş sanal Makineyi kurtarma.<br/><br/> Yetkisiz kullanıcılar tarafından veya Azure tarafından şifrelenmiş anahtarları ve gizli anahtarları okunamıyor.
+**ADE** | ADE Azure Vm'leri için hem işletim sistemi ve veri disklerini şifreler.<br/><br/> ADE anahtar kasasında gizli dizi olarak korunması BitLocker şifreleme anahtarları (BEK) veya Azure anahtar kasası anahtar şifreleme anahtarı (KEK) ile tümleşir. | Azure Backup, yönetilen ve yönetilmeyen Azure yalnızca BEK veya BEK birlikte KEK ile şifrelenmiş VM'ler yedeklemesini destekler.<br/><br/> Her iki BEK ve yedeklenen ve şifrelenir.<br/><br/> KEK ve BEK izinlerine sahip olan kullanıcıların gerekirse yedeklediğiniz beri anahtarları ve gizli anahtarları geri anahtar Kasası'na geri yükleyebilir ve şifrelenmiş sanal Makineyi kurtarma.<br/><br/> Yetkisiz kullanıcılar tarafından veya Azure tarafından şifrelenmiş anahtarları ve gizli anahtarları okunamıyor.
 **SSE** | SSE, Azure depolama otomatik olarak depolamadan önce verileri şifreleyerek bekleyen şifreleme sağlar ve alma önce çözer. | Azure Backup için SSE bekleyen şifreleme Azure vm'leri kullanır.
 
 - BitLocker şifreleme anahtarı (BEK) yalnızca ve anahtar şifreleme Key(KEK) birlikte BEK ile şifrelenmiş sanal makinelerin yedeklenmesi, yönetilen ve yönetilmeyen Azure Vm'leri için desteklenir.

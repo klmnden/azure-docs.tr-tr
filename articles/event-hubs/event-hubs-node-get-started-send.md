@@ -2,24 +2,24 @@
 title: Node.js - Azure Event Hubs kullanarak olayları gönderme | Microsoft Docs
 description: Bu makalede, Azure Event Hubs'dan olayları gönderen bir Node.js uygulaması oluşturmak için bir kılavuz sağlar.
 services: event-hubs
-author: ShubhaVijayasarathy
+author: spelluru
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 7281e6bb2dda5dc3fddb5f39bf271293ebb88a73
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/19/2019
+ms.author: spelluru
+ms.openlocfilehash: ec3182d11f1b2ffa31acd05fa1f2db695f3f2cf7
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732028"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447727"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Node.js kullanarak Azure Event Hubs için olayları gönderme
 
-Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Olay Hub’larının ayrıntılı genel bakışı için bkz. [Olay Hub’larına genel bakış](event-hubs-about.md) ve [Olay Hub’ları özellikleri](event-hubs-features.md).
+Azure Event Hubs, bir büyük veri platformu ve alabilir, olay alma hizmetidir ve saniyede milyonlarca işlem akışı. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Olay Hub’larının ayrıntılı genel bakışı için bkz. [Olay Hub’larına genel bakış](event-hubs-about.md) ve [Olay Hub’ları özellikleri](event-hubs-features.md).
 
 Bu öğreticide, node.js'de yazılmış bir uygulamadan bir olay hub'ına olayları göndermek nasıl açıklar.
 
@@ -34,7 +34,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız ger
 - Visual Studio Code (önerilir) veya diğer herhangi bir IDE
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
-İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı uygulayın, ardından bu öğreticide yer alan aşağıdaki adımlarla devam edin.
+İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için verilen yordamı izleyin [bu makalede](event-hubs-create.md), sonra Bu öğreticide aşağıdaki adımlarla devam edin.
 
 Bağlantı dizesi olay hub'ı ad alanı için makaledeki yönergeleri izleyerek alın: [Bağlantı dizesini alma](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Bu öğreticide daha sonra'de bağlantı dizesini kullanın.
 
@@ -56,7 +56,7 @@ Kopyalanmış SDK, node.js kullanarak bir olay hub'ına olayları göndermek nas
 
 1. Visual Studio Code projede açın. 
 2. Adlı bir dosya oluşturun **.env** altında **istemci** klasör. Örnek ortam değişkenlerinden kopyalayıp **sample.env** kök klasöründe.
-3. Olay hub'ı bağlantı dizesi, olay hub'ı adı ve depolama uç noktası yapılandırın. Olay hub'ından için bağlantı dizesini kopyalayabilirsiniz **bağlantı dizesi-birincil** anahtar altında **RootManageSharedAccessKey** olay hub'ı sayfasında Azure Portalı'nda. Ayrıntılı adımlar için bkz. [bağlantı dizesi alma](event-hubs-create.md#create-an-event-hubs-namespace).
+3. Olay hub'ı bağlantı dizesi, olay hub'ı adı ve depolama uç noktası yapılandırın. Bir event hub için bir bağlantı dizesi alma yönergeleri [bağlantı dizesi alma](event-hubs-create.md#create-an-event-hubs-namespace).
 4. Azure CLI gidin **istemci** klasör yolu. Düğüm paketleri yükleyin ve aşağıdaki komutları çalıştırarak projeyi derleyin:
 
     ```shell
@@ -71,29 +71,39 @@ Kopyalanmış SDK, node.js kullanarak bir olay hub'ına olayları göndermek nas
 
 
 ## <a name="review-the-sample-code"></a>Örnek kodu gözden geçirin 
-Node.js kullanarak bir olay hub'ına olayları göndermek için örnek kod aşağıda verilmiştir. El ile sampleSender.js dosyası oluşturun ve bir olay hub'ına olayları göndermek için çalıştırın. 
-
+Örnek kodu simpleSender.js dosyasında bir olay hub'ına olayları göndermek için gözden geçirin.
 
 ```javascript
-const { EventHubClient, EventPosition } = require('@azure/event-hubs');
-
-const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const lib_1 = require("../lib");
+const dotenv = require("dotenv");
+dotenv.config();
+const connectionString = "EVENTHUB_CONNECTION_STRING";
+const entityPath = "EVENTHUB_NAME";
+const str = process.env[connectionString] || "";
+const path = process.env[entityPath] || "";
 
 async function main() {
-    // NOTE: For receiving events from Azure Stream Analytics, please send Events to an EventHub where the body is a JSON object/array.
-    // const eventData = { body: { "message": "Hello World" } };
-    const data = { body: "Hello World 1" };
+    const client = lib_1.EventHubClient.createFromConnectionString(str, path);
+    const data = {
+        body: "Hello World!!"
+    };
     const delivery = await client.send(data);
-    console.log("message sent successfully.");
+    console.log(">>> Sent the message successfully: ", delivery.tag.toString());
+    console.log(delivery);
+    console.log("Calling rhea-promise sender close directly. This should result in sender getting reconnected.");
+    await Object.values(client._context.senders)[0]._sender.close();
+    // await client.close();
 }
 
 main().catch((err) => {
-    console.log(err);
+    console.log("error: ", err);
 });
 
 ```
 
-Betiği çalıştırmadan önce ortam değişkenlerini ayarlamak unutmayın. Bu komut satırında aşağıdaki örnekte gösterilen şekilde yapılandırabilir veya kullanın [dotenv paket](https://www.npmjs.com/package/dotenv#dotenv). 
+Betiği çalıştırmadan önce ortam değişkenlerini ayarlamak unutmayın. Komut satırında aşağıdaki örnekte gösterilen şekilde yapılandırın veya kullanabilirsiniz [dotenv paket](https://www.npmjs.com/package/dotenv#dotenv). 
 
 ```shell
 // For windows

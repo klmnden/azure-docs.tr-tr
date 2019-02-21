@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f8804a157c21f3c90c667646689eec0968bc9027
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754655"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453010"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'teki (AKS) uygulama taleplerini karşılamak üzere küme otomatik olarak ölçeklendirme
 
@@ -27,7 +27,9 @@ Bu makalede etkinleştirin ve bir AKS kümesindeki Küme ölçeklendiriciyi yön
 
 Bu makalede, Azure CLI Sürüm 2.0.55 gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
-Küme otomatik ölçeklendiricinin destekleyen AKS kümeleri sanal makine ölçek kümeleri'ni kullanın ve Kubernetes sürümü çalıştıran *1.12.4* veya üzeri. Bu ölçek kümesi desteği Önizleme aşamasındadır. Kabul et ve ölçek kümelerini kullanmak kümeleri oluşturmak için Yükle *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme] [ az-extension-add] aşağıdaki örnekte gösterildiği gibi komut:
+### <a name="install-aks-preview-cli-extension"></a>Aks önizlemesini CLI uzantısını yükleme
+
+Küme otomatik ölçeklendiricinin destekleyen AKS kümeleri sanal makine ölçek kümeleri'ni kullanın ve Kubernetes sürümü çalıştıran *1.12.4* veya üzeri. Bu ölçek kümesi desteği Önizleme aşamasındadır. Kabul et ve ölçek kümelerini kullanmak kümeleri oluşturmak için ilk yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme] [ az-extension-add] komutunu aşağıda gösterildiği gibi Örnek:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -35,6 +37,26 @@ az extension add --name aks-preview
 
 > [!NOTE]
 > Yüklediğinizde *aks önizlemesini* uzantısı, oluşturduğunuz her bir AKS kümesi, Ölçek kümesi Önizleme dağıtım modeli kullanır. Uzantısını kullanarak geri çevirmek ve düzenli tam olarak desteklenen kümeleri oluşturmak için kaldırma `az extension remove --name aks-preview`.
+
+### <a name="register-scale-set-feature-provider"></a>Ölçek kümesi özelliği sağlayıcısını Kaydet
+
+Ölçek kullanan bir AKS oluşturmak için ayarlar, ayrıca, aboneliğinizde özellik bayrağı etkinleştirmeniz gerekir. Kaydedilecek *VMSSPreview* özellik bayrağı, kullanın [az özelliği kayıt] [ az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
+
+```azurecli-interactive
+az feature register --name VMSSPreview --namespace Microsoft.ContainerService
+```
+
+Gösterilecek durum için birkaç dakika sürer *kayıtlı*. Kayıt kullanarak durumu denetleyebilirsiniz [az özellik listesi] [ az-feature-list] komutu:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
+```
+
+Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kaynak sağlayıcısını [az provider register] [ az-provider-register] komutu:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ## <a name="about-the-cluster-autoscaler"></a>Küme otomatik ölçeklendiricinin hakkında
 
@@ -149,6 +171,9 @@ Bu makalede otomatik olarak AKS düğümleri sayısının ölçeğini nasıl olu
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

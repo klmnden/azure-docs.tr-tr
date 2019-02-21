@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8b95c311cd91ab6db84fb6640be5b6c1a6c0a9a5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443126"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454813"
 ---
 # <a name="monitor-published-apis"></a>Yayımlanan API’leri izleme
 
@@ -41,7 +41,7 @@ Aşağıdaki videoda, Azure İzleyici'yi kullanarak API Management’ı izleme i
 
 + [Azure API Management terminolojisini](api-management-terminology.md) öğrenin.
 + Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-+ Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
++ Ayrıca şu öğreticiyi tamamlayın: [İçeri aktarma ve ilk API'nizi yayımlama](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -124,7 +124,7 @@ Tanılama günlüklerini yapılandırmak için:
 
     ![tanılama günlükleri](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. **Tanılamayı aç**’a tıklayın. Tanılama günlüklerini, ölçümlerle birlikte bir depolama hesabına arşivleyebilir, bunları bir Olay Hub’ında akışa alabilir veya Log Analytics’e gönderebilirsiniz. 
+3. **Tanılamayı aç**’a tıklayın. Bir depolama hesabına ölçümlerle birlikte tanılama günlüklerini arşivleme, bunları bir olay Hub'ına akış veya bunları Azure İzleyici günlüklerine gönderin. 
 
 API Management şu anda her bir girdi aşağıdaki şemayı içerecek şekilde tek tek API isteğiyle ilgili tanılama günlükleri (saatlik olarak toplanır) sağlar:
 
@@ -183,7 +183,7 @@ API Management şu anda her bir girdi aşağıdaki şemayı içerecek şekilde t
 | callerIpAddress | dize | İlk Ağ Geçidi çağıranın (bir aracı olabilir) IP adresi |
 | correlationId | dize | API Management tarafından atanmış benzersiz http isteği tanımlayıcısı |
 | location | dize | İsteği işleyen Ağ Geçidinin bulunduğu Azure bölgesinin adı |
-| httpStatusCodeCategory | dize | Http yanıtı durum kodunun kategorisi: Başarılı (301 veya daha küçük ya da 304 ya da 307), Yetkisiz (401, 403, 429), Hatalı (400, 500 ve 600 arası), Diğer |
+| httpStatusCodeCategory | dize | Http yanıtı durum kodunun kategorisi: Başarılı (301 veya daha küçük ya da 304 veya 307), yetkisiz (401, 403, 429), hatalı (400, 500 ve 600 arası), diğer |
 | resourceId | dize | "API Management kaynağının kimliği /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
 | properties | object | Geçerli isteğin özellikleri |
 | method | dize | Gelen isteğin HTTP yöntemi |

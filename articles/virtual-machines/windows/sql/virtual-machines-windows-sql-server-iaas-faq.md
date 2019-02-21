@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767348"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456665"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler üzerinde çalışan SQL Server için sık sorulan sorular
 
@@ -88,6 +88,9 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
    Evet. Kolayca taşıyabilirsiniz ilk olarak bir Kullandıkça Öde galeri görüntüsü ile başladıysanız iki lisanslama modelleri arasında taşıyın. Ancak, başlangıçta bir KLG görüntüsü ile başladıysanız PAYG için kendi lisansınızı geçmek mümkün olmayacaktır. Daha fazla bilgi için [SQL Server sanal makinesi için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md).
 
+   > [!Note]
+   > Şu anda bu özellik yalnızca genel bulut müşterileri için kullanılabilir.
+
 1. **Yeni SQL VM oluşturmak için KLG görüntüleri ya da SQL VM RP kullanmalı mıyım?**
 
    -Kendi-lisansını getir (KLG) görüntüleri, yalnızca EA müşterileri tarafından kullanılabilir. Diğer Yazılım Güvencesine sahip müşteriler SQL VM kaynak sağlayıcısı ile bir SQL VM oluşturmak için kullanması gereken [Azure hibrit Avantajı'nı (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
@@ -142,11 +145,11 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **Azure VM'de SQL Server'ın yeni bir sürümü/yayını için nasıl yükseltebilirim?**
 
-   Şu anda, bir Azure sanal Makinesinde çalışan SQL Server için yerinde yükseltme yoktur. İstenen SQL Server sürümü ile yeni bir Azure sanal makine oluşturma ve veritabanlarınızı yeni sunucuya standardını kullanarak geçirmenize [veri taşıma tekniklerini](virtual-machines-windows-migrate-sql.md).
+   Şu anda bir Azure sanal makinesinde çalışan SQL Server için yerinde yükseltme mevcut değildir. İstenen SQL Server sürümü ile yeni bir Azure sanal makine oluşturma ve veritabanlarınızı yeni sunucuya standardını kullanarak geçirmenize [veri taşıma tekniklerini](virtual-machines-windows-migrate-sql.md).
 
 1. **Güncelleştirmelerin ve hizmet paketlerinin nasıl bir SQL Server sanal makinesinde uygulanır?**
 
-   Ne zaman ve nasıl, güncelleştirmeleri uygulamak da dahil olmak üzere ana makine üzerinde denetim sanal makineler sağlar. İşletim sistemi için windows güncelleştirmelerini el ile uygulayabilirsiniz veya adlı bir zamanlama hizmetini etkinleştirebilirsiniz [otomatik düzeltme eki uygulama](virtual-machines-windows-sql-automated-patching.md). Otomatik Düzeltme Eki Uygulama, önemli olarak işaretlenmiş tüm güncelleştirmeleri, bu kategorideki SQL Server güncelleştirmeleri de dahil olmak üzere yükler. SQL Server için diğer isteğe bağlı güncelleştirmeler el ile yüklenmelidir.
+   Sanal makineler güncelleştirmeleri ne zaman ve nasıl uygulayacağınız dahil olmak üzere ana makine üzerinde denetim sağlar. İşletim sistemi için windows güncelleştirmelerini el ile uygulayabilirsiniz veya adlı bir zamanlama hizmetini etkinleştirebilirsiniz [otomatik düzeltme eki uygulama](virtual-machines-windows-sql-automated-patching.md). Otomatik Düzeltme Eki Uygulama, önemli olarak işaretlenmiş tüm güncelleştirmeleri, bu kategorideki SQL Server güncelleştirmeleri de dahil olmak üzere yükler. SQL Server için diğer isteğe bağlı güncelleştirmeler el ile yüklenmelidir.
 
 ## <a name="general"></a>Genel
 

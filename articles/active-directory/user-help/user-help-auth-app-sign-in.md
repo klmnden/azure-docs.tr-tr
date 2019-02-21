@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120e0f3c7e6af22210ba04565b86b8098851b26d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3974d1de2bd90049541dcc249f18346c9e48fd3d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186905"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456036"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Hesaplarınız için Microsoft Authenticator uygulamasını kullanarak oturum açın
 Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
@@ -62,9 +62,9 @@ Telefonla oturum açma üzerinde etkinleştirdikten sonra yalnızca Microsoft Au
 
     Kullanıcı adınızı, yazdıktan sonra bir **oturum açma işlemini onaylıyor** iki basamaklı bir sayı gösteren ve Microsoft Authenticator uygulamasını oturum isteyen ekranı görüntülenir. Bu oturum yöntem kullanmak istemiyorsanız, seçebileceğiniz **bunun yerine parolanızı kullanın**, parolanızı kullanarak oturum açın.
 
-    ![Oturum açma PC'de kutusunu Onayla](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
+    ![Bilgisayar oturum açma kutusunu Onayla](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
 
-2. Bildirim veya Cihazınızda Microsoft Authenticator uygulamasını açın ve sonra da sayıyı, sayı, bilgisayarınızın üzerinde eşleşmesi dokunun **oturum onaylama** ekran.
+2. Bildirim veya Cihazınızda Microsoft Authenticator uygulamasını açın ve sonra da sayıyı, sayı, bilgisayarınızın eşleşmesi dokunun **oturum onaylama** ekran.
 
     ![Cihaz oturum açma kutusunu Onayla](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in-numbers.png)
 
@@ -113,7 +113,7 @@ Standart iki Faktörlü doğrulama yöntemi açtıktan yapıyorsanız ve ilişki
 |**Ne telefonumu kaybeder veya yok benimle? Hesabımı nasıl erişim sağlanır?**| Her zaman parola bağlamaya parolanızı kullanmaya geçmek için oturum açma sayfasında kullanımı da seçebilirsiniz. İki aşamalı doğrulama kullanıyorsanız ancak yine de kimliğinizi doğrulamak için ikinci bir yöntem kullanmak yapmanız gerekir.<br><br>**Önemli**<br>Birden fazla güncel hesabınızla ilişkilendirilen bir doğrulama yöntemi olduğundan emin olmak için önemle öneririz.<br><br>Kişisel hesapları için doğrulama yöntemlerinizi yönetebilir, [güvenlik ayarları](https://account.live.com/proofs/manage) sayfası. İş veya Okul hesapları için kuruluşunuzun gidebilirsiniz [ek güvenlik doğrulaması](https://aka.ms/MFASetup) sayfası veya **hesabınızı güvenli tutmak** yöneticinize güvenlik bilgilerini etkinleştirdiyseniz sayfa. Güvenlik bilgileri hakkında daha fazla bilgi için bkz: [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md).<br><br>Doğrulama yöntemlerinizi yönetme yapamıyorsanız, yöneticinize başvurmanız gerekir.|
 |**Nasıl bu özelliği kullanmayı bırakmak ve parolamı kullanmaya geri dönün?**|Kişisel hesapları için seçin **bir parolasını kullanmanız** oturum açma sırasında bağlantı. En son seçiminiz, yeniden oturum açtığınızda varsayılan olarak sunulan ve anımsanacak. Şimdiye kadar telefonla oturum açma, select kullanmaya geri dönmek istiyorsanız **uygulama kullanmanız** oturum açma sırasında bağlantı.<br><br>İş veya Okul hesapları için ek güvenlik doğrulama sayfasına gerekir (gibi https://aka.ms/MFASetup) ve Microsoft Authenticator uygulamasını kaldırın.|
 |**Telefonla oturum açma için birden fazla iş veya Okul hesabı neden kullanamıyorum?**| Tek bir iş veya Okul hesabı için bir telefon kayıtlı olması gerekir. Telefonla oturum açma için farklı bir iş veya Okul hesabı etkinleştirmek istiyorsanız, eski bir cihaz üzerinden ilk kaydını silmeniz gerekir **ayarları** sayfası.|
-|**Telefonumu kullanarak bilgisayarınıza oturum?**| Bilgisayarınızı için Windows Hello Windows 10'da kullanarak imzalama öneririz. Windows Hello, oturum açmak için yüz tanıma, parmak izi veya PIN kullanmanızı sağlar.|
+|**Bilgisayarıma telefonumu kullanarak oturum?**| Bilgisayarınız için Windows Hello Windows 10'da kullanarak imzalama öneririz. Windows Hello, oturum açmak için yüz tanıma, parmak izi veya PIN kullanmanızı sağlar.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Uygulama hakkında daha fazla genel sorularınız varsa bkz [Microsoft Authenticator ile ilgili SSS](user-help-auth-app-faq.md)

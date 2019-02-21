@@ -1,5 +1,5 @@
 ---
-title: Yeniden eğitme ve bir Klasik web hizmetini dağıtma
+title: Klasik bir web hizmetini tekrar eğitip dağıtma
 titleSuffix: Azure Machine Learning Studio
 description: Modeli yeniden eğitme ve Azure Machine Learning Studio'da eğitim yeni modeli kullanmak için bir Klasik web hizmetini güncelleştirmek hakkında bilgi edinin.
 services: machine-learning
@@ -10,12 +10,12 @@ author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: e8fd3511eb7b718374bfbc608a35fb84740ed03c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 4f3ca01ae44900e4d0ce22b79db44d7bfa84e56d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331311"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456563"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Yeniden eğitme ve klasik Studio web hizmeti dağıtma
 
@@ -60,7 +60,7 @@ Düzeltme eki URL'sini doğru programlı olarak almak için şu adımları izley
 1. Çalıştırma [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) örnek kodu.
 1. AddEndpoint çıktısından Bul *HelpLocation* değeri ve URL'yi kopyalayın.
 
-   ![HelpLocation addEndpoint örnek çıktı.][image2]
+   ![HelpLocation addEndpoint örnek çıktı.](./media/troubleshooting-retraining-a-model/addEndpoint-output.png)
 1. URL, Yardım bağlantıları için web hizmeti sağlayan bir sayfaya gitmek için bir tarayıcıya yapıştırın.
 1. Tıklayın **kaynak güncelleştirme** düzeltme eki Yardım sayfasını açmak için bağlantı.
 
@@ -81,7 +81,7 @@ Doğru düzeltme eki using the web portal URL almak için aşağıdaki adımlar�
 
 Düzeltme eki yardım sayfasına düzeltme eki kullanmalısınız URL içerir ve onu çağırmak için kullanabileceğiniz örnek kodu sağlar.
 
-![Düzeltme URL'si.][image5]
+![Düzeltme URL'si.](./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png)
 
 ### <a name="update-the-endpoint"></a>Uç noktası güncellenemedi
 
@@ -149,6 +149,3 @@ Web hizmetlerini yönetme veya birden çok denemeleri çalıştırması izlemek 
 
 * [Web Hizmetleri portalını keşfedin](manage-new-webservice.md)
 * [Deneme yinelemelerini yönetme](manage-experiment-iterations.md)
-
-[image2]: ./media/troubleshooting-retraining-a-model/addEndpoint-output.png
-[image5]: ./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png

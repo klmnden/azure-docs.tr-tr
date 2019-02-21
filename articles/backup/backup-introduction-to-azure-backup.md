@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 72a5946aa5b27d1c4d4bb2beaebde67d3e7a0f32
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328172"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447370"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup özelliklerine genel bakış
 Azure Backup, verilerinizi Microsoft bulutunda yedeklemek (veya korumak) ve geri yüklemek için kullanabileceğiniz Azure tabanlı bir hizmettir. Azure Backup, var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Azure Backup, indirdikten sonra uygun bilgisayar, sunucu veya buluta dağıtabileceğiniz birden fazla bileşene sahiptir. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya bulut verileri olabilir), verileri Azure’daki bir Kurtarma Hizmetleri kasasına yedeklemek için kullanılabilir. Belirli verileri, uygulamaları veya iş yüklerini korumak için kullanılacak bileşenler hakkında bilgi almak için [Azure Backup bileşen tablosuna](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (bu makalenin ilerleyen bölümlerinde) bakın.
@@ -33,7 +33,7 @@ Geleneksel yedekleme çözümleri, bulutu disk veya bantlara benzer bir uç nokt
 
 * Yerel olarak yedekli depolama (LRS), verilerinizi veri merkezine yer alan bir depolama ölçek birimine üç kez kopyalar (verilerinizin üç kopyasını oluşturur). Verilerin tüm kopyaları aynı bölgenin içinde yer alır. LRS, verilerinizi yerel donanım hatalarına karşı korumak için düşük maliyetli bir seçenektir.
 
-* Coğrafi olarak yedekli depolama (GRS), varsayılan ve önerilen çoğaltma seçeneğidir. GRS, verilerinizi ikincil bir bölgeye (kaynak verilerin birincil konumundan yüzlerce kilometre uzakta) kopyalar. GRS’nin maliyeti LRS’den yüksektir ancak bölgesel kesintiler olsa bile daha yüksek veri dayanıklılık düzeyi sunar.
+* Coğrafi olarak yedekli depolama (GRS), varsayılan ve önerilen çoğaltma seçeneğidir. GRS verilerinizin olan bir ikincil bölgeye çoğaltır [Azure eşleştirilmiş bölgeleri](../best-practices-availability-paired-regions.md) (mil uzaktaki kaynak verilerin birincil konumundan yüzlerce). GRS’nin maliyeti LRS’den yüksektir ancak bölgesel kesintiler olsa bile daha yüksek veri dayanıklılık düzeyi sunar.
 
 **Sınırsız veri aktarımı** - Azure Backup, aktardığınız verilerde aşağı ya da yukarı yönlü bir sınırlama yapmaz. Azure Backup ayrıca aktarılan veriler için ücret talep etmez. Ancak, büyük miktarda veriyi içeri aktarmak için Azure İçeri/Dışarı Aktarma hizmetini kullanırsanız gelen verilerden ücret alınır. Bu maliyet hakkında daha fazla bilgi için bkz. [Azure Backup’ta çevrimdışı yedekleme iş akışı](backup-azure-backup-import-export.md). Giden veriler, geri yükleme işlemi sırasında bir Kurtarma Hizmetleri kasasından aktarılan verileri tanımlar.
 
@@ -44,7 +44,7 @@ Geleneksel yedekleme çözümleri, bulutu disk veya bantlara benzer bir uç nokt
 **Uzun süreli saklama** - Kısa süreli ve uzun süreli veri saklama için Kurtarma Hizmetleri kasasını kullanabilirsiniz. Azure, bir Kurtarma Hizmetleri kasasında verileri saklama süresini kısıtlamaz. Verileri bir kasada dilediğiniz süre boyunca bekletebilirsiniz. Azure Backup, korunan her örnek için 9999 kurtarma noktası sınırına sahiptir. Bu sınırın yedekleme gereksinimlerinizi nasıl etkileyebileceği hakkında bir açıklama için bu makaledeki [Yedekleme ve bekletme](backup-introduction-to-azure-backup.md#backup-and-retention) bölümüne bakın.
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Hangi Azure Backup bileşenlerini kullanmalıyım?
-Azure Backup bileşeniyle neleri koruyabileceğiniz hakkında bilgi edinmek için aşağıdaki tabloyu kullanın. 
+Azure Backup bileşeniyle neleri koruyabileceğiniz hakkında bilgi edinmek için aşağıdaki tabloyu kullanın.
 
 | Bileşen | Avantajlar | Sınırlar | Neler korunuyor? | Yedekler nerede saklanıyor? |
 | --- | --- | --- | --- | --- |
@@ -62,7 +62,7 @@ Azure Backup bileşeniyle neleri koruyabileceğiniz hakkında bilgi edinmek içi
 | Azure IaaS VM Backup |<p>**Evet**</p><p>Azure yapısının parçası</p><p>[Hizmet olarak Azure altyapısı (IaaS) sanal makinelerinin yedeklemesine](backup-azure-vms-introduction.md) yöneliktir.</p> |<p>**Hayır**</p> <p>Veri merkezinizdeki sanal makineleri yedeklemek için System Center DPM'yi kullanın.</p> |<p>Kurtarma Hizmetleri kasası</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>Hangi uygulamalar ve iş yükleri yedeklenebilir?
-Aşağıdaki tabloda Azure Backup kullanarak koruma altına alınabilecek veriler ve iş yükleri verilmiştir. Azure Backup çözümü sütununda ilgili çözüme ait dağıtım belgelerine bağlantı sunulmuştur. 
+Aşağıdaki tabloda Azure Backup kullanarak koruma altına alınabilecek veriler ve iş yükleri verilmiştir. Azure Backup çözümü sütununda ilgili çözüme ait dağıtım belgelerine bağlantı sunulmuştur.
 
 | Veri veya İş Yükü | Kaynak ortamı | Azure Backup çözümü |
 | --- | --- | --- |
@@ -81,10 +81,10 @@ Aşağıdaki tabloda Azure Backup kullanarak koruma altına alınabilecek verile
 Aşağıdaki tabloda, Linux için desteklenen Azure Backup bileşenleri gösterilmektedir.  
 
 **Bileşen** | **Linux (Azure destekli)**
---- | --- 
-Azure Backup (MARS) aracısı | (Windows tabanlı aracı yalnızca) 
+--- | ---
+Azure Backup (MARS) aracısı | (Windows tabanlı aracı yalnızca)
 System Center DPM | Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/><br/> Hyper-V ve VMWare Linux Konuk VM’lerinin VM geri yüklemesi</br></br> Dosyayla tutarlı yedekleme Azure Vm'leri için kullanılamıyor
-Azure Backup Sunucusu | Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/><br/> Hyper-V ve VMWare Linux Konuk Vm'lerinin VM geri yükleme</br></br> Dosyayla tutarlı yedekleme Azure Vm'leri için kullanılamıyor 
+Azure Backup Sunucusu | Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/><br/> Hyper-V ve VMWare Linux Konuk Vm'lerinin VM geri yükleme</br></br> Dosyayla tutarlı yedekleme Azure Vm'leri için kullanılamıyor
 Azure IaaS VM Backup | Uygulamayla tutarlı Yedekleme kullanarak [betik öncesi ve betik sonrası çerçeve](backup-azure-linux-app-consistent.md)<br/><br/> [Dosya düzeyinde kurtarma](backup-azure-restore-files-from-vm.md)<br/><br/> [Geri yüklenen diskten VM oluşturma](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Bir kurtarma noktasından bir VM oluşturma](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Premium depolama Vm'leri Azure Backup ile kullanma

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0f522897f3d3b3261045f1c14387af53ebf4ad9d
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: e782afb971f95a654119d9817edeef02642bee9e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429596"
+ms.locfileid: "56447574"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Azure Vm'lerini bir kurtarma Hizmetleri kasasına yedekleme
 
@@ -108,7 +108,7 @@ Bir sistem hesabı proxy sahip değilseniz, birini aşağıdaki ayarlamaları ya
 1. İndirme [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
 
 2. Çalıştırma **PsExec.exe -i -s cmd.exe** komut istemini bir sistem hesabı altında çalıştırılacak.
-3. Tarayıcı sistem bağlamında çalışır. Örneğin: **PROGRAMFILES%\Internet Explorer\iexplore.exe** Internet Explorer için.  
+3. Tarayıcı sistem bağlamında çalışır. Örneğin: **%PROGRAMFILES%\Internet Explorer\iexplore.exe** Internet Explorer için.  
 4. Proxy ayarlarını tanımlayın.
     - Linux makineleri üzerinde:
         - Bu satırı **/etc/ortam** dosyası:
@@ -117,7 +117,7 @@ Bir sistem hesabı proxy sahip değilseniz, birini aşağıdaki ayarlamaları ya
             - **HttpProxy.Host=proxy IP adresi**
             - **HttpProxy.Port=proxy bağlantı noktası**
     - Windows makinelerinde, tarayıcı ayarlarınızı bir ara sunucu kullanılması gerektiğini belirtin. Bir kullanıcı hesabı şu anda bir ara sunucu kullanıyorsanız, sistem düzeyinde ayarları uygulamak için bu betiği kullanabilirsiniz.
-        ```
+        ```powershell
        $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
@@ -145,7 +145,7 @@ NSG üzerinde **NSF kilitleme**, 10.0.0.5 üzerinde herhangi bir bağlantı nokt
 - Aşağıdaki PowerShell betiğini trafiğe izin vermek için bir örnek sağlar.
 - Tüm ortak Internet adreslerine giden izin vermek yerine, bir IP adresi aralığı belirtebilirsiniz (-DestinationPortRange), veya storage.region hizmet etiketini kullanabilirsiniz.   
 
-    ```
+    ```powershell
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
@@ -237,7 +237,7 @@ Abonelikte Vm'leri bulmak ve yedekleme yapılandırın.
 
 Backup'ı etkinleştirdikten sonra:
 
-- İlk yedekleme yedekleme, yedekleme planınızın çalıştırır.
+- İlk yedekleme, yedekleme planınızın çalıştırır.
 - VM'nin çalışır durumda olup olmadığını Backup hizmeti yedekleme uzantısını yükler.
     - Çalışan bir VM, uygulamayla tutarlı bir kurtarma noktası alınma olasılığını en yükseğe çıkarır.
     -  Ancak, sanal makine kapalı ve uzantı yüklenemiyor olsa bile yedeklenir. Bu olarak bilinir *çevrimdışı VM*. Bu durumda, kurtarma noktası olur *kilitlenmeyle tutarlı* olacaktır.

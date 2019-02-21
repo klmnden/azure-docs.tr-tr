@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4a05b99cf0e40e63c01aee27bd745dd165dc23b8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998129"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452704"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini kullanma
 
-Bir Azure Machine Learning Tahmine dayalı modeli bir Web hizmeti olarak dağıtma sonra veri göndermek ve Öngörüler almak için bir REST API kullanabilirsiniz. Gerçek zamanlı veya toplu iş modunda veriler gönderebilir.
+Bir Azure Machine Learning Studio'da Tahmine dayalı modeli bir Web hizmeti olarak dağıtma sonra veri göndermek ve Öngörüler almak için bir REST API kullanabilirsiniz. Gerçek zamanlı veya toplu iş modunda veriler gönderebilir.
 
 Burada, Machine Learning Studio'yu kullanarak bir Machine Learning Web hizmeti oluşturma ve dağıtma hakkında daha fazla bilgi bulabilirsiniz:
 
@@ -32,14 +32,14 @@ Burada, Machine Learning Studio'yu kullanarak bir Machine Learning Web hizmeti o
 ## <a name="overview"></a>Genel Bakış
 Azure Machine Learning Web hizmeti ile bir dış uygulama, gerçek zamanlı Machine Learning iş akışı Puanlama modeli ile iletişim kurar. Bir Machine Learning Web hizmeti çağrısı bir dış uygulamaya tahmin sonuçlarını döndürür. Machine Learning Web hizmeti çağrısı yapmak için tahmin dağıttığınızda oluşturulan bir API anahtarı geçirirsiniz. Machine Learning Web hizmeti bir web programlama projeleri için popüler bir mimari seçimi olan REST'i temel alır.
 
-Azure Machine Learning iki tür hizmet içerir:
+Azure Machine Learning Studio iki tür hizmet içerir:
 
 * İstek-yanıt hizmeti (RRS) – düşük gecikme süresi, Machine Learning Studio'da oluşturulan ve dağıtılan durum bilgisiz modeller için arabirim sağlar yüksek oranda ölçeklenebilir bir hizmettir.
 * Toplu yürütme hizmeti (BES) – bir zaman uyumsuz yapan veri kayıtları için toplu iş hizmettir.
 
 Machine Learning Web Hizmetleri hakkında daha fazla bilgi için bkz. [Machine Learning Web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
 
-## <a name="get-an-azure-machine-learning-authorization-key"></a>Bir Azure Machine Learning yetkilendirme anahtarını alma
+## <a name="get-an-azure-machine-learning-studio-authorization-key"></a>Bir Azure Machine Learning Studio yetkilendirme anahtarını alma
 API anahtarları, denemenizi dağıttığınızda, Web hizmeti oluşturulur. Çeşitli konumlardan anahtarları alabilirsiniz.
 
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Microsoft Azure Machine Learning Web Hizmetleri portalından
@@ -103,7 +103,7 @@ Machine Learning Web hizmetine bağlanmak için **System.NET.http.Formatting** N
 **Kod örneği çalıştırmak için**
 
 1. Yayımlama "Örnek 1: Veri kümesi UCI ' indirin: Yetişkin 2 sınıfı veri kümesi"deneme, Machine Learning örnek koleksiyonun parçası.
-2. ApiKey bir Web hizmetinden anahtarla atayın. Bkz: **bir Azure Machine Learning yetkilendirme anahtarını alma** yukarıda.
+2. ApiKey bir Web hizmetinden anahtarla atayın. Bkz: **bir Azure Machine Learning Studio yetkilendirme anahtarını alma** yukarıda.
 3. İstek URI'si ile serviceUri atayın.
 
 **İşte tam bir istek aşağıdaki gibi görünür.**
@@ -199,7 +199,7 @@ Bir Machine Learning Web hizmetine bağlanmak için kullanmak **urllib2** kitapl
 **Kod örneği çalıştırmak için**
 
 1. Dağıtma "Örnek 1: Veri kümesi UCI ' indirin: Yetişkin 2 sınıfı veri kümesi"deneme, Machine Learning örnek koleksiyonun parçası.
-2. ApiKey bir Web hizmetinden anahtarla atayın. Bkz: **bir Azure Machine Learning yetkilendirme anahtarını alma** başlangıcı yakınında bu makalenin.
+2. ApiKey bir Web hizmetinden anahtarla atayın. Bkz: **bir Azure Machine Learning Studio yetkilendirme anahtarını alma** başlangıcı yakınında bu makalenin.
 3. İstek URI'si ile serviceUri atayın.
 
 **İşte tam bir istek aşağıdaki gibi görünür.**

@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: f5b24b21c4511b535509421aaa35ba3498e9f6a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246026"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453180"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Hızlı Başlangıç: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
 
@@ -57,15 +57,15 @@ Veri kümesini denemenize aşağıdaki gibi aktarabilirsiniz.
 
 1. Denemenize tuvalin üzerinde görebileceğiniz bir varsayılan ad verilir. Bu adı seçerek anlamlı bir adla değiştirin, örneğin, **Otomobil fiyat tahmini**. Adın benzersiz olması gerekmez.
 
-    ![Denemeyi yeniden adlandırma][rename-experiment]
+    ![Denemeyi yeniden adlandırma](./media/create-experiment/rename-experiment.png)
 
 1. Deneme tuvalinin sol tarafında bir veri kümesi ve modül paleti bulunur. **Otomobil fiyat verileri (Ham)** etiketli veri kümesini bulmak için bu paletin en üst kısmındaki Arama kutusuna **otomobil** yazın. Bu veri kümesini deneme tuvaline sürükleyin.
 
-    ![Otomobil veri kümesini bulun ve deneme tuvaline sürükleyin][type-automobile]
+    ![Otomobil veri kümesini bulun ve deneme tuvaline sürükleyin](./media/create-experiment/type-automobile.png)
 
 Ardından bu verileri otomobil veri kümesini alt kısmındaki çıkış bağlantı noktasına tıklayın gibi göründüğünü görmek **Görselleştir**.
 
-![Çıkış bağlantı noktasına tıklayın ve "Görselleştir" i seçin][select-visualize]
+![Çıkış bağlantı noktasına tıklayın ve "Görselleştir" i seçin](./media/create-experiment/select-visualize.png)
 
 > [!TIP]
 > Veri kümeleri ve modülleri küçük dairelerle gösterilen giriş ve çıkış bağlantı noktalarına sahiptir. Giriş bağlantı noktaları yukarıda, çıkış bağlantı noktaları aşağıdadır.
@@ -74,7 +74,7 @@ Herhangi bir zamanda bir veri kümesi veya modülün çıkış bağlantı noktas
 
 Bu veri kümesi her satır bir otomobili temsil eder ve her Otomobille ilişkili değişkenler sütun olarak görünür. Biz, belirli bir otomobil için değişkenleri kullanarak en sağdaki sütun (başlıklı sütun 26 "price") fiyatı tahmin edeceğiz.
 
-![Veri görselleştirme penceresinde otomobil verilerini görüntüleme][visualize-auto-data]
+![Veri görselleştirme penceresinde otomobil verilerini görüntüleme](./media/create-experiment/visualize-auto-data.png)
 
 Sağ üst köşedeki "**x**" işaretine tıklayarak görselleştirme penceresini kapatın.
 
@@ -89,9 +89,9 @@ Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Ç
 
 1. Tür **sütunları seçme** bulmak için modül paletinin üst kısmındaki arama kutusuna [kümesindeki sütunları seçme] [ select-columns] modülü. Ardından bunu deneme tuvaline sürükleyin. Bu modül, modele hangi veri sütunlarını dahil etmek veya dışarıda bırakmak istediğimizi seçmemizi sağlar.
 
-1. **Otomobil fiyat verileri (Ham)** veri kümesinin çıkış bağlantı noktasını [Veri Kümesindeki Sütunları Seçme][select-columns] modülündeki giriş bağlantı noktasına bağlayın.
+1. Çıkış bağlantı noktasına bağlanmak **otomobil fiyat verileri (ham)** veri kümesindeki sütunları seçme, giriş bağlantı noktasına kümesi.
 
-    !["Kümesindeki sütunları seçme" modülünü deneme tuvaline ekleyin ve bağlayın][type-select-columns]
+    !["Kümesindeki sütunları seçme" modülünü deneme tuvaline ekleyin ve bağlayın](./media/create-experiment/type-select-columns.png)
 
 1. [Select Columns in Dataset (Veri Kümesinde Sütun Seçme)][select-columns] modülüne tıklayın ve **Özellikler** bölmesinde **Sütun seçiciyi başlat** seçeneğine tıklayın.
 
@@ -100,26 +100,26 @@ Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Ç
     - Açılan menülerden **Hariç Tut** ve **sütun adlarını** seçerek metin kutusuna tıklayın. Sütun listesi görüntülenir. **Normalleştirilmiş kayıplar**’ı seçin; böylece metin kutusuna eklenir.
     - (Sağ alt köşede üzerinde) sütun seçiciyi kapatmak için onay işareti (Tamam) düğmesine tıklayın.
 
-    ![Sütun seçiciyi başlatın ve "normalized-losses" sütununu hariç tutun][launch-column-selector]
+    ![Sütun seçiciyi başlatın ve "normalized-losses" sütununu hariç tutun](./media/create-experiment/launch-column-selector.png)
 
     Artık **Select Columns in Dataset (Veri Kümesinde Sütun Seçme)** için özellikler bölmesi, **normalleştirilmiş kayıplar** dışındaki tüm veri kümelerindeki tüm sütunlardan geçeceğini belirtir.
 
-    ![Özellikler bölmesinde "normalized-losses" sütununun hariç tutulduğu gösterilir][showing-excluded-column]
+    ![Özellikler bölmesinde "normalized-losses" sütununun hariç tutulduğu gösterilir](./media/create-experiment/showing-excluded-column.png)
 
     > [!TIP] 
     > Modüle çift tıklayıp metin girerek bir modüle yorum ekleyebilirsiniz. Bu, modülün denemenizde ne işe yaradığını bir bakışta görmenize yardımcı olabilir. Bu durumda, [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne çift tıklayın ve "Normalleştirilmiş kayıpları dışarıda bırak" yorumunu yazın.
 
-    ![Açıklama eklemek için bir modüle çift tıklayın][add-comment]
+    ![Açıklama eklemek için bir modüle çift tıklayın](./media/create-experiment/add-comment.png)
 
 1. [Eksik Verileri Temizleme][clean-missing-data] modülünü deneme tuvaline sürükleyin ve bunu [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne bağlayın. **Özellikler** bölmesinde, **Temizleme modu** altında **Tüm satırı kaldır**’ı seçin. Bu seçenekleri doğrudan [eksik verileri temizleme] [ clean-missing-data] değer içeren satırları kaldırarak verileri temizlemesi için. Modüle çift tıklayın ve "Eksik değerli satırları kaldır" yorumunu yazın.
 
-    !["" Eksik verileri temizleme"modülüne için tüm satırı Kaldır" için temizleme modunu ayarlayın][set-remove-entire-row]
+    !["" Eksik verileri temizleme"modülüne için tüm satırı Kaldır" için temizleme modunu ayarlayın](./media/create-experiment/set-remove-entire-row.png)
 
 1. Sayfanın en altında yer alan **ÇALIŞTIR**'a tıklayarak denemeyi çalıştırın.
 
     Deneme çalıştırma bittiğinde, tüm modüllerin başarıyla tamamlandığını göstermek için yeşil bir onay işareti bulunur. Sağ üst köşede **Çalıştırma tamamlandı** durumunun olduğuna da dikkat edin.
 
-    ![Çalıştırdıktan sonra deneme aşağıdakine benzer görünmelidir][early-experiment-run]
+    ![Çalıştırdıktan sonra deneme aşağıdakine benzer görünmelidir](./media/create-experiment/early-experiment-run.png)
 
 > [!TIP]
 > Denemeyi neden şimdi çalıştırdık? Deneme çalıştırılarak, verilerimizin sütun tanımları [Veri Kümesindeki Sütunları Seçme][select-columns] modülü ve [Eksik Verileri Temizleme][clean-missing-data] modülü aracılığıyla veri kümesinden geçer. Bu, [Eksik Verileri Temizleme][clean-missing-data] öğesine bağladığımız modüllerin de aynı bilgilere sahip olacağı anlamına gelir.
@@ -140,7 +140,7 @@ Veri kümemizdeki bir alt özellikler kümesini kullanan bir model oluşturalım
 
 1. Deneme tuvaline başka bir [Veri Kümesindeki Sütunları Seçme][select-columns] modülü sürükleyin. [Eksik Verileri Temizleme][clean-missing-data] modülünün sol çıkış bağlantı noktasını [Veri Kümesindeki Sütunları Seçme][select-columns] modülünün girişine bağlayın.
 
-    !["Kümesindeki sütunları seçme" modülünü "Eksik verileri temizleme" modülüne bağlayın][connect-clean-to-select]
+    !["Kümesindeki sütunları seçme" modülünü "Eksik verileri temizleme" modülüne bağlayın](./media/create-experiment/connect-clean-to-select.png)
 
 1. Modüle çift tıklayın ve "Tahmin için özellik seç" yazın.
 
@@ -152,7 +152,7 @@ Veri kümemizdeki bir alt özellikler kümesini kullanan bir model oluşturalım
 
 1. Onay işareti (Tamam) düğmesine tıklayın.
 
-    ![Tahmine dahil edilecek sütunları (özellikleri) seçin][select-columns-to-include]
+    ![Tahmine dahil edilecek sütunları (özellikleri) seçin](./media/create-experiment/select-columns-to-include.png)
 
 Bu modül, yalnızca bir sonraki adımda kullanacağız öğrenim algoritmasına geçirmek istediğimiz özellikleri içeren filtrelenmiş bir veri kümesi oluşturur. Daha sonra geri dönüp farklı özellikler seçerek yeniden deneyebilirsiniz.
 
@@ -174,7 +174,7 @@ Verilerimizi modeli eğitmek ve verileri ayrı eğitim ve test kümelerine ayır
 
 1. Seçmek için [Verileri Bölme][split] modülüne tıklayın. **İlk çıkış veri kümesinde satır kesiri**’ni bulun (tuvalin sağ tarafında **Özellikler** bölmesinde) ve 0,75 olarak ayarlayın. Bu şekilde, modeli eğitmek için verilerin yüzde 75'ini kullanıp test etmek için yüzde 25'ini ayıracağız.
 
-    !["Verileri bölme" modülünün kesirini 0,75 olarak ayarlayın.][set-split-data-percentage]
+    !["Verileri bölme" modülünün kesirini 0,75 olarak ayarlayın.](./media/create-experiment/set-split-data-percentage.png)
 
     > [!TIP]
     > **Rastgele doldurma** parametresini değiştirerek eğitim ve test etme için farklı rastgele örnekler oluşturabilirsiniz. Bu parametre, sözde rastgele sayı üreticisinin doldurulmasını denetler.
@@ -185,19 +185,19 @@ Verilerimizi modeli eğitmek ve verileri ayrı eğitim ve test kümelerine ayır
 
 1. [Modeli Eğitme][train-model] modülünü bulup deneme tuvaline sürükleyin. [Doğrusal Regresyon][linear-regression] modülünün çıkışını [Modeli Eğitme][train-model] modülünün sol girişine bağlayın ve [Verileri Bölme][split] modülünün eğitim verileri çıkışını (sol bağlantı noktası) [Modeli Eğitme][train-model] modülünün sağ girişine bağlayın.
 
-    !["Modeli eğitme" modülünü "Çizgisel regresyon" ve "Verileri bölme" modüllerine bağlayın][connect-train-model]
+    !["Modeli eğitme" modülünü "Çizgisel regresyon" ve "Verileri bölme" modüllerine bağlayın](./media/create-experiment/connect-train-model.png)
 
 1. [Modeli Eğitme][train-model] modülüne tıklayın, **Özellikler** bölmesinde **Sütun seçiciyi başlat** seçeneğine tıklayın ve ardından **fiyat** sütununu seçin. **Fiyat** modelimizi tahmin etmek için gittiği değerdir.
 
     Sütun seçicide **fiyat** sütununu **Kullanılabilir sütunlar** listesinden **Seçili sütunlar** listesine taşıyarak seçersiniz.
 
-    !["Modeli eğitme" modülü için fiyat sütununu seçin][select-price-column]
+    !["Modeli eğitme" modülü için fiyat sütununu seçin](./media/create-experiment/select-price-column.png)
 
 1. Denemeyi çalıştırın.
 
 Şimdi, fiyat tahmininde bulunmak amacıyla yeni otomobil verilerini puanlamak için kullanılabilecek eğitilmiş bir regresyon modeli oluşturduk.
 
-![Çalıştırdıktan sonra deneme şimdi aşağıdakine benzer görünmelidir][second-experiment-run]
+![Çalıştırdıktan sonra deneme şimdi aşağıdakine benzer görünmelidir](./media/create-experiment/second-experiment-run.png)
 
 ## <a name="predict-new-automobile-prices"></a>Yeni otomobil fiyatlarını tahmin etme
 
@@ -205,21 +205,21 @@ Verilerimizin yüzde 75'ini kullanarak modeli eğittiğimize göre, modelimizin 
 
 1. [Model Puanlama][score-model] modülünü bulup deneme tuvaline sürükleyin. [Modeli Eğitme][train-model] modülünün çıkışını [Model Puanlama][score-model] modülünün sol giriş bağlantı noktasına bağlayın. [Verileri Bölme][split] modülünün test verileri çıkışını (sağ bağlantı noktası) [Model Puanlama][score-model] modülünün sağ giriş bağlantı noktasına bağlayın.
 
-    !["Model Puanlama" modülünü "Modeli eğitme" ve "Verileri bölme" modüllerine bağlayın][connect-score-model]
+    !["Model Puanlama" modülünü "Modeli eğitme" ve "Verileri bölme" modüllerine bağlayın](./media/create-experiment/connect-score-model.png)
 
 1. Denemeyi çalıştırın ve çıkışı görüntülemek [Score Model] [ score-model] modülünün çıkış bağlantı noktasına tıklayarak [Score Model] [ score-model] seçin **Görselleştirme**. Çıkış, fiyat için tahmin edilen değerleri ve test verileri için bilinen değerleri gösterir.  
 
-    !["Model Puanlama" modülü çıkışı][score-model-output]
+    !["Model Puanlama" modülü çıkışı](./media/create-experiment/score-model-output.png)
 
 1. Son olarak, sonuç kalitesini test edeceğiz. [Model Değerlendirme][evaluate-model] modülünü seçip deneme tuvaline sürükleyin ve [Model Puanlama][score-model] modülünün çıkışını [Model Değerlendirme][evaluate-model] modülünün sol giriş bağlantı noktasına bağlayın. Son deneme şuna benzer şekilde görünecektir:
 
-    ![Son deneme][complete-linear-regression-experiment]
+    ![Son deneme](./media/create-experiment/complete-linear-regression-experiment.png)
 
 1. Denemeyi çalıştırın.
 
 [Model Değerlendirme][evaluate-model] modülünden çıkışı görüntülemek için, çıkış bağlantı noktasına tıklayın ve ardından **Görselleştir**'i seçin.
 
-![Deneme için değerlendirme sonuçları][evaluation-results]
+![Deneme için değerlendirme sonuçları](./media/create-experiment/evaluation-results.png)
 
 Modelimiz için aşağıdaki istatistikler gösterilir:
 
@@ -241,35 +241,6 @@ Bu hızlı başlangıçta, bir örnek veri kullanarak basit bir deneme oluşturu
 
 > [!div class="nextstepaction"]
 > [Öğretici: Studio'da öngörülebilir bir çözüm geliştirin](tutorial-part1-credit-risk.md)
-
-<!-- Images -->
-[sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png
-[rename-experiment]: ./media/create-experiment/rename-experiment.png
-[visualize-auto-data]:./media/create-experiment/visualize-auto-data.png
-[select-visualize]: ./media/create-experiment/select-visualize.png
-[showing-excluded-column]:./media/create-experiment/showing-excluded-column.png
-[set-remove-entire-row]:./media/create-experiment/set-remove-entire-row.png
-[early-experiment-run]:./media/create-experiment/early-experiment-run.png
-[select-columns-to-include]:./media/create-experiment/select-columns-to-include.png
-[second-experiment-run]:./media/create-experiment/second-experiment-run.png
-[connect-score-model]:./media/create-experiment/connect-score-model.png
-[evaluation-results]:./media/create-experiment/evaluation-results.png
-[complete-linear-regression-experiment]:./media/create-experiment/complete-linear-regression-experiment.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[type-automobile]:./media/create-experiment/type-automobile.png
-[type-select-columns]:./media/create-experiment/type-select-columns.png
-[launch-column-selector]:./media/create-experiment/launch-column-selector.png
-[add-comment]:./media/create-experiment/add-comment.png
-[connect-clean-to-select]:./media/create-experiment/connect-clean-to-select.png
-
-[set-split-data-percentage]:./media/create-experiment/set-split-data-percentage.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[connect-train-model]:./media/create-experiment/connect-train-model.png
-[select-price-column]:./media/create-experiment/select-price-column.png
-
-[score-model-output]:./media/create-experiment/score-model-output.png
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

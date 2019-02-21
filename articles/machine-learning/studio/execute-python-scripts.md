@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: a040991ca4b3a08dec90f4fc6944b006ebea2135
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5f132dce2a0a868de8607581935325d48e1520a1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487855"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456767"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio’da Python machine learning betikleri yürütme
 
-Bu konuda, Python betikleri Azure Machine learning'de geçerli desteğini temel tasarım ilkeleri açıklanır. Sağlanan ana özellikleri de, dahil olmak üzere özetlenmiştir:
+Bu konuda, Azure Machine Learning Studio'da Python betikleri için geçerli destek temel tasarım ilkeleri açıklanır. Sağlanan ana özellikleri de, dahil olmak üzere özetlenmiştir:
 
 - Temel kullanım senaryoları yürütün
 - bir web hizmetinde deneme Puanlama
@@ -61,11 +61,11 @@ Azure Machine Learning Studio'da Python için birincil arabirim aracılığıyla
 [Python betiği yürütme] [ execute-python-script] modülü Azure ML Studio'daki en fazla üç girişleri kabul eder ve kendi R analog gibi (aşağıdaki bölümde açıklanmıştır) en fazla iki çıktılar üretir [R yürütün Betik] [ execute-r-script] modülü. Yürütülecek Python kodu olarak adlandırılmış bir özel parametre kutusuna girilen çağrılan işlev giriş noktası `azureml_main`. Bu modül uygulamak için kullanılan temel tasarım ilkeleri şunlardır:
 
 1. *Python kullanıcılar için kullanılan deyimsel olmalıdır.* Python kullanıcıların çoğu kodlarını modülleri içinde işlevler olarak faktörü. Bu nedenle, yürütülebilir deyimlerin çok en üst düzey bir modülde koyarak nispeten nadir olarak rastlanıyor. Sonuç olarak, komut dosyası kutusunu da deyimleri yalnızca bir dizi aksine özel olarak adlandırılmış bir Python işlevi alır. İşlevde kullanıma sunulan standart Python kitaplık türleri gibi nesnelerdir [Pandas](http://pandas.pydata.org/) veri çerçevelerini ve [NumPy](http://www.numpy.org/) dizileri.
-2. *Yüksek kaliteli yerel arasında olmalıdır ve bulut yürütme.* Python kodu yürütmek için kullanılan arka uç dayanır [Anaconda](https://store.continuum.io/cshop/anaconda/), platformlar arası bilimsel Python dağıtım yaygın olarak kullanılan. Bu, en yaygın Python paketlerini 200 yakın birlikte gelir. Bu nedenle, veri bilimcileri hata ayıklama ve Azure Machine Learning ile uyumlu Anaconda ortamlarının kendi kodlarına uygun. Ardından var olan bir geliştirme ortamı gibi kullanın [Ipython](http://ipython.org/) Not Defteri veya [Visual Studio için Python Araçları](https://aka.ms/ptvs), bir Azure ML deneme bir parçası olarak çalıştırmak için. `azureml_main` Giriş noktasıdır ve bu nedenle temel alınan bir Python işlevi *** Azure ML özgü kod veya yüklü SDK yazılabilir.
-3. *Diğer Azure Machine Learning modüller ile birleştirilebilir sorunsuz olmalıdır.* [Python betiği yürütme] [ execute-python-script] modülü kabul eder, girdi ve çıktı, olarak standart Azure Machine Learning veri kümeleri. Temel çerçevesinde şeffaf ve verimli bir şekilde Azure ML ve Python çalışma zamanları arasında köprü. Bu nedenle Python, R ve SQLite çağıran de dahil olmak üzere mevcut Azure ML iş akışları ile birlikte kullanılabilir. Sonuç veri Bilimcisi iş akışları oluşturma:
+2. *Yüksek kaliteli yerel arasında olmalıdır ve bulut yürütme.* Python kodu yürütmek için kullanılan arka uç dayanır [Anaconda](https://store.continuum.io/cshop/anaconda/), platformlar arası bilimsel Python dağıtım yaygın olarak kullanılan. Bu, en yaygın Python paketlerini 200 yakın birlikte gelir. Bu nedenle, veri bilimcileri hata ayıklama ve Azure Machine Learning Studio ile uyumlu Anaconda ortamlarının kendi kodlarına uygun. Ardından var olan bir geliştirme ortamı gibi kullanın [Ipython](http://ipython.org/) Not Defteri veya [Visual Studio için Python Araçları](https://aka.ms/ptvs), bir Azure ML deneme bir parçası olarak çalıştırmak için. `azureml_main` Giriş noktasıdır ve bu nedenle temel alınan bir Python işlevi *** Azure ML özgü kod veya yüklü SDK yazılabilir.
+3. *Diğer Azure Machine Learning Studio modülleri ile sorunsuz bir şekilde birleştirilebilir olmalıdır.* [Python betiği yürütme] [ execute-python-script] modülü kabul eder, girdi ve çıktı, olarak standart Azure Machine Learning Studio'da veri kümeleri. Temel çerçevesinde şeffaf ve verimli bir şekilde Azure ML ve Python çalışma zamanları arasında köprü. Bu nedenle Python, R ve SQLite çağıran de dahil olmak üzere mevcut Azure ML iş akışları ile birlikte kullanılabilir. Sonuç veri Bilimcisi iş akışları oluşturma:
    * ön işleme ve temizleme verileri için Python ve Pandas kullanma
    * birden fazla veri kümesi için form özelliklerini birleştirme, bir SQL dönüştürme için veri akışı
-   * Azure Machine Learning'de algoritmalar kullanarak modeller eğitin 
+   * Azure Machine Learning Studio'da algoritmalar kullanarak modeller eğitin 
    * değerlendirmek ve r kullanarak sonuçları işlem sonrası
 
 
@@ -149,7 +149,7 @@ Modül çıktı zip dosyası paketlenmemiş olduğunu gösterir ve işlev `print
 
 ## <a name="working-with-visualizations"></a>Görselleştirmeleri ile çalışma
 
-Tarayıcıda görselleştirilebilir MatplotLib kullanılarak oluşturulan çizimler döndürülen [Python betiği yürütme][execute-python-script]. Ancak r kullanırken olduğu gibi çizimleri görüntüleri otomatik olarak yönlendirilmez Azure Machine Learning geri döndürülecek olmaları durumunda bu nedenle kullanıcı açıkça tüm çizimleri PNG dosyaları kaydetmeniz gerekir. 
+Tarayıcıda görselleştirilebilir MatplotLib kullanılarak oluşturulan çizimler döndürülen [Python betiği yürütme][execute-python-script]. Ancak r kullanırken olduğu gibi çizimleri görüntüleri otomatik olarak yönlendirilmez Azure Machine Learning Studio'ya dönün döndürülecek olmaları durumunda bu nedenle kullanıcı açıkça tüm çizimleri PNG dosyaları kaydetmeniz gerekir. 
 
 MatplotLib görüntüleri oluşturmak için aşağıdaki yordamı tamamlamanız gerekir:
 
@@ -172,12 +172,12 @@ Bu işlem içinde Pandas scatter_matrix işlevini kullanarak bir dağılım çiz
 
 Şekil 9. Python koddan oluşturulan çizimleri görselleştirme.
 
-Farklı görüntülere kaydederek birden çok şekil dönmek mümkündür, Azure Machine Learning çalışma zamanı tüm görüntülerini seçer ve görselleştirme için art arda ekler.
+Farklı görüntülere kaydederek birden çok şekil dönmek mümkündür, Azure Machine Learning Studio çalışma zamanının tüm görüntülerini seçer ve görselleştirme için art arda ekler.
 
 
 ## <a name="advanced-examples"></a>Gelişmiş örnekleri
 
-Azure Machine Learning'de yüklenmiş Anaconda ortam NumPy, SciPy ve Scikits öğrenin gibi yaygın paketleri içerir. Bu paketleri, bir makine öğrenimi işlem hattı içindeki çeşitli veri işleme görevleri için etkili bir şekilde kullanılabilir. Örnek olarak, betik ve aşağıdaki denemenin topluluğu öğrencileriyle Scikits-bir veri kümesi için özellik önem puanlarını hesaplama öğrenin, kullanımını gösterir. Puanları, önce başka bir ML modeline iletilir ve denetimli özellik seçimi gerçekleştirmek için kullanılabilir.
+Azure Machine Learning Studio'da yüklenmiş Anaconda ortam NumPy, SciPy ve Scikits öğrenin gibi yaygın paketleri içerir. Bu paketleri, bir makine öğrenimi işlem hattı içindeki çeşitli veri işleme görevleri için etkili bir şekilde kullanılabilir. Örnek olarak, betik ve aşağıdaki denemenin topluluğu öğrencileriyle Scikits-bir veri kümesi için özellik önem puanlarını hesaplama öğrenin, kullanımını gösterir. Puanları, önce başka bir ML modeline iletilir ve denetimli özellik seçimi gerçekleştirmek için kullanılabilir.
 
 Önem derecesi puanları ve özellikleri puanları temel alarak sırası hesaplamak için kullanılan Python işlevi şu şekildedir:
 
@@ -185,7 +185,7 @@ Azure Machine Learning'de yüklenmiş Anaconda ortam NumPy, SciPy ve Scikits ö�
 
 Şekil 10. Sıra özellikleri tarafından puanları işlev.
  
-Aşağıdaki denemenin hesaplar ve Azure Machine learning'de "Pima Hint Ailelere" veri kümesindeki özelliklerinin önem puanlarını döndürür:
+Aşağıdaki denemenin hesaplar ve Azure Machine Learning Studio'da "Pima Hint Ailelere" veri kümesindeki özelliklerinin önem puanlarını döndürür:
 
 ![image12](./media/execute-python-scripts/figure9a.png)
 ![image13](./media/execute-python-scripts/figure9b.png)    
@@ -197,11 +197,11 @@ Aşağıdaki denemenin hesaplar ve Azure Machine learning'de "Pima Hint Ailelere
 
 1. *Korumalı yürütme.* Python çalışma zamanını, şu anda korumalı ve sonuç olarak, ağ veya yerel dosya sistemi erişimini kalıcı bir biçimde izin vermiyor. Yerel olarak kaydedilmiş tüm dosyalar yalıtılmış ve modülü tamamladıktan sonra silinir. Python kodu geçerli dizin ve alt dizinlerinde olan özel durum üzerinde çalıştığı makinede çoğu dizinlere erişemez.
 2. *Gelişmiş geliştirme ve hata ayıklama desteği eksikliği.* Python modülü, IntelliSense ve hata ayıklama gibi IDE özellikleri şu anda desteklemiyor. Ayrıca, çalışma zamanında modülü başarısız olursa, tam Python yığın izlemesi kullanılabilir. Ancak, modül için çıktı günlüğüne görüntülenmelidir. Şu anda, geliştirme ve Ipython gibi bir ortamda Python betiklerinde hata ayıklamak ve ardından kod modülüne içe aktarın öneririz.
-3. *Tek bir veri çerçevesi çıktı.* Python giriş noktası, yalnızca bir tek veri çerçevesine çıktı olarak verilecek izin verilir. Geri Azure Machine Learning çalışma zamanı rastgele Python nesneleri doğrudan eğitilen modelleri gibi döndürmek şu anda mümkün değildir. Gibi [R betiği yürütme][execute-r-script]aynısına sahip, çoğu durumda, nesneleri bir bayt dizisine okunamayacak pickle ve ardından, bir veri çerçevesi içinde dönmek mümkündür.
+3. *Tek bir veri çerçevesi çıktı.* Python giriş noktası, yalnızca bir tek veri çerçevesine çıktı olarak verilecek izin verilir. Geri Azure Machine Learning Studio çalışma zamanı rastgele Python nesneleri doğrudan eğitilen modelleri gibi döndürmek şu anda mümkün değildir. Gibi [R betiği yürütme][execute-r-script]aynısına sahip, çoğu durumda, nesneleri bir bayt dizisine okunamayacak pickle ve ardından, bir veri çerçevesi içinde dönmek mümkündür.
 4. *Python yüklemeyi özelleştirmek için bağlanamama*. Şu anda, özel bir Python modüllerini eklemek için yalnızca daha önce açıklanan zip dosyası mekanizması yoludur. Küçük modüller için uygun olsa da büyük modülleri (özellikle de yerel DLL'leri ile) ya da çok sayıda modüller için yavaşlatan bir yöntemdir. 
 
 ## <a name="conclusions"></a>Sonuçları
-[Python betiği yürütme] [ execute-python-script] modül mevcut Python kodu Azure Machine Learning ve için bulutta barındırılan machine learning iş akışlarınızla sorunsuzca birleştirmek bir veri Bilimcisi sağlar bir web hizmetinin bir parçası olarak çalışır hale getirme. Python betik modülü, doğal olarak Azure Machine learning'de diğer modüllerle birlikte çalışır. Modül görevlerden veri keşfi önceden işleme ve ayıklama özellik ve daha sonra değerlendirmesi için bir dizi ve sonuçların sonrası işleme için kullanılabilir. Yürütme için kullanılan arka uç çalışma zamanı Anaconda, iyi test edilmiş ve yaygın olarak kullanılan bir Python dağıtım temel alır. Bu arka uç, var olan yerleşik kod varlıklarına buluta kolaylaştırır.
+[Python betiği yürütme] [ execute-python-script] modül mevcut Python kodu Azure Machine Learning Studio ve için bulutta barındırılan machine learning iş akışlarınızla sorunsuzca birleştirmek bir veri Bilimcisi sağlar bir web hizmetinin bir parçası olarak çalışır hale getirme. Python betik modülü, doğal olarak Azure Machine Learning Studio'da diğer modüllerle birlikte çalışır. Modül görevlerden veri keşfi önceden işleme ve ayıklama özellik ve daha sonra değerlendirmesi için bir dizi ve sonuçların sonrası işleme için kullanılabilir. Yürütme için kullanılan arka uç çalışma zamanı Anaconda, iyi test edilmiş ve yaygın olarak kullanılan bir Python dağıtım temel alır. Bu arka uç, var olan yerleşik kod varlıklarına buluta kolaylaştırır.
 
 İçin ek işlevler sağlamasına olanak bekliyoruz [Python betiği yürütme] [ execute-python-script] eğitmek ve Python modelleri kullanıma hazır hale getirmek için ve geliştirme için daha iyi destek ekleme olanağı gibi modülü ve Azure Machine Learning Studio'da kodda hata ayıklama.
 

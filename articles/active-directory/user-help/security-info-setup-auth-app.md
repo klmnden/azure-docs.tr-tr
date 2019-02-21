@@ -1,6 +1,6 @@
 ---
-title: Güvenlik bilgileri bir doğrulayıcı uygulama - Azure Active Directory kullanacak şekilde | Microsoft Docs
-description: Microsoft Authenticator uygulamasını kullanarak kimliğinizi doğrulamak için güvenlik bilgilerinizi ayarlayın.
+title: Güvenlik bilgileri (Önizleme) bir doğrulayıcı uygulama - Azure Active Directory kullanacak şekilde | Microsoft Docs
+description: Güvenlik bilgilerinizi Microsoft Authenticator uygulamasını kullanarak kimliğinizi doğrulamak için nasıl kurulur.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,64 +9,118 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe7809a4b83c9cf7133511048ded87cc7fdcf82
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b797cc6e1c0ef0df61c4d1384d2beb12c37112ba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197513"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456869"
 ---
-# <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Güvenlik bilgileri (Önizleme) bir authenticator uygulamasını kullanmak için ayarlayın
+# <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Authenticator uygulamasını kullanmak için güvenlik bilgileri (Önizleme) ayarlama
+İki aşamalı doğrulamayı eklemek için aşağıdaki adımları uygulayabilirsiniz ve yöntemleri sıfırlama. Bu ilk kez ayarladıktan sonra dönebilirsiniz **güvenlik bilgisi** sayfasına ekleme, güncelleştirme veya güvenlik bilgilerinizi silin.
+
+Hemen iş veya Okul hesabınızda oturum açtıktan sonra bunu ayarlamak için istenirse, ayrıntılı adımlara bakın [güvenlik bilgilerinizi ayarlayın oturum açma sayfası isteminden](security-info-setup-signin.md) makalesi.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Güvenlik bilgilerinizi ayarlamak için iş veya Okul hesabınızda oturum açın ve ardından kayıt işlemini tamamlamak gerekir. Güvenlik bilgilerinizi daha önce oluşturmadıysanız, artık yapmanız istenir.
-
-## <a name="set-up-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulamasını ayarlama
-
-Kuruluşunuzun ayarlara bağlı olarak, oturum açtığınızda Microsoft Authenticator uygulamasını ayarlama istenebilir. Aksi takdirde, güvenlik bilgileri Microsoft Authenticator uygulamasını ayarlama başlamak için adımları izleyin. [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md).
-
-İndirin ve Microsoft Authenticator uygulaması hakkında daha fazla bilgi için bkz: [Microsoft Authenticator uygulaması ile çalışmaya başlama](user-help-auth-app-download-install.md).
-
 >[!Note]
->Microsoft Authenticator uygulamasını kullanmak istemiyorsanız, farklı bir uygulama sırasında ayarlanan seçebilirsiniz. Bu makalede, Microsoft Authenticator uygulamasını kullanır. Authenticator uygulaması seçeneğinin görmüyorsanız, kuruluşunuzun doğrulama için bir authentication uygulamasını kullanmak için izin vermeyen mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.
+>Bir doğrulayıcı uygulama seçeneğini görmüyorsanız, kuruluşunuzun doğrulama için bir authentication uygulamasını kullanmak için izin vermeyen mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.
 
-### <a name="to-use-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulamasını kullanmak için
+## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Güvenlik bilgileri sayfasından Microsoft Authenticator uygulamasını ayarlama
+Kuruluşunuzun ayarlara bağlı olarak, bir kimlik doğrulama uygulaması, güvenlik bilgisi yöntemlerinden biri olarak kullanmanız mümkün olabilir. Microsoft Authenticator uygulamasını kullanmak için gerekli değildir ve Kurulum işlemi sırasında farklı bir uygulama seçebilirsiniz. Ancak, bu makalede, Microsoft Authenticator uygulamasını kullanır. 
 
-1. Seçin **Authenticator uygulamasını** seçeneği.
+### <a name="to-set-up-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulamasını ayarlama
 
-    **Uygulamayı Al** Sihirbazı görünür.
+1. İş veya Okul hesabınızda oturum açın ve ardından Git kullanarak https://myprofile.microsoft.com/ sayfası.
 
-    ![Uygulama Sihirbazı, ilk ekran Al](media/security-info/security-info-auth-app-wizard.png)
+    ![Vurgulanan güvenlik bilgisi bağlantıları gösteren profili sayfam](media/security-info/securityinfo-myprofile.png)
 
-    Microsoft Authenticator uygulamasını kullanmak istemiyorsanız, tıklayabilirsiniz **farklı authenticator uygulamasını kullanmak istiyorum** bağlantı **uygulamayı Al** ekran.
+2. Seçin **güvenlik bilgisi** sol gezinti bölmesinden ya da bağlantıyı **güvenlik bilgisi** engelleyebilir ve ardından **yöntemi ekleyin** gelen **güvenlik bilgisi**  sayfası.
 
-2. Microsoft Authenticator uygulamasını yükledikten sonra seçin **sonraki**.
+    ![Güvenlik bilgileri sayfasını vurgulanan Ekle yöntemi seçeneği](media/security-info/securityinfo-myprofile-addmethod.png)
 
-    İstenirse, bildirimlerine izin ver, yeni bir hesap ekleyin ve ardından **iş veya Okul hesabı**.
+3. Üzerinde **bir yöntem ekleyin** sayfasında **Authenticator uygulamasını** seçin ve açılır listede **Ekle**.
 
-3. **İleri**’yi seçin.
+    ![Authenticator uygulama seçildi yöntemi Kutusu Ekle](media/security-info/securityinfo-myprofile-addauthapp.png)
 
-    **QR kodunu tarayın** ekranı görüntülenir.
+4. Üzerinde **Başlat uygulamanın alarak** sayfasında **hemen indirin** indirin ve mobil Cihazınızda Microsoft Authenticator uygulamasını yükleyin ve ardından **sonraki**.
 
-    ![Kimlik Doğrulayıcı uygulamasını kullanarak bir QR kodu tarama](media/security-info/security-info-scan-qr.png)
+    Uygulamayı karşıdan yüklenip kurulacak hakkında daha fazla bilgi için bkz. [indirme ve yükleme için Microsoft Authenticator uygulamasını](user-help-auth-app-download-install.md).
 
-4. Microsoft Authenticator uygulamasını açın, **Hesap Ekle** gelen **özelleştirme ve Denetim** simgesini sağ üst köşede ve ardından **iş veya Okul hesabı**. 
-
-5. Bir QR kodu reader uygulaması varsa, sağlanan kodunu tarayın. Bir kod okuyucu uygulaması yoksa, seçebileceğiniz **QR kodu bağlantısı tarayamıyor** ve el ile Microsoft Authenticator uygulamasına kodu ve URL'yi girin.
-
-6. Uygulamasını etkinleştirmek için bildirimi onaylamanız için Microsoft Authenticator uygulamasını kullanın.
-
-    İki aşamalı doğrulama veya Self Servis parola sıfırlaması kullanırken, kimliğinizi doğrulamak için Microsoft Authenticator uygulamasını kullanmak için güvenlik bilgileriniz güncelleştirildi.
+    ![Uygulama sayfası alarak başlayın](media/security-info/securityinfo-myprofile-getauthapp.png)
 
     >[!Note]
-    >Kuruluşunuz izin veriyorsa, ayrıca Microsoft Authenticator uygulama bildirimi ile birlikte bir doğrulama kodu alırsınız. Varsayılan yönteminizi kod yapmak istiyorsanız,'ndaki yönergeleri izleyin [güvenlik bilgilerinizi yönetmek](security-info-setup-auth-app.md).
+    >Microsoft Authenticator uygulaması dışında bir authenticator uygulamasını kullanmak isteyip istemediğinizi seçin **farklı authenticator uygulamasını kullanmak istiyorum** bağlantı.
+    
+    >Kuruluşunuz kimlik doğrulayıcı uygulamasını yanı sıra farklı bir yöntemi seçmenize izin veriyorsa, seçebileceğiniz **farklı yöntem bağlantıyı oluşturan ayarlamak istediğiniz**.
 
-## <a name="additional-security-info-options"></a>Ek güvenlik bilgisi seçenekleri
+5. Kalır **hesabınızı ayarlarken** mobil Cihazınızda Microsoft Authenticator uygulamasını ayarlama sırasında sayfa.
 
+    ![Ayarlama authenticator uygulama sayfası](media/security-info/securityinfo-myprofile-setupauthapp.png)
+
+6. Microsoft Authenticator uygulamasını açın, bildirimleri (istenirse) izin vermek için seçin, **Hesap Ekle** gelen **özelleştirme ve Denetim** sağ üst köşede, simgesine ve ardından **iş veya Okul hesabı**.
+
+7. Geri dönüp **hesabınızı ayarlarken** sayfasında ve ardından **sonraki**.
+
+    **QR kodunu tarayın** sayfası görüntülenir.
+
+    ![Kimlik Doğrulayıcı uygulamasını kullanarak bir QR kodu tarama](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
+
+6. Adım 6'da iş veya Okul hesabınızı oluşturduktan sonra mobil Cihazınızda görünen Microsoft Authenticator uygulaması QR kodu okuyucu ile sağlanan kodunu tarayın.
+
+    Authenticator uygulaması başarıyla iş veya Okul hesabı Ekle'ye sizden herhangi bir ek bilgi gerek kalmadan. Ancak, QR kodu okuyucu kod okunamıyor, seçebileceğiniz **QR kodu bağlantısı tarayamıyor** ve el ile Microsoft Authenticator uygulamasına kodu ve URL'yi girin. El ile bir kod ekleme hakkında daha fazla bilgi için bkz. [hesap uygulamaya el ile Ekle](user-help-auth-app-add-account-manual.md).
+
+7. Seçin **sonraki** üzerinde **QR kodunu tarayın** sayfasında.
+
+    Bir bildirim hesabınızı test etmek için mobil Cihazınızda Microsoft Authenticator uygulamasını gönderilir.
+
+    ![Hesabınızla kimlik doğrulayıcı uygulamasını deneyin](media/security-info/securityinfo-myprofile-tryitauthapp.png)
+
+8. Microsoft Authenticator uygulamasını bildirimi onaylayın ve ardından **sonraki**.
+
+    ![Başarı bildirimini, uygulama ve hesabınıza bağlanma](media/security-info/securityinfo-myprofile-successauthapp.png)
+
+    Güvenlik bilgilerinizi Microsoft Authenticator uygulamasını kullanmak için iki aşamalı doğrulama veya parola sıfırlaması kullanırken, kimliğinizi doğrulamak için varsayılan olarak güncelleştirilir.
+
+## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Güvenlik bilgileri yöntemlerinizi cihazınızdaki kimlik doğrulayıcı uygulamasında Sil
+Artık bir güvenlik bilgisi yöntemi olarak cihazınızdaki kimlik doğrulayıcı uygulamasında kullanmak istiyorsanız, buradan kaldırabilirsiniz **güvenlik bilgisi** sayfası. Bu, yalnızca Microsoft Authenticator uygulamasını tüm authenticator uygulamaları için çalışır. Uygulama sildikten sonra mobil Cihazınızda kimlik doğrulayıcı uygulamasına gidin ve hesap silme gerekecektir.
+
+>[!Important]
+>Kimlik Doğrulayıcı uygulamasını yanlışlıkla silerseniz, geri almak için hiçbir yolu yoktur. Kimlik Doğrulayıcı uygulamasını yeniden eklemek aşağıdaki adımları gerekir [authenticator uygulamasını ayarlama](#set-up-the-microsoft-authenticator-app-from-the-security-info-page) bu makalenin.
+
+### <a name="to-delete-the-authenticator-app"></a>Kimlik Doğrulayıcı uygulamasını silmek için
+
+1. Üzerinde **güvenlik bilgisi** sayfasında **Sil** kimlik doğrulayıcı uygulamasını yanındaki bağlantı.
+
+    ![Güvenlik bilgisi kimlik doğrulayıcı uygulamasını silmek için bağlantı](media/security-info/securityinfo-myprofile-deleteauthapp.png)
+
+2. Seçin **Evet** kimlik doğrulayıcı uygulamasını silmek için onay kutusu. Kimlik Doğrulayıcı uygulamasını silinir, güvenlik bilgilerinizden kaldırılır ve bu kaybolur sonra **güvenlik bilgisi** sayfası. Kimlik Doğrulayıcı uygulamasını varsayılan yönteminiz varsa, varsayılan kullanılabilir başka bir yönteme değişecektir.
+
+3. Mobil Cihazınızda select authenticator uygulamasını açın **hesapları Düzenle**ve ardından iş veya Okul hesabınızla kimlik doğrulayıcı uygulamasında silin.
+
+    Hesabınız iki adımlı doğrulama için authenticator uygulamasından tamamen kaldırılır ve parola sıfırlama isteği.
+
+## <a name="change-your-default-security-info-method"></a>Varsayılan güvenlik bilgisi yönteminizi değiştirmek
+Kimlik Doğrulayıcı uygulamasını iki aşamalı doğrulama kullanarak iş veya Okul hesabınıza oturum açtığınızda ya da parola sıfırlama istekleri için kullanılan varsayılan yöntemini olmasını istiyorsanız, güvenlikten ayarlayabilirsiniz **bilgisi** sayfası.
+
+### <a name="to-change-your-default-security-info-method"></a>Varsayılan güvenlik bilgisi yönteminizi değiştirmek için
+
+1. Üzerinde **güvenlik bilgisi** sayfasında **değişiklik** yanındaki bağlantı **varsayılan oturum açma yöntemi** bilgileri.
+
+    ![Bağlantı için varsayılan oturum açma yöntemini değiştirme](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
+
+2. Seçin **Microsoft Authenticator - bildirim** aşağı açılan listeden kullanılabilir yöntemleri. Microsoft Authenticator uygulamasını kullanmıyorsanız seçin **Authenticator uygulaması veya donanım belirteci** seçeneği.
+
+    ![İçin varsayılan oturum açma yöntemini seçin](media/security-info/securityinfo-myprofile-defaultauthapp.png)
+
+3. Seçin **onaylayın**.
+
+    Microsoft Authenticator uygulamasını yapılan oturum açma için kullanılan varsayılan yöntemi.
+
+## <a name="additional-security-info-methods"></a>Ek güvenlik bilgileri yöntemi
 Nasıl kuruluş kişilerinizi, olduğuna göre kimliğinizi doğrulamak için yapmak çalıştığınız için ek bir seçeneğiniz vardır. Seçeneklere şunlar dahildir:
 
 - **Mobil cihaz metin.** Mobil cihaz numaranızı girin ve kısa mesaj, iki aşamalı doğrulama veya parola için kullanacağınız bir kod alın sıfırlayın. Kısa mesaj (SMS) ile kimliğinizi doğrulama hakkında adım adım yönergeler için bkz: [güvenlik bilgilerini, metin iletileri (SMS) kullanacak şekilde](security-info-setup-text-msg.md).
@@ -81,8 +135,6 @@ Nasıl kuruluş kişilerinizi, olduğuna göre kimliğinizi doğrulamak için ya
     >Bu seçeneklerden bazısı eksikse, kuruluşunuz bu yöntemleri izin vermeyen büyük olasılıkla olmasıdır. Bu durumda, kullanılabilir bir yöntem seçin veya daha fazla yardım için yöneticinize başvurun gerekecektir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-- Güvenlik bilgilerinizi güncelleştirmeniz gerekiyorsa, yönergeleri izleyin [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md) makalesi.
 
 - Kaybolur veya, gelen unutulabilir, parolanızı sıfırlayamıyoruz [parola sıfırlama portalı](https://passwordreset.microsoftonline.com/) veya adımları [iş veya Okul parolanızı sıfırlama](user-help-reset-password.md) makalesi.
 

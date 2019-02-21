@@ -8,22 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 0e03c388dac4a70fc45150287154406551ac2672
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3b403eb80bae01efe730b69b7e6a5ddaea81355a
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867129"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447659"
 ---
 # <a name="why-use-batch-transcription"></a>Batch transkripsiyonu neden kullanmalısınız?
 
 Batch transkripsiyonu, depolama, Azure BLOB'ları gibi ses büyük bir miktarını konuşmaların istiyorsanız idealdir. Adanmış REST API'sini kullanarak bir paylaşılan erişim imzası (SAS) URI ses dosyalarının üzerine gelin ve döküm zaman uyumsuz olarak alır.
 
+## <a name="prerequisites"></a>Önkoşullar
+
+### <a name="subscription-key"></a>Abonelik Anahtarı
+
+Konuşma hizmeti tüm özellikleri ile bir abonelik anahtarı oluştururken [Azure portalında](https://portal.azure.com) izleyerek bizim [Başlarken Kılavuzu](get-started.md). Bizim temel modellerinden döküm almak planlıyorsanız, bir anahtar oluşturmak tek yapmanız gereken bir işlemdir.
+
 >[!NOTE]
 > Konuşma Hizmetleri standart aboneliği (S0), batch transkripsiyonu kullanmak için gereklidir. Ücretsiz Abonelik anahtarları (F0) işe yaramaz. Ek bilgi için bkz: [fiyatlandırma ve limitler](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
+
+### <a name="custom-models"></a>Özel modelleri
+
+Akustik veya dil modellerini özelleştirerek planlıyorsanız, adımları [akustik model özelleştirme](how-to-customize-acoustic-models.md) ve [dil modellerini özelleştirme](how-to-customize-language-model.md). Batch transkripsiyonu içinde oluşturulmuş modelleri kullanmak için model kimlikleri gerekir. Bu kimliği uç noktası Ayrıntıları görünümünde bulma uç noktası kimliği değil, model kimliği modelleri ayrıntılarını seçtiğinizde, geri alabilirsiniz.
 
 ## <a name="the-batch-transcription-api"></a>Batch tanıma API'si
 
@@ -34,7 +44,7 @@ Batch tanıma API'si, ek özellikleri ile birlikte zaman uyumsuz konuşma metin 
 1. Döküm indiriliyor
 
 > [!NOTE]
-> Batch tanıma API'si, genellikle saatlik ses binlerce accumulate çağrı merkezleri için idealdir. API, büyük hacimli ses kayıtlarını özelliği kolaylaştıran bir "Başlat ve unut" felsefemiz tarafından yönlendirilir.
+> Batch tanıma API'si, genellikle saatlik ses binlerce accumulate çağrı merkezleri için idealdir. Bu, büyük hacimli ses kayıtlarını özelliği kolaylaştırır.
 
 ### <a name="supported-formats"></a>Desteklenen biçimler
 
@@ -46,170 +56,69 @@ Batch tanıma API'si, aşağıdaki biçimlerde destekler:
 | MP3 | PCM | 16-bit | 8 veya 16 kHz, mono, stereo |
 | OGG | GEÇERLİ | 16-bit | 8 veya 16 kHz, mono, stereo |
 
-> [!NOTE]
-> Batch tanıma API'si (katman ödeme) bir S0 anahtarı gerektirir. Ücretsiz (f0) anahtar ile çalışmaz.
+Stereo ses akışları için Batch transkripsiyonu API sol ve sağ kanal döküm sırasında böler. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına bir sıralı son döküm oluşturmak Geliştirici etkinleştirin. Bu örnek istek küfür filtresi, noktalama işaretleri ve sözcük düzeyi zaman damgaları özelliklerini içerir. 
 
-Stereo ses akışları için Batch transkripsiyonu API sol ve sağ kanal döküm sırasında böler. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına bir sıralı son döküm oluşturmak Geliştirici etkinleştirin. Bir örnek istek aşağıdaki JSON'u göstermektedir includuing özelliklerini küfür ayarlamak için filtre, noktalama işareti modeli ve düzeyi zaman damgaları word
+### <a name="configuration"></a>Yapılandırma
+
+Yapılandırma parametreleri JSON olarak sağlanır:
 
 ```json
 {
-  "recordingsUrl": "https://contoso.com/mystoragelocation",
-  "models": [],
-  "locale": "en-US",
-  "name": "Transcription using locale en-US",
-  "description": "An optional description of the transcription.",
+  "recordingsUrl": "<URL to the Azure blob to transcribe>",
+  "models": ["<optional acoustic model ID>, <optional language model ID>"],
+  "locale": "<local to us, for example en-US>",
+  "name": "<user define name of the transcription batch>",
+  "description": "<optional description of the transcription>",
   "properties": {
     "ProfanityFilterMode": "Masked",
     "PunctuationMode": "DictatedAndAutomatic",
     "AddWordLevelTimestamps" : "True"
-  },
+  }
+}
 ```
 
 > [!NOTE]
 > Döküm, durum ve ilişkili sonuçları istenirken bir REST hizmeti ve Batch tanıma API'sini kullanır. Herhangi bir dilde API'den kullanabilirsiniz. Sonraki bölümde, API'yi nasıl kullanıldığını açıklar.
 
-### <a name="query-parameters"></a>Sorgu parametreleri
-
-Bu parametreleri REST isteğinin sorgu dizesinde eklenebilir.
+### <a name="configuration-properties"></a>Yapılandırma özellikleri
 
 | Parametre | Açıklama | Gerekli / isteğe bağlı |
 |-----------|-------------|---------------------|
 | `ProfanityFilterMode` | Tanıma sonuçları küfür nasıl ele alınacağını belirtir. Kabul edilen değerler `none` , devre dışı bırakır küfür filtresi `masked` yıldız işareti ile küfür değiştirir `removed` sonuç, tüm küfür kaldırır veya `tags` "küfür" etiketleri ekler. Varsayılan ayar `masked`. | İsteğe bağlı |
 | `PunctuationMode` | Noktalama işaretleri tanıma sonuçları nasıl ele alınacağını belirtir. Değerler kabul `none` , devre dışı bırakır, noktalama `dictated` açık noktalama gelir `automatic` noktalama işaretleri ile uğraşmak kod çözücü olanak tanıyan veya `dictatedandautomatic` dikte noktalama işaretleri veya otomatik olduğu anlamına gelir. | İsteğe bağlı |
-
-
-## <a name="authorization-token"></a>Yetkilendirme belirteci
-
-Konuşma hizmeti tüm özellikleri ile bir abonelik anahtarı oluştururken [Azure portalında](https://portal.azure.com) izleyerek bizim [Başlarken Kılavuzu](get-started.md). Bizim temel modellerinden döküm almak planlıyorsanız, bir anahtar oluşturmak tek yapmanız gereken bir işlemdir.
-
-Abonelik anahtarı özelleştirme ve özel bir model kullanmak planlıyorsanız, aşağıdakileri yaparak özel konuşma tanıma Portalı'na ekleyin:
-
-1. Oturum [özel konuşma](https://customspeech.ai).
-
-2. Sağ üst kısımdaki seçin **abonelikleri**.
-
-3. Seçin **mevcut aboneliğe bağlanma**.
-
-4. Açılır pencerede abonelik anahtarını ve bir diğer ad ekleyin.
-
-    ![Abonelik Ekle penceresi](media/stt/Subscriptions.jpg)
-
-5. Kopyalayın ve bu anahtarın aşağıdaki örnekte istemci kodu yapıştırın.
-
-> [!NOTE]
-> Özel bir model kullanmayı planlıyorsanız, bu model Kimliğini çok gerekir. Bu kimliği uç noktası Ayrıntıları görünümünde bulma uç noktası kimliği değil. Bu modelin ayrıntılarını seçtiğinizde, alabileceğiniz model kimliği var.
+ | `AddWordLevelTimestamps` | Word düzeyi zaman damgası çıkışı eklenip eklenmeyeceğini belirtir. Kabul edilen değerler `true` word düzeyi zaman damgaları sağlar ve `false` (devre dışı bırakmak için varsayılan değer). | İsteğe bağlı |
 
 ## <a name="sample-code"></a>Örnek kod
 
-Aşağıdaki örnek kod bir abonelik anahtarı ve bir API anahtarı ile özelleştirin. Bu eylem, bir taşıyıcı belirteç almak üzere sağlar.
+Tam örnek kullanılabilir [GitHub örnek deposundan](https://aka.ms/csspeech/samples) içinde `samples/batch` alt.
 
-```cs
-     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+Örnek kod, abonelik bilgilerinizi hizmeti bölge, konuşmaların ve durumda özel bir dil ve akustik model kullanmak istediğiniz kimlik modeli için SAS ses dosyasına işaret eden URI ile özelleştirmeniz gerekir. 
 
-        {
-            var client = new HttpClient();
-            client.Timeout = TimeSpan.FromMinutes(25);
-            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+[!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
-            return new CrisClient(client);
-        }
-```
+Örnek kod, istemci kurulum ve döküm isteği gönderin. Durum bilgileri ve yazdırma transkripsiyonu ilerleme ayrıntılarını ardından yoklama yapar.
 
-Belirteci aldıktan sonra transkripsiyonu gerektiren ses dosyasına işaret eden SAS URI'sini belirtin. Kodun geri kalanını durumu yinelenir ve sonuçları görüntüler. İlk başta, anahtar, bölge, model ve SA aşağıdaki kod parçacığında gösterildiği gibi ayarlayabilirsiniz. Ardından, istemci ve POST isteğinin örneği.
+[!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 
-```cs
-            private const string SubscriptionKey = "<your Speech subscription key>";
-            private const string HostName = "westus.cris.ai";
-            private const int Port = 443;
-
-            // SAS URI
-            private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
-
-            // adapted model Ids
-            private static Guid AdaptedAcousticId = new Guid("guid of the acoustic adaptation model");
-            private static Guid AdaptedLanguageId = new Guid("guid of the language model");
-
-            // Creating a Batch Transcription API Client
-            var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
-
-            var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
-```
-
-İstek yaptığınız, sorgu ve tanıma sonuçları, aşağıdaki kod parçacığında gösterildiği gibi indirin:
-
-```cs
-
-            // get all transcriptions for the user
-            transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-
-            // for each transcription in the list we check the status
-            foreach (var transcription in transcriptions)
-            {
-                switch(transcription.Status)
-                {
-                    case "Failed":
-                    case "Succeeded":
-
-                            // we check to see if it was one of the transcriptions we created from this client.
-                        if (!createdTranscriptions.Contains(transcription.Id))
-                        {
-                            // not created from here, continue
-                            continue;
-                        }
-
-                        completed++;
-
-                        // if the transcription was successful, check the results
-                        if (transcription.Status == "Succeeded")
-                        {
-                            var resultsUri = transcription.ResultsUrls["channel_0"];
-                            WebClient webClient = new WebClient();
-                            var filename = Path.GetTempFileName();
-                            webClient.DownloadFile(resultsUri, filename);
-                            var results = File.ReadAllText(filename);
-                            Console.WriteLine("Transcription succeeded. Results: ");
-                            Console.WriteLine(results);
-                        }
-
-                    break;
-                    case "Running":
-                    running++;
-                     break;
-                    case "NotStarted":
-                    notStarted++;
-                    break;
-
-                    }
-                }
-            }
-        }
-```
-
-Önceki çağrıları ile ilgili tüm ayrıntılar için bkz. bizim [swagger belgesinin](https://westus.cris.ai/swagger/ui/index). Burada gösterilen tam örnek için Git [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
-
-> [!NOTE]
-> Önceki kodda, Azure portalında oluşturduğunuz konuşma kaynak abonelik anahtarını arasındadır. Özel konuşma hizmeti kaynak Al tuşu çalışmıyor.
+Önceki çağrıları ile ilgili tüm ayrıntılar için bkz. bizim [Swagger belgesinin](https://westus.cris.ai/swagger/ui/index). Burada gösterilen tam örnek için Git [GitHub](https://aka.ms/csspeech/samples) içinde `samples/batch` alt.
 
 Ses gönderme ve döküm durumu almak için zaman uyumsuz Kurulum not alın. Oluşturduğunuz .NET HTTP istemci istemcisidir. Var. bir `PostTranscriptions` ses dosyası ayrıntılarını göndermek için yöntem ve bir `GetTranscriptions` sonuçları almak için yöntemi. `PostTranscriptions` bir tanıtıcı döndürür ve `GetTranscriptions` transkripsiyonu durumu almak için bir tanıtıcı oluşturmak için kullanır.
 
 Geçerli örnek kod, özel bir model belirtmez. Hizmet, dosya veya dosyalar fotoğrafını için temel modelleri kullanır. Modelleri belirtmek için model kimliklerini akustik ve dil modeli için aynı yönteme geçirebilirsiniz.
 
-Taban çizgisi kullanmak istemiyorsanız, hem akustik ve dil modelleri için model kimliklerini geçirin.
-
 > [!NOTE]
-> Taban çizgisi döküm için temel modelleri uç noktalarına bildirmeniz gerekmez. Özel modelleri kullanmak istiyorsanız, uç noktaları kimlikleri olarak sağladığınız [örnek](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Temel dil modeli ile bir akustik temel kullanmak istiyorsanız, yalnızca özel modelin uç noktası kimliği bildirmenize gerek Microsoft iş ortağı temel model algılar&mdash;olmadığını akustik veya dil&mdash;ve döküm isteği yerine getirmek için kullanır.
+> Temel döküm için temel modelleri kimliği bildirmeniz gerekmez. Eşleşen bir akustik model, yalnızca bir dil modeli kimliği (ve hiçbir akustik model kimliği) belirtirseniz, otomatik olarak seçilir. Eşleşen bir dil modeli, yalnızca bir akustik model kimliği belirtmezseniz, otomatik olarak seçilir.
 
 ### <a name="supported-storage"></a>Desteklenen depolama
 
-Şu anda desteklenen tek depolama, Azure Blob depolama alanıdır.
+Şu anda yalnızca Azure Blob Depolama desteklenir.
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
-Örnek bu makalede bulabileceğiniz [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+Aşağıdaki örnekte bulabilirsiniz `samples/batch` dizininde [GitHub örnek deposundan](https://aka.ms/csspeech/samples).
 
 > [!NOTE]
-> Bir zaman SLA'sı için batch aracılığıyla ses trascriptions sunmuyoruz. Döküm işi (çalışır durumda) actioned eklendiğinde, ancak typially gerçek zamanlı daha hızlı işlenir.
+> Döküm toplu bir en iyi çaba ilkesine göre zamanlanır, hiçbir zaman tahmin için bir iş çalışır duruma ne zaman değişir. Bir kez çalışır durumda gerçek transkripsiyonu ses gerçek zamanlı daha hızlı işlenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

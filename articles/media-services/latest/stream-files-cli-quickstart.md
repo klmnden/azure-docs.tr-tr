@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: ''
-ms.date: 02/15/2019
+ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: be1f65b291613997466d9c82782256dc28a5590f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 8de004b0ca55cb46336a072dabb682f342c7d8dd
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417406"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446503"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>Hızlı Başlangıç: Stream video dosyaları - CLI
 
@@ -43,10 +43,14 @@ Media Services hesabı ve tüm ilişkili depolama hesapları aynı Azure aboneli
 az group create -n amsResourceGroup -l westus2
 ```
 
-### <a name="create-an-azure-storage-account-general-purpose-v2-standard-ragrs"></a>Bir azure depolama hesabı, genel amaçlı v2, standart RAGRS oluşturma
+### <a name="create-an-azure-storage-account"></a>Bir azure depolama hesabı oluşturma
 
+Bu örnekte, oluştururuz genel amaçlı v2, standart LRS hesabı.
+
+Depolama hesapları ile denemek istiyorsanız, kullanın `--sku Standard_LRS`. Ancak, üretim için bir SKU seçilmesi sırasında dikkate almanız gereken, `--sku Standard_RAGRS`, coğrafi çoğaltma için iş sürekliliği sağlar. Daha fazla bilgi için [depolama hesapları](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
+ 
 ```azurecli
-az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_RAGRS -l westus2 -g amsResourceGroup
+az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
 ```
 
 ### <a name="create-an-azure-media-service-account"></a>Bir azure medya hizmeti hesabı oluştur
@@ -54,6 +58,8 @@ az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_R
 ```azurecli
 az ams account create --n amsaccount -g amsResourceGroup --storage-account amsstorageaccount -l westus2
 ```
+
+Bir yanıt şuna benzer alın:
 
 ```
 {
@@ -349,7 +355,6 @@ az group delete --name amsResourceGroup
 ## <a name="see-also"></a>Ayrıca bkz.
 
 Bkz: [hata kodlarına](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

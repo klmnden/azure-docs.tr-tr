@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/14/2019
+ms.date: 02/19/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 13d741d97e90b4aca40614d09f67538c479f67e3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 590e1e5853ccf4a525477f194c78f1fd8ce679ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312268"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453078"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Öğretici: Azure sanal ağına Service Fabric Windows kümesi dağıtma
 
@@ -33,6 +33,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
 > * PowerShell kullanarak Azure’da VNet oluşturma
 > * Anahtar kasası oluşturma ve karşıya sertifika yükleme
+> * Azure Active Directory kimlik doğrulaması kurulumu
 > * Azure PowerShell’de güvenli bir Service Fabric kümesi oluşturma
 > * X.509 sertifikasıyla kümenin güvenliğini sağlama
 > * PowerShell kullanarak kümeye bağlanma
@@ -155,6 +156,116 @@ Varsayılan olarak, [Windows Defender virüsten koruma](/windows/security/threat
 |certificateUrlValue|| <p>Otomatik olarak imzalanan bir sertifika oluşturuluyor veya sertifika dosyası sağlanıyorsa değer boş olmalıdır. </p><p>Daha önce bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmak için sertifika URL’sini girin. Örneğin, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Otomatik olarak imzalanan bir sertifika oluşturuluyor veya sertifika dosyası sağlanıyorsa değer boş olmalıdır.</p><p>Daha önce bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmak için kaynak kasa değerini girin. Örneğin: "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
+## <a name="set-up-azure-active-directory-client-authentication"></a>Azure Active Directory istemci kimlik doğrulamasını ayarlama
+Azure üzerinde barındırılan ortak bir ağda dağıtılmış Service Fabric kümeleri için istemci düğümü karşılıklı kimlik doğrulaması için önerilir:
+* Azure Active Directory istemci kimliği için kullan
+* Sunucu kimliği ve http iletişim SSL şifrelemesi için bir sertifika
+
+Önce bir Service Fabric kümesi yapılması için istemcilerin kimliğini doğrulamak için Azure AD'yi ayarlarken ayarlama [kümeyi oluştururken](#createvaultandcert).  Azure AD (kiracılar bilinir), kuruluşların uygulamalara kullanıcı erişimini yönetmenizi sağlar. 
+
+Service Fabric kümesi birden çok giriş noktası için web tabanlı dahil olmak üzere Yönetim işlevselliğini sunar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ve [Visual Studio](service-fabric-manage-application-in-visual-studio.md). Sonuç olarak, kümeye erişimi denetlemek için iki Azure AD uygulamaları oluşturduğunuz: bir web uygulaması ve bir yerel uygulama.  Uygulama oluşturulduktan sonra kullanıcıları salt okunur olarak atadığınız ve yönetici rolleri.
+
+> [!NOTE]
+> Kümeyi oluşturmadan önce aşağıdaki adımları tamamlamanız gerekir. Küme adları ve uç noktaları betikleri beklediğiniz çünkü değerleri planlanmalıdır ve, zaten oluşturduğunuz değerleri değil.
+
+Bu makalede, zaten bir kiracı oluşturmuş varsayıyoruz. Tamamlamadıysanız, okuyarak başlamanız [bir Azure Active Directory kiracısı edinme](../active-directory/develop/quickstart-create-new-tenant.md).
+
+Bazı yapılandırma Azure AD'de bir Service Fabric kümesi ile yer alan adımların basitleştirmek için Windows PowerShell komutları kümesi oluşturduk. [Betiklerini indirme](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) bilgisayarınıza.
+
+### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Azure AD uygulamaları oluşturmak ve kullanıcıları rollere atama
+Küme erişimi denetlemek için iki Azure AD uygulaması oluştur: bir web uygulaması ve bir yerel uygulama. Kümenizi temsil etmek için uygulamaları oluşturduktan sonra kullanıcılarınıza atama [Service Fabric tarafından desteklenen roller](service-fabric-cluster-security-roles.md): salt okunur ve yönetici
+
+Çalıştırma `SetupApplications.ps1`ve parametrelere Kiracı kimliği, küme adı ve web uygulamasının yanıt URL'si girin.  Ayrıca, kullanıcı adları ve kullanıcılar için parola belirtin.  Örneğin:
+
+```PowerShell
+$Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
+```
+
+> [!NOTE]
+> (Örneğin Azure devlet kurumları, Azure Çin'de, Azure Almanya) Ulusal Bulutlar için de belirtmeniz `-Location` parametresi.
+
+Bulabilirsiniz, *Tenantıd*, ya da dizin kimliği, içinde [Azure portalında](https://portal.azure.com). Seçin **Azure Active Directory -> Özellikler** ve kopyalama **dizin kimliği** değeri.
+
+*ClusterName* betiği tarafından oluşturulan Azure AD uygulamaları önek olarak eklemek için kullanılır. Gerçek bir küme adı tam olarak eşleşmesi gerekmez. Yalnızca bunlar ile kullanılan Service Fabric kümesine Azure AD'ye yapıtları eşlemek kolaylaştırmak için tasarlanmıştır.
+
+*WebApplicationReplyUrl* varsayılan uç nokta oturum açma işlemini tamamladıktan sonra kullanıcılarınız için Azure AD'ye verir. Bu uç nokta olan varsayılan olarak, kümenizin Service Fabric Explorer uç nokta olarak ayarlayın:
+
+https://&lt;cluster_domain&gt;: 19080/Explorer
+
+Azure AD kiracısı için yönetici ayrıcalıklarına sahip bir hesap için oturum açmanız istenir. Oturum açtıktan sonra Service Fabric kümenizi temsil etmek için yerel uygulamalar ve web betik oluşturur. Kiracının uygulamaları bakarsanız [Azure portalında](https://portal.azure.com), iki yeni giriş görmeniz gerekir:
+
+   * *ClusterName*\_küme
+   * *ClusterName*\_istemci
+
+PowerShell penceresini açık tutmak için iyi bir fikirdir, bu nedenle, kümeyi oluşturduğunuzda Azure Resource Manager şablon tarafından gereken JSON betiği yazdırır.
+
+```json
+"azureActiveDirectory": {
+  "tenantId":"<guid>",
+  "clusterApplication":"<guid>",
+  "clientApplication":"<guid>"
+},
+```
+
+### <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Azure AD istemci erişimi için kullanılacak Azure AD Yapılandırması Ekle
+İçinde [azuredeploy.json][template], Azure AD'de yapılandırırken **Microsoft.ServiceFabric/clusters** bölümü.  Kiracı kimliği, küme uygulama kimliği ve istemci uygulama kimliği parametreleri ekleme  
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    ...
+
+    "aadTenantId": {
+      "type": "string",
+      "defaultValue": "0e3d2646-78b3-4711-b8be-74a381d9890c"
+    },
+    "aadClusterApplicationId": {
+      "type": "string",
+      "defaultValue": "cb147d34-b0b9-4e77-81d6-420fef0c4180"
+    },
+    "aadClientApplicationId": {
+      "type": "string",
+      "defaultValue": "7a8f3b37-cc40-45cc-9b8f-57b8919ea461"
+    }
+  },
+
+...
+
+{
+  "apiVersion": "2018-02-01",
+  "type": "Microsoft.ServiceFabric/clusters",
+  "name": "[parameters('clusterName')]",
+  ...
+  "properties": {
+    ...
+    "azureActiveDirectory": {
+      "tenantId": "[parameters('aadTenantId')]",
+      "clusterApplication": "[parameters('aadClusterApplicationId')]",
+      "clientApplication": "[parameters('aadClientApplicationId')]"
+    },
+    ...
+  }
+}
+```
+
+Parametre değerlerini eklemek [azuredeploy.parameters.json] [ parameters] parametre dosyası.  Örneğin:
+
+```json
+"aadTenantId": {
+"value": "0e3d2646-78b3-4711-b8be-74a381d9890c"
+},
+"aadClusterApplicationId": {
+"value": "cb147d34-b0b9-4e77-81d6-420fef0c4180"
+},
+"aadClientApplicationId": {
+"value": "7a8f3b37-cc40-45cc-9b8f-57b8919ea461"
+}
+```
+
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Sanal ağı ve kümeyi dağıtma
@@ -240,6 +351,15 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 
 **Service Fabric** PowerShell modülü, Service Fabric kümelerini, uygulamalarını ve hizmetlerini yönetmek için birçok cmdlet sağlar.  Güvenli kümeye bağlanmak için [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet'ini kullanın. Sertifika SHA1 parmak izi ve bağlantı uç noktası ayrıntıları önceki adımda elde edilen çıktıdan bulunabilir.
 
+AAD istemci kimlik doğrulamasını önceden ayarlama, aşağıdaki komutu çalıştırın: 
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
+        -KeepAliveIntervalInSec 10 `
+        -AzureActiveDirectory `
+        -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10
+```
+
+AAD istemci kimlik doğrulaması Kurulum belirtilmedi ise aşağıdaki komutu çalıştırın:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -265,6 +385,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
 > * PowerShell kullanarak Azure’da VNet oluşturma
 > * Anahtar kasası oluşturma ve karşıya sertifika yükleme
+> * Azure Active Directory kimlik doğrulaması kurulumu
 > * PowerShell kullanarak Azure’da güvenli bir Service Fabric kümesi oluşturma
 > * X.509 sertifikasıyla kümenin güvenliğini sağlama
 > * PowerShell kullanarak kümeye bağlanma

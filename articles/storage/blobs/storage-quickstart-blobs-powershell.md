@@ -6,14 +6,14 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/11/2018
+ms.date: 02/14/2019
 ms.author: rogarana
-ms.openlocfilehash: 4a8c3a1291faad6b952b5fddacde1ded1f4be7ca
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: c3a85a668a398047e7daef8a2e07be261ff644c5
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098077"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447489"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Azure PowerShell kullanarak blobları Listele
 
@@ -25,7 +25,7 @@ Azure depolamaya erişmek için bir Azure aboneliği gerekir. Bir aboneliğiniz 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Bu hızlı başlangıçta, Azure PowerShell modülü Az 0.7 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-Az-ps).
+Bu hızlı başlangıçta, Azure PowerShell modülü Az 0.7 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-InstalledModule -Name Az -AllVersions | select Name,Version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-Az-ps).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 

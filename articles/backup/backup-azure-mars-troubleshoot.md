@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: 9180604b18224adace040c9eee5181b4cd4d8b92
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ce6293e63e672df9683ab607a304f8c7275911c5
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339014"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446622"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure kurtarma Hizmetleri (MARS) aracısı sorunlarını giderme
 
@@ -59,7 +59,8 @@ Yapılandırma, kaydı, yedekleme sırasında görebileceği hataların nasıl �
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Yedeklemeler zamanlamaya göre çalıştırma
 El ile yedeklemeler sorunsuz çalışırken zamanlanmış yedeklemeleri otomatik olarak tetiklenir yoksa, aşağıdaki işlemleri deneyin:
 
-- Git **Denetim Masası** > **Yönetimsel Araçlar** > **Görev Zamanlayıcı**. Genişletin **Microsoft**seçip **çevrimiçi yedekleme**. Çift **Microsoft OnlineBackup**ve Git **Tetikleyicileri** sekmesi. Durum ayarlandığından emin olun **etkin**. Aksi takdirde seçin **Düzenle**seçip **etkin** onay kutusu. Üzerinde **genel** sekmesine gidin **güvenlik seçenekleri**. Görevi çalıştırmak için seçili kullanıcı hesabı ya da olduğundan emin olun **sistem** veya **yerel Yöneticiler grubuna** sunucusunda.
+- Windows Server Yedekleme zamanlaması ile Azure dosyaları ve klasörleri yedekleme zamanlaması çakışmadığından emin olun.
+- Git **Denetim Masası** > **Yönetimsel Araçlar** > **Görev Zamanlayıcı**. Genişletin **Microsoft**seçip **çevrimiçi yedekleme**. Çift **Microsoft OnlineBackup**ve Git **Tetikleyicileri** sekmesi. Durum ayarlandığından emin olun **etkin**. Aksi takdirde seçin **Düzenle**seçip **etkin** onay kutusunu ve tıklatın **Tamam**. Üzerinde **genel** sekmesine gidin **güvenlik seçenekleri** ve görevi çalıştırmak için seçili kullanıcı hesabı ya da olduğundan emin olun **sistem** veya **yerel Administrators grubunun** sunucusunda.
 
 - PowerShell 3.0 veya üzeri sunucu üzerinde yüklü olup olmadığını. PowerShell sürümünü denetlemek için aşağıdaki komutu çalıştırın ve doğrulayın *ana* sürüm numarası 3'ten büyük ya da eşit.
 

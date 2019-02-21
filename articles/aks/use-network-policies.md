@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: ddc0f0f8cfd6c7d540d2a1de2f5ecb35cdfd234f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417610"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447183"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) ağ ilkeleri kullanılarak pod'ları arasındaki trafiğin güvenliğini sağlama
 
@@ -27,21 +27,7 @@ Bu makalede aks'deki pod'ları arasındaki trafik akışını denetlemek için a
 
 Azure CLI Sürüm 2.0.56 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
-## <a name="overview-of-network-policy"></a>Ağ İlkesi'ne genel bakış
-
-Varsayılan olarak, bir AKS kümesindeki tüm pod'ların gönderebilir ve trafiği kısıtlama olmadan alabilirsiniz. Güvenliği artırmak için trafik akışını denetleyen kuralları tanımlayabilirsiniz. Örneğin, arka uç uygulamaları için gerekli ön uç Hizmetleri yalnızca sunulur veya veritabanı bileşenlerini yalnızca bunlara uygulama katmanları tarafından erişilebilir.
-
-Ağ ilkeleri pod'ları arasındaki trafik akışını denetlemenize olanak tanıyan Kubernetes kaynaklardır. İzin verme veya reddetme ayarları gibi atanan etiketleri, ad alanı veya trafiği, bağlantı noktası trafiğini seçebilirsiniz. Bir YAML bildirimleri gibi ağ ilkeleri tanımlanır ve ayrıca bir dağıtım veya hizmeti oluşturan daha geniş bir bildirim bir parçası olarak dahil edilebilir.
-
-Şimdi ağ ilkeleri, uygulamada görmek için oluşturun ve ardından aşağıdaki gibi trafik akışını tanımlayan bir ilkeyi açın:
-
-* Pod için tüm trafiğe izin verme.
-* Pod etiketlerine bağlı trafiğine izin verin.
-* Ad alanını temel alan trafiğine izin verin.
-
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>AKS kümesi oluşturma ve Ağ İlkesi'ni etkinleştirin
-
-Ağ İlkesi, yalnızca küme oluşturulduğunda etkinleştirilebilir. Ağ İlkesi var olan bir AKS kümesi üzerinde etkinleştirilemiyor. Bir AKS ile ağ ilkesi oluşturmak için önce aboneliğinizde özellik bayrağı etkinleştirin. Kaydedilecek *EnableNetworkPolicy* özellik bayrağı, kullanın [az özelliği kayıt] [ az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
+Bir AKS ile ağ ilkesi oluşturmak için önce aboneliğinizde özellik bayrağı etkinleştirin. Kaydedilecek *EnableNetworkPolicy* özellik bayrağı, kullanın [az özelliği kayıt] [ az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
@@ -59,7 +45,25 @@ Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kay
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Ağ İlkesi ile bir AKS kümesi kullanmak için kullanmalısınız [Azure CNI eklentisi] [ azure-cni] ve kendi sanal ağ ve alt ağları tanımlayın. Ayrıntılı gerekli bir alt ağ aralıklarını planlama hakkında daha fazla bilgi için bkz. [Gelişmiş Ağ][use-advanced-networking]. Aşağıdaki örnek betik:
+## <a name="overview-of-network-policy"></a>Ağ İlkesi'ne genel bakış
+
+Varsayılan olarak, bir AKS kümesindeki tüm pod'ların gönderebilir ve trafiği kısıtlama olmadan alabilirsiniz. Güvenliği artırmak için trafik akışını denetleyen kuralları tanımlayabilirsiniz. Örneğin, arka uç uygulamaları için gerekli ön uç Hizmetleri yalnızca sunulur veya veritabanı bileşenlerini yalnızca bunlara uygulama katmanları tarafından erişilebilir.
+
+Ağ ilkeleri pod'ları arasındaki trafik akışını denetlemenize olanak tanıyan Kubernetes kaynaklardır. İzin verme veya reddetme ayarları gibi atanan etiketleri, ad alanı veya trafiği, bağlantı noktası trafiğini seçebilirsiniz. Bir YAML bildirimleri gibi ağ ilkeleri tanımlanır ve ayrıca bir dağıtım veya hizmeti oluşturan daha geniş bir bildirim bir parçası olarak dahil edilebilir.
+
+Şimdi ağ ilkeleri, uygulamada görmek için oluşturun ve ardından aşağıdaki gibi trafik akışını tanımlayan bir ilkeyi açın:
+
+* Pod için tüm trafiğe izin verme.
+* Pod etiketlerine bağlı trafiğine izin verin.
+* Ad alanını temel alan trafiğine izin verin.
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>AKS kümesi oluşturma ve Ağ İlkesi'ni etkinleştirin
+
+Ağ İlkesi, yalnızca küme oluşturulduğunda etkinleştirilebilir. Ağ İlkesi var olan bir AKS kümesi üzerinde etkinleştirilemiyor. 
+
+Ağ İlkesi ile bir AKS kümesi kullanmak için kullanmalısınız [Azure CNI eklentisi] [ azure-cni] ve kendi sanal ağ ve alt ağları tanımlayın. Ayrıntılı gerekli bir alt ağ aralıklarını planlama hakkında daha fazla bilgi için bkz. [Gelişmiş Ağ][use-advanced-networking].
+
+Aşağıdaki örnek betik:
 
 * Bir sanal ağ ve alt ağ oluşturur.
 * Bir Azure Active Directory (AD) ile bir AKS kümesi kullanmak için hizmet sorumlusu oluşturur.
@@ -86,7 +90,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-read SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
+SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
 
 # Wait 15 seconds to make sure that service principal has propagated
 echo "Waiting for service principal to propagate..."

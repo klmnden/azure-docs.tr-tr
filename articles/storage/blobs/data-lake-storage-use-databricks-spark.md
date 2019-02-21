@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891666"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452617"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Öğretici: Spark'ı kullanarak Azure Databricks ile Data Lake depolama Gen2 verilere erişme
 
@@ -38,6 +38,17 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 * AzCopy v10 yükleyin. Bkz: [v10 AzCopy ile veri aktarma](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
+*  Bir hizmet sorumlusu oluşturun. Bkz: [nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   Birkaç, bu makaledeki adımları gerçekleştirmek olarak gerçekleştirmeniz yeterli belirli bir şey yoktur.
+
+   :heavy_check_mark: Adımları gerçekleştirirken [uygulamanızı bir role atama](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) bölümü makalenin atadığınızdan emin olun **depolama Blob verileri katkıda bulunan** rolüne hizmet sorumlusu.
+
+   > [!IMPORTANT]
+   > Data Lake depolama Gen2'ye depolama hesabı kapsamında bir rol atamak emin olun. Üst kaynak grubuna veya aboneliğe rol atayabilir, ancak bu rol atamaları depolama hesabına dolmaya başladığını kadar izinleri ile ilgili hataları alırsınız.
+
+   :heavy_check_mark: Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve kimlik doğrulama anahtarı değerleri bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
+
 ### <a name="download-the-flight-data"></a>Uçuş verilerini indirme
 
 Bu öğreticide, nakliye büro istatistikleri uçuş verileri bir ETL işlemi gerçekleştirmek nasıl göstermek için kullanılır. Bu öğreticiyi tamamlamak için bu verileri indirmeniz gerekir.
@@ -49,24 +60,6 @@ Bu öğreticide, nakliye büro istatistikleri uçuş verileri bir ETL işlemi ge
 3. Seçin **indirme** düğmesine tıklayın ve sonuçlar bilgisayarınıza kaydedin. 
 
 4. Sıkıştırılmış dosyanın içeriğini sıkıştırmasını ve dosya adını not ve dosyanın yolu. Bu bilgiler sonraki adımda ihtiyacınız var.
-
-## <a name="get-your-storage-account-name"></a>Depolama hesabınızın adını Al
-
-Depolama hesabınızın adı gerekir. Buna ulaşmak için oturum [Azure portalında](https://portal.azure.com/), seçin **tüm hizmetleri** ve filtre terimini *depolama*. Ardından, **depolama hesapları** ve depolama hesabınızı bulun.
-
-Adı bir metin dosyasına yapıştırın. Yakında gerekir.
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
-
-Bu konudaki yönergeleri izleyerek bir hizmet sorumlusu oluşturun: [Nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Birkaç, bu makaledeki adımları gerçekleştirmek olarak gerçekleştirmeniz yeterli bir şey yoktur.
-
-:heavy_check_mark: Adımları gerçekleştirirken [uygulamanızı bir role atama](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) bölümü makalenin uygulamanıza atanacak emin **Blob Depolama katkıda bulunan rolü**.
-
-:heavy_check_mark: Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve kimlik doğrulama anahtarı değerleri bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
 
 ## <a name="create-an-azure-databricks-service"></a>Azure Databricks hizmeti oluşturma
 
@@ -145,9 +138,16 @@ Bu bölümde, depolama hesabınızdaki bir dosya sistemi ve klasör oluşturacak
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. Bu kod bloğunda değiştirin `storage-account-name`, `application-id`, `authentication-id`, ve `tenant-id` vekümesiasidedepolamahesabıyapılandırmaadımlarıtamamlandığındatopladığınızdeğerleribukodbloğuiçindeyertutucudeğerlerini[Hizmet sorumlusu oluşturma](#service-principal) bu makalenin bölümler. Değiştirin `file-system-name` yer tutucu dosya sisteminize vermek istediğiniz herhangi bir ada sahip.
 
-19. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları. 
+18. Bu kod bloğunda değiştirin `application-id`, `authentication-id`, `tenant-id`, ve `storage-account-name` Bu kod bloğu içinde yer tutucu değerlerini Bu öğretici önkoşulları tamamlanırken toplanan değerlere sahip. Değiştirin `file-system-name` yer tutucu değerini, ad ile istediğiniz dosya sistemi sağlar.
+
+   * `application-id`, Ve `authentication-id` uygulamasından active Directory Hizmet sorumlusu oluşturma işleminin parçası olarak kayıtlı olduğunuz.
+
+   * `tenant-id` Aboneliğinizden olduğu.
+
+   * `storage-account-name` Azure Data Lake depolama Gen2'ye depolama hesabınızın adıdır.
+
+19. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 
     Buna daha sonra komutları ekleyeceksiniz gibi bu not defteri, açık tutun.
 

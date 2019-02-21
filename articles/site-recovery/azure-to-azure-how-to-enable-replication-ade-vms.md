@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d992d13a67c7b01f82b615e7131a20b84dec9e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851034"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456240"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Azure disk şifrelemesi (ADE) etkinleştirilmiş sanal makineleri başka bir Azure bölgesine çoğaltma
 
@@ -24,6 +24,7 @@ Bu makalede, Azure disk şifrelemesi (ADE) etkin çoğaltma Vm'leri, bir Azure b
 >
 
 ## <a name="required-user-permissions"></a>Kullanıcı gerekli izinleri
+Azure Site Recovery hedef bölge ve kopyalama anahtarları bölgeye anahtar kasası oluşturma iznine sahip olmasını gerektirir.
 
 Kullanıcı Portalı'ndan ADE VM çoğaltmayı etkinleştirmek için olmalıdır aşağıdaki izinlerin.
 - Anahtar kasası izinleri
@@ -41,14 +42,24 @@ Kullanıcı Portalı'ndan ADE VM çoğaltmayı etkinleştirmek için olmalıdır
     - Al
     - Oluştur
     - Şifreleme
-    - Şifre Çöz
+    - Şifre Çözme
 
-Anahtar kasası kaynak portalında gezinme ve kullanıcıya gerekli izinleri ekleyerek izinleri yönetebilirsiniz.
+Anahtar kasası kaynak portalında gezinme ve kullanıcıya gerekli izinleri ekleyerek izinleri yönetebilirsiniz. Örneğin: adım adım kılavuz kaynak bölgede olan "ContosoWeb2Keyvault", Key vault için nasıl etkinleştirileceğini göstermektedir.
 
-![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermissions.png)
+
+-  Gidin "Giriş > Keyvaults > ContosoWeb2KeyVault > erişim ilkeleri"
+
+![keyvault izinleri](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
+
+
+
+- Var. Bu nedenle hiçbir kullanıcı persimmon "Yeni Ekle" ve kullanıcı ve izinleri tıklayarak yukarıda belirtilen izni Ekle görebilirsiniz.
+
+![keyvault izinleri](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
 
 Olağanüstü Durum Kurtarma (DR) etkinleştirme kullanıcı anahtarları, kopyalayabilir için gerekli izinlere sahip değilse güvenlik yönetici anahtarları ve gizli şifreleme anahtarları için hedef bölgede kopyalamak için uygun izinlere sahip aşağıdaki betiği verilebilir.
 
+Başvuru [bu makalede](#trusted-root-certificates-error-code-151066) izin sorunları gidermek için.
 >[!NOTE]
 >Portaldan ADE VM çoğaltmayı etkinleştirmek için en az anahtar kasası gizli dizileri ve anahtarları "List" izinlerini gerekir
 >
@@ -58,14 +69,14 @@ Olağanüstü Durum Kurtarma (DR) etkinleştirme kullanıcı anahtarları, kopya
 1. Tıklayarak 'CopyKeys' ham komut dosyası kodu bir tarayıcı penceresinde açın [bu bağlantıyı](https://aka.ms/ade-asr-copy-keys-code).
 2. Betik bir dosyaya kopyalayın ve adlandırın ' kopyalama-keys.ps1'.
 2. Windows PowerShell uygulamasını açın ve dosyanın bulunduğu klasörü konumuna gidin.
-3. Başlat ' kopyalama-keys.ps1'
+3. Launch 'Copy-keys.ps1'
 4. Azure oturum açma kimlik bilgilerini sağlayın.
 5. Seçin **Azure aboneliği** sanal makinelerinizin.
 6. Kaynak grupları yükleyin ve ardından bekleyin **kaynak grubu** sanal makinelerinizin.
 7. Vm'leri görüntülenen VM'ler listesinden seçin. Yalnızca VM'ler ile Azure disk şifrelemesi etkin listesinde gösterilir.
 8. Seçin **hedef konum**.
-9. **Disk şifrelemesi anahtar kasaları**: Azure Site Recovery varsayılan olarak hedef bölgede kaynak VM disk şifrelemesi anahtarlarını temel alan "asr" son ekine sahip yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır. Farklı bir anahtar kasası gerekirse listeden seçebilirsiniz.
-10. **Anahtar şifreleme anahtar kasaları**: Azure Site Recovery varsayılan olarak hedef bölgede kaynak VM anahtar şifreleme anahtarlarını temel alan "asr" son ekine sahip yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır. Farklı bir anahtar kasası gerekirse listeden seçebilirsiniz.
+9. **Disk şifreleme anahtar kasalarını**: Varsayılan olarak, Azure Site Recovery kaynak VM disk şifreleme anahtara göre "asr" sonekine sahip adı ile hedef bölgede yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır. Farklı bir anahtar kasası gerekirse listeden seçebilirsiniz.
+10. **Anahtar şifreleme anahtar kasalarını**: Varsayılan olarak, Azure Site Recovery kaynak VM anahtar şifreleme anahtara göre "asr" sonekine sahip adı ile hedef bölgede yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır. Farklı bir anahtar kasası gerekirse listeden seçebilirsiniz.
 
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
@@ -74,26 +85,26 @@ Bu yordam, Doğu Asya Birincil Azure bölgesi olduğunu ve ikincil bölgeye Gün
 1. Kasaya tıklayın **+ Çoğalt**.
 2. Aşağıdaki alanları dikkat edin:
     - **Kaynak**: Bu durumda sanal makinelerin başlangıç noktasını **Azure**.
-    - **Kaynak konumu**: sanal makinelerinizi korumak istediğiniz Azure bölgesi. Bu çizim için 'Doğu Asya' kaynak konumdur
-    - **Dağıtım modeli**: kaynak makineleri Azure dağıtım modeli.
-    - **Kaynak abonelik**: kaynak sanal makinelerinize ait olduğu abonelik. Bu abonelik, kurtarma hizmetleri kasanızın bulunduğu Azure Active Directory kiracısında bulunan aboneliklerden biri olabilir.
-    - **Kaynak grubu**: kaynak sanal makinelerinize ait olduğu kaynak grubu. Sonraki adımda koruma için seçilen kaynak grubu altındaki tüm sanal makineler listelenmektedir.
+    - **Kaynak konumu**: Sanal makinelerinizi korumak istediğiniz Azure bölgesi. Bu çizim için 'Doğu Asya' kaynak konumdur
+    - **Dağıtım modeli**: Kaynak makineler Azure dağıtım modeli.
+    - **Kaynak abonelik**: Kaynak sanal makinelerinize ait olduğu abonelik. Bu abonelik, kurtarma hizmetleri kasanızın bulunduğu Azure Active Directory kiracısında bulunan aboneliklerden biri olabilir.
+    - **Kaynak grubu**: Kaynak sanal makinelerinize ait olduğu kaynak grubu. Sonraki adımda koruma için seçilen kaynak grubu altındaki tüm sanal makineler listelenmektedir.
 
 3. İçinde **sanal makineler > sanal makineleri**tıklayın ve çoğaltmak istediğiniz her bir sanal Makineyi seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. ' A tıklayarak **Tamam**.
 
 4. İçinde **ayarları**, isteğe bağlı olarak hedef site ayarları yapılandırabilirsiniz:
 
-    - **Hedef konum**: konumun burada kaynak sanal makine verilerinizi çoğaltılabilir. Seçili makineler konumuna bağlı olarak Site Recovery, uygun hedef bölgelerin listesini sağlar. Kurtarma Hizmetleri kasası konumu olarak aynı hedef konum tutmanızı öneririz.
-    - **Hedef abonelik**: Olağanüstü durum kurtarma için kullanılan hedef abonelik. Hedef abonelik varsayılan olarak kaynak abonelikle aynı olur.
-    - **Hedef kaynak grubu**: çoğaltılmış sanal makineleriniz için tüm ait kaynak grubu. Varsayılan olarak Azure Site Recovery "asr" sonekine sahip adı ile hedef bölgede yeni bir kaynak grubu oluşturur. Azure Site Recovery tarafından zaten oluşturulan kaynak grubunun mevcut olması durumunda, yeniden kullanılır. Aşağıdaki bölümde gösterildiği gibi özelleştirmek seçebilirsiniz. Hedef kaynak grubu konumunu, kaynak sanal makineleri barındırdığı bölge dışında tüm Azure bölgelerine olabilir.
-    - **Hedef sanal ağ**: varsayılan olarak, Site Recovery yeni bir sanal ağ hedef bölgede "asr" sonekine sahip adla oluşturur. Bu kaynak ağa eşlenen ve gelecekteki tüm koruma için kullanılır. [Daha fazla bilgi edinin](site-recovery-network-mapping-azure-to-azure.md) ağ eşlemesi hakkında.
-    - **Depolama hesapları (kaynak makine yönetilen diskleri kullanmıyorsa) hedef**: varsayılan olarak, Site Recovery, kaynak VM depolama yapılandırması yakından taklit eden yeni bir hedef depolama hesabı oluşturur. Depolama hesabı zaten mevcut olması durumunda, yeniden kullanılır.
-    - **Yönetilen çoğaltma diskleri (kaynak sanal makine yönetilen diskleri kullanıyorsa)**: Site Recovery, kaynak sanal makinenin yönetilen disklerle aynı depolama türüne (standart veya premium) kaynağın VM'ye yönetilen disk olarak yansıtmak için hedef bölgede yeni yönetilen çoğaltma diskleri oluşturur.
+    - **Hedef konum**: Kaynak sanal makine verilerinizi burada çoğaltılır konumu. Seçili makineler konumuna bağlı olarak Site Recovery, uygun hedef bölgelerin listesini sağlar. Kurtarma Hizmetleri kasası konumu olarak aynı hedef konum tutmanızı öneririz.
+    - **Hedef abonelik**: Olağanüstü durum kurtarma için kullanılan hedef aboneliği. Hedef abonelik varsayılan olarak kaynak abonelikle aynı olur.
+    - **Hedef kaynak grubu**: Kaynak grubu için tüm çoğaltılan sanal makinelerinize ait. Varsayılan olarak Azure Site Recovery "asr" sonekine sahip adı ile hedef bölgede yeni bir kaynak grubu oluşturur. Azure Site Recovery tarafından zaten oluşturulan kaynak grubunun mevcut olması durumunda, yeniden kullanılır. Aşağıdaki bölümde gösterildiği gibi özelleştirmek seçebilirsiniz. Hedef kaynak grubu konumunu, kaynak sanal makineleri barındırdığı bölge dışında tüm Azure bölgelerine olabilir.
+    - **Hedef sanal ağ**: Varsayılan olarak, Site Recovery "asr" sonekine sahip adı ile hedef bölgede yeni bir sanal ağ oluşturur. Bu kaynak ağa eşlenen ve gelecekteki tüm koruma için kullanılır. [Daha fazla bilgi edinin](site-recovery-network-mapping-azure-to-azure.md) ağ eşlemesi hakkında.
+    - **Depolama hesapları (kaynak makine yönetilen diskleri kullanmıyorsa) hedef**: Varsayılan olarak, Site Recovery, kaynak VM depolama yapılandırması yakından taklit eden yeni bir hedef depolama hesabı oluşturur. Depolama hesabı zaten mevcut olması durumunda, yeniden kullanılır.
+    - **Yönetilen çoğaltma diskleri (kaynak sanal makine yönetilen diskleri kullanıyorsa)**: Site Recovery kaynak sanal makinenin yönetilen disklerle aynı depolama türüne (standart veya premium) kaynağın VM'ye yönetilen disk olarak yansıtmak için hedef bölgede yeni yönetilen çoğaltma diskleri oluşturur.
     - **Önbellek depolama hesapları**: Site Recovery kaynak bölgede önbellek depolama adlı ek bir depolama hesabı gerekir. Kaynak VM üzerinde'olmuyor tüm değişiklikleri izlenir ve bu hedef konuma çoğaltılmadan önce önbellek depolama hesabına gönderilir.
-    - **Kullanılabilirlik kümesi**: varsayılan olarak, Azure Site Recovery, hedef bölgede "asr" sonekine sahip adıyla ayarlanmış yeni bir kullanılabilirlik oluşturur. Kullanılabilirlik kümesi zaten Azure Site Recovery tarafından oluşturulan mevcut durumda yeniden kullanılır.
-    - **Disk şifrelemesi anahtar kasaları**: Azure Site Recovery varsayılan olarak hedef bölgede kaynak VM disk şifrelemesi anahtarlarını temel alan "asr" son ekine sahip yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır.
-    - **Anahtar şifreleme anahtar kasaları**: Azure Site Recovery varsayılan olarak hedef bölgede kaynak VM anahtar şifreleme anahtarlarını temel alan "asr" son ekine sahip yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır.
-    - **Çoğaltma İlkesi**: kurtarma noktası bekletme geçmişine ve uygulama tutarlı anlık görüntü sıklığı ayarlarını tanımlar. Varsayılan olarak, Azure Site Recovery, ' 24 saatliğine kurtarma noktası bekletme ' 60 dakika için uygulamayla tutarlı anlık görüntü sıklığını ve varsayılan ayarlarla yeni bir çoğaltma ilkesi oluşturur.
+    - **Kullanılabilirlik kümesi**: Varsayılan olarak, Azure Site Recovery, hedef bölgede "asr" sonekine sahip adıyla ayarlanmış yeni bir kullanılabilirlik oluşturur. Kullanılabilirlik kümesi zaten Azure Site Recovery tarafından oluşturulan mevcut durumda yeniden kullanılır.
+    - **Disk şifreleme anahtar kasalarını**: Varsayılan olarak, Azure Site Recovery kaynak VM disk şifreleme anahtara göre "asr" sonekine sahip adı ile hedef bölgede yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır.
+    - **Anahtar şifreleme anahtar kasalarını**: Varsayılan olarak, Azure Site Recovery kaynak VM anahtar şifreleme anahtara göre "asr" sonekine sahip adı ile hedef bölgede yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır.
+    - **Çoğaltma İlkesi**: Kurtarma noktası bekletme geçmişine ve uygulama tutarlı anlık görüntü sıklığı ayarlarını tanımlar. Varsayılan olarak, Azure Site Recovery, ' 24 saatliğine kurtarma noktası bekletme ' 60 dakika için uygulamayla tutarlı anlık görüntü sıklığını ve varsayılan ayarlarla yeni bir çoğaltma ilkesi oluşturur.
 
 
 
@@ -124,12 +135,26 @@ Site Recovery tarafından kullanılan varsayılan hedef ayarlarını değiştire
 
 ## <a name="update-target-vm-encryption-settings"></a>Hedef VM şifreleme ayarlarını güncelleştirme
 İçinde senaryolar, hedef VM şifreleme ayarlarını güncelleştirmeniz gerekir.
-  - Site recovery çoğaltma sanal makinesi üzerinde etkin ve daha sonraki bir tarihte Azure Disk şifrelemesi (ADE) kaynak VM üzerinde etkin
-  - Site recovery çoğaltma sanal makinesi üzerinde etkin ve daha sonraki bir tarihte disk şifreleme anahtarı ve/veya kaynak VM üzerinde anahtar şifreleme anahtarı değiştirildi
+  - Sanal makinedeki Site Recovery çoğaltma etkin ve daha sonraki bir tarihte Azure Disk şifrelemesi (ADE) kaynak VM üzerinde etkin
+  - Sanal makinedeki Site Recovery çoğaltma etkin ve daha sonraki bir tarihte disk şifreleme anahtarı ve/veya kaynak VM üzerinde anahtar şifreleme anahtarı değiştirildi
 
 Kullanabileceğiniz [betik](#copy-ade-keys-to-dr-region-using-powershell-script) şifreleme anahtarları için hedef bölgede kopyalayın ve ardından hedef şifreleme ayarları güncelleştirmek için **kurtarma Hizmetleri kasası -> çoğaltılan öğe -> Özellikler -> işlem ve ağ.**
 
 ![Güncelleştirme ade ayarları](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
+
+## <a name="trusted-root-certificates-error-code-151066"></a>Azure'dan Azure'a VM çoğaltma sırasında anahtar kasası izin sorunları giderme
+
+**1. neden:** Önceden oluşturulmuş bir anahtar kasası gerekli izinlere sahip değil, hedef bölgesi seçmiş olabilirsiniz.
+Önceden oluşturulmuş bir anahtar kasası, hedef bölgede seçiyorsunuz yerine, Azure Site Recovery oluşturmak istiyorum. Emin Key vault gerektiriyor yukarıda da belirtildiği gibi izinleri.</br>
+*Örneğin*: Bir kullanıcı, bir anahtar kasası kaynak bölgede varsayalım "ContososourceKeyvault" olan bir VM'yi çoğaltma çalışın.
+Kullanıcının tüm kaynak bölge key vault izni ancak belirliyor koruma sırasında önceden oluşturulmuş bir anahtar kasası "koruması sonra hangi izne sahip olmayan ContosotargetKeyvault", bir hata oluşturur.</br>
+**Nasıl:** Gerekir "Giriş > Keyvaults > ContososourceKeyvault > erişim ilkeleri" yukarıda gösterildiği gibi izinleri ekleyin. 
+
+**2. neden:** Önceden oluşturulmuş seçtiğiniz izinleri Keyvault decry sahip olmayan hedef bölgedeki pt-şifreleme.
+Önceden oluşturulmuş bir anahtar kasası, hedef bölgede seçiyorsunuz yerine, Azure Site Recovery oluşturmak istiyorum. Kullanıcı sahip olduğundan emin olun anahtarı çok kaynak bölgesi şifrelediğiniz durumunda izinleri şifresini çözme-şifreleme.</br>
+*Örneğin*: Bir kullanıcı, bir anahtar kasası kaynak bölgede varsayalım "ContososourceKeyvault" olan bir VM'yi çoğaltma çalışın.
+Kullanıcının tüm kaynak bölge key vault izni ancak koruma sırasında değil "ContosotargetKeyvault" şifrelemek ve şifresini çözmek için izni olan önceden oluşturulmuş bir anahtar kasası belirliyor.</br>
+**Nasıl:** Gerekir "Giriş > Keyvaults > ContososourceKeyvault > erişim ilkeleri" ve anahtar izinleri altında izin Ekle > şifreleme işlemleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

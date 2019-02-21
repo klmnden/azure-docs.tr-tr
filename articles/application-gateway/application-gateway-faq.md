@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 81a84e1ff4a9ed974a69762ce35075780e8d1f96
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 040aeda10410cc164c3f68b6615ebfb12d45541e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991540"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453503"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway için sık sorulan sorular
 
@@ -346,7 +346,7 @@ PowerShell cmdlet'ini kullanabilirsiniz `Get-AzureRmApplicationGatewayBackendHea
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Tanılama günlükleri ile ilgili bekletme ilkesi nedir?
 
-Müşteriler depolama hesabına akışı tanılama günlükleri ve müşterilerin kendi tercihine göre bekletme ilkesi ayarlayabilir. Bir olay hub'ı veya Log Analytics için tanılama günlüklerini da gönderilebilir. Bkz: [uygulama ağ geçidi tanılama](application-gateway-diagnostics.md) daha fazla ayrıntı için.
+Müşteriler depolama hesabına akışı tanılama günlükleri ve müşterilerin kendi tercihine göre bekletme ilkesi ayarlayabilir. Tanılama günlükleri de bir olay hub'ı veya Azure İzleyici günlüklerine gönderilebilir. Bkz: [uygulama ağ geçidi tanılama](application-gateway-diagnostics.md) daha fazla ayrıntı için.
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Application Gateway için denetim günlüklerini nasıl alabilirim?
 
@@ -358,7 +358,7 @@ Evet, Application Gateway uyarıları desteklemiyor. Uyarılar, ölçümler üze
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Application Gateway için nasıl trafiği istatistikleri analiz?
 
-Görüntüleyebilir ve Azure Log Analytics, Excel, Power BI vb. gibi çeşitli mekanizmalar aracılığıyla erişim günlüklerini analiz edin.
+Görüntüleyebilir ve Azure İzleyici günlüklerine, Excel, Power BI vb. gibi çeşitli mekanizmalar aracılığıyla erişim günlüklerini analiz edin.
 
 Ayrıca, yükler ve popüler çalışan Resource Manager şablonu yayımladık [GoAccess](https://goaccess.io/) Çözümleyicisi uygulama ağ geçidi günlüklerine erişim için oturum açın. GoAccess benzersiz ziyaretçiler, istenen dosyaları, konaklar, işletim sistemleri, tarayıcılar, HTTP durum kodları ve daha fazlası gibi değerli HTTP trafiğini istatistikler sağlar. Daha fazla ayrıntı için lütfen bkz [GitHub Resource Manager şablonu bir klasörde Benioku dosyası](https://aka.ms/appgwgoaccessreadme).
 

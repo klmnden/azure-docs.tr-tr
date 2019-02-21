@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 73df93345cf73939f33afedfd655cef847d895dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bd9e9d64849c90d23146b814d2d48a8400d069f0
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863576"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447965"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Konuşma hizmeti için Bing konuşma içeriğinden geçirme
 
@@ -65,7 +65,7 @@ Siz veya Kurumunuz Bing konuşma API'si kullanan uygulamaları geliştirme veya 
 
 Konuşma hizmeti [REST API'leri](rest-apis.md) Bing konuşma API'leri ile uyumludur. Bing konuşma REST API kullanıyorsanız, yalnızca REST uç noktasını değiştirmek ve bir konuşma tanıma hizmeti abonelik anahtarı için anahtar gerekir.
 
-Konuşma hizmeti WebSockets protokolleri, Bing konuşma tarafından Kullanılanlar ile de uyumludur. Yeni geliştirme için WebSockets yerine konuşma hizmeti SDK'sı kullanmanızı öneririz. SDK için mevcut kodu geçirmek için iyi bir fikirdir. Ancak, olarak yalnızca bir değişiklik uç noktasını ve güncelleştirilmiş bir anahtarı WebSockets üzerinden Bing konuşma kullanan mevcut kodu REST API'lerle gerektirir.
+Konuşma hizmeti WebSockets protokolleri, Bing konuşma tarafından Kullanılanlar ile de uyumludur. Yeni geliştirme için WebSockets yerine Speech SDK'sı kullanmanızı öneririz. SDK için mevcut kodu geçirmek için iyi bir fikirdir. Ancak, olarak yalnızca bir değişiklik uç noktasını ve güncelleştirilmiş bir anahtarı WebSockets üzerinden Bing konuşma kullanan mevcut kodu REST API'lerle gerektirir.
 
 Belirli bir programlama dili için Bing konuşma istemcisi kitaplığını kullanıyorsanız, geçiş [Speech SDK'sı](speech-sdk.md) API farklı olduğundan, uygulamanıza değişiklikler gerektirir. Speech SDK'sı, kodunuzu daha basit, yeni özelliklere erişim sağlarken de yapabilirsiniz.
 

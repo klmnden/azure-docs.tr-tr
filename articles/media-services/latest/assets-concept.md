@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746005"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447319"
 ---
 # <a name="assets"></a>Varlıklar
 
@@ -48,8 +48,7 @@ Genel medya Hizmetleri iş akışlarını karşıya yükleme, kodlama ve bir dos
 4. Media Services v3 API'ler, Dönüşüm ve bir iş Varlığınızı "Giriş" işlemi oluşturmak için kullanın. Daha fazla bilgi için [dönüşümler ve işler](transform-concept.md).
 5. "Çıktı" varlığına içerikten Stream.
 
-> [!TIP]
-> Gösteren tam bir .NET örneği için nasıl yapılır: varlık oluşturma, depolama kapsayıcısını varlığın yazılabilir bir SAS URL'si almak, SAS URL'sini kullanarak depolama kapsayıcısına dosya karşıya yükleme, bkz [yerel bir dosyadan iş girdisi oluşturma](job-input-from-local-file-how-to.md).
+Gösteren tam bir .NET örneği için nasıl yapılır: varlık oluşturma, depolama kapsayıcısını varlığın yazılabilir bir SAS URL'si almak, SAS URL'sini kullanarak depolama kapsayıcısına dosya karşıya yükleme, bkz [yerel bir dosyadan iş girdisi oluşturma](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Yeni varlık oluşturma
 
