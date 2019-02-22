@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fb3358775881f102ecea62fbd20a1e4d85dda308
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c04b9b04a14e5cba205db5e0fa86094ef098bc7b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001645"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585882"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Öğretici: Azure portalı ve konular/abonelikler aracılığıyla Envanter güncelleştirme
 
@@ -45,49 +45,11 @@ Bu öğreticiyi tamamlamak için şunları yüklediğinizden emin olun:
 
 Her [konu başlığı aboneliği](service-bus-messaging-overview.md#topics) her iletinin bir kopyasını alabilir. Konular, protokol ve anlam açılarından Service Bus kuyrukları ile tam olarak uyumludur. Service Bus konu başlıkları, filtreleme koşullarını ve ileti özelliklerini belirleyen veya değiştiren isteğe bağlı eylemleri olan geniş bir seçim kuralı yelpazesini destekler. Bir kural eşleştiğinde bir ileti oluşturulur. Kurallar, filtreler ve eylemler hakkında daha fazla bilgi edinmek için bu [bağlantıyı](topic-filters.md) izleyin.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Öncelikle [Azure portal][Azure portal]'a gidin ve Azure aboneliğinizi kullanarak oturum açın. İlk adım, **Mesajlaşma** türünde bir Service Bus ad alanı oluşturmaktır.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-## <a name="create-a-service-bus-namespace"></a>Service Bus ad alanı oluşturma
 
-Service Bus mesajlaşma ad alanı, [tam etki alanı adının][] başvurduğu, içinde bir veya daha fazla kuyruk, konu başlığı ve abonelik oluşturduğunuz benzersiz bir kapsam kapsayıcısı sağlar. Aşağıdaki örnekte, yeni veya var olan bir [kaynak grubunda](/azure/azure-resource-manager/resource-group-portal) bir Service Bus mesajlaşma ad alanı oluşturulur:
-
-1. Portalın sol gezinti bölmesinde **+ Kaynak oluştur**'a tıklayın, ardından **Kurumsal Tümleştirme**'ye ve sonra **Service Bus**'a tıklayın.
-2. **Ad alanı oluştur** iletişim kutusunda bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
-3. Ad alanı adının kullanılabildiğinden emin olduktan sonra fiyatlandırma katmanını (Standart veya Premium) seçin.
-4. **Abonelik** alanında, ad alanı oluşturmak için kullanmak istediğiniz bir Azure aboneliği seçin.
-5. **Kaynak grubu** alanında, ad alanını barındırmak üzere var olan bir kaynak grubunu seçin veya yeni bir kaynak grubu oluşturun.      
-6. **Konum** alanında, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin.
-7. **Oluştur**’a tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
-
-  ![ad alanı](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Yönetim kimlik bilgilerini alma
-
-Yeni bir ad alanı oluşturulduğunda, her biri ad alanının tüm yönleri üzerinde tam denetim veren ilişkili bir çift birincil ve ikincil anahtara sahip bir ilk Paylaşılan Erişim İmzası (SAS) kuralı otomatik olarak oluşturulur. İlk kuralı kopyalamak için aşağıdaki adımları takip edin:
-
-1. **Tüm kaynaklar**’a ve sonra yeni oluşturulan ad alanı adına tıklayın.
-2. Ad alanı penceresinde **Paylaşılan erişim ilkeleri**'ne tıklayın.
-3. **Paylaşılan erişim ilkeleri** ekranında **RootManageSharedAccessKey** seçeneğine tıklayın.
-4. İçinde **İlkesi: RootManageSharedAccessKey** penceresinde tıklayın **kopyalama** düğmesinin yanındaki **PRIMARY CONNECTION Strıng'i**, bağlantı dizesini Panonuza daha sonra kullanmak üzere kopyalayın. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın.
-
-    ![bağlantı dizesi][connection-string]
-5. **Birincil Anahtar** değerini daha sonra kullanmak üzere geçici bir konuma kopyalayarak önceki adımı tamamlayın.
-
-## <a name="create-a-topic-and-subscriptions"></a>Konu başlığı ve abonelikler oluşturma
-
-Bir Service Bus konu başlığı oluşturmak için konu başlığının altında oluşturulmasını istediğiniz ad alanını belirtin. Aşağıdaki örnekte portalda konu başlığı oluşturma işlemi gösterilmektedir:
-
-1. Portalın sol tarafındaki gezinme bölmesinde **Service Bus**'a tıklayın (**Service Bus** yoksa **Diğer hizmetler**'e tıklayın).
-2. Konu başlığını oluşturmak istediğiniz ad alanına tıklayın.
-3. Ad alanı penceresinde **Konular**'a ve ardından **Konular** penceresinde **+ Konular** seçeneğine tıklayın.
-4. Konu başlığı **Adını** girin ve diğer değerleri varsayılan olarak bırakın.
-5. Pencerenin altında yer alan **Oluştur** düğmesine tıklayın.
-6. Konu başlığı adını not edin.
-7. Yeni oluşturduğunuz konu başlığını seçin.
-8. **+ Abonelik** seçeneğine tıklayın, **S1** abonelik adını girin ve diğer tüm değerleri varsayılan biçimde bırakın.
-9. Önceki adımı iki kez daha yineleyerek **S2** ve **S3** adlı abonelikleri oluşturun.
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Aboneliklerde filtre kuralları oluşturma
 
@@ -451,7 +413,7 @@ Service Bus’ın yayımlama/abone olma özelliklerini kullanma hakkında daha f
 > [PowerShell ve konular/abonelikler kullanarak stok güncelleştirme](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[tam etki alanı adının]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
 [connection-string]: ./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png

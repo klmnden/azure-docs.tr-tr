@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/20/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c96fdbfb56fe5274de941c0f9ab1a12cbcc241b6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 9ce21a6b01dc4f4a99e5c70faf1e004bf7918dad
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658428"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594126"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Kubernetes için Azure Stack dağıtma
 
@@ -39,7 +39,7 @@ Kubernetes için kullanabilirsiniz:
 
 - Saniyeler içinde dağıtılabilir yüksek düzeyde ölçeklenebilir ve yükseltilebilir, uygulamaları geliştirin. 
 - Uygulamanızın tasarımını basitleştirmek ve farklı Helm uygulamalar tarafından ve güvenilirliği geliştirmek. [Helm](https://github.com/kubernetes/helm) yükleyin ve Kubernetes uygulamaların yaşam döngüsünü yönetmenize yardımcı olan bir açık kaynak paketleme aracıdır.
-- Kolayca izleyin ve ölçek ile uygulamalarınızın durumunu tanılayın ve işlevsellik yükseltin.
+- Kolayca izleyin ve uygulamalarınızın durumunu tanılayın.
 
 Yalnızca kümenizi destekleyen düğümleri tarafından gerekli bilgi işlem kullanımı için ücret ödersiniz. Daha fazla bilgi için [kullanım ve faturalandırma Azure Stack'te](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 

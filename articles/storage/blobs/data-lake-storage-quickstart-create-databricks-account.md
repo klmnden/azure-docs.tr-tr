@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: 9d00819143d9a8fc38bfc09844d55f088e732b46
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1b5f05f3cddea986230327165399b0fe530e361b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453035"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588084"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Hızlı Başlangıç: Azure Databricks kullanarak Azure Data Lake depolama Gen2 verileri çözümleme
 
@@ -124,6 +124,9 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturacak
     > Data Lake Gen2 uç noktası doğrudan erişir OAuth kullanarak bu kod bloğu, ancak Databricks çalışma alanı, Data Lake depolama Gen2 hesabınıza bağlanmak için farklı yöntemleri vardır. Örneğin, OAuth kullanarak dosya sistemini bağlamalarına veya paylaşılan anahtar ile doğrudan bir erişim kullanın. <br>Bu yaklaşımların örneklerini görmek için bkz: [Azure Data Lake depolama Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) makale Azure Databricks Web sitesinde.
 
 5. Bu kod bloğunda değiştirin `storage-account-name`, `application-id`, `authentication-id`, ve `tenant-id` Bu kod bloğu içinde yer tutucu değerlerini, hizmet sorumlusu oluştururken, toplanan değerlere sahip. Ayarlama `file-system-name` örneğin adı için yer tutucu değerini istediğiniz dosya sistemi sağlar.
+
+    > [!NOTE]
+    > Bir üretim ayarında, Azure Databricks'te, kimlik doğrulama anahtarı depolamayı düşünün. Ardından, kimlik doğrulama anahtarı yerine, kod bloğu için bir arama anahtarı ekleyin. Bu hızlı başlangıcı tamamladıktan sonra bkz [Azure Data Lake depolama Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) makalede bu yaklaşım örneklerini görmek için Azure Databricks Web sitesinde.
 
 6. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 

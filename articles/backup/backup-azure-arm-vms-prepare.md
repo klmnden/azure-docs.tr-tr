@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: e782afb971f95a654119d9817edeef02642bee9e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: effb00a4ebde857e06e34e5f83ca01fc5d74017b
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447574"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594194"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Azure Vm'lerini bir kurtarma Hizmetleri kasasına yedekleme
 
@@ -63,7 +63,7 @@ VM'de çalışan yedekleme uzantısı, Azure genel IP adreslerine giden erişime
 - Azure Backup hizmeti ile iletişim kurmak için Azure sanal makinesi için hiçbir açık giden ağ erişimi gereklidir.
 - Bazı eski sanal makineler ancak ve karşılaştığınız sorunlar şu hatayla başarısız **ExtensionSnapshotFailedNoNetwork** bağlanmaya çalışırken. Bu durumda, Azure genel IP adreslerine trafiği yedekleme için yedekleme uzantısı iletişim kurabilmesi için aşağıdaki seçeneklerden birini kullanın.
 
-   **Seçenek** | **Eylem** ** | **Avantajları** | **Dezavantajları**
+   **Seçenek** | **Eylem** | **Avantajları** | **Dezavantajları**
    --- | --- | --- | ---
    **NSG kurallarını ayarlayın** | İzin [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/>  Azure Backup hizmetini kullanarak erişimine izin verecek bir kural ekleyebileceğiniz bir [hizmet etiketi](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), tek tek izin verme ve her bir adres aralığı yönetmek yerine. [Daha fazla bilgi edinin](../virtual-network/security-overview.md#service-tags) hizmet etiketleri hakkında. | Ek maliyet olmadan. Hizmet etiketleri ile yönetmek basit
    **Bir proxy dağıtma** | Bir HTTP proxy sunucusu için trafiği yönlendirme dağıtın. | Yalnızca depolama ve Azure'nın tam erişim sağlar. Depolama URL'leri üzerinde ayrıntılı denetim izin verilir.<br/><br/> VM'ler için tek noktası internet erişimi.<br/><br/> Ek maliyet proxy.<br/><br/> 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 3f08e2b2fab03ed7f2cccfe251e125033d55b30a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 16bff038b21658d29f3ab5a4b135af7f8a9e640c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860635"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593939"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Bir varlık için örnek Konuşma ekleme 
 
@@ -35,21 +35,17 @@ Otomatik olarak etiketlendiğinden, önceden oluşturulmuş varlıklarla ve norm
 Aşağıdaki yordamda, oluşturun ve hedefi sayfasında aşağıdaki utterance içinde özel bir varlık etiketi:
 
 ```text
-Does John Smith work in Seattle?
+Are there any SQL server jobs?
 ```
 
-1. Seçin `Seattle` basit bir varlık olarak etiketlemek için utterance içinde.
+1. Seçin `SQL server` basit bir varlık olarak etiketlemek için utterance içinde. Görüntülenen varlık açılan kutusunda için var olan bir varlığa seçin veya yeni varlık ekleyin. Yeni bir varlık eklemek için adını yazın. `Job` metin kutusuna ve ardından **yeni varlık Oluştur**.
 
-    [![Basit bir varlık için utterance metin seçme işleminin ekran görüntüsü](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)
+    ![Varlık adı girme ekran görüntüsü](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
     > [!NOTE]
     > Etiket sözcükleri varlıklar olarak seçerken:
     > * Yalnızca tek bir sözcük, onu seçin. 
     > * İki veya daha fazla sözcük kümesi için başında ve sonunda kümesi, ardından seçin.
-
-1. Görüntülenen varlık açılan kutusunda için var olan bir varlığa seçin veya yeni varlık ekleyin. Yeni bir varlık eklemek için metin kutusuna adını yazın ve ardından **yeni varlık Oluştur**. 
-
-    ![Varlık adı girme ekran görüntüsü](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
 
 1. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?** açılır kutusunda, varlık adını doğrulayın ve seçin **basit** varlık türü ve ardından **Bitti**.
 
@@ -57,14 +53,11 @@ Does John Smith work in Seattle?
 
 ## <a name="add-a-list-entity"></a>Bir liste varlık ekleme
 
-Liste varlık (tam metni eşleşen) sabit, kapalı küme ilgili bir kelimelerin sisteminizde temsil eder. 
+Liste varlık sisteminizde ilgili sözcükleri tam metin eşleşmelerinin bir kümesini temsil eder. 
 
 Bir şirketin bölüm listesi için değerleri normalleştirilmiş: `Accounting` ve `Human Resources`. Eş Anlamlılar her normalleştirilmiş bir adı vardır. Bir bölüm için tüm departman kısaltmalar, sayı veya argo bu eş anlamlıların içerebilir. Bir varlık oluşturduğunuzda tüm değerleri bilmeniz gerekmez. Daha fazla, eş anlamlı sözcüklerle gerçek kullanıcı konuşma gözden geçirdikten sonra ekleyebilirsiniz.
 
-1. Belirli bir utterance için örnek utterance listesinde bir sözcük veya tümcecik yeni listesinde istediğiniz'ı seçin. Sonra üstteki metin kutusunda listenin adını girin ve ardından **yeni varlık Oluştur**.   
-
-    ![Liste varlık adı girme ekran görüntüsü](./media/luis-how-to-add-example-utterances/hr-create-list-1.png)
-
+1. Bir örnek utterance içinde **hedefleri** sayfasında, bir sözcük veya tümcecik istediğiniz yeni listeden seçin. Varlık açılan görüntülendiğinde, ilk metin kutusuna yeni liste varlığı için bir ad girin ve ardından **yeni varlık Oluştur**.   
 
 1. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?** açılır kutu, varlık adı ve select **listesi** türü olarak. Bu liste öğesinin eş anlamlılar eklemek ve ardından **Bitti**. 
 
@@ -76,21 +69,15 @@ Bir şirketin bölüm listesi için değerleri normalleştirilmiş: `Accounting`
 
 Bileşik varlıklar, varolan oluşturulur **varlıkları** üst varlık içinde. 
 
-Utterance varsayılarak `Does John Smith work in Seattle?`, bileşik bir utterance tek üst nesnenin altında çalışan adını ve konumunu varlık bilgileri döndürebilir. 
+Utterance varsayılarak `Does John Smith work in Seattle?`, bileşik bir utterance çalışan adını varlık bilgileri döndürebilir `John Smith`ve konumunu `Seattle` bileşik bir varlık içinde. Alt varlıklar uygulamada zaten bulunmalı ve Bileşik varlık oluşturmadan önce örnek utterance işaretlenmelidir.
 
-Çalışan, John Smith'in, önceden oluşturulmuş bir addır [personName](luis-reference-prebuilt-person.md) varlık. Konum, Seattle, özel bir basit varlıktır. Bu iki varlık oluşturulur ve bir örnek utterance etiketlenmiş sonra bu varlıkların bileşik bir varlıkta sarmalanabilir. 
+1. Alt varlıklar bileşik bir varlığa kaydırmak için işaretleyin **ilk** (en soldaki) içinde utterance Bileşik varlık için varlık etiketli. Bu seçim seçenekleri göstermek için aşağı açılan listesi görüntülenir.
 
-1. Tek tek varlıklar bir bileşik kaydırmak için işaretleyin **ilk** (en soldaki) içinde utterance Bileşik varlık için varlık etiketli. Bu seçim seçenekleri gösteren bir açılan listesi görüntülenir.
+1. Seçin **kaydırma bileşik varlıkta** aşağı açılan listeden. 
 
-1. Seçin **kaydırma Bileşik varlık** aşağı açılan listeden. 
-
-    ![Ekran seçin "Bileşik varlığındaki kaydırma"](./media/luis-how-to-add-example-utterances/hr-create-composite-1.png)
-
-1. Son sözcüğü Bileşik varlık (en sağ) seçin. Yeşil bir çizgi Bileşik varlık izleyen dikkat edin.
+1. Son sözcüğü Bileşik varlık (en sağ) seçin. Yeşil bir çizgi Bileşik varlık izleyen dikkat edin. Bu birleşik bir varlık için görsel gösterge ve en sağ alt varlık bileşik varlığa en soldaki alt varlıktaki tüm sözcüklerin altında olmalıdır.
 
 1. Aşağı açılan listeden Bileşik varlık adı girin.
-
-    ![Ekran görüntüsü, aşağı açılan listeden Bileşik varlık adı girin](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     Varlıkları doğru Kaydır yeşil bir çizgi deyimin tamamını altında olur.
 
@@ -110,15 +97,11 @@ Utterance içinde `Move John Smith from Seattle to Cairo`, Seattle kaynak konumu
 
 1. Hedefi sayfasında utterance seçin `Seattle`, varlık adı enter `Location`ve ardından klavyedeki Enter'ı seçin.
 
-    ![İletişim kutusunun ekran görüntüsü, oluşturma hiyerarşik varlık etiketleme](./media/luis-how-to-add-example-utterances/hr-hier-1.png)
-
 1. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?** açılır kutusunda _hiyerarşik_ için **varlık türü**, eklersiniz `Origin` ve `Destination` alt olarak ve ardından **Bitti**.
 
     ![Vurgulanan ToLocation varlıkla ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
 1. Utterance sözcüğü üst hiyerarşik varlıkla etiketlendi. Word'ün bir alt varlığına atamanız gerekir. Utterance için hedefi ayrıntı sayfasında dönün. Word ' ü seçin sonra oluşturduğunuz varlık adı aşağı açılan listeden seçin ve sağa doğru alt varlığı seçmeniz için menü izleyin.
-
-    ![Word'ün bir alt varlık için Ata gerek duyduğunuz senaryolara ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Tek bir uygulamada tüm varlıklar üzerinde alt varlık adlarının benzersiz olması gerekir. Alt varlıklar aynı ada sahip iki farklı hiyerarşik varlıklar içerebilir. 
@@ -135,7 +118,7 @@ Utterance kırmızıyla altı çizili olan sözcükleri'ni seçin.
 
 Varlık kutu görüntüler **varlık durumu** tahmin tutarsızlık ise kırmızı ünlem işareti. Varlık durumu ile etiketlenmiş ve tahmin edilen varlıklar arasındaki fark hakkında daha fazla bilgi görmek için seçin **varlık durumu** sonra sağ öğeyi seçin.
 
-![Öğe tahmin tutarsızlık düzeltmek doğru seçme işleminin ekran görüntüsü](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Ekran görüntüsü, varlık durumu seçimi](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
 Kırmızı çizgi aşağıdaki durumlarda hiçbirini görünebilir:
 
@@ -153,6 +136,9 @@ Aşağıdaki çözümlerden varlık tahmin tutarsızlık gidermek:
 |Etiketli metin doğru|Mavi varlık vurgulayın, kırmızı alt çizgi|Yanlış tahmin|Daha fazla konuşma yerler ve kullanımları çeşitli doğru etiketli varlıkla sağlar. Geçerli konuşma bu LUIS öğretmeyi yeterli olduğu varlık ya da benzer varlıkları aynı bağlam içinde görünür olan. LUIS kafanız bu nedenle tek bir varlığa benzer varlık birleştirilmelidir. Başka bir çözüm bir kelimelerin önemi artırmak için bir ifade listesi eklemektir. |
 |Yanlış etiketli metin|Mavi varlık vurgulayın, kırmızı alt çizgi|Doğru tahmin| Daha fazla konuşma yerler ve kullanımları çeşitli doğru etiketli varlıkla sağlar. 
 
+> [!Note]
+> Örnek utterance satırının etiketli amaca etrafında kırmızı kutu olduğunda bir [hedefi tahmin hata](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) oluştu. Düzeltmeniz gerekir. 
+
 ## <a name="other-actions"></a>Diğer eylemler
 
 Seçilen grubu veya ayrı bir öğe olarak örnek konuşma eylemleri gerçekleştirebilirsiniz. Seçili örnek konuşma grupları bağlamsal menü listesinin üst değiştirin. Tek öğeleri listesi ve bağlamsal tek nokta yukarıda bağlamsal menüyü her utterance satırının sonundaki kullanabilir. 
@@ -162,8 +148,6 @@ Seçilen grubu veya ayrı bir öğe olarak örnek konuşma eylemleri gerçekleş
 Hedefi sayfasında bir utterance makine öğrenilen varlık etiketleri kaldırabilirsiniz. Varlık makine öğrenilen değilse, bir utterance kaldırılamaz. Utterance bir makine öğrenilen varlık kaldırmanız gerekirse, tüm uygulamadan varlığı silmek gerekir. 
 
 Bir utterance makine öğrenilen varlık etiketi kaldırmak için utterance varlığı seçin. Ardından **Etiketi Kaldır** varlık açılan kutusunda görünür.
-
-![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, vurgulanan Etiketi Kaldır](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
 ### <a name="add-prebuilt-entity-label"></a>Önceden oluşturulmuş varlık etiketi Ekle
 

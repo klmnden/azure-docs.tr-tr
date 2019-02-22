@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8ae55028bbc44a9383be6723f9bc6d39787cca45
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 01aa3d45d3b168c67603861a0a947026d4f2e08c
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767312"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650895"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların farklı türde açıklanır. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla.
@@ -56,7 +56,7 @@ Stream analytics'ten Azure Data Lake Store çıkışı şu anda Azure Çin (21Vi
 | Biçimlendir | Yalnızca, JSON seri hale getirme için de geçerlidir. Satırla ayrılmış yeni satırla ayrılmış her bir JSON nesnesi sağlayarak çıkış biçimlendirileceğini belirtir. Dizi çıkış bir JSON nesne dizisi biçimlendirileceğini belirtir. Yalnızca sonraki zaman penceresine işini durdurur veya Stream Analytics taşınmıştır, bu dizi kapatıldı. Genel olarak, tercih edilir satırını kullanmak için çıkış dosyası için hala yazıldığı sırada herhangi bir özel işlem gerektirmez beri JSON, ayrılmış.|
 
 ### <a name="renew-data-lake-store-authorization"></a>Data Lake Store yetkilendirmeyi Yenile
-İşinizi oluşturulduğu veya en son kimlik doğrulaması parolasını değişmişse Data Lake Store hesabınızı yeniden kimlik doğrulamaya zorlayabilir gerekir. Sağlamalarını yok, iş çıktısı sonuçlar üretmez ve yapılan işlem günlüklerinde gereksinimini belirten bir hata gösterir. Şu anda, kimlik doğrulama belirteci 90 günde bir Data Lake Store çıkış olan tüm işler için el ile yenilenmesi gereken yere bir sınırlama yoktur.
+İşinizi oluşturulduğu veya en son kimlik doğrulaması parolasını değişmişse Data Lake Store hesabınızı yeniden kimlik doğrulamaya zorlayabilir gerekir. Sağlamalarını yok, iş çıktısı sonuçlar üretmez ve yapılan işlem günlüklerinde gereksinimini belirten bir hata gösterir. Şu anda, kimlik doğrulama belirteci 90 günde bir Data Lake Store çıkış olan tüm işler için el ile yenilenmesi gereken yere bir sınırlama yoktur. Ancak, bu sınırlama tarafından üstesinden gelebilir [yönetilen kimlikleri (Önizleme) kullanarak kimlik doğrulaması](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls).
 
 Yetkilendirme, yenilemek için **Durdur** işinizi > Data Lake Store çıkışınızı gidin > tıklatın **yetkilendirmeyi yenilemek** bağlamak ve bir sayfa kısa bir süreliğine pop belirten yukarı **yönlendiriyor Yetkilendirme...** . Sayfa otomatik olarak kapanır ve başarılı olursa, gösteren **yetkilendirme başarıyla yenilendi**. Ardından'ye tıklamanız **Kaydet** sayfanın alt kısmındaki ve iş öğesinden yeniden başlatarak geçebilirsiniz **son durduruldu zamanı** veri kaybını önlemek için.
 

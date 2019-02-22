@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 194f43a0005f17a22b3a60d6decd049444e56c20
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 02d3cd3688f3b34c92422168b79cb4da5a93d970
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745785"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587999"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Stream Analytics yönetilen kimlikleri (Önizleme) kullanarak Azure Data Lake depolama Gen1 için kimlik doğrulaması
 
@@ -29,7 +29,7 @@ Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure port
 
    ![Stream Analytics yönetilen kimlik Önizleme yapılandırın](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Seçin **kullanım sistem tarafından atanan yönetilen kimliği (Önizleme)** penceresinden sağ tarafta görüntülenir. Tıklayın **Kaydet** Azure Active Directory'de bir hizmet sorumlusu kimliğinin Stream Analytics işi oluşturmak için. Yeni oluşturulan kimlik yaşam döngüsünü Azure tarafından yönetilir. Stream Analytics işi silindiğinde, ilişkili kimlik (diğer bir deyişle, hizmet sorumlusu), Azure tarafından otomatik olarak silinir.
+2. Seçin **kullanım sistem tarafından atanan yönetilen kimliği (Önizleme)** penceresinden sağ tarafta görüntülenir. Tıklayın **Kaydet** kimliğini Azure Active Directory'de Stream Analytics işi için bir hizmet sorumlusu için. Yeni oluşturulan kimlik yaşam döngüsünü Azure tarafından yönetilir. Stream Analytics işi silindiğinde, ilişkili kimlik (diğer bir deyişle, hizmet sorumlusu), Azure tarafından otomatik olarak silinir.
 
    Yapılandırma kaydedilirken, hizmet sorumlusu nesne kimliği (OID) asıl aşağıda gösterildiği gibi kimlik olarak listelenir:
 
@@ -171,6 +171,14 @@ Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure port
    ```
 
    Yukarıdaki PowerShell komutu hakkında daha fazla bilgi için bkz [kümesi AzureRmDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/azurerm.datalakestore/set-azurermdatalakestoreitemaclentry?view=azurermps-6.8.1&viewFallbackFrom=azurermps-4.2.0#optional-parameters) belgeleri.
+
+## <a name="limitations"></a>Sınırlamalar
+Bu özellik, aşağıdakileri desteklemez:
+
+1.  **Çok kiracılı erişim**: Belirli bir Stream Analytics iş için oluşturulan hizmet sorumlusu, Azure Active Directory kiracısı üzerinde iş oluşturuldu ve farklı bir Azure Active Directory kiracısı üzerinde bulunan bir kaynağa karşı kullanılamaz yer alacaktır. Bu nedenle, Azure Stream Analytics işinizi olarak aynı Azure Active Directory kiracısı içinde ADLS Gen 1 kaynaklar üzerinde yalnızca MSI kullanabilirsiniz. 
+
+2.  **[Atanan kullanıcı kimlik](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka/)**: Desteklenmeyen bu kullanıcı, Stream Analytics işi tarafından kullanılmak üzere kendi hizmet sorumlusu girmeniz mümkün değil anlamına gelir. Hizmet sorumlusunu Azure Stream Analytics tarafından oluşturulur. 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

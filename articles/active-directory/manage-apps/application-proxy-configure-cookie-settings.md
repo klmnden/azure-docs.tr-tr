@@ -12,12 +12,12 @@ ms.date: 01/16/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1d97e2542200703201b1c20738581a938ba209e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dfcd7f10952a883552cd30d6cacf03095492dd38
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166003"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649756"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Azure Active Directory'de şirket içi uygulamalara erişmek için tanımlama bilgisi ayarları
 
@@ -43,39 +43,35 @@ Azure portalını kullanarak tanımlama bilgisi ayarları ayarlamak için:
 5. Altında **ek ayarlar**, tanımlama bilgisi ayarının **Evet** veya **Hayır**.
 6. Tıklayın **Kaydet** yaptığınız değişiklikleri uygulamak için. 
 
-<!---
+## <a name="view-current-cookie-settings---powershell"></a>Geçerli tanımlama bilgisi ayarları - PowerShell görüntüleyin
 
-## View current cookie settings - PowerShell
-
-To see the current cookie settings for the application, use this PowerShell command:  
+Uygulama için geçerli tanımlama bilgisi ayarları görmek için bu PowerShell komutunu kullanın:  
 
 ```PowerShell
 Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl * 
 ```
 
-## Set cookie settings - PowerShell
+## <a name="set-cookie-settings---powershell"></a>Tanımlama bilgisi ayarları - PowerShell ayarlama
 
-In the following PowerShell commands, ```<ObjectId>``` is the ObjectId of the application. 
+Aşağıdaki PowerShell komutlarında ```<ObjectId>``` objectID uygulamanın olduğu. 
 
-**Http-Only Cookie** 
+**Yalnızca HTTP tanımlama bilgisi** 
 
 ```PowerShell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $false 
 ```
 
-**Secure Cookie**
+**Güvenli bir tanımlama bilgisi**
 
 ```PowerShell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabled $false 
 ```
 
-**Persistent Cookies**
+**Kalıcı tanımlama bilgileri**
 
 ```PowerShell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $false 
 ```
-
--->

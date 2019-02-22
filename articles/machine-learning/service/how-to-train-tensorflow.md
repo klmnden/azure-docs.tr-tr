@@ -1,7 +1,7 @@
 ---
-title: TensorFlow ile eğitme modelleri
+title: TensorFlow & Keras modellerini eğitin
 titleSuffix: Azure Machine Learning service
-description: Tek düğümlü ve dağıtılmış eğitimi TensorFlow modelleri ile TensorFlow estimator çalıştırmayı öğrenin
+description: Tek düğümlü ve dağıtılmış eğitimi TensorFlow ve Keras modelleri ile TensorFlow ve Keras estimators çalıştırmayı öğrenin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 02/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: c76a94695114888ca8946106528fe179ff81c811
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b1ee41c6d543ac4f52b537ebc8054f2986c4217c
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244734"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649600"
 ---
-# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile TensorFlow modellerini eğitin
+# <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile TensorFlow ve Keras modellerini eğitin
 
 TensorFlow kullanarak derin sinir ağı (DNN) eğitim için özel bir Azure Machine Learning sağlar `TensorFlow` sınıfının `Estimator`. Azure SDK'ın `TensorFlow` estimator (ile conflated değil için [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) sınıfı) kolayca Azure işlem çalışır hem tek düğümlü hem de dağıtılmış TensorFlow eğitim işleri göndermenizi sağlar.
 
@@ -39,7 +39,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params=script_params,
                     compute_target=compute_target,
                     entry_script='train.py',
-                    conda_packages=['scikit-learn'],
+                    conda_packages=['scikit-learn'], # in case you need scikit-learn in train.py
                     use_gpu=True)
 ```
 
@@ -60,6 +60,21 @@ Ardından, TensorFlow işi gönder:
 ```Python
 run = exp.submit(tf_est)
 ```
+
+## <a name="keras-support"></a>Keras desteği
+[Keras](https://keras.io/) bir popüler üst düzey DNN Python TensorFlow, CNTK veya Theano arka uçları olarak destekleyen bir API'dir. TensorFlow arka uç olarak kullanırsanız, TensFlow estimator Keras modeli eğitmek için kolayca kullanabilirsiniz. Keras eklenmiş olan bir TensorFlow estimator örneği aşağıda verilmiştir:
+
+```Python
+from azureml.train.dnn import TensorFlow
+
+keras_est = TensorFlow(source_directory='./my-keras-proj',
+                       script_params=script_params,
+                       compute_target=compute_target,
+                       entry_script='keras_train.py',
+                       conda_packages=['keras'], # just add keras through conda
+                       use_gpu=True)
+```
+Yukarıdaki TensorFlow tahmin Oluşturucu Keras Conda aracılığıyla yürütme ortamında yüklemek için Azure Machine Learning hizmeti bildirir. Ve `keras_train.py` Keras modeli eğitmek için Keras API'si daha sonra içeri aktarabilirsiniz. Tam bir örnek için keşfetmek [bu Jupyter not defteri](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
 
 ## <a name="distributed-training"></a>Dağıtılmış eğitimi
 TensorFlow Estimator Azure VM'lerin CPU ve GPU kümeleri arasında uygun ölçekte Modellerinizi eğitmek sağlar. Azure Machine Learning tüm altyapı ve bu iş yüklerinin ölçeğini gerçekleştirmek için gereken düzenleme arka planda yönetecek karşın dağıtılmış TensorFlow eğitimi birkaç API çağrısı ile kolayca çalıştırabilirsiniz.
@@ -92,11 +107,11 @@ Parametre | Açıklama | Varsayılan
 --|--|--
 `node_count` | Eğitim işine yönelik kullanmak için düğüm sayısı. | `1`
 `process_count_per_node` | Her bir düğümde çalıştırılacak işlemleri (veya "çalışanları") sayısı.|`1`
-`distributed_backend` | Başlatmak için arka uç MPI Estimator sunan eğitim dağıtılmış. Paralel veya dağıtılmış eğitimini gerçekleştirmek istiyorsanız (örneğin `node_count`> 1 veya `process_count_per_node`> 1 veya her ikisi) MPI (ve Horovod) sahip, `distributed_backend='mpi'`. Azure Machine Learning tarafından kullanılan MPI uygulamasıdır [açık MPI](https://www.open-mpi.org/). | `None`
+`distributed_backend` | Başlatmak için arka uç MPI Estimator sunan eğitim dağıtılmış. Paralel veya dağıtılmış eğitimini gerçekleştirmek istiyorsanız (örneğin, `node_count`> 1 veya `process_count_per_node`> 1 veya her ikisi) MPI (ve Horovod) sahip, `distributed_backend='mpi'`. Azure Machine Learning tarafından kullanılan MPI uygulamasıdır [açık MPI](https://www.open-mpi.org/). | `None`
 
 Yukarıdaki örnekte, bir çalışan düğümü başına iki arkadaşlarınızla dağıtılmış eğitimi çalıştırılır.
 
-Bu eğitim betiğinizde yalnızca içeri aktarılabilmesini sağlamak Horovod ve bağımlılıklarını sizin için yüklenecek `train.py` gibi:
+Eğitim betiğinizde alabilmeniz Horovod ve bağımlılıklarını sizin için yüklenecek `train.py` gibi:
 
 ```Python
 import tensorflow as tf
@@ -150,7 +165,7 @@ TF_CONFIG='{
 }'
 ```
 
-Kullanıyorsanız, TensorFlow, üst düzey [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow ayrıştırma bu `TF_CONFIG` değişkeni ve derleme küme için özel. 
+TensorFlow'ın yüksek düzeyde kullanıyorsanız [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow ayrıştırma bu `TF_CONFIG` değişkeni ve derleme küme için özel. 
 
 Eğitim için bunun yerine TensorFlow'ın alt düzey core API kullanıyorsanız, ayrıştırma gerek `TF_CONFIG` değişkeni ve derleme `tf.train.ClusterSpec` kendiniz eğitim kodunuzda. İçinde [Bu örnek](https://aka.ms/aml-notebook-tf-ps), bu nedenle de yaptığınız **eğitim betiğinizi** gibi:
 
@@ -173,8 +188,7 @@ run = exp.submit(tf_est)
 
 ## <a name="examples"></a>Örnekler
 
-Dağıtılmış derin öğrenme dizüstü bilgisayarlar için bkz:
-* [How-to-use-azureml/Training-With-DEEP-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
+Çeşitli keşfedin [not defterleri ile ilgili Github üzerinde dağıtılmış derin öğrenme](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

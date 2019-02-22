@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 1daae81f0f642275e1ded20eb29f1e3145463db8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 73d4bfc3aaeb86568e3f7a3555a664a8815e3280
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990181"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586180"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
 Bu makalede, günlük ve ölçüm verilerini Azure İzleyici'de depolanan görselleştirmek için kullanılabilen yöntemler bir özetini sağlar.
@@ -34,7 +34,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 ### <a name="advantages"></a>Yararları
 - Azure kapsamlı tümleştirme. Görselleştirmeler, ölçüm Gezgini, log analytics ve Application Insights da dahil olmak üzere birden çok Azure sayfalarından panolara sabitlenebilir.
 - Ölçüm ve günlükleri hem destekler.
-- Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](platform/metrics-charts.md), [oturum sorguları](log-query/log-query-overview.md), ve [eşler](app/app-map.md) ve [kullanılabilirlik]() içinde Application Insights.
+- Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](platform/metrics-charts.md), [oturum sorguları](log-query/log-query-overview.md), ve [eşler](app/app-map.md) ve Application ınsights kullanılabilirlik.
 - Kişisel veya paylaşılan panolar için seçenek. Azure ile tümleşik [rol tabanlı kimlik doğrulaması (RBAC)](../role-based-access-control/overview.md).
 - Otomatik yenileme. Ölçümleri Yenile zaman aralığı en az beş dakika ile bağlıdır. Günlükleri bir dakikada yenileyin.
 - Zaman damgası ve özel parametrelerle parametreli ölçümleri panolar.

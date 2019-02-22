@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 845d47af75495a158e56312126c8e246b43f789f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e8879b67b79523cc35fb28a707a6c77f3efb75c0
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112784"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56584988"
 ---
 # <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>Bir web uygulamasını PowerShell kullanarak başka bir abonelikte bir yedekten geri yükleme
 
@@ -48,7 +48,7 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 
 | Komut | Notlar |
 |---|---|
-| [AzAccount ekleyin](/powershell/module/az.profile/add-azaccount) | Azure Resource Manager cmdlet'i istekleri için kullanılacak bir kimliği doğrulanmış hesap ekler.  |
+| [AzAccount ekleyin](/powershell/module/az.accounts/connect-azaccount) | Azure Resource Manager cmdlet'i istekleri için kullanılacak bir kimliği doğrulanmış hesap ekler.  |
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Bir web uygulamasının yedekleme listesini alır. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Bir web uygulaması oluşturur |
 | [Geri yükleme-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Bir web uygulaması önceden tamamlanmış bir yedekten geri yükler. |

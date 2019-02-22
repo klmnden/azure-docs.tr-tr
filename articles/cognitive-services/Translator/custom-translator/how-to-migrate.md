@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: b8347a8c34cf5a0585e9bb6c247102207a70015a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 11cf66d9335315048fd505b3cd9e4c73b244e95a
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225627"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586282"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Hub çalışma ve projeleri için özel Translator geçirme
 
@@ -125,7 +125,7 @@ Geçiş raporu projeleri, eğitimleri ve belgeleri hakkında daha ayrıntılı i
 ## <a name="implementation-notes"></a>Uygulama Notları
 * Bir proje hub'dan özel Translator'a geçiş Hub eğitimleri veya projeleri herhangi bir etkisi yoktur. Biz projeleri veya belgeler hub'dan bir geçiş sırasında silmeyin ve biz modelleri dağıtımını kaldırmayı değil.
 * Yalnızca proje bir kez geçirmeye izin verilir. Bir geçiş projesi üzerinde yinelemek ihtiyacınız varsa lütfen bizimle iletişime geçin.
-* Şu anda, özel Translator gelen ve İngilizce çevirme 36 dilleri destekler ve daha fazla dil eklemek için çalışıyoruz. Hub temel modelleri gerektirmez ve bu nedenle birkaç bin dilleri destekler. Ancak, yalnızca belgeleri geçirmek eder ve tanımları proje bir desteklenmeyen dili çifti geçirebilirsiniz. Biz yeni modeli eğitmek mümkün olmayacaktır. Ayrıca, bu belge ve projeleri etkin değil olarak şu anda kullanılamaz olduğunu belirtmek için görüntülenir. Bu projeler ve/veya belgeler için ek destek, etkin ve trainable olur.
+* Özel Translator NMT dil çiftleri İngilizce gelen ve giden destekler. [Desteklenen langauges tam listesini görüntüleyin](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). Hub temel modelleri gerektirmez ve bu nedenle birkaç bin dilleri destekler. Ancak, yalnızca belgeleri geçirmek eder ve tanımları proje bir desteklenmeyen dili çifti geçirebilirsiniz. Biz yeni modeli eğitmek mümkün olmayacaktır. Ayrıca, bu belge ve projeleri etkin değil olarak şu anda kullanılamaz olduğunu belirtmek için görüntülenir. Bu projeler ve/veya belgeler için ek destek, etkin ve trainable olur.
 * Özel Translator tek dilli Kinsoku'ya eğitim verilerini şu anda desteklemiyor. Desteklenmeyen dil çiftleri gibi tek dilli Kinsoku'ya belgeleri geçirebilirsiniz, ancak tek dilli Kinsoku'ya veri desteklenen kadar bunlar devre dışı olarak göster.
 * Özel Translator eğitmek için 10 k paralel cümleler gerektirir. Microsoft Hub daha küçük bir veri kümesini eğitme. Eğitim, bu gereksinimi karşılamadığından kullanılamaz geçirilirse, bu eğitim değil.
 

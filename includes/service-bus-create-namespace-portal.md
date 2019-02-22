@@ -5,16 +5,17 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b38f66670ba29022713ae39824a190fcffb688c7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d976a1c5e9366069b82cff718593ce72d7ad8a08
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238772"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588951"
 ---
+## <a name="create-a-namespace-in-the-azure-portal"></a>Azure portalında bir ad alanı oluşturma
 Azure'da Service Bus mesajlaşma varlıklarını kullanmaya başlamak için öncelikle Azure'da benzersiz olan bir ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
 
 Ad alanı oluşturmak için:
@@ -27,7 +28,7 @@ Ad alanı oluşturmak için:
     1. Girin bir **ad alanı adı**. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
     2. Ad alanı için fiyatlandırma katmanını (temel, standart veya Premium) seçin. Kullanmak istiyorsanız [konuları ve abonelikleri](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), standart veya Premium seçin. Konular/abonelikler, Temel fiyatlandırma katmanında desteklenmez.
     3. Seçtiyseniz **Premium** fiyatlandırma katmanında, şu adımları izleyin: 
-        1. Sayısını **Mesajlaşma birimleri**. Premium katmanı, her iş yükü yalıtımlı şekilde çalışır. böylece CPU ve bellek düzeyinde kaynak yalıtımına sunar. Bu kaynak kapsayıcısı Mesajlaşma birimi olarak adlandırılır. Her premium ad alanı, en az bir mesajlaşma birimi için ayrılmıştır. 1, 2 veya 4 Mesajlaşma birimi her Service Bus Premium ad alanı için seçebilirsiniz. Daha fazla bilgi için [Service Bus Premium Mesajlaşma](../articles/service-bus-messaging/service-bus-premium-messaging.md).
+        1. Sayısını **Mesajlaşma birimleri**. Premium katmanı, her iş yükü yalıtımlı şekilde çalışır. böylece CPU ve bellek düzeyinde kaynak yalıtımına sunar. Bu kaynak kapsayıcısı Mesajlaşma birimi olarak adlandırılır. Bir premium ad alanı en az bir Mesajlaşma birimi var. 1, 2 veya 4 Mesajlaşma birimi her Service Bus Premium ad alanı için seçebilirsiniz. Daha fazla bilgi için [Service Bus Premium Mesajlaşma](../articles/service-bus-messaging/service-bus-premium-messaging.md).
         2. Ad alanı yapmak isteyip istemediğinizi belirtin **bölgesel olarak yedekli**. Bölge artıklığı kullanılabilirlik bölgelerindeki ek maliyet olmadan tek bir bölgede kopyaların yayılmasını sağlayarak gelişmiş kullanılabilirlik sağlar. Daha fazla bilgi için [Azure kullanılabilirlik alanlarında](../articles/availability-zones/az-overview.md).
     4. İçin **abonelik**, ad alanı oluşturulacağı bir Azure aboneliği seçersiniz.
     5. İçin **kaynak grubu**, hangi ad alanı canlı, veya yeni bir kaynak grubu seçin.      
@@ -45,7 +46,7 @@ Ad alanı oluşturmak için:
 
     ![Service bus ad alanınız için giriş sayfası](./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png)
 
-### <a name="get-the-management-credentials"></a>Yönetim kimlik bilgilerini alma
+## <a name="get-the-connection-string"></a>Bağlantı dizesini alma 
 Yeni bir ad alanı oluşturulduğunda, her biri ad alanının tüm yönleri üzerinde tam denetim veren ilişkili bir çift birincil ve ikincil anahtara sahip bir ilk Paylaşılan Erişim İmzası (SAS) kuralı otomatik olarak oluşturulur. Bkz: [Service Bus kimlik doğrulama ve yetkilendirme](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) ile daha fazla kuralları oluşturma hakkında daha fazla bilgi için kısıtlı haklar sıradan göndericiler ve alıcılar için. Ad alanınız için birincil ve ikincil anahtarları kopyalamak için aşağıdaki adımları izleyin: 
 
 1. **Tüm kaynaklar**’a ve sonra yeni oluşturulan ad alanı adına tıklayın.

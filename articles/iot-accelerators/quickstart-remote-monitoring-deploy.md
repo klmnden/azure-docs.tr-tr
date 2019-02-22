@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 527562a1013691ae76b108031be35aa3f0d6ed54
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608366"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649280"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Hızlı Başlangıç: Bir bulut tabanlı uzaktan izleme çözümünü deneyin
 
@@ -45,7 +45,7 @@ Uzaktan İzleme çözümü hızlandırıcınız için benzersiz bir **Solution n
 Çözüm hızlandırıcısını dağıtırken kullanmak istediğiniz **Subscription** (Abonelik) ve **Region** (Bölge) seçimini yapın. Genelde size en yakın bölgeyi seçmeniz gerekir. Bu hızlı başlangıçta kullanıyoruz **Doğu ABD**.
 Seçebileceğiniz **Visual Studio Enterprise**, ancak siz bir [genel yönetici veya kullanıcı](iot-accelerators-permissions.md) Bunu yapmak için.
 
-Dağıtımınızı başlatmak için **Çözüm Oluştur**'a tıklayın. Bu işlemin çalışması en az beş dakika sürer:
+Dağıtımınıza başlamak için tıklatın **Oluştur**. Bu işlemin çalışması en az beş dakika sürer:
 
 ![Uzaktan İzleme çözümünün ayrıntıları](./media/quickstart-remote-monitoring-deploy/createform.png)
 
@@ -57,7 +57,7 @@ Azure aboneliğinize dağıtım tamamlandığında, çözüm dosyasında yeşil 
 
 ![Yeni çözümü seçme](./media/quickstart-remote-monitoring-deploy/choosenew.png)
 
-Açılan panelden Uzaktan İzleme çözümü hızlandırıcınızla ilgili bilgileri görüntüleyebilirsiniz. Uzaktan İzleme çözümü hızlandırıcısını görüntülemek için **Solution dashboard** (Çözüm panosu) öğesini seçin:
+Açılan panelden Uzaktan İzleme çözümü hızlandırıcınızla ilgili bilgileri görüntüleyebilirsiniz. Seçin **çözüm hızlandırıcınız Git** Uzaktan izleme çözüm hızlandırıcınız görüntülemek için:
 
 ![Çözüm paneli](./media/quickstart-remote-monitoring-deploy/solutionpanel.png)
 
@@ -134,6 +134,9 @@ Durum sütunundaki değer **Closed** (Kapalı) olarak değiştirilir.
 Çözüm hızlandırıcısına ihtiyacınız kalmadıysa [Sağlanan çözümler](https://www.azureiotsolutions.com/Accelerators#dashboard) sayfasında hızlandırıcıyı seçip **Çözümü Sil**’e tıklayarak bunu silebilirsiniz:
 
 ![Çözümü sil](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+
+
+![Çözümü sil](media/quickstart-remote-monitoring-deploy/deletesolution-provision.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

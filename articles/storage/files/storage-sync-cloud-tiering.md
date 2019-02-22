@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.subservice: files
-ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fe363bd6d16d7beea1c8f1e6ec17710975a80924
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470460"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652569"
 ---
 # <a name="cloud-tiering-overview"></a>Bulut katmanlama genel bakış
 Bulut katmanlaması olduğundan, sık erişilen dosyaları önbelleğe alınır yerel sunucuda tüm dosyaları Azure İlkesi ayarlarına göre dosyaları katmanlı sırasında Azure dosya eşitleme'nin isteğe bağlı bir özelliktir. Bir dosya katmanlı, Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyasını yerel olarak bir işaretçi veya yeniden ayrıştırma noktası ile değiştirir. Yeniden ayrıştırma noktası, Azure dosyaları'nda bir dosyaya bir URL temsil eder. Katmanlanmış bir dosyanın, hem "Çevrimdışı" özniteliği hem de üçüncü taraf uygulamaların katmanlı dosyaları güvenli bir şekilde belirleyebilmek NTFS FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS özniteliği vardır.
@@ -21,9 +21,12 @@ Bulut katmanlaması olduğundan, sık erişilen dosyaları önbelleğe alınır 
 Bir kullanıcı bir katmanlı dosya açıldığında, Azure dosya eşitleme kullanıcının dosyayı gerçekten Azure'da depolanan bilmenize gerek olmadan Azure dosyaları dosya verileri sorunsuz bir şekilde çeker. 
  
  > [!Important]  
-    > Önemli: Bulut katmanlaması desteklenmiyor Windows sistemi birimlerinde sunucu uç noktaları için ve yalnızca 64 KiB boyutu büyüktür dosyalara Azure dosyaları'na katmanlı.
+ > Bulut katmanlaması desteklenmiyor Windows sistemi birimlerinde sunucu uç noktaları için ve yalnızca 64 KiB boyutu büyüktür dosyalara Azure dosyaları'na katmanlı.
     
 Azure dosya eşitleme katmanlama ve tür küçük dosyaları geri çağırma performans yükü tasarruf daha ağır basar gibi 64 KiB küçük katmanlama dosyalarını desteklemez.
+
+ > [!Important]  
+ > Katmanlı dosyaları geri çekmek için ağ bant genişliğini en az 1 MB/sn olmalıdır. Ağ bant genişliği 1'den az MB/sn, dosyaları bir zaman aşımı hatası ile geri çağırma başarısız olabilir.
 
 ## <a name="cloud-tiering-faq"></a>Bulut Katmanlaması SSS
 

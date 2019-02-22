@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: c83342e5eb0e6c1f45daa54ea3c4f3c602ff7a39
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7d5bfba10fe68c4d29a66fe39a386aec975b978f
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878621"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651541"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -29,10 +29,11 @@ Modelleri için aşağıdaki işlem hedeflerine dağıtabilirsiniz:
 
 | Hedef işlem | Dağıtım türü | Açıklama |
 | ----- | ----- | ----- |
-| [Azure Container Instances (ACI)](#aci) | Web hizmeti | Hızlı Dağıtım. Geliştirme veya test için iyidir. |
-| [Azure Kubernetes Service'i (AKS)](#aks) | Web hizmeti | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
-| [Azure IoT Edge](#iotedge) | IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |
-| [Alanda programlanabilir kapı dizileri (FPGA)](#fpga) | Web hizmeti | Gerçek zamanlı çıkarım için son derece düşük gecikme süresi. |
+| [Azure Kubernetes Service'i (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
+| [Azure ML işlemi](#amlcompute) | Batch çıkarımı | Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli Vm'lere destekler. |
+| [Azure Container Instances (ACI)](#aci) | Test Etme | Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
+| [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |
+| [Alanda programlanabilir kapı dizileri (FPGA)](#fpga) | (Önizleme) Web hizmeti | Gerçek zamanlı çıkarım için son derece düşük gecikme süresi. |
 
 Tüm işlem hedeflerine yönelik bir model dağıtma işlemini benzer:
 
@@ -225,7 +226,7 @@ Dağıtıma aldığınızda, dağıttığınız işlem hedef bağlı olarak bira
 >
 > Bu örneklerde belge kullanım `deploy_from_image`.
 
-### <a id="aci"></a> Azure Container Instances'a dağıtma
+### <a id="aci"></a> Azure Container Instances'a (DEVTEST) dağıtma
 
 Bir web hizmeti bir veya daha aşağıdaki koşullardan biri Modellerinizi dağıtmak için Azure Container Instances kullanmak doğrudur:
 
@@ -246,7 +247,7 @@ Azure Container Instances'a dağıtmak için aşağıdaki adımları kullanın:
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) ve [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) sınıfları.
 
-### <a id="aks"></a> Azure Kubernetes hizmetine dağıtın
+### <a id="aks"></a> Azure Kubernetes Service'e (üretim) dağıtma
 
 Modelinizi ölçekli üretim web hizmeti olarak dağıtmak için Azure Kubernetes Service (AKS) kullanın. Mevcut bir AKS kümesi kullanmak veya Azure Machine Learning SDK'sı, CLI veya Azure portalını kullanarak yeni bir tane oluşturun.
 
@@ -332,6 +333,13 @@ print(service.state)
 **Tahmini Süre**: Yaklaşık 3 dakika.
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) ve [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) sınıfları.
+
+### <a id="fpga"></a> Azure ML işlem ile çıkarımı
+
+Azure ML bilgisayar hedefine oluşturulur ve Azure Machine Learning hizmeti tarafından yönetilir. Azure ML işlem hatları gelen toplu tahmin için kullanılabilir.
+
+Bir Azure ML işlem ile batch çıkarım kılavuzu için okuma [Batch Öngörüler çalıştırma nasıl](how-to-run-batch-predictions.md) belge.
+
 
 ### <a id="fpga"></a> Alanda programlanabilir kapı dizileri (FPGA) dağıtma
 

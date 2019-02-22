@@ -11,26 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b768f6e240c354369246a6d978ed3e8dd2f58f92
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ebced83346a7b130598e4a5f49a72d51ffd18e4f
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338147"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56584905"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Azure CLI kullanarak Azure kaynakları için özel roller oluşturma
 
 Varsa [Azure kaynakları için yerleşik roller](built-in-roles.md) kuruluşunuzun belirli gereksinimlerine uymayan, kendi özel rollerinizi oluşturabilirsiniz. Bu makalede, Azure CLI kullanarak özel roller oluşturmak ve yönetmek açıklar.
+
+Özel rol oluşturma hakkında adım adım bir öğretici için bkz: [Öğreticisi: Azure CLI kullanarak Azure kaynakları için özel bir rol oluşturun](tutorial-custom-role-cli.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Özel roller oluşturmanızı da ihtiyacınız vardır:
 
 - [Sahip](built-in-roles.md#owner) veya [Kullanıcı Erişimi Yöneticisi](built-in-roles.md#user-access-administrator) gibi özel rol oluşturma izni
-- Yerel ortama yüklenmiş [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure Cloud Shell'i](../cloud-shell/overview.md) veya [Azure CLI](/cli/azure/install-azure-cli)
 
 ## <a name="list-custom-roles"></a>Özel rolleri listeleme
 
@@ -61,6 +63,78 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 ...
 ```
 
+## <a name="list-a-custom-role-definition"></a>Özel rol tanımını listeleme
+
+Özel bir rol tanımı listelemek için kullanın [az role definition listesini](/cli/azure/role/definition#az-role-definition-list). Yerleşik bir rol için kullanacağınız aynı komut budur.
+
+```azurecli
+az role definition list --name <role_name>
+```
+
+Aşağıdaki örnek listeler *sanal makine işleci* rol tanımı:
+
+```azurecli
+az role definition list --name "Virtual Machine Operator"
+```
+
+```Output
+[
+  {
+    "assignableScopes": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111"
+    ],
+    "description": "Can monitor and restart virtual machines.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000",
+    "name": "00000000-0000-0000-0000-000000000000",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Storage/*/read",
+          "Microsoft.Network/*/read",
+          "Microsoft.Compute/*/read",
+          "Microsoft.Compute/virtualMachines/start/action",
+          "Microsoft.Compute/virtualMachines/restart/action",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.ResourceHealth/availabilityStatuses/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Insights/diagnosticSettings/*",
+          "Microsoft.Support/*"
+        ],
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Virtual Machine Operator",
+    "roleType": "CustomRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
+
+Aşağıdaki örnek yalnızca eylemleri listeler *sanal makine işleci* rolü:
+
+```azurecli
+az role definition list --name "Virtual Machine Operator" --output json | jq '.[] | .permissions[0].actions'
+```
+
+```Output
+[
+  "Microsoft.Storage/*/read",
+  "Microsoft.Network/*/read",
+  "Microsoft.Compute/*/read",
+  "Microsoft.Compute/virtualMachines/start/action",
+  "Microsoft.Compute/virtualMachines/restart/action",
+  "Microsoft.Authorization/*/read",
+  "Microsoft.ResourceHealth/availabilityStatuses/read",
+  "Microsoft.Resources/subscriptions/resourceGroups/read",
+  "Microsoft.Insights/alertRules/*",
+  "Microsoft.Insights/diagnosticSettings/*",
+  "Microsoft.Support/*"
+]
+```
+
 ## <a name="create-a-custom-role"></a>Özel rol oluşturma
 
 Özel bir rol oluşturmak için kullanın [az rol tanımını oluşturma](/cli/azure/role/definition#az-role-definition-create). Rol tanımı JSON açıklamasını ya da bir JSON tanımı içeren dosyanın yolu olabilir.
@@ -85,6 +159,7 @@ vmoperator.json
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Support/*"
@@ -127,6 +202,7 @@ vmoperator.json
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Insights/diagnosticSettings/*",

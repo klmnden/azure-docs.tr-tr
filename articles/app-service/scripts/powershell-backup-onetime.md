@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 13d985b95d971ea28ec5345dbb86df7a3271b716
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f1f08ca8517d01a6d72f1f8a18514ea3f851ff14
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115190"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587914"
 ---
 # <a name="back-up-a-web-app-using-powershell"></a>PowerShell kullanarak bir web uygulamasını yedekleme
 
@@ -50,8 +50,8 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [Yeni AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Bir Depolama hesabı oluşturur. |
-| [New-AzStorageContainer](/powershell/module/azure.storage/new-AzStoragecontainer) | Bir Azure depolama kapsayıcısı oluşturur. |
-| [Yeni AzStorageContainerSASToken](/powershell/module/azure.storage/new-AzStoragecontainersastoken) | Azure depolama kapsayıcısı için bir SAS belirteci oluşturur.  |
+| [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer) | Bir Azure depolama kapsayıcısı oluşturur. |
+| [Yeni AzStorageContainerSASToken](/powershell/module/az.storage/new-AzStoragecontainersastoken) | Azure depolama kapsayıcısı için bir SAS belirteci oluşturur.  |
 | [Yeni AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service planı oluşturur. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Bir web uygulaması oluşturur. |
 | [Yeni AzWebAppBackup](/powershell/module/az.websites/new-azwebappbackup) | Bir web uygulaması için yedek oluşturur. |

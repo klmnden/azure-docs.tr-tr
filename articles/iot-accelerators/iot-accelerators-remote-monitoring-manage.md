@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 869f6d2391632c77e01e4383c1457f88b9171c8b
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448083"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651201"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Öğretici: İzleme çözümünüze bağlı cihazları yapılandırma
 
@@ -36,7 +36,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="add-a-simulated-device"></a>Sanal cihaz ekleme
 
-Çözümün **Devices** (Cihazlar) sayfasına gidin ve **+ New device** (Yeni cihaz) öğesine tıklayın:
+Gidin **Device Explorer** sayfasında çözümde ve ardından **+ yeni cihaz**:
 
 [![Sanal cihaz sağlama](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
 
@@ -46,7 +46,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="test-the-simulated-device"></a>Sanal cihazı test etme
 
-Sanal motor cihazınızın telemetri ve raporlama özellik değeri değerleri gönderip göndermediğini test etmek için **Devices** (Cihazlar) sayfasındaki cihaz listesinden seçin. Motorunuzla ilgili canlı bilgiler **Device Details** (Cihaz Ayrıntıları) panelinde görüntülenir:
+Benzetimli altyapınız test etmek için cihaz telemetrisi ve özellik değerleri, raporlama seçin, cihaz listesinde üzerinde gönderiyor **Device Explorer** sayfası. Motorunuzla ilgili canlı bilgiler **Device Details** (Cihaz Ayrıntıları) panelinde görüntülenir:
 
 [![Yeni sanal motor cihazını görüntüleme](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
@@ -60,7 +60,7 @@ Ayrıntılı tanılama bilgilerini görüntülemek için **Device Details** (Cih
 
 ## <a name="reconfigure-a-device"></a>Cihazı yeniden yapılandırma
 
-Motorun yapılandırma özelliklerini güncelleştirip güncelleştiremeyeceğinizi test etmek için cihazı **Devices** (Cihazlar) sayfasındaki listeden seçin. Ardından **işleri**ve ardından **özellikleri**. İşler panelinde seçilen cihaz için güncelleştirilebilecek özellik değerleri gösterilir:
+Sınama altyapının yapılandırma özellikleri güncelleştirmek için cihaz listesinde üzerinde seçin **Device Explorer** sayfası. Ardından **işleri**ve ardından **özellikleri**. İşler panelinde seçilen cihaz için güncelleştirilebilecek özellik değerleri gösterilir:
 
 [![Cihazı yeniden yapılandırma](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
@@ -83,7 +83,7 @@ Operatör olarak cihazlarınızı düzenlemeyi ve yönetmeyi kolaylaştırmak i�
 * Smart Vehicle takımı tırları ve prototip cihazlarını yönetmektedir.
 * Smart Building takımı ise soğutucuları, asansörleri ve motorları yönetmektedir.
 
-Tüm cihazlarınızı görüntülemek için **Devices** (Cihazlar) sayfasına gidin ve **All devices** (Tüm cihazlar) filtresini seçin:
+Tüm cihazlarınızı görüntülemek için gidin **Device Explorer** sayfasında ve **tüm cihazlar** Filtresi:
 
 [![Tüm cihazları göster](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-expanded.png#lightbox)
 
@@ -103,7 +103,7 @@ Cihaz sayfasında tüm **Chiller** (Soğutucu), **Elevator** (Asansör) ve **Eng
 
 ### <a name="create-filters"></a>Filtre oluşturma
 
-Artık bu etiket değerlerini kullanarak filtre oluşturabilirsiniz. **Devices** (Cihazlar) sayfasında **Manage device groups** (Cihaz gruplarını yönet) öğesine tıklayın:
+Artık bu etiket değerlerini kullanarak filtre oluşturabilirsiniz. Üzerinde **Device Explorer** sayfasında **cihaz gruplarını yönetme**:
 
 [![Cihaz gruplarını yönetme](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
 

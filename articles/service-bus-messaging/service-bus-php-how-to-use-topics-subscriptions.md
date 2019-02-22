@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: aschhab
-ms.openlocfilehash: a8d9ea841aee21531ccb0379fbbc9b10ccf25303
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6ad3b758e0b2a0659308827f387b6e0ee667064e
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727322"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586046"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>PHP ile Service Bus konu başlıklarını ve aboneliklerini kullanma
 
@@ -28,6 +28,8 @@ ms.locfileid: "55727322"
 Bu makalede hizmet veri yolu konuları ve abonelikleri kullanmayı gösterir. PHP ve kullanım örnekleri yazılır [PHP için Azure SDK'sı](../php-download-sdk.md). Senaryoları ele alınmaktadır **konuları ve abonelikleri oluşturma**, **abonelik filtreleri oluşturma**, **konu başlığına ileti gönderme**, **alma bir Abonelikteki iletileri**, ve **konuları ve abonelikleri silmeyi**.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-php-application"></a>PHP uygulaması oluşturma
 Azure Blob hizmete erişen bir PHP uygulaması oluşturmak için sınıflar başvurmak için tek gereksinim olmasıdır [PHP için Azure SDK'sı](../php-download-sdk.md) gelen kod içinde. Herhangi bir geliştirme aracı, uygulama veya not defteri oluşturmak için kullanabilirsiniz.

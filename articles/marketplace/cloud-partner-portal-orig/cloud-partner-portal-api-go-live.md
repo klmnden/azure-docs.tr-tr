@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7d643f0c7885e64636a107d22ce332b1ba9371c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811299"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594687"
 ---
 <a name="go-live"></a>Canlı Yayına Geç
 =======
@@ -33,8 +33,8 @@ Bu API, bir uygulamayı üretime göndermeden işlemi başlatır. Bu işlem gene
 
 |  **Ad**      |   **Açıklama**                                                           | **Veri türü** |
 |  --------      |   ---------------                                                           | ------------- |
-| Publisherıd    | Örneğin, almak teklif için yayımcı tanımlayıcısı `contoso`       |  Dize       |
-| OfferId        | Teklif almak için teklif tanımlayıcısı                                   |  Dize       |
+| publisherId    | Örneğin, almak teklif için yayımcı tanımlayıcısı `contoso`       |  String       |
+| OfferId        | Teklif almak için teklif tanımlayıcısı                                   |  String       |
 | API sürümü    | API'nin en son sürümü                                                   |  Tarih         |
 |  |  |  |
 
@@ -67,7 +67,7 @@ Bu API, bir uygulamayı üretime göndermeden işlemi başlatır. Bu işlem gene
 
 ### <a name="response-status-codes"></a>Yanıt durum kodları
 
-| **Kod** |  ** Açıklaması **                                                                        |
+| **Kod** |  **Açıklama**                                                                        |
 | -------- |  ----------------                                                                        |
 |  202     | `Accepted` -İstek başarıyla kabul edildi. İşlem durumunu izlemek için bir konum yanıtı içerir. |
 |  400     | `Bad/Malformed request` -Ek hata bilgileri, yanıt gövdesi içinde bulunur. |

@@ -9,31 +9,41 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: d621afd682e6040179777f4cd6d991ff31acb5a3
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 1c2ec576211741390ef91233101261a7881e4180
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445500"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652221"
 ---
 # <a name="transforms-and-jobs"></a>Dönüşümler ve İşler
- 
-Kullanım [dönüştüren](https://docs.microsoft.com/rest/api/media/transforms) kodlama veya videoları analiz için ortak görevler yapılandırmak için. Her **dönüştürme** bir tarif veya bir iş akışı, video veya ses dosyalarını işlemek için görevler açıklanmaktadır. Tek bir dönüştürme, birden fazla kural uygulayabilirsiniz. Örneğin, bir dönüştürme belirli bir bit hızı anda bir MP4 dosyasına her video kodlanmış ve bir küçük resim videonun ilk çerçevesinden oluşturulmasını belirtebilirsiniz. Dönüştürme, dahil etmek istediğiniz her bir kural için bir TransformOutput girdi eklersiniz. Media Services v3 API veya herhangi bir yayımlanan SDK'ları kullanarak Media Services hesabınızı dönüştürmeler oluşturabilirsiniz. Media Services hesabınızı oluşturmak ve dağıtmak için Resource Manager şablonları kullanabilmeniz için API Azure Resource Manager tarafından yönetilen Media Services v3 dönüştürür. Rol tabanlı erişim denetimi, dönüşümler erişimi kilitlemek için kullanılabilir.
 
-Güncelleştirme işlemi [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms) varlık açıklaması veya temel alınan TransformOutputs önceliklerini değişiklikler için tasarlanmıştır. Tüm devam eden işleri tamamladığınızda bu güncelleştirmeler yapılması önerilir. Tarif yeniden düşünüyorsanız, yeni bir dönüştürme oluşturmanız gerekir.
-
-A [iş](https://docs.microsoft.com/rest/api/media/jobs) uygulamak için Azure Media Services için fiili istek **dönüştürme** belirli bir giriş video veya ses içeriği için. Dönüştürme oluşturulduktan sonra Media Services API'leri ve yayımlanan SDK'ları hiçbirini kullanarak işleri gönderebilirsiniz. **İş** konumun video giriş ve çıkış konumunu gibi bilgileri belirtir. Giriş video kullanarak konumu belirtebilirsiniz: HTTPS URL'leri, SAS URL'lerini veya [varlıklar](https://docs.microsoft.com/rest/api/media/assets). İşlerin durumunu ve ilerleme durumunu izleme olayları Event Grid ile tarafından alınabilir. Daha fazla bilgi için [EventGrid kullanarak olayları izleme](job-state-events-cli-how-to.md).
-
-Güncelleştirme işlemi [iş](https://docs.microsoft.com/rest/api/media/jobs) varlığı değiştirmek için kullanılabilir *açıklama*ve *öncelik* iş gönderildikten sonra özellikleri. Bir değişiklik *öncelik* özelliği yalnızca proje yine de kuyruğa alınmış bir durumda ise etkin. İş işleme başladı ya da sona önceliğini değiştirme etkisi yoktur.
-
-Dönüşümler/işleri iş akışı aşağıdaki diyagramda gösterilmiştir.
+Bu konu hakkında ayrıntılar sağlar. [dönüştüren](https://docs.microsoft.com/rest/api/media/transforms) ve [işleri](https://docs.microsoft.com/rest/api/media/jobs) ve bu varlıkları arasındaki ilişkiyi açıklar. Dönüşümler/işleri iş akışı aşağıdaki diyagramda gösterilmiştir.
 
 ![Dönüştürmeler](./media/encoding/transforms-jobs.png)
 
 > [!NOTE]
 > Özelliklerini **dönüştürme** ve **iş** DateTime türü her zaman UTC biçiminde olan.
+
+## <a name="transforms"></a>Dönüştürmeler
+
+Kullanım **dönüştüren** kodlama veya videoları analiz için ortak görevler yapılandırmak için. Her **dönüştürme** bir tarif veya bir iş akışı, video veya ses dosyalarını işlemek için görevler açıklanmaktadır. Tek bir dönüştürme, birden fazla kural uygulayabilirsiniz. Örneğin, bir dönüştürme belirli bir bit hızı anda bir MP4 dosyasına her video kodlanmış ve bir küçük resim videonun ilk çerçevesinden oluşturulmasını belirtebilirsiniz. Dönüştürme, dahil etmek istediğiniz her bir kural için bir TransformOutput girdi eklersiniz. Media Services v3 API veya herhangi bir yayımlanan SDK'ları kullanarak Media Services hesabınızı dönüştürmeler oluşturabilirsiniz. Media Services hesabınızı oluşturmak ve dağıtmak için Resource Manager şablonları kullanabilmeniz için API Azure Resource Manager tarafından yönetilen Media Services v3 dönüştürür. Rol tabanlı erişim denetimi, dönüşümler erişimi kilitlemek için kullanılabilir.
+
+Güncelleştirme işlemi [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms) varlık açıklaması veya temel alınan TransformOutputs önceliklerini değişiklikler için tasarlanmıştır. Tüm devam eden işleri tamamladığınızda bu güncelleştirmeler yapılması önerilir. Tarif yeniden düşünüyorsanız, yeni bir dönüştürme oluşturmanız gerekir.
+
+## <a name="jobs"></a>İşler
+
+A **iş** uygulamak için Azure Media Services için fiili istek **dönüştürme** belirli bir giriş video veya ses içeriği için. Dönüştürme oluşturulduktan sonra Media Services API'leri ve yayımlanan SDK'ları hiçbirini kullanarak işleri gönderebilirsiniz. **İş** konumun video giriş ve çıkış konumunu gibi bilgileri belirtir. Giriş video kullanarak konumu belirtebilirsiniz: HTTPS URL'leri, SAS URL'lerini veya [varlıklar](https://docs.microsoft.com/rest/api/media/assets).  
+
+Kullanım [iş HTTPS girişten](job-input-from-http-how-to.md) içeriğinizi zaten bir URL ile erişilebilir olması ve kaynak dosyasını Azure'a depolamak gerekmez (örneğin, S3'ten içeri aktarın). Bu yöntem Ayrıca, Azure Blob Depolama alanında içeriği varsa, ancak herhangi bir varlığı dosya gerek uygundur. Şu anda, bu yöntem yalnızca giriş için tek bir dosyayı destekler.
+ 
+Kullanım [iş giriş varlığı](job-input-from-local-file-how-to.md) giriş içeriği zaten bir varlığı veya içeriği yerel dosyasında depolanır. Akış veya (örneğin, mp4 indirmek için yayımlama ancak de konuşma metin veya yüz algılama yapmak istediğiniz istediğiniz) indirme için giriş varlığı yayımlamayı düşünüyorsanız bu da iyi bir seçenektir. Bu yöntem, çok dosyalı varlıklar (örneğin, yerel olarak kodlanmış kümeleri akış MBR) destekler.
+ 
+İşlerin durumunu ve ilerleme durumunu izleme olayları Event Grid ile tarafından alınabilir. Daha fazla bilgi için [EventGrid kullanarak olayları izleme](job-state-events-cli-how-to.md).
+
+Güncelleştirme işlemi [iş](https://docs.microsoft.com/rest/api/media/jobs) varlığı değiştirmek için kullanılabilir *açıklama*ve *öncelik* iş gönderildikten sonra özellikleri. Bir değişiklik *öncelik* özelliği yalnızca proje yine de kuyruğa alınmış bir durumda ise etkin. İş işleme başladı ya da sona önceliğini değiştirme etkisi yoktur.
 
 ## <a name="typical-workflow"></a>Tipik iş akışı
 

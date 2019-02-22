@@ -1,41 +1,45 @@
 ---
-title: Hızlı Başlangıç oluşturmak ve Windows için Azure dosya paylaşımını kullanma | Microsoft Docs
-description: Bu hızlı başlangıçta, oluşturmak ve Windows için Azure dosya paylaşımını kullanmak için kullanın.
+title: Azure hızlı başlangıç - oluşturma ve Windows Vm'lerinde Azure dosyaları paylaşımına kullanma | Microsoft Docs
+description: Bu hızlı başlangıçta, Azure portalında bir Azure dosya paylaşımı kurulumu ve bir Windows sanal makineye bağlanın. Dosya paylaşımına bağlanma, dosyaları paylaşıma bir dosya yükleyecek. Dosya Paylaşımı anlık, Dosya paylaşımındaki dosya değiştirme sonra dosya paylaşımının önceki bir anlık görüntüye geri yükleyin.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 141a8c9d63d3f0fd615ec0648b15c669f28f7118
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.author: rogarana
+ms.subservice: files
+ms.openlocfilehash: 12dea044dab2aafad1d7597214d159011b5ab536
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664004"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652476"
 ---
-# <a name="quickstart-create-and-use-an-azure-file-share-for-windows"></a>Hızlı Başlangıç: Oluşturma ve Windows için Azure dosya paylaşımını kullanma
-Makale oluşturma ve bir Azure dosya paylaşımı kullanarak temel adımları gösterir. Bu hızlı başlangıçta, Vurgu hizmetinin nasıl çalıştığı deneyimi için hızla bir Azure dosya paylaşımı üzerinde ayardır. Daha ayrıntılı yönergelere ihtiyacınız varsa, oluşturma ve Azure'ı kullanmak için kendi ortamınızda dosya paylaşımları, bkz: [Windows ile Azure dosya paylaşımını kullanma](storage-how-to-use-files-windows.md).
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Hızlı Başlangıç: Oluşturma ve Azure dosya paylaşımı ile Windows sanal makineleri yönetme
+
+Bu makalede, Azure dosyaları oluşturma ve kullanma için temel adımlar paylaşmak gösterilmektedir. Karşılaşabileceğiniz bu hızlı başlangıçta, Vurgu hızla bir Azure dosya paylaşımı ayarlama hizmetinin nasıl çalıştığı olduğundan. Daha ayrıntılı yönergelere ihtiyacınız varsa, oluşturma ve Azure'ı kullanmak için kendi ortamınızda dosya paylaşımları, bkz: [Windows ile Azure dosya paylaşımını kullanma](storage-how-to-use-files-windows.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+
 [Azure Portal](https://portal.azure.com) oturum açın.
 
 ## <a name="prepare-your-environment"></a>Ortamınızı hazırlama
-Bir Azure dosya paylaşımı oluşturmadan önce aşağıdaki öğeler bu hızlı başlangıç için ayarlamanız gerekir:
+
+Bu hızlı başlangıçta, aşağıdaki öğeleri ayarlayın:
 
 - Bir Azure depolama hesabı ve bir Azure dosya paylaşımı
 - Bir Windows Server 2016 Datacenter VM
 
 ### <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Bir Azure dosya paylaşımı ile çalışabilmek için bir Azure depolama hesabı oluşturmak zorunda. Depolama hesabı, Azure dosya paylaşımını veya bloblar veya sorgular gibi diğer depolama kaynaklarını dağıtabileceğiniz, paylaşılan bir depolama havuzudur. Bir depolama hesabında sınırsız sayıda paylaşım olabilir. Bir paylaşım, depolama hesabının kapasite limitlerine kadar sınırsız sayıda dosyayı depolayabilir.
+Bir Azure dosya paylaşımı ile çalışabilmek için bir Azure depolama hesabı oluşturmak zorunda. Genel amaçlı v2 depolama hesabı tüm Azure depolama hizmetlerine erişim sağlar: blobları, dosyalar, kuyruklar ve tablolar. Bu hızlı başlangıçta bir genel amaçlı v2 depolama hesabı oluşturur ancak herhangi bir türde depolama hesabı oluşturmak için adımları da buradakilere benzer. Bir depolama hesabında sınırsız sayıda paylaşım olabilir. Bir paylaşım, depolama hesabının kapasite limitlerine kadar sınırsız sayıda dosyayı depolayabilir.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ### <a name="create-an-azure-file-share"></a>Azure dosya paylaşımı oluşturma
+
 Sonra, bir dosya paylaşımı oluşturacaksınız.
 
 1. Azure depolama hesabı dağıtımı tamamlandığında seçin **kaynağa Git**.
@@ -58,6 +62,7 @@ Sonra, bir dosya paylaşımı oluşturacaksınız.
 Şu ana kadar azure'da da bir dosya ile bir Azure depolama hesabına ve dosya paylaşımı oluşturdunuz. Ardından bu hızlı başlangıçta şirket içi sunucusunu temsil edecek Windows Server 2016 Datacenter ile Azure VM oluşturmayı öğreneceksiniz.
 
 ### <a name="deploy-a-vm"></a>VM'yi dağıtma
+
 1. Ardından, portalın sol tarafındaki menüyü genişletin ve Azure portalın sol üst köşesindeki **Kaynak oluştur**’u seçin.
 1. **Azure Market** kaynaklarının listesi üzerindeki arama kutusunda, **Windows Server 2016 Datacenter**’ı arayıp seçin, ardından **Oluştur**’u seçin.
 1. İçinde **Temelleri** sekmesindeki **proje ayrıntıları**, bu hızlı başlangıç için oluşturduğunuz kaynak grubunu seçin.
@@ -112,6 +117,7 @@ Bu noktada yeni bir sanal makine oluşturdunuz ve bir veri diskini kullanıma a�
       ![Azure Dosyaları Bağlan bölmesinden UNC adı](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
 ## <a name="create-a-share-snapshot"></a>Paylaşım anlık görüntüsü oluşturma
+
 Sürücü eşleştirdik, bir anlık görüntüsü oluşturabilirsiniz.
 
 1. Portalda, uygulamanızın dosya paylaşımına gidin ve seçin **oluşturma anlık görüntüsü**.
@@ -132,7 +138,7 @@ Sürücü eşleştirdik, bir anlık görüntüsü oluşturabilirsiniz.
 
 ## <a name="restore-from-a-snapshot"></a>Anlık görüntüden geri yükleme
 
-1. Portaldan seçin *qsTestFile* > seçin **geri** düğmesi.
+1. Dosya Paylaşımı anlık görüntüsü dikey penceresinden sağ *qsTestFile*seçip **geri** düğmesi.
 1. Seçin **özgün dosyanın üzerine yaz**.
 
    ![Yükleme ve geri düğmeleri](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
@@ -147,6 +153,7 @@ Sürücü eşleştirdik, bir anlık görüntüsü oluşturabilirsiniz.
    ![Sil düğmesi](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>Windows paylaşım anlık görüntüsünü kullanın
+
 Olduğu gibi şirket içi VSS anlık görüntüler sayesinde, anlık görüntüleri bağlanan Azure dosya paylaşımınızı önceki sürümler sekmesini kullanarak görüntüleyebilirsiniz.
 
 1. Dosya Gezgini'nde, bağlı paylaşım bulun.

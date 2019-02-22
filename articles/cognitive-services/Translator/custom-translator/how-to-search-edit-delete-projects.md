@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 922f64f3e9588b3bfcfeedf7602df781c8ee6172
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f91ac8e8a6a71f2a5eb5c686aa5bc5b83be36545
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226613"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586619"
 ---
 # <a name="search-edit-and-delete-projects"></a>Arama, düzenleme ve projeleri sil
 
@@ -39,7 +39,7 @@ Filtre aracı tarafından farklı bir filtre koşulları projeleri aramanıza ol
 
 ## <a name="edit-a-project"></a>Bir projeyi Düzenle
 
-Özel Translator adını ve bir proje açıklamasını düzenlemek için olanak tanır. Kategori, kaynak, hedef dil gibi diğer proje meta verilerini düzenleme için uygun değildir. Aşağıdaki adımlar, bir projeyi Düzenle açıklanmaktadır.
+Özel Translator ad ve açıklama projenin düzenleme olanağı sağlar. Kategori, kaynak dili ve hedef dil için kullanılabilir değil gibi diğer proje meta verileri düzenleyin. Aşağıdaki adımlar, bir projeyi düzenleme açıklanmaktadır.
 
 1.  Bir proje üzerinde geldiğinizde görüntülenen kalem simgesine tıklayın.
 

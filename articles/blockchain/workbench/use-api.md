@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/14/2018
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c1a9b526f08f330d62c30dd1d676e95460aee6c2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: eb4b87a008b9e43de7e7a5f7895449303f1e44a6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712356"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593990"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Azure Blockchain Workbench REST API'sini kullanma
 
@@ -210,8 +210,8 @@ Content-type: application/json
 
 Bir kullanıcı bir sözleşme yakından karar sonra blok zinciri istemci durumu sözleşmenin mevcut kullanıcı eylemleri ardından gösterebilirsiniz. Bu örnekte, kullanıcı oluşturduğu yeni akıllı anlaşmanın tüm kullanılabilir eylemlerine bakıyor:
 
-* Modify: Kullanıcının, bir varlığın açıklamasını ve fiyatını değiştirmesine olanak tanır.
-* Sonlandırma: Varlık sözleşme bitiş izin verir.
+* Değiştirin: Açıklama ve fiyat bir varlığın değiştirme izin verir.
+* Sonlandırma: Kullanıcının varlık sözleşme bitiş izin verir.
 
 [Contract Action GET API'sini](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget) kullanın:
 
@@ -277,7 +277,7 @@ Content-type: application/json
 
 Ardından kullanıcı belirtilen akıllı anlaşma örneği için bir eylem gerçekleştirmeye karar verebilir. Bu durumda, bir kullanıcı burada açıklaması ve fiyatı şu eylemi için bir varlık, değiştirmek istediğiniz senaryoyu düşünün:
 
-* Açıklama: "My updated car"
+* Açıklama: "Benim güncelleştirilmiş araba"
 * Fiyat: 54321
 
 [Contract Action POST API'sini](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) kullanın:

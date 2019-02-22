@@ -8,14 +8,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2017
 ms.author: rimman
-ms.openlocfilehash: 36e07fa7d0dadd93f44e1e1ebd13d171fbd6e2a9
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2fcd5f9e68d7f8bfa15cd596407c78af7fc8976b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033749"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587268"
 ---
-# <a name="build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>MongoDB ve Java SDK'sı için Azure Cosmos DB'nin API'sini kullanarak bir web uygulaması derleme
+# <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>Hızlı Başlangıç: MongoDB ve Java SDK'sı için Azure Cosmos DB'nin API'sini kullanarak bir web uygulaması derleme
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

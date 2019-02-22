@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 535dd04efd9f150365b24ae175ee90fbb247305f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 28b15e950aa4ebbfcb1b04bfd495b3accf13528e
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846685"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586911"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus konuları ile çalışmaya başlama
 
@@ -41,40 +41,11 @@ Bu öğreticide aşağıdaki adımlar yer almaktadır:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure portalı kullanılarak ad alanı oluşturma
-
-> [!NOTE] 
-> Dilerseniz [PowerShell](/powershell/azure/get-started-azureps) kullanarak Service Bus ad alanı ve mesajlaşma varlıkları da oluşturabilirsiniz. Daha fazla bilgi için bkz. [Service Bus kaynaklarını yönetmek için PowerShell’i kullanma](service-bus-manage-with-ps.md).
-
-Daha önce bir Service Bus Mesajlaşma ad alanı oluşturduysanız [Azure portalını kullanarak konu oluşturma](#2-create-a-topic-using-the-azure-portal) bölümüne atlayın.
-
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Azure portalını kullanarak konu oluşturma
+[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
 
-1. [Azure portalında][azure-portal] oturum açın.
-2. Portalın sol tarafındaki gezinme bölmesinde **Service Bus**'a tıklayın (**Service Bus** yoksa **Tüm hizmetler**'e veya **Tüm kaynaklar**'a tıklayın). Konuyu oluşturmak istediğiniz ad alanına tıklayın. 
-3. Ad alanına genel bakış penceresi görünür. **Konular**’a tıklayın:
-   
-    ![Konu başlığı oluşturma][createtopic1]
-4. **Konu ekle**’ye tıklayın.
-   
-    ![Konu Seçme][createtopic2]
-5. Konu için bir ad girin. Diğer seçenekleri varsayılan değerlerinde bırakın.
-   
-    ![Yeni Seçme][createtopic3]
-6. İletişim kutusunun altında yer alan **Oluştur**’a tıklayın.
-
-## <a name="3-create-a-subscription-to-the-topic"></a>3. Konuya abonelik oluşturma
-
-1. Portal kaynakları bölmesinde, 1. adımda oluşturduğunuz ad alanına, **Konular**’a ve ardından 2. adımda oluşturduğunuz konu adına tıklayın.
-2. Genel bakış bölmesinin üst kısmında **Abonelik** seçeneğinin yanındaki + işaretine tıklayarak bu konuya bir abonelik ekleyin.
-
-    ![Abonelik oluşturma][createtopic4]
-
-3. Abonelik için bir ad girin. Diğer seçenekleri varsayılan değerlerinde bırakın.
-
-## <a name="4-send-messages-to-the-topic"></a>4. Konuya ileti gönderme
+## <a name="send-messages-to-the-topic"></a>Konuya ileti gönderme
 
 Konuya ileti göndermek için Visual Studio kullanılarak bir C# konsol uygulaması yazın.
 
@@ -231,7 +202,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol Uygulaması (.NET Core)** proje
    
       ![İleti boyutu][topic-message]
 
-## <a name="5-receive-messages-from-the-subscription"></a>5. Abonelikten ileti alma
+## <a name="receive-messages-from-the-subscription"></a>Abonelikten ileti alma
 
 Gönderdiğiniz iletileri almak için farklı bir .NET Core konsol uygulaması oluşturun ve önceki gönderen uygulamaya benzer şekilde, **Microsoft.Azure.ServiceBus** NuGet paketine başvuru ekleyin.
 

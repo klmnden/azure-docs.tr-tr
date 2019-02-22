@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca7a1913e94242af46e777be308ef92fc5a5abb3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a63155e65460f9e2193c121bb49849940104eff1
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427075"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649247"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Otomasyonu durum yapılandırmasına genel bakış
 
@@ -41,9 +41,41 @@ Azure portaldan veya powershell'den, tüm, DSC yapılandırmaları, kaynak ve he
 
 Azure Otomasyonu durum yapılandırması ile yönetilen düğümler ayrıntılı raporlama Durum verilerini yerleşik çekme sunucusuna gönderir. Log Analytics çalışma alanınıza bu veri göndermek için Azure Otomasyon durum yapılandırması yapılandırabilirsiniz. Log Analytics çalışma alanınıza durum yapılandırması Durum verilerini gönderme hakkında bilgi edinmek için bkz: [İleri Azure Otomasyon durum raporlama verilerini Log Analytics'e Yapılandırması](automation-dsc-diagnostics.md).
 
-## <a name="network-planning"></a>Ağınızı yapılandırmak
+## <a name="prerequisites"></a>Önkoşullar
 
-Aşağıdaki bağlantı noktası ve URL'leri için durum yapılandırması (otomasyon ile iletişim kurmak için DSC) gereklidir:
+Lütfen aşağıdaki gereksinimleri Azure Otomasyon durum yapılandırması (DSC) kullanırken göz önünde bulundurun.
+
+### <a name="operating-system-requirements"></a>İşletim sistemi gereksinimleri
+
+Windows çalıştıran düğümleri için aşağıdaki sürümleri destekler:
+
+- Windows Server 2019
+- Windows Server 2016
+- Windows Server 2012R2
+- Windows Server 2012
+- Windows Server 2008 R2 SP1
+- Windows 10
+- Windows 8.1
+- Windows 7
+
+Linux çalıştıran düğümleri için aşağıdaki dağıtım paketlerini/sürümleri destekler:
+
+DSC Linux uzantısı tüm Linux dağıtımları destekler [Azure üzerinde desteklenen](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) hariç:
+
+Dağıtım | Sürüm
+-|-
+Debian  | Tüm sürümler
+Ubuntu  | 18.04
+
+### <a name="dsc-requirements"></a>DSC gereksinimleri
+
+Azure üzerinde çalışan tüm Windows düğümleri için [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) ekleme sırasında yüklenir.  Windows Server 2012 ve Windows 7'de, çalışan düğümleri için [WinRM etkinleştirilecek](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+
+Azure üzerinde çalışan tüm Linux düğümleri için [Linux için PowerShell DSC](https://github.com/Microsoft/PowerShell-DSC-for-Linux) ekleme sırasında yüklenir.
+
+### <a name="network-planning"></a>Özel ağları yapılandırma
+
+Özel bir ağda düğümlerinizi bulunuyorsa, aşağıdaki bağlantı noktası ve URL'leri için durum yapılandırması (otomasyon ile iletişim kurmak için DSC) gereklidir:
 
 * Bağlantı Noktası: Yalnızca TCP 443 giden internet erişimi için gereklidir.
 * Genel URL: *.azure-automation.net
@@ -85,7 +117,7 @@ Okumak yerine izlemeyi mi tercih ediyorsunuz? Azure Otomasyonu durum yapılandı
 > [!NOTE]
 > Bu videoda ele alınan yaşam döngüsü ve kavramları doğru olsa da, bu videonun kayda alındığı beri Azure Otomasyonu durumu yapılandırma çok ilerledikten. Genel kullanıma sunulmuştur, Azure portalında bir çok daha geniş bir kullanıcı Arabirimine sahiptir ve çok sayıda ek özellikleri destekler.
 
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
+<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

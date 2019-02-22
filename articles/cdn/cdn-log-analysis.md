@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: magattus
-ms.openlocfilehash: 45b3698dd77bda815218b43405d64819c3e4789f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ef713c954d6eab05259547a277db12a1e9036bcf
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091275"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650555"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Azure CDN kullanım biçimlerini çözümleme
 
@@ -27,7 +27,7 @@ CDN için uygulamanızı etkinleştirdikten sonra CDN kullanımını izlemek, te
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Azure tanılama günlükleri aracılığıyla çekirdek analizi
 
-Çekirdek analizi, tüm fiyatlandırma katmanları için CDN uç noktası için kullanılabilir. Azure tanılama günlükleri, çekirdek analizi, Azure depolama, event hubs'a ve Azure Log Analytics için dışarı aktarılmasına izin verin. Azure Log Analytics, kullanıcı tarafından yapılandırılabilir ve özelleştirilebilir grafikler içeren bir çözüm sunar. Azure tanılama günlükleri hakkında daha fazla bilgi için bkz. [Azure tanılama günlükleri](cdn-azure-diagnostic-logs.md).
+Çekirdek analizi, tüm fiyatlandırma katmanları için CDN uç noktası için kullanılabilir. Azure tanılama günlükleri çekirdek analizi, Azure depolama, olay hub'ları dışarı aktarılmasına izin verin veya Azure İzleyici günlüğe kaydeder. Azure İzleyici günlüklerine kullanıcı tarafından yapılandırılabilir ve özelleştirilebilir grafikler içeren bir çözüm sunar. Azure tanılama günlükleri hakkında daha fazla bilgi için bkz. [Azure tanılama günlükleri](cdn-azure-diagnostic-logs.md).
 
 ## <a name="verizon-core-reports"></a>Verizon'dan alınan çekirdek raporlar
 

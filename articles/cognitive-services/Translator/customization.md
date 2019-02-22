@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: c2ff97c61cee1f2f773710103ac422fc6f1d8714
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3fcc8f0c2c0ed897b1c5296eea694cd56144498b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876071"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585857"
 ---
 # <a name="customize-your-text-translations"></a>Metin çevirilerinizi özelleştirin
 
@@ -42,7 +42,8 @@ Mevcut verileri temel alan özelleştirme çeşitli düzeyleri hakkında daha fa
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
 
-Eski Microsoft Translator hub'ı, istatistiksel makine çevirisi çevirmek için kullanılabilir. [Daha fazla bilgi](https://www.microsoft.com/en-us/translator/hub.aspx)
+> [!NOTE]
+> 30 Nisan 2019 üzerinde eski Microsoft Translator hub'ı kullanımdan kaldırılacaktır. [Önemli geçiş bilgilerini ve tarihleri görüntüleme](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Özel Translator Hub karşılaştırması
 

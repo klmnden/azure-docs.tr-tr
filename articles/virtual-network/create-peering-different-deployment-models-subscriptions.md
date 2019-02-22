@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 6a652b3fa834c2f29f5063f9ba72a3e3d4e75f58
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: cd0493d4fd126175acafce050394e65a47e9bda9
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512457"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650028"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Oluşturma bir sanal ağ eşlemesi - farklı dağıtım modelleri ve abonelikler
 
@@ -180,7 +180,7 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
 
 Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonelik için izinleri olan bir hesap kullanıyorsanız, aynı hesabı kullanmak için tüm adımları, azure'dan günlüğe kaydetme adımları atlayın ve kullanıcı rol atamaları oluşturan komut satırlarını kaldırın. Değiştirin UserA@azure.com ve UserB@azure.com tüm Kullanıcıa ve kullanıcıb'in için kullanmakta olduğunuz kullanıcı adları ile aşağıdaki betikler. 
 
-1. En son PowerShell sürümünü [Azure](https://www.powershellgallery.com/packages/Azure) ve [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modüller. Azure PowerShell'i kullanmaya yeni başladıysanız [Azure PowerShell'e genel bakış](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) sayfasını inceleyin.
+1. En son PowerShell sürümünü [Azure](https://www.powershellgallery.com/packages/Azure) ve [Az](https://www.powershellgallery.com/packages/Az) modüller. Azure PowerShell'i kullanmaya yeni başladıysanız [Azure PowerShell'e genel bakış](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) sayfasını inceleyin.
 2. Bir PowerShell oturumu başlatın.
 3. PowerShell'de, UserB olarak B'nin abonelik girerek oturum `Add-AzureAccount` komutu. Oturum açmada hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinleri listesi için bkz. [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#permissions).
 4. PowerShell ile bir sanal ağ (Klasik) oluşturmak için yeni oluşturun veya mevcut, bir ağ yapılandırma dosyasını değiştirmeniz gerekir. Bilgi edinmek için nasıl [dışarı aktarma, güncelleştirme ve ağ yapılandırma dosyalarını içe aktarma](virtual-networks-using-network-configuration-file.md). Aşağıdaki dosya içermelidir **VirtualNetworkSite** öğesi Bu öğreticide kullanılan sanal ağ için:
@@ -201,17 +201,17 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
     > [!WARNING]
     > Değiştirilen ağ yapılandırma dosyasını içeri aktarma, var olan sanal ağları aboneliğinizde (Klasik) değişiklikleri neden olabilir. Yalnızca önceki sanal ağ ekleme ve değiştirme veya yoksa var olan tüm sanal ağları aboneliğinizden kaldırın, emin olun. 
 
-5. Resource Manager komutları girerek kullanılacak kullanıcıb'in B'nin aboneliğe oturum `Connect-AzureRmAccount` komutu.
-6. Kullanıcıa izinleri aşağıdaki komut dosyasını bir metin düzenleyicisi, PC ve Değiştir sanal ağ b kopya atama `<SubscriptionB-id>` kimliğine sahip abonelik b ' % S'abonelik kimliği bilmiyorsanız, girin `Get-AzureRmSubscription` görüntülemek için komutu. Değeri **kimliği** döndürülen çıktısında, abonelik kimliğidir. Azure adlı adım 4'te bir kaynak grubunda oluşturulan sanal ağ (Klasik) oluşturulan *varsayılan ağ*. Betiği yürütmek için değiştirilmiş betiği kopyalayın, PowerShell yapıştırın ve ardından basın `Enter`.
+5. Resource Manager komutları girerek kullanılacak kullanıcıb'in B'nin aboneliğe oturum `Connect-AzAccount` komutu.
+6. Kullanıcıa izinleri aşağıdaki komut dosyasını bir metin düzenleyicisi, PC ve Değiştir sanal ağ b kopya atama `<SubscriptionB-id>` kimliğine sahip abonelik b ' % S'abonelik kimliği bilmiyorsanız, girin `Get-AzSubscription` görüntülemek için komutu. Değeri **kimliği** döndürülen çıktısında, abonelik kimliğidir. Azure adlı adım 4'te bir kaynak grubunda oluşturulan sanal ağ (Klasik) oluşturulan *varsayılan ağ*. Betiği yürütmek için değiştirilmiş betiği kopyalayın, PowerShell yapıştırın ve ardından basın `Enter`.
     
     ```powershell 
-    New-AzureRmRoleAssignment `
+    New-AzRoleAssignment `
       -SignInName UserA@azure.com `
       -RoleDefinitionName "Classic Network Contributor" `
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. Oturum UserB olarak azure'dan ve oturum açma kullanıcı a'nın aboneliğe UserA olarak girerek `Connect-AzureRmAccount` komutu. Oturum açmada hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinleri listesi için bkz. [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#permissions).
+7. Oturum UserB olarak azure'dan ve oturum açma kullanıcı a'nın aboneliğe UserA olarak girerek `Connect-AzAccount` komutu. Oturum açmada hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinleri listesi için bkz. [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#permissions).
 8. Sanal ağ (Resource Manager) aşağıdaki betiği kopyalama içinde PowerShell yapıştırma ve tuşuna basarak oluşturma `Enter`:
 
     ```powershell
@@ -220,22 +220,22 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
       $location='eastus'
 
     # Create a resource group.
-    New-AzureRmResourceGroup `
+    New-AzResourceGroup `
       -Name $rgName `
       -Location $location
 
     # Create virtual network A.
-    $vnetA = New-AzureRmVirtualNetwork `
+    $vnetA = New-AzVirtualNetwork `
       -ResourceGroupName $rgName `
       -Name 'myVnetA' `
       -AddressPrefix '10.0.0.0/16' `
       -Location $location
     ```
 
-9. İçin myVnetA Kullanıcıb izinleri atayın. PC ve Değiştir bir metin düzenleyicisi için aşağıdaki betiği kopyalayın `<SubscriptionA-Id>` A. abonelik kimliği ' % S'abonelik kimliği bilmiyorsanız, girin `Get-AzureRmSubscription` görüntülemek için komutu. Değeri **kimliği** döndürülen çıktısında, abonelik kimliğidir. PowerShell'de komut dosyasının değiştirilmiş sürümünü yapıştırın ve sonra basın `Enter` çalıştırmak üzere.
+9. İçin myVnetA Kullanıcıb izinleri atayın. PC ve Değiştir bir metin düzenleyicisi için aşağıdaki betiği kopyalayın `<SubscriptionA-Id>` A. abonelik kimliği ' % S'abonelik kimliği bilmiyorsanız, girin `Get-AzSubscription` görüntülemek için komutu. Değeri **kimliği** döndürülen çıktısında, abonelik kimliğidir. PowerShell'de komut dosyasının değiştirilmiş sürümünü yapıştırın ve sonra basın `Enter` çalıştırmak üzere.
 
     ```powershell
-    New-AzureRmRoleAssignment `
+    New-AzRoleAssignment `
       -SignInName UserB@azure.com `
       -RoleDefinitionName "Network Contributor" `
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
@@ -244,7 +244,7 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
 10. Aşağıdaki betiği bilgisayarınıza bir metin düzenleyicisine kopyalayın ve Değiştir `<SubscriptionB-id>` kimliğine sahip abonelik b MyVnetA myVNetB için eşlenecek değiştirilmiş betiği kopyalayın, PowerShell yapıştırın ve ardından basın `Enter`.
 
     ```powershell
-    Add-AzureRmVirtualNetworkPeering `
+    Add-AzVirtualNetworkPeering `
       -Name 'myVnetAToMyVnetB' `
       -VirtualNetwork $vnetA `
       -RemoteVirtualNetworkId /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
@@ -253,7 +253,7 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
 11. Aşağıdaki komut dosyası kopyalama, PowerShell yapıştırma ve tuşuna basarak myVnetA eşleme durumunu görüntülemek `Enter`.
 
     ```powershell
-    Get-AzureRmVirtualNetworkPeering `
+    Get-AzVirtualNetworkPeering `
       -ResourceGroupName $rgName `
       -VirtualNetworkName myVnetA `
       | Format-Table VirtualNetworkName, PeeringState
@@ -299,7 +299,7 @@ Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide 
 1. PowerShell komut isteminde, sanal ağ (Resource Manager) silmek için aşağıdaki komutu girin:
 
    ```powershell
-   Remove-AzureRmResourceGroup -Name myResourceGroupA -Force
+   Remove-AzResourceGroup -Name myResourceGroupA -Force
    ```
 
 2. Sanal ağını silmek için PowerShell ile (Klasik), mevcut bir ağ yapılandırma dosyasını değiştirmeniz gerekir. Bilgi edinmek için nasıl [dışarı aktarma, güncelleştirme ve ağ yapılandırma dosyalarını içe aktarma](virtual-networks-using-network-configuration-file.md). Bu öğreticide kullanılan sanal ağ için aşağıdaki VirtualNetworkSite öğeyi kaldırın:

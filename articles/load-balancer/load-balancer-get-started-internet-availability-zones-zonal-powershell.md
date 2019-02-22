@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 861759eec266f0ab66d30a466c06e7d2ee14bf06
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: c930b4b792345aea16dd2776148c0436d8807304
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247166"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593769"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Azure PowerShell kullanarak bölgesel ön uç ile standart yük dengeleyici oluşturma
 
@@ -30,12 +30,14 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 > [!NOTE]
 > Kullanılabilirlik bölgeleri, seçili Azure kaynakları ve bölgeler ve sanal makine boyutu aileleri için kullanılabilir. Kullanmaya başlamak nasıl daha fazla bilgi ve hangi Azure kaynakları, bölgeleri ve kullanılabilirlik alanları ile deneyebilirsiniz sanal makine boyutu aileleri için bkz. [kullanılabilirlik alanlarına genel bakış](https://docs.microsoft.com/azure/availability-zones/az-overview). Destek için [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) üzerinden bize ulaşabilir veya [bir Azure destek bileti açabilirsiniz](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-`Connect-AzureRmAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+`Connect-AzAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
@@ -43,14 +45,14 @@ Connect-AzureRmAccount
 Aşağıdaki komutu kullanarak bir kaynak grubu oluşturun:
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroupZLB -Location westeurope
+New-AzResourceGroup -Name myResourceGroupZLB -Location westeurope
 ```
 
 ## <a name="create-a-public-ip-standard"></a>Genel bir IP Standard oluşturma 
 Bir genel IP aşağıdaki komutu kullanarak standart oluşturun:
 
 ```powershell
-$publicIp = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupZLB -Name 'myPublicIPZonal' `
+$publicIp = New-AzPublicIpAddress -ResourceGroupName myResourceGroupZLB -Name 'myPublicIPZonal' `
   -Location westeurope -AllocationMethod Static -Sku Standard -zone 1
 ```
 
@@ -59,7 +61,7 @@ $publicIp = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupZLB -Na
 Aşağıdaki komutu kullanarak bir ön uç IP yapılandırmasını oluşturun:
 
 ```powershell
-$feip = New-AzureRmLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $publicIp
+$feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $publicIp
 ```
 
 ## <a name="create-the-back-end-address-pool"></a>Arka uç adres havuzu oluşturma
@@ -67,7 +69,7 @@ $feip = New-AzureRmLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddr
 Aşağıdaki komutu kullanarak bir arka uç adres havuzu oluşturun:
 
 ```powershell
-$bepool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
+$bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ```
 
 ## <a name="create-a-load-balancer-probe-on-port-80"></a>Bağlantı noktası 80 üzerinde bir yük dengeleyici araştırması oluşturma
@@ -75,7 +77,7 @@ $bepool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 Aşağıdaki komutu kullanarak yük dengeleyici için bağlantı noktası 80 üzerinde bir durum araştırması oluşturun:
 
 ```powershell
-$probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Port 80 `
+$probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Port 80 `
   -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
 ```
 
@@ -83,20 +85,17 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
  Aşağıdaki komutu kullanarak bir yük dengeleyici kuralı oluşturun:
 
 ```powershell
-   $rule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $feip -BackendAddressPool  $bepool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+   $rule = New-AzLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $feip -BackendAddressPool  $bepool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
 ## <a name="create-a-load-balancer"></a>Yük dengeleyici oluşturma
 Aşağıdaki komutu kullanarak bir Standard Load Balancer oluşturun:
 
 ```powershell
-$lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `
+$lb = New-AzLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `
   -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
   -Probe $probe -LoadBalancingRule $rule -Sku Standard
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinin [Standard Load Balancer ve kullanılabilirlik bölgeleri](load-balancer-standard-availability-zones.md).
-
-
-

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e9240949c589717303fe00205c5374b5e3a6a791
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c3f46e40dfaf0d1ba2ab393b593cdd479c48c45d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008261"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585071"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure automation'da az Modülü Desteği
 
@@ -31,7 +31,7 @@ Az modül Azure Automation'da kullanırken dikkate gereken birçok şey vardır.
 * Başka bir modül modülü bağlı olarak bir PowerShell oturumuna aktarıldığında
 
 > [!IMPORTANT]
-> Bu runbook'ları bir Otomasyon hesabı ya da yalnızca içeri emin olmak önemli olan `Az` veya `AzureRM` modüllerine runbook'ları ve ikisini tarafından kullanılan PowerShell oturumları. Varsa `Az` önce içeri aktarılan `AzureRM` bir runbook'ta, runbook tamamlanır, ancak bir [get_SerializationSettings yöntemi başvuran hata](/troubleshoot/runbooks.md#get-serializationsettings) cmdlet'leri değil kaybolmuş düzgün ve iş akışlarını gösterir yürütülür. İçe aktarıyorsanız, `AzureRM` ve ardından `Az` , runbook devam eder tamamlandı, ancak iş akışlarında belirten bir hata göreceğiniz hem `Az` ve `AzureRM` aynı oturumda alınamıyor veya aynı runbook'ta kullanılan.
+> Bu runbook'ları bir Otomasyon hesabı ya da yalnızca içeri emin olmak önemli olan `Az` veya `AzureRM` modüllerine runbook'ları ve ikisini tarafından kullanılan PowerShell oturumları. Varsa `Az` önce içeri aktarılan `AzureRM` bir runbook'ta, runbook tamamlanır, ancak bir [get_SerializationSettings yöntemi başvuran hata](troubleshoot/runbooks.md#get-serializationsettings) cmdlet'leri değil kaybolmuş düzgün ve iş akışlarını gösterir yürütülür. İçe aktarıyorsanız, `AzureRM` ve ardından `Az` , runbook devam eder tamamlandı, ancak iş akışlarında belirten bir hata göreceğiniz hem `Az` ve `AzureRM` aynı oturumda alınamıyor veya aynı runbook'ta kullanılan.
 
 ## <a name="migrating-to-az-modules"></a>Az modüllerine geçirme
 

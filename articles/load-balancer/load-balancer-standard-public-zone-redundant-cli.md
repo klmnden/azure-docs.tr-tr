@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197802"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592936"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Azure CLI kullanarak tüm kullanılabilirlik alanları genelinde Yük Dengeleme sanal makineleri
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>Bir bölge oluşturduğunuzu yedekli genel IP standart
-Uygulamanıza İnternet’ten erişmek için yük dengeleyicinin genel IP adresi gereklidir. Bölge yedekli ön uç bir bölgede tüm kullanılabilirlik alanları ile aynı anda sunulur. Bölge yedekli genel IP adresi ile oluşturma [New-Azurermpublicıpaddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Bir standart genel IP adresi oluşturduğunuzda, varsayılan olarak yedekli bölgesidir.
+Uygulamanıza İnternet’ten erişmek için yük dengeleyicinin genel IP adresi gereklidir. Bölge yedekli ön uç bir bölgede tüm kullanılabilirlik alanları ile aynı anda sunulur. Bölge yedekli genel IP adresi ile oluşturma [az network public-IP oluşturma](/cli/azure/network/public-ip#az-network-public-ip-create). Bir standart genel IP adresi oluşturduğunuzda, varsayılan olarak yedekli bölgesidir.
 
 Aşağıdaki örnekte adlı bir bölge yedekli genel IP adresi oluşturur *Mypublicıp* içinde *Mypublicıp* kaynak grubu.
 

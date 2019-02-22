@@ -4,224 +4,194 @@ description: Azure Active Directory ve Fuze arasında çoklu oturum açmayı yap
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 9780b4bf-1fd1-48c1-9ceb-f750225ae08a
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
+ms.topic: tutorial
+ms.date: 02/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebad54fa93379cc3c445de660df4e86b997014c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 04b67994df3e1837f25049c3539c51e291adab45
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193365"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587251"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Öğretici: Fuze ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Fuze tümleştirme konusunda bilgi edinin.
-
 Azure AD ile Fuze tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Fuze erişimi, Azure AD'de denetleyebilirsiniz
-- Otomatik olarak imzalanan için Fuze (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Bir merkezi konumda - Azure Yönetim Portalı hesaplarınızı yönetebilirsiniz.
+* Fuze erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) Fuze için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile Fuze yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Bir Fuze çoklu oturum açma etkin aboneliği
-
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Bu gerekli olmadığı sürece üretim ortamınızı kullanmamanız gerekir.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
-
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik fuze çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Fuze ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
+* Fuze destekler **SP** tarafından başlatılan
+
+* Fuze destekler **zamanında** kullanıcı sağlama
 
 ## <a name="adding-fuze-from-the-gallery"></a>Galeriden Fuze ekleme
+
 Azure AD'de Fuze tümleştirmesini yapılandırmak için Fuze Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Fuze eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure Yönetim Portalı](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Uygulamalar][2]
-    
-1. Tıklayın **Ekle** iletişim kutusunun üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Uygulamalar][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **Fuze**.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/fuze-tutorial/tutorial_fuze_000.png)
+4. Arama kutusuna **Fuze**seçin **Fuze** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-1. Sonuçlar panelinde seçin **Fuze**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+     ![Sonuçlar listesinde fuze](common/search-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/fuze-tutorial/tutorial_fuze_0001.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Fuze sınayın.
-
-Tek iş için oturum açma için Azure AD ne Fuze karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Fuze ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-Değerini atayarak bu bağlantı ilişki kurulduktan **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** Fuze içinde.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Fuze adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının Fuze ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Fuze ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Fuze test kullanıcısı oluşturma](#creating-a-fuze-test-user)**  - Azure AD gösterimini her için bağlı Fuze Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Fuze çoklu oturum açmayı yapılandırma](#configure-fuze-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Fuze test kullanıcısı oluşturma](#create-fuze-test-user)**  - kullanıcı Azure AD gösterimini bağlı Fuze Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure yönetim portalında etkinleştirin ve Fuze uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile Fuze yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile Fuze yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure Yönetim Portalı'nda üzerinde **Fuze** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Fuze** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda olarak **modu** seçin **SAML tabanlı oturum açma** için çoklu oturum açmayı etkinleştirme.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/fuze-tutorial/tutorial_fuze_01.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **Fuze etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/fuze-tutorial/tutorial_fuze_020.png)
-    
-    İçinde **oturum açma URL'si** metin olarak türü oturum açma URL'si: `https://www.thinkingphones.com/jetspeed/portal/`
+3. Üzerinde **Kurulum çoklu oturum açma SAML ile** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-1.  Tıklayın **Kaydet** düğmesi.
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/fuze-tutorial/tutorial_general_400.png)
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda xml dosyasını kaydedin.
+    ![Etki alanı ve URL'ler tek oturum açma bilgileri fuze](common/sp-signonurl.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/fuze-tutorial/tutorial_fuze_05.png) 
+    İçinde **oturum açma URL'si** metin kutusuna bir URL yazın:  `https://www.thinkingphones.com/jetspeed/portal/`
 
-1. Çoklu oturum açmayı yapılandırma **Fuze** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [Fuze Destek ekibine](https://www.fuze.com/support). Bunlar bu için her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı kurar.
+5. Üzerinde **Kurulum çoklu oturum açma SAML ile** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, bir test kullanıcısı Britta Simon adlı Azure Yönetim Portalı'nda oluşturmaktır.
+6. Üzerinde **Fuze kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-![Azure AD kullanıcısı oluşturun][100]
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    a. Oturum Açma URL'si:
 
-1. İçinde **Azure Yönetim Portalı**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+    b. Azure Ad tanımlayıcısı
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/fuze-tutorial/create_aaduser_01.png) 
+    c. Oturum Kapatma URL'si
 
-1. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcılar listesini görüntüleyin.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/fuze-tutorial/create_aaduser_02.png) 
+### <a name="configure-fuze-single-sign-on"></a>Fuze çoklu oturum açmayı yapılandırın
 
-1. İletişim kutusunun en üstünde tıklayın **Ekle** açmak için **kullanıcı** iletişim.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/fuze-tutorial/create_aaduser_03.png) 
+Çoklu oturum açmayı yapılandırma **Fuze** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Fuze Destek ekibine](https://www.fuze.com/support) . Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
-1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/fuze-tutorial/create_aaduser_04.png) 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-    d. **Oluştur**’a tıklayın. 
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-### <a name="creating-a-fuze-test-user"></a>Fuze test kullanıcısı oluşturma
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-Kullanıcılar oturum açma sırasında kullanıcılara otomatik olarak oluşturulup şekilde fuze uygulama içinde zaman kullanıcı sağlama, tam sadece destekler. Diğer herhangi bir açıklama için lütfen Fuze başvurun [Destek](https://www.fuze.com/support).
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
+    a. İçinde **adı** alanına **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
+
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
+
+    d. **Oluştur**’a tıklayın.
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için Fuze erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı Ata][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Fuze**.
 
-**Britta Simon Fuze için atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure Yönetim Portalı'nda uygulamaları görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **Fuze**.
 
-    ![Kullanıcı Ata][201] 
+    ![Uygulamalar listesinde Fuze bağlantı](common/all-applications.png)
 
-1. Uygulamalar listesinde **Fuze**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/fuze-tutorial/tutorial_fuze_50.png) 
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Kullanıcı Ata][202] 
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Kullanıcı Ata][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** iletişim kutusunda, listeden bir kullanıcı için uygun rolü seçin ve ardından'a tıklayın **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim kutusunda, tıklayın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-fuze-test-user"></a>Fuze test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
+Böylece oturum açtığında kullanıcı otomatik olarak oluşturulup fuze uygulama tam zamanında kullanıcı sağlama, destekler. Diğer herhangi bir açıklama için Fuze başvurun [Destek](https://www.fuze.com/support).
 
-### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Fuze kutucuğa tıkladığınızda, otomatik olarak Fuze uygulamanıza açan.
+Erişim paneli Fuze kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Fuze için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-## <a name="additional-resources"></a>Ek kaynaklar
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-
-<!--Image references-->
-
-[1]: ./media/fuze-tutorial/tutorial_general_01.png
-[2]: ./media/fuze-tutorial/tutorial_general_02.png
-[3]: ./media/fuze-tutorial/tutorial_general_03.png
-[4]: ./media/fuze-tutorial/tutorial_general_04.png
-
-[100]: ./media/fuze-tutorial/tutorial_general_100.png
-
-[200]: ./media/fuze-tutorial/tutorial_general_200.png
-[201]: ./media/fuze-tutorial/tutorial_general_201.png
-[202]: ./media/fuze-tutorial/tutorial_general_202.png
-[203]: ./media/fuze-tutorial/tutorial_general_203.png

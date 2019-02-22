@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 882724c5f45cc2c5b3debb8fa80538239a98b749
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aa467910cfa2dad84af3905db3592657cae85be9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240701"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594364"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure Stack VPN kullanarak Azure'a bağlanma
 
@@ -70,7 +70,7 @@ Ağ Yapılandırma örnekleri tablo, bu makaledeki örnekler için kullanılan d
 8. **Panoya sabitle**’yi seçin.
 9. **Oluştur**’u seçin.
 
-### <a name="create-the-gateway-subnet"></a>Ağ Geçidi Alt Ağı oluşturma
+### <a name="create-the-gateway-subnet"></a>Ağ geçidi alt ağı oluşturma
 
 1. Oluşturduğunuz sanal ağ kaynağı açın (**AzureVNet**) panodan.
 2. Üzerinde **ayarları** bölümünden **alt ağlar**.
@@ -305,4 +305,4 @@ Ne kadar veri, siteden siteye bağlantı geçirir bilmek istiyorsanız, bu bilgi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure ve Azure uygulama dağıtma yığını](azure-stack-solution-pipeline.md)
+* [Azure ve Azure uygulama dağıtma yığını](azure-stack-solution-pipeline.md)

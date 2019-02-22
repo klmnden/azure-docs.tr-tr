@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d47c560515a13efa8346974e828f14f9a15f0e4a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c2bee4d35fe857d5ad3bf26dc1145b8721c85df4
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731443"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594245"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service için bir özel etki alanı adı satın alma
 
@@ -126,7 +126,7 @@ Ardından, etki alanınız için istenen seçenekleri belirleyin. Açıklamalar 
 Tıklayın **yasal koşulları** ücretleri ve koşullarını gözden geçirin ve ardından **satın**.
 
 > [!NOTE]
-> App Service etki alanları, etki alanlarını barındırmak için Azure DNS kullanın. Etki alanı kayıt ücretin yanı sıra, Azure DNS için kullanım ücretleri uygulanır. Bilgi için [Azure DNS fiyatlandırma](https://azure.microsoft.com/pricing/details/dns/).
+> App Service etki alanları, GoDaddy etki alanı kaydı ve Azure DNS etki alanlarınızı için kullanır. Etki alanı kayıt ücretin yanı sıra, Azure DNS için kullanım ücretleri uygulanır. Bilgi için [Azure DNS fiyatlandırma](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
@@ -251,7 +251,7 @@ Azure portalında, sol menüden seçin **tüm hizmetleri** > **App Service etki 
 
 Etki alanına iptal etmek veya silmek istediğiniz seçin. 
 
-### <a name="delete-hostname-bindings"></a>Konak adı bağlamaları Sil
+### <a name="delete-hostname-bindings"></a>Ana bilgisayar adı bağlamalarını sil
 
 Etki alanının sol menüde **konak adı bağlamaları**. Tüm Azure hizmetlerinden gelen konak adı bağlamaları burada listelenir.
 

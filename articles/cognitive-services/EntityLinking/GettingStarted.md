@@ -10,12 +10,12 @@ ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: c3e7d27fa0e62c1dcc92e7eac7ddb56a1de5ba49
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fc1bdd5c6ad4829e22af9922c6749e60f842abaf
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857830"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594041"
 ---
 # <a name="tutorial-build-an-entity-linking-app-with-c"></a>Öğretici: Varlık bağlama uygulama ile oluşturmaC#
 
@@ -55,7 +55,7 @@ Varlık Bağlama şimdi uygulamanızın parçası olarak yüklenir. Çözüm Gez
  ![Projeye dahil edilen nuget kitaplığı](./Images/NugetLibraryInProject.png)
  
 ### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">4. adım: Uygulamanızın XAML için bir girdi ve çıktı metin bloğu Ekle</a>
-**Çözüm Gezgini**’nde ** MainPage.xaml ** bölümüne gidin, dosyaya çift tıklayın ve dosyanın yeni bir pencerede açılmasını sağlayın. Kolaylık olması için, **Tasarımcı** sekmesinde **XAML** düğmesine çift tıklayabilirsiniz; böylece **Görsel Tasarımcı** gizlenir ve kod görünümü için tüm alan ayrılır.
+Gidin **MainPage.xaml** içinde **Çözüm Gezgini**, ardından bunu yeni bir pencerede açılacaktır dosyasına çift tıklayın. Kolaylık olması için, **Tasarımcı** sekmesinde **XAML** düğmesine çift tıklayabilirsiniz; böylece **Görsel Tasarımcı** gizlenir ve kod görünümü için tüm alan ayrılır.
 
  ![Projeye dahil edilen nuget kitaplığı](./Images/UWPMainPage.png)
  

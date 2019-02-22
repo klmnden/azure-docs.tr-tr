@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7e680e3cd8a3d7056141814c5e7d4539b72073b4
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: a97afe64992db6b48558561ba958b513c8416494
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50757238"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592834"
 ---
 # <a name="create-an-advanced-device-model"></a>Gelişmiş cihaz modeli oluşturma
 
@@ -26,11 +26,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu nasıl yapılır Kılavuzu'ndaki adımları takip etmek için Azure aboneliğinizde bir dağıtılan cihaz benzetimi örneğini gerekir.
 
-Cihaz benzetimi dağıtılan henüz henüz tamamlamanız gereken [dağıtma ve çalıştırma bir Azure IOT cihaz benzetimi](quickstart-device-simulation-deploy.md) hızlı başlangıç.
+Cihaz Simülasyonu'nu henüz dağıtmadıysanız, [Azure'da IoT cihaz simülasyonunu dağıtma ve çalıştırma](quickstart-device-simulation-deploy.md) hızlı başlangıç kılavuzunu tamamlamalısınız.
 
-### <a name="open-device-simulation"></a>Açık cihaz benzetimi
+### <a name="open-device-simulation"></a>Cihaz Simülasyonu'nu açma
 
-Cihaz benzetimi, tarayıcınızda çalıştırmak için önce gidin [Microsoft Azure IOT Çözüm Hızlandırıcıları](https://www.azureiotsolutions.com).
+Tarayıcınızda Cihaz Simülasyonu'nu çalıştırmak için, önce [Microsoft Azure IoT Çözüm Hızlandırıcıları](https://www.azureiotsolutions.com)'na gidin.
 
 Azure aboneliği kimlik bilgilerinizi kullanarak oturum açmanız istenebilir.
 
@@ -164,7 +164,7 @@ Her ileti türü, iyi tanımlanmış bir şema olması gerekir. Arka uç uygulam
 * Metin
 * Boole
 * Tamsayı
-* çift
+* Double
 * DateTime
 
 ### <a name="supported-methods"></a>Desteklenen yöntemler
@@ -494,11 +494,11 @@ function main(context, state) {
 
 Gelişmiş cihazınızın modeline dağıtmak için cihaz benzetimi örneğinizin dosyaları karşıya yükle:
 
-Seçin **cihaz modelleri** menü çubuğundaki. **Cihaz modelleri** sayfası, bu cihaz benzetimi örneğinde kullanılabilir cihaz modelleri listeler:
+Menü çubuğunda **Cihaz modelleri**'ni seçin. **Cihaz modelleri** sayfası, bu cihaz benzetimi örneğinde kullanılabilir cihaz modelleri listeler:
 
 ![Cihaz modelleri](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
 
-Tıklayın **+ cihaz modelleri Ekle** sayfanın sağ üst köşesindeki içinde:
+Sayfanın sağ üst köşesindeki **+ Cihaz Modeli Ekle**'ye tıklayın:
 
 ![Cihaz modeli ekleme](media/iot-accelerators-device-simulation-advanced-device/devicemodels.png)
 
@@ -516,4 +516,4 @@ Dosyalarınızı doğrulama testlerini geçerse, tıklayın **Kaydet** ve cihaz�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu nasıl yapılır kılavuzunda cihaz benzetimi ve nasıl bir Gelişmiş cihaz modeli oluşturmak kullanılan cihaz model dosyaları hakkında bilgi edindiniz. Ardından, incelemek isteyebilirsiniz nasıl [cihaz benzetimi çözüm hızlandırıcıdan gönderilen telemetri görselleştirmek için kullanım Time Series Insights](about-iot-accelerators.md).
+Bu nasıl yapılır kılavuzunda cihaz benzetimi ve nasıl bir Gelişmiş cihaz modeli oluşturmak kullanılan cihaz model dosyaları hakkında bilgi edindiniz. Ardından, incelemek isteyebilirsiniz nasıl [cihaz benzetimi çözüm hızlandırıcıdan gönderilen telemetri görselleştirmek için kullanım Time Series Insights](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).

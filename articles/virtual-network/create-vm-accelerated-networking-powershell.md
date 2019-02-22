@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: 3ba7e8129d577faa87544f8feded51a14559eb51
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7f056ab79bbd2d2b66e40546a6df7677ffe75a21
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435541"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649467"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir Windows sanal makinesi oluşturun
 
@@ -27,7 +27,7 @@ Bu öğreticide, hızlandırılmış ağ ile Windows sanal makine (VM) oluşturm
 
 ![Karşılaştırma](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
-Hızlandırılmış ağ bağlantısı olmadan konak ve sanal anahtar ve VM'ye giden tüm ağ trafiğini çapraz gerekir. Sanal anahtarı, ağ güvenlik grupları, erişim denetim listeleri, yalıtım ve diğer ağ trafiğini sanallaştırılmış Ağ Hizmetleri gibi tüm ilke zorlaması sağlar. Sanal anahtarlar hakkında daha fazla bilgi edinmek için [Hyper-V ağ sanallaştırma ve sanal anahtar](https://technet.microsoft.com/library/jj945275.aspx) makalesi.
+Hızlandırılmış ağ bağlantısı olmadan konak ve sanal anahtar ve VM'ye giden tüm ağ trafiğini çapraz gerekir. Sanal anahtarı, ağ güvenlik grupları, erişim denetim listeleri, yalıtım ve diğer ağ trafiğini sanallaştırılmış Ağ Hizmetleri gibi tüm ilke zorlaması sağlar. Sanal anahtarlar hakkında daha fazla bilgi için bkz: [Hyper-V ağ sanallaştırma ve sanal anahtar](https://technet.microsoft.com/library/jj945275.aspx).
 
 Hızlandırılmış ağlı ağ trafiğini sanal makinenin ağ arabirimine (NIC) ulaşır ve ardından VM iletilir. Sanal anahtarın uygulandığı tüm ağ ilkeleri artık Boşaltılan ve donanım uygulanır. Donanım ilkede uygulama konak ve sanal anahtar konağa uygulanan tüm ilke korurken atlayarak doğrudan VM ağ trafiği NIC'ye sağlar.
 
@@ -41,9 +41,9 @@ Hızlandırılmış ağ avantajları yalnızca üzerinde etkin VM için de geçe
 ## <a name="limitations-and-constraints"></a>Sınırlamalar ve kısıtlamalar
 
 ### <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
-Azure Galerisi hazır aşağıdaki dağıtımlar desteklenir: 
+Azure Galerisi hazır aşağıdaki dağıtımlar desteklenir:
 * **Windows Server 2016 Datacenter** 
-* **Windows Server 2012 R2 veri merkezi** 
+* **Windows Server 2012 R2 veri merkezi**
 
 ### <a name="supported-vm-instances"></a>Desteklenen sanal makine örnekleri
 Hızlandırılmış ağ en genel amaçlı ve işlem için iyileştirilmiş örnek boyutları Vcpu, 2 veya daha fazla ile desteklenir.  Bu desteklenen serisi şunlardır: D/DSv2 ve F/Fs
@@ -67,28 +67,30 @@ Bu makale Azure PowerShell kullanarak hızlandırılmış ağ ile bir sanal maki
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-Yükleme [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) sürüm 5.1.1 veya daha sonra. Şu anda yüklü sürümü bulmak için çalıştırın `Get-Module -ListAvailable AzureRM`. Yüklemeniz veya yükseltmeniz gerekirse, en son sürümünü AzureRM modülünü yükleme [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureRM). Bir PowerShell oturumunda bir Azure hesabı kullanarak oturum açtığınız [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Yükleme [Azure PowerShell](/powershell/azure/install-az-ps) sürüm 1.0.0 veya üzeri. Şu anda yüklü sürümü bulmak için çalıştırın `Get-Module -ListAvailable Az`. Yüklemeniz veya yükseltmeniz gerekirse, Az modülünden'ın en son sürümünü yüklemek [PowerShell Galerisi](https://www.powershellgallery.com/packages/Az). Bir PowerShell oturumunda bir Azure hesabı kullanarak oturum açtığınız [Connect AzAccount](/powershell/module/az.profile/connect-azaccount).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *Mynıc*, ve *myVM*.
 
-[New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) komutunu kullanarak bir kaynak grubu oluşturun. Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myResourceGroup* içinde *centralus* konumu:
+Bir kaynak grubu oluşturun [yeni AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myResourceGroup* içinde *centralus* konumu:
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "centralus"
+New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
 ```
 
-İlk olarak, bir alt ağ yapılandırması ile oluşturma [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetworkSubnetConfig). Aşağıdaki örnekte adlı bir alt ağ oluşturulmaktadır *mySubnet*:
+İlk olarak, bir alt ağ yapılandırması ile oluşturma [yeni AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig). Aşağıdaki örnekte adlı bir alt ağ oluşturulmaktadır *mySubnet*:
 
 ```powershell
-$subnet = New-AzureRmVirtualNetworkSubnetConfig `
+$subnet = New-AzVirtualNetworkSubnetConfig `
     -Name "mySubnet" `
     -AddressPrefix "192.168.1.0/24"
 ```
 
-İle sanal ağ oluşturma [New-AzureRmVirtualNetwork](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetwork), ile *mySubnet* alt ağ.
+İle sanal ağ oluşturma [yeni AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork), ile *mySubnet* alt ağ.
 
 ```powershell
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
+$vnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
     -Location "centralus" `
     -Name "myVnet" `
     -AddressPrefix "192.168.0.0/16" `
@@ -97,10 +99,10 @@ $vnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
 
 ## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
 
-İlk olarak, bir ağ güvenlik grubu kuralı oluşturun [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/AzureRM.Network/New-AzureRmNetworkSecurityRuleConfig).
+İlk olarak, bir ağ güvenlik grubu kuralı oluşturun [yeni AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig).
 
 ```powershell
-$rdp = New-AzureRmNetworkSecurityRuleConfig `
+$rdp = New-AzNetworkSecurityRuleConfig `
     -Name 'Allow-RDP-All' `
     -Description 'Allow RDP' `
     -Access Allow `
@@ -113,20 +115,20 @@ $rdp = New-AzureRmNetworkSecurityRuleConfig `
     -DestinationPortRange 3389
 ```
 
-Bir ağ güvenlik grubu oluşturun [New-AzureRmNetworkSecurityGroup](/powershell/module/AzureRM.Network/New-AzureRmNetworkSecurityGroup) ve atama *Allow-RDP-All* güvenlik kuralı. Ek olarak *Allow-RDP-All* kural, ağ güvenlik grubu, çeşitli varsayılan kurallar içerir. Varsayılan kurallardan biri olmasının nedeni Internet'ten gelen tüm erişimi devre dışı bırakır *Allow-RDP-All* kural oluşturulduktan sonra sanal makineye uzaktan bağlanabilmesi için ağ güvenlik grubuna atanmış.
+Bir ağ güvenlik grubu oluşturun [yeni AzNetworkSecurityGroup](/powershell/module/az.Network/New-azNetworkSecurityGroup) ve atama *Allow-RDP-All* güvenlik kuralı. Ek olarak *Allow-RDP-All* kural, ağ güvenlik grubu, çeşitli varsayılan kurallar içerir. Varsayılan kurallardan biri olmasının nedeni Internet'ten gelen tüm erişimi devre dışı bırakır *Allow-RDP-All* kural oluşturulduktan sonra sanal makineye uzaktan bağlanabilmesi için ağ güvenlik grubuna atanmış.
 
 ```powershell
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
     -ResourceGroupName myResourceGroup `
     -Location centralus `
     -Name "myNsg" `
     -SecurityRules $rdp
 ```
 
-Ağ güvenlik grubuyla ilişkilendirdiğiniz *mySubnet* alt ağ ile [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/AzureRM.Network/Set-AzureRmVirtualNetworkSubnetConfig). Alt ağda dağıtılan tüm kaynaklar için ağ güvenlik grubu kuralı etkilidir.
+Ağ güvenlik grubuyla ilişkilendirdiğiniz *mySubnet* alt ağ ile [kümesi AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig). Alt ağda dağıtılan tüm kaynaklar için ağ güvenlik grubu kuralı etkilidir.
 
 ```powershell
-Set-AzureRmVirtualNetworkSubnetConfig `
+Set-AzVirtualNetworkSubnetConfig `
     -VirtualNetwork $vnet `
     -Name 'mySubnet' `
     -AddressPrefix "192.168.1.0/24" `
@@ -134,20 +136,20 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 ```
 
 ## <a name="create-a-network-interface-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir ağ arabirimi oluşturma
-[New-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/New-AzureRmPublicIpAddress) ile genel IP adresi oluşturun. Internet'ten sanal makineye erişmek için ancak bu makaledeki adımları tamamlayabilmeniz için planlamıyorsanız bir genel IP adresi gerekli değilse, gerekli değildir.
+Bir genel IP adresiyle oluşturma [yeni AzPublicIpAddress](/powershell/module/az.Network/New-azPublicIpAddress). Internet'ten sanal makineye erişmek için ancak bu makaledeki adımları tamamlayabilmeniz için planlamıyorsanız bir genel IP adresi gerekli değilse, gerekli değildir.
 
 ```powershell
-$publicIp = New-AzureRmPublicIpAddress `
+$publicIp = New-AzPublicIpAddress `
     -ResourceGroupName myResourceGroup `
     -Name 'myPublicIp' `
     -location centralus `
     -AllocationMethod Dynamic
 ```
 
-Bir ağ arabirimi ile oluşturma [New-Azurermnetworkınterface](/powershell/module/AzureRM.Network/New-AzureRmNetworkInterface) accelerated networking etkin olan ve ağ arabiriminde genel IP adresi atayın. Aşağıdaki örnekte adlı bir ağ arabirimi oluşturur *Mynıc* içinde *mySubnet* alt *myVnet* sanal ağ ve atadıkları kişiler *Mypublicıp*  genel IP adresini:
+Bir ağ arabirimi ile oluşturma [yeni AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) accelerated networking etkin olan ve ağ arabiriminde genel IP adresi atayın. Aşağıdaki örnekte adlı bir ağ arabirimi oluşturur *Mynıc* içinde *mySubnet* alt *myVnet* sanal ağ ve atadıkları kişiler *Mypublicıp*  genel IP adresini:
 
 ```powershell
-$nic = New-AzureRmNetworkInterface `
+$nic = New-AzNetworkInterface `
     -ResourceGroupName "myResourceGroup" `
     -Name "myNic" `
     -Location "centralus" `
@@ -164,40 +166,40 @@ VM kimlik bilgilerinizi ayarlayın `$cred` değişken kullanarak [Get-Credential
 $cred = Get-Credential
 ```
 
-İlk olarak, VM ile tanımlama [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). Aşağıdaki örnek adlı bir VM tanımlar *myVM* hızlandırılmış ağ iletişimi destekleyen bir VM boyutu ile (*Standard_DS4_v2*):
+İlk olarak, VM ile tanımlama [yeni AzVMConfig](/powershell/module/az.compute/new-azvmconfig). Aşağıdaki örnek adlı bir VM tanımlar *myVM* hızlandırılmış ağ iletişimi destekleyen bir VM boyutu ile (*Standard_DS4_v2*):
 
 ```powershell
-$vmConfig = New-AzureRmVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
+$vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
 ```
 
 Tüm VM boyutları ve özelliklerini bir listesi için bkz. [Windows VM boyutları](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-VM yapılandırmanızı geri kalanını oluşturmak [kümesi AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) ve [kümesi AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage). Aşağıdaki örnek, bir Windows Server 2016 VM oluşturur:
+VM yapılandırmanızı geri kalanını oluşturmak [kümesi AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) ve [kümesi AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). Aşağıdaki örnek, bir Windows Server 2016 VM oluşturur:
 
 ```powershell
-$vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig `
+$vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
     -Windows `
     -ComputerName "myVM" `
     -Credential $cred `
     -ProvisionVMAgent `
     -EnableAutoUpdate
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig `
+$vmConfig = Set-AzVMSourceImage -VM $vmConfig `
     -PublisherName "MicrosoftWindowsServer" `
     -Offer "WindowsServer" `
     -Skus "2016-Datacenter" `
     -Version "latest"
 ```
 
-Daha önce oluşturduğunuz ağ arabirimini Ekle [Add-Azurermvmnetworkınterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
+Daha önce oluşturduğunuz ağ arabirimini Ekle [Ekle AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface):
 
 ```powershell
-$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+$vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
 
-Son olarak, ile VM oluşturma [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+Son olarak, ile VM oluşturma [New-AzVM](/powershell/module/az.compute/new-azvm):
 
 ```powershell
-New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus"
+New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus"
 ```
 
 ## <a name="confirm-the-driver-is-installed-in-the-operating-system"></a>Sürücü işletim sisteminde yüklü onaylayın
@@ -224,7 +226,7 @@ Hızlandırılmış ağ olmayan bir VM oluşturduysanız, varolan bir VM'yi bu �
 İlk Durdur/VM'yi serbest bırakın veya bir kullanılabilirlik kümesi, kümedeki tüm sanal makineler:
 
 ```azurepowershell
-Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
+Stop-AzVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
@@ -233,18 +235,18 @@ Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
 Hizmet durdurulduğunda, hızlandırılmış ağ sanal makinenizin NIC'de etkinleştir:
 
 ```azurepowershell
-$nic = Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzureRmNetworkInterface
+$nic | Set-AzNetworkInterface
 ```
 
-Bir kullanılabilirlik kümesi, kümedeki tüm sanal makineler, VM veya, eğer yeniden ve hızlandırılmış ağ etkin olduğunu doğrulayın: 
+Bir kullanılabilirlik kümesi, kümedeki tüm sanal makineler, VM veya, eğer yeniden ve hızlandırılmış ağ etkin olduğunu doğrulayın:
 
 ```azurepowershell
-Start-AzureRmVM -ResourceGroup "myResourceGroup" `
+Start-AzVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
@@ -252,29 +254,29 @@ Start-AzureRmVM -ResourceGroup "myResourceGroup" `
 VMSS biraz farklıdır ama aynı iş akışını izler.  İlk olarak, Vm'leri durdurun:
 
 ```azurepowershell
-Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
+Stop-AzVmss -ResourceGroupName "myResourceGroup" `
     -VMScaleSetName "myScaleSet"
 ```
 
 VM durdurulduktan sonra ağ arabirimi'nin altındaki hızlandırılmış ağ özelliğini güncelleştirin:
 
 ```azurepowershell
-$vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+$vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" `
     -VMScaleSetName "myScaleSet"
 
 $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].EnableAcceleratedNetworking = $true
 
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+Update-AzVmss -ResourceGroupName "myResourceGroup" `
     -VMScaleSetName "myScaleSet" `
     -VirtualMachineScaleSet $vmss
 ```
 
-Lütfen bir VMSS Not otomatik, sıralı ve el ile olmak üzere üç farklı ayarları kullanarak güncelleştirmeleri uygulamak VM yükseltmeleri sahiptir.  VMSS hemen yeniden başlattıktan sonra değişiklikleri alır, böylece bu Yönergelerdeki ilke otomatik olarak ayarlanır.  Değişiklikler hemen alınır şekilde otomatik olarak ayarlamak için: 
+Lütfen bir VMSS Not otomatik, sıralı ve el ile olmak üzere üç farklı ayarları kullanarak güncelleştirmeleri uygulamak VM yükseltmeleri sahiptir.  VMSS hemen yeniden başlattıktan sonra değişiklikleri alır, böylece bu Yönergelerdeki ilke otomatik olarak ayarlanır.  Değişiklikler hemen alınır şekilde otomatik olarak ayarlamak için:
 
 ```azurepowershell
 $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
 
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+Update-AzVmss -ResourceGroupName "myResourceGroup" `
     -VMScaleSetName "myScaleSet" `
     -VirtualMachineScaleSet $vmss
 ```
@@ -282,7 +284,7 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
 Son olarak, VMSS yeniden başlatın:
 
 ```azurepowershell
-Start-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
+Start-AzVmss -ResourceGroupName "myResourceGroup" `
     -VMScaleSetName "myScaleSet"
 ```
 
@@ -292,11 +294,8 @@ Bir kez, yeniden, yükseltmeleri tamamlamak ancak bir kez tamamlandı, VF VM iç
 
 Hızlandırılmış ağ etkin Vm'lerle yalnızca VM'ler için hızlandırılmış ağ destekleyen boyutlandırılabilir.  
 
-Hızlandırılmış ağ etkin olan bir VM yeniden boyutlandırma işlemi kullanarak hızlandırılmış ağ desteği olmayan bir VM örneğine yeniden boyutlandırılamaz.  Bunun yerine, bu Vm'lere birini yeniden boyutlandırmak için: 
+Hızlandırılmış ağ etkin olan bir VM yeniden boyutlandırma işlemi kullanarak hızlandırılmış ağ desteği olmayan bir VM örneğine yeniden boyutlandırılamaz.  Bunun yerine, bu Vm'lere birini yeniden boyutlandırmak için:
 
 * VM'yi Durdur/serbest veya bir kullanılabilirlik kümesi/VMSS varsa içinde Durdur/set/VMSS tüm sanal makineler serbest bırakın.
 * Hızlandırılmış ağ VM veya bir kullanılabilirlik kümesi/VMSS, küme/VMSS içindeki tüm sanal makineleri sahipse NIC üzerinde devre dışı bırakılmalıdır.
-* Hızlandırılmış ağ devre dışı bırakıldıktan sonra VM/kullanılabilirlik kümesi/VMSS hızlandırılmış ağ desteklemez ve yeniden yeni bir boyut için taşınabilir.  
-
-
-
+* Hızlandırılmış ağ devre dışı bırakıldıktan sonra VM/kullanılabilirlik kümesi/VMSS hızlandırılmış ağ desteklemez ve yeniden yeni bir boyut için taşınabilir.

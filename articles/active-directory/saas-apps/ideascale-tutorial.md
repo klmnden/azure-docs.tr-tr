@@ -4,200 +4,212 @@ description: Azure Active Directory ve IdeaScale arasında çoklu oturum açmay�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: e16dda6b-fdf9-43cc-9bbb-a523f085a8af
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: tutorial
+ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef05adede0efff209c4aabab266a1c1c552d2b77
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2854ef59ba842802cda95afbfeb72d83a3f6b10f
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202426"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587489"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Öğretici: IdeaScale ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile IdeaScale tümleştirme konusunda bilgi edinin.
-
 Azure AD ile IdeaScale tümleştirme ile aşağıdaki avantajları sağlar:
 
-- IdeaScale erişimi, Azure AD'de denetleyebilirsiniz
-- Otomatik olarak imzalanan için IdeaScale (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
+* IdeaScale erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) IdeaScale için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile IdeaScale yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Bir IdeaScale çoklu oturum açma etkin aboneliği
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik IdeaScale çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden IdeaScale ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* IdeaScale destekler **SP** tarafından başlatılan
 
 ## <a name="adding-ideascale-from-the-gallery"></a>Galeriden IdeaScale ekleme
+
 Azure AD'de IdeaScale tümleştirmesini yapılandırmak için IdeaScale Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden IdeaScale eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Uygulamalar][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Uygulamalar][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **IdeaScale**.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/ideascale-tutorial/tutorial_ideascale_search.png)
+4. Arama kutusuna **IdeaScale**seçin **IdeaScale** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-1. Sonuçlar panelinde seçin **IdeaScale**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+     ![Sonuç listesinde IdeaScale](common/search-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/ideascale-tutorial/tutorial_ideascale_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." adlı bir test kullanıcı tabanlı IdeaScale ile test etme
-
-Tek iş için oturum açma için Azure AD ne IdeaScale karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının IdeaScale ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-IdeaScale içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma IdeaScale adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının IdeaScale ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma IdeaScale ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Bir IdeaScale test kullanıcısı oluşturma](#creating-an-ideascale-test-user)**  - kullanıcı Azure AD gösterimini bağlı IdeaScale Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[IdeaScale çoklu oturum açmayı yapılandırma](#configure-ideascale-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[IdeaScale test kullanıcısı oluşturma](#create-ideascale-test-user)**  - kullanıcı Azure AD gösterimini bağlı IdeaScale Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve IdeaScale uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile IdeaScale yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile IdeaScale yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **IdeaScale** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **IdeaScale** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/ideascale-tutorial/tutorial_ideascale_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **IdeaScale etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/ideascale-tutorial/tutorial_ideascale_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.ideascale.com`
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    ![IdeaScale etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<companyname>.ideascale.com`
+
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
     | |
     |--|
     | `http://<companyname>.ideascale.com`  |
     | `https://<companyname>.ideascale.com` |
 
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [IdeaScale istemci Destek ekibine](https://support.ideascale.com/) bu değerleri almak için. 
- 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [IdeaScale istemci Destek ekibine](https://support.ideascale.com/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/ideascale-tutorial/tutorial_ideascale_certificate.png) 
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-1. Tıklayın **Kaydet** düğmesi.
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/ideascale-tutorial/tutorial_general_400.png)
+6. Üzerinde **IdeaScale kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-1. Üzerinde **IdeaScale yapılandırma** bölümünde **yapılandırma IdeaScale** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si ve SAML varlık kimliği** gelen **hızlı başvuru bölümüne**.
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/ideascale-tutorial/tutorial_ideascale_configure.png) 
+    a. Oturum Açma URL'si:
+
+    b. Azure Ad tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-ideascale-single-sign-on"></a>IdeaScale tek oturum açmayı yapılandırın
 
 1. Farklı bir web tarayıcı penceresinde IdeaScale şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-1. Git **topluluk ayarları**.
-   
+2. Git **topluluk ayarları**.
+
     ![Topluluk ayarları](./media/ideascale-tutorial/ic790847.png "topluluk ayarları")
 
-1. Git **güvenlik \> çoklu oturum açma ayarları**.
-   
+3. Git **güvenlik \> çoklu oturum açma ayarları**.
+
     ![Çoklu oturum açma ayarları](./media/ideascale-tutorial/ic790848.png "çoklu oturum açma ayarları")
 
-1. Olarak **çoklu oturum açma türü**seçin **SAML 2.0**.
-   
+4. Olarak **çoklu oturum açma türü**seçin **SAML 2.0**.
+
     ![Çoklu oturum açma türü](./media/ideascale-tutorial/ic790849.png "çoklu oturum açma türü")
 
-1. Üzerinde **çoklu oturum açma ayarları** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-   
-    ![Çoklu oturum açma ayarları](./media/ideascale-tutorial/ic790850.png "çoklu oturum açma ayarları")
-   
-    a. İçinde **SAML IDP varlık kimliği** metin değerini yapıştırın **SAML varlık kimliği** , Azure Portalı'ndan kopyaladığınız.
+5. Üzerinde **çoklu oturum açma ayarları** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    b. Azure Portalı'ndan indirilen meta veri dosyasının içeriği kopyalayın ve yapıştırın **SAML IDP meta verileri** metin.
+    ![Çoklu oturum açma ayarları](./media/ideascale-tutorial/ic790850.png "çoklu oturum açma ayarları")
+
+    a. İçinde **SAML IDP varlık kimliği** metin değerini yapıştırın **Azure Ad tanımlayıcısı** , Azure Portalı'ndan kopyaladığınız.
+
+    b. Not Defteri'ne Azure portalından indirilen meta veri dosyası açın, içeriğini kopyalayın ve yapıştırın **SAML IDP meta verileri** metin.
 
     c. İçinde **oturum kapatma başarı URL'si** metin değerini yapıştırın **oturum kapatma URL'si** , Azure Portalı'ndan kopyaladığınız.
 
     d. Tıklayın **değişiklikleri kaydetmek**.
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD kullanıcısı oluşturun][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/ideascale-tutorial/create_aaduser_01.png) 
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/ideascale-tutorial/create_aaduser_02.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/ideascale-tutorial/create_aaduser_03.png) 
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/ideascale-tutorial/create_aaduser_04.png) 
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="creating-an-ideascale-test-user"></a>Bir IdeaScale test kullanıcısı oluşturma
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, Azure çoklu oturum açma kullanmak için IdeaScale erişim vererek Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **IdeaScale**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **IdeaScale**.
+
+    ![Uygulamalar listesinde IdeaScale bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-ideascale-test-user"></a>IdeaScale test kullanıcısı oluşturma
 
 Azure AD kullanıcılarının IdeaScale oturum etkinleştirmek için bunlar içinde IdeaScale için sağlanması gerekir. IdeaScale söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
 
@@ -205,86 +217,41 @@ Azure AD kullanıcılarının IdeaScale oturum etkinleştirmek için bunlar içi
 
 1. Oturum açın, **IdeaScale** şirketinizin sitesi yöneticisi olarak.
 
-1. Git **topluluk ayarları**.
-   
+2. Git **topluluk ayarları**.
+
     ![Topluluk ayarları](./media/ideascale-tutorial/ic790847.png "topluluk ayarları")
 
-1. Git **temel ayarları \> üye yönetim**.
+3. Git **temel ayarları \> üye yönetim**.
 
-1. Tıklayın **üye ekleme**.
-   
+4. Tıklayın **üye ekleme**.
+
     ![Üye yönetim](./media/ideascale-tutorial/ic790852.png "üye yönetim")
 
-1. Yeni Üye Ekle bölümünde aşağıdaki adımları gerçekleştirin:
-   
+5. Yeni Üye Ekle bölümünde aşağıdaki adımları gerçekleştirin:
+
     ![Yeni üye ekler](./media/ideascale-tutorial/ic790853.png "yeni üye ekler")
-   
-    a. İçinde **e-posta adreslerini** metin kutusuna geçerli bir AAD hesabı sağlamak istediğiniz e-posta adresini yazın.
-   
-    b. Tıklayın **değişiklikleri kaydetmek**. 
-   
-    >[!NOTE]
-    >Azure Active Directory hesap sahibi bu etkinleştirilmeden önce hesabı onaylamak için bir bağlantı içeren bir e-posta alır.
-      
->[!NOTE]
->Herhangi diğer IdeaScale kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak IdeaScale tarafından sağlanan.
- 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
+    a. İçinde **e-posta adreslerini** metin kutusu, türü e-posta adresi geçerli bir Azure ad hesabına sağlamak istiyor.
 
-Bu bölümde, Azure çoklu oturum açma kullanmak için IdeaScale erişim vererek Britta Simon etkinleştirin.
+    b. Tıklayın **değişiklikleri kaydetmek**.
 
-![Kullanıcı Ata][200] 
+    > [!NOTE]
+    > Azure Active Directory hesap sahibi bu etkinleştirilmeden önce hesabı onaylamak için bir bağlantı içeren bir e-posta alır.
 
-**Britta Simon IdeaScale için atamak için aşağıdaki adımları gerçekleştirin:**
+> [!NOTE]
+> Herhangi diğer IdeaScale kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak IdeaScale tarafından sağlanan.
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-    ![Kullanıcı Ata][201] 
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-1. Uygulamalar listesinde **IdeaScale**.
+Erişim paneli IdeaScale kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama IdeaScale için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-    ![Çoklu oturum açmayı yapılandırın](./media/ideascale-tutorial/tutorial_ideascale_app.png) 
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-    ![Kullanıcı Ata][202] 
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
-
-    ![Kullanıcı Ata][203]
-
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
-
-
-Bu bölümün amacı, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test sağlamaktır.
-
-Erişim panelinde IdeaScale kutucuğa tıkladığınızda, otomatik olarak IdeaScale uygulamanıza açan.
-
-## <a name="additional-resources"></a>Ek kaynaklar
-
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/ideascale-tutorial/tutorial_general_01.png
-[2]: ./media/ideascale-tutorial/tutorial_general_02.png
-[3]: ./media/ideascale-tutorial/tutorial_general_03.png
-[4]: ./media/ideascale-tutorial/tutorial_general_04.png
-
-[100]: ./media/ideascale-tutorial/tutorial_general_100.png
-
-[200]: ./media/ideascale-tutorial/tutorial_general_200.png
-[201]: ./media/ideascale-tutorial/tutorial_general_201.png
-[202]: ./media/ideascale-tutorial/tutorial_general_202.png
-[203]: ./media/ideascale-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ac4366a2e90ea239c650e611b7c4e8dddf5d5106
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243649"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649671"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Market öğesi oluşturma ve yayımlama
 
@@ -129,34 +129,34 @@ ms.locfileid: "55243649"
 
 ### <a name="identity-information"></a>Kimlik bilgileri
 
-| Name | Gereklidir | Type | Kısıtlamalar | Açıklama |
+| Ad | Gerekli | Type | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
-| Name |X |Dize |[A-Za-z0-9]+ | |
-| Yayımcı |X |Dize |[A-Za-z0-9]+ | |
-| Sürüm |X |Dize |[SemVer v2](https://semver.org/) | |
+| Ad |X |String |[A-Za-z0-9]+ | |
+| Yayımcı |X |String |[A-Za-z0-9]+ | |
+| Sürüm |X |String |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Meta Veriler
 
-| Name | Gereklidir | Type | Kısıtlamalar | Açıklama |
+| Ad | Gerekli | Type | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Dize |Öneri 80 karakter |Portal 80 karakterden daha uzunsa, öğe adı düzgün görüntülenmeyebilir. |
-| PublisherDisplayName |X |Dize |Öneri 30 karakter |Portalda 30 karakterden uzunsa, yayımcı adını düzgün bir şekilde görüntülenmeyebilir. |
-| PublisherLegalName |X |Dize |En fazla 256 karakter | |
-| Özet |X |Dize |60-100 karakter | |
-| LongSummary |X |Dize |140 ile 256 karakter |Henüz geçerli değil Azure Stack'te. |
+| DisplayName |X |String |Öneri 80 karakter |Portal 80 karakterden daha uzunsa, öğe adı düzgün görüntülenmeyebilir. |
+| PublisherDisplayName |X |String |Öneri 30 karakter |Portalda 30 karakterden uzunsa, yayımcı adını düzgün bir şekilde görüntülenmeyebilir. |
+| PublisherLegalName |X |String |En fazla 256 karakter | |
+| Özet |X |String |60-100 karakter | |
+| LongSummary |X |String |140 ile 256 karakter |Henüz geçerli değil Azure Stack'te. |
 | Açıklama |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 ila 5.000 karakter | |
 
 ### <a name="images"></a>Görüntüler
 
 Market, aşağıdaki simgeleri kullanır:
 
-| Name | Genişlik | Yükseklik | Notlar |
+| Ad | Genişlik | Yükseklik | Notlar |
 | --- | --- | --- | --- |
 | Geniş |255 px |115 piksel |Her zaman gerekli |
 | Büyük |115 piksel |115 piksel |Her zaman gerekli |
 | Orta |90 piksel |90 piksel |Her zaman gerekli |
 | Küçük |40 piksel |40 piksel |Her zaman gerekli |
-| Ekran görüntüsü |533 piksel |32 piksel |İsteğe bağlı |
+| Ekran Görüntüsü |533 piksel |32 piksel |İsteğe bağlı |
 
 ### <a name="categories"></a>Kategoriler
 
@@ -166,19 +166,19 @@ Her bir Market öğesi öğesi kullanıcı Arabirimi portalda göründüğü tan
 
 Her bir Market öğesi çeşitli ek içeriklere bağlantılar içerebilir. Bağlantılar, adları ve bir URI'leri listesi olarak belirtilir:
 
-| Name | Gereklidir | Type | Kısıtlamalar | Açıklama |
+| Ad | Gerekli | Type | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Dize |En fazla 64 karakter | |
+| DisplayName |X |String |En fazla 64 karakter | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>Ek Özellikler
 
 Önceki meta veriler ek olarak aşağıdaki biçimde özel bir anahtar/değer çifti verileri Market yazarlar sağlayabilirsiniz:
 
-| Name | Gereklidir | Type | Kısıtlamalar | Açıklama |
+| Ad | Gerekli | Type | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Dize |En çok 25 karakter | |
-| Value |X |Dize |En çok 30 karakter | |
+| DisplayName |X |String |En çok 25 karakter | |
+| Değer |X |String |En çok 30 karakter | |
 
 ### <a name="html-sanitization"></a>HTML temizleme
 
@@ -192,8 +192,8 @@ Simgeler ve Azure Stack portalında görüldüğü gibi Market öğesi için met
 
 ### <a name="create-blade"></a>Dikey pencere oluşturma
 
-![Dikey pencere oluşturma](media/azure-stack-marketplace-item-ui-reference/image1.png)
+![Dikey pencere oluşturma](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Market öğesi ayrıntıları dikey penceresi
 
-![Market öğesi ayrıntıları dikey penceresi](media/azure-stack-marketplace-item-ui-reference/image3.png)
+![Market öğesi ayrıntıları dikey penceresi](media/azure-stack-create-and-publish-marketplace-item/image3.png)

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998527"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649603"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Öğretici: Bir sınıf laboratuvarı ayarlama 
 Bu öğreticide, sınıftaki öğrenciler tarafından kullanılan sanal makinelerle bir sınıf laboratuvarı ayarlayacaksınız.  
@@ -69,10 +69,8 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
 
     ![Tamamlanmış şablon yapılandırma sayfası](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Üzerinde **yapılandırma şablonu** sayfasında, aşağıdaki adımları uygulayın: Bu adımlar **isteğe bağlı** öğretici.
-    1. **Başlat**'ı seçerek şablon VM'sini başlatın.
     2. **Bağlan**'ı seçerek şablon VM'sine bağlanın. 
-    3. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin. 
-    4. VM'yi **durdurun**.  
+    3. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin.     
     5. Şablon için bir **açıklama** girin
 9. Şablon sayfasında **İleri**'yi seçin. 
 10. **Şablonu yayımla** sayfasında aşağıdaki işlemleri gerçekleştirin. 

@@ -1,6 +1,6 @@
 ---
 title: Visual Studio Azure kaynak grubu projeleri | Microsoft Belgeleri
-description: Azure kaynak grubu projesi oluşturmak ve kaynakları Azure'a dağıtmak için Visual Studio'yu kullanın.
+description: Bir Azure kaynak grubu projesi oluşturma ve kaynakları Azure'a dağıtmak için Visual Studio'yu kullanın.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,22 +11,20 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0b00bff2b32ac9dd16d4d38ee35be006c0247bb8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493492"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649688"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio aracılığıyla Azure kaynak grupları oluşturma ve dağıtma
 
 Visual Studio ile altyapınızı ve kodlarınızı Azure’a dağıtan bir proje oluşturabilirsiniz. Örneğin, uygulamanızın web ana bilgisayarını, web sitesini ve veritabanını tanımlayabilir ve kodlarını ve altyapısını dağıtabilirsiniz. Visual Studio genelde karşılaşılan senaryoların dağıtılması için birçok farklı başlangıç şablonu sağlar. Bu makalede bir web uygulaması ve SQL Veritabanı dağıtacaksınız.  
 
 Bu makalede [Visual Studio 2017'yi Azure geliştirme özellikleri ve ASP.NET iş yükleri yüklü bir şekilde](/dotnet/azure/dotnet-tools) kullanmayı öğreneceksiniz. Visual Studio 2015 Güncelleştirme 2 ve .NET 2.9 için Microsoft Azure SDK veya Azure SDK 2.9 ile Visual Studio 2013 kullanıyorsanız, deneyiminiz büyük ölçüde aynıdır.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Azure Kaynak Grubu projesi oluşturma
 
@@ -101,7 +99,7 @@ Yalnızca kaynak eklenmediğini, aynı zamanda depolama hesabı türü için bir
 }
 ```
 
-Visual Studio, şablonu düzenlerken hangi özellikleri kullanabileceğinizi anlamanıza yardımcı olmak için IntelliSense’i kullanmanıza da olanak tanır. Örneğin, App Service planınızın özelliklerini düzenlemek için **HostingPlan** kaynağına gidin ve **resources** için bir değer ekleyin. IntelliSense’in kullanılabilir değerleri gösterdiğini ve bu değerler için bir açıklama sunduğunu unutmayın.
+Visual Studio, şablonu düzenlerken kullanılabilir özelliklerini anlamanıza yardımcı olması için IntelliSense de sağlar. Örneğin, App Service planınızın özelliklerini düzenlemek için **HostingPlan** kaynağına gidin ve **resources** için bir değer ekleyin. IntelliSense’in kullanılabilir değerleri gösterdiğini ve bu değerler için bir açıklama sunduğunu unutmayın.
 
 ![IntelliSense’i göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
 
@@ -148,7 +146,9 @@ Artık, projenizi dağıtmaya hazırsınız. Bir Azure Kaynak Grubu projesi dağ
 5. Projeyi Azure’da dağıtmak için **Dağıt** düğmesini seçin. Visual Studio örneğinin dışında bir PowerShell konsolu açılır. İstendiğinde PowerShell konsolunda SQL Server yönetici parolasını girin. **PowerShell konsolunuz, diğer öğelerin arkasına gizlenmiş veya görev çubuğunda simge haline getirilmiş olabilir.** Bu konsolu arayın ve parolayı belirtmek için seçin.
    
    > [!NOTE]
-   > Visual Studio, Azure PowerShell cmdlet'lerini yüklemenizi isteyebilir. Kaynak gruplarını başarıyla dağıtmak için Azure PowerShell cmdlet'lerini ihtiyacınız vardır. İstenirse, bunları yükleyin. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-az-ps).
+   > Visual Studio, Azure PowerShell cmdlet'lerini yüklemenizi isteyebilir. İstenirse, bunları yükleyin. Kaynak gruplarını başarıyla dağıtmak için Azure PowerShell modülleri ihtiyacınız vardır. PowerShell betiğini projesinde yeni işe yaramazsa [Az Azure PowerShell Modülü](/powershell/azure/new-azureps-module-az). 
+   >
+   > Daha fazla bilgi için [yüklemek ve Azure PowerShell modülleri Yapılandır](/powershell/azure/azurerm/install-azurerm-ps).
    > 
    > 
 6. Dağıtım birkaç dakika sürebilir. **Çıktı** pencerelerinde dağıtımın durumunu görürsünüz. Dağıtım tamamlandığında son ileti aşağıdakine benzer bir ifadeyle dağıtımın başarılı olduğunu belirtir:

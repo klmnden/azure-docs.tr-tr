@@ -17,14 +17,16 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a8a92645a0a0c4b35d06dc6397219e5ff25e25e9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 49a6c91587905a8f7086b46b275a5078197939eb
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429554"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649960"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>PowerShell kullanarak sanal ağ eşlemesi ile sanal ağları birbirine bağlama
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Sanal ağ eşlemesi ile sanal ağları birbirine bağlayabilirsiniz. Sanal ağlar eşlendikten sonra, kaynaklar aynı sanal ağ üzerindeymiş gibi, aynı gecikme süresi ve bant genişliği ile her iki sanal ağdaki kaynaklar birbiriyle iletişim kurabilir. Bu makalede şunları öğreneceksiniz:
 
@@ -37,91 +39,91 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu makale, Azure PowerShell modülü 5.4.1 veya sonraki bir sürümünü gerektirir. Yüklü sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu makale Azure PowerShell modülü sürüm 1.0.0 gerekir veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 
 ## <a name="create-virtual-networks"></a>Sanal ağlar oluşturma
 
-Bir sanal ağ oluşturmadan önce sanal ağ ve bu makalede oluşturulan tüm kaynakları için bir kaynak grubu oluşturmanız gerekir. [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanarak bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+Bir sanal ağ oluşturmadan önce sanal ağ ve bu makalede oluşturulan tüm kaynakları için bir kaynak grubu oluşturmanız gerekir. Bir kaynak grubu oluşturun [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
+New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) ile sanal ağ oluşturun. Aşağıdaki örnekte adlı bir sanal ağ oluşturur *myVirtualNetwork1* adres ön eki ile *10.0.0.0/16*.
+İle sanal ağ oluşturma [yeni AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Aşağıdaki örnekte adlı bir sanal ağ oluşturur *myVirtualNetwork1* adres ön eki ile *10.0.0.0/16*.
 
 ```azurepowershell-interactive
-$virtualNetwork1 = New-AzureRmVirtualNetwork `
+$virtualNetwork1 = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork1 `
   -AddressPrefix 10.0.0.0/16
 ```
 
-[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) ile bir alt ağ yapılandırması oluşturun. Aşağıdaki örnek, 10.0.0.0/24 adres ön eki ile bir alt ağ yapılandırması oluşturur:
+Bir alt ağ yapılandırması ile [yeni AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Aşağıdaki örnek, 10.0.0.0/24 adres ön eki ile bir alt ağ yapılandırması oluşturur:
 
 ```azurepowershell-interactive
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name Subnet1 `
   -AddressPrefix 10.0.0.0/24 `
   -VirtualNetwork $virtualNetwork1
 ```
 
-Sanal ağ için alt ağ yapılandırmasını yazma [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), alt ağ oluşturur:
+Sanal ağ için alt ağ yapılandırmasını yazma [kümesi AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), alt ağ oluşturur:
 
 ```azurepowershell-interactive
-$virtualNetwork1 | Set-AzureRmVirtualNetwork
+$virtualNetwork1 | Set-AzVirtualNetwork
 ```
 
 10.1.0.0/16 adres ön eki ve bir alt ağ ile sanal ağ oluşturun:
 
 ```azurepowershell-interactive
 # Create the virtual network.
-$virtualNetwork2 = New-AzureRmVirtualNetwork `
+$virtualNetwork2 = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork2 `
   -AddressPrefix 10.1.0.0/16
 
 # Create the subnet configuration.
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name Subnet1 `
   -AddressPrefix 10.1.0.0/24 `
   -VirtualNetwork $virtualNetwork2
 
 # Write the subnet configuration to the virtual network.
-$virtualNetwork2 | Set-AzureRmVirtualNetwork
+$virtualNetwork2 | Set-AzVirtualNetwork
 ```
 
 ## <a name="peer-virtual-networks"></a>Sanal ağları eşleme
 
-Eşleme oluşturmaya [Ekle-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering). Aşağıdaki örnekte eşlerden *myVirtualNetwork1* için *myVirtualNetwork2*.
+Eşleme oluşturmaya [Ekle AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering). Aşağıdaki örnekte eşlerden *myVirtualNetwork1* için *myVirtualNetwork2*.
 
 ```azurepowershell-interactive
-Add-AzureRmVirtualNetworkPeering `
+Add-AzVirtualNetworkPeering `
   -Name myVirtualNetwork1-myVirtualNetwork2 `
   -VirtualNetwork $virtualNetwork1 `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 ```
 
-Önceki komut yürütüldükten sonra döndürülen Çıkışta gördüğünüz **PeeringState** olduğu *başlatılan*. Eşleme saklanır *başlatılan* gelen eşleme oluşturana kadar durum *myVirtualNetwork2* için *myVirtualNetwork1*. Gelen bir eşleme oluşturma *myVirtualNetwork2* için *myVirtualNetwork1*. 
+Önceki komut yürütüldükten sonra döndürülen Çıkışta gördüğünüz **PeeringState** olduğu *başlatılan*. Eşleme saklanır *başlatılan* gelen eşleme oluşturana kadar durum *myVirtualNetwork2* için *myVirtualNetwork1*. Gelen bir eşleme oluşturma *myVirtualNetwork2* için *myVirtualNetwork1*.
 
 ```azurepowershell-interactive
-Add-AzureRmVirtualNetworkPeering `
+Add-AzVirtualNetworkPeering `
   -Name myVirtualNetwork2-myVirtualNetwork1 `
   -VirtualNetwork $virtualNetwork2 `
   -RemoteVirtualNetworkId $virtualNetwork1.Id
 ```
 
-Önceki komut yürütüldükten sonra döndürülen Çıkışta gördüğünüz **PeeringState** olduğu *bağlı*. Azure da eşleme durumu değişti *myVirtualNetwork1 myVirtualNetwork2* için eşleme *bağlı*. Onaylamak için eşleme durumunu *myVirtualNetwork1 myVirtualNetwork2* eşleme değiştirildi *bağlı* ile [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering).
+Önceki komut yürütüldükten sonra döndürülen Çıkışta gördüğünüz **PeeringState** olduğu *bağlı*. Azure da eşleme durumu değişti *myVirtualNetwork1 myVirtualNetwork2* için eşleme *bağlı*. Onaylamak için eşleme durumunu *myVirtualNetwork1 myVirtualNetwork2* eşleme değiştirildi *bağlı* ile [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering).
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkPeering `
+Get-AzVirtualNetworkPeering `
   -ResourceGroupName myResourceGroup `
   -VirtualNetworkName myVirtualNetwork1 `
   | Select PeeringState
 ```
 
-Bir sanal ağ kuramıyor.%nÇözüm kaynaklarla kadar diğer sanal ağ içindeki kaynaklarla **PeeringState** içinde her iki sanal ağ eşlemeleri için *bağlı*. 
+Bir sanal ağ kuramıyor.%nÇözüm kaynaklarla kadar diğer sanal ağ içindeki kaynaklarla **PeeringState** içinde her iki sanal ağ eşlemeleri için *bağlı*.
 
 ## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
@@ -129,10 +131,10 @@ Sonraki bir adımda aralarında iletişim kurabilmeniz için her sanal ağ üzer
 
 ### <a name="create-the-first-vm"></a>Birinci sanal makineyi oluşturma
 
-[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) ile bir sanal makine oluşturun. Aşağıdaki örnekte adlı bir VM oluşturur *myVm1* içinde *myVirtualNetwork1* sanal ağ. `-AsJob` Seçeneği, sonraki adıma devam edebilmesi bu VM için arka planda oluşturur. İstendiğinde kullanıcı adını ve VM ile oturum açmak için kullanmak istediğiniz parolayı girin.
+İle bir VM [yeni-AzVM](/powershell/module/az.compute/new-azvm). Aşağıdaki örnekte adlı bir VM oluşturur *myVm1* içinde *myVirtualNetwork1* sanal ağ. `-AsJob` Seçeneği, sonraki adıma devam edebilmesi bu VM için arka planda oluşturur. İstendiğinde kullanıcı adını ve VM ile oturum açmak için kullanmak istediğiniz parolayı girin.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -Location "East US" `
   -VirtualNetworkName "myVirtualNetwork1" `
@@ -145,7 +147,7 @@ New-AzureRmVm `
 ### <a name="create-the-second-vm"></a>İkinci sanal makineyi oluşturma
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -Location "East US" `
   -VirtualNetworkName "myVirtualNetwork2" `
@@ -158,10 +160,10 @@ Sanal makinenin oluşturulması birkaç dakika sürer. Azure sanal makine oluşt
 
 ## <a name="communicate-between-vms"></a>Sanal makineler arasında iletişim
 
-İnternet'ten bir sanal makinenin genel IP adresi bağlanabilirsiniz. Bir sanal makinenin genel IP adresini döndürmek için [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) komutunu kullanın. Aşağıdaki örnek,*myVm1* sanal makinesinin genel IP adresini döndürür:
+İnternet'ten bir sanal makinenin genel IP adresi bağlanabilirsiniz. Kullanım [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) bir VM'nin genel IP adresini döndürmek için. Aşağıdaki örnek,*myVm1* sanal makinesinin genel IP adresini döndürür:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -Name myVm1 `
   -ResourceGroupName myResourceGroup | Select IpAddress
 ```
@@ -198,10 +200,10 @@ Dört yanıt alırsınız. Hem *myVm1* hem de *myVm2* sanal makinesine yönelik 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli değilse [Remove-AzureRmResourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için.
+Artık gerekli değilse [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

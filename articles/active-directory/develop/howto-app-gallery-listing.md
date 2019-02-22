@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 02/15/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855b9db645721c63abae34422ae6461cea3daab2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5622c179b6eb767f4c608e8c36c2ba154aac0906
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189829"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594704"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Nasıl yapılır: Azure Active Directory uygulama galerisinde uygulamanızı listeleme
 
@@ -47,6 +47,9 @@ ms.locfileid: "56189829"
 - Parola SSO için uygulamanız beklendiği gibi çoklu oturum açma işleri için parola kasası oluşturma yapılabilir, böylece form kimlik doğrulaması desteklediğinden emin olun.
 
 - Otomatik kullanıcı hazırlama istekler için uygulamanın SAML 2.0/WS-Federasyon kullanan çoklu oturum açma özelliği etkin galeride listelenmelidir. SSO ve kullanıcı henüz listeleniyorsa birlikte portalda, sağlama için talep edebilir.
+
+>[!NOTE]
+>Biz portalımıza üzerinde yeni istekleri alma durdurduktan için SCIM'yi bağlayıcı istekleri yüksek sayıda çalıştırılmakta olan. Lütfen daha ayrıntılı bir açıklama yapılana kadar isteklerinizi üzerinde tutun. Biz bu gecikmeyi ve bunun neden olabileceği rahatsızlık için özür.
 
 ## <a name="submit-the-request-in-the-portal"></a>Portalı'nda isteme
 
@@ -108,6 +111,16 @@ Güncelleştirme ya da Azure AD uygulama galerisinde mevcut bir uygulamayı kald
     * Azure AD galeri var olan bir uygulamayı kaldırmak isteyip istemediğinizi seçin **mevcut uygulama listesini Kaldır**.
     * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
+## <a name="listing-requests-by-customers"></a>Müşteriler tarafından istekleri listesi
+
+Müşteriler, uygulamaya tıklayarak listeleme isteği gönderebilir **uygulama isteyen müşteriler tarafından** -> **yeni istek Gönder**.
+
+![Müşteri istenen uygulama kutucuğu](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Müşteri akışını uygulamalar tarafından istenen aşağıda verilmiştir
+
+![Müşteri uygulamaları akış istendi](./media/howto-app-gallery-listing/customer-request.png)
+
 ## <a name="timelines"></a>Zaman çizelgeleri
 
 SAML 2.0 veya WS-Federasyon uygulama galerisinde listeleme işlemi için zaman çizelgesi 7-10 iş günü ' dir.
@@ -117,10 +130,6 @@ SAML 2.0 veya WS-Federasyon uygulama galerisinde listeleme işlemi için zaman �
 Bir Openıd Connect uygulama galerisinde listeleme işlemi için zaman çizelgesi 2-5 iş günü ' dir.
 
    ![Saml galeri uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/timeline2.png)
-
-Galerideki uygulama kullanıcı desteği sağlama ile listeleme işlemi için zaman çizelgesi 40-45 iş gündür.
-
-   ![Saml galeri uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>Yardım istekleri
 

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: cda183878467dbcd30f0e89d88da55c20b6b130f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: e75b282d2190654c14c4885861e52b96fdced4c5
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268643"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586945"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure işlevleri için Azure Service Bus bağlamaları
 
@@ -285,7 +285,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**queueName**|**queueName**|İzlemek için Kuyruğun adı.  Yalnızca bir konu için bir kuyruk izleme ayarlayın.
 |**topicName**|**topicName**|İzlemek için konunun adı. Bir kuyruk için bir konu, yalnızca izleme ayarlayın.|
 |**subscriptionName**|**subscriptionName**|İzlemek için Abonelik adı. Bir kuyruk için bir konu, yalnızca izleme ayarlayın.|
-|**bağlantı**|**bağlantı**|Bu bağlama için kullanılacak hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca kalanı adını belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyServiceBus." adlı bir uygulama ayarı için "MyServiceBus", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan Service Bus bağlantı dizesi "AzureWebJobsServiceBus" adlı uygulama ayarı kullanır.<br><br>Bağlantı dizesini almak için gösterilen adımları [yönetim kimlik bilgilerini alma](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-management-credentials). Service Bus ad alanı bir belirli bir kuyruğa veya konuya sınırlı olmayan bir bağlantı dizesi olmalıdır. |
+|**bağlantı**|**bağlantı**|Bu bağlama için kullanılacak hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca kalanı adını belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyServiceBus." adlı bir uygulama ayarı için "MyServiceBus", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan Service Bus bağlantı dizesi "AzureWebJobsServiceBus" adlı uygulama ayarı kullanır.<br><br>Bağlantı dizesini almak için gösterilen adımları [yönetim kimlik bilgilerini alma](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). Service Bus ad alanı bir belirli bir kuyruğa veya konuya sınırlı olmayan bir bağlantı dizesi olmalıdır. |
 |**erişimHakları**|**Erişim**|Bağlantı dizesi için erişim hakları. Kullanılabilir değerler `manage` ve `listen`. Varsayılan değer `manage`, belirten `connection` sahip **Yönet** izni. Sahip olmayan bir bağlantı dizesi kullanıyorsanız **Yönet** izin kümesi `accessRights` "dinlemek için". Aksi takdirde, İşlevler çalışma zamanı gerektiren işlemler yapmaya başarısız olabilir, hakları yönetin. Azure işlevleri sürüm 2.x, bu özellik kullanılabilir değil depolama SDK'sı en son sürümünü desteklemediğinden işlemleri yönetin.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -571,7 +571,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**Adı** | yok | Kuyruk veya konuda işlev kodunu temsil eden değişken adı. İşlev dönüş değeri başvurmak için "$return için" ayarlayın. | 
 |**queueName**|**queueName**|Kuyruğun adı.  Yalnızca bir konu için kuyruk iletileri gönderme ayarlayın.
 |**topicName**|**topicName**|İzlemek için konunun adı. Yalnızca bir kuyruk için konu iletileri gönderme ayarlayın.|
-|**bağlantı**|**bağlantı**|Bu bağlama için kullanılacak hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca kalanı adını belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyServiceBus." adlı bir uygulama ayarı için "MyServiceBus", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan Service Bus bağlantı dizesi "AzureWebJobsServiceBus" adlı uygulama ayarı kullanır.<br><br>Bağlantı dizesini almak için gösterilen adımları [yönetim kimlik bilgilerini alma](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-management-credentials). Service Bus ad alanı bir belirli bir kuyruğa veya konuya sınırlı olmayan bir bağlantı dizesi olmalıdır.|
+|**bağlantı**|**bağlantı**|Bu bağlama için kullanılacak hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca kalanı adını belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyServiceBus." adlı bir uygulama ayarı için "MyServiceBus", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan Service Bus bağlantı dizesi "AzureWebJobsServiceBus" adlı uygulama ayarı kullanır.<br><br>Bağlantı dizesini almak için gösterilen adımları [yönetim kimlik bilgilerini alma](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). Service Bus ad alanı bir belirli bir kuyruğa veya konuya sınırlı olmayan bir bağlantı dizesi olmalıdır.|
 |**erişimHakları**|**Erişim**|Bağlantı dizesi için erişim hakları. Kullanılabilir değerler `manage` ve `listen`. Varsayılan değer `manage`, belirten `connection` sahip **Yönet** izni. Sahip olmayan bir bağlantı dizesi kullanıyorsanız **Yönet** izin kümesi `accessRights` "dinlemek için". Aksi takdirde, İşlevler çalışma zamanı gerektiren işlemler yapmaya başarısız olabilir, hakları yönetin. Azure işlevleri sürüm 2.x, bu özellik kullanılabilir değil depolama SDK'sı en son sürümünü desteklemediğinden işlemleri yönetin.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

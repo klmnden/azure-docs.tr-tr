@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/21/2019
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6984307dda58aeba840f2b6d08e84fb4f60cacc8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93d5a08d08a67a14d2e78f414fc40e7391653951
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163079"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593701"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 Kullanıcılar uygulamalara, Azure Active Directory'de (Azure AD) oturum çoklu oturum açma (SSO) güvenlik ve kolaylık ekler. Bu makalede tek oturum açma yöntemleri açıklar ve uygulamalarınızı yapılandırırken en uygun SSO yöntemi seçmenize yardımcı olur.
@@ -69,7 +69,9 @@ SAML tabanlı çoklu oturum açma şu protokolden herhangi birini kullanan uygul
 - SAML 2.0
 - WS-Federation
 
-Bir uygulama SAML tabanlı çoklu oturum açma için yapılandırmak üzere bkz [yapılandırma SAML tabanlı çoklu oturum açma](configure-single-sign-on-portal.md). Ayrıca, bir hizmet (SaaS) uygulamaları olarak çok sayıda yazılım sahip bir [uygulamaya özgü öğretici](../saas-apps/tutorial-list.md) Bu adım, SAML tabanlı çoklu oturum açma için yapılandırma. 
+Bir uygulama SAML tabanlı çoklu oturum açma için yapılandırmak üzere bkz [yapılandırma SAML tabanlı çoklu oturum açma](configure-single-sign-on-portal.md). Ayrıca, bir hizmet (SaaS) uygulamaları olarak çok sayıda yazılım sahip bir [uygulamaya özgü öğretici](../saas-apps/tutorial-list.md) Bu adım, SAML tabanlı çoklu oturum açma için yapılandırma.
+
+WS-Federasyon için bir uygulamayı yapılandırmak için uygulamanın SAML tabanlı çoklu oturum açma için yapılandırmak için bkz aynı yönergeleri [yapılandırma SAML tabanlı çoklu oturum açma](configure-single-sign-on-portal.md). Adım uygulamayı Azure AD'ye kullanacak şekilde yapılandırmak için WS-Federasyon uç nokta için Azure AD oturum açma URL'sini değiştirmeniz gerekecektir `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
 
 SAML protokolü hakkında daha fazla bilgi için bkz. [çoklu oturum açma SAML Protokolü](../develop/single-sign-on-saml-protocol.md).
 

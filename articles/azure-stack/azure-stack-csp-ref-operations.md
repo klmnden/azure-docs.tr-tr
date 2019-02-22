@@ -15,12 +15,12 @@ ms.date: 01/23/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: aca051dd20ceaeb608baa144a81e0584043a1c52
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6f2a2eb9902e8567b5fa27ed93dd8be2fe3a01b3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002063"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587081"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack Kiracı kaydı yönetme
 
@@ -60,7 +60,7 @@ Azure Stack ve API profilleri hakkında daha fazla bilgi için bkz. [yönetme AP
 
 ### <a name="powershell"></a>PowerShell
 
-Bir kiracı eklemek için New-AzureRmResource cmdlet'ini kullanın. [Azure Stack'e bağlanma](/azure-stack-powershell-configure-admin.md)ve ardından yükseltilmiş isteminden aşağıdaki cmdlet'i kullanın:
+Bir kiracı eklemek için New-AzureRmResource cmdlet'ini kullanın. [Azure Stack'e bağlanma](azure-stack-powershell-configure-admin.md)ve ardından yükseltilmiş isteminden aşağıdaki cmdlet'i kullanın:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -91,7 +91,7 @@ Bir kaydı için eklenmiş olan tüm kiracılar listesini alın.
 
 ### <a name="powershell"></a>PowerShell
 
-Kayıtlı tüm kiracılar listelemek için Get-AzureRmResource cmdlet'ini kullanın. [Azure Stack'e bağlanma](/azure-stack-powershell-configure-admin.md)ve ardından yükseltilmiş isteminden aşağıdaki cmdlet'i kullanın:
+Kayıtlı tüm kiracılar listelemek için Get-AzureRmResource cmdlet'ini kullanın. [Azure Stack'e bağlanma](azure-stack-powershell-configure-admin.md)ve ardından yükseltilmiş isteminden aşağıdaki cmdlet'i kullanın:
 
 ```powershell
   Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -142,7 +142,7 @@ Bir kaydı için eklenmiş olan bir kiracı kaldırabilirsiniz. Söz konusu kira
 
 ### <a name="powershell"></a>PowerShell
 
-Bir kiracıyı kaldırmak için Remove-AzureRmResource cmdlet'ini kullanın. [Azure Stack'e bağlanma](/azure-stack-powershell-configure-admin.md)ve ardından yükseltilmiş isteminden aşağıdaki cmdlet'i kullanın:
+Bir kiracıyı kaldırmak için Remove-AzureRmResource cmdlet'ini kullanın. [Azure Stack'e bağlanma](azure-stack-powershell-configure-admin.md)ve ardından yükseltilmiş isteminden aşağıdaki cmdlet'i kullanın:
 
 ```powershell
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

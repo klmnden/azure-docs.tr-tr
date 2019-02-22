@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 62fde78cce05e62489931868da3d21c8b2e16928
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: ebf8066139df93aefe1cfa21f2dc80ab57ca84bb
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430361"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652459"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -53,11 +53,13 @@ Azure Stack Azure ile kaydetmeden önce şunlara sahip olmalısınız:
 
 - Kullanıcı adı ve parola için aboneliğin sahibi olan bir hesap.
 
-- Kullanıcı hesabı, Azure aboneliğine erişiminiz olması ve bu abonelikle dizinde kimlik uygulama ve hizmet sorumluları oluşturma izniniz gerekiyor. Azure Stack Azure ile kaydedin en az ayrıcalıklı yönetim tarafından kullanılması önerilir [kayıt için kullanılacak bir hizmet hesabı oluşturmanızı](azure-stack-registration-role.md) genel yönetici kimlik bilgilerini kullanmak yerine.
+- Kullanıcı hesabı, Azure aboneliğine erişiminiz olması ve bu abonelikle dizinde kimlik uygulama ve hizmet sorumluları oluşturma izniniz gerekiyor. Azure Stack Azure ile kaydedin en az ayrıcalıklı yönetim kullanmanızı öneririz. Kayıt için aboneliğinize erişimi sınırlayan bir özel rol tanımını oluşturma hakkında daha fazla bilgi için bkz. [Azure Stack için bir kayıt oluşturup](azure-stack-registration-role.md).
 
 - Azure Stack kaynak sağlayıcısına kayıtlı (Ayrıntılar için aşağıdaki Azure Stack kaynak sağlayıcısını kaydetme bölümüne bakın).
 
 Kayıt sonrasında Azure Active Directory genel yönetici izni gerekli değildir. Ancak, bazı işlemler, genel yönetici kimlik bilgileri gerektirebilir. Örneğin, bir kaynak sağlayıcısı yükleyicisi betiği veya izin verilecek gerektiren yeni bir özelliktir. Geçici olarak hesap genel yönetici izinleri yeniden devreye sokmanız veya sahiplerinden biri olan ayrı bir genel yönetici hesabı kullanın *varsayılan sağlayıcı aboneliği*.
+
+Azure Stack kaydeden kullanıcı hizmet sorumlusu Azure Active Directory'de sahibidir. Azure Stack kaydolan kullanıcı, Azure Stack kayıt değiştirebilirsiniz. Kayıt hizmet sorumlusu sahibi değil ve yönetici olmayan bir kullanıcı kaydetmek veya Azure Stack yeniden kaydolmak çalışırsa, bunlar bir 403 yanıt karşılaşabilirsiniz. Kullanıcı işlemi tamamlamak için yeterli izne sahip bir 403 yanıt gösterir.
 
 Bu gereksinimleri karşıladığını Azure aboneliğiniz yoksa, şunları yapabilirsiniz [buradan ücretsiz bir Azure hesabı oluşturun](https://azure.microsoft.com/free/?b=17.06). Azure aboneliğinize ücret ödemeden Azure Stack kaydetme artmasına neden olur.
 
@@ -479,6 +481,13 @@ Get-AzsRegistrationToken giriş parametrelerini kayıt belirtecinizi oluşturur.
 | UsageReportingEnabled | True/False | Azure Stack, varsayılan olarak kullanım ölçümleri raporları. Kapasite kullanır veya bağlantısı kesilmiş bir ortam destekleyen işleçlerle kullanım bildirimini devre dışı bırak gerekir. Bu parametre için izin verilen değerler şunlardır: TRUE, False. |
 | AgreementNumber değeri | String |  |
 
+## <a name="registration-failures"></a>Kayıt hataları
+
+Azure Stack kayıt çalışırken hatalardan birini görebilirsiniz:
+1. $HostName için zorunlu donanım bilgileri alınamadı. Lütfen fiziksel konak ve bağlantı denetleyin ardından kayıt yeniden çalıştırmayı deneyin.
+2. Donanım bilgilerini al - Lütfen fiziksel konak ve bağlantı ardından kayıt yeniden çalıştırmayı deneyin $hostName için bağlanamıyor.
+
+Neden: Etkinleştirme girişiminde konaklarından UUID, BIOS ve CPU gibi donanım ayrıntıları edinmeye ve fiziksel konağa bağlanamama nedeniyle mümkün değildi tipik olmasıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

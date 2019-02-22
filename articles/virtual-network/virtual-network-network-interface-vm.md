@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: 3daea64d9c9c94b334a57b81c47dd298f7ae4d78
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cf856a680601edd950cd0a5fddbc1241782478e2
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658072"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648906"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Ağ arabirimlerine ekleme veya sanal makinelerden ağ arabirimleri Kaldır
 
@@ -30,11 +30,13 @@ Eklemek, değiştirmek veya bir ağ arabirimi için IP adreslerini kaldırın, b
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki görevleri tamamlayın:
 
 - Azure hesabınız yoksa, kaydolmaya bir [ücretsiz deneme hesabınızı](https://azure.microsoft.com/free).
 - Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
-- Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici Azure PowerShell modülü sürüm 5.2.0 gerektirir veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici Azure PowerShell modülü sürüm 1.0.0 gerektirir veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 - Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici, Azure CLI Sürüm 2.0.26 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>Mevcut ağ arabirimi için yeni bir sanal makine ekleyin
@@ -48,29 +50,30 @@ VM oluşturmadan önce adımları kullanarak bir ağ arabirimi oluşturma [ağ a
 |Aracı|Komut|
 |---|---|
 |CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzVM](/powershell/module/az.compute/new-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Mevcut bir VM'ye ağ arabirimi ekleyin
 
 1. Azure Portal’da oturum açın.
 2. Ağ arabirimi ekleyin ya da seçerek VM için Gözat istediğiniz VM adını portalın üst kısmındaki arama kutusuna yazın **tüm hizmetleri**, ardından **sanal makineler**. VM bulduktan sonra onu seçin. VM, eklemek istediğiniz ağ arabirimlerinin sayısını desteklemesi gerekir. Her VM boyutunun kaç ağ arabirimleri destekleyen öğrenmek için bkz: [azure'da Linux sanal makine boyutları](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [boyutları için Windows azure'da sanal makineler](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-3. Seçin **genel bakış**altında **ayarları**. Seçin **Durdur**ve ardından bekle **durumu** sanal makinenin değişiklikleri **durduruldu (serbest bırakıldı)**. 
+3. Seçin **genel bakış**altında **ayarları**. Seçin **Durdur**ve ardından bekle **durumu** sanal makinenin değişiklikleri **durduruldu (serbest bırakıldı)**.
 4. Seçin **ağ**altında **ayarları**.
-5. Seçin **ek ağ arabirimi**. Şu anda başka bir VM'ye bağlı olmayan ağ arabirimleri listesinden iliştirmek istediğiniz birini seçin. 
+5. Seçin **ek ağ arabirimi**. Şu anda başka bir VM'ye bağlı olmayan ağ arabirimleri listesinden iliştirmek istediğiniz birini seçin.
 
-    >[!NOTE]
-    Seçtiğiniz ağ arabiriminin etkin hızlandırılmış olamaz, kendisine atanmış bir IPv6 adresi olamaz ve şu anda sanal Makineye bağlı ağ arabirimi içeren aynı sanal ağda bulunması gerekir. 
+   >[!NOTE]
+   >Seçtiğiniz ağ arabiriminin etkin hızlandırılmış olamaz, kendisine atanmış bir IPv6 adresi olamaz ve şu anda sanal Makineye bağlı ağ arabirimi içeren aynı sanal ağda bulunması gerekir.
 
-    Var olan bir ağ arabirimi yoksa, öncelikle bir oluşturmanız gerekir. Bunu yapmak için **oluşturma ağ arabirimi**. Bir ağ arabirimi oluşturma hakkında daha fazla bilgi için bkz. [ağ arabirimini oluşturun](virtual-network-network-interface.md#create-a-network-interface). Ağ arabirimleri için sanal makineler eklerken ek kısıtlamaları hakkında daha fazla bilgi için bkz [kısıtlamaları](#constraints).
+   Var olan bir ağ arabirimi yoksa, öncelikle bir oluşturmanız gerekir. Bunu yapmak için **oluşturma ağ arabirimi**. Bir ağ arabirimi oluşturma hakkında daha fazla bilgi için bkz. [ağ arabirimini oluşturun](virtual-network-network-interface.md#create-a-network-interface). Ağ arabirimleri için sanal makineler eklerken ek kısıtlamaları hakkında daha fazla bilgi için bkz [kısıtlamaları](#constraints).
 
 6. **Tamam**’ı seçin.
 7. Seçin **genel bakış**altında **ayarları**, ardından **Başlat** sanal makineyi başlatmak için.
 8. Birden çok ağ arabirimi düzgün bir şekilde kullanmak için sanal makine işletim sistemini yapılandırın. Nasıl yapılandıracağınızı öğrenin [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) veya [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) birden çok ağ arabirimi için.
 
+### <a name="commands"></a>Komutlar
 |Aracı|Komut|
 |---|---|
-|CLI|[az vm nic ekleme](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (başvuru) veya [ayrıntılı adımlar](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Ekle-Azurermvmnetworkınterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (başvuru) veya [ayrıntılı adımlar](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|CLI|[az vm nic ekleme](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_add) (başvuru) veya [ayrıntılı adımlar](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
+|PowerShell|[Ekleme AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (başvuru) veya [ayrıntılı adımlar](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="view-network-interfaces-for-a-vm"></a>Bir VM için ağ arabirimlerini görüntüleme
 
@@ -85,27 +88,27 @@ VM oluşturmadan önce adımları kullanarak bir ağ arabirimi oluşturma [ağ a
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|PowerShell|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_show)|
+|PowerShell|[Get-AzVM](/powershell/module/az.compute/get-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-a-network-interface-from-a-vm"></a>Bir ağ arabirimi bir sanal makineden kaldırın
 
 1. Azure Portal’da oturum açın.
 2. Kaldırmak istediğiniz VM adını portalın üst kısmındaki arama kutusuna arama (ayırma) seçerek VM için Gözat veya ağ arabiriminden **tüm hizmetleri**ve ardından **sanal makineler**. VM bulduktan sonra onu seçin.
-3. Seçin **genel bakış**altında **ayarları**, ardından **Durdur**. Bekle **durumu** sanal makinenin değişiklikleri **durduruldu (serbest bırakıldı)**. 
+3. Seçin **genel bakış**altında **ayarları**, ardından **Durdur**. Bekle **durumu** sanal makinenin değişiklikleri **durduruldu (serbest bırakıldı)**.
 4. Seçin **ağ**altında **ayarları**.
-5. Seçin **ağ arabirimini Ayır**. Şu anda sanal makineye bağlı ağ arabirimleri listesinden, ayırmak istediğiniz ağ arabirimi seçin. 
+5. Seçin **ağ arabirimini Ayır**. Şu anda sanal makineye bağlı ağ arabirimleri listesinden, ayırmak istediğiniz ağ arabirimi seçin.
 
-    >[!NOTE]
-    Bir ağ arabirimi listelenen yalnızca, bir sanal makinenin her zaman bağlı en az bir ağ arabirimi olması gerektiğinden, ayıramazsınız.
+   >[!NOTE]
+   >Bir ağ arabirimi listelenen yalnızca, bir sanal makinenin her zaman bağlı en az bir ağ arabirimi olması gerektiğinden, ayıramazsınız.
 6. **Tamam**’ı seçin.
 
 ### <a name="commands"></a>Komutlar
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az vm nic kaldırmak](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (başvuru) veya [ayrıntılı adımlar](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
-|PowerShell|[Remove-Azurermvmnetworkınterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (başvuru) veya [ayrıntılı adımlar](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
+|CLI|[az vm nic kaldırmak](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_remove) (başvuru) veya [ayrıntılı adımlar](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
+|PowerShell|[Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (başvuru) veya [ayrıntılı adımlar](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="constraints"></a>Kısıtlamalar
 
@@ -123,14 +126,10 @@ VM oluşturmadan önce adımları kullanarak bir ağ arabirimi oluşturma [ağ a
 - IPv6 olarak ile hızlandırılmış ağ ile bir VM oluşturduktan sonra etkin bir ağ arabirimine eklenemiyor. Ayrıca, hızlandırılmış ağ yararlanmak için ayrıca VM'nin işletim sistemi içindeki adımları da tamamlamanız gerekir. Hızlandırılmış ağ hakkında daha fazla bilgi ve diğer kısıtlamalar da kullanılırken öğrenin [Windows](create-vm-accelerated-networking-powershell.md) veya [Linux](create-vm-accelerated-networking-cli.md) sanal makineler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Birden çok ağ arabirimleri veya IP adresi ile bir VM oluşturmak için bu makaleleri okuyun:
-
-### <a name="commands"></a>Komutlar
+Birden çok ağ arabirimleri veya IP adresi ile bir VM oluşturmak için aşağıdaki makalelere bakın:
 
 |Görev|Aracı|
 |---|---|
 |Birden çok NIC ile VM oluşturma|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Birden çok IPv4 adresi ile tek bir NIC VM oluşturma|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Özel bir IPv6 adresi (arkasında, Azure Load Balancer) ile tek bir NIC VM oluşturma|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager şablonu](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-
-

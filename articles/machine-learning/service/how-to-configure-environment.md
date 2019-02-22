@@ -12,16 +12,16 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 136a83c586b2f797269beff3cdd0afb9973cb7c8
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b5109c9c93947118397c383cab3df90c02016ce3
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340527"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652014"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
-Bu makalede, bir geliştirme ortamı, Azure Machine Learning hizmeti ile çalışacak şekilde yapılandırma konusunda bilgi edinin. Machine Learning hizmeti platformu belirsiz ' dir. 
+Bu makalede, bir geliştirme ortamı, Azure Machine Learning hizmeti ile çalışacak şekilde yapılandırma konusunda bilgi edinin. Machine Learning hizmeti platformu belirsiz ' dir.
 
 Yalnızca geliştirme ortamınız için Python 3, Conda (için yalıtılmış ortamlara) ve Azure Machine Learning çalışma alanı bilgilerinizi içeren bir yapılandırma dosyası gereksinimleridir.
 
@@ -110,7 +110,7 @@ DSVM bir geliştirme ortamı olarak kullanmak için aşağıdakileri yapın:
             # create a Windows Server 2016 DSVM in your resource group
             # note you need to be at least a contributor to the resource group in order to execute this command successfully
             az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
-            ```    
+            ```
 
 2. Azure Machine Learning SDK'sı DSVM üzerinde zaten yüklü. SDK'sını içeren Conda ortama kullanmak için aşağıdaki komutlardan birini kullanın:
 
@@ -141,13 +141,12 @@ Daha fazla bilgi için [veri bilimi sanal makineleri](https://azure.microsoft.co
 
 (Bu da uzak bir sanal makine olabilir) yerel bir bilgisayar kullanırken, Conda ortamı oluşturun ve aşağıdakileri yaparak SDK'sını yükleyin:
 
-1. Bir komut istemi veya kabuk açın.
+1. İndirme ve yükleme [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 Sürüm) zaten sahip değilseniz.
 
-1. Aşağıdaki komutlarla Conda ortam oluşturun:
+1. Anaconda istemi açın ve aşağıdaki komutlarla bir ortam oluşturun:
 
     ```shell
-    # create a new Conda environment with Python 3.6, NumPy, and Cython
-    conda create -n myenv Python=3.6 cython numpy
+    conda create -n myenv python=3.6.5
 
     # activate the Conda environment
     conda activate myenv
@@ -156,12 +155,32 @@ Daha fazla bilgi için [veri bilimi sanal makineleri](https://azure.microsoft.co
     source activate myenv
     ```
 
-    İşlem ortamı Python 3.6 ve diğer bileşenlerin indirilmesi gerekiyorsa oluşturulması birkaç dakika sürebilir.
+    Bu örnek python 3.6.5 kullanarak bir ortam oluşturur, ancak herhangi bir belirli subversions seçilebilir. SDK'sı uyumluluk (3.5 + önerilir) belirli ana sürümlerle garantili ve hatalarla karşılaşırsanız çalıştırırsanız Anaconda ortamınızdaki farklı bir sürüm/subversion denemeniz önerilir. Bileşenleri ve paketleri indirilen ortamı oluşturmak için birkaç dakika sürer.
 
-1. Not defteri ek özellikler ile Azure Machine Learning SDK'sı ve veri hazırlık SDK'sı aşağıdaki komutu kullanarak yükleyin:
+1. Yeni ortamınızda ortama özgü ıpython çekirdekler etkinleştirmek için aşağıdaki komutları çalıştırın. Bu, beklenen çekirdek ve paket davranışı Jupyter not defterleri ile Anaconda ortamlar içinde çalışırken alma şunları sağlar:
+
+    ```shell
+    conda install notebook ipykernel
+    ```
+
+    Ardından çekirdek oluşturmak için aşağıdaki komutu çalıştırın:
+
+    ```shell
+    ipython kernel install --user
+    ```
+
+1. Paketleri yüklemek için aşağıdaki komutları kullanın:
+
+    Bu komut, not defteri ve automl ek özellikler ile temel Azure Machine Learning SDK'sını yükler. `automl` Çok büyük bir yükleme ve otomatik makine öğrenimi denemeleri yapmak istemiyorsanız, noktalarından kaldırılacak. `automl` Ek bağımlılık olarak varsayılan olarak, ayrıca Azure Machine Learning veri hazırlığı SDK'sı içerir.
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
+    pip install azureml-sdk[notebooks,automl]
+    ```
+
+    Azure Machine Learning veri hazırlığı SDK'sı, kendi yüklemek için bu komutu kullanın:
+
+    ```shell
+    pip install azureml-dataprep
     ```
 
    > [!NOTE]
@@ -169,47 +188,52 @@ Daha fazla bilgi için [veri bilimi sanal makineleri](https://azure.microsoft.co
    >
    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
 
-   Bu SDK'yı yüklemek için birkaç dakika sürebilir.
+   SDK yüklemek için birkaç dakika sürer.
 
-1. Makine öğrenimi denemesi paketleri yükleyin. Aşağıdaki komutu kullanın ve Değiştir  *\<yeni paket >* yüklemek istediğiniz paket:
+1. Makine öğrenimi denemesi için diğer paketleri yükleyin.
+
+    Aşağıdaki komutlardan birini kullanın ve Değiştir  *\<yeni paket >* yüklemek istediğiniz paket. Paketleri aracılığıyla yükleme `conda install` paket (yeni kanallar Anaconda bulutta eklenebilir) geçerli kanalların parçası olmasını gerektirir.
 
     ```shell
     conda install <new package>
     ```
 
-1. SDK'ın yüklendiğini doğrulamak için aşağıdaki Python kodu kullanın:
+    Alternatif olarak, paketler aracılığıyla yükleyebilirsiniz `pip`.
 
-    ```python
-    import azureml.core
-    azureml.core.VERSION
+    ```shell
+    pip install <new package>
     ```
 
 ### <a id="jupyter"></a>Jupyter Not Defterleri
 
 Jupyter not defterleri parçası olan [Jupyter proje](https://jupyter.org/). Bunlar, Canlı kod anlatım metin ve grafikleri ile karışık belgeleri oluşturmak burada etkileşimli bir kodlama deneyimi sunar. Çıkış, kod bölümlerinin belgenin içine kaydetmek için Jupyter not defterleri de sonuçlarınızı başkalarıyla paylaşmak için harika bir yoludur. Jupyter not defterleri çeşitli platformlarda yükleyebilirsiniz.
 
-Yordamda [yerel bilgisayar](#local) bölümü, Jupyter not defterleri için isteğe bağlı bileşenleri yükler. Bu bileşenler, Jupyter not defteri ortamınızda etkinleştirmek için aşağıdakileri yapın:
+Yordamda [yerel bilgisayar](#local) bölümü Jupyter not defterleri Anaconda ortamında çalıştırmak için gerekli bileşenleri yükler. Bu bileşenler, Jupyter not defteri ortamınızda etkinleştirmek için aşağıdakileri yapın:
 
-1. Bir komut istemi veya kabuk açın.
-
-1. Conda algılayan bir Jupyter not defteri sunucusu yüklemek için aşağıdaki komutu kullanın:
+1. Anaconda istemi açın ve ortamınızı etkinleştirin.
 
     ```shell
-    # install Jupyter
-    conda install nb_conda
+    conda activate myenv
     ```
 
-1. Jupyter not defterine aşağıdaki komutla açın:
+1. Jupyter not defteri sunucusu aşağıdaki komutla başlatın:
 
     ```shell
     jupyter notebook
     ```
 
-1. Jupyter not defteri SDK'yı, yeni bir not defterini açın doğrulamak için **myenv** çekirdek ve not defteri hücreye aşağıdaki komutu çalıştırın:
+1. Jupyter not defteri SDK kullanabileceğinizi doğrulamak için oluşturun bir **yeni** Not Defteri, select **Python 3** çekirdek ve not defteri hücreye aşağıdaki komutu çalıştırın:
 
     ```python
     import azureml.core
     azureml.core.VERSION
+    ```
+
+1. Modülleri içeri aktarma sorunlarıyla karşılaşırsınız ve alırsanız bir `ModuleNotFoundError`, Jupyter çekirdek bağlı olduğundan doğru yola ortamınız için bir not defteri hücreye aşağıdaki kodu çalıştırarak emin olun.
+
+    ```python
+    import sys
+    sys.path
     ```
 
 1. Azure Machine Learning hizmeti çalışma alanınızla kullanmak üzere Jupyter not defterini yapılandırmak için Git [çalışma alanı yapılandırma dosyası oluşturma](#workspace) bölümü.
@@ -222,8 +246,8 @@ Geliştirme için Visual Studio Code'u kullanmak için aşağıdakileri yapın:
 
 1. Visual Studio Code için Python geliştirme kullanmayı öğrenmek için bkz. [VSCode Python'da başlama](https://code.visualstudio.com/docs/python/python-tutorial).
 
-1. Conda ortam seçmek için VS Code açın ve ardından Ctrl + Shift + P (Linux ve Windows) veya komutu + Shift + P (Mac) seçin.  
-    __Komut paleti__ açılır. 
+1. Conda ortam seçmek için VS Code açın ve ardından Ctrl + Shift + P (Linux ve Windows) veya komutu + Shift + P (Mac) seçin.
+    __Komut paleti__ açılır.
 
 1. Girin __Python: Yorumlayıcıyı seçme__ve ardından Conda ortamı seçin.
 
@@ -256,32 +280,32 @@ Databricks kümenizi hazırlamak ve örnek not defterleri edinmek için:
     | Çalışanlar | 2 veya üzeri |
 
     Yalnızca, otomatik makine öğrenimi Databricks üzerinde kullanıyorsanız, bu ayarları kullanın:
-    
+
     |   Ayar | Değer |
     |----|---|
     | Çalışan düğümü VM türleri | Tercih edilen VM bellek için iyileştirilmiş |
     | Otomatik Ölçeklendirmeyi Etkinleştirme | Seçeneğinin işaretini kaldırın |
-    
-    Databricks kümenizde çalışan düğümü sayısı en fazla eş zamanlı yineleme otomatik ML ayarlarında sayısını belirler.  
+
+    Databricks kümenizde çalışan düğümü sayısı en fazla eş zamanlı yineleme otomatik ML ayarlarında sayısını belirler.
 
     Kümeyi oluşturmak için birkaç dakika sürer. Devam etmeden önce küme çalışan kadar bekleyin.
 
-1. Yükleme ve Azure Machine Learning SDK paketini kümenize ekleyin.  
+1. Yükleme ve Azure Machine Learning SDK paketini kümenize ekleyin.
 
     * [Bir kitaplığı oluşturma](https://docs.databricks.com/user-guide/libraries.html#create-a-library) bu ayarları biriyle (_yalnızca bu seçeneklerden birini_):
-    
+
         * Azure Machine Learning SDK yüklemek için _olmadan_ otomatik makine öğrenme özelliği:
             | Ayar | Değer |
             |----|---|
             |Kaynak | Python yükleme Yumurta veya Pypı
             |Pypı adı | azureml-sdk[databricks]
-    
+
         * Azure Machine Learning SDK yüklemek için _ile_ machine learning otomatik:
             | Ayar | Değer |
             |----|---|
             |Kaynak | Python yükleme Yumurta veya Pypı
             |Pypı adı | azureml-sdk[automl_databricks]
-    
+
     * Seçmeyin **ekleme otomatik olarak tüm kümelere**
 
     * Seçin **iliştirme** , küme adının yanındaki
@@ -298,9 +322,9 @@ Databricks kümenizi hazırlamak ve örnek not defterleri edinmek için:
 
    Bu adım başarısız olursa aşağıdakileri yaparak kümenizi yeniden başlatın:
 
-   a. Sol bölmede seçin **kümeleri**. 
-   
-   b. Tabloda, küme adınızı seçin. 
+   a. Sol bölmede seçin **kümeleri**.
+
+   b. Tabloda, küme adınızı seçin.
 
    c. Üzerinde **kitaplıkları** sekmesinde **yeniden**.
 

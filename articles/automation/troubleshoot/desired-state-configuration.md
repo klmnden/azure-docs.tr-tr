@@ -9,18 +9,38 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 997f332e14fd1accf32d8cc3f51557fe005acab5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a34dea7e1eb53531db55dc62df8fbad8541f7a35
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421659"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586809"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Desired State Configuration (DSC) sorunlarını giderme
 
 Bu makalede, sorun giderme konuları Desired State Configuration (DSC) ile hakkında bilgi sağlar.
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Desired State Configuration (DSC) ile çalışırken sık karşılaşılan hatalar
+
+### <a name="unsupported-characters"></a>Senaryo: Portaldan özel karakterler içeren bir yapılandırma silinemez.
+
+#### <a name="issue"></a>Sorun
+
+Portaldan bir DSC yapılandırması silme girişiminde bulunduğunuzda aşağıdaki hatayı görürsünüz:
+
+```
+An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
+```
+
+#### <a name="cause"></a>Nedeni
+
+Çözümlenecek planlı geçici bir sorundur.
+
+#### <a name="resolution"></a>Çözüm
+
+* Yapılandırmayı silmek için "Remove-AzAutomationDscConfiguration" Az cmdlet'ini kullanın.
+* Bu cmdlet belgeleri henüz güncelleştirilmemiş.  O zamana kadar AzureRM modülünü belgelerine bakın.
+  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
 
 ### <a name="failed-not-found"></a>Senaryo: Bir "Bulunamadı" hatası ile başarısız durumundaki düğümüdür
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 10dc7a2c7e4de44979ec72b1d292c69866e1faae
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6b78027191d72c10b20c9d09a92c82be4a9e3e05
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326417"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650810"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Dönüştürme Azure yönetilen diskler depolaması standart, premium ve bunun tersi de geçerlidir
 
@@ -134,17 +134,20 @@ az disk update --sku $sku --name $diskName --resource-group $rgName
 az vm start --ids $vmId 
 ```
 
-## <a name="convert-using-the-azure-portal"></a>Azure portalını kullanarak dönüştürme
+## <a name="convert-managed-disks-between-standard-and-premium-in-azure-portal"></a>Standart ve premium Azure portalında arasında yönetilen disklere dönüştürme
 
-Yönetilmeyen diskler için yönetilen diskler Azure portalını kullanarak da dönüştürebilirsiniz.
+Yönetilen diskler standart ve premium Azure portalında arasında dönüştürme yapabilirsiniz.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Portalda sanal makinelerinin listeden VM'yi seçin.
+2. VM listesinden seçin **sanal makineler** portalında.
+3. VM durdurulmamışsa tıklayın **Durdur** üst kısmındaki VM'e genel bakış dikey penceresinde ve durdurmak sanal makine için bekleyin.
 3. VM dikey penceresinde, seçin **diskleri** menüsünde.
-4. Üst kısmındaki **diskleri** dikey penceresinde **yönetilen disklere geçirme**.
-5. Bir kullanılabilirlik kümesindeki sanal makinenizin ise olacaktır uyarı üzerinde **yönetilen disklere geçirme** dikey kullanılabilirlik kümesini önce dönüştürmeniz gerekir. Uyarı kullanılabilirlik kümesini dönüştürmek için tıklayabileceği bir bağlantı olması gerekir. Kullanılabilirlik kümesi dönüştürüldükten sonra veya sanal makinenize bir kullanılabilirlik kümesine değilse tıklayın **geçirme** , diskleri yönetilen disklere geçirme işlemini başlatmak için. 
+4. Dönüştürmek istediğiniz diski seçin.
+5. Seçin **yapılandırma** menüsünde.
+6. Değişiklik **hesap türü** gelen **standart HDD** için **Premium SSD**ve bunun tersi de geçerlidir.
+7. Tıklayın **Kaydet** ve disk dikey penceresini kapatın.
 
-Sanal makine durdurulacak ve geçiş tamamlandıktan sonra yeniden başlatılacak.
+Disk türünü güncelleştirme etkilidir anlık. Dönüştürme işleminden sonra sanal Makinenizin yeniden başlatabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

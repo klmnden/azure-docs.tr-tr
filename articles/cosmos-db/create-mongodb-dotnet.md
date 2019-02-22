@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.author: rimman
-ms.openlocfilehash: c68d95f7eddfa98713f1af0786f82c1d633fbfff
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 819c46386942777b036df60e94844a5a6c896e22
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044493"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586979"
 ---
-# <a name="build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-net-sdk"></a>MongoDB ve .NET SDK'sı için Azure Cosmos DB'nin API'sini kullanarak bir web uygulaması derleme
+# <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Hızlı Başlangıç: Azure Cosmos DB'nin MongoDB kullanarak bir .net web uygulaması derleme 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

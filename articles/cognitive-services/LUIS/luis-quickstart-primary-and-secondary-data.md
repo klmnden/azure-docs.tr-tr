@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 9da2f8fa345ad3447d7c3344772458c451cf427e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 78c9eaaf1dad0ae596bad13ac40a9df2dc4d2f3c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867248"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594738"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Öğretici: Varlığın ve deyim listesi ile adlarını Ayıkla
 
@@ -233,7 +233,9 @@ Açık [işleri tümcecik list.csv](https://github.com/Azure-Samples/cognitive-s
 
     [![Ekran görüntüsü yeni ifade listesi iletişim kutusu açılır oluşturma](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Oluştur ekran görüntüsü yeni ifade listesi iletişim kutusu açılır")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Tümcecik listesine daha fazla sözcük eklemek istiyorsanız, **Related Values** (İlgili Değerler) girişlerini gözden geçirin ve ilgili olanları ekleyin. 
+    Daha fazla sözcük tümcecik listeye eklenen istiyorsanız belirleyin **Recommand** daha sonra yeni gözden **ilişkili değerler** ilgilendiren ekleyin. 
+
+    Tutmaya dikkat **birbirinin yerine bu değerleri** iade, çünkü bu değerleri tüm işler için eş anlamlı sözcükler olarak değerlendirilmelidir. Değiştirilebilir ve noninterchangeable hakkında daha fazla bilgi [listesi kavramları ifade](luis-concept-feature.md#how-to-use-phrase-lists).
 
 1. Tümcecik listesini etkinleştirmek için **Save** (Kaydet) öğesini seçin.
 

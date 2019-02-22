@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d3b0f7cdacfb781ba7925be8146c10919c5269b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: adbfb0e42bc7057313c7652402fce2b2ede47735
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455543"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592511"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Önizleme: Azure AD parola koruması hakkında sık sorulan sorular şirket içinde
 
@@ -44,6 +44,14 @@ Hayır - şirket içi Azure AD parola koruması yalnızca genel bulut ortamında
 **S: Nasıl ben Azure AD parola koruması avantajları bir şirket içi kullanıcılar alt kümesine uygulayabilir miyim?**
 
 Desteklenmiyor. Dağıtılan ve etkinleştirilen sonra Azure AD parola koruması ayrım yoktur - tüm kullanıcılar eşit güvenlik avantajlardan yararlanabilir.
+
+**S: Parola değiştirme ve bir parola ayarlama (veya Sıfırla) arasındaki fark nedir?**
+
+Parola kullanıcı yeni bir parola eski parola bilgisine sahip oldukları kanıtlama sonra seçtiğinde farklıdır. Örneğin, bir kullanıcı Windows günlüğe kaydeder ve sonra yeni bir parola seçmesi istenir ne olur budur.
+
+Yönetici bir hesap parolası ile yeni bir parola, örneğin Active Directory Kullanıcıları ve Bilgisayarları yönetim aracını kullanarak değiştirir (bazen bir parola sıfırlama olarak adlandırılır) bir parola ayarlama andır. Bu işlem bir yüksek düzeydeki ayrıcalıkla (genellikle etki alanı yöneticisi) gerektirir ve genellikle işlemi yapan kişi eski parola bilgilere sahip değildir. Yardım Masası senaryoları genellikle bunu örneği için bir kullanıcı parolasını unutmuş Yardım. Ayrıca, yeni bir kullanıcı hesabı için bir parola ile ilk kez oluşturulduğunda olayları parola ayarlama görürsünüz.
+
+Parola doğrulama ilkesinin bir parola değişikliği veya yapıldığını bağımsız olarak aynı şekilde davranır. Azure AD parola koruması DC Aracı hizmeti bir parola değişikliği olmadığını bildirmek için farklı olayları günlüğe kaydetmez veya set işlemi yapılmadı.  Bkz: [izleme ve günlüğe kaydetme Azure AD parola koruması](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **S: Azure AD parola koruması parola-filtre tabanlı diğer ürünleri ile yan yana yüklenecek destekleniyor mu?**
 

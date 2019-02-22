@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6d2ae1d1846506424aa14cca0f597c8888eb903d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341037"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649178"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Beklenmeyen değişiklikleri önlemek için kaynakları kilitleme 
 
@@ -36,7 +36,7 @@ Bir üst kapsamda bir kilit uyguladığınızda, ilgili kapsam içindeki tüm ka
 
 Rol tabanlı erişim denetimi, tüm kullanıcılar ve roller bir kısıtlama uygulamak yönetim kilitleri kullanın. Kullanıcılar ve roller için izinleri ayarlama bilgi edinmek için [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 
-Resource Manager kilitleri uygulamak gönderilen operations oluşan yönetim düzlemi gerçekleşen işlemlere `https://management.azure.com`. Kilitler nasıl kaynakları kendi işlevleri gerçekleştiren kısıtlamaz. Kaynak değişiklikleri kısıtlıdır, ancak kaynak işlemleri sınırlı değildir. Örneğin, bir salt okunur kilidi SQL veritabanı, veritabanı silmesini veya engeller, ancak bu, oluşturma, güncelleştirme veya silme verileri veritabanındaki engellemez. Bu işlemler için gönderilmediği için veri işlem izin verilen `https://management.azure.com`.
+Resource Manager kilitleri uygulamak gönderilen operations oluşan yönetim düzlemi gerçekleşen işlemlere `https://management.azure.com`. Kilitler nasıl kaynakları kendi işlevleri gerçekleştiren kısıtlama. Kaynak değişiklikleri kısıtlıdır, ancak kaynak işlemleri sınırlı değildir. Örneğin, bir salt okunur kilidi SQL veritabanı, veritabanı silmesini veya engeller, ancak bu oluşturma, güncelleştirme veya silme verilerden veritabanında engellemez. Bu işlemlerin gönderildiği değildir çünkü veri hareketlerini verilen `https://management.azure.com`.
 
 Uygulama **salt okunur** gibi görünen bazı işlemleri operations gerçekten gerekli ek eylemler okunur beklenmeyen sonuçlara neden olabilir. Örneğin, yerleştirme bir **salt okunur** bir depolama hesabı üzerindeki kilidi anahtarları listeleme gelen tüm kullanıcıları engeller. Yazma işlemlerini listenin döndürülen anahtarları için kullanılabilir olmadığından anahtarları işlemi bir POST isteği gerçekleştirilir. Başka bir örnek için yerleştirme bir **salt okunur** bir App Service kaynak kilidi, o etkileşime yazma erişim gerektirdiğinden kaynak dosyalarını görüntüleme Visual Studio sunucu Gezgini'nde engeller.
 
@@ -47,6 +47,19 @@ Yönetim kilitlerini Sil ya da oluşturmak için erişimi olmalıdır. `Microsof
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Şablon
+
+Kilit dağıtmak için Resource Manager şablonu kullanarak, adını ve türünü kapsamına bağlı olarak kilit için farklı değerler kullanın.
+
+Kilit uygulanırken bir **kaynak**, aşağıdaki biçimleri kullanın:
+
+* adı: `{resourceName}/Microsoft.Authorization/{lockName}`
+* tür- `{resourceProviderNamespace}/{resourceType}/providers/locks`
+
+Kilit uygulanırken bir **kaynak grubu** veya **abonelik**, aşağıdaki biçimleri kullanın:
+
+* adı: `{lockName}`
+* tür- `Microsoft.Authorization/locks`
+
 Aşağıdaki örnek, bir app service planı, bir web sitesi ve bir kilit üzerinde web sitesi oluşturan bir şablon gösterir. Kaynak türü kilit kilitlenecek kaynağın kaynak türüdür ve **/providers/kilitleri**. Kilit adı kaynak adı ile birleştirerek oluşturulur **/Microsoft.Authorization/** ve kilit adı.
 
 ```json
@@ -104,19 +117,7 @@ Aşağıdaki örnek, bir app service planı, bir web sitesi ve bir kilit üzerin
 }
 ```
 
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name sitegroup -Location southcentralus
-New-AzResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
-```
-
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli
-az group create --name sitegroup --location southcentralus
-az group deployment create --resource-group sitegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json --parameters hostingPlanName=plan0103
-```
+Bir kaynak grubu üzerinde bir kilit ayarlama örneği için bkz: [bir kaynak grubu oluşturun ve kilitler](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
 
 ## <a name="powershell"></a>PowerShell
 Kilit dağıtılan kaynakların Azure PowerShell ile kullanarak [yeni AzResourceLock](/powershell/module/az.resources/new-azresourcelock) komutu.
@@ -206,7 +207,7 @@ Kilit oluşturabilmeniz için çalıştırın:
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-Kapsam abonelik, kaynak grubu veya kaynak olabilir. Kilit adı, kilit çağırmak istediğiniz ' dir. Api-version, kullanın **2015-01-01**.
+Kapsam abonelik, kaynak grubu veya kaynak olabilir. Kilit adı, kilit çağırmak istediğiniz ' dir. Api-version, kullanın **2016-09-01**.
 
 İstekte kilit özelliklerini belirten bir JSON nesnesi içerir.
 
@@ -219,7 +220,6 @@ Kapsam abonelik, kaynak grubu veya kaynak olabilir. Kilit adı, kilit çağırma
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kaynaklarınızı mantıksal olarak düzenleme hakkında bilgi edinmek için [kaynaklarınızı düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
-* Kaynağın bulunduğu kaynak grubunu değiştirmek için bkz [kaynakları yeni kaynak grubuna taşıma](resource-group-move-resources.md)
 * Özelleştirilmiş ilkeler ile aboneliğinizin genelindeki kısıtlamaları ve kuralları uygulayabilirsiniz. Daha fazla bilgi için bkz. [Azure İlkesi nedir?](../governance/policy/overview.md).
 * Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

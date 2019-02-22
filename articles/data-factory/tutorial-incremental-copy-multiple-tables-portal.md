@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 686e008a83924460b1f85212b5c06796b6bc8217
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e6a24bfe25513b1b4eacd8bc192caa5518c896c6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354221"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593208"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server’daki birden fazla tablodan Azure SQL veritabanı’na artımlı olarak veri yükleme
 Bu öğreticide, değişim verileri şirket içi SQL Server’daki birden çok tablodan Azure SQL Veritabanına yükleyen bir Azure veri fabrikası işlem hattı oluşturacaksınız.    
@@ -270,7 +270,7 @@ END
 1. **Tümleştirme Çalışma Zamanı Kurulumu** penceresinde **Dış işlemlere veri taşıma ve dağıtım etkinlikleri gerçekleştir**’i seçip **İleri**’ye tıklayın. 
 
    ![Tümleştirme çalışma zamanı türünü seçme](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. ** Özel Ağ** seçeneğini belirleyip **İleri**’ye tıklayın. 
+1. **Özel Ağ** seçeneğini belirleyip **İleri**’ye tıklayın. 
 
    ![Özel ağı seçin](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. **Ad** için **MySelfHostedIR** adını girip **İleri**’ye tıklayın. 
@@ -511,7 +511,7 @@ Bu işlem hattı parametre olarak tablo adları listesini alır. ForEach etkinli
         | Ad | Tür | Değer | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | Dize | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Saklı Yordam Etkinliği - saklı yordam ayarları](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Sol bölmede **Yayımla**'ya tıklayın. Bu eylem, oluşturduğunuz varlıkları Data Factory hizmetinde yayımlar. 

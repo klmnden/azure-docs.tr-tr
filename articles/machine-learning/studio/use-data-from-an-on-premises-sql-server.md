@@ -10,18 +10,18 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 61feb1365a5007a55d18f0f4366bd5c69148e88d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0d7b7ce4d79b078b389ff80727f2b233afe0da5a
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511165"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587302"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Azure Machine Learning kullanarak bir şirket içi SQL Server veritabanı Studio ile analizler gerçekleştirin
 
-Genellikle şirket içi verilerle çalışacak kuruluşların avantajı ölçek ve makine öğrenimi iş yükleri için bulutun çevikliğinden yapmak istiyorsunuz. Ancak, geçerli iş süreçleri ve iş akışları, şirket içi verileri buluta taşıyarak kesintiye istemiyorsanız. Azure Machine Learning artık bir şirket içi SQL Server veritabanından veri okumak ve ardından eğitim ve bu verilerle bir model Puanlama destekler. Artık bu el ile kopyalayın ve Bulut ve şirket içi sunucunuz arasında veri eşitlemeyi gerekmez. Bunun yerine, **verileri içeri aktarma** , eğitim ve puanlama işleri için modülü Azure Machine Learning Studio'da doğrudan, şirket içi SQL Server veritabanından artık bkz.
+Genellikle şirket içi verilerle çalışacak kuruluşların avantajı ölçek ve makine öğrenimi iş yükleri için bulutun çevikliğinden yapmak istiyorsunuz. Ancak, geçerli iş süreçleri ve iş akışları, şirket içi verileri buluta taşıyarak kesintiye istemiyorsanız. Azure Machine Learning Studio, bir şirket içi SQL Server veritabanından veri okumak ve ardından eğitim ve bu verilerle bir model Puanlama artık destekliyor. Artık bu el ile kopyalayın ve Bulut ve şirket içi sunucunuz arasında veri eşitlemeyi gerekmez. Bunun yerine, **verileri içeri aktarma** , eğitim ve puanlama işleri için modülü Azure Machine Learning Studio'da doğrudan, şirket içi SQL Server veritabanından artık bkz.
 
-Bu makalede nasıl giriş yapılır genel bir bakış SQL server verilerini Azure Machine Learning Studio'ya şirket sağlar. Çalışma alanları, modüller, veri kümeleri, denemeler, gibi Azure Machine Learning kavramlarını aşina varsayar *vb.*.
+Bu makalede nasıl giriş yapılır genel bir bakış SQL server verilerini Azure Machine Learning Studio'ya şirket sağlar. Çalışma alanları, modüller, veri kümeleri, denemeleri, Studio kavramları hakkında bilgi sahibi olduğunuz varsayılmıştır *vb.*.
 
 > [!NOTE]
 > Bu özellik, ücretsiz çalışma alanları için kullanılamaz. Machine Learning fiyatlandırma ve katmanlar hakkında daha fazla bilgi için bkz: [Azure Machine Learning fiyatlandırması](https://azure.microsoft.com/pricing/details/machine-learning/).
@@ -33,7 +33,7 @@ Bu makalede nasıl giriş yapılır genel bir bakış SQL server verilerini Azur
 
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Data Factory şirket içinde barındırılan Integration Runtime'ı yükleme
-Azure Machine learning'de bir şirket içi SQL Server veritabanına erişmek için Data Factory şirket içinde barındırılan Integration önceki adıyla veri yönetimi ağ geçidi Runtime, karşıdan yüklenip kurulacak gerekir. Machine Learning Studio'da bağlantıyı yapılandırın, indirin ve Integration Runtime (IR) kullanarak yüklemek için fırsatına sahip **yükleme ve kayıt veri ağ geçidi** aşağıda açıklanan iletişim.
+Azure Machine Learning Studio'da bir şirket içi SQL Server veritabanına erişmek için Data Factory şirket içinde barındırılan Integration önceki adıyla veri yönetimi ağ geçidi Runtime, karşıdan yüklenip kurulacak gerekir. Machine Learning Studio'da bağlantıyı yapılandırın, indirin ve Integration Runtime (IR) kullanarak yüklemek için fırsatına sahip **yükleme ve kayıt veri ağ geçidi** aşağıda açıklanan iletişim.
 
 
 İndirip MSI Kurulumu paketinden çalıştıran önceden IR yükleyebilirsiniz [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). MSI, var olan bir IR korunur tüm ayarlarla en son sürüme yükseltmek için de kullanılabilir.
@@ -54,13 +54,13 @@ Ayarlama ve Data Factory şirket içinde barındırılan Integration Runtime'ı 
 * Bir kerede yalnızca bir çalışma alanı için bir IRS yapılandırırsınız. Şu anda IRS çalışma alanları arasında paylaşılamaz.
 * Tek bir çalışma alanı için birden çok IRS yapılandırabilirsiniz. Örneğin, kullanıma hazır hale getirmeye hazır olduğunuzda, geliştirme ve IR üretim sırasında test veri kaynaklarınıza bağlı bir IR kullanmak isteyebilirsiniz.
 * IR veri kaynağı ile aynı makinede olması gerekmez. Ancak, veri kaynağına daha yakından kaldığını ağ geçidinin veri kaynağına bağlanmak süreyi azaltır. Kaynaklar için ağ geçidi ve veri kaynağı yoksa rekabet. böylece şirket içi veri kaynağı barındıran olandan farklı bir makineye IR yüklemenizi öneririz.
-* Power BI veya Azure Data Factory senaryoları hizmet yüklü bir IR zaten varsa, ayrı bir IR, Azure Machine Learning için başka bir bilgisayara yükleyin.
+* Power BI veya Azure Data Factory senaryoları hizmet yüklü bir IR zaten varsa, ayrı bir IR, Azure Machine Learning Studio için başka bir bilgisayara yükleyin.
 
   > [!NOTE]
   > Data Factory şirket içinde barındırılan Integration Runtime ve Power BI Gateway aynı bilgisayarda çalıştıramazsınız.
   >
   >
-* Diğer veri için Azure Expressroute'u kullanıyor olsanız bile, Data Factory şirket içinde barındırılan Integration Runtime Azure Machine Learning için kullanmanız gerekir. Veri kaynağı (bir güvenlik duvarının arkasında olan) bir şirket içi veri kaynağı olarak kabul etmelidir da ExpressRoute kullanırken. Data Factory şirket içinde barındırılan Integration Runtime, makine öğrenimi ve veri kaynağı arasında bağlantı kurmak için kullanın.
+* Azure ExpressRoute başka veriler için kullanıyor olsanız bile Azure Machine Learning Studio için Data Factory şirket içinde barındırılan Integration Runtime kullanmanız gerekir. Veri kaynağı (bir güvenlik duvarının arkasında olan) bir şirket içi veri kaynağı olarak kabul etmelidir da ExpressRoute kullanırken. Data Factory şirket içinde barındırılan Integration Runtime, makine öğrenimi ve veri kaynağı arasında bağlantı kurmak için kullanın.
 
 Yükleme önkoşulları yükleme adımlarını ve sorun giderme ipuçları hakkında ayrıntılı bilgi makalesinde bulabilirsiniz [Data factory'de tümleştirme çalışma zamanı](../../data-factory/concepts-integration-runtime.md).
 
@@ -115,17 +115,17 @@ Bu kılavuzda, bir Azure Machine Learning çalışma alanında bir Azure Data Fa
 
     ![Ayrıntılı günlüğe yazmayı etkinleştir](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 
-Bu, Azure Machine learning'de ağ geçidi Kurulum işlemi tamamlar.
+Bu, Azure Machine Learning Studio'da ağ geçidi Kurulum işlemi tamamlar.
 Artık, şirket içi verileri kullanmaya hazırsınız.
 
-Oluşturun ve her çalışma alanı için birden çok ağ geçidi Studio'da ayarlayın. Örneğin, geliştirme sırasında test veri kaynaklarınıza bağlanmak istediğiniz bir ağ geçidi farklı bir ağ geçidi olarak da, üretim veri kaynakları için sahip olabilir. Azure Machine Learning, birden çok ağ geçidi üzerinde Şirket ortamınıza bağlı olarak ayarlamak için esneklik sağlar. Şu anda çalışma alanları arasında bir ağ geçidi paylaşamaz ve yalnızca bir ağ geçidi tek bir bilgisayara yüklenebilir. Daha fazla bilgi için [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../../data-factory/tutorial-hybrid-copy-portal.md).
+Oluşturun ve her çalışma alanı için birden çok ağ geçidi Studio'da ayarlayın. Örneğin, geliştirme sırasında test veri kaynaklarınıza bağlanmak istediğiniz bir ağ geçidi farklı bir ağ geçidi olarak da, üretim veri kaynakları için sahip olabilir. Azure Machine Learning Studio, birden çok ağ geçidi üzerinde Şirket ortamınıza bağlı olarak ayarlamak için esneklik sağlar. Şu anda çalışma alanları arasında bir ağ geçidi paylaşamaz ve yalnızca bir ağ geçidi tek bir bilgisayara yüklenebilir. Daha fazla bilgi için [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>2. Adım: Bir şirket içi veri kaynağından verileri okumak için ağ geçidi kullanma
 Ağ geçidini ayarlamadan ayarladıktan sonra ekleyebileceğiniz bir **verileri içeri aktarma** şirket içi SQL Server veritabanındaki verileri girdi bir denemeyi modülü.
 
 1. Machine Learning Studio'da seçin **DENEMELERİ** sekmesinde **+ yeni** seçin ve sol alt köşesinde **boş deneme** (veya birden çok örnek birini seçin denemeleri kullanılabilir).
 2. Bulun ve sürükleyin **verileri içeri aktarma** modülünü deneme tuvaline.
-3. Tıklayın **Kaydet** tuval aşağıda. "Azure Machine Learning şirket içi SQL Server Öğreticisi" deney adı girin, çalışma alanını seçin ve tıklayın **Tamam** işaretleyin.
+3. Tıklayın **Kaydet** tuval aşağıda. "Azure Machine Learning Studio şirket içi SQL Server Öğreticisi" deney adı girin, çalışma alanını seçin ve tıklayın **Tamam** işaretleyin.
 
    ![Deneme yeni bir adla kaydet](./media/use-data-from-an-on-premises-sql-server/experiment-save-as.png)
 4. Tıklayın **verileri içeri aktarma** , ardından seçmek için modül **özellikleri** tuvalinin sağ bölmeye Seç "Şirket içi SQL veritabanı" **veri kaynağı** açılır liste.
@@ -137,7 +137,7 @@ Ağ geçidini ayarlamadan ayarladıktan sonra ekleyebileceğiniz bir **verileri 
 
    ![Veritabanı kimlik bilgileri girin](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
-   Yeşil onay işaretiyle birlikte "değerleri kümesi" ileti "gerekli değerleri" değişiklikler. Veritabanı bilgileri veya parola değiştirilmediği sürece kimlik bilgilerinin bir kere girmeniz yeterlidir. Azure Machine Learning, bulutta kimlik bilgilerini şifrelemek için ağ geçidini yüklerken sağladığınız sertifika kullanır. Azure, hiçbir zaman şifreleme olmadan şirket içi kimlik bilgilerini depolar.
+   Yeşil onay işaretiyle birlikte "değerleri kümesi" ileti "gerekli değerleri" değişiklikler. Veritabanı bilgileri veya parola değiştirilmediği sürece kimlik bilgilerinin bir kere girmeniz yeterlidir. Azure Machine Learning Studio, bulut kimlik bilgilerini şifrelemek için ağ geçidini yüklerken sağladığınız sertifika kullanır. Azure, hiçbir zaman şifreleme olmadan şirket içi kimlik bilgilerini depolar.
 
    ![Veri modülü özelliklerini alma](./media/use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. Tıklayın **ÇALIŞTIRMA** denemeyi çalıştırmak için.

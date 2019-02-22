@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 038d41ae299076754a2f778ec67aac04e630d476
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 4d1624e324f7d83ef17e6a321a086cdb2c91b142
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270190"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651065"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası en iyi yöntemleri
 [Bilgi Bankası geliştirme yaşam döngüsü](../Concepts/development-lifecycle-knowledge-base.md) başlangıçtan bitişe kadar KB yönetme konusunda size yol gösterir. Bilgi bankanızı artırmak ve uygulama/sohbet Robotu ait son kullanıcılara daha iyi sonuçlar sağlamak için bu en iyi uygulamaları kullanın.
@@ -78,7 +78,7 @@ Soru-cevap Oluşturucu desteklediği derecelendirme özellikleri en iyi kullanı
 |Kullanılabilir park olan?|Araba park var mı?|cümle yapısı|
  |Merhaba|Yo<br>Hey var!|Word stil veya argo kullanımlar|
 
-<a name="#use-metadata-filters"></a>
+<a name="use-metadata-filters"></a>
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>Filtre sorular ve yanıtlar için meta veri etiketleri kullanma
 

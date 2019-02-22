@@ -1,6 +1,6 @@
 ---
 title: 'Azure portalı: SQL yönetilen örnek oluşturma | Microsoft Docs'
-description: Erişim için SQL Yönetilen Örneği, ağ ortamı ve istemci VM oluşturun.
+description: SQL yönetilen örneği, ağ ortamı ve erişim için istemci VM oluşturun.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 01/15/2019
-ms.openlocfilehash: a4e829f8ae89815c68d80a9f85dfbfd58a03b6a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 02/18/2019
+ms.openlocfilehash: 481c82eb74bcf80c3d0546324009ec0bf6495cfb
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452199"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587064"
 ---
-# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Azure SQL Veritabanı Yönetilen Örneği oluşturma
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Bir Azure SQL veritabanı yönetilen örneği oluşturma
 
-Bu hızlı başlangıç, Azure portalda bir Azure SQL Veritabanı [Yönetilen Örneği](sql-database-managed-instance.md) oluşturma adımlarını vermektedir.
+Bu hızlı başlangıçta, Azure SQL veritabanı oluşturma hakkında bilgi vermektedir [yönetilen örnek](sql-database-managed-instance.md) Azure portalında.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -29,27 +29,27 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 [Azure Portal](https://portal.azure.com/) oturum açın.
 
-## <a name="create-a-managed-instance"></a>Yönetilen Örnek oluşturma
+## <a name="create-a-managed-instance"></a>Yönetilen örnek oluşturma
 
-Aşağıdaki adımlar Yönetilen Örneğin nasıl oluşturulacağını gösterir.
+Aşağıdaki adımlar yönetilen örnek oluşturma işlemini göstermektedir.
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesini seçin.
-2. **Yönetilen Örneği** bulun, ardından **Azure SQL Yönetilen Örneği**'ni seçin.
+2. Bulun **yönetilen örnek** seçip **Azure SQL yönetilen örneği**.
 3. **Oluştur**’u seçin.
 
    ![Yönetilen örnek oluşturma](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. Doldurun **yönetilen örneği** formunu aşağıdaki tabloda verilen bilgileri kullanarak istenen bilgilerle:
+4. Doldurun **SQL yönetilen örneği** formunu aşağıdaki tabloda verilen bilgileri kullanarak istenen bilgilerle:
 
    | Ayar| Önerilen değer | Açıklama |
    | ------ | --------------- | ----------- |
    | **Abonelik** | Aboneliğiniz | İçinde yeni kaynaklar oluşturma izniniz olan bir abonelik |
-   |**Yönetilen örnek adı**|Geçerli bir ad|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Yönetilen örnek yöneticisi oturum açma**|Geçerli bir kullanıcı adı|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Ayrılmış bir sunucu düzeyindeki rolüdür gibi "serveradmin" kullanmayın.|
+   |**Yönetilen örnek adı**|Geçerli bir ad|Geçerli adlar için bkz. [adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Yönetilen örnek yöneticisi oturum açma**|Geçerli bir kullanıcı adı|Geçerli adlar için bkz. [adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Ayrılmış bir sunucu düzeyindeki rolüdür gibi "serveradmin" kullanmayın.|
    |**Parola**|Geçerli bir parola|Parola en az 16 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
    |**Harmanlama**|Yönetilen Örneğiniz için kullanmak istediğiniz harmanlama|SQL Server veritabanlarını geçirme varsa, kaynak bir harmanlama kullanarak denetleyin `SELECT SERVERPROPERTY(N'Collation')` ve bu değeri kullanın. Harmanlamalar hakkında daha fazla bilgi için bkz. [sunucu düzeyinde harmanlamaları](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
-   |**Konum**|Yönetilen Örneği oluşturmak istediğiniz konum|Bölgeler hakkında bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/).|
-   |**Sanal ağ**|Şunlardan birini seçin **yeni sanal ağ oluştur** veya geçerli sanal ağ ve alt ağ.| Ağ/alt ağ gri ise gereken olduğu olması [ağ gereksinimlerini karşılamak için değişiklik](sql-database-managed-instance-configure-vnet-subnet.md) yeni yönetilen örneği için bir hedef olarak seçebilmeniz. Yönetilen örneği için ağ ortamını yapılandırma gereksinimleriyle ilgili daha fazla bilgi için bkz: [Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma](sql-database-managed-instance-connectivity-architecture.md). |
+   |**Konum**|Yönetilen örnek oluşturmak istediğiniz konumu|Bölgeler hakkında daha fazla bilgi için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/).|
+   |**Sanal ağ**|Şunlardan birini seçin **yeni sanal ağ oluştur** veya geçerli sanal ağ ve alt ağ.| Ağ/alt ağ gri ise gereken olduğu olması [ağ gereksinimlerini karşılamak için değişiklik](sql-database-managed-instance-configure-vnet-subnet.md) önce yeni yönetilen örnek için hedef olarak seçin. Yönetilen örnek için ağ ortamını yapılandırma gereksinimleriyle ilgili daha fazla bilgi için bkz: [yönetilen örnek için bir VNet yapılandırma](sql-database-managed-instance-connectivity-architecture.md). |
    |**Kaynak grubu**|Yeni veya mevcut bir kaynak grubu|Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 
    ![yönetilen örnek formu](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
@@ -58,7 +58,7 @@ Aşağıdaki adımlar Yönetilen Örneğin nasıl oluşturulacağını gösterir
 6. Seçin **fiyatlandırma katmanı** işlem ve depolama kaynaklarını boyutlandırmaya ek olarak için fiyatlandırma katmanı seçeneklerini gözden geçirin. 32 GB bellek ve 16 sanal çekirdekli Genel Amaçlı fiyatlandırma katmanı varsayılan değerdir.
 7. Depolama miktarını ve sanal çekirdek sayısını belirtmek için kaydırıcıları veya metin çubuklarını kullanın.
 8. İşlem tamamlandığında seçin **Uygula** seçiminizi kaydetmek için.  
-9. Seçin **Oluştur** yönetilen örneği dağıtmak için.
+9. Seçin **Oluştur** yönetilen örnek dağıtmak için.
 10. Seçin **bildirimleri** dağıtım durumu görüntülenecek simge.
 
     ![yönetilen örnek dağıtım ilerleme durumu](./media/sql-database-managed-instance-get-started/deployment-progress.png)
@@ -66,29 +66,47 @@ Aşağıdaki adımlar Yönetilen Örneğin nasıl oluşturulacağını gösterir
 11. Seçin **dağıtım sürüyor** daha da dağıtımın ilerleme durumunu izlemek üzere yönetilen örnek penceresini açmak için.
 
 > [!IMPORTANT]
-> Bir alt ağdaki ilk örnek için dağıtım sonraki durumda genellikle daha uzun zamandır. Dağıtım işlemi beklediğinizden daha uzun sürdüğü için iptal etme. İkinci Yönetilen Örneğin alt ağda oluşturulması yalnızca birkaç dakika sürer.
+> Bir alt ağdaki ilk örnek için dağıtım sonraki durumda genellikle daha uzun zamandır. Dağıtım işlemi beklediğinizden daha uzun sürdüğü için iptal etme. İkinci bir yönetilen örnek alt ağında oluşturma, yalnızca birkaç dakika sürer.
 
 ## <a name="review-resources-and-retrieve-your-fully-qualified-server-name"></a>Kaynakları gözden geçirin ve tam sunucu adınızı alma
 
 Dağıtım başarıyla tamamlandıktan sonra oluşturulan kaynakları gözden geçirin ve sonraki hızlı başlangıçlarda kullanmak üzere tam sunucu adını alın.
 
-1. Yönetilen Örneğinizin kaynak grubunu açın ve [Yönetilen Örnek oluşturma](#create-a-managed-instance) hızlı başlangıcında sizin iççin oluşturulan kaynaklarını görüntüleyin.
+1. Yönetilen Örneğiniz için kaynak grubunu açın ve içinde sizin için oluşturulan kaynaklarını görüntüleme [yönetilen örnek oluşturma](#create-a-managed-instance) hızlı başlangıç.
 
-2. Yönetilen örneğinizi seçin.
+   ![Yönetilen örnek kaynakları](./media/sql-database-managed-instance-get-started/resources.png)
 
-   ![Yönetilen Örnek kaynakları](./media/sql-database-managed-instance-get-started/resources.png)
+2. Kullanıcı tanımlı yol UDR gözden geçirmek için rota tablosu seçin) sizin için oluşturulan tablo.
 
-3. Üzerinde **genel bakış** sekmesinde, bulmak **konak** tam ana bilgisayar için yönetilen örneğe yönelik özellik ve kopyalama.
+   ![Rota tablosu](./media/sql-database-managed-instance-get-started/route-table.png)
 
-   ![Yönetilen Örnek kaynakları](./media/sql-database-managed-instance-get-started/host-name.png)
+3. Rota tablosunda gelen ve yönetilen örnek sanal ağ içinde trafiği yönlendirmek girişlerini gözden geçirin. Oluşturma veya yol tablonuz el ile yapılandırma, bu girişleri rota tablosunda oluşturduğunuzdan emin olması gerekir.
+
+   ![Yerel mı alt ağ için giriş](./media/sql-database-managed-instance-get-started/udr.png)
+
+4. Bir kaynak grubuna geri dönün ve güvenlik kurallarını gözden geçirmek için ağ güvenlik grubunu seçin.
+
+   ![Ağ güvenlik grubu](./media/sql-database-managed-instance-get-started/network-security-group.png)
+
+5. Gelen ve giden güvenlik kuralları gözden geçirin.
+
+   ![Güvenlik kuralları](./media/sql-database-managed-instance-get-started/security-rules.png)
+
+6. Bir kaynak grubuna geri dönün ve yönetilen örneğinizi seçin.
+
+   ![Yönetilen örnek](./media/sql-database-managed-instance-get-started/managed-instance.png)
+
+7. Üzerinde **genel bakış** sekmesinde, bulmak **konak** tam ana bilgisayar adresi sonraki hızlı kullanmak için yönetilen örnek için özellik ve kopyalayın.
+
+   ![Ana bilgisayar adı](./media/sql-database-managed-instance-get-started/host-name.png)
 
    Ad benzer **your_machine_name.a1b2c3d4e5f6.database.windows.net**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bir Yönetilen Örneğe bağlanma hakkında bilgi edinmek için bkz:
-  - Uygulamaların bağlantı seçeneklerine genel bir bakış için bkz: [Uygulamalarınızı Yönetilen Örneğe bağlama](sql-database-managed-instance-connect-app.md).
-  - Bir Azure sanal makinesinden bir Yönetilen Örneğe bağlanmayı gösteren bir hızlı başlangıç için bkz: [Azure sanal makine bağlantısı yapılandırma](sql-database-managed-instance-configure-vm.md).
-  - Şirket içi bir istemci bilgisayardan noktadan siteye bağlantı kullanarak bir Yönetilen Örneğe bağlanmayı gösteren bir hızlı başlangıç için bkz: [Siteden noktaya bağlantı yapılandırma](sql-database-managed-instance-configure-p2s.md).
+- Bir yönetilen örneğe bağlanma hakkında bilgi edinmek için bkz:
+  - Bağlantı seçenekleri uygulamalar için genel bakış için bkz: [uygulamalarınızı yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md).
+  - Azure sanal makinesinden bir yönetilen örneğe bağlanma gösteren Hızlı Başlangıç için bkz: [bir Azure sanal makine bağlantısı yapılandırma](sql-database-managed-instance-configure-vm.md).
+  - Noktadan siteye bağlantısı kullanarak bir şirket içi istemci bilgisayardan bir yönetilen örneğe bağlanma gösteren Hızlı Başlangıç için bkz: [noktadan siteye bağlantı yapılandırma](sql-database-managed-instance-configure-p2s.md).
 - Mevcut bir SQL Server veritabanını şirket içinden Yönetilen bir örneğe geri yüklerken, veritabanı yedekleme dosyasından geri yükleme işlemini [Geçiş için Azure Veritabanı Geçiş Hizmeti (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) veya [T-SQL RESTORE komutu](sql-database-managed-instance-get-started-restore.md) ile yapabilirsiniz.
 - Gelişmiş sorun giderme yerleşik zekaya sahip yönetilen örnek veritabanı performansını izleme için bkz: [kullanarak Azure SQL Analytics İzleyici Azure SQL veritabanı](../azure-monitor/insights/azure-sql.md)

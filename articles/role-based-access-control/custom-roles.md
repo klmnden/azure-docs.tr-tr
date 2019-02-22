@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 71d49edc3fa52cce5d128b94d42098150aa5f3a3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339337"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585092"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Azure kaynakları için özel roller
 
@@ -43,6 +43,7 @@ Aşağıdaki özel bir rol JSON biçiminde gösterilen gibi göründüğünü g�
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Insights/diagnosticSettings/*",
@@ -65,16 +66,20 @@ Aşağıdaki özel bir rol JSON biçiminde gösterilen gibi göründüğünü g�
 
 ## <a name="steps-to-create-a-custom-role"></a>Özel rol oluşturma adımları
 
+1. Nasıl özel rolü oluşturmak istediğinize karar verin
+
+    Kullanarak özel roller oluşturabilirsiniz [Azure PowerShell](custom-roles-powershell.md), [Azure CLI](custom-roles-cli.md), veya [REST API](custom-roles-rest.md).
+
 1. İhtiyaç duyduğunuz izinleri belirleyin
 
     Özel bir rol oluşturduğunuzda, kaynak izinlerinizi tanımlamak kullanılabilen sağlayıcısı işlemleri bilmeniz gerekir. İşlemlerin listesini görüntülemek için kullanabileceğiniz [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) veya [az sağlayıcı işlemi listesi](/cli/azure/provider/operation#az-provider-operation-list) komutları.
-    Özel rolünüz için izinleri belirlemek için işlemleri ekleyin. `Actions` veya `NotActions` özelliklerini [rol tanımı](role-definitions.md). Veri işlemleri varsa, bu ekleme `DataActions` veya `NotDataActions` özellikleri.
+    İşlemleri ekleyeceksiniz `Actions` veya `NotActions` özelliklerini [rol tanımı](role-definitions.md). Veri işlemleri varsa, bu ekleyeceksiniz `DataActions` veya `NotDataActions` özellikleri.
 
-2. Özel rol oluşturma
+1. Özel rol oluşturma
 
-    Özel rol oluşturmak için Azure PowerShell veya Azure CLI'yı kullanabilirsiniz. Genellikle, mevcut bir yerleşik rolü ile başlayın ve sonra gereksinimleriniz için değiştirin. Kullanmanız [yeni AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) veya [az rol tanımını oluşturma](/cli/azure/role/definition#az-role-definition-create) özel rolü oluşturmak için komutları. Özel bir rol oluşturmak için olmalıdır `Microsoft.Authorization/roleDefinitions/write` tüm izin `AssignableScopes`, gibi [sahibi](built-in-roles.md#owner) veya [kullanıcı erişimi Yöneticisi](built-in-roles.md#user-access-administrator).
+    Genellikle, mevcut bir yerleşik rolü ile başlayın ve sonra gereksinimleriniz için değiştirin. Kullanmanız [yeni AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) veya [az rol tanımını oluşturma](/cli/azure/role/definition#az-role-definition-create) özel rolü oluşturmak için komutları. Özel bir rol oluşturmak için olmalıdır `Microsoft.Authorization/roleDefinitions/write` tüm izin `AssignableScopes`, gibi [sahibi](built-in-roles.md#owner) veya [kullanıcı erişimi Yöneticisi](built-in-roles.md#user-access-administrator).
 
-3. Özel rol testi
+1. Özel rol testi
 
     Özel rolünüz olduktan sonra beklendiği gibi çalıştığını doğrulamak için test etmek kullanabilirsiniz. Daha sonra ayarlamalar yapmanız gerekiyorsa, özel rol güncelleştirebilirsiniz.
 

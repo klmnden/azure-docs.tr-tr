@@ -1,22 +1,19 @@
 ---
 title: include dosyası
 description: include dosyası
-services: monitoring-and-diagnostics
+services: azure-monitor
 author: rboucher
-manager: carmonm
 tags: azure-service-management
-ms.service: monitoring-and-diagnostics
-ms.devlang: dotnet
 ms.topic: include
-ms.date: 09/13/2018
+ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 3901ad2ce883f8257a74ddd2a931947624977184
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 29550581bbc395126d820d93b608e14ea318e268
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45637124"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56653648"
 ---
 | Kaynak | Varsayılan Sınır | Üst Sınır |
 | --- | --- | --- |
@@ -25,3 +22,14 @@ ms.locfileid: "45637124"
 | Ölçüm Uyarıları |Abonelik başına 100 etkin uyarı kuralları | Desteği arayın |
 | Eylem Grupları |Abonelik başına 2000 Eylem grupları | Desteği arayın |
 
+**Eylem grubu belirli sınırları**
+| Kaynak | Varsayılan Sınır | Üst Sınır |
+| --- | --- | --- |
+| Azure uygulama iletimi | Eylem grubu başına 10 azure uygulama eylemleri | Desteği arayın |
+| Email | bir eylem grubu 1000'e-posta eylemleri. Ayrıca bkz: [bilgileri sınırlama oranı](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Desteği arayın |
+| ITSM | Bir eylem grubu 10 ITSM eylemleri | Desteği arayın | 
+| Logic App | Bir eylem grubu 10 mantıksal uygulama eylemleri | Desteği arayın |
+| Runbook | Bir eylem grubu 10 Runbook eylemleri | Desteği arayın |
+| SMS | Bir eylem grubu 10 SMS eylemler. Ayrıca bkz: [bilgileri sınırlama oranı](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Desteği arayın |
+| Ses | Bir eylem grubu 10 ses eylemler. Ayrıca bkz: [bilgileri sınırlama oranı](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Desteği arayın |
+| Web Kancası | Bir eylem grubu 10 Web kancası eylemleri. Kullanılabilir diğer sınırlamaları [eylem belirli bilgileri](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Desteği arayın |

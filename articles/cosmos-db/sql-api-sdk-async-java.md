@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/8/2019
+ms.date: 2/20/2019
 ms.author: moderakh
-ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: a090f40bcbc0dab1f685c02308243aff8fbac9fd
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416284"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588475"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -43,6 +43,11 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 | **En düşük desteklenen çalışma zamanı**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+* Doğrudan modda bazı hatalar düzeltildi.
+* Gelişmiş günlük kaydı doğrudan modunda.
+* Geliştirilmiş bağlantı yönetimi.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 * Doğrudan modu bağlantı Available(GA) genel kullanıma sunulmuştur. Doğrudan modu bağlantısı kullanan bir örnek için bkz. [azure cosmosdb java](https://github.com/Azure/azure-cosmosdb-java) GitHub deposu.
@@ -135,6 +140,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |20 Şubat 2019|--- |
 | [2.4.0](#2.4.0) |8 Şubat 2019|--- |
 | [2.4.0-Beta-1](#2.4.0-beta-1) |4 Şubat 2019|--- |
 | [2.3.1](#2.3.1) |15 Ocak 2019|--- |

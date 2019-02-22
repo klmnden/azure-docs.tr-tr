@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4d2e3ad4015df74ea3adb98eae4d98e30f2948ce
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234111"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649195"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Nasıl Yapılır: Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -92,7 +92,7 @@ Windows masaüstü işletim sistemini çalıştıran cihazlar için desteklenen 
 
 Ortamınızı kimlik verilerini birden fazla Azure AD kiracınıza eşitlenmiş tek bir ormanda bulunuyorsa, hibrit Azure AD'ye katılım kullanamazsınız.
 
-Sistem hazırlığı Aracı (Sysprep) FQDN'yi kullanıyorsanız, bir hibrit Azure AD'ye katılım için yapılandırılmamış bir Windows yüklemesinden görüntüleri'ı oluşturduğunuzdan emin olun.
+Sistem hazırlığı Aracı (Sysprep) bağlı bir Windows 10, 1803 yüklemesinden oluşturulan emin görüntüler olun veya hibrit Azure AD'ye katılım için daha önce yapılandırılmamış.
 
 Ek sanal makineler oluşturmak için bir sanal makine (VM) üzerinde anlık görüntü FQDN'yi kullanıyorsanız, hibrit Azure AD'ye katılım için yapılandırılmamış bir VM anlık görüntüsü kullandığınızdan emin olun.
 
@@ -116,6 +116,7 @@ Windows 10 etki alanına katılmış ise zaten cihazlardır [kayıtlı Azure AD]
  - Hibrit Azure AD'ye katılmış cihaz olduktan sonra herhangi bir mevcut Azure AD kayıtlı durumu otomatik olarak kaldırılması. 
  - Etki alanına katılmış cihaz Azure AD'ye bu kayıt defteri anahtarı - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" ekleyerek kayıtlı olmasını engelleyebilir = DWORD: 00000001
 
+FIPS uyumlu TPM'ler için hibrit Azure AD'ye katılma desteklenmez. FIPS uyumlu TPM'ler cihazlarınız varsa, bunları hibrit Azure AD'ye katılma devam etmeden önce devre dışı bırakmanız gerekir.
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl gözden geçirin
 

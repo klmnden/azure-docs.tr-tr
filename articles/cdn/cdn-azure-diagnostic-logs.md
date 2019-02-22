@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 2b73deb18b518f257e1de6125ef6d4e35eb0e7b7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 6ce10cd9947acbb74807a5288fc1753e794e69c7
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236287"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652306"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
 
@@ -35,7 +35,7 @@ Azure tanılama günlükleri, özelleştirilmiş bir şekilde kullanma temel kul
 
 - Blob depolama, CSV'ye dışarı aktarma ve Excel grafik oluşturmak için verileri dışarı aktarın.
 - Event Hubs'a verileri dışarı aktarma ve diğer Azure hizmetlerinden gelen verilerle ilişkilendirin.
-- Log Analytics ve görünüm verilerine kendi Log Analytics çalışma alanı verileri dışarı aktarma
+- Azure İzleyici günlüklerine verileri dışarı aktarma ve kendi Log Analytics çalışma alanında verileri görüntüleme
 
 Aşağıdaki diyagram tipik CDN çekirdek analiz verilerinin bir görünümünü gösterir.
 
@@ -85,15 +85,15 @@ Günlükleri depolamak için bir depolama hesabı kullanmak için aşağıdaki a
 
 5. Tanılama Günlüğü ayarlarınızı yaptıktan sonra seçin **Kaydet**.
 
-### <a name="logging-with-log-analytics"></a>Log Analytics ile günlüğe kaydetme
+### <a name="logging-with-azure-monitor"></a>Azure İzleyici ile günlüğe kaydetme
 
-Log Analytics, günlükleri depolamak için kullanmak için aşağıdaki adımları izleyin:
+Azure İzleyici, günlükleri depolamak için kullanmak için aşağıdaki adımları izleyin:
 
 1. Gelen **tanılama günlükleri** sayfasında **Log Analytics'e gönderme**. 
 
     ![Portalı - tanılama günlükleri](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
-2. Seçin **yapılandırma** Log Analytics günlük tutmayı yapılandırmak için. 
+2. Seçin **yapılandırma** Azure İzleyici günlüğe kaydetmeyi yapılandırmak için. 
 
    **Log Analytics çalışma alanları** sayfası görüntülenir.
 
@@ -133,7 +133,7 @@ Log Analytics, günlükleri depolamak için kullanmak için aşağıdaki adımla
 
     ![Portalı - tanılama günlükleri](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    Log Analytics çalışma alanınız artık verileri günlüğe kaydetmek hazırdır. Bu verileri kullanmak kullanmalısınız bir [Log Analytics çözümünü](#consuming-diagnostics-logs-from-a-log-analytics-workspace), bu makalenin devamındaki kapsanan.
+    Log Analytics çalışma alanınız artık verileri günlüğe kaydetmek hazırdır. Bu verileri kullanmak kullanmalısınız bir [Azure İzleyici günlükleri çözümü](#consuming-diagnostics-logs-from-a-log-analytics-workspace), bu makalenin devamındaki kapsanan.
 
 Günlük veri gecikmeler hakkında daha fazla bilgi için bkz. [oturum verileri gecikmeleri](#log-data-delays).
 
@@ -211,9 +211,9 @@ Aracı'nı nasıl kullanabileceğinizi aşağıda verilmiştir:
 5.  Elde edilen CSV dosyası, basit düz bir hiyerarşide analiz verilerini gösterir.
 
 ## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Tanılama günlükleri Log Analytics çalışma alanını kullanma
-Log Analytics, bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı korumak için bir Azure hizmetidir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar. 
+Azure İzleyici, bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı korumak için bir Azure hizmetidir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar. 
 
-Log Analytics'i kullanmak için şunları yapmalısınız [günlüğe kaydetmeyi etkinleştirme](#enable-logging-with-azure-storage) Azure Log Analytics çalışma alanına, bu makalenin önceki bölümlerinde alınmıştır.
+Azure İzleyicisi'ni kullanmak için şunları yapmanız gerekir [günlüğe kaydetmeyi etkinleştirme](#enable-logging-with-azure-storage) Azure Log Analytics çalışma alanına, bu makalenin önceki bölümlerinde alınmıştır.
 
 ### <a name="using-the-log-analytics-workspace"></a>Log Analytics çalışma alanını kullanma
 
@@ -227,9 +227,9 @@ Yönetim çözümleri kullanarak çeşitli yollarla verileri görüntüleyebilir
 
 Yönetim çözümleri seçerek Azure Market'ten yükleyebilirsiniz **şimdi edinin** her çözüm alt kısmındaki bağlantı.
 
-### <a name="add-a-log-analytics-cdn-management-solution"></a>Bir Log Analytics CDN yönetim çözümü Ekle
+### <a name="add-a-azure-monitor-cdn-management-solution"></a>Azure İzleyici CDN yönetim çözümü ekleme
 
-Log Analytics yönetim çözümü eklemek için aşağıdaki adımları izleyin:
+Azure İzleyici yönetim çözümü eklemek için aşağıdaki adımları izleyin:
 
 1.   Azure aboneliğinizi kullanarak Azure portalında oturum açın ve panonuza gidin.
     ![Azure Panosu](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
@@ -443,7 +443,7 @@ Burada *zaman* istatistikleri raporlanır kendisi için saatlik sınırın başl
 
 * [Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Azure CDN ek portal aracılığıyla temel analiz](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure izleme günlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

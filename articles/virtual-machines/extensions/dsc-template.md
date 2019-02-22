@@ -5,7 +5,7 @@ services: virtual-machines-windows
 author: bobbytreed
 manager: carmonm
 tags: azure-resource-manager
-keywords: DSC
+keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: d55f6097e3e1eed508580676edcf008b0739034c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e62bc0fff054f0392cd4f437565b5f4dae9cbfb7
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231010"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594432"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile Desired State Configuration uzantısı
 
@@ -36,33 +36,46 @@ Daha fazla bilgi için [VirtualMachineExtension sınıfı](/dotnet/api/microsoft
 
 ```json
 {
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-    "apiVersion": "2018-04-01",
-    "location": "[resourceGroup().location]",
-    "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-    ],
-    "properties": {
-        "publisher": "Microsoft.Powershell",
-        "type": "DSC",
-        "typeHandlerVersion": "2.76",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "configurationArguments": {
-                "RegistrationUrl" : "registrationUrl",
-                "NodeConfigurationName" : "nodeConfigurationName"
-            }
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "Microsoft.Powershell.DSC",
+  "apiVersion": "2018-06-30",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.Powershell",
+    "type": "DSC",
+    "typeHandlerVersion": "2.77",
+    "autoUpgradeMinorVersion": true,
+    "protectedSettings": {
+      "Items": {
+        "registrationKeyPrivate": "[listKeys(resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName')), '2018-06-30').Keys[0].value]"
+      }
+    },
+    "settings": {
+      "Properties": [
+        {
+          "Name": "RegistrationKey",
+          "Value": {
+            "UserName": "PLACEHOLDER_DONOTUSE",
+            "Password": "PrivateSettingsRef:registrationKeyPrivate"
+          },
+          "TypeName": "System.Management.Automation.PSCredential"
         },
-        "protectedSettings": {
-            "configurationArguments": {
-                "RegistrationKey": {
-                    "userName": "NOT_USED",
-                    "Password": "registrationKey"
-                }
-            }
+        {
+          "Name": "RegistrationUrl",
+          "Value": "[reference(concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))).registrationUrl]",
+          "TypeName": "System.String"
+        },
+        {
+          "Name": "NodeConfigurationName",
+          "Value": "[parameters('nodeConfigurationName')]",
+          "TypeName": "System.String"
         }
+      ]
     }
+  }
 }
 ```
 
@@ -77,37 +90,44 @@ Daha fazla bilgi için [VirtualMachineScaleSetExtension sınıfı](/dotnet/api/m
 ```json
 "extensionProfile": {
     "extensions": [
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-            "apiVersion": "2018-04-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.Powershell",
-                "type": "DSC",
-                "typeHandlerVersion": "2.76",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "configurationArguments": {
-                        "RegistrationUrl" : "registrationUrl",
-                        "NodeConfigurationName" : "nodeConfigurationName"
-                    }
-                },
-                "protectedSettings": {
-                    "configurationArguments": {
-                        "RegistrationKey": {
-                            "userName": "NOT_USED",
-                            "Password": "registrationKey"
-                        }
-                    }
-                }
+      {
+        "name": "Microsoft.Powershell.DSC",
+        "properties": {
+          "publisher": "Microsoft.Powershell",
+          "type": "DSC",
+          "typeHandlerVersion": "2.77",
+          "autoUpgradeMinorVersion": true,
+          "protectedSettings": {
+            "Items": {
+              "registrationKeyPrivate": "[listKeys(resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName')), '2018-06-30').Keys[0].value]"
             }
+          },
+          "settings": {
+            "Properties": [
+              {
+                "Name": "RegistrationKey",
+                "Value": {
+                  "UserName": "PLACEHOLDER_DONOTUSE",
+                  "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                },
+                "TypeName": "System.Management.Automation.PSCredential"
+              },
+              {
+                "Name": "RegistrationUrl",
+                "Value": "[reference(concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))).registrationUrl]",
+                "TypeName": "System.String"
+              },
+              {
+                "Name": "NodeConfigurationName",
+                "Value": "[parameters('nodeConfigurationName')]",
+                "TypeName": "System.String"
+              }
+            ]
+          }
         }
+      }
     ]
-}
+  }
 ```
 
 ## <a name="detailed-settings-information"></a>Ayrıntılı ayarları bilgileri
@@ -158,7 +178,7 @@ Varsayılan yapılandırma betiğini için kullanılabilir olan bağımsız değ
 
 ## <a name="details"></a>Ayrıntılar
 
-| Özellik adı | Tür | Açıklama |
+| Özellik adı | Type | Açıklama |
 | --- | --- | --- |
 | settings.wmfVersion |dize |Sanal makinenizde yüklü Windows Management Framework (WMF) sürümünü belirtir. Bu özelliği ayarlamak **son** WMF'nin en son sürümünü yükler. Şu anda bu özellik için yalnızca olası değerler şunlardır: **4.0**, **5.0**, **5.1**, ve **son**. Bu olası değerler şunlardır: güncelleştirmeleri tabidir. Varsayılan değer **son**. |
 | Settings.Configuration.URL |dize |DSC yapılandırması .zip dosyanızın indirileceği URL konumu belirtir. Sağlanan URL erişimi için bir SAS belirteci gerektiriyorsa, ayarlama **protectedSettings.configurationUrlSasToken** değeriniz SAS belirtecinizle değere. Bu özellik gereklidir **settings.configuration.script** veya **settings.configuration.function** tanımlanır. Bu özellikler için hiçbir değer belirtilmezse, uzantı konumu Configuration Manager'ı (LCM) meta verileri ayarlamak için varsayılan yapılandırma betiğini çağırır ve bağımsız değişkenleri iletilmelidir. |
@@ -177,7 +197,7 @@ Varsayılan yapılandırma betiğini için kullanılabilir olan bağımsız değ
 Aşağıdaki değerleri hakkında daha fazla bilgi için bkz: [yerel Configuration Manager temel ayarları](/powershell/dsc/metaconfig#basic-settings).
 DSC uzantısı varsayılan yapılandırma betiği, aşağıdaki tabloda listelenen LCM özellikleri yapılandırmak için kullanabilirsiniz.
 
-| Özellik adı | Tür | Açıklama |
+| Özellik adı | Type | Açıklama |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |Gerekli özellik. Bir düğüm için Azure Otomasyon hizmeti ile bir PowerShell kimlik bilgisi nesnesi bir parola olarak kaydetmek için kullanılan anahtarını belirtir. Bu değeri kullanarak otomatik olarak bulunabileceğini **listkeys'i** Otomasyon hesabına karşı yöntemi.  Bkz: [örnek](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments.RegistrationUrl |dize |Gerekli özellik. Düğümü kaydetmek için girişimde bulunduğu Otomasyon uç noktası URL'sini belirtir. Bu değeri kullanarak otomatik olarak bulunabileceğini **başvuru** Otomasyon hesabına karşı yöntemi. |
@@ -318,10 +338,10 @@ Aşağıdaki şema gibi görünüyordu hangi önceki ayarları şeması gösteri
 | Settings.Configuration.Module.Version | Ayarlar. Moduleversıon |
 | settings.configurationArguments |Ayarlar. Özellikleri |
 | settings.configurationData.url |protectedSettings.DataBlobUri (olmadan bir SAS belirteci) |
-| settings.privacy.dataCollection |Ayarlar. Privacy.dataCollection |
+| settings.privacy.dataCollection |settings.Privacy.dataCollection |
 | settings.advancedOptions.downloadMappings |Ayarlar. AdvancedOptions.DownloadMappings |
 | protectedSettings.configurationArguments |protectedSettings.Properties |
-| protectedSettings.configurationUrlSasToken |Ayarlar. SasToken |
+| protectedSettings.configurationUrlSasToken |settings.SasToken |
 | protectedSettings.configurationDataUrlSasToken |SAS belirteci protectedSettings.DataBlobUri gelen |
 
 ## <a name="troubleshooting"></a>Sorun giderme
@@ -335,18 +355,18 @@ Yalnızca olası değerler şunlardır: '' 'Enable' ve 'Disable' ".
 "WmfVersion olan '{0}'.
 Yalnızca olası değerler şunlardır:... ' Son ' ".
 
-**Sorun**: sağlanan değer izin verilmiyor.
+**Sorun**: Belirtilen değer izin verilmez.
 
-**Çözüm**: geçersiz bir değer geçerli bir değerle değiştirin.
+**Çözüm**: Geçersiz bir değer geçerli bir değerle değiştirin.
 Daha fazla bilgi için bkz: tablodaki [ayrıntıları](#details).
 
 ### <a name="invalid-url"></a>Geçersiz URL
 
 "ConfigurationData.url olan '{0}'. Bu geçerli bir URL değil"" DataBlobUri olan '{0}'. Bu geçerli bir URL değil"" Configuration.url olan '{0}'. Bu geçerli bir URL değil"
 
-**Sorun**: A sağlanan URL geçerli değil.
+**Sorun**: Sağlanan URL geçerli değil.
 
-**Çözüm**: sağlanan tüm URL'leri denetleyin.
+**Çözüm**: Sağlanan tüm URL'leri denetleyin.
 Tüm URL'leri uzantısı uzak makinede erişebilirsiniz geçerli konumlara çözmek emin olun.
 
 ### <a name="invalid-registrationkey-type"></a>RegistrationKey türü geçersiz
@@ -355,7 +375,7 @@ Tüm URL'leri uzantısı uzak makinede erişebilirsiniz geçerli konumlara çöz
 
 **Sorun**: *RegistrationKey* protectedSettings.configurationArguments değerinde bir PSCredential dışında bir türde sağlanan olamaz.
 
-**Çözüm**: protectedSettings.configurationArguments giriş RegistrationKey için aşağıdaki biçimi kullanarak bir PSCredential türü değiştirin:
+**Çözüm**: ProtectedSettings.configurationArguments giriş RegistrationKey için aşağıdaki biçimi kullanarak bir PSCredential türü değiştirin:
 
 ```json
 "configurationArguments": {
@@ -372,7 +392,7 @@ Tüm URL'leri uzantısı uzak makinede erişebilirsiniz geçerli konumlara çöz
 
 **Sorun**: *ConfigurationArguments* özelliği çözümleyemiyor bir **karma tablo** nesne.
 
-**Çözüm**: olun, *ConfigurationArguments* özelliği bir **karma tablo**.
+**Çözüm**: Olun, *ConfigurationArguments* özelliği bir **karma tablo**.
 Yukarıdaki örneklerde sağlanan biçim izleyin. Tırnak işareti, virgül ve küme ayraçları izleyin.
 
 ### <a name="duplicate-configurationarguments"></a>Yinelenen ConfigurationArguments
@@ -381,7 +401,7 @@ Yukarıdaki örneklerde sağlanan biçim izleyin. Tırnak işareti, virgül ve k
 
 **Sorun**: *ConfigurationArguments* genel ayarları ve *ConfigurationArguments* korumalı ayarlarında özellikler ile aynı ada sahip.
 
-**Çözüm**: Yinelenen özellikler birini kaldırın.
+**Çözüm**: Yinelenen özelliklerinden birini kaldırın.
 
 ### <a name="missing-properties"></a>Eksik özellikleri
 
@@ -397,7 +417,7 @@ Yukarıdaki örneklerde sağlanan biçim izleyin. Tırnak işareti, virgül ve k
 
 "Bu settings.configurationData.url belirtilen protectedSettings.ConfigurationDataUrlSasToken gerektirir"
 
-**Sorun**: bir tanımlanan özellik eksik başka bir özellik olması gerekiyor.
+**Sorun**: Tanımlanan bir özellik eksik başka bir özellik olması gerekiyor.
 
 **Çözümleri**:
 

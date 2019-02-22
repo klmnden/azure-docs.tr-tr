@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 412f27c572953b3f44ddca54a99f75895f438f21
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d48a1a1c9e220690649bbf60e9909a38d575c156
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559085"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651969"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Pod güvenlik Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -70,7 +70,7 @@ Gereksinim duyduğunuz güvenlik bağlamı ayarları belirlemek için küme işl
 
 Kimlik bilgileri uygulama kodunuzda maruz kalma riskini sınırlamak için sabit ya da paylaşılan kimlik bilgilerini kullanmaktan kaçının. Kimlik bilgilerine veya anahtarlara doğrudan kodunuza eklenmemelidir. Bu kimlik bilgilerinin ifşa edildiği imzalanmasını ve güncelleştirilmiş uygulama gerekir. Kendi kimlik ve kendi kimliğini doğrulamasını veya otomatik olarak dijital bir kasadan kimlik bilgilerini almak için yol pod'ların vermek daha iyi bir yaklaşımdır.
 
-AKS, pod'ların veya istek kimlik bilgileri ve dijital Kasası'ndaki anahtarları otomatik olarak doğrulamak için iki yöntem içerir:
+Aşağıdaki [ilişkili AKS açık kaynaklı projelerin] [ aks-associated-projects] otomatik olarak pod'ların veya istek kimlik bilgileri ve dijital Kasası'ndaki anahtarları kimlik doğrulaması sağlar:
 
 * Yönetilen Azure kaynakları için kimlikleri ve
 * Azure anahtar kasası FlexVol sürücüsü
@@ -83,7 +83,7 @@ Azure kaynakları için yönetilen bir kimlik, Azure'da yer alan depolama, SQL g
 
 Yönetilen bir kimlik ile uygulama kodunuzu Azure depolama gibi bir hizmete erişmek için kimlik bilgilerini eklemek gerekmez. Bu nedenle her pod kendi kimliği ile kimlik doğrulaması gibi denetim ve erişim gözden geçirebilirsiniz. Uygulamanız diğer Azure Hizmetleri ile bağlanıyorsa, kimlik bilgilerini yeniden sınırı ve ifşa riskini yönetilen kimlikleri kullanın.
 
-Pod kimlikler hakkında daha fazla bilgi için bkz. [yönetilen pod kimlikleri kullanmak için bir AKS kümesi yapılandırma] [ aad-pod-identity] ve [atayın ve yönetilen pod kimlikler kodunuzda kullanmak] [ aad-pod-identity].
+Pod kimlikler hakkında daha fazla bilgi için bkz. [yönetilen pod kimlikleri kullanmak için bir AKS kümesi yapılandırma ve uygulamalarınız ile][aad-pod-identity]
 
 ### <a name="use-azure-key-vault-with-flexvol"></a>Azure Key Vault ile FlexVol kullanma
 
@@ -107,6 +107,7 @@ Bu makalede, pod'ların güvenli nasıl odaklanır. Bu alanlardan bazıları uyg
 [aks-keyvault-flexvol]: https://github.com/Azure/kubernetes-keyvault-flexvol
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
+[aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md

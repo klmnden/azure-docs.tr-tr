@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/4/2019
-ms.author: rkarlin
-ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.date: 2/17/2019
+ms.author: monhaber
+ms.openlocfilehash: 7931caa985bc5dea98ca36bd15e0e634855ab2c5
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343519"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650640"
 ---
 # <a name="working-with-security-policies"></a>Güvenlik ilkeleriyle çalışma
 
@@ -99,6 +99,20 @@ Her Azure aboneliği ve'daki yönetim grupları için varsayılan güvenlik ilke
 Azure İlkesi'nde bir güvenlik ilkesi düzenleme hakkında yönergeler için bkz ve [oluşturma ve yönetme uyumluluğu zorlamak için ilke](../governance/policy/tutorials/create-and-manage.md).
 
 Azure İlkesi portalı, REST API veya Windows PowerShell'i kullanarak aracılığıyla aracılığıyla güvenlik ilkelerini düzenleyebilirsiniz. Aşağıdaki örnek, REST API kullanarak düzenlemek için yönergeler sağlar.
+
+
+## <a name="disable-security-policies"></a>Güvenlik ilkelerini devre dışı bırak
+Varsayılan güvenlik ilkesini, ortamınız için uygun değilse bir öneri oluşturuyorsa, öneri gönderen bir ilke tanımı'nı devre dışı bırakma durdurabilirsiniz. Bu ilke Azure portalı (ve Güvenlik Merkezi portalında), burada açıklandığı gibi gerçekleştirilir.
+Öneriler hakkında daha fazla bilgi için bkz: [güvenlik önerilerini yönetme](security-center-recommendations.md). 
+1. Azure İlkesi'ne gidin ve tıklayın **atamaları**.
+2. İçinde **ASC varsayılan** satır, üç noktaya tıklayın ve tıklayın **görüntülemek tanımı**. **Girişim tanımı** sayfası açılır.
+   ![tanımı görüntüle](./media/tutorial-security-policy/view-definition.png)
+3. Tıklayın **Düzenle intitiative**. **Girişim tanımını Düzenle** sayfası açılır.
+   ![girişimi Düzenle](./media/tutorial-security-policy/edit-initiative.png)
+4. İçinde **ilkeler ve PARAMETRELER** bölümü, arama, ilkeyi devre dışı bırakmak istediğiniz öneri çağırır ve aşağı açılan listeden seçin **devre dışı bırakılmış**.
+   ![İlkeyi devre dışı bırak](./media/tutorial-security-policy/disable-policy.png)
+1. Tıklayın **Kaydet** (sayfanın alt kısmında bulunur).
+
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>REST API kullanarak bir güvenlik ilkesi yapılandırma
 

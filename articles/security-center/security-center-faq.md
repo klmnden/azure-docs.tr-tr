@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi, sık sorulan sorular (SSS) | Microsoft Docs
 description: Bu SSS, Azure Güvenlik Merkezi hakkında sorular yanıtlanmaktadır.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2018
-ms.author: rkarlin
-ms.openlocfilehash: 61dac6bea6878630c05339778c717f7818c1c662
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 02/19/2019
+ms.author: monhaber
+ms.openlocfilehash: 6696935cf23fa7286f23ae9b7d0e8a278e31403d
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106656"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652671"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -274,6 +274,9 @@ Azure Güvenlik Merkezi otomatik olarak toplar, çözümler ve Azure kaynakları
 * Windows Hata Raporlama kullanılarak algılanan Gelişmiş kötü amaçlı yazılım
 * Sanal makinelere karşı deneme yanılma saldırıları
 * Kötü amaçlı yazılımdan koruma veya Web uygulaması güvenlik duvarları gibi tümleşik iş ortağı güvenlik çözümlerinden güvenlik uyarıları
+
+### <a name="why-did-secure-scores-values-change"></a>Neden puanları değerleri değişimi güvenli?
+Şubat 2019'den itibaren Güvenlik Merkezi, önem derecesi daha iyi uyum sağlamak için bazı öneriler, puanı ayarlanır. Bu düzeltme sonucu olabilir değişiklikleri genel güvenli puanı değerleri.  Güvenli puan hakkında daha fazla bilgi için bkz: [puanı hesaplamaya güvenli](security-center-secure-score.md).
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Microsoft Security Response Center ve Azure Güvenlik Merkezi tarafından uyarı ve algılanan tehditlere arasındaki fark nedir?
 Microsoft Güvenlik Yanıt Merkezi (MSRC), select güvenlik Azure ağ ve altyapı izleme gerçekleştirir ve tehdit zekasını ve kötüye şikayetlerinin Üçüncü taraflardan alır. MSRC müşteri verilerini bir yasadışı veya yetkisiz bir tarafın eriştiğini veya müşterinin Azure kullanımına şartlarını kabul edilebilir kullanım için uyumlu değil, uyumlu hale geldiğinde, güvenlik olay manager müşteri bildirir. Bildirim, genellikle güvenlik ilgili kişi belirtilmezse, Azure Güvenlik Merkezi veya Azure aboneliği sahibi belirtilen güvenlik kişilere bir e-posta göndererek gerçekleşir.

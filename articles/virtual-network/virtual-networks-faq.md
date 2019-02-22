@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 7d8047e569d3506f9ebb798b4f8c31ff94204fa4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 98b2c0bc27336e9ee5fe9aaf6332d9854e9af4de
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694066"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650300"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -221,7 +221,7 @@ Evet. Bulunan sanal ağlar için REST API'lerini kullanma [Azure Resource Manage
 ### <a name="is-there-tooling-support-for-vnets"></a>Sanal ağlar için araç desteği var mı?
 Evet. Kullanma hakkında daha fazla bilgi edinin:
 - Vnet üzerinden dağıtmak için Azure portalında [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) ve [Klasik](virtual-networks-create-vnet-classic-pportal.md) dağıtım modelleri.
-- Üzerinden dağıtılan sanal ağlarda yönetmek için PowerShell'i [Resource Manager](/powershell/module/azurerm.network) ve [Klasik](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) dağıtım modelleri.
+- Üzerinden dağıtılan sanal ağlarda yönetmek için PowerShell'i [Resource Manager](/powershell/module/az.network) ve [Klasik](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) dağıtım modelleri.
 - Azure komut satırı arabirimi (CLI) dağıtma ve yönetme ile dağıtılan sanal ağlarda [Resource Manager](/cli/azure/network/vnet) ve [Klasik](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) dağıtım modelleri.  
 
 ## <a name="vnet-peering"></a>VNet eşlemesi

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a815d03dd4e7163d4d9f00ce8f9c16f1b3055ce9
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875500"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652340"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 sık sorulan sorular
 
@@ -32,7 +32,7 @@ Ayrıntılar için bkz [medya CLI ile işlemeyi ölçeklendirme](media-reserved-
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>İşlem videolar için önerilen yöntem nedir?
 
-Http (s) video işaret eden bir URL kullanarak işleri gönderme önerilir. Daha fazla bilgi için [http (s) alma](job-input-from-http-how-to.md). Bunu işlenmeden önce giriş video ile bir varlık oluşturmak için gerekli değildir.
+Kullanım [dönüştüren](https://docs.microsoft.com/rest/api/media/transforms) kodlama veya videoları analiz için ortak görevler yapılandırmak için. Her **dönüştürme** bir tarif veya bir iş akışı, video veya ses dosyalarını işlemek için görevler açıklanmaktadır. A [iş](https://docs.microsoft.com/rest/api/media/jobs) uygulamak için Media Services için fiili istek **dönüştürme** belirli bir giriş video veya ses içeriği için. Dönüştürme oluşturulduktan sonra Media Services API'leri ve yayımlanan SDK'ları hiçbirini kullanarak işleri gönderebilirsiniz. Daha fazla bilgi için [dönüşümler ve işler](transforms-jobs-concept.md).
 
 ### <a name="how-does-pagination-work"></a>Sayfalandırma nasıl çalışır?
 
@@ -45,6 +45,29 @@ Sayfalandırma kullanırken, sonraki bağlantısını toplamasını ve belirli b
 Media Services v3 Canlı kodlama henüz video veya resim maskeleme görüntülerini ekleme sırasında canlı akış desteklemez. 
 
 Kullanabileceğiniz bir [Canlı şirket içi Kodlayıcı](recommended-on-premises-live-encoders.md) kaynak video geçmek için. Birçok uygulama, Telestream Wirecast, değiştirici Studio (iOS üzerinde), OBS Studio (ücretsiz bir uygulama) ve çok daha fazlası gibi kaynakları, geçiş olanağı sağlar.
+
+## <a name="content-protection"></a>İçerik koruma
+
+### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>Nasıl ve nereye isteği lisans veya anahtar için kullanmadan önce JWT belirteci almak?
+
+1. Üretim için bir güvenli belirteç Hizmetleri (bir HTTPS isteği sonra JWT belirtecini verir STS) (web hizmeti) olması gerekir. Test için gösterilen kod kullanabileceğinizi **GetTokenAsync** içinde tanımlanan yöntem [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Oynatıcı bir kullanıcı sts'ye böyle bir belirteç için doğrulandıktan sonra istekte bulunmak ve belirteç değeri olarak atamanız gerekir. Kullanabileceğiniz [Azure Media Player API'sine](https://amp.azure.net/libs/amp/latest/docs/).
+
+* STS, hem simetrik hem de asimetrik anahtar ile çalışan bir örnek için bkz. Lütfen [ http://aka.ms/jwt ](https://aka.ms/jwt). 
+* Böyle JWT belirteci kullanarak Azure Media Player temel bir yürütücü örneği için bkz [ http://aka.ms/amtest ](https://aka.ms/amtest) (belirteç giriş görmek için "player_settings" bağlantıyı genişletme).
+
+### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>Nasıl video akışı AES şifreleme ile istek yetki veriyor musunuz?
+
+STS (güvenli belirteç hizmeti) yararlanmak için doğru yaklaşımdır bakın:
+
+STS kullanıcı profili bağlı olarak farklı talepler (örneğin, "Premium kullanıcı", "Temel kullanıcı", "Ücretsiz deneme kullanıcı") ekleyin. JWT'nin farklı Taleplerde ile kullanıcı farklı içeriğini görebilir. Elbette, farklı içerik/varlık için karşılık gelen RequiredClaims ContentKeyPolicyRestriction olacaktır.
+
+Yapılandırma, kullanım Azure medya Hizmetleri API'leri lisans/anahtar teslim ve varlıklarınızı şifreleme (gösterildiği gibi [Bu örnek](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
+
+Daha fazla bilgi için bkz.
+
+- [Content protection genel bakış](content-protection-overview.md)
+- [Erişim denetimi ile birden çok DRM içerik koruma sisteminin tasarımı](design-multi-drm-system-with-access-control.md)
 
 ## <a name="media-services-v2-vs-v3"></a>Media Services v2 vs v3 
 

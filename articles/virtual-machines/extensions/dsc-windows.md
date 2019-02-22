@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 26b083069380d7bf107cd3be54cb2e4786789e11
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407716"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593872"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC uzantısı
 
@@ -33,11 +33,11 @@ Windows PowerShell DSC uzantısı yayımlandı ve Microsoft tarafından destekle
 
 DSC uzantısı aşağıdaki işletim sisteminin destekler
 
-Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows istemci 7/8.1
+Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows istemci 7/8.1/10
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 
-DSC uzantısı Windows için hedef sanal makineyi internet'e bağlı olduğundan emin gerektirir. 
+DSC uzantısı Windows için hedef sanal makine Azure dışında bir yerde depolanıyorsa yapılandırma paket (.zip dosyası) konumunu ve Azure ile iletişim kurabildiğini olmasını gerektirir. 
 
 ## <a name="extension-schema"></a>Uzantı şeması
 
@@ -47,12 +47,12 @@ Aşağıdaki JSON şema DSC uzantı ayarları bölümü için bir Azure Resource
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-10-01",
   "location": "<location>",
   "properties": {
     "publisher": "Microsoft.Powershell",
     "type": "DSC",
-    "typeHandlerVersion": "2.73",
+    "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "settings": {
         "wmfVersion": "latest",
@@ -100,10 +100,10 @@ Aşağıdaki JSON şema DSC uzantı ayarları bölümü için bir Azure Resource
 
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2018-10-01 | date |
 | Yayımcı | Microsoft.Powershell.DSC | dize |
 | type | DSC | dize |
-| typeHandlerVersion | 2,73 | int |
+| typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Ayarlar özellik değerleri
 
@@ -116,7 +116,7 @@ Aşağıdaki JSON şema DSC uzantı ayarları bölümü için bir Azure Resource
 | settings.configurationArguments | Koleksiyon | DSC yapılandırmanızı geçirmek istediğiniz herhangi bir parametre tanımlar. Bu özellik şifrelenmez.
 | settings.configurationData.url | dize | DSC yapılandırma için giriş olarak kullanmak için yapılandırma verileri (.pds1) dosyasını indirileceği URL'sini belirtir. Sağlanan URL erişimi için bir SAS belirteci gerektiriyorsa, SAS belirtecinizi için protectedSettings.configurationDataUrlSasToken özelliği ayarlayın gerekir.
 | settings.privacy.dataEnabled | dize | Etkinleştirir veya telemetri koleksiyonunu devre dışı bırakır. 'Etkinleştir', 'Disable', bu özellik için yalnızca olası değerler şunlardır: ", veya $null. Bu özellik boş ya da boş bırakarak telemetri etkinleştirir
-| settings.advancedOptions.forcePullAndApply | bool | Güncelleştirme ve yenileme modu çekme olduğunda DSC yapılandırmaları uygulamak DSC uzantısı sağlar.
+| settings.advancedOptions.forcePullAndApply | Bool | Güncelleştirme ve yenileme modu çekme olduğunda DSC yapılandırmaları uygulamak DSC uzantısı sağlar.
 | settings.advancedOptions.downloadMappings | Koleksiyon | WMF ve .NET gibi bağımlılıkları indirmek için alternatif konumlar tanımlar
 
 ### <a name="protected-settings-property-values"></a>Korumalı ayarları özellik değerleri
@@ -130,26 +130,9 @@ Aşağıdaki JSON şema DSC uzantı ayarları bölümü için bir Azure Resource
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Şablonları, bir veya daha fazla dağıtım sonrası yapılandırma gerektiren sanal makineler dağıtırken idealdir. Log Analytics aracısını VM uzantısı içeren örnek bir Resource Manager şablonu bulunabilir [Azure hızlı başlangıç Galerisine](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
-
-Sanal makine uzantısı için JSON yapılandırma içinde sanal makine kaynağı iç içe geçmiş veya kök veya bir Resource Manager JSON şablonunu üst düzey yerleştirilir. Kaynak adı ve türü değeri JSON yapılandırma yerleşimini etkiler. 
-
-İç içe uzantısı kaynak, JSON yerleştirildi `"resources": []` sanal makinenin nesne. Uzantı JSON şablonu kökünde yerleştirilirken, kaynak adı üst sanal makineye bir başvuru içerir ve iç içe geçmiş yapılandırma türü yansıtır.  
-
-
-## <a name="azure-cli-deployment"></a>Azure CLI dağıtım
-
-Azure CLI, Log Analytics aracısını VM uzantısı için mevcut bir sanal makine dağıtmak için kullanılabilir. Log Analytics Kimliğiniz ve Log Analytics anahtar Log Analytics çalışma alanınızın değerlerle değiştirin. 
-
-```azurecli
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name Microsoft.Powershell.DSC \
-  --publisher Microsoft.Powershell \
-  --version 2.73 --protected-settings '{}' \
-  --settings '{}'
-```
+Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir.
+Şablonları, bir veya daha fazla dağıtım sonrası yapılandırma gerektiren sanal makineler dağıtırken idealdir.
+Windows için DSC uzantısı içeren örnek bir Resource Manager şablonu bulunabilir [Azure hızlı başlangıç Galerisine](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Sorun giderme ve Destek
 

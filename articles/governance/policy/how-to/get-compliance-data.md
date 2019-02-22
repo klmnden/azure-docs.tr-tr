@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 41c44d1f4054d93c770f80496c8d7a0bddf5eb13
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114119"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650352"
 ---
 # <a name="getting-compliance-data"></a>Uyumluluk verilerini alma
 
@@ -430,7 +430,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure izleme günlükleri
 
-Varsa bir [Log Analytics çalışma alanı](../../../log-analytics/log-analytics-overview.md) ile `AzureActivity` çözüm, aboneliğinize bağlı basit bir Azure Veri Gezgini sorgularını kullanarak değerlendirme döngüsü uyumsuzluk sonuçları da görüntüleyebilir ve `AzureActivity` Tablo. Azure İzleyici günlüklerine ayrıntılarla uyumsuzluk için izlemek için uyarılar yapılandırılabilir.
+Varsa bir [Log Analytics çalışma alanı](../../../log-analytics/log-analytics-overview.md) ile `AzureActivity` gelen [Activity Log Analytics çözümünü](../../../azure-monitor/platform/collect-activity-logs.md) aboneliğinize bağlı, uyumsuzluk sonuçları değerlendirme döngüsü kullanarak da görüntüleyebilirsiniz Basit Kusto sorgu ve `AzureActivity` tablo. Azure İzleyici günlüklerine ayrıntılarla uyumsuzluk için izlemek için uyarılar yapılandırılabilir.
 
 ![Azure İzleyici günlüklerine kullanarak ilke uyumluluğu](../media/getting-compliance-data/compliance-loganalytics.png)
 

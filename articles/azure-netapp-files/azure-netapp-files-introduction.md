@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: eb7354f8e099f28f4a3476b16c11f5f2d8feda00
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: d16d13d1f57c1ef189db3db781705cd70cd71e8d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412496"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586197"
 ---
 # <a name="introduction-to-azure-netapp-files"></a>Azure NetApp Files'a giriş
 Azure NetApp Files hizmeti kurumsal sınıf, yüksek performanslı, tarifeli bir depolama hizmetidir. Azure NetApp Files tüm iş yükü türlerini destekler ve varsayılan olarak yüksek kullanılabilirliğe sahiptir. Garantili hizmet ve performans düzeylerini seçebilir ve hizmet aracılığıyla anlık görüntüler ayarlayabilirsiniz. 
@@ -27,13 +27,9 @@ Azure NetApp Files hizmeti kurumsal sınıf, yüksek performanslı, tarifeli bir
 Azure NetApp Files belgelerinde, Azure NetApp Files kullanarak birim oluşturma ve yönetme yönergeleri sağlanır. 
 
 > [!IMPORTANT] 
-> Bu belgelerde açıklanan tüm görevler için, Genel Önizleme programına katılmanız ve Microsoft.NetApp Azure Kaynak Sağlayıcısı'na erişim için beyaz listede yer almanız gerekir. Genel Önizleme programına katılma istemek için bkz [kaydetmek için Azure NetApp dosyaları](azure-netapp-files-register.md). 
+> Bu belgelerde açıklanan tüm görevler için, Genel Önizleme programına katılmanız ve Microsoft.NetApp Azure Kaynak Sağlayıcısı'na erişim için beyaz listede yer almanız gerekir. Genel Önizleme programına katılma isteğinde bulunmak için bkz. [Azure NetApp Files için kaydolma](azure-netapp-files-register.md). 
 
 **Kullanmaya başlama** 
-1. [NetApp Azure dosyaları için kaydolun](azure-netapp-files-register.md)
-1. [NetApp hesabı oluşturma](azure-netapp-files-create-netapp-account.md)
-1. [Kapasitesi havuzunu ayarlama](azure-netapp-files-set-up-capacity-pool.md)
-1. [Azure NetApp Files için birim oluşturma](azure-netapp-files-create-volumes.md)
-1. [Birim için dışarı aktarma ilkesini yapılandırma (isteğe bağlı)](azure-netapp-files-configure-export-policy.md)
 
-
+* [NetApp dosyaları Azure depolama hiyerarşisini anlama](azure-netapp-files-understand-storage-hierarchy.md) 
+* [Hızlı Başlangıç: Azure NetApp dosyalarını ve birim oluşturma](azure-netapp-files-quickstart-set-up-account-create-volumes.md)

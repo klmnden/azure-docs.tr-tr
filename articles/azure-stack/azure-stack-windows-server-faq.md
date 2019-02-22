@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b498283ee117935438c55e5162e92acdb0f5ebfe
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249689"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649909"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server'da Azure Stack Marketini SSS
 
@@ -38,7 +38,7 @@ Ardından, tüm sanal makine ölçek kümeleri belirli bir sürümüne başvuruy
 
 Microsoft Azure Stack marketten Windows Server görüntülerini iki sürümünü sunar:
 
-- **Kullandıkça Öde**: Bu görüntüler, tam fiyat Windows ölçümleri çalıştırın. 
+- **Kullandıkça Öde**: Bu görüntüler, tam fiyat Windows ölçümleri çalıştırın.
    Kimin kullanmanız gerekir: Kullanan Kurumsal Anlaşma (EA) müşterileri *tüketim faturalandırma modeli*; SPLA lisans kullanmak istiyor musunuz CSP'ler.
 - **Kendi lisansınızı getirin (BYOL)**: Bu görüntüler, temel ölçümleri çalıştırın.
    Kimin kullanmanız gerekir: EA müşterileri bir Windows Server lisansına sahip; SPLA lisansı kullanan CSP'ler.
@@ -74,23 +74,23 @@ Bir Windows Server sanal makinesini Azure Stack'te etkinleştirmek için aşağ�
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Sanal Makinem etkinleştirildiğini nasıl doğrulayabilirim?
 
-Yükseltilmiş bir komut isteminden aşağıdaki komutu çalıştırın: 
+Yükseltilmiş bir komut isteminden aşağıdaki komutu çalıştırın:
 
 ```shell
 slmgr /dlv
-``` 
+```
 
 Doğru bir şekilde etkinleştirildi, bu açıkça belirtilen görürsünüz ve ana bilgisayar adı görüntülenen `slmgr` çıktı. Güncel olmayabilir veya arkasında sizinki farklı bir sanal makineden gösteren ekranındaki filigranlar bağımlı değil.
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>Sanal Makinem AVMA, nasıl düzeltebilirim kullanmak için ayarlanmamış?
 
-Yükseltilmiş bir komut isteminden aşağıdaki komutu çalıştırın: 
+Yükseltilmiş bir komut isteminden aşağıdaki komutu çalıştırın:
 
 ```shell
-slmgr /ipk <AVMA key> 
+slmgr /ipk <AVMA key>
 ```
 
-Makaleye göz atın [otomatik sanal makine etkinleştirmesi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) görüntünüzü kullanmak anahtarlar için.
+Bkz: [otomatik sanal makine etkinleştirmesi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) makale görüntünüzü kullanmak anahtarlar için.
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Kendi Windows Server görüntülerini oluşturabilirim, AVMA kullandıkları nasıl emin?
 

@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 8cc7d7d93f483289ab7faa3f5a7193fc218b57bc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0df36f4c939ed9bd7bb6a134a356b37d699abc1d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695036"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586352"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Fiyatlandırma katmanları PostgreSQL için Azure veritabanı
 
@@ -43,6 +43,9 @@ Bir sunucu oluşturduktan sonra sanal çekirdek, donanım oluşturma ve fiyatlan
 
 > [!IMPORTANT]
 > 12 Aralık 2018 tarihinden itibaren yeni müşteri Brezilya Güney, Kanada Orta, Kanada, Doğu Kanada, Doğu Asya, Doğu ABD 2, Orta Hindistan, Batı Hindistan, Japonya Batı, Orta Kuzey ABD, Batı ABD işlem 4. nesil sunucuları sağlamak mümkün olmayacaktır. İşlem oluşturma 4 sunucu şu bölgelerde 1 Şubat 2019 başlangıç 5. nesil işlem geçirilecek önceden oluşturulmuş.
+>
+> [!IMPORTANT]
+> 19 Şubat 2019'den itibaren yeni müşteri Orta ABD, Doğu ABD, Japonya Doğu, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, Batı Avrupa, işlem 4. nesil sunucuları sağlamak mümkün olmayacaktır. İşlem oluşturma 4 sunucu şu bölgelerde 1 Nisan 2019 başlangıç 5. nesil işlem geçirilecek önceden oluşturulmuş.
 
 | **Azure bölgesi** | **4. nesil** | **5. nesil** |
 |:---|:----------:|:--------------------:|

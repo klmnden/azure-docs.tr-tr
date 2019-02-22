@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: raynew
-ms.openlocfilehash: 8115065afcbd81da1527e09c07ca89ce89100d7d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c932df528c63853cb52f54954afe202867743dd7
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237000"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594024"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
@@ -245,7 +245,7 @@ Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçi
 --- | --- | --- | --- | ---
 Yapılandırma sunucusu | Şirket içi VMware sunucularını ve Azure arasındaki iletişimleri koordine eder <br/><br/> Şirket içi VMware sunucularında yüklü | Yeni yükleme için tıklatın [burada](vmware-azure-deploy-configuration-server.md). Varolan bileşeni en son sürüme yükseltmek için tıklayın [burada](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 İşlem sunucusu|Varsayılan olarak yapılandırma sunucusuna yüklenir. Bu çoğaltma verilerini alıp; Bu, önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir; ve Azure depolamaya gönderir. Dağıtımınız büyüdükçe, daha büyük çoğaltma trafiği hacimlerini idare etmek ayrı, ek işlem sunucuları ekleyebilirsiniz.| Yeni yükleme için tıklatın [burada](vmware-azure-set-up-process-server-scale.md). Varolan bileşeni en son sürüme yükseltmek için tıklayın [burada](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-Mobility hizmeti | Şirket içi VMware sunucuları/fiziksel sunucular ile Azure/ikincil site arasında çoğaltma koordinatları<br/><br/> VMware VM veya fiziksel sunucuları çoğaltmak istediğiniz yüklü | Yeni yükleme için tıklatın [burada](vmware-azure-install-mobility-service.md). Varolan bileşeni en son sürüme yükseltmek için tıklayın [burada](vmware-physical-mobility-service-overview.md#update-the-mobility-service).
+Mobility hizmeti | Şirket içi VMware sunucuları/fiziksel sunucular ile Azure/ikincil site arasında çoğaltma koordinatları<br/><br/> VMware VM veya fiziksel sunucuları çoğaltmak istediğiniz yüklü | Yeni yükleme için tıklatın [burada](vmware-azure-install-mobility-service.md). Varolan bileşeni en son sürüme yükseltmek için tıklayın [burada](vmware-physical-mobility-service-overview.md##update-mobility-service-from-azure-portal).
 
 En son özellikler ve düzeltmeler hakkında bilgi edinmek için tıklayın [burada](https://aka.ms/ASR_latest_release_notes).
 

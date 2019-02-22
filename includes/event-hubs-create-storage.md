@@ -8,39 +8,39 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e499a0f7bec47e672c599c729a15cc3e3d04a28a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 38ba8ccad63120d33ce06faf39439bb58706e78d
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471661"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56660495"
 ---
 ## <a name="create-a-storage-account-for-event-processor-host"></a>Olay İşleyicisi Ana Bilgisayarı için bir depolama hesabı oluşturma
 Olay İşleyicisi Ana Bilgisayarı, olay hub’larına ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu olay hub’larından olay almayı basitleştiren akıllı bir aracıdır. Olay İşleyicisi Ana Bilgisayarı, denetim noktası için bir depolama hesabına ihtiyaç duyar. Aşağıdaki örnekte depolama hesabı oluşturma ve erişim için anahtarını alma adımları gösterilmiştir:
 
-1. Azure portal ve select **kaynak Oluştur** , ekranın sol üst köşesindeki.
+1. Azure portalda ekranın sol üst köşesindeki **Kaynak oluştur**'u seçin.
 
 2. **Depolama**’yı ve sonra **Depolama hesabı - blob, dosya, tablo, kuyruk** öğesini seçin.
    
-    ![Depolama Hesabı Seç](./media/event-hubs-create-storage/create-storage1.png)
+    ![Depolama Hesabı seçme](./media/event-hubs-create-storage/create-storage1.png)
 
-3. Üzerinde **depolama hesabı oluşturma** sayfasında, aşağıdaki adımları uygulayın: 
+3. **Depolama hesabı oluştur** sayfasında aşağıdaki adımları gerçekleştirin: 
 
     1. Depolama hesabı için bir ad girin. 
-    2. Olay hub'ı içeren bir Azure aboneliği seçin.
-    3. Olay hub'ı içeren kaynak grubunu seçin.
+    2. Olay hub'ını içeren Azure aboneliğini seçin.
+    3. Olay hub'ının bulunduğu kaynak grubunu seçin.
     4. Kaynağın oluşturulacağı konumu seçin. 
-    5. Ardından **gözden geçir + Oluştur**.
+    5. Ardından **Gözden geçir + oluştur**’a tıklayın.
    
-    ![Depolama hesabı oluşturma - sayfası](./media/event-hubs-create-storage/create-storage2.png)
+    ![Depolama hesabı oluştur - sayfa](./media/event-hubs-create-storage/create-storage2.png)
 
-4. Üzerinde **gözden + Oluştur** sayfasında değerleri gözden geçirin ve seçin **Oluştur**. 
+4. **Gözden geçir + oluştur** sayfasında değerleri gözden geçirin ve **Oluştur**'u seçin. 
 
-    ![Depolama hesabı ayarlarını gözden geçir ve Oluştur](./media/event-hubs-create-storage/review-create-storage-account.png)
-5. Gördükten sonra **dağıtımlar başarılı** ileti, select **kaynağa var** sayfanın üstünde. Depolama hesabı sayfasında kaynak listesinden depolama hesabınızı seçerek de başlatabilirsiniz.  
+    ![Depolama hesabı ayarlarını gözden geçirme ve oluşturma](./media/event-hubs-create-storage/review-create-storage-account.png)
+5. Gördükten sonra **dağıtımlar başarılı** ileti, select **kaynağa Git** sayfanın üstünde. Depolama hesabı sayfasında kaynak listesinden depolama hesabınızı seçerek de başlatabilirsiniz.  
 
-    ![Dağıtımdan depolama hesabını seçin](./media/event-hubs-create-storage/select-storage-deployment.png) 
-7. İçinde **Essentials** penceresinde **Blobları**. 
+    ![Dağıtımda depolama hesabını seçme](./media/event-hubs-create-storage/select-storage-deployment.png) 
+7. **Temel Bileşenler** penceresinde **Bloblar**'u seçin. 
 
     ![BLOB hizmeti seçin](./media/event-hubs-create-storage/select-blobs-service.png)
 1. Seçin **+ kapsayıcı** girin en üstünde bir **adı** kapsayıcı ve seçin için **Tamam**. 

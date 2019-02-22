@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: cb7ccc665cdf9867232580fd8b687b344e43116d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446390"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587285"
 ---
 # <a name="configure-a-custom-domain-name"></a>Özel bir etki alanı adı yapılandırma 
 
@@ -42,9 +42,9 @@ Bu makalede açıklanan adımları gerçekleştirmek için aşağıdakiler gerek
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Özel etki alanı adı ayarlamak için Azure portalını kullanma
 
 1. APIM Örneğinize gidin [Azure portalında](https://portal.azure.com/).
-2. Seçin **özel etki alanları ve SSL**.
+1. Seçin **özel etki alanları ve SSL**.
     
-    Uç noktaları için özel etki alanı atayabilirsiniz sayısı yoktur. Şu anda aşağıdaki uç noktaların bulunmaktadır: 
+    Bir özel etki alanı adı atamak için uç noktalar vardır. Şu anda aşağıdaki uç noktaların bulunmaktadır: 
     + **Proxy** (varsayılan: `<apim-service-name>.azure-api.net`), 
     + **Portal** (varsayılan: `<apim-service-name>.portal.azure-api.net`),     
     + **Yönetim** (varsayılan: `<apim-service-name>.management.azure-api.net`), 
@@ -52,12 +52,16 @@ Bu makalede açıklanan adımları gerçekleştirmek için aşağıdakiler gerek
 
     >[!NOTE]
     > Tüm uç noktalar veya bunlardan bazıları güncelleştirebilirsiniz. Yaygın olarak, müşteriler güncelleştirme **Proxy** (Bu URL'yi API Management aracılığıyla kullanıma sunulan API çağırmak için kullanılır) ve **portalı** (Geliştirici Portalı URL'si). **Yönetim** ve **SCM** uç noktaları APIM müşteriler tarafından dahili olarak kullanılır ve bu nedenle daha az sıklıkta özel etki alanı atanır.
-3. Güncelleştirmek istediğiniz uç nokta seçin. 
-4. Sağdaki pencerede **özel**.
 
-    + İçinde **özel etki alanı adı**, kullanmak istediğiniz adı belirtin. Örneğin, `api.contoso.com`. <br/>Joker karakter etki alanı adlarını (örneğin, *. etkialanı.com) da desteklenir.
-    + İçinde **sertifika**, geçerli bir belirtin. Karşıya yüklemek istediğiniz bir PFX dosyası. 
-    + Sertifika bir parolası varsa, bu alana giriş **parola** alan.
+1. Güncelleştirmek istediğiniz uç nokta seçin. 
+1. Sağdaki pencerede **özel**.
+
+    + İçinde **özel etki alanı adı**, kullanmak istediğiniz adı belirtin. Örneğin, `api.contoso.com`. Joker karakter etki alanı adlarını (örneğin, *. etkialanı.com) da desteklenir.
+    + İçinde **sertifika**, Key Vault'tan bir sertifika seçin. Geçerli bir yükleyebilirsiniz. PFX dosyasını açıp sağlayan kendi **parola**, sertifika bir parolayla korunuyorsa.
+
+    > [!TIP]
+    > Özel etki alanı SSL sertifikası yönetmek için Azure anahtar kasası kullanıyorsanız, sertifika Key Vault'a eklediğiniz emin olun [olarak bir *sertifika*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate)değil bir *gizli*. Sertifika için autorotate ayarlarsanız, API Management en son sürümü otomatik olarak seçer.
+
 1. Uygula düğmesini tıklatın.
 
     >[!NOTE]

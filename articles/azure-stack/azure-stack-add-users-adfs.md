@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/21/2019
 ms.author: patricka
 ms.reviewer: unknown
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7ecffacee03650adc709a055ba942ef182da5fb8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/21/2019
+ms.openlocfilehash: 1b47739200c79317273ea0c788f21a7ee4a3b818
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239997"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648515"
 ---
 # <a name="add-azure-stack-users-in-ad-fs"></a>AD FS, Azure Stack kullanıcıları ekleme
 Kullanabileceğiniz **Active Directory Kullanıcıları ve Bilgisayarları** yararlanarak AD FS, kimlik sağlayıcısı olarak Azure Stack ortamına ek kullanıcılar eklemek için ek bileşenini.
@@ -29,12 +29,13 @@ Kullanabileceğiniz **Active Directory Kullanıcıları ve Bilgisayarları** yar
 > [!TIP]
 > Bu örnek, varsayılan azurestack.local ASDK active directory kullanır. 
 
-1.  Windows Yönetim Araçları için erişim sağlayan bir hesapla bir bilgisayarda oturum açın ve yeni bir Microsoft Yönetim Konsolu (MMC) açın.
-2.  Tıklayın **Dosya > Ekle veya Kaldır ek bileşenini**.
-3.  Seçin **Active Directory Kullanıcıları ve Bilgisayarları** > **AzureStack.local** > **kullanıcılar**.
-4.  Tıklayın **eylem** > **yeni** > **kullanıcı**.
-5.  Yeni nesne – kullanıcı penceresi, sağlamak ve bir parolayı onaylayın
-6.  Tıklayın **sonraki** değerleri sonlandırma ve kullanıcı oluşturmak için Son'a tıklayın.
+1. Windows Yönetim Araçları için erişim sağlayan bir hesapla bir bilgisayarda oturum açın ve yeni bir Microsoft Yönetim Konsolu (MMC) açın.
+2. Seçin **Dosya > Ekle veya Kaldır ek bileşenini**.
+3. Seçin **Active Directory Kullanıcıları ve Bilgisayarları** > **AzureStack.local** > **kullanıcılar**.
+4. Seçin **eylem** > **yeni** > **kullanıcı**.
+5. Yeni nesne – kullanıcı, kullanıcı bilgilerini ayrıntıları sağlayın. **İleri**’yi seçin.
+6. Sağlar ve bir parolayı onaylayın.
+7. Seçin **sonraki** değerleri sonlandırmak için. Seçin **son** kullanıcı oluşturmak için.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

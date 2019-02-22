@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: 46be596cbd2641b9ecd3206f44a6e7de7beed255
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: d6933d5fd72a3a6c945d3afc3fdd3512be5b28d1
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417520"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56591610"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics, Azure Resource Manager şablonlarını kullanarak yönetme
 Kullanabileceğiniz [Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve Log Analytics çalışma alanları yapılandırmak için. Şablonlar ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
@@ -42,7 +42,7 @@ Aşağıdaki tabloda, bu örnekte kullanılan kaynaklar için API sürümü list
 | Kaynak | Kaynak türü | API sürümü |
 |:---|:---|:---|:---|
 | Çalışma alanı   | çalışma alanı    | 2017-03-15-Önizleme |
-| Arama      | savedSearches | 2017-03-15-Önizleme |
+| Arama      | savedSearches | 2015-03-20 |
 | Veri kaynağı | veri kaynakları   | 2015-11-01-Önizleme |
 | Çözüm    | çözümler     | 2015-11-01-Önizleme |
 
@@ -101,7 +101,7 @@ Aşağıdaki parametreleri varsayılan değeri ayarlayın:
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -218,7 +218,7 @@ Aşağıdaki örnek şablonu göstermektedir nasıl yapılır:
   },
   "resources": [
     {
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2015-11-01-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -230,7 +230,7 @@ Aşağıdaki örnek şablonu göstermektedir nasıl yapılır:
       },
       "resources": [
         {
-          "apiVersion": "2017-03-15-preview",
+          "apiVersion": "2015-03-20",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -379,7 +379,7 @@ Aşağıdaki örnek şablonu göstermektedir nasıl yapılır:
           }
         },
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2015-03-20",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [

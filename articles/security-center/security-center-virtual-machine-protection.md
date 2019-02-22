@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: monhaber
-ms.openlocfilehash: 8dcaa9b98292e66d81daf3d115159b0c0c1124af
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0b548acc92ab1efedab963e9bd3318e8525ffee4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106741"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649569"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma
 Azure Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur. Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler) ve bilgisayarlar, uygulamalar, ağ, SQL ve kimlik ve erişim.
@@ -159,6 +159,24 @@ Altında **uygulama hizmetleri**, App service ortamları listesini bulmak ve Gü
  -  Geçirilen bir değerlendirme, listenin değerlendirme açıklaması için sağlıksız ve iyi durumda kaynakların bir listesini ve Taranmayan kaynaklar listesini seçin. İyi durumda olmayan kaynaklar için bir sekme yoktur ancak değerlendirmede başarılı olduğundan bu liste her zaman boştur.
 
     ![App Service düzeltme](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+
+## <a name="virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri
+Güvenlik Merkezi, Ölçek kümesine sahiptir ve bu ölçek kümeleri Microsoft Monitoring Agent yüklemenizi önerir olup olmadığını otomatik olarak bulur. 
+
+Microsoft Monitoring Agent'ı yüklemek için: 
+
+1. Bir öneri seçin **sanal makine ölçek kümesi üzerinde izleme Aracısı yükleme**. İzlenmeyen ölçek kümeleri listesini al
+2. Sağlıksız bir ölçek kümesi seçin. Mevcut bir doldurulmuş çalışma kullanarak izleme aracısını yüklemek için yönergeleri izleyin veya yeni bir tane oluşturun. Çalışma alanı ayarladığınızdan emin olun [fiyatlandırma katmanı](security-center-pricing.md) ayarlı değil ise.
+
+ ![MMS yükleyin](./media/security-center-virtual-machine-recommendations/install-mms.png)
+
+Ayarlamak istiyorsanız Yeni ölçeği otomatik olarak Microsoft Monitoring Agent'ı yüklemek için ayarlar:
+1. Azure İlkesi'ne gidin ve tıklayın **tanımları**.
+2. İlke arama **Windows VM ölçek kümelerine dağıtma Log Analytics aracısını** ve tıklayın.
+3. **Ata**'ya tıklayın.
+4. Ayarlama **kapsam** ve **Log Analytics çalışma alanı** tıklatıp **atama**.
+
+Ölçek kümeleri, Azure İlkesi'nde Microsoft Monitoring Agent'ı yüklemek için tüm mevcut ayarlamak istiyorsanız gidin **düzeltme** ve mevcut ilkenin var olan ölçek kümeleri için geçerlidir.
 
 
 ## <a name="compute-and-app-recommendations"></a>İşlem ve uygulama önerileri

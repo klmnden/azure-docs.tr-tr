@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 802408f6ccd0a1cc0ed4f4d87d54a11760cd70fe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cc42a0289316116b843696c984f9fc3c2114eb6c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473451"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592902"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için bellek ve eşzamanlılık sınırları
 Çeşitli performans düzeylerini ve Azure SQL veri ambarı kaynak sınıflarında ayrılan bellek ve eşzamanlılık sınırları görüntüleyin. Daha fazla bilgi için ve bu özellikler iş yükü yönetimi planınızı uygulamak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md). 
@@ -78,7 +78,7 @@ Her sorgu verimli bir şekilde yürütmek için yeterli kaynakları içerdiğind
 
 Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvaları her biri için gösterir [statik kaynak sınıfı](resource-classes-for-workload-management.md).  
 
-| Hizmet Düzeyi | En fazla eş zamanlı sorguları | Eşzamanlılık yuvası yok |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Hizmet Düzeyi | En fazla eş zamanlı sorguları | Eşzamanlılık yuvası yok | Staticrc10 tarafından kullanılan yuvaları | Staticrc20 tarafından kullanılan yuvaları | Staticrc30 tarafından kullanılan yuvaları | Staticrc40 tarafından kullanılan yuvaları | Staticrc50 tarafından kullanılan yuvaları | Staticrc60 tarafından kullanılan yuvaları | Staticrc70 tarafından kullanılan yuvaları | Staticrc80 tarafından kullanılan yuvaları |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -133,7 +133,7 @@ Statik kaynak sınıfları
 
 Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvaları her biri için gösterir [statik kaynak sınıfı](resource-classes-for-workload-management.md) üzerinde **Gen1**.
 
-| Hizmet düzeyi | En fazla eş zamanlı sorguları | En fazla eşzamanlılık yuvası |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Hizmet düzeyi | En fazla eş zamanlı sorguları | En fazla eşzamanlılık yuvası | Staticrc10 tarafından kullanılan yuvaları | Staticrc20 tarafından kullanılan yuvaları | Staticrc30 tarafından kullanılan yuvaları | Staticrc40 tarafından kullanılan yuvaları | Staticrc50 tarafından kullanılan yuvaları | Staticrc60 tarafından kullanılan yuvaları | Staticrc70 tarafından kullanılan yuvaları | Staticrc80 tarafından kullanılan yuvaları |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -156,7 +156,7 @@ Dinamik kaynak sınıfları
 
 Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvaları her biri için gösterir [dinamik kaynak sınıfı](resource-classes-for-workload-management.md) üzerinde **Gen1**.
 
-| Hizmet düzeyi | En fazla eş zamanlı sorguları | Eşzamanlılık yuvası yok | smallrc | mediumrc | largerc | xlargerc |
+| Hizmet düzeyi | En fazla eş zamanlı sorguları | Eşzamanlılık yuvası yok | Smallrc tarafından kullanılan yuvaları | Mediumrc tarafından kullanılan yuvaları | Largerc tarafından kullanılan yuvaları | Xlargerc tarafından kullanılan yuvaları |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1.       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8b51a4b8690d2184223bf33c7e863287de431d62
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853162"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593395"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Hizmet veri yolu varlıkları autoforwarding zincirleme
 
-Service Bus *autoforwarding* özelliği bir kuyruk veya başka bir kuyruk veya aynı ad parçası olan konu için abonelik zincir olanak sağlar. Autoforwarding etkin olduğunda, Service Bus otomatik olarak ilk kuyruk ya da abonelik (kaynak) yerleştirildiğinden iletileri kaldırır ve ikinci kuyruğuna veya konusuna (hedef) geçirir. Hedef varlık, doğrudan bir ileti göndermek yine de mümkündür. Ayrıca, başka bir kuyruk veya konuda bir teslim edilemeyen iletiler sırası gibi bir alt kuyruk zincir mümkün değildir.
+Service Bus *autoforwarding* özelliği bir kuyruk veya başka bir kuyruk veya aynı ad parçası olan konu için abonelik zincir olanak sağlar. Autoforwarding etkin olduğunda, Service Bus otomatik olarak ilk kuyruk ya da abonelik (kaynak) yerleştirildiğinden iletileri kaldırır ve ikinci kuyruğuna veya konusuna (hedef) geçirir. Hedef varlık, doğrudan bir ileti göndermek yine de mümkündür.
 
 ## <a name="using-autoforwarding"></a>Autoforwarding kullanma
 

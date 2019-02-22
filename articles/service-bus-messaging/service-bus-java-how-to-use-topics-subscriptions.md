@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: aschhab
-ms.openlocfilehash: cd2d5812d1b61e1d8fcc00fbc824be8ceac696de
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 1cdd0a3bd7e0d647e2f67d4c92b5a2167d5d21ad
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849966"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585228"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Java ile Service Bus konu başlıklarını ve aboneliklerini kullanma
 
@@ -46,46 +46,9 @@ Service Bus kuyrukları, her ileti tek bir tüketici tarafından işlenir kullan
 
 Service Bus konuları ve Abonelikleri, çok sayıda kullanıcılar ve uygulamalar arasında çok sayıda iletileri işlemek üzere ölçeği sağlar.
 
-## <a name="create-a-service-bus-namespace"></a>Service Bus ad alanı oluşturma
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Service Bus mesajlaşma ad alanı, [tam etki alanı adının](https://wikipedia.org/wiki/Fully_qualified_domain_name) başvurduğu, içinde bir veya daha fazla kuyruk, konu başlığı ve abonelik oluşturduğunuz benzersiz bir kapsam kapsayıcısı sağlar. Aşağıdaki örnekte, yeni veya var olan bir [kaynak grubunda](/azure/azure-resource-manager/resource-group-portal) bir Service Bus mesajlaşma ad alanı oluşturulur:
-
-1. Portalın sol gezinti bölmesinde **+ Kaynak oluştur**'a tıklayın, ardından **Kurumsal Tümleştirme**'ye ve sonra **Service Bus**'a tıklayın.
-2. **Ad alanı oluştur** iletişim kutusunda bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
-3. Ad alanı adının kullanılabildiğinden emin olduktan sonra fiyatlandırma katmanını (Standart veya Premium) seçin.
-4. **Abonelik** alanında, ad alanı oluşturmak için kullanmak istediğiniz bir Azure aboneliği seçin.
-5. İçinde **kaynak grubu** alan, ad alanı içinde yer alan mevcut bir kaynak grubu seçin veya yeni bir tane oluşturun.      
-6. **Konum** alanında, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin.
-7. **Oluştur**’a tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
-
-  ![ad alanı](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Yönetim kimlik bilgilerini alma
-
-Yeni bir ad alanı oluşturulduğunda, her biri ad alanının tüm yönleri üzerinde tam denetim veren ilişkili bir çift birincil ve ikincil anahtara sahip bir ilk Paylaşılan Erişim İmzası (SAS) kuralı otomatik olarak oluşturulur. İlk kuralı kopyalamak için aşağıdaki adımları takip edin:
-
-1. **Tüm kaynaklar**’a ve sonra yeni oluşturulan ad alanı adına tıklayın.
-2. Ad alanı penceresinde **Paylaşılan erişim ilkeleri**'ne tıklayın.
-3. **Paylaşılan erişim ilkeleri** ekranında **RootManageSharedAccessKey** seçeneğine tıklayın.
-4. İçinde **İlkesi: RootManageSharedAccessKey** penceresinde tıklayın **kopyalama** düğmesinin yanındaki **PRIMARY CONNECTION Strıng'i**, bağlantı dizesini Panonuza daha sonra kullanmak üzere kopyalayın. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın.
-
-    ![bağlantı dizesi](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
-5. **Birincil Anahtar** değerini daha sonra kullanmak üzere geçici bir konuma kopyalayarak önceki adımı tamamlayın.
-
-## <a name="create-a-topic"></a>Konu başlığı oluşturma 
-Bir Service Bus konu başlığı oluşturmak için konu başlığının altında oluşturulmasını istediğiniz ad alanını belirtin. Aşağıdaki örnekte portalda konu başlığı oluşturma işlemi gösterilmektedir:
-
-1. Portalın sol tarafındaki gezinme bölmesinde **Service Bus**'a tıklayın (**Service Bus** yoksa **Diğer hizmetler**'e tıklayın).
-2. Konu başlığını oluşturmak istediğiniz ad alanına tıklayın.
-3. Ad alanı penceresinde **Konular**'a ve ardından **Konular** penceresinde **+ Konular** seçeneğine tıklayın.
-4. Girin **BasicTopic** konusunun **adı**ve diğer değerleri varsayılan olarak bırakın.
-5. Pencerenin altında yer alan **Oluştur** düğmesine tıklayın.
-
-
-## <a name="create-subscriptions-for-the-topic"></a>Konu için abonelik oluşturma
-1. Seçin **konu** oluşturduğunuz.
-2. Tıklayarak **+ abonelik**, abonelik adını girin **Subscription1**ve diğer değerleri varsayılan olarak bırakın.
-3. Önceki adım iki kez daha, adlı bir abonelik oluşturmak yineleyin **Subscription2** ve **Subscription3**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırma

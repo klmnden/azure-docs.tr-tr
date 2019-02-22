@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6530e86f59124e324953e4ca082c247ebec3bc91
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098347"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650929"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum iş kavram consortium çözüm şablonu
 
@@ -43,9 +43,9 @@ Yük dengeli işlem düğümleri kümesi consortium üyesi de var. Bu düğümle
 
 İşlem düğümleri, yük dengeli yüksek kullanılabilirliği sürdürmek üzere bir kullanılabilirlik kümesi içinde. Şablon kullanarak sanal makine ölçek kümeleri sağlanan en fazla beş işlem düğümleri destekler.
 
-### <a name="log-analytics-details"></a>Log analytics ayrıntıları
+### <a name="azure-monitor-logs-details"></a>Azure İzleyici ayrıntıları kaydeder.
 
-Her dağıtım, ayrıca yeni bir Log analytics örneği oluşturur veya var olan bir örneğini katılabilirsiniz. Log analytics, çeşitli performans ölçümleri dağıtılan ağı yaptığı tüm sanal makinelerin izlenmesini sağlar.
+Her dağıtım, ayrıca yeni bir Azure İzleyici günlüklerine örneği oluşturur veya var olan bir örneğini katılabilirsiniz. Azure İzleyici günlüklerine çeşitli performans ölçümleri dağıtılan ağı yaptığı tüm sanal makinelerin izlenmesini sağlar.
 
 ## <a name="deployment-architecture"></a>Dağıtım mimarisi
 
@@ -96,7 +96,7 @@ Operations Management Suite (OMS) ağınız için bir OMS kaynak yapılandırman
 
 Parametre Adı|Açıklama| İzin Verilen Değerler|Varsayılan değerler
 ---|---|---|---
-Mevcut OMS'ye bağlanma|Yeni bir Log Analytics örneği oluşturabilir veya var olan bir örneğini katılın|Yeni JOIN varolan oluşturma|Yeni Log Analytics konum oluşturun|Yeni Log Analytics dağıtılacağı bölgeyi (görünür if *Yeni Oluştur* seçili)
+Mevcut OMS'ye bağlanma|Yeni bir Azure İzleyici günlüklerine örneği oluşturabilir veya var olan bir örneğini katılın|Yeni JOIN varolan oluşturma|Yeni Azure İzleyici günlüklerine konum oluşturun|Yeni Azure İzleyici günlüklerine dağıtılacağı bölgeyi (görünür if *Yeni Oluştur* seçili)
 Mevcut OMS çalışma alanı kimliği|Çalışma alanı kimliği var olan örneğinin (görünür if *katılın mevcut* seçilir) OMS hizmet katmanı|Yeni örnek için fiyatlandırma katmanını seçin. Daha fazla bilgi https://azure.microsoft.com/pricing/details/log-analytics/ (görünür if *katılın mevcut* seçili)|Düğüm başına ücretsiz tek başına|Ücretsiz
 Mevcut OMS birincil anahtar|Mevcut OMS örneğine bağlanmak için kullanılan birincil anahtar (görünür if *katılın mevcut* seçili)
 

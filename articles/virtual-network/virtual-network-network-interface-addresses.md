@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 4fae4486e6cf47892ba2133885ec864969f66001
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 716c229fbd906798d39bf4ef54ba1f47cd5bd980
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663613"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651048"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ekleme, değiştirme veya bir Azure ağ arabirimi için IP adreslerini kaldırın
 
@@ -30,11 +30,13 @@ Gerektiğinde oluşturmak için değiştirmek veya bir ağ arabirimi silme, okum
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki görevleri tamamlayın:
 
 - Azure hesabınız yoksa, kaydolmaya bir [ücretsiz deneme hesabınızı](https://azure.microsoft.com/free).
 - Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
-- Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici Azure PowerShell modülü sürüm 1.0.0 gerektirir veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 - Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici, Azure CLI Sürüm 2.0.31 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
 
 Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde listelenen uygun eylemleri atanan [ağ Arabirim izinleri](virtual-network-network-interface.md#permissions).
@@ -49,20 +51,20 @@ Kadar ekleyebilirsiniz [özel](#private) ve [genel](#public) [IPv4](#ipv4) adres
 4. Altında **IP yapılandırmaları**seçin **+ Ekle**.
 5. Aşağıdakileri belirtin ve ardından **Tamam**:
 
-    |Ayar|Gerekli mi?|Ayrıntılar|
-    |---|---|---|
-    |Ad|Evet|Ağ arabirimi için benzersiz olmalıdır|
-    |Type|Evet|Varolan bir ağ arabirimi IP yapılandırması ekleme ve her ağ arabirimine sahip olmalıdır bir [birincil](#primary) IP yapılandırması, tek seçeneğiniz olduğunu **ikincil**.|
-    |Özel IP adresi ataması yöntemi|Evet|[**Dinamik**](#dynamic): Azure ağ arabirimi dağıtıldığı alt ağ adres aralığı için bir sonraki kullanılabilir adresi atar. [**Statik**](#static): Ağ arabiriminin dağıtıldığı alt ağ adres aralığı için kullanılmayan bir adresi atayın.|
-    |Genel IP adresi|Hayır|**Devre dışı:** Genel IP adresine kaynak IP yapılandırması için şu anda ilişkilidir. **Etkin:** Var olan bir IPv4 genel IP adresi seçin veya yeni bir tane oluşturun. Genel IP adresi oluşturma konusunda bilgi edinmek için [genel IP adresleri](virtual-network-public-ip-address.md#create-a-public-ip-address) makalesi.|
+   |Ayar|Gerekli mi?|Ayrıntılar|
+   |---|---|---|
+   |Ad|Evet|Ağ arabirimi için benzersiz olmalıdır|
+   |Type|Evet|Varolan bir ağ arabirimi IP yapılandırması ekleme ve her ağ arabirimine sahip olmalıdır bir [birincil](#primary) IP yapılandırması, tek seçeneğiniz olduğunu **ikincil**.|
+   |Özel IP adresi ataması yöntemi|Evet|[**Dinamik**](#dynamic): Azure ağ arabirimi dağıtıldığı alt ağ adres aralığı için bir sonraki kullanılabilir adresi atar. [**Statik**](#static): Ağ arabiriminin dağıtıldığı alt ağ adres aralığı için kullanılmayan bir adresi atayın.|
+   |Genel IP adresi|Hayır|**Devre dışı:** Genel IP adresine kaynak IP yapılandırması için şu anda ilişkilidir. **Etkin:** Var olan bir IPv4 genel IP adresi seçin veya yeni bir tane oluşturun. Genel IP adresi oluşturma konusunda bilgi edinmek için [genel IP adresleri](virtual-network-public-ip-address.md#create-a-public-ip-address) makalesi.|
 6. İkincil özel IP adresleri yönergeleri izleyerek sanal makine işletim sistemini el ile eklemeniz [birden çok IP adresi sanal makine işletim sistemlerine atayın](virtual-network-multiple-ip-addresses-portal.md#os-config) makalesi. Bkz: [özel](#private) el ile bir sanal makine işletim sistemine IP adresleri eklemeden önce özel konular için IP adresi. Herhangi bir genel IP adresleri, sanal makine işletim sistemine eklemeyin.
 
 **Komutları**
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
+|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create)|
+|PowerShell|[Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
 
 ## <a name="change-ip-address-settings"></a>IP adresi ayarlarını değiştir
 
@@ -82,8 +84,8 @@ Gerektiğinde bir IPv4 adresi atama yöntemini değiştirmek için statik IPv4 a
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
+|CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="remove-ip-addresses"></a>IP adreslerini kaldırın
 
@@ -98,8 +100,8 @@ Kaldırabilirsiniz [özel](#private) ve [genel](#public) bir ağ arabirimi IP ad
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC IP yapılandırmasını Sil](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
+|CLI|[az ağ NIC IP yapılandırmasını Sil](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_delete)|
+|PowerShell|[Remove-AzNetworkInterfaceIpConfig](/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>IP yapılandırmaları
 
@@ -118,10 +120,10 @@ Bir birincil IP yapılandırmasına ek olarak, bir ağ arabirimi atanmış sıf�
 
 - Özel bir IPv4 veya IPv6 adresi kendisine atanmış olmalıdır. IPv6 adresi ise ağ arabirimi yalnızca bir ikincil IP yapılandırmasına sahip olabilir. IPv4 adresi ise ağ arabirimine atanmış birden fazla ikincil IP yapılandırmaları olabilir. Kaç özel ve genel IPv4 adresi bir ağ arabirimine atanabilir hakkında daha fazla bilgi için bkz: [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesi.
 - Özel IP adresi IPv4 ise ayrıca genel bir IPv4 adresi, atanmış. Özel IP adresi IPv6 ise, IP yapılandırması için genel bir IPv4 veya IPv6 adresi atanamıyor. Bir ağ arabirimi için birden çok IP adresleri atama gibi senaryolarda yararlıdır:
-    - Tek bir sunucuda farklı IP adreslerine ve SSL sertifikalarına sahip birden fazla web sitesi veya hizmetin barındırılması.
-    - Bir güvenlik duvarı veya yük dengeleyici gibi bir ağ sanal Gereci olarak hizmet veren bir sanal makine.
-    - Tüm ağ arabirimleri için özel IPv4 adreslerinin herhangi bir Azure Load Balancer arka uç havuzuna ekleme yeteneği. Geçmişte, arka uç havuzuna yalnızca birincil IPv4 adresi için birincil ağ arabirimi eklenemedi. Birden fazla IPv4 yapılandırması Yük Dengeleme hakkında daha fazla bilgi edinmek için bkz. [birden fazla IP yapılandırmasının Yük Dengelemesi](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. 
-    - Yükleme olanağı, bir ağ arabirimine atanmış bir IPv6 adresi dengeleyin. Yük Dengelemesi özel bir IPv6 adresi için hakkında daha fazla bilgi için bkz: [Yük Dengeleme IPv6 adresleri](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi.
+  - Tek bir sunucuda farklı IP adreslerine ve SSL sertifikalarına sahip birden fazla web sitesi veya hizmetin barındırılması.
+  - Bir güvenlik duvarı veya yük dengeleyici gibi bir ağ sanal Gereci olarak hizmet veren bir sanal makine.
+  - Tüm ağ arabirimleri için özel IPv4 adreslerinin herhangi bir Azure Load Balancer arka uç havuzuna ekleme yeteneği. Geçmişte, arka uç havuzuna yalnızca birincil IPv4 adresi için birincil ağ arabirimi eklenemedi. Birden fazla IPv4 yapılandırması Yük Dengeleme hakkında daha fazla bilgi edinmek için bkz. [birden fazla IP yapılandırmasının Yük Dengelemesi](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. 
+  - Yükleme olanağı, bir ağ arabirimine atanmış bir IPv6 adresi dengeleyin. Yük Dengelemesi özel bir IPv6 adresi için hakkında daha fazla bilgi için bkz: [Yük Dengeleme IPv6 adresleri](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi.
 
 ## <a name="address-types"></a>Adres türü
 

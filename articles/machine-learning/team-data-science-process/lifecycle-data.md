@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c4acb3b779821193949c69d440edaafec5e3d803
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d65704f7037eb4152b4f91d4cbe68ceaad2cea48
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474063"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650233"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Veri edinme ve anlama aşamasına Team Data Science Process
 
@@ -66,7 +66,7 @@ Bu aşamada, veri işlem hattı bir çözüm mimarisini geliştirin. İşlem hat
 ## <a name="artifacts"></a>Yapıtlar
 Aşağıda, bu aşamada teslim edilebilirleri verilmiştir:
 
-   * [Veri Kalitesi raporunu](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md): Bu raporda veri özetleri, her bir öznitelik ve hedef arasındaki ilişkileri değişken derecelendirme ve daha fazlası. [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) aracı gibi TDSP bir parçası olarak bir CSV dosyası veya bir ilişkisel tabloya gibi tüm tablosal veri kümesi Bu raporda hemen oluşturabilirsiniz. 
+   * [Veri Kalitesi raporunu](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): Bu raporda veri özetleri, her bir öznitelik ve hedef arasındaki ilişkileri değişken derecelendirme ve daha fazlası. [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) aracı gibi TDSP bir parçası olarak bir CSV dosyası veya bir ilişkisel tabloya gibi tüm tablosal veri kümesi Bu raporda hemen oluşturabilirsiniz. 
    * **Çözüm mimarisi**: Bir modeli oluşturduktan sonra çözüm mimarisi diyagramı veya Puanlama çalıştırmak için kullandığınız veri işlem hattı veya yeni veriler hakkında Öngörüler açıklamasını olabilir. Ayrıca, yeni verileri temel alan, modeli yeniden eğitme için işlem hattı içerir. Belgede Store [proje](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) TDSP dizin yapısı şablonunu kullandığınızda dizin.
    * **Denetim noktası karar**: Tam özellik Mühendisliği ve model oluşturmaya başlamadan önce beklenen değeri Bunun yapılması devam etmek yeterli olup olmadığını belirlemek için projeyi yeniden değerlendirene. Örneğin, devam etmek için daha fazla veri toplayabilir veya verileri soruyu yanıtlamak için mevcut olmadığından, projeyi iptal gerek hazır hale getirebilir.
 

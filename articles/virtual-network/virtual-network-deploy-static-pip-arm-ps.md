@@ -15,32 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: jdial
-ms.openlocfilehash: f5ddc4a85148cee3e8c8b4d2bf1955f233ebdbc1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 929378f0eea66d7f2ad7846e50bab7ab4014c010
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426531"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652875"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>PowerShell kullanarak bir statik genel IP adresiyle bir sanal makine oluşturun
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bir statik genel IP adresiyle bir sanal makine oluşturabilirsiniz. Genel bir IP adresi bir sanal makineye internet üzerinden iletişim kurmasına olanak tanır. Adresi hiçbir zaman değiştirdiğinden emin olmak için bir dinamik adres yerine bir statik genel IP adresi atayın. Daha fazla bilgi edinin [statik genel IP adresleri](virtual-network-ip-addresses-overview-arm.md#allocation-method). Varolan bir sanal makineye gelen dinamik statik olarak atanmış bir genel IP adresini değiştirmek için veya özel IP adresleri ile çalışmak için bkz: [ekleme, değiştirme veya kaldırma IP adresleri](virtual-network-network-interface-addresses.md). Genel IP adreslerine sahip bir [nominal bir ücret](https://azure.microsoft.com/pricing/details/ip-addresses)İşte bir [sınırı](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) için abonelik başına kullanabileceğiniz ortak IP adresi sayısı.
 
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-Yerel bilgisayarınızdan veya Azure Cloud Shell'i kullanarak aşağıdaki adımları tamamlayabilirsiniz. Yerel bilgisayarınıza kullanılacak olduğundan emin olun [Azure PowerShell'in](/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Cloud Shell'i kullanmak için **deneyin** takip eden herhangi bir komut kutusunu sağ üst köşesindeki içinde. Cloud Shell oturumunuzu Azure'da oturum açar.
+Yerel bilgisayarınızdan veya Azure Cloud Shell'i kullanarak aşağıdaki adımları tamamlayabilirsiniz. Yerel bilgisayarınıza kullanılacak olduğundan emin olun [Azure PowerShell'in](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Cloud Shell'i kullanmak için **deneyin** takip eden herhangi bir komut kutusunu sağ üst köşesindeki içinde. Cloud Shell oturumunuzu Azure'da oturum açar.
 
-1. Cloud Shell kullanıyorsanız, 2. adıma atlayın. Azure'a komut oturumuna ve oturum açma `Connect-AzureRmAccount`.
-2. [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutu ile yeni bir kaynak grubu oluşturun. Aşağıdaki örnek, Doğu ABD Azure bölgesinde bir kaynak grubu oluşturur:
+1. Cloud Shell kullanıyorsanız, 2. adıma atlayın. Azure'a komut oturumuna ve oturum açma `Connect-AzAccount`.
+2. Bir kaynak grubu oluşturun [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu. Aşağıdaki örnek, Doğu ABD Azure bölgesinde bir kaynak grubu oluşturur:
 
    ```azurepowershell-interactive
-   New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+   New-AzResourceGroup -Name myResourceGroup -Location EastUS
    ```
 
-3. Bir sanal makine oluşturma [New-AzureRmVM](/powershell/module/AzureRM.Compute/New-AzureRmVM) komutu. `-AllocationMethod "Static"` Seçeneği, sanal makine için statik genel IP adresi atar. Aşağıdaki örnekte adlı bir statik, temel SKU genel IP adresi ile bir Windows Server sanal makinesi oluşturur *Mypublicıpaddress*. İstendiğinde, bir kullanıcı adı ve parola sanal makine için oturum açma kimlik bilgileri olarak kullanılmak üzere sağlayın:
+3. Bir sanal makine oluşturma [New-AzVM](/powershell/module/az.Compute/New-azVM) komutu. `-AllocationMethod "Static"` Seçeneği, sanal makine için statik genel IP adresi atar. Aşağıdaki örnekte adlı bir statik, temel SKU genel IP adresi ile bir Windows Server sanal makinesi oluşturur *Mypublicıpaddress*. İstendiğinde, bir kullanıcı adı ve parola sanal makine için oturum açma kimlik bilgileri olarak kullanılmak üzere sağlayın:
 
    ```azurepowershell-interactive
-   New-AzureRmVm `
+   New-AzVm `
      -ResourceGroupName "myResourceGroup" `
      -Name "myVM" `
      -Location "East US" `
@@ -50,10 +52,10 @@ Yerel bilgisayarınızdan veya Azure Cloud Shell'i kullanarak aşağıdaki adım
 
    Standart SKU genel IP adresi olması gerekiyorsa, zorunda [genel IP adresi oluşturma](virtual-network-public-ip-address.md#create-a-public-ip-address), [ağ arabirimini oluşturun](virtual-network-network-interface.md#create-a-network-interface), [ağarabirimindegenelIPadresiniAta](virtual-network-network-interface-addresses.md#add-ip-addresses), ardından [ağ arabirimi ile bir sanal makine oluşturma](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm), adımları ayrı. Daha fazla bilgi edinin [SKU genel IP adresi](virtual-network-ip-addresses-overview-arm.md#sku). Sanal makine genel bir Azure Load Balancer arka uç havuzuna eklenecek, sanal makinenin genel IP adresinin SKU yük dengeleyicinin genel IP adresinin SKU eşleşmesi gerekir. Ayrıntılar için bkz [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
 
-4. Atanan genel IP adresini görüntüleyin ve ile statik bir adres olarak oluşturulduğunu onaylayın [Get-Azurermpublicıpaddress](/powershell/module/azurerm.network/get-azurermpublicipaddress):
+4. Atanan genel IP adresini görüntüleyin ve ile statik bir adres olarak oluşturulduğunu onaylayın [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
    ```azurepowershell-interactive
-   Get-AzureRmPublicIpAddress `
+   Get-AzPublicIpAddress `
      -ResourceGroupName "myResourceGroup" `
      -Name "myPublicIpAddress" `
      | Select "IpAddress", "PublicIpAllocationMethod" `
@@ -67,10 +69,10 @@ Sanal makinenin işletim sistemi içinde IP adresi ayarlarını değiştirmeyin.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli değilse, [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanarak kaynak grubunu ve içerdiği tüm kaynakları kaldırabilirsiniz:
+Artık gerekli değilse [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

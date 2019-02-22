@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a52b78b62395f571e448a73b8c34847ef16b2613
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 75e276cb0beb982d797fcf6816d84eae6b135b74
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429545"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652289"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Aracısı Yüklemesi
 Bu belge, Azure AD Connect Health Aracılarını yüklemenize ve yapılandırmanıza yardımcı olur. Aracıları [buradan](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent) indirebilirsiniz.
@@ -119,7 +119,7 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 1. **Başlat** menüsüne tıklayın, **Programlar** ve daha sonra **Yönetim Araçları**'nın üzerine gidin ve ardından **Yerel Güvenlik İlkesi**'ne tıklayın.
 2. **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması** klasörüne gidin ve **Güvenlik denetimleri oluştur**'a çift tıklayın.
 3. **Yerel Güvenlik Ayarları** sekmesinde AD FS 2.0 hizmet hesabının listelenmiş olduğunu doğrulayın. Listelenmediyse **Kullanıcı veya Grup Ekle**'ye tıklayın, hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
-4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir Komut İstemi açın ve şu komutu çalıştırın: <code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable</code>
+4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir Komut İstemi açın ve şu komutu çalıştırın: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. **Yerel Güvenlik İlkesi**’ni kapatın.
 <br />   -- **Aşağıdaki adımlar, yalnızca birincil AD FS sunucuları için gereklidir.** -- <br />
 6. **AD FS Yönetim** ek bileşenini açın. AD FS Yönetim ek bileşenini açmak için **Başlat**'a tıklayın, **Programlar** ve **Yönetim Araçları**'nın üzerine gidin ve ardından **AD FS 2.0 Yönetimi**'ne tıklayın.
@@ -132,7 +132,7 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 1. Başlat ekranından **Sunucu Yöneticisi**'ni açarak **Yerel Güvenlik İlkesi**'ni veya masaüstünde bulunan görev çubuğundan Sunucu Yöneticisi'ni açıp **Araçlar/Yerel Güvenlik İlkesi**'ne tıklayın.
 2. **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması** klasörüne gidin ve **Güvenlik denetimleri oluştur**'a çift tıklayın.
 3. **Yerel Güvenlik Ayarları** sekmesinde AD FS hizmet hesabının listelenmiş olduğunu doğrulayın. Listelenmediyse **Kullanıcı veya Grup Ekle**'ye tıklayın, hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
-4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: ```auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable```.
+4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```.
 5. **Yerel Güvenlik İlkesi**’ni kapatın.
 <br />   -- **Aşağıdaki adımlar, yalnızca birincil AD FS sunucuları için gereklidir.** -- <br />
 6. **AD FS Yönetimi** ek bileşenini açın. (Sunucu Yöneticisi'nde Araçlar'a tıklayın ve AD FS Yönetimi'ni seçin).
@@ -144,7 +144,7 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 1. Başlat ekranından **Sunucu Yöneticisi**'ni açarak **Yerel Güvenlik İlkesi**'ni veya masaüstünde bulunan görev çubuğundan Sunucu Yöneticisi'ni açıp **Araçlar/Yerel Güvenlik İlkesi**'ne tıklayın.
 2. **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması** klasörüne gidin ve **Güvenlik denetimleri oluştur**'a çift tıklayın.
 3. **Yerel Güvenlik Ayarları** sekmesinde AD FS hizmet hesabının listelenmiş olduğunu doğrulayın. Mevcut değilse, **Kullanıcı veya Grup Ekle**'ye tıklayın, AD FS hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
-4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: <code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable.</code>
+4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable.</code>
 5. **Yerel Güvenlik İlkesi**’ni kapatın.
 <br />   -- **Aşağıdaki adımlar, yalnızca birincil AD FS sunucuları için gereklidir.** -- <br />
 6. **AD FS Yönetimi** ek bileşenini açın. (Sunucu Yöneticisi'nde Araçlar'a tıklayın ve AD FS Yönetimi'ni seçin).

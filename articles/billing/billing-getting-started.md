@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 732ac5e1e82c67d2f4a0a3443b85c67712f4f651
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0d1d4358789cce4d393143e8a243ee9a3e06bf36
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101660"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652408"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen ücretlerden
 
-Azure için kaydolduğunuzda, harcamalarınızı hakkında daha iyi bir fikir edinmek için yapabileceğiniz birkaç şey vardır. [Fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/) bir Azure kaynak oluşturmadan önce maliyet tahmini sağlar. [Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) aboneliğiniz için geçerli Maliyet dağılımı ve tahmini sağlar. Grup ve maliyetleri farklı projeler ya da ekipler için anlamak istiyorsanız, bakmak [kaynak etiketleme](../azure-resource-manager/resource-group-using-tags.md). Kuruluşunuzda kullanmak için tercih ettiğiniz bir raporlama sistemi varsa kullanıma [faturalama API'leri](billing-usage-rate-card-overview.md).
+Azure için kaydolduğunuzda, harcamalarınızı daha iyi bir fikir almak için yapabileceğiniz birkaç şey vardır. [Fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/) bir Azure kaynak oluşturmadan önce maliyet tahmini sağlar. [Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) aboneliğiniz için geçerli Maliyet dağılımı ve tahmini sağlar. Grup ve maliyetleri farklı projeler ya da ekipler için anlamak istiyorsanız, bakmak [kaynak etiketleme](../azure-resource-manager/resource-group-using-tags.md). Kuruluşunuzda kullanmak için tercih ettiğiniz bir raporlama sistemi varsa kullanıma [faturalama API'leri](billing-usage-rate-card-overview.md).
 
 - Aboneliğinizi bir Kurumsal Anlaşma (EA) ise, Azure portalında maliyetlerinizi görmek için genel önizlemede kullanılabilir. Aboneliğiniz, bulut çözümü sağlayıcısı (CSP) veya Azure Sponsorluğu ise, ardından aşağıdaki özelliklerden bazıları için geçerli olmayabilir. Bkz: [EA, CSP ve sponsorluk için ek kaynaklar](#other-offers) daha fazla bilgi için.
 

@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 7612e9d6444b61210da5d642530d99423220c0a4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 753c5312987cc541456b2f7415bb7dc9d4770d05
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076849"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593361"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Stream Analytics kullanarak Event Hubs için Apache Kafka olaylarını işleme 
 Bu makalede, veri akışı Kafka özellikli Event Hubs'a ve Azure Stream Analytics ile işlemek gösterilmektedir. Aşağıdaki adımları gösterilmektedir: 
@@ -133,7 +133,7 @@ Stream Analytics işinde sorgu, herhangi bir analiz yapmadan aracılığıyla ve
 
 ### <a name="configure-job-input"></a>İş girişi yapılandırma
 
-1. Bildirim iletisinde seçin ** kaynak görmek için ** için Git **Stream Analytics işi** sayfası. 
+1. Bildirim iletisinde seçin **kaynağa Git** görmek için **Stream Analytics işi** sayfası. 
 2. Seçin **girişleri** içinde **iş TOPOLOJİSİ** sol menüde bölümü.
 3. Seçin **akış Girişi Ekle**ve ardından **olay hub'ı**. 
 

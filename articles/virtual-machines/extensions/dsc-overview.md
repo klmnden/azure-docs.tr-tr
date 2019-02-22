@@ -7,7 +7,7 @@ author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
-keywords: DSC
+keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -16,20 +16,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: e5e134fa7dd08bad4220866dd4f5bd9b788e624e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2bdd3cd05f78503962461abfcc85320c25350e69
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980610"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593140"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure Desired State Configuration uzantısı işleyicisi giriş
 
 Microsoft Azure altyapı hizmetleri, Azure VM aracısı ve ilişkili uzantıları parçasıdır. VM uzantıları VM işlevselliğini genişleten ve çeşitli VM yönetimi işlemleri basitleştirmek yazılım bileşenleridir.
 
-Azure Desired State Configuration (DSC) uzantısı için bir VM önyükleme için birincil kullanım örneği [Azure Automation DSC hizmet](../../automation/automation-dsc-overview.md). Bir VM önyükleme sağlar [avantajları](/powershell/dsc/metaconfig#pull-service) VM yapılandırması ve Azure izleme gibi işletimsel diğer araçlarla tümleştirme devam eden Yönetimi içerir.
+Azure Desired State Configuration (DSC) uzantısı için bir VM önyükleme için birincil kullanım örneği [Azure Otomasyon durum yapılandırması (DSC) hizmetini](../../automation/automation-dsc-overview.md).
+Hizmeti sağlayan [avantajları](/powershell/dsc/metaconfig#pull-service) VM yapılandırması ve Azure izleme gibi işletimsel diğer araçlarla tümleştirme devam eden Yönetimi içerir.
+Sanal makinenin hizmetine kaydetmek için eklentiyi kullanarak, Azure abonelikleri genelinde bile çalışır esnek bir çözüm sağlar.
 
-DSC uzantısı Automation DSC hizmet bağımsız olarak kullanabilirsiniz. Ancak, bu dağıtımı sırasında oluşan bir tekil eylemi içerir. Devam eden raporlama veya yapılandırma yönetimi VM yerel olarak dışında kullanılabilir.
+DSC uzantısı Automation DSC hizmet bağımsız olarak kullanabilirsiniz.
+Ancak, bu yalnızca bir yapılandırma için VM bildirim yapar.
+Devam eden bir raporlama olmadan yerel olarak VM dışında kullanılabilir.
 
 Bu makalede her iki senaryoyu hakkında bilgi sağlar: DSC uzantısı için Otomasyon ekleme ve Azure SDK'sını kullanarak sanal makineleri için yapılandırmaları atamak için bir araç olarak DSC uzantısı kullanarak.
 
@@ -120,6 +124,34 @@ $storageName = 'demostorage'
 Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
 Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
+```
+
+## <a name="azure-cli-deployment"></a>Azure CLI dağıtım
+
+DSC uzantısı varolan bir sanal makineye dağıtmak için Azure CLI kullanılabilir.
+
+Bir Windows çalıştıran sanal makine için:
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name Microsoft.Powershell.DSC \
+  --publisher Microsoft.Powershell \
+  --version 2.77 --protected-settings '{}' \
+  --settings '{}'
+```
+
+Linux çalıştıran bir sanal mchine için:
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name DSCForLinux \
+  --publisher Microsoft.OSTCExtensions \
+  --version 2.7 --protected-settings '{}' \
+  --settings '{}'
 ```
 
 ## <a name="azure-portal-functionality"></a>Azure portal işlevi

@@ -12,40 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 94e5f5b29e93409df2373cf6c56e8185dc5373a2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e4e2a01bbac7aebb70852b93c51c32933cc75eec
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312984"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652187"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs'de Laboratuvar sanal makineler için bir kaynak grubu belirtin
-Laboratuvar sahibi olarak, belirli bir kaynak grubunda oluşturulması için laboratuvar sanal makinelerinizi yapılandırabilirsiniz. Bu özellik, aşağıdaki senaryolarda yardımcı olur: 
+
+Laboratuvar sahibi olarak, belirli bir kaynak grubunda oluşturulması için laboratuvar sanal makinelerinizi yapılandırabilirsiniz. Bu özellik, aşağıdaki senaryolarda yardımcı olur:
 
 - Aboneliğinizdeki labs tarafından oluşturulan daha az kaynak grubunuz olur.
-- Kaynak grupları sizin tarafınızdan yapılandırılan sabit bir dizi içinde çalışması laboratuvarlarınızı sahip
+- Kaynak grupları, yapılandırdığınız sabit bir dizi içinde çalışması laboratuvarlarınızı vardır.
 - Geçici çözüm kısıtlamaları ve Azure aboneliğinizde bir kaynak grubu oluşturmak için gerekli onay.
-- Bu kaynakları izleme ve uygulama basitleştirmek için tek kaynak grup içindeki tüm Laboratuvar kaynaklarını birleştirmek [ilkeleri](../governance/policy/overview.md) kaynak grubu düzeyinde yönetilecek.
+- Bu kaynakları izleme ve uygulama basitleştirmek için tek kaynak grup içindeki tüm Laboratuvar kaynaklarını birleştirmek [ilkeleri](../governance/policy/overview.md) kaynak grubu düzeyinde kaynakları yönetmek için.
 
-Bu özellik sayesinde, yeni belirtmek için bir komut dosyası veya mevcut bir kaynak grubu, Azure aboneliğinde tüm laboratuvarınız için Vm'leri kullanabilirsiniz. Şu anda bu özellik bir API aracılığıyla DevTest Labs destekler. 
+Bu özellik sayesinde, yeni veya mevcut bir kaynak grubu tüm laboratuvarınız için Vm'leri Azure aboneliğinizde belirtmek için bir komut dosyası kullanabilirsiniz. Şu anda bu özellik bir API aracılığıyla Azure DevTest Labs destekler.
 
-## <a name="api-to-configure-a-resource-group-for-lab-virtual-machines"></a>API Laboratuvar sanal makineler için bir kaynak grubu yapılandırmak için
-Şimdi bu API kullanırken Laboratuvar sahibi olarak sahip seçenekleri aracılığıyla atalım: 
+## <a name="api-to-configure-a-resource-group-for-lab-vms"></a>API Laboratuvar VM'ler için bir kaynak grubu yapılandırmak için
+Bu API kullanırken aşağıdaki seçenekleriniz Laboratuvar sahibi olarak vardır:
 
-- Seçebileceğiniz **Laboratuvar kaynak grubu** tüm sanal makineler için.
-- Seçebileceğiniz bir **mevcut kaynak grubunu** dışındaki tüm sanal makineler için laboratuvar kaynak grubu.
-- Girebileceğiniz bir **yeni kaynak grubu** tüm sanal makineler için ad.
-- Mevcut davranışı ile devam edebilmeniz için diğer bir deyişle, bir kaynak grubu Laboratuvardaki her VM için oluşturulur.
+- Seçin **Laboratuvar kaynak grubu** tüm sanal makineler için.
+- Seçin bir **mevcut kaynak grubunu** dışındaki tüm sanal makineler için laboratuvar kaynak grubu.
+- Girin bir **yeni kaynak grubu** tüm sanal makineler için ad.
+- Laboratuvardaki her VM için bir kaynak grubunun oluşturulduğu mevcut davranışı kullanmaya devam edin.
  
-Bu ayar, laboratuvar'da oluşturulan yeni sanal makineler için geçerlidir. Kendi kaynak grubunda oluşturulan eski Vm'leri laboratuvarınızda yapmanızdan geçin. Laboratuvarınızda oluşturulmuş ortamları, kendi kaynak grubunda kalması için devam edin.
+Bu ayar, laboratuvar'da oluşturulan yeni sanal makineler için geçerlidir. Kendi kaynak grubunda oluşturulan eski Vm'leri laboratuvarınızda yapmanızdan. Laboratuvarınızda oluşturulmuş ortamları, kendi kaynak grubunda kalması devam edin.
 
-### <a name="how-to-use-this-api"></a>Bu API'yi nasıl:
-- API sürümü kullanın **2018_10_15_preview** bu API kullanırken. 
-- Yeni bir kaynak grubu belirtirseniz, sahip olduğunuzdan emin olun **kaynak grupları üzerinde yazma izinleri** , aboneliğiniz kapsamındaki. Yazma izinleri yeni sanal makineler belirtilen kaynak grubu sonucunda başarısız oluşturuluyor. 
-- API kullanırken, geçirin **tam kaynak grubu kimliği**. Örneğin: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Kaynak grubu, laboratuvarı aynı abonelikte olduğundan emin olun. 
+Bu API'yi nasıl:
+- Kullanım API sürümü **2018_10_15_preview**.
+- Yeni bir kaynak grubu belirtirseniz, sahip olduğunuzdan emin olun **kaynak grupları üzerinde yazma izinleri** aboneliğinizdeki. Yazma izniniz yoksa, belirtilen kaynak grubunda yeni sanal makineler oluşturma başarısız olur.
+- API kullanırken, geçirin **tam kaynak grubu kimliği**. Örneğin: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Kaynak grubu lab ile aynı abonelikte olduğundan emin olun. 
 
 ## <a name="use-powershell"></a>PowerShell kullanma 
-Aşağıdaki örnek bir PowerShell betiğini kullanarak yeni bir kaynak grubu tüm Laboratuvar sanal makineler oluşturmayı açıklar.
+Aşağıdaki örnek yeni bir kaynak grubu tüm Laboratuvar sanal makineler oluşturmak için bir PowerShell Betiği kullanmayı gösterir.
 
 ```PowerShell
 [CmdletBinding()]
@@ -69,14 +70,14 @@ az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/l
 "Done. New virtual machines will now be created in the resource group '$vmRg'."
 ```
 
-Betiği (ResourceGroup.ps1 önceki içeren dosyası) aşağıdaki komutu kullanarak çağırırsınız: 
+Aşağıdaki komutu kullanarak betiği çağırır. ResourceGroup.ps1 önceki komut içeren bir dosyadır:
 
 ```PowerShell
 .\ResourceGroup.ps1 -subId <subscriptionID> -labRg <labRGNAme> -labName <LanName> -vmRg <RGName> 
 ```
 
-## <a name="use-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanma
-Laboratuvar oluşturmak için Azure Resource Manager şablonu kullanıyorsanız, **vmCreationResourceGroupId** Laboratuvar özellikler bölümünde aşağıdaki örnekte gösterildiği gibi Resource Manager şablonunuzu özelliği:
+## <a name="use-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanma
+Laboratuvar oluşturmak için bir Azure Resource Manager şablonu kullanıyorsanız, kullanmanız **vmCreationResourceGroupId** Laboratuvar özellikler bölümünde aşağıdaki örnekte gösterildiği gibi şablonunuzu özelliği:
 
 ```json
         {

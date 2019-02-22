@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebb1a3fba95ed5794b3737d75c4ec182163a32fb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4c54383df74d9cfd7941dc52d26856bc8da51457
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984435"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594721"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Öğretici: Windows sanal makinelerini izlemek için Azure Güvenlik Merkezi'ni kullanma
 
@@ -65,7 +65,7 @@ Aboneliğin tümüne bir güvenlik ilkesi oluşturmak için:
 
 1. Güvenlik Merkezi panosunda **Güvenlik ilkesini**, ardından aboneliğinizi seçin.
 2. **Güvenlik ilkesi** dikey penceresinde **Güvenlik ilkesini** seçin. 
-3. ** Güvenlik ilkesi - Güvenlik ilkesi ** dikey penceresinde, aboneliğe uygulamak istediğiniz ilke öğelerini açın veya kapatın.
+3. Üzerinde **Güvenlik İlkesi - Güvenlik İlkesi** dikey penceresinde, açın veya aboneliğe uygulamak istediğiniz ilke öğelerini devre dışı bırakın.
 4. Ayarlarınızı seçmeyi tamamladığınızda dikey pencerenin en üstünden **Kaydet**'i seçin. 
 
 

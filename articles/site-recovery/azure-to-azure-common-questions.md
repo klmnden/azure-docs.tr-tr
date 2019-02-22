@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 555c8b0b4046fd20583597ae4f0215a815806b8e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c251a159ec28d7fb03009ebcdc84056da739f937
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860416"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587438"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Sık sorulan sorular: Azure'dan Azure'a çoğaltma
 
@@ -59,7 +59,7 @@ Evet, [bölgeye sabitlenmiş Vm'lerini çoğaltma](https://azure.microsoft.com/b
 
 ### <a name="can-i-exclude-disks"></a>Diskleri çoğaltmanın dışında tutabilirsiniz?
 
-Evet, PowerShell kullanarak koruma süresi diskleri dışlayabilirsiniz. Daha fazla bilgi için [PowerShell Kılavuzu](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine).
+Evet, PowerShell kullanarak koruma süresi diskleri dışlayabilirsiniz. Daha fazla bilgi için [makale](azure-to-azure-exclude-disks.md)
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Azure'a ne sıklıkta çoğaltabilirim?
 Azure Vm'lerini başka bir Azure bölgesine çoğaltma yapıyorsanız sürekli çoğaltma olur. Daha fazla bilgi için [Azure'dan Azure'a çoğaltma mimarisi](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).

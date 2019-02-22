@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 10/27/2016
-ms.openlocfilehash: 26e469076e16f57300cf3e385620a723ddf51a4c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 1b57fefad726f8fb21f23fa9eef9e71643a3f51b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510740"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588407"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da uygulama yaşam döngüsü yönetimi
 Azure Machine Learning Studio, Azure bulut platformunda Çalıştır duruma getirdiniz makine öğrenimi denemeleri geliştirmek için kullanılan bir araçtır. Tek bir platformda Visual Studio IDE ve ölçeklenebilir bir bulut hizmeti gibi birleştirilir. Azure Machine Learning Studio'ya çeşitli varlıklar otomatik yürütme ve dağıtım, sürüm oluşturma standart uygulama yaşam döngüsü yönetimi (ALM) yöntemleri birleştirebilirsiniz. Bu makalede bazı seçenekleri ve yaklaşımları açıklanmaktadır.
@@ -42,7 +42,7 @@ Denemeyi silerseniz, bu deneyde tüm anlık görüntüleri silinir.
 JSON değerinin metinsel bir gösterimini varlıkları için başvuru veri kümesi veya eğitilen bir modelin gibi çalışma alanında içerebilir deneme grafiğini dosyasıdır. Bu seri hale getirilmiş bir varlık sürümü içermiyor. JSON belgesini çalışma alanınıza içeri aktarmaya çalışırsanız, başvurulan varlıkları aynı varlık deneme başvurulan kimlikleri ile önceden var olmalıdır. Aksi takdirde içeri aktarılan denemeyi erişemez.
 
 ## <a name="versioning-trained-model"></a>Eğitilen modelin sürümü oluşturma
-Azure Machine Learning eğitilen bir modelin bir iLearner dosya bilinen bir biçime serileştirilmiş (`.iLearner`) ve çalışma alanı ile ilişkili Azure Blob Depolama hesabında depolanır. Olan iLearner dosyasını bir kopyasını almak için bir API aracılığıyla yeniden eğitme yoludur. [Bu makalede](retrain-models-programmatically.md) yeniden eğitme API nasıl çalıştığı açıklanmaktadır. Üst düzey adımları şunlardır:
+Eğitilen bir modeli Azure Machine Learning Studio'da bir iLearner dosya bilinen bir biçime serileştirilmiş (`.iLearner`) ve çalışma alanı ile ilişkili Azure Blob Depolama hesabında depolanır. Olan iLearner dosyasını bir kopyasını almak için bir API aracılığıyla yeniden eğitme yoludur. [Bu makalede](retrain-models-programmatically.md) yeniden eğitme API nasıl çalıştığı açıklanmaktadır. Üst düzey adımları şunlardır:
 
 1. Eğitim denemenizi ayarlayın.
 2. Model eğitme modülünü veya üreten modeli hiper parametre ayarlamak veya R modeli oluşturma gibi eğitilen model modülü için bir web hizmeti çıkış bağlantı noktasını ekleyin.
@@ -57,7 +57,7 @@ Eğitim modeli içeren iLearner dosyasını oluşturduktan sonra ardından kendi
 Kaydedilmiş iLearner dosyasını ardından Puanlama dağıtılan web hizmetleri için de kullanılabilir.
 
 ## <a name="versioning-web-service"></a>Web hizmeti sürümü oluşturma
-Bir Azure Machine Learning denemesi web hizmetlerinden iki tür dağıtabilirsiniz. Klasik web hizmeti, çalışma alanının yanı sıra deneme ile sıkı şekilde bağlı. Artık özgün denemeyi veya çalışma alanı ile bağlı ve Azure Resource Manager framework yeni bir web hizmeti kullanır.
+İki tür web Hizmetleri'nden bir Azure Machine Learning Studio'da deneme dağıtabilirsiniz. Klasik web hizmeti, çalışma alanının yanı sıra deneme ile sıkı şekilde bağlı. Artık özgün denemeyi veya çalışma alanı ile bağlı ve Azure Resource Manager framework yeni bir web hizmeti kullanır.
 
 ### <a name="classic-web-service"></a>Klasik web hizmeti
 Sürüme bir Klasik web hizmeti, web hizmeti uç noktası yapısının yararlanabilirsiniz. Tipik bir akışı şu şekildedir:
@@ -79,7 +79,7 @@ Yeni bir Azure Resource Manager tabanlı web hizmeti oluşturursanız, uç nokta
 Dışarı aktarılan WSD dosya ve sürüm denetlemesine oluşturduktan sonra ayrıca WSD yeni bir web hizmeti olarak farklı bir web hizmeti planı farklı bir Azure bölgesinde dağıtabilirsiniz. Yeni web hizmeti planı kimliği yanı sıra, uygun bir depolama hesabı yapılandırması sağladığınız emin olmanız yeterlidir Farklı iLearner dosyalarında yama yapma WSD dosyasını değiştirin ve eğitilen modelin konumu başvuru güncelleştirme ve yeni web hizmeti olarak dağıtın.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>Deneme yürütme ve dağıtımını otomatikleştirin
-ALM önemli bir yönüdür yürütme ve uygulamanın dağıtım işlemini otomatik hale getirebilmek sağlamaktır. Azure Machine Learning'de bunu kullanarak gerçekleştirebilirsiniz [PowerShell Modülü](https://aka.ms/amlps). İşte bir örnek için standart bir ALM ilgili uçtan uca adımları kullanarak yürütme/dağıtım işlemi otomatik [Azure Machine Learning Studio PowerShell Modülü](https://aka.ms/amlps). Her adım, bu adımı tamamlamak için kullanabileceğiniz bir veya daha fazla PowerShell commandlet'lerini bağlıdır.
+ALM önemli bir yönüdür yürütme ve uygulamanın dağıtım işlemini otomatik hale getirebilmek sağlamaktır. Azure Machine Learning Studio'da bunu kullanarak gerçekleştirebilirsiniz [PowerShell Modülü](https://aka.ms/amlps). İşte bir örnek için standart bir ALM ilgili uçtan uca adımları kullanarak yürütme/dağıtım işlemi otomatik [Azure Machine Learning Studio PowerShell Modülü](https://aka.ms/amlps). Her adım, bu adımı tamamlamak için kullanabileceğiniz bir veya daha fazla PowerShell commandlet'lerini bağlıdır.
 
 1. [Bir veri kümesi karşıya](https://github.com/hning86/azuremlps#upload-amldataset).
 2. Çalışma alanından bir eğitim denemesini kopyalayarak bir [çalışma](https://github.com/hning86/azuremlps#copy-amlexperiment) veya [galeri](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery), veya [alma](https://github.com/hning86/azuremlps#import-amlexperimentgraph) bir [dışarı](https://github.com/hning86/azuremlps#export-amlexperimentgraph) yerel denemeden disk.

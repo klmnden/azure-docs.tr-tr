@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 88e55573e88a45d7733e12c3bb8751763a0ef901
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113371"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650912"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Öğretici: Mevcut bir özel DNS adını Azure App Service'e eşlemek
 
@@ -199,6 +199,15 @@ A kaydını bir uygulamaya eşlemek için, App Service **iki** DNS kaydı gerekt
 | - | - | - |
 | A | `@` | [Uygulamanın IP adresini kopyalama](#info) bölümünden IP adresi |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
+
+> [!NOTE]
+> Bir alt etki alanı eklemek için (gibi `www.contoso.com`) bir A kaydı yerine bir önerilen kullanarak [CNAME kaydı](#map-a-cname-record), kayıt ve TXT kayıt bunun yerine aşağıdaki tabloda gibi görünmelidir:
+>
+> | Kayıt türü | Host | Değer |
+> | - | - | - |
+> | A | `www` | [Uygulamanın IP adresini kopyalama](#info) bölümünden IP adresi |
+> | TXT | `www` | `<app_name>.azurewebsites.net` |
+>
 
 Kayıtlar eklendiğinde, DNS kayıtları sayfası aşağıdaki örnekte gösterildiği gibi görünür:
 

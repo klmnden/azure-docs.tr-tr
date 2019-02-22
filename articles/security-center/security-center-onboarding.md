@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi standart Gelişmiş güvenlikten yararlanmaya ba�
 description: " Bilgi nasıl için Azure Güvenlik Merkezi standart yerleşik Gelişmiş Güvenlik. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2018
-ms.author: rkarlin
-ms.openlocfilehash: 9d95503e4b17124d1d027a90a21869ef65831654
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 19/02/2019
+ms.author: monhaber
+ms.openlocfilehash: ab99116cabc14c70698a962c803adb87394e1796
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114425"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651113"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Gelişmiş güvenlikten yararlanmaya başlamak için Azure Güvenlik Merkezi standart ekleme
 Gelişmiş güvenlik yönetimi ve tehdit koruması için hibrit bulut iş yüklerinizi yararlanmak için Güvenlik Merkezi standart yükseltin.  Standart ücretsiz deneyebilirsiniz. Güvenlik Merkezi'ni [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/) daha fazla bilgi için.
@@ -33,7 +33,7 @@ Güvenlik Merkezi standart içerir:
 ## <a name="detecting-unprotected-resources"></a>Korumasız kaynaklara algılama     
 Güvenlik Merkezi, Güvenlik Merkezi Standart sürümü için etkinleştirilmemiş herhangi bir Azure aboneliğini veya çalışma alanını otomatik olarak algılar. Buna, Güvenlik Merkezi Ücretsiz sürümünü kullanan Azure abonelikleri ve etkin bir Güvenlik çözümü olmayan çalışma alanları dahildir.
 
-Tüm Azure aboneliğinin abonelik içindeki tüm kaynaklar tarafından devralınan bir standart katmana yükseltebilirsiniz ya da yalnızca belirli bir kaynak grubunu yükseltmek için benzersiz bir ilke tanımlayabilirsiniz. Kaynak Grup İlkesi ayarlarının benzersiz olduğundan, aboneliği standart katmana yükseltme yaptığınızda, Güvenlik Merkezi fiyatlandırma ilkeleri kılmaz. Standart uygulama katmanı bir aboneliğe aboneliğinde Güvenlik Merkezi tarafından oluşturulan çalışma alanlarına raporlama VM'ler için yalnızca geçerlidir. Standart uygulama çalışma alanınıza raporlayan tüm kaynakları katman çalışma alanına uygular.
+Tüm Azure aboneliğinin abonelik içindeki tüm kaynaklar tarafından devralınan bir standart katmana yükseltebilirsiniz ya da yalnızca belirli bir kaynak grubunu yükseltmek için benzersiz bir ilke tanımlayabilirsiniz. Kaynak Grup İlkesi ayarlarının benzersiz olduğundan, aboneliği standart katmana yükseltme yaptığınızda, Güvenlik Merkezi fiyatlandırma ilkeleri kılmaz. Standart uygulama katmanı bir aboneliğe uygular Abonelikteki tüm desteklenen kaynaklar. Standart uygulama katmanında bir çalışma alanı için çalışma alanınıza raporlayan tüm kaynakları uygular.
 
 > [!NOTE]
 > Maliyetlerinizi yönetin ve belirli bir aracılar kümesi için sınırlayarak bir çözüm için toplanan veri miktarını sınırlamak isteyebilirsiniz. [Çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) çözüm için bir kapsam geçerli ve hedef çalışma alanındaki bilgisayarların alt ağlarından olanak tanır.  Çözüm hedefleme kullanıyorsanız, Güvenlik Merkezi çalışma alanına sahip olmayan bir çözüm olarak listeler.
@@ -53,7 +53,7 @@ Standart abonelik veya çalışma alanını yükseltmek için:
 
 
    > [!NOTE]
-   > Güvenlik Merkezi'nin ücretsiz özellikleri, Azure Vm'lerine uygulanır. Ücretsiz özellikleri, Azure dışı bilgisayarlarınızı uygulanmaz. Standart'ı seçerseniz, tüm Azure Vm'leri ve Azure olmayan bilgisayarlar çalışma alanına raporlama standart yetenekleri uygulanır. Azure ve Azure dışı kaynaklar için Gelişmiş güvenliği sağlamak için standart uygulamanızı öneririz.
+   > Güvenlik Merkezi'nin ücretsiz özellikleri yalnızca Azure Vm'lerinizden ve VMSS için uygulanır. Ücretsiz özellikleri, Azure dışı bilgisayarlarınızı uygulanmaz. Standart'ı seçerseniz, tüm Azure Vm'leri, VM ölçek kümeleri ve Azure olmayan bilgisayarlar çalışma alanına raporlama standart yetenekleri uygulanır. Azure ve Azure dışı kaynaklar için Gelişmiş güvenliği sağlamak için standart uygulamanızı öneririz.
    >
    >
 

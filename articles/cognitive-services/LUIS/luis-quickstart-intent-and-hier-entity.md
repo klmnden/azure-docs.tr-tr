@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: dea623684454d4b14a370251df10599eb03bbb34
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 14d1b5b7113e8a4bd71aa89a246fa375adb03a14
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856929"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594007"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Öğretici: Bir utterance bağlamsal ilgili verileri ayıklayın
 
@@ -91,7 +91,7 @@ Hiyerarşik varlığın alt öğelerinden yalnızca bir tanesi (çıkış veya v
 
 1. `move John W. Smith leaving Seattle headed to Dallas` konuşmasının içinde `Seattle` sözcüğünü seçin. En üstte bir metin kutusu bulunan açılan menü görüntülenir. `Location` metin kutusuna varlık adını girip açılan menüden **Create new entity** (Yeni varlık oluştur) öğesini seçin. 
 
-    [![Hedefi sayfasında yeni varlık oluşturma işleminin ekran görüntüsü](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "hedefi sayfasında yeni varlık oluşturma işleminin ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
+    [![Hedefi sayfasında yeni varlık oluşturma işleminin ekran görüntüsü](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "hedefi sayfasında yeni varlık oluşturma işleminin ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. Açılır pencerede **Hierarchical** (Hiyerarşik) varlık türünü ve `Origin` ile `Destination` alt varlıkları seçin. **Done** (Bitti) öğesini seçin.
 
@@ -99,7 +99,7 @@ Hiyerarşik varlığın alt öğelerinden yalnızca bir tanesi (çıkış veya v
 
 1. LUIS, terimin çıkış mı, varış mı yoksa ikisi dışında bir değer mi olduğunu bilmediğinden `Seattle` etiketi `Location` olarak işaretlenir. Seçin `Seattle`, ardından **konumu**, sonra sağ menü izleyin ve seçin `Origin`.
 
-    [![Konumları varlık alt değiştirmek için ekran açılır iletişim kutusu etiketleme varlığın](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "açılır iletişim kutusu etiketleme varlık konumları varlık alt değiştirmek için ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
+    [![Konumları varlık alt değiştirmek için ekran açılır iletişim kutusu etiketleme varlığın](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png "açılır iletişim kutusu etiketleme varlık konumları varlık alt değiştirmek için ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png#lightbox)
 
 1. Diğer tüm sesleri başka konumlarda etiketleyin. Tüm Konumlar işaretlendiğinde, bir desen gibi görünmesini konuşma başlayın. 
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: e6ab51d568c950ca7fd503150557df288d84174f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0d6813c11b5b9ed4aef666f5eb3dc75d8c9de770
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867741"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593431"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Konuşma kullanıcı amacınıza belirlemek için hedef ekleme
 
@@ -50,21 +50,14 @@ Bir hedefi olarak bir utterance seçili amaç ve tahmin puanı arasında bir hed
 
 Üst gezinti bölmesinde **eğitme**. Tahmin tutarsızlık sunulmuştur kayboldu.
 
+> [!Note]
+> Bir sözcük veya tümcecik örnek utterance içinde altında kırmızı bir çizgi olduğunda bir [varlık tahmin hata](luis-how-to-add-example-utterances.md#entity-status-predictions) oluştu. Düzeltmeniz gerekir. 
+
 ## <a name="add-a-custom-entity"></a>Özel bir varlık ekleme
 
 Bir amaç için bir utterance eklendikten sonra bir özel varlık oluşturma utterance metni seçebilirsiniz. Özel bir varlık ayıklama, doğru amaç birlikte etiket metni bir yoludur. 
 
-1. Word ' ü seçin `Seattle`, utterance içinde. Metin etrafına köşeli ayraç çizilir ve bir açılan menü görünür. 
-
-    ![Özel varlık oluşturma ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-intents/create-custom-entity.png) 
-
-    Bu örnek, bir varlık olarak işaretlemek için tek sözcük seçer. Tek çalışır ve ifadeleri varlıklar olarak işaretleyebilirsiniz.
-
-1. Üstteki metin-menüsünün kutusuna `Location`, ardından **yeni varlık Oluştur**. 
-
-    ![Özel varlık adı oluşturma ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
-
-1. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?** varlık oluşturmak için açılır pencere doğrulama **varlık adı** olduğu _konumu_ve **varlık türü**  olduğu _basit_. **Done** (Bitti) öğesini seçin.
+Bkz: [varlık eklemek için utterance](luis-how-to-add-example-utterances.md) daha fazla bilgi için.
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Varlık tahmin tutarsızlık hataları 
 
@@ -80,7 +73,7 @@ Bilgi için [önceden oluşturulmuş varlık](luis-how-to-add-entities.md#add-pr
 
 ## <a name="using-the-contextual-toolbar"></a>Bağlamsal araç çubuğunu kullanma
 
-Bir veya daha fazla örnek konuşma seçiliyken listesinde bir utterance solundaki kutunun işaretlenmesi yoluyla utterance listenin üstündeki araç aşağıdaki eylemleri gerçekleştirmenizi sağlar:
+Bir veya daha fazla örnek konuşma sol tarafındaki bir utterance kutuyu işaretleyerek listesinde seçili olduğunda utterance listenin üstündeki araç aşağıdaki eylemleri gerçekleştirmenizi sağlar:
 
 * Yeniden atama hedefi: farklı eylemlerinize utterance(s) Taşı
 * Utterance(s) Sil

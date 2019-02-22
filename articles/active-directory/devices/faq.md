@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5618d9cc14819a15a0396b0dd4fcbf1d0319bbbf
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269068"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651167"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
@@ -86,6 +86,12 @@ Windows 10 ve Windows Server 2016'de, şirket içi Active Directory etki alanın
 -   Şirket içi Azure Directory etki alanına katılmış olan alt düzey Windows işletim sistemi sürümleri için otomatik kayıt, cihaza oturum açtığı her etki alanı kullanıcısı için aynı cihaz adı ile yeni bir cihaz kaydı oluşturur. 
 
 -   Cihaz aynı ada sahip başka bir kayıt olarak silinebilen, yeniden ve aynı adla yeniden katılınması bir Azure AD alanına katılmış makine gösterilir.
+
+---
+
+**S: Windows 10 cihaz kaydı, Azure AD'de TPM'ler FIPS modunda destekliyor mu?**
+
+**Y:** Hayır, şu anda Windows 10 cihaz kaydı için tüm cihaz durumları - hibrit Azure AD'ye katılma, Azure AD'ye katılmasını sağlamaya ve Azure AD kayıtlı - TPM'ler FIPS modunda desteklemez. Başarıyla katılın veya Azure AD'ye kaydettirmek için FIPS modundayken bu cihazlarda TPM'ler için kapatılması gerekir
 
 ---
 

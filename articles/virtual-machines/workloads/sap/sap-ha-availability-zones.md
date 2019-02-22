@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d98a5ab13c2aecd3b3cef590526031f5bdee594
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: a8e20d617da12aea857308f4020fbd0cfe711430
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268323"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651320"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure kullanılabilirlik alanları ile SAP iş yükü yapılandırmaları
 [Azure kullanılabilirlik alanları](https://docs.microsoft.com/azure/availability-zones/az-overview) Azure sağlayan bir yüksek kullanılabilirlik özelliklerinden biridir. Kullanılabilirlik alanları kullanarak SAP iş yüklerinizi azure'da genel kullanılabilirliğini artırır. Bu özellik zaten bazı durumlarda kullanılabilir [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/). Gelecekte daha fazla bölgede kullanılabilir olacaktır.
@@ -123,7 +123,7 @@ Kabul edilebilir bir delta arasındaki ağ gecikme süresi bir bölge içinde ve
 
 Mimarinin temel düzeni şöyle görünür:
 
-![Aktif/Pasif bölge dağıtımı](./media/sap-ha-availability-zones/active_active_zones_deployment.png)
+![Aktif/Pasif bölge dağıtımı](./media/sap-ha-availability-zones/active_passive_zones_deployment.png)
 
 Bu yapılandırma için aşağıdaki maddeler geçerlidir:
 

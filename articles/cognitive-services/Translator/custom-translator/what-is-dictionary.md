@@ -9,18 +9,18 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 87ea4edd9bb548701d6bcf63dd542ed6e35d9f7f
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212418"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585562"
 ---
 # <a name="what-is-a-dictionary"></a>Bir sözlük nedir?
 
 Bir sözlük tümcecikleri veya cümleler ve karşılık gelen çevirileri listesini belirten bir hizalanmış belgelerin çiftidir. Sözlükte sağladığınız çeviri kullanarak her zaman kaynak ifade veya cümle, tüm örneklerini çevirmek için Microsoft Translator istediğinizde bir sözlük, eğitim kullanın. Sözlükler bazen terim sözlüklerine ya da terim tabanları çağrılır. Yanılma olarak "Kopyala ve Değiştir" olan tüm koşulları, liste sözlüğü düşünebilirsiniz.
 
-Sözlükler yalnızca tam olarak desteklenen bir Microsoft sinirsel makine çevirisi (NMT) sistemi arkasına dil çiftleri projelerinde çalışır. Bkz: http://www.aka.ms/translatorlanguages dillerin tam bir listesi için.
+Sözlükler yalnızca tam olarak desteklenen bir Microsoft sinirsel makine çevirisi (NMT) sistemi arkasına dil çiftleri projelerinde çalışır. [Dillerin tam listesini görüntüleyin](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
 ## <a name="phrase-dictionary"></a>İfade sözlüğü 
 Modelinizi eğitim içinde bir ifade sözlüğü eklediğinizde, herhangi bir sözcük veya tümcecik listelenen belirttiğiniz yolla çevrilir. Rest cümlenin zamanki çevrilir. Bir ifade sözlüğü sözlüğü dosyasında kaynak ve hedef aynı çevrilmemiş ifade sağlayarak çevrilmiş olmamalıdır tümcecikleri belirtmek için kullanabilirsiniz.

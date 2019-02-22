@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452617"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585443"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Öğretici: Spark'ı kullanarak Azure Databricks ile Data Lake depolama Gen2 verilere erişme
 
@@ -146,6 +146,9 @@ Bu bölümde, depolama hesabınızdaki bir dosya sistemi ve klasör oluşturacak
    * `tenant-id` Aboneliğinizden olduğu.
 
    * `storage-account-name` Azure Data Lake depolama Gen2'ye depolama hesabınızın adıdır.
+
+    > [!NOTE]
+    > Bir üretim ayarında, Azure Databricks'te, kimlik doğrulama anahtarı depolamayı düşünün. Ardından, kimlik doğrulama anahtarı yerine, kod bloğu için bir arama anahtarı ekleyin. Bu hızlı başlangıcı tamamladıktan sonra bkz [Azure Data Lake depolama Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) makalede bu yaklaşım örneklerini görmek için Azure Databricks Web sitesinde.
 
 19. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 

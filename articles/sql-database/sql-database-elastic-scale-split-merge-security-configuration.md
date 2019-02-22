@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563227"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593327"
 ---
 # <a name="split-merge-security-configuration"></a>Ayırma-birleştirme güvenliği yapılandırma
 
@@ -121,24 +121,29 @@ Varsayılan yapılandırma, HTTP uç noktasına tüm erişimi engeller. Bu istek
 Tüm erişim HTTPS uç noktasına varsayılan yapılandırmasını sağlar. Bu ayar daha da kısıtlanabilir.
 
 ### <a name="changing-the-configuration"></a>Yapılandırmayı değiştirme
-Geçerli erişim denetim kuralları ve uç nokta grubunun yapılandırılmış **<EndpointAcls>** konusundaki **hizmet yapılandırma dosyasını**.
+Geçerli erişim denetim kuralları ve uç nokta grubunun yapılandırılmış  **\<EndpointAcls >** konusundaki **hizmet yapılandırma dosyasını**.
 
-    <EndpointAcls>
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
-    </EndpointAcls>
+```xml
+<EndpointAcls>
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
+</EndpointAcls>
+```
 
-Bir erişim denetimi grubu kurallarında, yapılandırılmış bir <AccessControl name=""> hizmet yapılandırma dosyasının. 
+Bir erişim denetimi grubu kurallarında, yapılandırılmış bir \<AccessControl name = "" > hizmet yapılandırma dosyasının. 
 
 Biçim, ağ erişim denetimi listelerini belgelerinde açıklanmıştır.
 Örneğin, yalnızca IP HTTPS uç noktasına erişmek için 100.100.0.0 için 100.100.255.255 aralığında izin vermek için kuralları şöyle görünür:
 
-    <AccessControl name="Retricted">
-      <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
-      <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
-    </AccessControl>
-    <EndpointAcls>
+```xml
+<AccessControl name="Retricted">
+    <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
+    <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
+</AccessControl>
+<EndpointAcls>
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
+</EndpointAcls>
+```
 
 ## <a name="denial-of-service-prevention"></a>Önleme hizmet reddi
 Algılama ve hizmet reddi saldırılarını önlemek için desteklenen iki farklı mekanizma vardır:
@@ -154,22 +159,29 @@ Bunlar daha fazla IIS dinamik IP güvenlik konusunda belgelenen özellikleri tem
 ## <a name="restricting-number-of-concurrent-accesses"></a>Eş zamanlı erişimi sayısını sınırlandırma
 Bu davranış yapılandırdığınız ayarlar şunlardır:
 
-    <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
-    <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
+<Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```
 
 DynamicIpRestrictionDenyByConcurrentRequests bu korumayı etkinleştirmek için true olarak değiştirin.
 
 ## <a name="restricting-rate-of-access"></a>Erişimi kısıtlama oranı
 Bu davranış yapılandırdığınız ayarlar şunlardır:
 
-    <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
-    <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
-    <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
+<Setting name="DynamicIpRestrictionMaxRequests" value="100" />
+<Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```
 
 ## <a name="configuring-the-response-to-a-denied-request"></a>Reddedilen bir isteğin yanıtını yapılandırma
 Reddedilen bir isteğin yanıtını aşağıdaki ayarı yapılandırır:
 
-    <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```xml
+<Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```
+
 Desteklenen diğer değerler için dinamik IP Güvenlik IIS'de belgelere bakın.
 
 ## <a name="operations-for-configuring-service-certificates"></a>Hizmet sertifikaları yapılandırma işlemleri
@@ -232,12 +244,16 @@ Yalnızca istemci sertifika tabanlı kimlik doğrulaması desteklenir ve başka 
 
 Bu ayarlar, hizmet yapılandırma dosyasında özelliği devre dışı bırakmak için false değiştirin:
 
-    <Setting name="SetupWebAppForClientCertificates" value="false" />
-    <Setting name="SetupWebserverForClientCertificates" value="false" />
+```xml
+<Setting name="SetupWebAppForClientCertificates" value="false" />
+<Setting name="SetupWebserverForClientCertificates" value="false" />
+```
 
 Ardından, CA sertifikası ayarı SSL sertifikası olarak aynı parmak izini kopyalayın:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="create-a-self-signed-certification-authority"></a>Otomatik olarak imzalanan bir sertifika yetkilisi oluşturma
 Bir sertifika yetkilisi olarak davranacak şekilde otomatik olarak imzalanan bir sertifika oluşturmak için aşağıdaki adımları uygulayın:
@@ -280,11 +296,15 @@ Karşıya yükleme, var olan sertifika veya oluşturulabilir. CER dosyası CA or
 ## <a name="update-ca-certificate-in-service-configuration-file"></a>Hizmet yapılandırma dosyasında güncelleştirme CA sertifikası
 Bulut hizmeti için karşıya yüklenen sertifikanın parmak izine sahip hizmet yapılandırma dosyasında aşağıdaki ayarı parmak izi değerini güncelleştirin:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 Aşağıdaki ayarı değerini aynı parmak izine sahip güncelleştirin:
 
-    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```xml
+<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```
 
 ## <a name="issue-client-certificates"></a>İstemci sertifikaları
 Her hizmete erişim yetkisi verilen kendi özel kullanım için bir istemci sertifikasına sahip olmalıdır ve özel anahtarıyla korumak için kendi güçlü bir parola seçmeniz gerekir. 
@@ -338,17 +358,23 @@ Kendisi için bir istemci sertifikası verildi her bir hizmet yapılandırma dos
 * Ayrıntılar sekmesi açılır sertifikası iletişim kutusunda seçin
 * Tümünü Göster görüntüleme emin olun
 * Parmak izi listesinde adlı bir alan seçin
-* Parmak izi değerini kopyalayın. ** ilk basamak önünde görünür olmayan Unicode karakterleri silme ** tüm boşlukları Sil
+* Parmak izi değerini kopyalayın
+  * İlk basamak önünde görünür olmayan Unicode karakterleri silin
+  * Tüm boşlukları Sil
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Hizmet yapılandırma dosyasında verilen istemcilerini yapılandırma
 Hizmete erişim verilen istemci sertifikaların parmak izleriyle virgülle ayrılmış listesiyle birlikte hizmet yapılandırma dosyasında aşağıdaki ayarın değerini güncelleştirin:
 
-    <Setting name="AllowedClientCertificateThumbprints" value="" />
+```xml
+<Setting name="AllowedClientCertificateThumbprints" value="" />
+```
 
 ## <a name="configure-client-certificate-revocation-check"></a>İstemci sertifika iptal denetimi yapılandırma
 Varsayılan ayar, istemcinin sertifika iptal durumunu için sertifika yetkilisi ile denetlemez. İstemci sertifikaları veren sertifika yetkilisi tür denetimler destekliyorsa denetimleri etkinleştirmek için aşağıdaki ayarı X509RevocationMode numaralandırmada tanımlanan değerlerden biriyle değiştirin:
 
-    <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```xml
+<Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```
 
 ## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>Otomatik olarak imzalanan şifreleme sertifikaları PFX dosyasını oluşturma
 Bir şifreleme sertifikası için yürütün:
@@ -381,7 +407,9 @@ Karşıya yükleme, var olan sertifika veya oluşturulabilir. PFX dosyası şifr
 ## <a name="update-encryption-certificate-in-service-configuration-file"></a>Hizmet yapılandırma dosyasında şifreleme sertifikasını güncelleştir
 Bulut hizmeti için karşıya yüklenen sertifikanın parmak izi ile parmak izi değerini hizmet yapılandırma dosyasında aşağıdaki ayarlardan birini güncelleştirin:
 
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="common-certificate-operations"></a>Ortak sertifika işlemleri
 * SSL sertifikası yapılandırma
@@ -452,7 +480,9 @@ Sertifika Alma Sihirbazı'nda:
 ## <a name="other-security-considerations"></a>Diğer güvenlik konuları
 Bu belgede açıklanan SSL ayarları, HTTPS uç noktası kullanıldığında, hizmet ve istemcileri arasındaki iletişimi şifrelemek. Veritabanı erişimi için kimlik bilgilerini bu yana önemli olduğunu ve iletişime olabilecek diğer hassas bilgiler yer alır. Ancak, hizmet kimlik bilgilerini, Microsoft Azure aboneliğiniz meta veri depolama için sağlanan Microsoft Azure SQL veritabanı'nda kendi iç tablolar dahil olmak üzere, iç durumu devam ettiğini unutmayın. Bu veritabanı, aşağıdaki ayarı hizmet yapılandırma dosyanızdaki bir parçası olarak tanımlandı (. CSCFG dosyası): 
 
-    <Setting name="ElasticScaleMetadata" value="Server=…" />
+```xml
+<Setting name="ElasticScaleMetadata" value="Server=…" />
+```
 
 Bu veritabanında depolanan kimlik bilgileri şifrelenir. Ancak, en iyi uygulama, hem web hem de çalışan roller hizmet dağıtımlarınıza güncel tutulur ve güvenli olarak hem de meta verileri veritabanı ve şifreleme ve şifre çözme depolanan kimlik bilgileri için kullanılan sertifikanın erişiminiz emin olun. 
 

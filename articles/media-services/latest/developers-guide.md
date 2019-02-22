@@ -13,19 +13,19 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/16/2019
+ms.date: 02/20/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 2f0191bd181a8e10fa59f6d1d53da348e6440aba
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 6724a66f9a2b80f94f986db19d67b27884797e6f
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56405556"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592375"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Media Services v3 API SDK'ları / araçlarla geliştirmeye başlayın
 
-Bir geliştirici olarak, Media Services kullanabileceğiniz [REST API](https://aka.ms/ams-v3-rest-sdk) veya kolayca oluşturmak için REST API ile etkileşimde bulunmanızı sağlayan istemci kütüphaneleri, yönetmek ve özel medya iş akışları korumak. Media Services v3 API (eski adıyla bir swagger dosyası da bilinir) Openapı belirtimini temel alır.
+Bir geliştirici olarak, Media Services kullanabileceğiniz [REST API](https://aka.ms/ams-v3-rest-ref) veya kolayca oluşturmak için REST API ile etkileşimde bulunmanızı sağlayan istemci kütüphaneleri, yönetmek ve özel medya iş akışları korumak. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API (eski adıyla bir swagger dosyası da bilinir) Openapı belirtimini temel alır.
 
 Bu konuda bağlantılar SDK'ları, araçları, belgeleri sağlar. Ayrıca, farklı Geliştirici env bazı yararlı bilgiler sağlar.
 
@@ -36,7 +36,7 @@ Media Services karşı geliştirmeye başlamak için ihtiyacınız vardır:
 - Etkin bir Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 - [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md)
 
-## <a name="start-developing"></a>Geliştirmeye başlayın
+## <a name="start-developing"></a>Geliştirmeye başlama
 
 Azure Media Services şu SDK'ları / tools destekler 
 

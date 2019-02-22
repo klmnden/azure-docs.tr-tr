@@ -8,15 +8,15 @@ manager: pchoudh
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 757ef07c1268cbf159ce98dfb8ba1980616e4a3a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: f144262f43396ac5d4f37939d35fca2645acc4bd
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245144"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650181"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası güvenilirlik puanı
 Kullanıcı sorgusu karşı Bilgi Bankası eşleştiğinde, soru-cevap Oluşturucu bir güven puanı yanı sıra ilgili yanıt verir. Bu puanı güvenle yanıt verilen kullanıcı sorgusu için doğru eşleşme olduğunu gösterir. 
@@ -72,9 +72,9 @@ Bilgi Bankası farklı bölgelerde varsa, her bölgede Azure Search dizinini kul
 
 
 ## <a name="no-match-found"></a>Eşleşme bulunamadı
-Derecelendiricisini tarafından iyi bir eşleşme bulunduğunda 0.0 ya da "None" güven puanı döndürülür ve "iyi eşleşme KB bulunamadı" varsayılan yanıttır. Bu varsayılan yanıt uç noktasını çağırma bot veya uygulama kodunda geçersiz kılabilirsiniz. Alternatif olarak, geçersiz kılma yanıt Azure'da ayarlayabilirsiniz ve bu belirli bir soru-cevap Oluşturucu hizmeti dağıtılan tüm bilgi bankaları için varsayılan değiştirir.
+Derecelendiricisini tarafından iyi bir eşleşme bulunduğunda 0.0 ya da "None" güven puanı döndürülür ve "iyi eşleşme KB bulunamadı" varsayılan yanıttır. Bu geçersiz kılma [varsayılan yanıt](#change-default-answer) bot veya uygulamanın koddaki uç noktasını çağırma. Alternatif olarak, geçersiz kılma yanıt Azure'da ayarlayabilirsiniz ve bu belirli bir soru-cevap Oluşturucu hizmeti dağıtılan tüm bilgi bankaları için varsayılan değiştirir.
 
-### <a name="change-default-answer"></a>Varsayılan yanıt değiştirme
+## <a name="change-default-answer"></a>Varsayılan yanıt değiştirme
 
 1. Git [Azure portalında](https://portal.azure.com) ve oluşturduğunuz soru-cevap Oluşturucu hizmetini temsil eder kaynak grubuna gidin.
 
@@ -94,5 +94,4 @@ Derecelendiricisini tarafından iyi bir eşleşme bulunduğunda 0.0 ya da "None"
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
 > [Desteklenen veri kaynakları](./data-sources-supported.md)
-## <a name="see-also"></a>Ayrıca bkz. 
-[Soru-Cevap Oluşturma’ya genel bakış](../Overview/overview.md)
+

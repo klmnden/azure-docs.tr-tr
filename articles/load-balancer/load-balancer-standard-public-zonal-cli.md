@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 18e5e9ff299cb645e2b5b47d327ee93e27da82df
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fabec317370f5a45b16ac3e6dd3422eceb9621c3
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700048"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592801"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Azure CLI kullanarak bölgesel ön uç ile standart yük dengeleyici oluşturma
 
@@ -51,7 +51,7 @@ az group create \
 ## <a name="create-a-zonal-public-ip-standard"></a>Bir bölgesel genel IP Standard oluşturma
 Uygulamanıza İnternet’ten erişmek için yük dengeleyicinin genel IP adresi gereklidir. Her zaman belirli bir bölgede oluşturulan genel IP adresi, yalnızca bu bölgede mevcut. Bir genel IP adresi alanı değiştirmek mümkün değildir.
 
-[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) ile genel IP adresi oluşturun. Aşağıdaki örnekte adlı bir bölgesel genel IP adresi oluşturur *Mypublicıp* içinde *Mypublicıp* bölge 1 kaynak grubunda.
+[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) komutu ile bir genel IP adresi oluşturun. Aşağıdaki örnekte adlı bir bölgesel genel IP adresi oluşturur *Mypublicıp* içinde *Mypublicıp* bölge 1 kaynak grubunda.
 
 ```azurecli-interactive
 az network public-ip create \

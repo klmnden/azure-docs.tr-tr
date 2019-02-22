@@ -5,27 +5,27 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 02/20/2019
 ms.author: danlep
-ms.openlocfilehash: a4b9b382755e73b6218432624c471346e9698752
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0148894bb013dc9f8cce595f14919f87d6292df8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193399"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593633"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry rolleri ve izinleri
 
 Azure Container Registry hizmeti farklı bir Azure container registry'ye izin düzeyleri sağlayan Azure rolleri, bir kümesini destekler. Azure kullanan [rol tabanlı erişim denetimi](../role-based-access-control/index.yml) kullanıcılara özel izinler atamak veya bir kayıt defteriyle etkileşimli çalışmak için gereken sorumluları hizmetini (RBAC).
 
-| Rol/izni       | [Access Resource Manager](#access-resource-manager)| [Kayıt defteri oluşturma/silme](#create-and-delete-registry) | [Görüntü gönderme](#push-image) | [Görüntü çekme](#pull-image) | [İlkeleri değiştirme](#change-policies) |   [Oturum görüntüleri](#sign-images)  |
-| ---------| --------- | --------- | --------- | --------- | --------- | --------- |
-| Sahip | X | X | X | X | X |  |  
-| Katılımcı | X | X | X | X | X |  |  
-| Okuyucu | X |  |  | X |  |  | 
-| AcrPush |  |  | X | X |  |  |  
-| AcrPull |  |  |  | X |  |  |  
-| AcrImageSigner |  |  |  |  |  | X |
+| Rol/izni       | [Access Resource Manager](#access-resource-manager) | [Kayıt defteri oluşturma/silme](#create-and-delete-registry) | [Görüntü gönderme](#push-image) | [Görüntü çekme](#pull-image) | [Görüntü verilerini sil](#delete-image-data) | [İlkeleri değiştirme](#change-policies) |   [Oturum görüntüleri](#sign-images)  |
+| ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| Sahip | X | X | X | X | X | X |  |  
+| Katılımcı | X | X | X |  X | X | X |  |  
+| Okuyucu | X |  |  | X |  |  |  |
+| AcrPush |  |  | X | X | X |  |  |  
+| AcrPull |  |  |  | X |  |  |  |  
+| AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>Kullanıcıların ve hizmetlerin ayırt
 
@@ -58,6 +58,10 @@ Yeteneği `docker push` bir görüntü veya başka bir anında iletme [yapıt de
 ## <a name="pull-image"></a>Görüntü çekme
 
 Yeteneği `docker pull` bir olmayan-karantinaya görüntü veya başka bir çekme [yapıt desteklenen](container-registry-image-formats.md) gibi bir kayıt defterinden bir Helm grafiği. Gerektirir [kimlik doğrulaması](container-registry-authentication.md) yetkili kimlik kullanarak kayıt defteriyle.
+
+## <a name="delete-image-data"></a>Görüntü verilerini sil
+
+Yeteneği [kapsayıcı görüntülerini veya depoları silme](container-registry-delete.md).
 
 ## <a name="change-policies"></a>İlkeleri değiştirme
 

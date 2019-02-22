@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1a25a9c3e0d099349286476f0ae3791efee1642f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 566faaef4e91237bd0a0f915ea39f4bd389120d8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452823"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593089"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Geliştirilmiş yedeği almak ve performansı Azure Backup anında geri yükleme özelliğine sahip geri yükleme
 
@@ -37,11 +37,11 @@ Yeni model anlık geri yüklemek için aşağıdaki özellik geliştirmeleri sa�
 1.  VM anlık görünüm alınıyor.
 2.  VM anlık görüntüsü, Azure kurtarma Hizmetleri Kasası'na aktarma.
 
-Aşama 1 ve 2 yalnızca tamamlandıktan sonra oluşturulan bir kurtarma noktası olarak kabul edilir. Bu yükseltme kapsamında, bu kurtarma noktası anlık görüntü türü, aynı geri yükleme akışı kullanarak bir geri yüklemeyi gerçekleştirmek için kullanılabilir ve anlık görüntü tamamlandıktan hemen sonra bir kurtarma noktası oluşturulur. Kurtarma noktası türü olarak "snapshot"'ı kullanarak Azure portalında bu kurtarma noktasını tanımlayabilir ve anlık görüntü Kasası'na aktarıldıktan sonra "anlık görüntü ve kasa." kurtarma noktası türünü değiştirir
+Aşama 1 ve 2 yalnızca tamamlandıktan sonra oluşturulan bir kurtarma noktası olarak kabul edilir. Bu yükseltme kapsamında, bu kurtarma noktası anlık görüntü türü, aynı geri yükleme akışı kullanarak bir geri yüklemeyi gerçekleştirmek için kullanılabilir ve anlık görüntü tamamlandıktan hemen sonra bir kurtarma noktası oluşturulur. Kurtarma noktası türü olarak "snapshot"'ı kullanarak Azure portalında bu kurtarma noktasını tanımlayabilirsiniz ve anlık görüntü Kasası'na aktarıldıktan sonra "anlık görüntü ve kasa" kurtarma noktası türünü değiştirir.
 
 ![Yedekleme işini VM yedek yığını Resource Manager dağıtım modelinde--depolama ve kasa](./media/backup-azure-vms/instant-rp-flow.png)
 
-Anlık görüntüleri yedi gün boyunca saklanır. Bu özellik, geri yükleme sürelerini keserek geri yükleme işlemi var. Bu anlık görüntüler sağlar. Dönüştürme ve yönetilmeyen disk senaryoları sırasında yönetilen disk kullanıcılar için kullanıcının depolama hesabına geri kasadan veri kopyalama için gereken süreyi kısaltır, yedekleme verileri yönetilen disk oluşturur.
+Varsayılan olarak, iki gün için anlık görüntüleri korunur. Bu özellik, geri yükleme sürelerini keserek geri yükleme işlemi var. Bu anlık görüntüler sağlar. Dönüştürme ve yönetilmeyen disk senaryoları sırasında yönetilen disk kullanıcılar için kullanıcının depolama hesabına geri kasadan veri kopyalama için gereken süreyi kısaltır, Kurtarma Hizmetleri verilerinizden yönetilen diskler oluşturur.
 
 ## <a name="feature-considerations"></a>Özellik konuları
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cf6e2fa296d3d9f152edf22685b930586b4de524
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: de9261548ec79e206b0db87caabc1fa4c9ad6771
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024826"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56591559"
 ---
 <a name="retrieve-offers"></a>Alma sunar
 ===============
@@ -32,9 +32,9 @@ Teklifler yayımcı ad alanı altında bir Özet listesini alır.
 <a name="uri-parameters"></a>URI parametreleri
 --------------
 
-| ** Adı **        |  **Açıklama**                         |  **Veri türü** |
+| **Ad**         |  **Açıklama**                         |  **Veri türü** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  Publisherıd     | Örneğin, yayımcı tanımlayıcısı `contoso` |   Dize    |
+|  publisherId     | Örneğin, yayımcı tanımlayıcısı `contoso` |   String    |
 |  API sürümü     | API'sının en son sürümü                    |    Tarih        |
 |  |  |
 
@@ -76,7 +76,7 @@ Teklifler yayımcı ad alanı altında bir Özet listesini alır.
 |  **Ad**       |       **Açıklama**                                                                                                  |
 |  -------------  |      --------------------------------------------------------------------------------------------------------------    |
 |  offerTypeId    | Teklif türünü tanımlar                                                                                           |
-|  Publisherıd    | Yayımcı benzersiz olarak tanımlayan tanımlayıcısı                                                                      |
+|  publisherId    | Yayımcı benzersiz olarak tanımlayan tanımlayıcısı                                                                      |
 |  durum         | Teklif durumu. Olası değerler listesi için bkz: [teklif durumu](#offer-status) aşağıda.                         |
 |  id             | Teklif yayımcı ad alanında benzersiz olarak tanımlayan GUID.                                                    |
 |  version        | Teklifin geçerli sürümü. İstemci tarafından version özelliği değiştirilemez. Bu, her yayımladıktan sonra artırılır. |

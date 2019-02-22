@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 9d11a34c499029550de12e8a47f7de0b1beac7b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235046"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593820"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Azure Resource Manager desteği, Azure Load Balancer ile kullanma
 
@@ -30,9 +30,9 @@ Resource Manager ile Azure Load Balancer aşağıdaki alt kaynakları içerir:
 
 * Ön uç IP yapılandırmasını – yoksa sanal IP (VIP) bilinen bir veya daha fazla ön uç IP adresi bir yük dengeleyici ekleyebilirsiniz. Bu IP adresleri trafik için bir giriş işlevi görür.
 * Arka uç adres havuzu – bunlar ilişkili sanal makine ağ arabirim kartı (yükleme için dağıtılan NIC ile) IP adresleridir.
-* Yük Dengeleme kuralları: bir kural özelliğine belirli ön uç IP ve bağlantı noktası birleşimini bir dizi arka uç IP adresleri ve bağlantı noktası bileşimiyle eşler. Tek bir yük dengeleyici birden çok dengeleme kuralına sahip olabilir. Her kural, bir ön uç IP ve bağlantı noktası ve arka uç IP'si ve Vm'lerle ilişkilendirilmiş bağlantı noktası birleşimidir.
+* Yük Dengeleme kuralları: bir kural özelliğine belirli ön uç IP ve bağlantı noktası birleşimini bir dizi arka uç IP adresleri ve bağlantı noktası bileşimiyle eşler. Tek bir yük dengeleyici birden çok dengeleme kuralına sahip olabilir. Her kural, bir ön uç IP bağlantı noktası ve arka uç IP ve bağlantı noktası Vm'lerle ilişkilendirilmiş birleşimidir.
 * Araştırmalar – araştırmaları sanal makine örneklerinin durumunu izlemenize olanak sağlar. Durum araştırması başarısız olursa, sanal makine örneğine otomatik olarak döndürme dışına alınır.
-* Gelen NAT kuralları – ön uç IP üzerinden akan ve arka uç IP dağıtılmış gelen trafiği tanımlayan NAT kuralları.
+* NAT – gelen NAT kuralları, bir ön uç IP üzerinden gelen trafiği tanımlayan kuralları ve arka uç IP dağıtılır.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
@@ -58,7 +58,7 @@ Azure Load Balancer'ı kullanarak hızlı başlangıç şablonları için bkz: [
 
 Azure Resource Manager cmdlet'leri, komut satırı araçları ve REST API'lerini kullanmaya başlama
 
-* [Azure ağ cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.network#networking) yük dengeleyici oluşturmak için kullanılabilir.
+* [Azure ağ cmdlet'leri](https://docs.microsoft.com/powershell/module/az.network#networking) yük dengeleyici oluşturmak için kullanılabilir.
 * [Azure Resource Manager'ı kullanarak bir yük dengeleyici oluşturma](load-balancer-get-started-ilb-arm-ps.md)
 * [Azure kaynak yönetimi ile Azure CLI kullanma](../xplat-cli-azure-resource-manager.md)
 * [Yük Dengeleyici REST API'leri](https://msdn.microsoft.com/library/azure/mt163651.aspx)

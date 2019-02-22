@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: e613f660d4d1abfd45b11d71c2abfda53331cc31
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 852a16f14466d91a0ebfaadb83c674253d0ea15e
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211217"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587761"
 ---
 # <a name="what-is-custom-translator"></a>Özel Çevirmen nedir?
 
@@ -22,7 +22,7 @@ ms.locfileid: "55211217"
 
 Çevirisi sistemleri ile oluşturulmuş [özel Translator](https://portal.customtranslator.azure.ai) aynı bulut tabanlı kullanılabilir [güvenli](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), yüksek performans, yüksek oranda ölçeklenebilir Microsoft Translator [Text API v3 sürümüne](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl), her gün milyarlarca çevirileri güçlendirir. 
 
-Özel Translator düzine üç'den fazla dili destekleyen ve NMT için kullanılabilen dilleri için doğrudan eşler. Tam bir listesi için bkz. [Microsoft Translator diller]( https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Özel Translator düzine üç'den fazla dili destekleyen ve NMT için kullanılabilen dilleri için doğrudan eşler. Tam bir listesi için bkz. [Microsoft Translator diller](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
 ## <a name="features"></a>Özellikler
 

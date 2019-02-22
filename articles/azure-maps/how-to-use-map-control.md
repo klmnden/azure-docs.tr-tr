@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 877393de20788b0aa1c76084b121a82f12715cd3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1d8d78ceb9cdb5e5dd205306eac00c8ca89e8d4a
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118080"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587948"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure haritalar harita denetimini kullanma
 
@@ -68,7 +68,7 @@ Harita denetimi istemci tarafı Javascript kitaplığını kullanarak bir web sa
     </body>
     ```
 
-5. Harita denetimi başlatmak için html gövdesinde yeni bir bölüm tanımlayın ve bir betik oluşturabilir. Eşlemesini kullanarak kimlik doğrulaması yapmak için kendi Azure haritalar hesabı anahtarı veya Azure Active Directory (AAD) kimlik bilgilerini kullanan [kimlik doğrulama seçenekleri](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.authenticationoptions). Bir hesap oluşturun veya, anahtar, bkz: bulmak gerekiyorsa [Azure haritalar hesabı ve anahtarları yönetme](how-to-manage-account-keys.md). **Dil** seçeneği harita etiketlerini ve denetimler için kullanılacak dili belirtir. Desteklenen diller hakkında daha fazla bilgi için bkz. [desteklenen diller](supported-languages.md). Bir abonelik anahtarı kimlik doğrulaması için kullanılıyorsa.
+5. Harita denetimi başlatmak için html gövdesinde yeni bir bölüm tanımlayın ve bir betik oluşturabilir. Eşlemesini kullanarak kimlik doğrulaması yapmak için kendi Azure haritalar hesabı anahtarı veya Azure Active Directory (AAD) kimlik bilgilerini kullanan [kimlik doğrulama seçenekleri](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Bir hesap oluşturun veya, anahtar, bkz: bulmak gerekiyorsa [Azure haritalar hesabı ve anahtarları yönetme](how-to-manage-account-keys.md). **Dil** seçeneği harita etiketlerini ve denetimler için kullanılacak dili belirtir. Desteklenen diller hakkında daha fazla bilgi için bkz. [desteklenen diller](supported-languages.md). Bir abonelik anahtarı kimlik doğrulaması için kullanılıyorsa.
 
     ```html
     <script type='text/javascript'>

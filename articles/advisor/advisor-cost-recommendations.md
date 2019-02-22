@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: c76c7bdb398184cc297831c9395063e7bf0f6bdc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: cc5c4310d5f9886518bee6612113fba174130bec
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492547"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648725"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Azure Danışmanı'nı kullanarak hizmet maliyetlerini azaltın
 
@@ -21,7 +21,7 @@ En iyi duruma getirmek ve genel Azure azaltmak advisor yardımcı olur, boş ve 
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>En iyi duruma getirme sanal makine harcama yeniden boyutlandırabilir veya az kullanılan örneklerini kapatılıyor 
 
-Uygulama belirli senaryolar tasarım gereği düşük kullanımı neden olabilir ancak, genellikle, sanal makinelerin sayısını ve boyutunu yöneterek tasarruf sağlayabilirsiniz. Advisor için 14 gün, sanal makine kullanımını izler ve ardından kullanımı düşük sanal makineleri tanımlar. Sanal makineler, CPU kullanımı: yüzde 5 veya daha az ve ağ kullanımını 7 MB veya daha az dört veya daha fazla gün kullanımı düşük sanal makine olarak kabul edilir.
+Uygulama belirli senaryolar tasarım gereği düşük kullanımı neden olabilir ancak, genellikle, sanal makinelerin sayısını ve boyutunu yöneterek tasarruf sağlayabilirsiniz. Advisor için 7 gün, sanal makine kullanımını izler ve ardından kullanımı düşük sanal makineleri tanımlar. Sanal makineler, düşük kullanımı, CPU kullanımı % 5'ise veya daha az olarak kabul edilir ve kendi ağ kullanımı % 2'den az veya daha küçük bir sanal makine boyutu tarafından yerleştirilebilecek geçerli iş yükünü.
 
 Advisor da kapatın veya yeniden boyutlandırın seçebilir, sanal makinenizi çalıştırmaya devam tahmini maliyeti gösterir.
 

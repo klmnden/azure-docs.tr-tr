@@ -12,27 +12,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: f4da0f992914037f5c95050324af5762e90a2ca4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ece6a6efa2f4424fb1c9d7f5a7e12a4e707faf45
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696841"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649314"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Oluşturma, değiştirme veya genel bir IP adresi ön eki Sil
 
-Genel bir IP adresi ön eki ve oluşturmak, değiştirmek ve silmek hakkında bilgi edinin. Genel bir IP adresi ön eki belirttiğiniz genel IP adresleri sayısına göre adreslerinin bitişik bir aralıktır. Adresleri aboneliğinize atanır. Bir genel IP adresi kaynağı oluşturduğunuzda, bir statik genel IP adresi ön ekini atamak ve sanal makinelere ilişkilendirmek, yük Dengeleyiciler veya internet bağlantısını etkinleştirmek için diğer kaynaklar. Genel IP adresi ön ekleri bilmiyorsanız bkz [genel IP adresi ön eki genel bakış](public-ip-address-prefix.md)
+Genel bir IP adresi ön eki ve oluşturmak, değiştirmek ve silmek hakkında bilgi edinin. Genel bir IP adresi ön eki belirttiğiniz genel IP adresleri sayısına göre adreslerinin bitişik bir aralıktır. Adresleri aboneliğinize atanır. Bir genel IP adresi kaynağı oluşturduğunuzda, bir statik genel IP adresi ön ekini atayabilir ve sanal makineler, yük Dengeleyiciler veya internet bağlantısını etkinleştirmek için diğer kaynaklar adresini ilişkilendirmek. Genel IP adresi ön ekleri bilmiyorsanız bkz [genel IP adresi ön eki genel bakış](public-ip-address-prefix.md)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 > [!IMPORTANT]
-> Genel IP öneki sınırlı sayıda bölgedeki bir genel Önizleme aşamasındadır. Yapabilecekleriniz [önizlemede olmasını geldiğini öğrenin](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Genel IP önek, şu anda kullanılabilir: Batı Orta ABD, Batı ABD, Batı ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa ve Güneydoğu Asya. Bölgelerin güncelleştirilmiş bir listesi için lütfen [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network).
+> Genel IP öneki sınırlı sayıda bölgedeki bir genel Önizleme aşamasındadır. Yapabilecekleriniz [önizlemede olmasını geldiğini öğrenin](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Genel IP önek, şu anda kullanılabilir: Batı Orta ABD, Batı ABD, Batı ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa ve Güneydoğu Asya. Bölgelerin güncelleştirilmiş bir listesi için lütfen bkz [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki görevleri tamamlayın:
 
 - Azure hesabınız yoksa, kaydolmaya bir [ücretsiz deneme hesabınızı](https://azure.microsoft.com/free).
-- Portalı kullanarak, açık https://aka.ms/publicipprefixportalve Azure hesabınızda oturum.
-- Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici AzureRm.Network PowerShell modülü sürüm 6.3.1 gerektirir veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM.Network` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](https://github.com/Azure/azure-powershell/releases/tag/AzureRm.Network.6.3.1). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
+- Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici Azure PowerShell modülü sürüm 1.0.0 gerektirir veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 - Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici, Azure CLI Sürüm 2.0.41 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
 
 Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde listelenen uygun eylemleri atanan [izinleri ](#permissions).
@@ -52,15 +54,14 @@ Genel IP adresi ön eklerini bir ücreti vardır. Ayrıntılar için bkz [fiyatl
    |Kaynak grubu|Evet|Aynı veya farklı bir arada var [kaynak grubu](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) için genel IP adresini ilişkilendirmek istediğiniz kaynağı olarak.|
    |Ad|Evet|Adı kaynak grubu içinde benzersiz olmalıdır.|
    |Bölge|Evet|Aynı bulunmalıdır [bölge](https://azure.microsoft.com/regions)genel IP adresleri olarak adresleri aralığından atayacaksınız. Ön eki şu anda Batı Orta ABD, Batı ABD, Batı ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa ve Güneydoğu Asya Önizleme aşamasındadır.|
-   |Ön ek boyutu|Evet| Gereksinim duyduğunuz ön ek boyutu. A/28 ya da 16 IP adresleri, varsayılan değerdir. 
+   |Ön ek boyutu|Evet| Gereksinim duyduğunuz ön ek boyutu. A/28 ya da 16 IP adresleri, varsayılan değerdir.
 
 **Komutları**
-
 
 |Aracı|Komut|
 |---|---|
 |CLI|[az ağ public-ip ön eki oluşturma](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
-|PowerShell|[New-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
+|PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Bir önekten statik genel IP adresi oluşturma
 Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir. Bunu yapmak için aşağıdaki adımları izleyin.
@@ -71,8 +72,8 @@ Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir
 4. Girin veya seçin, aşağıdaki ayarları için değerleri **genel IP adresi oluşturma**. Bir önek, standart SKU, IPv4 ve statik olduğundan, yalnızca aşağıdaki bilgileri vermeniz gerekir:
 
    |Ayar|Gerekli mi?|Ayrıntılar|
-    |---|---|---|
-    |Ad|Evet|Genel IP adresinin adı kaynak grubu içinde benzersiz olmalıdır.|
+   |---|---|---|
+   |Ad|Evet|Genel IP adresinin adı kaynak grubu içinde benzersiz olmalıdır.|
    |Boşta kalma zaman aşımı (dakika)|Hayır|Etkin tutma iletileri göndermek için istemcileri kullanmadan bir TCP veya HTTP bağlantısını açık tutmak için kaç dakika. |
    |DNS ad etiketi|Hayır|(Tüm abonelikler ve müşteriler arasında) ad oluşturma Azure bölgesi içinde benzersiz olmalıdır. Ada sahip bir kaynak için bağlanabilmesi için azure otomatik olarak adı ve IP adresi, DNS kaydeder. Azure varsayılan alt ağ gibi ekler *location.cloudapp.azure.com* (konum seçtiğiniz konum olduğu) adına, DNS adı tam olarak nitelenmiş oluşturulacağını sağladığınız. Daha fazla bilgi için [Azure genel bir IP adresi ile Azure DNS kullanma](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
@@ -81,26 +82,26 @@ Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir
 1. Metni içeren kutuya *kaynak Ara* Azure portalının üst kısmında, yazın *genel IP adresi ön eki*. Zaman **genel IP adresi ön eklerini** arama sonuçlarında görünmesini, onu seçin.
 2. Görüntülemek istediğiniz ayarları değiştirin ya da listeden silmek genel IP adresi ön adını seçin.
 3. Görüntüleyin, silin veya genel IP adresi ön eki değiştirmek istediğinize bağlı olarak aşağıdaki seçeneklerden birini tamamlayın.
-    - **Görünüm**: **Genel bakış** öneki gibi genel IP adresi ön anahtar ayarları bölümünde gösterilir.
-    - **Silme**: Genel IP adresi ön eki silmek için seçin **Sil** içinde **genel bakış** bölümü. Adres ön eki içinde genel IP adresi kaynaklarına ilişkiliyse, genel IP adresi kaynakları silmeniz gerekir. Bkz: [bir genel IP adresini silmek](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
+   - **Görünüm**: **Genel bakış** öneki gibi genel IP adresi ön anahtar ayarları bölümünde gösterilir.
+   - **Silme**: Genel IP adresi ön eki silmek için seçin **Sil** içinde **genel bakış** bölümü. Adres ön eki içinde genel IP adresi kaynaklarına ilişkiliyse, genel IP adresi kaynakları silmeniz gerekir. Bkz: [bir genel IP adresini silmek](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
 
 **Komutları**
 
 |Aracı|Komut|
 |---|---|
 |CLI|[az ağ public-ip ön ek listesini](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) listesi genel IP adreslerine [az ağ public-ip önek show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) ayarları; göstermek için [az ağ public-ip önek güncelleştirme](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update) güncelleştirmek için; [az ağ public-ip ön eki Sil](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) silmek için|
-|PowerShell|[Get-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/get-azurermpublicipprefix) genel bir IP adresi nesnesi almak ve ilişkili ayarları görüntülemek için [kümesi AzureRmPublicIpPrefix](/powershell/module/azurerm.network/set-azurermpublicipprefix) ; ayarlarını güncelleştirmek için [Remove-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/remove-azurermpublicipprefix) silmek için|
+|PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) genel bir IP adresi nesnesi almak ve ilişkili ayarları görüntülemek için [kümesi AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) ; ayarlarını güncelleştirmek için [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) silmek için|
 
 ## <a name="permissions"></a>İzinler
 
 Genel IP adresi ön eklerini görevleri gerçekleştirmek için hesabınızı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) uygun eylemleri atanan rolü aşağıdaki tabloda listelenen:
 
-| Eylem                                                                   | Ad                                                           |
-| ---------                                                                | -------------                                                  |
+| Eylem                                                            | Ad                                                           |
+| ---------                                                         | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | Genel bir IP adresi ön eki okuma                                |
 | Microsoft.Network/publicIPPrefixes/write                          | Genel bir IP adresi ön eki güncelle                    |
 | Microsoft.Network/publicIPPrefixes/delete                         | Genel bir IP adresi ön eki Sil                              |
-|Microsoft.Network/publicIPPrefixes/join/action | Bir önekten genel bir IP adresi oluşturma |
+|Microsoft.Network/publicIPPrefixes/join/action                     | Bir önekten genel bir IP adresi oluşturma |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

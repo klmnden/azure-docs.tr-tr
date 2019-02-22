@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: f0b2e1afdc42d8aaa0ab8d3af76f51fb6ded24e0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bacfb5fed4d72a7be2239ba97a68f15766b3ff59
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857775"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650454"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Soru-cevap Oluşturucu, Bilgi Bankası yaşam döngüsü
 Soru-cevap Oluşturucu, en iyi modeli değişiklikleri, utterance örnekler, yayımlama ve veri toplamayı yinelemeli bir döngüyle uç nokta sorgularından öğrenir. 
@@ -27,9 +27,15 @@ Soru-cevap Oluşturucu, en iyi modeli değişiklikleri, utterance örnekler, yay
 Soru-cevap Oluşturucu Bilgi Bankası (KB) uç noktası, bir kullanıcı sorgu KB içeriğine göre en iyi eşleşme Yanıtla sağlar. Bilgi Bankası oluşturma, bir içerik deposu soru, yanıt ve ilişkili meta verileri ayarlama için tek seferlik bir işlemdir. Bilgi Bankası, SSS sayfaları, ürün kılavuzlarını veya yapılandırılmış Q A çiftleri gibi önceden varolan içerikte tarafından oluşturulabilir. Bilgi edinmek için nasıl [Bilgi Bankası oluşturma](../How-To/create-knowledge-base.md).
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Test ve Bilgi Bankası güncelleştirme
-Bilgi Bankası bilgi bankanızı düzenleyerek veya otomatik ayıklama aracılığıyla içerikle doldurulur sonra test etmek için hazırdır. Aracılığıyla testi yapılabilir **Test** paneli yeterli güvenilirlik puanı ve ortak kullanıcı sorguları girerek ve döndürülen yanıtların beklendiği gibi olduğu doğrulanıyor. Düşük güven puanları düzeltmek için alternatif bir soru ekleyebilirsiniz. Bir sorgu "eşleşme KB bulunamadı" dönerse yeni yanıtları de ekleyebilirsiniz varsayılan yanıt. Sonuçlardan memnun olana kadar test güncelleştirme sıkı Bu döngü devam eder. Bilgi edinmek için nasıl [bilgi bankanızı test](../How-To/test-knowledge-base.md).
 
-Büyük KB'leri için test generateAnswer API'leri otomatikleştirilebilir. 
+Bilgi Bankası bilgi bankanızı düzenleyerek veya otomatik ayıklama aracılığıyla içerikle doldurulur sonra test etmek için hazırdır. Soru-cevap Oluşturucu portalı üzerinden içinde etkileşimli testi yapılabilir **Test** paneli ortak kullanıcı sorguları girerek ve yanıtları doğru yanıtı ve yeterli güvenilirlik puanı ile döndürülen doğrulanıyor. 
+
+* **Düşük güven puanları düzeltmek için**: diğer sorular ekleyin. 
+* **Bir sorgu yanlış döndürdüğünde [varsayılan yanıt](confidence-score.md#change-default-answer)**: doğru soruyu yeni yanıtları ekleyin. 
+
+Sonuçlardan memnun olana kadar test güncelleştirme sıkı Bu döngü devam eder. Bilgi edinmek için nasıl [bilgi bankanızı test](../How-To/test-knowledge-base.md).
+
+Büyük KB'leri için kullanım otomatik testi [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) ve `isTest=true` sorgu dizesi parametresi hangi sorguların `test` Bankası yayımlanan Bilgi Bankası yerine. 
 
 ## <a name="publish-the-knowledge-base"></a>Bilgi bankasını yayımlama
 İşiniz bittiğinde Bilgi Bankası sınanması, bunu yayımlayabilirsiniz. En son sürümünü test edilmiş Bilgi Bankası'na ayrılmış bir Azure Search dizinini temsil eden bildirim yayımlama **yayımlanan** Bilgi Bankası. Ayrıca uygulamanızda veya sohbet botunuzda çağrılabilecek bir uç nokta da oluşturulur.

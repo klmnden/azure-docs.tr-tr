@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: f18a1c90d3378831824542fabb884d36d12bddd4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270377"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652119"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -130,7 +130,7 @@ Otomatik ölçeklendirme, uygulamanızın üzerindeki yükü işlemek için çal
 Genellikle, Azure İzleyici diğer sistemlerle tümleştirmek için ve izleme verilerinizi kullanan özel çözümler oluşturmak için gereksinim sahip olacaksınız. Bu tümleştirme sağlamak için Azure İzleyici ile diğer Azure hizmetleriyle çalışır.
 
 ### <a name="event-hub"></a>Olay Hub'ı
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) , dönüştürme ve herhangi bir gerçek zamanlı analiz sağlayıcısı veya toplu işleme/depolama bağdaştırıcısı kullanarak verileri depolama bir akış platformu ve olay alma hizmetidir. Event Hubs kullanan [akış günlük verilerini Azure İzleyici](platform/stream-monitoring-data-event-hubs.md) ortak SIEM ve izleme araçları için.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) , dönüştürme ve herhangi bir gerçek zamanlı analiz sağlayıcısı veya toplu işleme/depolama bağdaştırıcısı kullanarak verileri depolama bir akış platformu ve olay alma hizmetidir. Event Hubs kullanan [Azure İzleyici, veri akışı](platform/stream-monitoring-data-event-hubs.md) ortak SIEM ve izleme araçları için.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

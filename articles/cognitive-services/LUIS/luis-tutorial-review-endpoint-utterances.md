@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 88ac9f07fb8791ca3d64123663b0380a56220cdd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: af3dcf3c72ef0d186f70c7935c712b81c4229a2f
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865966"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593803"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Öğretici: Konuşma uç noktası inceleyerek emin değilseniz Öngörüler Düzelt
 Bu öğreticide, LUIS HTTP uç noktası üzerinden alınan ifadeleri doğrulayarak veya düzelterek LUIS'in emin olmadığı uygulama tahminlerini geliştireceksiniz. Bazı konuşmaların amaç, diğerlerinin ise varlık için doğrulanması gerekebilir. Zamanlanmış LUIS bakımınızın normal bir parçası olarak uç noktası konuşmalarını gözden geçirmeniz gerekir. 
@@ -50,11 +50,13 @@ Aşağıdaki adımları kullanın:
 
 1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json) indirip kaydedin.
 
-2. JSON'ı yeni bir uygulamaya içeri aktarın.
+1. JSON'ı yeni bir uygulamaya içeri aktarın.
 
-3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `review` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez.
+1. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `review` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez.
 
-    Bu öğreticiyi yeni, içeri aktarılan bir uygulama olarak kullanıyorsanız, uygulamayı eğitmeniz, yayımlamanız ve sonra da bir [betikle](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) veya tarayıcıdaki uç noktadan ifadeleri uç noktaya eklemeniz gerekir. Eklenecek konuşmalar:
+1. Eğitim ve yeni uygulama yayımlama.
+
+1. Aşağıdaki Konuşma ekleme için uç noktayı kullanın. Ya da bunu bir [betik](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) veya bir tarayıcıda uç noktasından. Eklenecek ifadeler:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
@@ -64,11 +66,11 @@ Aşağıdaki adımları kullanın:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Sol gezintiden **Uç nokta ifadelerini gözden geçir**'i seçin. Bu liste **ApplyForJob** amacı için filtrelenmiştir. 
+1. Sol gezintiden **Uç nokta ifadelerini gözden geçir**'i seçin. Bu liste **ApplyForJob** amacı için filtrelenmiştir. 
 
     [ ![Sol gezintideki uç nokta konuşmalarını gözden geçir düğmesinin ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
-3. Etiketlenmiş varlıkları görmek için **Varlıklar görünümüne** geçin. 
+1. Etiketlenmiş varlıkları görmek için **Varlıklar görünümüne** geçin. 
     
     [ ![Varlıklar görünümü iki durumlu düğmesini vurgulandığı Uç nokta ifadelerini gözden geçir ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
@@ -78,29 +80,29 @@ Aşağıdaki adımları kullanın:
 
     Bu ifade doğru amaçta değildir ve puanı %50'den düşüktür. **ApplyForJob** amacının 21 ifadesi varken, **GetJobInformation** amacının yedi ifadesi vardır. Uç nokta ifadesini doğru eşleştirmenin yanı sıra, **GetJobInformation** amacına daha fazla ifade de eklenmelidir. Bu, kendi başınıza tamamlamanız için bir alıştırma olarak bırakılmıştır. **Hiçbiri** amacı dışındaki her amacın kabaca aynı sayıda örnek ifadesi olmalıdır. **Hiçbiri** amacındaki ifade sayısının, uygulamadaki ifadelerin %10'u kadar olması gerekir. 
 
-4. `I'm looking for a job with Natual Language Processing` amacı olarak, **Eşleşmiş amaç** sütununda doğru amaç olan **GetJobInformation**'ı seçin. 
+1. `I'm looking for a job with Natual Language Processing` amacı olarak, **Eşleşmiş amaç** sütununda doğru amaç olan **GetJobInformation**'ı seçin. 
 
     [ ![İfadeyi amaca eşleyen Uç nokta ifadelerini gözden geçir ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-5. Aynı ifadede `Natural Language Processing` varlığı keyPhrase'dir. Bunun yerine bu bir **Job** varlığı olmalıdır. `Natural Language Processing` öğesini ve ardından listede **Job** varlığını seçin.
+1. Aynı ifadede `Natural Language Processing` varlığı keyPhrase'dir. Bunun yerine bu bir **Job** varlığı olmalıdır. `Natural Language Processing` öğesini ve ardından listede **Job** varlığını seçin.
 
     [ ![İfadede varlığın etiketlendiği Uç nokta ifadelerini gözden geçir ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
-6. Aynı satırda, **Eşleşmiş amaca ekle** sütununda yuvarlak için alınmış onay işaretini seçin. 
+1. Aynı satırda, **Eşleşmiş amaca ekle** sütununda yuvarlak için alınmış onay işaretini seçin. 
 
     [ ![Amaçta ifade eşleşmesini son haline getirme ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
     Bu eylem ifadeyi **Uç nokta ifadelerini gözden geçir** ekranından **GetJobInformation** amacına taşır. Uç nokta ifadesi şimdi söz konusu amaç için örnek bir ifade olmuştur. 
 
-7. Bu amaçtaki diğer ifadeleri gözden geçirin, ifadeleri etiketleyin ve **Eşleşmiş amaç** yanlışsa düzeltin.
+1. Bu amaçtaki diğer ifadeleri gözden geçirin, ifadeleri etiketleyin ve **Eşleşmiş amaç** yanlışsa düzeltin.
 
-8. Tüm ifadeler doğru olduğunda, her satırdaki onay kutusunu seçin ve ardından **Seçileni ekle**'yi seçerek ifadeleri doğru eşleştirin. 
+1. Tüm ifadeler doğru olduğunda, her satırdaki onay kutusunu seçin ve ardından **Seçileni ekle**'yi seçerek ifadeleri doğru eşleştirin. 
 
     [ ![Eşleşmiş amacın kalan ifadelerine son haline getirme ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. Artık listede bu ifadeler yer almamalıdır. Başka konuşmalar da görünürse, liste boşalana kadar amaçları düzelterek ve eksik varlıkları etiketleyerek listede çalışmaya devam edin. 
+1. Artık listede bu ifadeler yer almamalıdır. Başka konuşmalar da görünürse, liste boşalana kadar amaçları düzelterek ve eksik varlıkları etiketleyerek listede çalışmaya devam edin. 
 
-10. Filtre listesinde bir sonraki amacı seçin, sonra ifadeleri düzeltmeye ve varlıkları etiketlemeye devam edin. Her amacın son adımının ifade satırında **Eşleşmiş amaca ekle**'yi seçmek veya her amacın yanındaki kutuyu işaretleyip yukarıdaki tabloda **Seçileni ekle**'yi seçmek olduğunu unutmayın.
+1. Filtre listesinde bir sonraki amacı seçin, sonra ifadeleri düzeltmeye ve varlıkları etiketlemeye devam edin. Her amacın son adımının ifade satırında **Eşleşmiş amaca ekle**'yi seçmek veya her amacın yanındaki kutuyu işaretleyip yukarıdaki tabloda **Seçileni ekle**'yi seçmek olduğunu unutmayın.
 
     Filtre listesindeki tüm amaçların ve varlıkların boş bir listesi olana kadar devam edin. Bu çok küçük bir uygulamadır. Gözden geçirme işlemi yalnızca birkaç dakika sürer. 
 

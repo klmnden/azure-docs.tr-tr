@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: aschhab
-ms.openlocfilehash: c320e06881c73feb228b9d5f49243d7e1d321f52
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 996fcbe350f14bb22b8927d9d19f63636b1d7894
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847570"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585518"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>PHP ile Service Bus kuyruklarını kullanma
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -27,6 +27,8 @@ ms.locfileid: "54847570"
 Bu kılavuzda, Service Bus kuyruklarını kullanma işlemini göstermektedir. PHP ve kullanım örnekleri yazılır [PHP için Azure SDK'sı](../php-download-sdk.md). Senaryoları ele alınmaktadır **kuyruk oluşturma**, **ileti gönderme ve alma**, ve **sıraları silme**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-php-application"></a>PHP uygulaması oluşturma
 Sınıflarda başvuran Azure Blob hizmete erişen bir PHP uygulaması oluşturmak için tek gereksinim olmasıdır [PHP için Azure SDK'sı](../php-download-sdk.md) gelen kod içinde. Herhangi bir geliştirme aracı, uygulama veya not defteri oluşturmak için kullanabilirsiniz.

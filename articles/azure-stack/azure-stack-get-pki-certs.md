@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 602517f13b762f5dd7a13e652a5e8bf5de56e403
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9d358c021f795172e7ced0ba2a2f309a0a0dab6e
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245642"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649736"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack sertifika imzalama isteği oluşturma
 
@@ -27,48 +27,49 @@ Sertifika imzalama isteği (CSR) bir Azure Stack dağıtımı uygun oluşturmak 
 
 Aşağıdaki sertifikalar istemek için Azure Stack hazırlık Denetleyicisi Aracı (AzsReadinessChecker) kullanabilirsiniz:
 
- - **Standart sertifika isteklerini** göre [Azure Stack dağıtımı için PKI sertifikaları oluşturmak](azure-stack-get-pki-certs.md).
- - **Hizmet olarak Platform**  
-    Hizmet olarak platform (PaaS) adları için belirtilen sertifika isteyebilir [Azure Stack ortak anahtar altyapısı sertifika gereksinimleri - isteğe bağlı PaaS sertifikaları](azure-stack-pki-certs.md#optional-paas-certificates).
+- **Standart sertifika isteklerini** göre [Azure Stack dağıtımı için PKI sertifikaları oluşturmak](azure-stack-get-pki-certs.md).
+- **Hizmet olarak Platform**: Hizmet olarak platform (PaaS) adları için belirtilen sertifika isteyebilir [Azure Stack ortak anahtar altyapısı sertifika gereksinimleri - isteğe bağlı PaaS sertifikaları](azure-stack-pki-certs.md#optional-paas-certificates).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Sisteminizde Azure Stack dağıtımı için PKI sertifikaları için CSR(s) oluşturmadan önce aşağıdaki önkoşulları karşılamalıdır:
 
- - Microsoft Azure Stack hazırlık denetleyicisi
- - Sertifika öznitelikleri:
-    - Bölge adı
-    - Dış tam etki alanı adı (FQDN)
-    - Özne
- - Windows 10 veya Windows Server 2016
- 
+- Microsoft Azure Stack hazırlık denetleyicisi
+- Sertifika öznitelikleri:
+  - Bölge adı
+  - Dış tam etki alanı adı (FQDN)
+  - Özne
+- Windows 10 veya Windows Server 2016
+
   > [!NOTE]  
   > Sertifikalarınızı aldığınızda adımlarda Sertifika yetkilinizden geri [hazırlama Azure Stack PKI sertifikaları](azure-stack-prepare-pki-certs.md) aynı sistemde tamamlanması gerekir!
 
 ## <a name="generate-certificate-signing-requests"></a>Sertifika imzalama istekleri oluştur
 
-Hazırlama ve Azure Stack PKI sertifikalarını doğrulamak için aşağıdaki adımları kullanın: 
+Hazırlama ve Azure Stack PKI sertifikalarını doğrulamak için aşağıdaki adımları kullanın:
 
-1.  AzsReadinessChecker bir PowerShell İstemi'nden (5.1 veya üzeri), aşağıdaki cmdlet'i çalıştırarak yükleyin:
+1. AzsReadinessChecker bir PowerShell İstemi'nden (5.1 veya üzeri), aşağıdaki cmdlet'i çalıştırarak yükleyin:
 
     ```PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2.  Bildirme **konu** sıralı bir sözlük olarak. Örneğin: 
+2. Bildirme **konu** sıralı bir sözlük olarak. Örneğin:
 
     ```PowerShell  
-    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
+    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
     ```
+
     > [!note]  
     > Ortak ad (CN) sağlandıysa Bu sertifika isteğini ilk DNS adı tarafından üzerine yazılır.
 
-3.  Zaten bir çıktı dizini bildirin. Örneğin:
+3. Zaten bir çıktı dizini bildirin. Örneğin:
 
     ```PowerShell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ```
-4.  Kimlik sistemi bildirme
+
+4. Kimlik sistemi bildirme
 
     Azure Active Directory
 
@@ -107,12 +108,12 @@ Hazırlama ve Azure Stack PKI sertifikalarını doğrulamak için aşağıdaki a
     ```
 
     PaaS Hizmetleri dahil etmek için anahtar belirtin. ```-IncludePaaS```
-    
+
 8. Çıktıyı gözden geçirin:
 
     ```PowerShell  
     New-AzsCertificateSigningRequest v1.1809.1005.1 started.
-    
+
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
     oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
     nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com*dn2=*.adminhosting.east.azurestack.contoso.com@dns=*.hosting.east.azurestack.contoso.com
@@ -123,7 +124,7 @@ Hazırlama ve Azure Stack PKI sertifikalarını doğrulamak için aşağıdaki a
     New-AzsCertificateSigningRequest Completed
     ```
 
-9.  Gönderme **. İstek** (dahili veya genel) CA için oluşturulan dosya.  Çıktı dizinine **yeni AzsCertificateSigningRequest** sertifika yetkilisine göndermek gerekli CSR(s) içerir.  Dizini Ayrıca, başvuru için sertifika isteği oluşturma sırasında kullanılan INF dosyaları içeren bir alt dizin içeriyor. CA'nız karşılayan oluşturulan isteğiniz kullanarak sertifikaları oluşturur mutlaka [Azure Stack PKI gereksinimleri](azure-stack-pki-certs.md).
+9. Gönderme **. İstek** (dahili veya genel) CA için oluşturulan dosya.  Çıktı dizinine **yeni AzsCertificateSigningRequest** sertifika yetkilisine göndermek gerekli CSR(s) içerir.  Dizini Ayrıca, başvuru için sertifika isteği oluşturma sırasında kullanılan INF dosyaları içeren bir alt dizin içeriyor. CA'nız karşılayan oluşturulan isteğiniz kullanarak sertifikaları oluşturur mutlaka [Azure Stack PKI gereksinimleri](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

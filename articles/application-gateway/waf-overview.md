@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 014353bafa31b1c4e924cba8335dbd30a48c2d11
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454268"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651439"
 ---
 # <a name="web-application-firewall-waf"></a>Web uygulaması güvenlik duvarı (WAF)
 
@@ -130,6 +130,16 @@ Application Gateway WAF, aşağıdaki iki modda çalışacak şekilde yapıland�
 
 * **Algılama modu** – algılama modunda, Application Gateway WAF izleyiciler ve günlükleri tüm tehdit uyarılarını bir günlük dosyasına çalışacak şekilde yapılandırıldığında. **Tanılama** bölümünden yararlanarak Application Gateway günlük tanılamaları açılmalıdır. Ayrıca, WAF günlüğünün seçili ve açık olduğundan emin olmanız gerekir. Algılama modunda çalışırken, web uygulaması güvenlik duvarı gelen istekleri engellemez.
 * **Önleme modu** – Application Gateway önleme modunda çalışacak şekilde yapılandırıldığında izinsiz girişleri ve kuralları tarafından algılanan saldırıları etkin bir şekilde engeller. Saldırgan bir 403 yetkisiz erişim özel durumu alır ve bağlantı sonlandırılır. Önleme modu bu tür saldırıları WAF günlüklerine kaydetmeye devam eder.
+
+### <a name="anomaly-scoring-mode"></a>Anomali Puanlama modu 
+ 
+OWASP veya trafiği engelleme karar için kullanabileceğiniz iki mod vardır. Geleneksel modu ve bir Anomali Puanlama modu yoktur. Geleneksel modunda olup diğer kurallar çok sözleşmenizle bağımsız olarak trafikle eşleşen herhangi bir kural olarak kabul edilir. Kaç tane kuralları belirli bir istek tarafından tetiklenen bilgi eksikliği daha kolay bir şekilde anlamak olsa da bu mod sınırlamaları biridir. Bu nedenle Anomali Puanlama modu, OWASP varsayılan haline gelmiştir sunulmuştur 3.x. 
+
+Puanlama Anomali modunda trafik kuralları önceki bölümde açıklanan biriyle eşleşen bir olgu hemen güvenlik duvarı önleme modunda olduğunu varsayarak trafiği engellenmesi için gittiği anlamına gelmez. Bir belirli önem derecesi (kritik, hata, uyarı ve bildirim) kurallara sahip olabilirsiniz ve bu önem derecesine bağlı olarak, Anomali puanı adlı istek için sayısal bir değer bunlar da artacaktır. Örneğin, eşleşen bir uyarı kuralı 3 değeri katkıda bulunur, ancak eşleşen bir kritik kural 5 değerini katkıda bulunur. 
+
+Bir eşiğin altında değil trafik engellenir Anomali puanı için bu eşiği 5 olarak ayarlanmıştır. Bu, tek bir eşleşen kritik kural (kritik kuralı anomali puanı 5, önceki paragrafta göre artırır olduğundan) Azure WAF önleme modunda bir isteği engeller. böylece yeterli anlamına gelir. Ancak, bir eşleşen kuralı uyarı olacak yalnızca artış anomali bir düzeyde puanı ile 3. 3 hala 5 eşiğin altında olduğundan, WAF önleme modunda olsa bile hiçbir trafik engellenir. 
+
+İleti bir WAF kurallarını eşleşme trafiği alan action_s "Engellendi" olarak dahil edilir, ancak bu mutlaka trafiğin gerçekten engellendi gelmez günlüğe unutmayın. 5 veya daha yüksek bir anomali puanı gerçekten trafiği engellemek için gereklidir.  
 
 ### <a name="application-gateway-waf-reports"></a>WAF İzleme
 

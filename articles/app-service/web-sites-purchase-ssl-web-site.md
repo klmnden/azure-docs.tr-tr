@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b569165153ce713846be5e836a26f48e500be1fc
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446758"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594143"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Satın alma ve Azure App Service için SSL sertifikası yapılandırma
 
@@ -54,7 +54,7 @@ Sertifika yapılandırmanıza yardımcı olması için aşağıdaki tabloyu kull
 | Abonelik | Web uygulamasının barındırıldığı veri merkezi. |
 | Kaynak grubu | Sertifikayı içeren kaynak grubu. App Service uygulamanızı, örneğin aynı kaynak grubunu seçin ya da yeni bir kaynak grubunu kullanın. |
 | Sertifika SKU'su | Standart bir sertifika mı yoksa mı oluşturmak için sertifika türünü belirler [joker sertifikası](https://wikipedia.org/wiki/Wildcard_certificate). |
-| Yasal Koşullar | Yasal koşulları kabul onaylamak için tıklayın. |
+| Yasal Koşullar | Yasal koşulları kabul onaylamak için tıklayın. Sertifikaları Godaddy'den elde edilir. |
 
 ## <a name="store-in-azure-key-vault"></a>Azure Key vault'ta Store
 

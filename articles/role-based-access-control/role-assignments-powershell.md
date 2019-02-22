@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 84fd4262d3b64b369d6307a6a875e8a459324aaa
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 6d74ee8ee144667df49ba4226d1db720969e19bd
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343783"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588492"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>RBAC ve Azure PowerShell kullanarak Azure kaynaklarına erişimi yönetme
 
@@ -81,9 +81,11 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-### <a name="list-a-specific-role-in-json-format"></a>Belirli bir rolü JSON biçiminde listeleyin
+## <a name="list-a-role-definition"></a>Bir rol tanımını listeleme
 
-Belirli bir rolü JSON biçiminde listelemek için kullanın [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+### <a name="list-a-role-definition-in-json-format"></a>JSON biçiminde bir rol tanımını listeleme
+
+Bir rol tanımı JSON biçiminde listelemek için kullanın [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role name> | ConvertTo-Json

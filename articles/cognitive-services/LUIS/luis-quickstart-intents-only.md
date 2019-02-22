@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: b4ac0ccb249bac7149014861056c10f9093d6759
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878178"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593922"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Öğretici: Kullanıcı amaçları belirlemek için LUIS uygulaması oluşturma
 
@@ -165,9 +165,13 @@ LUIS portala geri dönün ve bir proje için uygulama hakkında kullanıcı utte
     |Submit resume for engineering position (Mühendislik pozisyonu için özgeçmişimi gönder)|
     |This is my c.v. POST 234123 Tampa içinde.|
 
-    [![Yeni konuşma ApplyForJob hedefi için girme ekran görüntüsü](media/luis-quickstart-intents-only/utterance-applyforjob.png "ApplyForJob hedefi için yeni konuşma girme ekran görüntüsü")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+<!--
 
-    LUIS, şu an için amacın doğru olduğundan emin olmadığından etiketlenen amaç kırmızıyla işaretlenmiştir. Uygulamayı eğittiğinizde LUIS, konuşmaların doğru amaca ait olduğunu anlar. 
+    [![Screenshot of entering new utterances for ApplyForJob intent](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot of entering new utterances for ApplyForJob intent")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+
+    The labeled intent is outlined in red because LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
+
+-->
 
 ## <a name="train-again"></a>Yeniden eğitme
 

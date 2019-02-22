@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 5252eed66018cd2028545567dfe62ca7ba17be7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/19/2019
+ms.openlocfilehash: 884c87501a54a582177cba99596fe6f0b4cccf36
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247825"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593344"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Hizmet olarak doğrulama için sürüm notları
 
@@ -28,14 +28,13 @@ ms.locfileid: "55247825"
 Bu makalede, bir hizmet olarak Azure Stack doğrulama için sürüm notları bulunur.
 
 ## <a name="version-405"></a>Sürüm 4.0.5
+
 2019 Ocak 17
 
--  Disk kimliği Test adresi depolama havuzu tutarsızlıklar için güncelleştirildi. Sürüm: 5.1.14.0  -> 5.1.15.0
--  Azure Stack aylık güncelleştirme adresine güncelleştirilmiş doğrulama, yazılım ve içerik doğrulama tutarsızlıklar onaylandı. Sürüm: 5.1.14.0  -> 5.1.15.0
--  OEM uzantı paketi doğrulama güncelleştirilmiş gerekli denetimleri gerçekleştirmek için *önce* Azure Stack güncelleştirme adım. Sürüm: 5.1.14.0  -> 5.1.15.0
--  İç hata düzeltmeleri
-
-
+- Disk kimliği Test adresi depolama havuzu tutarsızlıklar için güncelleştirildi. Sürüm: 5.1.14.0 -> 5.1.15.0
+- Azure Stack aylık güncelleştirme adresine güncelleştirilmiş doğrulama, yazılım ve içerik doğrulama tutarsızlıklar onaylandı. Sürüm: 5.1.14.0 -> 5.1.17.0
+- Azure Stack güncelleştirme adımdan önce gerekli denetimleri gerçekleştirmek için OEM uzantı paketi doğrulama güncelleştirildi. Sürüm: 5.1.14.0 -> 5.1.16.0
+- İç hata düzeltmeleri
 
 ## <a name="version-402"></a>Sürüm 4.0.2
 
@@ -77,7 +76,7 @@ OEM güncelleştirme adıma aldıktan sonra Azure Stack aylık güncelleştirme 
 
 - VaaS önkoşulları ve VHD güncelleştirir
 
-    `Install-VaaSPrerequisites` Şimdi çözüm doğrulama sırasında bir soruna yönelik olarak bulut Yöneticisi kimlik bilgileri gerektirir. Adresindeki belgelere [aracısını indirme ve yükleme](azure-stack-vaas-local-agent.md#download-and-install-the-agent) şununla güncelleştirildi:
+    `Install-VaaSPrerequisites` Şimdi paket doğrulaması sırasında bir soruna yönelik olarak bulut Yöneticisi kimlik bilgileri gerektirir. Adresindeki belgelere [aracısını indirme ve yükleme](azure-stack-vaas-local-agent.md#download-and-install-the-agent) şununla güncelleştirildi:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -104,7 +103,7 @@ OEM güncelleştirme adıma aldıktan sonra Azure Stack aylık güncelleştirme 
 
   - Bildirimleri imzalama paket
 
-    Çözüm doğrulama iş akışının bir parçası bir OEM özelleştirme paketi gönderildiğinde, yayımlanan belirtimini izlediğini emin olmak için paket biçimi doğrulanır. Paket uyumlu değil çalıştırma başarısız olur. Kiracı için kaydedilen Azure Active Directory kişinin e-posta adresine e-posta bildirimi gönderilir.
+    Paket doğrulaması iş akışının bir parçası bir OEM özelleştirme paketi gönderildiğinde, yayımlanan belirtimini izlediğini emin olmak için paket biçimi doğrulanır. Paket uyumlu değil çalıştırma başarısız olur. Kiracı için kaydedilen Azure Active Directory kişinin e-posta adresine e-posta bildirimi gönderilir.
 
   - Etkileşimli test kategorisi
 

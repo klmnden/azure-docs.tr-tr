@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 3d2f07a2a5f660a6f22256fa528c2a308fde81ad
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 20c103c19de203d7598484b8f1d160256cb253e9
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435371"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648872"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Bir ağ güvenlik grubu tanılama günlüğüne kaydetme
 
@@ -40,8 +40,8 @@ Kullanabileceğiniz [Azure portalı](#azure-portal), [PowerShell](#powershell), 
 2. Seçin **tüm hizmetleri**, Anahtar'a *ağ güvenlik grupları*. Zaman **ağ güvenlik grupları** arama sonuçlarında görünmesini, onu seçin.
 3. Günlüğe kaydetmeyi etkinleştirmek istediğiniz NSG seçin.
 4. Altında **izleme**seçin **tanılama günlükleri**ve ardından **tanılamayı Aç**, aşağıdaki resimde gösterildiği gibi:
- 
-    ![Tanılamayı açma](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
+
+   ![Tanılamayı açma](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
 
 5. Altında **tanılama ayarları**girin veya aşağıdaki bilgileri seçin ve ardından **Kaydet**:
 
@@ -54,32 +54,34 @@ Kullanabileceğiniz [Azure portalı](#azure-portal), [PowerShell](#powershell), 
 
 ### <a name="powershell"></a>PowerShell
 
-İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. PowerShell kullanarak bilgisayarınızdan çalıştırırsanız, gereksinim duyduğunuz *AzureRM* PowerShell modülü sürüm 6.1.1 veya üzeri. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü sürümü bulmak için bilgisayarınızda. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Login-AzureRmAccount` Azure'a olan bir hesapla oturum açmak için [gerekli izinleri](virtual-network-network-interface.md#permissions)].
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Tanılama günlüğüne kaydetmeyi etkinleştirmek için mevcut bir NSG kimliği gerekir. Mevcut bir NSG yoksa biriyle oluşturabilirsiniz [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup).
+İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. PowerShell kullanarak bilgisayarınızdan çalıştırırsanız, Azure PowerShell modülü, sürüm 1.0.0 gerekir veya üzeri. Çalıştırma `Get-Module -ListAvailable Az` yüklü sürümü bulmak için bilgisayarınızda. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Connect-AzAccount` Azure'a olan bir hesapla oturum açmak için [gerekli izinleri](virtual-network-network-interface.md#permissions).
 
-Tanılama ile günlük etkinleştirmek istediğiniz ağ güvenlik grubu [Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup). Örneğin, bir NSG alınacak adlı *myNsg* adlı bir kaynak grubunda mevcut olan *myResourceGroup*, aşağıdaki komutu girin:
+Tanılama günlüğüne kaydetmeyi etkinleştirmek için mevcut bir NSG kimliği gerekir. Mevcut bir NSG yoksa biriyle oluşturabilirsiniz [yeni AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
+
+Tanılama ile günlük etkinleştirmek istediğiniz ağ güvenlik grubu [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Örneğin, bir NSG alınacak adlı *myNsg* adlı bir kaynak grubunda mevcut olan *myResourceGroup*, aşağıdaki komutu girin:
 
 ```azurepowershell-interactive
-$Nsg=Get-AzureRmNetworkSecurityGroup `
+$Nsg=Get-AzNetworkSecurityGroup `
   -Name myNsg `
   -ResourceGroupName myResourceGroup
 ```
 
-Tanılama günlükleri için hedef üç yazabilirsiniz. Daha fazla bilgi için [oturum hedefleri](#log-destinations). Bu makalede, günlükleri gönderilen *Log Analytics* örnek olarak bir hedef. Mevcut bir Log Analytics çalışma alanıyla almak [Get-Azurermoperationalınsightsworkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). Örneğin, mevcut bir çalışma alanı almak için adlı *myWorkspace* adlı bir kaynak grubu içinde *myWorkspaces*, aşağıdaki komutu girin:
+Tanılama günlükleri için hedef üç yazabilirsiniz. Daha fazla bilgi için [oturum hedefleri](#log-destinations). Bu makalede, günlükleri gönderilen *Log Analytics* örnek olarak bir hedef. Mevcut bir Log Analytics çalışma alanıyla almak [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Örneğin, mevcut bir çalışma alanı almak için adlı *myWorkspace* adlı bir kaynak grubu içinde *myWorkspaces*, aşağıdaki komutu girin:
 
 ```azurepowershell-interactive
-$Oms=Get-AzureRmOperationalInsightsWorkspace `
+$Oms=Get-AzOperationalInsightsWorkspace `
   -ResourceGroupName myWorkspaces `
   -Name myWorkspace
 ```
 
-Mevcut bir çalışma alanı yoksa, biriyle oluşturabilirsiniz [New-Azurermoperationalınsightsworkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace).
+Mevcut bir çalışma alanı yoksa, biriyle oluşturabilirsiniz [yeni AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-Günlüğe kaydetme için günlükleri etkinleştirebilirsiniz iki kategorisi vardır. Daha fazla bilgi için [günlük kategorileri](#log-categories). NSG'yi için tanılama günlüğünü etkinleştirme [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting). Aşağıdaki örnekte olay hem sayaç kategorisi verileri, kimlikleri NSG ve daha önce aldığınız çalışma alanı için kullanarak, bir NSG için çalışma alanına kaydeder:
+Günlüğe kaydetme için günlükleri etkinleştirebilirsiniz iki kategorisi vardır. Daha fazla bilgi için [günlük kategorileri](#log-categories). NSG'yi için tanılama günlüğünü etkinleştirme [kümesi AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting). Aşağıdaki örnekte olay hem sayaç kategorisi verileri, kimlikleri NSG ve daha önce aldığınız çalışma alanı için kullanarak, bir NSG için çalışma alanına kaydeder:
 
 ```azurepowershell-interactive
-Set-AzureRmDiagnosticSetting `
+Set-AzDiagnosticSetting `
   -ResourceId $Nsg.Id `
   -WorkspaceId $Oms.ResourceId `
   -Enabled $true
@@ -105,7 +107,7 @@ nsgId=$(az network nsg show \
   --output tsv)
 ```
 
-Tanılama günlükleri için hedef üç yazabilirsiniz. Daha fazla bilgi için [oturum hedefleri](#log-destinations). Bu makalede, günlükleri gönderilen *Log Analytics* örnek olarak bir hedef. Daha fazla bilgi için [günlük kategorileri](#log-categories). 
+Tanılama günlükleri için hedef üç yazabilirsiniz. Daha fazla bilgi için [oturum hedefleri](#log-destinations). Bu makalede, günlükleri gönderilen *Log Analytics* örnek olarak bir hedef. Daha fazla bilgi için [günlük kategorileri](#log-categories).
 
 NSG'yi için tanılama günlüğünü etkinleştirme [az İzleyici diagnostic-settings oluşturma](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). Aşağıdaki örnekte adlı mevcut bir çalışma alanına olay hem sayaç kategorisi veri günlükleri *myWorkspace*, adlı bir kaynak grubunda mevcut *myWorkspaces*ve aldığınız NSG kimliği daha önce:
 
@@ -118,7 +120,7 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-Mevcut bir çalışma alanı yoksa, kullanarak bir tane oluşturabilirsiniz [Azure portalında](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Günlüğe kaydetme için günlükleri etkinleştirebilirsiniz iki kategorisi vardır. 
+Mevcut bir çalışma alanı yoksa, kullanarak bir tane oluşturabilirsiniz [Azure portalında](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Günlüğe kaydetme için günlükleri etkinleştirebilirsiniz iki kategorisi vardır. 
 
 Yalnızca bir kategori veya diğer verilerini günlüğe kaydetmek istiyorsanız, önceki komutta verileri açmaya istemediğiniz kategori kaldırın. Farklı bir oturum istiyorsanız [hedef](#log-destinations) bir Log Analytics çalışma alanı uygun parametreleri için bir Azure kullanın [depolama hesabı](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [olay hub'ı](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -199,14 +201,14 @@ Tanılama günlük verilerini görüntüleme hakkında bilgi edinmek için [Azur
 - **Log Analytics**: Kullanabileceğiniz [ağ güvenlik grubu analizi](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) Gelişmiş ınsights çözümü. Çözüm izin veren veya reddeden trafik, bir sanal makine ağ arabiriminin MAC adresi başına NSG kuralları için görsel öğeler sağlar.
 - **Azure depolama hesabı**: Veriler bir PT1H.json dosyasına yazılır. Bulabilirsiniz:
-    - Olay günlüğünde aşağıdaki yolu: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
-    - Sayaç günlüğünde aşağıdaki yol kuralı: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Olay günlüğünde aşağıdaki yolu: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Sayaç günlüğünde aşağıdaki yol kuralı: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Daha fazla bilgi edinin [etkinlik günlüğü](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), daha önce denetim veya işlem günlükleri olarak bilinir. Etkinlik günlüğü, her iki Azure dağıtım modeliyle oluşturulan Nsg'ler için varsayılan olarak etkindir. Hangi işlemlerin etkinlik günlüğünde ağlardaki Nsg'ler tamamlandığını belirlemek için aşağıdaki kaynak türlerini içeren girişlerini arayın:
-    - Microsoft.ClassicNetwork/networkSecurityGroups
-    - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
-    - Microsoft.Network/networkSecurityGroups
-    - Microsoft.Network/networkSecurityGroups/securityRules
+  - Microsoft.ClassicNetwork/networkSecurityGroups
+  - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
+  - Microsoft.Network/networkSecurityGroups
+  - Microsoft.Network/networkSecurityGroups/securityRules
 - Her bir akışa ilişkin kaynak IP adresi eklemek için tanılama bilgilerini günlüğe kaydetme hakkında bilgi edinmek için bkz. [NSG akış günlüğü](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

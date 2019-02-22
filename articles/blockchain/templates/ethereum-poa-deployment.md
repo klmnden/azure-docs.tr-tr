@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 42e5fd713f6353a2a939236f34463e9ba4195e29
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313577"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650215"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum yetkilisi kavram consortium
 
@@ -285,14 +285,14 @@ Aşağıda bir örnek dağıtımı: ![ethereum ayarları](./media/ethereum-poa-d
 
 #### <a name="monitoring"></a>İzleme
 
-İzleme dikey penceresinde, ağınız için bir Log Analytics kaynak yapılandırmanıza olanak sağlar. İzleme Aracısı'nı toplar ve yüzey yararlı ölçüm ve günlükleri ağınızdan, hızlı bir şekilde hata ayıklama ve ağ durumu denetleme olanağı tanıyacak verir.
+İzleme dikey penceresinde, ağınız için bir Azure İzleyici günlüklerine kaynak yapılandırmanıza olanak sağlar. İzleme Aracısı'nı toplar ve yüzey yararlı ölçüm ve günlükleri ağınızdan, hızlı bir şekilde hata ayıklama ve ağ durumu denetleme olanağı tanıyacak verir.
 
   Parametre adı|Açıklama|İzin verilen değerler|Varsayılan değerler
   ---|---|---|---
 İzleme|İzleme özelliğini etkinleştirme seçeneği|Etkinleştirmek veya devre dışı|Etkinleştirme
-Mevcut Log Analytics'e bağlanma|Yeni bir Log Analytics örneği oluşturabilir veya var olan bir örneğini katılın|Yeni veya mevcut katılın|Yeni oluştur
-İzleme konumu (mevcut Log analytics'e Bağlan = Yeni Oluştur)|Yeni Log Analytics örneği dağıtılacağı bölge|Tüm Log Analytics bölgeler|NA
-Mevcut Log Analytics çalışma alanı kimliği (mevcut Log analytics'e Bağlan katılın mevcut =)|Mevcut Log Analytics çalışma alanı kimliği||NA
+Mevcut Azure İzleyici günlüklerine bağlanma|Yeni bir Azure İzleyici günlüklerine örneği oluşturabilir veya var olan bir örneğini katılın|Yeni veya mevcut katılın|Yeni oluştur
+İzleme konumu (var olan Azure İzleyici günlüklerine Bağlan = Yeni Oluştur)|Yeni Azure İzleyici örneği burada oturum bölgeye dağıtılır|Bölgeleri tüm Azure izleme günlükleri|NA
+Mevcut Log Analytics çalışma alanı kimliği (var olan Azure İzleyici günlüklerine Bağlan katılın mevcut =)|Çalışma alanı kimliği mevcut Azure İzleyicisi'nin örneği günlüğe kaydeder.||NA
 Mevcut Log Analytics birincil anahtar (mevcut Log analytics'e Bağlan katılın mevcut =)|Mevcut Log Analytics'e bağlanmak için kullanılan birincil anahtar||NA
 
 
@@ -425,7 +425,7 @@ Seçme **ağ istatistikleri** Ethereum ağ istatistiklerini görüntülemek içi
 
 ![Ağ istatistikleri](./media/ethereum-poa-deployment/network-stats.png)
 
-#### <a name="sample-log-analytics-queries"></a>Örnek Log Analytics sorguları
+#### <a name="sample-kusto-queries"></a>Kusto sorgu örneği
 
 Bu panolar sorgulanabilir ham günlükleri kümesidir. Panoları özelleştirin, hataları araştırmak ve uyarı verme eşiği kurulumu için bu ham günlükleri'ni kullanabilirsiniz. Aşağıda günlük arama aracında olabilecek örnek sorguları bir dizi çalıştırıldı bulabilirsiniz:
 

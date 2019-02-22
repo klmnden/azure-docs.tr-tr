@@ -11,31 +11,32 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 3940c2f239a4354cfb44a499f7375f4ba34f8aa8
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/18/2019
+ms.openlocfilehash: 857af7a10f6efb87133ba086dcb6897074c7f8ec
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892036"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586430"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Yönetilen örnek Azure SQL veritabanı ile çalışmaya başlama
 
-[Yönetilen örnek](sql-database-managed-instance-index.yml) dağıtım seçeneği neredeyse % 100 uyumluluk altyapısıyla en son SQL Server şirket içi (Enterprise Edition) veritabanı yerel sağlayan, bir veritabanı oluşturma [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md) ortak güvenlik endişelerini ortadan uygulama ve [iş modeli](https://azure.microsoft.com/pricing/details/sql-database/) şirket içi SQL Server müşterileri için yeterli. Bu bölümde, hızlı bir şekilde yapılandırın ve yönetilen örnek oluşturma ve veritabanlarınızı öğreneceksiniz.
+[Yönetilen örnek](sql-database-managed-instance-index.yml) dağıtım seçeneği, veritabanı ile % 100 yerel sağlayarak en son SQL Server şirket içi (Enterprise Edition) veritabanı altyapısı, uyum yakın oluşturur [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md) ortak güvenlik endişelerini ortadan uygulama ve [iş modeli](https://azure.microsoft.com/pricing/details/sql-database/) şirket içi SQL Server müşterileri için yeterli. Bu makalede, hızlı bir şekilde yapılandırın ve yönetilen örnek oluşturma ve veritabanlarınızı öğreneceksiniz.
 
 ## <a name="quickstart-overview"></a>Hızlı genel bakış
 
 Şu hızlı başlangıçlarda hızlı bir şekilde yönetilen örnek oluşturma, bir sanal makineyi yapılandırmak veya konuma VPN bağlantısı için istemci uygulaması işaret olanak sağlar ve yeni, kullanarak yönetilen örnek bir veritabanı geri bir `.bak` dosyası:
 
-- [Azure portalını kullanarak yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md). Azure portalında gerekli parametreleri (kullanıcı adı/parola, çekirdek sayısı, en fazla depolama alanı), yapılandırma ve Azure ağ ortamında Ağ ayrıntıları ve altyapı gereksinimleri hakkında bilmeniz gereken gerek kalmadan otomatik olarak oluşturun. Yalnızca sahip olduğunuzdan emin olun bir [abonelik türü](sql-database-managed-instance-resource-limits.md#supported-subscription-types) yönetilen örnek oluşturma için verilir. Kullanmak istediğiniz ya da ağ özelleştirmek istediğiniz kendi ağ varsa, bir yönetilen örnek için ağ ortamını yapılandırmak bkz.
+- [Azure portalını kullanarak yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md). Azure portalında, gerekli parametreleri (kullanıcı adı/parola, en fazla depolama alanı miktarı ve çekirdek sayısı) yapılandırma ve otomatik olarak Azure ağ ortamında Ağ ayrıntıları ve altyapı gereksinimleri hakkında bilmek zorunda kalmadan oluşturun. Yalnızca sahip olduğunuzdan emin olun bir [abonelik türü](sql-database-managed-instance-resource-limits.md#supported-subscription-types) , şu anda izin verilmiştir yönetilen örnek oluşturma. Kullanmak istediğiniz kendi ağ varsa veya istediğiniz ağ özelleştirmek bkz [Azure SQL veritabanı yönetilen örneği için mevcut bir sanal ağ yapılandırma](sql-database-managed-instance-configure-vnet-subnet.md) veya [Azure SQL veritabanı için sanal ağ oluşturma Yönetilen örnek](sql-database-managed-instance-create-vnet-subnet.md).
 - Yönetilen örnek genel bir uç nokta ile kendi sanal ağ oluşturulur. İstemci uygulama erişimi için (farklı bir alt ağ) aynı sanal ağda VM oluşturma veya şu hızlı başlangıçlardan biriyle kullanarak istemci bilgisayardan Vnet'e noktadan siteye VPN bağlantısı oluşturma.
+
   - Oluşturma [Azure sanal makinesi yönetilen örneğinde VNet](sql-database-managed-instance-configure-vm.md) istemci uygulama bağlantısı için SQL Server Management Studio dahil olmak üzere.
   - Ayarlanan [noktadan siteye VPN bağlantısı yönetilen Örneğinize](sql-database-managed-instance-configure-p2s.md) üzerinde sahip olduğunuz SQL Server Management Studio ve diğer istemci bağlantı uygulamaları istemci bilgisayardan. Diğer yönetilen Örneğinize ve kendi sanal ağa bağlantı için iki seçenek budur.
 
   > [!NOTE]
   > Express route veya siteden siteye bağlantı yerel ağınızdan de kullanabilirsiniz, ancak bu yaklaşımların şu hızlı başlangıçlardan biriyle kapsamı dışında olan.
 
-Yönetilen örnek oluşturma ve erişim'ı yapılandırdıktan sonra şirket içi SQL Server veya Azure Vm'leri üzerinde yerleştirilen veritabanlarınızı geçirme başlayabilirsiniz. Geçirmek istediğiniz kaynak veritabanında desteklenmeyen bazı özellikler varsa, geçiş başarısız olur. Uyumluluğu denetlemek ve hatalarını önlemek için yükleyebilirsiniz [Data Migration Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) , SQL Server veritabanlarınızı analiz eder ve bulduğu aşağıdakilerden sorunu varlığınıgibibiryönetilenörneğegeçişengelleyin[FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) veya birden çok günlük dosyası. Bu sorunları çözmek, veritabanlarınızı yönetilen örneğe geçiş hazır olursunuz. [Veritabanı deneme Yardımcısı](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) iş yükünüze dayalı bir yönetilen örnek üzerinde tanımlayabilirsiniz böylece oraya giden bir yönetilen örneğe geçiş herhangi bir performans sorunu olarak SQL Server ve yeniden yürütme kaydedebilen başka yararlı bir araçtır.
+Yönetilen örnek oluşturma ve erişim'ı yapılandırdıktan sonra şirket içi SQL Server ya da Azure Vm'lerini veritabanlarınızı geçirme başlayabilirsiniz. Geçirmek istediğiniz kaynak veritabanında desteklenmeyen bazı özellikler varsa, geçiş başarısız olur. Uyumluluğu denetlemek ve hatalarını önlemek için yükleyebilirsiniz [Data Migration Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) , SQL Server veritabanlarınızı analiz eder ve bulduğu aşağıdakilerden sorunu varlığınıgibibiryönetilenörneğegeçişengelleyin[FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) veya birden çok günlük dosyası. Bu sorunları çözmek, veritabanlarınızı yönetilen örneğe geçiş hazır olursunuz. [Veritabanı deneme Yardımcısı](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) iş yükünüze dayalı bir yönetilen örnek üzerinde tanımlayabilirsiniz böylece oraya giden bir yönetilen örneğe geçiş herhangi bir performans sorunu olarak SQL Server ve yeniden yürütme kaydedebilen başka yararlı bir araçtır.
 
 Yönetilen örnek için veritabanınızı geçirebileceğiniz emin olduktan sonra yönetilen bir örneğinden içine bir veritabanını geri yüklemek için yerel SQL Server geri yükleme özelliklerini kullanabilir bir `.bak` dosya. Hızlı Başlangıç için bkz: [yedekten bir yönetilen örneğine geri](sql-database-managed-instance-get-started-restore.md). Bu hızlı başlangıçta, geri bir `.bak` Azure Blob Depolama kullanarak depolanan dosya `RESTORE` Transact-SQL komutu. 
 
@@ -67,5 +68,5 @@ Bu hızlı başlangıç makalelerinde hızlı bir şekilde bir yönetilen örne�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bulma bir [üst düzey burada yönetilen örneğinde desteklenen özellikler listesini](sql-database-features.md) ve [ayrıntıları ve bilinen sorunlar](sql-database-managed-instance-transact-sql-information.md).
-- Hakkında bilgi edinin [yönetilen örneği Teknik Özellikleri](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits). 
+- Hakkında bilgi edinin [yönetilen örnek Teknik Özellikleri](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits). 
 - Nasıl daha gelişmiş bulma-için kullanıcının [Azure SQL veritabanı'nda bir yönetilen örnek kullanmayı](sql-database-howto-managed-instance.md). 

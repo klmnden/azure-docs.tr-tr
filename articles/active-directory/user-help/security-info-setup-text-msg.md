@@ -1,5 +1,5 @@
 ---
-title: Kısa mesaj bir - kullanılacak güvenlik bilgisi (Önizleme) Azure Active Directory ayarlama | Microsoft Docs
+title: Kısa mesaj - kullanılacak güvenlik bilgisi (Önizleme) Azure Active Directory ayarlama | Microsoft Docs
 description: Güvenlik bilgilerinizi kısa mesaj ve mobil Cihazınızı kullanarak kimliğinizi doğrulamak için nasıl kurulur.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a130113c7e6052befdc61927589c1151a062bdb9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 00236a810fb85be6af914021acec2d2b87698e1d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456104"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588594"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Güvenlik bilgileri (Önizleme), kısa mesaj kullanacak şekilde
 İki aşamalı doğrulamayı eklemek için aşağıdaki adımları uygulayabilirsiniz ve yöntemleri sıfırlama. Bu ilk kez ayarladıktan sonra dönebilirsiniz **güvenlik bilgisi** sayfasına ekleme, güncelleştirme veya güvenlik bilgilerinizi silin.

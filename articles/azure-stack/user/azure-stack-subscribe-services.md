@@ -13,25 +13,25 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 66c462dee3a2940a7a090101ffb9cec7e4ff1e7c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 431c31b39103e5ef21cb83b388167cab57e0c129
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981300"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649093"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Öğretici: oluşturma ve test aboneliği
 
-Bu öğreticide bir teklif içeren bir aboneliği oluşturun ve ardından test gösterilmektedir. Test için bir bulutun Yöneticisi olarak Azure Stack kullanıcı portalında oturum açın, teklife abone olun ve sonra bir sanal makine oluşturun.
+Bu öğreticide, bir teklif içeren bir aboneliği oluşturun ve ardından test gösterilmektedir. Test için bir bulutun Yöneticisi olarak Azure Stack kullanıcı portalında oturum açın, teklife abone olun ve sonra bir sanal makine oluşturun.
 
 > [!TIP]
-> Daha fazla Gelişmiş değerlendirme için bir deneyim, yapabilecekleriniz [belirli bir kullanıcı için bir abonelik oluşturmak](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) ve Kullanıcı Portalı'nda, bir kullanıcı olarak oturum açın. 
+> Daha fazla Gelişmiş değerlendirme için bir deneyim, yapabilecekleriniz [belirli bir kullanıcı için bir abonelik oluşturmak](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) ve Kullanıcı Portalı'nda, bir kullanıcı olarak oturum açın.
 
-Bu öğreticide bir Azure Stack teklife abone olma gösterilmektedir.
+Bu öğreticide, Azure Stack teklife abone olma işlemi gösterilmektedir.
 
 Ne öğreneceksiniz:
 
@@ -60,10 +60,10 @@ Bir kullanıcı olarak bir teklife abone olmak için Azure Stack Kullanıcı Por
 
 ## <a name="test-the-offer"></a>Test teklifini
 
-Kullanıcı portalında oturum açmış durumdayken yeni abonelik özelliklerini kullanarak bir sanal makine sağlama tarafından teklif test edebilirsiniz. 
+Kullanıcı portalında oturum açmış durumdayken yeni abonelik özelliklerini kullanarak bir sanal makine sağlama tarafından teklif test edebilirsiniz.
 
 > [!NOTE]
-> Bu test, bir Windows Server 2016 Datacenter VM için Azure Stack marketini ilk eklendiğini gerektirir. 
+> Bu test, bir Windows Server 2016 Datacenter VM için Azure Stack marketini ilk eklendiğini gerektirir.
 
 1. Kullanıcı portalında oturum açın.
 
@@ -84,7 +84,6 @@ Kullanıcı portalında oturum açmış durumdayken yeni abonelik özelliklerini
 > [!NOTE]
 > Sanal makine dağıtımını tamamlanması birkaç dakika sürer.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide öğrendiklerinizi:
@@ -92,7 +91,6 @@ Bu öğreticide öğrendiklerinizi:
 > [!div class="checklist"]
 > * Bir teklife abone olma 
 > * Test teklifini
-
 
 > [!div class="nextstepaction"]
 > [Topluluk şablonundan bir VM oluşturma](azure-stack-create-vm-template.md)

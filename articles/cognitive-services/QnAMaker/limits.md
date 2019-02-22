@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 6f36000eb5a17e58d1450a064897dd9caef89bad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 424aa7038fecba7a11c1ccaa07053cf2e1606835
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859360"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651146"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Soru-cevap Oluşturucu Bilgi Bankası sınırları ve sınır
 Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
@@ -71,6 +71,6 @@ Bunlar, her güncelleştirme eylemi sınırlarını temsil eder; diğer bir deyi
 
 Ne zaman ve hizmet katmanlarını değiştirme öğrenin:
 
-* [Soru-cevap Oluşturucu](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): fiyatlandırma katmanı, soru-cevap Oluşturucu hizmetini yükseltmeniz geçerli katmanınızı ötesinde, Bilgi Bankası'nda daha fazla sorularını ve yanıtlarını olması gerekir.
-* [Arama](how-to/upgrade-qnamaker-service.md#upgrade-app-service) - bilgi bankanızı gerektiğinde istemci uygulamanıza ilişkin daha fazla isteklere hizmet app service fiyatlandırma katmanına yükseltin.
-* [App service](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): birçok bilgi bankaları planlama yaparken, Azure Search hizmetinizin fiyatlandırma katmanı yükseltin.
+* [Soru-cevap Oluşturucu](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): Ne zaman daha fazla kaynak dosya olması gerekir veya geçerli katmanınızı ötesinde, Bilgi Bankası'nda büyük belgeler fiyatlandırma katmanı, soru-cevap Oluşturucu hizmetini yükseltin.
+* [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service): Bilgi bankanızı istemci uygulamanıza ilişkin daha fazla isteklere hizmet gerektiğinde, app service fiyatlandırma katmanına yükseltin.
+* [Azure Search'ü](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): Birçok bilgi bankaları planlama yaparken, Azure Search hizmetinizin fiyatlandırma katmanına yükseltin.

@@ -1,5 +1,5 @@
 ---
-title: Bileşik varlık"
+title: Bileşik varlık Öğreticisi
 titleSuffix: Azure Cognitive Services
 description: Çeşitli türlerde ayıklanan verileri içeren tek bir varlığa paket için bileşik bir varlık ekleyin. İstemci uygulama, verileri paketleme tarafından farklı veri türlerinde ilgili verileri kolayca ayıklayabilirsiniz.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0d78c365b171ea80d208c447f4746fe80b965ef2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2da007d0e97f55432282fbc52c38ef3f50a2e5f4
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883313"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593582"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Öğretici: İlişkili verileri gruplandırma ve ayıklama
 Bu öğreticide, bileşik bir varlık içeren tek bir varlığa çeşitli türlerde ayıklanan veri paketi ekleyin. İstemci uygulama, verileri paketleme tarafından farklı veri türlerinde ilgili verileri kolayca ayıklayabilirsiniz.
@@ -85,18 +85,19 @@ LUIS, ortak veri ayıklama işlemi için önceden oluşturulmuş birkaç varlık
 
 1. Seçin **TransferEmployeeToDepartment** hedefleri listesinde.
 
-1. İlk utterance içinde personName varlığı seçin `John Jackson`, ardından **Bileşik varlık sarmalama Başlat** açılır menüsü listesinde aşağıdaki utterance için:
+1. Utterance içinde `place John Jackson in engineering`, personName varlığı seçin `John Jackson`, ardından **kaydırma bileşik varlıkta** aşağıdaki utterance açılır menüsü listesinde. 
 
-    `place John Jackson in engineering`
+    ![Açılan iletişim kaydırma bileşik seçme işleminin ekran görüntüsü](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. Son varlık hemen ardından `engineering` utterance içinde. Bileşik bir varlığı gösteren sözcüklerin altında yeşil bir çubuk çizilir. Açılır menüde, bileşik adını `TransferEmployeeInfo` seçin ENTER. 
 
-1. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?**, gerekli tüm alanlar listesinde bağlıdır: `personName` ve `Department`. **Done** (Bitti) öğesini seçin. 
+    ![Açılan iletişim bileşik ad girme ekran görüntüsü](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-    Önceden oluşturulmuş varlığı personName, bileşik varlığa eklendiğini dikkat edin. Başlangıç ve bitiş belirteçleri bileşik bir varlığın arasında görünür önceden oluşturulmuş bir varlık olabilir, önceden oluşturulmuş bu varlıkların bileşik varlığı içermelidir. Önceden oluşturulmuş varlıklar dahil edilmez, bileşik bir varlık değil doğru şekilde tahmin edildiğinde ancak her tek öğedir.
+1. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?**, gerekli tüm alanlar listesinde bağlıdır: `personName` ve `Department`. **Done** (Bitti) öğesini seçin. Önceden oluşturulmuş varlığı personName, bileşik varlığa eklendiğini dikkat edin. Başlangıç ve bitiş belirteçleri bileşik bir varlığın arasında görünür önceden oluşturulmuş bir varlık olabilir, önceden oluşturulmuş bu varlıkların bileşik varlığı içermelidir. Önceden oluşturulmuş varlıklar dahil edilmez, bileşik bir varlık değil doğru şekilde tahmin edildiğinde ancak her tek öğedir.
+
+    ![Açılan iletişim bileşik ad girme ekran görüntüsü](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Bileşik varlıkla etiket örnek konuşma
-
 
 1. Her örnek utterance içinde bileşik içinde olması gereken en soldaki varlığı seçin. Ardından **kaydırma bileşik varlıkta**.
 

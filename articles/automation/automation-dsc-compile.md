@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423417"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594279"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Otomasyonu durumu yapılandırması DSC yapılandırmaları derleme
 
@@ -284,6 +284,14 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 > [!NOTE]
 > Derleme tamamlandığında belirten bir hata alabilirsiniz: **'Microsoft.PowerShell.Management' eklentisi zaten içeri aktarıldığından 'Microsoft.PowerShell.Management' modülü içeri aktarılamadı.** Bu uyarıyı güvenle yoksayılabilir.
+
+## <a name="partial-configuration"></a>Kısmi yapılandırma
+
+Azure Otomasyonu durum yapılandırması kullanımını destekleyen [kısmi yapılandırmalar](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs).
+Bu senaryoda, DSC yapılandırmalarını birden çok bağımsız olarak yönetmek üzere yapılandırılmış ve Azure Otomasyonu gelen retreieved her yapılandırmadır.
+Ancak, yalnızca bir yapılandırma bir düğüm başına Otomasyon hesabı atanabilir.
+Başka bir deyişle, bir düğümü için iki yapılandırması kullanıyorsanız iki Otomasyon hesabı gerektirir.
+Takımlar nasıl çalışabileceğini hakkında daha fazla bilgi için işbirliği içinde sunucuları yönetmek için birlikte yapılandırmayı kod olarak kullanarak bkz [anlama DSC'ın bir CI/CD işlem hattı rolünde](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Düğüm yapılandırmaları alma
 

@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 359606c6dfe75d9910565cffa555b1e52d29267d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e02c99edcc1774510f9d10a5d19f49c4fc0530a9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448621"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594092"
 ---
-# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Ses giriş cihazlarını Speech SDK'sı ile seçme 
+# <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Konuşma SDK'sı ile bir ses giriş cihazını seçin
 
 Bu makalede bir sisteme bağlı ses cihazları kimliklerini almak nasıl ses girişi seçmek için bir API Speech SDK'sı sürümünü 1.3.0 tanıtır.
 Bunlar ardından Speech SDK'sı üzerinden ses cihazı yapılandırarak kullanılabilir `AudioConfig` nesnesi:
@@ -367,3 +367,13 @@ Ancak, uygulama SDK'sını kullanarak üzerinden ses yönlendirmeyi etkileyebili
 ```
 
 Konuşma özellikli bir uygulama için bir Bluetooth kulaklık kullanımını etkinleştirir.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+> [!div class="nextstepaction"]
+> [Github'da örneklerimizi keşfedin](https://aka.ms/csspeech/samples)
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+- [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
+- [Dil modellerini özelleştirme](how-to-customize-language-model.md)

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/14/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8526716b299d26d8d70c9c5e5cdace34e188d019
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0fbd15b1d29d877ad0066d01945389665126bbcc
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111076"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649263"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure'da bir SQL Server sanal makinesi için lisanslama modelini değiştirme
 Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans modeli değiştirmek nasıl SQL VM kaynak sağlayıcısı - **Microsoft.SqlVirtualMachine**. İki lisans modelleri barındıran SQL Server - ödeme-başına kullanım, bir sanal makine (VM) ve kendi lisansınızı getirin (BYOL). Ve artık, PowerShell veya Azure CLI kullanarak kullanan SQL Server VM'nize hangi lisans modeli değiştirebilirsiniz. 
@@ -34,6 +34,7 @@ Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans mo
   >[!NOTE]
   > - Lisanslama modeli dönüştürme yeteneği şu anda yalnızca bir Kullandıkça Öde SQL Server VM görüntüsüyle başlatırken kullanılabilir. Portaldan Getir-kendi lisansını görüntüsü ile başlatırsanız, o yansıma Kullandıkça Öde yöntemine dönüştürmek mümkün olmayacaktır. 
   > - CSP müşterileri, öncelikle bir Kullandıkça Öde VM dağıtarak ve ardından getirin-kendi lisansını için dönüştürme AHB avantajı kullanabilir. 
+  > - Şu anda bu özellik yalnızca genel bulut yüklemeleri için etkindir.
 
 
 ## <a name="prerequisites"></a>Önkoşullar

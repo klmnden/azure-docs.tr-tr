@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 9a43a382c1f45f0bf0fb7e93322fcbeef58cb99d
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330520"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651184"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Yeniden eğitme ve makine öğrenme modeli dağıtma
 
@@ -42,7 +42,7 @@ Yeniden eğitme bir web hizmetini dağıtmak için aşağıdaki adımları kulla
 
     Denemenizi çalıştırdıktan sonra elde edilen iş akışı aşağıdaki görüntüye benzer olmalıdır:
 
-    ![Sonuçta elde edilen iş akışı](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
+    ![Sonuçta elde edilen iş akışı](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
     Şimdi, eğitim denemesini eğitilen bir modelin ve model değerlendirme sonuçlarını veren bir yeniden eğitme web hizmeti olarak dağıtalım.
 
@@ -68,7 +68,7 @@ Yorumlar bölümünde belirtildiği gibi System.NET.http.Formatting, NuGet paket
 
 Aşağıdaki ekran görüntüsü gösterildiği **Tüket** Azure Machine Learning Web Hizmetleri portalında sayfası.
 
-![Sayfa kullanma](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
+![Sayfa kullanma](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
 ### <a name="update-the-apikey-declaration"></a>Apikey bildirimini güncelleştirin
 
@@ -114,7 +114,7 @@ Giriş dosyası, kod içinde belirttiğiniz konumda kullanılabilir olduğunu da
 
 Yeniden eğitme çıktının bir örneği aşağıda verilmiştir:
 
-![Çıktı yeniden eğitme](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![Çıktı yeniden eğitme](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
 ### <a name="evaluate-the-retraining-results"></a>Yeniden eğitme sonuçları değerlendirin
 

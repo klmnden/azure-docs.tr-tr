@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 460edc7f092764cce3584c81371db4801fbd69bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c866bb1ff5603f08377ed96ddd81eedf71e243bf
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240026"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593243"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Öğretici: Hizmet olarak doğrulama için kaynaklarını ayarlama
 
@@ -92,7 +92,7 @@ Azure AD Yöneticisi VaaS Azure AD uygulama kiracınızın adına gerekli izinle
 
 ## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma
 
-Test yürütmesi sırasında bir Azure depolama hesabına tanılama günlükleri VaaS çıkarır. Test günlüklerine ek olarak, depolama hesabı da karşıya yükleme OEM uzantı paketleri için çözüm doğrulama iş akışı için kullanılabilir.
+Test yürütmesi sırasında bir Azure depolama hesabına tanılama günlükleri VaaS çıkarır. Test günlüklerine ek olarak, depolama hesabı da karşıya yükleme OEM uzantı paketleri için paket doğrulama iş akışı için kullanılıyor olabilir.
 
 Azure depolama hesabı, Azure Stack ortamınıza değil, Azure genel bulutunda barındırılır.
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 3043067f326f782c51be38382070ae0db0e90f4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: afe8081032e0358e8e0653e9a2b6aad30ad496a9
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314161"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651235"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Bilişsel hizmetler görüntü işleme için Python SDK'sı
 
@@ -281,17 +281,16 @@ except HTTPFailure as e:
 
 İle çalışırken [ComputerVisionAPI] [ ref_computervisionclient] istemci, geçici hatalar nedeniyle çalıştırdığınızca [oran sınırları] [ computervision_request_units] zorunlu Hizmet veya ağ kesintileri gibi diğer geçici sorunlar. Bu tür hataları işleme hakkında daha fazla bilgi için bkz: [yeniden deneme düzeni] [ azure_pattern_retry] bulut tasarımı desenleri Kılavuzu ve ilgili [devre kesici düzeni] [azure_pattern_circuit_breaker].
 
-## <a name="next-steps"></a>Sonraki adımlar
-
 ### <a name="more-sample-code"></a>Daha fazla örnek kod
 
 Birden çok bilgisayar işleme Python SDK'sı örnekleri SDK'ın GitHub deposunda kullanılabilir. Bu örnekler, görüntü işleme ile çalışırken sık karşılaşılan ilave senaryolar için örnek kod sağlayın:
 
 * [recognize_text][recognize-text]
 
-### <a name="additional-documentation"></a>Diğer belgeler
+## <a name="next-steps"></a>Sonraki adımlar
 
-Görüntü işleme hizmeti ile ilgili daha kapsamlı belgeler için bkz. [Azure görüntü işleme belgeleri] [ computervision_docs] docs.microsoft.com'da.
+> [!div class="nextstepaction"]
+> [Görüntülere içerik etiket uygulama](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/

@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: a3ec74d0b22bfafb4353eca400b389b07a58ba39
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8dbe282b919c988d5cb997a66914d81ce1981f88
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246361"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592426"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Veri ambarınız için Gen2'ye yükseltme
 Duyurunun tamamını okuyun sürücü giriş düzeyi sorgular Azure SQL veri ambarı için alt bilgi işlem katmanı ekleyerek yoğun işleme yeteneğine sahip bir veri ambarı'nı çalıştırmanın maliyeti aşağı Microsoft yardımcı olma [alt işlem katmanı desteği Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). Yeni bir teklif zaten aşağıdaki tabloda belirtildiği bölgelerinde kullanılabilir. Desteklenen bölgeler için mevcut Gen1 veri ambarları için Gen2 üzerinden yükseltilebilir:
@@ -29,8 +29,6 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 
 | **Bölge** | **Daha düşük Gen2 kullanılabilir** | **Otomatik yükseltmeler başlayın** |
 |:--- |:--- |:--- |
-| Avustralya Orta 1 |1 Mart 2019 |15 Haziran 2019 |
-| Avustralya Orta 2 |1 Mart 2019 |15 Haziran 2019 |
 | Avustralya Doğu |Kullanılabilir |1 Mayıs 2019 |
 | Avustralya Güneydoğu |1 Mart 2019 |15 Haziran 2019 |
 | Güney Brezilya |\* |\* |

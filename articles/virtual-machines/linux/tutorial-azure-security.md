@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ba23e9b8ac79a0a2a3899332bfc373665cf561af
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b4c484f3dd118a19291741b071432b09894e836c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841175"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593310"
 ---
-# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Öğretici: Linux sanal makinelerini izlemek için Azure Güvenlik Merkezi kullanma
+# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Öğretici: Linux sanal makinelerini izlemek için Azure Güvenlik Merkezi'ni kullanma
 
 Azure Güvenlik Merkezi, Azure kaynak güvenliği uygulamalarınıza yönelik görünürlük elde etmenize yardımcı olabilir. Güvenlik Merkezi, tümleşik güvenlik izleme işlevi sunar. Gözden kaçabilecek tehditleri algılayabilir. Bu öğreticide, Azure Güvenlik Merkezi hakkında bilgi edinecek ve aşağıdakilerin nasıl yapılacağını öğreneceksiniz:
  
@@ -65,7 +65,7 @@ Aboneliğin tümüne bir güvenlik ilkesi oluşturmak için:
 
 1. Güvenlik Merkezi panosunda **Güvenlik ilkesini**, ardından aboneliğinizi seçin.
 2. **Güvenlik ilkesi** dikey penceresinde **Güvenlik ilkesini** seçin. 
-3. ** Güvenlik ilkesi - Güvenlik ilkesi ** dikey penceresinde, aboneliğe uygulamak istediğiniz ilke öğelerini açın veya kapatın.
+3. Üzerinde **Güvenlik İlkesi - Güvenlik İlkesi** dikey penceresinde, açın veya aboneliğe uygulamak istediğiniz ilke öğelerini devre dışı bırakın.
 4. Ayarlarınızı seçmeyi tamamladığınızda dikey pencerenin en üstünden **Kaydet**'i seçin. 
 
 ![Benzersiz ilke](./media/tutorial-azure-security/unique-policy.png)

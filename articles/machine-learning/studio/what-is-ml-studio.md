@@ -2,7 +2,6 @@
 title: Nedir
 titleSuffix: Azure Machine Learning Studio
 description: Azure Machine Learning Studio, modelleri kullanıma hazır algoritmalar ve modüller kitaplığından hızla oluşturmaya yönelik bir Sürükle ve bırak aracıdır.
-keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 4f69de744be3a9926e1c5d3e674966e24c3020dc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: e454420c014460fbf44c01cb9f620d0f3273c602
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455662"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586027"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio nedir?
 Microsoft Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Machine Learning Studio, modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web hizmetleri olarak yayımlar.
@@ -78,7 +77,7 @@ Bir denemeyi sıfırdan oluşturabilir veya var olan bir örnek denemeyi şablon
 
 Basit bir deneme oluşturma örneği için bkz. [Azure Machine Learning Studio'da basit bir deneme oluşturma](create-experiment.md).
 
-Tahmine dayalı bir analiz çözümünün daha kapsamlı bir kılavuzu için bkz. [Azure Machine Learning ile tahmine dayalı bir analiz çözümü geliştirme](tutorial-part1-credit-risk.md).
+Tahmine dayalı analiz çözümü oluşturmak daha kapsamlı kılavuzu için bkz [Azure Machine Learning Studio'da öngörülebilir bir çözüm geliştirin](tutorial-part1-credit-risk.md).
 
 ### <a name="datasets"></a>Veri kümeleri
 Bir veri kümesi, model oluşturma işleminde kullanılabilmesi için Machine Learning Studio'ya yüklenen verilerdir. Machine Learning Studio'da deneme yapabileceğiniz birçok örnek veri kümesi bulunur ve ihtiyaç duyarsanız daha çok veri kümesi yükleyebilirsiniz. Dahil olan veri kümelerine aşağıda birkaç örnek verilmiştir:
@@ -103,7 +102,7 @@ Bir deneme oluştururken, tuvalin solundaki kullanılabilir modül listesinden s
 
 Bir modül, modülün iç algoritmalarını yapılandırmak için kullanabileceğiniz parametreler kümesine sahip olabilir. Tuvalde bir modül seçtiğinizde, modülün parametreleri tuvalin sağındaki **Özellikler** bölmesinde görüntülenir  Modelinizi ayarlamak için, bu bölmedeki parametreleri değiştirebilirsiniz.
 
-Kullanılabilen büyük makine öğrenimi algoritma kitaplığında gezinme konusunda biraz yardım için bkz. [Microsoft Azure Machine Learning'de algoritma seçme](algorithm-choice.md)
+Bazı Yardım büyük makine öğrenimi algoritma kitaplığı gezinmek için bkz: [Microsoft Azure Machine Learning Studio için algoritma seçme](algorithm-choice.md).
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Tahmine dayalı analiz web hizmetini dağıtma
 Tahmine dayalı analiz modeliniz hazır olduktan sonra, bunu doğrudan Machine Learning Studio'dan bir web hizmeti olarak dağıtabilirsiniz. Bu işlem hakkında daha ayrıntılı bilgi için bkz. [Bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
@@ -131,7 +130,7 @@ Makine öğrenimi terimleri kafanızı karıştırabilir. Size yardımcı olmak 
 Makine öğrenimi modeli, yanıtlamaya çalıştığınız sorunun veya tahmin etmek istediğiniz sonucun bir soyutlamasıdır. Modeller, var olan verilerle eğitilir ve değerlendirilir.
 
 #### <a name="training-data"></a>Eğitim verileri
-Bir modeli verilerle eğittiğinizde, bilinen bir veri kümesini kullanırsınız ve en doğru yanıta ulaşmak için gerekli veri özelliklerine bağlı olarak modelde değişiklikler yaparsınız. Azure Machine Learning'de bir model, eğitim verilerini ve puanlama modülü gibi işlev modüllerini işleyen bir algoritma modülünden oluşturulur.
+Bir modeli verilerle eğittiğinizde, bilinen bir veri kümesini kullanırsınız ve en doğru yanıta ulaşmak için gerekli veri özelliklerine bağlı olarak modelde değişiklikler yaparsınız. Azure Machine Learning Studio'da eğitim verilerini işleyen bir algoritma modülü ve puanlama modülü gibi işlevsel modüllerden bir model oluşturulur.
 
 Denetimli öğrenmede bir sahtekarlık algılama modelini eğitiyorsanız sahte veya geçerli olarak etiketlenmiş bir işlem kümesini kullanırsınız. Verilerinizi rastgele ayırıp bir kısmını modeli eğitmek, bir kısmını da modeli test etmek veya değerlendirmek için kullanırsınız.
 
@@ -143,7 +142,7 @@ Bir modeli eğittikten sonra, kalan test verilerini kullanarak modeli değerlend
 * **anomali algılama**: Olağan dışı olayları veya değerleri işaretleyen ve yardımcı olan bir model sorunları keşfedin. Örneğin, kredi kartı sahtekarlığı algılama modeli sıra dışı satın alama işlemlerini algılar.
 * **Kategorik veriler**: Kategorilere göre düzenlenmiş ve gruplara bölünebilen veriler. Örneğin, otomobiller için kategorik bir veri kümesi yıl, marka, model ve fiyatı belirtebilir.
 * **Sınıflandırma**: Veri noktalarını, kategori gruplandırmaları zaten bilinen bir veri kümesi temel alınarak kategoriler halinde düzenlemek için bir model.
-* **özellik Mühendisliği**: Bir veri kümesine veri kümesini iyileştirmek ve sonuçları geliştirmek amacıyla ilgili özellikleri ayıklama veya seçme işlemi. Örneğin, uçak bileti ücreti verileri, haftanın günleri ve tatil günlerine göre iyileştirilebilir. Bkz. [Azure Machine Learning'de özellik seçimi ve özellik mühendisliği](../team-data-science-process/create-features.md).
+* **özellik Mühendisliği**: Bir veri kümesine veri kümesini iyileştirmek ve sonuçları geliştirmek amacıyla ilgili özellikleri ayıklama veya seçme işlemi. Örneğin, uçak bileti ücreti verileri, haftanın günleri ve tatil günlerine göre iyileştirilebilir. Bkz: [özellik seçimi ve mühendislik Azure Machine Learning Studio'da](../team-data-science-process/create-features.md).
 * **Modül**: Bir Machine Learning Studio modelinde, küçük veri kümelerini girmeyi ve düzenlemeyi sağlayan veri girme modülü gibi işlevsel bir parçası. Bir algoritma da Machine Learning Studio'da bir modül türüdür.
 * **Model**: Denetimli öğrenme modeli bir makine öğrenimi eğitim verileri, bir algoritma modülü ve Score Model modülü gibi işlevsel modüllerden denemesinin ürünüdür.
 * **sayısal veriler**: Ölçümler (sürekli veriler) olarak anlamı veya sayımlar (ayrık veriler) veriler. *Nicel veri* olarak da adlandırılır.

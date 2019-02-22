@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 2/15/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 415cdecc33b7360d482d37a3cb9d4f1bce528ab1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cc2d19bec91998116143058d2bc4313fd192db38
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251801"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592982"
 ---
 # <a name="create-an-oem-package"></a>OEM paketi oluşturma
 
@@ -30,11 +30,10 @@ Azure Stack OEM uzantı paketi, hangi OEM tarafından kullanılmak üzere günce
 
 ## <a name="creating-the-package"></a>Paket oluşturuluyor
 
-Oluşturup doğrulanmış OEM uzantı paketi VaaS içinde kullanılabilir.  Devam etmeden önce adımları tamamladığınızdan emin olun [OEM paket oluşturma](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Paket, ardından VaaS test sonuçları çözüm doğrulama iş akışı içinde imzalamak için birlikte Microsoft'a gönderilir. Aşağıdaki adımlarda oluşturulan dosyalarının VaaS tüketebileceği bir tek bir ZIP dosyasına nasıl gruplanacağını ayrıntılı olarak açıklanmaktadır.
+Oluşturup doğrulanmış OEM uzantı paketi VaaS içinde kullanılabilir.  Devam etmeden önce adımları tamamladığınızdan emin olun [OEM paket oluşturma](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Paket imzalama paket doğrulama iş akışı içinde VaaS test sonuçları ile birlikte Microsoft sonra gönderilir. Aşağıdaki adımlarda oluşturulan dosyalarının VaaS tüketebileceği bir tek bir ZIP dosyasına nasıl gruplanacağını ayrıntılı olarak açıklanmaktadır.
 
 1. Aşağıdaki içerik paketi için tanımlayın:
-    - Adlı bir yürütülebilir dosya `<Publisher>-<Model>-<Version>.exe`
-    - Bir veya daha fazla dosyaları ikili dosyalar adlı `<Publisher><Model>-<Version>-#.bin`, # 1'den başlayarak sıralı bir numarası olduğu yer. İkili dosyaların sayısı, toplam paket içeriğini boyutuna bağlıdır.
+    - Paket içeriğini içeren bir zip dosyası
     - Adlı bir bildirim dosyası `oemMetadata.xml`, olacağı paket içeriğini kökünde metadata.xml dosyaya içerik olarak aynı.
 
 2. İçerik dosyaları seçin ve içeriğini bir zip dosyası oluşturun:
@@ -51,7 +50,7 @@ Zip dosyanızın yapısı doğrulamak için bu inceleme ve hiçbir alt klasör o
 
 ![Düzgün sıkıştırılmış paket içeriği](media/vaas-create-oem-package-3.png)
 
-Zip dosyası artık VaaS için karşıya yüklenen ve çözüm doğrulama iş akışında Microsoft tarafından imzalanmış.
+Zip dosyası artık VaaS için karşıya yüklenen ve paket doğrulama iş akışında Microsoft tarafından imzalanmış.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

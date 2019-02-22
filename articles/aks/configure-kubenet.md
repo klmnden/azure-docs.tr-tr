@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6d2b6ce2804fce35af9c184c4a7c72c0b332f6fb
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 7975516e80576a9d79b35da816d049f47ebc7d3a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701796"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650198"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Kubernetes kendi IP adresi aralıklarını Azure Kubernetes Service (AKS) ile ağ kullanma
 
@@ -126,7 +126,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Hizmet sorumlusu AKS kümenizin atayarak *katkıda bulunan* kullanarak sanal ağ üzerindeki izinleri [az rol ataması oluşturma] [ az-role-assignment-create] komutu. Kendi sağlamak */ <appId/>* hizmet sorumlusunu oluşturmak için önceki komutun çıktısında gösterildiği gibi:
+Hizmet sorumlusu AKS kümenizin atayarak *katkıda bulunan* kullanarak sanal ağ üzerindeki izinleri [az rol ataması oluşturma] [ az-role-assignment-create] komutu. Kendi sağlamak  *\<AppID >* hizmet sorumlusunu oluşturmak için önceki komutun çıktısında gösterildiği gibi:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -134,7 +134,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Sanal ağda bir AKS kümesi oluşturma
 
-Artık bir sanal ağ ve alt ağ, oluşturulan ve oluşturduğunuz ve bu ağ kaynakları kullanmak için bir hizmet sorumlusu izinleri atanmış. Artık, sanal ağ ve alt ağ kullanarak AKS kümesi oluşturma [az aks oluşturma] [ az-aks-create] komutu. Kendi hizmet sorumlusu tanımlama */ <appId/>* ve */ <password/>* hizmet sorumlusunu oluşturmak için önceki komutun çıktısında gösterildiği gibi.
+Artık bir sanal ağ ve alt ağ, oluşturulan ve oluşturduğunuz ve bu ağ kaynakları kullanmak için bir hizmet sorumlusu izinleri atanmış. Artık, sanal ağ ve alt ağ kullanarak AKS kümesi oluşturma [az aks oluşturma] [ az-aks-create] komutu. Kendi hizmet sorumlusu tanımlama  *\<AppID >* ve  *\<parola >* hizmet sorumlusunu oluşturmak için önceki komutun çıktısında gösterildiği gibi.
 
 Kümenin parçası oluşturma işlemi aşağıdaki IP adresi aralıklarını da olarak tanımlanır:
 

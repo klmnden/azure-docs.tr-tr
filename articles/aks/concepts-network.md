@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7de97097e9678410537895c3bafc48d67809331e
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176246"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594177"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ağ kavramları
 
@@ -102,7 +102,7 @@ Başka bir ortak giriş SSL/TLS sonlandırma özelliğidir. Giriş kaynağı yer
 
 ## <a name="network-security-groups"></a>Ağ güvenlik grupları
 
-Bir ağ güvenlik grubu, AKS düğümleri gibi VM'ler için trafiği filtreler. Bir yük dengeleyici gibi hizmetleri oluştururken Azure platformu, gerekli olan tüm ağ güvenlik grubu kuralları otomatik olarak yapılandırır. El ile bir AKS kümesi pod'ların trafiğini filtrelemek için ağ güvenlik grubu kuralları yapılandırmayın. Tüm gerekli bağlantı noktaları ve iletme Kubernetes hizmeti bildirimlerinizi bir parçası olarak tanımlayın ve Azure platform oluşturma veya güncelleştirme olarak uygun kuralları sağlar. Sonraki bölümde açıklandığı gibi ağ ilkelerini de kullanabilirsiniz otomatik olarak trafik filtresi kuralları pod'ları için geçerlidir.
+Bir ağ güvenlik grubu, AKS düğümleri gibi VM'ler için trafiği filtreler. Bir yük dengeleyici gibi hizmetleri oluştururken Azure platformu, gerekli olan tüm ağ güvenlik grubu kuralları otomatik olarak yapılandırır. El ile bir AKS kümesi pod'ların trafiğini filtrelemek için ağ güvenlik grubu kuralları yapılandırmayın. Tüm gerekli bağlantı noktaları ve iletme Kubernetes hizmeti bildirimlerinizi bir parçası olarak tanımlayın ve Azure platform oluşturma veya güncelleştirme olarak uygun kuralları sağlar. Ağ ilkeleri, sonraki bölümde açıklandığı gibi otomatik olarak pod'ların trafik filtresi kuralları uygulamak için kullanabilirsiniz.
 
 Varsayılan olarak ağ güvenlik grubu kuralları gibi SSH trafiği için mevcut. Bu varsayılan kuralları küme yönetimi ve erişim sorunlarını giderme içindir. Bu varsayılan kuralların silinmesi AKS yönetim sorunlara neden olabilir ve hizmet düzeyi hedefi (SLO) keser.
 
