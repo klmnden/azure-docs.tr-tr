@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e52d5f3b30490227541e99e067c096a7df6dd911
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6706da978195cff65a3454e6b2d71dfea3b414c4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566199"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651422"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure içeri/dışarı aktarma hizmeti: sık sorulan sorular 
 Aşağıda, soruları ve Azure depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanırken karşılaşabileceğiniz yanıtları verilmiştir. Sorular ve yanıtlar aşağıdaki kategorilere ayrılmıştır:
@@ -87,8 +87,18 @@ Sürücüleri FedEx, DHL, UPS ya da BİZE posta hizmeti gibi bilinen bir taşıy
 - ABD ve AB FedEx hesabı veya
 - Asya ve Avustralya bölgelerinde DHL hesap numarası.
 
+> [!NOTE]
+> Hindistan veri merkezlerinde sürücüleri döndürülecek antetiniz (teslim challan) bir bildirim harfi gerektirir. Gerekli giriş geçişi düzenlemek için Ayrıca seçilen operatörünüz ile çekme kitap ve ayrıntıları sahip bir veri merkezinde paylaşın.
+
 ### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>Uluslararası Sürücümün sevkiyat ile herhangi bir kısıtlama var mıdır?
 Sevkiyat fiziksel ortam uluslararası sınırlar arası gerekebileceğini unutmayın. Fiziksel ortam ve verileri içeri aktarılan ve/veya ilgili yasalara uygun olarak dışarı emin olmak sizin sorumluluğunuzdadır. Fiziksel medya göndermeden önce medya ve veri yasal tanımlanan veri merkezine gönderilebilir olduğunu doğrulamak için danışmanları danışın. Bu, Microsoft zamanında ulaşmasını sağlamaya yardımcı olur.
+
+### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Bir veri merkezine disklerim sunmaya yönelik herhangi özel bir gereksinimi var mıdır?
+
+Gereksinimleri, belirli bir Azure veri merkezi kısıtlamalarına bağlıdır.
+- Bir Microsoft Veri merkezinde paket güvenlik nedenleriyle yazılacak gelen kimlik numarasını gerektiren birkaç sınıfı C siteler (örneğin, Frankfurt) vardır. Sürücüler veya diskler veri merkezine gönderin önce Azure Data Box Operations başvurun (adbops@microsoft.com) bu numara alınamıyor. Bu sayı paket reddedilir.
+- Hindistan veri merkezlerinde kavram No ve kamu kimlik kartı sürücüsü, kişisel ayrıntılarını gerektirir (örneğin, yatay kaydırma, AADHAR DL), ad, kişi ve araba bir ağ geçidi giriş geçişi almak istediğiniz sayıyı blondan. Teslimatı gecikmeleri önlemek için bu gereksinimleri hakkında operatörünüz bildirin.
+
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>Bir proje oluştururken teslimat adresini my depolama hesabının bulunduğu konumdan farklı bir konumdur. Ne yapmalıyım?
 

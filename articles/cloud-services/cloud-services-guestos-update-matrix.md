@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2019
+ms.date: 2/20/2019
 ms.author: raiye
-ms.openlocfilehash: 76009115f855a840c81e79d0c864187c8410aa23
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 063834af9b56e9959883c00bb58c70f0d333c455
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751523"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588577"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetleri için sürümleri sağlar. Bu bilgiler bir konuk işletim sistemi devre dışı bırakılmasına sıranız yükseltme yolunuza planlamanıza yardımcı olur. Kullanılacak rollerinizi yapılandırırsanız *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -77,6 +77,15 @@ Temmuz konuk işletim sistemi kullanıma sundu.
 > [!NOTE]
 > Windows Azure SDK - .NET 3.0 indirilebilir [burada][Windows Azure SDK].
 >
+>Yükleme adımları:
+>1. Lütfen MicrosoftAzureAuthoringTools*.msi eski sürümlerini kaldırın.
+>2. Yükleme [.NET - 3.0 için Azure SDK][Windows Azure SDK]
+>3. Bilgisayarınızı yeniden başlatın
+>4. Yeni bir bulut hizmeti projesi oluşturun ve tek bir çalışan rolü Ekle
+>5. İşletim sistemi ailesi 6 olarak değiştirin ve bir paket oluşturun
+>6. Paketi, Visual Studio ve Azure portalını kullanarak Azure'a dağıtma
+>
+
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
@@ -92,6 +101,7 @@ Temmuz konuk işletim sistemi kullanıma sundu.
 > [!NOTE]
 > İşletim sistemi ailesi 5 RDP parolasını en az 10 karakter uzunluğunda olmalıdır.
 >
+
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c280f6ef99678b77edcb251ead685be88265f825
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871023"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649450"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Soru-cevap Oluşturucu Bilgi Bankası ve hizmet için terimler sözlüğü
 
@@ -42,4 +42,4 @@ Son kullanıcı veya test edici soran soru Bilgi Bankası'nın bir kullanıcı s
 Yanıt, belirtilen kullanıcı sorgusu için en iyi eşleşmeyi temel Bilgi Bankası alınan yanıt.
 
 ## <a name="confidence-score"></a>Güvenilirlik Puanı
-Güvenilirlik puanı yanıtın 0 ve 100, 100 kullanıcı sorgusu ve soru-yanıt sunulan Bilgi Bankası arasında bir tam sorgu eşleşme olan arasında sayısal bir değer belirtilen kullanıcı sorgusu için doğru uygun yanıt şeklindedir. Yanıtları genellikle güvenilirlik puanı göre sıralanır ve daha yüksek bir güven puanıyla birlikte bir tane varsayılan yanıt sunulur.
+Güvenilirlik puanı yanıtın 0 ve 100, 100 kullanıcı sorgusu ve soru-yanıt sunulan Bilgi Bankası arasında bir tam sorgu eşleşme olan arasında sayısal bir değer belirtilen kullanıcı sorgusu için doğru uygun yanıt şeklindedir. Yanıtları genellikle güvenilirlik puanı göre derecelendirilmiş ve daha yüksek bir güven puanıyla birlikte biri olarak sunulur [varsayılan yanıt](concepts/confidence-score.md#change-default-answer).
