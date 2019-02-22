@@ -53,6 +53,7 @@ items:
       - name: Xamarin
         href: mobile-apps-with-xamarin.md
   - name: 2 - Verileri geçirme
+    displayName: import
     href: import-data.md
   - name: 3 - Verileri sorgulama
     href: tutorial-query-sql-api.md
@@ -76,15 +77,16 @@ items:
     href: cli-samples.md
 - name: Kavramlar
   items:
-  - name: Belge verilerini modelleme
-    href: modeling-data.md
   - name: Genel dağıtım
     items:
     - name: Genel Bakış
+      displayName: replication, replicate, geo distribution
       href: distribute-data-globally.md
     - name: Tutarlılık düzeyleri
+      displayName: session, consistency prefix, strong, eventual, bounded staleness
       href: consistency-levels.md
     - name: Doğru tutarlılık düzeyini seçme
+      displayName: session, consistency prefix, strong, eventual, bounded staleness
       href: consistency-levels-choosing.md
     - name: Tutarlılık düzeyleri ve Azure Cosmos DB API’leri
       href: consistency-levels-across-apis.md
@@ -93,8 +95,10 @@ items:
     - name: Yüksek kullanılabilirlik
       href: high-availability.md
     - name: Sağlanan aktarım hızını küresel olarak ölçeklendirme
+      displayName: request units, RUs, RU
       href: scaling-throughput.md
     - name: Çakışma türleri ve çözme ilkeleri
+      displayName: last write wins, custom
       href: conflict-resolution-policies.md
     - name: Genel dağıtım - başlık altında
       href: global-dist-under-the-hood.md
@@ -111,26 +115,36 @@ items:
   - name: Sağlanan aktarım hızı
     items:
     - name: İstek birimleri
+      displayName: RUs, RU
       href: request-units.md
     - name: Kapsayıcı ve veritabanlarına aktarım hızı sağlama
+      displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
       href: set-throughput.md
   - name: Azure Cosmos hesabıyla çalışma
     href: account-overview.md
   - name: Kapsayıcılar ve öğeler
     items:
     - name: Veritabanları, kapsayıcılar ve öğelerle çalışma
+      displayName: collection, document
       href: databases-containers-items.md
     - name: SQL dil başvurusu
+      displayName: collection, document
       href: sql-api-query-reference.md
     - name: SQL sorgu örnekleri
+      displayName: collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains
       href: how-to-sql-query.md
+    - name: Belge verilerini modelleme
+      displayName: document
+      href: modeling-data.md
     - name: Dizinleme
       items:
       - name: Genel Bakış
         href: index-overview.md
       - name: Dizin ilkesi
+        displayName: consistent, none
         href: index-policy.md
       - name: Dizin türleri
+        displayName: hash, range, spatial
         href: index-types.md
       - name: Dizin yolları
         href: index-paths.md
@@ -143,8 +157,10 @@ items:
       - name: Değişiklik akışı işlemcisi
         href: change-feed-processor.md
       - name: Azure İşlevleri'ni tetikleme
+        displayName: change feed
         href: change-feed-functions.md
     - name: Yaşam süresi
+      displayName: delete, delete data, ttl
       href: time-to-live.md
     - name: Benzersiz anahtar kısıtlamaları
       href: unique-keys.md
@@ -165,6 +181,7 @@ items:
     - name: Faturanızı anlama
       href: understand-your-bill.md
     - name: Sağlanan aktarım hızı maliyetini iyileştirme
+      displayName: request units, RUs, RU
       href: optimize-cost-throughput.md
     - name: Sorgu maliyetini iyileştirme
       href: optimize-cost-queries.md
@@ -185,6 +202,7 @@ items:
     - name: Veri şifrelemesi
       href: database-encryption-at-rest.md
     - name: Veri erişiminin güvenliğini sağlama
+      displayName: master key, resource token, users, roles
       href: secure-access-to-data.md
     - name: IP güvenlik duvarı
       href: firewall-support.md
@@ -241,6 +259,7 @@ items:
         - name: Node.js ve React uygulaması
           href: tutorial-develop-mongodb-react.md
       - name: 2 - Verileri geçirme
+        displayName: import
         href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: 3 - Verileri sorgulama
         href: tutorial-query-mongodb.md
@@ -257,6 +276,7 @@ items:
       - name: Mongoose kullanarak bağlanma
         href: mongodb-mongoose.md
       - name: Okumaları global olarak dağıtma
+        displayName: read preference
         href: mongodb-readpreference.md
       - name: Yaşam süresi - MongoDB
         href: mongodb-time-to-live.md
@@ -266,6 +286,7 @@ items:
         href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
         maintainContext: true
   - name: Gremlin API
+    displayName: graph, graph database
     items:
     - name: Giriş
       href: graph-introduction.md
@@ -323,6 +344,7 @@ items:
       - name: 3 - Verileri sorgulama
         href: cassandra-api-query-data.md
       - name: 4 - Verileri geçirme
+        displayName: import
         href: cassandra-import-data.md
     - name: Nasıl yapılır kılavuzları
       items:
@@ -370,6 +392,7 @@ items:
       - name: 1 - Hesap oluşturma
         href: tutorial-develop-table-dotnet.md
       - name: 2 - Verileri geçirme
+        displayName: import
         href: table-import.md
       - name: 3 - Verileri sorgulama
         href: tutorial-query-table.md
@@ -423,6 +446,7 @@ items:
     - name: Çoklu ana kaynağı yapılandırma
       href: how-to-multi-master.md
     - name: Tutarlılık düzeylerini yönetme
+      displayName: session, consistency prefix, strong, eventual, bounded staleness
       href: how-to-manage-consistency.md
     - name: Özel eşitlemeyi uygulama
       href: how-to-custom-synchronization.md
@@ -431,8 +455,10 @@ items:
   - name: Sağlanan aktarım hızı
     items:
     - name: Kapsayıcıda aktarım hızı sağlama
+      displayName: request units, RUs, RU, collection level
       href: how-to-provision-container-throughput.md
     - name: Veritabanında aktarım hızı sağlama
+      displayName: request units, RUs, RU, shared throughput, database level
       href: how-to-provision-database-throughput.md
   - name: Kapsayıcılarla ve öğelerle çalışma
     items:
@@ -441,6 +467,7 @@ items:
     - name: Kapsayıcı sorgulama
       href: how-to-query-container.md
     - name: Yaşam süresini yapılandırma
+      displayName: delete, delete data, ttl
       href: how-to-time-to-live.md
     - name: Azure Depolama Gezgini'ni kullanarak verilerle çalışma
       href: storage-explorer.md
@@ -627,9 +654,9 @@ items:
       href: use-cases.md
     - name: Sosyal medya uygulamaları
       href: social-media-apps.md
-ms.openlocfilehash: f2f061aebd996f62f793ba515f574c8a3748b87f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: f1f36d86466f93c0acac30364ba648391fb03095
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429131"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652527"
