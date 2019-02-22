@@ -25,8 +25,8 @@ items:
   items:
   - name: Kimlik doğrulama yöntemleri
     href: concept-authentication-methods.md
-  - name: Yakınsanmış kayıt
-    href: concept-registration-mfa-sspr-converged.md
+  - name: Birleşik kayıt
+    href: concept-registration-mfa-sspr-combined.md
   - name: Parola sıfırlama
     items:
     - name: Parola sıfırlama nasıl çalışır?
@@ -104,6 +104,12 @@ items:
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
         href: howto-mfa-nps-extension-vpn.md
+  - name: Birleşik kayıt
+    items:
+    - name: Birleşik kaydı etkinleştirme
+      href: howto-registration-mfa-sspr-combined.md
+    - name: Birleşik kayıtla ilgili sorunları giderme
+      href: howto-registration-mfa-sspr-combined-troubleshoot.md
   - name: Azure AD parola koruması
     items:
     - name: Engellenen parola listesini yapılandırma
@@ -191,8 +197,6 @@ items:
         href: howto-mfa-nps-extension-errors.md
   - name: Sorun giderme
     items:
-    - name: Yakınsanmış kaydı devre dışı bırakma
-      href: howto-registration-mfa-sspr-converged-troubleshoot.md
     - name: SSPR sorunlarını giderme
       href: active-directory-passwords-troubleshoot.md
     - name: SSPR SSS
@@ -225,9 +229,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: d834bcd12f4f8af44c467233230744571dd9b23c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 99d21cd59b7281dbb6a34c2e3cdc9026c9955622
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660060"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585993"
