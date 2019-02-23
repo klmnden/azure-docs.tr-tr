@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 856da056f833b9c7bcff2c96ff0495d05f86366f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175736"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56667960"
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
 
@@ -77,8 +77,7 @@ Ayrıca deneyebilirsiniz [sanal ağ eşleme sorunları için sorun giderici](htt
 
 ## <a name="requirements-and-constraints"></a>Gereksinimler ve kısıtlamalar
 
-Sanal ağlar genel olarak eşlendiğinde aşağıdaki kısıtlamalar uygulanır:
-- Sanal ağların herhangi bir Azure genel bulut bölgesi ve Azure Çin bulut bölgeleri, ancak Azure kamu bulutlarında bulunabilir.
+Yalnızca, sanal ağlar genel olarak eşlenmiş aşağıdaki kısıtlamalar uygulanır:
 - Bir sanal ağ içindeki kaynaklar, genel olarak eşlenen sanal ağın Azure iç yük dengeleyicisinin ön uç IP adresiyle iletişim kuramaz. Yük dengeleyiciyle iletişim kuran kaynakların aynı bölgede olması gerekir.
 - Uzak ağ geçitlerini kullanamaz veya ağ geçidi geçişine izin veremezsiniz. Uzak ağ geçitlerini kullanmak veya ağ geçidi geçişine izin vermek için eşlenen sanal ağların aynı bölgede olması gerekir.
 

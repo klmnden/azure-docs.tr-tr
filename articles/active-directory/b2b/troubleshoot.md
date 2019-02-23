@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B işbirliği sorunlarını giderme | Microsoft Docs
+title: B2B işbirliği - Azure Active Directory sorunlarını giderme | Microsoft Docs
 description: Azure Active Directory B2B işbirliği ile karşılaşılan sorunlara yönelik çözümler
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f69bad355bf5644988416958c4b4f32ed66714d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f772c14f414e4e1c5401e3c85de7009355453c98
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186412"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668539"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B işbirliği sorunlarını giderme
 
@@ -37,7 +37,7 @@ SharePoint Online (SPO) Kişi Seçici var olan konuk kullanıcılar için arama 
 
 Kullanıcıları davet için izinlere sahip değilsiniz bildirilir, kullanıcı hesabınızın kullanıcı ayarları altında dış kullanıcıları davet yetkisi olduğunu doğrulayın:
 
-![](media/troubleshoot/external-user-settings.png)
+![Dış kullanıcı ayarları](media/troubleshoot/external-user-settings.png)
 
 Size kısa süre önce bu ayarları değiştiren veya konuk davet edici rolüne atanmış bir kullanıcıya, değişiklikler etkili olmadan önce 15-60 dakika gecikme olabilir.
 
@@ -49,7 +49,7 @@ Sık karşılaşılan hatalar şunlardır:
 
 Kullanıcılar, kuruluşunuzun Azure Active Directory kullanıyor, ancak burada belirli bir kullanıcının hesabı yok davet ettiğinizde (örneğin, kullanıcının Azure AD contoso.com yok). Contoso.com yönetici, kullanıcıların oluşturulmasını önleyen bir yerde bir ilkesi olabilir. Kullanıcı, dış kullanıcılar izin verilmediğini belirlemek için yönetici ile iade etmeniz gerekir. Dış kullanıcının yönetici e-posta ile doğrulanmış kullanıcıların kendi etki alanlarındaki gerekebilir (bkz. Bu [makale](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) e-posta doğrulanmış kullanıcıların üzerinde).
 
-![](media/troubleshoot/allow-email-verified-users.png)
+![Bu Kiracı için e-posta izin vermeyecek belirten hata doğrulanmış kullanıcıların eklenmesi](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>Dış kullanıcı zaten bir Federasyon etki alanında yok.
 
