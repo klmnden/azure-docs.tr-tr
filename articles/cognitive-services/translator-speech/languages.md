@@ -10,18 +10,19 @@ ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 482968af53694f7d40a7077435d33a83884c8808
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 63592a0afc7e5da0a37c25c226b92b587aa5f886
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873059"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673708"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Translator konuşma tanıma API'si tarafından desteklenen diller
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Aşağıdaki dilleri konuşma çevirisi için desteklenir. Konuşma çevirisi, konuşma için okuma veya Konuşmayı metne dönüştürme için desteklenen iki dilde kullanılabilir. Hedef Dil, konuşma çevirisi için desteklenmiyor, yalnızca konuşma metin çevirisi için kullanılabilir. 
+Aşağıdaki dilleri konuşma çevirisi için desteklenir. Konuşma çevirisi, konuşma için okuma veya Konuşmayı metne dönüştürme için desteklenen iki dilde kullanılabilir. Hedef Dil, konuşma çevirisi için desteklenmiyor, yalnızca konuşma metin çevirisi için kullanılabilir.
 
 | Konuşma dili    |
 |:----------- |
@@ -34,9 +35,9 @@ Aşağıdaki dilleri konuşma çevirisi için desteklenir. Konuşma çevirisi, k
 | Japonca      |
 | Portekizce (Brezilya)     |
 | Rusça      |
-| İspanyolca       | 
+| İspanyolca       |
 
-Translator konuşma tanıma API'si, metin çevirisi konuşma için bir hedef dil olarak aşağıdaki dilleri desteklemektedir. 
+Translator konuşma tanıma API'si, metin çevirisi konuşma için bir hedef dil olarak aşağıdaki dilleri desteklemektedir.
 
 | SMS dili    | Dil kodu |
 |:----------- |:-------------:|
@@ -47,7 +48,7 @@ Translator konuşma tanıma API'si, metin çevirisi konuşma için bir hedef dil
 | Bulgarca      | `bg`          |
 | Kanton (Geleneksel)      | `yue`          |
 | Katalanca      | `ca`          |
-| Basitleştirilmiş Çince      | `zh-Hans`          | 
+| Basitleştirilmiş Çince      | `zh-Hans`          |
 | Geleneksel Çince      | `zh-Hant`          |
 | Hırvatça      | `hr`          |
 | Çekçe      | `cs`          |
@@ -116,4 +117,4 @@ Dil kaynağı, konuşma tanıma, metin ve metin okuma için desteklenen dillerin
 
 Dilleri hızlı bir bakış için Microsoft Translator Web sitesi Translator metin ve konuşma API'leri tarafından desteklenen tüm dillerde gösterir. Bu liste, dil kodu gibi geliştirici özgü bilgileri içermez.
 
-[Dilleri listesine bakın](https://www.microsoft.com/translator/languages.aspx) 
+[Dilleri listesine bakın](https://www.microsoft.com/translator/languages.aspx)

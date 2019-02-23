@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: lagayhar
-ms.openlocfilehash: 7ad8b96efeef2a5bb5543ee08150376862abb27f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 224da9285ab0aef312688e4dfa1da49451abfa5a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699338"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674659"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java web projesinde Application Insights ile başlarken
 
@@ -32,8 +32,6 @@ Gerekenler:
 
 * JRE 1.7 veya 1.8 sürümü
 * Bir [Microsoft Azure](https://azure.microsoft.com/) aboneliği.
-
-*Zaten canlı olan bir web uygulaması varsa, [web sunucusuna çalışma zamanında SDK eklemek](java-live.md) için alternatif bir yordam izleyebilirsiniz. Bu alternatif yordam, kodun yeniden derlenmesini engellese de, kullanıcı etkinliğini izlemek için kod yazma seçeneğini elde etmezsiniz.*
 
 Spring çerçevesini tercih ediyorsanız, [Application Insights kılavuzunu kullanmak için Spring Boot başlatıcı uygulamasını yapılandırmayı](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights) deneyin
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD ile konuk erişimini yönetme erişim gözden geçirmeleriyle | Microsoft Docs
+title: Azure AD erişim gözden geçirmeleriyle konuk erişimini yönetme | Microsoft Docs
 description: Azure Active Directory erişim gözden geçirmeleri ile bir uygulamaya atanan veya bir grubun üyesi olarak Konuk kullanıcıları yönetme
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63acf3a91e7e121a807a44bed8506d05e71899d2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4fd3fd396333c00f8f1983250b732e69531d5d1d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175192"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737562"
 ---
-# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD ile konuk erişimini yönetme erişim gözden geçirmeleri
+# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleriyle konuk erişimini yönetme
 
 
 Azure Active Directory'ye (Azure AD), kolayca işbirliği kuruluş sınırlarında kullanarak etkinleştirebilirsiniz [Azure AD B2B özellik](../b2b/what-is-b2b.md). Konuk kullanıcıları diğer kiracılardan olabilir [yöneticiler tarafından davet](../b2b/add-users-administrator.md) ya da [diğer kullanıcıların](../b2b/what-is-b2b.md). Bu özellik, Microsoft hesapları gibi sosyal kimlikler için de geçerlidir.
@@ -61,11 +61,11 @@ Ardından her Konuk kendi erişimini gözden geçirmek için veya her konuğun e
 
 Erişim gözden geçirmeleri erişmeniz davet ve bir gruba eklendiğinden kullanıcılar devam etmesini sağlamak için kullanabilirsiniz. Kolayca Konukları o gruptaki kendi üyeliğini gözden geçirmek isteyebilirsiniz.
 
-1. Grup için erişim gözden geçirmesi başlatmak için yalnızca Konuk kullanıcı üyelerini ve üyeleri kendilerini gözden içerecek şekilde gözden geçirmeyi seçin. Daha fazla bilgi için [Erişim gözden geçirmesi oluşturma](create-access-review.md) konusunu inceleyin.
+1. Grup için bir erişim gözden geçirmesi oluşturma için yalnızca Konuk kullanıcı üyelerini ve üyeleri kendilerini gözden içerecek şekilde gözden geçirme'ı seçin. Daha fazla bilgi için [grupları ve uygulamaları, erişim gözden geçirmesi Oluştur](create-access-review.md).
 
-2. Kendi üyeliğini gözden geçirme için her Konuk isteyin. Varsayılan olarak, daveti kabul her konuk bir e-posta bağlantısını içeren bir Azure ad erişim gözden geçirmesi için alır. Azure AD'ye nasıl yapılır yönergeleri konuklar için sahip [erişimleri gözden](perform-access-review.md).
+2. Kendi üyeliğini gözden geçirme için her Konuk isteyin. Varsayılan olarak, daveti kabul her konuk bir e-posta bağlantısını içeren bir Azure ad erişim gözden geçirmesi için alır. Azure AD'ye nasıl yapılır yönergeleri konuklar için sahip [gruplar veya uygulamalar için erişim gözden geçirme](perform-access-review.md).
 
-3. Gözden geçirenler bilgileri girdikten sonra erişim gözden geçirmesini durdurun ve değişiklikleri uygulayın. Daha fazla bilgi için [Erişim gözden geçirmesini tamamlama](complete-access-review.md) konusunu inceleyin.
+3. Gözden geçirenler bilgileri girdikten sonra erişim gözden geçirmesini durdurun ve değişiklikleri uygulayın. Daha fazla bilgi için [grupları ve uygulamaları, erişim değerlendirmesi tamamlama](complete-access-review.md).
 
 4. Ek olarak kendi reddedildi kullanıcılar için sürekli erişmeniz, yanıt vermedi kullanıcılar da kaldırabilirsiniz. Olmayan yanıt kullanıcılar, potansiyel olarak bundan böyle e-posta alır.
 
@@ -75,21 +75,21 @@ Erişim gözden geçirmeleri erişmeniz davet ve bir gruba eklendiğinden kullan
 
 Bir konuğun gereksinimini sürekli bir gruba üyelik gözden geçirmek için bir grup sahibi gibi bir sponsor sorabilirsiniz.
 
-1. Grup için erişim gözden geçirmesi başlatmak için yalnızca Konuk kullanıcı üyelerini eklemeyi gözden geçirmeyi seçin. Ardından bir veya daha fazla Gözden Geçiren belirtin. Daha fazla bilgi için [Erişim gözden geçirmesi oluşturma](create-access-review.md) konusunu inceleyin.
+1. Grup için bir erişim gözden geçirmesi oluşturma için yalnızca Konuk kullanıcı üyelerini eklemeyi gözden geçirme'ı seçin. Ardından bir veya daha fazla Gözden Geçiren belirtin. Daha fazla bilgi için [grupları ve uygulamaları, erişim gözden geçirmesi Oluştur](create-access-review.md).
 
-2. Gözden geçirenlerden bilgileri girmelerini isteyin. Varsayılan olarak, tüm gözden geçirenler Azure AD’den [erişim gözden geçirmelerini gerçekleştirecekleri](perform-access-review.md) erişim paneline yönlendiren bir bağlantı içeren bir e-posta alır.
+2. Gözden geçirenlerden bilgileri girmelerini isteyin. Varsayılan olarak, her bir e-posta bağlantısını içeren bir Azure ad erişim paneli için aldıkları nerede bunlar [gruplar veya uygulamalar için erişim gözden geçirme](perform-access-review.md).
 
-3. Gözden geçirenler bilgileri girdikten sonra erişim gözden geçirmesini durdurun ve değişiklikleri uygulayın. Daha fazla bilgi için [Erişim gözden geçirmesini tamamlama](complete-access-review.md) konusunu inceleyin.
+3. Gözden geçirenler bilgileri girdikten sonra erişim gözden geçirmesini durdurun ve değişiklikleri uygulayın. Daha fazla bilgi için [grupları ve uygulamaları, erişim değerlendirmesi tamamlama](complete-access-review.md).
 
 ### <a name="ask-guests-to-review-their-own-access-to-an-application"></a>Kendi uygulama erişimini gözden geçirmek için Konukları isteyin
 
 Erişim gözden geçirmeleri, belirli bir uygulama için davet kullanıcılar erişmesi gereken çalışmaya devam etmesini sağlamak için kullanabilirsiniz. Kolayca erişmesi için kendi gözden geçirmek için Konukları kendilerini kaldırmasını isteyebilirsiniz.
 
-1. Uygulama için erişim gözden geçirmesi başlatmak için yalnızca Konukları ve kullanıcılar kendi erişim gözden içerecek şekilde gözden geçirmeyi seçin. Daha fazla bilgi için [Erişim gözden geçirmesi oluşturma](create-access-review.md) konusunu inceleyin.
+1. Uygulama için erişim gözden geçirmesi oluşturma için yalnızca Konukları ve kullanıcılar kendi erişim gözden içerecek şekilde gözden geçirme'ı seçin. Daha fazla bilgi için [grupları ve uygulamaları, erişim gözden geçirmesi Oluştur](create-access-review.md).
 
-2. Kendi uygulama erişimi gözden geçirmek için her Konuk isteyin. Varsayılan olarak, Azure AD'den bir e-posta daveti kabul her Konuk alır. Bu e-posta, kuruluşunuzun erişim panelinde erişim gözden geçirmesi için bir bağlantı vardır. Azure AD'ye nasıl yapılır yönergeleri konuklar için sahip [erişimleri gözden](perform-access-review.md).
+2. Kendi uygulama erişimi gözden geçirmek için her Konuk isteyin. Varsayılan olarak, Azure AD'den bir e-posta daveti kabul her Konuk alır. Bu e-posta, kuruluşunuzun erişim panelinde erişim gözden geçirmesi için bir bağlantı vardır. Azure AD'ye nasıl yapılır yönergeleri konuklar için sahip [gruplar veya uygulamalar için erişim gözden geçirme](perform-access-review.md).
 
-3. Gözden geçirenler bilgileri girdikten sonra erişim gözden geçirmesini durdurun ve değişiklikleri uygulayın. Daha fazla bilgi için [Erişim gözden geçirmesini tamamlama](complete-access-review.md) konusunu inceleyin.
+3. Gözden geçirenler bilgileri girdikten sonra erişim gözden geçirmesini durdurun ve değişiklikleri uygulayın. Daha fazla bilgi için [grupları ve uygulamaları, erişim değerlendirmesi tamamlama](complete-access-review.md).
 
 4. Ek olarak kendi reddedildi kullanıcılar için sürekli erişmeniz gerekir, ayrıca yanıt vermedi Konuk kullanıcılar kaldırabilirsiniz. Olmayan yanıt kullanıcılar, potansiyel olarak bundan böyle e-posta alır. Özellikle, yakın zamanda davet edilmemiş olursa katılmak için seçili olmayan Konuk kullanıcılar ayrıca kaldırabilirsiniz. Bu kullanıcılar, uygulama erişimi ve bu nedenle, davetini gerekmedi kabul etmedi. 
 
@@ -97,11 +97,11 @@ Erişim gözden geçirmeleri, belirli bir uygulama için davet kullanıcılar er
 
 Konuğun uygulamaya sürekli erişim gereksinimini gözden geçirmek için bir uygulamanın sahibi gibi bir sponsor sorabilirsiniz.
 
-1. Uygulama için erişim gözden geçirmesi başlatmak için yalnızca Konukları içerecek şekilde gözden geçirmeyi seçin. Ardından bir veya daha fazla kullanıcı, gözden geçirenler olarak belirtin. Daha fazla bilgi için [Erişim gözden geçirmesi oluşturma](create-access-review.md) konusunu inceleyin.
+1. Uygulama için erişim gözden geçirmesi oluşturma için yalnızca Konukları içerecek şekilde gözden geçirme'ı seçin. Ardından bir veya daha fazla kullanıcı, gözden geçirenler olarak belirtin. Daha fazla bilgi için [grupları ve uygulamaları, erişim gözden geçirmesi Oluştur](create-access-review.md).
 
-2. Gözden geçirenlerden bilgileri girmelerini isteyin. Varsayılan olarak, tüm gözden geçirenler Azure AD’den [erişim gözden geçirmelerini gerçekleştirecekleri](perform-access-review.md) erişim paneline yönlendiren bir bağlantı içeren bir e-posta alır.
+2. Gözden geçirenlerden bilgileri girmelerini isteyin. Varsayılan olarak, her bir e-posta bağlantısını içeren bir Azure ad erişim paneli için aldıkları nerede bunlar [gruplar veya uygulamalar için erişim gözden geçirme](perform-access-review.md).
 
-3. Gözden geçirenler bilgileri girdikten sonra erişim gözden geçirmesini durdurun ve değişiklikleri uygulayın. Daha fazla bilgi için [Erişim gözden geçirmesini tamamlama](complete-access-review.md) konusunu inceleyin.
+3. Gözden geçirenler bilgileri girdikten sonra erişim gözden geçirmesini durdurun ve değişiklikleri uygulayın. Daha fazla bilgi için [grupları ve uygulamaları, erişim değerlendirmesi tamamlama](complete-access-review.md).
 
 ### <a name="ask-guests-to-review-their-need-for-access-in-general"></a>Genel erişim için kendi ihtiyacına gözden geçirmek için Konukları isteyin
 
@@ -112,17 +112,17 @@ Bazı Kurumlarda, konuklar grup üyeliklerini haberdar olmayabilir.
 
 1. Uygun bir grup zaten mevcut değilse Konuk üyeleri olarak ile Azure AD'de bir güvenlik grubu oluşturun. Örneğin, bir Konukları tutulan el ile üyelik ile bir grup oluşturabilirsiniz. Veya, Konuk UserType özniteliği değeri olan kullanıcılar Contoso kiracısındaki için "Contoso Konukları" gibi bir ad ile dinamik bir grup oluşturabilirsiniz.  Verimlilik için çoğunlukla Konukları grubu - üye kullanıcıları gözden geçirilmesi gerekmez gibi üye kullanıcılar, bir grup seçmeyin emin olun.  Ayrıca, grubun diğer üyeleri grubunun bir üyesi olan bir konuk kullanıcıyı görebildiğini unutmayın.
 
-2. Bu grup için erişim gözden geçirmesi başlatmak için gözden geçirenler üyesi olacak şekilde seçin. Daha fazla bilgi için [Erişim gözden geçirmesi oluşturma](create-access-review.md) konusunu inceleyin.
+2. Bu grup için bir erişim gözden geçirmesi oluşturma için gözden geçirenler üyesi olacak şekilde seçin. Daha fazla bilgi için [grupları ve uygulamaları, erişim gözden geçirmesi Oluştur](create-access-review.md).
 
-3. Kendi üyeliğini gözden geçirme için her Konuk isteyin. Varsayılan olarak, daveti kabul her konuk, bağlantısını içeren bir Azure ad erişim gözden geçirmesi kuruluşunuzun erişim Paneli'nde için bir e-posta alır. Azure AD'ye nasıl yapılır yönergeleri konuklar için sahip [erişimleri gözden](perform-access-review.md).  Kendi daveti kabul etmedi bu Konukları gözden geçirme sonuçları, "değil bildirim" görüntülenir.
+3. Kendi üyeliğini gözden geçirme için her Konuk isteyin. Varsayılan olarak, daveti kabul her konuk, bağlantısını içeren bir Azure ad erişim gözden geçirmesi kuruluşunuzun erişim Paneli'nde için bir e-posta alır. Azure AD'ye nasıl yapılır yönergeleri konuklar için sahip [gruplar veya uygulamalar için erişim gözden geçirme](perform-access-review.md).  Kendi daveti kabul etmedi bu Konukları gözden geçirme sonuçları, "değil bildirim" görüntülenir.
 
-4. Gözden geçirenler giriş verdikten sonra erişim gözden geçirmesi durdurun. Daha fazla bilgi için [Erişim gözden geçirmesini tamamlama](complete-access-review.md) konusunu inceleyin.
+4. Gözden geçirenler giriş verdikten sonra erişim gözden geçirmesi durdurun. Daha fazla bilgi için [grupları ve uygulamaları, erişim değerlendirmesi tamamlama](complete-access-review.md).
 
 5. Konuk erişimi reddedildi, gözden geçirme tamamlanmadı veya önceden davetini kabul etmedi konuklar için kaldırın. Konuklar bazılarını gözden geçirmesine üzere seçilmiş olan kişiler veya bunlar daha önce bir daveti kabul etmedi kullanıyorsanız, Azure portal veya PowerShell kullanarak, hesaplarını devre dışı bırakabilirsiniz. Konuk artık erişmesi ve bir kişi yoksa, Konuk kullanıcı nesnesini silmek için Azure portal veya PowerShell kullanarak kendi kullanıcı nesnesi dizininizden kaldırabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir grubun üyeleri veya bir uygulamaya erişim için erişim gözden geçirmesi oluşturma](create-access-review.md)
+[Grupları ve uygulamaları, erişim gözden geçirmesi oluştur](create-access-review.md)
 
 
 

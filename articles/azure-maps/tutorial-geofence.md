@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55dc0fa31398bcc04d9793c8cffc9258dc29e4c7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244462"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670902"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir bölge sınırının ayarlayın
 
@@ -165,7 +165,7 @@ Tümünü gör [olay işleyicileri desteklenen](https://docs.microsoft.com/azure
 
   ![Mantıksal uygulamalar oluşturma](./media/tutorial-geofence/logic-app.png)
 
-2. Bir HTTP isteği tetikleyicisini seçin ve ardından bir eylem olarak outlook Bağlayıcısı "Gönder ve e-posta" seçin
+2. Bir HTTP isteği tetikleyicisini seçin ve ardından "outlook Bağlayıcısı'nı bir eylem olarak bir e-posta Gönder"
   
   ![Logic Apps şeması](./media/tutorial-geofence/logic-app-schema.png)
 

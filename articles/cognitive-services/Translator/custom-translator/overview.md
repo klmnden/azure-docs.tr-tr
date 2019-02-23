@@ -6,21 +6,21 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: 852a16f14466d91a0ebfaadb83c674253d0ea15e
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: c3f8d06cf68714f3a8abc203421ae3ff9b533ca6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587761"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737816"
 ---
 # <a name="what-is-custom-translator"></a>Özel Çevirmen nedir?
 
 [Özel Translator](https://portal.customtranslator.azure.ai) Translator kuruluşlar, uygulama geliştiricilerinin sağlayan Microsoft Translator hizmeti özelliğidir ve özelleştirilmiş sinirsel makine çevirisi (NMT) sistemleri oluşturmak için dil hizmeti sağlayıcıları. Özelleştirilmiş çeviri sistemleri sorunsuzca mevcut uygulamalarınızın, iş akışları ve Web siteleri ile tümleştirin. [Özel Translator](https://portal.customtranslator.azure.ai/) ne benzer olanağı sunan [Microsoft Translator Hub](https://hub.microsofttranslator.com/) için istatistiksel makine çevirisi (SMT) ancak sinirsel makine çevirisi (NMT) sistemleri için özel olarak yapar.
 
-Çevirisi sistemleri ile oluşturulmuş [özel Translator](https://portal.customtranslator.azure.ai) aynı bulut tabanlı kullanılabilir [güvenli](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), yüksek performans, yüksek oranda ölçeklenebilir Microsoft Translator [Text API v3 sürümüne](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl), her gün milyarlarca çevirileri güçlendirir. 
+Çevirisi sistemleri ile oluşturulmuş [özel Translator](https://portal.customtranslator.azure.ai) aynı bulut tabanlı kullanılabilir [güvenli](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), yüksek performans, yüksek oranda ölçeklenebilir Microsoft Translator [Text API v3 sürümüne](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl), her gün milyarlarca çevirileri güçlendirir.
 
 Özel Translator düzine üç'den fazla dili destekleyen ve NMT için kullanılabilen dilleri için doğrudan eşler. Tam bir listesi için bkz. [Microsoft Translator diller](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
@@ -48,7 +48,7 @@ Uygun türde ve eğitim veri miktarını sağlanmazsa, bu görmek için yaygın 
 
 ## <a name="be-productive-and-cost-effective"></a>Üretken ve uygun maliyetli
 
-İle [özel Translator](https://portal.customtranslator.azure.ai), eğitim ve özel bir sistem dağıtma herhangi bir programlama becerileri gerektirmez. 
+İle [özel Translator](https://portal.customtranslator.azure.ai), eğitim ve özel bir sistem dağıtma herhangi bir programlama becerileri gerektirmez.
 
 Güvenli kullanarak [özel Translator](https://portal.customtranslator.azure.ai) portal, kullanıcılar eğitim verilerini karşıya yükleme, eğitim sistemleri, test sistemleri ve sezgisel kullanıcı arabirimi aracılığıyla bir üretim ortamında dağıtın. Sistem sonra (gerçek zaman veri boyutu eğitim üzerinde bağlıdır) birkaç saat içinde uygun ölçekte kullanmak için kullanılabilir.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 609389460ab18ba947130e64dbe7b599574816a5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 50a215175d7305834a64b7e0cfbc153431b10b7c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53215952"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56739210"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Portalda bakım için zamanlanmış Vm'leri görüntüleme
 
@@ -37,7 +37,7 @@ Azure portalını kullanın ve bakım için zamanlanmış Vm'leri arayın.
       | Zamanlanmış | VM, size başlatma seçeneği sunulmayan bir bakım için zamanlanır. Bakım - bu görünümde veya VM'ye tıklayarak zamanlanmış penceresini seçerek bakım penceresi öğrenebilirsiniz. | 
       | Zaten güncelleştirildi | Sanal makinenizin zaten güncelleştirilmiş ve şu anda başka bir eylem gerekli değildir. | 
       | Daha sonra yeniden deneyin | Bakım başarısız oldu başlattınız. Daha sonraki bir zamanda Self Servis Bakım seçeneğini kullanmanız mümkün olacaktır. | 
-      | Şimdi yeniden deneyin | Daha önce başarısız bir kendi kendine başlatılan bakım yeniden deneyebilir. | 
+      | Şimdi yeniden dene | Daha önce başarısız bir kendi kendine başlatılan bakım yeniden deneyebilir. | 
       | - | Sanal makinenize bir planlı bakım dalgası parçası değil. |
       
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: diberry
-ms.openlocfilehash: 71fb289f03467147acb2ef254ab87a2c753bc75c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 39e942b3694ebc59d3cf7d9f4b6a02c4f025e0d0
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416556"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737306"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding'i sık sorulan sorular (SSS)
 
@@ -102,10 +102,12 @@ Güncelleştirilmiş uç noktası İsabeti panosunda görmüyorsanız, Azure por
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>Bir PowerShell komut almak için uç nokta kotası var mı?
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Uç nokta kota görmek için bir PowerShell komutu kullanabilirsiniz:
 
 ```powershell
-Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>LUIS uygulamamı dün çalıştığı ancak bugün 403 hataları alıyorum. Ben uygulama değişmedi. Bunu nasıl düzeltirim?

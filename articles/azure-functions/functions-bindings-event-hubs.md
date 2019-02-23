@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: cshoe
-ms.openlocfilehash: 2c402898af713901fc4d6f9bd04a5935334c9b61
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e63d5f4b218cb4615f96ce5c9a08b98bd9158728
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822349"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733172"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -429,7 +429,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 ## <a name="trigger---event-metadata"></a>Tetikleyici - olay meta verileri
 
-Olay hub'ları tetikleme birkaç sağlar [meta veri özelliklerini](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Bu özellikler, diğer bağlamalar bağlama ifadelerinde parçası olarak veya kodunuzu parametreler olarak kullanılabilir. Bu özellikleri olan [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) sınıfı.
+Olay hub'ları tetikleme birkaç sağlar [meta veri özelliklerini](./functions-bindings-expressions-patterns.md). Bu özellikler, diğer bağlamalar bağlama ifadelerinde parçası olarak veya kodunuzu parametreler olarak kullanılabilir. Bu özellikleri olan [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) sınıfı.
 
 |Özellik|Tür|Açıklama|
 |--------|----|-----------|

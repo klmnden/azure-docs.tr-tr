@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7a7d3ad59d743287e5fe13c52c6c6a1a115d53f3
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2d1818f42cb2bcb19f979f25962a6c9bdea10155
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053321"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728021"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Kaynak tüketimine ve Service Fabric yük ölçümlerle yönetme
 *Ölçümleri* , hizmetleri çok değer verdiğiniz ve, kümedeki düğümler tarafından sağlanan kaynaklar. Bir ölçüm iyileştirmek veya hizmetlerinizin performansını izlemek için yönetmek istediğiniz herhangi bir şey: Örneğin, hizmetiniz aşırı yüklü olmadığını bilmek bellek tüketimi izlemek. Başka bir olup hizmet bellek az daha iyi performans elde etmek için sınırlı olduğu başka bir yere taşıyabilirsiniz şekil için kullanılır.
@@ -36,8 +36,8 @@ Yazmaya ve hizmetinizi dağıtmaya başlamak istediğinizi düşünelim. Bu nokt
 | Ölçüm | Durum bilgisi olmayan bir örneğini yükleme | Durum bilgisi olan ikincil yük | Durum bilgisi olan birincil yük | Ağırlık |
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Yüksek |
-| ReplicaCount |0 |1 |1 |Orta |
-| Sayı |1 |1 |1 |Düşük |
+| ReplicaCount |0 |1. |1 |Orta |
+| Sayı |1 |1. |1 |Düşük |
 
 
 Temel iş yükleri için makul bir küme içindeki iş dağıtımını varsayılan ölçümleri sağlar. Aşağıdaki örnekte, iki hizmet oluşturmak ve Dengeleme için varsayılan ölçümleri dayanan ne olacağını görelim. Bir hedef çoğaltma kümesi boyutu üç ve üç bölümleri olan bir durum bilgisi olan hizmet ilk hizmetidir. İkinci bir bölüm ve üç örnek sayısı ile durum bilgisi olmayan hizmet hizmetidir.
@@ -56,7 +56,7 @@ Dikkat edilecek bazı noktalar:
 
 İyi!
 
-Varsayılan ölçümleri harika bir başlangıç çalışır. Bununla birlikte, varsayılan ölçümleri yalnızca, şimdiye sahip olacaktır. Örneğin: sonuçları mükemmel bile kullanımı tüm bölümleri tarafından çekilen bölme, Düzen olduğunu olasılığı nedir? Ne zaman içinde belirli bir hizmetin yük sabit almayı ve hatta tıpkı birden çok bölümde şu anda?
+Varsayılan ölçümleri harika bir başlangıç çalışır. Bununla birlikte, varsayılan ölçümleri yalnızca, şimdiye sahip olacaktır. Örneğin: Bölümleme, Düzen olduğunu olasılığını nedir sonuçları tüm bölümleri tarafından mükemmel bile kullanımı çekilen? Ne zaman içinde belirli bir hizmetin yük sabit almayı ve hatta tıpkı birden çok bölümde şu anda?
 
 Yalnızca varsayılan Ölçümleriyle çalıştırabilir. Ancak, genellikle Bunun yapılması, küme kullanımı alt ve istediğiniz birden fazla eşit olduğunu gösterir. Varsayılan ölçümleri uyumlu olmayan ve her şeyi eşdeğer olduğunu varsayın olmasıdır. Örneğin, meşgul bir birincil ve iki yer almayan bir PrimaryCount Ölçümde "1" katkıda bulunur. En kötü durumda, yalnızca varsayılan ölçümleri kullanarak da overscheduled düğümleri kaynaklanan performans sorunlarına neden olabilir. En iyi kümenizi alma ve performans sorunlarını önleme ilgileniyorsanız, özel Ölçümler ve dinamik yük raporlama kullanmanız gerekir.
 
@@ -66,12 +66,12 @@ Hizmet oluştururken ölçümleri adlı-service-örnek başına temelinde yapıl
 Herhangi bir ölçümü açıkladığı bazı özellikler vardır: bir ad ve Ağırlık varsayılan yük.
 
 * Ölçüm adı: Ölçüm adı. Ölçüm adı, Resource Manager'ın açısından kümesindeki ölçüm için benzersiz bir tanımlayıcıdır.
-* Ağırlık: Bu hizmet için diğer ölçümlere göre ne kadar önemli Bu ölçüm olan ölçüm ağırlık tanımlar.
-* Varsayılan yükleme: Varsayılan yük hizmetini durum bilgisi olan veya bağlı olarak farklı şekilde gösterilir.
+* Ağırlık: Ölçüm ağırlık, bu hizmet için diğer ölçümlere göre ne kadar önemli Bu ölçüm olduğunu tanımlar.
+* Varsayılan yükleme: Varsayılan yük, hizmet durum bilgisi olan veya bağlı olarak farklı şekilde temsil edilir.
   * Durum bilgisi olmayan hizmetler için her bir ölçüm DefaultLoad adlı tek bir özelliğe sahip.
   * Durum bilgisi olan hizmetler için tanımladığınız:
-    * PrimaryDefaultLoad: Bu ölçüm varsayılan miktarı birincil olduğunda bu hizmeti kullanır
-    * SecondaryDefaultLoad: Bu ölçüm varsayılan süreyi ikincil olduğunda bu hizmeti kullanır
+    * PrimaryDefaultLoad: Birincil olduğunda bu ölçüm varsayılan süre bu hizmeti kullanır.
+    * SecondaryDefaultLoad: İkincil olduğunda bu ölçüm varsayılan süre bu hizmeti kullanır.
 
 > [!NOTE]
 > Özel ölçümler tanımlayın ve istediğiniz _ayrıca_ varsayılan ölçümleri kullanmak için yapmanız _açıkça_ varsayılan ölçümleri yedekleme ve ağırlıkları ve değerleri tanımlamak için ekleyin. Bu durum, varsayılan Ölçümler ve özel ölçümleriniz arasındaki ilişkiyi tanımlamanız gerekir çünkü. Örneğin, belki de daha fazla birincil dağıtım ConnectionCount veya WorkQueueDepth verdiğiniz. Varsayılan olarak PrimaryCount ölçüm ağırlığı yüksek olduğundan, öncelikli emin olmak için diğer ölçümlerinizi eklediğinizde, Orta azaltmak istediğiniz.
@@ -232,7 +232,7 @@ Hala açıklamak için gereken bazı şeyler vardır:
 ## <a name="metric-weights"></a>Ölçüm ağırlıkları
 Farklı Hizmetleri genelinde aynı ölçümleri izlemek önemlidir. Bu genel görünüm ne kümedeki tüketimi izlemek, tüketim düğümlere dengelemek ve düğümleri kapasite aşımı gerçekleştirilmeyen sağlamak Küme Kaynak Yöneticisi olur. Ancak, hizmetler için aynı Ölçüm önemini farklı görünümleri olabilir. Ayrıca, birçok ölçüm ve çok sayıda Hizmetleri ile bir kümede tüm ölçümler için mükemmel bir şekilde dengeli çözümleri olmayabilir. Küme Kaynak Yöneticisi, bu gibi durumlarda nasıl işleyeceğini?
 
-Ölçüm ağırlıkları mükemmel yanıt olduğunda küme Dengeleme nasıl karar vermek için Küme Kaynak Yöneticisi izin verin. Ölçüm ağırlıkları da belirli hizmetler farklı bir şekilde dengelemek için Küme Kaynak Yöneticisi izin verin. Ölçümler, dört farklı ağırlık düzeyine sahip olabilir: sıfır, düşük, Orta ve yüksek. Bir ölçüm ağırlık sıfır ile hiçbir şey olmadığını dengeli değerlendirirken katkıda bulunur. Ancak, kendi yük hala kapasite yönetimi katkıda. Sıfır ağırlık Ölçümleriyle hala faydalıdır ve hizmet davranışı ve performans izleme işleminin bir parçası olarak sıklıkla kullanılır. [Bu makalede](service-fabric-diagnostics-event-generation-infra.md) kullanımı izleme ölçümleri ve tanılama hizmetlerinizin daha fazla bilgi sağlar. 
+Ölçüm ağırlıkları mükemmel yanıt olduğunda küme Dengeleme nasıl karar vermek için Küme Kaynak Yöneticisi izin verin. Ölçüm ağırlıkları da belirli hizmetler farklı bir şekilde dengelemek için Küme Kaynak Yöneticisi izin verin. Ölçümler, dört farklı ağırlık düzeyine sahip olabilir: Sıfır, düşük, Orta ve yüksek. Bir ölçüm ağırlık sıfır ile hiçbir şey olmadığını dengeli değerlendirirken katkıda bulunur. Ancak, kendi yük hala kapasite yönetimi katkıda. Sıfır ağırlık Ölçümleriyle hala faydalıdır ve hizmet davranışı ve performans izleme işleminin bir parçası olarak sıklıkla kullanılır. [Bu makalede](service-fabric-diagnostics-event-generation-infra.md) kullanımı izleme ölçümleri ve tanılama hizmetlerinizin daha fazla bilgi sağlar. 
 
 Gerçek farklı ölçüm ağırlıkları kümedeki küme kaynak yöneticisi için farklı çözümler ürettiğini etkisidir. Ölçüm ağırlıkları Küme Kaynak Yöneticisi, belirli ölçümleri diğerlerinden daha önemli olduğunu bildirir. Hiçbir kusursuz bir çözüm olduğunda Küme Kaynak Yöneticisi daha iyi bir üst ağırlıklı ölçümleri dengeleyen çözümleri tercih. Bir hizmeti belirli bir ölçüm gördüğü, bunların kullanılması bu ölçümün imbalanced bulabilirsiniz, önemli değildir. Bu, hatta bir dağıtım için önemli olan bazı ölçümün elde etmek için başka bir hizmet sağlar.
 

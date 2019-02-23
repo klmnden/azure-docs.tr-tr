@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ab920094561b9143945793ddd4ea3da877a7ae90
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 46dae28fd6c9eaa3d5e03f5f06c5e92449653679
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340544"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737731"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure bölgeleri arasında Azure VM yük devretme ve ilk duruma döndürme
 
@@ -48,7 +48,7 @@ Bu öğretici, tek bir Azure VM’den ikincil bir Azure bölgesine nasıl yük d
    * **En son işlenen**: Bu seçenek, Site Recovery hizmeti tarafından işlenen en son kurtarma noktasını sanal makineye geri döner.
    * **Özel**: Belirli kurtarma noktasına yük devretmek için bu seçeneği kullanın. Bu seçenek, bir yük devretme testi gerçekleştirmek için faydalıdır.
 
-3. Yük devretmeyi tetiklemeden önce Site Recovery’nin kaynak sanal makineleri kapatma girişiminde bulunmasını istiyorsanız, **Yük devretme başlamadan önce makineyi kapat** seçeneğini belirleyin. Kapatma işlemi başarısız olsa bile yük devretme devam eder.
+3. Yük devretmeyi tetiklemeden önce Site Recovery’nin kaynak sanal makineleri kapatma girişiminde bulunmasını istiyorsanız, **Yük devretme başlamadan önce makineyi kapat** seçeneğini belirleyin. Kapatma işlemi başarısız olsa bile yük devretme devam eder. Site Recovery daha önceden Not Kaynak yük devretme işleminden sonra temizleme.
 
 4. Yük devretme ilerleme durumunu **İşler** sayfasından takip edin.
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/19/2018
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338ae760aae90131a7353f990e1014aa714faa0f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 419a07ff6d423f363d6973da3df00fd4aa3f6278
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177912"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727273"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleri nelerdir?
 
@@ -88,23 +88,25 @@ Erişim gözden geçirmeleri etkinleştirmek için aşağıdaki adımları izley
 
 1. Tıklayın **tüm hizmetleri** ve erişim gözden geçirmeleri, hizmet bulma.
 
-    ![Tüm hizmetleri - erişim gözden geçirmeleri](./media/access-reviews-overview/all-services-access-reviews.png)
-
 1. Tıklayın **erişim gözden Geçirmeleriyle**.
 
-    ![Erişim gözden geçirmelerine ekleme](./media/access-reviews-overview/onboard-button.png)
+    ![Tüm hizmetleri - erişim gözden geçirmeleri](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. Gezinti listesinde **katmanına** açmak için **ekleme erişim gözden geçirmeleri** sayfası.
 
+    ![Erişim gözden geçirmelerine ekleme](./media/access-reviews-overview/onboard-button.png)
+
+1. Tıklayın **Oluştur** erişimi etkinleştirmek için geçerli dizinde inceler.
+
     ![Erişim gözden geçirmeleri ekle](./media/access-reviews-overview/onboard-access-reviews.png)
 
-1. Tıklayın **Oluştur** erişimi etkinleştirmek için geçerli dizinde inceler. Erişim gözden geçirmeleri, yeniden başlattığınızda seçenekleri etkin.
+    Erişim yeniden başlattığınızda Gözden Geçiren, erişim gözden geçirme seçenekleri etkin olacaktır.
 
     ![Erişim gözden geçirmeleri etkin](./media/access-reviews-overview/access-reviews-enabled.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bir grubun üyeleri veya bir uygulamaya erişim için erişim gözden geçirmesi oluşturma](create-access-review.md)
+- [Grupları ve uygulamaları, erişim gözden geçirmesi oluştur](create-access-review.md)
 - [Bir Azure AD yönetici rolündeki kullanıcılar için erişim gözden geçirmesi oluşturma](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
-- [Azure AD erişim gözden geçirmeleri ile erişim değerlendirmesi gerçekleştirme](perform-access-review.md)
-- [Uygulamanın Azure AD'de kullanıcı erişimi veya grubu üyelerinin erişim değerlendirmesi tamamlama](complete-access-review.md)
+- [Gruplar veya uygulamalar için erişim gözden geçirin](perform-access-review.md)
+- [Grupları ve uygulamaları, erişim değerlendirmesi tamamlama](complete-access-review.md)

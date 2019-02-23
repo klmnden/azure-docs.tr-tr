@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 91814579675882ba969f5903ebeddcebbcbd6616
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 45824ba93e86622b1bbd92aae01f18f89bee6adf
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301545"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673351"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps için Application Insights’a genel bakış
 
@@ -230,6 +230,7 @@ Uygulamanızın özelliklerine bağlı olarak çeşitli şekillerde başlayabili
 * [ASP.NET Web uygulaması](../../azure-monitor/app/asp-net.md)
 * [Java Web uygulaması](../../azure-monitor/app/java-get-started.md)
 * [Node.js Web uygulaması](../../azure-monitor/app/nodejs.md)
-* Zaten dağıtılmış uygulamalar üzerinde barındırılan [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [Java EE](../../azure-monitor/app/java-live.md), veya [Azure](../../azure-monitor/app/app-insights-overview.md).
+* Zaten dağıtılmış uygulamalar üzerinde barındırılan [IIS](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Azure](../../azure-monitor/app/app-insights-overview.md).
 * [Web sayfaları](../../azure-monitor/app/javascript.md) -Tek Sayfalık Uygulama veya normal Web sayfası - bunu kendi başına veya sunucu seçeneklerinden herhangi biriyle birlikte kullanın.
 * Uygulamanızı genel İnternet'ten test etmek için [kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md).

@@ -7,19 +7,19 @@ author: sumukhs
 manager: timlt
 editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 81c09d61a5213319fa01ef5cc7070ffe385bbab1
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 0b7c6a356812e4acd39b5164cce279b5a18eb3d5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049519"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732764"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Reliable Actors--kvsactorstateprovider'ı yapılandırma
 Kvsactorstateprovider'ı varsayılan yapılandırması için belirtilen aktör Config klasörü altında Microsoft Visual Studio Paket kökünde oluşturulan settings.xml dosyasının değiştirerek değiştirebilirsiniz.

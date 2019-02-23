@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: cd80adaa5d8bb05ce3494966cabbaf076785425c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: e8a94fdae74c5a30ba75e9143b298c3372b886d7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647560"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733019"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs Laboratuvarınızı yapıt deposu ekleme
 DevTest Labs, VM oluşturma veya VM oluşturulduktan sonra sırada bir sanal makineye eklenecek bir yapıt belirtmenizi sağlar. Bu yapıt, bir aracı veya VM üzerinde yüklemek istediğiniz bir uygulama olabilir. Yapıtlar, GitHub veya VSTS Git deposundan yüklenen bir JSON dosyasında tanımlanır. 
@@ -26,6 +26,8 @@ DevTest Labs, VM oluşturma veya VM oluşturulduktan sonra sırada bir sanal mak
 [Genel yapıt deposuna](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)DevTest Labs tarafından korunan, hem Windows hem de Linux için birçok yaygın araçları sunar. Bu depo için bir bağlantı, laboratuvarınız için otomatik olarak eklenir. Genel yapıt deposunda kullanılamayan belirli araçlarla kendi yapıt deposu oluşturabilirsiniz. Özel yapıtlar oluşturma hakkında bilgi edinmek için [özel yapıtlar oluşturma](devtest-lab-artifact-author.md).
 
 Bu makalede, Azure portalı, Azure Resource Manager şablonlarını ve Azure PowerShell kullanarak, özel yapıt deposu ekleme hakkında bilgi sağlar. PowerShell veya CLI komutları yazarak bir laboratuvara yapıt deposu ekleme otomatik hale getirebilirsiniz. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 Laboratuvarınız için bir depo eklemek için ilk olarak, deponuzdan anahtarı bilgilerini alın. Aşağıdaki bölümlerde üzerinde barındırılan depolar için gerekli bilgileri almak nasıl **GitHub** veya **Azure DevOps**.
@@ -170,25 +172,25 @@ Bu makalede kullanılan örnek şablon parametreleri aracılığıyla aşağıda
 - [Kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Kaynakları Resource Manager şablonları ve Resource Manager REST API’si ile dağıtma](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-Yeni bir ubuntu ve PowerShell'de şablonu dağıtmak bkz. Şablonu dağıtmak için kullanılan cmdlet'ler bağlam özgü olduğundan geçerli Kiracı ve geçerli aboneliğin kullanılır. Kullanım [Set-AzureRMContext](/powershell/module/azurerm.profile/set-azurermcontext?view=azurermps-6.13.0) gerekirse bağlamı değiştirmek için şablonu dağıtmadan önce.
+Yeni bir ubuntu ve PowerShell'de şablonu dağıtmak bkz. Şablonu dağıtmak için kullanılan cmdlet'ler bağlam özgü olduğundan geçerli Kiracı ve geçerli aboneliğin kullanılır. Kullanım [kümesi AzContext](/powershell/module/az.profile/set-azcontext) gerekirse bağlamı değiştirmek için şablonu dağıtmadan önce.
 
-İlk olarak kullanarak bir kaynak grubu oluşturun. [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.13.0). Zaten kullanmak istediğiniz kaynak grubu varsa, bu adımı atlayın.
+İlk olarak kullanarak bir kaynak grubu oluşturun. [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Zaten kullanmak istediğiniz kaynak grubu varsa, bu adımı atlayın.
 
 ```powershell
-New-AzureRmResourceGroup -Name MyLabResourceGroup1 -Location westus
+New-AzResourceGroup -Name MyLabResourceGroup1 -Location westus
 ```
 
-Ardından, kaynak grubu kullanarak bir dağıtım oluşturun [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment?view=azurermps-6.13.0). Bu cmdlet, Azure'a kaynak değişiklikleri uygular. Çeşitli kaynak dağıtımlar, herhangi belirli bir kaynak grubuna yapılabilir. Birkaç kez aynı kaynak grubuna dağıtıyorsanız, her dağıtım adının benzersiz olduğundan emin olun.
+Ardından, kaynak grubu kullanarak bir dağıtım oluşturun [yeni AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Bu cmdlet, Azure'a kaynak değişiklikleri uygular. Çeşitli kaynak dağıtımlar, herhangi belirli bir kaynak grubuna yapılabilir. Birkaç kez aynı kaynak grubuna dağıtıyorsanız, her dağıtım adının benzersiz olduğundan emin olun.
 
 ```powershell
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
     -Name MyLabResourceGroup-Deployment1 `
     -ResourceGroupName MyLabResourceGroup1 `
     -TemplateFile azuredeploy.json `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-New-AzureRmResourceGroupDeployment çalıştırdıktan sonra başarıyla komutu (başarılı olması) sağlama durumu ve şablon için herhangi bir çıkış gibi önemli bilgiler çıkarır.
+New-AzResourceGroupDeployment çalıştırdıktan sonra başarıyla komutu (başarılı olması) sağlama durumu ve şablon için herhangi bir çıkış gibi önemli bilgiler çıkarır.
  
 ## <a name="use-azure-powershell"></a>Azure PowerShell kullanma 
 Bu bölümde bir laboratuvara yapıt deposu ekleme için kullanılan bir örnek PowerShell Betiği sağlanır. Azure PowerShell yoksa bkz [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview?view=azps-1.2.0) yüklemek ayrıntılı yönergeler için.
@@ -236,11 +238,11 @@ See https://azure.microsoft.com/en-us/documentation/articles/devtest-lab-add-art
 Whether artifact is VSOGit or GitHub repository.
 
 .EXAMPLE
-Set-AzureRMContext -SubscriptionId 11111111-1111-1111-1111-111111111111
+Set-AzContext -SubscriptionId 11111111-1111-1111-1111-111111111111
 .\New-DevTestLabArtifactRepository.ps1 -LabName "mydevtestlab" -LabResourceGroupName "mydtlrg" -ArtifactRepositoryName "MyTeam Repository" -RepositoryUri "https://github.com/<myteam>/<nameofrepo>.git" -PersonalAccessToken "1111...." -SourceType "GitHub"
 
 .NOTES
-Script uses the current AzureRm context. To set the context, use the Set-AzureRMContext cmdlet
+Script uses the current Az context. To set the context, use the Set-AzContext cmdlet
 
 #>
 
@@ -278,11 +280,11 @@ if ($ArtifactRepositoryName -eq $null){
 }
 
 # Sign in to Azure
-Connect-AzureRmAccount
+Connect-AzAccount
 
 
 #Get Lab Resource
-$LabResource = Get-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $LabName -ResourceGroupName $LabResourceGroupName
+$LabResource = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $LabName -ResourceGroupName $LabResourceGroupName
 
 Write-Verbose "Lab Name: $($LabResource.Name)"
 Write-Verbose "Lab Resource Group Name: $($LabResource.ResourceGroupName)"
@@ -290,7 +292,7 @@ Write-Verbose "Lab Resource Location: $($LabResource.Location)"
 
 Write-Verbose "Artifact Repository Internal Name: $ArtifactRepositoryName"
 
-#Prepare properties object for call to New-AzureRMResource
+#Prepare properties object for call to New-AzResource
 $propertiesObject = @{
     uri = $RepositoryUri;
     folderPath = $FolderPath;
@@ -301,24 +303,24 @@ $propertiesObject = @{
     status = 'Enabled'
 }
 
-Write-Verbose @"Properties to be passed to New-AzureRMResource:$($propertiesObject | Out-String)"@
+Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"@
 
 #Resource will be added to current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
 $resourceName = $LabName + '/' + $ArtifactRepositoryName
-Write-Verbose "AzureRM ResourceType: $resourcetype"
-Write-Verbose "AzureRM ResourceName: $resourceName"
+Write-Verbose "Az ResourceType: $resourcetype"
+Write-Verbose "Az ResourceName: $resourceName"
  
 Write-Verbose "Creating artifact repository '$ArtifactRepositoryDisplayName'..."
-$result = New-AzureRmResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
+$result = New-AzResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
 
 
 #Alternate implementation:
 # Use resourceId rather than resourcetype and resourcename parameters.
 # Using resourceId allows you to specify the $SubscriptionId rather than using the
-# subscription id of Get-AzureRmContext.
+# subscription id of Get-AzContext.
 #$resourceId = "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
-#$result = New-AzureRmResource -properties $propertiesObject -ResourceId $resourceId -ApiVersion 2016-05-15 -Force
+#$result = New-AzResource -properties $propertiesObject -ResourceId $resourceId -ApiVersion 2016-05-15 -Force
 
 
 # Check the result
@@ -337,7 +339,7 @@ return $result
 Aşağıdaki örnek komut dosyasının nasıl çalıştırılacağı gösterilmektedir: 
 
 ```powershell
-Set-AzureRMContext -SubscriptionId <Your Azure subscription ID>
+Set-AzContext -SubscriptionId <Your Azure subscription ID>
 
 .\New-DevTestLabArtifactRepository.ps1 -LabName "mydevtestlab" -LabResourceGroupName "mydtlrg" -ArtifactRepositoryName "MyTeam Repository" -RepositoryUri "https://github.com/<myteam>/<nameofrepo>.git" -PersonalAccessToken "1111...." -SourceType "GitHub"
 ```
@@ -357,7 +359,7 @@ Bu makaledeki örnek PowerShell Betiği aşağıdaki parametreleri alır:
 | personalAccessToken | GitHub veya VSOGit depoya erişmek için güvenlik belirteci. Kişisel erişim belirteci almak yönergeler için Önkoşullar bölümüne bakın |
 | KaynakTürü | Yapıt VSOGit veya GitHub deposunda olup olmadığı. |
 
-Depo bir iç gereken farklı kimlik doğrulaması için Azure portalında görünen görünen adı. Azure portalını kullanarak iç adı görmüyorsanız, ancak Azure REST API'leri veya AzureRM PowerShell cmdlet'lerini kullanırken bakın. Bir betiğimizi kullanıcı tarafından belirtilmezse, betik, bir ad sağlar.
+Depo bir iç gereken farklı kimlik doğrulaması için Azure portalında görünen görünen adı. Azure portalını kullanarak iç adı görmüyorsanız, ancak Azure REST API'lerini veya Azure PowerShell kullanırken görmeyi. Bir betiğimizi kullanıcı tarafından belirtilmezse, betik, bir ad sağlar.
 
 ```powershell
 #Set artifact repository name, if not set by user
@@ -370,10 +372,10 @@ if ($ArtifactRepositoryName -eq $null){
 
 | PowerShell komutu | Notlar |
 | ------------------ | ----- |
-| [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource?view=azurermps-6.13.0) | Bu komut, konumu gibi Laboratuvar hakkında bilgi almak için kullanılır. |
-| [Yeni-AzureRMResource](/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-6.13.0) | Yapıt deposu ekleme için belirli bir komut yoktur. Genel [New-AzureRMResource](/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-5.7.0) cmdlet işi yapar. Bu cmdlet ya da gereken **ResourceId** veya **ResourceName** ve **ResourceType** oluşturmak için kaynak türünü bilmeniz çifti. Bu örnek betik, kaynak adı ve kaynak türü çifti kullanır. <br/><br/>Yapıt deposu kaynağı ile aynı konumda ve Laboratuvar aynı kaynak grubunda oluşturduğunuzu dikkat edin.|
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Bu komut, konumu gibi Laboratuvar hakkında bilgi almak için kullanılır. |
+| [Yeni AzResource](/powershell/module/az.resources/new-azresource) | Yapıt deposu ekleme için belirli bir komut yoktur. Genel [yeni AzResource](/powershell/module/az.resources/new-azresource) cmdlet işi yapar. Bu cmdlet ya da gereken **ResourceId** veya **ResourceName** ve **ResourceType** oluşturmak için kaynak türünü bilmeniz çifti. Bu örnek betik, kaynak adı ve kaynak türü çifti kullanır. <br/><br/>Yapıt deposu kaynağı ile aynı konumda ve Laboratuvar aynı kaynak grubunda oluşturduğunuzu dikkat edin.|
 
-Betik yeni bir kaynak mevcut aboneliğe ekler. Kullanım [Get-AzureRMContext](/powershell/module/azurerm.profile/get-azurermcontext?view=azurermps-6.13.0) bu bilgileri görmek için. Kullanım [Set-AzureRMContext](/powershell/module/azurerm.profile/set-azurermcontext?view=azurermps-6.13.0) geçerli Kiracı ve abonelik ayarlamak için.
+Betik yeni bir kaynak mevcut aboneliğe ekler. Kullanım [Get-AzContext](/powershell/module/az.profile/get-azcontext) bu bilgileri görmek için. Kullanım [kümesi AzContext](/powershell/module/az.profile/set-azcontext) geçerli Kiracı ve abonelik ayarlamak için.
 
 Kaynak adı ve kaynak türü bilgilerini bulmak için en iyi yolu kullanmaktır [Test sürücü Azure REST API'leri](https://azure.github.io/projects/apis/) Web sitesi. Kullanıma [DevTest Labs: 2016-05-15](http://aka.ms/dtlrestapis) REST API'leri için DevTest Labs sağlayıcısı görmek için sağlayıcı. Betik kullanıcılar aşağıdaki kaynak kimliği. 
 

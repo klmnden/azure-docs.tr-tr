@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: fe781802309ad0945eaee23c35dda1617e47ae06
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237884"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727358"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD galeri uygulaması eklenirken sorun oluştu
 
@@ -38,7 +38,7 @@ Bazı durumlarda, geçici bir sorun, ağ sorunlarını veya bir hata nedeniyle, 
 
 Tıklandığında bir hatayla karşılaşırsanız **Ekle** düğmesi, gördüğünüz bir **bildirim** içinde bir **hata** durumu. Bir destek mühendisiyle paylaşın veya daha fazla bilgi için hata hakkındaki ayrıntılar istiyorsanız, içindeki adımları izleyerek hata hakkında daha fazla bilgi görebilirsiniz [portal bildirimi ayrıntılarını görmek nasıl](#how-to-see-the-details-of-a-portal-notification) bölümü.
 
- ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Bunu ekledikten sonra Uygulamam ayarlama bilmiyorum
+## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Bunu ekledikten sonra Uygulamam ayarlama bilmiyorum
 
 Öğrenimi uygulamaları hakkında yardıma ihtiyacınız olursa [nasıl Azure Active Directory ile SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) makale başlatmak için iyi bir yerdir.
 

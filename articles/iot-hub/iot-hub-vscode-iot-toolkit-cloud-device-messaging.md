@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: baf9e18849ef02065f045369a2815970e06e5e5e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0455dafaa39f9f6bc19399fab31663d6b2e06e95
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438198"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726355"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>IOT Hub ve cihaz arasında ileti göndermek ve almak için Visual Studio Code için Azure IOT araçları kullanın
 
@@ -22,6 +22,8 @@ ms.locfileid: "54438198"
 [Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) , IOT hub'ı Yönetim ve IOT uygulama geliştirmeyi kolaylaştırır kullanışlı bir Visual Studio Code uzantısı. Bu makalede Visual Studio Code için Azure IOT araçları arasındaki Cihazınızı IOT hub'ınıza ileti göndermek ve almak için nasıl kullanılacağı ele alınmaktadır.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-you-will-learn"></a>Bilgi edineceksiniz
 

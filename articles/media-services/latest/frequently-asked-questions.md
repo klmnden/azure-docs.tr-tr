@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: a815d03dd4e7163d4d9f00ce8f9c16f1b3055ce9
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: c0dc67ddf0f1de9ca72fd14a9113219209a6bda0
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652340"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674219"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 sık sorulan sorular
 
@@ -62,7 +62,7 @@ STS (güvenli belirteç hizmeti) yararlanmak için doğru yaklaşımdır bakın:
 
 STS kullanıcı profili bağlı olarak farklı talepler (örneğin, "Premium kullanıcı", "Temel kullanıcı", "Ücretsiz deneme kullanıcı") ekleyin. JWT'nin farklı Taleplerde ile kullanıcı farklı içeriğini görebilir. Elbette, farklı içerik/varlık için karşılık gelen RequiredClaims ContentKeyPolicyRestriction olacaktır.
 
-Yapılandırma, kullanım Azure medya Hizmetleri API'leri lisans/anahtar teslim ve varlıklarınızı şifreleme (gösterildiği gibi [Bu örnek](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
+Yapılandırma, kullanım Azure medya Hizmetleri API'leri lisans/anahtar teslim ve varlıklarınızı şifreleme (gösterildiği gibi [Bu örnek](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
 Daha fazla bilgi için bkz.
 
@@ -87,5 +87,4 @@ Daha fazla bilgi için [Media Services v3 geçiş](migrate-from-v2-to-v3.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Media Services v3 genel bakış](media-services-overview.md)
+[Media Services v3 genel bakış](media-services-overview.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/20/2019
 ms.author: pareshmu
-ms.openlocfilehash: c80477eee18eda2bb3f6e273fdab760d27531310
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 0e999017f7c093b1b9b18db92950d66e453db47c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456444"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670687"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
 
@@ -97,7 +97,7 @@ Aşağıdaki tabloda hizmet sağlayıcısına göre konumlar gösterilmektedir. 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Desteklenen |Desteklenen |Amsterdam, Atlanta, Chicago, Dallas, Dublin, Hong Kong, Londra, London2, Los Angeles, Melbourne, Miami, New York, Osaka, Paris, Sao Paulo, Seattle, Silikon vadisi, Singapur, Sidney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Desteklenen |Desteklenen |Amsterdam, Dublin, Londra |
 | **GÉANT** |Desteklenen |Desteklenen |Amsterdam |
-| **[Genel Bulut Değişimi (GCX)](http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | Desteklenen| Desteklenen | Chennai, Mumbai |
+| **[Genel Bulut Değişimi (GCX)](http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Desteklenen| Desteklenen | Chennai, Mumbai |
 | **[InterCloud](https://www.intercloud.com/)** |Desteklenen |Desteklenen |Amsterdam, Londra, New York, Paris, Silikon Vadisi, Singapur, Washington DC |
 | **Internet2** |Desteklenen |Desteklenen |Chicago, Dallas, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Desteklenen |Desteklenen |Osaka, Tokyo |
@@ -289,7 +289,7 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | Kuzey Amerika |
 | **[FlexManage](http://www.flexmanage.com/cloud)** | Kuzey Amerika |
 | **[Lightstream](https://www.ltstream.com/expressroute)** | Kuzey Amerika |
-| **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | Avustralya |
+| **[The IT Consultancy Group](http://itconsult.com.au/)** | Avustralya |
 | **[MOQdigital](http://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | Avustralya |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Avrupa (Almanya) |
 | **[Nelite](https://www.nelite.com/offres-services/)** | Avrupa |

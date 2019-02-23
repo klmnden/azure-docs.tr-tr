@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2b81c23b5cf9ea5d4bfc47d36ae251f762ffad11
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70469a9e8737a9df18628951a061c97081c74080
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539699"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735110"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Özel Laboratuvar ilkelerini kullanıcı izinleri verme
 ## <a name="overview"></a>Genel Bakış
@@ -30,12 +30,12 @@ Bölümünde açıklandığı gibi [Azure rol tabanlı erişim denetimi](../role
 
 DevTest Labs'de RBAC eylem sağlayan bir kaynak türünü ilkedir **Microsoft.DevTestLab/labs/policySets/policies/**. Her bir laboratuvar İlkesi İlkesi kaynak türündeki bir kaynaktır ve RBAC rolü için kapsam olarak atanabilir.
 
-Örneğin, kullanıcıların okuma/yazma izni vermek için **izin verilen VM boyutları** İlkesi ile çalışır, özel bir rol oluşturmanız **Microsoft.DevTestLab/labs/policySets/policies/*** Eylem ve ardından uygun kullanıcıları bu özel rolü kapsamında atayın **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Örneğin, kullanıcıların okuma/yazma izni vermek için **izin verilen VM boyutları** İlkesi ile çalışır, özel bir rol oluşturmanız **Microsoft.DevTestLab/labs/policySets/policies/** eylemi ve ardından uygun kullanıcıları bu özel rolü kapsamında atayın **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
 Özel RBAC rolleri hakkında daha fazla bilgi için bkz: [özel roller erişim denetimi](../role-based-access-control/custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>PowerShell kullanarak Laboratuvar özel rol oluşturma
-Başlamak için yükleme ve Azure PowerShell cmdlet'lerini yapılandırma açıklayacak şu makaleyi okuyun gerekecektir: [ https://azure.microsoft.com/blog/azps-1-0-pre ](https://azure.microsoft.com/blog/azps-1-0-pre).
+Başlamak için şunları yapmanız gerekir [Azure PowerShell'i yükleme](/powershell/azure/install-az-ps). 
 
 Azure PowerShell cmdlet'leri ayarladıktan sonra aşağıdaki görevleri gerçekleştirebilirsiniz:
 
@@ -46,35 +46,35 @@ Azure PowerShell cmdlet'leri ayarladıktan sonra aşağıdaki görevleri gerçek
 Aşağıdaki PowerShell Betiği örnekleri bu görevlerin nasıl gerçekleştirileceği gösterilmektedir:
 
     ‘List all the operations/actions for a resource provider.
-    Get-AzureRmProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
+    Get-AzProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
 
     ‘List actions in a particular role.
-    (Get-AzureRmRoleDefinition "DevTest Labs User").Actions
+    (Get-AzRoleDefinition "DevTest Labs User").Actions
 
     ‘Create custom role.
-    $policyRoleDef = (Get-AzureRmRoleDefinition "DevTest Labs User")
+    $policyRoleDef = (Get-AzRoleDefinition "DevTest Labs User")
     $policyRoleDef.Id = $null
     $policyRoleDef.Name = "Policy Contributor"
     $policyRoleDef.IsCustom = $true
     $policyRoleDef.AssignableScopes.Clear()
     $policyRoleDef.AssignableScopes.Add("/subscriptions/<SubscriptionID> ")
     $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policySets/policies/*")
-    $policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)
+    $policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
 
 ## <a name="assigning-permissions-to-a-user-for-a-specific-policy-using-custom-roles"></a>Bir kullanıcıya özel rolleri kullanarak belirli bir ilke için izinler atama
-Özel rollerinizi tanımladınız sonra bunları kullanıcılara atayabilirsiniz. Bir kullanıcıya özel bir rol atamak için önce edinmeniz gerekir **objectID** o bir kullanıcıyı temsil eden. Bunu yapmak için kullanın **Get-AzureRmADUser** cmdlet'i.
+Özel rollerinizi tanımladınız sonra bunları kullanıcılara atayabilirsiniz. Bir kullanıcıya özel bir rol atamak için önce edinmeniz gerekir **objectID** o bir kullanıcıyı temsil eden. Bunu yapmak için kullanın **Get-AzADUser** cmdlet'i.
 
 Aşağıdaki örnekte, **objectID** , *SomeUser* 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 kullanıcıdır.
 
-    PS C:\>Get-AzureRmADUser -SearchString "SomeUser"
+    PS C:\>Get-AzADUser -SearchString "SomeUser"
 
     DisplayName                    Type                           ObjectId
     -----------                    ----                           --------
     someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 
-Yapılandırmasını tamamladıktan **objectID** kullanıcı ve bir özel rol adı için kullanıcı bu rolü atayabilirsiniz **New-AzureRmRoleAssignment** cmdlet:
+Yapılandırmasını tamamladıktan **objectID** kullanıcı ve bir özel rol adı için kullanıcı bu rolü atayabilirsiniz **yeni AzRoleAssignment** cmdlet:
 
-    PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
+    PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
 
 Önceki örnekte, **AllowedVmSizesInLab** İlkesi kullanılır. Herhangi birini kullanabilmeniz için ilkeler:
 

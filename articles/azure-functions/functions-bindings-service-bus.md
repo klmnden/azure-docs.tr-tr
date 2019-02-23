@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: e75b282d2190654c14c4885861e52b96fdced4c5
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: ac71a88d6c2cbd3a7159ac7382872ea28e079bed
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586945"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728157"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure işlevleri için Azure Service Bus bağlamaları
 
@@ -315,7 +315,7 @@ Zehirli ileti işleme denetlenen veya Azure işlevleri'nde yapılandırılır. S
 
 ## <a name="trigger---message-metadata"></a>Tetikleyici - ileti meta verileri
 
-Service Bus tetiği birkaç sağlar [meta veri özelliklerini](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Bu özellikler, diğer bağlamalar bağlama ifadelerinde parçası olarak veya kodunuzu parametreler olarak kullanılabilir. Bu özellikleri olan [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) sınıfı.
+Service Bus tetiği birkaç sağlar [meta veri özelliklerini](./functions-bindings-expressions-patterns.md#trigger-metadata). Bu özellikler, diğer bağlamalar bağlama ifadelerinde parçası olarak veya kodunuzu parametreler olarak kullanılabilir. Bu özellikleri olan [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) sınıfı.
 
 |Özellik|Tür|Açıklama|
 |--------|----|-----------|

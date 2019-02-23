@@ -8,12 +8,12 @@ ms.author: viviali
 ms.date: 12/4/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 9c774a463264a3df859ac097dce4aa21df1c1dd8
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6133a7441459072d0c7da1841161da563a28aa31
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163370"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730333"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>IOT Central, IOT Central için diğer IOT bulutlara bağlanmak için cihaz köprüsü oluşturun
 
@@ -26,7 +26,9 @@ IOT Central cihaz köprüsü, github'da açık kaynaklı bir çözümdür. Çeş
 -   Azure işlev uygulaması
 -   Azure Depolama Hesabı
 -   Tüketim Planı
--   Azure Key Vault işlev uygulaması, cihaz köprüsü kritik parçasıdır. Diğer IOT platformları veya basit bir Web kancası tümleştirmesi aracılığıyla özel hiçbir platforma HTTP POST isteği alır. Sigfox ve parçacık TTN bulutlara bağlanma gösteren örnekler sağladık. Platformunuza işlev uygulamanız için HTTP POST istekleri gönderebilir, özel IOT bulutuna bağlanmak için bu çözümü kolayca genişletebilirsiniz.
+-   Azure Key Vault
+
+İşlev uygulaması, cihaz köprüsü kritik parçasıdır. Diğer IOT platformları veya basit bir Web kancası tümleştirmesi aracılığıyla özel hiçbir platforma HTTP POST isteği alır. Sigfox ve parçacık TTN bulutlara bağlanma gösteren örnekler sağladık. Platformunuza işlev uygulamanız için HTTP POST istekleri gönderebilir, özel IOT bulutuna bağlanmak için bu çözümü kolayca genişletebilirsiniz.
 İşlev uygulaması verileri IOT Central tarafından kabul edilen bir biçime dönüştürür ve boyunca DPS API'leri iletir.
 
 ![Azure işlevleri ekran görüntüsü](media/howto-build-iotc-device-bridge/azfunctions.png)

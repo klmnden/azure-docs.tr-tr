@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: 15548e801777a99dfb78de0067abb633a2587ee6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7bcc1bf6b734abe202c5fec5d515604f4bf8e4a7
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053202"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669372"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IOT SDK'ları Platform desteği
 
@@ -41,8 +41,8 @@ Desteklenen çeşitli platformlar vardır.
 | İşletim Sistemi                  | Arch | Derleyici             | TLS kitaplığı       |
 |---------------------|------|----------------------|-------------------|
 | Ubuntu 16.04 LTS    | X64  | gcc 5.4.0            | openssl - 1.0.2g |
-| 18.04 ubuntu LTS    | X64  | gcc 7.3              | WolfSSL – 1.13    |
-| 18.04 ubuntu LTS    | X64  | Clang 6.0.X          | Openssl – 1.1.0g  |
+| Ubuntu 18.04 LTS    | X64  | gcc 7.3              | WolfSSL – 1.13    |
+| Ubuntu 18.04 LTS    | X64  | Clang 6.0.X          | Openssl – 1.1.0g  |
 | OSX 10.13.4         | x64  | XCode 9.4.1          | Yerel OSX        |
 | Windows Server 2016 | x64  | Visual Studio 14.0.X | SChannel          |
 | Windows Server 2016 | x86  | Visual Studio 14.0.X | SChannel          |
@@ -56,16 +56,16 @@ Desteklenen çeşitli platformlar vardır.
 | Windows Server 2016 | x64  | Python 2.7 | openssl     |
 | Windows Server 2016 | x86  | Python 3.5 | openssl     |
 | Windows Server 2016 | x64  | Python 3.5 | openssl     |
-| 18.04 ubuntu LTS    | x86  | Python 2.7 | openssl     |
-| 18.04 ubuntu LTS    | x86  | Python 3.4 | openssl     |
+| Ubuntu 18.04 LTS    | x86  | Python 2.7 | openssl     |
+| Ubuntu 18.04 LTS    | x86  | Python 3.4 | openssl     |
 | Yüksek MacOS Sierra   | x64  | Python 2.7 | openssl     |
 
 ### <a name="net-sdk"></a>.NET SDK
 
 | İşletim Sistemi                  | Arch | Framework            | Standart          |
 |---------------------|------|----------------------|-------------------|
-| Ubuntu 16.04 LTS    | X64  | .NET core 2.1        | .NET standard 2.0 |
-| Windows Server 2016 | X64  | .NET core 2.1        | .NET standard 2.0 |
+| Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET standard 2.0 |
+| Windows Server 2016 | X64  | .NET Core 2.1        | .NET standard 2.0 |
 | Windows Server 2016 | X64  | .NET framework 4.7   | .NET standard 2.0 |
 | Windows Server 2016 | X64  | .NET Framework 4.5.1 | Yok               |
 
@@ -83,6 +83,7 @@ Desteklenen çeşitli platformlar vardır.
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
 | Android API 28 | X64  | Java 8       |
+| Android şeyler | X64  | Java 8      |
 
 ## <a name="partner-supported-platforms"></a>İş ortağı desteklenen platformlar
 
@@ -90,7 +91,7 @@ Müşteriler, platform desteğimiz genişletebilir SDK'ın (PAL) platform Soyutl
 
 | İş ortağı             | Cihazlar                            | Bağlantı                     | Destek |
 |---------------------|------------------------------------|--------------------------|---------|
-| Espressif           | ESP32 <br/> ESP8266                              | [ESP-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
+| Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IOT Modem     | [Qualcomm LTE IOT SDK'sı](https://developer.qualcomm.com/software/lte-iot-sdk) | [Forum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
 | ST Microelectronics | STM32L4 serisi <br/> STM32F4 serisi <br/>  STM32F7 serisi <br/>  IOT düğümü STM32L4 bulma Seti    | [X KÜP BULUT](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html) <br/> [X-KÜP AZURE'A](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html) <br/> [P-NUCLEO AZURE'A](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP CLD AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Destek](https://www.st.com/content/st_com/en/support/support-home.html)
 | Texas Instruments   | CC3220SF Başlatma çubuğu <br/> CC3220S Başlatma çubuğu <br/> MSP432E4 Başlatma çubuğu      | [Azure IOT eklentisi SimpleLink için](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [Za E2E Forumu](https://e2e.ti.com) <br/> [CC3220 Za E2E Forumu](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [MSP432E4 Za E2E Forumu](https://e2e.ti.com/support/microcontrollers/msp430/) |

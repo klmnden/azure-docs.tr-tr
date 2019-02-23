@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: b8f8d0a089a74334a908e3dad65c63231bbe5975
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 13a2eb080c6822a8a6786be1952bc588fa8afd80
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098944"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729219"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Sertifika kimlik doğrulaması Azure API Management istemcisini kullanarak arka uç hizmetlerine güvenliğini sağlama
 
@@ -27,6 +27,8 @@ ms.locfileid: "56098944"
 API Management REST API'sini kullanarak sertifikaların yönetilmesi hakkında daha fazla bilgi için bkz: <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API sertifikası varlık</a>.
 
 ## <a name="prerequisites"> </a>Önkoşulları
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bu kılavuzda bir API için arka uç hizmetine erişmek için istemci sertifikası kimlik doğrulaması kullanmak için API Management hizmet örneğinizin yapılandırma gösterilmektedir. Bu makaledeki adımları izlemeden önce arka uç hizmetiniz, istemci sertifikası kimlik doğrulaması için yapılandırılmış olması gerekir ([Azure Web Siteleri'nde sertifika kimlik doğrulaması yapılandırmak için bu makaleye başvurun] [ to configure certificate authentication in Azure WebSites refer to this article]). API Management hizmeti için yüklemek için sertifika ve parola erişmeniz gerekir.
 
@@ -81,11 +83,11 @@ Ardından bir API tarafından sertifika ise, bir uyarı ekranı görüntülenir.
 
 ## <a name="self-signed-certificates"></a>Otomatik olarak imzalanan sertifikalar
 
-Otomatik olarak imzalanan sertifikalar kullanıyorsanız, API Management'ı arka uç sistemi ile iletişim kurmak için sırayla sertifika zinciri doğrulamasını devre dışı bırakmak gerekir. Aksi takdirde, 500 hata kodu döndürür. Bunu yapılandırmak için kullanabileceğiniz [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (için yeni arka uç) veya [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (mevcut arka uç için) PowerShell cmdlet'leri ve `-SkipCertificateChainValidation` parametresi `True`.
+Otomatik olarak imzalanan sertifikalar kullanıyorsanız, API Management'ı arka uç sistemi ile iletişim kurmak için sırayla sertifika zinciri doğrulamasını devre dışı bırakmak gerekir. Aksi takdirde, 500 hata kodu döndürür. Bunu yapılandırmak için kullanabileceğiniz [ `New-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (için yeni arka uç) veya [ `Set-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (mevcut arka uç için) PowerShell cmdlet'leri ve `-SkipCertificateChainValidation` parametresi `True`.
 
 ```powershell
-$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
-New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+$context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
 [How to add operations to an API]: api-management-howto-add-operations.md

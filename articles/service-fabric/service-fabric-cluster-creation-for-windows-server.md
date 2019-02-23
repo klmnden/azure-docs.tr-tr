@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/10/2017
+ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 321a69768935a9cb220bf5c2ae96c30274dc590d
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 9c59da35f5dafcdcf62901689814e696dce3cd20
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159461"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674227"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server üzerinde çalışan tek başına küme oluşturma
 Azure Service Fabric, tüm sanal makineleri veya Windows Server çalıştıran bilgisayarlarda, Service Fabric kümeleri oluşturmak için kullanabilirsiniz. Bu, dağıtmak ve Service Fabric uygulamaları Windows Server bilgisayarları birbirine bağlı bir dizi içeren herhangi bir ortamında çalıştırmak, şirket içinde veya tüm bulut sağlayıcıları ile de gösterir. Service Fabric, tek başına Windows Server paketi adlı Service Fabric kümeleri oluşturmak için bir kurulum paketi sağlar.
@@ -61,7 +61,9 @@ Kurulum paketiyle birlikte birkaç örnek küme yapılandırma dosyası yükleni
 
 Bu makalede oluşturduğunuz küme güvenli değildir.  Herkes anonim olarak bağlanıp yönetim işlemleri gerçekleştirebileceğinden, üretim kümeleri her zaman X.509 sertifikaları veya Windows güvenliği kullanılarak güvenli hale getirilmelidir.  Güvenlik yalnızca küme oluşturma sırasında yapılandırılır ve küme oluşturulduktan sonra güvenliği etkinleştirmek mümkün değildir. Yapılandırma dosyası etkinleştirme güncelleştirme [sertifika güvenlik](service-fabric-windows-cluster-x509-security.md) veya [Windows Güvenlik](service-fabric-windows-cluster-windows-security.md). Service Fabric küme güvenliği hakkında daha fazla bilgi edinmek için [Küme güvenliğini sağlama](service-fabric-cluster-security.md) makalesini okuyun.
 
-### <a name="step-1a-create-an-unsecured-local-development-cluster"></a>Adım 1A: Güvenli olmayan yerel geliştirme kümesi oluşturun
+### <a name="step-1-create-the-cluster"></a>1. Adım: Kümeyi oluşturma
+
+#### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Senaryo A: Güvenli olmayan yerel geliştirme kümesi oluşturun
 Service Fabric dağıtılabilir bir makine geliştirme kümeye kullanarak *ClusterConfig.Unsecure.DevCluster.json* dahil dosya [örnekleri](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 Tek başına paketini makinenize açın, örnek yapılandırma dosyası yerel makineye kopyalayın ve ardından çalıştırma *CreateServiceFabricCluster.ps1* tek başına paket klasöründen bir yönetici PowerShell oturumu aracılığıyla betiği .
@@ -74,7 +76,7 @@ Ortam Kurulumu kısmına bakın [planlama ve küme dağıtımınızı hazırlama
 
 Çalışan geliştirme senaryolarını tamamlandıysa, Service Fabric kümesine makineden bölümdeki adımları başvurarak kaldırabilirsiniz "[küme kaldırma](#removecluster_anchor)". 
 
-### <a name="step-1b-create-a-multi-machine-cluster"></a>Adım 1B: Çok makineli bir küme oluşturma
+#### <a name="scenario-b-create-a-multi-machine-cluster"></a>Senaryo B: Çok makineli bir küme oluşturma
 Planlama aracılığıyla gitti ve hazırlık adımları ayrıntılı sonra [planlama ve küme dağıtımınızı hazırlama](service-fabric-cluster-standalone-deployment-preparation.md), küme yapılandırma dosyanızı kullanarak üretim kümenizi oluşturmak hazır olursunuz.
 
 Kümeyi dağıtan ve yapılandıran küme yöneticisinin bilgisayarda yönetici ayrıcalıklarına sahip olması gerekir. Service Fabric’i bir etki alanı denetleyicisine yükleyemezsiniz.
@@ -114,7 +116,7 @@ Kümeyi dağıtan ve yapılandıran küme yöneticisinin bilgisayarda yönetici 
 > 
 > 
 
-### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Adım 1C: Çevrimdışı (Internet bağlantısı) kümesi oluşturma
+#### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>C: senaryosu Çevrimdışı (Internet bağlantısı) kümesi oluşturma
 Service Fabric çalışma zamanı paketi küme oluşturma sırasında otomatik olarak indirilir. İnternet'e bağlı olmayan makinelere bir küme dağıtılırken, Service Fabric çalışma zamanı paketi ayrı olarak indirebilir ve küme oluşturma sırasında yolu sağlamak gerekir.
 Çalışma zamanı paket, internet'e bağlı başka bir makineden ayrı olarak indirilebilir [indirme bağlantısı - Service Fabric çalışma zamanı - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Burada, çevrimdışı küme dağıtma ve çalıştırarak küme oluşturun çalışma zamanı paketini kopyalayın `CreateServiceFabricCluster.ps1` ile `-FabricRuntimePackagePath` dahil, bu örnekte gösterildiği gibi parametre: 
 

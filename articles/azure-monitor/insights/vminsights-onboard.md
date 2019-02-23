@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 46df2d6828cd60aee3c64128197579eb6f51a11a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 874e8da66fb01df1b25d14bd8d86186f0f6b55bb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340340"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733903"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Azure İzleyici (Önizleme) VM'ler için dağıtma
 Bu makalede, Azure İzleyici ' VM'ler için ayarlanacak açıklar. Hizmet, Azure sanal makinelerinizi (VM) ve sanal makine ölçek kümeleri ve sanal makineleri ortamınızda işletim sistemi durumunu izler. Bu izleme, bulma ve bunlar üzerinde barındırılabilir uygulama bağımlılıkları eşleme içerir. 
@@ -36,7 +36,7 @@ Başlamadan önce aşağıdaki bölümlerde yer alan bilgiler anladığınızdan
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Bir Log Analytics çalışma alanı şu anda şu bölgelerde desteklenir:
+VM'ler için Azure İzleyici, bir Log Analytics çalışma alanı şu bölgelerde destekler:
 
 - Batı Orta ABD
 - Doğu ABD

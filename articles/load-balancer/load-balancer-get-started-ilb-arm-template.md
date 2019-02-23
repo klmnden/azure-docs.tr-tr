@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: aa1df4811bfe1a59671e8e696958bed9c5ebff45
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 6cbde9d0d53cdd688c39381978bd338c66d5688e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593040"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671684"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Şablon kullanarak iç yük dengeleyici oluşturma
 
@@ -47,7 +47,7 @@ PowerShell kullanarak yüklediğiniz şablonu dağıtmak için aşağıdaki adı
 3. Dosyayı düzenleyin ve kaydedin.
 4. Çalıştırma **yeni AzResourceGroupDeployment** şablonu kullanarak bir kaynak grubu oluşturmak için cmdlet'i.
 
-    ```powershell
+    ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
         -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
         -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
@@ -60,7 +60,7 @@ Azure CLI’yi kullanarak şablonu dağıtmak için aşağıdaki adımları uygu
 1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../cli-install-nodejs.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
 2. Resource Manager moduna geçmek için **azure config mode** komutunu aşağıda gösterildiği gibi çalıştırın.
 
-    ```azurecli
+    ```azurecli-interactive
     azure config mode arm
     ```
 

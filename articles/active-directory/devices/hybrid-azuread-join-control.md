@@ -17,12 +17,12 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6b1e1c103c37874365f7e8d0b893985c9a6469c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 66506a8abf130f27950fd958ba1a7c291e55a5a5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171086"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674268"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Cihazlarınızın hibrit Azure AD katılımını denetleme
 
@@ -82,7 +82,7 @@ GPO ayarlamak için:
 8.  Sağ **bilgisayarları etki alanına katılmış cihaz olarak kaydetme**ve ardından **Düzenle**.
 
     > [!NOTE] 
-    > Bu Grup İlkesi şablonu Grup İlkesi Yönetimi konsolunun önceki sürümlerinden yeniden adlandırıldı. Konsol önceki bir sürümünü kullanıyorsanız, Git **Bilgisayar Yapılandırması** > **ilkeleri** > **Yönetim Şablonları**  >  **Windows bileşenleri** > **çalışma alanına katılma** > **otomatik olarak çalışma alanına katılma istemci bilgisayarları**. 
+    > Bu Grup İlkesi şablonu Grup İlkesi Yönetimi konsolunun önceki sürümlerinden yeniden adlandırıldı. Konsol önceki bir sürümünü kullanıyorsanız, Git **Bilgisayar Yapılandırması** > **ilkeleri** > **Yönetim Şablonları**  >  **Windows bileşenleri** > **cihaz kaydı** > **kayıt etki alanına katılmış, bilgisayarı cihaz olarak**. 
 
 9.  Aşağıdaki ayarlardan birini seçin ve ardından **Uygula**:
 

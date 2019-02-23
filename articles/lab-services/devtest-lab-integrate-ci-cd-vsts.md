@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: bcc39f2d8cf1ca0440f8028464d9041435914477
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7806599c1a2f1396ff4b07d6f0538057654029d7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263416"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738530"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs, Azure DevOps, sürekli tümleştirme ve teslim işlem hattı tümleştirme
 Kullanabileceğiniz *Azure DevTest Labs görevlerini* Azure DevOps kolayca yüklenir uzantısı, Azure DevTest Labs ile CI/CD derleme ve yayın işlem hattınızı tümleştirin. Üç görevin uzantıyı yükleyen: 
@@ -30,6 +30,8 @@ Kullanabileceğiniz *Azure DevTest Labs görevlerini* Azure DevOps kolayca yükl
 İşlem, örneğin, belirli bir test görevi için "altın görüntü" hızlı bir şekilde dağıtmak ve test bittiğinde silmek kolaylaştırır.
 
 Bu makale oluşturma ve bir VM dağıtma, özel bir görüntü oluşturun ve VM tam bir işlem hattı olarak tüm silin. Her görev normalde tek tek ve kendi özel yapı test etme-dağıtma hattında gerçekleştirmelisiniz.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 Azure DevTest Labs ile CI/CD ardışık düzeninizi tümleştirebilirsiniz önce uzantıyı Visual Studio Market'ten yüklemeniz gerekir.
@@ -57,20 +59,20 @@ Bu bölümde, isteğe bağlı bir Azure sanal makinesi oluşturmak için kulland
    ```powershell
    Param( [string] $labVmId)
 
-   $labVmComputeId = (Get-AzureRmResource -Id $labVmId).Properties.ComputeId
+   $labVmComputeId = (Get-AzResource -Id $labVmId).Properties.ComputeId
 
    # Get lab VM resource group name
-   $labVmRgName = (Get-AzureRmResource -Id $labVmComputeId).ResourceGroupName
+   $labVmRgName = (Get-AzResource -Id $labVmComputeId).ResourceGroupName
 
    # Get the lab VM Name
-   $labVmName = (Get-AzureRmResource -Id $labVmId).Name
+   $labVmName = (Get-AzResource -Id $labVmId).Name
 
    # Get lab VM public IP address
-   $labVMIpAddress = (Get-AzureRmPublicIpAddress -ResourceGroupName $labVmRgName
+   $labVMIpAddress = (Get-AzPublicIpAddress -ResourceGroupName $labVmRgName
                    -Name $labVmName).IpAddress
 
    # Get lab VM FQDN
-   $labVMFqdn = (Get-AzureRmPublicIpAddress -ResourceGroupName $labVmRgName
+   $labVMFqdn = (Get-AzPublicIpAddress -ResourceGroupName $labVmRgName
               -Name $labVmName).DnsSettings.Fqdn
 
    # Set a variable labVmRgName to store the lab VM resource group name

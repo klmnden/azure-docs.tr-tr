@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: bc7fdbe964269521a049fba8fcb8c37194d60f7c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b2676d16abe3fb3cb1ec59b261c6cc059b4795de
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664208"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674778"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure Blob depolamadan/depolamaya veri kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -257,13 +257,11 @@ Bu özellikler bir Azure Blob Depolama bağlı hizmeti için desteklenir:
 
 ### <a name="managed-identity"></a> Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik
 
-Veri Fabrikası ile ilişkilendirilebilen bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği, Blob Depolama kimlik doğrulama kendi hizmet sorumlusunu kullanmaya benzer doğrudan kullanabilirsiniz. Bu belirlenen / için Blob depolamanızın erişim ve kopyalama veri fabrikasına sağlar.
+Veri Fabrikası ile ilişkilendirilebilen bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu yönetilen kimlik, Blob Depolama kimlik doğrulama kendi hizmet sorumlusunu kullanmaya benzer doğrudan kullanabilirsiniz. Bu belirlenen / için Blob depolamanızın erişim ve kopyalama veri fabrikasına sağlar.
 
-Azure depolama MSI kimlik doğrulaması için genel olarak, başvurmak [erişim için Azure depolama, Azure Active Directory'yi kullanarak kimlik doğrulaması](../storage/common/storage-auth-aad.md).
+Başvurmak [erişim için Azure depolama, Azure Active Directory'yi kullanarak kimlik doğrulaması](../storage/common/storage-auth-aad.md) genel Azure depolama, kimlik doğrulaması için. Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak için bu adımları izleyin:
 
-Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak için bu adımları izleyin:
-
-1. [Veri Fabrikası hizmet kimliği almak](data-factory-service-identity.md#retrieve-service-identity) "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak.
+1. [Data factory yönetilen kimlik bilgileri almak](data-factory-service-identity.md#retrieve-managed-identity) "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak.
 
 2. Azure Blob Depolama alanında yönetilen kimlik uygun izni verin. Başvurmak [RBAC Azure depolama verileriyle Yönet erişim hakları](../storage/common/storage-auth-aad-rbac.md) rolleri hakkında daha fazla ayrıntı içeren.
 

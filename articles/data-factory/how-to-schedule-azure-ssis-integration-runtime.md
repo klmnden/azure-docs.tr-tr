@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 9f1ee309156a39078ffdfeed2c75d86476ac8b48
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 2f08d5b8548b8b7af282356d41c26442edd145b0
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158661"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669590"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Nasıl bir zamanlamaya göre Azure-SSIS tümleştirme çalışma zamanını durdurmak ve başlatmak
 Bu makalede, Azure Data Factory (ADF) kullanarak zamanlama başlatma ve durdurma Azure-SSIS Integration Runtime (IR) açıklar. Azure-SSIS IR, ADF kaynak SQL Server Integration Services (SSIS) paketlerini yürütmek için adanmış işlem ' dir. Azure-SSIS IR çalıştıran, kendisiyle ilişkili bir maliyeti vardır. Bu nedenle, genellikle, IR, SSIS paketlerini Azure'da yürütmek ve artık ihtiyacınız olmayan olduğunda, IR durdurmak yalnızca ihtiyacınız olduğunda çalıştırmak istediğiniz. Kullanabileceğiniz ADF kullanıcı arabirimi (UI) / uygulama veya Azure PowerShell ile [el ile başlatın veya durdurun, IR](manage-azure-ssis-integration-runtime.md)).
@@ -92,7 +92,7 @@ Gece yarısı her gün çalışacak şekilde zamanlanırsa üçüncü bir tetikl
   
     2. İçin **yöntemi**seçin **POST**. 
     3. İçin **gövdesi**, girin `{"message":"Start my IR"}`. 
-    4. İçin **kimlik doğrulaması**seçin **MSI** , ADF için yönetilen kimlik kullanmak için bkz: [Azure veri fabrikası hizmet kimliği](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) makale daha fazla bilgi için.
+    4. İçin **kimlik doğrulaması**seçin **MSI** , ADF için yönetilen kimlik kullanmak için bkz: [Data Factory için yönetilen identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) makale daha fazla bilgi için.
     5. İçin **kaynak**, girin `https://management.azure.com/`.
     
        ![ADF Web etkinlik zamanlaması SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)

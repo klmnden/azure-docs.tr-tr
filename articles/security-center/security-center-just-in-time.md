@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/4/2018
 ms.author: rkarlin
-ms.openlocfilehash: 94364a54a5a0994cc3de3a2fe014b556d438b2c2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2bfa3b6001d714da39ebeb709600504f9d7331c5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114918"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733666"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında kullanarak sanal makine erişimini yönetme
 
@@ -29,6 +29,8 @@ Just-ın-time (JIT) sanal makine (VM) erişimi, Vm'lere gerektiğinde bağlanıl
 > Just-ın-time özelliği Güvenlik Merkezi'nin standart katmanında kullanılabilir.  Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="attack-scenario"></a>Saldırı senaryosu
 
@@ -208,7 +210,7 @@ Tam zamanında VM erişimi özelliğini, Azure Güvenlik Merkezi API aracılığ
 
 ### <a name="using-jit-vm-access-via-powershell"></a>JIT VM erişimi PowerShell aracılığıyla kullanarak 
 
-PowerShell aracılığıyla tam zamanında VM erişimi çözümü kullanmak için resmi Azure Güvenlik Merkezi PowerShell cmdlet'lerini kullanın ve özellikle `Set-AzureRmJitNetworkAccessPolicy`.
+PowerShell aracılığıyla tam zamanında VM erişimi çözümü kullanmak için resmi Azure Güvenlik Merkezi PowerShell cmdlet'lerini kullanın ve özellikle `Set-AzJitNetworkAccessPolicy`.
 
 Aşağıdaki örnek, bir tam zamanında VM erişimi ilkesi belirli bir sanal makine üzerinde ayarlar ve aşağıdaki ayarlar:
 1.  22 ve 3389 numaralı bağlantı noktalarını kapatın.
@@ -238,7 +240,7 @@ Bunu gerçekleştirmek için PowerShell'de aşağıdaki komutu çalıştırın:
 
 3.  Seçili VM üzerinde tam zamanında VM erişimi ilkesi yapılandırın:
     
-        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
+        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 #### <a name="requesting-access-to-a-vm"></a>Bir VM için erişim isteği
 
@@ -258,7 +260,7 @@ PowerShell'de aşağıdaki komutu çalıştırın:
         $JitPolicyArr=@($JitPolicyVm1)
 3.  (Kullanım 1. adımda aldığınız kaynak kimliği) erişim isteği gönder
 
-        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+        Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
 Daha fazla bilgi için PowerShell cmdlet'i belgelerine bakın.
 

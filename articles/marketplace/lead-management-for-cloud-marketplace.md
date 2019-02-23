@@ -7,19 +7,19 @@ author: yijenj
 manager: nunoc
 editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
-ms.service: Marketplace
+ms.service: marketplace
 ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: abaad7eabf92b6f3f53d7807af132959533552b9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 810298fc45becf132da6f082df7ad33e7af828aa
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076969"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735550"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Bulut Marketi Yönetimi sağlama
 
@@ -122,7 +122,7 @@ Teklif ve müşteri adayı hedef ayarladıktan sonra teklifinizi yayımlayın. M
 
 Arama "MSFT_TEST için" Müşteri adayı hedefiniz içinde bir örnek test müşteri adayı verilerini şu şekildedir: 
 
-Şirket MSFT_TEST_636573304831318844 = 
+company = MSFT_TEST_636573304831318844 
 
 Ülke = US 
 
@@ -136,15 +136,15 @@ kodlama = UTF-8
 
 first_name MSFT_TEST_636573304831318844 = 
 
-Soyadı MSFT_TEST_636573304831318844 = 
+last_name = MSFT_TEST_636573304831318844 
 
-lead_source MSFT_TEST_636573304831318844 MSFT_TEST_636573304831318844 = |<Offer Name> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|<Offer Name> 
 
-OID 00Do0000000ZHog = 
+oid = 00Do0000000ZHog 
 
 Telefon 1234567890 = 
 
-Başlık MSFT_TEST_636573304831318844 = 
+title = MSFT_TEST_636573304831318844 
 
  
 

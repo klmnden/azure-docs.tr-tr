@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 76239f80076cbe0f86d6e091a29b008a5a5d06c1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7f09db1f37617519926955daf0c29c13993dbf80
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116652"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728463"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Güvenlik Merkezi, Kiracı genelinde görünürlük elde edin
 Bu makale Azure Güvenlik Merkezi sağladığı en üst düzeye çeşitli eylemler yaparak başlamanıza yardımcı olur. Bu eylemler gerçekleştirme birden çok güvenlik ilkeleri uygulayarak, kuruluşunuzun güvenlik duruşunu uygun ölçekte tüm Azure Active Directory kiracınız ve etkili bir şekilde bağlanan Azure aboneliklerini yönetme hakkında daha fazla görünürlük elde etmenizi sağlar Abonelikler aggregative bir biçimde.
@@ -108,15 +108,15 @@ Tüm abonelikler için görünürlük kazanmak için Kiracı yöneticileri kök 
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>Kullanıcılara PowerShell ile RBAC rollerini atayın: 
-1. [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)'i yükleyin.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. [Azure PowerShell](/powershell/azure/install-az-ps)'i yükleyin.
 2. Aşağıdaki komutları çalıştırın: 
 
     ```azurepowershell
-    # Install Management Groups Powershell module
-    Install-Module AzureRM.Resources
-    
     # Login to Azure as a Global Administrator user
-    Login-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. İstendiğinde, genel yönetici kimlik bilgilerinizle oturum açın. 
@@ -128,12 +128,12 @@ Tüm abonelikler için görünürlük kazanmak için Kiracı yöneticileri kök 
     ```azurepowershell
     # Add Reader role to the required user on the Root Management Group
     # Replace "user@domian.com” with the user to grant access to
-    New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    New-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
     ```
 5. Rolü kaldırmak için aşağıdaki komutu kullanın: 
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
+    Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
 ### <a name="open-or-refresh-security-center"></a>Açın veya Güvenlik Merkezi yenileyin
@@ -141,11 +141,16 @@ Erişim yükseltilmiş sonra açın veya Azure AD kiracınıza tüm abonelikler 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
 2. Güvenlik Merkezi'nde görüntülemek istediğiniz abonelik Seçici içinde tüm abonelikleri seçtiğinizden emin olun.
+
     ![Abonelik Seçici ekran görüntüsü](./media/security-center-management-groups/subscription-selector.png)
+
 1. Seçin **tüm hizmetleri** Azure ana menüsünde seçip **Güvenlik Merkezi**.
-2. İçinde **genel bakış**, bir abonelik kapsamı grafik yok. 
+2. İçinde **genel bakış**, bir abonelik kapsamı grafik yok.
+
     ![Abonelik kapsamı grafiği ekran görüntüsü](./media/security-center-management-groups/security-center-subscription-coverage.png)
+
 3. Tıklayarak **kapsamı** kapsamdaki Aboneliklerin listesini görmek için. 
+
     ![Abonelik kapsamı listesi ekran görüntüsü](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Yükseltilmiş erişimi Kaldır 

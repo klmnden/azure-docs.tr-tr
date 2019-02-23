@@ -7,45 +7,39 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 02/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1d57b6edcff5222bb411a74cc86afbbd7819f9d3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: dba7fbe026725510cc357fecbc7d3251849f6af8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970840"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675084"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive JDBC sürücüsü, HDInsight ile sorgulama
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Azure HDInsight Apache hadoop, Apache Hive sorguları göndermek için bir Java uygulamasında JDBC sürücüsü kullanmayı öğrenin. Bu belgedeki bilgiler programlı bir şekilde ve SQuirrel SQL istemcisi na nasıl bağlanacağınız gösterilmiştir.
+Azure HDInsight Apache hadoop, Apache Hive sorguları göndermek için bir Java uygulamasında JDBC sürücüsü kullanmayı öğrenin. Bu belgedeki bilgiler programlı bir şekilde ve SQuirreL SQL İstemcisi'na nasıl bağlanacağınız gösterilmiştir.
 
 Hive JDBC arabirimi hakkında daha fazla bilgi için bkz. [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir Hadoop HDInsight kümesi üzerinde.
-
-  > [!IMPORTANT]
-  > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight 3.3 emeklilik](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+* Bir HDInsight Hadoop kümesi. Oluşturmak için bkz: [Azure HDInsight ile çalışmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
+* [Java Developer Kit (JDK) sürüm 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) veya üzeri.
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL JDBC istemci uygulamasıdır.
 
-* [Java Developer Kit (JDK) 7 sürümü](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) veya üzeri.
-
-* [Apache Maven](https://maven.apache.org). Maven derleme bu makalede ile ilişkili proje tarafından kullanılan sistemi Java projeleri için proje olur.
 
 ## <a name="jdbc-connection-string"></a>JDBC bağlantı dizesi
 
-JDBC bağlantı azure'da bir HDInsight kümesi üzerinde 443 yapılan ve trafiği SSL kullanılarak güvenlik altına alınır. Ortak ağ geçidi arkasında kümeleri sit HiveServer2 gerçekten dinlediği bağlantı noktasını trafiği yönlendirir. Aşağıdaki bağlantı dizesi, HDInsight için kullanılacak biçimi gösterir:
+Azure'da bir HDInsight kümesi için JDBC bağlantı bağlantı noktası 443 üzerinden yapılır ve trafiği SSL kullanılarak güvenlik altına alınır. Ortak ağ geçidi arkasında kümeleri sit HiveServer2 gerçekten dinlediği bağlantı noktasını trafiği yönlendirir. Aşağıdaki bağlantı dizesi, HDInsight için kullanılacak biçimi gösterir:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
 `CLUSTERNAME` değerini HDInsight kümenizin adıyla değiştirin.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 
 Bağlantıyı kurarken, Küme Ağ Geçidi kimlik doğrulaması için HDInsight Küme Yöneticisi adı ve parolası kullanmanız gerekir. SQuirreL SQL gibi JDBC istemcilerinden bağlanırken istemci ayarları'nda Yönetici adını ve parolasını girmeniz gerekir.
 
@@ -59,24 +53,23 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 SQuirreL SQL uzaktan HDInsight kümenizle Hive sorguları çalıştırmak için kullanılan bir JDBC istemcisidir. Aşağıdaki adımlarda SQuirreL SQL zaten yüklemiş olduğunuz varsayılır.
 
-1. Dosyaları içeren bir dizin oluşturun. Örneğin, `mkdir hivedriver`.
+1. Kümenizden kopyalanacak belirli dosyaları içerecek bir dizin oluşturun.
 
-2. Bir komut satırından HDInsight kümesinden dosyaları kopyalamak için aşağıdaki komutları kullanın:
+2. Aşağıdaki betikte değiştirin `sshuser` küme SSH kullanıcı hesabı adı ile.  Değiştirin `CLUSTERNAME` ile HDInsight kümesi adı.  Bir komut satırından bir HDInsight kümesinden dosyaları kopyalamak için aşağıdaki komutu girin:
 
     ```bash
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-common.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-codec*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libfb*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
     ```
-
-    Değiştirin `USERNAME` küme SSH kullanıcı hesabı adı ile. Değiştirin `CLUSTERNAME` ile HDInsight kümesi adı.
 
 3. SQuirreL SQL uygulamayı başlatın. Pencerenin soldan seçin **sürücüleri**.
 
@@ -95,7 +88,7 @@ SQuirreL SQL uzaktan HDInsight kümenizle Hive sorguları çalıştırmak için 
 
    ![sürücü iletişim kutusu Ekle](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
 
-   Tıklayın **Tamam** bu ayarları kaydedin.
+   Seçin **Tamam** bu ayarları kaydedin.
 
 6. SQuirreL SQL pencerenin sol tarafında seçin **diğer adlar**. Ardından **+** bağlantı diğer adı oluşturmak için simge.
 
@@ -126,9 +119,11 @@ SQuirreL SQL uzaktan HDInsight kümenizle Hive sorguları çalıştırmak için 
 
     ![Bağlantı iletişim kutusu](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
 
-9. Bağlantı kurulduktan sonra SQL sorgu iletişim kutusuna aşağıdaki sorguyu girin ve ardından **çalıştırma** simgesi. Sonuçları alan sorgu sonuçlarını göstermelidir.
+9. Bağlantı kurulduktan sonra SQL sorgu iletişim kutusuna aşağıdaki sorguyu girin ve ardından **çalıştırma** simgesi (çalışan bir kişi). Sonuçları alan sorgu sonuçlarını göstermelidir.
 
-        select * from hivesampletable limit 10;
+    ```hql
+    select * from hivesampletable limit 10;
+    ```
 
     ![Sonuçları dahil olmak üzere sql sorgu iletişim kutusu](./media/apache-hadoop-connect-hive-jdbc-driver/sqlquery.png)
 
@@ -152,13 +147,9 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Çözüm**: Bu hatayı düzeltmek için aşağıdaki adımları kullanın:
 
-1. HDInsight kümenizden commons codec jar dosyasını indirin.
+1. SQuirreL çıkın ve ardından SQuirreL sisteminizde yüklü olduğu dizine gidin. SquirreL dizinde altında `lib` dizini mevcut commons codec.jar bir HDInsight kümesinden indirilen değiştirin.
 
-        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
-
-2. SQuirreL çıkın ve ardından SQuirreL sisteminizde yüklü olduğu dizine gidin. SquirreL dizinde altında `lib` dizini mevcut commons codec.jar bir HDInsight kümesinden indirilen değiştirin.
-
-3. SQuirreL yeniden başlatın. HDInsight üzerindeki hive'a bağlanma sırasında bu hata artık gerçekleşmelidir.
+2. SQuirreL yeniden başlatın. HDInsight üzerindeki hive'a bağlanma sırasında bu hata artık gerçekleşmelidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

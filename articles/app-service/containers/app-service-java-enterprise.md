@@ -1,7 +1,7 @@
 ---
 title: Linux - Azure App Service üzerinde Java Enterprise desteği | Microsoft Docs
 description: Linux üzerinde Azure App Service ile Wildfly kullanarak Java Kurumsal uygulamaları dağıtmak için Geliştirici Kılavuzu.
-keywords: Azure app service, web uygulaması, linux, oss, java, wildfly, enterprise
+keywords: Azure app service, web uygulaması, linux, oss, java, wildfly, enterprise, java ee jee, javaee
 services: app-service
 author: rloutlaw
 manager: angerobe
@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 408141650a11a81f0c6000c6e7927af8333e2afe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6618e5317db1a7a4332a35b7ee9cd74934c8a787
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548485"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737901"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Enterprise Kılavuzu
 
-Linux üzerinde Azure App Service'te Java geliştiricilerinin oluşturmanızı, dağıtmanızı ve Linux tabanlı tam olarak yönetilen bir hizmet üzerinde Java Enterprise (JEE) uygulama ölçeklendirme sağlar.  Temel Kurumsal Java Çalışma zamanı ortamı olan açık kaynaklı [Wildfly](https://wildfly.org/) uygulama sunucusu.
+Linux üzerinde Azure App Service'te Java geliştiricilerinin oluşturmanızı, dağıtmanızı ve Linux tabanlı tam olarak yönetilen bir hizmet üzerinde Java Enterprise (Java EE) uygulama ölçeklendirme sağlar.  Temel Kurumsal Java Çalışma zamanı ortamı olan açık kaynaklı [Wildfly](https://wildfly.org/) uygulama sunucusu.
 
 Bu kılavuzu temel kavramları ve Linux için App Service kullanarak kurumsal Java geliştiricilerine yönelik yönergeler sağlar. Linux için Azure App Service ile Java uygulamalarını hiçbir zaman dağıttıysanız, tamamlamanız gereken [Java Hızlı Başlangıç](quickstart-java.md) ilk. Linux için App Service için Java Enterprise özgü olmayan soruları yanıtlanır [Java Geliştirici Kılavuzu](app-service-linux-java.md) ve [App Service Linux SSS](app-service-linux-faq.md).
 

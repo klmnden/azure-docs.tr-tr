@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 7c12b34f6d735579326d4ccdd95e7831fbb777d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17b1adae9b369df53d69949e8183cf31daf7e35f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181431"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674693"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service ortamlarında hazırlık ayarlama
 <a name="Overview"></a>
@@ -205,7 +205,9 @@ Kullanırken [Auto-Swap](#Auto-Swap), bazı uygulamalar takas önce özel Isınm
         </applicationInitialization>
     </system.webServer>
 
-Bir veya daha fazlasını Isınma davranışını özelleştirebilirsiniz [uygulama ayarları](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md):
+Özelleştirme hakkında daha fazla bilgi için `applicationInitialization` öğesi bkz [en yaygın dağıtım yuvası takas hataları ve nasıl düzeltileceğini](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+
+Bir veya daha fazlasını Isınma davranışını özelleştirebilirsiniz [uygulama ayarları](web-sites-configure.md):
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: Isınma için sitenizin ping yolu. Bu uygulama ayarının değeri olarak bir eğik çizgi ile başlayan bir özel yol belirterek ekleyin. Örneğin, `/statuscheck`. Varsayılan değer `/` şeklindedir. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Isınma işlemi için geçerli HTTP yanıt kodları. HTTP kodlarının virgülle ayrılmış bir listesi ile bu uygulama ayarı ekleyin. Örneğin: `200,202` . Döndürülen durum kodu listede değilse Isınma ve değiştirme işlemlerini durdurulur. Varsayılan olarak, tüm yanıt kodları geçerlidir.

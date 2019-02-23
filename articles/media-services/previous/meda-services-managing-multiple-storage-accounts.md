@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: b538e1b2d37c92e1712da517ab5f3c46f5e2c3a3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e25da238648b32edcbfaefbdcf1a6240df97916f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992201"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728336"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Birden çok depolama hesabı arasında Media Services varlıklarını yönetme  
 
@@ -27,7 +27,9 @@ Tek bir Media Services hesabına birden çok depolama hesapları ekleyebilirsini
 * Varlıklarınızı birden çok depolama hesabı arasında yük dengelemeyi.
 * (Şu anda tek bir depolama hesabında en fazla bir sınır 500 TB olduğu gibi) içerik işleme büyük miktarlarda ölçeklendirme medya Hizmetleri. 
 
-Bu makalede, birden fazla depolama hesabı kullanarak bir Media Services hesabı eklemek gösterilmiştir [Azure Resource Manager API'leri](/rest/api/media/operations/azure-media-services-rest-api-reference) ve [Powershell](/powershell/module/azurerm.media). Ayrıca, farklı depolama hesapları Media Services SDK'sını kullanarak bir varlık oluştururken belirtmek nasıl gösterir. 
+Bu makalede, birden fazla depolama hesabı kullanarak bir Media Services hesabı eklemek gösterilmiştir [Azure Resource Manager API'leri](/rest/api/media/operations/azure-media-services-rest-api-reference) ve [Powershell](/powershell/module/az.media). Ayrıca, farklı depolama hesapları Media Services SDK'sını kullanarak bir varlık oluştururken belirtmek nasıl gösterir. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 
@@ -44,7 +46,7 @@ Medya Hizmetleri'ni kullanan değerini **IAssetFile.Name** URL'leri akış içer
 
 ## <a name="to-attach-storage-accounts"></a>Depolama hesapları eklemek için  
 
-AMS hesabınızı depolama hesapları eklemek için kullanın [Azure Resource Manager API'leri](/rest/api/media/operations/azure-media-services-rest-api-reference) ve [Powershell](/powershell/module/azurerm.media), aşağıdaki örnekte gösterildiği gibi:
+AMS hesabınızı depolama hesapları eklemek için kullanın [Azure Resource Manager API'leri](/rest/api/media/operations/azure-media-services-rest-api-reference) ve [Powershell](/powershell/module/az.media), aşağıdaki örnekte gösterildiği gibi:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -54,11 +56,11 @@ AMS hesabınızı depolama hesapları eklemek için kullanın [Azure Resource Ma
     $storageAccount2Name = "skystorage2"
     $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
     $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
-    $storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
-    $storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+    $storageAccount1 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+    $storageAccount2 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
     $storageAccounts = @($storageAccount1, $storageAccount2)
     
-    Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+    Set-AzMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
 
 ### <a name="support-for-cool-storage"></a>Seyrek erişimli depolama desteği
 

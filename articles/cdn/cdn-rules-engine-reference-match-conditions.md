@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 44182d686548fa5b6363a87be0ce7851829e20ab
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3ebc4d94e0bbf24895be0aeba9fef1cc7aacd6b9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820565"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736721"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN, kural altyapısı eşleşen koşulları 
 Bu makalede ayrıntılı açıklamaları için Azure Content Delivery Network (CDN) kullanılabilir eşleştirme koşulları listeler [kurallar altyapısı](cdn-rules-engine.md).
@@ -233,7 +233,7 @@ Anahtar bilgileri:
 
 </br>
 
---- 
+---
 ### <a name="country"></a>Ülke
 Bir ülkeye, ülke kodu aracılığıyla belirtebilirsiniz. 
 
@@ -388,7 +388,7 @@ Anahtar bilgileri:
 
 </br>
 
----  
+---
 ### <a name="request-header-literal"></a>İstek üst bilgisi değişmez değeri
 **Eşleşme**/**eşleşmiyor** seçeneği altında istek üst bilgisi değişmez değer eşleşen koşulu koşul karşılanıyorsa belirler.
 - **Eşleşme**: Belirtilen üstbilgiyi içerecek şekilde istek gerektirir. Değeri, bu eşleşme koşulu içinde tanımlanan bir eşleşmesi gerekir.
@@ -409,7 +409,7 @@ Anahtar bilgileri:
 
 </br>
 
----  
+---
 ### <a name="request-header-regex"></a>İstek üst bilgisi normal ifade
 **Eşleşme**/**eşleşmiyor** seçeneği istek üst bilgisi Regex altında koşul eşleşen Koşullar karşılanıyorsa belirler.
 - **Eşleşme**: Belirtilen üstbilgiyi içerecek şekilde istek gerektirir. Değeri tanımlı belirtilen desenle eşleşmelidir belirtilen [normal ifade](cdn-rules-engine-reference.md#regular-expressions).
@@ -420,7 +420,7 @@ Anahtar bilgileri:
 Anahtar bilgileri:
 - Üst bilgi adı: 
   - Üst bilgi adı karşılaştırmalar büyük/küçük harfe duyarsızdır.
-  - Üst bilgi adı boşluk "yerine % 20." 
+  - Replace spaces in the header name with "%20." 
 - Üst bilgi değeri: 
   - Normal ifadeler bir üstbilgi değerini yararlanabilirsiniz.
   - Kullanım **yoksay çalışması** üst bilgi değeri karşılaştırma büyük küçük harf duyarlılığı denetleme seçeneği.

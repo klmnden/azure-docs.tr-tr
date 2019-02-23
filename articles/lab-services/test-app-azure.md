@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814913"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730418"
 ---
 # <a name="test-your-app-in-azure"></a>Uygulamanızı Azure’da test edin 
 Bu makalede adımları uygulamanızı test etmek için Azure DevTest Labs'i kullanarak sağlar. İlk olarak, bir laboratuvar içindeki bir dosya paylaşımı ayarlama ve yerel geliştirme makineniz ve bir laboratuvar içindeki bir VM üzerinde bir sürücü olarak bağlayın. Ardından, böylece laboratuvara VM'de uygulamayı çalıştırabilir, dosya paylaşımına uygulamanızı dağıtmak için Visual Studio 2017'yi kullanın.  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar 
 1. [Bir Azure aboneliği oluşturun](https://azure.microsoft.com/free/) yoksa zaten varsa, ve oturum [Azure portalında](https://portal.azure.com).
@@ -56,7 +58,7 @@ Bu makalede adımları uygulamanızı test etmek için Azure DevTest Labs'i kull
 
     ![Laboratuvar sanal makinesi seçin](media/test-app-in-azure/select-lab-vm.png)
 2. Seçin **Connect** VM'ye bağlanmak için araç çubuğunda. 
-3. [Azure PowerShell'i yükleme](https://azure.microsoft.com/downloads/) kullanarak **Windows yükleme** bağlantısını **komut satırı araçları** bölümü. Azure PowerShell'i yüklemenin diğer yolları için bkz. [bu makalede](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Azure PowerShell'i yükleme](/powershell/azure/install-az-ps).
 4. Dosya Paylaşımı bölümüne bağlama'ndaki yönergeleri izleyin. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Uygulamanızı Visual Studio'dan yayımlama

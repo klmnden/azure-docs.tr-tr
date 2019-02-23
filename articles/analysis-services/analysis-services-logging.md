@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b35707b857c66f0f1b91f2f1b5dd7a0ffa24dd9e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429001"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733767"
 ---
 # <a name="setup-diagnostic-logging"></a>Tanılama günlüğüne kaydetmeyi ayarlama
 
@@ -21,6 +21,7 @@ Herhangi bir Analysis Services çözümü önemli bir parçası sunucularınız�
 
 ![Depolama, Event Hubs veya Azure İzleyici günlüklerine tanılama günlüğüne kaydetme](./media/analysis-services-logging/aas-logging-overview.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-logged"></a>Günlüğe kaydedilenler?
 
@@ -103,7 +104,7 @@ Koyulmanız için gerekli olan temel komutlar aşağıdadır. PowerShell kullana
 - Tanılama günlükleri bir depolama hesabında depolama etkinleştirmek için bu komutu kullanın:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
    Depolama hesabı kimliği kaynak depolama hesabı için günlükleri göndermek istediğiniz kimliğidir.
@@ -111,7 +112,7 @@ Koyulmanız için gerekli olan temel komutlar aşağıdadır. PowerShell kullana
 - Tanılama günlükleri Olay hub'ına akışını etkinleştirmek için bu komutu kullanın:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
    Azure Service Bus kural kimliği şu biçime sahip bir dizedir:
@@ -123,13 +124,13 @@ Koyulmanız için gerekli olan temel komutlar aşağıdadır. PowerShell kullana
 - Log Analytics çalışma alanına gönderme tanılama günlüklerini etkinleştirmek için bu komutu kullanın:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
 - Log Analytics çalışma alanınızın kaynak Kimliğini aşağıdaki komutu kullanarak elde edebilirsiniz:
 
    ```powershell
-   (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+   (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
 Birden çok çıkış seçeneği etkinleştirmek için şu parametreleri birleştirebilirsiniz.
@@ -187,7 +188,7 @@ Sorguları kullanabileceğiniz yüzlerce vardır. Sorgular hakkında daha fazla 
 
 ## <a name="turn-on-logging-by-using-powershell"></a>PowerShell kullanarak günlük özelliğini açar
 
-Bu hızlı öğreticiyi analiz sunucunuz olarak bir depolama hesabı aynı abonelikte ve kaynak grubu oluşturun. Günlüğe kaydetme, çıkış göndermek için yeni depolama hesabı tanılamayı etkinleştirmek için Set-AzureRmDiagnosticSetting kullanın.
+Bu hızlı öğreticiyi analiz sunucunuz olarak bir depolama hesabı aynı abonelikte ve kaynak grubu oluşturun. Günlüğe kaydetme, çıkış göndermek için yeni depolama hesabı tanılamayı etkinleştirmek için Set-AzDiagnosticSetting kullanın.
 
 ### <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdaki kaynaklara sahip olmalıdır:
@@ -199,7 +200,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki kaynaklara sahip olmalıdır:
 Bir Azure PowerShell oturumu başlatın ve aşağıdaki komutla Azure hesabınızda oturum açın:  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. Azure PowerShell bu hesapla ilişkili tüm abonelikleri alır ve varsayılan olarak birinciyi kullanır.
@@ -207,13 +208,13 @@ Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parola
 Birden çok aboneliğiniz varsa Azure Anahtar Kasanızı oluşturmak için kullanılan belirli bir tanesini belirtmeniz gerekebilir. Hesabınız için abonelikleri görmek üzere aşağıdakini yazın:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Sonra oturum açtığınız Azure Analysis Services hesabıyla ilişkili aboneliği belirtmek için şunu yazın:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -228,7 +229,7 @@ Sunucunuz ile aynı abonelikte olması koşuluyla günlükleriniz için var olan
 Ayrıca Analysis Services sunucunuz içeren kümeyle aynı kaynak grubunu kullanın. İçin değerler yerine `awsales_resgroup`, `awsaleslogs`, ve `West Central US` kendi değerlerinizle:
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
+$sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
@@ -237,16 +238,16 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 Hesap adı adlı bir değişken ayarlamak **hesabı**, burada ResourceName hesabının adıdır.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
+$account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
 ### <a name="enable-logging"></a>Günlü kaydını etkinleştir
 
-Günlüğe kaydetmeyi etkinleştirmek için yeni depolama hesabı, sunucu hesabı ve kategori için değişkenleri birlikte Set-AzureRmDiagnosticSetting cmdlet'ini kullanın. Ayar aşağıdaki komutu çalıştırın **-etkin** bayrak **$true**:
+Günlüğe kaydetmeyi etkinleştirmek için yeni depolama hesabı, sunucu hesabı ve kategori için Set-AzDiagnosticSetting cmdlet değişkenleri ile birlikte kullanın. Ayar aşağıdaki komutu çalıştırın **-etkin** bayrak **$true**:
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
 Çıkış şu örneğe benzer olmalıdır:
@@ -293,7 +294,7 @@ Bu çıktı için depolama hesabı bilgileri kaydedilirken bu sunucu için günl
 Eski günlüklerin otomatik olarak silinir şekilde günlükleriniz için bekletme ilkesi de ayarlayabilirsiniz. Örneğin, Bekletme İlkesi'ni kullanarak ayarlayın **- RetentionEnabled** bayrak **$true**ve **- Retentionındays** parametresi **90**. 90 günden eski olan günlükler otomatik olarak silinir.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories Engine`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -302,4 +303,4 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 Daha fazla bilgi edinin [Azure kaynak tanılama günlüğüne kaydetme](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Bkz: [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) PowerShell Yardım.
+Bkz: [kümesi AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/Set-azDiagnosticSetting) PowerShell Yardım.

@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
-ms.date: 05/18/18
+ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 12f989137c3aea57bdcde0d50315ad157898cd28
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 111adad627ffd830d69efc61bc7a06a99fee30f3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862760"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673333"
 ---
 # <a name="translator-speech-api-languages"></a>Translator konuşma tanıma API'si: Languages
 
@@ -27,7 +28,7 @@ Mevcut diller almak için API kullanımını gösteren kod örnekleri web'da [Mi
 
 ## <a name="implementation-notes"></a>Uygulama Notları
 
-### <a name="get-languages"></a>/Languages Al 
+### <a name="get-languages"></a>/Languages Al
 
 Geniş bir dil kümesini okuma, transcribed metinleri çevirin ve Sentezlenen konuşma çevirisi üretmek için özelliği kullanılabilir.
 
@@ -125,7 +126,7 @@ Hizmet 'Accept-Language' üst bilgisi, metin çevirisi desteklenen tüm diller i
 ### <a name="response-class-status-200"></a>Yanıt sınıfı (durum 200)
 Desteklenen dil kümesini tanımlayan nesne.
 
-ModelExample değer: 
+ModelExample değer:
 
 Langagues {konuşma (object, isteğe bağlı), metin (object, isteğe bağlı), tts (object, isteğe bağlı)}
 
@@ -143,7 +144,7 @@ X-RequestId|Değer, istek tanımlamak için sunucu tarafından oluşturulan ve s
 |scope  |Desteklenen diller ya da ses istemciye döndürmek için ayarlar. Bu parametre, anahtar sözcükleri virgülle ayrılmış listesi olarak belirtilir. Aşağıdaki anahtar sözcükler vardır:<ul><li>`speech`: Konuşma tanıma özelliği için desteklenen dil kümesini sağlar.</li><li>`tts`: Metni konuşmaya dönüştürme için desteklenen kişilerden daha fazlasını sunmaktadır.</li><li>`text`: Metin çevirme için desteklenen dil kümesini sağlar.</li></ul>Bir değer belirtilmezse, değerini `scope` varsayılan olarak `text`.|sorgu|dize|
 |X-ClientTraceId    |Bir istek izleme için kullanılan istemci tarafından oluşturulan GUID. İlgili sorunları gidermeyi kolaylaştırmak için istemciler her istek ile yeni bir değer sağlayın ve oturumu.|üst bilgi|dize|
 |Kabul dil    |Bazı alanlar yanıt diller ya da bölgelerdeki adlarıdır. Adları döndürülen dil tanımlamak için bu parametreyi kullanın. Dil, doğru biçimlendirilmiş BCP 47 dil etiketi sağlayarak belirtilir. Etiket ile döndürülen Dil tanımlayıcıları listesinden seçin `text` kapsam. Desteklenmeyen diller için adlarını İngilizce dilinde sağlanır.<br/>Örneğin, değerini kullanın `fr` Fransızca adlarında istek veya değeri kullanmak için `zh-Hant` isteği adlarına Geleneksel Çince.|üst bilgi|dize|
-    
+
 ### <a name="response-messages"></a>Yanıt iletilerini
 
 |HTTP durum kodu|Neden|

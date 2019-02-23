@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
-ms.date: 01/31/18
-ms.openlocfilehash: 6249c45a1cd3a8acbb9770fc39da881d8da9057f
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/31/2018
+ms.openlocfilehash: 89e0294db3178cedd3b14aada0b505787b17c75e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230160"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671803"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Yaygın senaryolar, örnekler, öğreticiler ve Kılavuzlar Azure Logic Apps için
 
@@ -27,9 +27,9 @@ Birçok desenleri ve özellikler hakkında daha fazla bilgi edinmenize yardımc�
 
 Her mantıksal uygulama ile başlayan bir [ *tetikleyici*](../logic-apps/logic-apps-overview.md#logic-app-concepts)ve yalnızca bir tetikleyici, mantıksal uygulama iş akışınızı başlatan ve Bu tetikleyici bir parçası olarak tüm verileri geçirir. Bazı bağlayıcılar, hangi bu türlerinde Tetikleyiciler sağlar:
 
-* *Yoklama Tetikleyicileri*: hizmet uç noktası yeni veriler için düzenli olarak denetler. Yeni veriler mevcut olduğunda, bir tetikleyici oluşturur ve yeni bir iş akışı örneği girdi olarak verilerle çalışır.
+* *Yoklama Tetikleyicileri*: Bir hizmet uç noktası yeni veriler için düzenli olarak denetler. Yeni veriler mevcut olduğunda, bir tetikleyici oluşturur ve yeni bir iş akışı örneği girdi olarak verilerle çalışır.
 
-* *Anında iletme Tetikleyicileri*: hizmet uç noktası verileri dinler ve belirli bir olay meydana kadar bekler. Olay meydana geldiğinde, Tetikleyici oluşturma ve çalıştırma giriş olarak kullanılabilir tüm verileri kullanan yeni bir iş akışı örneği hemen etkinleştirilir.
+* *Anında iletme Tetikleyicileri*: Hizmet uç noktası verileri dinler ve belirli bir olay meydana kadar bekler. Olay meydana geldiğinde, Tetikleyici oluşturma ve çalıştırma giriş olarak kullanılabilir tüm verileri kullanan yeni bir iş akışı örneği hemen etkinleştirilir.
 
 Yalnızca birkaç popüler bir tetikleyici örnekleri aşağıda verilmiştir:
 
@@ -59,8 +59,8 @@ Logic apps, sistemleri ve bağlayıcılar yayımlamadınız hizmetler için de g
 * [İş akışı çalıştırmaları için uzun süre çalışan eylemlerin ayarlama](../logic-apps/logic-apps-create-api-app.md)
 * [Dış olaylar ve Eylemler ile Web kancalarını yanıt](../logic-apps/logic-apps-create-api-app.md)
 * [Çağrı, tetikleyici veya iç içe HTTP isteklerine yanıt veren zaman uyumlu iş akışları](../logic-apps/logic-apps-http-endpoint.md)
-* [Öğretici: mantıksal uygulamalar ve Power BI ile dakikalar içinde yapay ZEKA destekli bir Sosyal Panosu derleme](https://aka.ms/logicappsdemo)
-* [Video: Yanıt için Twilio SMS Web kancaları ve metin yanıt gönderme](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [Öğretici: Logic Apps ve Power BI ile dakikalar içinde bir yapay ZEKA destekli bir Sosyal Panosu derleme](https://aka.ms/logicappsdemo)
+* [Video: Yanıt için Twilio SMS Web kancaları ve metin yanıt gönderin](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Denetim akışı, hata işleme ve günlüğe kaydetme özellikleri
 
@@ -70,7 +70,7 @@ Mantıksal uygulamalar, koşullar, anahtarları, döngüler ve kapsamları gibi 
 * [Adımları veya işlem öğelerin diziler ve Koleksiyonlar ile döngüleri yineleyin](../logic-apps/logic-apps-control-flow-loops.md)
 * [Grup eylemleri kapsamları ile birlikte](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [Hata yazarın ve özel durum işleme bir iş akışında](../logic-apps/logic-apps-exception-handling.md)
-* [Kullanım örneği: bir sağlık şirketinin mantıksal uygulama özel durum işleme HL7 FHIR iş akışları kullanma](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [Kullanım örneği: Bir sağlık şirketinin mantıksal uygulama özel durum işleme HL7 FHIR iş akışları kullanma](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [İzleme, günlüğe kaydetme ve var olan mantıksal uygulamalar için uyarıları Aç](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Mantıksal uygulama oluşturma izleme ve tanılama günlüğünü açma](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
 
@@ -96,15 +96,15 @@ Mantıksal uygulamalar, Azure işlevleri, Azure API Management, Azure uygulama h
 
 * [Azure sunucusuz ile gerçek zamanlı bir sosyal Pano oluşturma](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Mantıksal uygulamaları Azure işlevleri çağırma](../logic-apps/logic-apps-azure-functions.md)
-* [Öğretici: Azure işlevleri ile mantıksal uygulamaları tetikleyin](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Öğretici: Azure işlevleri ile tetiklenen logic apps](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Öğretici: Azure Event Grid ve Logic Apps ile sanal makine değişikliklerini izleme](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [Öğretici: Twitter gönderi düşüncelerini çözümleme için Azure Logic Apps ve Microsoft Bilişsel hizmetler ile tümleşen bir işlev oluşturma](../azure-functions/functions-twitter-email.md)
 * [Öğretici: IOT Uzaktan izleme ve IOT hub ve posta kutusu bağlanan Azure Logic Apps ile bildirimleri](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-* [Blog: Çağrı mantıksal uygulamalardan SOAP uç noktası](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+* [Blog: Logic apps'ten SOAP uç noktası çağrısı](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>Uçtan uca senaryolar
 
-* [Teknik İnceleme: Logic Apps gibi Azure hizmetleriyle uçtan uca servis talebi yönetimi tümleştirme](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [Teknik İnceleme: Logic Apps gibi Azure hizmetleriyle uçtan uca servis talebi yönetimi tümleştirmesi](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="customer-stories"></a>Müşteri hikayeleri
 

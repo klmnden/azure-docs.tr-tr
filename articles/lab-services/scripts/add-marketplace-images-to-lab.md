@@ -1,5 +1,5 @@
 ---
-title: "PowerShell Betiği: bir Market görüntüsü için Azure DevTest labs'deki bir laboratuvara ekleme | Microsoft Docs"
+title: "PowerShell Betiği: Azure DevTest labs'deki bir laboratuvara Market görüntüsü ekleme | Microsoft Docs"
 description: Bu PowerShell Betiği, Azure DevTest labs'deki bir laboratuvara Market görüntüsü ekler.
 services: lab-services
 author: spelluru
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: a3a007bf19a28e6f361837856f83a191a761ef9b
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 22c30e1c3b19e62489a08a702d8b35fbc4862e13
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247423"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728225"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara Market görüntüsü eklemek için PowerShell'i kullanma
 
 Bu örnek PowerShell Betiği, Azure DevTest labs'deki bir laboratuvara Market görüntüsü ekler. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -38,10 +40,10 @@ Bu betik şu komutları kullanır:
 
 | Komut | Notlar |
 |---|---|
-| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | Belirtilen parametrelere bağlı kaynakları arar. |
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Kaynakları alır. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Bir kaynağı değiştirir. |
-| [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Bir kaynak oluşturun. |
+| [AzResource Bul](/powershell/module/az.resources/find-azresource) | Belirtilen parametrelere bağlı kaynakları arar. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Kaynakları alır. |
+| [Set-AzResource](/powershell/module/az.resources/set-azresource) | Bir kaynağı değiştirir. |
+| [Yeni AzResource](/powershell/module/az.resources/new-azresource) | Bir kaynak oluşturun. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

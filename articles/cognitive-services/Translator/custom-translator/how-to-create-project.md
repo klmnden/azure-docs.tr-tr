@@ -6,21 +6,21 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 9886ba39846d9489a66c57bcc614f90e2bf70d4e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.topic: conceptual
+ms.openlocfilehash: dde1bfbaf810d07a2b992258dd8674efec302dc6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218113"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737170"
 ---
 # <a name="create-a-project"></a>Proje oluşturma
 
-Bir proje modelleri, belgeler için bir kapsayıcıdır ve test eder. Her proje, otomatik olarak doğru dil çiftiniz olması için bu çalışma alanına yüklenen tüm belgeleri içerir. 
+Bir proje modelleri, belgeler için bir kapsayıcıdır ve test eder. Her proje, otomatik olarak doğru dil çiftiniz olması için bu çalışma alanına yüklenen tüm belgeleri içerir.
 
-Proje oluşturma, bir model oluşturmaya yönelik ilk adımdır. 
+Proje oluşturma, bir model oluşturmaya yönelik ilk adımdır.
 
 ## <a name="create-a-project"></a>Bir proje oluşturun:
 

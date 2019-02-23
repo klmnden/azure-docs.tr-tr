@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: 7f056ab79bbd2d2b66e40546a6df7677ffe75a21
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: a5f32504fc7d8fe0faa17d469aec017d39a6b1ce
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649467"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737153"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir Windows sanal makinesi oluşturun
 
@@ -62,9 +62,13 @@ Desteklenen bir VM boyutu hızlandırılmış ağ etkin olmadan yalnızca özell
 Hızlandırılmış ağ ile sanal makineler (Klasik) dağıtılamıyor.
 
 ## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Azure hızlandırılmış ağ ile bir Windows VM oluşturma
+## <a name="portal-creation"></a>Portal oluşturma
+Bu makale Azure Powershell kullanarak hızlandırılmış ağ ile bir sanal makine oluşturmak için adımları sağlar ancak ayrıca [hızlandırılmış ağ ile Azure portalını kullanarak bir sanal makine oluşturma](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Portalda, sanal makine oluştururken **sanal makine oluşturma** dikey penceresinde, seçin **ağ** sekmesi.  Bu sekmede için bir seçenek yoktur **hızlandırılmış**.  Seçtiyseniz bir [işletim sistemi desteklenen](#supported-operating-systems) ve [VM boyutu](#supported-vm-instances), bu seçenek "Açık." otomatik olarak doldurulur  Aksi halde, hızlandırılmış ağ için "Kapalı" seçeneği doldurmak ve kullanıcıya neden olan olması etkin bir neden sağlayın.   
+* *Not:* Desteklenen işletim sistemleri, portal üzerinden etkinleştirilebilir.  Lütfen özel bir görüntü kullanıyorsanız ve hızlandırılmış ağ görüntünüzü destekliyorsa, CLI veya Powershell kullanarak VM oluşturma. 
 
-Bu makale Azure PowerShell kullanarak hızlandırılmış ağ ile bir sanal makine oluşturmak için adımları sağlar ancak ayrıca [hızlandırılmış ağ ile Azure portalını kullanarak bir sanal makine oluşturma](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Portalda, altında bir sanal makine oluştururken ortaya **ayarları**seçin **etkin**altında **hızlandırılmış**. Seçmiş olduğunuz sürece, hızlandırılmış ağ etkinleştirme seçeneği portalda görünmez bir [işletim sistemi desteklenen](#supported-operating-systems) ve [VM boyutu](#supported-vm-instances). Sanal makine oluşturulduktan sonra yönergeleri tamamlamak gereken [sürücü işletim sisteminde yüklü onaylayın](#confirm-the-driver-is-installed-in-the-operating-system).
+Sanal makine oluşturulduktan sonra hızlandırılmış ağ etkin yönergeleri izleyerek doğrulayabilirsiniz [hızlandırılmış ağ etkin olduğunu onaylayın](#confirm-that-accelerated-networking-is-enabled).
 
+## <a name="powershell-creation"></a>PowerShell oluşturma
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

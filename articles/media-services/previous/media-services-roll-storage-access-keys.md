@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: 419e7b1ae05f92b5b97f5317c0315a71958eff9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cdf644ab37d7f2e15cb35a3234786900a1a64ec1
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005174"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733512"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Depolama erişim anahtarlarını değiştirdikten sonra Media Services'ı güncelleştirme 
 
 Yeni bir Azure Media Services (AMS) hesabı oluşturduğunuzda, medya içeriğinizi depolamak için kullanılan bir Azure depolama hesabı seçmeniz istenir. Media Services hesabınız için birden fazla depolama hesapları ekleyebilirsiniz. Bu makale depolama anahtarlarını döndürme işlemini gösterir. Ayrıca bir medya hesabı için depolama hesapları ekleme işlemini de gösterir. 
 
-Bu makalede açıklanan işlemleri gerçekleştirmek için kullanmanız [Azure Resource Manager API'leri](/rest/api/media/operations/azure-media-services-rest-api-reference) ve [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  Daha fazla bilgi için [PowerShell ve Resource Manager ile Azure kaynaklarını yönetmek nasıl](../../azure-resource-manager/powershell-azure-resource-manager.md).
+Bu makalede açıklanan işlemleri gerçekleştirmek için kullanmanız [Azure Resource Manager API'leri](/rest/api/media/operations/azure-media-services-rest-api-reference) ve [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Daha fazla bilgi için [PowerShell ve Resource Manager ile Azure kaynaklarını yönetmek nasıl](../../azure-resource-manager/powershell-azure-resource-manager.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -42,15 +44,15 @@ Media Services, sağlanan depolama anahtarı bağlıdır. Özellikle, akış vey
 ## <a name="steps-to-rotate-storage-keys"></a>Depolama anahtarlarını döndürmek için adımları 
  
  1. Depolama hesabının birincil anahtarını powershel cmdlet'i değiştirmek veya [Azure](https://portal.azure.com/) portalı.
- 2. Depolama hesabı anahtarlarını almak için medya hesabı zorlamak için uygun params ile eşitleme AzureRmMediaServiceStorageKeys cmdlet'i çağırın
+ 2. Depolama hesabı anahtarlarını almak için medya hesabı zorlamak için uygun params ile eşitleme AzMediaServiceStorageKeys cmdlet'i çağırın
  
     Aşağıdaki örnek, depolama hesaplarının anahtarlarını eşitleme gösterilmektedir.
   
-         Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+         Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
  3. Bir saat kadar bekleyin. Akış senaryoları çalışma doğrulayın.
  4. Depolama hesabı ikincil anahtar powershell cmdlet'ini veya Azure portalı üzerinden değiştirin.
- 5. Eşitleme AzureRmMediaServiceStorageKeys powershell ile yeni depolama hesabı anahtarlarını almak için medya hesabı zorlamak için uygun params çağırın. 
+ 5. Eşitleme AzMediaServiceStorageKeys powershell ile yeni depolama hesabı anahtarlarını almak için medya hesabı zorlamak için uygun params çağırın. 
  6. Bir saat kadar bekleyin. Akış senaryoları çalışma doğrulayın.
  
 ### <a name="a-powershell-cmdlet-example"></a>Bir powershell cmdlet'i örneği 
@@ -63,7 +65,7 @@ Aşağıdaki örnek, depolama hesabı almak ve AMS hesabı ile eşitlemek göste
     $storageAccountName = "skystorage"
     $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-    Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+    Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>AMS hesabınızı depolama hesapları ekleme adımları

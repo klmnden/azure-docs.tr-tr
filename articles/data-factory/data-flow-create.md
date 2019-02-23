@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: b706e229bed48c821d5ca772450df320fd7e0b7f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: bb6ae9f97d681625218118b8adca116de1c0fb21
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56272139"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728242"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Azure Data Factory veri akışı oluşturma
 
@@ -34,7 +34,12 @@ Azure Blob Depolama hesap bilgilerinizi girmeniz istenir.
 
 [Bu örnekler için kullanılan verileri burada bulunabilir](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Örnek verileri indirme ve örnekleri çalıştırabilmeniz için dosyaları, Azure Blob Depolama hesaplarında depolayın.
 
+## <a name="create-new-data-flow"></a>Yeni veri akışı oluşturma
+
 Veri akışları oluşturmak için ADF Arabiriminde Kaynağı Oluştur "artı işaretini" düğmesini kullanın
 
 ![Veri akışı seçenekleri](media/data-flow/newresource.png "yeni kaynak")
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+Veri dönüşümünüzü oluşturmaya başlamak bir [kaynak dönüştürme](data-flow-source.md).

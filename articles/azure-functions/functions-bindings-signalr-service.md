@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 7a7063b9177774c5207746283dc7cd25e3dd5793
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 73fd388ad8d35543138c06b413cd40d7052806a7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721895"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735653"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure İşlevleri için SignalR Service bağlamaları
 
@@ -64,7 +64,7 @@ public static SignalRConnectionInfo GetSignalRInfo(
 
 Kimliği doğrulanmış bir istemci tarafından tetiklenen işlev ise oluşturulan belirteç için bir kullanıcı kimliği talebi ekleyebilirsiniz. [App Service kimlik doğrulaması] kullanarak bir işlev uygulaması için kolayca kimlik doğrulaması ekleyebilirsiniz (.. /App-Service/Overview-Authentication-Authorization.MD).
 
-App Service kimlik doğrulaması adlı HTTP üstbilgileri ayarlar `x-ms-client-principal-id` ve `x-ms-client-principal-name` içeren kimliği doğrulanmış kullanıcının asıl istemci kimliği ve adı, sırasıyla. Ayarlayabileceğiniz `UserId` özelliğini kullanarak ya da üst bilgi değeri bağlamanın bir [ifade bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` veya `{headers.x-ms-client-principal-name}`. 
+App Service kimlik doğrulaması adlı HTTP üstbilgileri ayarlar `x-ms-client-principal-id` ve `x-ms-client-principal-name` içeren kimliği doğrulanmış kullanıcının asıl istemci kimliği ve adı, sırasıyla. Ayarlayabileceğiniz `UserId` özelliğini kullanarak ya da üst bilgi değeri bağlamanın bir [ifade bağlama](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` veya `{headers.x-ms-client-principal-name}`. 
 
 ```cs
 [FunctionName("GetSignalRInfo")]
@@ -110,7 +110,7 @@ module.exports = function (context, req, connectionInfo) {
 
 Kimliği doğrulanmış bir istemci tarafından tetiklenen işlev ise oluşturulan belirteç için bir kullanıcı kimliği talebi ekleyebilirsiniz. [App Service kimlik doğrulaması] kullanarak bir işlev uygulaması için kolayca kimlik doğrulaması ekleyebilirsiniz (.. /App-Service/Overview-Authentication-Authorization.MD).
 
-App Service kimlik doğrulaması adlı HTTP üstbilgileri ayarlar `x-ms-client-principal-id` ve `x-ms-client-principal-name` içeren kimliği doğrulanmış kullanıcının asıl istemci kimliği ve adı, sırasıyla. Ayarlayabileceğiniz `userId` özelliğini kullanarak ya da üst bilgi değeri bağlamanın bir [ifade bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` veya `{headers.x-ms-client-principal-name}`. 
+App Service kimlik doğrulaması adlı HTTP üstbilgileri ayarlar `x-ms-client-principal-id` ve `x-ms-client-principal-name` içeren kimliği doğrulanmış kullanıcının asıl istemci kimliği ve adı, sırasıyla. Ayarlayabileceğiniz `userId` özelliğini kullanarak ya da üst bilgi değeri bağlamanın bir [ifade bağlama](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` veya `{headers.x-ms-client-principal-name}`. 
 
 Örnek function.json:
 

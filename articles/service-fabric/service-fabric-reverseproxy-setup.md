@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 07/27/201
+ms.date: 11/13/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 522e9209da5d2df796700dea764270382b1170f5
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 52d6781f83262162f261d094d4818f803e5f3866
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102774"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670222"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Ayarlama ve Azure Service Fabric ters proxy ayarlarını yapılandırma
 Ters proxy, bulmak ve http uç noktaları olan diğer hizmetlerle iletişim kurma bir Service Fabric kümesinde çalışan mikro hizmetler yardımcı olan isteğe bağlı bir Azure Service Fabric hizmetidir. Daha fazla bilgi için bkz. [ters proxy Azure Service fabric'te](service-fabric-reverseproxy.md). Bu makalede ayarlama ve kümedeki ters Ara sunucu yapılandırma gösterilmektedir. 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 33f79569a2478c7e234b04ba2dee4e9b8883abae
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 16899c833d996902cf7a0a3f7ab57479869fbdd9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895899"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737799"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -95,7 +95,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Dize `{name}` blob tetikleyicisi yolunda `samples-workitems/{name}` oluşturur bir [ifade bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns) tetikleme blob dosya adı erişmek için işlev kodu kullanabilirsiniz. Daha fazla bilgi için [Blob adı desenlerinin](#trigger---blob-name-patterns) bu makalenin ilerleyen bölümlerinde.
+Dize `{name}` blob tetikleyicisi yolunda `samples-workitems/{name}` oluşturur bir [ifade bağlama](./functions-bindings-expressions-patterns.md) tetikleme blob dosya adı erişmek için işlev kodu kullanabilirsiniz. Daha fazla bilgi için [Blob adı desenlerinin](#trigger---blob-name-patterns) bu makalenin ilerleyen bölümlerinde.
 
 Hakkında daha fazla bilgi için `BlobTrigger` özniteliği için bkz: [tetikleyici - öznitelikleri](#trigger---attributes).
 
@@ -120,7 +120,7 @@ Veri bağlama işte *function.json* dosyası:
 }
 ```
 
-Dize `{name}` blob tetikleyicisi yolunda `samples-workitems/{name}` oluşturur bir [ifade bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns) tetikleme blob dosya adı erişmek için işlev kodu kullanabilirsiniz. Daha fazla bilgi için [Blob adı desenlerinin](#trigger---blob-name-patterns) bu makalenin ilerleyen bölümlerinde.
+Dize `{name}` blob tetikleyicisi yolunda `samples-workitems/{name}` oluşturur bir [ifade bağlama](./functions-bindings-expressions-patterns.md) tetikleme blob dosya adı erişmek için işlev kodu kullanabilirsiniz. Daha fazla bilgi için [Blob adı desenlerinin](#trigger---blob-name-patterns) bu makalenin ilerleyen bölümlerinde.
 
 Hakkında daha fazla bilgi için *function.json* dosya özellikleri, bkz: [yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
@@ -167,7 +167,7 @@ Aşağıdaki örnek, bir blob tetikleyicisi bağlama gösterir. bir *function.js
 }
 ```
 
-Dize `{name}` blob tetikleyicisi yolunda `samples-workitems/{name}` oluşturur bir [ifade bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns) tetikleme blob dosya adı erişmek için işlev kodu kullanabilirsiniz. Daha fazla bilgi için [Blob adı desenlerinin](#trigger---blob-name-patterns) bu makalenin ilerleyen bölümlerinde.
+Dize `{name}` blob tetikleyicisi yolunda `samples-workitems/{name}` oluşturur bir [ifade bağlama](./functions-bindings-expressions-patterns.md) tetikleme blob dosya adı erişmek için işlev kodu kullanabilirsiniz. Daha fazla bilgi için [Blob adı desenlerinin](#trigger---blob-name-patterns) bu makalenin ilerleyen bölümlerinde.
 
 Hakkında daha fazla bilgi için *function.json* dosya özellikleri, bkz: [yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
@@ -202,7 +202,7 @@ Aşağıdaki örnek, bir blob tetikleyicisi bağlama gösterir. bir *function.js
 }
 ```
 
-Dize `{name}` blob tetikleyicisi yolunda `samples-workitems/{name}` oluşturur bir [ifade bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns) tetikleme blob dosya adı erişmek için işlev kodu kullanabilirsiniz. Daha fazla bilgi için [Blob adı desenlerinin](#trigger---blob-name-patterns) bu makalenin ilerleyen bölümlerinde.
+Dize `{name}` blob tetikleyicisi yolunda `samples-workitems/{name}` oluşturur bir [ifade bağlama](./functions-bindings-expressions-patterns.md) tetikleme blob dosya adı erişmek için işlev kodu kullanabilirsiniz. Daha fazla bilgi için [Blob adı desenlerinin](#trigger---blob-name-patterns) bu makalenin ilerleyen bölümlerinde.
 
 Hakkında daha fazla bilgi için *function.json* dosya özellikleri, bkz: [yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
@@ -348,7 +348,7 @@ JavaScript'te kullanarak giriş blob veri erişim `context.bindings.<name from f
 
 ## <a name="trigger---blob-name-patterns"></a>Tetikleyici - blob adı modelleri
 
-Blob adı deseni de belirtebilirsiniz `path` özelliğinde *function.json* veya `BlobTrigger` öznitelik Oluşturucusu. Ad deseni olabilir bir [filtre veya bağlama ifadesi](functions-triggers-bindings.md#binding-expressions-and-patterns). Aşağıdaki bölümlerde örnekler sunar.
+Blob adı deseni de belirtebilirsiniz `path` özelliğinde *function.json* veya `BlobTrigger` öznitelik Oluşturucusu. Ad deseni olabilir bir [filtre veya bağlama ifadesi](./functions-bindings-expressions-patterns.md). Aşağıdaki bölümlerde örnekler sunar.
 
 ### <a name="get-file-name-and-extension"></a>Dosya adını ve uzantısını alma
 

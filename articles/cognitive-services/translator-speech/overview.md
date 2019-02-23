@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: dc406e79adb72a8b84c4a30b372ec6f491b4e441
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 24014bb06a779c214f18f966dfb1d26d61adee8d
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874218"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674863"
 ---
 # <a name="what-is-translator-speech-api"></a>Translator Konuşma Çevirisi API'si nedir?
 
@@ -25,13 +26,13 @@ Translator Konuşma Çevirisi API'si, hedef işletim sistemi veya geliştirme di
 
 Bir Azure hizmeti olan Translator Metin Çevirisi API'si, buluttaki [Azure Bilişsel Hizmetler API'si](https://docs.microsoft.com/azure/) makine öğrenimi ve yapak zeka algoritmaları koleksiyonunun parçasıdır ve geliştirme projelerinizde kullanılmaya hazırdır.
 
-Translator Konuşma Çevirisi API'si ile, istemci uygulamaları hizmete konuşma sesi akışı yapar ve kaynak dilde tanınan metni ve hedef dilde bu metnin çevirisini içeren metin ve ses tabanlı sonuçların akışını alır. Metin sonuçları, gelen ses akışına derin sinir ağlarıyla desteklenen Otomatik Konuşma Tanıma (ASR) uygulanarak oluşturulur. Ham ASR çıkışı kullanıcının amacını daha iyi yansıtması için TrueText olarak adlandırılan yeni bir teknikle geliştirilir. Örneğin, TrueText konuşmadaki istemsiz bozuklukları (hmm'lar ve öksürükler gibi), yinelenen sözcükleri kaldırır ve düzgün noktalama ve büyük harf kullanımını geri yükler. Küfürleri maskeleme veya çıkarma olanağı da sağlanır. Tanıma ve çeviri altyapıları, konuşmaları işlemek için özel olarak eğitilmiştir. 
+Translator Konuşma Çevirisi API'si ile, istemci uygulamaları hizmete konuşma sesi akışı yapar ve kaynak dilde tanınan metni ve hedef dilde bu metnin çevirisini içeren metin ve ses tabanlı sonuçların akışını alır. Metin sonuçları, gelen ses akışına derin sinir ağlarıyla desteklenen Otomatik Konuşma Tanıma (ASR) uygulanarak oluşturulur. Ham ASR çıkışı kullanıcının amacını daha iyi yansıtması için TrueText olarak adlandırılan yeni bir teknikle geliştirilir. Örneğin, TrueText konuşmadaki istemsiz bozuklukları (hmm'lar ve öksürükler gibi), yinelenen sözcükleri kaldırır ve düzgün noktalama ve büyük harf kullanımını geri yükler. Küfürleri maskeleme veya çıkarma olanağı da sağlanır. Tanıma ve çeviri altyapıları, konuşmaları işlemek için özel olarak eğitilmiştir.
 
-Translator Konuşma Çevirisi hizmeti, konuşmanın sonunu saptamak için sessizlik algılamasını kullanır. Ses etkinliğinde bir duraklama olduktan sonra, hizmet tamamlanan konuşma için nihai sonucun geri akışını yapar. Ayrıca hizmet kısmi sonuçları da geri gönderebilir; bu yolla devam eden konuşma için ara tanıma ve çeviriler sağlanır. 
+Translator Konuşma Çevirisi hizmeti, konuşmanın sonunu saptamak için sessizlik algılamasını kullanır. Ses etkinliğinde bir duraklama olduktan sonra, hizmet tamamlanan konuşma için nihai sonucun geri akışını yapar. Ayrıca hizmet kısmi sonuçları da geri gönderebilir; bu yolla devam eden konuşma için ara tanıma ve çeviriler sağlanır.
 
 Konuşmanın konuşmaya çevirisi için, hizmet konuşulan metinden hedef dillerle sentezlenmiş konuşma (metin konuşmaya dönüştürme) olanağı sağlar. Metni konuşmaya dönüştürme sesi, istemci tarafından belirtilen biçimde oluşturulur. WAV ve MP3 biçimleri kullanılabilir.
 
-Translator Konuşma Çevirisi API'si istemciyle sunucu arasında tam çift yönlü bir iletişim kanalı sağlamak için WebSocket protokolünü kullanır. 
+Translator Konuşma Çevirisi API'si istemciyle sunucu arasında tam çift yönlü bir iletişim kanalı sağlamak için WebSocket protokolünü kullanır.
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator Hakkında
 Microsoft Translator, bulut tabanlı bir makine çevirisi hizmetidir. Bu hizmetin temelinde, çeşitli Microsoft ürünlerini ve hizmetlerini desteklemenin yanı sıra dünya çapında binlerce işletmenin uygulamalarında ve iş akışlarında kullanılıp bu işletmelerin içeriklerini tüm dünyadaki hedef kitleye ulaştırmasını sağlayan [Translator Metin Çevirisi API'si](https://www.microsoft.com/en-us/translator/translatorapi.aspx) ve Translator Konuşma Çevirisi API'si yer alır.
@@ -43,17 +44,18 @@ Translator Konuşma Çevirisi API'si çevirileri sağlamak için hem eski istati
 
 İstatistiksel makine çevirisi performans geliştirme açısından hareketsiz bir aşamaya ulaşmıştır. SMT ile genel sistemler için çeviri kalitesinde artık kayda değer bir geliştirme sağlanmamaktadır. Yeni AI tabanlı çeviri teknolojisi Sinir Ağları (NN) temelinde ivme kazanmaktadır.
 
-NMT'nin sağladığı çeviriler SMT'ninkilere göre yalnızca ham çeviri kalitesi puanı açısından değil, daha akıcı olması ve insan diline daha çok benzemesi açısından da daha iyidir. Bu akıcılığın temel nedeni, NMT'nin sözcükleri çevirmek için cümlenin bağlamından bütünüyle yararlanmasıdır. SMT ise her sözcüğün hemen birkaç sözcük öncesindeki ve sonrasındaki anlık bağlamı dikkate alır.
+NMT'nin sağladığı çeviriler SMT'ninkilere göre yalnızca ham çeviri kalitesi puanı açısından değil, daha akıcı olması ve insan diline daha çok benzemesi açısından da daha iyidir.
+Bu akıcılığın temel nedeni, NMT'nin sözcükleri çevirmek için cümlenin bağlamından bütünüyle yararlanmasıdır. SMT ise her sözcüğün hemen birkaç sözcük öncesindeki ve sonrasındaki anlık bağlamı dikkate alır.
 
 NMT modelleri API'nin temelindedir ve son kullanıcılara görünür değildir. Gözle görülür farklılıklar yalnızca şunlardır:
 * Özellikle de Çince, Japonca ve Arapça gibi diller için geliştirilmiş çeviri kalitesi
 * Mevcut Hub özelleştirme özellikleriyle uyumsuzluk (Microsoft Translator Metin Çevirisi API'siyle kullanım için)
 
-Desteklenen konuşma çevirisi dillerinin hepsi NMT tarafından desteklenir. Dolayısıyla, tüm konuşmanın konuşmaya çevirilerinde NMT kullanılır. 
+Desteklenen konuşma çevirisi dillerinin hepsi NMT tarafından desteklenir. Dolayısıyla, tüm konuşmanın konuşmaya çevirilerinde NMT kullanılır.
 
-Metnin konuşmaya çevirilerinde, dil çiftine bağlı olarak NMT ile SMT'nin bir bileşimi kullanılabilir. Hedef dil NMT tarafından destekleniyorsa, çevirinin tamamı NMT destekli olur. Hedef dil NMT tarafından desteklenmiyorsa, çeviri NMT ile SMT karması olur ve iki dil arasında "geçiş" için İngilizce kullanılır. 
+Metnin konuşmaya çevirilerinde, dil çiftine bağlı olarak NMT ile SMT'nin bir bileşimi kullanılabilir. Hedef dil NMT tarafından destekleniyorsa, çevirinin tamamı NMT destekli olur. Hedef dil NMT tarafından desteklenmiyorsa, çeviri NMT ile SMT karması olur ve iki dil arasında "geçiş" için İngilizce kullanılır.
 
-Desteklenen dilleri [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx)'da görüntüleyebilirsiniz. 
+Desteklenen dilleri [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx)'da görüntüleyebilirsiniz.
 
 [NMT'nin nasıl çalıştığı](https://www.microsoft.com/en-us/translator/mt.aspx#nnt) hakkında daha fazla bilgi edinin
 
@@ -68,4 +70,4 @@ Desteklenen dilleri [Microsoft.com](https://www.microsoft.com/en-us/translator/l
 ## <a name="see-also"></a>Ayrıca bkz.
 - [Bilişsel Hizmetler Belgeleri sayfası](https://docs.microsoft.com/azure/)
 - [Bilişsel Hizmetler Ürün sayfası](https://azure.microsoft.com/services/cognitive-services/)
-- [Çözüm ve fiyatlandırma bilgileri](https://www.microsoft.com/en-us/translator/home.aspx) 
+- [Çözüm ve fiyatlandırma bilgileri](https://www.microsoft.com/en-us/translator/home.aspx)

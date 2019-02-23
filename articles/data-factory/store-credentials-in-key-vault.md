@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fcd3af6c000debb8da6200205a9aa2ae61feac58
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661250"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675424"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure anahtar Kasası'nda kimlik bilgisi Store
 
@@ -26,14 +26,14 @@ Veri depoları ve işlemler, kimlik bilgilerini depolamak bir [Azure anahtar kas
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu özellik üzerinde veri fabrikası hizmet kimliği kullanır. Gelen nasıl çalıştığını öğrenin [veri fabrikası hizmet kimliği](data-factory-service-identity.md) ve ilişkili bir veri fabrikanıza olduğundan emin olun.
+Bu özellik, data factory yönetilen kimliğini kullanır. Gelen nasıl çalıştığını öğrenin [yönetilen kimliği için Data factory'ye](data-factory-service-identity.md) ve ilişkili bir veri fabrikanıza olduğundan emin olun.
 
 ## <a name="steps"></a>Adımlar
 
 Azure Key Vault'ta depolanan bir kimlik bilgisi başvuru yapmak için gerekir:
 
-1. **Veri Fabrikası hizmet kimliği almak** "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak. Kullanıcı Arabirimi geliştirme ADF kullanırsanız, hizmet kimliği Azure Key Vault bağlı hizmeti oluşturma penceresinde gösterilir; Ayrıca almak Azure Portalı'ndan başvurmak [almak, veri fabrikası hizmet kimliği](data-factory-service-identity.md#retrieve-service-identity).
-2. **Azure Key Vault ile hizmet kimliği erişim verin.** Anahtar kasanıza erişim -> ilkeler -> Ekle Yeni -> Bu hizmeti kimliği uygulama kimliği vermek için arama **alma** izni gizli dizi izinleri açılır. Anahtar kasasındaki gizli erişmek belirlenen Bu fabrika sağlar.
+1. **Data factory yönetilen kimliğini alma** "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak. Kullanıcı Arabirimi geliştirme ADF kullanırsanız, yönetilen kimlik uygulama kimliği Azure Key Vault bağlı hizmeti oluşturma penceresinde gösterilir; Ayrıca almak Azure Portalı'ndan başvurmak [alma data factory yönetilen kimlik](data-factory-service-identity.md#retrieve-managed-identity).
+2. **Yönetilen kimlik, Azure anahtar Kasası'na erişim.** Anahtar kasanıza erişim -> ilkeler -> Ekle Yeni -> Identity application kimliği vermek için bu yönetilen arama **alma** izni gizli dizi izinleri açılır. Anahtar kasasındaki gizli erişmek belirlenen Bu fabrika sağlar.
 3. **Azure anahtar Kasası'na işaret eden bir bağlı hizmet oluşturursunuz.** Başvurmak [Azure Key Vault bağlı hizmeti](#azure-key-vault-linked-service).
 4. **Veri deposu bağlı hizmetini, hangi Başvurusu içinde karşılık gelen depolanan gizli anahtar kasası oluşturun.** Başvurmak [başvuru gizli anahtar kasasında depolanan](#reference-secret-stored-in-key-vault).
 

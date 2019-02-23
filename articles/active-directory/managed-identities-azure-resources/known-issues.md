@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbd8ff1e8574b9465d4acc366bf0b64bbfd11e20
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1162eb7964c8ec40f2b342e33044b60385cbd5f6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179731"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727494"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>SSS ve Azure kaynakları için yönetilen kimliklerle bilinen sorunlar
 
@@ -50,42 +50,37 @@ Kimlik, güvenlik sınırı için bağlı bir kaynaktır. Örneğin, bir sanal m
 - Sistem tarafından yönetilen kimlik atanan etkin değil ve yalnızca bir kullanıcı tarafından atanan yönetilen kimliği varsa IMDS yönetilen bu tek kullanıcı tarafından atanan kimliği için varsayılan. 
 - Sistem tarafından yönetilen kimlik atanan etkin değil ve birden çok kullanıcı tarafından yönetilen kimlikleri atanan var, ardından bir yönetilen kimlik isteği belirterek gereklidir.
 
-### <a name="should-i-use-the-managed-identities-for-azure-resources-vm-imds-endpoint-or-the-vm-extension-endpoint"></a>Azure kaynaklarını VM IMDS uç nokta veya VM uzantısı uç nokta için yönetilen kimlikleri kullanmalıyım?
+### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>Azure kaynaklarını IMDS uç nokta veya VM uzantısı uç nokta için yönetilen kimlikleri kullanmalıyım?
 
-VM'ler ile Azure kaynakları için yönetilen kimliklerle, Azure kaynaklarını IMDS uç noktası için yönetilen kimliklerle öneririz. Azure örnek meta veri hizmeti, Azure Resource Manager aracılığıyla oluşturulan tüm Iaas Vm'leri için erişilebilir bir REST uç noktasıdır. Yönetilen kimlik IMDS Azure kaynakları için kullanmanın avantajlarından bazıları şunlardır:
+VM'ler ile Azure kaynakları için yönetilen kimliklerle, IMDS uç noktası kullanmanızı öneririz. Azure örnek meta veri hizmeti, Azure Resource Manager aracılığıyla oluşturulan tüm Iaas Vm'leri için erişilebilir bir REST uç noktasıdır. 
+
+Yönetilen kimlik IMDS Azure kaynakları için kullanmanın avantajlarından bazıları şunlardır:
     - Tüm Azure Iaas desteklenen işletim sistemleri, IMDS Azure kaynakları için yönetilen kimlikleri kullanabilirsiniz.
     - Azure kaynakları için yönetilen kimlikleri etkinleştirmek için vm'nizde bir uzantı yüklemek için artık gerekli. 
     - Tarafından yönetilen kimlikleri Azure kaynakları için kullanılan sertifikaları artık VM yok.
     - Bir bilinen yönlendirilemeyen IP adresi, VM içinden yalnızca bulunan IMDS uç nokta var.
+    - 1000 kullanıcı tarafından atanan yönetilen kimlikleri, tek bir sanal makineye atanabilir. 
 
-VM uzantısı Günümüzde kullanılan hala kullanılabilir Azure kaynakları için yönetilen kimlikleri; ancak biz varsayılan IMDS uç noktayı kullanarak ilerletme. VM uzantısını Azure kaynakları için yönetilen kimlikleri Ocak 2019 ' kullanımdan kaldırılacaktır. 
+VM uzantısını Azure kaynakları için yönetilen kimlikleri hala kullanılabilir; ancak biz bulunan yeni işlevleri artık geliştiriyorsunuz. IMDS uç noktasını kullanmaya geçiş öneririz. 
+
+VM uzantısı uç noktasını kullanma sınırlamaları bazıları şunlardır:
+    - Linux dağıtımları için sınırlı destek: CoreOS Stable, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
+    - Kullanıcı tarafından atanan yalnızca 32 yönetilen kimlikleri, sanal Makineye atanabilir.
+
+
+Not: VM uzantısını Azure kaynakları için yönetilen kimlikleri Ocak 2019 destek kapsamının dışında olacaktır. 
 
 Azure örnek meta veri hizmeti hakkında daha fazla bilgi için bkz. [IMDS belgeleri](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Abonelik başka bir dizine taşırsanız yönetilen kimlikleri otomatik olarak yeniden oluşturulur?
 
 Hayır. Abonelik başka bir dizine taşırsanız, el ile yeniden oluşturun ve Azure RBAC rolü atamalarını tekrar vermeniz gerekir.
-    - Yönetilen kimlik sistemi atanmış: devre dışı bırakıp yeniden etkinleştirin.
+    - Yönetilen kimlik sistemi atanmış: devre dışı bırakıp yeniden etkinleştirin. 
     - Kullanıcı tarafından atanan yönetilen kimliklerle için: silmek, yeniden oluşturun ve bunları yeniden gerekli kaynakları (örneğin, sanal makineler) ekleme
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Farklı bir dizin/kiracısındaki bir kaynağa erişmek için yönetilen bir kimlik kullanabilir miyim?
 
 Hayır. Yönetilen kimlik şu anda çapraz directory senaryoları desteklemez. 
-
-### <a name="what-are-the-supported-linux-distributions"></a>Desteklenen Linux dağıtımları nelerdir?
-
-Azure Iaas tarafından desteklenen tüm Linux dağıtımları ile yönetilen kimlikleri IMDS uç noktası aracılığıyla Azure kaynakları için kullanılabilir. 
-
-VM uzantısı (Ocak 2019'da kullanımdan kaldırma planlanan) Azure kaynakları için yönetilen kimlikleri yalnızca aşağıdaki Linux dağıtımları destekler:
-- CoreOS kararlı
-- CentOS 7.1
-- Red Hat 7.2
-- Ubuntu 15.04
-- Ubuntu 16.04
-
-Diğer Linux dağıtımlarına şu anda desteklenmez ve uzantı desteklenmeyen dağıtımlarında başarısız olabilir.
-
-Uzantı, CentOS 6.9 üzerinde çalışır. Ancak, 6.9 sistem desteği eksikliği nedeniyle uzantı yeniden kilitlenmesi veya durduruldu durumunda otomatik olarak tamamlar değil. VM yeniden başlatıldığında yeniden başlatır. Uzantıyı el ile yeniden başlatmak için bkz: [nasıl Azure kaynaklarını uzantısı için yönetilen kimlikleri başlatmanız?](#how-do-you-restart-the-managed-identities-for-Azure-resources-extension)
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Azure kaynaklarını uzantısı için yönetilen kimlikleri nasıl başlatmanız?
 Uzantı durursa, Windows ve Linux'ın, aşağıdaki cmdlet'i el ile yeniden başlatmak için kullanılabilir:
@@ -109,14 +104,6 @@ Azure kaynakları için yönetilen kimlikleri bir VM'de etkinleştirildiğinde, 
 VM uzantısı (Ocak 2019'da kullanımdan kaldırma planlanan) şu anda mu Azure kaynakları için yönetilen kimlikleri ve şeması için bir kaynak grubu şablonu dışarı aktarma özelliğini destekler. Sonuç olarak oluşturulan şablon kaynağında Azure kaynakları için yönetilen kimlikleri etkinleştirmek için yapılandırma parametreleri göstermez. Bu bölümlerde örneklerde izleyerek elle eklenebilir [yapılandırma kimlikleri şablonları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen](qs-configure-template-windows-vm.md).
 
 Şema dışarı aktarma işlevi (Ocak 2019'da kullanımdan kaldırma planlanan) Azure kaynakları VM uzantısı için yönetilen kimlikleri için kullanılabilir olduğunda, listelenecektir [verme kaynakVMuzantılarıiçerengruplara](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
-
-### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Yapılandırma dikey penceresinde, Azure portalında görünmüyor
-
-VM yapılandırma dikey penceresinde, sanal makinenizde görünmüyorsa, ardından Azure kaynakları için yönetilen kimlikleri etkinleştirilmemiş portalın bölgeniz henüz.  Daha sonra tekrar kontrol edin.  Azure kaynakları için yönetilen kimlik kullanarak VM için de etkinleştirebilirsiniz [PowerShell](qs-configure-powershell-windows-vm.md) veya [Azure CLI](qs-configure-cli-windows-vm.md).
-
-### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Erişim denetimi (IAM) dikey penceresinde sanal makinelere erişim atanamıyor
-
-Varsa **sanal makine** yönelik bir seçenek olarak Azure Portalı'nda görünmez **erişim Ata** içinde **erişim denetimi (IAM)** > **Rol Ekle atama**, Azure kaynakları için yönetilen kimlikleri etkinleştirilmemiş sonra portalın bölgeniz henüz. Daha sonra tekrar kontrol edin.  Kimlik için rol ataması VM'İNİZDE hizmet sorumlusunu Azure kaynakları için yönetilen kimlikleri için arama yaparak yine de seçebilirsiniz.  VM'nin adını **seçin** alan ve hizmet sorumlusu arama sonucunda görüntülenir.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>Kaynak grubu veya abonelik taşındıktan sonra başlatmak VM başarısız
 
@@ -151,12 +138,11 @@ VM uzantısının sağlama DNS arama hataları nedeniyle başarısız olabilir. 
 
 Bir aboneliğe taşınmış/aktarılan başka bir dizine olduğunda yönetilen kimlikleri güncelleştirilmemiş. Sonuç olarak, herhangi bir mevcut sistem tarafından atanan veya kullanıcı tarafından atanan yönetilen kimlikleri bozuk olacaktır. 
 
-Geçici bir çözüm olarak abonelik taşındıktan sonra sistem tarafından atanan yönetilen kimlikleri devre dışı bırakabilir ve yeniden etkinleştirin. Benzer şekilde, silebilir ve hiç kullanıcı tarafından atanan bir yönetilen kimlik yeniden oluşturun. 
+Bir Abonelikteki başka bir dizinine taşındı yönetilen kimlikler için geçici çözüm:
 
-## <a name="known-issues-with-user-assigned-managed-identities"></a>Kullanıcı tarafından atanan yönetilen kimlikleri ile ilgili bilinen sorunlar
+ - Yönetilen kimlik sistemi atanmış: devre dışı bırakıp yeniden etkinleştirin. 
+ - Kullanıcı tarafından atanan yönetilen kimliklerle için: silmek, yeniden oluşturun ve bunları yeniden gerekli kaynakları (örneğin, sanal makineler) ekleme
 
-- Kullanıcı tarafından atanan kimlik adları en fazla 128 karakter ve en az 3 karakter ile sınırlıdır. Adı 128 karakterden daha uzunsa kimliği (yani sanal makine.) bir kaynağa atanmış başarısız olur
-- Kullanıcı tarafından atanan kimlik adları şu karakterleri içerebilir: a-z, A - Z,-, \_, 0-9. Bu karakter kümesinde (yani, yıldız işareti) adı dışında karakterler içeren bir kullanıcı tarafından atanan bir yönetilen kimlik oluşturma, desteklenmiyor.
-- Desteklenen sınırı (Ocak 2019'da kullanımdan kaldırma planlanan) yönetilen kimlik sanal makine uzantısı'nı kullanarak, kullanıcı tarafından atanan 32 yönetilen kimlikleri olur. Yönetilen kimlik sanal makine uzantısı, desteklenen sınırı 512'dır.  
-- Kullanıcı tarafından atanan bir yönetilen kimlik farklı kaynak grubuna taşımak kesmek kimlik neden olur. Sonuç olarak, bu kimliğin isteği belirteçleri mümkün olmayacaktır. 
-- Abonelik başka bir dizine aktarmak, mevcut bir kullanıcı tarafından atanan yönetilen kimlikleri çalışmamasına neden olur. 
+### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Kullanıcı tarafından atanan bir yönetilen kimlik için farklı bir kaynak grubu/abonelik taşıma
+
+Kullanıcı tarafından atanan bir yönetilen kimlik farklı kaynak grubuna taşımak kesmek kimlik neden olur. Sonuç olarak, bu kimlik kullanarak kaynakları (örneğin, VM) için bunu istek belirteçleri mümkün olmayacaktır. 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: sogup
-ms.openlocfilehash: f5c0373e2ef094a7fc5be64f4aeb8c0bb132e683
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: da686e53f711877642a33806719a0d71050e721b
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430072"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669389"
 ---
 # <a name="manage-azure-vm-backups"></a>Azure VM yedeklemelerini yönetme
 
@@ -35,10 +35,11 @@ Panoyu kullanarak yedeklemeleri yönetebilir ve tek tek sanal makineleri aşağ�
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Hub menüsünde **Gözat**'a tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Kurtarma Hizmetleri kasası** seçeneğine tıklayın. 
-    ![Adım 1'in kurtarma Hizmetleri kasası oluşturma](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
+
+    ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
 3. Kullanım kolaylığı için kasası listesini kasaya sağ tıklayın > **panoya Sabitle**.
-3. Kasa panosunda açın. 
+4. Kasa panosunda açın. 
     ![Kasa panosunu ve ayarlar dikey penceresi açın](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
 4. Üzerinde **yedekleme öğeleri** 'a tıklayın **Azure sanal makineler**.
@@ -73,7 +74,7 @@ Panoyu kullanarak yedeklemeleri yönetebilir ve tek tek sanal makineleri aşağ�
 Koruma için yapılandırıldıktan sonra isteğe bağlı bir sanal makinenin yedekleme oluşturabilirsiniz.
 - İlk yedekleme beklemede, isteğe bağlı yedekleme kurtarma Hizmetleri kasasında sanal makinenin tam bir kopyasını oluşturur.
 - İlk Yedekleme tamamlandıktan, isteğe bağlı yedekleme yalnızca değişiklikler önceki anlık görüntüden kurtarma Hizmetleri Kasası'na gönderir. Diğer bir deyişle, sonraki yedeklemeler her zaman artımlı.
-- He bir isteğe bağlı yedekleme için saklama aralığı için günlük yedekleme noktası ilkesinde belirtilen bekletme değerdir. Sonra hiçbir günlük yedekleme noktası seçtiyseniz haftalık yedekleme noktası kullanılır.
+- İsteğe bağlı yedekleme bekletme aralığı günlük yedekleme noktası ilkesinde belirtilen bekletme değerdir. Sonra hiçbir günlük yedekleme noktası seçtiyseniz haftalık yedekleme noktası kullanılır.
 
 
 İsteğe bağlı yedekleme tetiklemek için:
@@ -96,11 +97,17 @@ Sanal makineleri korumayı durdurmanın iki yolu vardır:
 - Gelecek tarihli tüm yedekleme işlerini durdurma ve tüm kurtarma noktalarını silin. Bu durumda VM geri yükleme olanağınız olmayacaktır.
 - Gelecek tarihli tüm yedekleme işlerini durdurma ama kurtarma noktalarını bırakma. Kurtarma noktalarını depolama alanında bırakmanın bir maliyeti yoktur. Gerekirse VM'ye geri yükleyebilirsiniz ancak, Kurtarma noktalarını bırakmanın avantajı vardır. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/backup/) fiyatlandırma ayrıntıları hakkında.
 
+Şunlara dikkat edin:
+
+- Kurtarma noktalarını değiştirmeden bırakırsanız, noktaları yedekleme ilkesine uygun olarak temizlenir. Tüm kurtarma noktalarını temizlenir kadar korumalı örnek ve tüketilen depolama alanı için ücret. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/backup/) fiyatlandırma hakkında daha fazla.
+- Süreleri dolduğunda bekletme ilkesi uyarınca olsa da, Kurtarma noktaları olduğu gibi bırakın, açıkça yedekleme verilerini silene kadar Azure yedekleme her zaman bir son kurtarma noktasını korur.
+- Durdurma yedekleme olmadan bir veri kaynağını silerseniz, yeni yedeklemeler başarısız olmaya başlar. Yine, eski kurtarma noktalarını ilkesine göre dolacak, ancak yedeklemeyi Durdur veriler silinene kadar her zaman bir son kurtarma noktası korunur.
+
+
+
 Bir sanal makine için korumayı durdurmak için:
 
 1. Üzerinde [kasa öğesi panosunda](backup-azure-manage-vms.md#open-a-vault-item-dashboard), tıklayın **yedeklemeyi Durdur**.
-
-    ![Stop backup button](./media/backup-azure-manage-vms/stop-backup-button.png
 2. Korumak veya yedekleme verileri silmek ve gerektiğinde onaylayın isteyip istemediğinizi seçin. Gerektiği şekilde doğrulayın ve isteğe bağlı olarak bir açıklama sağlayın. Öğe adından emin değilseniz, adını görüntülemek için ünlem işareti gelin.
 
     ![Korumayı Durdur](./media/backup-azure-manage-vms/retain-or-delete-option.png)

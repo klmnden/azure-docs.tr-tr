@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 0b033121890ea8c347642f64922113505f39efc9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 474360bfa874298b35b1e7c754545ff576013d50
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436544"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734753"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Azure Resource Manager şablonu (PowerShell) kullanarak IOT hub oluşturma
 
@@ -23,6 +23,8 @@ Azure Resource Manager'ı oluşturma ve Azure IOT hub'ları programlı olarak y�
 
 > [!NOTE]
 > Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Azure Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede Azure Resource Manager dağıtım modelini incelemektedir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -37,33 +39,33 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 PowerShell komut isteminde, Azure aboneliğinizde oturum açmak için aşağıdaki komutu girin:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Birden çok Azure aboneliğiniz varsa Azure'da oturum açma, kimlik bilgilerinizle ilişkili tüm Azure abonelikleri erişim verir. Azure aboneliklerini kullanmak için size sunulan listelemek için aşağıdaki komutu kullanın:
 
 ```powershell
-Get-AzureRMSubscription
+Get-AzSubscription
 ```
 
 IoT hub’ınızı oluşturmak için komutları çalıştırmak amacıyla kullanmak istediğiniz aboneliği seçmek üzere aşağıdaki komutu kullanın. Önceki komutun çıkışında yer alan abonelik adını veya kimliği kullanabilirsiniz:
 
 ```powershell
-Select-AzureRMSubscription `
+Select-AzSubscription `
     -SubscriptionName "{your subscription name}"
 ```
 
 IOT hub'ı ve şu anda desteklenen API sürümlerinden dağıtabileceğiniz bulmak için aşağıdaki komutları kullanabilirsiniz:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).Locations
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).ApiVersions
 ```
 
 IOT hub'ın desteklenen konumlardan birinde aşağıdaki komutu kullanarak IOT hub'ınıza içerecek bir kaynak grubu oluşturun. Bu örnek adlı bir kaynak grubu oluşturur **MyIoTRG1**:
 
 ```powershell
-New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
+New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
 ## <a name="submit-a-template-to-create-an-iot-hub"></a>IOT hub'ı oluşturmak için bir şablon gönderme
@@ -127,16 +129,16 @@ Kaynak grubunuzda bir IOT hub'ı oluşturmak için JSON şablonunu kullanın. Va
 3. IOT hub'ınızın adını bir parametre olarak geçirerek, yeni IOT hub ' ınızı dağıtmak için aşağıdaki komutu çalıştırın. Bu örnekte, IOT hub'ı adıdır `abcmyiothub`. IOT hub'ınızın adını genel olarak benzersiz olması gerekir:
 
     ```powershell
-    New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
+    New-AzResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 4. IOT hub'ının oluşturduğunuz anahtarları çıktıyı görüntüler.
 
-5. Uygulamanızı yeni IOT hub'ı doğrulamak için ziyaret [Azure portalında] [ lnk-azure-portal] ve kaynakların listesini görüntüleyin. Alternatif olarak, **Get-AzureRmResource** PowerShell cmdlet'i.
+5. Uygulamanızı yeni IOT hub'ı doğrulamak için ziyaret [Azure portalında] [ lnk-azure-portal] ve kaynakların listesini görüntüleyin. Alternatif olarak, **Get-AzResource** PowerShell cmdlet'i.
 
 > [!NOTE]
-> Bu örnek uygulama, bir S1 standart IOT için faturalandırılırsınız Hub ekler. IOT hub'ı aracılığıyla silebilirsiniz [Azure portalında] [ lnk-azure-portal] kullanarak veya **Remove-AzureRmResource** işiniz bittiğinde PowerShell cmdlet'i.
+> Bu örnek uygulama, bir S1 standart IOT için faturalandırılırsınız Hub ekler. IOT hub'ı aracılığıyla silebilirsiniz [Azure portalında] [ lnk-azure-portal] kullanarak veya **Remove-AzResource** işiniz bittiğinde PowerShell cmdlet'i.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -159,7 +161,7 @@ Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
+[lnk-powershell-install]: /powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/powershell-azure-resource-manager.md

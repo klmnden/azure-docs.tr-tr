@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: ff2031bd4c4fdc3d3ed8447a08ef29f0f89ea1d8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7aebdace6b6200f400d0c642c8cbdc6d31544752
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818031"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733036"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure sanal makinelerinde Always On kullanılabilirlik grupları oluşturmak için önkoşulları tamamlayın
 
@@ -75,7 +75,7 @@ Sanal ağ oluşturmak için:
    ![Yeni öğe](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/02-newiteminrg.png)
 2. Arama **sanal ağ**.
 
-     ![Sanal ağ Ara](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/04-findvirtualnetwork.png)
+     ![Sanal ağ ara](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/04-findvirtualnetwork.png)
 3. Tıklayın **sanal ağ**.
 4. Üzerinde **sanal ağ**, tıklayın **Resource Manager** dağıtım modeli ve ardından **Oluştur**.
 
@@ -308,7 +308,7 @@ Sunucu yapılandırma değişikliklerini tamamlandıktan sonra sunucuyu yeniden 
 
 Azure portalında, sanal ağ DNS sunucusu, ikincil etki alanı denetleyicisinin IP adresini içerecek şekilde değiştirin. Bu ayar, DNS hizmeti yedeklilik sağlar.
 
-### <a name=DomainAccounts></a> Etki alanı hesaplarını yapılandırma
+### <a name="DomainAccounts"></a> Etki alanı hesaplarını yapılandırma
 
 Sonraki adımlarda Active Directory hesaplarını yapılandırın. Aşağıdaki tabloda, hesapların gösterilmektedir:
 

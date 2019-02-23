@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834137"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727970"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs'de sahibini ve kullanıcıları ekleme
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -77,6 +77,9 @@ Aşağıdaki adımlar bir sahibi veya kullanıcı Azure DevTest labs'deki bir la
 11. İçin döndüğünüzde **kullanıcılar** dikey penceresinde kullanıcı eklendi.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>PowerShell kullanarak Laboratuvar için bir dış kullanıcı ekleme
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Azure portalında kullanıcılar eklemenin yanı sıra, laboratuvarınız için bir PowerShell betiğini kullanarak bir dış kullanıcı ekleyebilirsiniz. Aşağıdaki örnekte, parametre değerlerini altındaki değiştirme **değiştirmek için değerleri** açıklaması.
 Alabileceğiniz `subscriptionId`, `labResourceGroup`, ve `labName` Azure portalında Laboratuvar dikey penceresinden değerleri.
 
@@ -96,18 +99,18 @@ Alabileceğiniz `subscriptionId`, `labResourceGroup`, ve `labName` Azure portal�
     $userDisplayName = "<Enter user's display name here>"
 
     # Log into your Azure account
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
     # Select the Azure subscription that contains the lab. 
     # This step is optional if you have only one subscription.
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+    Select-AzSubscription -SubscriptionId $subscriptionId
 
     # Retrieve the user object
-    $adObject = Get-AzureRmADUser -SearchString $userDisplayName
+    $adObject = Get-AzADUser -SearchString $userDisplayName
 
     # Create the role assignment. 
     $labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-    New-AzureRmRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+    New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
 
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Abonelik düzeyinde sahibi veya kullanıcı ekleme
 Azure izinleri Azure alt kapsamda için üst kapsamlardan yayılır. Bu nedenle, laboratuvarlar içeren bir Azure aboneliği sahiplerine otomatik olarak bu laboratuvarlar sahipleri altındadır. Vm'leri ve Laboratuvar kullanıcıları ve Azure DevTest Labs hizmeti tarafından oluşturulan diğer kaynaklar da sahip. 

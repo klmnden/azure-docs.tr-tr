@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 8fa093d629eb7c655ea277b1d57f35193394f722
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304402"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730010"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure işlevleri Python Geliştirici Kılavuzu
 
@@ -109,7 +109,7 @@ Paylaşılan kod ayrı bir klasöre tutulmalıdır. Modüller SharedCode klasör
 from ..SharedCode import myFirstHelperFunction
 ```
 
-İşlevler çalışma zamanı tarafından kullanılan bağlama uzantıları içinde tanımlanmış `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](functions-triggers-bindings.md#local-development-azure-functions-core-tools) Azure işlevleri çekirdek araçları kullanarak. 
+İşlevler çalışma zamanı tarafından kullanılan bağlama uzantıları içinde tanımlanmış `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](./functions-bindings-register.md#local-development-azure-functions-core-tools) Azure işlevleri çekirdek araçları kullanarak. 
 
 İşlev uygulamanızda Azure işlevleri projesi dağıtırken, paket, ancak klasörün kendisini FunctionApp klasörün tüm içeriğini eklenmelidir.
 
@@ -149,7 +149,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-İşlev çağrıldığında HTTP isteği 'req' olarak işleve geçirilir. Azure Blob Depolama Alanından, yönlendirme URL'sindeki kimliğe göre bir giriş alınır ve işlev gövdesinde 'obj' olarak kullanıma sunulur.
+İşlev çağrıldığında, HTTP isteği olarak işleve geçirilir `req`. Bir giriş temel Azure Blob depolama alanından alınan _kimliği_ yönlendirme URL'sindeki ve olarak kullanıma sunulan `obj` işlev gövdesindeki.
 
 ## <a name="outputs"></a>Çıkışlar
 

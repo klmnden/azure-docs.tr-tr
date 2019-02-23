@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8c913d618313a72f6fb05ea45847a220f6070d42
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 4adc4bc743192832689d5bf6ff8448ed679775fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765747"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728514"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir Linux sanal makinesi oluşturma
 
@@ -71,9 +71,14 @@ Desteklenen bir VM boyutu hızlandırılmış ağ etkin olmadan yalnızca özell
 Hızlandırılmış ağ ile sanal makineler (Klasik) dağıtılamıyor.
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Azure hızlandırılmış ağ ile bir Linux VM oluşturma
+## <a name="portal-creation"></a>Portal oluşturma
+Bu makale, hızlandırılmış ağ ile Azure CLI kullanarak bir sanal makine oluşturmak için adımları sağlar ancak ayrıca [hızlandırılmış ağ ile Azure portalını kullanarak bir sanal makine oluşturma](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Portalda, sanal makine oluştururken **sanal makine oluşturma** dikey penceresinde, seçin **ağ** sekmesi.  Bu sekmede için bir seçenek yoktur **hızlandırılmış**.  Seçtiyseniz bir [işletim sistemi desteklenen](#supported-operating-systems) ve [VM boyutu](#supported-vm-instances), bu seçenek "Açık." otomatik olarak doldurulur  Aksi halde, hızlandırılmış ağ için "Kapalı" seçeneği doldurmak ve kullanıcıya neden olan olması etkin bir neden sağlayın.   
 
-Bu makale, hızlandırılmış ağ ile Azure CLI kullanarak bir sanal makine oluşturmak için adımları sağlar ancak ayrıca [hızlandırılmış ağ ile Azure portalını kullanarak bir sanal makine oluşturma](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Portalda, altında bir sanal makine oluştururken ortaya **ayarları**seçin **etkin**altında **hızlandırılmış**. Seçmiş olduğunuz sürece, hızlandırılmış ağ etkinleştirme seçeneği portalda görünmez bir [işletim sistemi desteklenen](#supported-operating-systems) ve [VM boyutu](#supported-vm-instances). Sanal makine oluşturulduktan sonra yönergeleri tamamlamak gereken [hızlandırılmış ağ etkin olduğunu onaylayın](#confirm-that-accelerated-networking-is-enabled).
+* *Not:* Desteklenen işletim sistemleri, portal üzerinden etkinleştirilebilir.  Lütfen özel bir görüntü kullanıyorsanız ve hızlandırılmış ağ görüntünüzü destekliyorsa, CLI veya Powershell kullanarak VM oluşturma. 
 
+Sanal makine oluşturulduktan sonra hızlandırılmış ağ etkin yönergeleri izleyerek doğrulayabilirsiniz [hızlandırılmış ağ etkin olduğunu onaylayın](#confirm-that-accelerated-networking-is-enabled).
+
+## <a name="cli-creation"></a>CLI oluşturma
 ### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
 Son yükleme [Azure CLI](/cli/azure/install-azure-cli) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *Mynıc*, ve *myVm*.

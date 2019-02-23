@@ -4,14 +4,14 @@ description: MongoDB, SQL Server, Tablo depolama, Amazon DynamoDB, CSV ve JSON d
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: 972602bb6c5fc80433c2479516f8d0a5d885e4dd
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c2020688359fafe6cf39dacc84c84ea79251ddbb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446945"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733359"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Verilerinizi Azure Cosmos DB'ye geçirmek için Veri geçişi aracını kullanma
 
@@ -58,7 +58,7 @@ Veri Geçişi aracı, aşağıda örnekleri verilen çeşitli kaynaklardan Azure
 
 ## <a id="Install"></a>Yükleme
 
-Geçiş aracı kaynak koduna GitHub’da [bu depodan](https://github.com/azure/azure-documentdb-datamigrationtool) erişilebilir. Çözümü yerel olarak indirip derleyebilir veya [önceden derlenmiş bir ikiliyi indirip](https://cosmosdbtools.blob.core.windows.net/datamigrationtool/2019.02.19-1.8.2/dt-1.8.2.zip) daha sonra aşağıdakilerden birini çalıştırabilirsiniz:
+Geçiş aracı kaynak koduna GitHub’da [bu depodan](https://github.com/azure/azure-documentdb-datamigrationtool) erişilebilir. Çözümü yerel olarak indirip derleyebilir veya [önceden derlenmiş bir ikiliyi indirip](http://aka.ms/csdmtool) daha sonra aşağıdakilerden birini çalıştırabilirsiniz:
 
 * **Dtui.exe**: Aracı'nın grafik arabirimi sürümü
 * **Dt.exe**: Komut satırı aracı sürümü

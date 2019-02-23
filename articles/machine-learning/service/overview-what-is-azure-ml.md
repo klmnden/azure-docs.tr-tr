@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 36e0ca360cfbdfc77ce0a1768222f43f8864537c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1645f09682ebb58b442626bf14f26fdb91f9456e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267278"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728293"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning hizmeti nedir?
 
@@ -70,7 +70,7 @@ Azure Machine Learning hizmeti ile çalışmaya başlamak için bkz: [sonraki ad
 
 ## <a name="how-is-azure-machine-learning-service-different-from-machine-learning-studio"></a>Azure Machine Learning hizmetini Machine Learning Studio'dan farklı mı?
 
-Azure Machine Learning Studio, kod yazmaya gerek olmadan makine öğrenimi çözümlerini derleyebileceğiniz, test edebileceğiniz ve dağıtabileceğiniz, iş birliğine dayalı bir sürükle bırak görsel çalışma alanıdır. Önceden oluşturulmuş ve önceden yapılandırılmış makine öğrenimi algoritmaları ve veri işleme modüllerini kullanır. 
+[Azure Machine Learning Studio](../studio/what-is-ml-studio.md) Burada, oluşturabilir, test ve kod yazmaya gerek kalmadan, makine öğrenimi çözümleri dağıtma bir işbirliğine dayalı, sürükle ve bırak visual çalışma alanıdır. Önceden oluşturulmuş ve önceden yapılandırılmış makine öğrenimi algoritmaları ve veri işleme modüllerini kullanır.
 
 Makine öğrenimi modelleri ile hızlı ve kolay bir şekilde deneme yapmak istediğinizde ve yerleşik makine öğrenimi algoritmaları çözümleriniz için yeterli olduğunda Machine Learning Studio’yu kullanın.
 

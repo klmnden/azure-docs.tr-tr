@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: a919d10bbb7def8f81e68d95c03d95309483df59
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c8cfa0174d3e3300bdc3cfbc68ca416d9b736300
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210395"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674914"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric küme ayarlarını özelleştirme
 Bu makalede, Service Fabric kümenizin özelleştirebileceğiniz çeşitli yapı ayarları açıklanır. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak. Daha fazla bilgi için [Azure kümesine yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-azure.md). Tek başına kümeler için ayarlarını güncelleştirerek özelleştirdiğiniz *ClusterConfig.json* dosyası ve bir yapılandırmasını gerçekleştirmek kümenizde yükseltin. Daha fazla bilgi için [tek başına küme yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -122,13 +122,13 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, varsayılan değer true şeklindedir | Dinamik |Olup olmadığını tanılama erişme adına uygulamayı depoladığında kimliğe bürünme gereklidir. |
 |AppEtwTraceDeletionAgeInDays |Int, varsayılan 3'tür | Dinamik |Eski ETL dosyalarını içeren uygulama ETW izlemelerini sonra silmemiz gün sayısı. |
 |ApplicationLogsFormatVersion |int, varsayılan 0'dır | Dinamik |Uygulama için sürüm biçimi günlüğe kaydeder. Desteklenen değerler şunlardır: 0 ve 1. Sürüm 1, sürüm 0 ETW olay kaydının daha fazla alan içerir. |
-|Lclusterıd |Dize | Dinamik |Küme benzersiz kimliği. Bu, küme oluşturulduğunda oluşturulur. |
-|ConsumerInstances |Dize | Dinamik |DCA tüketici örneklerinin listesi. |
+|Lclusterıd |String | Dinamik |Küme benzersiz kimliği. Bu, küme oluşturulduğunda oluşturulur. |
+|ConsumerInstances |String | Dinamik |DCA tüketici örneklerinin listesi. |
 |DiskFullSafetySpaceInMB |Int, varsayılan 1024'tür. | Dinamik |Kalan disk alanı DCA tarafından kullanımdan korumak için MB cinsinden. |
 |EnableCircularTraceSession |Bool, varsayılan değer false'tur | Statik |Bayrak döngüsel izleme oturumlarını kullanılıp kullanılmayacağını belirtir. |
 |EnableTelemetry |Bool, varsayılan değer true şeklindedir | Dinamik |Bu, etkinleştirme veya devre dışı telemetri geçiyor. |
 |MaxDiskQuotaInMB |Int, 65536 varsayılandır | Dinamik |Disk kotası'Windows Fabric MB günlük dosyalarında. |
-|ProducerInstances |Dize | Dinamik |DCA üretici örnekleri listesi. |
+|ProducerInstances |String | Dinamik |DCA üretici örnekleri listesi. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Parametre** | **İzin verilen değerler** |**Yükseltme İlkesi**| **Kılavuz veya kısa açıklama** |
@@ -280,7 +280,8 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ## <a name="healthmanager"></a>HealthManager
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
-| EnableApplicationTypeHealthEvaluation |Bool, varsayılan değer false'tur |Statik|Küme sistem durumu değerlendirme İlkesi: uygulama türü sistem durumu değerlendirmesi etkinleştirin. |
+|EnableApplicationTypeHealthEvaluation |Bool, varsayılan değer false'tur |Statik|Küme sistem durumu değerlendirme İlkesi: uygulama türü sistem durumu değerlendirmesi etkinleştirin. |
+|MaxSuggestedNumberOfEntityHealthReports|Varsayılan Int, 500'dür |Dinamik|Sistem durumu sayısı İzleme'nın sistem durumu raporlama mantığını DB'dir tetiklenmeden önce bir varlık olabilir bildirir. Her sistem durumu varlık sistem durumu raporlarının sayısı nispeten küçük bir sayı olması beklenir. Rapor sayısı bu sayıyı aşması durumunda; İzleme'nın uygulama ile ilgili sorunlar olabilir. Varlık değerlendirildiğinde aracılığıyla bir uyarı sistem durumu raporu varlıkta çok fazla sayıda güvenlik raporları ile işaretlenir. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa açıklama** |
@@ -451,7 +452,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
-|Sayaçları |Dize | Dinamik |Performans sayaçları toplamak için virgülle ayrılmış listesi. |
+|Sayaçları |String | Dinamik |Performans sayaçları toplamak için virgülle ayrılmış listesi. |
 |IsEnabled |Bool, varsayılan değer true şeklindedir | Dinamik |Bayrağı, performans sayacı koleksiyonu yerel düğümde etkin olup olmadığını gösterir. |
 |MaxCounterBinaryFileSizeInMB |int, varsayılan 1. | Dinamik |Her performans sayacı ikili dosya için maksimum boyut (MB cinsinden). |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, varsayılan 10'dur | Dinamik |Sonra yeni bir performans sayacı ikili dosya oluşturulduğunda en büyük aralık (saniye cinsinden). |
@@ -756,10 +757,10 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 | --- | --- | --- | --- |
 |ContainerNetworkName|Varsayılan bir dize ise ""| Statik |Bir kapsayıcı ağı ayarlarken kullanılacak ağ adı.|
 |ContainerNetworkSetup|bool, varsayılan FALSE olur.| Statik |Bir kapsayıcı ağ ayarlanıp ayarlanmayacağını belirtir.|
-|FabricDataRoot |Dize | İzin Verilmiyor |Service Fabric veri kök dizini. Varsayılan Azure d:\svcfab için |
-|FabricLogRoot |Dize | İzin Verilmiyor |Service fabric günlük kök dizini. SF günlüklerinden ve izlemelerinden yerleştirildiği budur. |
+|FabricDataRoot |String | İzin Verilmiyor |Service Fabric veri kök dizini. Varsayılan Azure d:\svcfab için |
+|FabricLogRoot |String | İzin Verilmiyor |Service fabric günlük kök dizini. SF günlüklerinden ve izlemelerinden yerleştirildiği budur. |
 |NodesToBeRemoved|Varsayılan bir dize ise ""| Dinamik |Yapılandırma yükseltmesinin bir parçası kaldırılması gerektiğini düğümleri. (Yalnızca için tek başına dağıtımlarında)|
-|ServiceRunAsAccountName |Dize | İzin Verilmiyor |Hesap adı altında çalıştırılacağı fabric konak hizmeti. |
+|ServiceRunAsAccountName |String | İzin Verilmiyor |Hesap adı altında çalıştırılacağı fabric konak hizmeti. |
 |SkipContainerNetworkResetOnReboot|bool, varsayılan FALSE olur.|NotAllowed|Mı sıfırlama kapsayıcı ağ yeniden başlatıldığında atlanacak.|
 |SkipFirewallConfiguration |Bool, varsayılan değer false'tur | İzin Verilmiyor |Güvenlik Duvarı ayarlarını veya sistem tarafından ayarlanmış olması gerekip gerekmediğini belirtir. Bu, yalnızca windows güvenlik duvarı kullanıyorsanız geçerlidir. Daha sonra üçüncü taraf güvenlik duvarları kullanıyorsanız, sistem ve uygulamalara için bağlantı noktalarını açmanız gerekir |
 

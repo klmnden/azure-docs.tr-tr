@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: e80ebcd6de7a793450a0503c99af151e96658ea9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876751"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728577"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Yönetimi SSS
 Azure API Management için sık sorulan sorular, desenleri ve en iyi yanıtları alın.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="contact-us"></a>Bizimle iletişim kurun
 * [Nasıl ben Microsoft Azure API Management takım soru sorabilir?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
@@ -89,9 +91,9 @@ Bir kullanıcı Administrators grubuna nasıl ekleyebileceğinizi aşağıda ver
 
 Yeni eklenen katkıda bulunan Azure PowerShell artık [cmdlet'leri](https://docs.microsoft.com/powershell/azure/overview). Yönetici olarak oturum açma şöyledir:
 
-1. Kullanım `Connect-AzureRmAccount` cmdlet'ini oturum açın.
-2. Kullanarak hizmetine sahip olan abonelik bağlamını ayarlayın `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
-3. Çoklu oturum açma URL'si almak `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
+1. Kullanım `Connect-AzAccount` cmdlet'ini oturum açın.
+2. Kullanarak hizmetine sahip olan abonelik bağlamını ayarlayın `Set-AzContext -SubscriptionID <subscriptionGUID>`.
+3. Çoklu oturum açma URL'si almak `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Yönetici portalına erişmek için URL'yi kullanın.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Neden eklemek İlkesi Düzenleyicisi'nde kullanılamayan istediğiniz ilke mi?
@@ -132,11 +134,11 @@ Evet. Bkz: [Azure API Management hizmeti](https://aka.ms/apimtemplate) hızlı b
 Evet. Bu API için doğrudan göndererek veya PowerShell aracılığıyla yapılabilir. Bu sertifika zinciri doğrulamasını devre dışı bırakır ve otomatik olarak imzalanan veya özel olarak imzalanmış sertifikaların API Yönetimi'nden arka uç hizmetlerine iletişim kurarken kullanması sağlayacak.
 
 #### <a name="powershell-method"></a>PowerShell yöntemi ####
-Kullanım [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (için yeni arka uç) veya [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (mevcut arka uç için) PowerShell cmdlet'leri ve `-SkipCertificateChainValidation` parametresi `True`. 
+Kullanım [ `New-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (için yeni arka uç) veya [ `Set-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (mevcut arka uç için) PowerShell cmdlet'leri ve `-SkipCertificateChainValidation` parametresi `True`. 
 
 ```powershell
-$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
-New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+$context = New-AApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
 #### <a name="direct-api-update-method"></a>Doğrudan API güncelleştirme yöntemi ####

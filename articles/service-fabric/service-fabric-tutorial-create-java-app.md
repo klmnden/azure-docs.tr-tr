@@ -15,16 +15,17 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 619f77b6b50a005b4b5cc688bdbf32d1ce3dce26
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2ef38e34403a9c04eac5132c66682a045a589cf8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810823"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733070"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Öğretici: Service Fabric üzerinde uygulama ile bir Java web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti oluşturun
 
-Bu öğretici, bir dizinin birinci bölümüdür. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir Java web ön ucuna sahip Oylama uygulaması sağlanır. Bu öğretici serisi, çalışır durumda bir Mac OSX veya Linux geliştirici makineniz olmasını gerektirir. Oylama uygulamasını el ile oluşturmak istemiyorsanız, [tamamlanmış uygulamanın kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-java-quickstart) ve [Oylama örnek uygulamasında izlenecek yol](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application) bölümüne atlayabilirsiniz.
+Bu öğretici, bir dizinin birinci bölümüdür. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir Java web ön ucuna sahip Oylama uygulaması sağlanır. Bu öğretici serisi, çalışır durumda bir Mac OSX veya Linux geliştirici makineniz olmasını gerektirir. Oylama uygulamasını el ile oluşturmak istemiyorsanız, [tamamlanmış uygulamanın kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-java-quickstart) ve [Oylama örnek uygulamasında izlenecek yol](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application) bölümüne atlayabilirsiniz. Ayrıca, düşünün aşağıdaki [Java reliable services için hızlı başlangıç.](service-fabric-quickstart-java-reliable-services.md)
+
 
 ![Yerel Oylama Uygulaması](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
@@ -53,7 +54,7 @@ Bu öğreticiye başlamadan önce:
 
 ## <a name="create-the-front-end-java-stateless-service"></a>Ön uç durum bilgisi olmayan Java hizmeti oluşturma
 
-İlk olarak, Oylama uygulamasının web ön ucunu oluşturun. Durum bilgisi olmayan Java hizmeti, AngularJS tarafından desteklenen bir web kullanıcı arabirimini barındıran basit bir HTTP sunucusu anlamına gelir. Bir kullanıcıdan gelen istekler, bu durum bilgisi olmayan hizmet tarafından işlenir ve oyları depolamak için durum bilgisi olan hizmete uzak yordam çağrısı olarak gönderilir. 
+İlk olarak, Oylama uygulamasının web ön ucunu oluşturun. Bir web kullanıcı Arabirimi AngularJS tarafından desteklenen, basit bir HTTP sunucusu çalışan Java durum bilgisi olmayan hizmete istekleri gönderir. Bu hizmet, her bir isteği işler ve oyları depolamak için durum bilgisi olan hizmete uzak yordam çağrısı gönderir. 
 
 1. Eclipse'i başlatın.
 
@@ -85,7 +86,7 @@ Tablo, önceki ekran görüntüsünde yer alan paket gezginindeki her bir öğen
 
 ### <a name="add-html-and-javascript-to-the-votingweb-service"></a>VotingWeb hizmetine HTML ve Javascript ekleme
 
-Durum bilgisi olmayan hizmet tarafından işlenebilen kullanıcı arabirimi eklemek için, *VotingApplication/VotingWebPkg/Code* konumuna bir HTML dosyası ekleyin. Bu HTML dosyası daha sonra durum bilgisi olmayan Java hizmetine eklenen basit HTTP sunucusu tarafından işlenir.
+Durum bilgisi olmayan hizmet tarafından işlenen kullanıcı Arabirimi eklemek için bir HTML dosyası ekleyin. Bu HTML dosyası daha sonra durum bilgisi olmayan Java hizmetine eklenen basit HTTP sunucusu tarafından işlenir.
 
 1. *VotingApplication/VotingWebPkg/Code* dizinine ulaşmak için *VotingApplication* dizinini genişletin.
 
@@ -209,7 +210,7 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 
 **VotingWeb** alt projesinde *VotingWeb/src/statelessservice/VotingWeb.java* dosyasını açın. **VotingWeb** hizmeti, durum bilgisi olmayan hizmete yönelik ağ geçididir ve ön uç API’si için iletişim dinleyicisini ayarlamaktan sorumludur.
 
-Dosyada **createServiceInstanceListeners** yönteminin içeriklerini aşağıdakiyle değiştirin ve değişikliklerinizi kaydedin.
+Varolan **Createserviceınstancelisteners** yöntemi dosyasında aşağıdaki ve değişikliklerinizi kaydedin.
 
 ```java
 @Override
@@ -387,7 +388,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 
 ### <a name="configure-the-listening-port"></a>Dinleme bağlantı noktasını yapılandırma
 
-VotingWeb hizmeti ön uç hizmeti oluşturulduğunda Service Fabric, hizmetin dinlemesi için bir bağlantı noktası seçer.  VotingWeb hizmeti bu uygulama için ön uç işlevi görür ve dış trafiği kabul eder; bu nedenle şimdi bu hizmeti sabit ve iyi tanınan bir bağlantı noktasına bağlayalım. Paket Gezgini’nde *VotingApplication/VotingWebPkg/ServiceManifest.xml* dosyasını açın.  **Kaynaklar** bölümünde **Uç Nokta** kaynağını bulun ve **Bağlantı Noktası** değerini 8080 numaralı veya başka bir bağlantı noktasıyla değiştirin. Uygulamayı yerel olarak dağıtmak ve çalıştırmak için, uygulama dinleme bağlantı noktasının bilgisayarınızda açık ve kullanılabilir olması gerekir. Aşağıdaki kod parçacığını **ServiceManifest** öğesinin içine (```<DataPackage>``` öğesinin altına) yapıştırın.
+VotingWeb hizmeti ön uç hizmeti oluşturulduğunda Service Fabric, hizmetin dinlemesi için bir bağlantı noktası seçer.  VotingWeb hizmeti bu uygulama için ön uç işlevi görür ve dış trafiği kabul eder; bu nedenle şimdi bu hizmeti sabit ve iyi tanınan bir bağlantı noktasına bağlayalım. Paket Gezgini’nde *VotingApplication/VotingWebPkg/ServiceManifest.xml* dosyasını açın.  Bulma **uç nokta** kaynak **kaynakları** bölümünde ve değiştirme **bağlantı noktası** 8080 değerine (biz Bu bağlantı noktası öğretici boyunca kullanmaya devam). Uygulamayı yerel olarak dağıtmak ve çalıştırmak için, uygulama dinleme bağlantı noktasının bilgisayarınızda açık ve kullanılabilir olması gerekir. Aşağıdaki kod parçacığını **ServiceManifest** öğesinin içine (```<DataPackage>``` öğesinin altına) yapıştırın.
 
 ```xml
 <Resources>
@@ -547,9 +548,11 @@ class VotingDataService extends StatefulService implements VotingRPC {
 }
 ```
 
+Şimdi ön uç durum bilgisi olmayan hizmetin çatısı ve arka uç hizmeti oluşturulur.
+
 ## <a name="create-the-communication-interface-to-your-application"></a>Uygulamanıza yönelik iletişim arabirimi oluşturma
 
-Şimdi ön uç durum bilgisi olmayan hizmetin çatısı ve arka uç hizmeti oluşturulur. Sonraki adım, iki hizmetin bağlanmasıdır. Ön uç ve arka uç hizmetleri, Oylama uygulamasının işlemlerini tanımlayan VotingRPC adlı bir arabirim kullanır. Bu arabirim, iki hizmet arasında uzak yordam çağrılarını (RPC) etkinleştirmek için hem ön uç hem de arka uç hizmetleri tarafından uygulanır. Eclipse, Gradle alt projelerinin eklenmesini desteklemediğinden, bu arabirimi içeren paketin el ile eklenmesi gerekir.
+ Sonraki adımda, ön uç durum bilgisi olmayan hizmet ve arka uç hizmetine bağlanıyor. Her iki hizmet, oylama uygulamasının işlemlerini tanımlayan VotingRPC adlı bir arabirim kullanır. Bu arabirim, iki hizmet arasında uzak yordam çağrılarını (RPC) etkinleştirmek için hem ön uç hem de arka uç hizmetleri tarafından uygulanır. Ne yazık ki, Eclipse bu arabirimi içeren paketin el ile eklenmesi gerekir böylece Gradle alt projelerinin eklenmesini desteklemez.
 
 1. Paket Gezgini’nde **Oylama** projesine sağ tıklayın ve **Yeni -> Klasör**'e tıklayın. Klasöre **VotingRPC/src/rpcmethods** adını verin.
 
@@ -576,7 +579,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
     }
     ``` 
 
-4. *Voting/VotingRPC* dizininde *build.gradle* adlı bir dosya oluşturun ve dosyanın içine aşağıdakileri yapıştırın. Bu gradle dosyası, diğer hizmetler tarafından içeri aktarılan jar dosyasını derlemek ve oluşturmak için kullanılır. 
+4. Adlı boş bir dosya oluşturmak *build.gradle* içinde *Voting/VotingRPC* dizin ve aşağıdakileri yapıştırın içindeki. Bu gradle dosyası, diğer hizmetler tarafından içeri aktarılan jar dosyasını derlemek ve oluşturmak için kullanılır. 
 
     ```gradle
     apply plugin: 'java'
@@ -896,12 +899,14 @@ Bu noktada uygulama, yerel Service Fabric kümesinde dağıtılmaya hazırdır.
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
     ``` 
+    Daha ayrıntılı yönergelere bakın [OS X Kurulumu Kılavuzu.](service-fabric-get-started-mac.md)
 
     Linux makinesinde çalıştırıyorsanız, aşağıdaki komutla yerel kümeyi başlatın: 
 
     ```bash 
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
+    Daha ayrıntılı yönergelere bakın [Linux Kurulum Kılavuzu.](service-fabric-get-started-linux.md)
 
 4. Eclipse için Paket Gezgini’nde **Oylama** projesine sağ tıklayın ve **Service Fabric -> Uygulama Yayımla ...** seçeneklerine tıklayın. 
 5. **Uygulama Yayımla** penceresinde açılan listeden **Local.json** seçeneğini belirleyin ve **Yayımla**’ya tıklayın.

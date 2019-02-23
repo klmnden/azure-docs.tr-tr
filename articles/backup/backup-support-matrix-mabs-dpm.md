@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 74b6d953939a569a3240c9d64134d143dc4f179e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 0544782763bebac42b4b68fda42cff80b18ff067
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430853"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670743"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-serversystem-center-dpm"></a>Microsoft Azure Backup sunucusu/System Center DPM ile yedekleme için destek matrisi
 
@@ -75,7 +75,7 @@ Azure yedekleme, MABS/aşağıdaki işletim sistemlerinden birini çalıştıran
 --- | --- 
 **Bir Azure VM'de MABS** | Windows Server 2012 R2<br/><br/> Windows 2016 Datacenter<br/><br/> Windows 2019 veri merkezi<br/><br/> Marketten bir görüntü ile başlamanız önerilir.<br/><br/> En düşük A2 standart iki çekirdek ve 3,5 GB RAM. 
 **Bir Azure VM'de DPM** | System Center 2012 R2 Update 3 veya sonraki bir sürümü.<br/><br/> Windows işletim sistemi olarak [System Center tarafından gerekli](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Marketten bir görüntü ile başlamanız önerilir.<br/><br/> En düşük A2 standart iki çekirdek ve 3,5 GB RAM. 
-**MABS şirket içi** | 64-bit işletim sistemlerinde desteklenir:<br/><br/> -MABS v3 ve sonraki sürümler: Windows Server 2019 (Standard, Datacenter, Essentials) <br/><br/> MABS v2 ve sonraki sürümler: Windows Server 2016 (Standard, Datacenter, Essentials)<br/><br/> Tüm MABS sürümleri: Windows Server 2012 R2/2012 (Standard, Datacenter, Foundation)<br/><br/>Tüm MABS sürümleri: Windows Storage Server 2012 R2/2012 (standart/çalışma grubu)
+**MABS şirket içi** | 64-bit işletim sistemlerinde desteklenir:<br/><br/> MABS v3 ve sonraki sürümler: Windows Server 2019 (Standard, Datacenter, Essentials) <br/><br/> MABS v2 ve sonraki sürümler: Windows Server 2016 (Standard, Datacenter, Essentials)<br/><br/> Tüm MABS sürümleri: Windows Server 2012 R2/2012 (Standard, Datacenter, Foundation)<br/><br/>Tüm MABS sürümleri: Windows Storage Server 2012 R2/2012 (standart/çalışma grubu)
 **DPM şirket içi** | Fiziksel sunucusu/Hyper-V VM: System Center 2012 SP1 veya üzeri.<br/><br/> VMware VM: System Center 2012 R2 güncelleştirme 5 veya üzeri. 
 
 
@@ -106,7 +106,7 @@ Tek bir konumdan Azure Stack Vm'leri ve iş yüklerini yedekleme yönetebilmeniz
 .NET framework MABS | MABS VM gerekli .NET Framework 3.3 SP1 veya üzeri yüklü.
 **MABS etki alanı** | MABS VM bir etki alanına katılması gerekir. Yönetici ayrıcalıklarına sahip bir etki alanı kullanıcı MABS, VM üzerinde yüklemeniz gerekir.
 **Azure Stack VM verilerini yedekleme** | Dosyaları, klasörleri ve uygulamaları yedekleyebilirsiniz.
-**Desteklenen yedekleme** | Bu işletim sistemleri, yedeklemek istediğiniz sanal makineler için desteklenir:<br/><br/> -Windows Server yarı yıllık kanal (veri merkezi/Enterprise/standart)<br/><br/> Windows Server 2016/2012 R2/2012/2008 R2.
+**Desteklenen yedekleme** | Bu işletim sistemleri, yedeklemek istediğiniz sanal makineler için desteklenir:<br/><br/> Windows Server yarı yıllık kanal (veri merkezi/Enterprise/standart)<br/><br/> Windows Server 2016/2012 R2/2012/2008 R2.
 **Azure Stack Vm'leri için SQL desteği** | SQL Server 2016/2014/2012 SP1 ' yedekleyin.<br/><br/> Yedeklemek ve veritabanını kurtarın.
 **Azure Stack VM'ler için SharePoint desteği** | SharePoint 2016/2013/2010.<br/><br/> Yedekleme ve kurtarma grubu, veritabanı, ön uç, web sunucusu.
 **Yedeklenen sanal makineleri için ağ gereksinimleri** | Azure Stack iş yükünde tüm VM'ler aynı Vnet'e ve aynı aboneliğe ait gerekir.
@@ -220,4 +220,4 @@ Aşağıdaki tabloda, hangi DPM için şirket içi makinelerin ve Azure Vm'leri 
 - [Daha fazla bilgi edinin](backup-architecture.md#architecture-back-up-to-dpmmabs) MABS mimarisi hakkında.
 - [Gözden geçirme](backup-support-matrix-mars-agent.md) ne MARS aracısı için desteklenir.
 - [Ayarlanan](backup-azure-microsoft-azure-backup.md) MABS sunucusu.
-- [Ayarlanan] (https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180
+- [DPM ayarlama](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 549f37c1287373fe8bf4c10dc64e6e778b37be02
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815253"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730146"
 ---
 # <a name="register-in-dev-center"></a>Geliştirme Merkezi'ne kaydolun  
 Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımcı olmak için yeni bir InPrivate Internet Explorer veya Chrome gizli gözatma oturumu açın.  
@@ -82,7 +82,7 @@ Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımc�
 
     *   Bir saatlik faturalandırma modeli ile bir VM teklifi ticari bir teklif örneğidir.  
 
----  
+---
 
 ## <a name="get-help-with-dev-center-registration"></a>Geliştirme Merkezi kayıt ile ilgili yardım alın  
 Ardından, Geliştirme Merkezi kayıt ile ilgili sorunlar varsa, bir destek bileti göndermeye aşağıdaki adımları izleyin.  
@@ -125,7 +125,7 @@ Banka ve vergi bilgilerini liste türünü transact kullanarak tüm ticari tekli
 
 4.  İleri düğmesine tıklayın. 
 
----   
+---
 
 ## <a name="add-tax-information"></a>Vergi bilgilerini ekleyin  
 1.  Microsoft ID. kullanarak Geliştirme Merkezi ile oturum açın  
@@ -195,4 +195,4 @@ Destek erişmek, geliştirici destek sayfasında bulunan Windows ziyaret [develo
 ## <a name="next-steps"></a>Sonraki adımlar
 *   Ziyaret [Azure Market ve AppSource yayımcı Kılavuzu](./marketplace-publishers-guide.md) sayfası.  
  
----  
+---

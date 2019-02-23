@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 19a842eacb00e877d31712febeeebc72cbdd25a0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: ed7f18d1a40e0b766a2f10cce99aa735d51b4110
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743179"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672568"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Azure HDInsight için arşivlenmiş yayın notları
 
@@ -42,7 +42,7 @@ HDInsight'ın Haziran 2018 sürümünden yeni güncelleştirmeleri ve müşteril
 
 | Unvan | Açıklama | Etkilenen alan  | Küme Türü  | 
 | --- | --- | --- | --- | --- |
-| HDInsight üzerinde Microsoft R Server 9.1 sürümünde |HDInsight, HDInsight üzerinde R Server 9.1 kümeleri sağlama artık desteklemektedir. Microsoft R Server 9.1 sürüm hakkında daha fazla bilgi için bkz. [bu blog](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Hizmet |R Server |
+| HDInsight üzerinde Microsoft R Server 9.1 sürümünde |HDInsight, HDInsight üzerinde R Server 9.1 kümeleri sağlama artık desteklemektedir. |Hizmet |R Server |
 | HDInsight 3.6 Hadoop yığını'nın daha yeni sürümleri artık içerir.|<ul><li>Güncelleştirilmiş sürümleri ayrıntılı bir listesi için bkz. [HDInsight içinde kullanılabilir bir Apache Hadoop bileşen sürümü](hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).</li><li>En son sürümlerini Hadoop yığını düzeltilen hataların listesi için bkz. [Apache düzeltme eki bilgileri](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>(Bu HDInsight 3.6 sunuldu) 2.6.1 HDP arasında yeni değişiklikler bir listesi için bkz [ https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html ](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>2.6.1 HDP bilinen sorunların bir listesi için bkz. [bilinen sorunlar](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Hizmet |Tümü |Yok |
 | Interactive Hive (Önizleme) kümeleri güncelleştirmeleri |<ul><li><b>Özellik geliştirme.</b> Meta verileri önbelleğe alarak SQL arka uç yükü azaltır ve tüm meta veriler işlemler için performansı artıran önbelleğe alınan meta veri deposu uygulaması.  Bu geliştirme, varsayılan tüm kümelerde Apache Interactive Hive sunulmuştur. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Özellik geliştirme.</b> Dinamik bölüm yüklenmesi İyileştirildi. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HIVE-14204](https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Özellik geliştirme.</b> Linux üzerinde HDInsight için yapılandırma iyileştirmeleri.</li><li><b>Hata düzeltmesi.</b> `CredentialProviderFactory$getProviders` iş parçacığı açısından güvenli değildir. Bu sorunu artık düzeltildi. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Hata düzeltmesi.</b> Yüksek CPU kullanımı WASB sürücüsüyle `liststatus` API hatalı ATS performansıyla sonuçlanır. Bu sorunu artık düzeltildi. Daha fazla bilgi için bkz. [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Hizmet |Etkileşimli Hive (Önizleme) |
 | Hadoop kümeleri güncelleştirmeleri |Templeton da iş işlemi güvenilirliği artırıldı. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Hizmet |Hadoop |

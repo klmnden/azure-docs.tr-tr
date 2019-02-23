@@ -1,32 +1,19 @@
 ---
-title: Azure Application Gateway'de - Azure CLI Web uygulaması güvenlik duvarı kurallarını özelleştirme | Microsoft Docs
+title: Azure Application Gateway'de - Azure CLI Web uygulaması güvenlik duvarı kurallarını özelleştirme
 description: Bu makalede, Azure CLI ile Application Gateway içindeki web uygulaması güvenlik duvarı kurallarını özelleştirme hakkında bilgi sağlar.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: 95eb0ef48f3e0cb6e835dc0582cc652f06315d44
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5e364c597b8c524e95297f279003462f2d16abe1
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992866"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726270"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Azure CLI aracılığıyla Web uygulaması güvenlik duvarı kurallarını özelleştirme
-
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 
 Azure Application Gateway web uygulaması Güvenlik Duvarı (WAF), web uygulamaları için koruma sağlar. Bu korumalar, açık Web uygulaması güvenlik Project (OWASP) çekirdek kural kümesi (CRS tarafından) sağlanır. Bazı kurallar, hatalı pozitif sonuçları neden ve gerçek trafiği engelleyin. Bu nedenle, uygulama ağ geçidi kural gruplarının ve kuralların özelleştirme yeteneği sağlar. Belirli bir kural gruplarının ve kuralların hakkında daha fazla bilgi için bkz. [web uygulaması güvenlik duvarı CRS kural gruplarının ve kuralların listesi](application-gateway-crs-rulegroups-rules.md).
 
@@ -133,6 +120,19 @@ Aşağıdaki örnek, kuralları devre dışı bırakır `910018` ve `910017` bir
 ```azurecli-interactive
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
 ```
+
+## <a name="mandatory-rules"></a>Zorunlu kuralları
+
+Aşağıdaki listede, WAF önleme modundayken (özel durumlar olarak oturum açmış algılama modunda) istekte engellemek neden koşulları içerir. Bu yapılandırılmış veya devreden çıkarılamaz:
+
+* Gövde İnceleme açık sürece devre dışı (XML, JSON, form verileri) istek gövdesi ayrıştırılamadı. hata engellenme, istekte sonuçlanır.
+* İstek gövdesi (dosya ile) veri uzunluğu yapılandırılan sınırdan daha büyük:
+* İstek gövdesi (dosyaları dahil) sınırdan büyük
+* WAF altyapısında bir iç hata oluştu
+
+CRS 3.x özel:
+
+* Gelen anomali puanı aşıldı eşiği
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

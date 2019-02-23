@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 5ebd8875f14eef9a5febaf5356f0d2fadb0828bd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9c5b2579a6ec3b38c3368be0bd21d6865bcb3209
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869645"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730249"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Öğretici: Utterance iyi biçimlendirilmiş veri alma
 Bu öğreticide, bir utterance kullanımından tutarlı bir şekilde biçimlendirilmiş verileri ayıklamak için uygulama oluşturma **normal ifade** varlık.

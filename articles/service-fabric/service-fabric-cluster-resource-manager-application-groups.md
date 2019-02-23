@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c8bab609212c837802be6f70e7fc74df6b5eaf2e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e4f446ff67408ef390ba817de935c286c5b2a47e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346262"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727613"
 ---
 # <a name="introduction-to-application-groups"></a>Uygulama gruplarına giriş
 Service Fabric'in Küme Kaynak Yöneticisi genellikle yük yayarak küme kaynaklarını yöneten (aracılığıyla temsil [ölçümleri](service-fabric-cluster-resource-manager-metrics.md)) kümesi boyunca eşit. Service Fabric kümesi ve kümedeki düğümlerin kapasitesini bir bütün olarak yöneten [kapasite](service-fabric-cluster-resource-manager-cluster-description.md). Ölçümler ve kapasite çok sayıda iş yükü, ancak bazen ek gereksinimleri Getir ağır kullanan farklı Service Fabric uygulama örneklerine desenleri için çok iyi çalışır. Örneğin, isteyebilirsiniz:
@@ -107,7 +107,7 @@ Bile uygulama hemen gerçekleştiğinden için kümedeki alanı ayırma:
 - Uygulama örneği değişiklikleri her zaman içinde hizmet sayısı 
 - Hizmetleri var, ancak kaynakları kullanan değil 
 
-Bir uygulama örneği, iki ek parametreler belirterek gerektirir kaynaklarını ayırma: *MinimumNodes* ve *NodeReservationCapacity*
+Bir uygulama örneği için kaynaklarını ayırma, iki ek parametre belirtilmesi gerekir: *MinimumNodes* ve *NodeReservationCapacity*
 
 - **MinimumNodes** -Uygulama örneğinin çalışması gereken düğüm sayısı alt sınırı tanımlar.  
 - **NodeReservationCapacity** -Bu ölçüm uygulamanın ayarıdır. Değer uygulamanın herhangi bir düğümde ayrılmış bu ölçümü miktarıdır. burada uygulama Hizmetleri'nde çalıştırılan.
@@ -180,8 +180,8 @@ Uygulamayı belirtilen uygulama kapasitesi hakkında temel bilgileri Application
 
 * Ölçüm adı: Ölçüm adı.
 * Kapasite ayırma: Bu uygulama için ayrılmış kümedeki küme kapasitesi.
-* Uygulama yük: Bu uygulamanın alt yinelemenin toplam yükü.
-* Uygulama kapasitesi: İzin verilen en yüksek değeri uygulama yükü.
+* Uygulama yükleme: Bu uygulamanın alt yineleme toplam yükü.
+* Uygulama kapasitesi: Uygulama yük değeri izin verilen üst sınırı.
 
 ## <a name="removing-application-capacity"></a>Uygulama kapasitesi kaldırılıyor
 Uygulama kapasitesi parametreleri için bir uygulama ayarlandıktan sonra güncelleştirme uygulama API'ler veya PowerShell cmdlet'leri kullanılarak kaldırılabilir. Örneğin:

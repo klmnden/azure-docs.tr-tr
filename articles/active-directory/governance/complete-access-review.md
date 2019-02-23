@@ -1,6 +1,6 @@
 ---
-title: Veya Azure AD ile bir uygulama kullanıcıların erişimini grubu üyelerinin erişim değerlendirmesi tamamlama | Microsoft Docs
-description: Bir grubu üyeleri veya Azure Active Directory'de bir uygulamaya erişimi olan kullanıcılar için erişim gözden geçirmesi tamamlama hakkında bilgi edinin.
+title: Grupların veya Azure AD erişim gözden geçirmeleri uygulamalarda erişim değerlendirmesi tamamlama | Microsoft Docs
+description: Grup üyelerini veya Azure AD erişim gözden geçirmeleri uygulama erişimi erişim değerlendirmesi tamamlama hakkında bilgi edinin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2da3b7f8b7ed60344978fb255696980ec620fd2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192277"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729619"
 ---
-# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Uygulamanın Azure AD'de kullanıcı erişimi veya grubu üyelerinin erişim değerlendirmesi tamamlama
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Grupların veya Azure AD erişim gözden geçirmeleri uygulamalarda erişim değerlendirmesi tamamlama
 
-Yöneticiler, bir uygulamaya atanmış grup üyeleri veya kullanıcılar için [bir erişim gözden geçirmesi oluşturmak](create-access-review.md) üzere Azure Active Directory’yi (Azure AD) kullanabilir. Azure AD, gözden geçirenler otomatik olarak erişim gözden geçirmek için isteyen bir e-posta gönderir. Bir kullanıcı bir e-posta almadıysanız, bunları yönergeleri gönderebilirsiniz [erişiminizi gözden](perform-access-review.md). (Davet gözden geçirme önce ilk kabul etmelidir gibi daveti kabul ancak gözden geçirenler olarak atanan konukların erişim gözden geçirmeleri, e-posta almaz unutmayın.) Erişim gözden geçirmesi dönemi bittikten sonra veya bir yönetici erişim gözden geçirmesi durduğunda bakın ve sonuçları uygulamak için bu makaledeki adımları izleyin.
+Yöneticiler, bir uygulamaya atanmış grup üyeleri veya kullanıcılar için [bir erişim gözden geçirmesi oluşturmak](create-access-review.md) üzere Azure Active Directory’yi (Azure AD) kullanabilir. Azure AD, gözden geçirenler otomatik olarak erişim gözden geçirmek için isteyen bir e-posta gönderir. Bir kullanıcı bir e-posta almadıysanız, bunları yönergeleri gönderebilirsiniz [gruplar veya uygulamalar için erişim gözden geçirme](perform-access-review.md). (Davet gözden geçirme önce ilk kabul etmelidir gibi daveti kabul ancak gözden geçirenler olarak atanan konukların erişim gözden geçirmeleri, e-posta almaz unutmayın.) Erişim gözden geçirmesi dönemi bittikten sonra veya bir yönetici erişim gözden geçirmesi durduğunda bakın ve sonuçları uygulamak için bu makaledeki adımları izleyin.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Erişim gözden geçirmesi Azure portalında görüntüleme
 
@@ -62,5 +62,5 @@ Artık incelemesindeki ilginizi çeken, silebilirsiniz. Seçin **Sil** gözden A
 - [Azure AD erişim gözden geçirmeleriyle kullanıcı erişimini yönetme](manage-user-access-with-access-reviews.md)
 - [Azure AD erişim gözden geçirmeleriyle konuk erişimini yönetme](manage-guest-access-with-access-reviews.md)
 - [Azure AD erişim gözden geçirmeleri için programları ve denetimleri yönetme](manage-programs-controls.md)
-- [Bir grubun üyeleri veya bir uygulamaya erişim için erişim gözden geçirmesi oluşturma](create-access-review.md)
+- [Grupları ve uygulamaları, erişim gözden geçirmesi oluştur](create-access-review.md)
 - [Bir Azure AD yönetici rolündeki kullanıcılar için erişim gözden geçirmesi oluşturma](../privileged-identity-management/pim-how-to-start-security-review.md)

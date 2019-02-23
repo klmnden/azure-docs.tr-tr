@@ -2,19 +2,19 @@
 title: Azure IOT hub'ı (Python) ile işleri zamanlama | Microsoft Docs
 description: Birden fazla cihazda doğrudan yöntem çağırmak için bir Azure IOT hub'ı işini zamanlamak nasıl. Python için Azure IOT SDK'ları, sanal cihaz uygulamaları ve işi çalıştırmak için bir hizmet uygulaması'nı uygulamak için kullanın.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 02/16/2019
 ms.author: kgremban
-ms.openlocfilehash: add8253b870c7f1f6689534e11e7d57484248c4d
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: de3eef64f708f711d66c2bce344be0aef06fa209
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515582"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673879"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Zamanlama ve yayınlama işleri (Python)
 
@@ -30,8 +30,8 @@ Kavramsal olarak, bir işi bu eylemlerden biri, sarmalar ve bir cihaz ikizi sorg
 
 Bu makaleler, bu özelliklerin her biri hakkında daha fazla bilgi edinin:
 
-* Cihaz ikizi ve özellikleri: [cihaz ikizlerini kullanmaya başlama] [ lnk-get-started-twin] ve [öğretici: cihaz ikizi özelliklerini kullanma][lnk-twin-props]
-* Doğrudan yöntemler: [IOT Hub Geliştirici Kılavuzu - doğrudan yöntemler] [ lnk-dev-methods] ve [Öğreticisi: doğrudan yöntemler][lnk-c2d-methods]
+* Cihaz ikizi ve özellikleri: [Cihaz ikizlerini kullanmaya başlama](iot-hub-python-twin-getstarted.md) ve [Öğreticisi: Cihaz ikizi özelliklerini kullanma](tutorial-device-twins.md)
+* Doğrudan yöntemler: [IOT Hub Geliştirici Kılavuzu - doğrudan yöntemler](iot-hub-devguide-direct-methods.md) ve [Öğreticisi: doğrudan yöntemler](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -48,9 +48,9 @@ Bu öğreticinin sonunda iki Python uygulamaları vardır:
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* [Python 2.x veya 3.x][lnk-python-download]. Kurulumunuzun gereksinimine uygun olarak 32 bit veya 64 bit yüklemeyi kullanmaya dikkat edin. Yükleme sırasında istendiğinde, platforma özgü ortam değişkeninize Python’u eklediğinizden emin olun. Python 2.x kullanıyorsanız, [Python paket yönetim sistemi *pip*’yi yüklemeniz veya yükseltmeniz][lnk-install-pip] gerekebilir.
-* Windows işletim sistemi kullanıyorsanız, Python’dan yerel DLL’lerin kullanımına olanak tanımak için [Visual C++ yeniden dağıtılabilir paketi][lnk-visual-c-redist].
-* Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
+* [Python 2.x veya 3.x](https://www.python.org/downloads/). Kurulumunuzun gereksinimine uygun olarak 32 bit veya 64 bit yüklemeyi kullanmaya dikkat edin. Yükleme sırasında istendiğinde, platforma özgü ortam değişkeninize Python’u eklediğinizden emin olun. Python 2.x kullanıyorsanız, [Python paket yönetim sistemi *pip*'yi yüklemeniz veya yükseltmeniz](https://pip.pypa.io/en/stable/installing/) gerekebilir.
+* Windows işletim sistemi kullanıyorsanız, Python’dan yerel DLL’lerin kullanımına olanak tanımak için [Visual C++ yeniden dağıtılabilir paketi](http://www.microsoft.com/download/confirmation.aspx?id=48145).
+* Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](http://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
 
 > [!NOTE]
 > **Python için Azure IOT SDK'sı** doğrudan desteklemez **işleri** işlevselliği. Bunun yerine Bu öğreticide, zaman uyumsuz iş parçacıkları ve zamanlayıcılar kullanan alternatif bir çözüm sunar. Daha fazla güncelleştirmeler için bkz **hizmeti istemci SDK'sı** özellik listesinde [Python için Azure IOT SDK'sı](https://github.com/Azure/azure-iot-sdk-python) sayfası. 
@@ -324,23 +324,8 @@ Bu bölümde, bir uzak başlatan bir Python konsol uygulaması oluşturma **lock
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, bir işi bir doğrudan yöntem bir cihaz ve cihaz ikizinin özelliklerini güncelleştirme için zamanlamak için kullanılır.
 
-IOT Hub ve cihaz yönetim modellerini uzaktan gibi hava üretici yazılımı güncelleştirme kullanmaya başlama devam etmek için bkz:
+IOT Hub ve cihaz yönetim modellerini uzaktan gibi ile hava üretici yazılımı güncelleştirme başlamak için bkz: [üretici yazılımlarını güncelleştirme nasıl](tutorial-firmware-update.md).
 
-[Öğretici: nasıl üretici yazılımlarını güncelleştirme][lnk-fwupdate]
-
-IOT Hub kullanmaya başlamaya devam etmek için bkz: [Azure IOT Edge'i kullanmaya başlama][lnk-iot-edge].
-
-[lnk-get-started-twin]: iot-hub-python-twin-getstarted.md
-[lnk-twin-props]: tutorial-device-twins.md
-[lnk-c2d-methods]: quickstart-control-device-python.md
-[lnk-dev-methods]: iot-hub-devguide-direct-methods.md
-[lnk-fwupdate]: tutorial-firmware-update.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-python-download]: https://www.python.org/downloads/
-[lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
-[lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-
+<!-- images -->
 [1]: ./media/iot-hub-python-python-schedule-jobs/1.png
 [2]: ./media/iot-hub-python-python-schedule-jobs/2.png

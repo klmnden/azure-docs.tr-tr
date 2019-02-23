@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 36543bf50cb015993841267fdac61ed42297d27e
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 17753ba374475c19fee1a213654caf4a624088f8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594381"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669916"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell modülünü kullanarak iç yük dengeleyici oluşturma
 
@@ -60,7 +60,7 @@ Azure PowerShell modülünün en güncel üretim sürümüne sahip olduğunuzdan
 
 Azure Resource Manager için PowerShell modülünü başlatın.
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount
 ```
 
@@ -68,7 +68,7 @@ Connect-AzAccount
 
 Kullanılabilir Azure aboneliklerinizi kontrol edin.
 
-```powershell
+```azurepowershell-interactive
 Get-AzSubscription
 ```
 
@@ -78,7 +78,7 @@ Kimlik doğrulaması isteminde kimlik bilgilerinizi girin.
 
 Yük dengeleyici dağıtımı için kullanılacak Azure aboneliklerini seçin.
 
-```powershell
+```azurepowershell-interactive
 Select-AzSubscription -Subscriptionid "GUID of subscription"
 ```
 
@@ -86,7 +86,7 @@ Select-AzSubscription -Subscriptionid "GUID of subscription"
 
 Yük dengeleyici için yeni bir kaynak grubu oluşturun. Mevcut bir kaynak grubunu kullanıyorsanız bu adımı atlayın.
 
-```powershell
+```azurepowershell-interactive
 New-AzResourceGroup -Name NRP-RG -location "West US"
 ```
 
@@ -98,13 +98,13 @@ Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerekti
 
 Sanal ağ için bir alt ağ oluşturun ve **$backendSubnet** değişkenine atayın.
 
-```powershell
+```azurepowershell-interactive
 $backendSubnet = New-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
 ```
 
 Sanal ağ oluşturun.
 
-```powershell
+```azurepowershell-interactive
 $vnet= New-AzVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 ```
 
@@ -118,7 +118,7 @@ Gelen trafik için ön uç IP havuzu, yük dengeli trafiği almak için de arka 
 
 10.0.2.0/24 alt ağı için 10.0.2.5 özel IP adresine sahip bir ön uç IP havuzu oluşturun. Bu adres, gelen ağ trafiği uç noktasıdır.
 
-```powershell
+```azurepowershell-interactive
 $frontendIP = New-AzLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
 ```
 
@@ -143,7 +143,7 @@ $beaddresspool= New-AzLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 * Sistem durumu araştırma kuralı: HealthProbe.aspx yolunun sistem durumunu denetler.
 * Yük Dengeleyici kuralı: Genel bağlantı noktası 80 numaralı yerel bağlantı noktası 80 arka uç adres havuzundaki tüm gelen trafiği Yük Dengeleme gerçekleştirir.
 
-```powershell
+```azurepowershell-interactive
 $inboundNATRule1= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
 
 $inboundNATRule2= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
@@ -157,7 +157,7 @@ $lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $fr
 
 Yük dengeleyiciyi oluşturun ve kural nesnelerini birleştirin (RDP, yük dengeleyici ve sistem durumu araştırması için gelen NAT):
 
-```powershell
+```azurepowershell-interactive
 $NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 ```
 
@@ -169,7 +169,7 @@ $NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location
 
 Kaynak sanal ağını ve alt ağını alın. Bu değerler ağ arabirimlerini oluşturmak için kullanılır:
 
-```powershell
+```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 
 $backendSubnet = Get-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
@@ -177,7 +177,7 @@ $backendSubnet = Get-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNet
 
 İlk ağ arabirimini oluşturun ve **lb-nic1-be** adını verin. Arabirimi yük dengeleyici arka uç havuzuna atayın. RDP için ilk NAT kuralını bu NIC ile ilişkilendirin:
 
-```powershell
+```azurepowershell-interactive
 $backendnic1= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 ```
 
@@ -185,7 +185,7 @@ $backendnic1= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-b
 
 İkinci ağ arabirimini oluşturun ve **lb-nic2-be** adını verin. İkinci arabirimini birinci arabirimle aynı yük dengeleyici arka uç havuzuna atayın. RDP için ikinci NIC birimini ikinci NAT kuralıyla ilişkilendirin:
 
-```powershell
+```azurepowershell-interactive
 $backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
@@ -253,7 +253,7 @@ Sanal makine oluşturulduktan sonra ağ arabirimini ekleyin.
 
 Yük dengeleyici kaynağını bir değişkene depolayın (henüz yapmadıysanız). Değişken adı olarak **$lb** kullanıyoruz. Betikteki öznitelik değerleri için önceki adımlarda oluşturulan yük dengeleyici kaynaklarının adlarını kullanın.
 
-```powershell
+```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 ```
 
@@ -261,7 +261,7 @@ $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 
 Arka uç yapılandırmasını **$backend** değişkenine depolayın.
 
-```powershell
+```azurepowershell-interactive
 $backend = Get-AzLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
 ```
 
@@ -269,7 +269,7 @@ $backend = Get-AzLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBala
 
 Ağ arabirimini başka bir değişkende depolayın. Bu arabirim "Ağ arabirimlerini oluşturma, 1. Adım" bölümünde oluşturulmuştu. Değişken adı olarak **$nic1** kullanıyoruz. Önceki örnekte kullanılan ağ arabirimi adını kullanın.
 
-```powershell
+```azurepowershell-interactive
 $nic = Get-AzNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 ```
 
@@ -277,7 +277,7 @@ $nic = Get-AzNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 
 Ağ arabiriminde arka uç yapılandırmasını değiştirin.
 
-```powershell
+```azurepowershell-interactive
 $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 ```
 
@@ -285,7 +285,7 @@ $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 Ağ arabirimi nesnesini kaydedin.
 
-```powershell
+```azurepowershell-interactive
 Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
@@ -297,7 +297,7 @@ Arabirim arka uç havuzuna eklendikten sonra ağ trafiğine kurallara göre yük
 
 Yük dengeleyici nesnesini (önceki örnekte oluşturulan) **$slb** değişkenine atamak için `Get-AzLoadBalancer` komutunu kullanın:
 
-```powershell
+```azurepowershell-interactive
 $slb = Get-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
@@ -305,7 +305,7 @@ $slb = Get-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
 Var olan bir yük dengeleyiciye yeni bir gelen NAT kuralı ekleyin. Ön uç havuzu için 81, arka uç havuzu için de 8181 numaralı bağlantı noktasını kullanın:
 
-```powershell
+```azurepowershell-interactive
 $slb | Add-AzLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
 ```
 
@@ -313,7 +313,7 @@ $slb | Add-AzLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfigura
 
 `Set-AzureLoadBalancer` komutunu kullanarak yeni yapılandırmayı kaydedin:
 
-```powershell
+```azurepowershell-interactive
 $slb | Set-AzLoadBalancer
 ```
 
@@ -321,7 +321,7 @@ $slb | Set-AzLoadBalancer
 
 `Remove-AzLoadBalancer` komutunu kullanarak **NRP-RG** kaynak grubundaki **NRP-LB** yük dengeleyiciyi silin:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 

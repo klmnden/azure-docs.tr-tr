@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 9d0f751e8d0bc0275cc5fd2c47aaba7a6058931c
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b579816a4367537a7da4aa0f68c8776465295448
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430790"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670762"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure kurtarma Hizmetleri (MARS) aracısı ile yedekleme destek matrisi
 
@@ -148,7 +148,7 @@ Azure Backup destekler "Çevrimdışı dengeli dağıtım" diskler kullanarak Az
 
 ## <a name="support-for-restore"></a>Geri yükleme desteği
 
-- Yeni [anında geri yükleme](/backup-instant-restore-capability.md) Azure Backup sürümü kasaya kopyalanmış önce verileri geri yüklemenize olanak sağlar.<br/><br/> Bu özelliği kullanmak için yedeklenen makine .NET Framework 4.5.2 çalıştırılması gerekir ya da daha yüksek.
+- Yeni [anında geri yükleme](backup-instant-restore-capability.md) Azure Backup sürümü kasaya kopyalanmış önce verileri geri yüklemenize olanak sağlar.<br/><br/> Bu özelliği kullanmak için yedeklenen makine .NET Framework 4.5.2 çalıştırılması gerekir ya da daha yüksek.
 - İşletim sisteminin önceki bir sürümü çalıştıran bir hedef makine yedekleri geri yüklenemez. Örneğin, Windows 7 bilgisayarda gerçekleştirilen bir yedekleme Windows 8 veya daha sonra geri yüklenebilir. Ancak, Windows 7 bilgisayara Windows 8 bilgisayarda gerçekleştirilen bir yedekleme geri yüklenemez.
 
 

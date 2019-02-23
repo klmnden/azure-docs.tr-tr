@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: jdial
-ms.openlocfilehash: e145642a12db941d52c55081032e247b6d65d38b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a71870115c3ea5e64c8b365d6c4aa64920bc6ca3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997339"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675050"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
 
@@ -121,7 +121,7 @@ Herhangi bir [SKU](#SKU) ile oluşturulmuş genel bir IP adresini bir [Azure Loa
 
 ### <a name="application-gateways"></a>Uygulama ağ geçitleri
 
-Genel bir IP adresini bir Azure **Application Gateway**’in [ön uç](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yapılandırmasına atayarak ağ geçidiyle ilişkilendirebilirsiniz. Bu genel IP adresi yükü dengelenmiş bir VIP olarak işlev görür. Bir uygulama ağ geçidi ön uç yapılandırmasına yalnızca temel *dinamik* genel IP adresleri atayabilirsiniz.
+Genel bir IP adresini bir Azure **Application Gateway**’in [ön uç](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yapılandırmasına atayarak ağ geçidiyle ilişkilendirebilirsiniz. Bu genel IP adresi yükü dengelenmiş bir VIP olarak işlev görür. Yalnızca atayabilirsiniz bir *dinamik* temel genel IP adresi bir uygulama ağ geçidi V1 ön uç yapılandırmasına ve yalnızca statik, temel veya standart SKU adresi V2 ön uç yapılandırması.
 
 ### <a name="at-a-glance"></a>Bir bakışta
 Aşağıdaki tabloda, genel bir IP adresinin en üst düzey bir kaynakla tam olarak hangi özellik üzerinden ilişkilendirilebileceği ve kullanılabilecek olası ayırma yöntemleri (dinamik veya statik) gösterilmiştir.
@@ -131,7 +131,7 @@ Aşağıdaki tabloda, genel bir IP adresinin en üst düzey bir kaynakla tam ola
 | Sanal makine |Ağ arabirimi |Evet |Evet |
 | İnternet'e yönelik yük dengeleyici |Ön uç yapılandırması |Evet |Evet |
 | VPN ağ geçidi |Ağ geçidi IP yapılandırması |Evet |Evet |
-| Uygulama ağ geçidi |Ön uç yapılandırması |Evet |Evet |
+| Uygulama ağ geçidi |Ön uç yapılandırması |Evet (yalnızca V1) |Evet (yalnızca V2) |
 
 ## <a name="private-ip-addresses"></a>Özel IP adresleri
 Özel IP adresleri, Azure kaynaklarının İnternet’ten erişilebilen bir IP adresi gerekmeksizin bir [sanal ağdaki](virtual-networks-overview.md) diğer kaynaklarla veya bir VPN ağ geçidi ya da ExpressRoute bağlantı hattı üzerinden bir şirket içi ağ ile iletişim kurmasına imkan tanır.

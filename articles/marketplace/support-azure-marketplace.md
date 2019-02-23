@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: ae3716654f40322205212ca02a99993326a1cf35
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 196ad39b8b2430ed060ede032f72092b9cfd3fdb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073365"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727443"
 ---
 # <a name="support-for-the-marketplace"></a>Market için destek  
 Market'e destek seçeneklerin bir listesi aşağıda verilmiştir.  
@@ -57,4 +57,4 @@ Microsoft ile için bilet [Market yayımcısı Destek](https://support.microsoft
 ## <a name="next-steps"></a>Sonraki adımlar
 Ziyaret [Azure Market ve AppSource yayımcı Kılavuzu](./marketplace-publishers-guide.md) sayfası.  
  
----  
+---

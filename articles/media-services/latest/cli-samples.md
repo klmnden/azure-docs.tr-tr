@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 02/11/2019
+ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: 919dbd057f2fa1d762775ed799505796a420864a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bbd57933993e22dd32b84f1d44175bb3b3d749c9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109257"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672435"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure Media Services için Azure CLI örnekleri
 
@@ -30,7 +30,7 @@ Aşağıdaki tabloda, Azure Media Services için Azure CLI örnekleri bağlantı
 |**Ölçeklendirme**||
 | [Ölçek medya ayrılmış birimleri](media-reserved-units-cli-how-to.md)|Ses analizi ve Video analizi işleri, Media Services v3 tarafından tetiklenen veya Video Indexer için 10 S3 MRU hesabınızla sağlama önemle tavsiye edilir. <br/>Komut, medya ayrılmış birimi (MRU) ölçeklendirmek için CLI kullanmayı gösterir.|
 |**Hesap**||
-| [Bir Media Services hesabı oluşturma](./scripts/cli-create-account.md) | Azure Media Services hesabı oluşturur. Ayrıca, bir hizmet asıl hesabı programlı olarak yönetmek için API'lerine erişmek için kullanılabilir oluşturur. |
+| [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md) | Azure Media Services hesabı oluşturur. Ayrıca, bir hizmet asıl hesabı programlı olarak yönetmek için API'lerine erişmek için kullanılabilir oluşturur. |
 | [Hesap kimlik bilgilerini Sıfırla](./scripts/cli-reset-account-credentials.md)|Hesap kimlik bilgilerinizi sıfırlar ve app.config ayarlarını geri alır.|
 |**Varlıklar**||
 | [Varlıkları oluşturma](./scripts/cli-create-asset.md)|İçeriği karşıya yüklemek için bir medya Hizmetleri varlığı oluşturur.|
@@ -45,4 +45,5 @@ Aşağıdaki tabloda, Azure Media Services için Azure CLI örnekleri bağlantı
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+- [Hızlı Başlangıç: Stream video dosyaları - CLI](stream-files-cli-quickstart.md)

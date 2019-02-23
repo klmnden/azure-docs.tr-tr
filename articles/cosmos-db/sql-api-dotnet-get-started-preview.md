@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 39f71ffbe6369ada4f04c456cdb3b15d257a3ef1
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2e0dc5c69a6cc875f4e673a494387db79c1dd1fa
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700375"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672562"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Azure Cosmos DB SQL API hesabı (SDK sürüm 3 Önizleme) verileri yönetmek için bir .NET konsol uygulaması oluşturma
 
@@ -76,14 +76,16 @@ Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu �
 
 ## <a id="Connect"></a>3. adım: Bir Azure Cosmos DB hesabına bağlanma
 1. İlk olarak, başında başvuruları değiştirin, C# içinde uygulama **Program.cs** bu başvuruları dosyasıyla:
-    ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using System.Configuration;
-    using Microsoft.Azure.Cosmos;
-    using System.Collections.Generic;
-    using System.Net;
-    ```
+
+   ```csharp
+   using System;
+   using System.Threading.Tasks;
+   using System.Configuration;
+   using Microsoft.Azure.Cosmos;
+   using System.Collections.Generic;
+   using System.Net;
+   ```
+
 1. Şimdi bu sabitleri ve değişkenleri ortak sınıfının ekleyin ``Program``.
     ```csharp
     public class Program

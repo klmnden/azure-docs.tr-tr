@@ -10,17 +10,18 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a1ebb1d818c0085a1741245ed236cf511b1db768
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 4db95bdc5e83badef0170bfb3b1c52bb8610c655
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218062"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669882"
 ---
 # <a name="bing-speech-client-samples"></a>Bing konuşma istemci örnekleri
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
- 
+
 Bing konuşma farklı kullanım örnekleri, örnek komut tanıma, sürekli tanıma ve hedefi olan algılama göstermek için uçtan uca örnekler sağlar. Tüm örnekler Github'da kullanılabilir ve şu bağlantılardan indirebilirsiniz: Her depoda README.md yanı sıra [istemci kitaplıkları](GetStarted/GetStartedClientLibraries.md) sayfası oluşturup örneklerini çalıştırma hakkında ayrıntılı bilgi sağlar.
 
 - [REST API örnekleri](https://github.com/Azure-Samples/SpeechToText-REST)

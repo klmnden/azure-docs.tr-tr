@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 114dac10592213d3b2fdfff909913039b3dba344
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 53ce82a6e1180d4493e2d4014bf6e26e9bde2466
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429443"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731404"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 
@@ -132,7 +132,7 @@ Toplam maliyet; seçtiğiniz bölge, katman, sorgu çoğaltmaları ve duraklatma
 
 ## <a name="built-on-sql-server-analysis-services"></a>SQL Server Analysis Services’ı temel alır
 
-Azure Analysis Services, SQL Server Analysis Services Enterprise Edition’da bulunan harika özelliklerin çoğu ile uyumludur. Azure Analysis Services, 1200 veya üzeri [uyumluluk düzeylerinde](analysis-services-compat-level.md) tablolu modelleri destekler. Tablolu modeller, Tablolu Model Betik Dili (TMSL) ve Tablolu Nesne Modeli (TOM) kodundaki tablolu meta veri nesne tanımları halinde geliştirilmiş ilişkisel modelleme yapılarıdır (model, tablolar, sütunlar). Bölümler, perspektifler, satır düzeyinde güvenlik, çift yönlü ilişkiler ve çeviriler gibi özelliklerin tümü desteklenir\*. Çok boyutlu modeller ve SharePoint için PowerPivot *değil* Azure Analysis Services'da desteklenen.
+Azure Analysis Services, SQL Server Analysis Services Enterprise Edition’da bulunan harika özelliklerin çoğu ile uyumludur. Azure Analysis Services, 1200 veya üzeri [uyumluluk düzeylerinde](analysis-services-compat-level.md) tablolu modelleri destekler. Tablolu modeller, Tablolu Model Betik Dili (TMSL) ve Tablolu Nesne Modeli (TOM) kodundaki tablolu meta veri nesne tanımları halinde geliştirilmiş ilişkisel modelleme yapılarıdır (model, tablolar, sütunlar). Bölümler, Perspektifler, satır düzeyi güvenlik, çift yönlü ilişkiler ve Çeviriler tüm desteklenen\*. Çok boyutlu modeller ve SharePoint için PowerPivot *değil* Azure Analysis Services'da desteklenen.
 
 Hem bellek içi hem de DirectQuery modlarında tablolu modeller desteklenir. Bellek içi modda (varsayılan) tablolu modeller birden çok veri kaynağını destekler. Model verileri yüksek oranda sıkıştırılmış ve bellek içinde önbelleğe alınmış olduğundan, bu mod büyük miktarlarda veriler üzerinde en hızlı sorgu yanıtını sağlar. Ayrıca, karmaşık veri kümeleri ve sorgular için en fazla esnekliği sağlar. Bölümleme, artımlı yükleri etkinleştirir, paralelleştirmeyi artırır ve bellek tüketimini azaltır. Hesaplanmış tablolar gibi diğer gelişmiş veri modelleme özellikleri ve tüm DAX işlevleri desteklenir. Veri kaynaklarından önbelleğe alınmış verileri güncelleştirmek için bellek içi modeller yenilenmelidir (işlenmelidir). Azure hizmet sorumlusuyla desteği, PowerShell kullanarak işlemleri, TOM, TMSL ve REST modeli verilerinizi sağlamaktan esneklik sunan katılımsız yenileme her zaman güncel olduğundan. 
 
@@ -203,7 +203,7 @@ Visual Studio 2017 kullanıyorsanız, Microsoft Analysis Services Projeleri ücr
 
 ### <a name="powershell"></a>PowerShell
 
-Sunucu kaynakları oluşturma, sunucu işlemlerini askıya alma veya sürdürme ya da hizmet düzeyini (katman) değiştirme gibi sunucu kaynak yönetimi görevlerinde Azure Resource Manager (AzureRM) cmdlet'leri kullanılır. Rol üyeleri ekleme, işleme veya TMSL betiklerini çalıştırma gibi veritabanlarını yönetmeye yönelik diğer görevlerde, SqlServer modülündeki cmdlet'ler kullanılır. Daha fazla bilgi almak için bkz. [Azure Analysis Services’i PowerShell ile yönetme](analysis-services-powershell.md).
+Sunucu kaynaklarını oluşturma, askıya alma veya sürdürme sunucu işlemleri veya hizmet düzeyi (katman) değiştirme gibi sunucu kaynak yönetimi görevlerinde Azure PowerShell cmdlet'lerini kullanın. Rol üyeleri ekleme, işleme veya TMSL betiklerini çalıştırma gibi veritabanlarını yönetmeye yönelik diğer görevlerde, SqlServer modülündeki cmdlet'ler kullanılır. Daha fazla bilgi almak için bkz. [Azure Analysis Services’i PowerShell ile yönetme](analysis-services-powershell.md).
 
 ### <a name="object-model-and-scripting"></a>Nesne modeli ve betik oluşturma
 

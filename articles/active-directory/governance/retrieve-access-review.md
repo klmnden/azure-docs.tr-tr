@@ -1,6 +1,6 @@
 ---
-title: Azure AD erişim gözden geçirmesi sonuçlarını alma | Microsoft Docs
-description: Azure Active Directory erişim gözden geçirmelerinin sonuçlarını alma.
+title: Gruplar veya uygulamalar Azure AD erişim gözden geçirmeleri için erişim gözden geçirmesi sonuçlarını alma | Microsoft Docs
+description: Grup üyelerini veya Azure AD erişim gözden geçirmeleri uygulama erişimi için erişim gözden geçirmesi sonuçlarını alma hakkında bilgi edinin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dccacb82b34e7e257fcee9632045f12839b5425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f5a422f619c4ef63da59516ff2748683eb0f7f70
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210807"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726698"
 ---
-# <a name="retrieve-access-review-results"></a>Erişim gözden geçirmesi sonuçlarını alma
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Gruplar veya uygulamalar Azure AD erişim gözden geçirmeleri için erişim gözden geçirmesi sonuçlarını Al
 
 Yöneticiler, bir uygulamaya atanmış grup üyeleri veya kullanıcılar için [bir erişim gözden geçirmesi oluşturmak](create-access-review.md) üzere Azure Active Directory’yi (Azure AD) kullanabilir.  **Genel Yönetici**, **Kullanıcı Hesabı Yöneticisi**, **Güvenlik Yöneticisi** veya **Güvenlik Okuyucusu** rolündeki bir kullanıcı da erişim gözden geçirmesinin sonuçlarını okuyabilir.  Bu rollerden birine kullanıcı atamak için, Ayrıcalıklı Rol Yöneticisi Azure AD PIM’yi kullanarak bir kullanıcıyı rol etkinleştirmeye uygun hale getirebilir veya Genel Yönetici, [role kalıcı olarak kullanıcı atayabilir](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
@@ -55,7 +55,7 @@ Varsayılan olarak, silinmiş bir kullanıcı Azure AD’de 30 gün boyunca sili
 - [Azure AD erişim gözden geçirmeleriyle kullanıcı erişimini yönetme](manage-user-access-with-access-reviews.md)
 - [Azure AD erişim gözden geçirmeleriyle konuk erişimini yönetme](manage-guest-access-with-access-reviews.md)
 - [Azure AD erişim gözden geçirmeleri için programları ve denetimleri yönetme](manage-programs-controls.md)
-- [Bir grubun üyeleri veya bir uygulamaya erişim için erişim gözden geçirmesi oluşturma](create-access-review.md)
+- [Grupları ve uygulamaları, erişim gözden geçirmesi oluştur](create-access-review.md)
 - [Bir Azure AD yönetici rolündeki kullanıcılar için erişim gözden geçirmesi oluşturma](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 

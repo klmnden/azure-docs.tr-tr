@@ -1,6 +1,6 @@
 ---
-title: Erişiminizi gözden geçirin | Microsoft Docs
-description: Azure Active Directory erişiminizi gözden geçirin
+title: Erişimi gözden geçir kendiniz gruplar veya uygulamalar Azure AD erişim gözden geçirmeleri | Microsoft Docs
+description: Kendi erişim grupları ve uygulamaları Azure Active Directory erişim gözden geçirmeleri, gözden geçirmeyi öğrenin.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,47 +11,74 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/16/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cc807a5693b363445f85d0b45a70681f58c5275
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 76f90a5aa3f201fa5d1578ac63526be26377aedf
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198637"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731217"
 ---
-# <a name="review-your-access"></a>Erişiminizi gözden geçirme
+# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Erişimi kendiniz için grupları ve uygulamaları Azure AD erişim gözden geçirmeleri, gözden geçirin
 
-Azure Active Directory (Azure AD) nasıl kuruluşlar, Azure AD'de uygulamaları ve grupların üyeleri erişim yönetmek ve diğer çevrimiçi Microsoft hizmetlerine erişim adlı bir özellik ile incelemeleri kolaylaştırır. Belki de üyeleri bir grup veya uygulamaya erişimi olan kullanıcılar için erişim gözden geçirme ister Microsoft'tan bir e-posta aldı. 
+Azure Active Directory (Azure AD), kuruluşların Azure AD'de grupları veya uygulamalara erişimi yönetme basitleştirir ve başka bir özellik ile Microsoft Çevrimiçi Hizmetler Azure AD erişim gözden geçirmeleri çağrılır.
 
-## <a name="open-an-access-review"></a>Erişim gözden geçirmesi açın
+Bu makalede, bir grup veya uygulamanın kendi erişimi gözden geçirmek açıklar.
 
-Beklemedeki erişim gözden geçirmeleri görmek için gözden geçirme erişim bağlantıya tıklayın. Ağustos 2018'den itibaren Azure AD rolleri için e-posta bildirimleri güncelleştirilmiş bir tasarım sahip. Bir kullanıcı bir Gözden Geçiren olarak davet, gönderilen örnek e-posta aşağıda gösterilmiştir.
+## <a name="open-the-access-review"></a>Erişim gözden geçirmesi açın
 
-![Gözden geçirme'e-posta erişimi](./media/review-your-access/new-ar-email.png)
+Erişim gözden geçirmesi gerçekleştirmek için ilk adım, erişim gözden geçirmesi açın sağlamaktır.
 
-E-posta yoksa, aşağıdaki adımları izleyerek erişim gözden geçirmeleri bulabilirsiniz:
+1. Erişim gözden geçirme ister Microsoft'tan bir e-posta için bakın. Bir grubu erişiminizi gözden geçirmek için bir örnek e-posta aşağıda verilmiştir.
 
-1. Oturum [Azure AD erişim paneli](https://myapps.microsoft.com).
+    ![Gözden geçirme'e-posta erişimi](./media/review-your-access/access-review-email.png)
 
-2. Kullanıcı sembol adını ve varsayılan kuruluşunuz görüntüleyen sayfanın sağ üst köşesinde bulunan seçin. Birden fazla kuruluş listeleniyorsa, erişim gözden geçirmesi istenen kuruluş seçin.
+1. Tıklayın **erişimi gözden geçir** erişim gözden geçirmesi açmaya yönelik bağlantı.
 
-3. Bir kutucuk olarak etiketlenmiş, **erişim gözden geçirmeleriyle** seçin sayfasında, sağ tarafında olduğu. Kutucuk görünür değilse, bu kuruluşa ait gerçekleştirmek için hiç erişim gözden geçirmesi yok ve şu anda hiçbir eylem gerekmiyor.
+E-posta yoksa, aşağıdaki adımları izleyerek, beklemedeki erişim gözden geçirmeleri bulabilirsiniz.
 
-## <a name="fill-out-an-access-review"></a>Erişim gözden geçirmesi doldurun
+1. MyApps portalında oturum açın [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-Erişim gözden geçirmesi listeden seçtiğinizde, erişiminizi görebilirsiniz. Satırı seçin ve onaylayın veya reddedin, sürekli erişim gereksinimini isteyip istemediğinizi seçin.
+    ![MyApps portalında](./media/review-your-access/myapps-access-panel.png)
 
-Gözden Geçiren sürekli erişim onaylamak için bir gerekçe sağlamanızı gerektirebilir.
+1. Sayfanın sağ üst köşede, adını ve varsayılan kuruluşunuz görüntüleyen kullanıcı simgeyi tıklatın. Birden fazla kuruluş listeleniyorsa, erişim gözden geçirmesi istenen kuruluş seçin.
+
+1. Sayfanın sağ tarafında tıklayın **erişim gözden geçirmeleriyle** beklemedeki erişim gözden geçirmeleri listesini görmek için kutucuğu.
+
+    Kutucuk görünür değilse, bu kuruluşa ait gerçekleştirmek için hiç erişim gözden geçirmesi yok ve şu anda hiçbir eylem gerekmiyor.
+
+    ![Erişim incelemeleri listesi](./media/review-your-access/access-reviews-list.png)
+
+1. Tıklayın **başlamak gözden geçirme** gerçekleştirmek istediğiniz erişim gözden geçirmesi için bağlantı.
+
+## <a name="perform-the-access-review"></a>Erişim değerlendirmesi gerçekleştirme
+
+Erişim gözden geçirmesi açtıktan sonra erişiminizi görebilirsiniz.
+
+1. Erişiminizi gözden geçirin ve erişim yine de ihtiyacınız olup olmadığına karar verebilirsiniz.
+
+    İstek, diğerleri için erişim gözden geçirmek için ise sayfa farklı görünecektir. Daha fazla bilgi için [gruplar veya uygulamalar için erişimi gözden geçir](perform-access-review.md).
+
+    ![Erişim değerlendirmesi gerçekleştirme](./media/review-your-access/perform-access-review.png)
+
+1. Tıklayın **Evet** erişiminizi tutun veya **Hayır** erişiminizi kaldırmak için.
+
+1. Tıklarsanız **Evet**, bir düzenlemede belirtmeniz gerekebilir **neden** kutusu.
+
+    ![Erişim değerlendirmesi gerçekleştirme](./media/review-your-access/perform-access-review-submit.png)
+
+1. **Gönder**'e tıklayın.
+
+    Seçiminizi gönderilir ve MyApps portalında döndürdü.
+
+    Yanıtınız değiştirmek istiyorsanız, erişim gözden geçirmeleri sayfasını yeniden açın ve yanıtınız güncelleştirin. Erişim gözden geçirmesi sona erinceye kadar herhangi bir zamanda yanıtınızı değiştirebilirsiniz.
+
+    > [!NOTE]
+    > Artık erişime ihtiyacınız belirtilmişse hemen kaldırılmaz. Gözden geçirme sona erdiğinde veya yöneticinin gözden durduğunda kaldırılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Engellenen erişim hemen kaldırılmaz. Yanıtınızı değiştirin ve onaylama, yanıt sıfırlama ve yeni bir yanıt seçin istiyorsanız. Erişim gözden geçirme işlemi tamamlanana kadar bu adımı yapabilirsiniz.
-
-
-
-
-
-
+- [Grupları ve uygulamaları, erişim değerlendirmesi tamamlama](complete-access-review.md)

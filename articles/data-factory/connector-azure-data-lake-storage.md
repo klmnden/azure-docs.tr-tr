@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 7a01b4baa9dafba4f0193c7a73dc1ae44214f501
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 0f38902a166de8d623106849a124b8e2e5cceb5c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311596"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674811"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Lake depolama Gen2'ye gelen veya veri kopyalama kullanarak Azure Data Factory
 
@@ -140,11 +140,11 @@ Bu özellikleri bağlı hizmetinde desteklenir:
 
 ### <a name="managed-identity"></a> Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik
 
-Veri Fabrikası ile ilişkilendirilebilen bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği, Blob Depolama kimlik doğrulama kendi hizmet sorumlusunu kullanmaya benzer doğrudan kullanabilirsiniz. Bu belirlenen / için Blob depolamanızın erişim ve kopyalama veri fabrikasına sağlar.
+Veri Fabrikası ile ilişkilendirilebilen bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu yönetilen kimlik, Blob Depolama kimlik doğrulama kendi hizmet sorumlusunu kullanmaya benzer doğrudan kullanabilirsiniz. Bu belirlenen / için Blob depolamanızın erişim ve kopyalama veri fabrikasına sağlar.
 
 Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak için bu adımları izleyin:
 
-1. [Veri Fabrikası hizmet kimliği almak](data-factory-service-identity.md#retrieve-service-identity) "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak.
+1. [Data factory yönetilen kimlik bilgileri almak](data-factory-service-identity.md#retrieve-managed-identity) "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak.
 
 2. Azure depolama alanında yönetilen kimlik uygun izni verin. 
 

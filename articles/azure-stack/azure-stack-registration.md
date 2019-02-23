@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: ebf8066139df93aefe1cfa21f2dc80ab57ca84bb
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 1fa85fa26594ef6e5df2d05bb3bcc34e5689c3be
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652459"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728412"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -108,7 +108,7 @@ Azure Stack dağıtımınıza bulut kimliği belirlemek için aşağıdaki komut
 
 ```powershell
 Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
-Run: get-azurestackstampinformation 
+Run: Get-AzureStackStampInformation 
 ```
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Kullandıkça Öde faturalandırma ile bağlı kaydetme
@@ -125,7 +125,7 @@ Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azu
 2. Azure Stack kaydetmek için kullandığınız bir Azure hesabı ekleyin. Hesap eklemek için şunu çalıştırın **Add-AzureRmAccount** cmdlet'i. Azure hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 faktörlü kimlik doğrulaması kullanmak zorunda kalabilirsiniz.
 
    ```PowerShell
-      Add-AzureRmAccount -EnvironmentName "<environment name>"
+   Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Parametre | Açıklama |  
@@ -135,7 +135,7 @@ Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azu
 3. Birden fazla aboneliğiniz varsa, kullanmak istediğiniz seçmek için aşağıdaki komutu çalıştırın:  
 
    ```PowerShell  
-      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Azure aboneliğinizdeki Azure Stack kaynak sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın:
@@ -153,7 +153,7 @@ Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azu
 6. Ardından, aynı PowerShell oturumunda, doğru Azure PowerShell bağlamına oturum emin olun. Daha önce Azure Stack kaynak sağlayıcısını kaydetmek için kullanılan Azure hesap budur. Çalıştırılacak Powershell:
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<environment name>"
+   Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
    | Parametre | Açıklama |  
@@ -189,7 +189,7 @@ Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azu
 2. Azure Stack kaydetmek için kullandığınız bir Azure hesabı ekleyin. Hesap eklemek için şunu çalıştırın **Add-AzureRmAccount** cmdlet'i. Azure hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 faktörlü kimlik doğrulaması kullanmak zorunda kalabilirsiniz.
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<environment name>"
+   Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
    | Parametre | Açıklama |  
@@ -199,7 +199,7 @@ Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azu
 3. Birden fazla aboneliğiniz varsa, kullanmak istediğiniz seçmek için aşağıdaki komutu çalıştırın:  
 
    ```PowerShell  
-      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Azure aboneliğinizdeki Azure Stack kaynak sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın:
@@ -255,16 +255,16 @@ Azure Stack bağlantısı kesilmiş bir ortamda (internet bağlantısı olmayan)
 Internet'e bağlı bilgisayarda RegisterWithAzure.psm1 modülünü içeri aktarın ve oturum açmak için doğru Azure Powershell bağlamı için aynı adımları gerçekleştirin. Ardından kayıt AzsEnvironment çağırın. Azure ile kaydetmek için kayıt belirtecini belirtin. Azure Stack aynı Azure abonelik Kimliğini kullanarak birden fazla örneğini kaydediyorsanız, benzersiz kayıt adı belirtin. Aşağıdaki cmdlet'i çalıştırın:
 
   ```PowerShell  
-  $registrationToken = "<Your Registration Token>"
+  $RegistrationToken = "<Your Registration Token>"
   $RegistrationName = "<unique-registration-name>"
-  Register-AzsEnvironment -RegistrationToken $registrationToken  -RegistrationName $RegistrationName
+  Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
 İsteğe bağlı olarak, kayıt belirtecinizi içeren bir dosyaya işaret edecek şekilde Get-Content cmdlet'i kullanabilirsiniz:
 
   ```PowerShell  
-  $registrationToken = Get-Content -Path '<Path>\<Registration Token File>'
-  Register-AzsEnvironment -RegistrationToken $registrationToken -RegistrationName $RegistrationName
+  $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
+  Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
   > [!Note]  
@@ -287,7 +287,7 @@ Etkinleştirme anahtarı almak için aşağıdaki PowerShell cmdlet'lerini çal�
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Azure Stack'te bir etkinleştirme kaynağını oluşturma
 
-Azure Stack ortamına, Get-AzsActivationKey oluşturulan etkinleştirme anahtarından dosya ya da metin döndürür. Ardından bu etkinleştirme anahtarı kullanarak Azure Stack'te bir etkinleştirme kaynağını oluşturun. Bir etkinleştirme kaynağını oluşturmak için aşağıdaki PowerShell cmdlet'lerini çalıştırın:  
+Azure Stack ortamına, Get-AzsActivationKey oluşturulan etkinleştirme anahtarından dosya ya da metin döndürür. Ardından bu etkinleştirme anahtarı kullanarak Azure Stack'te bir etkinleştirme kaynağını oluşturun. Bir etkinleştirme kaynağını oluşturmak için aşağıdaki PowerShell cmdlet'lerini çalıştırın: 
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -381,15 +381,15 @@ Ardından, Azure'da kayıt kaynağı kaldırmak için bağlı bir Azure üzerind
 Kaynak oluşturmak için kullanılan kayıt belirtecinizi kullanabilirsiniz:  
 
   ```Powershell
-  $registrationToken = "<registration token>"
-  Unregister-AzsEnvironment -RegistrationToken $registrationToken
+  $RegistrationToken = "<registration token>"
+  Unregister-AzsEnvironment -RegistrationToken $RegistrationToken
   ```
 
 Veya, kayıt adı kullanabilirsiniz:
 
   ```Powershell
-  $registrationName = "AzureStack-<unique-registration-name>"
-  Unregister-AzsEnvironment -RegistrationName $registrationName
+  $RegistrationName = "AzureStack-<unique-registration-name>"
+  Unregister-AzsEnvironment -RegistrationName $RegistrationName
   ```
 
 ### <a name="re-register-using-disconnected-steps"></a>Bağlantısı kesilmiş adımları kullanarak yeniden kaydolun
@@ -441,11 +441,11 @@ Cmdlet'i çalıştırmak için ihtiyacınız vardır:
 - Ayrıca Azure PowerShell için sahip veya bu abonelik için katkıda bulunanı olan bir hesapla oturum açmanız gerekir.
 
 ```PowerShell
-    Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
+Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
     <PSObject>] [[-ResourceGroupName] <String>] [[-ResourceGroupLocation] <String>] [[-BillingModel] <String>]
     [-MarketplaceSyndicationEnabled] [-UsageReportingEnabled] [[-AgreementNumber] <String>] [[-RegistrationName]
     <String>] [<CommonParameters>]
-   ```
+```
 
 | Parametre | Type | Açıklama |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -465,7 +465,7 @@ Cmdlet'i çalıştırmak için ihtiyacınız vardır:
 Get-AzsRegistrationToken giriş parametrelerini kayıt belirtecinizi oluşturur.
 
 ```PowerShell  
-    Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
+Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```

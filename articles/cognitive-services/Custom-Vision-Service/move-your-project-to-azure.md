@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 76207e83e31ba3919da80e4ecc99435e88c76c66
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b46ccd98145342fda58672b64b838ab92ba4f97b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56654592"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731931"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure-using-the-customvisionai-site"></a>Sınırlı deneme sürümünde projenizi CustomVision.ai site kullanarak Azure'a taşıma
 
@@ -76,7 +76,7 @@ Birden çok proje için tek bir kaynak ilişkilendirilebilir. Hakkında daha faz
 
 2. Custom Vision eğitim kaynağınızın kaynak Kimliğini bulun. Custom Vision eğitim kaynağınızı açıp "Kaynak yönetimi" bölümünde "Özellikler"'i seçerek bunu Azure portalında bulabilirsiniz. Kaynak Kimliğiniz olacak. 
 
-    ![Kaynak Kimliğinizi Custom Vision eğitim kaynağınızı açıp "Kaynak yönetimi" bölümünde "Özellikler"'i seçerek Azure portalında bulun.](./media/move-your-project-to-azure/resource_ID_azure_portal.jpg)
+    ![Kaynak Kimliği, Azure portalında, Custom Vision eğitim kaynağı açma ve "Özellikler" altındaki "Kaynak yönetimi" bölüm seçerek bulun.](./media/move-your-project-to-azure/resource_ID_azure_portal.jpg)
 
 
 3. Alternatif olarak, özel görüntü işleme kaynağınızın kaynak kimliği doğrudan özel görüntü işleme Web bulabilirsiniz [Ayarları sayfası]( https://www.customvision.ai/projects#/settings). Azure kaynağınıza bulunduğu aynı dizine geçmeniz gerekir.

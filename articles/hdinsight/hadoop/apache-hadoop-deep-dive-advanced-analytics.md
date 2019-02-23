@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 0e17fa877bc2e1e4f72891315d940546a11e674d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 893273fc325eaf878814c07eb095c67f5ea3c3f1
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812506"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675067"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Derin Dalış - Gelişmiş analiz
 
@@ -110,7 +110,7 @@ Veri kümesi 50.000 görüntü Eğitim kümesi ve 10.000 görüntü test kümesi
 * Model ve puanlama her düğümde önceden işlenmiş görüntü yüklemek için bilişsel Araç Seti'ı seçin.
 * PySpark betiğini çalıştırmak için Jupyter not defterleri sonuçları toplama ve kullanma [Matplotlib](https://matplotlib.org/) model performansını görselleştirmek için.
 
-Tüm ön işleme/Puanlama 10.000 görüntülerin 4 çalışan düğümleri ile bir kümede bir dakikadan az sürer. Model, ~ 9,100 (%91) görüntülerin etiketlerini doğru şekilde tahmin eder. Karışıklık matrisi, en yaygın sınıflandırma hataları gösterir. Örneğin, matris köpekler kediler olarak ve mislabeling oluştuğunu gösterir. birden çok sık diğer etiket çiftleri için.
+Tüm ön işleme/Puanlama 10.000 görüntülerin 4 çalışan düğümleri ile bir kümede bir dakikadan az sürer. Model ~ 9,100 (%91) etiketlerin doğru tahmin görüntüler. Karışıklık matrisi, en yaygın sınıflandırma hataları gösterir. Örneğin, matris köpekler kediler olarak ve mislabeling oluştuğunu gösterir. birden çok sık diğer etiket çiftleri için.
 
 ![Sonuçlar](./media/apache-hadoop-deep-dive-advanced-analytics/ml-results.png)
 
@@ -133,6 +133,5 @@ Apache Spark ve MLLib
 
 Derin öğrenme, Bilişsel Araç Seti ve diğerleri
 
-* [Bilişsel Araç Seti ve TensorFlow, Azure HDInsight Spark kullanarak görüntü sınıflandırması, utandırıcı derecede paralel](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
 * [Veri bilimi Azure sanal makinesi](../../machine-learning/data-science-virtual-machine/overview.md)
 * [Azure HDInsight üzerinde H2O.ai ile tanışın](https://azure.microsoft.com/blog/introducing-h2o-ai-with-on-azure-hdinsight-to-bring-the-most-robust-ai-platform-for-enterprises/)

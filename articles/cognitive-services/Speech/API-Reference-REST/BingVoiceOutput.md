@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: f7620c29e7d00a06be6d14740f05cc7543e49837
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215869"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674574"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing metin okuma API'si
 
@@ -40,7 +41,7 @@ Content-Length: 0
 
 Belirteç erişimi için gereken üst bilgi bilgileri aşağıdaki gibidir.
 
-Name| Biçimlendir | Açıklama
+Ad| Biçimlendir | Açıklama
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | Abonelik anahtarınız
 
@@ -59,7 +60,7 @@ JWT belirteci belirteç hizmetine döndürür `text/plain`. Daha sonra JWT olara
 
 Aşağıdaki tablo, sesli sentezi istekleri için kullanılan HTTP üst bilgilerini gösterir.
 
-Üst bilgi |Value |Yorumlar
+Üst bilgi |Değer |Yorumlar
 ----|----|----
 Content-Type | Uygulama/ssml'yi + xml şeklindedir | Giriş içerik türü.
 X Microsoft OutputFormat | **1.** ssml'yi-16 khz-16 bit-mono-tts <br> **2.** ham-16 khz-16 bit-mono-pcm <br>**3.** ses-16 khz-16 KB/sn-mono-siren <br> **4.** RIFF-16 khz-16 KB/sn-mono-siren <br> **5.** RIFF-16 khz-16 bit-mono-pcm <br> **6.** ses-16 khz-128kbitrate-mono-mp3 <br> **7.** ses-16 khz-64kbitrate-mono-mp3 <br> **8.** ses-16 khz-32kbitrate-mono-mp3 | Çıkış ses biçimi.

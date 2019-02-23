@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: 1e96029b75c8168189dacdc420117e82387228d9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 3a4fbac0000569a17a9916bd1d84dd140576c9ee
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327261"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672075"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi için Azure IoT Hub (C) bağlanma
 
@@ -82,7 +82,7 @@ Aşağıdaki öğeler isteğe bağlıdır:
 MicroSD kartı Raspbian görüntüyü yüklemesi için hazırlayın.
 
 1. Raspbian indirin.
-   1. [Masaüstü ile Raspbian Jessie indirme](https://www.raspberrypi.org/downloads/raspbian/) (.zip dosyasında).
+   1. [Masaüstü ile Raspbian Esnetme indirme](https://www.raspberrypi.org/downloads/raspbian/) (.zip dosyasında).
    1. Raspbian görüntünün bilgisayarınızdaki bir klasöre ayıklayın.
 1. Raspbian microSD kartı yükleyin.
    1. [Etcher SD kart yazıcı yardımcı programını yükleyip](https://etcher.io/).

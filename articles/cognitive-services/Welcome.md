@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: d9271b32f6254b032fab9e93aaf82ab39e7f1932
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 38ad921c7c4b2fef9d325c2e2c9eea25bd3c913b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876304"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734685"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Bilişsel hizmetler nelerdir?
 
@@ -94,7 +94,7 @@ Bir bölge için arama henüz desteklemiyoruz? Üzerinde bir özellik isteği g�
 
  Bilişsel hizmetler, çok çeşitli hizmet düzeyinde kültürel dilleri destekler. Her API için dil kullanılabilirlik bulabilirsiniz [desteklenen dillerin listesi](language-support.md).
 
- ## <a name="container-support"></a>Kapsayıcı desteği
+## <a name="container-support"></a>Kapsayıcı desteği
 
  Bilişsel hizmetler, Azure bulutta veya şirket içi dağıtım için kapsayıcılar sağlar. Daha fazla bilgi edinin [Bilişsel hizmet kapsayıcılarında](cognitive-services-container-support.md).
 

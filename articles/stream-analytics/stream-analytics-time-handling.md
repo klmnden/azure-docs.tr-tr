@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 4accff7410d17e76a000b7cef957b75c65a16960
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 91193cc328c02f5ba4f5eb18e0bf853f9d91313a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008394"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732271"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Azure Stream analytics'te zaman işleme anlama
 
@@ -163,7 +163,7 @@ Azure Stream Analytics Filigran ilerleme durumunu çıktı olaylar üretmek içi
 
 Kullanırken [pencereli toplamlar](stream-analytics-window-functions.md), hizmet yalnızca windows sonunda çıktılar üretir. Bazı durumlarda, kullanıcılar windows üretilen kısmi toplamlar görmek isteyebilirsiniz. Kısmi toplamlar, Azure Stream Analytics'te şu anda desteklenmemektedir.
 
-Diğer akış çözümleri, çıkış olayları dış koşullara bağlı olarak çeşitli tetikleyici noktalarında gerçekleştirilmiş. Bazı çözümlerde çıkış olayları için belirtilen zaman penceresi birkaç birden çok kez oluşturulması mümkündür. Giriş değerleri daraltılmış olarak toplama sonuçları daha doğru olur. Olayları ilk ve düzeltilmiş zamanla tahmin edilen. Örneğin, belirli bir cihaz, ağ bağlantısı çevrimdışı olduğunda, tahmini bir değer sistem tarafından kullanılabilir. Daha sonra aynı cihaz ağa çevrimiçine döner. Ardından giriş akışında gerçek olay verileri eklenecektir. O zaman penceresini işleme çıktı sonuçları daha doğru bir çıktı üretir.
+Diğer akış çözümleri, çıkış olayları dış koşullara bağlı olarak çeşitli tetikleyici noktalarında gerçekleştirilmiş. Çıkış olayları belirtilen zaman penceresi için birden çok kez oluşturulabilir bazı çözümlere mümkündür. Giriş değerleri daraltılmış olarak toplama sonuçları daha doğru olur. Olayları ilk ve düzeltilmiş zamanla tahmin edilen. Örneğin, belirli bir cihaz, ağ bağlantısı çevrimdışı olduğunda, tahmini bir değer sistem tarafından kullanılabilir. Daha sonra aynı cihaz ağa çevrimiçine döner. Ardından giriş akışında gerçek olay verileri eklenecektir. O zaman penceresini işleme çıktı sonuçları daha doğru bir çıktı üretir.
 
 ## <a name="illustrated-example-of-watermarks"></a>Filigranlar Resimli örneği
 

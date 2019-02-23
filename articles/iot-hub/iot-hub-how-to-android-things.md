@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 1/30/2019
 ms.author: yizhon
-ms.openlocfilehash: 0bfba7f923ca394aa29dd907db1b8b1284a605d8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e5b075a457c646eb03810b2c51af1a1181ee96ed
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981681"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670273"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Azure IOT SDK'larını kullanarak Android şeyler platformlar için geliştirin
 [Azure IOT Hub SDK'ları](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) Windows, Linux, OSX, MBED ve Android ve iOS gibi mobil platformları gibi popüler platformlar için ilk katman desteği sağlar.  Büyük seçme hakkını ve esnekliği IOT dağıtımlarda etkinleştirmek için taahhüdümüzün bir parçası olarak, Java SDK'yı da destekler [Android şeyler](https://developer.android.com/things/) platform.  Geliştiriciler, kullanırken Android şeyler işletim sistemi, cihaz tarafında avantajlarından yararlanabilir [Azure IOT hub'ı](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) merkezi iletiyi aynı anda milyonlarca için ölçeklendirilen hub cihazları bağlı. 
@@ -69,7 +69,6 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
     ```
 4.  Android Studio'da bulunan "\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample" Android projeyi açın.
 5.  Gradle.Properties dosyasını açın ve cihaz bağlantısı dizeniz ile "Device_connection_string daha önce not ettiğiniz" değiştirin.
-    ![Ana dalın depo ekran görüntüsü](./media/how-to-android-things/connection-string.png)
 6.  Tıklayın çalıştırma - hata ayıklama ve bu kod, Android şeyler cihazlara dağıtmak için Cihazınızı seçin.
 7.  Uygulama başarıyla başlatıldıktan sonra Android şeyler Cihazınızda çalışan bir uygulama görebilirsiniz.  Bu örnek uygulama, rastgele oluşturulan sıcaklık okumalar gönderir.
 

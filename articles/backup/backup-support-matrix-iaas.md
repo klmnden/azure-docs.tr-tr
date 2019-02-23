@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: b99d6285942bafe5467827c30b5ba2e42094fdf3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 2bd499c3afc423047dda9ff3ad657d110dab282a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430888"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673656"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM yedeklemesi için destek matrisi
 Kullanabileceğiniz [Azure Backup hizmeti](backup-overview.md) şirket içi makinelerin ve iş yükleri ve Azure sanal makinelerini yedeklemek için. Bu makalede, Azure sanal makineleri (VM'ler) Azure yedekleme ile yedeklemeyi olduğunda destek ayarları ve sınırlamaları özetlenmektedir.
@@ -37,7 +37,7 @@ Nasıl yedeklenir ve Azure Backup hizmeti ile Azure Vm'lerini geri yükleme aşa
 **Doğrudan yedekleme Azure VM (yalnızca Windows)** | Belirli dosya/klasör/birimi yedekleyin | Yükleme [Microsoft Azure kurtarma Hizmetleri (MARS) aracısı](backup-azure-file-folder-backup-faq.md).<br/><br/> MARS aracısının yedekleme uzantısı için dosya/klasör düzeyinde bir sanal makine yedeklemek Azure VM Aracısı ile birlikte çalıştırabilirsiniz. | Belirli klasörleri/dosyaları geri yükleyin.
 **Azure VM'yi yedekleme sunucusuna yedekleme** |  Dosya/klasör/birimleri yedekleyin; Sistem durumu/tam metal dosyalarını; Uygulama verileri için System Center DPM veya Microsoft Azure Backup sunucusu (MAB).<br/><br/> DPM/MABS sonra yedekleme kasası için yedekler | MABS/DPM koruma aracısını VM'ye yükleyin. DPM/MABS MARS Aracısı yüklenir.| Dosya/klasör/birim geri yüklenmesi; Sistem durumu/tam metal dosyalarını; Uygulama verileri. 
 
-Bir yedekleme server(backup-architecture.md#architecture-back-up-to-dpmmabs) kullanarak yedekleme hakkında daha fazla bilgi edinin ve [destek gereksinimlerini](backup-support-matrix-mabs-dpm.md).
+Yedekleme hakkında daha fazla bilgi [bir yedekleme sunucusu kullanma](backup-architecture.md#architecture-back-up-to-dpmmabs), ve [destek gereksinimlerini](backup-support-matrix-mabs-dpm.md).
 
 
 ## <a name="supported-backup-actions"></a>Desteklenen yedekleme eylemleri
@@ -189,7 +189,7 @@ Genel IP adreslerine sahip VM'ler    | Destekleniyor.<br/><br/> Var olan bir gen
 NIC/alt ağ üzerinde ağ güvenlik grubu (NSG). |   Destekleniyor.
 Ayrılmış IP adresi (statik) | Desteklenmiyor.<br/><br/> Ayrılmış bir IP adresi ve tanımlanmış uç nokta sahip bir VM yedekleyemezsiniz.
 Dinamik IP adresi |    Destekleniyor.<br/><br/> Kaynak NIC VM dinamik IP adresleme kullanıyorsa, geri yüklenen VM üzerindeki NIC varsayılan olarak güncelleştirilecektir.
-Traffic Manager | Desteklenen<br/><br/>. Yedeklenen VM'ye trafik Yöneticisi'nde ise, geri yüklenen VM aynı Traffic Manager için el ile eklemeniz gerekir. 
+Traffic Manager | Desteklenen<br/><br/> Yedeklenen VM'ye trafik Yöneticisi'nde ise, geri yüklenen VM aynı Traffic Manager için el ile eklemeniz gerekir. 
 Azure DNS | Destekleniyor.
 Özel DNS |    Destekleniyor.
 HTTP Ara sunucusu üzerinden giden bağlantı | Destekleniyor.<br/><br/> Kimliği doğrulanmış bir ara sunucular desteklenmez. 

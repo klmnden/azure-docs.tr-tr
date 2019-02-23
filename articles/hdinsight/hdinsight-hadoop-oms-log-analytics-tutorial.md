@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: cd129ea68315223516ac1cd3e7577b5ee4bf92e5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5fe1aee35f5501d3ec4910aadb9ef43d2f9fb8ed
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005123"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727528"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics, HDInsight kümelerinizi izlemek için kullanın
 
@@ -37,7 +37,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
   * Spark
   * Storm
 
-  Bir HDInsight kümesi oluşturma hakkında yönergeler için bkz: [Azure HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+  Bir HDInsight kümesi oluşturma hakkında yönergeler için bkz: [Azure HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
+
+* **Azure PowerShell Az modül**.  Bkz: [Karşınızda yeni Azure PowerShell Az modül](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 > [!NOTE]  
 > HDInsight küme hem de Log Analytics çalışma alanı, daha iyi performans için aynı bölgede yerleştirmek için önerilir. Azure Log Analytics, tüm Azure bölgelerinde kullanılamaz.
@@ -52,41 +54,44 @@ Bu bölümde, bir Azure Log Analytics çalışma alanı işleri, hata ayıklama 
 
 3. Altında **ANALYTICS**seçin **HDInsight kümeleri**.
 
-4. Soldan altında **izleme**seçin **Operations Management Suite**.
+4. Kümenizi listeden seçin.
 
-5. Ana görünümünde altında **OMS izleme**seçin **etkinleştirme**.
+5. Soldan altında **izleme**seçin **Operations Management Suite**.
 
-6. Gelen **bir çalışma alanı seçin** aşağı açılan listesinde, mevcut bir Log Analytics çalışma alanını seçin.
+6. Ana görünümünde altında **OMS izleme**seçin **etkinleştirme**.
 
-7. **Kaydet**’i seçin.
+7. Gelen **bir çalışma alanı seçin** aşağı açılan listesinde, mevcut bir Log Analytics çalışma alanını seçin.
+
+8. **Kaydet**’i seçin.  Ayarı kaydetmek için birkaç dakika sürer.
 
     ![HDInsight kümeleri için izlemeyi etkinleştirin](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "HDInsight kümeleri için izlemeyi etkinleştir")
 
-    Ayarı kaydetmek için birkaç dakika sürer.
-
 ## <a name="enable-log-analytics-by-using-azure-powershell"></a>Log Analytics, Azure PowerShell kullanarak etkinleştirme
 
-Azure PowerShell kullanarak Log Analytics'e etkinleştirebilirsiniz. Cmdlet aşağıdaki gibidir:
+Azure PowerShell Az modül kullanarak Log Analytics'e etkinleştirebilirsiniz [etkinleştir AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightoperationsmanagementsuite) cmdlet'i.
 
 ```powershell
-Enable-AzureRmHDInsightOperationsManagementSuite
-      [-Name] <CLUSTER NAME>
-      [-WorkspaceId] <LOG ANALYTICS WORKSPACE NAME>
-      [-PrimaryKey] <LOG ANALYTICS WORKSPACE PRIMARY KEY>
-      [-ResourceGroupName] <RESOURCE GROUIP NAME>
+# Enter user information
+$resourceGroup = "<your-resource-group>"
+$cluster = "<your-cluster>"
+$LAW = "<your-Log-Analytics-workspace>"
+# End of user input
+
+# obtain workspace id for defined Log Analytics workspace
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroup -Name $LAW).CustomerId
+
+# obtain primary key for defined Log Analytics workspace
+$PrimaryKey = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroup -Name $LAW | Get-AzOperationalInsightsWorkspaceSharedKeys).PrimarySharedKey
+
+# Enables Operations Management Suite
+Enable-AzHDInsightOperationsManagementSuite -ResourceGroupName $resourceGroup -Name $cluster -WorkspaceId $WorkspaceId -PrimaryKey $PrimaryKey
 ```
 
-Bkz: [etkinleştir AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/Enable-AzureRmHDInsightOperationsManagementSuite?view=azurermps-5.0.0).
-
-Devre dışı bırakmak için cmdlet'i aşağıdaki gibidir:
+Devre dışı bırakmak için kullanımı [devre dışı bırak AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite) cmdlet:
 
 ```powershell
-Disable-AzureRmHDInsightOperationsManagementSuite
-       [-Name] <CLUSTER NAME>
-       [-ResourceGroupName] <RESOURCE GROUP NAME>
+Disable-AzHDInsightOperationsManagementSuite -Name "<your-cluster>"
 ```
-
-Bkz: [devre dışı bırak AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/disable-azurermhdinsightoperationsmanagementsuite?view=azurermps-5.0.0).
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>HDInsight küme yönetim çözümlerini yükleme
 
@@ -101,7 +106,7 @@ Var olan HDInsight çözümlerinin şunlardır:
 * HDInsight Spark İzleme
 * HDInsight Storm Monitoring
 
-Bir yönetim çözümü yüklemek yönergeler için bkz. [Azure yönetim çözümlerine](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Denemeler yapmak için bir HDInsight Hadoop Monotiring çözüm yükleyin. İşlem tamamlandığında, gördüğünüz bir **HDInsightHadoop** kutucuğu altında listelenen **özeti**. Seçin **HDInsightHadoop** Döşe. HDInsightHadoop çözüm şuna benzer:
+Bir yönetim çözümü yüklemek yönergeler için bkz. [Azure yönetim çözümlerine](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Denemeler yapmak için bir HDInsight Hadoop izleme çözümü yükleyin. İşlem tamamlandığında, gördüğünüz bir **HDInsightHadoop** kutucuğu altında listelenen **özeti**. Seçin **HDInsightHadoop** Döşe. HDInsightHadoop çözüm şuna benzer:
 
 ![HDInsight izleme çözüm görünümü](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

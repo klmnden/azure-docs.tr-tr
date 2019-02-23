@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 383e17e0a9e60b52a63420af19c2bca4337083d4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876921"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673760"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Öğretici: Translator konuşma uygulamaC#
 
@@ -33,7 +34,7 @@ Bu uygulamanın Visual Studio çözüm dosyası [GitHub'da mevcuttur](https://gi
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticide Community Edition dahil olmak üzere Visual Studio 2017'nin herhangi bir sürümünü kullanabilirsiniz. 
+Bu öğreticide Community Edition dahil olmak üzere Visual Studio 2017'nin herhangi bir sürümünü kullanabilirsiniz.
 
 Visual Studio çözümü, uygulama için bir yükleyici de derler. Bu işlevi kullanabilmek için [WiX Toolset](http://wixtoolset.org/) ve [WiX Toolset Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) uygulamalarına ihtiyacınız vardır.
 
@@ -63,7 +64,7 @@ Bu öğreticinin oluşturulduğu an itibarıyla Translator Konuşma Çevirisi hi
 
 Başka bir deyişle konuşma çevirisi için kaynak dilin transkripsiyon desteğine sahip olması gerekir. Sonucu metin halinde almak istediğinizi düşünürsek çıkış dili metin çevirisi için desteklenen dillerden herhangi biri olabilir. Sonucu konuşma olarak almak istiyorsanız yalnızca metin okuma desteğine sahip bir dile çeviri yapabilirsiniz.
 
-Microsoft belirli dönemlerde yeni diller için destek ekleyebilir. Bu nedenle desteklenen dilleri uygulamanıza doğrudan yazmamanız gerekir. Bunun yerine Translator Konuşma Çevirisi API'si tarafından sunulan Languages uç noktasını kullanarak desteklenen dilleri çalışma zamanına alabilirsiniz. Bir veya daha fazla dil listesi alabilirsiniz: 
+Microsoft belirli dönemlerde yeni diller için destek ekleyebilir. Bu nedenle desteklenen dilleri uygulamanıza doğrudan yazmamanız gerekir. Bunun yerine Translator Konuşma Çevirisi API'si tarafından sunulan Languages uç noktasını kullanarak desteklenen dilleri çalışma zamanına alabilirsiniz. Bir veya daha fazla dil listesi alabilirsiniz:
 
 | | |
 |-|-|
@@ -73,7 +74,7 @@ Microsoft belirli dönemlerde yeni diller için destek ekleyebilir. Bu nedenle d
 
 Languages uç noktası abonelik anahtarı gerektirmez ve kullanımı kotanıza dahil edilmez. URI'si `https://dev.microsofttranslator.com/languages` şeklindedir ve sonuçlarını JSON biçiminde döndürür.
 
-Burada gösterilen `MainWindow.xaml.cs` içindeki `UpdateLanguageSettingsAsync()` metodu, desteklenen dillerin listesini almak için Languages uç noktasını çağırır. 
+Burada gösterilen `MainWindow.xaml.cs` içindeki `UpdateLanguageSettingsAsync()` metodu, desteklenen dillerin listesini almak için Languages uç noktasını çağırır.
 
 ```csharp
 private async Task UpdateLanguageSettingsAsync()
@@ -193,9 +194,9 @@ Bu metot öncelikle Languages uç noktasına bir HTTP isteği oluşturur ve üç
 
 Languages uç noktası, dil adlarının temsil edildiği dili belirlemek için isteğin `Accept-Languages` üst bilgisini kullanır. Örneğin Türkçe konuşanların "Almanca" olarak bildiği dil Almanca dilinde "Deutsch", İspanyolca dilinde ise "Alemán" şeklinde yazılır ve dil listesi bu farklılıkları gösterir. Bu üst bilgi için sistemin varsayılan dili kullanılır.
 
-İstek gönderildikten ve JSON yanıtı alındıktan sonra yanıt iç veri yapılarına ayrıştırılır. Ardından bu yapılar Kaynak Dil ve Hedef Dil menülerini oluşturmak için kullanılır. 
+İstek gönderildikten ve JSON yanıtı alındıktan sonra yanıt iç veri yapılarına ayrıştırılır. Ardından bu yapılar Kaynak Dil ve Hedef Dil menülerini oluşturmak için kullanılır.
 
-Kullanılabilir sesler kullanıcı tarafından belirlenen Hedef Dile bağlı olduğundan bu noktada Ses menüsünü ayarlamak mümkün değildir. Bunun yerine her dil için kullanılabilir durumdaki sesler daha sonra kullanılmak üzere depolanır. `ToLanguage_SelectionChanged` işleci (aynı kaynak dosyasındaki) daha sonra kullanıcı bir Hedef Dil seçtiğinde `UpdateVoiceComboBox()` çağrısı yaparak Ses menüsünü güncelleştirir. 
+Kullanılabilir sesler kullanıcı tarafından belirlenen Hedef Dile bağlı olduğundan bu noktada Ses menüsünü ayarlamak mümkün değildir. Bunun yerine her dil için kullanılabilir durumdaki sesler daha sonra kullanılmak üzere depolanır. `ToLanguage_SelectionChanged` işleci (aynı kaynak dosyasındaki) daha sonra kullanıcı bir Hedef Dil seçtiğinde `UpdateVoiceComboBox()` çağrısı yaparak Ses menüsünü güncelleştirir.
 
 Kullanıcı uygulamayı önceden çalıştırmamışsa rastgele bir Hedef Dil seçilir. (Oturumlardaki menü ayarları kaydedilir.)
 
@@ -281,7 +282,7 @@ private void Connect()
         TranslateTo = ((ComboBoxItem)this.ToLanguage.SelectedItem).Tag.ToString(),
         Voice = voicename,
     };
-    
+
     options.Hostname = baseUrl;
     options.AuthHeaderKey = "Authorization";
     options.AuthHeaderValue = ""; // set later in ConnectAsync.
@@ -368,11 +369,11 @@ Burada `speechClient` sınıfını başlatan ve hizmetten gelen metni ve ikili d
 private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAudioDuringTTS)
 {
     await ADMAuthenticate(options);
-    
+
     TextMessageDecoder textDecoder;
-    
+
     s2smtClient = new SpeechClient((SpeechTranslateClientOptions)options, CancellationToken.None);
-    
+
     s2smtClient.OnBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnEndOfBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnTextData += (c, a) => { textDecoder.AppendData(a); lastReceivedPacketTick = DateTime.Now.Ticks; };
@@ -410,7 +411,7 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
     {
         SafeInvoke(() =>
         {
-            // We only care to react to server disconnect when our state is Connected. 
+            // We only care to react to server disconnect when our state is Connected.
             if (currentState == UiState.Connected)
             {
                 Log("E: Connection has been lost.");

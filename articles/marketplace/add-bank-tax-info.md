@@ -1,6 +1,6 @@
 ---
-title: Banka ve vergi bilgilerini ekleme | Azure
-description: Banka ve vergi bilgilerini Geliştirici Merkezi hesabınızda ekleyin.
+title: Banka ve vergi bilgilerini eklemek | Azure
+description: Geliştirici Merkezi hesabınızda banka ve vergi bilgilerini ekleyin.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -13,50 +13,50 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2ff5b9e5bbae15b37726ea066474120d9417feba
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: bfc4f6cbe289326e3a7a2a6ea0a46221e7578d7e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825333"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729092"
 ---
-# <a name="add-bank-and-tax-information"></a>Banka ve vergi bilgilerini ekleme  
-Banka ve vergi bilgilerini liste türü transact kullanarak tüm ticari teklifleri için gereklidir.  
-*   Ardından ticari teklifleri satın alma için yayımlıyorsanız geliştirme Merkezi'nde ödeme ve vergi bilgileri ve istek doğrulama eklemelisiniz.  
+# <a name="add-bank-and-tax-information"></a>Banka ve vergi bilgilerini ekleyin  
+Banka ve vergi bilgilerini liste türünü transact kullanarak tüm ticari teklifleri için gereklidir.  
+*   Ticari teklifleri satın alma için yayımlıyorsanız, ardından, ödeme ve vergi bilgilerini ve istek doğrulamayı geliştirme Merkezi'ne eklemeniz gerekir.  
     >[!IMPORTANT]
-    >Ticari teklifleri (transact), üretime Teklifleriniz göndermek önce banka ve vergi bilgilerini tamamlamanız gerekir.  
+    >Ticari teklifleri (transact), tekliflerinizi üretime göndermeye yönetmeden önce banka ve vergi bilgilerini tamamlamanız gerekir.  
 
-*   Kullanıyorsanız yayımlama yalnızca boş veya KLG sunar ve bilgileri eklemek zorunda değilsiniz. Bilgilerin daha sonra ekleyebilirsiniz, ancak vergi bilgilerinin doğrulanması biraz zaman alabilir. Ticari tekliflere satın alma teklifi planlıyorsanız, bilgilerin mümkün olan en kısa sürede eklemeniz gerekir.  
+*   Eğer yayımlama yalnızca ücretsiz veya KLG sunar ve bilgilerini eklemek gerekmez. Daha sonra bilgiler ekleyebilir, ancak doğrulama vergi bilgileri biraz zaman alabilir. Ticari teklifleri satın almak için teklif planlıyorsanız, mümkün olan en kısa sürede bilgi eklemeniz gerekir.  
 
-## <a name="add-bank-information"></a>Banka bilgilerini ekleme  
-1.  Geliştirici Merkezi'nde Microsoft ID. kullanarak oturum açın  
-    *   Geliştirici merkezine imzalamak için Windows Geliştirme Merkezi sayfasında bulunan ziyaret edin [dev.windows.com](https://dev.windows.com).  
-2.  Sol menüde ödeme hesabı seçin.
-3.  Üzerinde `Choose payment method` sayfasında, `Bank account` veya `PayPal`.  
+## <a name="add-bank-information"></a>Banka bilgilerini ekleyin  
+1.  Microsoft ID. kullanarak Geliştirme Merkezi ile oturum açın  
+    *   Geliştirme Merkezi ile oturum açmak için Windows Geliştirme Merkezi sayfası bulunan ziyaret [dev.windows.com](https://dev.windows.com).  
+2.  Soldaki menünün ödeme hesabı seçin.
+3.  Üzerinde `Choose payment method` sayfasında `Bank account` veya `PayPal`.  
     >[!IMPORTANT]
-    >Market'te müşterilerin satın alması ticari teklifleri varsa, ödeme hesabınız satın alma işlemleri için ödeme almanıza bulunuyor.  
+    >Müşteriler satın ticari teklifleri Market'te varsa, satın alma işlemleri için ödeme aldığınız ödeme hesabınız bulunuyor.  
 
-4.  Ödeme bilgileri girin. Bilgilerin doğru olduğunu doğruladıktan sonra kaydetme düğmesini tıklatın.  
+4.  Ödeme bilgilerini girin. Bilgilerin doğru olduğunu doğruladıktan sonra Kaydet düğmesine tıklayın.  
     >[!IMPORTANT]
-    >Güncelleştirmek veya ödeme hesabınızı değiştirirseniz, geçerli bilgilerini yeni bilgilerle değiştirerek aynı adımları izlemelisiniz. Değişiklikleri Ödeme hesabınıza bir ödeme döngüsü kadar ödemeler gecikmeye neden olabilir. Microsoft hesabı değişikliği doğrulamanız gerekir çünkü bu gecikme olur, bu zaman aynıdır, ilk kurulum ödeme hesabınızı. Hesabınızı doğrulandıktan sonra tam tutar Ücretli. Son ödeme geçerli ödeme döngüsü bir sonraki döngüyü eklenir.  
+    >Ödeme hesabınızı güncelleştirmek veya değiştirirseniz, geçerli bilgilerini yeni bilgilerle değiştirerek aynı adımları izlemelisiniz. Değişiklikleri ödeme hesabınızda bir ödeme dönemi kadar ödeme gecikmeye neden olabilir. Microsoft hesap değişikliğini doğrulamanız gerekir çünkü bu bir gecikme olur, bu ne zaman aynı olur, ilk kurulum ödeme hesabınızı. Hesabınız doğrulandı sonra tam miktar Ücretli. Son ödeme geçerli ödeme döngüsünün bir sonraki döngüyü eklenir.  
 
 4.  İleri düğmesine tıklayın. 
 
----   
+---
 
-## <a name="add-tax-information"></a>Vergi bilgilerini ekleme  
-1.  Geliştirici Merkezi'nde Microsoft ID. kullanarak oturum açın  
-    *   Geliştirici merkezine imzalamak için Windows Geliştirme Merkezi sayfasında bulunan ziyaret edin [dev.windows.com](https://dev.windows.com).  
-2.  Sol menüde vergi profili seçin. 
-3.  Üzerinde `Set up your tax form` sayfasında, ülke veya bölge kalıcı residency olduğu seçin.  
+## <a name="add-tax-information"></a>Vergi bilgilerini ekleyin  
+1.  Microsoft ID. kullanarak Geliştirme Merkezi ile oturum açın  
+    *   Geliştirme Merkezi ile oturum açmak için Windows Geliştirme Merkezi sayfası bulunan ziyaret [dev.windows.com](https://dev.windows.com).  
+2.  Soldaki menünün vergi profili seçin. 
+3.  Üzerinde `Set up your tax form` sayfasında, ülke veya kalıcı yerleşimi bulunduğu bölgeyi seçin.  
     
-    Ülke veya bölge birincil vatandaşlığa benzer tutun yeri seçin.  
+    Ülke veya bölge birincil Vatandaşlık tutun yeri seçin.  
     
     İleri düğmesine tıklayın. 
-4.  Vergi bilgilerinizi girin.  
+4.  Vergi ayrıntılarınızı girin.  
 5.  İleri düğmesine tıklayın.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-*   Ziyaret [Azure Marketi ve AppSource yayımcı Kılavuzu](./marketplace-publishers-guide.md) sayfası.  
+*   Ziyaret [Azure Market ve AppSource yayımcı Kılavuzu](./marketplace-publishers-guide.md) sayfası.  
  
----  
+---

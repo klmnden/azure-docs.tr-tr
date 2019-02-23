@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: cdbce2073213906dbb82b0684f8ef4e3528f6cf4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0afc507a49ae7cc54fb0daa5c7ae71c3a40ee637
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652705"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731115"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde veri toplamayı
 Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve Azure harici bilgisayarları güvenlik açıklarını ve tehditleri izlemek için veri toplar. Güvenlik-ilgili çeşitli yapılandırmaları ve olay günlüklerini makineden okur ve verileri analiz için çalışma alanınıza kopyalayan Log Analytics aracısını kullanarak verileri toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri) çalışan işlemler, makine adı, IP adresleri ve kullanıcı oturum. Log Analytics aracısını, ayrıca kilitlenme bilgi dökümü dosyalarını çalışma alanınıza kopyalar.
@@ -266,7 +266,8 @@ Güvenlik Merkezi, Vm'lerinizden güvenlik verilerini toplamak ve öneriler ve u
   > [!NOTE]
   > Bölüm **olay ve performans verileri toplama** isteğe bağlıdır.
   >
-6. Uzantıyı dağıtmak için PowerShell kullanmak için aşağıdaki PowerShell örneği kullanın:
+6. Uzantıyı dağıtmak için PowerShell kullanmak için aşağıdaki PowerShell örneği kullanın:  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+   
     1.  Git **Log Analytics** tıklayın **Gelişmiş ayarlar**.
     
         ![Log Analytics'i ayarlama][11]
@@ -288,11 +289,11 @@ Güvenlik Merkezi, Vm'lerinizden güvenlik verilerini toplamak ve öneriler ve u
 
       - Bir Windows VM'de yüklerken:
         
-             Set-AzureRmVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
+             Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
     
        - Bir Linux VM'de yüklerken:
         
-             Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+             Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
 > [!NOTE]
 > Yönergeler için PowerShell kullanarak yerleşik güvenlik Merkezi'ne nasıl görürüm [ekleme PowerShell kullanarak Azure Güvenlik Merkezi'nin otomatik hale getirmek](security-center-powershell-onboarding.md).

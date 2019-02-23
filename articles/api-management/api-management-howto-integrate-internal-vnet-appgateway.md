@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: da195f414da032b5274a9dc1a184b66094f245f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a88ea248f1db90916c5dbcaefc24131eb976e2f6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493491"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728352"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API yönetimi bir iç sanal ağ'ı Application Gateway ile tümleştirme
 
@@ -36,6 +36,8 @@ API Management'ın bir iç sanal ağ ile uygulama ağ geçidi ön uç sağlanan 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bu makalede açıklanan adımları takip etmek için şunlara sahip olmalısınız:
 
@@ -55,7 +57,7 @@ Bu makalede, iç ve dış müşteriler için tek bir API Management hizmet ve he
 
 ## <a name="before-you-begin"> </a> Başlamadan önce
 
-* Azure PowerShell’in en yeni sürümünü kullandığınızdan emin olun. Daha fazla bilgi için bkz.[Resource Manager ile Windows PowerShell Kullanma](https://docs.microsoft.com/azure/azure-resource-manager/powershell-azure-resource-manager)
+* Azure PowerShell’in en yeni sürümünü kullandığınızdan emin olun. Yükleme yönergelerine bakın [Azure PowerShell yükleme](/powershell/azure/install-az-ps). 
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>API yönetimi ve uygulama ağ geçidi arasında bir tümleştirme oluşturmak için gereken nedir?
 
@@ -91,7 +93,7 @@ Bu kılavuzda biz de açığa çıkarır **Geliştirici Portalı** uygulama ağ 
 Azure'da oturum açma
 
 ```powershell
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 Kimlik bilgilerinizle kimliğinizi.
@@ -102,7 +104,7 @@ Kimlik bilgilerinizle kimliğinizi.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000" # GUID of your Azure subscription
-Get-AzureRmSubscription -Subscriptionid $subscriptionId | Select-AzureRmSubscription
+Get-AzSubscription -Subscriptionid $subscriptionId | Select-AzSubscription
 ```
 
 ### <a name="step-3"></a>3. Adım
@@ -112,7 +114,7 @@ Bir kaynak grubu oluşturun (mevcut bir kaynak grubu kullanıyorsanız bu adım�
 ```powershell
 $resGroupName = "apim-appGw-RG" # resource group name
 $location = "West US"           # Azure region
-New-AzureRmResourceGroup -Name $resGroupName -Location $location
+New-AzResourceGroup -Name $resGroupName -Location $location
 ```
 
 Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu, kaynak grubunda kaynaklar için varsayılan konum olarak kullanılır. Tüm uygulama ağ geçidi oluşturma komutlarının aynı kaynak grubunu kullandığından emin olun.
@@ -126,7 +128,7 @@ Aşağıdaki örnek, kaynak kullanarak sanal bir ağ yöneticisi oluşturma işl
 10.0.0.0/24 adres aralığını, sanal ağ oluşturulurken Application Gateway için kullanılacak alt ağ değişkenine atayın.
 
 ```powershell
-$appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim01" -AddressPrefix "10.0.0.0/24"
+$appgatewaysubnet = New-AzVirtualNetworkSubnetConfig -Name "apim01" -AddressPrefix "10.0.0.0/24"
 ```
 
 ### <a name="step-2"></a>2. Adım
@@ -134,7 +136,7 @@ $appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim01" -Addres
 Adres aralığı 10.0.1.0/24 bir sanal ağ oluşturulurken API yönetimi için kullanılacak alt ağ değişkenine atayın.
 
 ```powershell
-$apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10.0.1.0/24"
+$apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10.0.1.0/24"
 ```
 
 ### <a name="step-3"></a>3. Adım
@@ -142,7 +144,7 @@ $apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefi
 Adlı bir sanal ağ oluşturma **appgwvnet** kaynak grubundaki **apim-appGw-RG** Batı ABD bölgesi için. Önek 10.0.0.0/16 kullanın 10.0.0.0/24 alt ağlar ve 10.0.1.0/24.
 
 ```powershell
-$vnet = New-AzureRmVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
+$vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
 ```
 
 ### <a name="step-4"></a>4. Adım
@@ -163,7 +165,7 @@ Aşağıdaki örnek, bir API Management hizmeti yalnızca iç erişimi için yap
 Yukarıda oluşturulan $apimsubnetdata alt ağı kullanarak bir API Yönetim sanal ağ nesnesi oluşturun.
 
 ```powershell
-$apimVirtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location $location -SubnetResourceId $apimsubnetdata.Id
+$apimVirtualNetwork = New-AzApiManagementVirtualNetwork -Location $location -SubnetResourceId $apimsubnetdata.Id
 ```
 
 ### <a name="step-2"></a>2. Adım
@@ -174,7 +176,7 @@ Sanal ağ içinde bir API Management hizmeti oluşturun.
 $apimServiceName = "ContosoApi"       # API Management service instance name
 $apimOrganization = "Contoso"         # organization name
 $apimAdminEmail = "admin@contoso.com" # administrator's email address
-$apimService = New-AzureRmApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
+$apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 
 Yukarıdaki komut başarılı olduktan sonra başvurmak [DNS yapılandırması gerekli iç sanal ağ API Management hizmeti erişmeye](api-management-using-with-internal-vnet.md#apim-dns-configuration) erişmek için. Bu adım, birden fazla yarım saat sürebilir.
@@ -194,8 +196,8 @@ $portalCertPfxPath = "C:\Users\Contoso\portal.pfx"   # full path to portal.conto
 $gatewayCertPfxPassword = "certificatePassword123"   # password for api.contoso.net pfx certificate
 $portalCertPfxPassword = "certificatePassword123"    # password for portal.contoso.net pfx certificate
 
-$certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $gatewayCertPfxPath -PfxPassword $gatewayCertPfxPassword -PassThru
-$certPortalUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $portalCertPfxPath -PfxPassword $portalCertPfxPassword -PassThru
+$certUploadResult = Import-AzApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $gatewayCertPfxPath -PfxPassword $gatewayCertPfxPassword -PassThru
+$certPortalUploadResult = Import-AzApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $portalCertPfxPath -PfxPassword $portalCertPfxPassword -PassThru
 ```
 
 ### <a name="step-2"></a>2. Adım
@@ -203,9 +205,9 @@ $certPortalUploadResult = Import-AzureRmApiManagementHostnameCertificate -Resour
 Sertifikaları yüklendiğinde, ana bilgisayar adı portalı ve proxy için yapılandırma nesnesi oluşturun.  
 
 ```powershell
-$proxyHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname $gatewayHostname
-$portalHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certPortalUploadResult.Thumbprint -Hostname $portalHostname
-$result = Set-AzureRmApiManagementHostnames -Name $apimServiceName -ResourceGroupName $resGroupName –PortalHostnameConfiguration $portalHostnameConfig -ProxyHostnameConfiguration $proxyHostnameConfig
+$proxyHostnameConfig = New-AzApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname $gatewayHostname
+$portalHostnameConfig = New-AzApiManagementHostnameConfiguration -CertificateThumbprint $certPortalUploadResult.Thumbprint -Hostname $portalHostname
+$result = Set-AzApiManagementHostnames -Name $apimServiceName -ResourceGroupName $resGroupName –PortalHostnameConfiguration $portalHostnameConfig -ProxyHostnameConfiguration $proxyHostnameConfig
 ```
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Ön uç yapılandırma için genel bir IP adresi oluşturun
@@ -213,7 +215,7 @@ $result = Set-AzureRmApiManagementHostnames -Name $apimServiceName -ResourceGrou
 Genel IP kaynağı oluşturun **Publicıp01** kaynak grubunda.
 
 ```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -name "publicIP01" -location $location -AllocationMethod Dynamic
+$publicip = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "publicIP01" -location $location -AllocationMethod Dynamic
 ```
 
 Hizmet başlatıldığında uygulama ağ geçidine bir IP adresi atanır.
@@ -227,7 +229,7 @@ Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturulmadan önce ayarla
 **gatewayIP01** adlı bir uygulama ağ geçidi IP yapılandırması oluşturun. Application Gateway başladığında, yapılandırılan alt ağdan bir IP adresi alır ve ağ trafiğini arka uç IP havuzundaki IP adreslerine yönlendirir. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
 
 ```powershell
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
+$gipconfig = New-AzApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
 ```
 
 ### <a name="step-2"></a>2. Adım
@@ -235,7 +237,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "gatewayIP01" -S
 Genel IP uç noktası için ön uç IP bağlantı noktasını yapılandırın. Bu bağlantı noktası, son kullanıcılarının bağlantı noktasıdır.
 
 ```powershell
-$fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "port01"  -Port 443
+$fp01 = New-AzApplicationGatewayFrontendPort -Name "port01"  -Port 443
 ```
 
 ### <a name="step-3"></a>3. Adım
@@ -243,7 +245,7 @@ $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "port01"  -Port 443
 Ön uç IP’sini genel IP uç noktası ile yapılandırın.
 
 ```powershell
-$fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
+$fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
 ```
 
 ### <a name="step-4"></a>4. Adım
@@ -252,9 +254,9 @@ $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -
 
 ```powershell
 $certPwd = ConvertTo-SecureString $gatewayCertPfxPassword -AsPlainText -Force
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name "cert01" -CertificateFile $gatewayCertPfxPath -Password $certPwd
+$cert = New-AzApplicationGatewaySslCertificate -Name "cert01" -CertificateFile $gatewayCertPfxPath -Password $certPwd
 $certPortalPwd = ConvertTo-SecureString $portalCertPfxPassword -AsPlainText -Force
-$certPortal = New-AzureRmApplicationGatewaySslCertificate -Name "cert02" -CertificateFile $portalCertPfxPath -Password $certPortalPwd
+$certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -CertificateFile $portalCertPfxPath -Password $certPortalPwd
 ```
 
 ### <a name="step-5"></a>5. Adım
@@ -262,8 +264,8 @@ $certPortal = New-AzureRmApplicationGatewaySslCertificate -Name "cert02" -Certif
 HTTP dinleyicileri için uygulama ağ geçidi oluşturun. Ön uç IP yapılandırması, bağlantı noktası ve ssl sertifikaları atayabilirsiniz.
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
-$portalListener = New-AzureRmApplicationGatewayHttpListener -Name "listener02" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $certPortal -HostName $portalHostname -RequireServerNameIndication true
+$listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
+$portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $certPortal -HostName $portalHostname -RequireServerNameIndication true
 ```
 
 ### <a name="step-6"></a>6. Adım
@@ -275,8 +277,8 @@ API Management hizmeti için özel araştırmalara oluşturma `ContosoApi` proxy
 >
 
 ```powershell
-$apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName $gatewayHostname -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
-$apimPortalProbe = New-AzureRmApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/signin" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
+$apimprobe = New-AzApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName $gatewayHostname -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+$apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/signin" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
 ```
 
 ### <a name="step-7"></a>7. Adım
@@ -284,7 +286,7 @@ $apimPortalProbe = New-AzureRmApplicationGatewayProbeConfig -Name "apimportalpro
 SSL etkin arka uç havuzu kaynaklar üzerinde kullanılacak sertifikayı yükleyin. Bu, adım 4'te sağlanan aynı sertifikadır.
 
 ```powershell
-$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath
+$authcert = New-AzApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath
 ```
 
 ### <a name="step-8"></a>8. Adım
@@ -292,8 +294,8 @@ $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitel
 Application Gateway için HTTP arka uç ayarlarını yapılandırın. Bu bir sonra bunlar istek iptal edildi arka uç, zaman aşımı sınırını ayarlama içerir. Bu değer, yoklama zaman aşımı farklıdır.
 
 ```powershell
-$apimPoolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "apimPoolSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimprobe -AuthenticationCertificates $authcert -RequestTimeout 180
-$apimPoolPortalSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "apimPoolPortalSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimPortalProbe -AuthenticationCertificates $authcert -RequestTimeout 180
+$apimPoolSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimprobe -AuthenticationCertificates $authcert -RequestTimeout 180
+$apimPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolPortalSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimPortalProbe -AuthenticationCertificates $authcert -RequestTimeout 180
 ```
 
 ### <a name="step-9"></a>9. Adım
@@ -301,7 +303,7 @@ $apimPoolPortalSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 
 Adlı bir arka uç IP adresi havuzu yapılandırmak **apimbackend** iç sanal IP adresi API Management hizmetinin, yukarıda oluşturulan.
 
 ```powershell
-$apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.PrivateIPAddresses[0]
+$apimProxyBackendPool = New-AzApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.PrivateIPAddresses[0]
 ```
 
 ### <a name="step-10"></a>10. adım
@@ -309,8 +311,8 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "a
 Application Gateway, temel yönlendirmeyi kullanmak kurallar oluşturun.
 
 ```powershell
-$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType Basic -HttpListener $listener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
-$rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Basic -HttpListener $portalListener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolPortalSetting
+$rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType Basic -HttpListener $listener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
+$rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Basic -HttpListener $portalListener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolPortalSetting
 ```
 
 > [!TIP]
@@ -321,7 +323,7 @@ $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule2" -RuleTyp
 Application Gateway için örnek sayısını ve boyutu yapılandırın. Bu örnekte, kullanıyoruz [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) API Management kaynağının güvenliği artırmak için.
 
 ```powershell
-$sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
+$sku = New-AzApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
 ```
 
 ### <a name="step-12"></a>12. adım
@@ -329,7 +331,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity
 WAF "Önleme" modunda olacak şekilde yapılandırın.
 
 ```powershell
-$config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
+$config = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
 ## <a name="create-application-gateway"></a>Uygulama ağ geçidi oluşturma
@@ -338,7 +340,7 @@ $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enab
 
 ```powershell
 $appgwName = "apim-app-gw"
-$appgw = New-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $resGroupName -Location $location -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $apimPoolPortalSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener, $portalListener -RequestRoutingRules $rule01, $rule02 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert, $certPortal -AuthenticationCertificates $authcert -Probes $apimprobe, $apimPortalProbe
+$appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupName -Location $location -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $apimPoolPortalSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener, $portalListener -RequestRoutingRules $rule01, $rule02 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert, $certPortal -AuthenticationCertificates $authcert -Probes $apimprobe, $apimPortalProbe
 ```
 
 ## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>API Management proxy ana bilgisayar adı uygulama ağ geçidi kaynağının genel DNS adı için CNAME
@@ -348,7 +350,7 @@ Ağ geçidi oluşturulduktan sonraki adım, iletişim için ön uç yapılandır
 Uygulama ağ geçidinin DNS adı, APIM Ara sunucu konak adını işaret eden bir CNAME kaydı oluşturmak için kullanılmalıdır (örneğin `api.contoso.net` Yukarıdaki örneklerde) bu DNS adı. Ön uç IP CNAME kaydını yapılandırmak için uygulama ağ geçidinin ayrıntılarını ve onunla ilişkilendirilmiş IP/DNS adını Publicıpaddress öğesini kullanarak alın. Ağ geçidi başlatmada VIP değişebilir olduğundan A kaydı kullanımı önerilmez.
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
+Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ## <a name="summary"> </a> Özeti

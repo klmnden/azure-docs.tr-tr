@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7734a273f6e07290ec7124def5cb3b095f7f067b
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053917"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674259"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C için Azure IOT cihaz SDK'sı
 
@@ -111,7 +111,7 @@ Bu sekme, IOT hub'ına kayıtlı cihazları yönettiğiniz kullanılabilir.
 
 1. Seçerseniz **seçili cihaz için bağlantı dizesini kopyalayın**, cihaz bağlantı dizesini panoya kopyalandı. Cihaz bağlantı dizesini bir kopyasını tutun. Aşağıdaki bölümlerde açıklanan örnek uygulamaları çalıştırırken gerekir.
 
-Yukarıdaki adımları tamamladıktan sonra biraz kod çalıştırmaya başlamak hazırsınız demektir. Çoğu örnekleri bir sabit bir bağlantı dizesi girin olanak tanıyan ana kaynak dosyasının en üstüne sahip. Örneğin, karşılık gelen satırından **iothub\_istemci\_örnek\_mqtt** uygulamayı şu şekilde görünür.
+Yukarıdaki adımları tamamladıktan sonra biraz kod çalıştırmaya başlamak hazırsınız demektir. Çoğu örnekleri bir sabit bir bağlantı dizesi girin olanak tanıyan ana kaynak dosyasının en üstüne sahip. Örneğin, karşılık gelen satırından **iothub_client\_örnekleri\_iothub_convenience_sample** uygulamayı şu şekilde görünür.
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -121,7 +121,7 @@ static const char* connectionString = "[device connection string]";
 
 İçinde **iothub\_istemci** klasöründe [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) deposu yok bir **örnekleri** adlıuygulamayıiçerenklasörde**iothub\_istemci\_örnek\_mqtt**.
 
-Windows sürümü **iothub\_istemci\_örnek\_mqtt** uygulama aşağıdaki Visual Studio çözümünü içerir:
+Windows sürümü **iothub_client\_örnekleri\_iothub_convenience_sample** uygulama aşağıdaki Visual Studio çözümünü içerir:
 
   ![Visual Studio Çözüm Gezgini](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
@@ -137,7 +137,7 @@ Bu çözüm, tek bir proje içerir. Bu çözümde yüklü dört NuGet paketi var
 
 Her zaman gerekecektir **Microsoft.Azure.C.SharedUtility** paketini SDK ile çalışırken. Bu örnek ve MQTT protokolünü kullanır, bu nedenle içermelidir **Microsoft.Azure.umqtt** ve **Microsoft.Azure.IoTHub.MqttTransport** paketleri (AMQP ve HTTPS için eşdeğer paketleri yoktur). Örnek kullandığından **sı: Iothubclient** kitaplığı de dahil etmelisiniz **Microsoft.Azure.IoTHub.IoTHubClient** pakette çözümünüze.
 
-Örnek uygulama için uygulama bulabilirsiniz **iothub\_istemci\_örnek\_mqtt.c** kaynak dosyası.
+Örnek uygulama için uygulama bulabilirsiniz **iothub_client\_örnekleri\_iothub_convenience_sample** kaynak dosyası.
 
 Ne kullanmak için gerekli yoluyla gösterilmesi için bu örnek uygulama aşağıdaki adımları kullanın **sı: Iothubclient** kitaplığı.
 
@@ -351,7 +351,7 @@ Kavramsal olarak **seri hale getirici** kitaplığı yer alan üst kısmındaki 
 
 Önceki örnekte, bu paketlerin en gördüğünüz ancak **Microsoft.Azure.IoTHub.Serializer** yenidir. Bu paket kullandığınızda gereklidir **seri hale getirici** kitaplığı.
 
-Örnek uygulamada uygulamasını bulabilirsiniz **simplesample\_mqtt.c** dosya.
+Örnek uygulamada uygulamasını bulabilirsiniz ***iothub_client\_örnekleri\_iothub_convenience_sample** dosya.
 
 Aşağıdaki bölümlerde, bu örnek anahtar bölümleri arasında yol.
 
@@ -392,7 +392,7 @@ Son olarak, çağrı **Oluştur\_modeli\_örneği** işlevi. **WeatherStation** 
 
 ### <a name="define-the-model"></a>Model tanımlama
 
-Bir modeldeki **seri hale getirici** kitaplığı tanımlar, cihazınızın IOT Hub'ına gönderebilirsiniz iletileri ve denen bir ileti *eylemleri* alabileceği modelleme dilde. Bir model kullanarak bir dizi C makroları olarak tanımlama **simplesample\_mqtt** örnek uygulama:
+Bir modeldeki **seri hale getirici** kitaplığı tanımlar, cihazınızın IOT Hub'ına gönderebilirsiniz iletileri ve denen bir ileti *eylemleri* alabileceği modelleme dilde. Bir model kullanarak bir dizi C makroları olarak tanımlama **iothub_client\_örnekleri\_iothub_convenience_sample** örnek uygulama:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);

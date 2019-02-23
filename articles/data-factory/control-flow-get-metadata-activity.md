@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 02/22/2019
 ms.author: shlo
-ms.openlocfilehash: 4188fb413cc1001b6e4813fe69518a016c8c0656
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ca77fa092e41534e0f18323014c9cea583c19758
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354272"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671667"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory'de etkinlik meta verilerini al
 GetMetadata etkinliği, almak için kullanılabilir **meta verileri** Azure Data factory'deki herhangi bir veri. Bu etkinlik, aşağıdaki senaryolarda kullanılabilir:
@@ -45,14 +45,15 @@ GetMetadata etkinliği, bir veri kümesi gerekli bir giriş olarak alır ve etki
 | Bağlayıcı/meta verileri | ItemName<br>(dosya/klasör) | Itemtype<br>(dosya/klasör) | boyut<br>(dosya) | oluşturuldu<br>(dosya/klasör) | Son değiştirme<br>(dosya/klasör) |childItems<br>(klasör) |contentMD5<br>(dosya) | yapısı<br/>(dosya) | columnCount<br>(dosya) | Var.<br>(dosya/klasör) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Azure Blob | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
-| Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure Dosya Depolama | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Dosya Sistemi | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
-- Amazon S3, `lastModified` demet ve anahtar ancak sanal klasör; için geçerlidir; ve `exists` ön eki veya sanal klasör değil, demet ve anahtarı için geçerlidir.
+- Amazon S3 ve Google Sloud depolama `lastModified` demet ve anahtar ancak sanal klasör; için geçerlidir; ve `exists` ön eki veya sanal klasör değil, demet ve anahtarı için geçerlidir.
 - Azure Blob için `lastModified` kapsayıcı ve blob ancak sanal klasör için geçerlidir.
 
 **İlişkisel veritabanı:**
@@ -128,7 +129,7 @@ Alınacak GetMetadata etkinliği alan listesinde, aşağıdaki meta veri türler
 
 Şu anda GetMetadata etkinliği, meta veri bilgilerini aşağıdaki türleri getirebilir.
 
-Özellik | Açıklama | Gereklidir
+Özellik | Açıklama | Gerekli
 -------- | ----------- | --------
 alan listesi | Gerekli meta veri bilgilerini türlerini listeler. Ayrıntılara bakın [meta veri seçenekleri](#metadata-options) desteklenen meta veriler bölümü. | Evet 
 Veri kümesi | GetMetadata etkinliği tarafından alınmasına izin, meta verileri etkinliği olan başvuru veri kümesi. Bkz: [desteklenen yetenekler](#supported-capabilities) bölüm üzerinde desteklenen bağlayıcılar ve veri kümesi söz dizimi ayrıntıları bağlayıcı konusuna bakın. | Evet

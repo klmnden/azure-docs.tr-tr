@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: c68d9c3d40ffa3d4a5a5ae635fbc0ea0a010239c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874745"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675118"
 ---
 # <a name="translator-speech-api"></a>Translator Konuşma Çevirisi API’si
 
@@ -90,7 +91,7 @@ Toplam dosya boyutu (bayt 4-7) ve "veri" (bayt 40-43) boyutu sıfır olarak ayar
 WAV (RIFF) üst bilgisi gönderdikten sonra istemci ses veri öbekleri gönderir. İstemci, sabit bir süre (örneğin akışı 100ms birer birer ses) temsil eden sabit boyutlu öbeklere genellikle akışı sağlanacak.
 
 ### <a name="signal-the-end-of-the-utterance"></a>Sinyal utterance sonu
-Translator konuşma tanıma API'si, döküm ve ses akışı çevirisi ses gönderiyorsanız olarak döndürür. Son transkripti, son çeviri ve çevrilmiş ses için yalnızca utterance sonunda döndürülür. Bazı durumlarda utterance sonuna zorlamak isteyebilirsiniz. Lütfen sessizlik 2.5 utterance sonuna zorlamak için saniye gönderin. 
+Translator konuşma tanıma API'si, döküm ve ses akışı çevirisi ses gönderiyorsanız olarak döndürür. Son transkripti, son çeviri ve çevrilmiş ses için yalnızca utterance sonunda döndürülür. Bazı durumlarda utterance sonuna zorlamak isteyebilirsiniz. Lütfen sessizlik 2.5 utterance sonuna zorlamak için saniye gönderin.
 
 ### <a name="final-result"></a>Son Sonuç
 Bir son konuşma tanıma işleminin sonucu bir utterance sonunda oluşturulur. Bir sonuç hizmetinden istemciye metin türünde bir WebSocket ileti kullanarak aktarılır. İleti içeriğini aşağıdaki özelliklere sahip bir nesnenin JSON seri hale getirme:
@@ -112,7 +113,7 @@ Bir örnek nihai sonucu aşağıdaki gibidir:
 {
   type: "final"
   id: "23",
-  recognition: "what was said", 
+  recognition: "what was said",
   translation: "translation of what was said",
   audioStreamPosition: 319680,
   audioSizeBytes: 35840,
@@ -143,7 +144,7 @@ Bir örnek nihai sonucu aşağıdaki gibidir:
 {
   type: "partial"
   id: "23.2",
-  recognition: "what was", 
+  recognition: "what was",
   translation: "translation of what was",
   audioStreamPosition: 319680,
   audioSizeBytes: 25840,
@@ -193,46 +194,3 @@ Bir istemci uygulaması ses akışı tamamlandı ve son nihai sonucu aldı, WebS
 |401    |Yetkilendirilmedi. Kimlik bilgileri belirlenen, geçerli olduğunu ve iyi durumda olduğunuzu kullanılabilir bir bakiye ile Azure veri marketi aboneliğinizin olduğundan emin olun.|||
 |500    |Bir hata oluştu. Sorun devam ederse, istemci izleme tanımlayıcısı (X-ClientTraceId) rapor ya da istek tanımlayıcısı (X-RequestId).|||
 |503    |Sunucu geçici olarak kullanılamıyor. Lütfen isteği yeniden deneyin. Sorun devam ederse, istemci izleme tanımlayıcısı (X-ClientTraceId) rapor ya da istek tanımlayıcısı (X-RequestId).|||
-
-    
-
-
-    
-
-
-
-
-
-    
-    
-
-
-
-
-    
-
-
-
-
-    
-
-
-
-
-    
-
-            
-
-
-
-
-        
-
-
-
-
-
-
-
-
-

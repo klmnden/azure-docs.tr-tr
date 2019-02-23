@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1d8d78ceb9cdb5e5dd205306eac00c8ca89e8d4a
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 57850f67b56113036cb6cc37e9f1f2694ba9eb8f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587948"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672738"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure haritalar harita denetimini kullanma
 
@@ -95,13 +95,14 @@ Harita denetimi istemci tarafı Javascript kitaplığını kullanarak bir web sa
             authOptions: {
                 authType: 'aad',
                 clientId: '<Your AAD Client Id>',
-                aadAppId: '<Your AAD App Id',
+                aadAppId: '<Your AAD App Id>',
                 aadTenant: 'msft.ccsctp.net'
             }
         });
     </script>
     ```
 
+    Bkz: [Azure Haritalar ile kimlik doğrulaması](azure-maps-authentication.md) daha fazla ayrıntı için.
 6. İsteğe bağlı olarak, şu meta etiketini öğeleri yararlı sayfanıza gidin ekleme bulabilirsiniz:
 
     ```html

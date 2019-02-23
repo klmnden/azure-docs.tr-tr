@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: d148b43750b4e57ff650f8e96bfda1fb5c57dd4b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ac0a4bf6f332095bd75a6be83d7a1cd3d37c8e1c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657340"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674557"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake depolama Gen1 gelen veya veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -113,15 +113,15 @@ Aşağıdaki özellikler desteklenir:
 
 ### <a name="managed-identity"></a> Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak
 
-Veri Fabrikası ile ilişkilendirilebilen bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği, Data Lake Store kimlik doğrulaması, kendi hizmet sorumlusunu kullanmaya benzer doğrudan kullanabilirsiniz. Belirlenen Bu fabrika, verilere erişmek ve bunları kopyalamak için veya Data Lake Store sağlar.
+Veri Fabrikası ile ilişkilendirilebilen bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Data Lake Store kimlik doğrulaması, kendi hizmet sorumlusunu kullanmaya benzer şekilde, bu yönetilen kimlik doğrudan kullanabilirsiniz. Belirlenen Bu fabrika, verilere erişmek ve bunları kopyalamak için veya Data Lake Store sağlar.
 
 Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak için:
 
-1. [Veri Fabrikası hizmet kimliği almak](data-factory-service-identity.md#retrieve-service-identity) "hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak.
-2. Hizmet kimlik için Data Lake Store, bu notlar aşağıdaki hizmet sorumlusu için yaptığınız şekilde erişim.
+1. [Data factory yönetilen kimlik bilgilerini alma](data-factory-service-identity.md#retrieve-managed-identity) "hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak.
+2. Yönetilen kimlik için Data Lake Store, bu notlar aşağıdaki hizmet sorumlusu için yaptığınız şekilde erişim.
 
 >[!IMPORTANT]
-> Veri Fabrikası hizmet kimliği uygun Data Lake Store içinde izni olduğundan emin olun:
+> Data Lake Store data factory yönetilen kimlik uygun izin verme emin olun:
 >- **Kaynak olarak**: İçinde **Veri Gezgini** > **erişim**, en az izni **okuma + yürütme** izni listeler ve klasör ve alt klasörlerde dosyaları kopyalayın. Ya da size verebilir **okuma** tek bir dosyayı kopyalama izni. Eklemek seçebileceğiniz **bu klasör ve tüm alt öğeleri** için özyinelemeli olarak ekleyin **erişim izni ve varsayılan izin girdisi**. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
 >- **Havuz olarak**: İçinde **Veri Gezgini** > **erişim**, en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak için izni. Eklemek seçebileceğiniz **bu klasör ve tüm alt öğeleri** için özyinelemeli olarak ekleyin **erişim izni ve varsayılan izin girdisi**. Kopyalamak için Azure tümleştirme çalışma zamanı kullanıyorsanız (hem kaynak hem de bulutta) verme IAM içinde en az **okuyucu** Data Factory'ye Data Lake Store için bölge algılamak izin vermek için rol. Bu IAM rol açıkça önlemek istediğiniz [Azure tümleştirme çalışma zamanı oluşturma](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store konumu ile. Bunları, aşağıdaki örnek olarak Data Lake Store bağlı hizmetinde ilişkilendirin.
 

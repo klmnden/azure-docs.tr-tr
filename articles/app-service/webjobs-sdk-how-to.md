@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/19/2019
 ms.author: glenga
-ms.openlocfilehash: ab502c25a632977065e55d2eeafd684203636b14
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a2e07f9022d7404d037903fda627649918134cb7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109920"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732747"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli bir arka plan işlemleri için Azure Web işleri SDK'sını kullanma
 
@@ -212,7 +212,7 @@ static void Main(string[] args)
 
 Giriş bağlamaları, verileri Azure veya üçüncü taraf hizmetleri kodunuza kullanılabilmesi için bildirim temelli bir yöntemini sağlar. Çıkış bağlamaları, verileri güncelleştirmek için bir yol sağlar. [Get başlangıç makalesi](webjobs-sdk-get-started.md) her bir örneği gösterilmektedir.
 
-Yöntemin dönüş değerini özniteliği uygulayarak, bir yöntemin dönüş değeri bir çıkış bağlaması için kullanabilirsiniz. Azure işlevleri'nde örneğe bakın [Tetikleyicileri ve bağlamaları](../azure-functions/functions-triggers-bindings.md#using-the-function-return-value) makalesi.
+Yöntemin dönüş değerini özniteliği uygulayarak, bir yöntemin dönüş değeri bir çıkış bağlaması için kullanabilirsiniz. Azure işlevleri'nde örneğe bakın [Tetikleyicileri ve bağlamaları](../azure-functions/functions-bindings-return-value.md) makalesi.
 
 ## <a name="binding-types"></a>Bağlama türü
 
@@ -445,13 +445,13 @@ public static void CreateThumbnail(
 }
 ```
 
-Bağlama ifadeleri hakkında daha fazla bilgi için bkz: [ifadeleri ve desenleri bağlama](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns) Azure işlevleri belgelerinde.
+Bağlama ifadeleri hakkında daha fazla bilgi için bkz: [ifadeleri ve desenleri bağlama](../azure-functions/functions-bindings-expressions-patterns.md) Azure işlevleri belgelerinde.
 
 ### <a name="custom-binding-expressions"></a>Özel bağlama ifadeleri
 
 Bazı durumlarda bir kuyruk adı, bir blob adı veya kapsayıcı belirtmek istediğiniz veya bir tablo adı: sabit kodlamak yerine kod bu. Örneğin, kuyruk adı belirtmek isteyebilirsiniz `QueueTrigger` bir yapılandırma dosyası veya ortam değişkeni özniteliği.
 
-Geçirerek bunu yapabilirsiniz bir `NameResolver` nesnesini `JobHostConfiguration` nesnesi. Tetikleyicisi veya bağlaması öznitelik oluşturucu parametresi, yer tutucu karakterleri içeren ve `NameResolver` kod, gerçek değerleri yerine bu yer tutucuları kullanılacak sağlar. Yer tutucuları, yüzde (%) işareti içine alarak aşağıdaki örnekte gösterildiği gibi tanımlanır:
+Geçirerek bunu yapabilirsiniz bir `NameResolver` nesnesini `JobHostConfiguration` nesnesi. Tetikleyicisi veya bağlaması öznitelik oluşturucu parametresi, yer tutucu karakterleri içeren ve `NameResolver` kod, gerçek değerleri yerine bu yer tutucuları kullanılacak sağlar. Yer tutucuları yüzde (%) ile çevreleyen tarafından tanımlanır. Aşağıdaki örnekte gösterildiği gibi işaretlere:
 
 ```cs
 public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)

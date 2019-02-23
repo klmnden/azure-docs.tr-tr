@@ -10,11 +10,11 @@ ms.topic: include
 ms.custom: include file
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7ba217f483e9b57f60bd836011c8887994b36ea6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: fe376db04847cacf075f5fbbd35b6cf1f2ebd889
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757627"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741576"
 ---
 Yeni Bilişsel hizmetler için veya Azure'da yeni misiniz yoksa, oluşturun bir [geçici anahtar](https://azure.microsoft.com/try/cognitive-services/). Bir Azure hesabınız varsa, portalda yeni bir kaynak oluşturun. Dil anlama uç nokta sorguları iki Azure kaynak türlerini destekler: **Language Understanding'i** veya **Bilişsel hizmet** kaynak. Kaynağın adı ihtiyacınız olduğunda, [atama](../articles/cognitive-services/luis/luis-how-to-azure-subscription.md) uygulama anahtarı.

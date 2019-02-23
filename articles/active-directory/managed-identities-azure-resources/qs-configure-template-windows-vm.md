@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fdabc16e191fb265b15af4a6d4a57cb749adc9f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 30702aae0dd54e2acf8d2a328696f50d13b82b74
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202562"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734209"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Şablonları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -209,7 +209,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure sanal makines
 > [!Note]
 > Bir Azure Resource Manager şablonu kullanarak bir kullanıcı tarafından atanan yönetilen kimlik oluşturmak için bkz [kullanıcı tarafından atanan bir yönetilen kimlik oluşturma](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
- ### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Bir Azure sanal makinesi için bir kullanıcı tarafından atanan bir yönetilen kimlik atama
+### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Bir Azure sanal makinesi için bir kullanıcı tarafından atanan bir yönetilen kimlik atama
 
 Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabınızın gerekir [sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) ve [yönetilen kimlik işleci](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol atamaları. Hiçbir ek Azure AD dizini rol atamaları gereklidir.
 

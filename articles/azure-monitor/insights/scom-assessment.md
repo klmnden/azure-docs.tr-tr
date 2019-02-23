@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4d6838ecdbf1a33a4f3ee1562f26db7952fdfb83
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819867"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734243"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ortamınızı System Center Operations Manager sistem durumunu denetleyin (Önizleme) çözümü ile en iyi duruma getirme
 
@@ -40,7 +40,7 @@ Yapılan öneriler bilgi ve müşteri binlerce Microsoft mühendisinin göre kaz
 
 ## <a name="installing-and-configuring-the-solution"></a>Çözümünü yükleme ve yapılandırma
 
-Çözüm, Microsoft Sistem Operations Manager 2012 Service Pack (SP ile) 1 ve 2012 R2 çalışır.
+Çözüm, Microsoft System Center 2012 Operations Manager Hizmet Paketi 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager ve Microsoft System ile çalışır Center Operations Manager 1807
 
 Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
@@ -57,9 +57,9 @@ Yapılan öneriler bilgi ve müşteri binlerce Microsoft mühendisinin göre kaz
 1. [Sistem Center Operations Manager sistem durumu denetimi için farklı çalıştır hesabı ayarlayın](#operations-manager-run-as-accounts-for-log-analytics)  
 2. Sistem Center Operations Manager sistem durumu denetimi kuralı yapılandırma
 
-## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager değerlendirme veri koleksiyonu ayrıntıları
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>System Center Operations Manager sistem durumu denetimi veri koleksiyonu ayrıntıları
 
-System Center Operations Manager değerlendirme verilerini aşağıdaki kaynaklardan toplar:
+Sistem Center Operations Manager sistem durumu denetimi çözümü, aşağıdaki kaynaklardan toplar:
 
 * Kayıt Defteri
 * Windows Yönetim Araçları (WMI)
@@ -97,7 +97,7 @@ Farklı Çalıştır hesabı oluşturulduğuna göre hedef yönetim grubundaki y
 2. Üzerinde **dağıtım** sekmesinde **Ekle** için **seçilen bilgisayarlar** kutusunda ve hesaba dağıtmak için yönetim sunucusu ekleyin.  Tıklayın **Tamam** iki kez yaptığınız değişiklikleri kaydedin.
 3. Altında **farklı çalıştır Yapılandırması**, tıklayın **profilleri**.
 4. Arama *SCOM değerlendirmesi profili*.
-5. Profil adı olması gerekir: *Microsoft System Center Advisor SCOM değerlendirmesi farklı çalıştır profili*.
+5. Profil adı olması gerekir: *Microsoft System Center Operations Manager sistem durumu denetimi farklı çalıştır profili*.
 6. Sağ tıklayın ve özelliklerini güncelleştirin ve son oluşturduğunuz farklı çalıştır daha önce oluşturduğunuz hesabı ekleyin.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Farklı Çalıştır hesabı için ayrıntılı izinler vermek için SQL betiği
@@ -152,13 +152,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>Sistem durumu onay kuralı yapılandırma
 
-Adlı bir kural sistem Center Operations Manager sistem durumu denetimi çözümün Yönetim paketini içeren *Microsoft System Center Advisor SCOM değerlendirmesi değerlendirme kural çalıştırma*. Bu kural, sistem durumu denetimini çalıştırmaktan sorumludur. Kuralı etkinleştirmek ve sıklığını yapılandırmak için aşağıdaki yordamları kullanın.
+Adlı bir kural sistem Center Operations Manager sistem durumu denetimi çözümün Yönetim paketini içeren *Microsoft System Center Operations Manager sistem durumu denetleyin kural çalıştırma*. Bu kural, sistem durumu denetimini çalıştırmaktan sorumludur. Kuralı etkinleştirmek ve sıklığını yapılandırmak için aşağıdaki yordamları kullanın.
 
-Varsayılan olarak, Microsoft System Center Advisor SCOM değerlendirmesi çalıştırın değerlendirme kural devre dışıdır. Sistem durumu denetimini çalıştırmak için kural bir yönetim sunucusunda etkinleştirmeniz gerekir. Aşağıdaki adımları kullanın.
+Varsayılan olarak, Microsoft System Center Operations Manager sistem durumu denetleyin kural çalıştırma devre dışıdır. Sistem durumu denetimini çalıştırmak için kural bir yönetim sunucusunda etkinleştirmeniz gerekir. Aşağıdaki adımları kullanın.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Belirli bir yönetim sunucusuna ilişkin kuralını etkinleştirme
 
-1. İçinde **yazma** kuralını arayın Operations Manager işletim konsolunun çalışma *Microsoft System Center Advisor SCOM değerlendirmesi değerlendirme kural çalıştırma* içinde **kuralları** bölmesi.
+1. İçinde **yazma** kuralını arayın Operations Manager işletim konsolunun çalışma *Microsoft System Center Operations Manager sistem durumu denetleyin kural çalıştırma* içinde **kuralları** bölmesi.
 2. Metin içeren bir arama sonuçlarında seçin *türü: Yönetim sunucusu*.
 3. Kurala sağ tıklayın ve ardından **geçersiz kılmalar** > **sınıfın belirli bir nesnesi için: Yönetim sunucusu**.
 4.  Kullanılabilir yönetim sunucuları listesinde, kuralın çalıştırıldığı yönetim sunucularını seçin.  Bu, aynı yönetim sunucusuna daha önce farklı çalıştır hesabı ile ilişkilendirmek üzere yapılandırılmış olması gerekir.
@@ -170,7 +170,7 @@ Varsayılan olarak, Microsoft System Center Advisor SCOM değerlendirmesi çalı
 
 Değerlendirme her 10.080 dakika (veya yedi gün) çalıştırmak için varsayılan olarak yapılandırılır. Değer 1440 dakika (veya bir gün) en düşük değerini geçersiz kılabilirsiniz. Değer, art arda gelen değerlendirme çalışmaları arasında gerekli en düşük zaman aralığı temsil eder. Aralık geçersiz kılmak için aşağıdaki adımları kullanın.
 
-1. İçinde **yazma** kuralını arayın Operations Manager konsolunun çalışma *Microsoft System Center Advisor SCOM değerlendirmesi değerlendirme kural çalıştırma* içinde **kuralları** bölümü.
+1. İçinde **yazma** kuralını arayın Operations Manager konsolunun çalışma *Microsoft System Center Operations Manager sistem durumu denetleyin kural çalıştırma* içinde **kuralları** bölümü.
 2. Metin içeren bir arama sonuçlarında seçin *türü: Yönetim sunucusu*.
 3. Kurala sağ tıklayın ve ardından **kuralı geçersiz kıl** > **sınıfın tüm nesneleri için: Yönetim sunucusu**.
 4. Değişiklik **aralığı** parametre değeri, istenen aralığı değeri. Aşağıdaki örnekte, değer 1440 dakika (bir gün) olarak ayarlanır.<br><br> ![aralığı parametresi](./media/scom-assessment/interval.png)<br>  
@@ -277,7 +277,7 @@ Yok saymak için istediğiniz önerilerini varsa, öneriler, değerlendirme sonu
 
 *Onay çalışma sıklığını yapılandırmak için bir yol var mı?* Evet. Bkz: [çalıştırma sıklığını yapılandırmak](#configure-the-run-frequency).
 
-*System Center Operations Manager değerlendirmesi çözümü ı ekledikten sonra başka bir sunucuya bulunmuşsa, denetlenecek?* Evet, bulunduktan sonra daha sonra varsayılan olarak yedi günde denetlenir.
+*Ben sistem Center Operations Manager sistem durumu denetimi çözümü ekledikten sonra başka bir sunucuya bulunmuşsa, denetlenecek?* Evet, bulunduktan sonra daha sonra varsayılan olarak yedi günde denetlenir.
 
 *Veri koleksiyonu yapan işlemin adı nedir?* AdvisorAssessment.exe
 

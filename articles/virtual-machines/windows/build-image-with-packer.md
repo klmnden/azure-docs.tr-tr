@@ -12,17 +12,19 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/29/2018
+ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 0ae4c883baa156276646755273547a17d23edc55
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f768582e8ef32bc654a2f797c5c7a481a26fb643
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982497"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734192"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure'da Windows sanal makine görüntüleri oluşturmak için Packer kullanma
 Azure'daki her sanal makine (VM) Windows Dağıtım ve işletim sistemi sürümünü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Azure marketi, en yaygın işletim sistemi için birinci ve üçüncü taraf çok sayıda görüntü sağlar ve uygulama ortamları veya uygulamanızın ihtiyaçlarına yönelik kendi özel görüntülerinizi oluşturabilir. Bu makalede, açık kaynaklı aracının nasıl kullanılacağı ayrıntılı [Packer](https://www.packer.io/) tanımlama ve azure'da özel görüntü oluşturma.
+
+Bu makalede son 21/2/2019 kullanarak test [Az PowerShell Modülü](https://docs.microsoft.com/powershell/azure/install-az-ps) sürüm 1.3.0 ve [Packer](https://www.packer.io/docs/install/index.html) 1.3.4 sürümü.
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -31,8 +33,8 @@ Kaynak VM oluştururken derleme işlemi sırasında geçici Azure kaynaklarını
 
 Bir kaynak grubu oluşturun [yeni AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
-```powershell
-$rgName = "myResourceGroup"
+```azurepowershell
+$rgName = "mypackerGroup"
 $location = "East US"
 New-AzResourceGroup -Name $rgName -Location $location
 ```
@@ -40,24 +42,28 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Azure kimlik bilgilerini oluşturma
 Packer ile Azure hizmet sorumlusu kullanarak kimliğini doğrular. Bir Azure hizmet sorumlusu, uygulamaları, hizmetleri ve Packer gibi Otomasyon araçları ile kullanabileceğiniz bir güvenlik kimliğidir. Denetim ve hizmet sorumlusu Azure'da gerçekleştirebilirsiniz ne gibi işlemler için izinler tanımlayın.
 
-Bir hizmet sorumlusu oluşturma [yeni AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) ve hizmet sorumlusuna sahip kaynakları oluşturup yönetmek için izinleri atamak [yeni AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Değiştirin *&lt;parola&gt;* örnekte kendi parolanızı ile.  
+Bir hizmet sorumlusu oluşturma [yeni AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) ve hizmet sorumlusuna sahip kaynakları oluşturup yönetmek için izinleri atamak [yeni AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Değeri `-DisplayName` benzersiz; olması gereken gerektiğinde kendi değeriyle değiştirin.  
 
-```powershell
-$sp = New-AzADServicePrincipal -DisplayName "AzurePacker" `
-    -Password (ConvertTo-SecureString "<password>" -AsPlainText -Force)
-Sleep 20
+```azurepowershell
+$sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
+$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
+$plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
 New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
+
+Parola ve uygulama kimliği'ı çıkışı
+
+```powershell
+$plainPassword
+$sp.ApplicationId
+```
+
 
 Azure için kimlik doğrulaması için Azure kiracısı ve abonelik kimlikleri ile elde etmeniz [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription):
 
 ```powershell
-$sub = Get-AzSubscription
-$sub.TenantId[0]
-$sub.SubscriptionId[0]
+Get-AzSubscription
 ```
-
-Sonraki adımda bu iki kimliklerinin kullanırsınız.
 
 
 ## <a name="define-packer-template"></a>Packer şablonu tanımlama
@@ -68,7 +74,7 @@ Adlı bir dosya oluşturun *windows.json* ve aşağıdaki içeriği yapıştır�
 | Parametre                           | Nereden |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | İle hizmet sorumlusu kimliği görüntüle `$sp.applicationId` |
-| *client_secret*                     | Belirttiğiniz parola `$securePassword` |
+| *client_secret*                     | Otomatik olarak oluşturulan parola ile görüntüleme `$plainPassword` |
 | *Kiracı*                         | Çıktı `$sub.TenantId` komutu |
 | *subscription_id*                   | Çıktı `$sub.SubscriptionId` komutu |
 | *managed_image_resource_group_name* | İlk adımda oluşturduğunuz kaynak grubunun adı |
@@ -79,12 +85,12 @@ Adlı bir dosya oluşturun *windows.json* ve aşağıdaki içeriği yapıştır�
   "builders": [{
     "type": "azure-arm",
 
-    "client_id": "0831b578-8ab6-40b9-a581-9a880a94aab1",
-    "client_secret": "P@ssw0rd!",
-    "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "client_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "client_secret": "ppppppp-pppp-pppp-pppp-ppppppppppp",
+    "tenant_id": "zzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz",
+    "subscription_id": "yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy",
 
-    "managed_image_resource_group_name": "myResourceGroup",
+    "managed_image_resource_group_name": "myPackerGroup",
     "managed_image_name": "myPackerImage",
 
     "os_type": "Windows",
@@ -123,9 +129,9 @@ Bu şablon bir Windows Server 2016 VM oluşturur, IIS yükler ve sonra Sysprep i
 ## <a name="build-packer-image"></a>Packer görüntü oluşturma
 Yerel makinenizde yüklü Packer yoksa [Packer yükleme yönergelerini izleyin](https://www.packer.io/docs/install/index.html).
 
-Görüntü, Packer belirterek şablon dosyası şu şekilde oluşturun:
+Görüntüyü şablon dosyası gibi bir komut istemi açmak ve, Packer belirterek oluşturma:
 
-```bash
+```
 ./packer build windows.json
 ```
 

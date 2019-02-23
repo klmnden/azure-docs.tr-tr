@@ -4,7 +4,7 @@ description: Bu makalede, Azure günlük tümleştirmesi hakkında sorular yanı
 services: security
 documentationcenter: na
 author: TomShinder
-manager: barbkess
+manager: MBaldwin
 editor: TerryLanfear
 ms.assetid: d06d1ac5-5c3b-49de-800e-4d54b3064c64
 ms.service: security
@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: f1b809e52cc532d13be85776f73aba4465fa2140
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: fc94208ef01e52207b6efbf88223119cf58ddb7f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114935"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727171"
 ---
 # <a name="azure-log-integration-faq"></a>Azure günlük tümleştirmesi hakkında SSS
 
@@ -32,6 +32,8 @@ Bu makalede, Azure günlük tümleştirmesi hakkında sık sorulan sorular (SSS)
 Azure günlük tümleştirmesi, Azure kaynaklarınızı ham günlüklerinden, şirket içi güvenlik bilgileri ve Olay yönetimi (SIEM) sistemleriyle tümleştirmek için kullanabileceğiniz bir Windows işletim sistemi hizmetidir. Bu tümleştirme, tüm varlıklarınız için şirket içinde veya bulutta birleştirilmiş bir Pano sağlar. Ardından toplayın, ilişkilendirin, çözümleyebilir ve uygulamalarınızla ilişkili güvenlik olayları için uyarı.
 
 SIEM satıcınızın Azure İzleyici Bağlayıcısı'nı kullanarak ve bunlar aşağıdaki Azure günlük tümleştirme için tercih edilen yöntem olan [yönergeleri](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Azure İzleyici için bir bağlayıcı SIEM satıcınıza sağlamıyorsa (sıem sistemlerinizden alınabileceği gibi Azure günlük tümleştirmesi tarafından destekleniyorsa) bu tür bir bağlayıcı kullanılabilir hale gelene kadar Azure günlük tümleştirmesi geçici bir çözüm kullanmanız mümkün olabilir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Azure günlük tümleştirmesi yazılım ücretsiz mi?
 
@@ -118,8 +120,8 @@ Nasıl alınacağına yönelik ayrıntılar değiştirebilir ve Azure Tanılama 
 
 Aşağıdaki örnek, Azure Tanılama yapılandırmasını alır:
 
-    -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
-    $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
+    Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
+    $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
@@ -136,7 +138,7 @@ Aşağıdaki örnek, Azure Tanılama yapılandırmasını değiştirir. Bu yapı
 Aşağıdaki örnek, Azure Tanılama yapılandırmasını ayarlar:
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
+    Set-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
 Değişiklikleri yaptıktan sonra depolama hesabının doğru olayları toplanır emin olmak için kontrol edin.
 

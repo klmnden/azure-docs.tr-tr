@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 4d63eb817f7dc1ff957223cb5e9181fbc441fe29
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b09b2cd3a7a642debb28de7ce71a2b3af4f558a8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227497"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730282"
 ---
 # <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -25,7 +25,6 @@ Bu makale, hakkında sık sorulan soruların yanıtlarını içerir. [özel Tran
 Kısıtlamaları ve dosya boyutu, model eğitiminin ve model dağıtımı ile ilgili sınırları vardır. Oluşturan eğitim özel Translator bir model oluşturmak için ayarlarken, bu kısıtlamaları göz önünde bulundurun.
 
 - Gönderilen dosya boyutu 100 MB'den az olmalıdır.
-
 - Tek dilli Kinsoku'ya veri desteklenmiyor.
 
 ## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>Dağıtım için eğitim vermiş bir çeviri sistemi istediğinizde?

@@ -7,19 +7,19 @@ author: tylermsft
 manager: jeanpaul.connock
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/12/2019
+ms.date: 02/22/2019
 ms.author: twhitney
-ms.openlocfilehash: e7f0219919fe0569633cc85b89a1a91b1704b269
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9e542143810745712fb148e0b5ebe126cc8a93bf
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114833"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727889"
 ---
 # <a name="working-with-reliable-collections"></a>Güvenilir Koleksiyonlar ile çalışma
 Service Fabric, güvenilir koleksiyonlar aracılığıyla .NET geliştiricileri için kullanılabilen bir durum bilgisi olan programlama modeli sunar. Özellikle, Service Fabric, güvenilir bir sözlük ve güvenilir bir kuyruk sınıfları sağlar. Bu sınıfların kullandığınızda, durumunuzu (ölçeklenebilirlik) bölümlenmiş çoğaltılan (kullanılabilirlik için) ve bir bölüm (için ACID semantiği) içinde hareket gerçekleşti. Şimdi bir güvenilir bir sözlük nesnesi tipik bir kullanım sırasında bakın ve hangi gerçekten başardığını görün.
@@ -207,8 +207,7 @@ Ayrıca, hizmet yükseltilmiş bir yükseltme etki alanı aynı anda kodudur. Bu
 
 > [!WARNING]
 > Bir anahtar şemasını değiştirebilirsiniz, ancak, anahtarın karma kod ve eşittir algoritmaları kararlı olduğunu emin olmanız gerekir. Bu algoritmalar birini nasıl çalışması değiştirirseniz, anahtarı güvenilir bir sözlük içinde hiç olmadığı kadar yeniden aramak mümkün olmayacaktır.
->
->
+> Bir anahtar vardır, ancak kullanın--anahtar olarak dizesinin kendisinin kullanmayın String.GetHashCode sonucu anahtar olarak .NET dizeleri kullanılabilir.
 
 Alternatif olarak, hangi genellikle iki bir yükseltme olarak adlandırılır gerçekleştirebilirsiniz. İki aşamalı bir yükseltmeye hizmetinizi V2 V1'den yükseltme: V2, kodu içeren yeni bir şema değişikliği ile nasıl bilir, ancak bu kod yürütülmez. V2 kod V1 verileri okur, üzerinde çalışır ve V1 verileri yazar. Tüm yükseltme etki alanları arasında yükseltme tamamlandıktan sonra daha sonra şekilde çalışan V2 örnekleri yükseltme tamamlandıktan sinyal verebilirsiniz. (Tek yönlü sinyaliyle bir yapılandırma yükseltmeyi alma için budur; bu iki aşamalı yükseltme bunu yapar.) Artık, V2 örnekleri okunan V1, V2 veri dönüştürme, üzerinde çalışır ve V2 veri yazılmasına yarar. Diğer örnekleri V2 veri okurken dönüştürmeniz gerekmez, bunlar yalnızca üzerinde çalışır ve V2 veri yazma.
 

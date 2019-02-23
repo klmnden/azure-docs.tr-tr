@@ -4,7 +4,7 @@ description: Nasıl bulun ve Azure PowerShell kullanarak eklenmemiş Azure yöne
 services: virtual-machines-windows
 documentationcenter: ''
 author: ramankumarlive
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 02/22/2019
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 15b82455813c75ca14903f019a17828156638569
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 705706b011464f9e1f437db7b608b3a73e7c3655
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983568"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727392"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Bulma ve eklenmemiş Azure yönetilen ve yönetilmeyen disk silme
-Bir sanal makine (VM), azure'daki varsayılan olarak, sildiğinizde VM'ye bağlı tüm diskleri silinmez. Bu özellik VM'ler yanlışlıkla silinmesini nedeniyle veri kaybını önlemeye yardımcı olur. VM silindikten sonra eklenmemiş disk için ödeme yapmaya devam edersiniz. Bu makalede bulup eklenmemiş tüm diskleri silin ve gereksiz maliyetleri azaltın gösterilmektedir. 
 
+Bir sanal makine (VM), azure'daki varsayılan olarak, sildiğinizde VM'ye bağlı tüm diskleri silinmez. Bu özellik VM'ler yanlışlıkla silinmesini nedeniyle veri kaybını önlemeye yardımcı olur. VM silindikten sonra eklenmemiş disk için ödeme yapmaya devam edersiniz. Bu makalede bulup eklenmemiş tüm diskleri silin ve gereksiz maliyetleri azaltın gösterilmektedir.
 
-## <a name="managed-disks-find-and-delete-unattached-disks"></a>Yönetilen diskler: Bulma ve eklenmemiş disk silme 
+## <a name="managed-disks-find-and-delete-unattached-disks"></a>Yönetilen diskler: Bulma ve eklenmemiş disk silme
 
 Aşağıdaki komut dosyasını arar eklenmemiş [yönetilen diskler](managed-disks-overview.md) değerini inceleme tarafından **ManagedBy** özelliği. Bir VM'ye yönetilen disk eklendiğinde **ManagedBy** özelliği, VM kaynak Kimliğini içerir. Yönetilen disk eklenmemiş, olduğunda **ManagedBy** özelliği null. Betik bir Azure aboneliğindeki tüm yönetilen diskler inceler. Betik bir yönetilen disk ile ne zaman bulur **ManagedBy** özelliği null, betik disk eklenmemiş belirler.
 
@@ -92,13 +92,13 @@ foreach($storageAccount in $storageAccounts){
 
     $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
 
-    $context = New-AzureStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
+    $context = New-AzStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
 
-    $containers = Get-AzureStorageContainer -Context $context
+    $containers = Get-AzStorageContainer -Context $context
 
     foreach($container in $containers){
 
-        $blobs = Get-AzureStorageBlob -Container $container.Name -Context $context
+        $blobs = Get-AzStorageBlob -Container $container.Name -Context $context
 
         #Fetch all the Page blobs with extension .vhd as only Page blobs can be attached as disk to Azure VMs
         $blobs | Where-Object {$_.BlobType -eq 'PageBlob' -and $_.Name.EndsWith('.vhd')} | ForEach-Object { 
@@ -110,7 +110,7 @@ foreach($storageAccount in $storageAccounts){
 
                         Write-Host "Deleting unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
 
-                        $_ | Remove-AzureStorageBlob -Force
+                        $_ | Remove-AzStorageBlob -Force
 
                         Write-Host "Deleted unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
                   }
@@ -132,6 +132,3 @@ foreach($storageAccount in $storageAccounts){
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Daha fazla bilgi için [depolama hesabını Sil](../../storage/common/storage-create-storage-account.md) ve [tanımlamak yalnız bırakılmış diskler PowerShell kullanılarak](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
-
-
-

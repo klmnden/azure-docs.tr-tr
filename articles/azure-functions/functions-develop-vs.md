@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 43992d25590a58b24c48aad8bfbf6f91b17699ee
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b60861b4daced5e3d292feec54f8a54839a80b8f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098090"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728924"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio kullanarak Azure işlevleri geliştirme  
 
@@ -143,7 +143,7 @@ Tetikleyicilerle olduğu gibi giriş ve çıkış bağlamaları işlevinize bağ
 
 1. Olduğundan emin olun [proje yerel geliştirme için yapılandırılmış](#configure-the-project-for-local-development).
 
-2. Özel bağlama için uygun NuGet uzantısı paketini ekleyin. Daha fazla bilgi için [Visual Studio kullanarak yerel C# geliştirme](functions-triggers-bindings.md#local-csharp) Tetikleyicileri ve bağlamaları makaledeki. Bağlama özgü NuGet paket gereksinimleri, bağlama için başvuru makalesinde bulunur. Örneğin, paket gereksinimleri için Event Hubs tetikleyici bulma [Event Hubs bağlama başvurusu makalesinde](functions-bindings-event-hubs.md).
+2. Özel bağlama için uygun NuGet uzantısı paketini ekleyin. Daha fazla bilgi için [Visual Studio kullanarak yerel C# geliştirme](./functions-bindings-register.md#local-csharp) Tetikleyicileri ve bağlamaları makaledeki. Bağlama özgü NuGet paket gereksinimleri, bağlama için başvuru makalesinde bulunur. Örneğin, paket gereksinimleri için Event Hubs tetikleyici bulma [Event Hubs bağlama başvurusu makalesinde](functions-bindings-event-hubs.md).
 
 3. Bağlama gerektiren uygulama ayarları varsa, bunları Ekle **değerleri** koleksiyonda [yerel ayar dosyası](functions-run-local.md#local-settings-file). İşlevi yerel olarak çalıştığında, bu değerler kullanılır. Azure işlev uygulaması, işlev çalıştığında [işlev uygulaması ayarları](#function-app-settings) kullanılır.
 

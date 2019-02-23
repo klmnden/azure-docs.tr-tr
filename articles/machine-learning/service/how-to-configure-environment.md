@@ -12,18 +12,18 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: b5109c9c93947118397c383cab3df90c02016ce3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 61c380ee3427afdf40427ed82ed0fd5c4f1b49fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652014"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729024"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
 Bu makalede, bir geliştirme ortamı, Azure Machine Learning hizmeti ile çalışacak şekilde yapılandırma konusunda bilgi edinin. Machine Learning hizmeti platformu belirsiz ' dir.
 
-Yalnızca geliştirme ortamınız için Python 3, Conda (için yalıtılmış ortamlara) ve Azure Machine Learning çalışma alanı bilgilerinizi içeren bir yapılandırma dosyası gereksinimleridir.
+Yalnızca geliştirme ortamınız için Python 3 Anaconda (için yalıtılmış ortamlara) ve Azure Machine Learning çalışma alanı bilgilerinizi içeren bir yapılandırma dosyası gereksinimleridir.
 
 Bu makalede aşağıdaki ortamları ve Araçlar üzerinde odaklanır:
 
@@ -139,20 +139,22 @@ Daha fazla bilgi için [veri bilimi sanal makineleri](https://azure.microsoft.co
 
 ## <a id="local"></a>Yerel bilgisayar
 
-(Bu da uzak bir sanal makine olabilir) yerel bir bilgisayar kullanırken, Conda ortamı oluşturun ve aşağıdakileri yaparak SDK'sını yükleyin:
+(Bu da uzak bir sanal makine olabilir) yerel bir bilgisayar kullanırken Anaconda ortam oluşturma ve aşağıdakileri yaparak SDK'sını yükleyin:
 
 1. İndirme ve yükleme [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 Sürüm) zaten sahip değilseniz.
 
 1. Anaconda istemi açın ve aşağıdaki komutlarla bir ortam oluşturun:
 
+    Ortam oluşturmak için aşağıdaki komutu çalıştırın.
+
     ```shell
     conda create -n myenv python=3.6.5
+    ```
 
-    # activate the Conda environment
+    Ardından ortamın etkinleştirin.
+
+    ```shell
     conda activate myenv
-
-    # On macOS run
-    source activate myenv
     ```
 
     Bu örnek python 3.6.5 kullanarak bir ortam oluşturur, ancak herhangi bir belirli subversions seçilebilir. SDK'sı uyumluluk (3.5 + önerilir) belirli ana sürümlerle garantili ve hatalarla karşılaşırsanız çalıştırırsanız Anaconda ortamınızdaki farklı bir sürüm/subversion denemeniz önerilir. Bileşenleri ve paketleri indirilen ortamı oluşturmak için birkaç dakika sürer.
@@ -188,7 +190,7 @@ Daha fazla bilgi için [veri bilimi sanal makineleri](https://azure.microsoft.co
    >
    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
 
-   SDK yüklemek için birkaç dakika sürer.
+   SDK yüklemek için birkaç dakika sürer. Bkz: [Yükleme Kılavuzu](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) yükleme seçenekleri hakkında daha fazla bilgi için.
 
 1. Makine öğrenimi denemesi için diğer paketleri yükleyin.
 
@@ -286,7 +288,7 @@ Databricks kümenizi hazırlamak ve örnek not defterleri edinmek için:
     | Çalışan düğümü VM türleri | Tercih edilen VM bellek için iyileştirilmiş |
     | Otomatik Ölçeklendirmeyi Etkinleştirme | Seçeneğinin işaretini kaldırın |
 
-    Databricks kümenizde çalışan düğümü sayısı en fazla eş zamanlı yineleme otomatik ML ayarlarında sayısını belirler.
+    Databricks kümenizde çalışan düğümü sayısı en fazla eş zamanlı yinelemelerde otomatik makine öğrenimi yapılandırma sayısını belirler.
 
     Kümeyi oluşturmak için birkaç dakika sürer. Devam etmeden önce küme çalışan kadar bekleyin.
 

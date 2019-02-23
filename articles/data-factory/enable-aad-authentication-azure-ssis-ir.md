@@ -12,18 +12,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 2/19/2019
 ms.author: douglasl
-ms.openlocfilehash: b672264e1cb3cd415532cf4bcfbbd268afffa70d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 77ee2a0649d5c815fb68a4a40106455839030695
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415946"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671531"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı için Azure Active Directory kimlik doğrulamasını etkinleştirme
 
 Bu makalede, Azure Data Factory (ADF) için yönetilen kimlik ile Azure Active Directory (Azure AD) kimlik doğrulamasını etkinleştirme ve SSIS sırayla oluşturacak bir Azure-SSIS Integration Runtime (IR) oluşturmak için SQL kimlik doğrulaması yerine kullanma gösterilmektedir Azure SQL veritabanı sunucusu/yönetilen örnek sizin adınıza içinde Kataloğu veritabanını (SSISDB).
 
-Yönetilen kimlik bilgilerinizi ADF için hakkında daha fazla bilgi için bkz. [Azure veri fabrikası hizmet kimliği](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+Yönetilen kimlik bilgilerinizi ADF için hakkında daha fazla bilgi için bkz. [Data Factory için yönetilen identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 > SQL kimlik doğrulaması kullanarak bir Azure-SSIS IR zaten oluşturduysanız, IR şu anda PowerShell ile Azure AD kimlik doğrulamasını kullanma yapılandırılmadan değil ancak Azure portal/ADF uygulamasında bunu yapabilirsiniz. 
@@ -57,7 +57,7 @@ Mevcut bir Azure AD grubunu kullanın veya Azure AD PowerShell kullanarak yeni b
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Yönetilen kimlik bilgilerinizi ADF için grubuna ekleyin. Makale izleyebilirsiniz [Azure veri fabrikası hizmet kimliği](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) asıl hizmet kimliği almak için (örneğin 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, ancak hizmet kimliği uygulama kimliği, bu amaç için kullanmayın).
+3.  Yönetilen kimlik bilgilerinizi ADF için grubuna ekleyin. Makale izleyebilirsiniz [Data Factory için yönetilen identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) asıl hizmet kimliği almak için (örneğin 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, ancak hizmet kimliği uygulama kimliği, bu amaç için kullanmayın).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -167,7 +167,7 @@ Bu sonraki adım için ihtiyacınız [Microsoft SQL Server Management Studio](h
 
 4.  Sağ **ana** seçin ve veritabanı **yeni sorgu**.
 
-5.  Yönetilen kimlik bilgilerinizi ADF için alın. Makale izleyebilirsiniz [Azure veri fabrikası hizmet kimliği](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) için asıl hizmet kimliği uygulama kimliği alma (ancak hizmet kimliği Tanımlayıcısı bu amaç için kullanmayın).
+5.  Yönetilen kimlik bilgilerinizi ADF için alın. Makale izleyebilirsiniz [Data Factory için yönetilen identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) için asıl hizmet kimliği uygulama kimliği alma (ancak hizmet kimliği Tanımlayıcısı bu amaç için kullanmayın).
 
 6.  Sorgu penceresinde, yönetilen kimlik bilgilerinizi ADF ikili türe dönüştürmek için aşağıdaki T-SQL betiğini yürütün:
 

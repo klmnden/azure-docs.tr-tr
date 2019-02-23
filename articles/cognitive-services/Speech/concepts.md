@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816222"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670443"
 ---
 # <a name="basic-concepts"></a>Temel kavramlar
 
@@ -198,7 +199,7 @@ Microsoft konuşma hizmeti yük biçimleri çeşitli transkripsiyonu yanıtları
 
 ### <a name="n-best-values"></a>En iyi N değerleri
 
-Dinleyiciler, İnsan veya makine, hiçbir zaman olabilir, heard belirli *tam olarak* ne konuşulan. Dinleyici atayabileceğiniz bir *olasılık* yalnızca bir utterance belirli bir yorumu için. 
+Dinleyiciler, İnsan veya makine, hiçbir zaman olabilir, heard belirli *tam olarak* ne konuşulan. Dinleyici atayabileceğiniz bir *olasılık* yalnızca bir utterance belirli bir yorumu için.
 
 Başkalarının düğmelerinizi sık etkileşimde konuşurken normal koşullarında, algılamayı konuşulan sözcükleri, yüksek bir olasılık sahiptir. Makine tabanlı konuşma dinleyicileri çaba benzer doğruluğu seviyelerine ulaşmasını sağlamak ve doğru koşullarda [insanlar ile bunların denkliğini](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
@@ -308,7 +309,7 @@ Microsoft konuşma hizmeti İnsan okuma, sözcük ve çoğu kişi "küfür" sın
 
 | *Küfür* değeri | Açıklama |
 | - | - |
-| `masked` | Küfür yıldız işareti ile maskeler. Varsayılan davranıştır. | 
+| `masked` | Küfür yıldız işareti ile maskeler. Varsayılan davranıştır. |
 | `removed` | Tüm sonuçları küfür kaldırır. |
 | `raw` | Tanır ve küfür tüm sonuçları döndürür. |
 
@@ -322,7 +323,7 @@ Zaman *küfür* sorgu parametresinin değeri *kaldırıldı*, küfür hem de hiz
 
 #### <a name="profanity-only-utterances"></a>Yalnızca Küfürlü konuşma
 
-Bir kullanıcı konuşmak *yalnızca* uygulama küfür kaldırılacak hizmetin yapılandırıldığında küfür. Tanıma modu ise bu senaryo için *dikte* veya *konuşma*, hizmet döndürmez bir *speech.result*. Tanıma modu ise *etkileşimli*, hizmet döndürür bir *speech.result* durum koduyla *NoMatch*. 
+Bir kullanıcı konuşmak *yalnızca* uygulama küfür kaldırılacak hizmetin yapılandırıldığında küfür. Tanıma modu ise bu senaryo için *dikte* veya *konuşma*, hizmet döndürmez bir *speech.result*. Tanıma modu ise *etkileşimli*, hizmet döndürür bir *speech.result* durum koduyla *NoMatch*.
 
 ### <a name="profanity-value-raw"></a>Küfür değeri `Raw`
 

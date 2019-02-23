@@ -10,11 +10,11 @@ services: iot-dps
 manager: arjmands
 ms.custom: mvc
 ms.openlocfilehash: 4ab558b680a0d00d1b9bdfbcb1529219f6c37b37
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319262"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728718"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı kanıtlama mekanizmaları kullanma
 
@@ -28,9 +28,9 @@ Geliştirme ortamınızı [Simülasyon cihazı oluşturma ve sağlama](./quick-c
 
 Cihaz üreticisi olarak öncelikle desteklenen türlerden birini temel alan bir kanıtlama mekanizması seçmeniz gerekir. Şu anda [C için Cihaz Sağlama Hizmeti istemci SDK’sı](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client), aşağıdaki kanıtlama mekanizmaları için destek sağlar: 
 
-- [Güvenilir Platform Modülü (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM, çoğu Windows tabanlı cihaz platformu ve birkaç Linux/Ubuntu tabanlı cihaz için belirlenmiş bir standarttır. Cihaz üreticisi olarak, cihazlarınızda bu işletim sistemlerinden herhangi biri yüklüyse ve belirlenmiş bir standart arıyorsanız bu kanıtlama mekanizmasını seçebilirsiniz. TPM yongaları ile her bir cihazı ayrı olarak Cihaz Sağlama Hizmetine kaydedebilirsiniz. Geliştirme amacıyla, Windows veya Linux geliştirme makinenizde TPM simülatörünü kullanabilirsiniz.
+- [Güvenilir Platform Modülü (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM birkaç Linux/Ubuntu tabanlı cihazların yanı sıra, çoğu Windows tabanlı cihaz platformu için yerleşik bir standarttır. Cihaz üreticisi olarak, cihazlarınızda bu işletim sistemlerinden herhangi biri yüklüyse ve belirlenmiş bir standart arıyorsanız bu kanıtlama mekanizmasını seçebilirsiniz. TPM yongaları ile her bir cihazı ayrı olarak Cihaz Sağlama Hizmetine kaydedebilirsiniz. Geliştirme amacıyla, Windows veya Linux geliştirme makinenizde TPM simülatörünü kullanabilirsiniz.
 
-- [X.509](https://cryptography.io/en/latest/x509/): X.509 sertifikaları [Donanım Güvenlik Modülleri (HSM)](concepts-security.md#hardware-security-module) adı verilen, nispeten daha yeni yongalarda depolanabilir. İş aynı zamanda Microsoft bünyesinde, X.509 sertifikalarını uygulayan RIoT veya DICE yongalarında da devam eder. X.509 yongalarıyla, portalda toplu cihaz kaydı gerçekleştirebilirsiniz. Bu, embedOS gibi Windows olmayan belirli işletim sistemlerini de destekler. Geliştirme amacıyla Cihaz Sağlama Hizmeti istemci SDK’sı, X.509 cihaz simülatörünü destekler. 
+- [X.509](https://cryptography.io/en/latest/x509/): X.509 sertifikaları adlı nispeten daha yeni yongalarda depolanabilir [donanım güvenlik modülleri (HSM)](concepts-security.md#hardware-security-module). İş aynı zamanda Microsoft bünyesinde, X.509 sertifikalarını uygulayan RIoT veya DICE yongalarında da devam eder. X.509 yongalarıyla, portalda toplu cihaz kaydı gerçekleştirebilirsiniz. Bu, embedOS gibi Windows olmayan belirli işletim sistemlerini de destekler. Geliştirme amacıyla Cihaz Sağlama Hizmeti istemci SDK’sı, X.509 cihaz simülatörünü destekler. 
 
 Daha fazla bilgi için IoT Hub Cihazı Sağlama Hizmeti [güvenlik kavramları](concepts-security.md) ve [otomatik sağlama kavramları](/azure/iot-dps/concepts-auto-provisioning) bölümlerine bakın.
 
@@ -149,8 +149,8 @@ TPM kullanıyorsanız [“IoT Hub Cihazı Sağlama Hizmetini kullanarak simülas
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Azure portalında oturum açın, sol taraftaki menüden **Tüm kaynaklar** düğmesine tıklayın ve Cihaz Sağlama hizmetinizi açın.
-   - X **.** 509 Tek Kayıt: Sağlama hizmeti özeti dikey penceresinde **Kayıtları yönet**'i seçin. **Tek Tek Kayıtlar** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. Kimlik kanıtlama *Mekanizması* olarak **X**.**509** seçeneğini belirleyin ve dikey pencerede istenen yaprak sertifikayı karşıya yükleyin. Tamamlandığında **Kaydet** düğmesine tıklayın. 
-   - X **.** 509 Grup Kaydı: Sağlama hizmeti özeti dikey penceresinde **Kayıtları yönet**'i seçin. **Grup Kayıtları** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. Kimlik kanıtlama *Mekanizması* olarak **X**.**509** seçeneğini belirleyin, bir grup adı ve sertifika adı girip dikey pencerede istenen CA sertifikasını/ara sertifikayı karşıya yükleyin. Tamamlandığında **Kaydet** düğmesine tıklayın. 
+   - X **.** 509 tek kayıt: Sağlama hizmeti Özet dikey penceresinde, seçin **kayıtları Yönet**. **Tek Tek Kayıtlar** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. Kimlik kanıtlama *Mekanizması* olarak **X**.**509** seçeneğini belirleyin ve dikey pencerede istenen yaprak sertifikayı karşıya yükleyin. Tamamlandığında **Kaydet** düğmesine tıklayın. 
+   - X **.** 509 Grup kaydı: Sağlama hizmeti Özet dikey penceresinde, seçin **kayıtları Yönet**. **Grup Kayıtları** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. Kimlik kanıtlama *Mekanizması* olarak **X**.**509** seçeneğini belirleyin, bir grup adı ve sertifika adı girip dikey pencerede istenen CA sertifikasını/ara sertifikayı karşıya yükleyin. Tamamlandığında **Kaydet** düğmesine tıklayın. 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>Özel bir kanıtlama mekanizması kullanarak cihazlar için kimlik doğrulamasını etkinleştirme (isteğe bağlı)
 

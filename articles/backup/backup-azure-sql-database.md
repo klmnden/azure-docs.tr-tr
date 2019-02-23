@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 17ec7723044cec391ebe390bbcfba3aa6f2f29ca
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: dc92c806a67869e1cc894a8ee9f4d287b5b3b1f2
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446860"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670239"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>Azure VM’lerindeki SQL Server veritabanlarını yedekleme 
 
@@ -52,8 +52,7 @@ Bu genel Önizleme, bir dizi sınırlandırması vardır.
 - FCI yansıtma veritabanı, veritabanı anlık görüntüleri ve veritabanları için yedekleme ve geri yükleme işlemleri desteklenmez.
 - Veritabanları ile çok sayıda dosya korunamaz. Desteklenen dosyalar Sayısı belirleyici değildir. Yalnızca dosya sayısına bağlıdır, ancak aynı zamanda dosya yolu uzunluğu üzerinde bağlıdır. 
 
-Lütfen [SSS bölümüne](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) destek/değil hakkında daha fazla ayrıntı için desteklenen senaryolar.
-
+Gözden geçirme [sık sorulan sorular](faq-backup-sql-server.md) SQL Server veritabanlarını yedekleme hakkında.
 ## <a name="scenario-support"></a>Senaryo desteği
 
 **Destek** | **Ayrıntılar**
@@ -197,7 +196,7 @@ Yedekleme aşağıdaki gibi yapılandırın:
 
     - Varsayılan ilkeyi seçin: **HourlyLogBackup**.
     - SQL için daha önce oluşturulmuş mevcut bir yedekleme İlkesi'ni seçin.
-    - [Yeni bir ilke tanımlama](backup-azure-sql-database.md#define-a-backup-policy) RPO ve bekletme aralığını esas alarak.
+    - [Yeni bir ilke tanımlama](backup-azure-sql-database.md#configure-a-backup-policy) RPO ve bekletme aralığını esas alarak.
     - Önizleme süresince, var olan bir yedekleme İlkesi düzenleyemezsiniz.
     
 9. Üzerinde **yedekleme menüsündeki**seçin **yedeklemeyi etkinleştir**.
@@ -326,7 +325,7 @@ Otomatik korumayı devre dışı bırakmanız gerekirse, örnek adı altında t�
 
     ![Dağıtım başarılı iletisi](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-Alternatif olarak, etkinleştirebilirsiniz [otomatik korumayı](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) tüm örneği veya her zaman üzerinde kullanılabilirlik grubu seçerek **ON** seçeneği karşılık gelen açılır penceresinde **AUTOPROTECT**  sütun. [Otomatik korumayı](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) özellik yalnızca tek bir seferde tüm var olan veritabanları korumasını sağlar, ancak gelecekte bu örneği veya kullanılabilirlik grubuna eklenecek yeni veritabanlarını da otomatik olarak korur.  
+Alternatif olarak, etkinleştirebilirsiniz [otomatik korumayı](backup-azure-sql-database.md#enable-auto-protection) tüm örneği veya her zaman üzerinde kullanılabilirlik grubu seçerek **ON** seçeneği karşılık gelen açılır penceresinde **AUTOPROTECT**  sütun. [Otomatik korumayı](backup-azure-sql-database.md#enable-auto-protection) özellik yalnızca tek bir seferde tüm var olan veritabanları korumasını sağlar, ancak gelecekte bu örneği veya kullanılabilirlik grubuna eklenecek yeni veritabanlarını da otomatik olarak korur.  
 
    ![Always On kullanılabilirlik grubunda otomatik korumayı etkinleştir](./media/backup-azure-sql-database/enable-auto-protection.png)
 

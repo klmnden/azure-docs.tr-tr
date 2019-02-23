@@ -6,15 +6,15 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745818"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674526"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Öğretici: IOT hub'ınızla bağlantıyı test etmek için sanal cihaz kullanma
 
@@ -122,7 +122,7 @@ Uygulama bağlanmaya çalıştığında bu kez, bir kimlik doğrulama hatası g�
 
 Cihazınız IoT Hub cihaz SDK'lerinden birini kullanıyorsa, SDK kitaplık kodu hub ile kimlik doğrulaması gerçekleştirmek için kullanılan SAS belirtecini oluşturur. SAS belirteci, hub'ınızın adı, cihazınızın adı ve cihaz anahtarı ile oluşturulur.
 
-Bazı senaryolarda, örneğin bir bulut protokol ağ geçidi veya bir özel kimlik doğrulama düzenin bir parçası olarak, SAS belirtecini kendiniz oluşturmanız gerekebilir. SAS oluşturma kodunuz ile ilgili sorunları gidermek için test sırasında kullanmak üzere geçerli olduğu bilinen bir SAS belirteci oluşturmak kullanışlıdır.
+Bazı senaryolarda, örneğin bir bulut protokol ağ geçidi veya bir özel kimlik doğrulama düzenin bir parçası olarak, SAS belirtecini kendiniz oluşturmanız gerekebilir. SAS oluşturma kodunuzdaki sorunları gidermek için test sırasında kullanılacak bir bilinen iyi SAS belirteci oluşturmak kullanışlıdır.
 
 > [!NOTE]
 > SimulatedDevice-2.js örneği, SDK’lı ve SDK’sız SAS belirteci oluşturma örnekleri içerir.
@@ -133,7 +133,7 @@ CLI kullanarak, geçerli olduğu bilinen bir SAS belirteci oluşturmak için aş
 az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubName}
 ```
 
-Oluşturulan SAS belirteci tam metnini not edin. Bir SAS belirteci aşağıdaki gibi görünür: `'SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307'`
+Oluşturulan SAS belirteci tam metnini not edin. Bir SAS belirteci aşağıdaki gibi görünür: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
 Geliştirme makinenizdeki terminal penceresinde, indirdiğiniz örnek Node.js projesinin kök klasörüne gidin. Daha sonra **iot-hub\Tutorials\ConnectivityTests\simulated-device** klasörüne gidin.
 
@@ -189,13 +189,9 @@ Hub'ınıza telemetri göndermeye çalışırken terminal penceresinde bilgiler 
 
 ![Simülasyon cihazı ileti gönderirken](media/tutorial-connectivity/sim-3-sending.png)
 
-Telemetri iletilerinin IoT hub'ınıza ulaştığını doğrulamak için portalda **Ölçümler**’i kullanabilirsiniz:
+Kullanabileceğiniz **ölçümleri** portalındaki IOT hub'ınıza telemetri iletilerini ulaşıyor olduğunu doğrulayın. **Kaynak** açılan listesinde IoT hub'ınızı seçin, ölçüm olarak **Gönderilen telemetri iletilerini** seçin ve zaman aralığını **Son bir saat** olarak ayarlayın. Grafikte simülasyon cihazı tarafından gönderilen iletilerin toplam sayısı gösterilmiştir:
 
-![IoT Hub ölçümlerine gitme](media/tutorial-connectivity/metrics-portal.png)
-
-**Kaynak** açılan listesinde IoT hub'ınızı seçin, ölçüm olarak **Gönderilen telemetri iletilerini** seçin ve zaman aralığını **Son bir saat** olarak ayarlayın. Grafikte simülasyon cihazı tarafından gönderilen iletilerin toplam sayısı gösterilmiştir:
-
-![IoT Hub ölçümlerini gösterme](media/tutorial-connectivity/metrics-active.png)
+![IoT Hub ölçümlerini gösterme](media/tutorial-connectivity/metrics-portal.png)
 
 Simülasyon cihazını başlattıktan sonra ölçümlerin kullanılabilir hale gelmesi birkaç dakika alır.
 

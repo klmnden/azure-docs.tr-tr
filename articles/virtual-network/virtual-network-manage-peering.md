@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: 0cc85425742fbf3ee4825e13349d2b8b2c9ca6c4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: a2d799a85932f8b7fdf1f6ae53dc50579c266311
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649331"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674538"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesini Sil
 
@@ -114,10 +114,10 @@ Sanal ağlar, bazen kurmak istiyor, ancak her zaman bir eşdüzey hizmet sağlam
 ## <a name="requirements-and-constraints"></a>Gereksinimler ve kısıtlamalar
 
 - <a name="cross-region"></a>Aynı bölgede ya da farklı bölgelerdeki sanal ağları eşleyebilirsiniz. Sanal ağlar farklı bölgelerde de denir olarak eşlemesi *genel eşleme*.
-- Genel eşleme oluştururken, eşlenen sanal ağlarda tüm Azure genel bulut bölgelerine veya Çin bulut bölgeleri var ancak bölgesi değil kamu bulut. Yalnızca sanal ağı eşleme aynı bölgedeki Azure kamu bulut bölgeleri kullanabilirsiniz.
+- Genel eşleme oluştururken, eşlenen sanal ağlarda herhangi bir Azure genel bulutunda bölge, Çin bulut bölgeleri veya kamu bulut bölgeleri bulunabilir. Farklı bulutlara eşleyebilirsiniz değil.
 - Bir sanal ağ içindeki kaynaklarla genel olarak eşlenmiş sanal ağdaki bir Azure iç yük dengeleyici ön uç IP adresi ile iletişim kuramıyor. Yük Dengeleyici ve bununla iletişim kuran kaynakları bir sanal ağ aynı bölgede olması gerekir. Eşlenen sanal ağlarda aynı bölgede ancak varsa, her iki sanal ağ içindeki kaynaklarla eşlemesindeki her iki sanal ağdaki bir Azure iç yük dengeleyici ön uç IP adresi ile iletişim kurabilir.
 - Uzak ağ geçitlerini veya genel olarak eşlenmiş sanal ağlarda ağ geçidi aktarımına izin ver kullanılamaz. Uzak ağ geçitlerini kullan veya ağ geçidi aktarımına izin vermek için eşlenen sanal ağlarda aynı bölgede olması gerekir.
-- Sanal ağlar aynı ya da farklı Aboneliklerde olabilir. Farklı Aboneliklerdeki sanal ağları eşleyebilme, aynı veya farklı Azure Active Directory kiracısı ile ilişkilendirilmesi iki abonelik de olabilir. Bir AD kiracısına zaten sahip değilseniz, hızla yapabilirsiniz [oluşturmak](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Farklı Azure Active Directory kiracılarıyla ilişkili Aboneliklerdeki sanal ağları arasında eşleme için destek Portalı'nda kullanılabilir değil. CLI, PowerShell veya şablonları kullanabilirsiniz.
+- Sanal ağlar aynı ya da farklı Aboneliklerde olabilir. Farklı Aboneliklerdeki sanal ağları eşleyebilme, aynı veya farklı Azure Active Directory kiracısı ile ilişkilendirilmesi iki abonelik de olabilir. Bir AD kiracısına zaten sahip değilseniz, yapabilecekleriniz [oluşturmak](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Farklı Azure Active Directory kiracılarıyla ilişkili Aboneliklerdeki sanal ağları arasında eşleme için destek Portalı'nda kullanılabilir değil. CLI, PowerShell veya şablonları kullanabilirsiniz.
 - Eş sanal ağlar, IP adresi alanları çakışmamalıdır olması gerekir.
 - Adres aralıklarını ekleyin veya başka bir sanal ağ ile sanal ağ eşlendikten sonra sanal ağın adres alanından adres aralıkları silin. Adres aralıkları kaldırın, eşlemeyi silmek, eklediğinizde veya adres aralıklarını kaldırmak için ardından eşleme yeniden oluşturun. Adres aralıklarını ekleyin veya adres aralıkları sanal ağlardan bağlantısını kaldırmak için bkz: [sanal ağlarını yönetme](manage-virtual-network.md).
 - Resource Manager veya Klasik dağıtım modeliyle dağıtılan bir sanal ağ ile Resource Manager üzerinden dağıtılan bir sanal ağ aracılığıyla dağıtılan iki sanal ağları eşleyebilirsiniz. Klasik dağıtım modeliyle oluşturulan iki sanal ağı eşleyebilme olamaz. Azure dağıtım modelleri hakkında bilgi sahibi değilseniz, okuma [Azure dağıtım modellerini anlama](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. Klasik dağıtım modeliyle oluşturulan iki sanal ağı bağlamak için [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) kullanabilirsiniz.

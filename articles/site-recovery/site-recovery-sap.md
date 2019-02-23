@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9399f9d47d89215080b1f633423843f501fefb7b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850440"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670885"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Çok katmanlı SAP NetWeaver uygulama dağıtımı için olağanüstü durum kurtarmayı ayarlama
 
@@ -80,7 +80,7 @@ Yük devretme küme ortamında desteklemek için [SIOS DataKeeper Cluster Editio
 
 Kümeleme işlemek için başka bir yol, bir dosya paylaşımı kümesi uygulamaktır. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) /sapmnt genel dizinleri UNC yolu üzerinden erişmek için Yönetim Hizmetleri dağıtım modeli yakın zamanda değiştirilmiş. Bununla birlikte, yine de /sapmnt UNC paylaşımı yüksek oranda kullanılabilir olmasını sağlamak için önerilir. Bu merkezi Hizmetleri örneğinde ölçek kullanıma arama dosya sunucusu (SOFS) ve Windows Server 2016 depolama alanları doğrudan (S2D) özelliği ile Windows Server Yük devretme kümesi kullanılarak yapılabilir. 
  > [!NOTE]
- > Şu anda Azure Site Recovery destek yalnızca kilitlenme tutarlı noktası çoğaltma sanal makinelerin depolama alanları doğrudan'ı kullanma 
+ > Şu anda Azure Site Recovery destek yalnızca kilitlenme tutarlı noktası çoğaltma SIOS Datakeeper, depolama alanları doğrudan ve Pasif düğümü kullanan sanal makinelerin
 
 
 ## <a name="disaster-recovery-considerations"></a>Olağanüstü durum kurtarmayla konusunda dikkat edilmesi gerekenler

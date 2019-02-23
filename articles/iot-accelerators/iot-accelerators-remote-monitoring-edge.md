@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d28a88efc1a9f980d74737936bb960ba13573fa3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606257"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675101"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Öğretici: Uzaktan izleme çözüm hızlandırıcısının uçta anormallikleri
 
@@ -55,12 +55,12 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 IOT Edge cihazı, Uzaktan izleme çözüm Hızlandırıcısını eklemek için iki adımı vardır. Bu bölümde, nasıl kullanılacağını gösterir:
 
-* IOT Edge cihazı eklemek **cihazları** UI Uzaktan izleme Web sayfası.
+* IOT Edge cihazı eklemek **Device Explorer** UI Uzaktan izleme Web sayfası.
 * IOT Edge çalışma zamanı, bir Linux sanal makinesi (VM) yükleyin.
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>IOT Edge cihazı çözümünüze ekleyin.
 
-IOT Edge cihazı için Uzaktan izleme çözüm Hızlandırıcısını eklemek için gidin **cihazları** sayfasında web kullanıcı Arabiriminde ve tıklayın **+ yeni cihaz**.
+IOT Edge cihazı için Uzaktan izleme çözüm Hızlandırıcısını eklemek için gidin **Device Explorer** sayfasında web kullanıcı Arabiriminde ve tıklayın **+ yeni cihaz**.
 
 İçinde **yeni cihaz** panelinde öğesini **IOT Edge cihazı** girin **Petrol pompa** olarak cihaz kimliği. Diğer ayarlar için varsayılan değerleri bırakabilirsiniz. Ardından **Apply** (Uygula) öğesine tıklayın:
 
@@ -68,13 +68,13 @@ IOT Edge cihazı için Uzaktan izleme çözüm Hızlandırıcısını eklemek i�
 
 Cihaz bağlantı dizesini not edin, bu öğreticinin sonraki bölümünde gerekir.
 
-Uzaktan izleme çözüm Hızlandırıcısını IOT hub'ı ile bir cihaz kaydettiğinizde, listelenmiş olup **cihazları** sayfası Web kullanıcı Arabiriminde:
+Uzaktan izleme çözüm Hızlandırıcısını IOT hub'ı ile bir cihaz kaydettiğinizde, listelenmiş olup **Device Explorer** sayfası Web kullanıcı Arabiriminde:
 
 [![Yeni IOT Edge cihazı](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
 Çözümde IOT Edge cihazları yönetmeyi kolaylaştırmak için bir cihaz grubu oluşturmak ve IOT Edge cihazı Ekle:
 
-1. Seçin **Petrol pompa** cihaz listesinde **cihazları** sayfasında ve ardından **işleri**.
+1. Seçin **Petrol pompa** cihaz listesinde **Device Explorer** sayfasında ve ardından **işleri**.
 
 1. Eklemek için bir iş oluşturma **IsEdge** aşağıdaki ayarları kullanarak cihaz etiketi:
 
@@ -84,13 +84,13 @@ Uzaktan izleme çözüm Hızlandırıcısını IOT hub'ı ile bir cihaz kaydetti
     | İş Adı | AddEdgeTag |
     | Anahtar     | IsOilPump |
     | Değer   | E     |
-    | Tür    | Metin  |
+    | Type    | Metin  |
 
     [![Etiket Ekle](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
 
 1. Tıklayın **uygulamak**, ardından **Kapat**.
 
-1. Üzerinde **cihazları** sayfasında **cihaz gruplarını yönetme**.
+1. Üzerinde **Device Explorer** sayfasında **cihaz gruplarını yönetme**.
 
 1. Tıklayın **yeni cihaz grubu oluşturma**. Aşağıdaki ayarlarla yeni bir cihaz grubu oluşturun:
 
@@ -100,7 +100,7 @@ Uzaktan izleme çözüm Hızlandırıcısını IOT hub'ı ile bir cihaz kaydetti
     | Alan   | Tags.IsOilPump |
     | İşleç | = Eşittir |
     | Değer    | E |
-    | Tür     | Metin |
+    | Type     | Metin |
 
     [![Cihaz grubu oluşturma](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
@@ -300,7 +300,7 @@ Pakette cihazınıza dağıtmaya ve telemetri CİHAZDAN akışa başlamak için 
 
 Uzaktan izleme Web kullanıcı Arabiriminde Petrol pompa cihazınızdan sıcaklık telemetri görüntüleyebilirsiniz:
 
-1. Gidin **cihazları** sayfasında ve Petrol pompa Cihazınızı seçin.
+1. Gidin **Device Explorer** sayfasında ve Petrol pompa Cihazınızı seçin.
 1. İçinde **Telemetri** bölümünü **cihaz ayrıntıları** panelinde, tıklayın **sıcaklık**:
 
     [![Telemetri görüntüleme](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)

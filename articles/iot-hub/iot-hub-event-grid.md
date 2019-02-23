@@ -2,21 +2,22 @@
 title: Azure IOT Hub ve Event Grid | Microsoft Docs
 description: IOT Hub'ında gerçekleşen Eylemler göre süreçlerini tetiklemek için Azure Event grid'i kullanın.
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/14/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 14bdbb5d629cb5a3fccd6f874e30ded0648e0124
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: a2c49a6ba269321d1903565ace3ebaae3f3b917e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249477"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673862"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Tetikleyici eylemlere Event Grid kullanarak IOT Hub olaylarına tepki verme
 
-Olay bildirimleri diğer hizmetlere gönderin ve aşağı akış süreçlerini tetiklemek, azure IOT hub'ı Azure Event Grid ile tümleşir. İş uygulamalarınızı önemli olaylara güvenilir, ölçeklenebilir ve güvenli bir şekilde tepki verebilir böylece IOT Hub olaylarını dinlemek için yapılandırın. Örneğin, bir veritabanını güncelleştirmek, bilet oluşturma ve IOT hub'ınıza her yeni bir IOT cihazı kaydedildiğinde bir e-posta bildirimi göndermeye gibi birden fazla eylem gerçekleştirmek için bir uygulama oluşturun. 
+Olay bildirimleri diğer hizmetlere gönderin ve aşağı akış süreçlerini tetiklemek, azure IOT hub'ı Azure Event Grid ile tümleşir. İş uygulamalarınızı önemli olaylara güvenilir, ölçeklenebilir ve güvenli bir şekilde tepki verebilir böylece IOT Hub olaylarını dinlemek için yapılandırın. Örneğin, bir veritabanını güncelleştirir, bir iş anahtarı oluşturur ve yeni bir IOT cihazı kayıtlı her zaman bir e-posta bildirimi IOT hub'ınıza gönderir. bir uygulama oluşturun. 
 
 [Azure Event Grid](../event-grid/overview.md) Yayımla kullanan bir tam olarak yönetilen olay yönlendirme hizmetidir-abonelik modeli. Olay kılavuzu gibi Azure Hizmetleri için yerleşik desteği vardır [Azure işlevleri](../azure-functions/functions-overview.md) ve [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)ve olay uyarıları için Web kancalarını kullanan Azure dışı hizmetleri sunabilirsiniz. Event Grid tarafından olay işleyicileri tam bir listesi için bkz. [Azure Event grid'e giriş](../event-grid/overview.md). 
 
@@ -118,9 +119,9 @@ Aşağıdaki örnek, olay oluşturan bir cihaz şemasını gösterir:
 }]
 ```
 
-Her bir özellik ayrıntılı bir açıklaması için bkz. [IOT hub'ın Azure Event Grid olay şeması](../event-grid/event-schema-iot-hub.md)
+Her bir özellik ayrıntılı bir açıklaması için bkz. [IOT hub'ın Azure Event Grid olay şeması](../event-grid/event-schema-iot-hub.md).
 
-## <a name="filter-events"></a>Olayları Filtrele
+## <a name="filter-events"></a>Olayları filtreleme
 
 IOT Hub olay abonelikleri, olayları olay türü ve cihaz adına göre filtre uygulayabilirsiniz. Event Grid iş konu filtreleri temel alarak **ile başlar** (ön ek) ve **sona erer ile** (sonek) eşleşir. Filtre kullanır, bir `AND` önek ve sonek eşleşen bir konu olayları aboneye teslim edilmesi işleci. 
 
@@ -131,15 +132,15 @@ devices/{deviceId}
 ```
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Bağlı cihaz ve cihaz sınırlamaları olayları bağlantısı kesildi
 
-Bağlı cihaz ve cihaz bağlantısı etkinlikleri almak için cihazınız için D2C veya C2D bağlantısı açmalısınız. Cihazınızı MQTT protokolünü kullanıyorsanız, IOT Hub bağlantısını açmak C2D tutar. İçin AMQP çağırarak C2D bağlantıyı açabilirsiniz [alma zaman uyumsuz API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
+Bağlı cihaz ve cihaz bağlantısı etkinlikleri almak için cihazınız için D2C veya C2D bağlantısı açmalısınız. Cihazınızı MQTT protokolünü kullanıyorsanız, IOT Hub bağlantısını açmak C2D tutar. AMQP için çağırarak C2D bağlantıyı açabilirsiniz [alma zaman uyumsuz API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
 
-Telemetri gönderiyorsanız D2C bağlantı açıktır. Cihaz bağlantı titremeyi, yani cihazın kurulup kesildiğinde sık, her tek bağlantı göndermezler durum ancak anlık görüntüyle alınan dakikada bağlantı durumuna yayımlar. Kesinti bittikten hemen sonra IOT hub'ı kesinti olması durumunda, cihaz bağlantı durumu yayımlarız. Cihaz bu kesinti sırasında kesilirse, cihaz bağlantısı kesilmiş olay 10 dakika içinde yayımlanır.
+Telemetri gönderiyorsanız D2C bağlantı açıktır. Cihaz bağlantı titremeyi, cihazı bağlandığında ve sık sık anlamına gelir ki her tek bağlantı durumu göndermez, ancak anlık görüntüyle alınan dakikada bağlantı durumuna yayımlayacak. Kesinti bittikten hemen sonra IOT hub'ı kesinti olması durumunda, cihaz bağlantı durumu yayımlarız. Cihaz bu kesinti sırasında kesilirse, cihaz bağlantısı kesilmiş olay 10 dakika içinde yayımlanır.
 
 ## <a name="tips-for-consuming-events"></a>Olayları için ipuçları
 
 IOT Hub olaylarını işlemek uygulamalar bu önerilen uygulamaları izlemelisiniz:
 
-* Olayları belirli bir kaynaktan olduğunu varsayar değil önemlidir birden çok abonelik aynı olay işleyicisi, rota olayları için yapılandırılabilir. Her zaman beklediğiniz IOT hub'dan geldiğinden emin olmak için mesajı konusuna bakın. 
+* Birden çok abonelik olayların belirli bir kaynaktan olduğunu varsaymayın bu nedenle aynı olay işleyicisi, rota olayları için yapılandırılabilir. Her zaman beklediğiniz IOT hub'dan geldiğinden emin olmak için mesajı konusuna bakın. 
 
 * Aldığınız tüm olayların beklediğiniz türleri olduğunu varsaymayın. EventType iletiyi işlemeyi önce her zaman denetleyin.
 

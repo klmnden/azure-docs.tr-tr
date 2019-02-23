@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: d49d056ab84b60389df8bcaf1c75d6224633863d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 471bc34272b8e141c8640bd218bdafd840850d24
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337877"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672279"
 ---
-# <a name="cloud-upload-and-storage"></a>Bulut karşıya yükleme ve depolama
+# <a name="cloud-upload-and-storage"></a>Bulutta karşıya yükleme ve depolama
 
 Yönetmek, şifreleme, kodlama, çözümleme ve azure'da medya içeriği akışı başlatmak için bir Media Services hesabı oluşturmanız gerekir. Media Services hesabı oluştururken, bir Azure Depolama hesabı kaynağının adını sağlamanız gerekir. Belirtilen depolama hesabı, Media Services hesabınıza eklenir. 
 
@@ -30,6 +30,8 @@ Tek bir **Birincil** depolama hesabınız olması gerekir, ancak Media Services 
 > Yalnızca blob hesaplarının **Birincil** olmasına izin verilmez. 
 
 Sık erişimli arasında seçim avantajlarından yararlanmak ve seyrek erişimli depolama katmanları, GPv2 kullanmanızı öneririz. Depolama hesapları hakkında daha fazla bilgi için bkz. [Azure depolama hesabına genel bakışın](../../storage/common/storage-account-overview.md). 
+
+Depolama hesabınız için seçebileceğiniz farklı SKU'ları vardır. Daha fazla bilgi için [depolama hesapları](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Depolama hesapları ile denemek istiyorsanız, kullanın `--sku Standard_LRS`. Ancak, üretim için bir SKU seçilmesi sırasında dikkate almanız gereken, `--sku Standard_RAGRS`, coğrafi çoğaltma için iş sürekliliği sağlar. 
 
 ## <a name="assets-in-a-storage-account"></a>Varlıkları bir depolama hesabı
 

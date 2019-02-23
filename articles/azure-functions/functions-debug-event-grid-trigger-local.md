@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 7a3468d9a0d128bd51ae742189e60bb8e2af6c0e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098062"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736507"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure işlevi olay Kılavuzu tetikleyicisi yerel hata ayıklama
 
@@ -62,7 +62,7 @@ Yardımcı program ayarlama gibi komut penceresi aşağıdaki ekran görüntüs�
 
 Kopyalama **HTTPS** oluşturulan URL *ngrok* çalıştırılır. Bu değer, event grid olay uç nokta yapılandırma sırasında kullanılır.
 
- ## <a name="add-a-storage-event"></a>Bir depolama olay Ekle
+## <a name="add-a-storage-event"></a>Bir depolama olay Ekle
 
 Azure portalını açın ve bir depolama hesabına gidin ve tıklayarak **olayları** seçeneği.
 

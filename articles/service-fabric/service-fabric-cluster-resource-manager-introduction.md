@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f3f8cf88268498d20651eab40eb655313180cadc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a5499826c06f5f8f5e5db91badf134befa44c9d0
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203208"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738241"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Service Fabric Küme Kaynak Yöneticisi ile tanışın
 Geleneksel BT sistemleri veya çevrimiçi hizmetleri yönetmek için kullanılan belirli bir fiziksel veya sanal makineler bu belirli hizmetler veya sistemleri ayrılması geliyordu. Hizmet katmanları desteklemesi için. Bir "web" katmanı ve bir "veri" veya "alanı" katmanı olacaktır. Uygulamaları nerede istekleri giriş ve çıkış önbelleğe alma için adanmış makineler kümesi yanı sıra aktarılan bir Mesajlaşma katmanına sahip olması gerekir. Her bir katmanı veya iş yükü türü için ayrılmış belirli makinelere vardı: veritabanı, birkaç web sunucuları dedicated birkaç makineler alındı. Belirli türde bir iş yükü için olan makineleri neden olursa söz konusu katman için daha fazla makine, aynı yapılandırmaya sahip eklemek çok sık erişimli çalıştırın. Ancak, tüm iş yükleri şekilde kolayca ölçeği - özellikle veri katmanı ile genellikle daha büyük makinelere makinelerle değiştirirsiniz. Kolay. Bir makine başarısız olursa, genel uygulama bu bölümü makinesi geri yüklenemedi kadar alt kapasitede çalıştı. Yine de oldukça kolay (değil gerekmeyen eğlenceli varsa).

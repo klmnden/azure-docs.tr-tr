@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: f3943a4e61dc00a29ca0a9a229e930027de432ea
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 67c8659fd13b8e2c3ca8f1e1042d27d4f7d4a925
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480447"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741381"
 ---
 Bu hızlı başlangıçta, bir seyahat aracı uygulama için örnek Konuşma ekleme ve uygulama eğitin. Örnek konuşmalar, bir amaçla eşleşmiş kullanıcı konuşma metinleridir. Amaçlar için örnek konuşmalar sağlayarak, LUIS’e kullanıcı tarafından sağlanan hangi tür metinlerin hangi amaca ait olduğunu öğretirsiniz. 
 

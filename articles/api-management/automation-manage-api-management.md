@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: c2c23b6709552d053ca8db5e32a045b416c1acfc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 642353218960e2e995d717260ae82b6dbd7c2612
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733425"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727069"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Azure Otomasyonu'nu kullanarak Azure API Management'ı yönetme
 Bu kılavuz size Azure Otomasyonu ve nasıl Azure API Management yönetimini basitleştirmek için kullanılabilmesi için tanıtır.
@@ -32,7 +32,7 @@ Azure Otomasyonu ihtiyaçlarınızı karşılayacak şekilde ölçeklendirilen b
 İşlemsel yükünü azaltır ve boş BT ve DevOps personelinin Azure Otomasyonu tarafından otomatik olarak çalıştırılmak için bulut Yönetimi görevlerinizi taşıyarak iş değer kazandıran işlere odaklanın.
 
 ## <a name="how-can-azure-automation-help-manage-azure-api-management"></a>Azure Otomasyonu Azure API Management yönetmenize nasıl yardımcı olabilir?
-API Yönetimi yönetilen Azure Automation'da kullanarak [Azure API Management API için Windows PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/?view=azurermps-5.5.0). Azure Otomasyonu içinde cmdlet'lerini kullanarak, API Management görevlerin çoğunu gerçekleştirmek için PowerShell iş akışı komut dosyaları yazabilirsiniz. Ayrıca, Azure automation'da bu cmdlet'ler Azure Hizmetleri ve 3. taraf sistemleri arasında karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri için cmdlet'leri eşleşebileceğini denetleyebilmesi.
+API Yönetimi yönetilen Azure Automation'da kullanarak [Azure API Management API için Windows PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/az.apimanagement). Azure Otomasyonu içinde cmdlet'lerini kullanarak, API Management görevlerin çoğunu gerçekleştirmek için PowerShell iş akışı komut dosyaları yazabilirsiniz. Ayrıca, Azure automation'da bu cmdlet'ler Azure Hizmetleri ve 3. taraf sistemleri arasında karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri için cmdlet'leri eşleşebileceğini denetleyebilmesi.
 
 API Management'ı Powershell ile kullanmanın bazı örnekleri aşağıda verilmiştir:
 

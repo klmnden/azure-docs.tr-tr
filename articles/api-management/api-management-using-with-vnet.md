@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: cc4893837feeec6116750a7e37e7621af11ab0a4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 2770c6a31f0117b96e08eb8a03986f37ebdb7098
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453928"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733750"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Azure sanal ağları başlangıç hakkında daha fazla bilgi için: [Azure sanal ağına genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -27,6 +27,8 @@ Azure API Management, ağından arka uç hizmetlerine erişebilmesi için bu san
 
 > [!NOTE]
 > Azure API Management, hem Klasik hem de Azure Resource Manager sanal ağlarına destekler.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
@@ -85,9 +87,9 @@ Bu makalede açıklanan adımları gerçekleştirmek için aşağıdakiler gerek
 ## <a name="enable-vnet-powershell"> </a>PowerShell cmdlet'lerini kullanarak VNET bağlantısını etkinleştirme
 PowerShell cmdlet'lerini kullanarak VNET bağlantısı da etkinleştirebilirsiniz
 
-* **Bir sanal ağ içindeki bir API Management hizmeti oluşturma**: Cmdlet'i kullanmak [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) bir sanal ağ içindeki bir Azure API Management hizmeti oluşturmak için.
+* **Bir sanal ağ içindeki bir API Management hizmeti oluşturma**: Cmdlet'i kullanmak [yeni AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) bir sanal ağ içindeki bir Azure API Management hizmeti oluşturmak için.
 
-* **Bir sanal ağ içinde mevcut bir API Management hizmeti dağıtma**: Cmdlet'i kullanmak [güncelleştirme AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) mevcut bir Azure API Management hizmeti bir sanal ağ içinde taşımak için.
+* **Bir sanal ağ içinde mevcut bir API Management hizmeti dağıtma**: Cmdlet'i kullanmak [güncelleştirme AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) mevcut bir Azure API Management hizmeti bir sanal ağ içinde taşımak için.
 
 ## <a name="connect-vnet"> </a>Bir sanal ağ içinde barındırılan bir web hizmetine bağlanma
 API Yönetimi hizmetiniz sanal ağa bağlandıktan sonra içindeki arka uç hizmetlerine erişme kamu hizmetlerine erişme değerinden farklı değildir. Yerel IP adresi veya ana bilgisayar adı web hizmetinizin (bir DNS sunucusu VNET için yapılandırılmışsa) yazmanız yeterlidir **Web hizmeti URL'si** alan yeni bir API oluştururken veya mevcut bir düzenleme.

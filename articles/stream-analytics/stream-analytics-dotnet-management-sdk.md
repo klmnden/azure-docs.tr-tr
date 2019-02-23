@@ -9,14 +9,14 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 53d9345784c16412c643f3b50506bf6abbab93ec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fa4a9a8d01d499dc431c8b182401226aa72bf1f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094911"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732577"
 ---
-# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Yönetim .NET SDK'sini: Ayarlamak ve .NET için Azure Stream Analytics API'si kullanarak analytics işlerini çalıştırın
+# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK: Ayarlama ve .NET için Azure Stream Analytics API'si kullanarak analytics işlerini çalıştırın
 Ayarlama ve Stream Analytics API'si için .NET Yönetim SDK'sını kullanarak .NET kullanarak analytics işlerini çalıştırma hakkında bilgi edinin. Projesini ayarlarsınız, giriş ve çıkış kaynakları, dönüştürme ve başlangıç oluşturma ve işleri durdur. Analytics işleriniz için Blob depolama alanından veya bir olay hub'ından veri akışını yapabilirsiniz.
 
 Bkz: [Stream Analytics API'si için .NET için yönetim başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn889315.aspx).
@@ -40,8 +40,8 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
    # Select the Azure subscription you want to use to create the resource group
    Select-AzureSubscription -SubscriptionName <subscription name>
    
-   # If Stream Analytics has not been registered to the subscription, remove the remark    symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
-   #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+   # If Stream Analytics has not been registered to the subscription, remove the remark    symbol (#) to run the Register-AzProvider cmdlet to register the provider namespace
+   #Register-AzProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
    
    # Create an Azure resource group
    New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>

@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 99c4f838c3c4e4708c3e21ff9c7e63b69a507dbe
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 663864837e2847125d0925b9b82d8962e54290b3
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746923"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726491"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak sanal makineleri oluşturma 
 
 Oluştururken bir sanal makine (VM) DevTest labs'deki [Azure portalında](https://go.microsoft.com/fwlink/p/?LinkID=525040), sanal Makineyi kaydetmeden önce Azure Resource Manager şablonu görüntüleyebilirsiniz. Şablon, ardından aynı ayarlara sahip VM'ler daha fazla Laboratuvar oluşturmak için temel olarak kullanılabilir.
 
 Bu makalede tek VM Resource Manager şablonları ile çoklu VM açıklar ve görüntüleme ve bir VM oluşturulurken bir şablon kaydetme işlemi gösterilmektedir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Tek VM Resource Manager şablonları ile çoklu VM
 Resource Manager şablonunu kullanarak DevTest Labs'de sanal makineler oluşturmak için iki yolu vardır: Microsoft.DevTestLab/labs/virtualmachines kaynak sağlamanız veya Microsoft.Commpute/virtualmachines kaynak sağlayın. Her farklı senaryolarda kullanılır ve farklı izinleri gerektirir.
@@ -34,7 +36,7 @@ Resource Manager şablonunu kullanarak DevTest Labs'de sanal makineler oluşturm
 
    ![DevTest Labs sanal makineleri listedeki tek öğe olarak VM'lerin listesini](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   Bu tür bir Resource Manager şablonu Azure PowerShell komutu aracılığıyla sağlanabilir **New-AzureRmResourceGroupDeployment** veya Azure CLI komutu aracılığıyla **az grubu dağıtım oluşturma**. DevTest Labs kullanıcı rolüyle ilişkilendirilen kullanıcılar dağıtım gerçekleştiremezler yönetici izinleri gerektirir. 
+   Bu tür bir Resource Manager şablonu Azure PowerShell komutu aracılığıyla sağlanabilir **yeni AzResourceGroupDeployment** veya Azure CLI komutu aracılığıyla **az grubu dağıtım oluşturma**. DevTest Labs kullanıcı rolüyle ilişkilendirilen kullanıcılar dağıtım gerçekleştiremezler yönetici izinleri gerektirir. 
 
 - Microsoft.Compute/virtualmachines kaynak türünü kullanan resource Manager şablonları, DevTest Labs sanal makineler listesi tek bir ortamda olarak birden çok VM sağlayabilirsiniz:
 

@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/18
+ms.date: 12/18/2018
 ms.author: rajraj
-ms.openlocfilehash: 3b5568e0eed06684667b8aeefa389b6d0aab2a5f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: bab264769576b6e5478236c452d7de920d887c1a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53636195"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670929"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Doğru sayıda sanal makine ölçek kümesi için hata etki alanlarını seçme
 Sanal makine ölçek kümeleri, beş hata etki alanları ile Azure bölgelerindeki hiçbir bölge ile varsayılan olarak oluşturulur. Sanal makine ölçek kümeleri bölgesel dağıtımını destekleyen bölgeleri için hata etki alanı sayısı varsayılan değerini her bölge için 1 ' dir. FD = 1, bu durumda gelir ölçek kümesine ait olan sanal makine örnekleri en iyi çaba ilkesine göre birçok raf arasında yayılır.

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: d1127834732a6fc82e0331370a6c4173e9f61dcf
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0a0d003f3d78c6d18938e9c87dd4862f7429d55b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685421"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728701"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure işlevleri C# betiği (.csx) Geliştirici Başvurusu
 
@@ -57,7 +57,7 @@ FunctionsProject
 
 Var olan bir paylaşılan [host.json](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev, kendi kod dosyalarını (.csx) ve bağlama yapılandırma dosyası (function.json) vardır.
 
-Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
+Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](./functions-bindings-register.md#local-development-azure-functions-core-tools). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
 
 ## <a name="binding-to-arguments"></a>Bağımsız değişkenler için bağlama
 
@@ -224,7 +224,7 @@ Göreli bir yol ile kullanabileceğiniz `#load` yönergesi:
 
 ## <a name="binding-to-method-return-value"></a>Yöntemin dönüş değeri bağlama
 
-Adını kullanarak bir yöntemin dönüş değeri bir çıkış bağlaması için kullanabilirsiniz `$return` içinde *function.json*. Örnekler için bkz [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md#using-the-function-return-value).
+Adını kullanarak bir yöntemin dönüş değeri bir çıkış bağlaması için kullanabilirsiniz `$return` içinde *function.json*. Örnekler için bkz [Tetikleyicileri ve bağlamaları](./functions-bindings-return-value.md).
 
 Yalnızca her zaman başarılı işlevi yürütme için çıktı bağlama geçirmek için bir dönüş değeri sonuçlanırsa, dönüş değeri kullanın. Aksi takdirde kullanın `ICollector` veya `IAsyncCollector`aşağıdaki bölümde gösterildiği gibi.
 
@@ -376,12 +376,12 @@ Bölümüne bakın işlevi klasörünüze dosyaları karşıya yükleme hakkınd
 İşlev komut dosyasını içeren dizine otomatik olarak değişiklikler derlemeler için izlenen. Diğer dizinlerde derleme değişiklikleri izlemek üzere bunları Ekle `watchDirectories` listesinde [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>NuGet paketlerini kullanma
-NuGet paketlerini kullanmak için bir C# işlev, karşıya bir *extensions.csproj* işlevin klasörüne işlevi uygulamanın dosya sisteminde dosya. İşte bir örnek *extensions.csproj* bir başvuru ekler dosya *Microsoft.ProjectOxford.Face* sürüm *1.1.0*:
+NuGet paketlerini kullanmak için bir C# işlev, karşıya bir *function.proj* işlevin klasörüne işlevi uygulamanın dosya sisteminde dosya. İşte bir örnek *function.proj* bir başvuru ekler dosya *Microsoft.ProjectOxford.Face* sürüm *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net46</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     
     <ItemGroup>
@@ -399,20 +399,15 @@ Akışta bir özel NuGet akışı kullanmak için belirtin bir *Nuget.Config* i�
 3. Sonra *extensions.csproj* dosyası, işlevinizde aşağıdaki örnekte olduğu gibi çıkış günlüğü akış bakın:
 
 ```
-2016-04-04T19:02:48.745 Restoring packages.
-2016-04-04T19:02:48.745 Starting NuGet restore
-2016-04-04T19:02:50.183 MSBuild auto-detection: using msbuild version '14.0' from 'D:\Program Files (x86)\MSBuild\14.0\bin'.
-2016-04-04T19:02:50.261 Feeds used:
-2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
-2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
-2016-04-04T19:02:50.261
+2018-12-14T22:00:48.658 [Information] Restoring packages.
+2018-12-14T22:00:48.681 [Information] Starting packages restore
+2018-12-14T22:00:57.064 [Information] Restoring packages for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj...
 2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
-2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
-2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
-2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.
-2016-04-04T19:02:57.189
-2016-04-04T19:02:57.189
-2016-04-04T19:02:57.455 Packages restored.
+2018-12-14T22:01:00.844 [Information] Installing Newtonsoft.Json 10.0.2.
+2018-12-14T22:01:01.041 [Information] Installing Microsoft.ProjectOxford.Common.DotNetStandard 1.0.0.
+2018-12-14T22:01:01.140 [Information] Installing Microsoft.ProjectOxford.Face.DotNetStandard 1.0.0.
+2018-12-14T22:01:09.799 [Information] Restore completed in 5.79 sec for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj.
+2018-12-14T22:01:10.905 [Information] Packages restored.
 ```
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
@@ -508,7 +503,7 @@ Aşağıdaki tabloda her bağlama türü ve bunların tanımlanan paketler için
 | Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
 | Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
 | Depolama kuyruğu | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Depolama blobu | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+| Depolama blob'u | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Depolama tablosu | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 

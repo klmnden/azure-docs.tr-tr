@@ -1,6 +1,6 @@
 ---
-title: Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için kullanım Azure AD erişim gözden geçirmeleri | Microsoft Docs
-description: Azure Active Directory (Azure AD) erişim gözden geçirmeleri, koşullu erişim ilkeleri'nden hariç kullanıcıları yönetmek için kullanın
+title: Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için Azure AD erişim gözden geçirmeleri kullanın | Microsoft Docs
+description: Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için Azure Active Directory (Azure AD) erişim gözden geçirmeleri kullanmayı öğrenin
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a82fdfe598e11415130950443fb0d3e27f5d9d01
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 75ff08111e96fd4b210dfeb09db521856f4f5e52
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168549"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727511"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-that-have-been-excluded-from-conditional-access-policies"></a>Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için kullanım Azure AD erişim gözden geçirmeleri
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için Azure AD erişim gözden geçirmeleri kullanın
 
 İdeal bir dünyada, tüm kullanıcıların erişimini izlemeniz gerekir ilkeleri, kuruluşunuzun kaynaklarına güvenli erişim için. Ancak, bazı durumlarda özel durumları yapmanızı gerektiren iş durumlar vardır. Bu makalede burada dışlamaları gerekli olabilir bazı örnekler ve nasıl BT yöneticisi olarak, bu görevi yönetebilir, İlkesi özel durumları sözleşmeli önlemek ve denetçiler düzenli olarak Azure'ı kullanarak bu özel durumlar incelenir kavram ile sağlayın Active Directory (Azure AD) erişim gözden geçirmeleri.
 
@@ -158,5 +158,5 @@ Bir BT yöneticisi olarak, ilkelerinizi için dışlama grupları yönetme bazen
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure AD ile uygulama erişimi ve Grup üyeleri erişim gözden geçirmesi oluşturma](create-access-review.md)
+- [Grupları ve uygulamaları, erişim gözden geçirmesi oluştur](create-access-review.md)
 - [Azure Active Directory'de koşullu erişim nedir?](../conditional-access/overview.md)

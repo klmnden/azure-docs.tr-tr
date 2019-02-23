@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 661cdddb4682d003b0c1149819a096a2a3756090
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994531"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729007"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -50,7 +50,7 @@ Proje oluşturduğunuzda, aşağıdaki oluşturulan yapı gibi görünen bir kla
  | - host.json
 ```
 
-Bu dizin ne işlev uygulamanızı azure'da dağıtılan olur. Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı olan [projeye NuGet paketleri olarak eklenen](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
+Bu dizin ne işlev uygulamanızı azure'da dağıtılan olur. Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı olan [projeye NuGet paketleri olarak eklenen](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
 > Derleme işlemi oluşturur bir *function.json* her işlev için dosya. Bu *function.json* dosyasının doğrudan düzenlenmesi değil yöneliktir. Bağlama yapılandırması değiştiremez veya bu dosyayı düzenleyerek işlevi devre dışı bırakın. Bir işlev devre dışı bırakma hakkında bilgi edinmek için [işlevler devre dışı bırakma](disable-function.md#functions-2x---c-class-libraries).
@@ -83,7 +83,7 @@ Yöntem imzası tetikleyici özniteliğiyle kullanılan farklı parametreler iç
 * [Giriş ve çıkış bağlamaları](functions-triggers-bindings.md) özniteliklerle tasarlayarak işaretlenen.  
 * Bir `ILogger` veya `TraceWriter` ([yalnızca 1.x sürümü](functions-versions.md#creating-1x-apps)) parametresi için [günlüğü](#logging).
 * A `CancellationToken` parametresi için [kapatılmasını](#cancellation-tokens).
-* [İfadeleri bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns) meta verileri için parametreleri tetikleyin.
+* [İfadeleri bağlama](./functions-bindings-expressions-patterns.md) meta verileri için parametreleri tetikleyin.
 
 İşlev imzası parametrelerinde sırası önemli değildir. Örneğin, önce veya sonra diğer bağlamalar tetikleyici parametreleri yerleştirebilir ve Günlükçü parametrenin öncesinde veya sonrasında tetikleyicisi veya bağlaması parametreleri koyabilirsiniz.
 
@@ -205,7 +205,7 @@ Her bağlama desteklenen türlerinden; yine de sahip istiyor musunuz? Örneğin,
 
 ## <a name="binding-to-method-return-value"></a>Yöntemin dönüş değeri bağlama
 
-Yöntemin dönüş değerini özniteliği uygulayarak, bir yöntemin dönüş değeri bir çıkış bağlaması için kullanabilirsiniz. Örnekler için bkz [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md#using-the-function-return-value). 
+Yöntemin dönüş değerini özniteliği uygulayarak, bir yöntemin dönüş değeri bir çıkış bağlaması için kullanabilirsiniz. Örnekler için bkz [Tetikleyicileri ve bağlamaları](./functions-bindings-return-value.md). 
 
 Yalnızca her zaman başarılı işlevi yürütme için çıktı bağlama geçirmek için bir dönüş değeri sonuçlanırsa, dönüş değeri kullanın. Aksi takdirde kullanın `ICollector` veya `IAsyncCollector`aşağıdaki bölümde gösterildiği gibi.
 

@@ -15,19 +15,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: e454420c014460fbf44c01cb9f620d0f3273c602
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 44f2c24f1fe53b6fadabf23f03a6feda75c87883
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586027"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738292"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio nedir?
 Microsoft Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Machine Learning Studio, modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web hizmetleri olarak yayımlar.
 
 Machine Learning Studio, verilerinizin veri bilimi, tahmine dayalı analiz ve bulut kaynakları ile buluştuğu yerdir.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-machine-learning-studio-interactive-workspace"></a>Machine Learning Studio etkileşimli çalışma alanı
 Tahmine dayalı bir analiz modeli geliştirmek için, genellikle bir veya daha çok kaynaktan veri kullanır, çeşitli veri işleme ve istatistik işlevleri aracılığıyla bu verileri dönüştürüp analiz eder ve bir sonuç kümesi oluşturursunuz. Bir modelin bu şekilde geliştirilmesi yinelemeli bir işlemdir. Çeşitli işlevleri ve bunların parametrelerini değiştirirken, eğitilmiş ve verimli bir model elde ettiğinizi düşüneceğiniz ana kadar sonuçlarınız yakınsanır.
@@ -38,14 +37,16 @@ Programlama gerekmez; tahmine dayalı analiz modelinizi oluşturmak için veri k
 
 ![Azure Machine Learning studio diyagramı: Denemeleri oluşturmak, birçok kaynak için veri okuma, puanlanmış veri yazma, model yazma.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
+## <a name="download-the-machine-learning-studio-overview-diagram"></a>Machine Learning Studio'ya genel bakış diyagramını indirme
+**Microsoft Azure Machine Learning Studio İşlevlerine Genel Bakış** diyagramını indirin ve Machine Learning Studio işlevlerine üst düzey bir genel bakış elde edin. Diyagramı yakınınızda tutmak için tabloid boyutunda (11 x 17 inç) yazdırabilirsiniz.
+
+**Diyagramı buradan indirin: [Microsoft Azure Machine Learning Studio işlevlerine genel bakış](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+![Microsoft Azure Machine Learning Studio işlevlerine genel bakış](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
+
 ## <a name="get-started-with-machine-learning-studio"></a>Machine Learning Studio ile çalışmaya başlama
 [Machine Learning Studio](https://studio.azureml.net)'ya ilk girişinizde **Giriş** sayfasını görürsünüz. Buradan belgeleri, videoları, web seminerlerini görüntüleyebilir ve diğer değerli kaynakları bulabilirsiniz.
 
 Sol üst menüye tıkladığınızda ![Menü](./media/what-is-ml-studio/menu.png) birkaç seçenek göreceksiniz.
-
-### <a name="cortana-intelligence"></a>Cortana Intelligence
-**Cortana Intelligence**'a tıkladığınızda [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite)'in ana sayfası açılır. Cortana Intelligence Suite, verilerinizi akıllı eylemlere dönüştüren büyük veri ve gelişmiş analiz özellikleri sunan, tam yönetilen bir çözümdür. Müşteri hikayeleri dahil olmak üzere tüm belgeleri görüntülemek için Suite ana sayfasını ziyaret edin.
-
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 Burada iki seçenek vardır: Başladığınız sayfa olan **Ana Sayfa** ve **Studio**.
 
@@ -108,53 +109,24 @@ Bazı Yardım büyük makine öğrenimi algoritma kitaplığı gezinmek için bk
 Tahmine dayalı analiz modeliniz hazır olduktan sonra, bunu doğrudan Machine Learning Studio'dan bir web hizmeti olarak dağıtabilirsiniz. Bu işlem hakkında daha ayrıntılı bilgi için bkz. [Bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
 
 
-## <a name="key-machine-learning-terms-and-concepts"></a>Önemli makine öğrenimi terimleri ve kavramları
-Makine öğrenimi terimleri kafanızı karıştırabilir. Size yardımcı olmak açısından önemli terimlerin tanımları aşağıda verilmiştir. Tanımlanmasını istediğiniz başka terim varsa aşağıdaki yorumları kullanarak bize bildirebilirsiniz.
+## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>Ne Machine Learning Studio, Azure Machine Learning hizmetinden farklıdır?
 
-### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Veri keşfi, açıklayıcı analiz ve tahmine dayalı analiz
+[Azure Machine Learning hizmeti](../service/overview-what-is-azure-ml.md) SDK'ları ve Hizmetleri hızlı bir şekilde veri hazırlama için eğitmek ve makine öğrenimi modelleri dağıtma sağlar. Otomatik ölçeklendirme bilgi işlemi ve işlem hatları ile üretkenliği ve maliyetleri geliştirin. PyTorch, TensorFlow ve scikit-learn gibi açık kaynak Python çerçeveleri aracılığıyla bu özellikleri kullanın. 
 
-**Veri keşfi**, odaklı analiz için özellikler bulmak amacıyla büyük ve genellikle yapılandırılmamış veri kümeleri hakkında bilgi toplama işlemidir.
+Makine öğrenimi modelleri ile hızlı ve kolay bir şekilde deneme yapmak istediğinizde ve yerleşik makine öğrenimi algoritmaları çözümleriniz için yeterli olduğunda Machine Learning Studio’yu kullanın.
 
-**Veri madenciliği**, otomatik veri keşfine başvurur.
+Bir Python ortamında çalışıyorsanız, makine öğrenimi algoritmalarınız üzerinde daha fazla denetime sahip olmak istiyorsanız veya açık kaynaklı makine öğrenimi kitaplıkları kullanmak istiyorsanız, Machine Learning hizmetini kullanın.
 
-**Açıklayıcı analiz**, ne olduğunu özetlemek için bir veri kümesini analiz etme işlemidir. Satış raporları, web ölçümleri ve sosyal ağ analizleri gibi iş analizlerinin büyük bir çoğunluğu açıklayıcıdır.
+> [!NOTE]
+> Azure Machine Learning Studio'da oluşturulan modeller dağıtılan veya Azure Machine Learning hizmeti tarafından yönetilir.
 
-**Tahmine dayalı analiz**, gelecekteki sonuçları öngörmek için geçmiş veya geçerli verilerden model oluşturma işlemidir.
+## <a name="free-trial"></a>Ücretsiz deneme sürümü
 
-### <a name="supervised-and-unsupervised-learning"></a>Denetimli ve denetimsiz öğrenme
- **Denetimli öğrenme** algoritmaları etiketli verilerle, başka bir deyişle istenen yanıtların örneklerinden oluşan verilerle eğitilir. Örneğin, sahte kredi kartı kullanımını tanımlayan bir model, bilinen sahte ve geçerli ödemelerin veri noktalarıyla etiketlenmiş bir veri kümesinden eğitilir. Machine learning denetimlidir.
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
- **Denetimsiz öğrenme** hiçbir etiketi olmayan verilerde kullanılır ve amacı verilerdeki ilişkileri bulmaktır. Örneğin, benzer satın alma alışkanlıklarına sahip müşteri demografisi gruplandırmalarını bulmak isteyebilirsiniz.
-
-### <a name="model-training-and-evaluation"></a>Model eğitimi ve değerlendirmesi
-Makine öğrenimi modeli, yanıtlamaya çalıştığınız sorunun veya tahmin etmek istediğiniz sonucun bir soyutlamasıdır. Modeller, var olan verilerle eğitilir ve değerlendirilir.
-
-#### <a name="training-data"></a>Eğitim verileri
-Bir modeli verilerle eğittiğinizde, bilinen bir veri kümesini kullanırsınız ve en doğru yanıta ulaşmak için gerekli veri özelliklerine bağlı olarak modelde değişiklikler yaparsınız. Azure Machine Learning Studio'da eğitim verilerini işleyen bir algoritma modülü ve puanlama modülü gibi işlevsel modüllerden bir model oluşturulur.
-
-Denetimli öğrenmede bir sahtekarlık algılama modelini eğitiyorsanız sahte veya geçerli olarak etiketlenmiş bir işlem kümesini kullanırsınız. Verilerinizi rastgele ayırıp bir kısmını modeli eğitmek, bir kısmını da modeli test etmek veya değerlendirmek için kullanırsınız.
-
-#### <a name="evaluation-data"></a>Değerlendirme verileri
-Bir modeli eğittikten sonra, kalan test verilerini kullanarak modeli değerlendirin. Modelinizin doğru tahmin yapıp yapmadığını anlamanız için sonuçlarını zaten bildiğiniz verileri kullanın.
-
-## <a name="other-common-machine-learning-terms"></a>Diğer ortak makine öğrenimi terimleri
-* **algoritma**: Kendi içinde veri işleme, matematik veya otomatik mantık aracılığıyla sorunları çözmek için kullanılan kuralları kümesi.
-* **anomali algılama**: Olağan dışı olayları veya değerleri işaretleyen ve yardımcı olan bir model sorunları keşfedin. Örneğin, kredi kartı sahtekarlığı algılama modeli sıra dışı satın alama işlemlerini algılar.
-* **Kategorik veriler**: Kategorilere göre düzenlenmiş ve gruplara bölünebilen veriler. Örneğin, otomobiller için kategorik bir veri kümesi yıl, marka, model ve fiyatı belirtebilir.
-* **Sınıflandırma**: Veri noktalarını, kategori gruplandırmaları zaten bilinen bir veri kümesi temel alınarak kategoriler halinde düzenlemek için bir model.
-* **özellik Mühendisliği**: Bir veri kümesine veri kümesini iyileştirmek ve sonuçları geliştirmek amacıyla ilgili özellikleri ayıklama veya seçme işlemi. Örneğin, uçak bileti ücreti verileri, haftanın günleri ve tatil günlerine göre iyileştirilebilir. Bkz: [özellik seçimi ve mühendislik Azure Machine Learning Studio'da](../team-data-science-process/create-features.md).
-* **Modül**: Bir Machine Learning Studio modelinde, küçük veri kümelerini girmeyi ve düzenlemeyi sağlayan veri girme modülü gibi işlevsel bir parçası. Bir algoritma da Machine Learning Studio'da bir modül türüdür.
-* **Model**: Denetimli öğrenme modeli bir makine öğrenimi eğitim verileri, bir algoritma modülü ve Score Model modülü gibi işlevsel modüllerden denemesinin ürünüdür.
-* **sayısal veriler**: Ölçümler (sürekli veriler) olarak anlamı veya sayımlar (ayrık veriler) veriler. *Nicel veri* olarak da adlandırılır.
-* **bölüm**: Verileri örneklere bölme yöntemi. Daha fazla bilgi için bkz. [Bölüm ve Örnek](https://msdn.microsoft.com/library/azure/dn905960.aspx) 
-* **Tahmin**: Tahmin değeri ya da makine öğrenme modeli değerleri bir tahmin ' dir. "Tahmin edilen puan" terimini de görebilirsiniz. Ancak, tahmin edilen puanlar bir modelin son çıktısı değildir. Puanın ardından modelin değerlendirmesi gelir.
-* **Regresyon**: Bir değeri tahmin etmeye yönelik bir model, bir yıl temelinde bir araba fiyatını gibi bağımsız değişkenlere bağlı ve olun.
-* **puan**: Bir eğitilmiş bir sınıflandırma veya regresyon modelinden oluşturulan tahmin edilen bir değer kullanarak [Model Puanlama Modülü](https://msdn.microsoft.com/library/azure/dn905995.aspx) Machine Learning Studio'da. Sınıflandırma modelleri, tahmin edilen değerin olasılığı için de bir puan döndürür. Bir modelden puan oluşturduktan sonra, [Evaluate Model (Model Değerlendirme) modülünü](https://msdn.microsoft.com/library/azure/dn905915.aspx) kullanarak modelin doğruluğunu değerlendirebilirsiniz.
-* **örnek**: Tüm temsilcisi olmaya yönelik bir veri kümesinin bir parçası. Örnekler, rastgele veya veri kümesinin belirli özellikleri temel alınarak seçilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tahmine dayalı analiz temellerini öğrenin ve makine öğreniminin bir [adım adım hızlı](create-experiment.md) ve [örnekler üzerinden giderek](sample-experiments.md).
-
 
 <!-- Module References -->
 [convert-to-arff]: https://msdn.microsoft.com/library/azure/62d2cece-d832-4a7a-a0bd-f01f03af0960/

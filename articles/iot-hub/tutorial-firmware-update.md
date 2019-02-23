@@ -9,15 +9,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 02/22/2019
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 20891b0d73783c9b68a42ecfed130e377b6f8eab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c387a7c10b962cfd27a7563c00ce58f58e97b9d5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729821"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671837"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Öğretici: Cihaz üretici yazılımı güncelleştirme işlemini uygulayın
 
@@ -94,7 +94,8 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ```
 
-Bu komutları bir Windows komut isteminde veya Powershell isteminde çalıştırıyorsanız, JSON dizelerini alıntı yapma hakkında bilgi için [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
+> [!TIP]
+> Bu komutları bir Windows komut isteminde veya Powershell isteminde çalıştırıyorsanız, JSON dizelerini alıntı yapma hakkında bilgi için [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
 ) sayfasına bakın.
 
 ## <a name="start-the-firmware-update"></a>Cihaz yazılımı güncelleştirmesini başlatma
@@ -205,7 +206,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide bağlı cihazlarınıza, cihaz yazılımı güncelleştirme işlemi uygulamayı öğrendiniz. Cihaz bağlantısını test etmek için Azure IOT Hub'ı portal araçları ve Azure CLI komutlarını kullanmayı öğrenmek isterseniz bir sonraki öğreticiye geçin.
+Bu öğreticide bağlı cihazlarınıza, cihaz yazılımı güncelleştirme işlemi uygulamayı öğrendiniz. Cihaz bağlantısını test etmek için Azure IOT hub'ı portal araçları ve Azure CLI komutlarını kullanma hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
 [IoT hub’ınızla bağlantıyı test etmek için bir sanal cihaz kullanma](tutorial-connectivity.md)

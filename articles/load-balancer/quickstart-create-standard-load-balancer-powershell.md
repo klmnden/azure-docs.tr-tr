@@ -10,18 +10,18 @@ Customer intent: I want to create a Standard Load balancer so that I can load ba
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: qucikstart
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: b2da2092c71d109081f05f3e4f12d7d11de37397
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 56fc3942b82d43273ea39f6075382bcb255fc0f7
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593956"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673828"
 ---
 # <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir Standard Load Balancer oluşturma
 
@@ -58,7 +58,7 @@ $publicIP = New-AzPublicIpAddress `
 
 ## <a name="create-standard-load-balancer"></a>Standart Load Balancer oluşturma
 
-Bu bölümde, ön uç IP'sini ve yük dengeleyici için arka uç adres havuzu yapılandırmanız ve ardından temel Azure Load Balancer oluşturun.
+Bu bölümde, ön uç IP'sini ve yük dengeleyici için arka uç adres havuzu yapılandırmanız ve ardından standart Load Balancer oluşturun.
 
 ### <a name="create-front-end-ip"></a>Ön uç IP oluşturma
 
@@ -133,7 +133,7 @@ $natrule2 = New-AzLoadBalancerInboundNatRuleConfig `
 
 ### <a name="create-load-balancer"></a>Yük dengeleyici oluşturma
 
-Standard Load Balancer ile oluşturma [AzLoadBalancer yeni](/powershell/module/az.network/new-azloadbalancer). Aşağıdaki örnek, genel bir temel yük adlı ön uç IP yapılandırması, arka uç havuzu, sistem durumu araştırması, Yük Dengeleme kuralı ve önceki adımlarda oluşturulan NAT kurallarını kullanarak myLoadBalancer dengeleyici oluşturur:
+Standard Load Balancer ile oluşturma [AzLoadBalancer yeni](/powershell/module/az.network/new-azloadbalancer). Aşağıdaki örnek, genel standart yük adlı ön uç IP yapılandırması, arka uç havuzu, sistem durumu araştırması, Yük Dengeleme kuralı ve önceki adımlarda oluşturulan NAT kurallarını kullanarak myLoadBalancer dengeleyici oluşturur:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -347,7 +347,7 @@ Remove-AzResourceGroup -Name myResourceGroupLB
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, bir Temel Load Balancer oluşturdunuz, buna VM’ler eklediniz, yük dengeleyici trafik kuralını ve durum araştırmasını yapılandırdınız ve yük dengeleyiciyi test ettiniz. Azure Load Balancer hakkında daha fazla bilgi almak için Azure Load Balancer öğreticisine devam edin.
+Bu hızlı başlangıçta, bir Standart Yük Dengeleyici oluşturdunuz, buna sanal makineler eklediniz, yük dengeleyici trafik kuralını ve durum araştırmasını yapılandırdınız ve yük dengeleyiciyi test ettiniz. Azure Load Balancer hakkında daha fazla bilgi almak için Azure Load Balancer öğreticilerine geçin.
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer öğreticileri](tutorial-load-balancer-basic-internal-portal.md)

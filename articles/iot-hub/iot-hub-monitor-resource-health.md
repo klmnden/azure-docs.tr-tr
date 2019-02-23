@@ -2,39 +2,39 @@
 title: Azure IOT Hub'ınızın sağlığını izleyin | Microsoft Docs
 description: Azure İzleyici ve Azure kaynak durumu, IOT Hub'ınıza izlemek ve sorunları hızla giderip tanılamak için kullanın
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 86e690e5ff437d924b9c548c2d75afb1866b14aa
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 4ecea0efdc7163b4738756d1b54726caf7e96665
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446792"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673095"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın
 
-Azure IOT hub'ı uygulayan işletmelerin kaynaklarını güvenilir performans bekler. İşlemlerinizi Kapat bir saatin sürdürmenize yardımcı olmak için IOT hub'ı tam olarak tümleşiktir [Azure İzleyici] [ lnk-AM] ve [Azure kaynak durumu] [ lnk-ARH]. Bu iki hizmet ile IOT çözümlerinizi ve sağlıklı bir durumda çalışır durumda tutmak için ihtiyacınız olan verileri sağlamak üzere planlanmıştır çalışır. 
+Azure IOT hub'ı uygulayan işletmelerin kaynaklarını güvenilir performans bekler. İşlemlerinizi Kapat bir saatin sürdürmenize yardımcı olmak için IOT hub'ı tam olarak tümleşiktir [Azure İzleyici](../azure-monitor/index.yml) ve [Azure kaynak durumu](../service-health/resource-health-overview.md). IOT çözümlerinizi ve sağlıklı bir durumda çalışır durumda tutmak için ihtiyacınız olan verileri sağlamak için bu iki hizmet çalışır. 
 
 Azure İzleyici, izleme ve günlüğe kaydetme için tüm Azure Hizmetleri tek bir kaynaktır. Özel işleme için Log Analytics, Event Hubs veya Azure depolama için Azure İzleyici oluşturan tanılama günlüklerini gönderebilirsiniz. Azure İzleyicisi'nin ölçümleri ve tanılama ayarları, kaynaklarınızın performansını görünürlük sağlar. Bilgi edinmek için bu makaleyi okumaya devam edin nasıl [kullanımı Azure İzleyici](#use-azure-monitor) IOT hub'ınızla. 
 
 > [!IMPORTANT]
 > Azure İzleyici tanılama günlüklerini kullanarak IOT Hub hizmeti tarafından oluşturulan olayları güvenilir ya da sıralı olmasını garanti edilmez. Bazı olayları kaybolabilir veya düzensiz teslim. Tanılama günlükleri de gerçek zamanlı olacak şekilde tasarlanmış değildir ve hedef ettiğiniz için günlüğe kaydedilecek olayları için birkaç dakika sürebilir.
 
-Azure kaynak durumu, tanılamanıza ve bir Azure sorunu kaynaklarınızı etkilediğinde destek almanıza yardımcı olur. Kişiselleştirilmiş bir panoya, IOT hub'ları için mevcut ve eski sistem durumunu sağlar. Bilgi edinmek için bu makaleyi okumaya devam edin nasıl [kullanımı Azure kaynak durumu](#use-azure-resource-health) IOT hub'ınızla. 
+Azure kaynak durumu, tanılamanıza ve bir Azure sorunu kaynaklarınızı etkilediğinde destek almanıza yardımcı olur. Bir Pano her IOT hub'ları için mevcut ve eski sistem durumunu sağlar. Bilgi edinmek için bu makalenin alt kısmına devam nasıl [kullanımı Azure kaynak durumu](#use-azure-resource-health) IOT hub'ınızla. 
 
-IOT Hub, IOT kaynaklarınızın durumunu anlamak için kullanabileceğiniz, kendi ölçümleri de sağlar. Daha fazla bilgi için bkz. [IOT Hub'ı anlama ölçümleri][lnk-metrics].
+IOT Hub, IOT kaynaklarınızın durumunu anlamak için kullanabileceğiniz, kendi ölçümleri de sağlar. Daha fazla bilgi için bkz. [IOT Hub'ı anlama ölçümleri](iot-hub-metrics.md).
 
 ## <a name="use-azure-monitor"></a>Azure İzleyici’yi kullanma
 
 Azure İzleyici, Azure kaynakları için IOT hub'ınıza içinde gerçekleşmesi işlemleri izleyebilirsiniz anlamına gelir. tanılama bilgileri sağlar. 
 
-Azure İzleyicisi'nin tanılama ayarları değiştirir, IOT Hub işlemlerini izleyin. İşlem izleme şu anda kullanıyorsanız, iş akışlarınızı geçirmeniz gerekir. Daha fazla bilgi için [işlem için tanılama ayarları İzleme'ten geçiş][lnk-migrate].
+Azure İzleyicisi'nin tanılama ayarları değiştirir, IOT Hub işlemlerini izleyin. İşlem izleme şu anda kullanıyorsanız, iş akışlarınızı geçirmeniz gerekir. Daha fazla bilgi için [işlem için tanılama ayarları İzleme'ten geçiş](iot-hub-migrate-to-diagnostics-settings.md).
 
-Azure İzleyici izleyen olaylarını ve belirli ölçümleri hakkında daha fazla bilgi için bkz: [Azure İzleyici ile desteklenen ölçümler] [ lnk-AM-metrics] ve [için Azure Hizmetleri, şemalar ve kategoriler desteklenir Tanılama günlükleri][lnk-AM-schemas].
+Azure İzleyici izleyen olaylarını ve belirli ölçümleri hakkında daha fazla bilgi için bkz: [Azure İzleyici ile desteklenen ölçümler](../azure-monitor/platform/metrics-supported.md) ve [desteklenen hizmetler, şemalar ve kategoriler için Azure tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-schema.md).
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -47,7 +47,7 @@ Azure İzleyici, IOT Hub'ında gerçekleşen farklı işlem izler. Her kategorin
 Bağlantı kategorisi parçaları cihaz bağlayın ve hataları yanı sıra IOT hub'ı, bağlantıyı kesme olayları. Bu kategorideki cihazlar bağlantısı kesildiğinde uyarı ve yetkisiz bağlantı girişimleri tanımlama için kullanışlıdır.
 
 > [!NOTE]
-> Cihaz güvenilir bir bağlantı durumunu denetleme [cihaz sinyal][lnk-devguide-heartbeat].
+> Cihaz güvenilir bir bağlantı durumunu denetleme [cihaz sinyal](iot-hub-devguide-identity-registry.md#device-heartbeat).
 
 
 ```json
@@ -311,9 +311,9 @@ Doğrudan yöntemler kategoriyi ayrı ayrı cihazlara gönderilen istek-yanıt e
 
 #### <a name="distributed-tracing-preview"></a>Dağıtılmış izleme (Önizleme)
 
-Dağıtılmış izleme kategorisi izleme bağlamı üstbilgisine iletileri için bağıntı kimlikleri izler. Bu günlükler tam olarak etkinleştirmek için istemci tarafı koduna izleyerek güncelleştirilmelidir [analiz ve IOT uygulamaları için uçtan uca IOT hub'ı dağıtılmış izleme (Önizleme) ile tanılama](iot-hub-distributed-tracing.md).
+Dağıtılmış izleme kategorisi izleme bağlamı üstbilgisine iletileri için bağıntı kimlikleri izler. Bu günlükler tam olarak etkinleştirmek için istemci tarafı kod izleyerek güncelleştirilmelidir [analiz ve IOT uygulamaları için uçtan uca IOT hub'ı dağıtılmış izleme (Önizleme) ile tanılama](iot-hub-distributed-tracing.md).
 
-Unutmayın `correlationId` ve uyan [W3C izleme bağlamı](https://github.com/w3c/trace-context) teklifi, burada içerdiği bir `trace-id` yanı sıra bir `span-id`. 
+Unutmayın `correlationId` uyan [W3C izleme bağlamı](https://github.com/w3c/trace-context) teklifi, burada içerdiği bir `trace-id` yanı sıra bir `span-id`. 
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>IOT hub'ı D2C (cihaz-bulut) günlükleri
 
@@ -487,28 +487,18 @@ class Program 
 
 Azure kaynak durumu, IOT hub'ınıza hazır ve çalışır durumda olup olmadığını izlemek için kullanın. Ayrıca, IOT hub'ınızın sağlığını etkileyen bölgesel bir kesinti olup olmadığını öğrenebilirsiniz. Azure IOT Hub'ınıza sistem durumu hakkında belirli diğer ayrıntıları öğrenmek olmasını öneririz, [kullanımı Azure İzleyici](#use-azure-monitor). 
 
-Azure IOT Hub durumu bölge düzeyinde gösterir. Bölgesel bir kesinti IOT hub'ınıza etkiliyorsa olarak sistem durumunu gösteren **bilinmeyen**. Daha fazla bilgi için bkz. [kaynak türleri ve sistem durumu denetimleri bulunan Azure kaynak durumu][lnk-ARH-checks].
+Azure IOT Hub durumu bölge düzeyinde gösterir. Bölgesel bir kesinti IOT hub'ınıza etkiliyorsa olarak sistem durumunu gösteren **bilinmeyen**. Daha fazla bilgi için bkz. [kaynak türleri ve sistem durumu denetimleri bulunan Azure kaynak durumu](../service-health/resource-health-checks-resource-types.md).
 
 IOT hub'ları durumunu denetlemek için şu adımları izleyin:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Gidin **hizmet durumu** > **kaynak durumu**.
-1. Aşağı açılan kutularından aboneliğinizi seçin ve **IOT hub'ı**.
+1. Aşağı açılan kutularından aboneliğinizi seçin, ardından seçin **IOT hub'ı** kaynak türü.
 
-Sistem Durumu verileri nasıl yorumlayacağınız hakkında daha fazla bilgi için bkz: [Azure kaynak durumu genel bakış][lnk-ARH]
+Sistem Durumu verileri nasıl yorumlayacağınız hakkında daha fazla bilgi için bkz: [Azure kaynak durumu genel bakış](../service-health/resource-health-overview.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [IOT hub'ı ölçüleri anlama][lnk-metrics]
-- [IOT Uzaktan izleme ve IOT hub ve posta kutusu bağlanan Azure Logic Apps ile bildirimleri][lnk-monitoring-notifications]
+- [IOT hub'ı ölçüleri anlama](iot-hub-metrics.md)
+- [IOT Uzaktan izleme ve IOT hub ve posta kutusu bağlanan Azure Logic Apps ile bildirimleri](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-
-[lnk-AM]: ../azure-monitor/index.yml
-[lnk-ARH]: ../service-health/resource-health-overview.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-migrate]: iot-hub-migrate-to-diagnostics-settings.md
-[lnk-AM-metrics]: ../azure-monitor/platform/metrics-supported.md
-[lnk-AM-schemas]: ../azure-monitor/platform/diagnostic-logs-schema.md
-[lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
-[lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-[lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

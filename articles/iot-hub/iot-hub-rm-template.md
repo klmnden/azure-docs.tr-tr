@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 2f9728fc3304534619fbd3a8b44abf6bab78887a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 979e99e4f9aea692de9c9797f65e3cb6a8e0a1e4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436051"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736830"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Azure Resource Manager şablonu (.NET) kullanarak IOT hub oluşturma
 
@@ -24,6 +24,8 @@ Azure Resource Manager'ı oluşturma ve Azure IOT hub'ları programlı olarak y�
 
 > [!NOTE]
 > Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır:  [Azure Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makalede Azure Resource Manager dağıtım modelini incelemektedir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -193,10 +195,10 @@ Bir JSON şablonu ve parametre dosyası, kaynak grubunuzda bir IOT hub'ı oluşt
 
 3. Tıklayın **hata ayıklama** ardından **hata ayıklamayı Başlat** uygulamayı çalıştırın. Bu, dağıtımın çalıştırmak birkaç dakika sürebilir.
 
-4. Uygulamanızı yeni IOT hub'ı doğrulamak için ziyaret [Azure portalında] [ lnk-azure-portal] ve kaynakların listesini görüntüleyin. Alternatif olarak, **Get-AzureRmResource** PowerShell cmdlet'i.
+4. Uygulamanızı yeni IOT hub'ı doğrulamak için ziyaret [Azure portalında] [ lnk-azure-portal] ve kaynakların listesini görüntüleyin. Alternatif olarak, **Get-AzResource** PowerShell cmdlet'i.
 
 > [!NOTE]
-> Bu örnek uygulama, bir S1 standart IOT için faturalandırılırsınız Hub ekler. IOT hub'ı aracılığıyla silebilirsiniz [Azure portalında] [ lnk-azure-portal] kullanarak veya **Remove-AzureRmResource** işiniz bittiğinde PowerShell cmdlet'i.
+> Bu örnek uygulama, bir S1 standart IOT için faturalandırılırsınız Hub ekler. IOT hub'ı aracılığıyla silebilirsiniz [Azure portalında] [ lnk-azure-portal] kullanarak veya **Remove-AzResource** işiniz bittiğinde PowerShell cmdlet'i.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir C# programı ile bir Azure Resource Manager şablonu kullanarak bir IOT hub'ı dağıttığınız artık daha iyi keşfedilebilmesi isteyebilirsiniz:
@@ -218,7 +220,7 @@ Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]:../storage/common/storage-create-storage-account.md

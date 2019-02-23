@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f4e1b25133914a65f34e281c145d7db5969b0581
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9039c1fd94bbc62f48ca5a6869f455aa41b740c9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208032"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673947"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell ve Azure Resource Manager'ı kullanarak Hyper-V Vm'leri için Azure'da olağanüstü durum kurtarma ayarlama
 
@@ -54,15 +54,15 @@ Ayrıca, bu makalede açıklanan özel bir örnek, aşağıdaki önkoşulları v
 
 3. Aboneliğiniz için kurtarma Hizmetleri ve şu komutları kullanarak Site Recovery, Azure sağlayıcılarını kullanacak şekilde kaydedildiğini doğrulayın:
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
+    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
 4. Komut çıktısında, doğrulayın **RegistrationState** ayarlanır **kayıtlı**, 2. adım geçebilirsiniz. Aksi durumda, bu komutları çalıştırarak eksik sağlayıcısı, aboneliğinizde kaydolmalıdır:
 
-    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery` `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
+    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 5. Aşağıdaki komutları kullanarak sağlayıcılar başarıyla kayıtlı doğrulayın:
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
+    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
 ## <a name="step-2-set-up-the-vault"></a>2. Adım: Kasası ayarlama
 

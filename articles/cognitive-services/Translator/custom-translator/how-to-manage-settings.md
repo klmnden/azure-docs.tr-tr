@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.topic: conceptual
+ms.openlocfilehash: bbec2205fc6b29476cf531c071b5c2ac4c014bcb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227089"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732537"
 ---
 # <a name="how-to-manage-settings"></a>Ayarları yönetme
 
@@ -45,7 +45,7 @@ Bir aboneliğiniz yoksa, aşağıdaki adımları izleyin:
     ![Abonelik anahtarı ekleme](media/how-to/how-to-add-subscription-key.png)
 
 3. İletişim kutusunda, translator aboneliğiniz için anahtarı girin ve ardından "Ekle" düğmesine tıklayın.
- 
+
     ![Abonelik anahtarı ekleme](media/how-to/how-to-add-subscription-key-dialog.png)
 4.  Bir anahtarı ekledikten sonra değiştirmek veya herhangi bir zamanda anahtarı silin.
 
@@ -53,29 +53,29 @@ Bir aboneliğiniz yoksa, aşağıdaki adımları izleyin:
 
 ## <a name="manage-your-workspace"></a>Çalışma alanınızı yönetme
 
-Bir çalışma alanı oluşturma ve özel çeviri sisteminizi oluşturmak için bir çalışma alanıdır. Bir çalışma alanı, birden çok proje, modelleri ve belgeleri içerebilir. 
+Bir çalışma alanı oluşturma ve özel çeviri sisteminizi oluşturmak için bir çalışma alanıdır. Bir çalışma alanı, birden çok proje, modelleri ve belgeleri içerebilir.
 
-Farklı bir iş parçası farklı kişilerle paylaşılması gerekiyorsa, sonra birden çok çalışma alanı oluşturmayı yararlı olabilir. 
+Farklı bir iş parçası farklı kişilerle paylaşılması gerekiyorsa, sonra birden çok çalışma alanı oluşturmayı yararlı olabilir.
 
 ## <a name="create-a-new-workspace"></a>Yeni bir çalışma alanı oluşturma
 
 1.  Çalışma alanı "Ayarlar" sayfasına gidin.
 2.  "Yeni çalışma alanı" tıklayın "yeni çalışma alanı oluşturma" bölümünde düğmesi.
-    
+
     ![Yeni çalışma alanı oluşturma](media/how-to/create-new-workspace.png)
 
 4.  İletişim kutusunda, yeni bir çalışma alanı adını girin.
 5.  "Oluştur" a tıklayın.
-    
+
     ![Yeni çalışma alanı iletişim kutusu oluşturma](media/how-to/create-new-workspace-dialog.png)
 
 ## <a name="share-your-workspace"></a>Çalışma alanınızda paylaşın
 
-Farklı bir iş parçası farklı kişilerle paylaşılması gerekiyorsa özel Translator, çalışma alanınızı başkalarıyla paylaşabilirsiniz. 
+Farklı bir iş parçası farklı kişilerle paylaşılması gerekiyorsa özel Translator, çalışma alanınızı başkalarıyla paylaşabilirsiniz.
 
 1.  Çalışma alanı "Ayarlar" sayfasına gidin.
 2.  "Paylaşımı ayarları" bölümünde "Paylaşım" düğmesine tıklayın.
-    
+
     ![Çalışma alanı paylaşın](media/how-to/share-workspace.png)
 
 3.  İletişim kutusunda şununla paylaşıldı: Bu çalışma alanını istediğiniz e-posta adreslerini virgülle ayrılmış bir listesini girin. Söz konusu kişinin e-posta adresiyle paylaştığınızdan emin olun özel Translator ile oturum açmak için kullanır. Ardından, uygun paylaşım izni düzeyini seçin.
@@ -85,7 +85,7 @@ Farklı bir iş parçası farklı kişilerle paylaşılması gerekiyorsa özel T
 
 ## <a name="sharing-permissions"></a>Paylaşım izinleri
 
-1.  **Okuyucu:** Çalışma alanında bir okuyucu çalışma alanındaki tüm bilgileri görüntülemek mümkün olacaktır. 
+1.  **Okuyucu:** Çalışma alanında bir okuyucu çalışma alanındaki tüm bilgileri görüntülemek mümkün olacaktır.
 
 2.  **Düzenleyen:** Çalışma alanında bir düzenleyici belgelere ekleme, modelleri eğitme ve belgeler ve projeler silmek mümkün olacaktır. Bir abonelik anahtarı ekleyebilir ancak olamaz değiştirme ile çalışma alanını paylaşan, çalışma alanını silmek veya çalışma alanı adı değiştirin.
 

@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: b05713fd8acb49b25dba04781c1049c9f05115fb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 5161a35fd52b2f3d8374c76bdab60281e33dacf6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444707"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730656"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Azure API Yönetimi'nde özel bir CA sertifikası ekleme
 
 Azure API yönetimi, makineye güvenilen kök ve ara sertifika depoları içinde CA sertifikaları yükleme sağlar. Bu işlev özel bir CA sertifikası hizmetlerinizi ihtiyaç duyuyorsanız kullanılmalıdır.
 
 Bu makalede, Azure portalında bir Azure API Management hizmet örneğinin CA sertifikalarını yönetmek gösterilmektedir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -51,7 +53,7 @@ Yeni bir CA sertifikası yüklemek için aşağıdaki adımları izleyin. Henüz
     ![CA sertifikaları Ekle](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
-> Sertifika kullanarak bir CA yükleyebilirsiniz `New-AzureRmApiManagementSystemCertificate` Powershell komutu.
+> Sertifika kullanarak bir CA yükleyebilirsiniz `New-AzApiManagementSystemCertificate` Powershell komutu.
 
 ## <a name="step1a"> </a>Bir istemci sertifikasını Sil
 

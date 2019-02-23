@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: df65c29b39921eda6ba2bd682e5938f58a9e4de7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 31b24a7caf679f2e872a60db274218586642624a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964586"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737442"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
 
@@ -152,9 +152,6 @@ az storage account create \
     --kind StorageV2 \
     --Enable-hierarchical-namespace true
 ```
-
-> [!NOTE]
-> Yalnızca genel Data Lake depolama Gen2'ın sırasında `--sku Standard_LRS` desteklenir.
 
 Depolama hesabının oluşturulacağı coğrafi bölgeyi belirtmeniz istenir. HDInsight kümenizi oluşturmayı planladığınız aynı bölgede depolama hesabı oluşturun.
 

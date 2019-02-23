@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 64f02b1165d014a0eaa89dae64a7d9aa283cac32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7be10f03d65e53b51c3916849dc12feb4de9c919
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834596"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737663"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Service fabric kümesi açıklayan
 Service Fabric Küme Kaynak Yöneticisi bir kümesini tanımlamak için çeşitli mekanizmalar sağlar. Çalışma zamanı sırasında küme kaynak yöneticisi, kümede çalışan hizmetler yüksek kullanılabilirliğini sağlamak için bu bilgileri kullanır. Önemli kurallar zorlarken, ayrıca küme içindeki kaynak tüketimini iyileştirmek çalışır.
@@ -28,7 +28,7 @@ Service Fabric Küme Kaynak Yöneticisi bir kümesini tanımlamak için çeşitl
 Küme Kaynak Yöneticisi, bir kümeyi tanımlama çeşitli özelliklerini destekler:
 
 * Hata etki alanları
-* Yükseltme etki alanları
+* Upgrade Domains
 * Düğüm özellikleri
 * Düğüm kapasiteleri
 
@@ -54,7 +54,7 @@ Grafikte, biz hata etki alanlarına katkıda bulunabilir ve tüm farklı hataya 
 
 Service Fabric'in Küme Kaynak Yöneticisi kaç Katmanlar vardır hata etki alanı hiyerarşisinde önemli değil. Bununla birlikte, hiyerarşideki herhangi bir kısmının kaybı içinde çalışan hizmetleri etkilemez emin olmak çalışır. 
 
-Her hata etki alanı hiyerarşideki derinlik düzeyini düğümlerde aynı sayıda varsa en iyisidir. Hata etki alanları "ağacı" kümenizde dengesiz ise, bu hizmetleri en iyi ayırma anlamak için Küme Kaynak Yöneticisi için zorlaştırır. Bazı etki alanlarına etki daha fazla diğer etki alanı Hizmetleri'nin kullanılabilirliğini kaybı anlamına imbalanced hata etki alanları düzenler. Küme Kaynak Yöneticisi arasında iki amacı sonuç olarak, bozuk: "heavy" Bu etki alanında bunlar üzerinde Hizmetleri yerleştirerek makineleri'nin istediği ve bir etki alanı kaybı sorunlara neden olmayan diğer etki alanlarında Hizmetleri lıbcmtd.lib istemektedir. 
+Her hata etki alanı hiyerarşideki derinlik düzeyini düğümlerde aynı sayıda varsa en iyisidir. Hata etki alanları "ağacı" kümenizde dengesiz ise, bu hizmetleri en iyi ayırma anlamak için Küme Kaynak Yöneticisi için zorlaştırır. Bazı etki alanlarına etki daha fazla diğer etki alanı Hizmetleri'nin kullanılabilirliğini kaybı anlamına imbalanced hata etki alanları düzenler. Sonuç olarak, küme kaynak yöneticisi olarak iki amaçları arasında kaldırılır: "Heavy" Bu etki alanında bunlar üzerinde Hizmetleri yerleştirerek makineleri'nin istediği ve onu bir etki alanı kaybı sorunlara neden olmayan diğer etki alanlarında Hizmetleri lıbcmtd.lib istiyor. 
 
 İmbalanced etki alanları ne gibi görünüyor? Aşağıdaki diyagramda, iki farklı küme düzenleri göstereceğiz. İlk örnekte, düğümler, hata etki alanları arasında eşit şekilde dağıtılır. İkinci örnekte, bir hata etki alanı, başka bir hata etki alanı daha pek çok daha fazla düğüm var. 
 
@@ -97,7 +97,7 @@ Burada, UD ve Fd'ler bir tablo oluşturur ve düğümleri çapraz başlangıç y
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Hata ve yükseltme etki alanı kısıtlamaları ve bunun sonucunda oluşan davranışı
 ### <a name="default-approach"></a>*Varsayılan yaklaşımı*
-Varsayılan olarak, Küme Kaynak Yöneticisi hata ve yükseltme etki alanları arasında dengeli Hizmetleri tutar. Bu olarak modellenir bir [kısıtlaması](service-fabric-cluster-resource-manager-management-integration.md). Hata ve yükseltme etki alanı kısıtlaması durumları: "verili hizmet bölümü için hiçbir zaman olması gerektiğini fark aynı düzeyde iki tüm etki alanları arasında hizmet nesneleri (durum bilgisi olmayan hizmet örneği veya durum bilgisi olan hizmet çoğaltmalar) sayısını birden büyük hiyerarşisi". Bu kısıtlama, "en büyük fark" garantisi sağlar varsayalım. Hata ve yükseltme etki alanı kısıtlaması, belirli taşıma veya yukarıda belirtilen kural ihlal düzenlemeleri engeller. 
+Varsayılan olarak, Küme Kaynak Yöneticisi hata ve yükseltme etki alanları arasında dengeli Hizmetleri tutar. Bu olarak modellenir bir [kısıtlaması](service-fabric-cluster-resource-manager-management-integration.md). Hata ve yükseltme etki alanı kısıtlaması durumları: "Bir verili hizmet bölümü için hiçbir zaman olmalıdır bir fark hiyerarşisinin aynı düzeyde iki tüm etki alanları arasında hizmet nesneleri (durum bilgisi olmayan hizmet örneği veya durum bilgisi olan hizmet çoğaltmalar) sayısını birden büyük". Bu kısıtlama, "en büyük fark" garantisi sağlar varsayalım. Hata ve yükseltme etki alanı kısıtlaması, belirli taşıma veya yukarıda belirtilen kural ihlal düzenlemeleri engeller. 
 
 Bir örneğe göz atalım. Altı düğümü, beş hata etki alanları ve beş yükseltme etki alanları ile yapılandırılmış olan bir küme sahip olduğunuzu düşünelim.
 
@@ -122,7 +122,7 @@ Artık bir TargetReplicaSetSize ile (veya Instancecount bir durum bilgisi olmaya
 | **UD2** | | |R3 | | |1 |
 | **UD3** | | | |R4 | |1 |
 | **UD4** | | | | |R5 |1 |
-| **FDTotal** |1 |1 |1 |1 |1 |- |
+| **FDTotal** |1 |1. |1. |1. |1 |- |
 
 *Düzen 1*
 
@@ -138,7 +138,7 @@ Bu düzen, hata etki alanı ve yükseltme etki alanı başına düğüm açısı
 | **UD2** | | |R2 | | |1 |
 | **UD3** | | | |R3 | |1 |
 | **UD4** | | | | |R4 |1 |
-| **FDTotal** |2 |0 |1 |1 |1 |- |
+| **FDTotal** |2 |0 |1. |1. |1 |- |
 
 *Düzen 2*
 
@@ -152,7 +152,7 @@ Bu düzen, hata etki alanı kısıtlaması için "en büyük fark" garantisi, bi
 | **UD2** | | |R2 | | |1 |
 | **UD3** | | | |R3 | |1 |
 | **UD4** | | | | |R4 |1 |
-| **FDTotal** |1 |1 |1 |1 |1 |- |
+| **FDTotal** |1 |1. |1. |1. |1 |- |
 
 *Düzen 3*
 
@@ -176,7 +176,7 @@ Durum bilgisi olan yinelemeler ya da durum bilgisi olmayan örnekleri dağıtıl
 
 ### <a name="alternative-approach"></a>*Alternatif bir yaklaşım*
 
-Küme Kaynak Yöneticisi, en düşük düzeyde güvenlik hala güvence altına almak sırasında yerleştirme sağlayan hata ve yükseltme etki alanı kısıtlaması başka bir sürümünü destekler. Farklı hata ve yükseltme etki alanı kısıtlaması gibi belirtilebilir: "bir verili hizmet bölümü için etki alanları arasında çoğaltma dağıtım bölüm çekirdek kayıp saptanmamış emin olmanız gerekir". Bu kısıtlama "çekirdek güvenli" garantisi sağlar varsayalım. 
+Küme Kaynak Yöneticisi, en düşük düzeyde güvenlik hala güvence altına almak sırasında yerleştirme sağlayan hata ve yükseltme etki alanı kısıtlaması başka bir sürümünü destekler. Farklı hata ve yükseltme etki alanı kısıtlaması gibi belirtilebilir: "Bir verili hizmet bölümü için etki alanları arasında çoğaltma dağıtım bölüm çekirdek kayıp saptanmamış emin olmanız gerekir". Bu kısıtlama "çekirdek güvenli" garantisi sağlar varsayalım. 
 
 > [!NOTE]
 >Bir durum bilgisi olan hizmet için tanımlarız *çekirdek kayıp* bölüm çoğaltmalarını çoğunu basılı olduğunda aynı anda bir durumda. Örneğin, beş TargetReplicaSetSize ise, çekirdek herhangi üç kopyaya kümesini temsil eder. Benzer şekilde, 6 TargetReplicaSetSize ise dört çoğaltmaları çekirdek için gereklidir. Bölüm normal olarak çalışmaya devam etmek istiyorsa her iki durumda da ikiden fazla çoğaltma aşağı aynı anda olabilir. Bir durum bilgisi olmayan hizmet için de yoktur *çekirdek kayıp* gibi durum bilgisi olmayan hizmetler örnekleri çoğunu aşağı git aynı anda bile normal şekilde çalışmaya devam eder. Bu nedenle, durum bilgisi olan hizmetler metnin geri kalanında odaklanacağız.
@@ -192,7 +192,7 @@ Her iki yaklaşım güçlü ve zayıf olduğundan, bu iki stratejiler birleştir
 > [!NOTE]
 >Bu, Service Fabric sürüm 6.2 ile başlayarak varsayılan davranışı olacaktır. 
 >
-Uyarlanabilir bir yaklaşım, varsayılan "en büyük fark" mantığı kullanır ve yalnızca gerekli olduğunda "çekirdek güvenli" mantıksal anahtarları. Küme Kaynak Yöneticisi otomatik olarak hangi stratejiyi nasıl kümeyi ve Hizmetleri yapılandırılmış en bakarak gerekli olduğunu belirler. Belirli bir hizmetin: *TargetReplicaSetSize hata etki alanları sayısı ve yükseltme etki alanlarının sayısı ile kalansız ise **ve** düğüm sayısını (hata etki alanları sayısı) küçük veya ona eşit olduğu * ( sayısı, yükseltme etki alanları), küme kaynak yöneticisi bu hizmet için "temel çekirdek" mantıksal kullanmalıdır.* Küme Kaynak Yöneticisi durum bilgisi olmayan hizmetler için ilgili olmaması çekirdek kayıp rağmen durum bilgisiz ve durum bilgisi olan hizmetler için bu yaklaşım kullanacağını aklınızda size aittir.
+Uyarlanabilir bir yaklaşım, varsayılan "en büyük fark" mantığı kullanır ve yalnızca gerekli olduğunda "çekirdek güvenli" mantıksal anahtarları. Küme Kaynak Yöneticisi otomatik olarak hangi stratejiyi nasıl kümeyi ve Hizmetleri yapılandırılmış en bakarak gerekli olduğunu belirler. Belirli bir hizmet için: *TargetReplicaSetSize hata etki alanları sayısı ve yükseltme etki alanlarının sayısı ile kalansız ise **ve** düğüm sayısını (hata etki alanları sayısı) küçük veya ona eşit olduğu * (yükseltme etki alanları sayısı) kümesi Resource Manager, bu hizmet için "temel çekirdek" mantıksal kullanmalıdır.* Küme Kaynak Yöneticisi durum bilgisi olmayan hizmetler için ilgili olmaması çekirdek kayıp rağmen durum bilgisiz ve durum bilgisi olan hizmetler için bu yaklaşım kullanacağını aklınızda size aittir.
 
 Önceki örneğe geri dönelim ve küme artık 8 düğüm (küme yine beş hata etki alanları ve beş yükseltme etki alanları ve bu küme kalır beş barındırılan hizmetin TargetReplicaSetSize yapılandırılmış) olduğunu varsayalım. 
 
@@ -230,7 +230,7 @@ Geri dördüncü düzenini ve beş TargetReplicaSetSize aranıyor. N1 kümeden k
 | **UD2** | |R3 |R4 | | |2 |
 | **UD3** | | | |R1 | |1 |
 | **UD4** | | | | |R5 |1 |
-| **FDTotal** |1 |1 |1 |1 |1 |- |
+| **FDTotal** |1 |1. |1. |1. |1 |- |
 
 *Düzen 5*
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f1f4cb036f4df226d651f8f4d0f5c7492f453a0a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 167c8b4dff2e6f392dd6608d20d8924d446f95aa
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269749"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729942"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake depolama 2. nesil ile HDFS CLI'yı kullanma
 
@@ -77,10 +77,6 @@ HDFS CLI hakkında daha fazla bilgi için bkz. [resmi belgelerine](https://hadoo
 ## <a name="hdfs-cli-with-azure-databricks"></a>HDFS CLI ile Azure Databricks
 
 Databricks Databricks REST API üzerinde derlenmiş bir kolayca kullanıma CLI sağlar. Açık kaynaklı proje üzerinde barındırılan [GitHub](https://github.com/databricks/databricks-cli). Sık kullanılan komutlar aşağıda verilmiştir.
-
-### <a name="create-a-file-system"></a>Bir dosya sistemi oluşturun
-
-Kılavuz buraya koyun.
 
 ### <a name="get-a-list-of-files-or-directories"></a>Dosya veya dizinlerin bir listesini alın
 

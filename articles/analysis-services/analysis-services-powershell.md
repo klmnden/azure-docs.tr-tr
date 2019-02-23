@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9e7683883963db2cf1911405225fcdbf289de2bb
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8f309d628ec4531ca5594ecb25533b1484e8b274
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187549"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732407"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Azure Analysis Services PowerShell ile yönetme
 
@@ -21,27 +21,29 @@ Bu makalede, Azure Analysis Services sunucusu ve veritabanı yönetim görevleri
 
 Oluşturma veya sunucu silme, askıya alma veya sürdürme sunucu işlemleri veya hizmet düzeyi (katman) değiştirme gibi sunucu yönetimi görevleri, Azure Resource Manager (kaynak) cmdlet'leri ve Analysis Services (sunucu) cmdlet'lerini kullanın. Veritabanını yönetme ile ilgili diğer görevler, ekleme veya Rol üyeleri, işleme veya dahil edilen SQL Server Analysis Services ile aynı SqlServer modülündeki cmdlet'ler bölümleme gibi.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="permissions"></a>İzinler
 
 Çoğu PowerShell görevleri, yönettiğiniz Analysis Services sunucusunda yönetici ayrıcalıkları gerektirir. Zamanlanmış PowerShell görevleri katılımsız işlemlerdir. Hesap veya hizmet sorumlusu Zamanlayıcı tarafından çalıştırılan Analysis Services sunucusunda yönetici ayrıcalıkları olmalıdır. 
 
-AzureRm cmdlet'leri kullanarak sunucu işlemleri için hesabınızı veya Zamanlayıcı çalıştıran hesabı da kaynak sahibi rolüne ait olmalıdır [Azure rol tabanlı Access Control (RBAC)](../role-based-access-control/overview.md). 
+Azure PowerShell cmdlet'lerini kullanarak sunucu işlemleri için hesabınızı veya Zamanlayıcı çalıştıran hesabı da kaynak sahibi rolüne ait olmalıdır [Azure rol tabanlı Access Control (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="resource-management-operations"></a>Kaynak yönetimi işlemleri 
 
-Modül - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
+Modül - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
 |Cmdlet|Açıklama| 
 |------------|-----------------| 
-|[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Sunucu örneğinin ayrıntılarını alır.|  
-|[Yeni-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Bir sunucu örneği oluşturur.|   
-|[Yeni AzureRmAnalysisServicesFirewallConfig](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallconfig)|Yeni bir Analysis Services güvenlik duvarı yapılandırması oluşturur.|   
-|[Yeni AzureRmAnalysisServicesFirewallRule](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallrule)|Yeni bir Analysis Services güvenlik duvarı kuralı oluşturur.|   
-|[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Bir sunucu örneğini kaldırır.|  
-|[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Bir sunucu örneğini sürdürür.|  
-|[Suspend-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Bir sunucu örneği askıya alır.| 
-|[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Bir sunucu örneği değiştirir.|   
-|[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Sunucu örneğinin varlığını test eder.| 
+|[Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver)|Sunucu örneğinin ayrıntılarını alır.|  
+|[New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)|Bir sunucu örneği oluşturur.|   
+|[Yeni AzAnalysisServicesFirewallConfig](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallconfig)|Yeni bir Analysis Services güvenlik duvarı yapılandırması oluşturur.|   
+|[Yeni AzAnalysisServicesFirewallRule](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallrule)|Yeni bir Analysis Services güvenlik duvarı kuralı oluşturur.|   
+|[Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/remove-azanalysisservicesserver)|Bir sunucu örneğini kaldırır.|  
+|[Resume-AzAnalysisServicesServer](/powershell/module/az.analysisservices/resume-azanalysisservicesserver)|Bir sunucu örneğini sürdürür.|  
+|[Suspend-AzAnalysisServicesServer](/powershell/module/az.analysisservices/suspend-azanalysisservicesserver)|Bir sunucu örneği askıya alır.| 
+|[Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver)|Bir sunucu örneği değiştirir.|   
+|[Test-AzAnalysisServicesServer](/powershell/module/az.analysisservices/test-azanalysisservicesserver)|Sunucu örneğinin varlığını test eder.| 
 
 ## <a name="server-management-operations"></a>Sunucu Yönetimi işlemleri
 
@@ -49,10 +51,10 @@ Modül - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 
 |Cmdlet|Açıklama| 
 |------------|-----------------| 
-|[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Azure Analysis Services sunucu cmdlet'i istekleri için kullanılacak bir yetkili hesabı ekler.| 
-|[Dışarı aktarma AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Analysis Services sunucusu şu anda oturum açmış ortam Add-AzureAnalysisServicesAccount komutunda belirtilen örneğinden günlüğünü dışarı aktarır|  
-|[Yeniden başlatma AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Analysis Services sunucu örneği şu anda oturum açmış ortamında yeniden başlatılır; Add-AzureAnalysisServicesAccount komutunda belirtilen.|  
-|[Eşitleme AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Belirtilen bir Analysis Services sunucusu şu anda oturum açmış ortam Add-AzureAnalysisServicesAccount komut belirtildiği gibi tüm sorgu genişleme örnekleri belirtilen örneği veritabanında eşitler|  
+|[Add-AzAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-AzAnalysisServicesaccount)|Azure Analysis Services sunucu cmdlet'i istekleri için kullanılacak bir yetkili hesabı ekler.| 
+|[Dışarı aktarma AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Analysis Services sunucusu şu anda oturum açmış ortam AzAnalysisServicesAccount Ekle komutunda belirtilen örneğinden günlüğünü dışarı aktarır|  
+|[Yeniden başlatma AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Analysis Services sunucu örneği şu anda oturum açmış ortamında yeniden başlatılır; Add-AzAnalysisServicesAccount komutunda belirtilen.|  
+|[Eşitleme AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Belirtilen bir Analysis Services sunucusu şu anda oturum açmış ortam AzAnalysisServicesAccount Ekle komutunda belirtilen konumdaki tüm sorgu genişleme örnekleri için belirtilen örneği veritabanında eşitler|  
 
 ## <a name="database-operations"></a>Veritabanı işlemleri
 

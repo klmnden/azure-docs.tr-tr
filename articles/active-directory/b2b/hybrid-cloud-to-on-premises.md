@@ -1,5 +1,5 @@
 ---
-title: GRANT B2B kullanıcıları Azure AD'de, şirket içi uygulamalarınıza erişim | Microsoft Docs
+title: GRANT B2B kullanıcıları, şirket içi uygulamalarınıza - Azure Active Directory erişim | Microsoft Docs
 description: Azure AD B2B işbirliği ile şirket içi uygulamaları bulutta B2B kullanıcılara erişim vermek gösterilmektedir.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ac169bfc2d04e08e9853bb6ceda64fdeed861b4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d353fa49fe054a28a913cef631cc500b5d6e937c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190067"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673605"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>GRANT B2B kullanıcıları Azure AD'de, şirket içi uygulamalarınıza erişim
 

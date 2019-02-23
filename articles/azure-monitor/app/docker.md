@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3ea7d6562965debda2c146fedab2ea9ab19f6cc8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0c31d895c453a8272c337b78f01dc8342a4d0765
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077462"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672517"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Application ınsights'ta Docker uygulamalarını izleme
 
@@ -29,7 +29,7 @@ Docker ile uygulamalarınızı basit kapsayıcıların tüm bağımlılıklarla 
 
 * Yaşam döngüsü telemetri çalıştıran tüm kapsayıcıları hakkında konakta - başlatmak, durdurmak ve benzeri.
 * Tüm kapsayıcılar için performans sayaçları. CPU, bellek, ağ kullanımı ve daha fazlası.
-* Varsa, [Java için Application Insights SDK'sı yüklü](../../azure-monitor/app/java-live.md) kapsayıcılarda çalıştırılan uygulamalar, bu uygulamaların tüm telemetri kapsayıcı ve ana makine tanımlayan ek özelliklere sahip. Örneğin, birden fazla ana çalışan bir uygulamanın bir örneği varsa, uygulama telemetrinizi ana bilgisayarı tarafından kolayca filtre uygulayabilirsiniz.
+* Varsa, [Java için Application Insights SDK'sı yüklü](../../azure-monitor/app/java-get-started.md) kapsayıcılarda çalıştırılan uygulamalar, bu uygulamaların tüm telemetri kapsayıcı ve ana makine tanımlayan ek özelliklere sahip. Örneğin, birden fazla ana çalışan bir uygulamanın bir örneği varsa, uygulama telemetrinizi ana bilgisayarı tarafından kolayca filtre uygulayabilirsiniz.
 
 > [!NOTE]
 > Bu çözümü kullanım dışıdır. Kapsayıcı izleme geçerli yaptığımız yatırımlardan hakkında daha fazla bilgi edinmek için kullanıma almasını öneririz [kapsayıcılar için Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
@@ -40,7 +40,7 @@ Docker ile uygulamalarınızı basit kapsayıcıların tüm bağımlılıklarla 
    
     *Hangi kaynak kullanmalıyım?* Konağınız üzerinde çalışan uygulamalar başkası tarafından geliştirilen sonra yapmanız [yeni bir Application Insights kaynağı oluşturun](../../azure-monitor/app/create-new-resource.md ). Burada görüntüleyebilir ve telemetriyi analiz budur. (Uygulama türü için ' genel' seçin.)
    
-    Ancak uygulamalardan geliştiriciyseniz sonra umuyoruz [Application Insights SDK'sı eklenen](../../azure-monitor/app/java-live.md) bunların her biri için. Tüm gerçekten bileşenleri tek bir iş uygulamasının iseler, tüm bir kaynağa telemetri gönderecek şekilde yapılandırmanız ve Docker yaşam döngüsü ve performans verilerini görüntülemek için aynı kaynak kullanacaksınız. 
+    Ancak uygulamalardan geliştiriciyseniz sonra umuyoruz [Application Insights SDK'sı eklenen](../../azure-monitor/app/java-get-started.md) bunların her biri için. Tüm gerçekten bileşenleri tek bir iş uygulamasının iseler, tüm bir kaynağa telemetri gönderecek şekilde yapılandırmanız ve Docker yaşam döngüsü ve performans verilerini görüntülemek için aynı kaynak kullanacaksınız. 
    
     Uygulamaların çoğu geliştirilen, ancak bunların telemetri görüntülemek için ayrı kaynaklar kullanıyorsanız, üçüncü bir senaryodur. Bu durumda, Docker verileri için ayrı bir kaynak oluşturmak için büyük olasılıkla de istersiniz.
 

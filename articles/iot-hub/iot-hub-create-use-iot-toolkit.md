@@ -7,18 +7,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 9138a709cf8a166bbb572e04b082c5b8e6c82949
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c37eeec6429e8367ade12b58bb4e20022423edf6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050243"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730368"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-tools-for-visual-studio-code"></a>Visual Studio Code için Azure IOT araçları kullanarak IOT hub oluşturma
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 Bu makalede nasıl kullanılacağını gösterir [Visual Studio Code için Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Azure IOT hub'ı oluşturmak için. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bu makaleyi tamamlamak için aşağıdakiler gerekir:
 

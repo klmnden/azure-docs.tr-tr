@@ -1,50 +1,50 @@
 ---
-title: Service Fabric kümesi Kaynak Yöneticisi - yerleşim ilkeleri | Microsoft Docs
-description: Ek yerleşim ilkeleri ve hizmet doku hizmetler için kuralları genel bakış
+title: Service Fabric Küme Kaynak Yöneticisi - yerleştirme ilkeleri | Microsoft Docs
+description: Ek yerleştirme ilkeleri ve Service Fabric Hizmetleri için kuralları'na genel bakış
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 66c51b08884c9d7a4d522c94f7b81774ec7a8bda
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2858628874dc9955db5084ef5732d85acd6e7fc1
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642011"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729805"
 ---
-# <a name="placement-policies-for-service-fabric-services"></a>Service fabric Hizmetleri için yerleşim ilkeleri
-Yerleşim ilkeleri, hizmet yerleşimi bazı belirli, daha az yaygın senaryolarda yönetmek için kullanılan ek kurallardır. Bu senaryolarda bazı örnekleri şunlardır:
+# <a name="placement-policies-for-service-fabric-services"></a>Service fabric Hizmetleri için yerleştirme ilkeleri
+Yerleştirme ilkeleri, hizmet yerleşimi bazı belirli, daha az yaygın senaryolarda yönetmek için kullanılan ek kurallardır. Bu senaryolara bazı örnekler şunlardır:
 
-- Service Fabric kümesi coğrafi uzaklıkları, birden çok şirket içi veri merkezleri gibi veya Azure bölgelere yayılan
-- Birden çok alanlar jeopolitik veya yasal denetim veya ilke sahip olduğu diğer bir durum ortamınızı yayılan zorlamak için ihtiyacınız sınırları
-- Büyük uzaklıklar veya yavaş bir veya daha az güvenilir ağ bağlantıların kullanımı nedeniyle iletişimi performans veya gecikme noktalar vardır
-- İş yükleri bir en iyi deneme ya da diğer iş yükleri ile müşteriler bir yerde konumlandırıldığında olarak birlikte bulunan belirli tutmanız gerekir
+- Service Fabric kümenizi gibi birden çok şirket içi veri merkezlerine veya Azure bölgelerinde coğrafi uzaklıkları yayılır.
+- Birden fazla alana jeopolitik ya da yasal denetim veya ilke sahip olduğu diğer bir olay ortamınızı yayılan zorlamak için gereksinim duyduğunuz sınırları
+- Büyük mesafeler veya yavaş ya da daha az güvenilir ağ bağlantıları kullanımı nedeniyle iletişim performans veya gecikme süresi konuları mevcuttur
+- İş yükleri olarak bir en iyi çaba, yakınlık müşterilere veya diğer iş yükleri ile birlikte bulunan belirli tutmanız gerekir
 
-Küme hata etki alanları gösterilen, küme fiziksel düzenini ile bu gereksinimlerinin birçoğu hizalayın. 
+Bu gereksinimlerin çoğu küme hata etki alanları temsil edilen kümenin fiziksel düzenini ile hizalar. 
 
-Adres Yardım Gelişmiş yerleşim ilkeleri bu senaryolar şunlardır:
+Adresi yardımcı olan gelişmiş yerleştirme ilkeleri, bu senaryolar şunlardır:
 
 1. Geçersiz etki alanları
 2. Gerekli etki alanları
 3. Tercih edilen etki alanları
 4. Çoğaltma paketleme izin vermeme
 
-Aşağıdaki denetimleri çoğunu düğüm özellikleri ve kısıtlamalarından aracılığıyla yapılandırılabilir, ancak bazı daha karmaşıktır. Şeyleri daha basit hale getirmek için Service Fabric kümesi kaynak yöneticisi bu ek yerleşim ilkeleri sağlar. Yerleşim ilkeleri tek başına adlı hizmet örneği temelinde yapılandırılır. Bunlar ayrıca dinamik olarak güncelleştirilebilir.
+Aşağıdaki denetimleri çoğu düğüm özellikleri ve yerleştirme kısıtlamaları yapılandırılabilir, ancak bazı daha karmaşıktır. Şeyleri daha basit hale getirmek için Service Fabric küme kaynak yöneticisi bu ek yerleştirme ilkeleri sağlar. Yerleştirme ilkeleri hizmet başına adlı örnek olarak yapılandırılır. Bunlar ayrıca dinamik olarak güncelleştirilebilir.
 
-## <a name="specifying-invalid-domains"></a>Geçersiz etki alanları belirtme
-**InvalidDomain** yerleştirme ilkesi için belirli bir hizmeti belirli bir hata etki alanı geçersiz belirtmenize olanak verir. Bu ilke belirli bir hizmet hiçbir zaman jeopolitik veya şirket ilkesi nedenlerle örneğin belirli bir alandaki çalıştırmasını sağlar. Birden çok geçersiz etki alanı ayrı ilkeler belirtilebilir.
+## <a name="specifying-invalid-domains"></a>Geçersiz etki alanı belirtme
+**InvalidDomain** yerleştirme İlkesi belirli bir hata etki alanı için belirli bir hizmet geçersiz olduğunu belirtmenize olanak verir. Bu ilke, belirli bir hizmet asla jeopolitik ya da şirket ilkesi nedenlerle örneğin belirli bir alandaki çalıştığını sağlar. Birden çok geçersiz etki alanı ayrı ilkeler belirtilebilir.
 
 <center>
-![Geçersiz etki alanı örneği][Image1]
+![Geçersiz etki alanı örneğinde][Image1]
 </center>
 
 Kod:
@@ -60,11 +60,11 @@ PowerShell:
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("InvalidDomain,fd:/DCEast”)
 ```
-## <a name="specifying-required-domains"></a>Gerekli etki alanları belirtme
-Gerekli etki alanı yerleştirme İlkesi Hizmeti yalnızca belirtilen etki alanında mevcut olmasını gerektirir. Birden çok gerekli etki alanı ayrı ilkeler belirtilebilir.
+## <a name="specifying-required-domains"></a>Gerekli etki alanı belirtme
+Gerekli etki alanı yerleştirme İlkesi Hizmeti yalnızca belirtilen etki alanında olmasını gerektirir. Birden çok gerekli etki alanı ayrı ilkeler belirtilebilir.
 
 <center>
-![Gerekli etki alanı örneği][Image2]
+![Gerekli etki alanı örneğinde][Image2]
 </center>
 
 Kod:
@@ -81,8 +81,8 @@ PowerShell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomain,fd:/DC01/RK03/BL2")
 ```
 
-## <a name="specifying-a-preferred-domain-for-the-primary-replicas-of-a-stateful-service"></a>Tercih edilen bir etki alanı için bir durum bilgisi olan hizmet birincil çoğaltmalarının belirtme
-Tercih edilen birincil etki alanı birincil yerleştirmek için hata etki alanını belirtir. Her şeyi iyi durumda olduğunda birincil bu etki alanında sona erer. Etki alanı veya birincil çoğaltma başarısız olur ya da kapatıldığında, birincil ideal olarak aynı etki alanındaki diğer bazı konuma taşır. Bu yeni konumu tercih edilen etki alanında değilse, Küme Kaynak Yöneticisi'ni, geri tercih edilen etki alanı için mümkün olan en kısa sürede taşır. Doğal olarak bu ayar yalnızca durum bilgisi olan hizmetler için anlamlıdır. Birden çok veri merkezi bir konumda yerleştirme tercih Hizmetleri ancak sahip veya bu ilkeyi Azure bölgeler arasında yayılmış kümelerinde en yararlı olur. Ana, kullanıcılar veya diğer hizmetler yakın tutarak yardımcı daha düşük gecikme süresi, özellikle okuma, ana tarafından varsayılan olarak işlenir sağlar.
+## <a name="specifying-a-preferred-domain-for-the-primary-replicas-of-a-stateful-service"></a>Durum bilgisi olan hizmet, birincil çoğaltmalara için tercih edilen bir etki alanı belirtme
+Tercih edilen birincil etki alanı birincil olarak yerleştirmek için hata etki alanını belirtir. Her şey iyi durumda olduğunda birincil bu etki alanında sona erer. Birincil etki alanı ya da birincil çoğaltma başarısız veya kapatıldığında, başka bir konuma, ideal olarak, aynı etki alanında taşır. Bu yeni konumu tercih edilen etki alanında değilse, Küme Kaynak Yöneticisi, geri tercih edilen etki olabildiğince çabuk taşır. Doğal olarak bu ayar yalnızca durum bilgisi olan hizmetler için anlamlıdır. Bu ilke Azure bölgeleri arasında dağıtılmış kümelerdeki en kullanışlı veya birden çok veri merkezinde, ancak belirli bir konuma yerleştirme tercih Hizmetleri sahip. Seçimlerine kullanıcıları veya diğer hizmetlere yakın tutulması yardımcı daha düşük gecikme süresi, özellikle okuma, varsayılan olarak seçimlerine göre işlenir sağlayın.
 
 <center>
 ![Tercih edilen birincil etki alanları ve yük devretme][Image3]
@@ -100,18 +100,18 @@ PowerShell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("PreferredPrimaryDomain,fd:/EastUS")
 ```
 
-## <a name="requiring-replica-distribution-and-disallowing-packing"></a>Çoğaltma dağıtım gerektiren ve paket vermemek
-Çoğaltmaları _normalde_ küme iyi durumda olduğunda hata ve yükseltme etki alanları arasında dağıtılmış. Ancak, belirli bir bölüm için birden fazla çoğaltma burada anlamayabilir durumlar vardır tek bir etki alanına geçici olarak paketlenmiş. Örneğin, küme üç hata etki alanlarında, fd dokuz düğümleri olduğunu varsayalım: / 0, fd: / 1 ve fd: / 2. Ayrıca hizmetinizi üç çoğaltmaları olduğunu düşünelim. Düşünelim, fd içinde bu çoğaltmalar için kullanılmakta düğümler: / 1 ve fd: / 2 kapandı. Normalde Küme Kaynak Yöneticisi'ni bu aynı hata etki alanları içindeki diğer düğümlere tercih edebilir. Bu durumda, kapasite sorunları nedeniyle bu etki alanlarında diğer düğümlerin hiçbiri geçerli varsayalım. Küme Kaynak Yöneticisi'ni yinelemeler donanımlarının oluşturursa, bu düğümler fd seçmeniz gerekir: / 0. Ancak, bulunurken _,_ nerede hata etki alanı kısıtlaması ihlal bir durum oluşturur. Çoğaltmaları artar paketlemeyi tüm çoğaltma kümesi fırsat aşağı git veya kaybolur. 
+## <a name="requiring-replica-distribution-and-disallowing-packing"></a>Çoğaltma dağıtım gerektirme ve paketleme izin vermeme
+Çoğaltmalar _normalde_ kümenin iyi durumda olduğunda, hata ve yükseltme etki alanları arasında dağıtılmış. Ancak, belirli bir bölüm için birden fazla çoğaltma burada bitirebilirsiniz durumlar vardır tek bir etki alanına geçici olarak paketlenmiş. Örneğin, küme üç hata etki alanları, fd dokuz düğümleri olduğunu varsayalım: 0, / fd: / 1 ve fd: / 2. Ayrıca, hizmetinize üç çoğaltması olduğunu varsayalım. Varsayalım, fd Bu çoğaltma için kullanılan düğümler: / 1 ve fd: / 2'e düştü. Normalde küme kaynak yöneticisi bu aynı hata etki alanları içindeki diğer düğümlere tercih edebilirsiniz. Bu durumda, kapasite sorunları nedeniyle bu etki alanları diğer düğümlere hiçbiri geçerli varsayalım. Küme Kaynak Yöneticisi yinelemeler için değiştirmeler oluşturursa, bu düğümler fd içinde seçmeniz gerekir: / 0. Ancak, yapılması _,_ nerede hata etki alanı kısıtlamasını ihlal bir durum oluşturur. Çoğaltmaları arttıkça paketleme tam çoğaltma kümesi olasılığını yüklenemedi aşağı git veya kaybolur. 
 
 > [!NOTE]
-> Kısıtlamalar ve kısıtlama hakkında daha fazla bilgi için öncelikleri genellikle kullanıma [bu konuda](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities).
+> Kısıtlamalar ve kısıtlama hakkında daha fazla bilgi için öncelikleri genel olarak kullanıma [bu konuda](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities).
 >
 
-Herhangi bir zamanda bir sistem durumu ileti gibi gördüğünüz ise "`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: FaultDomain`", bu koşulu veya onu şöyle ziyaret sonra. Genellikle yalnızca bir veya iki çoğaltmaları paketlenmiş birlikte geçici olarak. Vardır sürece çoğaltmalarının belirli bir etki alanındaki bir çekirdek daha az, güvenli. Paketleme nadir, ancak olabilir ve bu gibi durumlarda düğümleri geri dönmeden bu yana genellikle geçicidir. Düğümleri kapalı kalmasını ve değişiklik oluşturmak Küme Kaynak Yöneticisi'ni gerekirse genellikle yok diğer düğümlere ideal hata etki alanı.
+Şimdiye kadar bir sistem durumu ileti gibi gördüğünüz varsa "`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: FaultDomain`", bu koşul veya bir şeyi beğendim ziyaret sonra. Genellikle yalnızca bir veya iki çoğaltmaları paketlenmiş birlikte geçici olarak. Vardır sürece belirli bir etki alanındaki bir çekirdeği daha az güvenli. Paketleme nadirdir, ancak olabilir ve bu yana düğümlerin dönerek bu durumlar genellikle geçici olmasıdır. Düğümleri basılı kal ve değiştirmeler derlemek Küme Kaynak Yöneticisi gerekiyorsa genellikle kullanılabilir diğer düğümlere ideal hata etki alanları.
 
-Bunlar daha az etki alanlarına paketlenmiş bile, bazı iş yükleri çoğaltmalar, hedef sayısını her zaman sahip tercih edebilir. Bu iş yükleri toplam eşzamanlı kalıcı etki alanı arızalarına karşı beklemek ve genellikle yerel durumu kurtarabilirsiniz. Diğer iş yüklerini yerine kapalı kalma riskini doğruluk veya veri kaybı'den önceki alır. Çoğu üretim iş yükleri üçten fazla çoğaltmalar, üçten fazla hata etki alanları ve hata etki alanı başına çok sayıda geçerli düğüm çalıştırın. Bu nedenle, varsayılan davranışı varsayılan olarak etki alanı paketleme sağlar. Geçici etki alanı paketleme anlamına olsa bile varsayılan davranış normal yük dengeleme ve bu gibi olağanüstü durumlarda, işlemek için yük devretme sağlar.
+Bunlar daha az etki alanlarına paketlenir bile bazı iş yükleri çoğaltmalar, hedef sayısı her zaman sahip tercih edebilir. Bu iş yükleri, toplam eşzamanlı kalıcı etki alanını hatalarına karşı oyunlarda ve genellikle yerel durumunu kurtarabilirsiniz. Diğer iş yüklerini kapalı kalma süresi yerine risk doğruluk ya da veri kaybı'den önceki sürecektir. Üretim iş yüklerinin çoğu üçten fazla çoğaltmaları üçten fazla hata etki alanları ve hata etki alanı başına çok sayıda geçerli düğüm ile çalıştırın. Bu nedenle, varsayılan davranışı varsayılan olarak etki alanı paketleme sağlar. Geçici bir etki alanı paketleme anlamı olsa bile varsayılan davranışı normal Dengeleme ve yük devretme aşırı bu durumları idare etmek sağlar.
 
-Bu tür paketleme belirli bir iş yükü için devre dışı bırakmak isterseniz, belirtebilirsiniz `RequireDomainDistribution` hizmet ilkesi. Bu ilkeyi ayarladığınızda, Küme Kaynak Yöneticisi'ni aynı hatası veya yükseltme etki alanında aynı bölüm iki hiçbir çoğaltmalardan çalıştırmak sağlar.
+Belirtebileceğiniz gibi paketleme belirli bir iş yükü için devre dışı bırakmak isterseniz, `RequireDomainDistribution` hizmet ilkesi. Bu ilkeyi ayarladığınızda, Küme Kaynak Yöneticisi aynı bölüme iki hiçbir çoğaltmalardan aynı hata veya yükseltme etki alanında çalışmasını sağlar.
 
 Kod:
 
@@ -126,7 +126,7 @@ PowerShell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomainDistribution")
 ```
 
-Şimdi, bu yapılandırmalar değil coğrafi olarak dağıtılmış bir küme hizmetlerini kullanmak mümkün olur? Olabilir, ancak yok. büyük bir nedenle çok. Onları gerektiren senaryolar sürece gerekli, geçersiz ve tercih edilen etki alanı yapılandırmaları kaçınılmalıdır. Tek bir rafa çalıştırmak veya bazı segment yerel kümenizin başka bir tercih için belirli bir iş yükü zorlamak denemek için herhangi bir algılama yapmaz. Farklı donanım yapılandırmaları hata etki alanlarında yayılan ve normal kısıtlamalarından ve düğüm özellikleri aracılığıyla işlenen.
+Şimdi, bu yapılandırmalar değil coğrafi olarak dağıtılmış bir kümede hizmetlerin kullanmak mümkün olabilir? Yapabilirsiniz, ancak yok iyi bir nedeniniz çok. Gerekli, geçersiz ve tercih edilen etki alanı yapılandırmaları, bunları senaryoları gereksinim duymadıkça kaçınılmalıdır. Bu iş yüküne verilmesi tek bir rafa çalıştırmak için veya başka bir yerel kümenizi bazı segmentini tercih etmesini zorlamak için hiçbir mantıklı değildir. Farklı donanım yapılandırmalarını hata etki alanlarına ve normal yerleştirme kısıtlamaları ve düğüm özellikleri işlenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Hizmetleri yapılandırma hakkında daha fazla bilgi için [hizmetleri yapılandırma hakkında bilgi edinin](service-fabric-cluster-resource-manager-configure-services.md)

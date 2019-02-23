@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bda70a6854dc6d94d3d4b37e6f587e4dcd045126
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b12328c8283c9a626a3dcfc45dfd682a5e628d07
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543848"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728854"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Yapılandırma ve Service Fabric hizmet benzeşimi kullanma
 Benzeşim Bulut ve mikro hizmetler dünyaya tek parçalı büyük uygulamaların geçişi kolaylaştırmak amacıyla, esas olarak sağlanan bir denetimdir. Bunun yapılması rağmen Hizmetleri performansını iyileştirme için bir iyileştirme yan etkileri olabilir olarak da kullanılır.

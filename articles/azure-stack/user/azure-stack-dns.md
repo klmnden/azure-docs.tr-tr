@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 822fd40b2fc707efe34d4081c3c49e5f71621cdb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3a4efb6282a0aca8173403009fd58e9154a91b2b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245550"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728961"
 ---
 # <a name="using-dns-in-azure-stack"></a>Azure Stack'te DNS kullanma
 
@@ -43,7 +43,7 @@ Ad çözümlemesi hakkında daha fazla bilgi için bkz. [DNS çözümlemesi](../
 
 Aşağıdaki ekran görüntüsü gösterildiği **genel IP adresi oluşturma** iletişim portalını kullanarak genel bir IP adresi oluşturmak için:
 
-![Genel IP adresi oluşturma](media/azure-stack-whats-new-dns/image01.png)
+![Ortak IP adresi oluştur](media/azure-stack-dns/image01.png)
 
 ### <a name="example-scenario"></a>Örnek senaryo
 

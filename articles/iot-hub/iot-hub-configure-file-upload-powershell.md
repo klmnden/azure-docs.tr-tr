@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: e8f37adc07bffb8a1e770085ecee6f813d3c2932
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7d63cc4e57ba3c1b962c893bf8c8bd03664dac6f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425620"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729263"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>PowerShell kullanarak dosya yüklemeleri IOT hub'ı yapılandırma
 
@@ -20,36 +20,38 @@ ms.locfileid: "54425620"
 
 Kullanılacak [dosya karşıya yükleme işlevselliği IOT Hub'ında](iot-hub-devguide-file-upload.md), Azure depolama hesabınız ile IOT hub'ınızdaki ilk ilişkilendirmeniz gerekir. Mevcut bir depolama hesabını kullanabilir veya yeni bir tane oluşturun.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.
 
-* [Azure PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* [Azure PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Azure IOT hub'ı. IOT hub'ı yoksa, kullanabileceğiniz [AzureRmIoTHub yeni cmdlet](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) oluşturun veya portalını kullanarak [IOT hub oluşturma](iot-hub-create-through-portal.md).
+* Azure IOT hub'ı. IOT hub'ı yoksa, kullanabileceğiniz [AzIoTHub yeni cmdlet](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) oluşturun veya portalını kullanarak [IOT hub oluşturma](iot-hub-create-through-portal.md).
 
-* Bir Azure depolama hesabı. Azure depolama hesabınız yoksa, kullanabileceğiniz [Azure Storage PowerShell cmdlet'lerini](https://docs.microsoft.com/powershell/module/azurerm.storage/) oluşturun veya portalını kullanarak [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md)
+* Bir Azure depolama hesabı. Azure depolama hesabınız yoksa, kullanabileceğiniz [Azure Storage PowerShell cmdlet'lerini](https://docs.microsoft.com/powershell/module/az.storage/) oluşturun veya portalını kullanarak [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md)
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Oturum açın ve Azure hesabınızı ayarlayın
 
 Azure hesabınızda oturum açın ve aboneliğinizi seçin.
 
-1. PowerShell isteminde çalıştırın **Connect-AzureRmAccount** cmdlet:
+1. PowerShell isteminde çalıştırın **Connect AzAccount** cmdlet:
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 2. Birden çok Azure aboneliğiniz varsa Azure'da oturum açma, kimlik bilgilerinizle ilişkili tüm Azure abonelikleri erişim verir. Azure aboneliklerini kullanmak için size sunulan listelemek için aşağıdaki komutu kullanın:
 
     ```powershell
-    Get-AzureRMSubscription
+    Get-AzSubscription
     ```
 
     IOT hub'ınıza yönetmek için komutları çalıştırmak için kullanmak istediğiniz aboneliği seçmek için aşağıdaki komutu kullanın. Önceki komutun çıkışında yer alan abonelik adını veya kimliği kullanabilirsiniz:
 
     ```powershell
-    Select-AzureRMSubscription `
+    Select-AzSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
@@ -60,7 +62,7 @@ Aşağıdaki adımları kullanarak, depolama hesabı oluşturduğunuz varsayıl�
 Cihazlardan dosya yüklemeleri yapılandırmak için Azure depolama hesabınız için bağlantı dizesi gerekir. Depolama hesabı, IOT hub'ınız ile aynı abonelikte olmalıdır. Depolama hesabındaki bir blob kapsayıcısının adı da gerekir. Depolama hesap anahtarlarınızı almak için aşağıdaki komutu kullanın:
 
 ```powershell
-Get-AzureRmStorageAccountKey `
+Get-AzStorageAccountKey `
   -Name {your storage account name} `
   -ResourceGroupName {your storage account resource group}
 ```
@@ -72,19 +74,19 @@ Mevcut bir blob kapsayıcısı için dosya yüklemeleriniz kullanabilir veya yen
 * Depolama hesabınızdaki mevcut blob kapsayıcıları listelemek için aşağıdaki komutları kullanın:
 
     ```powershell
-    $ctx = New-AzureStorageContext `
+    $ctx = New-AzStorageContext `
         -StorageAccountName {your storage account name} `
         -StorageAccountKey {your storage account key}
-    Get-AzureStorageContainer -Context $ctx
+    Get-AzStorageContainer -Context $ctx
     ```
 
 * Depolama hesabınızdaki blob kapsayıcısı oluşturmak için aşağıdaki komutları kullanın:
 
     ```powershell
-    $ctx = New-AzureStorageContext `
+    $ctx = New-AzStorageContext `
         -StorageAccountName {your storage account name} `
         -StorageAccountKey {your storage account key}
-    New-AzureStorageContainer `
+    New-AzStorageContainer `
         -Name {your new container name} `
         -Permission Off `
         -Context $ctx
@@ -109,7 +111,7 @@ Aşağıdaki değerleri yapılandırmasını gerektirir:
 IOT hub'ınızdaki ayarlar karşıya dosya yapılandırmak için aşağıdaki PowerShell cmdlet'ini kullanın:
 
 ```powershell
-Set-AzureRmIotHub `
+Set-AzIotHub `
     -ResourceGroupName "{your iot hub resource group}" `
     -Name "{your iot hub name}" `
     -FileUploadNotificationTtl "01:00:00" `
