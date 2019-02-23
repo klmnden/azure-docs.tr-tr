@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: cb2f06bf2a05e2642eb688a48006d0df5fa4fc2c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 82b2910a1654461cade853b71e6d57a674bb849e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587829"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733206"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Azure Search dizini için özel çözümleyiciler ekleme
 
@@ -189,7 +189,7 @@ Kullanabileceğiniz **Testi Çözümleyicisi işlemi** içinde [REST API](https:
   }
 ```
 
- ## <a name="update-custom-analyzers"></a>Güncelleştirme özel çözümleyiciler
+## <a name="update-custom-analyzers"></a>Güncelleştirme özel çözümleyiciler
 
 Bir çözümleyici, bir belirteç Oluşturucu, bir belirteç filtre veya char filtre tanımlandıktan sonra değiştirilemez. Yeni bir tane varsa, yalnızca mevcut bir dizine eklenebilir `allowIndexDowntime` bayrağı ayarlandığında dizin güncelleştirme isteğinde true:
 
@@ -205,7 +205,7 @@ Bu işlem, dizin oluşturma ve sorgu isteklerin başarısız olmasına neden ola
 
 Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filtreleri yapılandırma özellikleri listesi ve bir dizin tanımını filtre bölümüne karakter. Bu öznitelikler bir çözümleyici, belirteç oluşturucu veya filtre dizininizdeki yapısını oluşur. Değer atama için bilgi [Özellik Başvurusu](#PropertyReference).
 
- ### <a name="analyzers"></a>Çözümleyiciler
+### <a name="analyzers"></a>Çözümleyiciler
 
 Çözümleyici için dizin özniteliklerini mi bağlı olarak farklılık gösterir, önceden tanımlanmış ya da özel çözümleyiciler kullanıyorsanız.
 
@@ -229,7 +229,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 
 <a name="CharFilter"></a>
 
- ### <a name="char-filters"></a>Char filtreleri
+### <a name="char-filters"></a>Char filtreleri
 
  Bir char filtre simgeleştirici tarafından işlenmeden önce giriş metni hazırlamak için kullanılır. Örneğin, bunlar belirli karakterler ve semboller değiştirebilirsiniz. Özel bir Çözümleyicisi'nde birden çok karakter filtre olabilir. Char filtreleri içinde listelendikleri sırayla çalıştırın.  
 
@@ -239,7 +239,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |Type|Char desteklenen char filtreler listeden türünü filtreleyin. Bkz: **char_filter_type** sütununda [Char filtreleri](#CharFilter) aşağıdaki tabloda.|  
 |Seçenekler|Geçerli seçenekleri olmalıdır bir verilen [Char filtreleri](#CharFilter) türü.|  
 
- ### <a name="tokenizers"></a>Oluşturma denenmeden
+### <a name="tokenizers"></a>Oluşturma denenmeden
 
  Bir belirteç Oluşturucu bir dizi bir cümle sözcüklere bölme gibi belirteçleri, sürekli bir metin böler.  
 
@@ -252,7 +252,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |Type|Desteklenen oluşturma denenmeden listesinden belirteç oluşturucu adı. Bkz: **tokenizer_type** sütununda [oluşturma denenmeden](#Tokenizers) aşağıdaki tabloda.|  
 |Seçenekler|Listelenen belirli simgeleştirici türü geçerli seçenekler olmalıdır [oluşturma denenmeden](#Tokenizers) aşağıdaki tabloda.|  
 
- ### <a name="token-filters"></a>Belirteç filtreleri
+### <a name="token-filters"></a>Belirteç filtreleri
 
  Bir belirteç filtre filtrelemek veya simgeleştirici tarafından oluşturulan belirteçleri değiştirmek için kullanılır. Örneğin, tüm karakterleri küçük harfe dönüştürür, küçük bir filtre belirtebilirsiniz.   
 Özel bir Çözümleyicisi'nde birden fazla belirteç filtreye sahip olabilir. Belirteç filtreleri içinde listelendikleri sırayla çalıştırın.  

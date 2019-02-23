@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7da97b763c532a2189ef058cbb8ffb14c5b150f9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 56d0b8ced4a0eed3c2bf215ed0e5fc77c343f7fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968382"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728650"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Olağanüstü durum kurtarma hizmeti Yedekleme kullanarak uygulayın ve Azure API Yönetimi'nde geri yükleme
 
@@ -32,6 +32,8 @@ Bu kılavuz, Azure Resource Manager istek doğrulamanın nasıl gerçekleştiril
 > Yedekleme ve olağanüstü durum kurtarma için API Management hizmet örneği geri yükleme işlemi, API Management hizmet örneklerini hazırlama gibi senaryolar için çoğaltmak için de kullanılabilir.
 >
 > Her yedekleme 30 gün sonra süresi dolar. 30 günlük süre sona erdiğinde bir yedekleme geri yükleme girişimi, geri yükleme ile başarısız olur bir `Cannot restore: backup expired` ileti.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -138,7 +140,7 @@ API Management hizmet soruna aşağıdaki HTTP isteği yedeklemek için:
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
 ```
 
-Burada:
+burada:
 
 * `subscriptionId` -API Management hizmeti, yedekleme çalıştığınız tutan aboneliğin kimliği
 * `resourceGroupName` -Azure API Yönetimi hizmetiniz kaynak grubunun adı
@@ -177,7 +179,7 @@ API Management hizmeti önceden oluşturulmuş bir yedeklemeden geri yüklemek i
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
 ```
 
-Burada:
+burada:
 
 * `subscriptionId` -API Management hizmeti ile bir yedekleme geri yükleme tutan aboneliğin kimliği
 * `resourceGroupName` -içine bir yedekleme geri Azure API Management hizmeti içeren kaynak grubunun adı
@@ -207,7 +209,7 @@ Geri yükleme tamamlamak için en az 30 dakika sürebileceğini uzun süren bir 
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Yedekleme ve geri yükleme işlemleri de PowerShell ile gerçekleştirilmesi *yedekleme-AzureRmApiManagement* ve *geri yükleme-AzureRmApiManagement* komutları sırasıyla.
+> Yedekleme ve geri yükleme işlemleri de PowerShell ile gerçekleştirilmesi *yedekleme AzApiManagement* ve *geri yükleme-AzApiManagement* komutları sırasıyla.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

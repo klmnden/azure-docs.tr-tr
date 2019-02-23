@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075643"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731098"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Market ticari işlem özelliklerini ve dikkat edilmesi gerekenler
 
@@ -186,9 +186,9 @@ Bir Kurumsal Sözleşmesi'ni kullanarak müşterinin satın alıyorsa:
 |Fatura tarihi | 15 Ekim 2018 |
 |Süre (kredi kartı yalnızca 30 gün) tutmak | yok |
 |Toplama dönemi başlangıç | 15 Ekim 2018 |
-|Toplama süresi sonu (en fazla 90 gün) | 15 Ocak 2018 |
+|Toplama süresi sonu (en fazla 90 gün) | 15 Ocak 2019 |
 |Müşteri ödeme tarihi | 30 Aralık 2018'e |
-|Ödeme hesaplama tarihi (aylık 15'inden) | 15 Ocak 2018 |
+|Ödeme hesaplama tarihi (aylık 15'inden) | 15 Ocak 2019 |
 |Ödeme tarihi | 15 Şubat 2019 |
 
 **Ücretsiz KREDİLERİ ve parasal taahhüt** 
@@ -226,7 +226,7 @@ Farklı bir teklif türleri için transact gereksinimleri, bu bölümde ele alı
 
 * Seçeneği, teklifinizi bakılmaksızın yayımlama transact fiyatlandırma modeli için bir geliştirici merkezinde hem de bir Microsoft hesabı gereklidir.
 * Geliştirme Merkezi hesabı, Microsoft yayımcının adınıza müşteriden ücreti tahsil yayımcıya buna göre ödeme yapmanız için gereken tüm ilgili Finans bilgilerini tutar.
-* Her iki hesap arasında aynı kuruluş veya Microsoft oturum açma ayrıntıları kullanabilir ancak Geliştirme Merkezi bulut yayımcı portalı hesaptan ayrı bir hesaptır. Yayımcı transact yayımlama seçeneğini kullanmak için bulut iş ortağı portalına erişim kaydolma yanı sıra Geliştirme Merkezi hesabı oturum açma işlemi tamamlamanız gerekir.
+* Her iki hesap arasında aynı kuruluş veya Microsoft oturum açma ayrıntıları kullanabilir ancak Geliştirme Merkezi bulut iş ortağı portalı hesaptan ayrı bir hesaptır. Yayımcı transact yayımlama seçeneğini kullanmak için bulut iş ortağı portalına erişim kaydolma yanı sıra Geliştirme Merkezi hesabı oturum açma işlemi tamamlamanız gerekir.
 
 *Bu hesaplar ayarlama hakkında daha fazla bilgi için bkz. [bulut Market yayımcısı haline](https://docs.microsoft.com/azure/marketplace/become-publisher).*
 

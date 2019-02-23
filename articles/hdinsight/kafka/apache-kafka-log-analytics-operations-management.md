@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 69eaa0028f1115cafbd1ed28b66940d7faaed062
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 0862bcb2c04f3a8cd46a5e60644ebbb8c7735e51
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608554"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729976"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka için günlüklerini çözümleme
 
@@ -70,7 +70,7 @@ HDInsight için log Analytics etkinleştirme adımları tüm HDInsight kümeleri
 
     ![CPU kullanım arama görüntüsü](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
- ## <a name="next-steps"></a>Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Log Analytics hakkında daha fazla bilgi için bkz. [bir Log Analytics çalışma alanını kullanmaya başlama](../../log-analytics/log-analytics-get-started.md) belge.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8f253d150a5073d2d19daf51c12180c9f7b3660b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411688"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734532"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services ölçeğini genişletme
 
@@ -87,11 +87,13 @@ Kullanım **eşitleme** işlemi.
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell'i kullanarak önce [yükleme veya en son AzureRM modülünü güncelleştirme](https://github.com/Azure/azure-powershell/releases). 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Sorgu yinelemelerinin sayısı ayarlamak için kullanın [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). İsteğe bağlı belirtin `-ReadonlyReplicaCount` parametresi.
+PowerShell'i kullanarak önce [yükleme veya en son Azure PowerShell modülü güncelleştirme](/powershell/azure/install-az-ps). 
 
-Eşitleme çalıştırmak için kullandığınız [eşitleme AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Sorgu yinelemelerinin sayısı ayarlamak için kullanın [kümesi AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). İsteğe bağlı belirtin `-ReadonlyReplicaCount` parametresi.
+
+Eşitleme çalıştırmak için kullandığınız [eşitleme AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
 ## <a name="connections"></a>Bağlantılar
 

@@ -4,14 +4,14 @@ description: Bu makalede, Application Gateway için web uygulaması Güvenlik Du
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/16/2018
+ms.date: 2/22/2019
 ms.author: amsriva
-ms.openlocfilehash: 014353bafa31b1c4e924cba8335dbd30a48c2d11
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e53dde549034e8029fdb7f9c780a7880a1ca515d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651439"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733835"
 ---
 # <a name="web-application-firewall-waf"></a>Web uygulaması güvenlik duvarı (WAF)
 
@@ -58,19 +58,8 @@ Application Gateway ve web uygulaması güvenlik duvarının sunduğu temel avan
 - Eksik gibi HTTP protokolü anormalliklerine karşı koruma konak kullanıcısı-aracısı ve kabul üst bilgileri
 - Robotlar, gezginler ve tarayıcıları önleme
 - Yaygın yanlış uygulama yapılandırmalarını (örneğin, Apache, IIS vb.) algılama
-
-### <a name="public-preview-features"></a>Genel Önizleme özellikleri
-
-Geçerli WAF genel Önizleme SKU aşağıdaki özellikleri içerir:
-
-- **İstek boyutu sınırları** -Web uygulaması güvenlik duvarı, istek boyutu sınırları içinde alt ve üst sınırları yapılandırmak kullanıcıların sağlar.
-- **Hariç tutma listeleri** -WAF hariç tutma listeleri, kullanıcıların belirli bir WAF değerlendirme özniteliklerini atlamak olanak tanır. Yaygın olarak karşılaşılan örneklerden, Active Directory kimlik doğrulaması veya parola alanı için kullanılan belirteçleri eklenen ' dir.
-
-WAF genel önizleme hakkında daha fazla bilgi için bkz: [Web uygulaması güvenlik duvarı istek boyutu sınırları ve hariç tutma listeleri (genel Önizleme)](application-gateway-waf-configuration.md).
-
-
-
-
+- İstek boyutu sınırları - Web uygulaması güvenlik duvarı, istek boyutu sınırları içinde alt ve üst sınırları yapılandırmak kullanıcıların sağlar.
+- Hariç tutma listeleri - WAF hariç tutma listeleri, kullanıcıların belirli bir WAF değerlendirme özniteliklerini atlamak izin verin. Yaygın olarak karşılaşılan örneklerden, Active Directory kimlik doğrulaması veya parola alanı için kullanılan belirteçleri eklenen ' dir.
 
 ### <a name="core-rule-sets"></a>Çekirdek kural kümeleri
 
@@ -87,7 +76,6 @@ Web uygulaması güvenlik duvarı, CRS 3.0 ile varsayılan olarak önceden yapı
 - Yaygın yanlış uygulama yapılandırmalarını (örneğin, Apache, IIS, vb.) algılama
 
 Kurallar ve korumalarını içeren daha ayrıntılı listesi için bkz [çekirdek kural kümeleri](#core-rule-sets).
-
 
 #### <a name="owasp30"></a>OWASP_3.0
 

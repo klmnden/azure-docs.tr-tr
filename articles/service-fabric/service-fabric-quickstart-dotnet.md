@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 3b7b70a5ac0c74cc920df823d1f9ae1152f86bff
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8e83da53d0b2f71abc1f74a0ca8fbc2405e75bda
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561204"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736592"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Hızlı Başlangıç: Service Fabric için .NET reliable services uygulaması dağıtma
 
@@ -55,10 +55,10 @@ Bu hızlı başlangıcı tamamlamak için:
 
 Artık çalışma zamanı, SDK, Visual Studio Araçları, Docker'ı yükleme ve Docker çalışmasını sonra beş düğümlü yerel geliştirme kümesi oluşturun.
 
-> [!IMPORTANT]
-> Küme oluşturabilmeniz için Docker'in çalışıyor olması **gerekir**.
+> [!Note]
+> Böylece kapsayıcı özellikleri etkin küme oluşturulduktan kümeyi oluşturduğunuzda, Docker çalışan nedenidir. Docker çalışmıyorsa, kapsayıcı özellikleri etkinleştirmek için bir küme oluşturmanız gerekir.
+> Gereksiz olsa da bu belirli hızlı başlangıç için kümeyi oluşturduğunuzda, Docker çalışan yönergesi en iyi uygulama dahil edilir.
 > Terminal penceresi açarak ve hata oluşup oluşmadığını görmek için `docker ps` komutunu çalıştırarak Docker'ı çalışmasını test edin. Yanıt bir hata göstermiyorsa, Docker çalışıyor ve siz de küme oluşturmaya hazırsınız demektir.
-
 
 1. Yönetici olarak yeni, yükseltilmiş bir PowerShell penceresi açın.
 2. Aşağıdaki PowerShell komutunu çalıştırarak geliştirme kümesini oluşturun:

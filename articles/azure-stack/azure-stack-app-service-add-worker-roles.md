@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 02/22/2010
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 0ac20ee9f6197a8322bb741020aee813c690847e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 839fa7fe8374f1f85b019178d4c3fe53f7137372
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445892"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729653"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack üzerinde App Service'te: Daha fazla altyapı veya çalışan rolü ekleme
 
@@ -37,11 +37,6 @@ Varsayılan olarak, Azure Stack üzerinde App Service, ücretsiz ve paylaşılan
 Hangi Azure Stack yükleme varsayılan App Service ile dağıtılan emin değilseniz, ek bilgileri gözden geçirebilirsiniz [genel Azure Stack üzerinde App Service'te](azure-stack-app-service-overview.md).
 
 Azure Stack'te Azure App Service, sanal makine ölçek kümeleri kullanarak tüm rolleri dağıtır ve bu nedenle bu iş yükünü ölçeklendirme özelliklerinden yararlanır. Bu nedenle, tüm çalışan katmanlarını ölçeklendirme uygulama Hizmet Yöneticisi yapılır
-
-> [!IMPORTANT]
-> Şu anda Azure Stack sürüm notlarındaki tanımlanan portalında sanal makine ölçek kümeleri ölçeklendirme, ölçeği genişletmek için bu nedenle PowerShell örneğini kullanın mümkün değildir.
->
->
 
 ## <a name="add-additional-workers-with-powershell"></a>Ek çalışan PowerShell ile ekleme
 
@@ -80,7 +75,7 @@ Azure Stack'te Azure App Service, sanal makine ölçek kümeleri kullanarak tüm
 
 3. App Service yönetim yeni rol örneklerini durumunu izleme, tek tek rol örneği durumunu denetlemek için rol türü listesinde tıklayın.
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>App Service kaynak sağlayıcısı yönetici doğrudan içinde ek çalışanları ekleme
+## <a name="add-additional-workers-using-the-administration-portal"></a>Yönetim portalını kullanarak ek çalışanları ekleme
 
 1. Azure Stack yönetim portalında Hizmet Yöneticisi olarak oturum açın.
 

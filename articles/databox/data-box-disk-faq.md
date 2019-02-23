@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 007c63c163b6e972bd59189569c92c99d2718cbe
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 5f44e3c4a1b7f28133ecd232fc49a34931bddfa4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301494"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729840"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk nedir?
 
@@ -132,8 +132,8 @@ Araç takımını hem de Windows ve Linux için kullanılabilir. Araç takımı 
  - [Windows için Data Box Disk araç takımını indirin](https://aka.ms/databoxdisktoolswin) 
  - [Linux için Data Box Disk araç takımını indirin](https://aka.ms/databoxdisktoolslinux)
  
- ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>S. Azure dosyaları'na verileri aktarmak ve ardından verileri Azure dosya eşitleme ile kullanmak için Data Box Disk kullanabilir miyim? 
- A. Data Box Disk ile Azure dosyaları desteklenmez. Azure dosya eşitleme ile dosya verilerini daha sonra kullandıysanız meta verileri de korunmaz.
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>S. Azure dosyaları'na verileri aktarmak ve ardından verileri Azure dosya eşitleme ile kullanmak için Data Box Disk kullanabilir miyim? 
+A. Data Box Disk ile Azure dosyaları desteklenmez. Azure dosya eşitleme ile dosya verilerini daha sonra kullandıysanız meta verileri de korunmaz.
 
 
 ## <a name="verify-and-upload"></a>Doğrulama ve yükleme

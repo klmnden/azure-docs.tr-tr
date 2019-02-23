@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d1c7340038731ebde10a7ffcb0ef2adcde18e901
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8648042c114c514df2218249719faa3ff19df5ec
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267504"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669831"
 ---
 # <a name="what-is-application-insights"></a>Application Insights nedir?
 Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve Java EE dahil olmak üzere platformları üzerinde çeşitli uygulamalar için çalışır barındırılan şirket içi, karma veya herhangi bir genel bulut. DevOps işleminizle tümleştirilir ve çeşitli geliştirme araçlarıyla bağlantı noktaları vardır. Visual Studio App Center ile tümleştirerek mobil uygulamalardan telemetriyi izleyebilir ve çözümleyebilir.
@@ -107,7 +107,6 @@ Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yönt
 * **Çalışma zamanında: Sunucuda web uygulamanızı izleyin.** Kodda herhangi bir güncelleştirme yapmaktan kaçınır. Sunucunuza yönetici erişiminizin olması gerekir.
   * [**Şirket içinde veya bir VM’de IIS**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Azure web uygulaması veya VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Java EE**](../../azure-monitor/app/java-live.md)
 * **Geliştirme zamanında: Application Insights’ı kodunuza ekleyin.** Özel telemetri yazmanızın yanı sıra arka uç ve masaüstü uygulamalarını izlemenize imkan tanır.
   * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 güncelleştirme 2 veya sonraki bir sürüm.
   * [Java](../../azure-monitor/app/java-get-started.md)
@@ -117,12 +116,10 @@ Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yönt
 * Visual Studio App Center ile tümleştirerek **[mobil uygulama kullanımını çözümleyin](../../azure-monitor/learn/mobile-center-quickstart.md)**.
 * **[Kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md)**: Sunucularımızdan web sitenize düzenli aralıklarla ping gönderin.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 Çalışma zamanında şunlarla kullanmaya başlayın:
 
 * [IIS sunucusu](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Java EE sunucusu](../../azure-monitor/app/java-live.md)
 
 Geliştirme zamanında şunlarla kullanmaya başlayın:
 

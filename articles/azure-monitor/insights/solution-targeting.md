@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4beb9811a57ecd0a1eada5b36bd65b67851d2564
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989194"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731982"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) hedefleme izleme çözümleri
 Aboneliğinize bir izleme çözümü eklediğinizde, Log Analytics çalışma alanınıza bağlı tüm Windows ve Linux aracıları için varsayılan olarak otomatik olarak dağıtılır.  Maliyetlerinizi yönetin ve belirli bir aracılar kümesi için sınırlayarak bir çözüm için toplanan veri miktarını sınırlamak isteyebilirsiniz.  Bu makalede nasıl kullanılacağını **çözüm hedefleme** çözümlerinize bir kapsam uygulamanıza imkan sağlayan bir özelliği olan.
@@ -35,7 +35,7 @@ Bir kapsamda oluşturarak dahil etmek istediğiniz bilgisayarları belirttiğini
 Bir veya daha fazla çözüm için uygulanabilir bir kapsam yapılandırmasında dahil sonra çalışma alanınızda oluşturduğunuz bilgisayar grubu olduğunda.
  
  
- ### <a name="2-create-a-scope-configuration"></a>2. Kapsam yapılandırması oluşturma
+### <a name="2-create-a-scope-configuration"></a>2. Kapsam yapılandırması oluşturma
  A **kapsam yapılandırması** bir veya daha fazla bilgisayar grupları içerir ve bir veya daha fazla çözüm için uygulanabilir. 
  
  Aşağıdaki işlemi kullanarak bir kapsam yapılandırması oluşturun.  
@@ -49,7 +49,7 @@ Bir veya daha fazla çözüm için uygulanabilir bir kapsam yapılandırmasında
  6. Tıklayın **Tamam** kapsam yapılandırması oluşturmak için. 
 
 
- ### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Kapsam yapılandırması bir çözüm için geçerlidir.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Kapsam yapılandırması bir çözüm için geçerlidir.
 Ardından kapsam yapılandırması aldıktan sonra bunu için bir veya daha fazla çözüm uygulayabilirsiniz.  Sahip birden çok çözümü tek bir kapsam yapılandırma kullanılabilse de, her bir çözüm için yalnızca bir kapsam yapılandırması kullanabileceğinizi unutmayın.
 
 Aşağıdaki işlemi kullanarak bir kapsam yapılandırması uygulanır.  

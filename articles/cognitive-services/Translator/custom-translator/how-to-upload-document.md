@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.topic: conceptual
+ms.openlocfilehash: 83d6791740cd6aebb9da14b86e0d5272ab78f43a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217229"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737595"
 ---
 # <a name="upload-a-document"></a>Bir belgeyi karşıya yükleme
 

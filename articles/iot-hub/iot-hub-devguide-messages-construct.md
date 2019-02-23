@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 164f3b8ef42d07606d98d200fa9bebcd0add3d38
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f5d25232ebbdb6f8cf07839cc51485dd53381cd9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319583"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733852"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub iletilerini oluşturma ve okuma
 
@@ -31,7 +31,7 @@ Bir IOT Hub iletisi oluşur:
 
 * Donuk bir ikili gövdesi.
 
-Özellik adlarını ve değerlerini içerebilir ASCII alfasayısal karakterler, artı `{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', ' |', ' ~'} ' ne zaman gönderdiğiniz CİHAZDAN buluta iletileri HTTPS kullanarak iletişim kuralı veya Bulut buluttan cihaza iletileri gönderme.
+Özellik adlarını ve değerlerini içerebilir ASCII alfasayısal karakterler, artı ``{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` CİHAZDAN buluta iletileri HTTPS kullanarak iletişim kuralı veya Bulut buluttan cihaza iletileri gönderme gönderdiğinizde.
 
 CİHAZDAN buluta iletileri IOT Hub ile aşağıdaki özelliklere sahiptir:
 
@@ -49,7 +49,7 @@ Aşağıdaki tabloda, IOT Hub iletilerini Sistem özelliklerinde kümesini liste
 
 | Özellik | Açıklama | Kullanıcı ayarlanabilir mi? |
 | --- | --- | --- |
-| ileti kimliği |İstek-yanıt desenlerinde kullanılan ileti için kullanıcı ayarlanabilir bir tanımlayıcı. Biçim: Bir büyük küçük harfe duyarlı dize (en çok 128 karakterden uzun), ASCII 7 bit alfasayısal karakterlerin + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | Evet |
+| ileti kimliği |İstek-yanıt desenlerinde kullanılan ileti için kullanıcı ayarlanabilir bir tanımlayıcı. Biçim: ASCII 7 bit alfasayısal karakterlerin büyük küçük harfe duyarlı bir dize (en çok 128 karakterden uzun) + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | Evet |
 | sıra numarası |Her bulut buluttan cihaza iletiye IOT Hub tarafından atanmış bir sayı (benzersiz cihaz kuyruk). | C2D iletileri için Hayır '; Evet, aksi takdirde. |
 | - |Belirtilen bir hedef [bulut-cihaz](iot-hub-devguide-c2d-guidance.md) iletileri. | C2D iletileri için Hayır '; Evet, aksi takdirde. |
 | süre sonu mutlak |Tarih ve saat ileti sonu. | Evet |
@@ -78,8 +78,8 @@ Bayt cinsinden boyutu dize uzunluğu eşittir özellik adlarını ve değerlerin
 Tüm Damgalar cihaz IOT hub'ı, CİHAZDAN buluta iletileri kimlik sahtekarlığı önlemek için aşağıdaki özelliklere sahip iletileri:
 
 * **ıothub bağlantı cihaz kimliği**
-* **iothub-bağlantı-kimlik doğrulama-oluşturma kimliği**
-* **ıothub bağlantı kimlik doğrulama yöntemi**
+* **iothub-connection-auth-generation-id**
+* **iothub-connection-auth-method**
 
 İlk iki içeren **DeviceID** ve **Generationıd** kaynak cihazın olarak başına [cihaz kimlik özelliklerini](iot-hub-devguide-identity-registry.md#device-identity-properties).
 

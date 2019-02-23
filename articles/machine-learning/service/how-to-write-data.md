@@ -12,16 +12,16 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1e508d4c7ed8a8d7df8e9ae586c74258958838e9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1853ff4141a7af3260ef9575bb2457819ab2d4a9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239834"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735025"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning veri hazırlığı SDK'sını kullanarak veri yazma
 
-Bu makalede, Azure Machine Learning veri hazırlığı SDK'sını kullanarak veri yazmak için farklı yöntemler öğreneceksiniz. Çıktı verilerini bir veri akışı herhangi bir noktada yazılabilir ve yazma işlemleri elde edilen veri akışı adımları olarak eklenir ve veri akışı her zaman yeniden çalıştırılır. Veriler, paralel yazma izin vermek için birden çok bölüm dosyaya yazılır.
+Bu makalede, farklı yöntemler kullanarak veri yazmak için bilgi [Azure Machine Learning veri hazırlığı Python SDK'sı](https://aka.ms/data-prep-sdk). Çıktı verilerini bir veri akışı herhangi bir noktada yazılabilir ve yazma işlemleri elde edilen veri akışı adımları olarak eklenir ve veri akışı her zaman yeniden çalıştırılır. Veriler, paralel yazma izin vermek için birden çok bölüm dosyaya yazılır.
 
 Kaç tane adımlar bir işlem hattında vardır yazma hiçbir sınırlama olduğundan, sorun giderme için veya diğer işlem hatları için Ara sonuçlar elde etmek için ek yazma adımları kolayca ekleyebilirsiniz.
 
@@ -33,7 +33,7 @@ Aşağıdaki dosya biçimlerini desteklenir
 -   Ayrılmış dosyalar (CSV, TSV, vb.)
 -   Parquet dosyalarını
 
-Kullanarak [Azure Machine Learning veri hazırlığı python SDK'sı](https://aka.ms/data-prep-sdk), veri yazabilirsiniz:
+Azure Machine Learning veri hazırlığı Python SDK'sını kullanarak veri yazabilirsiniz:
 + bir yerel dosya sistemi
 + Azure Blob Depolama
 + Azure Data Lake Storage
@@ -48,32 +48,27 @@ Bir yazma işlemi tamamlandıktan sonra kolaylık olması için başarı adlı b
 
 ## <a name="example-write-code"></a>Örnek kod yazma
 
-Bu örnekte, bir veri akışına veri yükleyerek başlayın. Bu farklı biçimlerin verilerle yeniden.
+Bu örnekte, bir veri akışı kullanarak verileri yükleyerek Başlat `auto_read_file()`. Bu farklı biçimlerin verilerle yeniden.
 
 ```python
 import azureml.dataprep as dprep
 t = dprep.auto_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
-t.head(10)
+t.head(5)
 ```
 
 Örnek çıktı:
-|   |  Column1 |    Column2 | Sütun3 | Sütun4  |Sütun5   | Sütun6 | Column7 | Column8 | Column9 |
-| -------- |  -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
-| 0 |   10000.0 |   99999.0 |   None|       NO|     NO  |   ENRS    |NaN    |   NaN |   NaN|    
-|   1|      10003.0 |   99999.0 |   None|       NO|     NO  |   ENSO|       NaN|        NaN |NaN|   
-|   2|  10010.0|    99999.0|    None|   NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
-|3| 10013.0|    99999.0|    None|   NO| NO| |   NaN|    NaN|    NaN|
-|4| 10014.0|    99999.0|    None|   NO| NO| ENSO|   59783.0|    5350.0| 500.0|
-|5| 10015.0|    99999.0|    None|   NO| NO| ENBL|   61383.0|    5867.0| 3270.0|
-|6| 10016.0 |99999.0|   None|   NO| NO|     |64850.0|   11233.0|    140.0|
-|7| 10017.0|    99999.0|    None|   NO| NO| ENFR|   59933.0|    2417.0| 480.0|
-|8| 10020.0|    99999.0|    None|   NO| SV|     |80050.0|   16250.0|    80,0|
-|9| 10030.0|    99999.0|    None|   NO| SV|     |77000.0|   15500.0|    120.0|
+| | Column1 | Column2 | Sütun3 | Sütun4 | Sütun5 | Sütun6 | Column7 | Column8 | Column9 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+|0| 10000.0 | 99999.0 | None | NO | NO | ENRS | NaN | NaN | NaN |   
+|1| 10003.0 | 99999.0 | None | NO | NO | ENSO | NaN | NaN | NaN |   
+|2| 10010.0 | 99999.0 | None | NO | JN | ENJA | 70933.0 | -8667.0 | 90.0 |
+|3| 10013.0 | 99999.0 | None | NO | NO |      | NaN | NaN | NaN |
+|4| 10014.0 | 99999.0 | None | NO | NO | ENSO | 59783.0 | 5350.0 |  500.0|
 
 ### <a name="delimited-file-example"></a>Ayrılmış dosyası örneği
 
-Aşağıdaki kod `write_to_csv` ayrılmış bir dosyaya veri yazmak için işlevi.
+Aşağıdaki kod [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-csv-directory-path--destinationpath--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) ayrılmış bir dosyaya veri yazmak için işlevi.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -83,22 +78,18 @@ write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'))
 write_t.run_local()
 
 written_files = dprep.read_csv('./test_out/part-*')
-written_files.head(10)
+written_files.head(5)
 ```
 
 Örnek çıktı:
-|   |  Column1 |    Column2 | Sütun3 | Sütun4  |Sütun5   | Sütun6 | Column7 | Column8 | Column9 |
-| -------- |  -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
-| 0 |   10000.0 |   99999.0 |   HATA |       NO|     NO  |   ENRS    |HATA    |   HATA |   HATA|    
-|   1|      10003.0 |   99999.0 |   HATA |       NO|     NO  |   ENSO|       HATA|        HATA |HATA|   
-|   2|  10010.0|    99999.0|    HATA |   NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
-|3| 10013.0|    99999.0|    HATA |   NO| NO| |   HATA|    HATA|    HATA|
-|4| 10014.0|    99999.0|    HATA |   NO| NO| ENSO|   59783.0|    5350.0| 500.0|
-|5| 10015.0|    99999.0|    HATA |   NO| NO| ENBL|   61383.0|    5867.0| 3270.0|
-|6| 10016.0 |99999.0|   HATA |   NO| NO|     |64850.0|   11233.0|    140.0|
-|7| 10017.0|    99999.0|    HATA |   NO| NO| ENFR|   59933.0|    2417.0| 480.0|
-|8| 10020.0|    99999.0|    HATA |   NO| SV|     |80050.0|   16250.0|    80,0|
-|9| 10030.0|    99999.0|    HATA |   NO| SV|     |77000.0|   15500.0|    120.0|
+| | Column1 | Column2 | Sütun3 | Sütun4 | Sütun5 | Sütun6 | Column7 | Column8 | Column9 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+|0| 10000.0 | 99999.0 | HATA | NO | NO | ENRS | NaN    | NaN | NaN |   
+|1| 10003.0 | 99999.0 | HATA | NO | NO | ENSO |    NaN | NaN | NaN |   
+|2| 10010.0 | 99999.0 | HATA | NO | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
+|3| 10013.0 | 99999.0 | HATA | NO | NO |     | NaN | NaN | NaN |
+|4| 10014.0 | 99999.0 | HATA | NO | NO | ENSO |    59783.0 | 5350.0 |  500.0|
+
 
 Yukarıdaki çıktıda çeşitli hatalar nedeniyle doğru şekilde ayrıştırıldı olmayan sayılar sayısal sütunlarda görünür. CSV'ye yazılırken, null değerler varsayılan olarak "ERROR" dizesi ile değiştirilir.
 
@@ -110,26 +101,21 @@ write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'),
                          na='NA')
 write_t.run_local()
 written_files = dprep.read_csv('./test_out/part-*')
-written_files.head(10)
+written_files.head(5)
 ```
 
 Yukarıdaki kod, bu çıktıyı üretir:
-|   |  Column1 |    Column2 | Sütun3 | Sütun4  |Sütun5   | Sütun6 | Column7 | Column8 | Column9 |
-| -------- |  -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
-| 0 |   10000.0 |   99999.0 |   BadData |       NO|     NO  |   ENRS    |BadData    |   BadData |   BadData|    
-|   1|      10003.0 |   99999.0 |   BadData |       NO|     NO  |   ENSO|       BadData|        BadData |BadData|   
-|   2|  10010.0|    99999.0|    BadData |   NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
-|3| 10013.0|    99999.0|    BadData |   NO| NO| |   BadData|    BadData|    BadData|
-|4| 10014.0|    99999.0|    BadData |   NO| NO| ENSO|   59783.0|    5350.0| 500.0|
-|5| 10015.0|    99999.0|    BadData |   NO| NO| ENBL|   61383.0|    5867.0| 3270.0|
-|6| 10016.0 |99999.0|   BadData |   NO| NO|     |64850.0|   11233.0|    140.0|
-|7| 10017.0|    99999.0|    BadData |   NO| NO| ENFR|   59933.0|    2417.0| 480.0|
-|8| 10020.0|    99999.0|    BadData |   NO| SV|     |80050.0|   16250.0|    80,0|
-|9| 10030.0|    99999.0|    BadData |   NO| SV|     |77000.0|   15500.0|    120.0|
+| | Column1 | Column2 | Sütun3 | Sütun4 | Sütun5 | Sütun6 | Column7 | Column8 | Column9 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+|0| 10000.0 | 99999.0 | BadData | NO | NO | ENRS | NaN  | NaN | NaN |   
+|1| 10003.0 | 99999.0 | BadData | NO | NO | ENSO |  NaN | NaN | NaN |   
+|2| 10010.0 | 99999.0 | BadData | NO | JN | ENJA |  70933.0 | -8667.0 | 90.0 |
+|3| 10013.0 | 99999.0 | BadData | NO | NO |   | NaN | NaN | NaN |
+|4| 10014.0 | 99999.0 | BadData | NO | NO | ENSO |  59783.0 | 5350.0 |  500.0|
 
 ### <a name="parquet-file-example"></a>Parquet dosyası örneği
 
-Benzer şekilde `write_to_csv`, `write_to_parquet` işlevi bir veri akış çalıştırmaları çalıştırılan Parquet adım yazma ile yeni bir veri akışı döndürür.
+Benzer şekilde `write_to_csv()`, [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-parquet-file-path--typing-union--destinationpath--nonetype----none--directory-path--typing-union--destinationpath--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) işlevi bir veri akış çalıştırmaları çalıştırılan Parquet adım yazma ile yeni bir veri akışı döndürür.
 
 ```python
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),
@@ -142,19 +128,18 @@ Yazma işlemi başlatmak için veri akışı çalıştırın.
 write_parquet_t.run_local()
 
 written_parquet_files = dprep.read_parquet_file('./test_parquet_out/part-*')
-written_parquet_files.head(10)
+written_parquet_files.head(5)
 ```
 
 Yukarıdaki kod, bu çıktıyı üretir:
-|   |  Column1 |    Column2 | Sütun3 | Sütun4  |Sütun5   | Sütun6 | Column7 | Column8 | Column9 |
-| -------- |  -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
-| 0 |   10000.0 |   99999.0 |   MiscreantData |       NO|     NO  |   ENRS    |MiscreantData    |   MiscreantData |   MiscreantData|    
-|   1|      10003.0 |   99999.0 |   MiscreantData |       NO|     NO  |   ENSO|       MiscreantData|        MiscreantData |MiscreantData|   
-|   2|  10010.0|    99999.0|    MiscreantData |   NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
-|3| 10013.0|    99999.0|    MiscreantData |   NO| NO| |   MiscreantData|    MiscreantData|    MiscreantData|
-|4| 10014.0|    99999.0|    MiscreantData |   NO| NO| ENSO|   59783.0|    5350.0| 500.0|
-|5| 10015.0|    99999.0|    MiscreantData |   NO| NO| ENBL|   61383.0|    5867.0| 3270.0|
-|6| 10016.0 |99999.0|   MiscreantData |   NO| NO|     |64850.0|   11233.0|    140.0|
-|7| 10017.0|    99999.0|    MiscreantData |   NO| NO| ENFR|   59933.0|    2417.0| 480.0|
-|8| 10020.0|    99999.0|    MiscreantData |   NO| SV|     |80050.0|   16250.0|    80,0|
-|9| 10030.0|    99999.0|    MiscreantData |   NO| SV|     |77000.0|   15500.0|    120.0|
+|   | Column1 | Column2 | Sütun3 | Sütun4 | Sütun5 | Sütun6 | Column7 | Column8 | Column9 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |-------- |
+|0| 10000.0 | 99999.0 | MiscreantData | NO | NO | ENRS | MiscreantData | MiscreantData | MiscreantData |
+|1| 10003.0 | 99999.0 | MiscreantData | NO | NO | ENSO | MiscreantData | MiscreantData | MiscreantData |   
+|2| 10010.0 | 99999.0 | MiscreantData | NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
+|3| 10013.0 | 99999.0 | MiscreantData | NO| NO| |   MiscreantData|    MiscreantData|    MiscreantData|
+|4| 10014.0 | 99999.0 | MiscreantData | NO| NO| ENSO|   59783.0|    5350.0| 500.0|
+
+## <a name="next-steps"></a>Sonraki adımlar
+* Bkz: SDK [genel bakış](https://aka.ms/data-prep-sdk) tasarım desenleri ve kullanım örnekleri 
+* Otomatik makine öğrenimi bkz [öğretici](tutorial-auto-train-models.md) bir regresyon modeli örnek

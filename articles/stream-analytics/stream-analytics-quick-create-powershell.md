@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 5591e8174f15d552bf7295d1c3fe9cb5257c0f2e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b79800f9a9f0eb44c16c7f45fa97c55eca8ecd1a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438907"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737952"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak Stream Analytics işi oluşturma
 
@@ -23,40 +23,42 @@ Azure PowerShell modülü, PowerShell cmdlet'leri veya betikleri kullanarak Azur
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.  
 
-* Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Yerel makinenizde yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* Bu hızlı başlangıçta, Azure PowerShell modülünü gerektirir. Yerel makinenizde yüklü sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 * Bazı IOT Hub eylemleri Azure PowerShell tarafından desteklenmez ve tamamlanan kullanarak Azure CLI sürümünü 2.0.24 veya sonraki bir sürümü gerekir ve Azure CLI için IOT uzantısı. [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ve `az extension add --name azure-cli-iot-ext` IOT uzantısını yüklemek için.
 
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-Azure aboneliğinizde oturum açın `Connect-AzureRmAccount` komutunu ve açılır tarayıcı penceresine Azure kimlik bilgilerinizi girin:
+Azure aboneliğinizde oturum açın `Connect-AzAccount` komutunu ve açılır tarayıcı penceresine Azure kimlik bilgilerinizi girin:
 
 ```powershell
 # Connect to your Azure account
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Birden fazla aboneliğiniz varsa aşağıdaki cmdlet'leri çalıştırarak bu hızlı başlangıç için kullanmak istediğiniz aboneliği seçin. `<your subscription name>` değerini aboneliğinizin adıyla değiştirdiğinizden emin olun:  
 
 ```powershell
 # List all available subscriptions.
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # Select the Azure subscription you want to use to create the resource group and resources.
-Get-AzureRmSubscription -SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
+Get-AzSubscription -SubscriptionName "<your subscription name>" | Select-AzSubscription
 ```
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) ile yeni bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+Bir Azure kaynak grubu oluşturun [yeni AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
 ```powershell
 $resourceGroup = "StreamAnalyticsRG"
 $location = "WestUS2"
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
    -Name $resourceGroup `
    -Location $location 
 ```
@@ -111,17 +113,17 @@ Aşağıdaki Azure CLI kod bloğu, iş için gereken girdi verilerini hazırlama
 
 Aşağıdaki Azure PowerShell kod bloğu, iş çıktısı için kullanılan blob depolama alanı oluşturmak için komutları kullanır. Kodu anlamak için bölümleri gözden geçirin.
 
-1. [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) cmdlet’ini kullanarak standart bir genel amaçlı depolama hesabı oluşturun.  Bu örnek adlı bir depolama hesabı oluşturur **myasaquickstartstorage** ile yerel olarak yedekli depolama(lrs) ve blob şifrelemesi (varsayılan olarak etkindir).  
+1. Genel amaçlı standart depolama hesabı kullanarak oluşturduğunuz [yeni AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount) cmdlet'i.  Bu örnek adlı bir depolama hesabı oluşturur **myasaquickstartstorage** ile yerel olarak yedekli depolama(lrs) ve blob şifrelemesi (varsayılan olarak etkindir).  
    
 2. Kullanılacak depolama hesabını tanımlayan `$storageAccount.Context` depolama hesabı bağlamını alın. Depolama hesaplarıyla çalışırken kimlik bilgilerini tekrar tekrar sağlamak yerine bağlama başvurursunuz. 
 
-3. Kullanarak bir depolama kapsayıcısı oluşturma [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer).
+3. Kullanarak bir depolama kapsayıcısı oluşturma [yeni AzStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontainer).
 
 4. Kod tarafından yüzdelik depolama anahtarı kopyalayın ve daha sonra akış işin çıktı oluşturmak için bu anahtara kaydedin.
 
    ```powershell
    $storageAccountName = "myasaquickstartstorage"
-   $storageAccount = New-AzureRmStorageAccount `
+   $storageAccount = New-AzStorageAccount `
      -ResourceGroupName $resourceGroup `
      -Name $storageAccountName `
      -Location $location `
@@ -131,11 +133,11 @@ Aşağıdaki Azure PowerShell kod bloğu, iş çıktısı için kullanılan blob
    $ctx = $storageAccount.Context
    $containerName = "container1"
    
-   New-AzureStorageContainer `
+   New-AzStorageContainer `
      -Name $containerName `
      -Context $ctx
    
-   $storageAccountKey = (Get-AzureRmStorageAccountKey `
+   $storageAccountKey = (Get-AzStorageAccountKey `
      -ResourceGroupName $resourceGroup `
      -Name $storageAccountName).Value[0]
    
@@ -145,7 +147,7 @@ Aşağıdaki Azure PowerShell kod bloğu, iş çıktısı için kullanılan blob
 
 ## <a name="create-a-stream-analytics-job"></a>Akış Analizi işi oluşturma
 
-[New-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsjob?view=azurermps-5.4.0) cmdlet’i ile bir Stream Analytics işi oluşturun. Bu cmdlet iş adı, kaynak grubu adı ve iş tanımını parametre olarak alır. İş adı, işinizi tanımlayan herhangi bir kolay ad olabilir. Alfasayısal karakterler, tire, olabilir ve alt çizgi ve 3 ila 63 karakter uzunluğunda olmalıdır. İş tanımı bir iş oluşturmak için gereken özellikleri içeren bir JSON dosyasıdır. Yerel makinenizde `JobDefinition.json` adlı bir dosya oluşturun ve içine aşağıdaki JSON verilerini ekleyin:
+İle bir Stream Analytics işi oluşturma [yeni AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob?view=azurermps-5.4.0) cmdlet'i. Bu cmdlet iş adı, kaynak grubu adı ve iş tanımını parametre olarak alır. İş adı, işinizi tanımlayan herhangi bir kolay ad olabilir. Alfasayısal karakterler, tire, olabilir ve alt çizgi ve 3 ila 63 karakter uzunluğunda olmalıdır. İş tanımı bir iş oluşturmak için gereken özellikleri içeren bir JSON dosyasıdır. Yerel makinenizde `JobDefinition.json` adlı bir dosya oluşturun ve içine aşağıdaki JSON verilerini ekleyin:
 
 ```json
 {    
@@ -161,12 +163,12 @@ Aşağıdaki Azure PowerShell kod bloğu, iş çıktısı için kullanılan blob
 }
 ```
 
-Ardından, `New-AzureRmStreamAnalyticsJob` cmdlet'ini çalıştırın. Değiştirin `jobDefinitionFile` iş tanımı JSON dosyasını sakladığınız yoluyla değişken. 
+Ardından, `New-AzStreamAnalyticsJob` cmdlet'ini çalıştırın. Değiştirin `jobDefinitionFile` iş tanımı JSON dosyasını sakladığınız yoluyla değişken. 
 
 ```powershell
 $jobName = "MyStreamingJob"
 $jobDefinitionFile = "C:\JobDefinition.json"
-New-AzureRmStreamAnalyticsJob `
+New-AzStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
   -File $jobDefinitionFile `
   -Name $jobName `
@@ -175,7 +177,7 @@ New-AzureRmStreamAnalyticsJob `
 
 ## <a name="configure-input-to-the-job"></a>İş girdisini yapılandırma
 
-[New-AzureRmStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsinput?view=azurermps-5.4.0) cmdlet’ini kullanarak işinize bir girdi ekleyin. Bu cmdlet iş adı, iş girdisi adı, kaynak grubu adı ve iş girdisi tanımını parametre olarak alır. İş girdisi tanımı işin girdisini yapılandırmak için gereken özellikleri içeren bir JSON dosyasıdır. Bu örnekte, giriş olarak bir blob depolama alanı oluşturacaksınız. 
+Kullanarak işinize bir girdi ekleyin [yeni AzStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput?view=azurermps-5.4.0) cmdlet'i. Bu cmdlet iş adı, iş girdisi adı, kaynak grubu adı ve iş girdisi tanımını parametre olarak alır. İş girdisi tanımı işin girdisini yapılandırmak için gereken özellikleri içeren bir JSON dosyasıdır. Bu örnekte, giriş olarak bir blob depolama alanı oluşturacaksınız. 
 
 Yerel makinenizde `JobInputDefinition.json` adlı bir dosya oluşturun ve içine aşağıdaki JSON verilerini ekleyin. Değerini değiştirdiğinizden emin olun `accesspolicykey` ile `SharedAccessKey` önceki bölümde kaydettiğiniz IOT Hub bağlantı dizesine kısmı.
 
@@ -208,12 +210,12 @@ Yerel makinenizde `JobInputDefinition.json` adlı bir dosya oluşturun ve içine
 }
 ```
 
-Ardından, çalıştırma `New-AzureRmStreamAnalyticsInput` cmdlet'ini değerini değiştirdiğinizden emin olun `jobDefinitionFile` iş girdisi tanımı JSON dosyasını sakladığınız yoluyla değişken. 
+Ardından, çalıştırma `New-AzStreamAnalyticsInput` cmdlet'ini değerini değiştirdiğinizden emin olun `jobDefinitionFile` iş girdisi tanımı JSON dosyasını sakladığınız yoluyla değişken. 
 
 ```powershell
 $jobInputName = "IoTHubInput"
 $jobInputDefinitionFile = "C:\JobInputDefinition.json"
-New-AzureRmStreamAnalyticsInput `
+New-AzStreamAnalyticsInput `
   -ResourceGroupName $resourceGroup `
   -JobName $jobName `
   -File $jobInputDefinitionFile `
@@ -222,7 +224,7 @@ New-AzureRmStreamAnalyticsInput `
 
 ## <a name="configure-output-to-the-job"></a>İş çıktısını yapılandırma
 
-[New-AzureRmStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsoutput?view=azurermps-5.4.0) cmdlet’ini kullanarak işinize bir çıktı ekleyin. Bu cmdlet iş adı, iş çıktısı adı, kaynak grubu adı ve iş çıktısı tanımını parametre olarak alır. İş çıktısı tanımı işin çıktısını yapılandırmak için gereken özellikleri içeren bir JSON dosyasıdır. Bu örnek, çıktı olarak blob depolama kullanır. 
+Kullanarak işinize bir çıktı eklemek [yeni AzStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput?view=azurermps-5.4.0) cmdlet'i. Bu cmdlet iş adı, iş çıktısı adı, kaynak grubu adı ve iş çıktısı tanımını parametre olarak alır. İş çıktısı tanımı işin çıktısını yapılandırmak için gereken özellikleri içeren bir JSON dosyasıdır. Bu örnek, çıktı olarak blob depolama kullanır. 
 
 Yerel makinenizde `JobOutputDefinition.json` adlı bir dosya oluşturun ve içine aşağıdaki JSON verilerini ekleyin. `accountKey` değerini, depolama hesabınızın $storageAccountKey değerinde depolanmış değeri olan erişim anahtarıyla değiştirdiğinizden emin olun. 
 
@@ -256,12 +258,12 @@ Yerel makinenizde `JobOutputDefinition.json` adlı bir dosya oluşturun ve için
 }
 ```
 
-Ardından, `New-AzureRmStreamAnalyticsOutput` cmdlet'ini çalıştırın. `jobOutputDefinitionFile` değişkeninin değerini, iş çıktısı tanımı JSON dosyasını depoladığınız yol ile değiştirdiğinizden emin olun. 
+Ardından, `New-AzStreamAnalyticsOutput` cmdlet'ini çalıştırın. `jobOutputDefinitionFile` değişkeninin değerini, iş çıktısı tanımı JSON dosyasını depoladığınız yol ile değiştirdiğinizden emin olun. 
 
 ```powershell
 $jobOutputName = "BlobOutput"
 $jobOutputDefinitionFile = "C:\JobOutputDefinition.json"
-New-AzureRmStreamAnalyticsOutput `
+New-AzStreamAnalyticsOutput `
   -ResourceGroupName $resourceGroup `
   -JobName $jobName `
   -File $jobOutputDefinitionFile `
@@ -270,7 +272,7 @@ New-AzureRmStreamAnalyticsOutput `
 
 ## <a name="define-the-transformation-query"></a>Dönüşüm sorgusunu tanımlama
 
-[New-AzureRmStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticstransformation?view=azurermps-5.4.0) cmdlet’ini kullanarak işinize bir dönüşüm ekleyin. Bu cmdlet iş adı, iş dönüşümü adı, kaynak grubu adı ve iş dönüşümü tanımını parametre olarak alır. Yerel makinenizde `JobTransformationDefinition.json` adlı bir dosya oluşturun ve içine aşağıdaki JSON verilerini ekleyin. JSON dosyası, dönüşüm sorgusunu tanımlayan bir sorgu parametresi içerir:
+Kullanarak işinize bir dönüşüm ekleyin [yeni AzStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation?view=azurermps-5.4.0) cmdlet'i. Bu cmdlet iş adı, iş dönüşümü adı, kaynak grubu adı ve iş dönüşümü tanımını parametre olarak alır. Yerel makinenizde `JobTransformationDefinition.json` adlı bir dosya oluşturun ve içine aşağıdaki JSON verilerini ekleyin. JSON dosyası, dönüşüm sorgusunu tanımlayan bir sorgu parametresi içerir:
 
 ```json
 {     
@@ -284,12 +286,12 @@ New-AzureRmStreamAnalyticsOutput `
 }
 ```
 
-Ardından, `New-AzureRmStreamAnalyticsTransformation` cmdlet'ini çalıştırın. Değerini değiştirdiğinizden emin olun `jobTransformationDefinitionFile` iş dönüşüm tanımı JSON dosyasını sakladığınız yoluyla değişken. 
+Ardından, `New-AzStreamAnalyticsTransformation` cmdlet'ini çalıştırın. Değerini değiştirdiğinizden emin olun `jobTransformationDefinitionFile` iş dönüşüm tanımı JSON dosyasını sakladığınız yoluyla değişken. 
 
 ```powershell
 $jobTransformationName = "MyJobTransformation"
 $jobTransformationDefinitionFile = "C:\JobTransformationDefinition.json"
-New-AzureRmStreamAnalyticsTransformation `
+New-AzStreamAnalyticsTransformation `
   -ResourceGroupName $resourceGroup `
   -JobName $jobName `
   -File $jobTransformationDefinitionFile `
@@ -307,12 +309,12 @@ New-AzureRmStreamAnalyticsTransformation `
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Stream Analytics işini başlatıp çıktıyı denetleyin
 
-[Start-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) cmdlet’ini kullanarak işi başlatın. Bu cmdlet iş adı, kaynak grubu adı, çıktı başlangıç modu ve başlangıç saatini parametre olarak alır. `OutputStartMode`; `JobStartTime`, `CustomTime` veya `LastOutputEventTime` değerlerini kabul eder. Bu değerlerin her birinin ne anlama geldiği hakkında daha fazla bilgi için PowerShell belgelerindeki [parametreler](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) bölümüne bakın. 
+Kullanarak işi başlatın [başlangıç AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob?view=azurermps-5.4.0) cmdlet'i. Bu cmdlet iş adı, kaynak grubu adı, çıktı başlangıç modu ve başlangıç saatini parametre olarak alır. `OutputStartMode`; `JobStartTime`, `CustomTime` veya `LastOutputEventTime` değerlerini kabul eder. Bu değerlerin her birinin ne anlama geldiği hakkında daha fazla bilgi için PowerShell belgelerindeki [parametreler](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob?view=azurermps-5.4.0) bölümüne bakın. 
 
 Aşağıdaki cmdlet’i çalıştırdıktan sonra iş başlarsa çıktı olarak `True` değeri döndürülür. Depolama kapsayıcısında, dönüştürülmüş verilerle birlikte bir çıktı klasörü oluşturulur. 
 
 ```powershell
-Start-AzureRmStreamAnalyticsJob `
+Start-AzStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
   -Name $jobName `
   -OutputStartMode 'JobStartTime'
@@ -323,7 +325,7 @@ Start-AzureRmStreamAnalyticsJob `
 Artık gerekli olmadığında kaynak grubunu, akış işini ve tüm ilgili kaynakları silin. İşin silinmesi, iş tarafından kullanılan akış birimlerinin faturalanmasını önler. İşi gelecekte kullanmayı planlıyorsanız, silme işlemini atlayıp işi şimdilik durdurabilirsiniz. Bu işi kullanmaya devam edecek değilseniz, aşağıdaki cmdlet'i çalıştırarak bu hızlı başlangıç ile oluşturulan tüm kaynakları silin:
 
 ```powershell
-Remove-AzureRmResourceGroup `
+Remove-AzResourceGroup `
   -Name $resourceGroup 
 ```
 

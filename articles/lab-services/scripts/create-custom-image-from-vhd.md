@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell Betiği: Azure Laboratuvar Hizmetleri VHD dosyasında özel bir görüntü oluşturun | Microsoft Docs'
-description: Bu PowerShell Betiği Azure Laboratuvar Hizmetleri VHD dosyasında özel bir görüntü oluşturur.
+title: 'PowerShell Betiği: Azure Lab Services bir VHD dosyasından bir özel görüntü oluşturma | Microsoft Docs'
+description: Bu PowerShell Betiği, Azure Lab Services VHD dosyasından özel bir görüntü oluşturur.
 services: lab-services
 author: spelluru
 manager: ''
@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 19b7c3c6018ec56b056761c336bc56c8b63b47a2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2d0cc4012adf2c17b2f7a2e769f2d666b158a8c8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636411"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734736"
 ---
-# <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Azure Laboratuvar Hizmetleri VHD dosyasında özel bir görüntü oluşturmak için PowerShell kullanma
+# <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Azure Lab Services VHD dosyasından özel bir görüntü oluşturmak için PowerShell kullanma
 
-Bu örnek PowerShell komut dosyası Azure Laboratuvar Hizmetleri VHD dosyasında özel bir görüntü oluşturur
+Bu örnek PowerShell Betiği, Azure Lab Services bir VHD dosyasından özel bir görüntü oluşturur.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 * **Bir laboratuvar**. Komut dosyası var olan bir laboratuvar olmasını gerektirir. 
@@ -38,12 +40,12 @@ Bu betik şu komutları kullanır:
 
 | Komut | Notlar |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Kaynakları alır. |
-| [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | Azure Depolama hesabının erişim anahtarlarını alır. |
-| [Yeni-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) | Bir Azure dağıtımı bir kaynak grubuna ekler. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Kaynakları alır. |
+| [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Azure Depolama hesabının erişim anahtarlarını alır. |
+| [Yeni AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) | Bir Azure dağıtımındaki bir kaynak grubuna ekler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure PowerShell hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](https://docs.microsoft.com/powershell/).
 
-Ek Azure Laboratuvar Hizmetleri PowerShell komut dosyası örnekleri bulunabilir [Azure Laboratuvar Hizmetleri PowerShell örnekleri](../samples-powershell.md).
+Ek Azure Lab Services PowerShell Betiği örnekleri, içinde bulunabilir [Azure Lab Services PowerShell örnekleri](../samples-powershell.md).

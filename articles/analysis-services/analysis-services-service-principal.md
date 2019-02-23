@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 47800ce467beb43c514e5e5474247d8c2029feff
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: d87fe608b92dd70cb2dee78c817e0055445b7c70
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188241"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732538"
 ---
 # <a name="automation-with-service-principals"></a>Otomasyon ile hizmet sorumluları
 
@@ -45,7 +45,9 @@ Hizmet sorumlusu uygulama kimliği ve parola veya sertifika kullanılabilir bağ
 
 ### <a name="powershell"></a>PowerShell
 
-İle kaynak yönetimi işlemleri için bir hizmet sorumlusunu kullanırken [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) modülü, kullanım `Login-AzureRmAccount` cmdlet'i. İle sunucu işlemleri için bir hizmet sorumlusunu kullanırken [SQLServer](https://www.powershellgallery.com/packages/SqlServer) modülü, kullanım `Add-AzureAnalysisServicesAccount` cmdlet'i. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+İle kaynak yönetimi işlemleri için bir hizmet sorumlusunu kullanırken [Az.AnalysisServices](/powershell/module/az.analysisservices) modülü, kullanım `Connect-AzAccount` cmdlet'i. İle sunucu işlemleri için bir hizmet sorumlusunu kullanırken [SQLServer](https://www.powershellgallery.com/packages/SqlServer) modülü, kullanım `Add-AzAnalysisServicesAccount` cmdlet'i. 
 
 Aşağıdaki örnekte, uygulama kimliği ve parola, bir model veritabanı yenileme işlemi gerçekleştirmek için kullanılır:
 
@@ -60,7 +62,7 @@ $PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
 
 $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
 
-Add-AzureAnalysisServicesAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "westcentralus.asazure.windows.net"
+Add-AzAnalysisServicesAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "westcentralus.asazure.windows.net"
 
 Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserver" -TableName "MyTable" -Database "MyDb" -RefreshType "Full"
 ```

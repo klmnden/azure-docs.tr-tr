@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 2970ef58e177d10eac80d46825f3fb985b98af61
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077564"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734974"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
@@ -45,7 +45,7 @@ Kaydolduktan sonra kuruluşunuz için Microsoft iş ortağı ağ Kimliğini kayd
 *   Avantajları hakkında bilgi edinin [Microsoft iş ortağı ağı](https://partner.microsoft.com/commercial)
 *   Ardından, kuruluşunuzun varolan bir üyelik varsa, kayıt sırasında kuruluşunuzun katılır. Kullanırsanız [iş ortağı Merkezi](https://partnercenter.microsoft.com/partner/home), iş ortağı merkezi hesabınız kimliği görmeye devam. Kullanırsanız [iş ortağı üyelik Merkezi'nde (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), iş ortağı üyelik Merkezi'nde hesabınızdaki görmeye devam. 
 
----  
+---
 
 ## <a name="2-create-a-microsoft-account"></a>2. Bir Microsoft hesabı oluşturun  
 | 15 dakika |  
@@ -61,7 +61,7 @@ Bir Microsoft hesabı, örneğin *@outlook.com veya @live.com*, birçok Microsof
 *   Oluşturma veya Microsoft hesabınızı yönetme konusunda yardım için ziyaret [Microsoft hesabı Yardım desteği sayfaları](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 
 
----  
+---
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Market kayıt formu gönderin  
 | 15 dakika |  
@@ -72,7 +72,7 @@ Aşağıdaki bilgiler istenir:
 *   İlk uygulamanızı veya danışmanlık hizmetleri kısa bir açıklamasını sunar, yayımlama, Microsoft Ürün veya hizmet teklifinizi en yakın beraber hizalar dahil olmak üzere planladığınız
 *   Uygulamanız veya hizmetiniz için hedef kitle 
 
----  
+---
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Bulut iş ortağı Portalı'nda oturum açın
 | 1 ila 3 gün | <br>
 Market ekleme ekibimiz, 3. adımda verilen Market kayıt ayrıntıları doğrulayacaktır. Onaylandıktan sonra bir Hoş Geldiniz e-posta ile hesap kimlik bilgilerini ve oturum açma için yönergeler alırsınız [bulut iş ortağı portalı](https://cloudpartner.azure.com).
@@ -108,4 +108,4 @@ Tamamladıktan sonra [Geliştirme Merkezi](https://developer.microsoft.com/store
 *   [Çözümünüz için liste türünü belirlemek](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

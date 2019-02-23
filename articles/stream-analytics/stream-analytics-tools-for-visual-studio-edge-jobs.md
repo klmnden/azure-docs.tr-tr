@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 886cae572ee651efd217e9a87b935918eebe8b13
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 684690baa63f5ccd65c69e3a1b7e310c2f809e59
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558830"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735567"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Visual Studio Araçları'nı kullanarak Stream Analytics Edge işlerini geliştirme
 
@@ -69,7 +69,7 @@ Stream Analytics işleri Edge ortamlarında desteği çoğu [Stream Analytics so
 |**Kategori**  | **Komut**  |
 |---------|---------|
 |Jeo-uzamsal işleçler |<ul><li>CreatePoint</li><li>CreatePolygon</li><li>CreateLineString</li><li>ST_DISTANCE</li><li>ST_WITHIN</li><li>ST_OVERLAPS</li><li>ST_INTERSECTS</li></ul> |
-|Diğer işleçler | <ul><li>BÖLÜMÜ</li><li>ÜZERİNDEN ZAMAN DAMGASI</li><li>FARKLI</li><li>Expression parametresinde COUNT işleci</li><li>Tarih ve saat işlevleri'nde mikrosaniye ölçeğinde</li><li>JavaScript UDA'ın (Bu özellik, işleri bulutta dağıtılan için Önizleme aşamasında.)</li></ul>   |
+|Diğer işleçler | <ul><li>BÖLÜMÜ</li><li>ÜZERİNDEN ZAMAN DAMGASI</li><li>DISTINCT</li><li>Expression parametresinde COUNT işleci</li><li>Tarih ve saat işlevleri'nde mikrosaniye ölçeğinde</li><li>JavaScript UDA'ın (Bu özellik, işleri bulutta dağıtılan için Önizleme aşamasında.)</li></ul>   |
 
 Edge işi portalda oluşturduğunuzda, derleyici otomatik olarak desteklenen bir işleç kullanmıyorsanız uyarır.
 

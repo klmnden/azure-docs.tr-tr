@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 0be1814fd501824056bc80d4aeb561ff58735125
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 02/22/2019
+ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447455"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737493"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack üzerinde App Service ile çalışmaya başlamadan önce
 
@@ -307,6 +307,16 @@ Azure Stack'te Azure App Service için SQL Server örneğinin tüm App Service r
 > SQL Iaas sanal makine görüntüleri birçok Market yönetimi özelliği yoluyla kullanılabilir. Bir Market öğesi kullanarak VM dağıtmadan önce her zaman SQL Iaas uzantısı en son sürümünü indirin emin olun. SQL görüntülerinin Azure'da kullanıma sunulan SQL VM'ler ile aynıdır. SQL Iaas uzantısı bu görüntülerden oluşturulan ve portal geliştirmeleri karşılık gelen VM'ler için otomatik düzeltme eki uygulama ve yedekleme özellikleri gibi özellikler sağlar.
 >
 Herhangi bir SQL sunucu rolleri için varsayılan bir örnek veya adlandırılmış bir örnek kullanabilirsiniz. Adlandırılmış bir örnek kullanırsanız, el ile SQL Server Browser hizmetini başlatma ve bağlantı noktası 1434'ü açın emin olun.
+
+App Service yükleyicisi, SQL Server veritabanı kapsama etkin olduğundan emin olun kontrol eder. App Service veritabanlarını barındıracak SQL Server veritabanı kapsama etkinleştirmek için aşağıdaki SQL komutlarını çalıştırın:
+
+```sql
+sp_configure 'contained database authentication', 1;  
+GO  
+RECONFIGURE;  
+GO
+```
+
 
 >[!IMPORTANT]
 > App Service'ta da mevcut bir sanal ağ dağıtmayı tercih ederseniz SQL Server App Service ve dosya sunucusu ayrı bir alt ağa dağıtılması gerekir.

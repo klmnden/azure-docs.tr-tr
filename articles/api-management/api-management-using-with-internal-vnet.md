@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 21175e74bd40d0d4aeaf1c0a1e677f1c8113e80a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446527"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738020"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Azure API Management hizmeti bir iç sanal ağ ile kullanma
 Azure sanal ağlar ile Azure API Management API'leri değil internet üzerinden erişilebilen yönetebilirsiniz. VPN'si teknolojileri birkaç bağlantı kurmak kullanılabilir. API Management, iki ana modda bir sanal ağ içinde dağıtılabilir:
@@ -67,11 +67,14 @@ Dağıtım başarılı olduktan sonra Panoda hizmetinizin iç sanal IP adresi g�
 > Azure portalında kullanılabilir Test Konsolu çalışmaz **dahili** VNET dağıtılan hizmet, ağ geçidi URL'si Genel DNS kayıtlı değil. Sağlanan Test Konsolu kullanmalısınız **Geliştirici Portalı**.
 
 ### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>PowerShell cmdlet'lerini kullanarak bir sanal ağ bağlantısını etkinleştirme
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 PowerShell cmdlet'lerini kullanarak, sanal ağ bağlantısı da etkinleştirebilirsiniz.
 
-* Bir sanal ağ içinde bir API Management hizmeti oluşturma: cmdlet'ini kullanın [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) bir sanal ağ içinde bir Azure API Management hizmeti oluşturma ve iç sanal ağ türü kullanacak şekilde yapılandırın.
+* Bir sanal ağ içinde bir API Management hizmeti oluşturun: Cmdlet'i kullanmak [yeni AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) bir sanal ağ içinde bir Azure API Management hizmeti oluşturma ve iç sanal ağ türü kullanacak şekilde yapılandırın.
 
-* Bir sanal ağ içinde mevcut bir API Management hizmetini dağıtma: cmdlet'ini kullanın [güncelleştirme AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) bir API Yönetimi hizmetiniz bir sanal ağ içinde hareket ve iç kullanım için yapılandırın sanal ağ türü.
+* Bir API Yönetimi hizmetiniz bir sanal ağ içinde dağıtın: Cmdlet'i kullanmak [güncelleştirme AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) bir API Yönetimi hizmetiniz bir sanal ağ içinde hareket ve iç sanal ağ türü kullanacak şekilde yapılandırın.
 
 ## <a name="apim-dns-configuration"></a>DNS yapılandırması
 API Management, dış sanal ağ modunda olduğunda, DNS, Azure tarafından yönetilir. İç sanal ağ modu için kendi yönlendirme yönetmek zorunda.
@@ -96,7 +99,7 @@ Bu API Management hizmet uç noktalarına erişmek için API Management dağıt�
 
    * 10.0.0.5 contoso.portal.azure-api.net
 
-   * 10.0.0.5 contoso.management.azure-api.net
+   * 10.0.0.5     contoso.management.azure-api.net
 
    * 10.0.0.5 contoso.scm.azure-api.net
 

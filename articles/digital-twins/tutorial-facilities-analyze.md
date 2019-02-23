@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 488b97074d74650ecf5602d25e2a90a1998e5585
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8f8bdb4d601e35cf489c1c4c1db3574fb8c8f18f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883883"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730794"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Öğretici: Time Series Insights'ı kullanarak Azure dijital İkizlerini alanlarınıza olayları çözümleyin
 
@@ -90,13 +90,13 @@ Kullanabileceğiniz [Event Hubs](../event-hubs/event-hubs-about.md) hizmet, veri
       - UdfCustom
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     - type: EventHub
       eventTypes:
       - DeviceMessage
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     ```
 
 1. Yer tutucuları değiştirmeniz `Primary_connection_string_for_your_event_hub` değeriyle **bağlantı dizesi – birincil anahtar** olay hub'ı. Bu bağlantı dizesinin biçimi şu şekilde olduğundan emin olun:
@@ -111,7 +111,7 @@ Kullanabileceğiniz [Event Hubs](../event-hubs/event-hubs-about.md) hizmet, veri
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. `Name_of_your_Event_Hubs_namespace` yer tutucularının yerine Event Hubs ad alanınızı yazın.
+1. Yer tutucuları değiştirmeniz `Name_of_your_Event_Hub` olay hub'ınızın adıyla.
 
     > [!IMPORTANT]
     > Değerleri girerken tırnak işaretlerini dahil etmeyin. YAML dosyası iki nokta üst üste sonra en az bir boşluk karakteri olduğundan emin olun. Çevrimiçi bir YAML Doğrulayıcı gibi kullanarak, YAML dosyası içeriği doğrulayabilirsiniz [bu araç](https://onlineyamltools.com/validate-yaml).

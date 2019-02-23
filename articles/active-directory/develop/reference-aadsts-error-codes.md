@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a80ed6af005f04ec48729e918543b2de67810eba
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234297"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738598"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Kimlik doğrulaması ve yetkilendirme hata kodları
 
@@ -255,6 +255,7 @@ Azure Active Directory (Azure AD) güvenlik belirteci Hizmeti'nden (STS) döndü
 | AADSTS221000 | Yalnızca cihaz belirteçlerini kabul etmesini DeviceOnlyTokensNotSupportedByResource - kaynak yapılandırılmadı. |
 | AADSTS240001 | Cihazları Azure AD'ye kaydetme BulkAADJTokenUnauthorized - kullanıcı yetkili değil. |
 | AADSTS240002 | RequiredClaimIsMissing - id_token kullanılamaz olarak `urn:ietf:params:oauth:grant-type:jwt-bearer` verin.|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - Kiracı Yöneticisi bu istek engelleyen bir güvenlik ilkesi yapılandırdı. İsteğiniz ilke gereksinimlerini karşılayıp karşılamadığını belirlemek için Kiracı düzeyinde tanımlanan güvenlik ilkelerini denetleyin. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - directory/kiracıda uygulama bulunamadı. Uygulama değil Kiracı Yöneticisi tarafından yüklenmemiş veya kiracıdaki herhangi bir kullanıcı tarafından onay varsa bu durum oluşabilir. Uygulama tanımlayıcısı değeri yanlış veya kimlik doğrulaması isteğinizi yanlış kiracıya göndermiş. |
 | AADSTS700020 | InteractionRequired - erişim izni etkileşimini gerektirir. |
 | AADSTS700022 | Birden fazla kaynak içerdiğinden InvalidMultipleResourcesScope - giriş parametresi kapsamı için sağlanan değer geçerli değil. |

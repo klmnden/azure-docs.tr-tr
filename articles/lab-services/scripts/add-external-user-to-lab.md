@@ -1,5 +1,5 @@
 ---
-title: "PowerShell Betiği: dış kullanıcı Azure DevTest labs'deki bir laboratuvara ekleme | Microsoft Docs"
+title: "PowerShell Betiği: Azure DevTest labs'deki bir laboratuvara bir dış kullanıcı ekleme | Microsoft Docs"
 description: Bu PowerShell Betiği bir dış kullanıcı Azure DevTest labs'deki bir laboratuvara ekler.
 services: lab-services
 author: spelluru
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0acff1eb4cee441187205b11a7e07cc718072cbf
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 042fa1e24ebadfb00a2d55cc97d742f198cb5662
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248198"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738360"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara bir dış kullanıcı eklemek için PowerShell'i kullanma
 
 Bu örnek PowerShell Betiği bir dış kullanıcı Azure DevTest labs'deki bir laboratuvara ekler. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -38,8 +40,8 @@ Bu betik şu komutları kullanır:
 
 | Komut | Notlar |
 |---|---|
-| [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) | Azure active Directory'den kullanıcı nesnesi yeniden dener. |
-| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Belirtilen kapsamda belirtilen sorumluyu belirtilen rolü atar. |
+| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Azure active Directory'den kullanıcı nesnesi yeniden dener. |
+| [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Belirtilen kapsamda belirtilen sorumluyu belirtilen rolü atar. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

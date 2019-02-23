@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73fffda6ec0ae0a65af9b5aa8505e3b9551bd3b4
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6433d130da108ce7bd0b6f8b4093161043c32645
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558184"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733155"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
 
@@ -358,7 +358,7 @@ Blob depolama hesabınız varsa, kullanabilirsiniz. Bu öğretici için yeni bir
    |Çıktı diğer adı  |  CallStream FraudulentCalls   |  İşin çıktısını tanımlamak için bir ad girin.   |
    |Abonelik   |  \<Aboneliğiniz\> |  Oluşturduğunuz depolama hesabını içeren Azure aboneliğini seçin. Depolama hesabı, aynı veya farklı bir abonelikte olabilir. Bu örnekte, aynı abonelikte depolama hesabı oluşturduğunuz varsayılır. |
    |Depolama hesabı  |  asaehstorage |  Oluşturduğunuz depolama hesabının adını girin. |
-   |Kapsayıcı  | asa fraudulentcalls Tanıtımı | Yeni Oluştur'ı seçin ve bir kapsayıcı adı girin. |
+   |Kapsayıcı  | asa-fraudulentcalls-demo | Yeni Oluştur'ı seçin ve bir kapsayıcı adı girin. |
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     

@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ea781b5dbbf09c0a21fbcf781ae129295d02dbad
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 55d75bb0bae4bf3feb370b7fdf4d80dc43bdc0ca
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054800"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736898"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Service Fabric Hizmetleri için küme kaynak yöneticisi ayarlarını yapılandırma
 Service Fabric Küme Kaynak Yöneticisi, her kişi adlı hizmetin yöneten kurallar üzerinde ayrıntılı denetim sağlar. Adlandırılmış her hizmetin nasıl kümede ayrılmalıdır kuralları belirtebilirsiniz. Adlandırılmış her hizmet ne kadar önemli bu hizmete oldukları dahil olmak üzere, rapor istediği ölçüm kümesini de tanımlayabilirsiniz. Hizmetleri yapılandırma üç farklı görevlere böler:

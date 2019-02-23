@@ -5,15 +5,15 @@ services: iot-hub
 ms.service: iot-hub
 author: dominicbetts
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 3cdfa74c5f124e57b125399e39b7981b1dfb6d09
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096361"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56741644"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Cihaz yönetim eylemleri genişletir ve özelleştirme
 
@@ -27,10 +27,6 @@ Genellikle, cihazları teker teker kesintiler ve kapalı kalma süresini en aza 
 
 Bu öğreticide, bir doğrudan yöntem cihaz üzerinde Uzaktan yeniden başlatma tetiklemek için kullanılır. Bir CİHAZDAN son yeniden başlatma zamanı bildirmek üzere bildirilen özellikleri kullanılan ve buluttan cihazın son yeniden başlatma zamanı bulmak için cihaz ikizi sorgulandı.
 
-IOT Hub ve cihaz yönetim modellerini uzaktan gibi hava üretici yazılımı güncelleştirme kullanmaya başlama devam etmek için bkz:
+IOT Hub ve cihaz yönetim modellerini uzaktan gibi ile hava üretici yazılımı güncelleştirme başlamak için bkz: [nasıl üretici yazılımlarını güncelleştirme](../articles/iot-hub/tutorial-firmware-update.md)
 
-[Öğretici: nasıl üretici yazılımlarını güncelleştirme](../articles/iot-hub/tutorial-firmware-update.md)
-
-IOT çözümü ve zamanlama yöntemi çağıran birden çok cihazda genişletmek öğrenmek için bkz [işleri zamanlama ve yayınlama](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md) öğretici.
-
-IOT Hub kullanmaya başlamaya devam etmek için bkz: [IOT Edge'i kullanmaya başlama](../articles/iot-edge/tutorial-simulate-device-linux.md).
+IOT çözümü ve zamanlama yöntemi çağıran birden çok cihazda genişletmek öğrenmek için bkz [işleri zamanlama ve yayınlama](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

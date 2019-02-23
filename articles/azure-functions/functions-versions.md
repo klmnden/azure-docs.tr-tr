@@ -1,6 +1,6 @@
 ---
 title: Azure işlevleri çalışma zamanı sürümleri genel bakış
-description: Azure işlevleri çalışma zamanı birden çok sürümünü destekler. Bunları sizin için doğru olanı seçme arasındaki farkları öğrenin.
+description: Azure İşlevleri, birden fazla çalışma zamanı sürümünü destekler. Bunları sizin için doğru olanı seçme arasındaki farkları öğrenin.
 services: functions
 documentationcenter: ''
 author: ggailey777
@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: f2f1313461fcb58ea48af99aeda2f7005534fe34
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: cc19a2d7641b20a413bbc39efe0d1c5ede362e6d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885196"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734464"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure işlevleri çalışma zamanı sürümleri genel bakış
 
@@ -29,7 +29,7 @@ Sürüm 2.x çalışma zamanı, macOS ve Linux gibi .NET Core tarafından destek
 
 Buna karşılık olarak sürüm 1.x çalışma zamanı yalnızca geliştirme ve Azure portalında veya Windows bilgisayarlarda barındırma destekler.
 
-## <a name="languages"></a>Diller
+## <a name="languages"></a>Languages
 
 Sürüm 2.x çalışma zamanı, yeni bir dil genişletilebilirlik modeli kullanır. Sürüm 2.x, bir işlev uygulamasında tüm işlevleri aynı dilde paylaşım gerekir. Bir işlev uygulaması işlevlerinde dili uygulama oluşturulurken seçilir.
 
@@ -37,7 +37,7 @@ Azure işlevleri 1.x Deneysel dillerden bunlar 2.x'i desteklenmez. Bu nedenle ye
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-Daha fazla bilgi için [desteklenen diller](supported-languages.md).
+Daha fazla bilgi için bkz. [Desteklenen diller](supported-languages.md).
 
 ## <a name="creating-1x-apps"></a>Sürümünde çalışmasını 1.x
 
@@ -49,7 +49,7 @@ Bunun yerine sürümünü kullanmak için sürüm 1.x çalışma zamanı kullanm
 
 ### <a name="changes-in-triggers-and-bindings"></a>Tetikleyiciler ve bağlamalar değişiklikleri
 
-Sürüm 2.x belirli Tetikleyicileri ve bağlamaları işlevler uygulamanız tarafından kullanılan uzantıları yüklemek gerektirir. Bir uzantı gerektirmeyen bu HTTP ve Zamanlayıcı Tetikleyicileri için tek özel durum.  Daha fazla bilgi için [kaydedin ve uzantılarını bağlama yükleme](./functions-triggers-bindings.md#register-binding-extensions).
+Sürüm 2.x belirli Tetikleyicileri ve bağlamaları işlevler uygulamanız tarafından kullanılan uzantıları yüklemek gerektirir. Bir uzantı gerektirmeyen bu HTTP ve Zamanlayıcı Tetikleyicileri için tek özel durum.  Daha fazla bilgi için [kaydedin ve uzantılarını bağlama yükleme](./functions-bindings-expressions-patterns.md).
 
 Ayrıca bazı değişiklikleri de olmuştur `function.json` veya işlevin sürümleri arasında öznitelikleri. Örneğin, olay hub'ı `path` özelliği, artık `eventHubName`. Bkz: [varolan bağlama tablosu](#bindings) her bağlama için belgelere bağlantılar için.
 
@@ -73,7 +73,7 @@ Sürüm 2.x, aşağıdaki değişiklikler yapıldı:
 
 * Örnek başına 100 eş zamanlı isteklerin varsayılan tüketim planı işlevleri için varsayılan olarak HTTP eşzamanlılık kısıtlamalar uygulanır. Bu konuda değiştirebilirsiniz [ `maxConcurrentRequests` ](functions-host-json.md#http) host.json dosyasında ayarı.
 
-* Nedeniyle [.NET core sınırlamaları](https://github.com/Azure/azure-functions-host/issues/3414), F # betik (.fsx) işlevleri kaldırıldı desteği. Derlenmiş F # işlevleri (.fs) hâlâ destekleniyor.
+* Nedeniyle [.NET core sınırlamaları](https://github.com/Azure/azure-functions-host/issues/3414), desteği F# betik (.fsx) işlevleri kaldırıldı. Derlenmiş F# işlevleri (.fs) hala destekleniyor.
 
 * Olay Kılavuzu tetikleyicisi Web kancaları URL biçimi değiştirildi `https://{app}/runtime/webhooks/{triggerName}`.
 
@@ -121,7 +121,7 @@ Yeni bir sürüm 2.x çalışma zamanı kullanan [bağlama genişletilebilirlik 
 
 * Bağlamaları kullanımda olduğu bilinen ve çalışma zamanı tarafından yüklenen bir açık yürütme ortamı.
 
-HTTP ve Zamanlayıcı Tetikleyicileri hariç tüm bağlamaları gerekir açıkça işlevi uygulaması projesine eklemek veya Portalı'nda kayıtlı. Daha fazla bilgi için [kaydetme bağlama uzantıları](functions-triggers-bindings.md#register-binding-extensions).
+HTTP ve Zamanlayıcı Tetikleyicileri hariç tüm bağlamaları gerekir açıkça işlevi uygulaması projesine eklemek veya Portalı'nda kayıtlı. Daha fazla bilgi için [kaydetme bağlama uzantıları](./functions-bindings-expressions-patterns.md).
 
 Aşağıdaki tablo, hangi bağlamaları her çalışma zamanı sürümünde desteklenen gösterir.
 

@@ -2,17 +2,18 @@
 title: Azure IOT hub'ı geçirmek için tanılama ayarları | Microsoft Docs
 description: Azure IOT Hub'ı, işlemleri gerçek zamanlı IOT hub'ınızdaki işlemlerin durumunu izlemek için izleme yerine Azure tanılama ayarlarını kullanmak için güncelleştirme yapma.
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 02/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 4a1517c1d5bb0f34c0f1b0ec81d074f8ec39aff5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d54b109cd5ef41665e595e7b878c077732536297
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546596"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674251"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>IOT Hub'ınız için tanılama ayarları izleme işlemleri geçiş
 
@@ -28,7 +29,7 @@ Azure portalındaki IOT Hub'ınıza güncelleştirmek için ilk tanılama ayarla
 
 ### <a name="turn-off-operations-monitoring"></a>İşlem izleme devre dışı Aç
 
-Akışınıza yeni tanılama ayarları test ettikten sonra işlemleri izleme özelliğini kapatabilirsiniz. 
+Akışınızın yeni tanılama ayarları test sonra işlemleri izleme özelliğini kapatabilirsiniz. 
 
 1. IOT hub'ı menüde **işlem izleme**.
 
@@ -40,7 +41,7 @@ Akışınıza yeni tanılama ayarları test ettikten sonra işlemleri izleme öz
 
 İşlem izleme ve tanılama ayarları için şemalar biraz farklılık gösterir. Tanılama ayarları tarafından kullanılan şemayı eşlemek için işlem bugün izleme kullanan uygulamaları güncelleştirme önemlidir. 
 
-Beş yeni kategori için izleme de, tanılama ayarları sunar. Uygulamalar için varolan şema güncelleştirdikten sonra yeni kategori de ekleyin:
+Ayrıca, tanılama ayarları, beş yeni kategori için izleme sunar. Uygulamalar için varolan şema güncelleştirdikten sonra yeni kategori de ekleyin:
 
 * Bulut-cihaz ikizi işlemleri
 * CİHAZDAN buluta ikizi işlemleri
@@ -56,4 +57,4 @@ Belirli bir şema yapıları için bkz: [tanılama ayarları için şemayı anla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure IoT Hub durumunu izleyin ve sorunları hızla tanılayın](iot-hub-monitor-resource-health.md)
+[Azure IoT Hub durumunu izleyin ve sorunları hızla tanılayın](iot-hub-monitor-resource-health.md)

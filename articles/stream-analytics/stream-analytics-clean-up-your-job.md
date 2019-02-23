@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 85db38fef5e69c4de855f8cb6d54151496faebbe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cfc01667f1fee7e57929e1990b5cf8c99a0fd595
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090253"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737510"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>Azure Stream Analytics işinizi Temizle
 
@@ -47,7 +47,9 @@ Azure Stream Analytics işleri, Azure portalı, Azure PowerShell, .net veya REST
 
 ## <a name="stop-or-delete-a-job-using-powershell"></a>Durdurma veya PowerShell kullanarak iş Sil
 
-PowerShell kullanarak bir işi durdurmak için kullanın [Stop-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob?view=azurermps-5.7.0) cmdlet'i. PowerShell kullanarak işi silmek için kullanın [Remove-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/Remove-AzureRmStreamAnalyticsJob?view=azurermps-5.7.0) cmdlet'i.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+PowerShell kullanarak bir işi durdurmak için kullanın [Stop-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) cmdlet'i. PowerShell kullanarak işi silmek için kullanın [Remove-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) cmdlet'i.
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>Durdurma veya .NET için Azure SDK'sını kullanarak iş Sil
 

@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 87ea4edd9bb548701d6bcf63dd542ed6e35d9f7f
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.topic: conceptual
+ms.openlocfilehash: 2b7e709a06797323cc99bfd636ee26e9bfb8026d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585562"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731863"
 ---
 # <a name="what-is-a-dictionary"></a>Bir sözlük nedir?
 
@@ -22,7 +22,7 @@ Bir sözlük tümcecikleri veya cümleler ve karşılık gelen çevirileri liste
 
 Sözlükler yalnızca tam olarak desteklenen bir Microsoft sinirsel makine çevirisi (NMT) sistemi arkasına dil çiftleri projelerinde çalışır. [Dillerin tam listesini görüntüleyin](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
-## <a name="phrase-dictionary"></a>İfade sözlüğü 
+## <a name="phrase-dictionary"></a>İfade sözlüğü
 Modelinizi eğitim içinde bir ifade sözlüğü eklediğinizde, herhangi bir sözcük veya tümcecik listelenen belirttiğiniz yolla çevrilir. Rest cümlenin zamanki çevrilir. Bir ifade sözlüğü sözlüğü dosyasında kaynak ve hedef aynı çevrilmemiş ifade sağlayarak çevrilmiş olmamalıdır tümcecikleri belirtmek için kullanabilirsiniz.
 
 ## <a name="sentence-dictionary"></a>Tümce sözlüğü
@@ -36,9 +36,9 @@ Sözlük verileri kullanarak bir model eğitebilirsiniz. Bunu yapmak için yaln�
 
 ## <a name="recommendations"></a>Öneriler
 
-- Sözlükleri bir eğitim verileriyle eğitilen bir modelin yerini alamayacak.  Sözlük, temelde bulun ve sözcükleri veya tümceleri değiştirin.  İzin vererek, eğitim malzemesi tam cümle içinde uzmanlardan sistemin genel bir sözlük kullanmaktan daha iyi bir seçimdir. 
+- Sözlükleri bir eğitim verileriyle eğitilen bir modelin yerini alamayacak.  Sözlük, temelde bulun ve sözcükleri veya tümceleri değiştirin.  İzin vererek, eğitim malzemesi tam cümle içinde uzmanlardan sistemin genel bir sözlük kullanmaktan daha iyi bir seçimdir.
 - İfade sözlüğü kullanılmamalıdır. Bir ifade bir tümce içinde değiştirildiğinde, bağlamı Bu cümle içinde kaybolur veya rest cümlenin çevirmek için sınırlı. İfadesinin sonucu olan veya cümlenin Word'de göre ifade sözlüğü İngilizceye, cümle genel çeviri kalitesini genellikle düşer.
-- İfade sözlüğü ürün adları ("Microsoft SQL Server"), tam adlar ("City, Hamburg") veya ("pivot tablo") ürününün özellikleri gibi bileşik isimleri için iyi çalışır. İşe yaramazsa eşit çünkü bunlar genellikle yüksek oranda kaynak veya hedef dilde bükümlü fiiller veya sıfat yanı sıra. Bileşik isimleri dışında hiçbir şeyde tümcecik dictionary girişlerinin kaçının. 
+- İfade sözlüğü ürün adları ("Microsoft SQL Server"), tam adlar ("City, Hamburg") veya ("pivot tablo") ürününün özellikleri gibi bileşik isimleri için iyi çalışır. İşe yaramazsa eşit çünkü bunlar genellikle yüksek oranda kaynak veya hedef dilde bükümlü fiiller veya sıfat yanı sıra. Bileşik isimleri dışında hiçbir şeyde tümcecik dictionary girişlerinin kaçının.
 - Bir sözlük kullanırken, büyük/küçük harf ve noktalama işaretleri çevirilerinizi içinde büyük/küçük harf ve hedef dosyanızda sağlanan noktalama yansıtır. Büyük/küçük harf ve noktalama işaretleri giriş cümle ve sözlük dosyanızı kaynak cümleleri eşleştiğinden tanımlamak çalışırken göz ardı edilir. Örneğin, bu belirtilen "City, Hamburg" kaynak dosyasında ve "Ciudad de hamburg" hedef dosyasında bir İngilizce sözlüğü kullanılan İspanyolca sisteme eğitilmiş varsayalım. Çeviri "Hamburg city" ifadesini dahil bir tümceyi istediğim, ardından "Hamburg city" "Hamburg City" girişi için Sözlük dosyamı eşleşir ve "Ciudad de hamburg" Benim son çevirisini eşlemek.
 - Bir sözcük sözlüğü dosyasında birden çok kez görünürse, sistem her zaman sağlanan en son giriş kullanın. Sözlüğünüz aynı kelimenin birden çok çevirisinde içermemelidir.
 

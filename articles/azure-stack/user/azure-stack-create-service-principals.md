@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312863"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733708"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Hizmet sorumluları oluşturma tarafından Azure Stack kaynaklara uygulamaları erişimi verin
 
@@ -75,7 +75,7 @@ Programlamayla oturum açılırken, uygulamanızın ve bir kimlik doğrulama ana
 
 2. **Uygulama kimliği**'ni kopyalayın ve bunu uygulama kodunuzda depolayın. Örnek uygulamalar uygulamalarda kullanımı **istemci kimliği** söz konusu olduğunda **uygulama kimliği**.
 
-     ![Uygulama için uygulama kimliği](./media/azure-stack-create-service-principal/image12.png)
+     ![Uygulama için uygulama kimliği](./media/azure-stack-create-service-principals/image12.png)
 3. Kimlik doğrulama anahtarını oluşturmak için **Anahtarlar**'ı seçin.
 
 4. Anahtar için bir açıklama ve süre sağlayın. İşiniz bittiğinde **Kaydet**’i seçin.
@@ -83,7 +83,7 @@ Programlamayla oturum açılırken, uygulamanızın ve bir kimlik doğrulama ana
 >[!IMPORTANT]
 Anahtar, anahtar kaydettikten sonra **değer** görüntülenir. Daha sonra anahtarı alınamıyor çünkü bu değeri yazın. Anahtarı, uygulamanızın alabileceği bir konumda depolayın.
 
-![Anahtar değeri uyarısı için kaydedilen anahtarı.](./media/azure-stack-create-service-principal/image15.png)
+![Anahtar değeri uyarısı için kaydedilen anahtarı.](./media/azure-stack-create-service-principals/image15.png)
 
 Son adım [uygulamanızı rol atama](azure-stack-create-service-principals.md).
 
@@ -110,7 +110,7 @@ Aşağıdaki adımlar, bir hizmet sorumlusuna bir rol atamak için bir kılavuz 
 
 2. Uygulamaya atamak için bir abonelik seçin. Bu örnekte, Visual Studio Enterprise bir aboneliktir.
 
-     ![Atama için Visual Studio Enterprise aboneliği seçin](./media/azure-stack-create-service-principal/image16.png)
+     ![Atama için Visual Studio Enterprise aboneliği seçin](./media/azure-stack-create-service-principals/image16.png)
 
 3. Seçin **erişim denetimi (IAM)** abonelik için.
 

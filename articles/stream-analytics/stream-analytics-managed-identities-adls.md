@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 02d3cd3688f3b34c92422168b79cb4da5a93d970
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 4537d15f88732d4b0c3c3cf514d6b8528af10f81
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587999"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737476"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Stream Analytics yönetilen kimlikleri (Önizleme) kullanarak Azure Data Lake depolama Gen1 için kimlik doğrulaması
 
@@ -22,6 +22,8 @@ Azure Stream Analytics, Azure Data Lake Storage (ADLS) Gen1 çıktıyla yönetil
 Ziyaret [Azure Stream analytics'te sekiz yeni özellikler](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blog gönderisi için yeni özellikler hakkında daha fazla Bu önizleme sürümü ve okuma için kaydolun.
 
 Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure portalı, Azure Resource Manager şablon dağıtımı ve Azure Stream Analytics araçları için Visual Studio için Azure Stream Analytics işi için etkinleştirmek için üç yol gösterir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -158,7 +160,7 @@ Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure port
 2. PowerShell kullanarak hizmet sorumlusuna erişim sağlar. Hizmet sorumlusu PowerShell erişim vermek için aşağıdaki komutu yürütün:
 
    ```powershell
-   Set-AzureRmDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
+   Set-AzDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
    ```
 
    **Principalıd** hizmet sorumlusu nesne kimliği ve hizmet sorumlusu oluşturulduktan sonra portal ekranında listelenir. Resource Manager şablon dağıtımı kullanarak işi oluşturduysanız, nesne kimliği proje yanıtı kimlik özelliğinde listelenir.
@@ -166,11 +168,11 @@ Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure port
    **Örnek**
 
    ```powershell
-   PS > Set-AzureRmDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
+   PS > Set-AzDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Yukarıdaki PowerShell komutu hakkında daha fazla bilgi için bkz [kümesi AzureRmDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/azurerm.datalakestore/set-azurermdatalakestoreitemaclentry?view=azurermps-6.8.1&viewFallbackFrom=azurermps-4.2.0#optional-parameters) belgeleri.
+   Yukarıdaki PowerShell komutu hakkında daha fazla bilgi için bkz [kümesi AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry#optional-parameters) belgeleri.
 
 ## <a name="limitations"></a>Sınırlamalar
 Bu özellik, aşağıdakileri desteklemez:

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 722159b82845eff08e0c302eafd503459941ebe7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260344"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734770"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Hizmetleri için sürüm notları
 
@@ -47,7 +47,8 @@ Microsoft Azure BizTalk Hizmetleri için sürüm notları, bu sürümdeki biline
 * Gönderme tarafı sözleşme, artık her şema için farklı bir sınırlayıcı kümesi belirtebilirsiniz. Bu yapılandırma, gönderme tarafı sözleşmesi Protokolü Ayarları altında belirtilir. Daha fazla bilgi için [Oluştur X12 bir Azure BizTalk Services'da sözleşme](https://msdn.microsoft.com/library/azure/hh689847.aspx) ve [Azure BizTalk Services hizmetinde bir EDIFACT sözleşmesi oluşturun](https://msdn.microsoft.com/library/azure/dn606267.aspx). İki yeni varlıklar, aynı amaçla TPM OM API için de eklenir. Bkz: [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) ve [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Türetilen türler dahil olmak üzere standart XSD yapıları artık desteklenmektedir. Bkz [kullanım standart XSD oluşturur, eşlemelerinde](https://msdn.microsoft.com/library/azure/dn793987.aspx) ve [kullanım türetilmiş türlerini eşleme senaryolar ve örnekler](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
 * AS2 ileti imzalama için yeni MIC algoritmaları ve yeni şifreleme algoritmaları destekler. Bkz: [Azure BizTalk Services hizmetinde bir AS2 sözleşmesi oluşturma](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
-  ## <a name="know-issues"></a>Bilinen sorunlar
+
+## <a name="known-issues"></a>Bilinen Sorunlar
 
 ### <a name="connectivity-issues-after-biztalk-services-portal-update"></a>BizTalk Hizmetleri portalı güncelleştirmesinden sonra bağlantı sorunları
   BizTalk Hizmetleri portalını hizmete değişiklikleri geri almak için BizTalk Hizmetleri yükseltilirken açın varsa, BizTalk Hizmetleri portalını ile ilgili bağlantı sorunlarını karşılaşıyor.  

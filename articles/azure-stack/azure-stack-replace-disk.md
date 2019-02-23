@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 0a73119c7d079498f0e766fb92904c86ff5131c8
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 4fb2a398baa306cf9303284526bb43cd7f778441
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767231"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734634"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Azure stack'teki fiziksel disk değiştirme
 
@@ -39,7 +39,7 @@ Bir disk başarısız olduğunda, bir fiziksel disk için bağlantı kaybedildi 
 
 Uyarı açarsanız, uyarı açıklaması ölçek birimi düğüm ve tam fiziksel yuvası konumunu değiştirmeniz gereken diski içerir. Daha fazla Azure Stack LED göstergesi özelliklerini kullanarak hatalı bir diski tanımlamanıza yardımcı olur.
 
- ## <a name="replace-the-disk"></a>Disk değiştirme
+## <a name="replace-the-disk"></a>Disk değiştirme
 
 Gerçek disk değiştirme OEM donanım satıcınızın FRU yönergelerini izleyin.
 
@@ -50,7 +50,7 @@ Tümleşik bir sistemde desteklenmeyen bir disk kullanımını önlemek için si
 
 Disk değiştirdikten sonra Azure Stack, otomatik olarak yeni disk bulur ve sanal disk onarım işlemini başlatır.
  
- ## <a name="check-the-status-of-virtual-disk-repair"></a>Sanal disk onarma durumunu denetleyin
+## <a name="check-the-status-of-virtual-disk-repair"></a>Sanal disk onarma durumunu denetleyin
  
  Disk değiştirdikten sonra sanal disk sistem durumunu izleyebilir ve ayrıcalıklı uç nokta kullanarak işin ilerleme durumunu onarın. Ayrıcalıklı uç noktasına ağ bağlantısı olan herhangi bir bilgisayardan aşağıdaki adımları izleyin.
 

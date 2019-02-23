@@ -6,28 +6,26 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 02/22/2019
 ms.author: normesta
-ms.openlocfilehash: ff158b726c57f4aa5b7822dc0273ab42c350522c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: abc20d8ef51f94e25d0e46ec199ca715bf6cce22
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895542"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736796"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar
 
-Bu makale, Azure Data Lake depolama Gen2 geçici ilişkin sınırlamalar ve bilinen sorunları içerir.
+Bu makale, Data Lake depolama Gen2 geçici ilişkin sınırlamalar ve bilinen sorunları içerir.
 
-## <a name="api-interoperability"></a>API birlikte çalışabilirlik
+## <a name="data-lake-storage-gen2-apis"></a>Data Lake depolama Gen2 API'leri
 
-BLOB Depolama API'leri ve Azure Data Lake Gen2 API'lerini birbirleri ile birlikte çalışabilir değil.
-
-BLOB API'leri duruma kadar araçları, uygulamaları, hizmetleri veya Blob API'leri kullanan betikler vardır ve bunları tüm hesabınıza yüklediğiniz içerik çalışmak için kullanmak istiyorsanız, ardından bir hiyerarşik ad alanı Blob Depolama hesabınızda etkinleştirme Azure Data Lake Gen2 API'leri ile birlikte çalışabilir. Hiyerarşik ad alanı olmayan bir depolama hesabı kullanarak erişim denetimi listeleri ardından dizin ve dosya sistemi gibi Data Lake depolama Gen2 belirli özelliklere erişiminiz yoksa anlamına gelir.
+API'leri, Data Lake depolama Gen2 hesapları için henüz kullanılamamaktadır.
 
 ## <a name="blob-storage-apis"></a>BLOB Depolama API'leri
 
-BLOB Depolama API'leri henüz Azure Data Lake depolama Gen2 hesaplarına kullanıma sunulmaz.
+BLOB Depolama API'leri henüz Data Lake depolama Gen2 hesaplarına kullanıma sunulmaz.
 
 Bu API'ler Blob Depolama API'leri henüz Azure Data Lake Gen2 API'leri ile birlikte çalışabilen olmadığından oluşabilecek yanlışlıkla veri erişim sorunları önlemek için devre dışı bırakılır.
 
@@ -45,6 +43,12 @@ Böylece bu verileri hiyerarşik ad alanı özelliğinin etkin olmayan bir depol
 
 Yönetilmeyen sanal makine (VM) diskleri devre dışı Blob Depolama API'leri bağlıdır, hiyerarşik bir ad alanı bir depolama hesabı üzerinde etkinleştirmek istiyorsanız, bu nedenle yönetilmeyen VM disklerini hiyerarşik ad alanı özelliği olmayan bir depolama hesabına yerleştirmeyi düşünün etkin.
 
+## <a name="api-interoperability"></a>API birlikte çalışabilirlik
+
+BLOB Depolama API'leri ve Azure Data Lake Gen2 API'lerini birbirleri ile birlikte çalışabilir değil.
+
+BLOB API'leri duruma kadar araçları, uygulamaları, hizmetleri veya Blob API'leri kullanan betikler vardır ve bunları tüm hesabınıza yüklediğiniz içerik çalışmak için kullanmak istiyorsanız, ardından bir hiyerarşik ad alanı Blob Depolama hesabınızda etkinleştirme Azure Data Lake Gen2 API'leri ile birlikte çalışabilir. Hiyerarşik ad alanı olmayan bir depolama hesabı kullanarak erişim denetimi listeleri ardından dizin ve dosya sistemi gibi Data Lake depolama Gen2 belirli özelliklere erişiminiz yoksa anlamına gelir.
+
 ## <a name="azure-storage-explorer"></a>Azure Depolama Gezgini
 
 Azure Depolama Gezgini'ni kullanarak Data Lake depolama Gen2 hesapları yönetmek veya görüntülemek için en az olmalıdır sürüm `1.6.0` olarak kullanılabilir olan Aracı'nın bir [ücretsiz](https://azure.microsoft.com/features/storage-explorer/).
@@ -53,19 +57,19 @@ Depolama Gezgini, Azure Portalı'na katıştırılmış sürümü şu anda mu No
 
 ## <a name="blob-viewing-tool"></a>BLOB görüntüleme aracı
 
-Azure portalında görüntüleme aracıyla blob yalnızca Azure Data Lake depolama Gen2 desteği sınırlıdır.
+Azure portalında görüntüleme aracıyla blob yalnızca Data Lake depolama Gen2 desteği sınırlıdır.
 
 ## <a name="third-party-applications"></a>Üçüncü taraf uygulamalar
 
-Üçüncü taraf uygulamaları, Azure Data Lake depolama Gen2 desteklemiyor olabilir.
+Üçüncü taraf uygulamaları Data Lake depolama Gen2 desteklemiyor olabilir.
 
-Destek her üçüncü taraf uygulama sağlayıcısının takdirinizdedir. Şu anda, Blob Depolama API'leri ve aynı içeriği yönetmek için Azure Data Lake depolama Gen2 API'lerini kullanılamaz. Bu birlikte çalışabilirliği sağlamak için çalışıyoruz gibi çok sayıda üçüncü taraf araçları otomatik olarak Azure Data Lake depolama Gen2 destekleyecek mümkündür.
+Destek her üçüncü taraf uygulama sağlayıcısının takdirinizdedir. Şu anda, Blob Depolama API'lerini ve Data Lake depolama Gen2 API'lerini aynı içeriği yönetmek için kullanılamaz. Bu birlikte çalışabilirliği sağlamak için çalışıyoruz gibi çok sayıda üçüncü taraf araçları otomatik olarak Data Lake depolama Gen2 destekleyecek mümkündür.
 
 ## <a name="azcopy-support"></a>AzCopy desteği
 
-Sürüm 8 AzCopy, Azure Data Lake depolama Gen2 desteklemiyor.
+Data Lake depolama Gen2 AzCopy 8 sürümünü desteklemiyor.
 
-Bunun yerine, en güncel AzCopy önizleme sürümünü kullanın ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ) olarak Azure Data Lake depolama Gen2 uç noktalarını destekler.
+Bunun yerine, en güncel AzCopy önizleme sürümünü kullanın ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ) olarak Data Lake depolama Gen2 uç noktalarını destekler.
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
@@ -73,7 +77,7 @@ Bunun yerine, en güncel AzCopy önizleme sürümünü kullanın ( [AzCopy v10](
 
 ## <a name="soft-delete-and-snapshots"></a>Geçici silme ve anlık görüntüleri
 
-Geçici silme ve anlık görüntüleri, Azure Data Lake depolama Gen2 hesaplarında kullanılamaz.
+Geçici silme ve anlık görüntüleri, Data Lake depolama Gen2 hesaplarında kullanılamaz.
 
 Dahil tüm sürüm oluşturma özellikleri [anlık görüntüleri](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) ve [geçici silme](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) hiyerarşik ad alanı özelliğinin etkin olduğu depolama hesaplarında için henüz kullanılamamaktadır.
 
@@ -83,10 +87,10 @@ Nesne düzeyinde depolama katmanları (sık erişimli, soğuk ve Arşiv) Azure D
 
 ## <a name="azure-blob-storage-lifecycle-management-policies"></a>Azure Blob Depolama yaşam döngüsü yönetimi ilkeleri
 
-Azure Blob Depolama yaşam döngüsü yönetimi ilkeleri, Azure Data Lake depolama Gen2 hesapları için henüz kullanılamamaktadır.
+Azure Blob Depolama yaşam döngüsü yönetimi ilkeleri, Data Lake depolama Gen2 hesapları için henüz kullanılamamaktadır.
 
 Bu ilkeler, hiyerarşik ad alanı özelliğinin etkin olmayan depolama hesapları için kullanılabilir.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 
-Tanılama günlükleri, Azure Data Lake depolama Gen2 hesaplarında kullanılamaz.
+Tanılama günlükleri, Data Lake depolama Gen2 hesaplarında kullanılamaz.

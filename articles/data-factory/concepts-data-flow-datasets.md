@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 36ca5e07adf79de77ac4ab4149ff8e96a1dece8d
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: a8e366b14eb73403bfe50af19e4df56dd220d273
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408757"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737065"
 ---
 # <a name="mapping-data-flow-datasets"></a>Veri akış veri kümeleri eşlemesi
 
@@ -20,7 +20,7 @@ ms.locfileid: "56408757"
 
 Veri kümeleri, işlem hattınızda çalıştığınız veri şeklini tanımlayan bir Data Factory yapısı var. Veri akışı satır ve sütun düzeyi verileri ince ayrıntılı veri kümesi tanımı gerektirir. Denetim akışı işlem hatlarında kullanılan veri kümelerindeki verileri anlama aynı derinliğini gerektirmez.
 
-Veri kümelerinde veri akışı kaynak ve havuz dönüştürmeleri, temel veri şemasını tanımlamak için kullanılır. Şeması verinizdeki yoksa, şema değişikliklerini kaynak ve havuz için ayarlayabilirsiniz. Veri kümesinden tanımlanan şemasıyla ilgili veri türleri, veri biçimleri, dosya konumu ve ilişkili bağlı hizmeti bağlantı bilgileri olacaktır.
+Veri akışı veri kümeleri, kaynak ve havuz dönüşümlerini kullanılır. Bunlar, temel veri şemaları tanımlamak için kullanılır. Şeması verinizdeki yoksa, şema değişikliklerini kaynak ve havuz için ayarlayabilirsiniz. Veri kümesinden tanımlanan şemasıyla ilgili veri türleri, veri biçimleri, dosya konumu ve ilişkili bağlı hizmeti bağlantı bilgileri olacaktır. Meta veriler veri kümelerinden, kaynak dönüştürme "Projeksiyon" kaynağı olarak görünür.
 
 ## <a name="dataset-types"></a>Veri kümesi türleri
 
@@ -28,10 +28,10 @@ Veri kümelerinde veri akışı kaynak ve havuz dönüştürmeleri, temel veri �
 
 * Azure SQL DB
 * Azure SQL DW
-* Parquet
-* Sınırlandırılmış metin
+* Parquet (Başlangıç, ADLS & Blob)
+* Sınırlandırılmış metin (ADLB & Blob)
 
-Veri akış veri kümeleri ayrı kaynak *türü* gelen bağlı hizmet bağlantı türü. Data Factory, genellikle de (Blob, ADLS, vb.) bağlantı türünü seçin ve veri kümesinde dosya türü tanımlayabilirsiniz. Veri akışı içinde farklı bağlantılı hizmet bağlantı türleri ile ilişkili kaynak türlerini seçer.
+Veri akış veri kümeleri ayrı *kaynak türünü* gelen *bağlı hizmet bağlantı türü*. Data Factory, genellikle de (Blob, ADLS, vb.) bağlantı türünü seçin ve veri kümesinde dosya türü tanımlayabilirsiniz. Veri akışı içinde farklı bağlantılı hizmet bağlantı türleri ile ilişkili kaynak türlerini seçer.
 
 ![Dönüştürme seçenekleri kaynak](media/data-flow/dataset1.png "kaynakları")
 
@@ -42,4 +42,8 @@ Yeni bir veri kümesi oluştururken, "Veri akışı uyumlu" sağ üst kısımdak
 ## <a name="import-schemas"></a>Şemaları İçeri Aktar
 
 Veri akışı veri kümesi şemasını içeri aktarılırken bir şemayı İçeri Aktar düğmesi görürsünüz. Bu düğmeye tıklayarak, iki seçenek sunar: Kaynak sunucudan içeri aktarmak veya yerel bir dosyadan içeri aktarın. Çoğu durumda, şema doğrudan kaynaktan alınır. Var olan bir şema dosyası (Parquet dosya veya üst bilgi içeren CSV) varsa, ancak yerel dosya ve Data Factory, şema dosyasını temel alan bir şema tanımlayın gösterebilirsiniz.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Başlayın [yeni bir veri akışı oluşturma](data-flow-create.md) ve bir kaynak dönüştürme ekleyin. Daha sonra veri kaynağınız için yapılandırın.
 

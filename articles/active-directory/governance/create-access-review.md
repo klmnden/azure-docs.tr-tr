@@ -1,6 +1,6 @@
 ---
-title: Bir grup veya kullanıcıları Azure AD ile bir uygulamaya erişimi olan üyeleri için erişim gözden geçirmesi oluştur | Microsoft Docs
-description: Üyeleri bir grup veya uygulamaya erişimi olan kullanıcılar için erişim gözden geçirmesi oluşturmayı öğrenin.
+title: Azure AD erişim gözden geçirmeleri grupları ve uygulamaları, erişim gözden geçirmesi oluştur | Microsoft Docs
+description: Erişim gözden geçirmesi grubu üyeleri veya uygulama erişimi, Azure AD erişim gözden geçirmelerine oluşturmayı öğrenin.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,29 +11,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/15/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1616230e3cad765246bcf03d59fb517c99d9b044
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ca27e89ad67b0f0755a7dda50572f3dcd857189
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176926"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733938"
 ---
-# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD ile uygulama erişimi ve Grup üyeleri erişim gözden geçirmesi oluşturma
+# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleri grupları ve uygulamaları, erişim gözden geçirmesi oluşturma
 
 Gruplara ve uygulamalara çalışanlar ve konuklar için erişim, zaman içinde değişir. Eski erişim atamalarını ile ilişkili riski azaltmak için Yöneticiler Azure Active Directory (Azure AD) erişim gözden geçirmeleri grubu üyeleri veya uygulama erişimi için oluşturmak için kullanabilirsiniz. Düzenli bir şekilde erişim gözden geçirmek gerekiyorsa, yinelenen erişim gözden geçirmeleri oluşturabilirsiniz. Bu senaryolar hakkında daha fazla bilgi için bkz: [kullanıcı erişimini yönetme](manage-user-access-with-access-reviews.md) ve [konuk erişimini yönetme](manage-guest-access-with-access-reviews.md).
 
-Bu makalede grubu üyeleri veya uygulama erişimi için yeni bir erişim gözden geçirmesi oluşturma işlemini açıklar.
+Bu makalede, grubu üyeleri veya uygulama erişimi için bir veya daha fazla erişim gözden geçirmeleri oluşturmayı açıklar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - [Erişim gözden geçirmeleri etkin](access-reviews-overview.md)
-- Genel yönetici veya yönetici hesabı
+- Genel yönetici veya kullanıcı hesabı yöneticisi
 
-## <a name="create-an-access-review"></a>Erişim gözden geçirmesi oluşturma
+## <a name="create-one-or-more-access-reviews"></a>Bir veya daha fazla erişim gözden geçirmesi oluşturma
 
 1. Oturum açma için Azure portalını ve açık [erişim gözden geçirmeleri sayfasına](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
@@ -58,6 +58,20 @@ Bu makalede grubu üyeleri veya uygulama erişimi için yeni bir erişim gözden
 1. İçinde **kullanıcılar** bölümünde, gözden geçirme erişen kullanıcıların uygulayacağını belirtin. Erişim gözden geçirmeleri, bir grubun üyesi veya bir uygulamaya atanmış kullanıcılar olabilir. Daha fazla kimin üyeleri (veya uygulamaya atanan), gözden geçirme üyeleri olan tüm kullanıcılar yerine veya uygulamaya olan erişimi gözden geçirme gözden yalnızca konuk kullanıcılar erişim kapsamını belirleyebilirsiniz.
 
     ![Kullanıcıların erişim gözden geçirmesi - oluştur](./media/create-access-review/users.png)
+
+1. İçinde **grupları** bölümünde, üyeliğini gözden geçirmek istediğiniz bir veya daha fazla grup seçin.
+
+    > [!NOTE]
+    > Birden fazla Grup seçme, birden çok erişim gözden geçirmeleri oluşturacaksınız. Örneğin, beş grupları seçmek, beş ayrı bir erişim gözden geçirmeleri oluşturacaksınız.
+    
+    ![Erişim gözden geçirmesi - Select grubu oluştur](./media/create-access-review/select-group.png)
+
+1. İçinde **uygulamaları** bölümü (seçtiyseniz **bir uygulamaya atanan** 8. adımda), erişimi gözden geçirmek istediğiniz uygulamaları seçin.
+
+    > [!NOTE]
+    > Birden fazla uygulama seçerek birden çok erişim gözden geçirmeleri oluşturacaksınız. Örneğin, beş uygulamalarını seçerek beş ayrı bir erişim gözden geçirmeleri oluşturacaksınız.
+    
+    ![Erişim gözden geçirmesi - uygulama seçme oluştur](./media/create-access-review/select-application.png)
 
 1. İçinde **gözden geçirenler** bölümünde, kapsamdaki tüm kullanıcıları gözden geçirmek için bir veya daha fazla kişi seçin. Veya kendi erişim gözden üyelere sahip seçebilirsiniz. Kaynak grubuysa Grup sahiplerinin gözden geçirmek isteyebilirsiniz. Ayrıca bunlar erişim onayladığınızda gözden geçirenler bir neden sağlamanız gerekebilir.
 
@@ -100,7 +114,7 @@ Bu makalede grubu üyeleri veya uygulama erişimi için yeni bir erişim gözden
 
 Erişim gözden geçirmesi ayarları belirttikten sonra tıklayın **Başlat**.
 
-İnceleme kısa bir süre içinde başladıktan sonra varsayılan olarak, Azure AD için gözden geçirenler bir e-posta gönderir. Erişim gözden geçirmesi tamamlanmalarını bekliyor gözden geçirenlere bildirmek e-posta gönderin, Azure AD almamayı tercih ederseniz unutmayın. Nasıl yapılır yönergeleri Göster [erişimi incele](perform-access-review.md). Gözden geçirme kendi erişimini gözden geçirmek, konuklar için ise, bunları nasıl yapılır yönergeleri Göster [kendi erişim gözden geçirme](perform-access-review.md).
+İnceleme kısa bir süre içinde başladıktan sonra varsayılan olarak, Azure AD için gözden geçirenler bir e-posta gönderir. Erişim gözden geçirmesi tamamlanmalarını bekliyor gözden geçirenlere bildirmek e-posta gönderin, Azure AD almamayı tercih ederseniz unutmayın. Nasıl yapılır yönergeleri Göster [gruplar veya uygulamalar için erişim gözden geçirme](perform-access-review.md). Gözden geçirme kendi erişimini gözden geçirmek, konuklar için ise, bunları nasıl yapılır yönergeleri Göster [grupları ve uygulamaları için erişimi kendiniz için incele](review-your-access.md).
 
 Yalnızca bunlar zaten davetini kabul ettiğiniz, Konuklar, gözden geçirenlerin bazıları Konukları varsa, e-posta aracılığıyla bildirilir.
 
@@ -108,7 +122,7 @@ Yalnızca bunlar zaten davetini kabul ettiğiniz, Konuklar, gözden geçirenleri
 
 Gözden geçirenler Azure AD'ye panosunda bulunan kendi incelemeler tamamlandı olarak ilerleme durumunu izleyebilir **erişim gözden geçirmeleri** bölümü. Erişim hakları dizine kadar değişen [gözden geçirme tamamlandığında](complete-access-review.md).
 
-Bu tek seferlik bir gözden geçirme ise, ardından yönetici erişim gözden geçirmesi durdurur veya erişim incelemesi süresi bittikten sonra adımları [erişim değerlendirmesi tamamlama](complete-access-review.md) bakın ve sonuçları uygulamak için.  
+Bu tek seferlik bir gözden geçirme ise, ardından yönetici erişim gözden geçirmesi durdurur veya erişim incelemesi süresi bittikten sonra adımları [grupları ve uygulamaları, erişim değerlendirmesi tamamlama](complete-access-review.md) bakın ve sonuçları uygulamak için.  
 
 Erişim gözden geçirmeleri, bir dizi yönetmek için erişim gözden geçirmesinden gidin **denetimleri**, ve zamanlanmış incelemelerde yaklaşan yinelemesi Bul ve bitiş tarihi Düzenle veya kaldıracak ekleme/gözden geçirenler uygun şekilde kaldırma. 
 
@@ -120,5 +134,6 @@ Erişim gözden geçirmeleri API'lerini kullanarak da oluşturabilirsiniz. Eriş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure AD erişim gözden geçirmeleri ile erişim değerlendirmesi başlatma](perform-access-review.md)
-- [Uygulamanın Azure AD'de kullanıcı erişimi veya grubu üyelerinin erişim değerlendirmesi tamamlama](complete-access-review.md)
+- [Gruplar veya uygulamalar için erişim gözden geçirin](perform-access-review.md)
+- [Gruplar veya uygulamalar için erişimi kendiniz için İncele](review-your-access.md)
+- [Grupları ve uygulamaları, erişim değerlendirmesi tamamlama](complete-access-review.md)

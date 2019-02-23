@@ -7,16 +7,16 @@ ms.service: terraform
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
-ms.openlocfilehash: 408e07e9b6214dbd223bd4ec7959b00ecc414f1e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b3d872008c95d94a8401e6f38665c3c88616a168
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869186"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736932"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Terraform yapılandırma oluşturmak için Azure
 
-Bu örnekte, Terraform yapılandırması oluşturma ve Azure'a bu yapılandırmayı dağıtma deneyimini elde edin. Tamamlandığında, bu iki kaynak üzerinde çalışan bir uygulama bir Azure Cosmos DB örneğine ve bir Azure Container Instances'a dağıtacaksınız. Bu belge, Azure bulut Terraform araçları önceden yüklenmiş olan Kabuğu'nda, tüm iş tamamlandı olduğunu varsayar. Kendi sisteminizdeki örnek üzerinde çalışmak istiyorsanız, Terraform bulunan yönergeleri kullanarak yüklenebilir [burada](../virtual-machines/linux/terraform-install-configure.md).
+Bu örnekte, Terraform yapılandırması oluşturma ve Azure'a bu yapılandırmayı dağıtma deneyimini elde edin. Tamamlandığında, bir Azure Cosmos DB örneğine, bir Azure Container Instance ve bu iki kaynak üzerinde çalışan bir uygulama dağıtacaksınız. Bu belge, Azure bulut Terraform araçları önceden yüklenmiş olan Kabuğu'nda, tüm iş tamamlandı olduğunu varsayar. Kendi sisteminizdeki örnek üzerinde çalışmak istiyorsanız, Terraform bulunan yönergeleri kullanarak yüklenebilir [burada](../virtual-machines/linux/terraform-install-configure.md).
 
 ## <a name="create-first-configuration"></a>İlk yapılandırması oluştur
 
@@ -30,7 +30,7 @@ code .
 
 Kopyalayıp Terraform aşağıdaki yapılandırmayı yapıştırın.
 
-Bu yapılandırma, bir Azure kaynak grubu, rastgele bir tamsayı ve bir Azure Cosmos DB örnekleri modeller. Rasgele tamsayı, Cosmos DB örnekleri adı kullanılır. Cosmos DB çeşitli ayarlar da yapılandırılır. Cosmos DB Terraform yapılandırmalar tam bir listesi için bkz. [Cosmos DB Terraform başvurusu](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
+Bu yapılandırma, bir Azure kaynak grubu, rastgele bir tamsayı ve bir Azure Cosmos DB örneğine modeller. Rasgele tamsayı, Cosmos DB örnek adını kullanılır. Cosmos DB çeşitli ayarlar da yapılandırılır. Cosmos DB Terraform yapılandırmalar tam bir listesi için bkz. [Cosmos DB Terraform başvurusu](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
 
 Dosyayı Farklı Kaydet `main.tf` işiniz bittiğinde. Bu işlem yapılabilir Kod Düzenleyicisi'ni sağ üst kısmında üç nokta simgesini kullanarak.
 

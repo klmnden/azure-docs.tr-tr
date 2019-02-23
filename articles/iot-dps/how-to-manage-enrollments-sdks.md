@@ -3,17 +3,17 @@ title: Azure cihaz sağlama hizmeti SDK'ları kullanarak cihaz kayıtlarını y�
 description: IOT Hub cihazı sağlama hizmeti SDK'larını kullanarak hizmeti, cihaz kayıtlarını yönetme
 author: yzhong94
 ms.author: yizhon
-ms.date: 04/04/18
+ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: 1c7fa798c2e767aa6a21b3c56da6f69b4d3a1406
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732364"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674761"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Azure cihaz sağlama hizmeti SDK'ları ile cihaz kayıtlarını yönetme
 A *cihaz kaydı* tek bir cihaz veya bir grubun belirli bir noktada cihaz sağlama Hizmeti'ne kaydolabilecek cihazların bir kayıt oluşturur. Kayıt için istenen IOT hub'ı dahil olmak üzere, bu kayıt işleminin bir parçası olarak cihaz ilk istenen yapılandırmayı içerir. Bu makalede, sağlama hizmetinizin programlama yoluyla Azure IOT sağlama hizmeti SDK'ları kullanarak cihaz kayıtlarını yönetme işlemini göstermektedir.  SDK'ları, Azure IOT SDK'ları ile aynı depodaysa github'da kullanılabilir.

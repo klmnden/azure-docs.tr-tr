@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6b8587313a4e98bfefa6489d9698052d312a6d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c51f1d47a5412e77b7113fccfd2e9a54e1d2ff7f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194555"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730214"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Sık sorulan sorular Azure Active Directory raporlarını geçici bir çözüm
 
@@ -33,13 +33,13 @@ Bu makale, Azure Active Directory (Azure AD) hakkında sık sorulan sorular rapo
 
 **Y:** Arama [API Başvurusu](https://developer.microsoft.com/graph/) öğrenmek için [etkinliği raporlarına erişmek için API'leri kullanan](concept-reporting-api.md). Bu uç noktaya sahip iki rapor (**denetim** ve **oturum açma işlemleri**) eski API uç noktası aldığınız tüm verileri sağlar. Bu yeni uç nokta da, uygulama kullanımını, Aygıt kullanımı ve kullanıcı oturum açma bilgilerini almak için kullanabileceğiniz bir Azure AD Premium lisansına sahip bir oturum açma işlemleri raporu vardır.
 
---- 
+---
 
 **S: Şu anda kullanın https://graph.windows.net/&lt; Kiracı adı&gt;/reports/ uç nokta API'leri, Azure AD güvenlik raporları (belirli tür algılamadan dışlanmasını, sızan kimlik bilgileri veya anonim IP adreslerinden oturum açma işlemleri gibi) raporlama sistemlerimizde çekmek için Program aracılığıyla. Ne için geçiş miyim?**
 
 **Y:** Kullanabileceğiniz [kimlik koruması risk olayları API](../identity-protection/graph-get-started.md) Microsoft Graph üzerinden erişim güvenlik algılamaları için. Bu yeni biçim, Gelişmiş filtreleme, alan seçimi ve diğer verileri nasıl Sorgulayabileceğiniz büyük esneklik sağlar ve daha kolay tümleştirmeye Sıem'lerden ve diğer veri toplama araçları için bir tür içinde risk olayları standartlaştırır. Verileri farklı bir biçimde olduğundan, yeni bir sorgu için eski sorgularınızı yerine geçemez. Ancak, [Microsoft Graph yeni API'yi kullanan](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), olduğu gibi API'ler olarak O365 veya Azure AD için Microsoft standart. MS Graph mevcut yatırımlarınızdan veya Yardım ya da genişletebilirsiniz iş gerekli şekilde bu yeni standart platformu geçişinizi başlayın.
 
---- 
+---
 
 **S: Bir premium lisansı nasıl alabilirim?**
 
@@ -79,7 +79,7 @@ Bu makale, Azure Active Directory (Azure AD) hakkında sık sorulan sorular rapo
 | Oturum açma işlemleri               | Yok           | 30 gün             | 30 gün             |
 | Azure MFA kullanımı        | 30 gün       | 30 gün             | 30 gün             |
 
---- 
+---
 
 **S: My görevi tamamladığınızda etkinlik verileri görene kadar ne kadar sürer?**
 

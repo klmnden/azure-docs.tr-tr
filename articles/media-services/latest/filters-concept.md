@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/22/2019
 ms.author: juliako
-ms.openlocfilehash: 09de372ffdb48c00fde9a43c07f8f8b574462d1f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 18e629571a45046e5cf54996cd38b425c999ee36
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56405741"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737646"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Hesap filtreleri ve varlık filtrelerini tanımlayın  
 
-İçeriğinizi müşterilere (Canlı etkinlik veya isteğe bağlı Video akışı) sunarken istemcinizi varsayılan varlığın bildirim dosyasında tanımlanan değerinden daha fazla esneklik gerekebilir. Azure Media Services hesap filtreleri ve içeriğiniz için varlık filtrelerini tanımlamanızı sağlar. 
+İçeriğinizi müşterilere (canlı akış olayları veya isteğe bağlı Video) sunarken istemcinizi varsayılan varlığın bildirim dosyasında tanımlanan değerinden daha fazla esneklik gerekebilir. Azure Media Services hesap filtreleri ve içeriğiniz için varlık filtrelerini tanımlamanızı sağlar. 
 
 Filtreleri gibi şeyler müşterilerinize izin veren sunucu tarafı kurallar şunlardır: 
 
@@ -38,8 +38,7 @@ Aşağıdaki tabloda, filtrelerle URL'leri bazı örnekler gösterilmektedir:
 
 |Protokol|Örnek|
 |---|---|
-|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
+|HLS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>HLS v3 için kullanın: `format=m3u8-aapl-v3`.|
 |MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Kesintisiz Akış|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
 
@@ -62,22 +61,22 @@ Filtreler tanımlamak için aşağıdaki özellikleri kullanın.
 |presentationTimeRange|Sunu zaman aralığı. Bu özellik, bildirim başlangıç/bitiş noktaları, sunu penceresi uzunluğu ve canlı bir başlangıç konumu filtreleme için kullanılır. <br/>Daha fazla bilgi için [PresentationTimeRange](#PresentationTimeRange).|
 |Parçaları|Parçaları seçimi koşulları. Daha fazla bilgi için [izler](#tracks)|
 
-### <a name="presentationtimerange"></a>PresentationTimeRange
+### <a name="presentationtimerange"></a>presentationTimeRange
 
 Bu özelliği kullanmak **varlık filtreleri**. Özellik ayarlamak için önerilmez **hesap filtreleri**.
 
 |Ad|Açıklama|
 |---|---|
-|**endTimestamp**|Mutlak bitiş zamanı sınırını. Video isteğe bağlı (VoD) için geçerlidir. Canlı bir sunumu için daha sessiz bir şekilde göz ardı uygulanan ve sunu sona erer ve akış olduğunda VoD.<br/><br/>Değerin bir mutlak akış uç noktasını temsil eder. Yuvarlatılmış en yakın sonraki GOP başlatma.<br/><br/>StartTimestamp ve EndTimestamp içerecek şekilde kırpmanıza çalma listesi (manifest) kullanın. Örneğin, StartTimestamp 40000000 ve EndTimestamp = = 100000000 StartTimestamp ve EndTimestamp arasında medya içeren bir çalma listesi üretir. Sınır bir parçasını ayrımı idare etmeye, tüm parça bildirime dahil edilir.<br/><br/>Ayrıca bkz **forceEndTimestamp** izleyen tanımı.|
-|**forceEndTimestamp**|Canlı Filtreleri için geçerlidir.<br/><br/>**forceEndTimestamp** gösteren bir Boole değeri olup olmadığını **endTimestamp** geçerli bir değere ayarlandı. <br/><br/>Değer ise **true**, **endTimestamp** değeri belirtilmelidir. Ardından belirtilmezse, hatalı istek döndürdü.<br/><br/>Örneğin, giriş video 5 dakikada başlatılır bir filtre tanımlamak istediğiniz ve akış sonuna kadar bağlanabilmelerini, ayarlarsanız **forceEndTimestamp** false ve ayarın atlanarak **endTimestamp**.|
-|**liveBackoffDuration**|Canlı yalnızca geçerlidir. Özelliği, Canlı kayıttan yürütme konumunu tanımlamak için kullanılır. Bu kural kullanarak, Canlı kayıttan yürütme konumu gecikme ve oyuncu için sunucu tarafı arabelleği oluşturun. LiveBackoffDuration göre Canlı konumdur. En fazla Canlı geri alma süresi 300 saniyedir.|
-|**presentationWindowDuration**|Canlı için geçerlidir. Kullanım **presentationWindowDuration** çalma listesine bir kayan pencereye uygulamak için. Örneğin, presentationWindowDuration ayarlamak iki dakikalık kayan pencere uygulanacak 1200000000 =. Canlı Edge 2 dakika içinde Media Çalma listesinde dahil edilir. Sınır bir parçasını ayrımı idare etmeye, tüm parça çalma listesi dahil edilir. En düşük sunu pencere süresi 60 saniyedir.|
-|**startTimestamp**|VoD veya canlı akış için geçerlidir. Değeri akışa ilişkin bir mutlak başlangıç noktasını temsil eder. Değerin yuvarlanmış en yakın sonraki GOP başlatma.<br/><br/>Kullanım **startTimestamp** ve **endTimestamp** içerecek şekilde kırpmanıza çalma listesi (bildirim). Örneğin, startTimestamp 40000000 ve endTimestamp = = 100000000 StartTimestamp ve EndTimestamp arasında medya içeren bir çalma listesi üretir. Sınır bir parçasını ayrımı idare etmeye, tüm parça bildirime dahil edilir.|
-|**Zaman Çizelgesi**|VoD veya canlı akış için geçerlidir. Zaman damgaları tarafından kullanılan ölçeği ve yukarıda belirtilen süre. Varsayılan zaman ölçeğini 10000000 ' dir. Alternatif bir ölçeği kullanılabilir. 10000000 HNS (yüz içerir) varsayılandır.|
+|**endTimestamp**|Video isteğe bağlı (VoD) için geçerlidir.<br/>Canlı akış sunum için daha sessiz bir şekilde göz ardı uygulanan ve sunu sona erer ve akış olduğunda VoD.<br/>Bu bir sonraki en yakın GOP başına yuvarlanır sunum, mutlak bitiş noktasını temsil eden bir uzun bir değerdir. Birim ölçeği olduğundan bir endTimestamp 1800000000 biri için 3 dakika olacaktır.<br/>Çalma listesi (manifest) olacak parça kırpılacak startTimestamp ve endTimestamp kullanın.<br/>Örneğin, startTimestamp 40000000 ve endTimestamp = 100000000 = varsayılan ölçeği kullanarak parçaları arasındaki 4 saniye ve 10 saniyelik VoD sunu içeren bir çalma listesi üretir. Sınır bir parçasını ayrımı idare etmeye, tüm parça bildirime dahil edilir.|
+|**forceEndTimestamp**|Yalnızca canlı akış için geçerlidir.<br/>EndTimestamp özelliği mevcut olup olmadığını gösterir. TRUE ise endTimestamp belirtilmesi gerekir veya bir hatalı istek kodunu döndürdü.<br/>İzin verilen değerler: yanlış, doğru.|
+|**liveBackoffDuration**|Yalnızca canlı akış için geçerlidir.<br/> Bu değer, bir istemci için arama Canlı son konumunu tanımlar.<br/>Bu özelliği kullanarak, Canlı kayıttan yürütme konumu gecikme ve oyuncu için sunucu tarafı arabelleği oluşturun.<br/>Bu özellik için ölçeği (aşağıya bakın) birimidir.<br/>Geri süresi Canlı en fazla 300 saniye (3000000000) ' dir.<br/>Örneğin, bir değer gerçek Canlı edge'den Gecikmeli 20 saniye, en son kullanılabilir içerik 2000000000 anlamına gelir.|
+|**presentationWindowDuration**|Yalnızca canlı akış için geçerlidir.<br/>Bir kayan bir pencere içinde bir çalma listesi dahil parçaların uygulanacak presentationWindowDuration kullanın.<br/>Bu özellik için ölçeği (aşağıya bakın) birimidir.<br/>Örneğin, presentationWindowDuration ayarlamak iki dakikalık kayan pencere uygulanacak 1200000000 =. Canlı Edge 2 dakika içinde Media Çalma listesinde dahil edilir. Sınır bir parçasını ayrımı idare etmeye, tüm parça çalma listesi dahil edilir. En düşük sunu pencere süresi 60 saniyedir.|
+|**startTimestamp**|Video (VoD) isteğe bağlı veya canlı akış için geçerlidir.<br/>Bu akışın bir mutlak başlangıç noktasını temsil eden bir uzun bir değerdir. Değerin yuvarlanmış en yakın sonraki GOP başlatma. Birim ölçeği olduğundan bir startTimestamp 150000000, 15 saniye olacaktır.<br/>Çalma listesi (manifest) olacak parça kırpılacak startTimestamp ve endTimestampp kullanın.<br/>Örneğin, startTimestamp 40000000 ve endTimestamp = 100000000 = varsayılan ölçeği kullanarak parçaları arasındaki 4 saniye ve 10 saniyelik VoD sunu içeren bir çalma listesi üretir. Sınır bir parçasını ayrımı idare etmeye, tüm parça bildirime dahil edilecek|
+|**Zaman Çizelgesi**|Tüm zaman damgaları ve süreleri bir saniye içinde artış sayısını belirtilen bir sunu zaman aralığı içinde geçerlidir.<br/>10000000 - on milyon artışlarla bir her artış 100 nanosaniyelik uzun ise olacağı saniye içinde varsayılandır.<br/>Örneğin, 30 saniyede bir startTimestamp ayarlamak istiyorsanız, varsayılan zaman ölçeğini kullanırken 300000000 değerini kullanırsınız.|
 
 ### <a name="tracks"></a>Parçaları
 
-Akışınız (Canlı veya isteğe bağlı Video) parçaları dinamik olarak oluşturulan bildirime eklenmelidir filtre izleme özelliği koşulları (FilterTrackPropertyConditions) listesine göre belirttiğiniz. Filtreler mantıksal kullanılarak birleştirilir **ve** ve **veya** işlemi.
+Akışınız (canlı akış ve isteğe bağlı Video) parçaları dinamik olarak oluşturulan bildirime eklenmelidir filtre izleme özelliği koşulları (FilterTrackPropertyConditions) listesine göre belirttiğiniz. Filtreler mantıksal kullanılarak birleştirilir **ve** ve **veya** işlemi.
 
 Filtre izleme özelliği koşulları parça türleri, değerleri (aşağıdaki tabloda açıklanmıştır) ve işlemler (eşittir, eşit değildir) açıklanmaktadır. 
 

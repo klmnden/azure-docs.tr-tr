@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ed2205455c4d3c82554f3d552bacc059fffa68e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cbfe4fcf30e9529f191f2a80de8ab83e7e0811f7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174665"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735911"
 ---
 # <a name="add-public-ip-addresses"></a>Genel IP adresleri ekleme
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*  
@@ -53,11 +53,6 @@ Yapmanız gereken ilk şey, Azure Stack için eklemek istediğiniz adres bloğu 
 8.   CIDR gösteriminde eklemek istediğiniz adres bloğu girin.  Örneğin: 192.168.203.0/24
 9.  Adres aralığı (CIDR bloğu) alanına başlangıç IP adresi geçerli bir CIDR aralığı sağladığınızda, bitiş IP adresi ve kullanılabilir IP adresi alanları otomatik olarak doldurulur.  Bunlar salt okunur ve bu adresi aralığı alanındaki değer değiştirmeden değiştiremezsiniz otomatik olarak oluşturulur.
 10. Dikey penceresindeki bilgileri gözden geçirdikten ve her şeyi onayladıktan sonra görünen düzeltin, değişikliği kaydetmek ve adres aralığı Azure Stack'e ekleme için Tamam'a tıklayın.
-
-## <a name="update-the-acls-on-your-top-of-rack-switches"></a>Top-of-Rack anahtarlarınızda ACL'lerin güncelleştir
-Erişim denetim listeleri (ACL'ler), raf üst (ToR) anahtarlar üzerinde çalışmak yeni eklenen IP aralığı etkinleştirmek için gerçekleştirmeniz gereken son şeydir güncelleştirmektir.  Azure Stack dışında bağlantı yeni eklenen IP aralığı yeni aralığı kadar çalışmayacağını yolla anahtarları kilitlendiğini ToR ACL'lerin anahtarı üzerindeki ACL'leri eklenir.  
-
-OEM başvurun ve ToR anahtarlarını ACL'lerin güncelleştirmek için onlarla çalışmak gerekir.  Bunlar, desteklenen bir biçimde Bunu yapmak için gereken araçları elde edersiniz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar 

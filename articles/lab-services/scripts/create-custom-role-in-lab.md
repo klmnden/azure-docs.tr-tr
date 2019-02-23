@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell Betiği: özel bir rol Azure DevTest Labs laboratuvarda oluşturun | Microsoft Docs'
-description: Bu PowerShell Betiği Azure DevTest Labs laboratuarda bir dış kullanıcı ekler.
+title: "PowerShell Betiği: Azure DevTest labs'deki bir laboratuvara özel bir rol oluşturun | Microsoft Docs"
+description: Bu PowerShell Betiği bir dış kullanıcı Azure DevTest labs'deki bir laboratuvara ekler.
 services: lab-services
 author: spelluru
 manager: ''
@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 295f742342fba7d77b556724c8005f3ac4816482
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4d0c795dffb40ab7efec9005660439f9baef9f3f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636724"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732441"
 ---
-# <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarda özel bir rol oluşturmak için PowerShell kullanma
+# <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara özel bir rolü oluşturmak için PowerShell kullanma
 
-Bu örnek PowerShell komut dosyası Azure DevTest Labs laboratuvarda kullanmak için özel bir rol oluşturur. 
+Bu örnek PowerShell Betiği, Azure DevTest labs'deki bir laboratuvara kullanmak için özel bir rol oluşturur. 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 * **Bir laboratuvar**. Komut dosyası var olan bir laboratuvar olmasını gerektirir. 
@@ -38,12 +40,12 @@ Bu betik şu komutları kullanır:
 
 | Komut | Notlar |
 |---|---|
-| [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) | Azure RBAC kullanarak güvenliği sağlanabilir işlemlerini bir Azure kaynak sağlayıcısı alır. |
-| [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) | Atama için uygun olan tüm Azure RBAC rolü listeler. |
-| [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) | Özel bir rol oluşturur. |
+| [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Azure RBAC kullanarak güvenli hale getirilebilen işlemleri için bir Azure kaynak sağlayıcısı alır. |
+| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Atama için kullanılabilir olan tüm Azure RBAC rollerini listeler. |
+| [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Özel bir rol oluşturur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure PowerShell hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](https://docs.microsoft.com/powershell/).
 
-Ek Azure Laboratuvar Hizmetleri PowerShell komut dosyası örnekleri bulunabilir [Azure Laboratuvar Hizmetleri PowerShell örnekleri](../samples-powershell.md).
+Ek Azure Lab Services PowerShell Betiği örnekleri, içinde bulunabilir [Azure Lab Services PowerShell örnekleri](../samples-powershell.md).
