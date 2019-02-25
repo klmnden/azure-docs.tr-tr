@@ -1,0 +1,86 @@
+items:
+- name: Spatial Anchors Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+  - name: Spatial Anchors hakkında
+    href: overview.md
+- name: Hızlı Başlangıçlar
+  items:
+  - name: Unity uygulaması oluşturma
+    href: unity-overview.yml
+    items:
+    - name: HoloLens
+      href: quickstarts/get-started-unity-hololens.md
+    - name: Android
+      href: quickstarts/get-started-unity-android.md
+    - name: iOS
+      href: quickstarts/get-started-unity-ios.md
+    expanded: true
+  - name: iOS uygulaması oluşturma
+    href: quickstarts/get-started-ios.md
+  - name: Android uygulaması oluşturma
+    href: quickstarts/get-started-android.md
+  - name: HoloLens uygulaması oluşturma
+    href: quickstarts/get-started-hololens.md
+- name: Öğreticiler
+  items:
+  - name: Unity’de paylaşım
+    href: tutorials/tutorial-share-anchors-across-devices.md
+  - name: Azure Cosmos DB ile Unity’de paylaşım
+    href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+- name: Örnekler
+  items:
+  - name: Azure Spatial Anchors örnekleri (GitHub)
+    href: https://github.com/Azure/azure-spatial-anchors-samples
+- name: Kavramlar
+  items:
+  - name: Sabit noktaları oluşturma ve yerini belirleme
+    href: create-locate-anchors-overview.md
+    items:
+    - name: Unity üzerinde
+      href: concepts/create-locate-anchors-unity.md
+    - name: Objective-C üzerinde
+      href: concepts/create-locate-anchors-objc.md
+    - name: Swift üzerinde
+      href: concepts/create-locate-anchors-swift.md
+    - name: Java üzerinde
+      href: concepts/create-locate-anchors-java.md
+    - name: C + +/ NDK üzerinde
+      href: concepts/create-locate-anchors-cpp-ndk.md
+    - name: C++/WinRT üzerinde
+      href: concepts/create-locate-anchors-cpp-winrt.md
+  - name: Sabit nokta ilişkileri
+    href: concepts/anchor-relationships-way-finding.md
+  - name: Deneyim yönergeleri
+    href: concepts/guidelines-effective-anchor-experiences.md
+  - name: Günlüğe kaydetme ve tanılama
+    href: concepts/logging-diagnostics.md
+- name: Başvurular
+  items:
+  - name: Unity için SDK
+    href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
+  - name: iOS Objective-C için SDK
+    href: https://docs.microsoft.com/objectivec/api/spatial-anchors/
+  - name: Android Java için SDK
+    href: https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors/
+  - name: Android NDK için SDK
+    href: https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/
+  - name: HoloLens C++/WinRT için SDK
+    href: https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/
+- name: Kaynaklar
+  items:
+  - name: SSS
+    href: spatial-anchor-faq.md
+  - name: Ürün Geri Bildirimi Sağlama
+    href: https://feedback.azure.com/forums/919252-azure-spatial-anchors
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-spatial-anchors
+  - name: Destek
+    href: spatial-anchor-support.md
+ms.openlocfilehash: c3d27c3c8f13d97fd416b37fc153e8c81e81d866
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56753415"

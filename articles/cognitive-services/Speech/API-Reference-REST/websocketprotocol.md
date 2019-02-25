@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 35f1d75f28271cd7efc2911fe14de9ed6b525557
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217297"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671752"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing konuşma WebSocket Protokolü
 
@@ -77,7 +78,7 @@ Content-Length: 0
 
 Aşağıdaki üst bilgi bilgileri için belirteç erişimi gereklidir.
 
-| Name | Biçimlendir | Açıklama |
+| Ad | Biçimlendir | Açıklama |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | Abonelik anahtarınız |
 
@@ -131,13 +132,13 @@ WebSocket sms'ler ileti yolu üst bilgisinde belirtmelidir *yolu*. Bu üstbilgis
 
 ### <a name="binary-websocket-messages"></a>İkili WebSocket iletileri
 
-İkili yük ikili WebSocket iletileri taşır. Konuşma hizmeti protokolünde ses için gönderilen ve ikili WebSocket iletileri kullanarak hizmetinden alınan. Diğer tüm iletiler sms'ler WebSocket ' dir. 
+İkili yük ikili WebSocket iletileri taşır. Konuşma hizmeti protokolünde ses için gönderilen ve ikili WebSocket iletileri kullanarak hizmetinden alınan. Diğer tüm iletiler sms'ler WebSocket ' dir.
 
 Metin WebSocket iletileri gibi ikili WebSocket iletileri üstbilgi ve gövde bölümü oluşur. İlk 2 baytı ikili WebSocket iletisinin belirtin, buna [büyük endian](https://en.wikipedia.org/wiki/Endianness) sipariş, 16 bit tam sayı boyutu üst bilgisi bölümü. En düşük bölüm boyut 0 bayt'tır. En büyük boyutu 8192 bayttır. İkili WebSocket ileti üst bilgisindeki metin *gerekir* kullanın [US-ASCII](https://tools.ietf.org/html/rfc20) kodlama.
 
 İkili bir WebSocket iletisindeki üst WebSocket sms'ler olduğu gibi aynı biçimde kodlanmış. *Ad: değer* biçimi tek satır başı satır çifti tarafından ayrılmış. İkili WebSocket ileti üstbilgisinde bir ileti yol belirtmelisiniz *yolu*. Bu üstbilgisinin değerini daha sonra bu belgede tanımlanan konuşma protokolü ileti türlerinden biri olması gerekir.
 
-Metin ve ikili WebSocket iletileri hem konuşma hizmeti protokolü kullanılır. 
+Metin ve ikili WebSocket iletileri hem konuşma hizmeti protokolü kullanılır.
 
 ## <a name="client-originated-messages"></a>İstemci kaynaklı iletiler
 
@@ -149,7 +150,7 @@ Hizmetlere istemci tarafından gönderilen ana iletiler `speech.config`, `audio`
 
 Aşağıdaki üst bilgiler, tüm istemci kaynaklı iletiler için gereklidir.
 
-| Üst bilgi | Value |
+| Üst bilgi | Değer |
 |----|----|
 | Yol | Bu belgede belirtilen ileti yolu |
 | X-RequestId | "No-dash" biçiminde UUID |
@@ -178,7 +179,7 @@ Konuşma hizmeti, en iyi olası konuşma tanıma sağlamak için uygulamanızın
 
 #### <a name="required-message-headers"></a>Gerekli ileti üstbilgileri
 
-| Üst bilgi adı | Value |
+| Üst bilgi adı | Değer |
 |----|----|
 | Yol | `speech.config` |
 | X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
@@ -187,7 +188,7 @@ Konuşma hizmeti, en iyi olası konuşma tanıma sağlamak için uygulamanızın
 Tüm istemci kaynaklı iletiler gibi konuşma tanıma hizmeti protokolü ile `speech.config` ileti *gerekir* dahil bir *X zaman damgası* kaydeder olduğunda iletinin gönderildiği istemci UTC saati zamanı üst bilgisi hizmet için. `speech.config` İleti *yok* gerektiren bir *X-RequestId* üst bilgisi bu ileti konuşma belirli bir istekle ilişkili olmadığından.
 
 #### <a name="message-payload"></a>İleti yükü
-Yükü `speech.config` iletisidir uygulamayla ilgili bilgileri içeren bir JSON yapısı. Aşağıdaki örnek, bu bilgileri gösterir. İstemci ve cihaz bağlamı bilgilerini dahil *bağlam* JSON yapısı öğesidir. 
+Yükü `speech.config` iletisidir uygulamayla ilgili bilgileri içeren bir JSON yapısı. Aşağıdaki örnek, bu bilgileri gösterir. İstemci ve cihaz bağlamı bilgilerini dahil *bağlam* JSON yapısı öğesidir.
 
 ```JSON
 {
@@ -218,17 +219,17 @@ System.version öğesinin `speech.config` ileti, konuşma istemci uygulama veya 
 
 | Alan | Açıklama | Kullanım |
 |-|-|-|
-| OS.Platform | İşletim sistemi örnek uygulamasını barındıran platformu, Windows, Android, iOS veya Linux |Gereklidir |
-| os.name | Örneğin, Debian veya Windows 10 işletim sistemi ürün adı | Gereklidir |
-| OS.Version | Biçimindeki işletim sistemi sürümünü *major.minor.build.branch* | Gereklidir |
+| OS.Platform | İşletim sistemi örnek uygulamasını barındıran platformu, Windows, Android, iOS veya Linux |Gerekli |
+| os.name | Örneğin, Debian veya Windows 10 işletim sistemi ürün adı | Gerekli |
+| OS.Version | Biçimindeki işletim sistemi sürümünü *major.minor.build.branch* | Gerekli |
 
 ##### <a name="device-element"></a>Cihaz öğesi
 
 | Alan | Açıklama | Kullanım |
 |-|-|-|
-| Device.Manufacturer | Cihaz donanım üreticisi | Gereklidir |
-| Device.model | Cihaz modeli | Gereklidir |
-| Device.Version | Cihaz üreticisi tarafından sağlanan cihaz yazılımı sürümü. Bu değer, cihaz üreticisi tarafından izlenen bir sürümünü belirtir. | Gereklidir |
+| Device.Manufacturer | Cihaz donanım üreticisi | Gerekli |
+| Device.model | Cihaz modeli | Gerekli |
+| Device.Version | Cihaz üreticisi tarafından sağlanan cihaz yazılımı sürümü. Bu değer, cihaz üreticisi tarafından izlenen bir sürümünü belirtir. | Gerekli |
 
 ### <a name="message-audio"></a>İleti `audio`
 
@@ -249,7 +250,7 @@ Konuşma hizmeti kullanan ilk `audio` içeren yeni bir istek/yanıt döngüsü b
 
 Aşağıdaki üst bilgiler tüm gerekli `audio` iletileri.
 
-| Üst bilgi         |  Value     |
+| Üst bilgi         |  Değer     |
 | ------------- | ---------------- |
 | Yol | `audio` |
 | X-RequestId | "No-dash" biçiminde UUID |
@@ -507,10 +508,10 @@ Telemetri şema, aşağıdaki bölümlere ayrılmıştır: alınan ileti zaman d
 
 | Alan | Açıklama | Kullanım |
 | ----- | ----------- | ----- |
-| Name | `Connection` | Gereklidir |
-| Kimlik | Bağlantı tanımlayıcı değeri kullanıldı *X ConnectionID* Bu bağlantı isteği üst bilgisi | Gereklidir |
-| Başlatma | İstemci bağlantı isteği zaman gönderdiği saati | Gereklidir |
-| Bitiş | Zaman istemci bağlantı başarıyla kuruldu bildirim alındığında veya hata durumlarında reddedildi, reddedildi veya başarısız oldu | Gereklidir |
+| Ad | `Connection` | Gerekli |
+| Kimlik | Bağlantı tanımlayıcı değeri kullanıldı *X ConnectionID* Bu bağlantı isteği üst bilgisi | Gerekli |
+| Başlatma | İstemci bağlantı isteği zaman gönderdiği saati | Gerekli |
+| Bitiş | Zaman istemci bağlantı başarıyla kuruldu bildirim alındığında veya hata durumlarında reddedildi, reddedildi veya başarısız oldu | Gerekli |
 | Hata | Varsa, oluşan hata açıklaması. Bağlantı başarılı olursa, istemcilerin bu alan atlamak. Bu alan uzunluğunun üst sınırı 50 karakterdir. | Aksi takdirde atlanmış hata durumları için gerekli |
 
 Hata açıklaması en fazla 50 karakter arasında olmalıdır ve ideal olarak aşağıdaki tabloda listelenen değerlerden biri olmalıdır. Hata koşulu şu değerlerden biri olarak eşleşmiyorsa, istemciler birleştiren bir hata durumu açıklaması kullanarak kullanabilir [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) boşluk olmadan. Gönderme olanağı bir *telemetri* ileti hizmet, bu nedenle yalnızca geçici bir bağlantı gerektirir ya da geçici hata koşulları rapor içinde *telemetri* ileti. Hata koşulları *kalıcı olarak* blok hizmetine bir bağlantı kurulurken bir istemcinin istemci hizmete herhangi bir ileti göndermesini engellemek dahil olmak üzere *telemetri* iletileri.
@@ -527,7 +528,7 @@ Hata açıklaması en fazla 50 karakter arasında olmalıdır ve ideal olarak a�
 | ServerUnavailable | İstemci HTTP hizmetin döndürdüğü için hizmete bağlanamadı `503 Server Unavailable` WebSocket yükseltme isteği durum kodu. |
 | ServerError | İstemcinin hizmetin döndürdüğü için hizmete bağlanamadı bir `HTTP 500` WebSocket yükseltme isteği durum kodu iç hata. |
 | Zaman Aşımı | İstemcinin bağlantı isteği, hizmetten bir yanıt olmadan zaman aşımına uğradı. *Son* alan ne zaman istemci zaman aşımına uğradı ve bağlantı için bekleme durduruldu saati içerir. |
-| Senderconnections'da | İstemci bağlantı bazı iç istemci hatası nedeniyle sonlandırıldı. | 
+| Senderconnections'da | İstemci bağlantı bazı iç istemci hatası nedeniyle sonlandırıldı. |
 
 ### <a name="metric-microphone"></a>Ölçüm `Microphone`
 
@@ -547,9 +548,9 @@ Aşağıdaki örnekler, kayıt için kılavuz olarak kullanın *Başlat* saat de
 
 | Alan | Açıklama | Kullanım |
 | ----- | ----------- | ----- |
-| Name | Mikrofon | Gereklidir |
-| Başlatma | Ne zaman istemci mikrofon veya başka bir ses akışı ses girişi kullanmaya veya bir tetikleyici anahtar sözcüğü spotter alınan saati | Gereklidir |
-| Bitiş | Ne zaman istemci ses veya mikrofon akış kullanarak durduruldu. süre | Gereklidir |
+| Ad | Mikrofon | Gerekli |
+| Başlatma | Ne zaman istemci mikrofon veya başka bir ses akışı ses girişi kullanmaya veya bir tetikleyici anahtar sözcüğü spotter alınan saati | Gerekli |
+| Bitiş | Ne zaman istemci ses veya mikrofon akış kullanarak durduruldu. süre | Gerekli |
 | Hata | Varsa, oluşan hata açıklaması. Mikrofon işlem başarılı olursa, istemcilerin bu alan atlamak. Bu alan uzunluğunun üst sınırı 50 karakterdir. | Aksi takdirde atlanmış hata durumları için gerekli |
 
 ### <a name="metric-listeningtrigger"></a>Ölçüm `ListeningTrigger`
@@ -567,9 +568,9 @@ Aşağıdaki örnekler, kayıt için kılavuz olarak kullanın *Başlat* ve *son
 
 | Alan | Açıklama | Kullanım |
 | ----- | ----------- | ----- |
-| Name | ListeningTrigger | İsteğe bağlı |
-| Başlatma | İstemci dinleme tetikleyici başlatıldığı saat | Gereklidir |
-| Bitiş | Ne zaman istemci dinleme tetikleyici bitiş zamanı | Gereklidir |
+| Ad | ListeningTrigger | İsteğe bağlı |
+| Başlatma | İstemci dinleme tetikleyici başlatıldığı saat | Gerekli |
+| Bitiş | Ne zaman istemci dinleme tetikleyici bitiş zamanı | Gerekli |
 | Hata | Varsa, oluşan hata açıklaması. Tetikleyici işlem başarılı olduysa, istemciler bu alan atlamak. Bu alan uzunluğunun üst sınırı 50 karakterdir. | Aksi takdirde atlanmış hata durumları için gerekli |
 
 #### <a name="sample-message"></a>Örnek ileti
@@ -636,7 +637,7 @@ Konuşma hizmeti, istemciden gelen herhangi bir protokol ihlali algılarsa, hizm
 
 #### <a name="incorrect-message-format"></a>Yanlış ileti biçimi
 
-Bir istemci bir metin veya ikili ileti bu belirtiminde belirtilen doğru biçimde kodlanmamış hizmetine gönderir, hizmeti ile bağlantıyı kapatır. bir *1007 geçersiz yük verisi* durum kodu. 
+Bir istemci bir metin veya ikili ileti bu belirtiminde belirtilen doğru biçimde kodlanmamış hizmetine gönderir, hizmeti ile bağlantıyı kapatır. bir *1007 geçersiz yük verisi* durum kodu.
 
 Aşağıdaki örneklerde gösterildiği gibi hizmet çeşitli nedenlerle, bu durum kodunu döndürür:
 

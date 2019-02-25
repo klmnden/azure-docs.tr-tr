@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: a16b9126bb2d5a5daa382417a413c8ceba0cea9a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b6b8db03c8aa5dd05dcc6f430fbaca5e4f1bf3bc
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649541"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729075"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -156,7 +156,7 @@ Sürüm 2.x Azure işlevleri çalışma zamanı sahip işlev uygulamanızda kull
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
-Daha fazla bilgi için [Azure işlevleri Tetikleyicileri ve bağlamaları kavramları](functions-triggers-bindings.md#register-binding-extensions).
+Daha fazla bilgi için [Azure işlevleri Tetikleyicileri ve bağlamaları kavramları](./functions-bindings-expressions-patterns.md).
 
 ## <a name="local-settings-file"></a>Yerel ayarlar dosyası
 

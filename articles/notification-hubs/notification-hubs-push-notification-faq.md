@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f2f11abcb3290e1d9459c26167706abc79c1b7fa
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563992"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670341"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs ile anında iletme bildirimleri: Sık sorulan sorular
 
@@ -209,8 +209,6 @@ Azure Notification hubs'ı etkinleştirir telemetri verileri görüntüleme [Azu
 > [!NOTE]
 > Başarılı bildirimler yalnızca dış PNS (örneğin, APNS için Apple) veya Google için FCM için anında iletme bildirimleri teslim edilmediği anlamına gelir. Bildirimleri hedef cihazlara teslim PNS sorumluluğundadır. Genellikle PNS teslim ölçümleri üçüncü taraflara kullanıma sunmuyor.  
 
-Program aracılığıyla (standart katmanda) telemetri verileri dışarı aktarma olanağı da sunuyoruz. Ayrıntılar için bkz [bildirim hub'ları ölçüm örneği].
-
 [Azure portal]: https://portal.azure.com
 [Notification Hubs fiyatlandırması]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
@@ -229,7 +227,6 @@ Program aracılığıyla (standart katmanda) telemetri verileri dışarı aktarm
 [Bildirim hub'ları güvenli bildirim Öğreticisi]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Bildirim hub'ları sorunlarını giderme]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Bildirim hub'ları ölçümleri]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Bildirim hub'ları ölçüm örneği]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Kayıtları dışarı/içeri aktarma]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

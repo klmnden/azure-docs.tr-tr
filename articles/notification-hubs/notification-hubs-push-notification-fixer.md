@@ -1,5 +1,5 @@
 ---
-title: Azure Notification hubs'ı bırakılan bildirim tanılama
+title: Azure Notification Hubs - tanılama bırakılan bildirimler
 description: Azure Notification hubs'ı bırakılan bildirimler ile ilgili yaygın sorunları tanılamayı öğrenin.
 services: notification-hubs
 documentationcenter: Mobile
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 9dd6a66ea416ad61682b8e33c6163db3ac345d92
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4419b68a0005ff6e0b5e46f22fba918699f3ba4f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447726"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672211"
 ---
-# <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Bildirim hub'larındaki bırakılan bildirim tanılayın
+# <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Azure Notification Hubs - tanılama bırakılan bildirimler
 
 Azure Notification hubs'ı müşterilerden en yaygın sorular istemci cihazlarında bir uygulamadan gönderilen bildirimleri görünmez sorunu gidermek nasıl biridir. Bildirimler, nerede ve neden bırakılan ve sorunun nasıl çözüleceğini öğrenmek isterler. Bu makalede, bildirimleri bırakılan veya cihazlar tarafından alınmayan neden tanımlar. Analiz edin ve kök nedenini öğrenin.
 
@@ -246,10 +246,7 @@ Portalda, bildirim hub'ınıza tüm etkinlik hızlı bir genel bakış alabilirs
 
 * **Programlı erişim**
 
-Programlı erişim hakkında daha fazla bilgi için şu makalelere bakın:
-
-* [Telemetri programlı erişim]  
-* [API'leri örnek üzerinden erişim telemetri]
+Programlı erişim hakkında daha fazla bilgi için bkz: [telemetri programlı erişim]
 
 > [!NOTE]
 > Telemetri ile ilgili çeşitli özellikler verme ister ve kayıtları ve API'leri aracılığıyla erişim telemetri alma yalnızca standart hizmet katmanında kullanılabilir. Kullanmayı denerseniz, bu özellikleri ücretsiz veya temel hizmet katmanını, REST API'lerini doğrudan özellikleri kullanırsanız SDK'sı ve HTTP 403 (Yasak) hata kullanırsanız, bir özel durum iletisi alırsınız.
@@ -282,4 +279,3 @@ Programlı erişim hakkında daha fazla bilgi için şu makalelere bakın:
 [Visual Studio 2013 güncelleştirme 3 ve Azure SDK 2.4 sürümünü Duyurusu]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [Telemetri programlı erişim]: http://msdn.microsoft.com/library/azure/dn458823.aspx
-[API'leri örnek üzerinden erişim telemetri]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
