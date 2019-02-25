@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: fc40f20349e3424dbcf50f5ca0395b06a818566f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 9ee0abdf722d3dc6d0d332f3894943bd3a03a877
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224063"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671923"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Hızlı Başlangıç: Bing konuşma tanıma REST API'si kullanma
 
@@ -32,7 +33,7 @@ Konuşma tanıma API'si, Bilişsel hizmetler (daha önce Project Oxford) bir par
 > [!IMPORTANT]
 >* Bir abonelik anahtarı edinirler. REST API erişebilmeniz için önce olmalıdır bir [abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Abonelik anahtarınızı kullanın. Aşağıdaki REST örneklerinde YOUR_SUBSCRIPTION_KEY kendi abonelik anahtarı ile değiştirin. 
+>* Abonelik anahtarınızı kullanın. Aşağıdaki REST örneklerinde YOUR_SUBSCRIPTION_KEY kendi abonelik anahtarı ile değiştirin.
 >
 >* Başvurmak [kimlik doğrulaması](../how-to/how-to-authentication.md) sayfasını nasıl bir abonelik anahtarı edinirler.
 

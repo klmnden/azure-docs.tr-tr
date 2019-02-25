@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5174bb696b456a66cfc0666ac5c475437e441d82
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d4f530e38b6fd69d814765f4133201dd12a87f22
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848861"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668591"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Öğretici: Azure'da çalışan bir Service Fabric kümesini Kaldır
 
@@ -34,7 +34,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> * Şablon kullanarak Azure'da güvenli bir [Windows kümesi](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) oluşturma
+> * Güvenli oluşturma [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) bir şablonu kullanarak azure'da
 > * [Bir kümenin ölçeğini daraltma veya genişletme](service-fabric-tutorial-scale-cluster.md)
 > * [Bir kümenin çalışma zamanını yükseltme](service-fabric-tutorial-upgrade-cluster.md)
 > * Küme silme
@@ -45,7 +45,7 @@ Bu öğreticiye başlamadan önce:
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
 * [Azure Powershell modülü sürüm 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) ya da [Azure CLI](/cli/azure/install-azure-cli)'yı yükleyin.
-* Azure'da güvenli bir [Windows kümesi](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) oluşturma
+* Güvenli oluşturma [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) azure'da
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>Service Fabric kümesini içeren kaynak grubunu silme
 Kümeyi ve kullandığı tüm kaynakları silmenin en basit yolu, kaynak grubunun silinmesidir.
@@ -115,5 +115,5 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 Bu öğreticiyi tamamladığınıza göre aşağıdakileri deneyebilirsiniz:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)'ı kullanarak Service Fabric kümesini inceleme ve yönetme hakkında bilgi edinin.
-* Küme düğümlerindeki [Windows işletim sistemine düzeltme eki uygulama](service-fabric-patch-orchestration-application.md) veya [Linux işletim sistemine düzeltme eki uygulama](service-fabric-patch-orchestration-application-linux.md) hakkında bilgi edinin.
-* [Windows kümesi](service-fabric-diagnostics-event-aggregation-wad.md) veya [Linux kümesi](service-fabric-diagnostics-event-aggregation-lad.md) olaylarını toplayıp birleştirme ve küme olaylarını izlemek üzere [Log Analytics kurma](service-fabric-diagnostics-oms-setup.md) hakkında bilgi edinin.
+* Bilgi edinmek için nasıl [Windows işletim sistemi düzeltme eki](service-fabric-patch-orchestration-application.md) küme düğümlerinin.
+* Toplama ve olaylarını toplayan öğrenin [Windows kümeleri](service-fabric-diagnostics-event-aggregation-wad.md) ve [Log Analytics Kurulum](service-fabric-diagnostics-oms-setup.md) küme olayları izlemek için.

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B işbirliği lisanslama Kılavuzu | Microsoft Docs
+title: B2B işbirliği lisanslama Kılavuzu - Azure Active Directory | Microsoft Docs
 description: Azure AD lisansı işbirliği gerektirmez Azure Active Directory B2B Ücretli, ancak, ayrıca özellikleri B2B Konuk kullanıcılar için ödeme
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0032eb1e6b92abb130521945f64fda3133d9b7fc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7fa01a6bf522061e54e9622cb9201f81c699a8ec
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198890"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668461"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B işbirliği lisanslama kılavuzu
 
