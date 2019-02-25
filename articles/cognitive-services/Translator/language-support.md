@@ -121,7 +121,7 @@ Transliterate yöntemi aşağıdaki dilleri desteklemektedir. İçinde "içine/d
 | Kannada dili | `kn` | Kannada `Knda` | --> | Latin `Latn` |
 | Malayalam dili | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
 | Marathi dili | `mr` | Devanagari `Deva` | --> | Latin `Latn` |
-| Odia | `or` | Oriya `Orya` | <--> | Latin `Latn` |
+| Odia | `or` | Odia `Orya` | <--> | Latin `Latn` |
 | Pencap dili | `pa` | Gurmuki `Guru`  | <--> | Latin `Latn`  |
 | Sırpça (Kiril) | `sr-Cyrl` | Kiril `Cyrl`  | --> | Latin `Latn` |
 | Sırpça (Latin) | `sr-Latn` | Latin `Latn` | --> | Kiril `Cyrl`|
