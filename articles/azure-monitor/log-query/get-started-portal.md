@@ -1,5 +1,5 @@
 ---
-title: Azure İzleyici log analytics ile çalışmaya başlama | Microsoft Docs
+title: Azure İzleyici Log Analytics ile çalışmaya başlama | Microsoft Docs
 description: Bu makale, Log Analytics sorguları yazma Azure Portalı'nda kullanmaya yönelik bir öğretici sağlar.
 services: log-analytics
 author: bwren
@@ -8,18 +8,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 2adb23b63c3a8be56dc55293c7bb06534d9305c4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242116"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750591"
 ---
-# <a name="get-started-with-azure-monitor-log-analytics"></a>Azure İzleyici log analytics ile çalışmaya başlama
+# <a name="get-started-with-azure-monitor-log-analytics"></a>Azure İzleyici Log Analytics ile çalışmaya başlama
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Bu öğreticide, Azure İzleyici log analytics Azure portalında Azure İzleyici günlük sorguları yazma için nasıl kullanılacağını öğreneceksiniz. Size nasıl yardımcı olacak için:
+Bu öğreticide, Azure İzleyici Log Analytics Azure portalında Azure İzleyici günlük sorguları yazma için nasıl kullanılacağını öğreneceksiniz. Size nasıl yardımcı olacak için:
 
 - Basit Sorgu yazma
 - Verilerinizin şemasını anlama
@@ -30,8 +30,8 @@ Bu öğreticide, Azure İzleyici log analytics Azure portalında Azure İzleyici
 - Verme ve sorguları paylaşma
 
 
-## <a name="meet-log-analytics"></a>Log analytics'e karşılamak
-Log analytics, yazma ve Azure İzleyici günlük sorguları yürütmek için kullanılan web bir araçtır. Seçerek açın **günlükleri** Azure İzleyici menüsünde. Yeni bir boş sorgu ile başlar.
+## <a name="meet-log-analytics"></a>Log Analytics'e karşılamak
+Log Analytics, yazma ve Azure İzleyici günlük sorguları yürütmek için kullanılan web bir araçtır. Seçerek açın **günlükleri** Azure İzleyici menüsünde. Yeni bir boş sorgu ile başlar.
 
 ![Giriş sayfası](media/get-started-portal/homepage.png)
 
@@ -78,7 +78,7 @@ Her şeyi alınırken Start _olay_ tablo.
 Event
 ```
 
-Log Analytics otomatik olarak kapsamları sonuçları:
+Log Analytics, sonuçları otomatik olarak kapsamları:
 
 - Zaman aralığı:  Varsayılan olarak, sorgular son 24 saat sınırlıdır.
 - Sonuç sayısı: Sonuçları en fazla 10.000 kaydı için sınırlıdır.
@@ -116,7 +116,7 @@ Sonuçlar tablosu, genellikle çok sayıda sütun içerir. Geri dönen sütunlar
 
 
 ## <a name="select-a-time-range"></a>Bir zaman aralığı seçin
-Varsayılan olarak, log analytics'e uygular _son 24 saat_ zaman aralığı. Farklı bir aralık kullanmak için Saat Seçici başka bir değer seçin ve **çalıştırma**. Önceden oluşturulmuş değerlere ek olarak, kullandığınız _özel zaman aralığı_ sorgunuz için mutlak bir aralık seçmek için seçenek.
+Varsayılan olarak, Log Analytics uygular _son 24 saat_ zaman aralığı. Farklı bir aralık kullanmak için Saat Seçici başka bir değer seçin ve **çalıştırma**. Önceden oluşturulmuş değerlere ek olarak, kullandığınız _özel zaman aralığı_ sorgunuz için mutlak bir aralık seçmek için seçenek.
 
 ![Saat Seçici](media/get-started-portal/time-picker.png)
 
@@ -170,7 +170,7 @@ Tüm sorgu sayfası ya da tek bir sorgu işlevi olarak kaydedebilirsiniz. Diğer
 
 ![İşlev Kaydet](media/get-started-portal/save-function.png)
 
-Log analytics sorgu her zaman bir seçilen çalışma alanına kaydedilir ve bu çalışma alanının diğer kullanıcılarla paylaşılan.
+Log Analytics sorgu her zaman bir seçilen çalışma alanına kaydedilir ve bu çalışma alanının diğer kullanıcılarla paylaşılan.
 
 ## <a name="load-queries"></a>Sorguları
 Sorgu Gezgini simgesine sağ üst alandır. Bu, tüm kaydedilmiş sorgular kategoriye göre listeler. Ayrıca, belirli sorguları hızla gelecekte bulmak için sık kullanılan olarak işaretlemek sağlar. Kaydedilmiş bir sorgu için geçerli pencere eklemek için çift tıklayın.

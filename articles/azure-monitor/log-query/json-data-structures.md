@@ -1,6 +1,6 @@
 ---
 title: Azure İzleyici günlük sorguları dizeler ile çalışma | Microsoft Docs
-description: Bu makalede, sorgulamak ve Azure İzleyici'de günlük verilerini analiz etmek için Azure portalında Azure İzleyici log Analytics'i kullanmaya yönelik bir öğretici sağlar.
+description: Bu makalede, sorgu ve Azure İzleyici'de günlük verilerini analiz etmek için Azure portalında Azure İzleyici Log Analytics kullanmaya yönelik bir öğretici sağlar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993733"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750965"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>JSON ve veri yapıları Azure İzleyici günlük sorguları içinde çalışma
 
 > [!NOTE]
-> Tamamlamanız gereken [Azure İzleyici log analytics ile çalışmaya başlama](get-started-portal.md) ve [Azure İzleyici günlük sorguları ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
+> Tamamlamanız gereken [Azure İzleyici Log Analytics ile çalışmaya başlama](get-started-portal.md) ve [Azure İzleyici günlük sorguları ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

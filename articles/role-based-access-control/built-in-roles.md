@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 01/25/2019
+ms.date: 02/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: d730efe8b09f167aaba2a4aa8e33446d44171c53
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 97f9c893487b486bd76031cb6321fe100321931d
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340864"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750727"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 
@@ -68,6 +68,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Klasik depolama hesabı anahtarı işleci hizmet rolü](#classic-storage-account-key-operator-service-role) | Klasik Depolama Hesabı Anahtarı İşleçlerine, Klasik Depolama Hesaplarında anahtarları listeleme ve yeniden oluşturma izni verilir |
 | [Klasik sanal makine Katılımcısı](#classic-virtual-machine-contributor) | Klasik sanal makineleri yönetmenizi sağlar ancak bunlara veya bağlı oldukları sanal ağ ya da depolama hesaplarına yönelik erişimi yönetme izni vermez. |
 | [Bilişsel hizmetler katkıda bulunan](#cognitive-services-contributor) | Bilişsel Hizmetler anahtarlarını oluşturmanıza, okumanıza, güncelleştirmenize, silmenize ve yönetmenize olanak sağlar. |
+| [Bilişsel hizmetler verileri Okuyucu (Önizleme)](#cognitive-services-data-reader-preview) | Bilişsel hizmetler veri okumanıza olanak tanır. |
 | [Bilişsel hizmetler kullanıcı](#cognitive-services-user) | Bilişsel Hizmetler anahtarlarını okumanıza ve listelemenize olanak sağlar. |
 | [Cosmos DB hesabı okuyucusu rolü](#cosmos-db-account-reader-role) | Azure Cosmos DB hesabı verileri okuyabilir. Bkz: [DocumentDB hesabı Katılımcısı](#documentdb-account-contributor) Azure Cosmos DB hesapları yönetme. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Bir Cosmos DB veritabanı veya bir hesaba ilişkin bir kapsayıcı için geri yükleme isteği gönderebilir |
@@ -113,6 +114,9 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Site Recovery katkıda bulunanı](#site-recovery-contributor) | Kasa oluşturma ve rol atama işlemleri dışında Site Recovery hizmetini yönetmenize imkan sağlar |
 | [Site Recovery operatörü](#site-recovery-operator) | Yük devretme ve yeniden çalışma dışındaki Site Recovery yönetimi işlemlerini gerçekleştirmenize izin vermez |
 | [Site Recovery okuyucusu](#site-recovery-reader) | Site Recovery durumunu görüntülemenize izin verir, ancak diğer yönetim işlemlerini gerçekleştirmenize izin vermez |
+| [Uzamsal bağlayıcılarını hesabı Katılımcısı](#spatial-anchors-account-contributor) | Sağlar hesabınızı çıpaları uzamsal yönetebilir, ancak silme |
+| [Uzamsal bağlayıcılarını hesap sahibi](#spatial-anchors-account-owner) | Hesabınızı silme de dahil olmak üzere uzamsal tutturucular yönetmenize olanak tanır |
+| [Uzamsal bağlayıcılarını hesabı okuyucusu](#spatial-anchors-account-reader) | Yerini belirleyip okumayı hesabınızdaki uzamsal çıpalarının özellikleri sağlar |
 | [SQL DB Katılımcısı](#sql-db-contributor) | SQL veritabanları, ancak onlara yönelik erişimi yönetmenize olanak tanır. Ayrıca, güvenlikle ilgili ilkelerini veya üst SQL sunucularını yönetemezsiniz. |
 | [SQL Güvenlik Yöneticisi](#sql-security-manager) | SQL sunucularının ve veritabanlarının güvenlikle ilgili ilkelerini yönetmenizi sağlar ancak onlara erişimi yönetme izni vermez. |
 | [SQL Server Katılımcısı](#sql-server-contributor) | SQL sunucularını ve veritabanlarını yönetmenizi sağlar ancak güvenlikle ilgili ilkelerini yönetmenize izin vermez. |
@@ -122,6 +126,8 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Depolama Blob verileri sahibi (Önizleme)](#storage-blob-data-owner-preview) | POSIX erişim denetimini atama dahil olmak üzere Azure Depolama blobu kapsayıcılarına ve verilerine tam erişim sağlar. |
 | [Depolama Blob verileri Okuyucu (Önizleme)](#storage-blob-data-reader-preview) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma erişimi verir |
 | [Depolama kuyruk verileri katkıda bulunan (Önizleme)](#storage-queue-data-contributor-preview) | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma, yazma ve silme erişimi verir |
+| [Depolama kuyruk verileri ileti işlemci (Önizleme)](#storage-queue-data-message-processor-preview) | Sağlar göz atma, alma ve silme erişimi için Azure depolama kuyruğu iletileri |
+| [Depolama kuyruk verileri iletiyi gönderenin (Önizleme)](#storage-queue-data-message-sender-preview) | Azure depolama kuyruğu iletileri göndermek için izin verir |
 | [Depolama kuyruk verileri Okuyucu (Önizleme)](#storage-queue-data-reader-preview) | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma erişimi verir |
 | [Destek isteği Katılımcısı](#support-request-contributor) | Destek istekleri oluşturmanıza ve bunları yönetmenize olanak sağlar |
 | [Traffic Manager katkıda bulunanı](#traffic-manager-contributor) | Traffic Manager profillerini yönetmenize izin verir, ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
@@ -934,6 +940,21 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
+## <a name="cognitive-services-data-reader-preview"></a>Bilişsel hizmetler verileri Okuyucu (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Bilişsel hizmetler veri okumanıza olanak tanır. |
+> | **Kimlik** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | **Eylemler** |  |
+> | *Yok* |  |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.CognitiveServices/*/read |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
 ## <a name="cognitive-services-user"></a>Bilişsel Hizmetler Kullanıcısı
 > [!div class="mx-tableFixed"]
 > | | |
@@ -943,11 +964,11 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Eylemler** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | Microsoft.CognitiveServices/accounts/listkeys/action | Anahtarları Listele |
-> | Microsoft.Insights/metricdefinitions/read | Ölçüm tanımlarını oku |
-> | Microsoft.Insights/metrics/read | Ölçümleri okuma |
 > | Microsoft.Insights/alertRules/read | Bir klasik ölçüm uyarısını okuyun |
 > | Microsoft.Insights/diagnosticSettings/read | Bir kaynak tanılama ayarını okuyun |
 > | Microsoft.Insights/logDefinitions/read | Günlük tanımlarını oku |
+> | Microsoft.Insights/metricdefinitions/read | Ölçüm tanımlarını oku |
+> | Microsoft.Insights/metrics/read | Ölçümleri okuma |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/operations/read | Dağıtım işlemlerini alır veya listeler. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Abonelik işlem sonuçlarını alır. |
@@ -957,7 +978,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
-> | *Yok* |  |
+> | Microsoft.CognitiveServices/* |  |
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
@@ -1177,16 +1198,16 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Laboratuvar ilkeyi değerlendirir. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Mevcut bir sanal makinenin sahipliğini al |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Varsa geçerli Başlat/Durdur zamanlamaları listeler. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Bir yük dengeleyici arka uç adres havuzu birleştirir |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Bir yük dengeleyici gelen nat kuralı birleştirir |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Bir yük dengeleyici arka uç adres havuzu birleştirir. Alertable değil. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Bir yük dengeleyici gelen nat kuralı birleştirir. Alertable değil. |
 > | Microsoft.Network/networkInterfaces/*/read | Bir ağ arabirimi (ağ arabiriminin bir parçası olduğu gibi tüm yük Dengeleyiciler) özelliklerini okuyun |
-> | Microsoft.Network/networkInterfaces/join/action | Birleştirmeler bir sanal makineye bir ağ arabirimi |
+> | Microsoft.Network/networkInterfaces/join/action | Bir sanal makineye bir ağ arabirimi ile birleştirir. Alertable değil. |
 > | Microsoft.Network/networkInterfaces/read | Bir ağ arabirimi tanımı alır.  |
 > | Microsoft.Network/networkInterfaces/write | Bir ağ arabirimi oluşturur veya mevcut bir ağ arabirimi güncelleştirir.  |
 > | Microsoft.Network/publicIPAddresses/*/read | Genel bir IP adresinin özelliklerini okuyun |
-> | Microsoft.Network/publicIPAddresses/join/action | Bir genel IP adresi birleştirir |
+> | Microsoft.Network/publicIPAddresses/join/action | Bir genel IP adresi birleştirir. Alertable değil. |
 > | Microsoft.Network/publicIPAddresses/read | Bir genel IP adresi tanımı alır. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Bir sanal ağa katılır |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Bir sanal ağa katılır. Alertable değil. |
 > | Microsoft.Resources/deployments/operations/read | Dağıtım işlemlerini alır veya listeler. |
 > | Microsoft.Resources/deployments/read | Dağıtımları alır veya listeler. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
@@ -2033,6 +2054,65 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
+## <a name="spatial-anchors-account-contributor"></a>Spatial Anchors Hesabı Katkıda Bulunanı
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Sağlar hesabınızı çıpaları uzamsal yönetebilir, ancak silme |
+> | **Kimlik** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
+> | **Eylemler** |  |
+> | *Yok* |  |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Uzamsal yer işaretleri oluşturmanız |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Uzamsal bağlayıcılarını bulma |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Uzamsal yer işaretleri özelliklerini alma |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Uzamsal bağlayıcılarını bulun |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Azure uzamsal bağlayıcılarını hizmet kalitesini geliştirmeye yardımcı olmak için Tanılama verileri gönder |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Uzamsal yer işaretleri özelliklerini güncelleştir |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="spatial-anchors-account-owner"></a>Spatial Anchors Hesabı Sahibi
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Hesabınızı silme de dahil olmak üzere uzamsal tutturucular yönetmenize olanak tanır |
+> | **Kimlik** | 70bbe301-9835-447d-afdd-19eb3167307c |
+> | **Eylemler** |  |
+> | *Yok* |  |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Uzamsal yer işaretleri oluşturmanız |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Uzamsal çıpalarını silme |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Uzamsal bağlayıcılarını bulma |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Uzamsal yer işaretleri özelliklerini alma |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Uzamsal bağlayıcılarını bulun |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Azure uzamsal bağlayıcılarını hizmet kalitesini geliştirmeye yardımcı olmak için Tanılama verileri gönder |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Uzamsal yer işaretleri özelliklerini güncelleştir |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="spatial-anchors-account-reader"></a>Spatial Anchors Hesabı Okuyucusu
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Yerini belirleyip okumayı hesabınızdaki uzamsal çıpalarının özellikleri sağlar |
+> | **Kimlik** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
+> | **Eylemler** |  |
+> | *Yok* |  |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Uzamsal bağlayıcılarını bulma |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Uzamsal yer işaretleri özelliklerini alma |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Uzamsal bağlayıcılarını bulun |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Azure uzamsal bağlayıcılarını hizmet kalitesini geliştirmeye yardımcı olmak için Tanılama verileri gönder |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
 ## <a name="sql-db-contributor"></a>SQL DB Katılımcısı
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2082,7 +2162,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma Microsoft yetkilendirmesi |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Kaynak depolama hesabı veya SQL veritabanı gibi bir alt ağa katılır. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Kaynak depolama hesabı veya SQL veritabanı gibi bir alt ağa katılır. Alertable değil. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
@@ -2173,7 +2253,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Authorization/*/read | Tüm Yetkilendirme okuyun |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
 > | Microsoft.Insights/diagnosticSettings/* | Tanılama ayarlarını yönetme |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Kaynak depolama hesabı veya SQL veritabanı gibi bir alt ağa katılır. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Kaynak depolama hesabı veya SQL veritabanı gibi bir alt ağa katılır. Alertable değil. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
@@ -2267,6 +2347,37 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Bir iletiyi silmenin sonucunu döndürür |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Bir ileti döndürür |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Bir iletiyi yazmanın sonucunu döndürür |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="storage-queue-data-message-processor-preview"></a>Depolama kuyruk verileri ileti işlemci (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Sağlar göz atma, alma ve silme erişimi için Azure depolama kuyruğu iletileri |
+> | **Kimlik** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | **Eylemler** |  |
+> | *Yok* |  |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Bir ileti döndürür |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Bir iletiyi işlemenin sonucunu döndürür |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="storage-queue-data-message-sender-preview"></a>Depolama kuyruk verileri iletiyi gönderenin (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Azure depolama kuyruğu iletileri göndermek için izin verir |
+> | **Kimlik** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | **Eylemler** |  |
+> | *Yok* |  |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Bir ileti eklemenin sonucunu döndürür |
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
@@ -2374,20 +2485,20 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Compute/virtualMachineScaleSets/* | Oluşturma ve sanal makine ölçek kümeleri yönetme |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
-> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Bir uygulama ağ geçidi arka uç adres havuzu birleştirir |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Bir yük dengeleyici arka uç adres havuzu birleştirir |
-> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Birleştiren bir yük dengeleyici gelen nat havuzu |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Bir yük dengeleyici gelen nat kuralı birleştirir |
-> | Microsoft.Network/loadBalancers/probes/join/action | Bir yük dengeleyici araştırmalarını kullanan sağlar. Örneğin, VM ölçek ile bu izni healthProbe özellik kümesi araştırma başvurabilirsiniz. |
+> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Bir uygulama ağ geçidi arka uç adres havuzu birleştirir. Alertable değil. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Bir yük dengeleyici arka uç adres havuzu birleştirir. Alertable değil. |
+> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Birleştiren bir yük dengeleyici gelen NAT havuzu. Alertable değil. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Bir yük dengeleyici gelen nat kuralı birleştirir. Alertable değil. |
+> | Microsoft.Network/loadBalancers/probes/join/action | Bir yük dengeleyici araştırmalarını kullanan sağlar. Örneğin, VM ölçek ile bu izni healthProbe özellik kümesi araştırma başvurabilirsiniz. Alertable değil. |
 > | Microsoft.Network/loadBalancers/read | Bir yük dengeleyici tanımı alır |
 > | Microsoft.Network/locations/* | Oluşturun ve ağ konumları yönetin |
 > | Microsoft.Network/networkInterfaces/* | Oluşturun ve ağ ara birimlerini ayarlama |
-> | Microsoft.Network/networkSecurityGroups/join/action | Bir ağ güvenlik grubu birleştirir |
+> | Microsoft.Network/networkSecurityGroups/join/action | Bir ağ güvenlik grubu birleştirir. Alertable değil. |
 > | Microsoft.Network/networkSecurityGroups/read | Bir ağ güvenlik grubu tanımı alır |
-> | Microsoft.Network/publicIPAddresses/join/action | Bir genel IP adresi birleştirir |
+> | Microsoft.Network/publicIPAddresses/join/action | Bir genel IP adresi birleştirir. Alertable değil. |
 > | Microsoft.Network/publicIPAddresses/read | Bir genel IP adresi tanımı alır. |
 > | Microsoft.Network/virtualNetworks/read | Sanal ağ tanımı Al |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Bir sanal ağa katılır |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Bir sanal ağa katılır. Alertable değil. |
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Bir yedekleme koruma hedefi oluşturma |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |

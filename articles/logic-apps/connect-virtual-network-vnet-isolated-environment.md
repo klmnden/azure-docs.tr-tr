@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/15/2019
-ms.openlocfilehash: d67bc99a63242dd56d65d6bdac0448c7742a6b9d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.date: 02/20/2019
+ms.openlocfilehash: 63d32aa3c8e64cc8ccfab4c97c48cef021c1781a
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311911"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750354"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) kullanarak bağlanma
 
@@ -60,22 +60,25 @@ Tümleştirme service ortamları hakkında daha fazla bilgi için bkz: [Azure Lo
 
 Erişilebilir kalmasını ve düzgün çalışması için tümleştirme hizmeti ortamı (ISE) belirli bağlantı noktalarını sanal ağınızda kullanılabilir olması gerekir. Aksi takdirde, bu bağlantı noktalarından birini kullanılamıyorsa, çalışmayı durdurabilir, işe için erişimi kaybedebilir. Bir sanal ağda bir işe kullandığınızda, engellenen bir veya daha fazla bağlantı noktaları ortak bir kurulum sorunu yaşıyor. İŞE hedef sistem arasındaki bağlantılar için kullandığınız bağlayıcı da kendi bağlantı noktası gereksinimleri olabilir. FTP Bağlayıcısı'nı kullanarak bir FTP sistemiyle iletişim kurmak, örneğin, üzerinde kullandığınız bağlantı noktası komutları göndermek için bağlantı noktası 21 gibi FTP sistemin kullanılabilir emin olun.
 
-İŞE nerede dağıttığınız sanal ağın alt ağlar arasında gelen ve giden trafiği denetlemek için ayarlayabileceğiniz [ağ güvenlik grupları](../virtual-network/security-overview.md) bilgi edinerek bu alt ağlar için [arasında ağ trafiğini filtreleme alt ağlar](../virtual-network/tutorial-filter-network-traffic.md). Bu tablo, işe kullanır ve bu bağlantı noktalarının kullanıldığı, sanal ağ bağlantı noktaları açıklar. Yıldız işareti (*) tüm trafik kaynakları temsil eder. [Hizmet etiketi](../virtual-network/security-overview.md#service-tags) güvenlik kuralı oluştururken karmaşıklığını en aza indirmenize yardımcı IP adresi ön eki grubunu temsil eder.
+İŞE nerede dağıttığınız sanal ağın alt ağlar arasında gelen ve giden trafiği denetlemek için ayarlayabileceğiniz [ağ güvenlik grupları](../virtual-network/security-overview.md) bilgi edinerek bu alt ağlar için [arasında ağ trafiğini filtreleme alt ağlar](../virtual-network/tutorial-filter-network-traffic.md). Bu tablo, işe kullanır ve bu bağlantı noktalarının kullanıldığı, sanal ağ bağlantı noktaları açıklar. Yıldız işareti (\*) tüm olası trafik kaynakları temsil eder. [Hizmet etiketi](../virtual-network/security-overview.md#service-tags) güvenlik kuralı oluştururken karmaşıklığını en aza indirmenize yardımcı IP adresi ön eki grubunu temsil eder.
 
-| Amaç | Yön | Kaynak bağlantı noktası <br>Hedef bağlantı noktası | Kaynak hizmeti etiketi <br>Hedef hizmet etiketi |
-|---------|-----------|---------------------------------|-----------------------------------------------|
-| Azure Logic Apps ile iletişim <br>Azure Logic Apps gelen iletişimi | Gelen <br>Giden | * <br>80 & 443 | INTERNET <br>VIRTUAL_NETWORK |
-| Azure Active Directory | Giden | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
-| Azure depolama bağımlılık | Giden | * <br>80 & 443 | VIRTUAL_NETWORK <br>Depolama |
-| Mantıksal uygulamanızın çalıştırma geçmişi | Gelen | * <br>443 | INTERNET <br>VIRTUAL_NETWORK |
-| Bağlantı Yönetimi | Giden | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
-| Tanılama günlükleri ve ölçümleri yayımlama | Giden | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Logic Apps Tasarımcısı - dinamik özellikleri <br>Bağlayıcı dağıtımı <br>İstek tetikleyicisi uç noktası | Gelen | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
-| App Service Management bağımlılık | Gelen | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
-| API Yönetimi - yönetim uç noktası | Gelen | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
-| Olay hub'ı İlkesi ve İzleme Aracısı günlüğünden bağımlılığı | Giden | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |
-| Erişim Azure önbelleği için Redis örneği arasında rol örnekleri | Gelen <br>Giden | * <br>6381-6383 | VIRTUAL_NETWORK <br>VIRTUAL_NETWORK |
-|||||
+| Amaç | Yön | Bağlantı Noktaları | Kaynak hizmeti etiketi | Hedef hizmet etiketi | Notlar |
+|---------|-----------|-------|--------------------|-------------------------|-------|
+| Azure Logic Apps gelen iletişimi | Giden | 80 & 443 | VIRTUAL_NETWORK | INTERNET | Bağlantı noktası ile iletişim kuran Logic Apps hizmetinin dış hizmete bağlıdır |
+| Azure Active Directory | Giden | 80 & 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
+| Azure depolama bağımlılık | Giden | 80 & 443 | VIRTUAL_NETWORK | Depolama | |
+| Azure Logic Apps ile iletişim | Gelen | 443 | INTERNET  | VIRTUAL_NETWORK | Herhangi bir istek tetikleyicisi veya mantıksal uygulamanızın mevcut Web kancası çağırır hizmet ve bilgisayar için IP adresi. Kapatma veya bu bağlantı noktası engelleyen istek Tetikleyicileri içeren mantıksal uygulamalar için HTTP çağrılarını engeller.  |
+| Mantıksal uygulama çalıştırma geçmişi | Gelen | 443 | INTERNET  | VIRTUAL_NETWORK | Bilgisayar, mantıksal uygulamayı görüntülemek için IP adresi çalıştırma geçmişi. Kapatma ya da bu bağlantı noktası engellemelerini çalıştırma geçmişini görüntülemesini engellemez, ancak girişleri görüntüleyemezsiniz ve çıkışlar, her adımda için çalıştırma geçmişi. |
+| Bağlantı Yönetimi | Giden | 443 | VIRTUAL_NETWORK  | INTERNET | |
+| Tanılama günlükleri ve ölçümleri yayımlama | Giden | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
+| Logic Apps Tasarımcısı - dinamik özellikleri | Gelen | 454 | INTERNET  | VIRTUAL_NETWORK | İstekleri mantıksal uygulamalardan gelen [uç noktasına erişmek gelen IP adreslerini bu bölgede](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| App Service Management bağımlılık | Gelen | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
+| Bağlayıcı dağıtımı | Gelen | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Dağıtma ve bağlayıcıları güncelleştirme gerekli. Kapanış veya blockng Bu bağlantı noktası ISE dağıtımları başarısız olmasına neden olur ve bağlayıcı güncelleştirmelerini veya düzeltmeleri engeller. |
+| API Yönetimi - yönetim uç noktası | Gelen | 3443 | APIManagement  | VIRTUAL_NETWORK | |
+| Olay hub'ı İlkesi ve İzleme Aracısı günlüğünden bağımlılığı | Giden | 5672 | VIRTUAL_NETWORK  | EventHub | |
+| Erişim Azure önbelleği için Redis örneği arasında rol örnekleri | Gelen <br>Giden | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | |
+| Azure Load Balancer | Gelen | 8500 | AzureLoadBalancer  | VIRTUAL_NETWORK | |
+||||||
 
 <a name="vnet-access"></a>
 

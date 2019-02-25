@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 484cdccef3198f45c08210c9d8fd41f66e6c867d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3e9d7191af3a870f60b40311be03e0ef9d9bf7ad
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828727"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750217"
 ---
 # <a name="add-an-email-action"></a>Bir e-posta eylemi ekleme
 
 E-posta eylemleri, uyarılar hiçbir kaçırmayın emin olmasına yardımcı olur. Mevcut bir kuralı veya yeni bir kural oluştururken bir e-posta eylem ekleyebilirsiniz.
 
-[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+Nasıl yapılır bu kılavuzdaki adımları tamamlamak için Uzaktan izleme çözüm Hızlandırıcısını dağıtılan bir örneğini Azure aboneliğinizde gerekir.
 
 Oluşturun veya bir kuralı değiştirmek için olmalıdır bir [ **yönetici**, ya da doğru izinlere sahip](iot-accelerators-remote-monitoring-rbac.md).
 
@@ -31,7 +31,7 @@ Mevcut bir kuralı için bir e-posta eylem eklemek için aşağıdaki adımları
 
 1. Gelen **Pano**, gitmek **kuralları** sayfası:
 
-    ![Kurallar sayfası](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Kurallar sayfası](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Mevcut bir kuralı değiştirin ve ardından yanındaki onay kutusuna tıklayın **Düzenle** en üstünde. Düzenlenebilir bir **kural** paneli görüntülenir.
 
@@ -41,7 +41,7 @@ Mevcut bir kuralı için bir e-posta eylem eklemek için aşağıdaki adımları
 
 1. Tuşuna basın ve alıcı kutusu bir e-posta adresi girin **Enter** anahtar her e-posta adresi eklemek için:
 
-    ![Adres girişi](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Adres girişi](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Bir konu için e-posta girin.
 
@@ -59,7 +59,7 @@ Yeni bir kural oluştururken bir e-posta eylem eklemek için aşağıdaki adıml
 
 1. Gelen **Pano**, gitmek **kuralları** sayfası:
 
-    ![Kurallar sayfası](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Kurallar sayfası](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Bağlantısındaki [kuralı bir bölüm oluşturun](iot-accelerators-remote-monitoring-automate.md#create-a-rule). İzleme adımları [Gelişmiş bir kural oluşturmak](iot-accelerators-remote-monitoring-automate.md#create-an-advanced-rule) bölümünde ayarladığınız noktaya kadar bir **önem düzeyi**. Tıklamayın **Uygula** henüz.
 
@@ -69,7 +69,7 @@ Yeni bir kural oluştururken bir e-posta eylem eklemek için aşağıdaki adıml
 
 1. Tuşuna basın ve alıcı kutusu bir e-posta adresi girin **Enter** anahtar her e-posta adresi eklemek için:
 
-    ![Adres girişi](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Adres girişi](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Bir konu için e-posta girin.
 
@@ -128,7 +128,7 @@ Aşağıdaki adımlar oturum açmak ve e-posta eylemleri ayarlamak için yardım
 
 1. Outlook ile oturum açmak için tıklayın. Azure portalına yönlendirilirsiniz:
 
-  ![Outlook için oturum açın](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook.png)
+  ![Outlook için oturum açın](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. Tıklayın **yetkilendirmek**. Oturum açmanız istenir. Oturum açmak için kullandığınız hesap, e-posta bildirimleri göndermek için e-posta adresi uygulamanın kullandığı olmalıdır:
 
@@ -136,7 +136,7 @@ Aşağıdaki adımlar oturum açmak ve e-posta eylemleri ayarlamak için yardım
 
 1. E-posta bildirimi başarıyla yapılandırdıysanız, bu iletiyi görürsünüz:
 
-  ![Outlook oturum açma başarılı](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
+  ![Outlook oturum açma başarılı](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## HTML e-postayı özelleştirin <a name="htmledit"></a>
 
@@ -168,7 +168,7 @@ Aşağıdaki adımlarda HTML e-posta şablonu Düzen gösterilmektedir. Örneği
 
 Uzaktan izleme çözüm Hızlandırıcısını Outlook e-posta bildirimleri göndermek için kullanır. Outlook için gönderilen e-posta sayısını sınırlar [1 dakika başına 30 e-postaları](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). E-posta istemcileri e-posta alırken dakika başına alınan e-posta sayısı da kısıtlama. Belirli bir e-posta istemcinizde sınırlamaları ile denetleyin. Bir kural için e-posta bildirimi ayarladığınızda, kural, en az bir dakikalık bir dönemdeki ortalama değerleri hesaplama ve anlık değerler kullanma:
 
-![Ortalama hesaplama](./media/iot-accelerators-remote-monitoring-email-actions/calculation.png)
+![Ortalama hesaplama](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

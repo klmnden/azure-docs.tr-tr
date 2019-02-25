@@ -1,88 +1,88 @@
 ---
 title: Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
-description: Azure Data Lake depolama Gen2, Azure HDInsight kümeleri kullanım oluşturmayı öğrenin.
+description: Azure HDInsight kümeleri ile Azure Data Lake depolama Gen2'ı kullanmayı öğrenin.
 services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: howto
-ms.date: 01/10/2019
+ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: fae92f8e09cc2ad6b63cb15599e0b1ab72588ed8
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: acbb01ac8fe728c313770cdb1012b61d6dda8b78
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728852"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750421"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
 
-Azure Data Lake Storage (Data Lake depolama) 2. nesil, büyük veri analizi, Azure Blob Depolama alanında oluşturulmuş için ayrılmış özellikleri kümesidir. Data Lake depolama Gen2 Azure Blob Depolama ve Azure Data Lake depolama Gen1 yeteneklerini birleştirerek sonucudur. Sonucu gibi dosya sistemi sematiğini, dizin ve dosya düzeyinde güvenlik ve ölçek düşük maliyetli, katmanlı depolama yanı sıra yüksek kullanılabilirlik/olağanüstü durum kurtarma özelliklerini Azure Blob, Azure Data Lake depolama Gen1 ' özellikleri sunan bir hizmettir depolama alanı.
+Azure Data Lake depolama Gen2'ye, büyük veri analizi, Azure Blob Depolama alanında oluşturulmuş adanmış bir bulut depolama hizmetidir. Data Lake depolama Gen2 Azure Blob Depolama ve Azure Data Lake depolama Gen1 özelliklerini bir araya getirir. Dosya sistemi sematiğini, dizin ve dosya düzeyinde güvenlik ve ölçeklenebilirlik, düşük maliyetli, katmanlı depolama, yüksek kullanılabilirlik ve olağanüstü durum kurtarma özellikleri birlikte gibi Azure Data Lake depolama Gen1 ' elde edilen hizmet özellikleri sunar Azure Blob depolama alanından.
 
 ## <a name="data-lake-storage-gen2-availability"></a>Data Lake depolama Gen2 kullanılabilirlik
 
-Azure Data Lake depolama Gen2, neredeyse tüm Azure HDInsight küme türleri için hem varsayılan hem de ek bir depolama hesabı olarak bir depolama seçeneği olarak kullanılabilir. HBase, ancak yalnızca tek bir Data Lake depolama Gen2 hesap olabilir.
+Data Lake depolama Gen2, neredeyse tüm Azure HDInsight küme türleri için hem varsayılan hem de ek bir depolama hesabı olarak bir depolama seçeneği olarak kullanılabilir. HBase, ancak yalnızca bir Data Lake depolama Gen2 hesabı olabilir.
 
 > [!Note] 
-> Data Lake depolama 2. nesil olarak seçtiğinizde, **birincil depolama türü**, ek depolama alanı olarak Data Lake depolama Gen1 hesabı seçemezsiniz.
+> Data Lake depolama 2. nesil olarak seçtikten sonra **birincil depolama türü**, ek depolama alanı olarak Data Lake depolama Gen1 hesabı seçemezsiniz.
 
-## <a name="creating-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma
+## <a name="create-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma
 
-## <a name="using-the-azure-portal"></a>Azure portalını kullanma
+## <a name="use-the-azure-portal"></a>Azure portalı kullanma
 
-Data Lake depolama Gen2 için depolamayı kullanan bir HDInsight kümesi oluşturmak için doğru şekilde yapılandırılmış bir Data Lake depolama Gen2'ye hesabı oluşturmak için aşağıdaki adımları kullanın.
+Depolama için Data Lake depolama Gen2 kullanan bir HDInsight kümesi oluşturmak için Data Lake depolama Gen2 hesabı yapılandırmak için aşağıdaki adımları izleyin.
 
 1. Bir kullanıcı tarafından atanan yönetilen kimlik, zaten yoksa, oluşturun. Bkz: [oluşturun, liste, delete veya Azure portalını kullanarak bir kullanıcı tarafından atanan yönetilen kimlik rol atama](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
     ![Kullanıcı tarafından atanan yönetilen kimlik oluşturma](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
-1. Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturun. Emin **hiyerarşik dosya sistemi** seçeneği etkinleştirilir. Bkz: [hızlı başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma](../storage/blobs/data-lake-storage-quickstart-create-account.md) daha fazla ayrıntı için.
+1. Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturun. Emin olun **hiyerarşik ad alanı** seçeneği etkinleştirilir. Daha fazla bilgi için [hızlı başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
     ![Azure portalında depolama hesabı oluşturmayı gösteren ekran görüntüsü](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. Yönetilen kimlik için Ata **depolama Blob verileri sahibi (Önizleme)** depolama hesabındaki rol. Bkz: [RBAC (Önizleme) ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
+1. Yönetilen kimlik için Ata **depolama Blob verileri sahibi (Önizleme)** depolama hesabındaki rol. Daha fazla bilgi için [RBAC (Önizleme) ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal).
 
-    1. İçinde [Azure portalında](https://portal.azure.com), depolama hesabınıza gidin.
+    1. İçinde [Azure portalında](https://portal.azure.com)depolama hesabınıza gidin.
     1. Depolama hesabınızı seçin ve ardından **erişim denetimi (IAM)** hesabı için erişim denetimi ayarlarını görüntülemek için. Seçin **rol atamaları** rol atamaları listesini görmek için sekmesinde.
     
         ![Depolama erişim denetimi ayarları gösteren ekran görüntüsü](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
-    1. Tıklayın **rol ataması Ekle** düğmesini yeni bir rolü ekleyin.
+    1. Seçin **+ rol ataması Ekle** düğmesini yeni bir rolü ekleyin.
     1. İçinde **rol ataması Ekle** penceresinde **depolama Blob verileri sahibi (Önizleme)** rol. Daha sonra yönetilen bir kimlik ve depolama hesabını içeren aboneliği seçin. Ardından, kullanıcı tarafından atanan ve daha önce oluşturduğunuz yönetilen kimlik bulmak için arama yapın. Son olarak, yönetilen kimlik'i seçin ve altında listelenir **seçili üyeleri**.
     
         ![Bir RBAC rolü atayın gösteren ekran görüntüsü](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
-    1. **Kaydet**’e tıklayın. Seçtiğiniz kullanıcı tarafından atanan kimliği artık altında listelenen **katkıda bulunan** rol.
+    1. **Kaydet**’i seçin. Seçtiğiniz kullanıcı tarafından atanan kimliği artık altında listelenen **katkıda bulunan** rol.
 
     1. Bu ilk Kurulum tamamlandıktan sonra portal üzerinden bir küme oluşturabilirsiniz. Küme, depolama hesabı aynı Azure bölgesinde olmalıdır. İçinde **depolama** bölümüne küme oluşturma menüsünden, aşağıdaki seçenekleri belirleyin:
         
-        * İçin **birincil depolama türü**, tıklayın **Azure Data Lake depolama Gen2**.
+        * İçin **birincil depolama türü**seçin **Azure Data Lake depolama Gen2**.
         * Altında **bir depolama hesabı seçin**, arayın ve yeni oluşturduğunuz Data Lake depolama Gen2'ye depolama hesabını seçin.
         
             ![Data Lake depolama Gen2 Azure HDInsight ile kullanmak için depolama ayarları](./media/hdinsight-hadoop-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
         
-        * Altında **kimlik** doğru aboneliği seçin ve yeni oluşturulan kullanıcı-yönetilen bir kimlik atanır.
+        * Altında **kimlik**, doğru aboneliği seçin ve yeni oluşturulan kullanıcı tarafından atanan yönetilen kimliği.
         
             ![Kimlik ayarları, Azure HDInsight ile Data Lake depolama Gen2 kullanma](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
 
-### <a name="using-a-resource-manager-template-deployed-with-azure-cli"></a>Azure CLI ile dağıtılan bir Resource Manager şablonu kullanma
+### <a name="use-an-azure-resource-manager-template-deployed-with-the-azure-cli"></a>Azure CLI ile dağıtılan bir Azure Resource Manager şablonu kullanma
 
-Bir örnek indirebilirsiniz [Burada şablon dosyası](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) ve [örnek parametreler dosyası burada](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Şablon kullanmadan önce dize için gerçek Azure abonelik Kimliğinizi yerine `<SUBSCRIPTION_ID>`. Ayrıca, dize için seçilen parolanız yerine `<PASSWORD>` kullanacağınız her iki oturum açma parolasını ayarlamak için SSH parolası yanı sıra, küme oturum açmak için.
+Yapabilecekleriniz [örnek şablon dosya indirme](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) ve [örnek parametre dosyasını indirin](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Şablon kullanmadan önce dize değiştirin `<SUBSCRIPTION_ID>` gerçek Azure abonelik kimliğinizi Ayrıca, dize değiştirin `<PASSWORD>` hem kümenize oturum için kullanacağınız parola ve SSH parolasını ayarlamak için seçtiğiniz parolayla.
 
-Aşağıdaki kod parçacığı ilk aşağıdaki adımları gerçekleştirir:
+Aşağıdaki kod parçacığı ilk aşağıdakileri yapar:
 
-1. Azure hesabınızda oturum açın.
-1. Etkin aboneliği oluşturma işlemlerini nerede gerçekleştirilecek ayarlayın.
-1. Yeni dağıtım etkinlikler için yeni bir kaynak grubu oluşturma `hdinsight-deployment-rg`.
-1. Bir kullanıcı oluşturma yönetilen hizmet kimliği (MSI) `test-hdinsight-msi`.
-1. Data Lake depolama 2. nesil için özellikleri kullanmak için Azure CLI uzantısı ekleyin.
-1. Yeni bir Data Lake depolama Gen2 hesabı oluşturma `hdinsightadlsgen2`, kullanarak `--hierarchical-namespace true` bayrağı.
+1. Azure hesabınızda günlükleri.
+1. Etkin aboneliği oluşturma işlemleri burada yapılır ayarlar.
+1. Adlı yeni bir dağıtım etkinlikler için yeni bir kaynak grubu oluşturur `hdinsight-deployment-rg`.
+1. Adlı bir kullanıcı tarafından atanan yönetilen kimliği oluşturan `test-hdinsight-msi`.
+1. Data Lake depolama 2. nesil için özellikleri kullanmak için Azure CLI uzantısı ekler.
+1. Adlı yeni bir Data Lake depolama Gen2 hesabı oluşturur `hdinsightadlsgen2`, kullanarak `--hierarchical-namespace true` bayrağı.
 
 ```azurecli
 az login
 az account set --subscription <subscription_id>
 
-#create resource group
+# Create resource group
 az group create --name hdinsight-deployment-rg --location eastus
 
 # Create managed identity
@@ -96,9 +96,9 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-İleri portalında oturum açın ve eklemek için yeni MSI **depolama Blob verileri katkıda bulunan (Önizleme)** rolü altında Yukarıdaki 3 adımda açıklandığı gibi depolama hesabında [Azure portalını kullanarak](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
+Ardından, portalda oturum açın. Eklemek için yeni kullanıcı tarafından atanan yönetilen kimlik **depolama Blob verileri katkıda bulunan (Önizleme)** 3. adım altında açıklandığı gibi depolama hesabındaki rol [Azure portalını kullanarak](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
 
-Aşağıdaki kod parçacığını kullanarak şablonu dağıtmak için MSI rol ataması portalında tamamladıktan sonra devam edin.
+Rolü için kullanıcı tarafından atanan bir yönetilen kimlik atadıktan sonra aşağıdaki kod parçacığını kullanarak şablonu dağıtın.
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \
@@ -111,24 +111,25 @@ az group deployment create --name HDInsightADLSGen2Deployment \
 
 ### <a name="what-kinds-of-permissions-does-data-lake-storage-gen2-support"></a>Ne tür izinler, Data Lake depolama Gen2 destekliyor mu?
 
-Azure Data Lake depolama 2. nesil hem Azure rol tabanlı erişim denetimi (RBAC) hem de benzer POSIX erişim denetim listeleri (ACL'ler) destekleyen bir erişim denetimi modeli kullanır. Verilere erişimi denetlemek için Data Lake yalnızca desteklenen depolama Gen1 erişim denetim listeleri.
+Data Lake depolama Gen2, rol tabanlı erişim denetimi (RBAC) hem de benzer POSIX erişim denetim listeleri (ACL'ler) destekleyen bir erişim denetimi modeli kullanır. Data Lake depolama Gen1 destekler erişim denetimi listeleri'yalnızca veri erişimi denetlemek için.
 
-Azure rol tabanlı erişim denetimi (RBAC), kullanıcılara, gruplara veya hizmet sorumlularının Azure kaynakları için izin kümelerini etkili bir şekilde uygulamak için rol atamalarını kullanır. Genellikle, bu Azure kaynakları en üst düzey kaynaklar (örneğin, Azure depolama hesabı) göre kısıtlanır. Azure depolama ve Azure Data Lake depolama Gen2 Ayrıca, bu mekanizma dosya sistemi kaynağa genişletilmiştir.
+RBAC, kullanıcılara, gruplara veya hizmet sorumlularının Azure kaynakları için izin kümelerini etkili bir şekilde uygulamak için rol atamalarını kullanır. Genellikle, bu Azure kaynaklarını en üst düzey kaynaklar (örneğin, Azure depolama hesapları) göre kısıtlanır. Azure depolama ve Data Lake depolama Gen2 Ayrıca, bu mekanizma dosya sistemi kaynağa genişletilmiştir.
 
  RBAC ile dosya izinleri hakkında daha fazla bilgi için bkz. [Azure rol tabanlı erişim denetimi (RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
 Dosya izinleri ACL'lerine sahip hakkında daha fazla bilgi için bkz. [erişim denetim listeleri dosyaların ve dizinlerin](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
+### <a name="how-do-i-control-access-to-my-data-in-data-lake-storage-gen2"></a>Data Lake depolama Gen2 verilerimi için erişimi nasıl denetlerim?
 
-### <a name="how-do-i-control-access-to-my-data-in-gen2"></a>Gen2 verilerimi için erişimi nasıl denetlerim?
+Data Lake depolama Gen2 içindeki dosyalara erişme yeteneğini HDInsight kümenizin yönetilen kimlikleri denetlenir. Yönetilen bir kimlik, Azure Active Directory'de kimlik bilgileri, Azure tarafından yönetilir (Azure AD) kayıtlı bir kimliktir. Yönetilen kimliklerle hizmet sorumluları, Azure AD'ye kaydetme ve sertifikalar gibi kimlik bilgilerini güncelleştirmek gerekmez.
 
-Özelliği, HDInsight kümeniz, Data Lake depolama Gen2 dosyalara erişmek yönetilen kimlikleri denetlenir. Yönetilen bir kimlik, kimlik bilgileri Azure tarafından yönetilen Azure AD'de kayıtlı bir kimliktir. Hizmet sorumluları, Azure AD'ye kaydetme ve sertifikalar gibi kimlik bilgilerini korumak gerekmez.
+Azure hizmetlerine yönetilen kimlikleri iki tür vardır: sistem tarafından atanan ve kullanıcı tarafından atanan. HDInsight, Data Lake depolama Gen2'ye erişim kullanıcı tarafından atanan yönetilen kimlikleri kullanır. Kullanıcı tarafından atanan bir yönetilen kimlik, bir tek başına Azure kaynağı olarak oluşturulur. Bir oluşturma işlemi çerçevesinde, Azure kullanılan abonelik tarafından güvenilen Azure AD kiracısında bir kimlik oluşturur. Kimlik oluşturulduktan sonra, bir veya birden çok Azure hizmet örneğine atanabilir.
 
-Yönetilen kimliklerinin Azure Hizmetleri için iki tür vardır: sistem tarafından atanan ve kullanıcı tarafından atanan. Azure HDInsight, Azure Data Lake depolama Gen2'ye erişim kullanıcı tarafından atanan yönetilen kimlikleri kullanır. Kullanıcı tarafından atanan bir yönetilen kimlik, bir tek başına Azure kaynağı olarak oluşturulur. Bir oluşturma işlemi çerçevesinde, Azure kullanılan abonelik tarafından güvenilen Azure AD kiracısında bir kimlik oluşturur. Kimlik oluşturulduktan sonra, bir veya birden çok Azure hizmet örneğine atanabilir. Kullanıcı tarafından atanan kimliğin yaşam döngüsü, bu kimliğin atandığı Azure hizmet örneklerinin yaşam döngüsünden ayrı olarak yönetilir. Yönetilen kimlikleri hakkında daha fazla bilgi için bkz. [Azure kaynaklarını iş yönetilen biçimimi nasıl yaptığını](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka).
+Kullanıcı tarafından atanan kimliğin yaşam döngüsü, bu kimliğin atandığı Azure hizmet örneklerinin yaşam döngüsünden ayrı olarak yönetilir. Yönetilen kimlikler hakkında daha fazla bilgi için bkz. [Azure kaynaklarını iş yönetilen biçimimi nasıl yapılacağı?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka).
 
-### <a name="how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-using-hive-or-other-services"></a>Hive veya diğer hizmetler kullanarak verileri sorgulamak, Data Lake depolama Gen2'ye Azure AD kullanıcıları için izinleri nasıl ayarlarım?
+### <a name="how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services"></a>Nasıl izinleri Azure AD kullanıcıları için Data Lake depolama Gen2 verilerde sorgu Hive veya diğer hizmetleri kullanarak ayarlayabilirim?
 
-ACL'ler atanan sorumlu olarak Azure AD güvenlik grupları kullanın. Doğrudan bireysel kullanıcıları veya dosya erişim izinlerini ile hizmet sorumluları atamayın. İzinleri akışını denetlemek için AD güvenlik grupları'nı kullandığınızda, ekleyebilir ve kullanıcı veya hizmet sorumluları için tüm dizin yapısının ACL'leri yeniden uygulama olmadan kaldırın. Yalnızca eklemek veya kullanıcıların uygun kaldırmak kullandığınız Azure AD güvenlik grubu. ACL'ler devralınmaz ve bu nedenle ACL'leri yeniden uygulama her dosya ve alt noktasındaki ACL güncelleniyor gerektirir.
+Verileri sorgulamak için kullanıcıların izinleri ayarlamak için ACL'leri atanan sorumlu olarak Azure AD güvenlik grupları kullanın. Dosya erişim izinlerini doğrudan bireysel kullanıcılar veya hizmet sorumlularına atamayın. İzinleri akışını denetlemek için Azure AD güvenlik gruplarını kullandığınızda, ekleme ve kullanıcı veya hizmet sorumluları için tüm dizin yapısının ACL'leri yeniden uygulama olmadan kaldırın. Yalnızca eklemek veya kullanıcıların uygun kaldırmak kullandığınız Azure AD güvenlik grubu. Her dosya ve alt noktasındaki ACL güncelleniyor gerekir ACL'leri yeniden uygulama için ACL'leri devralınmaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

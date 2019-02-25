@@ -1,6 +1,6 @@
 ---
-title: Azure Iaas Vm'leri - yönetilen diskler için disk türü seçin
-description: Ultra yüksek diskler, premium SSD, standart SSD ve HDD standart dahil olmak üzere, sanal makineler için kullanılabilir Azure disk türleri hakkında bilgi edinin.
+title: Azure Iaas sanal makineleri için - yönetilen diskleri bir disk türü seçin
+description: Ultra SSD'ler, premium SSD, standart SSD ve HDD'ler standart dahil olmak üzere Linux sanal makineleri için kullanılabilir Azure disk türleri hakkında bilgi edinin.
 services: virtual-machines-linux,storage
 author: roygara
 ms.author: rogarana
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: cb5098821399a7515bd7303a37dc2bb8b911bd6c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6cd3804d41f2ff98e2f97415a2ce62fc5a851ba0
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331329"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750115"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 

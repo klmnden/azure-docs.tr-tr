@@ -4,45 +4,51 @@ description: Web işleri SDK'sı için kod yazma hakkında daha fazla bilgi edin
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/19/2019
+ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a2e07f9022d7404d037903fda627649918134cb7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ba9dbeb01be5a9869b69836b118651cff7f0c92d
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732747"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750557"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli bir arka plan işlemleri için Azure Web işleri SDK'sını kullanma
 
-Bu makalede için kod yazmaya yönelik rehberlik sağlanır [Azure WebJobs SDK](webjobs-sdk-get-started.md). Belge her iki sürümü için geçerlidir 3.x ve WebJobs SDK 2.x. API farklılıklar da mevcut olduğunda, her iki örnek verilmiştir. Tanıtılan ana değişiklik sürümü tarafından 3.x .NET Core, .NET Framework yerine kullanılır.
+Bu makalede, Azure Web işleri SDK'sı ile çalışma konusunda rehberlik sağlar. WebJobs ile hemen kullanmaya başlamak için bkz: [olay odaklı arka planda işleme için Azure Web işleri SDK'sı ile çalışmaya başlama](webjobs-sdk-get-started.md). 
 
->[!NOTE]
-> [Azure işlevleri](../azure-functions/functions-overview.md) Web işleri SDK'sı ve bazı konular için Azure işlevleri belgelerinde Bu makale bağlantıları temel alır. İşlevler ve Web işleri SDK'sı arasında aşağıdaki farklılıklara dikkat edin:
+## <a name="webjobs-sdk-versions"></a>WebJobs SDK sürümleri
+
+Temel farklılıklar şunlardır sürümünde Web işleri SDK'ın 3.x sürümüne kıyasla 2.x:
+
+* Sürüm 3.x .NET Core için destek ekler.
+* Sürümünde 3.x, Web işleri SDK'sı tarafından gerekli depolama bağlama uzantısı açıkça yüklemeniz gerekir. Sürüm 2.x bağlamaları SDK içinde dahil edilen depolama alanı.
+* Visual Studio (3.x) .NET Core projeleri için araç (2.x) .NET Framework projelerinden farklıdır. Daha fazla bilgi için [geliştirme ve Visual Studio - Azure App Service kullanarak Web işleri dağıtma](webjobs-dotnet-deploy-vs.md).
+
+Zaman mümkün örnekler için her iki sürümü sağlar 3.x ve sürüm 2.x.
+
+> [!NOTE]
+> [Azure işlevleri](../azure-functions/functions-overview.md) Web işleri SDK'sı ve bazı konular için Azure işlevleri belgelerinde Bu makale bağlantıları temel alır. İşlevleri ve WebJobs SDK arasındaki farklar şunlardır:
 > * Azure işlevleri sürüm 2.x WebJobs SDK sürümüne karşılık gelen 3.x ve Azure işlevleri 1.x karşılık gelen WebJobs SDK 2.x. Kaynak kodu depoları numaralandırma Web işleri SDK'yı izleyin.
 > * Azure işlevleri C# sınıf kitaplıkları için örnek kod, Web işleri SDK'sı kod gibi gerekmez dışında olan bir `FunctionName` WebJobs SDK projesindeki özniteliği.
 > * Bazı bağlama türleri yalnızca, HTTP Web kancası ve Event Grid (hangi HTTP göre) gibi işlevler de desteklenir.
-> 
+>
 > Daha fazla bilgi için [Azure işlevleri ve WebJobs SDK karşılaştırması](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
-## <a name="prerequisites"></a>Önkoşullar
-
-Bu makaleyi okuyun ve görevleri tamamlandı varsayar [WebJobs SDK ile çalışmaya başlama](webjobs-sdk-get-started.md).
-
-## <a name="webjobs-host"></a>WebJobs konak
+## <a name="webhobs-host"></a>WebHobs konak
 
 Konak, İşlevler için bir çalışma zamanı kapsayıcıdır.  Bu, tetikleyiciler ve çağrıları işlevleri için dinler. Sürümünde 3.x konak uygulaması olduğu `IHost`ve sürüm 2.x kullanmanız `JobHost` nesne. Kodunuzda bir ana bilgisayar örneği oluşturur ve davranışını özelleştirmek için kod yazma.
 
 WebJobs SDK kullanarak doğrudan ve dolaylı olarak Azure işlevleri'ni kullanarak kullanarak arasında önemli bir fark budur. Azure işlevleri'nde hizmet konak kontrolü ve kod yazarak özelleştiremezsiniz. Azure işlevleri aracılığıyla ayarlarında konak davranışını özelleştirmenize olanak sağlar *host.json* dosya. Bu ayarlar, yapabileceğiniz özelleştirmeleri türlerini sınırlayan kodu değil, dizelerdir.
 
-### <a name="host-connection-strings"></a>Konak bağlantı dizeleri 
+### <a name="host-connection-strings"></a>Konak bağlantı dizeleri
 
 WebJobs SDK, Azure depolama ve Azure Service Bus bağlantı dizeleri arar *local.settings.json* Azure'da çalıştırdığınızda, yerel olarak veya WebJob'ın ortamındaki çalıştırdığınızda dosya. Varsayılan olarak, bir depolama bağlantı dizesi ayarı adlı `AzureWebJobsStorage` gereklidir.  
 
@@ -151,7 +157,20 @@ static void Main(string[] args)
 
 ### <a name="automatic-trigger"></a>Otomatik tetikleyici
 
-Otomatik tetikleyiciler, bir olaya yanıt olarak bir işlev çağırın. Kuyruk tetikleyicisi örneği için bkz. [Get başlatılan makale](webjobs-sdk-get-started.md).
+Otomatik tetikleyiciler, bir olaya yanıt olarak bir işlev çağırın. Azure kuyruk depolama, blob depolama alanından Azure blogunu okur eklenen bir ileti tarafından tetiklenen bir işlev aşağıdaki örneği göz önünde bulundurun:
+
+```cs
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    ILogger log)
+{
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+```
+
+`QueueTrigger` Özniteliği söyleyen bir kuyruk iletisi göründüğünde işlevi çağırmak için çalışma zamanı `myqueue-items` kuyruk. `Blob` Özniteliği söyleyen bir blobun okunabilmesi için kuyruk iletisi kullanılacak çalışma zamanı *örnek-workitems* kapsayıcı. Kuyruk iletisinin içeriği işleve geçirildi `myQueueItem` parametredir, blob adı.
+
 
 ### <a name="manual-trigger"></a>El ile tetikleme
 
@@ -345,9 +364,78 @@ Bazı tetikleyicisini ve bağlamalarını davranışlarını yapılandırmanıza
 * **Sürüm 3.x:** Yapılandırması ne zaman ayarlanır `Add<Binding>` yöntemi çağrıldığında `ConfigureWebJobs`.
 * **Sürüm 2.x:** Özellikleri bir yapılandırma nesnesi, ayarlayarak, için geçirdiğiniz `JobHost`.
 
+Bu bağlama özgü ayarları ayarlarında eşdeğer [host.json proje dosyası](../azure-functions/functions-host-json.md) Azure işlevleri'nde.
+
+Aşağıdaki bağlamaları yapılandırabilirsiniz:
+
+* [Azure CosmosDB tetikleyicisi](#azure-cosmosdb-trigger-configuration-version-3x)
+* [Olay hub'ları tetikleme](#event-hubs-trigger-configuration-version-3x)
+* [Kuyruk depolama tetikleyicisi](#queue-trigger-configuration)
+* [SendGrid bağlama](#sendgrid-binding-configuration-version-3x)
+* [Service Bus tetikleyicisi](#service-bus-trigger-configuration-version-3x)
+
+### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Azure CosmosDB tetikleyici yapılandırması (sürüm 3.x)
+
+Aşağıdaki örnek, Azure Cosmos DB tetikleyicisi yapılandırma gösterilmektedir:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddCosmosDB(a =>
+        {
+            a.ConnectionMode = ConnectionMode.Gateway;
+            a.Protocol = Protocol.Https;
+            a.LeaseOptions.LeasePrefix = "prefix1";
+
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Daha fazla ayrıntı için [Azure CosmosDB bağlama makale](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings).
+
+### <a name="event-hubs-trigger-configuration-version-3x"></a>Olay hub'ları tetiklemek yapılandırma (sürüm 3.x)
+
+Aşağıdaki örnek, Event Hubs tetikleyiciyi yapılandırmak gösterilmektedir:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddEventHubs(a =>
+        {
+            a.BatchCheckpointFrequency = 5;
+            a.EventProcessorOptions.MaxBatchSize = 256;
+            a.EventProcessorOptions.PrefetchCount = 512;
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Daha fazla ayrıntı için [Event Hubs bağlama makale](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings).
+
 ### <a name="queue-trigger-configuration"></a>Kuyruk tetikleyicisi yapılandırma
 
-Depolama kuyruğu tetikleyici için yapılandırabileceğiniz ayarlar, Azure işlevleri'nde açıklanmaktadır [host.json başvurusu](../azure-functions/functions-host-json.md#queues). Aşağıdaki örnekler, yapılandırmanızda ayarlamaya gösterilmektedir:
+Aşağıdaki örnekler, depolama kuyruğu tetikleyici yapılandırma göster:
 
 #### <a name="version-3x"></a>Sürüm 3.x
 
@@ -374,6 +462,8 @@ static void Main()
 }
 ```
 
+Daha fazla ayrıntı için [kuyruk depolama bağlama makale](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings).
+
 #### <a name="version-2x"></a>Sürüm 2.x
 
 ```cs
@@ -388,6 +478,64 @@ static void Main(string[] args)
     host.RunAndBlock();
 }
 ```
+
+Daha fazla ayrıntı için [host.json v1.x başvurusu](../azure-functions/functions-host-json-v1.md#queues).
+
+### <a name="sendgrid-binding-configuration-version-3x"></a>SendGrid bağlama yapılandırması (sürüm 3.x)
+
+Aşağıdaki örnek, SendGrid yapılandırma işlemi gösterilmektedir çıktı bağlaması:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddSendGrid(a =>
+        {
+            a.FromAddress.Email = "samples@functions.com";
+            a.FromAddress.Name = "Azure Functions";
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Daha fazla ayrıntı için [SendGrid bağlama makale](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings).
+
+### <a name="service-bus-trigger-configuration-version-3x"></a>Service Bus tetikleyicisi yapılandırma (sürüm 3.x)
+
+Aşağıdaki örnek, Service Bus tetiği yapılandırmak gösterilmektedir:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddServiceBus(sbOptions =>
+        {
+            sbOptions.MessageHandlerOptions.AutoComplete = true;
+            sbOptions.MessageHandlerOptions.MaxConcurrentCalls = 16;
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Daha fazla ayrıntı için [Service Bus bağlama makale](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).
 
 ### <a name="configuration-for-other-bindings"></a>Diğer bağlantılar için yapılandırma
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b6a7fe2c12b2f1f5bcc0ba8cccd1a51ee39c4a6f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e5e80ac2229c3a2962702527dc3162229c25a5c5
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882099"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750880"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Etkinleştirme veya Application Insights Profiler ' ı görüntüleme sorunlarını giderme
 
@@ -123,6 +123,8 @@ Bu parametreler, Application Insights Profiler ' ı tarafından kullanılan ve y
 Profiler web uygulamasında sürekli bir webjob olarak çalışır. Web uygulaması kaynak açabileceğiniz [Azure portalında](https://portal.azure.com). İçinde **WebJobs** bölmesinde, durumunu **ApplicationInsightsProfiler**. Çalışmıyorsa, açık **günlükleri** daha fazla bilgi için.
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Profiler'ı ve Azure Tanılama ile ilgili sorunları giderme
+
+  >**Bulut Hizmetleri için en son sürümünü WAD sevk profil oluşturucu bir hata yoktur.** Profil Oluşturucu bir bulut hizmeti ile kullanmak için yalnızca AI SDK'sı sürüm 2.7.2 kadar destekler. AI SDK'sının daha yeni bir sürümü kullanıyorsanız, 2.7.2 için profil oluşturucuyu kullanmak için dönmeniz gerekir.
 
 Profiler Azure tanılama tarafından doğru şekilde yapılandırılıp yapılandırılmadığını görmek için aşağıdakileri yapın: 
 1. İlk olarak, dağıtılan Azure tanılama yapılandırması içeriğini beklediğiniz olup olmadığını denetleyin. 

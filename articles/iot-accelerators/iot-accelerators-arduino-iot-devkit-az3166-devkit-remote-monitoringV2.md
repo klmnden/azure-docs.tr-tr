@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: eb2a6692c0b00dc4419c601228453a8cfc44c02a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0f444a4ce41a700af4c55795bca95dbbf95003a4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156791"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750030"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm Hızlandırıcısını için bir IOT DevKit cihazı bağlayın
 
@@ -79,7 +79,7 @@ DevKit cihaza yüklediğiniz örnek uygulamayı çalışır durumda olduğunu do
 
 Örnek uygulama çalıştırıldığında DevKit cihaz çözüm hızlandırıcınız Wi-Fi algılayıcı verilerini telemetri gönderir. Telemetri görmek için:
 
-1. Çözüm panonuza gidin ve tıklatın **cihazları**.
+1. Çözüm panonuza gidin ve tıklatın **Device Explorer**.
 
 1. DevKit cihazınızın cihaz adına tıklayın. sağ taraftaki sekmesinde DevKit gerçek zamanlı olarak gelen telemetriyi görebilirsiniz:
 
@@ -87,7 +87,7 @@ DevKit cihaza yüklediğiniz örnek uygulamayı çalışır durumda olduğunu do
 
 ### <a name="control-the-devkit-device"></a>DevKit cihazı denetleme
 
-Uzaktan izleme çözüm Hızlandırıcısını Cihazınızı uzaktan denetlemenize olanak tanır. Örnek kod görebilirsiniz üç yöntem uygulayan **yöntemi** bölümünde cihaz seçtiğinizde **cihazları** sayfası:
+Uzaktan izleme çözüm Hızlandırıcısını Cihazınızı uzaktan denetlemenize olanak tanır. Örnek kod görebilirsiniz üç yöntem uygulayan **yöntemi** bölümünde cihaz seçtiğinizde **Device Explorer** sayfası:
 
 ![IOT DevKit yöntemleri](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 

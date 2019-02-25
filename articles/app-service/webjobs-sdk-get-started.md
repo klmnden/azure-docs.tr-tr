@@ -4,66 +4,39 @@ description: WebJobs SDK olay odaklı arka plan işlemesi için giriş. Azure Hi
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 390d9dcda18e10c21db8165653faec7880863ba1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6b3318ced4c6e40b80172b19d7f664c53e5569cc
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734481"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750642"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli arka planda işleme için Azure WebJobs SDK ile çalışmaya başlama
 
-Bu makalede, Azure WebJobs SDK projesi oluşturun, yerel olarak çalıştırın ve Azure App Service'e dağıtma gösterilmektedir.
+Bu makale bir Azure WebJobs SDK projesi oluşturun, yerel olarak çalıştırın ve ardından dağıtmak için Visual Studio 2017'yi kullanmayı [Azure App Service](overview.md). Oluşturduğunuz proje sürümünü kullanan bir .NET Core konsol uygulaması olan Web işleri SDK'sının 3.x. Sürümünde ilgileniyorsanız .NET Framework kullanan, 2.x bkz [geliştirme ve Visual Studio - Azure App Service kullanarak Web işleri dağıtma](webjobs-dotnet-deploy-vs.md).
 
-Yönergeler için olan [Visual Studio 2017](https://www.visualstudio.com/vs/), ancak diğer araçları ile gerçekleştirdiğiniz görevlerin gibi gerçekleştirilebilir [Visual Studio Code](https://code.visualstudio.com/).
-
-## <a name="what-is-the-azure-webjobs-sdk"></a>Azure WebJobs SDK nedir?
-
-Azure WebJobs SDK, arka plan işleme Azure hizmetlerindeki verilere erişen bir kod yazma görevini kolaylaştıran bir çerçevedir. Sıraya eklenen yeni bir ileti gibi bir işlevi tetiklemesi gereken olayları belirtmek için bir bildirim temelli söz dizimi SDK'sı sunar. Tetiklenen bir işlev sonra veri yazma ve okuma benzer bildirim temelli söz dizimini denetler. Bu sistem, Tetikleyicileri ve bağlamaları, Azure ve üçüncü taraf hizmetleri erişim ile ilişkili alt düzey kodlama görevlerin çoğunu üstlenir.
-
-### <a name="functions-triggers-and-bindings"></a>İşlevler, tetikleyiciler ve bağlamalar
-
-WebJobs SDK projesi, bir veya daha fazla tanımlar *işlevleri*. Bir işlev, Yöntem imzasında tetikleyici özniteliği olan bir yöntemdir. Bir işlevi çağırmak için koşullar Tetikleyicileri ve bağlamaları ne okumak ve yazmak belirtin. Örneğin, aşağıdaki işlev tetikleyici özniteliğinde bir kuyruk iletisi göründüğünde işlevi çağırmak için çalışma zamanı söyler `items` kuyruk. `Blob` Özniteliği söyleyen bir blobun okunabilmesi için kuyruk iletisi kullanılacak çalışma zamanı *iş öğeleri* kapsayıcı. Kuyruk iletisinin içeriği &mdash; sağlanan `queueTrigger` parametre &mdash; blob adıdır.
-
-```cs
-public static void Run(
-    [QueueTrigger("items")] string myQueueItem,
-    [Blob("workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-    TraceWriter log)
-{
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-}
-```
-
-### <a name="versions-2x-and-3x"></a>Sürüm 2.x ve 3.x
-
-Web işleri SDK'sı sürüm 3.x proje oluşturma yönergeleri söyleyin. Tanıtılan ana değişiklik sürümü tarafından 3.x .NET Core, .NET Framework yerine kullanılır. ' Nın v2.x v3.x arasındaki farklar adlı bu makaledeki genişletme.
-
-### <a name="azure-functions"></a>Azure İşlevleri
-
-[Azure işlevleri](../azure-functions/functions-overview.md) işlevleriniz için sunucusuz bir seçenek sağlar. İşlevleri WebJobs SDK'da temel alır ve Web işleri SDK'sını doğrudan kullanmak zorunda kalmazsınız zamanki bir seçenektir. Azure işlevleri 2.x kullanan Web işleri SDK'sı 3.x. Daha fazla bilgi için [Azure işlevleri ve WebJobs SDK karşılaştırması](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
+WebJobs SDK ile çalışma hakkında daha fazla bilgi edinmek için [olay odaklı arka plan işlemleri için Azure Web işleri SDK'sını kullanmayı](webjobs-sdk-how-to.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makalede, sahip olduğunuz varsayılır [bir Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) ve deneyimini [Azure App Service'te uygulamaları](overview.md). Bu makaledeki adımları tamamlayabilmeniz için:
-
 * [Visual Studio 2017'yi](/visualstudio/install/) ile **Azure geliştirme** iş yükü. Zaten Visual Studio yüklü ancak bu iş yükü yüklü değilse, iş yükü seçerek ekleyin **Araçlar > araçları ve özellikleri Al**.
-* [Bir App Service uygulaması oluşturma](app-service-web-get-started-dotnet-framework.md). Webjob'a dağıtabileceğiniz bir hesabınız varsa, yeni bir tane oluşturmak yerine bunu kullanabilirsiniz.
+
+* Olmalıdır [bir Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Azure WebJobs SDK projenizi yayımlamak için.
 
 ## <a name="create-a-project"></a>Proje oluşturma
 
 1. Visual Studio'da **Dosya > Yeni > Proje**.
 
-2. Seçin **Windows Klasik Masaüstü > konsol uygulaması (.NET Framework)**.
+2. Seçin **.NET Core > konsol uygulaması (.NET Core)**.
 
 3. Projeyi adlandırın *WebJobsSDKSample*ve ardından **Tamam**.
 
@@ -71,39 +44,21 @@ Bu makalede, sahip olduğunuz varsayılır [bir Azure hesabı](https://azure.mic
 
 ## <a name="webjobs-nuget-packages"></a>Web işleri NuGet paketleri
 
-Web işleri SDK'sını yükleyin NuGet paketlerini,'ın v2.x ve v3.x biraz farklıdır.
-
-### <a name="install-sdk-version-3x-packages"></a>SDK sürümü 3.x paketlerini yükleme
-
 1. Aşağıdaki NuGet paketlerini en son kararlı 3.x sürümlerini yükleyin:
 
     * `Microsoft.Azure.WebJobs`
     * `Microsoft.Azure.WebJobs.Extensions`
 
-    İşte **Paket Yöneticisi Konsolu** komutları 3.0.3 sürümü için:
+    İşte **Paket Yöneticisi Konsolu** sürüm 3.0.4 komutları:
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs -version 3.0.2
+    Install-Package Microsoft.Azure.WebJobs -version 3.0.4
     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
-    ```
-
-### <a name="install-the-sdk-version-2x-package"></a>SDK sürüm 2.x paketini yükleme
-
-1. En son kararlı sürümü olan 2.x sürümüne NuGet paketini yükleyin `Microsoft.Azure.WebJobs`.
-
-    İşte **Paket Yöneticisi Konsolu** komutu 2.2.0 sürümü için:
-
-    ```powershell
-    Install-Package Microsoft.Azure.WebJobs -version 2.2.0
     ```
 
 ## <a name="create-the-host"></a>Konağı oluşturma
 
-Konak işlevler çalışma zamanı kapsayıcıdır: tetikleyiciler ve çağrıları işlevleri için dinler. Oluşturduğunuz ana SDK sürümüne bağlıdır.
-
-### <a name="version-3x"></a>Sürüm 3.x
-
-Aşağıdaki uygulayan bir ana bilgisayar oluşturur [ `IHost` ](/dotnet/api/microsoft.extensions.hosting.ihost), ASP.NET Core genel ana bilgisayar olduğu. 
+Konak için tetikleyiciler ve çağrıları işlevleri dinleyen çalışma zamanı işlevleri için kapsayıcıdır. Aşağıdaki adımları uygulayan bir konağı oluşturma [ `IHost` ](/dotnet/api/microsoft.extensions.hosting.ihost), ASP.NET Core genel ana bilgisayar olduğu.
 
 1. İçinde *Program.cs*, ekleme bir `using` deyimi:
 
@@ -129,41 +84,16 @@ Aşağıdaki uygulayan bir ana bilgisayar oluşturur [ `IHost` ](/dotnet/api/mic
     }
     ```
 
-ASP.NET Core, ana bilgisayar yapılandırmalarını üzerinde yöntemleri çağırarak ayarlanır [ `HostBuilder` ](/dotnet/api/microsoft.extensions.hosting.hostbuilder) örneği. Daha fazla bilgi için [.NET genel ana bilgisayar](/aspnet/core/fundamentals/host/generic-host). `ConfigureWebJobs` Genişletme yöntemi WebJobs ana bilgisayarı başlatır.
-
-### <a name="version-2x"></a>Sürüm 2.x
-
-Aşağıdaki kod oluşturur **JobHost** nesne.
-
-1. İçinde *Program.cs*, ekleme bir `using` deyimi:
-
-   ```cs
-   using Microsoft.Azure.WebJobs;
-   ```
-
-1. `Main` yöntemini aşağıdaki kod ile değiştirin:
-
-   ```cs
-   static void Main()
-   {
-       var config = new JobHostConfiguration();
-       var host = new JobHost(config);
-       host.RunAndBlock();
-   }
-   ```
-
-Ana bilgisayar yapılandırmalarını ayarlanır `JobHostConfiguration` örneği oluşturmak için kullanılan `JobHost`.
+ASP.NET Core, ana bilgisayar yapılandırmalarını üzerinde yöntemleri çağırarak ayarlanır [ `HostBuilder` ](/dotnet/api/microsoft.extensions.hosting.hostbuilder) örneği. Daha fazla bilgi için [.NET genel ana bilgisayar](/aspnet/core/fundamentals/host/generic-host). `ConfigureWebJobs` Genişletme yöntemi WebJobs ana bilgisayarı başlatır. İçinde `ConfigureWebJobs`, belirli WebJobs uzantıları başlatmak ve bu uzantıları özelliklerini ayarlayın.  
 
 ## <a name="enable-console-logging"></a>Konsol günlüğü kaydetmeyi etkinleştir
 
-ASP.NET Core için her iki sürümü önerilir geliştirilmiş günlüğe kaydetme çerçevesi 2.x ve Web işleri SDK'sının 3.x. Bu çerçeve, daha iyi performans ve depolama ortamı ve filtreleme konusunda daha fazla esneklik sunar. Daha fazla bilgi için bkz. [ASP.NET Core günlüğü](/aspnet/core/fundamentals/logging).
-
-Bu bölümde, bu framework kullanan konsol günlüğünü ayarlama.
+Bu bölümde, kullanan konsol günlüğünü ayarlama [ASP.NET Core günlüğe kaydetme çerçevesi](/aspnet/core/fundamentals/logging).
 
 1. Aşağıdaki NuGet paketlerini en son kararlı sürümünü yükleyin:
 
    * `Microsoft.Extensions.Logging` -Günlüğe kaydetme çerçevesi.
-   * `Microsoft.Extensions.Logging.Console` -Konsol *sağlayıcısı*. Bir sağlayıcı günlükleri belirli bir hedefe, bu durumda konsola gönderir.
+   * `Microsoft.Extensions.Logging.Console` -Günlükleri konsola gönderir konsol sağlayıcısı.
 
    İşte **Paket Yöneticisi Konsolu** komutları 2.2.0 sürümü için:
 
@@ -181,11 +111,7 @@ Bu bölümde, bu framework kullanan konsol günlüğünü ayarlama.
    using Microsoft.Extensions.Logging;
    ```
 
-1. Günlük kod güncelleştirmelerini SDK sürümünüzde bağlıdır:
-
-    **Sürüm 3.x**
-
-    Çağrı [ `ConfigureLogging` ](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) metodunda [ `HostBuilder` ](/dotnet/api/microsoft.extensions.hosting.hostbuilder). [ `AddConsole` ](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) Yöntemi konsol günlüğü yapılandırmaya ekler.
+1. Çağrı [ `ConfigureLogging` ](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) metodunda [ `HostBuilder` ](/dotnet/api/microsoft.extensions.hosting.hostbuilder). [ `AddConsole` ](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) Yöntemi konsol günlüğü yapılandırmaya ekler.
 
     ```cs
     builder.ConfigureLogging((context, b) =>
@@ -216,46 +142,23 @@ Bu bölümde, bu framework kullanan konsol günlüğünü ayarlama.
     }
     ```
 
-    **Sürüm 2.x**
-
-    İçinde `Main` yöntemini güncelleştirmek için kodu ekleyin `JobHostConfiguration` oluşturmadan önce `JobHost`:
-
-    ```cs
-    config.DashboardConnectionString = "";
-    var loggerFactory = new LoggerFactory();
-    config.LoggerFactory = loggerFactory
-        .AddConsole();
-    ```
-
-    `Main` Metodu artık şuna benzer:
-
-    ```cs
-    var config = new JobHostConfiguration();
-    config.DashboardConnectionString = "";
-    var loggerFactory = new LoggerFactory();
-    config.LoggerFactory = loggerFactory
-        .AddConsole();
-    var host = new JobHost(config);
-    host.RunAndBlock();
-    ```
-
-    Bu güncelleştirmeler, aşağıdakileri yapın:
+    Bu güncelleştirme şunları yapar:
 
     * Devre dışı bırakır [Pano günlük](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). İzleme aracı eski panodur ve yüksek performanslı üretim senaryoları için panoyu günlük önerilmez.
     * Varsayılan konsol sağlayıcısıyla ekler [filtreleme](webjobs-sdk-how-to.md#log-filtering).
 
 Şimdi, gelen iletileri tarafından tetiklenen bir işlev ekleyebilirsiniz. bir [Azure depolama kuyruğu](../azure-functions/functions-bindings-storage-queue.md).
 
-## <a name="install-binding-extensions"></a>Bağlama uzantılarını yükleme
+## <a name="install-the-storage-binding-extension"></a>Depolama bağlama uzantısını yükleme
 
-Sürümünden başlayarak 3.x işlevlerinizi içinde kullandığınız WebJobs SDK bağlama özniteliklerini için uzantıları açıkça yüklemeniz gerekir. Yalnızca özel durumlar [Zamanlayıcı tetikleyicisi](../azure-functions/functions-bindings-timer.md) ve [HTTP tetikleyicisi](../azure-functions/functions-bindings-http-webhook.md), uzantı gerektirmez. Sürüm extensions WebJobs SDK 2.x kullanmaz, bunlar SDK'da eklenir. Sürümünü kullanıyorsanız 2.x, önceden sonraki bölüme atlayın.
+Sürümünden başlayarak 3.x, Web işleri SDK'sı tarafından gerekli depolama bağlama uzantısı açıkça yüklemeniz gerekir. Önceki sürümlerde, depolama bağlamaları SDK içinde dahil edilmişti.
 
 1. En son kararlı sürümünü [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet paketi sürüm 3.x. 
 
-    İşte **Paket Yöneticisi Konsolu** komutunu 3.0.2 sürümü için:
+    İşte **Paket Yöneticisi Konsolu** komutu 3.0.3 sürümü için:
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.2
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.3
     ```
 
 2. İçinde `ConfigureWebJobs` genişletme yöntemi, çağrı `AddAzureStorage` metodunda [ `HostBuilder` ](/dotnet/api/microsoft.extensions.hosting.hostbuilder) Örnek Depolama uzantı başlatılamadı. Bu noktada, `ConfigureWebJobs` yöntemi aşağıdaki örnekteki gibi görünür:
@@ -270,7 +173,7 @@ Sürümünden başlayarak 3.x işlevlerinizi içinde kullandığınız WebJobs S
 
 ## <a name="create-a-function"></a>İşlev oluşturma
 
-1. Projeye sağ tıklayın, **Ekle** > **yeni öğe...** ve yeni adı C# sınıf dosyası *Functions.cs*.
+1. Projeye sağ tıklayın, **Ekle** > **yeni öğe...** , seçin **sınıfı**, yeni ad C# sınıf dosyası *Functions.cs*seçip **Ekle**.
 
 1. Functions.cs içinde oluşturulan şablon aşağıdaki kodla değiştirin:
 
@@ -296,7 +199,7 @@ Sürümünden başlayarak 3.x işlevlerinizi içinde kullandığınız WebJobs S
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Yerel olarak çalışan Azure depolama öykünücüsü WebJobs SDK gereken tüm özelliklere sahip değil. Bu nedenle bu bölümde Azure depolama hesabı oluşturma ve bunu kullanmak için projeyi yapılandırın.
+Yerel olarak çalışan Azure depolama öykünücüsü WebJobs SDK gereken tüm özelliklere sahip değil. Bu nedenle bu bölümde Azure depolama hesabı oluşturma ve bunu kullanmak için projeyi yapılandırın. Bir depolama hesabı zaten varsa, 6. adım aşağı atlayın.
 
 1. Açık **Sunucu Gezgini** Visual studio ve azure'da oturum açın. Sağ **Azure** düğümüne tıklayın ve ardından **Microsoft Azure aboneliğine bağlanma**.
 
@@ -326,9 +229,9 @@ Yerel olarak çalışan Azure depolama öykünücüsü WebJobs SDK gereken tüm 
 
 WebJobs SDK, uygulama ayarlarında, Azure depolama bağlantı dizesini arar. Yerel olarak çalıştırdığınızda, bu değer, yerel yapılandırma dosyasında veya ortam değişkenlerini arar.
 
-### <a name="appsettingsjson-sdk-version-3x"></a>appSettings.JSON (SDK sürümü 3.x)
+1. Projeye sağ tıklayın, **Ekle** > **yeni öğe...** , seçin **JavaScript JSON yapılandırma dosyası**, yeni dosya adı *appsettings.json* dosya ve seçin **Ekle**. 
 
-1. Oluşturma bir *appsettings.json* dosya ya da ekleme bir `AzureWebJobsStorage` aşağıdaki örnekteki gibi alan:
+1. Yeni Dosya Ekle bir `AzureWebJobsStorage` aşağıdaki örnekteki gibi alan:
 
     ```json
     {
@@ -338,17 +241,7 @@ WebJobs SDK, uygulama ayarlarında, Azure depolama bağlantı dizesini arar. Yer
 
 1. Değiştirin *{depolama bağlantı dizesi}* daha önce kopyaladığınız bağlantı dizesi.
 
-### <a name="appconfig-sdk-version-2x"></a>App.config (SDK sürüm 2.x)
-
-1. Eklemek için aşağıdaki XML *App.config* açtıktan hemen sonra dosya `<configuration>` etiketi.
-
-   ```xml
-   <connectionStrings>
-     <add name="AzureWebJobsStorage" connectionString="{storage connection string}" />
-   </connectionStrings>
-   ```
-
-1. Değiştirin *{depolama bağlantı dizesi}* daha önce kopyaladığınız bağlantı dizesi.
+1. Seçin *appsettings.json* dosya Çözüm Gezgini'nde ve **özellikleri** penceresinde **çıkış dizinine Kopyala** için **yeniyse Kopyala**.
 
 Daha sonra uygulamanızı Azure App Service'te aynı bağlantı dizesi uygulama ayarı ekleyeceksiniz.
 
@@ -356,7 +249,7 @@ Daha sonra uygulamanızı Azure App Service'te aynı bağlantı dizesi uygulama 
 
 Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluşturarak işlevi tetikleyin oluşturun.
 
-1. Projeyi çalıştırmak için CTRL + F5 tuşlarına basın.
+1. Tuşuna **Ctrl + F5** projeyi çalıştırın.
 
    Konsol, çalışma zamanının işlevinizi bulundu ve bunu tetiklemek kuyruk iletileri için bekliyor gösterir. Aşağıdaki çıktı v3.x ana bilgisayar tarafından oluşturulur:
 
@@ -376,7 +269,7 @@ Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluştu
 
 1. Konsol penceresini kapatın.
 
-1. İçinde **Sunucu Gezgini** Visual Studio'da, yeni depolama hesabınız için düğümü genişletin ve ardından sağ tıklayarak **kuyrukları**. 
+1. İçinde **Sunucu Gezgini** Visual Studio'da, yeni depolama hesabınız için düğümü genişletin ve ardından sağ tıklayarak **kuyrukları**.
 
 1. Seçin **kuyruk oluşturma**.
 
@@ -390,7 +283,7 @@ Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluştu
 
    ![Kuyruk oluştur](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-1. İçinde **ekleme ileti** iletişim kutusunda girin *Merhaba Dünya!* olarak **ileti metni**ve ardından **Tamam**.
+1. İçinde **ekleme ileti** iletişim kutusunda girin *Merhaba Dünya!* olarak **ileti metni**ve ardından **Tamam**. Artık bir ileti sırasında yok.
 
    ![Kuyruk oluştur](./media/webjobs-sdk-get-started/hello-world-text.png)
 
@@ -400,7 +293,7 @@ Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluştu
 
    Şu nedenle [üstel geri alma yoklama kuyruk](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), iletiyi bulun ve işlevin çalıştırılabilmesi çalışma zamanı için 2 dakika kadar sürebilir. Bu bekleme süresi çalıştırarak azaltılabilir [geliştirme modu](webjobs-sdk-how-to.md#host-development-settings).
 
-  Sürüm için 3.x, konsol çıktısı şuna benzer:
+  Konsol çıktısı şuna benzer:
 
    ```console
     info: Function.ProcessQueueMessage[0]
@@ -413,7 +306,9 @@ Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluştu
           Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=2c319369-d381-43f3-aedf-ff538a4209b8)
    ```
 
-1. Konsol penceresini kapatın.
+1. Konsol penceresini kapatın. 
+
+1. Kuyruk penceresine geri dönün ve yenileyin. Yerel olarak çalışan, işleviniz tarafından işlenen olduğundan ileti kayboluyor. 
 
 ## <a name="add-application-insights-logging"></a>Application Insights günlük Ekle
 
@@ -457,11 +352,7 @@ Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama 
 
 1. **Kaydet**’i seçin.
 
-1. Application Insights bağlantı projeye ekleyin, yerel olarak çalıştırabilirsiniz:
-
-    **Sürüm 3.x**
-
-    İçinde *appsettings.json* ekleyin bir `APPINSIGHTS_INSTRUMENTATIONKEY` aşağıdaki örnekteki gibi alan:
+1. Yerel olarak çalıştırabilirsiniz, Application Insights bağlantı projeye ekleyin. İçinde *appsettings.json* ekleyin bir `APPINSIGHTS_INSTRUMENTATIONKEY` aşağıdaki örnekteki gibi alan:
 
     ```json
     {
@@ -470,17 +361,7 @@ Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama 
     }
     ```
 
-    **Sürüm 2.x**
-
-    Eklemek için aşağıdaki XML *App.config* dosya, bağlantı dizeleri koleksiyona hemen sonra.
-
-    ```xml
-    <appSettings>
-        <add key="APPINSIGHTS_INSTRUMENTATIONKEY" value="{instrumentation key}" />
-    </appSettings>
-    ```
-
-    Her iki sürümde değiştirin *{izleme anahtarını}* kullanmakta olduğunuz Application Insights kaynağı izleme anahtarını ile.
+    Değiştirin *{izleme anahtarını}* kullanmakta olduğunuz Application Insights kaynağı izleme anahtarını ile.
 
 1. Yaptığınız değişiklikleri kaydedin.
 
@@ -490,8 +371,6 @@ Yararlanmak için [Application Insights](../azure-monitor/app/app-insights-overv
 
 * Varsayılan bir Application Insights günlük sağlayıcısını ekleyin [filtreleme](webjobs-sdk-how-to.md#log-filtering); tüm bilgiler ve daha üst düzey günlükleri gider hem Konsol hem de Application Insights için yerel olarak çalıştırırken.
 * PUT `LoggerFactory` nesnesine bir `using` konak çıktığında, günlük çıktısını Temizlenen emin olmak için blok.
-
-#### <a name="version-3x"></a>Sürüm 3.x
 
 1. Application Insights oturum açma sağlayıcısı için NuGet paketini en son kararlı 3.x sürümünü yükleyin: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 
@@ -532,46 +411,7 @@ Yararlanmak için [Application Insights](../azure-monitor/app/app-insights-overv
     }
     ```
 
-#### <a name="version-2x"></a>Sürüm 2.x
-
-1. En son kararlı sürümü olan 2.x sürümüne NuGet paketini yüklemek için Application Insights günlük sağlayıcısını: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
-
-   İşte **Paket Yöneticisi Konsolu** komutu 2.2.0 sürümü için:
-
-   ```powershell
-   Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -version 2.2.0
-   ``` 
-
-1. .NET configuration manager için NuGet paketini en son kararlı 4.x sürümünü yükleyin: `System.Configuration.ConfigurationManager`.
-
-   İşte **Paket Yöneticisi Konsolu** komutunu 4.4.1 sürümü için:
-
-   ```powershell
-   Install-Package System.Configuration.ConfigurationManager -version 4.4.1
-   ``` 
-
-1. Açık *Program.cs* ve ekleme bir `using` deyimi configuration manager için:
-
-   ```csharp
-   using System.Configuration;
-   ```
-
-1. Değiştirin `Main` yöntemini aşağıdaki kod ile:
-
-   ```csharp
-   using (var loggerFactory = new LoggerFactory())
-   {
-       var config = new JobHostConfiguration();
-       var instrumentationKey =
-           ConfigurationManager.AppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"];
-       config.DashboardConnectionString = "";
-       config.LoggerFactory = loggerFactory
-           .AddApplicationInsights(instrumentationKey, null)
-           .AddConsole();
-       var host = new JobHost(config);
-       host.RunAndBlock();
-   }
-   ```
+    Bu uygulama ayarlarınızda daha önce eklediğiniz anahtarını kullanarak günlüğe kaydetme, Application Insights sağlayıcısı ekler.
 
 ## <a name="test-application-insights-logging"></a>Test Application Insights günlüğe kaydetme
 
@@ -597,27 +437,11 @@ Bu bölümde, yerel olarak yeniden Konsolu için de Application Insights, günl�
 
 1. Konsol penceresini kapatın.
 
-## <a name="deploy-as-a-webjob"></a>Bir Web işi olarak dağıtmak
+## <a name="deploy-as-a-webjob"></a>Azure'a dağıtma
 
-Bu bölümde, projeyi bir WebJob olarak dağıtın. Bir App Service uygulamasına dağıtın, [daha önce oluşturduğunuz](#create-app-service-app-and-application-insights-instance). Azure'da çalıştığı sırada kodunuzu test etmek için bir kuyruk iletisi oluşturarak bir işlev çağrısını tetikler.
+Dağıtım sırasında işlevlerinizi çalıştırmak için bir app service örneği oluşturun. Azure App Service'te .NET Core konsol uygulamasının yayımladığınızda, otomatik olarak bir WebJob olarak çalışan. Yayımlama hakkında daha fazla bilgi için bkz. [geliştirme ve Visual Studio kullanarak Web işleri dağıtma](webjobs-dotnet-deploy-vs.md).
 
-1. İçinde **Çözüm Gezgini**projeye sağ tıklayın ve ardından **Azure WebJob olarak Yayımla**.
-
-1. İçinde **Azure WebJob Ekle** iletişim kutusunda **Tamam**.
-
-   ![Azure Web işi Ekle](./media/webjobs-sdk-get-started/add-azure-webjob.png)
-
-   Visual Studio, NuGet paketi WebJob yayımlama için otomatik olarak yükler.
-
-1. İçinde **profili** adımında **Yayımla** seçin **Microsoft Azure App Service**.
-
-   ![Yayımla iletişim kutusu](./media/webjobs-sdk-get-started/publish-dialog.png)
-
-1. İçinde **App Service** iletişim kutusunda **kaynak grubunuzun > App Service uygulamanızı**ve ardından **Tamam**.
-
-   ![App Service iletişim kutusu](./media/webjobs-sdk-get-started/app-service-dialog.png)
-
-1. Yayımlama profili oluşturulduktan sonra seçin **Yayımla**.
+[!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)]
 
 ## <a name="trigger-the-function-in-azure"></a>Azure işlevi tetikleyin
 
@@ -684,7 +508,7 @@ Giriş bağlamaları veri okuyan kod basitleştirin. Bu örnekte, kuyruk iletisi
 
    ![Kuyruk iletisi Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
-1. Projeyi çalıştırın.
+1. Projeyi yerel olarak çalıştırın.
 
    Kuyruk iletisi ardından blobu okur ve uzunluğunu günlükleri işlevi tetikler. Konsol çıktısı şuna benzer:
 
@@ -718,15 +542,21 @@ Giriş bağlamaları veri okuyan kod basitleştirin. Bu örnekte, kuyruk iletisi
 
 1. Başka bir kuyruk iletisi *Program.cs* iletisinin metni.
 
-1. Projeyi çalıştırın.
+1. Projeyi yerel olarak çalıştırın.
 
    Kuyruk iletisi ardından blobu okur, uzunluğu günlüğe kaydeder ve yeni bir blob oluşturur işlevini tetikler. Konsol çıktısı, aynıdır ancak ne zaman blob kapsayıcı penceresine gidin ve seçin **Yenile**, adlı yeni bir blob gördüğünüz *Program.cs kopyalama.*
 
+## <a name="republish-the-updates-to-azure"></a>Güncelleştirmeleri azure'a yeniden yayımlayın
+
+1. **Çözüm Gezgini**'nde projeye sağ tıklayın ve **Yayımla**'yı seçin.
+
+1. İçinde **Yayımla** iletişim kutusunda, geçerli profilinin'in seçili olduğundan emin olun ve ardından **Yayımla**. Yayımlama sonuçları ayrıntılı olarak **çıkış** penceresi.
+ 
+1. Tekrar bir dosyayı blob kapsayıcısına yüklemek ve karşıya yüklenen dosya adı olan kuyruğa bir ileti ekleyerek Azure işlevinde doğrulayın. Kuyruk ve blob kapsayıcısında oluşturulan dosyanın bir kopyasını kaldırılmaları iletisini görürsünüz. 
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu kılavuz, oluşturma, çalıştırma ve Web işleri SDK'sı projeyi dağıtmak nasıl göstermiştir.
-
-WebJobs SDK'si projeye gider her şeyi göstermek için sıfırdan bir proje oluşturma yönergeleri vardı. Bir sonraki projenizi oluşturduğunuzda, ancak kullanmayı **Azure WebJob** şablonunda **bulut** kategorisi. Bu şablon, NuGet paketlerini ve örnek kodu zaten ayarlanmış olan bir proje oluşturur. Örnek kod, yeni günlük altyapısının kullanılacağını değiştirilmesi gerekebilir.
+Bu makalede oluşturma, çalıştırma ve Web işleri SDK'sı 3.x projesini dağıtma nasıl oluşturulacağını gösterir.
 
 > [!div class="nextstepaction"]
 > [Web işleri SDK'sı hakkında daha fazla bilgi edinin](webjobs-sdk-how-to.md)

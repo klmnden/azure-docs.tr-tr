@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
-ms.openlocfilehash: b1cf3dc24482da70372f775d0ba63a203df1b285
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572870"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56753779"
 ---
 Bing tarafından sunulan küçük resimler için URL'leri bazı Bing yanıtlarını içerir. Yeniden boyutlandırma ve küçük resim görüntüleri kırpma. 
 
@@ -17,11 +17,11 @@ Bing tarafından sunulan küçük resimler için URL'leri bazı Bing yanıtları
 > Boyutu emin olun ve küçük resmini kırpma arama senaryosu sağlayın ve Bing arama API'si kullanılarak gerektiği gibi üçüncü taraf haklarına saygı ve gereksinimlerini görüntüleyin.
 
 
-Y (yükseklik) ve w (genişlik) içeren bir görüntüyü yeniden boyutlandırmak için sorgu parametreleri küçük ait URL. Genişlik ve yükseklik piksel cinsinden belirtin. Örneğin:  
+Bir görüntüyü yeniden boyutlandırmak için w (genişlik) sorgu içeren sorgu parametresi ya da hem küçük 's URL parametresi, h (yükseklik). Genişlik ve yükseklik piksel cinsinden belirtin. Örneğin:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-Görüntüyü yeniden boyutlandırmak, en boy oranı korunur. En boy oranını korumak için kenarlık görüntüsünün beyaz doldurma eklenebilir. Örneğin, kırpma olmadan 200 x 200 480 x 359 görüntüye yeniden boyutlandırırsanız, görüntü tam genişlik içeriyor ancak üst ve alt görüntüsünün doldurma beyaz 25 piksel yüksekliği içerir. Aynı oluştuysa görüntü 359 x 480 dışında sol ve sağ kenarlık beyaz doldurma içerecektir true olur. Görüntü kırpma, beyaz dolgu eklenmez.  
+Yalnızca genişliğini veya yüksekliğini sorgu parametresi yalnızca belirtirseniz, Bing görüntünün en boy oranını korur. Genişlik ve yükseklik belirtin ve görüntünün özgün en boy oranını koru yoksa, Bing kenarlık görüntüsünün beyaz doldurma ekler. Örneğin, kırpma olmadan 200 x 200 480 x 359 görüntüye yeniden boyutlandırırsanız, görüntü tam genişlik içeriyor ancak üst ve alt görüntüsünün doldurma beyaz 25 piksel yüksekliği içerir. Aynı oluştuysa görüntü 359 x 480 dışında sol ve sağ kenarlık beyaz doldurma içerecektir true olur. Görüntü kırpma, beyaz dolgu eklenmez.  
 
  
 Aşağıdaki resimde, bir küçük resim (480 x 300) özgün boyutunu gösterir.  

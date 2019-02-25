@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 357b22e4d4a6bf42ba165e49fc3cc01762268297
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: fc874ad04e65a3a80a4ceb76434b997e80019609
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756521"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750302"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Azure CLI kullanarak PostgreSQL için Azure veritabanı'nda bir sunucu geri nasıl
 
@@ -47,7 +47,7 @@ Oluşturma sırasında bu değerleri ayarlama hakkında daha fazla bilgi için b
 Bir sunucunun yedekleme saklama dönemi şu şekilde değiştirilebilir:
 
 ```azurecli-interactive
-az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 Yukarıdaki örnekte demosunucum yedekleme bekletme süresi 10 gün olarak değiştirir.

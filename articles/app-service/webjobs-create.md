@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001179"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749928"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure uygulama Hizmeti'nde WebJobs ile arka plan görevleri çalıştırma
 
@@ -47,8 +47,7 @@ Aşağıdaki tablo arasındaki farkları açıklar *sürekli* ve *tetiklenen* We
 | Web uygulamasının üzerinde çalıştığı tüm örneklerinde çalıştırılır. İsteğe bağlı olarak, tek örnekli bir WebJob kısıtlayabilirsiniz. |Yük Dengeleme için Azure'ı seçer, tek bir örneği üzerinde çalışır.|
 | Uzaktan hata ayıklamayı destekler. | Uzaktan hata ayıklamayı desteklemiyor.|
 
-> [!NOTE]
-> Bir web uygulaması 20 dakika işlem yapılmadığında zaman aşımı olabilir. Yalnızca gerçek bir web uygulama isteklerini Zamanlayıcı sıfırlayın. Uygulamanın yapılandırma Azure portalında görüntüleme ya da Gelişmiş araçlar siteye isteği gerçekleştiren (https:// < app_name >. scm.azurewebsites.net) süreölçer sıfırlama. Zamanlanan Webjob'lar etkinleştirmek ya da uygulamanızı sürekli olarak çalışan **Always On** WebJobs güvenilir bir şekilde çalıştığından emin olmak için. Bu özellik yalnızca temel, standart ve Premium kullanılabilir [fiyatlandırma katmanları](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## <a name="acceptablefiles"></a>Betikleri veya programları için desteklenen dosya türleri
 
@@ -181,10 +180,9 @@ Girebileceğiniz bir [CRON ifadesi](../azure-functions/functions-bindings-timer.
 {
     "schedule": "0 */15 * * * *"
 }
-``` 
+```
 
-> [!NOTE]
-> Visual Studio'dan bir Web işi dağıttığınızda işaretlemek, `settings.job` dosya özellikleri olarak **yeniyse Kopyala**.
+Daha fazla bilgi için bkz. [Tetiklenmiş bir Web işi zamanlaması](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
 
 ## <a name="ViewJobHistory"></a> İş geçmişini görüntüleme
 

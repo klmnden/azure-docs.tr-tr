@@ -8,23 +8,23 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5172ba9881f80e202bdc69689e67befb79101dc0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: d34ac159a216c5c77214b4c8b799a233c3671235
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450669"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749554"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm Hızlandırıcısını için bir IOT Edge cihazı Ekle
 
 Eklemek için bir [IOT Edge](../iot-edge/about-iot-edge.md) çözüm hızlandırıcınız cihaza aşağıdaki iki adımı tamamlayın:
 
-1. Sınır cihazı eklemek **cihazları** Uzaktan izleme çözüm Hızlandırıcı Web kullanıcı Arabiriminde sayfası.
+1. Sınır cihazı eklemek **Device Explorer** Uzaktan izleme çözüm Hızlandırıcı Web kullanıcı Arabiriminde sayfası.
 1. IOT Edge çalışma zamanı Edge Cihazınızda yükleyin.
 
 ## <a name="add-the-iot-edge-device"></a>IOT Edge cihazı Ekle
 
-IOT Edge cihazı için Uzaktan izleme çözüm Hızlandırıcısını eklemek için gidin **cihazları** sayfasında web kullanıcı Arabiriminde ve tıklayın **+ yeni cihaz**.
+IOT Edge cihazı için Uzaktan izleme çözüm Hızlandırıcısını eklemek için gidin **Device Explorer** sayfasında web kullanıcı Arabiriminde ve tıklayın **+ yeni cihaz**.
 
 İçinde **yeni cihaz** panelinde öğesini **IOT Edge cihazı**. Diğer ayarlar için varsayılan değerleri bırakabilirsiniz. Ardından **Apply** (Uygula) öğesine tıklayın:
 
@@ -38,7 +38,7 @@ IOT Edge cihazı için Uzaktan izleme çözüm Hızlandırıcısını eklemek i�
 - [Azure CLI ile yeni bir Azure IOT Edge cihazı kaydetme](../iot-edge/how-to-register-device-cli.md)
 - [Visual Studio code'dan yeni bir Azure IOT Edge cihazı kaydedin](../iot-edge/how-to-register-device-vscode.md)
 
-Uzaktan izleme çözüm Hızlandırıcısını IOT hub'ı ile doğrudan bir cihaz kaydettiğinizde, listelenmiş olup **cihazları** Web kullanıcı Arabiriminde sayfası.
+Uzaktan izleme çözüm Hızlandırıcısını IOT hub'ı ile doğrudan bir cihaz kaydettiğinizde, listelenmiş olup **Device Explorer** Web kullanıcı Arabiriminde sayfası.
 
 ## <a name="install-the-iot-edge-runtime"></a>IOT Edge çalışma zamanını yükleme
 

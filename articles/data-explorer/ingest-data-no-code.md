@@ -8,40 +8,41 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: 145a56bee857debdbf028834a3ed378efd8671c8
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: a678722666146fdf22e88680ab414b09d2a7ffaa
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447506"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749945"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Öğretici: Azure veri Gezgini'nde verileri tek satırlık bir kod olmadan alma
 
-Bu öğreticide nasıl Tanılama alma ve etkinlik günlüğü verileri bir Azure Veri Gezgini kümesine bir kod satırı olmadan sağlanır. Bu basit alma yöntemi, veri analizi için Azure Veri Gezgini sorgulama hızlıca başlamak sağlar.
+Bu öğreticide kod yazmaya gerek kalmadan, etkinlik günlükleri için bir Azure Veri Gezgini kümesi ve tanılama verilerini alma öğretir. Bu basit alma yöntemi ile veri analizi için Azure Veri Gezgini sorgulama hızlı bir şekilde başlayabilirsiniz.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+
 > [!div class="checklist"]
 > * Bir Azure Veri Gezgini veritabanında tablolar ve alım eşlemesi oluşturun.
-> * Güncelleştirme İlkesi'ni kullanarak içe alınan veri biçimi.
+> * Alınan verileri bir güncelleştirme İlkesi kullanarak biçimlendirin.
 > * Oluşturma bir [olay hub'ı](/azure/event-hubs/event-hubs-about) ve Azure veri Gezgini'ne bağlanın.
-> * Veri bir olay Hub'ından Stream [Azure İzleyici tanılama günlükleri](/azure/azure-monitor/platform/diagnostic-logs-overview) ve [Azure İzleyici etkinlik günlüklerini](/azure/azure-monitor/platform/activity-logs-overview).
+> * Veri bir olay hub'ından Stream [Azure İzleyici tanılama günlükleri](/azure/azure-monitor/platform/diagnostic-logs-overview) ve [Azure İzleyici etkinlik günlüklerini](/azure/azure-monitor/platform/activity-logs-overview).
 > * Azure Veri Gezgini'ni kullanarak alınan verileri sorgulayın.
 
 > [!NOTE]
-> Tüm kaynaklar aynı Azure konumuna/bölgede oluşturun. Bu, Azure İzleyici tanılama günlükleri için bir zorunluluktur.
+> Tüm kaynaklar aynı Azure konumuna veya bölgede oluşturun. Bu, Azure İzleyici tanılama günlükleri için bir zorunluluktur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 * [Bir Azure Veri Gezgini kümesi ile veritabanı](create-cluster-database-portal.md). Bu öğreticide, veritabanı adı. *AzureMonitoring*.
 
-## <a name="azure-monitoring-data-provider---diagnostic-and-activity-logs"></a>Azure veri sağlayıcısı - Tanılama izleme ve etkinlik günlükleri
+## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Azure İzleyici, veri sağlayıcısı: tanılama ve etkinlik günlükleri
 
-Görüntüleyebilir ve Azure izleme tanılama ve etkinlik günlükleri tarafından sağlanan verileri anlayın. Bu veri şemalarını temel alan bir alma işlem hattı oluşturacağız.
+Görüntüleyebilir ve Azure İzleyici tanılama ve etkinlik günlükleri tarafından sağlanan verileri anlayın. Bu veri şemalarını temel alan bir alma işlem hattı oluşturacağız.
 
 ### <a name="diagnostic-logs-example"></a>Tanılama günlüklerini örnek
 
-Azure tanılama günlükleri, hizmetin çalışması hakkında veriler sağlayan bir Azure hizmeti tarafından yayılan ölçümleridir. Veriler ile 1 dakikalık zaman dilimi toplanır. Her bir tanılama günlükleri Olay, bir kayıt içerir. Bir Azure Veri Gezgini ölçüm olayı şeması örneği üzerinde sorgu süresi aşağıdadır:
+Azure tanılama günlükleri, hizmetin çalışması hakkında veriler sağlayan bir Azure hizmeti tarafından yayılan ölçümleridir. Veriler ile 1 dakikalık bir zaman dilimi toplanır. Tanılama Günlüğü'ndeki her olay, bir kayıt içerir. Sorgu süresini bir Azure Veri Gezgini ölçüm olay şeması örneği aşağıdadır:
 
 ```json
 {
@@ -59,7 +60,7 @@ Azure tanılama günlükleri, hizmetin çalışması hakkında veriler sağlayan
 
 ### <a name="activity-logs-example"></a>Etkinlik günlükleri örneği
 
-Azure etkinlik günlükleri, kayıtların bir koleksiyonunu içeren abonelik düzeyi günlüklerdir. Günlükleri, aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Tanılama günlükleri, bir etkinlik günlükleri Olay kayıtlarını bir dizi sahiptir. Öğreticide daha sonra bu kayıtları dizisi bölmek gerekir. Erişim denetimi için bir etkinlik günlüğü olayında'nın bir örneği verilmiştir:
+Azure etkinlik günlüklerini kayıtların bir koleksiyonunu içeren abonelik düzeyinde günlüklerdir. Günlükleri, aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Tanılama günlükleri farklı olarak, her bir etkinlik günlüğü olayında bir kayıt dizisi vardır. Öğreticide daha sonra bu kayıtları dizisi bölmek gerekir. Erişim denetimi için bir etkinlik günlüğü olayının bir örnek aşağıda verilmiştir:
 
 ```json
 {
@@ -116,23 +117,23 @@ Azure etkinlik günlükleri, kayıtların bir koleksiyonunu içeren abonelik dü
 }
 ```
 
-## <a name="set-up-ingestion-pipeline-in-azure-data-explorer"></a>Azure veri Gezgini'nde alma işlem hattı ayarlama 
+## <a name="set-up-an-ingestion-pipeline-in-azure-data-explorer"></a>Azure veri Gezgini'nde bir alma işlem hattı ayarlama
 
-Azure Veri Gezgini işlem hattı Kurulum dahil çeşitli adımları içerir [tablo oluşturma ve veri alımı](/azure/data-explorer/ingest-sample-data#ingest-data). Düzenleme, eşleyin ve verileri güncelleştirin.
+Bir Azure Veri Gezgini işlem hattı ayarlama içeren birkaç adım gibi [tablo oluşturma ve veri alımı](/azure/data-explorer/ingest-sample-data#ingest-data). Düzenleme, eşleyin ve verileri güncelleştirin.
 
-### <a name="connect-to-azure-data-explorer-web-ui"></a>Azure Veri Gezgini Web kullanıcı Arabirimine bağlanma
+### <a name="connect-to-the-azure-data-explorer-web-ui"></a>Azure Veri Gezgini Web kullanıcı Arabirimine bağlanma
 
-1. Azure veri Gezgini'nde *AzureMonitoring* veritabanı **sorgu**, Azure Veri Gezgini web kullanıcı arabirimini açar.
+Azure veri Gezgini'nde *AzureMonitoring* veritabanı **sorgu** Azure Veri Gezgini Web kullanıcı arabirimini açın.
 
-    ![Sorgu](media/ingest-data-no-code/query-database.png)
+![Sorgu sayfası](media/ingest-data-no-code/query-database.png)
 
-### <a name="create-target-tables"></a>Hedef Tablo oluşturma
+### <a name="create-the-target-tables"></a>Hedef Tablo oluşturma
 
-Azure Veri Gezgini veritabanında hedef tablolar oluşturmak için Azure Veri Gezgini web kullanıcı arabirimini kullanın.
+Azure Veri Gezgini veritabanında hedef tablolar oluşturmak için Azure Veri Gezgini Web kullanıcı arabirimini kullanın.
 
-#### <a name="diagnostic-logs-table"></a>Tanılama günlükleri tablo
+#### <a name="the-diagnostic-logs-table"></a>Tanılama günlükleri tablo
 
-1. Tablo oluşturma *DiagnosticLogsRecords* içinde *AzureMonitoring* Tanılama Günlüğü alacak veritabanı kayıtlarını kullanarak `.create table` denetim komutu:
+1. İçinde *AzureMonitoring* adlı bir tablo oluşturma, veritabanı *DiagnosticLogsRecords* tanılama günlüğü kayıtlarını depolamak için. Aşağıdaki `.create table` denetim komutu:
 
     ```kusto
     .create table DiagnosticLogsRecords (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
@@ -140,19 +141,19 @@ Azure Veri Gezgini veritabanında hedef tablolar oluşturmak için Azure Veri Ge
 
 1. Seçin **çalıştırma** tablo oluşturun.
 
-    ![Sorguyu Çalıştır](media/ingest-data-no-code/run-query.png)
+    ![Sorgu çalıştırma](media/ingest-data-no-code/run-query.png)
 
-#### <a name="activity-logs-tables"></a>Tabloları etkinlik günlükleri
+#### <a name="the-activity-logs-tables"></a>Tabloları etkinlik günlükleri
 
-Etkinlik günlükleri yapısı tablosal değil olduğundan, verileri işlemek ve her olay için bir veya daha fazla kayıt genişletin gerekir. Ham verileri Ara bir tabloya alınan *ActivityLogsRawRecords*. O anda veri yönetilebilir ve genişletilmiş. Genişletilmiş veriler daha sonra içine alınan *ActivityLogsRecords* bir güncelleştirme ilkesini kullanarak tablo. Bu nedenle, etkinlik günlükleri alımı için iki ayrı tablolar oluşturmak gerekir.
+Etkinlik günlükleri yapısını tablo olmadığından, verileri işlemek ve her olay için bir veya daha fazla kayıt genişletin gerekir. Ham verileri, adlı bir ara tablo alınan *ActivityLogsRawRecords*. O anda veri yönetilebilir ve genişletilmiş. Genişletilmiş veriler daha sonra içine alınan *ActivityLogsRecords* güncelleştirme İlkesi kullanarak tablo. Başka bir deyişle, etkinlik günlüklerini almak için iki ayrı tablolar oluşturmak gerekir.
 
-1. Tablo oluşturma *ActivityLogsRecords* içinde *AzureMonitoring* etkinlik günlüğü kayıtlarını alacak veritabanı. Tablo oluşturmak için aşağıdaki Azure Veri Gezgini sorguyu çalıştırın:
+1. Adlı bir tablo oluşturun *ActivityLogsRecords* içinde *AzureMonitoring* etkinlik günlük kayıtları almak için veritabanı. Tablo oluşturmak için aşağıdaki Azure Veri Gezgini sorguyu çalıştırın:
 
     ```kusto
     .create table ActivityLogsRecords (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
     ```
 
-1. Ara veri tablosu oluşturma *ActivityLogsRawRecords* içinde *AzureMonitoring* veritabanı veri işleme için:
+1. Adlı ara veri tablosu oluşturma *ActivityLogsRawRecords* içinde *AzureMonitoring* veritabanı veri işleme için:
 
     ```kusto
     .create table ActivityLogsRawRecords (Records:dynamic)
@@ -166,25 +167,25 @@ Etkinlik günlükleri yapısı tablosal değil olduğundan, verileri işlemek ve
 
 ### <a name="create-table-mappings"></a>Tablo eşlemeleri oluşturma
 
- Veri biçimi `json`, bu nedenle, veri eşlemesi gereklidir. `json` Eşleme her json yolu bir tablo sütunu adıyla eşleşir.
+ Veri biçimi olduğundan `json`, veri eşlemesi gereklidir. `json` Eşleme her json yolu bir tablo sütunu adıyla eşleşir.
 
-#### <a name="diagnostic-logs-table-mapping"></a>Tanılama günlükleri Tablo eşleme
+#### <a name="table-mapping-for-diagnostic-logs"></a>Tanılama günlükleri için Tablo eşleme
 
-Veri tablosuna eşlemek için aşağıdaki sorguyu kullanın:
+Tanılama günlükleri veri tablosuna eşlemek için aşağıdaki sorguyu kullanın:
 
 ```kusto
 .create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
 ```
 
-#### <a name="activity-logs-table-mapping"></a>Etkinlik günlükleri Tablo eşleme
+#### <a name="table-mapping-for-activity-logs"></a>Etkinlik günlükleri için Tablo eşleme
 
-Veri tablosuna eşlemek için aşağıdaki sorguyu kullanın:
+Etkinlik günlükleri veri tablosuna eşlemek için aşağıdaki sorguyu kullanın:
 
 ```kusto
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-update-policy"></a>Güncelleştirme İlkesi Oluştur
+### <a name="create-the-update-policy-for-activity-logs-data"></a>Etkinlik günlükleri veriler için güncelleştirme ilkesi oluştur
 
 1. Oluşturma bir [işlevi](/azure/kusto/management/functions) , genişleyen sahip kayıtların koleksiyonudur ve böylece koleksiyondaki her değer ayrı bir satır alır. Kullanım [ `mvexpand` ](/azure/kusto/query/mvexpandoperator) işleci:
 
@@ -207,167 +208,173 @@ Veri tablosuna eşlemek için aşağıdaki sorguyu kullanın:
     }
     ```
 
-2. Ekleme bir [güncelleştirme ilkesi](/azure/kusto/concepts/updatepolicy) hedef tablosu için. Yeni içe alınan tüm veriler üzerinde sorgu otomatik olarak çalıştırılacak *ActivityLogsRawRecords* ara veri tablosu ve sonuçları içine alma *ActivityLogsRecords* tablosu:
+2. Ekleme [güncelleştirme ilkesi](/azure/kusto/concepts/updatepolicy) hedef tablosu için. Bu ilke otomatik olarak yeni alınan tüm veriler üzerinde sorgu çalıştıracaksınız *ActivityLogsRawRecords* ara veri tablosu ve sonuçları içine alma *ActivityLogsRecords* tablosu:
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
-## <a name="create-an-event-hub-namespace"></a>Bir olay hub'ı Namespace oluşturma
+## <a name="create-an-azure-event-hubs-namespace"></a>Bir Azure Event Hubs ad alanı oluşturma
 
-Azure tanılama günlükleri dışarı aktarma ölçümler bir depolama hesabı veya bir olay hub'ı etkinleştirin. Bu öğreticide, biz bir olay hub'ı aracılığıyla ölçümleri yol. Aşağıdaki adımlarda, tanılama günlükleri için bir olay hub'ları Namespace ve olay Hub'ı oluşturacaksınız. Azure izleme, olay hub'ı oluşturacaktır *insights-operational-logs* etkinlik günlükleri için.
+Azure tanılama günlükleri bir depolama hesabına veya olay hub'ına verme ölçümlerini etkinleştirin. Bu öğreticide, bir olay hub'ı aracılığıyla ölçümleri biz rota. Aşağıdaki adımlarda bir Event Hubs ad alanı ve tanılama günlükleri için bir olay hub'ı oluşturacaksınız. Azure İzleyici, olay hub'ı oluşturacaktır *insights-operational-logs* etkinlik günlükleri için.
 
-1. Azure portalında bir Azure Resource Manager şablonu kullanarak bir olay hub'ı oluşturun. Dağıtımı başlatmak için aşağıdaki düğmeyi kullanın. Sağ tıklayıp **yeni pencerede aç**, geri kalanını bu makaledeki adımları izleyebilirsiniz. **Azure'a Dağıt** düğmesi Azure portalına yönlendirilirsiniz.
+1. Azure portalında bir Azure Resource Manager şablonu kullanarak bir olay hub'ı oluşturun. Bu makaledeki adımları izlemeden için sağ **azure'a Dağıt** düğmesini ve ardından **yeni pencerede aç**. **Azure'a Dağıt** düğmesi Azure portalına yönlendirilirsiniz.
 
-    [![Azure’a dağıtma](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Azure düğmeye dağıtma](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
-1. Bir olay hub'ı Namespace ve tanılama günlükleri için bir olay Hub'ı oluşturun.
+1. Bir Event Hubs ad alanı ve tanılama günlükleri için bir olay hub'ı oluşturun.
 
-    ![Olay Hub'ı oluşturma](media/ingest-data-no-code/event-hub.png)
+    ![Olay hub'ı oluşturma](media/ingest-data-no-code/event-hub.png)
 
-    Formu aşağıdaki bilgilerle doldurun. Aşağıdaki tabloda yer almayan ayarlar için varsayılan değerleri kullanın.
+1. Formu aşağıdaki bilgilerle doldurun. Aşağıdaki tabloda listelenmeyen tüm ayarlar için varsayılan değerleri kullanın.
 
-    **Ayar** | **Önerilen değer** | **Alan açıklaması**
+    **Ayar** | **Önerilen değer** | **Açıklama**
     |---|---|---|
-    | Abonelik | Aboneliğiniz | Olay hub'ınız için kullanmak istediğiniz Azure aboneliğini seçin.|
-    | Kaynak grubu | *test-resource-group* | Yeni bir kaynak grubu oluşturun. |
-    | Konum | İhtiyaçlarınıza en uygun bölgeyi seçin. | Olay hub'ı ad alanı, diğer kaynaklar aynı konumda oluşturun.
-    | Ad alanı adı | *AzureMonitoringData* | Ad alanınızı tanımlayan benzersiz bir ad seçin.
-    | Olay hub'ı adı | *DiagnosticLogsData* | Olay hub'ı benzersiz bir kapsayıcı kapsamı sunan ad alanında bulunur. |
-    | Tüketici grubu adı | *adxpipeline* | Bir tüketici grubu adı oluşturun. Sağlayan birden çok tüketen uygulamayı her olay akışının ayrı bir görünümüne sahip. |
+    | **Abonelik** | *Aboneliğiniz* | Olay hub'ınız için kullanmak istediğiniz Azure aboneliğini seçin.|
+    | **Kaynak grubu** | *test-resource-group* | Yeni bir kaynak grubu oluşturun. |
+    | **Konum** | İhtiyaçlarınıza en uygun bölgeyi seçin. | Event Hubs ad alanı, diğer kaynaklar ile aynı konumda oluşturun.
+    | **Namespace adı** | *AzureMonitoringData* | Ad alanınızı tanımlayan benzersiz bir ad seçin.
+    | **Olay hub'ı adı** | *DiagnosticLogsData* | Olay hub'ı benzersiz bir kapsayıcı kapsamı sunan ad alanında bulunur. |
+    | **Tüketici grubu adı** | *adxpipeline* | Bir tüketici grubu adı oluşturun. Tüketici grupları birden fazla tüketici uygulamasının ayrı olay akışı görünümüne sahip olmasını sağlar. |
     | | |
 
-## <a name="connect-azure-monitoring-logs-to-event-hub"></a>Azure izleme günlükleri Olay Hub'ına bağlama
+## <a name="connect-azure-monitor-logs-to-your-event-hub"></a>Azure İzleyici günlükleri Olay hub'ınıza bağlanın
 
-### <a name="diagnostic-logs-connection-to-event-hub"></a>Olay Hub'ına bağlantı tanılama günlükleri
+Şimdi, tanılama günlükleri ve, etkinlik günlükleri Olay hub'ına bağlamak gerekir.
 
-Ölçümleri dışarı aktarılacağı bir kaynak seçin. Olay hub'ı Namespace, anahtar kasası, IOT Hub ve Azure Veri Gezgini küme dahil olmak üzere dışarı aktarılan tanılama günlüklerini etkinleştirme çeşitli kaynak türleri vardır. Bu öğreticide, bizim kaynağı olarak Azure Veri Gezgini küme kullanırız.
+### <a name="connect-diagnostic-logs-to-your-event-hub"></a>Tanılama günlükleri Olay hub'ınıza bağlanın
+
+Ölçümleri dışarı aktarılacağı bir kaynak seçin. Çeşitli kaynak türleri, Event Hubs ad alanı, Azure Key Vault, Azure IOT Hub ve Azure Veri Gezgini kümeleri dahil olmak üzere tanılama günlükleri dışarı aktarılması. Bu öğreticide, bizim kaynağı olarak bir Azure Veri Gezgini kümesi kullanacağız.
 
 1. Kusto kümeniz, Azure portalında seçin.
+1. Seçin **tanılama ayarları**ve ardından **tanılamayı Aç** bağlantı. 
 
     ![Tanılama ayarları](media/ingest-data-no-code/diagnostic-settings.png)
 
-1. Seçin **tanılama ayarları** sol menüsünde.
-1. Tıklayın **tanılamayı Aç** bağlantı. **Tanılama ayarları** penceresi açılır.
-
-    ![Tanılama Ayarları penceresi](media/ingest-data-no-code/diagnostic-settings-window.png)
-
-1. İçinde **tanılama ayarları** bölmesi:
-    1. Tanılama günlük verilerini adlandırın: *ADXExportedData*
-    1. Seçin **AllMetrics** onay kutusunu (isteğe bağlı).
+1. **Tanılama ayarları** bölmesi açılır. Aşağıdaki adımları uygulayın:
+    1. Tanılama günlük verilerini adı verin *ADXExportedData*.
+    1. Altında **ÖLÇÜM**seçin **AllMetrics** onay kutusunu (isteğe bağlı).
     1. Seçin **Stream olay hub'ına** onay kutusu.
-    1. Tıklayın **yapılandırın**
+    1. Seçin **yapılandırma**.
 
-1. İçinde **Select olay hub'ı** bölmesinde yapılandırmak, oluşturduğunuz olay hub'ına dışarı aktarma:
-    1. **Olay hub'ı ad alanını seçin** *AzureMonitoringData* açılır listesinden.
-    1. **Select olay hub'ı adı** *diagnosticlogsdata* açılır listesinden.
-    1. **Select olay hub'ı ilke adı** açılır listesinden.
-    1. **Tamam** düğmesine tıklayın.
+    ![Tanılama ayarları bölmesi](media/ingest-data-no-code/diagnostic-settings-window.png)
 
-1. **Kaydet**’e tıklayın. Olay hub'ı ad alanı adı ve ilke adı penceresinde görünür.
+1. İçinde **Select olay hub'ı** bölmesinde, oluşturduğunuz olay hub'ına tanılama günlüklerinin verileri dışarı aktarma yapılandırın:
+    1. İçinde **seçin, olay hub'ı ad alanı** listesinde, seçin *AzureMonitoringData*.
+    1. İçinde **Select olay hub'ı adı** listesinde, seçin *diagnosticlogsdata*.
+    1. İçinde **Select olay hub'ı ilke adı** listesinde, seçin **RootManagerSharedAccessKey**.
+    1. **Tamam**’ı seçin.
+
+1. **Kaydet**’i seçin. Olay hub'ı ad alanı adı ve ilke adı penceresinde görünür.
 
     ![Tanılama ayarları kaydedin](media/ingest-data-no-code/save-diagnostic-settings.png)
 
-### <a name="activity-logs-connection-to-event-hub"></a>Olay Hub'ına bağlantı etkinlik günlükleri
+### <a name="connect-activity-logs-to-your-event-hub"></a>Etkinlik günlükleri Olay hub'ınıza bağlanın
 
-1. Azure portalında sol taraftaki menüde seçin **etkinlik günlüğü**
-1. **Etkinlik günlüğü** penceresi açılır. **Olay hub'ına dışarı Aktar'a tıklayın**
+1. Azure portalının sol taraftaki menüde seçin **etkinlik günlüğü**.
+1. **Etkinlik günlüğü** penceresi açılır. Seçin **dışarı aktarma, olay Hub'ına**.
 
-    ![Etkinlik günlüğü](media/ingest-data-no-code/activity-log.png)
+    ![Etkinlik Günlüğü penceresi](media/ingest-data-no-code/activity-log.png)
 
-1. İçinde **Etkinlik günlüğünü dışarı aktar** penceresi:
+1. **Etkinlik günlüğünü dışarı aktar** penceresi açılır:
  
-    ![Etkinlik günlüğünü dışarı aktarın](media/ingest-data-no-code/export-activity-log.png)
+    ![Dışarı aktarma etkinlik günlüğü penceresi](media/ingest-data-no-code/export-activity-log.png)
 
-    1. Aboneliğinizi seçin.
-    1. İçinde **bölgeleri** açılır listesinde, seçin **Tümünü Seç**
-    1. Seçin **dışarı aktarma, olay hub'ına** onay kutusu.
-    1. Tıklayarak **bir service bus ad alanı seçin** açmak için **Select olay hub'ı** bölmesi.
-    1. İçinde **Select olay hub'ı** bölmesinde seçin'açılır menülerden: aboneliğinizi, olay ad alanınızı *AzureMonitoringData*ve varsayılan olay hub'ı ilke adı.
-    1. **Tamam** düğmesine tıklayın.
-    1. Tıklayın **Kaydet** penceresinin sağ üst tarafındaki. Bir olay hub'ı adı ile *insights-operational-logs* oluşturulur.
+1. İçinde **Etkinlik günlüğünü dışarı aktar** penceresinde aşağıdaki adımları uygulayın:
+      1. Aboneliğinizi seçin.
+      1. İçinde **bölgeleri** listesinde **Tümünü Seç**.
+      1. Seçin **dışarı aktarma, olay hub'ına** onay kutusu.
+      1. Seçin **bir service bus ad alanı seçin** açmak için **Select olay hub'ı** bölmesi.
+      1. İçinde **Select olay hub'ı** bölmesinde, aboneliğinizi seçin.
+      1. İçinde **seçin, olay hub'ı ad alanı** listesinde, seçin *AzureMonitoringData*.
+      1. İçinde **Select olay hub'ı ilke adı** listesinde, varsayılan olay hub'ı ilke adı seçin.
+      1. **Tamam**’ı seçin.
+      1. Pencerenin sol üst köşesinde bulunan seçin **Kaydet**.
+   Bir olay hub'ı adı ile *insights-operational-logs* oluşturulur.
 
-### <a name="see-data-flowing-to-your-event-hubs"></a>Verilerin, Event Hubs'a aktığını
+### <a name="see-data-flowing-to-your-event-hubs"></a>Verilerin, event hubs'a aktığını
 
-1. Bağlantı tanımlanır ve Etkinlik günlüğünü dışarı aktarma olay hub'ına tamamlanana kadar birkaç dakika bekleyin. Oluşturduğunuz olay hub'ları görmek için olay hub'ı ad alanınıza gidin.
+1. Bağlantı tanımlanana kadar birkaç dakika bekleyin ve olay hub'ına Etkinlik günlüğünü dışarı aktarma işlemi tamamlandı. Oluşturduğunuz olay hub'ları görmek için Event Hubs ad alanınıza gidin.
 
     ![Oluşturulan olay hub'ları](media/ingest-data-no-code/event-hubs-created.png)
 
-1. Olay Hub'ınıza akan verileri görürsünüz:
+1. Olay hub'ınıza akan verileri görürsünüz:
 
-    ![Event Hubs verilerini](media/ingest-data-no-code/event-hubs-data.png)
+    ![Olay hub'ın verileri](media/ingest-data-no-code/event-hubs-data.png)
 
-## <a name="connect-event-hub-to-azure-data-explorer"></a>Olay hub'ı Azure veri Gezgini'ne bağlanma
+## <a name="connect-an-event-hub-to-azure-data-explorer"></a>Bir olay hub'ı Azure veri Gezgini'ne bağlanma
 
-### <a name="diagnostic-logs-data-connection"></a>Tanılama günlükleri veri bağlantısı
+Şimdi, tanılama günlükleri ve etkinlik günlükleri için veri bağlantıları oluşturmanız gerekir.
 
-1. Azure Veri Gezgini kümenizdeki *kustodocs*seçin **veritabanları** soldaki menüde.
-1. İçinde **veritabanları** penceresinde, veritabanı adını seçin *AzureMonitoring*
-1. Sol menüde **veri alımı**
-1. İçinde **veri alımı** penceresinde tıklayın **+ veri bağlantısı ekleme**
+### <a name="create-the-data-connection-for-diagnostic-logs"></a>Tanılama günlüklerine yönelik veri bağlantısı oluşturma
+
+1. Azure Veri Gezgini kümenizde adlı *kustodocs*seçin **veritabanları** soldaki menüde.
+1. İçinde **veritabanları** penceresinde, seçin, *AzureMonitoring* veritabanı.
+1. Sol menüde **veri alımı**.
+1. İçinde **veri alımı** penceresinde tıklayın **+ veri bağlantısı ekleme**.
 1. İçinde **veri bağlantısı** penceresinde aşağıdaki bilgileri girin:
 
-    ![Olay Hub'ı bağlantısı](media/ingest-data-no-code/event-hub-data-connection.png)
+    ![Olay hub'ı veri bağlantısı](media/ingest-data-no-code/event-hub-data-connection.png)
 
     Veri kaynağı:
 
     **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
-    | Veri bağlantısı adı | *DiagnosticsLogsConnection* | Azure Veri Gezgini'nde oluşturmak istediğiniz bağlantının adı.|
-    | Olay hub’ı ad alanı | *AzureMonitoringData* | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
-    | Olay hub'ı | *diagnosticlogsdata* | Oluşturduğunuz olay hub'ı. |
-    | Tüketici grubu | *adxpipeline* | Oluşturduğunuz olay hub'ında tanımlanan tüketici grubu. |
+    | **Veri bağlantısı adı** | *DiagnosticsLogsConnection* | Azure Veri Gezgini'nde oluşturmak istediğiniz bağlantının adı.|
+    | **Olay hub'ı ad alanı** | *AzureMonitoringData* | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
+    | **Olay hub'ı** | *diagnosticlogsdata* | Oluşturduğunuz olay hub'ı. |
+    | **Tüketici grubu** | *adxpipeline* | Oluşturduğunuz olay hub'ında tanımlanan tüketici grubu. |
     | | |
 
     Hedef Tablo:
 
-    İki yönlendirme seçeneği vardır: *statik* ve *dinamik*. Bu öğreticide tablo adı, dosya biçimi ve eşleme belirttiğiniz (varsayılan), yönlendirme statik kullanın. Bu nedenle, bırakın **verilerimi yönlendirme bilgilerini içeren** seçilmemiş.
+    İki yönlendirme seçeneği vardır: *statik* ve *dinamik*. Bu öğreticide tablo adı, veri biçimi ve eşleme belirttiğiniz (varsayılan), yönlendirme statik kullanacaksınız. **Verilerimde yönlendirme bilgileri var** seçeneğini işaretlemeyin.
 
      **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
-    | Tablo | *DiagnosticLogsRecords* | Oluşturduğunuz tabloyu *AzureMonitoring* veritabanı. |
-    | Veri biçimi | *JSON* | Tablo biçimlendirin. |
-    | Sütun eşleme | *DiagnosticLogsRecordsMapping* | Oluşturduğunuz eşleme *AzureMonitoring* sütun adları ve veri türleri için gelen JSON verilerini eşleştiren veritabanı *DiagnosticLogsRecords*.|
+    | **Tablo** | *DiagnosticLogsRecords* | Oluşturduğunuz tabloyu *AzureMonitoring* veritabanı. |
+    | **Veri biçimi** | *JSON* | Tabloda kullanılan biçim. |
+    | **Sütun eşleme** | *DiagnosticLogsRecordsMapping* | Oluşturduğunuz eşleme *AzureMonitoring* sütun adları ve veri türleri için gelen JSON verilerini eşleştiren veritabanı *DiagnosticLogsRecords* tablo.|
     | | |
 
-1. **Oluştur**'a tıklayın  
+1. **Oluştur**’u seçin.  
 
-### <a name="activity-logs-data-connection"></a>Etkinlik günlükleri veri bağlantısı
+### <a name="create-the-data-connection-for-activity-logs"></a>Etkinlik günlükleri için veri bağlantısı oluşturma
 
-Adımları yineleyin [tanılama günlüklerine yönelik veri bağlantısı](#diagnostic-logs-data-connection) etkinlik oluşturmak için bölüm veri bağlantısı günlüğe kaydeder.
+Adımları yineleyin [tanılama günlüklerine yönelik veri bağlantısı oluşturma](#diagnostic-logs-data-connection) , etkinlik günlükleri için veri bağlantısı oluşturmak için bölüm.
 
-1. Aşağıdaki ayarları Ekle **veri bağlantısı** penceresi:
+1. Aşağıdaki ayarları kullanın **veri bağlantısı** penceresi:
 
     Veri kaynağı:
 
     **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
-    | Veri bağlantısı adı | *ActivityLogsConnection* | Azure Veri Gezgini'nde oluşturmak istediğiniz bağlantının adı.|
-    | Olay hub’ı ad alanı | *AzureMonitoringData* | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
-    | Olay hub'ı | *insights-operational-logs* | Oluşturduğunuz olay hub'ı. |
-    | Tüketici grubu | *$Default* | Varsayılan bir tüketici grubu. Gerekirse, farklı bir tüketici grubu oluşturabilirsiniz. |
+    | **Veri bağlantısı adı** | *ActivityLogsConnection* | Azure Veri Gezgini'nde oluşturmak istediğiniz bağlantının adı.|
+    | **Olay hub'ı ad alanı** | *AzureMonitoringData* | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
+    | **Olay hub'ı** | *insights-operational-logs* | Oluşturduğunuz olay hub'ı. |
+    | **Tüketici grubu** | *$Default* | Varsayılan bir tüketici grubu. Gerekirse, farklı bir tüketici grubu oluşturabilirsiniz. |
     | | |
 
     Hedef Tablo:
 
-    İki yönlendirme seçeneği vardır: *statik* ve *dinamik*. Bu öğreticide tablo adı, dosya biçimi ve eşleme belirttiğiniz (varsayılan), yönlendirme statik kullanın. Bu nedenle, bırakın **verilerimi yönlendirme bilgilerini içeren** seçilmemiş.
+    İki yönlendirme seçeneği vardır: *statik* ve *dinamik*. Bu öğreticide tablo adı, veri biçimi ve eşleme belirttiğiniz (varsayılan), yönlendirme statik kullanacaksınız. **Verilerimde yönlendirme bilgileri var** seçeneğini işaretlemeyin.
 
      **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
-    | Tablo | *ActivityLogsRawRecords* | Oluşturduğunuz tabloyu *AzureMonitoring* veritabanı. |
-    | Veri biçimi | *JSON* | Tablo biçimlendirin. |
-    | Sütun eşleme | *ActivityLogsRawRecordsMapping* | Oluşturduğunuz eşleme *AzureMonitoring* sütun adları ve veri türleri için gelen JSON verilerini eşleştiren veritabanı *ActivityLogsRawRecords*.|
+    | **Tablo** | *ActivityLogsRawRecords* | Oluşturduğunuz tabloyu *AzureMonitoring* veritabanı. |
+    | **Veri biçimi** | *JSON* | Tabloda kullanılan biçim. |
+    | **Sütun eşleme** | *ActivityLogsRawRecordsMapping* | Oluşturduğunuz eşleme *AzureMonitoring* sütun adları ve veri türleri için gelen JSON verilerini eşleştiren veritabanı *ActivityLogsRawRecords* tablo.|
     | | |
 
-1. **Oluştur**'a tıklayın  
+1. **Oluştur**’u seçin.  
 
 ## <a name="query-the-new-tables"></a>Yeni Tablo sorgulama
 
-Bir işlem hattı ile veri akışının sizde. Küme aracılığıyla alımı 5 dakika, varsayılan olarak alır, böylece sorgu başına önce birkaç dakika veri akışı izin.
+Artık bir işlem hattı ile veri akışının sahipsiniz. Küme aracılığıyla alımı varsayılan olarak 5 dakika sürer, bu nedenle veri sorgulamak başlamadan önce birkaç dakika için akışı izin.
 
-### <a name="diagnostic-logs-table-query-example"></a>Tanılama günlükleri Tablo sorgusu örneği
+### <a name="an-example-of-querying-the-diagnostic-logs-table"></a>Tanılama günlükleri tablo sorgulanmasına bir örnek
 
-Aşağıdaki sorgu, Azure Veri Gezgini tanılama günlük kayıtlarından sorgu süresi verileri analiz eder:
+Aşağıdaki sorguyu sorgu süresi tanılama günlüğü kayıtlarını Azure veri Gezgini'nde verileri analiz eder:
 
 ```kusto
 DiagnosticLogsRecords
@@ -383,9 +390,9 @@ Sorgu sonuçları:
 |   | 00:06.156 |
 | | |
 
-### <a name="activity-logs-table-query-example"></a>Etkinlik günlükleri Tablo sorgusu örneği
+### <a name="an-example-of-querying-the-activity-logs-table"></a>Etkinlik günlükleri tablo sorgulanmasına bir örnek
 
-Aşağıdaki sorguyu Azure Veri Gezgini etkinlik günlüğü kaynaklarından gelen verileri analiz eder:
+Aşağıdaki sorgu, etkinlik günlüğü kayıtlarını Azure veri Gezgini'nde verileri analiz eder:
 
 ```kusto
 ActivityLogsRecords
@@ -403,7 +410,7 @@ Sorgu sonuçları:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure veri şu makaleden yararlanarak Gezgini'nden ayıklanan verilerin çok daha fazla sorguları yazma öğrenin:
+Aşağıdaki makalede kullanarak Azure veri Gezgini'nde ayıklanan verilerin çok daha fazla sorguları yazma öğrenin:
 
 > [!div class="nextstepaction"]
-> [Azure Veri Gezgini için sorguları yazma](write-queries.md)
+> [Azure Veri Gezgini için sorgu yazma](write-queries.md)

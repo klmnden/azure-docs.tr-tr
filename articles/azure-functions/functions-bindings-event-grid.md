@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 3d0c72f0178cddd668c0ac029c803ff339a1f6f4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 12056ebec0f0a23ed255532a8ba27b130ecb81d1
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311622"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750455"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -30,17 +30,17 @@ Tercih ederseniz, Event Grid olaylarını işlemek için bir HTTP tetikleyicisi 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
-
-Event Grid tetikleyicisinin sağlanan [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet paketi sürüm 1.x. Paket için kaynak kodu konusu [azure işlevleri eventgrid uzantı](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub deposu.
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
 ## <a name="packages---functions-2x"></a>Paketler - 2.x işlevleri
 
 Event Grid tetikleyicisinin sağlanan [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet paketi sürüm 2.x. Paket için kaynak kodu konusu [azure işlevleri eventgrid uzantı](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub deposu.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
+
+Event Grid tetikleyicisinin sağlanan [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet paketi sürüm 1.x. Paket için kaynak kodu konusu [azure işlevleri eventgrid uzantı](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub deposu.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Örnek
 
@@ -53,31 +53,6 @@ Bir olay Kılavuzu tetikleyicisi için dile özgü örneğe bakın:
 * [Python](#python-example)
 
 HTTP tetikleyicisi örneği için bkz. [HTTP tetikleyicisi kullanmayı](#use-an-http-trigger-as-an-event-grid-trigger) bu makalenin ilerleyen bölümlerinde.
-
-### <a name="c-version-1x"></a>C#(Sürüm 1.x)
-
-Aşağıdaki örnek, bir işlevler gösterir 1.x [C# işlevi](functions-dotnet-class-library.md) için bağlar `JObject`:
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
-
-namespace Company.Function
-{
-    public static class EventGridTriggerCSharp
-    {
-        [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-        }
-    }
-}
-```
 
 ### <a name="c-2x"></a>C#(2.x)
 
@@ -105,6 +80,31 @@ namespace Company.Function
 
 Paketler, daha fazla bilgi için bkz. [öznitelikleri](#attributes), [yapılandırma](#configuration), ve [kullanım](#usage).
 
+### <a name="c-version-1x"></a>C#(Sürüm 1.x)
+
+Aşağıdaki örnek, bir işlevler gösterir 1.x [C# işlevi](functions-dotnet-class-library.md) için bağlar `JObject`:
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
+        {
+            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
+}
+```
+
 ### <a name="c-script-example"></a>C# betiği örneği
 
 Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanan.
@@ -124,22 +124,6 @@ Veri bağlama işte *function.json* dosyası:
 }
 ```
 
-#### <a name="c-script-version-1x"></a>C#betik (sürüm 1.x)
-
-İşte bağlar işlevleri 1.x C# betik kodu `JObject`:
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject eventGridEvent, TraceWriter log)
-{
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
-}
-```
-
 #### <a name="c-script-version-2x"></a>C#betik (sürüm 2.x)
 
 İşte bağlar işlevleri 2.x C# betik kodu `EventGridEvent`:
@@ -156,6 +140,22 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 ```
 
 Paketler, daha fazla bilgi için bkz. [öznitelikleri](#attributes), [yapılandırma](#configuration), ve [kullanım](#usage).
+
+#### <a name="c-script-version-1x"></a>C#betik (sürüm 1.x)
+
+İşte bağlar işlevleri 1.x C# betik kodu `JObject`:
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
 
 ### <a name="javascript-example"></a>JavaScript örneği
 
@@ -528,11 +528,18 @@ Gibi bir araç kullanın [Postman](https://www.getpostman.com/) veya [curl](http
 * Ayarlanmış bir `Content-Type: application/json` başlığı.
 * Ayarlanmış bir `aeg-event-type: Notification` başlığı.
 * RequestBin veri istek gövdesine yapıştırın.
-* Şu biçimi kullanarak URL'ye Event Grid tetikleyici işlevinizin gönderin:
+* Event Grid tetikleyici işlevinizin URL'sini gönderin.
+  * 2.x için şu biçimi kullanın:
 
-```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
+    ```
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
+    ```
+
+  * 1.x kullanmak için:
+
+    ```
+    http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+    ```
 
 `functionName` Parametresi, belirtilen adı olmalıdır `FunctionName` özniteliği.
 
@@ -591,19 +598,19 @@ Abonelik oluşturulurken, işlevi yerel olarak çalışıyor olması gerekir bö
 
 Test etmek istediğiniz türde bir Event Grid aboneliği oluşturun ve ngrok uç noktanızı verin.
 
-İşlevler için bu endpoint düzeni kullanın 1.x:
-
-```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
-
 İşlevler için bu endpoint düzeni kullanın 2.x:
 
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
+https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
 ```
 
-`functionName` Parametresi, belirtilen adı olmalıdır `FunctionName` özniteliği.
+İşlevler için bu endpoint düzeni kullanın 1.x:
+
+```
+https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+```
+
+`{FUNCTION_NAME}` Parametresi, belirtilen adı olmalıdır `FunctionName` özniteliği.
 
 Azure CLI kullanarak bir örnek aşağıda verilmiştir:
 

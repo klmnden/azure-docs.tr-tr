@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 259a792acb4d2fb8f9695f0f5a856bdf5069f2cd
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269969"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749758"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Azure İzleyici'de günlük verilerini çözümleme
 
@@ -102,5 +102,5 @@ Sırada [Application Insights](../app/app-insights-overview.md) istekler, özel 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Kullanma hakkında bilgi edinin [oturumu oluşturmak ve günlük aramaları düzenlemek için analytics](../log-query/portals.md).
+- Kullanma hakkında bilgi edinin [oluşturmak ve düzenlemek için Log Analytics günlük aramaları](../log-query/portals.md).
 - Kullanıma bir [sorgu yazmakla ilgili öğretici](../log-query/get-started-queries.md) yeni sorgu diline kullanarak.
