@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: a489d1a282c924ec1df658a0244745b225f7123e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 88eb7052c394d41c861ffc422738a4a650101ea7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251274"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819318"
 ---
 # <a name="what-is-automated-machine-learning"></a>Nedir, makine öğrenimi otomatik?
 
@@ -41,7 +41,7 @@ Otomatik makine öğrenimi eğitim verileri ile tanımlanan hedefi özelliği ve
 
 1. Yapılandırma [hedef işlem](how-to-set-up-training-targets.md) modeli eğitmek için kullanılır.
 
-1. Otomatik makine öğrenimi yapılandırması yapılandırın. Bu farklı modelleri, Hiper parametre ayarları, Azure Machine Learning yinelendiğinden kullanılan parametreleri denetler ve hangi ölçümleri ne zaman aramak için en iyi modeli belirleme 
+1. Otomatik makine öğrenimi yapılandırması yapılandırın. Bu farklı modelleri, Hiper parametre ayarları, Azure Machine Learning yinelendiğinden kullanılan parametreleri denetler ve hangi ölçümleri ne zaman aramak için en iyi modeli belirleme
 
 1. Çalıştıran bir eğitim gönderin.
 
@@ -58,9 +58,13 @@ Ortak bir durumu otomatik machine Learning, uçtan uca işlemi görmek için ba�
 1. Makine öğrenimi işlem hattı ve tüm adımları bilincini söz konusu veri ön işleme/özellik kazandırma sayesinde ve hiper parametre değerleri dahil.
 1. Girdi değişkenleri (diğer adıyla "Özellikler") ve model çıktısını arasındaki ilişkiyi anlama.  Büyüklük ve tahmin edilen değer üzerindeki her bir özellik etkisini yönünü bilmek daha iyi anlamanıza ve modeli açıklayan yardımcı olur. Bu özellik önem olarak bilinir.
 
-İşlem hattı, tercih ettiğiniz için genel özellik önem üzerine gönderi eğitim etkinleştirebilir veya otomatik ML eğitim bir parçası olarak tüm işlem hatları için etkinleştirin.  Bu bir önizleme özelliğidir ve biz, ML modelleri daha iyi anlamanıza yardımcı olması için daha zengin bilgi sağlama konusunda yatırım yapmaya devam eder.  
+İşlem hattı, tercih ettiğiniz için genel özellik önem üzerine gönderi eğitim etkinleştirebilir veya otomatik makine öğrenimi eğitim bir parçası olarak tüm işlem hatları için etkinleştirin. Sağlık ve bankacılık gibi yoğun olarak düzenlenen sektörlerde, bu düzenlemelere ve en iyi uygulamalar ile uyum sağlamak için önemlidir.  Göstermek için birkaç gerçek dünya senaryoları aşağıda verilmiştir:
 
-İzleyin [örnek not defteri](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) Azure Machine learning'de model açıklamaları denemek için.
+1. Gelecekteki aracı hatası tahmin etmek için makine öğrenimini kullanarak, bir üretim şirketi böylece bunlar proaktif olarak bakım etkinliği gerçekleştirebilir. Bir aracı hakkında başarısız olduğu öğrendikten sonra en olası nedeni önleyici bakım hızlı bir şekilde gerçekleştirilebilir olması için neler olduğunu?
+1. Machine learning işlem kredi veya kredi kartı uygulamaları kullanılarak bir mali kuruma. Bunu nasıl model doğru şeyi yapıyor ve uygulamalarını reddedilme nedeni bir müşteri hakkında daha fazla ayrıntı için isterse, nasıl, yanıt bunları biliyor?
+1. Bir çevrimiçi satış şirketi veya müşteri dalgalanmasını tahmin için makine öğrenimini kullanarak bir bağımsız yazılım sağlayıcısı. Müşteri anahtar katkıda bulunanlar nelerdir karmaşıklığı ve nasıl ayrıldığı gelen müşteriler engelleyebilir miyim?
+
+Bu bir önizleme özelliğidir ve biz makine öğrenimi modellerini daha iyi anlamanıza yardımcı olması için daha zengin bilgi sağlama konusunda yatırım yapmaya devam eder. İzleyin [örnek not defteri](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) Azure Machine learning'de model açıklamaları denemek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

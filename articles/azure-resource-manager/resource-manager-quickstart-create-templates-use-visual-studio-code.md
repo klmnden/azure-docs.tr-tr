@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/14/2019
+ms.date: 02/25/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 5ef12c4bca8591b758937fd19cc315fdd616f9b1
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 33bc10bb601fa14a34b6032c54b0c751a3608ccc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594211"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823663"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Hızlı Başlangıç: Visual Studio Code kullanarak Azure Resource Manager şablonları oluşturma
 
@@ -133,7 +133,7 @@ Visual Studio Code'u kullanarak bir şablon düzenleme deneyimi için daha fazla
     echo "Enter the location (i.e. centralus):" &&
     read location &&
     az group create --name $resourceGroupName --location "$location" &&
-    az group deployment create --resource-group $resourceGroupName --template-file "azuredeploy.json"
+    az group deployment create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
@@ -143,13 +143,10 @@ Visual Studio Code'u kullanarak bir şablon düzenleme deneyimi için daha fazla
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     
     New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
     ```
     
     ---
-
-    > [!NOTE]
-    > Dosya g/ç Cloud shell'de Azure PowerShell kullanarak sorun yoktur.  Hata iletisi *cmdlet'i için dinamik parametreler alınamıyor. Bunu mevcut olmadığından 'Azure:/azuredeploy.json' yolu bulunamıyor.*  Dahil edilmemesi için geçici bir çözüm olan **- TemplateFile** anahtarının `New-AzResourceGroupDeploy` komutu. Komut dosya adını girmenizi ister.
 
     Dosyayı **azuredeploy.json** dışında bir adla kaydederseniz şablon dosyasının adını güncelleştirin. 
 

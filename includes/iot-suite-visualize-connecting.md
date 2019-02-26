@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 73ba80878615f04e1755a4d12014691c5ae2a077
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5bb2db84a21efb9c8bffb345e05e17d99b866fe9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453129"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56825307"
 ---
 ## <a name="view-device-telemetry"></a>Cihaz telemetrisini görüntüleme
 
-Cihazınızın gönderilen telemetriyi görüntüleyebilirsiniz **cihazları** çözümdeki sayfası.
+Cihazınızın gönderilen telemetriyi görüntüleyebilirsiniz **Device Explorer** çözümdeki sayfası.
 
-1. Şirket cihaz listesinde sağladığınız cihazı seçin **cihazları** sayfası. Bir panel Cihazınızı bir çizim cihaz telemetri dahil olmak üzere ilgili bilgileri görüntüler:
+1. Şirket cihaz listesinde sağladığınız cihazı seçin **Device Explorer** sayfası. Bir panel Cihazınızı bir çizim cihaz telemetri dahil olmak üzere ilgili bilgileri görüntüler:
 
     ![Cihaz ayrıntıları bakın](media/iot-suite-visualize-connecting/devicesdetail.png)
 
@@ -33,11 +33,11 @@ Cihazınızın gönderilen telemetriyi görüntüleyebilirsiniz **cihazları** �
 
 ## <a name="act-on-your-device"></a>Cihazınızda hareket
 
-Cihazlarınızda yöntem çağırmak için **cihazları** Uzaktan izleme çözümünde sayfası. Örneğin, Uzaktan izleme çözüm içinde **Soğutucu** cihazları uygulayan bir **FirmwareUpdate** yöntemi.
+Cihazlarınızda yöntem çağırmak için **Device Explorer** Uzaktan izleme çözümünde sayfası. Örneğin, Uzaktan izleme çözüm içinde **Soğutucu** cihazları uygulayan bir **FirmwareUpdate** yöntemi.
 
-1. Seçin **cihazları** gitmek için **cihazları** çözümdeki sayfası.
+1. Seçin **cihazları** gitmek için **Device Explorer** çözümdeki sayfası.
 
-1. Şirket cihaz listesinde sağladığınız cihazı seçin **cihazları** sayfası:
+1. Şirket cihaz listesinde sağladığınız cihazı seçin **Device Explorer** sayfası:
 
     ![Gerçek Cihazınızı seçin](media/iot-suite-visualize-connecting/devicesselect.png)
 
@@ -49,7 +49,7 @@ Cihazlarınızda yöntem çağırmak için **cihazları** Uzaktan izleme çözü
 
 1. İletiler dizisini sanal cihazı yöntemi işlerken cihazınızın kodunu çalıştıran konsolda görüntüler.
 
-1. Güncelleştirme tamamlandığında, yeni bellenim sürümünü görüntüler **cihazları** sayfası:
+1. Güncelleştirme tamamlandığında, yeni bellenim sürümünü görüntüler **Device Explorer** sayfası:
 
     ![Güncelleştirme tamamlandı](media/iot-suite-visualize-connecting/complete.png)
 

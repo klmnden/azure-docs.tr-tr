@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/13/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 1a9283ad688c63642df880a74cca9189c7c59042
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f57e793278af7eb03fe49fd657e45b0846db8b1c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456706"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817924"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory-preview"></a>Erişim için Azure BLOB'ları ve kuyrukları (Önizleme) Azure Active Directory'yi kullanarak kimlik doğrulaması
 
@@ -41,13 +41,34 @@ Kullanıcılar veya uygulamalar Azure AD kimlik bilgilerini kullanarak kimlik do
     - [Node.js](https://www.npmjs.com/package/azure-storage)
     - [JavaScript](https://aka.ms/downloadazurestoragejs)
 
-## <a name="get-started-with-azure-ad-for-storage"></a>Depolama için Azure AD ile çalışmaya başlama
+## <a name="overview-of-azure-ad-for-storage"></a>Depolama için Azure AD genel bakış
 
-Azure depolama ile Azure AD tümleştirmesi kullanılarak ilk adımı hizmet sorumlusu (kullanıcı, Grup veya uygulama hizmet sorumlusu) veya Azure kaynakları için yönetilen kimlikleri için RBAC rolleri için depolama veri atamaktır. RBAC rollerini ortak kapsayıcılar ve Kuyruklar için izin kümesi kapsayabilir. Azure depolama için RBAC rolleri hakkında daha fazla bilgi edinmek için [Yönet RBAC (Önizleme) ile depolama verilere erişim hakları](storage-auth-aad-rbac.md).
+Azure depolama ile Azure AD tümleştirmesi kullanılarak ilk adımı hizmet sorumlusu (kullanıcı, Grup veya uygulama hizmet sorumlusu) veya Azure kaynakları için yönetilen kimlikleri için RBAC rolleri için depolama veri atamaktır. RBAC rollerini ortak kapsayıcılar ve Kuyruklar için izin kümesi kapsayabilir. Azure depolama için RBAC rollerini atama hakkında daha fazla bilgi edinmek için [Yönet RBAC (Önizleme) ile depolama verilere erişim hakları](storage-auth-aad-rbac.md).
 
 Depolama kaynaklarını uygulamalarınıza erişim yetkisi vermek için Azure AD kullanmak için kodunuz içinden bir OAuth 2.0 erişim belirteci istemeniz gerekir. Bir erişim belirteci istemek ve Azure Depolama'ya yönelik isteklerin yetkilendirmek için kullanmak üzere öğrenmek için bkz: [Azure AD'den bir Azure depolama uygulaması (Önizleme) ile kimlik doğrulama](storage-auth-aad-app.md). Yönetilen bir kimlik kullanıyorsanız bkz [BLOB'lar ve Kuyruklar Azure ile kimlik doğrulama erişim kimlikleri (Önizleme) Azure kaynakları için yönetilen](storage-auth-aad-msi.md).
 
 Azure CLI ve PowerShell artık bir Azure AD kimlik oturum destekler. Bir Azure AD kimlik bilgilerinizle oturum sonra oturumunuz bu kimliği altında çalışır. Daha fazla bilgi için bkz. [CLI veya PowerShell (Önizleme) ile Azure depolamaya erişmek için bir Azure AD kimlik kullanmak](storage-auth-aad-script.md).
+
+## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC rolleri için BLOB'lar ve Kuyruklar
+
+Azure Active Directory (Azure AD) ile güvenli kaynaklara erişim hakları yetkilendirir [rol tabanlı erişim denetimi (RBAC)](../../role-based-access-control/overview.md). Azure depolama genel kapsayıcılar veya sıralara erişmek için kullanılan izin kümelerini kapsayacak yerleşik RBAC rolleri kümesi tanımlar. 
+
+Bir RBAC rolü için bir Azure AD güvenlik sorumlusu atandığında, Azure verir, bir güvenlik sorumlusu için bu kaynaklara erişin. Abonelik, kaynak grubu, depolama hesabı veya bir kapsayıcının veya kuyruk düzeyi için erişimi sınırlayabilirsiniz. Bir Azure AD güvenlik sorumlusu olabilir bir kullanıcı, Grup, bir uygulama hizmet sorumlusu veya [yönetilen Azure kaynakları için kimliği](../../active-directory/managed-identities-azure-resources/overview.md). 
+
+[!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
+
+### <a name="access-permissions-granted-by-rbac-roles"></a>RBAC rolleri tarafından verilen erişim izinleri 
+
+Kapsam bağlı olarak, yerleşik rolleri tarafından verilen erişim hakları aşağıdaki tabloda özetlenmiştir:
+
+|Kapsam|BLOB veri sahibi|BLOB verileri katkıda bulunan|BLOB veri okuyucusu|Kuyruk verileri katkıda bulunan|Kuyruk verileri okuyucu|
+|---|---|---|---|---|---|
+|Abonelik düzeyi|Denetim Yönetimi tüm kapsayıcılar ve bloblar aboneliği için okuma/yazma erişimi ve POSIX erişim|Tüm kapsayıcılar ve bloblar aboneliği için okuma/yazma erişimi| Tüm kapsayıcılar ve bloblar aboneliği okuma erişimi|Abonelikteki tüm kuyruklar için okuma/yazma erişimi|Abonelikteki tüm kuyrukları okuma erişimi|
+|Kaynak grubu düzeyinde|Tüm kapsayıcıları ve blobları kaynak grubunda denetim Yönetimi okuma/yazma erişimi ve POSIX erişim|Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma/yazma erişimi|Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma erişimi|Kaynak grubundaki tüm kuyruklar için okuma/yazma erişimi|Kaynak grubundaki tüm kuyrukları okuma erişimi|
+|Depolama hesabı düzeyi|Tüm kapsayıcıları ve BLOB Depolama hesabında denetim Yönetimi okuma/yazma erişimi ve POSIX erişim|Tüm kapsayıcıları ve blobları depolama hesabındaki okuma/yazma erişimi|Tüm kapsayıcıları ve blobları depolama hesabındaki okuma erişimi|Depolama hesabındaki tüm kuyruklar için okuma/yazma erişimi|Depolama hesabındaki tüm kuyrukları okuma erişimi|
+|Kapsayıcı/kuyruk düzeyi|Okuma/yazma erişimi ve POSIX erişim denetimi Yönetimi belirtilen kapsayıcıya ve bloblarına.|Belirtilen kapsayıcıya ve bloblarına okuma/yazma erişimi|Belirtilen kapsayıcıya ve bloblarına okuma erişimi|Belirtilen sıra okuma/yazma erişimi|Belirtilen sıra okuma erişimi|
+
+Azure depolama işlemleri çağırmak için gereken izinler hakkında daha fazla bilgi için bkz: [REST işlemlerini çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

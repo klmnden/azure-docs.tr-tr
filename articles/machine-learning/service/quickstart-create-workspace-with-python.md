@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1962cef85c5e663de640f296a6e8e9efd5a1f4d6
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 513df9f68fdd54b5dc90e57bd8389688c46bf615
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310364"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804255"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Python SDK'sını kullanma
 
@@ -60,16 +60,18 @@ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Dene
 
 SDK'yı yüklemeden yalıtılmış bir Python ortamı oluşturmanızı öneririz. Bu makalede kullansa [Miniconda](https://docs.conda.io/en/latest/miniconda.html), ayrıca tam kullanabilirsiniz [Anaconda](https://www.anaconda.com/) yüklü veya [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
+Bu hızlı başlangıçtaki yönergeler hızlı ve öğretici not defterlerini çalıştırmak için gereken tüm paketleri yükler.  Diğer örnek not defterleri, ek bileşen yüklenmesini gerektirebilir.  Bu bileşenler hakkında daha fazla bilgi için bkz. [Python için Azure Machine Learning SDK'sını yükleme](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+
 ### <a name="install-miniconda"></a>Miniconda'yı yükleme
 
-[Miniconda yükleyip](https://docs.conda.io/en/latest/miniconda.html). Python 3.7 veya sonraki bir sürümünü yüklemek için seçin. Python 2.x sürümünü seçmeyin.  
+[Miniconda yükleyip](https://docs.conda.io/en/latest/miniconda.html). Python 3.7 sürümün yükleneceğini seçin. Python 2.x sürümünü seçmeyin.  
 
 ### <a name="create-an-isolated-python-environment"></a>Yalıtılmış Python ortamı oluşturma
 
-1. Bir komut satırı penceresi açın ve ardından adlı yeni bir conda ortam oluşturmak *myenv* ve Python 3.6 yükleyin. Python 3.5.2 ile iş veya üzeri Azure Machine Learning SDK'sı olacaktır, ancak otomatik makine bileşenleri öğrenimi Python-3.7 tam işlevsel değildir.
+1. Bir komut satırı penceresi açın ve ardından adlı yeni bir conda ortam oluşturmak *myenv* ve Python 3.6.5 yükleyin. Python 3.5.2 ile iş veya üzeri Azure Machine Learning SDK'sı olacaktır, ancak otomatik makine bileşenleri öğrenimi Python-3.7 tam işlevsel değildir.  Bileşenleri ve paketleri indirilen ortamı oluşturmak için birkaç dakika sürer.
 
     ```shell
-    conda create -n myenv -y Python=3.6
+    conda create -n myenv python=3.6.5
     ```
 
 1. Ortamı etkinleştirin.
@@ -78,18 +80,24 @@ SDK'yı yüklemeden yalıtılmış bir Python ortamı oluşturmanızı öneririz
     conda activate myenv
     ```
 
+1. Ortama özgü ıpython çekirdekler etkinleştir:
+
+    ```shell
+    conda install notebook ipykernel
+    ```
+
+    Ardından çekirdek oluşturun:
+
+    ```shell
+    ipython kernel install --user
+    ```
+
 ### <a name="install-the-sdk"></a>SDK yükle
 
 1. Etkinleştirilen conda ortamında, Machine Learning SDK'sı temel bileşenleri ile Jupyter not defteri özellikleri yükleyin.  Yükleme, makinenizin yapılandırmasına göre tamamlanması birkaç dakika sürer.
 
   ```shell
     pip install --upgrade azureml-sdk[notebooks]
-    ```
-
-1. Jupyter Notebook sunucusu conda ortamınıza yükleyin.
-
-  ```shell
-    conda install -y nb_conda
     ```
 
 1. Azure Machine Learning öğreticileri için bu ortamı kullanmak için bu paketleri yükleyin.

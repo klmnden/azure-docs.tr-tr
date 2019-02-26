@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: d7bcff89ba7f76980287f9aad3413a6ef3f41b4f
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904463"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807431"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service'teki uygulamalar için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -34,7 +34,7 @@ App Service, web sunucusunu hem web uygulamasının içinden bilgileri günlüğ
 ### <a name="web-server-diagnostics"></a>Web sunucusu tanılama
 Etkinleştirmek veya günlükleri aşağıdaki türde devre dışı bırakabilirsiniz:
 
-* **Ayrıntılı hata günlüğü** -ayrıntılı hata bilgileri belirten bir hata (durum kodu 400 veya üzeri) HTTP durum kodları için. Bu sunucunun döndürülen hata kodu neden belirlemek yardımcı olabilecek bilgiler içerebilir.
+* **Ayrıntılı hata günlüğü** -HTTP durum kodu 400 veya üzeri sonuçları herhangi bir istek için ayrıntılı bilgiler. Bu sunucunun döndürülen hata kodu neden belirlemek yardımcı olabilecek bilgiler içerebilir. Bir HTML dosyası, her bir hata oluşturulur (içinde *D:\LogFiles\DetailedErrors* varsayılan olarak), ve en çok 50 hataları (dosyalar) korunur. HTML dosyaları sayısı 50'den fazla eski 26 dosyaları otomatik olarak silinir.
 * **Başarısız istek izleme** -ayrıntılı bir izleme isteği ve her bir bileşende geçen süre işlemek için kullanılan IIS bileşenlerini de dahil olmak üzere, başarısız isteklerle bilgileri. Site performansı artırmak veya belirli bir HTTP hatası yalıtmak istiyorsanız kullanışlıdır.
 * **Web sunucusu günlüğe kaydetme** -kullanarak HTTP işlemleri hakkında bilgi [W3C Genişletilmiş günlük dosyası biçimini](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). İşlenen isteklerin veya özel bir IP adresinden kaç isteklerdir sayısı gibi genel site ölçümleri belirlerken yararlı olacaktır.
 

@@ -5,24 +5,24 @@ description: API Management kullanarak AzureML web hizmetlerini yönetmek nasıl
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 915b972774fb418a454d8a3acd2a61f25af7a6aa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: b15fddcace19abcd1cd08d059c497c1c209f74d0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488518"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823442"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Yönetimi'ni kullanarak Azure Machine Learning Studio web hizmetlerini yönetme
 ## <a name="overview"></a>Genel Bakış
 Bu kılavuzda, Azure Machine Learning Studio web hizmetlerinizi yönetmek için API Yönetimi'ni kullanarak hızla gösterilir.
 
 ## <a name="what-is-azure-api-management"></a>Azure API Management nedir?
-Azure API Management REST API uç noktalarınızın kullanıcı erişimi, kullanımı azaltma ve izleme Panosu tanımlayarak yönetmenizi sağlayan bir Azure hizmetidir. Tıklayın [burada](https://azure.microsoft.com/services/api-management/) Azure API Management hakkında ayrıntılı bilgi için. Tıklayın [burada](../../api-management/api-management-get-started.md) Azure API Management'i kullanmaya başlama hakkında bir kılavuz için. Bu kılavuzu temel alır, bu diğer Kılavuzu, ürünler, geliştirici abonelikleri ve kullanım yönelik Kompozit oluşturma bildirimi yapılandırmaları, fiyatlandırma katmanı, yanıt işleme, kullanıcı kimlik doğrulaması dahil olmak üzere diğer konuları kapsar.
+Azure API Management REST API uç noktalarınızın kullanıcı erişimi, kullanımı azaltma ve izleme Panosu tanımlayarak yönetmenizi sağlayan bir Azure hizmetidir. Tıklayın [burada](https://azure.microsoft.com/services/api-management/) Azure API Management hakkında ayrıntılı bilgi için. Tıklayın [burada](/azure/api-management/import-and-publish) Azure API Management'i kullanmaya başlama hakkında bir kılavuz için. Bu kılavuzu temel alır, bu diğer Kılavuzu, ürünler, geliştirici abonelikleri ve kullanım yönelik Kompozit oluşturma bildirimi yapılandırmaları, fiyatlandırma katmanı, yanıt işleme, kullanıcı kimlik doğrulaması dahil olmak üzere diğer konuları kapsar.
 
 ## <a name="what-is-azureml"></a>AzureML nedir?
 AzureML bir kolayca oluşturmanızı, dağıtmanızı ve Gelişmiş analiz çözümlerini sağlayan machine learning için Azure hizmetidir. Tıklayın [burada](https://azure.microsoft.com/services/machine-learning/) AzureML hakkında ayrıntılı bilgi için.

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 6fb8166893f0dada019ca633933833d17b95fee9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 368e1f6b9501c677eca1cf80d24a06c0a6533e86
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811469"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817363"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Toplu ölçümleri, uyarılar ve değerlendirme tanılama ve izleme günlükleri
 
@@ -91,7 +91,7 @@ Tanılama günlükleri için isteğe bağlı diğer hedefleri:
 
 * Batch tanılama günlüğü olaylarını Stream bir [Azure olay hub'ı](../event-hubs/event-hubs-what-is-event-hubs.md). Event hubs'ı, sonra dönüştürebilir ve herhangi bir gerçek zamanlı analiz sağlayıcısı kullanarak depolama, saniye başına milyonlarca olayı içe alabilir. 
 
-* Tanılama günlükleri gönderin [Azure Log Analytics](../log-analytics/log-analytics-overview.md), burada onları çözümleyebilir veya Power BI'ı veya Excel'i analizi için bunları dışarı aktarmak.
+* Tanılama günlükleri gönderin [Azure İzleyici günlükleri](../log-analytics/log-analytics-overview.md), burada onları çözümleyebilir veya Power BI'ı veya Excel'i analizi için bunları dışarı aktarmak.
 
 > [!NOTE]
 > Depolama veya Azure hizmetleriyle tanılama günlük verilerini işlemek için ek ücrete neden. 
@@ -101,7 +101,7 @@ Tanılama günlükleri için isteğe bağlı diğer hedefleri:
 
 1. Portalında **tüm hizmetleri** > **Batch hesapları**ve ardından Batch hesabınızın adına tıklayın.
 2. Altında **izleme**, tıklayın **tanılama günlükleri** > **tanılamayı Aç**.
-3. İçinde **tanılama ayarları**, ayar için bir ad girin ve bir günlük hedefi (var olan depolama hesabı, olay hub'ı veya Log Analytics) seçin. Veya ikisini birden seçin **ServiceLog** ve **AllMetrics**.
+3. İçinde **tanılama ayarları**, ayar için bir ad girin ve bir günlük hedefi (mevcut bir depolama hesabı, olay hub'ı veya Azure İzleyici günlüklerine) seçin. Veya ikisini birden seçin **ServiceLog** ve **AllMetrics**.
 
     İsteğe bağlı olarak bir depolama hesabını seçtiğinizde bir bekletme ilkesi ayarlayın. Veriler, birkaç gün bekletme için belirtmezseniz, depolama hesabının ömrü tutulur.
 

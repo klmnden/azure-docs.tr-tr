@@ -12,53 +12,30 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: dfbd8425048ddc5c96349bfd6a7462dcd32dc1d9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a72d6b180db35f3e0f0e0527e8ae0f544a585b25
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727765"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822983"
 ---
-# <a name="create-your-first-function-with-java-and-maven-preview"></a>Java ve Maven (Önizleme) ile ilk işlevinizi oluşturma
+# <a name="create-your-first-function-with-java-and-maven"></a>Java ve Maven ile ilk işlevinizi oluşturma
 
-> [!NOTE] 
-> Azure İşlevleri için Java şu anda önizleme aşamasındadır.
-
-Bu hızlı başlangıç kılavuzları oluşturma işleminde bir [sunucusuz](https://azure.microsoft.com/solutions/serverless/) yerel olarak test etme ve Azure'a dağıtma Maven ile işlevi projesi. İşiniz bittiğinde, Java işlev kodunuzu bulutta çalıştığından ve HTTP isteğinden tetiklenebilir.
-
-![cURL ile komut satırından bir Hello World işlevine erişme](media/functions-create-java-maven/hello-azure.png)
+Bu makalede, derleme ve Azure işlevleri için Java işlevi yayımlamak için Maven komut satırı aracını kullanarak aracılığıyla size yol gösterir. İşiniz bittiğinde, işlev kodunuzun çalıştığı [tüketim planı](functions-scale.md#consumption-plan) azure'da ve bir HTTP isteği kullanılarak tetiklenebilir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
-Java ile işlev uygulamaları geliştirebilmeniz için şunlar yüklü olmalıdır:
 
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/), sürüm 8.
--  [Apache Maven](https://maven.apache.org), sürüm 3.0 veya üzeri.
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
+Java kullanarak işlevleri geliştirmek için aşağıdakilerin yüklü olması gerekir:
 
-> [!IMPORTANT] 
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/), sürüm 8.
+- [Apache Maven](https://maven.apache.org), sürüm 3.0 veya üzeri.
+- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure işlevleri temel araçları](functions-run-local.md#v2) (gerektirir **.NET Core 2.x SDK**)
+
+> [!IMPORTANT]
 > Bu hızlı başlangıcın tamamlanabilmesi için JAVA_HOME ortam değişkeni JDK’nin yükleme konumu olarak ayarlanmalıdır.
-
-## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools’u Yükleme
-
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools), Azure İşlevleri yazmak, çalıştırmak ve bunların hatalarını ayıklamak için yerel bir geliştirme ortamı sağlar. 
-
-Yüklemek için, Azure İşlevleri Çekirdek Araçları projesinin [Yükleme](https://github.com/azure/azure-functions-core-tools#installing) bölümünü ziyaret ederek işletim sisteminize yönelik yönergeleri bulun.
-
-Aşağıdaki gereksinimleri yükledikten sonra bunu, [Node.js](https://nodejs.org/) ile birlikte sunulan [npm](https://www.npmjs.com/) ile ayrıca kendiniz yükleyebilirsiniz:
-
--  [.NET Core](https://www.microsoft.com/net/core), en son sürüm.
--  [Node.js](https://nodejs.org/download/), sürüm 8.6 veya üzeri.
-
-npm tabanlı bir yüklemeyle devam etmek için şunu çalıştırın:
-
-```
-npm install -g azure-functions-core-tools
-```
-
-> [!NOTE]
-> Azure Functions Core Tools 2.0 sürümünü yükleme sorunu yaşıyorsanız bkz. [Sürüm 2.x çalışma zamanı](/azure/azure-functions/functions-run-local).
 
 ## <a name="generate-a-new-functions-project"></a>Yeni İşlevler projesi oluşturma
 

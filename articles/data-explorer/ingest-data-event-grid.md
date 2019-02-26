@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743694"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804662"
 ---
 # <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Hızlı Başlangıç: Event Grid Bildirimlere abone olarak, Azure veri Gezgini'ne Azure BLOB'ları alma
 
@@ -58,7 +58,7 @@ Tablo, Event Hubs veri gönderip Azure veri Gezgini'nde oluşturun. Tablo kümey
 
 1. Azure portalda kümenizin altında **Sorgu**'yu seçin.
 
-    ![Sorgu uygulama bağlantısı](media/ingest-data-event-hub/query-explorer-link.png)
+    ![Sorgu uygulama bağlantısı](media/ingest-data-event-grid/query-explorer-link.png)
 
 1. Pencere ı seçin aşağıdaki komutu kopyalayın **çalıştırma** alınan verileri alır (TestTable) tablo oluşturun.
 
@@ -82,11 +82,11 @@ Artık test tabloya blob kapsayıcısına akan veriler akışla böylece Event G
 
 1. Oluşturduğunuz kümenin altında **Veritabanları**'nı ve ardından **TestDatabase** girişini seçin.
 
-    ![Test veritabanını seçme](media/ingest-data-event-hub/select-test-database.png)
+    ![Test veritabanını seçme](media/ingest-data-event-grid/select-test-database.png)
 
 1. **Veri alımı**'nı ve ardından **Veri bağlantısı ekle**'yi seçin.
 
-    ![Veri alımı](media/ingest-data-event-hub/data-ingestion-create.png)
+    ![Veri alımı](media/ingest-data-event-grid/data-ingestion-create.png)
 
 1. Bağlantı türünü seçin: **BLOB Depolama**.
 
@@ -185,9 +185,9 @@ Yeniden, event grid'i kullanmayı planlamıyorsanız, temizleme **test-hub-rg**y
 
 1. Azure portalında, en solda bulunan **Kaynak grupları**’nı ve ardından oluşturduğunuz kaynak grubunu seçin.  
 
-    Soldaki menü daraltılmışsa, genişletmek için ![Genişletme düğmesi](media/ingest-data-event-hub/expand.png) öğesine tıklayın.
+    Soldaki menü daraltılmışsa, genişletmek için ![Genişletme düğmesi](media/ingest-data-event-grid/expand.png) öğesine tıklayın.
 
-   ![Silinecek kaynak grubunu seçin](media/ingest-data-event-hub/delete-resources-select.png)
+   ![Silinecek kaynak grubunu seçin](media/ingest-data-event-grid/delete-resources-select.png)
 
 1. **test-resource-group** altında **Kaynak grubunu sil**'i seçin.
 

@@ -3,7 +3,7 @@ title: Azure Service Fabric'te kapsayıcı günlüklerini görüntüleme | Micro
 description: Service Fabric Explorer kullanarak çalışan bir Service Fabric kapsayıcı Hizmetleri için kapsayıcı günlüklerini görüntülemeyi açıklar.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: twhitney
-ms.openlocfilehash: d66e27d860d18a37ffd9c6355b8d769116f26d73
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.author: aljo
+ms.openlocfilehash: 801d96dc154c1d7144217fe0f70c179c086690f0
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391246"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804510"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Bir Service Fabric kapsayıcı hizmeti için günlükleri görüntüleyin
 Azure Service Fabric kapsayıcı Düzenleyicisi ve her ikisi de destekler [Linux ve Windows kapsayıcıları](service-fabric-containers-overview.md).  Bu makalede, böylece tanılayın ve sorunlarını giderme ölü kapsayıcı ya da çalışan bir kapsayıcı hizmeti kapsayıcı günlüklerini görüntülemeyi açıklar.

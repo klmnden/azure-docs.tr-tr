@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2ada0ccc1286677300c005da4fa0e92be94a3ca8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: edfc14e837c92cac5bab589e33069bb771a53cb7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314844"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818264"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Var olan bir şema atamasını güncelleştirme
 
@@ -26,21 +26,21 @@ Bir şema atandığında atama güncelleştirilebilir. Mevcut bir atamanın gün
 
 ## <a name="updating-assignments"></a>Atamaları güncelleştiriliyor
 
-1. **Tüm hizmetler**'e tıklayın ve **İlke** araması yapıp sol taraftaki bölmeden seçin. **İlke** sayfasında **Şemalar**’a tıklayın.
+1. Seçin **tüm hizmetleri** sol bölmesinde. Arayın ve seçin **şemaları**.
 
-1. Soldaki sayfadan **Atanan Şemalar** öğesini seçin.
+1. Seçin **şemaları atanan** sol sayfasında.
 
 1. Şema atamasını şemaları listede sol. Ardından **güncelleştirme ataması** düğmesini veya şema atamasını sağ tıklayıp **güncelleştirme ataması**.
 
-   ![Güncelleştirme ataması](../media/update-existing-assignments/update-assignment.png)
+   ![Atamayı güncelleştir](../media/update-existing-assignments/update-assignment.png)
 
-1. **Atama şema** sayfa özgün atama tüm değerlerle önceden doldurulmuş olarak yüklenecektir. Değiştirebileceğiniz **şema tanımı sürümü**, **kilit atama** durumunu ve herhangi bir şema tanımı üzerinde mevcut dinamik parametre. Tıklayın **atama** değişiklikleriniz bittiğinde.
+1. **Ata şema** sayfa özgün atama tüm değerlerle önceden doldurulmuş olarak yüklenecektir. Değiştirebileceğiniz **şema tanımı sürümü**, **kilit atama** durumunu ve herhangi bir şema tanımı üzerinde mevcut dinamik parametre. Tıklayın **atama** değişiklikleriniz bittiğinde.
 
 1. Yeni durum güncelleştirilmiş atama Ayrıntıları sayfasında bakın. Bu örnekte, eklediğimiz **kilitleme** atama.
 
    ![Güncelleştirilmiş atama - kilitli](../media/update-existing-assignments/updated-assignment.png)
 
-1. Diğer ayrıntılarını keşfetmek **atama işlemleri** açılan listeyi kullanarak. İçindekiler tablosunu **yönetilen kaynaklar** güncelleştirilerek seçilen atama işlemi.
+1. Diğer ayrıntılarını keşfetmek **atama işlemleri** açılan listeyi kullanarak. İçindekiler tablosunu **yönetilen kaynakları** güncelleştirilerek seçilen atama işlemi.
 
    ![Atama işlemleri](../media/update-existing-assignments/assignment-operations.png)
 

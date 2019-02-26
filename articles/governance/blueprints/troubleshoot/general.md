@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cebbc8b61a806663e7cb58e0bf7fbdd589f46cca
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 0d49045eea5a65461b142262bae83b9b8e7f84c8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343315"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816598"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Kullanarak Azure şemaları hatalarıyla ilgili sorunları giderme
 
@@ -24,11 +24,11 @@ Oluştururken ya da bir blueprint'i atama hatalarla karşılaşırsanız çalı�
 
 Birçok hata, bir şema bir kapsama atama sonucunu olacaktır. Atama başarısız olduğunda, şema dağıtımı başarısız hakkında ayrıntılar sağlar. Bu bilgiler, böylece sonraki dağıtım başarılı olduktan ve düzeltilebilir sorunu gösterir.
 
-1. **Tüm hizmetler**'e tıklayın ve **İlke** araması yapıp sol taraftaki bölmeden seçin. **İlke** sayfasında **Şemalar**’a tıklayın.
+1. Seçin **tüm hizmetleri** sol bölmesinde. Arayın ve seçin **şemaları**.
 
-1. Seçin **atanan şemalar** blueprint ataması başarısız atamanın bulmak için filtre uygulamak için arama kutusunu kullanın ve sol sayfasında. Tablosu atamaları göre de sıralayabilirsiniz **sağlama durumu** tüm başarısız atamalar görmek için sütun gruplandırıldığı.
+1. Seçin **şemaları atanan** blueprint ataması başarısız atamanın bulmak için filtre uygulamak için arama kutusunu kullanın ve sol sayfasında. Tablosu atamaları göre de sıralayabilirsiniz **sağlama durumu** tüm başarısız atamalar görmek için sütun gruplandırıldığı.
 
-1. Sol tıklatma ile şema üzerinde _başarısız_ durumu veya sütuna sağ tıklayıp **atama ayrıntıları**.
+1. Sol tıklatma ile şema üzerinde _başarısız_ durumu veya sütuna sağ tıklayıp **atama ayrıntıları görüntüle**.
 
 1. Atama başarısız oldu uyarı kırmızı bir başlık blueprint ataması sayfanın en üstündeki ' dir. Daha fazla bilgi almak için başlık herhangi bir yere tıklayın.
 

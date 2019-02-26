@@ -5,17 +5,17 @@ description: Azure Machine Learning Studio web Hizmetleri, kod yazmaya gerek kal
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 1e8bb6deeb66b506e1342fceb725b1563b822dff
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 37a7610cf2458906729432b1cf53043f1badd64b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453129"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820850"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Bir Azure Machine Learning Studio Web hizmetini Excel'den kullanma
 

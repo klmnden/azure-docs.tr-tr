@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 10/01/2018
+ms.date: 1/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4ffd3d2383973c6e4b318d580e442a2a53cc629
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da1e4cf1780ffdfedb0e194fbd721277db90e45c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239630"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821328"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Azure Machine Learning Modellerinizi Application Insights ile izleme
 

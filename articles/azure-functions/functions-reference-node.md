@@ -10,22 +10,24 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 10/26/2018
+ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: cff486f79abb02861c07e0daacaf2f58d3efaac4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 04653dcdf0fb64e8b935cda18c01198ec91c548d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729671"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807482"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
 Bu kılavuz, Azure işlevleri ile JavaScript Yazma ayrıntılı olarak incelenmektedir hakkında bilgi içerir.
 
-Dışarı aktarılan bir JavaScript işlevidir `function` tetiklendiğinde çalışır ([Tetikleyiciler içinde function.json yapılandırılmış](functions-triggers-bindings.md)). Her işlev geçirilen ilk bağımsız değişken bir `context` alıcı ve gönderen bağlama verileri, günlüğe kaydetme ve çalışma zamanı ile iletişim kurmak için kullanılan nesne.
+Dışarı aktarılan bir JavaScript işlevidir `function` tetiklendiğinde çalışır ([Tetikleyiciler içinde function.json yapılandırılmış](functions-triggers-bindings.md)). Her bir işleve geçirilen ilk bağımsız değişken bir `context` alıcı ve gönderen bağlama verileri, günlüğe kaydetme ve çalışma zamanı ile iletişim kurmak için kullanılan nesne.
 
-Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md). Ayrıca ilk oluşturma işlevler hızlı başlangıcı tamamlamanız gereken kullanarak işlev [Visual Studio Code](functions-create-first-function-vs-code.md) veya [portalında](functions-create-first-azure-function.md).
+Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md). İlk oluşturmak için İşlevler hızlı başlangıcı tamamlamak kullanarak işlev [Visual Studio Code](functions-create-first-function-vs-code.md) veya [portalında](functions-create-first-azure-function.md).
+
+Bu makalede ayrıca destekler [TypeScript uygulama geliştirme](#typescript).
 
 ## <a name="folder-structure"></a>klasör yapısı
 
@@ -109,7 +111,7 @@ JavaScript'te [bağlamaları](functions-triggers-bindings.md) yapılandırılır
 
 ### <a name="inputs"></a>Girişler
 Giriş, Azure işlevleri'nde iki kategoriye ayrılmıştır: Tetikleyici girişi biridir ve diğer ek girişi. Tetikleyici ve diğer giriş bağlamaları (bağlamalarını `direction === "in"`) üç yolla bir işlev tarafından okunabilir:
- - **_[Önerilen]_  İşlevinize geçirilen parametreler olarak.** İçinde tanımlanan aynı sırada işlevine geçirilen *function.json*. Unutmayın `name` tanımlanan özellik *function.json* olması gerektiği olsa da, parametre adıyla eşleşmesi gerekmez.
+ - **_[Önerilen]_  İşlevinize geçirilen parametreler olarak.** İçinde tanımlanan aynı sırada işlevine geçirilen *function.json*. `name` Tanımlanan özellik *function.json* olması gerektiği olsa da, parametre adıyla eşleşmesi gerekmez.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -138,7 +140,8 @@ Giriş, Azure işlevleri'nde iki kategoriye ayrılmıştır: Tetikleyici girişi
 ### <a name="outputs"></a>Çıkışlar
 Çıkış (bağlamalarını `direction === "out"`) çeşitli yollarla bir işlevde tarafından yazılabilir. Tüm durumlarda `name` tanımlandığı gibi bağlama özelliğini *function.json* işlevinizde yazılan nesne üyesinin adı karşılık gelir. 
 
-Verileri aşağıdaki yollardan birinde bir çıkış bağlamaları atayabilirsiniz. Bu yöntemler birleştirmemelisiniz değil.
+Veri (Bu yöntemleri birleştirmek yok) aşağıdaki yollardan biriyle bir çıkış bağlamaları atayabilirsiniz:
+
 - **_[Birden çok çıkış için önerilen]_  Döndüren bir nesne.** İşlev döndüren zaman uyumsuz/Promise kullanıyorsanız, bir nesne ile atanan çıktı verilerini döndürebilir. Aşağıdaki örnekte çıkış bağlamaları "httpResponse" ve "queueOutput" olarak adlandırılan *function.json*.
 
   ```javascript
@@ -152,7 +155,7 @@ Verileri aşağıdaki yollardan birinde bir çıkış bağlamaları atayabilirsi
       };
   };
   ```
-  
+
   Zaman uyumlu bir işlevin kullanıyorsanız, bu nesneyi kullanarak döndürebilir [ `context.done` ](#contextdone-method) (örneğe bakın).
 - **_[Tek çıkış için önerilen]_  $Return bağlama adını kullanarak ve doğrudan değer döndürüyor.** Bu, yalnızca zaman uyumsuz/döndüren işlevleri Promise çalışır. Örnekte bakın [bir zaman uyumsuz işlev dışarı aktarma](#exporting-an-async-function). 
 - **Değerler atamada `context.bindings`**  doğrudan context.bindings için değerler atayabilirsiniz.
@@ -167,7 +170,7 @@ Verileri aşağıdaki yollardan birinde bir çıkış bağlamaları atayabilirsi
       return;
   };
   ```
- 
+
 ### <a name="bindings-data-type"></a>Bağlamaları veri türü
 
 Bir giriş bağlaması için veri türünü tanımlamak için `dataType` bağlama tanımındaki özelliği. Örneğin, içeriği ikili biçimde bir HTTP isteğinin okunacak türünü kullanın. `binary`:
@@ -550,7 +553,47 @@ const myObj = new MyObj();
 module.exports = myObj;
 ```
 
-Bu örnekte, bir nesne dışarı olsa da, bulunduğuna yürütmeleri arasında durum koruma etrafında hiçbir kuralının dikkat edin önemlidir.
+Bu örnekte, bir nesne dışarı olsa da, bulunduğuna yürütmeleri arasında durum koruma için hiçbir garanti dikkat edin önemlidir.
+
+## <a name="typescript"></a>TypeScript
+
+Sürümünü hedeflediğinizde işlevler çalışma zamanının 2.x hem [Visual Studio Code için Azure işlevleri](functions-create-first-function-vs-code.md) ve [Azure işlevleri çekirdek Araçları](functions-run-local.md) destekleyen bir şablon kullanarak işlev uygulamaları oluşturmanızı sağlar TypeScript işlev uygulaması projeleri. Şablon oluşturur `package.json` ve `tsconfig.json` derleyin, daha kolay hale getirmek proje dosyaları çalıştırın ve JavaScript işlevleri bu araçlarla TypeScript koddan yayımlayın.
+
+Oluşturulan bir `.funcignore` dosyası, hangi dosyaların hariç tutulur, Azure'a bir proje yayımlandığında belirtmek için kullanılır.  
+
+TypeScript dosyalar (.ts), JavaScript dosyaları (.js) içine transpiled `dist` çıkış dizini. TypeScript şablonlarını kullanın [ `scriptFile` parametre](#using-scriptfile) içinde `function.json` karşılık gelen .js dosyasının konumunu belirtmek için `dist` klasör. Çıkış konumu kullanarak şablon tarafından ayarlanmış `outDir` parametresinde `tsconfig.json` dosya. Bu ayar ya da klasörün adını değiştirirseniz, çalışma zamanı çalıştırılacak kodu bulmak mümkün değil.
+
+> [!NOTE]
+> TypeScript için Deneysel desteği mevcut sürüm işlevler çalışma zamanının 1.x. Deneysel sürüm transpiles işlevi çağrıldığında JavaScript dosyalarına TypeScript dosyaları. Sürüm 2.x, bu Deneysel destek yerini transpilation ana bilgisayar başlatılmadan önce yapan aracı temelli yöntemi tarafından ve dağıtım sürecinde.
+
+Yerel olarak geliştirme ve bir TypeScript projesi dağıtma biçimini, geliştirme aracına bağlıdır.
+
+### <a name="visual-studio-code"></a>Visual Studio Code
+
+[Visual Studio Code için Azure işlevleri](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) uzantısı TypeScript kullanarak işlevlerinizi geliştirmenize olanak tanır. Temel araçları, Azure işlevleri uzantının bir gereksinimdir.
+
+Visual Studio Code'da bir TypeScript işlev uygulaması oluşturmak için yalnızca seçtiğiniz `TypeScript` ne zaman bir işlev uygulaması oluşturma ve dili seçmeniz istenir.
+
+Bastığınızda **F5** (func.exe) ana bilgisayar başlatılmadan önce uygulamayı çalıştırmak için yerel olarak transpilation gerçekleştirilir. 
+
+Azure kullanarak işlev uygulamanızı dağıtırken **işlev uygulaması Dağıt...**  düğmesi, Azure işlevleri uzantısı ilk JavaScript dosyalarının bir üretime hazır derleme TypeScript kaynak dosyası oluşturur.
+
+### <a name="azure-functions-core-tools"></a>Azure işlevleri temel araçları
+
+Core Araçları'nı kullanarak bir TypeScript işlevi uygulaması projesi oluşturmak için işlev uygulamanızı oluştururken typescript dil seçeneğini belirtmeniz gerekir. Bu aşağıdaki yollardan biriyle yapabilirsiniz:
+
+- Çalıştırma `func init` komutu, select `node` dil yığını, ve ardından `typescript`.
+
+- `func init --worker-runtime typescript` komutunu çalıştırın.
+
+Temel araçları kullanarak yerel olarak işlev uygulaması kodunuzu çalıştırmak için kullandığınız `npm start` komutu yerine `func host start`. `npm start` Komutu için aşağıdaki komutlar eşdeğerdir:
+
+- `npm run build`
+- `func extensions install`
+- `tsc`
+- `func start`
+
+Kullanmadan önce [ `func azure functionapp publish` ] Azure'a dağıtmak için komut, ilk çalıştırmalısınız `npm run build:production` komutu. Bu komut, bir üretim ortamına hazır derleme JavaScript dosyalarının kullanılarak dağıtılan TypeScript kaynak dosyası oluşturur. [ `func azure functionapp publish` ].
 
 ## <a name="considerations-for-javascript-functions"></a>JavaScript işlevleri için dikkat edilmesi gerekenler
 
@@ -558,11 +601,7 @@ JavaScript işlevleri ile çalışırken, aşağıdaki bölümlerde konuları un
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Tek vCPU App Service planı seçin
 
-App Service planını kullanan bir işlev uygulaması oluşturduğunuzda, bir plan ile birden çok Vcpu yerine tek vCPU planı seçmeniz önerilir. Bugün, işlevleri çalışır JavaScript işlevleri daha verimli bir şekilde tek vCPU VM'ler üzerinde ve daha büyük sanal makineleri kullanarak beklenen performans iyileştirmeleri üretmez. Gerektiğinde, el ile daha fazla tek vCPU VM örneği ekleyerek genişletebilir ya da otomatik ölçeklendirmeyi etkinleştirebilirsiniz. Daha fazla bilgi için [örnek sayısını elle veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
-
-### <a name="typescript-and-coffeescript-support"></a>TypeScript ve CoffeeScript desteği
-
-Doğrudan desteği henüz otomatik derleme TypeScript veya CoffeeScript için çalışma zamanı var olmadığından, dağıtım sırasında çalışma zamanı dışında işlenecek tür desteğini gerekir. 
+App Service planını kullanan bir işlev uygulaması oluşturduğunuzda, bir plan ile birden çok Vcpu yerine tek vCPU planı seçmeniz önerilir. Bugün, işlevleri çalışır JavaScript işlevleri daha verimli bir şekilde tek vCPU VM'ler üzerinde ve daha büyük sanal makineleri kullanarak beklenen performans iyileştirmeleri üretmez. Gerekli olduğunda, el ile daha fazla tek vCPU VM örneği ekleyerek genişletebilir veya otomatik ölçeklendirme etkinleştirebilirsiniz. Daha fazla bilgi için [örnek sayısını elle veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json).
 
 ### <a name="cold-start"></a>Hazırlıksız başlatma
 
@@ -575,3 +614,5 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 + [Azure İşlevleri için en iyi uygulamalar](functions-best-practices.md)
 + [Azure İşlevleri geliştirici başvurusu](functions-reference.md)
 + [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
+
+['func azure functionapp publish']: functions-run-local.md#project-file-deployment

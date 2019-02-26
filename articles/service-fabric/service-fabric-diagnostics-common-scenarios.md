@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/16/2018
+ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 700295c94428021445f6cbbd84175046d57b9147
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 559409ac73fb28df18c2ddeca7eb2bcd06a24835
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054954"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817669"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Yaygın senaryolar ile Service Fabric'i tanılama
 
@@ -111,7 +111,6 @@ Tüm grafikler ile aynı görünümde kapsayıcılarınızı performansı için 
 
     * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
     * `Processor(_Total)\\% Processor Time`
-    * `Service Fabric Service(*)\\Average milliseconds per request`
 
     Bu sayaçlardan izleme şöyle görünmelidir hızlı başlangıçta, VotingData ve VotingWeb kullanıldığında, işlem adları olduğundan
 
@@ -128,7 +127,10 @@ Tüm grafikler ile aynı görünümde kapsayıcılarınızı performansı için 
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Reliable Services ve aktörler performansını nasıl izleyebilir?
 
-Uygulamalarınızda Reliable Services veya aktörler performansını izlemek için Service Fabric aktör, aktör yöntemi, hizmet ve hizmet yöntemi sayaçları de eklemeniz gerekir. Bu sayaçlar yukarıdaki senaryo benzer bir biçimde ekleyebilirsiniz, Log Analytics'e eklemek için güvenilir hizmeti ve aktör performans sayaçları örnekleri aşağıda verilmiştir:
+Uygulamalarınızda Reliable Services veya aktörler performansını izlemek için de Service Fabric aktör, aktör yöntemi, hizmet ve hizmet yöntemi sayaçları toplamanız gerekir. Toplanacak güvenilir hizmeti ve aktör performans sayaçları örnekleri aşağıda verilmiştir
+
+>[!NOTE]
+>Service Fabric performans sayaçları Log Analytics aracısı tarafından şu anda toplanamıyor ancak tarafından toplanan [tanılama diğer çözümleri](service-fabric-diagnostics-partners.md)
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`

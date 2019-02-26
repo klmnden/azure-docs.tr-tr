@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a63155e65460f9e2193c121bb49849940104eff1
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: dd2ba0ec3427cd99da3321b50fb43f4c00f2d1a9
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649247"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822830"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Otomasyonu durum yapılandırmasına genel bakış
 
@@ -37,9 +37,9 @@ Azure portaldan veya powershell'den, tüm, DSC yapılandırmaları, kaynak ve he
 
 ![Azure Otomasyonu sayfasının ekran görüntüsü](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-log-analytics"></a>Log Analytics'e raporlama verilerini içeri aktarma
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Azure İzleyici günlüklerine raporlama verilerini içeri aktarma
 
-Azure Otomasyonu durum yapılandırması ile yönetilen düğümler ayrıntılı raporlama Durum verilerini yerleşik çekme sunucusuna gönderir. Log Analytics çalışma alanınıza bu veri göndermek için Azure Otomasyon durum yapılandırması yapılandırabilirsiniz. Log Analytics çalışma alanınıza durum yapılandırması Durum verilerini gönderme hakkında bilgi edinmek için bkz: [İleri Azure Otomasyon durum raporlama verilerini Log Analytics'e Yapılandırması](automation-dsc-diagnostics.md).
+Azure Otomasyonu durum yapılandırması ile yönetilen düğümler ayrıntılı raporlama Durum verilerini yerleşik çekme sunucusuna gönderir. Log Analytics çalışma alanınıza bu veri göndermek için Azure Otomasyon durum yapılandırması yapılandırabilirsiniz. Log Analytics çalışma alanınıza durum yapılandırması Durum verilerini gönderme hakkında bilgi edinmek için bkz: [İleri Azure Otomasyon durum raporlama verilerini Azure İzleyici günlüklerine Yapılandırması](automation-dsc-diagnostics.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 

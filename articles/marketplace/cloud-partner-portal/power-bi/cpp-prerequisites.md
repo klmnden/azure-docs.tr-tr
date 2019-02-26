@@ -1,6 +1,6 @@
 ---
-title: Power BI uygulama önkoşulları - Azure Marketi | Microsoft Docs
-description: Power BI uygulaması Appsource'ta yayımlama için önkoşulları listeler.
+title: Power BI uygulaması önkoşulları - Azure Marketi'nde teklif | Microsoft Docs
+description: Power BI uygulaması Appsource'ta yayımlama önkoşulları sağlar.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 documentationcenter: ''
 author: v-miclar
@@ -14,31 +14,31 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 414acab1259a14240f9f65aa4c12261f78473665
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f9e57c00744301fefed32ed3e6526d3c1f52b362
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666726"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816020"
 ---
-# <a name="power-bi-apps-prerequisites"></a>Power BI uygulamaları önkoşulları
+# <a name="power-bi-app-offer-prerequisites"></a>Power BI uygulaması teklif önkoşulları
 
-Bu makalede teknik listeler ve önce karşılamanız gereken iş gereksinimlerini Microsoft AppSource Marketplace için Power BI uygulaması teklif yayımlayabilirsiniz.
+Bu makalede teknik ve Power BI uygulaması yayımlayabilmeniz için önce yerine getirmeniz gereken iş gereksinimlerini ve AppSource Market sunar.
 
 ## <a name="technical-requirements"></a>Teknik gereksinimler
 
-Bu teklif türü için gereksinim duyacağınız birincil teknik varlık bir [Power BI uygulaması](https://go.microsoft.com/fwlink/?linkid=2028636). Daha fazla bilgi için [Power BI teknik varlıkları](./cpp-create-technical-assets.md).
+Bu teklif türü için gerekir, ana teknik varlık bir [Power BI uygulaması](https://go.microsoft.com/fwlink/?linkid=2028636). Daha fazla bilgi için [Power BI teknik varlıkları](./cpp-create-technical-assets.md).
 
-Hizmet uygulamanızı oluşturup test Power BI hizmetinde, Power BI'ı oluşturan uygulama yükleme URL'si kaydetmeniz gerekir. Buna ihtiyacınız olacak [yeni bir Power BI uygulaması teklif oluşturma](./cpp-create-offer.md).
+Hizmet uygulamanız oluşturulur ve Power BI'da test sonra Power BI'ı oluşturan uygulama yükleme URL'si kaydetmeniz gerekir. İçin buna ihtiyacınız olacak [Power BI uygulaması teklif oluşturma](./cpp-create-offer.md).
 
 ## <a name="business-requirements"></a>İş gereksinimleri
 
 Yordam, sözleşmeye dayalı ve yasal yükümlülüklerin yerine iş gereksinimleri şunlardır:
 
--   Kayıtlı bir bulut Market yayımcı olmalıdır. Henüz kaydolmadıysanız makaledeki adımları [bulut Market yayımcısı haline](../../become-publisher.md).
+-   Kayıtlı bulut Market yayımcısı olması gerekir. Kayıtlı değil, adımları [bulut Market yayımcısı haline](../../become-publisher.md).
 
     > [!NOTE] 
-    > Oturum açmanız aynı Microsoft Developer Center kayıt hesabı kullanmalısınız [bulut iş ortağı portalı](https://cloudpartner.azure.com). AppSource tekliflerinizi için yalnızca bir Microsoft hesabı olması gerekir. Bireysel hizmetlerin veya teklifler için belirli olmamalıdır.
+    > Oturum açmak için aynı Microsoft Developer Center kayıt hesabı kullanmak [bulut iş ortağı portalı](https://cloudpartner.azure.com). AppSource tekliflerinizi için yalnızca bir Microsoft hesabı olması gerekir. Hesapları tek tek hizmetler ve teklifler için belirli olmamalıdır.
  
 -   Teknik Destek kullanılabilir müşterilere ticari açıdan makul bir şekilde yapmaktan sorumlu olursunuz.
 -   Appsource'ta listelenmesi teklifinizi ölçütlerini karşılayan içeriği sağlamanız gerekir. Daha fazla bilgi için [Appsource'ta uygulama listesine sahip mi? İşte nasıl](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
@@ -47,4 +47,4 @@ Yordam, sözleşmeye dayalı ve yasal yükümlülüklerin yerine iş gereksiniml
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Tüm gereksinimleri karşıladığınızdan sonra hazır olursunuz [Power BI teklif oluşturma](./cpp-create-offer.md) bulut iş ortağı Portalı'nda.
+Tüm gereksinimlerini karşılamanızın ardından hazır [Power BI uygulaması teklif oluşturma](./cpp-create-offer.md) bulut iş ortağı Portalı'nda.

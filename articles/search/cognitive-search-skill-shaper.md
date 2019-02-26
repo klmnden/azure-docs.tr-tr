@@ -8,21 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c55783e9b209a1280a21edca34b75e72481f4cb6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410124"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807006"
 ---
 #   <a name="shaper-cognitive-skill"></a>Shaper bilişsel beceri
 
-**Shaper** beceri bileşik alanlarını (çok bölümlü alanlar olarak da bilinir) desteklemek için bir karmaşık türü oluşturur. Bir karmaşık tür alanı birden çok bölümden oluşur, ancak Azure Search dizini içinde tek bir öğe olarak kabul edilir. Birleştirilmiş alanlar arama senaryolarda yararlı bir tek bir alan, şehir ve tek alan veya adı durumuna ve doğum tarihi benzersiz kimliğini oluşturmak için tek bir alanına adı ve Soyadı birleştirme verilebilir.
-
-**Shaper** beceri temelde bir yapı oluşturmak, bu yapının üyelerine adını tanımlayın ve her üye için değerler atayın olanak tanır.
+**Shaper** beceri birkaç girişten sonra zenginleştirme işlem hattı, başvurulan bir karmaşık türü birleştirir. **Shaper** beceri temelde bir yapı oluşturmak, bu yapının üyelerine adını tanımlayın ve her üye için değerler atayın olanak tanır. Birleştirilmiş alanlar arama senaryolarda yararlı bir tek yapısı, şehir ve tek yapısı veya adı durumuna ve doğum tarihi benzersiz kimliğini oluşturmak için tek bir yapıda adı ve Soyadı birleştirme verilebilir.
 
 Varsayılan olarak, bu teknik bir düzey derin olan nesneleri destekler. Daha karmaşık nesneler için birkaç bağlayabilirsiniz(ekleyebilirsiniz) **Shaper** adımları.
 
@@ -58,7 +56,7 @@ Aşağıdaki örnekte, giriş olarak üye adları sağlar. Çıktı yapısını 
   "outputs": [
     {
       "name": "output",
-      "targetName": analyzedText"
+      "targetName": "analyzedText"
     }
   ]
 }
@@ -125,8 +123,8 @@ Bu senaryo için Shaper beceri tanımı aşağıdaki örnekteki gibi görünebil
     ],
     "outputs": [
         {
-            "output": "titlesAndChapters",
-            "targetName": "analyzedText"
+            "name": "output",
+            "targetName": "titlesAndChapters"
         }
     ]
 }

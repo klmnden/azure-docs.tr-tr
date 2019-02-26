@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 290230237a68730a908c6fd0fb0df1d63035b93b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cb2261e92e90bef7cdd51b0ebf7a4ed34ca01624
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247349"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806242"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı tabloları tasarlama
 
@@ -61,7 +61,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ```
 
 ### <a name="temporary-table"></a>Geçici tablo
-Oturum süresi boyunca yalnızca bir geçici tablo var. Geçici Tablo geçici sonuçları görmemesi diğer kullanımlar için ve ayrıca temizleme gereksinimini azaltmak için kullanabilirsiniz.  Geçici tablolar da yerel depolama kullanan olduğundan, bunlar bazı işlemler için daha hızlı performans sunabilir.  Daha fazla bilgi için [geçici tablolar](sql-data-warehouse-tables-temporary.md).
+Oturum süresi boyunca yalnızca bir geçici tablo var. Geçici bir tablo, diğer kullanıcıların geçici sonuçları görmemesi ve temizleme gereksinimini azaltmak için kullanabilirsiniz.  Geçici tablolar da yerel depolama kullanan olduğundan, bunlar bazı işlemler için daha hızlı performans sunabilir.  Daha fazla bilgi için [geçici tablolar](sql-data-warehouse-tables-temporary.md).
 
 ### <a name="external-table"></a>Dış tablo
 Azure depolama blobu veya Azure Data Lake Store içinde yer alan veriler için dış tablo işaret eder. CREATE TABLE AS SELECT deyimiyle birlikte kullanıldığında, bir dış tablodaki varlıkları seçerek verileri SQL Data Warehouse'a veri alır. Dış tablolar, bu nedenle verileri yüklemek için kullanışlıdır. Yükleme öğreticisi için bkz. [Azure blob depolama alanından verileri yüklemek için PolyBase kullanma](load-data-from-azure-blob-storage-using-polybase.md).
@@ -95,7 +95,7 @@ Tablo kategori tablo dağıtılmasında seçmek için hangi seçeneği genellikl
 |:---------------|:--------------------|
 | Olgu           | Kümelenmiş columnstore dizini ile karma dağıtım kullanın. İki karma tabloları aynı dağıtım sütunu katıldığında performansını artırır. |
 | Boyut      | Çoğaltılmış daha küçük tablolar için kullanın. Karma dağıtılmış tablo her işlem düğümünde depolamak için çok büyük ise kullanın. |
-| Hazırlanıyor        | Hepsini bir kez deneme hazırlama tablosu için kullanın. CTAS yüküyle hızlıdır. Veri hazırlama tablosunda eklendiğinde, INSERT kullanın... Bir üretim tablolarına veri taşımak için bu seçeneği seçin. |
+| Staging        | Hepsini bir kez deneme hazırlama tablosu için kullanın. CTAS yüküyle hızlıdır. Veri hazırlama tablosunda eklendiğinde, INSERT kullanın... Üretim tablolarına veri taşımak için bu seçeneği seçin. |
 
 ## <a name="table-partitions"></a>Tablo bölümleri
 Bölümlenmiş bir tablodaki depoları ve veri aralıkları göre tablo satırları işlemleri gerçekleştirir. Örneğin, bir tablo gün, ay veya yıl bölümlenmiş. Bölüm içindeki verileri için bir sorgu tarama sınırlayan bölüm eleme ile sorgu performansını iyileştirebilir. Ayrıca, bölüm değiştirme ile verileri koruyabilirsiniz. Verileri SQL veri ambarı'nda zaten dağıtılmış olduğundan, çok fazla sorgu performansı yavaşlatabilir. Daha fazla bilgi için [bölümleme Kılavuzu](sql-data-warehouse-tables-partition.md).

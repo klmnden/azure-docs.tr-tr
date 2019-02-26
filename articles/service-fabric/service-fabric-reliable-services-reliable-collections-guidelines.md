@@ -3,7 +3,7 @@ title: Kılavuzlar ve öneriler azure'da güvenilir koleksiyonlar için Service 
 description: Yönergeler ve öneriler, Service Fabric Reliable Collections kullanma
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
-ms.author: twhitney
-ms.openlocfilehash: d50fee06a291e11898de19fd49bd657d2e1a6d00
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.author: aljo
+ms.openlocfilehash: ddccb1c8a881cd15ef1c76b755c3bb74b7f3b49d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184949"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805765"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service fabric'te güvenilir koleksiyonlar için yönergeler ve öneriler
 Bu bölümde, güvenilir durum Yöneticisi ve güvenilir koleksiyonlar kullanma yönergeleri sağlar. Kullanıcıların yaygın görülen tehlikeleri önlemek yardımcı olmaktır.

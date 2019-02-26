@@ -5,17 +5,17 @@ description: Nasıl bir geliştirme, Azure Machine Learning Studio'da model iler
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 776f33e3e550ad9a711a90732c6c4526e647aa89
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 808883fc96369538a26a06a7dadb5f0ecd6628d5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456801"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823408"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning Studio'da model denemeden bir çalışır hale getirilen Web hizmetine nasıl ilerlediğini
 Azure Machine Learning Studio geliştirin, çalıştırın, test etme ve yineleme olanak tanıyan etkileşimli bir tuvale sağlayan bir ***deneme*** Tahmine dayalı bir modeli temsil eden. Çok çeşitli için modüller vardır:
@@ -95,7 +95,7 @@ Bir örneği aşağıda verilmiştir: Tahmine dayalı denemenizi giriş verileri
 
 Machine learning modeli tutmak istiyor ancak yeni verilerle çağırma istiyorsanız iki seçeneğiniz vardır:
 
-1. **Web hizmeti çalışırken modeli yeniden eğitme** -Tahmine dayalı Web hizmeti çalışırken modelinizi yeniden ayarlamak istiyorsanız, bunu yapmak için eğitim denemesini birkaç değişiklik yaparak bunu yapabilirsiniz bir ***yeniden eğitme Deneme***, ardından olarak dağıtabileceğiniz bir  ***yeniden eğitme web* hizmet**. Bunun nasıl yapılacağı hakkında yönergeler için bkz [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](retrain-models-programmatically.md).
+1. **Web hizmeti çalışırken modeli yeniden eğitme** -Tahmine dayalı Web hizmeti çalışırken modelinizi yeniden ayarlamak istiyorsanız, bunu yapmak için eğitim denemesini birkaç değişiklik yaparak bunu yapabilirsiniz bir ***yeniden eğitme Deneme***, ardından olarak dağıtabileceğiniz bir  ***yeniden eğitme web* hizmet**. Bunun nasıl yapılacağı hakkında yönergeler için bkz [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](/azure/machine-learning/studio/retrain-machine-learning-model).
 2. **Özgün eğitim denemesini için geri dönün ve farklı bir eğitim veri modelinizin geliştirilmesine kullanmasını** - deneyiminizi Tahmine dayalı Web hizmetine bağlıdır ancak eğitim denemesini doğrudan bu şekilde bağlı değil. Özgün eğitim denemesini değiştirmek ve'ı tıklatırsanız **Web hizmetinin ayarı**, oluşturacağı bir *yeni* Tahmine dayalı, denemeler dağıtıldığında, oluşturacak bir *yeni* Web hizmeti. Ayrıca, özgün Web hizmeti yalnızca güncelleştirmez.
 
    Eğitim denemesini değiştirmeniz gerekiyorsa, açın ve tıklayın **Kaydet** kopyalanmasına. Bu, özgün eğitim denemesini, Tahmine dayalı denemeye bırakmanız ve Web hizmeti. Bu gibi durumlarda, yeni bir Web hizmeti artık yaptığınız değişikliklerle oluşturabilirsiniz. Yeni bir Web hizmeti dağıtıldıktan sonra ardından önceki Web hizmetini durdurmak veya yeni bir tane çalışmasını sağlamak karar verebilirsiniz.
@@ -109,7 +109,7 @@ Geliştirme ve deneme işlemi hakkında daha fazla bilgi için aşağıdaki maka
 
 * denemeyi - dönüştürme [modelinizin Azure Machine Learning Studio'da dağıtımı için hazırlama](convert-training-experiment-to-scoring-experiment.md)
 * -Web Hizmeti'ni dağıtma [bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md)
-* -modeli yeniden eğitme [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](retrain-models-programmatically.md)
+* -modeli yeniden eğitme [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 Bu işlem örnekleri için bkz:
 

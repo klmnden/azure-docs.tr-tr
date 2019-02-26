@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96d4a61a14d3b1fac1c31c485edf66742c763673
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c0b023b6bdd01bc64eb5a6deb5fafa8e3c34c616
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497766"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819029"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Azure Backup için Azure Resource Manager şablonları
 
@@ -31,6 +31,6 @@ Aşağıdaki tabloda Kurtarma Hizmetleri kasaları ve Azure Backup özellikleri 
 | [IaaS sanal makineleri için Günlük Yedekleme ilkesi oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-daily-backup-policy-create) | Şablon, Kurtarma Hizmetleri kasası ve klasik ile Kaynak Yöneticisi sanal makinelerini yedeklemek için kullanılan günlük bir yedekleme ilkesi oluşturur.|
 | [Yedekleme özelliği etkin Windows Server VM dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-create-vm-and-configure-backup) | Şablon, varsayılan yedekleme ilkesi etkinken bir Windows Server VM ve Kurtarma Hizmetleri kasası oluşturur.|
 |**Yedekleme işlerini izleme** |  |
-| [Log Analytics kullanarak Azure Backup izleme](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Şablon, Azure Backup için Log Analytics İzlemeyi dağıtarak yedekleme ve geri yükleme işlerini, yedekleme uyarılarını ve Kurtarma Hizmetleri kasalarınızda kullanılan Bulut depolama alanını izlemenize olanak tanır.|  
+| [Azure İzleyici günlüklerine Azure Backup ile kullanma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Azure İzleyici günlüklerine Azure Yedekleme'yle yedeklemeyi izleme ve işler, Yedekleme uyarılarını ve kurtarma Hizmetleri Kasalarınızda kullanılan bulut depolama geri yüklemenize olanak sağlayan şablon dağıtır.|  
 |   |   |
 

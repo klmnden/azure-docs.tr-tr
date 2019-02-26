@@ -5,17 +5,17 @@ description: Yeni başlayanlar için veri bilimi 5 sorular veri Biliminin yanıt
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: 93af2e283a1dd1ec11541087b33b3303c13364cc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 4483fc82ad4bf935153c76922fbece84c6ca2ea8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492003"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816921"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Veri bilimi video 1 yeni başlayanlar için: 5 veri biliminin yanıtladığı sorular
 Veri bilimi için hızlı bir giriş yapın *yeni başlayanlar için veri bilimi* beş kısa videolardan bir veri bilimi insanı olarak. Bu videolarda temel ancak yararlı veri bilimi ilginizi çeken veya veri uzmanları ile çalışır.
@@ -136,4 +136,4 @@ Deneme yanılma öğrenme Git gibi pekiştirmeye öğrenme algoritmalarını ver
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bir Machine Learning Studio'da ilk veri bilimi deneyinde deneyin](create-experiment.md)
-* [Microsoft Azure'da Machine learning'e giriş yapın](what-is-machine-learning.md)
+* [Microsoft Azure'da Machine learning'e giriş yapın](/azure/machine-learning/preview/overview-what-is-azure-ml)

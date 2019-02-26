@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 407bb2e39e92390576da9c23868f5af9c444bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.date: 02/25/2019
+ms.openlocfilehash: fab5d69239c420c394645cef632d119848d0f4c4
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341548"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818842"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data factory'de etkinlik Sil
 
@@ -37,21 +37,20 @@ Silme etkinliği kullanmak için bazı öneriler şunlardır:
 
 -   Aynı anda yazılmakta olan dosyaları silme değil emin olun. 
 
--   Dosya veya klasör bir şirket içi sisteminden silmek istiyorsanız, 3.13 büyük bir sürümle şirket içinde barındırılan Integration runtime'ı kullandığınızdan emin olun.
+-   Dosya veya klasör bir şirket içi sisteminden silmek istiyorsanız, 3.14 büyük bir sürümle şirket içinde barındırılan Integration runtime'ı kullandığınızdan emin olun.
 
 ## <a name="supported-data-stores"></a>Desteklenen veri depolar
 
-### <a name="azure-data-stores"></a>Azure veri depoları
-
 -   [Azure Blob Depolama](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2 (Önizleme)](connector-azure-data-lake-storage.md)
+-   [Azure Data Lake depolama 2. nesil](connector-azure-data-lake-storage.md)
 
 ### <a name="file-system-data-stores"></a>Dosya sistemi veri depoları
 
 -   [Dosya Sistemi](connector-file-system.md)
 -   [FTP](connector-ftp.md)
--   [HDFS](connector-hdfs.md)
+-   [SFTP](connector-sftp.md)
+-   [Amazon S3](connector-amazon-simple-storage-service.md)
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -61,7 +60,7 @@ Silme etkinliği kullanmak için bazı öneriler şunlardır:
     "type": "Delete",
     "typeProperties": {
         "dataset": {
-            "referenceName": "<dataset name to be deleted>",
+            "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
         "recursive": true/false,
@@ -87,7 +86,7 @@ Silme etkinliği kullanmak için bazı öneriler şunlardır:
 | MaxConcurrentConnections | Depolama deposu, klasör veya dosyaları silmek için eşzamanlı olarak bağlanmak için bağlantı sayısı.   |  Hayır. Varsayılan değer: `1`. |
 | EnableLogging | Silinmiş bir klasör veya dosya adlarını kaydedin gerekip gerekmediğini gösterir. TRUE ise silme etkinliği davranışlarını günlük dosyasını okuyarak izleyebilmeniz için daha fazla günlük dosyasını kaydetmek için bir depolama hesabı sağlamak gerekir. | Hayır |
 | logStorageSettings | Yalnızca uygun olduğunda enablelogging = true.<br/><br/>Silme etkinliği tarafından silinmiş klasör veya dosya adlarını içeren bir günlük dosyasını kaydetmek istediğiniz bir grup olabilir depolama özellik belirtilmiş. | Hayır |
-| linkedServiceName | Yalnızca uygun olduğunda enablelogging = true.<br/><br/>Bağlı hizmetin adı [Azure depolama](connector-azure-blob-storage.md#linked-service-properties) veya [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) silme etkinliği tarafından silinmiş klasör veya dosya adlarını içeren bir günlük dosyasının depolanacağı. | Hayır |
+| linkedServiceName | Yalnızca uygun olduğunda enablelogging = true.<br/><br/>Bağlı hizmetin adı [Azure depolama](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake depolama Gen1](connector-azure-data-lake-store.md#linked-service-properties), veya [Azure Data Lake depolama Gen2](connector-azure-data-lake-storage.md#linked-service-properties) günlük dosyasının depolanacağı klasörü içeren veya dosya adları Silme etkinliği tarafından silindi. | Hayır |
 | yol | Yalnızca uygun olduğunda enablelogging = true.<br/><br/>Günlük dosyasını depolama hesabınızdaki kaydetmek istediğiniz yola gözatın. Bir yol belirtmezseniz, hizmet sizin için bir kapsayıcı oluşturur. | Hayır |
 
 ## <a name="monitoring"></a>İzleme
@@ -100,13 +99,15 @@ Burada görmek ve sonuçları Sil etkinliğinin izleme iki yerde vardır:
 
 ```json
 { 
-  "isWildcardUsed": false, 
-  "wildcard": null,
-  "type": "AzureBlobStorage",
+  "datasetName": "AmazonS3",
+  "type": "AmazonS3Object",
+  "prefix": "test",
+  "bucketName": "adf",
   "recursive": true,
-  "maxConcurrentConnections": 10,
-  "filesDeleted": 1,
-  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07/5c698705-a6e2-40bf-911e-e0a927de3f07.json",
+  "isWildcardUsed": false,
+  "maxConcurrentConnections": 2,  
+  "filesDeleted": 4,
+  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07",
   "effectiveIntegrationRuntime": "MyAzureIR (West Central US)",
   "executionDuration": 650
 }
@@ -114,22 +115,12 @@ Burada görmek ve sonuçları Sil etkinliğinin izleme iki yerde vardır:
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Örnek günlük dosya silme etkinliği
 
-```json
-{
-  "customerInput": {
-    "type": "AzureBlob",
-    "fileName": "",
-    "folderPath": "folder/filename_to_be_deleted",
-    "recursive": false,
-    "enableFileFilter": false
-  },
-  "deletedFileList": [
-    "folder/filename_to_be_deleted"
-  ],
-  "deletedFolderList": null,
-  "error":"the reason why files are failed to be deleted"
-}
-```
+| Ad | Kategori | Durum | Hata |
+|:--- |:--- |:--- |:--- |
+| Test1/yyy.JSON | Dosya | Silinen |  |
+| Test2/hello789.txt | Dosya | Silinen |  |
+| Test2/test3/hello000.txt | Dosya | Silinen |  |
+| test2/test3/zzz.json | Dosya | Silinen |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Silme etkinliği kullanma örnekleri
 
@@ -332,7 +323,7 @@ Dosya öznitelik filtresi yararlanarak eski veya süresi dolmuş dosyaları temi
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Kopyalama etkinliği ve silme etkinliği zincirleme dosyaları taşıma
 
-Bir dosya kopyalamak için kopyalama etkinliğini kullanarak bir dosyayı taşıyabilirsiniz ve ardından bir işlem hattındaki bir dosyayı silmek için Sil etkinliği.  Birden çok dosyayı taşımak istediğinizde, GetMetadata etkinliği + filtre etkinliği + Foreach etkinliği + kopyalama etkinliği kullanma + etkinlik aşağıdaki örnekte olduğu gibi silin:
+Bir dosyayı dosya kopyalamak için kopyalama etkinliği ve bir işlem hattındaki bir dosyayı silmek için Sil etkinliği kullanarak taşıyabilirsiniz.  Birden çok dosyayı taşımak istediğinizde, GetMetadata etkinliği + filtre etkinliği + Foreach etkinliği + kopyalama etkinliği kullanma + etkinlik aşağıdaki örnekte olduğu gibi silin:
 
 > [!NOTE]
 > Yalnızca bir klasör yolu içeren bir veri kümesini tanımlama ve ardından bir kopyalama etkinliği'ni kullanarak tüm klasör taşımak istiyorsanız ve aynı veri kümesine bir klasörü temsil eden başvurmak için silme etkinliği çok dikkatli olmanız gerekir. Yeni dosyalar klasörüne silme işlemi ve kopyalama işlemi arasında gelen olmayacaktır emin olmak sahip olmasıdır.  Klasör kullandığınızda, kopyalama etkinliği yalnızca kopyalama işi tamamlandı ancak silme etkinliği değil stared şu anda gelen yeni dosyalar varsa destinati için kopyalanmaz bu gelen dosya silme etkinliği sileceğini mümkündür henüz klasörün tamamını silerek şirket. 
@@ -575,9 +566,6 @@ Kopyalama etkinliği tarafından kullanılan verileri hedef veri kümesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Data Factory'de dosyaları kopyalama hakkında daha fazla bilgi edinin.
-
--   [Azure veri fabrikasında kopyalama etkinliği](copy-activity-overview.md)
+Azure Data Factory'de dosyaları taşıma hakkında daha fazla bilgi edinin.
 
 -   [Azure Data Factory'de veri aracı kopyalayın](copy-data-tool.md)
-- 

@@ -13,23 +13,23 @@ ms.topic: article
 ms.date: 11/22/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a92440e97f47f0778eb73b81b239b45476d4e733
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d89197fad8354b0bae41ab67b9bb1dfac0a179eb
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551703"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820306"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service için dağıtım kimlik bilgilerini yapılandırma
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) iki tür kimlik bilgilerini destekler [yerel Git dağıtımı](deploy-local-git.md) ve [FTP/S dağıtım](deploy-ftp.md). Bunlar Azure Active Directory kimlik bilgilerinizi ile aynı değildir.
 
-* **Kullanıcı düzeyinde kimlik**: tek tüm Azure hesabı için kimlik bilgileri kümesi. Azure hesabı için erişim iznine sahip olduğu herhangi bir abonelikte, herhangi bir uygulama için App Service'e dağıtmak için kullanılabilir. GUI portalında ortaya varsayılan kümesi olan (gibi **genel bakış** ve **özellikleri** uygulamanın [kaynak sayfası](../azure-resource-manager/resource-group-portal.md#manage-resources)). Bir kullanıcı rolü tabanlı erişim denetimi (RBAC) veya coadmin izinler aracılığıyla uygulama erişimi verildiğinde kullanıcı erişimi iptal kadar onun kendi kullanıcı düzeyi kimlik bilgilerini kullanabilirsiniz. Bu kimlik bilgileri, diğer Azure kullanıcıları ile paylaşmayın.
+* **Kullanıcı düzeyinde kimlik**: tek tüm Azure hesabı için kimlik bilgileri kümesi. Azure hesabı için erişim iznine sahip olduğu herhangi bir abonelikte, herhangi bir uygulama için App Service'e dağıtmak için kullanılabilir. GUI portalında ortaya varsayılan kümesi olan (gibi **genel bakış** ve **özellikleri** uygulamanın [kaynak sayfası](../azure-resource-manager/manage-resources-portal.md#manage-resources)). Bir kullanıcı rolü tabanlı erişim denetimi (RBAC) veya coadmin izinler aracılığıyla uygulama erişimi verildiğinde kullanıcı erişimi iptal kadar onun kendi kullanıcı düzeyi kimlik bilgilerini kullanabilirsiniz. Bu kimlik bilgileri, diğer Azure kullanıcıları ile paylaşmayın.
 
 * **Uygulama düzeyinde kimlik**: tek her uygulama için kimlik bilgileri kümesi. Yalnızca bu uygulamasına dağıtmak için kullanılabilir. Her uygulama için kimlik bilgileri uygulama oluşturma sırasında otomatik olarak oluşturulur. El ile yapılandırılmış, ancak sıfırlanabilir. Bir kullanıcı (RBAC) aracılığıyla uygulama düzeyinde kimlik bilgilerine erişim izni verilecek kullanıcı katkıda bulunan olması gerekir veya uygulamada daha yüksek. Okuyucular, yayımlama izin verilmez ve bu kimlik bilgilerine erişemez.
 
 ## <a name="userscope"></a>Ayarlayın ve kullanıcı düzeyi kimlik bilgilerini sıfırlama
 
-Bir uygulamanın kullanıcı düzeyinde kimlik bilgilerinizi yapılandırabileceğiniz [kaynak sayfası](../azure-resource-manager/resource-group-portal.md#manage-resources). Bakılmaksızın hangi uygulamanın bu kimlik bilgilerini yapılandırın, bunu tüm uygulamalar ve Azure hesabınızda tüm abonelikler için geçerlidir. 
+Bir uygulamanın kullanıcı düzeyinde kimlik bilgilerinizi yapılandırabileceğiniz [kaynak sayfası](../azure-resource-manager/manage-resources-portal.md#manage-resources). Bakılmaksızın hangi uygulamanın bu kimlik bilgilerini yapılandırın, bunu tüm uygulamalar ve Azure hesabınızda tüm abonelikler için geçerlidir. 
 
 Kullanıcı düzeyinde kimlik bilgilerinizi yapılandırmak için:
 

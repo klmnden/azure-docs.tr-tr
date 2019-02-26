@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: c0a7bb9dfe8553515816efd53785dbe661cee0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f272f72a0bcae70a25bada266dc6b080f46526cd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431597"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817737"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>İstenen Durum Yapılandırması ile Linux sanal makinesi yapılandırma
 
@@ -144,5 +144,5 @@ Bu hızlı başlangıçta DSC'ye bir Linux VM eklediniz, LAMP yığını için y
 
 * PowerShell İstenen Durum Yapılandırması hakkında daha fazla bilgi edinmek için bkz. [PowerShell İstenen Durum Yapılandırması'na Genel Bakış](https://docs.microsoft.com/powershell/dsc/overview).
 * PowerShell'den Automation DSC yönetimi hakkında daha fazla bilgi edinmek için bkz. [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
-* Raporlama ve uyarı oluşturma amacıyla DSC raporlarını Log Analytics'e iletmeyi öğrenmek için bkz. [DSC Raporlarını Log Analytics'e İletme](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
+* DSC raporlarını raporlama ve uyarı Azure İzleyici günlüklerine iletmek öğrenmek için bkz: [iletme DSC raporlama Azure İzleyici ile günlükleri](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
 

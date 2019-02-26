@@ -16,19 +16,19 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 28f8300b83f55f4b083aa1e740dcbf1db0f1dc31
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4683b6f63af9fe0081911db9914f04b1c90f9d23
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168157"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819454"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack VM güncelleştirme ve yönetim
 Aşağıdaki Azure Otomasyonu çözüm özellikleri, Windows ve Linux Vm'leri, Azure Stack kullanarak dağıtılmış yönetmek için kullanabilirsiniz:
 
 - **[Güncelleştirme yönetimi](https://docs.microsoft.com/azure/automation/automation-update-management)**. Güncelleştirme yönetimi çözümü ile hızlı bir şekilde tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu değerlendirebilir ve bu Windows ve Linux Vm'leri için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
 
-- **[Değişiklik izleme](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Yüklü yazılım, Windows Hizmetleri, Windows kayıt defteri ve dosya ve izlenen sunucularda Linux Daemon'ları için değişiklikler, işleme için buluttaki Log Analytics hizmetine gönderilir. Mantıksal alınan verilere uygulanır ve bulut hizmeti olan verileri kaydeder. Değişiklik izleme Panoda bilgileri kullanarak, sunucu altyapınızda yapılan değişiklikleri kolayca görebilirsiniz.
+- **[Değişiklik izleme](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Yüklü yazılım, Windows Hizmetleri, Windows kayıt defteri ve dosya ve izlenen sunucularda Linux Daemon'ları için değişiklikler, işleme için bulutta Azure İzleyici'hizmetine gönderilir. Mantıksal alınan verilere uygulanır ve bulut hizmeti olan verileri kaydeder. Değişiklik izleme Panoda bilgileri kullanarak, sunucu altyapınızda yapılan değişiklikleri kolayca görebilirsiniz.
 
 - **[Stok](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. Bir Azure Stack sanal makine için izleme envanteri ayarlamak ve stok toplama yapılandırmak için bir tarayıcı tabanlı kullanıcı arabirimi sağlar. 
 
@@ -44,7 +44,7 @@ Azure Stack Vm'leri için Envanter, değişiklik izleme ve güncelleştirme yön
 > [!TIP]
 > Bu özellikleri Azure Vm'leri için etkin zaten varsa, önceden mevcut olan LogAnalytics çalışma kimlik bilgilerinizi kullanabilirsiniz. LogAnalytics Workspaceıd ve kullanmak istediğiniz birincil anahtar zaten varsa, atlayın [sonraki bölümde](./vm-update-management.md#in-the-azure-stack-administration-portal). Aksi takdirde, yeni LogAnalytics çalışma alanını ve Otomasyon hesabı oluşturmak için bu bölümdeki devam edin.
 
-Bu çözümler etkinleştirmenin ilk adımı [LogAnalytics çalışma alanı oluşturma](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) Azure aboneliğinizdeki. Log Analytics çalışma alanını kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir Log Analytics Ortamı ' dir. Bir çalışma alanı oluşturduktan sonra çalışma alanı kimliği ve anahtarı not edin. Bu bilgileri görüntülemek için çalışma alanı dikey penceresine gidin, tıklayarak **Gelişmiş ayarlar**ve gözden geçirme **çalışma alanı kimliği** ve **birincil anahtar** değerleri. 
+Bu çözümler etkinleştirmenin ilk adımı [LogAnalytics çalışma alanı oluşturma](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) Azure aboneliğinizdeki. Bir Log Analytics çalışma alanı, kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir Azure İzleyici günlükleri ortamıdır. Bir çalışma alanı oluşturduktan sonra çalışma alanı kimliği ve anahtarı not edin. Bu bilgileri görüntülemek için çalışma alanı dikey penceresine gidin, tıklayarak **Gelişmiş ayarlar**ve gözden geçirme **çalışma alanı kimliği** ve **birincil anahtar** değerleri. 
 
 Ardından, şunları yapmalısınız [Otomasyon hesabı oluşturma](https://docs.microsoft.com/azure/automation/automation-create-standalone-account). Bir Otomasyon hesabı, Azure Automation kaynaklarınız için bir kapsayıcıdır. Ortamlarınızı ayırmak veya daha fazla Otomasyon iş akışları ve kaynakları düzenlemek için bir yol sunar. Otomasyon hesabı oluşturduktan sonra envanteri etkinleştirmek için değişiklik izleme ve yönetim özelliklerini güncelleştirin. Bunu yapmak için her özelliği etkinleştirmek için aşağıdaki adımları izleyin:
 

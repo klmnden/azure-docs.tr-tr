@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 30a7eea751a9fbfa0ee95a7edb039a13860be7f8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 38a69327e5aaa758dc70ca950956d0bdc8001a4f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115479"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818094"
 ---
 # <a name="azure-network-security-overview"></a>Azure ağ güvenliğine genel bakış
 
@@ -178,7 +178,7 @@ Tek yönlü gerçekleştirmek için bu kullanmaktır bir [siteden siteye VPN](ht
 Daha fazla bilgi edinin:
 
 * [Azure portalını kullanarak siteden siteye VPN bağlantısı bir Resource Manager sanal ağı oluşturma](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [VPN ağ geçidi için planlama ve tasarım](../vpn-gateway/vpn-gateway-plan-design.md)
+* [VPN Gateway hakkında](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-dedicated-wan-link"></a>Şirket içi ağınızı ayrılmış bir WAN bağlantısı ile sanal bir ağa bağlayın
 

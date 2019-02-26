@@ -5,17 +5,17 @@ description: Modeli yeniden eğitme ve Azure Machine Learning Studio'da eğitim 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 73ab816c7043c7fb0f572677c6ceeb722653dec1
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650779"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822028"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Yeniden eğitme ve klasik Studio web hizmeti dağıtma
 
@@ -23,7 +23,7 @@ Makine öğrenimi modelleri yeniden eğitme doğru ve göre en alakalı verileri
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makalede, özel olarak yeniden eğitme deneme hem öngörücü bir denemeye zaten sahip olduğunuzu varsayar. Bu adımları açıklanmıştır [yeniden eğitme ve makine öğrenme modeli dağıtın.](retrain-models-programmatically.md) Ancak, yeni bir web hizmeti olarak makine öğrenimi modelinizi dağıtmak yerine, Tahmine dayalı denemeye Klasik web hizmeti olarak dağıtır.
+Bu makalede, özel olarak yeniden eğitme deneme hem öngörücü bir denemeye zaten sahip olduğunuzu varsayar. Bu adımları açıklanmıştır [yeniden eğitme ve makine öğrenme modeli dağıtın.](/azure/machine-learning/studio/retrain-machine-learning-model) Ancak, yeni bir web hizmeti olarak makine öğrenimi modelinizi dağıtmak yerine, Tahmine dayalı denemeye Klasik web hizmeti olarak dağıtır.
      
 ## <a name="add-a-new-endpoint"></a>Yeni bir uç nokta Ekle
 

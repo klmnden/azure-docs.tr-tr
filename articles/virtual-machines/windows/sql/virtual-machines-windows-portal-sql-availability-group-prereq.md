@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 7aebdace6b6200f400d0c642c8cbdc6d31544752
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 17eb51044aae7f1f1536e965eea1d1cdb0a1a42b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733036"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817448"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure sanal makinelerinde Always On kullanılabilirlik grupları oluşturmak için önkoşulları tamamlayın
 
@@ -464,7 +464,7 @@ Yük devretme kümeleme özellikleri eklemek, hem SQL Server Vm'leri için aşa�
 Bir SQL Server VM adımları tekrarlayın.
 
   >[!NOTE]
-  > SQL Server Vm'leri için yük devretme kümesi, aslında katılma yanı sıra, bu adımı artık bir Azure Hızlı Başlangıç şablonu ile otomatik olarak yapılabilir. Daha fazla bilgi için [WSFC oluşturmak, dinleyiciyi ve ILB Azure Hızlı Başlangıç şablonu ile bir SQL Server VM'de Always On kullanılabilirlik grubu için yapılandırma](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > SQL Server Vm'leri için yük devretme kümesi, aslında katılma yanı sıra, bu adımı şimdi ile otomatikleştirilebilir [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) ve [Azure hızlı başlangıç şablonları](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Her SQL Server VM Güvenlik duvarını yapılandırma

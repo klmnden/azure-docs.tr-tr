@@ -10,18 +10,18 @@ ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: e429d9577b938aea20318aa09a0247e00e4f66b6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429273"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819591"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
 Bu makalede değişiklik izleme çözümü ortamınızdaki değişikliklerini kolayca belirlemenize yardımcı olur. Çözüm, Windows ve Linux yazılım, Windows ve Linux dosyaları, Windows kayıt defteri anahtarlarını, Windows Hizmetleri ve Linux Daemon'ları için değişiklikleri izler. Yapılandırma değişikliklerini belirlemek işletimsel sorunları belirlemenize yardımcı olabilir.
 
-Yüklü yazılım, Windows Hizmetleri, Windows kayıt defteri ve dosya ve izlenen sunucularda Linux Daemon'ları için değişiklikler, işleme için buluttaki Log Analytics hizmetine gönderilir. Mantıksal alınan verilere uygulanır ve bulut hizmeti olan verileri kaydeder. Değişiklik izleme Panoda bilgileri kullanarak, sunucu altyapınızda yapılan değişiklikleri kolayca görebilirsiniz.
+Yüklü yazılım, Windows Hizmetleri, Windows kayıt defteri ve dosya ve izlenen sunucularda Linux Daemon'ları için değişiklikler, işleme için bulutta Azure İzleyici'hizmetine gönderilir. Mantıksal alınan verilere uygulanır ve bulut hizmeti olan verileri kaydeder. Değişiklik izleme Panoda bilgileri kullanarak, sunucu altyapınızda yapılan değişiklikleri kolayca görebilirsiniz.
 
 ## <a name="supported-windows-operating-systems"></a>Desteklenen Windows işletim sistemleri
 
@@ -261,7 +261,7 @@ Bir değişiklik veya olay'ı tıklatarak bu değişiklik hakkında ayrıntılı
 
 ## <a name="search-logs"></a>Günlük ara
 
-Portalda sağlanan Ayrıntılar ek olarak, arama günlüklerine karşı yapılabilir. İle **değişiklik izleme** sayfası açıldığında, tıklayın **Log Analytics**, bu açılır **günlük araması** sayfası.
+Portalda sağlanan Ayrıntılar ek olarak, arama günlüklerine karşı yapılabilir. İle **değişiklik izleme** sayfası açıldığında, tıklayın **Log Analytics**, bu açılır **günlükleri** sayfası.
 
 ### <a name="sample-queries"></a>Örnek sorgular
 
@@ -314,5 +314,5 @@ Hosts dosyasına değişiklikler uyarı uyarı değişiklik izleme veya envanter
 > [!div class="nextstepaction"]
 > [Ortamınızdaki değişikliklerle ilgili sorunları giderme](automation-tutorial-troubleshoot-changes.md)
 
-* Kullanım [Log Analytics'te günlük aramaları](../log-analytics/log-analytics-log-searches.md) ayrıntılı değişiklik izleme verileri görüntülemek için.
+* Kullanım [günlük aramaları Azure İzleyici günlüklerine](../log-analytics/log-analytics-log-searches.md) ayrıntılı değişiklik izleme verileri görüntülemek için.
 

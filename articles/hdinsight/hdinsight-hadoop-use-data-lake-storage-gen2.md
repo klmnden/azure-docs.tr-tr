@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: acbb01ac8fe728c313770cdb1012b61d6dda8b78
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: bc3741be87238f1ac5f2146eb25919dd83711ce3
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750421"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819063"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
 
@@ -40,7 +40,7 @@ Depolama için Data Lake depolama Gen2 kullanan bir HDInsight kümesi oluşturma
 
     ![Azure portalında depolama hesabı oluşturmayı gösteren ekran görüntüsü](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. Yönetilen kimlik için Ata **depolama Blob verileri sahibi (Önizleme)** depolama hesabındaki rol. Daha fazla bilgi için [RBAC (Önizleme) ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal).
+1. Yönetilen kimlik için Ata **depolama Blob verileri sahibi (Önizleme)** depolama hesabındaki rol. Daha fazla bilgi için [RBAC (Önizleme) ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](../storage/common/storage-auth-aad-rbac.md).
 
     1. İçinde [Azure portalında](https://portal.azure.com)depolama hesabınıza gidin.
     1. Depolama hesabınızı seçin ve ardından **erişim denetimi (IAM)** hesabı için erişim denetimi ayarlarını görüntülemek için. Seçin **rol atamaları** rol atamaları listesini görmek için sekmesinde.

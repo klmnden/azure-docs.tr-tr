@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b8264e4f69a7561865f5d14087bc81bc933a6c59
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819816"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821413"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak HDInsight Apache Hadoop kümelerini oluşturun
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -47,11 +47,7 @@ Resource Manager şablonları hakkında daha fazla bilgi için aşağıdaki maka
 
 ## <a name="generate-templates"></a>Şablon oluşturma
 
-Resource Manager, farklı araçlar kullanarak aboneliğinizdeki mevcut kaynaklardan bir Resource Manager şablonunu dışarı aktarmak sağlar. Bu oluşturulan şablonu şablon söz dizimi hakkında bilgi edinmek veya çözümünüzün yeniden dağıtımını gerektiği gibi otomatikleştirmek için kullanabilirsiniz.
-
-- Azure portalı: Bkz: [mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](../azure-resource-manager/resource-manager-export-template.md).
-- Azure PowerShell: Bkz: [dışarı Azure Resource Manager şablonları PowerShell ile](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Azure CLI Klasik: Bkz: [Klasik Azure CLI ile dışarı aktarma Azure Resource Manager şablonları](../azure-resource-manager/resource-manager-export-template-cli.md).
+Resource Manager, farklı araçlar kullanarak aboneliğinizdeki mevcut kaynaklardan bir Resource Manager şablonunu dışarı aktarmak sağlar. Bu oluşturulan şablonu şablon söz dizimi hakkında bilgi edinmek veya çözümünüzün yeniden dağıtımını gerektiği gibi otomatikleştirmek için kullanabilirsiniz. Daha fazla bilgi için [şablonları dışarı aktarma](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 ## <a name="deploy-using-the-portal"></a>Portalı kullanarak dağıtma
 

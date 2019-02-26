@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 5d9819d60e21c80b882db1d12b0318599fa54095
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/2/2018
+ms.openlocfilehash: 7b724219750154c5ec1410af64175bc70f5cbd6c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729753"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805824"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Hızlı Başlangıç: Azure veri Gezgini'ne olay Hub'ından veri alma
 
@@ -103,11 +103,7 @@ Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndere
 
     ![Test veritabanını seçme](media/ingest-data-event-hub/select-test-database.png)
 
-1. **Veri alımı**'nı ve ardından **Veri bağlantısı ekle**'yi seçin.
-
-    ![Veri alımı](media/ingest-data-event-hub/data-ingestion-create.png)
-
-1. Formu aşağıdaki bilgilerle doldurun ve ardından **Oluştur**'u seçin.
+1. Seçin **veri alımı** ve **veri bağlantısı ekleme**. Ardından formu aşağıdaki bilgilerle doldurun. Seçin **Oluştur** işiniz bittiğinde.
 
     ![Olay hub'ı bağlantısı](media/ingest-data-event-hub/event-hub-connection.png)
 

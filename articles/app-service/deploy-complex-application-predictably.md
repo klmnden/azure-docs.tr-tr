@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 657211378d7b38b88ccd40aa31a175058e1ad67c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015565"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820323"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Sağlayın ve tahmin edilebilir bir biçimde azure'da mikro Hizmetleri dağıtın
 Bu öğreticide, sağlamak ve oluşan bir uygulamayı dağıtmak gösterilir [mikro Hizmetler](https://en.wikipedia.org/wiki/Microservices) içinde [Azure App Service](https://azure.microsoft.com/services/app-service/) tek bir birim olarak ve JSON kaynak grubu şablonları kullanarak tahmin edilebilir bir biçimde ve PowerShell komut dosyası. 
@@ -39,9 +39,7 @@ Sağlama ve yüksek oranda ayrılmış oluşur büyük ölçekli uygulamaları d
 Bu öğreticide, aşağıdaki araçları kullanın. Araçlar kapsamlı tartışma olmadığından, uçtan uca senaryo için devam edin ve yalnızca kısa bir giriş her biri için size tıklıyorum ve burada bulabilirsiniz, daha fazla bilgi. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure Resource Manager şablonları (JSON)
-Örneğin, Azure App Service'te bir uygulama oluşturduğunuzda her Azure Resource Manager kaynak grubunun tamamını sahip bileşen kaynakları oluşturmak için JSON şablonunu kullanır. Karmaşık bir şablondan [Azure Marketi](/azure/marketplace) veritabanı, depolama hesapları, App Service planı, uygulama, uyarı kuralları, uygulama ayarları, otomatik ölçeklendirme ayarları ve daha fazlasını içerebilir ve bu şablonları için kullanılabilir PowerShell ile. İndirin ve bu şablonları hakkında daha fazla bilgi için bkz: [Azure PowerShell kullanarak Azure Resource Manager ile](../powershell-azure-resource-manager.md).
-
-Azure Resource Manager şablonları hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md)
+Örneğin, Azure App Service'te bir uygulama oluşturduğunuzda her Azure Resource Manager kaynak grubunun tamamını sahip bileşen kaynakları oluşturmak için JSON şablonunu kullanır. Karmaşık bir şablondan [Azure Marketi](/azure/marketplace) veritabanı, depolama hesapları, App Service planı, uygulama, uyarı kuralları, uygulama ayarları, otomatik ölçeklendirme ayarları ve daha fazlasını içerebilir ve bu şablonları için kullanılabilir PowerShell ile. Azure Resource Manager şablonları hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Visual Studio için Azure SDK 2.6
 En son SDK'yı Resource Manager şablonu destek JSON Düzenleyicisi geliştirmeleri içerir. Değiştirme için bunu kullanın hızla sıfırdan bir kaynak grubu şablonu oluşturun veya var olan bir JSON şablonu (örneğin, bir indirilen galeri şablonu) açın, parametre dosyasını doldurmak ve bile bir Azure kaynağının kaynak grubunun doğrudan dağıtma Grup çözüm.

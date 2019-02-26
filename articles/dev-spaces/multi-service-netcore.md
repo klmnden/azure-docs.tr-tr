@@ -10,12 +10,12 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 77760310d305b21f89422edb8b49fd67bdcbcb0b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 39c9d2f938dd3e06a328626756ddcc80d0aad47b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666482"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821243"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Azure geliştirme alanları ile birden çok hizmet geliştirme
 
@@ -80,7 +80,7 @@ Zamandan kazanmak adına örnek kodu bir GitHub deposundan indirelim. https://gi
 Olsa da fark etmiş *webfrontend* kolaylaştırır için HTTP çağrısı yazdırmak için herhangi bir özel kod içermiyor *mywebapi*, HTTP izler çıktı penceresinde iletileri görebilirsiniz:
 ```
 // The request from your browser
-webfrontend.<id>.<region>.aksapp.io --gyk-> webfrontend-668b7ddb9f-n5rhj:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io --gyk-> webfrontend:
    GET /Home/About HTTP/1.1
 
 // *webfrontend* reaching out to *mywebapi*
@@ -93,7 +93,7 @@ webfrontend-668b7ddb9f-n5rhj <-pu5-- mywebapi:
    Hello from mywebapi
 
 // Response from *webfrontend* to your browser
-webfrontend.<id>.<region>.aksapp.io <-gyk-- webfrontend-668b7ddb9f-n5rhj:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io <-gyk-- webfrontend:
    HTTP/1.1 200 OK
    <!DOCTYPE html>
    <html>

@@ -14,121 +14,120 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ffc0d8e9e41cf4d202b4040ce3f09e7180101c8b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666810"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806819"
 ---
-# <a name="power-bi-apps-storefront-details-tab"></a>Power BI uygulamalarını mağaza Ayrıntılar sekmesi
+# <a name="power-bi-app-storefront-details-tab"></a>Power BI uygulamasını mağaza Ayrıntılar sekmesi
 
-Kullanım **mağaza ayrıntıları** sekmesinde **yeni teklif** pazarlama, satış ve yasal bilgiler, olası müşterileriniz için sayfa. Bu sekme ayrıca marketten oluşturulan müşteri adayları yönetme belirtir. Bu uzun biçimi altı bölümlere ayrılmıştır: **Teklif Ayrıntıları**, **listesi ayrıntılarını**, **Yapıtları pazarlama**, **yasal**, **müşteri desteği**ve **Sağlama Yönetim**.  Alanın etiketine bir eklenmiş yıldız işareti (*) gerekli olduğunu gösterir.
+Üzerinde **yeni teklif** sayfasında **mağaza ayrıntıları** , müşteri adaylarınıza pazarlama, satış ve yasal bilgilerini sağlamak için sekmesinde. Bu sekmede yönetimini Azure Marketi'nde oluşturur, müşteri adayları için ayarlayabilirsiniz. Bu uzun biçimi altı bölümlere ayrılmıştır: **Teklif Ayrıntıları**, **listesi ayrıntılarını**, **Yapıtları pazarlama**, **yasal**, **müşteri desteği**ve **Sağlama Yönetim**.  Bir alanın etiketini sonunda bir yıldız işareti (*), gerekli bir alandır anlamına gelir.
 
 
 ## <a name="offer-details-section"></a>Teklif Ayrıntıları bölümü
 
-Bu bölümde, uygulama kaynak teklif hakkında genel bilgileri girin.
+İçinde **Teklif Ayrıntıları** bölümünde, AppSource teklifiniz hakkındaki genel bilgileri girin.
 
 ![Teklif Ayrıntıları bölümünü mağaza Ayrıntılar sekmesi](./media/offer-details-section.png)
 
-Aşağıdaki tabloda, bu alanların amacı ve adını açıklanmaktadır.
+Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın:
 
 |   Alan               |   Açıklama                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Teklif özeti**     | Uygulamanın kısa amacı. En fazla 100 karakter uzunluğunda.                             |
-| **Teklif açıklaması** | Uygulama açıklaması. En fazla 3000 karakter uzunluğunda basit HTML biçimlendirmeyi destekler. |
+| **Teklif özeti**     | En fazla 100 karakter kullanarak uygulama kısa amacı.                             |
+| **Teklif açıklaması** | 3.000 karakterleri kullanarak bir uygulama açıklaması. Bu alan, basit HTML biçimlendirmeyi destekler. |
 |                       |                                                                                         |
 
 
 ## <a name="listing-details-section"></a>Liste ayrıntıları bölümü
 
-Bu ikinci bölümde uygulamanız için ek bağlam sağlar: terimleri, genellikle en iyi hangi kategoriye, uyumlu ürünler uygular, kullanılır ve ilişkili hangi sektörler arayın.
+**Listeleme ayrıntıları** bölümüne uygulamanızın bağlamı hakkında bilgi toplar: sektörlerde, genellikle kullanıldığı, uygulama kategorisi, uyumlu ürünler ve ilişkili bir arama terimi.
 
 ![Mağaza Ayrıntılar sekmesi ayrıntıları bölümünü listeleme](./media/listing-details-section.png)
 
- Aşağıdaki tabloda, bu alanların amacı ve adını açıklanmaktadır.
+Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın:
  
 |   Alan                                  |   Açıklama                                                        |
 | --------------                           | ---------------------                                                |
-| **Sektörler**                           | Uygulamanızı en iyi hizalanır sektör seçin. Uygulamanızı birden çok sektörler için ile ilişkili ise bu boş bırakabilirsiniz.      |
-| **Kategorileri**                           | Uygulamanıza uygun olan kategorilerini seçin. En fazla 3 seçin.     |
-| **Uygulamanız için Yardım bağlantısına**               | Çevrimiçi Yardım uygulamanız için bir sayfa URL'si           |
-| **Ürünleri uygulamanızı (en fazla 3) ile çalışır.** | Uygulamanızı çalışır belirli ürünleri listeler. En fazla 3 ürünleri listeleyebilirsiniz. Bir ürün listelemek için yanındaki artı işaretini (yeni) tıklayın ve uygulamanızı çalışır bir ürünün adını girmeniz için yeni bir açık metin alanı oluşturulur.      |
-| **Arama anahtar sözcükleri (en fazla 3)**              | AppSource bağlı olarak anahtar sözcükler aramak müşteri sağlar. Müşterilere, uygulamanızın gösterilecek anahtar sözcükler kümesini girebilirsiniz. Uygulama "E-postayla gönderme Uygulamam" e-postaları ise, örneğin, posta, posta uygulamasını bazı anahtar sözcükler olabilir. Kullanıcılar büyük olasılıkla aramak için uygulamanızı Appsource'ta arama kutusuna için kullanacağı sözcükler'i seçin. |
+| **Sektörler**                           | Burada uygulamanızın gereksinimlerine sektör seçin. Uygulamanızı birden çok sektörler için ile ilişkili ise bu alanı boş bırakın.      |
+| **Kategorileri**                           | Uygulamanıza ilişkili en fazla üç kategorilerini seçin.     |
+| **Uygulamanız için Yardım bağlantısına**               | Uygulamanız için çevrimiçi Yardım sağlayan bir sayfa için bir URL sağlayın.           |
+| **Ürünleri uygulamanızı (en fazla 3) ile çalışır.** | Seçin **yeni** artı bir metin alanı oluşturmak için. Uygulamanızı çalışır bir ürün adı alanına girin. En fazla üç ürün listesi.       |
+| **Arama anahtar sözcükleri (en fazla 3)**              | Kullanıcılar büyük olasılıkla aramak için uygulamanızı appsource'ta için kullanacağı en fazla üç anahtar sözcükleri girin. Örneğin, "E-postayla gönderme Uygulamam" uygulama çağrılırsa, anahtar olabilir **e-postaları**, **posta**, ve **posta uygulaması**. |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Pazarlama Yapıtları bölümü
 
-Bu üçüncü bölümde, marka ve pazarlama malzemeleri karşıya yüklenmesini sağlar.  Bu dört alt bölümlere ayrılmıştır: **Logo**, **videoları**, **belgeleri**, ve **ekran görüntüleri**. Logo ve ekran görüntüleri gereken pazarlama yapıtları olan; Ancak, tüm yüksek oranda için en iyi müşteri ilgi çekecek önerilir.
+İçinde **pazarlama Yapıtları** bölümünde, karşıya yükleme markası ve pazarlama malzemeleri Appsource'ta görüntülenecek.  Bu bölüm, dört alt bölümlere ayrılmıştır: **Logo**, **videoları**, **belgeleri**, ve **ekran görüntüleri**. Logo ve ekran görüntüleri yalnızca yapıtları pazarlama gereklidir. Ancak, en iyi müşteri geçirmeye itraz et için videoları ve belgeleri de ekleyerek olan öneririz.
 
 ![Pazarlama Yapıtları bölümünü mağaza Ayrıntılar sekmesi](./media/marketing-artifacts-section.png)
 
+Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın:
  
 |    Alan                             |    Açıklama                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logo*                              |                                                                   |
-| **Teklif logo (png biçiminde, 48 x 48)**   | Appsource'ta arama tamamlarken bakış uygulama veya uygulama sonuçları görüntülenir. Bir çözüm 48px, png biçimi yalnızca\*48px desteklenir.  |
-| **Teklif logo (png biçiminde, 216 x 216)** | Appsource'ta Uygulama Ayrıntıları sayfasında görüntülenir.  Bir çözüm 216px, png biçimi yalnızca\*216px desteklenir.  |
+| **Teklif logo (png biçiminde, 48 x 48)**   | Genel uygulama veya uygulama arama sonuçları görüntülenecek logoyu karşıya yükleyin. AppSource destekleyen bir çözüm olan 48 x 48 PNG biçimi yalnızca piksel.  |
+| **Teklif logo (png biçiminde, 216 x 216)** | Uygulama Ayrıntıları sayfası üzerinde görüntülenecek logoyu karşıya yükleyin.  AppSource destekleyen bir çözümlenmesini 216 x 216 ile PNG biçimi yalnızca piksel.  |
 | *Videolar*                             |                                                                   |
-| **Ad**                             | Adı veya uygulama başlığı                                          |
-| **URL**                              | YouTube veya Vimeo barındırılan video URL'si                              |
-| **Küçük resim**                        | Uygulama küçük resim görüntüsü.  Yalnızca png biçiminde 1280px, çözünürlük\*720px desteklenir.   |
-| *Belgeleri*                          | İsteğe bağlı, ancak en fazla üç belgeler. Docs buraya yükleyin "Daha fazla bilgi" altında appsource'ta görünür.  |
-| **Ad**                             | Adı veya belge destekleme başlığı                              |
-| **Dosya**                             | Karşıya yükleme belge pdf biçiminde olmalıdır                             |
-| *Ekran görüntüleri*                        | İsteğe bağlı, ancak en fazla beş ekran görüntüsü.                        |
-| **Ad**                             | Adı veya ekran başlığı                                       |
-| **Görüntü**                            | Ekran yakalama görüntüsünü karşıya yükleme, 1280px çözümlenmesi png biçiminde olmalıdır\*720px  | 
+| **Ad**                             | Uygulamanızın adı veya başlığı girin.                                          |
+| **URL**                              | YouTube veya Vimeo üzerinde barındırılan bir videoyu URL'sini girin.                              |
+| **Küçük resim**                        | Uygulamanın bir küçük resim ekleyin.  AppSource ile 1280 x 720 piksel çözünürlüğü PNG biçimi yalnızca destekler.   |
+| *Belgeleri*                          | AppSource üzerinde görüntülenmesi için en fazla üç belgelere ekleme **daha fazla bilgi edinin** başlığı.  |
+| **Ad**                             | Adını veya destekleyen bir belgenin başlığını girin.                              |
+| **Dosya**                             | Bir PDF dosyası yükleyin.                             |
+| *Ekran görüntüleri*                        | En fazla beş ekran görüntüleri ekleyin.                        |
+| **Ad**                             | Bir ad veya ekran başlığını girin.                                       |
+| **Görüntü**                            | Bir PNG ekran görüntüsü yükleyin. Çözünürlüğünü 1280 x 720 piksel olmalıdır.  | 
 |   |   |
 
+Yüklemek için aşağıda logoların [bulut iş ortağı portalı](https://cloudpartner.azure.com) gereken *değil*:
 
-### <a name="logo-guidelines"></a>Logo yönergeleri
-
-Karşıya logo [bulut iş ortağı portalı](https://cloudpartner.azure.com) yönergeleri izlemelidir:
-
-- Arka plan gradyan logonuzu kullanmayın.
-- Metin yerleştirmekten kaçının — şirketiniz veya marka adı dahil olmak üzere — logosu üzerinde. Logonuzu Görünüm ve yapısını "Düz" olmalıdır ve gradyanları kaçınmalıdır.
-- Logo esnetme değil.
-
+- Gradyan kullanın. Logonuzu Görünüm ve yapısını düz olmalıdır.
+- Şirketinizin adını, marka adı veya metinlerini içerir. 
+- Esnetilmiş arayın.
 
 ## <a name="legal-section"></a>Yasal bölümü
 
-Bu dördüncü bölüm iki yasal belgeler her teklif için gerekli girmenize olanak tanır: Gizlilik İlkesi ve kullanım koşulları.
+İçinde **yasal** bölümünde, her teklif için gereken iki yasal belgeler sağlar: gizlilik ilkeniz ve kullanım koşullarınızı.
 
 ![Yasal bölümünü mağaza Ayrıntılar sekmesi](./media/legal-section.png)
 
+Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın:
+
 |   Alan                |   Açıklama                           |
 |------------------------|--------------------------------------   |
-| **Gizlilik İlkesi URL'si** | Gizlilik ilkeniz URL'si       |
-| **Kullanım koşulları**       | Basit bir HTML veya düz metin olarak İlkesi     |
+| **Gizlilik İlkesi URL'si** | Gizlilik ilkeniz için URL       |
+| **Kullanım koşulları**       | Kullanım ilkeniz, basit bir HTML veya düz metin biçimlendirilmiş     |
 |  |  |
 
 
 ## <a name="customer-support-section"></a>Müşteri desteği bölümüne
 
-Sağlamak **destek URL'si** online müşteri destek sayfanız için.  Telefon, e-posta ve canlı sohbet gibi birden çok kişi seçeneklere sahip müşteriler bu çevrimiçi destek sayfasını sağlıyorsa, en iyisidir. 
+İçinde **müşteri desteği** bölümünde, sağlayan **destek URL'si** online müşteri destek sayfanız için.  Bu sayfa, telefon ve e-posta canlı sohbet gibi birden çok kişi seçeneği sağlamanız gerekir. 
 
 
 ## <a name="lead-management-section"></a>Yönetim bölümünde sağlama
 
-Son bölümde müşteriler toplamanızı sağlar, AppSource teklifleriyle oluşturulan müşteri adayları. Bu müşteri adayı bilgileri için aşağıdaki depolama seçenekleri (aşağı açılan listeden) sunar.
+İçinde **sağlama Yönetim** bölümünde, AppSource tekliflerinizi oluşturmak müşteri adayları toplamak için sisteminizi ayarlayın. Depolama seçeneklerini müşteri adaylarını seçmek için aşağıdaki tabloyu kullanın:
 
 |    Alan               |   Hedef yol                               |
 |------------------------|--------------------------------------            |
-|  **Yok.**              | Müşteri adayı değildir (varsayılan) toplanır.  |
-| **Azure Blob (kullanım dışı)** | Bir [Azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview), bir kapsayıcı adı ve bağlantı dizesi tarafından belirtilen.  Bu seçeneği kullanım dışı; kullanma **Azure tablo** yerine.  |
-| **Azure tablosu**        | Bir [Azure tablo](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview), bir bağlantı dizesi tarafından belirtilen  |
-| **Dynamics CRM Online** | A [Microsoft Dynamics 365 Online](https://dynamics.microsoft.com/) örneği, belirtilen URL'yi ve kimlik doğrulaması bir kimlik bilgileri |
-| **HTTPS Uç Noktası**     | Bir JSON yükü olarak belirtilen HTTPS uç noktası   |
-| **Marketo**            | A [Marketo](https://www.marketo.com/) sunucu kimliği, munchkin kimliği ve form kimliği tarafından belirtilen örnek,   |
-| **Salesforce**         | A [Salesforce](https://www.salesforce.com/) veritabanı, bir nesne tanımlayıcısı tarafından belirtilen |
+|  **Yok.**              | Hiçbir müşteri adayları toplayın. Varsayılan seçenek budur.  |
+| **Azure Blob (kullanım dışı)** | Belirtin [Azure Blob Depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) bir kapsayıcı adı ve bağlantı dizesini kullanarak.  Bu seçeneği kullanım dışı bırakılmıştır. Kullanım **Azure tablo** yerine.  |
+| **Azure tablosu**        | Belirtin [Azure tablo depolama](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) bir bağlantı dizesi kullanarak.  |
+| **Dynamics CRM Online** | Belirtin [Dynamics 365](https://dynamics.microsoft.com/) URL'si ve kimlik doğrulama kimlik bilgilerini kullanarak. |
+| **HTTPS uç noktası**     | Bir JSON yükü kullanarak HTTPS uç noktasını belirtin.   |
+| **Marketo**            | Belirtin bir [Marketo](https://www.marketo.com/) örneği kullanarak bir sunucu kimliği, munchkin kimliği ve form kimliği   |
+| **Salesforce**         | Belirtin [Salesforce](https://www.salesforce.com/) kullanarak bir nesne tanımlayıcısı. |
 |  |  |
 
-Teklifinizi yayımlayın sonra sağlama bağlantı doğrulanır ve bir test müşteri adayı belirtilen hedef konuma otomatik olarak gönderilir. Müşteri adayı bilgilerini sürekli olarak yönetilmesi gerektiğini ve bu ayarlar hemen geçerli müşteri yönetimi Mimarinizi yansıtacak şekilde güncelleştirilmelidir.
+Teklifinizi yayımlayın sonra sağlama bağlantı doğrulanır ve bir test müşteri adayı belirtilen hedef konuma otomatik olarak gönderilir. Sürekli olarak müşteri adayı bilgilerini yönetmek ve derhal geçerli müşteri yönetimi Mimarinizi yansıtmak için ayarlarınızı güncelleştirin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sonraki [kişiler](./cpp-contacts-tab.md) sekmesi, teklifiniz için teknik ve kullanıcı Destek kaynakları sağlayacaktır.
+Üzerinde [kişiler](./cpp-contacts-tab.md) sekmesinde, teknik ve kullanıcı kaynaklarını teklifiniz için desteği.

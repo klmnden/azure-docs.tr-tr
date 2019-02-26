@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ab50bd5a2b5b1b0e63060986d4336774be7875b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 920d6ee9b584e908885cf661d32aa700e655c3f8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245873"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816428"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Bir Web kancası ile bir Azure Otomasyonu runbook'u başlatma
 
-A *Web kancası* , tek bir HTTP isteği ile Azure Otomasyonu'nda belirli bir runbook başlatmanızı sağlar. Bu, Azure DevOps Services, GitHub, Azure Log Analytics veya Azure Otomasyonu API'sini kullanarak tam bir çözüm uygulamadan runbook'ları başlatmak için özel uygulamalar gibi dış hizmetlerle sağlar.  
+A *Web kancası* , tek bir HTTP isteği ile Azure Otomasyonu'nda belirli bir runbook başlatmanızı sağlar. Bu, Azure DevOps Services, GitHub, Azure İzleyici günlüklerine veya Azure Otomasyonu API'sini kullanarak tam bir çözüm uygulamadan runbook'ları başlatmak için özel uygulamalar gibi dış hizmetlerle sağlar.  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 Bir runbook başlatma diğer yöntemleri için Web kancaları karşılaştırabilirsiniz [Azure Automation'da bir runbook başlatma](automation-starting-a-runbook.md)

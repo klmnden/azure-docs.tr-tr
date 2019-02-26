@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 0236d9118389b4f8fb79453b425c70f09e94bbb8
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 408776b0b0053b2b2d45112568a2e28467123768
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213816"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805384"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-use-custom-activities.md)
 > * [Geçerli sürüm](transform-data-using-dotnet-custom-activity.md)
 
@@ -96,7 +96,7 @@ Bu örnekte, helloworld.exe resourceLinkedService içinde kullanılan Azure depo
 
 Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özellikleri açıklanmaktadır.
 
-| Özellik              | Açıklama                              | Gereklidir |
+| Özellik              | Açıklama                              | Gerekli |
 | :-------------------- | :--------------------------------------- | :------- |
 | ad                  | İşlem hattındaki etkinliğin adı     | Evet      |
 | açıklama           | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
@@ -110,6 +110,9 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özel
 
 &#42;Özellikleri `resourceLinkedService` ve `folderPath` gerekir ya da her ikisi de belirtilmesi veya her ikisi de etmeyebilirsiniz.
 
+> [!NOTE]
+> Bağlı hizmetler olarak özel etkinlik referenceObjects geçiriyorsanız, bir Azure Key Vault geçirmek için en iyi güvenlik yöntemi (herhangi bir güvenli dize içermiyor olduğundan) bağlı hizmet ve getirme doğrudan anahtarından gizli dizi adı kullanarak kimlik bilgilerini devre dışı olduğu Koddan kasası. Bir örnek bulabilirsiniz [burada](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) başvuruları AKV bağlı hizmeti, etkin kimlik bilgilerini Key Vault'tan alır ve ardından depolama kodda erişir.  
+ 
 ## <a name="custom-activity-permissions"></a>Özel Etkinlik izinleri
 
 Azure Batch otomatik kullanıcı hesabı olarak özel etkinlik ayarlar *görev kapsama sahip yönetici olmayan erişim* (varsayılan otomatik kullanıcı belirtimi). Otomatik kullanıcı hesabına izin düzeyini değiştiremezsiniz. Daha fazla bilgi için bkz. [görevleri kullanıcı hesapları altında Batch'de çalıştırma | Otomatik kullanıcı hesaplarını](../batch/batch-user-accounts.md#auto-user-accounts).

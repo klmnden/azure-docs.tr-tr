@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9166d5d552df4854a4d00c2211a273a06198877a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7c923dd819f826d9d9aaf8d5b88355a9feb344f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567494"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823170"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Parametreler ile dinamik şemaları oluşturma
 
@@ -52,11 +52,11 @@ Bir şema tanımı içinde tanımlanmış bir parametre değeri olarak adlandır
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Portalda static parametrelerini ayarlama
 
-1. **Tüm hizmetler**'e tıklayın ve **İlke** araması yapıp sol taraftaki bölmeden seçin. **İlke** sayfasında **Şemalar**’a tıklayın.
+1. Seçin **tüm hizmetleri** sol bölmesinde. Arayın ve seçin **şemaları**.
 
-1. Soldaki sayfadan **Şema Tanımları**’nı seçin.
+1. Seçin **Blueprint tanımları** sol sayfasında.
 
-1. Var olan bir şema üzerinde tıklayın ve ardından **Düzenle şema** veya **+ Oluştur şema** ve şirket bilgileri doldurun **Temelleri** sekmesi.
+1. Var olan bir şema üzerinde tıklayın ve ardından **düzenleme şema** veya **+ Oluştur şema** ve şirket bilgileri doldurun **Temelleri** sekmesi.
 
 1. Tıklayın **sonraki: Yapıtları** veya tıkladığınızda **Yapıtları** sekmesi.
 
@@ -169,13 +169,13 @@ Statik bir parametrenin tersidir bir **dinamik parametre**. Bu parametre, şema 
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Portalda dinamik parametreleri ayarlanıyor
 
-1. **Tüm hizmetler**'e tıklayın ve **İlke** araması yapıp sol taraftaki bölmeden seçin. **İlke** sayfasında **Şemalar**’a tıklayın.
+1. Seçin **tüm hizmetleri** sol bölmesinde. Arayın ve seçin **şemaları**.
 
-1. Soldaki sayfadan **Şema Tanımları**’nı seçin.
+1. Seçin **Blueprint tanımları** sol sayfasında.
 
-1. Atamak istediğiniz şema üzerinde sağ tıklayın. Seçin **atama şema** veya atamak istediğiniz şema üzerinde'ı tıklatın **atama şema** düğmesi.
+1. Atamak istediğiniz şema üzerinde sağ tıklayın. Seçin **Ata şema** veya atamak istediğiniz şema üzerinde tıklayın ve ardından tıklayın **Ata şema** düğmesi.
 
-1. Üzerinde **atama şema** sayfasında, bulmak **Yapıt parametreleri** bölümü. En az birine sahip her bir yapıt **dinamik parametre** yapıt ve yapılandırma seçenekleri görüntüler. Blueprint atamadan önce parametreleri için gerekli değerleri sağlayın. Aşağıdaki örnekte _adı_ olduğu bir **dinamik parametre** şema atamasını tamamlamak için tanımlanmalıdır.
+1. Üzerinde **Ata şema** sayfasında, bulmak **Yapıt parametreleri** bölümü. En az birine sahip her bir yapıt **dinamik parametre** yapıt ve yapılandırma seçenekleri görüntüler. Blueprint atamadan önce parametreleri için gerekli değerleri sağlayın. Aşağıdaki örnekte _adı_ olduğu bir **dinamik parametre** şema atamasını tamamlamak için tanımlanmalıdır.
 
    ![Blueprint dinamik parametre](../media/parameters/dynamic-parameter.png)
 

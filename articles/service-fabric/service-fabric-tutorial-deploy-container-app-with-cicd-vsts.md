@@ -3,7 +3,7 @@ title: Azure Service Fabric kümesine CI/CD ile kapsayıcı uygulaması dağıtm
 description: Bu öğreticide, Visual Studio Azure DevOps kullanarak bir Azure Service Fabric kapsayıcı uygulaması için sürekli tümleştirme ve dağıtım ayarlama konusunda bilgi edinin.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/29/2018
-ms.author: twhitney
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 2320aaf2d502280a29562a49dfff1e4e9244d079
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2da33f2a333529eb7a27a607484a407f869ee540
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872977"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807091"
 ---
-# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Service Fabric kümesine CI/CD ile kapsayıcı uygulaması dağıtma
+# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Bir Service Fabric kümesine CI/CD ile bir kapsayıcı uygulaması dağıtma
 
 Bu öğretici bir serinin ikinci kısmı bölümüdür ve Visual Studio ve Azure DevOps kullanarak bir Azure Service Fabric kapsayıcı uygulaması için sürekli tümleştirme ve dağıtım nasıl ayarlanacağı açıklanır.  Var olan bir Service Fabric uygulaması gereklidir; örnek olarak [Bir Windows kapsayıcısındaki .NET uygulamasını Azure Service Fabric’e dağıtma](service-fabric-host-app-in-a-container.md) öğreticisinde oluşturulan uygulama örnek olarak kullanılmıştır.
 

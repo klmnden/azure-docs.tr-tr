@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 0ac6dd63d125f436f3f3f8c1174cdcce27ac2161
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f41c14f664df8db809ad4c29c57d37c1124a0ff3
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237663"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818553"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure önbelleği için Redis izleme
 Azure önbelleği için Redis kullandığı [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) önbelleği örneklerinizin izlemek için çeşitli seçenekler sağlayacak. Ölçümleri görüntüleyin, ölçüm grafikleri başlangıç panosuna sabitlemek, tarih ve saat aralığı grafikleri izleme özelleştirme, ekleyin ve ölçümleri grafikten kaldırabileceğiniz ve belirli koşullar karşılandığında uyarılar ayarlayın. Bu araçlar, Azure önbelleği için Redis örneği ve önbelleğe alma uygulamalarınızı yönetmenize yardımcı durumunu izlemenize olanak tanır.
@@ -75,7 +75,7 @@ Varsayılan olarak, Azure İzleyici'de önbellek ölçümleridir [30 gün saklan
 ![Tanılama redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->Depolama için önbellek ölçümlerinizi arşivleme yanı sıra, ayrıca [bunları bir olay hub'ına akış veya bunları Log Analytics'e gönderme](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
+>Depolama için önbellek ölçümlerinizi arşivleme yanı sıra, ayrıca [bunları bir olay hub'ına akış veya Azure İzleyici günlüklerine şirketlerde](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
 >
 >
 

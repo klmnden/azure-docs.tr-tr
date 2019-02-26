@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/19/2018
+ms.date: 02/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: d35e7cfbf55d0dc53214bbb7b1153c3270c611c2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 7b2b5c7201fe45fb52eb333b9e32b4996e00df9b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471331"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822932"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Ağ Geçidi nedir?
 
@@ -57,7 +57,7 @@ Bir sanal ağ geçidi oluşturduğunuzda, kullanmak istediğiniz ağ geçidi SKU
 
 ## <a name="diagrams"></a>Bağlantı topolojisi diyagramları
 
-VPN ağ geçidi bağlantıları için kullanılabilecek farklı yapılandırmalar vardır. Gereksinimlerinize en uygun yapılandırmayı belirlemeniz gerekir. Aşağıdaki bölümlerde, aşağıdaki VPN ağ geçidi bağlantıları hakkında bilgi ve topoloji diyagramlarını görüntüleyebilirsiniz: Aşağıdaki bölümlerde şu listeleri içeren tablolar bulunur:
+VPN ağ geçidi bağlantıları için kullanılabilecek farklı yapılandırmalar vardır. Gereksinimlerinize en uygun yapılandırmayı belirlemeniz gerekir. Aşağıdaki bölümlerde, bilgi ve aşağıdaki VPN ağ geçidi bağlantıları hakkında topoloji diyagramlarını görüntüleyebilirsiniz: Aşağıdaki bölümlerde şu listeleri tablolar bulunur:
 
 * Kullanılabilir dağıtım modeli
 * Kullanılabilir yapılandırma araçları
@@ -152,7 +152,6 @@ VPN Gateway hakkında sık sorulan sorular için bkz. [VPN Gateway hakkında SSS
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- VPN ağ geçidi yapılandırmanızı planlayın. Bkz. [VPN Gateway için Planlama ve Tasarım](vpn-gateway-plan-design.md).
 - Daha fazla bilgi edinmek için [VPN Gateway ile ilgili SSS](vpn-gateway-vpn-faq.md) makalesini görüntüleyin.
 - [Abonelik ve hizmet sınırlamaları](../azure-subscription-service-limits.md#networking-limits) makalesini görüntüleyin.
 - Azure'un diğer önemli [ağ özelliklerinden](../networking/networking-overview.md) bazıları hakkında bilgi edinin.

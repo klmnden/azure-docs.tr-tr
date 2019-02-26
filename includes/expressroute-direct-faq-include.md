@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 02/19/2018
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 9e16c3bb4e4e5ba384bdc664e2c056acb0b70caf
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448237"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825592"
 ---
 ### <a name="what-is-expressroute-direct"></a>ExpressRoute doğrudan nedir?
 
@@ -23,9 +23,9 @@ ExpressRoute Direct, müşterilere Microsoft’un dünya çapında stratejik nok
 
 Müşteriler kendi yerel operatörler ve ortak yerleşim sağlayıcıları ile ExpressRoute yönlendiricilerine bağlantı almak için ExpressRoute doğrudan yararlanmak için çalışmanız gerekir.
 
-### <a name="what-locations-will-the-100-gbps-expressroute-direct-be-available-for-public-preview"></a>Hangi konumları 100 GB/sn ExpressRoute doğrudan genel Önizleme için kullanıma sunulacak? 
+### <a name="what-locations-currently-support-expressroute-direct"></a>Hangi konumları, şu anda ExpressRoute doğrudan destekliyor? 
 
-ExpressRoute eşleme konumlarına belirli bir sayıda bu genel Önizleme'de destekler. Kullanılabilir bağlantı noktaları, dinamik ve kapasite görüntülemek için PowerShell uygulamaları tarafından kullanılabilir. Konumlar içerir ve *yapılmak kaydıyla değiştirebilir kullanılabilirliğine göre*:
+Kullanılabilir bağlantı noktaları, dinamik ve kapasite görüntülemek için PowerShell uygulamaları tarafından kullanılabilir. Konumlar içerir ve *yapılmak kaydıyla değiştirebilir kullanılabilirliğine göre*:
 
 * Amsterdam
 * Kanberra

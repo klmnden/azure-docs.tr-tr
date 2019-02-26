@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600317"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823867"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure sözlüğünü: Azure platformunda bulut terimleri sözlüğü
 
@@ -39,7 +39,7 @@ Başka bir ad [App Service uygulaması](#app-service-app).
 ## <a name="app-service-app"></a>App Service uygulaması
 İşlem kaynakları, [Azure App Service](app-service/overview.md) bir Web sitesi veya web uygulamasını web API barındırmak için veya [mobil uygulama arka ucu](app-service-mobile/app-service-mobile-value-prop.md). App Service uygulamalarını da denir *uygulama hizmetleri*, *web uygulamaları*, *API apps*, ve *mobil uygulamalar*.
 
-## <a name="availability-set"></a>Kullanılabilirlik kümesi
+## <a name="availability-set"></a>kullanılabilirlik kümesi
 Uygulama yedeklilik ve güvenilirliği sağlamak için birlikte yönetilen sanal makineler koleksiyonudur. Bir kullanılabilirlik kümesi kullanımı ya da planlı veya Plansız bakım olayı sırasında en az bir sanal makine kullanılabilir olmasını sağlar.  
 Bkz: [Windows sanal makinelerin kullanılabilirliğini yönetme](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ve [Linux sanal makinelerin kullanılabilirliğini yönetme](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -77,7 +77,7 @@ Bkz: [seçin PowerShell veya CLI ile azure'da Windows sanal makine görüntüler
 Oluşturulabilecek kaynakları ya da elde edilebilir performans Kıyaslama sayısı. Sınırlar genellikle abonelikler, hizmetler ve teklifleri ile ilişkilidir.  
 Bkz: [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](azure-subscription-service-limits.md)
 
-## <a name="load-balancer"></a>Yük Dengeleyici
+## <a name="load-balancer"></a>yük dengeleyici
 Gelen trafiği bir ağdaki bilgisayarlar arasında dağıtan bir kaynaktır. Azure'da bir yük dengeleyici sanal makineleri bir yük dengeleyici kümesinde tanımlanan trafiği dağıtır. A [yük dengeleyici](load-balancer/load-balancer-overview.md) internet'e yönelik olabilir ya da iç olabilir.  
 
 ## <a name="mobile-app"></a>mobil uygulama
@@ -147,7 +147,7 @@ Bir kaynak, davranış veya diğer programları iş ya da etkileşime olanağı 
 Bkz: [sanal makine uzantıları ve özellikleri (Windows) hakkında](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) veya [ilgili sanal makine uzantıları ve özellikleri (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>Sanal ağ
-Bir ağ, diğer tüm Azure kiracılardan yalıtılmış Azure kaynaklarınızı arasında bağlantı sağlar. Bir [Azure VPN ağ geçidi](vpn-gateway/vpn-gateway-about-vpngateways.md) sanal ağlar arasında bağlantı sağlar ve [bir sanal ağ ve şirket içi ağ arasında](vpn-gateway/vpn-gateway-plan-design.md). Ayrıca, IP adres bloklarını, DNS ayarları, güvenlik ilkeleri ve rota tabloları sanal ağ içinde tam olarak denetleyebilirsiniz.  
+Bir ağ, diğer tüm Azure kiracılardan yalıtılmış Azure kaynaklarınızı arasında bağlantı sağlar. Bir [Azure VPN ağ geçidi](vpn-gateway/vpn-gateway-about-vpngateways.md) bir sanal ağ ve şirket içi ağ arasında sanal ağlar arasında bağlantı sağlar. Ayrıca, IP adres bloklarını, DNS ayarları, güvenlik ilkeleri ve rota tabloları sanal ağ içinde tam olarak denetleyebilirsiniz.  
 Bkz: [sanal ağa genel bakış](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Web uygulaması

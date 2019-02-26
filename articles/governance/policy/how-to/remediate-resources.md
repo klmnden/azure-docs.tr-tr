@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 086ef9030451632ee4defa39a402e4d62c897f20
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342125"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816578"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure İlkesi ile uyumlu olmayan kaynakları Düzelt
 
@@ -131,6 +131,8 @@ Rol atama için yönetilen kimlik eklemek için aşağıdaki adımları izleyin:
 
 ## <a name="create-a-remediation-task"></a>Düzeltme görev oluşturma
 
+### <a name="create-a-remediation-task-through-portal"></a>Portal üzerinden düzeltme görev oluşturma
+
 Değerlendirme, ilke atamasıyla sırasında **Deployıfnotexists** etkisi, uyumlu olmayan kaynakları olup olmadığını belirler. Uyumlu olmayan kaynakları bulunduğunda ayrıntıları sağlanır **düzeltme** sayfası. Uyumlu olmayan kaynakları olan ilkeleri listesinde birlikte tetiklemeye yönelik seçeneği olan bir **düzeltme görev**. Bir dağıtımın ne oluşturur, bu seçenek, **Deployıfnotexists** şablonu.
 
 Oluşturmak için bir **düzeltme görev**, şu adımları izleyin:
@@ -163,6 +165,32 @@ Oluşturmak için bir **düzeltme görev**, şu adımları izleyin:
    ![Düzeltme - kaynak görev bağlam menüsü](../media/remediate-resources/resource-task-context-menu.png)
 
 Dağıtılan kaynakları aracılığıyla bir **düzeltme görev** eklenir **dağıtılan kaynakların** uyumluluk İlkesi sayfasının bir sekmesinde.
+
+### <a name="create-a-remediation-task-through-azure-cli"></a>Azure CLI aracılığıyla bir düzeltme görev oluşturun
+
+Oluşturmak için bir **düzeltme görev** Azure CLI ile kullanmak `az policy remediation` komutları. Değiştirin `{subscriptionId}` yerine abonelik Kimliğinizi ve `{myAssignmentId}` ile **Deployıfnotexists** ilke ataması kimliği.
+
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+Diğer düzeltme komutları ve örnekler için bkz. [az İlkesi düzeltme](/cli/azure/policy/remediation) komutları.
+
+### <a name="create-a-remediation-task-through-azure-powershell"></a>Azure PowerShell aracılığıyla bir düzeltme görev oluşturun
+
+Oluşturmak için bir **düzeltme görev** Azure PowerShell ile kullanma `Start-AzPolicyRemediation` komutları. Değiştirin `{subscriptionId}` yerine abonelik Kimliğinizi ve `{myAssignmentId}` ile **Deployıfnotexists** ilke ataması kimliği.
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+Diğer düzeltme cmdlet ve örnekler için bkz. [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) modülü.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

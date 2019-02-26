@@ -4,18 +4,18 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572827"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825532"
 ---
 1. [Azure portalında][Azure portal] oturum açın.
 2. Soldaki menüden **+ Kaynak oluştur**'u seçin. Ardından **Tümleştirme** > **Geçiş**'i seçin. Listede **Geçiş**'i görmüyorsanız sağ üst köşedeki **Tümünü Gör**'ü seçin. 
 3. **Ad alanı oluştur** bölümüne bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
 4. **Abonelik** kutusunda, ad alanı oluşturmak için kullanmak istediğiniz Azure aboneliğini seçin.
-5. [Kaynak grubu](../articles/azure-resource-manager/resource-group-portal.md) kutusunda, ad alanını barındırmak üzere var olan bir kaynak grubunu seçin veya yeni bir kaynak grubu oluşturun.  
+5. [Kaynak grubu](../articles/azure-resource-manager/manage-resource-groups-portal.md) kutusunda, ad alanını barındırmak üzere var olan bir kaynak grubunu seçin veya yeni bir kaynak grubu oluşturun.  
 6. **Konum** alanında, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin.
    
     ![ad alanı oluşturma][create-namespace]
@@ -28,7 +28,7 @@ ms.locfileid: "51572827"
 3. **Paylaşılan erişim ilkeleri** bölümünde **RootManageSharedAccessKey** öğesini seçin.
    
     ![bağlantı bilgisi][connection-info]
-4. **İlke: RootManageSharedAccessKey** bölümünde **Bağlantı dizesi–Birincil anahtar**'ın yanındaki **Kopyala** düğmesini seçin. Daha sonra kullanabilmeniz için bağlantı dizesi panonuza kopyalanır. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın.
+4. Altında **İlkesi: RootManageSharedAccessKey**seçin **kopyalama** düğmesinin yanındaki **bağlantı dizesi – birincil anahtar**. Daha sonra kullanabilmeniz için bağlantı dizesi panonuza kopyalanır. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın.
    
     ![bağlantı dizesi][connection-string]
 

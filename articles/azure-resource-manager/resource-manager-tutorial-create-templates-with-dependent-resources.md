@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: efe5c3f92ae743cb975b5ddbbebdf7994bea62fa
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: be1249969fc50f5305dc5844f2578f8a24a6a220
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594160"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817958"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Öğretici: Bağımlı kaynaklarla Azure Resource Manager şablonları oluşturma
 
@@ -122,22 +122,10 @@ Bağımlılıkların belirtilmesi, Resource Manager'ın çözümü verimli bir �
 
     ![Azure portal Cloud shell dosya karşıya yükleme](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. Öğreticide daha önce kaydettiğiniz şablonu seçin. Varsayılan ad **azuredeploy.json** olur.  Aynı dosya adına sahip bir dosyanız varsa bildirim gösterilmeden eski dosyanın üzerine yazılır.
-5. Dosyanın başarıyla yüklendiğini doğrulamak için Cloud Shell'de aşağıdaki komutu çalıştırın. 
 
-    ```bash
-    ls
-    ```
+    İsteğe bağlı olarak kullanabileceğiniz **ls $HOME** komut ve **$HOME/azuredeploy.json Kedi** dosyaları areis başarıyla karşıya yüklendi doğrulamak için komutu. 
 
-    ![Azure portal Cloud Shell dosya listeleme](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-list-file.png)
-
-    Ekranda gösterilen dosya adı: azuredeploy.json.
-
-6. Cloud Shell'de aşağıdaki komutu çalıştırarak JSON dosyasının içeriğini doğrulayın:
-
-    ```bash
-    cat azuredeploy.json
-    ```
-7. Cloud Shell'de aşağıdaki PowerShell komutlarını çalıştırın. Güvenliği artırmak istiyorsanız sanal makine yönetici hesabı için oluşturulmuş bir parola kullanın. [Ön koşullara](#prerequisites) bakın.
+5. Cloud Shell'de aşağıdaki PowerShell komutlarını çalıştırın. Güvenliği artırmak istiyorsanız sanal makine yönetici hesabı için oluşturulmuş bir parola kullanın. [Ön koşullara](#prerequisites) bakın.
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -152,11 +140,8 @@ Bağımlılıkların belirtilmesi, Resource Manager'ın çözümü verimli bir �
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json
+        -TemplateFile "$HOME/azuredeploy.json"
     ```
-
-    > [!NOTE]
-    > Dosya g/ç Cloud shell'de Azure PowerShell kullanarak sorun yoktur.  Hata iletisi *cmdlet'i için dinamik parametreler alınamıyor. Bunu mevcut olmadığından 'Azure:/azuredeploy.json' yolu bulunamıyor.*  Dahil edilmemesi için geçici bir çözüm olan **- TemplateFile** anahtarının `New-AzResourceGroupDeploy` komutu. Komut dosya adını girmenizi ister.
 
 8. Yeni oluşturulan sanal makineyi listelemek için aşağıdaki PowerShell komutunu çalıştırın:
 

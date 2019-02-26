@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: de0998dffeac54db5311bbcde1c9499488b23556
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 28ddecb20944893b23b54775e22f19644f0afbf0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434981"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816513"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Azure automation'da Python 2 paketlerini yönetme
 
@@ -34,9 +34,38 @@ Paketi içeri aktarıldıktan sonra listelenmiş olup **Python 2 paketleri** Oto
 
 ![Paket listesi](media/python-packages/package-list.png)
 
+## <a name="import-packages-with-dependencies"></a>Bağımlılıkları olan paketleri içeri aktarma
+
+Azure Otomasyonu bağımlılık python Paketlerine yönelik içeri aktarma işlemi sırasında sorunu çözmezse. Paket ile tüm bağımlılıkları almak için iki yolu vardır. Aşağıdaki adımlar yalnızca biri paketleri Otomasyon hesabınızda içeri aktarmak için kullanılması gerekir.
+
+### <a name="manually-download"></a>El ile yükleme
+
+Üzerinde Windows 64-bit bir makine ile [python2.7](https://www.python.org/download/releases/2.7/) ve [pip](https://pip.pypa.io/stable/installing/) yüklü bir paketi ve tüm bağımlılıkları yüklemek için aşağıdaki komutu çalıştırın:
+
+```
+C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
+```
+
+Paketler yüklendikten sonra bunları Otomasyon hesabınıza aktarabilirsiniz.
+
+### <a name="runbook"></a>Runbook
+
+Python runbook'u içeri aktar [Azure Otomasyonu hesabına pypı alma Python 2 paketlerden](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) Otomasyon hesabınızda Galerisi. Çalıştırma ayarları emin olun kümesine **Azure** ve parametrelerle bir runbook başlatın. Runbook bir farklı çalıştır hesabı için çalışmak için bu Otomasyon hesabı gerektirir. Her parametre için emin olun anahtarıyla birlikte aşağıdaki liste ve görüntü görüldüğü gibi başlattığınızda:
+
+* -s \<subscriptionId\>
+* -g \<resourceGroup\>
+* -a \<automationAccount\>
+* -m \<modulePackage\>
+
+![Paket listesi](media/python-packages/import-python-runbook.png)
+
+Runbook'un ne indirmek için örneğin, paket belirtmenize olanak tanır `Azure` (Dördüncü parametresinin) tüm Azure modülleri ve tüm bağımlılıklarını, yaklaşık 105 olduğu indirir.
+
+Runbook tamamlandığında denetleyebilirsiniz **Python 2 paketleri** altındaki **paylaşılan kaynakları** doğrulamak için Otomasyon hesabınızda, paket doğru şekilde içeri aktarıldı.
+
 ## <a name="use-a-package-in-a-runbook"></a>Bir runbook'ta bir paket kullanma
 
-Bir paketi içe aktardıktan sonra artık bir runbook'ta kullanabilirsiniz. Aşağıdaki örnekte [ Azure Otomasyonu yardımcı programı paket](https://github.com/azureautomation/azure_automation_utility). Bu paket, Azure Otomasyonu ile Python kullanma kolaylaştırır. Paketini kullanmak için GitHub deposunda yönergeleri izleyin ve kullanarak runbook'a ekleme `from azure_automation_utility import get_automation_runas_credential` örneğin farklı çalıştır hesabı almak için işlev içeri aktarmak.
+Bir paket aktardıktan sonra artık bir runbook'ta kullanabilirsiniz. Aşağıdaki örnekte [ Azure Otomasyonu yardımcı programı paket](https://github.com/azureautomation/azure_automation_utility). Bu paket, Azure Otomasyonu ile Python kullanma kolaylaştırır. Paketini kullanmak için GitHub deposunda yönergeleri izleyin ve kullanarak runbook'a ekleme `from azure_automation_utility import get_automation_runas_credential` örneğin farklı çalıştır hesabı almak için işlev içeri aktarmak.
 
 ```python
 import azure.mgmt.resource

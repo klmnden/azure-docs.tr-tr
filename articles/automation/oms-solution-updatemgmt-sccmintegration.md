@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c3b595e9c4d4b98814d1b68adede97204bf3eb96
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ddc055be45eae923be31d7d11621c9427660bf74
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422737"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818315"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>System Center Configuration Manager güncelleştirme yönetimi ile tümleştirme
 
@@ -26,7 +26,7 @@ Rapor ve oluşturma ve önceden yazılım güncelleştirme dağıtımlarını Co
 
 * Olmalıdır [güncelleştirme yönetimi çözümünü](automation-update-management.md) Otomasyon hesabınıza eklendi.
 * Şu anda System Center Configuration Manager ortamınız tarafından yönetilen Windows sunucularının da Güncelleştirme Yönetimi çözümü etkin olan Log Analytics çalışma alanına rapor göndermesi gerekir.
-* Bu özellik System Center Configuration Manager geçerli dal sürümü 1606 ve üstünü etkinleştirilir. Configuration Manager merkezi yönetim sitenizi veya tek başına birincil sitenizi Log Analytics ile tümleştirmek ve koleksiyonları içeri aktarmak için [Configuration Manager’ı Log Analytics’e Bağlama](../azure-monitor/platform/collect-sccm.md) makalesini gözden geçirin.  
+* Bu özellik System Center Configuration Manager geçerli dal sürümü 1606 ve üstünü etkinleştirilir. Configuration Manager Merkezi Yönetim sitenizi veya tek başına bir birincil sitede Azure İzleyici günlüklerine ile tümleştirmek ve koleksiyonları içeri aktarmak için gözden [Azure İzleyici için Configuration Manager'ı bağlama günlüklerini](../azure-monitor/platform/collect-sccm.md).  
 * Windows aracıları Configuration Manager’dan güvenlik güncelleştirmeleri almazsa Windows Server Update Services (WSUS) sunucusuyla iletişim kuracak veya Microsoft Update’e erişecek şekilde yapılandırılmış olmalıdır.   
 
 Azure IaaS içinde barındırılan istemcileri mevcut Configuration Manager ortamınızla nasıl yönettiğiniz birincil olarak Azure veri merkezleri ile altyapınız arasında mevcut olan bağlantıya bağlıdır. Bu bağlantı, Configuration Manager altyapısında yapmanız gereken her türlü tasarım değişikliğini ve bu değişiklikleri desteklemeyle ilgili maliyetleri etkiler. Devam etmeden önce değerlendirmeniz gereken planlama konularını anlamak için, [Azure’da Configuration Manager - Sık Sorulan Sorular](/sccm/core/understand/configuration-manager-on-azure#networking)’ı gözden geçirin.

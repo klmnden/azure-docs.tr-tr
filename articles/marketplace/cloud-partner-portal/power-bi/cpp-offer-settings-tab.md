@@ -1,6 +1,6 @@
 ---
 title: Teklif ayarları için bir Power BI uygulaması - Azure Marketi'nde teklif | Microsoft Docs
-description: Microsoft AppSource Marketplace için Power BI uygulaması teklif için teklif ayarlarını yapılandırın.
+description: Bir Power BI uygulaması teklif Microsoft AppSource Market teklifi ayarlarını yapılandırın.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 documentationcenter: ''
 author: v-miclar
@@ -14,32 +14,32 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fef2455129d94913c5b51a08c04403834861bb48
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 49bbe5dcf17a9aa20cb47f477c59e7115d29dacc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666789"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819608"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Power BI uygulamaları sunar Ayarlar sekmesi
 
-**Yeni teklif** hizmet uygulamaları sayfası adlı birinci sekmede açılır **teklif ayarları**.  Bu sekmede, teklif için ad ve birincil tanımlayıcıları sağlayacaktır.  Alan adı eklenmiş bir yıldız (*) gerekli olduğunu gösterir.
+Açtığınızda **yeni teklif** sayfasında hizmet uygulamaları için ilk gördüğünüz **teklif ayarları** sekmesi. Bu sekmede birincil tanımlayıcıları ve teklifiniz için bir ad sağlayın. Bir yıldız işareti (*) gerekli bir alanı belirtir.
 
 ![Teklif ayarları sekmesi](./media/offer-settings-tab.png)
 
 
 ## <a name="offer-settings-fields"></a>Teklif ayarları alanları 
 
-İçinde **teklif ayarları** sekmesinde, aşağıdaki gerekli alanları sağlamanız gerekir.
+Üzerinde **teklif ayarları** sekmesinde gereken aşağıdaki gerekli alanlara bu bilgileri girin:
 
 |  Alan        |  Açıklama                                                               |
 |---------------|----------------------------------------------------------------------------|
-| **Teklif kimliği**  | Teklif için benzersiz bir tanımlayıcı (profilinde yayımcı). Bu tanımlayıcı ürün URL'ler, Resource Manager şablonları, görünür ve faturalandırma raporlar. En fazla 50 karakter uzunluğunda, yalnızca küçük harf alfasayısal karakterler ve tire (-) oluşturulmuş olabilir ancak tire bitemez. Bu alan, teklif Canlı geçtikten sonra değiştirilemez. Bir teklif olan contoso yayımlar, örneğin, Teklif kimliği `sample-SvcApp`, AppSource URL atanır `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`.      |
+| **Teklif kimliği**  | Teklif için benzersiz bir tanımlayıcı (profilinde yayımcı). Bu tanımlayıcı ürün URL'leri, Azure Resource Manager şablonları, görünür ve faturalandırma raporlar. En fazla 50 karakterdir. Yalnızca küçük harf alfasayısal karakterler ve tire (-) içerebilir. Bu, kısa çizgi ile bitemez. Bu tanımlayıcı, bir teklif Canlı geçtikten sonra değiştirilemez. Contoso bir teklifle yayımlarsa Teklif kimliği `sample-SvcApp`, teklif AppSource URL atanır `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`.      |
 | **Yayımcı** | Kuruluşunuzun içindeki benzersiz tanımlayıcısı [AppSource](https://appsource.microsoft.com). Tüm teklifleri, yayımcı kimliği ile ilişkili olmalıdır Teklif kaydedildikten sonra bu değer değiştirilemez.                         |
-| **Ad**      | Teklifiniz için görünen ad. Bu ad, appsource'ta ve bulut iş ortağı Portalı'nda görüntülenir. En fazla 50 karakter olabilir. Bir kılavuz ürününüzün tanınabilir bir marka adı eklemektir. Uygulamayı nasıl pazarlanmadığından olmadığı sürece, kuruluşunuzun adını buraya dahil değildir. Bu teklif diğer Web sitelerinde ve yayın'nu pazarlama, adı aynı tüm yayınları arasında olduğundan emin olun.    <br/>Power BI uygulamaları, Önizleme modunu, Önizleme süresince teklif serbest bırakırsanız dizesini `(Preview)` Örneğin, uygulamanızın adı için `Sample Scv App (Preview)`. |
+| **Ad**      | Teklifiniz için bir görünen ad. Bu ad, bulut iş ortağı portalı ve AppSource üzerinde görünür. En fazla 50 karakterdir. Ürününüzün tanınabilir bir marka adı kullanın. Uygulama, bu ada sahip pazarlanmadığından sürece, kuruluşunuzun adını buraya dahil değildir. Bu teklif, diğer Web siteleri ve yayınlar sağlıyorsanız tüm yayınlarında aynı adı kullanın.    <br/>Önizleme dönemi boyunca bir teklif için Power BI uygulamaları sürüm dizesi ekleyin `(Preview)` bunun gibi uygulamanızın adının sonunda: `Sample Scv App (Preview)`. |
 |     |     |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sonraki sekmede, belirteceğinizi [teknik bilgi](./cpp-technical-info-tab.md) teklifiniz için.
+Sonraki sekmede, belirtirsiniz [teknik bilgi](./cpp-technical-info-tab.md) teklifiniz için.

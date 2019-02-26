@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: orspod
-ms.openlocfilehash: 8f2a7a953ce2964645c281d9454a73b0cf1a8ff6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: f614c6770dd29bc3d6b42c36fe8c81d9f129cd81
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747197"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816666"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Ya da Azure veri Gezgini'nde Azure Data Factory kullanarak veri kopyalama
 
@@ -29,7 +29,7 @@ Bu makalede, kopyalama etkinliği Azure Data Factory'de gelen veya giden veri ko
 Azure veri Gezgini'ne herhangi bir desteklenen kaynak veri deposundan veri kopyalayabilirsiniz. Ayrıca, Azure veri Gezgini'nden desteklenen havuz veri deposuna veri kopyalayabilirsiniz. Kopyalama etkinliği tarafından kaynak ve havuz desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md) tablo.
 
 >[!NOTE]
->Şu anda veri gönderip buralardan veri Azure Veri Gezgini / için şirket içinde barındırılan tümleştirme çalışma zamanını kullanarak şirket içi veri deposuna kopyalama henüz desteklenmiyor.
+>/ İçin şirket içinde barındırılan tümleştirme çalışma zamanını kullanarak şirket içi veri deposuna veri gönderip buralardan Veri Gezgini Azure kopyalama 3.14 sürümünden itibaren desteklenir.
 
 Azure Veri Gezgini Bağlayıcısı'nı aşağıdakileri sağlar:
 
@@ -162,7 +162,7 @@ Verileri Azure veri Gezgini'ne kopyalamak için kopyalama etkinliği Havuz tür�
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği havuz özelliği ayarlanmalıdır: **AzureDataExplorerSink** | Evet |
-| ingestionMappingName | Önceden oluşturulmuş adını [csv eşleme](/azure/kusto/management/mappings#csv-mapping) Kusto tablosunda. Kaynaktan Azure verileri araştırmak için sütunları eşlemek için de kopyalama etkinliği kullanabilirsiniz [sütun eşlemesi](copy-activity-schema-and-type-mapping.md). | Hayır |
+| ingestionMappingName | Önceden oluşturulmuş adını **[CSV eşleme](/azure/kusto/management/mappings#csv-mapping)** Kusto tablosunda; JSON eşleme ve Azure Veri Gezgini Avro eşlemeyi doğrudan desteklenmez ancak yine de verileri JSON/Avro dosyalarını kopyalayabilirsiniz. Azure Veri Gezgini kaynağından sütunlara eşlemek için kopyalama etkinliğini kullanabilirsiniz [sütun eşlemesi](copy-activity-schema-and-type-mapping.md) ayrıca - Azure Veri Gezgini CSV eşlemelerle birlikte çalıştığı kopyalama etkinliği haritalar/yeniden-shapes veri kaynağından havuz için sütuna göre eşleme ayarları, sonra yeniden varsa alımı eşleme yapılandırmaya göre verileri eşler bulunmaktadır. Geçerli [tüm desteklenen kaynak depolarını](copy-activity-overview.md#supported-data-stores-and-formats) JSON ve Avro biçimleri dahil. | Hayır |
 
 **Örnek:**
 

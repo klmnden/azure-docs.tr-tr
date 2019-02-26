@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6cd1d917be67d21e3e6dfe54ed5dec77b92509e9
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768572"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821464"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics Önizleme özellikleri
 
@@ -22,6 +22,10 @@ Bu makalede, Azure Stream Analytics için şu anda önizlemede tüm özellikler 
 ## <a name="public-previews"></a>Genel Önizleme
 
 Aşağıdaki özellikler, genel Önizleme aşamasındadır. Bu özelliklerin bugün yararlanabilirsiniz, ancak bunları üretim ortamında kullanmayın.
+
+### <a name="anomaly-detection"></a>Anomali Algılama
+
+Azure Stream Analytics yeni makine öğrenimi modelleri için destek tanıtır *depo* ve *Düşüşler* yönlü, yavaş yavaş olumlu ve olumsuz eğilimleri saptama yanı sıra algılama. Daha fazla bilgi için ziyaret [Azure Stream analytics'te Anomali algılama](stream-analytics-machine-learning-anomaly-detection.md).
 
 ### <a name="sql-database-reference-data"></a>SQL veritabanı başvuru verileri
 
@@ -47,10 +51,6 @@ Azure Stream Analytics için Visual Studio Araçları, olay hub'ı veya IOT hub 
 
 Aşağıdaki özellikler için özel Önizleme aşamasındadır.
 
-### <a name="anomaly-detection"></a>Anomali Algılama
-
-Azure Stream Analytics yeni makine öğrenimi modelleri için destek tanıtır *depo* ve *Düşüşler* yönlü, yavaş yavaş olumlu ve olumsuz eğilimleri saptama yanı sıra algılama.
-
 ### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>C# özel seri durumdan çıkarıcının IOT Edge üzerinde Azure Stream Analytics için
 
 Geliştiriciler, Azure Stream Analytics tarafından alınan olayları seri durumdan çıkarmak için C# dilinde özel deserializers artık uygulayabilirsiniz. Parquet, Protobuf, XML veya herhangi bir ikili biçimi seri durumdan çıkarılabiliyorsa biçimleri örnekleridir.
@@ -61,7 +61,7 @@ Geliştiriciler, Azure Stream Analytics tarafından alınan olayları seri durum
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code için Azure Stream Analytics
 
-Azure Stream Analytics işleri, Visual Studio Code'da yazılabilir.
+Azure Stream Analytics işleri, Visual Studio Code'da yazılabilir. İçin özel Önizleme özellikleri araçlarına erişimi başvurun *ASAToolsfeedback@microsoft.com*.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

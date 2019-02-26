@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 7be31a9390dfb0d663b27979a42fffe6f7a0afca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 9d0e27c2427d53554b454e0c319ce9cf180f1633
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977550"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820799"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Ortak PowerShell komutları için oluşturma ve Azure sanal makineleri yönetme
 
@@ -51,7 +51,7 @@ Birden fazla komutlar bu makaledeki çalışıyorsa bu değişkenler için yarar
 | Yapılandırma ayarları Ekle |$vm = [kümesi AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) - VM $vm-Windows - ComputerName $myVM-$cred - ProvisionVMAgent kimlik bilgisi - EnableAutoUpdate<BR></BR><BR></BR>İşletim sistemi ayarları dahil olmak üzere [kimlik bilgilerini](https://technet.microsoft.com/library/hh849815.aspx) yeni AzVMConfig kullanarak daha önce oluşturduğunuz yapılandırma nesnesine eklenmelidir. |
 | Bir ağ arabirimi ekleyin |$vm = [Ekle AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVMNetworkInterface) - VM $vm-kimliği $nic Kimliği<BR></BR><BR></BR>Bir VM olmalıdır bir [ağ arabirimi](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) bir sanal ağda iletişim kurabilmek için. Ayrıca [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) var olan bir ağ arabirimi nesnesi alınamıyor. |
 | Platform görüntüsü belirtin |$vm = [kümesi AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage) - VM $vm - PublisherName "publisher_name"-"publisher_offer" Teklif - Skus "product_sku"-"son" sürüm<BR></BR><BR></BR>[Görüntü bilgilerini](cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) yeni AzVMConfig kullanarak daha önce oluşturduğunuz yapılandırma nesnesine eklenmelidir. Bu komuttan döndürülen nesne yalnızca işletim sistemi diski, bir platform görüntüsü kullanmasına izin kümesi kullanılır. |
-| VM oluşturma |[Yeni-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) - ResourceGroupName $myResourceGroup-konum $location - VM $vm<BR></BR><BR></BR>Tüm kaynaklar oluşturulan bir [kaynak grubu](../../azure-resource-manager/powershell-azure-resource-manager.md). Bu komutu çalıştırmadan önce yeni AzVMConfig, Set-AzVMOperatingSystem, Set-AzVMSourceImage, AzVMNetworkInterface Ekle ve Set-AzVMOSDisk çalıştırın. |
+| VM oluşturma |[Yeni-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) - ResourceGroupName $myResourceGroup-konum $location - VM $vm<BR></BR><BR></BR>Tüm kaynaklar oluşturulan bir [kaynak grubu](../../azure-resource-manager/manage-resource-groups-powershell.md). Bu komutu çalıştırmadan önce yeni AzVMConfig, Set-AzVMOperatingSystem, Set-AzVMSourceImage, AzVMNetworkInterface Ekle ve Set-AzVMOSDisk çalıştırın. |
 | Bir VM'yi güncelleştirin |[Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) - ResourceGroupName $myResourceGroup - VM $vm<BR></BR><BR></BR>Get-AzVM kullanarak geçerli VM yapılandırmasını almak, VM nesnesini yapılandırma ayarlarını değiştirin ve ardından bu komutu çalıştırın. |
 
 ## <a name="get-information-about-vms"></a>VM'ler hakkında bilgi edinin

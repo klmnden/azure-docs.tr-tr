@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 516d8e9116bbdcd421897b5a5c2d9755e7e636c8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: cd137f8fb44b20c9a1b3a506ad2703fc780bae89
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903562"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806674"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Azure için fatura bilgilerini erişimi yönetme
 
@@ -45,7 +45,7 @@ Faturalama bilgileri bu rolleri erişimi [Azure portalında](https://portal.azur
 
 ### <a name="opt-in"></a> Kullanıcıların faturaları indirmesine izin ver
 
-Sonra Ata Hesap Yöneticisi, ekip üyelerinin uygun rollere etkinleştirmeniz gerekir değerlendirmek Azure portalında faturaları indirebilir. Aralık 2016'dan daha eski faturalar yalnızca Hesap Yöneticisi için kullanılabilir.
+Takım üyeleri için uygun roller atadıktan sonra Hesap Yöneticisi Azure portalında faturaları indirmesine erişimi etkinleştirmeniz gerekir. Aralık 2016'dan daha eski faturalar yalnızca Hesap Yöneticisi için kullanılabilir.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 1. Hesap Yöneticisi olarak aboneliğinizden seçin [abonelikler dikey penceresinden](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında.

@@ -5,17 +5,17 @@ description: Azure Machine Learning Studio'da metin ön işleme, N-gram veya öz
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: e8e50aa49595addeab3369f74b618c31b7cf1625
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 4491c6ec101e6865b19f4ea1bc47d59f90248a04
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454387"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816377"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da bir yaklaşım analizi model oluşturma
 

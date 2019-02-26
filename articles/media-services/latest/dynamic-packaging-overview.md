@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: juliako
-ms.openlocfilehash: 02af95de3793f1d56204b17b0a3d91efbb285e55
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d3222b2a2c47d6c2db4ca890a2618e89891d9deb
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726423"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804833"
 ---
 # <a name="dynamic-packaging"></a>Dinamik paketleme
 
@@ -26,9 +26,9 @@ Microsoft Azure Media Services, birçok medya kaynak dosya biçimleri akış bi�
 
 [Akış uç noktaları](streaming-endpoint-concept.md) istemci oyuncular medya içeriği teslim etmek için kullanılan Media Services dinamik paketleme hizmetidir. Dinamik paketleme, tüm akış Uç noktalara (standart veya Premium) standarttır bir özelliktir. Hiçbir ek yok. Bu özellik, Media Services v3 ile ilişkili maliyeti. Dinamik paketleme ile tek ihtiyacınız olan bildirim dosyalarında Uyarlamalı bit hızı MP4 dosyaları kümesini içeren bir varlık. Daha sonra bildirimi veya parça isteğindeki belirtilen biçime bağlı olarak, akışın seçtiğiniz protokolde alırsınız. Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
 
-Media Services'de, isteğe bağlı veya canlı akış olup olmadığını dinamik paketleme kullanılır.
+Media Services'de, talep üzerine akış ya da Canlı dinamik paketleme kullanılır.
 
-Dinamik paketleme iş akışı aşağıdaki diyagramda gösterilmiştir.
+Aşağıdaki diyagram, talep üzerine akış dinamik paketleme iş akışıyla gösterir.
 
 ![Dinamik kodlama](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
@@ -39,7 +39,11 @@ Dinamik paketleme kullanıldığı akış iş akışı ortak bir Media Services 
 1. (Bir ara dosyayı olarak adlandırılır) bir giriş dosyasını karşıya yükleyin. Örneğin, H.264, MP4 veya WMV (desteklenen biçimler listesi için bkz. [Media Encoder Standard tarafından desteklenen biçimleri](media-encoder-standard-formats.md).
 2. Mezzanine dosyanızı Uyarlamalı bit hızı kümelerine H.264 MP4 kodlayın.
 3. Hızı Uyarlamalı MP4 kümesine içeren varlığı yayımlayın.
-4. Farklı biçimlerde (HLS, Dash ve kesintisiz akış) hedef URL'leri oluşturun. Akış uç noktası doğru bildirimi ve bu farklı biçimleri için istekleri hizmet ilgileniriz.
+4. Farklı biçimlerde (HLS, Dash ve kesintisiz akış) hedef URL'leri oluşturun. Akış uç noktası doğru bildirimi ve bu farklı biçimleri için istekleri hizmet ilgileniriz. Örneğin:
+
+ - HLS: `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)`
+ - Çizgi: `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)`
+ - Düzgün: `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest`
  
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Dinamik paketleme tarafından desteklenen video codec bileşenleri
 

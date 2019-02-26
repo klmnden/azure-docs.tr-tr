@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1590a02503a12be870dab14a1ccffdd3cf64a282
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 197d7529a52b400cd078ead79bbb6db5f5849ee6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426616"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821379"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tek başına Azure Otomasyonu hesabı oluşturma
 
-Bu makalede, Azure portalında Azure Otomasyonu hesabı oluşturma işlemini gösterir. Değerlendirmek ve ek yönetim çözümlerini veya tümleştirme, Azure Log Analytics ile kullanmadan Otomasyon hakkında bilgi edinmek için portal Otomasyon hesabı kullanabilirsiniz. Bu yönetim çözümlerini ekleyebilir veya Gelişmiş runbook işlerinin herhangi bir noktada gelecekte izlemek için Log Analytics ile tümleştirin.
+Bu makalede, Azure portalında Azure Otomasyonu hesabı oluşturma işlemini gösterir. Değerlendirmek ve ek yönetim çözümlerini veya tümleştirme ile Azure İzleyici günlüklerine kullanmadan Otomasyon hakkında bilgi edinmek için portal Otomasyon hesabı kullanabilirsiniz. Bu yönetim çözümlerini ekleyebilir veya Gelişmiş runbook işlerinin herhangi bir noktada gelecekte izlemek için Azure İzleyici günlükleri ile tümleştirin.
 
 Bir Otomasyon hesabı ile Azure Resource Manager veya Klasik dağıtım modeli kaynakları yöneterek runbook'ların kimliğini doğrulayabilirsiniz. Bir Otomasyon Hesabı belirli bir kiracı için kaynakları tüm bölgelerde ve aboneliklerde yönetebilir.
 

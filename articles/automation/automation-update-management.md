@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 02/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: df4ae4b0c3f230947e0b9a5885070049f32a4b2f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: fb96d69604ce341cec2de029f9663f6b8d274876
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429871"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822387"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -39,7 +39,7 @@ Güncelleştirme yönetimi, yerel makine aynı kiracıda birden çok abonelik i�
 
 Bir CVE kullanıma sunulduğunda, Linux makineleri değerlendirme için gösterilmesi düzeltme eki 2-3 saat sürer.  Windows makineleri için piyasaya sürüldükten sonra değerlendirmesi için gösterilecek yamasının 12-15 saat sürer.
 
-Bilgisayar güncelleştirme uyumluluğu taraması tamamlandıktan sonra aracıyı Azure Log Analytics'e toplu bilgiler iletir. Bir Windows bilgisayarda Uyumluluk taraması varsayılan olarak her 12 saatte bir çalıştırılır.
+Bilgisayar güncelleştirme uyumluluğu taraması tamamlandıktan sonra aracısı bilgileri toplu Azure İzleyici günlüklerine iletir. Bir Windows bilgisayarda Uyumluluk taraması varsayılan olarak her 12 saatte bir çalıştırılır.
 
 Tarama zamanlamasına ek olarak, güncelleştirme yüklemesi öncesinde ve güncelleştirme yüklemesi sonrasında yeniden başlatılmadan MMA 15 dakika içinde güncelleştirme uyumluluğu için tarama başlatılır.
 
@@ -94,7 +94,7 @@ Windows aracıları bir WSUS sunucusuyla iletişim kuracak şekilde yapılandır
 
 Linux için makine bir güncelleştirme havuzuna erişimi olmalıdır. Güncelleştirme deposu, özel veya genel olabilir. Güncelleştirme yönetimi ile etkileşim kurmak için TLS 1.1 veya TLS 1.2 gerekir. Bir rapor birden fazla Log Analytics çalışma alanları için yapılandırılmış Linux için Log Analytics Aracısı, bu çözüm ile desteklenmez.
 
-Linux için Log Analytics aracısını yükleme ve en son sürümü indirmek için hakkında daha fazla bilgi için bkz. [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux). Windows için Log Analytics aracısını yükleme hakkında daha fazla bilgi için bkz: [için Operations Management Suite Aracısı Windows](../log-analytics/log-analytics-windows-agent.md).
+Linux için Log Analytics aracısını yükleme ve en son sürümü indirmek için hakkında daha fazla bilgi için bkz. [Linux için Log Analytics aracısını](https://github.com/microsoft/oms-agent-for-linux). Windows için Log Analytics aracısını yükleme hakkında daha fazla bilgi için bkz: [İzleme Aracısı Windows için Microsoft](../log-analytics/log-analytics-windows-agent.md).
 
 ## <a name="permissions"></a>İzinler
 
@@ -120,10 +120,10 @@ System Center Operations Manager yönetim grubunuzun bir Log Analytics çalışm
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * MP Dağıtımını güncelleştirme
 
-Çözüm yönetim paketlerini nasıl güncelleştirileceğini hakkında daha fazla bilgi için bkz. [Log Analytics için Operations Manager'ı bağlama](../azure-monitor/platform/om-agents.md).
+Çözüm yönetim paketlerini nasıl güncelleştirileceğini hakkında daha fazla bilgi için bkz. [Azure İzleyici için Operations Manager'ı bağlama günlüklerini](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
-> Operations Manager Aracısı ile sistemler için güncelleştirme yönetimi tarafından tam olarak yönetilmeye Aracısı Microsoft Monitoring Agent'olarak güncelleştirilmesi gerekir. Aracı güncelleştirme hakkında bilgi edinmek için bkz: [bir Operations Manager Aracısı yükseltme](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
+> Operations Manager Aracısı ile sistemler için güncelleştirme yönetimi tarafından tam olarak yönetilmeye Aracısı Microsoft Monitoring Agent'olarak güncelleştirilmesi gerekir. Aracı güncelleştirme hakkında bilgi edinmek için bkz: [bir Operations Manager Aracısı yükseltme](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). Operations Manager'ı kullanarak ortamlar için gerekli olan 14 ya da daha yeni System Center Operations Manager 2012 R2 UR çalıştırıyorsanız.
 
 ## <a name="onboard"></a>Güncelleştirme yönetimini etkinleştirme
 
@@ -136,7 +136,7 @@ Sistemlerine yama yapma başlamak için güncelleştirme yönetimi çözümünü
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Azure olmayan makineler eklenmedi olduğundan emin olun
 
-Doğrudan bağlı makineleri birkaç dakika sonra Log Analytics ile iletişim kurduğunu onaylamak için bir aşağıdaki günlük aramaları çalıştırabilirsiniz.
+Doğrudan bağlı makineleri birkaç dakika sonra Azure İzleyici günlüklerine ile iletişim kurduğunu onaylamak için bir aşağıdaki günlük aramaları çalıştırabilirsiniz.
 
 #### <a name="linux"></a>Linux
 

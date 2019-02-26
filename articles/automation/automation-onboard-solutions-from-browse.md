@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 9a5e75b762c2ab0591212ce0bc3d7fac42132f8a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84b66605939abd0f676625a5959f4a31ef1774db
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116924"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818298"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri birden çok VM'de etkinleştir
 
@@ -51,7 +51,7 @@ Sanal makine, farklı Aboneliklerde, konum ve kaynak grupları seçmek için fil
 
 ![Güncelleştirme yönetimi çözümü ekleme](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Log analytics çalışma alanı ve Otomasyon hesabı seçimleri gözden geçirin. Bir mevcut bir çalışma alanını ve Otomasyon hesabı, varsayılan olarak seçilir. Farklı bir Log Analytics çalışma alanı ve Otomasyon hesabı kullanmak istiyorsanız, tıklayın **özel** bunları seçilecek **özel yapılandırma** sayfası. Bir Log Analytics çalışma alanı seçtiğinizde, bir Otomasyon hesabıyla bağlantılı olduğunu belirlemek için bir onay yapılır. Bağlantılı bir Otomasyon hesabının bulunursa, aşağıdaki ekranı görürsünüz. İşiniz bittiğinde, tıklayın **Tamam**.
+Log Analytics çalışma alanını ve Otomasyon hesabı seçenekleri gözden geçirin. Bir mevcut bir çalışma alanını ve Otomasyon hesabı, varsayılan olarak seçilir. Farklı bir Log Analytics çalışma alanı ve Otomasyon hesabı kullanmak istiyorsanız, tıklayın **özel** bunları seçilecek **özel yapılandırma** sayfası. Bir Log Analytics çalışma alanı seçtiğinizde, bir Otomasyon hesabıyla bağlantılı olduğunu belirlemek için bir onay yapılır. Bağlantılı bir Otomasyon hesabının bulunursa, aşağıdaki ekranı görürsünüz. İşiniz bittiğinde, tıklayın **Tamam**.
 
 ![Çalışma alanı ve hesabı seçin](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -89,7 +89,7 @@ Aşağıdaki çözümlerden bir Log Analytics çalışma alanına bağlıdır:
 * [Değişiklik İzleme](automation-change-tracking.md)
 * [Vm'leri çalışma saatleri dışında başlatma/durdurma](automation-solution-vm-management.md)
 
-Log Analytics ile Otomasyon hesabınızı tümleştirmek istediğiniz karar verirseniz, doğrudan Azure portalından hesabınızı kesebilir. Devam etmeden önce öncelikle daha önce bahsedilen çözümleri kaldırmanız gerekir, bu işlem devam etmeden gelen Aksi takdirde engellenir. Kaldırmak için gerekli adımları anlamak için alınan belirli çözüm makalesini gözden geçirin.
+Bir Log Analytics çalışma alanı ile Otomasyon hesabınızı tümleştirmek istediğiniz karar verirseniz, doğrudan Azure portalından hesabınızı kesebilir. Devam etmeden önce öncelikle daha önce bahsedilen çözümleri kaldırmanız gerekir, bu işlem devam etmeden gelen Aksi takdirde engellenir. Kaldırmak için gerekli adımları anlamak için alınan belirli çözüm makalesini gözden geçirin.
 
 Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kaldırmak için aşağıdaki adımları gerçekleştirebilirsiniz.
 

@@ -1,21 +1,21 @@
 ---
 title: ExpressRoute doğrudan - Azure hakkında | Microsoft Docs
-description: Bu sayfa ExpressRoute doğrudan (Önizleme) genel bir bakış sağlar.
+description: Bu sayfa ExpressRoute doğrudan genel bir bakış sağlar.
 services: expressroute
-author: mialdrid
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 98c5dc7dc6d977525d889a4cd97492183d1aad22
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100746"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818162"
 ---
-# <a name="about-expressroute-direct-preview"></a>ExpressRoute hakkında doğrudan (Önizleme)
+# <a name="about-expressroute-direct"></a>ExpressRoute Direct hakkında
 
 ExpressRoute doğrudan, Microsoft'un küresel ağı dünya genelindeki stratejik dağıtılmış eşleme konumlarda doğrudan bağlanma özelliği sağlar. ExpressRoute doğrudan uygun ölçekte etkin/etkin bağlantı destekleyen çift 100 Gbps bağlantı sağlar.
 
@@ -25,14 +25,9 @@ ExpressRoute doğrudan sağlayan önemli özellikler dahil ancak bunlarla sını
 * Fiziksel yalıtım gibi özel ve ayrı bağlantı gerektirir ve düzenlenen sektörler için: Banka, devlet ve perakende
 * Bağlantı hattı dağıtımının iş birimine dayalı detaylı denetimi
 
-> [!IMPORTANT]
-> ExpressRoute doğrudan şu anda Önizleme aşamasındadır.
->
-> Bu genel önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılmamalıdır. Belirli özellikler desteklenmiyor olabilir, kısıtlı yeteneklere sahip olabilir veya tüm Azure konumlarında mevcut olmayabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="onboard-to-expressroute-direct"></a>ExpressRoute doğrudan ekleme
 
-## <a name="enroll-in-the-preview"></a>Önizlemeye kaydolma
-
-ExpressRoute doğrudan kullanmadan önce ilk önizleme aboneliğinizde kaydolmanız gerekir. Kaydetmek için bir e-posta Gönder <ExpressRouteDirect@microsoft.com> abonelik Kimliğinizi, aşağıdaki ayrıntılar dahil olmak üzere:
+ExpressRoute doğrudan kullanmadan önce aboneliğinizi kaydetmelisiniz. Kaydetmek için bir e-posta Gönder <ExpressRouteDirect@microsoft.com> abonelik Kimliğinizi, aşağıdaki ayrıntılar dahil olmak üzere:
 
 * Senaryo ile gerçekleştirmek için aradığınız **ExpressRoute doğrudan**
 * Konum bkz - [iş ortakları ve eşleme konumları](expressroute-locations-providers.md) tüm konumlara tam listesi için
@@ -74,7 +69,7 @@ ExpressRoute doğrudan QinQ hem Dot1Q VLAN etiketleme destekler.
 
 ## <a name="sla"></a>SLA
 
-ExpressRoute doğrudan aynı kurumsal sınıf SLA ile küresel Microsoft ağına aktif/aktif yedekli bağlantılar sağlar. ExpressRoute altyapı gereksizdir ve küresel Microsoft ağına bağlantısı yedekli ve çeşitli ve uygun şekilde ölçeklenen müşteri gereksinimlerine sahip. Önizleme süresince olacaktır SLA ve yalnızca üretim dışı iş yükleri için kabul edilmesi.
+ExpressRoute doğrudan aynı kurumsal sınıf SLA ile küresel Microsoft ağına aktif/aktif yedekli bağlantılar sağlar. ExpressRoute altyapı gereksizdir ve küresel Microsoft ağına bağlantısı yedekli ve çeşitli ve uygun şekilde ölçeklenen müşteri gereksinimlerine sahip. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

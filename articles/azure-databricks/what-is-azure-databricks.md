@@ -10,18 +10,22 @@ ms.topic: overview
 ms.date: 05/29/2018
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: f6a2f89828dbc13ca716ccb40bb05234b7e31464
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 01e35ed32be8b28f291cc2be69a8b2d71c3acab2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418815"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806664"
 ---
 # <a name="what-is-azure-databricks"></a>Azure Databricks nedir?
 
 Azure Databricks, Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur. Apache Spark’ın kurucuları ile birlikte tasarlanan Databricks, tek tıklama ile kurulum olanağı ve kolaylaştırılmış iş akışlarının yanı sıra veri uzmanları, veri mühendisleri ve iş analistleri arasında işbirliği sağlayan etkileşimli bir çalışma alanı sunmak amacıyla Azure ile tümleştirilmiştir.
 
 ![Azure Databricks nedir?](./media/what-is-azure-databricks/azure-databricks-overview.png "What is Azure Databricks?")
+
+Azure Databricks hızlı, kolay ve işbirliğine dayalı Apache Spark tabanlı analiz hizmetidir. Büyük veri için bir işlem hattı, verileri (ham veya yapılandırılmış) Azure Data Factory aracılığıyla azure'da toplu olarak alınan veya kullanarak neredeyse gerçek zamanlı akış Kafka, olay hub'ı veya IOT hub'ı. Bu veri bölgesi için uzun vadeli bir veri gölü'nde, depolama, Azure Blob Depolama veya Azure Data Lake Storage kalıcı. Analytics akışınızın bir parçası verileri gibi birden çok veri kaynağından okumak için Azure Databricks'i kullanmayı [Azure Blob Depolama](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) , veya [Azure SQL veri ambarı](../sql-data-warehouse/index.md) ve Spark ile çığır açan öngörülere dönüştürün.
+
+![Databricks işlem hattı](./media/what-is-azure-databricks/databricks-pipeline.png)
 
 ## <a name="apache-spark-based-analytics-platform"></a>Apache Spark tabanlı analiz platformu
 
@@ -31,13 +35,13 @@ Azure Databricks tam açık kaynaklı Apache Spark küme teknolojileri ve özell
 
 * **Spark SQL ve DataFrames**: Spark SQL, yapılandırılmış verilerle çalışmaya yönelik Spark modülüdür. Bir DataFrame, adlandırılmış sütunlar halinde düzenlenmiş, dağıtılmış bir veri koleksiyonudur. Kavramsal olarak, ilişkisel bir veritabanındaki tabloya veya R/Python’daki veri çerçevesine eşdeğerdir.
 
-* **Akış**: Analitik ve etkileşimli uygulamalar için gerçek zamanlı veri işleme ve analizi. HDFS, Flume ve Kafka ile tümleştirilir.
+* **Akış**: Gerçek zamanlı veri işleme ve analiz Analitik ve etkileşimli uygulamalar için. HDFS, Flume ve Kafka ile tümleştirilir.
 
-* **MLib**: Sınıflandırma, regresyon, kümeleme, ortak filtreleme, boyut düzeyi azaltma gibi genel öğrenme algoritmaları ve yardımcı programlarının yanı sıra temel alınan iyileştirme temellerinden oluşan Machine Learning kitaplığı.
+* **MLib**: Makine öğrenimi kitaplığı genel öğrenme algoritmaları ve yardımcı programları Sınıflandırma, regresyon, kümeleme, ortak filtreleme, dahil olmak üzere, boyut düzeyi azaltma yanı sıra temel alınan iyileştirme oluşan.
 
-* **GraphX**: Bilişsel analizden veri keşfine varan geniş kullanım örnekleri kapsamı için grafikler ve grafik hesaplamaları.
+* **GraphX**: Grafikler ve grafik hesaplamaları geniş bir kapsam için çalışmaları bilişsel analizden veri keşfine kullanın.
 
-* **Spark Core API’si**: R, SQL, Python, Scala ve Java desteği içerir.
+* **Spark Core API'si**: R, SQL, Python, Scala ve Java desteği içerir.
 
 ## <a name="apache-spark-in-azure-databricks"></a>Azure Databricks’te Apache Spark
 
@@ -84,14 +88,14 @@ Azure Databricks, Azure Active Directory tümleştirmesi, rol tabanlı denetimle
 
 ## <a name="integration-with-azure-services"></a>Azure hizmetleriyle tümleştirme
 
-Azure Databricks, Azure veritabanları ve depolarıyla derin bir şekilde tümleştirilir: SQL Veri Ambarı, Cosmos DB, Data Lake Store ve Blob Depolama. 
+Azure Databricks, Azure veritabanları ve depolarıyla derin bir şekilde tümleştirilir: SQL veri ambarı, Cosmos DB, Data Lake Store ve Blob Depolama. 
 
 ## <a name="integration-with-power-bi"></a>Power BI ile tümleştirme
 Power BI ile zengin tümleştirme sayesinde Azure Databricks, etkili öngörülerinizi hızlı ve kolay bir şekilde keşfedip paylaşmanızı sağlar. JDBC/ODBC küme uç noktaları aracılığıyla Tableau yazılımı gibi diğer BI araçlarını da kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Hızlı Başlangıç: Azure Databricks üzerinde bir Spark işi çalıştırma](quickstart-create-databricks-workspace-portal.md)
+* [Hızlı Başlangıç: Azure Databricks'te Spark işini çalıştırma](quickstart-create-databricks-workspace-portal.md)
 * [Spark kümeleri ile çalışma](https://docs.azuredatabricks.net/user-guide/clusters/index.html)
 * [Not defterleri ile çalışma](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
 * [Spark işleri oluşturma](https://docs.azuredatabricks.net/user-guide/jobs.html)

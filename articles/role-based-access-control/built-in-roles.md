@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/16/2019
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 97f9c893487b486bd76031cb6321fe100321931d
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 106cda22f8f7c54441f438b61eb427446f36a69a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750727"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807499"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 
@@ -82,8 +82,8 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [DevTest Labs kullanıcısı](#devtest-labs-user) | Azure DevTest Labs'teki tüm sanal makinelerinize bağlanmanıza, bu makineleri başlatmanıza, yeniden başlatmanıza ve kapatmanıza izin verir. |
 | [DNS bölgesi katkıda bulunanı](#dns-zone-contributor) | Azure DNS'te, DNS bölgelerini ve kayıt kümelerini yönetmenize izin verir, ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [DocumentDB hesabı Katılımcısı](#documentdb-account-contributor) | Azure Cosmos DB hesapları yönetebilirsiniz. Azure Cosmos DB, eski adıyla DocumentDB bilinir. |
-| [EventGrid EventSubscription katkıda bulunan](#eventgrid-eventsubscription-contributor) | EventGrid olay aboneliği işlemlerini yönetmenize olanak sağlar. |
-| [EventGrid EventSubscription okuyucusu](#eventgrid-eventsubscription-reader) | EventGrid olay aboneliklerini okumanıza olanak sağlar. |
+| [EventGrid EventSubscription katkıda bulunan (Önizleme)](#eventgrid-eventsubscription-contributor-preview) | EventGrid olay aboneliği işlemlerini yönetmenize olanak sağlar. |
+| [EventGrid EventSubscription Okuyucu (Önizleme)](#eventgrid-eventsubscription-reader-preview) | EventGrid olay aboneliklerini okumanıza olanak sağlar. |
 | [HDInsight etki alanı Hizmetleri katkıda bulunan](#hdinsight-domain-services-contributor) | Okuyabilir oluşturma, değiştirme ve etki alanı Hizmetleri Sil ilgili işlemler için HDInsight Kurumsal Güvenlik Paketi için gereken Etki Alanı Hizmetleriyle ilgili işlemleri Okuyabilir, Oluşturabilir, Değiştirebilir ve Silebilir |
 | [Akıllı sistemler hesap Katılımcısı](#intelligent-systems-account-contributor) | Akıllı Sistemler hesaplarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Key Vault katkıda bulunanı](#key-vault-contributor) | Anahtar kasalarını yönetmenize izin verir, ancak bunlara erişmenize izin vermez. |
@@ -104,7 +104,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Ağ Katılımcısı](#network-contributor) | Ağları yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Yeni Relic APM hesap Katılımcısı](#new-relic-apm-account-contributor) | New Relic Application Performance Management hesaplarını ve uygulamalarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Okuyucu ve veri erişimi](#reader-and-data-access) | Sağlayan her şeyi görüntüleyebilir, ancak bir depolama hesabı ya da kapsanan kaynak oluşturma veya silemezsiniz izin vermez. Depolama hesabı anahtarları erişimi üzerinden bir depolama hesabında kapsanan tüm verilere okuma/yazma erişimi de izin verir. |
-| [Redis Cache Katılımcısı](#redis-cache-contributor) | Azure önbelleği için Redis yönetebilir, ancak onlara yönelik erişimi sağlar. |
+| [Redis Cache Katılımcısı](#redis-cache-contributor) | Redis Cache'leri yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Kaynak ilkesine katkıda bulunan (Önizleme)](#resource-policy-contributor-preview) | (Önizleme) Kaynak ilkesi oluşturma/değiştirme, destek bileti oluşturma ve kaynakları/hiyerarşiyi okuma haklarıyla EA’dan kullanıcılar geri dolduruldu. |
 | [Scheduler iş koleksiyonları Katılımcısı](#scheduler-job-collections-contributor) | Zamanlayıcı iş koleksiyonlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Search Hizmeti Katılımcısı](#search-service-contributor) | Search hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
@@ -1198,6 +1198,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Laboratuvar ilkeyi değerlendirir. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Mevcut bir sanal makinenin sahipliğini al |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Varsa geçerli Başlat/Durdur zamanlamaları listeler. |
+> | Microsoft.DevTestLab/labs/virtualMachines/getRdpFileContents/action | Sanal makine için RDP dosyasının içeriğini temsil eden bir dize alır |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Bir yük dengeleyici arka uç adres havuzu birleştirir. Alertable değil. |
 > | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Bir yük dengeleyici gelen nat kuralı birleştirir. Alertable değil. |
 > | Microsoft.Network/networkInterfaces/*/read | Bir ağ arabirimi (ağ arabiriminin bir parçası olduğu gibi tüm yük Dengeleyiciler) özelliklerini okuyun |
@@ -1261,7 +1262,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription katkıda bulunan
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Katkıda Bulunanı (Önizleme)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1284,7 +1285,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription okuyucusu
+## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Okuyucusu (Önizleme)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1502,6 +1503,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Eylemler** |  |
 > | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
 > | Microsoft.Solutions/applications/read | Uygulama listesi alır. |
+> | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
@@ -1737,11 +1739,11 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Azure önbelleği için Redis yönetebilir, ancak onlara yönelik erişimi sağlar. |
+> | **Açıklama** | Redis Cache'leri yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 > | **Kimlik** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
-> | Microsoft.Cache/redis/* | Oluşturma ve Azure önbelleği için Redis yönetme |
+> | Microsoft.Cache/redis/* | Oluşturma ve yönetme Redis önbellekleri |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönet |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |

@@ -8,18 +8,18 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/20/2019
-ms.openlocfilehash: 63d32aa3c8e64cc8ccfab4c97c48cef021c1781a
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.date: 02/24/2019
+ms.openlocfilehash: eb082d5194cb6948668c4944208ec11fab987206
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750354"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806536"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) kullanarak bağlanma
 
 > [!NOTE]
-> Bu özellik bulunduğu *özel Önizleme*. Özel önizlemeye katılmak için [isteğiniz buraya oluşturma](https://aka.ms/iseprivatepreview).
+> Bu özellik bulunduğu *genel Önizleme*. 
 
 Logic apps ve tümleştirme hesapları gereken yere erişimi senaryoları için bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md), oluşturun bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Bir işe atanmış depolama kullanan özel ve yalıtılmış bir ortam olduğu ve diğer kaynaklar genel veya "Genel" Logic Apps hizmetinden ayrı tutulur. Bu ayrım, diğer Azure kiracılarında, uygulamalarınızın performansını olabilir herhangi bir etkisi de azaltır. İŞE olan *eklenen* uygulamasına, Azure sanal ağına, daha sonra Logic Apps hizmetinin sanal ağınıza dağıtır. Bir mantıksal uygulama veya tümleştirme hesabı oluşturduğunuzda, bu işe kendi konum olarak seçin. Mantıksal uygulama veya tümleştirme hesabı, sanal makineleri (VM'ler), sunucular, sistemleri ve Hizmetleri, sanal ağınızda gibi kaynaklar doğrudan erişebilirsiniz.
 

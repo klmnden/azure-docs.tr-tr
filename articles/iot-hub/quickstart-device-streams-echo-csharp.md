@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: edd3912b3674f3a80a81fd47ed490479f663852c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7b3a8ac0500652b8c4250b4bc3b4f5514b62c4aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830251"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816952"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Hızlı Başlangıç: Cihaz uygulamaları kullanıcılara C# aracılığıyla IOT Hub cihaz akışları (Önizleme)
 
@@ -39,8 +39,7 @@ Aşağıdaki komutu kullanarak geliştirme makinenizde geçerli C# sürümünü 
 dotnet --version
 ```
 
-https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip adresinden örnek C# projesini indirin ve ZIP arşivini ayıklayın.
-
+https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip adresinden örnek C# projesini indirin ve ZIP arşivini ayıklayın. Hem cihaz hem de hizmet tarafında ihtiyacınız.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -86,18 +85,17 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
     Şuna benzer döndürülen değeri not edin:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
-    
 
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>Cihaz ve hizmet aracılığıyla cihaz akışları arasında iletişim
 
 ### <a name="run-the-service-side-application"></a>Hizmet tarafı uygulamayı çalıştırın
 
-Gidin `device-streams-echo/service` sıkıştırması proje klasörünüzde. Aşağıdaki bilgiler yararlı gerekir:
+Gidin `iot-hub/Quickstarts/device-streams-echo/service` sıkıştırması proje klasörünüzde. Aşağıdaki bilgiler yararlı gerekir:
 
 | Parametre adı | Parametre değeri |
 |----------------|-----------------|
-| `ServiceConnectionString` | IOT Hub'ınıza hizmet bağlantı dizesi. |
-| `DeviceId` | Daha önce oluşturduğunuz cihaz tanımlayıcısı. |
+| `ServiceConnectionString` | IOT hub'ınızın hizmeti bağlantı dizesini belirtin. |
+| `DeviceId` | Örneğin, Cihazım daha önce oluşturulan cihaz kimliği sağlayın. |
 
 Derleyin ve kodun aşağıdaki gibi çalıştırın:
 
@@ -109,19 +107,22 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $ServiceConnectionString MyDevice
+dotnet run "<ServiceConnectionString>" "<MyDevice>"
 
 # In Windows
-dotnet run %ServiceConnectionString% MyDevice
+dotnet run <ServiceConnectionString> <MyDevice>
 ```
+
+> [!NOTE]
+> Aygıt tarafı uygulamayı zamanında yanıt vermezse, bir zaman aşımı meydana gelir.
 
 ### <a name="run-the-device-side-application"></a>Aygıt tarafı uygulamayı çalıştırın
 
-Gidin `device-streams-echo/device` sıkıştırması proje klasörünüzde dizin. Aşağıdaki bilgiler yararlı gerekir:
+Gidin `iot-hub/Quickstarts/device-streams-echo/device` sıkıştırması proje klasörünüzde dizin. Aşağıdaki bilgiler yararlı gerekir:
 
 | Parametre adı | Parametre değeri |
 |----------------|-----------------|
-| `DeviceConnectionString` | Daha önce oluşturduğunuz cihaz bağlantı dizesi. |
+| `DeviceConnectionString` | IOT hub'ınızın cihaz bağlantı dizesini belirtin. |
 
 Derleyin ve kodun aşağıdaki gibi çalıştırın:
 
@@ -133,28 +134,23 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $DeviceConnectionString
+dotnet run "<DeviceConnectionString>"
 
 # In Windows
-dotnet run %DeviceConnectionString%
+dotnet run <DeviceConnectionString>
 ```
 
 Son adımın sonunda, hizmet tarafı program cihazınıza ve kurulan sonra bir akışı başlatacak bir dize arabelleğine akış üzerinden hizmete gönderin. Bu örnekte, hizmet tarafı yalnızca konsola yansıtır geri aynı verileri iki uygulama arasındaki başarılı çift yönlü iletişim gösteren bir cihaz için program. Aşağıdaki şekle bakın.
 
 Konsol çıktısı cihaz tarafında: ![alternatif metin](./media/quickstart-device-streams-echo-csharp/device-console-output.png "konsol çıktısı cihaz tarafında")
 
-
 Konsol çıktısı hizmet tarafında: ![alternatif metin](./media/quickstart-device-streams-echo-csharp/service-console-output.png "konsol çıktısı hizmet tarafında")
 
-
-
 Akış üzerinden gönderilen trafik, IOT hub'ı yerine doğrudan gönderilen tünel. Bu sağlar [yararlar](./iot-hub-device-streams-overview.md#benefits).
-
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

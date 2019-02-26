@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 5a9ea460684383bd09e5a679f3140d3b8f083d4d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417100"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823629"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -89,13 +89,13 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * IoT Hub
 * Anahtar kasası - Key Vault disk şifreleme için kullanılan kaynak gruplarına aynı abonelikte veya abonelikler arasında taşınamaz.
 * Yük Dengeleyiciler - temel SKU yük Dengeleyicide taşınabilir. Standart SKU yük Dengeleyicide taşınamaz.
-* Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web hizmetleri aynı abonelikte ancak farklı bir abonelikte bir kaynak grubuna taşındı. Diğer Machine Learning kaynakları abonelikler arasında taşınabilir.
 * Bkz: yönetilen diskler - [kısıtlamaları için sanal makineler sınırlamaları](#virtual-machines-limitations)
 * Yönetilen kimlik - kullanıcı tarafından atanan
 * Media Services
 * İzleyici - değil emin olmak için yeni abonelik taşıma yapma aşan [abonelik kotaları](../azure-subscription-service-limits.md#monitor-limits)
+* Azure izleme günlükleri
 * Notification Hubs
 * Operasyonel İçgörüler
 * Operations Management
@@ -145,7 +145,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * Lab Services'i - aynı Abonelikteki yeni kaynak grubuna taşıma etkin, ancak çapraz abonelik taşıma etkin değil.
 * Yönetilen Uygulamalar
 * Microsoft Genomiks
-* NetApp
+* Azure NetApp Files
 * Azure’da SAP HANA
 * Güvenlik
 * Site Recovery
@@ -513,7 +513,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Aboneliğinizi yönetmeye yönelik PowerShell cmdlet'leri hakkında bilgi edinmek için bkz. [Azure PowerShell kullanarak Resource Manager ile](powershell-azure-resource-manager.md).
-* Aboneliğinizi yönetmeye yönelik Azure CLI komutları hakkında bilgi edinmek için bkz. [Resource Manager ile Azure CLI kullanarak](xplat-cli-azure-resource-manager.md).
+* Kaynaklarınızı yönetmek için PowerShell cmdlet'leri hakkında bilgi edinmek için bkz. [Azure PowerShell kullanarak Resource Manager ile](manage-resources-powershell.md).
+* Kaynaklarınızı yönetmek için Azure CLI komutları hakkında bilgi edinmek için bkz. [Resource Manager ile Azure CLI kullanarak](manage-resources-cli.md).
 * Aboneliğinizi yönetmeye yönelik portal özellikleri hakkında bilgi edinmek için bkz. [kaynakları yönetmek için Azure portalını kullanarak](resource-group-portal.md).
 * Mantıksal bir kuruluş kaynaklarınıza uygulama hakkında bilgi edinmek için [kaynaklarınızı düzenlemek için etiketleri kullanarak](resource-group-using-tags.md).

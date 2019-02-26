@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4511ef81ccfa7008cd21a22b09459fb122d46327
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 03ec8858ee4b9323e6f7964ba02f8bb38f32d6a4
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452949"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819012"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Sanal ağ (VNet) erişimi yapılandırma
 
@@ -51,6 +51,9 @@ Aşağıdaki bölümlerde, bir Azure Cosmos DB hesabı için bir sanal ağ hizme
 > Sanal ağ hizmet uç noktalarını etkinleştirmek için aşağıdaki abonelik izinler gerekir:
   * Abonelik sanal ağ ile: Ağ Katılımcısı
   * Azure Cosmos DB hesabını içeren aboneliği: DocumentDB hesabı Katılımcısı
+  * Sanal ağınız ile Azure Cosmos DB hesabını, farklı Aboneliklerde olması halinde, sanal ağ olan aboneliği de olduğundan emin olun `Microsoft.DocumentDB` kaynak sağlayıcısı kayıtlı. Bir kaynak sağlayıcısını kaydetmek için bkz: [Azure kaynak sağlayıcıları ve türleri](../azure-resource-manager/resource-manager-supported-services.md) makalesi. 
+
+Abonelik, kaynak sağlayıcısı ile kaydetmek için yönergeleri aşağıda verilmiştir.
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Yeni bir Azure sanal ağı ve alt ağ için hizmet uç noktası yapılandırma
 

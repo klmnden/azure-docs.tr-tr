@@ -17,18 +17,20 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e565f5b9bcd9e3e79423c742b2c95c00abd97b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: aca7f0dbe0906ea0e1572f4580d8937ebf3eee64
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454767"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823271"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Azure AD çözümleme Azure İzleyici günlüklerine (Önizleme) ile etkinlik günlükleri
 
 Çalıştırdıktan sonra [Azure AD tümleştirme etkinlik günlükleri ile Azure İzleyici günlüklerine](howto-integrate-activity-logs-with-log-analytics.md), ortamınız hakkında Öngörüler elde etmek için Azure İzleyici günlüklerine gücünü kullanın. Ayrıca yükleyebilirsiniz [oturum Analiz görünümleri için Azure AD etkinlik günlükleri](howto-install-use-log-analytics-views.md) ortamınıza erişmek için Denetim ve oturum açma olaylarını önceden oluşturulmuş raporları.
 
 Bu makalede, Azure analiz etmeyi öğrenin AD etkinlik günlüklerini Log Analytics çalışma alanınızda. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar 
 

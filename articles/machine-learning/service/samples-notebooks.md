@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5ba555ad31545e1ae1aa822ec58b0bd22ef486ac
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 12da1b20c5e4e6299445b8ec8ec90eeec6711e2c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295160"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805527"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Azure Machine Learning hizmeti keşfetmek için Jupyter not defterleri kullanma
 
@@ -48,6 +48,8 @@ Azure not defterleri ile başlamak kolaydır! [Python için Azure Machine Learni
 Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşağıdaki adımları kullanın.
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+Hızlı Başlangıç yönergeleri, hızlı ve öğretici not defterlerini çalıştırmak için gereken paketleri yükler.  Diğer örnek not defterleri, ek bileşen yüklenmesini gerektirebilir.  Bu bileşenler hakkında daha fazla bilgi için bkz. [Python için Azure Machine Learning SDK'sını yükleme](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
 <a name="automated-ml-setup"></a>
 

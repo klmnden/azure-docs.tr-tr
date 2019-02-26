@@ -3,7 +3,7 @@ title: Azure Service Fabric ile durumunu raporlama ve denetleme | Microsoft Docs
 description: Hizmet kodunuzdan sistem durumu raporlarını göndermek ve sağlayan Azure Service Fabric sistem durumu izleme araçları kullanarak, hizmet durumunu denetlemek öğrenin.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: mfussell
 editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/2/2017
-ms.author: dekapur
-ms.openlocfilehash: d374886efb708797db1dd6352aa063a56aff4f44
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427317"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821687"
 ---
 # <a name="report-and-check-service-health"></a>Hizmet durumunu raporlama ve denetleme
 Hizmetlerinizi sorunlarla, yanıt ve olayları ve kesintileri düzeltme olanağınız sorunları hızlı bir şekilde algılamak için yeteneğinizi bağlıdır. Sorunlar ve hatalar için Azure Service Fabric sistem durumu Yöneticisi hizmeti kodunuzdan raporu standart sistem durumu izleme Service Fabric sistem durumunu denetlemek için sağladığı araçları kullanabilirsiniz.

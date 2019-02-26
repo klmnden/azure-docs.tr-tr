@@ -3,7 +3,7 @@ title: Kapsayıcılar ve hizmetler için Azure Service Fabric kaynak İdaresi | 
 description: Azure Service Fabric, iç veya dış kapsayıcıları çalışan hizmetler için kaynak sınırları belirtmenizi sağlar.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: twhitney, subramar
-ms.openlocfilehash: 66f651f921773f638b4493be70319d5d80b122db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.author: aljo, subramar
+ms.openlocfilehash: 1a9d9e0b6a82bd4bb3312df5288c04d0e52af3a6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956849"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805681"
 ---
 # <a name="resource-governance"></a>Kaynak idaresi
 
@@ -32,9 +32,9 @@ Birden fazla hizmeti aynı düğümünün veya kümenin çalıştırırken bir h
 
 Kaynak İdaresi, Service Fabric ile uyumlu olarak içerisinde desteklendiği [hizmet paketi](service-fabric-application-model.md). Hizmet paketi atanan kaynaklarını daha fazla kod paketleri arasında bölünebilir. Belirtilen kaynak sınırları Ayrıca kaynak ayırma anlamına gelir. Service Fabric destekleyen CPU ve bellek hizmet paketi başına iki yerleşik ile belirtme [ölçümleri](service-fabric-cluster-resource-manager-metrics.md):
 
-* *CPU* (ölçüm adı `servicefabric:/_CpuCores`): mantıksal çekirdek konak makinesi üzerinde kullanılabilir. Tüm düğümlerde tüm çekirdek ağırlıklı aynı.
+* *CPU* (ölçüm adı `servicefabric:/_CpuCores`): Ana makinede kullanılabilir mantıksal çekirdek. Tüm düğümlerde tüm çekirdek ağırlıklı aynı.
 
-* *Bellek* (ölçüm adı `servicefabric:/_MemoryInMB`): bellek megabayt cinsinden ifade edilir ve makinede kullanılabilir fiziksel bellek eşlenir.
+* *Bellek* (ölçüm adı `servicefabric:/_MemoryInMB`): Bellek megabayt cinsinden ifade edilir ve makinede kullanılabilir fiziksel bellek eşlenir.
 
 Bu iki ölçüm için [Küme Kaynak Yöneticisi](service-fabric-cluster-resource-manager-cluster-description.md) toplam küme kapasitesi, kümedeki her düğüme ve kümedeki kalan kaynaklar üzerindeki yükü izler. Bu iki ölçüm herhangi bir diğer kullanıcı veya özel ölçüm eşdeğerdir. Varolan tüm özellikler ile onları kullanılabilir:
 
@@ -56,9 +56,9 @@ Bu noktada, sınırları toplamı kapasiteyi düğümünün eşittir. Bir işlem
 
 Ancak, diğer işlemler CPU azaltması iki durum vardır. Bu gibi durumlarda, işlem ve Örneğimizdeki kapsayıcısından gürültülü komşu sorun karşılaşabilirsiniz:
 
-* *Yönetilen ve yönetilmeyen Hizmetleri ve kapsayıcıları karıştırma*: bir kullanıcı belirtilen tüm kaynak İdaresi bir hizmet oluşturursa, çalışma zamanı kaynak tüketen olarak görür ve örneğimizde düğümde yerleştirebilirsiniz. Bu durumda, bu yeni işlemin etkin düğümde çalışmakta olan hizmetleri çoğaltamaz bazı CPU kullanır. Bu sorunun iki çözümü vardır. Yoksa aynı küme üzerindeki yönetilen ve yönetilmeyen Hizmetleri karışık veya kullanın [yerleştirme kısıtlamaları](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) düğümleri aynı dizi üzerinde bu iki tür hizmet bitirme böylece.
+* *Yönetilen ve yönetilmeyen Hizmetleri ve kapsayıcıları karıştırma*: Bir kullanıcı belirtilen tüm kaynak İdaresi bir hizmet oluşturursa, çalışma zamanı kaynak tüketen olarak görür ve örneğimizde düğümde yerleştirebilirsiniz. Bu durumda, bu yeni işlemin etkin düğümde çalışmakta olan hizmetleri çoğaltamaz bazı CPU kullanır. Bu sorunun iki çözümü vardır. Yoksa aynı küme üzerindeki yönetilen ve yönetilmeyen Hizmetleri karışık veya kullanın [yerleştirme kısıtlamaları](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) düğümleri aynı dizi üzerinde bu iki tür hizmet bitirme böylece.
 
-* *Düğümde, Service Fabric (örneğin, bir işletim sistemi hizmet) dışında başka bir işlem başlatıldığında*: Bu durumda, işlemi dışında Service Fabric ayrıca CPU için var olan Hizmetleri ile contends. Bu sorunun çözümü işletim sistemi yükü için düğüm kapasiteleri hesap doğru olarak ayarlamak için sonraki bölümde gösterildiği gibidir.
+* *Düğümde, Service Fabric (örneğin, bir işletim sistemi hizmet) dışında başka bir işlem başlatıldığında*: Bu durumda, Service Fabric dışında işlemi için CPU Ayrıca var olan Hizmetleri ile contends. Bu sorunun çözümü işletim sistemi yükü için düğüm kapasiteleri hesap doğru olarak ayarlamak için sonraki bölümde gösterildiği gibidir.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>Kaynak İdaresi etkinleştirmek için Küme kurulumu
 
@@ -190,12 +190,12 @@ Bu örnekte, her bir hizmet paketi 4 çekirdek ve 2 GB bellek nereden üretim or
 
 CPU ve bellek yanı sıra, kapsayıcılar için diğer kaynak sınırlarını belirtmek mümkündür. Bu sınırlar kod paketi düzeyinde belirtilir ve kapsayıcı başlatıldığında uygulanır. Farklı CPU ve bellek ile küme kaynak yöneticisi bu kaynakların, farkında değildir ve olmaz herhangi bir kapasite denetimleri yapmak veya bunları için Yük Dengeleme.
 
-* *MemorySwapInMB*: bir kapsayıcı kullanabileceğiniz swap bellek miktarı.
-* *Memoryreservationınmb*: yalnızca düğüm üzerindeki bellek Çekişme algılandığında zorlanan bellek idare yumuşak sınırını.
-* *CpuPercent*: kapsayıcı kullanabileceğiniz CPU yüzdesi. Bu parametre, etkili bir şekilde hizmet paketini CPU sınırları belirtilmezse, yoksayılır.
-* *Maximumıops*: (okuma ve yazma) bir kapsayıcı kullanabileceğiniz maksimum IOPS.
-* *MaximumIOBytesps*: (okuma ve yazma) bir kapsayıcı kullanabileceğiniz maksimum g/ç (bayt / saniye).
-* *BlockIOWeight*: GÇ blok göre diğer kapsayıcılar için ağırlık.
+* *MemorySwapInMB*: Bir kapsayıcı kullanabileceğiniz swap belleği miktarı.
+* *Memoryreservationınmb*: Yalnızca bellek Çekişme düğümde algılandığında zorlanan bellek idare yumuşak sınırını.
+* *CpuPercent*: Kapsayıcı kullanabileceğiniz CPU yüzdesi. Bu parametre, etkili bir şekilde hizmet paketini CPU sınırları belirtilmezse, yoksayılır.
+* *Maximumıops*: (Okuma ve yazma) bir kapsayıcı kullanabileceğiniz maksimum IOPS.
+* *MaximumIOBytesps*: (Okuma ve yazma) bir kapsayıcı kullanabileceğiniz maksimum g/ç (bayt / saniye).
+* *BlockIOWeight*: Blok için GÇ ağırlığı diğer kapsayıcılara göre.
 
 Bu kaynaklar, CPU ve bellek ile birleştirilebilir. Kapsayıcılar için ek kaynaklar belirtmek nasıl bir örnek aşağıda verilmiştir:
 

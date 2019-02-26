@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cb2302a8a20a9a5f50b9d11de7ac786ad04853d
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 7c5b61dbb3c6dde8dfcabdba015ee41e968cc5dd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652272"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817091"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Federasyon çoklu oturum açma için yapılandırılmış bir galeri uygulamasında oturum açma sorunları
 
@@ -160,7 +160,7 @@ Azure AD çoklu oturum açma için uygulama tarafından gönderilen SAML isteği
 
 Uygulama satıcısıyla, Azure AD SAML uygulaması için çoklu oturum açmayı destekledikleri olduğunu doğrulamalıdır.
 
-## <a name="no-resource-in-requiredresourceaccess-list"></a>Hiçbir kaynak requiredResourceAccess listesi
+## <a name="misconfigured-application"></a>Yanlış yapılandırılmış bir uygulama
 
 *Hata AADSTS650056: Yanlış yapılandırılmış bir uygulama. Bunun nedeni, aşağıdakilerden biri olabilir: İstemci, istemcinin uygulama kaydında istenen izinleri 'AAD Graph' için herhangi bir izni listelenen değil. Veya, yönetici kiracıda değil. Veya, uygulama tanımlayıcısı istek yapılandırılmış istemci uygulama tanımlayıcısı eşleştiğinden emin olmak için kontrol edin. Lütfen yapılandırmayı düzeltmenin veya Kiracı adına onay için yöneticinize başvurun.* .
 
@@ -237,6 +237,33 @@ Azure AD SAML isteğini HTTP isteği URL'si parametrelerinde içinde belirlemek 
 
 HTTP kullanarak konum üst bilgisi içinde kodlanmış SAML isteği göndermek uygulaması gereken bağlama yeniden yönlendirme. Bunu gerçekleştirme hakkında daha fazla bilgi için HTTP yeniden yönlendirme bağlama bölümü içinde [SAML protokolü belirtimi belgesi](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
+## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD belirteç yanlış bir uç noktaya gönderme
+
+**Olası nedeni**
+
+Çoklu oturum açma sırasında Azure AD yapılandırılmış birini seçip ardından oturum açma isteği bir açık bir yanıt URL'si (onay belgesi tüketici hizmeti URL'si) içermiyorsa, bu uygulama için URL kullanır. Uygulama bir açık yanıt URL'si yapılandırılmış olsa bile, kullanıcı yeniden yönlendirilen olabilir https://127.0.0.1:444. 
+
+Uygulama galeriden olmayan bir uygulama olarak eklendiğinde, Azure Active Directory bu yanıt URL'sini bir varsayılan değer olarak oluşturuldu. Bu davranış değiştirildi ve Azure Active Directory artık varsayılan olarak bu URL'yi eklemez. 
+
+**Çözümleme**
+
+Uygulama için yapılandırılan kullanılmayan yanıt URL'lerinden silin.
+
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**.
+
+2.  Açık **Azure Active Directory uzantısını** seçerek **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+
+3.  Tür **"Azure Active Directory"** filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+
+4.  Seçin **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+
+5.  Seçin **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+
+    Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamaları**.
+
+6.  Çoklu oturum açma için yapılandırmak istediğiniz uygulamayı seçin.
+
+7.  Uygulama yüklendikten sonra açın **temel SAML yapılandırma**. İçinde **yanıt URL'si (onay belgesi tüketici hizmeti URL'si)**, kullanılmayan Sil veya varsayılan yanıt URL'leri, sistem tarafından oluşturulan. Örneğin, `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Bir uygulama için gönderilen SAML talepleri özelleştirme sırasında sorun
 

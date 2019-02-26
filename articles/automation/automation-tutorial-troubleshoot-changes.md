@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9fa1e3ffd92b3c375837c7b9a4a0e7fd1a80893a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433688"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816955"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Ortamınızdaki değişikliklerle ilgili sorunları giderme
 
@@ -62,12 +62,14 @@ Ekleme sırasında VM’ye Microsoft Monitoring Agent (MMA) ve karma çalışan�
 Bu aracı, VM ile iletişim kurmak ve yüklü yazılım hakkında bilgi almak için kullanılır.
 
 Çözümün etkinleştirilmesi 15 dakika sürebilir. Bu süre boyunca tarayıcı penceresini kapatmamanız gerekir.
-Çözüm etkinleştirildikten sonra VM üzerine yüklenen yazılımlar ve yapılan değişiklikler hakkında bilgiler Log Analytics'e aktarılır.
+Çözüm etkinleştirildikten sonra VM'de yüklü yazılımlar ve yapılan değişiklikler hakkında bilgi için Azure İzleyici günlüklerine akar.
 Verilerin çözümlemeye hazır hale gelmesi 30 dakika ile 6 saat arasında sürebilir.
 
-## <a name="using-change-tracking-in-log-analytics"></a>Log Analytics'teki Değişiklik izleme özelliğini kullanma
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Değişiklik izleme özelliği ile oluşturulan günlük verileri Log Analytics'e gönderilir.
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Değişiklik izleme Azure İzleyici günlüklerine kullanma
+
+Değişiklik izleme, Azure İzleyici günlüklerine gönderilen günlük verileri oluşturur.
 Sorgu çalıştırarak günlüklerde arama yapmak için **Değişiklik izleme** penceresinin en üstünde bulunan **Log Analytics**'i seçin.
 Değişiklik izleme verileri **ConfigurationChange** türü altında depolanır.
 Aşağıdaki örnek Log Analytics sorgusu, durdurulmuş olan tüm Windows Hizmetleri'ni döndürür.
@@ -77,7 +79,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Log Analytics'te sorgu çalıştırma ve günlük dosyalarında arama yapma hakkında daha fazla bilgi edinmek için bkz. [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Çalıştıran ve Azure İzleyici günlüklerine günlük dosyalarında arama yapma hakkında daha fazla bilgi için bkz: [Azure İzleyicisi](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Değişiklik izlemeyi yapılandırma
 

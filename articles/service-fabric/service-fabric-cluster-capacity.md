@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 3a56e06e9940059c5cf5899b4e2ed1ee94814180
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 5fb8f54f50d821e53ec260c67ad5cf56c7f5671b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649814"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816547"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlaması konuları
 Herhangi bir üretim dağıtımı için kapasite planlaması önemli bir adımdır. Bu işlemin bir parçası olarak dikkate almanız gereken öğelerden bazıları aşağıda verilmiştir.
@@ -86,12 +86,12 @@ Dayanıklılık katmanı, sanal makinelerinizin temel Azure altyapısıyla sahip
 > Herhangi bir dayanıklılık düzeyi ne olursa olsun [ayırmayı kaldırma](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) VM ölçek kümesi üzerinde işlem kümesi yok eder
 
 **Silver veya Gold dayanıklılık düzeyleri kullanmanın avantajları**
- 
+ 
 - Bir ölçeklendirme işlemi gereken adım sayısını azaltır (diğer bir deyişle, düğümü devre dışı bırakma ve kaldırma ServiceFabricNodeState çağırıldı otomatik olarak).
 - Bir müşteri tarafından başlatılan yerinde VM SKU değiştirme işlemi ya da Azure altyapı işlemler nedeniyle veri kaybı riskini azaltır.
 
 **Silver veya Gold dayanıklılık düzeyleri kullanmanın dezavantajları**
- 
+ 
 - Dağıtımlar, sanal makine ölçek kümesi ve diğer ilgili Azure kaynaklarını Gecikmeli, zaman aşımına uğrayabilir veya tamamen sorunları, kümenizdeki veya altyapı düzeyinde tarafından engellendi. 
 - Sayısını artıran [çoğaltma yaşam döngüsü olaylarını](service-fabric-reliable-services-lifecycle.md) (örneğin, birincil takasları) nedeniyle Azure altyapı işlemleri sırasında düğüm deactivations otomatik.
 - Azure platformu yazılım güncelleştirme veya donanım bakım etkinlikleri gerçekleşen sırasında süreler için hizmet düğümlerinde alır. Bu etkinlikleri sırasında devre dışı bırakılması/devre dışı durumuna sahip düğümleri görebilirsiniz. Bu, kümenizin kapasitesi geçici olarak azaltır, ancak kullanılabilirlik kümesi veya uygulamaları etkilememesi gerekir.
@@ -108,9 +108,9 @@ Silver veya Gold dayanıklılık beklediğiniz ölçek için durum bilgisi olan 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Düğümü için işletimsel önerileri için silver veya gold dayanıklılık düzeyi ayarlamak yazın.
 
 - Küme ve uygulamalar her zaman durumunun iyi kalmasını sağlamak ve uygulamalar için tüm yanıt emin [hizmet çoğaltması yaşam döngüsü olaylarını](service-fabric-reliable-services-lifecycle.md) (derleme çoğaltma takılmış gibi) zamanında.
-- (Ölçek artırılabilir/azaltılabilir) VM SKU değişiklik yapmak için daha güvenli şekilde benimseme: bir sanal makine ölçek kümesi sanal makine SKU'su değiştirme doğası gereği güvenli olmayan bir işlemdir ve bu nedenle, mümkünse kaçınılmalıdır. Sık karşılaşılan sorunları önlemek için izlemeniz gereken süreç şöyledir.
-    - **Birincil olmayan düğüm türleri:** önerilen yeni sanal makine ölçek kümesi oluşturma, yeni sanal makine ölçek kümesi/düğüm türü eklemek ve ardından eski sanal makine ölçek kümesi örneği azaltmak için hizmet yerleştirme kısıtlaması Değiştir sıfır, bir düğüme (düğümlerin kaldırılması kümenin güvenilirlik etkilemez emin olmak için budur) aynı anda sayısı.
-    - **Birincil düğüm türü için:** birincil düğüm türündeki sanal makine SKU'su değiştirmeyin bizim önerilir. Birincil düğüm türü SKU desteklenmiyor değiştiriliyor. Kapasite yeni SKU sebebi, daha fazla örnek eklenmesi önerilir. Bu mümkün değil, yeni küme oluşturma ve [uygulama durumunu geri yükle](service-fabric-reliable-services-backup-restore.md) (varsa) eski kümenizden. Herhangi bir sistem hizmet durumunu geri yüklemek gerekmez, uygulamalarınızı yeni kümenize dağıttığınızda oluşturulur. Durum bilgisiz uygulamaların kümeniz üzerinde çalıştırıyorsanız, uygulamalarınızı yeni kümeye dağıtın.  Geri yüklemek için hiçbir şey vardır. Desteklenmeyen bir rotayı ve sanal makine SKU'su değiştirmek istediğiniz karar verirseniz, ardından belgelenir sanal makine ölçek kümesi yeni SKU yansıtacak şekilde Model tanımı. Kümenizi yalnızca bir düğüm türü varsa, daha sonra durum bilgisi olan tüm uygulamalarınızı tüm yanıt emin olun [hizmet çoğaltması yaşam döngüsü olaylarını](service-fabric-reliable-services-lifecycle.md) vakitli ve hizmet çoğaltma yeniden (yapı içinde çoğaltma takılmış gibi) beş dakikadan kısa bir süre (Gümüş dayanıklılık düzeyi için) süresidir. 
+- Değiştirme (Ölçek artırma/azaltma) bir sanal makine SKU'su yapmak için daha güvenli şekilde benimseme: Bir sanal makine ölçek kümesi sanal makine SKU'su değiştirme, doğası gereği güvenli olmayan bir işlemdir ve bu nedenle, mümkünse kaçınılmalıdır. Sık karşılaşılan sorunları önlemek için izlemeniz gereken süreç şöyledir.
+    - **Birincil olmayan düğüm türleri için:** Önerilen yeni sanal makine ölçek kümesi oluşturma, yeni sanal makine ölçek kümesi/düğüm türü eklemek ve ardından sıfır olarak teker teker (Bunu yapmak için olan bir düğümü eski sanal makine ölçek kümesi örnek sayısını azaltmak için hizmet yerleştirme kısıtlamasını değiştirme emin düğümlerin kaldırılması kümenin güvenilirlik etkilemez).
+    - **Birincil düğüm türü:** Birincil düğüm türündeki sanal makine SKU'su değiştirmeyin bizim önerilir. Birincil düğüm türü SKU desteklenmiyor değiştiriliyor. Kapasite yeni SKU sebebi, daha fazla örnek eklenmesi önerilir. Bu mümkün değil, yeni küme oluşturma ve [uygulama durumunu geri yükle](service-fabric-reliable-services-backup-restore.md) (varsa) eski kümenizden. Herhangi bir sistem hizmet durumunu geri yüklemek gerekmez, uygulamalarınızı yeni kümenize dağıttığınızda oluşturulur. Durum bilgisiz uygulamaların kümeniz üzerinde çalıştırıyorsanız, uygulamalarınızı yeni kümeye dağıtın.  Geri yüklemek için hiçbir şey vardır. Desteklenmeyen bir rotayı ve sanal makine SKU'su değiştirmek istediğiniz karar verirseniz, ardından belgelenir sanal makine ölçek kümesi yeni SKU yansıtacak şekilde Model tanımı. Kümenizi yalnızca bir düğüm türü varsa, daha sonra durum bilgisi olan tüm uygulamalarınızı tüm yanıt emin olun [hizmet çoğaltması yaşam döngüsü olaylarını](service-fabric-reliable-services-lifecycle.md) vakitli ve hizmet çoğaltma yeniden (yapı içinde çoğaltma takılmış gibi) beş dakikadan kısa bir süre (Gümüş dayanıklılık düzeyi için) süresidir. 
     
 - En az bir etkin Silver veya Gold dayanıklılık düzeyine sahip tüm sanal makine ölçek kümesi için beş düğüm sayısı korur.
 - Silver veya Gold dayanıklılık düzeyi ile her sanal makine ölçek, Service Fabric kümesi içinde kendi düğüm türüne eşlemeniz gerekir. Birden çok sanal makine ölçek kümeleri, tek bir düğüm türü için eşleme, Service Fabric kümesi ve Azure altyapı arasında koordinasyon gereksinimini olabildiğince düzgün çalışmasını engeller.
@@ -151,9 +151,9 @@ Güvenilirlik katmanı seçme öneri aşağıdadır.  Çekirdek düğüm sayıs�
 
 Birincil düğüm türü kapasite planlama Kılavuzu şu şekildedir:
 
-- **Tüm üretim iş yüklerini Azure'da çalıştırmak için sanal makine örneği sayısını:** 5 ve güvenilirlik katmanını Silver'ın en az bir birincil düğüm türü boyutu belirtmeniz gerekir.  
+- **Tüm üretim iş yüklerini Azure'da çalıştırmak için sanal makine örneği sayısı:** Birincil düğüm türü boyutu için alt 5 ve bir güvenilirlik katmanını, Gümüş belirtmeniz gerekir.  
 - **Test iş yüklerini Azure'da çalıştırmak için sanal makine örneği sayısını** 1 veya 3 en düşük birincil düğüm türü boyutu belirtebilirsiniz. Bir düğüm kümesi çalıştıran özel bir yapılandırma ve bu nedenle, bu küme olarak ölçeklendirilmesini desteklenmiyor. Tek düğümlü bir küme, güvenilirlik ve bu nedenle Resource Manager şablonunuzu, sahip olduğunuz Kaldır/değil söz konusu yapılandırmayı belirtmek (yapılandırma değeri ayarı yok değil yeterli). Portal ayarlanan bir düğüm kümesi ayarlama, daha sonra yapılandırma otomatik olarak dikkate. Bir ile üç düğümlü kümeler, üretim iş yüklerini çalıştırmak için desteklenmez. 
-- **Sanal makine SKU'su:** birincil düğüm türü olduğundan Sistem Hizmetleri çalıştırdığı için gereken genel yoğun dikkate al yüklemek, seçtiğiniz sanal makine SKU'su planı kümesine yerleştirmek. Ne burada bilmem göstermek-birincil düğüm türü, "Lungs", oxygen, beyin için sağlanan korumanın olduğunu düşündüğünüz bir benzerliği işte ve beyin yeterli oxygen almazsa, bu nedenle, gövde alternatife. 
+- **SANAL MAKİNE SKU'SU:** Bunun için genel yoğun dikkate al, yüklemelisiniz seçtiğiniz sanal makine SKU'su planı kümesine yerleştirmek birincil düğüm türü Sistem Hizmetleri çalıştırdığı olduğundan. Ne burada bilmem göstermek-birincil düğüm türü, "Lungs", oxygen, beyin için sağlanan korumanın olduğunu düşündüğünüz bir benzerliği işte ve beyin yeterli oxygen almazsa, bu nedenle, gövde alternatife. 
 
 Küme kapasitesi gereksinimlerini belirlenir olduğundan, kümedeki çalıştırmayı planladığınız iş yüküne göre ancak İşte yardımcı olacak geniş kapsamlı Kılavuzu, belirli iş yükü için nitel Kılavuzu ile çalışmaya başlama sunamıyoruz
 
@@ -174,11 +174,11 @@ Küme kapasitesi gereksinimlerini belirlenir olduğundan, kümedeki çalıştır
 
 Bu kılavuzu kullanarak Service fabric durum bilgisi olan iş yükleri için olan [güvenilir koleksiyonlar veya reliable Actors](service-fabric-choose-framework.md) birincil olmayan düğüm türü çalıştırmakta olduğunuz.
 
-**Sanal makine örneği sayısını:** durum bilgisi olan üretim iş yükleri için en az ve hedef çoğaltma sayısının 5 ile çalıştırmanızı önerilir. Bu, kararlı durumda, her hata etki alanı ve yükseltme etki alanında (çoğaltma kümesinden) çoğaltmasıyla düştüğünden emin anlamına gelir. Birincil düğüm türü için tüm güvenilirlik katmanını kavramı, sistem hizmetleri için bu ayarı belirtmek için bir yoldur. Bu nedenle aynı göz önünde bulundurarak, durum bilgisi olan hizmetler için geçerlidir.
+**Sanal makine örneği sayısını:** Durum bilgisi olan üretim iş yükleri için en az ve hedef çoğaltma sayısının 5 ile çalıştırmanızı önerilir. Bu, kararlı durumda, her hata etki alanı ve yükseltme etki alanında (çoğaltma kümesinden) çoğaltmasıyla düştüğünden emin anlamına gelir. Birincil düğüm türü için tüm güvenilirlik katmanını kavramı, sistem hizmetleri için bu ayarı belirtmek için bir yoldur. Bu nedenle aynı göz önünde bulundurarak, durum bilgisi olan hizmetler için geçerlidir.
 
 Bu nedenle, durum bilgisi olan iş yükleri içinde çalıştırıyorsanız, üretim iş yükleri için en az önerilen olmayan birincil düğüm türü boyutu 5 ise.
 
-**Sanal makine SKU'su:** VM SKU için seçtiğiniz planladığınız her bir düğümüne yerleştirmek için yoğun yük dikkate gerekir bu düğüm türü, uygulama hizmetleri çalıştığı, olduğundan. Düğüm türü, kapasite ihtiyaçlarını, ancak İşte yardımcı olacak geniş kapsamlı Kılavuzu, belirli iş yükü için nitel Kılavuzu ile çalışmaya başlama sunamıyoruz için kümedeki çalıştırmayı planladığınız iş yüküne göre belirlenir
+**SANAL MAKİNE SKU'SU:** Sanal makine SKU'su, seçtiğiniz her bir düğümüne yerleştirmek için planlama yükü dikkate gerekir, böylece bu düğüm, uygulama hizmetleri çalıştığı, türüdür. Düğüm türü, kapasite ihtiyaçlarını, ancak İşte yardımcı olacak geniş kapsamlı Kılavuzu, belirli iş yükü için nitel Kılavuzu ile çalışmaya başlama sunamıyoruz için kümedeki çalıştırmayı planladığınız iş yüküne göre belirlenir
 
 Üretim iş yükleri için 
 
@@ -191,9 +191,9 @@ Bu nedenle, durum bilgisi olan iş yükleri içinde çalıştırıyorsanız, ür
 
 Bu kılavuz, birincil olmayan düğüm türünde çalışan durum bilgisiz iş yükleri.
 
-**Sanal makine örneği sayısını:** durum bilgisiz olduğundan üretim iş yükleri için en düşük desteklenen olmayan birincil düğüm türü boyutu 2'dir. Bu, uygulamanızı ve hizmetinizi vererek bir sanal makine örneği kaybı varlığını sürdürmesi için iki durum bilgisiz örneklerini çalıştırmanıza olanak sağlar. 
+**Sanal makine örneği sayısını:** Durum bilgisiz olduğundan üretim iş yükleri için en düşük desteklenen olmayan birincil düğüm türü boyutu 2'dir. Bu, uygulamanızı ve hizmetinizi vererek bir sanal makine örneği kaybı varlığını sürdürmesi için iki durum bilgisiz örneklerini çalıştırmanıza olanak sağlar. 
 
-**Sanal makine SKU'su:** VM SKU için seçtiğiniz planladığınız her bir düğümüne yerleştirmek için yoğun yük dikkate gerekir bu düğüm türü, uygulama hizmetleri çalıştığı, olduğundan. Düğüm türü Kapasite ihtiyaçlarını, kümede çalıştırmayı planladığınız iş yüküne göre belirlenir. Belirli iş yükünüz için nitel rehberlik sunamıyoruz.  Ancak, başlamanıza yardımcı olmak için geniş kılavuzunu aşağıdadır.
+**SANAL MAKİNE SKU'SU:** Sanal makine SKU'su, seçtiğiniz her bir düğümüne yerleştirmek için planlama yükü dikkate gerekir, böylece bu düğüm, uygulama hizmetleri çalıştığı, türüdür. Düğüm türü Kapasite ihtiyaçlarını, kümede çalıştırmayı planladığınız iş yüküne göre belirlenir. Belirli iş yükünüz için nitel rehberlik sunamıyoruz.  Ancak, başlamanıza yardımcı olmak için geniş kılavuzunu aşağıdadır.
 
 Üretim iş yükleri için 
 

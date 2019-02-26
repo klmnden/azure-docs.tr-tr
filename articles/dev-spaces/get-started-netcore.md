@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 5cecb11494926444249c8061f1ec93622e4d6c78
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 02c0faf5103ff370d766dd931aa65190e4846139
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700715"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817550"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Azure geliştirme alanları .NET Core ile çalışmaya başlama
 
@@ -72,7 +72,7 @@ az group create --name MyResourceGroup --location <region>
 Şu komutu kullanarak bir Kubernetes kümesi oluşturun:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
 ```
 
 Kümenin oluşturulması birkaç dakika sürer.

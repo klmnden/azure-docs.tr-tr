@@ -5,17 +5,17 @@ description: 'Veri bilimi, ticari sır: Diğer iş sizin için gerçekleştirmes
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 821ee126350d18102ec92de04436a76050734dc4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: a179efe3c4dcd3b36fa8d86910f10c4ab4cdb0aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456835"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817822"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Veri bilimi için başkalarının çalışmalarını kopyalama
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Seri yeni başlayanlar için veri bilimi
@@ -92,4 +92,4 @@ Ve bir başlangıç noktası artık sahibim. Ben için kendi verilerini takas ve
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Machine Learning Studio'da ilk veri bilimi denemenizi deneyin](create-experiment.md)
-* [Microsoft Azure'da Machine learning'e giriş yapın](what-is-machine-learning.md)
+* [Microsoft Azure'da Machine learning'e giriş yapın](/azure/machine-learning/preview/overview-what-is-azure-ml)

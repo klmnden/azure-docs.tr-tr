@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4e56d22dde5fca50d17c055be93db5b91deeb287
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652499"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819182"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight, Hadoop ile Apache Sqoop'u kullanma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -41,14 +41,14 @@ HDInsight küme bazı örnek verilerle birlikte gelir. Aşağıdaki iki örnek k
   
   | Alan | Veri türü |
   | --- | --- |
-  | ClientID |dize |
-  | querytime |dize |
-  | Pazar |dize |
-  | deviceplatform |dize |
-  | devicemake |dize |
-  | devicemodel |dize |
-  | durum |dize |
-  | Ülke |dize |
+  | ClientID |string |
+  | querytime |string |
+  | Pazar |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | durum |string |
+  | Ülke |string |
   | querydwelltime |double |
   | oturum kimliği |bigint |
   | sessionpagevieworder |bigint |
@@ -163,7 +163,7 @@ Artık Sqoop kullanmayı öğrendiniz. Daha fazla bilgi için bkz:
 PowerShell örneği, aşağıdaki adımları gerçekleştirir:
 
 1. Azure'a bağlanın.
-2. Bir Azure kaynak grubu oluşturun. Daha fazla bilgi için [Azure PowerShell'i Azure Resource Manager ile kullanma](../../azure-resource-manager/powershell-azure-resource-manager.md)
+2. Bir Azure kaynak grubu oluşturun. Daha fazla bilgi için [Azure PowerShell'i Azure Resource Manager ile kullanma](../../azure-resource-manager/manage-resource-groups-powershell.md)
 3. Azure SQL veritabanı sunucusu, bir Azure SQL veritabanı ve iki tablo oluşturun. 
    
     Bunun yerine SQL Server kullanıyorsanız, tablolar oluşturmak için aşağıdaki deyimleri kullanın:

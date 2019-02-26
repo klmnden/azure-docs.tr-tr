@@ -3,8 +3,8 @@ title: 'Öğretici: Çok hizmet sunan bir web uygulaması oluşturma, hata ayık
 description: Bu öğreticide bir arka uç web hizmetiyle iletişim kuran bir ASP.NET Core web sitesini içeren çok hizmet sunan bir Azure Service Fabric Mesh uygulaması oluşturacak, yerel ortamda hatalarını ayıklayacak ve Azure'da yayımlayacaksınız.
 services: service-fabric-mesh
 documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/18/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb68c7aacb4c62237fc4cd75ec430997b0145454
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 2053706aac2e6136e35e8574dcd19150fe3d3b6a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888758"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805435"
 ---
-# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Öğretici: Çok hizmet sunan bir Service Fabric Mesh uygulaması oluşturma, hata ayıklama, dağıtma ve yükseltme
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Öğretici: Oluşturma, hata ayıklama, dağıtma ve yükseltme çok hizmet bir Service Fabric Mesh uygulaması
 
 Bu öğretici, bir dizinin birinci bölümüdür. Visual Studio kullanarak ASP.NET web ön ucu ve ASP.NET Core Web API arka uç hizmeti olan bir Azure Service Fabric Mesh uygulaması oluşturmayı öğreneceksiniz. Ardından yerel geliştirme kümenizde uygulamanın hatalarını ayıklayacaksınız. Uygulamayı Azure’da yayımlayacak ve sonra yapılandırma ve kod değişiklikleri yapıp uygulamayı yükselteceksiniz. Son olarak, kullanmadığınız kaynaklar için ücret yansıtılmaması amacıyla, kullanılmayan Azure kaynaklarını temizleyeceksiniz.
 

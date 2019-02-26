@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 41f1c6dc8904f167f34ea72aeb9b3866504b7087
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9352130eeeb68a87947450cb5616aa59e8e99ae9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341309"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807380"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Öğretici: RBAC ve Azure portalını kullanarak Azure kaynaklarına kullanıcı erişimi
 
@@ -38,9 +38,9 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-1. Gezinti bölmesinde **Kaynak grupları**'nı seçin.
+1. Gezinti listesinde **kaynak grupları**.
 
-1. **Kaynak grubu** dikey penceresini açmak için **Ekle**'yi seçin.
+1. Tıklayın **Ekle** açmak için **kaynak grubu** dikey penceresi.
 
    ![Yeni kaynak grubu ekleme](./media/quickstart-assign-role-user-portal/resource-group.png)
 
@@ -48,9 +48,9 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
 1. Bir abonelik ve bir konum seçin.
 
-1. Kaynak grubunu oluşturmak için **Oluştur**'u seçin.
+1. Tıklayın **Oluştur** kaynak grubu oluşturun.
 
-1. Kaynak grupları listesini yenilemek için **Yenile**'yi seçin.
+1. Tıklayın **Yenile** kaynak grupları listesini yenileyin.
 
    Yeni kaynak grubu kaynak grupları listenizde görünür.
 
@@ -60,17 +60,19 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
 RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir.
 
-1. Listesinde **kaynak grupları**, yeni seçin **rbac-resource-group** kaynak grubu.
+1. Listesinde **kaynak grupları**, yeni **rbac-resource-group** kaynak grubu.
 
-1. **Erişim denetimi (IAM)** öğesini seçin.
+1. Tıklayın **erişim denetimi (IAM)**.
 
-1. Seçin **rol atamaları** rol atamaları geçerli listesini görmek için sekmesinde.
+1. Tıklayın **rol atamaları** rol atamaları geçerli listesini görmek için sekmesinde.
 
    ![Kaynak grubu için Erişim denetimi (IAM) dikey penceresi](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Seçin **rol ataması Ekle** Ekle rol ataması bölmesini açmak için.
+1. Tıklayın **Ekle** > **rol ataması Ekle** Ekle rol ataması bölmesini açmak için.
 
    Rol atama izinleri yoksa, rol ataması Ekle seçeneğini devre dışı bırakılır.
+
+   ![Menü ekleme](./media/role-assignments-portal/add-menu.png)
 
    ![Rol ataması bölmesi ekleme](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 
@@ -78,7 +80,7 @@ RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir.
 
 1. **Seç** listesinde kendinizi ve başka bir kullanıcıyı seçin.
 
-1. Rol atamasını oluşturmak için **Kaydet**'i seçin.
+1. Tıklayın **Kaydet** rol ataması oluşturmak için.
 
    Birkaç dakika sonra kullanıcıya rbac kaynak grubunun kaynak grubu kapsamında bir sanal makine Katılımcısı rolü atanır.
 
@@ -90,25 +92,25 @@ RBAC'de erişimi kaldırmak için rol atamasını kaldırmanız gerekir.
 
 1. Rol atamalarını listesinde, sanal makine Katılımcısı rolü kullanıcıyla yanında bir onay işareti ekleyin.
 
-1. **Kaldır**'ı seçin.
+1. Tıklayın **Kaldır**.
 
    ![Rol atamasını kaldırma iletisi](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 
-1. Açılan rol atamasını kaldırma mesajında **Evet**'i seçin.
+1. Görünür kaldırma rol ataması iletisinde tıklayın **Evet**.
 
 ## <a name="clean-up"></a>Temizleme
 
-1. Gezinti bölmesinde **Kaynak grupları**'nı seçin.
+1. Gezinti listesinde **kaynak grupları**.
 
-1. Seçin **rbac-resource-group** kaynak grubunu açın.
+1. Tıklayın **rbac-resource-group** kaynak grubunu açın.
 
-1. Kaynak grubunu silmek için **Kaynak grubunu sil**'i seçin.
+1. Tıklayın **kaynak grubunu Sil** kaynak grubu silinemedi.
 
    ![Kaynak grubunu silme](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
 
 1. Üzerinde **silmek istediğinizden emin misiniz** dikey penceresinde, kaynak grubu adını yazın: **rbac-resource-group**.
 
-1. Kaynak grubunu silmek için **Sil**'i seçin.
+1. Tıklayın **Sil** kaynak grubu silinemedi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 10/09/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 19a78b772d2813c263017515f18da06fdb20aa70
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 50d71a3967e61e5d531f4bfeae3582b56230a0d2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082274"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56825407"
 ---
 ## <a name="terminology"></a>Terminoloji
 
 Azure Market görüntüsü aşağıdaki özniteliklere sahiptir:
 
 * **Yayımcı**: Görüntüyü oluşturan kuruluş. Örnekler: Canonical, MicrosoftWindowsServer
-* **Teklif**: Bir yayımcı tarafından oluşturulan ilgili görüntülerin bir grup adı. Örnekler: Ubuntu Server, WindowsServer
+* **Teklif**: Bir yayımcı tarafından oluşturulan ilgili görüntülerin bir grup adı. Örnekler: UbuntuServer, WindowsServer
 * **SKU**: Bir dağıtımın ana sürümü gibi bir teklif örneği. Örnekler: 18.04 LTS, 2019 veri merkezi
 * **Sürüm**: SKU görüntü sürümü sayısı. 
 

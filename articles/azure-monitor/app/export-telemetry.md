@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: eda41870e86db206847f5ea81e23fa1b7612234c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076782"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817312"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights'tan telemetriyi dışarı aktarma
 Telemetrinizi standart saklama süresinden daha uzun süre tutmak mı istiyorsunuz? Veya özel bir şekilde işlemek? Sürekli dışarı aktarma için idealdir. Application Insights portalında gördüğünüz olayları için Microsoft Azure Depolama'da JSON biçiminde dışarı aktarılabilir. Buradan verilerinizi indirin ve, kod yazma, işlemeniz gerekir.  
@@ -32,6 +32,16 @@ Sürekli dışarı aktarmayı ayarlamadan önce bazı alternatifleri düşünün
 * Kurulum da erişebilirsiniz [Powershell aracılığıyla sürekli dışarı aktarma](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
 Sürekli dışarı aktarma (burada, kalarak için istediğiniz sürece) depolama alanına veri kopyaladıktan sonra her zamanki için Application Insights'da hala kullanılabilir [saklama süresi](../../azure-monitor/app/data-retention-privacy.md).
+
+## <a name="continuous-export-advanced-storage-configuration"></a>Sürekli dışarı aktarma gelişmiş depolama yapılandırması
+
+Sürekli dışarı aktarma **desteklemediği** aşağıdaki Azure depolama özellikleri/yapılandırmalar:
+
+* Kullanım [VNET/Azure depolama güvenlik duvarları](https://docs.microsoft.com/azure/storage/common/storage-network-security) conjuntion ile Azure Blob Depolama içinde.
+
+* [Sabit depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) Azure Blob Depolama için.
+
+* [Azure Data Lake depolama Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a> Sürekli dışarı aktarma oluştur
 1. Application Insights kaynağı uygulamanız için sürekli dışarı aktarma açın ve seçin **Ekle**:

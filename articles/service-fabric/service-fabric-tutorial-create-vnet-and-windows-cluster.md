@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/19/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 48a434326ebf359f18e68ba7bd551911dec77632
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 64ba17053179d428f5ef7e5ce9685240bde6665f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593123"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823000"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Öğretici: Azure sanal ağına Service Fabric Windows kümesi dağıtma
 
@@ -178,7 +178,7 @@ Küme erişimi denetlemek için iki Azure AD uygulaması oluştur: bir web uygul
 Çalıştırma `SetupApplications.ps1`ve parametrelere Kiracı kimliği, küme adı ve web uygulamasının yanıt URL'si girin.  Ayrıca, kullanıcı adları ve kullanıcılar için parola belirtin.  Örneğin:
 
 ```PowerShell
-$Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+$Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
 ```

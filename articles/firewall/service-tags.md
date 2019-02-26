@@ -5,23 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/21/2019
+ms.date: 2/25/2019
 ms.author: victorh
-ms.openlocfilehash: 9ecc5d3779ac6632f4a5c05914cbb0e756c79e91
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1d03d896de947fcc938619c52a3690962a0d2d6c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458010"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805629"
 ---
 # <a name="azure-firewall-service-tags"></a>Azure güvenlik duvarı hizmet etiketleri
 
 Hizmet etiketi, güvenlik kuralı oluşturma sırasındaki karmaşıklığı en aza indirmeye yardımcı olmak için bir IP adresi ön eki grubunu temsil eder. Kendi hizmet etiketinizi oluşturamaz veya bir etiket içinde yer alacak IP adreslerini belirleyemezsiniz. Hizmet etiketine dahil olan adres ön ekleri Microsoft tarafından yönetilir ve hizmet etiketi adresler değiştikçe otomatik olarak güncelleştirilir.
 
 Azure güvenlik duvarı hizmet etiketleri ağ kuralları hedef alanında kullanılabilir. Bunları belirli IP adreslerinin yerine kullanabilirsiniz.
-
-> [!NOTE]
-> Hizmet etiketleri bölgelere artımlı olarak ekleniyor ve yakın gelecekte tüm bölgelerde kullanılabilir.
 
 ## <a name="supported-service-tags"></a>Hizmet etiketleri desteklenir
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: 8b1a4bbb100fc4db1323f530808a8d01bd8f30ce
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f1d64170c3f9622169dd1218e4c63652c9f94b9b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582448"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820680"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uygulamanızı FTP/S kullanarak Azure App Service'e dağıtma
 
@@ -30,7 +30,7 @@ Uygulamanız için FTP/S uç nokta zaten etkin değil. FTP/S dağıtımını etk
 
 ## <a name="open-ftp-dashboard"></a>FTP panoyu Aç
 
-İçinde [Azure portalında](https://portal.azure.com), uygulamanızın açın [kaynak sayfası](../azure-resource-manager/resource-group-portal.md#manage-resources).
+İçinde [Azure portalında](https://portal.azure.com), uygulamanızın açın [kaynak sayfası](../azure-resource-manager/manage-resources-portal.md#manage-resources).
 
 FTP panoyu açmak için **Dağıtım Merkezi** > **FTP** > **Pano**.
 

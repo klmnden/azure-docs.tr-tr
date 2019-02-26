@@ -1,6 +1,6 @@
 ---
-title: WSFC, oluşturma, dinleyici ve ILB Azure Hızlı Başlangıç şablonu ile bir SQL Server VM'de Always On kullanılabilirlik grubu için yapılandırma
-description: Azure hızlı başlangıç şablonları, kümeyi oluşturmak için bir şablon kullanarak azure'da SQL Server Vm'leri için kullanılabilirlik grupları oluşturma işlemini basitleştirmek için kullanım SQL Vm'leri kümeye kattığınıxz, dinleyiciyi oluşturun ve ILB yapılandırın.
+title: Azure hızlı başlangıç şablonları, Azure VM'deki SQL Server Always On kullanılabilirlik grubu yapılandırmak için kullanın
+description: Azure hızlı başlangıç şablonları, Windows Yük devretme kümesi oluşturma, SQL Server Vm'leri kümeye, dinleyiciyi oluşturun ve Azure'da iç Load Balancer yapılandırma için kullanın.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/04/2018
+ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 093fa1414ec624f66bc7cb4559fa8c0535834c10
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 675933b46a228f636c4907e84d66263dde52f274
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981936"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823340"
 ---
-# <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>WSFC, oluşturma, dinleyici ve ILB Azure Hızlı Başlangıç şablonu ile bir SQL Server VM'de Always On kullanılabilirlik grubu için yapılandırma
+# <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure hızlı başlangıç şablonları, Azure VM'deki SQL Server Always On kullanılabilirlik grubu yapılandırmak için kullanın
 Bu makalede, Azure hızlı başlangıç şablonları kısmen SQL Server sanal makineleri için azure'da bir Always On kullanılabilirlik grubu yapılandırmasının dağıtımını otomatikleştirmek için kullanmayı açıklar. Bu işlemde kullanılan iki Azure hızlı başlangıç şablonları vardır. 
 
    | Şablon | Açıklama |
@@ -38,7 +38,7 @@ Kullanılabilirlik grubu yapılandırmasının diğer bölümlerini kullanılabi
 Hızlı Başlangıç şablonlarını kullanarak bir Always On kullanılabilirlik grubunun Kurulum otomatikleştirmek için aşağıdaki önkoşulları zaten olması gerekir: 
 - Bir [Azure aboneliği](https://azure.microsoft.com/free/).
 - Bir etki alanı denetleyicisi ile bir kaynak grubu. 
-- Bir veya daha fazla etki alanına katılmış [Vm'leri Azure çalışan SQL Server 2016 (veya üzeri) Enterprise Edition'da](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) olan aynı kullanılabilirlik kümesi veya kullanılabilirlik bölgesinde [SQL VM kaynak sağlayıcısınakayıtlı](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).  
+- Bir veya daha fazla etki alanına katılmış [Vm'leri Azure çalışan SQL Server 2016 (veya üzeri) Enterprise Edition'da](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) olan aynı kullanılabilirlik kümesi veya kullanılabilirlik bölgesinde [SQL VM kaynak sağlayıcısınakayıtlı](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
 
 
 ## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>1. adım - WSFC oluşturma ve SQL Server Vm'leri Hızlı Başlangıç şablonu kullanarak kümeye ekleyin. 
@@ -74,7 +74,7 @@ SQL VM yeni kaynak sağlayıcısı ile SQL Server sanal makineleriniz üzere kay
 
 
 ## <a name="step-2---manually-create-the-availability-group"></a>2. adım: kullanılabilirlik grubunu el ile oluşturma 
-Normalde, kullanarak yaptığınız gibi el ile kullanılabilirlik grubunu oluşturma [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017), [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) veya [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
+Normalde, kullanarak yaptığınız gibi el ile kullanılabilirlik grubunu oluşturma [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell), veya [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
   >[!IMPORTANT]
   > Yapmak **değil** bir dinleyicisi bu tarafından otomatik olarak şu anda oluşturulamıyor **101-sql-vm-aglistener-setup** adım 4'te Hızlı Başlangıç şablonu. 
@@ -104,7 +104,7 @@ Always On kullanılabilirlik grubu (ağ) dinleyicisi, iç Azure yük dengeleyici
 6. **Oluştur**’u seçin. 
 
 
-  >[!NOTE]
+  >[!IMPORTANT]
   > Standart Load Balancer ile uyumlu olacak şekilde standart bir SKU her SQL Server VM için genel IP kaynağına sahip olmalıdır. Sanal makinenizin genel IP kaynağı SKU'su belirlemek için gidin, **kaynak grubu**seçin, **genel IP adresi** istenen SQL Server VM, kaynak ve değerin altında bulun **SKU**  , **genel bakış** bölmesi. 
 
 ## <a name="step-4---create-the-ag-listener-and-configure-the-ilb-with-the-quickstart-template"></a>4. adım - AG dinleyiciyi oluşturun ve ILB ile Hızlı Başlangıç şablonu yapılandırma

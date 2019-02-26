@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 0182df40a4e7815560a85e60fe9062ccd8001c18
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 694491f3bec9fd1e62e65504968be9f06dda0c11
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978707"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56824271"
 ---
 > [!NOTE]
 > - Azure AD kimlik doğrulamasını BLOB'lar ve Kuyruklar önizlemesi yalnızca üretim dışı kullanması için tasarlanmıştır. Üretim hizmet düzeyi sözleşmeleri (SLA'lar) şu anda kullanılamıyor. Azure AD kimlik doğrulaması senaryonuz için henüz desteklenmiyor, uygulamalarınızda paylaşılan anahtar yetkilendirme veya SAS belirteçlerini kullanmaya devam.
@@ -22,7 +22,7 @@ ms.locfileid: "52978707"
 >
 > - Bir OAuth belirteci ile BLOB ve kuyruk işlemlerini yetkilendirmek için HTTPS kullanmalıdır.
 >
-> - Azure portalı, artık Azure AD kimlik bilgilerini kullanarak okuma ve yazma blob destekler ve sıra veri önizlemesinin bir parçası bırakın.
+> - Azure portalı, artık Azure AD kimlik bilgilerini kullanarak okuma ve yazma blob destekler ve sıra veri önizlemesinin bir parçası bırakın. 
 > 
 > - [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) şu anda depolama hesabı anahtarınızı blob ve kuyruk verilerine erişmek için kullanır. OAuth erişim, BLOB'ları için desteklenir.
 >

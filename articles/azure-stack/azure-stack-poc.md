@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/25/2018
+ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9341eefdbe1eaa8e27394fd4b10f50b1a48bd4c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/25/2019
+ms.openlocfilehash: 65894ccd9514bce1d429b336f8bd5e6674048e65
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247332"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820272"
 ---
 # <a name="what-is-azure-stack"></a>Azure Stack nedir?
 
@@ -41,7 +41,7 @@ Microsoft [Azure Stack Geliştirme Seti (ASDK)](./asdk/asdk-what-is.md) değerle
 ASDK aşağıdaki sınırlamalara sahiptir:
 
 * ASDK tek Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kimlik sağlayıcısı ile ilişkilidir. Bu dizinde birden çok kullanıcı oluşturabilir ve her kullanıcıya abonelikleri atayabilir.
-* Azure Stack bileşenleri bir ana bilgisayara dağıtılan olduğundan, Kiracı kaynaklarına için sınırlı fiziksel kaynak yok. Bu yapılandırma, Ölçek veya performans değerlendirmesi için tasarlanmamıştır.
+* Azure Stack bileşenleri tek bir ana bilgisayarda dağıtıldığından, Kiracı kaynaklarına için sınırlı fiziksel kaynakları vardır. Bu yapılandırma, Ölçek veya performans değerlendirmesi için tasarlanmamıştır.
 * Ağ senaryoları NIC dağıtım gereksinimleri ve tek bir konak nedeniyle sınırlıdır.
 
 ## <a name="azure-stack-integrated-systems"></a>Azure Stack tümleşik sistemleri

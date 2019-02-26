@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0cc5b101e1afb6ea648963188887cf43b65a5afa
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 06c341da73ad8df96d5c97e1cb9da4b7fd5c804e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124958"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820663"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Azure Data Lake depolama Gen1 hesap yönetim işlemlerini Python kullanarak
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Temel hesap yönetim işlemlerini gibi Oluştur bir Data Lake depolama Gen1 hesa
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure kaynak grubu**. Talimatlar için bkz. [Azure kaynak grubu oluşturma](../azure-resource-manager/resource-group-portal.md).
+* **Azure kaynak grubu**. Talimatlar için bkz. [Azure kaynak grubu oluşturma](../azure-resource-manager/manage-resource-groups-portal.md).
 
 ## <a name="install-the-modules"></a>Modülleri yükleme
 
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Değişiklikleri örneğim.py uygulamasına kaydedin.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 
 Bu bölümde Azure AD ile gerçekleştirilen farklı kimlik doğrulama yöntemlerinden bahsedeceğiz. Şu seçenekleri kullanabilirsiniz:
 

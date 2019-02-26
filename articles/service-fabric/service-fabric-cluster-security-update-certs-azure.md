@@ -4,7 +4,7 @@ description: Yeni sertifikalar, geçiş sertifikası ekleyin ve sertifika için 
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chakdan
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo-microsoft
-ms.openlocfilehash: aa5096b84f9bfe97784d6f80e4c203a1d8384404
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.author: aljo
+ms.openlocfilehash: 37140b665f30d8bb99dd49dbdcca265969eaaf2f
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687427"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806700"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure'da bir Service Fabric küme için sertifikaları kaldırın veya ekleyin
 Service Fabric'ın X.509 sertifikaları nasıl kullandığı hakkında bilgilenmeli ve hakkında bilgi sahibi olmanız önerilir [küme güvenliği senaryoları](service-fabric-cluster-security.md). Anlamanız gerekir bir küme sertifikası ve devam etmeden önce ne için kullanılır.
@@ -114,7 +114,7 @@ Aşağıdaki boyunca kolaylığı için örnek 5-VM-1-NodeType-Secure_Step2.JSON
          }
     ``` 
 
-4. Değişiklik yapma **tüm** **Microsoft.Compute/virtualMachineScaleSets** kaynak tanımları - Microsoft.Compute/virtualMachineScaleSets kaynak tanımı bulun. Kaydırma "yayımcısı": "Microsoft.Azure.ServiceFabric" altında "virtualMachineProfile".
+4. Değişiklik yapma **tüm** **Microsoft.Compute/virtualMachineScaleSets** kaynak tanımları - Microsoft.Compute/virtualMachineScaleSets kaynak tanımı bulun. "Publisher" kaydırın: "Microsoft.Azure.ServiceFabric", "virtualMachineProfile" altında.
 
     Service Fabric yayımcı Ayarları'nda şöyle bir şey görmeniz gerekir.
     

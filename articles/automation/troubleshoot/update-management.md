@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: bdffcdee87c0c5c9c878948797ac7c6be566c7ea
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270275"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818859"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Güncelleştirme yönetimi ile ilgili sorunları giderme
 
@@ -78,11 +78,11 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Senaryo: Güncelleştirme yönetimi verilerini log Analytics'te bir makine için gösterilmiyor
+### <a name="nologs"></a>Senaryo: Güncelleştirme yönetimi verilerini bir makine için Azure İzleyici günlüklerine gösterilmiyor
 
 #### <a name="issue"></a>Sorun
 
-Gösterme makineler sahip **değerlendirilmeyen** altında **Uyumluluk**, ancak bir karma Runbook çalışanı ancak güncelleştirme yönetimi için Log analytics'te sinyal verileri görürsünüz.
+Gösterme makineler sahip **değerlendirilmeyen** altında **Uyumluluk**, ancak bir karma Runbook çalışanı ancak güncelleştirme yönetimi için sinyal verilerini Azure İzleyici günlüklerine bakın.
 
 #### <a name="cause"></a>Nedeni
 

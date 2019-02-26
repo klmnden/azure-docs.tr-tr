@@ -14,19 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b7cbd69a4551605b71930a23f837b467177e3cc3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a6ab19207b2c98064f99914e16cdde85133bfd96
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451366"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821773"
 ---
-<a name="azure-resource-manager-test-drive"></a>Azure Resource Manager Test Sürüşü
-=================================
+# <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager Test Sürüşü
 
 Bu makalede, Azure Market veya Appsource'ta kim teklifini sahip olan ancak kendi Test Sürüşü yalnızca Azure kaynakları ile oluşturmak istediğiniz yayımcılar içindir.
 
-Bir Azure Resource Manager (Azure Resource Manager) şablonu, Azure kaynaklarınızın en iyi temsil etmek için çözümünüzün tasarım kodlanmış bir kapsayıcıdır. Bir Resource Manager şablonu durumdayken alışkın değilseniz, okumaya [ARM şablonları anlama](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) ve [ARM şablonları yazma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) için nasıl oluşturacağınızı ve kendi şablonlarınızı test bildiğinizden emin olun.
+Bir Azure Resource Manager (Resource Manager) şablonu, Azure kaynaklarınızın en iyi temsil etmek için çözümünüzün tasarım kodlanmış bir kapsayıcıdır. Bir Resource Manager şablonu durumdayken alışkın değilseniz, okumaya [Resource Manager şablonları anlama](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) ve [Resource Manager şablonları yazma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) derleyip test etmeye nasıl bildiğinizden emin olmak için kendi şablonlarınızı.
 
 Test Sürüşü yapar, sağlanan Resource Manager şablonu alır ve bir kaynak grubunda bu Resource Manager şablonundan gerekli tüm kaynakların dağıtımını yapar olduğu.
 
@@ -36,8 +35,7 @@ Bir Azure Resource Manager Test Sürüşü oluşturmak isterseniz, sizin için g
 - Tüm gerekli meta veriler ve Test Sürüşünüz etkinleştirmek için ayarları yapılandırın.
 - Teklifinizi Test Sürüşü etkin yeniden yayımlayın.
 
-<a name="how-to-build-an-azure-resource-manager-test-drive"></a>Bir Azure Resource Manager Test Sürüşü oluşturma
-------------------------------
+## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>Bir Azure Resource Manager Test Sürüşü oluşturma
 
 Bir Azure Resource Manager Test Sürüşü oluşturma konusunda en önemli kısmı, müşterilerinizin deneyimini istediğiniz hangi senaryoları tanımlamaktır. Bir güvenlik duvarı ürünü ve tanıtım ne kadar iyi, betik ekleme saldırılarını işlemek istiyorsanız misiniz? Depolama ürün ve ne kadar hızlı ve kolay bir şekilde çözümünüzü tanıtım istiyorsanız dosyaları sıkıştırır misiniz?
 
@@ -47,8 +45,7 @@ Güvenlik Duvarı Örneğimizdeki ile devam etmek için mimarisi, güvenlik duva
 
 İstenen paket kaynakları desteklemesi için sonra yazma ve Test sürücü Resource Manager şablonu oluşturma artık içermektedir.
 
-<a name="writing-test-drive-resource-manager-templates"></a>Test sürücü Resource Manager şablonları yazma
---------------------------------
+## <a name="writing-test-drive-resource-manager-templates"></a>Test sürücü Resource Manager şablonları yazma
 
 Test Sürüşü tam otomatik bir modda ve bu nedenle dağıtımları çalışan, Test Sürüşü şablonları aşağıda açıklanan bazı kısıtlamalar vardır.
 
@@ -62,24 +59,26 @@ Ancak, yalnızca sınırlı sayıda parametre kategorileri destekler, böylece T
 
 Parametrelerinizi için geçerli bir ad kullanabilir, meta veri türü değeri kullanarak Test Sürüşü parametre kategorisi tanır. **Meta veri türü, her bir şablon parametresi için belirtmelisiniz**, aksi takdirde, şablonunuzu doğrulama geçmez:
 
-    "parameters": {
-      ...
-      "username": {
-        "type": "string",
-        "metadata": {
-          "type": "username"
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "username": {
+    "type": "string",
+    "metadata": {
+      "type": "username"
     }
+  },
+  ...
+}
+```
 
 Dikkat etmeniz önemlidir **tüm parametreler isteğe bağlıdır**, bu nedenle görmüyorsanız\'kullanmak istiyorsanız, istemiyorsunuz\'t zorunda.
 
 ### <a name="accepted-parameter-metadata-types"></a>Kabul edilen parametresi meta veri türleri
 
 | Meta veri türü   | Parametre türü  | Açıklama     | Örnek değer    |
-|---|---|---|---|---|
-| **BaseUri**     | dize          | Taban URI, dağıtım paketi| [https://\<\..\>.blob.core.windows.net/\<\..\>](#) |
+|---|---|---|---|
+| **BaseUri**     | dize          | Taban URI, dağıtım paketi| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
 | **Kullanıcı adı**    | dize          | Yeni rastgele kullanıcı adı.| admin68876      |
 | **Parola**    | güvenli dize    | Yeni rastgele bir parola | LP! ACS\^2kh     |
 | **Oturum kimliği**   | dize          | Benzersiz Test Sürüşü oturum Kimliğini (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
@@ -88,40 +87,46 @@ Dikkat etmeniz önemlidir **tüm parametreler isteğe bağlıdır**, bu nedenle 
 
 Test Sürüşü başlatır, bu parametre ile bir **Base URI** paketinize dahil herhangi bir dosya URI'si oluşturmak için bu parametreyi kullanabilmeniz için dağıtım paketi.
 
-    "parameters": {
-      ...
-      "baseuri": {
-        "type": "string",
-        "metadata": {
-          "type": "baseuri",
-          "description": "Base Uri of the deployment package."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "baseuri": {
+    "type": "string",
+    "metadata": {
+      "type": "baseuri",
+      "description": "Base Uri of the deployment package."
     }
+  },
+  ...
+}
+```
 
 Şablon içinde bu parametre, Test Sürüşü dağıtım paketinden herhangi bir dosyanın bir URI oluşturmak için kullanabilirsiniz. Aşağıdaki örnekte, bağlı şablonun bir URI oluşturmak gösterilmektedir:
 
-    "templateLink": {
-      "uri": "[concat(parameters('baseuri'),'templates/solution.json')]",
-      "contentVersion": "1.0.0.0"
-    }
+```json
+"templateLink": {
+  "uri": "[concat(parameters('baseuri'),'templates/solution.json')]",
+  "contentVersion": "1.0.0.0"
+}
+```
 
 #### <a name="username"></a>kullanıcı adı
 
 Bu parametre yeni bir rastgele kullanıcı adı ile test Sürüşü başlatır:
 
-    "parameters": {
-      ...
-      "username": {
-        "type": "string",
-        "metadata": {
-          "type": "username",
-          "description": "Solution admin name."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "username": {
+    "type": "string",
+    "metadata": {
+      "type": "username",
+      "description": "Solution admin name."
     }
+  },
+  ...
+}
+```
 
 Örnek değer:
 
@@ -133,17 +138,19 @@ Bu parametre yeni bir rastgele kullanıcı adı ile test Sürüşü başlatır:
 
 Bu parametre yeni, rastgele bir parola ile test Sürüşü başlatır:
 
-    "parameters": {
-      ...
-      "password": {
-        "type": "securestring",
-        "metadata": {
-          "type": "password",
-          "description": "Solution admin password."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "password": {
+    "type": "securestring",
+    "metadata": {
+      "type": "password",
+      "description": "Solution admin password."
     }
+  },
+  ...
+}
+```
 
 Örnek değer:
 
@@ -155,17 +162,19 @@ Bu parametre yeni, rastgele bir parola ile test Sürüşü başlatır:
 
 Test Sürüşü Test Sürüşü oturum kimliği temsil eden benzersiz bir GUID ile bu parametreyi başlatın:
 
-    "parameters": {
-      ...
-      "sessionid": {
-        "type": "string",
-        "metadata": {
-          "type": "sessionid",
-          "description": "Unique Test Drive session id."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "sessionid": {
+    "type": "string",
+    "metadata": {
+      "type": "sessionid",
+      "description": "Unique Test Drive session id."
     }
+  },
+  ...
+}
+```
 
 Örnek değer:
 
@@ -179,12 +188,14 @@ Depolama hesapları veya DNS adları gibi bazı Azure kaynaklarını, genel olar
 
 Resource Manager şablonu Test Sürüşü dağıtır her zaman oluşturur, yani bir **benzersiz bir ada sahip yeni bir kaynak grubu** tüm kendi\' kaynakları. Bu nedenle kullanmak için gereklidir [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) kaynak grubu kimlikleri benzersiz rastgele değerler oluşturmak için değişken adları ile birleştirilmiş işlevi:
 
-      "variables": {
-      ...
-      "domainNameLabel": "[concat('contosovm',uniquestring(resourceGroup().id))]",
-      "storageAccountName": "[concat('contosodisk',uniquestring(resourceGroup().id))]",
-      ...
-    }
+```json
+"variables": {
+  ...
+  "domainNameLabel": "[concat('contosovm',uniquestring(resourceGroup().id))]",
+  "storageAccountName": "[concat('contosodisk',uniquestring(resourceGroup().id))]",
+  ...
+}
+```
 
 Parametre/değişkeni dizelerinizi birleştirme emin olun (\'contosovm\') benzersiz bir dize çıktısı ile (\'resourceGroup () .id\'), bu her bir değişken güvenilirliğini ve benzersizliği garanti eder.
 
@@ -198,41 +209,45 @@ Size, Test Sürüşü kullanılabilir farklı Azure bölgelerinde yapabilirsiniz
 
 Test Sürüşü Laboratuvar örneğini oluşturduğunda, bölge seçtiğiniz bir kullanıcı tarafından her zaman bir kaynak grubu oluşturur ve ardından bu grubu bağlamında, dağıtım şablonu yürütür. Bu nedenle, şablonunuzu kaynak grubundan dağıtım konumu seçmeniz gerekir:
 
-    "variables": {
-      ...
-      "location": "[resourceGroup().location]",
-      ...
-    }
+```json
+"variables": {
+  ...
+  "location": "[resourceGroup().location]",
+  ...
+}
+```
 
 ' İ tıklatın ve ardından belirli bir laboratuvar örneği için her kaynak için bu konumu kullanır:
 
-    "resources": [
-      {
-        "type": "Microsoft.Storage/storageAccounts",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/publicIPAddresses",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/virtualNetworks",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/networkInterfaces",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "location": "[variables('location')]",
-        ...
-      }
-    ]
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/publicIPAddresses",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/virtualNetworks",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/networkInterfaces",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "location": "[variables('location')]",
+    ...
+  }
+]
+```
 
 Aboneliğiniz her seçmiş olursunuz bölgelerin dağıtmak istediğiniz tüm kaynakları dağıtma izni olduğunu emin olmanız gerekir. Sanal makine görüntülerinizi etkinleştirmek için seçeceğiz tüm bölgelerde kullanılabilir olduğundan emin olmanız gerekir de, aksi takdirde, dağıtım şablonu için bazı bölgelerde çalışmaz.
 
@@ -246,20 +261,22 @@ Test sürücü Resource Manager şablonları için ancak bunu\'Test Sürüşü i
 
 Örnek:
 
-    "outputs": {
-      "Host Name": {
-        "type": "string",
-        "value": "[reference(variables('pubIpId')).dnsSettings.fqdn]"
-      },
-      "User Name": {
-        "type": "string",
-        "value": "[parameters('adminName')]"
-      },
-      "Password": {
-        "type": "string",
-        "value": "[parameters('adminPassword')]"
-      }
-    }
+```json
+"outputs": {
+  "Host Name": {
+    "type": "string",
+    "value": "[reference(variables('pubIpId')).dnsSettings.fqdn]"
+  },
+  "User Name": {
+    "type": "string",
+    "value": "[parameters('adminName')]"
+  },
+  "Password": {
+    "type": "string",
+    "value": "[parameters('adminPassword')]"
+  }
+}
+```
 
 ### <a name="subscription-limits"></a>Abonelik limitleri
 
@@ -277,20 +294,18 @@ Yayımlama sertifika sırasında Test Sürüşü dağıtım paketinizi unzips ve
 
 | Package.zip                       | Test sürücü blob kapsayıcısı         |
 |---|---|
-Ana template.json                | [https://\<\.... \>.blob.core.windows.net/\<\.... \>/main-template.json](#)  |
- Templates/Solution.JSON           | [https://\<\.... \>.blob.core.windows.net/\<\.... \>/templates/solution.json](#) |
-| scripts/warmup.ps1                | [https://\<\.... \>.blob.core.windows.net/\<\.... \>/scripts/warmup.ps1](#)  |
+| Ana template.json                | https:\//\<\.... \>.blob.core.windows.net/\<\.... \>/main-template.json  |
+| Templates/Solution.JSON           | https:\//\<\.... \>.blob.core.windows.net/\<\.... \>/templates/solution.json |
+| scripts/warmup.ps1                | https:\//\<\.... \>.blob.core.windows.net/\<\.... \>/scripts/warmup.ps1  |
 
 
 Bu blob kapsayıcısında URI temel URI'sini diyoruz. Blob kapsayıcısı laboratuvarınızın her değişiklik vardır ve bu nedenle, her değişiklik laboratuvarınızın kendi taban URI'sine sahip. Test Sürüşü sıkıştırması dağıtım paketinizi temel URI'sini şablonunuzu şablon parametreleri aracılığıyla içine geçirebilirsiniz.
 
-<a name="transforming-template-examples-for-test-drive"></a>Test Sürüşü için dönüştürme şablon örnekleri
----------------------------------------------
+## <a name="transforming-template-examples-for-test-drive"></a>Test Sürüşü için dönüştürme şablon örnekleri
 
 Bir Test sürücü Resource Manager şablonuna bir mimari kaynakların kapatma işlemin göz korkutucu olabilir. Bu işlem kolaylaştırılmasına yardımcı olmak için biz\'en iyi nasıl yaptıysanız örnekler [burada geçerli dağıtım şablonlarını Dönüştür](./transforming-examples-for-test-drive.md).
 
-<a name="how-to-publish-a-test-drive"></a>Bir Test sürüşüne yayımlama
----------------------------
+## <a name="how-to-publish-a-test-drive"></a>Bir Test sürüşüne yayımlama
 
 Oluşturulan Test Sürüşünüz olduğuna göre bu bölümde, başarılı bir şekilde Test Sürüşünüz yayımlamak gerekli alanların her biri açıklanmaktadır.
 
@@ -394,8 +409,7 @@ Verilen kullanıyoruz uygulamayı aboneliğinize dağıtmak için biz uygulaman�
 
 ![Azure AD uygulaması için anahtarlar gösterir](./media/azure-resource-manager-test-drive/subdetails8.png)
 
-<a name="next-steps"></a>Sonraki adımlar
-----------
+## <a name="next-steps"></a>Sonraki adımlar
 
 Test Sürüşü alanlarınızı doldurulan sahip olduğunuza göre üzerinden geçmek ve **yeniden yayımlamanız** teklifinizi. Test Sürüşünüz sertifika geçtikten sonra gitmesi gereken bir müşteri deneyimini Java'da test **Önizleme** teklifinizin. Test Sürüşü kullanıcı Arabiriminde başlatın ve ardından Azure aboneliğinizi Azure portalın içinde açın ve Test Sürüşleri tam olarak doğru şekilde dağıtıldığını doğrulayın.
 

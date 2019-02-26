@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: d44bb4d3d0ff625d071c87fd39b3776915a6198f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 06206ececcb1a51da402c4232f19801793c1cd4a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675821"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807346"
 ---
 # <a name="how-application-gateway-works"></a>Uygulama ağ geçidi nasıl çalışır?
 
@@ -42,9 +42,9 @@ Arka uç sunucu isteği işler ve sayfa içeriği ile bir HTTP yanıtı uygulama
 
 Bir iç uygulama yük dengeleyici ya da Internet'e yönelik uygulama load balancer, uygulama ağ geçidi kullanabilirsiniz. Internet'e yönelik bir uygulama ağ geçidi genel IP adresleri bulunur. DNS Internet'e yönelik bir uygulama ağ geçidi genel IP adresini genel olarak çözümlenebilen adıdır. Bu nedenle, Internet'e yönelik uygulama ağ geçitleri, Internet üzerinden istemcilerden gelen istekleri yönlendirebilirsiniz.
 
-İç uygulama ağ geçidi, yalnızca özel IP adresine sahiptir. Özel IP adresini genel olarak çözümlenebilen iç uygulama ağ geçidi DNS adı. Bu nedenle, iç yük Dengeleyiciler uygulama ağ geçidi için yalnızca sanal ağdan sanal ağa erişimi olan istemcilerden gelen istekleri yönlendirebilirsiniz.
+İç uygulama ağ geçidi, yalnızca özel IP adresine sahiptir. İç uygulama ağ geçidi DNS adını, özel IP adresini dahili olarak çözülebilir. Bu nedenle, iç yük Dengeleyiciler uygulama ağ geçidi için yalnızca sanal ağdan sanal ağa erişimi olan istemcilerden gelen istekleri yönlendirebilirsiniz.
 
-Hem Internet'e yönelik hem de iç uygulama ağ geçitleri, arka uç sunucularına özel IP adresleri kullanarak istekleri yönlendirmeyi unutmayın. Bu nedenle, arka uç sunucularınızın bir iç veya Internet'e yönelik bir uygulama ağ geçidi istekleri almak için genel IP adresleri olması gerekmez.
+Hem Internet'e yönelik hem de iç uygulama ağ geçitleri, arka uç sunucularına özel IP adresleri kullanarak istekleri yönlendirmeyi unutmayın. Arka uç havuzu kaynağınızı özel bir IP adresi, VM'nin NIC yapılandırması veya dahili olarak çözümlenebilir bir adres içeriyorsa ve arka uç havuzu genel bir uç nokta ise, uygulama ağ geçidi ön uç genel IP tarafından sunucuya ulaşmak için kullanır. Ön uç genel IP adresi hazırlamadıysanız biri için giden dış bağlantı atanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

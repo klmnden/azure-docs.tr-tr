@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8f57310cf4dbc2a27761fc44cfde6c8fd2791a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cf82a80d0b812ab5540796c8e7758e6ff85952c5
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005548"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804799"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure automation'da Azure PowerShell modüllerini güncelleştirme
 
@@ -84,6 +84,10 @@ Bu işlem, Azure modüllerini güncelleştir kullanırken dikkate almanız gerek
 > Yeni bir zamanlanmış iş çalıştırıldığında azure Otomasyonu, Otomasyon hesabınızda en son modüllerini kullanır.  
 
 Bu Azure PowerShell modülleri cmdlet'leri, runbook'ları kullanırsanız, her ay bu güncelleştirme işlemini çalıştırmak için veya bu nedenle en son modülleri sahip olduğunuzdan emin olmak için istiyorsunuz. Azure Otomasyonu kullanan `AzureRunAsConnection` modülleri güncelleştirirken kimliğini doğrulamak için bağlantı. Hizmet sorumlusu süresi doldu veya abonelik düzeyinde artık modülü güncelleştirme başarısız olur.
+
+## <a name="known-issues"></a>Bilinen sorunlar
+
+0 ile başlayan sayısal bir ada sahip bir kaynak grubu içinde bir Otomasyon hesabı AzureRM modülleri güncelleştirme ile ilgili bilinen bir sorun yoktur. Otomasyon hesabınızda, Azure modüllerini güncelleştir için alfasayısal bir ada sahip bir kaynak grubunda olmalıdır. 0 ile başlayan sayısal adlara sahip kaynak gruplarını AzureRM modülleri şu anda güncelleştiremiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

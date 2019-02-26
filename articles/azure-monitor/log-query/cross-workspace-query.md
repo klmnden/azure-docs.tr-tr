@@ -13,18 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: ccc9a74c4e238ebfcab0fc05a3bf825000917843
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3c8c45d217a2ce03597ae5d472d977e3f0a195f7
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998966"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806343"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Azure İzleyici'de kaynaklar arası günlük sorguları gerçekleştirme  
 
 Daha önce Azure İzleyici ile yalnızca geçerli çalışma alanındaki verileri çözümleyebilir ve aboneliğinizde tanımlanmış birden çok çalışma alanında sorgu yapabilmenizi sınırlıdır.  Ayrıca, Application ınsights'ta doğrudan Application Insights ile web tabanlı uygulamanızın içinden veya Visual Studio'dan toplanan telemetri öğelerinin yalnızca arama yapabilirsiniz.  Bu ayrıca yerel olarak operasyonel analiz etmek için sınama ve uygulama verileri birlikte hale.   
 
-Artık yalnızca birden fazla Log Analytics çalışma alanları, aynı zamanda aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından verileriniz üzerinde sorgulama yapabilirsiniz. İle verilerinizin sistem genelinde bir görünüm sağlar.  Yalnızca bu tür bir sorgu gerçekleştirebileceğiniz [Log Analytics](portals.md). 100'e (Log Analytics çalışma alanları ve Application Insights uygulaması), tek bir sorguda dahil edebileceğiniz kaynak sayısı sınırlıdır. 
+Artık yalnızca birden fazla Log Analytics çalışma alanları, aynı zamanda aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından verileriniz üzerinde sorgulama yapabilirsiniz. İle verilerinizin sistem genelinde bir görünüm sağlar.  Yalnızca bu tür bir sorgu gerçekleştirebileceğiniz [Log Analytics](portals.md).
+
+## <a name="cross-resource-query-limits"></a>Kaynaklar arası sorgu sınırları 
+
+* 100'e, tek bir sorguda dahil edebileceğiniz Application Insights kaynağı sayısı sınırlıdır.
+* Kaynaklar arası sorgu görünümü Tasarımcısı'nda desteklenmiyor. Log analytics'te sorgu yazar ve Azure panosuna sabitleyin ve [günlük aramasını görselleştirme](../../azure-monitor/learn/tutorial-logs-dashboards.md#visualize-a-log-search). 
+* [Kaynaklar arası sorgu](../log-query/cross-workspace-query.md) günlüğünde uyarı desteklenen yeni [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Varsayılan olarak, Azure İzleyici kullanır [eski Log Analytics uyarı API](../platform/api-alerts.md) gelen geçiş yapmadığınız sürece, yeni günlük uyarı kuralları Azure portalından oluşturmak için [eski günlük uyarıları API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Anahtardan sonra yeni API, Azure portalında yeni uyarı kuralları için varsayılan olur ve kaynaklar arası sorgu günlük uyarı kuralları oluşturmanıza olanak tanır. Oluşturabileceğiniz [kaynaklar arası sorgu](../log-query/cross-workspace-query.md) günlük uyarısı kuralları kullanarak geçiş yapmaya gerek olmadan [scheduledQueryRules API için ARM şablonu](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – ancak yine de bu uyarı kuralı yönetilebilir [ API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) ve Azure Portal'da değil.
+
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Application ınsights ve Log Analytics çalışma alanları arasında sorgulama
 Sorgunuzu başka bir çalışma alanı başvurmak için kullanma [ *çalışma* ](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) tanımlayıcısı ve Application ınsights'tan bir uygulama için [ *uygulama* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)tanımlayıcısı.  

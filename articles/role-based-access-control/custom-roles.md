@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/20/2019
+ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71d49edc3fa52cce5d128b94d42098150aa5f3a3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: f795571de275453738d23e80885f4d9006ca3a20
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585092"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804459"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Azure kaynakları için özel roller
 
@@ -72,8 +72,7 @@ Aşağıdaki özel bir rol JSON biçiminde gösterilen gibi göründüğünü g�
 
 1. İhtiyaç duyduğunuz izinleri belirleyin
 
-    Özel bir rol oluşturduğunuzda, kaynak izinlerinizi tanımlamak kullanılabilen sağlayıcısı işlemleri bilmeniz gerekir. İşlemlerin listesini görüntülemek için kullanabileceğiniz [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) veya [az sağlayıcı işlemi listesi](/cli/azure/provider/operation#az-provider-operation-list) komutları.
-    İşlemleri ekleyeceksiniz `Actions` veya `NotActions` özelliklerini [rol tanımı](role-definitions.md). Veri işlemleri varsa, bu ekleyeceksiniz `DataActions` veya `NotDataActions` özellikleri.
+    Özel bir rol oluşturduğunuzda, kaynak izinlerinizi tanımlamak kullanılabilen sağlayıcısı işlemleri bilmeniz gerekir. İşlemlerin listesini görüntülemek için bkz: [Azure Resource Manager kaynak sağlayıcısı işlemleri](resource-provider-operations.md). İşlemleri ekleyeceksiniz `Actions` veya `NotActions` özelliklerini [rol tanımı](role-definitions.md). Veri işlemleri varsa, bu ekleyeceksiniz `DataActions` veya `NotDataActions` özellikleri.
 
 1. Özel rol oluşturma
 

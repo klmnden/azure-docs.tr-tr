@@ -1,6 +1,6 @@
 ---
 title: Başlat/Durdur Vm'leri çalışma saatleri çözümü
-description: Bu VM management çözüm başlar ve Azure Resource Manager sanal makinelerinizi bir zamanlamaya göre durdurur ve Log Analytics'ten proaktif olarak izler.
+description: Bu VM management çözüm başlar ve Azure Resource Manager sanal makinelerinizi bir zamanlamaya göre durdurur ve Azure İzleyici günlüklerinden proaktif olarak izler.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3fcab4c7456295d8f7414232bc90bc5ab352e43a
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979658"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817890"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
-Çözüm başlar ve Azure sanal makinelerinizi kullanıcı tanımlı zamanlamalarda durdurur, Azure Log Analytics aracılığıyla Öngörüler sağlar ve kullanarak isteğe bağlı bir e-postaları gönderen çalışma saatleri dışında Vm'leri başlatma/durdurma [Eylem grupları](../azure-monitor/platform/action-groups.md). Bu, çoğu senaryo için hem Azure Resource Manager ve klasik Vm'leri destekler.
+Çözüm başlar ve Azure sanal makinelerinizi kullanıcı tanımlı zamanlamalarda durdurur, Azure İzleyici günlüklerine aracılığıyla Öngörüler sağlar ve kullanarak isteğe bağlı bir e-postaları gönderen çalışma saatleri dışında Vm'leri başlatma/durdurma [Eylem grupları](../azure-monitor/platform/action-groups.md). Bu, çoğu senaryo için hem Azure Resource Manager ve klasik Vm'leri destekler.
 
 Bu çözüm, VM maliyetlerini en iyi hale getirmek isteyen kullanıcılar için bir merkezi olmayan düşük maliyetli Otomasyon seçeneği sunar. Bu çözüm ile şunları yapabilirsiniz:
 
@@ -35,6 +35,8 @@ Geçerli çözümdeki sınırlamalar aşağıda verilmiştir:
 > Klasik VM'ler için çözümü kullanıyorsanız, tüm Vm'leriniz sıralı olarak bulut hizmeti başına işlenir. Sanal makine, farklı bulut hizmetleri arasında yine de paralel olarak işlenir.
 >
 > Azure bulut çözümü sağlayıcısı (Azure CSP) abonelikleri yalnızca Azure Resource Manager modeline destek, Azure Resource Manager - program kullanılamıyor. Başlat/Durdur çözümü çalıştığında Klasik kaynakları yönetmek için cmdlet'ler olduğu gibi hatalar alabilirsiniz. CSP hakkında daha fazla bilgi için bkz: [CSP aboneliklerinde kullanılabilir hizmetler](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Bir CSP aboneliği kullanıyorsanız değiştirmelisiniz [ **External_EnableClassicVMs** ](#variables) değişkenini **False** dağıtımdan sonra.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -63,7 +65,7 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
    - Seçin bir **abonelik** varsayılan seçili uygun değilse açılan listeden seçerek bağlamak için.
    - İçin **kaynak grubu**, yeni bir kaynak grubu oluşturun veya varolan bir tanesini seçin.
    - Bir **Konum** seçin. Şu anda yalnızca mevcut konumlarının **Avustralya Güneydoğu**, **Kanada orta**, **Orta Hindistan**, **Doğu ABD**, **Doğu Japonya**, **Güneydoğu Asya**, **UK Güney**, **Batı Avrupa**, ve **Batı ABD 2**.
-   - Bir **Fiyatlandırma katmanı** seçin. Seçin **GB başına (tek başına)** seçeneği. Log Analytics'e güncelleştirdi [fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) ve GB başına katman tek seçenektir.
+   - Bir **Fiyatlandırma katmanı** seçin. Seçin **GB başına (tek başına)** seçeneği. Azure İzleyici günlüklerine güncelleştirdi [fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) ve GB başına katman tek seçenektir.
 
 5. Gerekli bilgileri girdikten sonra **Log Analytics çalışma alanı** sayfasında **Oluştur**. Altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüden döndüren size **Çözüm Ekle** işiniz bittiğinde sayfa.
 6. Üzerinde **Çözüm Ekle** sayfasında **Otomasyon hesabı**. Yeni bir Log Analytics çalışma alanı oluşturuyorsanız, kendisiyle ilişkilendirilmiş olması için yeni bir Otomasyon hesabı oluşturun veya bir Log Analytics çalışma alanına bağlı olmayan bir Otomasyon hesabı seçin. Mevcut bir Otomasyon hesabı seçin veya **Otomasyon hesabı oluşturma**ve **Otomasyon hesabı Ekle** sayfasında, aşağıdaki bilgileri sağlayın:
@@ -174,7 +176,7 @@ CPU kullanımı temelinde sanal makineleri durdurmak için bir zamanlamaya sahip
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
 
-Bu çözüm, başlatma ve kapatma sanal makinelerinizin, iş gereksinimlerinize uyacak şekilde uyarlamak için önceden yapılandırılmış bir runbook'ları, tabloları ve Log Analytics ile tümleştirme içerir.
+Bu çözüm, başlatma ve kapatma sanal makinelerinizin, iş gereksinimlerinize uyacak şekilde uyarlamak için önceden yapılandırılmış bir runbook'ları, çizelgeler ve günlükleri Azure İzleyici ile tümleştirmesi içerir.
 
 ### <a name="runbooks"></a>Runbook'lar
 
@@ -209,7 +211,7 @@ Aşağıdaki tabloda, Otomasyon hesabınızda oluşturduğunuz değişkenleri li
 |External_AutoStop_TimeAggregationOperator | Koşulu değerlendirmek için seçilen pencere boyutuna uygulandığı zaman Toplama işleci. Kabul edilebilir değerler **ortalama**, **Minimum**, **maksimum**, **toplam**, ve **son**.|
 |External_AutoStop_TimeWindow | Pencere boyutu bu sırada Azure uyarı tetiklemek için seçilen ölçümleri analiz eder. Bu parametre, giriş timespan biçim olarak kabul eder. Olası değerler şunlardır: 6 saat için 5 dakika.|
 |External_EnableClassicVMs| Klasik sanal makineleri çözüm tarafından hedeflenen olup olmadığını belirtir. Varsayılan değer True'dur. Bu müşterilere CSP abonelikleri False olarak ayarlanmalıdır.|
-|External_ExcludeVMNames | Hariç tutulacak VM adlarını adları boşluk virgül kullanarak ayırarak girin. Bu, 140 Vm'lere sınırlıdır. 140'tan fazla VM'ler hariç tutulması gereken sanal makineleri eklenen eklerseniz başlatılması veya kapatma yanlışlıkla|
+|External_ExcludeVMNames | Hariç tutulacak VM adlarını adları boşluk virgül kullanarak ayırarak girin. Bu, 140 Vm'lere sınırlıdır. 140'tan fazla VM'ler için bu virgülle ayrılmış liste eklerseniz, hariç tutulacak ayarlanmış Vm'leri yanlışlıkla başlatılması veya durdurulmasına.|
 |External_Start_ResourceGroupNames | Değerleri başlatma eylemleri için hedeflenen virgülle ayırarak bir veya daha fazla kaynak grupları belirtir.|
 |External_Stop_ResourceGroupNames | Değerleri durdurma eylemler için hedeflenen virgülle ayırarak bir veya daha fazla kaynak grubunu belirtir.|
 |Internal_AutomationAccountName | Otomasyon hesabının adını belirtir.|
@@ -233,7 +235,7 @@ Bu çakışan eylemleri zamanlama oluşturmak için tüm zamanlamalar etkinleşt
 |Sıralı StopVM | 1: 00'da (UTC), her Cuma | Sequenced_Parent runbook bir parametreyle çalıştırır _Durdur_ her Cuma belirtilen zamanda. Sıralı olarak (artan) durdurur bir etiketi bulunduğu tüm VM'ler **SequenceStop** uygun değişkenleri tarafından tanımlanmış. Etiketi değer ve varlık değişkenleri hakkında daha fazla bilgi için runbook'ları bölümüne bakın. İlgili zamanlamayı etkinleştir **sıralı StartVM**.|
 |Sıralı StartVM | 13: 00'te (UTC), her Pazartesi | Sequenced_Parent runbook bir parametreyle çalıştırır _Başlat_ her Pazartesi belirtilen zamanda. Ardışık olarak bir etiketle başlayan tüm sanal makineler (Azalan) **SequenceStart** uygun değişkenleri tarafından tanımlanmış. Etiketi değer ve varlık değişkenleri hakkında daha fazla bilgi için runbook'ları bölümüne bakın. İlgili zamanlamayı etkinleştir **sıralı StopVM**.|
 
-## <a name="log-analytics-records"></a>Log Analytics kayıtları
+## <a name="azure-monitor-logs-records"></a>Azure İzleyici kayıtları günlüğe kaydeder.
 
 Otomasyon, Log Analytics çalışma alanında iki tür kayıt oluşturur: İş günlükleri ve iş akışları.
 
@@ -290,7 +292,7 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan iş kayıtlarına ilişki
 
 ## <a name="viewing-the-solution"></a>Çözümü görüntüleme
 
-Çözüm erişmek için seçin, bunları Otomasyon hesabınıza gidin **çalışma** altında **ilgili kaynakları**. Log Analytics sayfasında **çözümleri** altında **genel**. Üzerinde **çözümleri** sayfasında, çözümü seçin **Başlat-Durdur-VM [çalışma alanı]** listeden.
+Çözüm erişmek için seçin, bunları Otomasyon hesabınıza gidin **çalışma** altında **ilgili kaynakları**. Log analytics sayfasında **çözümleri** altında **genel**. Üzerinde **çözümleri** sayfasında, çözümü seçin **Başlat-Durdur-VM [çalışma alanı]** listeden.
 
 Çözüme görüntüler **Başlat-Durdur-VM [çalışma alanı]** çözüm sayfasında. Önemli ayrıntıları gibi buradan inceleyebilirsiniz **StartStopVM** Döşe. Log Analytics çalışma olduğu gibi bir sayı ve bir grafik gösterimi başlatılmış ve başarıyla tamamlanmış runbook işlerinin çözümü bu kutucuk görüntüler.
 
@@ -364,14 +366,14 @@ Artık çözümü kullanmak gereken karar verirseniz, Otomasyon hesabı silebili
 
 Bu işlemin bir parçası olarak, Log Analytics çalışma alanını ve Otomasyon hesabı silinmez. Log Analytics çalışma alanı korumak istemiyorsanız el ile silmeniz gerekir. Bu, Azure portalından gerçekleştirilebilir:
 
-1. Azure portal giriş ekranından, seçin **Log Analytics**.
-1. Üzerinde **Log Analytics** sayfasında, çalışma alanını seçin.
+1. Azure portal giriş ekranından, seçin **Log Analytics çalışma alanları**.
+1. Üzerinde **Log Analytics çalışma alanları** sayfasında, çalışma alanını seçin.
 1. Seçin **Sil** menüsünden çalışma alanı ayarları sayfasında.
 
 Azure Otomasyonu hesabı bileşenleri korumak istemiyorsanız her el ile silebilirsiniz. Runbook'ları, değişkenler ve çözüm tarafından oluşturulan zamanlamalar listesi için bkz. [çözüm bileşenlerini](#solution-components).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Farklı arama sorguları oluşturma ve Log Analytics ile Otomasyon iş günlüklerini gözden geçirme hakkında daha fazla bilgi için bkz. [Log Analytics'te günlük aramaları](../log-analytics/log-analytics-log-searches.md).
+- Azure İzleyici günlüklerine ile Otomasyon iş günlüklerini gözden geçirin ve farklı arama sorguları oluşturma hakkında daha fazla bilgi için bkz. [günlük aramaları Azure İzleyici günlüklerine](../log-analytics/log-analytics-log-searches.md).
 - Runbook yürütme, runbook işlerini izleme ve diğer teknik ayrıntılar hakkında daha fazla bilgi edinmek için bkz. [Runbook işi izleme](automation-runbook-execution.md).
-- Log Analytics ve veri toplama kaynakları hakkında daha fazla bilgi için bkz: [Azure depolama verileri toplamaya Log Analytics'e genel bakış](../azure-monitor/platform/collect-azure-metrics-logs.md).
+- Azure İzleyici günlüklerine ve veri toplama kaynakları hakkında daha fazla bilgi için bkz: [Azure depolama verileri toplamaya Azure İzleyici'de genel bakış oturumu](../azure-monitor/platform/collect-azure-metrics-logs.md).

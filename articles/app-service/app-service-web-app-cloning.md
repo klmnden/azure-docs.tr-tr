@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 2a28409120bac13ea7d288c7fc41f7154c003388
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 53cde81ed5df97c4cb6d8360c9bb639b8bdabe20
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106265"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818145"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure App Service uygulaması PowerShell kullanarak kopyalama
 
@@ -136,5 +136,5 @@ Uygulama kopyalama bilinen kısıtlamalar şunlardır:
 * [Azure App Service'te bir uygulama yedekleme](manage-backup.md)
 * [Azure Traffic Manager önizlemesi için Azure Resource Manager desteği](../traffic-manager/traffic-manager-powershell-arm.md)
 * [App Service Ortamı’na giriş](environment/intro.md)
-* [Azure PowerShell’i Azure Resource Manager ile kullanma](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Azure PowerShell’i Azure Resource Manager ile kullanma](../azure-resource-manager/manage-resources-powershell.md)
 

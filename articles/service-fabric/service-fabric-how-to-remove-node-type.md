@@ -4,7 +4,7 @@ description: Azure'da çalışan bir Service Fabric kümesinden bir düğüm tü
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: JeanPaul.Connick
+manager: chakdan
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo
-ms.openlocfilehash: 63a18b6a24d922c48129df56045ec3e1d67bac53
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 2bde95b744ac136e8ba5c0517e0f749a6dce8a1e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301001"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805282"
 ---
 # <a name="remove-a-service-fabric-node-type"></a>Bir Service Fabric düğüm türü Kaldır
 Bu makalede, bir kümeden var olan bir düğüm türü kaldırarak bir Azure Service Fabric kümesini ölçekleme açıklar. Service Fabric kümesi bir ağa bağlı, mikro hizmetlerin dağıtıldığı ve yönetildiği sanal veya fiziksel makine kümesidir. Bir makine ya da bir kümenin parçası olan sanal makine bir düğüm denir. Sanal makine ölçek kümeleri dağıtmak ve sanal makine koleksiyonunu bir küme olarak yönetmek için kullandığınız bir Azure işlem kaynağıdır. Bir Azure kümesinde tanımlanan her düğüm türü [ayrı ölçek kümesi olarak ayarlanan](service-fabric-cluster-nodetypes.md). Ardından her düğüm türü ayrı olarak yönetilebilir. Service Fabric kümesi oluşturduktan sonra küme yatay bir düğüm türü (sanal makine ölçek kümesi) ve tüm üst düğümleri kaldırarak ölçeklendirebilirsiniz.  Kümedeki herhangi bir zamanda iş yükleri küme üzerinde çalışırken bile ölçeklendirebilirsiniz.  Küme ölçekler gibi uygulamalarınızı otomatik olarak da ölçeklendirin.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c846460d8791c15022b10ecf4517ba01699a64cd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9a897cdb10506939232f667250dfb0dbaf196bc0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439043"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822234"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>OMS güncelleştirme dağıtımlarınızı Azure'a geçirme
 
@@ -33,7 +33,7 @@ OMS çalışma alanınızı tıklayın **azure'da açık**. Bu, kullanılan OMS 
 
 Azure portalında **Otomasyon hesabı**
 
-![Log Analytics](media/migrate-oms-update-deployments/log-analytics.png)
+![Azure izleme günlükleri](media/migrate-oms-update-deployments/log-analytics.png)
 
 Otomasyon hesabınızda tıklayın **güncelleştirme yönetimi** güncelleştirme yönetimini açın.
 
@@ -61,7 +61,7 @@ Güncelleştirilecek makineler için mevcut bir OMS dağıtım tarafından kulla
 | --- | --- |
 |Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
 |İşletim Sistemi| Seçin **Linux** veya **Windows**.|
-|Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../azure-monitor/platform/computer-groups.md) |
+|Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Azure İzleyici günlüklerine bilgisayar grupları oluşturma farklı yöntemleri hakkında bilgi edinmek için bkz: [Azure İzleyici günlüklerine bilgisayar grupları](../azure-monitor/platform/computer-groups.md) |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin. CentOS desteklemiyor bu kullanıma hazır.|
 |Hariç tutulacak güncelleştirmeler|Hariç tutulacak güncelleştirmeler girin. Windows için KB makalesi olmadan girin **KB** önek. Linux için paket adını girin veya bir joker karakterini kullanın.  |
 |Zamanlama ayarları|Başlangıç saati seçin ve ardından ya da **kez** veya **yinelenen** yinelenme.|| Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değer, 30 dakika ve 6 saatten az olamaz. |

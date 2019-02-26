@@ -5,17 +5,17 @@ description: Birden çok makine öğrenimi modelleri ve web hizmeti uç noktalar
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 442acb88a7a758517b8007b85dd6a58520a0caa4
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455067"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817516"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Tek bir deneyden Studio modelleri ve web hizmeti uç noktaları oluşturmak için PowerShell kullanma
 
@@ -27,7 +27,7 @@ Bir kez tüm konumlar arasında tüm veri kümelerini birleştirilmiş bir sür�
 
 En iyi yaklaşım olabilir, ancak Azure Machine Learning Studio'da her bir benzersiz bir konumu temsil eden 1.000 eğitim denemeleri oluşturmak istediğiniz yok. Her deneme aynı bileşenleri eğitim veri kümesi dışında olacağından zor bir görev olmasının yanı sıra, ayrıca verimsiz hatırlıyorum.
 
-Neyse ki, bunu kullanarak gerçekleştirebilirsiniz [Azure Machine Learning Studio'da API yeniden eğitme](retrain-models-programmatically.md) ve görev ile otomatikleştirme [Azure Machine Learning Studio PowerShell](powershell-module.md).
+Neyse ki, bunu kullanarak gerçekleştirebilirsiniz [Azure Machine Learning Studio'da API yeniden eğitme](/azure/machine-learning/studio/retrain-machine-learning-model) ve görev ile otomatikleştirme [Azure Machine Learning Studio PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Örneğinizi daha hızlı çalışır hale getirmek için 1000 konumlardan 10 sayısını azaltın. Ancak aynı ilke ve yordamlar 1.000 konumları için geçerlidir. Ancak, 1.000 veri kümelerinden eğitmek istiyorsanız, paralel olarak aşağıdaki PowerShell komut dosyalarını çalıştırmak isteyebilirsiniz. Bunu nasıl yapacağınız bu makalenin kapsamı dışındadır, ancak PowerShell örneklerini çoklu iş parçacığı Internet'te bulabilirsiniz.  

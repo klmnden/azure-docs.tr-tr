@@ -3,7 +3,7 @@ title: Windows kapsayıcıları Service Fabric ve VS hata ayıklama | Microsoft 
 description: Visual Studio 2017'yi kullanarak Azure Service fabric'te Windows kapsayıcılarını hata ayıklama hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: msfussell
 editor: ''
 ms.service: service-fabric
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: twhitney, mikhegn
-ms.openlocfilehash: 9801db8a38a8c21aea26b42f4fe01bd4a43988c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.author: aljo, mikhegn
+ms.openlocfilehash: 10a2c48023ff8377600a0fdcdf4990a453392e80
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311231"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805926"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Nasıl yapılır: Visual Studio 2017'yi kullanarak Azure Service fabric'te Windows kapsayıcılarını hata ayıklama
 

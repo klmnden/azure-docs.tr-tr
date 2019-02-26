@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 566faaef4e91237bd0a0f915ea39f4bd389120d8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 63a0e5bd3db6251e361d9dd03acb538556e811ca
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593089"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805001"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Geliştirilmiş yedeği almak ve performansı Azure Backup anında geri yükleme özelliğine sahip geri yükleme
 
@@ -49,6 +49,7 @@ Varsayılan olarak, iki gün için anlık görüntüleri korunur. Bu özellik, g
 * Artımlı anlık görüntüleri, sayfa blobları depolanır. Yönetilmeyen diskler kullanan tüm kullanıcılar, kendi yerel depolama hesabında depolanan anlık görüntüler için ücretlendirilir. Yönetilen VM yedeklemeleri tarafından kullanılan geri yükleme noktası koleksiyonları temel alınan depolama düzeyinde blob anlık görüntüleri kullandığından, yönetilen diskler için anlık görüntü fiyatlandırma blob karşılık gelen maliyetleri görürsünüz ve bunların artımlı.
 * Premium depolama hesapları için anında kurtarma noktalarının sayısı 10 TB sınırını doğrultusunda için alınan anlık görüntülere ayrılmış alanı.
 * Geri yükleme gereksinimlerini temel alan anlık görüntü saklama yapılandırma yeteneği sahip olursunuz. Gereksinim bağlı olarak, anlık görüntü saklama en az bir gün aşağıda açıklandığı gibi yedekleme İlkesi dikey penceresinde ayarlayabilirsiniz. Bu, sık geri yükleme gerçekleştirme, anlık görüntü saklama için maliyet tasarruf etmenize yardımcı olabilir.
+* Bu kez anında geri yükleme için yükseltilmiş tek yönlü bir yükseltme, geri dönemezsiniz.
 
 
 >[!NOTE]
@@ -77,7 +78,7 @@ Alternatif olarak, gidebilirsiniz **özellikleri** almak için kasa sayfasının
 
 
 ## <a name="configure-snapshot-retention-using-azure-portal"></a>Azure portalını kullanarak anlık görüntü saklama yapılandırma
-Bu seçenek, Batı Orta ABD, Güney Hindistan ve Avustralya Doğu şu anda kullanılabilir.
+Bu seçenek şu anda kullanılabilir **Batı Orta ABD**, **Hindistan Güney** ve **Avustralya Doğu**.
 
 Yükseltilen kullanıcıları için Azure portalında bir alan eklediğiniz görebilirsiniz **VM yedekleme İlkesi** altındaki dikey penceresinde **anında geri yükleme** bölümü. Anlık görüntü saklama süresinden değiştirebilirsiniz **VM yedekleme İlkesi** dikey penceresinde tüm sanal makineler için belirli bir yedekleme ilkesiyle ilişkili.
 

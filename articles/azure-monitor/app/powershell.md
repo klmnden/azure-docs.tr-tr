@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4b633f3294faf11c8ef9d4a4077254c3df5353cf
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 74da56b5e90512f8b903d5a62f7dde4e903560b8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264862"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817873"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>PowerShell ile Application Insights kaynakları oluşturma
 Bu makalede oluşturma ve güncelleştirilmesini otomatikleştirmek gösterilmektedir [Application Insights](../../azure-monitor/app/app-insights-overview.md) Azure kaynak yönetimi kullanarak otomatik olarak kaynaklar. Örneğin, bir yapı işleminin parçası olarak bunu olabilir. Temel Application Insights kaynağını yanı sıra, oluşturduğunuz [kullanılabilirlik web testleri](../../azure-monitor/app/monitor-web-app-availability.md), ayarlayın [uyarılar](../../azure-monitor/app/alerts.md)ayarlayın [düzeni fiyatlandırma](pricing.md)ve diğer Azure kaynakları oluşturma .
 
-Bu kaynakları oluşturmak için JSON şablonları anahtardır [Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md). Buna koysalar yordam aynıdır: var olan kaynakların; JSON tanımları indirme adları gibi belirli değerleri Parametreleştirme; ve yeni bir kaynak oluşturmak istediğinizde şablonu çalıştırın. Çeşitli kaynaklar birlikte paket, bunları oluşturmak için tek - Örneğin, bir uygulama İzleyicisi kullanılabilirlik testleri, uyarılar ve depolama için sürekli dışarı aktarma ile gidin. Burada açıklayacağız parameterizations bazılarının bazı ıot'nin vardır.
+Bu kaynakları oluşturmak için JSON şablonları anahtardır [Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md). Buna koysalar yordam aynıdır: var olan kaynakların; JSON tanımları indirme adları gibi belirli değerleri Parametreleştirme; ve yeni bir kaynak oluşturmak istediğinizde şablonu çalıştırın. Çeşitli kaynaklar birlikte paket, bunları oluşturmak için tek - Örneğin, bir uygulama İzleyicisi kullanılabilirlik testleri, uyarılar ve depolama için sürekli dışarı aktarma ile gidin. Burada açıklayacağız parameterizations bazılarının bazı ıot'nin vardır.
 
 ## <a name="one-time-setup"></a>Bir kerelik Kurulum
 Azure aboneliğiniz önce PowerShell kullanmadıysanız:

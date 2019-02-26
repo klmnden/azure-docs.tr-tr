@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 9f0dbc549600ef2b931ee99a36c60cae57cc7a67
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cd29fb968bd73e09c2e3b60e62a478b4e577146d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331390"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805493"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler
 
@@ -67,7 +67,7 @@ Premium depolama özelliklerinden bazıları şunlardır:
     - [Azure depolama için Azure CLI](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
     - [Azure depolama kaynak sağlayıcısı REST API'si](https://docs.microsoft.com/rest/api/storagerp) (Azure Resource Manager dağıtımları için) veya bir Azure depolama kaynak sağlayıcısı istemci kitaplığı
 
-    Premium depolama hesabı sınırları hakkında bilgi edinmek için Premium depolama ölçeklenebilirlik ve performans hedefleri konusuna bakın.
+    Premium depolama hesabı sınırları hakkında bilgi edinmek için [ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets).
 
 * **Premium yerel olarak yedekli depolama**
 
@@ -158,7 +158,7 @@ Bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındad
 | Disk başına aktarım hızı | Saniye başına 25 MB | Saniye başına 50 MB | Saniye başına 100 MB | Saniye başına 125 MB | 150 MB / saniye | Saniye başına 200 MB | Saniye başına 250 MB | Saniye başına 250 MB | 480 MB / saniye | Saniye başına 750 MB | Saniye başına 750 MB |
 
 > [!NOTE]
-> Açıklanan şekilde yeterli bant genişliği sürücü diski trafiği, sanal makinenizde kullanılabilir olduğundan emin olun [Vm'leri Premium Depolama tarafından desteklenen](). Aksi takdirde, disk aktarım hızı ve IOPS je omezeno değerleri daha düşük. En fazla aktarım hızı ve IOPS sınırları VM, yukarıdaki tabloda açıklanan disk limitleri değil temel alır.  
+> Açıklanan şekilde yeterli bant genişliği sürücü diski trafiği, sanal makinenizde kullanılabilir olduğundan emin olun [desteklenen VM'ler](#supported-vms). Aksi takdirde, disk aktarım hızı ve IOPS je omezeno değerleri daha düşük. En fazla aktarım hızı ve IOPS sınırları VM, yukarıdaki tabloda açıklanan disk limitleri değil temel alır.  
 > Azure Premium depolama platformu yüksek düzeyde paralel olacak şekilde tasarlanmıştır. Uygulamanızın çok iş parçacıklı olacak şekilde tasarlama büyük disk boyutları sunulan yüksek performanslı hedef elde etmek için yardımcı olur.
 
 Premium depolama ölçeklenebilirlik ve performans hedefleri hakkında bilmeniz gereken bazı önemli noktalar şunlardır:
@@ -292,7 +292,7 @@ Premium depolama kullandığınızda, aşağıdaki fatura değerlendirmeleri ge�
 
 * **Premium depolama diski ve blob boyutu**
 
-    Bir premium depolama disk veya blob faturalandırması sağlanan blobu ve disk boyutuna bağlıdır. Azure en yakın premium depolama disk seçeneğine (yuvarlanır) sağlanan boyut eşler. Ayrıntılar için bölümündeki tabloya bakın [Premium depolama ölçeklenebilirlik ve performans hedefleri](). Her disk desteklenen sağlanan disk boyutuna eşlenir ve buna göre faturalandırılır. Sağlanmış bir diski için faturalama, saatlere Premium depolama teklif için aylık fiyat kullanılarak eşit olarak dağıtılır. Örneğin, bir P10 disk sağlanır ve 20 saat sonra silindi, P10 teklif 20 saat eşit olarak için fatura edilir. Disk veya IOPS ve aktarım hızı kullanılan yazılan gerçek veri miktarından bağımsız olarak budur.
+    Bir premium depolama disk veya blob faturalandırması sağlanan blobu ve disk boyutuna bağlıdır. Azure en yakın premium depolama disk seçeneğine (yuvarlanır) sağlanan boyut eşler. Ayrıntılar için bölümündeki tabloya bakın [ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets). Her disk desteklenen sağlanan disk boyutuna eşlenir ve buna göre faturalandırılır. Sağlanmış bir diski için faturalama, saatlere Premium depolama teklif için aylık fiyat kullanılarak eşit olarak dağıtılır. Örneğin, bir P10 disk sağlanır ve 20 saat sonra silindi, P10 teklif 20 saat eşit olarak için fatura edilir. Disk veya IOPS ve aktarım hızı kullanılan yazılan gerçek veri miktarından bağımsız olarak budur.
 
 * **Premium yönetilmeyen diskler, anlık görüntüler**
 

@@ -5,17 +5,17 @@ description: Nasıl bir veri bilimi video 4 yeni başlayanlar için fiyatı tahm
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: 6adcf59053186c961a115164baac1f0af631ff4a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: dfac085727ee86be018cfee1e15c3ee51b221763
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456856"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819880"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Basit model ile yanıtı tahmin etme
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Seri yeni başlayanlar için veri bilimi
@@ -128,4 +128,4 @@ Bugün, doğrusal regresyon yapmak hakkında konuştuk ve verileri kullanarak ta
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bir Machine Learning Studio'da ilk veri bilimi deneyinde deneyin](create-experiment.md)
-* [Microsoft Azure'da Machine learning'e giriş yapın](what-is-machine-learning.md)
+* [Microsoft Azure'da Machine learning'e giriş yapın](/azure/machine-learning/preview/overview-what-is-azure-ml)

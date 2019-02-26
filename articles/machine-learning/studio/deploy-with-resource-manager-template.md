@@ -5,17 +5,17 @@ description: Bir çalışma alanı için Azure Machine Learning Azure Resource M
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 38cd41fecb98a008bbf5a93eddd0d6a346cf3ef7
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 27a5516c34c326fc5b5ec7f2bbde13fd179f0f14
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453979"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822591"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Azure Machine Learning Studio çalışma alanına Azure Resource Manager kullanarak dağıtma
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035627"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821670"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Bir sanal ağa yönelik VPN aktarım hızını doğrulama
 
@@ -49,7 +49,7 @@ Aşağıdaki diyagramda bir Azure sanal ağa VPN aracılığıyla şirket ağın
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>En fazla beklenen giriş/çıkış hesaplayın
 
 1.  Uygulamanızın temel aktarım hızı gereksinimlerini belirleyin.
-2.  Azure VPN ağ geçidi aktarım hızı limitlerinizi belirleyin. Yardım için "SKU ve VPN türüne göre toplam üretilen iş" bölümüne bakın. [planlama ve tasarım VPN ağ geçidi için](vpn-gateway-plan-design.md).
+2.  Azure VPN ağ geçidi aktarım hızı limitlerinizi belirleyin. Yardım için "Ağ geçidi SKU'ları" bölümüne bakın. [VPN Gateway hakkında](vpn-gateway-about-vpngateways.md#gwsku).
 3.  Belirlemek [Azure VM işleme kılavuzuna](../virtual-machines/virtual-machines-windows-sizes.md) , VM boyutu için.
 4.  Internet servis sağlayıcınıza (ISS) bant genişliğiniz belirler.
 5.  Beklenen aktarım hızıyla - en az bant genişliği (ağ geçidi VM ISS) hesaplamak * 0.8.
@@ -77,7 +77,7 @@ Bu araç, disk için okuma/yazma işlemleri gerçekleştirmez. Yalnızca, diğer
 
 2. Her iki düğümde 5001 bağlantı noktası için bir güvenlik duvarı özel durumu etkinleştirin.
 
-    **Windows:** yönetici olarak aşağıdaki komutu çalıştırın:
+    **Windows:** Yönetici olarak aşağıdaki komutu çalıştırın:
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -89,7 +89,7 @@ Bu araç, disk için okuma/yazma işlemleri gerçekleştirmez. Yalnızca, diğer
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
      
-    **Azure Linux:** Azure Linux görüntüleri esnek güvenlik duvarları sahip. Bir bağlantı noktasını dinleyen bir uygulamanın varsa, trafiğe aracılığıyla izin verilir. Güvenli, özel görüntüleri açıkça açılan bağlantı noktaları gerekebilir. Yaygın Linux işletim sistemi katmanlı güvenlik duvarları içeren `iptables`, `ufw`, veya `firewalld`.
+    **Azure Linux:**  Azure Linux görüntüleri esnek güvenlik duvarları vardır. Bir bağlantı noktasını dinleyen bir uygulamanın varsa, trafiğe aracılığıyla izin verilir. Güvenli, özel görüntüleri açıkça açılan bağlantı noktaları gerekebilir. Yaygın Linux işletim sistemi katmanlı güvenlik duvarları içeren `iptables`, `ufw`, veya `firewalld`.
 
 3. Sunucu düğümünde iperf3.exe ayıkladığınız dizine geçin. Ardından iPerf sunucu modunda çalıştırın ve aşağıdaki komutları olarak 5001 bağlantı noktasında dinleyecek şekilde ayarlayın:
 

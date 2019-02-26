@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac2d1c1fb59988c8b95fda6b92bb9ae0332fc0e0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 864e93dcd94fd36b0e34495e0ea27f22d8b0dd0c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427432"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817686"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -72,7 +72,7 @@ Güncelleştirme yönetimi, onboarding tamamlandığında, sanal makineniz için
 
 Azure Windows sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında bilgi için bkz: [Azure Log Analytics hizmetine bağlama Windows bilgisayarlara](../log-analytics/log-analytics-windows-agent.md).
 
-Azure olmayan Linux sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında bilgi için bkz: [azure'da Linux bilgisayarlarını Log Analytics'e bağlama](../log-analytics/log-analytics-agent-linux.md).
+Azure olmayan Linux sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında bilgi için bkz: [azure'da Linux bilgisayarlarını Azure İzleyici günlüklerine bağlama](../log-analytics/log-analytics-agent-linux.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Otomasyon hesabınıza bağlı bilgisayarları görüntüleme
 
@@ -113,7 +113,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
 
-Bilgisayar güncelleştirme uyumluluğu taraması tamamlandıktan sonra aracıyı Azure Log Analytics'e toplu bilgiler iletir. Bir Windows bilgisayarda Uyumluluk taraması varsayılan olarak her 12 saatte bir çalıştırılır.
+Bilgisayar güncelleştirme uyumluluğu taraması tamamlandıktan sonra aracısı bilgileri toplu Azure İzleyici günlüklerine iletir. Bir Windows bilgisayarda Uyumluluk taraması varsayılan olarak her 12 saatte bir çalıştırılır.
 
 Tarama zamanlamasına ek olarak, güncelleştirme yüklemesi öncesinde ve güncelleştirme yüklemesi sonrasında yeniden başlatılmadan MMA 15 dakika içinde güncelleştirme uyumluluğu için tarama başlatılır.
 
@@ -132,7 +132,7 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
 - **Ad**: Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad girin.
 - **İşletim sistemi**: Seçin **Windows** veya **Linux**.
 - **(Önizleme) güncelleştirmek için grupları**: Abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlarsınız. Daha fazla bilgi edinmek için bkz. [Dinamik Gruplar](automation-update-management.md#using-dynamic-groups)
-- **Güncelleştirilecek makineler**: Kayıtlı arama, içeri aktarılan grubu veya güncelleştirmek istediğiniz makineleri seçin için makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Güncelleştirme dağıtımı zamanlayabilirsiniz önce bilgisayarın sistem durumunu görebilirsiniz. Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../azure-monitor/platform/computer-groups.md)
+- **Güncelleştirilecek makineler**: Kayıtlı arama, içeri aktarılan grubu veya güncelleştirmek istediğiniz makineleri seçin için makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Güncelleştirme dağıtımı zamanlayabilirsiniz önce bilgisayarın sistem durumunu görebilirsiniz. Azure İzleyici günlüklerine bilgisayar grupları oluşturma farklı yöntemleri hakkında bilgi edinmek için bkz: [Azure İzleyici günlüklerine bilgisayar grupları](../azure-monitor/platform/computer-groups.md)
 
   ![Yeni güncelleştirme dağıtım bölmesi](./media/manage-update-multi/update-select-computers.png)
 

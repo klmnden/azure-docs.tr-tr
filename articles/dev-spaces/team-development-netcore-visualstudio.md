@@ -12,12 +12,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 7a77b8a1a2205465956d8c30a3fee6aec5e8428b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: af0a4a719f964e400119be313842f385b410406c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663800"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817431"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces ile ekip geliştirmesi
 
@@ -125,9 +125,9 @@ Aşağıda, farklı alanların nasıl çalıştığını anlamanıza yardımcı 
 Azure Dev Spaces’ın bu yerleşik özelliği, her bir geliştiricinin alanlarındaki hizmetlerin tam yığınını yeniden oluşturmasına gerek kalmadan kodu paylaşılan bir ortamda uçtan uca test etmenize olanak sağlar. Bu yönlendirme, bu kılavuzun önceki adımında gösterildiği gibi yayma üst bilgilerinin uygulama kodunuzda iletilmesini gerektirir.
 
 ### <a name="test-code-running-in-the-devscott-space"></a>Test çalıştırma kod _dev/scott_ alanı
-Yeni sürümünüzü test etmek için *mywebapi* birlikte *webfrontend*, genel erişim noktası URL'sini tarayıcınızda *webfrontend* (örneğin, http://dev.webfrontend.123456abcdef.eastus.aksapp.io)ve hakkında sayfasına gidin. "Hello from webfrontend and Hello from mywebapi" özgün iletisini görmelisiniz.
+Yeni sürümünüzü test etmek için *mywebapi* birlikte *webfrontend*, genel erişim noktası URL'sini tarayıcınızda *webfrontend* (örneğin, http://dev.webfrontend.123456abcdef.eus.azds.io)ve hakkında sayfasına gidin. "Hello from webfrontend and Hello from mywebapi" özgün iletisini görmelisiniz.
 
-Şimdi de http://scott.s.dev.webfrontend.123456abcdef.eastus.aksapp.io gibi bir şekilde olması için "scott.s." kısmını URL’ye ekleyin ve tarayıcıyı yenileyin. Ayarladığınız kesme noktası, *mywebapi* proje isabet. Devam etmek için F5’e tıkladığınızda tarayıcınızda yeni "Hello from webfrontend and mywebapi now says something new." iletisini artık görmeniz gerekir. Bunun nedeni, güncelleştirilmiş kodunuzdaki yolu *mywebapi* çalıştığı _dev/scott_ alanı.
+Şimdi de http://scott.s.dev.webfrontend.123456abcdef.eus.azds.io gibi bir şekilde olması için "scott.s." kısmını URL’ye ekleyin ve tarayıcıyı yenileyin. Ayarladığınız kesme noktası, *mywebapi* proje isabet. Devam etmek için F5’e tıkladığınızda tarayıcınızda yeni "Hello from webfrontend and mywebapi now says something new." iletisini artık görmeniz gerekir. Bunun nedeni, güncelleştirilmiş kodunuzdaki yolu *mywebapi* çalıştığı _dev/scott_ alanı.
 
 Sonra bir _geliştirme_ her zaman en son değişikliklerinizi ve uygulamanızı varsayılarak içeren alan uzay tabanlı Bu öğretici bölümünde anlatıldığı gibi yönlendirme DevSpace'nın yararlanmak için tasarlanmıştır, Umarım kolayca görebilir olur nasıl geliştirme boşluklar önemli ölçüde daha büyük uygulama bağlamında yeni özellikleri test size yardımcı olabilir. Dağıtmak zorunda yerine _tüm_ hizmetler için özel alanınızı öğesinden türetilen özel bir alan oluşturabilirsiniz _geliştirme_ve "yedekleme" yalnızca gerçekten üzerinde çalıştığınız hizmetler. Bu, çalışan en son sürüme geri varsayarak bulabileceğinden kadar Hizmetleri özel alanınızı dışında yararlanarak rest geliştirme alanları yönlendirme altyapısını işleyecek _geliştirme_ alanı. Ve daha iyi yine de _birden çok_ geliştiriciler etkin olarak kullanılmak üzere farklı Hizmetleri aynı anda kendi alanı birbiriyle kesintiye uğratmadan.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: da7ae9c77d7bb94f1d06cf5fdb48149775c93201
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 36402b7dc9c5ee801dd59b03f99b45d6428de187
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333812"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816003"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Performans log Analytics ile izleme
 
@@ -100,4 +100,4 @@ Log Analytics aracısını, head üzerinde eklediğinize göre hangi performans 
 
 * Toplama ilgili [performans sayaçları](service-fabric-diagnostics-event-generation-perf.md). Belirli bir performans sayaçları toplamak için Log Analytics aracısını yapılandırmak için gözden [veri kaynakları yapılandırılarak](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
 * Log Analytics'i yapılandırma [otomatik uyarı verme](../log-analytics/log-analytics-alerts.md) algılama ve tanılama konusunda yardımcı olmak için
-* Alternatif olarak, performans sayaçları aracılığıyla toplayabilirsiniz [Azure tanılama uzantısı ve bunları Application Insights'a gönderme](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)
+* Alternatif olarak, performans sayaçları aracılığıyla toplayabilirsiniz [Azure tanılama uzantısı ve bunları Application Insights'a gönderme](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

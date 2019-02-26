@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e0aaddb841687718295e09e64b23d9cefa9246fd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 29ca8c4114d48fa0d3756930354660712b1b35b3
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436119"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820425"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Bir Linux karma Runbook çalışanı dağıtma
 
@@ -62,7 +62,7 @@ Devam etmeden önce bunları Otomasyon hesabınıza bağlı Log Analytics çalı
 
 1. Etkinleştirme **Otomasyon karma çalışanı** Azure çözümde aşağıdaki yöntemlerden birini kullanarak:
 
-   * Ekle **Otomasyon karma çalışanı** çözüm yordamı kullanarak aboneliğinize [çalışma alanınıza eklemek Log Analytics yönetim çözümleri](../log-analytics/log-analytics-add-solutions.md).
+   * Ekle **Otomasyon karma çalışanı** çözüm yordamı kullanarak aboneliğinize [Azure İzleyici'yi eklemek, çalışma alanınıza çözümleri günlükleri](../log-analytics/log-analytics-add-solutions.md).
    * Aşağıdaki cmdlet'i çalıştırın:
 
         ```azurepowershell-interactive
@@ -87,7 +87,7 @@ Devam etmeden önce bunları Otomasyon hesabınıza bağlı Log Analytics çalı
 
 ## <a name="turning-off-signature-validation"></a>İmza doğrulaması kapatma
 
-Varsayılan olarak, Linux karma Runbook çalışanları imza doğrulaması gerektirir. Bir çalışan karşı imzasız bir runbook Çalıştırma "imza doğrulaması başarısız oldu." diyen bir hata görürsünüz İmza doğrulaması devre dışı bırakmak için aşağıdaki komutu çalıştırın. İkinci parametre, Log Analytics çalışma alanı kimliği ile değiştirin.
+Varsayılan olarak, Linux karma Runbook çalışanları imza doğrulaması gerektirir. Bir çalışan karşı imzasız bir runbook Çalıştırma "imza doğrulaması başarısız oldu." diyen bir hata görürsünüz İmza doğrulaması devre dışı bırakmak için aşağıdaki komutu çalıştırın. İkinci parametre, log analytics çalışma alanı kimliği ile değiştirin.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>

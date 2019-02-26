@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 293c2325f57f04c3a77b0b2b8ec2ef30e8c912b8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: d5c92e31850cdac5e05021fd231259b0d3b064d1
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156247"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822813"
 ---
 # <a name="door-monitor"></a>Kapı İzleyicisi          
 
@@ -66,7 +66,7 @@ SendGrid kayıt formunu göreceksiniz.
 
 Kayıt formunu tamamlayın:
 
-   * **Kaynak grubu**: SendGrid hizmetini barındırmak için bir kaynak grubu oluşturun veya var olanı kullanın. Bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-portal.md).
+   * **Kaynak grubu**: SendGrid hizmetini barındırmak için bir kaynak grubu oluşturun veya var olanı kullanın. Bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/manage-resource-groups-portal.md).
 
    * **Ad**: SendGrid hizmetinizin adı. Bilgisayarınızda yüklü olmayabilir diğer hizmetlerden farklı olan benzersiz bir ad seçin.
 
@@ -106,7 +106,7 @@ Kaydolma formu görüntülenir.
 
 Kayıt formunda alanları doldurun.
 
-   * **Kaynak grubu**: SendGrid hizmetini barındırmak için bir kaynak grubu oluşturun veya var olanı kullanın. Bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-portal.md).
+   * **Kaynak grubu**: SendGrid hizmetini barındırmak için bir kaynak grubu oluşturun veya var olanı kullanın. Bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/manage-resource-groups-portal.md).
 
    * **IOT hub'ı adı**: IOT hub'ınızın adı. Bilgisayarınızda yüklü olmayabilir diğer hizmetlerden farklı olan benzersiz bir ad seçin.
 

@@ -3,7 +3,7 @@ title: Service Fabric Azure dosyaları, birim sürücüsü (Önizleme) | Microso
 description: Service Fabric, Azure dosyaları için yedekleme birimleri, kapsayıcıdan kullanarak destekler. Bu, şu anda Önizleme aşamasındadır.
 services: service-fabric
 documentationcenter: other
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: twhitney, subramar
-ms.openlocfilehash: f2636720f6f1faeffb9a63052efdf009668d806f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.author: aljo, subramar
+ms.openlocfilehash: 5d44904d6210dbc9520ae735605699b197f38bef
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752084"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804140"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure dosyaları, birim sürücüsü (Önizleme)
 Azure dosyaları toplu eklentidir bir [Docker birim eklentisi](https://docs.docker.com/engine/extend/plugins_volume/) sağlayan [Azure dosyaları](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) birimleri Docker kapsayıcıları için temel. Bu Docker birim eklentisi, Service Fabric kümelerine dağıtılabilir bir Service Fabric uygulaması olarak paketlenir. Onun amacı, kümeye dağıtılan diğer Service Fabric kapsayıcı uygulamaları için birim tabanlı Azure dosyaları sağlamaktır.

@@ -3,7 +3,7 @@ title: Azure Service fabric'te ReliableConcurrentQueue
 description: ReliableConcurrentQueue paralel kaybolmamasının sağlar ve dequeues yüksek performanslı kuyruğudur.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: twhitney
-ms.openlocfilehash: 61b53a23fdbb08b226878d9b702ec6bb2879f8bc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.author: aljo
+ms.openlocfilehash: d4d399258ac1bd83fe4cfb46344576ca74e66f1e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185044"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805146"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service fabric'te ReliableConcurrentQueue giriş
 Güvenilir eşzamanlı kuyruk, bir zaman uyumsuz işlem ve çoğaltılan kuyruğa hangi özellikleri yüksek eşzamanlılık kuyruğudur ve sıradan çıkarma işlemleri. Yüksek aktarım hızına ve düşük gecikme süreli katı FIFO tarafından sağlanan sıralama esneterek sunmak için tasarlanan [güvenilir kuyruk](https://msdn.microsoft.com/library/azure/dn971527.aspx) ve bunun yerine bir mümkün olan en iyi sıralama sağlar.
@@ -30,7 +30,7 @@ Güvenilir eşzamanlı kuyruk, bir zaman uyumsuz işlem ve çoğaltılan kuyruğ
 |--------------------------------|------------------------------------------------------------------|
 | void Enqueue(T item)           | Görev EnqueueAsync (ITransaction tx, T öğesi)                       |
 | bool TryDequeue (out T sonuç)  | Görev < ConditionalValue < T >> TryDequeueAsync (ITransaction tx)  |
-| Count() int                    | uzun Count()                                                     |
+| int Count()                    | long Count()                                                     |
 
 ## <a name="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx"></a>Karşılaştırma [güvenilir sırası](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 

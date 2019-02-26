@@ -11,12 +11,12 @@ ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: jeconnoc
-ms.openlocfilehash: 877d49a49333d70ac7660900e49e7c588f52756c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b7eba0e63f68cd56f2bcc310c3bde65c36e933dd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451572"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822472"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure geliştirme alanları'nda iş sürekliliği ve olağanüstü durum kurtarma
 
@@ -93,7 +93,7 @@ Alan ve doğru küme seçtikten sonra hizmeti geliştirme alanlarında çalışt
 
 ## <a name="access-a-service-on-a-backup-cluster"></a>Bir yedekleme kümesi üzerinde bir hizmete erişme
 
-Ardından hizmetinizin genel bir DNS adı kullanmak için yapılandırdıysanız, bir yedekleme kümesinde çalıştırırsanız hizmetin farklı bir URL gerekir. Genel DNS adları her zaman biçiminde `<space name>.s.<service name>.<cluster GUID>.<region>.aksapp.io`. Farklı bir kümeye geçiş, küme GUID ve büyük olasılıkla bölge değişecektir.
+Ardından hizmetinizin genel bir DNS adı kullanmak için yapılandırdıysanız, bir yedekleme kümesinde çalıştırırsanız hizmetin farklı bir URL gerekir. Genel DNS adları her zaman biçiminde `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`. Farklı bir kümeye geçiş, küme GUID ve büyük olasılıkla bölge değişecektir.
 
 Geliştirme alanları çalıştırırken hizmetinin doğru URL her zaman gösterir `azds up`, ya da altında Visual Studio çıktı penceresinde **Azure geliştirme alanları**.
 
@@ -102,7 +102,7 @@ Geliştirme alanları çalıştırırken hizmetinin doğru URL her zaman göster
 $ azds list-uris
 Uri                                                     Status
 ------------------------------------------------------  ---------
-http://mywebapi.d05afe7e006a4fddb73c.eastus.aksapp.io/  Available
+http://default.mywebapi.d05afe7e006a4fddb73c.eus.azds.io/  Available
 ```
 
 Hizmet erişim sırasında bu URL'yi kullanın.

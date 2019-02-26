@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0d67571024c9ace3618f7ae6172122ac48b57faa
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c020d3c7513efda93d7ac5d3bdd79f21f8bc77dd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106738"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818486"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri
 
@@ -28,7 +28,7 @@ https://portal.azure.com adresinden Azure'da oturum açın
 
 Otomasyon hesabınıza gidin ve şunlardan birini seçin **Envanter** veya **değişiklik izleme** altında **yapılandırma yönetimi**.
 
-Log analytics çalışma alanı ve Otomasyon hesabı seçin ve tıklayın **etkinleştirme** çözümü etkinleştirmek için. Çözümün etkinleştirilmesi 15 dakika sürer.
+Log Analytics çalışma alanını ve Otomasyon hesabı seçin ve tıklayın **etkinleştirme** çözümü etkinleştirmek için. Çözümün etkinleştirilmesi 15 dakika sürer.
 
 ![Stok çözümünü ekleme](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
@@ -56,7 +56,7 @@ Değişiklik izleme ve sayım çözümü ekleme bildirimi tamamlandığında **Y
 
 Güncelleştirme Yönetimi çözümü, Azure Windows VM’leriniz için güncelleştirmeleri ve yamaları yönetmenizi sağlar. Kullanılabilir güncelleştirmelerin durumunu değerlendirebilir, gerekli güncelleştirmelerin yüklemesini zamanlayabilir ve güncelleştirmelerin VM’ye başarıyla uygulandığını doğrulamak için dağıtım sonuçlarını gözden geçirebilirsiniz. Bu eylem çözümü VM'niz için etkin.
 
-Seçin **güncelleştirme yönetimi** altında **güncelleştirme yönetimi**. Seçilen Log Analytics çalışma alanı, önceki adımda kullanılan çalışma alanıdır. Güncelleştirme yönetimi çözümünü eklemek için **Etkinleştir**’e tıklayın. Çözümün etkinleştirilmesi 15 dakika sürer.
+Seçin **güncelleştirme yönetimi** altında **güncelleştirme yönetimi**. Seçili Log Analytics çalışma alanı, önceki adımda kullanılan çalışma alanıdır. Güncelleştirme yönetimi çözümünü eklemek için **Etkinleştir**’e tıklayın. Çözümün etkinleştirilmesi 15 dakika sürer.
 
 ![Güncelleştirme çözümü](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
@@ -129,7 +129,7 @@ Aşağıdaki çözümlerden bir Log Analytics çalışma alanına bağlıdır:
 * [Değişiklik İzleme](automation-change-tracking.md)
 * [Vm'leri çalışma saatleri dışında başlatma/durdurma](automation-solution-vm-management.md)
 
-Log Analytics ile Otomasyon hesabınızı tümleştirmek istediğiniz karar verirseniz, doğrudan Azure portalından hesabınızı kesebilir.  Devam etmeden önce öncelikle daha önce bahsedilen çözümleri kaldırmanız gerekir, bu işlem devam etmeden gelen Aksi takdirde engellenir. Kaldırmak için gerekli adımları anlamak için içeri aktardığımıza belirli çözüm makalesini gözden geçirin.
+Bir Log Analytics çalışma alanı ile Otomasyon hesabınızı tümleştirmek istediğiniz karar verirseniz, doğrudan Azure portalından hesabınızı kesebilir.  Devam etmeden önce öncelikle daha önce bahsedilen çözümleri kaldırmanız gerekir, bu işlem devam etmeden gelen Aksi takdirde engellenir. Kaldırmak için gerekli adımları anlamak için içeri aktardığımıza belirli çözüm makalesini gözden geçirin.
 
 Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kaldırmak için aşağıdaki adımları tamamlayabilirsiniz.
 

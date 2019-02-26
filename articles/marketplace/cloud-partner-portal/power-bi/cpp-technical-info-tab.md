@@ -14,33 +14,33 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d96ef2fd318d6164e1b7dfc5c4b72d6957af0f3e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ca77da897eed51c8d832cad7052c2144d6ada562
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744443"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806495"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Power BI Apps Technical Info tab
 
-**Teknik bilgi** sekmesinde **yeni teklif** sayfasıdır paket URL'si ve yeni teklife ilişkin doğrulama için gerekli herhangi bir ek bilgi Power BI yükleyici sağlarsınız.  İlk yayın için tüm Power BI uygulamaları, Appsource'tan ücretsiz, indirilebilir ek ücret ödemeden. Sonuç olarak, herhangi stok tutma birimi (SKU) bu Teklif türü için tanımlamak üzere mümkün olmayacaktır.
+Üzerinde **yeni teklif** sayfasında **teknik bilgi** Power BI yükleyici paket URL'si ve yeni teklif doğrulamak ihtiyacınız olan diğer bilgileri sağlamak için sekmesinde.  İlk yayın için tüm Power BI uygulamaları ücretsizdir ve AppSource kaynağından indirilebilir. Bu nedenle, bu Teklif türü için stok tutma birimi (SKU) tanımlayamazsınız.
 
-![Teknik bilgileri sekmesi](./media/technical-info-tab.png)
+![Teknik bilgi sekmesi](./media/technical-info-tab.png)
 
 
 ## <a name="technical-info-fields"></a>Teknik bilgi alanları 
 
-İçinde **teknik bilgi** sekmesinde, aşağıdaki alanları sağlamanız gerekir.  Alanın etiketine bir eklenmiş yıldız işareti (*) gerekli olduğunu gösterir.
+Üzerinde **teknik bilgi** sekmesinde, aşağıdaki tabloda açıklanan alanları doldurun. Bir alanın etiketini sonunda bir yıldız işareti (*) alanın gerekli olduğunu gösterir.
 
 |        Alan          |  Açıklama                                                                 |
 |    ---------------    |  ----------------------------------------------------------------------------|
-| **Yükleyici URL'si**     | Uygulamayı yayımlayın ve üretim hazırlığına Power BI tarafından oluşturulan adresi.  URL'yi oluşturmak nasıl hakkında daha fazla bilgi için bkz. [hizmet uygulamaları, Power BI'da yayımlama](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
-|  **Doğrulama yönergeleri**  |  Yapılandırma, bağlanan ve uygulamanızı test etme yardımcı olmak için Microsoft doğrulama ekibi için isteğe bağlı metin yönergeleri (en fazla 3000 karakter) da dahil olmak üzere: tipik yapılandırma ayarlarını, test hesapları veya "Veri bağlama" seçeneği, test etmek için kullanılan parametreleri VS. Bu bilgiler, yalnızca doğrulama ekibi için görünür olacak ve yalnızca doğrulama amacıyla kullanılır.  |
-| **Bu uygulama bir Power BI içerik paketi oluşturulur?** | Şu anda bu dahili olarak kullanılan bir alandır. Değerini kendi varsayılan değerine ayarlı bırakın `No`; Aksi takdirde değiştirmek için bu alanı `Yes` yayımlama engel.  |  
+| **Yükleyici URL'si**     | Power BI, uygulamayı yayımlayın ve üretim hazırlığına bu URL oluşturur.  Daha fazla bilgi için [Power BI'da panolar ve raporlar ile uygulama yayımlama](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
+|  **Doğrulama yönergeleri**  |  İsterseniz, yapılandırma, bağlama ve uygulamanızı test Microsoft doğrulama ekibi yardımcı olmak için yönergeleri (3.000 karakter) ekleyin. Tipik yapılandırma ayarları, hesaplar, parametreleri veya veri bağlanma seçeneği test etmek için kullanılabilecek diğer bilgileri içerir. Bu bilgiler yalnızca doğrulama ekibine görülebilir ve yalnızca doğrulama amacıyla kullanılır.  |
+| **Bu uygulama bir Power BI içerik paketi oluşturulur?** | Şu anda, bu alan yalnızca dahili olarak kullanılır. Varsayılan ayarını bırakın **Hayır**. Ayarı değiştirirseniz **Evet**, yayımlama işlemi durdurabilir.  |  
 |  |  |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sonraki [mağaza ayrıntıları](./cpp-storefront-details-tab.md) sekmesi, uygulamanız için pazarlama ve yasal bilgi sağlayacaktır.
+Üzerinde [mağaza ayrıntıları](./cpp-storefront-details-tab.md) sekmesinde, uygulamanızı pazarlama ve yasal bilgiler sağlar.
 

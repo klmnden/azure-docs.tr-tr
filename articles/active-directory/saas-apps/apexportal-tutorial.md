@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a494e403b8afa1424640ac2e24d0f832b3de02dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d64ab85ee2b289878d4468703e8e4d51982a7304
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210620"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820969"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Öğretici: Apex portalı ile Azure Active Directory Tümleştirme
 
@@ -217,8 +217,8 @@ Bu bölümde, Tepe Portalı'na erişim izni verdiğinizde, Azure çoklu oturum a
 
 Bu bölümde, Britta Simon adlı bir kullanıcı Apex portalında oluşturulur. Apex portalı just-ın-time kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Apex Portalı'nda bir kullanıcı zaten mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
 
-> [!NOTE]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [Apex Portal Destek ekibine](mailto:support@apexanalytix.com).
+> [!NOTE]
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [Apex Portal Destek ekibine](mailto:support@apexanalytix.com).
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 

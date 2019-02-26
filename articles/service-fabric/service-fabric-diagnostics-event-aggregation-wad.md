@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 89cd8e85c9902bb1caeedd80240811f59ebec409
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f9db156562692107a5603e15340f01ecf9f9d52c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187445"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823425"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyon
 > [!div class="op_single_selector"]
@@ -61,6 +61,8 @@ Azure depolama, olayları toplayarak göre [Log Analytics'i ayarlama](service-fa
 
 >[!NOTE]
 >Şu anda filtreleyin veya tablolara gönderilen olayların temizleme işlemi yapamazsınız. Olayları tablodan kaldırmak için bir işlem uygulamayıp, tablonun büyümeye devam edecektir (varsayılan cap 50 GB'tır). Bu olan değiştirmek yönergeler [bu makalede daha aşağıda](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Buna ek olarak, çalışan bir veri temizleme hizmeti örneği yok [izleme örnek](https://github.com/Azure-Samples/service-fabric-watchdog-service), ve bir 30 veya 90 günlük süre günlükleri depolamak için geçerli bir nedeniniz yoksa kendiniz için bir tane de yazma önerilir.
+
+
 
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Tanılama uzantısını Azure Resource Manager aracılığıyla dağıtma
 
@@ -292,7 +294,49 @@ Aşağıdaki bölümde açıklanan şekilde bir Application Insights havuz kulla
 
 ## <a name="send-logs-to-application-insights"></a>Günlükleri Application Insights'a gönderme
 
-Application Insights (AI) izleme ve tanılama verisi gönderme WAD yapılandırmasının bir parçası yapılabilir. Olay analiz ve görselleştirme için yapay ZEKA kullanmaya karar verirseniz, okuma [bir yapay ZEKA havuzunu'kurmak nasıl](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template) , "WadCfg" bir parçası olarak.
+### <a name="configuring-application-insights-with-wad"></a>WAD ile Application Insights'ı yapılandırma
+
+>[!NOTE]
+>Bu yalnızca şu anda Windows kümeleri için geçerlidir.
+
+WAD WAD yapılandırma, Azure portalı üzerinden veya bir Azure Resource Manager şablonu aracılığıyla bir Application Insights havuz eklenerek elde edilir Azure Application Insights veri göndermek için birincil iki yolu vardır.
+
+#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Azure Portalı'nda bir küme oluştururken, bir Application Insights izleme anahtarı Ekle
+
+![Bir AIKey ekleme](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
+
+Tanılama "On" kapalıysa bir küme oluştururken, bir Application Insights izleme anahtarını girmek için isteğe bağlı bir alan gösterilir. Application Insights anahtarınızı buraya yapıştırın, Application Insights havuz otomatik olarak sizin için kümenize dağıtmak için kullanılan Resource Manager şablonunda yapılandırılır.
+
+#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Application Insights havuz için Resource Manager şablonu Ekle
+
+"WadCfg" Resource Manager şablonu içinde aşağıdaki iki değişiklikler dahil ederek bir "havuz" ekleyin:
+
+1. Doğrudan, bildirme sonra havuz Yapılandırması Ekle `DiagnosticMonitorConfiguration` tamamlanır:
+
+    ```json
+    "SinksConfig": {
+        "Sink": [
+            {
+                "name": "applicationInsights",
+                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
+            }
+        ]
+    }
+
+    ```
+
+2. Havuza eklemek `DiagnosticMonitorConfiguration` dosyasında aşağıdaki satırı ekleyerek `DiagnosticMonitorConfiguration` , `WadCfg` (hemen önce `EtwProviders` bildirilir):
+
+    ```json
+    "sinks": "applicationInsights"
+    ```
+
+Her iki önceki kod parçacıklarında, adı "Applicationınsights" havuz tanımlamak için kullanıldı. Bu bir gereksinim değildir ve havuz adı "havuzlarını içinde" dahil olduğu sürece, herhangi bir dize adı ayarlayabilirsiniz.
+
+Şu anda, küme günlüklerinden görünmesini olarak **izlemeleri** Application Insights günlük Görüntüleyicisi. En çok platformdan gelen izlemelerin düzeyi "Bilgilendirici" olduğundan, ayrıca yalnızca "Uyarı" veya "Error" türündeki günlükleri göndermek için havuz yapılandırmasını değiştirme göz önünde bulundurun Bu havuz, "Kanalı" ekleyerek gösterildiği şekilde yapılabilir [bu makalede](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+
+>[!NOTE]
+>Portalı veya Resource Manager şablonunuzu yanlış bir Application Insights anahtarı kullanırsanız, gerekir anahtarı el ile değiştirmeniz ve kümeyi güncelleştir / yeniden dağıtma.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

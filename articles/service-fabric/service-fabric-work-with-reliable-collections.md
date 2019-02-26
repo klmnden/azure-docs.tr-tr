@@ -3,8 +3,8 @@ title: Güvenilir koleksiyonlar ile çalışma | Microsoft Docs
 description: Güvenilir koleksiyonlar ile çalışma için en iyi uygulamaları öğrenin.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
-manager: jeanpaul.connock
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2019
-ms.author: twhitney
-ms.openlocfilehash: 9e542143810745712fb148e0b5ebe126cc8a93bf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: aljo
+ms.openlocfilehash: 38aef6e5ba65f67a1dd30ba2c18e180cd92624c6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727889"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805324"
 ---
 # <a name="working-with-reliable-collections"></a>Güvenilir Koleksiyonlar ile çalışma
 Service Fabric, güvenilir koleksiyonlar aracılığıyla .NET geliştiricileri için kullanılabilen bir durum bilgisi olan programlama modeli sunar. Özellikle, Service Fabric, güvenilir bir sözlük ve güvenilir bir kuyruk sınıfları sağlar. Bu sınıfların kullandığınızda, durumunuzu (ölçeklenebilirlik) bölümlenmiş çoğaltılan (kullanılabilirlik için) ve bir bölüm (için ACID semantiği) içinde hareket gerçekleşti. Şimdi bir güvenilir bir sözlük nesnesi tipik bir kullanım sırasında bakın ve hangi gerçekten başardığını görün.

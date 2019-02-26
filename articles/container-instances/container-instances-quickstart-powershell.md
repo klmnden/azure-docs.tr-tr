@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e8efcbe080cc33cb6153d97d4435bcb477587980
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b8cb84523288f45dfb719d69e4f7d227039598a9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565862"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806921"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell ile Azure Container ınstances'da bir kapsayıcı uygulaması çalıştırma
 
@@ -23,42 +23,44 @@ Docker kapsayıcılarınızı kolay ve hızlı bir şekilde Azure'da çalıştı
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.5 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici Azure PowerShell modülünü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-Az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Tüm Azure kaynakları gibi Azure kapsayıcı örneklerinin de bir kaynak grubuna dağıtılması gerekir. Kaynak grupları, ilgili Azure kaynaklarını düzenlemenizi ve yönetmenizi sağlar.
 
-İlk olarak aşağıdaki [New-AzureRmResourceGroup][New-AzureRmResourceGroup] komutunu kullanarak *eastus* bölgesinde *myResourceGroup* adlı bir kaynak grubu oluşturun:
+İlk olarak, adlı bir kaynak grubu oluşturma *myResourceGroup* içinde *eastus* aşağıdaki konum [yeni AzResourceGroup] [ New-AzResourceGroup] komut:
 
  ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-Artık bir kaynak grubuna sahip olduğunuza göre Azure'da kapsayıcı çalıştırabilirsiniz. Azure PowerShell ile kapsayıcı örneği oluşturmak için [New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet'inde bir kaynak grubu adı, kapsayıcı örneği adı ve Docker kapsayıcı görüntüsü belirtin. Bu hızlı başlangıçta, kullandığınız `microsoft/iis:nanoserver` Windows görüntü genel Docker Hub kayıt defterinden. Bu görüntü, Nano Sunucu'da çalıştırmak için Internet Information Services (IIS) paketleri.
+Artık bir kaynak grubuna sahip olduğunuza göre Azure'da kapsayıcı çalıştırabilirsiniz. Azure PowerShell ile bir kapsayıcı örneği oluşturmak için bir kaynak grubu adı, kapsayıcı örneği adı ve Docker kapsayıcı görüntüsüne sağlamanız [yeni AzContainerGroup] [ New-AzContainerGroup] cmdlet'i. Bu hızlı başlangıçta, kullandığınız `microsoft/iis:nanoserver` Windows görüntü genel Docker Hub kayıt defterinden. Bu görüntü, Nano Sunucu'da çalıştırmak için Internet Information Services (IIS) paketleri.
 
 Açılacak bir veya daha fazla bağlantı noktası, DNS ad etiketi ya da ikisini birden belirterek kapsayıcılarınızı internete açabilirsiniz. Bu hızlı başlangıçta, böylece IIS genel olarak erişilebilir olduğundan bir DNS ad etiketi içeren bir kapsayıcıya dağıtın.
 
 Bir kapsayıcı örneği başlatmak için aşağıdaki komutu yürütün. `-DnsNameLabel` değeri, örneği oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. "DNS ad etiketi kullanılamıyor" hata iletisiyle karşılaşırsanız farklı bir DNS ad etiketi deneyin.
 
  ```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
+New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-Birkaç saniye içinde Azure’dan bir yanıt almanız gerekir. Kapsayıcının `ProvisioningState` değeri başlangıçta **Oluşturuluyor** şeklindedir ancak birkaç dakika içinde **Başarılı** olarak değişmesi gerekir. [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] cmdlet’ini kullanarak dağıtım durumunu denetleyin:
+Birkaç saniye içinde Azure’dan bir yanıt almanız gerekir. Kapsayıcının `ProvisioningState` değeri başlangıçta **Oluşturuluyor** şeklindedir ancak birkaç dakika içinde **Başarılı** olarak değişmesi gerekir. Dağıtım durumunu denetleyin [Get-AzContainerGroup] [ Get-AzContainerGroup] cmdlet:
 
  ```azurepowershell-interactive
-Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
 Kapsayıcının sağlama durumu, tam etki alanı adı (FQDN) ve IP adresi, cmdlet çıkışında görüntülenir:
 
 ```console
-PS Azure:\> Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+PS Azure:\> Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 
 
 ResourceGroupName        : myResourceGroup
@@ -87,10 +89,10 @@ Kapsayıcının `ProvisioningState` bilgisi **Başarılı** olduğunda tarayıc�
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kapsayıcıyla işiniz bittiğinde [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] cmdlet’ini kullanarak kapsayıcıyı kaldırabilirsiniz:
+Kapsayıcıyla işiniz bittiğinde kaldırmak ile [Remove-AzContainerGroup] [ Remove-AzContainerGroup] cmdlet:
 
  ```azurepowershell-interactive
-Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -104,7 +106,7 @@ Bu hızlı başlangıçta, genel bir Docker Hub deposundaki bir görüntüden bi
 [qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png
 
 <!-- LINKS -->
-[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
-[New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
-[Remove-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/remove-azurermcontainergroup
+[New-AzResourceGroup]: /powershell/module/az.resources/new-Azresourcegroup
+[New-AzContainerGroup]: /powershell/module/az.containerinstance/new-Azcontainergroup
+[Get-AzContainerGroup]: /powershell/module/az.containerinstance/get-Azcontainergroup
+[Remove-AzContainerGroup]: /powershell/module/az.containerinstance/remove-Azcontainergroup

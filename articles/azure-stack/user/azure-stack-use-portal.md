@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252056"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819369"
 ---
 # <a name="use-the-azure-stack-portal"></a>Azure Stack portalını kullanın
 
@@ -40,6 +40,10 @@ Genel tekliflere abone olmak için Azure Stack portalını kullanın ve bu tekli
 Pano kutucukları varsayılan kümesini içerir. Seçebileceğiniz **panoyu Düzenle** varsayılan pano değiştirmek veya **yeni Pano** özel bir Pano oluşturmak için. Ekleyerek veya kaldırarak kutucukları bir panoya kolayca özelleştirebilirsiniz. Örneğin, bir işlem kutucuk eklemek için seçin **+ kaynak Oluştur**. Sağ **işlem**ve ardından **panoya Sabitle**.
 
 ![Azure Stack kullanıcı portalının ekran yakalama](media/azure-stack-use-portal/userportal.png)
+
+Pano özgün ayarlarına geri yüklemek için:
+1.  Seçin **düzenleyin, panoyu**. 
+2.  Sağ tıklayıp **varsayılan durumuna sıfırlansın**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Abonelik oluşturmak ve kullanılabilir kaynaklara göz atın
 

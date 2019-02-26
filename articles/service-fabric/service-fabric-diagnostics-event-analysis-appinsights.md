@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: efcd2e279d1bf387bc11c238a0592ecee6545cc4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7a3abd854ec5e492407d1fbdc8d170f2a27ba1bc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053628"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816734"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Olay analizi ve Application Insights ile Görselleştirme
 
@@ -48,50 +48,6 @@ Application Insights gelen tüm verilerde sorgulama için bir atanan görünüm�
 ![Application Insights İstek Ayrıntıları](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
 Application Insights portalında yeteneklerini daha iyi keşfedilebilmesi için attıktan [Application Insights portal belgeleri](../azure-monitor/app/app-insights-dashboards.md).
-
-### <a name="configuring-application-insights-with-wad"></a>WAD ile Application Insights'ı yapılandırma
-
->[!NOTE]
->Bu yalnızca şu anda Windows kümeleri için geçerlidir.
-
-WAD içinde ayrıntılı olarak WAD yapılandırma için bir Application Insights havuz ekleyerek gerçekleştirilir Azure Application Insights veri göndermek için birincil iki yolu vardır [bu makalede](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
-#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Azure Portalı'nda bir küme oluştururken, bir Application Insights izleme anahtarı Ekle
-
-![Bir AIKey ekleme](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
-
-Tanılama "On" kapalıysa bir küme oluştururken, bir Application Insights izleme anahtarını girmek için isteğe bağlı bir alan gösterilir. Application Insights anahtarınızı buraya yapıştırın, Application Insights havuz otomatik olarak sizin için kümenize dağıtmak için kullanılan Resource Manager şablonunda yapılandırılır.
-
-#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Application Insights havuz için Resource Manager şablonu Ekle
-
-"WadCfg" Resource Manager şablonu içinde aşağıdaki iki değişiklikler dahil ederek bir "havuz" ekleyin:
-
-1. Doğrudan, bildirme sonra havuz Yapılandırması Ekle `DiagnosticMonitorConfiguration` tamamlanır:
-
-    ```json
-    "SinksConfig": {
-        "Sink": [
-            {
-                "name": "applicationInsights",
-                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
-            }
-        ]
-    }
-
-    ```
-
-2. Havuza eklemek `DiagnosticMonitorConfiguration` dosyasında aşağıdaki satırı ekleyerek `DiagnosticMonitorConfiguration` , `WadCfg` (hemen önce `EtwProviders` bildirilir):
-
-    ```json
-    "sinks": "applicationInsights"
-    ```
-
-Her iki önceki kod parçacıklarında, adı "Applicationınsights" havuz tanımlamak için kullanıldı. Bu bir gereksinim değildir ve havuz adı "havuzlarını içinde" dahil olduğu sürece, herhangi bir dize adı ayarlayabilirsiniz.
-
-Şu anda, küme günlüklerinden görünmesini olarak **izlemeleri** Application Insights günlük Görüntüleyicisi. En çok platformdan gelen izlemelerin düzeyi "Bilgilendirici" olduğundan, ayrıca yalnızca "Kritik" veya "Error" türündeki günlükleri göndermek için havuz yapılandırmasını değiştirme göz önünde bulundurun Bu havuz, "Kanalı" ekleyerek gösterildiği şekilde yapılabilir [bu makalede](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
->[!NOTE]
->Portalı veya Resource Manager şablonunuzu yanlış bir Application Insights anahtarı kullanırsanız, gerekir anahtarı el ile değiştirmeniz ve kümeyi güncelleştir / yeniden dağıtma.
 
 ### <a name="configuring-application-insights-with-eventflow"></a>EventFlow ile Application Insights'ı yapılandırma
 

@@ -1,28 +1,23 @@
 ---
 title: Azure ExpressRoute doğrudan - yapılandırma | Microsoft Docs
-description: Bu sayfa ExpressRoute doğrudan (Önizleme) yapılandırmanıza yardımcı olur.
+description: Bu sayfa ExpressRoute doğrudan yapılandırmanıza yardımcı olur.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/02/2018
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 05eb75c77cef5b975d0122714bb0ec9fba1d09a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9157466f0768b052f55f6d225e72ae7a036f8b9c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463983"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822181"
 ---
-# <a name="how-to-configure-expressroute-direct-preview"></a>ExpressRoute doğrudan (Önizleme) yapılandırma
+# <a name="how-to-configure-expressroute-direct"></a>ExpressRoute doğrudan'ı yapılandırma
 
 ExpressRoute doğrudan, Microsoft'un küresel ağı dünya genelindeki stratejik dağıtılmış eşleme konumlarda doğrudan bağlanma özelliği sağlar. Daha fazla bilgi için [hakkında ExpressRoute doğrudan bağlanma](expressroute-erdirect-about.md).
-
-> [!IMPORTANT]
-> ExpressRoute doğrudan şu anda Önizleme aşamasındadır.
->
-> Bu genel önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılmamalıdır. Belirli özellikler desteklenmiyor olabilir, kısıtlı yeteneklere sahip olabilir veya tüm Azure konumlarında mevcut olmayabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="resources"></a>Kaynak Oluştur
 

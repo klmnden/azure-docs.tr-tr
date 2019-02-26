@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: a47910083083787000b749a0b5b3256df5e702c8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2576d8d65fb6a72d5d90de57297afe2ea601c0fa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845410"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816835"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Oluşturma ve Azure portalında sanal düğümü kullanmak için Azure Kubernetes Hizmetleri (AKS) kümesi yapılandırma
 
@@ -19,6 +19,16 @@ Azure Kubernetes Service (AKS) kümesini iş yüklerini hızla dağıtmak için 
 
 > [!IMPORTANT]
 > AKS için sanal düğümü şu anda **Önizleme**. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+
+## <a name="preview-limitations"></a>Önizleme sınırlamaları
+
+Bu özellik Önizleme aşamasında olduğu sürece, aşağıdaki bölgelerde dağıtımları için desteklenir:
+
+* Avustralya Doğu (australiaeast)
+* Doğu ABD (myresourcegroup)
+* Batı Orta ABD (westcentralus)
+* Batı Avrupa (westeurope)
+* Batı ABD (westus)
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 

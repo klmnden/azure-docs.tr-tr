@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 283cf8d13260531a12fa6c860d1a4e7b6207d22e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fe259b6a0f45828e100de33f533e370323128eef
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674625"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821705"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google B2B Konuk kullanıcılar için kimlik sağlayıcısı Ekle
 
@@ -99,8 +99,8 @@ Google Federasyon kurulumunuzu silebilirsiniz. Bunu yaparsanız, davetini zaten 
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Azure AD portalında Google Federasyon silmek için: 
 1. [Azure Portal](https://portal.azure.com) gidin. Sol bölmede **Azure Active Directory**’yi seçin. 
 2. Seçin **kuruluş ilişkileri**.
-3. Seçin **kimlik sağlayıcıları**ve ardından **Google** düğmesi.
-4. Seçin **Google**ve ardından **Sil**. 
+3. Seçin **kimlik sağlayıcıları**.
+4. Üzerinde **Google** satır, bağlam menüsünü (**...** ) ve ardından **Sil**. 
    
    ![Sosyal kimlik sağlayıcısı silindi](media/google-federation/google-social-identity-providers.png)
 

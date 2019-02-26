@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 039e2d3c70493868ca2f79e89fc82d8970ec6865
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 894fc42954182171588d81e2f7f1e37141af9add
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032415"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821260"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Bir Azure sanal makinesinden yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri
 
@@ -34,7 +34,7 @@ Azure Log Analytics çalışma alanını ve Otomasyon hesabı seçin ve ardında
 
 ![Yerleşik güncelleştirme yönetimi çözümü](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-Diğer çözümleri gidin ve ardından **etkinleştirme**. Bu çözümler daha önce etkin bir çözüm olarak aynı çalışma alanını ve Otomasyon hesabı kullandığından, Log Analytics ve Otomasyon hesabı açılan listeler devre dışı bırakıldı.
+Diğer çözümleri gidin ve ardından **etkinleştirme**. Bu çözümler daha önce etkin bir çözüm olarak aynı çalışma alanını ve Otomasyon hesabı kullandığından Log Analytics çalışma alanını ve Otomasyon hesabı açılan listeler devre dışı bırakıldı.
 
 > [!NOTE]
 > **Değişiklik izleme** ve **Envanter** aynı çözümü kullanın. Bu çözümlerden birini etkinleştirildiğinde, diğeri de etkinleştirilir.
@@ -76,7 +76,7 @@ Aşağıdaki çözümlerden bir Log Analytics çalışma alanına bağlıdır:
 * [Değişiklik İzleme](automation-change-tracking.md)
 * [Vm'leri çalışma saatleri dışında başlatma/durdurma](automation-solution-vm-management.md)
 
-Log Analytics ile Otomasyon hesabınızı tümleştirmek istediğiniz karar verirseniz, doğrudan Azure portalından hesabınızı kesebilir.  Devam etmeden önce öncelikle daha önce bahsedilen çözümleri kaldırmanız gerekir, bu işlem devam etmeden gelen Aksi takdirde engellenir. Kaldırmak için gerekli adımları anlamak için alınan belirli çözüm makalesini gözden geçirin.
+Bir Log Analytics çalışma alanı ile Otomasyon hesabınızı tümleştirmek istediğiniz karar verirseniz, doğrudan Azure portalından hesabınızı kesebilir.  Devam etmeden önce öncelikle daha önce bahsedilen çözümleri kaldırmanız gerekir, bu işlem devam etmeden gelen Aksi takdirde engellenir. Kaldırmak için gerekli adımları anlamak için alınan belirli çözüm makalesini gözden geçirin.
 
 Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kaldırmak için aşağıdaki adımları gerçekleştirebilirsiniz.
 

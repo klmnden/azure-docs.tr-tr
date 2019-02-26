@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 7371808db8d40948f501b051692172fd6a84e2ac
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: d4dae65f3e88bbc210fea4bf9dbed391c1e9ba69
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270224"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822198"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Öğretici: Resource Manager şablon dağıtımı Azure anahtar kasası tümleştirme
 
@@ -187,12 +187,9 @@ $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json `
-    -TemplateParameterFile azuredeploy.parameters.json
+    -TemplateFile "$HOME/azuredeploy.json" `
+    -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
 ```
-
-> [!NOTE]
-> Dosya g/ç Cloud shell'de Azure PowerShell kullanarak sorun yoktur.  Hata iletisi *cmdlet'i için dinamik parametreler alınamıyor. Bunu mevcut olmadığından 'Azure:/azuredeploy.json' yolu bulunamıyor.*  Dahil edilmemesi için geçici bir çözüm olan **- TemplateFile** ve **TemplateParameterFile** geçer `New-AzResourceGroupDeploy` komutu. Komut dosya adını girmenizi ister.
 
 Şablonu dağıtırken, anahtar kasası olarak aynı kaynak grubunu kullanın. Bu işlem kaynakları temizlemeyi kolaylaştırır. İki yerine tek bir kaynak grubu silmeniz gerekir.
 

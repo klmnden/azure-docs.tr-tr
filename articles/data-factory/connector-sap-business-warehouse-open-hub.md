@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 74061eb081fcc7c2c84707f2414a2edfbfde3289
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fe0783891bd5f571c06551e19c154d6f22768e84
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299546"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821550"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>SAP Business Warehouse açık bir Azure Data Factory kullanarak hub'ı aracılığıyla veri kopyalama
 
@@ -27,7 +27,7 @@ Bu makalede, kopyalama etkinliği Azure Data Factory'de bir SAP Business Warehou
 
 [SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) SAP BW verileri ayıklamak için etkili bir yoludur. Aşağıdaki diyagramda imajlarını kendi SAP sistemde tipik akışlar birini gösterir, SAP ECC hangi büyük veri akışları PSA -> DSO -> Küp ->.
 
-SAP BW Open Hub hedef (OHD) için SAP veri geçirilen hedef tanımlar. SAP veri aktarım işlemi (DTP) tarafından desteklenen herhangi bir nesne açık hub'ı veri kaynakları, örneğin, DSO, Infocube, MultiProvider, veri kaynağı, vb. olarak kullanılabilir. Veritabanı tabloları (yerel veya uzak) - geçirilen verilerin depolandığı - açık Hub hedef türü olabilir ve düz dosyaları. BW OHD yerel tabloda veri kopyalama bu SAP BW Open Hub Bağlayıcısı desteği. Durumunda diğer türleri kullanıyorsanız, veritabanı veya dosya sistemine diğer bağlayıcıları kullanarak doğrudan bağlantı kurabilir.
+SAP BW Open Hub hedef (OHD) için SAP veri geçirilen hedef tanımlar. SAP veri aktarım işlemi (DTP) tarafından desteklenen herhangi bir nesne açık hub'ı veri kaynakları, örneğin DSO, Infocube, veri kaynağı, vb. olarak kullanılabilir. Veritabanı tabloları (yerel veya uzak) - geçirilen verilerin depolandığı - açık Hub hedef türü olabilir ve düz dosyaları. BW OHD yerel tabloda veri kopyalama bu SAP BW Open Hub Bağlayıcısı desteği. Durumunda diğer türleri kullanıyorsanız, veritabanı veya dosya sistemine diğer bağlayıcıları kullanarak doğrudan bağlantı kurabilir.
 
 ![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
@@ -37,7 +37,7 @@ Tüm desteklenen havuz veri deposuna SAP Business Warehouse açık hub'ı üzeri
 
 Özellikle, bu SAP Business Warehouse açık Hub bağlayıcı'yı destekler:
 
-- SAP Business Warehouse **sürüm 7.30 veya üzeri (yığındaki son SAP destek paketi 2015 yıl sonra yayımlanan)**.
+- SAP Business Warehouse **sürüm 7.01 veya üzeri (yığındaki son SAP destek paketi 2015 yıl sonra yayımlanan)**.
 - Olabilen altında DSO, Infocube, MultiProvider, veri kaynağı, vb. açık Hub hedef yerel tablo aracılığıyla veri kopyalama.
 - Temel kimlik doğrulaması kullanarak veri kopyalama.
 - Uygulama sunucusuna bağlanılıyor.

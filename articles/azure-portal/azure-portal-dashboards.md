@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: kfollis
-ms.openlocfilehash: 4a2dee4ad90fb269268ec7d3e86def58f2444e3a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884737"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818587"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure portalında panoları oluşturma ve paylaşma
 Birden çok Pano oluşturma ve Azure aboneliklerinizi erişimi olan diğer kişilerle paylaşabilirsiniz.  Bu makalede, oluşturma, düzenleme, yayımlama ve Pano erişimini yönetme temelleri gider.
@@ -93,6 +93,6 @@ Panonuzu yayımlandıktan sonra **paylaşım ve erişim** kontrol bölmesini yen
 ![erişim denetimini yönetme](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kaynakları yönetmek için bkz: [Azure kaynaklarınızı portal üzerinden yönetme](../azure-resource-manager/resource-group-portal.md).
+* Kaynakları yönetmek için bkz: [Azure portalını kullanarak Azure kaynaklarınızı yönetme](../azure-resource-manager/manage-resources-portal.md).
 * Kaynakları dağıtmak için bkz. [kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](../azure-resource-manager/resource-group-template-deploy-portal.md).
 

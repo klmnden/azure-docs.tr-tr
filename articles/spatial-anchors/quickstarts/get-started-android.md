@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ed5e33d45127a61a9c87249cc3eba88050554a54
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 64e5e78f93488b2c375c617e8857c84ba2171f00
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752309"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822404"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal Çıpasıyla Android uygulaması oluşturma
 
@@ -63,7 +63,7 @@ Sonraki adım hesap tanımlayıcısı ve hesap anahtarını uzamsal bağlayıcı
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 
-Açık `Android/Java/app/src/main/java/com/microsoft/sampleandroid/ARActive.java`.
+Açık `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsActivity.java`.
 
 Bulun `SpatialAnchorsAccountKey` değiştirin ve alan `Set me` ile hesap anahtarı.
 

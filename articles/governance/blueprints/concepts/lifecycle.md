@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c1e596516136240b1d1d08b4e8386e9cf5ef48e5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563720"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819131"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Bir Azure blueprint'in yaşam döngüsünü anlama
 
@@ -35,7 +35,7 @@ Bir şema ve aşamalar tam olarak anlamak için standart bir yaşam döngüsü d
 
 Bir şema oluşturma eklediğinizde, yapılara bir yönetim grubuna veya aboneliğe kaydedin ve benzersiz bir ad ve benzersiz bir sürümü sağlanmaktadır. Blueprint artık bulunduğu bir **taslak** modu ve henüz atanamaz. İçinde çalışırken **taslak** modu da devam edebilirsiniz güncelleştirilen ve değiştirildi.
 
-A hiçbir zaman blueprint'te yayımlanan **taslak** modu üzerinde farklı bir simge görüntüler **şema tanımları** olan olanları sayfadan **yayımlanan**. **En son sürümü** olarak da görüntülenip **taslak** hiçbir zaman yayımlanan bu planlar için.
+A hiçbir zaman blueprint'te yayımlanan **taslak** modu üzerinde farklı bir simge görüntüler **şema tanımları** olan olanları sayfadan **yayımlanan**. **En son sürümü** olarak görüntülenen **taslak** hiçbir zaman yayımlanan bu planlar için.
 
 Oluşturma ve düzenleme ile bir şema [Azure portalında](../create-blueprint-portal.md#create-a-blueprint) veya [REST API](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -68,9 +68,9 @@ Her bir şema sürümü benzersiz bir nesnedir ve ayrı ayrı olabilir **yayıml
 > [!NOTE]
 > Etkin bir ataması yok bir şema silmek mümkün değildir. Atamaları silin ve ardından kaldırmak istediğiniz sürümü silin.
 
-1. **Tüm hizmetler**'e tıklayın ve **İlke** araması yapıp sol taraftaki bölmeden seçin. **İlke** sayfasında **Şemalar**’a tıklayın.
+1. Seçin **tüm hizmetleri** sol bölmesinde. Arayın ve seçin **şemaları**.
 
-1. Seçin **şema tanımları** sayfasında sol ve bir sürümünü silmek istediğiniz şema bulmak için filtre seçeneklerini kullanın. Düzen sayfasını açmak için tıklayın.
+1. Seçin **Blueprint tanımları** sayfasında sol ve bir sürümünü silmek istediğiniz şema bulmak için filtre seçeneklerini kullanın. Düzen sayfasını açmak için tıklayın.
 
 1. Tıklayın **sürümleri yayımlanan** sekmesini ve silmek istediğiniz sürümü bulun.
 

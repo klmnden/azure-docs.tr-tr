@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3e217e0e3367c6e1200567f589749fec9e626da8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428486"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817465"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Otomasyonu verilerini yönetme
 Bu makale, bir Azure Otomasyonu ortamı yönetmek için birden çok konuları içerir.
@@ -39,7 +39,7 @@ Aşağıdaki tabloda, farklı kaynaklar için bekletme ilkesi özetlenmektedir.
 
 Bekletme İlkesi, tüm kullanıcılar için geçerlidir ve şu anda özelleştirilemez.
 
-Ancak, uzun bir süre saklamak istiyorsanız iş günlüklerini Log analytics'e runbook iletebilir.  Daha fazla bilgi için gözden [Azure Otomasyonu iş verilerini Log Analytics'e iletme](automation-manage-send-joblogs-log-analytics.md).   
+Ancak, uzun bir süre saklamak istiyorsanız iş günlüklerini Azure İzleyici günlüklerine runbook iletebilir.  Daha fazla bilgi için gözden [iletmek Azure Otomasyonu iş verilerini Azure İzleyici günlüklerine](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Azure Otomasyonunu Yedekleme
 Microsoft azure'da bir Otomasyon hesabı sildiğinizde, hesaptaki tüm nesnelere runbook'ları, modüller, yapılandırmaları, ayarları, işleri ve varlıkları dahil olmak üzere silinir. Nesneleri, hesap silindikten sonra kurtarılamaz.  Otomasyon hesabınızın içeriğini silmeden önce yedeklemek için aşağıdaki bilgileri kullanabilirsiniz. 

@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 02/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 0f38902a166de8d623106849a124b8e2e5cceb5c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ac9bb6969e7771e1570670c83c88ddc892dc759e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674811"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823595"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Lake depolama Gen2'ye gelen veya veri kopyalama kullanarak Azure Data Factory
 
@@ -98,10 +98,16 @@ Hizmet sorumlusu kimlik doğrulaması kullanmak için aşağıdaki adımları iz
     - Uygulama anahtarı
     - Kiracı Kimliği
 
-2. Hizmet sorumlusu uygun Azure depolamada izni.
+2. Hizmet sorumlusu uygun izni verin.
 
-    - **Kaynak olarak**, erişim denetimi (IAM), en az izni **depolama Blob verileri okuyucu** rol.
-    - **Havuz olarak**, erişim denetimi (IAM), en az izni **depolama Blob verileri katkıda bulunan** rol.
+    - **Kaynak olarak**, Depolama Gezgini içinde en az izni **okuma + yürütme** listelemek ve klasör ve alt klasörlerde dosyaları kopyalayın veya ver izni **okuma** tek bir dosyayı kopyalama izni. Alternatif olarak, erişim denetimi (IAM), en az izni **depolama Blob verileri okuyucu** rol.
+    - **Havuz olarak**, Depolama Gezgini içinde en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak için izni. Alternatif olarak, erişim denetimi (IAM), en az izni **depolama Blob verileri katkıda bulunan** rol.
+
+>[!NOTE]
+>Listeye klasör, kökten başlayarak izni için izin verilen hizmet sorumlusunun ayarlamanız gerekir. **"Yürütme" iznine sahip kök düzeyinde** veya IAM izni. Kullandığınızda, bu durum geçerlidir:
+>- **Kopyalama aracı veri** Yazar kopyalama işlem hattını için.
+>- **Data Factory kullanıcı arabirimini** bağlantı ve geliştirme sırasında klasörleri gezinme test etmek için. 
+>Kök düzeyinde izin verme üzerinde kaygısı varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Hizmet sorumlusu kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışmaya devam eder.
 
 Bu özellikleri bağlı hizmetinde desteklenir:
 
@@ -146,10 +152,16 @@ Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak
 
 1. [Data factory yönetilen kimlik bilgileri almak](data-factory-service-identity.md#retrieve-managed-identity) "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak.
 
-2. Azure depolama alanında yönetilen kimlik uygun izni verin. 
+2. Yönetilen kimlik uygun izni verin. 
 
-    - **Kaynak olarak**, erişim denetimi (IAM), en az izni **depolama Blob verileri okuyucu** rol.
-    - **Havuz olarak**, erişim denetimi (IAM), en az izni **depolama Blob verileri katkıda bulunan** rol.
+    - **Kaynak olarak**, Depolama Gezgini içinde en az izni **okuma + yürütme** listelemek ve klasör ve alt klasörlerde dosyaları kopyalayın veya ver izni **okuma** tek bir dosyayı kopyalama izni. Alternatif olarak, erişim denetimi (IAM), en az izni **depolama Blob verileri okuyucu** rol.
+    - **Havuz olarak**, Depolama Gezgini içinde en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak için izni. Alternatif olarak, erişim denetimi (IAM), en az izni **depolama Blob verileri katkıda bulunan** rol.
+
+>[!NOTE]
+>Listeye klasör, kökten başlayarak izni için izin verilen yönetilen kimlik ayarlamanız gerekir. **"Yürütme" iznine sahip kök düzeyinde** veya IAM izni. Kullandığınızda, bu durum geçerlidir:
+>- **Kopyalama aracı veri** Yazar kopyalama işlem hattını için.
+>- **Data Factory kullanıcı arabirimini** bağlantı ve geliştirme sırasında klasörleri gezinme test etmek için. 
+>Kök düzeyinde izin verme üzerinde kaygısı varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Yönetilen kimlik kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışmaya devam eder.
 
 Bu özellikleri bağlı hizmetinde desteklenir:
 

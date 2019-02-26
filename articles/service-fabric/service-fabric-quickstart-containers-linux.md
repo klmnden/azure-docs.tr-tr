@@ -3,7 +3,7 @@ title: Azure'da Service Fabric üzerinde Linux kapsayıcı uygulaması oluşturm
 description: Bu hızlı başlangıçta uygulamanızla bir Docker görüntüsü oluşturacak, görüntüyü bir kapsayıcı kayıt defterine iletecek ve kapsayıcınızı bir Service Fabric kümesine dağıtacaksınız.
 services: service-fabric
 documentationcenter: linux
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/30/2019
-ms.author: twhitney,suhuruli
+ms.author: aljo,suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fdb0d8e8def8429ff4c7c377df254fdfc0300637
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 559b51b70c2bcb18d74d77fddaf928e0356435df
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508853"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804562"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Hızlı Başlangıç: Linux kapsayıcıları Service Fabric'e dağıtma
 

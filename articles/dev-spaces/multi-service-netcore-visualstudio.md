@@ -12,19 +12,19 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: b91fb86dfa8ca0d8e75be2c44f9821df84739790
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6a9058d7f84b336b332ffdaf9b41abfb660433e6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666438"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819863"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Azure geliştirme alanları ile birden çok hizmet geliştirme
 
 Bu öğreticide, bazı geliştirme alanları sağlayan sağlamasının yanı sıra Azure geliştirme alanları kullanarak, çoklu hizmet uygulamalarını nasıl geliştirebileceğinizi öğreneceksiniz.
 
 ## <a name="call-another-container"></a>Başka bir kapsayıcı çağırma
-Bu bölümde `mywebapi` adlı ikinci bir hizmet oluşturacak ve bu hizmetin `webfrontend` tarafından çağrılmasını sağlayacaksınız. Her hizmet ayrı kapsayıcılarda çalışır. Ardından her iki kapsayıcıda da hata ayıklayacaksınız.
+Bu bölümde, ikinci bir hizmet oluşturacağız `mywebapi`ve `webfrontend` bunu çağırın. Her hizmet ayrı kapsayıcılarda çalışır. Ardından her iki kapsayıcıda da hata ayıklayacaksınız.
 
 ![](media/common/multi-container.png)
 
@@ -35,14 +35,14 @@ Zamandan kazanmak adına örnek kodu bir GitHub deposundan indirelim. https://gi
 1. `mywebapi` projesini *ayrı bir Visual Studio penceresinde* açın.
 1. Daha önce `webfrontend` projesinde yaptığınız gibi başlatma ayarları açılır listesinden **Azure Dev Spaces** seçeneğini belirleyin. Bu sefer yeni bir AKS kümesi oluşturmak yerine, önceden oluşturduğunuz ortamı seçin. Önceki seferde olduğu gibi, Alan açılır listesini varsayılan `default` değerinde bırakın ve **Tamam**’a tıklayın. Çıkış penceresinde, hata ayıklamaya başlarken süreci hızlandırmak adına Visual Studio’nun bu yeni hizmeti geliştirme alanınızda “hazırlamaya” başladığını fark edebilirsiniz.
 1. F5'e bastıktan sonra hizmetin oluşturulup dağıtılmasını bekleyin. Visual Studio durum çubuğu turuncuya döndüğünde hazır olduğunu biliyor olacaksınız
-1. **Çıkış** penceresindeki **AKS için Azure Dev Spaces** bölmesinde görüntülenen uç nokta URL’sini not edin. http://localhost:\<portnumber\> gibi görünür. Kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte Azure’daki geliştirme ortamında çalışıyordur.
+1. Uç nokta URL'si görüntülendiğinde Not **AKS için Azure geliştirme alanları** bölmesinde **çıkış** penceresi. http://localhost:\<portnumber\> gibi görünür. Kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte Azure’daki geliştirme ortamında çalışıyordur.
 2. `mywebapi` hazır olduğunda, tarayıcınızı localhost adresine açın ve `ValuesController` için varsayılan GET API’yi çağırmak üzere URL’ye `/api/values` öğesini ekleyin. 
 3. Tüm adımları başarılı olursa, `mywebapi` hizmetinden şöyle bir yanıt görebilmelisiniz.
 
     ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
 
 ### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>*webfrontend*’den *mywebapi*’ye istek gönderme
-Şimdi `webfrontend` uygulamasında `mywebapi` hizmetine istek gönderen bir kod yazalım. `webfrontend` projesinin bulunduğu Visual Studio penceresine geçin. `HomeController.cs` dosyasında Hakkında yönteminin kodunu aşağıdaki kodla *değiştirin*:
+Şimdi `webfrontend` uygulamasında `mywebapi` hizmetine istek gönderen bir kod yazalım. `webfrontend` projesinin bulunduğu Visual Studio penceresine geçin. İçinde `HomeController.cs` dosyası *değiştirin* hakkında yönteminin kodunu aşağıdaki kodla:
 
    ```csharp
    public async Task<IActionResult> About()
@@ -85,7 +85,7 @@ Bravo! Artık her kapsayıcının ayrı ayrı geliştirilip dağıtılabileceği
 Olsa da fark etmiş *webfrontend* kolaylaştırır için HTTP çağrısı yazdırmak için herhangi bir özel kod içermiyor *mywebapi*, HTTP izler çıktı penceresinde iletileri görebilirsiniz:
 ```
 // The request from your browser
-webfrontend.<id>.<region>.aksapp.io --gyk-> webfrontend-668b7ddb9f-n5rhj:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io --gyk-> webfrontend:
    GET /Home/About HTTP/1.1
 
 // *webfrontend* reaching out to *mywebapi*
@@ -98,7 +98,7 @@ webfrontend-668b7ddb9f-n5rhj <-pu5-- mywebapi:
    Hello from mywebapi
 
 // Response from *webfrontend* to your browser
-webfrontend.<id>.<region>.aksapp.io <-gyk-- webfrontend-668b7ddb9f-n5rhj:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io <-gyk-- webfrontend:
    HTTP/1.1 200 OK
    <!DOCTYPE html>
    <html>

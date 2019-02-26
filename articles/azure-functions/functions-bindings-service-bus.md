@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: ac71a88d6c2cbd3a7159ac7382872ea28e079bed
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d88fbb3b5ece819270ca9c6b1060df31ba43854d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728157"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821482"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure işlevleri için Azure Service Bus bağlamaları
 
@@ -48,8 +48,8 @@ Dile özgü örneğe bakın:
 * [C#](#trigger---c-example)
 * [C# betiği (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örneği
 
@@ -146,6 +146,39 @@ let Run(myQueueItem: string, log: ILogger) =
     log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
+### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
+
+Aşağıdaki Java işlevi kullanır `@ServiceBusQueueTrigger` ek açıklamanın [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime) bir Service Bus kuyruğu tetikleyicisi yapılandırmasını tanımlamak için. İşlev iletinin kuyrukta yer alan ve ekler için günlükleri.
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
+Java işlevleri, bir Service Bus konusuna bir ileti eklendiğinde da tetiklenebilir. Aşağıdaki örnekte `@ServiceBusTopicTrigger` tetikleyici yapılandırması tanımlamak için ek açıklama.
+
+```java
+@FunctionName("sbtopicprocessor")
+    public void run(
+        @ServiceBusTopicTrigger(
+            name = "message",
+            topicName = "mytopicname",
+            subscriptionName = "mysubscription",
+            connection = "ServiceBusConnection"
+        ) String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info(message);
+    }
+ ```
+
 ### <a name="trigger---javascript-example"></a>Tetikleyici - JavaScript örneği
 
 Aşağıdaki örnek, Service Bus tetiği bağlama gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlev okur [ileti meta verileri](#trigger---message-metadata) ve Service Bus kuyruk iletisi günlüğe kaydeder. 
@@ -178,41 +211,6 @@ module.exports = function(context, myQueueItem) {
     context.done();
 };
 ```
-
-### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
-
-Aşağıdaki örnek, Service Bus tetiği bağlama gösterir. bir *function.json* dosyası ve bir [Java işlevi](functions-reference-java.md) bağlama kullanan. İşlev tarafından yerleştirilen bir Service Bus kuyruğuna bir ileti tetiklenir ve işlev kuyruğu iletiyi günlüğe kaydeder.
-
-Veri bağlama işte *function.json* dosyası:
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "myqueuename",
-    "connection": "MyServiceBusConnection",
-    "name": "msg",
-    "type": "ServiceBusQueueTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-Java kod aşağıdaki gibidir:
-
-```java
-@FunctionName("sbprocessor")
- public void serviceBusProcess(
-    @ServiceBusQueueTrigger(name = "msg",
-                             queueName = "myqueuename",
-                             connection = "myconnvarname") String message,
-   final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
 
@@ -354,8 +352,8 @@ Dile özgü örneğe bakın:
 * [C#](#output---c-example)
 * [C# betiği (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
+* [Java](#output---java-example)
 * [JavaScript](#output---javascript-example)
-* Java
 
 ### <a name="output---c-example"></a>Çıkış - C# örneği
 
@@ -459,6 +457,41 @@ let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
     outputSbQueue = message
 ```
 
+### <a name="output---java-example"></a>Çıkış - Java örnek
+
+Aşağıdaki örnek, bir Service Bus kuyruğuna bir ileti gönderen bir Java işlev gösterir. `myqueue` bir HTTP isteği tarafından tetiklendiğinde.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+ ```
+
+ İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@QueueOutput` değeri bir Service Bus kuyruğuna yazılmış işlevi parametre üzerindeki ek açıklama.  Parametre türü olmalıdır `OutputBinding<T>`, burada T bir POJO'ya herhangi bir yerel Java türü.
+
+Java işlevleri, bir Service Bus konu başlığına da yazabilirsiniz. Aşağıdaki örnekte `@ServiceBusTopicOutput` çıkış bağlaması yapılandırmasını tanımlamak için ek açıklama. 
+
+```java
+@FunctionName("sbtopicsend")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
+            final ExecutionContext context) {
+        
+        String name = request.getBody().orElse("Azure Functions");
+
+        message.setValue(name);
+        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+        
+    }
+```
+
 ### <a name="output---javascript-example"></a>Çıkış - JavaScript örneği
 
 Aşağıdaki örnek, bir Service Bus çıkış bağlama gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlev, her 15 saniyede bir kuyruğa ileti göndermek için zamanlama tetikleyicisini kullanır.
@@ -510,25 +543,6 @@ module.exports = function (context, myTimer) {
     context.done();
 };
 ```
-
-
-### <a name="output---java-example"></a>Çıkış - Java örnek
-
-Aşağıdaki örnek, bir Service Bus kuyruğuna bir ileti gönderen bir Java işlev gösterir. `myqueue` bir HTTP isteği tarafından tetiklendiğinde.
-
-```java
-@FunctionName("httpToServiceBusQueue")
-@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
-public String pushToQueue(
-  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-  final String message,
-  @HttpOutput(name = "response") final OutputBinding<T> result ) {
-      result.setValue(message + " has been sent.");
-      return message;
- }
- ```
-
- İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@QueueOutput` değeri bir Service Bus kuyruğuna yazılmış işlevi parametre üzerindeki ek açıklama.  Parametre türü olmalıdır `OutputBinding<T>`, burada T bir POJO'ya herhangi bir yerel Java türü.
 
 ## <a name="output---attributes"></a>Çıkış - öznitelikleri
 

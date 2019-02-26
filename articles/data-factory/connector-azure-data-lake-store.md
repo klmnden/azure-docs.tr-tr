@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: ac0a4bf6f332095bd75a6be83d7a1cd3d37c8e1c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 87811cd44b04b55537da166722dd1903d97e7ef5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674557"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821037"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake depolama Gen1 gelen veya veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -76,6 +76,7 @@ Hizmet sorumlusu kimlik doğrulaması kullanmak için bir uygulama varlığı Az
 >Listeye klasör, kökten başlayarak izni için izin verilen hizmet sorumlusunun ayarlamalısınız **"Yürütme" iznine sahip kök düzeyinde**. Kullandığınızda, bu durum geçerlidir:
 >- **Kopyalama aracı veri** Yazar kopyalama işlem hattını için.
 >- **Data Factory kullanıcı arabirimini** bağlantı ve geliştirme sırasında klasörleri gezinme test etmek için.
+>Kök düzeyinde izin verme üzerinde kaygısı varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Hizmet sorumlusu kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışmaya devam eder.
 
 Aşağıdaki özellikler desteklenir:
 
@@ -126,9 +127,10 @@ Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak
 >- **Havuz olarak**: İçinde **Veri Gezgini** > **erişim**, en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak için izni. Eklemek seçebileceğiniz **bu klasör ve tüm alt öğeleri** için özyinelemeli olarak ekleyin **erişim izni ve varsayılan izin girdisi**. Kopyalamak için Azure tümleştirme çalışma zamanı kullanıyorsanız (hem kaynak hem de bulutta) verme IAM içinde en az **okuyucu** Data Factory'ye Data Lake Store için bölge algılamak izin vermek için rol. Bu IAM rol açıkça önlemek istediğiniz [Azure tümleştirme çalışma zamanı oluşturma](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store konumu ile. Bunları, aşağıdaki örnek olarak Data Lake Store bağlı hizmetinde ilişkilendirin.
 
 >[!NOTE]
->Listeye klasör, kökten başlayarak izni için izin verilen hizmet sorumlusunun ayarlamalısınız **"Yürütme" iznine sahip kök düzeyinde**. Kullandığınızda, bu durum geçerlidir:
+>Listeye klasör, kökten başlayarak izni için izin verilen yönetilen kimlik ayarlamalısınız **"Yürütme" iznine sahip kök düzeyinde**. Kullandığınızda, bu durum geçerlidir:
 >- **Kopyalama aracı veri** Yazar kopyalama işlem hattını için.
 >- **Data Factory kullanıcı arabirimini** bağlantı ve geliştirme sırasında klasörleri gezinme test etmek için.
+>Kök düzeyinde izin verme üzerinde kaygısı varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Yönetilen kimlik kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışmaya devam eder.
 
 Azure Data Factory'de bağlı hizmet Data Lake Store genel bilgilerin yanı sıra herhangi bir özelliği belirtmeniz gerekmez.
 

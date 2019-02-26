@@ -1,28 +1,23 @@
 ---
 title: ExpressRoute doğrudan - Azure CLI yapılandırma | Microsoft Docs
-description: Bu makale Azure CLI (Önizleme) kullanarak ExpressRoute doğrudan yapılandırmanıza yardımcı olur
+description: Bu makale Azure CLI kullanarak ExpressRoute doğrudan yapılandırmanıza yardımcı olur
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 2/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 285b429f565f8a2c7f8c20756f076e631223b10f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e918a8624d637e44a4bb1122b58d5bd5dac67690
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076729"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816683"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli-preview"></a>ExpressRoute doğrudan Azure CLI (Önizleme) kullanarak yapılandırın.
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI kullanarak ExpressRoute doğrudan yapılandırın
 
 Microsoft'un küresel ağı dünya genelindeki stratejik dağıtılmış eşleme konumlarda doğrudan bağlanmak için Azure ExpressRoute doğrudan kullanabilirsiniz. Daha fazla bilgi için [hakkında ExpressRoute doğrudan bağlanma](expressroute-erdirect-about.md).
-
-> [!IMPORTANT]
-> ExpressRoute doğrudan şu anda Önizleme aşamasındadır.
->
-> ExpressRoute doğrudan genel Önizleme bir hizmet düzeyi sözleşmesi sağlanmaktadır. Üretim iş yükleri için ExpressRoute doğrudan önizleme kullanmamalısınız. Bazı özellikler desteklenmiyor, kısıtlı yeteneklere bazı özellikler ve bazı özellikler tüm Azure konumlarında mevcut olmayabilir. Ayrıntılar için bkz [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="resources"></a>Kaynak Oluştur
 

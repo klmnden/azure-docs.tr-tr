@@ -3,8 +3,8 @@ title: Öğretici - Azure Service Fabric Mesh kaynaklarını temizleme | Microso
 description: Artık kullanmadığınız kaynaklara ücret ödememek için Azure Service Fabric Mesh kaynaklarını kaldırmayı öğrenin.
 services: service-fabric-mesh
 documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/18/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fb7a444c54a57e7f2c38d941eb99f2fea7eebcef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: a60c42310f0698b8290e7ba6195eeed44fe0b95e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993366"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815799"
 ---
-# <a name="tutorial-remove-azure-resources"></a>Öğretici: Azure kaynaklarını kaldırma
+# <a name="tutorial-remove-azure-resources"></a>Öğretici: Azure kaynaklarını Kaldır
 
 Bu öğretici bir serinin beşinci bölümüdür ve uygulamayla uygulamanın kaynaklarına ücret ödememeniz için bunları nasıl sileceğinizi gösterir.
 
@@ -40,7 +40,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce:
 
@@ -62,7 +62,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-Alternatif olarak **sfmeshTutorial1RG** kaynak grubunu [portaldan](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources) silebilirsiniz. 
+Alternatif olarak **sfmeshTutorial1RG** kaynak grubunu [portaldan](../azure-resource-manager/manage-resource-groups-portal.md#delete-resource-groups) silebilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

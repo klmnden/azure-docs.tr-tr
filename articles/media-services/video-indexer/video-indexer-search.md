@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d2c2e87b3dade68dc311aa38743c11a60a69f68b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6c93c0228425b2ff020e5b4301e68eae5b1062a3
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004562"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807839"
 ---
 # <a name="find-exact-moments-within-videos"></a>Videoların içinde belirli anları bulma
 
@@ -23,12 +23,14 @@ Bu konu, videolar için belirli anları bulmanıza olanak sağlamak arama seçen
 1. [Video Indexer](https://www.videoindexer.ai/) web sitesine gidip oturum açın.
 2. Hesabınızdaki tüm videoları arasında arayın.
 
-    Aşağıdaki örnekte, biz Channel9 Scott hanselman'la tarafından oluşturulan tüm videolar için arama yapılır.
+    Aşağıdaki örnekte, biz Satya göründüğü içinde ve güvenlik hakkında konuşmak tüm videolar için arama yapın,
 
     ![Arama](./media/video-indexer-search/video-indexer-search01.png)
 3. Özetlenen ınsights video arayın.
 
-    Ardından, tıklayarak videonun içindeki arayabilirsiniz **Play** videoyla ilgili. Ardından, seçerek video içinde arama yapabilirsiniz **arama** sekmesi. Örneğin, "kimlik koruması" metin kullanıldığı her yerde için aranır. 
+    Ardından, tıklayarak videonun içindeki arayabilirsiniz **Play** videoyla ilgili. Ardından, seçerek video içinde arama yapabilirsiniz **arama** sekmesi. 
+
+    Aşağıdaki örnekte, biz "" içinde seçili video arayın.
 
     ![Arama](./media/video-indexer-search/video-indexer-search02.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Backup için Log Analytics veri modeli
-description: Bu makalede, verileri Azure Backup için Log Analytics veri modeli ayrıntıları hakkında konuşuyor.
+title: Azure İzleyici, veri modeli için Azure Backup kaydeder.
+description: Bu makalede Bahsediyor Azure İzleyici, Azure yedekleme verileri için veri modeli ayrıntıları günlüğe kaydeder.
 services: backup
 author: adigan
 manager: shivamg
@@ -8,15 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.openlocfilehash: 5921ca696076a16e39252a6cb3bfae98854b5a85
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: b17e7548a19543add6274243d64ede3b61544c52
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299581"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819574"
 ---
-# <a name="log-analytics-data-model-for-azure-backup-data"></a>Verileri Azure Backup için log Analytics veri modeli
-Log Analytics veri modeli, raporlar oluşturmak için kullanın. Veri modeli ile özel sorgular ve panolar oluşturmak veya istediğiniz ancak Azure Backup verileri, özelleştirebilir.
+# <a name="azure-monitor-logs-data-model-for-azure-backup-data"></a>Azure İzleyici, veri modeli için Azure Backup veri günlüğe kaydeder
+Azure İzleyici günlüklerine veri modeli, raporlar oluşturmak için kullanın. Veri modeli ile özel sorgular ve panolar oluşturmak veya istediğiniz ancak Azure Backup verileri, özelleştirebilir.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="using-azure-backup-data-model"></a>Azure Backup veri modelini kullanma
 Gereksinimlerinize göre görseller, özel sorgular ve Pano oluşturmak için aşağıdaki alanları veri modeli bir parçası olarak sağlanan kullanabilirsiniz.
@@ -37,7 +39,7 @@ Bu tabloda uyarı ilgili alanları hakkındaki ayrıntılar verilmektedir.
 | State_s |Metin |Örneğin, etkin, silinen uyarı nesnenin geçerli durumu |
 | BackupManagementType_s |Metin |Bu uyarı için ait olduğu için yedekleme, örneğin, IaaSVM Dosyaklasörü gerçekleştirmek için sağlayıcı türü |
 | OperationName |Metin |Geçerli işlem, örneğin, uyarı adı |
-| Kategori |Metin |Tanılama veri kategorisini Log Analytics'e gönderilir. Her zaman AzureBackupReport |
+| Kategori |Metin |Tanılama veri kategorisini Azure İzleyici günlüklerine gönderildi. Her zaman AzureBackupReport |
 | Kaynak |Metin |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | ProtectedServerUniqueId_s |Metin |Uyarıyla ilişkili korumalı sunucunun benzersiz tanıtıcısı |
 | VaultUniqueId_s |Metin |Uyarıyla ilişkili korumalı kasa benzersiz tanıtıcısı |
@@ -65,7 +67,7 @@ Bu tablo, yedekleme öğesi ile ilgili alanlar hakkında ayrıntılar sağlar.
 | State_s |Metin |Örneğin, etkin, silinen yedekleme öğesi nesnenin durumu |
 | BackupManagementType_s |Metin |Sağlayıcı türü için bu yedekleme öğesi ait olduğu için yedekleme, örneğin, IaaSVM Dosyaklasörü gerçekleştirmek için |
 | OperationName |Metin |Örneğin, BackupItem işlemin adı |
-| Kategori |Metin |Tanılama veri kategorisini Log Analytics'e gönderilir. Her zaman AzureBackupReport |
+| Kategori |Metin |Tanılama veri kategorisini Azure İzleyici günlüklerine gönderildi. Her zaman AzureBackupReport |
 | Kaynak |Metin |Hangi veri kaynağı toplanır, örneğin, adı kurtarma Hizmetleri kasası |
 | SourceSystem |Metin |Geçerli verileri - Azure'nın kaynak sistem |
 | ResourceId |Metin |Toplanmakta olan veriler için kaynak kimliği, kaynak kimliği, Kurtarma Hizmetleri kasası |
@@ -85,7 +87,7 @@ Bu tabloda, çeşitli varlıklar ile yedekleme öğesi ilişkilendirmeleri hakk�
 | State_s |Metin |Örneğin, etkin, silinen yedekleme öğesi ilişkilendirme nesnenin geçerli durumu |
 | BackupManagementType_s |Metin |Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
 | OperationName |Metin |Bu alan geçerli işlem - BackupItemAssociation adını temsil eder. |
-| Kategori |Metin |Bu alan, Log Analytics'e gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
+| Kategori |Metin |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
 | Kaynak |Metin |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | PolicyUniqueId_g |Metin |Yedekleme öğesi ile ilişkilendirilen ilkesi için benzersiz tanımlayıcı |
 | ProtectedServerUniqueId_s |Metin |Yedekleme öğesi ile ilişkilendirilen korumalı sunucu benzersiz tanıtıcısı |
@@ -108,7 +110,7 @@ Bu tablo, projeyle ilgili alanlar hakkında ayrıntılar sağlar.
 | State_s |Metin |Örneğin, etkin, silinen iş nesnenin geçerli durumu |
 | BackupManagementType_s |Metin |Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
 | OperationName |Metin |Bu alan adı geçerli işlemin - işi temsil eder. |
-| Kategori |Metin |Bu alan, Log Analytics'e gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
+| Kategori |Metin |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
 | Kaynak |Metin |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | ProtectedServerUniqueId_s |Metin |İşi, korumalı sunucunun benzersiz tanımlayıcı ilişkili |
 | VaultUniqueId_s |Metin |Korumalı kasa benzersiz tanıtıcısı |
@@ -137,7 +139,7 @@ Bu tablo, ilke ile ilgili alanlar hakkında ayrıntılar sağlar.
 | State_s |Metin |Örneğin, etkin, silinen ilke nesnenin geçerli durumu |
 | BackupManagementType_s |Metin |Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
 | OperationName |Metin |Bu alan geçerli işlem - ilke adını temsil eder. |
-| Kategori |Metin |Bu alan, Log Analytics'e gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
+| Kategori |Metin |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
 | Kaynak |Metin |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | PolicyUniqueId_g |Metin |İlke tanımlamak için benzersiz kimlik |
 | PolicyName_s |Metin |Tanımlanan ilke adı |
@@ -177,7 +179,7 @@ Bu tabloda, çeşitli varlıklar ile ilke ilişkilendirmesi hakkında ayrıntıl
 | State_s |Metin |Örneğin, etkin, silinen ilke nesnenin geçerli durumu |
 | BackupManagementType_s |Metin |Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
 | OperationName |Metin |Bu alan geçerli işlem - PolicyAssociation adını temsil eder. |
-| Kategori |Metin |Bu alan, Log Analytics'e gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
+| Kategori |Metin |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
 | Kaynak |Metin |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | PolicyUniqueId_g |Metin |İlke tanımlamak için benzersiz kimlik |
 | VaultUniqueId_s |Metin |Bu ilkenin ait olduğu kasanın benzersiz kimliği |
@@ -199,7 +201,7 @@ Bu tablo, korumalı sunucu ilgili alanlar hakkında ayrıntılar sağlar.
 | State_s |Metin |Örneğin, etkin, Deleted, korumalı sunucu nesnenin geçerli durumu |
 | BackupManagementType_s |Metin |Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
 | OperationName |Metin |Bu alan geçerli işlem - ProtectedServer adını temsil eder. |
-| Kategori |Metin |Bu alan, Log Analytics'e gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
+| Kategori |Metin |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
 | Kaynak |Metin |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | ProtectedServerUniqueId_s |Metin |Korumalı sunucu benzersiz kimliği |
 | RegisteredContainerId_s |Metin |Yedekleme için kayıtlı kapsayıcı kimliği |
@@ -223,7 +225,7 @@ Bu tablo, diğer varlıklarla ilişkilerini korumalı sunucu hakkında ayrıntı
 | State_s |Metin |Örneğin, etkin, silinen korumalı sunucu ilişkilendirme nesnenin geçerli durumu |
 | BackupManagementType_s |Metin |Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
 | OperationName |Metin |Bu alan geçerli işlem - ProtectedServerAssociation adını temsil eder. |
-| Kategori |Metin |Bu alan, Log Analytics'e gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
+| Kategori |Metin |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
 | Kaynak |Metin |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | ProtectedServerUniqueId_s |Metin |Korumalı sunucu benzersiz kimliği |
 | VaultUniqueId_s |Metin |Bu korumalı sunucunun ait olduğu kasanın benzersiz kimliği |
@@ -246,7 +248,7 @@ Bu tablo depolama ile ilgili alanlar hakkında ayrıntılar sağlar.
 | State_s |Metin |Örneğin, etkin, silinen depolama nesnenin geçerli durumu |
 | BackupManagementType_s |Metin |Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
 | OperationName |Metin |Bu alan geçerli işlem - depolama adını temsil eder. |
-| Kategori |Metin |Bu alan, Log Analytics'e gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
+| Kategori |Metin |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
 | Kaynak |Metin |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | ProtectedServerUniqueId_s |Metin |Korumalı sunucunun depolama hesaplandığı benzersiz kimliği |
 | VaultUniqueId_s |Metin |Depolama kasasının benzersiz kimliği hesaplanır |
@@ -266,7 +268,7 @@ Bu tablo, kasa ile ilgili alanlar hakkında ayrıntılar sağlar.
 | SchemaVersion_s |Metin |Bu alan geçerli şema sürümünü gösterir, **V1** |
 | State_s |Metin |Örneğin, etkin, silinen kasa nesnenin geçerli durumu |
 | OperationName |Metin |Bu alan geçerli işlem - kasa adını temsil eder. |
-| Kategori |Metin |Bu alan, Log Analytics'e gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
+| Kategori |Metin |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
 | Kaynak |Metin |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | VaultUniqueId_s |Metin |Kasa benzersiz kimliği |
 | VaultName_s |Metin |Kasa adı |
@@ -280,4 +282,4 @@ Bu tablo, kasa ile ilgili alanlar hakkında ayrıntılar sağlar.
 | ResourceType |Metin |Kaynak türü için verileri toplanır. Örneğin, kasaları |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Backup raporları oluşturmak için veri modeli gözden geçirin, sonra başlatabilirsiniz [panosu oluşturma](../azure-monitor/learn/tutorial-logs-dashboards.md) Log analytics'te.
+Azure Backup raporları oluşturmak için veri modeli gözden geçirin, sonra başlatabilirsiniz [panosu oluşturma](../azure-monitor/learn/tutorial-logs-dashboards.md) Azure İzleyici günlüklerine.

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 0530dbac88fcfbfb05ab29d1c5934a468f263034
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: aff92e8dd45fecc3fabd005e8921eda7add07fb4
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096645"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804975"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Öğretici: Azure DevTest Labs'i kullanarak bir laboratuvarı ayarlama ayarlayın
 Bu öğreticide, Azure portalı kullanarak bir laboratuvar oluşturursunuz. Laboratuvar yöneticisi bir kuruluşta laboratuvar ayarlar, laboratuvarda sanal makineler oluşturur ve ilkeler yapılandırır. Laboratuvar kullanıcıları (örneğin: geliştirici ve test ediciler), laboratuvarda sanal makineler talep eder, sanal makinelere bağlanır ve sanal makineleri kullanır. 
@@ -80,7 +80,7 @@ Aşağıdaki adımlar, Azure portal kullanarak Azure DevTest Labs’de nasıl bi
 1. Sanal makine oluşturulduktan sonra, **Talep edilebilir sanal makineler** listesinde bu sanal makineyi görürsünüz. 
 
     > [!NOTE] 
-    > Laboratuvara bir Linux VM’si eklerken VM’ye SSH ve RDP erişimini etkinleştirebilirsiniz. VM’yi oluştururken erişimi etkinleştirmezseniz SSH ve RDP için bağlantı noktaları açmak için VM ile ilişkili ağ güvenlik grubunda elle kural ekleyebilirsiniz.
+    > Üzerinde **Gelişmiş ayarlar** sayfasında, sanal makine için genel, özel veya paylaşılan bir IP adresi yapılandırabilirsiniz. Zaman **IP paylaşılan** olan etkin, Azure DevTest Labs otomatik olarak Windows VM'ler için RDP ve SSH Linux Vm'leri için etkinleştirir. Vm'lerle oluşturursanız **genel IP** adresler, RDP ve SSH DevTest Labs öğesinden herhangi bir değişiklik yapmadan etkinleştirilir.  
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Laboratuvar Kullanıcısı rolüne kullanıcı ekleme
 

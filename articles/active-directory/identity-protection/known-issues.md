@@ -17,17 +17,17 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: a1cc8a9305103a30fc0ea0fc40c23a522e136d80
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339032"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807193"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Sık sorulan sorular ve (Azure Active Directory'de yenilenmiş) kimlik koruması ile ilgili bilinen sorunlar
 
 
-## <a name="dismiss-user-risk"></a>Kullanıcı riskini kapat
+## <a name="dismiss-user-risk-known-issues"></a>Kullanıcı riski bilinen sorunlar Kapat
 
 **Kullanıcı riski yok sayın** kimlik koruması ayarlar aktör kullanıcının risk geçmişinde kimlik koruması için (yenilenmiş) klasikteki **Azure AD'ye**.
 
@@ -37,7 +37,7 @@ ms.locfileid: "56339032"
 Kullanıcı risk işten çıkarma akışında gecikme sürelerine neden geçerli bilinen bir sorun yoktur. "Kullanıcı riski İlkesi" varsa, bu ilke "Kullanıcı riskine Kapat" ı dakikalar içinde kapatılmış kullanıcılara uygulama durdurur. Ancak, gecikmeleri "Risk" kapatılmış kullanıcıların durumunu yenileme UX ile bilinen vardır. Geçici çözüm olarak, tarayıcı düzeyinde en son kullanıcı "Risk durumu" görmek için sayfayı yenileyin.
 
 
-## <a name="risky-users-report"></a>Riskli kullanıcılar raporu
+## <a name="risky-users-report-known-issues"></a>Bilinen sorunlar riskli kullanıcılar raporu
 
 Üzerinde sorgular **kullanıcıadı** alan sorgular üzerinde çalışırken duyarlı **adı** alan durumu belirsiz.
 
@@ -45,14 +45,10 @@ Geçiş **Göster olarak tarihleri** gizler **son RISK güncelleştirme** sütun
 
 **Tüm olayları kapatılamadı** kimlik koruması, risk olayları için durumu ayarlar klasikteki **kapatıldı (Çözüldü)**.
 
-Riskli kullanıcılar raporu tıklayarak erişmeye çalışırsanız **riskli kullanıcılar raporu** bir oturum açma kaydında içinde riskli oturum açma işlemleri raporu, bazen gösterebilir **bir sorun oluştu. Lütfen yeniden deneyin**. Bu sorunu gidermek için tıklatın **Uygula** veya **sıfırlama** ekran ve riskli kullanıcılar üst kısmında veri doldurur.
 
-
-## <a name="risky-sign-ins-report"></a>Riskli oturum açma işlemleri raporu
+## <a name="risky-sign-ins-report-known-issues"></a>Riskli oturum açma işlemleri raporu bilinen sorunlar
 
 **Çözmek** üzerinde bir risk olayını durumu ayarlar **kullanıcılar, risk tabanlı ilke tarafından yönetilen MFA geçirilen**.
-
-**Sıfırlama** içinde **riskli oturum açma işlemleri** rapor işaretini değerini **Risk olayı türü**.
 
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular

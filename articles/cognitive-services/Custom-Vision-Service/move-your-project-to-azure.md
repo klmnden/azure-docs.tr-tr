@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: b46ccd98145342fda58672b64b838ab92ba4f97b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a9f49af54f391b159f8b3d626fffc36635f5e51f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731931"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821319"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure-using-the-customvisionai-site"></a>Sınırlı deneme sürümünde projenizi CustomVision.ai site kullanarak Azure'a taşıma
 
@@ -64,7 +64,7 @@ Birden çok proje için tek bir kaynak ilişkilendirilebilir. Hakkında daha faz
     ![Proje geçiş penceresi.](./media/move-your-project-to-azure/Project_Migration_Window.jpg)
 
 
-## <a name="move-your-limited-trial-project-to-an-azure-resource-in-another-directory"></a>Sınırlı deneme sürümünde projenizi bir Azure kaynağı başka bir dizindeki Taşı 
+## <a name="move-project-to-another-azure-directory"></a>Proje başka bir Azure dizinine taşıyın 
 
 > [!NOTE]
 > Hem Azure portalı ve CustomVision.ai, ekranın sağ üst köşedeki aşağı açılan kullanıcı menüden dizininizi seçin.   
@@ -92,4 +92,6 @@ Birden çok proje için tek bir kaynak ilişkilendirilebilir. Hakkında daha faz
 
 5. Projenizi şimdi farklı bir dizinde olduğunu unutmayın. Projenizi bulmak için projenizin özel görüntü işleme web portalındaki ile aynı dizine geçin gerekecektir. Hem Azure portalında ve [Custom Vision Web sitesi](https://customvision.ai), ekranın sağ üst köşedeki aşağı açılan hesap menüsünden dizininizi seçin. 
 
+## <a name="next-steps"></a>Sonraki adımlar
 
+Projenizi şimdi bir Azure kaynağına taşındı. Eğitim ve tahmin anahtarlarınızı yazmış olduğunuz tüm uygulamalarda güncelleştirmeniz gerekir.

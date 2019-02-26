@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15d243218632ce9010d0f4542fb97f311e8a3166
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0b16c6da0066ac4e919c1bef031d3206a359aae6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182647"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818128"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Azure portalı ile IoT Hub Cihazı Sağlama Hizmetini ayarlama
 
@@ -38,7 +38,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
     * **Adı:** Yeni cihaz sağlama hizmeti örneği için benzersiz bir ad sağlayın. Girdiğiniz ad kullanılabilir durumdaysa yeşil bir onay işareti görünür.
     * **Abonelik:** Bu cihaz sağlama hizmeti örneği oluşturmak için kullanmak istediğiniz aboneliği seçin.
-    * **Kaynak grubu:** Bu alanı, yeni bir kaynak grubu oluşturun veya mevcut bir yeni örneği içeren sağlar. Yukarıda oluşturduğunuz IoT hub'ını içeren kaynak grubunu seçin; örneğin, **TestResources**. İlgili tüm kaynakları aynı gruba birlikte koyarak, bunları birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde o grupta bulunan tüm kaynaklar da silinir. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-portal.md).
+    * **Kaynak grubu:** Bu alanı, yeni bir kaynak grubu oluşturun veya mevcut bir yeni örneği içeren sağlar. Yukarıda oluşturduğunuz IoT hub'ını içeren kaynak grubunu seçin; örneğin, **TestResources**. İlgili tüm kaynakları aynı gruba birlikte koyarak, bunları birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde o grupta bulunan tüm kaynaklar da silinir. Daha fazla bilgi için [yönetme Azure Resource Manager kaynak grupları](../azure-resource-manager/manage-resource-groups-portal.md).
     * **Konum:** Cihazlarınıza en yakın konumu seçin.
 
       ![Portal dikey penceresinde Cihaz Sağlama hizmeti örneğiniz ile ilgili temel bilgileri girin](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  

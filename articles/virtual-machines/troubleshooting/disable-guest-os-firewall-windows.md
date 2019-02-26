@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: b0cd20278287b41dd953c64044b705aa2dba7557
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319410"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820034"
 ---
-# <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Konuk işletim sistemi güvenlik duvarı Azure VM'de devre dışı bırak
+# <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Azure VM'de konuk işletim sistemi Güvenlik Duvarını devre dışı bırakma
 
 Bu makalede, konuk işletim sistemi güvenlik duvarı kısmi veya tam bir sanal makine (VM) trafiği filtreleme olduğunu düşündüğünüz durumlar için bir başvuru sağlar. RDP bağlantıları başarısız olmasına neden olan bir güvenlik duvarı için kasıtlı olarak değişiklik yapıldıysa bu durum oluşabilir.
 
@@ -33,7 +33,7 @@ Bu makalede açıklanan işlem, doğru güvenlik duvarı kurallarını ayarlama,
 
 Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir sanal Makineye erişilebildiğinden ve diğer sanal makine kullanarak bu risk azaltma işlemleri yapabilirsiniz.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Azaltma 1: Özel betik uzantısı veya Çalıştır komutu özelliği
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>1. azaltma: Özel betik uzantısı veya Çalıştır komutu özelliği
 
 Çalışan bir Azure aracısı varsa, kullanabileceğiniz [özel betik uzantısı](../extensions/custom-script-windows.md) veya [komutlarını Çalıştır](../windows/run-command.md) uzaktan aşağıdaki betikler çalıştırmak için (yalnızca Resource Manager Vm'lerinde) özelliği.
 
@@ -54,7 +54,7 @@ Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir sanal Mak
 >   ```
 >   İlkeyi yeniden uygulandığı hemen sonra ancak, uzak oturumu dışında devreye girdi. Bu sorun için kalıcı bir düzeltme bu bilgisayara uygulandığında ilkesinin değiştirilmesidir.
 
-#### <a name="mitigation-2-remote-powershell"></a>2. azaltma: Uzak PowerShell
+#### <a name="mitigation-2-remote-powershell"></a>Azaltma 2: Uzak PowerShell
 
 1.  RDP bağlantısını kullanarak ulaşamıyor VM ile aynı sanal ağda bulunan bir VM'ye bağlanın.
 
@@ -70,7 +70,7 @@ Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir sanal Mak
     ```
 
 > [!Note]
-> Güvenlik Duvarı bir Grup İlkesi nesnesi olarak ayarlanırsa, bu komut yalnızca yerel kayıt defteri girişlerini değiştiğinden bu yöntemin çalışmayabilir. Bir ilke yerinde olduğundan bu değişikliği geçersiz kılar. 
+> Güvenlik Duvarı bir Grup İlkesi nesnesi olarak ayarlanırsa, bu komut yalnızca yerel kayıt defteri girişlerini değiştiğinden bu yöntemin çalışmayabilir. Bir ilke yerinde olduğundan bu değişikliği geçersiz kılar. 
 
 #### <a name="mitigation-3-pstools-commands"></a>3. azaltma: PSTools komutları
 
@@ -86,7 +86,7 @@ Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir sanal Mak
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>Azaltma 4: Uzak kayıt defteri 
+#### <a name="mitigation-4-remote-registry"></a>Azaltma 4: Uzak Kayıt defteri 
 
 Bu adımları izleyin [uzak kayıt defteri](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 

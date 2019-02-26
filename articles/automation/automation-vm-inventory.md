@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6cc55ec2e3be3510b9547025db17bcbee97e10
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c0caece57885dfa3c26d368990a6af8e5b14eed6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765390"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56824003"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Bir Azure sanal makinesini stok toplama ile yönetme
 
@@ -91,7 +91,9 @@ Aşağıdaki tabloda, çeşitli kategorileri için yapılandırılmış her bir 
 
 ## <a name="manage-machine-groups"></a>Makine gruplarını yönetme
 
-Envanter, oluşturmak ve makine gruplarını Log Analytics'te görüntülemek sağlar. Makine grupları Log analytics'te sorgu tarafından tanımlanan makineler koleksiyonlarıdır.
+Envanter, oluşturmak ve Azure İzleyici günlüklerine makine gruplarını görüntülemek sağlar. Makine grupları, Azure İzleyici günlüklerine bir sorgu tarafından tanımlanan makineler koleksiyonlarıdır.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Makinenize grupları seçin görüntülemek **makine grupları** stok Sayfası sekmesinde.
 
@@ -116,7 +118,7 @@ Sanal makinenizi stok yönetiminden kaldırmak için:
 3. Listeden bağlantısını kesmek istediğiniz sanal makineyi seçin. Sanal makinenin yanında, **OMS Bağlantısı** sütunda **Bu çalışma alanı** ifadesini içeren bir yeşil onay işareti bulunur.
 
    >[!NOTE]
-   >OMS, artık Log Analytics da adlandırılır.
+   >OMS, artık Azure İzleyici günlükleri olarak da adlandırılır.
    
 4. Sonraki sayfanın en üstünde **Bağlantıyı kes**'i seçin.
 5. Onay penceresinde **Evet**'i seçin.

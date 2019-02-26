@@ -5,22 +5,22 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 02/15/2019
+ms.date: 02/26/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 3716ca967755a6ee683948ba2d956aaeac1e2032
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 223d38044b5e31c9c8e61fff74e1dd823970debd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56323485"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825542"
 ---
 | Kategori | Veri deposu | Kaynak olarak desteklenen | Havuz olarak desteklenen | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) tarafından desteklenen | [Şirket içinde barındırılan IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) tarafından desteklenen |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Depolama](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB'nin MongoDB API'si](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Veri Gezgini](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |  |
+| &nbsp; |[Azure Veri Gezgini](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Lake depolama 2. nesil](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[MariaDB için Azure veritabanı](../articles/data-factory/connector-azure-database-for-mariadb.md) |✓ | |✓ |✓  |

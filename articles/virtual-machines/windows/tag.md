@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: ca389814b35a666a48959a50de58a231df6728c5
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b6c63a868b7697522c708a4db483395a537a82cf
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981137"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823459"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Azure'da Windows sanal makine etiketleme
 Bu makalede Resource Manager dağıtım modeliyle Azure'da Windows sanal makine etiketleme için farklı yollar açıklanmaktadır. Etiketler doğrudan bir kaynak veya kaynak grubu üzerinde yerleştirilen kullanıcı tanımlı anahtar/değer çiftleridir. Azure, şu anda kaynak ve kaynak grubu başına en fazla 15 etiket destekler. Etiket oluşturma sırasında bir kaynakta yerleştirilen veya var olan bir kaynağı eklendi. Etiketleri yalnızca Resource Manager dağıtım modeliyle oluşturulan kaynakları için desteklendiğini unutmayın. Linux sanal makinesi etiketlemek istiyorsanız, bkz. [Azure'da bir Linux sanal makinesi etiketleme](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -94,7 +94,7 @@ PowerShell ile etiketleme hakkında daha fazla bilgi edinmek için kullanıma [A
 * Azure kaynaklarınızı etiketleme hakkında daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış] [ Azure Resource Manager Overview] ve [kullanarak Azure kaynaklarınızı düzenlemek için etiketleri] [ Using Tags to organize your Azure Resources].
 * Etiketler, Azure kaynaklarının kullanımını yönetmenize nasıl yardımcı olabileceğini görmek için bkz. [Azure faturanızı anlama] [ Understanding your Azure Bill] ve [Microsoft Azure kaynak tüketiminize öngörü] [Gain insights into your Microsoft Azure resource consumption].
 
-[PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/powershell-azure-resource-manager.md
+[PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/manage-resources-powershell.md
 [Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/az.resources/
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md

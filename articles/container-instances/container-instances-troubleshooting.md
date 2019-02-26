@@ -2,19 +2,19 @@
 title: Azure Container Instances sorunlarını giderme
 description: Azure Container Instances ile ilgili sorunları giderme hakkında bilgi edinin
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/08/2019
-ms.author: seanmck
+ms.date: 02/15/2019
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bfa616fb16470a3543f8c981a0104f6bda24cf4d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119059"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823492"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container ınstances'da yaygın sorunlarını giderme
 
@@ -66,7 +66,7 @@ Görüntü çekilen, olayları aşağıdaki gibi çıktısında gösterilen [az 
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "message": "pulling image \"microsoft/aci-helloworld\"",
     "name": "Pulling",
     "type": "Normal"
   },
@@ -74,7 +74,7 @@ Görüntü çekilen, olayları aşağıdaki gibi çıktısında gösterilen [az 
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "message": "Failed to pull image \"microsoft/aci-helloworld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
     "name": "Failed",
     "type": "Warning"
   },
@@ -82,7 +82,7 @@ Görüntü çekilen, olayları aşağıdaki gibi çıktısında gösterilen [az 
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:20+00:00",
     "lastTimestamp": "2017-12-21T22:57:16+00:00",
-    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "message": "Back-off pulling image \"microsoft/aci-helloworld\"",
     "name": "BackOff",
     "type": "Normal"
   }
@@ -93,7 +93,7 @@ Görüntü çekilen, olayları aşağıdaki gibi çıktısında gösterilen [az 
 
 Kapsayıcı grupları için varsayılan değer bir [yeniden başlatma ilkesi](container-instances-restart-policy.md) , **her zaman**, bunlar tamamlanana kadar çalıştırdıktan sonra kapsayıcı grubundaki kapsayıcı her zaman yeniden başlatın. Bu değişiklik yapmanız gerekebilir **OnFailure** veya **hiçbir zaman** görev-tabanlı kapsayıcıları çalıştırmak istiyorsanız. Belirtirseniz **OnFailure** ve hala bakın sürekli yeniden başlatıldıktan sonra uygulama veya betik kapsayıcınızda yürütülen bir sorun olabilir.
 
-Kapsayıcı grupları olmadan uzun süre çalışan işlemleri çalıştırırken, yinelenen çıkar ve Ubuntu gibi veya Alpine görüntülerle yeniden görebilirsiniz. Aracılığıyla bağlanan [EXEC](container-instances-exec.md) kapsayıcı canlı tutma hiçbir işlem olarak çalışmıyor. Bunu çözmek için kapsayıcıyı tutmak için bir başlangıç komutu kapsayıcı grubu dağıtımınız ile aşağıdaki gibi ekleyin.
+Kapsayıcı grupları olmadan uzun süre çalışan işlemleri çalıştırırken, yinelenen çıkar ve Ubuntu gibi veya Alpine görüntülerle yeniden görebilirsiniz. Aracılığıyla bağlanan [EXEC](container-instances-exec.md) kapsayıcı canlı tutma hiçbir işlem olarak çalışmıyor. Bu sorunu çözmek için kapsayıcıyı tutmak için kapsayıcı grubu dağıtımınız ile aşağıdaki gibi bir başlangıç komutu içerir.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -178,12 +178,12 @@ Başka bir yolu, kapsayıcının başlangıç zamanında görüntü çekme etkis
 
 ### <a name="cached-windows-images"></a>Önbelleğe alınan Windows görüntüleri
 
-Azure Container Instances, belirli Windows görüntüleri temel alan görüntüler için kapsayıcı başlatma süresini hızlandırmak için bir önbelleğe alma mekanizması kullanır.
+Azure Container Instances, ortak Windows ve Linux görüntüleri temel alan görüntüler için kapsayıcı başlatma süresini hızlandırmak için bir önbelleğe alma mekanizması kullanır. Önbelleğe alınan görüntüleri ve etiketleri ayrıntılı listesi için kullanmak [önbelleğe alınmış görüntüleri listeleme] [ list-cached-images] API.
 
 Windows kapsayıcı başlangıç süreye sağlamak için aşağıdakilerden birini kullanın: **en son üç** aşağıdaki sürümleri **iki görüntü** temel görüntü olarak:
 
-* [Windows Server 2016] [ docker-hub-windows-core] (yalnızca LTS)
-* [Windows Server 2016 Nano sunucu][docker-hub-windows-nano]
+* [Windows Sunucu Çekirdeği 2016] [ docker-hub-windows-core] (yalnızca LTSC)
+* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ### <a name="windows-containers-slow-network-readiness"></a>Windows kapsayıcıları yavaş bir ağ hazırlığı
 
@@ -207,9 +207,11 @@ Bu hata, kapsayıcınız için belirtilen kaynaklara o anda ayrılamıyor dağı
 Azure Container Instances'a kapsayıcı grupları barındıran altyapının doğrudan erişim kullanıma sunmuyor. Bu Docker kapsayıcının konakta çalışan ve çalışan kapsayıcılar ayrıcalıklı API erişimi içerir. Docker etkileşimi gerektiriyorsa, kontrol [REST başvuru belgeleri](https://aka.ms/aci/rest) ne ACI API'sini destekleyen görmek için. Varsa eksik bir şeyler üzerinde talebinizi [ACI geri bildirim forumları](https://aka.ms/aci/feedback).
 
 ## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IP'ler eşleşmeyen bağlantı noktaları nedeniyle erişilebilir olmayabilir
+
 Bu düzeltme yol haritasında ancak azure Container Instances şu anda normal docker yapılandırmasıyla gibi bağlantı noktası eşleme desteklemez. IP'ler olmayan erişilebilir olmalıdır düşündüğünüzde bulursanız, kapsayıcı grubu içinde ortaya çıkarttığınız aynı bağlantı noktalarını dinlemek için kapsayıcı görüntünüzü yapılandırdığınızdan emin olun `ports` özelliği.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bilgi nasıl [kapsayıcı günlüklerini ve olayları almak](container-instances-get-logs.md) kapsayıcılarınızı hata ayıklama yardımcı olmak için.
 
 <!-- LINKS - External -->
@@ -221,3 +223,4 @@ Bilgi nasıl [kapsayıcı günlüklerini ve olayları almak](container-instances
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
+[list-cached-images]: /rest/api/container-instances/listcachedimages

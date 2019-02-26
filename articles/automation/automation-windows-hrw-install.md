@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d9f1b99407f5c94581a3108c785292e9928cbb4
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 500d22993830534027c7ba9b372b6880cb608510
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432343"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822745"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı dağıtma
 
@@ -61,7 +61,7 @@ Yükleme ve yapılandırma Windows karma çalışan rolünün otomatik hale geti
    * *WorkspaceName* (isteğe bağlı): Log Analytics çalışma alanı adı. Bir Log Analytics çalışma alanınız yoksa, betiği oluşturur ve bir yapılandırır.
 
      > [!NOTE]
-     > Log Analytics ile tümleştirme için desteklenen tek Otomasyon bölgeler şu anda olan **Avustralya Güneydoğu**, **Doğu ABD 2**, **Güneydoğu Asya**, ve  **Batı Avrupa**. Otomasyon hesabınızın bu bölgelerden birinde değilse, komut dosyasının bir Log Analytics çalışma alanı oluşturur ancak bunları birlikte Bağla olamaz, sizi uyarır.
+     > Şu anda, Azure İzleyici günlüklerine tümleştirmesiyle desteklenen yalnızca Otomasyon bölgelerdir **Avustralya Güneydoğu**, **Doğu ABD 2**, **Güneydoğu Asya**ve **Batı Avrupa**. Otomasyon hesabınızın bu bölgelerden birinde değilse, komut dosyasının bir Log Analytics çalışma alanı oluşturur ancak bunları birlikte Bağla olamaz, sizi uyarır.
 
 2. Bilgisayarınızda açma **Windows PowerShell** gelen **Başlat** Yönetici modunda ekran.
 3. PowerShell komut satırı kabuğundan, indirdiğiniz komut dosyasını içeren klasöre göz atın. Parametreler için değerleri değiştirme *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- Subscriptionıd*, ve *- WorkspaceName*. Ardından, betiği çalıştırın.
@@ -83,27 +83,29 @@ Yükleme ve yapılandırma Windows karma çalışan rolünün otomatik hale geti
 
 İlk iki kez Otomasyon ortamınız için adımları ve her bir çalışan bilgisayar için kalan adımları yineleyin.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 #### <a name="1-create-a-log-analytics-workspace"></a>1. Log Analytics çalışma alanı oluşturma
 
 Bir Log Analytics çalışma alanı yoksa, adresindeki yönergeleri kullanarak bir tane oluşturmak [çalışma alanınızı yönetme](../azure-monitor/platform/manage-access.md). Zaten varsa var olan bir çalışma alanını kullanabilirsiniz.
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Bir Otomasyon çözümü Log Analytics çalışma alanına ekleme
 
-Çözümler, Log Analytics’e işlevler ekler. Bir Otomasyon çözümü, Azure Otomasyon karma Runbook çalışanı desteği dahil olmak üzere için işlevsellik ekler. Çözüm çalışma alanınıza eklediğinizde, bu otomatik olarak çalışan bileşenleri sonraki adımda yükler aracıyı bilgisayara iter.
+Çözümleri, Azure İzleyici günlüklerine işlevsellik ekler. Bir Otomasyon çözümü, Azure Otomasyon karma Runbook çalışanı desteği dahil olmak üzere için işlevsellik ekler. Çözüm çalışma alanınıza eklediğinizde, bu otomatik olarak çalışan bileşenleri sonraki adımda yükler aracıyı bilgisayara iter.
 
 Eklenecek **Otomasyon** Log Analytics çalışma alanınıza çözüm adresindeki yönergeleri izleyerek [çözüm Galerisi'ndeki kullanarak çözümü eklemek için](../log-analytics/log-analytics-add-solutions.md).
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Microsoft Monitoring Agent'ı yükleme
 
-Microsoft Monitoring Agent bilgisayarları Log Analytics'e bağlanır. Şirket içi bilgisayarınıza aracıyı yüklemek ve çalışma alanınıza bağlamak, karma Runbook çalışanı için gerekli olan bileşenleri otomatik olarak indirir.
+Microsoft Monitoring Agent, Azure İzleyici günlüklerine bilgisayarlara bağlanır. Şirket içi bilgisayarınıza aracıyı yüklemek ve çalışma alanınıza bağlamak, karma Runbook çalışanı için gerekli olan bileşenleri otomatik olarak indirir.
 
-Şirket içi bilgisayarda aracıyı yüklemek için yönergeleri izleyin. [bağlanmak Windows bilgisayarlarını Log Analytics'e](../log-analytics/log-analytics-windows-agent.md). Birden fazla çalışana ortamınıza eklemek birden çok bilgisayar için bu işlemi yineleyebilirsiniz.
+Şirket içi bilgisayarda aracıyı yüklemek için yönergeleri izleyin. [bağlanmak Windows bilgisayarları Azure İzleyici günlüklerine](../log-analytics/log-analytics-windows-agent.md). Birden fazla çalışana ortamınıza eklemek birden çok bilgisayar için bu işlemi yineleyebilirsiniz.
 
-Aracı başarıyla Log Analytics'e bağlandığında, listelenmiş olup **bağlı kaynaklar** Log Analytics için sekmesinde **ayarları** sayfası. Adlı bir klasör varsa aracıyı düzgün bir Otomasyon çözümü indirdiğini doğrulamak **AzureAutomationFiles** C:\Program Files\Microsoft Monitoring Agent\Agent içinde. Karma Runbook çalışanı sürümünü onaylamak için C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ ve Not göz atabilirsiniz \\ *sürüm* alt.
+Aracı başarılı bir şekilde Azure İzleyici günlüklerine bağlandığında, listelenmiş olup **bağlı kaynaklar** log analytics için sekmesinde **ayarları** sayfası. Adlı bir klasör varsa aracıyı düzgün bir Otomasyon çözümü indirdiğini doğrulamak **AzureAutomationFiles** C:\Program Files\Microsoft Monitoring Agent\Agent içinde. Karma Runbook çalışanı sürümünü onaylamak için C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ ve Not göz atabilirsiniz \\ *sürüm* alt.
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Runbook ortamını yükleyin ve Azure Otomasyonu bağlanın
 
-Log Analytics için aracıyı eklediğinizde bir Otomasyon çözümü gönderim **HybridRegistration** içeren PowerShell Modülü **Add-HybridRunbookWorker** cmdlet'i. Bu cmdlet'i runbook ortamını bilgisayara yükleyin ve Azure Otomasyonu'na kaydetmek için kullanın.
+Otomasyon çözümünü gönderim Azure İzleyici günlüklerine birini eklediğinizde, bu aracı **HybridRegistration** içeren PowerShell Modülü **Add-HybridRunbookWorker** cmdlet'i. Bu cmdlet'i runbook ortamını bilgisayara yükleyin ve Azure Otomasyonu'na kaydetmek için kullanın.
 
 Yönetici modunda bir PowerShell oturumu açın ve bir modülü içeri aktarmak için aşağıdaki komutları çalıştırın:
 

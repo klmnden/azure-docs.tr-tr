@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: defd623eff76a4e37a9d88c4f59d2edaa71e34e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a46879a6882e6d45e4a7ccce59e4a02feea9005
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227459"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805595"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure bulut Hizmetleri için bağlantı ve ağ sorunları: sık sorulan sorular (SSS)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Bağlantı ve sorunları, Azure bulut Hizmetleri için ağ: Sık sorulan sorular (SSS)
 
 Bu makale için bağlantı ve ağ sorunları hakkında sık sorulan sorular içerir [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Boyut için bilgi [Cloud Services sanal makine boyutu sayfa](cloud-services-sizes-specs.md).
 
@@ -63,51 +63,52 @@ Sizin makinenize yönelik RDP çağırabilmesi gerekir.
 
 Kullanılan dağıtım algoritmasını 5-tanımlama grubu (kaynak IP, kaynak bağlantı noktası, hedef IP, hedef bağlantı noktası ve protokol türü) olan kullanılabilir olan sunucular için trafiği eşlemek için karma. Bu, yalnızca bir aktarım oturumu içinde süreklilik sağlar. Paketler aynı TCP veya UDP oturumunda yük dengeli uç nokta arkasındaki aynı veri merkezi IP (DIP) örneğine yönlendirilir. İstemci kapatır ve bağlantıyı yeniden açana veya yeni bir oturum başlatır aynı kaynak IP, kaynak bağlantı noktası değiştirir ve farklı bir DIP uç noktasına gidin, trafik neden olur.
 
-## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Nasıl bir özel URL'ye bulut hizmetimde varsayılan URL'sine miyim gelen trafiği yönlendirebilirsiniz? 
+## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Nasıl bir özel URL'ye bulut hizmetimde varsayılan URL'sine miyim gelen trafiği yönlendirebilirsiniz?
 
-IIS URL yeniden yazma modülü, bulut hizmeti için varsayılan URL için gelen trafiği yönlendirmek için kullanılabilir (örneğin, \*. cloudapp.net) bazı özel adı/URL. URL yeniden yazma modülü web rollerinde, varsayılan olarak etkindir ve uygulamanın web.config dosyasında yapılandırılmış, bir kural olduğundan, her zaman sanal makine yeniden başlatmaları/görüntüsünü yeniden oluşturur bağımsız olarak kullanılabilir. Daha fazla bilgi için bkz.
+IIS URL yeniden yazma modülü, bulut hizmeti için varsayılan URL için gelen trafiği yönlendirmek için kullanılabilir (örneğin, \*. cloudapp.net) bazı özel adı/URL. URL yeniden yazma modülü web rollerinde, varsayılan olarak etkindir ve uygulamanın web.config dosyasında yapılandırılmış, bir kural olduğundan, her zaman sanal makine yeniden başlatmaları/görüntüsünü yeniden oluşturur bağımsız olarak kullanılabilir. Daha fazla bilgi için bkz:
 
 - [URL yeniden yazma modülü için yeniden yazma kuralları oluşturma](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Varsayılan bağlantısını Kaldır](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
-## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Nasıl miyim blok/bulut hizmetimde varsayılan URL'sine gelen trafiği devre dışı bırakabilir? 
+## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Nasıl miyim blok/bulut hizmetimde varsayılan URL'sine gelen trafiği devre dışı bırakabilir?
 
-Varsayılan URL/bulut hizmetinizin adını gelen trafiği engelleyebilir (örneğin, \*. cloudapp.net). Özel bir DNS adı (örneğin, www.MyCloudService.com) ana bilgisayar üst bilgisinde site bağlama Yapılandırması altında bulut hizmet tanımı (*.csdef) dosyasında belirtildiği gibi ayarlayın: 
- 
+Varsayılan URL/bulut hizmetinizin adını gelen trafiği engelleyebilir (örneğin, \*. cloudapp.net). Özel bir DNS adı (örneğin, www.MyCloudService.com) ana bilgisayar üst bilgisinde site bağlama Yapılandırması altında bulut hizmet tanımı (*.csdef) dosyasında belirtildiği gibi ayarlayın:
 
-    <?xml version="1.0" encoding="utf-8"?> 
-    <ServiceDefinition name="AzureCloudServicesDemo" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6"> 
-      <WebRole name="MyWebRole" vmsize="Small"> 
-        <Sites> 
-          <Site name="Web"> 
-            <Bindings> 
-              <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.MyCloudService.com" /> 
-            </Bindings> 
-          </Site> 
-        </Sites> 
-        <Endpoints> 
-          <InputEndpoint name="Endpoint1" protocol="http" port="80" /> 
-        </Endpoints> 
-        <ConfigurationSettings> 
-          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" /> 
-        </ConfigurationSettings> 
-      </WebRole> 
-    </ServiceDefinition> 
- 
-Bu ana bilgisayar üst bilgisi bağlama csdef dosyasıyla zorunlu kılındığından yalnızca özel adı "www.MyCloudService.com." hizmet erişilebilir Gelen tüm istekleri "*. cloudapp.net" etki alanı her zaman başarısız. Özel bir SLB araştırma ya da iç load balancer hizmeti kullanıyorsanız, varsayılan engelleme URL/hizmet adı algılama davranışı etkileyebilir. 
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="AzureCloudServicesDemo" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+    <WebRole name="MyWebRole" vmsize="Small">
+        <Sites>
+            <Site name="Web">
+            <Bindings>
+                <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.MyCloudService.com" />
+            </Bindings>
+            </Site>
+        </Sites>
+        <Endpoints>
+            <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+        </Endpoints>
+        <ConfigurationSettings>
+            <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+        </ConfigurationSettings>
+    </WebRole>
+</ServiceDefinition>
+```
+
+Bu ana bilgisayar üst bilgisi bağlama csdef dosyasıyla zorunlu kılındığından yalnızca özel adı "www.MyCloudService.com." hizmet erişilebilir Gelen tüm istekleri "*. cloudapp.net" etki alanı her zaman başarısız. Özel bir SLB araştırma ya da iç load balancer hizmeti kullanıyorsanız, varsayılan engelleme URL/hizmet adı algılama davranışı etkileyebilir.
 
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>Hiçbir zaman bir bulut hizmetinin genel kullanıma yönelik IP adresi değişiklikleri nasıl emin olabilirim?
 
 Beyaz listeye birkaç belirli istemciler tarafından özel olarak olabilir (VIP olarak da bilinir), bulut hizmeti genel kullanıma yönelik IP adresini hiçbir zaman değiştirir, böylece emin olmak için kendisiyle ilişkili bir ayrılmış IP'ye sahip olmanızı öneririz. Aksi takdirde, Azure tarafından sağlanan sanal IP dağıtımı silerseniz aboneliğinizden serbest bırakıldı. Başarılı VIP takas işlemi için ayrı ayrı ayrılmış IP'ler için üretim ve hazırlama yuvası gerekir. Bunlar olmadan değiştirme işlemi başarısız olur. Bir IP adresini ayırabilir ve bulut hizmetiniz ile ilişkilendirmek için şu makalelere bakın:
- 
+
 - [Mevcut bir bulut hizmetinin IP adresini ayırma](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-- [Hizmet yapılandırma dosyasını kullanarak bir bulut hizmeti için ayrılmış bir IP'yi ilişkilendirme](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
+- [Hizmet yapılandırma dosyasını kullanarak bir bulut hizmeti için ayrılmış bir IP'yi ilişkilendirme](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Rollerinizi için birden fazla örnek varsa, RIP, bulut hizmetiyle ilişkilendirme herhangi kapalı kalma durumlarına neden olmaması gerekir. Alternatif olarak, beyaz liste, Azure veri merkezi IP aralığını kullanabilirsiniz. Tüm Azure IP aralıklarına bulabilirsiniz [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653). 
+Rollerinizi için birden fazla örnek varsa, RIP, bulut hizmetiyle ilişkilendirme herhangi kapalı kalma durumlarına neden olmaması gerekir. Alternatif olarak, beyaz liste, Azure veri merkezi IP aralığını kullanabilirsiniz. Tüm Azure IP aralıklarına bulabilirsiniz [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
-Bu dosya, Azure veri merkezlerinde kullanılan (işlem, SQL ve depolama aralıkları dahil) IP adresi aralıklarını içerir. Güncelleştirilen bir dosya şu anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri yansıtan haftalık gönderilir. Dosyada görünen yeni aralıklar en az bir hafta boyunca veri merkezlerinde kullanılmaz. Her hafta yeni bir .xml dosyasını indirin ve Azure'da çalışan hizmetleri doğru şekilde tanımlamak üzere sitenizde gerekli değişiklikleri gerçekleştirin. Bu dosya her ayın ilk haftasında Azure alanındaki BGP tanıtımını güncelleştirmek için kullanılan Azure ExpressRoute kullanıcıları fark edebilirsiniz. 
+Bu dosya, Azure veri merkezlerinde kullanılan (işlem, SQL ve depolama aralıkları dahil) IP adresi aralıklarını içerir. Güncelleştirilen bir dosya şu anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri yansıtan haftalık gönderilir. Dosyada görünen yeni aralıklar en az bir hafta boyunca veri merkezlerinde kullanılmaz. Her hafta yeni bir .xml dosyasını indirin ve Azure'da çalışan hizmetleri doğru şekilde tanımlamak üzere sitenizde gerekli değişiklikleri gerçekleştirin. Bu dosya her ayın ilk haftasında Azure alanındaki BGP tanıtımını güncelleştirmek için kullanılan Azure ExpressRoute kullanıcıları fark edebilirsiniz.
 
-## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Azure Resource Manager sanal ağları ile bulut hizmetleri nasıl kullanabilirim? 
+## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Azure Resource Manager sanal ağları ile bulut hizmetleri nasıl kullanabilirim?
 
 Bulut Hizmetleri, Azure Resource Manager sanal ağları yerleştirilemez. Resource Manager sanal ağları ve klasik dağıtım sanal ağ eşlemesi üzerinden bağlanabilir. Daha fazla bilgi için [sanal ağ eşlemesi](../virtual-network/virtual-network-peering-overview.md).
 
@@ -116,13 +117,15 @@ Bulut Hizmetleri, Azure Resource Manager sanal ağları yerleştirilemez. Resour
 
 PS komut dosyasını Genel IP'lerin Cloud Services için aboneliğiniz kapsamındaki almak için kullanabilirsiniz
 
-    $services = Get-AzureService  | Group-Object -Property ServiceName
+```powershell
+$services = Get-AzureService  | Group-Object -Property ServiceName
 
-    foreach ($service in $services) 
-    {
-        "Cloud Service '$($service.Name)'"
+foreach ($service in $services)
+{
+    "Cloud Service '$($service.Name)'"
 
-        $deployment = Get-AzureDeployment -ServiceName $service.Name 
-        "VIP - " +  $deployment.VirtualIPs[0].Address
-        "================================="
-    }
+    $deployment = Get-AzureDeployment -ServiceName $service.Name
+    "VIP - " +  $deployment.VirtualIPs[0].Address
+    "================================="
+}
+```

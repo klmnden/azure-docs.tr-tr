@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 5746d8b1f4c12a9b39f1599da753db8109790a55
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c4684dd27aeed4fab4335a93ea5a458b4a9f5d80
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984163"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821192"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Bir sanal makine ölçek kümesini Azure PowerShell ile yönetme
 
@@ -92,7 +92,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Bir ölçek kümesindeki Vm'leri yeniden başlatma
-Bir ölçek kümesindeki bir veya daha fazla sanal makine yeniden başlatmak için kullanmak [restart-AzVmss](/powershell/module/az.compute/restart-azvmss). `-InstanceId` parametresi, yeniden başlatılacak bir veya daha fazla sanal makine belirtmenize olanak sağlar. Örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makineler yeniden başlatılır. Birden çok VM'yi yeniden başlatmak için her örnek kimliği virgül ile ayırın.
+Bir ölçek kümesindeki bir veya daha fazla sanal makine yeniden başlatmak için kullanmak [yeniden AzVmss](/powershell/module/az.compute/restart-azvmss). `-InstanceId` parametresi, yeniden başlatılacak bir veya daha fazla sanal makine belirtmenize olanak sağlar. Örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makineler yeniden başlatılır. Birden çok VM'yi yeniden başlatmak için her örnek kimliği virgül ile ayırın.
 
 Aşağıdaki örnek örneğini yeniden başlatır *0* adlı ölçek kümesi içinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Kendi değerlerinizi aşağıdaki gibi sağlayın:
 

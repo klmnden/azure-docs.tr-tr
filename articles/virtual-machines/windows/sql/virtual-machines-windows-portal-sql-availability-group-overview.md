@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: 5f8ae6d9138a7413b0cca4cca7bcc47c13212674
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 728d73ee954a6ddebf80c6a9c466784c9c79bd53
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358060"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819165"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>SQL Server Always On kullanılabilirlik grupları'Azure sanal makinelerinde ile tanışın #
 
@@ -36,13 +36,33 @@ Anahtar kullanılabilirlik grubu için Azure sanal Makineler'de Azure sanal maki
 
 Ayrıca, bir Azure Iaas VM Konuk yük devretme kümesinde sunucu (küme düğümü) başına tek bir NIC'ye ve tek bir alt ağ öneririz. Azure ağı Ek NIC ve alt ağları gereksiz bir Azure Iaas VM Konuk kümede olmasını sağlayan fiziksel yedeklilik sahiptir. Küme doğrulama raporunu düğümlere yalnızca tek bir ağda erişilebilir durumda bir uyarı verir ancak Azure Iaas VM Konuk yük devretme kümelerinde bu uyarıyı güvenle yoksayılabilir. 
 
+|  | Windows Server sürümü | SQL Server sürümü | SQL Server sürümü | WSFC çekirdek yapılandırma | Çok bölgeli ile DR | Birden çok alt ağ desteği | Mevcut bir AD desteği | DR ile aynı bölgede birden fazla bölge | Dist AG herhangi bir AD etki alanı desteği | Cluster dist AG desteği |  
+| :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
+| [SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Üst | Bulut tanığı | Hayır | Evet | Evet | Evet | Hayır | Hayır |
+| [Hızlı Başlangıç şablonları](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Üst | Bulut tanığı | Hayır | Evet | Evet | Evet | Hayır | Hayır |
+| [Portal şablonu](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Üst | Dosya paylaşımı | Hayır | Hayır | Hayır | Hayır | Hayır | Hayır |
+| [El ile](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Tümü | Tümü | Tümü | Tümü | Evet | Evet | Evet | Evet | Evet | Evet |
+| &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
+
 Azure sanal Makineler'de SQL Server kullanılabilirlik grubu oluşturmak hazır olduğunuzda, aşağıdaki öğreticilere bakın.
 
-## <a name="automatically-create-an-availability-group-from-a-template"></a>Otomatik olarak bir şablondan bir kullanılabilirlik grubu oluşturun
+## <a name="manually-with-azure-cli"></a>Azure CLI ile el ile
+Basitlik ve dağıtım hızı açısından en iyi şekilde yapılandırmak ve bir kullanılabilirlik grubuna dağıtmak için Azure CLI kullanarak önerilen seçenektir. Azure CLI, SQL Server Vm'leri Kümeye katılan Windows Yük devretme küme oluşturma yanı sıra dinleyici ve iç Load Balancer oluşturma tüm 30 dakika içerisinde gerçekleştirilebilir. Bu seçenek yine de el ile bir kullanılabilirlik grubu oluşturulmasını gerektirir, ancak diğer tüm gerekli yapılandırma adımlarını otomatik hale getirir. 
+
+Daha fazla bilgi için [Azure VM'deki SQL Server Always On kullanılabilirlik grubu yapılandırmak için Azure SQL VM CLI'yı kullanmak](virtual-machines-windows-sql-availability-group-cli.md). 
+
+## <a name="automatically-with-azure-quickstart-templates"></a>Otomatik olarak Azure hızlı başlangıç şablonları ile
+Azure hızlı başlangıç şablonları, Windows Yük devretme kümesi dağıtma, SQL Server Vm'leri için katılın, dinleyiciyi oluşturun ve iç Load Balancer yapılandırma için SQL VM kaynak sağlayıcısını kullanır. Bu seçenek yine de bir el ile bir kullanılabilirlik grubu ve iç yük dengeleyici (ILB) oluşturulmasını gerektirir ancak otomatikleştirir ve diğer tüm gerekli yapılandırma adımları (ILB yapılandırılması dahil olmak üzere) basitleştirir. 
+
+Daha fazla bilgi için [kullanımı Azure hızlı başlangıç Azure VM'deki SQL Server Always On kullanılabilirlik grubu yapılandırmak için şablonu](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+
+
+## <a name="automatically-with-an-azure-portal-template"></a>Azure Portal şablonuyla otomatik olarak
 
 [Always On kullanılabilirlik grubu Azure VM'de otomatik olarak - Kaynak Yöneticisi'ni yapılandırma.](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 
-## <a name="manually-create-an-availability-group-in-azure-portal"></a>Azure portalını kullanarak bir kullanılabilirlik grubuna el ile oluşturma
+
+## <a name="manually-in-azure-portal"></a>Azure portalında el ile
 
 Sanal makineleri kendiniz şablonu oluşturabilirsiniz. İlk olarak, önkoşulları tamamlayın ve ardından kullanılabilirlik grubunu oluşturun. Aşağıdaki konulara bakın: 
 
@@ -52,4 +72,4 @@ Sanal makineleri kendiniz şablonu oluşturabilirsiniz. İlk olarak, önkoşulla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir SQL Server Always On'u farklı bölgelerdeki Azure sanal makinelerinde kullanılabilirlik grubu yapılandırma](virtual-machines-windows-portal-sql-availability-group-dr.md).
+[Bir SQL Server Always On'u farklı bölgelerdeki Azure sanal makinelerinde kullanılabilirlik grubu yapılandırma](virtual-machines-windows-portal-sql-availability-group-dr.md)

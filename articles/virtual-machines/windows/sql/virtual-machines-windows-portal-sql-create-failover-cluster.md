@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 778984d4d34d3b63d92378781d377fee557c7148
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328561"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821926"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure sanal makinelerinde SQL Server Yük devretme kümesi örneğini yapılandırma
 
@@ -79,7 +79,7 @@ Aşağıdaki teknolojileri işletimsel bir anlayışa sahip olmalıdır:
 Ayrıca, aşağıdaki teknolojileri genel bir anlayışa sahip olmalıdır:
 
 - [Windows Server 2016'da depolama alanları doğrudan kullanan hiper yakınsama çözümü](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
-- [Azure kaynak grupları](../../../azure-resource-manager/resource-group-portal.md)
+- [Azure kaynak grupları](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > Şu anda [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md) azure'da SQL Server FCI için desteklenmiyor. Uzantı FCI katılan vm'lerden kaldırmanızı öneririz. Bu uzantıyı otomatik yedekleme ve düzeltme eki uygulama ve SQL için portal bazı özellikleri gibi özellikleri destekler. Aracı kaldırıldıktan sonra bu özellikler, SQL VM'ler için çalışmaz.

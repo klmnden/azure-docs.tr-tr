@@ -2,27 +2,21 @@
 title: 'Küresel erişim - ExpressRoute yapılandırın: Azure | Microsoft Docs'
 description: Bu makalede, yardımcı birlikte özel ağ arasında şirket içi ağlarınız ve Global erişim etkinleştirme yapmak için ExpressRoute bağlantı hattına bağlayın.
 services: expressroute
-author: mialdrid
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2018
-ms.author: mialdrid
+ms.date: 02/25/2019
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: ab1098ca65ad92cffdbe1dfb24fd43fcc8f10eae
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aff283da27197b11ee496faecdd8b69571d3547e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431687"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821345"
 ---
-# <a name="configure-expressroute-global-reach-preview"></a>ExpressRoute Global erişim (Önizleme) yapılandırma
+# <a name="configure-expressroute-global-reach"></a>ExpressRoute Global Reach’i yapılandırma
 Bu makalede PowerShell kullanarak ExpressRoute Global erişim yapılandırmanıza yardımcı olur. Daha fazla bilgi için [ExpressRouteRoute Global erişim](expressroute-global-reach.md).
- 
-## <a name="before-you-begin"></a>Başlamadan önce
-> [!IMPORTANT]
-> Bu genel Önizleme hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için kullanılmamalıdır. Belirli özellikler desteklenmiyor olabilir, kısıtlı yeteneklere sahip olabilir veya tüm Azure konumlarında mevcut olmayabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-
 
 Yapılandırmaya başlamadan önce aşağıdakileri onaylayın:
 

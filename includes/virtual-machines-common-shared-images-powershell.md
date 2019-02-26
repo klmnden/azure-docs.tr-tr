@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8770aaeff3e0d7b2d6a39f596aafebf15ed48b23
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c74a96e3dcce1394e0af5447c07ad38c54b960fa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985012"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825408"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
 
@@ -74,8 +74,8 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-
-Gelecek bir sürümde, kişisel olarak tanımlanan kullanmak mümkün olacaktır **-yayımcı**, **-teklif** ve **- Sku** bulmak ve bir görüntü tanımı belirtmek için değerleri daha sonra VM'yi oluşturma eşleşen da görüntü tanımı en son görüntü sürümü kullanıyor. Örneğin, üç görüntü tanımlar ve değerleri şunlardır:
+### <a name="using-publisher-offer-and-sku"></a>Yayımcı, teklif ve SKU kullanma 
+Paylaşılan görüntülerini uygulamaya planlama müşteriler için **gelecek bir sürümde**, kişisel olarak tanımlanan kullanmak mümkün olacaktır **-yayımcı**, **-teklif** ve **- Sku** bulmak ve bir görüntü tanımı belirtin ve sonra eşleşen en son görüntü sürümünü kullanarak VM oluşturmak için değerleri görüntü tanımı. Örneğin, üç görüntü tanımlar ve değerleri şunlardır:
 
 |Görüntü Tanımı|Yayımcı|Sunduğu|Sku|
 |---|---|---|---|
@@ -83,10 +83,9 @@ Gelecek bir sürümde, kişisel olarak tanımlanan kullanmak mümkün olacaktır
 |myImage2|myPublisher|standardOffer|mySku|
 |myImage3|Test Etme|standardOffer|testSku|
 
-Bu üç benzersiz değerler vardır. Gelecek sürümlerden birinde, belirli bir görüntünün en son sürümünü isteğinde bulunmak için bu değerleri birleştirmek mümkün olacaktır. 
+Bu üç benzersiz değerler vardır. Bir veya iki, ancak tüm üç değerden paylaşan görüntü sürümleri olabilir. **Gelecek bir sürümde**, belirli bir görüntünün en son sürümünü isteğinde bulunmak için bu değerleri birleştirmek mümkün olacaktır. **Geçerli sürümde bu işe yaramazsa**, ancak gelecekte kullanıma sunulacaktır. Yayınlandığı zaman, aşağıdaki sözdizimini kullanarak kaynak görüntü olarak ayarlamak için kullanılması gereken *myImage1* Yukarıdaki tablodaki.
 
 ```powershell
-# The following should set the source image as myImage1 from the table above
 $vmConfig = Set-AzVMSourceImage `
    -VM $vmConfig `
    -PublisherName myPublisher `
@@ -94,7 +93,7 @@ $vmConfig = Set-AzVMSourceImage `
    -Skus mySku 
 ```
 
-Bu nasıl şu anda bu belirtebilirsiniz için benzer [Azure Market görüntüleri](../articles/virtual-machines/windows/cli-ps-findimage.md) bir VM oluşturmak için. Bunu aklınızda her görüntü tanımı bu değerler benzersiz bir dizi olmalıdır. Bir veya iki, ancak tüm üç değerden paylaşan görüntü sürümleri olabilir. 
+Bu nasıl şu anda kullanım yayımcı, teklif ve SKU için belirtebileceğiniz için benzer [Azure Market görüntüleri](../articles/virtual-machines/windows/cli-ps-findimage.md) Market görüntüsü en son sürümünü almak için. Bunu aklınızda her görüntü tanımı bu değerler benzersiz bir dizi olmalıdır.  
 
 ##<a name="create-an-image-version"></a>Görüntü sürümü oluşturma
 

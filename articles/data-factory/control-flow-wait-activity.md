@@ -3,23 +3,23 @@ title: Azure Data factory'de etkinlik bekleyin | Microsoft Docs
 description: Bekle etkinliğinin işlem hattının yürütülmesini belirtilen süre boyunca duraklatır.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: shlo
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/12/2018
 ms.author: shlo
-ms.openlocfilehash: 731df55a11f4671670a65dac8a83927d81da454c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015806"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807822"
 ---
-# <a name="wait-activity-in-azure-data-factory"></a>Azure Data factory'de etkinlik bekleyin
+# <a name="execute-wait-activity-in-azure-data-factory"></a>Azure Data Factory'de yürütme bekleme etkinliği
 İşlem hattında Bekleme etkinliğini kullandığınızda, işlem hattı izleyen etkinlikleri yürütmeye devam etmeden önce belirtilen süre kadar bekler. 
 
 ## <a name="syntax"></a>Sözdizimi
@@ -37,10 +37,10 @@ ms.locfileid: "54015806"
 
 ## <a name="type-properties"></a>Tür özellikleri
 
-Özellik | Açıklama | İzin verilen değerler | Gereklidir
+Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-ad | Adını `Wait` etkinlik. | Dize | Evet
-type | Ayarlanmalıdır **bekleyin**. | Dize | Evet
+ad | Adını `Wait` etkinlik. | String | Evet
+type | Ayarlanmalıdır **bekleyin**. | String | Evet
 waitTimeInSeconds | Ardışık Düzen işleme devam etmeden önce bekleyeceği saniye sayısı. | Tamsayı | Evet
 
 ## <a name="example"></a>Örnek

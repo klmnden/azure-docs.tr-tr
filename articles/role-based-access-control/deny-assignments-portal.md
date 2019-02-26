@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 48098ba32a8eb1c2d7a7bafa246b8e850229b430
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343247"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804544"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Azure portalını kullanarak Azure kaynakları için atamaları görünümü Reddet
 
@@ -28,7 +28,7 @@ ms.locfileid: "56343247"
 Bu makalede görüntülemek için Azure portalını kullanmayı açıklar atamaları reddet.
 
 > [!NOTE]
-> Şu anda izin verme atamalar salt okunurdur ve yalnızca Azure tarafından ayarlanabilir.
+> Şu anda izin verme atamalar salt okunurdur ve yalnızca Microsoft tarafından ayarlanabilir.
 
 ## <a name="view-deny-assignments"></a>Reddetme atamalarını görüntüleyin
 

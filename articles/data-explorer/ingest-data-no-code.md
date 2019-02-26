@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: a678722666146fdf22e88680ab414b09d2a7ffaa
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 39c96608dd843577f41d2111e9e7c5517136ccae
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749945"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823578"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Öğretici: Azure veri Gezgini'nde verileri tek satırlık bir kod olmadan alma
 
@@ -34,7 +34,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
-* [Bir Azure Veri Gezgini kümesi ile veritabanı](create-cluster-database-portal.md). Bu öğreticide, veritabanı adı. *AzureMonitoring*.
+* [Bir Azure Veri Gezgini kümesi ile veritabanı](create-cluster-database-portal.md). Bu öğreticide, veritabanı adı. *TestDatabase*.
 
 ## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Azure İzleyici, veri sağlayıcısı: tanılama ve etkinlik günlükleri
 
@@ -123,7 +123,7 @@ Bir Azure Veri Gezgini işlem hattı ayarlama içeren birkaç adım gibi [tablo 
 
 ### <a name="connect-to-the-azure-data-explorer-web-ui"></a>Azure Veri Gezgini Web kullanıcı Arabirimine bağlanma
 
-Azure veri Gezgini'nde *AzureMonitoring* veritabanı **sorgu** Azure Veri Gezgini Web kullanıcı arabirimini açın.
+Azure veri Gezgini'nde *TestDatabase* veritabanı **sorgu** Azure Veri Gezgini Web kullanıcı arabirimini açın.
 
 ![Sorgu sayfası](media/ingest-data-no-code/query-database.png)
 
@@ -133,7 +133,7 @@ Azure Veri Gezgini veritabanında hedef tablolar oluşturmak için Azure Veri Ge
 
 #### <a name="the-diagnostic-logs-table"></a>Tanılama günlükleri tablo
 
-1. İçinde *AzureMonitoring* adlı bir tablo oluşturma, veritabanı *DiagnosticLogsRecords* tanılama günlüğü kayıtlarını depolamak için. Aşağıdaki `.create table` denetim komutu:
+1. İçinde *TestDatabase* adlı bir tablo oluşturma, veritabanı *DiagnosticLogsRecords* tanılama günlüğü kayıtlarını depolamak için. Aşağıdaki `.create table` denetim komutu:
 
     ```kusto
     .create table DiagnosticLogsRecords (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
@@ -147,13 +147,13 @@ Azure Veri Gezgini veritabanında hedef tablolar oluşturmak için Azure Veri Ge
 
 Etkinlik günlükleri yapısını tablo olmadığından, verileri işlemek ve her olay için bir veya daha fazla kayıt genişletin gerekir. Ham verileri, adlı bir ara tablo alınan *ActivityLogsRawRecords*. O anda veri yönetilebilir ve genişletilmiş. Genişletilmiş veriler daha sonra içine alınan *ActivityLogsRecords* güncelleştirme İlkesi kullanarak tablo. Başka bir deyişle, etkinlik günlüklerini almak için iki ayrı tablolar oluşturmak gerekir.
 
-1. Adlı bir tablo oluşturun *ActivityLogsRecords* içinde *AzureMonitoring* etkinlik günlük kayıtları almak için veritabanı. Tablo oluşturmak için aşağıdaki Azure Veri Gezgini sorguyu çalıştırın:
+1. Adlı bir tablo oluşturun *ActivityLogsRecords* içinde *TestDatabase* etkinlik günlük kayıtları almak için veritabanı. Tablo oluşturmak için aşağıdaki Azure Veri Gezgini sorguyu çalıştırın:
 
     ```kusto
     .create table ActivityLogsRecords (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
     ```
 
-1. Adlı ara veri tablosu oluşturma *ActivityLogsRawRecords* içinde *AzureMonitoring* veritabanı veri işleme için:
+1. Adlı ara veri tablosu oluşturma *ActivityLogsRawRecords* içinde *TestDatabase* veritabanı veri işleme için:
 
     ```kusto
     .create table ActivityLogsRawRecords (Records:dynamic)
@@ -265,9 +265,7 @@ Azure tanılama günlükleri bir depolama hesabına veya olay hub'ına verme öl
     1. İçinde **Select olay hub'ı ilke adı** listesinde, seçin **RootManagerSharedAccessKey**.
     1. **Tamam**’ı seçin.
 
-1. **Kaydet**’i seçin. Olay hub'ı ad alanı adı ve ilke adı penceresinde görünür.
-
-    ![Tanılama ayarları kaydedin](media/ingest-data-no-code/save-diagnostic-settings.png)
+1. **Kaydet**’i seçin.
 
 ### <a name="connect-activity-logs-to-your-event-hub"></a>Etkinlik günlükleri Olay hub'ınıza bağlanın
 
@@ -309,7 +307,7 @@ Azure tanılama günlükleri bir depolama hesabına veya olay hub'ına verme öl
 ### <a name="create-the-data-connection-for-diagnostic-logs"></a>Tanılama günlüklerine yönelik veri bağlantısı oluşturma
 
 1. Azure Veri Gezgini kümenizde adlı *kustodocs*seçin **veritabanları** soldaki menüde.
-1. İçinde **veritabanları** penceresinde, seçin, *AzureMonitoring* veritabanı.
+1. İçinde **veritabanları** penceresinde, seçin, *TestDatabase* veritabanı.
 1. Sol menüde **veri alımı**.
 1. İçinde **veri alımı** penceresinde tıklayın **+ veri bağlantısı ekleme**.
 1. İçinde **veri bağlantısı** penceresinde aşağıdaki bilgileri girin:
@@ -332,9 +330,9 @@ Azure tanılama günlükleri bir depolama hesabına veya olay hub'ına verme öl
 
      **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
-    | **Tablo** | *DiagnosticLogsRecords* | Oluşturduğunuz tabloyu *AzureMonitoring* veritabanı. |
+    | **Tablo** | *DiagnosticLogsRecords* | Oluşturduğunuz tabloyu *TestDatabase* veritabanı. |
     | **Veri biçimi** | *JSON* | Tabloda kullanılan biçim. |
-    | **Sütun eşleme** | *DiagnosticLogsRecordsMapping* | Oluşturduğunuz eşleme *AzureMonitoring* sütun adları ve veri türleri için gelen JSON verilerini eşleştiren veritabanı *DiagnosticLogsRecords* tablo.|
+    | **Sütun eşleme** | *DiagnosticLogsRecordsMapping* | Oluşturduğunuz eşleme *TestDatabase* sütun adları ve veri türleri için gelen JSON verilerini eşleştiren veritabanı *DiagnosticLogsRecords* tablo.|
     | | |
 
 1. **Oluştur**’u seçin.  
@@ -361,9 +359,9 @@ Adımları yineleyin [tanılama günlüklerine yönelik veri bağlantısı oluş
 
      **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
-    | **Tablo** | *ActivityLogsRawRecords* | Oluşturduğunuz tabloyu *AzureMonitoring* veritabanı. |
+    | **Tablo** | *ActivityLogsRawRecords* | Oluşturduğunuz tabloyu *TestDatabase* veritabanı. |
     | **Veri biçimi** | *JSON* | Tabloda kullanılan biçim. |
-    | **Sütun eşleme** | *ActivityLogsRawRecordsMapping* | Oluşturduğunuz eşleme *AzureMonitoring* sütun adları ve veri türleri için gelen JSON verilerini eşleştiren veritabanı *ActivityLogsRawRecords* tablo.|
+    | **Sütun eşleme** | *ActivityLogsRawRecordsMapping* | Oluşturduğunuz eşleme *TestDatabase* sütun adları ve veri türleri için gelen JSON verilerini eşleştiren veritabanı *ActivityLogsRawRecords* tablo.|
     | | |
 
 1. **Oluştur**’u seçin.  

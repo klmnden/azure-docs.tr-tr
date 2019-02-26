@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 02/25/2019
 ms.author: diberry
-ms.openlocfilehash: 6a4d20073275e3d858cecb73c2e95c97ea53a647
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 4215b008af21a3473a1d2dcef5f73a1b19133215
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311979"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821568"
 ---
 # <a name="configure-face-docker-containers"></a>Yüz tanıma Docker kapsayıcıları yapılandırın
 
@@ -54,6 +54,49 @@ Bu ayar, aşağıdaki yerinde bulunabilir:
 |Gerekli| Ad | Veri türü | Açıklama |
 |--|------|-----------|-------------|
 |Evet| `Billing` | Dize | Faturalandırma uç noktası URI'si<br><br>Örnek:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+
+<!-- specific to face only -->
+
+## <a name="cloudai-configuration-settings"></a>CloudAI yapılandırma ayarları
+
+Yapılandırma ayarlarında `CloudAI` bölümü kapsayıcınıza benzersiz kapsayıcı özgü seçenekler sağlar. Aşağıdaki ayarları ve nesneleri yüz kapsayıcıda desteklenir `CloudAI` bölümü
+
+| Ad | Veri türü | Açıklama |
+|------|-----------|-------------|
+| `Storage` | Nesne | Yüz tanıma kapsayıcı tarafından kullanılan depolama senaryo. Depolama senaryoları ve için ilişkili ayarları hakkında daha fazla bilgi için `Storage` nesne, bkz: [depolama senaryo ayarları](#storage-scenario-settings) |
+
+### <a name="storage-scenario-settings"></a>Depolama senaryosu ayarları
+
+Yüz tanıma kapsayıcı, blob, önbellek, meta verileri ve sıra veri, ne saklanan bağlı olarak depolar. Örneğin, eğitim dizinleri ve sonuçları bir büyük kişi grubu için blob veri depolanır. Yüz tanıma kapsayıcı ile etkileşim kurulurken iki farklı depolama senaryoları ve bu tür verilerin depolama sağlar:
+
+* Bellek  
+  Tüm dört veri türlerini bellekte depolanır. Dağılımı ya da bunların kalıcıdır. Yüz tanıma kapsayıcı durdurulmuş veya kaldırılmış, tüm bu kapsayıcı için depolama birimindeki verileri bozulur.  
+  Yüz tanıma kapsayıcısı için varsayılan depolama senaryosu budur.
+* Azure  
+  Yüz tanıma kapsayıcı, bu dört veri türleri arasında kalıcı depolama dağıtmak için Azure depolama ve Azure Cosmos DB kullanır. BLOB ve kuyruk verileri Azure Depolama tarafından işlenir. Meta verileri ve önbellek verilerini Azure Cosmos DB tarafından işlenir. Yüz tanıma kapsayıcı durdurulmuş veya kaldırılmış, tüm veriler bu kapsayıcı için depolama alanında kalır Azure depolama ve Azure Cosmos DB içinde depolanan.  
+  Azure depolama senaryo tarafından kullanılan kaynakları aşağıdaki ek gereksinimlere sahiptir.
+  * Azure depolama kaynağı StorageV2 hesap türü kullanmalısınız.
+  * Azure Cosmos DB kaynak MongoDB için Azure Cosmos DB'nin API'sini kullanmanız gerekir
+
+Tarafından yönetilen depolama senaryolar ve ilişkili yapılandırma ayarları `Storage` altında nesne `CloudAI` yapılandırma bölümü. Aşağıdaki yapılandırma ayarları kullanılabilir `Storage` nesnesi:
+
+| Ad | Veri türü | Açıklama |
+|------|-----------|-------------|
+| `StorageScenario` | Dize | Kapsayıcı tarafından desteklenen depolama senaryo. Aşağıdaki değerler kullanılabilir<br/>`Memory` -Varsayılan değer. Kapsayıcı, tek bir düğüm, geçici kullanım için kalıcı olmayan, olmayan dağıtılmış ve bellek içi depolama kullanır. Bu kapsayıcı için depolama kapsayıcısı durdurulmuş veya kaldırılmış olmadığını yok edilir.<br/>`Azure` -Kapsayıcı, depolama için Azure kaynaklarını kullanır. Bu kapsayıcı için depolama kapsayıcısı durdurulmuş veya kaldırılmış olmadığını kalıcı hale getirilir.|
+| `ConnectionStringOfAzureStorage` | Dize | Kapsayıcı tarafından kullanılan Azure depolama kaynağı için bağlantı dizesi.<br/>Bu ayar, yalnızca aşağıdaki durumlarda geçerlidir `Azure` için belirtilen `StorageScenario` yapılandırma ayarı. |
+| `ConnectionStringOfCosmosMongo` | Dize | Kapsayıcı tarafından kullanılan Azure Cosmos DB kaynak için MongoDB bağlantı dizesi.<br/>Bu ayar, yalnızca aşağıdaki durumlarda geçerlidir `Azure` için belirtilen `StorageScenario` yapılandırma ayarı. |
+
+Örneğin, aşağıdaki komutu, Azure depolama senaryosu belirtir ve örnek bağlantı dizeleri yüz kapsayıcı verilerini depolamak için kullanılan Azure depolama ve Cosmos DB kaynakları sağlar.
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
+  ```
+
+Depolama senaryosu alanından ayrı olarak yönetilir takar giriş ve çıkış takar. Tek bir kapsayıcı için bu özellikleri birleşimi belirtebilirsiniz. Örneğin, aşağıdaki komutu için Docker bağlama bağlama tanımlar `D:\Output` klasörü çıkış bağlama olarak konak makinedeki sonra JSON biçiminde çıktı bağlama için günlük dosyalarını kaydetme yüz kapsayıcı görüntüsünden bir kapsayıcı oluşturur. Komut ayrıca Azure depolama senaryosu belirtir ve örnek bağlantı dizeleri yüz kapsayıcı verilerini depolamak için kullanılan Azure depolama ve Cosmos DB kaynakları sağlar.
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Disk:Format=json CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
+  ```
 
 ## <a name="eula-setting"></a>EULA'yı ayarlama
 

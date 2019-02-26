@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 6d7cacf699df580b8a5c46b8bfc6d48e1a8daea1
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904378"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821739"
 ---
 # <a name="manage-and-configure-projects"></a>Projeleri yönetme ve yapılandırma
 
@@ -58,6 +58,15 @@ Aşağıdaki koşullar doğruysa, açılır listede de gösterilir [veri bilimi 
 Azure not defterleri DSVM örneği seçtiğinizde, sanal Makineyi oluştururken kullanılan belirli bir makine kimlik bilgilerini isteyebilir.
 
 Yeni bir DSVM örneği oluşturmak için yönergeleri takip edin [Ubuntu veri bilimi sanal makinesi oluşturma](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Kullanım **Linux (Ubuntu) için veri bilimi sanal makinesi** DSVM Azure not defterleri aşağı açılan listede görünmesini istiyorsanız, görüntü.  Windows veya CentOS görüntüsü kullanması gereken diğer nedenlerle kullandığınız **doğrudan işlem** el ile değerini DSVM Örneğinize bağlanmak için seçeneği.
+
+> [!IMPORTANT]
+> Doğrudan işlem veya veri bilimi sanal makineleri kullanırken, bunları üzerinde çalıştırdığınız not defterlerini tamamen müstakil olmalıdır. Şu anda yalnızca Azure not defterleri kopyalar *.ipynb* VM dosyasına ancak tüm diğer dosyalar projesinde kopyalamaz. Sonuç olarak, diğer proje dosyaları bulmak diğer Vm'lerde çalışan not defterlerini başarısız.
+>
+> Bu davranış, iki yolla geçici çözüm bulabilirsiniz:
+>
+> 1. Proje dosyaları sanal Makineye el ile kopyalayın.
+>
+> 2. Bir kurulum not defteri içindeki dosyalar ekleme, önce birincil not defterini ilk çalıştırma. Dosya içeriğini burada hücresi her dosya için bir kod hücresi Kurulum not defteri oluşturun. Ardından her hücre üst kısmında Ekle komutu `%writefile <filename>`burada `<filename>` içeriği almak için dosyanın adıdır. Not defterini çalıştırdığınızda, bu sanal makine üzerindeki tüm dosyaları oluşturur. Bir örnek için bkz. [Microsoft evcil hayvan algılayıcısı tanıtım setup.ipynb dosyasında](https://github.com/microsoft/connect-petdetector) (GitHub).
 
 ## <a name="edit-project-metadata"></a>Proje meta verilerini düzenleme
 

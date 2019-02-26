@@ -9,20 +9,35 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 12/20/2018
+ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f02a44f41eba8cc4298b9fc730354799ca0aad0c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 899e33db242a34d09df6109c2e195bdff9c65262
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446775"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823612"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  Her bir SDK tam bir açıklaması için başvuru belgelerini ziyaret edin:
 + Azure Machine Learning'ın [ **Python için ana SDK'sı**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **veri hazırlama SDK'sı**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-02-25"></a>2019-02-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1017"></a>Azure Machine SDK için Python v1.0.17 Learning
+
++ **Yeni Özellikler**
+
+  + Azure Machine Learning SDK'sı artık destekleyen bir [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) eğitim ve özel bağlayıcı kod kullanarak bir model dağıtma işlemini kolaylaştırmak için estimator sınıfı.
+
+### <a name="azure-portal"></a>Azure portal
++ **Yeni Özellikler**
+    + Yeni bir Sürükle ve bırak Düzenleyicisi deneyimi raporlar için tablo. Kullanıcılar bir sütun tablonun önizlemesi nerede görüntülenecek tablo alanı sekme grubundan sürükleyebilirsiniz. Sütunları yeniden.
+    + Çalıştırmaları ScriptRunConfig ile gönderilen yeni Çalıştır düğmesi. Kullanıcılar kendi seçtikleri uzaktan işlem kümesi üzerinde varolan yeniden çalıştırabilirsiniz.
+    + Yeni günlük dosyası Görüntüleyici
+    + Çalıştırmaları, işlem, modelleri, görüntüleri ve dağıtımları etkinlikleri sekmesinden denemek için bağlantılar
 
 ## <a name="2019-02-11"></a>2019-02-11
 

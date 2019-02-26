@@ -5,20 +5,22 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/23/2019
+ms.date: 2/25/2019
 ms.author: victorh
-ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f1e92c8581f8528b3622ad88f086d3f66619b996
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816331"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823493"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Özel etki alanları için Azure DNS kullanma
 
 DNS veya etki alanı adı sistemi çevirmek için sorumludur (veya çözümleme) bir hizmet adı, IP adresi. Bir barındırma hizmeti DNS etki alanları için Microsoft Azure altyapısı kullanarak Azure DNS ad çözümlemesi sağlar. İnternet'e yönelik DNS etki alanlarınızı hizmetinin yanı sıra, Azure DNS artık ayrıca özel DNS etki alanı bir önizleme özelliği olarak destekler.
 
 Azure DNS, yönetmek ve özel bir DNS çözümü ekleme gerek kalmadan bir sanal ağdaki etki alanı adlarını çözümlemek için güvenilir, güvenli DNS hizmeti sağlar. Özel DNS bölgelerini kullanarak, Azure tarafından sağlanan mevcut adların yerine kendi özel etki alanı adlarını kullanabilirsiniz. Özel etki alanı adlarını kullanarak, sanal ağ Mimarinizi en iyi karşılayacak şekilde uyarlamak için kuruluşunuzun gereksinimlerine yardımcı olur. Sanal makineler (VM) bir sanal ağdaki ve sanal ağlar arasında ad çözümleme sağlar. Ayrıca, bölge adlarını özel ve Genel DNS bölgelerinin adı paylaşmasına izin veren bir split-horizon görünümünde ile yapılandırabilirsiniz.
+
+Sanal ağınızda özel bir DNS bölgesi yayımlamak için bölge içindeki kaynakları çözümleme izni olan sanal ağların listesini belirtmeniz gerekir. Bunlara *çözümleme sanal ağları* adı verilir. Bir VM oluşturulduğunda, IP’yi değiştirdiğinde veya silindiğinde Azure DNS'te ana bilgisayar adı kayıtlarının tutulacağı bir sanal ağ da belirtebilirsiniz. Buna *kayıt sanal ağı* adı verilir.
 
 Kayıt sanal ağı belirtirseniz, özel bölgeye kaydedilen Vm'lerden söz konusu sanal ağ için DNS kayıtlarını görüntülenebilir veya Azure Powershell ve Azure CLI API'leri alınabilir değildir, ancak VM kayıtları gerçekten kaydedilir ve olur başarılı bir şekilde çözün.
 

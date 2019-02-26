@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 963bc8f6602a33ed703344f5277bb427f11390bb
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424328"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823527"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation’da Rol Tabanlı Erişim Denetimi
 
@@ -142,7 +142,7 @@ Log Analytics katkıda bulunan tüm izleme verilerini okuyabilir ve izleme ayarl
 |Microsoft.Compute/virtualMachines/extensions/*|Oluşturun ve klasik sanal makine uzantıları yönetin.|
 |Microsoft.Insights/alertRules/*|Okuma/yazma/silme uyarı kuralları.|
 |Microsoft.Insights/diagnosticSettings/*|Tanılama ayarlarını okuma/yazma/silme.|
-|Microsoft.OperationalInsights/*|Manage Log Analytics.|
+|Microsoft.OperationalInsights/*|Azure İzleyici günlüklerine yönetin.|
 |Microsoft.OperationsManagement/*|Çalışma alanları çözümlerinde yönetin.|
 |Microsoft.Resources/deployments/*|Oluşturun ve kaynak grubu dağıtımı yönetin.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Oluşturun ve kaynak grubu dağıtımı yönetin.|
@@ -156,8 +156,8 @@ Log Analytics okuyucusu görüntüleyebilir ve tüm izleme verilerini ve ayarlar
 |**Eylemler**  |**Açıklama**  |
 |---------|---------|
 |* / Okuma|Gizli dizileri dışında tüm türler kaynakları okuyun.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Log analytics'te sorgu yönetin.|
-|Microsoft.OperationalInsights/workspaces/search/action|Log Analytics veri arayın.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Azure İzleyici günlüklerine sorgularda yönetin.|
+|Microsoft.OperationalInsights/workspaces/search/action|Azure İzleyici günlük verileri arayın.|
 |Microsoft.Support/*|Oluşturun ve Destek biletlerini yönetebilir.|
 |**Eylemleri değil**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Paylaşılan erişim anahtarları okumak karşılaştırılamıyor.|

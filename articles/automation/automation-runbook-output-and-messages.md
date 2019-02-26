@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82382ecc3adf0d0621f51438a082f7807b031fc9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ec71f8998f7db07cafca7f8141acb9898b016328
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431223"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821362"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook çıkışı ve iletileri Azure Otomasyonu
 Çoğu Azure Automation runbook'ları, bir çıkış biçimine sahip. Bu çıkış, bir hata iletisi, başka bir runbook ile kullanmak istediğiniz kullanıcı veya karmaşık bir nesne olabilir. Windows PowerShell sağlar [birden çok akış](/powershell/module/microsoft.powershell.core/about/about_redirection) bir betik veya iş akışı, çıkış göndermek için. Azure Otomasyonu bu akışları her biriyle farklı biçimde çalışır. Bir runbook oluştururken her kullanmak için en iyi uygulamaları izlemelisiniz.
@@ -220,8 +220,8 @@ Grafik runbook'ları için fazladan günlük kaydı etkinlik düzeyinde izleme b
    
    ![Grafik yazma günlüğe kaydetme ve izleme sayfası](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure günlük analizi
-Log Analytics çalışma alanınıza Automation runbook iş durumunu ve iş akışları yeniden gönderebilirsiniz. Log Analytics ile şunları yapabilirsiniz:
+### <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure izleme günlükleri
+Log Analytics çalışma alanınıza Automation runbook iş durumunu ve iş akışları yeniden gönderebilirsiniz. Azure İzleyici günlüklerine ile şunları yapabilirsiniz:
 
 * Otomasyon işleriniz hakkında bilgi edinme 
 * Bir e-posta veya uyarı (örneğin, başarısız olan veya askıya alınmış), runbook işi durumuna dayalı tetikleyici 
@@ -229,7 +229,7 @@ Log Analytics çalışma alanınıza Automation runbook iş durumunu ve iş akı
 * Otomasyon hesapları arasında işleri ilişkilendirin 
 * Zaman içinde iş geçmişinizi görselleştirin    
 
-Toplamanıza, ilişkilendirmenize ve işi veri üzerinde oynama yapmak için Log Analytics ile tümleştirmeyi yapılandırma hakkında daha fazla bilgi için bkz. [Otomasyon iş durumunu ve iş akışları Log Analytics'e iletme](automation-manage-send-joblogs-log-analytics.md).
+Toplamanıza, ilişkilendirmenize ve işi veri üzerinde oynama yapmak için Azure İzleyici günlükleri ile tümleştirmeyi yapılandırma hakkında daha fazla bilgi için bkz. [Otomasyon iş durumunu ve iş akışları için Azure İzleyici günlüklerine iletmek](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Runbook yürütme, runbook işlerini izleme ve diğer teknik ayrıntılar hakkında daha fazla bilgi edinmek için bkz. [Runbook işi izleme](automation-runbook-execution.md)

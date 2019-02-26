@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 3cf71de72a6005c59d76e2d88059a1ae16ec2970
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746499"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817482"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bilinen sorunlar ve sorun giderme Azure Machine Learning hizmeti
 
@@ -51,17 +51,18 @@ Gözlemlerseniz, `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died
 
 Databricks ve Azure Machine Learning sorunları.
 
-1. Daha fazla paketleri yüklendiğinde Databricks üzerinde bir Azure Machine Learning SDK yükleme hataları.
-
-   Gibi bazı paketler `psutil`, çakışmaları neden olabilir. Yükleme hataları önlemek için paketleri dondurma LIB sürümüyle yükleyin. Bu sorun, Databricks ve Azure Machine Learning hizmeti SDK'sı - değil ilgili, diğer kitaplıklar ile çok karşılaşacağınız. Örnek:
+### <a name="failure-when-installing-packages"></a>Paketler yüklenirken hata
+Daha fazla paketleri yüklendiğinde Databricks üzerinde bir Azure Machine Learning SDK yükleme hataları. Gibi bazı paketler `psutil`, çakışmaları neden olabilir. Yükleme hataları önlemek için paketleri dondurma LIB sürümüyle yükleyin. Bu sorun, Databricks ve Azure Machine Learning hizmeti SDK'sı - değil ilgili, diğer kitaplıklar ile çok karşılaşacağınız. Örnek:
    ```python
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
-   Alternatif olarak, yükleme sorunlarını Python kitaplıklar ile yan yana tutmak, init komut dosyalarını kullanabilirsiniz. Bu yaklaşım, resmi olarak desteklenen bir yaklaşım değildir. Başvurabilirsiniz [bu belge](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+Alternatif olarak, yükleme sorunlarını Python kitaplıklar ile yan yana tutmak, init komut dosyalarını kullanabilirsiniz. Bu yaklaşım, resmi olarak desteklenen bir yaklaşım değildir. Başvurabilirsiniz [bu belge](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-2. Machine Learning otomatik Databricks üzerinde bir çalışmayı iptal edip yeni bir deneme çalıştırma başlatmak istiyorsanız kullanırken, Azure Databricks kümenizi yeniden başlatın.
+### <a name="cancel-an-automated-ml-run"></a>Otomatik bir ML çalıştırmayı iptal et
+Kullanarak makine öğrenimi özelliklerinden Databricks üzerinde bir çalışmayı iptal edip yeni bir deneme çalıştırma başlatmak istiyorsanız otomatik olduğunda, Azure Databricks kümenizi yeniden başlatın.
 
-3. 10'dan fazla yineleme varsa, otomatik ml ayarlarında belirlenen `show_output` için `False` çalıştırmayı ne zaman gönderdiğiniz.
+### <a name="10-iterations-for-automated-ml"></a>> 10 yinelemeden otomatik ML için
+10'dan fazla yineleme varsa, otomatik ml ayarlarında ayarlamak `show_output` için `False` çalıştırmayı ne zaman gönderdiğiniz.
 
 
 ## <a name="azure-portal"></a>Azure portal

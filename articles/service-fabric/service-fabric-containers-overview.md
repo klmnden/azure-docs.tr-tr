@@ -3,7 +3,7 @@ title: Service Fabric ve kapsayıcılar'na genel bakış | Microsoft Docs
 description: Mikro hizmet uygulamalarını dağıtmak için Service Fabric ve kapsayıcılar kullanımına genel bakış. Bu makalede, kapsayıcıları nasıl kullanılabileceğini genel bir bakış ve Service fabric'te kullanılabilen özellikleri sağlar.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: twhitney, msfussell
-ms.openlocfilehash: 0acbd2d4ccf35c9490a06228eeb1bb465a8ca732
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.author: aljo, msfussell
+ms.openlocfilehash: 5344f34e0e35d4d47b032b660726a4d70a4f1987
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299983"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807023"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric ve kapsayıcılar
 
@@ -35,8 +35,8 @@ Varsayılan olarak, Service Fabric dağıtır ve hizmetlerin işlemler olarak et
 
 Hemen başlayın ve Service Fabric kapsayıcıları denemek için hızlı başlangıç, öğretici ve örnek deneyin:  
 
-[Hızlı Başlangıç: bir Service Fabric Linux kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers-linux.md)  
-[Hızlı Başlangıç: bir Windows kapsayıcı uygulaması Service fabric'e dağıtma](service-fabric-quickstart-containers.md)  
+[Hızlı Başlangıç: Bir Service Fabric Linux kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers-linux.md)  
+[Hızlı Başlangıç: Service Fabric için bir Windows kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers.md)  
 [Mevcut bir .NET uygulamasını kapsayıcılı hale getirme](service-fabric-host-app-in-a-container.md)  
 [Service Fabric Kapsayıcı Örnekleri](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
@@ -48,10 +48,10 @@ Kapsayıcılar, doğrudan çekirdek üzerinde çalıştırma ve dosya sistemi ve
 
 Sanal makinelere kıyasla, kapsayıcılar, şu avantajlara sahip olursunuz:
 
-* **Küçük**: etkinliği arttırmak için kapsayıcılar kullanma tek bir depolama alanı ve katman sürümler ve güncelleştirmeler.
-* **Hızlı**: kapsayıcılar, bunlar çok daha hızlı--genellikle saniye içinde analize başlamanızı bütün bir işletim sistemi önyükleme zorunda değilsiniz.
-* **Taşınabilirlik**: bulutta, şirket içi, sanal makineler içinde veya fiziksel makinelere doğrudan çalıştırmak için bir kapsayıcı uygulama görüntüsü verilir.
-* **Kaynak İdaresi**: bir kapsayıcı, konakta tüketebileceği fiziksel kaynakları sınırlayabilirsiniz.
+* **Küçük**: Kapsayıcılar, verimliliği artırmak için tek bir depolama alanı ve katman sürümler ve Güncelleştirmeler'ni kullanın.
+* **Hızlı**: Kapsayıcılar, bunlar çok daha hızlı--genellikle saniye içinde analize başlamanızı bütün bir işletim sistemi önyükleme gerekmez.
+* **Taşınabilirlik**: Kapsayıcılı uygulama görüntüsü, bulutta, şirket içi, sanal makineler içinde veya fiziksel makinelere doğrudan çalıştırmak için unity'nin.
+* **Kaynak İdaresi**: Bir kapsayıcı, konakta tüketebileceği fiziksel kaynakları sınırlayabilirsiniz.
 
 ### <a name="container-types-and-supported-environments"></a>Kapsayıcı türü ve desteklenen ortamlar
 
@@ -76,11 +76,11 @@ Aşağıdaki şekilde sanallaştırmasının ve yalıtım düzeyleri farklı tü
 
 Burada bir kapsayıcı iyi bir seçimdir tipik örnekler şunlardır:
 
-* **IIS lift- and -shift**: mevcut bir koyabilirsiniz [ASP.NET MVC](https://www.asp.net/mvc) geçirmek yerine, bir kapsayıcıdaki uygulama ASP.NET Core için. Bu ASP.NET MVC uygulamaları, Internet Information Services (IIS) bağlıdır. Bu kapsayıcı görüntülerini uygulamalarla precreated IIS görüntüden paketini ve Service Fabric ile dağıtın. Bkz: [kapsayıcı görüntülerini Windows Server'da](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) Windows kapsayıcıları hakkında daha fazla bilgi için.
+* **IIS lift- and -shift**: Mevcut bir koyabilirsiniz [ASP.NET MVC](https://www.asp.net/mvc) geçirmek yerine, bir kapsayıcıdaki uygulama ASP.NET Core için. Bu ASP.NET MVC uygulamaları, Internet Information Services (IIS) bağlıdır. Bu kapsayıcı görüntülerini uygulamalarla precreated IIS görüntüden paketini ve Service Fabric ile dağıtın. Bkz: [kapsayıcı görüntülerini Windows Server'da](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) Windows kapsayıcıları hakkında daha fazla bilgi için.
 
-* **Kapsayıcıları ve Service Fabric mikro hizmetler karıştırmak**: uygulamanızın bir parçası için var olan bir kapsayıcı görüntüsü kullanın. Örneğin, kullanabileceğinize [NGINX kapsayıcısını](https://hub.docker.com/_/nginx/) web ön uç uygulama ve daha yoğun bir arka uç hesaplama için durum bilgisi olan hizmetler için.
+* **Kapsayıcıları ve Service Fabric mikro hizmetler karıştırmak**: Var olan bir kapsayıcı görüntüsü, uygulamanızın bir parçası için kullanın. Örneğin, kullanabileceğinize [NGINX kapsayıcısını](https://hub.docker.com/_/nginx/) web ön uç uygulama ve daha yoğun bir arka uç hesaplama için durum bilgisi olan hizmetler için.
 
-* **"Gürültülü komşu" Hizmetleri etkisini azaltmak**: kaynak İdaresi özelliği kapsayıcıların bir konakta bir hizmetin kullandığı kaynakları sınırlamak için kullanabilirsiniz. Hizmetleri pek çok kaynak tüketen ve başkalarının (örneğin, uzun süre çalışan, sorgu benzeri işlemi) performansını etkiler, bu hizmetler kaynak İdaresi kapsayıcılarına yerleştirme göz önünde bulundurun.
+* **"Gürültülü komşu" Hizmetleri etkisini azaltmak**: Kaynak İdaresi özelliği kapsayıcıların bir konakta bir hizmetin kullandığı kaynakları kısıtlamak için kullanabilirsiniz. Hizmetleri pek çok kaynak tüketen ve başkalarının (örneğin, uzun süre çalışan, sorgu benzeri işlemi) performansını etkiler, bu hizmetler kaynak İdaresi kapsayıcılarına yerleştirme göz önünde bulundurun.
 
 ## <a name="service-fabric-support-for-containers"></a>Kapsayıcıları Service Fabric desteği
 

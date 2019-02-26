@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4e5c64dc43be10eead1da35ec2337aa1f83f2f91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a7d290b9270d5d548a2e2b36cd73588639691b6c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472135"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819114"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
 
@@ -138,7 +138,7 @@ Aşağıdaki tablo, bir iş için olası farklı durumlarını tanımlar. PowerS
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Azure portalında iş durumunu görüntüleme
 
-Azure portalında bir belirli bir runbook işinin ayrıntılarını incelemek ya da özetlenen tüm runbook işlerinin durumunu görüntüleyin. Runbook iş durumunu ve iş akışları iletmek için Log Analytics çalışma alanınız ile tümleştirme de yapılandırabilirsiniz. Log Analytics ile tümleştirme hakkında daha fazla bilgi için bkz. [Otomasyon iş durumunu ve iş akışları Log Analytics'e iletme](automation-manage-send-joblogs-log-analytics.md).
+Azure portalında bir belirli bir runbook işinin ayrıntılarını incelemek ya da özetlenen tüm runbook işlerinin durumunu görüntüleyin. Runbook iş durumunu ve iş akışları iletmek için Log Analytics çalışma alanınız ile tümleştirme de yapılandırabilirsiniz. Azure İzleyici günlüklerine ile tümleştirme hakkında daha fazla bilgi için bkz. [Otomasyon iş durumunu ve iş akışları için Azure İzleyici günlüklerine iletmek](automation-manage-send-joblogs-log-analytics.md).
 
 ### <a name="automation-runbook-jobs-summary"></a>Otomasyon runbook işleri özeti
 

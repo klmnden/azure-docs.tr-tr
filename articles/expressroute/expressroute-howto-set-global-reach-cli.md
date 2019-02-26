@@ -2,28 +2,23 @@
 title: 'ExpressRoute küresel erişim yapılandırın: Azure CLI | Microsoft Docs'
 description: Bu makalede, yardımcı birlikte özel ağ arasında şirket içi ağlarınız ve Global erişim etkinleştirme yapmak için ExpressRoute bağlantı hattına bağlayın.
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/12/2018
-ms.author: cherylmc
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: be10489d731b9e01d148ce1ac7892cb6de956662
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659329"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817703"
 ---
-# <a name="configure-expressroute-global-reach-by-using-the-azure-cli-preview"></a>ExpressRoute genel ulaşmak için Azure CLI (Önizleme) kullanarak yapılandırma
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Azure CLI kullanarak ExpressRoute Global erişim yapılandırma
 
 Bu makalede Azure CLI kullanarak Azure ExpressRoute Global erişim yapılandırmanıza yardımcı olur. Daha fazla bilgi için bkz. [ExpressRoute Global Reach](expressroute-global-reach.md).
  
-## <a name="before-you-begin"></a>Başlamadan önce
-
-> [!IMPORTANT]
-> Bu genel önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılmamalıdır. Belirli özellikler desteklenmiyor olabilir, kısıtlı yeteneklere sahip olabilir veya tüm Azure konumlarında mevcut olmayabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Yapılandırmaya başlamadan önce aşağıdaki gereksinimleri tamamlayın:
 
 * Azure CLI'ın en son sürümünü yükleyin. Bkz. [Azure CLI yükleme](/cli/azure/install-azure-cli) ve [Azure CLI kullanmaya başlama](/cli/azure/get-started-with-azure-cli).

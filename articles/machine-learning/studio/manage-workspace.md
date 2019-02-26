@@ -5,17 +5,17 @@ description: Azure Machine Learning Studio çalışma alanları, erişimi yönet
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: f792c2b23c8d36225b4c05cf7a334721bd08272a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 50d31a9d58ffb4ef9761dff0c4a2c427c7429478
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269034"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820289"
 ---
 # <a name="manage-an-azure-machine-learning-studio-workspace"></a>Bir Azure Machine Learning Studio çalışma alanını yönetme
 

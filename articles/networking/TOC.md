@@ -11,7 +11,7 @@
 ### [Azure DNS ve Traffic Manager kullanarak olağanüstü durum kurtarma](disaster-recovery-dns-traffic-manager.md)
 ## Planlama ve tasarım
 ### [Sanal ağlar](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Şirket içi ve dışı bağlantısı - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Şirket içi ve dışı bağlantısı - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Şirket içi ve dışı bağlantısı - adanmış özel](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### Arka uç bağlantısı birlikte çalışabilirliği
 #### [Önsöz ve Test Kurulumu](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)

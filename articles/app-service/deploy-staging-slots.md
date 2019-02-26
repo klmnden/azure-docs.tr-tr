@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 17b1adae9b369df53d69949e8183cf31daf7e35f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: d9530d35bbaf608ae25e2a753685ee90e9e13501
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674693"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823306"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service ortamlarında hazırlık ayarlama
 <a name="Overview"></a>
@@ -42,7 +42,7 @@ Her App Service planı katmanı farklı sayıda dağıtım yuvalarını destekle
 ## <a name="add-slot"></a>Yuva Ekle
 Uygulama çalıştırmalıdır **standart**, **Premium**, veya **yalıtılmış** katmanı, birden çok dağıtım yuvasını etkinleştirmeniz sırayla.
 
-1. İçinde [Azure portalında](https://portal.azure.com/), uygulamanızın açın [kaynak sayfası](../azure-resource-manager/resource-group-portal.md#manage-resources).
+1. İçinde [Azure portalında](https://portal.azure.com/), uygulamanızın açın [kaynak sayfası](../azure-resource-manager/manage-resources-portal.md#manage-resources).
 
 2. Sol gezinti bölmesinde seçin **dağıtım yuvaları (Önizleme)** seçeneğini belirleyin, ardından tıklayın **yuva Ekle**.
    

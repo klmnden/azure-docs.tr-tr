@@ -11,12 +11,12 @@ ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ffa14e3fb3fd41d6a30e1cf30713b26d7ecd255a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2cce925f4b3e1acc6c93019615b81983a5c95f6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436025"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815901"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Azure ve Azure harici makinelerinizde yüklü olan yazılımları keşfetme
 
@@ -58,8 +58,10 @@ Otomasyon Hesabınıza gidin ve **YAPILANDIRMA YÖNETİMİ** altında **Stok**�
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) çalışma alanı, Stok gibi özellikler ve hizmetler tarafından oluşturulan verileri toplamak için kullanılır.
 Çalışma alanı, birden fazla kaynaktan alınan verilerin incelenip analiz edilebileceği ortak bir konum sağlar.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 Çözümün etkinleştirilmesi 15 dakika sürebilir. Bu süre boyunca tarayıcı penceresini kapatmamanız gerekir.
-Çözüm etkinleştirildikten sonra VM üzerine yüklenen yazılımlar ve yapılan değişiklikler hakkında bilgiler Log Analytics'e aktarılır.
+Çözüm etkinleştirildikten sonra VM'de yüklü yazılımlar ve yapılan değişiklikler hakkında bilgi için Azure İzleyici günlüklerine akar.
 Verilerin çözümlemeye hazır hale gelmesi 30 dakika ile 6 saat arasında sürebilir.
 
 ## <a name="onboard-a-vm"></a>VM ekleme
@@ -101,7 +103,7 @@ Filtre yazılım adı, sürümü veya yayımcı ile arama yapmanızı sağlar.
 
 ## <a name="search-inventory-logs-for-installed-software"></a>Yüklü olan yazılımların stok günlüklerinde arama yapma
 
-Stok özelliği ile oluşturulan günlük verileri Log Analytics'e gönderilir. Sorgu çalıştırarak günlüklerde arama yapmak için **Stok** penceresinin en üstünde bulunan **Log Analytics**'i seçin.
+Envanter, Azure İzleyici günlüklerine gönderilen günlük verileri oluşturur. Sorgu çalıştırarak günlüklerde arama yapmak için **Stok** penceresinin en üstünde bulunan **Log Analytics**'i seçin.
 
 Stok verileri **ConfigurationData** türü altında depolanır.
 Aşağıdaki örnek Log Analytics sorgusu Yayıncının "Microsoft Corporation" değerine eşit olduğu envanter sonuçlarını döndürür.
@@ -113,11 +115,11 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Log Analytics'te sorgu çalıştırma ve günlük dosyalarında arama yapma hakkında daha fazla bilgi edinmek için bkz. [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Çalıştıran ve Azure İzleyici günlüklerine günlük dosyalarında arama yapma hakkında daha fazla bilgi için bkz: [Azure İzleyicisi](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="single-machine-inventory"></a>Tek makine stoku
 
-Tek bir makinenin yazılım stokunu görmek için Azure VM kaynak sayfasından Stok özelliğine erişebilir veya Log Analytics ile ilgili makineyi filtreleyebilirsiniz.
+Tek bir makinenin yazılım stokunu görmek için Azure VM kaynak sayfasından stok erişmek veya Azure İzleyici günlüklerine karşılık gelen bir makine aşağı filtrelemek için kullanın.
 Aşağıdaki örnek Log Analytics sorgusu, ContosoVM adlı bir makinedeki yazılımların listesini döndürür.
 
 ```loganalytics
