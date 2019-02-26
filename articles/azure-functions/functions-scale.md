@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 8d2d171235a23d3e41fda6172efe29b3bb358f0e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359876"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804187"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevlerini ölçeklendirme ve barındırma
 
-Azure işlevleri iki farklı modda çalışır: Tüketim planı ve Azure App Service planı. Kodunuzu çalıştırırken tüketim planı otomatik olarak bilgi işlem gücü ayırır. Uygulamanız, gerektiğinde yükü işlemek için ölçeği ve kod çalışmadığı zamanlarda ölçeği. Boş Vm'leri için kullandıkları kadar ödemeyi veya yedek kapasite önceden gerekmez.
+Azure İşlevleri iki farklı modda çalışır: Tüketim planı ve Azure App Service planı. Kodunuzu çalıştırırken tüketim planı otomatik olarak bilgi işlem gücü ayırır. Uygulamanız, gerektiğinde yükü işlemek için ölçeği ve kod çalışmadığı zamanlarda ölçeği. Boş Vm'leri için kullandıkları kadar ödemeyi veya yedek kapasite önceden gerekmez.
 
 > [!NOTE]  
 > Linux için tüketim planı [genel önizlemeye sunuldu](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/).
@@ -70,11 +70,11 @@ Bir VM sayısını yürütme, yürütme süresini ve kullanılan bellek maliyeti
 
 Bir App Service planı, el ile daha fazla VM örneği ekleyerek genişletebilir veya otomatik ölçeklendirmeyi etkinleştirebilirsiniz. Daha fazla bilgi için [örnek sayısını elle veya otomatik olarak ölçeklendirme](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Ayrıca farklı bir App Service planı seçerek ölçeğini artırabilirsiniz. Daha fazla bilgi için [azure'da uygulamanın ölçeğini](../app-service/web-sites-scale.md). 
 
-JavaScript işlevleri bir App Service planı üzerinde çalışırken, daha az Vcpu olan bir planı seçmeniz gerekir. Daha fazla bilgi için [seçin tek çekirdekli App Service planları](functions-reference-node.md#considerations-for-javascript-functions).  
+JavaScript işlevleri bir App Service planı üzerinde çalışırken, daha az Vcpu olan bir planı seçmeniz gerekir. Daha fazla bilgi için [seçin tek çekirdekli App Service planları](functions-reference-node.md#choose-single-vcpu-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
-<a name="always-on"></a>
-### <a name="always-on"></a>Her Zaman Açık
+
+###<a name="always-on"></a> Her zaman açık
 
 Bir App Service planı üzerinde çalıştırırsanız, etkinleştirmelisiniz **her zaman** işlev uygulamanızın düzgün çalıştığını ayarını. Yalnızca HTTP Tetikleyicileri "işlevlerinizi uyandır şekilde" bir App Service planı üzerinde işlevler çalışma zamanı boşta kalma birkaç dakika sonra gider. Her zaman üzerinde yalnızca bir App Service planı üzerinde kullanılabilir. Bir tüketim planında, platform işlev uygulamaları otomatik olarak etkinleştirir.
 
@@ -122,9 +122,9 @@ Azure işlevleri kullanan adlı bir bileşen *ölçek denetleyicisi* olayların�
 
 ### <a name="understanding-scaling-behaviors"></a>Ölçeklendirme davranışlarını anlama
 
-Ölçeklendirme faktörleri ve farklı şekilde tetikleyici ve seçili dil göre ölçeği sayısına farklılık gösterebilir. Ancak, ölçeklendirme, birkaç unsur vardır sistemde bugün mevcut:
+Ölçeklendirme faktörleri ve farklı şekilde tetikleyici ve seçili dil göre ölçeği sayısına farklılık gösterebilir. Öte yandan, ölçeklendirmenin bugün sistemli çalışan birkaç yönü vardır:
 
-* Tek bir işlev uygulaması yalnızca en fazla 200 örnek için ölçeklendirilebilir. Hiç için eş zamanlı yürütme sayısı bir set sınır tek bir örneği birden fazla ileti veya isteği aynı anda yine de işleyebilir.
+* Tek bir işlev uygulaması en fazla 200 örneğe ölçeklendirilebilir. Hiç için eş zamanlı yürütme sayısı bir set sınır tek bir örneği birden fazla ileti veya isteği aynı anda yine de işleyebilir.
 * Yeni örnekleri yalnızca 10 saniyede en fazla bir kez ayrılır.
 
 Ayrıca farklı ölçeklendirme limitleri yanı sıra aşağıda belgelenmiş farklı tetikleyicilere sahip olabilir:

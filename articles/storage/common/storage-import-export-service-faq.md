@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6706da978195cff65a3454e6b2d71dfea3b414c4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0b3128184942dbc750ea54bd7156c6e79b8bedea
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651422"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804850"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure içeri/dışarı aktarma hizmeti: sık sorulan sorular 
 Aşağıda, soruları ve Azure depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanırken karşılaşabileceğiniz yanıtları verilmiştir. Sorular ve yanıtlar aşağıdaki kategorilere ayrılmıştır:
@@ -96,7 +96,7 @@ Sevkiyat fiziksel ortam uluslararası sınırlar arası gerekebileceğini unutma
 ### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Bir veri merkezine disklerim sunmaya yönelik herhangi özel bir gereksinimi var mıdır?
 
 Gereksinimleri, belirli bir Azure veri merkezi kısıtlamalarına bağlıdır.
-- Bir Microsoft Veri merkezinde paket güvenlik nedenleriyle yazılacak gelen kimlik numarasını gerektiren birkaç sınıfı C siteler (örneğin, Frankfurt) vardır. Sürücüler veya diskler veri merkezine gönderin önce Azure Data Box Operations başvurun (adbops@microsoft.com) bu numara alınamıyor. Bu sayı paket reddedilir.
+- Bir Microsoft Veri merkezinde paket güvenlik nedenleriyle yazılacak gelen kimlik numarasını gerektiren bazı siteler vardır. Sürücüler veya diskler veri merkezine gönderin önce Azure Data Box Operations başvurun (adbops@microsoft.com) bu numara alınamıyor. Bu sayı paket reddedilir.
 - Hindistan veri merkezlerinde kavram No ve kamu kimlik kartı sürücüsü, kişisel ayrıntılarını gerektirir (örneğin, yatay kaydırma, AADHAR DL), ad, kişi ve araba bir ağ geçidi giriş geçişi almak istediğiniz sayıyı blondan. Teslimatı gecikmeleri önlemek için bu gereksinimleri hakkında operatörünüz bildirin.
 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fb8dedac8b795ec127d7b4a14728d73c9397a1dd
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716472"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807414"
 ---
 # <a name="configure-apps-in-azure-app-service"></a>Azure App Service'te uygulamaları yapılandırma
 
@@ -163,13 +163,14 @@ Dağıtım yuvaları görüntülemek için tıklayın **tüm ayarlar** > **dağ�
 ### <a name="monitoring"></a>İzleme
 Temel veya standart modunda Üçe kadar coğrafi olarak dağıtılmış konumlardan HTTP veya HTTPS uç kullanılabilirliğini test edebilirsiniz. İzleme testi başarısız olursa HTTP yanıt kodunu (4xx veya 5xx) bir hata veya 30 saniyeden uzun yanıt alır. Bir uç nokta izleme testlerinin belirtilen tüm konumlarda başarılı olması için kullanılabilir olarak kabul edilir. 
 
-Daha fazla bilgi için [Nasıl Yapılır: Web uç noktası durumunu izleme].
+Daha fazla bilgi için [Nasıl yapılır: Web uç noktası durumunu izleme].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure App Service'te özel etki alanı adını yapılandırma]
 * [Azure App Service'te bir uygulama için HTTPS'yi etkinleştirme]
 * [Azure App Service'te bir uygulama ölçeklendirme]
 * [Azure App Service içindeki temel izleme]
+* [ApplicationHost.xdt ile applicationHost.config ayarlarını değiştir](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
 
 <!-- URL List -->
 
@@ -178,7 +179,7 @@ Daha fazla bilgi için [Nasıl Yapılır: Web uç noktası durumunu izleme].
 [Azure App Service'te özel etki alanı adını yapılandırma]: ./app-service-web-tutorial-custom-domain.md
 [Azure App Service için hazırlama ortamlarını dağıtma]: ./deploy-staging-slots.md
 [Azure App Service'te bir uygulama için HTTPS'yi etkinleştirme]: ./app-service-web-tutorial-custom-ssl.md
-[Nasıl Yapılır: Web uç noktası durumunu izleme]: https://go.microsoft.com/fwLink/?LinkID=279906
+[Nasıl yapılır: Web uç noktası durumunu izleme]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Azure App Service içindeki temel izleme]: ./web-sites-monitor.md
 [Ardışık Düzen modu]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Azure App Service'te bir uygulama ölçeklendirme]: ./web-sites-scale.md

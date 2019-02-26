@@ -3,8 +3,8 @@ title: Öğretici - Azure Service Fabric Mesh uygulama yükseltme | Microsoft Do
 description: Visual Studio kullanarak Service Fabric uygulaması yükseltme hakkında bilgi edinin
 services: service-fabric-mesh
 documentationcenter: .net
-author: tylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/29/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0f6ede488ae118f8df00febda3c53eabb73f2030
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 23809abd06d626eb87e5d5d15d265f1769b97b66
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890237"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806751"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Öğretici: Visual Studio kullanarak Service Fabric uygulaması yükseltme hakkında bilgi edinin
 
@@ -70,7 +70,7 @@ Güncelleştireceğiz `WebFrontEnd_cpu` cpu kaynakları güncelleştirmek için 
 > Varsayılan olarak, bir eş profile.yaml dosyanın parametre dosyasını profile.yaml dosyanın değerlerini sağlamak için kullanılır.
 > Örneğin, ortamları > bulut > parameters.yaml ortamları için parametre değerlerini sağlar > bulut > profile.yaml.
 >
-> Aşağıdaki profile.yaml dosyasına ekleyerek bunu geçersiz kılabilirsiniz:`parametersFilePath=”relative or full path to the parameters file”` gibi `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` veya `parametersFilePath=”..\CommonParameters.yaml”`
+> Bu aşağıdaki profile.yaml dosyasına ekleyerek geçersiz kılabilirsiniz:`parametersFilePath=”relative or full path to the parameters file”` Örneğin, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` veya `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modeli Değiştir
 

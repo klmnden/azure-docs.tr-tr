@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2019
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1ab5ec4e61649f7c9a705759a69d335260bfdc75
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c296ed4011b874eb9b5635735d46b3f63a79a2be
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750829"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807567"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -681,30 +681,30 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
-> | Eylem | Microsoft.Cache/checknameavailability/action | Bir ad kullanmak için yeni bir Azure önbelleği için Redis ile kullanılabilir olup olmadığını denetler |
+> | Eylem | Microsoft.Cache/checknameavailability/action | Bir adın yeni bir Redis Cache için kullanılabilir olup olmadığını denetler |
 > | Eylem | Microsoft.Cache/locations/operationresults/read | 'Konum' üst bilgisi önceden istemciye döndürülen uzun süredir çalışan işlemin sonucunu alır |
 > | Eylem | Microsoft.Cache/operations/read | 'Microsoft.Cache' sağlayıcısının desteklediği işlemleri listeler. |
-> | Eylem | Microsoft.Cache/redis/delete | Azure önbelleği için Redis Sil |
+> | Eylem | Microsoft.Cache/redis/delete | Redis Cache'nin tamamını sil |
 > | Eylem | Microsoft.Cache/redis/export/action | Redis verilerini belirtilen biçimde ön ekli depolama blob'larına aktar |
-> | Eylem | Microsoft.Cache/redis/firewallRules/delete | IP güvenlik duvarı kurallarını Azure önbelleği için Redis Sil |
-> | Eylem | Microsoft.Cache/redis/firewallRules/read | IP güvenlik duvarı kurallarını Azure önbelleği için Redis Al |
-> | Eylem | Microsoft.Cache/redis/firewallRules/write | IP güvenlik duvarı kurallarını Azure önbelleği için Redis Düzenle |
+> | Eylem | Microsoft.Cache/redis/firewallRules/delete | Bir Redis Cache'in IP güvenlik duvarı kurallarını siler |
+> | Eylem | Microsoft.Cache/redis/firewallRules/read | Bir Redis Cache'in IP güvenlik duvarı kurallarını alır |
+> | Eylem | Microsoft.Cache/redis/firewallRules/write | Bir Redis Cache'in IP güvenlik duvarı kurallarını düzenler |
 > | Eylem | Microsoft.Cache/redis/forceReboot/action | Veri kaybı olasılığı olan bir önbellek örneği yeniden başlatmayı zorlayın. |
 > | Eylem | Microsoft.Cache/redis/import/action | Birden çok blob'dan belirli bir biçimdeki verileri Redis'e aktar |
-> | Eylem | Microsoft.Cache/redis/linkedservers/delete | Redis için bir Azure Önbelleği'ndeki bağlı sunucusunu Sil |
-> | Eylem | Microsoft.Cache/redis/linkedservers/read | İle bir Azure önbelleği için Redis ilişkili bağlı sunucuları alın. |
-> | Eylem | Microsoft.Cache/redis/linkedservers/write | Bağlantılı bir sunucu için bir Azure önbelleği için Redis ekleyin. |
-> | Eylem | Microsoft.Cache/redis/listKeys/action | Yönetim Portalı'nda değerini Azure Cache Redis erişim anahtarlarını görüntüleme |
+> | Eylem | Microsoft.Cache/redis/linkedservers/delete | Redis Cache'ten Bağlı Sunucuyu Sil |
+> | Eylem | Microsoft.Cache/redis/linkedservers/read | Bir Redis Cache ile ilişkili Bağlı Sunucuları alın. |
+> | Eylem | Microsoft.Cache/redis/linkedservers/write | Redis Cache'e Bağlı Sunucu Ekle |
+> | Eylem | Microsoft.Cache/redis/listKeys/action | Redis Cache erişim anahtarlarının değerini yönetim portalında görüntüleyin |
 > | Eylem | Microsoft.Cache/redis/listUpgradeNotifications/read | Önbellek kiracısı için en son Yükseltme Bildirimlerini listeleyin. |
-> | Eylem | Microsoft.Cache/redis/metricDefinitions/read | Redis için bir Azure önbelleği için kullanılabilir ölçümleri alır |
-> | Eylem | Microsoft.Cache/redis/patchSchedules/delete | Bir Azure önbelleği için Redis düzeltme eki zamanlamasını Sil |
-> | Eylem | Microsoft.Cache/redis/patchSchedules/read | Bir Azure önbelleği için Redis düzeltme eki uygulama zamanlamasını alır |
-> | Eylem | Microsoft.Cache/redis/patchSchedules/write | Bir Azure önbelleği için Redis düzeltme eki uygulama zamanlamasını Değiştir |
-> | Eylem | Microsoft.Cache/redis/read | Azure önbelleği için Redis'ın ayarlarını ve yapılandırmasını yönetim portalında görüntüleyin |
-> | Eylem | Microsoft.Cache/redis/regenerateKey/action | Azure Cache Redis erişim anahtarlarını Yönetim Portalı'nda için değiştirin |
+> | Eylem | Microsoft.Cache/redis/metricDefinitions/read | Bir Redis Cache için kullanılabilir ölçümleri alır |
+> | Eylem | Microsoft.Cache/redis/patchSchedules/delete | Bir Redis Cache'in düzeltme eki zamanlamasını siler |
+> | Eylem | Microsoft.Cache/redis/patchSchedules/read | Redis Cache'in düzeltme eki uygulama zamanlamasını alır |
+> | Eylem | Microsoft.Cache/redis/patchSchedules/write | Redis Cache'in düzeltme eki uygulama zamanlamasını değiştirir |
+> | Eylem | Microsoft.Cache/redis/read | Redis Cache'nin ayarlarını ve yapılandırmasını yönetim portalında görüntüleyin |
+> | Eylem | Microsoft.Cache/redis/regenerateKey/action | Redis Cache erişim anahtarlarının değerini yönetim portalında değiştirin |
 > | Eylem | Microsoft.Cache/redis/start/action | Bir önbellek örneği başlatın. |
 > | Eylem | Microsoft.Cache/redis/stop/action | Bir önbellek örneğini durdurun. |
-> | Eylem | Microsoft.Cache/redis/write | Azure önbelleği için Redis'ın ayarlarını ve yapılandırmasını yönetim portalında değiştirin |
+> | Eylem | Microsoft.Cache/redis/write | Redis Cache'in ayarlarını ve yapılandırmasını yönetim portalında değiştirin |
 > | Eylem | Microsoft.Cache/register/action | 'Microsoft.Cache' kaynak sağlayıcısını bir aboneliğe kaydeder |
 > | Eylem | Microsoft.Cache/unregister/action | 'Microsoft.Cache' kaynak sağlayıcısının kaydını bir abonelikten kaldırır |
 
@@ -1600,17 +1600,21 @@ Var olan bir kişi grubun adı ve userData güncelleştirin. İstek gövdesinde 
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/delete | Veri kutusu uç cihazlarına siler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | Güncelleştirmeleri cihaza indir |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/action | Genişletilmiş kaynak bilgilerini getirir |
-> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/write | Oluşturur veya genişletilmiş bilgilerini kaynak güncelleştirir |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action | ArmApiDesc_action_getExtendedInformation_dataBoxEdgeDevices |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Güncelleştirmeleri cihaza yükle |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | İşleri alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Cihazın ağ ayarlarını alır veya listeler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | Siparişler siler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Siparişleri alır veya listeler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Siparişleri alır veya listeler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/write | Oluşturur veya güncelleştirir siparişleri |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Veri kutusu uç cihazlarına alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Veri kutusu uç cihazlarına alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Veri kutusu uç cihazlarına alır veya listeler |
-> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | ArmApiRes_roles siler |
-> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | ArmApiRes_roles alır veya listeler |
-> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | ArmApiRes_roles alır veya listeler |
-> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Oluşturur veya ArmApiRes_roles güncelleştirir |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | Rolleri siler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Rolleri alır veya listeler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Rolleri alır veya listeler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Oluşturur veya güncelleştirir rolleri |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/scanForUpdates/action | Güncelleştirmeleri tara |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/update/action | Güvenlik ayarlarını güncelleştir |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | Paylaşımları siler |
@@ -1622,6 +1626,10 @@ Var olan bir kişi grubun adı ve userData güncelleştirin. İstek gövdesinde 
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Depolama hesabı kimlik bilgilerini alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Depolama hesabı kimlik bilgilerini alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/write | Oluşturur veya depolama hesabı kimlik bilgilerini güncelleştirir |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/delete | Tetikleyiciler siler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Tetikleyiciler alır veya listeler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Tetikleyiciler alır veya listeler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/write | Oluşturur veya güncelleştirir Tetikleyiciler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/updateSummary/read | Güncelleştirme özeti alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | Cihaz kaydı için sertifikayı karşıya yükleyin |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | Paylaşımı kullanıcıları siler |
@@ -4766,6 +4774,8 @@ Var olan bir kişi grubun adı ve userData güncelleştirin. İstek gövdesinde 
 > | Eylem | Microsoft.Sql/managedInstances/databases/read | Yönetilen veritabanı mevcut alır |
 > | Eylem | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | Belirli bir veritabanının duyarlılık etiketleri listeleme |
 > | Eylem | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | Belirtilen sütunun duyarlılık etiketi Sil |
+> | Eylem | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/disable/action | Belirli bir sütunda öneriler duyarlılık devre dışı bırak |
+> | Eylem | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/enable/action | Belirli bir sütunda duyarlılık önerilerini etkinleştirmek |
 > | Eylem | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | Belirtilen sütunun duyarlılık etiketi Al |
 > | Eylem | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | Duyarlılık etiketi belirli bir sütunun güncelle |
 > | Eylem | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | Belirli bir yönetilen veritabanı üzerinde yapılandırılan veritabanı tehdit algılama ilkesi ayrıntılarını alma |
@@ -4899,6 +4909,8 @@ Var olan bir kişi grubun adı ve userData güncelleştirin. İstek gövdesinde 
 > | Eylem | Microsoft.Sql/servers/databases/schemas/read | Veritabanı şemaları listesi alınamıyor |
 > | Eylem | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Bir tablonun sütunlarını listesi alınamıyor |
 > | Eylem | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | Belirtilen sütunun duyarlılık etiketi Sil |
+> | Eylem | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/disable/action | Belirli bir sütunda öneriler duyarlılık devre dışı bırak |
+> | Eylem | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/enable/action | Belirli bir sütunda duyarlılık önerilerini etkinleştirmek |
 > | Eylem | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | Belirtilen sütunun duyarlılık etiketi Al |
 > | Eylem | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/write | Duyarlılık etiketi belirli bir sütunun güncelle |
 > | Eylem | Microsoft.Sql/servers/databases/schemas/tables/read | Bir veritabanının tabloların listesini alma |
@@ -5023,6 +5035,7 @@ Var olan bir kişi grubun adı ve userData güncelleştirin. İstek gövdesinde 
 > | Eylem | Microsoft.Sql/servers/vulnerabilityAssessments/write | Verilen bir sunucu için güvenlik açığı değerlendirmesi değiştirme |
 > | Eylem | Microsoft.Sql/servers/write | Belirtilen parametrelerle bir sunucu oluşturur veya özellikleri veya etiketleri belirtilen sunucu için güncelleştirin. |
 > | Eylem | Microsoft.Sql/unregister/action | Microsoft SQL veritabanı kaynak sağlayıcısı için aboneliği kaydını siler ve Microsoft SQL veritabanları oluşturulmasını sağlar. |
+> | Eylem | Microsoft.Sql/virtualClusters/delete | Mevcut bir sanal küme siler. |
 > | Eylem | Microsoft.Sql/virtualClusters/read | Belirtilen sanal küme özelliklerini alır ya da Sanal kümelerin listesini döndürür. |
 > | Eylem | Microsoft.Sql/virtualClusters/write | Sanal küme etiketleri güncelleştirir. |
 

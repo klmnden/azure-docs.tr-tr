@@ -5,17 +5,17 @@ description: Bir eğitim denemesini öngörücü bir denemeye dönüştürme, da
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5990f47a7cc1517349d85654bf5f02f6240e9baa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b77c21b75147a9bb5203effb20379dc208122d05
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327604"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819156"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini dağıtma
 
@@ -209,7 +209,7 @@ Bu deneyde önce dağıttınız olduğundan (Klasik Web hizmeti) üzerine veya (
 > [!NOTE]
 > Özgün web hizmetinde yapılan yapılandırma değişiklikleri, örneğin, bir yeni görünen adını veya açıklamasını girme, bu değerleri yeniden girmeniz gerekir.
 
-Web hizmetini güncelleştirmek için bir model programlama yoluyla yeniden eğitme seçenektir. Daha fazla bilgi için [modellerini programlama aracılığıyla yeniden eğitme Machine Learning Studio](retrain-models-programmatically.md).
+Web hizmetini güncelleştirmek için bir model programlama yoluyla yeniden eğitme seçenektir. Daha fazla bilgi için [modellerini programlama aracılığıyla yeniden eğitme Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
