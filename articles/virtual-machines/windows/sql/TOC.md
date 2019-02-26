@@ -35,13 +35,16 @@
 ## Yüksek Kullanılabilirliği Yapılandırma
 ### [Yedekleme ve geri yükleme için Azure Depolama’yı Kullanma](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 ### AlwaysOn kullanılabilirlik grubu
-#### [Azure Portal Şablonunu Kullanma](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-#### [Hızlı Başlangıç Şablonlarını Kullanma](virtual-machines-windows-sql-availability-group-quickstart-template.md)
-#### [El ile - önkoşullar](virtual-machines-windows-portal-sql-availability-group-prereq.md)
-#### [El ile - öğretici](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Yük dengeleyici - Azure portalı](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Yük dengeleyici - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)
+#### [Azure Portal Şablonu](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Azure Hızlı Başlangıç Şablonları](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [Birden çok bölge](virtual-machines-windows-portal-sql-availability-group-dr.md)
+#### El ile yapılandırma    
+##### [Önkoşullar](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+##### [Öğretici](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+##### [Yük dengeleyici - Azure portalı](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+##### [Yük dengeleyici - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+
 ### Yük Devretme Kümesi Örneği
 #### [Yapılandırma](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: aca5b1613a6500b3aeca1a7074cabdce50023510
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 0f5de24d42ccc930a4746251b9f466f241c3508e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789509"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806717"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
 
@@ -45,7 +45,7 @@ ms.locfileid: "53789509"
 [suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
 
 Şirket içi geliştirme için ya da HANA sistem çoğaltması kullanın veya SAP HANA için yüksek kullanılabilirlik kurmak için paylaşılan depolama kullanmak.
 Azure sanal makinelerinde (VM'ler), azure'da HANA sistem çoğaltması şu anda desteklenen tek yüksek kullanılabilirlik işlevi ' dir. SAP HANA çoğaltması, bir birincil düğüm ve en az bir ikincil düğüm oluşur. Birincil düğümdeki verilerde yapılan değişiklikler ikincil düğüme eşzamanlı veya zaman uyumsuz olarak çoğaltılır.
@@ -202,8 +202,8 @@ Bağlantısındaki [SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacem
 
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 - **[A]** : Adım tüm düğümler için geçerlidir.
-- **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
-- **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+- **[1]**: Bu adım yalnızca düğüm 1 için geçerlidir.
+- **[2]**: Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[A]**  Disk düzenini ayarla: **Mantıksal birim Yöneticisi (LVM)**.
 
@@ -354,8 +354,8 @@ SAP HANA sistem çoğaltması yüklemek için Bölüm 4 izleyin [SAP HANA SR per
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
-* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]**: Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]**: Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[1]**  Kiracı veritabanı oluşturmak.
 
@@ -399,8 +399,8 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
-* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]**: Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]**: Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[1]**  Gerekli kullanıcıları oluşturun.
 
