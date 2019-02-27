@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fcab4c7456295d8f7414232bc90bc5ab352e43a
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 991a50828059d850627e1f8f3f34f65a55fdf3f6
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817890"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890241"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -41,6 +41,8 @@ Geçerli çözümdeki sınırlamalar aşağıda verilmiştir:
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu çözüm için runbook'ları ile çalışır bir [Azure farklı çalıştır hesabı](automation-create-runas-account.md). Sona ya da sık değişebilecek bir parola yerine sertifika doğrulaması kullandığından farklı çalıştır hesabı tercih edilen kimlik doğrulama yöntemidir.
+
+VM Başlat/Durdur çözümü için ayrı bir Otomasyon hesabı kullanmak için önerilir. Azure modülü sürümler sık yükseltilir ve kendi parametrelerini değişebilir olduğundan budur. VM başlatma/durdurma çözüm kullandığı cmdlet'lerin daha yeni sürümleriyle çalışmayabilir şekilde aynı tempoyla yükseltilmez. Otomasyon hesabı, üretim aktarmadan önce modülü güncelleştirmeleri bir Otomasyon hesabı testinde test etmek için önerilir.
 
 ## <a name="deploy-the-solution"></a>Çözümü dağıtma
 

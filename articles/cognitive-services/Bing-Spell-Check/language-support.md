@@ -3,19 +3,19 @@ title: Dil desteği - Bing yazım denetimi API'si
 titleSuffix: Azure Cognitive Services
 description: Doğal Bing yazım denetimi API'si tarafından desteklenen dillerin listesi.
 services: cognitive-services
-author: noellelacharite
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: conceptual
-ms.date: 09/25/2018
-ms.author: nolachar
-ms.openlocfilehash: 00636c991a3872c4a310d74a74a5ca8be9ec8964
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: 16efb97569aabbea28065b03e9944d6881c39eee
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869220"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886834"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Bing yazım denetimi API'si dil ve bölge desteği
 

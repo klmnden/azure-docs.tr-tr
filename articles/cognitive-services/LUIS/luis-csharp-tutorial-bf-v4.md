@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 98c65b7adfe35c1ca80846ff7619dad69c5ba266
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2cac5a698dbe97853ca95426ec4012c6a521bc8e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219235"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872599"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Öğretici: LUIS bot içinde C# ile Bot Framework 4.x ve Azure Web app botu
 C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu geliştirebilirsiniz. Bu robot, bir robot çözümünü gerçekleştirmek için HomeAutomation uygulamasını kullanır. Robot, [Bot Framework sürümü](https://github.com/Microsoft/botbuilder-js) v4 ile Azure [Web uygulaması robotu](https://docs.microsoft.com/azure/bot-service/) kullanılarak geliştirilmiştir.
@@ -66,7 +66,7 @@ C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu geliştirebili
     
 5. **Oluştur**’u seçin. Robot hizmetini oluşturur ve Azure'a dağıtır. Bu işlemin bir parçası olarak `luis-csharp-bot-XXXX` adlı bir LUIS uygulaması oluşturulur. Buradaki ad, önceki bölümdeki robot ve uygulama adlarını temel alır.
 
-    [ ![Web uygulaması robotu oluşturma](./media/bfv4-csharp/create-web-app-service.png) ](./media/bfv4-csharp/create-web-app-service.png#lightbox)
+    [![Web app botu oluşturun](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
 6. Bu tarayıcı sekmesini açık bırakın. LUIS portalındaki her adım için yeni bir tarayıcı sekmesi açın. Yeni robot hizmet dağıtıldığında sonraki bölüme devam edin.
 
@@ -106,7 +106,7 @@ Web uygulaması robot kodunu geliştirmek için, yerel bilgisayarınızda kodu i
 
 3. **Robot kaynak kodunu indir**'i seçin. 
 
-    [ ![Temel robot için Web uygulaması robot kaynak kodunu indirme](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [![Temel robot için Web app botu kaynak kodunu indirebilir](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
 4. Kaynak kodu .zip dosyasına sıkıştırılmışsa, bir iletide kodu indirme bağlantısı sağlanır. Bağlantıyı seçin. 
 
@@ -205,15 +205,15 @@ Herhangi bir kodu veya ayarı değiştirmeden önce robotun çalıştığından 
 
 2. Robot öykünücüsünde, projenin kökündeki *.bot dosyasını seçin. Bu `.bot` dosyası robotun iletiler için URL uç noktasını içerir:
 
-    [ ![Bot emulator v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
+    [![Bot öykünücü v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
-3. **[Web uygulaması robotunu indirme](#download-the-web-app-bot)** bölümünün 1. Adımında Azure robot hizmetinin Uygulama Ayarları'ndan kopyaladığınız robot gizli dizesini girin. Bu, öykünücünün `.bot` dosyasındaki şifreli dosyalara erişmesine izin verir.
+3. **[Web uygulaması robotunu indirme](#download-the-web-app-bot)** bölümünün 1. Adımında Azure robot hizmetinin Uygulama Ayarları'ndan kopyaladığınız robot gizli dizisini girin. Bu, öykünücünün `.bot` dosyasındaki şifreli dosyalara erişmesine izin verir.
 
     ![Bot emulator secret v4](../../../includes/media/cognitive-services-luis/bfv4/bot-secret.png)
 
 4. Robot öykünücüsünde `Hello` ifadesini girin ve temel robot için uygun yanıtı alın.
 
-    [ ![Öykünücüde temel robot yanıtı](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+    [![Temel robot yanıt öykünücüsü](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
 
 ## <a name="modify-bot-code"></a>Robot kodunu değiştirme 
 

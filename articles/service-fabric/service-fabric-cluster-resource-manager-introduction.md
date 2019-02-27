@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a5499826c06f5f8f5e5db91badf134befa44c9d0
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f41027b5455aa3b1835a0d4fd0c1be11cddccd0d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738241"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872004"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Service Fabric Küme Kaynak Yöneticisi ile tanışın
 Geleneksel BT sistemleri veya çevrimiçi hizmetleri yönetmek için kullanılan belirli bir fiziksel veya sanal makineler bu belirli hizmetler veya sistemleri ayrılması geliyordu. Hizmet katmanları desteklemesi için. Bir "web" katmanı ve bir "veri" veya "alanı" katmanı olacaktır. Uygulamaları nerede istekleri giriş ve çıkış önbelleğe alma için adanmış makineler kümesi yanı sıra aktarılan bir Mesajlaşma katmanına sahip olması gerekir. Her bir katmanı veya iş yükü türü için ayrılmış belirli makinelere vardı: veritabanı, birkaç web sunucuları dedicated birkaç makineler alındı. Belirli türde bir iş yükü için olan makineleri neden olursa söz konusu katman için daha fazla makine, aynı yapılandırmaya sahip eklemek çok sık erişimli çalıştırın. Ancak, tüm iş yükleri şekilde kolayca ölçeği - özellikle veri katmanı ile genellikle daha büyük makinelere makinelerle değiştirirsiniz. Kolay. Bir makine başarısız olursa, genel uygulama bu bölümü makinesi geri yüklenemedi kadar alt kapasitede çalıştı. Yine de oldukça kolay (değil gerekmeyen eğlenceli varsa).
@@ -54,7 +54,7 @@ Bu stratejiler bazı ilginç olsa da, Service Fabric Küme Kaynak Yöneticisi he
 Küme Kaynak Yöneticisi geçici bir çözüm bulmak services taşımak için sorumlu olduğundan, bir ağ yük dengeleyicisi ne bulacağından için karşılaştırıldığında farklı özellik kümesi içerir. Bu konum hizmeti çalıştırmak için ideal olsa bile Ağ Yük Dengeleyiciler ağ trafiğini Hizmetleri zaten olduğu için teslim olmasıdır. Service Fabric Küme Kaynak Yöneticisi kümedeki kaynaklar verimli bir şekilde kullanılan sağlamaya yönelik tamamen farklı stratejiler kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Mimari ve bilgi akışını içinde Küme Kaynak Yöneticisi hakkında daha fazla bilgi için [bu makalede ](service-fabric-cluster-resource-manager-architecture.md)
+- Mimari ve bilgi akışını içinde Küme Kaynak Yöneticisi hakkında daha fazla bilgi için [bu makalede](service-fabric-cluster-resource-manager-architecture.md)
 - Küme Kaynak Yöneticisi kümesi tanımlamak için birçok seçenek vardır. Ölçümler hakkında daha fazla bilgi için bu makalede atın [açıklayan bir Service Fabric kümesi](service-fabric-cluster-resource-manager-cluster-description.md)
 - Hizmetleri yapılandırma hakkında daha fazla bilgi için [hizmetleri yapılandırma hakkında bilgi edinin](service-fabric-cluster-resource-manager-configure-services.md)
 - Kullanım ve kapasite kümedeki Service Fabric Küme Kaynak Yöneticisi'ni nasıl yönettiğini ölçümleridir. Ölçümler ve bunları kullanıma yapılandırma hakkında daha fazla bilgi edinmek için [bu makalede](service-fabric-cluster-resource-manager-metrics.md)

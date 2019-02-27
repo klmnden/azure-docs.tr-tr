@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: add284a3a001d5bc2e756f9ad4a2a3b9550b212c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242145"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887429"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Örnek: Metin analiziyle duyguları algılamak nasıl
 
@@ -39,7 +39,7 @@ Yaklaşım analizi, üzerinde çalışılacak küçük metin öbekleri sunduğun
 
 JSON belgeleri kimlik, metin, dil biçiminde olmalıdır.
 
-Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyon başına en fazla 1000 öğeniz olabilir. Koleksiyon, istek gövdesinde gönderilir. Aşağıda, yaklaşım analizi için gönderebileceğiniz bir içerik örneği verilmiştir.
+Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır ve en fazla 1.000 olabilir koleksiyon başına öğe sayısı (Kimlikler). Koleksiyon, istek gövdesinde gönderilir. Aşağıda, yaklaşım analizi için gönderebileceğiniz bir içerik örneği verilmiştir.
 
 ```
     {

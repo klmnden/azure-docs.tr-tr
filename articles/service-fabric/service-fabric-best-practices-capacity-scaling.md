@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: c3b97ee7181d6475b7271d5ae4bcea0f6c9ff2b3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f91ea4c4ec887a9f9fe0c15000e3810109caeb96
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805231"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889078"
 ---
 # <a name="capacity-planning-and-scaling"></a>Kapasite planlama ve ölçekleme
 
@@ -40,7 +40,7 @@ Herhangi bir Azure Service Fabric kümesi oluşturma veya kümenizi barındırma
 
 ## <a name="vertical-scaling-considerations"></a>Dikey ölçeklendirme hakkında önemli noktalar
 
-[Dikey ölçeklendirme](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) Azure Service fabric'te bir düğüm türü bir dizi adımları ve konuları gerektirir. Örneğin:
+[Dikey ölçeklendirme](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) Azure Service fabric'te bir düğüm türü bir dizi adımları ve konuları gerektirir. Örneğin:
 * Küme ölçeklendirme önce iyi durumda olması gerekir. Aksi durumda yalnızca daha fazla küme kararlılığını.
 * **Gümüş veya daha yüksek düzeyde dayanıklılık** tüm Service Fabric kümesi durum bilgisi olan hizmetler barındıran NodeType için gereklidir.
 

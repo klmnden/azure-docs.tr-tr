@@ -1,92 +1,121 @@
 ---
-title: "Hızlı Başlangıç: Bing yazım denetimi API'si, Java"
+title: "Hızlı Başlangıç: Bing yazım denetimi REST API'si ve Java ile yazım denetimi"
 titlesuffix: Azure Cognitive Services
-description: Bing Yazım Denetimi API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
+description: Bing yazım denetimi REST API'si yazım ve dilbilgisi denetimini kullanmaya başlayın.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4a61e2a1c1457e0f64f4d1e1b11b98c26827481a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d2905d05dce48b705de44780425ed2b55b02555c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854889"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888993"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-java"></a>Hızlı başlangıç: Java ile Bing Yazım Denetimi API'si 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Hızlı Başlangıç: Bing yazım denetimi REST API'si ve Java ile yazım denetimi
 
-Bu makalede Java ile [Bing Yazım Denetimi API'si](https://azure.microsoft.com/services/cognitive-services/spell-check/)  kullanma adımları gösterilmektedir. Yazım Denetimi API'si tanınmayan sözcüklere ek olarak değişiklik önerileri döndürür. Genellikle bu API'ye metin gönderip önerilen değişiklikleri metne uygular veya uygulamanızın kullanıcısına göstererek değişikliklerin yapılıp yapılmayacağına karar vermelerini sağlayabilirsiniz. Bu makalede "Hollo, wrld!" metnini içeren bir istek gönderme adımları gösterilmiştir. Önerilen değişiklikler "Hello" ve "world" olacaktır.
+Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak için kullanın. Bu basit bir Java uygulaması API'sine bir istek gönderir ve önerilen düzeltmeler listesini döndürür. Bu uygulama, Java dilinde yazılır, ancak çoğu programlama dilleri ile uyumlu bir RESTful web hizmeti API'dir. Bu uygulama için kaynak kodu kullanılabilir [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://aka.ms/azure-jdks)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
+Java geliştirme Kit(JDK) 7 veya üzeri.
 
-**Bing Yazım Denetimi API'si v7** sürümüne sahip bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/#lang) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde verilen erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>Yazım Denetimi sonuçlarını alma
 
-1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Programı çalıştırın.
+## <a name="create-and-initialize-an-application"></a>Oluşturma ve bir uygulama başlatma
 
-```java
-import java.io.*;
-import java.net.*;
-import javax.net.ssl.HttpsURLConnection;
+1. Sık kullandığınız IDE veya düzenleyici yeni bir Java projesi oluşturun ve aşağıdaki paketler aktarın.
 
-public class HelloWorld {
+    ```java
+    import java.io.*;
+    import java.net.*;
+    import javax.net.ssl.HttpsURLConnection;
+    ```
 
+2. API uç noktanın ana bilgisayar, yol ve abonelik anahtarınız için değişkenler oluşturun. Ardından yazım denetimi yapmak istediğiniz metin pazarınızın değişkenleri ve yazım denetimi modu için bir dize oluşturur.
+
+    ```java
     static String host = "https://api.cognitive.microsoft.com";
     static String path = "/bing/v7.0/spellcheck";
 
-    // NOTE: Replace this example key with a valid subscription key.
-    static String key = "ENTER KEY HERE";
+    static String key = "ENTER YOUR KEY HERE";
 
     static String mkt = "en-US";
     static String mode = "proof";
     static String text = "Hollo, wrld!";
+    ```
 
-    public static void check () throws Exception {
-        String params = "?mkt=" + mkt + "&mode=" + mode;
-        URL url = new URL(host + path + params);
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        connection.setRequestProperty("Content-Length", "" + text.length() + 5);
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
-        connection.setDoOutput(true);
+## <a name="create-and-send-an-api-request"></a>Oluşturma ve bir API isteği gönder
 
+1. Çağrılan bir işlev oluşturma `check()` oluşturmak ve API isteği göndermek için. İçine aşağıdaki adımları izleyin. İstek parametreleri için bir dize oluşturun. Append `?mkt=` Pazar dizenizi parametresi ve `&mode=` yazım denetimi modunuzu parametresi.  
+
+   ```java
+   public static void check () throws Exception {
+       String params = "?mkt=" + mkt + "&mode=" + mode;
+   //...
+   }
+   ```
+
+2. Uç nokta konak ve yol parametreleri dize birleştirerek bir URL oluşturun. Yeni bir `HttpsURLConnection` obejct.
+
+    ```java
+    URL url = new URL(host + path + params);
+    HttpsURLConnection connection = (HttpsURLConnection) 
+    ```
+
+3. URL bağlantısı açın. İstek yöntemini ayarla `POST`. İstek parametrelerinizi ekleyin. Abonelik anahtarınızı eklediğinizden emin olun `Ocp-Apim-Subscription-Key` başlığı. 
+
+    ```java
+    url.openConnection();
+    connection.setRequestMethod("POST");
+    connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
+    connection.setDoOutput(true);
+    ```
+
+4. Yeni bir `DataOutputStream` nesne ve API için istek gönderin.
+
+    ```java
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
         wr.writeBytes("text=" + text);
         wr.flush();
         wr.close();
+    ```
 
-        BufferedReader in = new BufferedReader(
-        new InputStreamReader(connection.getInputStream()));
-        String line;
-        while ((line = in.readLine()) != null) {
-            System.out.println(line);
-        }
-        in.close();
+## <a name="read-the-response"></a>Yanıt okuyun
+
+1. Oluşturma bir `BufferedReader` ve API'den yanıtı okuyun. Bu, konsola yazdırır.
+    
+    ```java
+    BufferedReader in = new BufferedReader(
+    new InputStreamReader(connection.getInputStream()));
+    String line;
+    while ((line = in.readLine()) != null) {
+        System.out.println(line);
     }
+    in.close();
+    ```
 
+2. Yukarıda oluşturulan işlev uygulamanızın ana işlevini çağırın. 
+
+    ```java
     public static void main(String[] args) {
         try {
-            check ();
+            check();
         }
         catch (Exception e) {
             System.out.println (e);
         }
     }
-}
-```
-
-**Yanıt**
+    ```
+    
+## <a name="example-json-response"></a>Örnek JSON yanıtı
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -131,9 +160,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing Yazım Denetimi öğreticisi](../tutorials/spellcheck.md)
+> [Tek sayfalı web uygulaması oluşturma](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Ayrıca bkz.
-
-- [Bing Yazım Denetimi'ne genel bakış](../proof-text.md)
+- [Bing yazım denetimi API'si nedir?](../overview.md)
 - [Bing Yazım Denetimi API’si v7 Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

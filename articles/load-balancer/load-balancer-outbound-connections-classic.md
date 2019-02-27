@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: ec3fcc0301083e6cd5eff34c111586ef6463f8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821516"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876951"
 ---
 # <a name="outbound-connections-classic"></a>Giden bağlantılar (Klasik)
 
@@ -41,7 +41,7 @@ Azure, giden bağlantı Klasik dağıtımlar elde etmek için üç farklı yönt
 | --- | --- | --- | --- | --- | --- |
 | [1. Örnek düzeyinde ortak IP adresine sahip VM](#ilpip) | SNAT, bağlantı noktası maskelemeyi kullanılmıyor | TCP, UDP VE ICMP, ESP | Azure, sanal makinenin atanmış genel IP kullanır. Örneğinin tüm kısa ömürlü bağlantı noktaları kullanılabilir vardır. | Hayır | Evet |
 | [2. ortak yük dengeli uç nokta](#publiclbendpoint) | Bağlantı noktası (PAT) genel uç noktaya maskelemeyi ile SNAT | TCP, UDP | Azure genel IP adresi genel uç noktası, birden çok özel uç noktaları ile paylaşır. Azure, genel bir uç nokta, kısa ömürlü bağlantı noktaları için PAT kullanır. | Evet | Evet |
-| [3. Tek başına VM ](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | TCP, UDP | Azure otomatik olarak genel bir IP adresi için SNAT belirler, bu genel IP adresi olan tüm dağıtım paylaşımları ve kısa ömürlü bağlantı noktaları genel uç noktası IP adresinin PAT için kullanır. Bu, önceki senaryolar için geri dönüş bir senaryodur. Görünürlük ve denetim gerekiyorsa bunu önermiyoruz. | Evet | Evet |
+| [3. Tek başına VM](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | TCP, UDP | Azure otomatik olarak genel bir IP adresi için SNAT belirler, bu genel IP adresi olan tüm dağıtım paylaşımları ve kısa ömürlü bağlantı noktaları genel uç noktası IP adresinin PAT için kullanır. Bu, önceki senaryolar için geri dönüş bir senaryodur. Görünürlük ve denetim gerekiyorsa bunu önermiyoruz. | Evet | Evet |
 
 Bu, Azure Resource Manager dağıtımları için kullanılabilen giden bağlantı işlevlerinin bir alt kümesidir.  
 

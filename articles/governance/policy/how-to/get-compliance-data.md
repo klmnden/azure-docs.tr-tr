@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 41c44d1f4054d93c770f80496c8d7a0bddf5eb13
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 44f0309d472a79526537f79feabcd9777b70bcc7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650352"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888789"
 ---
 # <a name="getting-compliance-data"></a>Uyumluluk verilerini alma
 
@@ -142,25 +142,11 @@ Olay hakkında daha ayrıntılı bilgi toplamak ve seçmek için istediğiniz sa
 
 ![İlke uyumluluk etkinlik günlüğü](../media/getting-compliance-data/compliance-activitylog.png)
 
-### <a name="change-history-preview"></a>Değişiklik geçmişi (Önizleme)
+### <a name="understand-non-compliance"></a>Uyumsuzluk anlama
 
-Yeni bir parçası olarak **genel Önizleme**, değişiklik geçmişini son on dört günü uyumlu olmayan bir kaynak için kullanılabilir. Değişiklik geçmişi sağlar ayrıntılar hakkında bir değişiklik algıladığında ve _visual fark_ her değişiklik için. Uyumlu olmayan bir kaynak Resource Manager özelliklerini eklendiğinde, kaldırılmış veya değiştirilmiş bir değişiklik algılama tetiklenir.
+<a name="change-history-preview"></a>
 
-1. Azure portalında **Tüm hizmetler**’e tıkladıktan sonra **İlke**'yi arayıp seçerek Azure İlkesi hizmetini başlatın.
-
-1. Üzerinde **genel bakış** veya **Uyumluluk** sayfasında, ilke _uyumlu_.
-
-1. Altında **kaynak Uyumluluk** sekmesinde **ilke uyumluluğunu** sayfasında, bu bir kaynak seçin _uyumlu_.
-
-1. Seçin **değişiklik geçmişini (Önizleme)** sekmesinde **kaynak Uyumluluk** sayfası. Tüm mevcut görüntüleniyorsa listesini değişiklikleri algıladı.
-
-   ![İlke değişiklik geçmişi - sekmesi](../media/getting-compliance-data/change-history-tab.png)
-
-1. Algılanan değişiklikler birini seçin. _Visual fark_ uyumlu olmayan kaynak üzerinde sunulan için **değişiklik geçmişini** sayfası.
-
-   ![İlke değişiklik geçmişi - görsel fark](../media/getting-compliance-data/change-history-visual-diff.png)
-
-_Visual fark_ aides içinde bir kaynak değişikliklerini tanımlama. Algılanan değişiklikler için seçili ilkenin uyumlu olmadığı için kaynak neyin için ilişkili olmayabilir.
+Ne zaman bir kaynakları belirlenir olmasını **uyumlu olmayan**, birçok olası nedeni vardır. Bir kaynağın nedenini belirlemek için **uyumlu olmayan** veya değişiklik sorumlu bulmak için bkz. [belirlemek uyumsuzluk](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Komut satırı
 

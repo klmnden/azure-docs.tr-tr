@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6a22600f7d6653da64256d7ec63ba26f272b2184
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051861"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888279"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>En iyi uygulamalar ve Azure App Service Windows üzerinde node.js uygulamaları için sorun giderme kılavuzu
 
@@ -90,7 +90,7 @@ Buna ek olarak, uygulamalar, akış için de responseBufferLimit iisnode işleyi
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-Değişiklikleri izlenen dosyaların listesi noktalı virgülle ayrılmış. Bir dosyaya herhangi bir değişikliği geri dönüştürmek uygulamanın neden olur. Ana uygulama giriş noktası bulunduğu dizini ile görelidir gerekli dosya adları yanı sıra, bir isteğe bağlı dizin adı her girdi oluşur. Joker karakterler yalnızca dosya adı bölümünde izin verilir. Varsayılan değer: `*.js;web.config`
+Değişiklikleri izlenen dosyaların listesi noktalı virgülle ayrılmış. Bir dosyaya herhangi bir değişikliği geri dönüştürmek uygulamanın neden olur. Ana uygulama giriş noktası bulunduğu dizini ile görelidir gerekli dosya adları yanı sıra, bir isteğe bağlı dizin adı her girdi oluşur. Joker karakterler yalnızca dosya adı bölümünde izin verilir. Varsayılan değer: `*.js;iisnode.yml`
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 

@@ -1,80 +1,88 @@
 ---
-title: "Hızlı Başlangıç: Bing yazım denetimi API'si, Ruby"
+title: "Hızlı Başlangıç: Ruby ve Bing yazım denetimi REST API'si ile yazım denetimi"
 titlesuffix: Azure Cognitive Services
-description: Bing Yazım Denetimi API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
+description: Bing yazım denetimi REST API'si yazım ve dilbilgisi denetimini kullanmaya başlayın.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: d3c273c7e5774e4f6d5b6984b77ff76bfb041343
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d488923f38a9c65cb117b4535b50bb9fdff2dbfc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873181"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888857"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-ruby"></a>Hızlı başlangıç: Ruby ile Bing Yazım Denetimi API'si 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Hızlı Başlangıç: Ruby ve Bing yazım denetimi REST API'si ile yazım denetimi
 
-Bu makalede Ruby ile [Bing Yazım Denetimi API'si](https://azure.microsoft.com/services/cognitive-services/spell-check/)  kullanma adımları gösterilmektedir. Yazım Denetimi API'si tanınmayan sözcüklere ek olarak değişiklik önerileri döndürür. Genellikle bu API'ye metin gönderip önerilen değişiklikleri metne uygular veya uygulamanızın kullanıcısına göstererek değişikliklerin yapılıp yapılmayacağına karar vermelerini sağlayabilirsiniz. Bu makalede "Hollo, wrld!" metnini içeren bir istek gönderme adımları gösterilmiştir. Önerilen değişiklikler "Hello" ve "world" şeklindedir.
+Bu hızlı başlangıçta, Bing yazım denetimi REST API'si Ruby kullanarak ilk çağrı yapmak için kullanın. Bu basit uygulama API'sine bir istek gönderir ve bir kelimelerin yaramadı tanımlamanıza, önerilen düzeltmeler tarafından izlenen bir liste döndürür. Bu uygulama, Ruby ile yazılmış olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir. Bu uygulama için kaynak kodu kullanılabilir [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu kodu çalıştırmak için [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) veya üzeri bir sürümüne ihtiyacınız olacaktır.
+* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) veya üzeri.
 
-**Bing Yazım Denetimi API'si v7** sürümüne sahip bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/#lang) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde verilen erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir. Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>Yazım Denetimi sonuçlarını alma
 
-1. Sık kullandığınız IDE'de yeni bir Ruby projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Programı çalıştırın.
+## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
 
-```ruby
-require 'net/http'
-require 'uri'
-require 'json'
+1. Tercih ettiğiniz düzenleyiciyi veya IDE içinde yeni bir Ruby dosyası oluşturun ve aşağıdaki koşulları ekleyin. 
 
-uri = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/spellcheck?'
-params = 'mkt=en-us&mode=proof'
+    ```javascript
+    require 'net/http'
+    require 'uri'
+    require 'json'
+    ```
 
-uri = URI(uri + path + params)
-uri.query = URI.encode_www_form({
-    # Request parameters
-    'text' => 'Hollo, wrld!'
-})
+2. Abonelik anahtarı, uç nokta URI'si ve yol değişkenleri oluşturun. İstek parametrelerinizi ekleyerek oluşturma `mkt=` parametresi, pazarlama ve `&mode` için `proof` sağlama modu.
 
-# NOTE: Replace this example key with a valid subscription key.
-key = 'ENTER KEY HERE'
+    ```ruby
+    key = 'ENTER YOUR KEY HERE'
+    uri = 'https://api.cognitive.microsoft.com'
+    path = '/bing/v7.0/spellcheck?'
+    params = 'mkt=en-us&mode=proof'
+    ```
 
-# The headers in the following example 
-# are optional but should be considered as required:
-#
-# X-MSEdge-ClientIP: 999.999.999.999  
-# X-Search-Location: lat: +90.0000000000000;long: 00.0000000000000;re:100.000000000000
-# X-MSEdge-ClientID: <Client ID from Previous Response Goes Here>
-#
-# See below for more information.
+## <a name="send-a-spell-check-request"></a>Yazım denetimi İsteği Gönder
 
-request = Net::HTTP::Post.new(uri)
-request['Content-Type'] = "application/x-www-form-urlencoded"
+1. Bir URI, konak URI yolu ve parametreleri dizeden oluşturun. Sorgu metni içeren için yazım denetimi yapmak istediğiniz kullanıcının kümesi.
 
-request['Ocp-Apim-Subscription-Key'] = key
+   ```ruby
+   uri = URI(uri + path + params)
+   uri.query = URI.encode_www_form({
+      # Request parameters
+   'text' => 'Hollo, wrld!'
+   })
+   ```
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
-end
+2. Yukarıda oluşturulan URI'yi kullanarak bir istek oluşturun. Anahtarınıza ekleme `Ocp-Apim-Subscription-Key` başlığı.
 
-result = JSON.pretty_generate(JSON.parse(response.body))
-puts result
-```
+    ```ruby
+    request = Net::HTTP::Post.new(uri)
+    request['Content-Type'] = "application/x-www-form-urlencoded"
+    request['Ocp-Apim-Subscription-Key'] = key
+    ```
 
-**Yanıt**
+3. İsteği gönderin.
+
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request(request)
+    end
+    ```
+
+4. JSON yanıtını alma ve konsola yazdırır. 
+
+    ```ruby
+    result = JSON.pretty_generate(JSON.parse(response.body))
+    puts result
+    ```
+
+## <a name="example-json-response"></a>Örnek JSON yanıtı
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -119,9 +127,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing Yazım Denetimi öğreticisi](../tutorials/spellcheck.md)
+> [Bir tek sayfalı web uygulaması oluşturma](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Ayrıca bkz.
-
-- [Bing Yazım Denetimi'ne genel bakış](../proof-text.md)
+- [Bing yazım denetimi API'si nedir?](../overview.md)
 - [Bing Yazım Denetimi API’si v7 Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

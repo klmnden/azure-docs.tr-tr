@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 255dd58e98a65e30c61c57b7538311dcd2fbe277
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 8d9a1076320459d5c213c762cd88b5902b952041
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585262"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883867"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Öğretici: HireVue ile Azure Active Directory Tümleştirme
 
@@ -110,14 +110,14 @@ Azure AD çoklu oturum açma ile HireVue yapılandırmak için aşağıdaki adı
     | Ortam | URL'si |
     |-------------|---|
     | Üretim | `https://<companyname>.hirevue.com` |
-    | Hazırlanıyor    | `https://<companyname>.stghv.com` |
+    | Staging    | `https://<companyname>.stghv.com` |
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
     | Ortam | URN |
     |-------------|-----|
     | Üretim |`urn:federation:hirevue.com:saml:sp:prod` |
-    | Hazırlanıyor    | `urn:federation:hirevue.com:saml:sp:staging`|
+    | Staging    | `urn:federation:hirevue.com:saml:sp:staging`|
 
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [HireVue istemci Destek ekibine](mailto:samlsupport@hirevue.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
@@ -203,8 +203,8 @@ Erişim paneli HireVue kutucuğa tıkladığınızda, size otomatik olarak SSO'y
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

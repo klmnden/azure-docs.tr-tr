@@ -11,18 +11,18 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 810456114e1ce11562ae2ba014feb0a9a706c15d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 583573db99eb6b59b82eb22ed88ed5265352e7dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820408"
+ms.locfileid: "56876033"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Yönetin, dağıtın ve modeller Azure Machine Learning hizmeti ile izleme
 
 Bu makalede, Azure Machine Learning hizmeti dağıtma, yönetme ve sürekli olarak geliştirmek için Modellerinizi izlemek için nasıl kullanılacağını öğrenebilirsiniz. Azure Machine Learning ile yerel makinenizde veya diğer kaynaklardan eğitilmiş modeller dağıtabilirsiniz. 
 
-Tam dağıtım iş akışı aşağıdaki diyagramda gösterilmektedir: [ ![Azure Machine Learning için dağıtım iş akışı](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+Tam dağıtım iş akışı aşağıdaki diyagramda gösterilmektedir: [![Azure Machine Learning için dağıtım iş akışı](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 Dağıtım iş akışı, aşağıdaki adımları içerir:
 1. **Modeli kaydetmeyi** , Azure Machine Learning hizmeti çalışma alanında barındırılan bir kayıt defterinde
@@ -33,7 +33,7 @@ Dağıtım iş akışı, aşağıdaki adımları içerir:
 
 Her adım, bağımsız olarak veya tek dağıtım komutun bir parçası olarak gerçekleştirilebilir. Ayrıca, dağıtımı ile tümleştirebilirsiniz bir **CI/CD iş akışı** Bu grafikte gösterildiği gibi.
 
-[ !['Azure Machine Learning sürekli tümleştirme/sürekli dağıtım (CI/CD) döngüsü'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Azure Machine Learning sürekli tümleştirme/sürekli dağıtım (CI/CD) döngüsü'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>1. Adım: Modeli kaydetme
 
@@ -73,7 +73,7 @@ Buluta veya uç cihazlarında kayıtlı görüntülerini dağıtabilirsiniz. Da�
 
 Web hizmeti dağıtımları da aranabilir. Örneğin, belirli bir model veya görüntü tüm dağıtımları için arama yapabilirsiniz.
 
-[ ![Çıkarım hedefleri](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Çıkarım hedefleri](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 Aşağıdaki dağıtım hedefleri bulutta görüntülerinizi dağıtabilirsiniz:
 

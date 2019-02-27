@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: fdbbfaf4a4c3df90302b0b69e4964b7a073f2fa4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4a7da4a6e7b4b395063f7e4c9a3e97d610492ef6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237969"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882680"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI çalışma alanı koleksiyonları örnek ile kullanmaya başlama
 
@@ -28,7 +28,7 @@ Aşağıdaki kaynaklar kaydetmek istediğiniz tüm daha fazla ayrıntıya önce:
 
 * [Örnek çalışma web uygulaması](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI çalışma alanı koleksiyonları API Başvurusu](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK'sını ](https://go.microsoft.com/fwlink/?LinkId=746472) (NuGet aracılığıyla kullanılabilir)
+* [Power BI .NET SDK'sını](https://go.microsoft.com/fwlink/?LinkId=746472) (NuGet aracılığıyla kullanılabilir)
 * [JavaScript rapor ekleme örneği](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]

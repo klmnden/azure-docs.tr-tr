@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 75fc79b582803150f2111efb848d113d52928263
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3fccb50e3447eabc15cbef89ab7655b3f1d1f4ac
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544677"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876815"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak Azure veritabanı MariaDB için güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları, yöneticilerin belirtilen bir IP adresi veya bir IP adresi aralığı MariaDB sunucusu için Azure veritabanı erişmeye olanak tanır. 
@@ -32,7 +32,7 @@ Sunucu düzeyinde güvenlik duvarı kuralları, yöneticilerin belirtilen bir IP
 
 4. Ek adres aralıkları ekleyin. MariaDB için Azure veritabanı için güvenlik duvarı kurallarında, tek bir IP adresi veya adres aralığını belirtebilirsiniz. Tek bir IP adresi için kural sınırlandırmak istiyorsanız, Başlangıç hem bitiş IP'si alanları aynı adresini yazın. Güvenlik duvarını açmak, Yöneticiler, kullanıcılar ve geçerli kimlik bilgilerine sahip oldukları MariaDB sunucu üzerindeki herhangi bir veritabanına erişmek için uygulamayı etkinleştirir.
 
-   ![Azure portalı - güvenlik duvarı kuralları ](./media/howto-manage-firewall-portal/4-specify-addresses.png)
+   ![Azure portalı - güvenlik duvarı kuralları](./media/howto-manage-firewall-portal/4-specify-addresses.png)
 
 5. Tıklayın **Kaydet** bu sunucu düzeyinde güvenlik duvarı kuralını kaydetmek için araç çubuğunda. Güvenlik duvarı kurallarının güncelleştirmenin başarılı olduğunu onaylanmasını bekleyin.
 

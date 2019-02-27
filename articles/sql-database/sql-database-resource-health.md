@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 36a448a861bdfdcd85e532578383b14e56f54b1a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 02/26/2019
+ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039104"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889384"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Azure SQL veritabanı için bağlantı sorunlarını gidermek için kaynak durumu kullanın
 
@@ -53,9 +53,9 @@ Durumu **kullanılamıyor** kaynak durumu, tutarlı bir oturum açma hataları S
 
 ### <a name="unknown"></a>Bilinmeyen
 
-Sistem durumunu **bilinmeyen** bu kaynak hakkında bilgi için 10 dakikadan daha fazla kaynak durumu henüz aldığını gösterir. Bu durum kaynak durumunun eksiksiz bir gösterimi olmasa da, bir sorun giderme işlemi önemli veri noktası var.
-Kaynak beklenen şekilde çalışıyorsa, kaynak durumu için kullanılabilen birkaç dakika sonra değiştirin.
-Kaynağı ile ilgili sorunlar yaşıyorsanız, bilinmeyen durumunu platform içindeki bir olay kaynağı etkilediğini önerebilir.
+Sistem durumunu **bilinmeyen** bu kaynak hakkında bilgi için 10 dakikadan daha fazla kaynak durumu henüz aldığını gösterir. Bu durum kaynak durumunun eksiksiz bir gösterimi olmasa da, bir sorun giderme işlemi önemli veri noktası var. Kaynak beklenen şekilde çalışıyorsa, kaynak durumu için kullanılabilen birkaç dakika sonra değiştirin. Kaynağı ile ilgili sorunlar yaşıyorsanız, bilinmeyen durumunu platform içindeki bir olay kaynağı etkilediğini önerebilir.
+
+![Bilinmeyen](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>Geçmiş bilgileri
 

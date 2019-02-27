@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics, Azure HDInsight kümelerinizi izlemek için sorgu
-description: Bir HDInsight kümesinde çalışan işleri izlemek için Azure Log Analytics üzerinde sorgular çalıştırın öğrenin.
+title: Azure HDInsight kümelerinizi izlemek için sorgu Azure izleme günlükleri
+description: Bir HDInsight kümesinde çalışan işleri izlemek için Azure İzleyici günlüklerine üzerinde sorgular çalıştırın öğrenin.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,26 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e1187867fc9da9a89f92d7b321c8703ee7a8a407
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386511"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889265"
 ---
-# <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics, HDInsight kümelerinizi izlemek için sorgu
+# <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>HDInsight kümelerinizi izlemek için sorgu Azure izleme günlükleri
 
-Bazı temel senaryolar Azure Log Analytics, Azure HDInsight kümelerinizi izlemek için kullanma hakkında bilgi edinin:
+Bazı temel senaryolar Azure HDInsight kümelerinizi izlemek için Azure İzleyici günlüklerine kullanma hakkında bilgi edinin:
 
 * [HDInsight küme ölçümleri analiz](#analyze-hdinsight-cluster-metrics)
 * [Belirli günlük iletilerini arayın](#search-for-specific-log-messages)
 * [Olay uyarıları oluşturma](#create-alerts-for-tracking-events)
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir HDInsight kümesi, Azure Log Analytics'i kullanmak için yapılandırılan ve gerekir HDInsight küme özgü Log Analytics yönetim çözümleri çalışma alanına eklenir. Yönergeler için [HDInsight kümeleriyle kullanımı Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md).
+* Azure İzleyici günlüklerine kullanmak için HDInsight kümesi yapılandırılmış ve gerekir izleme çözümleri çalışma alanına HDInsight kümeye özgü Azure İzleyici günlüklerine eklendi. Yönergeler için [kullanımı Azure İzleyici günlükleri HDInsight kümeleriyle](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>HDInsight küme ölçümleri analiz
 
@@ -34,7 +36,7 @@ HDInsight kümenizin belirli ölçümleri arayın öğrenin.
 
 1. Azure portalından, HDInsight kümenize ilişkili Log Analytics çalışma alanını açın.
 2. Seçin **günlük araması** Döşe.
-3. Azure Log Analytics kullanın ve ardından seçmek için yapılandırılan tüm HDInsight kümeleri için kullanılabilen tüm ölçümler için tüm ölçümleri aramak için arama kutusuna aşağıdaki sorguyu yazın **ÇALIŞTIRMA**.
+3. Azure İzleyici günlüklerine kullanın ve ardından seçmek için yapılandırılan tüm HDInsight kümeleri için kullanılabilen tüm ölçümler için tüm ölçümleri aramak için arama kutusuna aşağıdaki sorguyu yazın **ÇALIŞTIRMA**.
 
         search *
 
@@ -67,7 +69,7 @@ Belirli bir zaman penceresi sırasında hata iletilerini arayın öğrenin. Bura
 
 1. Azure portalından, HDInsight kümenize ilişkili Log Analytics çalışma alanını açın.
 2. Seçin **günlük araması** Döşe.
-3. Aşağıdaki Azure Log Analytics kullanmak üzere yapılandırılmış tüm HDInsight kümeleri için tüm hata iletileri için aranacak sorgu ve ardından türü **ÇALIŞTIRMA**. 
+3. Aşağıdaki Azure İzleyici günlüklerine kullanmak üzere yapılandırılmış tüm HDInsight kümeleri için tüm hata iletileri için aranacak sorgu ve ardından türü **ÇALIŞTIRMA**. 
 
          search "Error"
 
@@ -117,11 +119,11 @@ Düzenleyebilir veya var olan bir uyarıyı silmek için:
 3. Düzenlemek veya silmek için istediğiniz uyarıyı seçin.
 4. Aşağıdaki seçenekleriniz vardır: **Kaydet**, **at**, **devre dışı**, ve **Sil**.
 
-    ![HDInsight Log Analytics uyarısını silme Düzenle](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![HDInsight Azure İzleyici günlüklerine uyarısını silme Düzenle](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-Daha fazla bilgi için [Log analytics'teki uyarı kuralları ile çalışma](../log-analytics/log-analytics-alerts-creating.md).
+Daha fazla bilgi için [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak ölçüm Uyarıları yönetme](../azure-monitor/platform/alerts-metric.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Log Analytics ile çalışma](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
-* [Log Analytics'teki uyarı kuralları oluşturma](../log-analytics/log-analytics-alerts-creating.md)
+* [OMS Log Analytics: Görünüm Tasarımcısı](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Oluşturun, görüntüleyin ve ölçüm uyarıları Azure İzleyicisi'ni kullanarak yönetme](../azure-monitor/platform/alerts-metric.md)

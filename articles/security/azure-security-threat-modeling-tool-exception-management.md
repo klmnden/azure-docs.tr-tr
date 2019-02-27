@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ce748be7f11d440e656e4af5cdd3cee3bbc9e313
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 68bffaeef0451dae3a3b9707049dd2e44ad311fd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302158"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865884"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Güvenlik çerçevesi: Özel durum yönetimi | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF iş yapılandırma dosyasında serviceDebug düğüm içermiyor](#servicedebug)</li><li>[WCF iş yapılandırma dosyasında serviceMetadata düğüm içermiyor](#servicemetadata)</li></ul> |
-| **Web API** | <ul><li>[Uygun özel durum işleme ASP.NET Web API'de yapıldığından emin olun ](#exception)</li></ul> |
-| **Web uygulaması** | <ul><li>[Hata iletilerinde güvenlik ayrıntılarını gösterme ](#messages)</li><li>[Varsayılan hata sayfa işleme uygulama ](#default)</li><li>[Dağıtım yöntemi sürümünden perakende sürümüne IIS'de ayarlayın](#deployment)</li><li>[Özel durumlar güvenli bir şekilde başarısız olması](#fail)</li></ul> |
+| **Web API** | <ul><li>[Uygun özel durum işleme ASP.NET Web API'de yapıldığından emin olun](#exception)</li></ul> |
+| **Web uygulaması** | <ul><li>[Hata iletilerinde güvenlik ayrıntılarını gösterme](#messages)</li><li>[Varsayılan hata sayfa işleme uygulama](#default)</li><li>[Dağıtım yöntemi sürümünden perakende sürümüne IIS'de ayarlayın](#deployment)</li><li>[Özel durumlar güvenli bir şekilde başarısız olması](#fail)</li></ul> |
 
 ## <a id="servicedebug"></a>WCF iş yapılandırma dosyasında serviceDebug düğüm içermiyor
 
@@ -35,7 +35,7 @@ ms.locfileid: "43302158"
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, NET Framework 3 |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Adımları** | Windows Communication Framework (WCF) Hizmetleri, hata ayıklama bilgilerini kullanıma sunmak için yapılandırılabilir. Hata ayıklama bilgileri, üretim ortamlarında kullanılmamalıdır. `<serviceDebug>` Etiketi, hata ayıklama bilgilerini özelliği bir WCF hizmeti için etkin olup olmadığını tanımlar. İstemcilere özniteliği IncludeExceptionDetailInFaults uygulamadan true, özel durum bilgilerini ayarlanmışsa döndürülmez. Saldırganlar, çerçeve, veritabanı veya uygulama tarafından kullanılan diğer kaynaklar hedeflenen saldırılar yerleştirmek üzere çıkış hata ayıklamasından elde ek bilgi yararlanabilir. |
 
@@ -59,7 +59,7 @@ Hizmetinde hata ayıklama bilgilerini devre dışı bırakın. Bu kaldırarak ge
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Genel, NET Framework 3 |
+| **Öznitelikler**              | Genel, NET Framework 3 |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Adımları** | Genel olarak bir hizmet ile ilgili bilgileri gösterme nasıl hizmet yararlanabilir değerli Öngörüler sayesinde saldırganlar sağlayabilir. `<serviceMetadata>` Etiketi meta veri yayımlama özelliğini etkinleştirir. Hizmet meta verileri genel olarak erişilebilir olmaması gereken hassas bilgiler içerebilir. En azından, yalnızca güvenilen kullanıcıların meta verilerine erişmek ve gereksiz bilgi sunulmaz emin olmak izin verir. Üstelik, tamamen meta verileri yayımlama özelliğini devre dışı. Güvenli bir WCF yapılandırma olmayan öğeler `<serviceMetadata>` etiketi. |
 
@@ -70,7 +70,7 @@ Hizmetinde hata ayıklama bilgilerini devre dışı bırakın. Bu kaldırarak ge
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC 5, MVC 6 |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Özel durum işleme ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling), [Model doğrulama ASP.NET Web API](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Adımları** | Varsayılan olarak, ASP.NET Web API en Yakalanmayan Özel durum kodu ile bir HTTP yanıtı çevrilir `500, Internal Server Error`|
 
@@ -188,7 +188,7 @@ Onay olağanüstü işleme hakkında ek ayrıntılar için başvurular bölümü
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | **Adımları** | <p>Genel hata iletileri doğrudan kullanıcıya hassas uygulama verileri dahil olmak üzere sağlanır. Hassas verilerin örnekleri şunlardır:</p><ul><li>Sunucu adları</li><li>Bağlantı dizeleri</li><li>Kullanıcı adları</li><li>Parolalar</li><li>SQL yordamları</li><li>Dinamik SQL hatalarının ayrıntıları</li><li>Yığın izlemesi ve kod satırları</li><li>Değişkenler bellekte</li><li>Sürücü ve klasör konumları</li><li>Uygulama yükleme noktaları</li><li>Ana bilgisayar yapılandırma ayarları</li><li>Diğer iç uygulama ayrıntıları</li></ul><p>Bir uygulamadaki tüm hataları yakalama ve genel hata iletileri sağlama, hem de IIS içinde özel hatalar'ı etkinleştirme, bilgilerin açıklanması engellemeye yardımcı olur. SQL Server veritabanı ve .NET, diğer hata mimarileri, işleme arasında işleme özel durum, özellikle ayrıntılı ve uygulamanızın profilini oluşturmanız, kötü niyetli bir kullanıcı için son derece yararlıdır. Doğrudan .NET özel durum sınıfından türetilen bir sınıf içeriğini görüntüleyebilir ve böylece beklenmeyen bir özel durum doğrudan kullanıcıya yanlışlıkla yükseltilmiş olmayan uygun özel durum işleme sahip olduğundan emin olun.</p><ul><li>Genel hata iletileri doğrudan doğrudan özel durum/hata iletisinde bulunan koyma belirli Ayrıntılar soyut kullanıcıya sağlayın</li><li>.NET özel durum sınıfı içeriğini doğrudan kullanıcıya gösterme</li><li>Tüm hata iletilerini yakalayabilir ve uygunsa, kullanıcıyı uygulama istemciye gönderilen genel bir hata iletisi yoluyla bildirin</li><li>Özel durum sınıfı içeriğini kullanıcıya, özellikle dönüş değeri açığa çıkarmayın `.ToString()`, ya da ileti veya StackTrace özelliklerin değerlerini. Güvenli bir şekilde bu bilgileri günlüğe kaydetmek ve kullanıcıya daha zararsız bir ileti görüntüler</li></ul>|
 
@@ -199,9 +199,9 @@ Onay olağanüstü işleme hakkında ek ayrıntılar için başvurular bölümü
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [ASP.NET hata sayfaları ayarlarını Düzenle iletişim kutusu](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Adımları** | <p>Bir ASP.NET uygulama başarısız olduğunda ve bir HTTP/1.x 500 İç sunucu hatası neden olan veya bir özellik yapılandırması (örneğin, istek filtreleme) bir sayfa görüntülenmesini engeller, bir hata iletisi oluşturulur. Yöneticiler uygulama kolay bir ileti istemcisi, istemciye ayrıntılı hata iletisi ya da yalnızca localhost için ayrıntılı hata iletisi görüntülenmelidir kullanılıp kullanılmayacağını seçebilirsiniz. <customErrors> Etiketi Web.config dosyasında üç modu vardır:</p><ul><li>**Üzerinde:** Özel hataların etkinleştirildiğini belirtir. Kullanıcılar, hiçbir defaultRedirect özniteliği belirtilmezse, genel bir hata görür. Özel hatalar, uzak istemciler ve yerel ana bilgisayarda gösterilir.</li><li>**Kapalı:** özel hatalar devre dışı olduğunu belirtir. Uzak istemciler ve yerel ana bilgisayar için ayrıntılı ASP.NET hataları gösterilir</li><li>**RemoteOnly:** özel hatalar yalnızca uzak istemcilere gösterildiğini ve ASP.NET hataları yerel ana bilgisayara görüntülendiğini belirtir. Varsayılan değer budur.</li></ul><p>Açık `web.config` etiket ya da olduğundan emin olun ve uygulama/site için dosya `<customErrors mode="RemoteOnly" />` veya `<customErrors mode="On" />` tanımlı.</p>|
+| **Adımları** | <p>Bir ASP.NET uygulama başarısız olduğunda ve bir HTTP/1.x 500 İç sunucu hatası neden olan veya bir özellik yapılandırması (örneğin, istek filtreleme) bir sayfa görüntülenmesini engeller, bir hata iletisi oluşturulur. Yöneticiler uygulama kolay bir ileti istemcisi, istemciye ayrıntılı hata iletisi ya da yalnızca localhost için ayrıntılı hata iletisi görüntülenmelidir kullanılıp kullanılmayacağını seçebilirsiniz. <customErrors> Etiketi Web.config dosyasında üç modu vardır:</p><ul><li>**Üzerinde:** Özel hataların etkinleştirildiğini belirtir. Kullanıcılar, hiçbir defaultRedirect özniteliği belirtilmezse, genel bir hata görür. Özel hatalar, uzak istemciler ve yerel ana bilgisayarda gösterilir.</li><li>**Kapalı:** Özel hatalar devre dışı olduğunu belirtir. Uzak istemciler ve yerel ana bilgisayar için ayrıntılı ASP.NET hataları gösterilir</li><li>**RemoteOnly:** Özel hatalar yalnızca uzak istemcilere gösterildiğini ve ASP.NET hataları yerel ana bilgisayara görüntülendiğini belirtir. Varsayılan değer budur.</li></ul><p>Açık `web.config` etiket ya da olduğundan emin olun ve uygulama/site için dosya `<customErrors mode="RemoteOnly" />` veya `<customErrors mode="On" />` tanımlı.</p>|
 
 ## <a id="deployment"></a>Dağıtım yöntemi sürümünden perakende sürümüne IIS'de ayarlayın
 
@@ -210,7 +210,7 @@ Onay olağanüstü işleme hakkında ek ayrıntılar için başvurular bölümü
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Dağıtım öğesi (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
 | **Adımları** | <p>`<deployment retail>` Anahtar üretim IIS sunucuları tarafından kullanılmak üzere tasarlanmıştır. Bu anahtar en iyi performansı ve olabildiğince az güvenlik bilgileri leakages ile izleme çıktısına ayrıntılı hata iletileri görüntülenecek özelliği devre dışı bırakma sayfasında, oluşturulacak uygulamanın özelliği devre dışı bırakarak çalışan uygulamaların yardımcı olmak için kullanılır Son kullanıcılar ve hata ayıklama anahtarı devre dışı bırakılıyor.</p><p>Çoğu zaman, anahtarlar ve geliştirici odaklı başarısız oldu gibi seçenekleri izleme istek ve hata ayıklama, etkin geliştirme sırasında etkinleştirilir. Herhangi bir üretim sunucusu üzerinde dağıtım yönteminin, perakende ayarlanması önerilir. machine.config dosyasının açın ve emin `<deployment retail="true" />` true olarak ayarlanırsa kalır.</p>|
 
@@ -221,7 +221,7 @@ Onay olağanüstü işleme hakkında ek ayrıntılar için başvurular bölümü
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Güvenli bir şekilde başarısız](https://www.owasp.org/index.php/Fail_securely) |
 | **Adımları** | Uygulama güvenli bir şekilde başarısız olmalı. Belirli bir karar verme yapılır üzerinde temel bir Boole değeri döndüren herhangi bir yöntemi, dikkatli bir şekilde oluşturulan özel durum bloğu olmalıdır. Çok sayıda mantıksal hataları nedeniyle,'de, özel durum bloğu carelessly yazılan yayılmasını güvenlik konuları vardır.|
 

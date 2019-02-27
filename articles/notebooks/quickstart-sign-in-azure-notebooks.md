@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: f595fbb6571c3deaaa0644ba9d62f598181592e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4daae4357a7a9577c48edc8643355d319b701944
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106320"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881575"
 ---
-# <a name="quickstart-sign-in-and-set-a-user-id"></a>Hızlı Başlangıç: Oturum açın ve bir kullanıcı kimliği ayarlayın
+# <a name="quickstart-sign-in-and-set-a-user-id"></a>Hızlı Başlangıç: Oturum açma ve kullanıcı kimliği ayarlama
 
 Oturum açma olmadan her zaman Azure not defterleri görmenize rağmen not defterlerini çalıştırmak, kaydedilmiş projeler not defterlerini erişip ve not defterlerinizi başkalarıyla paylaşmak oturum açmanız gerekir.
 
@@ -52,6 +52,9 @@ Oturum açma olmadan her zaman Azure not defterleri görmenize rağmen not defte
 
     ![Bir Azure not defterleri profili sayfasındaki başlangıç görünümü](media/accounts/profile-page-new.png)
 
+> [!NOTE]
+> "Kullanıcı kimliği, kullanımda" iletisini görürseniz, farklı bir kimlik deneyin. Tüm Azure not defterleri hesaplarda kullanıcı kimlikleri benzersizdir ve Azure not defterleri de Microsoft marka adları gibi belirli kullanıcı kimlikleri ayırır.
+
 ## <a name="sign-out"></a>Oturumu kapat
 
 Oturumu kapatın, sayfanın sağ üst kullanıcı adınızı seçin ve ardından **oturumunuzu**:
@@ -61,4 +64,4 @@ Oturumu kapatın, sayfanın sağ üst kullanıcı adınızı seçin ve ardından
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Oluşturma ve bir not defteri paylaşın](quickstart-create-share-jupyter-notebook.md)
+> [Hızlı Başlangıç: Oluşturma ve bir not defteri paylaşma](quickstart-create-share-jupyter-notebook.md)

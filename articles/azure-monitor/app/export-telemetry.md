@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: eda41870e86db206847f5ea81e23fa1b7612234c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b1f6024538c6807fd68a0d7b0b7ae2776938055b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817312"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888206"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights'tan telemetriyi dışarı aktarma
 Telemetrinizi standart saklama süresinden daha uzun süre tutmak mı istiyorsunuz? Veya özel bir şekilde işlemek? Sürekli dışarı aktarma için idealdir. Application Insights portalında gördüğünüz olayları için Microsoft Azure Depolama'da JSON biçiminde dışarı aktarılabilir. Buradan verilerinizi indirin ve, kod yazma, işlemeniz gerekir.  
@@ -37,7 +37,7 @@ Sürekli dışarı aktarma (burada, kalarak için istediğiniz sürece) depolama
 
 Sürekli dışarı aktarma **desteklemediği** aşağıdaki Azure depolama özellikleri/yapılandırmalar:
 
-* Kullanım [VNET/Azure depolama güvenlik duvarları](https://docs.microsoft.com/azure/storage/common/storage-network-security) conjuntion ile Azure Blob Depolama içinde.
+* Kullanım [VNET/Azure depolama güvenlik duvarları](https://docs.microsoft.com/azure/storage/common/storage-network-security) Azure Blob Depolama ile birlikte okunmalıdır.
 
 * [Sabit depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) Azure Blob Depolama için.
 
@@ -150,7 +150,7 @@ Küçük bir ölçekte verilerinizi uzaklıkta çekme, elektronik tabloya okuyun
 Daha büyük bir kod örneği için bkz. [bir çalışan rolü kullanarak][exportasa].
 
 ## <a name="delete"></a>Eski verilerinizi silme
-Depolama kapasitenizi yönetme ve gerekirse eski verileri silmek için sorumlu olduğunuzu unutmayın.
+Depolama kapasitesini yönetmek ve gerekirse eski verileri silmek için sorumlu olursunuz.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Depolama anahtarı yeniden oluşturursanız...
 Depolama anahtarı değiştirirseniz, sürekli dışarı aktarma çalışmayı durdurur. Azure hesabınızda bir bildirim görürsünüz.
@@ -187,7 +187,7 @@ Büyük ölçekleri üzerinde düşünün [HDInsight](https://azure.microsoft.co
 * *Depolama alanında kaç blobları görüyorum?*
 
   * (Veri varsa) dışarı aktarmak için seçtiğiniz her veri türü için yeni bir blob dakikada oluşturulur.
-  * Ayrıca, yüksek trafiğe sahip uygulamalar için ek bölüm birimleri ayrılır. Bu durumda her bir birimi dakikada bir blob oluşturur.
+  * Ayrıca, yüksek trafiğe sahip uygulamalar için ek bölüm birimleri ayrılır. Bu durumda, her bir birimi dakikada bir blob oluşturur.
 * *İçin depolama anahtarı yeniden oluşturuldu veya kapsayıcının adı değiştirilmiş ve dışarı aktarma artık çalışmaz.*
 
     Dışarı aktarmayı düzenleyin ve dışarı aktarma hedefi dikey penceresini açın. Aynı depolama alanı olarak önce seçili bırakın ve onaylamak için Tamam'a tıklayın. Dışarı aktarma yeniden başlatılır. Son birkaç gün içinde değişiklik olduysa, veri kaybı olmaz.

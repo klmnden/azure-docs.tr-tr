@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 88eb7052c394d41c861ffc422738a4a650101ea7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: bf010e33a5ef77fcfde2506bfef9760a09667a9d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819318"
+ms.locfileid: "56867261"
 ---
 # <a name="what-is-automated-machine-learning"></a>Nedir, makine öğrenimi otomatik?
 
@@ -47,7 +47,7 @@ Otomatik makine öğrenimi eğitim verileri ile tanımlanan hedefi özelliği ve
 
 Eğitim sırasında Azure Machine Learning hizmetinde bir dizi farklı algoritmaları ve parametrelerle deneyin işlem hatları oluşturur. Sağladığınız yineleme sınırına İsabetleri sonra veya belirttiğiniz ölçüm için hedef değer ulaştığında durdurur.
 
-[ ![Otomatik makine öğrenimi](./media/how-to-automated-ml/automated-machine-learning.png) ](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
+[![Otomatik makine öğrenimi](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
 Çalıştırma sırasında toplanan ölçümleri içeren günlüğe kaydedilen çalışma bilgileri inceleyebilirsiniz. Eğitim da Python serileştirilmiş nesne çalıştırmanın (`.pkl` dosyası) modeli ve veri ön işleme içerir.
 

@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 1eac1da2d8d9a289cb456fc08d7e7c2bc7784aa6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.date: 02/25/2019
+ms.openlocfilehash: 40c72c8a3ac4b60c6361e0f5ca3ac16ccb78b05c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454030"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56884007"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL veritabanı'nda ölçek tek veritabanı kaynakları
 
@@ -88,7 +88,7 @@ Tüm ölçek artırma işleminin süresi hem veritabanı boyutuna hem de değiş
 
 ## <a name="dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>DTU tabanlı satın alma modeli: P11 ve P15 1 TB'den büyük, maksimum boyutu sınırlamaları
 
-P11 ve P15 veritabanı için 1 TB'den büyük en büyük boyutu, şu bölgelerde desteklenir: Avustralya Doğu, Avustralya Güneydoğu, Brezilya Güney, Kanada Orta, Kanada Doğu, Orta ABD, Fransa Orta, Almanya Orta, Japonya Doğu, Japonya Batı, Kore Orta, Kuzey Orta ABD, Kuzey Avrupa, Güney Orta ABD, Güneydoğu Asya, UK Güney, UK Batı, ABD doğu2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. P11 ve P15 veritabanları en büyük boyutu 1 TB'den büyük ile aşağıdaki önemli noktalar ve sınırlamalar geçerlidir:
+1 TB'den fazla depolama Premium katmanında şu anda tüm bölgelerde kullanılabilir: Çin Doğu, Kuzey Çin, Almanya Orta, Almanya Kuzeydoğu, Batı Orta ABD, US DoD bölgeler ve ABD kamu orta. Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Daha fazla bilgi için [P11 P15 geçerli sınırlamalar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb). P11 ve P15 veritabanları en büyük boyutu 1 TB'den büyük ile aşağıdaki önemli noktalar ve sınırlamalar geçerlidir:
 
 - Desteklenmeyen bir bölgede veritabanı sağlandığında create komutuyla en büyük boyutu 1 TB'den büyük (4 TB veya 4096 GB değeri kullanılarak) bir veritabanı oluşturulurken seçerseniz, bir hata ile başarısız olur.
 - Desteklenen bölgelerden birinde bulunan mevcut P11 ve P15 veritabanları için en fazla depolama için 1 TB ötesinde 256 GB'lık artışlarla artırabilirsiniz 4 TB'a kadar. Daha büyük boyutta bölgenizde desteklenip desteklenmediğini görmek için [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) işlevi veya Azure portalında veritabanı boyutu inceleyin. Bir mevcut P11 veya P15 yükseltme veritabanı yalnızca bir sunucu düzeyi asıl oturum açma veya dbmanager veritabanı rolünün üyeleri tarafından gerçekleştirilebilir.

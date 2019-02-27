@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d7bcff89ba7f76980287f9aad3413a6ef3f41b4f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807431"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882884"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service'teki uygulamalar için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -34,8 +34,8 @@ App Service, web sunucusunu hem web uygulamasının içinden bilgileri günlüğ
 ### <a name="web-server-diagnostics"></a>Web sunucusu tanılama
 Etkinleştirmek veya günlükleri aşağıdaki türde devre dışı bırakabilirsiniz:
 
-* **Ayrıntılı hata günlüğü** -HTTP durum kodu 400 veya üzeri sonuçları herhangi bir istek için ayrıntılı bilgiler. Bu sunucunun döndürülen hata kodu neden belirlemek yardımcı olabilecek bilgiler içerebilir. Bir HTML dosyası, her bir hata oluşturulur (içinde *D:\LogFiles\DetailedErrors* varsayılan olarak), ve en çok 50 hataları (dosyalar) korunur. HTML dosyaları sayısı 50'den fazla eski 26 dosyaları otomatik olarak silinir.
-* **Başarısız istek izleme** -ayrıntılı bir izleme isteği ve her bir bileşende geçen süre işlemek için kullanılan IIS bileşenlerini de dahil olmak üzere, başarısız isteklerle bilgileri. Site performansı artırmak veya belirli bir HTTP hatası yalıtmak istiyorsanız kullanışlıdır.
+* **Ayrıntılı hata günlüğü** -HTTP durum kodu 400 veya üzeri sonuçları herhangi bir istek için ayrıntılı bilgiler. Bu sunucunun döndürülen hata kodu neden belirlemek yardımcı olabilecek bilgiler içerebilir. Bir HTML dosyası her bir hata oluşturulur, uygulamanın dosya sistemindeki ve 50 hataları (dosyalar) kadar korunur. HTML dosyaları sayısı 50'den fazla eski 26 dosyaları otomatik olarak silinir.
+* **Başarısız istek izleme** -ayrıntılı bir izleme isteği ve her bir bileşende geçen süre işlemek için kullanılan IIS bileşenlerini de dahil olmak üzere, başarısız isteklerle bilgileri. Site performansı artırmak veya belirli bir HTTP hatası yalıtmak istiyorsanız kullanışlıdır. Bir klasöre her hata için uygulamanın dosya sisteminde oluşturulur. Dosya bekletme ilkeleri, yukarıda günlük ayrıntılı hata ile aynıdır.
 * **Web sunucusu günlüğe kaydetme** -kullanarak HTTP işlemleri hakkında bilgi [W3C Genişletilmiş günlük dosyası biçimini](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). İşlenen isteklerin veya özel bir IP adresinden kaç isteklerdir sayısı gibi genel site ölçümleri belirlerken yararlı olacaktır.
 
 ### <a name="application-diagnostics"></a>Uygulama tanılamaları
@@ -213,6 +213,10 @@ Blob olarak depolanan veriler aşağıdaki örneğe benzer olacaktır:
 Başarısız istek izlemelerin adlı XML dosyalarında depolanan **fr ### .xml**. Oturum bilgilerini daha kolay hale getirmek için bir XSLT stil sayfası adlı **freb.xsl** XML dosyaları ile aynı dizinde sağlanır. XML dosyalarından birini Internet Explorer'da açın, Internet Explorer XSL stil sayfası izleme, aşağıdaki örneğe benzer bilgiler biçimlendirilmiş bir görünümünü sağlamak için kullanır:
 
 ![başarısız istek tarayıcıda görüntüleniyor](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+
+> [!NOTE]
+> Portalda uygulamanızın sayfaya gitmek için biçimlendirilmiş başarısız istek izlemelerin görüntülemek için kolay bir yolu var. Sol menüden **Tanıla ve problemleri çözmenize**, ardından aramak **başarısız istek günlükleri izleme**, sonra göz atın ve istediğiniz izleme görüntülemek için simgeye tıklayın.
+>
 
 ### <a name="detailed-error-logs"></a>Ayrıntılı hata günlükleri
 Ayrıntılı Hata günlüklerini oluşmuş HTTP hataları hakkında daha ayrıntılı bilgi sağlayan HTML belgeleridir. Bunlar yalnızca HTML belgeleri olduğundan, bir web tarayıcısı kullanarak görüntülenebilir.

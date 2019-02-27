@@ -1,74 +1,77 @@
 ---
-title: "Hızlı Başlangıç: Bing yazım denetimi API'si, Node.js"
+title: "Hızlı Başlangıç: Bing yazım denetimi REST API'si ve Node.js ile yazım denetimi"
 titlesuffix: Azure Cognitive Services
-description: Bing Yazım Denetimi API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
+description: Bing yazım denetimi REST API'si yazım ve dilbilgisi denetimini kullanmaya başlayın.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 0fea6f163e6d977f26e13c816c4eaa514eea676b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8e3379a086eb09745142f4e3997ed195eb4d1de5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864902"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56885916"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-nodejs"></a>Hızlı başlangıç: Node.js ile Bing Yazım Denetimi API'si 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Hızlı Başlangıç: Bing yazım denetimi REST API'si ve Node.js ile yazım denetimi
 
-Bu makalede nasıl kullanılacağını gösterir [Bing yazım denetimi API'si](https://azure.microsoft.com/services/cognitive-services/spell-check/) Node.js ile. Yazım Denetimi API'si tanınmayan sözcüklere ek olarak değişiklik önerileri döndürür. Genellikle bu API'ye metin gönderip önerilen değişiklikleri metne uygular veya uygulamanızın kullanıcısına göstererek değişikliklerin yapılıp yapılmayacağına karar vermelerini sağlayabilirsiniz. Bu makalede "Hollo, wrld!" metnini içeren bir istek gönderme adımları gösterilmiştir. Önerilen değişiklikler "Hello" ve "world" olacaktır.
+Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak için kullanın. Tarafından önerilen düzeltmeler ve ardından bu basit Python uygulaması API'sine bir istek gönderir ve bir kelimelerin tanıyamadık, bir liste döndürür. Bu uygulama Python ile yazılmış olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir. Bu uygulama için kaynak kodu kullanılabilir [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu kodu çalıştırmak için [Node.js 6](https://nodejs.org/en/download/) gerekir.
+* [Node.js 6](https://nodejs.org/en/download/) veya üzeri.
 
-**Bing Yazım Denetimi API'si v7** sürümüne sahip bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/#lang) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde verilen erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>Yazım Denetimi sonuçlarını alma
 
-1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Programı çalıştırın.
+## <a name="create-and-initialize-a-project"></a>Proje oluşturma ve başlatma
 
-```nodejs
-'use strict';
+1. Yeni bir JavaScript dosyası, sık kullandığınız IDE veya düzenleyici oluşturun. Katılık ayarlayın ve https gerektirir. Ardından değişkenlerinin API uç noktanın ana bilgisayar, yol ve abonelik anahtarınızı oluşturun.
 
-let https = require ('https');
+    ```javascript
+    'use strict';
+    let https = require ('https');
+    
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/spellcheck';
+    let key = 'ENTER KEY HERE';
+    ```
 
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/spellcheck';
+2. Pazarınızın, yazım denetimi modu ve metnin kontrol etmek istediğiniz değişkenleri oluşturun. Bir dize ekler oluşturup `?mkt=` parametresi, pazarlama ve `&mode=` modunuzu için.
 
-/* NOTE: Replace this example key with a valid subscription key (see the Prequisites section above). Also note v5 and v7 require separate subscription keys. */
-let key = 'ENTER KEY HERE';
+    ```javascript
+    let mkt = "en-US";
+    let mode = "proof";
+    let text = "Hollo, wrld!";
+    let query_string = "?mkt=" + mkt + "&mode=" + mode;
+    ```
 
-// These values are used for optional headers (see below).
-// let CLIENT_ID = "<Client ID from Previous Response Goes Here>";
-// let CLIENT_IP = "999.999.999.999";
-// let CLIENT_LOCATION = "+90.0000000000000;long: 00.0000000000000;re:100.000000000000";
+## <a name="create-the-request-parameters"></a>İstek parametreleri oluşturma
 
-let mkt = "en-US";
-let mode = "proof";
-let text = "Hollo, wrld!";
-let query_string = "?mkt=" + mkt + "&mode=" + mode;
+İstek parametrelerinizi ile yeni bir nesne oluşturarak oluşturma bir `POST` yöntemi. Bitiş noktası yolu ve sorgu dizesi eklenerek yolunuza ekleyin. Abonelik anahtarınızı ekleme `Ocp-Apim-Subscription-Key` başlığı.
 
+```javascript
 let request_params = {
-    method : 'POST',
-    hostname : host,
-    path : path + query_string,
-    headers : {
-        'Content-Type' : 'application/x-www-form-urlencoded',
-        'Content-Length' : text.length + 5,
-        'Ocp-Apim-Subscription-Key' : key,
-//        'X-Search-Location' : CLIENT_LOCATION,
-//        'X-MSEdge-ClientID' : CLIENT_ID,
-//        'X-MSEdge-ClientIP' : CLIENT_ID,
-    }
+   method : 'POST',
+   hostname : host,
+   path : path + query_string,
+   headers : {
+   'Content-Type' : 'application/x-www-form-urlencoded',
+   'Content-Length' : text.length + 5,
+      'Ocp-Apim-Subscription-Key' : key,
+   }
 };
+```
 
+## <a name="create-a-response-handler"></a>Yanıt işleyici oluşturma
+
+Çağrılan bir işlev oluşturma `response_handler` API'sinden bir JSON yanıtı alıp yazdırabilirsiniz. Yanıt gövdesi için bir değişken oluşturun. Yanıt ekleme yaparken bir `data` bayrağı alındığında, kullanarak `response.on()`. Olduğunda bir `end` bayrağı alındığında, JSON gövde konsola yazdırma.
+
+```javascript
 let response_handler = function (response) {
     let body = '';
     response.on ('data', function (d) {
@@ -81,13 +84,19 @@ let response_handler = function (response) {
         console.log ('Error: ' + e.message);
     });
 };
+```
 
+## <a name="send-the-request"></a>İsteği Gönder
+
+Kullanarak API çağrısı `https.request()` istek parametrelerini ve yanıt işleyici. API için metninizi yazın ve istek daha sonra bitmelidir.
+
+```javascript
 let req = https.request (request_params, response_handler);
 req.write ("text=" + text);
 req.end ();
 ```
 
-**Yanıt**
+## <a name="example-json-response"></a>Örnek JSON yanıtı
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -132,9 +141,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing Yazım Denetimi öğreticisi](../tutorials/spellcheck.md)
+> [Bir tek sayfalı web uygulaması oluşturma](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Ayrıca bkz.
-
-- [Bing Yazım Denetimi'ne genel bakış](../proof-text.md)
+- [Bing yazım denetimi API'si nedir?](../overview.md)
 - [Bing Yazım Denetimi API’si v7 Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

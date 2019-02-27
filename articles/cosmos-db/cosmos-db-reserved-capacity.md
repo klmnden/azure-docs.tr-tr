@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: bb2d57d3e119fd83d1a984fc31f29a5d93e957d1
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e7a5ed6274a0429726f0ed19c0765cfdc3378daa
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745954"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888534"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB'de ayrılmış bir kapasiteyle maliyeti iyileştirin
 
@@ -68,6 +68,10 @@ Rezervasyon boyutu toplam mevcut veya yakında-için--dağıtılması Azure Cosm
 Rezervasyon satın alma sonra Rezervasyon terimleriyle eşleşen tüm mevcut Azure Cosmos DB kaynaklarına hemen uygulanır. Mevcut Azure Cosmos DB kaynaklar yoksa, ayırma koşullarını karşılayan yeni bir Cosmos DB örneğine dağıttığınızda ayırmanın geçerli olur. Her iki durumda da, ayırma dönemi bir başarılı satın alma işleminden hemen başlar. 
 
 Rezervasyonunuz süresi dolduğunda, Azure Cosmos DB örneklerinizin çalışmaya devam eder ve normal Kullandıkça Öde fiyatları üzerinden faturalandırılır.
+
+## <a name="cancellation-and-exchanges"></a>İptal ve değişimler
+
+Şu ayrılmış Kapasite tanımlama konusunda yardım için bkz: [ayırma indirimi, Azure Cosmos DB'ye nasıl uygulandığını anlamanız](../billing/billing-understand-cosmosdb-reservation-charges.md). Gereksinim duyduğunuz durumunda iptal veya bir Azure Cosmos DB ayırması exchange, lütfen Azure Cosmos DB, ekibiyle `askCosmosDB@microsoft.com`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

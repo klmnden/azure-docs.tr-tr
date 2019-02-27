@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 5afd5020b060961d215b922c9e49466b73f2a69e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301936"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889894"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için otomatik yük devretme grupları kullanma
 
@@ -129,6 +129,18 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
   > [!IMPORTANT]
   > Yönetilen örnek, birden çok yük devretme grupları desteklemez.
+  
+## <a name="permissions"></a>İzinler
+Bir yük devretme grubu için izinler aracılığıyla yönetilir [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md). [SQL Server Katılımcısı](../role-based-access-control/built-in-roles.md#sql-server-contributor) rolü, yük devretme grupları yönetmek için gereken tüm izinlere sahiptir. 
+
+### <a name="create-failover-group"></a>Yük devretme grubu oluşturma
+Bir yük devretme grubu oluşturmak için birincil ve ikincil sunucular ve yük devretme grubundaki tüm veritabanları için RBAC yazma erişimi gerekir. Bir yönetilen örnek için hem birincil ve ikincil yönetilen örnek için RBAC yazma erişimi gerekir, ancak tek tek yönetilen örnek veritabanları eklenebilir veya bir yük devretme grubundan kaldırılmış olduğundan izinleri ayrı ayrı veritabanlarına ilgili değildir. 
+
+### <a name="update-a-failover-group"></a>Bir yük devretme grubu güncelleştirme
+Bir yük devretme grubu güncelleştirme için RBAC gerekir. yük devretme grubu ve geçerli birincil sunucu veya yönetilen örnek tüm veritabanlarına yazma erişimi.  
+
+### <a name="failover-a-failover-group"></a>Bir yük devretme grubu yük devretme
+Bir yük devretme grubu yük için RBAC yeni birincil sunucu yük devretme grubuna yazma erişimi gerekir veya yönetilen örneği. 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Yük devretme grupları, tek veritabanları ve elastik havuzlar ile kullanmanın en iyi uygulamalar
 

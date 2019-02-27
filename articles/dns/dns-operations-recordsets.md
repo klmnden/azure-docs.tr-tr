@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: 6907382fccaa463fe305ac5049b3858e59b8631b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fa1f90cf0236a589d1df96658c672a555195be6b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991404"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888823"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>DNS kayıtlarını ve Azure PowerShell kullanarak Azure DNS kayıt kümelerini yönetme
 
@@ -238,7 +238,7 @@ Bu işlemlerin sırasını da olabilir *yöneltilen*, bir parametre olarak geçi
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Yukarıdaki örneklerde, mevcut bir kayıt kümesine 'A' türünde bir 'A' kaydı ekleme işlemini göstermektedir. Benzer bir dizi işlem değiştirerek, diğer türlerinin kayıt kümelerine kayıt eklemek için kullanılan `-Ipv4Address` parametresinin `Add-AzDnsRecordConfig` belirli kayıt türlerinin diğer parametrelere sahip. Tüm kayıt türlerine ait parametreleri aynıdır `New-AzDnsRecordConfig` gösterildiği cmdlet'i [ek kayıt türü örnekleri](#additional-record-type-examples) yukarıda.
+Yukarıdaki örneklerde, mevcut bir kayıt kümesine 'A' türünde bir 'A' kaydı ekleme işlemini göstermektedir. Benzer bir dizi işlem değiştirerek, diğer türlerinin kayıt kümelerine kayıt eklemek için kullanılan `-Ipv4Address` parametresinin `Add-AzDnsRecordConfig` belirli kayıt türlerinin diğer parametrelere sahip. Tüm kayıt türlerine ait parametreleri aynıdır `New-AzDnsRecordConfig` ek kayıt türü Yukarıdaki örneklerde gösterildiği gibi cmdlet'i.
 
 'CNAME' veya 'SOA' türündeki kayıt kümesi birden fazla kayıtla içeremez. Bu kısıtlama, DNS standartları ortaya çıkar. Azure DNS bir kısıtlaması değil.
 
@@ -272,7 +272,7 @@ Benzer şekilde bir kayıt kümesine kayıt eklemeye kayıt kümesi kaldırmak i
 Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Farklı kayıt türleri, uygun türe özgü parametrelerle geçirerek desteklenir `Remove-AzDnsRecordSet`. Tüm kayıt türlerine ait parametreleri aynıdır `New-AzDnsRecordConfig` gösterildiği cmdlet'i [ek kayıt türü örnekleri](#additional-record-type-examples) yukarıda.
+Farklı kayıt türleri, uygun türe özgü parametrelerle geçirerek desteklenir `Remove-AzDnsRecordSet`. Tüm kayıt türlerine ait parametreleri aynıdır `New-AzDnsRecordConfig` ek kayıt türü Yukarıdaki örneklerde gösterildiği gibi cmdlet'i.
 
 
 ## <a name="modify-an-existing-record-set"></a>Mevcut bir kayıt kümesini değiştirme

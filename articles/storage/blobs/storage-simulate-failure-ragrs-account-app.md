@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
-ms.openlocfilehash: 1fb0f3f76b9363d5e467e91b90287d4b0c5cfc64
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735909"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872888"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Öğretici: Okuma erişimli yedekli depolamaya erişimde hata benzetimi gerçekleştirme
 
@@ -75,7 +75,7 @@ Aşağıdaki kod örneğini `OnBeforeResponse` işlevine yapıştırın. Yeni ko
 
 ### <a name="interrupting-the-application"></a>Uygulama kesme
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python ve Java v7] (# sekme/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python ve Java v7](#tab/dotnet-python-java-v7)
 
 Uygulamayı, IDE veya Kabuğu'nu çalıştırın.
 
@@ -83,7 +83,7 @@ Uygulama birincil uç noktadan okumaya başladığında uygulamayı duraklatmak 
 
 ![Senaryo uygulaması](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (# sekme/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Uygulamayı, IDE veya Kabuğu'nu çalıştırın.
 
@@ -113,7 +113,7 @@ Aşağıdaki satırları açıklama durumundan çıkarın değiştirin `STORAGEA
          }
 ```
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python ve Java v7] (# sekme/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python ve Java v7](#tab/dotnet-python-java-v7)
 
 Uygulamayı sürdürmek için **herhangi bir tuşa** basın.
 
@@ -123,7 +123,7 @@ Bu düzen, önceki öğreticide açıklanan [Devre Kesici](https://docs.microsof
 
 ![Özelleştirilmiş kuralı yapıştırma](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (# sekme/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Başarısız kullanıma sunduk, girin **G** başarısız test etmek için.
 
@@ -133,7 +133,7 @@ Bunu birincil ardışık düzen yerine ikincil işlem hattı kullandığını bi
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Birincil uç noktayı geri yükleme benzetimi gerçekleştirme
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python ve Java v7] (# sekme/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python ve Java v7](#tab/dotnet-python-java-v7)
 
 Önceki adımda yer alan Fiddler özel kural kümesi ile birincil uç noktaya yapılan istekler başarısız olur.
 
@@ -153,7 +153,7 @@ Fiddler’a gidip **Kurallar**’ı ve **Kuralları Özelleştir...** seçeneği
 
 ![Uygulamayı sürdürme](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (# sekme/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Önceki adımda yer alan Fiddler özel kural kümesi ile birincil uç noktaya yapılan istekler başarısız olur.
 
@@ -173,11 +173,11 @@ Fiddler’a gidip **Kurallar**’ı ve **Kuralları Özelleştir...** seçeneği
 
 ### <a name="start-and-pause-the-application"></a>Uygulamayı başlatma ve duraklatma
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python ve Java v7] (# sekme/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python ve Java v7](#tab/dotnet-python-java-v7)
 
 Uygulamayı, IDE veya Kabuğu'nu çalıştırın. Uygulama birincil uç noktadan okumaya başladığında uygulamayı duraklatmak için konsol penceresinde **herhangi bir tuşa** basın.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (# sekme/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Örnek denetim bu yana başarısız test etmek için kesme gerekmez.
 
@@ -210,13 +210,13 @@ Hedef ana bilgisayar için statik rota eklemek üzere bir Windows komut istemind
 
 `<destination_ip>` öğesini depolama hesabınızın IP adresiyle, `<gateway_ip>` öğesini ise yerel ana bilgisayarınızın IP adresiyle değiştirin.
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python ve Java v7] (# sekme/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python ve Java v7](#tab/dotnet-python-java-v7)
 
 Uygulamayı sürdürmek için **herhangi bir tuşa** basın.
 
 Uygulama yeniden çalışmaya başladığında birincil uç nokta istekleri başarısız olmaya başlar. Uygulama birincil uç noktaya beş kez yeniden dener. Beş denemelik hata eşiğine ulaştıktan sonra görüntüyü ikincil, salt okunur uç noktadan ister. Uygulama görüntüyü ikincil uç noktadan 20 kez başarıyla aldıktan sonra birincil uç noktaya bağlanmaya çalışır. Birincil uç nokta hala ulaşılamaz durumdaysa uygulama ikincil uç noktadan okumayı sürdürür. Bu düzen, önceki öğreticide açıklanan [Devre Kesici](/azure/architecture/patterns/circuit-breaker) düzenidir.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (# sekme/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Başarısız kullanıma sunduk, girin **G** başarısız test etmek için. Bunu birincil ardışık düzen yerine ikincil işlem hattı kullandığını bilgilendirecektir.
 
@@ -236,14 +236,14 @@ Hedef ana bilgisayarın (depolama hesabı) statik rotasını silmek için bir Wi
 
 `route delete <destination_ip>`
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python ve Java v7] (# sekme/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python ve Java v7](#tab/dotnet-python-java-v7)
 
 Uygulamayı sürdürmek için **herhangi bir tuşa** basın. Uygulama, 999 okuma sayısına ulaşana kadar birincil uç noktadan okumaya devam eder.
 
 ![Uygulamayı sürdürme](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (# sekme/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Girin **G** indirmeyi test etmek için. Uygulama, artık birincil işlem hattını yeniden kullanıyor olduğunu bildirir.
 

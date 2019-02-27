@@ -4,16 +4,16 @@ description: Ve büyük veri kümeleri ile Azure kaynak Graph çalışırken ö�
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/31/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 8808f42cdd6fb547b70695278993faa0f52cdb61
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338402"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889044"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Büyük bir Azure kaynak veri kümeleri ile çalışma
 
@@ -22,6 +22,9 @@ Azure kaynak grafiği ile çalışma ve Azure ortamınızda kaynakların hakkın
 ## <a name="data-set-result-size"></a>Veri kümesi sonucu boyutu
 
 Varsayılan olarak, kaynak grafiği yalnızca döndürmek için herhangi bir sorgu sınırlar **100** kaydeder. Bu denetim, büyük veri kümelerinde ortaya çıkabilecek yanlışlıkla sorgularından hem kullanıcı hem de hizmet korur. Bu olay, bir müşteri bulun ve kaynakları kendi belirli gereksinimlerine uygun şekilde filtrelemek için sorguları ile denemeler gibi en sık gerçekleşir. Bu denetim kullanmaktan farklıdır [üst](/azure/kusto/query/topoperator) veya [sınırı](/azure/kusto/query/limitoperator) sonuçları sınırlandırmak için Azure Veri Gezgini dil işleçleri.
+
+> [!NOTE]
+> Kullanırken **ilk**, sonuçları ile en az bir sütuna göre sıralamak için önerilir `asc` veya `desc`. Döndürülen sonuçlar, sıralama yapmadan rastgele ve yinelenebilir değil.
 
 Varsayılan sınır, kaynak grafiği ile etkileşim kurmanın tüm yöntemleri aracılığıyla kılınabilir. Aşağıdaki örnekler için veri kümesi boyutu sınırı değiştirmek nasıl _200_:
 
@@ -43,6 +46,9 @@ Denetimi _en kısıtlayıcı_ kazanacak. Sorgunuzu kullanıyorsa, örneğin, **�
 
 Büyük veri kümeleriyle çalışmak için sonraki seçeneği **atla** denetimi. Bu denetim, sorgunuzun üzerinden geçin veya sonuç döndürülmeden önce tanımlanan kayıt sayısını Atla sağlar. **Skip** hedefi olduğu sonuç kümesi ortasında yere kayıt sırasında almak için anlamlı bir şekilde sonuçları sıralamak sorgular için kullanışlıdır. Gerekli sonuç döndürülen veri kümesinin sonunda ise farklı bir sıralama yapılandırmasını kullanın ve sonuçları yerine veri kümesinin başından almak için daha verimlidir.
 
+> [!NOTE]
+> Kullanırken **atla**, sonuçları ile en az bir sütuna göre sıralamak için önerilir `asc` veya `desc`. Döndürülen sonuçlar, sıralama yapmadan rastgele ve yinelenebilir değil.
+
 Aşağıdaki örnekler ilk atlama _10_ kayıtları bir sorgu neden, bunun yerine döndürülen sonuç başlangıç 11 kayıtla ayarlayın:
 
 ```azurecli-interactive
@@ -63,7 +69,7 @@ Bir sonuç kümesi işleme kayıtlarını içeren daha küçük kümelerine ayı
 Zaman **resultTruncated** olduğu **true**, **$skipToken** özelliği, yanıt olarak ayarlanır. Bu değer aynı sorgu ve abonelik değerlerle sonraki sorguyla eşleşen kayıt kümesini almak için kullanılır.
 
 > [!IMPORTANT]
-> Sorgu gerekir **proje** **kimliği** sırayla çalışması sayfalandırma alan. Sorguda eksik, REST API yanıt değil dahil **$skipToken**.
+> Sorgu gerekir **proje** **kimliği** sırayla çalışması sayfalandırma alan. Sorgudan eksikse, REST API yanıtı içermez **$skipToken**.
 
 Bir örnek için bkz. [sonraki sayfa sorgu](/rest/api/azureresourcegraph/resources/resources#next_page_query) REST API belgeleri.
 

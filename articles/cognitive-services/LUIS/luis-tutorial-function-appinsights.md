@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c9a772af79cba8b5bfb592eaf03efa37520d5e48
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 97e29ba166d652f053f754482b6da36a33ec5bb5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870614"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878192"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>LUIS sonuçlarını Application Insights ve Azure işlevleri ekleme
 Bu öğreticide LUIS istek ve yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur.
@@ -51,11 +51,11 @@ LUIS istek ve yanıt yakalamak için web app botu gereken **[Application Insight
 
 1. Azure portalında web app botu hizmeti seçin **derleme** altında **Bot Yönetim** bölümü. 
 
-    ![Azure portalında web uygulama bot hizmeti, "Bot Yönetimi" bölümünde "Derleme"'i seçin. ](./media/luis-tutorial-appinsights/build.png)
+    ![Azure portalında web uygulama bot hizmeti, "Bot Yönetimi" bölümünde "Derleme"'i seçin.](./media/luis-tutorial-appinsights/build.png)
 
 2. App Service Düzenleyicisi ile yeni bir tarayıcı sekmesi açılır. Uygulama adı üst çubuktaki seçip **Kudu konsolu aç**. 
 
-    ![Üst çubuktaki uygulama adı seçin, sonra "Kudu konsolu aç" seçin. ](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![Üst çubuktaki uygulama adı seçin, sonra "Kudu konsolu aç" seçin.](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. Konsolda, Application Insights ve alt çizgi paketleri yüklemek için aşağıdaki komutu girin:
 

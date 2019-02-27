@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753597"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871545"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Olağanüstü durum kurtarma ve depolama hesabı yük devretme (Önizleme) Azure Depolama'daki
 
@@ -152,7 +152,6 @@ Yönetilmeyen diskleri sayfa blobları Azure Depolama'da depolanır. Azure'da bi
 4. Bekle **son eşitleme zamanı** güncelleştirdi ve VM sildiğiniz saatten sonra. Bu adım önemlidir, çünkü yük devretme gerçekleştiğinde ikincil uç tamamen VHD dosyaları ile değil güncelleştirildiyse, ardından sanal Makineyi yeni bir birincil bölgede düzgün çalışmayabilir.
 5. Hesap yük devretmeyi başlatın.
 6. Hesap yük devretme işlemi tamamlandıktan ve yeni birincil bölgeden ikincil bölgeye haline gelmiştir kadar bekleyin.
-6. Yeni bir birincil bölgede bir depolama hesabı oluşturma ve yönetilmeyen diskinizle kopyalayın.
 7. Yeni bir birincil bölgede bir VM oluşturun ve VHD'leri yeniden bağlayın.
 8. Yeni VM'yi başlatın.
 

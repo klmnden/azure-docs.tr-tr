@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4768c38b2e76bfa8cdff3187c32c03fdaaf57bbf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a2c6b95d62f6210ecfdd560bc1c00a3e055be3ee
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207662"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880365"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Öğretici: Dmarcian ile Azure Active Directory Tümleştirme
 
@@ -143,15 +143,15 @@ Azure AD çoklu oturum açma ile dmarcian yapılandırmak için aşağıdaki ad�
 
 2. Tıklayarak **profili** üzerinde sağ üst köşe ve gidin **tercihleri**.
 
-    ![Tercihleri ](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
+    ![Tercihleri](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
 
 3. Ekranı aşağı kaydırın ve tıklayarak **çoklu oturum açma** bölümüne ve ardından tıklayarak **yapılandırma**.
 
-    ![Tek ](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
+    ![Tek](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
 
 4. Üzerinde **SAML çoklu oturum açma** sayfasında kümesi **durumu** olarak **etkin** ve aşağıdaki adımları gerçekleştirin:
 
-    ![Kimlik doğrulaması ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
+    ![Kimlik doğrulaması](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
     * Altında **kimlik sağlayıcınız dmarcian ekleme** bölümünde **kopyalama** kopyalamak için **onay belgesi tüketici hizmeti URL'si** örneğinizin yapıştırın  **Yanıt URL'si** metin kutusunda **temel SAML yapılandırma bölümü** Azure portalında.
 
@@ -229,15 +229,15 @@ Dmarcian için oturum açmak Azure AD kullanıcılarının etkinleştirmek için
 
 2. Tıklayarak **profili** üst sağ köşedeki gidin **Kullanıcıları Yönet**.
 
-    ![Kullanıcı ](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
+    ![Kullanıcı](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
 
 3. Sağ alt tarafında **SSO kullanıcıların** bölümünde, tıklayarak **yeni kullanıcı Ekle**.
 
-    ![Kullanıcı Ekle ](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
+    ![Kullanıcı Ekle](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
 
 4. Üzerinde **yeni kullanıcı Ekle** açılan, aşağıdaki adımları gerçekleştirin:
 
-    ![Yeni kullanıcı ](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
+    ![Yeni kullanıcı](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
     a. İçinde **yeni kullanıcı e-posta** metin gibi kullanıcının e-posta girin **brittasimon@contoso.com**.
 
@@ -253,9 +253,9 @@ Erişim paneli dmarcian kutucuğa tıkladığınızda, size otomatik olarak SSO'
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

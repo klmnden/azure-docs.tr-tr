@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: d3968559864f828630cf1074cb1064eb77f15776
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0c1dbbae5e4be965f195b5ea4fc88b1bc5fb4f87
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739864"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887191"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure işlevleri bağlama ifade desenleri
 
@@ -25,7 +25,7 @@ En güçlü özelliklerinden biri [Tetikleyicileri ve bağlamaları](./functions
 
 Bağlama ifade türleri
 
-* [Uygulama ayarları](#app-settings)
+* [Uygulama ayarları](#binding-expressions---app-settings)
 * [Tetikleyici dosya adı](#trigger-file-name)
 * [Tetikleyici meta verileri](#trigger-metadata)
 * [JSON yükü](#json-payloads)

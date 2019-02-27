@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10709f4f2fcc341840753ef4c4eb479e29fb58d5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9fb81dd5bb94e09ba3583658a61e5c7cb8a74cf6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357437"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882901"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>İzleme ve HANA taraftan sorun giderme
 
@@ -36,9 +36,9 @@ SAP HANA performansıyla ilgili ilgili sık sorulan sorular, aşağıdaki SAP no
 
 ## <a name="sap-hana-alerts"></a>SAP HANA uyarıları
 
-İlk adım, geçerli SAP HANA uyarı günlüklerini kontrol edin. SAP HANA Studio, Git **Yönetim Konsolu: Uyarı: göster: tüm uyarıları**. Bu sekme kümesi minimum ve maksimum eşikleri dışında kalan belirli değerleri (boş fiziksel bellek, CPU kullanımı, vb.) tüm SAP HANA uyarılar gösterilir. Denetimleri, varsayılan olarak 15 dakikada bir otomatik olarak yenilenir.
+İlk adım, geçerli SAP HANA uyarı günlüklerini kontrol edin. SAP HANA Studio, Git **Yönetim Konsolu: Uyarılar: Göster: tüm uyarıları**. Bu sekme kümesi minimum ve maksimum eşikleri dışında kalan belirli değerleri (boş fiziksel bellek, CPU kullanımı, vb.) tüm SAP HANA uyarılar gösterilir. Denetimleri, varsayılan olarak 15 dakikada bir otomatik olarak yenilenir.
 
-![SAP HANA Studio yönetim konsoluna gidin: Uyarı: göster: tüm uyarılar](./media/troubleshooting-monitoring/image1-show-alerts.png)
+![SAP HANA Studio yönetim konsoluna gidin: Uyarılar: Göster: tüm uyarıları](./media/troubleshooting-monitoring/image1-show-alerts.png)
 
 ## <a name="cpu"></a>CPU
 
@@ -87,7 +87,7 @@ SAP HANA veritabanı tarafından ayrılan bellek miktarını beklenenden daha y�
 - Bellek kullanımı (uyarı 45) sütun Store tablonun ana depolama
 - Çalışma zamanı döküm dosyaları (uyarı 46)
 
-Başvurmak [SAP HANA sorunlarını giderme: bellek sorunlarını](http://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
+Başvurmak [SAP HANA sorunlarını giderme: Bellek sorunlarını](http://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
 
 ## <a name="network"></a>Ağ
 
@@ -104,7 +104,7 @@ Başvurmak [SAP notu #2081065 – SAP HANA ağ sorunlarını giderme](https://la
 
 Ayrıca, açık kaynak kullanan [IPERF](https://iperf.fr/) Aracı (veya benzeri) gerçek uygulama ağ performansını ölçmek için.
 
-Başvurmak [SAP HANA sorunlarını giderme: ağ performansı ve bağlantı sorunları](http://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
+Başvurmak [SAP HANA sorunlarını giderme: Ağ performansı ve bağlantı sorunları](http://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
 
 ## <a name="storage"></a>Depolama
 
@@ -116,7 +116,7 @@ Birimlerin bağlı ekranın alt bölümünde, birimler, dosyalar ve g/ç istatis
 
 ![Birimlerin bağlı ekranın alt bölümünde birimler, dosyalar ve g/ç istatistikleri gibi ayrıntılarını görebilirsiniz.](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
-Başvurmak [SAP HANA sorunlarını giderme: g/ç ana ilgili nedenler ve çözümler](http://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) ve [SAP HANA sorunlarını giderme: Disk ilgili kök neden olur ve çözümleri](http://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
+Başvurmak [SAP HANA sorunlarını giderme: G/ç ilgili temel nedenler ve çözümler](http://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) ve [SAP HANA sorunlarını giderme: Disk ilgili kök neden olur ve çözümleri](http://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
 
 ## <a name="diagnostic-tools"></a>Tanılama araçları
 
@@ -130,15 +130,15 @@ SAP HANA Studio üzerinde **sistem bilgileri** sekmesinde, sağ **adı** sütun 
 
 Yerel olarak depolanan SQL Statements.zip dosyasını seçin ve karşılık gelen SQL deyimleri ile bir klasörü içeri aktarılır. Bu noktada, birçok farklı tanılama denetimleri, bu SQL deyimleri ile çalıştırılabilir.
 
-Örneğin, SAP HANA sistem çoğaltması bant genişliği gereksinimlerini test etmek için sağ **bant genişliği** deyiminin altında **çoğaltma: bant genişliği** seçip **açık** içinde SQL Konsolu.
+Örneğin, SAP HANA sistem çoğaltması bant genişliği gereksinimlerini test etmek için sağ **bant genişliği** deyiminin altında **çoğaltma: Bant genişliği** seçip **açık** SQL konsolunda.
 
 Tam SQL deyimi, giriş parametrelerini (değiştirilebilir ve sonra çalıştırılabilir için değişiklik bölümü) izin vererek açılır.
 
 ![Tam SQL deyimini giriş parametrelerini (değiştirilebilir ve sonra çalıştırılabilir için değişiklik bölümü) sağlayan açılır.](./media/troubleshooting-monitoring/image8-import-statements-b.png)
 
-Başka bir örnek altında deyimleri sağ **çoğaltma: genel bakış**. Seçin **yürütme** bağlam menüsünden:
+Başka bir örnek altında deyimleri sağ **çoğaltma: Genel Bakış**. Seçin **yürütme** bağlam menüsünden:
 
-![Başka bir örnek çoğaltma altında deyimleri sağ: genel bakış. Bağlam menüsünden Çalıştır'ı seçin](./media/troubleshooting-monitoring/image9-import-statements-c.png)
+![Çoğaltma altında deyimleri sağ başka bir örnek verilmiştir: Genel bakış. Bağlam menüsünden Çalıştır'ı seçin](./media/troubleshooting-monitoring/image9-import-statements-c.png)
 
 Bu sorun giderme konusunda yardımcı olacak bilgileri sonuçlanır:
 
@@ -158,7 +158,7 @@ HANA için de aynısını yapın\_yapılandırma\_Minichecks ve herhangi bir den
 
 **HANA\_Hizmetleri\_istatistikleri** SAP HANA için hizmet bilgileri (CPU, bellek, vs.).
 
-![HANA\_Hizmetleri\_istatistiklerini SAP HANA için hizmet bilgileri ](./media/troubleshooting-monitoring/image13-services-statistics.png)
+![HANA\_Hizmetleri\_istatistiklerini SAP HANA için hizmet bilgileri](./media/troubleshooting-monitoring/image13-services-statistics.png)
 
 **HANA\_yapılandırma\_genel bakış\_Rev110 +** SAP HANA örneği hakkında genel bilgi için.
 

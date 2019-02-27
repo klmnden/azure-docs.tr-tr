@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 561982f7a7842ed717044c6709085bbd4621206e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002125"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868638"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
 **Azure etkinlik günlüğü** oluşan Azure'da abonelik düzeyindeki olayların sağlayan bir abonelik günlüktür. Bu verileri, hizmet durumu olayları güncelleştirmelerinin Azure Resource Manager işletimsel verileri içerir. Etkinlik günlüğü daha önce Abonelikleriniz için yönetim kategorisi raporları denetim düzlemi olayları beri "Denetim günlüklerini" veya "Operasyonel günlükler," olarak biliniyordu. Etkinlik günlüğü'nü kullanarak belirleyebilirsiniz ' ne, kim ve ne zaman ' işlemlerini (PUT, POST, DELETE), aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen herhangi bir yazma için. Ayrıca, işlemi ve ilgili diğer özellikleri durumunu anlayabilirsiniz. Etkinlik günlüğünü okuma (GET) işlemlerini ya da kullanan Klasik kaynakları işlemlerinde içerip içermediğini / "RDFE" modeli.
 
-![Etkinlik Günlükleri ve diğer tür günlüğü ](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![Etkinlik Günlükleri ve diğer tür günlüğü](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 Şekil 1: Etkinlik Günlükleri ve diğer tür günlüğü
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: 09514e37d1d40c489eda483980237d26e4a08730
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: ec97cf903a37465f98007750fc41edc0952ab3a6
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417931"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889605"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Azure Data Lake depolama Gen2 büyük veri gereksinimleri için kullanma
 
@@ -37,7 +37,7 @@ Oluşturmak için bkz: [hızlı başlangıç: Bir Azure Data Lake depolama Gen2'
 
 A *dosya sistemi* klasörler ve dosyalar için bir kapsayıcıdır. En az bir tanesi depolama hesabınızdaki veri alma başlamak için ihtiyacınız.  Bunları oluşturmak için kullanabileceğiniz araçlar listesi aşağıda verilmiştir.
 
-|Aracı | Rehber |
+|Tool | Rehber |
 |---|--|
 |Azure Depolama Gezgini | [Depolama Gezgini'ni kullanarak bir dosya sistemi oluşturun](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
 |AzCopy | [AzCopyV10 kullanarak dosya paylaşımını veya bir Blob kapsayıcısı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
@@ -66,13 +66,13 @@ Erişim için üç yol vardır:
 
 Bu tablo her bir Azure hizmeti veya aracı için erişimi nasıl gösterir.
 
-|Aracı | Erişim vermek için | Rehber |
+|Tool | Erişim vermek için | Rehber |
 |---|--|---|
 |Depolama Gezgini| Kullanıcılar ve gruplar için rol atama | [Azure Active Directory ile kullanıcılara yönetici ve yönetici olmayan rol atayın](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
 |AzCopy| Kullanıcılar ve gruplar için rol atama <br>**veya**<br> Bir SAS belirteci kullanabilir| [Azure Active Directory ile kullanıcılara yönetici ve yönetici olmayan rol atayın](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[Kolayca Azure depolama – kullanarak bir dosyayı indirmek için SAS oluşturma Azure Depolama Gezgini](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
-|Apache DistCp | Kullanıcı tarafından atanan bir yönetilen kimlik rol atama | [Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2) |
+|Apache DistCp | Kullanıcı tarafından atanan bir yönetilen kimlik rol atama | [Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Data Factory| Rol atamak için kullanıcı tarafından atanan-yönetilen bir kimlik<br>**veya**<br> Bir hizmet sorumlusuna bir rol atanıyor<br>**veya**<br> Bir depolama hesabı anahtarını kullanın | [Bağlı hizmeti özellikleri](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
-|Azure HDInsight| Kullanıcı tarafından atanan bir yönetilen kimlik rol atama | [Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
+|Azure HDInsight| Kullanıcı tarafından atanan bir yönetilen kimlik rol atama | [Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
 |Azure Databricks| Bir hizmet sorumlusuna bir rol atayın | [Nasıl yapılır: Bir Azure AD uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Belirli dosya ve klasörlere erişim izni vermek için şu makalelere bakın.
@@ -106,7 +106,7 @@ Bu uygulamalar, cihazlardan, sensörlerden, vb. gibi çeşitli kaynaklar tarafı
 
 Akış verilerini almak için kullanabileceğiniz araçlar listesi aşağıda verilmiştir.
 
-|Aracı | Rehber |
+|Tool | Rehber |
 |---|--|
 |Azure HDInsight Storm | [Apache Hadoop HDFS'ye HDInsight üzerinde Apache Storm yazma](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
 
@@ -116,7 +116,7 @@ Ayrıca ilişkisel veritabanlarından veri kaynağı. Bir süre, önemli öngör
 
 İlişkisel verileri almak için kullanabileceğiniz araçlar listesi aşağıda verilmiştir.
 
-|Aracı | Rehber |
+|Tool | Rehber |
 |---|--|
 |Azure Data Factory | [Azure veri fabrikasında kopyalama etkinliği](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 
@@ -126,7 +126,7 @@ Web sunucusu günlüğü verilerinin analizi büyük veri uygulamaları için ya
 
 Web sunucusu günlüğü verileri almak için kullanabileceğiniz araçlar listesi aşağıda verilmiştir.
 
-|Aracı | Rehber |
+|Tool | Rehber |
 |---|--|
 |Azure Data Factory | [Azure veri fabrikasında kopyalama etkinliği](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
 
@@ -138,7 +138,7 @@ Web sunucusu günlüğü verilerini karşıya yükleme ve ayrıca başka türden
 
 HDInsight kümeleri ile ilişkili veri almak için kullanabileceğiniz araçlar listesi aşağıda verilmiştir.
 
-|Aracı | Rehber |
+|Tool | Rehber |
 |---|--|
 |Apache DistCp | [Azure depolama BLOB'ları ile Azure Data Lake depolama Gen2 arasında veri kopyalamak için DistCp kullanma](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |AzCopy aracı | [AzCopy ile veri aktarma](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
@@ -167,7 +167,7 @@ Verileri Data Lake depolama 2. nesil'deki kullanılabilir olduğunda, desteklene
 
 Data Lake depolama 2. nesil'deki depolanan veriler üzerinde veri analizi işlerini çalıştırmak için kullanabileceğiniz araçlar listesi aşağıda verilmiştir.
 
-|Aracı | Rehber |
+|Tool | Rehber |
 |---|--|
 |Azure HDInsight | [Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Databricks | [Azure Data Lake depolama 2. nesil](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Hızlı Başlangıç: Azure Databricks kullanarak Azure Data Lake depolama Gen2 verileri çözümleme](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Öğretici: Ayıklama, dönüştürme ve Azure Databricks kullanarak verileri yüklemek](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
@@ -193,7 +193,7 @@ Bir karışımını hizmetler, Data Lake depolama 2. nesil'deki depolanan verile
 
 Data Lake depolama Gen2 ' verileri indirmek için kullanabileceğiniz araçlar listesi aşağıda verilmiştir.
 
-|Aracı | Rehber |
+|Tool | Rehber |
 |---|--|
 |Azure Data Factory | [Azure veri fabrikasında kopyalama etkinliği](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 |Apache DistCop | [Azure depolama BLOB'ları ile Azure Data Lake depolama Gen2 arasında veri kopyalamak için DistCp kullanma](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |

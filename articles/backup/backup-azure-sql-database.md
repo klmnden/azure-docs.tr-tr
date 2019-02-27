@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: dc92c806a67869e1cc894a8ee9f4d287b5b3b1f2
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 61219fc4e1fc329708a7e58ee6a293e4e25cca31
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670239"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887820"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>Azure VM’lerindeki SQL Server veritabanlarını yedekleme 
 
@@ -68,9 +68,9 @@ Gözden geçirme [sık sorulan sorular](faq-backup-sql-server.md) SQL Server ver
 SQL Server veritabanınızı yedekleyin önce aşağıdaki koşulları denetleyin:
 
 1. Tanımlamak veya [oluşturma](backup-azure-sql-database.md#create-a-recovery-services-vault) aynı bölge veya VM SQL Server örneği barındıran yerel bir kurtarma Hizmetleri kasası. V
-2. [VM izinlerini denetleyin](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) SQL veritabanlarını yedeklemek için gerekli.
+2. [VM izinlerini denetleyin](#fix-sql-sysadmin-permissions) SQL veritabanlarını yedeklemek için gerekli.
 3. VM sahip olduğunu doğrulayın [ağ bağlantısı](backup-azure-sql-database.md#establish-network-connectivity).
-4. SQL Server veritabanları ile uyumlu olarak adlandırılan onay [adlandırma kuralları](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup) Azure Backup için.
+4. SQL Server veritabanları ile uyumlu olarak adlandırılan onay [adlandırma kuralları](backup-azure-sql-database.md) Azure Backup için.
 5. Veritabanı için etkin diğer yedekleme çözümleri yoksa doğrulayın. Bu senaryoyu ayarlamak, önce diğer tüm SQL Server yedeklemeleri devre dışı bırakın. Herhangi bir çakışma olmadan VM'de çalışan SQL Server veritabanı için Azure Backup ile birlikte bir Azure VM için Azure yedeklemeyi etkinleştirebilirsiniz.
 
 

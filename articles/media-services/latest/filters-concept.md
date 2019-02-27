@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 18e629571a45046e5cf54996cd38b425c999ee36
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737646"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889367"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Hesap filtreleri ve varlık filtrelerini tanımlayın  
 
@@ -38,9 +38,9 @@ Aşağıdaki tabloda, filtrelerle URL'leri bazı örnekler gösterilmektedir:
 
 |Protokol|Örnek|
 |---|---|
-|HLS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>HLS v3 için kullanın: `format=m3u8-aapl-v3`.|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Kesintisiz Akış|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>HLS v3 için kullanın: `format=m3u8-aapl-v3`.|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Kesintisiz Akış|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="define-filters"></a>Filtreleri tanımlar
 
@@ -71,7 +71,7 @@ Bu özelliği kullanmak **varlık filtreleri**. Özellik ayarlamak için öneril
 |**forceEndTimestamp**|Yalnızca canlı akış için geçerlidir.<br/>EndTimestamp özelliği mevcut olup olmadığını gösterir. TRUE ise endTimestamp belirtilmesi gerekir veya bir hatalı istek kodunu döndürdü.<br/>İzin verilen değerler: yanlış, doğru.|
 |**liveBackoffDuration**|Yalnızca canlı akış için geçerlidir.<br/> Bu değer, bir istemci için arama Canlı son konumunu tanımlar.<br/>Bu özelliği kullanarak, Canlı kayıttan yürütme konumu gecikme ve oyuncu için sunucu tarafı arabelleği oluşturun.<br/>Bu özellik için ölçeği (aşağıya bakın) birimidir.<br/>Geri süresi Canlı en fazla 300 saniye (3000000000) ' dir.<br/>Örneğin, bir değer gerçek Canlı edge'den Gecikmeli 20 saniye, en son kullanılabilir içerik 2000000000 anlamına gelir.|
 |**presentationWindowDuration**|Yalnızca canlı akış için geçerlidir.<br/>Bir kayan bir pencere içinde bir çalma listesi dahil parçaların uygulanacak presentationWindowDuration kullanın.<br/>Bu özellik için ölçeği (aşağıya bakın) birimidir.<br/>Örneğin, presentationWindowDuration ayarlamak iki dakikalık kayan pencere uygulanacak 1200000000 =. Canlı Edge 2 dakika içinde Media Çalma listesinde dahil edilir. Sınır bir parçasını ayrımı idare etmeye, tüm parça çalma listesi dahil edilir. En düşük sunu pencere süresi 60 saniyedir.|
-|**startTimestamp**|Video (VoD) isteğe bağlı veya canlı akış için geçerlidir.<br/>Bu akışın bir mutlak başlangıç noktasını temsil eden bir uzun bir değerdir. Değerin yuvarlanmış en yakın sonraki GOP başlatma. Birim ölçeği olduğundan bir startTimestamp 150000000, 15 saniye olacaktır.<br/>Çalma listesi (manifest) olacak parça kırpılacak startTimestamp ve endTimestampp kullanın.<br/>Örneğin, startTimestamp 40000000 ve endTimestamp = 100000000 = varsayılan ölçeği kullanarak parçaları arasındaki 4 saniye ve 10 saniyelik VoD sunu içeren bir çalma listesi üretir. Sınır bir parçasını ayrımı idare etmeye, tüm parça bildirime dahil edilecek|
+|**startTimestamp**|Video (VoD) isteğe bağlı veya canlı akış için geçerlidir.<br/>Bu akışın bir mutlak başlangıç noktasını temsil eden bir uzun bir değerdir. Değerin yuvarlanmış en yakın sonraki GOP başlatma. Birim ölçeği olduğundan bir startTimestamp 150000000, 15 saniye olacaktır.<br/>Çalma listesi (manifest) olacak parça kırpılacak startTimestamp ve endTimestampp kullanın.<br/>Örneğin, startTimestamp 40000000 ve endTimestamp = 100000000 = varsayılan ölçeği kullanarak parçaları arasındaki 4 saniye ve 10 saniyelik VoD sunu içeren bir çalma listesi üretir. Sınır bir parçasını ayrımı idare etmeye, tüm parça bildirime dahil edilir.|
 |**Zaman Çizelgesi**|Tüm zaman damgaları ve süreleri bir saniye içinde artış sayısını belirtilen bir sunu zaman aralığı içinde geçerlidir.<br/>10000000 - on milyon artışlarla bir her artış 100 nanosaniyelik uzun ise olacağı saniye içinde varsayılandır.<br/>Örneğin, 30 saniyede bir startTimestamp ayarlamak istiyorsanız, varsayılan zaman ölçeğini kullanırken 300000000 değerini kullanırsınız.|
 
 ### <a name="tracks"></a>Parçaları
@@ -83,7 +83,7 @@ Filtre izleme özelliği koşulları parça türleri, değerleri (aşağıdaki t
 |Ad|Açıklama|
 |---|---|
 |**Bit hızı**|Bit hızını parça filtreleme için kullanın.<br/><br/>Saniyedeki bit bit hızlarında çeşitli önerilen değerdir. Örneğin, "0-2427000".<br/><br/>Not: 250000 (bit / saniye) gibi belirli hızı yer alan bir değer kullanabilirsiniz, ancak tam bit hızlarına dönüştürme başka bir varlığından dalgalanma gibi bu yaklaşım önerilmez.|
-|**FourCC**|Filtreleme için izleme FourCC değerini kullanın.<br/><br/>Belirtilen codec biçim öğesinin ilk öğesinin değeridir [RFC 6381](https://tools.ietf.org/html/rfc6381). Şu anda aşağıdakileri destekler: <br/>Video: "Avc1", "hev1", "hvc1"<br/>Ses: "Mp4a", "AB-3."<br/><br/>Bir varlık parçalar FourCC değerleri belirlemek için [almak ve bildirim dosyası inceleyin](#get-and-examine-manifest-files).|
+|**FourCC**|Filtreleme için izleme FourCC değerini kullanın.<br/><br/>Belirtilen codec biçim öğesinin ilk öğesinin değeridir [RFC 6381](https://tools.ietf.org/html/rfc6381). Şu anda aşağıdakileri destekler: <br/>Video: "Avc1", "hev1", "hvc1"<br/>Ses: "Mp4a", "AB-3."<br/><br/>Bir varlık parçalar FourCC değerlerini belirlemek için almak ve bildirim dosyasını inceleyin.|
 |**Dil**|Filtreleme için izleme dili kullanın.<br/><br/>Belirtilen RFC 5646 eklemek istediğiniz bir dil etiketi değerdir. Örneğin, "en".|
 |**Ad**|Filtreleme için izleme adını kullanın.|
 |**Tür**|İzleme türü, filtreleme için kullanın.<br/><br/>Aşağıdaki değerlerine izin verilir: "Görüntü", "ses" veya "metin".|

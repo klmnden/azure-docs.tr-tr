@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b80a2effb4cdfe45ad3f37785f7e97449d60f00c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bf831936f86de9e43170a87c03b61df9a4865b3d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340153"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878056"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programlı olarak ilkeler oluşturma ve uyumluluk verilerini görüntüleyin
 
@@ -95,8 +95,8 @@ Kaynaklarınızın daha iyi görünürlük ilk adım, ilkeleri, kaynaklarınız 
 
    Değiştirin _ContosoRG_ hedeflenen kaynak grubunuzun adı.
 
-   **Kapsam** parametresi `New-AzPolicyAssignment` aboneliklerini ve Yönetim gruplarını ile de çalışır. Parametresi bir tam kaynak yolu kullanır, **ResourceId** özelliği `Get-AzResourceGroup` döndürür. Desenini **kapsam** her kapsayıcı aşağıdaki gibidir.
-   Değiştirin `{rName}`, `{rgName}`, `{subId}`, ve `{mgName}` kaynak adınız ile kaynak grubu adı, abonelik kimliği ve yönetim grubu adı, sırasıyla. `{rType}` ile değiştirilmesi **kaynak türü** kaynağın gibi `Microsoft.Compute/virtualMachines` bir VM için.
+   **Kapsam** parametresi `New-AzPolicyAssignment` yönetim grubuna, aboneliğe, kaynak grubuna ya da tek bir kaynak ile çalışır. Parametresi bir tam kaynak yolu kullanır, **ResourceId** özelliği `Get-AzResourceGroup` döndürür. Desenini **kapsam** her kapsayıcı aşağıdaki gibidir. Değiştirin `{rName}`, `{rgName}`, `{subId}`, ve `{mgName}` kaynak adınız ile kaynak grubu adı, abonelik kimliği ve yönetim grubu adı, sırasıyla.
+   `{rType}` ile değiştirilmesi **kaynak türü** kaynağın gibi `Microsoft.Compute/virtualMachines` bir VM için.
 
    - Kaynak- `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Kaynak grubu- `/subscriptions/{subId}/resourceGroups/{rgName}`

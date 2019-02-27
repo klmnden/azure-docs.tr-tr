@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: 4e6186310f63fde8648ded03a62b207b5f81a8e2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984809"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873636"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesini değiştirme
 
@@ -316,7 +316,7 @@ Var olan sanal makineleri güncelleştirmek için var olan her VM'nin "el ile y�
 - Dile özgü kullanabilirsiniz [Azure SDK'ları](https://azure.microsoft.com/downloads/).
 
 >[!NOTE]
-> Service Fabric kümeleri yalnızca kullanma *otomatik* modu, ancak güncelleştirme farklı şekilde ele alınır. Daha fazla bilgi için [ Service Fabric uygulama yükseltme](../service-fabric/service-fabric-application-upgrade.md).
+> Service Fabric kümeleri yalnızca kullanma *otomatik* modu, ancak güncelleştirme farklı şekilde ele alınır. Daha fazla bilgi için [Service Fabric uygulama yükseltme](../service-fabric/service-fabric-application-upgrade.md).
 
 Yükseltme İlkesi izlemez değişikliği küresel ölçek özellikleri ayarlamak için bir tür yoktur. İşletim sistemi profili (örneğin, yönetici kullanıcı adı ve parola) API sürümünde yalnızca değiştirilebilir bir ölçek kümesi değişiklikleri *2017-12-01* veya üzeri. Bu değişiklikler, yalnızca değişikliği ölçek kümesi modelinde sonra oluşturulan Vm'lere uygulanır. Varolan Vm'leri güncel duruma getirmek için var olan her VM'nin "reimage" yapmanız gerekir. Bu reimage aracılığıyla yapabilirsiniz:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8535a77c9f44a4dafca34ef24414f90741a9133e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0a8680fbc8a3a051906f223d8b2476891c92d110
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652739"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888211"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme
 Bu belge, Azure kaynaklarınızı korumanıza yardımcı olması için Azure Güvenlik Merkezi'nde öneriler kullanma hakkında bilgi vermektedir.
@@ -63,15 +63,9 @@ Her önerinin ayrıntıları görmek için seçin **önerileri kutucuğuna** alt
    * **Düşük (mavi)**: Mevcut bir güvenlik açığı olan ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor. (Varsayılan olarak, düşük öneriler almazsınız ancak bunları görüntülemek istiyorsanız düşük öneriler filtresini kullanabilirsiniz.) 
    * **Sağlıklı (yeşil)**:
    * **Kullanılabilir değil (gri)**:
- <!-- * **DESCRIPTION**: Explains the recommendation and what needs to be done to address it.
-**STATE**: Describes the current state of the recommendation:
-   * **Open**: The recommendation hasn't been addressed yet.
-    * **In Progress**: The recommendation is currently being applied to the resources, and no action is required by you.
-   * **Resolved**: The recommendation has already been completed (in this case, the line is grayed out).
-    -->
+ 
 
-Aşağıdaki tabloda kullanılabilir öneriler ve uygulamanız durumunda her birinin yaptığı anlamanıza yardımcı olması için bir başvuru olarak kullanın.
-<!-- There is no table below -->
+
 > [!NOTE]
 > Öğrenmek istediğiniz [Klasik ve Resource Manager dağıtım modellerinde](../azure-classic-rm.md) Azure kaynakları için.
 >

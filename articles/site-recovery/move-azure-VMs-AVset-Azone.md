@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5597f3c017ccf2dbb58b7b6b046720c8f49803c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 77c38089a4f9c6518d9736df7f3020c66ad17b3b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312302"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877053"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Kullanılabilirlik alanına Azure sanal makineleri taşıma
 Azure kullanılabilirlik alanları, uygulamalarınızın ve verilerinizin veri merkezi arızasına karşı korur. Her kullanılabilirlik alanları, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Bir bölge içinde kullanılabilirlik alanlarının fiziksel olarak ayrılması, uygulamaları ve verileri veri merkezi arızasına karşı korur. Kullanılabilirlik alanları ile Azure, sektördeki en iyi % 99,99 VM çalışma SLA'sı sunar. Kullanılabilirlik alanı, bölgelerde desteklenir, belirtildiği gibi [burada](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). 
@@ -70,7 +70,7 @@ Burada belirli bir bölge içinde 'tek örnek' olarak dağıttığınız sanal m
     - [Ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Yük Dengeleyiciler] (https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials
         
-     - [Genel IP ](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+     - [Genel IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
    Tüm diğer ağ bileşenleri için ağ ile başvurmak [belgeleri.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
 

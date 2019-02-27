@@ -15,12 +15,12 @@ ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: bfbafea13f49ada59dae88e0336f926a8ad89d36
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: deaf7defe5aca4f53df073b19e471a52bd7b8a5d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430259"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878753"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack’e uygulama dağıtma
 
@@ -335,7 +335,7 @@ Uç nokta oluşturulduktan sonra Azure Stack bağlantı için Azure DevOps kulla
 > [!Note]
  > Windows Server ve SQL Server çalıştırmak için Dağıtılmış doğru görüntüleri, Azure Stack ortamınıza gerekir. Ayrıca dağıtılan App Service olması gerekir. Azure Stack operatörü gereksinimleri için "Önkoşullar" bölümüne App Service belgelerini inceleyin.
 
-Karma CI/CD, hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kullanım [Azure Resource Manager şablonları gibi web ](https://azure.microsoft.com/resources/templates/) hem bulutlara dağıtmak için Azure DevOps hizmetlerden uygulama kodu.
+Karma CI/CD, hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kullanım [Azure Resource Manager şablonları gibi web](https://azure.microsoft.com/resources/templates/) hem bulutlara dağıtmak için Azure DevOps hizmetlerden uygulama kodu.
 
 ### <a name="add-code-to-an-azure-devops-services-project"></a>Bir Azure DevOps Services projesi için kod ekleyin
 

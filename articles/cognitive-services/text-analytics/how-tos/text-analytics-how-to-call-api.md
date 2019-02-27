@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6fedc1b9a6b88419dbcae41b5bb6f89bd8c5cbf7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244037"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886888"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Metin analizi REST API'nin nasıl çağrılacağını
 
@@ -43,7 +43,7 @@ Giriş JSON içinde yapılandırılmamış ham metin olmalıdır. XML desteklenm
 | Öğe | Geçerli değerler | Gerekli mi? | Kullanım |
 |---------|--------------|-----------|-------|
 |`id` |Dize veri türünde, ancak uygulamada belge kimlikleri tamsayılar olma eğilimindedir. | Gerekli | Sistem, yapı çıktı sağladığınız kimlikleri kullanır. Dil kodları, anahtar ifadeleri ve duyarlılık puanlarını her kimliği istekteki proje Kimliğiyle için oluşturulur.|
-|`text` | Yapılandırılmamış ham metni, en çok 5000 karakter. | Gerekli | Dil algılama için metin herhangi bir dille ifade edilebilir. Yaklaşım analizi, anahtar ifade ayıklama ve varlık kimliği için metin olmalıdır bir [dil desteklenen](../text-analytics-supported-languages.md). |
+|`text` | Yapılandırılmamış ham metni, en çok 5.120 karakter. | Gerekli | Dil algılama için metin herhangi bir dille ifade edilebilir. Yaklaşım analizi, anahtar ifade ayıklama ve varlık kimliği için metin olmalıdır bir [dil desteklenen](../text-analytics-supported-languages.md). |
 |`language` | 2 karakterli [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) için kod bir [dil desteklenmiyor](../text-analytics-supported-languages.md) | Değişir | Yaklaşım analizi, anahtar ifade ayıklama ve varlık bağlama için gerekli; dil algılama için isteğe bağlı. Hata yoktur, hariç tutarsanız, ancak analiz olmadan zayıflar. Dil kodu karşılık gelmelidir `text` size sağlar. |
 
 Sınırları hakkında daha fazla bilgi için bkz. [metin Analizi'ne genel bakış > veri sınırları](../overview.md#data-limits). 

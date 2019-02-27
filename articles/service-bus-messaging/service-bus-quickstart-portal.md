@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 5e8eb6239de73b0095a912ad6baca7c090872755
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: fa6d2b7d1fbd99e482cc013720c39b4b150f6742
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585449"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889554"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Hızlı Başlangıç: Service Bus kuyruğuna oluşturmak için Azure portalını kullanma
 Microsoft Azure Service Bus, güvenli mesajlaşma ve son derece yüksek güvenilirlik sağlayan bir kurumsal tümleştirme ileti aracısıdır. Tipik bir Service Bus senaryosunda çoğunlukla iki veya daha çok uygulama, hizmet veya işlem birbirinden ayrılır ve durum veya veri değişiklikleri aktarılır. Bu tür senaryolar başka bir uygulama veya hizmetlerde birden çok toplu işin zamanlanmasını veya sipariş karşılama işleminin tetiklenmesini içerebilir. Örneğin, bir perakende şirketi satış noktası verilerini yenileme ve stok güncelleştirmeleri için bir arka ofise veya bölgesel dağıtım merkezine gönderebilir. Bu senaryoda, istemci uygulaması Service Bus kuyruğuna iletiler gönderir ve o kuyruktan ileti alır.  
@@ -49,7 +49,7 @@ Kodu çalıştırmak için aşağıdakileri yapın:
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 3. Örnek `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart` klasörüne gidin.
-4. [Yönetim kimlik bilgilerini alma](#obtain-the-management-credentials) bölümünde aldığınız bağlantı dizesi ve kuyruk adını kopyalayın.
+4. Bağlantı dizesini kopyalayın ve kuyruk adı yönetim elde içinde elde edilen kimlik bilgileri bölümü.
 5.  Komut isteminde aşağıdaki komutu yazın:
 
     ```

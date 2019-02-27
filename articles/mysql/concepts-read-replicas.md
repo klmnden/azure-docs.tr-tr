@@ -5,23 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/30/2019
-ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/26/2019
+ms.openlocfilehash: 6e33c7571dc735ce9984a0ce1b37275a6c4c7eca
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493057"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888482"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda okunur çoğaltmalar
 
-> [!IMPORTANT]
-> Salt okunur çoğaltma özelliği genel Önizleme aşamasındadır.
-
 Okuma çoğaltması özelliğini sunucularına en fazla beş salt okunur (Yineleme) aynı Azure bölgesindeki bir MySQL sunucusu (ana) için Azure veritabanı'ndan veri çoğaltmanıza olanak sağlar. Salt okunur çoğaltmalar MySQL altyapının (binlog) yerel ikili günlük dosyası konumu tabanlı çoğaltma teknolojisini kullanarak zaman uyumsuz olarak güncelleştirilir. Binlog çoğaltma hakkında daha fazla bilgi için bkz: [MySQL binlog Çoğaltmaya genel bakış](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-MySQL hizmeti için Azure veritabanı'nda oluşturulan yinelemeler normal/tek başına MySQL sunucuları aynı şekilde yönetilebilir yeni sunucularıdır. Okuma amaçlı her çoğaltma için sanal çekirdek cinsinden sağlanan işlem ve GB/ay cinsinden sağlanan depolama karşılığı faturalandırılırsınız. 
-
+MySQL hizmeti için Azure veritabanı'nda oluşturulan yinelemeler normal/tek başına MySQL sunucuları aynı şekilde yönetilebilir yeni sunucularıdır. Okuma amaçlı her çoğaltma için sanal çekirdek cinsinden sağlanan işlem ve GB/ay cinsinden sağlanan depolama karşılığı faturalandırılırsınız.
 
 MySQL çoğaltma özellikler ve sorunlar hakkında daha fazla bilgi için bkz. [MySQL çoğaltma belgeleri](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
@@ -39,7 +35,7 @@ Okuma çoğaltma şu anda yalnızca genel amaçlı ve bellek için iyileştirilm
 
 ### <a name="master-server-restart"></a>Ana sunucunun yeniden başlatılması
 
-Mevcut hiçbir çoğaltması olan bir şablonu için bir çoğaltma oluşturduğunuzda bu Önizleme boyunca, ana ilk çoğaltma için hazırlanması için yeniden başlatılır. Lütfen bu dikkate alın ve yoğun olmayan bir dönem boyunca bu işlemleri gerçekleştirin.
+Bir çoğaltma yok mevcut çoğaltmaları olan bir şablonu oluşturduğunuzda, ana ilk çoğaltma için hazırlanması için yeniden başlatılır. Lütfen bu dikkate alın ve yoğun olmayan bir dönem boyunca bu işlemleri gerçekleştirin.
 
 ### <a name="stopping-replication"></a>Çoğaltmayı durdurma
 

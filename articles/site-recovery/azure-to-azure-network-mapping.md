@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: fccc7379794b4b75ff53e517eddd95ff0f7db0e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b52bdd5948676c09c433cbda249248ce26ce8a48
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223791"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866037"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Ağ eşlemesini ve sanal ağlar için IP adresini ayarlama
 
@@ -32,7 +32,7 @@ Ağları aşağıdaki şekilde eşlenir:
 
 3. İçinde **ağ eşlemesi Ekle**kaynağını seçin ve hedef konumları. Örneğimizde, kaynak VM Doğu Asya bölgesinde çalıştığından ve Güneydoğu Asya bölgeye çoğaltır.
 
-    ![Kaynak ve hedef seçin ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Kaynak ve hedef seçin](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 3. Şimdi bir ağ eşlemesini karşı dizin oluşturun. Örneğimizde, kaynak artık Güneydoğu Asya olacaktır ve hedef Doğu Asya olacaktır.
 
     ![Ağ Eşleme bölmesi - ekleme kaynak ve hedef konumların hedef ağ seçin](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)

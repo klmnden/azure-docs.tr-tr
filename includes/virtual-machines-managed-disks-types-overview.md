@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8a067474fb172d4ff7a7fdf7eb6d24536bd2d017
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 1556a7d482a6644831589937b1847b1d63e72693
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443281"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56890948"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure'da hangi disk türleri mevcuttur?
 
@@ -99,7 +99,7 @@ Yıldız ile işaretlenmiş boyutları şu anda Önizleme aşamasındadır.
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
 | Disk boyutu gib biriminde           | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8,192     | 16,384     | 32,767    |
 | Disk başına IOPS       | En fazla 500              | En fazla 500              | En fazla 500              | En fazla 500 | En fazla 500              | En fazla 500              | En fazla 500             | En fazla 500              | En fazla 1.300              | En fazla 2.000              | En fazla 2.000              |
-| Disk başına aktarım hızı | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn| En fazla 300 MiB/sn |  En fazla 500 MiB/sn | En fazla 500 MiB/sn |
+| Disk başına aktarım hızı |  En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn| En fazla 300 MiB/sn |  En fazla 500 MiB/sn | En fazla 500 MiB/sn |
 
 ## <a name="standard-hdd"></a>Standart HDD
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747535"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887259"
 ---
 # <a name="your-marketplace-benefits"></a>Market Avantajlarınızı
 
@@ -63,9 +63,9 @@ Bu avantajlara erişmek için ihtiyacınız olacak:
 1. Bir teklifi Azure Market veya Appsource'ta yayımlama.
 2. Pazarlama kişi girdiğinizden emin olun **iletişim bilgilerini** teklifinizi kısmı. Bu, bir catch tüm diğer adı yerine özel bir pazarlama kaynak olmalıdır. (yani, kullanmaktan kaçının "Destek\@", "bilgi\@", "pazarlama\@", vb..)
 
-Çözüm durumunuzu bağlı olarak, kendi kendine yardım kaynaklarını içeren bir e-posta veya danışmanlığı çağrısı ile ayrılmış bir Engagement Yöneticisi bir davet alırsınız. Aramayı başlatmak için herhangi bir şey yapmanız gerekmez; Market Onboarding ekibi, sağladığınız bilgileri temel alarak ulaşır [bulut iş ortağı portalı](https://cloudpartner.azure.com/).
+Liste, deneme veya Transact, teklif, çözüm durumu temelinde kendi kendine yardım kaynaklarını içeren bir e-posta veya danışmanlığı çağrısı ile ayrılmış bir Engagement Yöneticisi bir davet alırsınız. Aramayı başlatmak için herhangi bir şey yapmanız gerekmez; Market Onboarding ekibi, sağladığınız bilgileri temel alarak ulaşır [bulut iş ortağı portalı](https://cloudpartner.azure.com/).
 
-Teklifleri Market'te büyüdükçe kullanabileceğiniz etkinlikler kapsamını genişletir. Temel düzeyde iyileştirme önerileri ve yükseltme dökümleri alın.  Bu listeleri, Market ve Microsoft iş ortağı uzmanlığı başarı seçilen çözüm duruma göre ek pazarlama avantajlar için de uygundur. 
+Teklifleri Market'te büyüdükçe kullanabileceğiniz etkinlikler kapsamını genişletir. Temel düzeyde iyileştirme önerileri ve yükseltme dökümleri alın.  Bu listeleri, Market ve Microsoft iş ortağı uzmanlığı başarı seçilen çözüm durumu (liste, deneme veya Transact) temelinde ek pazarlama avantajlar için de uygundur.
 
 Aşağıdaki tabloda, uygunluk gereksinimleri özetlenmektedir:
 

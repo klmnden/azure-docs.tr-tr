@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed0912e8d4705b6cbefa9eb8f7a712a37d8b0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8d2001e221ef9c02ee2ab80b647a9bafe6490432
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183190"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Öğretici: TINFOIL SECURITY ile Azure Active Directory Tümleştirme
 
@@ -186,7 +186,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
-    ![Tüm kullanıcılar, kullanıcılar ve Gruplar -> ](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
+    ![Tüm kullanıcılar, kullanıcılar ve Gruplar ->](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
 
 1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  

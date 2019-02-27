@@ -1,6 +1,6 @@
 ---
-title: Azure HDInsight kümelerinizi izlemek için log Analytics'i kullanma
-description: Bir HDInsight kümesinde çalışan işleri izlemek için Azure Log Analytics kullanmayı öğrenin.
+title: Azure HDInsight kümelerinizi izlemek için Azure İzleyici'yi kullanma oturumu
+description: Bir HDInsight kümesinde çalışan işleri izlemek için Azure Azure İzleyici günlüklerine kullanmayı öğrenin.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,26 +9,28 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5fe1aee35f5501d3ec4910aadb9ef43d2f9fb8ed
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b7e0dba70d7f3a201c5f3491f0bc906977fbf229
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727528"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886460"
 ---
-# <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics, HDInsight kümelerinizi izlemek için kullanın
+# <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Azure İzleyici'yi kullanın, HDInsight kümelerinizi izlemek için günlükleri
 
-Azure Log Analytics, HDInsight Hadoop küme işlemleri izlemek etkinleştirme ve bir Hdınsight izleme çözümünü ekleme öğrenin.
+HDInsight Hadoop küme işlemleri izlemek Azure İzleyici günlüklerini etkinleştirme ve bir Hdınsight izleme çözümünü ekleme konusunda bilgi edinin.
 
-[Log Analytics](../log-analytics/log-analytics-overview.md) bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı korumak için Azure İzleyici'de bir hizmettir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.
+[Azure İzleyici günlüklerine](../log-analytics/log-analytics-overview.md) bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı korumak için Azure İzleyici'de bir hizmettir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Bir Log Analytics çalışma alanı**. Bu çalışma alanını, kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir Log Analytics ortamı olarak düşünebilirsiniz. Yönergeler için bkz. [Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* **Bir Log Analytics çalışma alanı**. Bu çalışma alanını, kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir Azure İzleyici günlüklerine ortamı olarak düşünebilirsiniz. Yönergeler için bkz. [Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
-* **Bir Azure HDInsight kümesi**. Şu anda aşağıdaki HDInsight küme türleri ile Log Analytics kullanabilirsiniz:
+* **Bir Azure HDInsight kümesi**. Şu anda aşağıdaki HDInsight küme türleri ile Azure İzleyici günlüklerine kullanabilirsiniz:
 
   * Hadoop
   * HBase
@@ -42,9 +44,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 * **Azure PowerShell Az modül**.  Bkz: [Karşınızda yeni Azure PowerShell Az modül](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 > [!NOTE]  
-> HDInsight küme hem de Log Analytics çalışma alanı, daha iyi performans için aynı bölgede yerleştirmek için önerilir. Azure Log Analytics, tüm Azure bölgelerinde kullanılamaz.
+> HDInsight küme hem de Log Analytics çalışma alanı, daha iyi performans için aynı bölgede yerleştirmek için önerilir. Azure İzleyici günlüklerine kullanılabilir değil tüm Azure bölgelerinde.
 
-## <a name="enable-log-analytics-by-using-the-portal"></a>Log Analytics portalını kullanarak etkinleştirin.
+## <a name="enable-azure-monitor-logs-by-using-the-portal"></a>Portalı kullanarak Azure İzleyici günlüklerini etkinleştirme
 
 Bu bölümde, bir Azure Log Analytics çalışma alanı işleri, hata ayıklama günlükleri izlemek üzere kullanmak için mevcut bir HDInsight Hadoop kümesi yapılandırın.
 
@@ -66,9 +68,9 @@ Bu bölümde, bir Azure Log Analytics çalışma alanı işleri, hata ayıklama 
 
     ![HDInsight kümeleri için izlemeyi etkinleştirin](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "HDInsight kümeleri için izlemeyi etkinleştir")
 
-## <a name="enable-log-analytics-by-using-azure-powershell"></a>Log Analytics, Azure PowerShell kullanarak etkinleştirme
+## <a name="enable-azure-monitor-logs-by-using-azure-powershell"></a>Azure PowerShell kullanarak Azure İzleyici günlüklerini etkinleştirme
 
-Azure PowerShell Az modül kullanarak Log Analytics'e etkinleştirebilirsiniz [etkinleştir AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightoperationsmanagementsuite) cmdlet'i.
+Azure İzleyici günlüklerine Az Azure PowerShell modülünü kullanarak etkinleştirebilirsiniz [etkinleştir AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightoperationsmanagementsuite) cmdlet'i.
 
 ```powershell
 # Enter user information
@@ -95,7 +97,7 @@ Disable-AzHDInsightOperationsManagementSuite -Name "<your-cluster>"
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>HDInsight küme yönetim çözümlerini yükleme
 
-HDInsight, Azure Log Analytics için ekleyebileceğiniz kümeye özgü yönetim çözümleri sağlıyor. [Yönetim çözümleri](../log-analytics/log-analytics-add-solutions.md) Log Analytics'e ek veri ve analiz araçları sağlayarak, işlevsellik ekleyin. Bu çözümlerin, HDInsight kümelerinizi önemli performans ölçümlerini toplamak ve ölçümlerini arama için araçlar sağlar. Bu çözümleri ayrıca görselleştirmeler ve panolar için HDInsight içinde desteklenen çoğu küme türleri sağlar. Topladığınız ölçümleri çözümle birlikte kullanarak, özel izleme kuralları ve uyarılar oluşturabilirsiniz.
+HDInsight için Azure İzleyici günlüklerine ekleyebileceğiniz kümeye özgü yönetim çözümleri sağlıyor. [Yönetim çözümleri](../log-analytics/log-analytics-add-solutions.md) ek veri ve analiz araçları sağlayarak Azure İzleyici günlüklerine, işlevsellik ekleyin. Bu çözümlerin, HDInsight kümelerinizi önemli performans ölçümlerini toplamak ve ölçümlerini arama için araçlar sağlar. Bu çözümleri ayrıca görselleştirmeler ve panolar için HDInsight içinde desteklenen çoğu küme türleri sağlar. Topladığınız ölçümleri çözümle birlikte kullanarak, özel izleme kuralları ve uyarılar oluşturabilirsiniz.
 
 Var olan HDInsight çözümlerinin şunlardır:
 
@@ -114,4 +116,4 @@ Kümeye yeni bir küme olduğundan, herhangi bir etkinlik raporu göstermez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Log Analytics, HDInsight kümelerinizi izlemek için sorgu](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+* [HDInsight kümelerinizi izlemek için sorgu Azure izleme günlükleri](hdinsight-hadoop-oms-log-analytics-use-queries.md)

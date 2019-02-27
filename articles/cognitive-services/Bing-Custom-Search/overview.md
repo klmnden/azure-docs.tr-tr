@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 09/29/2017
 ms.author: aahi
-ms.openlocfilehash: 56be136aff3aa7fbe813fee500dcf2fe35ca0859
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3a951f793ec946fc66d6a14acacd548a5f990be3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875408"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872871"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Bing Özel Arama API'si nedir?
 
@@ -29,7 +29,7 @@ Bing özel arama API'si, önem verdiğiniz konulara Reklamsız özel arama deney
 |[Özel resim arama deneyimleri](get-images-from-instance.md)     | Etki alanları ve Web siteleri özel arama örneğinizin belirtilen görüntülerden aramak etkinleştirin.        |        
 |[Özel video arama deneyimleri](get-videos-from-instance.md)     | Etki alanları ve özel arama örneğinizin belirtilen siteleri videolardan aramak etkinleştirin.        |    
 |[Özel arama örneği kullanımınızın paylaşın](share-your-custom-search.md)     | İşbirliğine dayalı bir şekilde düzenleyin ve takım üyeleri ile paylaşarak arama örneğinizin test edin.        | 
-|[Bir kullanıcı Arabirimi uygulamalarınız ve Web siteleri için yapılandırma ](hosted-ui.md)     | İşbirliğine dayalı bir şekilde düzenleyin ve takım üyeleri ile paylaşarak arama örneğinizin test edin.        | 
+|[Bir kullanıcı Arabirimi uygulamalarınız ve Web siteleri için yapılandırma](hosted-ui.md)     | İşbirliğine dayalı bir şekilde düzenleyin ve takım üyeleri ile paylaşarak arama örneğinizin test edin.        | 
 ## <a name="workflow"></a>İş akışı
 
 Özel arama örneği kullanarak oluşturabileceğiniz [Bing özel arama portalı](https://customsearch.ai). Portal, etki alanı, Web siteleri ve Bing arama yapmak istemediğiniz olanları birlikte aranacak istediğiniz Web sayfalarını belirten bir özel arama örneği oluşturmanızı sağlar. Portal için de kullanabilirsiniz: arama deneyimini Önizleme, API'nin sağladığı arama sonuçlarımızda ayarlama ve isteğe bağlı olarak, Web sitelerinin ve uygulamaların oluşturulması için aranabilir kullanıcı arabirimi yapılandırın.

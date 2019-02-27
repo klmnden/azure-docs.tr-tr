@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 839a6b3cc90c6a8fcc512c100c8825f9513ded26
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990454"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875948"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme
 
@@ -205,7 +205,7 @@ Bir yapıdır aşağıdaki [zamanlanmış sorgu kuralı oluşturma](https://docs
 ```
 
 > [!IMPORTANT]
-> Hedef kaynak için gizli-bağlantı etiketi alanıyla kullanımını zorunlu [zamanlanmış sorgu kuralları ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API çağrısı veya kaynak şablonu.
+> Hedef kaynak için gizli-bağlantı etiketi alanıyla kullanımını zorunlu [zamanlanmış sorgu kuralları](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API çağrısı veya kaynak şablonu.
 
 Yukarıdaki örnek json (örneğin) sampleScheduledQueryRule.json amacıyla bu kılavuzda olarak kaydedilebilir ve kullanılarak dağıtılabilir [Azure portalında Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -304,7 +304,7 @@ Aşağıdakiler için yapısıdır [zamanlanmış sorgu kuralı oluşturma](http
 ```
 
 > [!IMPORTANT]
-> Hedef kaynak için gizli-bağlantı etiketi alanıyla kullanımını zorunlu [zamanlanmış sorgu kuralları ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API çağrısı veya kaynak şablonu. Kaynaklar arası sorgu günlüğüne kullanırken uyarı, kullanımını [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) zorunludur ve kullanıcı, belirtilen kaynak listesine erişime sahip olmalıdır
+> Hedef kaynak için gizli-bağlantı etiketi alanıyla kullanımını zorunlu [zamanlanmış sorgu kuralları](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API çağrısı veya kaynak şablonu. Kaynaklar arası sorgu günlüğüne kullanırken uyarı, kullanımını [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) zorunludur ve kullanıcı, belirtilen kaynak listesine erişime sahip olmalıdır
 
 Yukarıdaki örnek json (örneğin) sampleScheduledQueryRule.json amacıyla bu kılavuzda olarak kaydedilebilir ve kullanılarak dağıtılabilir [Azure portalında Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

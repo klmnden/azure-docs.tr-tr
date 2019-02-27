@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 924befd2ec1949973123acc9b7c7d1b89e707e3e
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6dad4fc98dccc5c8db22019fdc548efdf7165d9e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245635"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888755"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack için kullanılabilir olan Azure Market öğeleri
 
@@ -252,4 +252,5 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Kurumsal tüm yaşam döngüsü, Azure Stack altyapısının otomatikleştirmenizi sağlar. **Her iki Puppet Market öğelerini indirme.** | Puppet |
 | ![Quest Hızlı Kurtarma](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Hızlı Kurtarma çekirdek](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Gelişmiş veri koruması Hızlı Kurtarma, yedekleme, çoğaltma ve Kurtarma bir kullanımı kolay yazılım çözümde birleştirir. | Quest yazılım |
 | ![SUSE yönetici 3.1 Proxy'si (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE yönetici 3.1 Proxy'si (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | Sınıfının en iyi açık kaynak altyapı yönetimi. | SUSE |
+| ![CipherTrust bulut Anahtar Yöneticisi](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust bulut Anahtar Yöneticisi](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | Microsoft Azure ve diğer bulut sağlayıcısı Getir bilgisayarınızı kendi anahtarını (BYOK) API'lerinden yararlanan, CipherTrust bulut Anahtar Yöneticisi'ni anahtar yönetim karmaşıklığı azaltır ve şifreleme anahtarlarıyla multicloud yaşam döngüsü denetimin vererek, operasyonel maliyetleri Merkezi Yönetim ve görünürlük. | Thales eSecurity |
 | ![ZeroDown yazılım BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Hizmet olarak yazılım ZeroDown iş sürekliliği](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® yazılım teknolojisi, işletmelerin şirket verilerine kendi iş sürekliliği aracılığıyla sürekli erişim (BCaaS) hizmet olarak sağlar™ mimarisi, koruma uygulamaları ve işlem, ağ kesintilerinin, gerçekleşirse misiniz normalde Kurumsal cripple. | ZeroDown yazılım |

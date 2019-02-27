@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8bcb00029acbe8c64e29addbc9291a694f1de98b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 4aa18ae791e5fa573eae76d5bdb9c45b9311e6b5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267726"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888092"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application ınsights'ı ayarlayın: Bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşen. Bu genellikle adlı HTTP veya bir veritabanı veya dosya sistemi kullanılarak bir hizmettir. [Application Insights](../../azure-monitor/app/app-insights-overview.md) ne sıklıkta bağımlılık çağrı başarısız olur ve uygulama bağımlılıkları için bekleyeceği süreyi ölçer. Belirli çağrıları incelemek ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
@@ -50,7 +50,7 @@ Kısmi bağımlılık bilgileri tarafından otomatik olarak toplanan [Applicatio
 
 ## <a name="where-to-find-dependency-data"></a>Bağımlılık verileri nerede bulunur
 * [Uygulama Haritası](#application-map) komşu bileşenlerini ve uygulama arasındaki bağımlılıkları görselleştirir.
-* [Performans ve tarayıcı hatası dikey pencereleri](#performance-and-blades) sunucu bağımlılık verileri gösterir.
+* [Performans ve tarayıcı hatası dikey pencereleri](#performance-and-failure-blades) sunucu bağımlılık verileri gösterir.
 * [Tarayıcılar dikey](#ajax-calls) kullanıcılarınızın tarayıcılarından AJAX çağrılarını gösterir.
 * Bağımlılık çağrılarını denetlemek için yavaş veya başarısız istekleri tıklayın.
 * [Analytics](#analytics) sorgu bağımlılık verileri için kullanılabilir.

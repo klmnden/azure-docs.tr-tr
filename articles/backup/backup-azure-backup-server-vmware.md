@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8a660de0502a6ab215d3a23615f6a53813f1695e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 4b6c4af37211ede2cb2153afdd071c219178f2ba
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649212"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882850"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup sunucusu ile VMware sanal makinelerini yedekleme
 
@@ -72,7 +72,7 @@ Güvenli bir kanalı aşağıdaki gibi ayarlayın:
 
 5. İçinde **sertifikaları** klasörü, kök sertifika dosyasını sağ tıklayın > **Yeniden Adlandır**.
 
-    ![Kök sertifikayı yeniden adlandır ](./media/backup-azure-backup-server-vmware/rename-cert.png)
+    ![Kök sertifikayı yeniden adlandır](./media/backup-azure-backup-server-vmware/rename-cert.png)
 
 6. .Crt için kök sertifikanın uzantısını değiştirir ve onaylayın. Bir kök sertifikayı temsil eden bir dosya simgesi değişir.
 
@@ -124,7 +124,7 @@ V-Center sunucusu erişim izinleri olan bir kullanıcı hesabı Azure yedekleme 
 1. VCenter Server (veya vCenter sunucusu kullanmıyorsanız ESXi ana bilgisayarı) oturum açın.
 2. İçinde **Gezgin** panelinde, tıklayın **Yönetim**.
 
-    ![Yönetim ](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
+    ![Yönetim](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
 3. İçinde **Yönetim** > **rolleri**, Rol Ekle simgesini (+ simgesi).
 

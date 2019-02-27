@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: d36f2851f9c4f30725c8f8057d61970b6560009e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 81ef669b62c822e10d8bf5c45e58dd769c5dbeb9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313220"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888398"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Azure önbelleği için Redis yönetme
 Bu konuda gibi yönetim görevlerini gerçekleştirmek kullanılan nasıl açıklanmaktadır [yeniden](#reboot) ve [güncelleştirmelerini zamanlama](#schedule-updates) , Azure önbelleği için Redis örneği için.
@@ -72,7 +72,7 @@ Uygulamanızı hataya karşı önbelleğinizin birincil düğüm esnekliğini te
 > 
 
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Yeniden başlatma yapmam miyim my önbellekten veri kaybedersiniz?
-Her ikisi de yeniden başlatırsanız **ana** ve **bağımlı** düğümler, önbellek (veya kümeleme özelliği etkinleştirilmiş bir premium önbellek kullanıyorsanız bu parça) tüm veriler kaybolur. Yapılandırdıysanız [veri kalıcılığı](cache-how-to-premium-persistence.md), en fazla önbellek olarak yeniden çevrimiçine döner, ancak yedekleme yapıldıktan sonra ortaya çıkan herhangi bir önbellek yazma kaybolur son yedeklemeden geri yüklenir.
+Her ikisi de yeniden başlatırsanız **ana** ve **bağımlı** düğümler, önbellek (veya bir premium önbellek kümeleme özellikli kullanıyorsanız bu parça) tüm veriler kaybolmuş olabilir, ancak bu ya da garanti edilmez. Yapılandırdıysanız [veri kalıcılığı](cache-how-to-premium-persistence.md), en fazla önbellek olarak yeniden çevrimiçine döner, ancak yedekleme yapıldıktan sonra ortaya çıkan herhangi bir önbellek yazma kaybolur son yedeklemeden geri yüklenir.
 
 Düğümler yalnızca birini yeniden başlatırsanız, veriler genellikle kaybolmaz, ancak yine de olabilir. Örneğin bir önbellek yazma, verileri önbellek yazma devam ediyor ve ana düğüm yeniden kaybolur için. Veri kaybı için başka bir senaryo, bir düğümü yeniden başlatma ve diğer düğümü aynı anda bir hata nedeniyle aşağı git olacağını olacaktır. Veri kaybı için olası nedenler hakkında daha fazla bilgi için bkz: [Redis verilerimi ne?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: d2e81e4f2eda730dc064699f42ba7bfb49648082
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230841"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882646"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir Standard Load Balancer ile kullanılabilirlik bölgelerindeki Yük Dengeleme sanal makineleri
 
@@ -177,7 +177,7 @@ Trafiği VM’lere dağıtmak için, bir arka uç adres havuzunda yük dengeleyi
 4. Yük dengeleyicinin arka uç havuzuna eklenecek her bir sanal makineyi (*myVM2* ve *myVM3*) eklemek için **Yeni arka uç kaynağı ekle**’ye tıklayın.
 5. **Ekle**'ye tıklayın.
 
-    ![Arka uç adres havuzuna ekleme - ](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
+    ![Arka uç adres havuzuna ekleme -](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 
 3. Yük dengeleyici arka uç havuzu ayarınızın üç VM’yi de gösterdiğinden emin olun: **myVM1**, **myVM2** ve **myVM3**.
 

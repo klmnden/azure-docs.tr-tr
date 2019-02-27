@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.lastreviewed: 11/08/2018
-ms.openlocfilehash: 92774592f86a71a8482fd3d44eca404fcf2d4e6e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/26/2019
+ms.openlocfilehash: 00fb888f201f4bb8d211050b288516021d837dc5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429562"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888786"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Sık sorulan sorular, Azure Stack kullanım API'si
 
@@ -407,6 +407,10 @@ Belirli kullanım olayı için kullanım süresi ve bildirilen süresi için de�
 | 400/Hatalı istek |*SubscriptionIdMissingInRequest* |Arayanın abonelik kimliği eksik. |
 | 400/Hatalı istek |*InvalidAggregationGranularity* |Bir geçersiz toplama ayrıntı düzeyi istendi. Günlük ve saatlik değerler geçerlidir. |
 | 503 |*ServiceUnavailable* |Çağrı kısıtlanan veya Hizmet meşgul olduğundan yeniden denenebilir bir hata oluştu. |
+
+## <a name="what-is-the-policy-for-charging-for-vms"></a>Vm'leri için ücretlendirme İlkesi nedir?
+
+Kullanım verilerini çalışan ve durdurulmuş sanal makineler oluşturun. Azure ile tutarlı olmasını sağlamak, ayırmayı kaldırma Kullanım verilerinin Emisyonu durdurmak için gereklidir. Portal kullanılamıyor, ancak işlem kaynak sağlayıcısı hala çalışıyor durumunda, kullanım yayılan.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 [Müşteri faturalandırma ve Azure stack'teki geri ödeme](azure-stack-billing-and-chargeback.md)

@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/14/2019
-ms.openlocfilehash: 76fe764d828a7fa6e4ebb015f98b9af485d5df5f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/25/2019
+ms.openlocfilehash: 2c95ec4d88e55af0becc73719bcc6126501267db
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567103"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866836"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL veritabanı - alt düzey istemci desteği ve tablo denetimi için IP uç noktası değişiklikleri
 
@@ -28,6 +28,7 @@ ms.locfileid: "55567103"
 [Veritabanı denetim](sql-database-auditing.md) çalışır otomatik olarak TDS yeniden yönlendirmeyi destekleyen SQL istemcileri ile. Unutmayın. Bu yeniden yönlendirme Blob denetimi yöntemi kullanılırken geçerli değildir.
 
 ## <a id="subheading-1"></a>Alt düzey istemci desteği
+
 TDS 7.4 uygulayan herhangi bir istemci yeniden yönlendirme de desteklemelidir. Bunun istisnası, JDBC, yeniden yönlendirme özelliği tam olarak desteklenmiyor ve hangi yeniden yönlendirmesi Node.JS için Tedious uygulanmadı 4.0 içerir.
 
 "Alt düzey istemciler için", yani hangi destek TDS sürüm 7.3 ve aşağıda - bir sunucunun FQDN bağlantı dizesi değiştirilmelidir:
@@ -46,6 +47,7 @@ Bağlantı dizesindeki değiştirilmiş sunucusu FQDN'si: <*sunucu adı*> .datab
 **Açıklama:** Yukarıdaki sunucunun FQDN değişikliği her bir veritabanındaki (geçici azaltma) bir yapılandırma adımı gerek olmadan bir SQL sunucu düzeyi denetimi ilkesi uygulamak için de yararlı olabilir.
 
 ## <a id="subheading-2"></a>Denetim etkinleştirilirken IP uç noktası değişiklikleri
+
 Tablo denetimi etkinleştirdiğinizde, IP uç veritabanınızın değişeceğini unutmayın. Katı güvenlik duvarı ayarları varsa, lütfen bu güvenlik duvarı ayarlarını güncelleştirin uygun şekilde.
 
 Yeni veritabanı IP uç noktası veritabanı bölgesine bağlıdır:
@@ -78,5 +80,4 @@ Yeni veritabanı IP uç noktası veritabanı bölgesine bağlıdır:
 | Batı Orta ABD |52.161.29.186, 52.161.27.213 |
 | Orta Kanada |13.88.248.106, 13.88.248.110 |
 | Doğu Kanada |40.86.227.82, 40.86.225.194 |
-| UK Kuzey |13.87.101.18, 13.87.100.232 |
-| UK Güney 2 |13.87.32.202, 13.87.32.226 |
+| Birleşik Krallık Güney |13.87.32.202, 13.87.32.226 |

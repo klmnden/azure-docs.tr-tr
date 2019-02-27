@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cdcdcff8a5c016cfd3074a950ad6060e55b8b0fe
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: b2d1c71049ae72ad974d9ab9761d4668aeb17929
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312591"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889129"
 ---
 # <a name="output-metadata"></a>Çıkış meta verileri
 ## <a name="overview"></a>Genel Bakış
@@ -33,7 +33,7 @@ Bu makalede öğeleri ve XML Şeması türleri üzerinde anlatılmaktadır çık
 
 Tam şeması kod ve bu makalenin sonunda XML örneği bulabilirsiniz.  
 
-## <a name="AssetFiles "></a> AssetFiles kök öğe
+## <a name="AssetFiles"></a> AssetFiles kök öğe
 Kodlama işinin AssetFile girişleri koleksiyonu.  
 
 ### <a name="child-elements"></a>Alt öğeleri
@@ -41,7 +41,7 @@ Kodlama işinin AssetFile girişleri koleksiyonu.
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |AssetFiles koleksiyonun parçası AssetFile öğesi. |
 
-## <a name="AssetFile "></a> AssetFile öğesi
+## <a name="AssetFile"></a> AssetFile öğesi
 Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
@@ -58,7 +58,7 @@ Bir XML örneği bulabilirsiniz [XML örneği](#xml).
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Sıfır veya daha fazla video içinde her fiziksel AssetFile içerebilir bir uygun bir kapsayıcı biçimine aralıklı izler. VideoTracks daha fazla bilgi için bkz. |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Her fiziksel AssetFile içinde uygun bir kapsayıcı biçimi aralıklı sıfır veya daha fazla ses izleri içerebilir. Bu ses parçaları koleksiyonudur. AudioTracks daha fazla bilgi için bkz. |
 
-## <a name="Sources "></a> Sources öğesi
+## <a name="Sources"></a> Sources öğesi
 Bu AssetFile üretmek için işlenmiş giriş/kaynak medya dosyalarını, koleksiyonu.  
 
 Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
@@ -68,7 +68,7 @@ Bir XML örneği bulabilirsiniz [XML örneği](#xml).
 | --- | --- |
 | **Kaynak**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Bu varlık oluşturulurken kullanılan bir giriş/kaynak dosyası. Kaynak öğesi daha fazla bilgi için bkz. |
 
-## <a name="Source "></a> Kaynak öğesi
+## <a name="Source"></a> Kaynak öğesi
 Bu varlık oluşturulurken kullanılan bir giriş/kaynak dosyası.  
 
 Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
@@ -78,7 +78,7 @@ Bir XML örneği bulabilirsiniz [XML örneği](#xml).
 | --- | --- | --- |
 | **Ad**<br/><br/> Gerekli |**xs:string** |Giriş kaynağının dosya adı. |
 
-## <a name="VideoTracks "></a> VideoTracks öğesi
+## <a name="VideoTracks"></a> VideoTracks öğesi
 Sıfır veya daha fazla video içinde her fiziksel AssetFile içerebilir bir uygun bir kapsayıcı biçimine aralıklı izler. **VideoTracks** öğesi video tüm parçaları bir koleksiyonunu temsil eder.  
 
 Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
@@ -110,7 +110,7 @@ Bir XML örneği bulabilirsiniz [XML örneği](#xml).
 | **TargetBitrate**<br/><br/> minInclusive = "0"<br/><br/> Gerekli |**xs:int** |Bu video izlemek için ortalama hızı kodlama içinde hazır kilobit / saniye istendiği hedefleyin. |
 | **MaxGOPBitrate**<br/><br/> minInclusive = "0" |**xs:int** |En fazla GOP kilobit bu video izlemek için ortalama hızı. |
 
-## <a name="AudioTracks "></a> AudioTracks öğesi
+## <a name="AudioTracks"></a> AudioTracks öğesi
 Her fiziksel AssetFile içinde uygun bir kapsayıcı biçimi aralıklı sıfır veya daha fazla ses izleri içerebilir. **AudioTracks** öğesi bu ses parçaları koleksiyonunu temsil eder.  
 
 Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
@@ -120,7 +120,7 @@ Bir XML örneği bulabilirsiniz [XML örneği](#xml).
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Belirli bir ses üst AssetFile izleyin. AudioTrack daha fazla bilgi için bkz. |
 
-## <a name="AudioTrack "></a> AudioTrack öğesi
+## <a name="AudioTrack"></a> AudioTrack öğesi
 Belirli bir ses üst AssetFile izleyin.  
 
 Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
@@ -141,7 +141,7 @@ Bir XML örneği bulabilirsiniz [XML örneği](#xml).
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Sonuç parametreleri ölçüm ses yüksekliği. LoudnessMeteringResultParameters daha fazla bilgi için bkz. |
 
-## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters öğesi
+## <a name="LoudnessMeteringResultParameters"></a> LoudnessMeteringResultParameters öğesi
 Sonuç parametreleri ölçüm ses yüksekliği.  
 
 Bir XML örneği bulabilirsiniz [XML örneği](#xml).  

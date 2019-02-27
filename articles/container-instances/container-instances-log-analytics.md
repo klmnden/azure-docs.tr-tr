@@ -1,24 +1,26 @@
 ---
-title: Azure Log Analytics ile kapsayıcı örneği
-description: Kapsayıcı çıkışını (STDOUT ve STDERR) Azure Log Analytics’e göndermeyi öğrenin.
+title: Azure İzleyici günlükleri ile kapsayıcı örneği günlüğü
+description: Azure İzleyici günlüklerine kapsayıcı çıkış (STDOUT ve STDERR) göndereceğinizi öğrenin.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337895"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879722"
 ---
-# <a name="container-instance-logging-with-azure-log-analytics"></a>Azure Log Analytics ile kapsayıcı örneği
+# <a name="container-instance-logging-with-azure-monitor-logs"></a>Azure İzleyici günlükleri ile kapsayıcı örneği günlüğü
 
-Log Analytics çalışma alanları yalnızca Azure kaynaklarından değil şirket içi kaynaklar ve diğer bulutlardan kaynaklar için günlük verilerini depolamak ve sorgulamak için merkezileştirilmiş bir konum sağlar. Azure Container Instances, Log Analytics’e veri göndermek için yerleşik destek içerir.
+Log Analytics çalışma alanları yalnızca Azure kaynaklarından değil şirket içi kaynaklar ve diğer bulutlardan kaynaklar için günlük verilerini depolamak ve sorgulamak için merkezileştirilmiş bir konum sağlar. Azure Container Instances, Azure İzleyici günlüklerine veri göndermek için yerleşik destek içerir.
 
-Kapsayıcı örneği verilerini Log Analytics’e göndermek için, Azure CLI (veya Cloud Shell) ve bir YAML dosyası kullanarak bir kapsayıcı grubu oluşturmanız gerekir. Aşağıdaki bölümlerde, günlüğe yazma etkin bir kapsayıcı grubu ve sorgulama günlükleri oluşturma açıklanmaktadır.
+Azure İzleyici günlüklerine kapsayıcı örneği veri göndermek için bir kapsayıcı grubu Azure CLI (veya Cloud Shell) kullanarak oluşturmanız gerekir ve bir YAML dosyası. Aşağıdaki bölümlerde, günlüğe yazma etkin bir kapsayıcı grubu ve sorgulama günlükleri oluşturma açıklanmaktadır.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -31,7 +33,7 @@ Kapsayıcı örneklerinizde oturum açmayı etkinleştirmek için aşağıdakile
 
 Azure Container Instances, Log Analytics çalışma alanınıza veri göndermek için izne ihtiyaç duyuyor. Bu izni vermek ve günlüğe kaydetmeyi etkinleştirmek için, Log Analytics çalışma alanını veya anahtarlarından birini (birincil veya ikincil) sağlamanız gerekir.
 
-Log Analytics çalışma alanı kimliği ve birincil anahtarını almak için:
+Log analytics çalışma alanı kimliği ve birincil anahtarı almak için:
 
 1. Azure portalında Log Analytics çalışma alanınıza gidin
 1. **AYARLAR** altında, **Gelişmiş ayarlar**’ı seçin
@@ -42,7 +44,7 @@ Log Analytics çalışma alanı kimliği ve birincil anahtarını almak için:
 
 ## <a name="create-container-group"></a>Kapsayıcı grubu oluştur
 
-Log Analytics Log Analytics kimliği ve birincil anahtarına sahip olduğunuza göre, günlüğe kaydetme etkin bir kapsayıcı grubu oluşturmak için hazırsınız demektir.
+Log analytics çalışma alanı kimliği ve birincil anahtar edindikten sonra bir günlük kaydının etkin kapsayıcı grubu oluşturmaya hazırsınız.
 
 Aşağıdaki örnekler tek bir kapsayıcı grubu oluşturmanın iki yolunu gösterir [fluentd] [ fluentd] kapsayıcı: Azure CLI ve Azure CLI ile bir YAML şablonu. Fluentd kapsayıcısı varsayılan yapılandırmasında birkaç çıkış satırı üretir. Bu çıkış Log Analytics çalışma alanınıza gönderileceğinden, günlükleri görüntüleme ve sorgulamayı göstermek için kullanışlıdır.
 
@@ -96,7 +98,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 Komutu verdikten kısa bir süre sonra, Azure’dan dağıtım ayrıntılarını içeren bir yanıt almanız gerekir.
 
-## <a name="view-logs-in-log-analytics"></a>Log Analytics’te günlükleri görüntüleme
+## <a name="view-logs-in-azure-monitor-logs"></a>Görünüm Azure İzleyici günlüklerine kaydeder
 
 Kapsayıcı grubunu dağıttıktan sonra, ilk günlük girdilerinin Azure portalında görünmesi birkaç dakika (en fazla 10) alabilir. Kapsayıcı grubunun günlüklerini görüntülemek için, Log Analytics çalışma alanını açın ve şunları yapın:
 
@@ -109,7 +111,7 @@ Kapsayıcı grubunu dağıttıktan sonra, ilk günlük girdilerinin Azure portal
 
 ## <a name="query-container-logs"></a>Kapsayıcı günlüklerini sorgulama
 
-Log Analytics potansiyel olarak binlerce günlük çıkışı satırından bilgileri çekmek için kapsamlı bir [sorgu dili][query_lang] içerir.
+Azure İzleyici günlüklerine içeren kapsamlı bir [sorgu dilini] [ query_lang] günlük çıktı satırları binlerce bilgilerinden çekmek için.
 
 Azure Container Instances günlüğe yazma aracı girdileri Log Analytics çalışma alanınızın `ContainerInstanceLog_CL` tablosuna gönderir. Bir sorgunun temel yapısı bir kaynak tablo (`ContainerInstanceLog_CL`) ve bunu izleyen dikey çizgi karakteriyle (`|`) ayrılmış bir işleç dizisidir. Sonuçları daraltmak ve gelişmiş işlevleri gerçekleştirmek için çeşitli işleçleri zincirleyebilirsiniz.
 
@@ -130,11 +132,11 @@ ContainerInstanceLog_CL
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure izleme günlükleri
 
-Azure Log Analytics’te günlükleri sorgulama ve uyarıları yapılandırma hakkında daha fazla bilgi için bkz.
+Günlükleri sorgulamak ve Azure İzleyici günlüklerine uyarılarını yapılandırma hakkında daha fazla bilgi için bkz:
 
-* [Log Analytics’te günlük aramalarını anlama](../log-analytics/log-analytics-log-search.md)
+* [Azure İzleyici günlüklerine'te günlük aramalarını anlama](../log-analytics/log-analytics-log-search.md)
 * [Azure İzleyici’de birleştirilmiş uyarılar](../azure-monitor/platform/alerts-overview.md)
 
 

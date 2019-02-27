@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: geg
-ms.openlocfilehash: b919adbaf665055ee19df9b9167984cc29388032
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 370428213414d1048478cb8413d45e2a39992e39
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428747"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887531"
 ---
 # <a name="restore-azure-vms"></a>Azure VM'lerini geri yükleme
 
@@ -76,7 +76,7 @@ Biri olarak [geri yükleme seçenekleri](#restore-options), bir VM hızlıca ger
 Biri olarak [geri yükleme seçenekleri](#restore-options), geri yükleme noktasından bir disk oluşturabilirsiniz. Ardından diskle aşağıdakilerden birini yapabilirsiniz:
 
 - Ayarları özelleştirmek ve VM dağıtımı tetiklemek için geri yükleme işlemi sırasında oluşturulan şablonu kullanın. Varsayılan şablon ayarları düzenleyin ve VM Dağıtım Şablonu gönderin.
-- [Geri yüklenen diski](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal#option-2-attach-an-existing-disk) var olan bir sanal makineye.
+- [Geri yüklenen diski](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) var olan bir sanal makineye.
 - [Yeni VM oluşturma] (https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks PowerShell kullanarak geri yüklenen disklerden.
 
 

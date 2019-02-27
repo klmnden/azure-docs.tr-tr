@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3babcf0562a2f817f6ebd1fcc66df6d655d905bb
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807159"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889333"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure Klasik abonelik yöneticileri
 
@@ -91,7 +91,7 @@ Hizmet Yöneticisi değiştirmek için iki yolu vardır. Değiştirebileceğiniz
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. Senaryonuz denetimi tarafından desteklenen emin [hizmet yöneticileri değiştirmek için sınırlamalar](#limits).
+1. Hizmet yöneticileri değiştirmek için sınırlamalar denetleyerek senaryonuz desteklenen emin olun.
 
 1. Oturum [Azure portalında](https://portal.azure.com) hesap yöneticisi olarak.
 
@@ -109,7 +109,7 @@ Hizmet Yöneticisi değiştirmek için iki yolu vardır. Değiştirebileceğiniz
 
 ### <a name="account-center"></a>Hesap Merkezi
 
-1. Senaryonuz denetimi tarafından desteklenen emin [hizmet yöneticileri değiştirmek için sınırlamalar](#limits).
+1. Hizmet yöneticileri değiştirmek için sınırlamalar denetleyerek senaryonuz desteklenen emin olun.
 
 1. Oturum [hesap Merkezi](https://account.windowsazure.com/subscriptions) hesap yöneticisi olarak.
 

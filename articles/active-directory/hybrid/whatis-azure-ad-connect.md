@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d364421794452f8ccf95a60ec86a161934c87528
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a29a00c34d4c60e6ba2b4fd6b0b413873301af5c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167992"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888381"
 ---
 # <a name="what-is-azure-ad-connect"></a>Azure AD Connect nedir?
 
@@ -57,7 +57,7 @@ Başlıca yararları ve en iyi uygulamalar:
 
 |Önemli Avantajlar|En İyi Uygulamalar|
 |-----|-----|
-|Gelişmiş güvenlik|[Extranet kilitlemede trendler](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Başarısız oturum açma raporu](how-to-connect-health-adfs.md#risky-ip-report-public-preview)</br>[Gizlilik uyumlu](reference-connect-health-user-privacy.md)|
+|Gelişmiş güvenlik|[Extranet kilitlemede trendler](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Başarısız oturum açma raporu](how-to-connect-health-adfs-risky-ip.md)</br>[Gizlilik uyumlu](reference-connect-health-user-privacy.md)|
 |Hakkında uyarı alın [tüm önemli ADFS sistem sorunları](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Sunucu yapılandırması ve kullanılabilirlik</br>[Performans ve bağlantı](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Düzenli bakım|
 |Kurulumu ve yönetimi kolay|[Hızlı bir aracı yüklemesi](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Aracıyı en sün sürüme otomatik yükseltme</br>Dakikalar içinde portalda veri|
 Zengin [kullanım ölçümleri](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|En çok kullanılan uygulamalar</br>Ağ konumları ve TCP bağlantısı</br>Sunucu başına belirteç istekleri|

@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: 70206fac7bfe34ea1a138437db35720a1f02337d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.date: 02/26/2019
+ms.openlocfilehash: 64e0444c85440a017872aa32017e7d1c47e44e89
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585377"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889790"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL veritabanı yönetilen örneği bağlantı mimarisi
 
@@ -157,7 +157,7 @@ Aşağıdaki gereksinimlere uygun bir sanal ağ içinde ayrılmış bir alt ağ 
 |mı-8-7-nexthop-Internet|8.0.0.0/7|Internet|
 ||||
 
-Ayrıca, sanal ağ geçidi veya sanal ağ Gereci (NVA) üzerinden bir hedef olarak şirket içi özel IP aralıkları içeren tablo yollar trafiği yönlendirmek girişler ekleyebilirsiniz.
+Ayrıca, bir hedef sanal ağ geçidi veya sanal ağ Gereci (NVA) üzerinden şirket içi özel IP aralıklarına sahip trafiği yönlendirmek için rota tablosu girdileri ekleyebilirsiniz.
 
 - **İsteğe bağlı bir özel DNS**: Sanal ağda özel DNS belirtilirse, Azure'nın yinelemeli çözümleyici IP adresi (örneğin, 168.63.129.16) listeye eklenmelidir. Daha fazla bilgi için [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md). Özel DNS sunucusunun ana bilgisayar adlarını aşağıdaki etki alanları ve bunların alt çözümleyebilmesi gerekir: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, ve *microsoftonline-p.com*.
 

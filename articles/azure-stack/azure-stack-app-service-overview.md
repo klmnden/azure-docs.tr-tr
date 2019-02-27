@@ -15,12 +15,12 @@ ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a638d5cdfbd3af46335cfb8e4970306534fc1c3b
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: cbdf864c2c10d5eb1c0f9a903bd186370b96a72f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445993"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879651"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack’te App Service’e genel bakış
 
@@ -53,7 +53,7 @@ Uygulamanız farklı türlerde birden fazla App Service uygulamalarında oluşab
 - İkisini de (ön uç ve api) tek bir web uygulamasına dağıtma
 - Ön uç kodunuzu bir web uygulamasına, arka uç kodunuzu bir API uygulamasına dağıtma.
 
-   [ ![Veri izleme ile app Service'e genel bakış](media/azure-stack-app-service-overview/image01.png "izleme verileri ile App Service'e genel bakış") ](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [![Veri izleme ile app Service'e genel bakış](media/azure-stack-app-service-overview/image01.png "izleme verileri ile App Service'e genel bakış")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
 ## <a name="what-is-an-app-service-plan"></a>App Service planı nedir?
 

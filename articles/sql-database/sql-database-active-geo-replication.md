@@ -11,15 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/26/2019
+ms.openlocfilehash: f6179c14c0a057a08203764316eeb43783cd7fc8
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995080"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887752"
 ---
-# <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Etkin coğrafi çoğaltmayı kullanarak okunabilir ikincil veritabanı oluşturma
+# <a name="creating-and-using-active-geo-replication"></a>Oluşturma ve etkin coğrafi çoğaltma kullanma
 
 Etkin coğrafi çoğaltma, okunabilir ikincil veritabanı veritabanlarını tek tek bir SQL veritabanı sunucusunda aynı veya farklı bir veri merkezi (bölge) oluşturmanıza olanak sağlar, Azure SQL veritabanı özelliğidir.
 
@@ -110,7 +110,7 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 - **Kimlik bilgileri ve güvenlik duvarı kuralları eşitlenmiş durumda tutma**
 
-  Kullanmanızı öneririz [veritabanı güvenlik duvarı kuralları](sql-database-firewall-configure.md) bu kurallar, tüm ikincil veritabanlarını birincil olarak aynı güvenlik duvarı kuralları olduğundan emin olmak için veritabanı kullanılarak çoğaltılabilir. Bu nedenle coğrafi çoğaltmalı veritabanı. Bu yaklaşım el ile yapılandırmak ve hem birincil ve ikincil veritabanlarını barındıran sunucu güvenlik duvarı kurallarını sağlamak müşterilerin ihtiyacını ortadan kaldırır. Benzer şekilde, kullanarak [kapsanan veritabanı kullanıcıları](sql-database-manage-logins.md) veriler için birincil ve ikincil veritabanları her zaman sahip aynı erişim sağlar. kullanıcı kimlik bilgilerini bir yük devretme sırasında bu yüzden hiçbir kesinti nedeniyle oturum açma ve parolaları ile uyuşmuyor. Ek olarak [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), müşteriler, hem birincil hem de ikincil veritabanları için kullanıcı erişimini yönetebilir ve yönetme gereksinimini ortadan kimlik bilgileri veritabanlarında tamamen.
+Kullanmanızı öneririz [veritabanı güvenlik duvarı kuralları](sql-database-firewall-configure.md) bu kurallar, tüm ikincil veritabanlarını birincil olarak aynı güvenlik duvarı kuralları olduğundan emin olmak için veritabanı kullanılarak çoğaltılabilir. Bu nedenle coğrafi çoğaltmalı veritabanı. Bu yaklaşım el ile yapılandırmak ve hem birincil ve ikincil veritabanlarını barındıran sunucu güvenlik duvarı kurallarını sağlamak müşterilerin ihtiyacını ortadan kaldırır. Benzer şekilde, kullanarak [kapsanan veritabanı kullanıcıları](sql-database-manage-logins.md) veriler için birincil ve ikincil veritabanları her zaman sahip aynı erişim sağlar. kullanıcı kimlik bilgilerini bir yük devretme sırasında bu yüzden hiçbir kesinti nedeniyle oturum açma ve parolaları ile uyuşmuyor. Ek olarak [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), müşteriler, hem birincil hem de ikincil veritabanları için kullanıcı erişimini yönetebilir ve yönetme gereksinimini ortadan kimlik bilgileri veritabanlarında tamamen.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Yükseltme veya bir birincil veritabanı önceki sürüme indirme
 
@@ -125,6 +125,16 @@ Geniş alan ağları yüksek gecikme nedeniyle, sürekli kopyalama bir zaman uyu
 
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** yük devretmeden sonra veri kaybı yaşanmasını önler, ancak tam eşitleme yönelik okuma erişimi garanti etmez. Gecikme nedeniyle bir **sp_wait_for_database_copy_sync** yordam çağrısı önemli ölçüde fazla olabilir ve aramanın zaman işlem günlüğünün boyutuna bağlıdır.
+
+## <a name="monitoring-geo-replication-lag"></a>Coğrafi çoğaltma gecikmesi izleme
+
+Lag RPO'ya göre izlemek için kullanabilirsiniz *replication_lag_sec* sütununun [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) birincil veritabanı. Kabul edilen birincil ve ikincil kalıcı işlemleri arasındaki saniye cinsinden gecikme gösterir. Örneğin gecikme değeri 1 saniyedir, birincil şu anda bir kesintisinden etkilenirse anlamına gelir ve yük devretme intiated, 1 saniye, en son transtions kaydedilmeyecek. 
+
+İkincil bölgeden okumak başka bir deyişle kullanılabilir ikincil uygulanmış olan değişikliklere birincil veritabanında lag ölçmek için karşılaştırma *last_commit* zaman ikincil veritabanı birincil aynı değere sahip Veritabanı.
+
+> [!NOTE]
+> Bazen *replication_lag_sec* birincil veritabanının birincil şu anda ne kadar ikincil olduğunu bilmez, yani bir NULL değerine sahip.   Bu genellikle sonra işlemi yeniden başlatır ve gereken olur geçici bir durum olabilir. Uygulama, uyarı göz önünde bulundurun *replication_lag_sec* uzun bir süre için NULL döndürür. Bunu kalıcı bir bağlantı hatası nedeniyle birincil ile ikincil veritabanı iletişim kuramıyor gösterir. Ayrıca arasındaki farkı neden olabilecek koşullar vardır *last_commit* ikincil ve büyük boyutlu hale gelmesi için birincil veritabanında zaman. Örneğin bir işleme hiçbir değişiklik uzun bir süre sonra birincil yaptıysanız fark hızla 0 olarak dönmeden önce kadar büyük bir değere atlayacaktır. Bu iki değer arasındaki farkı uzun bir süredir büyük kaldığında bir hata durumu göz önünde bulundurun.
+
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Etkin coğrafi çoğaltma programlama yoluyla yönetme
 

@@ -1,6 +1,6 @@
 ---
-title: Apache Kafka - Azure HDInsight için log Analytics
-description: Log Analytics, Azure HDInsight üzerinde Apache Kafka kümesi günlükleri analiz etmek için kullanmayı öğrenin.
+title: Apache Kafka - Azure HDInsight için Azure izleme günlükleri
+description: Azure HDInsight üzerinde Apache Kafka kümesi günlükleri analiz etmek için Azure İzleyici günlüklerine kullanmayı öğrenin.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,37 +9,39 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 0862bcb2c04f3a8cd46a5e60644ebbb8c7735e51
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 65416a00ebd487e80625e4f3c8d8a95b5995daa9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729976"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886579"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka için günlüklerini çözümleme
 
-HDInsight üzerinde Apache Kafka tarafından oluşturulan günlükleri analiz etmek için log Analytics kullanmayı öğrenin.
+HDInsight üzerinde Apache Kafka tarafından oluşturulan günlükleri analiz etmek için Azure İzleyici günlüklerine kullanmayı öğrenin.
 
-## <a name="enable-log-analytics-for-apache-kafka"></a>Apache Kafka için log Analytics etkinleştir
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-HDInsight için log Analytics etkinleştirme adımları tüm HDInsight kümeleri için aynıdır. Gerekli hizmetlerini oluşturup yapılandırın anlamak için aşağıdaki bağlantıları kullanın:
+## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Azure İzleyici günlüklerine için Apache kafka'yı etkinleştir
+
+HDInsight için Azure İzleyici günlüklerine etkinleştirme adımları tüm HDInsight kümeleri için aynıdır. Gerekli hizmetlerini oluşturup yapılandırın anlamak için aşağıdaki bağlantıları kullanın:
 
 1. Bir Log Analytics çalışma alanı oluşturun. Daha fazla bilgi için [bir Log Analytics çalışma alanını kullanmaya başlama](https://docs.microsoft.com/azure/log-analytics) belge.
 
 2. HDInsight kümesinde Kafka oluşturmak. Daha fazla bilgi için [HDInsight üzerinde Apache Kafka kullanmaya başlama](apache-kafka-get-started.md) belge.
 
-3. Log Analytics'i kullanmak için Kafka kümesi yapılandırın. Daha fazla bilgi için [HDInsight izlemek için Log Analytics'i kullanmak](../hdinsight-hadoop-oms-log-analytics-tutorial.md) belge.
+3. Kafka kümesi, Azure İzleyici günlüklerine kullanmak için yapılandırın. Daha fazla bilgi için [kullanımı Azure İzleyici günlükleri HDInsight izlemek için](../hdinsight-hadoop-oms-log-analytics-tutorial.md) belge.
 
     > [!NOTE]  
-    > Log Analytics kullanarak kümeye de yapılandırabilirsiniz `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet'i. Bu cmdlet, aşağıdaki bilgileri gerektirir:
+    > Azure İzleyici günlüklerine kullanarak kümeye de yapılandırabilirsiniz `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet'i. Bu cmdlet, aşağıdaki bilgileri gerektirir:
     >
     > * HDInsight kümesi adı.
-    > * Log Analytics çalışma alanı kimliği. Çalışma alanı kimliği, Log Analytics çalışma alanında bulabilirsiniz.
-    > * Log Analytics bağlantısı için birincil anahtar. Birincil anahtar, açık, Azure portalında çalışma alanını bulmak için seçin __Gelişmiş ayarlar__ sol menüden. Gelişmiş ayarları seçin __bağlı kaynaklar__>__Linux sunucuları__.
+    > * Azure İzleyici günlüklerine çalışma alanı kimliği. Çalışma alanı kimliği, Log Analytics çalışma alanında bulabilirsiniz.
+    > * Log analytics bağlantısını için birincil anahtarı. Birincil anahtar, açık, Azure portalında çalışma alanını bulmak için seçin __Gelişmiş ayarlar__ sol menüden. Gelişmiş ayarları seçin __bağlı kaynaklar__>__Linux sunucuları__.
 
 
 > [!IMPORTANT]  
-> Bu veriler, Log Analytics için kullanılabilir olmadan önce yaklaşık 20 dakika sürebilir.
+> Bu, veri için Azure İzleyici günlüklerine kullanılabilir olmadan önce yaklaşık 20 dakika sürebilir.
 
 ## <a name="query-logs"></a>Sorgu günlükleri
 
@@ -72,7 +74,7 @@ HDInsight için log Analytics etkinleştirme adımları tüm HDInsight kümeleri
  
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Log Analytics hakkında daha fazla bilgi için bkz. [bir Log Analytics çalışma alanını kullanmaya başlama](../../log-analytics/log-analytics-get-started.md) belge.
+Azure İzleyici hakkında daha fazla bilgi için bkz. [Azure İzleyiciye Genel Bakış](../../log-analytics/log-analytics-get-started.md) belge.
 
 Apache Kafka ile çalışma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 

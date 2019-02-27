@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 1fa85fa26594ef6e5df2d05bb3bcc34e5689c3be
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1fb9917e30a88cf5a68c9e170d66eeaa1d477deb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728412"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877155"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -311,7 +311,7 @@ Kullanabileceğiniz **bölge Yönetimi** Azure Stack kaydın başarılı olduğu
 
 3. Seçin **özellikleri**. Bu dikey pencere, ortamınızın ayrıntılarını ve durumunu gösterir. Durum olabilir **kayıtlı** veya **kayıtlı**.
 
-    [ ![Bölge Yönetimi kutucuğu](media/azure-stack-registration/admin1sm.png "bölge Yönetimi kutucuğu") ](media/azure-stack-registration/admin1.png#lightbox)
+    [![Bölge Yönetimi kutucuğu](media/azure-stack-registration/admin1sm.png "bölge Yönetimi kutucuğu")](media/azure-stack-registration/admin1.png#lightbox)
 
     Kayıtlı, özellikler şunlardır:
     

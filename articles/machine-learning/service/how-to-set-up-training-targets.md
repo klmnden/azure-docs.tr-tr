@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2fd6321dcdcb8102b38217eb377ae3c200d5d737
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a549a46912b0d60f878a18cae1e70a763afc0243
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818570"
+ms.locfileid: "56874707"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama
 
@@ -46,6 +46,7 @@ Azure Machine Learning hizmeti farklı işlem hedef arasında değişen desteğe
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
 |[Azure Data Lake Analytics'i](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 **Tüm hedefler için birden fazla eğitim işleri yeniden kullanılabilir işlem**. Örneğin, uzak bir VM çalışma alanınıza eklediğiniz sonra birden çok iş için kullanabilirsiniz.
 
@@ -240,6 +241,42 @@ Azure HDInsight, büyük veri analizi için popüler bir platformdur. Apache Spa
 
 İşlem bağlı ve çalıştırma yapılandırılmış göre sonraki adım olarak [eğitim çalıştırma gönderme](#submit).
 
+
+### <a id="azbatch"></a>Azure Batch 
+
+Azure Batch, büyük ölçekli paralel ve yüksek performanslı hesaplama (HPC) uygulamalarını bulutta verimli bir şekilde çalıştırmak için kullanılır. AzureBatchStep bir Azure Machine Learning işlem hattı, bir Azure Batch havuzu makinelerin iş göndermek için kullanılabilir.
+
+Azure Batch işlem hedefi olarak eklemek için Azure Machine Learning SDK'yı kullanın ve aşağıdaki bilgileri sağlayın:
+
+-   **Azure Batch işlem adı**: Çalışma alanı içinde bir işlem için kullanılacak bir kolay ad
+-   **Azure Batch hesabı adı**: Azure Batch hesabı adı
+-   **Kaynak grubu**: Azure Batch hesabını içeren kaynak grubu.
+
+Aşağıdaki kod, Azure Batch işlem hedefi olarak eklemek gösterilmektedir:
+
+```python
+from azureml.core.compute import ComputeTarget, BatchCompute
+from azureml.exceptions import ComputeTargetException
+
+batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+
+# Batch account details needed to attach as compute to workspace
+batch_account_name = "<batch_account_name>" # Name of the Batch account
+batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+
+try:
+    # check if the compute is already attached
+    batch_compute = BatchCompute(ws, batch_compute_name)
+except ComputeTargetException:
+    print('Attaching Batch compute...')
+    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    batch_compute.wait_for_completion()
+    print("Provisioning state:{}".format(batch_compute.provisioning_state))
+    print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
+
+print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
+```
 
 ## <a name="set-up-compute-in-the-azure-portal"></a>Azure Portalı'nda işlem ayarlama
 

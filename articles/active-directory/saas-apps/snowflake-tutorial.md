@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7bc6b57122072c2fe0c063c1278cf11d97469b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191326"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Öğretici: Snowflake ile Azure Active Directory Tümleştirme
 
@@ -141,7 +141,7 @@ Azure AD çoklu oturum açma ile Snowflake yapılandırmak için aşağıdaki ad
     > [!NOTE]
     > Bu sağ üst köşedeki kullanıcı adınızın altındaki seçtiğiniz bağlamdan ayrı
     
-    ![Snowflake yönetici ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![Snowflake yönetici](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 10. Açık **Base 64 sertifika indirilen** Defteri'nde. "---BEGIN CERTIFICATE---" arasında bir değer kopyalayın ve "---END CERTIFICATE---" Bu yanındaki tırnak işaretleri yapıştırın **sertifika** aşağıda. İçinde **ssoUrl**, Yapıştır **oturum açma URL'si** Azure portaldan kopyaladığınız değeri. Seçin **tüm sorguları** tıklatıp **çalıştırma**.
 
@@ -219,11 +219,11 @@ Snowflake için oturum açmak Azure AD kullanıcılarının etkinleştirmek içi
 
 2. **Geçiş rol** için **ACCOUNTADMIN**, tıklayarak **profili** sayfanın üst sağ taraftaki.  
 
-    ![Snowflake yönetici ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![Snowflake yönetici](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 3. Çalıştırarak oluşturacağı SQL sorgusunun altına "Oturum açma adı" sağlayarak Azure AD kullanıcı adı çalışma sayfasındaki aşağıda gösterildiği gibi ayarlanır.
 
-    ![Snowflake adminsql ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+    ![Snowflake adminsql](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
 
     ```
     use role accountadmin;
@@ -238,9 +238,9 @@ Erişim paneli Snowflake kutucuğa tıkladığınızda, size otomatik olarak SSO
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

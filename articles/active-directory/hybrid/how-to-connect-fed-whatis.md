@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54aab6e9718b5a4a55cf2a3f9c472e9e02a53ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191087"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869556"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect ve federasyon
 Azure Active Directory (Azure AD) Connect sağlar ile Federasyonu yapılandırma şirket içi Active Directory Federasyon Hizmetleri (AD FS) ve Azure AD. Federasyon oturum açma ile kullanıcılar parolalarını yeniden girmek zorunda kalmadan şirket ağ üzerindeyken, Azure AD tabanlı hizmetler ile şirket içi parolalarını--ve için oturum açabilir etkinleştirebilirsiniz. AD FS ile Federasyon seçeneğini kullanarak yeni bir AD FS yüklemesini dağıtabilir veya bir Windows Server 2012 R2 grubunda var olan bir yüklemesini belirtebilirsiniz.
@@ -36,7 +36,7 @@ Bu konu Azure AD Connect'i Federasyon ile ilgili işlevler hakkında bilgi için
 | **Azure AD Connect kullanarak AD FS'yi yükleyin** | |
 | [Önkoşullar](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Azure AD Connect aracılığıyla başarılı bir AD FS yükleme önkoşullarını bakın. |
 | [AD FS grubu Yapılandır](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Yeni bir AD FS grubu, Azure AD Connect kullanarak yükleyin. |
-| [Alternatif bir oturum açma Kimliğini kullanarak Azure AD ile federasyona ](how-to-connect-fed-management.md#alternateid) | Alternatif oturum açma kimliği kullanarak Federasyonu yapılandırma  |
+| [Alternatif bir oturum açma Kimliğini kullanarak Azure AD ile federasyona](how-to-connect-fed-management.md#alternateid) | Alternatif oturum açma kimliği kullanarak Federasyonu yapılandırma  |
 | **AD FS yapılandırmasını değiştirme** | |
 | [Güveni onarın](how-to-connect-fed-management.md#repairthetrust) |Onarım geçerli güven arasında AD FS ve Office 365/Azure şirket içi. |
 | [Yeni bir AD FS Sunucusu Ekle](how-to-connect-fed-management.md#addadfsserver) |İlk yüklemeden sonra ek AD FS sunucusu ile bir AD FS grubunu genişletin. |

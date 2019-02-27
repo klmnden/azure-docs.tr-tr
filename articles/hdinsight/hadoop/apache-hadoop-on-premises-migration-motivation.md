@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 73a2f0754cafaa5da09ebd437ecd62813296ffd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000441"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890088"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Azure HDInsight için - amacı ve yararları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -54,7 +54,7 @@ Azure HDInsight, kaynaklı Hadoop bileşenlerinin bulut dağıtımıdır [Horto
 
 - **Özel araçları veya üçüncü taraf uygulamaları ile genişletilebilirlik** -HDInsight kümeleri ile yüklü bileşenlerin uzatılabilir ve kullanarak diğer büyük veri çözümleriyle de tümleştirilebilir [tek tıklamayla](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)  Azure Marketi dağıtımları.
 
-- **Kolay yönetim, yönetim ve izleme** -Azure HDInsight ile tümleştirilir [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md) ile izlemek için kullanabileceğiniz tüm kümelerinizi tek bir arabirim sağlamak üzere.
+- **Kolay yönetim, yönetim ve izleme** -Azure HDInsight ile tümleştirilir [Azure İzleyici günlükleri](../hdinsight-hadoop-oms-log-analytics-tutorial.md) ile izlemek için kullanabileceğiniz tüm kümelerinizi tek bir arabirim sağlamak üzere.
 
 - **Diğer Azure hizmetleriyle tümleştirme** -HDInsight kolayca tümleştirilebilir aşağıdaki gibi diğer popüler Azure hizmetleriyle:
 
@@ -83,16 +83,16 @@ Aşağıdaki adımlar, Azure HDInsight şirket içi Hadoop kümelerine geçişin
 Bu bölüm hakkında önemli bilgiler toplamak amacıyla şablon soru sağlar:
 
 - Şirket içi dağıtım
-- Proje Ayrıntıları
+- Proje ayrıntıları
 - Azure gereksinimleri
 
 ### <a name="on-premises-deployment-questionnaire"></a>Şirket içi dağıtım anketi
 
 | **Soru** | **Örnek** | **Yanıt** |
 |---|---|---|
-|**Konu**: **ortamı**|||
+|**konu**: **Ortam**|||
 |Küme dağıtım türü|Hortonworks, Cloudera, MapR| |
-|Küme dağıtım sürümü|2.6.5, CDH 5.7 HDP|
+|Küme dağıtım sürümü|HDP 2.6.5, CDH 5.7|
 |Büyük veri ekonomik sistemi bileşenleri|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Küme türleri|Hadoop, Spark, Confluent Kafka, Storm, Solr|
 |Küme sayısı|4|
@@ -108,7 +108,7 @@ Bu bölüm hakkında önemli bilgiler toplamak amacıyla şablon soru sağlar:
 |Olağanüstü Durum Kurtarma / yedekleme|Yedekleme kümesi?|  
 |Kümede bağımlı sistemleri|SQL Server, Teradata, Power BI, MongoDB|
 |Üçüncü taraf tümleştirme|Tableau, GridGain Qubole, Informatica, Splunk|
-|**Konu**: **güvenlik**|||
+|**konu**: **Güvenlik**|||
 |Çevre güvenliği|Güvenlik Duvarları|
 |Küme kimlik doğrulaması ve yetkilendirme|Active Directory, Ambari, Cloudera Yöneticisi, kimlik doğrulama yok|
 |HDFS erişim denetimi|  El ile ssh kullanıcıları|
@@ -123,62 +123,62 @@ Bu bölüm hakkında önemli bilgiler toplamak amacıyla şablon soru sağlar:
 
 |**Soru**|**Örnek**|**Yanıt**|
 |---|---|---|
-|**Konu**: **iş yükleri ve sıklığı**|||
+|**konu**: **İş yükleri ve sıklığı**|||
 |MapReduce işleri|10 işleri--günde iki kez||
 |Hive işleri|100 iş--her saat||
 |Spark toplu işler|50 işleri--15 dakikada bir||
 |Spark akış işleri|5 iş--3 dakikada bir||
 |Yapılandırılmış akış işleri|5 iş--dakika başı||
 |ML Model eğitim işleri|bir hafta içerisinde bir kez 2 iş--||
-|Programlama Dilleri|Python, Scala ve Java||
+|Programlama Dilleri|Python, Scala, Java||
 |Komut dosyaları|Shell, Python||
-|**Konu**: **veri**|||
+|**konu**: **Veriler**|||
 |Veri kaynakları|Düz dosyaları, Json, Kafka, RDBMS||
 |Verileri düzenleme|Oozie iş akışları, hava akışı||
 |Bellek arama|Apache Ignite, ignite Redis||
 |Veri hedefleri|HDFS, RDBMS, Kafka, MPP ||
-|**Konu**: **Meta verileri**|||
+|**konu**: **Meta verileri**|||
 |Hive veritabanı türü|MySQL, Postgres||
 |Hayır. Hive meta depolar|2||
 |Hayır. Hive tabloları|100||
 |Hayır. Ranger ilkeleri|20||
 |Hayır. Oozie iş akışları|100||
-|**Konu**: **ölçek**|||
+|**konu**: **Ölçeklendirme**|||
 |Çoğaltma dahil olmak üzere veri hacmi|100 TB||
 |Günlük alımı hacmi|50 GB||
 |Veri büyüme oranı|yıl başına %10||
 |Küme düğümleri büyüme oranı|%5 yılda
-|**Konu**: **küme kullanımı**|||
-|Ortalama CPU yüzdesi|60%||
-|Ortalama bellek yüzdesi|% 75||
-|Kullanılan disk alanı|% 75||
+|**konu**: **Küme kullanımı**|||
+|Ortalama CPU yüzdesi|%60||
+|Ortalama bellek yüzdesi|75%||
+|Kullanılan disk alanı|75%||
 |Ortalama ağ yüzdesi|%25
-|**Konu**: **ekibi**|||
+|**konu**: **Ekibi**|||
 |Hayır. Yöneticileri|2||
 |Hayır. Geliştiriciler|10||
 |Hayır. Son kullanıcıları|100||
 |Beceriler|Hadoop, Spark||
 |Hayır. Geçiş çalışmalarında kullanılabilir kaynakları|2||
-|**Konu**: **sınırlamaları**|||
+|**konu**: **Sınırlamalar**|||
 |Geçerli sınırlamalar|Gecikmesi||
 |Geçerli zorlukları|Eşzamanlılık sorunu||
 
 ### <a name="azure-requirements-questionnaire"></a>Azure gereksinimleri anketi
 
-|**Konu**: **altyapı** |||
+|**konu**: **Altyapı** |||
 |---|---|---|
 |**Soru**|**Örnek**|**Yanıt**|
-| Tercih edilen bölge|ABD Doğu||
+| Tercih Edilen Bölge|ABD Doğu||
 |Tercih edilen VNet?|Evet||
 |HA / DR gerekli?|Evet||
 |Diğer bulut hizmetleriyle tümleştirme?|ADF, CosmosDB||
-|**Konu**: **veri taşıma**  |||
+|**konu**:   **Veri Taşıma**  |||
 |İlk yükleme tercihi|DistCp, veri, ADF, WANDisco kutusu||
 |Veri aktarımı değişim|DistCp, AzCopy||
 |Sürekli artımlı veri aktarımı|DistCp, Sqoop||
-|**Konu**: **izleme ve uyarı** |||
+|**konu**:   **İzleme ve uyarı** |||
 |Azure izleme ve uyarı Vs tümleştirme üçüncü taraf izleme kullanın|İzleme ve uyarı Azure kullanın||
-|**Konu**: **güvenlik tercihleri** |||
+|**konu**:   **Güvenlik tercihleri** |||
 |Özel ve korumalı veri işlem hattı?|Evet||
 |Etki alanına katılmış kümeye (ESP)?|     Evet||
 |Böylece, şirket içinde AD eşitleme buluta?|     Evet||
@@ -191,7 +191,7 @@ Bu bölüm hakkında önemli bilgiler toplamak amacıyla şablon soru sağlar:
 |Denetim gerekli?|                  Evet||
 |Bekleyen verileri şifreleme?|          Evet||
 |Aktarımdaki verileri şifreleme?|       Evet||
-|**Konu**: **Re mimarisi tercihleri** |||
+|**konu**:   **RE mimarisi tercihleri** |||
 |Tek küme vs belirli küme türlerinin|Belirli küme türlerinin||
 |Birlikte bulunan depolama Vs Uzak Depolama?|Uzaktaki Depolama Birimi||
 |Veri olarak daha küçük bir küme boyutu uzaktan depolanır?|Daha küçük bir küme boyutu||

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 716c229fbd906798d39bf4ef54ba1f47cd5bd980
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 89b311edbae6b5f6679908b5d07b22b402b5c55e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651048"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888075"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ekleme, değiştirme veya bir Azure ağ arabirimi için IP adreslerini kaldırın
 
@@ -61,9 +61,9 @@ Kadar ekleyebilirsiniz [özel](#private) ve [genel](#public) [IPv4](#ipv4) adres
 
 **Komutları**
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
-|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create)|
+|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
 
 ## <a name="change-ip-address-settings"></a>IP adresi ayarlarını değiştir
@@ -82,9 +82,9 @@ Gerektiğinde bir IPv4 adresi atama yöntemini değiştirmek için statik IPv4 a
 
 **Komutları**
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
-|CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="remove-ip-addresses"></a>IP adreslerini kaldırın
@@ -98,9 +98,9 @@ Kaldırabilirsiniz [özel](#private) ve [genel](#public) bir ağ arabirimi IP ad
 
 **Komutları**
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
-|CLI|[az ağ NIC IP yapılandırmasını Sil](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_delete)|
+|CLI|[az ağ NIC IP yapılandırmasını Sil](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Remove-AzNetworkInterfaceIpConfig](/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>IP yapılandırmaları
@@ -204,7 +204,7 @@ Genel bir IP adresi, temel veya standart SKU ile oluşturulur. SKU farklılıkla
 ## <a name="next-steps"></a>Sonraki adımlar
 Farklı IP yapılandırması içeren bir sanal makine oluşturmak için bu makaleleri okuyun:
 
-|Görev|Aracı|
+|Görev|Tool|
 |---|---|
 |Birden çok ağ arabirimi ile VM oluşturma|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Birden çok IPv4 adresi ile tek bir NIC VM oluşturma|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

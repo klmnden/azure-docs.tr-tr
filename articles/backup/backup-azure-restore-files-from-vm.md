@@ -7,14 +7,14 @@ manager: shivamg
 keywords: öğe düzeyinde kurtarma; Dosya Kurtarma Azure VM yedeklemesi; Azure VM'den dosyaları geri yükleme
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/22/2018
-ms.author: pvrk
-ms.openlocfilehash: c267b3a8289d87402647a399376161cf18716112
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 2/26/2019
+ms.author: pullabhk
+ms.openlocfilehash: 4bae9a09dad217b8d805a64372ed404eb7ada723
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488501"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874180"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure sanal makine yedeklemesinden dosya kurtarma
 
@@ -73,11 +73,15 @@ Kurtarma noktasından dosyaları veya klasörleri geri yüklemek için sanal mak
         - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Azure Almanya için)
     - Giden bağlantı noktası 3260
 
-    Linux için komut dosyası kurtarma noktasına bağlanmak için 'open-iSCSI' ve 'lshw' bileşenleri gerektirir. Bileşenleri betiğin çalıştırıldığı bilgisayarda mevcut değilse, komut dosyası bileşenleri yüklemek için izin ister. Rıza sağlamanın gerekli bileşenleri yüklemek için.
+> [!Note]
+> İndirilen betik dosyası adı "coğrafi-URL'de doldurulacak adı" olacaktır. İçin örn: İndirdiğiniz betiğin adı ile başlayan \'VMname\'\_\'geoname\'_\'GUID\', ister ContosoVM_wcus_12345678... URL şu şekilde olacaktır "https://pod01-rec2.wcus.backup.windowsazure.com"
+> 
 
-    Download.microsoft.com erişimi, betiğin çalıştırıldığı makine ve kurtarma noktası verilerinde arasında güvenli bir kanal oluşturmak için kullanılan bileşenleri yüklemek için gereklidir.
-
-    Yedeklenen sanal makine olarak aynı (veya uyumlu) işletim sistemi olan herhangi bir makinede kod çalıştırabilirsiniz. Bkz: [uyumlu işletim sistemi tablo](backup-azure-restore-files-from-vm.md#system-requirements) uyumlu işletim sistemleri için. Korumalı bir Azure sanal makine Windows depolama alanları (Windows Azure sanal makineler için) veya LVM/RAID diziler (için Linux Vm'leri) kullanıyorsa, aynı sanal makinede yürütülebilir veya betik çalıştırılamıyor. Bunun yerine, uyumlu bir işletim sistemine sahip diğer herhangi bir makinede yürütülebilir veya betik çalıştırın.
+   Linux için komut dosyası kurtarma noktasına bağlanmak için 'open-iSCSI' ve 'lshw' bileşenleri gerektirir. Bileşenleri betiğin çalıştırıldığı bilgisayarda mevcut değilse, komut dosyası bileşenleri yüklemek için izin ister. Rıza sağlamanın gerekli bileşenleri yüklemek için.
+   
+   Download.microsoft.com erişimi, betiğin çalıştırıldığı makine ve kurtarma noktası verilerinde arasında güvenli bir kanal oluşturmak için kullanılan bileşenleri yüklemek için gereklidir.
+   
+   Yedeklenen sanal makine olarak aynı (veya uyumlu) işletim sistemi olan herhangi bir makinede kod çalıştırabilirsiniz. Bkz: [uyumlu işletim sistemi tablo](backup-azure-restore-files-from-vm.md#system-requirements) uyumlu işletim sistemleri için. Korumalı bir Azure sanal makine Windows depolama alanları (Windows Azure sanal makineler için) veya LVM/RAID diziler (için Linux Vm'leri) kullanıyorsa, aynı sanal makinede yürütülebilir veya betik çalıştırılamıyor. Bunun yerine, uyumlu bir işletim sistemine sahip diğer herhangi bir makinede yürütülebilir veya betik çalıştırın.
 
 ### <a name="identifying-volumes"></a>Birimleri tanımlama
 
@@ -199,6 +203,11 @@ Linux'ta, korunan sanal makinenin dosya sistemi dosyaları geri yüklemek için 
 | Oracle Linux | 6.4 ve üzeri |
 | SLES | 12 ve üzeri |
 | openSUSE | 42.2 ve üzeri |
+
+> [!Note]
+> Dosya Kurtarma betiği SLES 12 SP4 işletim sistemi ile makinelerde çalışan bazı sorunlar bulduk. SLES ekibiyle incelemektedir.
+> Şu anda, çalışır dosya kurtarma betiği SLES 12 SP2 ve SP3 işletim sistemi sürümlerine sahip makineler üzerinde çalışıyor.
+>
 
 Betiği yürütün ve güvenli bir şekilde kurtarma noktasına bağlanmak için Python ve bash bileşenleri de gerektirir.
 

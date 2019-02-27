@@ -1,6 +1,6 @@
 ---
 title: Stream Azure Event hubs'a veri izleme
-description: Tüm Azure izleme verilerinizi analiz aracı ve bir iş ortağı SIEM verilerini almak için bir olay hub'ına akışı yapmayı öğrenin.
+description: Azure izleme verilerinizi analiz aracı ve bir iş ortağı SIEM verilerini almak için bir olay hub'ına akışı yapmayı öğrenin.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468242"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870695"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure harici bir aracı tarafından veri tüketimi için olay hub'ına izleme
 
-Azure İzleyici, tüm Azure ortamınızı verilerden izleme, iş ortağı SIEM ' kolayca ayarlamanıza olanak sağlayan ve izleme araçları, veri tüketmek için erişim almak için tek bir işlem hattını sağlar. Bu makalede, Azure ortamınızdan veri farklı katmandan ayarlama burada dış bir araç tarafından toplanabilir bir tek Event Hubs ad alanı veya olay hub'ına gönderilecek aracılığıyla gösterilmektedir.
+Bu makalede, Azure ortamınızdan veri farklı katmandan ayarlama burada dış bir araç tarafından toplanabilir bir tek Event Hubs ad alanı veya olay hub'ına gönderilecek aracılığıyla gösterilmektedir.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
@@ -33,7 +33,7 @@ Azure ortamınızda 'izleme verilerinin çeşitli katmanları' vardır ve her bi
 - **Azure aboneliği: izleme verileri** Azure işlem ve sistem durumu hakkında veriler yanı sıra, işlem ve bir Azure aboneliğinin yönetim verileri kendisini. [Etkinlik günlüğü](./../../azure-monitor/platform/activity-logs-overview.md) izleme verileri, hizmet durumu olayları ve Azure Resource Manager denetimleri gibi çoğu abonelik içerir. Günlük profilini kullanarak bu verileri toplayabilir.
 - **İzleme verilerini azure kiracısı:** Azure Active Directory gibi Azure hizmetlerinin Kiracı düzeyinde çalışması hakkında veriler. Azure Active Directory denetimlerimiz ve oturum açma işlemleri izleme verilerini Kiracı örnekleridir. Bu veriler, bir kiracı tanılama ayarını kullanarak toplanabilir.
 
-Herhangi bir katmanı verileri, bir olay hub'ına, burada bir iş ortağı aracına çekilebilir gönderilebilir. Sonraki bölümlerde, verileri olay hub'ına akışla için her katmandan nasıl yapılandırılacağını açıklar. Adımları izlenmesi, o katmanın varlıklar zaten sahip olduğunuzu varsaymaktadır.
+Herhangi bir katmanı verileri, bir olay hub'ına, burada bir iş ortağı aracına çekilebilir gönderilebilir. Bazı kaynakları başka bir işlem sırasında bir mantıksal uygulama gerekli verileri almak için gerekli olduğu gibi doğrudan bir olay hub'ına veri göndermek üzere yapılandırılabilir. Sonraki bölümlerde, verileri olay hub'ına akışla için her katmandan nasıl yapılandırılacağını açıklar. Adımları izlenmesi, o katmanın varlıklar zaten sahip olduğunuzu varsaymaktadır.
 
 ## <a name="set-up-an-event-hubs-namespace"></a>Bir Event Hubs ad alanı ayarlama
 

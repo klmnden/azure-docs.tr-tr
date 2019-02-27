@@ -8,24 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 02/26/2019
 ms.author: pafarley
-ms.openlocfilehash: afe8081032e0358e8e0653e9a2b6aad30ad496a9
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: d14b9c88b447583eedc8b50f4f9acf80ae4e3c75
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651235"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889639"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Bilişsel hizmetler görüntü işleme için Python SDK'sı
 
-Görüntü İşleme hizmeti geliştiricilerin görüntü işlemeye ve bilgi döndürmeye yönelik gelişmiş algoritmalara erişmesini sağlar. Bilgisayar işleme algoritmaları, görüntü içeriğini ilgilendiğiniz görsel özelliklere bağlı olarak, farklı şekillerde analiz edin. Örneğin, görüntü işleme, görüntü yetişkinlere yönelik veya müstehcen içerikli, görüntüdeki yüzleri bulun, resimlerdeki el yazısı veya metin yazdırılan belirleyebilirsiniz. Bu hizmet, JPEG ve PNG gibi popüler görüntü biçimlerini ile birlikte çalışır. 
+Görüntü İşleme hizmeti geliştiricilerin görüntü işlemeye ve bilgi döndürmeye yönelik gelişmiş algoritmalara erişmesini sağlar. Bilgisayar işleme algoritmaları, görüntü içeriğini ilgilendiğiniz görsel özelliklere bağlı olarak, farklı şekillerde analiz edin. 
 
-Görüntü işleme, uygulamanızdaki kullanabilirsiniz:
+* [Resim çözümleme](#analyze-an-image)
+* [Konu etki alanı listesini alma](#get-subject-domain-list)
+* [Etki alanına göre bir resmi çözümleme](#analyze-an-image-by-domain)
+* [Metin açıklama Görüntü Al](#get-text-description-of-an-image)
+* [Resimlerdeki el yazısı görüntüsünü Al](#get-text-from-image)
+* [Küçük resim oluşturma](#generate-thumbnail)
 
-- Öngörü görüntülerini analiz edin
-- Metni ayıklayın
-- Küçük resim oluşturma
+Bu hizmet hakkında daha fazla bilgi için bkz. [görüntü işleme nedir?] [computervision_docs].
 
 Daha fazla belgelerini mi arıyorsunuz?
 
@@ -34,11 +37,21 @@ Daha fazla belgelerini mi arıyorsunuz?
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure aboneliği - [ücretsiz hesap oluşturun][azure_sub]
-* Azure [kaynak görüntü işleme][computervision_resource]
 * [Python 3.6 +][python]
+* Ücretsiz [görüntü işleme anahtarı] [ computervision_resource] ve ilişkili bölge. Örneğini oluşturduğunuzda bu değerlere ihtiyacınız olur [ComputerVisionAPI] [ ref_computervisionclient] istemci nesnesi. Bu değerleri almak için aşağıdaki yöntemlerden birini kullanın. 
 
-Görüntü işleme API'si hesabı gerekiyorsa, bu biriyle oluşturabilirsiniz [Azure CLI] [ azure_cli] komutu:
+### <a name="if-you-dont-have-an-azure-subscription"></a>Bir Azure aboneliğiniz yoksa
+
+Ücretsiz bir anahtar ile 7 gün için geçerli oluşturma **deneyin** karşılaşırsınız. Anahtarı oluştururken anahtar ve bölge adını kopyalayın. Bunun için gerekir [istemcisi oluşturma](#create-client).
+
+Anahtar oluşturulduktan sonra aşağıdakilere dikkat edin:
+
+* Anahtar değerini: biçimi ile 32 karakter dizesi `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 
+* Anahtar bölgesi: uç nokta URL'sinin alt etki alanı https://**westcentralus**. api.cognitive.microsoft.com
+
+### <a name="if-you-have-an-azure-subscription"></a>Bir Azure aboneliğiniz varsa
+
+Görüntü işleme API'si hesabı gerekiyorsa, aboneliğinizdeki oluşturmanın en kolay yöntem aşağıdaki kullanmaktır [Azure CLI] [ azure_cli] komutu. Kaynak grubu adı, örneğin, "cogserv-grubum" ve "my-bilgisayar-işleme-kaynak" gibi bir bilgisayar işleme kaynak adı seçmeniz gerekebilir. 
 
 ```Bash
 RES_REGION=westeurope 
@@ -54,18 +67,20 @@ az cognitiveservices account create \
     --yes
 ```
 
-## <a name="installation"></a>Yükleme
+<!--
+## Installation
 
-Azure Bilişsel hizmetler bilgisayar işleme SDK ile yükleme [pip][pip]isteğe bağlı olarak dahilinde bir [sanal ortam][venv].
+Install the Azure Cognitive Services Computer Vision SDK with [pip][pip], optionally within a [virtual environment][venv].
 
-### <a name="configure-a-virtual-environment-optional"></a>(İsteğe bağlı) bir sanal ortamı yapılandırma
+### Configure a virtual environment (optional)
 
-Gerekli olmamakla birlikte, temel sistem ve Azure SDK'sı ortamlarını kullanırsanız birbirinden yalıtılmış tutabilirsiniz bir [sanal ortam][virtualenv]. Yapılandırmak ve ardından sanal ortamıyla girmek için aşağıdaki komutları yürütün [venv][venv], gibi `cogsrv-vision-env`:
+Although not required, you can keep your base system and Azure SDK environments isolated from one another if you use a [virtual environment][virtualenv]. Execute the following commands to configure and then enter a virtual environment with [venv][venv], such as `cogsrv-vision-env`:
 
 ```Bash
 python3 -m venv cogsrv-vision-env
 source cogsrv-vision-env/bin/activate
 ```
+-->
 
 ### <a name="install-the-sdk"></a>SDK yükle
 
@@ -81,9 +96,20 @@ Görüntü işleme kaynağınızı oluşturduktan sonra ihtiyacınız kendi **b�
 
 Örneği oluşturmak için bu değerleri kullanabilirsiniz [ComputerVisionAPI] [ ref_computervisionclient] istemci nesnesi. 
 
-### <a name="get-credentials"></a>Kimlik bilgilerini al
+<!--
 
-Kullanım [Azure CLI] [ cloud_shell] görüntü işleme hesabıyla iki ortam değişkenleri doldurmak için aşağıdaki kod parçacığında **bölge** ve kendi **anahtarları**(Ayrıca bu değerleri bulabilirsiniz [Azure portalında][azure_portal]). Kod parçacığı, Bash kabuğunda biçimlendirilir.
+For example, use the Bash terminal to set the environment variables:
+
+```Bash
+ACCOUNT_REGION=<resourcegroup-name>
+ACCT_NAME=<computervision-account-name>
+```
+
+### For Azure subscription usrs, get credentials for key and region
+
+If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
+
+Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -101,44 +127,25 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
     --query key1 \
     --output tsv)
 ```
+-->
 
 ### <a name="create-client"></a>İstemcisi oluşturma
 
-Doldurduktan sonra `ACCOUNT_REGION` ve `ACCOUNT_KEY` oluşturabileceğiniz ortam değişkenlerini [ComputerVisionAPI] [ ref_computervisionclient] istemci nesnesi.
+Oluşturma [ComputerVisionAPI] [ ref_computervisionclient] istemci nesnesi. Aşağıdaki kod örneği için kendi değerlerinizi bölge ve anahtar değerleri değiştirin.
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-import os
-region = os.environ['ACCOUNT_REGION']
-key = os.environ['ACCOUNT_KEY']
+region = "westcentralus"
+key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 credentials = CognitiveServicesCredentials(key)
 client = ComputerVisionAPI(region, credentials)
 ```
 
-## <a name="usage"></a>Kullanım
-
-Başlatıldıktan sonra bir [ComputerVisionAPI] [ ref_computervisionclient] istemci nesnesi, şunları yapabilirsiniz:
-
-* Bir resmi çözümleme: Yüzler, renkler, etiketler gibi belirli özellikleri için bir görüntü çözümleyebilirsiniz.   
-* Küçük resim oluşturma: Özgün resmin küçük resim olarak kullanılacak özel bir JPEG görüntüsünü oluşturun.
-* Görüntü açıklamasını alın: Kendi konu etki alanını temel alarak görüntüsünün bir açıklaması alın. 
-
-Bu hizmet hakkında daha fazla bilgi için bkz. [görüntü işleme nedir?] [computervision_docs].
-
-## <a name="examples"></a>Örnekler
-
-Aşağıdaki bölümler birkaç kod parçacıkları dahil olmak üzere en yaygın görüntü işleme görevlerden bazılarını kapsayan sağlar:
-
-* [Resim çözümleme](#analyze-an-image)
-* [Konu etki alanı listesini alma](#get-subject-domain-list)
-* [Etki alanına göre bir resmi çözümleme](#analyze-an-image-by-domain)
-* [Metin açıklama Görüntü Al](#get-text-description-of-an-image)
-* [Resimlerdeki el yazısı görüntüsünü Al](#get-text-from-image)
-* [Küçük resim oluşturma](#generate-thumbnail)
+Gereksinim duyduğunuz bir [ComputerVisionAPI] [ ref_computervisionclient] aşağıdaki görevlerden herhangi birini kullanmadan önce istemci nesnesi.
 
 ### <a name="analyze-an-image"></a>Resim çözümleme
 
@@ -169,8 +176,13 @@ for x in models.models_property:
 Bir görüntü ile konu etki alanına göre analiz edebilirsiniz [ `analyze_image_by_domain` ] [ ref_computervisionclient_analyze_image_by_domain]. Alma [desteklenen konu etki alanları listesi](#get-subject-domain-list) doğru etki alanı adını kullanmak için.  
 
 ```Python
+# type of prediction
 domain = "landmarks"
-url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
+
+# Public domain image of Eiffel tower
+url = "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg"
+
+# English language response
 language = "en"
 
 analysis = client.analyze_image_by_domain(domain, url, language)
@@ -202,6 +214,10 @@ for caption in analysis.captions:
 Bir görüntüden herhangi bir el yazısı veya yazılı metni alabilirsiniz. Bu iki SDK çağrıları gerektirir: [ `recognize_text` ] [ ref_computervisionclient_recognize_text] ve [ `get_text_operation_result` ] [ ref_computervisionclient_get_text_operation_result]. Recognize_text çağrı zaman uyumsuzdur. İlk çağrısı tamamlandı, denetlenecek ihtiyacınız get_text_operation_result arama sonuçlarında [ `TextOperationStatusCodes` ] [ ref_computervision_model_textoperationstatuscodes] metin verileri ayıklama önce. Sonuçları metin için sınırlama kutusu koordinatları yanı sıra metni içerir. 
 
 ```Python
+# import models
+from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
+from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
 raw = True
@@ -231,10 +247,19 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 Küçük resmi (JPG) ile görüntü oluşturabilirsiniz [ `generate_thumbnail` ] [ ref_computervisionclient_generate_thumbnail]. Küçük resim özgün görüntü olarak aynı oranlarını olması gerekmez. 
 
-Bu örnekte [Pillow] [ pypi_pillow] yeni resmine yerel olarak kaydetmek için paketi.
+Yükleme **Pillow** Bu örneği kullanmak için:
+
+```bash
+pip install Pillow
+``` 
+
+Paket aşağıdaki kod örneğinde Pillow yüklendikten sonra küçük resim görüntüsünü oluşturmak için kullanın.
 
 ```Python
+# Pillow package
 from PIL import Image
+
+# IO package to create local image
 import io
 
 width = 50

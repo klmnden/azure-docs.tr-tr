@@ -5,19 +5,15 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: c7622252cd5b375e8c580bfcf7a45806d219d828
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/26/2019
+ms.openlocfilehash: 52f192a179c02e63c394401cce82b51fbe96e92d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900570"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887276"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Nasıl oluşturmak ve yönetmek, Azure portalını kullanarak MySQL için Azure veritabanı çoğaltmalarını okuyun
-
-
-> [!IMPORTANT]
-> Salt okunur çoğaltma özelliği genel Önizleme aşamasındadır.
 
 Bu makalede, oluşturmak ve yönetmek için aynı Azure bölgesindeki Yöneticisi olarak Azure portalını kullanarak MySQL hizmeti için Azure veritabanı salt okunur çoğaltmalar öğreneceksiniz. Bu özellik şu anda genel Önizleme aşamasındadır.
 
@@ -40,18 +36,18 @@ Salt okunur çoğaltma sunucusu, aşağıdaki adımları kullanarak oluşturulab
 
 4. Seçin **çoğaltma ekleme**.
 
-   ![MySQL - çoğaltma için Azure veritabanı ](./media/howto-read-replica-portal/add-replica.png)
+   ![MySQL - çoğaltma için Azure veritabanı](./media/howto-read-replica-portal/add-replica.png)
 
 5. Çoğaltma sunucusu için bir ad girin ve tıklayın **Tamam** oluşturma işlemini onaylamak için.
 
-   ![Azure veritabanı - MySQL için çoğaltma oluşturma ](./media/howto-read-replica-portal/create-replica.png)
+   ![Azure veritabanı - MySQL için çoğaltma oluşturma](./media/howto-read-replica-portal/create-replica.png)
 
 > [!NOTE]
 > Okuma çoğaltmaları aynı sunucu yapılandırma yöneticisi olarak oluşturulur. Çoğaltma sunucusu yapılandırması, oluşturulduktan sonra değiştirilebilir. Çoğaltma sunucusunun yapılandırmasını çoğaltma ana ayak olduğundan emin olmak için ana daha eşit veya daha fazla değerlerinde tutulması gereken önerilir.
 
 Çoğaltma sunucusu oluşturulduktan sonra bunu görüntülenebilir **çoğaltma** dikey penceresi.
 
-   ![MySQL - liste çoğaltmalar için Azure veritabanı ](./media/howto-read-replica-portal/list-replica.png)
+   ![MySQL - liste çoğaltmalar için Azure veritabanı](./media/howto-read-replica-portal/list-replica.png)
 
 ## <a name="stop-replication-to-a-replica-server"></a>Bir çoğaltma sunucusu için çoğaltma durdurma
 
@@ -66,15 +62,15 @@ Bir ana ve Azure portalından bir çoğaltma sunucusu arasında çoğaltmayı du
 
 3. Çoğaltma sunucusu için çoğaltma durdurma istediğiniz seçin.
 
-   ![MySQL - durdurma çoğaltma sunucu için Azure veritabanı ](./media/howto-read-replica-portal/stop-replication-select.png)
+   ![MySQL - durdurma çoğaltma sunucu için Azure veritabanı](./media/howto-read-replica-portal/stop-replication-select.png)
 
 4. Seçin **çoğaltmayı durdurma**.
 
-   ![MySQL - durdurma çoğaltma için Azure veritabanı ](./media/howto-read-replica-portal/stop-replication.png)
+   ![MySQL - durdurma çoğaltma için Azure veritabanı](./media/howto-read-replica-portal/stop-replication.png)
 
 5. Çoğaltma tıklayarak durdurmak istediğinizi onaylamak **Tamam**.
 
-   ![-MySQL için Azure veritabanı çoğaltmasını doğrulayın ](./media/howto-read-replica-portal/stop-replication-confirm.png)
+   ![-MySQL için Azure veritabanı çoğaltmasını doğrulayın](./media/howto-read-replica-portal/stop-replication-confirm.png)
 
 ## <a name="delete-a-replica-server"></a>Çoğaltma sunucusunu Sil
 
@@ -86,15 +82,15 @@ Azure portalından bir salt okunur çoğaltma sunucusunu silmek için aşağıda
 
 3. Silmek istediğiniz çoğaltma sunucusunu seçin.
 
-   ![MySQL - Delete çoğaltma sunucu için Azure veritabanı ](./media/howto-read-replica-portal/delete-replica-select.png)
+   ![MySQL - Delete çoğaltma sunucu için Azure veritabanı](./media/howto-read-replica-portal/delete-replica-select.png)
 
 4. Seçin **çoğaltmayı Sil**
 
-   ![MySQL - çoğaltmayı Sil'için Azure veritabanı ](./media/howto-read-replica-portal/delete-replica.png)
+   ![MySQL - çoğaltmayı Sil'için Azure veritabanı](./media/howto-read-replica-portal/delete-replica.png)
 
 5. Adını tıklatın ve çoğaltma, **Sil** çoğaltmayı silme işlemini onaylamak için.  
 
-   ![Çoğaltmayı Sil - MySQL için Azure veritabanı onaylayın ](./media/howto-read-replica-portal/delete-replica-confirm.png)
+   ![Çoğaltmayı Sil - MySQL için Azure veritabanı onaylayın](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
 ## <a name="delete-a-master-server"></a>Bir ana sunucu silme
 
@@ -107,11 +103,11 @@ Azure portalından bir ana sunucu silmek için aşağıdaki adımları kullanın
 
 2. Gelen **genel bakış**seçin **Sil**.
 
-   ![MySQL - Delete ana için Azure veritabanı ](./media/howto-read-replica-portal/delete-master-overview.png)
+   ![MySQL - Delete ana için Azure veritabanı](./media/howto-read-replica-portal/delete-master-overview.png)
 
 3. Ana sunucunun adını yazın ve tıklayın **Sil** ana sunucu silme işlemini onaylamak için.  
 
-   ![MySQL - Delete ana için Azure veritabanı ](./media/howto-read-replica-portal/delete-master-confirm.png)
+   ![MySQL - Delete ana için Azure veritabanı](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## <a name="monitor-replication"></a>İzleyici çoğaltma
 
@@ -121,15 +117,15 @@ Azure portalından bir ana sunucu silmek için aşağıdaki adımları kullanın
 
 3. Seçin **çoğaltma bekleme süresini saniye cinsinden** ölçümlerin aşağı açılan listeden. 
 
-   ![Çoğaltma gecikmesi seçin ](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
+   ![Çoğaltma gecikmesi seçin](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
 
 4. Görüntülemek istediğiniz zaman aralığını seçin. Aşağıdaki resimde, 30 dakikalık bir zaman aralığı seçer.
 
-   ![Zaman aralığı seçin ](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
+   ![Zaman aralığı seçin](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
 
 5. Seçili zaman aralığı için çoğaltma gecikmesi görüntüleyin. Aşağıdaki görüntüde, son 30 dakika görüntüler.
 
-   ![Zaman aralığı seçin ](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   ![Zaman aralığı seçin](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

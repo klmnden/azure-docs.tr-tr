@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 93f47f5d82a41d61bec67c1c64f1491cd7618565
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 80f0aa3158ce4f3eeafaeb5c7834dc820e8ba75b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733223"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886604"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Veri akışı kaynak dönüştürme eşlemesi
 
@@ -53,7 +53,7 @@ Kesin türü belirtilmiş (yani düz dosyalar Parquet dosyalarını aksine) olma
 
 ![Dönüştürme kaynağı](media/data-flow/source003.png "veri türleri")
 
-Kesin olarak belirlenmiş kaynakları için değiştirebileceğiniz 
+Kesin olarak belirlenmiş kaynakları için bir sonraki Select dönüştürme veri türlerini değiştirebilirsiniz. 
 
 ### <a name="optimize"></a>İyileştirme
 

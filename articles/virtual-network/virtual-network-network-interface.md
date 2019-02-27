@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 37e1a308d63d782c6ff18c10a5874842341eeec7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8840944f6757813b10b01c8e512b1ef64c05a85f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818111"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888296"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimini Sil
 
@@ -68,9 +68,9 @@ Portal bir ağ arabirimi oluşturulurken ağ arabiriminin uygulama güvenlik gru
 
 **Komutları**
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
-|CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
+|CLI|[az network nic create](/cli/azure/network/nic)|
 |PowerShell|[Yeni AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Görünümü ağ arabirimi ayarları
@@ -95,9 +95,9 @@ Görüntüleyebilir ve oluşturulduktan sonra bir ağ arabirimi için çoğu aya
 
 Bir ağ arabirimi için bir IPv6 adresi atanmışsa, PowerShell çıkış adresi atanır ancak atanan adresi döndürmüyor olgu döndürür. Benzer şekilde, CLI adresi atanır ancak döndürür gerçeği döndürür *null* çıktısını adresi için de.
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
-|CLI|[az ağ NIC listesi](/cli/azure/network/nic#az_network_nic_list) abonelikte; ağ arabirimlerini görüntülemek için [az ağ nic show](/cli/azure/network/nic#az_network_nic_show) bir ağ arabirimi ayarlarını görüntülemek için|
+|CLI|[az ağ NIC listesi](/cli/azure/network/nic) abonelikte; ağ arabirimlerini görüntülemek için [az ağ nic show](/cli/azure/network/nic) bir ağ arabirimi ayarlarını görüntülemek için|
 |PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) abonelik veya Görünüm ayarlarında bir ağ arabirimi için ağ arabirimlerini görüntülemek için|
 
 ## <a name="change-dns-servers"></a>DNS sunucularını değiştirme
@@ -114,7 +114,7 @@ DNS sunucusu, sanal makine işletim sistemi içinde ağ arabirimi Azure DHCP sun
 
 **Komutları**
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
 |CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic)|
 |PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
@@ -135,7 +135,7 @@ Ayar, sanal makine iletmek için gereken trafiği alan sanal makineye bağlı he
 
 **Komutları**
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
 |CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic)|
 |PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
@@ -155,9 +155,9 @@ Alt ağ, ancak bir ağ arabirimine atanan sanal ağda değil değiştirebilirsin
 
 **Komutları**
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
-|CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Uygulama güvenlik grupları'ndan kaldırın veya ekleyin
@@ -169,7 +169,7 @@ Yalnızca bir ağ arabirimine ekleyebilir veya bir ağ arabirimi ağ arabirimi b
 
 **Komutları**
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
 |CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic)|
 |PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
@@ -201,7 +201,7 @@ Bir ağ arabirimi sildiğinizde, kendisine atanan MAC ya da IP adresleri serbest
 
 **Komutları**
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
 |CLI|[az ağ NIC Sil](/cli/azure/network/nic)|
 |PowerShell|[Remove-AzNetworkInterface](/powershell/module/az.network/remove-aznetworkinterface)|

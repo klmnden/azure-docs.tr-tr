@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
-ms.openlocfilehash: 361ab36d3029dbc00e8d1e53ef9f9af42be3e1eb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 913df079b56e131a3120971b635c49c2c04b2b1e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255856"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871579"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>Yedekleme hedefi olarak StorSimple NetBackup ile
 
@@ -79,7 +79,7 @@ StorSimple, bu avantajlar sunar:
 
 StorSimple temelde iki ana dağıtım senaryoları (birincil yedekleme hedefi ve ikincil yedekleme hedefi) gösterir, ama düz, blok depolama cihazı vardır. StorSimple sıkıştırma yapar ve yinelenenleri kaldırma. Sorunsuz bir şekilde gönderir ve bulut uygulama ve dosya sistemi arasındaki verileri alır.
 
-StorSimple hakkında daha fazla bilgi için bkz: [StorSimple 8000 serisi: hibrit bulut depolaması çözümü](storsimple-overview.md). Ayrıca, gözden geçirebilirsiniz [teknik StorSimple 8000 serisi özellikleri](storsimple-technical-specifications-and-compliance.md).
+StorSimple hakkında daha fazla bilgi için bkz: [StorSimple 8000 serisi: Hibrit bulut depolaması çözümü](storsimple-overview.md). Ayrıca, gözden geçirebilirsiniz [teknik StorSimple 8000 serisi özellikleri](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Bir StorSimple kullanarak cihaz yedekleme hedefi olarak yalnızca StorSimple 8000 güncelleştirme 3 ve sonraki sürümlerinde desteklenir.
@@ -183,7 +183,7 @@ Bu bölümde, bazı yapılandırma örneği gösterilmektedir. Aşağıdaki örn
 
 | StorSimple dağıtım görevleri  | Ek açıklamalar |
 |---|---|
-| Şirket içi StorSimple Cihazınızı dağıtın. | Desteklenen sürümler: güncelleştirme 3 ve sonraki sürümleri. |
+| Şirket içi StorSimple Cihazınızı dağıtın. | Desteklenen sürümler: Güncelleştirme 3 ve sonraki sürümler. |
 | Yedekleme hedefi üzerinde açın. | Yedekleme hedefi modunu devre dışı bırakmak veya etkinleştirmek ve durumu almak için şu komutları kullanın. Daha fazla bilgi için [bir StorSimple cihazı uzaktan bağlanma](storsimple-remote-connect.md).</br> Yedekleme modunu açmak için: `Set-HCSBackupApplianceMode -enable`. </br> Yedekleme modunu devre dışı bırakmak için: `Set-HCSBackupApplianceMode -disable`. </br> Yedekleme modu ayarları geçerli durumunu almak için: `Get-HCSBackupApplianceMode`. |
 | Yedekleme verilerini depolayan biriminiz için ortak bir birim kapsayıcısı oluşturun. Bir birim kapsayıcısındaki tüm veriler yinelenen verileri kaldırma işlemi. | StorSimple birim kapsayıcıları, yinelenenleri kaldırma etki alanlarını tanımlayın.  |
 | StorSimple birimler oluşturun. | Birim boyutu bulut anlık görüntü süresini etkilediğinden birimler öngörülen kullanımınıza yakın boyutlarıyla mümkün olduğunca oluşturun. Bir birimi boyutu hakkında daha fazla bilgi için okuyun [bekletme ilkeleri](#retention-policies).</br> </br> StorSimple kullanın, katmanlı birimleri ve seçin **bu birimi daha az sıklıkta erişilen arşiv verileri için kullanın** onay kutusu. </br> Yerel olarak sabitlenmiş birimler yalnızca kullanılması desteklenmiyor. |
@@ -292,7 +292,7 @@ Aşağıdaki örnekte, bir GFS döndürme kullanırız. Aşağıdaki örnekte va
 
 Aşağıdaki şekilde, bir yedekleme işi için tipik bir birimin eşlemeyi gösterir. Bu durumda, haftalık yedekleri Cumartesi tam disk eşleyin ve artımlı yedeklemeler Pazartesi-Cuma artımlı disklere eşleyin. Tüm yedekleme ve geri yüklemeler Storsimple'dan verileri, birim katmanlı.
 
-![Birincil yedekleme hedefi yapılandırma mantıksal diyagramı ](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
+![Birincil yedekleme hedefi yapılandırma mantıksal diyagramı](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
 
 ### <a name="storsimple-as-a-primary-backup-target-gfs-schedule-example"></a>Birincil GFS yedekleme hedefi olarak StorSimple örnek zamanlama
 
@@ -395,15 +395,15 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalıştı
 
 | Yedekleme türü ve saklama | Yapılandırılmış depolama | Boyut (TiB) | GFS çarpanı | Toplam Kapasite\* (TiB) |
 |---|---|---|---|---|
-| Hafta 1 (tam ve artımlı) |Yerel disk (kısa vadeli)| 1 | 1 | 1 |
+| Hafta 1 (tam ve artımlı) |Yerel disk (kısa vadeli)| 1 | 1. | 1 |
 | StorSimple hafta 2-4 |StorSimple disk (uzun süreli) | 1 | 4 | 4 |
 | Aylık tam |StorSimple disk (uzun süreli) | 1 | 12 | 12 |
-| Yıllık tam |StorSimple disk (uzun süreli) | 1 | 1 | 1 |
+| Yıllık tam |StorSimple disk (uzun süreli) | 1 | 1. | 1 |
 |GFS birim boyutu gereksinimini |  |  |  | 18*|
 \* Toplam Kapasite 17 TiB StorSimple'nın, diskler ve yerel RAID birimi 1 TiB içerir.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>GFS örnek zamanlama: GFS döndürme haftalık, aylık ve yıllık zamanlama
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>GFS örnek zamanlaması: GFS döndürme haftalık, aylık ve yıllık zamanlama
 
 | Hafta | Tam | Artımlı günlük 1 | Artımlı günlük 2 | Artımlı günlük 3 | Artımlı günlük 4 | Artımlı günlük 5 |
 |---|---|---|---|---|---|---|

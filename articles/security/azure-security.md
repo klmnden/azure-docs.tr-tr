@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 28630a1d1b2ce212fe1054496814a9084f8cfc98
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 74bdcc831f19031162d004e1ba98c0cfc258ce4b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116312"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879432"
 ---
 # <a name="introduction-to-azure-security"></a>Azure güvenliğine giriş
 ## <a name="overview"></a>Genel Bakış
@@ -80,7 +80,7 @@ Bu bölüm, temel özellikler güvenlik işlemleri ile ilgili ek bilgiler ve bu 
 Ayrıca, güvenlik ve uyumluluk için yapılandırabilirsiniz [otomatik olarak belirli eylemleri gerçekleştirme](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) zaman belirli bir olay algılandı.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
-[Azure Resource Manager ](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) kaynaklarla çözümünüzdeki bir grup olarak çalışmanıza olanak tanır. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Kullandığınız bir [Azure Resource Manager şablonu](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) için dağıtım ve bu şablon test, hazırlama ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar.
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) kaynaklarla çözümünüzdeki bir grup olarak çalışmanıza olanak tanır. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Kullandığınız bir [Azure Resource Manager şablonu](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) için dağıtım ve bu şablon test, hazırlama ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar.
 
 Azure Resource Manager şablon tabanlı dağıtımlar yardımcı standart güvenlik ayarlarını denetleme ve Azure'da dağıtılan çözümleri güvenliğini artırmak standartlaştırılmış şablon tabanlı dağıtımlar tümleştirilebilir. Bu, dağıtımlar sırasında yer alabilen güvenlik yapılandırması hataları riskini azaltır.
 

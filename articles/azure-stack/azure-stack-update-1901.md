@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 2acc26fc473d0e8dcb93b1439de316fbef67ae98
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 77b3d8bd1d16e90e9929c41f0f28940694dc7906
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416522"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889843"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 güncelleştirme
 
@@ -34,7 +34,14 @@ Bu makalede 1901 güncelleştirme paketinin içeriğini açıklar. Güncelleşti
 
 ## <a name="build-reference"></a>Yapı Başvurusu
 
-Azure Stack 1901 güncelleştirmenin yapı numarasıdır **1.1901.0.95**.
+Azure Stack 1901 güncelleştirmenin yapı numarasıdır **1.1901.0.95** veya **1.1901.0.99** 26 Şubat 2019 sonra. Aşağıdaki nota bakın:
+
+> [!IMPORTANT]  
+> Microsoft için 1901 1811 (1.1811.0.101) ' güncelleştirme müşteriler etkileyen bir sorun bulduğunda ve sorunu gidermek için güncelleştirilmiş bir 1901 paket kullanıma sundu: 1.1901.0.95 güncelleştirilmiş 1.1901.0.99, derleme. Zaten 1.1901.0.95 için güncelleştirilmiş müşteriler başka bir işlem yapmanıza gerek yoktur.
+>
+> Üzerinde 1811 olan bağlı müşteriler Yönetici portalı'nda kullanılabilir yeni 1901 (1.1901.0.99) paketi otomatik olarak görür ve hazır olduğunuzda yüklemeniz. Bağlantısı kesilmiş müşteriler indirebilir ve aynı işlemi kullanarak yeni 1901 paketini içeri aktarma [burada açıklanan](azure-stack-apply-updates.md).
+>
+> Sonraki tam veya düzeltme paketi yüklerken 1901 her iki sürümü ile müşteriler etkilenmeyecektir.
 
 ## <a name="hotfixes"></a>Düzeltmeler
 
@@ -84,9 +91,9 @@ Bu güncelleştirme, aşağıdaki yeni özellikleri ve Azure Stack için gelişt
    * **AzureRm.Insights**  
          AzureRm toplama modülü artık içerir zaten yayımlanmış sürüm 5.1.5 destekleyen **api sürümü 2018-01-01** ölçümler, ölçüm tanımlarını kaynak türleri için.
 
-- **AzureStack 1.7.0** bu önemli bir değişiklik bırakın. Bozucu değişiklikler hakkında daha fazla bilgi için bakın https://aka.ms/azspshmigration170
+- **AzureStack 1.7.0** bu önemli bir değişiklik bırakın. Hataya neden olan değişikliklerin ayrıntıları için bkz. https://aka.ms/azspshmigration170
    * **Azs.Backup.Admin Modülü**  
-         Yeni değişiklik: Yedekleme, sertifika tabanlı şifreleme moduna değiştirir. Simetrik anahtarlar için destek kullanım dışı bırakılmıştır.  
+         Yeni değişiklik: Sertifika tabanlı şifreleme modundaki değişiklikleri yedekleme. Simetrik anahtarlar için destek kullanım dışı bırakıldı.  
    * **Azs.Fabric.Admin Modülü**  
          `Get-AzsInfrastructureVolume` kullanım dışıdır. Yeni cmdlet kullanma `Get-AzsVolume`.  
          `Get-AzsStorageSystem` kullanım dışıdır.  Yeni cmdlet kullanma `Get-AzsStorageSubSystem`.  
@@ -170,33 +177,6 @@ Güncelleştirilmiş modüller için başvuru incelemesi için bkz: [Azure Stack
 
    Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
      -DirectoryTenantName $homeDirectoryTenantName -Verbose
-   ```
-
-- Şu anda Azure Stack'te açıkça aracılığıyla Market sendikasyonu uzantıları yüklemeye gerek kalmadan başarıyla dağıtmak uzantılar vardır. Bu Uzantılar'ın şu sürümleri kaldırılıyor. Şimdi, Azure Stack operatörleri açıkça bu uzantılar Azure Stack Market yayınlamak gerekir:
-
-   | Type                     | Sürüm        |
-   |--------------------------|----------------|
-   | DSC                      | 2.19.0.0       |
-   | Iaasantimalware          | 1.4.0.0        |
-   | Bgınfo                   | 2.1            |
-   | VMAccessAgent            | 2.0            |
-   | CustomScriptExtension    | 1,8            |
-   | MicrosoftMonitoringAgent | 1.0.10900.0    |
-   | IaaSDiagnostics          | 1.10.1.1       |
-   | VMAccessForLinux         | 1.4.0.0        |
-   | CustomScriptForLinux     | 1.5.2.0        |
-   | DockerExtension          | 1.1.1606092330 |
-   | JsonADDomainExtension    | 1.3            |
-   | OSPatchingForLinux       | 2.3.0.1        |
-   | WebRole                  | 4.3000.14.0    |
-
-   Hata ayıklama uzantıları, Azure Stack kullanıcıları ayarlamanız önerilir `autoUpgradeMinorVersion` için **true**. Örneğin:
-
-   ```json
-   "type": "Extension",
-           "publisher": "ExtensionPublisher",
-           "typeHandlerVersion": "1.2",
-           "autoUpgradeMinorVersion": "true"
    ```
 
 - Doğru bir şekilde Azure Stack kapasite planlaması için yeni bir durum yoktur. 1901 güncelleştirmeyle, artık sanal makinelerin oluşturulabilir toplam sayısına bir sınır yoktur.  Bu sınır, çözüm kararsızlığı engellemek için geçici olması amaçlanmıştır. Kaynak konumunda VM'ler daha yüksek sayıda kararlılık sorunun ele ancak belirli bir zaman çizelgesi düzeltme için değil henüz karar verilmemiştir. 1901 güncelleştirme vardır, artık bir başına 60 VM'lerin sunucu sınırı 700 toplam çözüm sınırına sahip.  Örneğin, bir 8 sunucu Azure Stack VM sınırı 480 (8 * 60) olacaktır.  12-16 sunucusu için Azure Stack çözüm sınırı 700 olacaktır. Bu sınır, tüm işlem kapasiteyle alakalı durumlar dayanıklılık ayırma ve CPU gibi göz önünde bir işleç damgada sağlamak istediğiniz fiziksel/oranı sanal tutma oluşturuldu. Daha fazla bilgi için kapasite Planlayıcı'nın yeni sürümüne bakın.  

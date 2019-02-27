@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: e7f8eef2c3422084846462e2f6159a8b8be7167f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: f615c4ca9ffc56daafcedd711f27672e0855e4fa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301834"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883956"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikler
 
@@ -169,7 +169,7 @@ Abonelikleri de bir dizin ile bir ilişki var. Dizin, bir kullanıcı kümesini 
 
 Güvenlik odaklı şirketler, çalışanların istedikleri tam izinleri vermeyi üzerinde odaklanmalıdır. Çok fazla İznim saldırganların bir hesap üzerinden kullanıma sunabilirsiniz. Çok az izinleri çalışanlar işlerini verimli bir şekilde alınamıyor anlamına gelir. [Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermek yardımcı olur.
 
-![Güvenli kaynak erişimi ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
+![Güvenli kaynak erişimi](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
 RBAC kullanarak ekibiniz içinde görevleri ayırabilir, bu işlere gerek duyan kişilere sadece erişim miktarını verebilirsiniz. Herkes vermek yerine Kısıtlanmamış izinler, Azure aboneliği veya kaynakları yalnızca belirli eylemleri izin verebilirsiniz. Örneğin, bir çalışan başka bir SQL veritabanını aynı abonelik içindeki yönetebilir, ancak bir Abonelikteki sanal makineleri yönetme izin vermek için RBAC kullanın.
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: b363f68b625a6f0987e58609477f51c7098423bf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874099"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870661"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Nasıl ve ne zaman anlamak LUIS sürümünü kullanmak için
 
@@ -35,7 +35,7 @@ Başlangıç sürümü (0,1) Varsayılan active sürümüdür.
 
 Şu anda etkin sürümünün adı uygulama adından sonra üst, sol bölmede görüntülenir. 
 
-[ ![Etkin sürümünü Değiştir](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![Etkin sürümünü Değiştir](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>Sürümleri ve yayımlama yuvaları
 Sizin için ya da bir aşama ve ürün yuvaları yayımlayın. Her yuva, farklı bir sürüm veya aynı sürüme sahip olabilir. Bu, robotlar veya diğer LUIS uygulamalar için kullanılabilir uç noktası aracılığıyla model sürümleri arasındaki değişiklikleri doğrulamak için kullanışlıdır. 

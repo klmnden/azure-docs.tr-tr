@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106980"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882697"
 ---
 # <a name="handling-review-feedback"></a>İşleme gözden geçirme geri bildirimi
 
@@ -58,14 +58,14 @@ Olay oluşturma başarılı olduysa, bir onay sayfası görüntülenir.  Başvur
 
 1. İçinde **Microsoft gözden geçirme** bölümünü **adımları yayımlama** formunda, tarayıcıyı başlatın ve gitmek için bir çekme isteği bağlantısına tıklayın **genel bakış** bu çekme isteğini (ana) sayfası  Aşağıdaki görüntüde bir örnek kritik bir sorunu ana sayfası Contoso örnek uygulama teklifini gösterilmektedir.  Bu sayfa, Azure uygulamasında bulunan gözden geçirme sorunları hakkında yararlı Özet bilgiler içerir.  
 
-    [ ![Çekme isteği giriş sayfası](./media/pr-home-page-thumb.png) ](./media/pr-home-page.png)
+    [![Çekme isteği giriş sayfası](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Görüntüyü genişletmek için tıklatın.*
     
 2. (İsteğe bağlı) Bölümünde penceresinin sağ tarafındaki **ilkeleri**, sorunu iletide tıklayın (Bu örnekte: **İlke doğrulanamadı**) ilişkili günlük dosyaları da dahil olmak üzere sorunu, alt düzey ayrıntılarını araştırmak için.  Hatalar, genellikle günlük dosyalarının en altında görüntülenir.
 
 3. Giriş sayfasının sol taraftaki menüde **dosyaları** kapsayan bu teklif için teknik varlıkları listesi dosyaları görüntülemek için.  Microsoft inceleyenler eklenen açıklamalar bulunan kritik sorunları açıklayan.  Aşağıdaki örnekte, iki sorun bulundu. 
 
-    [ ![Çekme isteği giriş sayfası](./media/pr-files-page-thumb.png) ](./media/pr-files-page.png)
+    [![Çekme isteği giriş sayfası](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Görüntüyü genişletmek için tıklatın.*
 
 4. Her bir açıklama düğümü açıklamaya çevreleyen kod bağlamı içinde gezinmek için sol ağaçta tıklayın.  Takımınızın projesinde açıklamaya göre açıklanan sorunu gidermek için kaynak kodunuzu düzeltin.

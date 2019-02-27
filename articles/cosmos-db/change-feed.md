@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2224c798d0854aab2d3ec7fc2c03b51de58dbfc0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244445"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886732"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Değişiklik akışı Azure Cosmos DB'de - genel bakış
 
@@ -118,7 +118,7 @@ Değişiklik akışı kapsayıcıdaki her bir mantıksal bölüm anahtarı için
 
 * Değişiklikler, paralel bir Azure Cosmos kapsayıcının tüm mantıksal bölüm anahtarları için kullanılabilir. Bu özellik paralel olarak birden fazla tüketici tarafından işlenmek üzere büyük kapsayıcıları değişikliklerini tanır.
 
-* Uygulamaları, akışları aynı kapsayıcı üzerinde aynı anda birden çok değişiklik isteğinde bulunabilirsiniz. ChangeFeedOptions.StartTime ilk bir başlangıç noktası sağlamak için kullanılabilir. Örneğin, belirli bir saatin karşılık gelen devamlılık belirteci bulunamadı. ContinuationToken belirtilmişse StartTime ve StartFromBeginning değerlerin kazanır. ~ 5 saniye duyarlığını ChangeFeedOptions.StartTime olur. 
+* Uygulamaları aynı anda birden çok değişiklik akışlarından aynı kapsayıcıda genericread isteyebilir. ChangeFeedOptions.StartTime ilk bir başlangıç noktası sağlamak için kullanılabilir. Örneğin, belirli bir saatin karşılık gelen devamlılık belirteci bulunamadı. ContinuationToken belirtilmişse StartTime ve StartFromBeginning değerlerin kazanır. ~ 5 saniye duyarlığını ChangeFeedOptions.StartTime olur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

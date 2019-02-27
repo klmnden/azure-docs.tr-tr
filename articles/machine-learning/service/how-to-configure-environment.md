@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2eb47bede14b139d011d8a74b5196a94a93a62c7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e055ddc49120d77047fa349b7e58c612eb724b41
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817108"
+ms.locfileid: "56881558"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -301,7 +301,9 @@ Küme çalışmaya başladıktan sonra [bir kitaplığı oluşturma](https://doc
    |Databricks için| Python yükleme Yumurta veya Pypı | azureml-sdk[databricks]|
    |-With - için Databricks<br> Otomatik ML özellikleri| Python yükleme Yumurta veya Pypı | azureml-sdk[automl_databricks]|
 
-   * Yok, diğer bir SDK'sı ek özellikler yüklenebilir. Yukarıdaki seçeneklerden [databricks] veya [automl_databricks] yalnızca birini seçin.
+   > [!Warning]
+   > Yok, diğer bir SDK'sı ek özellikler yüklenebilir. Yukarıdaki seçeneklerden [databricks] veya [automl_databricks] yalnızca birini seçin.
+
    * Seçmeyin **ekleme otomatik olarak tüm kümelere**.
    * Seçin **iliştirme** , küme adının yanındaki.
 
@@ -320,7 +322,7 @@ Yükleme başarılı olduysa, içeri aktarılan kitaplık bunlardan biri gibi g�
    
 Databricks için SDK'sı **_olmadan_** machine learning otomatik ![Databricks için Azure Machine Learning SDK](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-Databricks için SDK'sı **ile** machine learning otomatik ![SDK'sı ile makine öğrenimi Databricks üzerinde yüklü otomatik ](./media/how-to-configure-environment/automlonadb.jpg)
+Databricks için SDK'sı **ile** machine learning otomatik ![SDK'sı ile makine öğrenimi Databricks üzerinde yüklü otomatik](./media/how-to-configure-environment/automlonadb.jpg)
 
 ### <a name="start-exploring"></a>Keşfetmeye başlayın
 

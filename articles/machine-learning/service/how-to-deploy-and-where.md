@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7d5bfba10fe68c4d29a66fe39a386aec975b978f
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 19d34e76c73c5ec2472d3eacddc01d6aebb6b9fb
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651541"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889112"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -30,7 +30,7 @@ Modelleri için aşağıdaki işlem hedeflerine dağıtabilirsiniz:
 | Hedef işlem | Dağıtım türü | Açıklama |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service'i (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
-| [Azure ML işlemi](#amlcompute) | Batch çıkarımı | Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli Vm'lere destekler. |
+| Azure ML işlemi | Batch çıkarımı | Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli Vm'lere destekler. |
 | [Azure Container Instances (ACI)](#aci) | Test Etme | Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |
 | [Alanda programlanabilir kapı dizileri (FPGA)](#fpga) | (Önizleme) Web hizmeti | Gerçek zamanlı çıkarım için son derece düşük gecikme süresi. |

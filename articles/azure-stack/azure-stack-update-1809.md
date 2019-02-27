@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a4298a8bd78f178c56776e703e72ff99aac54207
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694389"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887922"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -77,7 +77,7 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
 ### <a name="changes"></a>Değişiklikler
 
 <!-- 2635202 - IS, ASDK -->
-- Yedekleme hizmet altyapı taşır gelen [genel altyapı ağı](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) için [genel VIP ağları](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Müşterilerin hizmet yedekleme depolama konumu genel VIP ağdan erişim sahip olmak gerekir.  
+- Yedekleme hizmet altyapı taşır gelen [genel altyapı ağı](https://docs.microsoft.com/azure/azure-stack/azure-stack-network) için [genel VIP ağları](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Müşterilerin hizmet yedekleme depolama konumu genel VIP ağdan erişim sahip olmak gerekir.  
 
 > [!IMPORTANT]  
 > Dosya sunucusuna genel VIP ağları bağlantılara izin vermeyen bir güvenlik duvarınız varsa, bu değişiklik altyapı yedeklemeleri "ağ yolu bulunamadı hatası ile 53" başarısız olmasına neden olur Geçici çözüm yoktur makul olan bir değişiklik budur. Microsoft, müşteri geri bildirimi doğrultusunda, bu değişikliği, bir düzeltme döner. Lütfen inceleyin [güncelleştirme adımlar bölümüne gönderin](#post-update-steps) 1809 kullanılabilir düzeltmeler hakkında daha fazla bilgi için. Düzeltme kullanılabilir olduğunda, yalnızca ağ ilkelerinizi genel VIP ağları altyapı kaynaklarına erişmesine izin vermiyorsa için 1809 güncelleştirdikten sonra uygulanacak emin olun. 1811 içinde tüm sistemler için bu değişiklik geçerli olacaktır. İçinde 1809 düzeltme uygulandığında, gereken başka bir işlem yoktur.  

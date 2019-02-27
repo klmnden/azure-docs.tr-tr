@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3851e4c35b333e862ead296ad1e8448c3317228
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e5b06ad551b45bc0c892bc789c6f5c5a27b5bb0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210501"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882986"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -135,7 +135,7 @@ SQL her zaman üzerinde kullanılabilirlik ADSync DB için yapılandırıldıysa
 ### <a name="new-features-and-improvements"></a>Yeni özellikler ve geliştirmeler
 
 - Azure AD CONNECT'te Ping federasyona tümleştirmesi artık genel kullanılabilirlik için kullanılabilir. [Federasyon Azure AD Federasyonu Ping ile kullanma hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
-- Bir güncelleştirme yapıldığında ve gerektiğinde kolayca geri yükleme için ayrı bir dosyada depolar her zaman azure AD Connect artık Azure AD güvenini AD FS'de yedeğini oluşturur. [Azure AD ve yeni işlevler hakkında daha fazla güven Azure AD CONNECT'te yönetim bilgi ](https://aka.ms/fedtrustinaadconnect).
+- Bir güncelleştirme yapıldığında ve gerektiğinde kolayca geri yükleme için ayrı bir dosyada depolar her zaman azure AD Connect artık Azure AD güvenini AD FS'de yedeğini oluşturur. [Azure AD ve yeni işlevler hakkında daha fazla güven Azure AD CONNECT'te yönetim bilgi](https://aka.ms/fedtrustinaadconnect).
 - Yeni sorun giderme araçları birincil e-posta adresini değiştirmek ve genel adres listesinde hesabından gizleme gidermenize yardımcı olur.
 - Azure AD Connect'in en son SQL Server 2012 Native Client'ı içerecek şekilde güncelleştirildi
 - Sorunsuz çoklu oturum açma onay kutusunu, kullanıcı oturum açma için parola karması eşitleme veya doğrudan kimlik doğrulama "Değişiklik kullanıcı oturum açma" görevde geçiş yaptığınızda, varsayılan olarak etkindir.

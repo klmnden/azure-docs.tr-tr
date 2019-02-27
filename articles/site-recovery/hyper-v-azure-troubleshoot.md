@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 703bf7425962ddcb5e7566f99c461ca37d237b68
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756674"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868434"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Azure'a çoğaltma ve yük devretme için Hyper-V sorunlarını giderme
 
@@ -30,7 +30,7 @@ Hyper-V VM'ler için korumayı etkinleştirdiğinizde, ilgili sorun yaşıyorsan
 5. Konuk sanal Makinede, WMI etkin ve erişilebilir olduğunu doğrulayın.
   - [Hakkında bilgi edinin](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) temel WMI sınama.
   - [Sorun giderme](https://aka.ms/WMiTshooting) WMI.
-  - [Sorun giderme ](https://technet.microsoft.com/library/ff406382.aspx#H22) WMI komut dosyaları ve Hizmetleri ile ilgili sorunlar.
+  - [Sorun giderme](https://technet.microsoft.com/library/ff406382.aspx#H22) WMI komut dosyaları ve Hizmetleri ile ilgili sorunlar.
 6. Konuk sanal Makinede, Integration Services'ın en son sürümünü çalıştırdığından emin olun.
     - [Denetleme](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) en son sürüme sahip.
     - [Tutun](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) tümleştirme hizmetleri güncel.

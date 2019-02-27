@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 66640bd60f6ba8c2f612a6bc9b88a07b13012997
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/25/2019
+ms.openlocfilehash: d7f1279dbe253a9bc18b9e99ac9dbdf2a7cf52a1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990043"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870610"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure SQL veritabanı tek veritabanı oluşturma
 
@@ -42,8 +42,8 @@ AdventureWorksLT örnek verilerini içeren tek bir veritabanı oluşturmak için
    - **Kaynak grubu**: Seçin **Yeni Oluştur**, türü *myResourceGroup*seçip **Tamam**.
    - **Kaynak Seç**: Açılır listesine tıklayıp **örnek (AdventureWorksLT)**.
 
-    >[!IMPORTANT]
-    >Seçtiğinizden emin olun **örnek (AdventureWorksLT)** bu ve bu verileri kullanan diğer Azure SQL veritabanı hızlı başlangıçları kolayca izleyebilmeniz veri.
+    > [!IMPORTANT]
+    > Seçtiğinizden emin olun **örnek (AdventureWorksLT)** bu ve bu verileri kullanan diğer Azure SQL veritabanı hızlı başlangıçları kolayca izleyebilmeniz veri.
   
    ![Tek veritabanı oluşturma](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -56,18 +56,18 @@ AdventureWorksLT örnek verilerini içeren tek bir veritabanı oluşturmak için
    - **Parolayı onaylayın**: Parolayı yeniden yazın.
    - **Konum**: Açılan menü ve herhangi bir geçerli konumu seçin.  
 
-   >[!IMPORTANT]
-   >Sunucu Yöneticisi oturum açma ve parola, sunucu ve veritabanları için bu ve diğer hızlı başlangıçlar oturum açabilmek kaydetmeyi unutmayın. Oturum açma veya parolayı unutursanız, oturum açma adı veya parola sıfırlamasına **SQL server** sayfası. Açmak için **SQL server** sayfasında, veritabanı sunucu adını seçin **genel bakış** veritabanı oluşturulduktan sonra sayfa.
+   > [!IMPORTANT]
+   > Sunucu Yöneticisi oturum açma ve parola, sunucu ve veritabanları için bu ve diğer hızlı başlangıçlar oturum açabilmek kaydetmeyi unutmayın. Oturum açma veya parolayı unutursanız, oturum açma adı veya parola sıfırlamasına **SQL server** sayfası. Açmak için **SQL server** sayfasında, veritabanı sunucu adını seçin **genel bakış** veritabanı oluşturulduktan sonra sayfa.
 
     ![Sunucu oluşturma](./media/sql-database-get-started-portal/create-database-server.png)
 
 6. **Seç**’i seçin.
 7. Üzerinde **SQL veritabanı** form, select **fiyatlandırma katmanı**. Dtu ve her hizmet katmanı için kullanılabilir depolama miktarını keşfedin.
 
-   >[!NOTE]
-   >Bu hızlı başlangıçta kullanılmaktadır [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md), ancak [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) de kullanılabilir.
-   >[!IMPORTANT]
-   >1 TB'den fazla depolama Premium katmanında şu anda tüm bölgelerde kullanılabilir: UK Kuzey, Batı Orta ABD, Birleşik Krallık South2, Çin Doğu, USDoDCentral, Almanya Orta, USDoDEast, ABD Devleti Southwest, ABD Devleti Güney Orta, Almanya Kuzeydoğu, Çin Kuzey ve ABD Devleti Doğu. Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Daha fazla bilgi için [P11 P15 geçerli sınırlamalar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > [!NOTE]
+   > Bu hızlı başlangıçta kullanılmaktadır [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md), ancak [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) de kullanılabilir.
+   > [!IMPORTANT]
+   > 1 TB'den fazla depolama Premium katmanında şu anda tüm bölgelerde kullanılabilir: Çin Doğu, Kuzey Çin, Almanya Orta, Almanya Kuzeydoğu, Batı Orta ABD, US DoD bölgeler ve ABD kamu orta. Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır.  Daha fazla bilgi için [P11 P15 geçerli sınırlamalar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 8. Bu hızlı başlangıçta seçin **standart** Hizmet katmanını ve seçip kaydırıcıyı kullanarak **10 Dtu (S0)** ve **1** GB depolama alanı.
 9. **Uygula**’yı seçin.  

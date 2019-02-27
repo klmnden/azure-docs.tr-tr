@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: cd50a957894c2c6c4944b0ba3768a00754abaa15
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: eb7d5acdcfade47ca916dcfd58aa271a9b1298ac
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835097"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867174"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Mobility hizmeti yüklemesi System Center Configuration Manager ile otomatik hale getirin
 
@@ -24,7 +24,7 @@ Bu makalede, bir VMware sanal makinesinde Azure Site Recovery Mobility hizmeti d
 
 Bu makalede, System Center Configuration Manager 2012 R2 dağıtım etkinlik göstermek için kullanır. Varsayar sürümü kullandığınız **9.9.4510.1** veya mobilite hizmetinin daha yüksek.
 
-Alternatif olarak, Mobility hizmeti yüklemesi ile otomatikleştirebilirsiniz [Azure Automation DSC ](vmware-azure-mobility-deploy-automation-dsc.md).
+Alternatif olarak, Mobility hizmeti yüklemesi ile otomatikleştirebilirsiniz [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -233,10 +233,10 @@ Configuration Manager konsolunu kullanarak dağıtımın ilerleme durumunu izley
 
 6. Aşağıdaki dosyaları kopyalamak **MobSvcLinux** ağ paylaşımınızda klasörü:
    * Microsoft ASR\_UA\*RHEL6-64\*release.tar.gz
-   * Microsoft ASR\_UA\*RHEL7 64\*release.tar.gz
-   * Microsoft ASR\_UA\*SLES11 SP3 64\*release.tar.gz
-   * Microsoft ASR\_UA\*SLES11 SP4 64\*release.tar.gz
-   * Microsoft ASR\_UA\*OL6 64\*release.tar.gz
+   * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*OL6-64\*release.tar.gz
    * Microsoft ASR\_UA\*UBUNTU 14.04 64\*release.tar.gz
 
 

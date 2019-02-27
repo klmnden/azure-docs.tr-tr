@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 07f4506b7dd0ac8ca0462e2a418983e561859c91
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 3e10c09b8f11566860256aaf4b793c6ae0d2d5e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208389"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876935"
 ---
 ## <a name="control-flow"></a>Denetim akışı
 
@@ -41,4 +41,4 @@ Bu belgede gösterilen haliyle konuşma Öğrenici ', (CI) denetim akışı aç�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Konuşma Öğrenici ile öğretmeyi nasıl ](./how-to-teach-cl.md)
+> [Konuşma Öğrenici ile öğretmeyi nasıl](./how-to-teach-cl.md)

@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1645f09682ebb58b442626bf14f26fdb91f9456e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fd6ecb6cb45aef399a137c9eac2c8c6f845b610b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728293"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872497"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning hizmeti nedir?
 
@@ -32,7 +32,7 @@ Makine öğreniminin öngörüleri veya tahminleri, uygulama ve cihazları daha 
 
 Azure Machine Learning hizmeti, veri hazırlama, eğitme, test, dağıtma, yönetme ve makine öğrenimi modelleri izlemek için kullanabileceğiniz bulut tabanlı bir ortam sağlar.
 
-[ ![Azure Machine Learning hizmeti iş akışı](./media/overview-what-is-azure-ml/aml.png)] (. / media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Azure Machine Learning hizmeti iş akışı](./media/overview-what-is-azure-ml/aml.png)] (. / media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning hizmeti tamamen açık kaynak teknolojilerini destekler. Bu nedenle, makine öğrenimi bileşenleri on binlerce açık kaynak Python paketlerini kullanabilirsiniz. Örnekler PyTorch, TensorFlow ve scikit-öğrenin.
 Zengin Araçlar desteği etkileşimli olarak keşfedin ve verileri hazırlama geliştirme ve test modelleri daha kolay hale getirir. Örnekler [Jupyter not defterleri](http://jupyter.org) veya [Visual Studio Code için Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) uzantısı.

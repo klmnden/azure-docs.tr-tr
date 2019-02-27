@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 28ddecb20944893b23b54775e22f19644f0afbf0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f14d29ef3d03a0899fe208d801e127ecfc28168b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816513"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889146"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Azure automation'da Python 2 paketlerini yönetme
 
@@ -40,7 +40,7 @@ Azure Otomasyonu bağımlılık python Paketlerine yönelik içeri aktarma işle
 
 ### <a name="manually-download"></a>El ile yükleme
 
-Üzerinde Windows 64-bit bir makine ile [python2.7](https://www.python.org/download/releases/2.7/) ve [pip](https://pip.pypa.io/stable/installing/) yüklü bir paketi ve tüm bağımlılıkları yüklemek için aşağıdaki komutu çalıştırın:
+Üzerinde Windows 64-bit bir makine ile [python2.7](https://www.python.org/downloads/release/latest/python2) ve [pip](https://pip.pypa.io/stable/installing/) yüklü bir paketi ve tüm bağımlılıkları yüklemek için aşağıdaki komutu çalıştırın:
 
 ```
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>

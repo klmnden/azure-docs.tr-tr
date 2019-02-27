@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7623f98b9fd6c4bad8a41050e39b6e0e8650dccc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242949"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889299"
 ---
 # <a name="what-is-text-analytics"></a>Metin Analizi nedir?
 
@@ -64,11 +64,11 @@ Bu bölüm, daha kolay bulunmasını sağlama amacıyla başka bir makaleye taş
 
 ## <a name="data-limits"></a>Veri sınırları
 
-Tüm Metin Analizi API'si uç noktaları ham metin verisi kabul eder. Geçerli sınır belge başına 5000 karakterdir. Daha büyük belgeleri analiz etmeniz gerekiyorsa daha küçük parçalara bölebilirsiniz. Sınırı yine de yükseltmeye ihtiyacınız varsa gereksinimleriniz üzerinde konuşmak için [bize ulaşın](https://azure.microsoft.com/overview/sales-number/).
+Tüm Metin Analizi API'si uç noktaları ham metin verisi kabul eder. Her belge için geçerli sınır 5.120 karakterdir; daha büyük belgelere çözümlemeniz gerekiyorsa, bunları daha küçük öbeklere ayırmak. Sınırı yine de yükseltmeye ihtiyacınız varsa gereksinimleriniz üzerinde konuşmak için [bize ulaşın](https://azure.microsoft.com/overview/sales-number/).
 
 | Sınır | Değer |
 |------------------------|---------------|
-| Tek belge için maksimum boyut | ölçülen olarak 5000 karakter [ `StringInfo.LengthInTextElements` ](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Tek belge için maksimum boyut | ölçülen gibi 5.120 karakter [ `StringInfo.LengthInTextElements` ](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | İsteğin tamamının maksimum boyutu | 1 MB |
 | Bir istekte bulunabilecek maksimum belge sayısı | 1000 belge |
 
@@ -80,7 +80,7 @@ Metin Analizi API'si, metin gösterimi ve karakter sayısı hesaplamaları için
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İlk olarak [etkileşimli tanıtımı](https://azure.microsoft.com/services/cognitive-services/text-analytics/) deneyin. Dili algılamak (120'ye kadar), yaklaşım puanı hesaplamak veya anahtar ifadeleri ayıklamak için metin girişi (en fazla 5000 karakter) yapıştırabilirsiniz. Kaydolmanıza gerek yoktur.
+İlk olarak [etkileşimli tanıtımı](https://azure.microsoft.com/services/cognitive-services/text-analytics/) deneyin. (En fazla 120) dili algılayın, yaklaşım puanını hesaplamak için bir metin girişi (5.120 karakter maksimum) yapıştırın veya anahtar tümcecikleri ayıklayın. Kaydolmanıza gerek yoktur.
 
 API'yi doğrudan çağırmaya hazır olduğunuzda:
 

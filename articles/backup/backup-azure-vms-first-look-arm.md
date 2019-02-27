@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 40557d4e71dfea5996396cde634f7a1c80913556
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 16c7fe68e67094cef21d9efbffdccd614827ae6d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430548"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887480"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Sanal makine ayarlarla bir Azure VM'yi yedekleme
 
@@ -66,7 +66,7 @@ Azure Vm'lerini yedekleme için bir uzantı makine üzerinde çalışan VM Arac�
 
   ![Yedekleme durumu](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-10. Yedekleme etkinleştirdikten sonra bir [ilk yedekleme](#run-the-initial-backup) çalıştırır. İlk yedeklemeyi hemen başlatmak veya yedekleme zamanlamasına uygun olarak başlatana kadar bekleyin.
+10. Backup'ı etkinleştirdikten sonra ilk yedekleme çalışır. İlk yedeklemeyi hemen başlatmak veya yedekleme zamanlamasına uygun olarak başlatana kadar bekleyin.
     - İlk yedekleme işlemi tamamlanana kadar **son yedekleme durumu** olarak gösterir **uyarı (ilk yedekleme Beklemede)**.
     - Sonraki zamanlanmış yedekleme işinin ne zaman görmek için yedekleme ilkesi adı'nı tıklatın.
     

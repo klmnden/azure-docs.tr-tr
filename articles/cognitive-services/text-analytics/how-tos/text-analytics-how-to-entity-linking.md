@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: b2330d322c6939ba6d9581c125c512fcea9f924b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 135b684c67776da7d722074abe185b5ed2a860fa
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242762"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889418"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Adlandırılmış varlık tanıma, metin analizi (Önizleme) kullanma
 
@@ -74,7 +74,7 @@ JSON belgeleri kimlik, metin, dil biçiminde olmalıdır.
 
 Şu anda desteklenen diller için bkz. [bu liste](../text-analytics-supported-languages.md).
 
-Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyon başına en fazla 1000 öğeniz olabilir. Koleksiyon, istek gövdesinde gönderilir. Aşağıdaki örnek, varlık bağlama sonuna kadar gönderdiğiniz içeriğin bir örnektir.
+Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır ve en fazla 1.000 olabilir koleksiyon başına öğe sayısı (Kimlikler). Koleksiyon, istek gövdesinde gönderilir. Aşağıdaki örnek, varlık bağlama sonuna kadar gönderdiğiniz içeriğin bir örnektir.
 
 ```
 {"documents": [{"id": "1",

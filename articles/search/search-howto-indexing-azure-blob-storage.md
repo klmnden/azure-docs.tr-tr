@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 2a282b76805ab91215d6b34ea30a7008d8c8244b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 56afc933eff2e06df270b17403b767ebaddd4154
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467987"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873007"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Depolama'da belgelerin dizin oluşturma
 Bu makalede, belgelerin dizinini oluşturmak için Azure Search kullanma gösterilmektedir (PDF gibi Microsoft Office belge ve diğer birçok ortak biçimleri) Azure Blob Depolama alanında depolanır. İlk olarak ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, davranışların bir daha ayrıntılı keşfi sunar ve karşılaşabileceğiniz olası senaryolar.
@@ -333,7 +333,7 @@ Bloblarını dizine ekleme, zaman alıcı bir işlem olabilir. BLOB'ları dizin 
 
 "Belgeleri dizininize birden çok kaynaktan bir araya getirmek" isteyebilirsiniz. Örneğin, Cosmos DB'de depolanan diğer meta veriler BLOB metin birleştirmek isteyebilirsiniz. Birden fazla bölümü arama belgeleri oluşturulacak API dizin birlikte çeşitli oluşturucular anında iletme bile kullanabilirsiniz. 
 
-Bunun işe yaraması için tüm dizin oluşturucuların ve diğer bileşenleri belge anahtarı kabul etmeniz gerekir. Ayrıntılı bir Rehber için bu dış makaleye bakın: [Azure Search'te diğer verilerle belgeleri birleştirmeniz ](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Bunun işe yaraması için tüm dizin oluşturucuların ve diğer bileşenleri belge anahtarı kabul etmeniz gerekir. Ayrıntılı bir Rehber için bu dış makaleye bakın: [Azure Search'te diğer verilerle belgeleri birleştirmeniz](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Dizin oluşturma düz metin 

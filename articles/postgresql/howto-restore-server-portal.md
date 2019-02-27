@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 62a953467e212d0cb78686e9b0d98a7f1fcb5135
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a4f9fee0c405c893d76d044278c80e7b31823fce
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699019"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881354"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Nasıl yedeklenir ve Azure portalını kullanarak PostgreSQL için Azure veritabanı'nda bir sunucuya geri yükleme
 
@@ -57,7 +57,7 @@ Aşağıdaki adımlar bir-belirli bir noktaya için örnek sunucuyu geri yükle:
 
 3. Geri yükleme formunu gerekli bilgiler ile doldurun:
 
-   ![PostgreSQL - geri yükleme bilgileri için Azure veritabanı ](./media/howto-restore-server-portal/3-restore.png)
+   ![PostgreSQL - geri yükleme bilgileri için Azure veritabanı](./media/howto-restore-server-portal/3-restore.png)
   - **Geri yükleme noktası**: -Geri yüklemek istediğiniz belirli bir noktaya seçin.
   - **Hedef sunucu**: Yeni sunucu için bir ad sağlayın.
   - **Konum**: Bölgeyi seçemezsiniz. Varsayılan olarak, kaynak sunucuyla aynıdır.

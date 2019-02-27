@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19039a6a1337c2ddc7494805b18f564466d4f1f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 85e773d74231b0b0847dad41a071be499724e2d4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168740"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872939"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Öğretici: Azure Active Directory tümleştirmesiyle InstaVR Görüntüleyicisi
 
@@ -136,11 +136,11 @@ Azure AD çoklu oturum açma InstaVR Görüntüleyici ile yapılandırmak için 
 
 2. Tıklayarak **kullanıcı simgesi** seçip **hesabı**.
 
-    ![InstaVR Görüntüleyicisi'ni yapılandırma ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
+    ![InstaVR Görüntüleyicisi'ni yapılandırma](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
 
 3. Ekranı aşağı kaydırarak **SAML kimlik doğrulaması** ve aşağıdaki adımları gerçekleştirin:
 
-    ![InstaVR Görüntüleyicisi'ni yapılandırma ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
+    ![InstaVR Görüntüleyicisi'ni yapılandırma](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
     a. İçinde **SSO URL** metin kutusu, yapıştırma **oturum açma URL'si** Azure portaldan kopyaladığınız değeri.
 
@@ -215,22 +215,22 @@ Bu bölümde, Britta Simon adlı bir kullanıcı InstaVR Görüntüleyicisi'nde 
 
 2. Seçin **paket** seçin ve sol gezinti bölmesi **Web için paket oluşturma**.
 
-    ![InstaVR Görüntüleyicisi'ni yapılandırma ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
+    ![InstaVR Görüntüleyicisi'ni yapılandırma](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
 
 3. **Download** (İndir) seçeneğini belirleyin.
 
-    ![InstaVR Görüntüleyicisi'ni yapılandırma ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
+    ![InstaVR Görüntüleyicisi'ni yapılandırma](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
 4. Seçin **barındırılan sayfasını aç** bundan sonra bu yönlendirilir Azure AD oturum açma için.
 
-    ![InstaVR Görüntüleyicisi'ni yapılandırma ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
+    ![InstaVR Görüntüleyicisi'ni yapılandırma](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 
 5. Üzerinden SSO, Azure AD'ye başarıyla oturum açmak için Azure AD kimlik bilgilerinizi girin.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

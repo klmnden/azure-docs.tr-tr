@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6017aa5172efa72bb708004e2c4aee7f9ae4acad
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 85edaeab67c7b5164dabbc817429e2ab82f5ea11
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733918"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864677"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma
 
@@ -52,7 +52,7 @@ Bu öğreticide, sahip olduğunuz varsayılır:
 
 * Bir **Azure aboneliği**. Aboneliğiniz yoksa [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 * Bir **Azure depolama hesabı**. Bu öğreticide verilerin depolanması için bir Azure depolama hesabını kullanırsınız. Azure depolama hesabınız yoksa [Depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md) makalesine bakın. Depolama hesabını oluşturduktan sonra, depolamaya erişmek için kullanılan hesap anahtarını edinmeniz gerekir. Bkz: [depolama erişim anahtarlarınızı yönetme](../../storage/common/storage-account-manage.md#access-keys).
-* Erişim bir **Azure SQL veritabanı**. Bir Azure SQL veritabanı, konu ayarlamanız gerekir, [Microsoft Azure SQL veritabanı ile çalışmaya başlama ](../../sql-database/sql-database-get-started.md) Azure SQL veritabanı yeni bir örneğini sağlama hakkında bilgi sağlar.
+* Erişim bir **Azure SQL veritabanı**. Bir Azure SQL veritabanı, konu ayarlamanız gerekir, [Microsoft Azure SQL veritabanı ile çalışmaya başlama](../../sql-database/sql-database-get-started.md) Azure SQL veritabanı yeni bir örneğini sağlama hakkında bilgi sağlar.
 * Yüklenmiş ve yapılandırılmış **Azure PowerShell** yerel olarak. Yönergeler için [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
 > [!NOTE]
@@ -99,7 +99,7 @@ JSON tabanlı tanımları tablolarda aşağıdaki adlar kullanın:
 Bu ADF işlem hattı için üç tablo tanımları gerekir:
 
 1. [SQL şirket içi tablo](#adf-table-onprem-sql)
-2. [BLOB tablosu ](#adf-table-blob-store)
+2. [BLOB tablosu](#adf-table-blob-store)
 3. [SQL Azure tablosu](#adf-table-azure-sql)
 
 > [!NOTE]

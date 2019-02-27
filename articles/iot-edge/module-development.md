@@ -4,17 +4,17 @@ description: Azure IOT Edge çalışma zamanı ve IOT Hub ile iletişim kurabile
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3dd5005312e1c59fa53a0d917951c89033374192
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: ea2d1dbcf991ce858f07905bc1bb41809f9bcdd8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200641"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882748"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Kendi IOT Edge modülleri geliştirin
 
@@ -65,5 +65,9 @@ Modülünüzün nasıl DeviceClient örnekleri IOT cihazları IOT Hub'ına bağl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir modülü geliştirme sonra bilgi nasıl [dağıtma ve izleme uygun ölçekte IOT Edge modülleri](how-to-deploy-monitor.md).
+[IOT Edge için geliştirme ve test ortamı hazırlama](development-environment.md)
+
+[Geliştirmek için Visual Studio 2017'yi kullanma C# IOT Edge modülleri](how-to-visual-studio-develop-csharp-module.md)
+
+[Visual Studio Code için IOT Edge modülleri geliştirmek için kullanın](how-to-vs-code-develop-module.md)
 

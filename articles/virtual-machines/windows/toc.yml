@@ -94,6 +94,8 @@ items:
       href: acu.md
     - name: Kıyaslama puanları
       href: compute-benchmark-scores.md
+    - name: vCPU kotaları
+      href: quotas.md
   - name: Bakım ve güncelleştirmeler
     href: maintenance-and-updates.md
   - name: Disk depolama
@@ -124,12 +126,8 @@ items:
     href: backup-recovery.md
   - name: Yüksek performanslı bilgi işlem
     href: high-performance-computing.md
-  - name: Dağıtma konuları
-    items:
-    - name: Altyapı yönergeleri
-      href: infrastructure-example.md
-    - name: vCPU kotaları
-      href: quotas.md
+  - name: Altyapı örneği
+    href: infrastructure-example.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: VM oluşturma
@@ -461,9 +459,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: SSS
     href: faq.md
-ms.openlocfilehash: 1b6d748758ba201391c80f8bded8215ae4161fbc
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 909c367475f5c41f03f7a30bb68bfc365dde581b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430378"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889756"

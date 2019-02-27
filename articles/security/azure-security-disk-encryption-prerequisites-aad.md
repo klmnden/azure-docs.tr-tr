@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 76e25c04afbce215028699d54cb6022f0caeced5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: aa4c4beacd6f6755c1e5ce56f70dcf5a74166c80
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118250"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880249"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk şifrelemesi önkoşulları (önceki sürüm)
 
@@ -232,7 +232,7 @@ Aşağıdaki komutları yürütün için alma ve [Azure AD PowerShell modülün�
 
 ### <a name="bkmk_ADappCLI"></a> Bir Azure AD uygulaması ve hizmet sorumlusu Azure CLI ile ayarlama
 
-Hizmet sorumluları, Azure CLI kullanarak yönetebileceğiniz [az ad sp](/cli/azure/ad/sp) komutları. Daha fazla bilgi için [bir Azure hizmet sorumlusu oluşturma ](/cli/azure/create-an-azure-service-principal-azure-cli).
+Hizmet sorumluları, Azure CLI kullanarak yönetebileceğiniz [az ad sp](/cli/azure/ad/sp) komutları. Daha fazla bilgi için [bir Azure hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 1. Gerekirse, [Azure aboneliğinize bağlanma](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Yeni bir hizmet sorumlusu oluşturun.
@@ -293,7 +293,7 @@ Kullanım [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) e
 
 ![Azure Key Vault şifreleme işlemleri - Wrap Key](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
 
-![Azure Key Vault gizli izinleri - ayarlayın ](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
+![Azure Key Vault gizli izinleri - ayarlayın](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
 
 ## <a name="bkmk_KVper"></a> Set anahtar kasası erişim ilkeleri Gelişmiş
 Azure platform şifreleme anahtarları veya gizli anahtar kasanızı önyükleme ve birimler şifresini çözmek için VM ayıklanarak erişmesi gerekir. Disk şifrelemeyi etkinleştirme anahtar kasası veya dağıtımları başarısız olur.  

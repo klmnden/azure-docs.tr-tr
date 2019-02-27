@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: aeeacdd5a83ff41eeb900b142e09030b5642f4f8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 179be5df8013d4e79eca473036d1a09875cbcc61
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993835"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865918"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Azure üzerinde Aspera Server On Demand hizmetini kullanan bir Media Services hesabına dosya yükleme 
 
@@ -130,7 +130,7 @@ Bu makalede aşağıdaki kaynaklardan bahsedilmiştir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Artık, [bir depolama hesabından AMS hesabına blob kopyalayabilirsiniz](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
+Artık [BLOB kopyalayabilirsiniz bir depolama hesabından AMS hesabına](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

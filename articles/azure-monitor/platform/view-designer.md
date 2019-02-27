@@ -1,6 +1,6 @@
 ---
-title: Azure Log analytics'te verileri analiz etmek için görünümler oluşturun | Microsoft Docs
-description: Log Analytics'te görünüm Tasarımcısını kullanarak, Azure portalında görüntülenir ve Log Analytics çalışma alanındaki veri görselleştirmeleri çeşitli içeren özel görünümlerinizi oluşturabilirsiniz. Bu makalede, Görünüm Tasarımcısı için genel bir bakış içerir ve özel görünümleri düzenleme ve oluşturma için yordamlar sunar.
+title: Azure İzleyici'de günlük verilerini analiz etmek için görünümler oluşturun | Microsoft Docs
+description: Azure İzleyici'de görünüm Tasarımcısını kullanarak, Azure portalında görüntülenir ve görselleştirmeler Log Analytics çalışma alanındaki veriler üzerinde çeşitli içeren özel görünümlerinizi oluşturabilirsiniz. Bu makalede, Görünüm Tasarımcısı için genel bir bakış içerir ve özel görünümleri düzenleme ve oluşturma için yordamlar sunar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: ec56e21a989fb0e8db7b8bafb1357c6ed64eae75
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192274"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887919"
 ---
-# <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Log Analytics'te Görünüm Tasarımcısı kullanarak özel görünümlerini oluşturma
-Görünüm Tasarımcısı'nda kullanarak [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, Görünüm Tasarımcısı ve yordamlar oluşturmak ve özel görünümler düzenlemek için genel bir bakış sunar.
+# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Azure İzleyici'de Görünüm Tasarımcısı kullanarak özel görünümlerini oluşturma
+Azure İzleyici'de görünüm Tasarımcısını kullanarak, Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, Görünüm Tasarımcısı ve yordamlar oluşturmak ve özel görünümler düzenlemek için genel bir bakış sunar.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 
@@ -30,7 +32,7 @@ Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 
 
 ## <a name="concepts"></a>Kavramlar
-Görünümler görüntülenir **genel bakış** Azure portalında Log Analytics çalışma alanınızın sayfası. Her özel görünüm kutucuklarda alfabetik olarak görüntülenir ve çözümleri için kutucuklar yüklü aynı çalışma.
+Görünümler, Azure İzleyici'de görüntülenir **genel bakış** Azure portalında sayfası. Bu sayfadan açın **Azure İzleyici** tıklayarak menü **daha fazla** altında **Insights** bölümü. Her özel görünüm kutucuklarda alfabetik olarak görüntülenir ve izleme çözümleri için kutucuklar yüklü aynı çalışma.
 
 ![Genel Bakış sayfası](media/view-designer/overview-page.png)
 
@@ -38,9 +40,9 @@ Görünüm Tasarımcısı ile oluşturduğunuz görünümleri, aşağıdaki tabl
 
 | Bölümü | Açıklama |
 |:--- |:--- |
-| Kutucuklar | Log Analytics çalışma alanınızın görüntülenen **genel bakış** sayfası. Her kutucuk, temsil ettiği özel görünüm görsel bir özetini görüntüler. Her kutucuk türüne kayıtlarınız için farklı bir görselleştirme sağlar. Özel bir görünüm için bir kutucuk seçin. |
-| Özel Görünüm | Bir kutucuğu seçtiğinizde görüntülenir. Her görünümü bir veya daha fazla görselleştirme bölümü içerir. |
-| Görselleştirme bölümü | Bir veya daha fazla bağlı Log Analytics çalışma alanındaki veri görselleştirme sunmak [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md). Çoğu bölümleri, üst düzey bir görselleştirme sağlar, bir üst bilgi ve en çok rastlanan sonuçlar görüntüler listesini içerir. Her bölüm türü kayıtlarının Log Analytics çalışma alanındaki farklı bir görselleştirme sağlar. Bölümün ayrıntılı kayıtları sağlayan bir günlük araması gerçekleştirmek için öğeleri seçin. |
+| Kutucuklar | , Azure İzleyici görüntülenen **genel bakış** sayfası. Her kutucuk, temsil ettiği özel görünüm görsel bir özetini görüntüler. Her kutucuk türüne kayıtlarınız için farklı bir görselleştirme sağlar. Özel bir görünüm için bir kutucuk seçin. |
+| Özel görünüm | Bir kutucuğu seçtiğinizde görüntülenir. Her görünümü bir veya daha fazla görselleştirme bölümü içerir. |
+| Görselleştirme bölümü | Bir veya daha fazla bağlı Log Analytics çalışma alanındaki veri görselleştirme sunmak [oturum sorguları](../log-query/log-query-overview.md). Çoğu bölümleri, üst düzey bir görselleştirme sağlar, bir üst bilgi ve en çok rastlanan sonuçlar görüntüler listesini içerir. Her bölüm türü kayıtlarının Log Analytics çalışma alanındaki farklı bir görselleştirme sağlar. Ayrıntılı kayıtlar sağlayan bir günlük sorgusu gerçekleştirmeye bölümünde öğeleri seçin. |
 
 
 ## <a name="work-with-an-existing-view"></a>Var olan bir görünümü ile çalışma
@@ -53,7 +55,7 @@ Seçenekler aşağıdaki tabloda açıklanmıştır:
 | Seçenek | Açıklama |
 |:--|:--|
 | Yenile   | En son verileri Görünümü yeniler. | 
-| Analiz | Açılır [Gelişmiş analiz portalını](../../azure-monitor/log-query/portals.md) günlük sorguları ile verileri analiz etmek için. |
+| Günlükler      | Açılır [Log Analytics](../log-query/portals.md) günlük sorguları ile verileri analiz etmek için. |
 | Düzenle       | Görünümün içeriğini ve yapılandırmasını düzenlemek için görünümü Tasarımcısı'nda açılır.  |
 | Kopyala      | Yeni bir görünüm oluşturur ve Görünüm Tasarımcısı'nda açılır. Yeni Görünüm adını özgün adıyla, ancak ile aynıdır *kopyalama* eklenmiş. |
 | Tarih aralığı | Tarih ve saat aralığı filtresi Görünümü'nde bulunan veriler için ayarlayın. Bu tarih aralığı görünümü sorgularda kümesindeki herhangi bir tarih aralıkları önce uygulanır.  |

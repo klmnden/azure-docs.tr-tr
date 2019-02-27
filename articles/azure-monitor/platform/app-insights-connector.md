@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b1504961254fefcaafc22008b4cc5adaf77e9c4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b9a847f04048cd17d550ca66bd3e6502577746eb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447880"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878464"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights Bağlayıcısı yönetim çözümü (kullanım dışı)
 
@@ -127,7 +127,7 @@ Tıkladığınızda herhangi bir yere **özel durumları** dikey penceresinde, �
 
 Olup, bir şey tıklatın bakılmaksızın **Application Insights Bağlayıcısı** Pano dahilinde **arama** kendisi, Application Insights verilerini gösteren uygulama döndüren herhangi bir sorgu sayfası Insights perspektif. Application Insights verilerini görüntülüyorsunuz. Örneğin, bir **&#42;** sorgu ayrıca aşağıdaki görüntü gibi perspektif sekme gösterir:
 
-![Application Insights ](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 Perspektif bileşenleri arama sorgusu bağlı olarak güncelleştirilir. Başka bir deyişle, verileri görme olanağı sunan herhangi bir arama alanını kullanarak sonuçları filtreleyebilirsiniz:
 

@@ -4,17 +4,17 @@ description: Bu makalede standart tanılama yetenekleri için Azure IOT Edge, bi
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: cd9ff1a1a7730ae870ef4e80fbca2d934aa5c8e2
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2daaa1275d9a97bec43f277e726518ead6eca9ff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342672"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876373"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
@@ -101,15 +101,15 @@ Windows'da:
 
 ### <a name="check-container-logs-for-issues"></a>Kapsayıcı günlüklerini sorunlar için denetleyin
 
-IOT Edge güvenlik arka plan programı çalışır duruma geçtikten sonra sorunları algılamak için kapsayıcılarının günlüklerine bakın. Dağıttığınız kapsayıcılarla başlayın ve IOT Edge çalışma zamanını oluşturan kapsayıcılara bakın: Edge aracısı ve Edge hub'ı. Edge Aracısı günlükleri genellikle her bir kapsayıcının yaşam döngüsü hakkında bilgi sağlar. Edge Hub’ı günlükleri, mesajlaşma ve yönlendirme hakkında bilgi sağlar. 
+IOT Edge güvenlik arka plan programı çalışır duruma geçtikten sonra sorunları algılamak için kapsayıcılarının günlüklerine bakın. Dağıttığınız kapsayıcılarla başlayın ve IOT Edge çalışma zamanını oluşturan kapsayıcılara bakın: edgeAgent ve edgeHub. IOT Edge Aracısı günlükleri genellikle her bir kapsayıcının yaşam döngüsü hakkında bilgi de sağlar. IOT Edge hub'ı günlükleri, Mesajlaşma ve yönlendirme hakkında bilgi sağlar. 
 
    ```cmd
    iotedge logs <container name>
    ```
 
-### <a name="view-the-messages-going-through-the-edge-hub"></a>Edge hub'ı aracılığıyla giden iletileri görüntüleyin
+### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>IOT Edge hub'ı aracılığıyla giden iletileri görüntüleyin
 
-Edge hub'ı aracılığıyla giden iletileri görüntüleyin ve çalışma zamanı kapsayıcılarındaki ayrıntılı günlükleri Öngörüler toplayın. Bu kapsayıcıların ayrıntılı günlüklerini etkinleştirmek için ayarlanmış `RuntimeLogLevel` yaml yapılandırma dosyanızdaki. Dosyayı açmak için:
+IOT Edge hub'ı aracılığıyla giden iletileri görüntüleyin ve çalışma zamanı kapsayıcılarındaki ayrıntılı günlükleri Öngörüler toplayın. Bu kapsayıcıların ayrıntılı günlüklerini etkinleştirmek için ayarlanmış `RuntimeLogLevel` yaml yapılandırma dosyanızdaki. Dosyayı açmak için:
 
 Linux üzerinde:
 
@@ -137,13 +137,13 @@ Varsayılan olarak, `agent` öğesi, aşağıdaki örnekteki gibi görünür:
 
 Değiştirin `env: {}` ile:
 
-> [!WARNING]
-> YAML dosyaları sekmeler identation içeremez. Bunun yerine 2 alanları kullanın.
-
    ```yaml
    env:
      RuntimeLogLevel: debug
    ```
+
+   > [!WARNING]
+   > YAML dosyaları sekmeler identation içeremez. Bunun yerine 2 alanları kullanın.
 
 Dosyayı kaydedin ve IOT Edge Güvenlik Yöneticisi'ni yeniden başlatın.
 
@@ -180,11 +180,11 @@ Windows'da:
    Start-Service iotedge
    ```
 
-## <a name="edge-agent-stops-after-about-a-minute"></a>Edge Aracısı yaklaşık bir dakika sonra durdurulur
+## <a name="iot-edge-agent-stops-after-about-a-minute"></a>IOT Edge Aracısı yaklaşık bir dakika sonra durdurulur
 
-Edge Aracısı başlatılıp yaklaşık bir dakika çalıştırılır ve sonra durdurulur. Günlükler, Edge Aracısı AMQP üzerinden IOT Hub'ına bağlanmayı dener ve sonra WebSocket üzerinden AMQP kullanarak bağlanma girişiminde gösterir. Bu başarısız olduğunda Edge Aracısı çıkış yapar. 
+EdgeAgent modülü başlar ve başarıyla için yaklaşık bir dakika çalıştırılır ve sonra durdurulur. Günlükleri, IOT Edge Aracısı AMQP üzerinden IOT Hub'ına bağlanmayı dener ve sonra WebSocket üzerinden AMQP kullanarak bağlanma girişiminde gösterir. Başarısız olduğunda, IOT Edge Aracısı çıkış yapar. 
 
-Örnek Edge Aracısı günlükleri:
+Örnek edgeAgent günlükleri:
 
 ```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
@@ -194,16 +194,16 @@ Edge Aracısı başlatılıp yaklaşık bir dakika çalıştırılır ve sonra d
 ```
 
 ### <a name="root-cause"></a>Kök neden
-Konak ağı üzerindeki bir ağ yapılandırması, Edge Aracısı’nın ağa ulaşmasını engelliyordur. Aracı ilk olarak AMQP (5671 numaralı bağlantı noktası) üzerinden bağlanma girişiminde bulunur. Bağlantı başarısız olursa Websockets'i (443 numaralı bağlantı noktası) dener.
+Konak ağı üzerindeki bir ağ yapılandırması, IOT Edge Aracısı ağa ulaşmasını engelliyordur. Aracı ilk olarak AMQP (5671 numaralı bağlantı noktası) üzerinden bağlanma girişiminde bulunur. Bağlantı başarısız olursa Websockets'i (443 numaralı bağlantı noktası) dener.
 
 IoT Edge çalışma zamanı, her bir modül için iletişim kurulacak bir ağ ayarlar. Linux’ta bu ağ bir köprü ağıdır. Windows’da NAT kullanır. Bu sorun, NAT ağını kullanan Windows kapsayıcılarının kullanıldığı Windows cihazlarında daha yaygın olarak görülür. 
 
 ### <a name="resolution"></a>Çözüm
 Bu köprüye/NAT ağına atanan IP adresleri için bir İnternet rotası olduğundan emin olun. Bazen konaktaki VPN yapılandırması, IoT Edge ağını geçersiz kılar. 
 
-## <a name="edge-hub-fails-to-start"></a>Edge Hub’u başlatılamıyor
+## <a name="iot-edge-hub-fails-to-start"></a>IOT Edge hub'u başlatılamıyor
 
-Edge Hub’ı başlatılamıyor ve günlüklere şu iletiyi yazıyor: 
+EdgeHub modülü başarısız başlatılamıyor ve günlüklere şu iletiyi yazıyor: 
 
 ```output
 One or more errors occurred. 
@@ -213,16 +213,16 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 ```
 
 ### <a name="root-cause"></a>Kök neden
-Konak makinedeki başka bir işlem, 443 numaralı bağlantı noktasına bağlıdır. Edge Hub'ı, ağ geçidi senaryolarında kullanmak üzere 5671 ve 443 numaralı bağlantı noktalarını eşler. Başka bir işlem zaten bu bağlantı noktasına bağlıysa bu bağlantı noktası eşlemesi başarısız olur. 
+Konak makinedeki başka bir işlem, 443 numaralı bağlantı noktasına bağlıdır. IOT Edge hub'ı bağlantı noktası 5671 eşler ve 443 üzerinden ağ geçidi senaryolarında kullanmak. Başka bir işlem zaten bu bağlantı noktasına bağlıysa bu bağlantı noktası eşlemesi başarısız olur. 
 
 ### <a name="resolution"></a>Çözüm
 443 numaralı bağlantı noktasını kullanan işlemi bulup durdurun. Bu işlem genellikle bir web sunucusudur.
 
-## <a name="edge-agent-cant-access-a-modules-image-403"></a>Edge Aracısı bir modülün görüntüsüne erişemiyor (403)
-Bir kapsayıcı çalıştırılamıyor ve Edge Aracısı günlükleri, 403 hatasını gösteriyor. 
+## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>IOT Edge Aracısı (403) bir modülün görüntüsüne erişemiyor
+Bir kapsayıcı çalışmazsa ve edgeAgent günlükleri 403 hatasını gösteriyor. 
 
 ### <a name="root-cause"></a>Kök neden
-Edge Aracısı'nın bir modülün görüntüsüne erişme izinleri yoktur. 
+IOT Edge Aracısı bir modülün görüntüsüne erişme izinleri yoktur. 
 
 ### <a name="resolution"></a>Çözüm
 Kayıt defteri kimlik bilgileriniz, dağıtım bildiriminde doğru belirtildiğinden emin olun
@@ -266,14 +266,14 @@ Bu hatayı gördüğünüzde, sanal makinenin DNS adını yapılandırarak ve ar
 Özellikle, ağ geçidi olarak kullanıldığında Raspberry Pi gibi kısıtlı cihazlarda kararlılık sorunlarla karşılaşabilirsiniz. Edge hub'ı modülü bellek durumlar dışında belirtileri içerir, aşağı akış cihazları bağlanılamıyor veya cihazın telemetri gönderme birkaç saat sonra durdurur.
 
 ### <a name="root-cause"></a>Kök neden
-Edge çalışma zamanı bir parçası olan edge hub'ı varsayılan olarak performans için iyileştirilmiştir ve büyük boyutta bellek ayırmaya çalışır. Bu iyileştirme kısıtlanmış edge cihazlar için ideal değildir ve kararlılık sorunlara neden olabilir.
+IOT Edge hub, IOT Edge çalışma zamanı bir parçası olan varsayılan olarak performans için iyileştirilmiştir ve büyük boyutta bellek ayırmaya çalışır. Bu iyileştirme kısıtlanmış edge cihazlar için ideal değildir ve kararlılık sorunlara neden olabilir.
 
 ### <a name="resolution"></a>Çözüm
-Edge hub'ı için bir ortam değişkenini ayarlamak **OptimizeForPerformance** için **false**. Bunu yapmanın iki yolu vardır:
+IOT Edge hub'ı için bir ortam değişkenini ayarlamak **OptimizeForPerformance** için **false**. Bunu yapmanın iki yolu vardır:
 
 Kullanıcı Arabiriminde: 
 
-Portalı'nda *cihaz ayrıntıları*->*modülleri ayarlama*->*Gelişmiş Edge çalışma zamanı ayarları Yapılandır*, bir ortam değişkeni oluşturun adlı *OptimizeForPerformance* ayarlanmış *false* için *Edge hub'ı*.
+Portalda gidin **cihaz ayrıntıları** > **modülleri ayarlama** > **Gelişmiş Edge çalışma zamanı ayarları Yapılandır**. Adlı Edge hub'ı modül için bir ortam değişkenini oluşturmak *OptimizeForPerformance* ayarlanmış *false*.
 
 ![OptimizeForPerformance false olarak ayarlayın.](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -328,9 +328,9 @@ Aynı işlem kimliği her zaman özel bir IOT Edge modülü tarafından ileti g�
 
 
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>IOT Edge dağıtımı için güvenlik duvarı ve bağlantı noktası yapılandırma kuralları
-Azure IOT Edge, IOT hub'ı Desteklenen protokoller kullanarak Azure bulut bir şirket içi uç sunucusundan iletişim sağlar, bkz: [iletişim protokolü seçme](../iot-hub/iot-hub-devguide-protocols.md). Gelişmiş güvenlik için Azure IOT Edge ile Azure IOT Hub arasındaki iletişim kanallarını her zaman giden olacak şekilde yapılandırılır. Bu yapılandırma dayanır [hizmet destekli iletişim düzeni](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), keşfetmek kötü amaçlı bir varlık için saldırı yüzeyini en aza. Gelen iletişim istekleri, yalnızca Azure IOT Edge cihazına iletileri göndermek için Azure IOT hub'ı gereken yere belirli senaryolar için gereklidir. Bulut-cihaz iletilerini TLS güvenli kanalı kullanılarak korunur ve daha fazla X.509 sertifikaları ve TPM cihaz modülleri kullanılarak güvenli hale getirilebilir. Azure IOT Edge Güvenlik Yöneticisi bu iletişimin nasıl olabileceğini yöneten kurulduktan bkz [IOT Edge Güvenlik Yöneticisi](../iot-edge/iot-edge-security-manager.md).
+Azure IOT Edge, IOT hub'ı Desteklenen protokoller kullanarak Azure bulut bir şirket içi sunucusundan iletişim sağlar, bkz: [iletişim protokolü seçme](../iot-hub/iot-hub-devguide-protocols.md). Gelişmiş güvenlik için Azure IOT Edge ile Azure IOT Hub arasındaki iletişim kanallarını her zaman giden olacak şekilde yapılandırılır. Bu yapılandırma dayanır [hizmet destekli iletişim düzeni](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), keşfetmek kötü amaçlı bir varlık için saldırı yüzeyini en aza. Gelen iletişim istekleri, yalnızca Azure IOT Edge cihazına iletileri göndermek için Azure IOT hub'ı gereken yere belirli senaryolar için gereklidir. Bulut-cihaz iletilerini TLS güvenli kanalı kullanılarak korunur ve daha fazla X.509 sertifikaları ve TPM cihaz modülleri kullanılarak güvenli hale getirilebilir. Azure IOT Edge Güvenlik Yöneticisi bu iletişimin nasıl olabileceğini yöneten kurulduktan bkz [IOT Edge Güvenlik Yöneticisi](../iot-edge/iot-edge-security-manager.md).
 
-IOT Edge modülleri dağıtılır ve Azure IOT Edge çalışma zamanı güvenliğini sağlamak için Gelişmiş yapılandırma sağlar, ancak temel alınan makine ve ağ yapılandırmasına yine de bağlıdır. Bu nedenle, güvenli Edge ile bulut arasındaki iletişim için uygun ağ ve güvenlik duvarı kuralları ayarlanır emin olmak için zorunludur. Temel alınan sunucuları için yapılandırma güvenlik duvarı kuralları aşağıdaki kılavuz olarak Azure IOT Edge çalışma zamanı barındırıldığı kullanılabilir:
+IOT Edge modülleri dağıtılır ve Azure IOT Edge çalışma zamanı güvenliğini sağlamak için Gelişmiş yapılandırma sağlar, ancak temel alınan makine ve ağ yapılandırmasına yine de bağlıdır. Bu nedenle, uygun bir ağ sağlamak zorunludur ve güvenlik duvarı kuralları iletişim buluta güvenli edge için ayarlanır. Temel alınan sunucuları için yapılandırma güvenlik duvarı kuralları, Azure IOT Edge çalışma zamanı barındırıldığı bir kılavuz olarak aşağıdaki tabloda kullanılabilir:
 
 |Protokol|Bağlantı noktası|gelen|Giden|Rehber|
 |--|--|--|--|--|

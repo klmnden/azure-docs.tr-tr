@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 35002ccfc294b59a13e6826b4ca75a1ab6c68b62
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 812f957ffe2a3f24ead4ef0fe66a25c3cfd17995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870308"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866921"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Görüntü İşleme API'si Sürüm 1.0 nedir?
 
@@ -29,7 +29,7 @@ Bulut tabanlı Görüntü İşleme API’si, geliştiriciler için görüntüler
 * Resimleri içeriği temelinde etiketleyin.
 * Görüntüleri kategorilere ayırın.
 * Görüntü kalitesini ve türü tanımlayın.
-* [İnsan yüzlerini algılama ve bunların koordinatlarını döndürme. ](#Faces)
+* [İnsan yüzlerini algılayın ve bunların koordinatlarını döndürür.](#Faces)
 * Etki alanına özgü içerik tanır.
 * İçerik açıklamalarını oluşturur.
 * Görüntüleri bulunan yazdırılan metin tanımlamak için optik karakter tanıma kullanın.

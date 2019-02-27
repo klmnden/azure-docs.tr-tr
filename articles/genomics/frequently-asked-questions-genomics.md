@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Genomics: Sık sorulan sorular - SSS | Microsoft Docs'
+title: 'Microsoft Genomiks: Sık sorulan sorular - SSS | Microsoft Docs'
 titleSuffix: Azure
 description: Microsoft Genomics hakkında genel soruların müşterilere yanıtlar isteyin.
 services: genomics
@@ -9,14 +9,14 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 56256a6c10ecb0d06dfd6194668b9c32c5540c0e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: df329d42022f4e56b3d6d4d26519acd42caa1ae4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683909"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881830"
 ---
-# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Sık sorulan sorular
+# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomiks: Sık sorulan sorular
 
 Bu makalede, Microsoft Genomics ilgili en sık kullanılan sorgular listelenir. Microsoft Genomics hizmeti hakkında daha fazla bilgi için bkz. [Microsoft Genomics nedir?](overview-what-is-genomics.md). Sorun giderme hakkında daha fazla bilgi için bkz. bizim [sorun giderme kılavuzu](troubleshooting-guide-genomics.md). 
 
@@ -97,6 +97,6 @@ Boşluk yoksayılır.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Microsoft Genomics kullanmaya başlamak için aşağıdaki kaynakları kullanın:
-- İlk iş akışınızı Microsoft Genomics hizmet aracılığıyla çalıştırarak başlayın. [Microsoft Genomics hizmeti üzerinden iş akışı çalıştırma ](quickstart-run-genomics-workflow-portal.md)
+- İlk iş akışınızı Microsoft Genomics hizmet aracılığıyla çalıştırarak başlayın. [Microsoft Genomics hizmeti üzerinden iş akışı çalıştırma](quickstart-run-genomics-workflow-portal.md)
 - Microsoft Genomics hizmeti tarafından işlenmesi için kendi verilerinizi göndermek: [eşleştirilmiş FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [birden fazla FASTQ veya BAM](quickstart-input-multiple.md) 
 

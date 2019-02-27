@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: a2d799a85932f8b7fdf1f6ae53dc50579c266311
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 52c0799dd2f3c22b1ae3553869aafe9a1fcffc7f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674538"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887939"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesini Sil
 
@@ -71,7 +71,7 @@ Farklı Abonelikteki sanal ağlar ile dağıtım modelleri arasında eşleme uyg
 
 ### <a name="commands"></a>Komutlar
 
-- **Azure CLI**: [az ağ vnet eşlemesi oluşturma](/cli/azure/network/vnet/peering#create)
+- **Azure CLI**: [az ağ vnet eşlemesi oluşturma](/cli/azure/network/vnet/peering)
 - **PowerShell**: [AzVirtualNetworkPeering ekleyin](/powershell/module/az.network/add-azvirtualnetworkpeering)
 
 ## <a name="view-or-change-peering-settings"></a>Eşleme ayarlarını görüntülemek veya değiştirmek
@@ -88,7 +88,7 @@ Bir eşleme değiştirmeden önce gereksinimler ve kısıtlamalar ile hakkında 
 
 **Komutları**
 
-- **Azure CLI**: [az ağ vnet eşleme listesi](/cli/azure/network/vnet/peering) bir sanal ağ için liste eşlemeleri için [az network vnet eşleme show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) ayarları bir özel eşdüzey hizmet sağlama için gösterilecek ve [az ağ sanal ağ eşleme güncelleştirme](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) eşleme ayarları değiştirmek için. |
+- **Azure CLI**: [az ağ vnet eşleme listesi](/cli/azure/network/vnet/peering) bir sanal ağ için liste eşlemeleri için [az network vnet eşleme show](/cli/azure/network/vnet/peering) ayarları bir özel eşdüzey hizmet sağlama için gösterilecek ve [az ağ sanal ağ eşleme güncelleştirme](/cli/azure/network/vnet/peering) eşleme ayarları değiştirmek için. |
 - **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) görünümü eşleme ayarları alınamadı ve [kümesi AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) ayarlarını değiştirmek için.
 
 ## <a name="delete-a-peering"></a>Bir eşleme Sil
@@ -97,7 +97,7 @@ Bir eşleme silmeden önce hesabınızın sahip olun [gerekli izinleri](#permiss
 
 Bir eşleme silindiğinde, trafiği bir sanal ağdan eşlenmiş sanal ağa artık akar. Resource Manager üzerinden dağıtılan sanal ağlar eşlendiğinde, her bir sanal ağı diğer sanal ağa eşleme vardır. Bir sanal ağdan eşdüzey hizmet sağlaması siliniyor sanal ağlar arasındaki iletişimi devre dışı bırakır. ancak, diğer sanal ağdan eşleme silmez. Mevcut diğer sanal ağ eşlemesi için eşleme durumu **bağlantısı kesilmiş**. İlk sanal ağ ve iki sanal ağ değişiklikleri için eşleme durumunu eşlemesi, yeniden oluşturma kadar eşlemeyi yeniden oluşturulamaz *bağlı*.
 
-Sanal ağlar, bazen kurmak istiyor, ancak her zaman bir eşdüzey hizmet sağlaması siliniyor yerine ayarlayabilirsiniz **sanal ağ erişimine izin ver** ayarını **devre dışı bırakılmış** yerine. Bilgi edinmek için nasıl, adım 6 / okuma [bir eşleme oluşturma](#create-a-peering) bu makalenin. Devre dışı bırakma ve etkinleştirme ağ erişimini, silme ve eşlemelerin yeniden daha kolay bulabilirsiniz.
+Sanal ağlar, bazen kurmak istiyor, ancak her zaman bir eşdüzey hizmet sağlaması siliniyor yerine ayarlayabilirsiniz **sanal ağ erişimine izin ver** ayarını **devre dışı bırakılmış** yerine. Bilgi edinmek için nasıl bir eşleme bu makalenin 6. adım Oluştur okuyun. Devre dışı bırakma ve etkinleştirme ağ erişimini, silme ve eşlemelerin yeniden daha kolay bulabilirsiniz.
 
 1. Portalın üst kısmındaki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünmesini, onu seçin. Seçmeyin **sanal ağlar (Klasik)** Klasik dağıtım modeliyle dağıtılan sanal ağ eşlemesi oluşturulamıyor gibi listede görünüp görünmediğine.
 2. Sanal ağ eşleme silmek istediğiniz listeyi seçin.

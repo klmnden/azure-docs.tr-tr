@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1ee41c6d543ac4f52b537ebc8054f2986c4217c
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b06151b9cb5603ef54c8e84d261bb7a4e7885e1b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649600"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880470"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile TensorFlow ve Keras modellerini eğitin
 
@@ -71,10 +71,10 @@ keras_est = TensorFlow(source_directory='./my-keras-proj',
                        script_params=script_params,
                        compute_target=compute_target,
                        entry_script='keras_train.py',
-                       conda_packages=['keras'], # just add keras through conda
+                       pip_packages=['keras'], # just add keras through pip
                        use_gpu=True)
 ```
-Yukarıdaki TensorFlow tahmin Oluşturucu Keras Conda aracılığıyla yürütme ortamında yüklemek için Azure Machine Learning hizmeti bildirir. Ve `keras_train.py` Keras modeli eğitmek için Keras API'si daha sonra içeri aktarabilirsiniz. Tam bir örnek için keşfetmek [bu Jupyter not defteri](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
+Azure Machine Learning hizmeti aracılığıyla yürütme ortamı için pip Keras yüklemek için yukarıdaki TensorFlow tahmin Oluşturucu bildirir. Ve `keras_train.py` Keras modeli eğitmek için Keras API'si daha sonra içeri aktarabilirsiniz. Tam bir örnek için keşfetmek [bu Jupyter not defteri](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
 
 ## <a name="distributed-training"></a>Dağıtılmış eğitimi
 TensorFlow Estimator Azure VM'lerin CPU ve GPU kümeleri arasında uygun ölçekte Modellerinizi eğitmek sağlar. Azure Machine Learning tüm altyapı ve bu iş yüklerinin ölçeğini gerçekleştirmek için gereken düzenleme arka planda yönetecek karşın dağıtılmış TensorFlow eğitimi birkaç API çağrısı ile kolayca çalıştırabilirsiniz.

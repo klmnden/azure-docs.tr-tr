@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bbede01844f20c0240b154fd319b818a43463131
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: efa8f4fc604440b8c1396aa654834ce83a41844e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55823418"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875829"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye taşıma
 
@@ -26,9 +26,9 @@ Bu öğreticide Azure Vm'leri, Azure Site Recovery kullanarak başka bir bölgey
 > * [Kaynak Vm'leri hazırlama](#prepare-the-source-vms)
 > * [Hedef bölge hazırlama](#prepare-the-target-region)
 > * [Hedef bölge için veri kopyalama](#copy-data-to-the-target-region)
-> * [Test yapılandırması ](#test-the-configuration)
-> * [Taşımayı gerçekleştirmek ](#perform-the-move-to-the-target-region-and-confirm)
-> * [Kaynak bölgedeki kaynak atma ](#discard-the-resource-in-the-source-region)
+> * [Test yapılandırması](#test-the-configuration)
+> * [Taşımayı gerçekleştirmek](#perform-the-move-to-the-target-region-and-confirm)
+> * [Kaynak bölgedeki kaynak atma](#discard-the-resource-in-the-source-region)
 
 > [!IMPORTANT]
 > Bu belge, Azure Vm'leri bir bölgeden diğerine olan VM'ler için kullanılabilirlik alanları taşıyarak altyapınızı kullanılabilirliğini artırmak için gereksinim ise, başvuru olarak Öğreticisi burada taşımak için size yol gösterir.
@@ -73,7 +73,7 @@ Bu öğreticide Azure Vm'leri, Azure Site Recovery kullanarak başka bir bölgey
 
     - [Ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Yük dengeleyiciler](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Genel IP ](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Genel IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
     Tüm diğer ağ bileşenleri için ağ ile başvurmak [belgeleri.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b35707b857c66f0f1b91f2f1b5dd7a0ffa24dd9e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 17058e1d1c7b961ce14d18ca52580b7969b4df34
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733767"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888126"
 ---
 # <a name="setup-diagnostic-logging"></a>Tanılama günlüğüne kaydetmeyi ayarlama
 
@@ -83,7 +83,7 @@ Seçme **altyapısı** tüm günlükleri [Xevent'ler](https://docs.microsoft.com
 
     * **Bir depolama hesabında arşivle**. Bu seçeneği kullanmak için bağlanmak için mevcut bir depolama hesabı gerekir. Bkz: [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md). Bir kaynak yöneticisi, genel amaçlı hesap oluşturmak için yönergeleri izleyin, sonra Portalı'nda bu sayfaya dönerek, depolama hesabınızı seçin. Bu, yeni oluşturulan depolama hesapları, aşağı açılan menüsünün görünmesi birkaç dakika sürebilir.
     * **Olay hub'ına Stream**. Bu seçeneği kullanmak için bağlanmak için mevcut bir olay hub'ı ad alanı ve olay hub'gerekir. Daha fazla bilgi için bkz. [bir Event Hubs ad alanı ve Azure portalını kullanarak bir olay hub'ı oluşturma](../event-hubs/event-hubs-create.md). Ardından olay hub'ı ad alanı ve ilke adını seçmek için Portalı'nda bu sayfaya dönün.
-    * **Azure İzleyici (Log Analytics çalışma alanı) için gönderme**. Bu seçeneği kullanmak için mevcut bir çalışma alanını kullanın veya [yeni bir çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md) portalda kaynak. Günlüklerinizi görüntüleme ile ilgili daha fazla bilgi için bkz: [görünümü günlükleri Log Analytics çalışma alanında](#view-logs-in-log-analytics) bu makaledeki.
+    * **Azure İzleyici (Log Analytics çalışma alanı) için gönderme**. Bu seçeneği kullanmak için mevcut bir çalışma alanını kullanın veya [yeni bir çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md) portalda kaynak. Günlüklerinizi görüntüleme ile ilgili daha fazla bilgi için bkz: [görünümü günlükleri Log Analytics çalışma alanında](#view-logs-in-log-analytics-workspace) bu makaledeki.
 
     * **Altyapısı**. Xevent'ler yazmak için bu seçeneği seçin. Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra autodeleted günlüklerdir.
     * **Hizmet**. Hizmet düzeyi olayları günlüğe kaydetmek için bu seçeneği belirleyin. Bir depolama hesabına arşivleme, tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra autodeleted günlüklerdir.

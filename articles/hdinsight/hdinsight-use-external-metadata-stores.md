@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 9c35a4a811925abaf8dcb64d3e7060bbb1f91cce
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3daa71c91d1e49a497a979b9b5b89df1fcb9418c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408332"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889690"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight, harici meta veri depolarını kullanma
 
@@ -68,11 +68,11 @@ Meta veri deposu en iyi bazı genel HDInsight Hive şunlardır:
 - Ayrı verilere erişmek için birden çok HDInsight kümesi düşünüyorsanız, her kümede meta veri deposu için ayrı bir veritabanı'nı kullanın. Meta veri deposu birden çok HDInsight kümeleri arasında paylaşıyorsanız, kümeler aynı meta verileri ve arka plandaki kullanıcı verileri dosyalarını kullanmak anlamına gelir.
 - Kendi özel meta veri deposu düzenli olarak yedekleyin. Azure SQL veritabanı yedeklemeleri otomatik olarak oluşturur, ancak yedekleme bekletme zaman çerçevesini değişir. Daha fazla bilgi için [otomatik SQL veritabanını yedekleme hakkında bilgi edinin](../sql-database/sql-database-automated-backups.md).
 - Meta veri deposu ve HDInsight kümesi için en yüksek performans ve düşük ağ çıkışı ücretleri aynı bölgedeki bulun.
-- Performans ve kullanılabilirlik gibi Azure Log Analytics ve Azure portalında Azure SQL veritabanı izleme araçlarını kullanarak, meta veri deposu izleyin.
+- Performans ve kullanılabilirlik gibi Azure portal veya Azure İzleyici günlüklerine Azure SQL veritabanı izleme araçlarını kullanarak, meta veri deposu izleyin.
 - Azure HDInsight yeni, daha yüksek bir sürümü mevcut bir özel meta veri deposu veritabanında oluşturulduğunda Sistem meta veri deposu şeması veritabanını yedekten geri olmadan geri alınamaz olduğu yükseltir.
 - Meta veri deposu arasında birden fazla küme paylaşıyorsanız, tüm kümeleri aynı HDInsight sürüm emin olun. Farklı Hive sürümleri, farklı bir meta veri deposu veritabanı şemalarını kullanın. Örneğin, bir meta veri deposu Hive 1.2 ve 2.1 Hive tutulan kümelerinde paylaşamazsınız. 
 
-##  <a name="apache-oozie-metastore"></a>Apache Oozie meta veri deposu
+##  <a name="apache-oozie-metastore"></a>Apache Oozie Metastore
 
 Apache Oozie, Hadoop işlerini yöneten bir iş akışı koordinasyon sistemidir.  Oozie Apache MapReduce, Pig, Hive ve diğerleri için Hadoop işlerini destekler.  Oozie meta veri deposu anki ve tamamlanmış iş akışları hakkında bilgi depolamak için kullanır. Oozie kullanırken performansı artırmak için Azure SQL veritabanı özel bir meta veri deposu kullanabilirsiniz. Sonra kümenizi sildiğinizden meta veri deposu Oozie iş verilerine erişim de sağlayabilirsiniz.
 

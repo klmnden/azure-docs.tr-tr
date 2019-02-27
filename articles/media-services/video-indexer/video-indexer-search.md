@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 6c93c0228425b2ff020e5b4301e68eae5b1062a3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807839"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872412"
 ---
 # <a name="find-exact-moments-within-videos"></a>Videoların içinde belirli anları bulma
 
@@ -36,11 +36,13 @@ Bu konu, videolar için belirli anları bulmanıza olanak sağlamak arama seçen
 
     Sonuçlardan birini tıklarsanız, oyuncunun, o an için videoda getirir. Uygulamanızda eşitleme ve oynatıcı/görünümü elde edebilirsiniz. Daha fazla bilgi için [uygulamanıza ekleme Video Indexer pencere öğeleri](video-indexer-embed-widgets.md). 
 4. Ayrıntılı bir dökümü video arayın.
+    
+    Kendi oluşturmak istiyorsanız tabanlı bulunan video klibi, basın **Düzenle** düğmesi. Bu sayfa filtre olarak yanı sıra kendi ınsights video da gösterir. Daha fazla bilgi için [görünümü ve düzenleme Video dizinleyici öngörülerini](video-indexer-view-edit.md). 
 
-    Kendi oluşturmak istiyorsanız dökümünü temel bulunan video, basın **Düzenle** düğmesi. Bu sayfada videonun tam bir çözümlemesi gösterilir. İçinde yalnızca gösterilecek dökümü ilgilendiğiniz satırları arama yapabilirsiniz. Daha fazla bilgi için [görünümü ve düzenleme Video dizinleyici öngörülerini](video-indexer-view-edit.md).
-
-    Bu örnekte, biz "kimlik koruması" metin arama yapılır. Biz de ek filtreler, aşağıdaki ekranda gösterildiği gibi uygulanır.
-
+    Yalnızca ilginizi çeken ve görmek istediğiniz bölümleri filtrelemek için yanı öngörüleri kullanma satırları göstermek için video içinde arama yapabilirsiniz. İşiniz bittiğinde, küçük ve ENTER tuşuna önizleyebilirsiniz **Yayımla** , galeride görüntülenen yeni bir küçük resim oluşturma.
+    
+    Aşağıdaki örnekte, biz "karma gerçeklik" metnini aranır. Biz de ek filtreler, aşağıdaki ekranda gösterildiği gibi uygulanır.
+    
     ![Arama](./media/video-indexer-search/video-indexer-search03.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar 

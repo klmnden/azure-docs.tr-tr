@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413558"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875795"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Azure haritalar arama hizmetini kullanarak bir adres bulma
 
@@ -37,7 +37,7 @@ Varsayılan olarak çoğu arama sorguları `maxFuzzyLevel=1` performans elde edi
 
 2. Oluşturucu sekmesinde **alma** HTTP yöntemi ve API uç noktanız için istek URL'sini girin.
 
-    ![Belirsiz arama ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Belirsiz arama](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
@@ -49,7 +49,7 @@ Varsayılan olarak çoğu arama sorguları `maxFuzzyLevel=1` performans elde edi
 
 3. Tıklayın **Params**ve aşağıdaki anahtarı girin / değer çiftleri olarak istek URL'si içinde sorgu veya yol parametrelerini kullanmak için:
 
-    ![Belirsiz arama ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Belirsiz arama](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Anahtar | Değer |
     |------------------|-------------------------|
@@ -75,7 +75,7 @@ Varsayılan olarak çoğu arama sorguları `maxFuzzyLevel=1` performans elde edi
   
 6. Params içinde aşağıdaki anahtarını girin / değer çiftlerini ve tıklayın **Gönder**:
 
-    ![Belirsiz arama ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Belirsiz arama](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
     | Anahtar | Değer |
     |-----|------------|
@@ -89,7 +89,7 @@ API arama adresine tam veya kısmi bir adres geçirin ve enlem ve boylam belediy
 1. Postman içinde tıklayın **yeni istek** | **GET isteği** ve adlandırın **adresi arama**.
 2. Oluşturucu sekmesinde **alma** HTTP yöntemi, API uç noktanız için istek URL'sini girin ve varsa bir Yetkilendirme Protokolü seçin.
 
-    ![Adres Arama ](./media/how-to-search-for-address/address_search_url.png)
+    ![Adres Arama](./media/how-to-search-for-address/address_search_url.png)
   
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
@@ -99,7 +99,7 @@ API arama adresine tam veya kısmi bir adres geçirin ve enlem ve boylam belediy
 
 3. Tıklayın **Params**ve aşağıdaki anahtarı girin / değer çiftleri olarak istek URL'si içinde sorgu veya yol parametrelerini kullanmak için:
   
-    ![Adres Arama ](./media/how-to-search-for-address/address_search_params.png)
+    ![Adres Arama](./media/how-to-search-for-address/address_search_params.png)
   
     | Anahtar | Değer |
     |------------------|-------------------------|
@@ -130,7 +130,7 @@ API arama adresine tam veya kısmi bir adres geçirin ve enlem ve boylam belediy
 
 2. Oluşturucu sekmesinde **alma** HTTP yöntemi ve API uç noktanız için istek URL'sini girin.
   
-    ![Ters adresi arama URL'si ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Ters adresi arama URL'si](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
@@ -140,7 +140,7 @@ API arama adresine tam veya kısmi bir adres geçirin ve enlem ve boylam belediy
   
 3. Tıklayın **Params**ve aşağıdaki anahtarı girin / değer çiftleri olarak istek URL'si içinde sorgu veya yol parametrelerini kullanmak için:
   
-    ![Adres arama parametrelerini ters çevir ](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![Adres arama parametrelerini ters çevir](./media/how-to-search-for-address/reverse_address_search_params.png)
   
     | Anahtar | Değer |
     |------------------|-------------------------|
@@ -190,7 +190,7 @@ API arama adresine tam veya kısmi bir adres geçirin ve enlem ve boylam belediy
 
 2. Oluşturucu sekmesinde **alma** HTTP yöntemi ve API uç noktanız için istek URL'sini girin.
   
-    ![Ters adresi arası Sokak arama ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Ters adresi arası Sokak arama](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|

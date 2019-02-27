@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics Görünüm Tasarımcısı bölümlerinde Başvuru Kılavuzu | Microsoft Docs
-description: Log Analytics'te görünüm Tasarımcısını kullanarak, Azure portalında Log Analytics çalışma alanınızda veri görselleştirmeleri çeşitli görüntüleyen özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir görselleştirme bölümleri ayarlarını bir başvuru kılavuzudur.
+title: Görünüm Tasarımcısı bölümlerine Azure İzleyici'de bir başvuru kılavuzu | Microsoft Docs
+description: Azure İzleyici'de görünüm Tasarımcısını kullanarak, Azure portalında görüntülenir ve görselleştirmeler Log Analytics çalışma alanındaki veriler üzerinde çeşitli içeren özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir görselleştirme bölümleri ayarlarını bir başvuru kılavuzudur.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 53323e70884e61b4643f7950a1a6333f08dbbb6f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193884"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889911"
 ---
-# <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log analytics'te Görünüm Tasarımcısı görselleştirme bölümü başvurusu Kılavuzu
-Azure Log Analytics'te Görünüm Tasarımcısı kullanarak veri görselleştirmeleri Log Analytics çalışma alanınızın çeşitli sunan Azure portalında özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir görselleştirme bölümleri ayarlarını bir başvuru kılavuzudur.
+# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Azure İzleyici'de Görünüm Tasarımcısı görselleştirme bölümü başvurusu Kılavuzu
+Azure İzleyici'de görünüm Tasarımcısını kullanarak, Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir görselleştirme bölümleri ayarlarını bir başvuru kılavuzudur.
 
 Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 
@@ -33,9 +33,9 @@ Kullanılabilir Görünüm Tasarımcısı kutucuğu türleri, aşağıdaki tablo
 
 | Görünüm türü | Açıklama |
 |:--- |:--- |
-| [Sorgu listesi](#list-of-queries-part) |Günlük arama sorgularının listesini görüntüler. Her sorgu sonuçlarını görüntülemeyi seçebilirsiniz. |
-| [Sayı ve liste](#number-and-list-part) |Üstbilgi, günlük arama sorgusu kayıtları sayısını gösteren tek bir sayı görüntüler. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler. |
-| [İki sayı ve liste](#two-numbers-and-list-part) |Üstbilgi ayrı bir günlük araması sorguları kayıtları sayısını gösterir iki sayıyı görüntüler. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler. |
+| [Sorgu listesi](#list-of-queries-part) |Günlük sorguları listesini görüntüler. Her sorgu sonuçlarını görüntülemeyi seçebilirsiniz. |
+| [Sayı ve liste](#number-and-list-part) |Üstbilgi, günlük sorgusu kayıtları sayısını gösteren tek bir sayı görüntüler. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler. |
+| [İki sayı ve liste](#two-numbers-and-list-part) |Üstbilgi ayrı günlük sorguları kayıtları sayısını gösterir iki sayıyı görüntüler. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler. |
 | [Halka ve liste](#donut-and-list-part) |Üstbilgi, günlük sorgusu değer sütununda özetlenir tek bir sayı görüntüler. Halka grafik en çok üç kayıtların sonuçlarını görüntüler. |
 | [İki zaman çizelgesi ve liste](#two-timelines-and-list-part) |Üstbilgi, günlük sorgusu değer sütununda özetlenir tek bir sayı görüntüler bir belirtme çizgisi içeren sütun grafikleri, zaman içinde iki günlük sorguların sonuçlarını görüntüler. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler. |
 | [Bilgi](#information-part) |Üst bilgi, statik metin ve isteğe bağlı bir bağlantı görüntülenir. Bir veya daha fazla statik başlık ve metin öğeleri listede görüntülenir. |
@@ -46,7 +46,7 @@ Kullanılabilir Görünüm Tasarımcısı kutucuğu türleri, aşağıdaki tablo
 Sonraki bölümlerde, kutucuk türleri ve bunların özelliklerini ayrıntılı açıklanmaktadır.
 
 ## <a name="list-of-queries-part"></a>Sorgular bölüm listesi
-Listesi sorguların parçası günlük arama sorgularının listesini görüntüler. Her sorgu sonuçlarını görüntülemeyi seçebilirsiniz. Varsayılan olarak tek bir sorgu görünümü içerir ve seçebileceğiniz **+ sorgu** ek sorgular eklemek için.
+Günlük sorguları listesi sorguların parçası listesini görüntüler. Her sorgu sonuçlarını görüntülemeyi seçebilirsiniz. Varsayılan olarak tek bir sorgu görünümü içerir ve seçebileceğiniz **+ sorgu** ek sorgular eklemek için.
 
 ![Sorgu Görünümü Listesi](media/view-designer-parts/view-list-queries.png)
 
@@ -62,7 +62,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 | Kolay ad | Tanımlayıcı adı görüntülenir. |
 
 ## <a name="number-and-list-part"></a>Sayı ve liste bölümü
-Üstbilgi, günlük arama sorgusu kayıtları sayısını gösteren tek bir sayı görüntüler. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler.
+Üstbilgi, günlük sorgusu kayıtları sayısını gösteren tek bir sayı görüntüler. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler.
 
 ![Sorgu Görünümü Listesi](media/view-designer-parts/view-number-list.png)
 
@@ -91,7 +91,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 | Eşikleri Etkinleştir |Eşikleri etkinleştirmek için bu bağlantıyı seçin. Daha fazla bilgi için [ortak ayarları](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>İki sayı ve liste bölümü
-Üst bilgisi, ayrı bir günlük araması sorguları kayıtları sayısını görüntüler iki sayı yok. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler.
+Üst bilgisi ayrı günlük sorguları kayıtları sayısını görüntüler iki sayı yok. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler.
 
 ![İki sayı ve liste görünümü](media/view-designer-parts/view-two-numbers-list.png)
 
@@ -322,14 +322,14 @@ Ad ve değer ayırıcı metin özelliği bir liste sorgusu içinde birden çok d
 Örneğin, adlı bir özellik düşünün *konumu* gibi değerleri dahil *Redmond yapı 41* ve *Bellevue yapı 12*. Bir tire (-) için ad ve değer ayırıcı belirtebilirsiniz ve *Şehir yapı* adı. Bu yaklaşım her değer adlı iki özellik ayrıştırır *Şehir* ve *yapı*.
 
 ### <a name="click-through-navigation"></a>Tıklama aracılığıyla gezinti
-Gezinti tıklama eylemi bir üst bilgi veya liste öğesi görünümünde tıkladığınızda gerçekleştirilecek tanımlar.  Bu sorguda açar [günlük araması portalını](../../azure-monitor/log-query/portals.md) veya başka bir görünüme başlatın.
+Gezinti tıklama eylemi bir üst bilgi veya liste öğesi görünümünde tıkladığınızda gerçekleştirilecek tanımlar.  Bu sorguda açar [günlük Analyticsl](../../azure-monitor/log-query/portals.md) veya başka bir görünüme başlatın.
 
 Aşağıdaki tabloda, tıklama gezinme için ayarları açıklar.
 
 | Ayar           | Açıklama |
 |:--|:--|
-| Günlük Arama (Otomatik) | Üstbilgi öğesi seçtiğinizde çalıştırmak için günlük araması'nı tıklatın.  Öğenin temel aldığı aynı günlük araması budur.
-| Günlük araması        | Bir listede bir öğe seçtiğinizde çalıştırmak için günlük araması'nı tıklatın.  Sorguyu yazın **Gezinti sorgusu** kutusu.   Kullanım *{seçili öğe}* kullanıcı seçili öğe için söz dizimi dahil etmek için.  Örneğin, sorgu adlı bir sütun varsa *bilgisayar* ve gezinti sorgusu *{seçili öğe}*, gibi bir sorgu *bilgisayar "Bilgisayarım" =* seçtiğinizde çalıştırmak bir bilgisayar. Gezinti sorgusu ise *türü = {seçili öğe} olay*, sorgu *türü olay bilgisayar = "Bilgisayarım" =* çalıştırılır. |
+| Günlük Arama (Otomatik) | Üstbilgi öğesi seçtiğinizde çalıştırmak için günlük sorgusu.  Öğenin temel aldığı aynı günlük sorgusu budur.
+| Günlük araması        | Bir listede bir öğe seçtiğinizde çalıştırmak için günlük sorgusu.  Sorguyu yazın **Gezinti sorgusu** kutusu.   Kullanım *{seçili öğe}* kullanıcı seçili öğe için söz dizimi dahil etmek için.  Örneğin, sorgu adlı bir sütun varsa *bilgisayar* ve gezinti sorgusu *{seçili öğe}*, gibi bir sorgu *bilgisayar "Bilgisayarım" =* seçtiğinizde çalıştırmak bir bilgisayar. Gezinti sorgusu ise *türü = {seçili öğe} olay*, sorgu *türü olay bilgisayar = "Bilgisayarım" =* çalıştırılır. |
 | Görünüm              | Bir listede bir üstbilgi öğesi veya bir öğe seçtiğinizde açmak için görüntüleyin.  Çalışma alanınızda bir görünüm adı seçin **Görünüm adı** kutusu. |
 
 
@@ -361,4 +361,4 @@ Aşağıdaki tabloda, eşikleri için ayarları açıklar:
 | Renk |Eşik değerini gösteren rengi. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) görselleştirme bölümlerinde sorguları desteklemek için.
+* Hakkında bilgi edinin [oturum sorguları](../log-query/log-query-overview.md) görselleştirme bölümlerinde sorguları desteklemek için.

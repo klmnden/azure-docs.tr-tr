@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fd2feb8bbd54e7aefab357b0b2ba4209aa29e09
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 4c3c936a3d547389de3681b4f82f329c4978742d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418639"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886630"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Azure Automation'da bir runbook başlatın
 
@@ -22,7 +22,7 @@ Aşağıdaki tabloda kendi belirli senaryonuza en uygun Azure automation'da bir 
 
 | **Yöntem** | **Özellikleri** |
 | --- | --- |
-| [Azure portal](#starting-a-runbook-with-the-azure-portal) |<li>En basit yöntem etkileşimli kullanıcı arabirimi.<br> <li>Basit parametre değerlerini sağlamak için formu.<br> <li>İş durumu kolayca izleyin.<br> <li>Azure oturum ile kimliği doğrulanmış erişim içinde. |
+| [Azure portal](#start-a-runbook-with-the-azure-portal) |<li>En basit yöntem etkileşimli kullanıcı arabirimi.<br> <li>Basit parametre değerlerini sağlamak için formu.<br> <li>İş durumu kolayca izleyin.<br> <li>Azure oturum ile kimliği doğrulanmış erişim içinde. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Windows PowerShell cmdlet'lerle komut satırından çağırın.<br> <li>Birden çok adım ile otomatik çözüm eklenebilir.<br> <li>İstek kimliği doğrulanır ve sertifika veya OAuth kullanıcı asıl / hizmet sorumlusu.<br> <li>Basit ve karmaşık parametre değerlerini sağlayın.<br> <li>İş durumu izleyin.<br> <li>PowerShell cmdlet'leri desteklemek için gereken istemci. |
 | [Azure Otomasyonu API](/rest/api/automation/) |<li>En esnek yöntem, ancak ayrıca en karmaşık.<br> <li>HTTP isteği yapabilen herhangi özel kodu çağırın.<br> <li>İstek doğrulanmış sertifika veya Oauth kullanıcı asıl / hizmet sorumlusu.<br> <li>Basit ve karmaşık parametre değerlerini sağlayın. *API kullanarak bir Python runbook'u arıyoruz, JSON yükü seri hale getirilmelidir.*<br> <li>İş durumu izleyin. |
 | [Web kancaları](automation-webhooks.md) |<li>Tek HTTP isteğinden runbook'u başlatın.<br> <li>Güvenlik belirteci URL ile kimlik doğrulaması.<br> <li>İstemci Web kancasını oluşturduğunuzda belirtilen parametre değerleri geçersiz kılamaz. Runbook ile HTTP istek ayrıntılarını doldurulur tek bir parametre tanımlayabilirsiniz.<br> <li>Web kancası URL'si ile iş durumunu izlemek için özelliği yok. |

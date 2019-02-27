@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9b3c0f7b1ff56cb269f6852be8fd2affeca8b8f1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddc051eb5f9638f7afec34db41c0e9d6e6d9d57d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56143864"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890071"
 ---
 # <a name="render-custom-data-on-raster-map"></a>Hücresel harita üzerinde özel verisi işleme
 
@@ -154,7 +154,7 @@ Yol ve PIN konum bilgileri de aracılığıyla edinilebilir [verileri karşıya 
 > [!Note]
 > Bu örnek Azure haritalar hesabı fiyatlandırma katmanı S1 ile gerektirir.
 
-Bir görünüm stili değiştiricilerini kullanarak değiştirebileceğiniz [yol parametresi](https://docs.microsoft.com/rest-staging/api/maps/render/getmapimage#uri-parameters).
+Bir görünüm stili değiştiricilerini kullanarak değiştirebileceğiniz [yol parametresi](https://docs.microsoft.com/rest-staging/api/maps/render/getmapimage).
 
 1. Postman uygulamasında aynı koleksiyonda yukarıda oluşturduğunuz yeni bir sekme açın. Oluşturucu sekmesinde GET HTTP yöntemini seçin ve renk ve saydamlık sahip bir çokgenin işlemek için bir GET isteği oluşturmak için aşağıdaki URL'yi girin:
     
@@ -173,7 +173,7 @@ Yanıt aşağıdaki gibi görünmelidir:
 > [!Note]
 > Bu örnek Azure haritalar hesabı fiyatlandırma katmanı S1 ile gerektirir.
 
-Raptiyeler ve bunların etiketleri daha büyük veya küçük 'sc' ölçek stil değiştiricisini kullanarak yapabilirsiniz. Sıfırdan büyük bir değer budur. Bir 1 standart ölçek değeri. PIN 1'den büyük değerler daha büyük hale getirir ve değerleri 1'den küçük bunları daha küçük hale getirir. Stili hakkında daha fazla bilgi için bkz. değiştiriciler, [statik Görüntü hizmeti yol parametreleri](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Raptiyeler ve bunların etiketleri daha büyük veya küçük 'sc' ölçek stil değiştiricisini kullanarak yapabilirsiniz. Sıfırdan büyük bir değer budur. Bir 1 standart ölçek değeri. PIN 1'den büyük değerler daha büyük hale getirir ve değerleri 1'den küçük bunları daha küçük hale getirir. Stili hakkında daha fazla bilgi için bkz. değiştiriciler, [statik Görüntü hizmeti yol parametreleri](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
 
 Bir çokgenin özel etiketler ile daire ve anında iletme PIN ile işlemek için aşağıdaki adımları izleyin:
 

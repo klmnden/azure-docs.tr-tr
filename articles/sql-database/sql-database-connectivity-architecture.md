@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/25/2019
+ms.openlocfilehash: 3be2f804bc755b92896305a2ba2b38a45450aed3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809989"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871239"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL bağlantı mimarisi
 
@@ -28,10 +28,12 @@ Bu makalede, Azure SQL Örneğiniz için trafiği farklı bileşenleri işlevi n
 > Müşterilerin yeni sunucular ve varolanları bağlantı türü ile açıkça (tercih) yeniden yönlendirme veya Proxy bağlantı mimarilerini bağlı olarak ayarlama oluşturmak için önerilir.
 >
 > Bu değişikliğin sonucu olarak mevcut ortamlarda bozucu bir hizmet uç noktası üzerinden bağlantı engellemek için aşağıdakileri yapın telemetri kullanırız:
+>
 > - Değiştirilmeden önce hizmet uç noktaları aracılığıyla erişilen biz algılayan sunucular için şu bağlantı türüne çevirin `Proxy`.
 > - Diğer tüm sunucular için şu bağlantıyı değiştirmek türü moduna geçiş yapılamaz için `Redirect`.
 >
 > Hizmet uç noktası kullanıcılar yine de aşağıdaki senaryolarda etkilenebilir:
+>
 > - Bizim telemetri uygulamalarla ilgili bilgileri yakalamak yaramadı şekilde uygulama mevcut bir sunucuyu seyrek bağlanır
 > - Otomatik dağıtım logic hizmet uç noktası bağlantıları için varsayılan davranışı olduğunu varsayarsak SQL veritabanı sunucusu oluşturur. `Proxy`
 >
@@ -106,10 +108,7 @@ Aşağıdaki tablo, Azure SQL veritabanı ağ geçidi tüm veri bölgeleri için
 | Kuzey Avrupa | 191.235.193.75 | 40.113.93.91 |
 | Orta Güney ABD | 23.98.162.75 | 13.66.62.124 |
 | Güneydoğu Asya | 23.100.117.95 | 104.43.15.0 |
-| UK Kuzey | 13.87.97.210 | |
-| UK Güney 1 | 51.140.184.11 | |
-| UK Güney 2 | 13.87.34.7 | |
-| Birleşik Krallık Batı | 51.141.8.11 | |
+| Birleşik Krallık Güney | 51.140.184.11 | |
 | Batı Orta ABD | 13.78.145.25 | |
 | Batı Avrupa | 191.237.232.75 | 40.68.37.158 |
 | Batı ABD 1 | 23.99.34.75 | 104.42.238.205 |

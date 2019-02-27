@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 82ed1378f1a754c8b5c64db2a190db5ceeb0de4a
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0a6296441374c3cf716211f8ba5961392407e240
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821226"
+ms.locfileid: "56870283"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Modelinizin Azure Machine Learning Studio'da dağıtımı için hazırlama
 
@@ -22,7 +22,7 @@ Azure Machine Learning Studio'da öngörülebilir bir analitik model geliştirme
 
 Bunu yapmak için Studio adlı bir deneme - oluşturmak için kullandığınız bir *eğitim denemesini* - Burada, eğitme, Puanlama ve modelinizi Düzenle. Memnun olduğunuzda, modelinizi eğitim denemenizi dönüştürerek dağıtmaya hazırlanma bir *Tahmine dayalı denemeye* puanı kullanıcı verileri için yapılandırılır.
 
-Bu işlemde örneği gördüğünüz [ öğretici 1: Kredi riskini tahmin](tutorial-part1-credit-risk.md).
+Bu işlemde örneği gördüğünüz [öğretici 1: Kredi riskini tahmin](tutorial-part1-credit-risk.md).
 
 Bu makalede bir yakından eğitim denemesini öngörücü bir denemeye nasıl dönüştürüldüğünü ve bu Tahmine dayalı denemeye nasıl dağıtıldığını ayrıntılarını alır. Bu ayrıntılar anlayarak, dağıtılan modelinizin daha verimli hale getirmek için yapılandırma konusunda bilgi edinebilirsiniz.
 

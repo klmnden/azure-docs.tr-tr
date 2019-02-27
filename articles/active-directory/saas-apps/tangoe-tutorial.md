@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986afa1239ad0efd9ccb936252ead37c8379b447
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8c9f410fa890df7aac3c3bf4d89468b92e69ba38
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192906"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Öğretici: Tangoe komut Premium Mobile ile Azure Active Directory Tümleştirme
 
@@ -75,7 +75,7 @@ Azure AD'de Tangoe komut Premium Mobile tümleştirmesini yapılandırmak için 
 
 1. Arama kutusuna **Tangoe komut Premium mobil**seçin **Tangoe komut Premium mobil** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Galeriden Tangoe komut Premium mobil Ekle ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
+    ![Galeriden Tangoe komut Premium mobil Ekle](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Tangoe komut Premium "Britta Simon" adlı bir test kullanıcı tabanlı mobil test.

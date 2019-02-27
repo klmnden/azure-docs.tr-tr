@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 88cbfc895d188162d0f242a5aceaab721a6c877f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239112"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877954"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure stack'teki kota türleri
 
@@ -74,7 +74,7 @@ Var olan bir kota görüntülemek için iki farklı yolu vardır:
 3.  Açılan dikey pencerede seçin **hizmetler ve kotalar**.
 4.  İçine tıklayarak görmek istediğiniz kota seçin **adı** sütun.
 
-    [ ![Kotalar](media/azure-stack-quota-types/quotas1sm.png "kotaları görüntüle") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Kotalar](media/azure-stack-quota-types/quotas1sm.png "kotaları görüntüle")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>Kaynak sağlayıcıları
 
@@ -92,7 +92,7 @@ Kota düzenlemek için iki farklı yolu vardır:
 2.  Bir kota adına tıklayarak düzenlemek istediğiniz planı seçin.
 3.  Açılan dikey pencerede seçin **hizmetler ve kotalar**.
 4.  İçine tıklayarak düzenlemek istediğiniz kota seçin **adı** sütun.
-    [ ![Kotalar](media/azure-stack-quota-types/quotas1sm.png "kotaları görüntüle") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Kotalar](media/azure-stack-quota-types/quotas1sm.png "kotaları görüntüle")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5.  Açılan dikey pencerede seçin **işlem düzenleme**, **ağında Düzenle**, veya **depolamada Düzenle**.
     ![Kotalar](media/azure-stack-quota-types/quotas3.png "kotaları görüntüle")    

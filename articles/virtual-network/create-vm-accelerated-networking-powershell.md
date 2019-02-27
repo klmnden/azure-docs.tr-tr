@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: a5f32504fc7d8fe0faa17d469aec017d39a6b1ce
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ae3d1fa6a921067e8c3b629206e47e1a1314adc1
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737153"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889248"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir Windows sanal makinesi oluşturun
 
@@ -66,7 +66,7 @@ Hızlandırılmış ağ ile sanal makineler (Klasik) dağıtılamıyor.
 Bu makale Azure Powershell kullanarak hızlandırılmış ağ ile bir sanal makine oluşturmak için adımları sağlar ancak ayrıca [hızlandırılmış ağ ile Azure portalını kullanarak bir sanal makine oluşturma](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Portalda, sanal makine oluştururken **sanal makine oluşturma** dikey penceresinde, seçin **ağ** sekmesi.  Bu sekmede için bir seçenek yoktur **hızlandırılmış**.  Seçtiyseniz bir [işletim sistemi desteklenen](#supported-operating-systems) ve [VM boyutu](#supported-vm-instances), bu seçenek "Açık." otomatik olarak doldurulur  Aksi halde, hızlandırılmış ağ için "Kapalı" seçeneği doldurmak ve kullanıcıya neden olan olması etkin bir neden sağlayın.   
 * *Not:* Desteklenen işletim sistemleri, portal üzerinden etkinleştirilebilir.  Lütfen özel bir görüntü kullanıyorsanız ve hızlandırılmış ağ görüntünüzü destekliyorsa, CLI veya Powershell kullanarak VM oluşturma. 
 
-Sanal makine oluşturulduktan sonra hızlandırılmış ağ etkin yönergeleri izleyerek doğrulayabilirsiniz [hızlandırılmış ağ etkin olduğunu onaylayın](#confirm-that-accelerated-networking-is-enabled).
+Sanal makine oluşturulduktan sonra aşağıdaki yönergeleri accelerated networking Onayla etkin hızlandırılmış ağ etkin doğrulayabilirsiniz.
 
 ## <a name="powershell-creation"></a>PowerShell oluşturma
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma

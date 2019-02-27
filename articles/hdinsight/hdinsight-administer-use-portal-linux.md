@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: a0da4339586982f5210834bcec5acfe463bc1a9a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 8fccf82371225acd5839537f7629ffe7df138d43
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816450"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888160"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak HDInsight Apache Hadoop kümelerini yönetme
 
@@ -71,9 +71,9 @@ Küme adınızı seçin [ **HDInsight kümeleri** sayfa](#showClusters).  Bu aç
 
 - **Menü izleme**
   - **Uyarılar**: Uyarıları ve eylemleri yönetme.
-  - **Ölçümleri**: Azure Log Analytics küme ölçümlerini izleyin.
+  - **Ölçümleri**: Azure İzleyici günlüklerine küme ölçümlerini izleyin.
   - **Tanılama ayarları**: Tanılama ölçümlerini depolanacağı ayarları.
-  - **Operations Management Suite'e**:  Kümenizi Azure Operations Management Suite (OMS) ve Azure Log Analytics izleyin.
+  - **Operations Management Suite'e**:  Kümenizi Azure Operations Management Suite (OMS) ve Azure İzleyici günlüklerine izleyin.
 
 - **Destek + sorun giderme menüsü**
   - **Kaynak durumu**: Bkz: [Azure kaynak durumu genel bakış](../service-health/resource-health-overview.md).

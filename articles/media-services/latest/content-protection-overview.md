@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 02c786209c81e755b05cc3875778f98faf8a1ae1
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e515f7c0587e8bbcba10bcd2d2a726c16401bfbd
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650946"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889792"
 ---
 # <a name="content-protection-overview"></a>Content protection genel bakış
 
@@ -31,7 +31,7 @@ Aşağıdaki resimde Media Services content protection iş akışı gösterilmek
 
 &#42;*dinamik şifreleme, AES-128 "şifresiz anahtar" ve CBCS CENC destekler. Ayrıntılar için destek matrisi bkz [burada](#streaming-protocols-and-encryption-types).*
 
-Bu makalede, kavramlar ve terminoloji content protection ile Media Services anlamak için ilgili açıklanmaktadır. Makaleyi de sahip [SSS](#faq) bölümünde ve içeriğin nasıl koruyacağınızı makalelere bağlantılar sağlar. 
+Bu makalede, kavramlar ve terminoloji content protection ile Media Services anlamak için ilgili açıklanmaktadır. Makale ayrıca aşağıdaki SSS bölümüne sahip ve içerik özelliğiyle nasıl koruyabileceğinize ilişkin makalelerin bağlantıları sağlar. 
 
 ## <a name="main-components-of-a-content-protection-system"></a>Bir içerik koruma sisteminin ana bileşenleri
 

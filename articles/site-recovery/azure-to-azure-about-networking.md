@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 49b5ef6b0dca32baaf05959cc29bb2a8024b6d04
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fb80af9df58fba41e5ece060099eb98e3d2f90fe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693998"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883156"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure'dan Azure'a çoğaltma ağı hakkında
 
@@ -163,4 +163,4 @@ Azure'nın varsayılan sistem yolu 0.0.0.0/0 adres ön eki ile geçersiz kılabi
 ## <a name="next-steps"></a>Sonraki adımlar
 - Yüklerinizi korumaya başlayın [Azure sanal makinelerini çoğaltarak](site-recovery-azure-to-azure.md).
 - Daha fazla bilgi edinin [IP adresi bekletme](site-recovery-retain-ip-azure-vm-failover.md) Azure sanal makine yük devretme için.
-- Olağanüstü durum kurtarma hakkında daha fazla bilgi [ExpressRoute ile Azure sanal makineleri ](azure-vm-disaster-recovery-with-expressroute.md).
+- Olağanüstü durum kurtarma hakkında daha fazla bilgi [ExpressRoute ile Azure sanal makineleri](azure-vm-disaster-recovery-with-expressroute.md).

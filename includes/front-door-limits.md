@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 9/17/2018
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: f0c2d1501b9aa19dec8c4ad157e004a57e0e5070
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 167e774b00bcfdb7bc1e26202bd7826f525a6ace
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006540"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890411"
 ---
 | Kaynak | Varsayılan limit |
 | --- | --- |
@@ -29,6 +29,7 @@ ms.locfileid: "47006540"
 ### <a name="timeout-values"></a>Zaman aşımı değerleri
 #### <a name="client-to-front-door"></a>İstemci ön kapısı
 - Ön kapısı 61 saniye boşta TCP bağlantı zaman aşımı vardır.
+
 #### <a name="front-door-to-application-backend"></a>Uygulama arka uca ön kapısı
 - Öbekli yanıt yanıt ise 200 döndürülecek olursa / ilk öbek alındığında.
 - HTTP isteği arka uca iletilir sonra 30 saniye için arka uç, ilk paketi 503 hatası istemciye döndürmeden önce ön kapısı bekler.

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 2439244edcc1b7026a2cc8a62a946188e279f15f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4489fc82f836d8c311fcd776e211670897618b54
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245839"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889486"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Öğretici: Power BI ile metin analizi Bilişsel hizmet tümleştirme
 
@@ -94,7 +94,7 @@ Metin Analizi hizmetinin [Anahtar İfadeler API](//westus.dev.cognitive.microsof
 | | |
 | - | - |
 | `id`  | İstekte bu belge için yer alan benzersiz tanımlayıcı. Yanıtta da bu alan bulunur. Böylece, birden fazla belge işlemeniz halinde, ayıklanan anahtar ifadeleri bu ifadelerin kaynağı olan belge ile kolayca eşleyebilirsiniz. Bu öğreticide, istek başına yalnızca bir belge işlediğinizden, `id` değerini, her bir istek için aynı olacak şekilde doğrudan yazabilirsiniz.|
-| `text`  | İşlenecek metin. Bu alanın değeri, [önceki bölümde](#PreparingData) oluşturduğunuz ve konu satırını ve yorum metnini birlikte içeren `Merged` sütunundan gelir. Anahtar İfade Ayıklama API'si bu verilerin 5.000 karakter uzunluğunu aşmamasını gerektirir.|
+| `text`  | İşlenecek metin. Bu alanın değeri, [önceki bölümde](#PreparingData) oluşturduğunuz ve konu satırını ve yorum metnini birlikte içeren `Merged` sütunundan gelir. Bu veriler yaklaşık 5.120 karakterden uzun anahtar tümcecikleri API'sini gerektirir.|
 | `language` | Belgenin yazıldığı doğal dilin kodu. Örnek verilerdeki tüm iletiler İngilizce’dir, bu nedenle bu alan için `en` değerini doğrudan yazabilirsiniz.|
 
 ## <a name="create-a-custom-function"></a>Özel işlev oluşturma

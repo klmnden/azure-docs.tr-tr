@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: c04b9b04a14e5cba205db5e0fa86094ef098bc7b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585882"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886443"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Öğretici: Azure portalı ve konular/abonelikler aracılığıyla Envanter güncelleştirme
 
@@ -67,7 +67,7 @@ Kodu çalıştırmak için aşağıdakileri yapın:
 
 2. Örnek `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters` klasörüne gidin.
 
-3. Bu öğreticinin [Yönetim kimlik bilgilerini edinme](#obtain-the-management-credentials) bölümünde Not Defteri'ne kopyaladığınız bağlantı dizesini edinin. Ayrıca önceki bölümde oluşturduğunuz konu adı da gerekir.
+3. Yönetim kimlik bilgileri bölümü bu öğreticinin elde Not Defteri'ne kopyaladığınız bağlantı dizesini edinin. Ayrıca önceki bölümde oluşturduğunuz konu adı da gerekir.
 
 4. Komut isteminde aşağıdaki komutu yazın:
 

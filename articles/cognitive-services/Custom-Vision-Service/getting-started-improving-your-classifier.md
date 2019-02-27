@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 54faf8b37afa953aac7d411df2f539188dc5b451
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6e97001497ebdddebe9b5b726e0526a987b6c63c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310229"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873330"
 ---
 # <a name="how-to-improve-your-classifier"></a>Nasıl sınıflandırıcınızı geliştirme
 
@@ -39,7 +39,7 @@ Bu sorunu düzeltmek için daha fazla eğitimlerle aşağıdaki yönergeleri kul
 
 ## <a name="data-quantity"></a>Veri miktarı
 
-Eğitim görüntülerinin sayısını en önemli bir faktördür. Biz, başlangıç noktası olarak etiket başına en az 50 görüntüleri kullanarak recomment. Daha az görüntülerle overfitting daha yüksek riski yoktur ve kaliteli performans numaralarınızı önerebilir olsa da modelinizi gerçek verilerle uğraşıyor. 
+Eğitim görüntülerinin sayısını en önemli bir faktördür. Etiket başına en az 50 görüntüleri bir başlangıç noktası olarak kullanmanızı öneririz. Daha az görüntülerle overfitting daha yüksek riski yoktur ve kaliteli performans numaralarınızı önerebilir olsa da modelinizi gerçek verilerle uğraşıyor. 
 
 ## <a name="data-balance"></a>Veri bakiyesi
 

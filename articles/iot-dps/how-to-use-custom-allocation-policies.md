@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4c02df5684036aef078b0f79c70d3b66d60e013b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340070"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881524"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Özel ayırma ilkelerini kullanma
 
@@ -285,7 +285,7 @@ Cihaz anahtarı oluşturmak için kullanacağınız **birincil anahtar** hesapla
 Örneğin bu makalede, aşağıdaki iki cihaz kayıt kimliklerini ve cihaz anahtarı hem de cihazlar için işlem. Her iki kayıt kimlikleri özel ayırma ilkesi için örnek kod ile çalışmak için geçerli bir son eke sahiptir:
 
 - **contoso tstrsd 007 breakroom499**
-- **contoso hpsd 088 mainbuilding167**
+- **mainbuilding167-contoso-hpsd-088**
 
 #### <a name="linux-workstations"></a>Linux iş istasyonları
 
@@ -526,7 +526,7 @@ Aşağıdaki tabloda, beklenen senaryoları ve karşılaşabileceğiniz sonuçla
 | -------- | --------------------------------------------- | ------------------------ |
 | Web kancası 200 Tamam 'geçerli bir IOT hub konak adına ayarlayın iotHubHostName' döndürür | Sonuç durumu: Atanan  | SDK'sı PROV_DEVICE_RESULT_OK yanı sıra hub bilgilerini döndürür. |
 | Web kancası 200 Tamam 'iotHubHostName' yanıtta sunmak, ancak bir boş dize veya null döndürür. | Sonuç durumu: Başarısız<br><br> Hata kodu: CustomAllocationIotHubNotSpecified (400208) | SDK'sı PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED döndürür |
-| Web kancası 401 Yetkisiz döndürür | Sonuç durumu: Başarısız<br><br>Hata kodu: CustomAllocationUnauthorizedAccess (400209) | SDK'sı PROV_DEVICE_RESULT_UNAUTHORIZED döndürür |
+| Web kancası 401 Yetkisiz döndürür | Sonuç durumu: Başarısız<br><br>Hata kodu: CustomAllocationUnauthorizedAccess (400209) | SDK returns PROV_DEVICE_RESULT_UNAUTHORIZED |
 | Cihaz devre dışı bırakmak için bireysel kayıt oluşturuldu | Sonuç durumu: Devre dışı | SDK'sı PROV_DEVICE_RESULT_DISABLED döndürür |
 | Web kancası hata kodu döndürür > 429 = | DPS düzenleme için birkaç kez yeniden deneyecek. Yeniden deneme ilkesi şu anda şöyledir:<br><br>&nbsp;&nbsp;-Yeniden deneme sayısı: 10<br>&nbsp;&nbsp;-Başlangıç aralığı: 1s<br>&nbsp;&nbsp;-Artış: 9s | SDK'sı hatasını görmezden Gel ve belirtilen süre içinde başka bir get durum iletisi gönderin |
 | Web kancası herhangi bir durum kodu döndürür. | Sonuç durumu: Başarısız<br><br>Hata kodu: CustomAllocationFailed (400207) | SDK'sı PROV_DEVICE_RESULT_DEV_AUTH_ERROR döndürür |
@@ -555,7 +555,7 @@ Ada göre kaynak grubunu silmek için:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Reprovisioning daha fazla bilgi edinmek için [IOT Hub cihaz reprovisoning kavramları](concepts-device-reprovision.md) 
-- Daha fazla sağlama kaldırmayı bilgi edinmek için [nasıl daha önce otomatik olarak sağlanan cihazları sağlamasını kaldırmak ](how-to-unprovision-devices.md) 
+- Daha fazla sağlama kaldırmayı bilgi edinmek için [nasıl daha önce otomatik olarak sağlanan cihazları sağlamasını kaldırmak](how-to-unprovision-devices.md) 
 
 
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: d98834abaf925cdabd312869615a60f64049826d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: c98328342eec7fa59a56fbcc70da8cdd7a8fabf1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808745"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880895"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Azure Application Gateway oturum benzeşimi sorunlarını giderme
 
@@ -75,7 +75,7 @@ Internet Explorer'da, örneğin bir kısa ad URL'yi kullanarak uygulama ağ geç
 
 Bu sorunu tanımlamak için yönergeleri izleyin:
 
-1. Bir web hata ayıklayıcı izleme izleme "uygulama Gateway(We are using Fiddler in this example) arkasında uygulamaya bağlanma istemcide" al.
+1. "Uygulama Gateway(We are using Fiddler in this example) arkasında uygulamaya bağlanma istemcide" bir web hata ayıklayıcı izleme yararlanın.
     **İpucu** fiddler'ı kullanmayı bilmiyorsanız seçeneği işaretleyin "**ağ trafiğini toplama ve web hata ayıklayıcıyı kullanarak incelemek istiyorum**" altındaki.
 
 2. Denetleyin ve istemci tarafından sağlanan tanımlama bilgilerini ARRAffinity ayrıntılarını sahip olup olmadığını belirlemek için oturumu günlüklerini analiz edin. ARRAffinity ayrıntıları gibi bulamadığınız, "**ARRAffinity =** *ARRAffinityValue*" düzenleme tanımlama bilgisi ile istemci yanıtlama değil tarafından sağlanan anlamına gelen tanımlama bilgisi kümesi içinde Uygulama ağ geçidi.

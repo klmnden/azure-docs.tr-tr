@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: bc3741be87238f1ac5f2146eb25919dd83711ce3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 313d26e354589611b36ed7c273858de2f919566f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819063"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889520"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
 
@@ -96,7 +96,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Ardından, portalda oturum açın. Eklemek için yeni kullanıcı tarafından atanan yönetilen kimlik **depolama Blob verileri katkıda bulunan (Önizleme)** 3. adım altında açıklandığı gibi depolama hesabındaki rol [Azure portalını kullanarak](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
+Ardından, portalda oturum açın. Eklemek için yeni kullanıcı tarafından atanan yönetilen kimlik **depolama Blob verileri katkıda bulunan (Önizleme)** 3. adım altında açıklandığı gibi depolama hesabındaki rol [Azure portalını kullanarak](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 Rolü için kullanıcı tarafından atanan bir yönetilen kimlik atadıktan sonra aşağıdaki kod parçacığını kullanarak şablonu dağıtın.
 

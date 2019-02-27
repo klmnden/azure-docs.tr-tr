@@ -7,12 +7,12 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 2/14/2019
 ms.author: garye
-ms.openlocfilehash: 87dcf18a2517561e3166726f8f1f1a70c2ec7713
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 9e893354fb8971826d6fa3eb6b565f660305da0a
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447812"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889656"
 ---
 # <a name="whats-happening-to-azure-batch-ai"></a>Azure Batch AI neler oluyor?
 
@@ -282,7 +282,7 @@ ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-Ek depolama hesapları kaydetme veya başka bir kayıtlı veri deposunda bir başvuru alma hakkında daha fazla bilgi [Azure ML service belgelerini](../machine-learning/service/how-to-access-data.md#create-a-datastore).
+Ek depolama hesapları kaydetme veya başka bir kayıtlı veri deposunda bir başvuru alma hakkında daha fazla bilgi [Azure ML service belgelerini](../machine-learning/service/how-to-access-data.md#access).
 
 
 #### <a name="downloading-and-uploading-data"></a>Karşıya veri yükleme ve indirme 

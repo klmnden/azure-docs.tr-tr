@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed94b7571acb0ced124644dafc59d805d5112e8a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 10b74b85235cc47375f6289b52371bc588105ad9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268575"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890105"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Öğretici: Azure AD Graph API hizmetine erişmek için Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
@@ -43,10 +43,14 @@ Bu öğreticide, grup üyeliklerini almak için Microsoft Graph API’ye erişme
 
 ## <a name="connect-to-azure-ad"></a>Azure AD'ye Bağlanma
 
-VM’yi bir gruba atamak ve VM’ye grup üyeliklerini alma izni vermek için Azure AD’ye bağlanmanız gerekir.
+VM’yi bir gruba atamak ve VM’ye grup üyeliklerini alma izni vermek için Azure AD’ye bağlanmanız gerekir. Birden fazla Kiracı varsa doğrudan veya Tenantıd parametresi ile Connect-AzureAD cmdlet'ini kullanabilirsiniz.
 
 ```powershell
 Connect-AzureAD
+```
+OR
+```powershell
+Connect-AzureAD -TenantId "Object Id of the tenant"
 ```
 
 ## <a name="add-your-vm-identity-to-a-group-in-azure-ad"></a>VM kimliğinizi Azure AD'de bir gruba ekleme
@@ -79,7 +83,13 @@ Bu seçeneği kullanmak için Azure AD PowerShell gerekir. Makinenizde yüklü d
    ```powershell
    Connect-AzureAD
    ```
+   Belirli bir Azure Active Directory'ye bağlanın _Tenantıd_ parametresini aşağıdaki gibi:
 
+   ```PowerShell
+   Connect-AzureAD -TenantId "Object Id of the tenant"
+   ```
+
+   
 2. Sanal makinenizin kimliğini temsil eden hizmet sorumlusuna ``Directory.Read.All`` uygulama iznini atamak için aşağıdaki PowerShell komutlarını çalıştırın.
 
    ```powershell
