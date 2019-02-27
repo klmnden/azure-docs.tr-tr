@@ -16,15 +16,16 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 1f545747b883ab70b597b4e598a86b192f89b027
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 453cb838792ff5e80b0dbbe8e90f96792f9c5484
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892785"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890139"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM'ye disk ekleme
 Bu makalede verilerinizi - koruyabilmeniz için bile, sanal Makinenizin Bakım veya yeniden boyutlandırma nedeniyle daralıp kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir.
+
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Bir VM'ye yeni bir disk ekleme
 
@@ -197,8 +198,10 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 > [!NOTE]
 > Daha sonra fstab düzenleme olmadan veri diski kaldırma VM önyükleme başarısız olmasına neden olabilir. Çoğu dağıtımları ya da sağlamak *nofail* ve/veya *nobootwait* fstab seçenekleri. Bu seçenekler, önyükleme sırasında bağlamak disk başarısız olsa bile önyüklemek bir sistem sağlar. Bu parametreler hakkında daha fazla bilgi için dağıtım 's belgelerine başvurun.
-> 
+>
 > *Nofail* seçeneği, sanal makine bile dosya sistemi bozuk ya da diskin önyükleme sırasında yok başlatılmadan sağlar. Bu seçenek olmadan davranışı açıklandığı karşılaşabilirsiniz [olamaz SSH için Linux VM'si FSTAB hataları nedeniyle](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+>
+> Bir önyükleme hatası fstab değiştirme oluşturduysa Azure sanal makine seri Konsolu sanal makinenizin konsol erişimi için kullanılabilir. Daha fazla ayrıntı bulabilirsiniz [seri Konsolu belgelerine](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure'da Linux TRIM/UNMAP desteği
 Bazı Linux çekirdeklerinin diskte kullanılmayan blokları atmak TRIM/UNMAP işlemleri destekler. Bu özellik sayfaları silinmiş Azure artık geçerli değil ve iptal edilecek ve büyük dosyaları oluşturmak ve bunları silin, para tasarrufu yapabileceğiniz bilgilendirmek için standart depolama alanında özellikle yararlıdır.
@@ -211,14 +214,14 @@ TRIM etkinleştirmek için iki şekilde destek Linux VM'nize vardır. Her zamank
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
 * Bazı durumlarda, `discard` seçeneği performans etkileri olabilir. Alternatif olarak, çalıştırabileceğiniz `fstrim` komutunu el ile komut satırından veya düzenli olarak çalıştırmak için crontab ekleyin:
-  
+
     **Ubuntu**
-  
+
     ```bash
     sudo apt-get install util-linux
     sudo fstrim /datadrive
     ```
-  
+
     **RHEL/CentOS**
 
     ```bash

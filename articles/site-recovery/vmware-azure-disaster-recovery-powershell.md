@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 1b97ff461dc3a4f7dcba0a3dbfad71a25cb3f1e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d73c0e3f62d30764cba8866d7e731c5ea67d3057
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840214"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878277"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Azure PowerShell ile VMware vm'lerinin olağanüstü durum kurtarmayı ayarlama
 
@@ -345,7 +345,7 @@ Bulunan bir sanal makineyi korumak için aşağıdaki ayrıntıları ihtiyacın�
 Artık bu tabloda belirtilen ayarları kullanarak şu sanal makineleri çoğaltma
 
 
-|Sanal makine  |İşlem sunucusu        |Depolama Hesabı              |Günlük depolama hesabına  |İlke           |Mobility hizmeti yüklemesi için hesabı|Hedef kaynak grubu  | Hedef sanal ağ  |Hedef alt ağ  |
+|Sanal makine  |Process Server        |Depolama Hesabı              |Günlük depolama hesabına  |İlke           |Mobility hizmeti yüklemesi için hesabı|Hedef kaynak grubu  | Hedef sanal ağ  |Hedef alt ağ  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |Win2K12VM1       |Genişletme dosya|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ-1       |
 |CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| Yok                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ-1       |   
@@ -487,4 +487,4 @@ Bu adımda, size belirli bir kurtarma noktasını sanal makineye Win2K12VM1 yük
 2. Başarıyla, üzerinde başarısız oldu. sonra Yük devretme işlemini tamamlama ve azure'dan çoğaltmayı tersine çevirme ayarlamak için şirket içi VMware sitesi yedekleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kullanarak daha fazla görevleri otomatikleştirmeyi öğrenin [Azure Site Recovery PowerShell başvurusu ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
+Kullanarak daha fazla görevleri otomatikleştirmeyi öğrenin [Azure Site Recovery PowerShell başvurusu](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).

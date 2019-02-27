@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3013365f96fa6841e4db826f9010c6ea994eba2a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211453"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879606"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Depolama (Önizleme) yaşam döngüsünü yönetme
 
@@ -187,7 +187,7 @@ Filtreler, BLOB Depolama hesabında bir alt kural eylemi sınırlayın. Birden f
 
 Önizleme süresince geçerli filtreler aşağıdakileri içerir:
 
-| Filtre adı | Filtre türü | Notlar | Gereklidir |
+| Filtre adı | Filtre türü | Notlar | Gerekli |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Önceden tanımlanmış bir sabit listesi değerleri dizisi. | Önizleme sürümü yalnızca destekler `blockBlob`. | Evet |
 | prefixMatch | Olması eşleşecek şekilde ön ekleri için dize dizisi. Bir önek dizesi, bir kapsayıcı adı ile başlamalıdır. Örneğin, tüm BLOB'ları altındaki eşleştirmek istiyorsanız "https://myaccount.blob.core.windows.net/container1/foo/..." için bir kural, prefixMatch olduğu `container1/foo`. | PrefixMatch tanımlamazsanız, hesabındaki tüm bloblar için kurallar uygulanır. | Hayır |
@@ -337,4 +337,4 @@ Platform yaşam döngüsü ilkesi günde bir kez çalışır. Yeni bir ilke ayar
 
 Yanlışlıkla silme işleminden sonra veri kurtarma işlemleri gerçekleştirmeyi öğreneceksiniz:
 
-- [Azure depolama BLOB'ları için geçici silme ](../blobs/storage-blob-soft-delete.md)
+- [Azure depolama BLOB'ları için geçici silme](../blobs/storage-blob-soft-delete.md)

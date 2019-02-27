@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6e3c456b3ee92f30b3b152a39faf3f1fe483013f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992730"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876611"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS analizi Önizleme çözümü, DNS altyapısıyla ilgili Öngörüler toplayın
 
@@ -142,7 +142,7 @@ Bilgileri tanımlamanıza yardımcı olur:
 
 **Ad kaydı istekleri**. Üst kutucuk DNS dinamik güncelleştirme isteklerinin başarılı ve başarısız bir eğilim çizgisi gösterir. Daha düşük kutucuk hataları sayısına göre sıralanmış, DNS sunucularına başarısız DNS güncelleştirme istekleri gönderen üst 10 istemcileri de listeler.
 
-![Ad kaydı istekleri dikey penceresi ](./media/dns-analytics/name-reg-req-blade.png)
+![Ad kaydı istekleri dikey penceresi](./media/dns-analytics/name-reg-req-blade.png)
 
 **Örnek DDI analiz sorguları**. Ham analiz verileri doğrudan getiren en yaygın arama sorgularının listesini içerir.
 

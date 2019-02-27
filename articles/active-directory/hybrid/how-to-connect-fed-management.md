@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49a82e1452a4380920271f4fb4f7397208e32d78
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174461"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870950"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect kullanarak Active Directory Federasyon Hizmetleri özelleştirme ve yönetme
 Bu makalede, Azure Active Directory (Azure AD) Connect kullanarak Active Directory Federasyon Hizmetleri (AD FS) özelleştirme ve yönetme işlemini açıklamaktadır. Ayrıca, bir AD FS grubu için bir tam yapılandırma yapmanız gerekebilecek diğer ortak bir AD FS görevler içerir.
@@ -32,7 +32,7 @@ Bu makalede, Azure Active Directory (Azure AD) Connect kullanarak Active Directo
 |:--- |:--- |
 | **AD FS yönetme** | |
 | [Güveni onarın](#repairthetrust) |Office 365 ile federasyon güveni onarın yapma. |
-| [Alternatif bir oturum açma Kimliğini kullanarak Azure AD ile federasyona ](#alternateid) | Alternatif oturum açma kimliği kullanarak Federasyonu yapılandırma  |
+| [Alternatif bir oturum açma Kimliğini kullanarak Azure AD ile federasyona](#alternateid) | Alternatif oturum açma kimliği kullanarak Federasyonu yapılandırma  |
 | [AD FS sunucusu ekleme](#addadfsserver) |Nasıl bir ek AD FS sunucusu ile AD FS grubunu genişletin. |
 | [AD FS Web uygulaması Ara sunucusu ekleme](#addwapserver) |Nasıl bir ek bir Web uygulaması Ara sunucusu (WAP) sunucusu ile AD FS grubunu genişletin. |
 | [Bir Federasyon etki alanına ekleme](#addfeddomain) |Bir Federasyon etki alanına ekleme. |

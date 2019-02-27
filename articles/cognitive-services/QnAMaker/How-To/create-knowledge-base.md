@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4ba744c3d8cc3a785c04bbbb1b476a857859e244
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1691bf9334d15ed7af211a929cf87ce433af895c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876896"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866411"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>Hızlı Başlangıç: Soru-cevap Oluşturucu portalı kullanarak Bilgi Bankası oluşturma
 
@@ -52,7 +52,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. Ekleme **Chit sohbet** , KB. 3 inancı birini seçerek, botunuzun chit sohbet desteği eklemek seçin. 
 
-    ![Sohbet chit KB olarak Ekle ](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+    ![Sohbet chit KB olarak Ekle](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
 1. Seçin **, KB oluşturma**.
 

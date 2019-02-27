@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 4bc76f67b2d8908abe601aa1fcdfd1962678c548
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2704981b92725d24562b02c427a72dfc59ff2029
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865660"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870559"
 ---
 # <a name="quickstart-change-model-using-go"></a>Hızlı Başlangıç: Go kullanarak modeli Değiştir
 
@@ -45,7 +45,7 @@ Bu hızlı başlangıçta, amaç ve varlıkları döndürmek için bir LUIS uç 
 
 3. Üst bilgideki yazar anahtarını ileten genel HTTP isteği işlevini ekleyin. 
 
-   [!code-go[Add HTTP request function which includes passing authoring key in header. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=12-36 "Add HTTP request function, which includes passing authoring key in header. ")]
+   [!code-go[Add HTTP request function which includes passing authoring key in header.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=12-36 "Add HTTP request function, which includes passing authoring key in header. ")]
 
 4. JSON dosyasından örnek konuşmaları ekleyin.
 
@@ -53,15 +53,15 @@ Bu hızlı başlangıçta, amaç ve varlıkları döndürmek için bir LUIS uç 
 
 5. Eğitim isteğinde bulunun. FİİLİ eğitim durumuyla aynı yolda ayarlamak için yardımcı bir işlev kullanın. 
 
-   [!code-go[Request training. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=77-86 "Request training. ")]
+   [!code-go[Request training.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=77-86 "Request training. ")]
 
 6. Eğitim durumu isteğinde bulunun. FİİLİ istek eğitimiyle aynı yolda ayarlamak için yardımcı bir işlev kullanın. 
 
-   [!code-go[Request training status. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=87-90 "Request training status. ")]
+   [!code-go[Request training status.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=87-90 "Request training status. ")]
 
 7. Komut satırı ayrıştırma için ana işlevi ekleyin.
 
-   [!code-go[Add main function to handle command line parsing. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=38-60 "Add main function to handle command-line parsing.")]
+   [!code-go[Add main function to handle command line parsing.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=38-60 "Add main function to handle command-line parsing.")]
 
 ## <a name="add-an-utterance-from-the-command-line-train-and-get-status"></a>Komut satırından konuşma ekleme, eğitme ve durumu alma
 

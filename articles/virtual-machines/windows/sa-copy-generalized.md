@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf0eb7a0b9e38397034c03ef2b4310ed67c6e6dd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a7181c91424e1d905329eefd13f926d0b2700081
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980389"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864983"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Bir Azure VM'den yönetilmeyen bir VM görüntüsü oluşturma
 
@@ -41,7 +41,7 @@ Makinede çalışan sunucu rollerini Sysprep tarafından desteklendiğinden emin
 > 
 > 
 
-Ayrıca kullanarak bir Linux VM genelleştirebilirsiniz `sudo waagent -deprovision+user` ve ardından sanal Makineyi yakalamaya yönelik PowerShell kullanın. Bir sanal Makineyi yakalamaya yönelik CLI'yı kullanma hakkında daha fazla bilgi için bkz: [Genelleştir ve Azure CLI kullanarak bir Linux sanal makinesini yakalama nasıl ](../linux/capture-image.md).
+Ayrıca kullanarak bir Linux VM genelleştirebilirsiniz `sudo waagent -deprovision+user` ve ardından sanal Makineyi yakalamaya yönelik PowerShell kullanın. Bir sanal Makineyi yakalamaya yönelik CLI'yı kullanma hakkında daha fazla bilgi için bkz: [Genelleştir ve Azure CLI kullanarak bir Linux sanal makinesini yakalama nasıl](../linux/capture-image.md).
 
 
 1. Windows sanal makinede oturum açın.

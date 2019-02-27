@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: cf32f3998e254e8f4a9c347980718dbc8d0b13c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/25/2019
+ms.openlocfilehash: 3a937af5fba2c534e291a51c33c50434ab166ee0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461653"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868774"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Yük Dengeleme (Önizleme) salt okunur sorgu iş yükleri için salt okunur çoğaltmalar kullanın
 
@@ -36,7 +36,7 @@ Bir veritabanı için okuma ölçeği genişletme etkinleştirildikten sonra o v
 Okuma ölçeği genişletme devre dışı bırakıldı veya bir desteklenmeyen hizmet katmanında ReadScale özelliğini ayarlamanız, okuma / yazma kopyasına, bağımsız olarak tüm bağlantıları yönlendirilmiş `ApplicationIntent` özelliği.
 
 > [!NOTE]
-> Önizleme sırasında sorgu Data Store ve genişletilmiş olaylar üzerinde salt okunur çoğaltmaların desteklenmez.
+> Sorgu veri Store ve genişletilmiş olaylar üzerinde salt okunur çoğaltmaların desteklenmez.
 
 ## <a name="data-consistency"></a>Veri tutarlılığı
 
@@ -125,7 +125,7 @@ Daha fazla bilgi için [veritabanları - oluşturma veya güncelleştirme](https
 Yük Dengeleme salt okunur iş yükleri coğrafi olarak yedekli (örneğin bir bir yük devretme grubunun üyesi olarak) bir veritabanı üzerinde okuma ölçeği genişletme kullanıyorsanız, bu salt okunur genişleme hem birincil hem de coğrafi olarak çoğaltılmış ikincil veritabanlarıyla etkin olduğundan emin olun. Uygulamanızın yük devretmeden sonra yeni birincil siteye bağlandığında, bu yük dengeleyici aynı etkiyi garanti eder. Coğrafi çoğaltmalı ikincil veritabanına okuma-etkin, Ölçek ile bağlanıyorsanız, oturumları `ApplicationIntent=ReadOnly` çoğaltmalarından birini birincil veritabanı üzerinde şu yol bağlantıları aynı şekilde yönlendirilmez.  Oturumlarının olmadan `ApplicationIntent=ReadOnly` aynı zamanda salt okunur olan, coğrafi çoğaltmalı ikincil birincil çoğaltmaya yönlendirilir. Coğrafi çoğaltmalı ikincil veritabanının birincil veritabanı farklı bir uç nokta olduğundan, daha önce ikincil erişmek için bunu ayarlamak için gerekli değildi `ApplicationIntent=ReadOnly`. Geriye dönük uyumluluk sağlamak için `sys.geo_replication_links` DMV gösterir `secondary_allow_connections=2` (tüm istemci bağlantıya izin verilir).
 
 > [!NOTE]
-> Önizleme, hepsini bir kez deneme veya başka bir yükleme sırasında yerel çoğaltmalarının ikincil veritabanı arasında dengeli yönlendirme desteklenmiyor.
+> Yerel ikincil veritabanı çoğaltmalarını arasında yönlendirme hepsini veya diğer yük dengeli desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

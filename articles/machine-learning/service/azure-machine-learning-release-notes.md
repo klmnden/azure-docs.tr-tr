@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 899e33db242a34d09df6109c2e195bdff9c65262
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5bb2c7d9eed2ed33f3cd0c33bfc479d2e3627370
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823612"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889860"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -31,6 +31,10 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
 + **Yeni Özellikler**
 
   + Azure Machine Learning SDK'sı artık destekleyen bir [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) eğitim ve özel bağlayıcı kod kullanarak bir model dağıtma işlemini kolaylaştırmak için estimator sınıfı.
+  + Azure Machine Learning işlem hatlarını özelliği tetikleyici işlem hattı çalıştırmasını veri deposu değişikliklerine göre eklendi. İşlem hattı [zamanlama not defteri](https://aka.ms/pl-schedule) bu özelliği göstermek için güncelleştirilir.
+  
++ **Hata düzeltmeleri ve geliştirmeleri**
+  + Azure Machine Learning işlem hatlarını destek source_directory_data_store özelliği (örneğin, bir blob depolama) istenen bir veri deposu olarak ayarlanması için üzerinde ekledik [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) için sağlanan [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Varsayılan olarak, adımları çok sayıda eşzamanlı olarak çalıştırıldığında azaltma sorunları içine çalışabilir yedekleme veri deposu olarak Azure dosya depolama adımları kullanın.
 
 ### <a name="azure-portal"></a>Azure portal
 + **Yeni Özellikler**
@@ -38,6 +42,18 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
     + Çalıştırmaları ScriptRunConfig ile gönderilen yeni Çalıştır düğmesi. Kullanıcılar kendi seçtikleri uzaktan işlem kümesi üzerinde varolan yeniden çalıştırabilirsiniz.
     + Yeni günlük dosyası Görüntüleyici
     + Çalıştırmaları, işlem, modelleri, görüntüleri ve dağıtımları etkinlikleri sekmesinden denemek için bağlantılar
+
+### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>Azure Machine Learning veri hazırlama SDK v1.0.15
+
++ **Yeni Özellikler**
+  + Dosya yazma destekleyen bir veri akışı akışlardan artık veri hazırlama. Ayrıca yeni dosya adları oluşturmak için dosya akışı adları değiştirme olanağı sağlar.
+    + Nasıl yapılır kılavuzunda: [Dosya akışları ile çalışmayı not defteri](https://aka.ms/aml-data-prep-file-stream-nb)
+ 
++ **Hata düzeltmeleri ve geliştirmeleri**
+  + T-özetinin büyük veri kümeleri üzerinde performansı İyileştirildi.
+  + Veri hazırlığı, artık bir DataPath okuma verileri destekler.
+  + Sık erişimli bir kodlama artık Boole türü and sayısal sütunlarda çalışır.
+  + Diğer çeşitli hata düzeltmeleri.
 
 ## <a name="2019-02-11"></a>2019-02-11
 
@@ -100,7 +116,7 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
 ### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning veri hazırlama SDK v1.0.7
 
 + **Yeni Özellikler**
-  + Veri deposu geliştirmeleri (belirtilmiştir [Yardım How-to veri deposu-Kılavuzu](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+  + Veri deposu geliştirmeleri (belirtilmiştir [Yardım How-to veri deposu-Kılavuzu](https://aka.ms/aml-data-prep-datastore-nb))
     + Azure dosya paylaşımı ve ADLS veri depoları içinde ölçek büyütme yazma ve okuma özelliği eklendi.
     + Veri depoları kullanırken, veri hazırlığı artık bir hizmet sorumlusu kimlik doğrulaması yerine etkileşimli kimlik doğrulaması kullanarak destekler.
     + Wasb ve wasbs URL'ler için destek eklendi.

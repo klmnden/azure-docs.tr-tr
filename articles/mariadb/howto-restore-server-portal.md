@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf6d0399c790a42eaf74b3ec339bf8cf67495fb3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ec55a33874973bf9aeaaa34ab07b162a46db44eb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548774"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874010"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Nasıl yedeklenir ve Azure portalını kullanarak MariaDB için Azure veritabanı'nda bir sunucuya geri yükleme
 
@@ -63,7 +63,7 @@ Aşağıdaki adımlar bir-belirli bir noktaya için örnek sunucuyu geri yükle:
 
 3. Geri yükleme formunu gerekli bilgiler ile doldurun:
 
-   ![MariaDB - geri yükleme bilgileri için Azure veritabanı ](./media/howto-restore-server-portal/3-restore.png)
+   ![MariaDB - geri yükleme bilgileri için Azure veritabanı](./media/howto-restore-server-portal/3-restore.png)
   - **Geri yükleme noktası**: -Geri yüklemek istediğiniz belirli bir noktaya seçin.
   - **Hedef sunucu**: Yeni sunucu için bir ad sağlayın.
   - **Konum**: Bölgeyi seçemezsiniz. Varsayılan olarak, kaynak sunucuyla aynıdır.

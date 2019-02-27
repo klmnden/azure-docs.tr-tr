@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 3fd05e2dd5b55dd590af24f0757229bead041b6d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7c9f3c72d94955286d05cf68dbe698a46df3cdf3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859122"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867040"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>LUIS uygulamanız ile abonelik anahtarlarını kullanma
 
@@ -65,7 +65,7 @@ Bu anahtar yalnızca, uç nokta tahmin sorguları için kullanılmalıdır. Bu a
 
 1. LUIS portalında oturum açın, ardından seçmek için yeni bir anahtar eklemek için bir uygulama seçin **Yönet** seçip sağ üst menüsünde **anahtarları ve uç noktaları**.
 
-    [ ![Anahtarlar ve uç noktaları sayfası](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
+    [![Anahtarlar ve uç noktaları sayfası](./media/luis-manage-keys/keys-and-endpoints.png)](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
 
 1. LUIS eklemek için seçin **Kaynak Ata +**.
 

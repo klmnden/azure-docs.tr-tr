@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: b34d67e640f09ac6949e992d3af9388581851622
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: ae0264c918bb550affe8e694cdb3b9891edea531
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629535"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875455"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>HDInsight ile etkileşimli Sorgu'yu kullanma
 Etkileşimli sorgu (Hive, Apache LLAP olarak da adlandırılan veya [düşük gecikme süresi analitik işleme](https://cwiki.apache.org/confluence/display/Hive/LLAP)) olan Azure HDInsight [küme türü](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Etkileşimli sorgu bellek içi önbelleğe alma, Apache Hive sorguları daha hızlı ve daha etkileşimli getiren destekler.
@@ -38,7 +38,7 @@ Hive sorguları çalıştırmak için aşağıdaki seçenekleriniz vardır:
  
 * Apache Zeppelin kullanma
 
-    Bkz: [Azure HDInsight Apache Hive sorguları çalıştırmak için kullanım Apache Zeppelin ](../hdinsight-connect-hive-zeppelin.md).
+    Bkz: [Azure HDInsight Apache Hive sorguları çalıştırmak için kullanım Apache Zeppelin](../hdinsight-connect-hive-zeppelin.md).
 
 * Visual Studio'yu kullanma
 
@@ -72,7 +72,7 @@ Java veritabanı bağlantısı (JDBC) bağlantı dizesi bulmak için:
 
 * Bilgi nasıl [içinde HDInsight etkileşimli sorgu kümelerine oluşturma](../hdinsight-hadoop-provision-linux-clusters.md).
 * Bilgi edinmek için nasıl [Power BI'da Azure HDInsight ile büyük verileri görselleştirme](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* Bilgi edinmek için nasıl [Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma ](../hdinsight-connect-hive-zeppelin.md).
+* Bilgi edinmek için nasıl [Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma](../hdinsight-connect-hive-zeppelin.md).
 * Bilgi edinmek için nasıl [Visual Studio için Data Lake Araçları'nı kullanarak Apache Hive sorguları çalıştırma](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).
 * Bilgi edinmek için nasıl [Visual Studio Code için HDInsight araçlarını kullanma](../hdinsight-for-vscode.md).
 * Bilgi edinmek için nasıl [HDInsight, Apache Hadoop ile Apache Hive görünümünü kullanma](../hadoop/apache-hadoop-use-hive-ambari-view.md)

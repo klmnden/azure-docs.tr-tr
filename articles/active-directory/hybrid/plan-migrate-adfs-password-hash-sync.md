@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2effd6c067a1378d9f774f282f6cea69a50596c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 806d060cd58322d745ea6ebdaa59eb85c6a35cbd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204449"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867167"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Federasyon seçeneğinden parola karması eşitleme için Azure Active Directory geçirme
 
@@ -319,7 +319,7 @@ Başlangıçta Azure AD Connect kullanarak AD FS ortamınızı yapılandırılm�
    * **Sorunsuz çoklu oturum açma** ayarlanır **etkin**.
    * **Parola Eşitleme** ayarlanır **etkin**.<br /> 
 
-   ![Oturum açma kullanıcı bölümünde ayarları gösteren ekran görüntüsü ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Oturum açma kullanıcı bölümünde ayarları gösteren ekran görüntüsü](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Atlamak [test ve sonraki adımları](#testing-and-next-steps).
 
@@ -337,7 +337,7 @@ Başlangıçta, Azure AD Connect kullanarak Federasyon etki alanlarınızı yap�
 
    Parola Karması eşitlemeyi etkinleştirmeden önce: ![Do gösteren ekran görüntüsü kullanıcı oturum açma sayfasında seçenek yapılandırmazsanız](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   Parola Karması eşitlemeyi etkinleştirdikten sonra: ![Kullanıcı oturum açma sayfasında yeni seçenekleri gösteren ekran görüntüsü ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   Parola Karması eşitlemeyi etkinleştirdikten sonra: ![Kullanıcı oturum açma sayfasında yeni seçenekleri gösteren ekran görüntüsü](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > Azure AD Connect sürümü 1.1.880.0, başlangıç **sorunsuz çoklu oturum açma** onay kutusu varsayılan olarak seçilidir.

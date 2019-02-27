@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1609d413604e172b9c718bd11768c495dfa8afe8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191440"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867108"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
 
@@ -83,7 +83,7 @@ Yönetilen etki alanınıza sağlama işleminin bir saate kadar sürebilir.
 
 3. **Genel bakış** sekme gösterir yönetilen etki alanı şu anda sağlanıyor. Tam olarak sağlanana kadar yönetilen etki alanı yapılandıramazsınız. Bu tam olarak hazırlanmasını yönetilen etki alanınız için bir saate kadar sürebilir.
 
-    ![Etki alanı hizmetleri - sağlama durumu sırasında genel bakış sekmesi ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Etki alanı hizmetleri - sağlama durumu sırasında genel bakış sekmesi](./media/getting-started/domain-services-provisioning-state-details.png)
 
 4. Yönetilen etki alanı tam olarak sağlandığından, **genel bakış** sekme olarak etki alanı durumunu gösterir **çalıştıran**.
 

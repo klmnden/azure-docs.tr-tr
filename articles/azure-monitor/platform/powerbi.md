@@ -13,35 +13,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: e5053fe0a22dfa1c85438e8d293046343e09db52
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 623968467da775c55adf006a84a16ba46bd21d1d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191810"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887463"
 ---
-# <a name="import-azure-log-analytics-data-into-power-bi"></a>Azure Log Analytics verilerini Power BI'a aktarma
+# <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure İzleyici günlük verilerini Power BI'a aktarma
 
 
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) bir bulut tabanlı İş analizi hizmeti Microsoft'un zengin görselleştirmeleri ve raporlar için farklı veri kümelerini analizini sağlar.  Bu nedenle farklı kaynaklardan verileri birleştirme ve raporları Web'de ve mobil cihazlarda paylaşma gibi özellikleri yararlanabilirsiniz Log Analytics günlük araması sonuçları bir Power BI veri kümesine içeri aktarabilirsiniz.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) bir bulut tabanlı İş analizi hizmeti Microsoft'un zengin görselleştirmeleri ve raporlar için farklı veri kümelerini analizini sağlar.  Bu nedenle farklı kaynaklardan verileri birleştirme ve raporları Web'de ve mobil cihazlarda paylaşma gibi özellikleri yararlanabilirsiniz Azure izleyici günlüğü sorgusunun sonuçları bir Power BI veri kümesine içeri aktarabilirsiniz.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Verilerinizi Log Analytics çalışma alanından Power BI'a aktarmak için Log analytics'te günlük arama sorgusu göre Power bı'da bir veri kümesi oluşturun.  Sorgu, veri kümesi her yenilendiğinde çalıştırılır.  Ardından, veri kümesindeki verileri kullanan Power BI raporları da oluşturabilirsiniz.  Power BI'da veri kümesini oluşturmak için sorgunuzu Log analytics'ten dışarı [Power Query (M) dil](https://msdn.microsoft.com/library/mt807488.aspx).  Power bı'da bir veri kümesi olarak yayımlayın ve bu Power BI Desktop'ta bir sorgu oluşturmak için kullanın.  Bu işlemin ayrıntıları aşağıda verilmiştir.
+Verileri içe aktarmak için bir [Log Analytics çalışma alanı](manage-access.md) Power bı'a Azure İzleyici'de oluşturduğunuz göre Power bı'da bir veri kümesine bir [günlük sorgusu](../log-query/log-query-overview.md) Azure İzleyici'de.  Sorgu, veri kümesi her yenilendiğinde çalıştırılır.  Ardından, veri kümesindeki verileri kullanan Power BI raporları da oluşturabilirsiniz.  Power BI'da veri kümesini oluşturmak için sorgunuzu Log analytics'ten dışarı [Power Query (M) dil](https://msdn.microsoft.com/library/mt807488.aspx).  Power bı'da bir veri kümesi olarak yayımlayın ve bu Power BI Desktop'ta bir sorgu oluşturmak için kullanın.  Bu işlemin ayrıntıları aşağıda verilmiştir.
 
 ![Log Analytics'e Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Sorgu dışarı aktarma
-Oluşturarak başlayın bir [günlük araması](../../azure-monitor/log-query/log-query-overview.md) Power BI DataSet'i doldurmak istediğiniz Log Analytics'ten verileri döndürür.  Sorguları dışarı aktar [Power Query (M) dil](https://msdn.microsoft.com/library/mt807488.aspx) Power BI Desktop tarafından kullanılabilir.
+Oluşturarak başlayın bir [günlük sorgusu](../log-query/log-query-overview.md) Power BI veri kümesine doldurmak için istediğiniz verileri döndürür.  Sorguları dışarı aktar [Power Query (M) dil](https://msdn.microsoft.com/library/mt807488.aspx) Power BI Desktop tarafından kullanılabilir.
 
-1. Veri kümeniz için verileri ayıklamak için Log Analytics günlük araması oluşturun.
-2. Günlük araması portalını kullanıyorsanız, tıklayın **Power BI**.  Analytics portalını kullanıyorsanız seçin **dışarı** > **Power BI sorgu (M)**.  Bu seçeneklerin ikisi de sorgu adlı bir metin dosyasına dışarı aktarma **PowerBIQuery.txt**. 
+1. [Log Analytics'te günlük sorgusu oluşturma](../log-query/get-started-portal.md) kümeniz için verileri ayıklamak için.
+2. Seçin **dışarı** > **Power BI sorgu (M)**.  Bu sorgu adlı bir metin dosyasına dışarı aktarır **PowerBIQuery.txt**. 
 
-    ![Günlük araması dışarı aktarma](media/powerbi/export-logsearch.png) ![Günlük araması dışarı aktarma](media/powerbi/export-analytics.png)
+    ![Günlük araması dışarı aktarma](media/powerbi/export-analytics.png)
 
 3. Metin dosyasını açın ve içeriğini kopyalayın.
 
 ## <a name="import-query-into-power-bi-desktop"></a>Power BI Desktop'a alma sorgusu
-Power BI Desktop, veri kümeleri ve Power BI'da yayımlanan raporlar oluşturmanıza olanak tanıyan bir masaüstü uygulamasıdır.  Log Analytics bağlantısı verilen güç sorgu dilini kullanarak bir sorgu oluşturmak için de kullanabilirsiniz. 
+Power BI Desktop, veri kümeleri ve Power BI'da yayımlanan raporlar oluşturmanıza olanak tanıyan bir masaüstü uygulamasıdır.  Azure İzleyici'den dışarı aktarılan güç sorgu dilini kullanarak bir sorgu oluşturmak için de kullanabilirsiniz. 
 
 1. Yükleme [Power BI Desktop](https://powerbi.microsoft.com/desktop/) yoksa zaten var ve ardından uygulamayı açın.
 2. Seçin **Veri Al** > **boş sorgu** yeni bir sorgu açın.  Ardından **Gelişmiş Düzenleyici** ve sorguya aktarılan dosyanın içeriğini yapıştırın. **Bitti**’ye tıklayın.
@@ -66,9 +68,9 @@ Power BI'da yayımladığınızda, bir veri kümesi ve bir rapor oluşturulur.  
 
 
 ### <a name="configure-scheduled-refresh"></a>Zamanlanmış yenileme yapılandırma
-Power BI'da oluşturulan veri kümesini Power BI Desktop uygulamasında daha önce gördüğünüz aynı verilere sahip olur.  Düzenli aralıklarla sorguyu yeniden çalıştırın ve Log Analytics son verilerle doldurmak için veri kümesini yenilemek gerekir.  
+Power BI'da oluşturulan veri kümesini Power BI Desktop uygulamasında daha önce gördüğünüz aynı verilere sahip olur.  Düzenli aralıklarla sorguyu yeniden çalıştırın ve Azure İzleyicisi'nden en son verilerle doldurmak için veri kümesini yenilemek gerekir.  
 
-1. Yüklediğiniz seçin ve raporu çalışma alanına tıklayın **veri kümeleri** menüsü. Yeni, veri kümesinin yanındaki bağlam menüsünü seçip **ayarları**. Altında **veri kaynağı kimlik bilgileri** bir ileti kimlik bilgileri geçersiz olduğundan emin olmanız gerekir.  Verileri yenilediğinde kullanmak henüz veri kümesi için kimlik bilgilerini sağlamıyordu olmasıdır.  Tıklayın **kimlik bilgilerini Düzenle** ve Log analytics'e erişimi olan kimlik bilgilerini belirtin.
+1. Yüklediğiniz seçin ve raporu çalışma alanına tıklayın **veri kümeleri** menüsü. Yeni, veri kümesinin yanındaki bağlam menüsünü seçip **ayarları**. Altında **veri kaynağı kimlik bilgileri** bir ileti kimlik bilgileri geçersiz olduğundan emin olmanız gerekir.  Verileri yenilediğinde kullanmak henüz veri kümesi için kimlik bilgilerini sağlamıyordu olmasıdır.  Tıklayın **kimlik bilgilerini Düzenle** ve Azure İzleyici'de Log Analytics çalışma alanına erişimi olan kimlik bilgilerini belirtin.
 
     ![Power BI zamanlama](media/powerbi/powerbi-schedule.png)
 
@@ -79,5 +81,5 @@ Power BI'da oluşturulan veri kümesini Power BI Desktop uygulamasında daha ön
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) Power BI'a aktarılabilir sorguları oluşturmak için.
-* Daha fazla bilgi edinin [Power BI](https://powerbi.microsoft.com) Log Analytics dışarı aktarmaya temel görselleştirmeler oluşturun.
+* Hakkında bilgi edinin [günlük aramaları](../log-query/log-query-overview.md) Power BI'a aktarılabilir sorguları oluşturmak için.
+* Daha fazla bilgi edinin [Power BI](https://powerbi.microsoft.com) Azure İzleyici günlük dışarı aktarmaya temel görselleştirmeler oluşturun.

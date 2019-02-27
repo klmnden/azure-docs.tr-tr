@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics görünümlerde filtreleri | Microsoft Docs
-description: Log Analytics görünümünü bir filtre Veri Görünümü'nde görünümü değiştirmeden belirli bir özellik değeri tarafından filtrelemek kullanıcıların sağlar.  Bu makalede, bir filtre ve özel görünüm için bir tane ekleyin nasıl kullanılacağı açıklanır.
+title: Azure İzleyici görünümlerde filtreleri | Microsoft Docs
+description: Azure İzleyici Görünümü'nde filtre görünümü değiştirmeden belirli bir özellik değeri tarafından görünümünde verileri filtrelemek kullanıcıların sağlar.  Bu makalede, bir filtre ve özel görünüm için bir tane ekleyin nasıl kullanılacağı açıklanır.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 6a4ac2f26c01555ef54a4ee2248db7cd2818661e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189430"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888355"
 ---
-# <a name="filters-in-log-analytics-views"></a>Log Analytics görünümlerde filtreleri
-A **filtre** içinde bir [Log Analytics görüntülemek](view-designer.md) kullanıcılar görünümü değiştirmeden belirli bir özellik değeri tarafından görünümünde verileri filtrelemek olanak sağlar.  Örneğin, görünümünüzü yalnızca belirli bir bilgisayardan veri görünümünü filtrelemek için kullanıcıları veya bilgisayarları kümesini izin verebilir.  Filtre birden çok özellikleri tarafından kullanıcılara izin vermek için tek bir görünümde birden çok filtre oluşturabilirsiniz.  Bu makalede, bir filtre ve özel görünüm için bir tane ekleyin nasıl kullanılacağı açıklanır.
+# <a name="filters-in-azure-monitor-views"></a>Azure İzleyici görünümlerde filtreleri
+A **filtre** içinde bir [Azure İzleyici görünümü](view-designer.md) kullanıcılar görünümü değiştirmeden belirli bir özellik değeri tarafından görünümünde verileri filtrelemek olanak sağlar.  Örneğin, görünümünüzü yalnızca belirli bir bilgisayardan veri görünümünü filtrelemek için kullanıcıları veya bilgisayarları kümesini izin verebilir.  Filtre birden çok özellikleri tarafından kullanıcılara izin vermek için tek bir görünümde birden çok filtre oluşturabilirsiniz.  Bu makalede, bir filtre ve özel görünüm için bir tane ekleyin nasıl kullanılacağı açıklanır.
 
 ## <a name="using-a-filter"></a>Filtre kullanma
-Verileri zaman aralığını üst görünümün görünüm verileri zaman aralığını değiştirebileceğiniz aşağı açılan açmak için tıklayın.
+Tarih zaman aralığı en üstündeki açılan view tarih zaman aralığını değiştirebileceğiniz aşağı açmak üzere bir görünüme tıklayın.
 
 ![Filtre örneği](media/view-designer-filters/filters-example-time.png)
 
@@ -46,8 +46,8 @@ Aşağıdaki tabloda filtre ayarlarını açıklar.
 
 | Ayar | Açıklama |
 |:---|:---|
-| Alan Adı | Filtreleme için kullanılan alanın adı.  Bu summarıze alanında eşleşmelidir **değerler için sorgu**. |
-| Değerler için sorgu | Kullanıcı için Filtre açılan listeyi doldurmak için çalıştırılacak sorgu.  Bunu kullanmanız gerekir [özetlemek](/azure/kusto/query/summarizeoperator) veya [ayrı](/azure/kusto/query/distinctoperator) ve belirli bir alanla eşleşmelidir için benzersiz değerler sağlayan **alan adı**.  Kullanabileceğiniz [sıralama](/azure/kusto/query/sortoperator) kullanıcıya görüntülenen değerleri sıralamak için. |
+| Alan Adı | Filtreleme için kullanılan alanın adı.  Bu alan summarıze alanında eşleşmelidir **değerler için sorgu**. |
+| Değerler için sorgu | Kullanıcı için Filtre açılan listeyi doldurmak için çalıştırılacak sorgu.  Bu sorgu ya da kullanmanız gerekir [özetlemek](/azure/kusto/query/summarizeoperator) veya [ayrı](/azure/kusto/query/distinctoperator) ve belirli bir alanla eşleşmelidir için benzersiz değerler sağlayan **alan adı**.  Kullanabileceğiniz [sıralama](/azure/kusto/query/sortoperator) kullanıcıya görüntülenen değerleri sıralamak için. |
 | Etiket | Filtre destekleyen sorgularında kullanılıyor ve ayrıca kullanıcıya görüntülenen alanın adı. |
 
 ### <a name="examples"></a>Örnekler
@@ -70,7 +70,7 @@ Bir filtre değeri bir sorguda kullanmak için sözdizimi aşağıdaki gibidir:
 
     where ${filter name}  
 
-Örneğin, görünümünüzü döndürür olayları bir sorgu varsa, ve bilgisayarlar olarak adlandırılan bir filtre kullanır, aşağıdakileri kullanabilirsiniz.
+Örneğin, görünümünüzü olayları döndürür ve adlı bir filtre kullanan bir sorgu varsa _bilgisayarlar_, aşağıdaki sorguyu kullanabilirsiniz.
 
     Event | where ${Computers} | summarize count() by EventLevelName
 

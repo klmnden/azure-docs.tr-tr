@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 222ac0b5dede45b9ae2b6fe9ba464e738ea48b94
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4f51ade234c8792f235bd8c9218b3c6ef9f22de7
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194266"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Öğretici: Cisco terimdir ile Azure Active Directory Tümleştirme
 
@@ -147,7 +147,7 @@ Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıd
 
 6. İçinde **y: seçeneği XML dosyasını karşıya yükleyin**, karşıya yükleme **Federasyon meta verileri XML** Azure portalından ve meta verilerini karşıya yükledikten sonra indirilen dosya aşağıdaki değerlerden otomatik olarak doldurulur otomatik alma sonra **sonraki**.
 
-    ![Choosefile ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
+    ![Choosefile](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
 
 7. Altında **SAML yapılandırmayı doğrula** bölümünde **TEST YAPILANDIRMANIZI SAML**.
 
@@ -245,8 +245,8 @@ Erişim paneli Cisco terimdir kutucuğa tıkladığınızda, size otomatik olara
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

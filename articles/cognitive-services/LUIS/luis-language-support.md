@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 81684031ddaa1ca8fa63a6c7e512f3fe6769a639
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 621e691eaedb06c26b5e6a05a12d0b742c798172
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859819"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864524"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS dil ve bölge desteği
 
@@ -53,7 +53,7 @@ Dil desteği değişir için [önceden oluşturulmuş varlıklarla](luis-referen
 
  - İçinde `zh-cn` kültür LUIS, Basitleştirilmiş Çince karakter yerine geleneksel karakter kümesi kümesini bekliyor.
  - Amacı, varlıkları, özellikler ve normal ifadeler adlarını Çince veya Latin karakter olabilir.
- - Bkz: [önceden oluşturulmuş etki alanları başvuru ](luis-reference-prebuilt-domains.md) üzerinde önceden oluşturulmuş etki alanları desteklenmektedir bilgi `zh-cn` kültür.
+ - Bkz: [önceden oluşturulmuş etki alanları başvuru](luis-reference-prebuilt-domains.md) üzerinde önceden oluşturulmuş etki alanları desteklenmektedir bilgi `zh-cn` kültür.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>* Japonca desteği notları

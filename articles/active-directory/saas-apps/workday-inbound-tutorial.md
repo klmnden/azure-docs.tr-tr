@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 722fc5366d8f6863d19d09bd6e555fcc9a73d570
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340119"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868128"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: Workday için otomatik kullanıcı sağlamayı yapılandırma
 
@@ -1064,7 +1064,7 @@ Bu bölümde aşağıdaki sorun giderme yönlerini kapsar:
 
 Ne zaman yeni bir işe workday'deki algılandığında (diyelim ki çalışan kimliği ile *21023*), aşağıda açıklandığı gibi Azure AD hizmeti çalışan ve işlem yeni bir AD kullanıcı hesabı oluşturma denemesi sağlama 4 günlük kaydı oluşturur:
 
-  [ ![Denetim günlüğü ops oluşturma](media/workday-inbound-tutorial/wd_audit_logs_02.png) ](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
+  [![Denetim günlüğü ops oluşturma](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
 Herhangi bir denetim günlüğü kayıtlarını tıkladığınızda **Etkinlik ayrıntıları** sayfası açılır. İşte **Etkinlik ayrıntıları** sayfası, her günlük kayıt türü için görüntüler.
 
@@ -1132,7 +1132,7 @@ Herhangi bir denetim günlüğü kayıtlarını tıkladığınızda **Etkinlik a
 
 Yöneticisi öznitelik AD içinde bir başvuru özniteliğidir. Sağlama Hizmeti Yöneticisi'ni öznitelik kullanıcı oluşturma işleminin bir parçası olarak ayarlı değil. Yerine manager özniteliği bir parçası olarak ayarlanmış bir *güncelleştirme* kullanıcı için AD hesabı oluşturulduktan sonra işlem. Yukarıdaki örnekte genişleterek, Workday ve yeni işe alım kişinin Yöneticisi "21451" kimliğiyle çalışan yeni bir işe etkinleştirilirse varsayalım (*21023*) bir AD hesabı zaten sahip. Bu senaryoda, kullanıcı 21451 denetim günlüklerini arama 5 girdilerin gösterir.
 
-  [ ![Yönetici güncelleştirme](media/workday-inbound-tutorial/wd_audit_logs_03.png) ](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
+  [![Yönetici güncelleştirme](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
 Oluşturma işlemi biz kullanıcı bir parçası olarak araştırılan olanlar gibi ilk 4 kayıtlardır. Dışarı aktarma Yöneticisi özniteliği güncelleştirme ile ilişkili 5 kaydıdır. Yöneticinin kullanarak gerçekleştirilen AD hesabı yöneticisi güncelleştirme işlemin sonucunu, günlük kaydı görüntüler *objectGUID* özniteliği.
 

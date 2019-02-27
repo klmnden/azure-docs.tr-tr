@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d94bc570f47d71a7e2b626041acd4bb6e84d0dc1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099796"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876016"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL hiper ölçekli veritabanları hakkında SSS
 
@@ -73,7 +73,7 @@ Hiper ölçekli Hizmet katmanını, öncelikle şirket içi SQL Server veritaban
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Hangi bölgeler şu anda hiper ölçekli destekler
 
-Hiper ölçekli şu anda tek veritabanı aşağıdaki bölgelerde kullanılabilir:  Batı US1, Batı abd2, US1 Doğu, Orta ABD, Batı Avrupa, Kuzey Avrupa, UK Batı, Güneydoğu Asya, Japonya Doğu, Kore Orta, Avustralya Güneydoğu ve Avustralya Doğu.
+Hiper ölçekli şu anda tek veritabanı aşağıdaki bölgelerde kullanılabilir:  Batı US1, Batı abd2, US1 Doğu, Orta ABD, Batı Avrupa, Kuzey Avrupa, Güneydoğu Asya, Japonya Doğu, Kore Orta, Avustralya Güneydoğu ve Avustralya Doğu.
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>SQL veritabanı sunucu başına birden fazla hiper ölçekli veritabanı oluşturabilirim
 

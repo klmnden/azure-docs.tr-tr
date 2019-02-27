@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f37e1ed2c7dd720e4a77076c8587fdf540b29ca5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d791148e6ee023239b0a6bf49c705c2da4eea9a2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713961"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881881"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric programlama modeline genel bakış
 Service Fabric, yazma ve hizmetlerinizi yönetmek için birden çok yol sunar. Hizmetleri, tam anlamıyla platformun özellikleri ve uygulama çerçeveleri için Service Fabric API'leri kullanmayı da tercih edebilirsiniz. Hizmetleri, herhangi bir dil veya barındırılan bir Service Fabric kümesindeki bir kapsayıcıda çalışan kodda yazılmış bir derlenmiş yürütülebilir program de olabilir.
@@ -65,7 +65,7 @@ Reliable Actors Reliable Services üzerinde oluşturulmuş bir uygulama çerçev
 
 [Reliable Actors hizmetine genel bakış](service-fabric-reliable-actors-introduction.md)
 
-[Service Fabric ve ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
+[Service Fabric ve ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 
 

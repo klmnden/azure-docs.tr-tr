@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0be7ae9658259b327014c5678777c963e6cb5
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 77d8504dba180cfb56807344e659d6b22231f931
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302825"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866649"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch hizmeti API'si ile Azure depolama için görev verileri kalıcı hale
 
@@ -38,7 +38,7 @@ Azure Batch, görev çıktısını kalıcı hale getirmek için birden fazla yol
 - Çıkış göre adlı bir Azure depolama kapsayıcısına kalıcı hale getirmek istediğiniz [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
-> Batch hizmeti API'si, bulut hizmeti yapılandırmasıyla oluşturulan havuzlar, çalışan görevleri kalıcı verileri desteklemez. Cloud services yapılandırması çalıştıran havuzlarından çıktısını kalıcı hale getirme görevi hakkında daha fazla bilgi için bkz. [iş ve görev verilerini Azure Depolama'da kalıcı hale getirmek .NET için Batch dosya kuralları kitaplığı ile kalıcı ](batch-task-output-file-conventions.md).
+> Batch hizmeti API'si, bulut hizmeti yapılandırmasıyla oluşturulan havuzlar, çalışan görevleri kalıcı verileri desteklemez. Cloud services yapılandırması çalıştıran havuzlarından çıktısını kalıcı hale getirme görevi hakkında daha fazla bilgi için bkz. [iş ve görev verilerini Azure Depolama'da kalıcı hale getirmek .NET için Batch dosya kuralları kitaplığı ile kalıcı](batch-task-output-file-conventions.md).
 
 Senaryonuz yukarıda listelenenlerden farklıysa, farklı bir yaklaşım dikkate almanız gerekebilir. Örneğin, Görev yürütülürken Batch hizmeti API'si akış çıkışı Azure depolama şu anda desteklemiyor. Çıkış akış için kullanılabilen .NET için Batch dosya kuralları kitaplığı kullanmayı düşünün. Diğer diller için kendi çözümünüzü uygulamak gerekir. Görev çıktısını kalıcı hale getirme için diğer seçenekler hakkında daha fazla bilgi için bkz. [Azure Depolama'ya iş ve görev çıktılarını kalıcı hale getirme](batch-task-output.md).
 

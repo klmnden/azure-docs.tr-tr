@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: 39c96608dd843577f41d2111e9e7c5517136ccae
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823578"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889231"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Öğretici: Azure veri Gezgini'nde verileri tek satırlık bir kod olmadan alma
 
@@ -339,7 +339,7 @@ Azure tanılama günlükleri bir depolama hesabına veya olay hub'ına verme öl
 
 ### <a name="create-the-data-connection-for-activity-logs"></a>Etkinlik günlükleri için veri bağlantısı oluşturma
 
-Adımları yineleyin [tanılama günlüklerine yönelik veri bağlantısı oluşturma](#diagnostic-logs-data-connection) , etkinlik günlükleri için veri bağlantısı oluşturmak için bölüm.
+Tanılama günlükleri bölümü için veri bağlantısı oluşturma, etkinlik günlükleri için veri bağlantısı oluşturmak için adımları yineleyin.
 
 1. Aşağıdaki ayarları kullanın **veri bağlantısı** penceresi:
 

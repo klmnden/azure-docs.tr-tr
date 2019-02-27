@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b22d18408d040d564d6220e74e8b8a893fe41ae9
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: a074f0f9c08803e7227bcfb218863a5f0f094306
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646254"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875404"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service fabric'te olağanüstü durum kurtarma
 Yüksek kullanılabilirlik sunmak için kritik bir parçası Hizmetleri tüm farklı türde hataları hayatta kalamaz sağlamaktır. Bu planlanmamış hataları için özellikle önemlidir ve denetiminiz dışında. Bu makalede olağanüstü durumlar olabilir değilse modellenir ve doğru bir şekilde yönetilen bazı yaygın hata modlarını açıklanır. Bu da ele risk azaltma işlemleri ve yine de olağanüstü bir durum oluştuysa gerçekleştirilecek eylemler. Sınırlamak veya aksi halde ortaya ortaya çıkan hataları, planlı kapalı kalma süresi veya veri kaybı riskini ortadan kaldırmak için hedeftir.
@@ -131,7 +131,7 @@ Tek bir veri merkezinin veya bölgenin kalıcı veya sürekli hata geri kalan i�
 2. Birden çok veri merkezleri ve bölgeleri kapsayan tek bir Service Fabric kümesi çalıştırmak. Bunun için desteklenen minimum yapılandırma üç veri merkezleri ya da bölgelerdeki ' dir. Önerilen bölgeler ve veri merkezleri sayısı beştir. Bu, daha karmaşık bir küme topolojisi gerektirir. Ancak, bu modelin avantajı hata bir veri merkezinin veya bölgenin normal hata bir olağanüstü durumdan dönüştürülür olur. Bu hatalar, iş mekanizmalarını tek bir bölgede kümeleri tarafından işlenebilir. Hata etki alanlarını, yükseltme etki alanları ve Service Fabric'in yerleştirme kuralları, iş yükleri, böylece bunlar normal hataları tolere dağıtılan emin olun. Bu tür bir küme hizmetler yardımcı olan ilkeleri hakkında daha fazla bilgi için okumaya [yerleştirme ilkeleri](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
 
 ### <a name="random-failures-leading-to-cluster-failures"></a>Küme hatalarını önde gelen rastgele hatalara
-Service Fabric çekirdek düğümleri kavramı vardır. Temel alınan kümenin kullanılabilirliğini sürdürmek düğümleri şunlardır. Bu düğümler, diğer düğümlerle kiraları kurma ve belirli türdeki ağ hataları sırasında tiebreakers hizmet veren tarafından yedekleme kümesi kalmasını sağlamak için yardımcı olur. Rastgele hatalara kümede çekirdek düğümleri çoğunu kaldırmak ve geri getirilmez, küme otomatik olarak kapanır. Azure çekirdek düğümleri otomatik olarak yönetilir: kullanılabilir hata ve yükseltme etki alanlarında dağıtılır ve bir tek çekirdek değer düğümü kümeden kaldırılırsa, onun yerine başka bir oluşturulur. 
+Service Fabric çekirdek düğümleri kavramı vardır. Temel alınan kümenin kullanılabilirliğini sürdürmek düğümleri şunlardır. Bu düğümler, diğer düğümlerle kiraları kurma ve belirli türdeki ağ hataları sırasında tiebreakers hizmet veren tarafından yedekleme kümesi kalmasını sağlamak için yardımcı olur. Çekirdek değer düğümü çekirdek ve küme başarısız kaybettiğinizde gibi rastgele hatalara kümede çekirdek düğümleri çoğunu kaldırmak ve geri getirilmez, ardından, küme Federasyon halkası daraltır. Azure'da Service Fabric kaynak sağlayıcısı Service Fabric küme yapılandırmalarını yönetir ve varsayılan olarak çekirdek düğümleri birincil düğüm türü hata dağıtır ve ve yükseltme etki alanlarında; Başka bir olmayan çekirdek değer düğümü kullanılabilir birincil nodetype yükseltmek küme ölçeklendirme, birincil nodetype veya el ile bir çekirdek değer düğümü kaldırmak, bir çekirdek değer düğümü kaldırdığınızda birincil nodetype Silver veya Gold dayanıklılık işaretlenmişse dener Kapasite ve birincil düğüm türünüz için kümenizin güvenilirlik düzeyi gerektirir daha az kullanılabilir kapasite varsa başarısız olur.
 
 Tek başına Service Fabric kümeleri ve Azure içinde "Birincil düğüm türü", çekirdekler çalıştıran bilgisayardır. Birincil düğüm türü tanımlarken, Service Fabric otomatik olarak en fazla 9 çekirdek düğümleri ve sistem hizmetlerinin her biri 7 kopyalarını oluşturarak sağlanan düğüm sayısını avantajlarından yararlanın. Rastgele hatalara bir dizi sistem hizmet yinelemeler çoğunu aynı anda alırsa, yukarıda açıklanan Sistem Hizmetleri Çekirdek kayıp girer. Çekirdek düğümleri çoğunu kaybolması durumunda, kısa süre sonra kümeyi kapanır.
 
@@ -142,6 +142,7 @@ Tek başına Service Fabric kümeleri ve Azure içinde "Birincil düğüm türü
   - [Olağanüstü durum kurtarma tatbikatı gerçekleştirme](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Olağanüstü durum kurtarma ve Azure uygulamaları için yüksek kullanılabilirlik][dr-ha-guide]
 - [Service Fabric destek seçenekleri](service-fabric-support.md) hakkında bilgi edinin
+
 
 <!-- External links -->
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ae26a2daf2a65eaf56672c9e75147bd71e489a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b89c02aa0d30ec1928be2110fe6470da4f28080c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330741"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889928"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver için SQL Server Azure sanal makineleri DBMS dağıtım
 
@@ -383,7 +383,7 @@ SQL Server 2014 ve üzeri sürümlerde açık olasılığını doğrudan Azure B
 * VHD dağıtım ile ilgili farklı Azure depolama hesapları daha önce listelenen konular bu dağıtımlar da yöntem için geçerlidir. Azure depolama hesabı sınırları karşı g/ç işlemlerinin sayısı anlamına gelir.
 * Sanal makinenin depolama g/ç kota karşı hesap yerine depolama blobları SQL Server veri ve günlük dosyalarını temsil eden karşı trafiğin muhasebesi sanal makinenin ağ bant genişliği belirli VM türü. Ağ ve depolama için bant genişliği belirli bir VM türünün, makalesine başvurun [boyutları için Windows azure'da sanal makineler](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 * Dosya g/ç ağ kotası aracılığıyla gönderme, sonucu olarak depolama kotası çoğunlukla stranding ve ile sanal makinenin toplam bant genişliği yalnızca kısmen kullanın.
-* Azure Premium depolama için farklı bir disk boyutlarına sahip IOPS ve g/ç aktarım hızı performans hedeflerini artık geçerli değildir. Azure Premium depolama blobları, oluşturduğunuz bile bulunur. Hedefleri belgelenen makaleyi [yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). SQL Server veri dosyaları ve günlük dosyalarını doğrudan Azure Premium depolama alanında depolanan blobları yerleştirme sonucu olarak performans özellikleri VHD'lerde Azure Premium depolama ile karşılaştırıldığında farklı olabilir.
+* Azure Premium depolama için farklı bir disk boyutlarına sahip IOPS ve g/ç aktarım hızı performans hedeflerini artık geçerli değildir. Azure Premium depolama blobları, oluşturduğunuz bile bulunur. Hedefleri belgelenen makaleyi [yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage). SQL Server veri dosyaları ve günlük dosyalarını doğrudan Azure Premium depolama alanında depolanan blobları yerleştirme sonucu olarak performans özellikleri VHD'lerde Azure Premium depolama ile karşılaştırıldığında farklı olabilir.
 * Azure Premium depolama diskleri olarak önbelleğe alma tabanlı bir konak, doğrudan Azure BLOB'ları üzerinde SQL Server veri dosyaları yerleştirirken kullanılabilir değil.
 * M serisi sanal makineler üzerinde SQL Server işlem günlüğü dosyasına yönelik milisaniyenin yazma desteklemek için Azure yazma Hızlandırıcı kullanılamaz. 
 

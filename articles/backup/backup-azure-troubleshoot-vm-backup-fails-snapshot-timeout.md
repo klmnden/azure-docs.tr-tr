@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c62560d2f80375a725464607f38b9e8adf221d16
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236983"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875608"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -225,7 +225,7 @@ Bu adımları tamamladıktan sonraki yedekleme sırasında yüklenmesi uzantıs�
 3. İçinde **ayarları** bölümünden **kilitleri** kilitler görüntülenecek.
 4. Kilidi kaldırmak için üç noktayı seçin ve **Sil**.
 
-    ![Kilit silme ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
+    ![Kilit silme](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
 ### <a name="clean_up_restore_point_collection"></a> Geri yükleme noktası koleksiyonunu Temizle
 Kilit kaldırdıktan sonra geri yükleme noktalarını temizlenmesi gerekir. Geri yükleme noktaları temizlemek için aşağıdaki yöntemlerden herhangi birini izleyin:<br>
@@ -244,12 +244,12 @@ Noktaları, kaynak grubundaki kilit nedeniyle temizlenmez koleksiyonu geri yükl
 1. [Azure Portal](http://portal.azure.com/) oturum açın.
 2. Üzerinde **Hub** menüsünde tıklayın **tüm kaynaklar**, aşağıdaki biçimde AzureBackupRG_ kaynak grubunu seçin`<Geo>`_`<number>` , VM'nin bulunduğu.
 
-    ![Kilit silme ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Kilit silme](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Kaynak grubuna tıklayın **genel bakış** dikey penceresi görüntülenir.
 4. Seçin **gizli türleri Göster** gizli tüm kaynakları görüntülemek için seçeneği. Geri yükleme noktası koleksiyonları aşağıdaki biçimde AzureBackupRG_ seçin`<VMName>`_`<number>`.
 
-    ![Kilit silme ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Kilit silme](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
 5. Tıklayın **Sil**, geri yükleme noktası koleksiyonunu temizlemek için.
 6. Yedekleme işlemi yeniden deneyin.

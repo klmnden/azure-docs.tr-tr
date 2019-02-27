@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a72df28fbaed89076976f567774bd5fdb15bc2f9
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c24d8bd382dc57a8a354b61252d7a5e16640436f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229498"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864661"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Bir yönetim çözümü (Önizleme) Azure Automation kaynaklarını ekleme
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.locfileid: "54229498"
 [Yönetim çözümleri]( solutions.md) toplama ve izleme verilerini işleme gibi işlemleri otomatik hale getirmek için Azure Otomasyonu'nda runbook'ları genellikle içerecektir.  Otomasyon hesapları runbook'lara ek olarak, değişkenler ve çözümde kullanılan runbook'ları destekleyen zamanlamalar gibi varlıklar içerir.  Bu makalede, bir çözümde runbook'ları ve bunlarla ilişkili kaynakları içerecek şekilde açıklar.
 
 > [!NOTE]
-> Bu makaledeki örnekleri parametreler ve değişkenler gerekli olduğunu veya yönetim çözümleri için yaygın olduğunu ve açıklanan kullanmak [tasarım ve derleme Azure Yönetimi çözümünde ]( solutions-creating.md) 
+> Bu makaledeki örnekleri parametreler ve değişkenler gerekli olduğunu veya yönetim çözümleri için yaygın olduğunu ve açıklanan kullanmak [tasarım ve derleme Azure Yönetimi çözümünde]( solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -281,7 +281,7 @@ Değişken için ilk değeri ayarlarsanız, doğru veri türü olarak yapıland�
 
 | Veri türü | Açıklama | Örnek | Çözümler |
 |:--|:--|:--|:--|
-| dize   | Değer, çift tırnak içine alın.  | "\"Merhaba Dünya\"" | "Hello world" |
+| string   | Değer, çift tırnak içine alın.  | "\"Merhaba Dünya\"" | "Hello world" |
 | Sayısal  | Tek tırnak işaretleri ile sayısal değer.| "64" | 64 |
 | boole  | **doğru** veya **false** tırnak içinde.  Bu değer küçük harfli olması gerektiğini unutmayın. | "true" | true |
 | datetime | Seri hale getirilmiş bir tarih değeri.<br>Bu değer için belirli bir tarih oluşturmak için PowerShell'de ConvertTo-Json cmdlet'ini kullanabilirsiniz.<br>Örnek: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |

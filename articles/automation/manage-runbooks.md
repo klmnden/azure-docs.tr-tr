@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da3b09998d163ffcc16bfcbbf9f516467dd3311d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 5bb52e0547ed9bc18d67370ffb9db35942212aab
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418631"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887599"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Otomasyonu runbook'ları yönetme
 
-Bir runbook için Azure Otomasyonu tarafından ekleyebileceğiniz [yeni bir tane oluşturmak](#creating-a-new-runbook) veya mevcut bir runbook'u dosyadan içeri aktarabilirsiniz veya [Runbook Galerisi](automation-runbook-gallery.md). Bu makalede, oluşturma ve runbook'ları bir dosyadan içeri aktarma hakkında bilgiler sağlar.  Tüm topluluk runbook'ları ve modülleri erişim ayrıntıları alabilirsiniz [Azure Otomasyonu Runbook ve modül galerileri](automation-runbook-gallery.md).
+Bir runbook için Azure Otomasyonu tarafından ekleyebileceğiniz [yeni bir tane oluşturmak](#create-a-runbook) veya mevcut bir runbook'u dosyadan içeri aktarabilirsiniz veya [Runbook Galerisi](automation-runbook-gallery.md). Bu makalede, oluşturma ve runbook'ları bir dosyadan içeri aktarma hakkında bilgiler sağlar.  Tüm topluluk runbook'ları ve modülleri erişim ayrıntıları alabilirsiniz [Azure Otomasyonu Runbook ve modül galerileri](automation-runbook-gallery.md).
 
 ## <a name="create-a-runbook"></a>Runbook oluşturma
 
@@ -65,7 +65,7 @@ Bir betik dosyası Azure Automation'a içeri aktarmak için aşağıdaki yordam�
 5. Varsa **adı** alanı etkinse, sonra değiştirmek için seçeneğiniz vardır.  Runbook adı bir harfle başlamalıdır ve harfler, rakamlar, alt çizgiler ve kısa çizgiler içerebilir.
 6. [Runbook türü](automation-runbook-types.md) otomatik olarak seçilir, ancak geçerli kısıtlamalarını hesaba kattıktan sonra türünü değiştirebilirsiniz. 
 7. Yeni runbook Otomasyon hesabı için runbook'ları listesinde görünür.
-8. Yapmanız gerekenler [runbook'u yayımlayamadı](#publishing-a-runbook) önce çalıştırabilirsiniz.
+8. Yapmanız gerekenler [runbook'u yayımlayamadı](#publish-a-runbook) önce çalıştırabilirsiniz.
 
 > [!NOTE]
 > Grafik runbook'u veya grafik PowerShell iş akışı runbook'u içeri aktardıktan sonra isterseniz başka bir türe dönüştürmek için seçeneğiniz vardır. Metinsel runbook'a dönüştürülemiyor.
@@ -89,7 +89,7 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Bir runbook'u test etme
 
-Bir runbook'u test ettiğinizde [Taslak sürümü](#publishing-a-runbook) yürütülür ve gerçekleştirdiği tüm işlemler tamamlanır. Hiçbir iş geçmişi oluşturulmaz, ancak [çıkış](automation-runbook-output-and-messages.md#output-stream) ve [uyarı ve hata](automation-runbook-output-and-messages.md#message-streams) akışları Test görüntülenen bölmesi çıktı. İletileri [Verbose Stream](automation-runbook-output-and-messages.md#message-streams) çıkış bölmesinde yalnızca görüntülenip [$VerbosePreference değişkeni](automation-runbook-output-and-messages.md#preference-variables) devam et ayarlanır.
+Bir runbook'u test ettiğinizde [Taslak sürümü](#publish-a-runbook) yürütülür ve gerçekleştirdiği tüm işlemler tamamlanır. Hiçbir iş geçmişi oluşturulmaz, ancak [çıkış](automation-runbook-output-and-messages.md#output-stream) ve [uyarı ve hata](automation-runbook-output-and-messages.md#message-streams) akışları Test görüntülenen bölmesi çıktı. İletileri [Verbose Stream](automation-runbook-output-and-messages.md#message-streams) çıkış bölmesinde yalnızca görüntülenip [$VerbosePreference değişkeni](automation-runbook-output-and-messages.md#preference-variables) devam et ayarlanır.
 
 Taslak sürüm çalıştırılır olsa da, runbook yine de normal olarak yürütür ve ortamda kaynaklara karşı herhangi bir eylem gerçekleştirir. Bu nedenle, runbook'ları üretim dışı kaynaklar üzerinde yalnızca test etmeniz gerekir.
 

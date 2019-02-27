@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 040aeda10410cc164c3f68b6615ebfb12d45541e
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: a65aabc7b56c4dd5f2d22974756f5f3e54cebb31
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453503"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867720"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway için sık sorulan sorular
 
@@ -220,7 +220,7 @@ Evet, Azure örnekleri tüm örnekleri aynı anda başarısız olmayın emin olm
 
 ### <a name="what-certificates-are-supported-on-application-gateway"></a>Hangi sertifikaların Application Gateway üzerinde destekleniyor mu?
 
-Otomatik olarak imzalanan sertifikaları, CA sertifikaları ve joker kart sertifikaları desteklenir. EV sertifikaları desteklenmez.
+Otomatik olarak imzalanan sertifikaları, CA sertifikaları, EV sertifikaları ve joker kart sertifikaları desteklenir.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-application-gateway"></a>Uygulama ağ geçidi tarafından desteklenen geçerli şifre paketleri nelerdir?
 

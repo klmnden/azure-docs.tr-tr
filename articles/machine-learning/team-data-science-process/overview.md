@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4d576fb79ed931d6a07ab231888617c95c0e465d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3b4e8c78d7402c254c91c3e100814e1f3eafc41b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452573"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867210"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Team Data Science Process nedir?
 
@@ -63,7 +63,7 @@ Hedefleri, görevleri ve belgeleri yapıtlar TDSP çevriminin her aşaması içi
 
 Aşağıdaki diyagramda görevlerinde (mavi) ve bu rolleri (dikey eksende) için yaşam döngüsü (yatay eksende) her aşaması ilişkili yapıları (yeşil içinde) bir kılavuz görünümünü sağlar. 
 
-[ ![TDSP-roller-ve-görevleri](./media/overview/tdsp-tasks-by-roles.png) ](./media/overview/tdsp-tasks-by-roles.png#lightbox)
+[![TDSP-roller-ve-görevleri](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## <a name="standardized-project-structure"></a>Standart Proje yapısı
 
@@ -77,7 +77,7 @@ Klasör yapısını ve standart olmayan konumlara gerekli belgeleri için şablo
 - ROC eğrileri veya MSE gibi performans ölçümlerini modeli
 
 
-[ ![TDSP dizinleri](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
+[![TDSP dizinleri](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
 
 Dizin yapısı dan kopyalanabilir [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -94,7 +94,7 @@ Analiz ve depolama altyapısı, bulutta veya şirket içinde olabilir. Ham ve i�
 
 Birden fazla proje üzerinde çalışma ve çeşitli bulut analiz altyapısı bileşenleriyle paylaşımı takım örneği aşağıda verilmiştir.
 
-[ ![TDSP altyapı](./media/overview/tdsp-analytics-infra.png) ](./media/overview/tdsp-analytics-infra.png#lightbox) 
+[![TDSP altyapı](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Araçlar ve yardımcı programlar için proje yürütme

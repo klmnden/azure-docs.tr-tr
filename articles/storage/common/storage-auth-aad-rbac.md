@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 68511d62887cb0463fd8db01cb5c90cbc40ac4cd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 622a7bc870aba58205c1811de2fcdcabffd177e5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818995"
+ms.locfileid: "56869692"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Azure kapsayıcılar ve RBAC ile kuyrukları (Önizleme) Azure portalında erişim izni ver
 
@@ -29,7 +29,7 @@ Bu makalede RBAC rolleri atamak için Azure portalını kullanmayı açıklar. A
 
 ## <a name="determine-resource-scope"></a>Kaynak kapsamını belirle 
 
-Bir RBAC rolü için bir güvenlik sorumlusu atamadan önce güvenlik sorumlusunu olması gereken erişim kapsamını belirleyin. En iyi uygulamalar, her zaman yalnızca olası en dar kapsamdan vermek en iyi olduğunu gerektirir.
+Bir RBAC rolü için bir güvenlik sorumlusu atamadan önce güvenlik sorumlusu olması gereken erişim kapsamını belirleyin. En iyi uygulamalar, her zaman yalnızca olası en dar kapsamdan vermek en iyi olduğunu gerektirir.
 
 Aşağıdaki listede, Azure blob ve kuyruk kaynaklarına erişimi dar kapsamlı başlatma kapsamını sınırlandırabilirsiniz düzeyleri açıklanmaktadır:
 
@@ -43,7 +43,7 @@ Bir rol ataması için istenen kapsam belirlediğinizde, Azure portalında ilgil
 
 ## <a name="assign-rbac-roles-using-the-azure-portal"></a>Azure portalını kullanarak RBAC Rolleri Ata
 
-Azure AD kimlik bilgileriyle blob ve kuyruk kaynaklara erişim izni, aşağıdaki adımları içerir: 
+Azure portalında Azure AD kimlik bilgileriyle blob ve kuyruk kaynaklara erişim izni, aşağıdaki adımları içerir: 
 
 1. Kapsayıcılar veya sıralara erişim vermek için uygun Azure depolama RBAC rolü atayın. İçin okuma erişimi, atama **Blob verileri Okuyucu (Önizleme)** veya **kuyruk verileri Okuyucu (Önizleme)** rol. Okuma, yazma ve silme erişimi atama **Blob verileri katkıda bulunan (Önizleme)** veya **kuyruk verileri katkıda bulunan (Önizleme)** rol. Ayrıca, özel bir rol atayabilirsiniz.
 
@@ -80,7 +80,7 @@ Depolama hesabı, kaynak grubu veya abonelik kapsamında bir rol atamak için be
 > 
 > Depolama hesabınızda etkin bir hiyerarşik ad alanı varsa bir kapsayıcı veya sıra kapsamı belirlenmiş bir role atayamazsınız.
 
-### <a name="assign-the-azure-resource-manager-reader-role"></a>Azure Resource Manager okuyucu rolü atama
+### <a name="assign-the-reader-role-for-portal-access"></a>Portal erişimi için okuyucu rolü atama
 
 Azure depolama için yerleşik veya özel bir rol bir güvenlik sorumlusu atadığınızda, depolama hesabınızdaki veriler üzerinde işlem gerçekleştirmek için bu güvenlik sorumlusu izni vermiş olursunuz. Yerleşik **veri okuyucu** rollerini sağlamak için bir kapsayıcı veya sırası, verileri okuma izinleri while yerleşik olarak **verileri katkıda bulunan** rolleri, okuma, yazma ve silme izinleri bir kapsayıcı sağlar veya Kuyruk. İzinler için belirtilen kaynak kapsamına alınır.  
 
@@ -90,7 +90,7 @@ Ancak, bir blob, Azure portalında görüntülemek Mary istiyorsa, ardından **d
 
 Azure portalında bloblara erişmek ve bunları ek bir RBAC rolü atamak, kullanıcılarınızın gerekiyorsa [okuyucu](../../role-based-access-control/built-in-roles.md#reader) rolüne kullanıcılar. **Okuyucu** depolama hesabı kaynaklarına görüntüleyebilir, ancak bunları değiştirmek için kullanıcılara izin veren bir Azure Resource Manager rol rolüdür. Azure Depolama'daki verilere, ancak hesap yönetimi kaynakları için yalnızca Okuma izinleri sağlamaz.
 
-Atamak için şu adımları izleyin **okuyucu** rol. Bu durumda, kapsayıcıya atama kapsamı:
+Atamak için şu adımları izleyin **okuyucu** rolüne bir kullanıcı blobları Azure portalından erişebilmesi için. Bu durumda, kapsayıcıya atama kapsamı:
 
 1. İçinde [Azure portalında](https://portal.azure.com), depolama hesabınıza gidin ve görüntüleme **genel bakış** hesabı.
 1. Hizmetler altında **Blobları**. 
@@ -100,6 +100,9 @@ Atamak için şu adımları izleyin **okuyucu** rol. Bu durumda, kapsayıcıya a
 1. Gelen **erişim Ata** açılan listesinde, select **Azure AD kullanıcı, Grup veya hizmet sorumlusu**.
 1. Rol atamak istediğiniz güvenlik sorumlusu bulmak üzere arama yapın.
 1. Rol ataması kaydedin.
+
+> [!NOTE]
+> Okuyucu rolü atama blobları veya Azure portalını kullanarak kuyruk erişmesi gereken kullanıcılar için gereklidir. 
 
 ## <a name="use-azure-ad-credentials-with-the-portal"></a>Portal ile Azure AD kimlik bilgilerini kullanın
 

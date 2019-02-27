@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 79a53c1b11a1bac0ea83afdd1333423aff4d6aa6
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b590d75abb9e3f6465594a5c8c684b94e6f2e07f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428475"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864311"
 ---
 # <a name="what-is-azure-backup"></a>Azure Backup nedir?
 
@@ -78,7 +78,7 @@ Azure yedekleme, hem şirket içi makinelerin ve Azure sanal makinelerini yedekl
 Makineleri ve uygulamaları MABS/DPM depolama alanı için yedekleme ve ardından DPM/MABS depolama Kasası'na yedekleme avantajları şunlardır:
 
 - Azure'a yedekleme MABS/DPM, SQL Server, Exchange ve SharePoint gibi sık kullanılan uygulamaları için iyileştirilmiş uygulama durumunu algılayan yedeklemelerini sağlar ek dosya/klasör/birim yedeklemelerinin ve makine durumu yedeklemeleri (çıplak, sistem durumu).
-- Şirket içi mahines için MARS aracısının yedeklemek istediğiniz her makineye yüklemeniz gerekmez. DPM/MABS koruma aracısını her makineler çalışır ve MARS aracısının MABS/DPM'de yalnızca çalıştırır.
+- Şirket içi makineler için MARS aracısının yedeklemek istediğiniz her makineye yüklemeniz gerekmez. DPM/MABS koruma aracısını her makineler çalışır ve MARS aracısının MABS/DPM'de yalnızca çalıştırır.
 - Daha fazla esneklik ve yedeklemeleri için ayrıntılı zamanlama seçenekleri var.
 - Tek bir konsolda koruma gruplarına toplamak birden çok makineleri için yedeklemeleri yönetebilir. Bu uygulamalar birden çok makinede yük katmanlı halde bulunan ve birlikte yedeklemek istediğiniz özellikle yararlı olur.
 

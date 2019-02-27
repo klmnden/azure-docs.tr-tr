@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 6d7cacf699df580b8a5c46b8bfc6d48e1a8daea1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 2c81369bc278a0995af04a38b0143eb0df8ba3a5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821739"
+ms.locfileid: "56877376"
 ---
 # <a name="manage-and-configure-projects"></a>Projeleri yönetme ve yapılandırma
 
@@ -66,7 +66,9 @@ Yeni bir DSVM örneği oluşturmak için yönergeleri takip edin [Ubuntu veri bi
 >
 > 1. Proje dosyaları sanal Makineye el ile kopyalayın.
 >
-> 2. Bir kurulum not defteri içindeki dosyalar ekleme, önce birincil not defterini ilk çalıştırma. Dosya içeriğini burada hücresi her dosya için bir kod hücresi Kurulum not defteri oluşturun. Ardından her hücre üst kısmında Ekle komutu `%writefile <filename>`burada `<filename>` içeriği almak için dosyanın adıdır. Not defterini çalıştırdığınızda, bu sanal makine üzerindeki tüm dosyaları oluşturur. Bir örnek için bkz. [Microsoft evcil hayvan algılayıcısı tanıtım setup.ipynb dosyasında](https://github.com/microsoft/connect-petdetector) (GitHub).
+> 2. Bir kurulum not defteri içindeki dosyalar ekleme, önce birincil not defterini ilk çalıştırma. Dosya içeriğini burada hücresi her dosya için bir kod hücresi Kurulum not defteri oluşturun. Ardından her hücre üst kısmında Ekle komutu `%%writefile <filename>`burada `<filename>` içeriği almak için dosyanın adıdır. Not defterini çalıştırdığınızda, bu sanal makine üzerindeki tüm dosyaları oluşturur. Bir örnek için bkz. [Microsoft evcil hayvan algılayıcısı tanıtım setup.ipynb dosyasında](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
+>
+>     ![Kullanarak bir %% kodu hücreyi başındaki writefile komutu](media/setup-notebook-writefile-command.png)
 
 ## <a name="edit-project-metadata"></a>Proje meta verilerini düzenleme
 
@@ -75,7 +77,7 @@ Proje Panosu üzerinde seçin **proje ayarları**, ardından **bilgi** sekmesind
 | Ayar | Açıklama |
 | --- | --- |
 | Proje adı | Azure not defterlerini görüntüleme amacıyla kullanır. projeniz için bir kolay ad. Örneğin, "Hello World içinde Python". |
-| Proje Kimliği | Bir proje paylaşmak için kullandığınız URL'nin bir parçası haline gelir özel bir tanımlayıcı (form `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Bu kimlik, yalnızca harf, rakam ve kısa çizgiler kullanabilirsiniz ve 30 karakterle sınırlıdır. Ne kullanılacağını emin değilseniz, bir ortak burada alanları kısa çizgi, örneğin, "Proje adı" etkin projenizin adına küçük bir sürümünü kullanmak için "my proje-adı" kapatır kuralıdır. |
+| Proje Kimliği | Bir proje paylaşmak için kullandığınız URL parçası haline gelir özel tanımlayıcısı. Bu kimlik yalnızca harf, rakam ve kısa çizgiler kullanabilirsiniz, 30 karakterle sınırlıdır ve olamaz bir [proje kimliği ayrılmış](create-clone-jupyter-notebooks.md#reserved-project-ids). Ne kullanılacağını emin değilseniz, genel bir kural projenizin adına bir küçük harfli sürümünü burada "my-Not-(gerekirse, uzunluk sınırını uyacak şekilde kesildi) proje" gibi kısa çizgi içine boşluk açık kullanmaktır. |
 | Genel proje | Varsa ayarlama, proje erişmek için bağlantıya kimseyle sağlar. Özel bir proje oluştururken, bu seçeneği temizleyin. |
 | Klonları Gizle | Ayarlanırsa, kullanıcılar bu proje için yapılmış kopyalar listesini göremiyorsanız. Klonları gizleme aynı kuruluştaki bir parçası gibi olmayan birçok kişilerle paylaşılan projeler için kullanışlı bir not defteri kullanırken bir sınıf ders için. |
 

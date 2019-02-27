@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: e08e7ae0a97b206a692dd47e91c4c94847cb9833
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 5e8aa310d518ff26d2d0224797b2feb0745896d1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235181"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864915"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanarak Azure Data Lake depolama Gen1 bir HDInsight kümesi oluşturun
 > [!div class="op_single_selector"]
@@ -90,7 +90,7 @@ Bir HDInsight kümesi yapılandırdıktan sonra kümede HDInsight kümesini Data
 
 Bu bölümde, SSH bir HDInsight Linux kümesi ve çalışma halinde olacak bir örnek Hive sorgusu. Bir Windows istemci kullanıyorsanız kullanmanızı öneririz **PuTTY**, hangi nden indirilebilir [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-PuTTY kullanma hakkında daha fazla bilgi için bkz. [Windows gelen HDInsight üzerinde Linux tabanlı Hadoop ile SSH kullanma ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+PuTTY kullanma hakkında daha fazla bilgi için bkz. [Windows gelen HDInsight üzerinde Linux tabanlı Hadoop ile SSH kullanma](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 1. Bağlandıktan sonra aşağıdaki komutu kullanarak Hive CLI'yı başlatın:
 
@@ -126,7 +126,7 @@ Data Lake depolama Gen1 kullanmak için HDInsight küme yapılandırıldıktan s
 
 Bu bölümde bir HDInsight Linux SSH olacak küme ve HDFS komutları çalıştırın. Bir Windows istemci kullanıyorsanız kullanmanızı öneririz **PuTTY**, hangi nden indirilebilir [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-PuTTY kullanma hakkında daha fazla bilgi için bkz. [Windows gelen HDInsight üzerinde Linux tabanlı Hadoop ile SSH kullanma ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+PuTTY kullanma hakkında daha fazla bilgi için bkz. [Windows gelen HDInsight üzerinde Linux tabanlı Hadoop ile SSH kullanma](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 Bağlantı kurulduktan sonra Data Lake depolama Gen1 hesabındaki dosyaları listelemek için aşağıdaki HDFS dosya sistemi komutu kullanın.
 

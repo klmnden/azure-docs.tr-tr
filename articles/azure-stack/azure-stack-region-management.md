@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: c28fce9c6c9d7b0ddeba54e1ba643817436adb4e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2845bb09fa44c3bd9cee914e2446403b4182b0d5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244972"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871052"
 ---
 # <a name="region-management-in-azure-stack"></a>Azure stack'teki bölge Yönetimi
 
@@ -39,7 +39,7 @@ Azure Stack sahip bir dizi içinde kullanılabilen bölge yönetim özellikleri 
 
 Bir bölgede tıklarsanız **bölge Yönetimi** kutucuğu, aşağıdaki bilgileri erişebilirsiniz:
 
-[ ![Bölge Yönetimi dikey penceresinde bölmeleri açıklamasını](media/azure-stack-region-management/regionssm.png "bölge Yönetimi dikey penceresi") ](media/azure-stack-region-management/regions.png#lightbox)
+[![Bölge Yönetimi dikey penceresinde bölmeleri açıklamasını](media/azure-stack-region-management/regionssm.png "bölge Yönetimi dikey penceresi")](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **Kaynak menüsünde**. Belirli bir altyapı Yönetimi alanlara erişmek ve görüntüleyin ve depolama hesapları ve sanal ağlar gibi kullanıcı kaynaklarını yönetin.
 
@@ -55,5 +55,5 @@ Bir bölgede tıklarsanız **bölge Yönetimi** kutucuğu, aşağıdaki bilgiler
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Sistem durumu ve Azure stack'teki uyarıları izleme](azure-stack-monitor-health.md)
+- [Azure Stack’de işlevsel durumu ve uyarıları izleme](azure-stack-monitor-health.md)
 - [Azure stack'teki güncelleştirmelerini yönetme](azure-stack-updates.md)

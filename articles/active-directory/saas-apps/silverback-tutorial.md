@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5614c061586c39e44f04f3542285e55e07f14d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5d48cbeb1714a4a3cd645fd65264aec0baf2c05
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172726"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871780"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Öğretici: Silverback ile Azure Active Directory Tümleştirme
 
@@ -131,7 +131,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     b. Üzerinde **kimlik sağlayıcı ayarları** sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    ![Yönetici ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+    ![Yönetici](./media/silverback-tutorial/tutorial_silverback_admin.png)
 
     c.  Tıklayarak **URL'den içeri aktar**.
     
@@ -195,7 +195,7 @@ Silverback için oturum açmak Azure AD kullanıcılarının etkinleştirmek iç
 
 3. Üzerinde **temel** sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    ![Kullanıcı ](./media/silverback-tutorial/tutorial_silverback_user.png)
+    ![Kullanıcı](./media/silverback-tutorial/tutorial_silverback_user.png)
 
     a. İçinde **kullanıcıadı** metin kutusunda, gibi kullanıcı adını girin **Britta**.
 

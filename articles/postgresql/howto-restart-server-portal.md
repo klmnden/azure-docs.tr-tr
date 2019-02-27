@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.openlocfilehash: 28e99f64fdee414549c55f9666bfd53f07fb3efb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: cc5957da97d9a8801583564bdf51f0483ab8e004
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892703"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865799"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-azure-portal"></a>Azure portalını kullanarak PostgreSQL sunucusu için Azure veritabanını yeniden başlatın
 Bu konuda, PostgreSQL sunucusu için Azure veritabanı nasıl yeniden açıklanmaktadır. Sunucu işlemi gerçekleştirirken, kısa bir kesintiye neden sunucunuzun bakım nedeniyle yeniden başlatmanız gerekebilir.
@@ -36,15 +36,15 @@ Aşağıdaki adımlar, PostgreSQL sunucuyu yeniden başlatın:
 
 3. Tıklayın **Evet** sunucuyu yeniden başlatmadan onaylamak için.
 
-   ![-PostgreSQL için Azure veritabanı, yeniden başlatma işlemini onaylayın ](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![-PostgreSQL için Azure veritabanı, yeniden başlatma işlemini onaylayın](./media/howto-restart-server-portal/3-restart-confirm.png)
 
 4. Sunucu durumu "Yeniden için" değiştiğini gözlemleyin.
 
-   ![PostgreSQL - yeniden başlatma durumu için Azure veritabanı ](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![PostgreSQL - yeniden başlatma durumu için Azure veritabanı](./media/howto-restart-server-portal/4-restarting-status.png)
 
 5. Sunucunun yeniden başlatılması başarılı olduğunu onaylayın.
 
-   ![-Yeniden başlatma başarılı olan PostgreSQL için Azure veritabanı ](./media/howto-restart-server-portal/5-restart-success.png)
+   ![-Yeniden başlatma başarılı olan PostgreSQL için Azure veritabanı](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

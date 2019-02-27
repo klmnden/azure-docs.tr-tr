@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e727e1ad9a4d202a3798f516d1db7d88464999fa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309209"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875965"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Tutarlılık, kullanılabilirlik ve performans dengeleri 
 
@@ -48,7 +48,7 @@ Tam RTT gecikme süresi, ışık hızı uzaklık işlevi ve Azure ağ topolojisi
 
 Bir Global olarak dağıtılmış veritabanı ortam içinde bir bölge çapında kesinti varsa tutarlılık düzeyi ve veri dayanıklılığı arasında doğrudan bir ilişki yoktur. İş sürekliliği planınızı geliştirirken, uygulamanın kesintiden sonra tamamen kurtarır önce kabul edilebilen maksimum süre anlamanız gerekir. Bir uygulamanın tamamen kurtarmak için gereken süre, Kurtarma süresi hedefi (RTO) bilinir. Ayrıca uygulama edilebilecek son veri güncelleştirmelerinin maksimum süreyi anlamanız gereken bir kesintiden sonra kurtarılırken. Zaman dilimi kaybetmeyi göze güncelleştirmeleri, kurtarma noktası hedefi (RPO) bilinir.
 
-Tablo tutarlılık modeli ve veri dayanıklılığı bölge geniş kesinti varsa arasındaki ilişki arasındaki ilişkiyi tanımlar. Daha güçlü tutarlılık ile dağıtılmış bir sistemde, dağıtılmış bir veritabanı bir RPO ve RTO CAP Teoremi nedeniyle sıfır olması mümkün olduğunu unutmayın. Neden hakkında daha fazla bilgi edinmek için [Azure Cosmos DB'deki tutarlılık düzeyleri](consistency-levels.md).
+Tablo tutarlılık modeli ve veri dayanıklılığı bölge geniş kesinti varsa arasındaki ilişkiyi tanımlar. Daha güçlü tutarlılık ile dağıtılmış bir sistemde, dağıtılmış bir veritabanı bir RPO ve RTO CAP Teoremi nedeniyle sıfır olması mümkün olduğunu unutmayın. Neden hakkında daha fazla bilgi edinmek için [Azure Cosmos DB'deki tutarlılık düzeyleri](consistency-levels.md).
 
 |**Bölgeler**|**Çoğaltma modu**|**Tutarlılık düzeyi**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|

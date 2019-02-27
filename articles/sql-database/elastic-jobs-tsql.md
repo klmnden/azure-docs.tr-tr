@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 56ad75bc0bed77c2107a49ab339368ab2a63c1fe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458100"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881269"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Elastik veritabanı işleri oluşturmak ve yönetmek için Transact-SQL (T-SQL) kullanın
 
@@ -409,7 +409,7 @@ Aşağıdaki saklı yordamlara bulunan [işleri veritabanı](sql-database-job-au
 |Saklı yordam  |Açıklama  |
 |---------|---------|
 |[sp_add_job](#spaddjob)     |     Yeni Proje ekler.    |
-|[sp_update_job ](#spupdatejob)    |      Var olan bir işi güncelleştirir.   |
+|[sp_update_job](#spupdatejob)    |      Var olan bir işi güncelleştirir.   |
 |[sp_delete_job](#spdeletejob)     |      Var olan bir işi siler.   |
 |[sp_add_jobstep](#spaddjobstep)    |    Bir adım, bir projeye ekler.     |
 |[sp_update_jobstep](#spupdatejobstep)     |     Bir iş adımı güncelleştirir.    |
@@ -420,7 +420,7 @@ Aşağıdaki saklı yordamlara bulunan [işleri veritabanı](sql-database-job-au
 |[sp_delete_target_group](#spdeletetargetgroup)     |    Hedef grubunu siler.     |
 |[sp_add_target_group_member](#spaddtargetgroupmember)     |    Bir veritabanı veya veritabanı grubu için bir hedef grubu ekler.     |
 |[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Hedef grup üyesi hedef gruptan kaldırır.    |
-|[sp_purge_jobhistory ](#sppurgejobhistory)    |    Bir iş geçmişi kayıtları kaldırır.     |
+|[sp_purge_jobhistory](#sppurgejobhistory)    |    Bir iş geçmişi kayıtları kaldırır.     |
 
 
 
@@ -448,7 +448,7 @@ Yeni Proje ekler.
 #### <a name="arguments"></a>Bağımsız Değişkenler  
 
 [  **@job_name =** ] 'job_name'  
-İş adı. Ad benzersiz olmalıdır ve yüzde (%) karakter içeremez. job_name varsayılansız bir nvarchar(128) ' dir.
+İş adı. Adı benzersiz olmalıdır ve yüzde (%) içeremez karakter. job_name varsayılansız bir nvarchar(128) ' dir.
 
 [  **@description =** ] 'description'  
 Proje açıklaması. Varsayılan null bir nvarchar(512) açıklamasıdır. Açıklama atlanırsa, boş bir dize kullanılır.

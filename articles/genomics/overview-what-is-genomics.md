@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 4b4510a02c4212724f8a592c7318aecab3d06275
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ecd6dd9e8eb6d11161faf6ed3b51f06cf0d3f454
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733270"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868825"
 ---
 # <a name="what-is-microsoft-genomics"></a>Microsoft Genomiks nedir?
 Microsoft Genomics Genom analizi araç setini (GATK) ikinci analiz için Burrows-Wheeler Aligner (BWA) ve bulut uygulaması sunar. Hizmet, ISO sertifikalı ve HIPAA düzenlemeleriyle uyumlu ve fiyat öngörülebilirliği genom sıralamasını gereksinimlerinize sunar. Microsoft Genomics hizmeti kullanmak ve müşterilerimize hızlı başlangıçlar, öğreticiler ve belgeler okuyarak API'mizi ile tümleştirme hakkında bilgi edinin.
@@ -34,6 +34,6 @@ Microsoft Genomics ISO 27001, ISO 27018 ve ISO 9001 sertifikalı ve HIPAA düzen
 ## <a name="next-steps"></a>Sonraki adımlar
 Microsoft Genomics giriş edindiğinize göre şunları yapmaya hazırsınız:
 - Maliyet karşılaştırmaları ve hesaplayıcıları için fiyatlandırma sayfasına bakın. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/genomics/)
-- İlk iş akışınızı Microsoft Genomics hizmet aracılığıyla çalıştırarak başlayın. [Microsoft Genomics hizmeti üzerinden iş akışı çalıştırma ](quickstart-run-genomics-workflow-portal.md)
+- İlk iş akışınızı Microsoft Genomics hizmet aracılığıyla çalıştırarak başlayın. [Microsoft Genomics hizmeti üzerinden iş akışı çalıştırma](quickstart-run-genomics-workflow-portal.md)
 - Microsoft Genomics hizmeti tarafından işlenmesi için kendi verilerinizi göndermek: [eşleştirilmiş FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [birden fazla FASTQ veya BAM](quickstart-input-multiple.md) 
 

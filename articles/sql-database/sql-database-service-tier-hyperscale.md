@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2c32ef84c1016d0058ee07220729a291aff19b70
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991235"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868077"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>En fazla 100 TB için hiper ölçekli hizmet Katmanı (Önizleme)
 
@@ -145,7 +145,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Kullanılabilen bölgeler
 
-Hiper ölçekli hizmet katmanı şu anda genel önizlemede ve aşağıdaki Azure bölgelerinde kullanılabilir: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+Hiper ölçekli hizmet katmanı şu anda genel önizlemede ve aşağıdaki Azure bölgelerinde kullanılabilir: 1 Doğu ABD, Doğu ABD 2, Batı ABD 2, Orta ABD, Kuzey CentralU S, Batı Avrupa, Kuzey Avrupa, Avustralya Doğu, Avustralya, Güneydoğu Avustralya, Güneydoğu Asya, Japonya Doğu ve Kore Orta
 
 ## <a name="known-limitations"></a>Bilinen sınırlamalar
 

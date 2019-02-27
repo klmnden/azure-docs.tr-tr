@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 93beef5702df9b4cf0a51a01fb286a3f023f9839
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892567"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876628"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Güvenlik çerçevesi: Hassas verileri | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
 | **Makine güven sınırı** | <ul><li>[Bunlar hassas bilgileri içeriyorsa, ikili dosyaları gizlenmiş emin olun.](#binaries-info)</li><li>[Şifrelenmiş dosya sistemi (EFS) kullanarak gizli kullanıcıya özgü verileri korumak için kullanılan göz önünde bulundurun](#efs-user)</li><li>[Dosya sisteminde uygulama tarafından depolanan hassas verilerin şifrelendiğinden emin olun](#filesystem)</li></ul> | 
 | **Web uygulaması** | <ul><li>[Tarayıcıda hassas içerik önbelleğe alınmamış emin olun.](#cache-browser)</li><li>[Hassas veriler içeren Web uygulamanın yapılandırma dosyalarının bölümleri şifrelemek](#encrypt-data)</li><li>[Gizli formlar ve girişleri otomatik tamamlama HTML öznitelik açıkça devre dışı](#autocomplete-input)</li><li>[Kullanıcının ekranda görüntülenen hassas veriler maskelenir emin olun.](#data-mask)</li></ul> | 
-| **Veritabanı** | <ul><li>[Uygulama dinamik veri maskeleme, hassas verilerin açığa ayrıcalıklı olmayan kullanıcıları sınırlamak için](#dynamic-users)</li><li>[Parolaları karma salted biçiminde depolandığından emin olun](#salted-hash)</li><li>[ Veritabanı sütunları hassas verilerin şifrelendiğinden emin olun](#db-encrypted)</li><li>[Bu veritabanı düzeyinde şifrelemeyi (TDE) etkin olduğundan emin olun](#tde-enabled)</li><li>[Veritabanı Yedeklemeleri şifrelendiğinden emin olun](#backup)</li></ul> | 
+| **Veritabanı** | <ul><li>[Uygulama dinamik veri maskeleme, hassas verilerin açığa ayrıcalıklı olmayan kullanıcıları sınırlamak için](#dynamic-users)</li><li>[Parolaları karma salted biçiminde depolandığından emin olun](#salted-hash)</li><li>[Veritabanı sütunları hassas verilerin şifrelendiğinden emin olun](#db-encrypted)</li><li>[Bu veritabanı düzeyinde şifrelemeyi (TDE) etkin olduğundan emin olun](#tde-enabled)</li><li>[Veritabanı Yedeklemeleri şifrelendiğinden emin olun](#backup)</li></ul> | 
 | **Web API** | <ul><li>[Hassas verileri Web API'sine ilgili tarayıcının depolamada depolanmaz emin olun.](#api-browser)</li></ul> | 
 | Azure belge veritabanı | <ul><li>[Azure Cosmos DB'de depolanan hassas verileri şifrele](#encrypt-docdb)</li></ul> | 
 | **Azure Iaas VM güven sınırı** | <ul><li>[Sanal makineler tarafından kullanılan diskleri şifreleme için Azure Disk Şifrelemesi'ni kullanın](#disk-vm)</li></ul> | 
@@ -34,7 +34,7 @@ ms.locfileid: "55892567"
 | **Dynamics CRM** | <ul><li>[Güvenlik modelleme gerçekleştirebilir ve iş birimleri/ekiplerin gerekli olduğu durumlarda](#modeling-teams)</li><li>[Kritik varlıkları özelliğini paylaşmak için erişim simge durumuna küçült](#entities)</li><li>[İyi güvenlik uygulamaları ve Dynamics CRM Paylaşımı özelliği ile ilişkili riskleri kullanıcıları eğitme](#good-practices)</li><li>[Özel durum yönetimi, yapılandırma ayrıntıları gösteren proscribing geliştirme standartları Kuralı Ekle](#exception-mgmt)</li></ul> | 
 | **Azure Depolama** | <ul><li>[(Önizleme) bekleyen veri için Azure depolama hizmeti şifrelemesi (SSE) kullanma](#sse-preview)</li><li>[Hassas verileri Azure depolamada depolamak için istemci tarafı şifreleme kullanma](#client-storage)</li></ul> | 
 | **Mobil istemci** | <ul><li>[Duyarlı ya da telefonlar yerel depolama alanına yazılan PII veri şifreleme](#pii-phones)</li><li>[Son kullanıcılara dağıtmadan önce oluşturulan ikili dosyaları karartmak](#binaries-end)</li></ul> | 
-| **WCF** | <ul><li>[ Sertifika veya Windows clientCredentialType ayarlayın](#cert)</li><li>[WCF güvenlik modu etkin değil](#security)</li></ul> | 
+| **WCF** | <ul><li>[Sertifika veya Windows clientCredentialType ayarlayın](#cert)</li><li>[WCF güvenlik modu etkin değil](#security)</li></ul> | 
 
 ## <a id="binaries-info"></a>Bunlar hassas bilgileri içeriyorsa, ikili dosyaları gizlenmiş emin olun.
 

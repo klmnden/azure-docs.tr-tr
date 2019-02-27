@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54fa8d09d930069191fb48e0ab015d436496b725
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fb675778d899d6f4cec22de8a1c81fdae76ba17e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166411"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879773"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM) dağıtma
 
@@ -120,7 +120,7 @@ Aşağıdaki bölümde, projeye katılan tüm proje katılımcılarını belirle
 
 Planlama işleminin bir parçası, önce onay ve izleyerek PIM'i etkinleştirin bizim [PIM belge kullanmaya başlamak](pim-getting-started.md). PIM etkinleştirme dağıtımınıza yardımcı olmak için özel olarak tasarlanmış bazı özelliklere erişmenizi sağlar.
 
-Amacınız, Azure kaynakları için PIM dağıtmak için ise, uygulamanız gereken bizim [PIM belgede yönetmek için Azure kaynaklarını bulun](pim-resource-roles-discover-resources.md). Yalnızca her bir kaynak, kaynak grubu ve abonelik sahipleri PIM bulunacak mümkün olacaktır. Genel Yöneticiyseniz çalışılırken, Azure kaynakları için PIM dağıtmak, yapabilecekleriniz [tüm Azure Aboneliklerini yönetmek için erişimini yükseltme ](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) kendiniz dizinindeki tüm Azure kaynakları için bulma erişmesini sağlamak için. Ancak, onay her, abonelik sahipleri kaynaklarını PIM ile yönetmeden önce elde etmenizi öneriyoruz.
+Amacınız, Azure kaynakları için PIM dağıtmak için ise, uygulamanız gereken bizim [PIM belgede yönetmek için Azure kaynaklarını bulun](pim-resource-roles-discover-resources.md). Yalnızca her bir kaynak, kaynak grubu ve abonelik sahipleri PIM bulunacak mümkün olacaktır. Genel Yöneticiyseniz çalışılırken, Azure kaynakları için PIM dağıtmak, yapabilecekleriniz [tüm Azure Aboneliklerini yönetmek için erişimini yükseltme](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) kendiniz dizinindeki tüm Azure kaynakları için bulma erişmesini sağlamak için. Ancak, onay her, abonelik sahipleri kaynaklarını PIM ile yönetmeden önce elde etmenizi öneriyoruz.
 
 ### <a name="enforce-principle-of-least-privilege"></a>En az ayrıcalık ilkesini zorlama
 
@@ -161,7 +161,7 @@ Erişim gözden geçirmeleri, roller, erişimi gözden geçirmek için kişilere
 
 Azure abonelikleri ve kaynaklar için her bir abonelik veya kaynak rolleri gözden geçirmek için benzer bir erişim gözden geçirme işlemini ayarlayabilirsiniz. Bu işlemin her abonelik veya gereksiz atamaların kaldırmak için de kaynak bağlı sahip ve kullanıcı erişimi Yöneticisi atamaları en aza indirmek için hedeftir. Ancak, daha iyi anlamak belirli rolleri (özellikle özel roller) sahip oldukları kuruluşlar genellikle her bir abonelik veya kaynak sahibine gibi görevler verin.
 
-Genel yönetici rolüne sahip bir BT yöneticisi olarak, çalışılırken, kuruluşunuzda Azure kaynakları için PIM dağıtmak, yapabilecekleriniz [tüm Azure Aboneliklerini yönetmek için erişimini yükseltme ](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) her bir aboneliğe erişim elde etmek için. Ardından, her abonelik sahibi bulun ve gereksiz atamalarını kaldırın ve sahip rolü ataması en aza indirmek için çalışır.
+Genel yönetici rolüne sahip bir BT yöneticisi olarak, çalışılırken, kuruluşunuzda Azure kaynakları için PIM dağıtmak, yapabilecekleriniz [tüm Azure Aboneliklerini yönetmek için erişimini yükseltme](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) her bir aboneliğe erişim elde etmek için. Ardından, her abonelik sahibi bulun ve gereksiz atamalarını kaldırın ve sahip rolü ataması en aza indirmek için çalışır.
 
 Bir Azure aboneliğine sahip rolüne sahip kullanıcılar ayrıca kullanabiliyor [erişim gözden geçirmeleriyle Azure kaynakları için](pim-resource-roles-start-access-review.md) denetim ve benzer şekilde, Azure AD rolleri için daha önce açıklanan işlemi gereksiz rol atamalarını kaldırmak için.
 

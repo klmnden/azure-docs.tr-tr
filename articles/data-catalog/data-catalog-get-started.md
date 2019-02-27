@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5513948a6611e93833c7e70fa4e5667b3901a9f3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238497"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880232"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Azure Veri Kataloğu ile çalışmaya başlama
 Azure Veri Kataloğu kurumsal veri varlıkları için bir kayıt sistemi ve bulma sistemi olarak görev yapan tam yönetilen bir bulut hizmetidir. Ayrıntılı bir genel bakış için bkz. [Azure Veri Kataloğu nedir](data-catalog-what-is-data-catalog.md).
@@ -82,7 +82,7 @@ Bir kuruluş (Azure Active Directory etki alanı) için yalnızca bir tane veri 
     ![Azure Veri Kataloğu--kataloğu listede görüntüleme](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 3. Oluşturduğunuz kataloğa tıklayın. Portalda **Veri Kataloğu** dikey penceresini görürsünüz.
    
-   ![Azure Veri Kataloğu--portaldaki dikey pencere ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
+   ![Azure Veri Kataloğu--portaldaki dikey pencere](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
 4. Veri kataloğunun özelliklerini görüntüleyebilir ve güncelleştirebilirsiniz. Örneğin, **Fiyatlandırma katmanı**’na tıklayın ve sürümü değiştirin.
    
     ![Azure Veri Kataloğu--fiyatlandırma katmanı](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
@@ -144,7 +144,7 @@ Bu alıştırmada, Adventure Works veritabanından veri varlıklarını kataloğ
       ![Azure Veri Kataloğu--kayıtlı nesneler](media/data-catalog-get-started/data-catalog-registered-objects.png)
    9. Kayıtlı veri kaynağı nesnelerinizi görmek için **Portalı Görüntüle**'ye tıklayın. Azure Veri Kataloğu portalında dört tablonun tamamını ve veritabanını ızgara görünümünde gördüğünüzü onaylayın.
       
-      ![Azure Veri Kataloğu portalındaki nesneler ](media/data-catalog-get-started/data-catalog-view-portal.png)
+      ![Azure Veri Kataloğu portalındaki nesneler](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 Bu alıştırmada, kuruluşunuz genelindeki kullanıcılar tarafından kolayca bulunabilmesi için, Adventure Works örnek veritabanında bulunan nesneleri kaydettiniz. Sonraki alıştırmada, kayıtlı veri varlıklarını nasıl bulacağınızı öğreneceksiniz.
 

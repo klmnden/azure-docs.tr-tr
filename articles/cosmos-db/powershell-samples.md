@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/16/2017
 ms.author: sngun
-ms.openlocfilehash: f4220653b39381c360b4b05ab018262e46288e8f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 3498ac6a2a4aaa1682d7b5bc5aae5383866d5bcd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043813"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873806"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Azure Cosmos DB için Azure PowerShell örnekleri
 
@@ -22,7 +22,7 @@ Aşağıdaki tablo, Azure Cosmos DB’ye yönelik örnek Azure PowerShell betikl
 |**Azure Cosmos DB hesabı oluşturma**||
 |[Oluşturma ve SQL API'si ile Cosmos hesabı yapılandırma](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| SQL API ile kullanılacak tek bir Azure Cosmos DB hesabı oluşturur. |
 |[Oluşturma ve Cosmos hesabı, MongoDB için Azure Cosmos DB API'si ile yapılandırma](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tek bir Cosmos hesap için MongoDB API'si ile Azure Cosmos DB'nin oluşturur. |
-|[Oluşturma ve Gremlin API'si ile Cosmos hesabı yapılandırma ](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Gremlin API ile kullanılacak tek bir Azure Cosmos DB hesabı oluşturur. |
+|[Oluşturma ve Gremlin API'si ile Cosmos hesabı yapılandırma](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Gremlin API ile kullanılacak tek bir Azure Cosmos DB hesabı oluşturur. |
 |[Oluşturma ve Cassandra API'si ile Cosmos hesabı yapılandırma](scripts/create-and-configure-cassandra-database.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cassandra API ile kullanılacak tek bir Azure Cosmos DB hesabı oluşturur. |
 |[Oluşturma ve tablo API'si ile Cosmos hesabı yapılandırma](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tablo API'si ile kullanılacak tek bir Azure Cosmos DB hesabı oluşturur. |
 |**Azure Cosmos DB’yi ölçeklendirme**||

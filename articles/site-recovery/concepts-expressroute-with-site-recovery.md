@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: mayg
-ms.openlocfilehash: 1fabbe3a9a486abc862bfb6c2671c60d11d8e8c7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 8906c477a5d40eb4240669a615dcc9974246ecc8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809939"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868842"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure Site Recovery ile Azure ExpressRoute
 
@@ -56,4 +56,4 @@ Herhangi bir Azure bölgesine ayrıntılı olarak aynı coğrafi kümedeki Azure
 - Daha fazla bilgi edinin [ExpressRoute devreleri](../expressroute/expressroute-circuit-peerings.md).
 - Daha fazla bilgi edinin [ExpressRoute Yönlendirme etki alanları](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Daha fazla bilgi edinin [ExpressRoute konumları](../expressroute/expressroute-locations.md).
-- Olağanüstü durum kurtarma hakkında daha fazla bilgi [ExpressRoute ile Azure sanal makineleri ](azure-vm-disaster-recovery-with-expressroute.md).
+- Olağanüstü durum kurtarma hakkında daha fazla bilgi [ExpressRoute ile Azure sanal makineleri](azure-vm-disaster-recovery-with-expressroute.md).

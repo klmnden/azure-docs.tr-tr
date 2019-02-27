@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d2e3ad4015df74ea3adb98eae4d98e30f2948ce
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: a7a1d0dab08c4beb93d323bcd1a5f5b00a190daa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649195"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868298"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Nasıl Yapılır: Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -116,7 +116,7 @@ Windows 10 etki alanına katılmış ise zaten cihazlardır [kayıtlı Azure AD]
  - Hibrit Azure AD'ye katılmış cihaz olduktan sonra herhangi bir mevcut Azure AD kayıtlı durumu otomatik olarak kaldırılması. 
  - Etki alanına katılmış cihaz Azure AD'ye bu kayıt defteri anahtarı - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" ekleyerek kayıtlı olmasını engelleyebilir = DWORD: 00000001
 
-FIPS uyumlu TPM'ler için hibrit Azure AD'ye katılma desteklenmez. FIPS uyumlu TPM'ler cihazlarınız varsa, bunları hibrit Azure AD'ye katılma devam etmeden önce devre dışı bırakmanız gerekir.
+FIPS uyumlu TPM'ler için hibrit Azure AD'ye katılma desteklenmez. FIPS uyumlu TPM'ler cihazlarınız varsa, bunları hibrit Azure AD'ye katılma devam etmeden önce devre dışı bırakmanız gerekir. Microsoft, TPM üreticisine bağımlı olduğu FIPS modundayken TPM'ler için devre dışı bırakmak için herhangi bir aracı sağlamaz. Lütfen OEM donanımınız için desteğe başvurun.
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl gözden geçirin
 

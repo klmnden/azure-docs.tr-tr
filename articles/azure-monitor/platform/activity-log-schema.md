@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888150"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868553"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
 **Azure etkinlik günlüğü** Azure'da gerçekleşen herhangi bir abonelik düzeyindeki olayların sağlayan günlüktür. Bu makalede veri kategorisini başına olay şeması. Portal, PowerShell, CLI veya karşı REST API aracılığıyla doğrudan veri okunuyorsa veri şeması bağlı olarak farklı [veri depolama veya günlük profilini kullanarak Event Hubs akış](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Aşağıdaki örnekler, portal, PowerShell, CLI ve REST API kullanıma sunulan teklifinizle şema gösterir. Bu özellikler için bir eşleme [Azure tanılama günlükleri şema](./diagnostic-logs-schema.md) makalenin sonunda sağlanır.
@@ -119,10 +119,13 @@ Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemler
 | correlationId |Genellikle bir GUID dize biçiminde. Bir Correlationıd paylaşan olayları aynı uber eyleme ait. |
 | açıklama |Olay açıklaması statik metin. |
 | eventDataId |Olayın benzersiz tanımlayıcısı. |
+| EventName | Yönetim olayı kolay adı. |
+| category | "Yönetici" her zaman |
 | HTTP isteği |Http isteği açıklayan blob. Genellikle "Clientrequestıd'ye", "clientIpAddress" ve "method" (HTTP yöntemi. içerir For example, PUT). |
 | düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı" ve "Bilgilendirici" |
 | resourceGroupName |Etkilenen kaynak için kaynak grubunun adı. |
 | resourceProviderName |Etkilenen kaynak için kaynak sağlayıcısının adı |
+| Kaynak türü | Yönetici bir olay tarafından etkilenen kaynak türü. |
 | resourceId |Etkilenen kaynak kaynak kimliği. |
 | operationId |Tek bir işleme karşılık gelen olaylar arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 96389e9aa5758ea51448affa389c90eaa8e5842d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 23bf70cd60639aec3ea7e8504dc3f6ebccd4923f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588611"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883598"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
 Azure dosya eşitleme, şirket içi sunucularınızı Azure çok siteli eşitleme ve bulut katmanlaması özellikleri etkinleştirme dosyaları'na bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlanması gerekir. Bir BT yöneticisi Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
@@ -93,14 +93,14 @@ Bir önceki bölümde belirtildiği gibi bağlantı noktası 443 gereksinimlerin
 
 Aşağıdaki tabloda iletişim için gereken etki alanları açıklanmaktadır:
 
-| Hizmet | Domain | Kullanım |
-|---------|----------------|------------------------------|
-| **Azure Resource Manager** | https://management.azure.com | İlk sunucu kayıt çağrısı dahil olmak üzere bu URL için/aracılığıyla (PowerShell gibi) herhangi bir kullanıcının çağrısına gider. |
-| **Azure Active Directory** | https://login.windows.net | Azure Resource Manager çağrıları kimliği doğrulanmış bir kullanıcı tarafından yapılması gerekir. Başarılı olması için bu URL'yi, kullanıcı kimlik doğrulaması için kullanılır. |
-| **Azure Active Directory** | https://graph.windows.net/ | Azure dosya eşitleme dağıtımı bir parçası olarak, aboneliğin Azure Active Directory'de Hizmet sorumlusu oluşturulur. Bu URL için kullanılır. Bu asıl hakları Azure dosya eşitleme hizmeti için en az bir dizi için temsilci seçme için kullanılır. Azure dosya eşitleme'nin ilk kurulum gerçekleştiren kullanıcı kimliği doğrulanmış bir kullanıcı abonelik sahibi ayrıcalıklara sahip olması gerekir. |
-| **Azure Depolama** | &ast;. core.windows.net | Sunucu bir dosya yüklediğinde, ardından sunucu, veri taşıma daha verimli bir şekilde doğrudan depolama hesabındaki Azure dosya paylaşımına konuşurken gerçekleştirir. Sunucuda yalnızca için hedeflenen dosya paylaşımına erişim veren bir SAS anahtarı var. |
-| **Azure dosya eşitleme** | &ast;.one.microsoft.com | İlk sunucu kayıt sonrasında sunucu bu bölgede Azure dosya eşitleme hizmeti örneği için bölgesel bir URL alır. Sunucu URL'sini doğrudan ve verimli bir şekilde eşitlendiğini işleme örneğiyle iletişim kurmak için kullanabilirsiniz. |
-| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br>http://ocsp.msocsp.com | Azure dosya eşitleme Aracısı yüklendikten sonra PKI URL'si Azure dosya paylaşımı ve Azure dosya eşitleme hizmeti ile iletişim kurmak için gereken Ara sertifikaları yüklemek için kullanılır. OCSP URL'si bir sertifika durumunu denetlemek için kullanılır. |
+| Hizmet | Genel bulut uç noktası | Azure kamu uç noktası | Kullanım |
+|---------|----------------|---------------|------------------------------|
+| **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | İlk sunucu kayıt çağrısı dahil olmak üzere bu URL için/aracılığıyla (PowerShell gibi) herhangi bir kullanıcının çağrısına gider. |
+| **Azure Active Directory** | https://login.windows.net | https://login.microsoftonline.us | Azure Resource Manager çağrıları kimliği doğrulanmış bir kullanıcı tarafından yapılması gerekir. Başarılı olması için bu URL'yi, kullanıcı kimlik doğrulaması için kullanılır. |
+| **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Azure dosya eşitleme dağıtımı bir parçası olarak, aboneliğin Azure Active Directory'de Hizmet sorumlusu oluşturulur. Bu URL için kullanılır. Bu asıl hakları Azure dosya eşitleme hizmeti için en az bir dizi için temsilci seçme için kullanılır. Azure dosya eşitleme'nin ilk kurulum gerçekleştiren kullanıcı kimliği doğrulanmış bir kullanıcı abonelik sahibi ayrıcalıklara sahip olması gerekir. |
+| **Azure Depolama** | &ast;. core.windows.net | &ast;.core.usgovcloudapi.net | Sunucu bir dosya yüklediğinde, ardından sunucu, veri taşıma daha verimli bir şekilde doğrudan depolama hesabındaki Azure dosya paylaşımına konuşurken gerçekleştirir. Sunucuda yalnızca için hedeflenen dosya paylaşımına erişim veren bir SAS anahtarı var. |
+| **Azure dosya eşitleme** | &ast;.one.microsoft.com | &ast;.afs.azure.us | İlk sunucu kayıt sonrasında sunucu bu bölgede Azure dosya eşitleme hizmeti örneği için bölgesel bir URL alır. Sunucu URL'sini doğrudan ve verimli bir şekilde eşitlendiğini işleme örneğiyle iletişim kurmak için kullanabilirsiniz. |
+| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br />http://ocsp.msocsp.com | `https://www.microsoft.com/pki/mscorp`<br />http://ocsp.msocsp.com | Azure dosya eşitleme Aracısı yüklendikten sonra PKI URL'si Azure dosya paylaşımı ve Azure dosya eşitleme hizmeti ile iletişim kurmak için gereken Ara sertifikaları yüklemek için kullanılır. OCSP URL'si bir sertifika durumunu denetlemek için kullanılır. |
 
 > [!Important]
 > Trafiğe izin verirken &ast;. one.microsoft.com, daha fazlasını eşitleme hizmeti trafiğini sunucudan mümkün. Alt etki alanları altında kullanılabilen pek çok daha fazla Microsoft hizmetleri vardır.
@@ -109,22 +109,24 @@ Varsa &ast;. one.microsoft.com çok geniş, Azure dosya eşitleme hizmeti yalnı
 
 İş sürekliliği ve olağanüstü durum kurtarma (BCDR) nedenleriyle, bir genel olarak yedekli (GRS) depolama hesabı, Azure dosya paylaşımlarını belirtmiş olabilirsiniz. Bu durumda, ardından Azure dosya paylaşımlarınızın üzerinden eşleştirilmiş bölgede kalıcı bölgesel bir kesinti durumunda başarısız olur. Azure dosya eşitleme aynı bölge çiftlerini depolama alanı olarak kullanır. Bu nedenle GRS depolama hesapları kullanıyorsanız, sunucunuzun eşleştirilmiş bölgede Azure dosya eşitleme için iletişim kurmasına izin vermek ek URL'ler etkinleştirmek gerekir. Aşağıdaki tabloda, bu "çiftli bölge" çağırır. Ayrıca, de etkinleştirilmesi gerekir bir traffic manager profil URL'si yok. Bu, ağ trafiği sorunsuz bir şekilde eşleştirilmiş bölge için bir yük devretme durumunda yeniden yönlendirilebilir ve aşağıdaki tabloda "Bulma URL'si" olarak adlandırılan garanti eder.
 
-| Bölge | Birincil uç nokta URL'si | Eşleştirilmiş bölge | Bulma URL'si |
-|--------|---------------------------------------|--------|---------------------------------------|
-| Avustralya Doğu | https://kailani-aue.one.microsoft.com | Avustralya Güneydoğu | https://kailani-aue.one.microsoft.com |
-| Avustralya Güneydoğu | https://kailani-aus.one.microsoft.com | Avustralya Doğu | https://tm-kailani-aus.one.microsoft.com |
-| Orta Kanada | https://kailani-cac.one.microsoft.com | Doğu Kanada | https://tm-kailani-cac.one.microsoft.com |
-| Doğu Kanada | https://kailani-cae.one.microsoft.com | Orta Kanada | https://tm-kailani.cae.one.microsoft.com |
-| Orta ABD | https://kailani-cus.one.microsoft.com | Doğu ABD 2 | https://tm-kailani-cus.one.microsoft.com |
-| Doğu Asya | https://kailani11.one.microsoft.com | Güneydoğu Asya | https://tm-kailani11.one.microsoft.com |
-| Doğu ABD | https://kailani1.one.microsoft.com | Batı ABD | https://tm-kailani1.one.microsoft.com |
-| Doğu ABD 2 | https://kailani-ess.one.microsoft.com | Orta ABD | https://tm-kailani-ess.one.microsoft.com |
-| Kuzey Avrupa | https://kailani7.one.microsoft.com | Batı Avrupa | https://tm-kailani7.one.microsoft.com |
-| Güneydoğu Asya | https://kailani10.one.microsoft.com | Doğu Asya | https://tm-kailani10.one.microsoft.com |
-| Birleşik Krallık Güney | https://kailani-uks.one.microsoft.com | Birleşik Krallık Batı | https://tm-kailani-uks.one.microsoft.com |
-| Birleşik Krallık Batı | https://kailani-ukw.one.microsoft.com | Birleşik Krallık Güney | https://tm-kailani-ukw.one.microsoft.com |
-| Batı Avrupa | https://kailani6.one.microsoft.com | Kuzey Avrupa | https://tm-kailani6.one.microsoft.com |
-| Batı ABD | https://kailani.one.microsoft.com | Doğu ABD | https://tm-kailani.one.microsoft.com |
+| Bulut  | Bölge | Birincil uç nokta URL'si | Eşleştirilmiş bölge | Bulma URL'si |
+|--------|--------|----------------------|---------------|---------------|
+| Genel |Avustralya Doğu | https://kailani-aue.one.microsoft.com | Avustralya Güneydoğu | https://kailani-aue.one.microsoft.com |
+| Genel |Avustralya Güneydoğu | https://kailani-aus.one.microsoft.com | Avustralya Doğu | https://tm-kailani-aus.one.microsoft.com |
+| Genel | Orta Kanada | https://kailani-cac.one.microsoft.com | Doğu Kanada | https://tm-kailani-cac.one.microsoft.com |
+| Genel | Doğu Kanada | https://kailani-cae.one.microsoft.com | Orta Kanada | https://tm-kailani.cae.one.microsoft.com |
+| Genel | Orta ABD | https://kailani-cus.one.microsoft.com | Doğu ABD 2 | https://tm-kailani-cus.one.microsoft.com |
+| Genel | Doğu Asya | https://kailani11.one.microsoft.com | Güneydoğu Asya | https://tm-kailani11.one.microsoft.com |
+| Genel | Doğu ABD | https://kailani1.one.microsoft.com | Batı ABD | https://tm-kailani1.one.microsoft.com |
+| Genel | Doğu ABD 2 | https://kailani-ess.one.microsoft.com | Orta ABD | https://tm-kailani-ess.one.microsoft.com |
+| Genel | Kuzey Avrupa | https://kailani7.one.microsoft.com | Batı Avrupa | https://tm-kailani7.one.microsoft.com |
+| Genel | Güneydoğu Asya | https://kailani10.one.microsoft.com | Doğu Asya | https://tm-kailani10.one.microsoft.com |
+| Genel | Birleşik Krallık Güney | https://kailani-uks.one.microsoft.com | Birleşik Krallık Batı | https://tm-kailani-uks.one.microsoft.com |
+| Genel | Birleşik Krallık Batı | https://kailani-ukw.one.microsoft.com | Birleşik Krallık Güney | https://tm-kailani-ukw.one.microsoft.com |
+| Genel | Batı Avrupa | https://kailani6.one.microsoft.com | Kuzey Avrupa | https://tm-kailani6.one.microsoft.com |
+| Genel | Batı ABD | https://kailani.one.microsoft.com | Doğu ABD | https://tm-kailani.one.microsoft.com |
+| Devlet | ABD Devleti Arizona | https://usgovarizona01.afs.azure.us | ABD Devleti Texas | https://tm-usgovarizona01.afs.azure.us |
+| Devlet | ABD Devleti Texas | https://usgovtexas01.afs.azure.us | ABD Devleti Arizona | https://tm-usgovtexas01.afs.azure.us |
 
 - Yerel olarak yedekli (LRS) veya bölge olarak yedekli (ZRS) depolama hesapları kullanıyorsanız, yalnızca "birincil uç nokta URL'si altında" listelenen URL'sini etkinleştirmek gerekir.
 

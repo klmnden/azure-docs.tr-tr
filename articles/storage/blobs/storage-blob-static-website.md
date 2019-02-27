@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f42237c1bf5c4782f47254c253d1d40289b65099
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670560"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867751"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Depolama'da statik Web sitesi barındırma
 Azure depolama ve GPv2 hesapları doğrudan adlı bir depolama kapsayıcısındaki statik içerik (HTML, CSS, JavaScript ve görüntü dosyaları) sunmak izin *$web*. Azure Depolama'da barındırma yararlanma dahil olmak üzere sunucusuz mimarileri kullanmanıza olanak verir [Azure işlevleri](/azure/azure-functions/functions-overview) ve diğer PaaS Hizmetleri.
@@ -51,6 +51,7 @@ Bir dosya adı sağlanmazsa, seçilen varsayılan dosya adı, kök ve alt dizinl
 
 Olun, statik Web sitesi HTTPS üzerinden kullanılabilir dosyaları için bkz: [HTTP'ler üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md). Bu işlemin bir parçası olarak, gerek *CDN'NİZİN web uç noktası* blob uç noktası değil. CDN yapılandırma hemen çalıştırılmadı olarak içeriğinizi görünür hale gelmeden önce birkaç dakika beklemeniz gerekebilir.
 
+Statik Web sitenizi güncelleştirdiğinizde, önbelleğe alınmış içerikleri CDN uç sunucularda CDN uç noktasını Temizleme tarafından Temizle emin olun. Daha fazla bilgi için bkz. [Azure CDN uç noktasını temizleme](../../cdn/cdn-purge-endpoint.md).
 
 ## <a name="custom-domain-names"></a>Özel etki alanı adları
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.openlocfilehash: 4b530ed2ffd32e2433a744b05aaab2219bf2b15a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 185e605db366fb392758ad9870a3c15badc0f321
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896724"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874877"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Azure veritabanı, Azure portalını kullanarak MariaDB sunucuyu yeniden başlatın
 Bu konuda, MariaDB server için Azure veritabanı nasıl yeniden açıklanmaktadır. Sunucu işlemi gerçekleştirirken, kısa bir kesintiye neden sunucunuzun bakım nedeniyle yeniden başlatmanız gerekebilir.
@@ -36,15 +36,15 @@ Aşağıdaki adımlar, MariaDB sunucuyu yeniden başlatın:
 
 3. Tıklayın **Evet** sunucuyu yeniden başlatmadan onaylamak için.
 
-   ![-MariaDB için Azure veritabanı, yeniden başlatma işlemini onaylayın ](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![-MariaDB için Azure veritabanı, yeniden başlatma işlemini onaylayın](./media/howto-restart-server-portal/3-restart-confirm.png)
 
 4. Sunucu durumu "Yeniden için" değiştiğini gözlemleyin.
 
-   ![MariaDB - yeniden başlatma durumu için Azure veritabanı ](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![MariaDB - yeniden başlatma durumu için Azure veritabanı](./media/howto-restart-server-portal/4-restarting-status.png)
 
 5. Sunucunun yeniden başlatılması başarılı olduğunu onaylayın.
 
-   ![MariaDB - yeniden başlatma başarılı için Azure veritabanı ](./media/howto-restart-server-portal/5-restart-success.png)
+   ![MariaDB - yeniden başlatma başarılı için Azure veritabanı](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

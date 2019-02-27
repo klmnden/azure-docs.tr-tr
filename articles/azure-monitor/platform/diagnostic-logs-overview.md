@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 704c12bc2ea16fcad5672dde4181f63495fbe967
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002022"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870848"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -23,7 +23,7 @@ ms.locfileid: "56002022"
 * **Kiracı günlükleri** -Azure Active Directory günlükleri gibi mevcut bir Azure aboneliği dışında Kiracı düzeyi hizmetler bu günlükleri gelir.
 * **Kaynak günlükleri** -Bu günlükleri, ağ güvenlik grupları veya depolama hesapları gibi bir Azure aboneliğinde kaynakları dağıtma, Azure hizmetlerinden gelir.
 
-    ![Kaynak tanılama günlükleri diğer türleri vs günlükleri ](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![Kaynak tanılama günlükleri diğer türleri vs günlükleri](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
 Bu günlüklerin içeriği, Azure hizmeti ve kaynak türüne göre değişir. Örneğin, ağ güvenliği Grup Kuralı sayaçları ve Key Vault denetimleri iki, tanılama günlüğü türleridir.
 

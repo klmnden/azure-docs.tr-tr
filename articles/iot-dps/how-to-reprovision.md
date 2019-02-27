@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 36f919d1c22a88dfaf13079f09e6a43980a22828
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4fedc5b8b3b69ff364374dbef0460930e1f631a6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981789"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869080"
 ---
 # <a name="how-to-reprovision-devices"></a>Cihazları yeniden sağlamak nasıl
 
 Bir IOT çözümünü yaşam döngüsü boyunca, cihazlar IOT hub'ları arasında taşımak için yaygındır. Bu taşıma nedenleri, aşağıdaki senaryolar şunları içerebilir:
 
-* **Coğrafi konum**: bir cihaz konumlar arasında hareket ettikçe, ağ gecikmesi cihaz sağlayarak geliştirilmiştir bir IOT hub yakın her yere geçirilmiş.
+* **Coğrafi konum**: Bir cihaz konumlar arasında hareket ettikçe, ağ gecikmesi cihaz sağlayarak geliştirilmiştir bir IOT hub yakın her yere geçirilmiş.
 
-* **Çok kiracılılık**: bir cihaz aynı IOT çözüm içinde kullanılabilir, ancak yeniden atandı veya bir yeni müşteri veya müşteri siteye kiralanmış. Bu yeni müşteri, farklı bir IOT hub'ı kullanarak hizmet.
+* **Çok kiracılılık**: Bir cihaz aynı IOT çözüm içinde kullanılabilir, ancak yeniden atandı veya bir yeni müşteri veya müşteri siteye kiralanmış. Bu yeni müşteri, farklı bir IOT hub'ı kullanarak hizmet.
 
-* **Çözüm değişiklik**: bir cihaz yeni veya güncelleştirilmiş bir IOT çözüm taşınmış. Cihazın diğer arka uç bileşenlerine bağlı yeni bir IOT hub ile iletişim kurmak yeniden atama gerektirebilir. 
+* **Çözüm değişiklik**: Bir cihaz yeni veya güncelleştirilmiş bir IOT çözüm taşınmış. Cihazın diğer arka uç bileşenlerine bağlı yeni bir IOT hub ile iletişim kurmak yeniden atama gerektirebilir. 
 
-* **Karantina**: Çözüm değişiklik benzer. Yapıyor, gizliliği ihlal edilmiş veya güncel olmayan bir cihaz IOT hub'ı tüm yapabileceğini olduğu güncelleştirin ve uyumluluk dönmek için atanabilir. Cihazın düzgün sonra ana hub'a sonra geçirilir.
+* **Karantina**: Bir çözüm değişiklik benzer. Yapıyor, gizliliği ihlal edilmiş veya güncel olmayan bir cihaz IOT hub'ı tüm yapabileceğini olduğu güncelleştirin ve uyumluluk dönmek için atanabilir. Cihazın düzgün sonra ana hub'a sonra geçirilir.
 
 Çıkış daha fazla ayrıntılı genel bakış için bkz: [IOT Hub cihaz reprovisoning kavramları](concepts-device-reprovision.md).
 
@@ -70,9 +70,9 @@ Ayırma ilkesi cihaz kaydı için aşağıdakileri yapılandırın:
 
 3. Altında **farklı bir IOT hub'a yeniden sağlama ele alınması için cihaz verilerini nasıl istediğinizi seçin**, aşağıdaki reprovisioning ilkelerden birini seçin:
 
-    * **Yeniden sağlama ve veri geçişi**: cihaz kayıt girişi ile ilişkili yeni bir sağlama isteği gönderdiğinizde bu ilke eylemi alır. Kayıt girdisi yapılandırmasına bağlı olarak, cihazın başka bir IOT hub'ına atanabilir. İlk IOT hub ile cihaz kaydı, cihaz IOT hub'ları değişiyorsa kaldırılacak. Bu ilk IOT hub'ından tüm cihaz durumu bilgilerini yeni IOT hub'ına üzerinden geçirilecektir. Geçiş sırasında cihazın durumu olarak raporlanır **atama**
+    * **Yeniden sağlama ve veri geçişi**: Bu ilke, cihaz kayıt girişi ile ilişkili yeni bir sağlama isteği gönderdiğinizde eylemi gerçekleştirir. Kayıt girdisi yapılandırmasına bağlı olarak, cihazın başka bir IOT hub'ına atanabilir. İlk IOT hub ile cihaz kaydı, cihaz IOT hub'ları değişiyorsa kaldırılacak. Bu ilk IOT hub'ından tüm cihaz durumu bilgilerini yeni IOT hub'ına üzerinden geçirilecektir. Geçiş sırasında cihazın durumu olarak raporlanır **atama**
 
-    * **Yeniden sağlama ve ilk yapılandırmaya Sıfırla**: cihaz kayıt girişi ile ilişkili yeni bir sağlama isteği gönderdiğinizde bu ilke eylemi alır. Kayıt girdisi yapılandırmasına bağlı olarak, cihazın başka bir IOT hub'ına atanabilir. İlk IOT hub ile cihaz kaydı, cihaz IOT hub'ları değişiyorsa kaldırılacak. Cihaz sağlanırken sağlama hizmeti örneği alınan ilk yapılandırma verileri, yeni IOT hub'ına sağlanır. Geçiş sırasında cihazın durumu olarak raporlanır **atama**.
+    * **Yeniden sağlama ve ilk yapılandırmaya Sıfırla**: Bu ilke, cihaz kayıt girişi ile ilişkili yeni bir sağlama isteği gönderdiğinizde eylemi gerçekleştirir. Kayıt girdisi yapılandırmasına bağlı olarak, cihazın başka bir IOT hub'ına atanabilir. İlk IOT hub ile cihaz kaydı, cihaz IOT hub'ları değişiyorsa kaldırılacak. Cihaz sağlanırken sağlama hizmeti örneği alınan ilk yapılandırma verileri, yeni IOT hub'ına sağlanır. Geçiş sırasında cihazın durumu olarak raporlanır **atama**.
 
 4. Tıklayın **Kaydet** Değişikliklerinize bağlı cihaz çıkış etkinleştirmek için.
 
@@ -94,7 +94,7 @@ Bir kayıt girişi reprovisioning ilke, cihaz sağlama hizmeti örneği sağlama
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Reprovisioning daha fazla bilgi edinmek için [IOT Hub cihaz reprovisoning kavramları](concepts-device-reprovision.md) 
-- Daha fazla sağlama kaldırmayı bilgi edinmek için [nasıl daha önce otomatik olarak sağlanan cihazları sağlamasını kaldırmak ](how-to-unprovision-devices.md) 
+- Daha fazla sağlama kaldırmayı bilgi edinmek için [nasıl daha önce otomatik olarak sağlanan cihazları sağlamasını kaldırmak](how-to-unprovision-devices.md) 
 
 
 

@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: b43dac7f81b92ac504427dab164d23d9ebb1ec03
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: d0d5ee18e37436562f1e9e15571dc39fb0e00129
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411416"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875047"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box nedir?
 
@@ -76,7 +76,7 @@ Data Box aşağıdaki bileşenleri içerir:
 
 * **Data Box cihazı**: Birincil depolama sağlayan, bulut depolamasıyla iletişimi yöneten ve cihazda depolanan tüm verilerin güvenliğini ve gizliliğini güvence altına almaya yardımcı olan fiziksel bir cihaz. Data Box cihazının 80 TB kullanılabilir depolama kapasitesi vardır. 
 
-    ![Data Box'in ön ve arka yüzü ](media/data-box-overview/data-box-combined3.png)
+    ![Data Box'in ön ve arka yüzü](media/data-box-overview/data-box-combined3.png)
 
     
 * **Data Box hizmeti**: Azure portalının, farklı coğrafi konumlardan erişebildiğiniz bir web arabiriminde Data Box cihazını yönetmenize olanak tanıyan bir uzantısı. Data Box cihazınızın gündelik yönetimini gerçekleştirmek için Data Box hizmetini kullanın. Hizmetin görevleri, siparişleri oluşturma ve yönetmeyi, uyarıları görüntülemeyi ve yönetmeyi, paylaşımları yönetmeyi içerir.  

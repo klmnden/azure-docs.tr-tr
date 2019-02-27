@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0d31129a94d6e575ead01a62d22ae3ce8f2acf64
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 0aea797458649af3f839b7b8ae9b5cea384fe3b0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414926"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865153"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS kimlik doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma: PowerShell
 
@@ -64,7 +64,7 @@ Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MS
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-### <a name="sign-in"></a>Oturum aç
+## <a name="signin"></a>Oturum Aç
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
@@ -87,7 +87,7 @@ Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MS
 * **DNS sunucusu: IP adresi** ağınız için ad çözümlemesi için kullanmak istediğiniz DNS sunucusunun. (isteğe bağlı)
 * **Ağ geçidi adı: Vnet1GW**
 * **Genel IP adı: VNet1GWPIP**
-* **VPN türü: RouteBased** 
+* **VPN türü: RouteBased**
 
 ## 1. <a name="vnet"></a>Kaynak grubu, sanal ağ ve genel IP oluşturma adresi
 

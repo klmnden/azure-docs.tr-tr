@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: e1545e830ac04000920c3881486b2add79744201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d76a644de8cb55da5e743e482d14946d371c3dfe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548876"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867244"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Nasıl yedeklenir ve Azure portalını kullanarak MySQL için Azure veritabanı'nda bir sunucuya geri yükleme
 
@@ -61,7 +61,7 @@ Aşağıdaki adımlar bir-belirli bir noktaya için örnek sunucuyu geri yükle:
 
 3. Geri yükleme formunu gerekli bilgiler ile doldurun:
 
-   ![MySQL - geri yükleme bilgileri için Azure veritabanı ](./media/howto-restore-server-portal/3-restore.png)
+   ![MySQL - geri yükleme bilgileri için Azure veritabanı](./media/howto-restore-server-portal/3-restore.png)
    - **Geri yükleme noktası**: -Geri yüklemek istediğiniz belirli bir noktaya seçin.
    - **Hedef sunucu**: Yeni sunucu için bir ad sağlayın.
    - **Konum**: Bölgeyi seçemezsiniz. Varsayılan olarak, kaynak sunucuyla aynıdır.

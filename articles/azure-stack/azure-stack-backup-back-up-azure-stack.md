@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: c42490b7d46df77bffd13fdda02884704fb13b67
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 685183f61c1574d8c533efad8a7e0c46b1e2d23c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210314"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870321"
 ---
 # <a name="back-up-azure-stack"></a>Azure yığını yedekleme
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Stack üzerinde talep üzerine yedekleme gerçekleştirin. PowerShell ortamını yapılandırma ile ilgili yönergeler için bkz: [Azure Stack için PowerShell yükleme ](azure-stack-powershell-install.md). Azure Stack'e oturum açmak için bkz: [Yönetici portalını kullanarak Azure Stack'te](azure-stack-manage-portals.md).
+Azure Stack üzerinde talep üzerine yedekleme gerçekleştirin. PowerShell ortamını yapılandırma ile ilgili yönergeler için bkz: [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md). Azure Stack'e oturum açmak için bkz: [Yönetici portalını kullanarak Azure Stack'te](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-backup"></a>Azure Stack yedekleme Başlat
 

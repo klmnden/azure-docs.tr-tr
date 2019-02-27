@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3fc8ae7eac8d54e332d43925ede6ad690ae1dde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3b8a06276bcaa989fa04f105ac7858c25ab4d0ef
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167839"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887514"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Yedekleme ve kurtarma hesabı kimlik bilgileriyle Microsoft Authenticator uygulaması
 
@@ -84,7 +84,7 @@ Kişisel Microsoft hesapları için alternatif bir e-posta veya telefon numaras�
     ![QR kodunuz tarama olanak tanıyan, Microsoft Authenticator uygulaması](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >QR kodu alma hakkında daha fazla bilgi için bkz. [Microsoft Authenticator uygulaması ile çalışmaya başlama](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) veya [authenticator uygulamasını kullanmak için güvenlik bilgileri ' ayarlayın](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app)bağlı olarak, yöneticiniz güvenlik bilgilerini açık olup olmadığı.
+    >QR kodu alma hakkında daha fazla bilgi için bkz. [Microsoft Authenticator uygulaması ile çalışmaya başlama](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) veya [authenticator uygulamasını kullanmak için güvenlik bilgileri ' ayarlayın](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app)bağlı olarak, yöneticiniz güvenlik bilgilerini açık olup olmadığı.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Yedekleme ve kurtarma sorunlarını giderme
 Yedekleme kullanılabilir olmamasının birkaç nedeni vardır:

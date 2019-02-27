@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 040fac6cd4feb60b6635ba0868634f16dd9f146f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733146"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881743"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB'de sağlanan aktarım hızı maliyeti iyileştirin
 
@@ -159,7 +159,7 @@ Aşağıdaki adımlar çözümlerinizi yüksek oranda ölçeklenebilir ve ekonom
 
 2. Temsili bir Azure Cosmos kapsayıcı veya uygulamanız tarafından kullanılan veritabanı karşı tipik işlemlerin çalıştırmayla ilgili istek birimi RU ücreti kaydettiğinizden ayrılmış aktarım hızı uygulamanız için gereken miktarı tahmin etmek için bir yöntem olduğundan ve ardından her saniye gerçekleştirmek için tahmin işlemlerin sayısını tahmin edin. Ölçün ve tipik sorguları ve bunların kullanımını da emin olun. Sorguların RU maliyetleri programlı olarak tahmin etme veya portal bakın kullanarak öğrenmek [sorguları maliyetini en iyi duruma getirme](online-backup-and-restore.md). 
 
-3. İşlemler ve bunların maliyetini düşük RU almak için başka bir işlem/süresi ve istek ücreti dökümünü verir Log Analytics sağlayarak yoludur. Her işlem ücretine geri yanıttan depolanan ve ardından analizi için kullanılan azure Cosmos DB her işlem için istek ücretsiz olarak sağlar. 
+3. İşlemler ve bunların maliyetini düşük RU almak için başka bir işlem/süresi ve istek ücreti dökümünü erişmenizi sağlayan Azure İzleyici günlüklerine sağlayarak yoludur. Her işlem ücretine geri yanıttan depolanan ve ardından analizi için kullanılan azure Cosmos DB her işlem için istek ücretsiz olarak sağlar. 
 
 4. İş yükü gereksinimlerinizi karşılamak ihtiyaç sağlanan aktarım hızına göre esnek olarak ölçeklendirebilirsiniz. 
 

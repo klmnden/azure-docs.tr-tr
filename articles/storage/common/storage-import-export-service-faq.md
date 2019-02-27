@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0b3128184942dbc750ea54bd7156c6e79b8bedea
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804850"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867584"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure içeri/dışarı aktarma hizmeti: sık sorulan sorular 
 Aşağıda, soruları ve Azure depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanırken karşılaşabileceğiniz yanıtları verilmiştir. Sorular ve yanıtlar aşağıdaki kategorilere ayrılmıştır:
@@ -138,7 +138,7 @@ Hayır. WAImportExport aracın yalnızca 64 bit Windows işletim sistemleriyle u
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>En fazla blok Blob ve Azure içeri/dışarı aktarma tarafından desteklenen sayfa Blob boyutu nedir?
 
 En fazla blok Blob boyutu yaklaşık 4.768TB'tır veya 5,000,000 MB ile sınırlayın.
-En fazla sayfa Blob boyutu 1 TB'tır.
+En fazla sayfa blobu boyutu 8 TB'tır.
 
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure içeri/dışarı aktarma, AES-256'yı şifrelenmesini destekliyor mu?

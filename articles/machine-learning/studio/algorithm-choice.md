@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: cf45c97fccb89fe7175796322f0d3d7d114eea11
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8ae8ecab5363c9eff7fcadd65c76dd31ca6818e1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822981"
+ms.locfileid: "56877937"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için algoritma seçme
 
@@ -129,7 +129,7 @@ Bazı öğrenme algoritmalarını, veri ya da istenen sonuçları yapısı hakk�
 | **Çok sınıflı sınıflandırma** | | | | | |
 | [Lojistik regresyon](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [karar ormanı](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [karar jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Düşük bellek Ayak izi |
+| [karar jungle](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Düşük bellek Ayak izi |
 | [sinir ağı](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Ek özelleştirme mümkündür](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [bir-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Seçilen iki sınıflı yöntemi özelliklerini bakın |
 | **Regresyon** | | | | | |

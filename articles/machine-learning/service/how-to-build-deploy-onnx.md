@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 926cd354064d1dc8ae6c49c0fa93515d31167370
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a610c7c8189c22e8aa15e14a205b11b7f6c05b82
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819846"
+ms.locfileid: "56873109"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX ve Azure Machine Learning: Oluşturma ve birlikte çalışabilen yapay ZEKA modelleri dağıtma
 
@@ -36,7 +36,7 @@ Bir kaynak ekosisteminiz ONNX modelleri hızlandırma ve görselleştirme araçl
 
 [ONNX modelleri dağıtılabilir](#deploy) Azure Machine Learning ve ONNX çalışma zamanı'nı kullanarak bulutta. Kullanarak Windows 10 cihazlarına da dağıtılabilir [Windows ML](https://docs.microsoft.com/windows/ai/). Bunlar bile ONNX Topluluğu'ndan kullanılabilen dönüştürücüleri kullanarak diğer platformlar için dağıtılabilir. 
 
-[ ![ONNX akış eğitim, dönüştürücüler ve dağıtım gösteren diyagram](media/concept-onnx/onnx.png) ] (. / media/concept-onnx/onnx.png#lightbox)
+[![ONNX akış eğitim, dönüştürücüler ve dağıtım gösteren diyagram](media/concept-onnx/onnx.png) ] (. / media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>ONNX modelleri Al
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: d4be7b9c7774163aed8c0efb3414dbd6a794cf7f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e84c33b35ef7828cc16be4b532ab8406e0236ee3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847805"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876679"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server için olağanüstü durum kurtarmayı ayarlayın 
 
@@ -27,8 +27,8 @@ Başlamadan önce yük devretme kümelemesi, Always On kullanılabilirlik grupla
 SharePoint, Dynamics ve SAP, veri hizmetlerini uygulamak amacıyla gibi uygulamaları ile tümleştirilebilir ve birçok iş yükleri, SQL Server bir temel kullanın.  SQL Server, çeşitli yollarla dağıtılabilir:
 
 * **Tek başına SQL Server**: SQL Server ve tüm veritabanlarını tek bir makinede (fiziksel veya sanal) barındırılır. Sanallaştırılmış konak küme yerel yüksek kullanılabilirlik için kullanılır. Konuk düzeyinde yüksek kullanılabilirlik uygulanmadı.
-* **SQL Server Yük devretme kümeleme örnekleri (her zaman şirket FCI)**: Paylaşılan diskleri ile örnekli SQL Server çalıştıran iki veya daha fazla düğüm, Windows Yük devretme kümesinde yapılandırılır. Bir düğüm kapalı ise, küme SQL Server başka bir örneğine devredebilir. Bu kurulum, genellikle bir birincil sitede yüksek kullanılabilirlik uygulamak için kullanılır. Bu dağıtım hatası ya da kesinti paylaşılan depolama katmanında karşı korumaz. İSCSI, fiber kanal veya paylaşılan vhdx'i kullanarak paylaşılan bir disk uygulanabilir.
-* **SQL Always On kullanılabilirlik grupları**: iki veya daha fazla düğüm ayarlanır paylaşılan hiçbir şey küme, zaman uyumlu çoğaltma ve otomatik yük devretme ile bir kullanılabilirlik grubunda yapılandırılmış SQL Server veritabanları ile.
+* **Örneği (FCI üzerinde her zaman) SQL Server Yük devretme**: Windows Yük devretme kümesinde paylaşılan diskleri ile örnekli SQL Server çalıştıran iki veya daha fazla düğüm yapılandırılır. Bir düğüm kapalı ise, küme SQL Server başka bir örneğine devredebilir. Bu kurulum, genellikle bir birincil sitede yüksek kullanılabilirlik uygulamak için kullanılır. Bu dağıtım hatası ya da kesinti paylaşılan depolama katmanında karşı korumaz. İSCSI, fiber kanal veya paylaşılan vhdx'i kullanarak paylaşılan bir disk uygulanabilir.
+* **SQL Always On kullanılabilirlik grupları**: İki veya daha fazla düğüm hiçbir şey küme, zaman uyumlu çoğaltma ve otomatik yük devretme ile bir kullanılabilirlik grubunda yapılandırılmış SQL Server veritabanları ile paylaşılan olarak ayarlanır.
 
  Bu makalede, uzak bir site veritabanını kurtarmak için aşağıdaki yerel SQL olağanüstü durum kurtarma teknolojilerden yararlanır:
 
@@ -116,7 +116,7 @@ SQL Always On yerel olarak test yük devretmesi desteklemiyor. Bu nedenle, şunl
 
 1. Kurtarma planı test yük devretmesi tetiklemeden önce sanal makine önceki adımda alınan yedekleme kurtarma.
 
-    ![Azure yedeklemeden geri yükleme ](./media/site-recovery-sql/restore-from-backup.png)
+    ![Azure yedeklemeden geri yükleme](./media/site-recovery-sql/restore-from-backup.png)
 
 1. [Bir çekirdeği zorlama](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) yedeklemeden geri sanal makinede.
 
@@ -130,9 +130,9 @@ SQL Always On yerel olarak test yük devretmesi desteklemiyor. Bu nedenle, şunl
 
 1. Bir yük dengeleyici IP her kullanılabilirlik grubu dinleyicisi için karşılık gelen ön uç IP havuzu altında oluşturulan ve arka uç havuzuna eklenmiş SQL sanal makinesi oluşturun.
 
-     ![Yük Dengeleyici - ön uç IP havuzu oluşturma ](./media/site-recovery-sql/create-load-balancer1.png)
+     ![Yük Dengeleyici - ön uç IP havuzu oluşturma](./media/site-recovery-sql/create-load-balancer1.png)
 
-    ![Yük Dengeleyici - arka uç havuzu oluşturma ](./media/site-recovery-sql/create-load-balancer2.png)
+    ![Yük Dengeleyici - arka uç havuzu oluşturma](./media/site-recovery-sql/create-load-balancer2.png)
 
 1. Kurtarma planının bir yük devretme testi yaparsınız.
 
@@ -179,7 +179,7 @@ SQL Server Standard edition veya SQL Server 2008 R2 çalıştıran bir küme iç
 * Dağıtılmış işlemler uygulamayı kullanıyorsa, dağıttığınız öneririz [Site Recovery SAN çoğaltması ile](site-recovery-vmm-san.md) için bir Hyper-V ortamına veya [VMware VMware/fiziksel sunucuya](site-recovery-vmware-to-vmware.md) VMware ortamı için.
 * DTC olmayan uygulamalar için yerel yüksek güvenilirlik DB yansıtma yararlanarak bir tek başına sunucu olarak kümeyi kurtarmak için yukarıdaki yaklaşımı kullanın.
 
-### <a name="on-premises-to-azure"></a>Şirket içinden azure'a
+### <a name="on-premises-to-azure"></a>Şirket içinden Azure'a
 
 Site Recovery, Konuk sunmaz Azure'a çoğaltırken küme desteği. SQL Server, Standard edition için düşük maliyetli olağanüstü durum kurtarma çözümü de sağlamaz. Bu senaryoda, bir tek başına SQL Server şirket içi SQL Server kümesini koruma ve Azure'da kurtarma öneririz.
 

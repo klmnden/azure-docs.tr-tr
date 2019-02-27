@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: dd2914c675d3bca32ca8951ffca1b04e23786400
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 51ede2ecf60b2b1dbe0b7afa47bce41a101e5bf4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266933"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879433"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Güvenlik çerçevesi: Giriş doğrulama | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -460,7 +460,7 @@ Kullanmayın `innerHtml`; bunun yerine kullanın `innerText`. Benzer şekilde, y
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Generic, Web Forms, MVC5, MVC6  |
 | **Öznitelikler**              | Yok  |
-| **Başvuruları**              | [DefaultRegexMatchTimeout Property ](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
+| **Başvuruları**              | [DefaultRegexMatchTimeout Property](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
 | **Adımları** | Hizmet reddi saldırılarına karşı hatalı emin olmak için genel varsayılan zaman aşımı geri izlemenin çok neden, oluşturulan normal ifadeler ayarlayın. İşlem süresi tanımlı üst sınırından daha uzun sürerse, zaman aşımı özel durumlar oluşturan. Hiçbir şey yapılandırılmışsa, zaman aşımı sonsuz olacaktır.| 
 
 ### <a name="example"></a>Örnek
@@ -563,7 +563,7 @@ AS
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC5, MVC6 |
 | **Öznitelikler**              | Yok  |
-| **Başvuruları**              | [ASP.NET Web API'de model doğrulama ](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **Başvuruları**              | [ASP.NET Web API'de model doğrulama](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Adımları** | Bir istemci bir web API'sine veri gönderdiğinde, herhangi bir işlem gerçekleştirmeden önce verileri doğrulamak için zorunludur. ASP.NET Web API'leri için kabul modelleri, giriş olarak veri ek açıklamaları modeller üzerinde doğrulama kuralları modelin özellikleri ayarlamak için kullanın.|
 
 ### <a name="example"></a>Örnek

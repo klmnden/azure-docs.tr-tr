@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 7da813022527830a5ede62c9f4ce98645fe63d4b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447829"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871621"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Veri ambarı birimi (Dwu) ve işlem veri ambarı birimi (cDWUs)
 Veri ambarı birimi (dwu'ları, cDWUs) fiyat ve performans ve birim sayısını değiştirmek nasıl en iyi duruma getirmek için ideal sayısını seçme önerileri. 
@@ -68,7 +68,7 @@ Her performans katmanı, veri ambarı birimleri için biraz daha farklı bir öl
 
 Dwu'lar hem cDWUs yukarı veya aşağı ölçeklendirme işlem desteği ve duraklatma işlem, veri ambarı kullanmanız gerekmez. Bu işlemlerin tümü isteğe bağlı. Gen2 performansını artırmak için işlem düğümlerinde disk tabanlı yerel önbelleği kullanır. Ölçeklendirin veya sistem duraklatmak, önbellekte geçersiz kılınan ve önbellek hazırlanıyor, bir süre önce en iyi performans elde edilir şekilde gereklidir.  
 
-Veri ambarı birimleri arttıkça, bilgi işlem kaynaklarını doğrusal olarak artmaktadır. 2. nesil yüksek ölçek ve en iyi sorgu performansını sağlar, ancak daha yüksek bir giriş fiyatına sahiptir. Performans için sabit bir isteğe bağlı olan şirketler için tasarlanmıştır. Bu sistemler, çoğu önbellek kullanımını olun. 
+Veri ambarı birimleri arttıkça, bilgi işlem kaynaklarını doğrusal olarak artmaktadır. 2. nesil yüksek ölçek ve en iyi sorgu performansını sağlar. Bu sistemler, çoğu önbellek kullanımını olun.
 
 ### <a name="capacity-limits"></a>Kapasite sınırları
 Her bir SQL server (örn. myserver.database.windows.net) sahip bir [veritabanı işlem birimi (DTU)](../sql-database/sql-database-what-is-a-dtu.md) belirli bir veri ambarı birimleri sayısını veren kota. Daha fazla bilgi için [iş yükü yönetimi kapasite sınırları](sql-data-warehouse-service-capacity-limits.md#workload-management).

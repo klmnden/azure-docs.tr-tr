@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 97c33a5dc2eb43644081579b5d1c0172ce953906
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 75a78e303991e5426c97b8ceb0eb1375e03be2a2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449359"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868196"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Öğretici: Veri için Azure Data Box Disk kopyalama ve doğrulayın
 
@@ -178,20 +178,20 @@ Birden fazla disk kullanıyorsanız ve bölünerek tüm disklere kopyalanması g
 1. Data Box Split Copy aracını Windows bilgisayarınıza indirip yerel bir klasöre ayıkladığınızdan emin olun. Bu araç Windows için Data Box Disk araç takımıyla birlikte indirilmiştir.
 2. Dosya Gezgini'ni açın. Veri kaynağı sürücüsünü ve Data Box Disk'e atanmış olan sürücü harflerini not edin. 
 
-     ![Verileri bölme ve kopyalama ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
+     ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-1.png)
  
 3. Kopyalanacak veri kaynağını belirleyin. Örneğin, bu durumda:
     - Aşağıdaki blok blobu tanımlanmıştır.
 
-         ![Verileri bölme ve kopyalama ](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - Aşağıdaki sayfa blobu tanımlanmıştır.
 
-         ![Verileri bölme ve kopyalama ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
 4. Yazılımı ayıkladığınız klasöre gidin. Bulun `SampleConfig.json` klasördeki bir dosya. Bu değiştirip kaydedebileceğiniz bir salt okunur dosyadır.
 
-   ![Verileri bölme ve kopyalama ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
 5. Değiştirme `SampleConfig.json` dosya.
  
@@ -200,36 +200,36 @@ Birden fazla disk kullanıyorsanız ve bölünerek tüm disklere kopyalanması g
     - Hedef disklere karşılık gelen sürücü harflerini girin. Veriler kaynak yoldan alınarak birden fazla diske kopyalanır.
     - Günlük dosyaları için bir yol belirtin. Varsayılan olarak, bunu geçerli dizine gönderilen burada `.exe` bulunur.
 
-     ![Verileri bölme ve kopyalama ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. Dosya biçimi doğrulamak için Git `JSONlint`. Dosyayı Farklı Kaydet `ConfigFile.json`. 
 
-     ![Verileri bölme ve kopyalama ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Bir komut istemi penceresi açın. 
 
-8. Çalıştırma `DataBoxDiskSplitCopy.exe`. Tür
+8. Çalıştırma `DataBoxDiskSplitCopy.exe`. Type
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![Verileri bölme ve kopyalama ](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Betiği sürdürmek için Enter tuşuna basın.
 
-    ![Verileri bölme ve kopyalama ](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. Veri kümesi bölünüp kopyalandıktan sonra kopyalama oturumuna ait Split Copy aracı özeti görüntülenir. Örnek çıktı aşağıda gösterilmiştir.
 
-    ![Verileri bölme ve kopyalama ](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. Verilerin hedef disklere bölündüğünü doğrulayın. 
  
-    ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![Veri kopyalama bölme](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![bölünmüş veri kopyalama](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
     İçeriğini incelerseniz `n:` daha fazla sürücü, iki alt klasör için blok blobu ve sayfa blobu biçim verilerine karşılık gelen oluşturulduğunu görürsünüz.
     
-     ![Verileri bölme ve kopyalama ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. Kopyalama oturumu başarısız olursa kurtarıp sürdürmek için şu komutu kullanın:
 

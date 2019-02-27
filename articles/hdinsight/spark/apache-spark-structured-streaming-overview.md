@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 0c2fd29990e180283eb25949b806c4ceac58e2f7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 8c37093b5369d2390942bc00c1531248bc4424c8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653637"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869097"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark yapılandırılmış akışı genel bakış
 
@@ -24,7 +24,7 @@ Yapılandırılmış akış uygulamaları HDInsight Spark kümelerinde çalışt
 
 Yapılandırılmış akış sırasında işlemleri seçimi, projeksiyon, toplama, Pencereleme ve akış veri çerçevesi ile başvuru veri çerçevelerini katılma gibi giriş verileri için geçerli bir uzun süre çalışan sorgu oluşturur. Ardından, özel kod (örneğin, SQL veritabanı veya Power BI) kullanarak dosya depolama (Azure depolama Blobları veya Data Lake depolama) veya herhangi bir veri deposu sonuçları gönderir. HDInsight içinde hata ayıklama için oluşturulan verileri görebilirsiniz. Bu nedenle yapılandırılmış akış çıkışı yerel olarak hata ayıklama için konsolu ve bir bellek içi tablo için de sağlar. 
 
-![Stream Spark yapılandırılmış akışını HDInsight ile işleme ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Stream Spark yapılandırılmış akışını HDInsight ile işleme](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
 > [!NOTE]  
 > Spark yapılandırılmış akış, Spark Streaming (DStreams) yerini alıyor. Yalnızca Bakım modunda DStreams ancak bundan sonra yapılandırılmış akış geliştirmeleri ve Bakım alır. Yapılandırılmış akış şu anda olarak özellik DStreams kaynakları için eksiksiz değildir ve şu havuzlar kullanıma hazır destekler, bu nedenle, gereksinimlerinize uygun Spark akış işleme seçeneği seçin değerlendirin. 

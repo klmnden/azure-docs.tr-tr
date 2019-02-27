@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: d6805b3d60e5e30d35acc12c5564498830ddd8fb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337570"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881745"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
 
@@ -76,7 +76,7 @@ Bkz: [içerik anahtarı ilkesi - .NET edinme](get-content-key-policy-dotnet-howt
 
 ## <a name="how-can-i-get-started-with-v3"></a>v3’ü kullanmaya nasıl başlayabilirim?
 
-Variuos Araçlar ve SDK'lar kullanarak Media Services v3 API'si ile geliştirmeye başlamak hakkında daha fazla bilgi için bkz: [geliştirmeye başlayın](developers-guide.md).
+Çeşitli araçlar ve SDK'lar kullanarak Media Services v3 API'si ile geliştirmeye başlamak hakkında daha fazla bilgi için bkz: [geliştirmeye başlayın](developers-guide.md).
 
 ## <a name="v3-content-map"></a>V3 içerik haritası
 
@@ -88,7 +88,7 @@ Media Services v3 içerik (İçindekiler tablosunda da yansıtılan) aşağıdak
 | Hızlı Başlangıçlar | Media Services'ı hızlı şekilde denemenize yönelik yeni müşteriler için temel gün-1 yönergeleri göster.|
 | Öğreticiler | Senaryo tabanlı yordamlar üst Media Services görevlerden bazılarını gösterir.|
 | Örnekler | Kod örneklerine bağlar. |
-| Kavramlar | Media Services v3 işlevselliği ve diyagramları ayrıntılı açıklamasını içerir. Bu konularda açıklandığı gibi temel kavramları, geliştirme başlatılmadan önce incelenmelidir.<br/><br/>* Bulut karşıya yükleme ve depolama alanı<br/>* Kodlama<br/>* Medya analizi<br/>* Paket teslimini koruma<br/>* Canlı akış<br/>* Sürekli izleme<br/>* Player istemciler<br/><br/>ve daha fazlası. |
+| Kavramlar | Media Services v3 kavramlarda ve işlevlerde ayrıntılı açıklamasını içerir. Bu konularda açıklandığı gibi temel kavramları, geliştirme başlatılmadan önce incelenmelidir.<br/><br/>* Bulut karşıya yükleme ve depolama alanı<br/>* Kodlama<br/>* Medya analizi<br/>* Paket teslimini koruma<br/>* Canlı akış<br/>* Sürekli izleme<br/>* Player istemciler<br/><br/>ve daha fazlası. |
 | Nasıl yapılır kılavuzları | Bir görevin nasıl tamamlanacağını göstermektedir.|
 
 ## <a name="next-steps"></a>Sonraki adımlar

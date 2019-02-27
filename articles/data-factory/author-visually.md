@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: e934c8bdc851f8c550e8b87a923215df3f95e389
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c4e71f3c355f00bda3df6d43bc81743b391ea0dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728272"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871970"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de görsel yazma
 Görsel olarak yazma ve herhangi bir kod yazmak zorunda kalmadan, veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi deneyimi (UX) sağlar. Etkinlikler bir işlem hattı tuvaline sürükleyin, test çalıştırmaları yapın, yinelemeli olarak, hata ayıklama ve dağıtabilir ve işlem hattı çalıştırmalarınızı izleyin. Görsel yazma gerçekleştirmek için kullanıcı Deneyimini kullanarak iki yaklaşım vardır:
@@ -31,7 +31,7 @@ Data Factory hizmetine görsel yazma görsel iki yolla Git tümleştirmesiyle ya
 - Data Factory hizmeti JSON varlıklar için yaptığınız değişiklikleri depolamak için bir depo içermez.
 - Data Factory hizmetinin birlikte çalışma veya sürüm denetimi için iyileştirilmedi.
 
-![Data Factory hizmetinin yapılandırma ](media/author-visually/configure-data-factory.png)
+![Data Factory hizmetinin yapılandırma](media/author-visually/configure-data-factory.png)
 
 UX kullandığınızda **yazma tuvalinde** doğrudan Data Factory hizmetine, yalnızca yazar için **tümünü Yayımla** modu kullanılabilir. Yaptığınız değişiklikleri doğrudan Data Factory hizmetinde yayımlanır.
 

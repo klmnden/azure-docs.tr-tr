@@ -1,6 +1,6 @@
 ---
-title: Azure Log analytics'te Görünüm Tasarımcısı kutucukları bir başvuru kılavuzu | Microsoft Docs
-description: Log Analytics'te görünüm Tasarımcısını kullanarak, Azure portalında Log Analytics çalışma alanınızda veri görselleştirmeleri çeşitli görüntüleyen özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir kutucuk ayarlarını bir başvuru kılavuzudur.
+title: Görünüm Tasarımcısı kutucukları Azure İzleyici'de bir başvuru kılavuzu | Microsoft Docs
+description: Azure İzleyici'de görünüm Tasarımcısını kullanarak, Azure portalında görüntülenir ve görselleştirmeler Log Analytics çalışma alanındaki veriler üzerinde çeşitli içeren özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir kutucuk ayarlarını bir başvuru kılavuzudur.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c380f0391c51628b0eb71723a0faf982a4399680
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817405"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887769"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Görünüm Tasarımcısı kutucukları Log analytics'te Başvuru Kılavuzu
-Azure Log Analytics'te Görünüm Tasarımcısı kullanarak veri görselleştirmeleri Log Analytics çalışma alanınızdaki çeşitli sunan Azure portalında özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir kutucuk ayarlarını bir başvuru kılavuzudur.
+# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Azure İzleyici'de Görünüm Tasarımcısı kutucukları için başvuru kılavuzu
+Azure İzleyici'de görünüm Tasarımcısını kullanarak, Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir kutucuk ayarlarını bir başvuru kılavuzudur.
 
 Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 
@@ -177,5 +177,5 @@ Bu kutucuk, saati ve bir özetlenmiş değer ile belirtme çizgisi üzerinde bir
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) kutucuklar sorguları desteklemek için.
+* Hakkında bilgi edinin [oturum sorguları](../log-query/log-query-overview.md) kutucuklar sorguları desteklemek için.
 * Ekleme [görselleştirme bölümleri](view-designer-parts.md) , özel bir görünüm.

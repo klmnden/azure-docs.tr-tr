@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 9c5b2579a6ec3b38c3368be0bd21d6865bcb3209
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 012d77227e7c0283b565361dda32cb77e12fc62b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730249"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867278"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Öğretici: Utterance iyi biçimlendirilmiş veri alma
 Bu öğreticide, bir utterance kullanımından tutarlı bir şekilde biçimlendirilmiş verileri ayıklamak için uygulama oluşturma **normal ifade** varlık.
@@ -82,7 +82,7 @@ Normal bir ifade, şu durumlarda bu tür veri için iyi bir seçimdir:
     |author of hrf-546234? (hrf-546234 numaralı formun yazarı kim?)|
     |title of hrf-456234? (hrf-456234 numaralı formun başlığı nedir?)|
 
-    [ ![Yeni konuşmaların vurgulandığı Intent (Amaç) sayfasının ekran görüntüsü](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
+    [![Yeni konuşma vurgulanmış ekran görüntüsü, amacı sayfası](./media/luis-quickstart-intents-regex-entity/findform-intent.png)](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 

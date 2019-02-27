@@ -10,12 +10,12 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: e14da7dff62d85c730034b620a6168b3d9b3dde7
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: d08fb915870355b49fafa91752cdd4264cbe6ad8
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752699"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887548"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure Akış Analizi Nedir?
 
@@ -76,11 +76,18 @@ Azure Stream Analytics, hem bulutta hem de geliştiricilerin gerçek anlamda ak�
 
 Bir bulut hizmeti olan Stream Analytics, maliyet için iyileştirilmiştir. Herhangi bir ön maliyet yoktur; yalnızca [kullandığınız akış birimleri](stream-analytics-streaming-unit-consumption.md) ve işlenen veri miktarı için ödeme yaparsınız. Herhangi bir taahhüt veya küme sağlama gerekli değildir. İş gereksinimlerinize göre akış işlerinizin ölçeğini artırabilir veya azaltabilirsiniz. 
 
-## <a name="reliability"></a>Güvenilirlik 
+## <a name="mission-critical-ready"></a>Görev açısından kritik hazır
+Azure Stream Analytics, birden çok bölgede dünya çapında kullanılabilir ve güvenilirlik, güvenlik ve uyumluluk gereksinimlerini destekleyen görev açısından kritik iş yüklerini çalıştırmak için tasarlanmıştır.
+### <a name="reliability"></a>Güvenilirlik
+Azure Stream Analytics garantiler-sonra bunu olayları hiç olay işleme ve olay teslimini en az bir kez kaybolur. Exacty-bir kez işlemeyi garanti edilir ile seçilen çıkış açıklandığı [olay teslimat Garantileriyle](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics). Azure Stream Analytics, bir olayın tesliminin başarısız olması durumunda yerleşik kurtarma özellikleri vardır. Ayrıca, Stream Analytics işinizin durumunu korumak üzere yerleşik denetim noktası sağlar ve tekrarlanabilir sonuçlar sunar.
 
-Stream Analytics, tam olarak olay işleme ve olay teslimini en az bir kez, bunu olayları hiç kayıp sonra garanti eder. Bir olayın tesliminin başarısız olması durumunda yerleşik kurtarma özellikleri vardır. Ayrıca, Stream Analytics işinizin durumunu korumak üzere yerleşik denetim noktası sağlar ve tekrarlanabilir sonuçlar sunar.
+Yönetilen bir hizmet olarak Stream Analytics, olay işleme ile dakika düzeyinde % 99,9 kullanılabilirlik garanti eder. Daha fazla bilgi için [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) daha fazla ayrıntı için. 
 
-Yönetilen bir hizmet olarak Stream Analytics, olay işleme ile % 99,9 kullanılabilirlik garanti eder. Daha fazla bilgi için [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) daha fazla ayrıntı için. 
+### <a name="security"></a>Güvenlik
+Güvenlik açısından Azure Stream Analytics, tüm gelen ve giden iletişimi şifreler ve TLS 1.2 destekler. Yerleşik denetim noktaları de şifrelenir. Stream Analytics, tüm işlem, bellek içi bittikten sonra gelen verileri depolamaz. 
+
+### <a name="compliance"></a>Uyumluluk
+Azure Stream Analytics, birden çok uyumluluk sertifikaları açıklandığı izleyen [Azure uyumluluk bakış](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
 ## <a name="performance"></a>Performans
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: e13995ccdc609951f908b4a1779eaefcfdc596bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b8437f224a83ac07d27aed03b5a9686f66949bc4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005225"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868264"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Kesintisiz Akış Protokolü (MS-SSTR) değişiklik için HEVC 
 
@@ -78,17 +78,17 @@ Aşağıdaki koşulları bu belgeye özgü:
 
 >   [6381 RFC] IETF RFC-6381 "'Codec' ve 'Profilleri' parametrelerini"demetine"medya türleri" <http://tools.ietf.org/html/rfc6381>
 
->   [MPEG4-RA] "MP4REG" MP4 kayıt yetkilisi [http://www.mp4ra.org   ](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] "MP4REG" MP4 kayıt yetkilisi [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 
->   [RFC2119] Bradner, S., "anahtar sözcükler gösterin gereksinimi düzeylerini için RFC kullanmak için" BCP 14, RFC 2119, Mart 1997'den   [http://www.rfc-editor.org/rfc/rfc2119.txt   ](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S., "anahtar sözcükler gösterin gereksinimi düzeylerini için RFC kullanmak için" BCP 14, RFC 2119, Mart 1997'den   [http://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 bilgilendirici referanslar 
 
 >   [MS-GLOS] Microsoft Corporation "*Windows protokolleri ana sözlüğü*."
 
->   [RFC3548] Josefsson, S., Ed. "Base16 Base32 ve Base64 veri Kodlamalar", RFC 3548, Temmuz 2003 [http://www.ietf.org/rfc/rfc3548.txt   ](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., Ed. "Base16 Base32 ve Base64 veri Kodlamalar", RFC 3548, Temmuz 2003 [http://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 
->   [RFC5234] Crocker, d, Ed. ve Overell, p, "BNF sözdizimi belirtimleri içerikte güncelleştirme yapmıştır: ABNF", 68, RFC 5234'ü, Ocak 2008 STD,   [http://www.rfc-editor.org/rfc/rfc5234.txt   ](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, d, Ed. ve Overell, p, "BNF sözdizimi belirtimleri içerikte güncelleştirme yapmıştır: ABNF", 68, RFC 5234'ü, Ocak 2008 STD,   [http://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 genel bakış 
@@ -108,7 +108,7 @@ Aşağıdaki koşulları bu belgeye özgü:
 >   Aşağıdaki yöntem kullanılacak HEVC video biçimini kullanarak akışları tanımlayın:
 
 >   * **Medya biçimleri için açıklayıcı özel kodları:** Bu özellik tarafından sağlanan **FourCC** bölümünde belirtilen alanının *2.2.2.5*.
->   Uygulayıcılar, uzantıları ile belirtildiği gibi MPEG4-RA uzantı kodlarını kaydederek çakışmadığından sağlayabilirsiniz [[ISO/IEC-14496-12] ](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   Uygulayıcılar, uzantıları ile belirtildiği gibi MPEG4-RA uzantı kodlarını kaydederek çakışmadığından sağlayabilirsiniz [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 ## <a name="19-standards-assignments"></a>1.9 standartları atamaları 
 

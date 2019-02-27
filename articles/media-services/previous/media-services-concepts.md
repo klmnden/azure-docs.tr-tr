@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 413e005762ab557e0605f9b4e79a6fe5b45448b7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 32367559ba4ae6931804c1ea702dca6c2c5ee297
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993920"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870916"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services kavramları 
 
@@ -177,7 +177,7 @@ Varsayılan olarak en fazla akış uç noktaları, Media Services hesabınızdak
 StreamingEndpoint çalışır durumda olduğunda yalnızca faturalandırılırsınız.
 
 ### <a name="asset-delivery-policy"></a>Varlık teslim İlkesi
-Media Services içerik teslim iş akışındaki adımlar biri yapılandırma [varlıklar teslim ilkelerini ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)akışla istediğiniz. Varlık teslim ilkesini, varlık teslim edilmesini istediğiniz Media Services bildirir: dinamik olarak şifrelemek isteyip istemediğinizi hangi akış protokolüne varlığınız dinamik olarak (örneğin, MPEG DASH, HLS, kesintisiz akış veya tümü için), paketlenmesi gereken varlığınız ve nasıl (Zarf veya ortak şifreleme).
+Media Services içerik teslim iş akışındaki adımlar biri yapılandırma [varlıklar teslim ilkelerini](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)akışla istediğiniz. Varlık teslim ilkesini, varlık teslim edilmesini istediğiniz Media Services bildirir: dinamik olarak şifrelemek isteyip istemediğinizi hangi akış protokolüne varlığınız dinamik olarak (örneğin, MPEG DASH, HLS, kesintisiz akış veya tümü için), paketlenmesi gereken varlığınız ve nasıl (Zarf veya ortak şifreleme).
 
 Şifrelenmiş depolama varlık Varlığınızı akışla önce varsa, akış sunucusu depolama şifrelemesi kaldırır ve belirtilen teslim ilkesini kullanarak içeriğinizi akışları. Örneğin, Gelişmiş Şifreleme Standardı (AES) şifreleme anahtarıyla şifrelenmiş varlığınız sunmak için DynamicEnvelopeEncryption için ilke türünü ayarlayın. Depolama şifrelemesi kaldırmak ve açık bir varlıkta akış için NoDynamicEncryption için ilke türünü ayarlayın.
 

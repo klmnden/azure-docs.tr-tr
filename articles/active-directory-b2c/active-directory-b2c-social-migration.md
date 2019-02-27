@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4d4acecbbb90fff7865902a3371d282f1d402374
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6f857e926343c4c3c26d746134bbb9d94754c12
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662899"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866020"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Kullanıcıları sosyal kimlikleriyle geçirme
 Kimlik sağlayıcınız Azure AD B2C'ye geçirmek planlama yaparken, sosyal medya kimliklerinden kullanıcıları geçirme gerekebilir. Bu makalede, aşağıdakiler gibi mevcut sosyal kimlikleri hesapları geçirme açıklanmaktadır: Azure AD B2C'ye Facebook ve LinkedIn, Microsoft ve Google hesapları. Bu geçiş daha az yaygın olan ancak bu makale Federasyon kimlikleri için de geçerlidir.
@@ -139,7 +139,7 @@ Veren adı veya kimlik sağlayıcı adı, ilkede yapılandırılır. Değeri bel
 1. Sosyal hesaplarından birini bilgilerinizle oturum açın
 2. JWT belirtecini Kopyala `sub` değeri. `sub` Genellikle kullanıcının nesne kimliği Azure AD B2C'yi içerir. Veya Azure portalından kullanıcının özelliklerini açın ve nesne kimliği kopyalayın.
 3. Açık [Azure AD Graph Gezgini](https://graphexplorer.azurewebsites.net)
-4. Yöneticiniz bilgilerinizle oturum açın. N
+4. Yöneticiniz bilgilerinizle oturum açın.
 5. GET isteğini takip çalıştırın. UserObjectId kopyaladığınız kullanıcı kimliği ile değiştirin. **AL** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 6. Bulun `userIdentities` Azure AD B2C JSON dönüş içinde öğe.
 7. [İsteğe bağlı] Kod çözme isteyebilirsiniz `issuerUserId` değeri.

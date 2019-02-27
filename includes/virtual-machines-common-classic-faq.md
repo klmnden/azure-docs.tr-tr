@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 37dc96cf965181c5acba74449c684a08035e37b2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: bc3590e90cacfa4966f0d1f64aa1c8d49483cb1b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735567"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883782"
 ---
 Bu makale, kullanıcıların klasik dağıtım modeliyle oluşturulmuş Azure sanal makineleri hakkında sorduğu bazı yaygın sorular ele alınmıştır.
 
@@ -136,5 +136,5 @@ Yedeklilik sağlamak için benzer şekilde yapılandırılmış iki veya daha fa
 
 [Azure CLI ile Linux VM’leri Oluşturma ve Yönetme](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Azure PowerShell ile Windows VM’leri Oluşturma ve Yönetme](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Azure PowerShell ile Windows Vm'leri oluşturma ve yönetme](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: e8a94fdae74c5a30ba75e9143b298c3372b886d7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9a267b48e185e02c1b1217380429453799308bbe
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733019"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886792"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs Laboratuvarınızı yapıt deposu ekleme
 DevTest Labs, VM oluşturma veya VM oluşturulduktan sonra sırada bir sanal makineye eklenecek bir yapıt belirtmenizi sağlar. Bu yapıt, bir aracı veya VM üzerinde yüklemek istediğiniz bir uygulama olabilir. Yapıtlar, GitHub veya VSTS Git deposundan yüklenen bir JSON dosyasında tanımlanır. 
@@ -60,7 +60,7 @@ Laboratuvarınız için bir depo eklemek için ilk olarak, deponuzdan anahtarı 
    4. Seçin **tüm kapsamlar** seçeneği.
    5. Seçin **belirteci oluşturma**.
 9. Yeni belirteç görünür **kişisel erişim belirteçleri** listesi. Seçin **kopyalama belirteci**ve daha sonra kullanmak için belirteç değeri kaydedin.
-10. Devam [Laboratuvarınızı depoya bağlanmak](#connect-your-lab-to-the-repository) bölümü.
+10. Bağlan Laboratuvarınızı depo bölümüne geçin.
 
 ## <a name="use-azure-portal"></a>Azure portalı kullanma
 Bu bölümde, Azure portalında bir laboratuvar yapıt deposuna eklemek için adımları sağlar. 

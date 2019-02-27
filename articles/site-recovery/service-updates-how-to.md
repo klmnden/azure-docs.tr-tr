@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 67fe5da86b4736daa43a85a7a1a077c329732b60
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: e3933fb593dfafc6ecc641d7c19741b7c0882c00
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890476"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878379"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery hizmeti güncelleştirmeleri
 Bir kuruluş olarak plansız kesintiler ve verilerinizin güvenliğini korumak için nasıl gideceğinizi ve Planlı çalışan uygulamaları/iş yüklerini out şekil yapmanız gerekir. Azure Site Recovery, Vm'leri ve fiziksel sunucuları bir site dışı kalırsa kullanılabilir çalışan uygulamalarınızı tutarak, BCDR stratejinize katkıda bulunur. Site Recovery, VM ve fiziksel sunucularda çalışan iş yüklerini çoğaltarak birincil sitenin kullanılamaz hale gelmesi durumunda bunların ikincil bir konumda kullanılabilir kalmasını sağlar. Birincil site yeniden çalışmaya başladığında birincil sitede iş yüklerini kurtarır.
@@ -124,7 +124,7 @@ Yeniden başlatma, Mobility Aracısı her bir yükseltmeden sonra tüm son deği
 |[Güncelleştirme Paketi 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Güncelleştirme paketi 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 |[Güncelleştirme paketi 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0
-|[Güncelleştirme paketi 28 ](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600 .0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
+|[Güncelleştirme paketi 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600 .0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
 | [Güncelleştirme Paketi 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)       |   5.1.3550.0      |    9.18.4946.1     | 5.1.3550.0         |2.0.9125.0
 
 

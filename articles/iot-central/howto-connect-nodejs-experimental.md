@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc659e1138690ffda7e21d25c37fb4dde095e6b9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7666af14f61ac04d82f73d439cda85063cfbc758
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817079"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880147"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
 
@@ -130,7 +130,7 @@ Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci u
     ```
 
     > [!NOTE]
-    > Azure IOT Central değiştiğinden Azure IOT Hub cihazı sağlama hizmeti (DPS) kullanarak tüm cihaz bağlantıları için bu instrustions için izleyin [cihaz bağlantı dizesini alma](concepts-connectivity-experimental.md#getting-device-connection-string) ve bu öğreticinin geri kalanını ile devam edin. Daha fazla yardım için ayrıntılı yönergeleri kümesi de bulabilirsiniz [istemci kodu hazırlama](tutorial-add-device-experimental.md#prepare-the-client-code) öğreticilerde > bir cihaz ekleyin.
+    > Azure IOT Central değiştiğinden Azure IOT Hub cihazı sağlama hizmeti (DPS) kullanarak tüm cihaz bağlantıları için bu instrustions için izleyin [cihaz bağlantı dizesini alma](concepts-connectivity-experimental.md#get-the-device-connection-string) ve bu öğreticinin geri kalanını ile devam edin. Daha fazla yardım için ayrıntılı yönergeleri kümesi de bulabilirsiniz [istemci kodu hazırlama](tutorial-add-device-experimental.md#prepare-the-client-code) öğreticilerde > bir cihaz ekleyin.
 
     Yer tutucu güncelleştirme `{your device connection string}` cihaz bağlantı dizesiyle. Bu örnekte biz başlatmak `targetTemperature` sıfır olarak, isteğe bağlı olarak bir CİHAZDAN geçerli okuma veya değeri cihaz ikizinden alabilir. 
 

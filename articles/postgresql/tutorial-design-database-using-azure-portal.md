@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 441b56aa683ac01566d2fd2877b9b8b912194f3a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 869bee8fcd0d1c2876ac7317fb239a1d5c61cb87
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536534"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864558"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak PostgreSQL için Azure veritabanı tasarlama
 
@@ -78,7 +78,7 @@ PostgreSQL için Azure Veritabanı hizmeti, sunucu düzeyinde bir güvenlik duva
 
 1.  Dağıtım tamamlandıktan sonra, sol taraftaki menüden **Tüm Kaynaklar**’a tıklayın ve yeni oluşturduğunuz sunucuyu aramak için **demosunucum** adını yazın. Arama sonucunda listelenen sunucu adına tıklayın. Sunucunuzun **Genel bakış** sayfası açılır ve daha fazla yapılandırma seçenekleri sunulur.
 
-   ![PostgreSQL için Azure Veritabanı - Sunucu arama ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![PostgreSQL için Azure Veritabanı - Sunucu arama](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.  Sunucu sayfasında **Bağlantı güvenliği**’ni seçin. 
 
@@ -98,7 +98,7 @@ PostgreSQL sunucusu için Azure Veritabanını oluşturduğunuzda, varsayılan *
 
 1. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve kısa süre önce oluşturduğunuz sunucuyu aratın.
 
-   ![PostgreSQL için Azure Veritabanı - Sunucu arama ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![PostgreSQL için Azure Veritabanı - Sunucu arama](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2. **demosunucum** sunucu adına tıklayın.
 

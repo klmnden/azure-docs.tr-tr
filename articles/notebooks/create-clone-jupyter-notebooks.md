@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9686ac0bc75a219940fcadca78cff539c1b50f0a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844067"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876835"
 ---
 # <a name="create-and-clone-projects"></a>Projeleri oluşturma ve kopyalama
 
@@ -49,7 +49,7 @@ Panoda yapabilecekleriniz kullanıcı kimliği sahip bir hesapla oturum mi oturu
 
 Kullanırken **paylaşımı** seçin ve komut **ekleme** sekmesi, HTML kod veya "dizüstü başlatma" rozet oluşturan Markdown kopyalayabilir:
 
-![Not Defteri rozet başlatın ](https://notebooks.azure.com/launch.png)
+![Not Defteri rozet başlatın](https://notebooks.azure.com/launch.png)
 
 Bir Azure not defterleri projesi yoksa, uygun kullanıcı adı ve depo adları değiştirerek aşağıdaki şablonlarını kullanarak doğrudan Github'dan klonlar bir bağlantı oluşturabilirsiniz:
 
@@ -67,10 +67,26 @@ Kullanırken **+ yeni proje** komutu, Azure not defterleri görüntüler bir **y
 
 | Alan | Açıklama |
 | --- | --- |
-| Proje adı | Azure not defterlerini görüntüleme amacıyla kullanır. projeniz için bir kolay ad. Örneğin, "Ny not defteri proje". |
-| Proje Kimliği | Bir proje paylaşmak için kullandığınız URL parçası haline gelir özel tanımlayıcısı. Bu kimlik, yalnızca harf, rakam ve kısa çizgiler kullanabilirsiniz ve 30 karakterle sınırlıdır. Ne kullanılacağını emin değilseniz, genel bir kural projenizin adına bir küçük harfli sürümünü burada "my-Not-(gerekirse, uzunluk sınırını uyacak şekilde kesildi) proje" gibi kısa çizgi içine boşluk açık kullanmaktır. |
+| Proje adı | Azure not defterlerini görüntüleme amacıyla kullanır. projeniz için bir kolay ad. Örneğin, "Not Defteri Projem". |
+| Proje Kimliği | Bir proje paylaşmak için kullandığınız URL'nin bir parçası haline gelir özel bir tanımlayıcı (form `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Bu kimlik yalnızca harf, rakam ve kısa çizgiler kullanabilirsiniz, 30 karakterle sınırlıdır ve olamaz bir [proje kimliği ayrılmış](#reserved-project-ids). Ne kullanılacağını emin değilseniz, genel bir kural projenizin adına bir küçük harfli sürümünü burada "my-Not-(gerekirse, uzunluk sınırını uyacak şekilde kesildi) proje" gibi kısa çizgi içine boşluk açık kullanmaktır. |
 | Genel | Varsa ayarlama, proje erişmek için bağlantıya kimseyle sağlar. Özel bir proje oluştururken, bu seçeneği temizleyin. |
 | Bu Benioku projeyle Başlat | Varsa ayarlayın, bir varsayılan oluşturur *README.md* proje dosyasında. A *README.md* dosyasıdır projeniz için belgeleri sağlarsınız isterseniz. |
+
+### <a name="reserved-project-ids"></a>Ayrılmış proje kimlikleri
+
+Aşağıdaki ayrılmış sözcükler başlarına proje kimlikleri kullanılamaz. Bu ayrılmış sözcükler ancak olabilir daha uzun proje kimlikleri bir parçası olarak kullanılır.
+
+| | | | | | |
+| --- | --- | --- | --- | --- | --- |
+| hakkında | account | Yönetim | api | blogu | sınıf |
+| content | pano | Keşfedin | SSS | Yardım | HTML |
+| giriş sayfası | içeri aktarma | Kitaplık | yönetim | yeni | Not Defteri |
+| Not Defterleri | PDF | önizleme | fiyatlandırma | profil | ara |
+| durum | destek | test | | | |
+
+Bu sözcükler birini bir proje kimliği kullanmayı denerseniz **yeni proje oluştur** ve **proje ayarları** açılan pencereler gösterir, "kitaplık kimliği ayrılmış bir tanımlayıcı değil."
+
+Bir proje kimliği de bir projenin URL'SİNİN bir parçası olduğundan, ad engelleyici yazılım "Duyurusu." gibi bazı anahtar sözcükler kullanımını engelleyebilir Bu gibi durumlarda, farklı bir sözcük proje kimliği kullanın.
 
 ## <a name="import-a-project-from-github"></a>Bir projeyi Github'dan alma
 
@@ -81,7 +97,7 @@ Tüm genel bir GitHub deposuna tüm veriler dahil olmak üzere bir proje olarak 
 | GitHub deposu | Github.com kaynak depoda adı. Örneğin, Azure Bilişsel hizmetler için Jupyter not defterlerini kopyalamak için [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks), "Microsoft/bilişsel-services-dizüstü bilgisayarlar" girin.  |
 | Yinelemeli olarak kopyalama | GitHub depoları, birden çok alt deposu içerebilir. Üst deponun ve tüm alt öğelerini kopyalamak istiyorsanız bu seçeneği ayarlayın. Çok sayıda alt öğeleri bir depo için mümkün olduğu için bu seçeneği temizleyin ihtiyaç duymadıkça bırakın. |
 | Proje adı | Azure not defterlerini görüntüleme amacıyla kullanır. projeniz için bir kolay ad. |
-| Proje Kimliği | Bir proje paylaşmak için kullandığınız URL parçası haline gelir özel tanımlayıcısı. Bu kimlik, yalnızca harf, rakam ve kısa çizgiler kullanabilirsiniz. |
+| Proje Kimliği | Bir proje paylaşmak için kullandığınız URL'nin bir parçası haline gelir özel bir tanımlayıcı (form `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Bu kimlik yalnızca harf, rakam ve kısa çizgiler kullanabilirsiniz, 30 karakterle sınırlıdır ve olamaz bir [proje kimliği ayrılmış](#reserved-project-ids). Ne kullanılacağını emin değilseniz, genel bir kural projenizin adına bir küçük harfli sürümünü burada "my-Not-(gerekirse, uzunluk sınırını uyacak şekilde kesildi) proje" gibi kısa çizgi içine boşluk açık kullanmaktır. |
 | Genel | Varsa ayarlama, proje erişmek için bağlantıya kimseyle sağlar. Özel bir proje oluştururken, bu seçeneği temizleyin. |
 
 Bir depo Github'dan alma geçmişini alır. Yeni değişiklikleri, Github'dan değişiklikleri çekme ve benzeri terminalden standart Git komutlarını kullanabilirsiniz.

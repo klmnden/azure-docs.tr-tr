@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: e32d3fe30796015c8189eee819a0cc3dd4581e22
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 532121f4e9a3c658e544a8d322ac0f17fa22a2b0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700919"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875914"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -213,7 +213,7 @@ Altyapınız için sorun giderme günlükleri tutmak için bu yönergeleri izley
   
 ### <a name="net-core"></a>.Net Core
 
-1. Yükleme [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) NuGet paketi. Yüklemeniz gereken sürüm yüklü geçerli sürümü ile eşleşmelidir `Microsoft.ApplicationInsighs`
+1. Yükleme [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) NuGet paketi. Yüklemeniz gereken sürüm yüklü geçerli sürümü ile eşleşmelidir `Microsoft.ApplicationInsights`
 
 2. Değiştirme `ConfigureServices` yönteminde, `Startup.cs` sınıfı.:
 

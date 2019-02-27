@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 0765e5978f62a60b7a9b405c04c2471508947c60
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 24e159ea2cccfdaab9c732835506a1a22abab134
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433178"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869165"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Günlük uyarı kuralları için Web kancası eylemleri
 Olduğunda bir [günlük uyarı Azure'da oluşturulan](alerts-log.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](action-groups.md) bir veya daha fazla eylem gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntıları ve mevcut olan farklı bir Web kancası eylemleri açıklar.
@@ -197,7 +197,7 @@ Aşağıdaki, tüm günlük uyarısı için bir özel Web kancası eylemi için 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Hakkında bilgi edinin [oturum uyarılar Azure uyarıları ](alerts-unified-log.md)
+- Hakkında bilgi edinin [oturum uyarılar Azure uyarıları](alerts-unified-log.md)
 - Anlamak [azure'da günlük uyarıları yönetme](alerts-log.md)
 - Oluşturma ve yönetme [Azure Eylem grupları](action-groups.md)
 - Daha fazla bilgi edinin [Application Insights](../../azure-monitor/app/analytics.md)

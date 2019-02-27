@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 02a6cbabaeb7d9c6f764eec5dd86226e37aa6c2b
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593531"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878090"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench ile tümleştirme Mesajlaşma
 
@@ -678,7 +678,7 @@ Workbench için bir uygulama yüklendiğinde adı ve sürümü gibi bilgileri i�
 | id | Azure Blockchain Workbench içinde uygulama iş akışı için benzersiz tanımlayıcı |
 | ad | Uygulama iş akışı adı |
 | displayName | Uygulama iş akışı görünen adı |
-| işlevler | Koleksiyonu [uygulama iş akışı için işlevleri ](#workflow-function-information)|
+| işlevler | Koleksiyonu [uygulama iş akışı için işlevleri](#workflow-function-information)|
 | durumları | Koleksiyonu [uygulama iş akışı durumları](#workflow-state-information) |
 | properties | Uygulama [iş akışı özellikleri bilgileri](#workflow-property-information) |
 

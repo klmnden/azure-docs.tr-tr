@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: d2fef3a47cbcb4cfd8bce8978003eca1044d7de3
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b031e7b772389aa81fd214d31365c20018cf48ae
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510642"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874452"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Öğretici: Blob Depolama ile yüksek oranda kullanılabilir bir uygulama oluşturun
 
@@ -37,24 +37,24 @@ Serinin birinci bölümünde şunları öğrenirsiniz:
 
 Bu öğreticiyi tamamlamak için:
 
-# <a name="net-tabdotnet"></a>[.NET] (#sekme/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
   - **Azure geliştirme**
 
   ![Azure geliştirme (Web ve Bulut altında)](media/storage-create-geo-redundant-storage/workloads.png)
 
-# <a name="python-tabpython"></a>[Python] (#sekme/python)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 * [Python](https://www.python.org/downloads/)’ı yükleyin
 * [Python için Azure Depolama SDK’sını](https://github.com/Azure/azure-storage-python) indirip yükleme
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK] (# sekme/java-v7)
+# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK'sı ](#tab/java-v7)
 
 * [Maven](http://maven.apache.org/download.cgi)’ı yükleyip komut satırından çalışacak şekilde yapılandırma
 * [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)’yı yükleme ve yapılandırma
 
-# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (# sekme/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 * [Maven](http://maven.apache.org/download.cgi)’ı yükleyip komut satırından çalışacak şekilde yapılandırma
 * [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)’yı yükleme ve yapılandırma

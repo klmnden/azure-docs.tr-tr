@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 3981ae197515803821891402e525852901963f63
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902814"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871629"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows üzerinde Azure IOT Edge çalışma zamanı yükleme
 
@@ -213,6 +213,34 @@ Ve modüller ile çalışan listesi:
 ```powershell
 iotedge list
 ```
+
+Çalışan olduğunu gördüğünüz yalnızca modülü yeni bir yüklemeden sonra **edgeAgent**. Çalıştırdıktan sonra [IOT Edge modüllerini dağıtmak](how-to-deploy-modules-portal.md), diğerleri görürsünüz. 
+
+## <a name="manage-module-containers"></a>Modül kapsayıcıları yönetin
+
+IOT Edge hizmetinin, cihaz üzerinde çalışan bir container altyapısı gerektirir. IOT Edge çalışma zamanı kapsayıcı altyapısı, bir modül bir cihaza dağıttığınızda, bulutta bir kayıt defterinden kapsayıcı görüntüsü çekin için kullanır. IOT Edge hizmetinin modüllerinizi ile etkileşim kurmanızı ve günlüklerini sağlar, ancak bazen kapsayıcı ile etkileşim kurmak için kapsayıcı altyapısı kullanmak isteyebilirsiniz. 
+
+Modül kavramları hakkında daha fazla bilgi için bkz. [anlamak Azure IOT Edge modülleri](iot-edge-modules.md). 
+
+Windows IOT Edge Cihazınızda Windows kapsayıcıları çalıştırıyorsanız, IOT Edge yükleme Moby container altyapısı dahil. Windows geliştirme makinenizde Linux kapsayıcıları geliştiriyorsanız, büyük olasılıkla Docker Masaüstü kullanıyorsunuz. Moby altyapısı Docker aynı standartlarını temel ve Docker masaüstü ile aynı makinede paralel olarak çalıştırmak için tasarlanmıştır. Bu nedenle, hedef kapsayıcı Moby altyapısı tarafından yönetilen istiyorsanız Docker yerine bu altyapıyı özel olarak hedef vardır. 
+
+Örneğin, tüm Docker görüntülerini listelemek için aşağıdaki komutu kullanın:
+
+```powershell
+docker images
+```
+
+Tüm Moby görüntülerini listelemek için aynı komutu Moby altyapısı işaretçiyle değiştirin: 
+
+```powershell
+docker -H npipe:////./pipe/iotedge_moby_engine images
+```
+
+URI altyapısı yükleme komut çıktısında listelenir veya config.yaml dosyanın kapsayıcı çalışma zamanı ayarları bölümünde bulabilirsiniz. 
+
+![config.yaml moby_runtime URI](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
+
+Kapsayıcılar ve Cihazınızda çalışan görüntülerinin ile etkileşim kurmak için kullanabileceğiniz komutlar hakkında daha fazla bilgi için bkz. [Docker komut satırı arabirimlerinden](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ## <a name="uninstall-iot-edge"></a>IOT Edge kaldırma
 

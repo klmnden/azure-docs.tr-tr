@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 446c5393b654c7743371e4097517d16ba71da630
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270309"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867023"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Öğretici: Bağlı Azure Resource Manager şablonları oluşturma
 
@@ -297,7 +297,7 @@ Depolama hesabı artık bağlı şablonda tanımlandığı için, `Microsoft.Com
 1. Açık değilse, Visual Studio Code’da azuredeploy.json dosyasını açın.
 2. Sanal makine kaynak tanımını genişletin, **dependsOn** değerini aşağıdaki ekran görüntüsünde gösterildiği gibi güncelleştirin:
 
-    ![Azure Resource Manager bağlı şablonları bağımlılığı yapılandırma ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
+    ![Azure Resource Manager bağlı şablonları bağımlılığı yapılandırma](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
     *linkedTemplate*, dağıtım kaynağının adıdır.  
 3. Güncelleştirme **özellikleri/diagnosticsProfile/bootDiagnostics/storageUri** önceki ekran görüntüsünde gösterildiği gibi.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 67bdabe24e789dc4d1f2020a7a7853eafaa607c3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: fbb7ae2e741ab6f2c5045f412e18cd9ce1d5b812
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429375"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870933"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB ile .NET için performans ipuçları
 
@@ -47,7 +47,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
     |Bağlantı modu  |Desteklenen protokol  |Desteklenen SDK'ları  |API/hizmet bağlantı noktası  |
     |---------|---------|---------|---------|
-    |Ağ geçidi  |   HTTPS    |  Tüm SDK'lar    |   Mongo (10250, 10255 olarak, 10256), Table(443), Cassandra(443), Graph(443) SQL(443)    |
+    |Ağ geçidi  |   HTTPS    |  Tüm SDK'lar    |   Mongo (10250, 10255 olarak, 10256), Table(443), Cassandra(10350), Graph(443) SQL(443)    |
     |Doğrudan    |    HTTPS     |  .NET ve Java SDK'sı    |   10.000 20.000 aralıkta bağlantı noktaları    |
     |Doğrudan    |     TCP    |  .Net SDK    | 10.000 20.000 aralıkta bağlantı noktaları |
 

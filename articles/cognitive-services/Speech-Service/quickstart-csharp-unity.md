@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 8e31717f9fd232a7c256b65d044a97396af8f960
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448641"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878022"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Hızlı Başlangıç: Konuşma SDK'sı (Beta) Unity için konuşma tanıma
 
@@ -74,7 +74,7 @@ En az bir kullanıcı Arabirimi bizim sahneye, konuşma tanıma ve sonucu görü
 
 İşiniz bittiğinde, kullanıcı arabirimini bu ekran görüntüsüne benzer görünmelidir:
 
-[ ![Unity Düzenleyicisi'nde Hızlı Başlangıç kullanıcı arabiriminin ekran görüntüsü](media/sdk/qs-csharp-unity-02-ui-inline.png) ](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
+[![Unity Düzenleyicisi'nde Hızlı Başlangıç kullanıcı arabiriminin ekran görüntüsü](media/sdk/qs-csharp-unity-02-ui-inline.png)](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
 
 ## <a name="add-the-sample-code"></a>Örnek kod ekleme
 
@@ -111,7 +111,7 @@ En az bir kullanıcı Arabirimi bizim sahneye, konuşma tanıma ve sonucu görü
 
 * Uygulamayı başlattıktan sonra düğmesine tıklayın ve bir İngilizce deyim ya da cümle bilgisayarınızın mikrofona. Söyledikleriniz Konuşma hizmetine aktarılır ve metne dönüştürülür; metin pencerede görünür.
 
-  [ ![Unity oyun penceresinde çalışan Hızlı Başlangıç ekran görüntüsü](media/sdk/qs-csharp-unity-03-output-inline.png) ](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
+  [![Unity oyun penceresinde çalışan Hızlı Başlangıç ekran görüntüsü](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 
 * Denetleme [konsol penceresi](https://docs.unity3d.com/Manual/Console.html) hata ayıklama iletileri.
 

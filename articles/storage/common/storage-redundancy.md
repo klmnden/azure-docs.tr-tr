@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ea6d94ff1ee8c27c1642f24660a6ab4f276137a8
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cbe8970e3e7b924025a93b50f9b8c9e46643b349
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330792"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872055"
 ---
 # <a name="azure-storage-redundancy"></a>Azure depolama yedekliliği
 
@@ -68,5 +68,5 @@ LRS için GRS değiştirirseniz, hiçbir ek ücret yoktur, ancak ikincil konumda
 - [Coğrafi olarak yedekli depolama (GRS): Azure depolama için bölgeler arası çoğaltma](storage-redundancy-grs.md)
 - [Azure depolama ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md)
 - [RA-GRS depolama kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama](../storage-designing-ha-apps-with-ragrs.md)
-- [Microsoft Azure depolama yedekliliği seçenekleri ve okuma erişimli coğrafi olarak yedekli depolama ](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [Microsoft Azure depolama yedekliliği seçenekleri ve okuma erişimli coğrafi olarak yedekli depolama](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP belgesi - Azure Depolama: Güçlü tutarlılık ile yüksek oranda kullanılabilir bulut depolama hizmeti](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

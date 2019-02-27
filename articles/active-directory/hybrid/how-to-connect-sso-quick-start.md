@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69645c4aa9034b9a3459c7ee5fb0378c790a6e18
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f2539674668a9738d03e9af9c4fb88327cb1933
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178099"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865068"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı başlangıç
 
@@ -120,7 +120,7 @@ Kullanıcıların Intranet bölge ayarlarını değiştirmek için iki yolu vard
 
 1. Grup İlkesi Yönetimi Düzenleyicisi Aracı'nı açın.
 2. Bazı uygulanan Grup ilkesini düzenleyin veya tüm kullanıcılar. Bu örnekte **varsayılan etki alanı ilkesi**.
-3. Gözat **Kullanıcı Yapılandırması** > **Yönetim Şablonları** > **Windows bileşenleri**  >   **Internet Explorer** > **Internet Denetim Masası** > **güvenlik sayfası**. Ardından **siteyi bölgeye ataması Listesi'ni**.
+3. Gözat **Kullanıcı Yapılandırması** > **ilke** > **Yönetim Şablonları** > **Windows Bileşenleri** > **Internet Explorer** > **Internet Denetim Masası** > **güvenlik sayfası**. Ardından **siteyi bölgeye ataması Listesi'ni**.
     ![Çoklu oturum açma](./media/how-to-connect-sso-quick-start/sso6.png)
 4. İlkeyi etkinleştirin ve sonra da iletişim kutusunda aşağıdaki değerleri girin:
    - **Değer adı**: Azure AD, Kerberos biletleri iletildiği URL'si.
@@ -140,7 +140,7 @@ Kullanıcıların Intranet bölge ayarlarını değiştirmek için iki yolu vard
 
     ![Çoklu oturum açma](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Gözat **Kullanıcı Yapılandırması** > **Yönetim Şablonları** > **Windows bileşenleri**  >   **Internet Explorer** > **Internet Denetim Masası** > **güvenlik sayfası** > **Intranet bölgesine**. Ardından **izin vermek için durum çubuğu komut dosyası aracılığıyla güncelleştirmeleri**.
+6. Gözat **Kullanıcı Yapılandırması** > **Yönetim Şablonları** **ilke** > ** > **Windows bileşenleri**  >  **Internet Explorer** > **Internet Denetim Masası** > **güvenlik sayfası**  >   **Intranet bölgesi**. Ardından **izin vermek için durum çubuğu komut dosyası aracılığıyla güncelleştirmeleri**.
 
     ![Çoklu oturum açma](./media/how-to-connect-sso-quick-start/sso11.png)
 

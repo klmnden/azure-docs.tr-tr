@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d0f9ea15b692d9aba2fde217805ea5e0ecfb4dfd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3ad33968107aec551ea99e503797382c7fcea0c5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993818"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877100"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>İşlem çoğaltma, tek bir havuzda ve Azure SQL veritabanı'nda veritabanları örnek
 
@@ -90,7 +90,7 @@ Genel olarak, yayımcı ve dağıtıcı ya da bulutta veya şirket içinde olmas
 
 ### <a name="publisher-with-local-distributor-on-a-managed-instance"></a>Yayımcı ile yönetilen örneğinde yerel dağıtıcı
 
-![Yayımcı ve dağıtıcı olarak tek örnek ](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
+![Yayımcı ve dağıtıcı olarak tek örnek](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
 Yayımcı ve dağıtıcı tek bir yönetilen örnek ve diğer yönetilen örneği, tek veritabanı ve havuza alınmış veritabanını dağıtılmasını değişiklikleri içinde yapılandırılmış veya şirket içi SQL Server. Bu yapılandırmada, yayımcı/dağıtıcı yönetilen örnek yapılandırılamaz ile [coğrafi çoğaltma ve otomatik yük devretme grupları](sql-database-auto-failover-group.md).
 

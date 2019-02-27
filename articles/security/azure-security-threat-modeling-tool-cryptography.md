@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 947740ed28deea9682d10eecf9a66dab7540669e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824635"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880317"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Güvenlik çerçevesi: Şifreleme | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -228,7 +228,7 @@ Cihaz birincil anahtarı görülebileceği gibi kodda mevcut değil. Bunun yerin
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
-| **Başvuruları**              | [Kimlik sunucusu - anahtarları, imzalar ve şifreleme ](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **Başvuruları**              | [Kimlik sunucusu - anahtarları, imzalar ve şifreleme](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **Adımları** | İmzalama anahtarı kimlik sunucusu kullanılırken alınır emin olun. Bağlantı başvuruları bölümünde nasıl bu kesintiler kimlik sunucusuna bağlı olan uygulamaların neden olmadan planlanmalıdır açıklar. |
 
 ## <a id="client-server"></a>Şifreleme açısından güçlü bir istemci kimliği, istemci gizli anahtarı olduğundan emin olun kimlik sunucusunda kullanılan

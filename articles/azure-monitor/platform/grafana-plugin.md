@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f592cfdba940b95a9935c6b68f3294233d9fbf15
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730909"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888500"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana, Azure hizmetlerinizi izleyin
 Artık Azure Hizmetleri ve uygulamaları izleyebilirsiniz [Grafana](https://grafana.com/) kullanarak [Azure İzleyicisi veri kaynağı eklentisi](https://grafana.com/plugins/grafana-azure-monitor-datasource). Eklenti çeşitli günlükleri ve ölçümler de dahil olmak üzere Azure İzleyici tarafından toplanan uygulama performansı verileri toplar. Grafana Panonuzda daha sonra bu verileri görüntüleyebilirsiniz.
@@ -26,7 +26,8 @@ Grafana sunucusunu ayarlama ve Azure İzleyici'den ölçüm ve günlükleri içi
 ## <a name="set-up-a-grafana-server"></a>Grafana sunucusunu ayarlama
 
 ### <a name="set-up-grafana-locally"></a>Grafana ' yerel olarak ayarlayın
-Bir yerel Grafana sunucusu kurmak için [Grafana yerel ortamınızda yükleyip](https://grafana.com/grafana/download). Eklenti'nın Log Analytics tümleştirmesini kullanacak şekilde Grafana 5.3 veya sonraki sürümünü yükleyin.
+Bir yerel Grafana sunucusu kurmak için [Grafana yerel ortamınızda yükleyip](https://grafana.com/grafana/download). Eklenti'nın Azure izleme tümleştirmesini kullanacak şekilde Grafana 5.3 veya sonraki sürümünü yükleyin.
+
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Azure Marketi aracılığıyla azure'da Grafana ayarlama
 1. Azure Market'e dön ve Grafana Labs tarafından Grafana'ı seçin.
 
@@ -70,7 +71,7 @@ Başarıyla oturum açtıktan sonra Azure İzleyici'veri kaynağı eklentisi zat
     Günlük analizi API'si gerektirir [Log Analytics okuyucusu rolü](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), okuyucu rol izinleri içerir ve bu gruba ekler.
 
 4. Kullanmak istediğiniz API bağlantı ayrıntılarını sağlayın. Tümünü veya bazılarını bağlanabilirsiniz. 
-    * Azure İzleyicisi'ni (ölçümleri toplamak için) ve Azure Log Analytics için (için günlük verileri) bağlarsanız, seçerek aynı kimlik bilgilerini kullanabilirsiniz **Azure İzleyici API'si aynı detayları**.
+    * Bağlarsanız, ölçüm ve günlükleri Azure İzleyicisi'nde için aynı kimlik bilgilerini seçerek kullanabilirsiniz **Azure İzleyici API'si aynı detayları**.
     * Eklentisini yapılandırırken, hangi Azure bulut belirtebilirsiniz İzleyicisi (Genel, Azure ABD devlet kurumları, Azure Almanya'yı veya Azure Çin) eklentisi istediğiniz.
     * Application Insights'ı kullanırsanız, uygulama kimliği ve Application Insights API Application Insights temel ölçümleri toplamak için de ekleyebilirsiniz. Daha fazla bilgi için [API anahtarı ve uygulama kimliği alma](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
@@ -97,7 +98,7 @@ Başarıyla oturum açtıktan sonra Azure İzleyici'veri kaynağı eklentisi zat
 4. Azure İzleyici, yapılandırdığınız veri kaynağını seçin.
     * Azure İzleyici toplama ölçümleri - seçin **Azure İzleyici** hizmet açılır. Yukarı, kaynakları ve bu grafikte izlemek için ölçüm seçebileceğiniz Seçici gösterir listesi. Bir VM'den ölçümleri toplamak için ad alanını kullanmak **Microsoft.Compute/VirtualMachines**. VM'ler ve ölçümleri seçtikten sonra Panoda verilerini görüntüleme başlayabilirsiniz.
     ![Azure İzleyici için Grafana graph yapılandırma](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-    * Azure Log Analytics'e toplama veri - seçin **Azure Log Analytics** hizmet açılır. Sorgulamak ve sorgu metni ayarlamak istediğiniz çalışma alanını seçin. Burada, zaten veya yeni bir Log Analytics sorgusu kopyalayabilirsiniz. Sorgu yazarken IntelliSense gösterilir ve otomatik tamamlama seçenekleri önerin. Bir görselleştirme türü seçin **zaman serisi** **tablo**, ve sorguyu çalıştırın.
+    * Azure İzleyici toplama - günlük verilerini seçin **Azure Log Analytics** hizmet açılır. Sorgulamak ve sorgu metni ayarlamak istediğiniz çalışma alanını seçin. Burada, zaten veya yeni bir günlük sorgusu kopyalayabilirsiniz. Sorgu yazarken IntelliSense gösterilir ve otomatik tamamlama seçenekleri önerin. Bir görselleştirme türü seçin **zaman serisi** **tablo**, ve sorguyu çalıştırın.
     
     > [!NOTE]
     >

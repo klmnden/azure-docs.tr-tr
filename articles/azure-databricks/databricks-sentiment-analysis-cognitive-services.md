@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Databricks kullanarak akış verileri ile ilgili yaklaşım analizi'
+title: 'Öğretici: Azure Databricks kullanarak akış verileri üzerinde yaklaşım analizi'
 description: Gerçek zamanlıya yakın şekilde akış verileri ile ilgili yaklaşım analizi çalıştırmak için Event Hubs ve Bilişsel Hizmetler API’si ile Azure Databricks’i kullanmayı öğrenin.
 services: azure-databricks
 author: lenadroid
@@ -9,14 +9,14 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.openlocfilehash: 449d721683bd59646506db57d78b9535aa7d614d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6509db136524d90db11b83acb701bda71c541060
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100200"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882629"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak akış verileri ile ilgili yaklaşım analizi
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak akış verileri üzerinde yaklaşım analizi
 
 Bu öğreticide, Azure Databricks kullanarak neredeyse gerçek zamanlı veri akışı ile ilgili yaklaşım analizi çalıştırmak öğrenin. Azure Event Hubs’ı kullanarak veri alımı sistemini ayarlarsınız. Spark Event Hubs bağlayıcısını kullanarak Event Hubs’tan Azure Databricks’e iletileri kullanırsınız. Son olarak, akışa alınan verilerle ilgili yaklaşım analizi çalıştırmak için Microsoft Bilişsel Hizmet API’lerini kullanırsınız.
 
@@ -596,4 +596,4 @@ Bu öğreticide, verileri Azure Event Hubs’ta akışa almak ve sonra gerçek z
 Azure Databricks kullanarak makine öğrenmesi görevleri gerçekleştirme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
->[Azure Databricks kullanılarak Makine Öğrenmesi](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)
+>[Azure Databricks kullanılarak makine öğrenmesi](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)

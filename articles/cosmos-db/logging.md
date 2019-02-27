@@ -7,20 +7,22 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4ba91bec752b16be0c172c65ff58241c852a61b9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c6796d91835669ba174a866eb3c014e71549c0f2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811656"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877971"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB'de tanılama günlüğüne kaydetme 
 
-Bir veya daha fazla Azure Cosmos DB veritabanı kullanmaya başladıktan sonra izlemek isteyebilirsiniz nasıl ve ne zaman veritabanlarınızı erişilir. Bu makalede Azure platformunda kullanılabilir günlükleri genel bir bakış sağlar. İzleme günlüklerini göndermek amacıyla tanılama günlüğü etkinleştirme hakkında bilgi edinin [Azure depolama](https://azure.microsoft.com/services/storage/), akış günlüklerine nasıl [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve günlükleri dışarı aktarma [Azure Log Analytics ](https://azure.microsoft.com/services/log-analytics/).
+Bir veya daha fazla Azure Cosmos DB veritabanı kullanmaya başladıktan sonra izlemek isteyebilirsiniz nasıl ve ne zaman veritabanlarınızı erişilir. Bu makalede Azure platformunda kullanılabilir günlükleri genel bir bakış sağlar. İzleme günlüklerini göndermek amacıyla tanılama günlüğü etkinleştirme hakkında bilgi edinin [Azure depolama](https://azure.microsoft.com/services/storage/), akış günlüklerine nasıl [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve günlükleri dışarı aktarma [Azure İzleyicigünlüğekaydeder](https://azure.microsoft.com/services/log-analytics/).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="logs-available-in-azure"></a>Azure'da kullanılabilen günlükleri
 
-Şimdi Azure Cosmos DB hesabınız izlemek nasıl çözdüğünü önce günlüğe kaydetme ve izleme hakkında bazı noktalar açıklığa. Farklı türde Azure platformunda günlükleri vardır. Vardır [Azure etkinlik günlüklerini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure ölçümleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), olaylar, sinyal izleme, işlem günlükleri ve benzeri. Günlükleri deseninizi oluşturmayı yoktur. Günlüklerde tam listesini görebilirsiniz [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) Azure portalında. 
+Şimdi Azure Cosmos DB hesabınız izlemek nasıl çözdüğünü önce günlüğe kaydetme ve izleme hakkında bazı noktalar açıklığa. Farklı türde Azure platformunda günlükleri vardır. Vardır [Azure etkinlik günlüklerini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure ölçümleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), olaylar, sinyal izleme, işlem günlükleri ve benzeri. Günlükleri deseninizi oluşturmayı yoktur. Günlüklerde tam listesini görebilirsiniz [Azure İzleyici günlükleri](https://azure.microsoft.com/services/log-analytics/) Azure portalında. 
 
 Aşağıdaki görüntüde, farklı türlerde kullanılabilir Azure günlükleri gösterilmektedir:
 
@@ -51,7 +53,7 @@ Etkinlik günlüklerini (Denetim düzlemi işlemleri) doğası gereği daha zeng
 
 Azure tanılama günlükleri, kaynak tarafından gönderilir ve bu kaynağın işlemiyle ilgili zengin, sık sık veri sağlar. Bu günlüklerin içeriği kaynak türüne göre değişir. Kaynak tanılama günlükleri de konuk işletim sistemi düzeyinde tanılama günlüklerinden farklıdır. Bir sanal makine veya diğer desteklenen içinde çalışan bir aracısı tarafından toplanan konuk işletim sistemi tanılama günlükleri kaynak türü. Kaynak düzeyinde tanılama günlükleri, Azure platformu hiçbir aracı ve yakalama kaynağa özgü verileri gerektirir. Konuk işletim sistemi düzeyinde tanılama günlükleri, işletim sistemi ve bir sanal makinede çalışan uygulamaların verilerini yakalayın.
 
-![Depolama, Event Hubs veya Log Analytics için tanılama günlüğüne kaydetme](./media/logging/azure-cosmos-db-logging-overview.png)
+![Depolama, Event Hubs veya Azure İzleyici günlüklerine tanılama günlüğüne kaydetme](./media/logging/azure-cosmos-db-logging-overview.png)
 
 ### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Azure tanılama günlükleri tarafından günlüğe kaydedilenler?
 
@@ -79,7 +81,7 @@ Azure portalında tanılama günlük kaydını etkinleştirmek için aşağıdak
 
     * **Bir depolama hesabında arşivle**: Bu seçeneği kullanmak için bağlanmak için mevcut bir depolama hesabı gerekir. Portalda yeni bir depolama hesabı oluşturmak için bkz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md) ve Azure Resource Manager, genel amaçlı hesap oluşturmak için yönergeleri izleyin. Bu sayfaya portalındaki depolama hesabınızı seçin, ardından döndürür. Bu, yeni oluşturulan depolama hesapları, aşağı açılan menüsünün görünmesi birkaç dakika sürebilir.
     * **Olay hub'ına Stream**: Bu seçeneği kullanmak için bağlanmak için mevcut bir Event Hubs ad alanı ve olay hub'gerekir. Bir Event Hubs ad alanı oluşturmak için bkz [Azure portalını kullanarak bir Event Hubs ad alanı ve olay hub'ı oluşturma](../event-hubs/event-hubs-create.md). Ardından, portaldaki Event Hubs ad alanı ve ilke adı seçmek için bu sayfaya dönün.
-    * **Log Analytics'e gönderme**: Bu seçeneği kullanmak için mevcut bir çalışma kullanabilir veya yeni bir Log Analytics çalışma alanı için adımları izleyerek oluşturabilirsiniz [yeni bir çalışma alanı oluşturma](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) portalında. Log Analytics'te, günlükleri görüntüleme hakkında daha fazla bilgi için görünümü Log Analytics'te oturum bakın.
+    * **Log Analytics'e gönderme**: Bu seçeneği kullanmak için mevcut bir çalışma kullanabilir veya yeni bir Log Analytics çalışma alanı için adımları izleyerek oluşturabilirsiniz [yeni bir çalışma alanı oluşturma](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) portalında. Azure İzleyici günlüklerine, günlükleri görüntüleme hakkında daha fazla bilgi için bkz: görünümü Azure İzleyici günlüklerine kaydeder.
     * **Oturum DataPlaneRequests**: Temel alınan Azure Cosmos DB dağıtılmış platformu SQL, grafik, MongoDB, Cassandra ve tablo API'si hesapları için arka uç isteklerini günlüğe kaydetmek için bu seçeneği belirleyin. Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.
     * **Oturum MongoRequests**: MongoDB için Azure Cosmos DB API'si ile yapılandırılan Cosmos hesaplar sunulması için Azure Cosmos DB ön uç kullanıcı tarafından başlatılan istek oturumu için bu seçeneği belirleyin. Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.
     * **Ölçüm istekleri**: Ayrıntılı verileri depolamak için bu seçeneği [Azure ölçümleri](../azure-monitor/platform/metrics-supported.md). Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.
@@ -349,22 +351,22 @@ Azure Cosmos DB işlemi yapıldığını andan itibaren iki saat için tanılama
 
 
 <a id="#view-in-loganalytics"></a>
-## <a name="view-logs-in-log-analytics"></a>Log Analytics’te günlükleri görüntüleme
+## <a name="view-logs-in-azure-monitor-logs"></a>Görünüm Azure İzleyici günlüklerine kaydeder
 
-Seçtiyseniz **Log Analytics'e gönderme** seçeneği tanı, tanılama günlüğü etkinleştirildiğinde iki saat içinde kapsayıcınızı verileri Log Analytics'e iletilir. Günlüğe kaydetmeyi hemen sonra Log Analytics'in merkezinde baktığınızda, herhangi bir veri görmezsiniz. Yalnızca iki saat bekleyin ve yeniden deneyin. 
+Seçtiyseniz **Log Analytics'e gönderme** seçeneği tanı, tanılama günlüğü etkinleştirildiğinde iki saat içinde kapsayıcınızı verilerini Azure İzleyici günlüklerine iletilir. Günlüğe kaydetmeyi hemen sonra Azure İzleyici günlüklerine bakın, herhangi bir veri görmezsiniz. Yalnızca iki saat bekleyin ve yeniden deneyin. 
 
-Günlüklerinizi görüntülemek için önce denetleyin ve Log Analytics çalışma alanınızı yeni Log Analytics sorgu dili kullanmak için yükseltilmiş varsa bkz. Denetlemek için açın [Azure portalında](https://portal.azure.com)seçin **Log Analytics** üzerinde en solda, ardından çalışma alanı adı sonraki resimde gösterildiği gibi seçin. **Log Analytics çalışma alanı** sayfası görüntülenir:
+Günlüklerinizi görüntülemek için önce denetleyin ve Log Analytics çalışma alanınızı yeni Kusto sorgu dili kullanmak için yükseltilmiş varsa bkz. Denetlemek için açın [Azure portalı](https://portal.azure.com)seçin **Log Analytics çalışma alanları** üzerinde en solda, ardından çalışma alanı adı sonraki resimde gösterildiği gibi seçin. **Log Analytics çalışma alanı** sayfası görüntülenir:
 
-![Azure portalında log Analytics](./media/logging/azure-portal.png)
+![Azure portalında Azure izleme günlükleri](./media/logging/azure-portal.png)
 
 >[!NOTE]
 >OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.  
 
 Aşağıdaki iletiyi görürseniz **Log Analytics çalışma alanı** sayfasında, çalışma alanınız Henüz yükseltme yeni dil kullanmak üzere. Yeni sorgu diline yükseltme hakkında daha fazla bilgi için bkz. [yeni günlük araması için Azure Log Analytics çalışma alanınızı yükseltme](../log-analytics/log-analytics-log-search-upgrade.md). 
 
-![Log Analytics'e message yükseltme](./media/logging/upgrade-notification.png)
+![Azure İzleyici günlüklerine message yükseltme](./media/logging/upgrade-notification.png)
 
-Log Analytics'te tanılama verilerinizi görüntülemek için Aç **günlük araması** sayfasında sol menüden veya **Yönetim** sayfasında, aşağıdaki görüntüde gösterildiği gibi alanı:
+Azure İzleyici günlüklerine tanılama verilerinizi görüntülemek için Aç **günlük araması** sayfasında sol menüden veya **Yönetim** sayfasında, aşağıdaki görüntüde gösterildiği gibi alanı:
 
 ![Azure portalında günlük arama seçenekleri](./media/logging/log-analytics-open-log-search.png)
 
@@ -429,15 +431,15 @@ Her günlük araması tarafından döndürülen verinin anlamı hakkında bilgi 
     AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
     ```
 
-Yeni günlük araması dili kullanma hakkında daha fazla bilgi için bkz. [anlayın Log analytics'te günlük aramaları](../log-analytics/log-analytics-log-search-new.md). 
+Yeni günlük araması dili kullanma hakkında daha fazla bilgi için bkz. [anlayın günlük aramaları Azure İzleyici günlüklerine](../log-analytics/log-analytics-log-search-new.md). 
 
 ## <a id="interpret"></a>Günlüklerinizi yorumlama
 
-Azure depolama ve Log Analytics içinde depolanan tanılama verilerini benzer bir şema kullanır. 
+Azure depolama ve Azure İzleyici günlüklerine depolanan tanılama verilerini benzer bir şema kullanır. 
 
 Aşağıdaki tabloda, her günlük girişinin içeriğini açıklar.
 
-| Azure depolama alanı veya özelliği | Günlük analizi özelliği | Açıklama |
+| Azure depolama alanı veya özelliği | Azure İzleyici özelliği günlüğe kaydeder. | Açıklama |
 | --- | --- | --- |
 | **saat** | **TimeGenerated** | Tarih ve saat (UTC) işlemi oluştuğunda. |
 | **resourceId** | **Kaynak** | Azure Cosmos DB hesabı için Günlükleri etkinleştirildi.|
@@ -464,4 +466,4 @@ Aşağıdaki tabloda, her günlük girişinin içeriğini açıklar.
    - [Azure Event Hubs nedir?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Event Hubs kullanmaya başlayın](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Okuma [Azure Depolama'dan ölçümleri ve tanılama günlüklerini indirin](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
-- Okuma [anlayın Log analytics'te günlük aramaları](../log-analytics/log-analytics-log-search-new.md).
+- Okuma [anlayın günlük aramaları Azure İzleyici günlüklerine](../log-analytics/log-analytics-log-search-new.md).

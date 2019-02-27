@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 04b6ad25c1ecd10a9480dcbf3e2b4f75e114a6f9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331328"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890968"
 ---
 *Önbelleği hazırlanıyor*  
 Salt okunur konak önbelleği disk disk sınırdan daha yüksek IOPS sağlayabilir. Öncelikle bu en yüksek okuma performansı ana bilgisayar önbelleğe almak için bu disk önbelleği sıcak gerekir. Bu aracın Kıyaslama CacheReads birimde artıracak okuma IOs gerçekten ulaştığını önbellek ve diskin değil doğrudan sağlar. Önbellek isabet sayısı sonucu tek önbellekten ek IOPS disk etkin.
@@ -102,7 +102,7 @@ Iometer ekran görüntüleri için toplam IOPS ve aktarım hızı senaryoları t
 
 ### <a name="fio"></a>FIO
 
-FIO Linux vm'lerinde Kıyaslama depolama için popüler bir araçtır. Bu farklı GÇ boyutları, sıralı seçmek için esneklik veya rastgele okuma ve yazma. Çalışan iş parçacıkları veya belirtilen g/ç işlemleri gerçekleştirmek için işlemleri olarak çoğaltılır. Her iş parçacığı proje dosyalarını kullanarak gerçekleştirmelidir g/ç işlemleri türünü belirtebilirsiniz. Aşağıdaki örneklerde gösterildiği senaryo başına bir proje dosyası oluşturduk. Premium depolama alanında çalışan farklı iş yüklerini karşılaştırılmasıdır bu proje dosyalarındaki belirtimleri değiştirebilirsiniz. Örneklerde standart DS 14 sanal makine çalıştırma kullanıyoruz **Ubuntu**. Başında açıklanan aynı kurulumunda [bölümü değerlendirmesi](#Benchmarking) ve Kıyaslama testleri çalıştırmadan önce önbellek ısınıyor.
+FIO Linux vm'lerinde Kıyaslama depolama için popüler bir araçtır. Bu farklı GÇ boyutları, sıralı seçmek için esneklik veya rastgele okuma ve yazma. Çalışan iş parçacıkları veya belirtilen g/ç işlemleri gerçekleştirmek için işlemleri olarak çoğaltılır. Her iş parçacığı proje dosyalarını kullanarak gerçekleştirmelidir g/ç işlemleri türünü belirtebilirsiniz. Aşağıdaki örneklerde gösterildiği senaryo başına bir proje dosyası oluşturduk. Premium depolama alanında çalışan farklı iş yüklerini karşılaştırılmasıdır bu proje dosyalarındaki belirtimleri değiştirebilirsiniz. Örneklerde standart DS 14 sanal makine çalıştırma kullanıyoruz **Ubuntu**. Aynı Kurulumu Benchmarking bölümün başında açıklanan ve orta Gecikmeli Kıyaslama testleri çalıştırmadan önce önbelleği kullanın.
 
 Başlamadan önce [FIO indirme](https://github.com/axboe/fio) ve sanal makinenize yükleyin.
 

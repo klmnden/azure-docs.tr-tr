@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: fc8283d85cf7d516edd78f20c9a47d806fbb827b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 1fd472c452b476820414d51b8d13bce8a72dfb3d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328971"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874945"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS bot içinde C# ile Bot Framework 3.x ve Azure Web app botu
 
@@ -130,7 +130,7 @@ Açık **uygulama ayarları** ve düzenleme **LuisAppId** LUIS uygulamanızı uy
 ## <a name="build-the-bot"></a>Bot oluşturma
 Kod Düzenleyicisi'nde sağ `build.cmd` seçip **konsolundan çalıştırın**.
 
-![Web bot oluşturma ](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
+![Web bot oluşturma](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
 
 Kod görünümü, bir terminal penceresi yapının sonuçlarını ve ilerleme durumunu gösteren değiştirilir.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8295c149d513f89318aa63ddd7f4236013923203
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: f1e2b9dfc329e67d94fba998a01d593b992ba90f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434019"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886817"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Azure HDInsight - mimari en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -105,7 +105,7 @@ HDInsight Hive meta veri deposu en iyi yöntemlerden bazıları aşağıda veril
 - Bir HDInsight kümesi sürüm kümeleri farklı bir sürümü ile oluşturulan meta veri deposu paylaşmayın. Hive farklı sürümlerini farklı şemalar kullanın. Örneğin, bir meta veri deposu hem Hive 1.2 ve 2.1 Hive kümeleri ile paylaşılamaz.
 - Özel meta veri deposu düzenli olarak yedekleyin.
 - HDInsight kümesi ve meta veri deposu aynı bölgede bulundurun.
-- Performans ve kullanılabilirlik gibi Azure portal veya Azure Log Analytics, Azure SQL veritabanı izleme araçları kullanarak meta veri deposu izleyin.
+- Performans ve kullanılabilirlik, Azure portal veya Azure İzleyici günlüklerine gibi Azure SQL veritabanı izleme araçları kullanarak meta veri deposu izleyin.
 - Yürütme **ANALİZ tablo** tablolar ve sütunlar için istatistik oluşturmak için gerekli olarak komutu. Örneğin, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Farklı iş yükleri için en iyi uygulamalar

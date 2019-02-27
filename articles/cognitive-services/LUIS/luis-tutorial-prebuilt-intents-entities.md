@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 7c0559a1f96c1585e2032af1ebe1323817d8d881
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734515"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873823"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Öğretici: Ortak hedefleri ve varlıkları tanımlama
 
@@ -51,7 +51,7 @@ LUIS, ortak kullanıcı amaçları konusunda yardımcı olmak için önceden olu
 
 1. `Utilities` arayın. 
 
-    [ ![Arama kutusunda Utilities (Yardımcı Programlar) yazan önceden oluşturulmuş amaçlar iletişim kutusunun ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
+    [![Arama kutusuna yardımcı programları ile önceden oluşturulmuş hedefleri iletişim kutusunun ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
 1. Aşağıdaki amaçları ve **Done** (Bitti) öğesini seçin: 
 

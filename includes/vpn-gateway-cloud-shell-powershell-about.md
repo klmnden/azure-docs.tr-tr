@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ece75ff84c9f45e7284d7a5976f55f8a4ac4680f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: c8f45e4bb16c05c9f322dd04d2c80f6144744e64
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418101"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56884041"
 ---
-Bu makalede PowerShell cmdlet'lerini kullanır. Cmdlet'leri çalıştırmak için Azure Cloud Shell, kullanabileceğiniz ücretsiz bir etkileşimli Kabuk. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. **Kopyala**’ya tıklayarak kodu kopyalayın, Cloud Shell’e yapıştırın ve Enter tuşuna basarak çalıştırın. Cloud Shell’i başlatmanın birkaç yolu vardır:
+Bu makalede PowerShell cmdlet'lerini kullanır. Bu cmdlet'leri çalıştırmak için Azure Cloud Shell'i kullanabilirsiniz. Azure Cloud Shell, önceden ve hesabınızla kullanmak üzere yapılandırılmış, yaygın Azure Araçları ücretsiz bir etkileşimli kabuktur. Tıklamanız yeterli **kopyalama** kodu kopyalamak için kopyalayıp Cloud shell'e yapıştırın ve sonra çalıştırmak için enter tuşuna basın. Cloud Shell’i başlatmanın birkaç yolu vardır:
 
 |  |   |
 |-----------------------------------------------|---|
@@ -24,4 +24,6 @@ Bu makalede PowerShell cmdlet'lerini kullanır. Cmdlet'leri çalıştırmak içi
 | Azure portalının sağ üst kısmındaki menüde yer alan **Cloud Shell** düğmesine tıklayın. | [![Portalda Cloud Shell](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
 
-Azure Cloud Shell'i kullanmak istemiyorsanız, PowerShell'i yerel olarak bunun yerine yükleyebilirsiniz. PowerShell'i yerel olarak yükleyip kullanmayı seçerseniz, en yeni özelliklerin işlevselliğine sahip olmak için Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yüklediğinizden emin olun. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
+**PowerShell'i yerel olarak çalıştırma**
+
+Ayrıca, yükleyin ve Azure PowerShell cmdlet'lerini, bilgisayarınızda yerel olarak çalıştırın. PowerShell cmdlet'leri sık sık güncelleştirilir. En son sürümünü çalıştırmıyorsanız, yönergelerde belirtilen değerler başarısız olabilir. Yerel olarak çalışan PowerShell sürümünü bulmak için kullanın `Get-Module -ListAvailable Az` cmdlet'i. Yüklemek veya güncelleştirmek için bkz: [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps).

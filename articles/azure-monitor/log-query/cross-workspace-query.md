@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 3c8c45d217a2ce03597ae5d472d977e3f0a195f7
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: d69ddcd44fd947f3d1dc61ac960e7b55258c163e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806343"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872021"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Azure İzleyici'de kaynaklar arası günlük sorguları gerçekleştirme  
 
@@ -30,7 +30,7 @@ Artık yalnızca birden fazla Log Analytics çalışma alanları, aynı zamanda 
 
 * 100'e, tek bir sorguda dahil edebileceğiniz Application Insights kaynağı sayısı sınırlıdır.
 * Kaynaklar arası sorgu görünümü Tasarımcısı'nda desteklenmiyor. Log analytics'te sorgu yazar ve Azure panosuna sabitleyin ve [günlük aramasını görselleştirme](../../azure-monitor/learn/tutorial-logs-dashboards.md#visualize-a-log-search). 
-* [Kaynaklar arası sorgu](../log-query/cross-workspace-query.md) günlüğünde uyarı desteklenen yeni [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Varsayılan olarak, Azure İzleyici kullanır [eski Log Analytics uyarı API](../platform/api-alerts.md) gelen geçiş yapmadığınız sürece, yeni günlük uyarı kuralları Azure portalından oluşturmak için [eski günlük uyarıları API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Anahtardan sonra yeni API, Azure portalında yeni uyarı kuralları için varsayılan olur ve kaynaklar arası sorgu günlük uyarı kuralları oluşturmanıza olanak tanır. Oluşturabileceğiniz [kaynaklar arası sorgu](../log-query/cross-workspace-query.md) günlük uyarısı kuralları kullanarak geçiş yapmaya gerek olmadan [scheduledQueryRules API için ARM şablonu](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – ancak yine de bu uyarı kuralı yönetilebilir [ API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) ve Azure Portal'da değil.
+* Kaynaklar arası sorgu günlüğü uyarıları yeni desteklenen [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Varsayılan olarak, Azure İzleyici kullanır [eski Log Analytics uyarı API](../platform/api-alerts.md) gelen geçiş yapmadığınız sürece, yeni günlük uyarı kuralları Azure portalından oluşturmak için [eski günlük uyarıları API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Anahtardan sonra yeni API, Azure portalında yeni uyarı kuralları için varsayılan olur ve kaynaklar arası sorgu günlük uyarı kuralları oluşturmanıza olanak tanır. Kullanarak anahtarı yapmadan kaynaklar arası sorgu günlüğü uyarı kuralları oluşturabilirsiniz [scheduledQueryRules API için ARM şablonu](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – ancak yine de bu uyarı kuralı yönetilebilir [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) ve Azure Portal'da değil.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Application ınsights ve Log Analytics çalışma alanları arasında sorgulama

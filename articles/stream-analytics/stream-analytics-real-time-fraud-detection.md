@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6433d130da108ce7bd0b6f8b4093161043c32645
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5317eb83552b5ea15b2d709f61b456a7a508e9ba
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733155"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876186"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
 
@@ -68,7 +68,7 @@ Bu yordam, önce bir olay hub'ı ad alanı oluşturun ve ardından bir olay hub'
 
 5. Yeni ad alanına tıklayın ve ad alanı bölmesinden **olay hub'ı**.
 
-   ![Yeni bir olay hub'ı oluşturmak için olay Hub'ı Ekle düğmesi ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+   ![Yeni bir olay hub'ı oluşturmak için olay Hub'ı Ekle düğmesi](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
 6. Yeni olay hub'ı ad `asa-eh-frauddetection-demo`. Farklı bir ad kullanabilirsiniz. Bunu yaparsanız, adı daha sonra ihtiyacınız olduğundan, not edin. Olay hub'ı için diğer seçenekleri şu anda ayarlamanız gerekmez.
 

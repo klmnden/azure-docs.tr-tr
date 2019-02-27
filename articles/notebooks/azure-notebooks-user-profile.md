@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 0797a8a2d5633a30dcb2099ea475e4daae026686
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854182"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874044"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Azure not defterleri için profil ve kullanıcı kimliği
 
@@ -46,7 +46,7 @@ A **yapılandırma kullanıcı kimliği** komutu, geçici kullanıcı adının y
 
 Ayrıca, kullanıcı Kimliğinizi herhangi bir zamanda profil sayfanızdan değiştirebilirsiniz.
 
-Bir kullanıcı kimliği, en az dört harfler, sayılar ve kısa çizgi oluşmalıdır. Başka bir karaktere izin verilir ve kullanıcı kimliği başlamak, kısa çizgi ile bitmelidir veya bir satır birden çok kısa çizgi kullanın.
+Bir kullanıcı kimliği dört ve on altı harf, rakam ve kısa çizgi arasında oluşan gerekir. Başka bir karaktere izin verilir ve kullanıcı kimliği başlamak, kısa çizgi ile bitmelidir veya bir satır birden çok kısa çizgi kullanın. Tüm Azure not defterleri hesaplarda kullanıcı kimliklerinin benzersiz olduğu için iletiyi görebilirsiniz, "Kullanıcı kimliği zaten kullanılıyor." (Microsoft ticari marka bir kullanıcı kimliği kullanmayı denerseniz iletisi de görünür) Bu durumlarda, farklı bir kullanıcı kimliği seçin
 
 > [!Important]
 > Kimliğinizi değiştirerek önceki ID'nizi kullanarak paylaşılan herhangi bir URL geçersiz kılar Bağlantıları düzeltin için geri önceki Kimliğinize Kimliğinizi değiştirebilirsiniz. Ancak, başka bir kullanıcı için kullanılmayan bir talep olası sırada kimliği.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba1e7d7f9226b3ca42d4117be33b9c236f0557b0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164031"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867329"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack yönetim temel bilgileri
 Azure Stack Yönetim için yeni bilmeniz gereken birkaç şey vardır. Bu makalede, Azure Stack operatörü olarak sizin rolünüze genel bir bakış ve hızlı bir şekilde üretken olmak için bunları kullanıcılarınıza söylemeniz gerekenler sağlar.
@@ -119,7 +119,7 @@ Bilgiler Bu makaleler, bir Azure hizmeti ve Azure Stack arasındaki farklar öze
 
 Bir kullanıcının Geliştirme Seti barındırmak için Uzak Masaüstü erişimi yoksa, Azure Stack erişebilmeniz için önce bir geliştirme seti ortamında, sanal özel ağ (VPN) bağlantısı yapılandırmanız gerekir. Bkz: [Azure Stack'e bağlanma](azure-stack-connect-azure-stack.md). 
 
-Kullanıcılarınızın kattığını bilmek isteyecektir nasıl [kullanıcı portalı ](user/azure-stack-use-portal.md) veya PowerShell üzerinden bağlanma. Tümleşik sistemleri ortamında dağıtım Kullanıcı Portalı adresi değişir. Kullanıcılarınızın doğru URL ile sağlamanız gerekir.
+Kullanıcılarınızın kattığını bilmek isteyecektir nasıl [kullanıcı portalı](user/azure-stack-use-portal.md) veya PowerShell üzerinden bağlanma. Tümleşik sistemleri ortamında dağıtım Kullanıcı Portalı adresi değişir. Kullanıcılarınızın doğru URL ile sağlamanız gerekir.
 
 PowerShell kullanarak, kullanıcıların Hizmetleri kullanabilmeniz için önce kaynak sağlayıcılarını kaydetme gerekebilir. (Bir kaynak sağlayıcısı, bir hizmet yönetir. For example, ağ kaynak sağlayıcısı sanal ağlar, ağ arabirimleri ve yük Dengeleyiciler gibi kaynakları yönetir.) Bunlar gerekir [yükleme](user/azure-stack-powershell-install.md) PowerShell [indirme](user/azure-stack-powershell-download.md) ek modüller ve [yapılandırma](user/azure-stack-powershell-configure-user.md) (kaynak Sağlayıcısı kaydı içeren) PowerShell.
 

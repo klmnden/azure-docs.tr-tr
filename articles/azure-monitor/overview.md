@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 56542ef116656bff979e27dfc2ddd5e82056c452
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750150"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874911"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -132,12 +132,10 @@ Genellikle, Azure İzleyici diğer sistemlerle tümleştirmek için ve izleme ve
 ### <a name="event-hub"></a>Olay Hub'ı
 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) , dönüştürme ve herhangi bir gerçek zamanlı analiz sağlayıcısı veya toplu işleme/depolama bağdaştırıcısı kullanarak verileri depolama bir akış platformu ve olay alma hizmetidir. Event Hubs kullanan [Azure İzleyici, veri akışı](platform/stream-monitoring-data-event-hubs.md) ortak SIEM ve izleme araçları için.
 
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ### <a name="logic-apps"></a>Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) , görevleri ve farklı sistemlerde ve hizmetlerde ile tümleştirilen iş akışlarını kullanarak iş süreçlerini otomatik hale getirmenizi sağlayan bir hizmettir. Etkinlikler kullanılabilir okuma ve çeşitli diğer sistemleri ile tümleştirme iş akışları oluşturmanıza olanak sağlayan Azure İzleyici'de, ölçüm ve günlükleri yazma.
 
-![Logic App](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 Birden çok API'ları okuyup ölçüm ve günlükleri için ve Azure İzleyici'den oluşturulan uyarılar erişmenin yanı sıra kullanılabilir. Ayrıca, yapılandırabilir ve uyarılar almak. Bu, Azure İzleyici ile tümleştirilebilen özel çözümler oluşturmak için temel olarak sınırsız olasılıklar sağlar.

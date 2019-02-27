@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 97c7af9eb86b1c2e904e2253933b2b01c9e38cf5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a6ebfc86a2489910d23faa96550f34cc979c0435
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729345"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875322"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Event Hubs mesajlaşma özel durumları
 
@@ -45,7 +45,7 @@ Aşağıdaki tabloda, Mesajlaşma özel durum türlerini ve nedenler ve notları
 | [ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[Üretiliyor](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) | Yöntemine sağlanan bir veya daha fazla bağımsız değişken geçersiz. Sağlanan URI [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) veya [Oluştur](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) yolu segment(s) içerir. Sağlanan URI düzeni [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) veya [Oluştur](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) geçersiz. Özellik değeri, 32 KB'den daha büyük. | Çağıran kod denetleyin ve bağımsız değişkenlerin doğru olduğundan emin olun. | Yeniden deneme yardımcı olmaz. |
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | İşlemle ilişkili varlık yok veya silinmiş olabilir. | Varlığın mevcut olduğundan emin olun. | Yeniden deneme yardımcı olmaz. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | İstemci, olay hub'ına bağlantı kuramıyor. |Sağlanan ana bilgisayar adının doğru olduğundan ve konağın erişilebilir olduğundan emin olun. | Aralıklı bağlantı sorunu yoksa, yeniden deneme yardımcı olabilir. |
-| [Microsoft.ServiceBus.Messaging ServerBusyException ](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | Hizmet şu anda isteğinizi mümkün değil. | İstemci bir süre bekleyin. ardından işlemi yeniden deneyin. <br /> Bkz: [ServerBusyException](#serverbusyexception). | İstemci, belirli bir süre sonra yeniden deneyebilir. Farklı bir özel durum yeniden oluşur, o özel durumu yeniden deneme davranışını kontrol edin. |
+| [Microsoft.ServiceBus.Messaging ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | Hizmet şu anda isteğinizi mümkün değil. | İstemci bir süre bekleyin. ardından işlemi yeniden deneyin. <br /> Bkz: [ServerBusyException](#serverbusyexception). | İstemci, belirli bir süre sonra yeniden deneyebilir. Farklı bir özel durum yeniden oluşur, o özel durumu yeniden deneme davranışını kontrol edin. |
 | [Istransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Genel, aşağıdaki durumlarda oluşturulan özel durum iletileri: Oluşturmak için bir girişimde bir [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) adınızı veya ait farklı bir varlık türü için (örneğin, bir konu) yolu. 1 MB'tan daha büyük bir ileti göndermek için bir deneme yapılır. Sunucu veya hizmet isteğinin işlenmesi sırasında bir hatayla karşılaştı. Özel durum iletisi ayrıntıları için bkz. Bu durum genellikle geçici bir istisnadır. | Kodunu kontrol edin ve yalnızca serileştirilebilir nesneler ileti gövdesi için kullanıldığından emin olun (veya özel bir serileştirici kullanın). Özelliklerin desteklenen değer türleri ve yalnızca desteklenen kullanım türleri için belgelere bakın. Denetleme [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) özelliği. Eğer öyleyse **true**, işlemi yeniden deneyin. | Yeniden deneme davranışı tanımsızdır ve yardımcı. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) | Bu hizmet ad alanındaki başka bir varlık tarafından zaten kullanılan bir ada sahip bir varlık oluşturmaya çalışır. | Var olan bir varlığa silin veya oluşturulacak varlığın farklı bir ad seçin. | Yeniden deneme yardımcı olmaz. |
 | [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) | Mesajlaşma varlığı, izin verilen boyut üst sınırına. Bu özel durumun (olan 5) sayısı alıcılar bir tüketici her grubu düzeyinde açılan oluşabilir. | Alanı varlık içinde varlık veya onun alt iletilerini alma oluşturun. <br /> Bkz: [QuotaExceededException](#quotaexceededexception) | İletiler sırada kaldırdıysanız, yeniden deneme yardımcı olabilir. |

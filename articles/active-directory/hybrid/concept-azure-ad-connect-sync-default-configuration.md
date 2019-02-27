@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae428f18a2b927f42716a1c00b55790fe73d81a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 06f51f56de29d5e598ea74b39352d3c15bf7b375
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173411"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880640"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect eşitleme: Varsayılan yapılandırmayı anlama
 Bu makalede, out-of-box Yapılandırması kuralları açıklanır. Bu belgeleri, kuralları ve bu kurallar yapılandırmanın nasıl etkiler. Ayrıca, Azure AD Connect eşitleme yapılandırmasını varsayılan rehberlik sağlar. Okuyucu adlı bildirim temelli sağlama, yapılandırma modeli, gerçek hayatta kullanılan örnekte nasıl çalıştığını anladığını hedeftir. Bu makalede, zaten yüklediyseniz ve Azure AD Connect eşitlemeyi Yükleme Sihirbazı'nı kullanarak yapılandırma varsayılır.
@@ -151,7 +151,7 @@ Eşitleme kuralı dört yapılandırma bölümü vardır: Açıklama, Scoping fi
 #### <a name="description"></a>Açıklama
 İlk bölüm, bir ad ve açıklama gibi temel bilgiler sağlar.
 
-![Açıklama sekmesindeki eşitleme kuralı Düzenleyicisi ](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
+![Açıklama sekmesindeki eşitleme kuralı Düzenleyicisi](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
 Ayrıca bağlı hangi sistem bu kural, ilgili bilgiler, geçerli bağlı sistem türü ve meta veri deposu nesne türü nesnesi bulabilirsiniz. Kaynak nesne türü bir kullanıcı, iNetOrgPerson veya kişi olduğunda meta veri deposu nesne türü her zaman bakılmaksızın kişidir. Genel bir tür oluşmasını meta veri deposu nesne türü hiçbir zaman değiştirmeniz gerekir. Bağlantı türü, birleştirme, StickyJoin veya sağlama için ayarlanabilir. Bu ayar, birleştirme kuralları bölümünde ile birlikte çalışır ve daha sonra ele alınmıştır.
 
@@ -160,18 +160,18 @@ Ayrıca, bu eşitleme kuralı için parola eşitleme kullanıldığını görebi
 #### <a name="scoping-filter"></a>Kapsam belirleme filtresi
 Kapsam belirleme filtresi bölümü, bir eşitleme kuralının uygulanacağı yapılandırmak için kullanılır. Kapsam, yalnızca uygulanması için etkin kullanıcıları Baktığınız eşitleme kuralının adını belirtir. bu yana yapılandırılır böylece AD özniteliği **userAccountControl** değil 2 bit ayarlamış olmanız gerekir. Eşitleme altyapısı, bir kullanıcı, AD'de bulduğunda, bu eşitleme uygular. kural **userAccountControl** ondalık değeri 512 (etkin normal kullanıcı) ayarlanır. Kullanıcı sahip olduğunda kuralı uygulanmaz **userAccountControl** 514 (devre dışı bırakılmış normal kullanıcı) olarak ayarlayın.
 
-![Kapsam sekmesinde eşitleme kuralı Düzenleyicisi ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Kapsam sekmesinde eşitleme kuralı Düzenleyicisi](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 Kapsam belirleme filtresi, grupları ve iç içe yan tümceleri vardır. Bir eşitleme kuralı uygulamak bir grup içindeki tüm koşullar karşılanmalıdır. Birden çok grup tanımlandığında, en az bir grup kuralı uygulamak karşılanması gereken. Diğer bir deyişle, mantıksal OR grupları arasında mantıksal değerlendirilir ve içinde bir grup değerlendirilir. Bu yapılandırmanın bir örneği giden eşitleme kuralı bulunabilir **Out AAD için – gruba katılma**. Birden çok eşitleme filtre grubu vardır, örneğin bir güvenlik grupları (`securityEnabled EQUAL True`) dağıtım grupları için ve biri (`securityEnabled EQUAL False`).
 
-![Kapsam sekmesinde eşitleme kuralı Düzenleyicisi ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
+![Kapsam sekmesinde eşitleme kuralı Düzenleyicisi](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
 Bu kural grupları Azure AD ile sağlanacak tanımlamak için kullanılır. Dağıtım grupları Azure AD ile eşitlenmesi için etkin bir posta olmalıdır, ancak güvenlik grupları için bir e-posta gerekli değildir.
 
 #### <a name="join-rules"></a>Kural birleştirme
 Üçüncü bölüm nesneleri bağlayıcı alanında meta veri nesnelerine nasıl ilişki kuracağını yapılandırmak için kullanılır. Kural, baktığı, daha önce herhangi bir yapılandırma kuralları, katılmak için bunun yerine bakmak için seçeceğiz yok **içinde ad – kullanıcı katılın**.
 
-![Kurallar sekmesi eşitleme kuralı Düzenleyicisi'nde katılın ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![Kurallar sekmesi eşitleme kuralı Düzenleyicisi'nde katılın](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
 Birleştirme kuralı içeriğini Yükleme Sihirbazı'nda eşleşen seçeneğe göre değişir. Bir gelen kuralı için bir nesne kaynak bağlayıcı alanında değerlendirme başlar ve her gruba katılma kuralları sırayla değerlendirilir. Meta veri birleştirme kuralları kullanarak tam olarak bir nesne ile eşleştirilecek kaynak nesnesi değerlendirildiğinde nesneleri birleştirilir. Tüm kuralları değerlendirilir ve eşleşme açıklama sayfasında bağlantı türü kullanılır. Bu yapılandırma ayarlanırsa **sağlama**, hedef, meta veri yeni bir nesne oluşturulur. Yeni bir nesne için meta veri deposu olarak da bilinen olan sağlama **proje** meta veri deposu için bir nesne.
 
@@ -184,7 +184,7 @@ Resim yukarıdaki bakarsanız, kural katılmaya çalışıyor görebilirsiniz **
 #### <a name="transformations"></a>Dönüşümler
 Dönüştürme bölüm nesneleri birleştirilir ve kapsam filtresi sağlanırsa, hedef nesneye uygulanan tüm öznitelik akışları tanımlar. Geri giderek **içinde ad – kullanıcı AccountEnabled** eşitleme kuralı, aşağıdaki dönüştürmeleri bulun:
 
-![Eşitleme kuralı Düzenleyicisi dönüşümleri sekmesi ](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
+![Eşitleme kuralı Düzenleyicisi dönüşümleri sekmesi](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
 Bağlamda bir hesap-kaynak orman dağıtımı bu configuration koymak, etkinleştirilmiş bir hesabı hesap ormanı ve devre dışı bırakılan hesabın kaynak ormanda Exchange ve Lync ayarlarla bulmak için bekleniyor. Oturum açma için gerekli öznitelikler Baktığınız eşitleme kuralı içerir ve bu öznitelikler ormandan akışını etkinleştirilmiş bir hesabı olduğu. Bu öznitelik akışları birlikte bir eşitleme kuralı yerleştirilir.
 

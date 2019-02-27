@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac25473ecce86c2721eda9ede01b6d299c4b727b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31f10ba0c04ccbd9f52b95c43fea7cc551fe64ee
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179340"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888024"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için GitHub'ı yapılandırma
 
@@ -33,11 +33,11 @@ Bu öğreticinin amacı, GitHub ve Azure AD sağlama ve sağlamasını GitHub Az
 Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
 *   Bir Azure Active directory kiracısı
-*   Bir GitHub kiracıyla [iş bulut planı](https://help.github.com/articles/organization-billing-plans/#github-business-cloud) ya da daha iyi etkin 
-*   GitHub yönetici izinlerine sahip bir kullanıcı hesabı 
+*   Oluşturulan bir GitHub kuruluşuna [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), gerektiren [GitHub Enterprise faturalandırma planı](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+*   GitHub kuruluş yönetici izinlerine sahip bir kullanıcı hesabı
 
 > [!NOTE]
-> Azure AD tümleştirmesi sağlama kullanır [GitHub SCIM API](https://developer.github.com/v3/scim/), daha iyi veya GitHub takımlar iş plan için kullanılabilir.
+> Azure AD tümleştirmesi sağlama dayanan [GitHub SCIM API](https://developer.github.com/v3/scim/), kullanılabilir olduğu [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) müşteriler [GitHub Enterprise fatura planı](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
 
 ## <a name="assigning-users-to-github"></a>GitHub için kullanıcı atama
 

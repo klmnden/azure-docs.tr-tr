@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c34b3fa1597866e4f722fccee84f83f4caab6bfb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231147"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876305"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream analytics'te gerçek zamanlı Twitter yaklaşım analizi
 
@@ -58,7 +58,7 @@ Bu yordam, önce bir olay hub'ı ad alanı oluşturun ve ardından bir olay hub'
 
 5. Yeni ad alanına tıklayın ve ad alanı dikey penceresinde  **+ &nbsp;olay hub'ı**. 
 
-    ![Yeni bir olay hub'ı oluşturmak için olay Hub'ı Ekle düğmesi ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![Yeni bir olay hub'ı oluşturmak için olay Hub'ı Ekle düğmesi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
 6. Yeni olay hub'ı ad `socialtwitter-eh`. Farklı bir ad kullanabilirsiniz. Bunu yaparsanız, adı daha sonra ihtiyacınız olduğundan, not edin. Diğer seçenekleri için olay hub'ı ayarlamanız gerekmez.
 

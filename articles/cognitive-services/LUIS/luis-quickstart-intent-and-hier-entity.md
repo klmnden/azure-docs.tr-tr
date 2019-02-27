@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 455090d9023b234742e0c42380536c95d7eb11a5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c17a74c81d9c9d2ac3f585ab17f0b7d2acc628f6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738666"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873933"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Öğretici: Bir utterance bağlamsal ilgili verileri ayıklayın
 
@@ -74,7 +74,7 @@ Hiyerarşik varlık olduğundan bu veri türü için uygun olan iki parça veril
     |San Diego Bellevue doğru Steve Standish aktarımı |
     |Kansas Şehir ve shift Etikan Thompson Şikago'ya yükseltme|
 
-    [ ![MoveEmployee amacındaki yeni konuşmaları gösteren LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+    [![MoveEmployee amacı, yeni Konuşma ile LUIS ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
 ## <a name="create-a-location-entity"></a>Konum varlığı oluşturma
 LUIS uygulamasının konuşmalardaki kaynak ve hedef konumları etiketleyerek konumun ne olduğunu anlaması gerekir. Konuşmayı belirteç (ham) görünümünde görmek isterseniz konuşmaların üzerinde çubukta yer alan **Entities View** (Varlık Görünümü) denetimini seçin. Anahtarı açık duruma getirdikten sonra denetim **Tokens View** (Belirteç Görünümü) olarak etiketlenir.

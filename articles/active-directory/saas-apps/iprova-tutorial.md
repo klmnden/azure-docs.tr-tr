@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6576366df214304bb30c46fa65a4bc8bc783cedf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c65f8e023e087c3ca49e0d53f5760fbcd9a5f4d9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182111"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869216"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Öğretici: İProva ile Azure Active Directory Tümleştirme
 
@@ -286,7 +286,7 @@ Erişim Paneli'nde iProva kutucuğu seçtiğinizde, otomatik olarak SSO'yu ayarl
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [iProva - olduğu saml2 tabanlı çoklu oturum açmayı yapılandırma](https://webshare.iprova.nl/0wqwm45yn09f5poh/Document.aspx)

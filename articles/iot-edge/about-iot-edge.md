@@ -7,24 +7,24 @@ ms.reviewer: chipalost
 ms.service: iot-edge
 services: iot-edge
 ms.topic: overview
-ms.date: 06/12/2018
+ms.date: 02/25/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 6bd72fd91190c9ed54b4dfd3e7b1e957c375bd4c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2d1e4ce719311a28fb4b2075864f8f411cd2713d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230569"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877463"
 ---
 # <a name="what-is-azure-iot-edge"></a>Azure IoT Edge nedir?
 
-Azure IoT Edge bulut analizini ve özel iş mantığını cihazlara taşıyarak kuruluşunuzun veri yönetimi yerine iş öngörülerine odaklanmasını sağlar. IoT yazılımınızı yapılandırarak, bunu standart kapsayıcılar üzerinden cihazlara dağıtarak ve tümünü buluttan izleyerek çözümünüzün gerçek anlamda ölçeklendirilmesine olanak sağlayın.
+Azure IoT Edge bulut analizini ve özel iş mantığını cihazlara taşıyarak kuruluşunuzun veri yönetimi yerine iş öngörülerine odaklanmasını sağlar. IOT yazılımınızı yapılandırarak, bunu standart kapsayıcılar ve tümünü buluttan izleyerek üzerinden cihazlara dağıtın.
 
 >[!NOTE]
 >Azure IoT Edge, IoT Hub’ın ücretsiz ve standart katmanında kullanılabilir. Ücretsiz katman yalnızca test etme ve değerlendirme içindir. Temel ve standart katmanlar hakkında daha fazla bilgi için bkz. [Doğru IoT Hub katmanını seçme](../iot-hub/iot-hub-scaling.md).
 
-Analizler IoT çözümlerinin iş değerini artırır, aman tüm analizlerin bulutta olması gerekmez. Bir cihazın acil durumlara mümkün olduğunca hızlı tepki vermesini istiyorsanız, cihazın kendisinde anomali algılama gerçekleştirebilirsiniz. Benzer şekilde, bant genişliği maliyetlerini azaltmak ve terabaytlarca ham veri aktarımını önlemek istiyorsanız, veri temizleme ve toplama işlemlerini yerel olarak yapabilirsiniz. Sonra da öngörüleri buluta gönderirsiniz. 
+Analizler IoT çözümlerinin iş değerini artırır, aman tüm analizlerin bulutta olması gerekmez. Bir cihazın acil durumlara mümkün olduğunca hızlı tepki vermesini istiyorsanız, cihazın kendisinde anomali algılama gerçekleştirebilirsiniz. Benzer şekilde, bant genişliği maliyetlerini azaltmak ve terabaytlarca ham veri aktarımını önlemek istiyorsanız, veri temizleme ve toplama işlemlerini yerel olarak yapabilirsiniz. Daha sonra ınsights analiz işlenmek üzere buluta gönderin. 
 
 Azure IoT Edge üç bileşenden oluşur:
 * IOT Edge modülleri, Azure hizmetlerini, üçüncü taraf hizmetleri veya kendi kodunuzu çalıştıran kapsayıcılardır. Modüller, IOT Edge cihazlarına dağıtılır ve bu cihazlarda yerel olarak yürütün. 
@@ -33,11 +33,11 @@ Azure IoT Edge üç bileşenden oluşur:
 
 ## <a name="iot-edge-modules"></a>IoT Edge modülleri
 
-IoT Edge modülleri, şu anda Docker uyumlu kapsayıcılar olarak uygulanan ve iş mantığınızı uçta çalıştıran yürütme birimleridir. Birbiriyle iletişim kuracak birden çok modül yapılandırabilir ve böylelikle veri işleme için bir işlem hattı oluşturabilirsiniz. Çevrimdışı ve uçta öngörüler sağlayan kendi modüllerinizi geliştirebilir veya bazı Azure hizmetlerini modüller halinde paketleyebilirsiniz. 
+IOT Edge modülleri olarak iş mantığınızı uçta çalıştıran Docker uyumlu kapsayıcılar olarak uygulanan yürütme birimleridir. Birbiriyle iletişim kuracak birden çok modül yapılandırabilir ve böylelikle veri işleme için bir işlem hattı oluşturabilirsiniz. Çevrimdışı ve uçta öngörüler sağlayan kendi modüllerinizi geliştirebilir veya bazı Azure hizmetlerini modüller halinde paketleyebilirsiniz. 
 
 ### <a name="artificial-intelligence-on-the-edge"></a>Uç cihazlarında yapay zeka
 
-Azure IOT Edge, şirket içinde yazmadan karmaşık olay işleme, makine öğrenme, resim tanıma ve diğer değerli yapay ZEKA dağıtmanıza olanak tanır. Azure işlevleri, Azure Stream Analytics gibi Azure Hizmetleri ve Azure Machine Learning tüm şirket içi Azure IOT Edge üzerinden çalıştırılabilir, ancak Azure işlevleriyle sınırlı değildir. Herkes AI modülleri oluşturabilir ve bunları topluluğun kullanımına sunabilir. 
+Azure IOT Edge, şirket içinde yazmadan karmaşık olay işleme, makine öğrenme, resim tanıma ve diğer değerli yapay ZEKA dağıtmanıza olanak tanır. Azure işlevleri, Azure Stream Analytics gibi Azure Hizmetleri ve Azure Machine Learning tüm şirket içi Azure IOT Edge üzerinden çalıştırılabilir, ancak Azure işlevleriyle sınırlı değildir. Herkes AI modülleri oluşturabilir ve bunları topluluğun kullanımına Azure Marketi aracılığıyla sunma. 
 
 ### <a name="bring-your-own-code"></a>Kendi kodunuzu getirin
 
@@ -55,7 +55,7 @@ Azure IoT Edge çalışma zamanı, IoT Edge cihazlarında özel mantığa ve bul
 
 ![IoT Edge çalışma zamanı öngörüleri ve raporları IoT Hub'ına gönderir](./media/about-iot-edge/runtime.png)
 
-Azure IOT Edge cihazı nasıl kullandığınıza size bağlıdır. Bu dağıtım modeli seçeneklerden yalnızca biridir ancak çalışma zamanı çoğunlukla birden çok diğer şirket içi yapay ZEKA ağ geçitleri için hangi verileri toplar ve işler dağıtmak için kullanılır. Yaprak cihazlar da, bir ağ geçidine mi yoksa doğrudan buluta mı bağlı olduklarına bakılmaksızın Azure IoT Edge cihazları olabilir.
+Azure IOT Edge cihazı nasıl kullandığınıza size bağlıdır. Çalışma zamanı, genellikle bu dağıtım modeli seçeneklerden yalnızca biridir ancak diğer hangi verileri toplar ve işler cihazlar, şirket içinde ağ geçitlerine AI dağıtmak için kullanılır. Yaprak cihazlar da, bir ağ geçidine mi yoksa doğrudan buluta mı bağlı olduklarına bakılmaksızın Azure IoT Edge cihazları olabilir.
 
 Azure IoT Edge çalışma zamanı çok geniş bir IoT cihazları kümesinde çalıştırılarak çalışma zamanının çok çeşitli yollarla kullanılabilmesi sağlanır. Bu, hem Linux hem de Windows işletim sistemlerini destekler ve donanım ayrıntılarını çıkarır. Bir cihaz, kadar veri işlenmiyor veya kaynak kullanımı yoğun iş yüklerini çalıştırmak için bir industrialized sunucusu kullanmak daha küçük bir Raspberry Pi 3'ten kullanın.
 
@@ -74,5 +74,3 @@ Azure IoT Edge, Azure IoT çözüm hızlandırıcıları ile rahatça tümleşti
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Bir sanal cihaza IoT Edge dağıtımı yaparak](quickstart.md) bu kavramları deneyin.
-
- 
