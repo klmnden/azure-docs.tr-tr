@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: ebeed6d2a52937a6e80dfe28574ad854643fa7f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119241"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961423"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure dijital İkizlerini kullanıcı tanımlı işlevlerde hata ayıklama
 
@@ -29,10 +29,10 @@ Azure dijital İkizlerini örneğinizin içinde gerçekleşen tüm sorunlarını
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Örneğiniz için log analytics etkinleştir
 
-Günlükleri ve ölçümleri Azure dijital İkizlerini örneğinizin Azure İzleyicisi'nde görüntülenir. Bu belge, oluşturduğunuz varsayar bir [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) çalışma alanını kullanarak [Azure portalı](../azure-monitor/learn/quick-create-workspace.md)temellidir [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), aracılığıyla veya [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+Günlükleri ve ölçümleri Azure dijital İkizlerini örneğinizin Azure İzleyicisi'nde görüntülenir. Bu belge, oluşturduğunuz varsayar bir [Azure İzleyici günlükleri](../azure-monitor/log-query/log-query-overview.md) çalışma alanını kullanarak [Azure portalı](../azure-monitor/learn/quick-create-workspace.md)temellidir [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), aracılığıyla veya [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> 5 dakikalık bir gecikmeyle olayları ilk kez Azure Log Analytics'e gönderirken karşılaşabilirsiniz.
+> 5 dakikalık bir gecikmeyle olayları ilk kez Azure İzleyici günlüklerine gönderirken karşılaşabilirsiniz.
 
 İzleme ve günlüğe kaydetme dijital İkizlerini Azure kaynakları için yapılandırmak için okuma [izleme ve günlüğe kaydetme yapılandırma](./how-to-configure-monitoring.md).
 
@@ -43,11 +43,11 @@ Makaleyi okuyun [toplamak ve Azure kaynaklarınızdan günlük verilerini kullan
 
 ### <a name="trace-sensor-telemetry"></a>Telemetri algılayıcı izleme
 
-Telemetri algılayıcı izleme, tanılama ayarları Azure dijital İkizlerini Örneğiniz için etkinleştirildiğini doğrulayın. Ardından, istenen tüm günlük kategorileri seçildiğinden emin olun. Son olarak, Azure Log Analytics için istenen günlükleri gönderildiğini doğrulayın.
+Telemetri algılayıcı izleme, tanılama ayarları Azure dijital İkizlerini Örneğiniz için etkinleştirildiğini doğrulayın. Ardından, istenen tüm günlük kategorileri seçildiğinden emin olun. Son olarak, Azure İzleyici günlüklerine istenen günlükleri gönderildiğini doğrulayın.
 
 Algılayıcı telemetri iletileriyle ilgili günlüklerinin için eşleştirilecek gönderilen olay verileri üzerinde bir bağıntı kimliği belirtebilirsiniz. Bunu yapmak için ayarlanmış `x-ms-client-request-id` özelliğini bir GUID.
 
-Telemetri gönderdikten sonra sorgulamak için günlükleri kullanarak Azure Log Analytics'i açın bağıntı kimliği:
+Sorgu kümesi kullanarak günlükleri log analytics'e açmak telemetri gönderdikten sonra bağıntı kimliği:
 
 ```Kusto
 AzureDiagnostics
@@ -58,7 +58,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | Olay verileri üzerinde belirtilen bağıntı kimliği |
 
-Kullanıcı tanımlı işlev için günlüğe yazmayı etkinleştirirseniz, bu günlükleri kategori Azure Log Analytics örneğinizle görünür `UserDefinedFunction`. Bunları almak için Azure Log Analytics'te şu sorgu koşulunu girin:
+Kullanıcı tanımlı işlev için günlüğe yazmayı etkinleştirirseniz, bu günlükleri log analytics Örneğinize kategorisi görünür `UserDefinedFunction`. Bunları almak için log analytics'te şu sorgu koşulunu girin:
 
 ```Kusto
 AzureDiagnostics
