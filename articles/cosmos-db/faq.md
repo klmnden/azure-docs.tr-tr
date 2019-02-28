@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e8467912ad2b9b5199e3c8d66c80d8e238db1f57
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: edbdfeb87af78ba77aa0e418efc12116a38766fc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043218"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960454"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB'de farklı API'ler ile ilgili sık sorulan sorular
 
@@ -608,7 +608,6 @@ g.V('mary').out('knows').executionProfile()
         },
         "storeOps": [
           {
-            "partitionsAccessed": 1,
             "count": 0,
             "size": 0,
             "time": 0.6

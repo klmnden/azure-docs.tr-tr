@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/20/2019
+ms.date: 02/26/2019
 ms.author: pareshmu
-ms.openlocfilehash: a7bd81d573b24248eb695595ffa13a3bff5b8370
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 58532eedab2e704861221b75d219a56e0a3f0f2c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588254"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959570"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
 
@@ -103,7 +103,7 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 | **Mumbai** | Tata Communications | Global CloudXchange (GCX), Sify, Tata Communications, Vodafone Idea |
 | **Mumbai2** | Airtel | Airtel, Sify, Vodafone Idea |
 | **New York** | Equinix | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Zayo |
-| **Newport(Galler)** | Next Generation Data | Level 3 Communications, Next Generation Data |
+| **Newport(Galler)** | Next Generation Data | İngiliz Telekom, 3. düzey iletişimleri, yeni nesil veriler |
 | **Osaka** | Equinix | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Paris** | Interxion | Colt, Intercloud, Interxion, Equinix, Orange |
 | **Perth** | NextDC | NextDC |

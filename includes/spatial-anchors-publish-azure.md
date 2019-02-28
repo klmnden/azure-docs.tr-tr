@@ -4,12 +4,12 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 692eb3fcd1187bf64ba5215631679c4cddf45d56
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3ee9aca1ee86b04998e357875b98b14782b3e56d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752165"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56963382"
 ---
 ### <a name="launch-the-publish-wizard"></a>Yayımlama sihirbazını başlatma
 
@@ -51,7 +51,7 @@ Kaynak grubunuzu **myResourceGroup** olarak adlandırıp **Tamam**’ı seçin.
 
 ### <a name="create-and-publish-the-web-app"></a>Web uygulaması oluşturma ve yayımlama
 
-**Uygulama Adı**’na benzersiz bir ad girin (geçerli karakterler `a-z`, `0-9` ve `-` karakterleridir) veya otomatik olarak oluşturulan benzersiz adı kabul edin. Web uygulamasının URL'si `http://<app_name>.azurewebsites.net` şeklindedir; burada `<app_name>`, uygulamanızın adıdır.
+**Uygulama Adı**’na benzersiz bir ad girin (geçerli karakterler `a-z`, `0-9` ve `-` karakterleridir) veya otomatik olarak oluşturulan benzersiz adı kabul edin. Web uygulamasının URL'si `https://<app_name>.azurewebsites.net` şeklindedir; burada `<app_name>`, uygulamanızın adıdır.
 
 Azure kaynaklarını oluşturmaya başlamak için **Oluştur**’u seçin.
 
@@ -59,4 +59,4 @@ Sihirbaz tamamlandıktan sonra ASP.NET Core web uygulamasını Azure’da yayım
 
 ![Azure’da yayımlanmış ASP.NET web uygulaması](./media/spatial-anchors-azure/web-app-running-live.png)
 
-[Oluşturma ve yayımlama adımında](#create-and-publish-the-web-app) belirtilen uygulama adı `http://<app_name>.azurewebsites.net` biçiminde URL ön eki olarak kullanılır. Daha sonra kullanılacağından bu URL'yi not alın.
+[Oluşturma ve yayımlama adımında](#create-and-publish-the-web-app) belirtilen uygulama adı `https://<app_name>.azurewebsites.net` biçiminde URL ön eki olarak kullanılır. Daha sonra kullanılacağından bu URL'yi not alın.

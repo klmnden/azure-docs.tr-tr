@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: ee990258be5ac6396754d5c42beb2ffd78ad7aca
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 536ca8895d130fd9273d556332830d020a485dc3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649245"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958303"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>PowerShell kullanarak bir statik özel IP adresli bir sanal makine oluşturun
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Statik özel IP adresli bir sanal makine (VM) oluşturabilirsiniz. Adresi hiçbir zaman değiştirdiğinden emin olmak için bir dinamik adres yerine özel bir statik IP adresi atayın. Daha fazla bilgi edinin [statik özel IP adresleri](virtual-network-ip-addresses-overview-arm.md#allocation-method). Mevcut bir VM'ye gelen dinamik statik olarak atanmış bir özel IP adresini değiştirmek için veya genel IP adresleri ile çalışmak için bkz: [ekleme, değiştirme veya kaldırma IP adresleri](virtual-network-network-interface-addresses.md).
+Statik özel IP adresli bir sanal makine (VM) oluşturabilirsiniz. Hangi adresi bir alt ağdan bir sanal makineye atanır seçmek istiyorsanız, bir dinamik adres yerine özel bir statik IP adresi atayın. Daha fazla bilgi edinin [statik özel IP adresleri](virtual-network-ip-addresses-overview-arm.md#allocation-method). Mevcut bir VM'ye gelen dinamik statik olarak atanmış bir özel IP adresini değiştirmek için veya genel IP adresleri ile çalışmak için bkz: [ekleme, değiştirme veya kaldırma IP adresleri](virtual-network-network-interface-addresses.md).
 
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
@@ -110,5 +110,5 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [özel IP adresleri](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) ve atama bir [statik özel IP adresi](virtual-network-network-interface-addresses.md#add-ip-addresses) bir Azure sanal makinesi için
-- Oluşturma hakkında daha fazla bilgi edinin [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makineler
+- Daha fazla bilgi edinin [özel IP adresleri](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) ve atama bir [statik özel IP adresi](virtual-network-network-interface-addresses.md#add-ip-addresses) bir Azure sanal makinesi için.
+- Oluşturma hakkında daha fazla bilgi edinin [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makineler.

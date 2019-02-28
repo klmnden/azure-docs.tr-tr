@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 53061d4d09ac2769e59269701467a22f292cd919
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327570"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959774"
 ---
 # <a name="aks-troubleshooting"></a>AKS sorunlarını giderme
 
@@ -63,10 +63,30 @@ Küme dışında hizmetinize erişmek için en kolay yolu çalıştırmaktır `k
 
 Kubernetes panosunu görmüyorsanız denetleyin olmadığını `kube-proxy` pod çalıştıran `kube-system` ad alanı. Çalışır durumda değilse, pod silin ve yeniden başlatılır.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Günlükleri kubectl günlükleri kullanarak alamıyorum veya API sunucusuna bağlanamıyorum. Alıyorum "sunucu hatası: hata arama arka uç: arama tcp..." Ne yapmalıyım?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Günlükleri kubectl günlükleri kullanarak alamıyorum veya API sunucusuna bağlanamıyorum. Alıyorum "sunucu hatası: hata arama arka uç: tcp... arama". Ne yapmalıyım?
 
-Varsayılan ağ güvenlik grubu (NSG) değiştirilmez ve bağlantı noktası 22 API sunucusu bağlantısı için açık olduğundan emin olun. Denetleme olmadığını `tunnelfront` pod çalıştıran `kube-system` ad alanı. Aksi takdirde, pod ve onu zorla silinmesini yeniden başlatılır.
+Varsayılan ağ güvenlik grubu değiştirilmez ve bağlantı noktası 22 API sunucusu bağlantısı için açık olduğundan emin olun. Denetleme olup olmadığını `tunnelfront` pod çalıştıran *kube-system* using namespace `kubectl get pods --namespace kube-system` komutu. Aksi takdirde, pod ve onu zorla silinmesini yeniden başlatılır.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Yükseltme veya ölçeklendirme hale getirmeye çalışıyorum ve alıyorum bir "ileti: "Imagereference' özelliğinin değiştirilmesine izin" bir hata oluştu.  Bu sorunu nasıl düzeltebilirim?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Yükseltme veya ölçeklendirme hale getirmeye çalışıyorum ve alıyorum bir "ileti: "Imagereference' özelliğinin değiştirilmesine izin" bir hata oluştu. Bu sorunu nasıl düzeltebilirim?
 
 AKS kümesi içindeki aracı düğümleri etiketleri değiştirdiğiniz çünkü bu hatayı alma. Değiştirme ve silme etiketleri ve diğer özellikleri MC_ * kaynak grubundaki kaynakların beklenmeyen sonuçlara neden olabilir. Aks'deki MC_ * grubundaki kaynakların değiştirilmesi, hizmet düzeyi hedefi (SLO) küme keser.
+
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Kümem başarısız durumda ve düzeltilene kadar yükseltme veya ölçeklendirme çalışmaz hata mesajı alıyorum
+
+*Bu sorun giderme Yardımı gelen yönlendirilir https://aka.ms/aks-cluster-failed*
+
+Küme başarısız durumda birden çok nedenlerle girin. Bu hata oluşur. Daha önce başarısız olan işlemi yeniden denemeden önce küme başarısız durumu çözmek için aşağıdaki adımları izleyin:
+
+1. Küme dışı kadar `failed` durumu `upgrade` ve `scale` olmaz işlemleri başarılı. Ortak kök sorunlar ve çözümleri şunlardır:
+    * İle ölçeklendirme **(CRP) yeterli işlem kotası**. Gidermek için ilk ölçek kümenizi kota içinde kararlı hedef duruma yedekleyin. Aşağıdaki adımları [işlem kotası istemeniz adımları artırmak](../azure-supportability/resource-manager-core-quotas-request.md) yeniden ilk kota sınırları ötesinde ölçeklendirme denemeden önce.
+    * Gelişmiş ağ ile bir küme ölçeklendirme ve **yetersiz (ağ) alt ağ kaynaklarının**. Gidermek için ilk ölçek kümenizi kota içinde kararlı hedef duruma yedekleyin. Daha sonra izleyin [kaynak kotası istemek için bu adımları artırmak](../azure-resource-manager/resource-manager-quota-errors.md#solution) yeniden ilk kota sınırları ötesinde ölçeklendirme denemeden önce.
+2. Kümenizi, hatanın temel nedenini yükseltme çözümlendiğinde durumu başarılı olması gerekir. Başarılı durumda doğrulandıktan sonra özgün işlemi yeniden deneyin.
+
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Şu anda yükseltme yapmaya veya kümem durum ölçek durdurulmasını yüklenirken hataları alıyorum yükseltti veya yükseltmesi başarısız oldu
+
+*Bu sorun giderme Yardımı gelen yönlendirilir https://aka.ms/aks-pending-upgrade*
+
+Küme işlemlerini, etkin yükseltme gibi işlemler gerçekleştiğini veya yükseltmeye çalıştı, ancak sonradan başarısız sınırlıdır. Çalıştırma sorunu tanılamak için `az aks show -g myResourceGroup -n myAKSCluster -o table` kümenizdeki ayrıntılı durumu alınamadı. Sonuca bağlı:
+
+* Kümenin etkin bir şekilde yükseltme işlemi sonlanana kadar bekleyin. Bu başarılı olursa, daha önce başarısız olan işlemi yeniden deneyin.
+* Küme yükseltme başarısız olursa, ana hatlarıyla belirtilen adımları izleyin [yukarıda](#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade-directed-from-httpsakamsaks-pending-upgrade)

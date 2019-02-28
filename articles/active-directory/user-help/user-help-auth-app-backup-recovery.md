@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b8a06276bcaa989fa04f105ac7858c25ab4d0ef
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 1927e9b4aeec6f424c69632d8811c49c97d3aad1
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887514"
+ms.locfileid: "56961559"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Yedekleme ve kurtarma hesabı kimlik bilgileriyle Microsoft Authenticator uygulaması
 
@@ -28,7 +28,9 @@ ms.locfileid: "56887514"
 Microsoft Authenticator uygulamasını hesaplarınızı sırası gibi ilgili uygulama ayarları ve hesap kimlik bilgileri buluta yedekler. Yedeklemeden sonra uygulama bilgilerinizi yeni bir cihazda olabilecek erişimin kaybedilmesini önleme kurtarmak için de kullanabilirsiniz out veya hesaplarını yeniden oluşturmak zorunda.
 
 >[!IMPORTANT]
-> Her yedekleme depolama konumu için bir kişisel Microsoft hesabı ve bir iCloud hesabıyla gerekir. Ancak, bu depolama konumu içinde birkaç hesapları yedekleyebilirsiniz. Örneğin, bir kişisel hesap, okul hesabı ve Facebook, Google gibi bir üçüncü taraf hesabı ve benzeri.<br><br>Kullanıcı adınızı ve kimliğinizi ispatlamak için gerekli olan hesap doğrulama kodu içeren yalnızca kişisel ve 3. taraf hesap bilgilerinizi depolanır. Size e-postaları veya dosyaları dahil olmak üzere hesaplarınızla ilişkili herhangi bir bilgi depolamayın. Biz de olmayan ilişkilendirmek veya hesaplarınızı herhangi bir şekilde veya herhangi bir ürün veya hizmeti ile paylaşın. Ve son olarak, BT yöneticinizin bu hesapların ilgili herhangi bir bilgi elde etmezsiniz.
+> Her yedekleme depolama konumu için bir kişisel Microsoft hesabı ve bir iCloud hesabıyla gerekir. Ancak, bu depolama konumu içinde birkaç hesapları yedekleyebilirsiniz. Örneğin, bir kişisel hesap, okul hesabı ve Facebook, Google gibi bir üçüncü taraf hesabı ve benzeri.
+
+> Kullanıcı adınızı ve kimliğinizi ispatlamak için gerekli olan hesap doğrulama kodu içeren yalnızca kişisel ve 3. taraf hesap bilgilerinizi depolanır. Size e-postaları veya dosyaları dahil olmak üzere hesaplarınızla ilişkili herhangi bir bilgi depolamayın. Biz de olmayan ilişkilendirmek veya hesaplarınızı herhangi bir şekilde veya herhangi bir ürün veya hizmeti ile paylaşın. Ve son olarak, BT yöneticinizin bu hesapların ilgili herhangi bir bilgi elde etmezsiniz.
 
 ## <a name="back-up-your-account-credentials"></a>Hesap kimlik bilgilerini yedekle
 Kimlik bilgilerinizi yedekleyebilmeniz için önce hem de sahip olmanız gerekir:
@@ -98,10 +100,12 @@ Yedekleme kullanılabilir olmamasının birkaç nedeni vardır:
 -   **Var olan Microsoft Authenticator hesaplar.** Microsoft Authenticator uygulamasını hesapları zaten ayarını etkinleştirdiyseniz, uygulama yedeklenen hesaplarınızı kurtarmanız mümkün olmayacaktır. Engelleme kurtarma, hesabınızın ayrıntıları güncel bilgileri üzerine değil olun yardımcı olur. Bu durumda, yedekleme kurtarmadan önce Authenticator uygulamanızda ayarlama var olan hesaplarından herhangi bir mevcut hesap bilgileri kaldırmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yedeklenebilir ve hesap kimlik bilgilerinizi yeni Cihazınızı kurtarılan göre kimliğinizi doğrulamak için Microsoft Authenticator uygulamasını kullanmaya devam edebilirsiniz.
+Yedeklenebilir ve hesap kimlik bilgilerinizi yeni Cihazınızı kurtarılan göre kimliğinizi doğrulamak için Microsoft Authenticator uygulamasını kullanmaya devam edebilirsiniz. Daha fazla bilgi için [hesaplarınız için Microsoft Authenticator uygulamasını kullanarak oturum açın](user-help-sign-in.md).
 
 ## <a name="related-topics"></a>İlgili konular
-- [Microsoft Authenticator uygulamasını kullanmaya başlama](user-help-auth-app-download-install.md)  
+
+- [Microsoft Authenticator uygulaması nedir?](user-help-auth-app-overview.md)
+
 - [Microsoft Authenticator uygulaması hakkında SSS](user-help-auth-app-faq.md)
 
 - [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

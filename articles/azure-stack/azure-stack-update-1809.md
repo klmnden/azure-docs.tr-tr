@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: a4298a8bd78f178c56776e703e72ff99aac54207
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 251f61a0356f4e8f379c17b477e24a0cefce68e7
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887922"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985011"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -147,7 +147,9 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 
   ```PowerShell
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
-  ``` 
+  ```
+
+- Azure Stack System Center Operations Manager (SCOM) tarafından yönetildiğinde 1809 uygulamadan önce Yönetim Paketi için Microsoft Azure Stack 10.0.3.11 sürümüne güncelleştirdiğinizden emin olun.
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar
 

@@ -8,21 +8,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: b5d1908201de803ae065403600fc3478e604eedd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653722"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959111"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Bir machine learning uygulama oluşturmak ve bir veri kümesini analiz etmek için Apache Spark MLlib kullanın
 
 Apache Spark'ı kullanmayı öğrenin [MLlib](https://spark.apache.org/mllib/) bir machine learning açık bir veri kümesini basit Tahmine dayalı analiz yapmak için uygulama oluşturmak için. Kitaplıkları Spark'ın yerleşik makine öğrenimi, bu örnekte *sınıflandırma* Lojistik regresyon aracılığıyla. 
-
-> [!TIP]  
-> Bu örnek olarak da kullanılabilir bir [Jupyter not defteri](https://jupyter.org/) üzerinde oluşturduğunuz HDInsight Spark (Linux) kümesi. Not Defteri deneyimi not defterinden Python kod çalıştırmanıza olanak tanır. Öğreticinin bir not defteri içinde takip etmek için bir Spark kümesi oluşturma ve Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Ardından, Not Defteri çalıştırma **Spark Machine Learning - MLlib.ipynb kullanarak yemek İnceleme veri üzerinde Tahmine dayalı analiz** altında **Python** klasör.
 
 MLlib için uygun yardımcı programlar da dahil olmak üzere, makine öğrenimi görevlerini yararlı birçok yardımcı programlar sağlayan bir çekirdek Spark kitaplığıdır:
 
@@ -49,7 +46,7 @@ Aşağıdaki adımlarda, Geçti veya başarısız bir yemek İnceleme kadar sür
 
 1. PySpark çekirdeği kullanarak bir Jupyter not defteri oluşturun. Yönergeler için bkz. [Jupyter not defteri oluşturma](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-2. Bu uygulama için gerekli olan türleri içeri aktarın. Kopyalayın ve aşağıdaki kodu boş bir hücreye yapıştırın ve sonra basın **SHIRT + ENTER**.
+2. Bu uygulama için gerekli olan türleri içeri aktarın. Kopyalayın ve aşağıdaki kodu boş bir hücreye yapıştırın ve sonra basın **SHIFT + ENTER**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -173,7 +170,7 @@ Hangi veri kümesini içeren bir fikir almak şimdi başlayın.
 
     ```PySpark
     %%sql -o countResultsdf
-    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
     `%%sql` Sihirli arkasından `-o countResultsdf` sorgunun çıkışı (genellikle bir kümenin baş) Jupyter sunucu üzerinde yerel olarak kalıcı olmasını sağlar. Çıktı olarak kalıcı bir [Pandas](https://pandas.pydata.org/) belirtilen ada sahip bir dataframe **countResultsdf**. Hakkında daha fazla bilgi için `%%sql` sihrinin yanı sıra, PySpark çekirdeği kullanılabilen diğer sihirler bkz [Apache Spark HDInsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
@@ -200,14 +197,6 @@ Hangi veri kümesini içeren bir fikir almak şimdi başlayın.
     Çıktı.
 
     ![Spark machine learning uygulama çıkışı - beş farklı denetimi sonuçlarını pasta grafiği](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark machine learning sonuç çıkış")
-
-    Bir inceleme olan 5 ayrı sonuçları vardır:
-
-    - İş bulunan değil
-    - Başarısız
-    - Geçiş
-    - Koşullar ile geçirin
-    - İş dışında
 
     Yemek İnceleme sonuçlarını tahmin etmek için üzerinde ihlalleri dayalı bir model geliştirmektir gerekir. Lojistik regresyon ikili sınıflandırma yöntemi olduğundan, sonuçta elde edilen veri iki kategoriler altında gruplandırmak için mantıklıdır: **Başarısız** ve **geçirmek**:
 
@@ -272,7 +261,7 @@ Daha önce oluşturduğunuz modeli kullandığınız *tahmin* ne yeni incelemele
 1. Yeni bir dataframe oluşturmak için aşağıdaki kodu çalıştırın **predictionsDf** modeli tarafından oluşturulan öngörü içerir. Kod parçacığı da adlı geçici bir tablo oluşturur **Öngörüler** dataframe üzerinde temel.
 
     ```PySpark
-    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+    testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
     testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -284,10 +273,6 @@ Daha önce oluşturduğunuz modeli kullandığınız *tahmin* ne yeni incelemele
     Aşağıdaki gibi bir çıktı görmeniz gerekir:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     ['id',
         'name',
         'results',
@@ -321,10 +306,6 @@ Daha önce oluşturduğunuz modeli kullandığınız *tahmin* ne yeni incelemele
     Çıktı aşağıdaki gibi görünür:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
@@ -377,7 +358,7 @@ Artık yardımcı olması için son bir görselleştirme oluşturabilirsiniz bu 
     Geçirilen bir inceleme için negatif bir sonuç başvuruyor ancak bu grafikte, sonuç "sıfırdan" başarısız yemek İnceleme için ifade eder.
 
 ## <a name="shut-down-the-notebook"></a>Not defterini Kapat
-Uygulamayı çalıştırmayı tamamladıktan sonra kaynakları serbest bırakmak için Not defterini kapatmanız gerekir. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın. Bu işlem kapanır ve not defterini kapatır.
+Uygulamayı çalıştırmayı tamamladıktan sonra kaynakları serbest bırakmak için Not defterini kapatmanız gerekir. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’u seçin. Bu işlem kapanır ve not defterini kapatır.
 
 ## <a name="seealso"></a>Ayrıca bkz.
 * [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)

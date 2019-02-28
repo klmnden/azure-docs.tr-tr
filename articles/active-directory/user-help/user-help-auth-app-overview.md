@@ -12,14 +12,18 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 8585557672c7db15e07be6a5e663ba1811e07694
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301188"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961321"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulaması nedir?
+
+>[!Important]
+>Bu içerik kullanıcılara yöneliktir. Yöneticiyseniz, Azure Active Directory (Azure AD) ortamınızı ayarlama ve yönetme hakkında daha fazla bilgi için [Azure Active Directory Belgelerine](https://docs.microsoft.com/azure/active-directory) bakabilirsiniz.
+
 Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
 
 Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
@@ -31,7 +35,7 @@ Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
 >[!Important]
 >Microsoft Authenticator uygulamasını iki aşamalı doğrulama kullanan tüm uygulamalarda ve zamana bağlı bir kerelik parola (TOTP) standartlarını destekleyen herhangi bir hesabı ile çalışır.
 
->Bu içerik kullanıcılara yöneliktir. Yöneticiyseniz, Azure Active Directory (Azure AD) ortamınızı ayarlama ve yönetme hakkında daha fazla bilgi için [Azure Active Directory Belgelerine](https://docs.microsoft.com/azure/active-directory) bakabilirsiniz.
+>Kuruluşunuzun oturum açma ve kuruluş verilerini ve belgelerine erişmek için bir kimlik doğrulayıcı uygulama kullanmanızı gerektirebilir. Kullanıcı adınızı uygulamada gibi görünse de, hesap gerçekten kayıt işlemi tamamlanana kadar bir doğrulama yöntemi olarak davranacak şekilde ayarlanmamış. Daha fazla bilgi için [iş veya Okul hesabınızı eklemek](user-help-auth-app-overview.md).
 
 >Hesabınızda oturum açarken sorun yaşıyorsanız, bkz. [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429) Yardım. Aldığınız olduğunda yapılması gerekenler hakkında daha fazla bilgi alın ["Bu Microsoft hesabı mevcut değil"](https://support.microsoft.com/help/13811) iletisi, Microsoft hesabınızda oturum açın.
 

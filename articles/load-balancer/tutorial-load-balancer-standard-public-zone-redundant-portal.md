@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882646"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56982804"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir Standard Load Balancer ile kullanılabilirlik bölgelerindeki Yük Dengeleme sanal makineleri
 
@@ -50,16 +50,20 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Standart Yük Dengeleyici yalnızca Standart Genel IP adresini destekler. Yük dengeleyiciyi oluştururken yeni bir genel IP oluşturduğunuzda, bir Standart SKU sürümü halinde otomatik olarak yapılandırılır ve ayrıca otomatik olarak alanlar arası yedeklidir.
 
 1. Ekranın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici**'ye tıklayın.
-2. **Yük dengeleyici oluştur** sayfasına, yük dengeleyici için şu değerleri girin:
-    - Yük dengeleyicinin adı için *myLoadBalancer*.
-    - Yük dengeleyicinin türü için **Public**.
-     - *myPublicIP* - Oluşturduğunuz yeni genel IP adresi. Bunu yapmak için **Genel IP adresi seçin**’e ve sonra **Yeni oluştur**’a tıklayın. Ad için *myPublicIP* yazın. SKU varsayılan olarak Standart’tır. **Kullanılabilirlik alanı** olarak **Alanlar arası yedekli**’yi seçin.
-    - *myResourceGroupLBAZ* - oluşturduğunuz yeni kaynak grubunun adı.
-    - Konum için **westeurope**.
-3. Yük dengeleyiciyi oluşturmak için **Oluştur**’a tıklayın.
-   
-    ![Yük dengeleyici oluşturma](./media/load-balancer-standard-public-availability-zones-portal/1a-load-balancer.png)
+2. İçinde **Temelleri** sekmesinde **yük dengeleyici Oluştur** sayfasında, girin veya aşağıdaki bilgileri seçin, geri kalan ayarlar için varsayılan değerleri kabul edin ve ardından **gözden geçir +Oluştur**:
 
+    | Ayar                 | Değer                                              |
+    | ---                     | ---                                                |
+    | Abonelik               | Aboneliğinizi seçin.    |    
+    | Kaynak grubu         | Seçin **Yeni Oluştur** ve türü *MyResourceGroupLBAZ* metin kutusuna.|
+    | Ad                   | *myLoadBalancer*                                   |
+    | Bölge         | **Batı Avrupa**'yı seçin.                                        |
+    | Type          | Seçin **genel**.                                        |
+    | SKU           | Seçin **standart**.                          |
+    | Genel IP adresi | **Yeni oluştur**’u seçin. |
+    | Ortak IP adresi adı              | Tür *Mypublicıp* metin kutusuna.   |
+    |Kullanılabilirlik bölgesi| Seçin **bölgesel olarak yedekli**.    |
+   
 
 ## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 

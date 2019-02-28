@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 11/28/2018
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b01e16f85eaccee4d765b4985769df670d4d35ca
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 003b43760b4c0ae5785315e6acf0ed9982d9b1fe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413039"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960862"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Güvenlik Duvarı nedir?
 
@@ -56,7 +56,7 @@ Güvenlik duvarınızın genel IP adresine gelen trafik çevrilir (Hedef Ağ Adr
 
 ### <a name="azure-monitor-logging"></a>Azure İzleyici günlükleri
 
-Günlükleri depolama hesabında arşivleyebilmeniz, olayların Event Hub'a akışını yapabilmeniz ve bunları Log Analytics'e gönderebilmeniz için, tüm olaylar Azure İzleyici ile tümleştirilmiştir.
+Tüm olaylar, bir depolama hesabına veya olay hub'ınıza olayları akış günlüklerini arşivleyin veya Azure İzleyici günlüklerine şirketlerde olanak tanıyan Azure İzleyici ile tümleştirilmiştir.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 

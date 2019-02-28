@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4d47192ea69047b0b12deffc41776a87c16ca6ab
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696816"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959757"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager'ın sık sorulan sorular (SSS)
 
@@ -59,14 +59,7 @@ Performans yöntemi en yakın olan kullanılabilir uç nokta trafiği yönlendir
 İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager DNS düzeyinde çalışır. DNS araması tamamlandıktan sonra istemciler uygulama uç noktası için Traffic Manager aracılığıyla değil, doğrudan bağlanır. Bu nedenle, bağlantı herhangi bir uygulama protokolünü kullanabilirsiniz. İzleme protokolün, Traffic Manager TCP seçeneğini belirlerseniz sistem durumu uç nokta izleme yapılabilir herhangi bir uygulama protokolleri kullanmadan. Uygulama protokolü kullanılarak sistem durumu seçerseniz, uç noktanın HTTP veya HTTPS GET isteklerini yanıtlamak mümkün olması gerekir.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Traffic Manager bir 'naked' etki alanı adı ile kullanabilir miyim?
-
-Hayır. DNS standartları CNAME'ler aynı ada diğer DNS kayıtlarını bulunabilmesine olanak tanımaz. Bir DNS bölgesinin tepesinde (veya kök) her zaman iki önceden var olan DNS kayıtları içerir. SOA ve yetkili NS kayıtlarını. Başka bir deyişle, DNS standartları ihlal etmeden bölge tepesinde CNAME kaydı oluşturulamıyor.
-
-Traffic Manager gösterim DNS adı eşlemeyle ilgili bir DNS CNAME kaydı gerektirir. Örneğin, eşlemeniz `www.contoso.com` Traffic Manager profili DNS adına `contoso.trafficmanager.net`. Ayrıca, istemcinin bağlanması gereken hangi uç noktaya belirtmek için ikinci bir DNS CNAME Traffic Manager profilini döndürür.
-
-Bu sorunu geçici olarak çözmek için bir HTTP yeniden yönlendirme trafiği çıplak etki alanı adını Traffic Manager daha sonra kullanabileceğiniz farklı bir URL'ye kullanmanızı öneririz. Örneğin, "contoso.com" çıplak etki alanı CNAME giden Traffic Manager DNS adını işaret "www.contoso.com" için kullanıcıların yönlendirebilirsiniz.
-
-Çıplak etki alanı trafik Yöneticisi'nde için tam destek, sunduğumuz özellik biriktirme listesinde izlenir. Bu özellik istekleri için destek kaydedebilirsiniz [için topluluk geri bildirimi sitemizde oylama](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+Evet. Bir Azure Traffic Manager profili başvurmak, etki alanı adı apex için bir diğer ad kaydı oluşturmayı öğrenmek için bkz: [apex etki alanı adları ile Traffic Manager'ı desteklemek için bir diğer ad kaydı yapılandırmak](../dns/tutorial-alias-tm.md).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Traffic Manager istemci alt ağ adresi DNS sorgularının işlenirken göz önünde bulundurmaz? 
 Evet, ek olarak, DNS sorgusu kaynak IP adresini (genellikle olan IP adresini DNS Çözümleyicisi), aldığı aramaları için coğrafi, performans ve alt ağ yönlendirme yöntemleri gerçekleştirirken, traffic manager ayrıca istemci alt ağ adresi olmadığını göz önünde bulundurur Çözümleyici istekte son kullanıcılar, sorguda dahil edilir.  

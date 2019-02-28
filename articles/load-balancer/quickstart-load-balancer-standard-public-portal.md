@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 1395c79b9c39d7376f39446eac6da8ee80b2ef18
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 97d1cf2817ebfbf2eb1a6ba5a4d20d457b6369c6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232677"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961746"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak sanal makinelerde yük dengelemesi için Standart Yük Dengeleyici oluşturma
 
@@ -40,21 +40,20 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Bu bölümde, sanal makinelerde yük dengelemesine yardımcı olan bir genel yük dengeleyici oluşturursunuz. Standart Yük Dengeleyici yalnızca Standart Genel IP adresini destekler. Standart Yük Dengeleyici oluşturduğunuzda, Standart Yük Dengeleyici için ön uç (varsayılan olarak *LoadBalancerFrontend* adını alır) olarak yapılandırılmış yeni bir Standart Genel IP adresi de oluşturmanız gerekir. 
 
 1. Ekranın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici**'ye tıklayın.
-2. **Yük dengeleyici oluşturma** sayfasında aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Oluştur**'u seçin:
+2. İçinde **Temelleri** sekmesinde **yük dengeleyici Oluştur** sayfasında, girin veya aşağıdaki bilgileri seçin, geri kalan ayarlar için varsayılan değerleri kabul edin ve ardından **gözden geçir +Oluştur**:
 
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
+    | Abonelik               | Aboneliğinizi seçin.    |    
+    | Kaynak grubu         | Seçin **Yeni Oluştur** ve türü *MyResourceGroupSLB* metin kutusuna.|
     | Ad                   | *myLoadBalancer*                                   |
-    | Tür          | Genel                                        |
-    | SKU           | Standart                          |
-    | Genel IP adresi | **Yeni oluştur**'u seçip metin kutusuna *myPublicIP* yazın. Genel IP adresi için Standart SKU varsayılan olarak seçilir. **Kullanılabilirlik bölgesi** olarak **Alanlar arası yedekli**’yi seçin. |
-    | Abonelik               | Aboneliğinizi seçin.    |
-    |Kaynak grubu | **Yeni oluştur**'u seçip *myResourceGroupSLB* yazın.    |
-    | Konum           | **Batı Avrupa**'yı seçin.                          |
-    
-
-![Yük dengeleyici oluşturma](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-
+    | Bölge         | **Batı Avrupa**'yı seçin.                                        |
+    | Type          | Seçin **genel**.                                        |
+    | SKU           | Seçin **standart**.                          |
+    | Genel IP adresi | **Yeni oluştur**’u seçin. |
+    | Ortak IP adresi adı              | Tür *Mypublicıp* metin kutusuna.   |
+    |Kullanılabilirlik bölgesi| Seçin **bölgesel olarak yedekli**.    |
+3. İçinde **gözden geçir + Oluştur** sekmesinde **Oluştur**.   
 
 ## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
@@ -84,7 +83,7 @@ Bu bölümde, bir sanal ağ oluşturur, yük dengeleyicinizin arka uç havuzu i�
         2. **Ağ güvenlik grubu oluştur** sayfasının **Ad** bölümüne *myNetworkSecurityGroup* yazın ve **Tamam**'ı seçin.
 5. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
 6. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
-7. 1-6 arası adımları kullanarak, Kullanılabilirlik kümesi *myAvailabilityset*, sanal ağ *myVnet*, alt ağ *myBackendSubnet* ve ağ güvenlik grubu \**myNetworkSecurityGroup* olarak ayarlanmış şekilde *VM2* adlı ikinci bir sanal makine oluşturun. 
+7. 1-6 adlı ikinci bir sanal makine oluşturma adımları kullanarak *VM2* ile *myVnet* , sanal ağ *myBackendSubnet* , alt ağ ve * *Vm2* ağ güvenlik grubu olarak. 
 
 ### <a name="create-nsg-rule"></a>NSG kuralı oluşturma
 

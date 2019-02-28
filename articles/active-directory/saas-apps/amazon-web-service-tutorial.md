@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2bb2926c0297e63a650e8a2d6a9eac836e3365f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0e49bc5a468777197eaf88a492566a606e7b9f93
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867924"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Amazon Web Services (AWS)
 
@@ -133,7 +133,7 @@ Amazon Web Services (AWS) ile Azure AD çoklu oturum açmayı yapılandırmak i�
 
     ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** bölümünde kullanıcısının clonedatabase'i uygulama zaten Azure ile önceden tümleşik olarak herhangi bir adımı gerçekleştirmek.
+4. Üzerinde **temel SAML yapılandırma** bölümünde kullanıcısının clonedatabase'i uygulama zaten Azure ile önceden tümleşik olarak herhangi bir adımı gerçekleştirmek.  **Kaydet**’e tıklayın.
 
     ![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 

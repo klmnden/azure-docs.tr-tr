@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 35ac69c4e61c370c72a7d503920e02ff7258ed60
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e7b1b3e3fba04276fc284fd71adabedc01185251
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885322"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984824"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Uygun ölçekte Azure İzleyicisi'ni kullanarak izleme
 
@@ -28,6 +28,9 @@ ms.locfileid: "56885322"
 
 ## <a name="using-log-analytics-workspace"></a>Log Analytics çalışma alanı kullanma
 
+> [!NOTE]
+> Log Analytics çalışma alanına tanılama ayarları aracılığıyla Azure VM yedeklemeleri, MAB Aracısı, System Center DPM (SC-DPM) verilerini ekleniyor. Azure Vm'leri, Azure dosya paylaşımı yedeklemelerini, Microsoft Azure Backup sunucusu (MABS) SQL yedeklemeler için destek yakında sunulacaktır.
+
 Şu iki Azure Hizmetleri - yeteneklerini yararlanarak **tanılama ayarları** (verileri başka bir kaynağa birden çok Azure Resource Manager kaynakları göndermek için) ve **Log Analytics** (on - oluşturmak için Özel uyarılar) burada tanımlayabilirsiniz Eylem grupları kullanarak diğer bildirim kanallarına uygun ölçekte izleme. Uygun ölçekte Azure Backup izleme LA kullanma hakkında aşağıdaki bölümlerde ayrıntıları.
 
 ### <a name="configuring-diagnostic-settings"></a>Tanılama ayarlarını yapılandırma
@@ -39,7 +42,7 @@ Azure kurtarma Hizmetleri kasası gibi bir Azure Resource Manager kaynağı zama
 Hedef olarak başka bir Abonelikteki bir LA çalışma alanını seçebilirsiniz. *Birden çok RS kasaları için aynı LA çalışma alanını seçerek, tek bir yerde Aboneliklerdeki kasaları izleyebilirsiniz.* Tüm kanal için günlük 'AzureBackupReport' seçin Azure Backup ilgili bilgileri LA çalışma alanına.
 
 > [!IMPORTANT]
-> Yapılandırmasını tamamladıktan sonra ilk veri gönderimi tamamlanması için 24 saat beklemeniz gerekir. Bundan sonra tüm kullanıcılar (15-20 dakika için bir genel gecikmesini çevrilebilir) oluşturulduğu zaman olaylar gönderilir. İçin toplu ve her X mins gönderilen çok sık işlemleri gibi günlük yedekleri SQL gibi DB iş yükleri
+> Yapılandırmasını tamamladıktan sonra ilk veri gönderimi tamamlanması için 24 saat beklemeniz gerekir. Bundan sonra tüm olayları belirtildiği gibi itilir [sıklığı bölüm](#diagnostic-data-update-frequency).
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Log Analytics çalışma alanına çözümü dağıtma
 

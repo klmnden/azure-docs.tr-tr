@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0698f1dbc491781089ef94eec32f2a427fd3cca4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422397"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957700"
 ---
 # <a name="azure-firewall-logs"></a>Azure güvenlik duvarı günlükleri
 
 Güvenlik duvarı günlüklerini kullanarak Azure Güvenlik Duvarı'nı izleyebilirsiniz. Ayrıca etkinlik günlüklerini kullanarak Azure Güvenlik Duvarı kaynaklarıyla ilgili işlemleri denetleyebilirsiniz.
 
-Bu günlüklerden bazılarına portaldan erişebilirsiniz. Günlükler [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Depolama ve Event Hubs'a gönderilebilir, Log Analytics'te veya Excel ve Power BI gibi farklı araçlarda analiz edilebilir.
+Bu günlüklerden bazılarına portaldan erişebilirsiniz. Günlükleri gönderilebilir [Azure İzleyici günlükleri](../azure-monitor/insights/azure-networking-analytics.md), depolama ve Event Hubs ve Azure İzleyici günlüklerine veya Excel ve Power BI gibi farklı araçları tarafından analiz edilir.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 
@@ -26,7 +26,7 @@ Bu günlüklerden bazılarına portaldan erişebilirsiniz. Günlükler [Log Anal
 
 * **Uygulama kuralı günlüğü**
 
-   Uygulama kuralı günlüğünü depolama hesabına kaydetmek, Event Hubs'a aktarmak ve/veya Log Analytics'e göndermek için her bir Azure Güvenlik Duvarı'nda etkinleştirmiş olmanız gerekir. Yapılandırdığınız uygulama kurallarınızla eşleşen yeni bağlantılar kabul edilen/reddedilen bağlantı için bir günlük oluşturur. Veriler aşağıdaki örnekte gösterildiği gibi JSON biçiminde günlüğe kaydedilir:
+   Uygulama kuralı günlüğü, Event hubs'a akış ve/veya Azure İzleyici günlüklerine yalnızca her Azure Güvenlik Duvarı için etkinleştirdiyseniz, gönderilen bir depolama hesabına kaydedilir. Yapılandırdığınız uygulama kurallarınızla eşleşen yeni bağlantılar kabul edilen/reddedilen bağlantı için bir günlük oluşturur. Veriler aşağıdaki örnekte gösterildiği gibi JSON biçiminde günlüğe kaydedilir:
 
    ```
    Category: application rule logs.
@@ -49,7 +49,7 @@ Bu günlüklerden bazılarına portaldan erişebilirsiniz. Günlükler [Log Anal
 
 * **Ağ kuralı günlüğü**
 
-   Ağ kuralı günlüğünü depolama hesabına kaydetmek, Event Hubs'a aktarmak ve/veya Log Analytics'e göndermek için her bir Azure Güvenlik Duvarı'nda etkinleştirmiş olmanız gerekir. Yapılandırdığınız ağ kurallarınızla eşleşen yeni bağlantılar kabul edilen/reddedilen bağlantı için bir günlük oluşturur. Veriler aşağıdaki örnekte gösterildiği gibi JSON biçiminde günlüğe kaydedilir:
+   Ağ kuralı günlüğü, Event hubs'a akış ve/veya Azure İzleyici günlüklerine yalnızca her Azure Güvenlik Duvarı için etkinleştirdiyseniz, gönderilen bir depolama hesabına kaydedilir. Yapılandırdığınız ağ kurallarınızla eşleşen yeni bağlantılar kabul edilen/reddedilen bağlantı için bir günlük oluşturur. Veriler aşağıdaki örnekte gösterildiği gibi JSON biçiminde günlüğe kaydedilir:
 
    ```
    Category: network rule logs.
@@ -73,9 +73,9 @@ Bu günlüklerden bazılarına portaldan erişebilirsiniz. Günlükler [Log Anal
 
 Günlüklerinizi depolamak için kullanabileceğiniz üç seçenek vardır:
 
-* **Depolama hesabı**: Depolama hesaplarının en iyi kullanım amacı, günlüklerin uzun süre depolanması ve ihtiyaç duyulduğunda gözden geçirilmesi durumlarıdır.
-* **Event Hubs**: Event Hubs, kaynaklarınızla ilgili uyarılar almak için diğer güvenlik bilgisi ve olay yönetimi (SEIM) araçlarıyla tümleştirmek için idealdir.
-* **Log Analytics**: Log Analytics'in en iyi kullanım amacı, uygulamanızın gerçek zamanlı olarak izlenmesi veya eğilimlerin incelenmesidir.
+* **Depolama hesabı**: Günlükleri uzun bir süre için depolanır ve gerektiğinde gözden depolama hesapları en iyi günlükler için kullanılır.
+* **Olay hub'ları**: Olay hub'ları, kaynaklarınız üzerinde uyarıları almak için diğer güvenlik bilgileri ve Olay yönetimi (SEIM) araçları ile tümleştirmeye yönelik mükemmel bir seçenektir ' dir.
+* **Azure İzleyici günlüklerine**: Azure İzleyici günlüklerine en iyi şekilde kullanılır uygulamanızın genel gerçek zamanlı izleme veya eğilimlere bakmaya.
 
 ## <a name="activity-logs"></a>Etkinlik günlükleri
 
@@ -86,4 +86,4 @@ Günlüklerinizi depolamak için kullanabileceğiniz üç seçenek vardır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure güvenlik duvarı günlükleri ve ölçümleri izleme öğrenmek için bkz. [öğretici: Azure Güvenlik Duvarı İzleme günlükleri](tutorial-diagnostics.md).
+Azure güvenlik duvarı günlükleri ve ölçümleri izleme öğrenmek için bkz: [Öğreticisi: Azure güvenlik duvarı günlükleri izleme](tutorial-diagnostics.md).

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/11/2018
-ms.openlocfilehash: b4f8d2bdbce20fc7a932280edc26cb3ddfbe6471
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 5fd3200ab787a26b11feb121b5db125e4a79365c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247614"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960395"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Öğretici: MongoDB için Azure Cosmos DB API için MongoDB geçişi DMS kullanarak çevrimdışı
 MongoDB için API Azure Cosmos DB'nin MongoDB örneğini Bulut veya bir şirket içi veritabanlarının çevrimdışı (tek seferlik) geçiş gerçekleştirmek için Azure veritabanı geçiş hizmetini kullanabilirsiniz.
@@ -100,7 +100,7 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
 ## <a name="specify-source-details"></a>Kaynak ayrıntılarını belirtme
 1. Üzerinde **kaynak ayrıntıları** ekranında, kaynak MongoDB sunucu bağlantı ayrıntılarını belirtin.
     
-   Ayrıca, bağlantı dizesi modu kullanın ve geçirmek istediğiniz koleksiyon verisi yazılan bir blog depolama dosya kapsayıcısı için bir konum sağlayın.
+   Ayrıca, bağlantı dizesi modu kullanın ve geçirmek istediğiniz koleksiyon verisi yazılan bir blob depolama dosya kapsayıcısı için bir konum sağlayın.
 
    > [!NOTE]
    > Azure veritabanı geçiş hizmeti, Azure Cosmos DB'nin MongoDB koleksiyonları API'sine bson belgeleri veya json belgelerini de geçirebilirsiniz.

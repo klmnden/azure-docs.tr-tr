@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: c936d7946398183f0b0aac025503bb172bc147af
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bdfeb41c7881bfbd577cdf1a9190617e09979a7f
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101017"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961032"
 ---
 # <a name="monitor-and-tune"></a>İzleme ve ayarlama
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. PostgreSQL için Azure veritabanı sunucunuzu davranışını bir anlayış sağlamak için çeşitli izleme seçenekleri sağlar.
@@ -40,7 +40,7 @@ Bu ölçümler, PostgreSQL için Azure veritabanı için kullanılabilir:
 |backup_storage_used|Kullanılan yedekleme depolama alanı|Bayt|Kullanılan yedekleme depolama alanı miktarı.|
 
 ## <a name="server-logs"></a>Sunucu günlükleri
-Sunucunuzda, günlüğe kaydetmeyi etkinleştirebilirsiniz. Bu günlükler Azure tanılama günlükleri aracılığıyla da kullanılabilir [Log Analytics](../azure-monitor/log-query/log-query-overview.md), olay hub'ları ve depolama hesabı. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
+Sunucunuzda, günlüğe kaydetmeyi etkinleştirebilirsiniz. Bu günlükler Azure tanılama günlükleri aracılığıyla da kullanılabilir [Azure İzleyici günlükleri](../azure-monitor/log-query/log-query-overview.md), olay hub'ları ve depolama hesabı. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
 
 ## <a name="query-store"></a>Sorgu Deposu
 [Query Store](concepts-query-store.md) sorgu süresi dahil olmak üzere üzerinde performans sorgu çalışma zamanı istatistikleri ve olayları bekleyin ve genel Önizleme özelliğidir. Özellik adlı bir sistem veritabanında sorgu çalışma zamanı performans bilgilerini devam ederse **azure_sys** query_store şema altında. Çeşitli yapılandırma düğmelerini aracılığıyla veri depolama ve koleksiyon denetleyebilirsiniz.

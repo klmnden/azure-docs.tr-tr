@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a6ed644334977f13107b12f955b1fbf015f731d1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5f28e213a5f824562df62a05b98f0f92f71bc591
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884889"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957445"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Hızlı Başlangıç: Uygulama yapılandırması ile Azure işlevi oluşturma
 
@@ -79,15 +79,15 @@ Bu hızlı başlangıcı tamamlamak için yükleme [Visual Studio 2017](https://
 
 1. Adlı bir ortam değişkenini ayarlamak **ConnectionString** ve uygulama yapılandırma deponuz için erişim anahtarı ayarlayın. Windows Komut İstemi'ni kullanıyorsanız, aşağıdaki komutu yürütün ve değişikliğin etkili olması için izin vermek için komut istemine yeniden başlatın:
 
-        setx ConnectionString "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>="
+        setx ConnectionString "connection-string-of-your-app-configuration-store"
 
     Windows PowerShell kullanıyorsanız, aşağıdaki komutu yürütün:
 
-        $Env:ConnectionString = "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>="
+        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
     MacOS veya Linux'ı kullanıyorsanız, aşağıdaki komutu yürütün:
 
-        export ConnectionString='Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>='
+        export ConnectionString='connection-string-of-your-app-configuration-store'
 
 2. İşlevinizi test etmek için basın **F5**. İstenirse, indirmek ve yüklemek için Visual Studio'dan isteği kabul et **Azure işlevleri temel (CLI)** araçları. Aracın HTTP isteklerini işleyebilmesi için bir güvenlik duvarı özel durumu etkinleştirmeniz de gerekebilir.
 

@@ -11,14 +11,22 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e389df02966146b217802d4e93f844a4fee425a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446843"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958665"
 ---
 # <a name="release-notes"></a>Sürüm notları
+
+## <a name="speech-sdk-131-2019-february-refresh"></a>SDK'sı 1.3.1 konuşma: Şubat 2019 yenileme
+
+Bir hata düzeltmesi sürüm ve yalnızca yerel ve yönetilen SDK'yı etkileyen budur. JavaScript SDK'sı sürümünü etkilemiyor.
+
+**Hata düzeltmesi**
+
+* Mikrofon girişini kullanarak bir bellek sızıntısı düzeltildi. Stream tabanlı veya giriş dosyası etkilenmez.
 
 ## <a name="speech-sdk-130-2019-february-release"></a>SDK'sı 1.3.0 konuşma: Şubat 2019 sürümü
 
@@ -26,6 +34,8 @@ ms.locfileid: "56446843"
 
 * Speech SDK'sı, seçimi giriş mikrofonu AudioConfig sınıfı aracılığıyla destekler. Bu veri akışı için ses konuşma hizmeti için varsayılan olmayan mikrofondan gelen sağlar. Daha fazla ayrıntı açıklayan belgeleri görmek için [ses giriş cihaz seçimi](how-to-select-audio-input-devices.md). Bu henüz JavaScript'ten kullanılamaz.
 * Speech SDK'sı, artık bir beta sürümünde Unity destekler. Lütfen sorunu bölümünde geri bildirim sağlamak [GitHub örnek deposundan](https://aka.ms/csspeech/samples). Bu sürüm Windows x86 ve x64 (Masaüstü veya evrensel Windows platformu uygulamaları), Unity destekler ve Android (ARM32/64, x86). Daha fazla bilgi kullanılabilir bizim [Unity hızlı](quickstart-csharp-unity.md).
+* Dosya `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (önceki sürümlerde sevk) artık gerekli değildir. İşlevselliği artık çekirdek SDK'sı tümleşiktir.
+
 
 **Örnekler**
 
@@ -54,6 +64,7 @@ Aşağıdaki yeni içerikler ise bizim [örnek depoyu](https://aka.ms/csspeech/s
   * İlk destek ve uygulama tümcecik ipuçları için.
   * Tanıma için JSON hizmetiyle özellikler koleksiyonunu döndürür
 * Windows DLL'leri, artık bir sürüm kaynağı içerir.
+* Bir tanıyıcı oluşturursanız `FromEndpoint` doğrudan uç nokta URL'sine parametreleri ekleyebilirsiniz. Kullanarak `FromEndpoint` standart yapılandırma özellikleri aracılığıyla tanıyıcı yapılandırabilirsiniz değil.
 
 **Hata düzeltmeleri**
 

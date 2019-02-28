@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
-ms.author: tulasim88
-ms.openlocfilehash: 9cb16842e0bc80a1fcbd066bea44c5b9701bb6d5
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: tulasim
+ms.openlocfilehash: 462dfb2de8608eebd5609f7044bde03991fca3ca
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651218"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958057"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Bir Bilgi Bankası yanıt GenerateAnswer API ve meta verileri alma
 
@@ -69,10 +69,10 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?i
 
 |HTTP isteği özelliği|Ad|Type|Amaç|
 |--|--|--|--|
-|URL rota parametresi|Bilgi Bankası kimliği|dize|Bilgi bankanızı GUİD'i.|
-|URL rota parametresi|QnAMaker uç nokta ana bilgisayarı|dize|Azure aboneliğinizde dağıtılmış uç nokta konak adı. Bilgi Bankası yayımladıktan sonra bu ayarlar sayfasında kullanılabilir. |
-|Üst bilgi|Content-Type|dize|API'ye gönderilen gövdenin medya türü. Varsayılan değer: ''|
-|Üst bilgi|Yetkilendirme|dize|Uç nokta anahtarınızı (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|URL rota parametresi|Bilgi Bankası kimliği|string|Bilgi bankanızı GUİD'i.|
+|URL rota parametresi|QnAMaker uç nokta ana bilgisayarı|string|Azure aboneliğinizde dağıtılmış uç nokta konak adı. Bilgi Bankası yayımladıktan sonra bu ayarlar sayfasında kullanılabilir. |
+|Üst bilgi|Content-Type|string|API'ye gönderilen gövdenin medya türü. Varsayılan değer: ''|
+|Üst bilgi|Yetkilendirme|string|Uç nokta anahtarınızı (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |POST gövdesini|JSON nesnesi|JSON|Soru-ayarlar|
 |Sorgu dizesi parametresi (isteğe bağlı)|`isTest`|boole|Varsa true olarak döndürür sonuçlardan kümesi `testkb` yayımlanan dizin yerine arama dizini.|
 
@@ -80,10 +80,10 @@ JSON gövdesi birkaç ayar vardır:
 
 |JSON gövdesi özelliği|Gerekli|Type|Amaç|
 |--|--|--|--|
-|`question`|gerekli|dize|Bilgi Bankası'na gönderilmesini kullanıcı soru.|
+|`question`|gerekli|string|Bilgi Bankası'na gönderilmesini kullanıcı soru.|
 |`top`|isteğe bağlı|integer|Çıktıda dereceli sonuç sayısı. Varsayılan değer 1’dir.|
-|`userId`|isteğe bağlı|dize|Kullanıcıyı tanımlamak için benzersiz bir kimliği. Bu kimliği, sohbet günlüklerine kaydedilir.|
-|`strictFilters`|isteğe bağlı|dize|Bu seçenek belirtilmişse, yalnızca belirtilen meta verilerine de sahip yanıtlarını döndürmek için soru-cevap Oluşturucu bildirir.|
+|`userId`|isteğe bağlı|string|Kullanıcıyı tanımlamak için benzersiz bir kimliği. Bu kimliği, sohbet günlüklerine kaydedilir.|
+|`strictFilters`|isteğe bağlı|string|Bu seçenek belirtilmişse, yalnızca belirtilen meta verilerine de sahip yanıtlarını döndürmek için soru-cevap Oluşturucu bildirir.|
 
 Örnek JSON gövdesi aşağıdaki gibi görünür:
 

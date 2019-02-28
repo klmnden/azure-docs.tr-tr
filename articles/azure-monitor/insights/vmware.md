@@ -1,5 +1,5 @@
 ---
-title: Log analytics'te VMware izleme çözümü | Microsoft Docs
+title: Azure İzleyici'de VMware izleme çözümü | Microsoft Docs
 description: VMware izleme çözümü günlüklerini yönetmek ve nasıl ESXi konaklarını izlemek yardımcı olabileceği hakkında bilgi edinin.
 services: log-analytics
 documentationcenter: ''
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 9f5bdc3686e35f09b461bd5c2df695218b48ede3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 92889708df2df06096ac74d6f270af990d02c07a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993376"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984263"
 ---
-# <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log analytics'te VMware izleme (Önizleme) çözümü
+# <a name="vmware-monitoring-preview-solution-in-azure-monitor"></a>Azure İzleyici çözümde VMware izleme (Önizleme)
 
 ![VMware simgesi](./media/vmware/vmware-symbol.png)
 
 > [!NOTE]
 > VMware izleme çözümü kullanım dışıdır.  Çözüm'i zaten yüklemiş olan müşteriler, onu kullanmaya devam edebilirsiniz, ancak VMware izleme için oluşturulan yeni çalışma alanlarında eklenemez.
 
-Log analytics'te VMware izleme çözümü, Merkezi günlük kaydı ve büyük VMware günlükleri için izleme yaklaşımı oluşturmanıza yardımcı olan bir çözümdür. Bu makalede nasıl sorun giderme, yakalama ve ESXi konaklarının çözümünü kullanarak tek bir konumda açıklanır. Çözümü ile tek bir konumda tüm ESXi konakları için ayrıntılı verileri görebilirsiniz. En yüksek olay sayıları, durumu ve eğilimleri, VM ve ESXi konaklarının ESXi konağı günlükleri sağlanan görebilirsiniz. Görüntüleme ve Arama Merkezi ESXi konak günlüklerini giderebilirsiniz. Ve günlük arama sorgularına dayalı uyarılar oluşturabilirsiniz.
+VMware izleme çözümü Azure İzleyici'de, Merkezi günlük kaydı ve büyük VMware günlükleri için izleme yaklaşımı oluşturmanıza yardımcı olan bir çözümdür. Bu makalede nasıl sorun giderme, yakalama ve ESXi konaklarının çözümünü kullanarak tek bir konumda açıklanır. Çözümü ile tek bir konumda tüm ESXi konakları için ayrıntılı verileri görebilirsiniz. En yüksek olay sayıları, durumu ve eğilimleri, VM ve ESXi konaklarının ESXi konağı günlükleri sağlanan görebilirsiniz. Görüntüleme ve Arama Merkezi ESXi konak günlüklerini giderebilirsiniz. Ve günlük arama sorgularına dayalı uyarılar oluşturabilirsiniz.
 
-Çözüm, veri göndermek için bir hedef, Log Analytics Aracısı VM ESXi ana bilgisayarının yerel syslog işlevselliğini kullanır. Ancak, çözümü hedef sanal makine içinde syslog içine dosyaları yazma değil. Log Analytics aracısını 1514 bağlantı noktasını açar ve bunun için dinler. Veri aldığında, Log Analytics aracısını Log Analytics'e veri gönderir.
+Çözüm, veri göndermek için bir hedef, Log Analytics Aracısı VM ESXi ana bilgisayarının yerel syslog işlevselliğini kullanır. Ancak, çözümü hedef sanal makine içinde syslog içine dosyaları yazma değil. Log Analytics aracısını 1514 bağlantı noktasını açar ve bunun için dinler. Log Analytics aracısını verileri aldıktan sonra Azure İzleyici ile verileri anında bildirim gönderir.
 
 ## <a name="install-and-configure-the-solution"></a>Yükleme ve çözüm yapılandırma
 Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
@@ -71,7 +71,7 @@ Bir Linux işletim sistemi ESXi konağından tüm syslog verileri almak için bi
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. Azure portalında günlük araması gerçekleştirmek `VMware_CL`. Log Analytics, syslog verilerini toplar, syslog biçimine korunur. Portalda, bazı belirli alanları, gibi yakalanır *Hostname* ve *ProcessName*.  
+1. Azure portalında günlük sorgusu gerçekleştirmek `VMware_CL`. Azure İzleyici syslog verileri toplar, syslog biçimine korunur. Portalda, bazı belirli alanları, gibi yakalanır *Hostname* ve *ProcessName*.  
 
     ![type](./media/vmware/type.png)  
 
@@ -129,7 +129,7 @@ VMware kutucuk, Log Analytics çalışma alanınızda görünür. Bu, hataları 
 
 Ayrıntılı bilgi dikey belirli gösteren Log Analytics arama bölmesini açmak için istediğiniz dikey pencereye tıklayın.
 
-Buradan, belirli bir şey değiştirmek için arama sorgusu düzenleyebilirsiniz. Günlük aramaları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Log Analytics'te günlük aramaları kullanarak verileri bulmak](../log-query/log-query-overview.md).
+Buradan, belirli bir şey değiştirmek için günlük sorgusu düzenleyebilirsiniz. Günlük sorguları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Bul günlük sorguları Azure İzleyici'de kullanarak verileri](../log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>ESXi ana etkinlik bulun
 Tek bir ESXi ana bilgisayarı, kendi işlemleri temel alan birden fazla günlük oluşturur. VMware izleme çözümü, bunları merkezileştirir ve de olay sayılarını özetler. Bu merkezi görünüm hangi ESXi ana bilgisayarına fazla miktarda olay varsa ve hangi olayların ortamınızda en sık gerçekleşen anlamanıza yardımcı olur.
@@ -151,14 +151,14 @@ Ek ESXi ana VM oluşturmayı verileri görmek istiyorsanız, bir ESXi ana bilgis
 
 ![Detaya gidin](./media/vmware/createvm.png)
 
-#### <a name="common-search-queries"></a>Yaygın arama sorguları
+#### <a name="common-log-queries"></a>Ortak günlük sorguları
 Çözüm, yüksek depolama alanı, depolama gecikmesi ve yol hatası gibi ESXi ana bilgisayarları yönetmenize yardımcı olabilecek diğer kullanışlı sorgular içerir.
 
 ![sorgu](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Sorguları Kaydet
-Arama sorguları kaydetme, Log Analytics standart bir özelliktir ve yararlı buldunuz tüm sorguları sağlamanıza yardımcı olabilir. Yararlı bulabileceğiniz bir sorguyu oluşturduktan sonra Kaydet'e tıklayarak **Sık Kullanılanlar**. Kayıtlı bir sorguyu sayesinde kolayca daha sonra yeniden [Panom'u](../learn/tutorial-logs-dashboards.md) kendi özel panolar oluşturabileceğiniz sayfası.
+Günlük sorguları kaydetme, Azure İzleyici'de standart bir özelliktir ve yararlı buldunuz tüm sorguları sağlamanıza yardımcı olabilir. Yararlı bulabileceğiniz bir sorguyu oluşturduktan sonra Kaydet'e tıklayarak **Sık Kullanılanlar**. Kayıtlı bir sorguyu sayesinde kolayca daha sonra yeniden [Panom'u](../learn/tutorial-logs-dashboards.md) kendi özel panolar oluşturabileceğiniz sayfası.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 

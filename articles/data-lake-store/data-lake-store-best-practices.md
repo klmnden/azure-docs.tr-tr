@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 45d828b32984363f611828ca3ea33e5fa96a5017
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 53af7ff840f9d04f0e09010b72e9eefc32a8eadd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745852"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961899"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 kullanmak için en iyi uygulamalar
 
@@ -140,7 +140,7 @@ Data Lake depolama Gen1 günlük aktarma açık değilse, Azure HDInsight ayrıc
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Özellik ayarlanmışsa ve düğümlerin yeniden sonra Data Lake depolama Gen1 tanılama düğümlerinde YARN günlüklere yazılır (/tmp/\<kullanıcı\>/yarn.log) ve önemli olabilir. (hata kodu HTTP 429) azaltma veya ayrıntılar gibi hataları izlenen. Bu bilgiyi de Log Analytics veya yerde günlükleri içeri aktarılır izlenebilir [tanılama](data-lake-store-diagnostic-logs.md) Data Lake depolama Gen1 hesabı dikey penceresinde. En az istemci tarafı günlük kaydı açıksa veya Data Lake depolama Gen1 seçeneğiyle operasyonel görünürlük ve daha kolay hata ayıklama için günlük yazılımınız için önerilir.
+Özellik ayarlanmışsa ve düğümlerin yeniden sonra Data Lake depolama Gen1 tanılama düğümlerinde YARN günlüklere yazılır (/tmp/\<kullanıcı\>/yarn.log) ve önemli olabilir. (hata kodu HTTP 429) azaltma veya ayrıntılar gibi hataları izlenen. Bu bilgiyi, Azure İzleyici günlüklerine veya yerde günlükleri içeri aktarılır de izlenebilir [tanılama](data-lake-store-diagnostic-logs.md) Data Lake depolama Gen1 hesabı dikey penceresinde. En az istemci tarafı günlük kaydı açıksa veya Data Lake depolama Gen1 seçeneğiyle operasyonel görünürlük ve daha kolay hata ayıklama için günlük yazılımınız için önerilir.
 
 ### <a name="run-synthetic-transactions"></a>Yapay işlemlerin çalıştırılması
 

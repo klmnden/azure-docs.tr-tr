@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: f21d92dabfcfbe51cf8135388a1ab489c20593a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 56e203a212a4e0e81922336f72fd58ef3cb7dc64
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537554"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983515"
 ---
 # <a name="azure-networking"></a>Azure ağı
 
@@ -136,7 +136,7 @@ Azure, varsayılan birbirleri ile iletişim kurmak için herhangi bir sanal ağ 
 
 Azure ağı yönetmek ve izlemek için aşağıdaki araçları sağlar:
 - **Etkinlik günlükleri:** Tüm Azure kaynakları, işlemi kimin başlattığını ve gerçekleştirilen işlemlerin durumunu işlemleri hakkında bilgi sağlayan etkinlik günlükleri vardır. Etkinlik günlükleri hakkında daha fazla bilgi edinmek için [etkinlik günlükleri genel bakış](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
-- **Tanılama günlükleri:** Düzenli ve spontaneous olayları ağ kaynaklar tarafından oluşturulan ve Azure depolama hesaplarında oturum, bir Azure olay Hub'ına gönderilen veya Azure Log Analytics'e gönderilir. Tanılama günlükleri öngörülere ve kaynak durumunu sağlar. Tanılama günlükleri (Internet'e yönelik) yük dengeleyici, ağ güvenlik grupları, yollar ve Application Gateway için sağlanır. Tanılama günlükleri hakkında daha fazla bilgi edinmek için [tanılama günlüklerine genel bakış](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
+- **Tanılama günlükleri:** Düzenli ve spontaneous olaylar ağ kaynaklar tarafından oluşturulan ve Azure depolama hesaplarında, bir Azure olay Hub'ına gönderilen veya Azure İzleyici günlüklerine gönderilen günlüğe kaydedilir. Tanılama günlükleri öngörülere ve kaynak durumunu sağlar. Tanılama günlükleri (Internet'e yönelik) yük dengeleyici, ağ güvenlik grupları, yollar ve Application Gateway için sağlanır. Tanılama günlükleri hakkında daha fazla bilgi edinmek için [tanılama günlüklerine genel bakış](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - **Ölçümleri:** Performans ölçümleri ve kaynakları bir süre içinde toplanan sayaçları ölçümleridir. Ölçümler üzerinde eşiklerine göre uyarıları tetiklemek için kullanılabilir. Şu anda ölçümler Application Gateway üzerinde kullanılabilir. Ölçümler hakkında daha fazla bilgi edinmek için [ölçümlerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - **Sorun giderme:** Sorun giderme bilgilerini, doğrudan Azure Portalı'nda erişilebilir. ExpressRoute, VPN ağ geçidi, Application Gateway, ağ güvenlik günlükleri, yollar, DNS, yük dengeleyici ve Traffic Manager ile ortak sorunları tanılama bilgileri sağlar.
 - **Rol tabanlı erişim denetimi (RBAC):** Oluşturabilir ve rol tabanlı erişim denetimi (RBAC) ile ağ kaynaklarını yönetme denetimi. RBAC hakkında daha fazla bilgi edinmek [RBAC ile çalışmaya başlama](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi. 

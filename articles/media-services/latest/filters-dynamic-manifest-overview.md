@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 87b68eceda6749e3bb0fdc64394b2b839f3963c3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7d40a29a0d9d708deb5485b18327d809ded0022d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866751"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959553"
 ---
 # <a name="dynamic-manifests"></a>Dinamik bildirimler
 
@@ -41,7 +41,7 @@ Bu konu ile ilgili kavramları açıklar **dinamik bildirimlerini** istediğiniz
 
 ## <a name="manifest-files-overview"></a>Bildirim dosyaları genel bakış
 
-Bir varlığı, bit hızı Uyarlamalı akış için kodlarken bir **bildirim** (çalma listesi) dosyası oluşturulur (metin tabanlı veya XML tabanlı dosyasıdır). **Bildirim** dosya ekleme gibi meta veri akış: izleme türü (ses, video veya metin), izleme adı, başlangıç ve bitiş zamanı, bit hızı (kalitelerini), izleme diller Sunu penceresini (sabit süre kayan pencere), video codec bileşeni ( FourCC). Sonraki yürütülebilir video parçalar kullanılabilir ve bulundukları konumlar ilgili bilgi sağlayarak bir sonraki parça almak için player talimatı verir. Parçaları (veya parçaları) gerçek "" bir video içeriğinizi öbekleridir.
+A **bildirim** (çalma listesi) dosyası (metin tabanlı veya XML tabanlı) içeren meta verileri gibi akış: izleme türü (ses, video veya metin), izleme adı, başlangıç ve bitiş zamanı, bit hızı (kalitelerini), izleme dil (kayan sunu penceresi pencerenin sabit süre), video codec (FourCC). Sonraki yürütülebilir video parçalar kullanılabilir ve bulundukları konumlar ilgili bilgi sağlayarak bir sonraki parça almak için player talimatı verir. Parçaları (veya parçaları) gerçek "" bir video içeriğinizi öbekleridir.
 
 HLS bildirim dosyasının bir örnek aşağıda verilmiştir: 
 

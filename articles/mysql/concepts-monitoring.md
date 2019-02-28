@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: de339fbab3d360507a77708816b5fccdca80a7d1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 05af196d115376d744df1976c6a3d9fe9cab74e0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544763"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958910"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda izleme
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. MySQL için Azure veritabanı sunucunuzu davranışını öngörü sunan çeşitli ölçümleri sağlar.
@@ -41,7 +41,7 @@ Bu ölçümler, MySQL için Azure veritabanı için kullanılabilir:
 |backup_storage_used|Kullanılan yedekleme depolama alanı|Bayt|Kullanılan yedekleme depolama alanı miktarı.|
 
 ## <a name="server-logs"></a>Sunucu günlükleri
-Yavaş sorgu günlüğü sunucunuzda etkinleştirebilirsiniz. Bu günlükler, OMS Log Analytics, olay hub'ları ve depolama hesabı Azure tanılama günlükleri aracılığıyla da kullanılabilir. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
+Yavaş sorgu günlüğü sunucunuzda etkinleştirebilirsiniz. Bu günlükler de Azure İzleyici günlüklerini, olay hub'ları ve depolama hesabı Azure tanılama günlükleri kullanılabilir. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bkz: [uyarıları ayarlamak nasıl](howto-alert-on-metric.md) bir ölçüme göre bir uyarı oluşturma hakkında yönergeler için.

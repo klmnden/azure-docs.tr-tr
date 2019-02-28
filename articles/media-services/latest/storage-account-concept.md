@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: 471bc34272b8e141c8640bd218bdafd840850d24
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cda029dd11e8cb4cb07e9fce7eef95d6d4d78d7e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672279"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960233"
 ---
 # <a name="cloud-upload-and-storage"></a>Bulutta karşıya yükleme ve depolama
 
@@ -35,12 +35,10 @@ Depolama hesabınız için seçebileceğiniz farklı SKU'ları vardır. Daha faz
 
 ## <a name="assets-in-a-storage-account"></a>Varlıkları bir depolama hesabı
 
-Media Services v3 sürümünde depolama API'leri, dosyaları karşıya yüklemek için kullanılır.
+Media Services v3 sürümünde depolama API'leri varlıklarına dosyaları karşıya yüklemek için kullanılır. Daha fazla bilgi için [varlıklar kavramı](assets-concept.md).
 
 > [!Note]
 > Media Services API'leri kullanmadan Media Services SDK'sı tarafından oluşturulan blob kapsayıcı içeriğini değiştirme denememeniz gerekir.
-
-Depolama API'leri, giriş dosyalarınızı karşıya yüklemek için Media Services ile kullanma hakkında bilgi için kullanıma [yerel bir dosyadan iş girdisi oluşturma](job-input-from-local-file-how-to.md). 
  
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 02055ec07de2b08abdc949e17c668912431e00ce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f45663fd0f63537f87ee4466ad5f17cce0bed6a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871260"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961729"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizin türleri
 
@@ -54,6 +54,9 @@ Uzaysal dizinler, hizmet için kullanılabilir ve karma, sorgu aralığı örnek
 
 ## <a name="index-precision"></a>Dizin duyarlık
 
+> [!NOTE]
+> Azure Cosmos kapsayıcıları, en yüksek duyarlık value(-1) dışında özel dizin kesinliği artık gerektiren yeni bir dizin düzenini destekler. Bu yöntemle yolları ile verilen duyarlık her zaman dizine eklenir. Dizin oluşturma ilkesi duyarlık değeri belirtirseniz, kapsayıcılar bir CRUD istekleri duyarlık değeri sessizce yoksayar ve kapsayıcı yanıttan yalnızca en yüksek duyarlık value(-1) içerir.  Tüm yeni Cosmos kapsayıcılar, varsayılan olarak yeni dizin düzeni kullanın.
+
 - Dizin duyarlık dizin depolama yükü ve sorgu performansı arasında bir denge sağlamak için kullanabilirsiniz. Sayılar için varsayılan duyarlık yapılandırma-1 (maksimum) kullanmanızı öneririz. Sayı 8 baytlık JSON olduğundan, bu 8 baytlık bir yapılandırmaya eşdeğerdir. Bazı aralıklar dahilinde değerleri aynı eşleyin anlamına gelir, duyarlığı, 1 ile 7 arasında gibi daha düşük bir değer seçme giriş dizini. Bu nedenle, dizin depolama alanı azaltabilir, ancak sorgu yürütme daha fazla öğe işlemek zorunda kalabilirsiniz. Sonuç olarak, daha fazla aktarım hızı/RU tüketir.
 
 - Dizin duyarlık dize aralıklarıyla daha pratik uygulama vardır. Dizeleri herhangi bir rastgele uzunluktaki olabileceğinden, dizin duyarlık seçimi dize aralığı sorguların performansını etkileyebilir. Ayrıca, gerekli olan dizin depolama alanı miktarı da etkileyebilir. Dizinleri dizesi aralık 1 ile 100 veya -1 (maksimum) arasında bir dizin duyarlıkla yapılandırılabilir. Dize özellikleri ORDER BY sorguları gerçekleştirmek istiyorsanız, bir duyarlık karşılık gelen yollarla için-1 belirtmeniz gerekir.
@@ -61,9 +64,6 @@ Uzaysal dizinler, hizmet için kullanılabilir ve karma, sorgu aralığı örnek
 - Uzaysal dizinler, her zaman varsayılan dizini duyarlık tüm türleri için (Point, LineString ve Çokgen) kullanın. Uzaysal dizinler için varsayılan dizin duyarlık geçersiz kılınamaz.
 
 Bir sorgu ORDER BY kullanır ancak karşı en yüksek duyarlık sorgulanan yoluyla bir aralık dizini yok, azure Cosmos DB, bir hata döndürür.
-
-> [!NOTE]
-> Azure Cosmos kapsayıcıları, en yüksek duyarlık value(-1) dışında özel dizin kesinliği artık gerektiren yeni bir dizin düzenini destekler. Bu yöntemle yolları ile verilen duyarlık her zaman dizine eklenir. Dizin oluşturma ilkesi duyarlık değeri belirtirseniz, kapsayıcılar bir CRUD istekleri duyarlık değeri sessizce yoksayar ve kapsayıcı yanıttan yalnızca en yüksek duyarlık value(-1) içerir.  Tüm yeni Cosmos kapsayıcılar, varsayılan olarak yeni dizin düzeni kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

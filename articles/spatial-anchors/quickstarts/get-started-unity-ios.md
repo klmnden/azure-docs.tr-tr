@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 42fc4b6b1924b858f58d714cee8f1b9d2e7aba33
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: fa9f613bfbb3028715629f1d27b90531bd1dac3a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752316"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959689"
 ---
 # <a name="quickstart-create-an-ios-unity-app-with-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal Çıpasıyla iOS Unity uygulaması oluşturma
 
@@ -61,6 +61,9 @@ Sahne seçerek Kaydet **dosya** -> **Kaydet**.
 [!INCLUDE [Configure Xcode](../../../includes/spatial-anchors-unity-ios-xcode.md)]
 
 Yerleştirin ve bir bağlantı geri çağırma uygulaması'ndaki yönergeleri izleyin.
+
+> [!NOTE]
+> Kamera arka planı olarak (veya diğer doku örneği yerine boş, mavi görürsünüz) görmüyorsanız, uygulama çalıştırırken daha sonra büyük olasılıkla Unity varlıkları yeniden almanız gerekir. Uygulamayı durdurun. Unity üstteki menüden seçin **varlıklar -> yeniden içeri tüm**. Ardından, uygulamayı yeniden çalıştırın.
 
 Xcode içindeki tuşlarına basarak uygulamayı durdurun **Durdur**.
 

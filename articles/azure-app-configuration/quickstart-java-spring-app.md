@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 871aabb25423b0d5d6e69412f939bcff79a5f12a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d607d6cd813b23051e1676153cbb134261bcf5bc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884877"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960640"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Hızlı Başlangıç: Uygulama yapılandırması ile bir Java Spring uygulaması oluşturma
 
@@ -56,7 +56,7 @@ Bu hızlı başlangıcı tamamlamak için desteklenen bir yükleme [Java Develop
 
 5. Dağıtım tamamlandıktan sonra tıklayın **ayarları** > **erişim anahtarlarını**. Her iki birincil salt okunur veya birincil salt okunur anahtar bağlantı dizesini not edin. Bu daha az önce oluşturduğunuz uygulama yapılandırma deposu ile iletişim kurmak için uygulamanızı yapılandırmak için kullanın. Bağlantı dizesi aşağıdaki biçime sahiptir:
 
-        Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>=
+        Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>
 
     Uygulamanızda dizenin tamamını kullanmanız gerekir.
 
@@ -92,7 +92,7 @@ Kullanacağınız [Initializr](https://start.spring.io/) yeni bir Spring Boot pr
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-config</artifactId>
+        <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
         <version>1.1.0.RC2</version>
     </dependency>
     ```

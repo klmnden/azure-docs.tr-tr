@@ -7,18 +7,20 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426176"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958992"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Öğretici: Azure Güvenlik Duvarı günlüklerini ve ölçümlerini izleme
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Öğretici: Azure güvenlik duvarı günlükleri ve ölçümleri izleme
 
 Güvenlik duvarı günlüklerini kullanarak Azure Güvenlik Duvarı'nı izleyebilirsiniz. Ayrıca etkinlik günlüklerini kullanarak Azure Güvenlik Duvarı kaynaklarıyla ilgili işlemleri denetleyebilirsiniz. Ölçümleri kullanarak portalda performans sayaçlarını görüntüleyebilirsiniz. 
 
-Bu günlüklerden bazılarına portaldan erişebilirsiniz. Günlükler [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Depolama ve Event Hubs'a gönderilebilir, Log Analytics'te veya Excel ve Power BI gibi farklı araçlarda analiz edilebilir.
+Bu günlüklerden bazılarına portaldan erişebilirsiniz. Günlükleri gönderilebilir [Azure İzleyici günlükleri](../azure-monitor/insights/azure-networking-analytics.md), depolama ve Event Hubs ve Azure İzleyici günlüklerine veya Excel ve Power BI gibi farklı araçları tarafından analiz edilir.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -48,7 +50,7 @@ Tanılama günlüğüne kaydetme işlemi etkinleştirildikten sonra verilerin g�
 
 3. Veri toplamaya başlamak için **Tanılamayı aç**'a tıklayın.
 4. **Tanılama ayarları** sayfasında tanılama günlükleriyle ilgili ayarlar bulunur. 
-5. Bu örnekte günlükler Log Analytics'te depolandığı için ad olarak **Firewall log analytics** yazın.
+5. Bu örnekte, Azure İzleyici günlüklerine depolayan günlükler, bu nedenle **güvenlik duvarı log analytics'e** adı.
 6. Çalışma alanınızı yapılandırmak için **Log Analytics'e gönder**'e tıklayın. Tanılama günlüklerini kaydetmek için Event Hubs'ı veya depolama hesabını da kullanabilirsiniz.
 7. **Log Analytics** bölümünde **Yapılandır**'a tıklayın.
 8. Log Analytics çalışma alanları sayfasında **Yeni Çalışma Alanı Oluştur**'a tıklayın.
@@ -89,14 +91,14 @@ Tanılama günlüğüne kaydetmeyi etkinleştirmek için aşağıdaki adımları
 
 Aşağıdaki yöntemlerden birini kullanarak etkinlik günlüğü verilerini görüntüleyebilir ve analiz edebilirsiniz:
 
-* **Azure araçları**: Etkinlik günlüğü verilerini Azure PowerShell, Azure CLI, Azure REST API veya Azure portal üzerinden alabilirsiniz. Her yöntemle ilgili ayrıntılı adımlar [Kaynak Yöneticisi etkinlik işlemleri](../azure-resource-manager/resource-group-audit.md) makalesinde ayrıntılı bir şekilde anlatılmıştır.
-* **Power BI**: [Power BI](https://powerbi.microsoft.com/pricing) hesabınız yoksa ücretsiz oluşturabilirsiniz. [Power BI için Azure Activity Logs içerik paketi](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) ile verilerinizi önceden yapılandırılmış panoları olduğu gibi veya değiştirerek kullanarak analiz edebilirsiniz.
+* **Azure araçlarını**: Azure PowerShell, Azure CLI, Azure REST API'si veya Azure Portalı aracılığıyla etkinlik günlüğünden bilgi alın. Her yöntemle ilgili ayrıntılı adımlar [Kaynak Yöneticisi etkinlik işlemleri](../azure-resource-manager/resource-group-audit.md) makalesinde ayrıntılı bir şekilde anlatılmıştır.
+* **Power BI**: Henüz yoksa bir [Power BI](https://powerbi.microsoft.com/pricing) hesabı deneyebilirsiniz, ücretsiz. [Power BI için Azure Activity Logs içerik paketi](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) ile verilerinizi önceden yapılandırılmış panoları olduğu gibi veya değiştirerek kullanarak analiz edebilirsiniz.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Ağ ve uygulama kuralı günlüklerini görüntüleme ve analiz etme
 
-Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), sayaç ve olay günlüğü dosyalarını toplar. Günlüklerinizi analiz etmek için görselleştirmelere ve güçlü arama özelliklerine sahiptir.
+[Azure İzleyici günlüklerine](../azure-monitor/insights/azure-networking-analytics.md) sayaç ve olay günlük dosyalarını toplar. Günlüklerinizi analiz etmek için görselleştirmelere ve güçlü arama özelliklerine sahiptir.
 
-Azure Güvenlik Duvarı Log Analytics örnek sorguları için bkz. [Azure Güvenlik Duvarı Log Analytics örnekleri](log-analytics-samples.md).
+Azure güvenlik duvarı log analytics sorguları örneği için bkz: [Azure güvenlik duvarı log analytics örnekleri](log-analytics-samples.md).
 
 Dilerseniz depolama hesabınıza bağlanabilir ve JSON erişim günlüklerini ve performans günlüklerini alabilirsiniz. İndirdiğiniz JSON dosyalarını CSV biçimine dönüştürebilir ve Excel, Power BI veya diğer veri görselleştirme araçlarında görüntüleyebilirsiniz.
 
@@ -108,10 +110,10 @@ Bir Azure Güvenlik Duvarına gidin, **İzleme** bölümünde **Ölçümler**’
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Güvenlik duvarınızı günlükleri toplayacak şekilde yapılandırdığınıza göre artık Log Analytics'e göz atarak verilerinizi görüntüleyebilirsiniz.
+Günlükleri toplamak için güvenlik duvarınızı yapılandırdıktan sonra verilerinizi görüntülemek için Azure İzleyici günlüklerine keşfedebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Log Analytics'teki ağ izleme çözümleri](../azure-monitor/insights/azure-networking-analytics.md)
+> [Ağ izleme çözümlerini Azure İzleyici günlüklerine](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

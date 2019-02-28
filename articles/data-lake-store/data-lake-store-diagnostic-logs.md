@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a0bb320abb31b38461102e0e9a062ea0c2af51fb
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966084"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959587"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 için tanılama günlüklerine erişme
 Azure Data Lake depolama Gen1 hesabınızı ve hesabınız için toplanan günlükleri görüntülemek için günlüğe kaydetme tanılama etkinleştirmeyi öğrenin.
@@ -46,7 +46,7 @@ Kuruluşlar, verilerin ne sıklıkla erişilen verileri erişen kullanıcıları
         
         * Seçeneğini **Stream olay hub'ına** Azure olay Hub'ına günlük veri akışı. Büyük olasılıkla gerçek zamanda gelen günlükleri analiz etmek için bir aşağı akış işleme işlem hattı varsa bu seçeneği kullanın. Bu seçeneği belirlerseniz, Azure Event Hub kullanmak istediğiniz için ayrıntıları sağlamanız gerekir.
 
-        * Seçeneğini **Log Analytics'e gönderme** Azure Log Analytics hizmetine oluşturulan günlük verileri çözümlemek için kullanılacak. Bu seçeneği belirlerseniz, günlük analizini gerçekleştirin kullanacağınız için Log Analytics çalışma alanı ayrıntılarını sağlamanız gerekir. Bkz: [görünümü veya Log Analytics günlük araması ile toplanan verileri analiz etmek](../azure-monitor/learn/tutorial-viewdata.md) Log Analytics kullanma hakkında bilgi.
+        * Seçeneğini **Log Analytics'e gönderme** oluşturulan günlük verileri analiz etmek için Azure İzleyici hizmeti kullanmak için. Bu seçeneği belirlerseniz, günlük analizini gerçekleştirin kullanacağınız için Log Analytics çalışma alanı ayrıntılarını sağlamanız gerekir. Bkz: [görünümü veya Azure İzleyici günlük araması ile toplanan verileri analiz etmek](../azure-monitor/learn/tutorial-viewdata.md) Azure İzleyici kullanımıyla ilgili ayrıntılar için günlüğe kaydeder.
      
    * Denetim günlükleri veya istek günlükleri veya her ikisi de almak isteyip istemediğinizi belirtin.
    * Verilerin korunması gereken gün sayısını belirtin. Bekletme yalnızca günlük verileri arşivlemek için Azure depolama hesabı kullanıyorsanız geçerlidir.
@@ -115,25 +115,25 @@ JSON biçimli istek günlüğünde örnek giriş aşağıdadır. Her blob olarak
 #### <a name="request-log-schema"></a>İstek günlüğü şeması
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| time |Dize |Zaman damgası (UTC) günlüğü |
-| resourceId |Dize |İşlem geçen kaynak Kimliğini yerleştireceğinize |
-| category |Dize |Günlük kategorisi. Örneğin, **istekleri**. |
-| operationName |Dize |Oturum açmış işlemin adı. Örneğin, getfilestatus. |
-| resultType |Dize |Örneğin, 200 işlem durumu. |
-| callerIpAddress |Dize |İsteği yapan istemcinin IP adresi |
-| correlationId |Dize |Bir dizi ilgili günlük girişlerini gruplamak için kullanılan kimliği için günlük |
+| time |String |Zaman damgası (UTC) günlüğü |
+| resourceId |String |İşlem geçen kaynak Kimliğini yerleştireceğinize |
+| category |String |Günlük kategorisi. Örneğin, **istekleri**. |
+| operationName |String |Oturum açmış işlemin adı. Örneğin, getfilestatus. |
+| resultType |String |Örneğin, 200 işlem durumu. |
+| callerIpAddress |String |İsteği yapan istemcinin IP adresi |
+| correlationId |String |Bir dizi ilgili günlük girişlerini gruplamak için kullanılan kimliği için günlük |
 | identity |Nesne |Günlük oluşturulan kimlik |
 | properties |JSON |Ayrıntılar için aşağıya bakın |
 
 #### <a name="request-log-properties-schema"></a>İstek günlüğü özellikleri şeması
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| HttpMethod |Dize |HTTP yöntemi, bir işlem için kullanılmaz. Örneğin, alın. |
-| Yol |Dize |İşlem yolu üzerinde gerçekleştirildi |
+| HttpMethod |String |HTTP yöntemi, bir işlem için kullanılmaz. Örneğin, alın. |
+| Yol |String |İşlem yolu üzerinde gerçekleştirildi |
 | RequestContentLength |int |HTTP isteğinin içerik uzunluğu |
-| Clientrequestıd'ye |Dize |Bu istek benzersiz olarak tanımlayan kimliği |
-| StartTime |Dize |Sunucu isteği aldığınız zaman |
-| EndTime |Dize |Sunucu yanıt gönderme zamanı |
+| Clientrequestıd'ye |String |Bu istek benzersiz olarak tanımlayan kimliği |
+| StartTime |String |Sunucu isteği aldığınız zaman |
+| EndTime |String |Sunucu yanıt gönderme zamanı |
 
 ### <a name="audit-logs"></a>Denetim günlükleri
 JSON biçimli bir denetim günlüğüne örnek girişini İşte. Her blob olarak adlandırılan bir kök nesnesinin sahip **kayıtları** günlük nesnelerinin bir dizisi içeren
@@ -162,23 +162,23 @@ JSON biçimli bir denetim günlüğüne örnek girişini İşte. Her blob olarak
 #### <a name="audit-log-schema"></a>Denetim günlüğü şeması
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| time |Dize |Zaman damgası (UTC) günlüğü |
-| resourceId |Dize |İşlem geçen kaynak Kimliğini yerleştireceğinize |
-| category |Dize |Günlük kategorisi. Örneğin, **denetim**. |
-| operationName |Dize |Oturum açmış işlemin adı. Örneğin, getfilestatus. |
-| resultType |Dize |Örneğin, 200 işlem durumu. |
-| resultSignature |Dize |İşlemi hakkında daha fazla ayrıntı. |
-| correlationId |Dize |Bir dizi ilgili günlük girişlerini gruplamak için kullanılan kimliği için günlük |
+| time |String |Zaman damgası (UTC) günlüğü |
+| resourceId |String |İşlem geçen kaynak Kimliğini yerleştireceğinize |
+| category |String |Günlük kategorisi. Örneğin, **denetim**. |
+| operationName |String |Oturum açmış işlemin adı. Örneğin, getfilestatus. |
+| resultType |String |Örneğin, 200 işlem durumu. |
+| resultSignature |String |İşlemi hakkında daha fazla ayrıntı. |
+| correlationId |String |Bir dizi ilgili günlük girişlerini gruplamak için kullanılan kimliği için günlük |
 | identity |Nesne |Günlük oluşturulan kimlik |
 | properties |JSON |Ayrıntılar için aşağıya bakın |
 
 #### <a name="audit-log-properties-schema"></a>Denetim günlüğü özellikleri şeması
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| StreamName |Dize |İşlem yolu üzerinde gerçekleştirildi |
+| StreamName |String |İşlem yolu üzerinde gerçekleştirildi |
 
 ## <a name="samples-to-process-the-log-data"></a>Günlük verileri işlemek için örnekleri
-Günlükleri Azure Data Lake depolama Gen1 Azure Log Analytics'e gönderirken (bkz [görünümü veya Log Analytics günlük araması ile toplanan verileri analiz etmek](../azure-monitor/learn/tutorial-viewdata.md) Log Analytics kullanımıyla ilgili ayrıntılar için), aşağıdaki sorguyu listesini içeren bir tablo döndürür kullanıcısı, olayların süresi ve olay sayısı görsel bir grafiğin yanı sıra etkinliğin saati için görünen adları. Kullanıcı GUID'si göstermek için kolayca değiştirilebilir ya da diğer öznitelikleri:
+Günlükleri, Azure Data Lake depolama Gen1 Azure İzleyici günlüklerine gönderirken, (bkz [görünümü veya Azure İzleyici günlük araması ile toplanan verileri analiz etmek](../azure-monitor/learn/tutorial-viewdata.md) Azure İzleyici kullanımıyla ilgili ayrıntılar için günlükleri), aşağıdaki sorguyu içeren bir tablo döndürür bir Kullanıcı listesi görünen adlar, olayların süresi ve olay sayısı için görsel bir grafiğin yanı sıra etkinliğin saati. Kullanıcı GUID'si göstermek için kolayca değiştirilebilir ya da diğer öznitelikleri:
 
 ```
 search *

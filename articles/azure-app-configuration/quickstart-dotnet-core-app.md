@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f8b072752a6cf538cb1a85d3b255af6201aa041e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cd4115aaeec15d14d48dcb71cbdc75212c6dc2db
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884809"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960691"
 ---
 # <a name="quickstart-create-an-net-core-app-with-app-configuration"></a>Hızlı Başlangıç: Oluşturma bir .NET Core uygulaması ile uygulama yapılandırması
 
@@ -74,15 +74,15 @@ Kullanacağınız [.NET Core komut satırı arabirimi (CLI)](https://docs.micros
 
 1. Adlı bir ortam değişkenini ayarlamak **ConnectionString** ve uygulama yapılandırma deponuz için erişim anahtarı ayarlayın. Windows Komut İstemi'ni kullanıyorsanız, aşağıdaki komutu yürütün ve değişikliğin etkili olması için izin vermek için komut istemine yeniden başlatın:
 
-        setx ConnectionString "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>"
+        setx ConnectionString "connection-string-of-your-app-configuration-store"
 
     Windows PowerShell kullanıyorsanız, aşağıdaki komutu yürütün:
 
-        $Env:ConnectionString = "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>"
+        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
     MacOS veya Linux'ı kullanıyorsanız, aşağıdaki komutu yürütün:
 
-        export ConnectionString='Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>'
+        export ConnectionString='connection-string-of-your-app-configuration-store'
 
 2. Konsol uygulaması oluşturmak için aşağıdaki komutu yürütün:
 

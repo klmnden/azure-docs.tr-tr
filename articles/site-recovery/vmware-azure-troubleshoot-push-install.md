@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/07/2019
-ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/27/2019
+ms.openlocfilehash: 3b46ffe49aeb31aaf9040be038e8a9e83641ae51
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895695"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984398"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility hizmeti anında yükleme sorunlarını giderme
 
@@ -58,7 +58,7 @@ Seçilen kullanıcı hesabının kimlik bilgilerini değiştirmek istiyorsanız,
 
 ## <a name="insufficient-privileges-failure-errorid-95518"></a>Ayrıcalıklar yetersiz hatası (errorID: 95518)
 
-Etki alanı güven ilişkisi kurulmasını birincil etki alanı ve iş istasyonu arasında kaynak makineye oturum açmaya çalışırken başarısız olduğunda, mobility Aracısı yüklemesi 95518 hata koduyla başarısız oluyor. Bu nedenle, mobility aracısı yüklemek için kullanılan kullanıcı hesabının, kaynak makinenin birincil etki alanı ile oturum açmak için yönetici ayrıcalıkları olduğundan emin olun.
+Etki alanı güven ilişkisi kurulmasını birincil etki alanı ve iş istasyonu arasında kaynak makineye oturum açmaya çalışırken başarısız olduğunda, mobility Aracısı yüklemesi 95518 hata Koduyla başarısız oluyor. Bu nedenle, mobility aracısı yüklemek için kullanılan kullanıcı hesabının, kaynak makinenin birincil etki alanı ile oturum açmak için yönetici ayrıcalıkları olduğundan emin olun.
 
 Seçilen kullanıcı hesabının kimlik bilgilerini değiştirmek istiyorsanız, verilen yönergeleri izleyin [burada](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
@@ -80,7 +80,7 @@ Bu nedenle, verilen yönergeleri izleyerek seçilen kimlik bilgilerini değişti
 
 ### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>Kaynak makinede oturum açma sunucusu kullanılamıyor (errorID: 95521)
 
-Oturum açma sunucusu, kaynak makinede mevcut olmadığı durumlarda, bu hata oluşur. Oturum açma sunucusu olarak kullanım dışı kalması oturum açma isteği başarısız olmasına neden ve bu nedenle mobility Aracısı yüklenemiyor. Başarılı oturum açma için oturum açma sunucusu kaynak makinede kullanılabilir ve oturum açma hizmeti başlatmak emin olun. Ayrıntılı yönergeler için tıklayın [burada](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
+Oturum açma sunucusu, kaynak makinede mevcut olmadığı durumlarda, bu hata oluşur. Oturum açma sunucusu olarak kullanım dışı kalması oturum açma isteği başarısız olmasına neden ve bu nedenle mobility Aracısı yüklenemiyor. Başarılı oturum açma için oturum açma sunucusu kaynak makinede kullanılabilir ve oturum açma hizmeti başlatmak emin olun. Ayrıntılı yönergeler için bkz. KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) hata iletisi: Şu anda yok oturum açma sunucuları kullanılabilir vardır.
 
 ### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>Oturum açma hizmeti kaynak makinede çalışmadığından (errorID: 95522)
 
@@ -122,9 +122,9 @@ Bağlantı denetimi sonra dosya ve Yazıcı Paylaşımı hizmet etkin değilse, 
 * Dosya Paylaşımı ile Grup İlkesi'ni etkinleştirmek için
   * Başlat'a gidin, arama ve gpmc.msc yazın.
   * Gezinti bölmesinde, aşağıdaki klasörleri açın: Yerel bilgisayar ilkesi, kullanıcı yapılandırma, Yönetim Şablonları, Windows bileşenleri ve ağ paylaşımı.
-  * Ayrıntılar bölmesinde **kullanıcı profilleri içinde dosyaları paylaşmasını engelleyebilir**. Grup İlkesi ayarını devre dışı bırakın ve dosyaları paylaşmak kullanıcının özelliğini etkinleştirmek için devre dışı bırak Değişikliklerinizi kaydetmek için Tamam'a tıklayın. Daha fazla bilgi edinmek için tıklayın [burada](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
+  * Ayrıntılar bölmesinde **kullanıcı profilleri içinde dosyaları paylaşmasını engelleyebilir**. Grup İlkesi ayarını devre dışı bırakın ve dosyaları paylaşmak kullanıcının özelliğini etkinleştirmek için devre dışı bırak Değişikliklerinizi kaydetmek için Tamam'a tıklayın. Daha fazla bilgi için bkz. [etkinleştirmek veya devre dışı dosya paylaşımı Grup İlkesi ile](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
-İçin **sonraki sürümlerinde**, sağlanan yönergeleri izleyin [burada](vmware-azure-install-mobility-service.md) dosya ve Yazıcı Paylaşımı'nı etkinleştirmek için.
+İçin **sonraki sürümlerinde**, bölümlerinde sağlanan yönergeleri izleyin [VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma için mobilite hizmetini yüklemeyi](vmware-azure-install-mobility-service.md) dosya ve Yazıcı Paylaşımı'nı etkinleştirmek için.
 
 ## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>Windows Yönetim Araçları (WMI) yapılandırma denetimi (hata kodu: 95103)
 
@@ -191,7 +191,7 @@ blkid /dev/sda2
 /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
 ```
 
-2. Biçimde, UUID artık cihaz adı yerine "kök UUID = =<UUID>". Örneğin cihaz adları için kök UUID ile değiştirin ve parametre dosyaları yukarıdaki sürdürmek için "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" veya "/ varsayılan/etc/grub: gibi görünen dosyalarda satır sonra. <br>
+2. Biçimde, UUID artık cihaz adı yerine "kök UUID = =<UUID>". Örneğin cihaz adları için kök UUID ile değiştirin ve parametre dosyaları yukarıdaki sürdürmek için "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" veya "/ varsayılan/etc/grub: dosyalarda satır ardından aramak gibi. <br>
 *Çekirdek /boot/vmlinuz-3.0.101-63-default **kök UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4 =** **sürdürme UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b =** splash sessiz crashkernel = 256M-:128M = showopts vga 0x314 =*
 3. Korumayı yeniden yeniden başlatın
 
@@ -199,10 +199,10 @@ blkid /dev/sda2
 
 Site Recovery mobility hizmeti biri filtre sürücüsü adlı birçok bileşen vardır. Filtre sürücüsü, yalnızca bir anda sistemin yeniden başlatılması, sistem belleğe yüklenen. Bu, yeni bir filtre sürücüsü yüklendiğinde, filtre sürücüsü düzeltmesi'nin yalnızca gerçekleşmiş anlamına gelir; Bu, yalnızca sistem yeniden başlatma sırasında gerçekleşebilir.
 
-**Lütfen unutmayın** bu bir uyarıdır ve mevcut çoğaltma bile yeni aracı güncelleştirmesinden sonra çalışır. Yeni filtre sürücüsü ancak daha da eski filtre sürücüsü tutar çalışma yeniden yoksa, avantajlarını almak istediğiniz herhangi bir zamanda yeniden başlatmayı seçebilirsiniz. Bu nedenle, bir güncelleştirme filtre sürücüsü dışında yeniden başlatma olmadan sonra **diğer iyileştirmeler ve düzeltmeler mobility hizmetinin avantajlarından gerçekleşen**. Bu nedenle, önerilen olsa da her yükseltme işleminden sonra yeniden başlatmak için zorunlu değildir. Yeniden başlatma zorunlu olduğunda hakkında daha fazla bilgi için tıklatın [burada](https://aka.ms/v2a_asr_reboot).
+**Lütfen unutmayın** bu bir uyarıdır ve mevcut çoğaltma bile yeni aracı güncelleştirmesinden sonra çalışır. Yeni filtre sürücüsü ancak eski filtre sürücüsü tutar çalışma yeniden yoksa, avantajlarını almak istediğiniz herhangi bir zamanda yeniden başlatmayı seçebilirsiniz. Bu nedenle, bir güncelleştirme filtre sürücüsü dışında yeniden başlatma olmadan sonra **diğer iyileştirmeler ve düzeltmeler mobility hizmetinin avantajlarından gerçekleşen**. Bu nedenle, önerilen olsa da her yükseltme işleminden sonra yeniden başlatmak için zorunlu değildir. Yeniden başlatma zorunlu olduğunda hakkında daha fazla bilgi için ayarlanmış [mobility Aracısı yükselttikten sonra kaynak makinenin yeniden başlatılması ](https://aka.ms/v2a_asr_reboot) hizmet güncelleştirmeleri Azure Site recovery'de bölümünde.
 
 > [!TIP]
->Yükseltme, bakım penceresi sırasında zamanlama ile ilgili en iyi uygulamalar için başvuru [burada](https://aka.ms/v2a_asr_upgrade_practice).
+>Yükseltme, bakım penceresi sırasında zamanlama ile ilgili en iyi uygulamalar için bkz: [en son işletim sistemi/kernel sürümleri için destek](https://aka.ms/v2a_asr_upgrade_practice) Azure Site recovery'de hizmet güncelleştirmeleri de.
 
 ## <a name="lvm-support-from-920-version"></a>9.20 sürümünden LVM desteği
 
@@ -220,7 +220,7 @@ VSS, Mobility Aracısı yüklemesinin parçası yüklemedir. Bu hizmet oluşturm
 
 ### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>VSS hatası-2147023170 [0x800706BE] - 511 çıkış kodu
 
-Bu sorun, çoğunlukla bir virüsten koruma yazılımının Azure Site Recovery hizmetleri işlemlerini engellediğinde görülür. Bu sorunu gidermek için
+Bu sorun, virüsten koruma yazılımının Azure Site Recovery hizmetleri işlemlerini engellediğinde çoğunlukla görülür. Bu sorunu çözmek için:
 
 1. Bahsedilen tüm klasörleri dışarıda [burada](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
 2. Windows DLL kaydını engelini kaldırmak için virüsten koruma sağlayıcınız tarafından yayımlanan yönergeleri izleyin.
@@ -250,6 +250,97 @@ Yükleme için kullanılan kullanıcı hesabının CSScript komutu yürütmek i�
 Kaynak makinede el ile yüklemeyi aşağıdaki komutu çalıştırarak VSS sağlayıcısı hizmeti deneyin
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+
+
+## <a name="vss-error---0x8004e00f"></a>VSS hatası - 0x8004E00F
+
+Bu hata genellikle DCOM ve DCOM kritik durumda olan sorunları nedeniyle mobility aracısının yüklenmesi sırasında karşılaşıldı.
+
+Hatanın nedenini belirlemek için aşağıdaki yordamı kullanın.
+
+**Yükleme günlüklerini inceleyin**
+
+1. C:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log bulunan yükleme günlüğü'nü açın.
+2. Bu sorun aşağıdaki hata varlığını gösterir:
+
+    Mevcut uygulama kaydı siliniyor...  Katalog nesnesi oluşturma uygulamaları koleksiyonunu alma 
+
+    HATA:
+
+    - Hata kodu:-2147164145 [0x8004E00F]
+    - Çıkış kodu: 802
+
+Bu sorunu çözmek için:
+
+İlgili kişi [Microsoft Windows platformu ekibinden](https://aka.ms/Windows_Support) DCOM sorunu giderme konusunda yardım almak için.
+
+DCOM sorun çözüldüğünde, Azure Site Recovery VSS sağlayıcısı aşağıdaki komutu kullanarak el ile yeniden yükleyin:
+ 
+**C:\Program dosyaları (x86) \Microsoft Azure Site Recovery\agent > "C:\Program dosyaları (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd**
+  
+Uygulama tutarlılığı, olağanüstü durum kurtarma gereksinimlerinizi kritik durumda değilse, VSS sağlayıcısı yüklemesi devre dışı bırakabilir. 
+
+Azure Site Recovery VSS sağlayıcısı yüklemesi atlayabilir ve Azure Site Recovery VSS sağlayıcısı yüklemeden el ile yüklemek için:
+
+1. Mobility hizmetini yükleyin. 
+> [!Note]
+> 
+> 'Posta yükleme yapılandırma' adım yükleme başarısız olur. 
+2. VSS yüklemeyi atlamak için:
+   1. Konumunda bulunan Azure Site Recovery Mobility hizmeti yükleme dizinini açın:
+   
+    C:\Program dosyaları (x86) \Microsoft Azure Site Recovery\agent
+   2.  Azure Site Recovery VSS sağlayıcısı yükleme komut dosyasını değiştirmek **nMageVSSProvider_Install** ve **InMageVSSProvider_Uninstall.cmd** her zaman aşağıdaki satırı ekleyerek başarılı olması için:
+    
+    ```     
+    rem @echo off
+    setlocal
+    exit /B 0
+    ```
+
+3. Mobility Aracısı yükleme el ile yeniden çalıştırın. 
+4. Yükleme başarılı olur ve sonraki adıma taşır **yapılandırma**, eklediğiniz satırları kaldırın.
+5. VSS sağlayıcısını yüklemek için yönetici olarak bir komut istemi açın ve aşağıdaki komutu çalıştırın:
+   
+    **C:\Program dosyaları (x86) \Microsoft Azure Site Recovery\agent >.\InMageVSSProvider_Install.cmd**
+
+9.  Bir hizmet olarak Windows Hizmetleri ASR VSS sağlayıcısı yüklü olduğunu doğrulayın ve ASR VSS sağlayıcısı listelendiğini doğrulamak için bileşen hizmeti MMC'yi açın.
+10. VSS sağlayıcısını yüklerseniz başarısız, CX CAPI2 izinleri hataları çözmeye çalışmak devam eder.
+
+## <a name="vss-provider-installation-fails-due-to-the-cluster-service-being-enabled-on-non-cluster-machine"></a>Küme olmayan makine üzerinde etkinleştiriliyor Küme hizmetinin nedeniyle VSS sağlayıcısı yüklemesi başarısız olur
+
+Bu sorun, Azure Site Recovery Mobility Aracısı yüklemesinin VSS sağlayıcısı yüklenmesini engelleyen com ile ilgili bir sorun nedeniyle ASAzure Site RecoveryR VSS sağlayıcısı yüklemesi adımı sırasında başarısız olmasına neden olur.
+ 
+### <a name="to-identify-the-issue"></a>Sorunu tanımlamak için
+
+C:\ProgramData\ASRSetupLogs\UploadedLogs yapılandırma sunucusunda bulunan günlüğünde\<tarih-saat > UA_InstallLogFile.log, şu özel durum bulacaksınız:
+
+COM + Microsoft Dağıtılmış İşlem Düzenleyicisi ile iletişim kuramadı (HRESULT özel durum: 0x8004E00F)
+
+Bu sorunu çözmek için:
+
+1.  Bu makine bir küme içi makine olduğundan ve küme bileşenleri kullanılmayan doğrulayın.
+3.  Bileşenleri kullanılmayan küme bileşenleri makineden kaldırın.
+
+## <a name="drivers-are-missing-on-the-source-server"></a>Kaynak sunucuda sürücüleri eksik
+
+Mobility Aracısı yüklemesi başarısız olursa, bazı gerekli sürücüler bazı denetim kümeleri üzerinde eksik olup olmadığını belirlemek için C:\ProgramData\ASRSetupLogs altında günlüklerini inceleyin.
+ 
+Bu sorunu çözmek için:
+  
+1. Regedit.msc gibi bir kayıt defteri düzenleyicisi kullanarak kayıt defterini açın.
+2. HKEY_LOCAL_MACHINE\System düğümünü açın.
+3. Denetim sistemi düğümünde bulun ayarlar.
+4. Her denetim kümesini açın ve aşağıdaki Windows sürücülerinin mevcut olduğunu doğrulayın:
+
+   - Atapi
+   - Vmbus
+   - storflt
+   - storvsc
+   - intelide
+ 
+Eksik sürücülerin yeniden yükleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

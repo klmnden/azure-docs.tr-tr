@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: a55d16a35b5eec1af2b24d02e158905493615999
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 91b6cd64a42319b2a5307919c2efe6bc8e5dcd64
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441121"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983209"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Protokoller ve şifrelemeleri Azure API Management'te yönetme
 
@@ -39,11 +39,9 @@ Bu makaledeki adımları izlemek için şunlara sahip olmalısınız:
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>TLS protokolleri ve 3DES şifreleme yönetme
 
 1. Gidin, **API Management örneği** Azure portalında.
-2. Seçin **SSL** menüsünde.  
-    ![Protokoller ve şifrelemeleri, APIM - yönetme menüsü](./media/api-management-howto-manage-protocols-ciphers/api-management-menu.png)
+2. Seçin **protokol ayarları** menüsünde.  
 3. Etkinleştirmek veya istenen protokollerden veya şifrelerini devre dışı bırakın.
 4. **Kaydet**’e tıklayın. Değişiklikler bir saat içinde uygulanır.  
-    ![Protokoller ve şifrelemeleri, APIM - kaydetme yönetme](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers-save.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

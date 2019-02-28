@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4da387abe24318a29472c11dffa7aac67192408c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a310851819f70d138a4980b1ab61891fb0b2c311
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297440"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959621"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 güvenliği
 Çoğu kurum akıllı kararlar yapmalarına yardımcı olmak iş öngörüleri için büyük veri analizi avantajlarından sürüyor. Bir kuruluş, artan sayıda farklı kullanıcılar ile karmaşık ve denetimli bir ortam olabilir. Kritik iş verilerini doğru bireysel kullanıcılara verilen erişim düzeyini ile daha güvenli bir şekilde saklandığından emin olmak bir kuruluş için önemlidir. Azure Data Lake depolama Gen1 bu güvenlik gereksinimlerini karşılamanıza yardımcı olmak üzere tasarlanmıştır. Bu makalede, dahil olmak üzere güvenlik özelliklerinin Data Lake depolama Gen1, hakkında bilgi edinin:
 
-* Kimlik Doğrulaması
+* Authentication
 * Yetkilendirme
 * Ağ yalıtımı
 * Veri koruma
@@ -34,7 +34,7 @@ Kimlik doğrulaması, kullanıcı için Data Lake depolama Gen1 bağlanan herhan
 Her Azure aboneliğinin Azure Active Directory örneği ile ilişkili olabilir. Yalnızca kullanıcı ve hizmet kimlikleri, Azure Active Directory hizmetinizdeki tanımlanan Data Lake depolama Gen1 hesabınıza komut satırı araçları, Azure portalı kullanarak erişebilir veya istemci uygulamaları veri Gölü kullanarak kuruluşunuzun oluşturur. Depolama Gen1 SDK. Bir merkezi erişim denetimi mekanizması Azure Active Directory kullanmanın başlıca avantajları şunlardır:
 
 * Basitleştirilmiş kimlik yaşam döngüsü yönetimi. Bir kullanıcı veya hizmet (hizmet sorumlusu kimliği) kimliğini hızlı bir şekilde oluşturulabilir ve yalnızca silme veya dizinde hesabı devre dışı bırakarak hızlı bir şekilde iptal edildi.
-* Çok faktörlü kimlik doğrulaması. [Çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md) kullanıcı oturum açma ve işlemleri için ek bir güvenlik katmanı sağlar.
+* Çok öğeli kimlik doğrulama. [Çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md) kullanıcı oturum açma ve işlemleri için ek bir güvenlik katmanı sağlar.
 * OAuth veya Openıd gibi standart bir açık protokol üzerinden herhangi bir istemciden kimlik doğrulaması.
 * Federasyon ile Kurumsal Dizin Hizmetleri ve bulut kimlik sağlayıcıları.
 
@@ -98,7 +98,7 @@ Hesap Yönetimi denetim kayıtları, görüntülemek ve günlüğe kaydetmek ist
 Etkinlik günlükleri ile çalışma hakkında daha fazla bilgi için bkz. [kaynaklara uygulanan eylemleri denetlemek için etkinlik günlüklerini görüntüleme](../azure-resource-manager/resource-group-audit.md).
 
 ### <a name="diagnostics-logs"></a>Tanılama günlükleri
-Veri erişim denetim ve tanılama Azure portalında günlük kaydını etkinleştirmek ve bir Azure Blob Depolama hesabı, bir olay hub'ı veya Log Analytics, günlükleri gönderin.
+Veri erişim denetim ve tanılama Azure portalında günlük kaydını etkinleştirmek ve bir Azure Blob Depolama hesabına, bir olay hub'ı günlükleri gönderme veya Azure İzleyici günlüğe kaydeder.
 
 ![Tanılama günlükleri](./media/data-lake-store-security-overview/diagnostic-logs.png "tanılama günlükleri")
 

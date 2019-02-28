@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 7eecd7f5da2b20cb80d8a04d105460baaf9ed4a2
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961280"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984722"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
-Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Log Analytics veya Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da bunlar model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden üzere tasarlanmamıştır.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
+Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden için tasarlanmış değildi.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
 
 Azure VM genel sistem durumunu görüntüleme ve işletim sistemi temel Vm'leri sistem durumu, sanal makineden doğrudan veya Azure İzleyici kaynak grubunun içindeki tüm sanal makineleri için Azure İzleyici ile iki yönlerden gösterilebilir.
 
@@ -251,7 +251,7 @@ VM sistem durumu Uyarıları önem derecesine göre kategorilere toplam sayısı
 
 Üzerinde **uyarılar** sayfası, yalnızca sizin seçiminiz eşleşen uyarıları göstermek için kapsamında değil, ancak göre filtrelenir **kaynak türü** yalnızca sanal makine kaynak tarafından gerçekleştirilen sistem durumu uyarılarını göstermek için.  Bu sütunu altında bir uyarı listesinden yansıtılan **hedef kaynak**, burada Azure uyarı tetiklendi için özel durumu ölçütlerini 's sağlıksız koşul sağlandığında VM gösterir.  
 
-Bu görünümde dahil edilecek diğer kaynak türlerini veya hizmetler uyarılardan amaçlanmayan, günlük uyarıları bağlı Log Analytics temelinde sorguları veya ölçüm uyarıları gibi Azure İzleyici varsayılan olarak normal şekilde görüntülediğiniz [tüm uyarıları](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) sayfası. 
+Bu görünümde dahil edilecek diğer kaynak türlerini veya hizmetler uyarılardan amaçlanmayan, ölçüm uyarılarını veya günlük uyarıları günlük sorgularına dayalı gibi Azure İzleyici varsayılan olarak normal şekilde görüntülediğiniz [tüm uyarıları](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) sayfası. 
 
 Bu görünümde, sayfanın üst kısmındaki açılan menüler, değerleri seçerek filtreleyebilirsiniz.
 

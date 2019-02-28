@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/26/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456a094ed961b24e3db3944fe4ae2b9ff661d896
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c672d6ab04694a6d0b147b0e38c046abc527676a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190883"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959400"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri
 Bu makale, grupları oluşturmak için Azure Active Directory (Azure AD) PowerShell cmdlet'lerini kullanmaya yönelik yönergeler içerir. Bu içerik yalnızca (birleştirilmiş grupları denir) Office 365 grupları için geçerlidir. 
@@ -98,8 +98,7 @@ Group.Unified SettingsTemplate içinde tanımlanan ayarlar aşağıda verilmişt
 |  <ul><li>EnableGroupCreation<li>Şunu yazın: Boole<li>Varsayılan: True |Office 365 grubu oluşturma dizinde yönetici olmayan kullanıcılar tarafından izin verilip verilmeyeceğini belirten bayrak. Bu ayar, bir Azure Active Directory Premium P1 lisansı gerektirmez.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Şunu yazın: String<li>Varsayılan: "" |Kendisi için üyeleri Office 365 grupları oluşturmasına izin güvenlik grubunun GUID bile EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Şunu yazın: String<li>Varsayılan: "" |Grup kullanım kılavuzları bağlantısı. |
-|  <ul><li>ClassificationDescriptions<li>Şunu yazın: String<li>Varsayılan: "" | Sınıflandırma açıklamaları virgülle ayrılmış listesi. ClassificationDescriptions yalnızca şu biçimde geçerli değeri:
-  $setting ["ClassificationDescriptions"] "Sınıflandırma: açıklaması, Sınıflandırması: Description", sınıflandırma ClassificationList dizelerde eşleştiği =.|
+|  <ul><li>ClassificationDescriptions<li>Şunu yazın: String<li>Varsayılan: "" | Sınıflandırma açıklamaları virgülle ayrılmış listesi. ClassificationDescriptions yalnızca şu biçimde geçerli değeri:<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>Burada sınıflandırma ClassificationList dizelerde eşleşir.|
 |  <ul><li>DefaultClassification<li>Şunu yazın: String<li>Varsayılan: "" | Hiçbiri belirtilmemişse varsayılan sınıflandırma bir grup için kullanılacak olan sınıflandırması.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Şunu yazın: String<li>Varsayılan: "" | Office 365 grupları için yapılandırılmış adlandırma kuralı tanımlayan bir en fazla 64 karakter uzunluğunda dize. Daha fazla bilgi için [Office 365 grupları için bir adlandırma ilkesini zorlama](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Şunu yazın: String<li>Varsayılan: "" | Kullanıcı grubu adı veya diğer adı kullanmak için izin verilmez tümcecikleri virgülle ayrılmış dizesi. Daha fazla bilgi için [Office 365 grupları için bir adlandırma ilkesini zorlama](groups-naming-policy.md). |

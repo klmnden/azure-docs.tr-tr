@@ -2,26 +2,22 @@
 title: Değiştirme, silme veya Azure - Azure idare yönetim gruplarınızı yönetme
 description: Görüntüleme, tutmak, güncelleştirme ve Yönetim Grup hiyerarşiniz silme hakkında bilgi edinin.
 author: rthorn17
-manager: rithorn
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2018
+ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bcc0b247ee304e657b7679920a3956acad11adc9
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342611"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985130"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
 
-Yönetim grupları Aboneliklerdeki erişim, ilke ve uyumluluk yardımcı kapsayıcıları yönetmek olan. Değiştirme, silme ve kullanılabilir hiyerarşileri için bu kapsayıcıları yönetmek [Azure İlkesi](../policy/overview.md) ve [Azure rol tabanlı erişim denetimleri (RBAC)](../../role-based-access-control/overview.md). Yönetim grupları hakkında daha fazla bilgi edinmek için [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](overview.md).
+Kuruluşunuzda birden fazla abonelik varsa bu abonelikler için verimli bir şekilde erişim, ilke ve uyumluluk yönetimi gerçekleştirmek isteyebilirsiniz. Azure yönetim grupları, aboneliklerin üzerinde bir kapsam düzeyi sunar. Abonelikleri "yönetim grupları" adlı kapsayıcılarla düzenler ve idare koşullarınızı bu yönetim gruplarına uygularsınız. Bir yönetim grubu içindeki aboneliklerin tümü otomatik olarak yönetim grubuna uygulanmış olan koşulları devralır.
 
-Bir yönetim grubuna değişiklik yapmak için yönetim grubunda bir sahibi veya katkıda bulunan rolü olmalıdır. Hangi izinlerin görmek için sahip, yönetim grubu seçip **IAM**. RBAC rolleri hakkında daha fazla bilgi edinmek için [erişim ve izinleri ile RBAC yönetme](../../role-based-access-control/overview.md).
+Yönetim grupları, sahip olabileceğiniz abonelik türüne bakılmaksızın kurumsal düzeyde yönetimi büyük ölçekte sunar.  Yönetim grupları hakkında daha fazla bilgi edinmek için [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -73,7 +69,7 @@ Bir yönetim grubunu silmek için aşağıdaki gereksinimler karşılanmalıdır
 
    - Bir yönetim grubunu başka bir yönetim grubuna taşımak için bkz [Yönetim grupları hiyerarşide Taşı](#Move-management-groups-in-the-hierarchy).
 
-1. Yönetim grubundaki yönetim grubu sahibi veya katkıda bulunan rolü yazma izinlerine sahip. Hangi izinlerin görmek için sahip, yönetim grubu seçip **IAM**. RBAC rolleri hakkında daha fazla bilgi için bkz. [erişim ve izinleri ile RBAC yönetme](../../role-based-access-control/overview.md).  
+1. Yönetim grubunda ("Sahip", "Katılımcı" veya "Yönetim grubu katkıda bulunan") yazma izinlerine sahip. Hangi izinlerin görmek için sahip, yönetim grubu seçip **IAM**. RBAC rolleri hakkında daha fazla bilgi için bkz. [erişim ve izinleri ile RBAC yönetme](../../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Portalda Sil
 
@@ -85,7 +81,8 @@ Bir yönetim grubunu silmek için aşağıdaki gereksinimler karşılanmalıdır
 
 1. Seçin **Sil**
 
-   - Simge devre dışı bırakılırsa, fare Seçici simgenin üzerine geldiğinizde nedenini gösterir.
+    > [!TIP]
+    > Simge devre dışı bırakılırsa, fare Seçici simgenin üzerine geldiğinizde nedenini gösterir.
 
    ![Grup seçeneği Sil](./media/delete.png)
 
@@ -121,15 +118,15 @@ Doğrudan ya da devralınmış bir RBAC rolü sahip herhangi bir yönetim grubun
 
 1. Seçin **tüm hizmetleri** > **Yönetim grupları**.
 
-1. Yönetim grubu hiyerarşisi burada tüm yönetim gruplarında ve Aboneliklerde erişiminiz keşfedebilirsiniz yükleri sayfa. Grup adı seçtiğinizde hiyerarşide bir düzey aşağı açılır. Dosya Gezgini gibi Gezinti aynı çalışmaktadır.
+1. Yönetim grubu hiyerarşisi sayfasını yükleyecektir. Bu, burada tüm Yönetim gruplarını keşfedebilirsiniz ve abonelikleri erişiminiz sayfasıdır. Grup adı seçtiğinizde hiyerarşide bir düzey aşağı açılır. Dosya Gezgini gibi Gezinti aynı çalışmaktadır.
+
+1. Yönetim grubunun ayrıntılarını görmek için seçin **(Ayrıntılar)** yönetim grubunun başlığının yanındaki bağlantı. Bu bağlantı kullanılabilir değilse, bu yönetim grubunu görüntüleme izniniz yok.
 
    ![Ana](./media/main.png)
 
-1. Yönetim grubunun ayrıntılarını görmek için seçin **(Ayrıntılar)** yönetim grubunun başlığının yanındaki bağlantı. Bu bağlantı kullanılabilir değilse, bu yönetim grubunu görüntüleme izniniz yok.  
-
 ### <a name="view-in-powershell"></a>PowerShell'de görüntüle
 
-Tüm grupları almak için Get-AzureRmManagementGroup komutunu kullanabilirsiniz.  
+Tüm grupları almak için Get-AzureRmManagementGroup komutunu kullanabilirsiniz.  Bkz: [ https://aka.ms/Get-MG-Powershell ](https://aka.ms/Get-MG-Powershell) yönetim grubu Al Powershell komutlarının tam listesi için.  
 
 ```azurepowershell-interactive
 Get-AzureRmManagementGroup
@@ -139,6 +136,41 @@ Tek bir yönetim grubunun bilgi için - GroupName parametresini kullanın
 
 ```azurepowershell-interactive
 Get-AzureRmManagementGroup -GroupName 'Contoso'
+```
+
+Belirli bir yönetim grubu ve hiyerarşisi altındaki tüm düzeyleri döndürmek için **-genişletin** ve **-Recurse** parametreleri.  
+
+```azurepowershell-interactive
+PS C:\> $response = Get-AzureRmManagementGroup -GroupName TestGroupParent -Expand -Recurse
+PS C:\> $response
+
+Id                : /providers/Microsoft.Management/managementGroups/TestGroupParent
+Type              : /providers/Microsoft.Management/managementGroups
+Name              : TestGroupParent
+TenantId          : 00000000-0000-0000-0000-000000000000
+DisplayName       : TestGroupParent
+UpdatedTime       : 2/1/2018 11:15:46 AM
+UpdatedBy         : 00000000-0000-0000-0000-000000000000
+ParentId          : /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000
+ParentName        : 00000000-0000-0000-0000-000000000000
+ParentDisplayName : 00000000-0000-0000-0000-000000000000
+Children          : {TestGroup1DisplayName, TestGroup2DisplayName}
+
+PS C:\> $response.Children[0]
+
+Type        : /managementGroup
+Id          : /providers/Microsoft.Management/managementGroups/TestGroup1
+Name        : TestGroup1
+DisplayName : TestGroup1DisplayName
+Children    : {TestRecurseChild}
+
+PS C:\> $response.Children[0].Children[0]
+
+Type        : /managementGroup
+Id          : /providers/Microsoft.Management/managementGroups/TestRecurseChild
+Name        : TestRecurseChild
+DisplayName : TestRecurseChild
+Children    :
 ```
 
 ### <a name="view-in-azure-cli"></a>Azure CLI görünümünde
@@ -155,17 +187,25 @@ Tek bir yönetim grubunun bilgi show komutunu kullanın.
 az account management-group show --name 'Contoso'
 ```
 
+Belirli bir yönetim grubu ve hiyerarşisi altındaki tüm düzeyleri döndürmek için **-genişletin** ve **-Recurse** parametreleri.
+
+```azurecli-interactive
+az account management-group show --name 'Contoso' -e -r
+```
+
 ## <a name="move-subscriptions-in-the-hierarchy"></a>Abonelikler hiyerarşide Taşı
 
 Bir yönetim grubu oluşturmak için bir abonelik gruplamak nedenidir. Yalnızca yönetim gruplarında ve Aboneliklerde, başka bir yönetim grubunun alt yapılabilir. Bir yönetim grubuna taşıyan bir abonelik, tüm kullanıcı erişimini ve ilkeleri üst yönetim grubundan devralır.
 
-Aboneliği taşımak için birkaç izinlere ihtiyacınız vardır:
+Aboneliği taşımak için aşağıdaki RBAC izinlerinin tümünün doğru olması gerekir:
 
 - Alt abonelikte "Sahip" rolü.
-- Yeni üst yönetim grubunda "Sahip" veya "Katılımcı" rolü.
-- Eski üst yönetim grubunda "Sahip" veya "Katılımcı" rolü.
+- Hedef üst yönetim group.* "Sahip", "Katılımcı" veya "Yönetim grubu katılımcı" rolü
+- Mevcut üst yönetim group.* "Sahip", "Katılımcı" veya "Yönetim grubu katılımcı" rolü
 
-Hangi izinlerin görmek için sahip, yönetim grubu seçip **IAM**. RBAC rolleri hakkında daha fazla bilgi için bkz. [erişim ve izinleri ile RBAC yönetme](../../role-based-access-control/overview.md).
+*: Hedefi ya da mevcut üst yönetim grubunu kök yönetim grubu olmadıkça. Kök yönetim grubundaki tüm Yönetim grupları ve abonelikler için nokta giriş varsayılan olduğundan, kullanıcıların bir öğeyi taşımak için izinlerine ihtiyacınız yoktur.
+
+Hangi izinlerin yönetim grubu ve ardından Azure portalında, select olduğunu görmek için **IAM**. RBAC rolleri hakkında daha fazla bilgi için bkz. [erişim ve izinleri ile RBAC yönetme](../../role-based-access-control/overview.md).
 
 ### <a name="move-subscriptions-in-the-portal"></a>Portalda abonelikler taşıma
 
@@ -235,7 +275,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## <a name="move-management-groups-in-the-hierarchy"></a>Yönetim grupları hiyerarşide Taşı  
 
-Bir üst yönetim grubu Yönetim grupları, abonelikler, kaynak grupları ve kaynakları taşıma üst ile içeren tüm alt kaynaklar taşıdığınızda.
+Bir üst yönetim grubuna taşıdığınızda, bu grubun altında hiyerarşi ile taşır.
 
 ### <a name="move-management-groups-in-the-portal"></a>Portalda Yönetim grupları Taşı
 
@@ -274,17 +314,29 @@ az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Etkinlik günlüklerini kullanarak yönetim gruplarını denetleme
 
-Bu API yoluyla yönetim gruplarını izlemek için [Kiracı Etkinlik Günlüğü API'sini](/rest/api/monitor/tenantactivitylogs) kullanın. Şu anda PowerShell, CLI veya Azure portalını kullanarak yönetim grupları etkinliğini izlemek mümkün değildir.
+Yönetim grupları içinde desteklenir [Azure etkinlik günlüğü](../../azure-monitor/platform/activity-logs-overview.md). Bir yönetim grubuna diğer Azure kaynakları ile aynı merkezi konumda gerçekleşen tüm olayları sorgulayabilirsiniz.  Örneğin, belirli bir yönetim grubuna yapılan tüm rol atamaları veya ilke atama değişiklikleri görebilirsiniz.
 
-1. Azure AD kiracısının kiracı yöneticisi olarak, [erişimi yükseltin](../../role-based-access-control/elevate-access-global-admin.md) ve sonra da `/providers/microsoft.insights/eventtypes/management` kapsamı üzerinden denetleyen kullanıcıya Okuyucu rolü atayın.
-1. Denetleyen kullanıcı olarak, yönetim grubu etkinliklerini görmek için [Kiracı Etkinlik Günlüğü API'sini](/rest/api/monitor/tenantactivitylogs) çağırın. Tüm yönetim grubu etkinliği için **Microsoft.Management** Kaynak Sağlayıcısına göre filtrelemek istersiniz.  Örnek:
+![Yönetim gruplarıyla etkinlik günlükleri](media/al-mg.png)
 
-```xml
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+Sorgu üzerinde yönetim grupları Azure portal dışında baktığımda Yönetim grupları için hedef kapsamı benzer **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
+
+## <a name="referencing-management-groups-from-other-resource-providers"></a>Diğer kaynak sağlayıcılarından başvuruda bulunan Yönetim grupları
+
+Yönetim Grupları diğer kaynak sağlayıcısının eylemlerden başvururken aşağıdaki yol kapsamı olarak kullanın. Bu yol, PowerShell, Azure CLI ve REST API'leri kullanırken kullanılır.  
+
+>"/ providers/Microsoft.Management/managementGroups/{yourMgID}"
+
+PowerShell'de bir yönetim grubuna yeni bir rol ataması atarken bu yolu kullanarak, bir örnek verilmiştir
+
+```powershell-interactive
+New-AzureRmRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
-> [!NOTE]
-> Bu API'yi komut satırından rahatça çağırmak için [ARMClient](https://github.com/projectkudu/ARMClient)'ı deneyin.
+Aynı kapsam yolu bir yönetim grubu, bir ilke tanımı alınırken kullanılır.
+
+```http
+GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2018-05-01
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

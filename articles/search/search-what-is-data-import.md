@@ -6,25 +6,21 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 85a2810e8ab8de5ad2967aaf17f421d871368063
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314865"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958465"
 ---
 # <a name="indexing-external-data-for-queries-in-azure-search"></a>Azure Search'te sorgular için dış veri dizini oluşturma
-> [!div class="op_single_selector"]
-> * [Genel Bakış](search-what-is-data-import.md)
-> * [.NET](search-import-data-dotnet.md)
-> * [REST](search-import-data-rest-api.md)
-> 
-> 
 
 Azure Search'te yüklenmiş ve kaydedilmiş içeriğinize sorguları yürütme bir [arama dizini](search-what-is-an-index.md). Bu makalede dizini doldurmak için iki temel yaklaşım inceler: *anında iletme* verileriniz dizine programlı olarak veya bir [Azure Search dizin oluşturucu](search-indexer-overview.md) için bir desteklenen veri kaynağında  *çekme* veri.
+
+Her iki yaklaşım ile amacı sağlamaktır *veri yükleme* Azure Search dizini içine bir dış veri kaynağından. Azure arama, boş bir dizin oluşturma sağlar, ancak anında iletme veya veri içine çekmek kadar sorgulanabilir değil.
 
 ## <a name="pushing-data-to-an-index"></a>Verileri dizine gönderme
 Verilerinizi programlama yoluyla Azure Search'e göndermek için kullanılan gönderme yöntemi, en esnek yöntemdir. Birincisi, veri kaynağı türüne hiçbir kısıtlama getirmez. Veri kümesindeki her belgede, dizin şemanızda tanımlanan alanlarla eşlenen alanlar bulunduğu varsayımıyla, JSON belgelerinden oluşan tüm veri kümeleri Azure Search dizinine gönderilebilir. İkincisi, yürütme frekansı üzerinde hiçbir kısıtlaması yoktur. Değişiklikleri istediğiniz sıklıkta dizine gönderebilirsiniz. Çok düşük gecikme süresi gereksinimlerine sahip uygulamalar için (örneğin, arama işlemlerinin dinamik stok veritabanlarıyla eşitlenmiş olması gerekiyorsa), tek seçeneğiniz gönderme modelidir.

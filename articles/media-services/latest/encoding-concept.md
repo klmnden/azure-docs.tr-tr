@@ -9,19 +9,29 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 52e7fdf6de25300d4f78ee9822aca4ad83f646e9
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: ccf298c99851dc2418da894431c5c86adafe59b3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408434"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959451"
 ---
 # <a name="encoding-with-media-services"></a>Media Services ile kodlama
 
-Azure Media Services, çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimleri dijital yüksek kaliteli medya dosyalarınızın kodlayın sağlar. Örneğin, içeriğinizi Apple'ın HLS veya MPEG DASH biçimlerinde akışla göndermek isteyebilirsiniz. Bu konuda içeriğinizi Media Services v3 ile kodlama konusunda rehberlik sağlar.
+Azure Media Services, içeriğinizi çok çeşitli tarayıcılar ve cihazlar üzerinde çalınabilir şekilde yüksek kaliteli dijital medya dosyalarınızın Uyarlamalı bit hızı MP4 dosyaları olarak kodlayın sağlar. Başarılı bir Media Services kodlama işinin bir çıktı oluşturur varlık kümesiyle Uyarlamalı bit hızlı MP4'ler göndermenizi ve bildirim dosyaları (sunucu ve istemci). Bu noktada, avantajlarından yararlanabilirsiniz [dinamik paketleme](dynamic-packaging-overview.md).
+
+Video çıkış yapmak için varlık kayıttan yürütme için istemciler tarafından kullanılabilir, sahip olduğunuz oluşturmak bir **akış Bulucu** ve daha sonra akış URL'lerini oluşturabilirsiniz. Ardından, bildirimde belirtilen biçime bağlı olarak, istemcilerinizin seçmiş oldukları protokolünde akış alırsınız.
+
+Aşağıdaki diyagram, talep üzerine akış dinamik paketleme iş akışıyla gösterir.
+
+![Dinamik kodlama](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+
+Bu konuda içeriğinizi Media Services v3 ile kodlama konusunda rehberlik sağlar.
+
+## <a name="transforms-and-jobs"></a>Dönüşümler ve işler
 
 Media Services v3 ile kodlanacak oluşturmak gereken bir [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms) ve [iş](https://docs.microsoft.com/rest/api/media/jobs). Dönüşüm kodlama ayarları ve çıktılar için tarif tanımlar ve iş tarif örneğidir. Daha fazla bilgi için [dönüşümler ve işler](transforms-jobs-concept.md)
 
@@ -60,9 +70,11 @@ Media Services kodlama özgü ihtiyaçları ve gereksinimleri karşılamak için
 
 ## <a name="scaling-encoding-in-v3"></a>V3 sürümünde kodlama ölçeklendirme
 
-Müşteriler şu anda, RU ayarlamak için Azure portalı veya Media Services v2 API'leri kullanmak zorunda (açıklandığı [medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md). 
+Medya işlemeyi ölçeklendirme için bkz: [CLI ile ölçek](media-reserved-units-cli-how-to.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Dönüşümler ve işler](transforms-jobs-concept.md)
+* [HTTPS kullanarak yerleşik hazır bir URL'den kodlayın](job-input-from-http-how-to.md)
+* [Yerleşik hazır kullanarak yerel bir dosya kodlama](job-input-from-local-file-how-to.md)
+* [Özel bir senaryonuz ya da cihaz belirli gereksinimlerinizi hedeflemek için önceden derleme](customize-encoder-presets-how-to.md)
 * [Karşıya yükleme, kodlama ve Media Services'i kullanarak akış](stream-files-tutorial-with-api.md)

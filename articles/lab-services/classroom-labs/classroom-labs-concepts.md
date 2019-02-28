@@ -11,17 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 255cbff94e954dd05acfe77b97929c313b1dd3cf
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f0f45e50fba4587e604add937ed45fc78228d44f
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808684"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960256"
 ---
-# <a name="classroom-labs-concepts"></a>Classroom Labs kavramları
+# <a name="classroom-labs-concepts"></a>Sınıf Laboratuvarları kavramları
 Aşağıdaki liste, temel Lab Services kavramları ve tanımları içerir:
+
+## <a name="quota"></a>Kota
+Kota olduğu zaman, bir Öğretmen ayarlayabilirsiniz sınır (saat) için bir öğrenci bir laboratuvar sanal makinesi kullanın. 0, sınırsız veya belirli bir saat sayısı olarak ayarlanabilir. Kotası 0 olarak ayarlarsanız, bir öğrenci bir zamanlama çalıştırırken veya bir Öğretmen Öğrenci için sanal makinede el ile açtığında yalnızca sanal makine kullanabilirsiniz.
+ 
+##<a name="schedules"></a>Zamanlamalar
+Sınıf için bir Öğretmen oluşturabilmeniz için zaman dilimini (bir kez veya yinelenen) zamanlamaları var. Zamanlamanın başında Laboratuvardaki tüm sanal makineleri otomatik olarak başlatılır ve zamanlama sonunda durdurulsa. Bir zamanlama çalışırken kota saat kullanılmaz.
+
+## <a name="template-virtual-machine"></a>Sanal makine şablonu
+Bir laboratuvar şablonu bir sanal makinede, tüm kullanıcıların sanal makineleri oluşturulduğu temel sanal makine görüntüsüdür. Eğitmenler/Laboratuvar creators şablon sanal makine kurun ve Laboratuvarları yapmak için eğitim katılımcılara sağlamak istedikleri yazılım ile yapılandırın. Bir VM şablonu yayımladığınızda, Azure Lab Services oluşturur veya VM şablonu temel alan Laboratuvar VM'ler güncelleştirir. 
+
 
 ## <a name="user-profiles"></a>Kullanıcı profilleri
 Bu makalede Azure Lab Services içindeki farklı kullanıcı profilleri açıklanmaktadır. 

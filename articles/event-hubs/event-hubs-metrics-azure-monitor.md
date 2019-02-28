@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 31aaa24dd6020cb8203e4ab1bfec8ce3e0ffd2b8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d273e963c6191fdc87c4f19c6465d8a9026a074e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299699"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959417"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure İzleyici'de Azure Event Hubs ölçümleri
 
@@ -48,7 +48,7 @@ Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapm
 
 ## <a name="billing"></a>Faturalandırma
 
-Ölçümleri kullanarak Azure İzleyici'de şu anda ücretsiz olarak kullanılabilir. Ölçüm verilerini alma, ek çözümleri kullanırsanız, ancak bu çözümler tarafından faturalandırılırsınız. Örneğin, ölçüm verileri bir Azure depolama hesabına arşivleme, Azure Depolama tarafından faturalandırılır. Gelişmiş analiz için ölçüm verileri Log analytics'e akış sahipse Azure tarafından ayrıca faturalandırılır.
+Ölçümleri kullanarak Azure İzleyici'de şu anda ücretsiz olarak kullanılabilir. Ölçüm verilerini alma, ek çözümleri kullanırsanız, ancak bu çözümler tarafından faturalandırılırsınız. Örneğin, ölçüm verileri bir Azure depolama hesabına arşivleme, Azure Depolama tarafından faturalandırılır. Ölçüm verilerini Gelişmiş analiz için Azure İzleyici günlüklerine akış sahipse Azure tarafından ayrıca faturalandırılır.
 
 Aşağıdaki ölçümler size sistem hizmetinizin genel bakış sunar. 
 

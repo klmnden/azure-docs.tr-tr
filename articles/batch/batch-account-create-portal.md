@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04631431c03f6fdd378bfa99edb9b67f8d6a0cad
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cf47e3b48f1047af88a19c59459c19c078f71a63
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193926"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984484"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure portalıyla Batch hesabı oluşturma
 
@@ -42,19 +42,21 @@ Batch hesapları ve senaryoları hakkında arka plan bilgileri için bkz. [özel
 
     ![Batch hesabı oluşturma][account_portal]
 
-    a. **Hesap adı**: Seçtiğiniz ad hesabın oluşturulduğu Azure bölgesi içinde benzersiz olması gerekir (bkz **konumu** aşağıda). Hesap adı yalnızca küçük harfler, sayılar içerebilir ve 3-24 karakter uzunluğunda olmalıdır.
+    a. **Abonelik**: Batch hesabının oluşturulacağı bir abonelik. Yalnızca bir aboneliğiniz varsa, varsayılan olarak seçilidir.
 
-    b. **Abonelik**: Batch hesabının oluşturulacağı bir abonelik. Yalnızca bir aboneliğiniz varsa, varsayılan olarak seçilidir.
+    b. **Kaynak grubu**: Yeni Batch hesabınız için mevcut bir kaynak grubunu seçin ya da isteğe bağlı olarak yeni bir tane oluşturun.
 
-    c. **Kaynak grubu**: Yeni Batch hesabınız için mevcut bir kaynak grubunu seçin ya da isteğe bağlı olarak yeni bir tane oluşturun.
+    c. **Hesap adı**: Seçtiğiniz ad hesabın oluşturulduğu Azure bölgesi içinde benzersiz olması gerekir (bkz **konumu** aşağıda). Hesap adı yalnızca küçük harfler, sayılar içerebilir ve 3-24 karakter uzunluğunda olmalıdır.
 
     d. **Konum**: Batch hesabının oluşturulacağı Azure bölgesi. Yalnızca aboneliğiniz ve kaynak grubunuz tarafından desteklenen bölgeler seçenek olarak görüntülenir.
 
-    e. **Depolama hesabı** (isteğe bağlı): Batch hesabınızla ilişkilendireceğiniz bir Azure depolama hesabı. Çoğu Batch hesabı için önerilen seçenek budur. Batch’teki depolama hesabı seçenekleri için bkz. [Batch özelliğine genel bakış](batch-api-basics.md#azure-storage-account). Portalda mevcut bir depolama hesabını seçin veya isteğe bağlı olarak yeni bir depolama hesabı oluşturun.
+    e. **Depolama hesabı**: Batch hesabınızla ilişkilendireceğiniz bir isteğe bağlı bir Azure depolama hesabı. Genel amaçlı v2 depolama hesabı, en iyi performans için önerilir. Tüm depolama hesabı seçenekleri için batch'te bkz [Batch özelliğine genel bakış](batch-api-basics.md#azure-storage-account). Portalda, mevcut bir depolama hesabını seçin veya yeni bir tane oluşturun.
 
       ![Depolama hesabı oluşturma][storage_account]
 
-    f. **Havuz ayırma modu**: Çoğu senaryo için varsayılan değerleri kabul **Batch hizmeti**.
+    f. **Havuz ayırma modu**: İçinde **Gelişmiş** Havuz ayırma modu olarak belirleyebileceğiniz Ayarlar sekmesinde **Batch hizmeti** veya **kullanıcı aboneliği**. Çoğu senaryo için varsayılan değerleri kabul **Batch hizmeti**.
+
+      ![Batch Havuz ayırma modu][pool_allocation]
 
 1. Hesabı oluşturmak için **Oluştur**'u seçin.
 
@@ -115,7 +117,7 @@ Batch hesabını kullanıcı aboneliği modunda oluştururken, anahtar kasasın�
 
 ### <a name="configure-subscription-quotas"></a>Abonelik kotaları yapılandırın
 
-Çekirdek kotaları kullanıcı abonelik Batch hesaplarında varsayılan olarak ayarlı değil. Hesaplara kullanıcı aboneliği modunda Batch çekirdek kotaları tipik uygulanmadıkları çekirdek kotaları el ile ayarlamanız gerekir.
+Çekirdek kotaları kullanıcı abonelik Batch hesaplarında varsayılan olarak ayarlı değil. Hesaplara kullanıcı aboneliği modunda Batch çekirdek kotaları standart uygulanmadıkları çekirdek kotaları el ile ayarlamanız gerekir.
 
 1. İçinde [Azure portalında][azure_portal], kendi kullanıcı aboneliği modunda Batch hesabı ayarlarını ve özelliklerini görüntülemek için seçin.
 
@@ -142,8 +144,8 @@ Azure portalını kullanmaya ek olarak Batch hesaplarını aşağıdaki gibi ara
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace-batch.png
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch-account-portal.png
+[pool_allocation]: ./media/batch-account-create-portal/batch-pool-allocation.png
 [account_keys]: ./media/batch-account-create-portal/batch-account-keys.png
-[account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png

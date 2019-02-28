@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 26b083069380d7bf107cd3be54cb2e4786789e11
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 4f4793e18185c16ef144de33b4f116eff89a9969
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593872"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960165"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC uzantısı
 
@@ -101,31 +101,31 @@ Aşağıdaki JSON şema DSC uzantı ayarları bölümü için bir Azure Resource
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
-| Yayımcı | Microsoft.Powershell.DSC | dize |
-| type | DSC | dize |
+| Yayımcı | Microsoft.Powershell.DSC | string |
+| type | DSC | string |
 | typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Ayarlar özellik değerleri
 
 | Ad | Veri Türü | Açıklama
 | ---- | ---- | ---- |
-| settings.wmfVersion | dize | Sanal makinenizde yüklü Windows Management Framework sürümünü belirtir. 'Son' Bu özelliğin ayarlanması WMF en güncel sürümünü yükleyecektir. Bu özellik için geçerli tek olası değerler '4.0', '5.0' ve 'Son' dir. Bu olası değerler şunlardır: güncelleştirmeleri tabidir. 'Son' varsayılan değerdir. |
-| Settings.Configuration.URL | dize | İndirileceği DSC yapılandırma zip dosyanızın URL konumu belirtir. Sağlanan URL erişimi için bir SAS belirteci gerektiriyorsa, SAS belirtecinizi için protectedSettings.configurationUrlSasToken özelliği ayarlayın gerekir. Settings.Configuration.Script ve/veya settings.configuration.function tanımlanmışsa, bu özellik gereklidir.
-| Settings.Configuration.Script | dize | DSC yapılandırma tanımı içeren komut dosyasının dosya adını belirtir. Bu betik configuration.url özelliği tarafından belirtilen URL'den indirilen ZIP dosyasının kök klasöründe olması gerekir. Settings.Configuration.URL ve/veya settings.configuration.script tanımlanmışsa, bu özellik gereklidir.
-| Settings.Configuration.Function | dize | DSC yapılandırma adını belirtir. Adlı yapılandırmasını configuration.script tarafından tanımlanan betiğinde yer almalıdır. Settings.Configuration.URL ve/veya settings.configuration.function tanımlanmışsa, bu özellik gereklidir.
+| settings.wmfVersion | string | Sanal makinenizde yüklü Windows Management Framework sürümünü belirtir. 'Son' Bu özelliğin ayarlanması WMF en güncel sürümünü yükleyecektir. Bu özellik için geçerli tek olası değerler '4.0', '5.0' ve 'Son' dir. Bu olası değerler şunlardır: güncelleştirmeleri tabidir. 'Son' varsayılan değerdir. |
+| Settings.Configuration.URL | string | İndirileceği DSC yapılandırma zip dosyanızın URL konumu belirtir. Sağlanan URL erişimi için bir SAS belirteci gerektiriyorsa, SAS belirtecinizi için protectedSettings.configurationUrlSasToken özelliği ayarlayın gerekir. Settings.Configuration.Script ve/veya settings.configuration.function tanımlanmışsa, bu özellik gereklidir.
+| Settings.Configuration.Script | string | DSC yapılandırma tanımı içeren komut dosyasının dosya adını belirtir. Bu betik configuration.url özelliği tarafından belirtilen URL'den indirilen ZIP dosyasının kök klasöründe olması gerekir. Settings.Configuration.URL ve/veya settings.configuration.script tanımlanmışsa, bu özellik gereklidir.
+| Settings.Configuration.Function | string | DSC yapılandırma adını belirtir. Adlı yapılandırmasını configuration.script tarafından tanımlanan betiğinde yer almalıdır. Settings.Configuration.URL ve/veya settings.configuration.function tanımlanmışsa, bu özellik gereklidir.
 | settings.configurationArguments | Koleksiyon | DSC yapılandırmanızı geçirmek istediğiniz herhangi bir parametre tanımlar. Bu özellik şifrelenmez.
-| settings.configurationData.url | dize | DSC yapılandırma için giriş olarak kullanmak için yapılandırma verileri (.pds1) dosyasını indirileceği URL'sini belirtir. Sağlanan URL erişimi için bir SAS belirteci gerektiriyorsa, SAS belirtecinizi için protectedSettings.configurationDataUrlSasToken özelliği ayarlayın gerekir.
-| settings.privacy.dataEnabled | dize | Etkinleştirir veya telemetri koleksiyonunu devre dışı bırakır. 'Etkinleştir', 'Disable', bu özellik için yalnızca olası değerler şunlardır: ", veya $null. Bu özellik boş ya da boş bırakarak telemetri etkinleştirir
-| settings.advancedOptions.forcePullAndApply | Bool | Güncelleştirme ve yenileme modu çekme olduğunda DSC yapılandırmaları uygulamak DSC uzantısı sağlar.
+| settings.configurationData.url | string | DSC yapılandırma için giriş olarak kullanmak için yapılandırma verileri (.pds1) dosyasını indirileceği URL'sini belirtir. Sağlanan URL erişimi için bir SAS belirteci gerektiriyorsa, SAS belirtecinizi için protectedSettings.configurationDataUrlSasToken özelliği ayarlayın gerekir.
+| settings.privacy.dataEnabled | string | Etkinleştirir veya telemetri koleksiyonunu devre dışı bırakır. 'Etkinleştir', 'Disable', bu özellik için yalnızca olası değerler şunlardır: ", veya $null. Bu özellik boş ya da boş bırakarak telemetri etkinleştirir
+| settings.advancedOptions.forcePullAndApply | Bool | Bu ayar, düğümleri Azure Automation DSC ile kaydetmek için uzantı ile çalışmanın deneyimini iyileştirmek için tasarlanmıştır.  Değer ise `$true`, uzantıyı ilk çalıştırma başarı/hata döndürmeden önce hizmetten oluşan bir derleme yapılandırması için bekler.  Değerini $false olarak ayarlarsanız, uzantısı tarafından döndürülen durum olup düğümü ile Azure Otomasyonu durum yapılandırması başarıyla kaydedildi için yalnızca başvuru yapar ve düğüm yapılandırmasının kayıt sırasında çalışmaz.
 | settings.advancedOptions.downloadMappings | Koleksiyon | WMF ve .NET gibi bağımlılıkları indirmek için alternatif konumlar tanımlar
 
 ### <a name="protected-settings-property-values"></a>Korumalı ayarları özellik değerleri
 
 | Ad | Veri Türü | Açıklama
 | ---- | ---- | ---- |
-| protectedSettings.configurationArguments | dize | DSC yapılandırmanızı geçirmek istediğiniz herhangi bir parametre tanımlar. Bu özellik şifrelenir. |
-| protectedSettings.configurationUrlSasToken | dize | Configuration.URL tarafından tanımlanan URL'yi erişmek için SAS belirteci belirtir. Bu özellik şifrelenir. |
-| protectedSettings.configurationDataUrlSasToken | dize | ConfigurationData.url tarafından tanımlanan URL'yi erişmek için SAS belirteci belirtir. Bu özellik şifrelenir. |
+| protectedSettings.configurationArguments | string | DSC yapılandırmanızı geçirmek istediğiniz herhangi bir parametre tanımlar. Bu özellik şifrelenir. |
+| protectedSettings.configurationUrlSasToken | string | Configuration.URL tarafından tanımlanan URL'yi erişmek için SAS belirteci belirtir. Bu özellik şifrelenir. |
+| protectedSettings.configurationDataUrlSasToken | string | ConfigurationData.url tarafından tanımlanan URL'yi erişmek için SAS belirteci belirtir. Bu özellik şifrelenir. |
 
 
 ## <a name="template-deployment"></a>Şablon dağıtımı

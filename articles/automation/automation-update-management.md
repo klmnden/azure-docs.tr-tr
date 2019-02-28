@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fb96d69604ce341cec2de029f9663f6b8d274876
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 214c67e34fc8d36f2618c94414fe1c305efbf7d2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822387"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960148"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -119,6 +119,9 @@ System Center Operations Manager yönetim grubunuzun bir Log Analytics çalışm
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * MP Dağıtımını güncelleştirme
+
+> [!NOTE]
+> Geçersiz kılmak için bir çalışma alanıyla ilişkilendirilmesi için aracılar yönetim grubu düzeyinde yapılandırılan bir Operations Manager 1807 yönetim grubu varsa, bunları gösterilecek geçerli geçici olan **IsAutoRegistrationEnabled** için **True** içinde **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** kuralı.
 
 Çözüm yönetim paketlerini nasıl güncelleştirileceğini hakkında daha fazla bilgi için bkz. [Azure İzleyici için Operations Manager'ı bağlama günlüklerini](../azure-monitor/platform/om-agents.md).
 
@@ -608,7 +611,7 @@ VM güncelleştirme yönetiminden kaldırmak için:
 
 * Log Analytics çalışma alanınızda kayıtlı arama kapsamı yapılandırması için VM kaldırma `MicrosoftDefaultScopeConfig-Updates`. Kayıtlı aramalar, altında bulunabilir **genel** çalışma alanınızdaki.
 * Kaldırma [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) veya [Linux için Log Analytics aracısını](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
-  
+
 ## <a name="troubleshoot"></a>Sorun giderme
 
 Güncelleştirme yönetimi sorunlarını giderme konusunda bilgi almak için bkz: [güncelleştirme yönetiminde sorun giderme](troubleshoot/update-management.md)

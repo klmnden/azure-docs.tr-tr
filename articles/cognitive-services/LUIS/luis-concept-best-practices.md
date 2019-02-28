@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428916"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984212"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bilişsel hizmetler dil anlama uygulamayla oluşturmaya yönelik en iyi uygulamalar
 LUIS uygulamanızı oluşturmak için yazma işleminin hızlandırılmasının uygulamayı kullanın. 
@@ -78,7 +78,9 @@ Daha fazla bilgi için:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>İfade listeleri ve desenler sonraki yinelemelerde ekleme
 
-Uygulamanızı test önce bu uygulamaları uygulamak iyi bir uygulamadır. İfade listeleri ve desenleri eklemeden önce uygulamanın davranışını anlamanız gerekir. Uygulamanızın bu nasıl davrandığını anladıktan sonra bu özelliklerin her biri, uygulamanız için geçerli olan ekleyin. Bu özelliklerin her eklemek gerekmez [yineleme](luis-concept-app-iteration.md) veya özellikler her sürümü ile değiştirin. 
+Uygulamanızı test önce bu uygulamaları uygulamak iyi bir uygulamadır. Bu özellikler örnek konuşma daha yoğun ağırlıklı ve güvenle eğme çünkü deyim listeler ve desenleri eklemeden önce uygulamanın davranışını anlamanız gerekir. 
+
+Uygulamanızın bu nasıl davrandığını anladıktan sonra bu özelliklerin her biri, uygulamanız için geçerli olan ekleyin. Bu özelliklerin her eklemek gerekmez [yineleme](luis-concept-app-iteration.md) veya özellikler her sürümü ile değiştirin. 
 
 Model tasarımınızı başında eklemeden hiçbir zarar yoktur ancak her bir özelliğin model Konuşma ile test edildikten sonra sonuçları nasıl değiştiğini görmek daha kolaydır. 
 

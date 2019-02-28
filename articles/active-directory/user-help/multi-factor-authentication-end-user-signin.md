@@ -14,12 +14,12 @@ ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2545e85ff466ed7455161eb725b824da465457bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 153b3d61324d504fe260b104bf412913f9692627
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177343"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957547"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication ile oturum açma deneyimi
 > [!NOTE]
@@ -83,9 +83,8 @@ Bazı durumlarda telefon veya, tercih edilen doğrulama yöntemi olarak ayarlad�
   ![Alternatif yöntemi kullanın](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+- İki aşamalı doğrulaması ile oturum açma sorunları varsa, daha fazla bilgi edinin [Azure multi-Factor Authentication sorununuz](multi-factor-authentication-end-user-troubleshoot.md).
 
-İki aşamalı doğrulaması ile oturum açma sorunları varsa, daha fazla bilgi edinin [Azure multi-Factor Authentication sorununuz](multi-factor-authentication-end-user-troubleshoot.md).
+- Bilgi edinmek için nasıl [iki adımlı doğrulama ayarlarınızı yönetme](multi-factor-authentication-end-user-manage-settings.md).
 
-Bilgi edinmek için nasıl [iki adımlı doğrulama ayarlarınızı yönetme](multi-factor-authentication-end-user-manage-settings.md).
-
-Hakkında bilgi edinin [Microsoft Authenticator uygulaması ile çalışmaya başlama](user-help-auth-app-download-install.md) böylece bildirimleri, telefon görüşmeleri ve metinler yerine oturum açmak için kullanabilirsiniz.
+- Hakkında bilgi edinin [Microsoft Authenticator uygulaması ile çalışmaya başlama](user-help-auth-app-download-install.md) böylece bildirimleri, telefon görüşmeleri ve metinler yerine oturum açmak için kullanabilirsiniz.

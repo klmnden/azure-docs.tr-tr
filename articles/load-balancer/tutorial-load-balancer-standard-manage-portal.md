@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 7caddde5c7695d0c572dc139b52cd0743e39d778
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fa40f4f666444209f70d3f49b7947450af01ec36
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672008"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983295"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak sanal makineleri internet trafiği Yük Dengelemesi
 
@@ -45,21 +45,22 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Bu bölümde, sanal makinelerde yük dengelemesine yardımcı olan bir genel yük dengeleyici oluşturursunuz. Standart Yük Dengeleyici yalnızca Standart Genel IP adresini destekler. Standard Load Balancer oluşturduğunuzda, Standard Load Balancer için ön uç (varsayılan olarak *LoadBalancerFrontend* adını alır) olarak yapılandırılmış yeni bir Standart Genel IP adresi de oluşturmanız gerekir. 
 
 1. Ekranın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici**'ye tıklayın.
-2. **Yük dengeleyici oluşturma** sayfasında aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Oluştur**'u seçin:
-    
+2. İçinde **Temelleri** sekmesinde **yük dengeleyici Oluştur** sayfasında, girin veya aşağıdaki bilgileri seçin, geri kalan ayarlar için varsayılan değerleri kabul edin ve ardından **gözden geçir +Oluştur**:
+
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
+    | Abonelik               | Aboneliğinizi seçin.    |    
+    | Kaynak grubu         | Seçin **Yeni Oluştur** ve türü *MyResourceGroupSLB* metin kutusuna.|
     | Ad                   | *myLoadBalancer*                                   |
-    | Type          | Genel                                        |
-    | SKU           | Standart                          |
-    | Genel IP adresi | **Yeni oluştur**'u seçip metin kutusuna *myPublicIP* yazın. Genel IP adresi için Standart SKU varsayılan olarak seçilir. **Kullanılabilirlik bölgesi** olarak **Alanlar arası yedekli**’yi seçin. |
-    | Abonelik               | Aboneliğinizi seçin.    |
-    |Kaynak grubu | **Yeni oluştur**'u seçip *myResourceGroupSLB* yazın.    |
-    | Konum           | **Batı Avrupa**'yı seçin.                          |
-    
+    | Bölge         | **Batı Avrupa**'yı seçin.                                        |
+    | Type          | Seçin **genel**.                                        |
+    | SKU           | Seçin **standart**.                          |
+    | Genel IP adresi | **Yeni oluştur**’u seçin. |
+    | Ortak IP adresi adı              | Tür *Mypublicıp* metin kutusuna.   |
+    |Kullanılabilirlik bölgesi| Seçin **bölgesel olarak yedekli**.    |
+3. İçinde **gözden geçir + Oluştur** sekmesinde **Oluştur**.   
 
-![Yük dengeleyici oluşturma](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-   
+  
 ## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
 Bu bölümde, bir sanal ağ oluşturur, yük dengeleyicinizin arka uç havuzu için üç sanal makine oluşturur ve sonra yük dengeleyicinin test edilmesi için sanal makinelere IIS yüklersiniz.

@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 8dbe282b919c988d5cb997a66914d81ce1981f88
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d21731549c55f8e3fe90711838fcd21e6770eefe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592426"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960709"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Veri ambarınız için Gen2'ye yükseltme
 Duyurunun tamamını okuyun sürücü giriş düzeyi sorgular Azure SQL veri ambarı için alt bilgi işlem katmanı ekleyerek yoğun işleme yeteneğine sahip bir veri ambarı'nı çalıştırmanın maliyeti aşağı Microsoft yardımcı olma [alt işlem katmanı desteği Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). Yeni bir teklif zaten aşağıdaki tabloda belirtildiği bölgelerinde kullanılabilir. Desteklenen bölgeler için mevcut Gen1 veri ambarları için Gen2 üzerinden yükseltilebilir:
@@ -36,27 +36,29 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 | Doğu Kanada |\* |\* |
 | Orta ABD |Kullanılabilir |1 Mayıs 2019 |
 | Çin Doğu |\* |\* |
-| Çin Kuzey 1 |\* |\* |
+| Çin Doğu 2 |\* |\* |
+| Çin Kuzey |\* |\* |
+| Çin Kuzey 2 |\* |\* |
 | Doğu Asya |Kullanılabilir |1 Mayıs 2019 |
-| Doğu ABD 1 |Kullanılabilir |16 Mart 2019 |
+| Doğu ABD |Kullanılabilir |16 Mart 2019 |
 | Doğu ABD 2 |Kullanılabilir |16 Mart 2019 |
 | Fransa Orta |1 Mart 2019 |1 Mayıs 2019 |
 | Almanya Orta |\* |\* |
 | Hindistan Orta |Kullanılabilir |1 Mayıs 2019 |
-| Hindistan Güney 1 |1 Mart 2019 |15 Haziran 2019 |
+| Hindistan Güney |1 Mart 2019 |15 Haziran 2019 |
 | Japonya Doğu |Kullanılabilir |1 Mayıs 2019 |
 | Japonya Batı |Kullanılabilir |15 Haziran 2019 |
 | Kore Orta |1 Mart 2019 |1 Mayıs 2019 |
-| Kore Güney 1 |1 Mart 2019 |15 Haziran 2019 |
+| Kore Güney |1 Mart 2019 |15 Haziran 2019 |
 | Orta Kuzey ABD |1 Mart 2019 |15 Haziran 2019 |
 | Kuzey Avrupa |Kullanılabilir |16 Mart 2019 |
 | Orta Güney ABD |Kullanılabilir |1 Mayıs 2019 |
 | Güneydoğu Asya |Kullanılabilir |16 Mart 2019 |
 | Birleşik Krallık Güney |1 Mart 2019 |1 Mayıs 2019 |
-| UK Batı 1 |1 Mart 2019 |15 Haziran 2019 |
+| Birleşik Krallık Batı |1 Mart 2019 |15 Haziran 2019 |
 | Batı Orta ABD |\* |\* |
 | Batı Avrupa |Kullanılabilir |16 Mart 2019 |
-| Batı ABD 1 |1 Mart 2019 |15 Haziran 2019 |
+| Batı ABD |1 Mart 2019 |15 Haziran 2019 |
 | Batı ABD 2 |Kullanılabilir |16 Mart 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Otomatik yükseltme işlemi

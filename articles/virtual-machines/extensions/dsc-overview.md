@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 2bdd3cd05f78503962461abfcc85320c25350e69
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: a002c4ff843ad1e0bc48d490132d7499526f4d7b
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593140"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958771"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure Desired State Configuration uzantısı işleyicisi giriş
 
@@ -65,6 +65,25 @@ WMF yükleme yeniden başlatılması gerekiyor. Yeniden başlattıktan sonra uza
 ### <a name="default-configuration-script"></a>Varsayılan yapılandırma betiği
 
 Azure DSC uzantısı olması amaçlanan bir varsayılan yapılandırma betiği içeren kullanılabilir eklemenize Azure Automation DSC hizmetine bir VM. Betik parametreleri yapılandırılabilir özellikleriyle hizalanır [yerel Configuration Manager](/powershell/dsc/metaconfig). Betik parametreleri için bkz. [varsayılan yapılandırma betiğini](dsc-template.md#default-configuration-script) içinde [Desired State Configuration uzantısı Azure Resource Manager şablonları ile](dsc-template.md). Tam betik için bkz [github'da Azure Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Azure Otomasyonu durum yapılandırması (DSC) hizmeti ile kaydetme hakkında bilgi
+
+DSC uzantısı ile durum Yapılandırma hizmetini bir düğüm kaydetmek için kullanırken, üç değer sağlanması gerekir.
+
+- RegistrationUrl - Azure Otomasyonu hesabını https adresi
+- RegistrationKey - düğümleri hizmetiyle kaydetmek için kullanılan bir paylaşılan gizlilik
+- NodeConfigurationName - ' % s'adı, düğüm yapılandırma (hizmet sunucu rolünü çekmek için MOF)
+
+Bu bilgiler görülebilir [Azure portalında](../../automation/automation-dsc-onboarding.md#azure-portal) veya PowerShell'i kullanabilirsiniz.
+
+```PowerShell
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
+```
+
+Düğüm yapılandırması adı için adını kullandığınızdan emin olun *düğüm yapılandırması* ve yapılandırma.
+Kullanılan komut dosyasında tanımlanmış bir yapılandırması [düğüm yapılandırması (MOF dosyası) derlemek için](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+Ad bir nokta yapılandırması her zaman olacak `.` ve her iki `localhost` veya belirli bir bilgisayar adı.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Resource Manager şablonlarında DSC uzantısı
 

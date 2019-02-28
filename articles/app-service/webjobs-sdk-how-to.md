@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: ba9dbeb01be5a9869b69836b118651cff7f0c92d
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 1bb729ecd532edf20a116c88a4773a6bb6617767
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750557"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959213"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli bir arka plan işlemleri için Azure Web işleri SDK'sını kullanma
 
@@ -42,7 +42,7 @@ Zaman mümkün örnekler için her iki sürümü sağlar 3.x ve sürüm 2.x.
 >
 > Daha fazla bilgi için [Azure işlevleri ve WebJobs SDK karşılaştırması](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
-## <a name="webhobs-host"></a>WebHobs konak
+## <a name="webjobs-host"></a>WebJobs konak
 
 Konak, İşlevler için bir çalışma zamanı kapsayıcıdır.  Bu, tetikleyiciler ve çağrıları işlevleri için dinler. Sürümünde 3.x konak uygulaması olduğu `IHost`ve sürüm 2.x kullanmanız `JobHost` nesne. Kodunuzda bir ana bilgisayar örneği oluşturur ve davranışını özelleştirmek için kod yazma.
 

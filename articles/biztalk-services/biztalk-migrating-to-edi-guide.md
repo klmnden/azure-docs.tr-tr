@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5543fd5ee2b86a57414a384df9d808e87b297a5e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253831"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983039"
 ---
-# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI çözümlerini BizTalk Services'a Geçirme: teknik Kılavuzu
+# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI çözümlerini BizTalk Services'a Geçirme: Teknik kılavuz
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -25,7 +25,7 @@ Yazar: Tim Wieman ve Nitin Mehrotra
 
 İnceleme: Karthik Bharthy
 
-Kullanılarak yazılmış: Microsoft Azure BizTalk Services – Şubat 2014 sürümü.
+Kullanılarak yazılmış:  Microsoft Azure BizTalk Hizmetleri – Şubat 2014 yayın.
 
 ## <a name="introduction"></a>Giriş
 Elektronik Veri Değişimi (EDI) hangi işletmelerin exchange verilerini en yaygın yöntemlerle elektronik olarak da işletmeler arası veya B2B işlemleri adlandırılır biridir. BizTalk Server EDI için BizTalk Server ilk yayımlandıktan sonra on yıl destek oluşturdu. BizTalk Hizmetleri ile Microsoft Microsoft Azure platformunda EDI çözümlerini desteği devam eder. B2B işlemlerini çoğunlukla bir kuruluş dışında bulunan ve bu nedenle bir bulut platformunun üzerine uyguladığında uygulamak daha kolay olur. Microsoft Azure BizTalk Hizmetleri aracılığıyla bu yeteneği sağlar.
@@ -102,7 +102,7 @@ BizTalk Server düzenleme Microsoft Azure'a işleme geçmeniz gerekiyorsa düzen
 
 * [*Bir WCF iş akışı hizmeti, hizmet veri yolu kuyrukları ve konuları ile tümleştirmek nasıl* ](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) Paolo Salvatori tarafından. 
 * [*Windows Workflow Foundation'ı ve Azure ile uygulama oluşturmaya* oturumu](https://go.microsoft.com/fwlink/p/?LinkId=237314) derleme 2011 konferansına ait.
-* [*Windows Workflow Foundation Geliştirici Merkezi* ](https://go.microsoft.com/fwlink/p/?LinkId=237315) MSDN'de.
+* [*Windows Workflow Foundation Geliştirici Merkezi*](https://docs.microsoft.com/previous-versions/dotnet/articles/ee342461(v=msdn.10)).
 * [*Windows Workflow Foundation 4 (WF4) belgeleri* ](https://msdn.microsoft.com/library/dd489441.aspx) MSDN'de.
 
 ## <a name="other-considerations"></a>Dikkat edilecek diğer noktalar

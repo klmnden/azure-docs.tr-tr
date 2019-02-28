@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 77b3d8bd1d16e90e9929c41f0f28940694dc7906
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 18c4fd3fff244ac180ac0129f100a7d5b2472cab
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889843"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984841"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 güncelleştirme
 
@@ -70,6 +70,8 @@ Azure Stack düzeltmeleri yalnızca Azure Stack tümleşik sistemleri için geç
     ```PowerShell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
+- Azure Stack System Center Operations Manager (SCOM) tarafından yönetildiğinde 1901 uygulamadan önce Yönetim Paketi için Microsoft Azure Stack 10.0.3.11 sürümüne güncelleştirdiğinizden emin olun.
 
 ## <a name="new-features"></a>Yeni Özellikler
 

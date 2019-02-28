@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187754"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984858"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Azure İzleyicisi'ni (Önizleme) Map uygulama bileşenleri anlamak için VM'ler için kullanma
 Windows ve Linux ortamınızı Azure İzleyici ile iki şekilde VM'ler için doğrudan bir sanal makineden veya Azure İzleyici'den VM grupları arasında gösterilebilir azure'da çalışan sanal makineler üzerinde bulunan uygulama bileşenlerini görüntüleme. 
@@ -39,7 +39,7 @@ Sanal makinede tıkladığınızda **özellikleri** sistem bilgileri Azure VM ve
 
 ![Bilgisayarın Sistem Özellikleri](./media/vminsights-maps/properties-pane-01.png)
 
-Sağ tarafında bölmesinin, tıklayarak **günlüğü olaylarını** odak noktası, sanal makineden toplanan veriler tabloların bir listesini göstermek için bölmenin geçiş yapmak için simge Log Analytics'e gönderilen ve sorgulama için kullanılabilir.  Listelenen kayıt türlerinden birini tıklayarak açılır **günlükleri** sayfası ile önceden yapılandırılmış bir sorgu türü için sonuçları görüntülemek için belirli bir sanal makineye karşı filtrelenmiş.  
+Sağ tarafında bölmesinin, tıklayarak **günlüğü olaylarını** odak noktası, sanal makineden toplanan veriler tabloların bir listesini göstermek için bölmenin geçiş yapmak için simge Azure İzleyicisi'ne gönderdi ve sorgulama için kullanılabilir.  Listelenen kayıt türlerinden birini tıklayarak açılır **günlükleri** sayfası ile önceden yapılandırılmış bir sorgu türü için sonuçları görüntülemek için belirli bir sanal makineye karşı filtrelenmiş.  
 
 ![Özellikler bölmesinde günlük arama listesi](./media/vminsights-maps/properties-pane-logs-01.png)
 

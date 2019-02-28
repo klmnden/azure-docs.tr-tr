@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: d7f1279dbe253a9bc18b9e99ac9dbdf2a7cf52a1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870610"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984892"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure SQL veritabanı tek veritabanı oluşturma
 
@@ -29,7 +29,7 @@ Bu hızlı Başlangıçta tüm adımları için oturum açın [Azure portalında
 
 ## <a name="create-a-single-database"></a>Tek veritabanı oluşturma
 
-Tek bir veritabanı iki [model(sql-database-purchase-models.md) satın. birini kullanarak işlem, bellek, GÇ ve depolama kaynakları tanımlı bir dizi içeriyor Tek bir veritabanı oluşturduğunuzda, aynı zamanda tanımlamış bir [SQL veritabanı sunucusu](sql-database-servers.md) yönetip içine yerleştirdiğiniz [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) belirli bir bölgede.
+Bir dizi işlem, bellek, GÇ ve depolama kaynakları iki birini kullanarak tek bir veritabanı olan [satın alma modeli](sql-database-purchase-models.md). Tek bir veritabanı oluşturduğunuzda, aynı zamanda tanımlamış bir [SQL veritabanı sunucusu](sql-database-servers.md) yönetip içine yerleştirdiğiniz [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) belirli bir bölgede.
 
 AdventureWorksLT örnek verilerini içeren tek bir veritabanı oluşturmak için:
 

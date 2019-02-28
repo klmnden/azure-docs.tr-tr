@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9faed53540d449f8658655ff7285b38aa20bee6c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ac40c4c974049f802da97846db5010652a420691
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901828"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961219"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IOT Edge (Önizleme) Azure Blob Depolama ile uçta veri Store
 
@@ -221,7 +221,7 @@ Düzenleme modülü hostport değerini değeri değiştirmek için seçenekler o
 
 Ek blob depolama modüllerini bağladığınızda, uç nokta güncel ana bilgisayar bağlantı noktasına işaret edecek şekilde değiştirin. 
 
-### <a name="try-it-out"></a>Deneyin
+## <a name="try-it-out"></a>Deneyin
 
 Çeşitli dillerde örnek kodlar sağladık hızlı başlangıçlar Azure Blob Depolama belgeleri içerir. IOT Edge üzerinde Azure Blob Depolama, blob uç noktası, blob depolama modülünüzde işaret edecek şekilde değiştirerek test etmek için bu örnekleri yeniden çalıştırabilirsiniz.
 

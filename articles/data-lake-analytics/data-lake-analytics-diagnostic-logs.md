@@ -8,12 +8,12 @@ ms.author: jasonh
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045490"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959145"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics için tanılama günlüklerine erişme
 
@@ -41,7 +41,7 @@ Tanılama günlüğüne kaydetme, veri erişimi denetim kayıtlarını toplaman�
 
      * Seçin **Stream olay Hub'ına** Azure olay Hub'ına günlük veri akışı. Gerçek zamanlı olarak gelen günlüklerini analiz bir aşağı akış işleme işlem hattı varsa bu seçeneği kullanın. Bu seçeneği belirlerseniz, Azure Event Hub kullanmak istediğiniz için ayrıntıları sağlamanız gerekir.
 
-     * Seçin __Log Analytics'e gönderme__ verileri Log Analytics hizmetine göndermek için. Bilgi toplamak ve günlükleri analiz etmek için Log Analytics kullanmak istiyorsanız bu seçeneği kullanın.
+     * Seçin __Log Analytics'e gönderme__ Azure İzleyici'hizmetine veri göndermek için. Azure İzleyici günlükleri toplayabilir ve bu günlükleri analiz etmek için kullanmak istiyorsanız bu seçeneği kullanın.
    * Denetim günlükleri veya istek günlükleri veya her ikisi de almak isteyip istemediğinizi belirtin.  İstek günlüğü, her API isteği yakalar. Bu API isteğiyle tetiklenen tüm işlemler bir denetim günlüğüne kaydeder.
 
    * İçin __bir depolama hesabında arşivle__, verileri saklanacağı gün sayısını belirtin.
@@ -127,13 +127,13 @@ JSON biçimli istek günlüğünde örnek giriş aşağıdadır. Her blob olarak
 
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| time |Dize |Zaman damgası (UTC) günlüğü |
-| resourceId |Dize |İşlem geçen kaynağının tanımlayıcısını yerleştireceğinize |
-| category |Dize |Günlük kategorisi. Örneğin, **istekleri**. |
-| operationName |Dize |Oturum açmış işlemin adı. Örneğin, GetAggregatedJobHistory. |
-| resultType |Dize |Örneğin, 200 işlem durumu. |
-| callerIpAddress |Dize |İsteği yapan istemcinin IP adresi |
-| correlationId |Dize |Oturum tanımlayıcısı. Bu değer, bir dizi ilgili günlük girişlerini gruplandırmak için kullanılabilir. |
+| time |String |Zaman damgası (UTC) günlüğü |
+| resourceId |String |İşlem geçen kaynağının tanımlayıcısını yerleştireceğinize |
+| category |String |Günlük kategorisi. Örneğin, **istekleri**. |
+| operationName |String |Oturum açmış işlemin adı. Örneğin, GetAggregatedJobHistory. |
+| resultType |String |Örneğin, 200 işlem durumu. |
+| callerIpAddress |String |İsteği yapan istemcinin IP adresi |
+| correlationId |String |Oturum tanımlayıcısı. Bu değer, bir dizi ilgili günlük girişlerini gruplandırmak için kullanılabilir. |
 | identity |Nesne |Günlük oluşturulan kimlik |
 | properties |JSON |Ayrıntılar için sonraki bölüme (istek günlüğü özellikleri şema) bakın |
 
@@ -141,12 +141,12 @@ JSON biçimli istek günlüğünde örnek giriş aşağıdadır. Her blob olarak
 
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| HttpMethod |Dize |HTTP yöntemi, bir işlem için kullanılmaz. Örneğin, alın. |
-| Yol |Dize |İşlem yolu üzerinde gerçekleştirildi |
+| HttpMethod |String |HTTP yöntemi, bir işlem için kullanılmaz. Örneğin, alın. |
+| Yol |String |İşlem yolu üzerinde gerçekleştirildi |
 | RequestContentLength |int |HTTP isteğinin içerik uzunluğu |
-| Clientrequestıd'ye |Dize |Bu istek benzersiz olarak tanımlayan tanımlayıcısı |
-| StartTime |Dize |Sunucu isteği aldığınız zaman |
-| EndTime |Dize |Sunucu yanıt gönderme zamanı |
+| Clientrequestıd'ye |String |Bu istek benzersiz olarak tanımlayan tanımlayıcısı |
+| StartTime |String |Sunucu isteği aldığınız zaman |
+| EndTime |String |Sunucu yanıt gönderme zamanı |
 
 ### <a name="audit-logs"></a>Denetim günlükleri
 
@@ -179,13 +179,13 @@ JSON biçimli bir denetim günlüğüne örnek girişini İşte. Her blob olarak
 
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| time |Dize |Zaman damgası (UTC) günlüğü |
-| resourceId |Dize |İşlem geçen kaynağının tanımlayıcısını yerleştireceğinize |
-| category |Dize |Günlük kategorisi. Örneğin, **denetim**. |
-| operationName |Dize |Oturum açmış işlemin adı. Örneğin, JobSubmitted. |
-| resultType |Dize |İş durumu (operationName) için alt. |
-| resultSignature |Dize |İş durumu (operationName) ilgili ek ayrıntılar. |
-| identity |Dize |İstenen işlem kullanıcı. Örneğin, susan@contoso.com. |
+| time |String |Zaman damgası (UTC) günlüğü |
+| resourceId |String |İşlem geçen kaynağının tanımlayıcısını yerleştireceğinize |
+| category |String |Günlük kategorisi. Örneğin, **denetim**. |
+| operationName |String |Oturum açmış işlemin adı. Örneğin, JobSubmitted. |
+| resultType |String |İş durumu (operationName) için alt. |
+| resultSignature |String |İş durumu (operationName) ilgili ek ayrıntılar. |
+| identity |String |İstenen işlem kullanıcı. Örneğin, susan@contoso.com. |
 | properties |JSON |Ayrıntılar için sonraki bölüme (Denetim günlüğü özellikleri şema) bakın |
 
 > [!NOTE]
@@ -197,13 +197,13 @@ JSON biçimli bir denetim günlüğüne örnek girişini İşte. Her blob olarak
 
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| JobId |Dize |Projeye atanan kimliği |
-| JobName |Dize |İş için sağlanan adı |
-| JobRunTime |Dize |İşi işlemek için kullanılan çalışma zamanı |
-| SubmitTime |Dize |İş gönderildi, saat (UTC) |
-| StartTime |Dize |Gönderisine (UTC) sonra çalışan işin başladığı saati |
-| EndTime |Dize |İşin bitiş saati |
-| Paralellik |Dize |Gönderim sırasında bu iş için istenen Data Lake Analytics birimi |
+| JobId |String |Projeye atanan kimliği |
+| JobName |String |İş için sağlanan adı |
+| JobRunTime |String |İşi işlemek için kullanılan çalışma zamanı |
+| SubmitTime |String |İş gönderildi, saat (UTC) |
+| StartTime |String |Gönderisine (UTC) sonra çalışan işin başladığı saati |
+| EndTime |String |İşin bitiş saati |
+| Paralellik |String |Gönderim sırasında bu iş için istenen Data Lake Analytics birimi |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime**, ve **paralellik** işlem bilgileri sağlayın. Bu girişler yalnızca bir değer varsa işlemi başlatıldı veya tamamlandı içerir. Örneğin, **SubmitTime** yalnızca sonra bir değer içeren **operationName** değerine sahip **JobSubmitted**.

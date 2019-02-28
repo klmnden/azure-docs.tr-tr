@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 856da056f833b9c7bcff2c96ff0495d05f86366f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56667960"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958193"
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
 
@@ -63,7 +63,7 @@ Aynı bölgedeki sanal ağlar eşlendiğinde, eşlenmiş sanal ağdaki ağ geçi
 
 ![Sanal ağ eşleme geçişi](./media/virtual-networks-peering-overview/figure04.png)
 
-Farklı bölgelerde oluşturulmuş sanal ağlar arasındaki eşleme ilişkisinde ağ geçidi geçişi desteklenmez. Bir ağ geçidi geçişinin çalışması için eşleme ilişkisindeki her iki sanal ağ da aynı bölgede olmalıdır. Farklı dağıtım modelleri (Kaynak Yöneticisi ve klasik) kullanılarak oluşturulan sanal ağlar arasında ağ geçidi geçişi, yalnızca ağ geçidi sanal ağdaysa (Kaynak Yöneticisi) desteklenir. Geçiş için bir ağ geçidi kullanma hakkında daha fazla bilgi için bkz. [Sanal ağ eşlemesinde geçiş için bir VPN ağ geçidi yapılandırma](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Farklı bölgelerde oluşturulmuş sanal ağlar arasındaki eşleme ilişkisinde ağ geçidi geçişi desteklenmez. Bir ağ geçidi geçişinin çalışması için eşleme ilişkisindeki her iki sanal ağ da aynı bölgede olmalıdır. Yalnızca ağ geçidi (VPN veya ExpressRoute) sanal ağ (Resource Manager) varsa (Resource Manager ve klasik), farklı dağıtım modelleriyle oluşturulmuş sanal ağlar arasındaki ağ geçidi geçişi desteklenir. Geçiş için bir ağ geçidi kullanma hakkında daha fazla bilgi için bkz. [Sanal ağ eşlemesinde geçiş için bir VPN ağ geçidi yapılandırma](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Tek bir Azure ExpressRoute bağlantısını kullanan sanal ağlar eşlendiğinde, bu iki sanal ağ arasındaki trafik, eşleme ilişkisi (Azure omurga ağı) üzerinden akış gerçekleştirir. Şirket içi devreye bağlanmak için her bir sanal ağ üzerindeki yerel ağ geçitlerini kullanmaya devam edebilirsiniz. Alternatif olarak, paylaşılan bir ağ geçidini kullanıp şirket içi bağlantı için bir geçiş yapılandırabilirsiniz.
 

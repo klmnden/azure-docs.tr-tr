@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: fc1505526ddff33c68b6d7a4030338dd7d712598
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b6876bf8210d47729ad8e765ccffe709a0fccacc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994481"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958703"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Öğretici: Anahtar/değer veri depolamak için bir Java uygulaması kullanarak Azure Cosmos DB'de Cassandra API hesabı oluşturma
 
@@ -41,9 +41,9 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma 
 
-1.  [Azure portalda](https://portal.azure.com/) oturum açın. 
+1.  [Azure portalda](https://portal.azure.com/) oturum açın.  
 
-2.   **Kaynak oluştur**  >  **Veritabanları**  >  **Azure Cosmos DB** 'yi seçin.  
+2. **Kaynak oluştur** > **Veritabanları** > **Azure Cosmos DB** seçeneğini belirleyin. 
 
 3. İçinde **yeni hesabı** bölmesinde, yeni Azure Cosmos hesabının ayarlarını girin. 
 
@@ -52,12 +52,12 @@ Bu öğretici aşağıdaki görevleri kapsar:
    |Kimlik   |   Benzersiz bir ad girin    | Bu Azure Cosmos hesabını tanımlamak için benzersiz bir ad girin. <br/><br/>Girdiğiniz kimliğe cassandra.cosmosdb.azure.com eklenerek temas noktanız oluşturulacağından benzersiz ancak tanımlanabilir bir kimlik kullanın.         |
    |API    |  Cassandra   |  API, oluşturulacak hesap türünü belirler. <br/> Seçin **Cassandra**, bu makalede, Cassandra sorgu dili (CQL) söz dizimini kullanarak sorgulanabilir bir geniş sütun veritabanı oluşturacaksınız.  |
    |Abonelik    |  Aboneliğiniz        |  Bu Azure Cosmos hesap için kullanmak istediğiniz Azure aboneliğini seçin.        |
-   |Kaynak Grubu   | Ad girin    |  Seçin **Yeni Oluştur**ve ardından hesabınız için yeni bir kaynak grubu adı girin. Kolaylık olması için kimliğinizle aynı adı kullanabilirsiniz.    |
+   |Kaynak Grubu   | Ad girin    |  Seçin **Yeni Oluştur**ve ardından hesabınız için yeni bir kaynak grubu adı girin. Kolaylık olması için kimliğinizle aynı adı kullanabilirsiniz.    |
    |Konum    |  Kullanıcılarınıza en yakın bölgeyi seçin    |  Azure Cosmos hesabınızın barındırılacağı coğrafi konumu seçin. Bunları verilere en hızlı erişim sağlamak için kullanıcılarınıza en yakın konumu kullanın.    |
 
    ![Portalla hesap oluşturma](./media/create-cassandra-api-account-java/create-account.png)
 
-4. Seçin **oluşturma**. <br/>Hesabın oluşturulması birkaç dakika sürer. Kaynak oluşturulduktan sonra gördüğünüz **dağıtım başarılı** portal'ın işlecin sağ tarafındaki bildirim.
+4. **Oluştur**’u seçin. <br/>Hesabın oluşturulması birkaç dakika sürer. Kaynak oluşturulduktan sonra gördüğünüz **dağıtım başarılı** portal'ın işlecin sağ tarafındaki bildirim.
 
 ## <a name="get-the-connection-details-of-your-account"></a>Hesabınızın bağlantı ayrıntılarını alma  
 

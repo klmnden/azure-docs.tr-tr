@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 37140b665f30d8bb99dd49dbdcca265969eaaf2f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 047e058fee6cd72a7eeaecdde976b1b9d49aeb5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806700"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958958"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure'da bir Service Fabric küme için sertifikaları kaldırın veya ekleyin
 Service Fabric'ın X.509 sertifikaları nasıl kullandığı hakkında bilgilenmeli ve hakkında bilgi sahibi olmanız önerilir [küme güvenliği senaryoları](service-fabric-cluster-security.md). Anlamanız gerekir bir küme sertifikası ve devam etmeden önce ne için kullanılır.
 
-Azure hizmeti dokularını SDK'ın varsayılan sertifika yük, davranıştır dağıtma ve tanımlanmış bir sertifika ile en uzak sona eren bir tarih geleceğe kullanma; bağımsız olarak, birincil veya ikincil yapılandırma tanımlarını. Klasik davranışa geri dönülüyor olmayan önerilen Gelişmiş eylem olduğundan ve "UseSecondaryIfNever" ayarı parametre değeri Fabric.Code yapılandırmanızı içinde false olarak ayarlanması gerekir.
+Azure hizmeti dokularını SDK'ın varsayılan sertifika yük, davranıştır dağıtma ve tanımlanmış bir sertifika ile en uzak sona eren bir tarih geleceğe kullanma; bağımsız olarak, birincil veya ikincil yapılandırma tanımlarını. Klasik davranışa geri dönülüyor olmayan önerilen Gelişmiş eylem olduğundan ve "UseSecondaryIfNewer" ayarı parametre değeri Fabric.Code yapılandırmanızı içinde false olarak ayarlanması gerekir.
 
 Service fabric küme oluşturma sırasında istemci sertifikalarının yanı sıra sertifika güvenliği yapılandırırken iki küme sertifikaları, birincil ve ikincil bir belirtmenize olanak sağlar. Başvurmak [portal aracılığıyla azure kümesine oluşturma](service-fabric-cluster-creation-via-portal.md) veya [Azure Resource Manager aracılığıyla azure kümesine oluşturma](service-fabric-cluster-creation-via-arm.md) oluşturma zamanı en ayarlama ile ilgili ayrıntılar için. Yalnızca bir küme sertifikası seçeneğini belirlerseniz zaman oluşturmak, sonra birincil sertifikası kullanılır. Küme oluşturulduktan sonra ikincil yeni bir sertifika ekleyebilirsiniz.
 

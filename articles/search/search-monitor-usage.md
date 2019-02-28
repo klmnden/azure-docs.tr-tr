@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745971"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959468"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search'te kaynak tüketimi ve sorgu etkinliğini İzle
 
@@ -61,11 +61,11 @@ Aşağıdaki tabloda, günlükleri depolamak ve geniş kapsamlı hizmet işlemle
 | Kaynak | İçin kullanılan |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Günlüğe kaydedilen olayları ve sorgu ölçümleri temel bir Aşağıda, şemaların uygulamanızda kullanıcı olayları ile ilişkili. Bu hesaba, uygulama kodu tarafından gönderilen istekleri filtrelemenize aksine, kullanıcı tarafından başlatılan arama eşleştirme olaylarını kullanıcı eylemleri veya sinyalleri alan tek bir çözümdür. Bu yaklaşımı kullanmak için kopyalama-izleme kodu, kaynak dosyaları için Application Insights için rota bilgi içine yapıştırın. Daha fazla bilgi için [arama trafiği analizi](search-traffic-analytics.md). |
-| [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Günlüğe kaydedilen olayları sorgu ölçümleri temel bir aşağıdaki şemalar. Olayları, Log analytics'teki çalışma alanına kaydedilir. Günlük kaydından ayrıntılı bilgi almak için bir çalışma alanı karşı sorgular çalıştırabilirsiniz. Daha fazla bilgi için [Log Analytics ile çalışmaya başlama](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Azure izleme günlükleri](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Günlüğe kaydedilen olayları sorgu ölçümleri temel bir aşağıdaki şemalar. Olaylar, Log Analytics çalışma alanına kaydedilir. Günlük kaydından ayrıntılı bilgi almak için bir çalışma alanı karşı sorgular çalıştırabilirsiniz. Daha fazla bilgi için [Azure İzleyici günlüklerine ile çalışmaya başlama](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Blob depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Günlüğe kaydedilen olayları sorgu ölçümleri temel bir aşağıdaki şemalar. Olayları günlüğe bir Blob kapsayıcısına ve JSON dosyalarında depolanan. Dosya içeriğini görüntülemek için JSON düzenleyicisini kullanın.|
 | [Olay Hub’ı](https://docs.microsoft.com/azure/event-hubs/) | Günlüğe kaydedilen olayları ve bu makalede anlatıldığı şemaları dayalı sorgu ölçümleri. Bu, çok büyük günlükleri için bir alternatif veri toplama hizmeti olarak seçin. |
 
-Ürününü, yaşam süresi Azure aboneliğinize ücretsiz olarak deneyebilirsiniz böylece hem Log Analytics hem de Blob Depolama ücretsiz paylaşılan hizmet olarak kullanılabilir. Application Insights, uygulama veri boyutu altında belirli sınırları olduğu sürece kaydolun ve ücretsiz (bkz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/monitor/) Ayrıntılar için).
+Ürününü, yaşam süresi Azure aboneliğinize ücretsiz olarak deneyebilirsiniz böylece hem Azure İzleyici günlüklerine hem de Blob Depolama ücretsiz paylaşılan hizmet olarak kullanılabilir. Application Insights, uygulama veri boyutu altında belirli sınırları olduğu sürece kaydolun ve ücretsiz (bkz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/monitor/) Ayrıntılar için).
 
 Sonraki bölümde, etkinleştirme ve toplamak ve Azure arama işlemleri tarafından oluşturulan günlük verilerine erişmek için Azure Blob Depolama kullanma adımlarında size kılavuzluk eder.
 
@@ -81,7 +81,7 @@ Bu bölümde, günlüğe kaydedilen olayları ve ölçümleri verileri depolamak
 
    ![İzlemeyi Etkinleştir](./media/search-monitor-usage/enable-monitoring.png "izlemeyi etkinleştir")
 
-3. Dışarı aktarmak istediğiniz verileri seçin: Günlükler, Ölçümler ve her ikisi de. Bir depolama hesabına kopyalayın, bir olay hub'ına gönderme veya Log Analytics'e giriş.
+3. Dışarı aktarmak istediğiniz verileri seçin: Günlükler, Ölçümler ve her ikisi de. Bir depolama hesabına kopyalayın, bir olay hub'ına gönderme veya Azure İzleyici günlüklerine verin.
 
    İçin arşiv Blob Depolama, yalnızca depolama hesabının mevcut olması gerekir. Günlük verileri dışarı aktardığınızda, kapsayıcılar ve bloblar oluşturulur.
 
@@ -114,7 +114,7 @@ Arama hizmeti trafik günlüklerinizin içeren BLOB'ları, bu bölümde açıkla
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |İşlemin zaman damgası |
 | resourceId |dize |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>VARSAYILAN/RESOURCEGROUPS/SAĞLAYICILARI /<br/> MICROSOFT. ARAMA/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
 | operationName |dize |"Query.Search" |İşlem adı |
-| operationVersion |dize |"2017-11-11" |Kullanılan api-version |
+| operationVersion |string |"2017-11-11" |Kullanılan api-version |
 | category |dize |"OperationLogs" |Sabit |
 | resultType |dize |"Başarılı" |Olası değerler: Başarı veya başarısızlık |
 | resultSignature |int |200 |HTTP Sonuç kodu |
@@ -126,7 +126,7 @@ Arama hizmeti trafik günlüklerinizin içeren BLOB'ları, bu bölümde açıkla
 | Ad | Tür | Örnek | Notlar |
 | --- | --- | --- | --- |
 | Açıklama |dize |"/İndexes('content')/docs Al" |İşlemin bitiş noktası |
-| Sorgu |dize |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Sorgu parametreleri |
+| Sorgu |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Sorgu parametreleri |
 | Belgeler |int |42 |İşlenen belge sayısı |
 | indexName |dize |"testindex" |İşlemle ilişkili dizinin adı |
 

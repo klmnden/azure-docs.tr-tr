@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: saudas
-ms.openlocfilehash: 37a9712749a1575f81086d28ad461a665bef36d9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: c55a12e6bd5ab57f790e5f161930851be10f5c2a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313458"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985249"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Desteklenen Kubernetes sürümlerini Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ AKS, Kubernetes’in dört küçük sürümünü destekler:
 
 Yeni bir küçük sürüm sunulduğunda, desteklenen en eski küçük sürüm ve düzletme eki yayınları kullanım dışı olur. Yeni alt sürümü ve gelecek sürümünü emeklilik yayınlanmadan önce 15 gün duyuru aracılığıyla yapılan [Azure güncelleştirme kanalları][azure-update-channel]. Where yukarıdaki örnekte *1.12.x* olan yayımlanan devre dışı bırakılan sürümleridir *1.8.g* + *1.8.h*.
 
-Bir AKS kümesini portalda veya Azure CLI ile dağıttığınızda, küme her zaman n-1 küçük sürümüne ve en son düzeltme ekine ayarlanır. Örneğin, AKS destekliyorsa *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +   *1.10d*, *1.9.e* + *1.9F*, yeni küme için varsayılan sürüm *1.10.b*.
+Bir AKS kümesini portalda veya Azure CLI ile dağıttığınızda, küme her zaman n-1 küçük sürümüne ve en son düzeltme ekine ayarlanır. Örneğin, AKS destekliyorsa *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +   *1.10d*, *1.9.e* + *1.9F*, yeni küme için varsayılan sürüm *1.11.b*.
 
 ## <a name="list-currently-supported-versions"></a>Şu anda desteklenen sürümler listesi
 

@@ -11,16 +11,16 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f6c1af2051d946b29e2022c90d0ad9820b4d283
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1d483d14a08f589fc8d014a13a47008b9fb59690
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823510"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984960"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Öğretici: Regresyon model için verileri hazırlama
 
-Bu öğreticide, Azure Machine Learning veri hazırlığı SDK'sını kullanarak modelleme regresyon için verileri hazırlama konusunda bilgi edinin. Filtreleme ve iki farklı NYC taksi veri kümeleri birleştirmek için çeşitli dönüştürmeler çalıştırın.
+Bu öğreticide, regresyon kullanarak model için verileri hazırlama hakkında bilgi edinin [Python için Azure Machine Learning veri hazırlığı SDK](https://aka.ms/data-prep-sdk). Filtreleme ve iki farklı NYC taksi veri kümeleri birleştirmek için çeşitli dönüştürmeler çalıştırın.
 
 Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**. Öğretici serisinin tamamladıktan sonra taksi seyahat maliyetini veri özellikleri bir model eğitip geleceği tahmin edebilirsiniz. Bu özellikler, toplama gün ve saat, Yolcuların Sayısı ve toplama konumunu içerir.
 
@@ -48,7 +48,7 @@ Bu Önkoşullar aşağıdaki bölümlerde birinden alın.
 
 ### <a name="azure"></a>Azure not defterleri kullanın: Bulutta ücretsiz Jupyter Not Defterleri
 
-Azure not defterleri ile başlamak kolaydır! [Python için Azure Machine Learning veri hazırlığı SDK](https://aka.ms/data-prep-sdk) zaten yüklü olan ve sizin için yapılandırılmış [Azure not defterleri](https://notebooks.azure.com/). Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
+Azure not defterleri ile başlamak kolaydır! Azure Machine Learning veri hazırlığı SDK'sı zaten yüklü ve sizin için yapılandırılmış [Azure not defterleri](https://notebooks.azure.com/). Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
 
 Aşağıdaki adımları tamamladıktan sonra Çalıştır **öğreticiler/regresyon-bölüm 1-verileri-prep.ipynb** Not Defteri, **Başlarken** proje.
 
@@ -662,7 +662,7 @@ Veri profili çıkış bildirimi `store_forward` sütun veri tutarsız ve eksik 
 replaced_stfor_vals_df = latlong_filtered_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
-Yürütme `replace` işlevini `distance` alan. İşlev olarak yanlış etiketli uzaklık değerleri yeniden biçimlendirir `.00`, herhangi bir null değerlere sıfır ile doldurur. Dönüştürme `distance` sayısal biçimi alanı. Bu yanlış veriler büyük olasılıkla anomolies taxi cab verileri koleksiyonu sisteminde noktalarıdır.
+Yürütme `replace` işlevini `distance` alan. İşlev olarak yanlış etiketli uzaklık değerleri yeniden biçimlendirir `.00`, herhangi bir null değerlere sıfır ile doldurur. Dönüştürme `distance` sayısal biçimi alanı. Bu yanlış veri olası anormallikleri taxi cab verileri koleksiyonu sisteminde noktalarıdır.
 
 
 ```python

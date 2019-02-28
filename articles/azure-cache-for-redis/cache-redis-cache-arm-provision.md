@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: e223cb060857d45d9f25e2ee1dfca7e159225d8b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 5bdad61df732f0aeb1a758aacb5844204387e19b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237119"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983923"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Şablon kullanarak Redis için bir Azure önbelleği oluşturma
 
@@ -37,8 +37,8 @@ Tam şablon için bkz: [Azure önbelleği için Redis şablon](https://github.co
 > Yeni Resource Manager şablonları [Premium katmanı](cache-premium-tier-intro.md) kullanılabilir. 
 > 
 > * [Premium Azure önbelleği için Redis Kümeleme ile oluşturma](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
-> * [Premium Azure önbelleği için Redis veri kalıcılığı ile oluşturun.](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
-> * [Redis ile sanal ağ ve isteğe bağlı kümeleme için Premium Azure önbelleği oluşturma](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+> * [Premium Azure önbelleği için Redis veri kalıcılığı ile oluşturun.](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
+> * [Dağıtılan bir sanal ağa Premium Redis önbelleği oluşturma](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > En yeni şablonları denetlemek için bkz: [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/documentation/templates/) araması `Azure Cache for Redis`.
 > 

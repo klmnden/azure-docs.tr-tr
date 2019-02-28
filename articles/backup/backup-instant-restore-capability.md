@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 63a0e5bd3db6251e361d9dd03acb538556e811ca
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 3f6d614d1487174a361d562212c08ec5b3aaf220
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805001"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960029"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Geliştirilmiş yedeği almak ve performansı Azure Backup anında geri yükleme özelliğine sahip geri yükleme
 
@@ -78,7 +78,7 @@ Alternatif olarak, gidebilirsiniz **özellikleri** almak için kasa sayfasının
 
 
 ## <a name="configure-snapshot-retention-using-azure-portal"></a>Azure portalını kullanarak anlık görüntü saklama yapılandırma
-Bu seçenek şu anda kullanılabilir **Batı Orta ABD**, **Hindistan Güney** ve **Avustralya Doğu**.
+Bu seçenek şu anda kullanılabilir **Batı Orta ABD**, **Hindistan Güney**, **Avustralya Doğu**, ve **Kuzey Avrupa**.
 
 Yükseltilen kullanıcıları için Azure portalında bir alan eklediğiniz görebilirsiniz **VM yedekleme İlkesi** altındaki dikey penceresinde **anında geri yükleme** bölümü. Anlık görüntü saklama süresinden değiştirebilirsiniz **VM yedekleme İlkesi** dikey penceresinde tüm sanal makineler için belirli bir yedekleme ilkesiyle ilişkili.
 

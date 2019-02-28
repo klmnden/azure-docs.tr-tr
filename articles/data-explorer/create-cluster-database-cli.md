@@ -1,6 +1,6 @@
 ---
-title: 'Hızlı Başlangıç: Bir Azure Veri Gezgini küme ve CLI kullanarak veritabanı oluşturma'
-description: Bu hızlı başlangıçta, bir Azure Veri Gezgini kümesi ve Azure CLI kullanarak veritabanı nasıl oluşturulacağını öğreneceksiniz.
+title: 'Hızlı Başlangıç: CLI kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma'
+description: Azure CLI kullanarak bir Azure Veri Gezgini küme ve veritabanı oluşturmayı öğrenin
 services: data-explorer
 author: radennis
 ms.author: radennis
@@ -8,16 +8,16 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 2/4/2019
-ms.openlocfilehash: 9e0ae547df34594674dc03702310a1537717a4ed
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 357f0efcf7300545d10113c92702d9fed4aad049
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881125"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958031"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-using-cli"></a>Bir Azure Veri Gezgini küme ve CLI kullanarak veritabanı oluşturma
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-the-cli"></a>CLI kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
 
-Bu hızlı başlangıçta bir Azure Veri Gezgini kümesi ve Azure CLI kullanarak bir veritabanı oluşturmayı açıklar.
+Bu hızlı başlangıçta, Azure CLI kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma işlemini açıklar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -25,11 +25,11 @@ Bu hızlı başlangıcı tamamlamak bir Azure aboneliğinizin olması gerekir. A
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıçta Azure CLI 2.0.4 sürüm gerektirir veya üzeri. Sürümünüzü kontrol etmek için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli).
+Azure CLI'yı yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıçta Azure CLI 2.0.4 sürüm gerektirir veya üzeri. Sürümünüzü kontrol etmek için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-the-cli-parameters"></a>CLI parametreleri Yapılandır
 
-Komutları Cloud Shell'de çalıştırıyorsanız aşağıdaki adımları atlayabilirsiniz. CLI'yı yerel ortamda çalıştırıyorsanız Azure'da oturum açmak ve geçerli aboneliğinizi ayarlamak için aşağıdaki adımları uygulayın:
+Komutları Azure Cloud Shell'de çalıştırıyorsanız, aşağıdaki adımları gerekli değildir. CLI'yi yerel olarak çalıştırıyorsanız, Azure'da oturum açın ve geçerli aboneliğinizi ayarlamak için aşağıdaki adımları izleyin:
 
 1. Azure'da oturum açmak için aşağıdaki komutu çalıştırın:
 
@@ -37,7 +37,7 @@ Komutları Cloud Shell'de çalıştırıyorsanız aşağıdaki adımları atlaya
     az login
     ```
 
-2. Abonelik oluşturulacak kümenizi istediğiniz ayarlayın. `MyAzureSub` yerine kullanmak istediğiniz Azure aboneliğinin adını yazın:
+2. Abonelik oluşturulacak kümenizi istediğiniz ayarlayın. Değiştirin `MyAzureSub` kullanmak istediğiniz Azure aboneliği adı:
 
     ```azurecli-interactive
     az account set --subscription MyAzureSub
@@ -65,7 +65,7 @@ Komutları Cloud Shell'de çalıştırıyorsanız aşağıdaki adımları atlaya
     az kusto cluster show --name azureclitest --resource-group testrg
     ```
 
-Sonuç "Başarılı" değerine sahip "provisioningState" içeriyorsa, küme başarıyla oluşturuldu.
+Sonuç içeriyorsa `provisioningState` ile `Succeeded` değer sonra küme başarıyla oluşturuldu.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Azure Veri Gezgini kümede veritabanı oluşturma
 
@@ -77,11 +77,11 @@ Sonuç "Başarılı" değerine sahip "provisioningState" içeriyorsa, küme baş
 
    |**Ayar** | **Önerilen değer** | **Alan açıklaması**|
    |---|---|---|
-   | Küme adı | *azureclitest* | Burada veritabanının oluşturulması gereken, kümenizin adıdır.|
-   | ad | *clidatabase* | İstenen veritabanınızın adı.|
+   | Küme adı | *azureclitest* | Veritabanının oluşturulacağı, kümenizin adıdır.|
+   | ad | *clidatabase* | Veritabanınızın adı.|
    | resource-group | *testrg* | Kümenin oluşturulacağı kaynak grubu adı. |
-   | Geçici silme süresi | *3650:00:00:00* | Sorgu kullanılabilir, böylece veri tutulması gereken süre miktarı. |
-   | Sık erişimli-cache-süresi | *3650:00:00:00* | Veriler önbellekte tutulması gereken süre miktarı. |
+   | Geçici silme süresi | *3650:00:00:00* | Verileri sorgulamak kullanılabilen tutulacak süre miktarı. |
+   | Sık erişimli-cache-süresi | *3650:00:00:00* | Veriler önbellekte tutulacak süre miktarı. |
 
 2. Oluşturduğunuz veritabanını görmek için aşağıdaki komutu çalıştırın:
 

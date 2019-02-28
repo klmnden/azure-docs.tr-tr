@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 02/26/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38ad75d22d21a141d48e9664ae580dfb5577a389
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 41859195474f19906118dbe94503bcbe04d0ac65
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184933"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960369"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>SQL yönetici temsilcisi izinlerini kullanarak Azure AD Connect'i yükleme
 En son Azure AD Connect derleme önce SQL, gerekli yapılandırmaları dağıtırken yönetim temsilcisi seçme desteklenmiyor.  Azure AD Connect'i yüklemek isteyen kullanıcılar, SQL Server'da Sistem Yöneticisi (SA) izinlerine sahip gerekmiyor.
@@ -44,13 +44,19 @@ Bant dışı veritabanını sağlamak ve veritabanı sahibi izinleriyle Azure AD
 >Gerekli olmamasına rağmen olduğu **kesinlikle önerilir** latin1_general_cı_as harmanlama veritabanı oluşturulurken seçilir.
 
 
-1.  SQL ile bir büyük/küçük harfe duyarlı olmayan harmanlama sırası ad eşitleme veritabanını oluşturmak yöneticisinin **(latin1_general_cı_as)**.  Veritabanı adlandırılmalıdır **ADSync**.  Azure AD Connect yüklendikten sonra kurtarma modeli, uyumluluk düzeyi ve içerik türü için doğru değerleri güncelleştirilir.  Aksi takdirde harmanlama sırası SQL Yöneticisi tarafından doğru şekilde ayarlanması gerekir ancak Azure AD Connect yüklemesini engeller.  SA, kurtarılır silmeniz ve veritabanı oluşturmanız gerekir.</br>
-![Harmanlama](./media/how-to-connect-install-sql-delegation/sql4.png)
-2.  Azure AD Connect Yöneticisi ve etki alanı hizmet hesabı aşağıdaki izinleri verin:
+ 1. SQL ile bir büyük/küçük harfe duyarlı olmayan harmanlama sırası ad eşitleme veritabanını oluşturmak yöneticisinin **(latin1_general_cı_as)**.  Veritabanı adlandırılmalıdır **ADSync**.  Azure AD Connect yüklendikten sonra kurtarma modeli, uyumluluk düzeyi ve içerik türü için doğru değerleri güncelleştirilir.  Aksi takdirde harmanlama sırası SQL Yöneticisi tarafından doğru şekilde ayarlanması gerekir ancak Azure AD Connect yüklemesini engeller.  SA, kurtarılır silmeniz ve veritabanı oluşturmanız gerekir.
+ 
+ ![Harmanlama](./media/how-to-connect-install-sql-delegation/sql4.png)
+ 2. Azure AD Connect Yöneticisi ve etki alanı hizmet hesabı aşağıdaki izinleri verin:
     - SQL Oturum Açma 
-    - **Veritabanı Owner(dbo)** hakları.  </br>
-![İzinler](./media/how-to-connect-install-sql-delegation/sql3a.png)
-3.  Azure AD Connect yükleme sırasında kullanılacak SQL sunucusunu ve örnek adı gösteren Azure AD Connect Yöneticisi için bir e-posta gönderin.
+    - **Veritabanı Owner(dbo)** hakları.
+ 
+ ![İzinler](./media/how-to-connect-install-sql-delegation/sql3a.png)
+
+ >[!NOTE]
+ >Azure AD Connect ile iç içe geçmiş üyelikler oturumları desteklemez.  Başka bir deyişle, Azure AD Connect yönetici hesabı ve etki alanı hizmet hesabı dbo hakları bahşedilir bir oturum açma bağlanmalıdır.  Yalnızca dbo haklarına sahip bir oturum açma için atanmış bir gruba üye olamaz.
+
+ 3. Azure AD Connect yükleme sırasında kullanılacak SQL sunucusunu ve örnek adı gösteren Azure AD Connect Yöneticisi için bir e-posta gönderin.
 
 ## <a name="additional-information"></a>Ek bilgiler
 Veritabanı oluşturulduktan sonra Azure AD Connect Yöneticisi yükleyebilir ve şirket içi eşitleme sırasında kolaylık yapılandırın.  

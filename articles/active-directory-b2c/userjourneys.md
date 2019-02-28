@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5c63a838d6cffce5ca45dbf0dde50bb9bd01892c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171661"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961304"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -49,7 +49,7 @@ Bu kullanıcı yolculuklarından ilgi topluluğuna çeşitli yanıtlama taraflar
 
 Kullanıcı yolculuğu için başarılı bir işlem gelmelidir düzenleme dizisi olarak temsil edilir. Herhangi bir adım başarısız olursa, işlem başarısız olur. Yapı taşlarını düzenleme adımları başvurabilir ve ilke dosyasında talep sağlayıcıları izin. Göstermek veya bir kullanıcı deneyimi oluşturmak için sorumludur herhangi bir düzenleme adımı, ayrıca ilgili içerik tanımı tanımlayıcısı bir başvuru içeriyor.
 
-Düzenleme adımlarının yürütüldü, düzenleme adımı öğesinde tanımlanan önkoşullara göre conditionaly olabilir. Examle için yalnızca belirli bir talep varsa veya bir talebi eşitse veya belirtilen değer için bir düzenleme adımı gerçekleştirmek için kontrol edebilirsiniz. 
+Düzenleme adımlarının koşullu olarak, orchestration adım öğesinde tanımlanan önkoşullara göre çalıştırılabilir. Örneğin, yalnızca belirli bir talep varsa veya bir talebi eşitse veya belirtilen değer için bir düzenleme adımı gerçekleştirmek için denetleyebilirsiniz. 
 
 Düzenleme adımlarının sıralanmış listesini belirtmek için bir **OrchestrationSteps** öğesi ilkesinin bir parçası eklenir. Bu öğe gereklidir.
 
@@ -77,7 +77,7 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 | ClaimsProviderSelections | 0: n | Düzenleme adımı için talep sağlayıcısı seçim listesi. | 
 | ClaimsExchanges | 0: n | Düzenleme adımı için talep değişimleri listesi. | 
 
-#### <a name="preconditions"></a>Önkoşulları
+### <a name="preconditions"></a>Önkoşulları
 
 **Önkoşulları** öğesi aşağıdaki öğeyi içerir:
 
@@ -86,7 +86,7 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 | Önkoşulu | 0: n | Kullanılan teknik profil bağlı olarak ya da yönlendiren istemci talep değişimi için bir sunucu çağrısı yapar ve Talep sağlayıcı seçimi göre. | 
 
 
-##### <a name="precondition"></a>Önkoşulu
+#### <a name="precondition"></a>Önkoşulu
 
 **Önkoşulu** öğesi aşağıdaki öznitelik içeriyor:
 
@@ -99,10 +99,10 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| Value | 1:n | İçin Sorgulanacak ClaimTypeReferenceId. Başka bir değeri öğenin denetlenecek değer içeriyor.</li></ul>|
+| Değer | 1:n | İçin Sorgulanacak ClaimTypeReferenceId. Başka bir değeri öğenin denetlenecek değer içeriyor.</li></ul>|
 | Eylem | 1:1 | Önkoşul denetimi içinde bir düzenleme adımı doğru olması durumunda gerçekleştirilmesi gereken eylem. Varsa değerini `Action` ayarlanır `SkipThisOrchestrationStep`, ilişkili `OrchestrationStep` değil yürütülmelidir. | 
 
-### <a name="preconditions-examples"></a>Önkoşulları örnekleri
+#### <a name="preconditions-examples"></a>Önkoşulları örnekleri
 
 Aşağıdaki önkoşullara kullanıcının objectID var olup olmadığını denetler. Kullanıcı yolculuğunda kullanıcının yerel hesabı kullanarak oturum açmanız seçildi. ObjectID varsa, bu düzenleme adımı atlayın.
 
@@ -226,20 +226,3 @@ Aşağıdaki düzenleme adımı, Facebook, bağlantı, Twitter, Google veya yere
 | --------- | -------- | ----------- |
 | Kimlik | Evet | Talep değişimi adım tanımlayıcısı. Tanımlayıcı, Talep sağlayıcı seçimden talep değişimi adım ilkede başvurmak için kullanılır. | 
 | TechnicalProfileReferenceId | Evet | Yürütülecek teknik profili tanımlayıcısı. |
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

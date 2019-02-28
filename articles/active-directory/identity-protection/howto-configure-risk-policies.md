@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9f759eb815e8d0d03d4cdd7fe4ed603ff39d34f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5dd988004112fa4f420af7d0149bde19fdc06bfc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197547"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958362"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Nasıl Yapılır: Azure Active Directory kimlik koruması (yenilenmiş) risk ilkelerini yapılandırma
 
@@ -32,7 +32,7 @@ Azure AD, riskli olabilecek kimlikler için göstergeleri risk olaylarını alg�
 - Oturum açma riski İlkesi ile bir yanıt olarak bir kullanıcının oturum açma sırasında tespit edilen gerçek zamanlı risk olayları yapılandırabilirsiniz. 
 - Kullanıcı riski İlkesi ile bir kullanıcı için zaman içinde algılanmış olan tüm etkin kullanıcı risk yanıt yapılandırabilirsiniz.  
 
-
+> [!VIDEO https://youtu.be/zEsbbik-BTE]
 ## <a name="what-is-the-sign-in-risk-policy"></a>Oturum açma riski İlkesi nedir?
 
 Azure AD, her oturum, bir kullanıcının analiz eder. Analiz amacı, oturum açma ile birlikte gelen kuşkulu eylemleri algılar sağlamaktır. Örneğin, gerçekleştirilen anonim bir IP adresi kullanarak oturum açın, veya başlatılan bilinmeyen bir konumdan oturum açma? Azure AD'de sistem algılayabilir şüpheli olarak da bilinen risk olayları eylemlerdir. Bir oturum açma sırasında Azure AD, bir değer hesaplar algılanan risk etkinliklere göre. Değer, oturum açmanın meşru bir kullanıcı tarafından gerçekleştirildiğini değil olasılığı (düşük, Orta, yüksek) temsil eder. Olasılık adlı **oturum açma risk düzeyini**.

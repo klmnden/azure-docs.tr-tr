@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c59d79a7c6ac0590861c99daa01438b184cd71ff
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8c86ffaeb717914d9165ecb5b65f300ae7d903b2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852805"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959315"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Depolama kuyrukları ve Service Bus kuyrukları - benzerlikler ve karşıtlıklar
 Bu makalede, iki tür kuyruk bugün Microsoft Azure tarafından sunulan arasındaki benzerlikleri ve farkları analiz eder: Depolama kuyrukları ve Service Bus kuyrukları. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
@@ -83,7 +83,8 @@ Bu bölümde depolama kuyrukları ve Service Bus kuyrukları ile sağlanan temel
 * Depolama kuyruğu iletilerinde genellikle ilk-giren ilk çıkar, ancak bazen sıralamaya olabilirler. Örneğin, bir iletinin görünebilirlik zaman aşımı süresi (örneğin, bir istemci uygulaması işleme sırasında kilitlenme) nedeniyle süresinin sona erdiği. Görünebilirlik zaman aşımı süresi dolduğunda, iletiyi sıradan çıkarma başka bir çalışan için kuyruktaki yeniden görünür hale gelir. Bu noktada, yeni görünür ileti sıraya alınan özgün sonra olduğu bir ileti sonra (yeniden sıradan çıkarılan için) sırada yerleştirilebilir.
 * Service Bus kuyruklarını garantili FIFO desende Mesajlaşma oturumları gerektirir. Uygulama bir ileti alındığında işlenirken kilitleniyor olay içeren **Özet & Kilitle** modu, sonraki açışınızda bir kuyruk alıcı bir Mesajlaşma oturumunun kabul eder, başlayacak başarısız iletisiyle, yaşam süresi (TTL sonra) Dönem sona eriyor.
 * Uygulama bileşenleri ayırma ölçeklenebilirlik ve dayanıklılık için hataları, artırmak için Yük Dengeleme ve süreç iş akışlarının oluşturulmasını gibi depolama kuyrukları standart sıraya alma senaryolarını desteklemek üzere tasarlanmıştır.
-* Service Bus kuyrukları Destek *en az bir kez* teslim garantisi. Ayrıca, *en çoğu kez* anlam uygulama durumunu kaydetmek için oturum durumu kullanma ve atomik olarak ileti alma ve oturum durumu güncelleştirmek için işlemleri kullanarak desteklenebilir.
+* Service Bus kuyrukları Destek *en az bir kez* teslim garantisi. 
+* Service Bus oturumları bağlamında ileti işleme onaylamaz tutarsızlıklar oturumunun ileti sırası işleme ilerleme göre uygulamanın durumunu depolamak için oturum durumu kullanmanın ve işlemleri geçici bir çözüm kullanarak önlenebilir sonlandırma, iletileri ve oturum durumu güncelleştiriliyor aldı. Bu tür bir tutarlılık özellik bazen etiketli *tam olarak-bir kez işlenmesini* diğer satıcının ürünleri, ancak işlem hataları redeliveried olmasını iletileri açıkça neden olur ve bu nedenle terimi tam olarak yeterli.
 * Depolama kuyrukları hem geliştiriciler hem de operasyon ekibi için kuyruklar, tablolar ve Blobları – arasında Tekdüzen ve tutarlı bir programlama modeli sağlar.
 * Service Bus kuyrukları, yerel işlemler tek bir kuyruk için bağlamı desteği sunar.
 * **Alma ve silme** Service Bus tarafından desteklenen modu azaltılmış teslim güvencesi lisanslarınıza Mesajlaşma işlemi sayısı (ve ilişkili maliyetin) azaltma olanağı sağlar.
@@ -173,7 +174,7 @@ Bu bölümde, depolama kuyrukları ve Service Bus kuyrukları tarafından destek
 
 | Karşılaştırma ölçütleri | Depolama kuyrukları | Service Bus kuyrukları |
 | --- | --- | --- |
-| Kimlik Doğrulaması |**Simetrik anahtar** |**Simetrik anahtar** |
+| Authentication |**Simetrik anahtar** |**Simetrik anahtar** |
 | Güvenlik modeli |Temsilcili erişim aracılığıyla SAS belirteçleri. |SAS |
 | Kimlik sağlayıcısı Federasyonu |**Hayır** |**Evet** |
 

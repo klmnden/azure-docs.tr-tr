@@ -1,6 +1,6 @@
 ---
 title: Azure İzleyici (Önizleme) VM'ler için sorgu günlüklerini nasıl | Microsoft Docs
-description: VM çözümü için Azure İzleyici ölçümleri iletir ve günlük verileri Log Analytics ve bu makalede kayıtları açıklar ve örnek sorgular içerir.
+description: VM çözümü için Azure İzleyici ölçümleri toplar ve günlük verilerini ve bu makalede kayıtları açıklar ve örnek sorgular içerir.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ab70febbb41b26fd824f9ae6ef0d00358c7530f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f33b87fa2c90eda7e4fa135e55565781e8491418
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864426"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983787"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Azure İzleyici günlüklerinden VM'ler (Önizleme) için sorgulama
-VM'ler için Azure İzleyici, performansı ve bağlantı ölçümler, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Azure İzleyici'de Log Analytics veri deposuna iletir.  Bu veriler için kullanılabilir [arama](../../azure-monitor/log-query/log-query-overview.md) Log analytics'te. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
+VM'ler için Azure İzleyici, performans ve bağlantı ölçümü, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Log Analytics çalışma alanına Azure İzleyici'de iletir.  Bu veriler için kullanılabilir [sorgu](../../azure-monitor/log-query/log-query-overview.md) Azure İzleyici'de. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
 
 ## <a name="map-records"></a>Harita kayıtları
 Her bir benzersiz bilgisayar ve işlem, bir işlem veya bilgisayar başlatıldığında veya Azure İzleyici için Vm'leri eşleme özelliğini eklendiğinden, oluşturulan kayıtlarına ek olarak saat başına tek bir kayıt oluşturulur. Bu kayıtları aşağıdaki tablolarda özelliklere sahiptir. Alanları ve değerleri ServiceMapComputer_CL olaylar ServiceMap Azure Resource Manager API'si makine kaynak alanları eşleyin. Alanları ve değerleri ServiceMapProcess_CL olaylar ServiceMap Azure Resource Manager API'si işlem kaynak alanlarını eşleyin. ResourceName_s alanın, karşılık gelen Resource Manager kaynak adı alanında eşleşir. 
@@ -34,7 +34,7 @@ Benzersiz işlemleri ve bilgisayarları tanımlamak için kullanabileceğiniz da
 Sorgular, birden fazla kayıt aynı bilgisayarda veya işlem için belirtilen işlem ve belirtilen zaman aralığında bilgisayar için birden çok kayıt var olabileceğinden döndürebilir. Yalnızca en son kayıt eklemek için Ekle "| Yinelenenleri kaldırma ResourceId"sorgulanamıyor.
 
 ### <a name="connections"></a>Bağlantılar
-Bağlantı ölçümü, yeni bir Log Analytics - VMConnection tabloya yazılır. Bu tablo, bir makine (gelen ve giden) için bağlantıları hakkında bilgi sağlar. Bağlantı ölçümü, ayrıca bir zaman penceresi boyunca belirli bir ölçüyü elde bulunmasını sağlayan API'ler ile sunulur.  TCP bağlantıları kaynaklanan "*kabul*dinleme yuva ing - tarafından oluşturulanlar çalışırken gelen *bağlanmak*ing - belirli bir IP ve bağlantı noktası için giden. Bir bağlantı yönünü olarak ayarlanabilir Direction özelliği tarafından temsil edilen **gelen** veya **giden**. 
+Bağlantı ölçümü, Azure İzleyici günlüklerine - VMConnection yeni bir tabloya yazılır. Bu tablo, bir makine (gelen ve giden) için bağlantıları hakkında bilgi sağlar. Bağlantı ölçümü, ayrıca bir zaman penceresi boyunca belirli bir ölçüyü elde bulunmasını sağlayan API'ler ile sunulur.  TCP bağlantıları kaynaklanan "*kabul*dinleme yuva ing - tarafından oluşturulanlar çalışırken gelen *bağlanmak*ing - belirli bir IP ve bağlantı noktası için giden. Bir bağlantı yönünü olarak ayarlanabilir Direction özelliği tarafından temsil edilen **gelen** veya **giden**. 
 
 Bu tablolarındaki kayıtlara bağımlılık aracısı tarafından bildirilen verilerden oluşturulur. Tüm kayıtların bir dakikalık zaman aralığında gözlemi temsil eder. TimeGenerated özelliği zaman aralığını başlangıcını gösterir. Her kayıt, diğer bir deyişle ilgili varlığı tanımlayan bilgiler, bağlantı veya bağlantı noktası yanı sıra söz konusu varlıkla ilişkili ölçümleri içerir. Şu anda, TCP IPv4 kullanarak oluşan ağ etkinliği bildirilir.
 
@@ -255,5 +255,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Log Analytics'te sorgu yazmaya yeni başladıysanız, gözden [Log Analytics sayfanın nasıl kullanılacağı](../../azure-monitor/log-query/get-started-portal.md) Azure portalında Log Analytics sorguları yazma.
+* Azure İzleyici'de günlük sorgu yazmaya yeni başladıysanız, gözden [Log Analytics'i kullanmak nasıl](../../azure-monitor/log-query/get-started-portal.md) Azure portalında günlük sorguları yazma için.
 * Hakkında bilgi edinin [arama sorguları yazma](../../azure-monitor/log-query/search-queries.md).

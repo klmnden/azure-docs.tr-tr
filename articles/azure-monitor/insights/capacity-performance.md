@@ -1,6 +1,6 @@
 ---
-title: Azure Log analytics'te kapasite ve performans çözümü | Microsoft Docs
-description: Kapasite ve performans çözümü Hyper-V sunucularınızın kapasitesini anlamanıza yardımcı olması için Log Analytics'te kullanın.
+title: Azure İzleyicisi'nde kapasite ve performans çözümü | Microsoft Docs
+description: Kapasite ve performans çözümü İzleyicisi'nde, Hyper-V sunucuları kapasitesini anlamanıza yardımcı olması için kullanın.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 41508a1d99ed243d377cc72c0accc005c5ca737d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: db2bbd8c3c0e3d7d172ea2948a42f300c2875745
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189209"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983719"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Kapasite ve performans çözümü (Önizleme) ile Hyper-V sanal makine kapasite planlama
 
@@ -27,7 +27,7 @@ ms.locfileid: "53189209"
 > [!NOTE]
 > Kapasite ve performans çözümü kullanım dışıdır.  Çözüm'i zaten yüklemiş olan müşteriler, onu kullanmaya devam edebilirsiniz, ancak kapasite ve performans için oluşturulan yeni çalışma alanlarında eklenemez.
 
-Log Analytics'te kapasite ve performans çözümü Hyper-V sunucularınızın kapasitesini anlamanıza yardımcı olması için kullanabilirsiniz. Çözüm, konakların ve o Hyper-V konakları üzerinde çalışan sanal makinelerin genel kullanım (CPU, bellek ve disk) göstererek Hyper-V ortamınız hakkında Öngörüler sağlar. Ölçümler, CPU, bellek ve disk için tüm konaklar ve onların üzerinde çalışan Vm'leri toplanır.
+İzleyicisi'nde kapasite ve performans çözümü Hyper-V sunucularınızın kapasitesini anlamanıza yardımcı olması için kullanabilirsiniz. Çözüm, konakların ve o Hyper-V konakları üzerinde çalışan sanal makinelerin genel kullanım (CPU, bellek ve disk) göstererek Hyper-V ortamınız hakkında Öngörüler sağlar. Ölçümler, CPU, bellek ve disk için tüm konaklar ve onların üzerinde çalışan Vm'leri toplanır.
 
 Çözüm:
 

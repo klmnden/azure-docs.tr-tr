@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 4e6d981ef1ac7985e9f230cfbbda440a765e20ea
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c62113a9a7a12525f1ba7e59c68831a322cfe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695494"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959196"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Azure Cosmos DB SQL API hesabı (SDK sürüm 3 Önizleme) verileri yönetmek için bir .NET Core konsol uygulaması oluşturma
 
@@ -131,7 +131,7 @@ Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu �
 
    Portaldaki URI'yi kopyalayın ve yapıştırın `<your endpoint URL>` içinde `Program.cs` dosya. Portaldan birincil anahtarı kopyalayın ve yapıştırın `<your primary key>`.
 
-   ![Azure portalından Azure Cosmso DB anahtarlarını almak için ekran görüntüsü](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Azure portalında Azure Cosmos DB anahtarlarını almak için ekran görüntüsü](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
 1. Ardından, yeni bir örneğini oluşturacağız `CosmosClient` ve programımız için bazı iskele kurun.
 

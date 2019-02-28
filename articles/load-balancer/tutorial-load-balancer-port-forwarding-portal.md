@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e376011feacd59c84686aa3d60a7e79e07d61dbd
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 6cb9e839b1fffd29ce1d78e82fb4ab054b92efc6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672959"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959141"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Öğretici: Portalı kullanarak Azure yük Dengeleyicide bağlantı noktası iletme'yi yapılandırma
 
@@ -44,25 +44,26 @@ Bu öğreticideki tüm adımları için Azure portalında oturum açın [ https:
 
 İlk olarak, VM'lerin yükünü trafik Yük Dengelemesi genel bir Standard load balancer oluşturun. Standart yük dengeleyici yalnızca standart genel IP adresi destekler. Standard load balancer'ı oluşturduğunuzda, yük dengeleyici ön ucuna yapılandırılır ve adlı yeni bir standart genel IP adresi, ayrıca oluşturma **LoadBalancerFrontEnd** varsayılan olarak. 
 
-1. Portalın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici** seçeneğini belirleyin.
-   
-1. İçinde **yük dengeleyici Oluştur** bölmesinde yazın veya bu değerleri seçin:
-   
-   - **Ad**: Tür *MyLoadBalancer*.
-   - **Tür**: Seçin **genel**. 
-   - **SKU**: Seçin **standart**.
-   - **Genel IP adresi**: Seçin **Yeni Oluştur**, Anahtar'a *Mypublicıp* alanında.
-   - **Genel IP adresi yapılandırın** > **kullanılabilirlik alanı**: Seçin **bölgesel olarak yedekli**.
-   - **ResourceGroup**: Seçin **Yeni Oluştur**, enter *MyResourceGroupLB*seçip **Tamam**. 
-   - **Konum**: **Batı Avrupa**'yı seçin. 
-     
-     >[!NOTE]
-     >Load Balancer'ınız ve tüm kaynaklar için kullanılabilirlik alanlarını destekleyen bir konumda oluşturduğunuzdan emin olun. Daha fazla bilgi için [kullanılabilirlik alanlarını destekleyen bölgeler](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
-   
-1. **Oluştur**’u seçin.
-   
-![Yük dengeleyici oluşturma](./media/tutorial-load-balancer-port-forwarding-portal/1-load-balancer.png)
+1. Ekranın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici**'ye tıklayın.
+2. İçinde **Temelleri** sekmesinde **yük dengeleyici Oluştur** sayfasında, girin veya aşağıdaki bilgileri seçin, geri kalan ayarlar için varsayılan değerleri kabul edin ve ardından **gözden geçir +Oluştur**:
 
+    | Ayar                 | Değer                                              |
+    | ---                     | ---                                                |
+    | Abonelik               | Aboneliğinizi seçin.    |    
+    | Kaynak grubu         | Seçin **Yeni Oluştur** ve türü *MyResourceGroupLB* metin kutusuna.|
+    | Ad                   | *myLoadBalancer*                                   |
+    | Bölge         | **Batı Avrupa**'yı seçin.                                        |
+    | Type          | Seçin **genel**.                                        |
+    | SKU           | Seçin **standart**.                          |
+    | Genel IP adresi | **Yeni oluştur**’u seçin. |
+    | Ortak IP adresi adı              | Tür *Mypublicıp* metin kutusuna.   |
+    |Kullanılabilirlik bölgesi| Seçin **bölgesel olarak yedekli**.    |
+     
+    >[!NOTE]
+     >Load Balancer'ınız ve tüm kaynaklar için kullanılabilirlik alanlarını destekleyen bir konumda oluşturduğunuzdan emin olun. Daha fazla bilgi için [kullanılabilirlik alanlarını destekleyen bölgeler](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
+
+3. İçinde **gözden geçir + Oluştur** sekmesinde **Oluştur**.  
+  
 ## <a name="create-and-configure-back-end-servers"></a>Oluşturma ve arka uç sunucularını yapılandırma
 
 Sanal ağ ile iki sanal makine oluşturma ve Vm'leri yük dengeleyicinizin arka uç havuzuna ekleyin. 

@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e11092057af3a7a16c60e55837f31ac3004e42a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 40be6f333bf259cc036bec9c0d9fc967dd33f2a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184848"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960046"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulamasını indirip
 Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
@@ -28,6 +28,9 @@ Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
 - **İki Faktörlü doğrulama.** Parolanızı olduğu faktör, standart doğrulama yöntemi. Kullanıcı adı ve parolanızla oturum sonra bir bildirimi onaylayın veya sağlanan doğrulama kodunu girin.
 
 - **Telefonla oturum açma.** Parmak izi, yüz tanıma veya PIN kullanıcı adınızı ve mobil Cihazınızı kullanarak parola gerektirmeden oturum olanak sağlayan iki Faktörlü doğrulama sürümü.
+
+>[!Important]
+>Kuruluşunuzun oturum açma ve kuruluş verilerini ve belgelerine erişmek için bir kimlik doğrulayıcı uygulama kullanmanızı gerektirebilir. Kullanıcı adınızı uygulamada gibi görünse de, hesap gerçekten kayıt işlemi tamamlanana kadar bir doğrulama yöntemi olarak davranacak şekilde ayarlanmamış. Daha fazla bilgi için [iş veya Okul hesabınızı eklemek](user-help-auth-app-overview.md).
 
 >[!NOTE]
 >Hesabınızda oturum açarken sorun yaşıyorsanız, bkz. [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429) Yardım.  Aldığınız olduğunda yapılması gerekenler hakkında daha fazla bilgi alın ["Bu Microsoft hesabı mevcut değil"](https://support.microsoft.com/help/13811) iletisi, Microsoft hesabınızda oturum açın.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: a4eea340fe57ab3c05e527a476d9153113eedba5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f56b4f07b7155d9f465a6ce492b4718d4a66e76e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819403"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959332"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Azure İzleyicisi'ni kullanarak veri fabrikalarını izleme ve uyarı
 Bulut uygulamaları ile birçok hareketli parçadan karmaşıktır. İzleme, uygulama güncel kalıp emin olmak için veri ve sağlam bir durumda çalışmasını sağlar. Ayrıca olası sorunları stave veya olanları sorun gidermeye yardımcı olur. Ayrıca, uygulamanızı daha ayrıntılı Öngörüler elde etmek için izleme verilerini kullanabilirsiniz. Bu bilgi bakım ya da uygulama performansı artırmak için yardımcı veya aksi halde el ile müdahale gerektiren eylemleri otomatikleştirme.
@@ -40,11 +40,11 @@ Günlükleri yayan kaynak ile aynı abonelikte değil bir depolama hesabına vey
 ### <a name="diagnostic-settings"></a>Tanılama ayarları
 Olmayan işlem kaynakları için tanılama günlükleri, tanılama ayarları kullanılarak yapılandırılır. Kaynak denetimi için tanılama ayarları:
 
-* Burada tanılama günlüklerini (depolama hesabı, olay hub'ları veya Log Analytics) gönderilir.
+* Burada tanılama günlüklerini (depolama hesabı, Event Hubs veya Azure İzleyici günlüklerine) gönderilir.
 * Hangi günlük kategorileri gönderilir.
 * Günlük kategorileri bir depolama hesabında ne kadar süre tutulacağını.
 * Bekletme günü sayısının sıfır günlükler süresiz olarak tutulur anlamına gelir. Aksi takdirde, değeri herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir.
-* Bekletme ilkeleri ayarlanır ancak günlükleri bir depolama hesabında depolama devre dışı bırakıldı (örneğin, yalnızca olay hub'ları veya Log Analytics seçenekleri seçilidir), bekletme ilkeleri etkisi yoktur.
+* Bekletme ilkeleri ayarlayın ancak günlükleri bir depolama hesabında Depolama'nın (örneğin, yalnızca Event Hubs veya Azure İzleyici günlükleri seçenek de belirlenmiştir) devre dışı bırakıldı, bekletme ilkeleri bir etkisi yoktur.
 * Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silindi. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>REST API'leri aracılığıyla tanılama günlüklerini etkinleştirme

@@ -7,40 +7,40 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/02/2018
+ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 85aba4478e27d88af439dbe2e474a84ee65b373c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742890"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960437"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight kümeleri ölçeklendirme
 
 HDInsight, ölçeğini ve, kümede çalışan düğümleri sayısını ölçeğini seçeneği vererek esneklik sağlar. Bu, bir küme saat sonra veya hafta sonu küçültme ve en yüksek iş gereksinimlerini sırasında genişletmek sağlar.
 
-Örneğin, bazı toplu işlem varsa, günde bir kez veya ayda bir kez gerçekleşir, HDInsight kümesi zamanlanmış olay önce birkaç dakika'kurmak için yeterli bellek olacaktır ve CPU işlem gücü ölçeklendirilebilir. PowerShell cmdlet'iyle ölçeklendirme otomatikleştirebilirsiniz [ `Set–AzureRmHDInsightClusterSize` ](hdinsight-administer-use-powershell.md#scale-clusters).  Daha sonra işlem tamamlandı ve yeniden kullanımı arıza sonra HDInsight kümesine daha az çalışan düğümü aşağı ölçeklendirebilirsiniz.
+Örneğin, bazı toplu işlem varsa, günde bir kez veya ayda bir kez gerçekleşir, HDInsight kümesi zamanlanmış olay önce birkaç dakika'kurmak için yeterli bellek olacaktır ve CPU işlem gücü ölçeklendirilebilir.  Daha sonra işlem tamamlandı ve yeniden kullanımı arıza sonra HDInsight kümesine daha az çalışan düğümü aşağı ölçeklendirebilirsiniz.
 
-* Kümenizin aracılığıyla [PowerShell](hdinsight-administer-use-powershell.md):
+## <a name="utilities-to-scale-clusters"></a>Ölçek kümeleri için yardımcı programlar
 
-    ```powershell
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-    ```
-    
-* Kümenizin aracılığıyla [Klasik Azure CLI'yı](hdinsight-administer-use-command-line.md):
+Microsoft kümeleri ölçeklendirmek için aşağıdaki yardımcı programlarını sağlar:
 
-    ```
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-    ```
+|yardımcı programı | Açıklama|
+|---|---|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<küme adı > - TargetInstanceCount \<NewSize >|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<küme adı > - TargetInstanceCount \<NewSize >|
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[az hdınsight yeniden boyutlandırma](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<kaynak grubu >--ad \<küme adı >--hedef örnek sayısı \<NewSize >|
+|[Klasik Azure CLI](hdinsight-administer-use-command-line.md)|Azure hdınsight küme boyutlandırma \<clusterName > \<hedef örnek sayısı >|
+|[Azure portal](https://portal.azure.com)|HDInsight kümesi bölmenizi açın, **küme boyutu** sol taraftaki menüden, sonra küme boyutu bölmesinde, çalışan düğümlerinin sayısını yazın ve Kaydet'i seçin.|  
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-    
-* Kümenizin aracılığıyla [Azure portalında](https://portal.azure.com), HDInsight kümesi bölmenizi açın, **ölçek kümesi** sol menüde, sonra ölçek kümesi bölmesi, çalışan düğümü sayısı girin ve Kaydet'i seçin.
-
-    ![Küme ölçeklendirme](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Küme ölçeklendirme](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Bu yöntemlerden birini kullanarak, HDInsight kümenizin ölçeğini artırıp dakika içinde ölçeklendirebilirsiniz.
+
+> [!IMPORTANT]  
+> * With Azure Klasik CLI kullanım dışı bırakılmıştır ve yalnızca klasik dağıtım modeliyle kullanılmalıdır. Diğer tüm dağıtımları için kullanmak [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * PowerShell AzureRM modülü kullanım dışı bırakılmıştır.  Lütfen kullanın [Az modül](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) mümkün olduğunda.
 
 ## <a name="scaling-impacts-on-running-jobs"></a>Ölçeklendirme etkileri işlerini çalıştırma
 
@@ -53,9 +53,10 @@ Bu sorunu gidermek için kümenizi ölçeklendirmeden önce tamamlamak, el ile i
 Bekleyen bir listesini ve çalışan işleri görmek için aşağıdaki adımları YARN ResourceManager UI kullanabilirsiniz:
 
 1. [Azure portalda](https://portal.azure.com) oturum açın.
-2. Sol menüden **Gözat**seçin **HDInsight kümeleri**ve sonra kümenizi seçin.
-3. HDInsight kümesi bölmeden **Pano** Ambari UI'ı açmak için en üstteki menüde. Küme oturum açma kimlik bilgilerinizi girin.
-4. Tıklayın **YARN** Hizmetleri sol menüdeki listesi. YARN sayfasında **hızlı bağlantılar** ve etkin baş düğümün üzerine gelin ve ardından tıklayın **ResourceManager kullanıcı Arabirimi**.
+2. Soldan gidin **tüm hizmetleri** > **Analytics** > **HDInsight kümeleri**ve sonra kümenizi seçin.
+3. Ana görünümünde gidin **küme panoları** > **Ambari giriş**. Küme oturum açma kimlik bilgilerinizi girin.
+4. Ambari Arabiriminden seçin **YARN** Hizmetleri sol menüdeki listesi.  
+5. YARN sayfasından seçin **hızlı bağlantılar** ve etkin baş düğümün üzerine gelin ve ardından **ResourceManager kullanıcı Arabirimi**.
 
     ![ResourceManager kullanıcı Arabirimi](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
@@ -97,13 +98,11 @@ Daha önce belirtildiği gibi bekleyen veya çalışan tüm işleri ölçeklendi
 
 ## <a name="hdinsight-name-node-stays-in-safe-mode-after-scaling-down"></a>HDInsight ad düğümü, ölçeği sonra güvenli modda kalır.
 
-![Küme ölçeklendirme](./media/hdinsight-scaling-best-practices/scale-cluster.png)
-
-Önceki görüntüde gösterildiği gibi kümenizin en az bir çalışan düğümü, aşağı küçültme, çalışan düğümleri yamalama nedeniyle veya ölçeklendirme işleminden hemen sonra yeniden başlatılır, Apache HDFS güvenli modda takılı duruma.
+Kümenizin en az bir çalışan düğümü aşağı küçültme, çalışan düğümleri yamalama nedeniyle veya ölçeklendirme işleminden hemen sonra yeniden başlatılır, Apache HDFS güvenli modda takılırsa haline.
 
 Bu durumun birincil nedeni Hive birkaç kullanmasıdır `scratchdir` dosyaları ve varsayılan olarak her blok üç kopyasını bekliyor ancak olup yalnızca bir yineleme olası en az bir çalışan düğümü için ölçeği azaltın. Dosyaları bir sonucu olarak `scratchdir` haline *under-çoğaltılmış*. Bu hizmetleri ölçeklendirme işleminden sonra yeniden başlatıldığında güvenli modda kalmak HDFS neden olabilir.
 
-Bir ölçeği azaltma girişimi olduğunda, öncelikle kendi HDFS blokları çevrimiçi çalışan diğer düğümlere çoğaltır, fazladan istenmeyen çalışan düğümlerinin yetkisini alma ve ardından güvenli bir şekilde kümenin ölçeğini için Apache Ambari yönetim arabirimleri üzerinde HDInsight'ı kullanır. HDFS, bakım penceresi sırasında güvenli bir moduna girer ve ölçeklendirme tamamlandıktan sonra gelen beklenir. Bu noktada, HDFS güvenli modda takılırsa duruma değil.
+Bir ölçeği azaltma girişimi olduğunda, önce diğer çevrimiçi çalışan düğümlerine, HDFS blokları çoğaltmak, fazladan istenmeyen çalışan düğümlerinin yetkisini alma ve ardından güvenli bir şekilde kümenin ölçeğini için Apache Ambari yönetim arabirimleri üzerinde HDInsight'ı kullanır. HDFS, bakım penceresi sırasında güvenli bir moduna girer ve ölçeklendirme tamamlandıktan sonra gelen beklenir. Bu noktada, HDFS güvenli modda takılırsa duruma değil.
 
 HDFS ile yapılandırılmış bir `dfs.replication` 3 ayarlama. Bu nedenle, az üç çalışan düğümü çevrimiçi olduğunda kullanılabilir her dosya bloğun beklenen üç kopya olmadığından geçici dosya bloklarını under-çoğaltılmış.
 
@@ -126,7 +125,7 @@ Güvenli mod bırakarak sonra el ile geçici dosyaları kaldırabilir, veya Hive
 * Hive günlükleri: [Ana] UYAR: sunucu. HiveServer2 (60 saniye java.lang.RuntimeException içinde yeniden HiveServer2.java:startHiveServer2(442)) – 21, denemede HiveServer2 başlatılırken hata oluştu: Yetkilendirme İlkesi hive Yapılandırması uygulanırken hata oluştu: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Dizini oluşturulamıyor** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Adı düğümüdür güvenli modda**.
     Bildirilen blokları 0 toplam bloğu 9 0.9900 eşiği ulaşmak için ek 9 blokları gerekir.
     Canlı datanodes 10 sayısı 0 en düşük sayısı sınırına ulaştı. **Güvenli mod kapalı otomatik olarak eşikleri sınıra ulaşıldıktan sonra**.
-    org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
+    at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
 
 Adı düğüm günlüklerini gözden geçirebilirsiniz `/var/log/hadoop/hdfs/` yakın bir zamanda ne zaman küme ölçeği, ne zaman güvenli mod girdiği görmek için bir klasör. Günlük dosyaları adlı `Hadoop-hdfs-namenode-hn0-clustername.*`.
 
@@ -245,7 +244,7 @@ Bu gibi durumlarda, bir veya daha fazla kritik hata ayrıca etkin ya da bekleme 
 
 ![NameNode blokları sistem durumu](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
 
-İçin geçici dosyaları, temizleme, her baş düğümüne SSH uygulayın blok çoğaltma hataları kaldırır ve aşağıdaki komutu çalıştırın:
+Blok çoğaltma hataları Kaldır, karalama dosyalarınızı temizlemek için SSH komutu her düğümü'na gidin ve aşağıdaki komutu çalıştırın:
 
 ```
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/

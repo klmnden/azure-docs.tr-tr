@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: c2cc1b5829f3bb530c01e2bfc3538006bb8663cb
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.date: 02/27/2019
+ms.openlocfilehash: e429504cb6df2ba4f871fa0c9ca780ac5d906356
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339320"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958983"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bakış
 
@@ -56,7 +56,7 @@ Azure SQL veritabanı yönetilen örneği, iki donanım oluşturma (4. nesil ve 
 | En fazla örnek başına veritabanı sayısı | 100 | 100 |
 | Örnek başına en fazla veritabanı dosyaları | En fazla 280 | Veritabanı başına 32.767 dosyaları |
 | Veri/günlük IOPS (yaklaşık) | 500 - 7.500 dosya başına<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines)| 11 K - 110 K (1,375 sanal çekirdek başına) |
-|Günlük aktarım hızı | Örnek başına 22 MB/sn | Sanal çekirdek başına 3 MB/sn<br/>En fazla 48 MB/sn |
+|Günlük aktarım hızı | Örnek başına 22 MB/sn | Sanal çekirdek başına 3 MB/sn<br/>Örnek başına en fazla 48 MB/sn|
 | Veri aktarım hızı (yaklaşık) | 100 - dosya başına 250 MB/sn<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/sn başına sanal çekirdek |
 | GÇ gecikmesi (yaklaşık) | 5-10 ms | 1-2 ms |
 | En fazla tempDB boyutu | 192 - 1,920 GB (24 GB sanal çekirdek başına) | Maksimum örnek depolama boyutuyla sınırlı hiçbir kısıtlama- |

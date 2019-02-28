@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454659"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959944"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Hesap için uygulamayı el ile Ekle
 Kameranız QR kodunu yakalamak üzere yapamıyorsa, hesap bilgilerinizi iki adımlı doğrulama için Microsoft Authenticator uygulamasını el ile ekleyebilirsiniz. Bu, iş veya Okul hesapları ve Microsoft olmayan hesapların çalışır.
@@ -102,5 +102,7 @@ Hesaplarınız için sağlanan kodları, büyük küçük harfe duyarlı değild
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Hesaplarınız için uygulamayı ekledikten sonra Cihazınızda Microsoft Authenticator uygulamasını kullanarak oturum açabilirsiniz. Daha fazla bilgi için [uygulamayı kullanarak oturum](user-help-auth-app-sign-in.md).
+
+- Kişisel Microsoft hesabınızı doğrulama kodunuzu aşmakta sorun yaşıyorsanız bkz **doğrulama kod sorunlarını giderme** bölümünü [Microsoft hesabı güvenlik bilgileri ve doğrulama kodları](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) makalesi.
 
 - İOS çalıştıran cihazlar için hesap kimlik bilgilerinizi da yedekleyebilirsiniz ve hesaplarınızı sırası gibi uygulama ayarlarını bulutla ilgili. Daha fazla bilgi için [yedekleme ve Kurtarma Microsoft Authenticator uygulaması ile](user-help-auth-app-backup-recovery.md).

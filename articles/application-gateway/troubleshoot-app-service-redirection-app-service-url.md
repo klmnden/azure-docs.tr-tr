@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 9874ff7fde049c4dba4efb77ff541c80e462671a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 7a645574a75a040c3b0218714363cf85e0384e68
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808750"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959842"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>App Service – App Service'nın URL yeniden yönlendirme uygulama ağ geçidiyle ilgili sorunları giderme
+# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>App Service ile Application Gateway’de sorun giderme: App Service’in URL’sine yeniden yönlendirme
 
  Application Gateway, App Service'nın URL Burada sunulan ile yeniden yönlendirme sorunları tanılamak ve gidermek öğrenin.
 
@@ -45,27 +45,27 @@ Application Gateway ile bunun için "Arka uç Kimden ana bilgisayar adı adresi 
 ![appservice-1](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-1.png)
 
 App Service bir yeniden yönlendirme yaptığında bu nedenle, konum üst bilgisi "example.azurewebsites.net" ana bilgisayar adı yerine özgün ana bilgisayar adı aksi şekilde yapılandırılmadıkça kullanır. Örnek istek ve yanıt üst bilgileri aşağıdaki kontrol edebilirsiniz.
+```
+## Request headers to Application Gateway:
 
-İstek üstbilgilerini Application Gateway için:
+Request URL: http://www.contoso.com/path
 
-İstek URL'si: http://www.contoso.com/path
+Request Method: GET
 
-İstek yöntemi: GET
+Host: www.contoso.com
 
-Konak: www.contoso.com
+## Response headers:
 
-Yanıt üst bilgileri:
+Status Code: 301 Moved Permanently
 
-Durum kodu: 301 kalıcı olarak taşındı
+Location: http://example.azurewebsites.net/path/
 
-Konum: http://example.azurewebsites.net/path/
-
-Sunucu: Microsoft-IIS/10.0
+Server: Microsoft-IIS/10.0
 
 Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=example.azurewebsites.net
 
-X-desteklenen-tarafından: ASP.NET
-
+X-Powered-By: ASP.NET
+```
 Yukarıdaki örnekte, yanıt üst bilgisi durum kodu 301 yeniden yönlendirme ve location üst bilgisini App Service'nın ana bilgisayar adı yerine özgün ana bilgisayar adı "www.contoso.com" içerdiğini fark.
 
 ## <a name="solution"></a>Çözüm
@@ -76,43 +76,45 @@ Bunu sonra App Service yönlendirme (varsa) uygulama ağ geçidine işaret aynı
 
 Bunu başarmak için özel bir etki alanına sahip ve Aşağıda sözü edilen süreci izleyin.
 
-- App Service özel etki alanı listesi etki alanına kaydedin. App Service'nın FQDN'sine işaret eden özel etki alanınızda bunun için bir CNAME olmalıdır. Daha fazla bilgi için [mevcut bir özel DNS adını Azure App Service'e eşlemek](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).![ appservice-2](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-2.png)
+- App Service özel etki alanı listesi etki alanına kaydedin. App Service'nın FQDN'sine işaret eden özel etki alanınızda bunun için bir CNAME olmalıdır. Daha fazla bilgi için [mevcut bir özel DNS adını Azure App Service'e eşlemek](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+
+![appservice-2](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-2.png)
 
 - Bu yapıldıktan sonra App Service ana bilgisayar adı "www.contoso.com" kabul etmeye hazırdır. Şimdi uygulama ağ geçidinin FQDN'sine işaret etmek için bir DNS CNAME girişiniz değiştirin. Örneğin, "appgw.eastus.cloudapp.azure.com".
 
 - Bir DNS sorgusu yaptığınızda etki alanınız "www.contoso.com" için uygulama ağ geçidinin FQDN çözümler emin olun.
 
-- "Arka uç HTTP ayarları gelen konak adı seçin" devre dışı bırakmak için özel bir araştırma ayarlayın. Bu araştırma ayarlarında onay işaretini kaldırarak portalından yapılabilir ve PowerShell kullanarak değil - PickHostNameFromBackendHttpSettings geçin.
+- "Arka uç HTTP ayarları gelen konak adı seçin" devre dışı bırakmak için özel bir araştırma ayarlayın. Bu, portaldan araştırma ayarlarında onay işaretini kaldırarak yapılabilir ve PowerShell kullanarak değil - PickHostNameFromBackendHttpSettings kümesi AzApplicationGatewayProbeConfig komutta geçiş yapabilirsiniz. Uygulama ağ geçidinden gönderilen araştırma isteklerine bu ana bilgisayar üst bilgisinde taşıyacağı şekilde araştırma ana bilgisayar adı alanına, App Service'nın FQDN'si "example.azurewebsites.net" girin.
 
   > [!NOTE]
-  > Bu adım yaparken Lütfen, özel bir araştırma, arka uç HTTP ayarları için ilişkili olmadığından emin olun.
+  > Sonraki adım yaparken, lütfen bu noktada etkin "Arka uç Kimden ana bilgisayar adı adresi Seç" anahtarı, HTTP ayarları hala sahip olduğundan, özel bir araştırma, arka uç HTTP ayarları için ilişkili olmadığından emin olun.
 
-- "Arka uç Kimden ana bilgisayar adı adresi Seç" devre dışı bırakmak için uygulama ağ geçidinizin HTTP ayarları ayarlayın. Bu onay kutusunun işaretini kaldırarak portalından yapılabilir ve PowerShell kullanarak değil - PickHostNameFromBackendAddress geçin.
+- "Arka uç Kimden ana bilgisayar adı adresi Seç" devre dışı bırakmak için uygulama ağ geçidinizin HTTP ayarları ayarlayın. Portaldan bu yapılabilir onay kutusunun işaretini kaldırarak ve PowerShell kullanarak değil kümesi AzApplicationGatewayBackendHttpSettings komutta - PickHostNameFromBackendAddress geçin.
 
 - Özel araştırma arka uç HTTP ayarları için yeniden ilişkilendirin ve arka uç sistem durumu sağlıklı olup olmadığını doğrulayın.
 
 - Bunu yaptıktan sonra artık aynı ana bilgisayar adı "www.contoso.com" uygulama ağ geçidi için App Service İleri ve aynı ana bilgisayar adına yeniden yönlendirme gerçekleşir. Örnek istek ve yanıt üst bilgileri aşağıdaki kontrol edebilirsiniz.
+```
+  ## Request headers to Application Gateway:
 
-  İstek üstbilgilerini Application Gateway için:
+  Request URL: http://www.contoso.com/path
 
-  İstek URL'si: http://www.contoso.com/path
+  Request Method: GET
 
-  İstek yöntemi: GET
+  Host: [www.contoso.com](http://www.contoso.com)
 
-  Ana bilgisayar: [www.contoso.com](http://www.contoso.com)
+  ## Response headers:
 
-  Yanıt üst bilgileri:
+  Status Code: 301 Moved Permanently
 
-  Durum kodu: 301 kalıcı olarak taşındı
+  Location: http://www.contoso.com/path/
 
-  Konum: http://www.contoso.com/path/
-
-  Sunucu: Microsoft-IIS/10.0
+  Server: Microsoft-IIS/10.0
 
   Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=www.contoso.com
 
-  X-desteklenen-tarafından: ASP.NET
-
+  X-Powered-By: ASP.NET
+```
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Yukarıdaki adımlar sorunu çözmezse, açık bir [destek bileti](https://azure.microsoft.com/support/options/).

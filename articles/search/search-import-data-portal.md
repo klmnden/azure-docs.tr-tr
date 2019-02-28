@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ee1b2a40dbcbd53a758ac71f30401778ef07e872
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229766"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960774"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Azure Search için Veri Alma Sihirbazı
 
@@ -77,7 +77,9 @@ Dizin ilk belgenin yüklendikten hemen sonra sorgulamaya hazırdır. Kullanabile
 * [Azure Blob Depolama](search-howto-indexing-azure-blob-storage.md)
 * [Azure tablo depolama](search-howto-indexing-azure-tables.md) (için desteklenmeyen [bilişsel arama](cognitive-search-concept-intro.md) işlem hatları)
 
-Düzleştirilmiş veri kümesi gerekli bir giriştir. Yalnızca tek bir tablo, veritabanı görünümü veya eşdeğeri veri yapısından aktarabilirsiniz. Sihirbazı çalıştırmadan önce bu veri yapısını oluşturmanız gerekir.
+Düzleştirilmiş veri kümesi gerekli bir giriştir. Yalnızca tek bir tablo, veritabanı görünümü veya eşdeğeri veri yapısından aktarabilirsiniz. 
+
+Sihirbazı çalıştırmadan önce bu veri yapısını oluşturmanız gerekir ve içerik içermesi gerekir. Çalıştırma **verileri içeri aktarma** boş veri kaynağı Sihirbazı.
 
 |  Seçim | Açıklama |
 | ---------- | ----------- |
@@ -85,7 +87,7 @@ Düzleştirilmiş veri kümesi gerekli bir giriştir. Yalnızca tek bir tablo, v
 | **Örnekler**| Azure arama, alma ve sorgu istekleri Azure Search hakkında bilgi edinmek için kullanabileceğiniz ücretsiz bir genel Azure SQL veritabanı barındırır. Bkz: [hızlı başlangıç: İçeri aktarma, dizin ve portal araçlarını kullanarak sorgu](search-get-started-portal.md) kılavuz. |
 | **Azure SQL Veritabanı** |Hizmet adı, okuma iznine sahip bir veritabanı kullanıcısının kimlik bilgileri ve veritabanı adı, sayfa üzerinde ya da ADO.NET bağlantı dizesi aracılığıyla belirtilebilir. Özellikleri görüntülemek veya özelleştirmek için bağlantı dizesini seçin. <br/><br/>Sayfada satır kümesini sağlayan tablo veya görünüm belirtilmelidir. Bu seçenek bağlantı başarılı olduktan sonra görünür ve bir seçim yapmanızı sağlayan açılır listeyi gösterir. |
 | **Azure VM’lerde SQL Server** |Tam hizmet adı, kullanıcı kimliği ve parola ve veritabanı bağlantı dizesi olarak belirtin. Bu veri kaynağını kullanmak için bağlantıyı şifreleyen yerel depoya daha önce bir sertifika yüklemiş olmanız gerekir. Yönergeler için bkz. [Azure Search ile SQL VM bağlantısı](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Sayfada satır kümesini sağlayan tablo veya görünüm belirtilmelidir. Bu seçenek bağlantı başarılı olduktan sonra görünür ve bir seçim yapmanızı sağlayan açılır listeyi gösterir. |
-| **Azure Cosmos DB** |Hesap, veritabanı ve bağlantı gereklidir. Koleksiyondaki tüm belgeler dizine dahil edilir. Satır kümesini düzleştirmek veya filtrelemek ya da sonraki veri yenileme işlemleri için değiştirilen belgeleri algılamak üzere bir sorgu tanımlayabilirsiniz. |
+| **Cosmos DB** |Hesap, veritabanı ve bağlantı gereklidir. Koleksiyondaki tüm belgeler dizine dahil edilir. Düzleştirmek veya filtrelemek satır kümesi için sorgu tanımlama veya sorgu boş bırakın. Bir sorgu, bu sihirbazda gerekli değildir.|
 | **Azure Blob Depolama** |Depolama hesabı ve bir kapsayıcı gereklidir. İsteğe bağlı olarak, gruplandırma amacıyla blob adlarından önce bir sanal adlandırma kuralı varsa adın sanal dizin kısmını kapsayıcı altındaki bir klasör olarak belirtebilirsiniz. Daha fazla bilgi için bkz. [Blob Depolama Dizini Oluşturma](search-howto-indexing-azure-blob-storage.md). |
 | **Azure Tablo Depolama** |Depolama hesabı ve bir tablo adı gereklidir. İsteğe bağlı olarak, tabloların bir alt kümesini almak için sorgu belirtebilirsiniz. Daha fazla bilgi için bkz. [Tablo Depolama Dizini Oluşturma](search-howto-indexing-azure-tables.md). |
 

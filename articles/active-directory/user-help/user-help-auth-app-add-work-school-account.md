@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad6dda9e41f1ea87439ffc315f020d4e3566e0c6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453554"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960641"
 ---
 # <a name="add-your-work-or-school-account"></a>İş veya Okul hesabınızı ekleyin
 Kuruluşunuz iki Faktörlü doğrulama kullanıyorsa, iş veya Okul hesabınızı doğrulama yöntemlerinden biri olarak Microsoft Authenticator uygulamasını kullanmak için ayarlayabilirsiniz.
@@ -30,7 +30,7 @@ Kuruluşunuz iki Faktörlü doğrulama kullanıyorsa, iş veya Okul hesabınız�
 1. Bilgisayarınızda Git [ek güvenlik doğrulaması](https://aka.ms/mfasetup) sayfası.
 
     >[!Note]
-    >Görmüyorsanız **ek güvenlik doğrulaması** sayfasında mümkündür yöneticinize güvenlik bilgisi (Önizleme) deneyimi bırakmış. Bu durumda, yönergeleri izlemelidir [authenticator uygulamasını kullanmak için güvenlik bilgileri ' ayarlamak](security-info-setup-auth-app.md) bölümü. Durum bu değilse, kuruluşunuzun yardım masasına başvurmanız gerekecektir. Güvenlik bilgileri hakkında daha fazla bilgi için bkz: [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md).
+    >Görmüyorsanız **ek güvenlik doğrulaması** sayfasında mümkündür yöneticinize güvenlik bilgisi (Önizleme) deneyimi bırakmış. Bu durumda, yönergeleri izlemelidir [authenticator uygulamasını kullanmak için güvenlik bilgileri ' ayarlamak](security-info-setup-auth-app.md) bölümü. Durum bu değilse, kuruluşunuzun yardım masasına başvurmanız gerekecektir. Güvenlik bilgileri hakkında daha fazla bilgi için bkz: [güvenlik bilgisi (Önizleme) genel bakış](user-help-security-info-overview.md).
 
 2. Yanındaki kutuyu işaretleyin **Authenticator uygulamasını**ve ardından **yapılandırma**.
 

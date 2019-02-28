@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 30b83613637d97bfe265c4f5a9c911d14da50c4f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 26865acbf635f07db4799ab197e110d37cbe69e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810916"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984348"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Çözümünüz için doğru IOT Hub katmanını seçme
 
@@ -53,7 +53,7 @@ IOT Hub ayrıca test ve değerlendirme için tasarlanmıştır ücretsiz bir kat
 
 Azure IOT hub'ları içeren birçok temel bileşenleri [Azure Event Hubs](../event-hubs/event-hubs-features.md)de dahil olmak üzere [bölümler](../event-hubs/event-hubs-features.md#partitions). IOT hub'ları için olay akışları, genellikle çeşitli IOT cihazlar tarafından bildirilen gelen telemetri verilerini ile doldurulur. Bölümleme olay akışını aynı anda okuma ve olay akışlara yazmak oluşan çakışmaları azaltmak için kullanılır. 
 
-IOT hub'ı oluşturulduğunda ve değiştirilemez ' ün bölüm sınırından seçilir. Temel katman IOT hub'ları için en yüksek bölüm sınırının 8 olup ve standart katman için en fazla 32'dir. Çoğu IOT hub'ları yalnızca 4 bölüm gerekir. Event Hubs SSS Sayfasındaki bölümleri belirleme hakkında daha fazla bilgi için bkz. [kaç bölümler yapmam gerekir mi?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+IOT hub'ı oluşturulduğunda ve değiştirilemez ' ün bölüm sınırından seçilir. Temel katman IOT Hub ve IOT hub'ı standart katman için en yüksek bölüm sınırı 32'dir. Çoğu IOT hub'ları yalnızca 4 bölüm gerekir. Event Hubs SSS Sayfasındaki bölümleri belirleme hakkında daha fazla bilgi için bkz. [kaç bölümler yapmam gerekir mi?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
 
 
 ## <a name="tier-upgrade"></a>Katmanı yükseltme
@@ -71,7 +71,7 @@ Desteklenen yeteneklerin IOT Hub'ın temel ve standart katmanları arasındaki f
 | --- | ---------- | ------------- |
 | [Cihaz silme](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Evet | Evet |
 | [Aygıt alma](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Evet | Evet |
-| Modülü Sil | Evet | Evet |
+| Modül sil | Evet | Evet |
 | Modülü Al | Evet | Evet |
 | [Kayıt defteri istatistikleri alma](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Evet | Evet |
 | [Hizmet istatistikleri alma](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Evet | Evet |

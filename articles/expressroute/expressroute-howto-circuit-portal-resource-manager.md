@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 45e87be071e09a19f1d8164eb9a002909a964201
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894726"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960403"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>ExpressRoute devre oluşturma ve değiştirme
 > [!div class="op_single_selector"]
@@ -78,7 +78,7 @@ Bu sayfada **sağlayıcısı durumu** hizmet sağlayıcı tarafında sağlama ge
 
 Yeni bir ExpressRoute bağlantı hattı'ı oluşturduğunuzda, bağlantı hattı şu durumda olur:
 
-Sağlayıcı Durumu: Sağlanmadı<BR>
+Sağlayıcı Durumu: Hazırlanmadı<BR>
 Bağlantı hattı durumu: Etkin
 
 ![Sağlama işlemini başlatın](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
@@ -119,9 +119,9 @@ Kapalı kalma süresi olmadan aşağıdaki görevleri gerçekleştirebilirsiniz:
 
 * Etkinleştirmek veya ExpressRoute bağlantı hattı için bir ExpressRoute Premium eklentisi devre dışı bırakın.
 * Bant genişliği var. sağlanan ExpressRoute devreniz bağlantı noktasında kapasite artıştır.
-  > [!IMPORTANT] Bağlantı hattı bant önceki sürüme indirme desteklenmiyor. 
+> [!IMPORTANT] Bağlantı hattı bant önceki sürüme indirme desteklenmiyor. 
 * Ölçüm plandan değiştirme *ölçülen veri* için *sınırsız veri*.
-  > [!IMPORTANT] Ölçüm plan sınırsız verilerden ölçülen veri değiştirme desteklenmiyor.
+> [!IMPORTANT] Ölçüm plan sınırsız verilerden ölçülen veri değiştirme desteklenmiyor.
 * Etkinleştirebilir ve devre dışı *Klasik işlemlere izin Ver'i*.
 > [!IMPORTANT]
 > ExpressRoute bağlantı hattı mevcut bağlantı noktası üzerinde yetersiz kapasite ise yeniden oluşturmanız gerekebilir. Yoksa hiçbir ek kapasite kullanılabilir o konumda devre yükseltemezsiniz.

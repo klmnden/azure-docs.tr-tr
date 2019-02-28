@@ -5,18 +5,15 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.openlocfilehash: 77602898df7d783367ffd78328082c3edcaac83e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/26/2019
+ms.openlocfilehash: a1d92f324c30c498b1a42f6155a478cf131ecc96
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542348"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961967"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak MariaDB sanal ağ hizmet uç noktaları ve sanal ağ kuralları için Azure veritabanı yönetme
-
-> [!IMPORTANT]
-> Sanal ağ hizmet uç noktaları özelliği genel Önizleme aşamasındadır.
 
 Sanal ağ (VNet) Hizmetleri uç noktaları ve kuralları MariaDB için Azure veritabanı sunucunuza sanal ağ özel adres alanını genişletin. Sınırlamalar da dahil olmak üzere MariaDB sanal ağ hizmet uç noktaları için Azure veritabanı'nın genel bir bakış için bkz. [MariaDB sunucusu sanal ağ hizmet uç noktaları için Azure veritabanı](concepts-data-access-security-vnet.md). Sanal ağ hizmet uç noktaları, MariaDB için Azure veritabanı için desteklenen tüm bölgelerde kullanılabilir.
 

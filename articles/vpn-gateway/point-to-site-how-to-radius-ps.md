@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/27/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0aea797458649af3f839b7b8ae9b5cea384fe3b0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 86eb47f3ee1fa16d786a09bcafc103c70535a28f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865153"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983940"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS kimlik doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma: PowerShell
 
@@ -64,10 +64,6 @@ Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MS
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-## <a name="signin"></a>Oturum Aç
-
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
-
 ### <a name="example"></a>Örnek değerler
 
 Örnek değerleri kullanarak bir test ortamı oluşturabilir veya bu makaledeki örnekleri daha iyi anlamak için bu değerlere bakabilirsiniz. İzlenecek yol olarak adımları kullanıp değerleri değiştirmeden uygulayabilir veya ortamınızı yansıtacak şekilde değiştirebilirsiniz.
@@ -88,6 +84,33 @@ Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MS
 * **Ağ geçidi adı: Vnet1GW**
 * **Genel IP adı: VNet1GWPIP**
 * **VPN türü: RouteBased**
+
+
+## <a name="signin"></a>Oturum açın ve değişkenleri ayarlama
+
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
+
+### <a name="declare-variables"></a>Değişkenleri bildirin
+
+Kullanmak istediğiniz değişkenleri bildirin. Aşağıdaki örneği kullanın ve gerektiğinde, değerleri kendi değerlerinizle değiştirin. Alıştırma sırasında PowerShell/Cloud Shell oturumunuzu herhangi bir noktada kapatırsanız, yalnızca kopyalayın ve yeniden değişkenleri yeniden bildirmek için değerleri yapıştırın.
+
+  ```azurepowershell-interactive
+  $VNetName  = "VNet1"
+  $FESubName = "FrontEnd"
+  $BESubName = "Backend"
+  $GWSubName = "GatewaySubnet"
+  $VNetPrefix1 = "192.168.0.0/16"
+  $VNetPrefix2 = "10.254.0.0/16"
+  $FESubPrefix = "192.168.1.0/24"
+  $BESubPrefix = "10.254.1.0/24"
+  $GWSubPrefix = "192.168.200.0/26"
+  $VPNClientAddressPool = "172.16.201.0/24"
+  $RG = "TestRG"
+  $Location = "East US"
+  $GWName = "VNet1GW"
+  $GWIPName = "VNet1GWPIP"
+  $GWIPconfName = "gwipconf"
+  ```
 
 ## 1. <a name="vnet"></a>Kaynak grubu, sanal ağ ve genel IP oluşturma adresi
 

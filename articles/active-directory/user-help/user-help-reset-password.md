@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6521dc8db663df5e19fb97c495b4a5bcb6d3c1d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 170b96810130d33935e54c85529129e7e0267fe9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208489"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957785"
 ---
 # <a name="reset-your-work-or-school-password"></a>İş veya Okul parolanızı sıfırlama
 
@@ -163,9 +163,6 @@ Bazı yaygın hata durumları ve çözümleri aşağıda verilmiştir:
 |Ben kullanıcı Kimliğimi girdikten sonra "Hesabınızı doğrulayacağız uygulanamadı." yazan bir hata alıyorum|Oturum açma işlemi, hesap bilgilerinizi doğrulayamadı.|Bu iletiyi görmekten iki nedeni vardır.<br><br>1. Yöneticiniz, parola sıfırlama, kuruluş için açık, ancak bu hizmeti kullanmak için kayıtlı olmayabilirsiniz. Parola sıfırlama için kaydedilecek doğrulama yönteminizi göre aşağıdaki makalelerden birine bakın: [Güvenlik bilgileri bir doğrulayıcı uygulama (Önizleme) kullanacak şekilde](security-info-setup-auth-app.md), [güvenlik bilgileri bir telefon araması (Önizleme) kullanacak şekilde](security-info-setup-phone-number.md), [güvenlik bilgilerini, kısa mesaj (Önizleme) kullanacak şekilde](security-info-setup-text-msg.md), [ Güvenlik bilgileri e-posta (Önizleme) kullanacak şekilde](security-info-setup-email.md), veya [güvenlik bilgisi güvenlik sorularını (Önizleme) kullanacak şekilde](security-info-setup-questions.md).<br><br>2. Yöneticiniz, parola sıfırlama kuruluşunuz için açık edilmemiş. Bu durumda, "Yönetici bağlantısına başvurun" seçmelisiniz yöneticiniz için parolanızı sıfırlamak soran bir e-posta göndermek için.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-- Güvenlik bilgilerinizi ekleyin veya doğrulama yöntemlerinizi değiştirmek için Düzenle [güvenlik bilgilerinizi (Önizleme) yönetme](security-info-manage-settings.md) makalesi. 
-
 - Güvenlik bilgilerini öğrenin [güvenlik bilgisi (Önizleme) genel bakış](user-help-security-info-overview.md) makalesi.
 
 - İki aşamalı doğrulamayı öğrenin [iki aşamalı doğrulama genel bakış](user-help-two-step-verification-overview.md) makalesi. 

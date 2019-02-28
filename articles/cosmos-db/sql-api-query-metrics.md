@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: e6d16c31b8975036202fe77906e2d729391b5c59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038084"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983600"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB ile sorgu performansını ayarlama
 
@@ -215,6 +215,8 @@ Sorgu yürütme ölçümleri bölümüne sorguları sunucu yürütme süresi alm
 
 ### <a name="indexing-policy"></a>Dizin oluşturma ilkesi
 Bkz: [dizin oluşturma ilkesini yapılandırma](index-policy.md) yollarını, tür ve modlarını ve bunların sorgu yürütme nasıl etkilediği dizinleme. Varsayılan olarak, dizin oluşturma ilkesini dizeler için karma dizin kullanır etkin olduğu için eşitlik sorguları, ancak aralık sorguları/sıralama ölçütü sorguları için değil. Aralık sorguları için dizeleri ihtiyacınız varsa, tüm dizeleri aralığı dizin türü belirtme öneririz. 
+
+Varsayılan olarak, Azure Cosmos DB, tüm veriler için otomatik dizin oluşturma uygulanır. Senaryoları için yüksek performanslı eklemek, bu her ekleme işlemi RU maliyetini azaltır gibi yolları dışlamayı göz önünde bulundurun. 
 
 ## <a name="query-execution-metrics"></a>Sorgu yürütme ölçümleri
 İsteğe bağlı geçirerek sorgu yürütme üzerindeki ayrıntılı ölçümleri elde `x-ms-documentdb-populatequerymetrics` üst bilgisi (`FeedOptions.PopulateQueryMetrics` .NET SDK'sındaki). Döndürülen değer `x-ms-documentdb-query-metrics` Gelişmiş sorun giderme sorgunun yürütülmesi için gereken aşağıdaki anahtar-değer çiftleri sahiptir. 

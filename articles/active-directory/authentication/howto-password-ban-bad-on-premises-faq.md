@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adbfb0e42bc7057313c7652402fce2b2ede47735
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 6f0a10a56aeecf9973ea12b022e0030fb4635fbf
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592511"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984557"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Önizleme: Azure AD parola koruması hakkında sık sorulan sorular şirket içinde
 
@@ -26,10 +26,6 @@ ms.locfileid: "56592511"
 |     |
 
 ## <a name="general-questions"></a>Genel sorular
-
-**S: Ne zaman Azure AD parola koruması genel kullanılabilirlik (GA) ulaşır?**
-
-Genel kullanım için S1 CY2019 (Mart 2019 sonu önce) planlanmaktadır. Geri bildirim özelliğini - bugüne yayımlamış herkese teşekkür ederiz, değer veriyoruz!
 
 **S: Hangi Kılavuzu kullanıcıların güvenli bir parola seçin nasıl verilmesi gerekir?**
 

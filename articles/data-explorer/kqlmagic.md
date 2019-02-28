@@ -8,17 +8,17 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 83c4ae7ff942579d55a5855c24a28809f60fdc62
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 0e1eedf497ea5fd4a8a9551996102a8aa72847fc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382456"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961576"
 ---
 # <a name="analyze-data-using-jupyter-notebook-and-kql-magic"></a>Jupyter not defteri ve KQL Sihri kullanarak verileri analiz etme
 
 Jupyter not defteri oluşturmak ve Canlı kod, denklemleri, görselleştirmeler ve anlatım metnini içeren belgeleri paylaşmak olanak tanıyan bir açık kaynaklı web uygulamasıdır. Kullanım, veri temizleme ve dönüştürme, sayısal bir simülasyon, modelleme, veri Görselleştirme ve makine öğrenimi içerir.
-[Jupyter not defteri](https://jupyter.org/) ek komutlar destekleyerek çekirdek yeteneklerini genişletmek Sihirli işlevleri destekler. KQL Sihirli Kusto dil sorguları yerel olarak çalıştırabilmeniz için Jupyter not defteri Python çekirdek yeteneklerini genişleten bir komuttur. Sorgulamak ve tümleşik Plot.ly kitaplığı ile zengin kullanarak verileri görselleştirmek için Python ve Kusto sorgu dilini kolayca birleştirebilirsiniz `render` komutları. Sorguları çalıştırmak için veri kaynakları desteklenir. Bu veri kaynakları, Azure Veri Gezgini, hızlı ve yüksek oranda ölçeklenebilir bir veri keşfetme hizmeti günlük ve telemetri verilerini, ve bunun yanı sıra Log Analytics ve Application Insights ekleyin. KQL Sihirli Azure not defterleri, Jupyter Laboratuvar ve Visual Studio kod Jupyter uzantısı ile de çalışır.
+[Jupyter not defteri](https://jupyter.org/) ek komutlar destekleyerek çekirdek yeteneklerini genişletmek Sihirli işlevleri destekler. KQL Sihirli Kusto dil sorguları yerel olarak çalıştırabilmeniz için Jupyter not defteri Python çekirdek yeteneklerini genişleten bir komuttur. Sorgulamak ve tümleşik Plot.ly kitaplığı ile zengin kullanarak verileri görselleştirmek için Python ve Kusto sorgu dilini kolayca birleştirebilirsiniz `render` komutları. Sorguları çalıştırmak için veri kaynakları desteklenir. Bu veri kaynakları, Azure Veri Gezgini, Azure İzleyici günlüklerine yanı sıra günlük ve telemetri verilerini, hızlı ve yüksek düzeyde ölçeklenebilir veri keşif hizmeti ve Application Insights ekleyin. KQL Sihirli Azure not defterleri, Jupyter Laboratuvar ve Visual Studio kod Jupyter uzantısı ile de çalışır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -171,6 +171,6 @@ Birçok analiz senaryolarda, çok sayıda sorgu içeren ve sonuçları bir sorgu
 Desteklenen tüm özellikleri içeren aşağıdaki örnek not defterleri keşfetmek için Yardım komutu çalıştırın:
 - [Azure için Veri Gezgini ile KQL Sihirli kullanmaya başlayın](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
 - [İçin Application Insights ile KQL Sihirli kullanmaya başlayın](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
-- [Log Analytics için KQL ile Sihirli kullanmaya başlayın](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
+- [Azure İzleyici günlüklerine için KQL Sihirli kullanmaya başlama](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
 - [Python ile parametrize KQL Sihirli sorgunuzu](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
 - [KQL Sihirli sorgu grafik sonucunuz için renk paleti seçin](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)

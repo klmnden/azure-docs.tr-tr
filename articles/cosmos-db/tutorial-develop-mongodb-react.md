@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.reviewer: sngun
-ms.openlocfilehash: 2033c309a63c7135ba845aebbfc4e353380429f6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ef245c2ef5da2b3dc9780e772a71e8ef896e1aff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043286"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959808"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>React ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma  
 
@@ -102,8 +102,6 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Uygulamayı Azure Cosmos DB hesabına bağlama
 > * Uygulamayı Postman kullanarak test etme
 > * Uygulamayı çalıştırma ve veritabanına hero'ları ekleme
-
-Bu öğretici serisine uygulamayı dağıtma ve verileri küresel olarak çoğaltma konularının ele alınacağı bir video eklenecektir.
 
 Bir sonraki öğreticiye geçip MongoDB verilerini Azure Cosmos DB’de içeri aktarmayı öğrenin.  
 

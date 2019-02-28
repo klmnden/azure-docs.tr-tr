@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 8c19022f168577cf65180357f280afd5a0e03073
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1a13f5f038afed914fd2b2a178974a0ba2e7255f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634167"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984229"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL veritabanı bağlantı sorunlarını ve geçici hatalar ile çalışma
 
@@ -91,7 +91,7 @@ Yeniden deneme mantığınız test etmek için benzetimini yapmak veya programı
 Yeniden deneme mantığınız test edebilirsiniz bir program çalışırken, istemci bilgisayar ağ bağlantısını kesmek için yoludur. Hata oluşur:
 
 - **SqlException.Number** 11001 =
-- İleti: "gibi bir ana makine bilinmiyor"
+- Mesaj: "Böyle bir ana makine bilinmiyor"
 
 Programınızı ilk yeniden deneme girişimi bir parçası olarak, yazım hataları düzeltin ve bağlanma girişimi.
 
@@ -108,8 +108,8 @@ Bu test pratik hale getirmek için programınızı başlamadan önce ağ üzerin
 
 Programınızı bilerek kullanıcı adından önce ilk bağlantı girişimi yazsanız. Hata oluşur:
 
-- **SqlException.Number** 18456 =
-- İleti: "'WRONG_MyUserName' kullanıcısı için oturum açma başarısız oldu."
+- **SqlException.Number** = 18456
+- Mesaj: "Oturum açma 'WRONG_MyUserName' kullanıcı için başarısız oldu."
 
 Programınızı ilk yeniden deneme girişimi bir parçası olarak, yazım hataları düzeltin ve bağlanma girişimi.
 
@@ -125,7 +125,7 @@ Bu test pratik hale getirmek için programa neden olan bir çalışma zamanı pa
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Bağlantı yeniden deneme için .NET SqlConnection parametreleri
 
-.NET Framework sınıfı kullanarak, istemci programınızın SQL veritabanı'na bağlanır, **System.Data.SqlClient.SqlConnection**, .NET 4.6.1 kullanın veya üzeri (veya .NET Core) böylece onun bağlantı yeniden deneme özelliği kullanabilirsiniz. Bu özellik hakkında daha fazla bilgi için bkz. [bu Web sayfasını](https://go.microsoft.com/fwlink/?linkid=393996).
+.NET Framework sınıfı kullanarak, istemci programınızın SQL veritabanı'na bağlanır, **System.Data.SqlClient.SqlConnection**, .NET 4.6.1 kullanın veya üzeri (veya .NET Core) böylece onun bağlantı yeniden deneme özelliği kullanabilirsiniz. Bu özellik hakkında daha fazla bilgi için bkz. [bu Web sayfasını](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -137,7 +137,7 @@ Oluşturduğunuzda [bağlantı dizesi](https://msdn.microsoft.com/library/System
 - **ConnectRetryInterval**:&nbsp;&nbsp;varsayılan olan 1 saniye. 1 ila 60 aralığı.
 - **Bağlantı zaman aşımı**:&nbsp;&nbsp;15 saniye varsayılandır. Aralığı 0 ile 2147483647 arasındadır.
 
-Özellikle, seçilen değerlerinizin aşağıdaki eşitlik true yapmanız gerekir: bağlantı zaman aşımı ConnectRetryCount = * ConnectionRetryInterval
+Özellikle, seçilen değerlerinizin aşağıdaki eşitlik true yapmanız gerekir: Bağlantı zaman aşımı ConnectRetryCount = * ConnectionRetryInterval
 
 Örneğin, 3 sayısı eşittir ve aralığı 10 saniye, yalnızca 29 saniyelik bir zaman aşımı sistemin, üçüncü ve son yeniden bağlanmak yeterli zaman vermez: 29 < 3 * 10.
 
@@ -181,7 +181,7 @@ IP adresini yapılandırmak unutursanız, programınızı gerekli IP adresi beli
 Daha fazla bilgi için [SQL Database'de güvenlik duvarı ayarlarını yapılandırma](sql-database-configure-firewall-settings.md).
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
-### <a name="connection-ports"></a>Bağlantı: bağlantı noktaları
+### <a name="connection-ports"></a>Bağlantı: Bağlantı Noktaları
 
 Genellikle, yalnızca bağlantı noktası 1433'ten istemci programınızı barındıran bilgisayarda giden iletişim için açık olduğundan emin olmak gerekir.
 
@@ -219,7 +219,7 @@ ADO.NET 4.0 kullanın veya daha önce en son ADO.NET'e yükseltmenizi öneririz 
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
-### <a name="diagnostics-test-whether-utilities-can-connect"></a>Tanılama: yardımcı programlar bağlanıp bağlanamadığınızı Test
+### <a name="diagnostics-test-whether-utilities-can-connect"></a>Tanılama: Yardımcı programları bağlanıp bağlanamadığınızı test
 
 SQL veritabanına bağlanmak, programınızın başarısız olursa, bir tanılama bir yardımcı program ile bağlanmayı denemek için seçenektir. İdeal olarak, yardımcı programınız kullanır aynı kitaplığını kullanarak bağlanır.
 
@@ -232,7 +232,7 @@ Programınızı bağlandıktan sonra kısa bir SQL SELECT sorgusu çalışıp ç
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-### <a name="diagnostics-check-the-open-ports"></a>Tanılama: bağlantı noktalarını açma kontrol edin.
+### <a name="diagnostics-check-the-open-ports"></a>Tanılama: Bağlantı noktalarını açma denetleyin
 
 Bağlantı denemeleri bağlantı sorunları nedeniyle başarısız şüpheleriniz varsa, bağlantı noktası yapılandırmalarını raporları, bilgisayarınızdaki bir yardımcı çalıştırabilirsiniz.
 
@@ -261,17 +261,17 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-### <a name="diagnostics-log-your-errors"></a>Tanılama: hatalarınızı günlük
+### <a name="diagnostics-log-your-errors"></a>Tanılama: Oturum, hataları
 
 Aralıklı bir sorunun bazen en iyi bir genel düzen algılanması günler veya haftalar içinde tanı koydu.
 
 İstemcinizi bulduğu tüm hataları oturum açarak tanılama aşamasında size yardımcı olabilir. Dahili olarak kendi SQL veritabanı günlük hata verilerle günlük girişlerini ilişkilendirebilmesi olabilir.
 
-Kurumsal kitaplığı 6 (EntLib60) günlük kaydı ile yardımcı olmak için .NET yönetilen sınıflar sağlar. Daha fazla bilgi için [5 - bir oturumu kapat dönülüyor olarak kolayca: günlük uygulama bloğu kullanın](https://msdn.microsoft.com/library/dn440731.aspx).
+Kurumsal kitaplığı 6 (EntLib60) günlük kaydı ile yardımcı olmak için .NET yönetilen sınıflar sağlar. Daha fazla bilgi için [5 - kadar kolay bir oturum kapatma denk gelen olarak: Günlük uygulama bloğu kullanın](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-### <a name="diagnostics-examine-system-logs-for-errors"></a>Tanılama: hatalar için sistem günlüklerini inceleyin
+### <a name="diagnostics-examine-system-logs-for-errors"></a>Tanılama: Hatalar için sistem günlüklerini inceleyin
 
 Sorgu hata günlüklerini ve diğer bilgileri bazı Transact-SQL SELECT deyimi aşağıda verilmiştir.
 
@@ -327,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Kurumsal kitaplığı 6 (EntLib60) biri olan SQL veritabanı hizmeti, bulut Hizmetleri, güçlü istemciler uygulamanıza yardımcı olan bir .NET sınıf çerçevedir. EntLib60 olabileceğine her alanı için ayrılmış konuları bulmak için bkz: [Kurumsal kitaplığı 6 - Nisan 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-Geçici hataları işlemek için yeniden deneme mantığı EntLib60 size yardımcı olabilir bir alandır. Daha fazla bilgi için [4 - Perseverance, tüm triumphs gizliliği: geçici hata işleme uygulama bloğu kullanın](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+Geçici hataları işlemek için yeniden deneme mantığı EntLib60 size yardımcı olabilir bir alandır. Daha fazla bilgi için [4 - Perseverance, tüm triumphs gizliliği: Geçici hata işleme uygulama bloğu kullanın](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
 > Genel Merkezi'nden EntLib60 için kaynak kodu kullanılabilir [İndirme Merkezi](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft, daha fazla özellik güncelleştirmeleri veya bakım güncelleştirmeleri için EntLib yapmak için herhangi bir plan sahiptir.
@@ -343,7 +343,7 @@ Ad alanındaki **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
 - **RetryPolicy** sınıfı
   - **ExecuteAction** yöntemi
 - **ExponentialBackoff** sınıfı
-- **SqlDatabaseTransientErrorDetectionStrategy** sınıfı
+- **SqlDatabaseTransientErrorDetectionStrategy** class
 - **ReliableSqlConnection** sınıfı
   - **ExecuteCommand** yöntemi
 
@@ -354,13 +354,13 @@ Ad alanındaki **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Te
 
 Bazı EntLib60 hakkındaki bilgilere bağlantılar aşağıda verilmiştir:
 
-- Ücretsiz kitap indirmesi: [Microsoft Enterprise Library, 2 sürümü için Geliştirici Kılavuzu](https://www.microsoft.com/download/details.aspx?id=41145).
-- En iyi uygulamalar: [yeniden deneme genel Kılavuzu](../best-practices-retry-general.md) yeniden deneme mantığı mükemmel ilgili ayrıntılı bir tartışma sahiptir.
-- NuGet indirme: [Enterprise Library - geçici hata işleme uygulama bloğu 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Ücretsiz kitap indirme: [Microsoft Enterprise Library, 2 sürümü için Geliştirici Kılavuzu](https://www.microsoft.com/download/details.aspx?id=41145).
+- En iyi uygulamalar: [Yeniden deneme genel Kılavuzu](../best-practices-retry-general.md) yeniden deneme mantığı mükemmel ilgili ayrıntılı bir tartışma sahiptir.
+- NuGet indirin: [Enterprise Library - geçici hata işleme uygulama bloğu 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
-### <a name="entlib60-the-logging-block"></a>EntLib60: Günlük blok
+### <a name="entlib60-the-logging-block"></a>EntLib60: Günlük bloğu
 
 - Günlük bloğu için kullanabileceğiniz yüksek oranda esnek ve yapılandırılabilir bir çözümdür:
   - Oluşturma ve çok çeşitli konumlara günlük iletilerini depolayın.
@@ -368,7 +368,7 @@ Bazı EntLib60 hakkındaki bilgilere bağlantılar aşağıda verilmiştir:
   - Hata ayıklama ve izleme yanı sıra denetim için kullanışlı ve genel günlüğü gereksinimleri olan bağlamsal bilgiler toplayın.
 - Uygulama kodu hedef günlük depolama türünü ve konumunu bağımsız olarak tutarlı olmasını sağlayın günlük hedef günlük işlevi günlük blok soyutlar.
 
-Daha fazla bilgi için [5 - bir oturumu kapat dönülüyor olarak kolayca: günlük uygulama bloğu kullanın](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
+Daha fazla bilgi için [5 - kadar kolay bir oturum kapatma denk gelen olarak: Günlük uygulama bloğu kullanın](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 

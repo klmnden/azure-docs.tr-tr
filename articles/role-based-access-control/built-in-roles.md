@@ -15,12 +15,12 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 106cda22f8f7c54441f438b61eb427446f36a69a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ce9ef687643de7ec9b289f74feea613fb9a1db7a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807499"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960637"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 
@@ -1628,11 +1628,11 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Insights/Register/Action | Microsoft Insights sağlayıcısını kaydedin |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Web testleri okuma/yazma/silme Application Insights. |
-> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Log Analytics çözüm paketleri okuma/yazma/silme. |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Okuma/yazma/silme Log Analytics kayıtlı aramalar. |
+> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Okuma/yazma/silme log analytics çözüm paketleri. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Okuma/yazma/silme log analytics kayıtlı aramalar. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Arama sorgusu yürütür |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Çalışma alanı paylaşılan anahtarlarını alır. Bu anahtarlar, Microsoft operasyonel İçgörüler aracılarını çalışma alanına bağlamak için kullanılır. |
-> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Okuma/yazma/silme Log Analytics depolama Insight yapılandırmaları. |
+> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Okuma/yazma/silme log analytics depolama Insight yapılandırmaları. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
@@ -1831,7 +1831,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Authorization/policySetDefinitions/* | Oluşturma ve ilke kümelerini Yönet |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönet |
 > | Microsoft.Management/managementGroups/read | Kimliği doğrulanmış kullanıcı için Yönetim grupları listesi. |
-> | Microsoft.operationalInsights/workspaces/*/read | Log Analytics verilerini görüntüleme |
+> | Microsoft.operationalInsights/workspaces/*/read | Log analytics verilerini görüntüleme |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Security/*/read | Okuma güvenlik bileşenleri ve ilkeleri |
@@ -1886,7 +1886,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönet |
-> | Microsoft.operationalInsights/workspaces/*/read | Log Analytics verilerini görüntüleme |
+> | Microsoft.operationalInsights/workspaces/*/read | Log analytics verilerini görüntüleme |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Security/*/read | Okuma güvenlik bileşenleri ve ilkeleri |

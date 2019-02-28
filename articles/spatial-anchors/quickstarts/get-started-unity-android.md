@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b35aafdad081a48c0d6048743f87e10c6a6b3a77
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: e92c812ffc8b72fe79248c602e48ff01ef9fefcb
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752339"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961023"
 ---
 # <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal Çıpasıyla Android Unity uygulama oluşturma
 
@@ -77,6 +77,9 @@ Seçin **çalıştırma** Android Studio araç çubuğundan.
 Android cihazı seçin **dağıtım hedefini seçin** iletişim ve select **Tamam** Android cihazda uygulama çalıştırmak için.
 
 Yerleştirin ve bir bağlantı geri çağırma uygulaması'ndaki yönergeleri izleyin.
+
+> [!NOTE]
+> Kamera arka planı olarak (veya diğer doku örneği yerine boş, mavi görürsünüz) görmüyorsanız, uygulama çalıştırırken daha sonra büyük olasılıkla Unity varlıkları yeniden almanız gerekir. Uygulamayı durdurun. Unity üstteki menüden seçin **varlıklar -> eşleşmediğinden yeniden içe aktarım tüm**. Ardından, uygulamayı yeniden çalıştırın.
 
 Seçerek uygulama Durdur **Durdur** Android Studio araç çubuğundan.
 

@@ -4,145 +4,138 @@ description: Azure Active Directory ve BorrowBox arasında çoklu oturum açmay�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: dd8e4178-9a63-492a-bd48-782e94e404af
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/26/2018
+ms.topic: tutorial
+ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a36b87f0a440bb2bf8d8d75cf0d29dbd521ff43f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 09bf4651ac8d2e178614044de90cb1c0ecc1c48f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175005"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56982750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Öğretici: BorrowBox ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile BorrowBox tümleştirme konusunda bilgi edinin.
-
 Azure AD ile BorrowBox tümleştirme ile aşağıdaki avantajları sağlar:
 
-- BorrowBox erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak imzalanan için BorrowBox (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* BorrowBox erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) BorrowBox için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile BorrowBox yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik BorrowBox çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik BorrowBox çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden BorrowBox ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* BorrowBox destekler **SP ve IDP** tarafından başlatılan
+* BorrowBox destekler **zamanında** kullanıcı sağlama
 
 ## <a name="adding-borrowbox-from-the-gallery"></a>Galeriden BorrowBox ekleme
+
 Azure AD'de BorrowBox tümleştirmesini yapılandırmak için BorrowBox Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden BorrowBox eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![image](./common/selectazuread.png)
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![image](./common/a_select_app.png)
-    
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![image](./common/a_new_app.png)
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
 4. Arama kutusuna **BorrowBox**seçin **BorrowBox** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-     ![image](./media/borrowbox-tutorial/tutorial_borrowbox_addfromgallery.png)
+     ![Sonuç listesinde BorrowBox](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı BorrowBox sınayın.
-
-Tek iş için oturum açma için Azure AD ne BorrowBox karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının BorrowBox ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma BorrowBox adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının BorrowBox ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma BorrowBox ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[BorrowBox test kullanıcısı oluşturma](#create-a-borrowbox-test-user)**  - kullanıcı Azure AD gösterimini bağlı BorrowBox Britta simon'un bir karşılığı vardır.
+2. **[BorrowBox çoklu oturum açmayı yapılandırma](#configure-borrowbox-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+5. **[BorrowBox test kullanıcısı oluşturma](#create-borrowbox-test-user)**  - kullanıcı Azure AD gösterimini bağlı BorrowBox Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve BorrowBox uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile BorrowBox yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile BorrowBox yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
 1. İçinde [Azure portalında](https://portal.azure.com/), **BorrowBox** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![image](./common/B1_B2_Select_SSO.png)
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![image](./common/b1_b2_saml_sso.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **temel SAML yapılandırma** iletişim.
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![image](./common/b1-domains_and_urlsedit.png)
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
 4. Üzerinde **temel SAML yapılandırma** bölümünde kullanıcısının clonedatabase'i uygulama zaten Azure ile önceden tümleşik olarak herhangi bir adımı gerçekleştirmek.
 
-    ![image](./media/borrowbox-tutorial/tutorial_borrowbox_url.png)
+    ![[Uygulama adı] Etki alanı ve URL'ler tek oturum açma bilgileri](common/preintegrated.png)
 
-    a. Tıklayın **ek URL'lerini ayarlayın**.
+5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
-    b. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
+    ![[Uygulama adı] Etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
-    ![image](./media/borrowbox-tutorial/tutorial_borrowbox_url1.png)
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
 
     > [!NOTE]
-    > Oturum açma URL değeri, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [BorrowBox istemci Destek ekibine](mailto:borrowbox@bolinda.com) değeri alınamıyor.
+    > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [BorrowBox istemci Destek ekibine](mailto:borrowbox@bolinda.com) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-5. BorrowBox uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri ve talepler** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri ve talepler** iletişim.
+6. BorrowBox uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. BorrowBox uygulama bekliyor **NameIdentifier** ile eşlenecek **user.mail**tıklayarak özellik eşlemesi düzenlemeniz gerekir böylece **Düzenle** simgesi ve değişiklik öznitelik eşlemesi.
 
-    ![image](./media/borrowbox-tutorial/i4-attribute.png)
+    ![image](common/edit-attribute.png)
 
-6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri ve talepler** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
-    
-    a. Tıklayarak **düzenleme simgesi** açmak için **yönetmek, kullanıcı talepleri** iletişim.
+7. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![image](./media/borrowbox-tutorial/i2-attribute.png)
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-    ![image](./media/borrowbox-tutorial/i3-attribute.png)
+8. Üzerinde **BorrowBox kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-    b. Gelen **kaynak özniteliği** listesinden **user.mail**.
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    c. **Kaydet**’e tıklayın. 
+    a. Oturum Açma URL'si:
 
-7. Üzerinde **yukarı çoklu oturum açma SAML ile Ayarla** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** olarak başına uygun sertifikayı indirmek için gereksinim ve bilgisayarınıza kaydedin.
+    b. Azure Ad tanımlayıcısı
 
-    ![image](./media/borrowbox-tutorial/tutorial_borrowbox_certificate.png) 
+    c. Oturum Kapatma URL'si
 
-8. Çoklu oturum açmayı yapılandırma **BorrowBox** tarafı, gereken göndermek için Azure portalından indirilen sertifika/metaveri [BorrowBox Destek ekibine](mailto:borrowbox@bolinda.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+### <a name="configure-borrowbox-single-sign-on"></a>BorrowBox tek oturum açmayı yapılandırın
+
+Çoklu oturum açmayı yapılandırma **BorrowBox** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [BorrowBox Destek ekibine](mailto:borrowbox@bolinda.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -150,63 +143,68 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-    ![image](./common/d_users_and_groups.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
 2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![image](./common/d_adduser.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
 3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    ![image](./common/d_userproperties.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
     a. İçinde **adı** alana **BrittaSimon**.
   
     b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
-    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-    d. **Oluştur**’u seçin.
- 
-### <a name="create-a-borrowbox-test-user"></a>BorrowBox test kullanıcısı oluşturma
-
-Bu bölümün amacı BorrowBox Britta Simon adlı bir kullanıcı oluşturmaktır. BorrowBox tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa BorrowBox erişme denemesi sırasında oluşturulur.
->[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [BorrowBox Destek ekibine](mailto:borrowbox@bolinda.com).
+    d. **Oluştur**’a tıklayın.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için BorrowBox erişim vererek Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **BorrowBox**.
 
-    ![image](./common/d_all_applications.png)
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 2. Uygulamalar listesinde **BorrowBox**.
 
-    ![image](./media/borrowbox-tutorial/tutorial_borrowbox_app.png)
+    ![Uygulamalar listesinde BorrowBox bağlantı](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![image](./common/d_leftpaneusers.png)
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-4. Seçin **Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![image](./common/d_assign_user.png)
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-4. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-5. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
-    
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-borrowbox-test-user"></a>BorrowBox test kullanıcısı oluşturma
+
+Bu bölümde, Britta Simon adlı bir kullanıcı BorrowBox oluşturulur. BorrowBox just-ın-time kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Bir kullanıcı BorrowBox içinde zaten mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
+
+> [!Note]
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [BorrowBox Destek ekibine](mailto:borrowbox@bolinda.com).
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde BorrowBox kutucuğa tıkladığınızda, otomatik olarak BorrowBox uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim paneli BorrowBox kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama BorrowBox için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

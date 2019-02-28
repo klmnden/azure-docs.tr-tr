@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 69c4e7729ca4255eca24648e4c5fe03669f6186c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: cb75e943416c227730589ab5e7feeb7b8ba5e245
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593599"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957938"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Bir kaynak veri deposundan hedef veri deposuna artımlı olarak veri yükleme
 
@@ -43,12 +43,17 @@ Bu yaklaşıma yönelik iş akışı şu diyagramda gösterilmiştir:
 Adım adım yönergeler için şu öğreticilere bakın: <br/>
 [Değişiklik İzleme teknolojisini kullanarak Azure SQL Veritabanı’ndan Azure Blob depolama alanına artımlı olarak veri kopyalama](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
-## <a name="loading-new-and-changed-files-only-by-using-their-lastmodifieddate"></a>Yalnızca kendi LastModifiedDate kullanarak yeni ve değiştirilmiş dosyalar yükleniyor
+## <a name="loading-new-and-changed-files-only-by-using-lastmodifieddate"></a>Yalnızca LastModifiedDate kullanarak yeni ve değiştirilmiş dosyalar yükleniyor
 Meta veriler (LastModifiedDate) dosyalarınızın ilk alın ve sonra yalnızca hedef depo için yeni ve değiştirilen dosyaları kopyalayın.
 
 Adım adım yönergeler için şu öğreticilere bakın: <br/>
-[Artımlı olarak veri kopyalama aracını kullanarak LastModifiedDate göre yeni ve değiştirilen dosyaları kopyalama](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+[Yeni ve değiştirilmiş dosyalar üzerinde LastModifiedDate Azure Blob depolama alanından Azure Blob depolama alanına göre artımlı olarak kopyalama](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
+## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>Yalnızca zaman kullanarak yeni dosyaları yükleme, klasör veya dosya adı bölümlenmiş.
+Burada dosya veya klasör zaten dosya veya klasör adı (örneğin, /yyyy/mm/dd/file.csv) bir parçası olarak timeslice bilgilerle bölümlenmiş zaman yeni dosyalar yalnızca kopyalayabilirsiniz. 
+
+Adım adım yönergeler için şu öğreticilere bakın: <br/>
+[Yeni dosyaları saat bölümlenmiş klasör veya dosya adı Azure Blob depolamadan Azure Blob depolama alanına göre artımlı olarak kopyalama](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Şu öğreticiye ilerleyin: 

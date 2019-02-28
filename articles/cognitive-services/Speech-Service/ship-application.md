@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445126"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56962035"
 ---
 # <a name="ship-an-application"></a>Bir uygulama teslim edin
 
@@ -42,8 +42,10 @@ Gerekli dosyaları Speech SDK'sı, uygulamanızın aynı dizinde dağıtılabili
 | Ad | İşlev
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | Yerel ve yönetilen dağıtım için gerekli core SDK'sı
-| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Yönetilen dağıtım için gerekli
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Yönetilen dağıtım için gerekli
+
+>[!NOTE]
+> Dosya sürümünden 1.3.0 başlayarak `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (önceki sürümlerde sevk) artık gerekli değildir. İşlevselliği artık çekirdek SDK'sı tümleşiktir.
 
 ## <a name="linux"></a>Linux
 

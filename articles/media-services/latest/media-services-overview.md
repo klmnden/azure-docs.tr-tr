@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/07/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: d6805b3d60e5e30d35acc12c5564498830ddd8fb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881745"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960658"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
 
@@ -88,7 +88,7 @@ Media Services v3 içerik (İçindekiler tablosunda da yansıtılan) aşağıdak
 | Hızlı Başlangıçlar | Media Services'ı hızlı şekilde denemenize yönelik yeni müşteriler için temel gün-1 yönergeleri göster.|
 | Öğreticiler | Senaryo tabanlı yordamlar üst Media Services görevlerden bazılarını gösterir.|
 | Örnekler | Kod örneklerine bağlar. |
-| Kavramlar | Media Services v3 kavramlarda ve işlevlerde ayrıntılı açıklamasını içerir. Bu konularda açıklandığı gibi temel kavramları, geliştirme başlatılmadan önce incelenmelidir.<br/><br/>* Bulut karşıya yükleme ve depolama alanı<br/>* Kodlama<br/>* Medya analizi<br/>* Paket teslimini koruma<br/>* Canlı akış<br/>* Sürekli izleme<br/>* Player istemciler<br/><br/>ve daha fazlası. |
+| Kavramlar | Ayrıntılı açıklamasını içeren [Media Services v3 kavramlarda ve işlevlerde](concepts-overview.md). Bu konularda açıklandığı gibi temel kavramları, geliştirme başlatılmadan önce incelenmelidir.<br/><br/>* Bulut karşıya yükleme ve depolama alanı<br/>* Kodlama<br/>* Medya analizi<br/>* Paket teslimini koruma<br/>* Canlı akış<br/>* İzleme<br/>* Player istemciler<br/><br/>ve daha fazlası. |
 | Nasıl yapılır kılavuzları | Bir görevin nasıl tamamlanacağını göstermektedir.|
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -8,12 +8,12 @@ ms.date: 11/15/2017
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: b105cf6c220534927a16be83ca5db8801c88f6c0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 31072be9ae73791e6458b0aee4490ac90df44d94
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035602"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957972"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB Tablo API'si ve Azure Tablo depolaması ile geliştirme
 
@@ -24,10 +24,15 @@ Azure Cosmos DB Tablo API'si ve Azure Tablo depolaması aynı tablo veri modelin
 ## <a name="developing-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB Tablo API'siyle geliştirme
 
 Şu anda [Azure Cosmos DB Tablo API'sinin](table-introduction.md) geliştirme için kullanılabilen dört SDK'sı vardır: 
-- [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) .NET SDK. Bu kitaplık genel [Windows Azure Depolama SDK'sı](https://www.nuget.org/packages/WindowsAzure.Storage) ile aynı sınıf ve yöntem imzalarına sahip olmasının yanı sıra Tablo API'sini kullanarak Azure Cosmos DB hesaplarına da bağlanabilir. `Microsoft.Azure.CosmosDB.Table` kitaplığının şu an için yalnızca .NET Standard ile kullanılabileceğini, henüz .NET Core için mevcut olmadığını unutmayın.
-- [Python SDK’sı](table-sdk-python.md). Yeni Azure Cosmos DB Python SDK'sı, Python'da Azure Tablo depolamasını destekleyen tek SDK'sıdır. Bu SDK hem Azure Tablo depolaması hem de Azure Cosmos DB Tablo API'sine bağlanır.
-- [Java SDK'sı](table-sdk-java.md). Bu Azure Depolama SDK'sı, Tablo API'sini kullanarak Azure Cosmos DB hesaplarına bağlanabilir.
-- [Node.js SDK’sı](table-sdk-nodejs.md). Bu Azure Depolama SDK'sı, Tablo API'sini kullanarak Azure Cosmos DB hesaplarına bağlanabilir.
+
+* [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table): .NET SDK'sı. Bu kitaplık .NET standart hedefler ve genel aynı sınıf ve yöntem imzalarına sahip [Windows Azure depolama SDK'sı](https://www.nuget.org/packages/WindowsAzure.Storage), ancak tablo API'sini kullanarak Azure Cosmos DB hesaplarına nasıl bağlanacağınızı olanağı da vardır. Alternatif olarak, bu SDK'ın önceki bir sürümü olarak kullanılabilir [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table/) yalnızca .NET Framework sürüm.
+
+* [Python SDK'sı](table-sdk-python.md): Yeni Azure Cosmos DB Python SDK'sı, Python'da Azure Tablo depolamasını destekleyen tek SDK'sıdır. Bu SDK hem Azure Tablo depolaması hem de Azure Cosmos DB Tablo API'sine bağlanır.
+
+* [Java SDK](table-sdk-java.md): Bu Azure Depolama SDK'sı, Tablo API'sini kullanarak Azure Cosmos DB hesaplarına bağlanabilir.
+
+* [Node.js SDK'sı](table-sdk-nodejs.md): Bu Azure Depolama SDK'sı, Tablo API'sini kullanarak Azure Cosmos DB hesaplarına bağlanabilir.
+
 
 Tablo API'si ile çalışma hakkında ek bilgi sağlanmıştır [SSS: Tablo API'si ile geliştirme](faq.md#table) makalesi.
 

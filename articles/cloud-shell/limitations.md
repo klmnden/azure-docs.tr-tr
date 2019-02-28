@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 1f2c218ed9ba2f5f9285c60b8d4c11704825c0f5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0cbd2c1f9a5a36d4e11eb86a3d531340b0e0ff03
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563890"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983736"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell sınırlamaları
 
@@ -45,7 +45,7 @@ Cloud Shell'i Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozill
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Belirli bir kullanıcı için yalnızca bir kabuk etkin olabilir
 
-Kullanıcılar yalnızca başlatabilir bir kabuk türünü bir kerede ya da **Bash** veya **PowerShell**. Ancak, Bash veya PowerShell aynı anda çalışan birden çok örneği olabilir. Hangi mevcut oturumlarını sonlandırır Bash veya PowerShell nedenleri arasında yeniden başlatmak için Cloud Shell değiştirme.
+Kullanıcılar yalnızca başlatabilir bir kabuk türünü bir kerede ya da **Bash** veya **PowerShell**. Ancak, Bash veya PowerShell aynı anda çalışan birden çok örneği olabilir. Bash veya PowerShell arasında menüsünü kullanarak takas Cloud yeniden başlatmak mevcut oturumlarını sonlandırır Shell neden olur. Alternatif olarak, PowerShell içinde bash yazarak çalıştırabileceğiniz `bash`, ve PowerShell içinde bash yazarak çalıştırabileceğiniz `pwsh`.
 
 ### <a name="usage-limits"></a>Kullanım sınırları
 
@@ -57,9 +57,9 @@ Cloud Shell'de etkileşimli kullanım durumları için tasarlanmıştır. Sonuç
 
 İzinleri, sudo erişimi olmadan normal kullanıcı olarak ayarlanır. Dışında herhangi bir yükleme, `$Home` dizin kalıcı değil.
 
-### <a name="editing-bashrc"></a>.Bashrc düzenleme
+### <a name="editing-bashrc-or-profile"></a>.Bashrc veya $PROFILE düzenleme
 
-Bunun yapılması, .bashrc düzenleme beklenmeyen hatalar Cloud Shell'de neden olabileceği zaman uyarı alın.
+.Bashrc veya Bunun yapılması, PowerShell'in $PROFILE dosya düzenleme beklenmeyen hatalar Cloud Shell'de neden olabileceği zaman uyarı alın.
 
 ## <a name="powershell-limitations"></a>PowerShell sınırlamaları
 
@@ -73,23 +73,15 @@ Bunun yapılması, .bashrc düzenleme beklenmeyen hatalar Cloud Shell'de neden o
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Azure sürücüsünden oluşturduğunuzda varsayılan dosya konumu:
 
-PowerShell cmdlet'lerini kullanarak, kullanıcılar Azure sürücüsü altındaki dosyaları oluşturulamıyor. Kullanıcıların yeni dosyaları vim veya nano gibi diğer araçları kullanarak oluşturduğunuzda, dosyalar için kaydedilir `$HOME` varsayılan olarak. 
+PowerShell cmdlet'lerini kullanarak, kullanıcılar Azure altındaki dosyaları oluşturulamıyor: sürücü. Kullanıcıların yeni dosyaları vim veya nano gibi diğer araçları kullanarak oluşturduğunuzda, dosyalar için kaydedilir `$HOME` varsayılan olarak. 
 
 ### <a name="gui-applications-are-not-supported"></a>GUI uygulamaları desteklenmez.
 
-Kullanıcı bir Windows iletişim kutusu gibi oluşturacak bir komut çalıştırıyorsa `Connect-AzureAD`, `Connect-AzureRmAccount`, veya `Connect-AzAccount` bir gördüğü hata iletisi gibi: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
-
-### <a name="tab-completion-crashes-psreadline"></a>Sekme tamamlama PSReadline kilitleniyor
-
-Emacs için kullanıcının EditMode PSReadline olarak ayarlanırsa, kullanıcı görüntüleme aracılığıyla sekme tamamlama, tüm olanakları dener ve pencere boyutunu görüntüleme olanakları depolayamayacak kadar PSReadline kilitlenir.
+Kullanıcı bir Windows iletişim kutusu oluşturacak bir komut çalışırsa, bir hata iletisi aşağıdaki gibi görür: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>İlerleme çubuğunu görüntüleme sonra geniş boşluk
 
 Kullanıcı bir ilerleme çubuğu, böyle bir sekme görüntüler bir eylem gerçekleştirirse içinde çalışırken Tamamlanıyor `Azure:` sürücü imleç düzgün ayarlanmamıştır ve ilerleme çubuğu daha önce olduğu boşluk görünür mümkündür.
-
-### <a name="random-characters-appear-inline"></a>Satır içi rastgele karakterler görünür
-
-İmleç konumu dizisi kodları, örneğin `5;13R`, kullanıcı girişi görünebilir.  Karakterler el ile kaldırılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

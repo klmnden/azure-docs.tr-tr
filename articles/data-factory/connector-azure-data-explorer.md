@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: orspod
-ms.openlocfilehash: f614c6770dd29bc3d6b42c36fe8c81d9f129cd81
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d30eab024fa988b3341c5efc9fe188ee4802720a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816666"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961083"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Ya da Azure veri Gezgini'nde Azure Data Factory kullanarak veri kopyalama
 
@@ -44,6 +44,22 @@ Azure Veri Gezgini Bağlayıcısı'nı aşağıdakileri sağlar:
 Aşağıdaki bölümler, Data Factory varlıklarını belirli Azure Veri Gezgini bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
 ## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
+
+Azure Veri Gezgini bağlayıcı, hizmet sorumlusu kimlik doğrulaması kullanır. Bir hizmet sorumlusu almak ve izinleri vermek için aşağıdaki adımları izleyin:
+
+1. Azure Active Directory (Azure AD) uygulama varlık kaydınızı [uygulamanızı Azure AD kiracısı ile kaydetmeniz](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Bağlı hizmetini tanımlamak için kullandığınız şu değerleri not edin:
+
+    - Uygulama Kimliği
+    - Uygulama anahtarı
+    - Kiracı Kimliği
+
+2. Hizmet sorumlusu uygun Azure veri Gezgini'nde izni. Başvurmak [veritabanı izinlerini yönetmek, Azure Veri Gezgini](../data-explorer/manage-database-permissions.md) ile yönetme izinleri gözden geçirme yanı sıra rolleri ve izinleri hakkında ayrıntılı bilgi. Genel olarak, için ihtiyacınız
+
+    - **Kaynak olarak**, en az izni **veritabanının görüntüleyiciyi** veritabanınıza rol.
+    - **Havuz olarak**, en az izni **veritabanı çıkışlara** veritabanınıza rol.
+
+>[!NOTE]
+>Yazmak için ADF UI'ı kullanırken, hizmet sorumlusu için daha yüksek ayrıcalıklı izni bağlı hizmeti veritabanlarında listeleme veya veri kümesi üzerinde tabloların listelendiği işlemleri gerektirebilir. Alternatif olarak, el ile veritabanı adı ve tablo adı giriş seçebilirsiniz. Hizmet sorumlusu veri okuma/yazma için uygun izni verilen sürece, Etkinlik yürütme works kopyalayın.
 
 Azure Veri Gezgini bağlı hizmeti için aşağıdaki özellikleri destekler:
 
@@ -162,7 +178,7 @@ Verileri Azure veri Gezgini'ne kopyalamak için kopyalama etkinliği Havuz tür�
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği havuz özelliği ayarlanmalıdır: **AzureDataExplorerSink** | Evet |
-| ingestionMappingName | Önceden oluşturulmuş adını **[CSV eşleme](/azure/kusto/management/mappings#csv-mapping)** Kusto tablosunda; JSON eşleme ve Azure Veri Gezgini Avro eşlemeyi doğrudan desteklenmez ancak yine de verileri JSON/Avro dosyalarını kopyalayabilirsiniz. Azure Veri Gezgini kaynağından sütunlara eşlemek için kopyalama etkinliğini kullanabilirsiniz [sütun eşlemesi](copy-activity-schema-and-type-mapping.md) ayrıca - Azure Veri Gezgini CSV eşlemelerle birlikte çalıştığı kopyalama etkinliği haritalar/yeniden-shapes veri kaynağından havuz için sütuna göre eşleme ayarları, sonra yeniden varsa alımı eşleme yapılandırmaya göre verileri eşler bulunmaktadır. Geçerli [tüm desteklenen kaynak depolarını](copy-activity-overview.md#supported-data-stores-and-formats) JSON ve Avro biçimleri dahil. | Hayır |
+| ingestionMappingName | Önceden oluşturulmuş adını **[CSV eşleme](/azure/kusto/management/mappings#csv-mapping)** Kusto tablosunda. Öğesine uygulanan Azure Veri Gezgini - kaynağından sütunlara eşlemek için **[tüm desteklenen depoları/biçimleri kaynak](copy-activity-overview.md#supported-data-stores-and-formats)** vb. dahil olmak üzere CSV/JSON/Avro biçimlendirir, kopyalama etkinliği kullanabilirsiniz [sütun eşleme](copy-activity-schema-and-type-mapping.md) (örtük olarak ada göre veya açıkça yapılandırılmış gibi) ve/veya Azure Veri Gezgini CSV eşlemeleri. | Hayır |
 
 **Örnek:**
 

@@ -4,226 +4,197 @@ description: Azure Active Directory ve Mercer BenefitsCentral (MBC) arasında ç
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 3788b28c-49aa-4208-9acd-630362008e89
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/21/2017
+ms.topic: tutorial
+ms.date: 02/20/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d31f2dd62868713d48a9f6095de160c4b06ffe
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9dde23d0d860e5777239cb9c51e96a8d46e67841
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205741"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983394"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Mercer BenefitsCentral (MBC)
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Mercer BenefitsCentral (MBC) tümleştirme konusunda bilgi edinin.
-
 Mercer BenefitsCentral (MBC) Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Kimlerin erişebildiğini Mercer BenefitsCentral (MBC) Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak imzalanan Mercer BenefitsCentral (MBC için) (çoklu oturum açma) açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Kimlerin erişebildiğini Mercer BenefitsCentral (MBC) Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak Mercer BenefitsCentral (MBC için) (çoklu oturum açma) oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi Mercer BenefitsCentral (MBC) ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik Mercer BenefitsCentral (MBC) çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik mercer BenefitsCentral (MBC) çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Mercer BenefitsCentral (MBC) ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Mercer BenefitsCentral (MBC) destekleyen **IDP** tarafından başlatılan
 
 ## <a name="adding-mercer-benefitscentral-mbc-from-the-gallery"></a>Galeriden Mercer BenefitsCentral (MBC) ekleme
+
 Azure AD'de Mercer BenefitsCentral (MBC) tümleştirmesini yapılandırmak için yönetilen SaaS uygulamalar listesine Galeriden Mercer BenefitsCentral (MBC) eklemeniz gerekir.
 
 **Galeriden Mercer BenefitsCentral (MBC) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **Mercer BenefitsCentral (MBC)** seçin **Mercer BenefitsCentral (MBC)** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Sonuç listesinde mercer BenefitsCentral (MBC)](./media/mercerhrs-tutorial/tutorial_mercerhrs_addfromgallery.png)
+4. Arama kutusuna **Mercer BenefitsCentral (MBC)** seçin **Mercer BenefitsCentral (MBC)** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Sonuç listesinde mercer BenefitsCentral (MBC)](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma ile Mercer BenefitsCentral ("Britta Simon" adlı bir test kullanıcı tabanlı MBC) test edin.
-
-Tek iş için oturum açma için Azure AD ne karşılık gelen kullanıcı Mercer BenefitsCentral (MBC) bir kullanıcının Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ile ilgili kullanıcı Mercer BenefitsCentral (MBC) arasında bir bağlantı ilişki kurulması gerekir.
-
-Değerini Mercer BenefitsCentral (MBC içinde), Ata **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma ile Mercer BenefitsCentral (adlı bir test kullanıcı tabanlı MBC) test etme **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ile ilgili kullanıcı Mercer BenefitsCentral (MBC) arasında bir bağlantı ilişki kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Mercer BenefitsCentral (MBC) ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Mercer BenefitsCentral (MBC) test kullanıcısı oluşturma](#create-a-mercer-benefitscentral-mbc-test-user)**  - içinde Mercer BenefitsCentral (kullanıcı Azure AD gösterimini bağlı MBC) Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Mercer BenefitsCentral (MBC) çoklu oturum açmayı yapılandırma](#configure-mercer-benefitscentral-mbc-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Mercer BenefitsCentral (MBC) test kullanıcısı oluşturma](#create-mercer-benefitscentral-mbc-test-user)**  - içinde Mercer BenefitsCentral (kullanıcı Azure AD gösterimini bağlı MBC) Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Mercer BenefitsCentral (MBC) uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma Mercer BenefitsCentral (MBC) ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma Mercer BenefitsCentral (MBC) ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **Mercer BenefitsCentral (MBC)** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Mercer BenefitsCentral (MBC)** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/mercerhrs-tutorial/tutorial_mercerhrs_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **Mercer BenefitsCentral (MBC) etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Mercer BenefitsCentral (MBC) etki alanı ve URL'ler tek oturum açma bilgileri](./media/mercerhrs-tutorial/tutorial_mercerhrs_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `stg.mercerhrs.com/saml2.0`
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    > [!NOTE] 
-    > Yanıt URL'si değeri gerçek değil. Bu değer, gerçek yanıt URL'si ile güncelleştirin. İlgili kişi [Mercer BenefitsCentral (MBC) destek ekibi](https://www.mercer.com/contact-us.html) bu değeri alınamıyor.
+    ![Mercer BenefitsCentral (MBC) etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+    a. İçinde **tanımlayıcı** metin kutusuna bir URL yazın: `stg.mercerhrs.com/saml2.0`
 
-    ![Sertifika indirme bağlantısı](./media/mercerhrs-tutorial/tutorial_mercerhrs_certificate.png) 
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
 
-1. Tıklayın **Kaydet** düğmesi.
+    > [!NOTE]
+    > Yanıt URL'si değeri gerçek değil. Bu değer, gerçek yanıt URL'si ile güncelleştirin. İlgili kişi [Mercer BenefitsCentral (MBC) istemci Destek ekibine](https://www.mercer.com/contact-us.html) bu değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/mercerhrs-tutorial/tutorial_general_400.png)
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-1. Üzerinde **Mercer BenefitsCentral (MBC) yapılandırma** bölümünde **yapılandırma Mercer BenefitsCentral (MBC)** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-    ![Mercer BenefitsCentral (MBC) yapılandırma](./media/mercerhrs-tutorial/tutorial_mercerhrs_configure.png) 
+6. Üzerinde **Mercer BenefitsCentral (MBC ayarlama) kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-1. Çoklu oturum açmayı yapılandırma **Mercer BenefitsCentral (MBC)** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** ve **SAML çoklu oturum açma hizmeti URL'si** için[Mercer BenefitsCentral (MBC) destek ekibi](https://www.mercer.com/contact-us.html). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+    a. Oturum Açma URL'si:
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+    b. Azure Ad tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-mercer-benefitscentral-mbc-single-sign-on"></a>Mercer BenefitsCentral (MBC) çoklu oturum açmayı yapılandırın
+
+Çoklu oturum açmayı yapılandırma **Mercer BenefitsCentral (MBC)** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Mercer BenefitsCentral (MBC) destek ekibi](https://www.mercer.com/contact-us.html). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/mercerhrs-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/mercerhrs-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/mercerhrs-tutorial/create_aaduser_03.png)
-
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/mercerhrs-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
-  
-### <a name="create-a-mercer-benefitscentral-mbc-test-user"></a>Mercer BenefitsCentral (MBC) test kullanıcısı oluşturma
-
-Bu bölümde, Britta Simon Mercer saat içinde adlı bir kullanıcı oluşturun. Çalışmak [Mercer BenefitsCentral (MBC) destek ekibi](https://www.mercer.com/contact-us.html) Mercer SA platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Mercer BenefitsCentral (MBC) erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Mercer BenefitsCentral (MBC)**.
 
-**Britta Simon Mercer BenefitsCentral (MBC) atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **Mercer BenefitsCentral (MBC)**.
 
-    ![Kullanıcı Ata][201] 
+    ![Uygulamalar listesinde Mercer BenefitsCentral (MBC) bağlantısı](common/all-applications.png)
 
-1. Uygulamalar listesinde **Mercer BenefitsCentral (MBC)**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Uygulamalar listesinde Mercer BenefitsCentral (MBC) bağlantısı](./media/mercerhrs-tutorial/tutorial_mercerhrs_app.png)  
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Atama Ekle bölmesi][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-mercer-benefitscentral-mbc-test-user"></a>Mercer BenefitsCentral (MBC) test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+Bu bölümde, Britta Simon Mercer BenefitsCentral (MBC içinde) adlı bir kullanıcı oluşturun. Çalışmak [Mercer BenefitsCentral (MBC) destek ekibi](https://www.mercer.com/contact-us.html) Mercer BenefitsCentral (MBC) platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Mercer BenefitsCentral (MBC) kutucuğa tıkladığınızda, otomatik olarak Mercer BenefitsCentral (MBC) uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli Mercer BenefitsCentral (MBC) kutucuğa tıkladığınızda, size otomatik olarak için Mercer BenefitsCentral (SSO'yu ayarlama MBC) oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/mercerhrs-tutorial/tutorial_general_01.png
-[2]: ./media/mercerhrs-tutorial/tutorial_general_02.png
-[3]: ./media/mercerhrs-tutorial/tutorial_general_03.png
-[4]: ./media/mercerhrs-tutorial/tutorial_general_04.png
-
-[100]: ./media/mercerhrs-tutorial/tutorial_general_100.png
-
-[200]: ./media/mercerhrs-tutorial/tutorial_general_200.png
-[201]: ./media/mercerhrs-tutorial/tutorial_general_201.png
-[202]: ./media/mercerhrs-tutorial/tutorial_general_202.png
-[203]: ./media/mercerhrs-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

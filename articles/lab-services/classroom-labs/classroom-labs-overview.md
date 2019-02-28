@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 03384db96338bf78ed89c1cd0fb8780489ee0e13
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 964f5624a3a588a1520a08365c5fa9c783114e48
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807397"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958839"
 ---
 # <a name="introduction-to-classroom-labs"></a>Sınıf laboratuvarlarına giriş
 Azure Lab Services, bulutta hızla bir sınıf laboratuvarı ortamı oluşturmanıza imkan tanır. Eğitimci sınıf laboratuvarını oluşturur, Windows veya Linux sanal makinelerini sağlar, sınıfta gerekli yazılım ve araç laboratuvarlarını yükler ve öğrenciler için kullanılabilir hale getirir. Sınıftaki öğrenciler, laboratuvardaki sanal makinelere (VM) bağlanır ve bunları projeleri, ödevleri, sınıf egzersizleri için kullanır. 
 
-Sınıf laboratuvarlarını Azure tarafından yönetilen yönetilen Laboratuvar türleridir. Hizmet, yönetilen bir laboratuvar için sanal makineleri (VM) tasarlamaktan hataları işlemeye ve altyapıyı ölçeklendirmeye varan tüm altyapı yönetimi konularını ele alır. Ne tür bir altyapıya ihtiyacınız olduğunu siz belirlersiniz ve sınıf için gereken tüm araçları ve yazılımları yüklersiniz. Yönetilen laboratuvarlar şu an için önizleme aşamasındadır.   
+Sınıf laboratuvarlarını Azure tarafından yönetilen yönetilen Laboratuvar türleridir. Hizmet, sanal makineleri (VM'ler) işleme hataları dönen ve altyapısını ölçeklendirme ek olarak, yönetilen Laboratuvar türü için tüm altyapı yönetimini işler. Ne tür bir altyapıya ihtiyacınız olduğunu siz belirlersiniz ve sınıf için gereken tüm araçları ve yazılımları yüklersiniz. 
 
 ## <a name="automatic-management-of-azure-infrastructure-and-scale"></a>Azure altyapı ve ölçeği otomatik yönetimi 
 Azure Lab Services'i sağlama, yani bir yönetilen hizmettir ve altyapının bir Laboratuvar Yönetimi, hizmet tarafından otomatik olarak gerçekleştirilir. Yalnızca, kullanıcılarınız için doğru Laboratuvar deneyimi hazırlama üzerinde odaklanabilirsiniz. Gerisini ve hedef kitleye, Laboratuvar sanal makineler alma hizmeti sağlar. Laboratuvarınız sanal makineleri tek bir tıklamayla yüzlerce ölçeklendirin.

@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 2/5/2018
+ms.date: 02/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9ce8484151d59eef50efe1ad0598f736752eb03e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 19201512e107bcfc0d291d6496d5d1dcd35936ba
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746696"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961661"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Linux Iaas sanal makineleri için Azure Disk şifrelemesini etkinleştirme 
 
@@ -24,7 +24,7 @@ Ele bir [anlık görüntü](../virtual-machines/windows/snapshot-copy-managed-di
 >[!WARNING]
 > - Daha önce kullandıysanız [Azure AD uygulaması ile Azure Disk şifrelemesi](azure-security-disk-encryption-prerequisites-aad.md) bu sanal Makineyi şifrelemek için devam gerekecektir VM'nizi şifrelemek için bu seçeneği kullanın. Kullanamazsınız [Azure Disk şifrelemesi](azure-security-disk-encryption-prerequisites.md) bu desteklenen bir senaryo değildir gibi şifrelenmiş bu VM üzerinde bu VM şifreli için AAD uygulaması uzağa anlamı geçiş henüz desteklenmiyor.
  > - Azure Disk şifrelemesi, anahtar kasası ve VM'lerin aynı bölgede bulunması gerekir. Oluşturun ve şifrelenmiş VM ile aynı bölgede olan bir anahtar Kasası'nı kullanın.
-> - Linux işletim sistemi birimlerinin şifrelerken sanal Makineyi kullanılamaz hale gelir ve SSH devre dışı bırakılır. İlerleme durumunu denetlemek için [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) veya [vm şifreleme show](/cli/azure/vm/encryption#az-vm-encryption-show) komutları kullanılabilir. Bu işlem birkaç saat 30 GB işletim sistemi birimi yanı sıra, veri hacimleri şifrelemek için ek süre olması için beklenebilir. Verileri toplu şifreleme süresi için boyutuyla orantılı olur ve veri birimlerini miktarını şifrele biçimlendirme sürece tüm seçeneği kullanılır. 
+> - Linux işletim sistemi birimlerinin şifrelerken sanal Makineyi kullanılamaz kabul edilmelidir. Şifreleme ilerlerken şifreleme işlemi sırasında erişilmesi gereken açık dosyaları engelleme sorunlarını önlemek için SSH oturumu açma önlemek için önerilir. İlerleme durumunu denetlemek için [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) veya [vm şifreleme show](/cli/azure/vm/encryption#az-vm-encryption-show) komutları kullanılabilir. Bu işlem birkaç saat 30 GB işletim sistemi birimi yanı sıra, veri hacimleri şifrelemek için ek süre olması için beklenebilir. Verileri toplu şifreleme süresi için boyutuyla orantılı olur ve veri birimlerini miktarını şifrele biçimlendirme sürece tüm seçeneği kullanılır. 
 > - Linux vm'lerinde şifreleme devre dışı bırakıldığında, yalnızca veri birimleri için desteklenir. İşletim sistemi birimi şifreli değilse veri veya işletim sistemi birimleri üzerinde desteklenmiyor.  
 
 
@@ -71,9 +71,9 @@ Anahtar şifreleme anahtarı parametresinin değeri sözdizimi KEK olarak tam UR
      ```
 
 ### <a name="bkmk_RunningLinuxPSH"> </a> Bir var olan veya çalışan PowerShell kullanarak Linux VM üzerinde şifrelemeyi etkinleştir
-Kullanım [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) azure'da çalıştırılan Iaas sanal makine şifrelemesini etkinleştirmek için cmdlet'i. 
+Kullanım [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) azure'da çalıştırılan Iaas sanal makine şifrelemesini etkinleştirmek için cmdlet'i. Ele bir [anlık görüntü](../virtual-machines/windows/snapshot-copy-managed-disk.md) ve/veya sanal makine ile yedeklemek [Azure Backup](../backup/backup-azure-vms-encryption.md) önce diskler şifrelenir. Çalışan bir Linux VM şifrelemek için PowerShell betiklerini - skipVmBackup parametresi zaten belirtilmiş.
 
--  **Çalışan bir VM şifrele:** Aşağıdaki komut dosyası değişkenleri başlatır ve Set-AzureRmVMDiskEncryptionExtension cmdlet'ini çalıştırır. Kaynak grubunu, VM'yi ve anahtar kasası zaten önkoşul olarak oluşturulmuş olmalıdır. MySecureRg MySecureVM ve MySecureVault değerleriniz ile değiştirin. Veri diskleri ve işletim sistemi disk şifreleme, - VolumeType parametresi eklemeniz gerekebilir. 
+-  **Çalışan bir VM şifrele:** Aşağıdaki komut dosyası değişkenleri başlatır ve Set-AzureRmVMDiskEncryptionExtension cmdlet'ini çalıştırır. Kaynak grubunu, VM'yi ve anahtar kasası zaten önkoşul olarak oluşturulmuş olmalıdır. MySecureRg MySecureVM ve MySecureVault değerleriniz ile değiştirin. Şifreleme hangi disklerin belirtmek için - VolumeType parametresini değiştirin.
 
      ```azurepowershell-interactive
       $rgName = 'MySecureRg';
@@ -82,8 +82,9 @@ Kullanım [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.comp
       $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
       $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
+      $sequenceVersion = [Guid]::NewGuid();  
 
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType '[All|OS|Data]' -SequenceVersion $sequenceVersion -skipVmBackup;
     ```
 - **KEK kullanarak çalışan bir VM şifrele:** Veri diskleri ve işletim sistemi disk şifreleme, - VolumeType parametresi eklemeniz gerekebilir. 
 
@@ -96,8 +97,9 @@ Kullanım [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.comp
      $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+     $sequenceVersion = [Guid]::NewGuid();  
 
-     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType '[All|OS|Data]' -SequenceVersion $sequenceVersion -skipVmBackup;
      ```
 
     >[!NOTE]
@@ -373,35 +375,36 @@ PowerShell sözdizimi aksine, şifreleme etkinleştirilirken benzersiz dizisi s�
      ```
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Azure PowerShell ile yeni eklenen bir disk şifrelemeyi etkinleştirin
- Linux için yeni bir disk şifrelemek için PowerShell kullanırken, yeni bir sıra sürüm belirtilmesi gerekiyor. Dizisi sürümü benzersiz olması gerekir. Aşağıdaki komut dizisi sürümü için bir GUID oluşturur. 
+ Linux için yeni bir disk şifrelemek için PowerShell kullanırken, yeni bir sıra sürüm belirtilmesi gerekiyor. Dizisi sürümü benzersiz olması gerekir. Aşağıdaki komut dizisi sürümü için bir GUID oluşturur. Ele bir [anlık görüntü](../virtual-machines/windows/snapshot-copy-managed-disk.md) ve/veya sanal makine ile yedeklemek [Azure Backup](../backup/backup-azure-vms-encryption.md) önce diskler şifrelenir. Yeni eklenen veri diski şifrelemek için PowerShell betiklerini - skipVmBackup parametresi zaten belirtilmiş.
  
 
 -  **Çalışan bir VM'ye veri birimlerini şifrele:** Aşağıdaki komut dosyası değişkenleri başlatır ve Set-AzureRmVMDiskEncryptionExtension cmdlet'ini çalıştırır. Kaynak grubunu, VM'yi ve anahtar kasası zaten önkoşul olarak oluşturulmuş olmalıdır. MySecureRg MySecureVM ve MySecureVault değerleriniz ile değiştirin. -VolumeType parametresi için kabul edilebilir değerler, işletim sistemi ve veri tümü. VM, "OS" veya "All" birim türü ile önceden şifrelenmişse, böylece hem işletim sistemi hem de yeni bir veri diski eklenecek ardından - VolumeType parametresi tüm değiştirilmelidir.
 
      ```azurepowershell-interactive
-      $sequenceVersion = [Guid]::NewGuid();
       $rgName = 'MySecureRg';
       $vmName = 'MySecureVM';
       $KeyVaultName = 'MySecureVault';
       $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
       $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
+      $sequenceVersion = [Guid]::NewGuid();
 
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion;
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion -skipVmBackup;
     ```
 - **Veri birimleri KEK kullanarak çalışan bir sanal makinenin şifrele:** -VolumeType parametresi için kabul edilebilir değerler, işletim sistemi ve veri tümü. VM, "OS" veya "All" birim türü ile önceden şifrelenmişse, böylece hem işletim sistemi hem de yeni bir veri diski eklenecek ardından - VolumeType parametresi tüm değiştirilmelidir.
 
      ```azurepowershell-interactive
-     $rgName = 'MySecureRg';
-     $vmName = 'MyExtraSecureVM';
-     $KeyVaultName = 'MySecureVault';
-     $keyEncryptionKeyName = 'MyKeyEncryptionKey';
-     $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
-     $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
-     $KeyVaultResourceId = $KeyVault.ResourceId;
-     $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+      $rgName = 'MySecureRg';
+      $vmName = 'MyExtraSecureVM';
+      $KeyVaultName = 'MySecureVault';
+      $keyEncryptionKeyName = 'MyKeyEncryptionKey';
+      $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
+      $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
+      $KeyVaultResourceId = $KeyVault.ResourceId;
+      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+      $sequenceVersion = [Guid]::NewGuid();
 
-     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data';
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion -skipVmBackup;
 
      ```
 

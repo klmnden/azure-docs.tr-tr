@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0e2f6a8bd8bc8e6f0dd8ba1ec642bff50c9a7977
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999377"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984042"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure'da (Önizleme) bir yönetim çözümü dosyası oluşturma
 > [!NOTE]
@@ -85,12 +85,12 @@ Aşağıdaki tabloda, tüm yönetim çözümleri için standart parametreler lis
 
 | Parametre | Type | Açıklama |
 |:--- |:--- |:--- |
-| accountName |dize |Azure Otomasyon hesabı adı. |
-| pricingTier |dize |Log Analytics çalışma alanı hem de Azure Otomasyon hesabı fiyatlandırma katmanı. |
-| RegionID |dize |Azure Otomasyonu hesabı bölgesi. |
-| SolutionName |dize |Çözüm adı.  Çözümünüzü hızlı başlangıç şablonları aracılığıyla dağıtıyorsanız, bunun yerine bir belirtmesini gerektiren bir dize tanımlayabilirsiniz böylece daha sonra solutionName parametre olarak tanımlamanız gerekir. |
-| workspaceName |dize |Log Analytics çalışma alanı adı. |
-| workspaceRegionId |dize |Log Analytics çalışma alanı bölgesi. |
+| accountName |string |Azure Otomasyon hesabı adı. |
+| pricingTier |string |Log Analytics çalışma alanı hem de Azure Otomasyon hesabı fiyatlandırma katmanı. |
+| RegionID |string |Azure Otomasyonu hesabı bölgesi. |
+| SolutionName |string |Çözüm adı.  Çözümünüzü hızlı başlangıç şablonları aracılığıyla dağıtıyorsanız, bunun yerine bir belirtmesini gerektiren bir dize tanımlayabilirsiniz böylece daha sonra solutionName parametre olarak tanımlamanız gerekir. |
+| workspaceName |string |Log Analytics çalışma alanı adı. |
+| workspaceRegionId |string |Log Analytics çalışma alanı bölgesi. |
 
 
 Yapısı, çözüm dosyasına kopyalayıp standart Parametreler aşağıda verilmiştir.  
@@ -229,13 +229,6 @@ Yukarıdaki örnekte, bir runbook, zamanlama ve görünümü ile çözüm içind
 | ürün |Çözüm tanımlamak için benzersiz bir dize. |
 | Yayımcı |Çözümün yayımcısı. |
 
-
-
-## <a name="sample"></a>Örnek
-Çözüm dosyaları aşağıdaki konumlarda çözüm kaynak örnekleri görüntüleyebilirsiniz.
-
-- [Otomasyon kaynakları](solutions-resources-automation.md#sample)
-- [Arama ve uyarı kaynakları](solutions-resources-searches-alerts.md#sample)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
