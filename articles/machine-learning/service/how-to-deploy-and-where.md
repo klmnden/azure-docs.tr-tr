@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 19d34e76c73c5ec2472d3eacddc01d6aebb6b9fb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4f89fab47cf07538d1915d359fc29a21deb1e560
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889112"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986099"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -31,7 +31,7 @@ Modelleri için aşağıdaki işlem hedeflerine dağıtabilirsiniz:
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service'i (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
 | Azure ML işlemi | Batch çıkarımı | Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli Vm'lere destekler. |
-| [Azure Container Instances (ACI)](#aci) | Test Etme | Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
+| [Azure Container Instances (ACI)](#aci) | Test ediliyor | Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |
 | [Alanda programlanabilir kapı dizileri (FPGA)](#fpga) | (Önizleme) Web hizmeti | Gerçek zamanlı çıkarım için son derece düşük gecikme süresi. |
 
@@ -218,7 +218,7 @@ Dağıtıma aldığınızda, dağıttığınız işlem hedef bağlı olarak bira
 > [!NOTE]
 > Zaman **bir web hizmeti olarak dağıtma**, kullanabileceğiniz üç dağıtım yöntemi vardır:
 >
-> | Yöntem | Notlar |
+> | Metot | Notlar |
 > | ----- | ----- |
 > | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | Modeli kaydedin ve bu yöntem kullanmadan önce bir görüntü oluşturmanız gerekir. |
 > | [Dağıtma](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | Bu yöntemi kullanırken, modeli kaydedin veya görüntü oluşturmanız gerekmez. Ancak model veya görüntü adını kontrol edemezsiniz veya ilişkili etiketleri ve açıklamaları. |
@@ -259,6 +259,44 @@ Azure Kubernetes hizmeti, aşağıdaki özellikleri sağlar:
 * Günlüğe kaydetme
 * Model veri koleksiyonu
 * Web hizmetlerinizi hızlı yanıt süresi
+* TLS sonlandırma
+* Authentication
+
+#### <a name="autoscaling"></a>Otomatik ölçeklendirme
+
+Otomatik ölçeklendirme ayarı denetlenebilir `autoscale_target_utilization`, `autoscale_min_replicas`, ve `autoscale_max_replicas` AKS için web hizmeti. Aşağıdaki örnek, otomatik ölçeklendirmeyi etkinleştirmek üzere gösterilmektedir:
+
+```python
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+                                                autoscale_target_utilization=30,
+                                                autoscale_min_replicas=1,
+                                                autoscale_max_replicas=4)
+```
+
+Yukarı/Aşağı ölçeklendirme kararları geçerli kapsayıcı çoğaltmaları kullanımını dışına dayanır. (Bir istek işleme) meşgul olduğu yineleme sayısı ve toplam ayrılmış olan geçerli kullanımı geçerli yineleme sayısı. Hedef kullanım bu sayıyı aşarsa, daha sonra daha fazla çoğaltma oluşturulur. Ardından düşükse, çoğaltmaları azaltılır. Varsayılan olarak, hedef kullanımı % 70'tir.
+
+Çoğaltmalar ekleyerek kararlarına eager ve hızlı (yaklaşık 1 saniye) ' dir. Çoğaltmaları kaldırmaya karar (yaklaşık 1 dakika) ortalamadır.
+
+Aşağıdaki kodu kullanarak gerekli çoğaltmaları hesaplayabilirsiniz:
+
+```python
+from math import ceil
+# target requests per second
+targetRps = 20
+# time to process the request (in seconds)
+reqTime = 10
+# Maximum requests per container
+maxReqPerContainer = 1
+# target_utilization. 70% in this example
+targetUtilization = .7
+
+concurrentRequests = targetRps * reqTime / targetUtilization
+
+# Number of container replicas
+replicas = ceil(concurrentRequests / maxReqPerContainer)
+```
+
+Ayarı hakkında daha fazla bilgi için `autoscale_target_utilization`, `autoscale_max_replicas`, ve `autoscale_min_replicas`, bkz: [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) modül başvurusu.
 
 #### <a name="create-a-new-cluster"></a>Yeni küme oluşturma
 

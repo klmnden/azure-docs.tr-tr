@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 1596cf1337fa084fe6a160c99e52ae80ee3e2491
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 308d9a04e52572e00e1cbed24548e5f09adda571
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341982"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985929"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IOT hub'ı yüksek kullanılabilirlik ve olağanüstü durum kurtarma
 
@@ -64,6 +64,7 @@ IOT hub'ı için yük devretme işlemi tamamlandıktan sonra el ile müdahale ge
 >
 > - Yük devretmeden sonra olaylar Event Grid yayılan bu Event Grid aboneliği kullanılabilir olmaya devam sürece önceden yapılandırdığınız aynı abonelikleri tüketilebilir.
 >
+> - BLOB depolamaya yönlendirme, BLOB'ları kaydetme ve ardından tüm kapsayıcıları bölümünün varsayımlar yapmadan okunur emin olmak için bunları üzerinde yineleme öneririz. Bölüm aralığı, potansiyel olarak Microsoft tarafından başlatılan bir yük devretme veya el ile yük devretme sırasında değişebilir. Blobları bakın listesini numaralandırır öğrenmek için [blob depolama alanına yönlendirme](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
 ### <a name="microsoft-initiated-failover"></a>Microsoft tarafından başlatılan bir yük devretme
 
@@ -116,9 +117,9 @@ Yüksek düzeyde, IOT Hub ile bölgesel yük devretme modeli uygulamak için aş
    > [!NOTE]
    > IOT hub hizmeti, bir Azure Traffic Manager'da desteklenen uç noktası türü değil. Önerilen concierge hizmetini API uç nokta durum araştırmasını uygulamak yaparak Azure traffic manager ile tümleştirmek için önerilir.
 
-* **Kimlik kayıt defteri çoğaltma**: kullanılabilir olması için ikincil IOT hub'ı çözümüne bağlayabilirsiniz tüm cihaz kimlikleri içermelidir. Çözümün coğrafi olarak çoğaltılmış yedekleme cihaz kimliklerini tutmak ve ikincil IOT hub'ına cihazlar için etkin bir uç nokta geçmeden önce bunları yüklemek gerekir. IOT hub cihaz kimliği dışarı aktarma işlevi bu bağlamda yararlı olur. Daha fazla bilgi için [IOT Hub Geliştirici Kılavuzu - kimlik kayıt defteri](iot-hub-devguide-identity-registry.md).
+* **Kimlik kayıt defteri çoğaltma**: Kullanılabilir olması için ikincil IOT hub'ı çözümüne bağlayabilirsiniz tüm cihaz kimlikleri içermelidir. Çözümün coğrafi olarak çoğaltılmış yedekleme cihaz kimliklerini tutmak ve ikincil IOT hub'ına cihazlar için etkin bir uç nokta geçmeden önce bunları yüklemek gerekir. IOT hub cihaz kimliği dışarı aktarma işlevi bu bağlamda yararlı olur. Daha fazla bilgi için [IOT Hub Geliştirici Kılavuzu - kimlik kayıt defteri](iot-hub-devguide-identity-registry.md).
 
-* **Mantıksal birleştirme**: birincil bölge tekrar kullanılabilir duruma geldiğinde, tüm ikincil sitede oluşturulan verileri ve durum geçirilmelidir birincil bölgeye geri. Bu durum ve verileri, cihaz kimliklerini ve birincil IOT hub'ı ve birincil bölgedeki başka bir uygulamaya özgü depoları ile birleştirilmelidir uygulama meta verileri için çoğunlukla ilgilidir. 
+* **Mantıksal birleştirme**: Birincil bölge tekrar kullanılabilir hale geldiğinde durum ve ikincil sitede oluşturulan veri birincil bölgeye geri geçirilmesi gerekir. Bu durum ve verileri, cihaz kimliklerini ve birincil IOT hub'ı ve birincil bölgedeki başka bir uygulamaya özgü depoları ile birleştirilmelidir uygulama meta verileri için çoğunlukla ilgilidir. 
 
 Bu adım basitleştirmek için kere etkili olan işlemler kullanmalısınız. Idempotent işlemlerinin yan etkileri nihai tutarlı dağıtım olayların ve yinelemeleri ya da olayların sırası teslimini en aza indirin. Ayrıca, uygulama mantığı, olası tutarsızlıklar veya biraz güncel durumu tolerans tasarlanmalıdır. Bu durum, sistemin kurtarma noktası hedeflerini (RPO) tabanlı onarımı gereken ek süre nedeniyle ortaya çıkabilir.
 
@@ -128,8 +129,8 @@ Bu makaledeki başvuru çerçevesi çalışır, çözümünüz için doğru seç
 
 | HA/DR seçeneği | RTO | RPO | El ile müdahale gerektirir? | Uygulama karmaşıklığı | Ek ücret etkisi|
 | --- | --- | --- | --- | --- | --- | --- |
-| Microsoft tarafından başlatılan bir yük devretme |2 - 26 saat|RPO tabloya bakın|Hayır|None|None|
-| El ile yük devretme |10 dakikalık - 2 saat|RPO tabloya bakın|Evet|Çok düşük. Bu işlem Portal tetiklemek yeterlidir.|None|
+| Microsoft tarafından başlatılan bir yük devretme |2 - 26 saat|RPO tabloya bakın|Hayır|Hiçbiri|Hiçbiri|
+| El ile yük devretme |10 dakikalık - 2 saat|RPO tabloya bakın|Evet|Çok düşük. Bu işlem Portal tetiklemek yeterlidir.|Hiçbiri|
 | Çapraz bölge HA |< 1 dakika|Özel HA çözümünüzü çoğaltma sıklığına bağlıdır|Hayır|Yüksek|maliyeti, IOT hub'ı 1 x 1 >|
 
 ## <a name="next-steps"></a>Sonraki adımlar

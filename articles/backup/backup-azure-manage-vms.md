@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: sogup
-ms.openlocfilehash: eef1b14f5f25c53877c0d364facfcf9817f508c2
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 0e05bf71c1689015be0b8e3a4be1b37447ba6eb8
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/27/2019
-ms.locfileid: "56885848"
+ms.locfileid: "56961253"
 ---
 # <a name="manage-azure-vm-backups"></a>Azure VM yedeklemelerini yönetme
 
@@ -27,19 +27,19 @@ Azure portalında kurtarma Hizmetleri kasası Pano kasası dahil olmak üzere ha
 * Tüm yedekleme anlık görüntülerinin toplam boyutu
 * Yedekleme için etkin sanal makine sayısı
 
-Panoyu kullanarak yedeklemeleri yönetebilir ve tek tek sanal makineleri aşağı araştırıp bulma. achine & yedekleme kasası panosunda açma ile başlar. 
+Panoyu kullanarak yedeklemeleri yönetebilir ve tek tek sanal makineleri aşağı araştırıp bulma. Makine yedekleme kasası panosunda açma ile başlar.
 
 ![Kaydırıcı ile tam görünümü](./media/backup-azure-manage-vms/bottom-slider.png)
 
 ## <a name="view-vms-in-the-dashboard"></a>Panodaki Vm'leri görüntüleme
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Hub menüsünde **Gözat**'a tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Kurtarma Hizmetleri kasası** seçeneğine tıklayın. 
+2. Hub menüsünde **Gözat**'a tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Kurtarma Hizmetleri kasası** seçeneğine tıklayın.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
 3. Kullanım kolaylığı için kasası listesini kasaya sağ tıklayın > **panoya Sabitle**.
-4. Kasa panosunda açın. 
+4. Kasa panosunda açın.
     ![Kasa panosunu ve ayarlar dikey penceresi açın](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
 4. Üzerinde **yedekleme öğeleri** 'a tıklayın **Azure sanal makineler**.
@@ -50,7 +50,7 @@ Panoyu kullanarak yedeklemeleri yönetebilir ve tek tek sanal makineleri aşağ�
 
     ![Yedekleme öğeleri kutucuğu](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
- 
+
 6. Kasa öğesi panosundan oluşturmak veya yedekleme ilkelerini değiştirebilir, geri yükleme noktalarını görüntülemek, isteğe bağlı yedekleme, Dur çalıştırın ve VM'lerin korumayı sürdürmek, Kurtarma noktalarını silin ve geri yükleme çalıştırın.
 
     ![Yedekleme öğeleri panoyla ayarlar dikey penceresi](./media/backup-azure-manage-vms/item-dashboard-settings.png)
@@ -61,7 +61,7 @@ Panoyu kullanarak yedeklemeleri yönetebilir ve tek tek sanal makineleri aşağ�
 1. Üzerinde [kasa öğesi panosunda](#view-vms-in-the-dashboard), tıklayın **tüm ayarlar** .
 
     ![Yedekleme İlkesi dikey penceresi](./media/backup-azure-manage-vms/all-settings-button.png)
-2. İçinde **ayarları**, tıklayın**yedekleme İlkesi**e.
+2. İçinde **ayarları**, tıklayın **yedekleme İlkesi**.
 3. Gelen **yedekleme ilkesi seçmek** menüsü:
 
    * İlkeleri değiştirmek için farklı bir ilke seçin ve **Kaydet**. Yeni ilke hemen kasaya uygulanır.
@@ -76,7 +76,6 @@ Koruma için yapılandırıldıktan sonra isteğe bağlı bir sanal makinenin ye
 - İlk Yedekleme tamamlandıktan, isteğe bağlı yedekleme yalnızca değişiklikler önceki anlık görüntüden kurtarma Hizmetleri Kasası'na gönderir. Diğer bir deyişle, sonraki yedeklemeler her zaman artımlı.
 - İsteğe bağlı yedekleme bekletme aralığı günlük yedekleme noktası ilkesinde belirtilen bekletme değerdir. Sonra hiçbir günlük yedekleme noktası seçtiyseniz haftalık yedekleme noktası kullanılır.
 
-
 İsteğe bağlı yedekleme tetiklemek için:
 
 1. Üzerinde [kasa öğesi panosunda](#view-vms-in-the-dashboard), tıklayın **Şimdi Yedekle**.
@@ -87,7 +86,7 @@ Koruma için yapılandırıldıktan sonra isteğe bağlı bir sanal makinenin ye
 
     ![Yedekleme şimdi düğmesi](./media/backup-azure-manage-vms/backup-now-check.png)
 
- 
+
  Yedekleme işi bir kurtarma noktası oluşturur. Kurtarma noktası bekletme aralığını sanal makineyle ilişkilendirilmiş ilkesinde belirtilen bekletme aralığı ile aynıdır. Kasa panosunda, işin ilerleme durumunu izlemek için tıklatın **yedekleme işleri** Döşe.  
 
 ## <a name="stop-protecting-a-vm"></a>Bir VM'yi korumayı durdurursanız
@@ -95,15 +94,12 @@ Koruma için yapılandırıldıktan sonra isteğe bağlı bir sanal makinenin ye
 Sanal makineleri korumayı durdurmanın iki yolu vardır:
 
 - Gelecek tarihli tüm yedekleme işlerini durdurma ve tüm kurtarma noktalarını silin. Bu durumda VM geri yükleme olanağınız olmayacaktır.
-- Gelecek tarihli tüm yedekleme işlerini durdurma ama kurtarma noktalarını bırakma. Kurtarma noktalarını depolama alanında bırakmanın bir maliyeti yoktur. Gerekirse VM'ye geri yükleyebilirsiniz ancak, Kurtarma noktalarını bırakmanın avantajı vardır. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/backup/) fiyatlandırma ayrıntıları hakkında.
+- Gelecek tarihli tüm yedekleme işlerini durdurma ama kurtarma noktalarını Beklet. Kasadaki kurtarma noktalarını koruma ile ilişkilendirilmiş bir maliyet yoktur. Ancak, gerekirse VM'ye geri yükleyebilirsiniz kurtarma noktaları koruma avantajı vardır. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/backup/) fiyatlandırma ayrıntıları hakkında.
 
-Şunlara dikkat edin:
-
-- Kurtarma noktalarını değiştirmeden bırakırsanız, noktaları yedekleme ilkesine uygun olarak temizlenir. Tüm kurtarma noktalarını temizlenir kadar korumalı örnek ve tüketilen depolama alanı için ücret. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/backup/) fiyatlandırma hakkında daha fazla.
-- Süreleri dolduğunda bekletme ilkesi uyarınca olsa da, Kurtarma noktaları olduğu gibi bırakın, açıkça yedekleme verilerini silene kadar Azure yedekleme her zaman bir son kurtarma noktasını korur.
-- Durdurma yedekleme olmadan bir veri kaynağını silerseniz, yeni yedeklemeler başarısız olmaya başlar. Yine, eski kurtarma noktalarını ilkesine göre dolacak, ancak yedeklemeyi Durdur veriler silinene kadar her zaman bir son kurtarma noktası korunur.
-
-
+>[!NOTE]
+>
+* Varsa, **yedeklemeyi Durdur** ile **yedekleme verilerini koru**, Kurtarma noktaları, yedekleme ilkesi çerçevesinde dolmaz. Korumalı örnekler ve tüketilen depolama alanı için ücretlendirilirsiniz. Kurtarma noktaları yalnızca yedekleme (korumayı yeniden etkinleştirdikten) ilkesi göre veya el ile yedekleme verilerini sil sonra temizlenir.
+* Durdurma yedekleme olmadan bir veri kaynağını silerseniz, yeni yedeklemeler başarısız olmaya başlar. Yine, eski kurtarma noktalarını ilkesine göre dolacak, ancak yedeklemeyi Durdur veriler silinene kadar her zaman bir son kurtarma noktası korunur.
 
 Bir sanal makine için korumayı durdurmak için:
 
@@ -119,7 +115,7 @@ Bir sanal makine için korumayı durdurmak için:
 
 VM durdurulduğunda yedekleme verileri korunur, korumasını sürdürebilirsiniz. Ardından yedekleme verileri silindi durumunda sürdüremezsiniz.
 
-metin
+Sanal makine için korumayı sürdürmek için:
 
 1. Üzerinde [kasa öğesi panosunda](#view-vms-in-the-dashboard), tıklayın **yedeklemeyi Sürdür**.
 
@@ -152,6 +148,5 @@ Bu yordam, VM için yedekleme işinin durdurulmuş veya devre dışı varsayar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Hakkında bilgi edinin](backup-azure-vms-first-look-arm.md) VM ayarlarından Azure VM'lerin yedeklenmesi.
-- [Hakkında bilgi edinin](backup-azure-arm-restore-vms.md) Vm'leri geri yükleme. 
+- [Hakkında bilgi edinin](backup-azure-arm-restore-vms.md) Vm'leri geri yükleme.
 - [Hakkında bilgi edinin](backup-azure-monitor-vms.md) Azure VM yedeklemeleri izleme.
- 

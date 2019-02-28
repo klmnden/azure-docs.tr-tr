@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 6dad4fc98dccc5c8db22019fdc548efdf7165d9e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 86a3542c39fe81607187442799ef7b546e053a8e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888755"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985844"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack için kullanılabilir olan Azure Market öğeleri
 
@@ -87,7 +87,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Linux dağıtım Intel mimarisi için en iyi duruma getirilmiş bir başvuru. | Linux projesi Temizle |
 | ![CoreOS tarafından Linux kapsayıcısı](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS tarafından Linux kapsayıcısı](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Kapsayıcı Linux kapsayıcıları çalıştırmak, kümeleri yönetmek ve sunucularınızı sorunsuz bir şekilde güncelleştirmek için kolay bir yol sağlayan bir modern ve minimal Linux dağıtımı olan - ambar ölçeğinde işlemleri etkinleştiren tüm bileşenleri işlem. | CoreOS |
-| ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu, dünyanın en popüler Linux bulut ortamları için sunucusudur. | Canonical |
+| ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu, dünyanın en popüler Linux bulut ortamları için sunucusudur. | Kurallı |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux en popüler Linux dağıtımları biridir. | credativ |
 | ![CentOS tabanlı 6,8](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 6,8](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased68HPC) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic)  |
 | ![CentOS tabanlı 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic)  |
@@ -166,7 +166,6 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | C++ programında yazılan yüksek performanslı açık kaynaklı NoSQL veritabanı. | Bitnami |
 | ![Çoğaltma ile MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [Çoğaltma ile MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | C++ programında yazılan yüksek performanslı açık kaynaklı NoSQL veritabanı. **Bu çözüm şablonu 1807 veya üzeri sürümde olacak şekilde, Azure Stack ve Debian 8 ve özel betik için Linux 2.0 uzantısı da gerektirir.** | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | Etkili CMS çevrimiçi öğrenme topluluklar için tasarlanmıştır. | Bitnami |
-| ![Multicraft](media/azure-stack-marketplace-azure-items/multicraft.png) | [Multicraft](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multicraft) | Minecraft sunucusu çözümü ve Denetim Masası barındırma. | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | Ücretsiz ve açık kaynaklı Forum yazılımı. | Bitnami |
 | ![MySQL](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql) | En popüler veritabanı sistemidir. | Bitnami |
 | ![MySQL ile çoğaltma](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL ile çoğaltma](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql-cluster) | MySQL hızlı, güvenilir, ölçeklenebilir ve kullanımı kolay açık kaynaklı ilişkisel veritabanı sistemidir. MySQL sunucusu yığın tarafından dağıtılan yazılıma dönüştürmenize ekleme hem de görev açısından kritik, ağır yük üretim sistemlerine yöneliktir. Bu çözüm, veritabanları, yapılandırılabilir bir yineleme sayısı için ana düğüm çoğaltmak için birden çok VM kullanır. **Bu çözüm şablonu ayrıca Debian 8 ve özel betik için Linux 2.0 uzantısı gerektirir.** | Bitnami |
@@ -231,7 +230,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![X2Engine satış CRM](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine satış CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | Compact pazarlama, satış ve müşteri hizmet uygulaması. | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS ve Web portalı Program'de, dinamik Web siteleri oluşturur. | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Açık kaynak CRM sistemine: Mobil, sosyal ve Gamified. | Bitnami |
-| ![Denetim noktası vSEC güvenlik yönetimi](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Denetim noktası vSEC güvenlik yönetimi](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Denetim noktası vSEC, Azure müşteri varlıkları kötü amaçlı yazılım ve Gelişmiş tehditlerden korumak için Gelişmiş, çok katmanlı tehdit önleme sunar. **Her iki denetim noktası vSEC Market öğelerini indirme.** | Denetim Noktası |
+| ![Denetim noktası vSEC güvenlik yönetimi](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Denetim noktası vSEC güvenlik yönetimi](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Denetim noktası vSEC, Azure müşteri varlıkları kötü amaçlı yazılım ve Gelişmiş tehditlerden korumak için Gelişmiş, çok katmanlı tehdit önleme sunar. **Her iki denetim noktası vSEC Market öğelerini indirme.** | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef ile otomatikleştirme](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Oluşturmanızı, dağıtmanızı ve Chef Automate, sürekli Otomasyon platformu ile yönetin. **Her iki Chef Market öğelerini indirme**. | Chef yazılımı, dahil edilen |
 | ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [CommVault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | Yedekleme ve kurtarma, uygulama ve Azure Stack ve Azure Stack ortamlarında tek bir çözüm için olağanüstü durum kurtarma için VM geçişi için kapsamlı bir çözüm. | Commvault |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Denetim, izleyin ve sanal makineleri kolayca ve güvenle ile şifreleme. **Tüm CloudLink SecureVM öğeleri indirin.** | Dell EMC |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: cc7d9a8e0d2689be4a8beb5d42c43b9e18157472
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 49bc3c22eecf804e6930899478fe3be189677382
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238122"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985912"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarlar
 
@@ -57,7 +57,7 @@ Eğer kendi HSM korumalı anahtar oluşturun ve ardından Azure anahtar Kasası'
 
 Kendi anahtarını getir (BYOK) için Azure anahtar kasası için bir önkoşul listesi için aşağıdaki tabloya bakın.
 
-| Gereksinim | Daha fazla bilgi |
+| Gereksinim | Daha fazlasını öğrenin |
 | --- | --- |
 | Azure aboneliği |Bir Azure anahtar kasası oluşturmak için bir Azure aboneliğinizin olması gerekir: [Ücretsiz deneme için kaydolun](https://azure.microsoft.com/pricing/free-trial/) |
 | HSM korumalı anahtarları desteklemek için Azure anahtar kasası Premium hizmet katmanı |Azure Key Vault için hizmet katmanları ve özellikler hakkında daha fazla bilgi için bkz. [Azure anahtar kasası fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/) Web sitesi. |
@@ -78,7 +78,7 @@ Oluşturma ve anahtarınızı Azure anahtar kasası HSM'ye aktarma beş aşağı
 
 Birinci adım için Internet'e bağlı iş istasyonunuzu üzerinde aşağıdaki yordamları gerçekleştirin.
 
-### <a name="step-11-install-azure-powershell"></a>Adım 1.1: Azure PowerShell'i yükleme
+### <a name="step-11-install-azure-powershell"></a>Adım 1.1: Azure PowerShell'i yükleyin
 
 İnternet'e bağlı iş istasyonundan indirin ve Azure anahtar Kasası'nı yönetmek için cmdlet'ler içeren Azure PowerShell modülünü yükleyin. Yükleme yönergeleri için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
@@ -143,6 +143,20 @@ Anahtar kasası BYOK araç Japan.zip
 Anahtar kasası BYOK araç Korea.zip
 
 71AB6BCFE06950097C8C18D532A9184BEF52A74BB944B8610DDDA05344ED136F
+
+- - -
+**Güney Afrika:**
+
+KeyVault-BYOK-Tools-SouthAfrica.zip
+
+C41060C5C0170AAAAD896DA732E31433D14CB9FC83AC3C67766F46D98620784A
+
+- - -
+**BAE:**
+
+KeyVault-BYOK-Tools-UAE.zip
+
+FADE80210B06962AA0913EA411DAB977929248C65F365FD953BB9F241D5FC0D3
 
 - - -
 **Avustralya:**
@@ -242,7 +256,7 @@ USB sürücü veya başka bir taşınabilir depolama BYOK araç takımı paketin
 2. Bu klasörden vcredist_x64.exe çalıştırın.
 3. Yönergeleri, Visual Studio 2013 için Visual C++ çalışma zamanı bileşenlerini yüklemeyi izleyin.
 
-## <a name="step-3-generate-your-key"></a>3. Adım: Anahtarınızı
+## <a name="step-3-generate-your-key"></a>3. adım: Anahtarınızı
 
 Bu üçüncü adım için bağlantısı kesilmiş iş istasyonunda aşağıdaki yordamları gerçekleştirin. Bu adımı tamamlamak için HSM tedarikçinize başlatma modunda olması gerekir. 
 
@@ -304,6 +318,12 @@ Bu adım isteğe bağlıdır ancak aşağıdakileri doğrulayabilmeniz böylece 
    * Kore için:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-KOREA-1 -w BYOK-SecurityWorld-pkg-KOREA-1
+   * Güney Afrika için:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-SA-1 -w BYOK-SecurityWorld-pkg-SA-1
+   * BAE için:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UAE-1 -w BYOK-SecurityWorld-pkg-UAE-1
    * Avustralya için:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
@@ -390,6 +410,12 @@ Yeni bir komut istemi açın ve burada BYOK ZIP dosyasının sıkıştırması a
 * Kore için:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-KOREA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-KOREA-1
+* Güney Afrika için:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SA-1
+* BAE için:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UAE-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UAE-1
 * Avustralya için:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
@@ -453,6 +479,12 @@ Azure örneği veya coğrafi bölgede bağlı olarak aşağıdaki komutlardan bi
 * Kore için:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-KOREA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-KOREA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* Güney Afrika için:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* BAE için:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UAE-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UAE-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * Avustralya için:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey

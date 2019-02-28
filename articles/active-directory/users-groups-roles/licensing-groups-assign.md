@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 02/25/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92fc46dd3fe3c6526a9a85fd13ec7297bf270976
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 423399c93fca222dad2db3175036719a0cd5fdb9
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208903"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986167"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory'de Grup üyeliği kullanıcıları için lisans atama
 
@@ -35,38 +35,33 @@ Bu örnekte, Kiracı adlı bir güvenlik grubu içeren **ik departmanı**. Bu gr
 
 ## <a name="step-1-assign-the-required-licenses"></a>1. Adım: Gerekli lisansları atama
 
-1. Oturum [ **Azure portalında** ](https://portal.azure.com) yönetici hesabı. Lisansları yönetmek için hesabın bir genel yönetici rolü veya kullanıcı hesabı yöneticisi olması gerekir.
+1. Oturum [ **Azure AD yönetim merkezini** ](https://aad.portal.azure.com) lisans yönetici hesabıyla. Lisansları yönetmek için bir Lisans Yöneticisi, Kullanıcı Yöneticisi veya genel yönetici hesabı olmalıdır.
 
-2. Seçin **tüm hizmetleri** sol gezinti bölmesi ve seçip **Azure Active Directory**. Bu bölme Sık Kullanılanlara Ekle veya portal panosuna sabitleyin.
+2. Seçin **lisansları** bakın ve kiracıdaki tüm lisanslanabilir ürünler yöneteceğiniz yeri bir bölme açmak için.
 
-3. Üzerinde **Azure Active Directory** bölmesinde **lisansları** bakın ve kiracıdaki tüm lisanslanabilir ürünler yöneteceğiniz yeri bir bölme açmak için.
-
-4. Altında **tüm ürünleri**, Office 365 Kurumsal E3 ve Enterprise Mobility + Security ürün adlarını seçerek seçin. Atama başlatmak için **atama** bölmenin üstünde.
+4. Altında **tüm ürünleri**, ürün adlarını seçerek Office 365 Kurumsal E5 ve Enterprise Mobility + Security E3'ı seçin. Atama başlatmak için **atama** bölmenin üstünde.
 
    ![Tüm ürünlerin lisans atama](./media/licensing-groups-assign/all-products-assign.png)
+  
+5. Üzerinde **Ata lisans** bölmesinde **kullanıcılar ve gruplar** kullanıcıları ve grupları listesini açmak için.
 
-5. Üzerinde **Ata lisans** bölmesinde tıklayın **kullanıcılar ve gruplar** açmak için **kullanıcılar ve gruplar** bölmesi. Grup adı için arama *ik departmanı*grubu seçin ve ardından onaylamak emin **seçin** bölmesinin alt kısmındaki.
+6. Bir kullanıcı veya grup seçin ve ardından **seçin** seçiminizi onaylamak için bölmenin altındaki düğmesi.
 
-   ![Grup seçin](./media/licensing-groups-assign/select-a-group.png)
-
-6. Üzerinde **Ata lisans** bölmesinde tıklayın **atama seçenekleri (isteğe bağlı)**, daha önce seçilen iki ürünü de dahil tüm hizmet planları görüntüler. Bulma **Yammer Kurumsal** gidip **kapalı** ürün lisansının bu hizmet devre dışı bırakmak için. Tıklayarak onaylayın **Tamam** kısmındaki **atama seçenekleri**.
+7. Üzerinde **Ata lisans** bölmesinde tıklayın **atama seçenekleri**, daha önce seçilen iki ürünü de dahil tüm hizmet planları görüntüler. Bulma **Yammer Kurumsal** gidip **kapalı** ürün lisansının bu hizmet devre dışı bırakmak için. Tıklayarak onaylayın **Tamam** kısmındaki **lisans seçenekleri**.
 
    ![Atama seçenekleri](./media/licensing-groups-assign/assignment-options.png)
+  
+8. Atamayı tamamlamak için **Lisans ata** bölmesinin en altında bulunan **Ata**'ya tıklayın.
 
-7. Atamayı tamamlamak için **Lisans ata** bölmesinin en altında bulunan **Ata**'ya tıklayın.
+9. Bildirim durumu ve işleminin sonucunu gösteren sağ üst köşesinde görüntülenir. (Örneğin, nedeniyle önceden var olan lisans grubunda) grubuna ataması tamamlanamadı, hatanın ayrıntılarını görüntülemek için bildirime tıklayın.
 
-8. Bildirim durumu ve işleminin sonucunu gösteren sağ üst köşesinde görüntülenir. (Örneğin, nedeniyle önceden var olan lisans grubunda) grubuna ataması tamamlanamadı, hatanın ayrıntılarını görüntülemek için bildirime tıklayın.
-
-Biz, ik departmanı grubu için bir lisans şablonu artık belirttiniz. Bu grubun tüm mevcut üyelerin işlemek için Azure AD'de bir arka plan işlemi başlatıldı. Bu ilk işlem, geçerli Grup boyutuna bağlı olarak biraz zaman alabilir. Sonraki adım, işlemin tamamlandığını doğrulayın ve daha fazla dikkat sorunlarını gidermek için gerekip gerekmediğini belirlemek açıklar.
-
-> [!NOTE]
-> Alternatif bir konumdan aynı atama başlayabilirsiniz: **Kullanıcılar ve gruplar** Azure AD'de. Git **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**. Ardından grubun bulun, seçin ve Git **lisansları** sekmesi. **Atama** bölmenin en üstünde düğme lisans ataması bölmesini açar.
+Bir gruba lisans atadığınızda, Azure AD, bu grubun tüm mevcut üyelerin işler. Bu işlem ile grup boyutunu değişen biraz zaman alabilir. Sonraki adım, işlemin tamamlandığını doğrulayın ve daha fazla dikkat sorunlarını gidermek için gerekip gerekmediğini belirlemek açıklar.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>2. Adım: İlk atama tamamlandığını doğrulama
 
-1. Git **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**. Ardından bulun **ik departmanı** lisansları atanmış olan grup.
+1. Git **Azure Active Directory** > **grupları**. Lisans atanmış olan grubu seçin.
 
-2. Üzerinde **ik departmanı** grubu bölmesinde **lisansları**. Bu, tam olarak kullanıcıya lisans atandı ve içine bak gereken herhangi bir hata varsa hızla doğrulamanıza olanak sağlar. Aşağıdaki bilgiler kullanılabilir:
+2. Grup bölmeden **lisansları**. Bu, tam olarak kullanıcıya lisans atandı ve içine bak gereken herhangi bir hata varsa hızla doğrulamanıza olanak sağlar. Aşağıdaki bilgiler kullanılabilir:
 
    - Gruba atanmış olan ürün lisansı listesi. Etkin belirli hizmetler göstermek ve değişiklik yapmak için bir giriş seçin.
 
@@ -84,10 +79,10 @@ Biz, ik departmanı grubu için bir lisans şablonu artık belirttiniz. Bu grubu
 
    [Bu bölümü okuyun](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) grup tabanlı lisanslama tarafından yapılan değişiklikleri çözümlemek için denetim günlüklerini nasıl kullanılabileceği hakkında daha fazla bilgi için.
 
-## <a name="step-3-check-for-license-problems-and-resolve-them"></a>3. Adım: İçin lisans sorunlarını denetleyin ve çözümleyin
+## <a name="step-3-check-for-license-problems-and-resolve-them"></a>3. adım: İçin lisans sorunlarını denetleyin ve çözümleyin
 
-1. Git **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**ve bulma **ik departmanı** Lisans atanmış olan grup.
-2. Üzerinde **ik departmanı** grubu bölmesinde **lisansları**. Bölmenin en üstünde bir bildirim için lisansı atanamıyor 10 kullanıcı olduğunu gösterir. Tıklayarak, bu grup için bir lisans hatası durumunda tüm kullanıcıları içeren bir liste açılır.
+1. Git **Azure Active Directory** > **grupları**ve lisansları atanmış olan Grup bulunamıyor.
+2. Grup bölmeden **lisansları**. Bölmenin en üstünde bir bildirim için lisansı atanamıyor 10 kullanıcı olduğunu gösterir. Bu grup için lisans bir hata durumunda tüm kullanıcıların listesini görmek için açın.
 3. **Başarısız atamalar** sütun söyler bize her iki ürün lisansları kullanıcılara atanan uygulanamadı. **İlk başarısızlık nedeni** hatanın nedenini sütun içerir. Bu durumda sahip **çakışan hizmet planları**.
 
    ![Başarısız atamalar](./media/licensing-groups-assign/failed-assignments.png)

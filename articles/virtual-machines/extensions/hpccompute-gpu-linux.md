@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 5a5472e3790235caec65e56f31096de3abfae93d
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100270"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986371"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux için NVIDIA GPU sürücüsünün uzantısı
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Bu uzantı, Linux N serisi Vm'lerde NVIDIA GPU sürücüleri yükler. VM ailesi bağlı olarak, uzantı CUDA veya kılavuz sürücüleri de yükler. NVIDIA yüklediğinizde bu uzantıyı kullanan sürücüler, kabul etme ve koşullarını kabul etmiş [NVIDIA son kullanıcı lisans sözleşmesi](https://go.microsoft.com/fwlink/?linkid=874330). Yükleme işlemi sırasında sürücü kurulumu tamamlamak için VM yeniden başlatılabilir.
+Bu uzantı, Linux N serisi Vm'lerde NVIDIA GPU sürücüleri yükler. VM ailesi bağlı olarak, uzantı CUDA veya kılavuz sürücüleri de yükler. NVIDIA yüklediğinizde bu uzantıyı kullanan sürücüler, kabul etme ve koşullarını kabul etmiş [NVIDIA son kullanıcı lisans sözleşmesi](http://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). Yükleme işlemi sırasında sürücü kurulumu tamamlamak için VM yeniden başlatılabilir.
 
 Bir uzantı NVIDIA GPU sürücüleri yüklemek de kullanılabilir [Windows N serisi Vm'lerde](hpccompute-gpu-windows.md).
 
@@ -73,7 +73,7 @@ Aşağıdaki JSON şema uzantısı gösterir.
 
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | tarih |
 | Yayımcı | Microsoft.HpcCompute | dize |
 | type | NvidiaGpuDriverLinux | dize |
 | typeHandlerVersion | 1.2 | int |
@@ -135,7 +135,7 @@ Set-AzVMExtension
     }'
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 Aşağıdaki örnek, yukarıdaki Azure Resource Manager ve PowerShell örnekleri yansıtır ve ayrıca varsayılan olmayan sürücü yüklemesi için örnek olarak özel ayarları ekler. Özellikle, işletim sistemi çekirdek güncelleştirir ve belirli bir CUDA Araç Seti sürüm sürücü yükler.
 
@@ -154,7 +154,7 @@ az vm extension set `
 
 ## <a name="troubleshoot-and-support"></a>Sorun giderme ve Destek
 
-### <a name="troubleshoot"></a>Sorun giderme
+### <a name="troubleshoot"></a>Sorun gider
 
 Uzantı dağıtım durumuyla ilgili veriler, Azure portalından ve Azure PowerShell ve Azure CLI kullanılarak alınabilir. Belirli bir VM'nin için uzantıları dağıtım durumunu görmek için aşağıdaki komutu çalıştırın.
 

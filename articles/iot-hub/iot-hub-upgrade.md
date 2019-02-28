@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 6f6cf6de9b1f12451bf28a9bd7fc7077c1c6b1cd
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 4acd4f3fd9c013d622a23853dc2f0d02b8b753d9
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673469"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985793"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>IOT hub'ınıza yükseltme
 
@@ -45,7 +45,9 @@ Bu örnekler, IOT hub'ınıza çözüm değişikliklerinizi ayarlamak nasıl anl
 4. Hub'ınızdaki birim sayısını değiştirmek için altında yeni bir değer girin. **IOT Hub birimlerinin**. 
 5. Seçin **Kaydet** yaptığınız değişiklikleri kaydedin. 
 
-IOT hub'ınız şimdi ayarlanır ve yapılandırmalarınızı değiştirilmez. Temel katman IOT hub'ı için en yüksek bölüm sınırı 8'dir ve standart katman için 32'dir. Çoğu IOT hub'ları, yalnızca dört bölüm gerekir. IOT hub'ı oluşturulduğunda ve CİHAZDAN buluta iletileri bu iletileri eşzamanlı okuyucu sayısıyla ilgilidir'ün bölüm sınırından seçilir. Bu değer, Temel katmandan standart katmana geçiş yaptığınızda değişmeden kalır. 
+IOT hub'ınız şimdi ayarlanır ve yapılandırmalarınızı değiştirilmez. 
+
+Temel katman IOT Hub ve IOT hub'ı standart katman için en yüksek bölüm sınırı 32'dir. Çoğu IOT hub'ları yalnızca 4 bölüm gerekir. IOT hub'ı oluşturulduğunda ve CİHAZDAN buluta iletileri bu iletileri eşzamanlı okuyucu sayısıyla ilgilidir'ün bölüm sınırından seçilir. Bu değer, Temel katmandan standart katmana geçiş yaptığınızda değişmeden kalır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

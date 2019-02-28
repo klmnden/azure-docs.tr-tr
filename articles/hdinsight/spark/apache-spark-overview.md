@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 01/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: c08672b178a9327b39414ca1c0e71653f62d1d07
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 264faaf0168d1604668e3358b1d99bc169d7e2f0
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295806"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985181"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight’ta Apache Spark nedir?
 
@@ -38,7 +38,7 @@ HDInsight’ta Spark kümeleri, tam olarak yönetilen bir Spark hizmeti sunar. H
 | Azure Data Lake depolama desteği | HDInsight Spark kümelerinde birincil depolama veya ek depolama alanı Azure Data Lake Storage kullanabilirsiniz. Data Lake Storage hakkında daha fazla bilgi için bkz. [genel bakış, Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
 | Azure hizmetleriyle tümleştirme |HDInsight’ta Spark kümesi, Azure Event Hubs için bir bağlayıcı ile birlikte sunulur. Ek olarak Event Hubs'ı kullanarak akış uygulamaları oluşturabilirsiniz [Apache Kafka](https://kafka.apache.org/), kullanılabildiği zaten Spark'ın bir parçası olarak. |
 | ML Server desteği | HDInsight'ta ML Server desteği **ML Services** küme türü olarak sağlanır. Bir Spark kümesiyle taahhüt edilen hızlarda dağıtılmış R hesaplamaları çalıştırmak için ML Services kümesi ayarlayabilirsiniz. Daha fazla bilgi için bkz. [HDInsight’ta ML Server kullanmaya başlama](../r-server/r-server-get-started.md). |
-| Üçüncü taraf IDE’lerle tümleştirme | HDInsight, bir HDInsight Spark kümesinde uygulama oluşturup göndermek için faydalı olacak birkaç IDE eklentisi sağlar. Daha fazla bilgi için [Intellij Idea için Azure Araç Seti'ni kullanma](apache-spark-intellij-tool-plugin.md), [kullanım HDInsight VSCode için ve [Eclipse için Azure Araç Seti'ni kullanma](apache-spark-eclipse-tool-plugin.md).|
+| Üçüncü taraf IDE’lerle tümleştirme | HDInsight, bir HDInsight Spark kümesinde uygulama oluşturup göndermek için faydalı olacak birkaç IDE eklentisi sağlar. Daha fazla bilgi için [Intellij Idea için Azure Araç Seti'ni kullanma](apache-spark-intellij-tool-plugin.md), [kullanım HDInsight VSCode için](../hdinsight-for-vscode.md), ve [Eclipse için Azure Araç Seti'ni kullanma](apache-spark-eclipse-tool-plugin.md).|
 | Eş zamanlı sorgular |HDInsight’ta Spark kümeleri, eş zamanlı sorguları destekler. Bu özellik, bir kullanıcıdan veya çeşitli kullanıcılar ve uygulamalardan gelen birden çok sorgunun aynı küme kaynaklarında paylaşılmasını sağlar. |
 | SSD’de önbelleğe alma |Bellekte veya küme düğümlerine ekli SSD’lerde verileri önbelleğe almayı için seçebilirsiniz. Bellekte önbelleğe almak en iyi sorgu performansını sağlar ancak pahalı olabilir. SSD’lerde önbelleğe alma, veri kümesinin tamamının belleğe sığması için gerekli olan boyutta bir küme oluşturmak zorunda kalmadan sorgu performansını artırmak için harika bir seçenek sağlar. |
 | BI araçları ile tümleştirme |HDInsight’ta Spark kümeleri, veri analizlerine yönelik olarak BI araçları için [Power BI](https://www.powerbi.com/) gibi bağlayıcılar sağlar. |

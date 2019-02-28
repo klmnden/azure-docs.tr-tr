@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
-ms.openlocfilehash: 7798af5d667bcf70ba562bb7198f9af570f3005a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 57ed02463555ce9e958aedd9c2b317f7a167567b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044425"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985895"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET kullanarak Azure Tablo depolamayı ve Azure Cosmos DB Tablo API’sini kullanmaya başlama
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,7 +36,6 @@ Bu örneği başarıyla tamamlamak için aşağıdakiler gerekir:
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [.NET için Azure Depolama Ortak Kitaplığı (Önizleme)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - Üretim ortamlarında desteklenen gerekli bir önizleme paketidir. 
 * [.NET için Microsoft Azure CosmosDB Tablosu Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - Bu kitaplık şu an için yalnızca .NET Standard ile kullanılabilir, henüz .NET Core için mevcut değildir.
-* [.NET için Azure Yapılandırma Yöneticisi](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure depolama hesabı](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -77,14 +76,11 @@ Bu örneği tamamlamak için projenizde başvurmanız gereken üç önerilen pak
 
 * [.NET için Microsoft Azure Cosmos DB Tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Bu paket Azure Tablo depolama hesabınızdaki veya Azure Cosmos DB Tablo API’si hesabınızdaki veri kaynaklarına programlı erişim sağlar. Bu kitaplık şu an için yalnızca .NET Standard ile kullanılabilir, henüz .NET Core için mevcut değildir.
 
-* [.NET için Microsoft Azure Yapılandırma Yöneticisi Kitaplığı](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Bu paket, uygulamanızın nerede çalıştığına bakmaksızın yapılandırma dosyasındaki bağlantı dizesini ayrıştırmak için bir sınıf sağlar.
-
 NuGet paketlerini edinmek için şu adımları izleyin:
 
 1. **Çözüm Gezgini**'nde projenize sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
 2. "Microsoft.Azure.Storage.Common" için çevrimiçi arama yapın, 9.0.0.1 veya daha eski bir sürümü seçin ve .NET için Azure Depolama Ortak Kitaplığı (Önizleme) ve bağımlılıklarını yüklemek için **Yükle**’yi seçin. Bu bir ön sürüm paketi olduğundan, **Ön sürümü dahil et** kutusunun işaretli olduğundan emin olun.
 3. Microsoft Azure CosmosDB Tablo Kitaplığı’nı yüklemek için çevrimiçi "Microsoft.Azure.CosmosDB.Table" öğesini arayın ve **Yükle**’yi seçin.
-4. Çevrimiçi olarak "WindowsAzure.ConfigurationManager" ifadesini arayın ve Microsoft Azure Yapılandırma Yöneticisi Kitaplığı’nı yüklemek için **Yükle**’yi seçin.
 
 > [!NOTE]
 > .NET için Depolama Ortak Kitaplığı’ndaki ODataLib bağımlılıkları, WCF Veri Hizmetleri’nden değil, NuGet üzerindeki ODataLib paketleriyle çözümlenir. ODataLib kitaplıkları NuGet aracılığıyla doğrudan indirilebilir veya kod projenizle başvurulabilir. Depolama İstemcisi Kitaplığı tarafından kullanılan belirli ODataLib paketleri [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/) ve [Spatial](https://nuget.org/packages/System.Spatial/) paketleridir. Bu kitaplıklar, Azure Tablo depolama sınıfları tarafından kullanılırken Depolama Ortak Kitaplığıyla programlama için gerekli bağımlılıklardır.

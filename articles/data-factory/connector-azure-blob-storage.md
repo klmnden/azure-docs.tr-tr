@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: b2676d16abe3fb3cb1ec59b261c6cc059b4795de
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cacc17464d15e8872508cff0e626b383ee9a2808
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674778"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985402"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure Blob depolamadan/depolamaya veri kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ Herhangi bir desteklenen kaynak veri deposundan Blob Depolama'ya veri kopyalayab
 - Veya ayrıştırma veya oluşturma gibi blobları kopyalama blobları ile [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]
->Etkinleştirirse _"İzin ver güvenilen Microsoft hizmetlerinin bu depolama hesabına erişmesine izin"_ ADF olmadığından, Azure depolama Güvenlik Duvarı ayarları, Azure Integration Runtime'ı kullanarak Blob depolama alanına bağlanma seçeneği Yasak hatası ile başarısız olur Güvenilen Microsoft hizmet olarak kabul edilir. Lütfen bunun yerine aracılığıyla bağlanma gibi şirket içinde barındırılan Integration Runtime'ı kullanın.
+>Etkinleştirirseniz _"İzin ver güvenilen Microsoft hizmetlerinin bu depolama hesabına erişmesine izin"_ ADF olmadığından, Azure depolama Güvenlik Duvarı ayarları, Azure Integration Runtime'ı kullanarak Blob depolama alanına bağlanma seçeneği bir Yasak hatası ile başarısız olur Güvenilen Microsoft hizmet olarak kabul edilir. Bunun yerine şirket içinde barındırılan tümleştirme çalışma zamanı bağlanın.
 
 ## <a name="get-started"></a>başlarken
 

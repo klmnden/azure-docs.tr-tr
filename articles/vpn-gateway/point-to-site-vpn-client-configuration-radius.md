@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 02/27/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8881582eac47e31b20e9eb96effea254b821ba34
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: f59a871297189cfd5082b55a3dbdfd3156a4e501
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417304"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985713"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS kimlik doğrulaması için VPN istemcisi yapılandırma dosyalarını yükleme ve oluşturma
 
@@ -48,9 +48,22 @@ Kullanıcı adı/parola kimlik doğrulamasını yapılandırdığınızda, yaln�
 
 ### <a name="usernamefiles"></a> 1. VPN istemcisi yapılandırma dosyalarını oluştur
 
+VPN istemcisi yapılandırma dosyalarını, Azure portalını kullanarak ya da Azure PowerShell kullanarak oluşturabilirsiniz.
+
+#### <a name="azure-portal"></a>Azure portalı
+
+1. Sanal ağ geçidine gidin.
+2. Tıklayın **noktadan siteye yapılandırma**.
+3. Tıklayın **VPN istemcisini indir**.
+4. İstemci seçin ve istenen tüm bilgileri doldurun.
+5. Tıklayın **indirme** .zip dosyasını oluşturmak için.
+6. .Zip dosyası, genellikle, indirmeler klasörünüze indirir.
+
+#### <a name="azure-powershell"></a>Azure PowerShell
+
 Kullanıcı adı/parola kimlik doğrulaması ile kullanılacak VPN istemcisi yapılandırma dosyalarını oluşturur. VPN istemcisi yapılandırma dosyalarını, aşağıdaki komutu kullanarak oluşturabilirsiniz:
 
-```powershell 
+```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
@@ -64,7 +77,7 @@ Komut çalıştıran bir bağlantıyı döndürür. İndirmek için bir web tara
 
 Daha önce oluşturulan istemci yapılandırma dosyalarını almak için aşağıdaki komutu kullanın:
 
-```powershell
+```azurepowershell-interactive
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
@@ -182,7 +195,7 @@ Her VPN istemci cihaz, yüklü istemci sertifikasını gerektirir. Bazen bir Win
 
 Sertifika kimlik doğrulaması ile kullanılacak VPN istemcisi yapılandırma dosyalarını oluşturur. VPN istemcisi yapılandırma dosyalarını, aşağıdaki komutu kullanarak oluşturabilirsiniz:
  
-```powershell
+```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
@@ -195,7 +208,7 @@ Komut çalıştıran bir bağlantıyı döndürür. Bağlantıyı kopyalayıp Vp
 
 Daha önce oluşturulan istemci yapılandırma dosyalarını almak için aşağıdaki komutu kullanın:
 
-```powershell
+```azurepowershell-interactive
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  

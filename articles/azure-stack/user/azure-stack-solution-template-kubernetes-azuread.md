@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b7214230d55831fa33d547ecf9e65051aa5bb4d9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a24ba9c0f19ce0a040671e4515dc2e7d2468fb5c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891462"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985589"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Kubernetes Azure Active Directory'yi kullanarak Azure Stack'e dağıtma
 
@@ -107,7 +107,7 @@ Asıl kaynakları oluşturabilmesi aboneliğinizde hizmet sorumlusu erişimi ver
 
     ![Çözüm Şablonu Dağıt](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-### <a name="1-basics"></a>1. Temel Bilgiler
+### <a name="1-basics"></a>1. Temel
 
 1. Seçin **Temelleri** Kubernetes kümesi oluşturun.
 
@@ -167,3 +167,5 @@ Asıl kaynakları oluşturabilmesi aboneliğinizde hizmet sorumlusu erişimi ver
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Kümenize bağlanın](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
+
+[Kubernetes panosunu etkinleştir](azure-stack-solution-template-kubernetes-dashboard.md)

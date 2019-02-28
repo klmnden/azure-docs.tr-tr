@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 02/27/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4bdc17e444239652fa612078e89ec85e357c9316
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 2a245a6e3d76a7df41b5ef28f9bac8a2c2122402
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750523"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985436"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Varlık tanıma bilişsel beceri
 
@@ -43,7 +43,8 @@ Parametreleri büyük küçük harfe duyarlıdır ve tümü isteğe bağlıdır.
 | kategoriler    | Ayıklanması gereken kategoriler dizisi.  Olası kategori türleri: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Hiçbir kategori sağlanırsa, tüm türleri döndürülür.|
 |defaultLanguageCode |  Giriş metni dil kodu. Aşağıdaki dillerde desteklenmektedir: `de, en, es, fr, it`|
 |minimumPrecision | Kullanılmayan. Gelecekte kullanılmak üzere ayrılmış. |
-|includeTypelessEntities | Metin, iyi bilinen bir varlık içerdiğinden, ancak desteklenen kategorilerden birini kategorilere olamaz, true olarak ayarlandığında, bunu bir parçası olarak döndürülecek `"entities"` karmaşık çıkış alanı. Varsayılan değer `false` |
+|includeTypelessEntities | Metin, iyi bilinen bir varlık içerdiğinden, ancak desteklenen kategorilerden birini kategorilere olamaz, true olarak ayarlandığında, bunu bir parçası olarak döndürülecek `"entities"` karmaşık çıkış alanı. 
+Bu, iyi bilinen ancak geçerli desteklenen "Kategoriler" bir parçası olarak sınıflandırılan değil varlıklardır. Örneği için bilinen bir varlık (ürün) "Windows 10" olan, ancak "Ürünler" Bugün desteklenen kategorileri değildir. Varsayılan değer `false` |
 
 
 ## <a name="skill-inputs"></a>Beceri girişleri

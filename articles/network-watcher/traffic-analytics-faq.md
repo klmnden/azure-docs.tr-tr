@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 87c624e0fc5eac60b309a2535afc7508f1b6b3ac
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383010"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986116"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analizi hakkında sık sorulan sorular
 
@@ -63,8 +63,8 @@ Herhangi bir çıktı görmediğinizden, komutları çalıştırmak için erişi
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>Hangi Azure bölgelerinde trafik analizi kullanılabilir mi?
 
 Trafik analizi, aşağıdaki desteklenen bölgelerden'nde Nsg'ler için kullanabilirsiniz:
-- Orta Kanada
-- Batı Orta ABD
+- Kanada Orta
+- Orta Batı ABD
 - Doğu ABD
 - Doğu ABD 2
 - Orta Kuzey ABD
@@ -74,9 +74,9 @@ Trafik analizi, aşağıdaki desteklenen bölgelerden'nde Nsg'ler için kullanab
 - Batı ABD 2
 - Batı Avrupa
 - Kuzey Avrupa
-- Güney Brezilya
-- Birleşik Krallık Batı
-- Birleşik Krallık Güney
+- Brezilya Güney
+- BK Batı
+- BK Güney
 - Avustralya Doğu
 - Avustralya Güneydoğu 
 - Güneydoğu Asya
@@ -85,11 +85,11 @@ Trafik analizi, aşağıdaki desteklenen bölgelerden'nde Nsg'ler için kullanab
 - Japonya Doğu
 
 Log Analytics çalışma alanı şu bölgelerde bulunmalıdır:
-- Orta Kanada
-- Batı Orta ABD
+- Kanada Orta
+- Orta Batı ABD
 - Doğu ABD
 - Batı Avrupa
-- Birleşik Krallık Güney
+- BK Güney
 - Avustralya Güneydoğu
 - Güneydoğu Asya 
 - Orta Hindistan
@@ -105,7 +105,7 @@ Evet.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Mevcut bir çalışma alanını kullanabilir miyim?
 
-Evet. Mevcut bir çalışma öğesini seçerseniz, yeni sorgu diline geçirilmiş olan emin olun. Çalışma alanı yükseltmek istiyor musunuz, yeni bir tane oluşturmanız gerekir. Yeni sorgu diline hakkında daha fazla bilgi için bkz: [Azure Log Analytics yükseltme için yeni günlük araması](../log-analytics/log-analytics-log-search-upgrade.md).
+Evet. Mevcut bir çalışma öğesini seçerseniz, yeni sorgu diline geçirilmiş olan emin olun. Çalışma alanı yükseltmek istiyor musunuz, yeni bir tane oluşturmanız gerekir. Yeni sorgu diline hakkında daha fazla bilgi için bkz: [yeni günlük araması için Azure İzleyici günlükleri yükseltme](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Bir abonelikte Azure depolama Hesabımı kullanılabilir ve Log Analytics çalışma Alanım'ı farklı bir abonelikte olabilir?
 

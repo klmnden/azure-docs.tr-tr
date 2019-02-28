@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8d39b614c373c63cf1405c5db0f64581c481d1f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 6a9839d636ba582c5006a260aeb6a17ac1a12e9b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417219"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986014"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Önizleme: Azure AD parola koruması dağıtma
 
@@ -112,7 +112,7 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
       * Cihaz kodu kimlik doğrulama modu:
 
          ```PowerShell
-         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceMode
+         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
          To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
          ```
 
@@ -155,7 +155,7 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
       * Cihaz kodu kimlik doğrulama modu:
 
          ```PowerShell
-         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceMode
+         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
          To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
          ```
 
@@ -278,7 +278,7 @@ Azure AD parola koruması birden çok orman içinde dağıtmak için ek gereksin
 
 Parola changes\sets hiçbir zaman işlenir ve salt okunur etki alanı denetleyicileri (RODC);'üzerinde kalıcı Bunun yerine, bu yazılabilir etki alanı denetleyicilerine iletilir. Bu nedenle RODC üzerinde DC Aracısı yazılımı yüklemek için gerek yoktur.
 
-## <a name="high-availability"></a>Yüksek kullanılabilirlik
+## <a name="high-availability"></a>Yüksek oranda kullanılabilirlik
 
 Bir ormandaki etki alanı denetleyicilerinin yeni ilkeler veya diğer verileri Azure'dan yüklemeye çalışırken ile Azure AD parola koruması yüksek kullanılabilirliğini sağlama kaygısı proxy sunucuların bir kullanılabilirlik kümesidir. Her bir DC aracı proxy sunucusunu çağrısı ve atlar, yanıt vermeyen proxy sunucuları verirken basit hepsini bir kez deneme stil algoritması kullanır. İki (2) proxy sunucuları tam olarak bağlı Active Directory dağıtımların çoğunluğu için sağlıklı çoğaltması (durumunun hem directory ve sysvol'de), kullanılabilirlik ve bu nedenle zamanında yüklemeleri yeni ilkeleri ve diğer verileri emin olmak yeterli olur. İstenen. ek proxy sunucuları olarak dağıtılabilir.
 

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7b73a0efbe20b43b3ba8e94fce3aabf12ea918e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997111"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986065"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes için Azure Stack Marketini Ekle
 
@@ -31,7 +31,7 @@ ms.locfileid: "55997111"
 
 Kullanıcılarınız için bir Market öğesi Kubernetes sunabilir. Kullanıcılarınızın ardından, Kubernetes içinde tek ve eşgüdümlü bir işlemle dağıtabilir.
 
-Şu makaleye bakın dağıtmak ve tek başına bir Kubernetes kümesi için kaynakları sağlamak için bir Azure Resource Manager şablonu kullanarak. Azure Stack sürüm 1808 0.3.0 Kubernetes küme Market öğesi gerektirir. Başlamadan önce Azure Stack ve Azure genel Kiracı ayarlarını kontrol edin. Azure Stack hakkında gerekli bilgileri toplayın. Gerekli kaynakları kiracınız ve Azure Stack Marketini ekleyin. Bir Ubuntu sunucusu, özel komut dosyası ve Kubernetes öğeleri Market'te olması küme bağlıdır.
+Şu makaleye bakın dağıtmak ve tek başına bir Kubernetes kümesi için kaynakları sağlamak için bir Azure Resource Manager şablonu kullanarak. Başlamadan önce Azure Stack ve Azure genel Kiracı ayarlarını kontrol edin. Azure Stack hakkında gerekli bilgileri toplayın. Gerekli kaynakları kiracınız ve Azure Stack Marketini ekleyin. Bir Ubuntu sunucusu, özel komut dosyası ve Kubernetes küme Market öğeyi Market'te küme bağlıdır.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Bir plan, teklif ve bir abonelik oluşturun
 
@@ -200,7 +200,7 @@ Ubuntu Server aşağıda Market'te ekleyin:
 1. `Ubuntu Server` yazın.
 
 1. Sunucu en yeni sürümünü seçin. Tam sürümünü denetleyin ve en yeni sürümüne sahip olduğunuzdan emin olun:
-    - **Yayımcı**: Canonical
+    - **Yayımcı**: Kurallı
     - **Teklif**: UbuntuServer
     - **Sürüm**: 16.04.201806120 (veya en son sürüm)
     - **SKU**: 16.04-LTS

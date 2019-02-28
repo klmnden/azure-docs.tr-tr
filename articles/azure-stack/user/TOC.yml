@@ -148,6 +148,8 @@ items:
           href: azure-stack-solution-template-kubernetes-azuread.md
         - name: Kubernetes AD FS kullanarak dağıtma
           href: azure-stack-solution-template-kubernetes-adfs.md
+        - name: Kubernetes panosunu etkinleştir
+          href: azure-stack-solution-template-kubernetes-dashboard.md
         - name: Kubernetes kümesinde sorun giderme
           href: azure-stack-solution-template-kubernetes-trouble.md
       - name: Bilişsel hizmetler dağıtma
@@ -177,9 +179,9 @@ items:
           href: azure-stack-version-profiles-java.md
         - name: PowerShell
           href: azure-stack-version-profiles-powershell.md
-        - name: Azure CLI
+        - name: Azure CLI'si
           href: azure-stack-version-profiles-azurecli2.md
-        - name: Başlayın
+        - name: Git
           href: azure-stack-version-profiles-go.md
         - name: Ruby
           href: azure-stack-version-profiles-ruby.md
@@ -233,9 +235,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Eğitim ve sertifika
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: c9c4e0109df5880100956e167d17c61dfd001743
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a06965bc494da93dfb945ccdfbbf10db310df48c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450686"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986303"

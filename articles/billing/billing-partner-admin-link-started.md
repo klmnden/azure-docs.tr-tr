@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c38b28a247feb94efd5f4b73e690d30aac9ed73a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 85beb9b7e0c62d5e1c8dae61fdd15d5faf3a294c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900247"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985878"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure hesaplarınızdan bir iş ortağı kimliği Bağla
 
@@ -138,3 +138,25 @@ Evet. Bağlantılı iş ortağı kimliği değişti, eklenen veya kaldırılacak
 **Diğer iş ortakları veya müşterilerin düzenleyebilir veya iş ortağı Kimliğini bağlantısını kaldırmak?**
 
 Bağlantı kullanıcı hesabı düzeyinde ilişkili değil. Yalnızca düzenlemek veya iş ortağı kimliğini bağlantısını Kaldır Müşteri ve diğer iş ortaklarıyla bağlantı iş ortağı kimliğine değiştiremezsiniz 
+
+
+**Şirketim birden fazla varsa, hangi MPN kimliği kullanmam gerekir?**
+
+V-kuruluş MPN kimliği dışındaki tüm geçerli MPN kimliği kullanabilirsiniz. Çoğu iş ortakları, burada müşteri tabanlı veya hizmetlerine gönderilen coğrafyadaki MPN kimliği kullanmayı seçin.
+
+**Bağlantılı iş ortağı kimliği için raporlama etkileyen gelir nerede bulabilirim?**
+
+Adresindeki etkileyen gelir raporlama bulabilirsiniz [My öngörüleri Panosu](https://partner.microsoft.com/membership/reports/myinsights) gösterildiği gibi iş ortağı yönetim bağlantısını seçerek.
+
+**Müşterim raporlarında neden göremiyorum?**
+
+Aşağıdaki nedenlerden dolayı raporlarında müşteri göremiyorum
+
+1. Bağlı kullanıcı hesabı sahip olmadığı [rol tabanlı erişim ](https://docs.microsoft.com/azure/role-based-access-control/overview) herhangi bir müşteri Azure abonelik veya kaynak.
+
+2. Kullanıcının sahip olduğu Azure aboneliğini [rol tabanlı erişim ](https://docs.microsoft.com/azure/role-based-access-control/overview) erişimi tüm kullanım yok.
+
+**İş ortağı kimliği ile Azure Stack çalışır bağlantı mu?**
+
+Evet, Azure Stack için iş ortağı Kimliğinizin bağlayabilirsiniz.
+

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231980"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986337"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak genel temel yük dengeleyici oluşturma
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir temel yük dengeleyici oluşturma
 
 Yük Dengeleme, sanal makineye (VM) gelen istekleri yayarak daha yüksek düzeyde kullanılabilirlik ve ölçek sağlar. Yük Dengeleyici oluşturma ve VM'ler arasında trafiği dengelemek için Azure portalını kullanabilirsiniz. Bu hızlı başlangıçta oluşturma ve bir yük dengeleyici, arka uç sunucularının ve ağ kaynakları temel fiyatlandırma katmanında yapılandırma gösterilmektedir.
 
@@ -30,25 +30,27 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu hızlı başlangıç görevleri yapmak için oturum açın [Azure portalında](http://portal.azure.com).
 
-## <a name="create-a-basic-load-balancer"></a>Temel yük dengeleyici oluşturma
+## <a name="create-a-basic-load-balancer"></a>Temel Yük Dengeleyici oluşturma
 
-Portalı kullanarak ilk olarak genel temel yük dengeleyici oluşturun. Oluşturduğunuz genel IP adresi ve adını, load balancer'ın ön ucu olarak otomatik olarak yapılandırılır.
+Portalı kullanarak ilk olarak genel bir temel yük dengeleyici oluşturun. Oluşturduğunuz genel IP adresi ve adını, load balancer'ın ön ucu olarak otomatik olarak yapılandırılır.
 
-1. Portalın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici** seçeneğini belirleyin.
-   
-1. İçinde **yük dengeleyici Oluştur** bölmesinde yazın veya bu değerleri seçin:
-   
-   - **Ad**: Tür *MyLoadBalancer*.
-   - **Tür**: Seçin **genel**. 
-   - **SKU**: **Temel**'i seçin.
-   - **Genel IP adresi:** **Yeni oluştur**’u seçin. 
-     - **Genel IP adresi** alan: Tür *Mypublicıp*.
-     - **Genel IP adresi yapılandırma** > **atama**: Seçin **dinamik**.
-   - **ResourceGroup**: Seçin **Yeni Oluştur**, enter *MyResourceGroupLB*seçip **Tamam**. 
-   
-1. **Oluştur**’u seçin.
-   
-![Yük dengeleyici oluşturma](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+1. Ekranın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici**'ye tıklayın.
+2. İçinde **Temelleri** sekmesinde **yük dengeleyici Oluştur** sayfasında, girin veya aşağıdaki bilgileri seçin, geri kalan ayarlar için varsayılan değerleri kabul edin ve ardından **gözden geçir +Oluştur**:
+
+    | Ayar                 | Değer                                              |
+    | ---                     | ---                                                |
+    | Abonelik               | Aboneliğinizi seçin.    |    
+    | Kaynak grubu         | Seçin **Yeni Oluştur** ve türü *MyResourceGroupLB* metin kutusuna.|
+    | Ad                   | *myLoadBalancer*                                   |
+    | Bölge         | **Batı Avrupa**'yı seçin.                                        |
+    | Type          | Seçin **genel**.                                        |
+    | SKU           | **Temel**'i seçin.                          |
+    | Genel IP adresi | **Yeni oluştur**’u seçin. |
+    | Ortak IP adresi adı              | *Mypublicıp*   |
+    | Atama| Statik|
+
+3. İçinde **gözden geçir + Oluştur** sekmesinde **Oluştur**.   
+
 
 ## <a name="create-back-end-servers"></a>Arka uç sunucuları oluşturma
 

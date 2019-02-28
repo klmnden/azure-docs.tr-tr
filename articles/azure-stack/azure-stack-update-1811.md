@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 14e587276deab9656c3be04c96182942767ae0f2
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099148"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986031"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 güncelleştirme
 
@@ -86,6 +86,8 @@ Azure Stack düzeltmeleri düzenli olarak serbest bırakır. Yüklediğinizden e
     Düzgün bir şekilde zorunlu uzantısı ana bilgisayar sertifikaları içe aktardıktan sonra yönetici portalından 1811 güncelleştirme devam edebilir. Microsoft Azure Stack operatörleri güncelleştirme işlemi sırasında bir bakım penceresi zamanlamak üzere önerir, ancak bir hata nedeniyle eksik uzantı ana bilgisayar sertifikaları var olan iş yükleri veya hizmetleri etkilememesi gerekir.  
 
     Bu güncelleştirmenin yüklenmesi sırasında Azure Stack Kullanıcı Portalı uzantısı konağı yapılandırılırken kullanılamaz. Uzantı konağın yapılandırmasını 5 saate kadar sürebilir. Bu süre boyunca bir güncelleştirmenin durumunu denetleyebilir veya [Azure Stack Yöneticisi PowerShell veya ayrıcalıklı uç noktayı](azure-stack-monitor-update.md) kullanarak başarısız bir güncelleştirme yüklemesini sürdürebilirsiniz.
+
+- Azure Stack System Center Operations Manager (SCOM) tarafından yönetildiğinde 1811 uygulamadan önce Yönetim Paketi için Microsoft Azure Stack 10.0.3.11 sürümüne güncelleştirdiğinizden emin olun.
 
 ## <a name="new-features"></a>Yeni Özellikler
 
