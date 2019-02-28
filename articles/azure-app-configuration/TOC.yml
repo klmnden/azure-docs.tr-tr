@@ -1,0 +1,60 @@
+items:
+- name: Azure Uygulama Yapılandırması Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+  - name: Azure Uygulama Yapılandırması hakkında
+    href: overview.md
+- name: Hızlı Başlangıçlar
+  items:
+  - name: ASP.NET Core uygulaması oluşturma
+    href: quickstart-aspnet-core-app.md
+  - name: .NET Core uygulaması oluşturma
+    href: quickstart-dotnet-core-app.md
+  - name: .NET Framework uygulaması oluşturma
+    href: quickstart-dotnet-app.md
+  - name: Azure İşlevi oluşturma
+    href: quickstart-azure-function-csharp.md
+  - name: Java Spring uygulaması oluşturma
+    href: quickstart-java-spring-app.md
+  expanded: true
+- name: Öğreticiler
+  items:
+  - name: ASP.NET Core'da dinamik yapılandırmayı etkinleştirme
+    href: enable-dynamic-configuration-aspnet-core.md
+  - name: Azure Yönetilen Hizmet Kimliği ile tümleştirme
+    href: integrate-azure-managed-service-identity.md
+- name: Örnekler
+  items:
+  - name: Kod örnekleri
+    href: https://github.com/Azure/AppConfiguration/samples
+  - name: Azure CLI
+    href: cli-samples.md
+- name: Kavramlar
+  items:
+  - name: Anahtar değeri deposu
+    href: concept-key-value.md
+  - name: Belirli bir noktanın anlık görüntüsü
+    href: concept-point-time-snapshot.md
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Yapılandırma verilerini içeri veya dışarı aktarma
+    href: howto-import-export-data.md
+  - name: CI/CD işlem hattıyla tümleştirme
+    href: howto-integrate-ci-cd-pipeline.md
+- name: Başvuru
+  items:
+  - name: .NET Core yapılandırma sağlayıcısı
+    href: https://go.microsoft.com/fwlink/?linkid=2074664
+  - name: .NET Framework yapılandırma oluşturucusu
+    href: https://go.microsoft.com/fwlink/?linkid=2074663
+  - name: Java Spring yapılandırma oluşturucusu
+    href: https://go.microsoft.com/fwlink/?linkid=2074659
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/azure-app-configuration
+ms.openlocfilehash: c35296a6923e464ca20a873de4165ea20c08278f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56884143"

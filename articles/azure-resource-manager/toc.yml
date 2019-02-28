@@ -23,20 +23,24 @@ items:
   - name: Kaynakları taşıma
     href: resource-manager-tutorial-move-resources.md
   - name: Kaynak dağıtım sırasını ayarlama
+    displayName: dependent resources, dependency
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
   - name: Koşulları kullanma
     href: resource-manager-tutorial-use-conditions.md
   - name: Key Vault oluşturma
+    displayName: secrets
     href: resource-manager-tutorial-use-key-vault.md
   - name: Bağlı şablonlar oluşturma
     href: resource-manager-tutorial-create-linked-templates.md
   - name: VM uzantılarını dağıtma
+    displayName: virtual machine extensions
     href: resource-manager-tutorial-deploy-vm-extensions.md
   - name: SQL uzantılarını dağıtma
     href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
   - name: Güvenli yapıtlar
     href: resource-manager-tutorial-secure-artifacts.md
   - name: Güvenli dağıtım uygulamalarını kullanma
+    displayName: azure deployment manager
     href: deployment-manager-tutorial.md
   - name: Şablon dağıtımı sorunlarını giderme
     href: resource-manager-tutorial-troubleshoot.md
@@ -97,6 +101,7 @@ items:
       href: resource-group-linked-templates.md
     - name: Gizli dizileri yönetme
       href: resource-manager-keyvault-parameter.md
+      displayname: key vault
     - name: Birden çok örnek oluşturma
       href: resource-group-create-multiple.md
     - name: Şablon uzantılarını kullanma
@@ -111,46 +116,47 @@ items:
       href: resource-group-template-deploy-cli.md
     - name: Dağıtma - PowerShell
       href: resource-group-template-deploy.md
-    - name: REST API'yi kullanarak dağıtma
+    - name: Dağıtma - REST API
       href: resource-group-template-deploy-rest.md
     - name: SAS belirteciyle şablonların güvenliğini sağlama
       items:
-      - name: Azure CLI’yı kullanma
+      - name: Azure CLI kullanma
         href: resource-manager-cli-sas-token.md
-      - name: PowerShell’i kullanma
+      - name: Azure PowerShell kullanma
         href: resource-manager-powershell-sas-token.md
     - name: Birden çok kaynak grubuna veya aboneliğe dağıtma
       href: resource-manager-cross-resource-group-deployment.md
     - name: Azure DevOps Services ile sürekli tümleştirme
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
-  - name: Kaynakları yönetme
+  - name: Yönetme
     items:
     - name: Kaynak gruplarını yönetme
       items:
-      - name: Kaynak gruplarını yönetme - portal
+      - name: Azure portalı kullanma
         displayName: create,list,open,delete,deploy,move,lock,tag,export
         href: manage-resource-groups-portal.md
-      - name: Kaynak gruplarını yönetme - CLI
+      - name: Azure CLI kullanma
         displayName: create,list,open,delete,deploy,move,lock,tag,export
         href: manage-resource-groups-cli.md
-      - name: Kaynak gruplarını yönetme - PowerShell
+      - name: Azure PowerShell kullanma
         displayName: create,list,open,delete,deploy,move,lock,tag,export
         href: manage-resource-groups-powershell.md
     - name: Kaynakları yönetme
       items:
-      - name: Kaynakları yönetme - portal
+      - name: Azure portalı kullanma
         displayName: open,delete,deploy,move,lock,tag,monitor
         href: manage-resources-portal.md
-      - name: Kaynakları yönetme - CLI
+      - name: Azure CLI kullanma
         displayName: open,delete,deploy,move,lock,tag
         href: manage-resources-cli.md
-      - name: Kaynakları yönetme - PowerShell
+      - name: Azure PowerShell kullanma
         displayName: open,delete,deploy,move,lock,tag
         href: manage-resources-powershell.md
     - name: Kaynakları taşıma
       href: resource-group-move-resources.md
-    - name: Etiketleri kullanarak kaynakları düzenleme
+    - name: Kaynakları düzenleme
+      displayName: tags
       href: resource-group-using-tags.md
     - name: Kaynakları kilitleme
       href: resource-group-lock-resources.md
@@ -259,9 +265,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 1483d34859135d7b50bada6c74c90d09abc2df23
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 061f23dd0f25fccdbcfe459dc71f998319b06d58
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820544"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886698"

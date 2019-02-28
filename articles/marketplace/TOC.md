@@ -1,5 +1,6 @@
 # [Azure Market ve AppSource belgeleri](index.md)
 ## [Azure Market ve AppSource yol haritası](./marketplace-roadmap.md)
+## [Azure Market ilkeleri ve koşulları](./policies-terms.md)
 
 ## [Azure Market ve AppSource genel bakışı ve avantajları](./marketplace-publishers-guide.md)  
 ### [Markette yayımcı olma](./become-publisher.md)  
@@ -29,7 +30,6 @@
 #### [En iyi teklif listeleme deneyimleri](./gtm-offer-listing-best-practices.md)
 #### [Ürünü öne çıkarma](./gtm-how-to-get-featured.md)
 #### [Market içerik doğrulaması](./marketplace-criteria-content-validation.md)
-#### [Derecelendirme ve ilkeleri gözden geçirme](./rating-review-policies.md)   
 
 ### [Market avantajlarınız](./gtm-your-marketplace-benefits.md)
 #### [Microsoft ile işletmenizi tanıtma](./gtm-promote-your-business.md)
@@ -37,9 +37,6 @@
 
 ### [Azure Market ve AppSource desteği](./support-azure-marketplace.md)
 #### [Market hakkında SSS](./marketplace-faq-publisher-guide.md)
-#### [Market terimleri](./marketplace-terms.md)
-#### [Market katılım ilkesi](./marketplace-participation-policy.md)
-
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
