@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/26/2019
-ms.openlocfilehash: f6179c14c0a057a08203764316eeb43783cd7fc8
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 02/27/2019
+ms.openlocfilehash: 0d0ee3664a5f442e4fbf61af3111a53110afd740
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887752"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984756"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Oluşturma ve etkin coğrafi çoğaltma kullanma
 
@@ -51,9 +51,6 @@ Etkin coğrafi çoğaltma yararlanır [Always On](https://docs.microsoft.com/sql
 > İki bölgeleri arasında bir ağ hatası varsa, 10 saniyede yeniden bağlantı kurmak için tekrar deneyeceğiz.
 > [!IMPORTANT]
 > Birincil veritabanında önemli bir değişiklik, yük devretmeden önce ikincil çoğaltılır sağlamak için önemli değişiklikler (örneğin, parola güncelleştirmeleri) çoğaltılmasını sağlamak için eşitleme zorlayabilirsiniz. Tüm kaydedilmiş işlemleri çoğaltılır kadar çağıran iş parçacığını engeller. çünkü zorlamalı eşitleme performansı etkiler. Ayrıntılar için bkz [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Birincil veritabanı arasındaki coğrafi-ikincil çoğaltma gecikmesi izlemek için bkz: [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
-
-
-
 
 Aşağıdaki şekilde Orta Güney ABD bölgesinde yapılandırılmış Kuzey Orta ABD bölgesinde birincil ve ikincil etkin coğrafi çoğaltma örneği gösterilmektedir.
 
@@ -110,7 +107,7 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 - **Kimlik bilgileri ve güvenlik duvarı kuralları eşitlenmiş durumda tutma**
 
-Kullanmanızı öneririz [veritabanı güvenlik duvarı kuralları](sql-database-firewall-configure.md) bu kurallar, tüm ikincil veritabanlarını birincil olarak aynı güvenlik duvarı kuralları olduğundan emin olmak için veritabanı kullanılarak çoğaltılabilir. Bu nedenle coğrafi çoğaltmalı veritabanı. Bu yaklaşım el ile yapılandırmak ve hem birincil ve ikincil veritabanlarını barındıran sunucu güvenlik duvarı kurallarını sağlamak müşterilerin ihtiyacını ortadan kaldırır. Benzer şekilde, kullanarak [kapsanan veritabanı kullanıcıları](sql-database-manage-logins.md) veriler için birincil ve ikincil veritabanları her zaman sahip aynı erişim sağlar. kullanıcı kimlik bilgilerini bir yük devretme sırasında bu yüzden hiçbir kesinti nedeniyle oturum açma ve parolaları ile uyuşmuyor. Ek olarak [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), müşteriler, hem birincil hem de ikincil veritabanları için kullanıcı erişimini yönetebilir ve yönetme gereksinimini ortadan kimlik bilgileri veritabanlarında tamamen.
+Kullanmanızı öneririz [veritabanı düzeyinde güvenlik duvarı kuralları IP](sql-database-firewall-configure.md) bu kurallar, tüm ikincil veritabanlarını birincil olarak aynı IP güvenlik duvarı kuralları olduğundan emin olmak için veritabanı kullanılarak çoğaltılabilir. Bu nedenle coğrafi çoğaltmalı veritabanı. Bu yaklaşım el ile yapılandırmak ve hem birincil ve ikincil veritabanlarını barındıran sunucu güvenlik duvarı kurallarını sağlamak müşterilerin ihtiyacını ortadan kaldırır. Benzer şekilde, kullanarak [kapsanan veritabanı kullanıcıları](sql-database-manage-logins.md) veriler için birincil ve ikincil veritabanları her zaman sahip aynı erişim sağlar. kullanıcı kimlik bilgilerini bir yük devretme sırasında bu yüzden hiçbir kesinti nedeniyle oturum açma ve parolaları ile uyuşmuyor. Ek olarak [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), müşteriler, hem birincil hem de ikincil veritabanları için kullanıcı erişimini yönetebilir ve yönetme gereksinimini ortadan kimlik bilgileri veritabanlarında tamamen.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Yükseltme veya bir birincil veritabanı önceki sürüme indirme
 

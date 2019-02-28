@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 74bdcc831f19031162d004e1ba98c0cfc258ce4b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c66f0e67b09dab15431a8c7c10db1c820038dea6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879432"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984994"
 ---
 # <a name="introduction-to-azure-security"></a>Azure güvenliğine giriş
 ## <a name="overview"></a>Genel Bakış
@@ -116,7 +116,7 @@ Güvenlik açıklarına karşı testini kullanmaya başlamanın en kolay yollar�
 Kendi sızma testleri gerçekleştirmeniz veya başka bir tarayıcı suite veya sağlayıcısı kullanmak isterseniz, izlemeniz gereken [onay işlemi Azure sızma](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) ve istenen sızma testleri gerçekleştirmeniz için önceki onay alın.
 
 ### <a name="web-application-firewall"></a>Web uygulaması güvenlik duvarı
-Web uygulaması Güvenlik Duvarı (WAF) [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) SQL ekleme gibi yaygın web tabanlı saldırıları, siteler arası komut dosyası saldırıları ve oturum ele geçirme web uygulamaları korumaya yardımcı olur. Bunu tarafından belirlenen tehditlerden koruma ile önceden yapılandırılmış olarak gelir [açık Web uygulaması güvenlik Project (OWASP) ilk 10 yaygın güvenlik açıklarına olarak](https://msdn.microsoft.com/library/).
+Web uygulaması Güvenlik Duvarı (WAF) [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) SQL ekleme gibi yaygın web tabanlı saldırıları, siteler arası komut dosyası saldırıları ve oturum ele geçirme web uygulamaları korumaya yardımcı olur. Bunu tarafından belirlenen tehditlerden koruma ile önceden yapılandırılmış olarak gelir [açık Web uygulaması güvenlik Project (OWASP) ilk 10 yaygın güvenlik açıklarına olarak](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde kimlik doğrulaması ve yetkilendirme
 [App Service kimlik doğrulaması / yetkilendirme](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) uygulamanız, böylece uygulama arka ucu kodunu değiştirmeniz gerekmez kullanıcılarının oturumunu açmak için bir yol sağlayan bir özelliktir. Uygulamanızı korumak ve kullanıcı başına verilerle çalışmak için kolay bir yol sunar.

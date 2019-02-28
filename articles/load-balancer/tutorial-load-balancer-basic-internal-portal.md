@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 16c9eea61391511f7515308131b3541e186cd7ae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b8600ed03140e302c730d44c6410d2020b7c48a3
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232626"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983192"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Öğretici: Azure portalında bir temel yük dengeleyici ile iç trafik Yük Dengeleme
 
@@ -87,20 +87,23 @@ Portalı kullanarak bir iç temel yük dengeleyici oluşturun. Oluşturduğunuz 
 
 1. Portalın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici** seçeneğini belirleyin.
    
-1. İçinde **yük dengeleyici Oluştur** bölmesinde yazın veya bu değerleri seçin:
+2. İçinde **Temelleri** sekmesinde **yük dengeleyici Oluştur** sayfasında, girin veya aşağıdaki bilgileri seçin, geri kalan ayarlar için varsayılan değerleri kabul edin ve ardından **gözden geçir +Oluştur**:
+
+    | Ayar                 | Değer                                              |
+    | ---                     | ---                                                |
+    | Abonelik               | Aboneliğinizi seçin.    |    
+    | Kaynak grubu         | Seçin **Yeni Oluştur** ve türü *MyResourceGroupLB* metin kutusuna.|
+    | Ad                   | *myLoadBalancer*                                   |
+    | Bölge         | **Batı Avrupa**'yı seçin.                                        |
+    | Type          | Seçin **genel**.                                        |
+    | SKU           | **Temel**'i seçin.                          |
+    | Sanal ağ           | Seçin *MyVNet*.                          |    
+| Genel IP adresi | **Yeni oluştur**’u seçin. |
+    | Genel IP adresi ataması              | Seçin **statik**.   |
+    | Özel IP adresi|Örneğin sanal ağ ve alt ağ, adres alanında olan bir adres *10.3.0.7*.  |
+
+3. İçinde **gözden geçir + Oluştur** sekmesinde **Oluştur**. 
    
-   - **Ad**: Tür *MyLoadBalancer*.
-   - **Tür**: Seçin **iç**. 
-   - **SKU**: **Temel**'i seçin.
-   - **Sanal ağ**: Seçin **bir sanal ağ seçin**ve ardından **MyVNet**.
-   - **Alt ağ**: Seçin **bir alt ağ seçin**ve ardından **MyBackendSubnet**.
-   - **IP adresi ataması**: Seçin **statik** seçili değilse.
-   - **Özel IP adresi**: Örneğin sanal ağ ve alt ağ, adres alanında olan bir adres *10.3.0.7*.
-   - **ResourceGroup**: Açılan menü **var olanı Seç** seçip **MyResourceGroupLB**. 
-   
-1. **Oluştur**’u seçin.
-   
-![Yük dengeleyici oluşturma](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
 
 ## <a name="create-basic-load-balancer-resources"></a>Temel yük dengeleyici kaynakları oluşturma
 

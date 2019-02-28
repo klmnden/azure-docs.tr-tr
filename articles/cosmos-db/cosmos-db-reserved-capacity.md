@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e7a5ed6274a0429726f0ed19c0765cfdc3378daa
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5547186d314f0c8cebf9f08463e4953f9f20ad3c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888534"
+ms.locfileid: "56957989"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB'de ayrılmış bir kapasiteyle maliyeti iyileştirin
 
@@ -71,7 +71,7 @@ Rezervasyonunuz süresi dolduğunda, Azure Cosmos DB örneklerinizin çalışmay
 
 ## <a name="cancellation-and-exchanges"></a>İptal ve değişimler
 
-Şu ayrılmış Kapasite tanımlama konusunda yardım için bkz: [ayırma indirimi, Azure Cosmos DB'ye nasıl uygulandığını anlamanız](../billing/billing-understand-cosmosdb-reservation-charges.md). Gereksinim duyduğunuz durumunda iptal veya bir Azure Cosmos DB ayırması exchange, lütfen Azure Cosmos DB, ekibiyle `askCosmosDB@microsoft.com`.
+Şu ayrılmış Kapasite tanımlama konusunda yardım için bkz: [ayırma indirimi, Azure Cosmos DB'ye nasıl uygulandığını anlamanız](../billing/billing-understand-cosmosdb-reservation-charges.md). Gereksinim duyduğunuz durumunda iptal veya bir Azure Cosmos DB ayırması exchange, lütfen Azure Cosmos DB, ekibiyle `AskCosmosDB@microsoft.com`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

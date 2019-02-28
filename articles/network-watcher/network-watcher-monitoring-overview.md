@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 8738ac52eeaf1f27df5f9cc21ffb0c683a912195
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0eb27e997d39ceb82098b63de607d3529ccc53b4
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427038"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984416"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure Ağ İzleyicisi nedir?
 
@@ -97,7 +97,7 @@ Ağ güvenlik grupları (NSG) sanal makinedeki ağ arabirimine gelen veya burada
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Ağ kaynakları için tanılamak günlüklerini görüntüleme
 
-Ağ güvenlik grupları, genel IP adresleri, yük dengeleyiciler, sanal ağ geçitleri ve uygulama ağ geçitleri gibi Azure ağ kaynakları için tanılama günlüğünü etkinleştirebilirsiniz. *Tanılama günlükleri* özelliği, tanılama günlüğü oluşturan tüm mevcut ağ kaynaklarında ağ kaynağı tanılama günlüklerini tek bir arabirimden etkinleştirmenize ve devre dışı bırakmanıza olanak tanır. Microsoft Power BI ve Azure Log Analytics gibi araçları kullanarak tanılama günlüklerini görüntüleyebilirsiniz. Azure ağ tanılama günlüklerinin analizi hakkında daha fazla bilgi edinmek için bkz. [Log Analytics'te Azure ağ çözümleri](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Ağ güvenlik grupları, genel IP adresleri, yük dengeleyiciler, sanal ağ geçitleri ve uygulama ağ geçitleri gibi Azure ağ kaynakları için tanılama günlüğünü etkinleştirebilirsiniz. *Tanılama günlükleri* özelliği, tanılama günlüğü oluşturan tüm mevcut ağ kaynaklarında ağ kaynağı tanılama günlüklerini tek bir arabirimden etkinleştirmenize ve devre dışı bırakmanıza olanak tanır. Microsoft Power BI ve Azure İzleyici günlükleri gibi araçları kullanarak tanılama günlüklerini görüntüleyebilirsiniz. Azure Ağ Tanılama günlüklerini analiz etme hakkında daha fazla bilgi için bkz: [Azure ağ çözümlerini Azure İzleyici günlüklerine](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Ağ İzleyicisi otomatik etkinleştirme
 Oluşturun veya aboneliğinizdeki sanal ağ güncelleştirmesi, sanal ağınızın bölgede Ağ İzleyicisi otomatik olarak etkinleştirilecektir. Ağ İzleyicisi’nin otomatik olarak etkinleştirilmesi sırasında kaynaklarınız veya bu hizmete ilişkin ücretler etkilenmez. Daha fazla bilgi için [Ağ İzleyicisi oluşturma](network-watcher-create.md).

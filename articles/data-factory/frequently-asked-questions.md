@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 112ff38ad4e35ac284501c5dd3881c4f340b5f9b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024102"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984654"
 ---
 # <a name="azure-data-factory-faq"></a>Azure veri fabrikası ile ilgili SSS
 Bu makalede Azure Data Factory hakkında sık sorulan soruların yanıtlarını sağlar.  
@@ -174,6 +174,33 @@ Evet. Bir etkinlik çıkışı ile sonraki bir etkinliği kullanılabilir `@acti
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Bir etkinlik çıkışı null değerleri düzgün bir şekilde nasıl yapabilirim? 
 Kullanabileceğiniz `@coalesce` null değerlerini düzgün biçimde işlemesi için ifadelerinde oluşturun. 
+
+## <a name="mapping-data-flows"></a>Eşleme veri akışları
+
+### <a name="which-adf-version-do-i-use-to-create-data-flows"></a>Veri akışları oluşturmak için hangi ADF sürümünü kullanabilir?
+Veri akışları oluşturma için ADF V2 sürümünü kullanın
+  
+### <a name="i-was-a-previous-private-preview-customer-using-data-flows-and-i-used-the-adf-v2-wdata-flows-preview-version"></a>Ben veri akışları kullanarak önceki özel Önizleme müşterisi olan ve ADF V2 w/veri akışları Önizleme sürümü kullandım
+Bu sürüm artık kullanılmıyor. ADF V2 veri akışları için kullanın.
+  
+### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-data-flows"></a>Veri Akışları'ndaki sınırlı genel Önizleme için hangi özel Önizlemesi'nden değişti mi?
+Artık kendi Databricks kümeleri getirmek gerekir. Küme oluşturma ve kapatmayı ADF yönetebilir. Sınırlandırılmış metin ve Parquet veri kümeleri, BLOB veri kümeleri ve ADLS veri kümeleri ayrılır. ADLS & Blob Store dosyaları depolamak için kullanmaya devam edebilirsiniz. Uygun bağlı hizmeti için bu depolama altyapıları kullanın.
+
+### <a name="can-i-migrate-my-private-preview-factories-to-adf-v2"></a>ADF V2'ye my özel Önizleme fabrikaları geçirebilir miyim?
+
+[Evet, buradaki yönergeleri izleyin](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)
+
+### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-do-you-need"></a>Gerekenler, my veri akışı mantığı gidermeyle ilgili yardım almam gerekiyor?
+
+Microsoft Yardım veya veri akışları ile sorun giderme sağladığında, lütfen "DSL kod planı" belirtin. Bunu yapmak için şu adımları uygulayın:
+
+* Veri Akışı Tasarımcısı'ndan sağ üst köşedeki "Code"'a tıklayın. Bu veri akışı için düzenlenebilir JSON kodunu görüntüler.
+* Kod görünümünden üzerinde sağ üst köşedeki "Plan"'a tıklayın. Biçimlendirilmiş DSL betik planına json'dan planı anahtarı.
+* Kopyalayın ve bu betiği yapıştırın veya bir metin dosyasına kaydedin.
+
+### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>Diğer 80 veri kümesi türlerini kullanarak ADF içinde verileri nasıl erişim sağlanır?
+
+Veri akışı şu anda Azure SQL DB, Azure SQL DW, Blob veya ADLS ayrılmış metin dosyalarını ve Parquet dosyalarını Blob veya ADLS yerel olarak kaynak ve havuz için sağlar. Kopyalama etkinliği için veri hazırlamak herhangi diğer bağlayıcıları kullanın ve hazırlanmış sonra verileri dönüştürmek için bir veri akışı etkinliği yürütebilirsiniz. Örneğin, işlem hattınızı ilk Blob kopyalar ve bir veri akışı etkinlik verileri dönüştürmek için kaynakta bir veri kümesi sonra kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Veri Fabrikası oluşturmak adım adım yönergeler için aşağıdaki öğreticilere bakın:

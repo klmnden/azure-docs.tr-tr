@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/08/2018
+ms.date: 02/26/2019
 ms.author: juliako
-ms.openlocfilehash: c62d9132cdd7eb2ebcbecc3c417ad30d368a278a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: a0843e6c641ded75ded01da4c8a54cd4c0f48ee1
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138713"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957479"
 ---
 # <a name="how-to-encode-with-a-custom-transform"></a>Özel bir dönüşüm ile kodlama
 
@@ -38,7 +38,7 @@ Aşağıdaki komutu kullanarak makinenize tam .NET Core örnek içeren GitHub de
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Dönüşüm özel önayarın ile oluşturma 
 
-Yeni bir oluştururken [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms), çıkış olarak üretmek için istediğinizi belirtmeniz gerekir. Gerekli parametre, aşağıdaki kodda gösterildiği gibi bir **TransformOutput** nesnesidir. Her **TransformOutput** bir **Ön ayar** içerir. **Ön ayar**, video ve/veya ses işleme işlemlerinin istenen **TransformOutput** nesnesini oluşturmak üzere kullanılacak adım adım yönergelerini açıklar. Aşağıdaki **TransformOutput** özel codec ve katman çıkış ayarları oluşturur.
+Yeni bir oluştururken [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms), çıkış olarak üretmek için istediğinizi belirtmeniz gerekir. Gerekli parametre, aşağıdaki kodda gösterildiği gibi bir [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) nesnesidir. Her **TransformOutput** bir **Ön ayar** içerir. **Ön ayar**, video ve/veya ses işleme işlemlerinin istenen **TransformOutput** nesnesini oluşturmak üzere kullanılacak adım adım yönergelerini açıklar. Aşağıdaki **TransformOutput** özel codec ve katman çıkış ayarları oluşturur.
 
 Bir [Dönüşüm](https://docs.microsoft.com/rest/api/media/transforms) oluştururken ilk olarak aşağıdaki kodda gösterildiği gibi **Get** yöntemi ile bir dönüşümün zaten var olup olmadığını denetlemeniz gerekir.  Media Services v3 içinde **alma** varlıklar üzerinde yöntemleri dönüş **null** varlık (büyük/küçük harfe adına bir denetimi) yoksa.
 

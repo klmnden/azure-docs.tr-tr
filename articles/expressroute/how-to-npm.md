@@ -8,16 +8,18 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fb9ee97726632b7eeccc923596c1f5527a7c95bd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098587"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961627"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute için Ağ Performansı İzleyicisi’ni Yapılandırma
 
-Bu makalede bir ağ performansı İzleyicisi uzantısı, ExpressRoute izlemek için yapılandırmanıza yardımcı olur. Ağ Performansı İzleyicisi'ni (NPM) izleme çözümü, Azure bulut dağıtımları ve (şube ofisleri, vb.) ile şirket içi konumlar arasında bağlantı izleyen bir bulut tabanlı bir ağdır. NPM Log analytics'in bir parçasıdır. NPM özel eşleme veya Microsoft eşlemesi kullanmak üzere yapılandırılmış ExpressRoute devrelerine ağ performansını izlemenize olanak tanıyan ExpressRoute için bir uzantı sunar. ExpressRoute için NPM yapılandırma belirlemek ve gidermek için ağ sorunlarını algılayabilir. Bu hizmet, Azure kamu bulutu için de kullanılabilir.
+Bu makalede bir ağ performansı İzleyicisi uzantısı, ExpressRoute izlemek için yapılandırmanıza yardımcı olur. Ağ Performansı İzleyicisi'ni (NPM) izleme çözümü, Azure bulut dağıtımları ve (şube ofisleri, vb.) ile şirket içi konumlar arasında bağlantı izleyen bir bulut tabanlı bir ağdır. NPM Azure İzleyici günlüklerine bir parçasıdır. NPM özel eşleme veya Microsoft eşlemesi kullanmak üzere yapılandırılmış ExpressRoute devrelerine ağ performansını izlemenize olanak tanıyan ExpressRoute için bir uzantı sunar. ExpressRoute için NPM yapılandırma belirlemek ve gidermek için ağ sorunlarını algılayabilir. Bu hizmet, Azure kamu bulutu için de kullanılabilir.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Şunları yapabilirsiniz:
 
@@ -98,7 +100,7 @@ ExpressRoute bağlantı yedeklilik (örneğin, şirket içi, Azure sanal ağlar�
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın.
 3. Üzerinde **lisans koşulları** sayfasında, lisansı okuyun ve ardından **ediyorum**.
 4. Üzerinde **hedef klasör** sayfasında, değiştirin veya varsayılan yükleme klasörünü tutun ve ardından **sonraki**.
-5. Üzerinde **Aracı Kurulum Seçenekleri** sayfasında seçebilirsiniz aracıyı Azure Log Analytics veya Operations Manager bağlanmak. Veya aracıyı daha sonra yapılandırmak istiyorsanız seçimleri boş bırakabilirsiniz. Seçiminizi yaptıktan sonra tıklayın **sonraki**.
+5. Üzerinde **Aracı Kurulum Seçenekleri** sayfasında seçebileceğiniz Azure İzleyici günlüklerine ya da Operations Manager aracısını bağlamak. Veya aracıyı daha sonra yapılandırmak istiyorsanız seçimleri boş bırakabilirsiniz. Seçiminizi yaptıktan sonra tıklayın **sonraki**.
 
   * Bağlanmak seçerseniz, **Azure Log Analytics**, Yapıştır **çalışma alanı kimliği** ve **çalışma alanı anahtarı** (birincil anahtar, önceki bölümde Defteri'ne kopyaladığınız). Ardından **İleri**'ye tıklayın.
 
@@ -111,7 +113,7 @@ ExpressRoute bağlantı yedeklilik (örneğin, şirket içi, Azure sanal ağlar�
     ![Hesap](./media/how-to-npm/10.png)
 6. Üzerinde **yüklemeye hazır** sayfasında, seçimlerinizi gözden geçirin ve ardından **yükleme**.
 7. **Yapılandırma başarıyla tamamlandı** sayfasında **Son**'a tıklayın.
-8. Tamamlandığında, Microsoft Monitoring Agent Denetim Masası'nda görünür. Burada yapılandırmanızı gözden geçirin ve aracıyı Azure Log Analytics'e bağlandığını doğrulayabilirsiniz. Bağlandığınızda, aracıyı belirten bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.
+8. Tamamlandığında, Microsoft Monitoring Agent Denetim Masası'nda görünür. Burada yapılandırmanızı gözden geçirin ve aracı Azure İzleyici günlüklerine bağlı olduğunu doğrulayın. Bağlandığınızda, aracıyı belirten bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.
 
 9. İzlenmesi gereken her sanal ağ için bu yordamı yineleyin.
 
@@ -135,7 +137,7 @@ Kolayca aracılarınızı iletişim kurduğunu doğrulayabilirsiniz.
 1. İzleme Aracısı ile bir sunucu üzerinde açın **Denetim Masası**.
 2. Açık **Microsoft İzleme Aracısı**.
 3. Tıklayın **Azure Log Analytics** sekmesi.
-4. İçinde **durumu** sütun, aracı başarıyla Log Analytics'e bağlı görmelisiniz.
+4. İçinde **durumu** sütun, aracıyı Azure İzleyici günlüklerine başarıyla bağlandı görmelisiniz.
 
   ![durum](./media/how-to-npm/12.png)
 

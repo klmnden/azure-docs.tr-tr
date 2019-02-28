@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: sogup
-ms.openlocfilehash: fe0b47bbf1ebb9cba328bfc444172249135270c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310283"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961542"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Sık sorulan sorular Azure Backup
 
@@ -21,10 +21,8 @@ Bu makalede hakkında sık sorulan soruları yanıtlar [Azure Backup](backup-int
 
 ## <a name="general-questions"></a>Genel sorular
 
-
 ### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Hangi Azure Vm'leri Azure Backup kullanarak yedekleyebilir?
 [Gözden geçirme](backup-azure-arm-vms-prepare.md#before-you-start) desteklenen işletim sistemleri ve sınırlamaları.
-
 
 
 ## <a name="backup"></a>Backup
@@ -41,17 +39,16 @@ Evet, yedeklemeler sorunsuz çalışır. Her şeyi yeniden yapılandırmak için
 ### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Yedeklemeyi Yapılandır Sihirbazı'nı sanal makinemi neden göremiyorum?
 Sihirbaz yalnızca kasasıyla aynı bölgede Vm'leri listeler ve, zaten yedeklenmeyen.
 
-
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Sanal Makinem kapatılır. İsteğe bağlı veya zamanlanmış bir yedekleme iş olacak mı?
 Evet. Bir makine kapatıldığında yedeklemeleri çalıştırın. Kurtarma noktası kilitlenme tutarlı olarak işaretlenir.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Devam eden yedekleme işi iptal edebilir miyim?
 Evet. Yedekleme işi iptal edebilirsiniz bir **anlık görüntü alınıyor** durumu. Anlık görüntüden veri aktarımı sürüyorsa bir iş iptal edilemiyor.
 
-### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Ben my yedeklenen yönetilen disk Vm'leri üzerinde kaynak grubu kilidi etkin. Yedeklemelerim çalışmaya devam edecek mi?
-Azure Backup hizmeti, kaynak grubunu kilitlerseniz, eski geri yükleme noktalarını silemezsiniz.
-- Yeni yedeklemeler, 18 geri yükleme noktaları üst sınırına olduğundan başarısız olmaya başlar.
-- Yedeklemeleri kilitlendikten sonra bir iç hata ile başarısız olursa [adımları](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) geri yükleme noktası koleksiyonu kaldırmak için.
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Miyim (yani Azure Backup hizmeti tarafından oluşturulan kaynak grubu kilidi etkin ` AzureBackupRG_<geo>_<number>`), yedeklemelerim çalışmaya devam eder mi?
+Azure Backup hizmeti tarafından oluşturulan kaynak grubu kilitlerseniz, yedeklemeler 18 geri yükleme noktaları üst sınırına olduğundan başarısız olmaya başlar.
+
+Kullanıcı gerekli kilidi kaldırın ve sonraki yedeklemelerin başarılı olmak için bu kaynak grubundaki geri yükleme noktası koleksiyonunu temizlemek [adımları](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) geri yükleme noktası koleksiyonu kaldırmak için.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>Yedekleme İlkesi Yaz Saati (DST) göz önünde bulundurmaz?
 Hayır. Tarih ve saat yerel bilgisayarınızdaki yerel geçerli gün ışığından tasarruf uygulanır. Zamanlanmış yedeklemeler için ayarlanan saate DST nedeniyle yerel zamandan farklı olabilir.

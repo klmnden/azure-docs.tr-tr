@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: b462a2baecbaf9aaf3634964ca279b320b77dc1b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: f54240148ae0eabacb267044c0dd864b4377ca1d
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330696"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56982767"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Azure Kubernetes Service (AKS) kapsayıcıları için Azure İzleyici ile izleme durdurma
 
@@ -26,7 +26,7 @@ AKS kümenizi izleme etkinleştirdikten sonra artık bunu izlemek istediğiniz k
 
 
 ## <a name="azure-cli"></a>Azure CLI
-Kullanım [az aks devre dışı bırak-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) kapsayıcılar için Azure İzleyici devre dışı bırakma komutu. Komutu, küme düğümlerinden aracıyı kaldırır, çözüm ya da zaten toplanmış ve Log Analytics kaynağınızı depolanan verileri kaldırmaz.  
+Kullanım [az aks devre dışı bırak-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) kapsayıcılar için Azure İzleyici devre dışı bırakma komutu. Komutu, küme düğümlerinden aracıyı kaldırır, çözüm ya da zaten toplanmış ve depolanmış, Azure İzleyici kaynak verileri kaldırmaz.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG

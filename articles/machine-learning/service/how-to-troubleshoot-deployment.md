@@ -1,7 +1,7 @@
 ---
 title: Dağıtım sorunlarını giderme kılavuzu
 titleSuffix: Azure Machine Learning service
-description: Bilgi nasıl geçici çözüm, çözmek ve AKS ve Azure Machine Learning hizmetini kullanarak ACI ile ortak Docker dağıtım hatalarını giderme.
+description: Geçici çözüm, çözmek ve AKS ve Azure Machine Learning hizmetini kullanarak ACI ile ortak Docker dağıtım hatalarını giderme hakkında bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 112fff011ebfedc1abf6981661da5fd4d97fc3d0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 4b0dddf14564f2813ea019addf6b97b79707b78e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267158"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983583"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Azure Machine Learning hizmeti AKS ve ACI dağıtım sorunlarını giderme
 
@@ -43,7 +43,7 @@ Bu işlem hakkında daha fazla bilgi [Model Yönetimi](concept-model-management-
 
 Herhangi bir sorun çalıştırırsanız, yapılacak ilk şey dağıtım görevi bölmektir (önceki açıklanmıştır) sorunu ayırt etmek için tek tek adımlara. 
 
-Bu kullanıyorsanız özellikle yararlı olur `Webservice.deploy` API veya `Webservice.deploy_from_model` olduğundan, bu işlevler, tek bir eyleme yukarıda sözü edilen adımları gruplamak API. Genellikle bu API'leri oldukça kullanışlıdır, ancak bunları değiştirerek sorun giderme adımları kesilecek şekilde anlaması aşağıda API çağrıları.
+Kullanıyorsanız yararlıdır `Webservice.deploy` API veya `Webservice.deploy_from_model` olduğundan, bu işlevler, tek bir eyleme yukarıda sözü edilen adımları gruplamak API. Genellikle bu API'leri kullanışlıdır ancak bunları değiştirerek sorun giderme adımları kesilecek şekilde yardımcı olan API çağrılarının aşağıda.
 
 1. Modeli kaydedin. Bazı örnek kodlar aşağıda verilmiştir:
 
@@ -101,9 +101,54 @@ for name, img in ws.images.items():
 ```
 Görüntü günlük URI'si, Azure blob Depolama'nızda depolanan bir günlük dosyasına işaret eden bir SAS URL'si ' dir. Yalnızca kopyalama ve yapıştırma URI ve bir tarayıcı penceresi içinde indirin ve günlük dosyasını görüntüleyin.
 
+### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure anahtar kasası erişim ilkesi ve Azure Resource Manager şablonları
+
+Azure anahtar kasası erişim ilkesi ile ilgili bir sorun nedeniyle görüntü derleme de başarısız olabilir. Çalışma alanı ve ilişkili kaynakları (Azure anahtar kasası dahil), birden çok kez oluşturmak için bir Azure Resource Manager şablonu kullandığınızda, bu durum oluşabilir. Örneğin, şablon bir sürekli tümleştirme ve dağıtım işlem hattı bir parçası olarak aynı parametrelere sahip birden çok kez kullanma.
+
+Şablonlar aracılığıyla çoğu kaynak oluşturma işlemleri bir kere etkili olur, ancak anahtar kasası erişim ilkeleri şablon kullanılan her zaman temizler. Bu erişim keser kullandığı tüm mevcut bir çalışma alanı için Key vault'a. Yeni görüntüleri oluşturmaya çalıştığınızda bu hatalara neden olur. Alabileceğiniz hataların örnekleri şunlardır:
+
+__Portal__:
+```text
+Create image "myimage": An internal server error occurred. Please try again. If the problem persists, contact support.
+```
+
+__SDK'SI__:
+```python
+image = ContainerImage.create(name = "myimage", models = [model], image_config = image_config, workspace = ws)
+Creating image
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\azureml\core\image\image.py", line 341, in create
+    resp.raise_for_status()
+  File "C:\Python37\lib\site-packages\requests\models.py", line 940, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: https://eastus.modelmanagement.azureml.net/api/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/images?api-version=2018-11-19
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Python37\lib\site-packages\azureml\core\image\image.py", line 346, in create
+    'Content: {}'.format(resp.status_code, resp.headers, resp.content))
+azureml.exceptions._azureml_exception.WebserviceException: Received bad response from Model Management Service:
+Response Code: 500
+Headers: {'Date': 'Tue, 26 Feb 2019 17:47:53 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'api-supported-versions': '2018-03-01-preview, 2018-11-19', 'x-ms-client-request-id': '3cdcf791f1214b9cbac93076ebfb5167', 'x-ms-client-session-id': '', 'Strict-Transport-Security': 'max-age=15724800; includeSubDomains; preload'}
+Content: b'{"code":"InternalServerError","statusCode":500,"message":"An internal server error occurred. Please try again. If the problem persists, contact support"}'
+```
+
+__CLI__:
+```text
+ERROR: {'Azure-cli-ml Version': None, 'Error': WebserviceException('Received bad response from Model Management Service:\nResponse Code: 500\nHeaders: {\'Date\': \'Tue, 26 Feb 2019 17:34:05
+GMT\', \'Content-Type\': \'application/json\', \'Transfer-Encoding\': \'chunked\', \'Connection\': \'keep-alive\', \'api-supported-versions\': \'2018-03-01-preview, 2018-11-19\', \'x-ms-client-request-id\':
+\'bc89430916164412abe3d82acb1d1109\', \'x-ms-client-session-id\': \'\', \'Strict-Transport-Security\': \'max-age=15724800; includeSubDomains; preload\'}\nContent:
+b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server error occurred. Please try again. If the problem persists, contact support"}\'',)}
+```
+
+Bu sorunu önlemek için aşağıdaki yaklaşımlardan birini önerilir:
+
+* Şablon, birden çok kez aynı parametreleri dağıtılmaz. Veya bunları yeniden oluşturmak için bu şablonu kullanmadan önce var olan kaynakları silin.
+* Anahtar kasası erişim ilkelerini incelemek ve bunu ayarlamak için kullanın `accessPolicies` özelliği.
+* Key Vault kaynağı zaten mevcut olup olmadığını denetleyin. Varsa, şablonu aracılığıyla yeniden oluşturmayın. Örneğin, zaten varsa, anahtar kasası kaynak oluşturma devre dışı bırakmanıza olanak tanıyan bir parametre ekleyin.
 
 ## <a name="service-launch-fails"></a>Hizmet başlatma başarısız
-Görüntü başarıyla oluşturulduktan sonra sistem ACI veya AKS Dağıtım yapılandırmanıza bağlı olarak bir kapsayıcı başlatma girişiminde bulunur. Genellikle, daha basit bir tek kapsayıcı dağıtımı olduğundan ACI dağıtım ilk olarak, denemeniz önerilir. Bu şekilde tüm AKS özgü sorunu çıkarabilirsiniz.
+Görüntü başarıyla oluşturulduktan sonra sistem ACI veya AKS Dağıtım yapılandırmanıza bağlı olarak bir kapsayıcı başlatma girişiminde bulunur. ACI dağıtım daha basit bir tek kapsayıcı dağıtımı olduğundan ilk olarak, denemek için önerilir. Bu şekilde tüm AKS özgü sorunu çıkarabilirsiniz.
 
 Kapsayıcı başlatma artırma işleminin bir parçası olarak `init()` işlevi Puanlama komut dosyanızdaki sistem tarafından çağrılır. İçinde yakalanmamış istisnalar varsa `init()` görebileceğiniz işlev **CrashLoopBackOff** hata hata iletisi. Sorun gidermenize yardımcı olacak birkaç ipucu aşağıda verilmiştir.
 
@@ -222,6 +267,47 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 **Not**: Hata iletilerini döndüren `run(input_data)` sadece hata ayıklama için çağrısı yapılmalıdır. Güvenlik nedeniyle bir üretim ortamında Bunun iyi bir fikir olmayabilir.
+
+## <a name="http-status-code-503"></a>HTTP durum kodu 503
+
+Azure Kubernetes hizmeti dağıtımları ek yükü desteklemeye eklenecek çoğaltmaları sağlayan otomatik ölçeklendirmeyi destekler. Ancak, otomatik ölçeklendiricinin yönetmek için tasarlanan **aşamalı** değişiklikleri. Saniye başına istek büyük depoları alırsanız, istemcilerin HTTP durum kodu 503 alabilirsiniz.
+
+503 durum kodları önlemeye yardımcı olabilecek iki şey vardır:
+
+* Değişiklik hangi otomatik ölçeklendirme kullanımı düzeyinde yeni kopyalar oluşturur.
+    
+    Varsayılan olarak, otomatik ölçeklendirme hedef kullanım ayarlanır % 70'e, yani hizmet ani % 30 (RP'ler) saniye başına istek işleyebilir. Kullanım hedefine ayarlayarak yapabilirsiniz `autoscale_target_utilization` daha düşük bir değere.
+
+    > [!IMPORTANT]
+    > Bu değişiklik oluşturulacak çoğaltmaları neden olmaz *daha hızlı*. Bunun yerine, bunlar daha düşük bir kullanım eşiğine oluşturulur. % Kullanılan 70 hizmet olana kadar beklemek yerine değerin % 30 değiştirilmesi % 30 kullanımı oluştuğunda oluşturulacak çoğaltmaları neden olur.
+    
+    Web hizmeti geçerli en fazla yineleme zaten kullanıyor ve 503 durum kodları hala görüyorsanız, artırın `autoscale_max_replicas` çoğaltmaları maksimum sayısını artırmak için değer.
+
+* En az yineleme sayısını değiştirin. En düşük çoğaltmaları artırma gelen ani değişiklikleri işlemek için daha büyük bir havuz sağlar.
+
+    En az yineleme sayısını artırmak için ayarlanmış `autoscale_min_replicas` daha yüksek bir değer. Gerekli çoğaltmaları değerleri projenize belirli değerlerle değiştirerek aşağıdaki kodu kullanarak hesaplayabilirsiniz:
+
+    ```python
+    from math import ceil
+    # target requests per second
+    targetRps = 20
+    # time to process the request (in seconds)
+    reqTime = 10
+    # Maximum requests per container
+    maxReqPerContainer = 1
+    # target_utilization. 70% in this example
+    targetUtilization = .7
+
+    concurrentRequests = targetRps * reqTime / targetUtilization
+
+    # Number of container replicas
+    replicas = ceil(concurrentRequests / maxReqPerContainer)
+    ```
+
+    > [!NOTE]
+    > İstek artışlarını yeni minimum çoğaltmaları işleyebileceğinden daha büyük alırsanız, 503 sn yeniden alabilirsiniz. Örneğin, trafiği, hizmet artışları için en düşük çoğaltmaları artırmak gerekebilir.
+
+Ayarı hakkında daha fazla bilgi için `autoscale_target_utilization`, `autoscale_max_replicas`, ve `autoscale_min_replicas` için bkz: [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) modül başvurusu.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

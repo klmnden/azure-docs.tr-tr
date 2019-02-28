@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: a22dd1114b6ad49695b1ce7cab2ff26f23b7e1be
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 76df7f57f44100a27fbe4583051fa25c61e27ee0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447863"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961831"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Intellij için Azure Araç Seti'ni kullanma
 
@@ -27,7 +27,7 @@ Geliştirmek için eklenti Intellij için Azure Araç Seti'ni kullanma [Apache S
 ## <a name="prerequisites"></a>Önkoşullar
 
 * HDInsight üzerinde bir Apache Spark kümesi. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
-* [Oracle Java Development kit](https://www.azul.com/downloads/azure-only/zulu/).  Bu öğreticide, Java Sürüm 8.0.202 kullanılır.
+* [Oracle Java Development kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  Bu öğreticide, Java Sürüm 8.0.202 kullanılır.
 * IntelliJ IDEA. Bu makalede [Intellij Idea topluluk ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
 * Intellij için Azure Araç Seti.  Bkz: [Intellij için Azure araç setini yükleme](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 * WINUTILS. EXE.  Bkz: [Windows üzerinde Hadoop çalıştırırken sorun](https://wiki.apache.org/hadoop/WindowsProblems).
@@ -165,7 +165,7 @@ Yönetilen Apache Ambari kullanıcı adını kullanarak bir HDInsight kümesine 
         |----|----|
         |Bağlantı kaynağı türü|Seçin **HDInsight küme** aşağı açılan listeden.|
         |Küme adı/URL| Küme adı girin.|
-        |Kimlik Doğrulaması Türü| Olarak bırakın **temel kimlik doğrulaması**|
+        |Kimlik Doğrulama Türü| Olarak bırakın **temel kimlik doğrulaması**|
         |User Name| Küme kullanıcı adı girin, varsayılan admin'dir.|
         |Parola| Parola için kullanıcı adı girin.|
     
@@ -179,7 +179,7 @@ Yönetilen Apache Ambari kullanıcı adını kullanarak bir HDInsight kümesine 
         |Livy uç noktası| Livy uç noktasını girin|
         |Küme Adı| Küme adı girin.|
         |Yarn uç noktası|İsteğe bağlı.|
-        |Kimlik Doğrulaması Türü| Olarak bırakın **temel kimlik doğrulaması**|
+        |Kimlik Doğrulama Türü| Olarak bırakın **temel kimlik doğrulaması**|
         |User Name| Küme kullanıcı adı girin, varsayılan admin'dir.|
         |Parola| Parola için kullanıcı adı girin.|
 

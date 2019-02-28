@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 2ae533c81e68f8f6a32ad8fa0e45aed3c63eceb9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: cb918516a9180b4bffdc72c688df5d830e83833a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805265"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959672"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric kapsayıcı ağ modları
 
@@ -30,7 +30,7 @@ Statik bir uç noktası ile bir kapsayıcı hizmeti, hizmet bildiriminde varsa, 
 Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğüme taşır, IP adresi değişir. Bu nedenle, kapsayıcı Hizmetleri bulmak için dinamik olarak atanan IP adresini kullanarak önermemekteyiz. Yalnızca Service Fabric adlandırma ağ geçidi veya DNS hizmeti için hizmet bulma kullanılmalıdır. 
 
 >[!WARNING]
->Azure sanal ağ başına 4.096 IP'lerin toplam sağlar. Düğüm sayısını ve kapsayıcı hizmeti (kullandığınız modunu açın) bir örnek sayısı toplamı, bir sanal ağ içindeki 4.096 IP'ler aşamaz. Yüksek yoğunluklu senaryoları için nat ağ modu öneririz.
+>Azure sanal ağ başına 65.356 IP'lerin toplam sağlar. Düğüm sayısını ve kapsayıcı hizmeti (kullandığınız modunu açın) bir örnek sayısı toplamı, bir sanal ağ içindeki 65.356 IP'ler aşamaz. Yüksek yoğunluklu senaryoları için nat ağ modu öneririz. Ayrıca, yük dengeleyici gibi diğer bağımlılıklara diğer olacaktır [sınırlamaları](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) değerlendirilecek. Şu anda en çok 50 IP'ler düğüm başına test ve kararlı kanıtlanmış. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Açık ağ Modu'nu ayarla

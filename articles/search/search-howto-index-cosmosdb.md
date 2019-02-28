@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: a55652c8d19866b717cbafec4629030a7708bb50
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d63fdbfd71e812e9b445fb0055cb9aee5876ecc1
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359502"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56962154"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Dizin oluşturucuları kullanarak Azure Search ile Cosmos DB'ye bağlanma
 
@@ -65,7 +65,7 @@ Bir **dizin oluşturucu** verilerin veri kaynağınızdaki bir hedef search dizi
 
 Bir Azure Cosmos DB dizinleyici ayarlamak için bir dizin, veri kaynağı ve son olarak dizin oluşturucuyu oluşturmak gerekir. Bu nesneleri kullanarak oluşturabileceğiniz [portalı](search-import-data-portal.md), [.NET SDK'sı](/dotnet/api/microsoft.azure.search), veya [REST API](/rest/api/searchservice/). 
 
-Bu makalede REST API'SİNİN nasıl kullanılacağı gösterilmektedir. Portal, katılırsanız [Veri Alma Sihirbazı](search-import-data-portal.md) dizini de dahil olmak üzere tüm bu kaynaklar, oluşturulmasını adım yol gösterir.
+Bu makalede REST API'SİNİN nasıl kullanılacağı gösterilmektedir. İçin portalı kullanmayı seçerseniz, Cosmos DB veritabanınıza veri içerdiğinden emin olun. [Veri Alma Sihirbazı](search-import-data-portal.md) meta verileri okur ve bir dizin şemasını, ancak çıkarsamak için veri örnekleme yükleri veri Cosmos DB'den de gerçekleştirir. Veri yoksa, Sihirbazı ile bu hata durur. "veri kaynağından hata algılama dizin şeması: Veri kaynağı 'emptycollection' hiçbir veri döndürdüğünden, bir prototip dizini oluşturulamadı. ".
 
 > [!TIP]
 > İlgili veri kaynağı için dizin oluşturmayı kolaylaştırmak üzere Azure Cosmos DB panosundan **Verileri içeri aktarma** sihirbazını başlatabilirsiniz. Başlamak için sol gezinti bölmesinde **Koleksiyonlar** > **Azure Search Ekle** menüsüne gidin.
@@ -182,10 +182,10 @@ Hedef dizin şemasını kaynak JSON belgelerinin şemasını veya kendi özel so
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>JSON veri türleri ve Azure Search veri türleri arasında eşleme
 | JSON veri türü | Uyumlu hedef dizin alan türleri |
 | --- | --- |
-| bool |Edm.Boolean, Edm.String |
+| Bool |Edm.Boolean, Edm.String |
 | Tam sayılar gibi görünen sayı |EDM.Int32, EDM.Int64, Edm.String |
 | Görünüm gibi kayan nokta numaraları |Edm.Double, Edm.String |
-| Dize |Edm.String |
+| String |Edm.String |
 | ["A", "b", "c"] Örneğin, ilkel türlerin dizileri |Collection(Edm.String) |
 | Tarihler gibi görünen dizeleri |Edm.DateTimeOffset, Edm.String |
 | GeoJSON nesneleri, örneğin {"type": "Nokta", "koordinatları": [uzun lat]} |Edm.GeographyPoint |

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 67eadd45d4c9c3f3c83568dc7831eff37a4c376e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977635"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983448"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows için NVIDIA GPU sürücüsünün uzantısı
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu uzantı, Windows N serisi Vm'lerde NVIDIA GPU sürücüleri yükler. VM ailesi bağlı olarak, uzantı CUDA veya kılavuz sürücüleri de yükler. NVIDIA yüklediğinizde bu uzantıyı kullanan sürücüler, kabul etme ve koşullarını kabul etmiş [NVIDIA son kullanıcı lisans sözleşmesi](https://go.microsoft.com/fwlink/?linkid=874330). Yükleme işlemi sırasında sürücü kurulumu tamamlamak için VM yeniden başlatılabilir.
+Bu uzantı, Windows N serisi Vm'lerde NVIDIA GPU sürücüleri yükler. VM ailesi bağlı olarak, uzantı CUDA veya kılavuz sürücüleri de yükler. NVIDIA yüklediğinizde bu uzantıyı kullanan sürücüler, kabul etme ve koşullarını kabul etmiş [NVIDIA son kullanıcı lisans sözleşmesi](http://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). Yükleme işlemi sırasında sürücü kurulumu tamamlamak için VM yeniden başlatılabilir.
 
 Bir uzantı NVIDIA GPU sürücüleri yüklemek de kullanılabilir [Linux N serisi Vm'lerde](hpccompute-gpu-linux.md).
 
@@ -74,8 +74,8 @@ Aşağıdaki JSON şema uzantısı gösterir.
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Yayımcı | Microsoft.HpcCompute | dize |
-| type | NvidiaGpuDriverWindows | dize |
+| Yayımcı | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 

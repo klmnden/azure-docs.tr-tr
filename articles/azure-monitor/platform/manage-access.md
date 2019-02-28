@@ -11,50 +11,59 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 02/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 4a777c2bd57d40b4bb6c8d36c996b655cb019e5f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b42eb963e33c14b003c053bb0f7fca6361dbd555
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005380"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985113"
 ---
-# <a name="manage-log-analytics-workspaces-in-azure-monitor"></a>Azure İzleyici'de log Analytics çalışma alanlarını yönetme
+# <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Günlük verilerini ve Azure İzleyici'de çalışma alanlarını yönetme
 Azure İzleyici depoları, temelde verileri ve yapılandırma bilgilerini içeren bir kapsayıcı ve Log Analytics çalışma alanında verilerini günlüğe kaydedebilirsiniz. Verileri günlüğe kaydetmek için erişimi yönetmek için çalışma alanları ile ilgili çeşitli yönetim görevlerini gerçekleştirin. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok çalışma alanı kullanabilirsiniz.
 
-Bir çalışma alanı oluşturmak için şunlar gereklidir:
+Bu makalede, günlükleri erişimi yönetmek için ve bunları içeren çalışma alanlarını yönetmek için nasıl açıklar. 
+
+## <a name="create-a-workspace"></a>Çalışma alanı oluşturma
+Bir Log Analytics çalışma alanı oluşturmak için şunları yapmanız:
 
 1. Bir Azure aboneliğine sahip olmanız.
 2. Bir çalışma alanı adı seçmeniz.
 3. Çalışma alanı biri Abonelikleriniz ve kaynak grubu ile ilişkilendirin.
 4. Coğrafi bir konum seçmeniz.
 
-## <a name="determine-the-number-of-workspaces-you-need"></a>İhtiyacınız olan çalışma alanı sayısını belirleme
-Bir Log Analytics çalışma alanı, bir Azure kaynağıdır ve verilerin toplanan, toplu, analiz ve Azure İzleyici'de sunulan bir kapsayıcıdır.
+Bir çalışma alanı oluşturma hakkında bilgi edinmek için aşağıdaki makalelere bakın:
 
-Azure aboneliği başına birden çok çalışma alanına sahip olabilir ve bunların arasında kolayca sorgulama olanağı ile birden fazla çalışma alanına erişim sahibi olabilir. Bu bölümde birden çok çalışma alanı oluşturmanın yararlı olabileceği durumlar açıklanır.
+- [Azure portalında Log Analytics çalışma alanı oluşturma](../learn/quick-create-workspace.md)
+- [Azure CLI 2.0 ile Log Analytics çalışma alanı oluşturma](../learn/quick-create-workspace-cli.md)
+- [Azure PowerShell ile bir Log Analytics çalışma alanı oluşturma](../learn/quick-create-workspace-posh.md)
+
+## <a name="determine-the-number-of-workspaces-you-need"></a>İhtiyacınız olan çalışma alanı sayısını belirleme
+Bir Log Analytics çalışma alanı, bir Azure kaynağıdır ve verilerin toplanan, toplu, analiz ve Azure İzleyici'de sunulan bir kapsayıcıdır. Azure aboneliği başına birden çok çalışma alanına sahip olabilir ve bunların arasında kolayca sorgulama olanağı ile birden fazla çalışma alanına erişim sahibi olabilir. Bu bölümde birden çok çalışma alanı oluşturmanın yararlı olabileceği durumlar açıklanır.
 
 Bir Log Analytics çalışma alanı sağlar:
 
-* Veri depolama için coğrafi bir konum
-* Farklı kullanıcı erişim haklarını tanımlamak için veri yalıtımı
-* Kapsam ayarlarının yapılandırılması için ister [fiyatlandırma katmanı](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [bekletme](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) ve [veri capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 
+* Veri depolama için coğrafi bir konum.
+* Çalışma alanı merkezli modda farklı kullanıcı erişim haklarını tanımlamak için veri yalıtımı'nı tıklatın. Kaynak odaklı modunda çalışırken ilgili değildir.
+* Kapsam ayarlarının yapılandırılması için ister [fiyatlandırma katmanı](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [bekletme](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) ve [veri capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
+* Veri alımı ve bekletme ilgili ücretler çalışma alanı kaynak üzerinde gerçekleştirilir.
 
 Tüketimi açısından, mümkün olduğunca az çalışma alanları oluşturma öneririz. Yönetim ve sorgu deneyimi daha kolay ve hızlı kolaylaştırır. Ancak, önceki özelliklere bağlı olarak, durumlarda birden çok çalışma alanı oluşturmak isteyebilirsiniz:
 
 * Global bir şirketseniz ve veri bağımsızlığı veya uyumluluk nedenleriyle verilerin belirli bölgelerde depolanan oturum açmanız gerekir.
 * Azure kullanıyorsanız ve çalışma alanını, yönettiği Azure kaynaklarıyla aynı bölgede bulundurarak giden veri aktarımı ücretlerini ortadan kaldırmak istiyorsanız.
-* Ücretleri farklı departmanlara veya iş gruplarına kendi Azure aboneliğinde her departman veya iş grubu için bir çalışma alanı oluşturarak kendi kullanımınıza göre ayırmak istiyorsanız.
 * Yönetilen bir hizmet sağlayıcısıysanız ve yönettiğiniz her bir müşteriye ilişkin Log Analytics verilerini diğer müşterilerin verilerinden yalıtmak istiyorsanız.
-* Birden çok müşteriyi yönetiyorsanız ve her müşteri istediğiniz / bölüm / iş grubunun kendi verilerini, ancak veri diğerlerinden değil görmek için.
+* Birden çok müşteriyi yönetiyorsanız ve her müşteri istediğiniz / bölüm / iş grubunun kendi verilerini, ancak değil, diğerlerinin verileri görmek için ve birleştirilmiş bir çapraz müşteri için iş gerek yoktur / bölüm / iş grubunun görüntüle. ".
 
 Verileri toplamak için Windows aracılarını kullanıyorsanız [her bir aracıyı, bir veya daha fazla çalışma alanına raporlama yapacak şekilde yapılandırabilirsiniz](../../azure-monitor/platform/agent-windows.md).
 
 System Center Operations Manager'ı kullanıyorsanız her bir Operations Manager yönetim grubu yalnızca bir çalışma alanıyla bağlantılı olabilir. Operations Manager tarafından yönetilen bilgisayarlara Microsoft İzleme Aracısını yükleyebilir ve hem Operations Manager hem de farklı bir Log Analytics çalışma alanı için aracı raporu alabilirsiniz.
 
-## <a name="workspace-information"></a>Çalışma alanı bilgileri
-Log Analytics çalışma alanında verileri çözümlerken **Azure İzleyici** menüsünde Azure portalında, oluşturabilir ve çalışma alanlarını yönetebilirsiniz **Log Analytics çalışma alanları** menüsü.
+Çalışma alanı mimarisi tanımlandıktan sonra bu ilke Azure kaynaklarıyla üzerinde uygulamalıdır [Azure İlkesi](../../governance/policy/overview.md). Bu, tüm Azure kaynakları için otomatik olarak uygulanacak bir yerleşik tanımı sağlayabilir. Örneğin, belirli bir bölgede tüm Azure kaynakları için belirli bir çalışma alanı, tanılama günlükleri gönderilen emin olmak için bir ilke ayarlayabilirsiniz.
+
+## <a name="view-workspace-details"></a>Çalışma alanı ayrıntılarını görüntüle
+Log Analytics çalışma alanınızdan veri analiz ederken **Azure İzleyici** menüsünde Azure portalında, oluşturabilir ve çalışma alanlarını yönetebilirsiniz **Log Analytics çalışma alanları** menüsü.
  
 
 1. Oturum [Azure portalında](https://portal.azure.com) tıklatıp **tüm hizmetleri**. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **Log Analytics** çalışma alanları.  
@@ -63,25 +72,104 @@ Log Analytics çalışma alanında verileri çözümlerken **Azure İzleyici** m
 
 3. Çalışma alanınızı listeden seçin.
 
-4. Çalışma sayfası, Başlarken, yapılandırma ve ek bilgi bağlantıları hakkında ayrıntıları gösterir.  
+4. Çalışma alanı sayfasında çalışma alanı, Başlarken, yapılandırma ve ek bilgi bağlantıları hakkında ayrıntıları görüntüler.  
 
     ![Çalışma alanı ayrıntıları](./media/manage-access/workspace-overview-page.png)  
 
+
+## <a name="workspace-permissions-and-scope"></a>Çalışma alanı izinlerini ve kapsamı
+Bir kullanıcının erişimi olan veri, aşağıdaki tabloda listelenen çoklu faktörlerle tarafından belirlenir. Her işlem, aşağıdaki bölümlerde açıklanmıştır.
+
+| faktörü | Açıklama |
+|:---|:---|
+| [Erişim modu](#access-modes) | Kullanıcının kullandığı yöntem, çalışma alanına erişir.  Kullanılabilir verilerin kapsamını ve uygulanan erişim denetimi modu tanımlar. |
+| [Erişim denetim modu](#access-control-mode) | İzinler çalışma alanı ya da kaynak düzeyinde uygulanır tanımlar için çalışma alanı ayarlama. |
+| [İzinler](#manage-accounts-and-users) | İzinler, tek tek veya çalışma alanı veya kaynak için kullanıcı gruplarına uygulanır. Hangi verilerin kullanıcı erişimi olacaktır tanımlar. |
+
+
+
+## <a name="access-modes"></a>Erişim modu
+_Erişim modu_ bir kullanıcı bir Log Analytics çalışma alanı nasıl eriştiğini için ifade eder ve kullanıcıların verilere erişebileceği kapsamını tanımlar. 
+
+**Çalışma alanı merkezli**: Bu modda, bir kullanıcı izinlerine sahip oldukları çalışma alanındaki tüm günlükleri görüntüleyebilirsiniz. Bu modda sorgular çalışma alanındaki tüm tablolardaki tüm verileri kapsayan. Bu günlükleri gibi seçtiğinizde, kapsam olarak çalışma alanı ile erişildiğinde kullanılan erişim moddur **günlükleri** gelen **Azure İzleyici** Azure portalındaki menü.
+
+**Kaynak odaklı**: Çalışma alanı seçtiğinizde, gibi belirli bir kaynak için eriştiğinizde **günlükleri** Azure portalında bir kaynak menüsünden yalnızca o kaynak için günlükleri görüntüleyebilirsiniz. Bu modda sorgular yalnızca bu kaynakla ilişkilendirilmiş veri kapsamına eklenir. Bu mod ayrıca ayrıntılı rol tabanlı erişim denetimi (RBAC) sağlar. 
+
+> [!NOTE]
+> Yalnızca ilgili kaynak düzgün bir şekilde ilişkili günlükleri kaynak odaklı sorgular için kullanılabilir. Şu anda aşağıdaki kaynaklar sınırlamalara sahiptir: 
+> - Azure dışındaki bilgisayarlar
+> - Service Fabric
+> - Application Insights
+> - Kapsayıcılar
+> - HTTP veri toplayıcı API'si tarafından oluşturulan özel günlükler
+>
+> Bir sorguyu çalıştırarak günlükleri, kaynak ile düzgün bir şekilde ilişkili ve kayıtları inceleyerek ilgilendiğiniz test edebilirsiniz. Doğru kaynak kimliği ise [_ResourceId](log-standard-properties.md#resourceid) özelliği, ardından veri kaynağı merkezli sorgular için kullanılabilir.
+
+### <a name="comparing-access-modes"></a>Erişim modu karşılaştırması
+
+Erişim modu aşağıdaki tabloda özetlenmiştir:
+
+| | Çalışma alanı merkezli | Kaynak odaklı |
+|:---|:---|:---|
+| Her model kimin için tasarlanmıştır? | Merkezi Yönetim. Çok çeşitli kaynaklara erişmesi gereken veri toplama ve kullanıcıları yapılandırmak için gereken yöneticileri. Ayrıca Azure dışındaki kaynaklar için günlüklerine erişmek için sahip kullanıcılar için şu anda gereklidir. | Uygulama ekipler. İzlenmekte olan Azure kaynak yöneticileri. |
+| Günlükleri görüntülemek için ne bir kullanıcı gerektiriyor mu? | Çalışma alanına izinleri. Bkz: **çalışma alanı izinlerini** içinde [hesapları ve kullanıcıları yönetme](#manage-accounts-and-users). | Kaynak yönelik okuma erişimi. Bkz: **kaynağı izinlerini** içinde [hesapları ve kullanıcıları yönetme](#manage-accounts-and-users). İzinleri olabilir (örneğin içeren kaynak grubunu'ye kadar) devralınan veya doğrudan kaynağa atanmış. Günlükleri kaynak için izni otomatik olarak atanır. |
+| İzinleri kapsamı nedir? | Çalışma alanı. Çalışma alanına erişimi olan kullanıcılar, bu çalışma alanındaki tüm günlükleri sorgulayabilir. | Azure kaynak. Kullanıcı, günlükleri sorgulayabilir kaynaklar için bunların herhangi bir çalışma alanından erişiminiz ancak günlükler için diğer kaynaklar sorgulanamıyor. |
+| Kullanıcı erişim günlükleri nasıl kullanabilir? | Başlangıç **günlükleri** gelen **Azure İzleyici** menüsü veya **Log Analytics çalışma alanları**. | Başlangıç **günlükleri** Azure kaynak menüsünden. |
+
+
+## <a name="access-control-mode"></a>Erişim denetimi modu
+_Erişim denetim modu_ bu çalışma alanı için izinleri nasıl belirlendiğini tanımlayan bir ayar her çalışma alanı üzerinde.
+
+**Çalışma alanı izinleri gerektiren**:  Bu denetim modu ayrıntılı RBAC izin vermez. Bir kullanıcı çalışma alanına erişmek, çalışma alanına izinleri verilmelidir. 
+
+Kullanıcı merkezli çalışma modu çalışma erişirse, bunlar tüm verileri çalışma alanına erişebilir. Bir kullanıcı çalışma alanında kaynak odaklı modu erişirse, bunlar yalnızca verileri bu kaynağa erişebilir.
+
+Mart 2019 önce oluşturulan tüm çalışma alanları için varsayılan ayar budur.
+
+**Kaynak veya çalışma alanı izinlerini kullanın**: Bu denetim modu ayrıntılı RBAC sağlar. Kullanıcılara yalnızca bunlar Azure izinleri sahip oldukları kaynakları görüntüleyebilir kaynaklarla ilişkili verilere erişim izni olan `read` izni. 
+
+Kullanıcı merkezli çalışma modu çalışma eriştiğinde, çalışma alanı izinlerini uygulanır. Bir kullanıcı çalışma alanında kaynak odaklı modu eriştiğinde, yalnızca kaynağı izinlerini doğrulanır ve çalışma alanı izinleri göz ardı edilir. RBAC, bunları çalışma alanı izinlerini kaldırma ve tanınması kendi kaynak izinleri vererek bir kullanıcı için etkinleştirin.
+
+Mart 2019 sonra oluşturulan tüm çalışma alanları için varsayılan ayar budur.
+
+> [!NOTE]
+> Bir kullanıcı çalışma alanına yalnızca kaynak izinleri varsa, bunlar yalnızca çalışma alanını kullanarak erişmeye erişebilir [kaynak odaklı modu](#access-modes).
+
+
+### <a name="define-access-control-mode-in-azure-portal"></a>Azure portalında erişim denetim modu tanımlayın
+Geçerli çalışma alanına erişim denetim modu görüntüleyebileceğiniz **genel bakış** çalışma sayfası **Log Analytics çalışma alanı** menüsü.
+
+![Görünüm çalışma alanına erişim denetim modu](media/manage-access/view-access-control-mode.png)
+
+Bu ayarı değiştirebilirsiniz **özellikleri** çalışma sayfası. Çalışma alanını yapılandırmak için izinleri yoksa, ayarı değiştirmeyi devre dışı bırakılır.
+
+![Çalışma alanı erişimi modunu Değiştir](media/manage-access/change-access-control-mode.png)
+
+### <a name="define-access-mode-in-resource-manager-template"></a>Erişim modu Resource Manager şablonunda tanımlama
+Bir Azure Resource Manager şablonunda erişim modu yapılandırmak için ayarlanmış **enableLogAccessUsingOnlyResourcePermissions** özellik bayrağı için çalışma alanı için aşağıdaki değerlerden biri.
+
+- **False**: Çalışma alanı için çalışma alanına odaklı izinlerini ayarlayın. Bayrağı ayarlanmamışsa varsayılan ayar budur.
+- **True**: Çalışma alanı, kaynak odaklı izinleri ayarlayın.
+
+
 ## <a name="manage-accounts-and-users"></a>Hesapları ve kullanıcıları yönetme
-Her çalışma alanı kendisiyle ilişkilendirilmiş birden çok hesap içerebilir ve her hesabı birden çok çalışma alanına erişim sahibi olabilir. Erişim aracılığıyla yönetilir [Azure rol tabanlı erişim](../../role-based-access-control/role-assignments-portal.md). Bu erişim hakları, Azure portal ve API erişimi geçerlidir.
+Belirli bir kullanıcıya uygulanan çalışma alanı izinleri tarafından tanımlanan kendi [erişim modu](#access-mode) ve [erişim denetim modu](#access-control-mode) çalışma alanının. **Çalışma alanı izinlerini** herhangi bir çalışma alanı kullanarak bir kullanıcının eriştiği uygulanır **çalışma merkezli** içinde [merkezli çalışma modu](#access-modes). **Kaynak izinleri** bir çalışma alanı ile bir kullanıcının eriştiği uygulanır **kaynak veya çalışma alanı izinlerini kullanın** [erişim denetim modu](#access-control-mode) kullanarak [kaynak odaklı modu ](#access-modes).
+
+### <a name="workspace-permissions"></a>Çalışma alanı izinleri
+Her çalışma alanı kendisiyle ilişkilendirilmiş birden çok hesap içerebilir ve her hesabı birden çok çalışma alanına erişim sahibi olabilir. Erişim aracılığıyla yönetilir [Azure rol tabanlı erişim](../../role-based-access-control/role-assignments-portal.md). 
 
 
 Şu etkinlikler de Azure izinleri gerektirir:
 
 | Eylem                                                          | Gereken Azure İzni | Notlar |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Yönetim çözümlerini ekleme ve kaldırma                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Bu izinlerin kaynak grubu veya abonelik düzeyinde verilmiş olması gerekir. |
+| Ekleme ve kaldırma izleme çözümleri                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Bu izinlerin kaynak grubu veya abonelik düzeyinde verilmiş olması gerekir. |
 | Fiyatlandırma katmanını değiştirme                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | *Backup* ve *Site Recovery* çözüm kutucuklarındaki verileri görüntüleme | Yönetici / Ortak yönetici | Klasik dağıtım modeli kullanılarak dağıtılan kaynaklara erişir |
 | Azure portalında bir çalışma alanı oluşturma                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### <a name="managing-access-to-log-analytics-workspace-using-azure-permissions"></a>Azure izinlerini kullanarak Log Analytics çalışma alanına erişimi yönetme
+#### <a name="manage-access-to-log-analytics-workspace-using-azure-permissions"></a>Azure izinlerini kullanarak Log Analytics'e erişimi yönetme 
 Azure izinlerini kullanarak Log Analytics çalışma alanına izin vermek için, [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](../../role-based-access-control/role-assignments-portal.md) bölümündeki adımları izleyin.
 
 Azure Log Analytics çalışma alanları için iki yerleşik kullanıcı rolüne sahiptir:
@@ -141,7 +229,21 @@ Bu rolleri, kullanıcılara farklı kapsamlarda erişim vermek için kullanın:
 - Kaynak grubu - Kaynak grubundaki tüm çalışma alanına erişim
 - Kaynak - Yalnızca belirtilen çalışma alanına erişim
 
-Doğru erişim denetimi sağlamak için atamaları kaynak düzeyinde (çalışma alanında) gerçekleştirmenizi öneririz.  Gereken özel izinlere sahip rolleri oluşturmak için [özel rolleri](../../role-based-access-control/custom-roles.md) kullanın.
+Atamalar doğru erişim denetimi sağlamak için kaynak düzeyinde (çalışma alanına) gerçekleştirmeniz gerekir.  Gereken özel izinlere sahip rolleri oluşturmak için [özel rolleri](../../role-based-access-control/custom-roles.md) kullanın.
+
+### <a name="resource-permissions"></a>Kaynak izinleri 
+Kullanıcılar sorgu kaynak odaklı erişimi kullanarak bir çalışma alanından açtığında, aşağıdaki izinler kaynak gerekir:
+
+| İzin | Açıklama |
+| ---------- | ----------- |
+| `Microsoft.Insights/logs/<tableName>/read`<br><br>Örnekler:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Tüm günlük veri kaynağı için görüntüleme olanağı.  |
+
+
+Bu izin, genellikle içeren rolden verilir  _\*/okuma veya_ _\*_ izinleri gibi yerleşik [okuyucu](../../role-based-access-control/built-in-roles.md#reader) ve [ Katkıda bulunan](../../role-based-access-control/built-in-roles.md#contributor) rolleri. Bu izin, belirli eylemleri içeren özel rolleri veya adanmış yerleşik roller içermeyebilir unutmayın.
+
+
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bkz: [Log Analytics Aracısı genel bakış](../../azure-monitor/platform/log-analytics-agent.md) veri merkezinizde veya diğer bulut ortamında bulunan bilgisayarlardaki verileri toplamak için.
