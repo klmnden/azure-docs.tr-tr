@@ -70,10 +70,10 @@ Herhangi bir kullanıcı yönetim gruplarını kullanmaya başladığında gerç
 Bu sorunu çözmek için kullanabileceğiniz iki seçenek vardır.
 
 1. Kök yönetim grubundan tüm Rol ve İlke atamalarını kaldırma
-    1. Kök yönetim grubundan bir ilke ve rol atamasını kaldırdığınızda, bir sonraki gece döngüsünde hizmet tüm abonelikleri hiyerarşiye geriye dönük olarak doldurur.  Bu işlemde, tüm kiracı aboneliklerine yanlışlıkla erişim verilmediğinden ve ilke ataması yapılmadığından emin olunur.
-    1. Hizmetlerinizi etkilemeden bu işlemi yapmanın en iyi yolu, rolü veya ilke atamasını Kök yönetim grubunun bir alt düzeyine uygulamaktır. Daha sonra tüm atamaları kök kapsamından çıkarabilirsiniz.
+   1. Kök yönetim grubundan bir ilke ve rol atamasını kaldırdığınızda, bir sonraki gece döngüsünde hizmet tüm abonelikleri hiyerarşiye geriye dönük olarak doldurur.  Bu işlemde, tüm kiracı aboneliklerine yanlışlıkla erişim verilmediğinden ve ilke ataması yapılmadığından emin olunur.
+   1. Hizmetlerinizi etkilemeden bu işlemi yapmanın en iyi yolu, rolü veya ilke atamasını Kök yönetim grubunun bir alt düzeyine uygulamaktır. Daha sonra tüm atamaları kök kapsamından çıkarabilirsiniz.
 1. Geriye dönük doldurma işlemini başlatmak için doğrudan API’yi çağırın
-    1. Dizindeki herhangi bir müşteri *TenantBackfillStatusRequest* veya *StartTenantBackfillRequest* API’lerini çağırabilir. StartTenantBackfillRequest API’si çağrıldığında tüm abonelikleri hiyerarşiye taşımanın ilk kurulum işlemini başlatır. Ayrıca bu işlem, tüm yeni abonelikleri kök yönetim grubunun alt öğesi olmaya zorlama işlemini de başlatır. Bu işlem, kök düzeyde hiçbir atama değiştirilmeden yapılabilir. API'yi çağırarak, kökteki her ilke veya erişim atamasının tüm aboneliklere uygulanmasının sorun olmadığını belirtmiş olursunuz.
+   1. Dizindeki herhangi bir müşteri *TenantBackfillStatusRequest* veya *StartTenantBackfillRequest* API’lerini çağırabilir. StartTenantBackfillRequest API’si çağrıldığında tüm abonelikleri hiyerarşiye taşımanın ilk kurulum işlemini başlatır. Ayrıca bu işlem, tüm yeni abonelikleri kök yönetim grubunun alt öğesi olmaya zorlama işlemini de başlatır. Bu işlem, kök düzeyde hiçbir atama değiştirilmeden yapılabilir. API'yi çağırarak, kökteki her ilke veya erişim atamasının tüm aboneliklere uygulanmasının sorun olmadığını belirtmiş olursunuz.
 
 Bu geriye dönük doldurma işlemi hakkında sorularınız varsa şu adresten bize ulaşın: managementgroups@microsoft.com  
   
@@ -116,6 +116,6 @@ Yönetim grupları hakkında daha fazla bilgi almak için bkz.:
 
 - [Azure kaynaklarını düzenlemek için yönetim grupları oluşturma](create.md)
 - [Yönetim gruplarınızı değiştirme, silme veya yönetme](manage.md)
-- [Azure PowerShell Kaynak Modülünde yönetim gruplarını gözden geçirme](https://aka.ms/mgPSdocs)
-- [REST API'de yönetim gruplarını gözden geçirme](https://aka.ms/mgAPIdocs)
-- [Azure CLI'de yönetim gruplarını gözden geçirme](https://aka.ms/mgclidoc)
+- [Azure PowerShell Kaynak Modülünde yönetim gruplarını gözden geçirme](/powershell/module/az.resources#resources)
+- [REST API'de yönetim gruplarını gözden geçirme](/rest/api/resources/managementgroups)
+- [Azure CLI'de yönetim gruplarını gözden geçirme](/cli/azure/account/management-group)
