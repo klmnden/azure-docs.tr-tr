@@ -1,20 +1,20 @@
 ---
 title: (.NET/.NET) Azure IOT Hub cihaz ikizlerini kullanmaya başlama | Microsoft Docs
 description: Azure IOT Hub cihaz ikizlerini etiketler ekleyin ve ardından IOT Hub sorgu kullanma Sanal cihaz uygulaması ve Azure IOT hizmeti SDK'sını etiketleri ekler ve IOT Hub sorgu çalışan bir hizmet uygulaması uygulamak .NET için Azure IOT cihaz SDK'sı .NET için kullanın.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: dobett
-ms.openlocfilehash: 1921395ed11c23ddb3d64d9d53124df7b7c8fd82
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.author: robin.shahan
+ms.openlocfilehash: 63ec161f2f0d8be4572acf456c81e19ca75bd856
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514868"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010744"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>(.NET/.NET) cihaz ikizlerini kullanmaya başlama
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]

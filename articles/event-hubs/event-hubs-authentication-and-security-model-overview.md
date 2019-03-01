@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 6f4abd9f826864914abee0b5d513d5b1c530d416
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19b347423c28b4c615f90f325ead462b9d3e8e9e
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104161"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990043"
 ---
 # <a name="azure-event-hubs---authentication-and-security-model"></a>Azure Event Hubs - kimlik doğrulaması ve güvenlik modeli
 
@@ -68,13 +68,13 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>Belirteç oluştur
 
-SAS anahtarını kullanarak belirteç oluşturabilir. İstemci başına yalnızca bir belirteci üretmesi gerekir. Belirteçleri aşağıdaki yöntemi kullanarak, daha sonra yeniden üretilebilir. Tüm belirteçlerin kullanılarak oluşturulan **EventHubSendKey** anahtarı. Her belirteç benzersiz bir URI atanır.
+SAS anahtarını kullanarak belirteç oluşturabilir. İstemci başına yalnızca bir belirteci üretmesi gerekir. Belirteçleri aşağıdaki yöntemi kullanarak, daha sonra yeniden üretilebilir. Tüm belirteçlerin kullanılarak oluşturulan **EventHubSendKey** anahtarı. Her belirteç benzersiz bir URI atanır. 'Resource' parametresi URI uç noktasına (Bu durumda event hub) hizmetinin karşılık gelir.
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-Bu yöntem çağrılırken, URI olarak belirtilmelidir `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Tüm belirteçlerin için URI dışında aynı olan `PUBLISHER_NAME`, olacağı için her bir belirteç farklı. İdeal olarak, `PUBLISHER_NAME` Bu belirteci aldığında istemci Kimliğini temsil eder.
+Bu yöntem çağrılırken, URI olarak belirtilmelidir `https://<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Tüm belirteçlerin için URI dışında aynı olan `PUBLISHER_NAME`, olacağı için her bir belirteç farklı. İdeal olarak, `PUBLISHER_NAME` Bu belirteci aldığında istemci Kimliğini temsil eder.
 
 Bu yöntem, aşağıdaki yapıya sahip bir belirteç oluşturur:
 

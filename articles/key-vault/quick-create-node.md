@@ -1,6 +1,6 @@
 ---
-title: "Hızlı başlangıç: Node Web Uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma | Microsoft Docs"
-description: "Hızlı başlangıç: Node Web Uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma"
+title: Hızlı Başlangıç - kümesi ve bir düğüm web uygulaması kullanarak Azure Key vault'tan gizli dizi alma | Microsoft Docs
+description: Bu hızlı başlangıçta, ayarlayın ve bir düğüm web uygulaması kullanarak Azure Key Vault'tan bir gizli dizi alma
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -11,65 +11,66 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 2b114a4aed812a91a9f6c4ed43f57411e47ea677
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 1e234b599325da0626c83a57d86ff977b88b5577
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260037"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991283"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Hızlı Başlangıç: Ayarlayın ve bir düğüm Web uygulaması kullanarak Azure Key Vault gizli dizi alma 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Hızlı Başlangıç: Bir düğüm web uygulaması kullanarak Azure Key Vault'tan bir gizli dizi alma ve ayarlama 
 
-Bu hızlı başlangıçta Anahtar Kasasında gizli dizi depolama ve bunu Web uygulaması kullanarak alma adımları gösterilmektedir. Gizli dizi değerini görmek için bunu Azure'da çalıştırmanız gerekir. Bu hızlı başlangıçta, Azure kaynakları için yönetilen kimlikler ve Node.js kullanılmaktadır.
+Bu hızlı başlangıçta, Azure anahtar Kasası'nda bir gizli dizi depolamak nasıl ve nasıl bir web uygulamasını kullanarak alınacağını gösterir. Anahtar kasasını kullanarak, bilgilerin güvende tutulmasına yardımcı olur. Gizli değer görmek için bu hızlı başlangıçta, Azure üzerinde çalıştırmak gerekir. Bu hızlı başlangıçta, Azure kaynakları için yönetilen kimlikler ve Node.js kullanılmaktadır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
-> [!div class="checklist"]
-> * Anahtar Kasası oluşturun.
-> * Anahtar Kasasında bir gizli dizi depolayın.
-> * Anahtar Kasasındaki bir gizli anahtarı alın.
-> * Azure Web Uygulaması oluşturun.
-> * Web uygulaması için [yönetilen kimliği](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) etkinleştirin.
-> * Web uygulamasının Anahtar Kasasından verileri okuması için gereken izinleri verin.
+* Bir anahtar kasası oluşturma.
+* Anahtar kasasına bir gizli dizi depolama.
+* Anahtar kasasından bir gizli dizi alma.
+* Azure web uygulaması oluşturma.
+* Web uygulaması için [yönetilen kimliği](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) etkinleştirin.
+* Web uygulamasının anahtar kasasından verileri okuması için gereken izinleri verme.
 
-Devam etmeden önce [temel kavramlar](key-vault-whatis.md#basic-concepts) hakkında bilgi sahibi olduğunuzdan emin olun.
+Devam etmeden önce alışık olduğunuz emin [Key Vault için temel kavramlar](key-vault-whatis.md#basic-concepts).
 
->[!NOTE]
-Aşağıdaki öğreticinin neden en iyi yöntem olduğunu anlamak için bilmeniz gereken birkaç kavram vardır. Key Vault, gizli dizilerin program aracılığıyla depolandığı merkezi bir depodur. Bunu yapmak için uygulamaların/kullanıcıların gizli dizi sunarak Key Vault kimlik doğrulamasından geçmesi gerekir. Güvenlikle ilgili en iyi yöntemlerin uygulanması için bu ilk gizli dizinin de düzenli olarak döndürülmesi gerekir. Ancak [kimliklerini Azure kaynakları için yönetilen](../active-directory/managed-identities-azure-resources/overview.md) Azure'da çalışan uygulamalar, Azure tarafından otomatik olarak yönetilen bir kimlik verilir. Bu da **Gizli Dizi Belirleme Sorununu** çözerek kullanıcıların/uygulamaların en iyi yöntemleri uygulamasına ve ilk gizli diziyi döndürme konusunda endişelenmemesine yardımcı olur.
+> [!NOTE]
+> Key Vault, gizli dizilerin program aracılığıyla depolandığı merkezi bir depodur. Ancak bunun için uygulamaların ve kullanıcıların bir Key Vault'a kimlik doğrulaması yapması, yani gizli dizi sunması gerekir. Mantığıyla en iyi güvenlik uygulamaları, ilk bu gizli dizinin düzenli aralıklarla döndürülmesi gerekir. 
+>
+> İle [yönetilen hizmet kimliklerini Azure kaynakları için](../active-directory/managed-identities-azure-resources/overview.md), Azure'da çalışan uygulamalar otomatik olarak Azure tarafından yönetilen bir kimlik alın. Bu, *gizli dizi belirleme sorununu* çözerek kullanıcıların ve uygulamaların en iyi yöntemleri uygulayabilmesini ve ilk gizli diziyi döndürme konusunda endişelenmemesini sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Node JS](https://nodejs.org/en/)
+* [Node.js](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 veya üzeri
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 veya üzeri. Bu hızlı başlangıçta, Azure CLI'yi yerel olarak çalıştırmanızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’yı yüklemeniz veya yükseltmeniz gerekiyorsa bkz. [Azure CLI 2.0’ı yükleme](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest).
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="login-to-azure"></a>Azure'da oturum açma
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-CLI kullanarak Azure'da oturum açmak için şunu yazabilirsiniz:
+Azure CLI'yi kullanarak Azure'da oturum açmak için, şunları girin:
 
 ```azurecli
 az login
 ```
 
-## <a name="create-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#az-group-create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+[az group create](/cli/azure/group#az-group-create) komutunu kullanarak bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
-Lütfen bir Kaynak Grubu adı seçin ve yer tutucunun yerine yazın.
-Aşağıdaki örnekte, *eastus* konumunda *<YourResourceGroupName>* adlı bir kaynak grubu oluşturulur.
+Kaynak grubu adı seçin ve yer tutucuyu doldurun.
+Aşağıdaki örnek, Doğu ABD konumunda bir kaynak grubu oluşturur.
 
 ```azurecli
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "East US"
 ```
 
-Az önce oluşturduğunuz kaynak grubu bu öğretici boyunca kullanılır.
+Az önce oluşturduğunuz kaynak grubu bu makale boyunca kullanılır.
 
-## <a name="create-an-azure-key-vault"></a>Azure Key Vault oluşturma
+## <a name="create-a-key-vault"></a>Bir anahtar kasası oluşturma
 
-Daha sonra, önceki adımda oluşturulan kaynak grubunda bir Anahtar Kasası oluşturursunuz. Bu makale boyunca Anahtar Kasası için “ContosoKeyVault” adı kullanılıyor olsa da, sizin benzersiz bir ad kullanmanız gerekir. Şu bilgileri belirtin:
+Ardından, önceki adımda oluşturduğunuz kaynak grubunu kullanarak bir anahtar kasası oluşturun. Bu makalede adı olarak "ContosoKeyVault" kullansa da, benzersiz bir ad kullanmanız gerekir. Şu bilgileri belirtin:
 
-* Kasa adı: **Buradan bir Anahtar Kasası adı seçin**.
-* Kaynak grubu adı: **Buradan bir Kaynak Grubu Adı seçin**.
+* Anahtar kasası adı.
+* Kaynak grubu adı. Ad 3-24 karakter dizesi olmalı ve yalnızca 0-9, içermelidir a-z, A-Z ve tire (-).
 * Konum: **Doğu ABD**.
 
 ```azurecli
@@ -78,11 +79,11 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 Bu noktada Azure hesabınız, bu yeni anahtar kasasında herhangi bir işlemi gerçekleştirmeye yetkili olan tek hesaptır.
 
-## <a name="add-a-secret-to-key-vault"></a>Anahtar kasasına gizli dizi ekleme
+## <a name="add-a-secret-to-the-key-vault"></a>Anahtar kasasına gizli dizi ekleme
 
-Bunun nasıl çalıştığını göstermemize yardımcı olması için bir gizli dizi ekliyoruz. Güvenle korumanız ama uygulamanıza da sağlamanız gereken bir SQL bağlantı dizesini veya başka bir bilgiyi depoluyor olabilirsiniz. Bu öğreticide, parola **AppSecret** olarak adlandırılır ve içinde **MySecret** değeri depolanır.
+Bunun nasıl çalıştığını göstermemize yardımcı olması için bir gizli dizi ekliyoruz. Güvenle korumanız ancak uygulamanıza da sağlamanız gereken bir SQL bağlantı dizesini veya başka bir bilgiyi depoluyor olabilirsiniz. Bu öğreticide, parola **AppSecret** olarak adlandırılır ve içinde **MySecret** değeri depolanır.
 
-Anahtar Kasasında **MySecret** değerini depolayacak **AppSecret** adlı gizli dizi oluşturmak için aşağıdaki komutları yazın:
+Anahtar kasasında **AppSecret** adlı bir gizli dizi oluşturmak için aşağıdaki komutları yazın. Bu gizli dizi **MySecret** değerini depolar.
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
@@ -94,11 +95,11 @@ Gizli dizi içindeki değeri düz metin olarak görüntülemek için:
 az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 ```
 
-Bu komut, URI de dahil olmak üzere gizli bilgiyi gösterir. Bu adımları tamamladıktan sonra, Azure Key Vault'ta bu gizli dizinin URI'sine sahip olmalısınız. Bu bilgileri bir yere yazın. Sonraki adımlardan birinde gerekecektir.
+Bu komut, URI dahil olmak üzere gizli dizi bilgilerini gösterir. Bu adımları tamamladıktan sonra, bir anahtar kasasında gizli dizi URI'sine sahip olmanız gerekir. Bu bilgileri not alın. Daha sonraki bir adımda gerekecektir.
 
 ## <a name="clone-the-repo"></a>Depoyu kopyalama
 
-Aşağıdaki komutu kullanarak kaynağı düzenleyebilmeniz için yerel kopyasını oluşturmak üzere depoyu kopyalayın:
+Kaynağı düzenleyebileceğiniz yerel bir kopya oluşturmak için depoyu kopyalayın. Şu komutu çalıştırın:
 
 ```
 git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
@@ -106,28 +107,30 @@ git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
 
 ## <a name="install-dependencies"></a>Bağımlılıkları yükleme
 
-Bu adımda bağımlılıkları yükleyeceksiniz. Şu komutları çalıştırın: cd key-vault-node-quickstart npm install
+Bağımlılıkları yüklemek için aşağıdaki komutları çalıştırın:
 
-Bu projede 2 düğüm modülü kullanılmaktadır:
+```
+cd key-vault-node-quickstart
+npm install
+```
 
-* [ms-rest-azure](https://www.npmjs.com/package/ms-rest-azure) 
-* [azure-keyvault](https://www.npmjs.com/package/azure-keyvault)
+Bu projede iki düğüm modüllerini kullanır: [ms rest azure](https://www.npmjs.com/package/ms-rest-azure) ve [azure keyvault](https://www.npmjs.com/package/azure-keyvault).
 
-## <a name="publish-the-web-application-to-azure"></a>Web uygulamasını Azure’a yayımlama
+## <a name="publish-the-web-app-to-azure"></a>Web uygulamasını Azure’da yayımlama
 
-Yapmanız gereken birkaç adım aşağıda gösterilmiştir
-
-- 1. adım, [Azure App Service](https://azure.microsoft.com/services/app-service/) Planı oluşturmaktır. Bu planda birden fazla web uygulaması depolayabilirsiniz.
+Oluşturma bir [Azure App Service](https://azure.microsoft.com/services/app-service/) planı. Bu planda birden fazla web uygulaması depolayabilirsiniz.
 
     ```
     az appservice plan create --name myAppServicePlan --resource-group myResourceGroup
     ```
-- Sonraki adımda bir web uygulaması oluşturmanız gerekir. Aşağıdaki örnekte <app_name> kısmını genel olarak benzersiz bir uygulama adıyla değiştirin (geçerli karakterler a-z, 0-9 ve - şeklindedir). Çalışma zamanı NODE|6.9 olarak ayarlanmıştır. Desteklenen tüm çalışma zamanlarını görmek için, az webapp list-runtimes komutunu çalıştırın.
+Ardından, bir web uygulaması oluşturun. Aşağıdaki örnekte, değiştirin `<app_name>` bir genel benzersiz uygulama adıyla (geçerli karakterler: a-z, 0-9 ve -). Çalışma zamanı NODE|6.9 olarak ayarlanmıştır. Desteklenen tüm çalışma zamanları görmek için şunu çalıştırın `az webapp list-runtimes`.
+
     ```
     # Bash
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
     ```
-    Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gibi bilgiler gösterir:
+Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gibi bilgiler gösterir:
+
     ```
     {
       "availabilityState": "Normal",
@@ -142,15 +145,14 @@ Yapmanız gereken birkaç adım aşağıda gösterilmiştir
       < JSON data removed for brevity. >
     }
     ```
-    Yeni oluşturduğunuz web uygulamasına göz attığınızda çalışan bir web uygulaması görmeniz gerekir. <app_name> değerini benzersiz bir uygulama adıyla değiştirin.
+Yeni oluşturulan web uygulamanıza gidin ve düzgün çalıştığını görmelisiniz. Değiştirin `<app_name>` benzersiz bir uygulama adına sahip.
 
     ```
     http://<app name>.azurewebsites.net
     ```
-    Yukarıdaki komut ayrıca yerel git ortamınızdan Azure'a dağıtım yapmanızı sağlayan Git özellikli bir uygulama oluşturur. 
-    Yerel git, şu URL'ye sahiptir: 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
+Yukarıdaki komut, ayrıca, yerel Git deponuzdan Azure'a dağıtmanızı sağlayan Git etkin bir uygulama oluşturur. Yerel Git deposu bu URL ile yapılandırılmış: https://<username>@< app_name >.scm.azurewebsites.net/ < app_name > .git.
 
-- Dağıtım kullanıcısı oluşturma Bir önceki komut tamamlandıktan sonra yerel Git deponuza bir Azure uzak bağlantı ekleyebilirsiniz. <url> yerine Uygulamanız için Git'i etkinleştirme adımında aldığınız Git uzak ortamının URL'sini yazın.
+Önceki komutta tamamladıktan sonra yerel Git deponuza bir Azure uzak ekleyebilirsiniz. Değiştirin `<url>` Git deposunun URL'si ile.
 
     ```
     git remote add azure <url>
@@ -170,7 +172,7 @@ Bu komut, portala gidip web uygulaması özelliklerinde **Kimlik/Sistem tarafın
 
 ### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>Key Vault gizli dizilerini okumak için uygulamanıza izin atama
 
-Yukarıdaki komutun çıktısını not edin veya kopyalayın. Şu biçimde olmalıdır:
+Önceki komutun çıktısındaki not edin. Şu biçimde olmalıdır:
         
         {
           "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -178,26 +180,23 @@ Yukarıdaki komutun çıktısını not edin veya kopyalayın. Şu biçimde olmal
           "type": "SystemAssigned"
         }
         
-Ardından Key Vault adını ve yukarıdan tamamladığınız PrincipalId değerini kopyalayarak şu komutu çalıştırın:
+Daha sonra anahtar kasasının adını ve değerini kullanarak aşağıdaki komutu çalıştırın **Principalıd**:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
 ```
 
-## <a name="deploy-the-node-app-to-azure-and-retrieve-the-secret-value"></a>Node Uygulamasını Azure'a dağıtma ve gizli diziyi alma
+## <a name="deploy-the-node-app-to-azure-and-retrieve-the-secret-value"></a>Düğüm uygulamasını Azure'a dağıtma ve gizli değer alma
 
-Tüm ayarları yaptınız. Uygulamayı Azure'a dağıtmak için aşağıdaki komutu çalıştırın
+Uygulamayı Azure'a dağıtmak için aşağıdaki komutu çalıştırın:
 
 ```
 git push azure master
 ```
 
-Ardından https://<app_name>.azurewebsites.net adresine gittiğinizde gizli diziyi görebilirsiniz.
-<YourKeyVaultName> yerine kasanızın adını yazdığınızdan emin olun
+Bundan sonra gizli değer https://<app_name>.azurewebsites.net için göz atarken görebilirsiniz. Adı yerine emin <YourKeyVaultName> vault adınızla.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Key Vault Ana Sayfası](https://azure.microsoft.com/services/key-vault/)
-* [Azure Key Vault Belgeleri](https://docs.microsoft.com/azure/key-vault/)
-* [Node için Azure SDK](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
-* [Azure REST API Başvurusu](https://docs.microsoft.com/rest/api/keyvault/)
+> [!div class="nextstepaction"]
+> [Node için Azure SDK](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)

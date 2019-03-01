@@ -1,6 +1,6 @@
 ---
-title: Azure haritalar içinde Android harita denetimini kullanma | Microsoft Docs
-description: Azure haritalar içinde Android harita denetimi kullanın.
+title: Android harita denetiminin içinde Azure haritalar kullanma | Microsoft Docs
+description: Azure haritalar Android harita denetimi.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
@@ -9,53 +9,53 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 57cc585d621c71872a4b7658c74f581c8998b245
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 15706addbe6b7f6310223978130158c792a47c89
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341088"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010676"
 ---
-# <a name="how-to-use-azure-maps-android-sdk"></a>Azure haritalar Android SDK'sını kullanma
+# <a name="how-to-use-the-azure-maps-android-sdk"></a>Azure haritalar Android SDK'sını kullanma
 
-Azure haritalar Android SDK'sı, Android için vektör haritalar kitaplığıdır. Bu makalede, Azure haritalar Android SDK'sını yükleme, bir harita yükleme ve üzerinde bir PIN yerleştirme işleminde size yol gösterir.
+Azure haritalar Android SDK'sı, Android için vektör harita kitaplığıdır. Bu makalede Azure haritalar Android SDK'sını yükleme, bir harita yükleme ve harita üzerinde bir PIN yerleştirme işlemleri size kılavuzluk eder.
 
-## <a name="prerequisites-to-get-started"></a>Başlamak için Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-### <a name="create-an-azure-maps-account"></a>Azure Haritalar hesabı oluşturma 
+### <a name="create-an-azure-maps-account"></a>Azure Haritalar hesabı oluşturma
 
-Bu kılavuzdaki adımları takip etmek için ilk görmek ihtiyacınız [hesapları ve anahtarları yönetme](how-to-manage-account-keys.md) oluşturup fiyatlandırma katmanı, hesap aboneliğiniz S1 ile yönetebilirsiniz.
+Bu makalede yer alan yordamları tamamlamak için önce yapmanız [bir Azure haritalar hesabı oluştur](how-to-manage-account-keys.md) S1 fiyatlandırma katmanını içinde.
 
-### <a name="download-android-studio"></a>Android Studio'yu indirin
+### <a name="download-android-studio"></a>Android Studio’yu indirin
 
-İndirebileceğiniz [Android Studio](https://developer.android.com/studio/) Google ücretsiz olarak edinebilirsiniz. Azure haritalar Android SDK'sı yükleyebilmek için önce Android Studio'yu indirin ve boş bir etkinliği ile bir proje oluşturmak gerekir.
+Android Studio'yu indirin ve Azure haritalar Android SDK'yı yüklemeden önce boş bir etkinliği ile bir proje oluşturmak için ihtiyacınız. Yapabilecekleriniz [Android Studio'yu indir](https://developer.android.com/studio/) Google ücretsiz olarak edinebilirsiniz. 
 
 ## <a name="create-a-project-in-android-studio"></a>Android Studio'da bir proje oluşturma
 
-Boş bir etkinlik yeni bir proje oluşturmanız gerekir. Yeni bir Android Studio projesi oluşturmak için aşağıdaki adımları izleyin:
+İlk olarak boş bir etkinlik yeni bir proje oluşturmak gerekir. Bir Android Studio projesi oluşturmak için aşağıdaki adımları tamamlayın:
 
-1. Altında *projenizi seçin*, uygulamanızın üzerinde çalışacağı form faktörü olarak "Telefon ve Tablet" denetleyin.
-2. Tıklayın *boş etkinlik* tıklayın ve form faktörü altında **sonraki**.
-3. Altında *Nakonfigurovat projekt*seçin `API 21: Android 5.0.0 (Lollipop)` en düşük SDK'sı olarak. Azure haritalar Android SDK tarafından desteklenen en düşük sürüm budur.
-4. Varsayılan değerleri kabul `Activity Name` ve `Layout Name` tıklatıp **son**
+1. Altında **projenizi seçin**seçin **telefon ve Tablet**. Uygulama bu form faktörüne üzerinde çalışır.
+2. Üzerinde **telefon ve Tablet** sekmesinde **boş etkinlik**ve ardından **sonraki**.
+3. Altında **Nakonfigurovat projekt**seçin `API 21: Android 5.0.0 (Lollipop)` en düşük SDK'sı olarak. Azure haritalar Android SDK tarafından desteklenen en erken sürüm budur.
+4. Varsayılan değerleri kabul `Activity Name` ve `Layout Name` seçip **son**.
 
-Bkz: [Android Studio belgeleri](https://developer.android.com/studio/intro/) Android Studio yükleme ve yeni proje oluşturma daha fazla bilgi için Yardım.
+Bkz: [Android Studio belgeleri](https://developer.android.com/studio/intro/) yeni proje oluşturma ve yükleme Android Studio ile daha fazla bilgi için Yardım.
 
-![Yeni bir proje oluşturun](./media/how-to-use-android-map-control-library/form-factor-android.png)
+![Proje oluşturma](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
 ## <a name="set-up-a-virtual-device"></a>Sanal bir cihaz ayarlama
 
-Android Studio bilgisayarınızı sanal bir Android cihazında ayarlamanıza olanak tanır. Hangi geliştirirken, uygulamanızı test etmek için yardımcı olabilir. Ayarlamak için bir sanal cihaz üst Android Virtual Device (AVD) Manager simgeye tıklayın, proje ekranınızın sağ. Ardından **sanal cihaz oluşturma** düğmesi. Manager da edinebilirsiniz **Araçlar > Android > AVD Manager** araç. Gelen **telefonlar** kategorisi, select **Nexus 5 X** tıklatıp **sonraki**.
+Android Studio bilgisayarınızı sanal bir Android cihazında ayarlamanıza olanak tanır. Bunun yapılması, uygulama geliştirme sırasında test etmenize yardımcı olabilir. Bir sanal cihazınızın kurulumunun yapılabilmesi için proje ekranınızın sağ üst köşesinde bulunan Android Virtual Device (AVD) Manager simgesini seçin ve ardından **sanal cihaz oluşturma**. İçin AVD Yöneticisi'ni seçerek de sahip olabilirsiniz **Araçları** > **Android** > **AVD Manager** araç çubuğundan. İçinde **telefonlar** kategorisi, select **Nexus 5 X**ve ardından **sonraki**.
 
 İçinde bir AVD ayarlama hakkında daha fazla bilgi [Android Studio belgeleri](https://developer.android.com/studio/run/managing-avds).
 
 ![Android öykünücüsü](./media/how-to-use-android-map-control-library/android-emulator.png)
 
-## <a name="install-azure-maps-android-sdk"></a>Azure haritalar Android SDK'sını yükleyin
+## <a name="install-the-azure-maps-android-sdk"></a>Azure haritalar Android SDK'sını yükleyin
 
-Uygulamanızı oluşturmaya yönelik ileri taşımadan önce Azure haritalar Android SDK'sını yüklemek için aşağıdaki adımları izleyin. 
+Azure haritalar Android SDK'sı uygulamanızı oluşturduktan sonraki adım yüklemektir. SDK yüklemek için aşağıdaki adımları tamamlayın:
 
-1. Ekleyin **tüm projeleri**, depoları engellenmesi, **build.gradle** dosya.
+1. Aşağıdaki kodu ekleyin **tüm projeleri**, **depoları** engellenmesi, **build.gradle** dosya.
 
     ```
     maven {
@@ -63,9 +63,9 @@ Uygulamanızı oluşturmaya yönelik ileri taşımadan önce Azure haritalar And
     }
     ```
 
-2. Güncelleştirme, **app/build.gradle** ve aşağıdakileri ekleyin:
+2. Güncelleştirme, **app/build.gradle** ve aşağıdaki kodu ekleyin:
 
-    1. Aşağıdaki Android bloğuna ekleyin:
+    1. Android bloğuna aşağıdaki kodu ekleyin:
 
         ```
         compileOptions {
@@ -73,13 +73,13 @@ Uygulamanızı oluşturmaya yönelik ileri taşımadan önce Azure haritalar And
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    2. Bağımlılıkları engellemeniz güncelleştirin ve aşağıdakileri ekleyin:
+    2. Bağımlılıkları engellemeniz güncelleştirin ve aşağıdaki kodu ekleyin:
 
         ```
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. Aşağıdaki ekleyerek izinleri ayarlama, **AndroidManifest.xml**
+3. Aşağıdaki XML ekleyerek izinleri ayarlama, **AndroidManifest.xml** dosyası:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -90,7 +90,7 @@ Uygulamanızı oluşturmaya yönelik ileri taşımadan önce Azure haritalar And
     </manifest>
     ```
 
-4. Düzen **res > Düzen > activity_main.xml**, XML gibi görünür:
+4. Düzen **res** > **Düzen** > **activity_main.xml** bu XML gibi görünür:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -113,7 +113,7 @@ Uygulamanızı oluşturmaya yönelik ileri taşımadan önce Azure haritalar And
     </FrameLayout>
     ```
 
-5. Düzen **MainActivity.java** harita görünümü etkinlik sınıfı oluşturmak için. Düzenledikten sonra sınıfına aşağıdaki gibi görünmelidir:
+5. Düzen **MainActivity.java** harita görünümü etkinlik sınıfı oluşturmak için. Dosyayı düzenledikten sonra bu sınıf gibi görünmesi gerekir:
 
     ```java
     package com.example.myapplication;
@@ -187,21 +187,21 @@ Uygulamanızı oluşturmaya yönelik ileri taşımadan önce Azure haritalar And
 
 ## <a name="import-classes"></a>Sınıfları içeri aktarma
 
-Yukarıdaki adımları tamamladıktan sonra büyük olasılıkla uyarıları Android Studio bazı kod metni alırsınız. Bu uyarıları gidermek için başvurulan sınıflarını içeri aktarmak `MainActivity.java`.
+Yukarıdaki adımları tamamladıktan sonra büyük olasılıkla uyarıları Android Studio bazı kodları hakkında elde edersiniz. Bu uyarıları gidermek için başvurulan sınıflarını içeri aktarmak `MainActivity.java`.
 
-Bu sınıfların tuşlarına basarak otomatik olarak içeri aktarabilirsiniz `Alt` + `Enter`(`Option` + `Return` Mac üzerinde). 
+Otomatik olarak Alt + Enter (seçeneği + Return Mac'te) seçerek bu sınıflarını içeri aktarabilirsiniz.
 
-Tıklayın **Çalıştır 'App'** düğme (veya `Control` + `R` Mac'te) uygulamanızı oluşturmak için.
+Aşağıdaki grafik (veya bir Mac üzerinde denetim + R tuşuna basın), uygulamanızı oluşturmak için gösterildiği gibi Çalıştır düğmesi seçin.
 
 ![Çalıştır'a tıklayın](./media/how-to-use-android-map-control-library/run-app.png)
 
-Uygulamayı oluşturmak için android studio birkaç saniye sürer. Son Derleme tamamlandıktan sonra benzetilmiş Android cihazda uygulamanızı test edebilirsiniz. Aşağıdaki gibi bir harita görürsünüz.
+Android Studio, uygulamayı oluşturmak için birkaç saniye sürer. Derleme tamamlandıktan sonra benzetilmiş Android cihazda uygulamanızı test edebilirsiniz. Bunun gibi bir eşleme görmeniz gerekir:
 
 ![Android eşleme](./media/how-to-use-android-map-control-library/android-map.png)
 
 ## <a name="add-a-marker-to-the-map"></a>Haritayı bir işaretleyici Ekle
 
-Bir işaretçi haritanızı açın eklemek için Ekle `mapView.getMapAsync()` işlevi `MainActivity.java`. En son `MainActivity.java` aşağıdaki gibi görünmelidir:
+Haritanıza bir işaret eklemek için Ekle `mapView.getMapAsync()` işlevi `MainActivity.java`. En son `MainActivity.java` kod şu şekilde görünmelidir:
 
 ```java
 package com.example.myapplication;
@@ -288,6 +288,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Uygulamanızı yeniden çalıştırın ve aşağıdaki gibi harita üzerinde işaretçiyi görmeniz gerekir.
+Uygulamanızı yeniden çalıştırın. Burada gösterildiği gibi harita üzerinde işaretçiyi görmeniz gerekir:
 
 ![Android harita raptiyesini](./media/how-to-use-android-map-control-library/android-map-pin.png)

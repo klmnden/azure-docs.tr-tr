@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e5b06ad551b45bc0c892bc789c6f5c5a27b5bb0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ca5dc106d3a524f9bdd6f2d989ef1189032cd60f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882986"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195532"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -1102,7 +1102,7 @@ Azure AD Connect için değiştirilen adı Azure AD eşitleme.
 * İçin [AD FS yapılandırma](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)
 * İçin [dirsync'ten yükseltme](how-to-dirsync-upgrade-get-started.md)
 * [Yanlışlıkla silmeleri engelleme](how-to-connect-sync-feature-prevent-accidental-deletes.md)
-* Tanıtılan [hazırlama modu](how-to-connect-sync-operations.md#staging-mode)
+* Tanıtılan [hazırlama modu](how-to-connect-sync-staging-server.md)
 
 **Yeni Önizleme özellikleri:**
 
