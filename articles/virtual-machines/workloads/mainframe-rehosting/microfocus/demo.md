@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: c921fd0c52d555264ab511486709b888b50bd68e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2a29b484b58b887981b1879ceba5bf7426bb6c2e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739712"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192013"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-in-azure"></a>Micro odak Kurumsal Geliştirici 4.0 azure'da Micro odak CICS BankDemo ' ayarlayın
 
@@ -73,7 +73,7 @@ VM üzerinde Kurumsal Geliştirici 4.0 yükledikten sonra birlikte Enterprise Se
     - TCP etkinleştirme
     - TCP bağlantı noktası paylaşma
 
-     ![](media/01-demo-roles.png)
+     ![Rol ve Özellik Ekleme Sihirbazı'nı ekleyin: Rol Hizmetleri](media/01-demo-roles.png)
 
 8. Tüm seçenekleri seçtikten sonra tıklayın **sonraki** yüklemek için.
 
@@ -101,7 +101,7 @@ Bazı kurumsal sunucu işlemlerini SQL sunucusunda oturum açın ve veritabanlar
 
 4. Seçin **sunucu rolleri** ve **sysadmin**.
 
-     ![](media/02-demo-explorer.png)
+     ![SSMS Nesne Gezgini penceresi: Oturum Açma Özellikleri](media/02-demo-explorer.png)
 
 ## <a name="create-the-bankdemo-database-and-all-its-objects"></a>BankDemo veritabanı ve tüm nesneleri oluşturma
 
@@ -117,7 +117,7 @@ Bazı kurumsal sunucu işlemlerini SQL sunucusunda oturum açın ve veritabanlar
 
 Sorgu, herhangi bir hata ile çalıştırmanız gerekir. İşlem tamamlandığında BankDemo uygulama için örnek veritabanı vardır.
 
-![](media/03-demo-query.png)
+![SQLQuery1.sql output](media/03-demo-query.png)
 
 ## <a name="verify-that-the-database-tables-and-objects-have-been-created"></a>Veritabanı tabloları ve nesneleri oluşturulmuş olduğunu doğrulayın
 
@@ -125,7 +125,7 @@ Sorgu, herhangi bir hata ile çalıştırmanız gerekir. İşlem tamamlandığı
 
 2. Genişletin **veritabanı** seçip **tabloları**. Aşağıdaki gibi görmeniz gerekir.
 
-     ![](media/04-demo-explorer.png)
+     ![Nesne Gezgini'nde genişletilmiş BANKDEMO tablo](media/04-demo-explorer.png)
 
 ## <a name="build-the-application-in-enterprise-developer"></a>Kurumsal Geliştirici uygulama oluşturun
 
@@ -147,7 +147,7 @@ Sorgu, herhangi bir hata ile çalıştırmanız gerekir. İşlem tamamlandığı
 
 6. Proje derlenirken inceleyin **çıkış** penceresi. Bu işlem, aşağıdaki resimdeki gibi görünmelidir.
 
-     ![](media/05-demo-output.png)
+     ![Çıktı penceresi başarılı derleme gösterme](media/05-demo-output.png)
 
 ## <a name="deploy-the-bankdemo-application-into-the-region-database"></a>Bölge veritabanı BankDemo uygulamasına dağıtma
 
@@ -164,7 +164,7 @@ Sorgu, herhangi bir hata ile çalıştırmanız gerekir. İşlem tamamlandığı
 > [!NOTE]
 > Eğik çizgi (/) değil ters eğik çizgi kullandığınızdan emin olun (\\). Bu betik, bir süredir çalıştırır.
 
-![](media/06-demo-cmd.png)
+![Yönetim: Kurumsal Geliştirici komut istemi penceresi](media/06-demo-cmd.png)
 
 ## <a name="create-the-bankdemo-region-in-enterprise-administrator-for-net"></a>.NET için kuruluş yöneticisi BankDemo bölge oluştur
 
@@ -178,11 +178,11 @@ Sorgu, herhangi bir hata ile çalıştırmanız gerekir. İşlem tamamlandığı
 
 5. Veritabanı sunucusu örneğine sağlayın, tıklayın **sonraki**ve ardından bölge adı girin **BANKDEMO**.
 
-     ![](media/07-demo-cics.png)
+     ![Bölge iletişim kutusu tanımlayın](media/07-demo-cics.png)
 
 6. Bölgeler arası veritabanı için bölge tanım dosyasını seçmek için bulun **bölge\_bankdemo\_db.config** içinde **C:\\kullanıcılar\\genel\\ Belgeler\\Micro odak\\Kurumsal Geliştirici\\örnekleri\\anabilgisayar\\CICS\\DotNet\\BankDemo**.
 
-     ![](media/08-demo-cics.png)
+     ![Bölge - bölge adı tanımlayın: BANKDEMO](media/08-demo-cics.png)
 
 7. **Son**'a tıklayın.
 
@@ -198,11 +198,11 @@ Sorgu, herhangi bir hata ile çalıştırmanız gerekir. İşlem tamamlandığı
 
 5. Seçin **veritabanı XA kaynak tanımı** yazın **BANKDEMO** için **adı** ve **bölge**.
 
-     ![](media/09-demo-xa.png)
+     ![Yeni veritabanı XA kaynak tanımı filtresi](media/09-demo-xa.png)
 
 6. Üç noktaya tıklayın (**...** ) için bağlantı dizesi sihirbazını getirir. İçin **sunucu adı**, türü **(yerel)\\SQLEXPRESS**. İçin **oturum açma**seçin **Windows kimlik doğrulaması**. Veritabanı adını yazın **BANKDEMO**
 
-     ![](media/10-demo-string.png)
+     ![Bağlantı dizesi ekran Düzenle](media/10-demo-string.png)
 
 7. Bağlantıyı test edin.
 
@@ -217,11 +217,11 @@ Sorgu, herhangi bir hata ile çalıştırmanız gerekir. İşlem tamamlandığı
 
 3. Sağ **BANKDEMO CICS bölge** içinde **konsol** bölmesi ve seçin **başlatma/durdurma bölge**.
 
-4. ' In en altındaki **Başlat / Durdur** Ortadaki bölmeden seçin açılan kutusunda **Başlat**. Birkaç saniye sonra bölgeyi başlatır.
+4. ' In en altındaki **başlatma/durdurma bölge** Ortadaki bölmeden seçin açılan kutusunda **Başlat**. Birkaç saniye sonra bölgeyi başlatır.
 
-     ![](/media/11-demo-sql.png)
+     ![SQL Başlat/Durdur kutusu](/media/11-demo-sql.png)
 
-     ![](media/12-demo-cics.png)
+     ![CICS bölge BANKDEMO - başlangıç ekranı](media/12-demo-cics.png)
 
 ## <a name="create-a-listener"></a>Bir dinleyici oluşturun
 
@@ -245,7 +245,7 @@ Dinleyici BankDemo uygulamaya erişmek için TN3270 oturumları oluşturmak içi
 
 9. Dinleyici başlatmak için tıklatın **dinleyicisi başlatın** simgesine ya da seçin **seçenekleri** \> **dinleyicisi başlatın**.
 
-     ![](media/13-demo-listener.png)
+     ![Dinleyici yapılandırma Düzenleyicisi windows](media/13-demo-listener.png)
 
 
 ## <a name="configure-rumba-to-access-the-bankdemo-application"></a>Rumba BankDemo uygulamaya erişmek için yapılandırma
@@ -264,8 +264,8 @@ Gerçekleştirmeniz gereken son Rumba, 3270 öykünücüsü kullanarak bir 3270 
 
 6. Kullanıcı kimliği için tür **B0001** ve herhangi bir şey parolasını yazın. İlk ekrana BANK20 açılır.
 
-![](media/14-demo.png)
-![](media/15-demo.png)
+![Ana görüntü Hoş Geldiniz ekranı](media/14-demo.png)
+![anabilgisayar görüntüleme - Rumba - alt tanıtım ekran](media/15-demo.png)
 
 Tebrikler! Micro odak kuruluş sunucusu kullanarak Azure'da bir CICS uygulaması şimdi çalışıyor.
 

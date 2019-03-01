@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b0b835dde4b98619238eaac9449432aaa9acffd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670496"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989328"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>Azure için Avere vFXT nedir? 
 
@@ -19,8 +19,8 @@ Azure için Avere vFXT, yoğun veri kullanan yüksek performanslı bilgi işlem 
 
 Avere vFXT şu yaygın bilgi işlem senaryolarını destekler: 
 
-* Hibrit bulut mimarisi: Azure için Avere vFXT donanımsal depolama sistemiyle birlikte çalışır ve bu sayede dosyaları taşımaya gerek kalmadan bulut bilişimin avantajlarını sunar. 
-* Bulutu genişletme: Azure için Avere vFXT, yalnızca bir proje için verilerinizi buluta taşımanıza veya "lift and shift" yaklaşımıyla iş akışının tamamını geçirmenize yardımcı olabilir. 
+* Karma bulut mimarisi: Azure için Avere vFXT dosyaları taşımak zorunda kalmadan bulut avantajlarını sağlar bir donanım depolama sistemi çalışabilirsiniz. 
+* Bulut Patlaması: Azure için Avere vFXT yardımcı olabilir, verilerinizi tek bir proje için buluta taşıyın veya "kaldırma ve kaydırma" iş akışının tamamını kalıcı olarak. 
 
 ![Blob depolama alanına ve şirket içi veri merkezine bağlı bir Azure aboneliğindeki Avere vFXT sisteminin ayrıntılarını gösteren diyagram](media/avere-vfxt-hybrid.png)
 
@@ -67,7 +67,7 @@ Avere vFXT şu Azure kaynaklarını kullanır:
 
 |Azure bileşeni|   |
 |----------|-----------|
-|Sanal makineler|3 veya daha fazla D16s_v3 veya E32s_v3|
+|Sanal makineler|3 veya daha fazla E32s_v3|
 |Premium SSD depolama alanı|200 GB işletim sistemi alanına ek olarak düğüm başına 1 TB-4 TB önbellek alanı |
 |Depolama hesabı (isteğe bağlı) |v2|
 |Veri arka uç depolama alanı (isteğe bağlı) | Boş bir LRS Blob kapsayıcısı |

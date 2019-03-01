@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 21175e74bd40d0d4aeaf1c0a1e677f1c8113e80a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9a2cf35203c673d6296754360ac4f794241d4c43
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738020"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008687"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Azure API Management hizmeti bir iç sanal ağ ile kullanma
 Azure sanal ağlar ile Azure API Management API'leri değil internet üzerinden erişilebilen yönetebilirsiniz. VPN'si teknolojileri birkaç bağlantı kurmak kullanılabilir. API Management, iki ana modda bir sanal ağ içinde dağıtılabilir:
@@ -74,7 +74,7 @@ PowerShell cmdlet'lerini kullanarak, sanal ağ bağlantısı da etkinleştirebil
 
 * Bir sanal ağ içinde bir API Management hizmeti oluşturun: Cmdlet'i kullanmak [yeni AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) bir sanal ağ içinde bir Azure API Management hizmeti oluşturma ve iç sanal ağ türü kullanacak şekilde yapılandırın.
 
-* Bir API Yönetimi hizmetiniz bir sanal ağ içinde dağıtın: Cmdlet'i kullanmak [güncelleştirme AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) bir API Yönetimi hizmetiniz bir sanal ağ içinde hareket ve iç sanal ağ türü kullanacak şekilde yapılandırın.
+* Var olan bir dağıtımının bir sanal ağ içinde bir API Management hizmeti güncelleştirin: Cmdlet'i kullanmak [güncelleştirme AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) bir API Yönetimi hizmetiniz bir sanal ağ içinde hareket ve iç sanal ağ türü kullanacak şekilde yapılandırın.
 
 ## <a name="apim-dns-configuration"></a>DNS yapılandırması
 API Management, dış sanal ağ modunda olduğunda, DNS, Azure tarafından yönetilir. İç sanal ağ modu için kendi yönlendirme yönetmek zorunda.

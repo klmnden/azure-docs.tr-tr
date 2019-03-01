@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: magattus
-ms.openlocfilehash: 2f9bb6eee35a303697179ff02ed18203cd1652f6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1370785f730fbbc9ceaea67e4f615de7d2041204
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692605"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990621"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN kapsamı Metro tarafından 
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "55692605"
 > 
 
 
-Bu makalede, Azure Content Delivery Network (CDN) ürünleri için bir bölgeye göre sıralanmış bulunma noktası (POP) konumları içeren geçerli Metros listelenmektedir. Her Metro, birden fazla POP içerebilir. Örneğin, Microsoft Azure CDN'den 129 POP bizim 61 Metros arasında vardır. 
+Bu makalede, Azure Content Delivery Network (CDN) ürünleri için bir bölgeye göre sıralanmış bulunma noktası (POP) konumları içeren geçerli Metros listelenmektedir. Her Metro, birden fazla POP içerebilir. Örneğin, Microsoft Azure CDN'den 129 POP'ları arasında 65 Metros vardır. 
 
 > [!IMPORTANT]
 > POP Şehir konumları **akamai'den Azure CDN** değil ayrı ayrı bildirilen.  
@@ -38,14 +38,14 @@ Bu makalede, Azure Content Delivery Network (CDN) ürünleri için bir bölgeye 
 
 | Bölge | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
-| Kuzey Amerika | Toronto, Canada<br />Querétaro, Meksika<br />San Juan, Puerto Rico<br />Ashburn, VA, ABD<br />Boston, MA, ABD<br />Cheyenne, WY, ABD<br />Chicago, IL, ABD<br /> Dallas, TX, ABD<br />Denver, ortak, ABD<br />Houston, TX, ABD<br />Las Vegas, NV, ABD<br />Los Angeles, CA, ABD<br />Miami, FL, USA<br />New York, NY, ABD<br />Phoenix, AZ, ABD<br />Quincy, WA, ABD<br />SAN Antonio, TX, ABD<br />Santa Clara, CA, ABD<br />Seattle, WA, ABD | Guadalahara, Mexico<br />Mexico City, Mexico<br />Puebla, Meksika<br />Querétaro, Meksika<br />Atlanta, GA, ABD<br />Boston, MA, ABD<br />Chicago, IL, ABD<br />Dallas, TX, ABD<br />Denver, ortak, ABD<br />Los Angeles, CA, ABD<br />Miami, FL, USA<br />New York, NY, ABD<br />Philadelphia, PA, ABD<br />San Jose, CA, ABD<br />Seattle, WA, ABD<br />Washington, DC, ABD | Kanada<br />Meksika<br />ABD |
+| Kuzey Amerika | Toronto, Canada<br />Querétaro, Meksika<br />San Juan, Puerto Rico<br />Ashburn, VA, ABD<br />Atlanta, GA, ABD<br />Boston, MA, ABD<br />Cheyenne, WY, ABD<br />Chicago, IL, ABD<br /> Dallas, TX, ABD<br />Denver, ortak, ABD<br />Honolulu, yüksek, ABD<br />Houston, TX, ABD<br />Las Vegas, NV, ABD<br />Los Angeles, CA, ABD<br />Miami, FL, USA<br />New York, NY, ABD<br />Phoenix, AZ, ABD<br />SAN Antonio, TX, ABD<br />San Jose, CA, ABD<br />Seattle, WA, ABD | Guadalahara, Mexico<br />Mexico City, Mexico<br />Puebla, Meksika<br />Querétaro, Meksika<br />Atlanta, GA, ABD<br />Boston, MA, ABD<br />Chicago, IL, ABD<br />Dallas, TX, ABD<br />Denver, ortak, ABD<br />Detroit, mı, ABD<br />Los Angeles, CA, ABD<br />Miami, FL, USA<br />New York, NY, ABD<br />Philadelphia, PA, ABD<br />San Jose, CA, ABD<br />Seattle, WA, ABD<br />Washington, DC, ABD | Kanada<br />Meksika<br />ABD |
 | Güney Amerika | Campinas, Brezilya<br />Rio de Janeiro, Brazil<br />Santiago, Şili | Buenos Aires, Arjantin<br />Rio de Janeiro, Brazil<br />Sao Paulo, Brezilya<br />Valparaíso, Şili<br />Barranquilla, Kolombiya<br />Medellin, Kolombiya<br />Quito'nun kuruluşu, Ekvador<br />Lima, Peru | Arjantin<br />Brezilya<br />Şili<br />Kolumbiyası<br />Ekvador<br />Peru<br />Uruguay |
-| Avrupa | Viyana, Avusturya<br />Brüksel, Belçika<br />Prag, Çek Cumhuriyeti<br />Kopenhag, Danimarka<br /> Helsinki, Finlandiya<br />Marsilya'daki, Fransa<br />Paris, Fransa<br />Frankfurt, Almanya<br />Atina, Yunanistan<br />Budapeşte, Macaristan<br />Dublin, İrlanda<br />Milano, İtalya<br />Amsterdam, Hollanda<br />Varşova, Polonya<br />Barcelona, İspanya<br />Madrid, İspanya<br />Stokholm, İsveç<br />Zürih, İsviçre<br />Durham, Birleşik Krallık<br />Londra, Birleşik Krallık<br />Manchester, Birleşik Krallık | Viyana, Avusturya<br />Kopenhag, Danimarka<br />Helsinki, Finlandiya<br />Marsilya'daki, Fransa<br />Paris, Fransa<br />Frankfurt, Almanya<br />Milano, İtalya<br />Riga, Letonya<br />Amsterdam, Hollanda<br />Varşova, Polonya<br />Madrid, İspanya<br />Stokholm, İsveç<br />Londra, Birleşik Krallık | Avusturya<br />Bulgaristan<br />Danimarka<br />Finlandiya<br />Fransa<br />Almanya<br />Yunanistan<br />İrlanda<br />İtalya<br />Hollanda<br />Polonya<br />Rusya<br />İspanya<br />İsveç<br />İsviçre<br />Birleşik Krallık |
+| Avrupa | Viyana, Avusturya<br />Brüksel, Belçika<br />Prag, Çek Cumhuriyeti<br />Kopenhag, Danimarka<br /> Helsinki, Finlandiya<br />Marsilya'daki, Fransa<br />Paris, Fransa<br />Berlin, Almanya<br />Frankfurt, Almanya<br />Atina, Yunanistan<br />Budapeşte, Macaristan<br />Dublin, İrlanda<br />Milano, İtalya<br />Amsterdam, Hollanda<br />Varşova, Polonya<br />Barcelona, İspanya<br />Madrid, İspanya<br />Stokholm, İsveç<br />Zürih, İsviçre<br />Londra, Birleşik Krallık<br />Manchester, Birleşik Krallık | Viyana, Avusturya<br />Kopenhag, Danimarka<br />Helsinki, Finlandiya<br />Marsilya'daki, Fransa<br />Paris, Fransa<br />Frankfurt, Almanya<br />Milano, İtalya<br />Riga, Letonya<br />Amsterdam, Hollanda<br />Varşova, Polonya<br />Madrid, İspanya<br />Stokholm, İsveç<br />Londra, Birleşik Krallık | Avusturya<br />Bulgaristan<br />Danimarka<br />Finlandiya<br />Fransa<br />Almanya<br />Yunanistan<br />İrlanda<br />İtalya<br />Hollanda<br />Polonya<br />Rusya<br />İspanya<br />İsveç<br />İsviçre<br />Birleşik Krallık |
 | Afrika | Cape Town, Güney Afrika<br />Johannesburg, Güney Afrika | Johannesburg, Güney Afrika | Güney Afrika |
-| Orta Doğu | | Muscat, Umman<br />Fujirah, Birleşik Arap Emirlikleri | Katar<br />Birleşik Arap Emirlikleri |
+| Orta Doğu | Dubai, Birleşik Arap Emirlikleri | Muscat, Umman<br />Fujirah, Birleşik Arap Emirlikleri | Katar<br />Birleşik Arap Emirlikleri |
 | Hindistan | Chennai, Hindistan<br />Mumbai, Hindistan<br />Yeni Delhi, Hindistan | Bangalore, Hindistan<br />Chennai, Hindistan<br />Mumbai, Hindistan<br />Yeni Delhi, Hindistan<br /> | Hindistan |
 | Asya | Hong Kong<br />Osaka, Japonya<br />Tokyo, Japonya<br />Kuala Lumpur, Malezya<br />Manila, Filipinler<br />Singapur<br />Busan, Güney Kore<br />Seul, Kore Güney<br />Taipei, Tayvan<br />Bangkok, Tayland | Hong Kong<br />Batam, Endonezya<br />Cakarta, Endonezya<br />Osaka, Japonya<br />Tokyo, Japonya<br />Singapur<br />Busan, Güney Kore<br />Seul, Kore Güney<br />Kaohsiung, Tayvan | Hong Kong<br />Endonezya<br />İsrail<br />Japonya<br />Makao<br />Malezya<br />Filipinler<br />Singapur<br />Güney Kore<br />Tayvan<br />Tayland<br />Türkiye<br />Vietnam |
-| Avustralya ve Yeni Zelanda | Melbourne, Avustralya<br />Sydney, Avustralya<br />Auckland, Yeni Zelanda | Melbourne, Avustralya<br />Sydney, Avustralya<br />Auckland, Yeni Zelanda | Avustralya<br />Yeni Zelanda |
+| Avustralya ve Yeni Zelanda | Brisbane, Avustralya<br />Melbourne, Avustralya<br />Perth, Avustralya<br />Sydney, Avustralya<br />Auckland, Yeni Zelanda | Melbourne, Avustralya<br />Sydney, Avustralya<br />Auckland, Yeni Zelanda | Avustralya<br />Yeni Zelanda |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2a5876a3f77eb0764edc5ce833f4b74284dda66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ce4ad48a81d5f3b3b8574237b8d8685ad9b141ec
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211725"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194216"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync'ten yükseltme
 Azure AD Connect, DirSync'in yerini almıştır. Bu konu başlığı altında DirSync'ten yükseltme yöntemlerini bulabilirsiniz. Bu adımlar, Azure AD Connect'in başka bir sürümünden veya Azure AD Eşitleme'den yapılacak yükseltmeler için geçerli değildir.
@@ -71,7 +71,7 @@ Aşağıdaki değişiklik yükseltilemez. Bu yapılandırmaya sahipseniz yüksel
 
 ![Yükseltme engellendi](./media/how-to-dirsync-upgrade-get-started/analysisblocked.png)
 
-Bu gibi durumlarda, [hazırlama modunda](how-to-connect-sync-operations.md#staging-mode) yeni bir Azure AD Connect sunucusunun yüklenmesi ve eski DirSync ile yeni Azure AD Connect yapılandırmasının doğrulanması önerilir. [Azure AD Connect Eşitleme özel yapılandırmasında](how-to-connect-sync-whatis.md) tanımlanan şekilde, özel yapılandırmayı kullanarak yapılan tüm değişiklikleri yeniden uygulayın.
+Bu gibi durumlarda, [hazırlama modunda](how-to-connect-sync-staging-server.md) yeni bir Azure AD Connect sunucusunun yüklenmesi ve eski DirSync ile yeni Azure AD Connect yapılandırmasının doğrulanması önerilir. [Azure AD Connect Eşitleme özel yapılandırmasında](how-to-connect-sync-whatis.md) tanımlanan şekilde, özel yapılandırmayı kullanarak yapılan tüm değişiklikleri yeniden uygulayın.
 
 DirSync tarafından hizmet hesapları için kullanılan parolalar alınamaz ve geçirilmez. Bu parolalar yükseltme sırasında sıfırlanır.
 
@@ -161,12 +161,12 @@ Azure AD Connect'i yeni bir sunucuya yüklediğinizde, Azure AD Connect’i temi
      Bu seçenekler şu ekranda görülebilir:  
      ![Azure AD kimlik bilgilerinizi girin](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. **İleri**’ye tıklayın.
-8. **Yapılandırma için hazır** sayfasında, **Start the synchronization process as soon as configuration completes (Yapılandırma tamamlanınca eşitlemeyi başlat)** seçeneğini işaretli olarak bırakın. Sunucu şu an [hazırlama modunda](how-to-connect-sync-operations.md#staging-mode) olduğundan değişiklikler Azure AD’ye dışarı aktarılmaz.
+8. **Yapılandırma için hazır** sayfasında, **Start the synchronization process as soon as configuration completes (Yapılandırma tamamlanınca eşitlemeyi başlat)** seçeneğini işaretli olarak bırakın. Sunucu şu an [hazırlama modunda](how-to-connect-sync-staging-server.md) olduğundan değişiklikler Azure AD’ye dışarı aktarılmaz.
 9. **Yükle**'ye tıklayın.
 10. Yükleme tamamlandıktan sonra Synchronization Service Manager'ı ve Synchronization Rule Editor'ı kullanmadan veya başka bir yapılandırma değişikliği yapmadan önce Windows oturumunuzu kapatıp tekrar açın.
 
 > [!NOTE]
-> Windows Server Active Directory ile Azure Active Directory arasında eşitleme başlar, ancak hiçbir değişiklik Azure AD'ye dışarı aktarılmaz. Aynı anda yalnızca bir eşitleme aracı değişiklikleri etkin olarak dışarı aktarabilir. Bu durum, [hazırlama modu](how-to-connect-sync-operations.md#staging-mode) olarak adlandırılır.
+> Windows Server Active Directory ile Azure Active Directory arasında eşitleme başlar, ancak hiçbir değişiklik Azure AD'ye dışarı aktarılmaz. Aynı anda yalnızca bir eşitleme aracı değişiklikleri etkin olarak dışarı aktarabilir. Bu durum, [hazırlama modu](how-to-connect-sync-staging-server.md) olarak adlandırılır.
 
 ### <a name="verify-that-azure-ad-connect-is-ready-to-begin-synchronization"></a>Azure AD Connect'in eşitlemeye başlamak için hazır olduğunu doğrulama
 Azure AD Connect'in DirSync'ten devralma işleminin hazır olduğunu doğrulamak için başlat menüsünden **Azure AD Connect** grubundaki **Synchronization Service Manager**'ı açmanız gerekir.
@@ -182,7 +182,7 @@ Uygulamada **İşlemler** sekmesine gidin. Bu sekmede şu işlemlerin tamamland�
 
 Bu işlemlerin sonucunu gözden geçirin ve herhangi bir hata olmadığından emin olun.
 
-Azure AD'ye aktarılacak olan değişiklikleri görmek ve incelemek isterseniz [hazırlama modu](how-to-connect-sync-operations.md#staging-mode) bölümüne giderek yapılandırmanın nasıl doğrulanacağı hakkında bilgi edinin. Beklenmeyen bir durumla karşılaşmadığınız sürece gerekli yapılandırma değişikliklerini yapın.
+Azure AD'ye aktarılacak olan değişiklikleri görmek ve incelemek isterseniz [hazırlama modu](how-to-connect-sync-staging-server.md) bölümüne giderek yapılandırmanın nasıl doğrulanacağı hakkında bilgi edinin. Beklenmeyen bir durumla karşılaşmadığınız sürece gerekli yapılandırma değişikliklerini yapın.
 
 Bu adımları tamamladıysanız ve sonuçtan memnunsanız DirSync’ten Azure AD’ye geçmeye hazırsınız demektir.
 

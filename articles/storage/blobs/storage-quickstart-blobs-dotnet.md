@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Nesne depolamada blob oluşturmak için .NET kullanma | Azure Depolama'
+title: 'Hızlı Başlangıç: Bir blob nesne depolama - Azure depolama alanında oluşturmak için .NET kullanma'
 description: Bu hızlı başlangıçta, Blob (nesne) depolama alanında bir blob ve kapsayıcı oluşturmak amacıyla .NET için Azure Depolama istemci kitaplığının nasıl kullanılacağını öğreneceksiniz. Ardından, blob’u yerel bilgisayarınıza indirmeyi ve bir kapsayıcıdaki tüm blobların listesini görüntülemeyi öğreneceksiniz.
 services: storage
 author: tamram
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 4b632d9aab89e4c8d79983855bdd12aeafb05147
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 277ed8328a537efe4d32e1ca8b0d62f5d74537dd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712033"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193186"
 ---
-# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Hızlı Başlangıç: Nesne depolamada blob oluşturmak için .NET kullanma
+# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Hızlı Başlangıç: NET'i kullanarak nesne depolamada blob oluşturma
 
 Bu hızlı başlangıçta, Blob (nesne) depolama alanında bir blob ve kapsayıcı oluşturmak amacıyla .NET için Azure Depolama istemci kitaplığının nasıl kullanılacağını öğreneceksiniz. Ardından, blob’u yerel bilgisayarınıza indirmeyi ve bir kapsayıcıdaki tüm blobların listesini görüntülemeyi öğreneceksiniz.
 
@@ -162,6 +162,7 @@ Ardından, nasıl çalıştığını anlayabilmeniz için örnek kodu inceleyin.
 string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
+CloudStorageAccount storageAccount;
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
     // If the connection string is valid, proceed with operations against Blob storage here.
@@ -196,7 +197,7 @@ Bu durumda örnek, kapsayıcıyı oluşturmak için [CreateAsync](/dotnet/api/mi
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
 // Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
-cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
+CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
 await cloudBlobContainer.CreateAsync();
 
 // Set the permissions so the blobs are public. 

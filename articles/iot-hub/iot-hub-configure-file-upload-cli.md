@@ -1,18 +1,19 @@
 ---
 title: Azure CLI kullanarak IOT hub'a karşıya dosya yüklemeyi yapılandırma | Microsoft Docs
 description: Platformlar arası Azure CLI kullanarak Azure IOT Hub için yapılandırma dosyası yükler.
-author: dominicbetts
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 6cd0b657c8d0352c41e0da538396b166d633306a
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.author: robin.shahan
+ms.openlocfilehash: a77635b6c022527203d1df752723aac3ce2c296c
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055204"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010795"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Dosya karşıya yükleyen Azure CLI kullanarak IOT hub'ı yapılandırma
 
@@ -88,15 +89,15 @@ Mevcut bir blob kapsayıcısı için dosya yüklemeleriniz kullanabilir veya yen
 
 Aşağıdaki değerleri yapılandırmasını gerektirir:
 
-* **Depolama kapsayıcısı**: ile IOT hub'ınızı ilişkilendirmek için geçerli Azure aboneliğinizde bir Azure depolama hesabındaki bir blob kapsayıcısı. Gerekli depolama hesabı bilgileri önceki bölümde aldığınız. IOT hub'ı SAS URI'leriyle bu blob kapsayıcısında, karşıya dosya yükleme sırasında kullanılacak cihazlar için yazma izinlerine sahip otomatik olarak oluşturur.
+* **Depolama kapsayıcısı**: İle IOT hub'ınızı ilişkilendirmek için geçerli Azure aboneliğinizde bir Azure depolama hesabındaki bir blob kapsayıcısı. Gerekli depolama hesabı bilgileri önceki bölümde aldığınız. IOT hub'ı SAS URI'leriyle bu blob kapsayıcısında, karşıya dosya yükleme sırasında kullanılacak cihazlar için yazma izinlerine sahip otomatik olarak oluşturur.
 
-* **Karşıya yüklenen dosyalar için bildirimlerin**: etkinleştirmek veya devre dışı dosya karşıya yükleme bildirimleri.
+* **Karşıya yüklenen dosyalar için bildirimlerin**: Etkinleştirmek veya dosya karşıya yükleme bildirimleri devre dışı.
 
-* **SAS TTL**: zaman yaşam IOT Hub tarafından cihaza verilen SAS URI'ın bu ayardır. Bir saat için varsayılan olarak ayarlayın.
+* **SAS TTL**: Bu ayar, zaman yaşam IOT Hub tarafından cihaza verilen SAS URI'ın desteklenir. Bir saat için varsayılan olarak ayarlayın.
 
-* **Dosya bildirim ayarları varsayılan TTL**: geçerlilik süresi doluncaya kadar önce bildirim zaman yaşam dosyasının karşıya. Bir gün için varsayılan olarak ayarlayın.
+* **Dosya bildirim ayarları varsayılan TTL**: Geçerlilik süresi doluncaya kadar önce zaman yaşam dosyasının bildirim karşıya yükleyin. Bir gün için varsayılan olarak ayarlayın.
 
-* **Dosya bildirim en yüksek teslimat sayısı**: IOT hub'ı bir dosyayı teslim etmek için kaç deneme sayısı bildirim karşıya yükleyin. Varsayılan olarak 10'a ayarlayın.
+* **Dosya bildirim en yüksek teslimat sayısı**: IOT hub'ı bir dosyayı teslim girişiminde sayısı bildirim karşıya yükleyin. Varsayılan olarak 10'a ayarlayın.
 
 IOT hub'ınızda bir dosya karşıya yükleme ayarları yapılandırmak için aşağıdaki Azure CLI komutları kullanın:
 

@@ -1,73 +1,81 @@
 ---
-title: "Hızlı Başlangıç: Bing otomatik öneri API'si, Python"
+title: "Hızlı Başlangıç: Bing otomatik öneri REST API'si ve Python ile arama sorguları önerin"
 titlesuffix: Azure Cognitive Services
 description: Bing Otomatik Öneri API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 94903d00d47eee70f974fb8bf79703f49cdc08fd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: 463ace3aa9004bdffe07a16a062a4871b8daf699
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868166"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008415"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-python"></a>Hızlı başlangıç: Python ile Bing Otomatik Öneri API'si
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Hızlı Başlangıç: Bing otomatik öneri REST API'si ve Python ile arama sorguları önerin
 
-Bu makalede nasıl kullanılacağını gösterir [Bing otomatik öneri API'si](https://azure.microsoft.com/services/cognitive-services/autosuggest/) Python ile. Bing Otomatik Öneri API’si, kullanıcının arama kutusuna girdiği kısmi sorgu dizesine göre önerilen sorguların bir listesini döndürür. Genellikle bu API'yi kullanıcı arama kutusuna yeni bir karakter yazdığında çağırır ve önerileri arama kutusunun açılan listesinde görüntülersiniz. Bu makalede *sail* için önerilen sorgu dizelerini döndüren bir isteğin nasıl gönderileceği gösterilmektedir.
+Bing otomatik öneri API'si ve JSON yanıtını alma yapmaya başlamak için bu Hızlı Başlangıç'ı çağırır kullanın. Bu basit bir Python uygulaması API için bir kısmi arama sorgu gönderir ve aramalar için öneriler döndürür. Bu uygulama Python ile yazılmış olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir. Bu örnek için kaynak kodu kullanılabilir [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu kodu çalıştırmak için [Python 3.x](https://www.python.org/downloads/) sürümü gereklidir.
+* [Python 3.x](https://www.python.org/downloads/) 
 
-**Bing Otomatik Öneri API'si v7** sürümüne sahip bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/#search) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde verilen erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## <a name="get-autosuggest-results"></a>Otomatik öneri sonuçlarını alma
+## <a name="create-a-new-application"></a>Yeni uygulama oluşturma
 
-1. Sık kullandığınız IDE'de yeni bir Python projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Programı çalıştırın.
+1. Sık kullandığınız IDE veya düzenleyici yeni bir Python dosyası oluşturun. Aşağıdaki içeri aktarmaları ekleyin:
 
-```python
-# -*- coding: utf-8 -*-
+    ```python
+    import http.client, urllib.parse, json
+    ```
 
-import http.client, urllib.parse, json
+2. API konak ve yol değişkenlerinin [pazara kod](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes)ve kısmi arama sorgusu.
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+    ```python
+    subscriptionKey = 'enter key here'
+    host = 'api.cognitive.microsoft.com'
+    path = '/bing/v7.0/Suggestions'
+    mkt = 'en-US'
+    query = 'sail'
+    ```
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'enter key here'
+3. Pazar kodunuzu ekleyerek parametreleri dize oluşturma `?mkt=` parametresi ve sorgunuzu ekleme `&q=` parametresi.
 
-host = 'api.cognitive.microsoft.com'
-path = '/bing/v7.0/Suggestions'
+    ```python
+    params = '?mkt=' + mkt + '&q=' + query
+    ```
 
-mkt = 'en-US'
-query = 'sail'
+## <a name="create-and-send-an-api-request"></a>Oluşturma ve bir API isteği gönder
 
-params = '?mkt=' + mkt + '&q=' + query
+1. Abonelik anahtarınızı ekleme bir `Ocp-Apim-Subscription-Key` başlığı.
+    
+    ```python
+    headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+    ```
 
-def get_suggestions ():
-  "Gets Autosuggest results for a query and returns the information."
+2. API'sini kullanarak bağlanma `HTTPSConnection()`, gönderip `GET` istek parametrelerinizi içeren istek.
+    
+    ```python
+    conn = http.client.HTTPSConnection(host)
+    conn.request ("GET", path + params, None, headers)
+    response = conn.getresponse ()
+    return response.read ()
+    ```
 
-  headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-  conn = http.client.HTTPSConnection(host)
-  conn.request ("GET", path + params, None, headers)
-  response = conn.getresponse ()
-  return response.read ()
+3. Almak ve JSON yanıtı yazdırın.
 
-result = get_suggestions ()
-print (json.dumps(json.loads(result), indent=4))
-```
+    ```python
+    result = get_suggestions ()
+    print (json.dumps(json.loads(result), indent=4))
+    ```
 
-### <a name="response"></a>Yanıt
+## <a name="example-json-response"></a>Örnek JSON yanıtı
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -138,7 +146,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing Otomatik Öneri öğreticisi](../tutorials/autosuggest.md)
+> [Tek sayfalı web uygulaması oluşturma](../tutorials/autosuggest.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

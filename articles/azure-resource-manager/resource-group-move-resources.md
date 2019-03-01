@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5a9ea460684383bd09e5a679f3140d3b8f083d4d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 579c23fc3092acb785e89ddfa390e9495fc004d3
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823629"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194536"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -57,6 +57,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * App Service sertifikaları - bkz [App Service sertifikası sınırlamaları](#app-service-certificate-limitations)
 * Otomasyon - runbook'ları, Otomasyon hesabı aynı kaynak grubunda bulunmalıdır.
 * Azure Active Directory B2C
+* Azure önbelleği için Redis - sanal ağ sayesinde, örnek Azure Cache Redis örneği için yapılandırılmışsa, farklı bir aboneliğe taşınamaz. Bkz: [sanal ağlar sınırlamaları](#virtual-networks-limitations).
 * Azure Cosmos DB
 * Azure Veri Gezgini
 * MariaDB için Azure Veritabanı
@@ -64,6 +65,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * PostgreSQL için Azure Veritabanı
 * Azure DevOps - Microsoft dışı uzantılı Azure DevOps kuruluşlarına satın gereken [aldıklarını iptal](https://go.microsoft.com/fwlink/?linkid=871160) abonelikler arasında hesap taşınabilmesi.
 * Azure Haritalar
+* Azure izleme günlükleri
 * Azure Geçişi
 * Azure Stack - kayıtları
 * Batch
@@ -91,11 +93,10 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Yük Dengeleyiciler - temel SKU yük Dengeleyicide taşınabilir. Standart SKU yük Dengeleyicide taşınamaz.
 * Logic Apps
 * Machine Learning - Machine Learning Studio web hizmetleri aynı abonelikte ancak farklı bir abonelikte bir kaynak grubuna taşındı. Diğer Machine Learning kaynakları abonelikler arasında taşınabilir.
-* Bkz: yönetilen diskler - [kısıtlamaları için sanal makineler sınırlamaları](#virtual-machines-limitations)
+* Yönetilen diskler - yönetilen diskler kullanılabilirlik alanlarında, farklı bir aboneliğe taşınamaz
 * Yönetilen kimlik - kullanıcı tarafından atanan
 * Media Services
 * İzleyici - değil emin olmak için yeni abonelik taşıma yapma aşan [abonelik kotaları](../azure-subscription-service-limits.md#monitor-limits)
-* Azure izleme günlükleri
 * Notification Hubs
 * Operasyonel İçgörüler
 * Operations Management
@@ -103,7 +104,6 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Power BI - hem Power BI Embedded ve Power BI çalışma alanı koleksiyonu
 * Genel IP - temel SKU ortak IP'sine taşınabilir. Standart SKU ortak IP'sine taşınamaz.
 * Kurtarma Hizmetleri kasası - kaydolun bir [Önizleme](#recovery-services-limitations).
-* Azure önbelleği için Redis - sanal ağ sayesinde, örnek Azure Cache Redis örneği için yapılandırılmışsa, farklı bir aboneliğe taşınamaz. Bkz: [sanal ağlar sınırlamaları](#virtual-networks-limitations).
 * Scheduler
 * Arama - tek bir işlemde farklı bölgelerdeki birden çok arama kaynaklar taşınamıyor. Bunun yerine, bunları ayrı işlemlerde taşıyın.
 * Service Bus
@@ -116,7 +116,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * SQL veritabanı sunucusu - veritabanı ve sunucu, aynı kaynak grubunda olmalıdır. Bir SQL server taşıdığınızda, tüm veritabanlarını da taşınır. Bu davranış, Azure SQL veritabanı ve Azure SQL veri ambarı veritabanları için geçerlidir.
 * Time Series Insights
 * Traffic Manager
-* Sanal makineler - sahip VM'ler için yönetilen diskler için bkz: [sanal makineler sınırlamaları](#virtual-machines-limitations)
+* Sanal makineler - bkz [sanal makineler sınırlamaları](#virtual-machines-limitations)
 * Sanal makineler (Klasik) - bkz [Klasik dağıtım sınırlamalarını](#classic-deployment-limitations)
 * Sanal makine ölçek kümeleri - bkz [sanal makineler sınırlamaları](#virtual-machines-limitations)
 * Sanal ağlar - bkz [sanal ağlar sınırlamaları](#virtual-networks-limitations)
@@ -133,6 +133,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * Azure Databricks
 * Azure Güvenlik Duvarı
 * Azure Geçişi
+* Azure NetApp Files
 * Sertifikalar - App Service sertifikaları taşınabilir, ancak karşıya yüklenen Sertifikalar [sınırlamaları](#app-service-limitations).
 * Klasik uygulamaları
 * Container Instances
@@ -145,7 +146,6 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * Lab Services'i - aynı Abonelikteki yeni kaynak grubuna taşıma etkin, ancak çapraz abonelik taşıma etkin değil.
 * Yönetilen Uygulamalar
 * Microsoft Genomiks
-* Azure NetApp Files
 * Azure’da SAP HANA
 * Güvenlik
 * Site Recovery
@@ -166,12 +166,11 @@ Kaynakları taşıma için karmaşık senaryoları nasıl ele alınacağını a�
 
 ### <a name="virtual-machines-limitations"></a>Sanal makineler sınırlamaları
 
-24 Eylül 2018 tarihinden itibaren yönetilen diskleri taşıyabilirsiniz. Bu destek, sanal makineler yönetilen diskler, yönetilen görüntüleri, yönetilen anlık görüntüler ve kullanılabilirlik kümeleri ile yönetilen diskleri kullanan sanal makineleri ile taşıyabilirsiniz anlamına gelir.
+Yönetilen diskler, yönetilen görüntüleri, yönetilen anlık görüntüler ve kullanılabilirlik kümeleri ile sanal makineler yönetilen diskleri kullanan sanal makineleri ile taşıyabilirsiniz. Kullanılabilirlik alanına yönetilen diskler, farklı bir aboneliğe taşınamaz.
 
 Henüz, aşağıdaki senaryolar desteklenmez:
 
 * Key Vault'ta depolanan bir sertifika ile sanal makineler için yeni bir kaynak grubu ile aynı abonelikte ancak değil, abonelikler arasında taşınabilir.
-* Kullanılabilirlik alanına yönetilen disk farklı bir aboneliğe taşınamaz.
 * Standart SKU yük Dengeleyicide veya standart SKU genel IP ile sanal makine ölçek kümeleri taşınamaz.
 * Market kaynaklardan bağlı planlar ile oluşturulan sanal makineler, kaynak grubu veya abonelik arasında taşınamaz. Geçerli Abonelikteki sanal makine sağlamasını kaldırma ve yeni aboneliği yeniden dağıtın.
 
@@ -190,6 +189,8 @@ Azure Backup ile yapılandırılmış sanal makineleri taşımak için aşağıd
 ### <a name="virtual-networks-limitations"></a>Sanal ağlar sınırlamaları
 
 Bir sanal ağ taşırken, bağımlı kaynaklarını da taşımanız gerekir. VPN ağ geçitleri için IP adresleri, sanal ağ geçitleri ve tüm ilişkili bağlantı kaynakları taşımanız gerekir. Yerel ağ geçitleri farklı kaynak grubunda olabilir.
+
+Bir ağ arabirimi kartı ile bir sanal makineyi taşımak için tüm bağımlı kaynaklarla taşımanız gerekir. Sanal ağ için ağ arabirimi kartını sanal ağ ve VPN ağ geçitleri için tüm diğer ağ arabirim kartları taşımalısınız.
 
 Eşlenmiş sanal ağın taşımak için önce sanal ağ eşlemesi devre dışı bırakmanız gerekir. Devre dışı sonra sanal ağ taşıyabilirsiniz. Taşıma sonrasında, sanal ağ eşlemesi yeniden etkinleştirin.
 

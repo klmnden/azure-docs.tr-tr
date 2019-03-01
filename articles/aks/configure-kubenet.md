@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 7975516e80576a9d79b35da816d049f47ebc7d3a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b80177d17e0dc5a4e54396907ecee61890ec523f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650198"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011356"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Kubernetes kendi IP adresi aralıklarını Azure Kubernetes Service (AKS) ile ağ kullanma
 
@@ -77,6 +77,9 @@ Kullanım *Azure CNI* olduğunda:
 - Çoğu pod iletişim küme dışındaki kaynak etmektir.
 - Udr'leri yönetmek istemediğiniz.
 - Sanal düğümler ve ağ ilkesi gibi gelişmiş özellikleri ihtiyacınız vardır.
+
+> [!NOTE]
+> Kuberouter kubernetes kullanırken, ağ ilkesi sağlamak mümkün kılar ve bir AKS kümesindeki bir daemonset olarak yüklenebilir. Lütfen kube-yönlendirici hala beta sürümünde olan ve hiçbir destek proje için Microsoft tarafından sunulan unutmayın.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Sanal ağ ve alt ağ oluşturma
 

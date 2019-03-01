@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: 2f480fd4d5d7d6261776660f1a7eab587320c849
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0e668c0b31defd5c945ddf2fec1b00f75d92f174
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052522"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990162"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IOT DevKit AZ3166 Azure IOT hub'a bağlama
 
@@ -88,10 +88,10 @@ Bağlantı başarılı olduğunda DevKit birkaç saniye içinde yeniden başlat�
 
 ![Wi-Fi adı ve IP adresi](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ip.jpg)
 
-> [!NOTE] 
-> Fotoğrafın görüntülenen IP adresinin DevKit ekranda görüntülenir ve atanan gerçek IP adresini eşleşmeyebilir. Wi-Fi IP'ler dinamik olarak atamak için DHCP kullandığından bu normal, budur.
+> [!NOTE]
+> 2.4 GHz ağ IOT DevKit çalışmak için ihtiyacınız olacak. IOT DevKit WiFi modüldeki 5 GHz ağıyla uyumlu değil. Denetleme [SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#wi-fi-configuration) daha fazla ayrıntı için.
 
-Wi-Fi yapılandırdıktan sonra cihaza takılı olsa bile kimlik bilgilerinizi bu bağlantı için cihazda açık kalır. Örneğin, DevKit evinizde Wi-Fi yapılandırma ve sonra office DevKit gerçekleştirin, AP modu ("Girin AP modu" bölümüne adımda başlayarak) DevKit ofisiniz için Wi-Fi bağlanmak için yeniden yapılandırmanız gerekir. 
+Wi-Fi yapılandırdıktan sonra cihaza takılı olsa bile kimlik bilgilerinizi bu bağlantı için cihazda açık kalır. Örneğin, DevKit evinizde Wi-Fi yapılandırma ve sonra office DevKit gerçekleştirin, AP modu ("Girin AP modu" bölümüne adımda başlayarak) DevKit ofisiniz için Wi-Fi bağlanmak için yeniden yapılandırmanız gerekir.
 
 ## <a name="start-using-the-devkit"></a>DevKit kullanmaya başlayın
 
@@ -175,7 +175,7 @@ Geliştirme ortamı için DevKit hazırlamak için aşağıdaki adımları izley
 
 ### <a name="install-st-link-drivers"></a>ST bağlantı sürücüleri yükleyin
 
-[ST-bağlantı/V2](http://www.st.com/en/development-tools/st-link-v2.html) geliştirme makinenize ile iletişim kurmak için IOT DevKit kullanır USB arabirimidir. Cihazınızı makine erişmesine izin vermek için işletim sistemine özgü adımları izleyin.
+[ST-bağlantı/V2](http://www.st.com/en/development-tools/st-link-v2.html) geliştirme makinenize ile iletişim kurmak için IOT DevKit kullanır USB arabirimidir. Flash etkinleştirmek için Windows üzerinde derlenmiş deivce kod Devkit'e yüklemeniz gerekir. Cihazınızı makine erişmesine izin vermek için işletim sistemine özgü adımları izleyin.
 
 * **Windows**: USB sürücüsünden yükleyip [STMicroelectronics Web sitesi](http://www.st.com/en/development-tools/stsw-link009.html).
 * **macOS**: Sürücü, macOS için gereklidir.

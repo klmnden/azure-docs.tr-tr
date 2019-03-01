@@ -17,12 +17,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e07fc6c4ce7477cd6f1c64d5de1574ae7c4cecff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168961"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191996"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect eşitleme: Yükleme sihirbazını ikinci kez çalıştırma
 Azure AD Connect Yükleme Sihirbazı ilk çalıştırıldığında bu, yüklemenizi yapılandırmak hakkında bilgi vermektedir. Yükleme Sihirbazı'nı yeniden çalıştırırsanız, bakım için seçenekler sunar.
@@ -73,7 +73,7 @@ Bu seçeneği belirlediğinizde, yapılandırmanızda tüm dizinleri listelenir.
 ![Ortamdaki tüm dizinler Listesi Sayfası](./media/how-to-connect-installation-wizard/refreshschema.png)
 
 ## <a name="configure-staging-mode"></a>Hazırlama modunu yapılandırma
-Bu seçenek, etkinleştirmek ve sunucuda hazırlama modunu devre dışı bırakmak sağlar. Hazırlama modu ve nasıl kullanıldıkları hakkında daha fazla bilgi bulunabilir [Operations](how-to-connect-sync-operations.md#staging-mode).
+Bu seçenek, etkinleştirmek ve sunucuda hazırlama modunu devre dışı bırakmak sağlar. Hazırlama modu ve nasıl kullanıldıkları hakkında daha fazla bilgi bulunabilir [Operations](how-to-connect-sync-staging-server.md).
 
 Seçeneği, hazırlama şu anda etkin olup olmadığını gösterir:  
 ![Hazırlama modunu geçerli durumunu da gösterildiğini seçeneği](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)

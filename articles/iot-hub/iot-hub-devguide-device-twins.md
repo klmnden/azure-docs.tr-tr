@@ -1,18 +1,19 @@
 ---
 title: Azure IOT Hub cihaz ikizlerini anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - IOT Hub ve cihazlarınız arasında durum ve yapılandırma verilerini eşitlemek için cihaz ikizlerini kullanma
-author: fsautomata
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: elioda
-ms.openlocfilehash: 606a7c64cc60fa81a71bf40a8087875e08e7c984
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 4cbb8e389f403aeb149998acc21956ebce40be78
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053032"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011509"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Anlama ve IOT Hub'ında cihaz ikizlerini kullanma
 
@@ -183,10 +184,10 @@ Kapsayıcı nesneleri için ve kök nesne cihaz kimlik özelliklerdir `tags` ve 
 
    | Ad | Değer |
    | --- | --- |
-   $content-türü | uygulama/json |
+   $content-type | uygulama/json |
    $iothub-enqueuedtime |  Bildirim zaman gönderildiği zaman |
    $iothub-message-kaynak | twinChangeEvents |
-   $content-kodlama | UTF-8 |
+   $content-encoding | UTF-8 |
    deviceId | Cihaz kimliği |
    HubName | IOT hub'ı adı |
    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) işleminin zaman damgası |

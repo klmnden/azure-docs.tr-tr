@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 02/28/2018
 ms.author: magattus
-ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4d1725b0559c34692d1a89d016fd2d6b7b1b26c1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997290"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193101"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN'de dosyaları sıkıştırarak performansı geliştirme
 Dosya sıkıştırma dosya aktarım hızını artırmak ve sunucudan gönderilmeden önce bir dosyanın boyutunu azaltarak sayfa yükleme performansı artırmak için basit ve etkili bir yöntemdir. Dosya sıkıştırma, bant genişliği maliyetlerini azaltmak ve kullanıcılarınız için daha hızlı bir deneyim sağlayın.
@@ -102,8 +102,10 @@ Standart ve premium CDN katmanları için sıkıştırma işlevsellik sağlasa d
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Azure CDN standart'ı Microsoft profilleri
 
-İçin **Azure CDN standart Microsoft gelen** profilleri, yalnızca uygun dosyaları sıkıştırılır. Sıkıştırma için uygun olması için bir dosya olmalıdır:-yapılmış bir MIME türünde [sıkıştırma için yapılandırılmış](#enabling-compression).
--Be 1 KB'tan büyük-8 MB'tan küçük olmalıdır
+İçin **Azure CDN standart Microsoft gelen** profilleri, yalnızca uygun dosyaları sıkıştırılır. Sıkıştırma için uygun olması için bir dosya olmalıdır:
+- Yapılmış bir MIME türünde [sıkıştırma için yapılandırılmış](#enabling-compression).
+- 1 KB'den büyük olmaması
+- 8 MB'tan küçük olmalıdır
 
 Bu profiller, aşağıdaki sıkıştırma kodlamaları destekler:
 - gzip (GNU zip)
@@ -117,12 +119,12 @@ Bir varlık için bir istek önbellek isabetsizliği gzip sıkıştırma ve iste
 
 İçin **verizon'dan Azure CDN standart** ve **verizon'dan Azure CDN Premium** profilleri, yalnızca uygun dosyaları sıkıştırılır. Sıkıştırma için uygun olması için bir dosya olmalıdır:
 - 128 bayttan büyük olmalıdır
-- 1 MB'tan küçük olmalıdır
+- 3 MB'tan küçük olmalıdır
  
 Bu profiller, aşağıdaki sıkıştırma kodlamaları destekler:
 - gzip (GNU zip)
 - SÖNDÜR
-- Bzıp2
+- bzip2
 - brotli 
  
 İsteği birden fazla sıkıştırma türünü destekliyorsa, bu sıkıştırma türleri brotli sıkıştırmasının önceliklidir.

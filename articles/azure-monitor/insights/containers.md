@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 6803e700a42a0d0279b48d38995c4fc299415075
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 58f16b0aa068c8b333ef4e7986bb49327b002fbb
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985504"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195430"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure İzleyici'de kapsayıcı izleme çözümü
 
@@ -496,28 +496,16 @@ Bilgileri bölümünde yüklemek ve Windows kapsayıcı konakları yapılandırm
 
 Windows çalıştıran bilgisayarlarda aracıları yüklemeden önce Docker hizmetinin yapılandırmanız gerekir. Windows Aracısı'nı veya Azure İzleyici sanal makine uzantısı aracıları Docker Daemon programını uzaktan erişebilmesi için Docker TCP yuva kullanma ve izleme verilerini yakalama yapılandırmasını sağlar.
 
-##### <a name="to-start-docker-and-verify-its-configuration"></a>Docker'ı başlatın ve yapılandırmasını doğrulamak için
+##### <a name="to-configure-the-docker-service"></a>Docker hizmeti yapılandırmak için  
 
-Windows Server'de adlandırılmış TCP ayarlamak için gerekli adımları şunlardır:
+TCP kanal ve adlandırılmış kanal Windows Server'de etkinleştirmek için aşağıdaki PowerShell komutlarını gerçekleştirin:
 
-1. Windows PowerShell'de yöneltme TCP ve adlandırılmış kanal etkinleştirin.
-
-    ```
-    Stop-Service docker
-    dockerd --unregister-service
-    dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
-    Start-Service docker
-    ```
-
-2. TCP kanal yapılandırma dosyası ile Docker'ı yapılandırmak ve adlandırılmış. Yapılandırma dosyası C:\ProgramData\docker\config\daemon.json bulunur.
-
-    Daemon.json dosyasında, aşağıdakiler gerekir:
-
-    ```
-    {
-    "hosts": ["tcp://0.0.0.0:2375", "npipe://"]
-    }
-    ```
+```
+Stop-Service docker
+dockerd --unregister-service
+dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
+Start-Service docker
+```
 
 Windows kapsayıcıları ile kullanılan Docker daemon yapılandırmasını hakkında daha fazla bilgi için bkz: [Windows üzerinden Docker altyapısının](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 

@@ -8,12 +8,12 @@ ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 31b9405b7d4141890d786ab3d1cb70d11ef0c1b3
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: b5062dd4edf43fbb348a6de57f534096a8c922de
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267963"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193577"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Kaynak Grafiği nedir
 
@@ -52,7 +52,7 @@ Tüm müşteriler için en iyi deneyimi ve yanıt zamanı sağlamak için kaynak
 
 ## <a name="running-your-first-query"></a>İlk sorgunuzu çalıştırma
 
-Kaynak Grafiği hem Azure CLI’yi hem de Azure PowerShell’i destekler. Sorgu, iki dil için de aynı şekilde yapılandırılır. [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) ve [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)’de Kaynak Grafiği’ni nasıl etkinleştireceğinizi öğrenin.
+Kaynak Grafiği, .NET için Azure CLI, Azure PowerShell ve Azure SDK'yı destekler. Sorgu yapılandırılmış her dil için aynı. [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) ve [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)’de Kaynak Grafiği’ni nasıl etkinleştireceğinizi öğrenin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

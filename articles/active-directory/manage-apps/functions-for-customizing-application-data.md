@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a0685f75111a5552645d487589734846b05968
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed081b32fd8ac464f7ec66f97c6867708a6f8533
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164643"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991489"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de öznitelik eşlemeleri için ifadeler yazma
 Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz için öznitelik eşlemelerini türdeki bir ifade eşleme biridir. Bu, kullanıcılarınızın verileri fazla SaaS uygulaması için kabul edilebilir biçimlere dönüştürme olanak tanıyan bir betik gibi ifade yazmanız gerekir.
@@ -175,7 +175,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **İşlev:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Açıklama:**<br> Bir dize bağımsız değişkeni gerektirir. Bir dize döndürür ancak tüm Aksan karakter repalced aksanlı eşdeğer karakterlerle.
+**Açıklama:**<br> Belirli bir uygulamanın bir kullanıcıya atanan tüm appRoleAssignments listesinden tek bir appRoleAssignment döndürür. Bu işlev, appRoleAssignments nesne tek bir rol adı dizeye dönüştürme için gereklidir. Tek appRoleAssignment emin olmak için en iyi olduğuna dikkat edin, aynı anda tek bir kullanıcıya atanır ve birden çok rol döndürülen rol dize atanmışsa tahmin edilebilir olmayabilir. 
 
 **Parametreler:**<br> 
 

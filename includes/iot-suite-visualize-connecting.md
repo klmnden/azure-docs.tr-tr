@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5bb2db84a21efb9c8bffb345e05e17d99b866fe9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 9b9e28f18208674609d0842b0e3a54e3fc661c9f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56825307"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988063"
 ---
 ## <a name="view-device-telemetry"></a>Cihaz telemetrisini görüntüleme
 
@@ -33,7 +33,7 @@ Cihazınızın gönderilen telemetriyi görüntüleyebilirsiniz **Device Explore
 
 ## <a name="act-on-your-device"></a>Cihazınızda hareket
 
-Cihazlarınızda yöntem çağırmak için **Device Explorer** Uzaktan izleme çözümünde sayfası. Örneğin, Uzaktan izleme çözüm içinde **Soğutucu** cihazları uygulayan bir **FirmwareUpdate** yöntemi.
+Cihazlarınızda yöntem çağırmak için **Device Explorer** Uzaktan izleme çözümünde sayfası. Örneğin, Uzaktan izleme çözüm içinde **Soğutucu** cihazları uygulayan bir **yeniden** yöntemi.
 
 1. Seçin **cihazları** gitmek için **Device Explorer** çözümdeki sayfası.
 
@@ -41,20 +41,16 @@ Cihazlarınızda yöntem çağırmak için **Device Explorer** Uzaktan izleme ç
 
     ![Gerçek Cihazınızı seçin](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Cihazınızda çağırabilirsiniz yöntemlerin listesini görüntülemek için seçin **işleri**, ardından **Run yöntemi**. Birden fazla cihazda çalıştırılacak bir iş zamanlamak için listede birden çok cihaz seçebilirsiniz. **İşleri** paneli yöntemi türleri, seçtiğiniz tüm cihazlar için ortak gösterir.
+1. Cihazınızda çağırabilirsiniz yöntemlerin listesini görüntülemek için seçin **işleri**, ardından **yöntemleri**. Birden fazla cihazda çalıştırılacak bir iş zamanlamak için listede birden çok cihaz seçebilirsiniz. **İşleri** paneli yöntemi türleri, seçtiğiniz tüm cihazlar için ortak gösterir.
 
-1. Seçin **FirmwareUpdate**, iş adı kümesine **UpdatePhysicalChiller**. Ayarlama **üretici yazılımı sürümü** için **2.0.0**ayarlayın **bellenim URI** için **http://contoso.com/updates/firmware.bin**ve ardından **Uygula**:
+1. Seçin **yeniden**, iş adı kümesine **RebootPhysicalChiller** seçip **Uygula**:
 
     ![Üretici yazılımı güncelleştirme zamanla](media/iot-suite-visualize-connecting/deviceschedule.png)
 
 1. İletiler dizisini sanal cihazı yöntemi işlerken cihazınızın kodunu çalıştıran konsolda görüntüler.
 
-1. Güncelleştirme tamamlandığında, yeni bellenim sürümünü görüntüler **Device Explorer** sayfası:
-
-    ![Güncelleştirme tamamlandı](media/iot-suite-visualize-connecting/complete.png)
-
 > [!NOTE]
-> İş çözümdeki durumunu izlemek için seçin **görünümü**.
+> İş çözümdeki durumunu izlemek için seçin **iş durumunu görüntüleme**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

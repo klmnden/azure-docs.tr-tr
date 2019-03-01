@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097818"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008914"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Azure İzleyici (genel Önizleme) içinde dinamik eşikler ile ölçüm uyarıları
 
@@ -79,7 +79,11 @@ Olmayabilir. Dinamik eşikler önemli sapmaları algılama yerine yavaş sorunla
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Ne kadar veri Önizleme ve ardından eşikleri hesaplamak için kullanılır?
 
-Grafikte, bir uyarı kuralı bir ölçüme göre oluşturulmadan önce görüntülenen eşiklere göre hesaplanır. geçmiş verilerin son 10 gün üzerinde bir uyarı kuralı oluşturulduktan sonra dinamik eşikler kullanılabilir ek geçmiş verileri almak ve olur sürekli olarak eşikleri daha doğru hale getirmek için yeni veriler temel alınarak öğrenin.
+Grafikte, bir uyarı kuralı bir ölçüme göre oluşturulmadan önce görüntülenen eşikleri hesaplanır saatlik veya günlük dönemsel desenleri (10 gün olarak) hesaplamak için yeterince geçmiş verileri alan. 'Üzerinde görüntüleme haftalık desenini' tuşuna basarak haftalık dönemsel desenleri (28 gün olarak) hesaplamak için yeterli geçmiş verileri de alacaksınız. Bir uyarı kuralı oluşturulduktan sonra öğe dinamik eşikler eşikleri daha doğru hale getirmek için kullanılabilir ve sürekli olarak öğreneceksiniz gereken tüm geçmiş verileri ve yeni verileri temel alan yatkın kullanır.
+
+## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Uyarı tetiklemek için ne kadar veri gerekiyor?
+
+Dinamik eşikler veri uyarıları tetiklemeden önce doğru eşikleri emin olmak için en az üç gün gerektirir.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Dinamik eşikler en iyi uygulamalar
 

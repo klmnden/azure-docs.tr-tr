@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d09abfbec7ace3112de35869ccc95c56e113e6fe
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461177"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991844"
 ---
 # <a name="time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB'de yaşam süresi 
 
@@ -30,7 +30,7 @@ Saniye cinsinden yaşam süresi değeri ayarlanır ve bir öğenin son değişti
 
    - Öğeleri var ve değeri ayarlandığında, bazı numarasına ("n") – "n" saniye, son değiştirme zamanı sonra süresi dolar.
 
-2. **Yaşam süresi bir öğe üzerinde** (kullanılarak ayarlanan `TimeToLive`):
+2. **Yaşam süresi bir öğe üzerinde** (kullanılarak ayarlanan `ttl`):
 
    - Bu özellik geçerli yalnızca `DefaultTimeToLive` mevcut olduğundan ve ayarlı değil için üst kapsayıcı null.
 

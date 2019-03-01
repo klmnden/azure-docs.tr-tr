@@ -9,18 +9,18 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 8a828bcb7817c30631930da953bc9eef6250c398
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 01d7d197983638e415798b0b73e7ac7168c8cfab
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736446"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192709"
 ---
 # <a name="view-model-details"></a>Model ayrıntılarını görüntüleme
 
 Proje modelleri sekmesinde tüm modelleri projede gösterir. Tüm modeller için proje bu sekmede listelenen eğitim.
 
-Projedeki her model için model aşağıdaki ayrıntıları görüntülenir.
+Projedeki her model için model aşağıdakilerle görüntülenir.
 
 1.  Model adı: Belirli bir model model adını gösterir.
 

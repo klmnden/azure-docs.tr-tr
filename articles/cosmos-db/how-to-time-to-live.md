@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018
 ms.author: mjbrown
-ms.openlocfilehash: a9f6676f1b2fdf812ec87595083ba6317a11873c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9437f69bf337f79c9531a12af6ac7868261f5b1
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462163"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992446"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB'de yaşam süresi yapılandırma
 
@@ -82,6 +82,37 @@ Bir varsayılan bir kapsayıcı yaşam süresi ayarlamanın yanı sıra, bir ö�
 
 * TTL kapsayıcı düzeyinde devre dışı bırakılırsa, TTL kapsayıcıdaki yeniden etkinleştirilene kadar TTL alan öğe üzerinde yoksayılır.
 
+### <a id="portal-set-ttl-item"></a>Azure portal
+
+Bir öğe üzerinde yaşam süresi'ni etkinleştirmek için aşağıdaki adımları kullanın:
+
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+
+2. Yeni bir Azure Cosmos hesabı oluşturun veya mevcut bir hesabı seçin.
+
+3. Açık **Veri Gezgini** bölmesi.
+
+4. Var olan bir kapsayıcı seçin, genişletin ve aşağıdaki değerleri değiştirin:
+
+   * Açık **ölçek ve ayarlar** penceresi.
+   * Altında **ayarı** Bul **yaşam süresi**.
+   * Seçin **(varsayılan) üzerinde** veya **üzerinde** ve TTL değerini ayarlayın. 
+   * Değişiklikleri kaydetmek için **Kaydet**’e tıklayın.
+
+5. Sonraki zaman canlı, eklemek için ayarlamak istediğiniz öğeye Git `ttl` özelliğini tıklatın ve **güncelleştirme**. 
+
+  ```json
+  {
+    "id": "1",
+    "_rid": "Jic9ANWdO-EFAAAAAAAAAA==",
+    "_self": "dbs/Jic9AA==/colls/Jic9ANWdO-E=/docs/Jic9ANWdO-EFAAAAAAAAAA==/",
+    "_etag": "\"0d00b23f-0000-0000-0000-5c7712e80000\"",
+    "_attachments": "attachments/",
+    "ttl": 10,
+    "_ts": 1551307496
+  }
+  ```
+
 ### <a id="dotnet-set-ttl-item"></a>.NET SDK
 
 ```csharp
@@ -94,7 +125,7 @@ public class SalesOrder
     public string CustomerId { get; set; }
     // used to set expiration policy
     [JsonProperty(PropertyName = "ttl", NullValueHandling = NullValueHandling.Ignore)]
-    public int? TimeToLive { get; set; }
+    public int? ttl { get; set; }
 
     //...
 }
@@ -103,7 +134,7 @@ SalesOrder salesOrder = new SalesOrder
 {
     Id = "SO05",
     CustomerId = "CO18009186470",
-    TimeToLive = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
+    ttl = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
 };
 ```
 
@@ -121,7 +152,7 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.TimeToLive = 60 * 30 * 30; // update time to live
+readDocument.ttl = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
@@ -139,7 +170,7 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.TimeToLive = null; // inherit the default TTL of the collection
+readDocument.ttl = null; // inherit the default TTL of the collection
 
 response = await client.ReplaceDocumentAsync(readDocument);
 ```

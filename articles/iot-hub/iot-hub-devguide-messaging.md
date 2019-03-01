@@ -1,19 +1,19 @@
 ---
 title: Azure IOT Hub Mesajlaşma anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - CİHAZDAN buluta ve bulut-cihaz IOT Hub ile ileti gönderme. İleti biçimleri ve desteklenen protokolleri hakkında bilgi içerir.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: d3a7284555fb592956d4e1dc3f56137c88d108e1
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f56332fa7f53c729ffaa28ea375f043d1b4a3678
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584402"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010880"
 ---
 # <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>IOT hub'ına CİHAZDAN buluta ve bulut-cihaz iletilerini göndermek
 

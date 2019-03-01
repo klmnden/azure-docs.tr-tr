@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 8b5b56e39e1b9830d5b998ace2a384d6878cd510
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6ed968b1613a96a2f4ab449c7b52488e066a38ab
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041824"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991827"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB'de çevrimiçi yedekleme ve isteğe bağlı veri geri yükleme
 
@@ -20,11 +20,18 @@ Azure Cosmos DB, verilerinizin yedeklerini düzenli aralıklarla otomatik olarak
 
 ## <a name="automatic-and-online-backups"></a>Otomatik ve çevrimiçi yedeklemeler
 
-Azure Cosmos DB ile yalnızca verilerinizi, ancak ayrıca verilerinizin yedeklerini düzeyde yedekli ve bölgesel felaketlere karşı dayanıklı değildir. Otomatik yedekleri şu anda dört saatte alınır ve hiçbir zaman noktasında en son iki yedekleme depolanır. Yanlışlıkla silinmiş veya verilerinizi bozuk, sizinle iletişim kuralım [Azure Destek](https://azure.microsoft.com/support/options/) Azure Cosmos DB takıma yardımcı olur böylece sekiz saat içinde verileri yedeklerden geri.
+Azure Cosmos DB ile yalnızca verilerinizi, ancak ayrıca verilerinizin yedeklerini düzeyde yedekli ve bölgesel felaketlere karşı dayanıklı değildir. Aşağıdaki adımlar, Azure Cosmos DB veri yedekleme performansını gösterir:
 
-Yedeklemelerin performansını veya uygulamanızın kullanılabilirliğini etkilemeden alınır. Azure Cosmos DB veri yedekleme herhangi ek sağlanan aktarım hızına (RU) kullanan veya veritabanınızın kullanılabilirliğini ve performansı etkileyen arka planda gerçekleştirir.
+* Azure Cosmos DB otomatik olarak 4 saatte veritabanınızın bir yedeğine alır ve herhangi bir noktada zaman yalnızca en son 2 yedeklemeler depolanır. Ancak, kapsayıcı ya da veritabanını sildiyseniz Azure Cosmos DB belirli bir kapsayıcı veya veritabanı mevcut anlık görüntü 30 gün boyunca tutar.
 
-Gerçek verileri yerel olarak Azure Cosmos DB içinde bulunduğu ise azure Cosmos DB, otomatik yedeklemeler Azure Blob Depolama alanında depolar. Düşük gecikme süresi garanti için anlık görüntü yedeklemenizin geçerli yazma bölgesine (veya bir çok yöneticili yapılandırması varsa yazma bölgeleri biri) aynı bölgede Azure Blob storage'da depolanır Cosmos DB veritabanı hesabı. Bölgesel bir olağanüstü durum karşı dayanıklılık için her anlık görüntü yedekleme verilerinin Azure Blob depolama alanındaki başka bir bölgede coğrafi olarak yedekli depolama (GRS) aracılığıyla yeniden çoğaltılır. Yedekleme için çoğaltılır bölge, kaynak bölge ve kaynak bölgeyle ilişkili bölgesel çift temel alır. Daha fazla bilgi için bkz. [Azure bölgelerinin coğrafi olarak yedekli çiftleri listesi](../best-practices-availability-paired-regions.md) makalesi. Bu yedekleme doğrudan erişemez. Azure Cosmos DB Bu yedekleme kullanırsanız yalnızca bir yedekleme geri yükleme başlatılır.
+* Gerçek verileri yerel olarak Azure Cosmos DB içinde bulunduğu ise azure Cosmos DB bu yedeklemeler Azure Blob Depolama alanında depolar.
+
+*  Düşük gecikme süresi garanti için anlık görüntü yedeklemenizin geçerli yazma bölgesine aynı bölgede Azure Blob storage'da depolanır (veya yazma bölgeleri biri çok yöneticili yapılandırma varsa), Azure Cosmos veritabanı hesabı. Bölgesel bir olağanüstü durum karşı dayanıklılık için her anlık görüntü yedekleme verilerinin Azure Blob depolama alanındaki başka bir bölgede coğrafi olarak yedekli depolama (GRS) aracılığıyla yeniden çoğaltılır. Yedekleme için çoğaltılır bölge, kaynak bölge ve kaynak bölgeyle ilişkili bölgesel çift temel alır. Daha fazla bilgi için bkz. [Azure bölgelerinin coğrafi olarak yedekli çiftleri listesi](../best-practices-availability-paired-regions.md) makalesi. Bu yedekleme doğrudan erişemez. Azure Cosmos DB Bu yedekleme kullanırsanız yalnızca bir yedekleme geri yükleme başlatılır.
+
+* Yedeklemelerin performansını veya uygulamanızın kullanılabilirliğini etkilemeden alınır. Azure Cosmos DB veri yedekleme herhangi ek sağlanan aktarım hızına (RU) kullanan veya veritabanınızın kullanılabilirliğini ve performansı etkileyen arka planda gerçekleştirir.
+
+* Yanlışlıkla silinmiş veya verilerinizi bozuk, sizinle iletişim kuralım [Azure Destek](https://azure.microsoft.com/support/options/) Azure Cosmos DB takıma yardımcı olur böylece 8 saat içinde verileri yedeklerden geri.
+
 Aşağıdaki görüntüde, nasıl bir Azure Cosmos kapsayıcısı ile üç birincil fiziksel'ındaki tüm bölümler Batı ABD Batı ABD uzak bir Azure Blob Depolama hesabında yedeklenebilir ve ardından Doğu ABD olarak kopyalandığı gösterilmektedir:
 
 ![GRS Azure depolama alanındaki tüm Cosmos DB varlıklarını, düzenli aralıklarla tam yedekler](./media/online-backup-and-restore/automatic-backup.png)

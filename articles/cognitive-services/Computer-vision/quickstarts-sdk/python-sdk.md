@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/26/2019
+ms.date: 02/28/2019
 ms.author: pafarley
-ms.openlocfilehash: d14b9c88b447583eedc8b50f4f9acf80ae4e3c75
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: ffecc07c49db8fd1b27cc2dd82192aa31a7fbd19
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889639"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194988"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Bilişsel hizmetler görüntü işleme için Python SDK'sı
 
@@ -42,7 +42,7 @@ Daha fazla belgelerini mi arıyorsunuz?
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>Bir Azure aboneliğiniz yoksa
 
-Ücretsiz bir anahtar ile 7 gün için geçerli oluşturma **deneyin** karşılaşırsınız. Anahtarı oluştururken anahtar ve bölge adını kopyalayın. Bunun için gerekir [istemcisi oluşturma](#create-client).
+Ücretsiz bir anahtar ile 7 gün için geçerli oluşturma **[deneyin] [ computervision_resource]** deneyimi için görüntü işleme hizmeti. Anahtarı oluştururken anahtar ve bölge adını kopyalayın. Bunun için gerekir [istemcisi oluşturma](#create-client).
 
 Anahtar oluşturulduktan sonra aşağıdakilere dikkat edin:
 
@@ -51,7 +51,7 @@ Anahtar oluşturulduktan sonra aşağıdakilere dikkat edin:
 
 ### <a name="if-you-have-an-azure-subscription"></a>Bir Azure aboneliğiniz varsa
 
-Görüntü işleme API'si hesabı gerekiyorsa, aboneliğinizdeki oluşturmanın en kolay yöntem aşağıdaki kullanmaktır [Azure CLI] [ azure_cli] komutu. Kaynak grubu adı, örneğin, "cogserv-grubum" ve "my-bilgisayar-işleme-kaynak" gibi bir bilgisayar işleme kaynak adı seçmeniz gerekebilir. 
+Aboneliğinizde bir kaynak oluşturmak için en kolay yöntem aşağıdaki kullanmaktır [Azure CLI] [ azure_cli] komutu. Bu, birçok bilişsel hizmetler kullanılabilir bir Bilişsel hizmet anahtarı oluşturur. Seçim yapması _mevcut_ kaynak grubu adı, örneğin, "cogserv-grubum" ve yeni bilgisayar işleme kaynak adı, "my-bilgisayar-işleme-kaynak gibi". 
 
 ```Bash
 RES_REGION=westeurope 
@@ -62,8 +62,8 @@ az cognitiveservices account create \
     --resource-group $RES_GROUP \
     --name $ACCT_NAME \
     --location $RES_REGION \
-    --kind ComputerVision \
-    --sku S1 \
+    --kind CognitiveServices \
+    --sku S0 \
     --yes
 ```
 
@@ -96,20 +96,18 @@ Görüntü işleme kaynağınızı oluşturduktan sonra ihtiyacınız kendi **b�
 
 Örneği oluşturmak için bu değerleri kullanabilirsiniz [ComputerVisionAPI] [ ref_computervisionclient] istemci nesnesi. 
 
-<!--
-
-For example, use the Bash terminal to set the environment variables:
+Örneğin, Bash terminal ortam değişkenlerini ayarlamak için kullanın:
 
 ```Bash
 ACCOUNT_REGION=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 ```
 
-### For Azure subscription usrs, get credentials for key and region
+### <a name="for-azure-subscription-users-get-credentials-for-key-and-region"></a>Azure abonelik kullanıcıları için anahtar ve bölgenize yönelik kimlik bilgilerini alma
 
-If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
+Bölge ve anahtar anımsamıyorsanız bulmak için aşağıdaki yöntemi kullanabilirsiniz. Bir anahtar ve bölge oluşturmanız gerekiyorsa, yöntemi için kullanabileceğiniz [Azure abonelik sahipleri](#if-you-have-an-azure-subscription) veya [kullanıcıların bir Azure aboneliği olmadan](#if-you-dont-have-an-azure-subscription).
 
-Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
+Kullanım [Azure CLI] [ cloud_shell] görüntü işleme hesabıyla iki ortam değişkenleri doldurmak için aşağıdaki kod parçacığında **bölge** ve kendi **anahtarları**(Ayrıca bu değerleri bulabilirsiniz [Azure portalında][azure_portal]). Kod parçacığı, Bash kabuğunda biçimlendirilir.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -127,23 +125,30 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
     --query key1 \
     --output tsv)
 ```
--->
+
 
 ### <a name="create-client"></a>İstemcisi oluşturma
 
-Oluşturma [ComputerVisionAPI] [ ref_computervisionclient] istemci nesnesi. Aşağıdaki kod örneği için kendi değerlerinizi bölge ve anahtar değerleri değiştirin.
+Ortam değişkenlerinden bölge ve anahtarını alın ardından oluşturma [ComputerVisionAPI] [ ref_computervisionclient] istemci nesnesi.  
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-region = "westcentralus"
-key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# Get region and key from environment variables
+import os
+region = os.environ['ACCOUNT_REGION']
+key = os.environ['ACCOUNT_KEY']
 
+# Set credentials
 credentials = CognitiveServicesCredentials(key)
+
+# Create client
 client = ComputerVisionAPI(region, credentials)
 ```
+
+## <a name="examples"></a>Örnekler
 
 Gereksinim duyduğunuz bir [ComputerVisionAPI] [ ref_computervisionclient] aşağıdaki görevlerden herhangi birini kullanmadan önce istemci nesnesi.
 
@@ -224,7 +229,7 @@ raw = True
 custom_headers = None
 numberOfCharsInOperationId = 36
 
-# SDK call
+# Async SDK call
 rawHttpResponse = client.recognize_text(url, mode, custom_headers,  raw)
 
 # Get ID from returned headers
@@ -233,7 +238,9 @@ idLocation = len(operationLocation) - numberOfCharsInOperationId
 operationId = operationLocation[idLocation:]
 
 # SDK call
-result = client.get_text_operation_result(operationId)
+while result.status in ['NotStarted', 'Running']:
+    time.sleep(1)
+    result = client.get_text_operation_result(operationId)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
@@ -321,7 +328,7 @@ Birden çok bilgisayar işleme Python SDK'sı örnekleri SDK'ın GitHub deposund
 [pip]: https://pypi.org/project/pip/
 [python]: https://www.python.org/downloads/
 
-[azure_cli]: https://docs.microsoft.com/cli/azure
+[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
 [azure_pattern_circuit_breaker]: https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker
 [azure_pattern_retry]: https://docs.microsoft.com/azure/architecture/patterns/retry
 [azure_portal]: https://portal.azure.com
@@ -342,7 +349,7 @@ Birden çok bilgisayar işleme Python SDK'sı örnekleri SDK'ın GitHub deposund
 [ref_httpfailure]: https://docs.microsoft.com/python/api/msrest/msrest.exceptions.httpoperationerror?view=azure-python
 
 
-[computervision_resource]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
+[computervision_resource]: https://azure.microsoft.com/en-us/try/cognitive-services/?
 
 [computervision_docs]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/home
 

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: bc4673a12ec5b752a513b4a95796f2aeb8b8ce5d
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328590"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991257"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - ölçek azure'a geçiş
 
@@ -379,7 +379,7 @@ Contoso, hibrit bulut iş yüklerinde Birleşik güvenlik yönetimi ve Gelişmi�
 
 ### <a name="monitoring"></a>İzleme
 
-Contoso görünürlük durumunu ve performansını yeni geçirilen uygulamalar, altyapı ve artık Azure çalışan veri gerekir. Contoso izleme araçları Azure İzleyici, Log Analytics ve Application Insights gibi yerleşik Azure bulut özelliğinden yararlanır.
+Contoso görünürlük durumunu ve performansını yeni geçirilen uygulamalar, altyapı ve artık Azure çalışan veri gerekir. Contoso izleme araçları Azure İzleyici, Log Analytics çalışma alanı ve Application Insights gibi yerleşik Azure bulut özelliğinden yararlanır.
  
 - Bu araçları kullanarak Contoso kolayca kaynaktan veri toplayın ve zengin içgörüler elde edebilirsiniz. Örneğin, Contoso sanal makineleri, uygulamaları ve birden çok sanal makine arasında ağ bağımlılıklarını görüntüleme CPU disk ve bellek kullanımını ölçer ve uygulama performansını izleme.
 - Contoso, eylem ve hizmet çözümleriyle tümleştirmek için bu bulut izleme araçları kullanır.

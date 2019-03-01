@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a97e03f3c195b9fbd0ee7a09950414b7a940c7c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 694eb49244afb6761ce274572f15273ccef6cbb5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217488"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195039"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir JavaScript uygulamasında erişim belirteci alma
 
@@ -74,14 +74,15 @@ Geliştirme ortamınız için uygun olan bu seçeneklerden birini seçebilirsini
 * [Visual Studio projesini indirin](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 Örneğin, bir yerel klasör zip dosyasını ayıklayın **C:\Azure-Samples**.
+Dosyaları klasöre açmak için gibi bir düzenleyici kullanın [Visual Studio Code](https://code.visualstudio.com/).
 
 #### <a name="step-3-configure-your-javascript-app"></a>3. Adım: JavaScript uygulamanızı yapılandırın
 
 > [!div renderon="docs"]
-> Düzen `index.html` ayarlayıp `clientID` ve `authority` altındaki değerler `applicationConfig`.
+> Klasörü altında *JavaScriptSPA*, Düzenle `index.html` ayarlayıp `clientID` ve `authority` altındaki değerler `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Düzen `index.html` değiştirin `applicationConfig` ile:
+> Klasörü altında *JavaScriptSPA*, Düzen `index.html` değiştirin `applicationConfig` ile:
 
 ```javascript
 var applicationConfig = {
@@ -103,13 +104,9 @@ var applicationConfig = {
 > > [!TIP]
 > > **Uygulama (istemci) Kimliği**, **Dizin (kiracı) Kimliği** ve **Desteklenen hesap türleri** değerlerini bulmak için Azure portalında uygulamanın **Genel bakış** sayfasına gidin.
 
-> [!NOTE]
-> Sunucu bağlantı noktası 30662 dinleyecek şekilde yapılandırılmış *server.js* dosyası [Node.js](https://nodejs.org/en/download/) proje ve *.csproj* dosyası [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)proje.
->
-
 #### <a name="step-4-run-the-project"></a>4. Adım: Projeyi çalıştırma
 
-* Node.js kullanıyorsanız:
+* Kullanıyorsanız [Node.js](https://nodejs.org/en/download/):
 
     1. Sunucu başlatmak için proje dizininden aşağıdaki komutu çalıştırın:
 
@@ -122,7 +119,7 @@ var applicationConfig = {
     1. Tıklayın **oturum** oturum başlatın ve ardından Microsoft Graph API'sini çağırmak için düğme.
 
 
-* Visual Studio kullanıyorsanız, proje çözümü seçin ve ENTER tuşuna basın emin olun **F5** projeyi çalıştırın.
+* Kullanıyorsanız [Visual Studio](https://visualstudio.microsoft.com/downloads/), proje çözümü seçin ve ENTER tuşuna basın emin **F5** projeyi çalıştırın.
 
 ## <a name="more-information"></a>Daha Fazla Bilgi
 
@@ -217,9 +214,9 @@ Bu Hızlı Başlangıç için uygulamayı oluşturmak nasıl ilişkin daha ayrı
 ### <a name="learn-the-steps-to-create-the-application-for-this-quickstart"></a>Bu hızlı başlangıçta uygulama oluşturmak için adımları öğrenin
 
 > [!div class="nextstepaction"]
-> [Graph API'si çağırma öğreticisi](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
+> [Oturum açın ve MS Graph'i çağırmaya öğretici](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
 
 ### <a name="browse-the-msal-repo-for-documentation-faq-issues-and-more"></a>MSAL depo belgeleri, SSS, sorunları ve daha fazlası için Gözat
 
 > [!div class="nextstepaction"]
-> [msal.js GitHub deposu](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [MSAL.js GitHub deposu](https://github.com/AzureAD/microsoft-authentication-library-for-js)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5727965373752d40e3ce508c1bc79046c2b3b70b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8e3632fdb3b4d5c1d2b5465671f36a201c5ff990
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177760"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193305"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Önizleme: Azure AD parola koruması sorunlarını giderme
 
@@ -27,27 +27,65 @@ ms.locfileid: "56177760"
 
 Azure AD parola koruması dağıtıldıktan sonra sorun giderme gerekebilir. Bu makalede bazı genel sorun giderme adımlarını anlamanıza yardımcı olması için ayrıntıya gider.
 
-## <a name="weak-passwords-are-not-getting-rejected-as-expected"></a>Zayıf parolalarda beklendiği gibi reddedilir değil
+## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>DC aracının bir proxy dizininde bulunamıyor
 
-Bu, birkaç olası nedeni olabilir:
+Ana bu sorunun DC aracı yönetici olay günlüğünde 30017 olayları belirtisidir.
 
-1. DC aracılar henüz bir ilkesini yükleyip yüklemediğinizi değil. 30001 olayları DC aracı yönetici olay günlüğünde bu belirtisidir.
+Bu sorunun her zamanki nedeni, bir ara sunucu henüz kaydedilmemiş, ' dir. Kayıtlı bir ara sunucu, belirli bir DC aracı proxy görmeye olana kadar AD çoğaltma gecikmesi nedeniyle bazı gecikme olabilir.
 
-    Bu sorunun olası nedenleri şunlardır:
+## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>DC Aracısı Ara sunucu ile iletişim kurabildiğini değil
 
-    1. Orman henüz kayıtlı değil
-    2. Proxy henüz kayıtlı değil
-    3. Ağ bağlantısı sorunları (onay HTTP Proxy gereksinimlerini) Azure ile iletişim kurmasını Proxy hizmeti engelliyor
+Ana bu sorunun DC aracı yönetici olay günlüğünde 30018 olayları belirtisidir. Bu, birkaç olası nedeni olabilir:
 
-2. Parola ilkesini zorunlu kıl modunda denetim için hala ayarlanmış durumda. Bu durumda, Azure AD parola koruması portalı kullanarak zorla için yeniden yapılandırın. Lütfen [etkinleştirme parola koruması](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. DC aracının kayıtlı proxy(s) ağ bağlantısı izin vermeyen ağ yalıtılmış bir kısmını bulunur. Bu sorun, bu nedenle diğer DC aracıları, çoğaltma sysvol paylaşımının ilke dosyaları aracılığıyla yalıtılmış DC tarafından alınır, Azure tarafından sağlanan parola ilkelerini indirilebilmesi proxy(s) ile iletişim sürece expected\benign olabilir.
 
-3. Parola ilkesini devre dışı bırakıldı. Bu durumda, etkin olarak Azure AD parola koruması portalını kullanarak yeniden yapılandırın. Lütfen [etkinleştirme parola koruması](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. Proxy ana makinenin RPC uç nokta Eşleyici uç noktasını (bağlantı noktası 135) erişimi engelliyor
 
-4. Parola doğrulama algoritması beklendiği gibi çalışıyor olabilir. Lütfen [de parolaları nasıl değerlendirilir](concept-password-ban-bad.md#how-are-passwords-evaluated).
+   Azure AD parola koruması Proxy yükleyici 135 bağlantı noktasına erişime izin veren bir Windows Güvenlik Duvarı gelen kuralı otomatik olarak oluşturur. Bu kural daha sonra silindi veya devre dışı bırakılırsa, DC aracıları proxy'si hizmeti ile iletişim kurmada başarısız olacaktır. Windows Güvenlik Duvarı yerleşik yerine başka bir güvenlik duvarı ürünü devre dışı bırakılırsa, bağlantı noktası 135 erişmesine izin vermek için güvenlik duvarını yapılandırmanız gerekir.
+
+1. Proxy konak makinesi üzerinde Proxy Hizmeti tarafından dinledik RPC uç noktasına (dinamik veya statik) erişimi engelliyor
+
+   Azure AD parola koruması Proxy yükleyiciyi bir Windows Güvenlik Duvarı otomatik olarak oluşturur. herhangi bir gelen bağlantı noktasına erişime izin veren gelen kuralı dinledik için Azure AD parola koruması Proxy Hizmeti tarafından. Bu kural daha sonra silindi veya devre dışı bırakılırsa, DC aracıları proxy'si hizmeti ile iletişim kurmada başarısız olacaktır. Windows Güvenlik Duvarı yerleşik yerine başka bir güvenlik duvarı ürünü devre dışı bırakılırsa, yapılandırmalısınız gelen bağlantı noktalarının erişmesine izin vermek için güvenlik duvarı tarafından Azure AD parola koruması Proxy Hizmeti için yaptık. Bu yapılandırma, Proxy Hizmeti, belirli bir statik RPC bağlantı noktasında dinleyecek şekilde yapılandırılmış olması halinde daha belirli yapılabilir (kullanarak `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet'i).
+
+## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>Proxy hizmet çağrıları etki alanındaki DC aracılardan alabilir, ancak Azure ile iletişim kuramıyor
+
+Proxy makine listelenen uç noktalarına bağlantıyı olduğundan [dağıtım gereksinimleri](howto-password-ban-bad-on-premises-deploy.md).
+
+## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>DC Aracısı şifrelemek veya parola ilkesi dosyaları ve diğer durum şifresini çözmek alamıyor
+
+Bu sorun belirtileri çeşitli ile bildirilebilir, ancak genellikle bir ortak kök nedeni vardır.
+
+Azure AD parola koruması, Windows Server 2012 çalıştıran etki alanı denetleyicilerinde ve üzeri olan Microsoft anahtar dağıtım hizmeti tarafından sağlanan şifreleme ve şifre çözme işlevselliği kritik bağımlılığı vardır. KDS hizmeti, etkin ve tüm Windows Server 2012 ve sonraki etki alanı denetleyicilerine de bir işlev olmalıdır.  
+
+KDS varsayılan olarak hizmetin hizmet başlangıç modunu el ile (tetikleyiciyi başlatın) olarak yapılandırılır. Bu yapılandırma, bir istemci hizmeti kullanmayı dener ilk kez üzerine başladığını anlamına gelir. Bu varsayılan hizmet başlangıç modu çalışmak Azure AD parola koruması için kabul edilebilir. 
+
+KDS hizmeti başlangıç modu devre dışı olarak yapılandırılmışsa, Azure AD parola koruması düzgün çalışması için önce bu yapılandırmayı düzeltilmesi gerekir.
+
+Bu sorun için basit bir test yoluyla KDS hizmeti el ile başlatmak için olan hizmet yönetim MMC konsolunu veya diğer hizmet Yönetim Araçları (örneğin, "net start kdssvc" bir komut istemi konsoldan çalıştırma) kullanarak. KDS hizmeti başarıyla başlatmak ve çalıştırmak için bekleniyor.
+
+En yaygın kök nedeni, Active Directory etki alanı denetleyicisi nesnesini varsayılan etki alanı denetleyicileri kuruluş dışında bulunan olmasıdır. Bu yapılandırma KDS hizmeti tarafından desteklenmiyor ve Azure AD parola koruması tarafından uygulanan bir kısıtlama değildir. Bu koşul için düzeltme etki alanı denetleyicisi nesnesini varsayılan etki alanı denetleyicileri OU altında bir konuma taşımaktır.
+
+## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Zayıf parolalarda kabul edilir ancak olmamalıdır
+
+Bu sorunu çeşitli nedenleri olabilir.
+
+1. DC aracılar indirilen bir ilke olamaz ya da mevcut ilkeleri şifresi çözülemiyor. Yukarıdaki konularında olası nedenleri kontrol edin.
+
+1. Parola ilkesini zorunlu kıl modunda denetim için hala ayarlanmış durumda. Bu yapılandırma etkinse, Azure AD parola koruması portalı kullanarak zorla için yeniden yapılandırın. Bkz: [etkinleştirme parola koruması](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+1. Parola ilkesini devre dışı bırakıldı. Bu yapılandırma etkinse, etkin olarak Azure AD parola koruması portalını kullanarak yeniden yapılandırın. Bkz: [etkinleştirme parola koruması](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+1. DC aracı yazılımı, etki alanındaki tüm etki alanı denetleyicilerinde yüklemediniz. Bu durumda, uzak Windows istemcileri bir özel etki alanı denetleyicisine bir parola değişikliği işlemi sırasında hedef olmak zordur. Sahip olabileceğini düşünüyorsanız, başarıyla hedeflenen DC Aracısı yazılımının yüklü olduğu belirli bir DC, DC aracı Yöneticisi olay günlüğü izlemektir tarafından doğrulayabilirsiniz: sonuç bağımsız olarak olacaktır parola sonuçları belgelemek için en az bir olay doğrulama. Hiçbir olay parolasını değiştirildiğinde kullanıcı için mevcut ise, parola değiştirme büyük olasılıkla farklı bir etki alanı denetleyicisi tarafından işlendi.
+
+   Alternatif bir test olarak doğrudan DC Aracısı yazılımının yüklü olduğu bir DC oturumunuz açıkken setting\changing parolaları deneyin. Bu teknik, üretim Active Directory etki alanları için önerilmez.
+
+   Artımlı DC Aracısı yazılım dağıtımını bu sınırlamalara tabi desteklense de, Microsoft DC Aracısı yazılımını bir etki alanındaki tüm etki alanı denetleyicilerinde olabildiğince çabuk yüklendiğini önerir.
+
+1. Parola doğrulama algoritması gerçekten beklendiği gibi çalışıyor olabilir. Bkz: [de parolaları nasıl değerlendirilir](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## <a name="directory-services-repair-mode"></a>Dizin Hizmetleri Onarım Modu'nda
 
-Etki alanı denetleyicisi Dizin Hizmetleri Onarım Modu'nda önyüklenir, DC Aracı hizmeti bunu algılar ve tüm parola doğrulama veya zorlama etkinlikleri, bağımsız olarak şu anda etkin ilke yapılandırmasını devre dışı bırakılması neden olur.
+Etki alanı denetleyicisi Dizin Hizmetleri Onarım Modu'nda önyüklenir, DC Aracı hizmeti bu durumu algılar ve tüm parola doğrulama veya zorlama etkinlikleri, bağımsız olarak şu anda etkin ilke yapılandırmasını devre dışı bırakılması neden olur.
 
 ## <a name="emergency-remediation"></a>Acil Durum düzeltme
 

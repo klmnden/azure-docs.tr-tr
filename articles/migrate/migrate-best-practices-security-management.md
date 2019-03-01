@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8b895580f2edc0b7af1c6195212490ce083208ad
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700086"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991164"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Güvenliğini sağlama ve iş yüklerini yönetmek için en iyi uygulamaları için Azure geçişi
 
@@ -588,7 +588,7 @@ Azure kaynakları, ölçümleri ve telemetri verilerini günlüğe adil bir say�
 
 - Varsayılan olarak, tanılama günlüğünün etkin çoğu kaynak türü yok.
 - Tanılama günlüğüne kaydetme kaynaklarınız genelinde etkinleştirerek, günlük verileri sorgulamak ve uyarılar ve üzerinde dayanan playbook'ları oluşturun.
-- Tanılama günlüğünü etkinleştirme, her bir kaynağın belirli bir kategoriler kümesi olur. Bir veya daha fazla günlük kategorileri ve günlük verileri için bir konum seçin. Günlükleri bir depolama hesabına veya olay hub'ı veya Log analytics'e gönderilir. 
+- Tanılama günlüğünü etkinleştirme, her bir kaynağın belirli bir kategoriler kümesi olur. Bir veya daha fazla günlük kategorileri ve günlük verileri için bir konum seçin. Günlükleri bir depolama hesabına veya olay hub'ı veya Azure İzleyici günlüklerine gönderilebilir. 
 
 
 ![Tanılama günlüğüne kaydetme](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -679,7 +679,7 @@ Tüm üretim sistemi olduğu gibi her tür değişiklik yapmadan ortamınızı e
 Azure, Azure automation'da bir değişiklik izleme çözümü vardır:
 
 - Çözüm, Windows ve Linux yazılım ve dosyalar, Windows kayıt defteri anahtarlarını, Windows Hizmetleri ve Linux Daemon'ları için değişiklikleri izler.
-- İzlenen sunucular üzerinde değişiklikler, işleme için bulutta Log Analytics hizmetine gönderilir.
+- İzlenen sunucular üzerinde değişiklikler, işleme için bulutta Azure İzleyici'hizmetine gönderilir.
 - Mantıksal alınan verilere uygulanır ve bulut hizmeti olan verileri kaydeder.
 - Değişiklik izleme panosunda, sunucu altyapınızda yapılan değişiklikler kolayca görebilirsiniz.
 

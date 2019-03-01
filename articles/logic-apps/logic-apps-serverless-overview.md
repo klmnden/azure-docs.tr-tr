@@ -10,14 +10,14 @@ ms.reviewer: klam, estfan, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 068e5399073959d2c5aa6c4bbeb0d7bccf7d05e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 9cd1946d8fa670764bcc95b82298d07cc70417bd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393788"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191332"
 ---
-# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Genel Bakış: Azure-Azure Logic Apps ve Azure işlevleri ile sunucusuz
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Genel Bakış: Azure Logic Apps ve Azure işlevleri ile sunucusuz Azure
 
 [Sunucusuz](https://azure.microsoft.com/solutions/serverless/) uygulamalar geliştirme hızını artış, gerekli kod ve Basitlik ölçek azaltma avantajlarını sağlar.  Bu makalede, sunucusuz çözümler ve Azure sunucusuz teklifleri ' farklı özniteliklerini gider.
 
@@ -29,7 +29,7 @@ Azure'da sunucusuz geçici Çekirdek Hizmetleri [Azure işlevleri](https://azure
 
 ## <a name="what-are-azure-functions"></a>Azure işlevleri nedir?
 
-Azure İşlevleri, küçük kod parçalarını veya "işlevleri" bulutta kolayca çalıştırmaya yönelik bir çözümdür. Tüm uygulama veya bunu çalıştıracak altyapı hakkında endişelenmeden elinizdeki sorun için ihtiyacınız olan kodu yazabilirsiniz. İşlevler geliştirme sürecinizi daha da verimli hale getirebilir ve C#, F #, Node.js, Python veya PHP gibi tercih ettiğiniz geliştirme dilini kullanabilirsiniz. Yalnızca kodunuzun çalıştığı süre için ödeme yaparsınız ve gerektiğinde Azure ölçeklendirir.
+Azure İşlevleri, küçük kod parçalarını veya "işlevleri" bulutta kolayca çalıştırmaya yönelik bir çözümdür. Tüm uygulama veya bunu çalıştıracak altyapı hakkında endişelenmeden elinizdeki sorun için ihtiyacınız olan kodu yazabilirsiniz. İşlevleri yapabilirsiniz geliştirme sürecinizi daha da verimli ve gibi tercih ettiğiniz geliştirme dilini kullanabilir C#, F#, Node.js, Python veya PHP. Yalnızca kodunuzun çalıştığı süre için ödeme yaparsınız ve gerektiğinde Azure ölçeklendirir.
 
 Azure İşlevlerini kullanmaya hemen başlamak isterseniz [İlk Azure İşlevinizi oluşturma](../azure-functions/functions-create-first-azure-function.md) ile başlayın. İşlevler hakkında daha teknik bilgi arıyorsanız bkz. [geliştirici başvurusu](../azure-functions/functions-reference.md).
 
@@ -41,7 +41,7 @@ Logic Apps'i kullanmaya başlamak için başlayın [ilk mantıksal uygulamanız�
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Nasıl oluşturmak ve azure'da sunucusuz uygulamalar dağıtma?
 
-Azure, geliştirme, dağıtım ve yönetimini sunucusuz uygulamalar arasında zengin bir araç sağlar.  Doğrudan Azure portalında veya ile uygulamaları derlenebilir [araçları Visual Studio'dan](logic-apps-serverless-get-started-vs.md).  Bir uygulamayı geliştirildikten sonra olabilir [anında dağıtılan](logic-apps-create-deploy-template.md).  Azure sunucusuz uygulamalar için izleme de sağlar.  Bu izleme Azure portalı, API veya SDK'ları aracılığıyla veya tümleşik Araçlar ile Log Analytics ve Application Insights için erişilebilir.
+Azure, geliştirme, dağıtım ve yönetimini sunucusuz uygulamalar arasında zengin bir araç sağlar.  Doğrudan Azure portalında veya ile uygulamaları derlenebilir [araçları Visual Studio'dan](logic-apps-serverless-get-started-vs.md).  Bir uygulamayı geliştirildikten sonra olabilir [anında dağıtılan](logic-apps-create-deploy-template.md).  Azure sunucusuz uygulamalar için izleme de sağlar.  Bu izleme Azure portalı, API veya SDK'ları aracılığıyla veya tümleşik Araçlar ile Azure İzleyici günlüklerine ve Application Insights için erişilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

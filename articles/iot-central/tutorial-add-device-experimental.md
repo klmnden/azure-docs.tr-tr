@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 5933f74dcedb579023d187061229cdd53bce6414
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1c79b7966a98946673d1a8f9daec42717dc27575
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819449"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193050"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanıza gerçek bir cihaz ekleme
 
@@ -119,7 +119,7 @@ Aşağıdaki adımlar [Node.js](https://nodejs.org/) örneğinin nasıl hazırla
 1. Komut satırı ortamına dönün ve şunu çalıştırarak bağlantı dizenizi oluşturun:
 
     ```cmd/sh
-    dps_keygen <scope_id> <device_id> <Primary Key>
+    dps_keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
     ```
 
    Çıktıyı kopyalayın ve yeni bir dosyaya (örneğin, connection.txt) kaydedin.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814835"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194087"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantıları
 
@@ -70,7 +70,7 @@ SNAT bağlantı noktaları önceden açıklandığı ayrılan [anlama SNAT ve PA
 
 Zaman [birden çok genel IP adresi yük dengeleyici temel ile ilişkili](load-balancer-multivip-overview.md), bu genel IP adreslerine giden akışlar için bir aday olan ve bir rastgele seçili.  
 
-Temel yük dengeleyici giden bağlantı durumunu izlemek için kullanabileceğiniz [Load Balancer için Log Analytics](load-balancer-monitor-log.md) ve [uyarı olay günlüklerini](load-balancer-monitor-log.md#alert-event-log) SNAT bağlantı noktası tükenmesi iletileri izlemek için.
+Temel yük dengeleyici giden bağlantı durumunu izlemek için kullanabilirsiniz [Load Balancer için Azure İzleyici günlükleri](load-balancer-monitor-log.md) ve [uyarı olay günlüklerini](load-balancer-monitor-log.md#alert-event-log) SNAT bağlantı noktası tükenmesi iletileri izlemek için.
 
 ### <a name="defaultsnat"></a>Senaryo 3: Örnek düzeyinde ortak IP adresi olmadan tek başına VM
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: bcc0b247ee304e657b7679920a3956acad11adc9
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 51e9d44a95a3896767caf4b3f04d17c2933e8599
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985130"
+ms.locfileid: "56990553"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
 
@@ -20,6 +20,8 @@ Kuruluşunuzda birden fazla abonelik varsa bu abonelikler için verimli bir şek
 Yönetim grupları, sahip olabileceğiniz abonelik türüne bakılmaksızın kurumsal düzeyde yönetimi büyük ölçekte sunar.  Yönetim grupları hakkında daha fazla bilgi edinmek için [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>Bir yönetim grubunun adını değiştirin
 
@@ -45,10 +47,10 @@ Portal, PowerShell veya Azure CLI kullanarak yönetim grubu adını değiştireb
 
 ### <a name="change-the-name-in-powershell"></a>PowerShell'de adını değiştirin
 
-Görünen ad kullanımı güncelleştirilecek **güncelleştirme AzureRmManagementGroup**. Örneğin, "Contoso BT" "Contoso grubu" için bir yönetim grupları adını değiştirmek için aşağıdaki komutu çalıştırın:
+Görünen ad kullanımı güncelleştirilecek **güncelleştirme AzManagementGroup**. Örneğin, bir yönetim değiştirmek için "Contoso BT" adından "Contoso grubuna" gruplarını görüntülemek, aşağıdaki komutu çalıştırın:
 
 ```azurepowershell-interactive
-Update-AzureRmManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
+Update-AzManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
 ```
 
 ### <a name="change-the-name-in-azure-cli"></a>Azure CLI'de adını değiştirin
@@ -94,10 +96,10 @@ Bir yönetim grubunu silmek için aşağıdaki gereksinimler karşılanmalıdır
 
 ### <a name="delete-in-powershell"></a>PowerShell'de Sil
 
-Kullanım **Remove-AzureRmManagementGroup** yönetim grubunu silmek için PowerShell içinde komutu.
+Kullanım **Remove-AzManagementGroup** yönetim grubunu silmek için PowerShell içinde komutu.
 
 ```azurepowershell-interactive
-Remove-AzureRmManagementGroup -GroupName 'Contoso'
+Remove-AzManagementGroup -GroupName 'Contoso'
 ```
 
 ### <a name="delete-in-azure-cli"></a>Azure CLI ile silme
@@ -126,22 +128,22 @@ Doğrudan ya da devralınmış bir RBAC rolü sahip herhangi bir yönetim grubun
 
 ### <a name="view-in-powershell"></a>PowerShell'de görüntüle
 
-Tüm grupları almak için Get-AzureRmManagementGroup komutunu kullanabilirsiniz.  Bkz: [ https://aka.ms/Get-MG-Powershell ](https://aka.ms/Get-MG-Powershell) yönetim grubu Al Powershell komutlarının tam listesi için.  
+Tüm grupları almak için Get-AzManagementGroup komutunu kullanabilirsiniz.  Bkz: [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) yönetim tam listesi için modüllerin grup alma Powershell komutları.  
 
 ```azurepowershell-interactive
-Get-AzureRmManagementGroup
+Get-AzManagementGroup
 ```
 
 Tek bir yönetim grubunun bilgi için - GroupName parametresini kullanın
 
 ```azurepowershell-interactive
-Get-AzureRmManagementGroup -GroupName 'Contoso'
+Get-AzManagementGroup -GroupName 'Contoso'
 ```
 
 Belirli bir yönetim grubu ve hiyerarşisi altındaki tüm düzeyleri döndürmek için **-genişletin** ve **-Recurse** parametreleri.  
 
 ```azurepowershell-interactive
-PS C:\> $response = Get-AzureRmManagementGroup -GroupName TestGroupParent -Expand -Recurse
+PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
 PS C:\> $response
 
 Id                : /providers/Microsoft.Management/managementGroups/TestGroupParent
@@ -247,16 +249,16 @@ Hangi izinlerin yönetim grubu ve ardından Azure portalında, select olduğunu 
 
 ### <a name="move-subscriptions-in-powershell"></a>PowerShell'de abonelikler taşıma
 
-PowerShell'de bir aboneliği taşımak için yeni AzureRmManagementGroupSubscription komutunu kullanın.  
+PowerShell'de bir aboneliği taşımak için yeni AzManagementGroupSubscription komutunu kullanın.  
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-Arasındaki bağlantıyı kaldırmak ve abonelik ve yönetim grubu kaldırma AzureRmManagementGroupSubscription komutunu kullanın.
+Arasındaki bağlantıyı kaldırmak ve abonelik ve yönetim grubu kaldırma AzManagementGroupSubscription komutunu kullanın.
 
 ```azurepowershell-interactive
-Remove-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+Remove-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
 ### <a name="move-subscriptions-in-azure-cli"></a>Abonelikler Azure CLI'da taşıma
@@ -298,10 +300,10 @@ Bir üst yönetim grubuna taşıdığınızda, bu grubun altında hiyerarşi ile
 
 ### <a name="move-management-groups-in-powershell"></a>PowerShell'de Yönetim grupları Taşı
 
-Güncelleştirme AzureRmManagementGroup komutu PowerShell'de farklı bir çalışma grubundaki bir yönetim grubuna taşımak için kullanın.
+Güncelleştirme AzManagementGroup komutu PowerShell'de farklı bir çalışma grubundaki bir yönetim grubuna taşımak için kullanın.
 
 ```azurepowershell-interactive
-Update-AzureRmManagementGroup -GroupName 'Contoso' -ParentName 'ContosoIT'
+Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoIT'
 ```  
 
 ### <a name="move-management-groups-in-azure-cli"></a>Azure CLI içinde Yönetim grupları Taşı
@@ -309,7 +311,7 @@ Update-AzureRmManagementGroup -GroupName 'Contoso' -ParentName 'ContosoIT'
 Azure CLI ile bir yönetim grubuna taşımak için güncelleştirme komutunu kullanın.
 
 ```azurecli-interactive
-az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
+az account management-group update --name 'Contoso' --parent-id '/providers/Microsoft.Management/managementGroups/ContosoIT'
 ```
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Etkinlik günlüklerini kullanarak yönetim gruplarını denetleme
@@ -329,7 +331,7 @@ Yönetim Grupları diğer kaynak sağlayıcısının eylemlerden başvururken a�
 PowerShell'de bir yönetim grubuna yeni bir rol ataması atarken bu yolu kullanarak, bir örnek verilmiştir
 
 ```powershell-interactive
-New-AzureRmRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
+New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
 Aynı kapsam yolu bir yönetim grubu, bir ilke tanımı alınırken kullanılır.
@@ -344,6 +346,6 @@ Yönetim grupları hakkında daha fazla bilgi almak için bkz.:
 
 - [Azure kaynaklarını düzenlemek için yönetim grupları oluşturma](create.md)
 - [Yönetim gruplarınızı değiştirme, silme veya yönetme](manage.md)
-- [Azure PowerShell Kaynak Modülünde yönetim gruplarını gözden geçirme](https://aka.ms/mgPSdocs)
-- [REST API'de yönetim gruplarını gözden geçirme](https://aka.ms/mgAPIdocs)
-- [Azure CLI'de yönetim gruplarını gözden geçirme](https://aka.ms/mgclidoc)
+- [Azure PowerShell Kaynak Modülünde yönetim gruplarını gözden geçirme](/powershell/module/az.resources#resources)
+- [REST API'de yönetim gruplarını gözden geçirme](/rest/api/resources/managementgroups)
+- [Azure CLI'de yönetim gruplarını gözden geçirme](/cli/azure/account/management-group)

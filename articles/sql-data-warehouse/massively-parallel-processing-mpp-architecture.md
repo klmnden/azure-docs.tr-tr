@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f5e140e4f620362ca90a1e1cd06d23719cd2099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 236009a3292f26d7fda73013c022f40535aa1ecb
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471615"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992337"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL veri ambarı - yüksek düzeyde paralel işleme (MPP) mimarisi
 Azure SQL veri ambarı yüksek performans ve ölçeklenebilirlik elde etmek için Azure depolama ile yüksek düzeyde paralel işleme (MPP) nasıl birleştirir öğrenin. 
@@ -84,7 +84,7 @@ Hepsini bir kez deneme dağıtılmış tablo verilerini tablo arasında ancak ba
 ## <a name="replicated-tables"></a>Çoğaltılmış tablolar
 Çoğaltılmış bir tabloda küçük tablolar için en hızlı sorgu performansı sağlar.
 
-Çoğaltılan bir tablo, tablonun her işlem düğümünde tam bir kopyasını önbelleğe alır. Sonuç olarak, bir tablo çoğaltma JOIN veya toplama önce işlem düğümleri arasında veri aktarımı ihtiyacını ortadan kaldırır. Çoğaltılmış tablolar içeren küçük tablolar en iyi şekilde kullanılır. Ek depolama alanı gereklidir ve büyük yapan bunlara veri yazma pratik tabloları yükleyen uygulanır ek ek yüklerini vardır.  
+Çoğaltılan bir tablo, tablonun her işlem düğümünde tam bir kopyasını önbelleğe alır. Sonuç olarak, bir tablo çoğaltma JOIN veya toplama önce işlem düğümleri arasında veri aktarımı ihtiyacını ortadan kaldırır. Çoğaltılmış tablolar içeren küçük tablolar en iyi şekilde kullanılır. Ek depolama alanı gereklidir ve büyük tablolar pratik yapan veri yazma sırasında tahakkuk ettirilen ek yükü yoktur.  
 
 Aşağıdaki diyagramda, çoğaltılmış bir tabloda gösterilmiştir. SQL veri ambarı için her işlem düğümünde ilk dağıtım çoğaltılmış tablo önbelleğe alınır.  
 

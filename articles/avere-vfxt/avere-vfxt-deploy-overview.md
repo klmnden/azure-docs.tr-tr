@@ -4,14 +4,14 @@ description: Azure için Avere vFXT dağıtımı genel bakış
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1be11fff7139b250e85fe15cec9082a2c85cf857
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298543"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991810"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Azure - dağıtıma genel bakış için Avere vFXT
 
@@ -52,10 +52,12 @@ Tüm adımlar bir genel bakış aşağıda verilmiştir.
 
      Avere vFXT kümenin aynı sanal ağda bulunan basit bir VM kümesi denetleyicisidir ve özel yazılım küme oluşturma ve yönetme için gerekli olan. Denetleyici vFXT düğümleri ve formları kümeyi oluşturur ve ayrıca bir yaşam süresi boyunca kümeyi yönetmek için bir komut satırı arabirimi sağlar.
 
-     Bir genel IP adresiyle denetleyicinizi yapılandırmak, küme sanal ağ dışında bağlamak için ayrıca bir atlama konağı olarak görebilir.
+     Dağıtım sırasında yeni bir vnet oluşturun, denetleyiciniz bir genel IP adresi gerekir. Bu denetleyici küme sanal ağ dışında bağlamak için atlama konak olarak kullanılabileceği anlamına gelir.
 
    * Küme düğümü sanal makineleri oluşturma
-   * Küme düğümü sanal makineleri küme olarak yapılandırma
+
+   * Küme düğümünü kümeyi oluşturmak için Vm'leri yapılandırma
+
    * İsteğe bağlı olarak, yeni bir Blob kapsayıcı oluşturma ve arka uç depolama kümesi için yapılandırma
 
 1. Kümeyi yapılandırma 

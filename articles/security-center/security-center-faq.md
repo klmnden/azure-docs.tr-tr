@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 02/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 6696935cf23fa7286f23ae9b7d0e8a278e31403d
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5fd885acc4294ae9f370d3becd0ad8cfb7935193
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652671"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992371"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -275,7 +275,7 @@ Azure Güvenlik Merkezi otomatik olarak toplar, çözümler ve Azure kaynakları
 * Sanal makinelere karşı deneme yanılma saldırıları
 * Kötü amaçlı yazılımdan koruma veya Web uygulaması güvenlik duvarları gibi tümleşik iş ortağı güvenlik çözümlerinden güvenlik uyarıları
 
-### <a name="why-did-secure-scores-values-change"></a>Neden puanları değerleri değişimi güvenli?
+### Neden puanları değerleri değişimi güvenli? <a name="secure-score-faq"></a>
 Şubat 2019'den itibaren Güvenlik Merkezi, önem derecesi daha iyi uyum sağlamak için bazı öneriler, puanı ayarlanır. Bu düzeltme sonucu olabilir değişiklikleri genel güvenli puanı değerleri.  Güvenli puan hakkında daha fazla bilgi için bkz: [puanı hesaplamaya güvenli](security-center-secure-score.md).
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Microsoft Security Response Center ve Azure Güvenlik Merkezi tarafından uyarı ve algılanan tehditlere arasındaki fark nedir?

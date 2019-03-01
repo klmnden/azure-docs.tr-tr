@@ -4,14 +4,14 @@ description: Azure için Avere vFXT için Önkoşullar
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 9c3301ba16bfaeb7014658a380e287a36a505be8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 045b010736f8cecf877408f23530022af1f94f14
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299216"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991431"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT oluşturmaya hazırlanma
 
@@ -57,7 +57,7 @@ Aşağıdaki Azure bileşenleri için yeterli kotası olması gerekir. Gerekirse
 
 |Azure bileşeni|Kota|
 |----------|-----------|
-|Sanal makineler|3 veya daha fazla D16s_v3 veya E32s_v3|
+|Sanal makineler|3 veya daha fazla E32s_v3|
 |Premium SSD depolama alanı|200 GB işletim sistemi alanına ek olarak düğüm başına 1 TB-4 TB önbellek alanı |
 |Depolama hesabı (isteğe bağlı) |v2|
 |Veri arka uç depolama alanı (isteğe bağlı) |Yeni bir LRS Blob kapsayıcısı |
@@ -151,6 +151,30 @@ Azure kümesine için Avere vFXT oluşturabilmeniz için önce küme düğümü 
    ```
 
 Rol adı, kümeyi oluştururken kullanılır. Bu örnekte, addır ``avere-operator``.
+
+## <a name="optional-create-a-storage-service-endpoint-in-your-virtual-network"></a>(İsteğe bağlı) Sanal ağınızda bulunan bir depolama hizmet uç noktası oluşturma
+
+A [hizmet uç noktası](../virtual-network/virtual-network-service-endpoints-overview.md) Azure Blob trafiği sanal ağ dışında yönlendirme yerine yerel tutar getirin. Arka uç veri depolama için Azure Blob kullanan Azure küme için tüm Avere vFXT için önerilir. 
+
+Mevcut bir vnet'i sağlayan ve yeni bir Azure Blob kapsayıcısı için arka uç depolama alanınızın kümesi oluşturmanın bir parçası oluşturma, Microsoft depolama için sanal ağ hizmet uç noktası olmalıdır. Bu uç nokta kümesi oluşturmadan önce mevcut olmalıdır veya oluşturma başarısız olur. 
+
+Daha sonra eklediğiniz depolama bile tüm Avere vFXT Azure Blob Depolama kullanan Azure kümesi için depolama hizmet uç noktası önerilir. 
+
+> [!TIP] 
+> * Kümeyi oluşturmanın bir parçası yeni bir sanal ağ oluşturuyorsanız, bu adımı atlayın. 
+> * Bu adım, küme oluşturma sırasında Blob Depolama oluşturmuyorsanız isteğe bağlıdır. Bu durumda, Azure Blob kullanmaya karar verirseniz, hizmet uç noktası daha sonra oluşturabilirsiniz.
+
+Azure portalında depolama hizmet uç noktası oluşturun. 
+
+1. Portalda, **sanal ağlar** soldaki.
+1. Kümenizin bir sanal ağ seçin. 
+1. Tıklayın **hizmet uç noktalarını** soldaki.
+1. Tıklayın **Ekle** en üstünde.
+1. Hizmet olarak bırakın ``Microsoft.Storage`` ve kümenin bulunduğu alt ağ seçin.
+1. Alt kısmında tıklayın **Ekle**.
+
+  ![Hizmet uç noktası oluşturma adımları için ek açıklamalar ile Azure portal ekran görüntüsü](media/avere-vfxt-service-endpoint.png)
+
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Sonraki adım: VFXT kümesi oluşturma
 

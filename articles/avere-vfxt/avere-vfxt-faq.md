@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: dbd9eaf531dcad230c23d1b41110036102faf3df
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 83229cdca0ccff68dcdd543495a7a19b6e6c4c5b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652676"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990060"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Azure için Avere vFXT hakkında SSS
 
@@ -63,7 +63,7 @@ Avere vFXT bir önbellektir. Özellikle veri depolama değil. Önbelleğe alınm
 
 ### <a name="what-regions-are-supported"></a>Hangi bölgeler desteklenir?
 
-1 Kasım 2018'den itibaren tüm bölgelerde (Çin, Almanya) bağımsız bölgeler dışında ve kamu bölgelerinde Avere vFXT Azure için desteklenir. Kullanmak istediğiniz bölgeyi işlem Çekirdeği ve Avere vFXT küme oluşturmak için gereken sanal makine örneklerinin büyük miktarlarda desteklediğinden emin olun.
+Azure için Avere vFXT bağımsız bölgelerde (Çin, Almanya) dışındaki tüm bölgelerde desteklenir. Kullanmak istediğiniz bölgeyi işlem Çekirdeği ve Avere vFXT küme oluşturmak için gereken sanal makine örneklerinin büyük miktarlarda desteklediğinden emin olun.
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>Avere vFXT yardımıyla nasıl alabilirim?
 
@@ -88,15 +88,17 @@ Avere vFXT yapılan birden çok Azure sanal makineleri, kümelenmiş bir gereçt
 
 ### <a name="what-kind-of-azure-virtual-machines-does-avere-vfxt-run-on"></a>Ne tür bir Azure sanal makineleri Avere vFXT çalışıyor mu?  
 
-Bir Avere vFXT Azure küme için Microsoft Azure E32s_v3 ya da D16s_v3 sanal makineler kullanır. 
+Bir Avere vFXT Azure küme için Microsoft Azure E32s_v3 sanal makineler kullanır. 
 
-### <a name="can-i-mix-and-match-virtual-machine-types-for-my-cluster"></a>Karışık ve miyim kümem için sanal makine türlerinin eşleşmesi?
+<!-- ### Can I mix and match virtual machine types for my cluster?
 
-Hayır, bir sanal makine türünü veya diğer seçmeniz gerekir.
+No, you must choose one virtual machine type or the other.
     
-### <a name="can-i-move-between-virtual-machine-types"></a>Sanal makine türleri arasında taşıyabilirim?
+### Can I move between virtual machine types?
 
-Evet, bir VM türünden diğerine taşımak için bir geçiş yolu yoktur. [Bir destek bileti açın](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) bilgi edinmek için nasıl.
+Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
+
+-->
 
 ### <a name="does-the-avere-vfxt-environment-scale"></a>Avere vFXT ortamınızı ölçeklendirme mu?
 
@@ -175,7 +177,7 @@ Evet, farklı bir sanal ağda Avere vFXT sisteminizi oluşturabilirsiniz. Okuma 
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>Kendi alt ağına Avere vFXT gerektiriyor mu?
 
-Evet. Avere vFXT kesinlikle bir HA kümesi olarak çalışır ve çalışması için birden çok IP adresi gerektirir. Küme, kendi alt ağına ise, yükleme ve normal işlem için sorunlara neden olabilir IP adresi çakışmaları riski kaçının. Çakışma hiçbir IP adresleri sürece kümenin alt var olan sanal ağ içinde olabilir.
+Evet. Avere vFXT yüksek kullanılabilirlik (HA) kümesi olarak kesin olarak çalışır ve çalışması için birden çok IP adresi gerektirir. Küme, kendi alt ağına ise, yükleme ve normal işlem için sorunlara neden olabilir IP adresi çakışmaları riski kaçının. Çakışma hiçbir IP adresleri sürece kümenin alt var olan sanal ağ içinde olabilir.
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>Avere vFXT InfiniBand üzerinde çalıştırabilir mi?
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 85beb9b7e0c62d5e1c8dae61fdd15d5faf3a294c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 4857b1771ae66cbee25765bb5173a638cbcd223e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985878"
+ms.locfileid: "57008602"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure hesaplarınızdan bir iş ortağı kimliği Bağla
 
@@ -142,11 +142,11 @@ Bağlantı kullanıcı hesabı düzeyinde ilişkili değil. Yalnızca düzenleme
 
 **Şirketim birden fazla varsa, hangi MPN kimliği kullanmam gerekir?**
 
-V-kuruluş MPN kimliği dışındaki tüm geçerli MPN kimliği kullanabilirsiniz. Çoğu iş ortakları, burada müşteri tabanlı veya hizmetlerine gönderilen coğrafyadaki MPN kimliği kullanmayı seçin.
+Sanal orgnization(v-org) MPN kimliği dışındaki tüm geçerli MPN kimliği kullanabilirsiniz. Çoğu iş ortakları, burada müşteri tabanlı veya hizmetlerine gönderilen coğrafyadaki MPN kimliği kullanmayı seçin.
 
 **Bağlantılı iş ortağı kimliği için raporlama etkileyen gelir nerede bulabilirim?**
 
-Adresindeki etkileyen gelir raporlama bulabilirsiniz [My öngörüleri Panosu](https://partner.microsoft.com/membership/reports/myinsights) gösterildiği gibi iş ortağı yönetim bağlantısını seçerek.
+Adresindeki etkileyen gelir raporlama bulabilirsiniz [My öngörüleri Panosu](https://partner.microsoft.com/membership/reports/myinsights). İş ortağı yönetim bağlantı iş ortağı ilişkilendirme türü olarak seçmeniz gerekir.
 
 **Müşterim raporlarında neden göremiyorum?**
 

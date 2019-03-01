@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 067ab7538924f4aef7c48731d10fa7e68855214a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8be0ebc486739f8826e8a1d5a5307a219ba71b6f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739767"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192726"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Azure sanal makinelerinde ana bilgisayar yeniden barındırma
 
@@ -25,7 +25,7 @@ Azure sanal makine'de (VM) yalıtmak ve tek bir örneği üzerinde belirli bir u
 
 Azure sanal makineleri ana bilgisayar öykünmesi ortamları ve lift-and-shift ile taşıma senaryoları destekleyen derleyiciler çalıştırabilirsiniz. Geliştirme ve test, bir Azure geliştirme ve test ortamı için bir ana bilgisayardan geçirmek için ilk iş yükleri arasında çoğunlukla olur. Taklit edebilir ortak sunucusu bileşenleri işlem çevrimiçi işlem (gerçekleştirme OLTP), toplu işlem ve veri alımı sistemleri aşağıdaki şekilde gösterildiği gibi ekleyin.
 
-![](media/01-overview.png)
+![Azure'da öykünmesi ortamlarını z/OS tabanlı sistemleri çalıştırmanıza olanak sağlar.](media/01-overview.png)
 
 Diğer bir iş ortağı çözümü kullanarak Azure'da rehosted ancak bazı ana bilgisayar iş yüklerini Azure'a göreli kolaylıkla geçirilebilir. Bir iş ortağı çözümü seçme hakkında ayrıntılı yönergeler için [Azure ana bilgisayar geçiş Merkezi](https://azure.microsoft.com/migration/mainframe/) yardımcı olabilir.
 

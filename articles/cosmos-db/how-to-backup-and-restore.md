@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e79fdf2d7d680b3a229385c0fd96d844b3425b18
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455941"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992490"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Verileri Azure Cosmos DB'de bir yedekten geri yükleyin 
 
@@ -33,6 +33,11 @@ Bir geri yükleme istemeden önce aşağıdaki ayrıntıları sahip olmalıdır:
 * Bir veya daha fazla veritabanı silindiğinde, Azure Cosmos veritabanı adları yanı sıra, Azure Cosmos hesabı sağlayın ve aynı ada sahip yeni bir veritabanı var olup olmadığını belirtin.
 
 * Bir veya daha fazla kapsayıcı silinirse, Azure Cosmos hesap adı, veritabanı adları ve kapsayıcı adları sağlamanız gerekir. Ve aynı ada sahip bir kapsayıcı olup olmadığını belirtin.
+
+* Yanlışlıkla silinmiş veya verilerinizi bozuk, sizinle iletişim kuralım [Azure Destek](https://azure.microsoft.com/support/options/) Azure Cosmos DB takıma yardımcı olur böylece 8 saat içinde verileri yedeklerden geri.
+  
+  * Veritabanı veya kapsayıcı yanlışlıkla sildiyseniz, ön. der. B veya ön. der. C Azure destek talebinde bulunun. 
+  * Yanlışlıkla silinmiş veya kapsayıcı içindeki bazı belgeler bozuk, ön. der. A destek talebinde bulunun. 
 
 Veri bozulması meydana geldiğinde ve bir kapsayıcı içindeki belgeler değiştirilmiş veya silinmiş, **kapsayıcısını olabildiğince çabuk silme**. Kapsayıcıyı silerek, Azure Cosmos DB yedeklerin üzerine yazmasını önleyebilirsiniz. Herhangi bir nedenden dolayı silme işlemini mümkün değilse, bir bilet olabildiğince çabuk dosyası. Azure Cosmos hesap adı, veritabanı adları, koleksiyon adları ek olarak, istediğiniz verileri geri yüklenebilir zaman noktası belirtmeniz gerekir. En iyi kullanılabilir yedekler o anda belirlemek yardımcı olmak mümkün olduğunca kesin olarak önemlidir. UTC saatini belirtmek önemlidir. 
 

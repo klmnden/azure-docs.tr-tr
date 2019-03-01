@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 501bfddd64d3353abc9212d63c76fb582e81a580
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b9672c55ae2285a7dd9d951038ef41eebcfa195c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649519"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192795"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>PowerShell kullanarak sanal ağ hizmet uç noktaları ile PaaS kaynaklarına ağ erişimini kısıtlama
 
@@ -197,13 +197,13 @@ Anahtar, daha sonraki bir adımda bir dosya paylaşımı oluşturmak için kulla
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Depolama hesabında dosya paylaşımı oluşturma
 
-Depolama hesabınız için bir bağlam oluşturur ve ile anahtar [yeni AzStorageContext](/powershell/module/azure.storage/new-AzStoragecontext). Bağlam, depolama hesabı adını ve hesap anahtarını kapsar:
+Depolama hesabınız için bir bağlam oluşturur ve ile anahtar [yeni AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). Bağlam, depolama hesabı adını ve hesap anahtarını kapsar:
 
 ```azurepowershell-interactive
 $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 ```
 
-Bir dosya paylaşımı ile [yeni AzStorageShare](/powershell/module/azure.storage/new-AzStorageshare):
+Bir dosya paylaşımı ile [yeni AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
 
 $share yeni AzStorageShare = my-dosya paylaşımı - $storageContext bağlamı
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: spelluru
-ms.openlocfilehash: b69215a76b332db9b994827705d6bbc3b48af5c8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465522"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991215"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid iletiyi teslim ve yeniden deneyin
 
@@ -24,17 +24,20 @@ Event Grid, sürekli teslimi sağlar. Bu, her ileti her abonelik için en az bir
 
 ## <a name="retry-schedule-and-duration"></a>Yeniden deneme zamanlaması ve süresi
 
-Event Grid olay teslimi için bir üstel geri alma yeniden deneme ilkesi kullanır. Bir uç nokta yanıt vermiyor veya bir hata kodu döndürüyor, Event Grid teslim aşağıdaki zamanlamaya göre yeniden deneme:
+Event Grid olay teslimi için bir üstel geri alma yeniden deneme ilkesi kullanır. Bir uç nokta yanıt vermiyor veya bir hata kodu döndürüyor, Event Grid teslim en iyi çaba ilkesine göre aşağıdaki zamanlamaya göre yeniden deneme:
 
 1. 10 saniye
-2. 30 saniye
-3. 1 dakika
-4. 5 dakika
-5. 10 dakika
-6. 30 dakika
-7. 1 saat
+1. 30 saniye
+1. 1 dakika
+1. 5 dakika
+1. 10 dakika
+1. 30 dakika
+1. 1 saat
+1. Saatlik 24 saate kadar
 
-Event Grid, tüm yeniden deneme adımları küçük rastgele ekler. Bir saat sonra olay teslimi saatte bir kez yeniden denendi.
+Event Grid, tüm yeniden deneme adımları küçük rastgele ekler ve bir uç nokta için uzun bir süre kapalı tutarlı bir şekilde sağlam değil veya kısası gibi görünüyor, belirli bir yeniden deneme desteklemedikleri atlayabilirsiniz.
+
+Olay süresi belirleyici davranışını ayarlayın ve en yüksek teslimat çalışır [aboneliği yeniden deneme ilkeleri](manage-event-delivery.md).
 
 Varsayılan olarak, Event Grid, 24 saat içinde teslim olmayan tüm olayların süresi dolar. Yapabilecekleriniz [yeniden deneme ilkesi özelleştirme](manage-event-delivery.md) bir olay aboneliği oluştururken. Yaşam süresi (varsayılan değer 30) teslim denemesi ve olay sayısını sağlar (varsayılan değer 1440 dakika).
 

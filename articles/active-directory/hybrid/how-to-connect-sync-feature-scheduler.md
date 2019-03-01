@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a40159a43db6f83029ed6eacd37d2a4eff28aa09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203863"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193067"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect eşitleme: Scheduler
 Bu konuda Azure AD Connect Eşitleme'deki yerleşik Zamanlayıcı (diğer adıyla) açıklanır Eşitleme altyapısı).
@@ -55,7 +55,7 @@ Görürseniz **sync komutunun veya cmdlet'i kullanılamıyor** Bu cmdlet'i çal�
 * **PurgeRunHistoryInterval**. İşlem günlükleri saklanır zaman. Bu günlükler, Eşitleme Hizmeti Yöneticisi'nde incelenebilir. 7 gün boyunca bu günlüklerini tutmak için varsayılandır.
 * **SyncCycleEnabled**. Zamanlayıcı içeri aktarma, eşitleme ve dışarı aktarma işlemleri kendi işleminin bir parçası çalışıp çalışmadığını gösterir.
 * **MaintenanceEnabled**. Bakım işlemi etkin olup olmadığını gösterir. Sertifikaları/anahtarlar güncelleştirilir ve operations günlüğünü temizler.
-* **StagingModeEnabled**. Gösterir, [hazırlama modunda](how-to-connect-sync-operations.md#staging-mode) etkinleştirilir. Bu ayar etkinse, dışarı aktarmaları çalışmasını engeller ancak yine de içeri aktarma ve eşitleme çalıştırın.
+* **StagingModeEnabled**. Gösterir, [hazırlama modunda](how-to-connect-sync-staging-server.md) etkinleştirilir. Bu ayar etkinse, dışarı aktarmaları çalışmasını engeller ancak yine de içeri aktarma ve eşitleme çalıştırın.
 * **SchedulerSuspended**. Connect tarafından yükseltme sırasında çalışmasını Zamanlayıcı bloğuna geçici olarak ayarlayın.
 
 Bu ayarlarla bazılarını değiştirebilirsiniz `Set-ADSyncScheduler`. Aşağıdaki parametreleri değiştirilebilir:

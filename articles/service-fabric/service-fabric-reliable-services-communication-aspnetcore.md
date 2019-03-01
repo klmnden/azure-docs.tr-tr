@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c941a9adb552bcd0a02e22b23970717f82c0308f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151099"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009945"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core Service Fabric güvenilir hizmetler
 
@@ -333,6 +333,123 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 ```
 
 Bu yapılandırmada, `KestrelCommunicationListener` kullanılmayan bir bağlantı noktası uygulama bağlantı noktası aralığından otomatik olarak seçer.
+
+## <a name="service-fabric-configuration-provider"></a>Service Fabric yapılandırma sağlayıcısı
+ASP.NET Core uygulaması yapılandırmasında okuma yapılandırma sağlayıcıları tarafından oluşturulan anahtar-değer çiftleri temel [ASP.NET Core yapılandırmasında](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/) daha fazla açık genel ASP.NET Core yapılandırma desteği anlamak için.
+
+Bu bölümde, ASP.NET Core yapılandırmasıyla içeri aktararak tümleştirmek için Service Fabric yapılandırma sağlayıcısı açıklanmaktadır `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet paketi.
+
+### <a name="addservicefabricconfiguration-startup-extensions"></a>AddServiceFabricConfiguration başlangıç uzantıları
+İçeri aktarma sonra `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet paketi gerekir ASP.NET Core yapılandırma API'si tarafından Service Fabric yapılandırma kaynağı kaydetmek **AddServiceFabricConfiguration** uzantılarında `Microsoft.ServiceFabric.AspNetCore.Configuration` ad alanı karşı `IConfigurationBuilder`
+
+```csharp
+using Microsoft.ServiceFabric.AspNetCore.Configuration;
+
+public Startup(IHostingEnvironment env)
+{
+    var builder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+        .AddServiceFabricConfiguration() // Add Service Fabric configuration settings.
+        .AddEnvironmentVariables();
+    Configuration = builder.Build();
+}
+
+public IConfigurationRoot Configuration { get; }
+```
+
+ASP.NET Core hizmeti, Service Fabric yapılandırma ayarları gibi herhangi bir uygulama ayarı artık erişebilirsiniz. Örneğin, türü kesin belirlenmiş nesnelerini ayarlarını yüklemek için seçenekleri desenini kullanabilirsiniz.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure<MyOptions>(Configuration);  // Strongly typed configuration object.
+    services.AddMvc();
+}
+```
+### <a name="default-key-mapping"></a>Varsayılan anahtar eşleme
+Varsayılan olarak, Service Fabric yapılandırma sağlayıcısı, paket adı, bölüm adı ve asp.net core yapılandırması birlikte oluşturmak için özellik adını içerir. işlevini kullanarak anahtar:
+```csharp
+$"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
+```
+
+Örneğin, adlı bir yapılandırma paketleri varsa `MyConfigPackage` altındaki içerik, ardından yapılandırma değeri üzerinde ASP.NET Core kullanıma sunulacaktır `IConfiguration` anahtarı aracılığıyla *MyConfigPackage:MyConfigSection:MyParameter*
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
+  <Section Name="MyConfigSection">
+    <Parameter Name="MyParameter" Value="Value1" />
+  </Section>  
+</Settings>
+```
+### <a name="service-fabric-configuration-options"></a>Service Fabric yapılandırma seçenekleri
+Aynı zamanda Service Fabric yapılandırma sağlayıcısını destekliyor `ServiceFabricConfigurationOptions` tuş eşlemeyi varsayılan davranışını değiştirmek için.
+
+#### <a name="encrypted-settings"></a>Şifrelenmiş ayarları
+Ayarları şifrelemek için Service Fabric destekler, bu Service Fabric yapılandırma sağlayıcısı da destekler. Varsayılan ilke, varsayılan ASP.NET core'a şifreli ayarlarla are't descrypted tarafından güvenli izlemek için `IConfiguration`, şifrelenmiş değer depolanır var. Bunun yerine. Ancak, ASP.NET Core IConfiguration içinde depolamak için değerin şifresi istiyorsanız False olarak DecryptValue bayrağı ayarlayabilirsiniz `AddServiceFabricConfiguration` aşağıdaki gibi uzantıları:
+
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = true); // set flag to decrypt the value
+    Configuration = builder.Build();
+}
+```
+#### <a name="multiple-configuration-packages"></a>Birden çok yapılandırma paketleri
+Service Fabric, birden çok yapılandırma paketlerini destekler. Varsayılan olarak, yapılandırmanın anahtar paket adı dahil edilir. Ayarlayabilirsiniz `IncludePackageName` varsayılan davranışı değiştirmek için bayrak.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        // exclude package name from key.
+        .AddServiceFabricConfiguration(activationContext, (options) => options.IncludePackageName = false); 
+    Configuration = builder.Build();
+}
+```
+#### <a name="custom-key-mapping-value-extraction-and-data-population"></a>Özel anahtar eşleme, değer ayıklama ve veri doldurma
+Bunun yanında, varsayılan davranışı değiştirmek için 2 bayrakları da Service Fabric yapılandırma sağlayıcısını destekliyor daha özel anahtar eşleme aracılığıyla Gelişmiş senaryoları `ExtractKeyFunc` ve özel değerler aracılığıyla ayıklamak `ExtractValueFunc`. ASP.NET Core yapılandırma ile Service Fabric yapılandırma verilerini doldurmak için bu işlem bile değişebilir `ConfigAction`.
+
+Aşağıdaki örnekler, kullanılacak gösterir `ConfigAction` veri doldurma özelleştirmek için.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    
+    this.valueCount = 0;
+    this.sectionCount = 0;
+    var builder = new ConfigurationBuilder();
+    builder.AddServiceFabricConfiguration(activationContext, (options) =>
+        {
+            options.ConfigAction = (package, configData) =>
+            {
+                ILogger logger = new ConsoleLogger("Test", null, false);
+                logger.LogInformation($"Config Update for package {package.Path} started");
+
+                foreach (var section in package.Settings.Sections)
+                {
+                    this.sectionCount++;
+
+                    foreach (var param in section.Parameters)
+                    {
+                        configData[options.ExtractKeyFunc(section, param)] = options.ExtractValueFunc(section, param);
+                        this.valueCount++;
+                    }
+                }
+
+                logger.LogInformation($"Config Update for package {package.Path} finished");
+            };
+        });
+  Configuration = builder.Build();
+}
+```
+### <a name="configuration-update"></a>Yapılandırma güncelleştirmesi
+Service Fabric yapılandırma sağlayıcısı yapılandırmasını güncelleştirme de destekler ve ASP.NET Core kullanabileceğinizi `IOptionsMonitor` değişiklik bildirimleri almak için hem de `IOptionsSnapshot` yapılandırma verilerini yeniden yüklemek için. Daha fazla bilgi için [ASP.NET Core seçenekleri](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options).
+
+Bu varsayılan olarak desteklenir ve başka kodlama yapılandırma güncelleştirmesi etkinleştirmek için gereklidir.
 
 ## <a name="scenarios-and-configurations"></a>Senaryolar ve yapılandırmaları
 Bu bölümde, aşağıdaki senaryoları açıklar ve web sunucusu, bağlantı noktası yapılandırması, Service Fabric tümleştirme seçenekleri ve çeşitli ayarları düzgün çalışan bir hizmet elde etmek için önerilen birleşimi sağlar:

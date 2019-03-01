@@ -1,5 +1,5 @@
 ---
-title: Log Analytics - Azure Logic Apps B2B iletilerini izleme | Microsoft Docs
+title: Azure İzleyici günlükleri - Azure Logic Apps ile B2B iletilerini izleme | Microsoft Docs
 description: Tümleştirme hesapları ve Azure Log Analytics ile Azure Logic Apps B2B iletişimini izleme
 services: logic-apps
 ms.service: logic-apps
@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: ad58257313c60b4757c83793886ce32a2997332b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996529"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193220"
 ---
-# <a name="track-b2b-messages-with-azure-log-analytics"></a>Azure Log Analytics ile B2B iletilerini izleme
+# <a name="track-b2b-messages-with-azure-monitor-logs"></a>Azure İzleyici günlükleri ile B2B iletilerini izleme
 
-Tümleştirme hesabı ticari ortaklar arasında B2B iletişim kurduktan sonra iş ortakları protokolleri gibi AS2, X 12 ve EDIFACT iletileri gönderip alabilir. Bu iletiler doğru işlenir denetlemek için bu iletileri ile izleyebilirsiniz [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Örneğin, izleme iletileri için bu izleme web tabanlı özellikleri kullanabilirsiniz:
+Tümleştirme hesabı ticari ortaklar arasında B2B iletişim kurduktan sonra iş ortakları protokolleri gibi AS2, X 12 ve EDIFACT iletileri gönderip alabilir. Bu iletiler doğru işlenir denetlemek için bu iletileri ile izleyebilirsiniz [Azure İzleyicisi](../log-analytics/log-analytics-overview.md). Örneğin, izleme iletileri için bu izleme web tabanlı özellikleri kullanabilirsiniz:
 
 * İleti sayısı ve durumu
 * Bildirim durumu
@@ -29,19 +29,21 @@ Tümleştirme hesabı ticari ortaklar arasında B2B iletişim kurduktan sonra i�
 > [!NOTE]
 > Bu sayfa, Microsoft Operations Management Suite (olan OMS ile), bu görevleri gerçekleştirmek adımlar daha önce açıklanan [Ocak 2019 ' devre dışı bırakma](../azure-monitor/platform/oms-portal-transition.md), bu adımlar, bunun yerine Azure Log Analytics ile değiştirir. 
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Tanılama günlük kaydı ile ayarlanmış bir mantıksal uygulama. Bilgi [bir mantıksal uygulama oluşturma işlemini](quickstart-create-first-logic-app-workflow.md) ve [nasıl ayarlanacağı, mantıksal uygulama için günlüğe kaydetmeyi](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * İzleme ve günlüğe kaydetme ile ayarlanmış bir tümleştirme hesabı. Bilgi [tümleştirme hesabı oluşturma işlemini](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) ve [izleme ve günlüğe kaydetme için bu hesabı ayarlamak nasıl](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Henüz kaydolmadıysanız [Log Analytics için tanılama verilerini yayımlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Henüz kaydolmadıysanız [tanılama verilerini Azure İzleyici günlüklerine yayımlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 * Önceki gereksinimlerini sonra Log Analytics aracılığıyla B2B iletişimi izlemek için kullandığınız bir Log Analytics çalışma alanı da gerekir. Bir Log Analytics çalışma alanınız yoksa, bilgi [bir Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="install-logic-apps-b2b-solution"></a>Logic Apps B2B çözümü yükleme
 
-Log Analytics, mantıksal uygulamanız için B2B iletilerini izleme olabilir önce ekleme **Logic Apps B2B** Log analytics'e çözüm. Daha fazla bilgi edinin [Log Analytics çözümleri ekleme](../azure-monitor/learn/quick-create-workspace.md).
+Azure İzleyici günlüklerine mantıksal uygulamanız için B2B iletilerini izleme olabilir önce ekleme **Logic Apps B2B** Azure İzleyici günlüklerine çözüm. Daha fazla bilgi edinin [çözümleri Azure İzleyici günlüklerine ekleme](../azure-monitor/learn/quick-create-workspace.md).
 
 1. [Azure portalda](https://portal.azure.com) **Tüm hizmetler**’i seçin. Arama kutusuna "log analytics" bulup seçin **Log Analytics**.
 
@@ -128,7 +130,7 @@ B2B iletilerini işlendikten sonra durum ve bu iletileri ayrıntılarını gör�
    * Arama sonuçları ile önceden oluşturulmuş sorguları tercih **Sık Kullanılanlar**.
 
    * Bilgi [filtreler ekleyerek sorguları oluşturmak nasıl](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
-   Veya daha fazla bilgi edinin [Log Analytics'te günlük aramaları sahip verileri bulmak nasıl](../log-analytics/log-analytics-log-searches.md).
+   Veya daha fazla bilgi edinin [Azure İzleyici günlüklerine günlük aramaları sahip verileri bulmak nasıl](../log-analytics/log-analytics-log-searches.md).
 
    * Arama kutusuna bir sorguyu değiştirmek için sütun ve filtre olarak kullanmak istediğiniz değerleri ile sorguyu güncelleştirin.
 
@@ -237,7 +239,7 @@ Her indirilen EDIFACT iletisi klasör ve dosya adı biçimleri şunlardır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Log analytics'te B2B iletileri için sorgulama](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Azure İzleyici günlüklerine B2B iletileri için sorgulama](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [AS2 izleme şemaları](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12 izleme şemaları](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Özel İzleme şemaları](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

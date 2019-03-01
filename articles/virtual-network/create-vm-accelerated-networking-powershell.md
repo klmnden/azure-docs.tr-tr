@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: ae3d1fa6a921067e8c3b629206e47e1a1314adc1
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c4567919490c8bc9094dea3dddbe22550d9eebb2
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889248"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192914"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir Windows sanal makinesi oluşturun
 
@@ -48,7 +48,7 @@ Azure Galerisi hazır aşağıdaki dağıtımlar desteklenir:
 ### <a name="supported-vm-instances"></a>Desteklenen sanal makine örnekleri
 Hızlandırılmış ağ en genel amaçlı ve işlem için iyileştirilmiş örnek boyutları Vcpu, 2 veya daha fazla ile desteklenir.  Bu desteklenen serisi şunlardır: D/DSv2 ve F/Fs
 
-Hiper iş parçacığı destek örneklerinde, hızlandırılmış ağ ile Vcpu, 4 veya daha fazla VM örneklerinde desteklenir. Desteklenen serisi şunlardır: D/DSv3, E/ESv3 Fsv2 ve Ms/Mms
+Hiper iş parçacığı destek örneklerinde, hızlandırılmış ağ ile Vcpu, 4 veya daha fazla VM örneklerinde desteklenir. Desteklenen serisi şunlardır: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms ve Ms/Mmsv2.
 
 Sanal makine örnekleri hakkında daha fazla bilgi için bkz. [Windows VM boyutları](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -73,7 +73,7 @@ Sanal makine oluşturulduktan sonra aşağıdaki yönergeleri accelerated networ
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Yükleme [Azure PowerShell](/powershell/azure/install-az-ps) sürüm 1.0.0 veya üzeri. Şu anda yüklü sürümü bulmak için çalıştırın `Get-Module -ListAvailable Az`. Yüklemeniz veya yükseltmeniz gerekirse, Az modülünden'ın en son sürümünü yüklemek [PowerShell Galerisi](https://www.powershellgallery.com/packages/Az). Bir PowerShell oturumunda bir Azure hesabı kullanarak oturum açtığınız [Connect AzAccount](/powershell/module/az.profile/connect-azaccount).
+Yükleme [Azure PowerShell](/powershell/azure/install-az-ps) sürüm 1.0.0 veya üzeri. Şu anda yüklü sürümü bulmak için çalıştırın `Get-Module -ListAvailable Az`. Yüklemeniz veya yükseltmeniz gerekirse, Az modülünden'ın en son sürümünü yüklemek [PowerShell Galerisi](https://www.powershellgallery.com/packages/Az). Bir PowerShell oturumunda bir Azure hesabı kullanarak oturum açtığınız [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *Mynıc*, ve *myVM*.
 

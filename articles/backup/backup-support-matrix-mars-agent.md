@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: b579816a4367537a7da4aa0f68c8776465295448
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 61afefb955914c75606c4fff36ebcc05a4ad0057
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670762"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010914"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure kurtarma Hizmetleri (MARS) aracısı ile yedekleme destek matrisi
 
@@ -29,7 +29,7 @@ MARS Aracısı Azure Backup tarafından Azure'da şirket içi makinelerin ve Azu
 Neleri yedekleyebilir, aracının yüklü olduğu bağlıdır.
 
 - [Daha fazla bilgi edinin](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) MARS Aracısı'nı kullanarak yedekleme mimarisi hakkında.
-- [Daha fazla bilgi edinin]() MABS/DPM hakkında [yedekleme mimarisi](backup-architecture.md#architecture-back-up-to-dpmmabs)ve [gereksinimleri](backup-support-matrix-mabs-dpm.md).
+- MABS/DPM hakkında daha fazla bilgi [yedekleme mimarisi](backup-architecture.md#architecture-back-up-to-dpmmabs)ve [gereksinimleri](backup-support-matrix-mabs-dpm.md).
 
 
 ## <a name="supported-installation"></a>Desteklenen yükleme
@@ -37,7 +37,7 @@ Neleri yedekleyebilir, aracının yüklü olduğu bağlıdır.
 **Yükleme** | **Ayrıntılar**
 --- | ---
 **En yeni MARS Aracısı'nı indirme** | Kasadan, aracının en son sürümünü indirebilirsiniz veya [doğrudan indirin](https://aka.ms/azurebackup_agent).
-**Doğrudan bir makineye yükleyin** | MARS Aracısı doğrudan şirket içi Windows server veya Windows Azure herhangi birini çalıştıran VM yükleyebilirsiniz [desteklenen işletim sistemleri]().
+**Doğrudan bir makineye yükleyin** | MARS Aracısı doğrudan şirket içi Windows server veya Windows Azure herhangi birini çalıştıran VM yükleyebilirsiniz [desteklenen işletim sistemleri](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 **Bir yedekleme sunucusuna yükleyin** | Azure'a yedeklemek için DPM veya MABS ayarlamak, indirin ve MARS aracısının sunucuya yükleyin. Aracı ile uyumlu olarak yüklenebilir [desteklenen işletim sistemleri](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) yedek sunucu destek matrisi içinde.
 
 > [!NOTE]

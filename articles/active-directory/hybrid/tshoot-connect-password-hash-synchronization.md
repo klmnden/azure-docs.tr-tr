@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29cb7f6799556406c4c5def12b1367bfd581d06b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 56fda1110218910f8fbd8aa9597195f37444e01c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198756"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193339"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile parola karması eşitleme sorunlarını giderme
 Bu konu, parola karması eşitleme ile ilgili sorunları gidermek adımlar sağlar. Parolaları eşitlemiyor beklendiği gibi kullanıcıların bir alt kümesine veya tüm kullanıcılar için olabilir.
@@ -225,7 +225,7 @@ Burada, bir kullanıcı için hiçbir parola eşitlenmedi sorunlarını gidermek
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Hiçbir parola eşitlenmedi: el ile sorun giderme adımları
 Neden hiçbir parola eşitlenmedi belirlemek için aşağıdaki adımları izleyin:
 
-1. Connect sunucu [hazırlama modunda](how-to-connect-sync-operations.md#staging-mode)? Bir sunucu hazırlama modunda parolaları eşitlemez.
+1. Connect sunucu [hazırlama modunda](how-to-connect-sync-staging-server.md)? Bir sunucu hazırlama modunda parolaları eşitlemez.
 
 2. Betiği Çalıştır [parola eşitleme ayarlarının durumunu alma](#get-the-status-of-password-sync-settings) bölümü. Parola Eşitleme yapılandırmasına genel bakış sağlar.  
 

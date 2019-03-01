@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/21/2019
+ms.date: 02/28/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 14b277e505e2a4975945f4b2f8f8410e25e0f8b3
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166038"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193594"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Konum koşulu Azure Active Directory koşullu erişim nedir? 
 
@@ -142,7 +142,7 @@ Varsayılan olarak, Azure AD üzerinden saatlik olarak bir belirteç verir. Bir 
 
 ### <a name="user-ip-address"></a>Kullanıcının IP adresi
 
-İlkesi değerlendirmesi içine kullanılan IP adresini, kullanıcının genel IP adresidir. İçin özel bir ağdaki cihazları, bu kullanıcının cihazına intranet üzerindeki istemci IP'si değil, bu ağın genel internet'e bağlanmak için kullandığı adrestir. 
+İlkesi değerlendirmesi içine kullanılan IP adresini, kullanıcının genel IP adresidir. İçin özel bir ağdaki cihazları, bu kullanıcının cihazına intranet üzerindeki istemci IP'si değil, bu ağın genel internet'e bağlanmak için kullandığı adrestir. Cihazınız yalnızca bir IPv6 adresi varsa, konum koşulu yapılandırılması desteklenmiyor.
 
 ### <a name="bulk-uploading-and-downloading-of-named-locations"></a>Toplu karşıya yükleme ve adlandırılmış konumları indirme
 

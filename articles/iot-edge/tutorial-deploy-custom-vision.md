@@ -9,26 +9,30 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c36e557f4e7c4a42726ee96de8bd73755d5e19c4
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075837"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193679"
 ---
-# <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Öğretici: Özel Görüntü İşleme Hizmeti ile uçta görüntü sınıflandırması gerçekleştirme
+# <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Öğretici: Uç cihazlarında özel görüntü işleme hizmeti ile görüntü sınıflandırma gerçekleştirin
 
 Azure IoT Edge, iş yüklerini buluttan uca taşıyarak IoT çözümünüzü daha verimli hale getirmenizi sağlayabilir. Bu özellik, özel görüntü işleme modelleri gibi çok miktarda veri işleyen hizmetler için uygundur. [Özel Görüntü İşleme Hizmeti](../cognitive-services/custom-vision-service/home.md), özel görüntü sınıflandırıcıları derlemenizi ve bunları cihazlara kapsayıcı olarak dağıtmanızı sağlar. Bu iki hizmet birlikte tüm verileri aktarmak zorunda kalmadan görüntülerden veya video akışlarından içgörü elde etmenizi sağlar. Özel Görüntü İşleme Hizmeti, içgörü oluşturmak için bir görüntüyü eğitilmiş modelle karşılaştıran bir sınıflandırıcı sunar. 
 
 Örneğin bir IoT Edge cihazı üzerinde çalışan Özel Görüntü İşleme Hizmeti bir otoyoldaki trafik yoğunluğunun beklenenden daha yüksek veya düşük olduğunu veya bir otoparkta yeterli yer bulunup bulunmadığını belirleyebilir. Bu içgörüler eylem gerçekleştirmek üzere başka bir hizmetle paylaşılabilir. 
 
-
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz: 
 
 > [!div class="checklist"]
+>
 > * Özel Görüntü İşleme Hizmeti ile bir görüntü sınıflandırıcı derleme.
 > * Cihazınızdaki Özel Görüntü İşleme Hizmeti web sunucusunu sorgulayan bir IoT Edge modülü dağıtma.
 > * Görüntü sınıflandırıcı sonuçlarını IoT Hub'a gönderme.
+
+<center>
+![Diyagram - öğretici mimarisi, aşama ve sınıflandırıcı dağıtma](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+</center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +47,7 @@ Bulut kaynakları:
 
 * Azure'da standart katman [IoT Hub'ı](../iot-hub/iot-hub-create-through-portal.md). 
 * Kapsayıcı kayıt defteri. Bu öğreticide [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) kullanılır. 
-    * Kapsayıcı kayıt defterinizin [yönetici hesabının](../container-registry/container-registry-authentication.md#admin-account) kimlik bilgileri.
+* Kapsayıcı kayıt defterinizin [yönetici hesabının](../container-registry/container-registry-authentication.md#admin-account) kimlik bilgileri.
 
 Geliştirme kaynakları:
 
@@ -151,7 +155,7 @@ Artık geliştirme makinenizde görüntü sınıflandırıcınızın kapsayıcı
 
 3. VS Code komut paletini açmak için **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçin. 
 
-4. Komut paletinde **Azure IoT Edge: New IoT Edge solution** komutunu girin ve çalıştırın. Komut paletinde çözümünüzü oluşturmak için aşağıdaki bilgileri girin: 
+4. Komut Paleti'nde girin ve şu komutu çalıştırın **Azure IOT Edge: Yeni bir IOT Edge çözüm**. Komut paletinde çözümünüzü oluşturmak için aşağıdaki bilgileri girin: 
 
    | Alan | Değer |
    | ----- | ----- |
@@ -201,7 +205,7 @@ Gerçek bir Özel Görüntü İşleme Hizmeti dağıtımında canlı görüntü 
 
 Bu bölümde aynı CustomVisionSolution öğesine yeni bir modül ekleyecek ve sanal kamerayı oluşturmak için gerekli kodu sağlayacaksınız. 
 
-1. Aynı Visual Studio Code penceresinde komut paletini kullanarak **Azure IoT Edge: Add IoT Edge Module** komutunu çalıştırın. Komut paletinde yeni modülünüz için aşağıdaki bilgileri girin: 
+1. Aynı Visual Studio kod penceresinde komut paletini çalıştırmak için kullanın. **Azure IOT Edge: IOT Edge Modülü Ekle**. Komut paletinde yeni modülünüz için aşağıdaki bilgileri girin: 
 
    | İstem | Değer | 
    | ------ | ----- |
@@ -423,7 +427,7 @@ Görüntüleri kayıt defterinize gönderdikten sonra çözümü bir IoT Edge ci
 
 Bir sonraki adımda Visual Studio Code'dan IoT Hub erişimini ayarlayın. 
 
-1. VS Code komut paletinde **Azure IoT Hub: Select IoT Hub** komutunu seçin.
+1. VS Code komut paletinde seçin **Azure IOT Hub: IOT hub'ını seçin**.
 2. Azure hesabınızda oturum açmak için yönergeleri izleyin. 
 3. Komut paletinde Azure aboneliğinizi ve ardından IoT Hub'ınızı seçin. 
 

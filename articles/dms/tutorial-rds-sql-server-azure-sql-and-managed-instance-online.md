@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Bir Azure SQL veritabanı veya Azure SQL veritabanı yönetilen örneği SQL Server RDS çevrimiçi geçişi gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanın | Microsoft Docs'
-description: Bir çevrimiçi geçiş RDS SQL Server şirket içinden Azure SQL veritabanı veya Azure SQL veritabanı yönetilen örneği için Azure veritabanı geçiş hizmeti kullanarak gerçekleştirmeyi öğrenin.
+title: 'Öğretici: Bir Azure SQL veritabanı veya bir Azure SQL veritabanı yönetilen örneği SQL Server RDS çevrimiçi geçişi gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanın | Microsoft Docs'
+description: Bir çevrimiçi geçiş RDS SQL Server'dan Azure SQL veritabanı veya bir Azure SQL veritabanı yönetilen örneği için Azure veritabanı geçiş hizmeti kullanarak gerçekleştirmek öğrenin.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -10,20 +10,20 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/11/2019
-ms.openlocfilehash: 00291cbcb23a3bcff320d391e56ff210c0a24af0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/01/2019
+ms.openlocfilehash: 5691c10236b4aa3687551fe084ec5fefd9a3aeaa
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007905"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193390"
 ---
-# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-online-using-dms"></a>Öğretici: RDS SQL Server'ı Azure SQL veritabanı'na geçirme çevrimiçi DMS kullanarak
-Şirket içi RDS SQL Server örneğine veritabanlarını geçirmek için Azure veritabanı geçiş hizmetini kullanabilirsiniz [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/) veya [Azure SQL veritabanı yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) en düşük kapalı kalma süresi . Bu öğreticide, geçiş **Adventureworks2012** RDS SQL Server örneğine SQL Server 2012'in (veya üzeri) geri yüklenen veritabanı için bir Azure SQL veritabanı / yönetilen örnek Azure veritabanı geçiş hizmetini kullanarak.
+# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Öğretici: RDS SQL Server'ı Azure SQL veritabanı'na geçirme veya Azure SQL veritabanı yönetilen örneği çevrimiçi DMS kullanarak
+RDS SQL Server örneğine veritabanlarını geçirmek için Azure veritabanı geçiş hizmetini kullanabilirsiniz [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/) veya [Azure SQL veritabanı yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) en düşük kapalı kalma süresi. Bu öğreticide, geçiş **Adventureworks2012** geri yüklenen veritabanı bir RDS SQL Server örneği SQL Server 2012'in (veya üzeri) Azure SQL veritabanı veya Azure SQL veritabanı için Azure veritabanı geçişi kullanarak yönetilen örnek Hizmeti.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
-> * Azure SQL veritabanı veya veritabanı örneğini Azure SQL veritabanı yönetilen örneği oluşturun. 
+> * Azure SQL veritabanı örneği veya Azure SQL veritabanı yönetilen örneği oluşturun. 
 > * Data Migration Yardımcısı'nı kullanarak örnek şemayı geçirme.
 > * Azure Veritabanı Geçiş Hizmeti örneği oluşturma.
 > * Azure Veritabanı Geçiş Hizmeti'ni kullanarak geçiş projesi oluşturma.
@@ -39,7 +39,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-Bu makalede, bir çevrimiçi geçiş RDS SQL Server'dan Azure SQL veritabanı veya Azure SQL veritabanı yönetilen örneği açıklanmaktadır.
+Bu makalede, bir çevrimiçi geçiş RDS SQL Server'dan Azure SQL veritabanı veya bir Azure SQL veritabanı yönetilen örneği açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
@@ -48,16 +48,25 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 - Makalesinde ayrıntılı olarak izleyerek bunu Azure SQL veritabanı örneği oluşturma [Azure portalında bir Azure SQL veritabanı oluşturma](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 
     > [!NOTE]
-    > Azure SQL veritabanı yönetilen örneği için geçiriyorsanız, ayrıntılı makaleyi izleyin [bir Azure SQL veritabanı yönetilen örneği oluşturma](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started)ve ardından adlı boş bir veritabanı oluşturun **AdventureWorks2012** . 
+    > Azure SQL veritabanı yönetilen örneğine geçiriyorsanız, ayrıntılı makaleyi izleyin [bir Azure SQL veritabanı yönetilen örnek oluşturma](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started)ve ardından adlı boş bir veritabanı oluşturun **AdventureWorks2012**. 
  
 - [Data Migration Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 3.3 veya sonraki bir sürümünü indirip yükleyin.
-- Bir Azure sanal ağ (VNET) için Azure veritabanı geçiş hizmeti Azure Resource Manager dağıtım modelini kullanarak oluşturun. Azure SQL veritabanı yönetilen örneği için geçiriyorsanız DMS örneğini Azure SQL veritabanı yönetilen örneği için kullanılan aynı sanal ağ, ancak farklı bir alt ağ oluşturmak emin olun.  Alternatif olarak, farklı bir VNET için DMS kullanırsanız, VNET eşlemesi iki sanal ağ arasında oluşturmanız gerekir.
-- Aşağıdaki Azure VNET ağ güvenlik grubu kurallarınızı engellemediğimizin olun iletişim bağlantı noktası 443, 53, 9354, 445, 12000. Azure VNET NSG trafiğini filtreleme hakkında ayrıntılı bilgi için [Ağ güvenlik grupları ile ağ trafiğini filtreleme](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) makalesine bakın.
+- Bir Azure sanal ağ (VNET) için Azure veritabanı geçiş hizmeti Azure Resource Manager dağıtım modelini kullanarak oluşturun. Azure SQL veritabanı yönetilen örneğine geçiş yapıyorsanız, DMS örneği aynı sanal ağda Azure SQL veritabanı yönetilen örneği için kullanılan, ancak farklı bir alt ağ oluşturmak emin olun.  Alternatif olarak, farklı bir VNET için DMS kullanırsanız, VNET eşlemesi iki sanal ağ arasında oluşturmanız gerekir.
+ 
+    > [!NOTE]
+    > Microsoft Ağ eşlemesi ile ExpressRoute kullanıyorsanız, sanal ağ kurulumu sırasında şu Hizmet Ekle [uç noktaları](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) hangi hizmet sağlanacağı alt ağ için:
+    > - Hedef veritabanı uç noktası (örneğin, SQL uç noktası, Cosmos DB uç noktası vb.)
+    > - Depolama uç noktası
+    > - Service bus uç noktası
+    >
+    > Azure veritabanı geçiş hizmeti internet bağlantısı olmadığı için bu gerekli bir yapılandırmadır. 
+ 
+- VNET ağ güvenlik grubu kurallarınızı aşağıdaki engelleme olun iletişim bağlantı noktası 443, 53, 9354, 445, 12000. Azure VNET NSG trafiğini filtreleme hakkında ayrıntılı bilgi için [Ağ güvenlik grupları ile ağ trafiğini filtreleme](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) makalesine bakın.
 - [Windows Güvenlik Duvarınızı veritabanı altyapısı erişimi](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) için yapılandırın.
 - Azure Veritabanı Geçiş Hizmeti'ne kaynak SQL Server erişimi sağlamak için Windows güvenlik duvarınızı açın. Varsayılan ayarlarda 1433 numaralı TCP bağlantı noktası kullanılır.
 - Azure Veritabanı Geçiş Hizmeti'nin hedef veritabanlarına erişmesini sağlama amacıyla Azure SQL Veritabanı için sunucu düzeyinde [güvenlik duvarı kuralı](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) oluşturun. Azure Veritabanı Geçiş Hizmeti için kullanılan sanal ağın alt ağ aralığını belirtin.
 - Kaynak RDS SQL Server örneğine bağlanmak için kullanılan kimlik bilgileri "Processadmin" sunucu rolünün bir üyesi ve yükseltilecek olan tüm veritabanlarında "db_owner" veritabanı rollerinin bir üyesi olan bir hesapla ilişkili olduğundan emin olun.
-- Hedef Azure SQL veritabanı örneğine bağlanmak için kullanılan kimlik bilgilerini Azure SQL veritabanı yönetilen örneğine geçiş CONTROL DATABASE izninizin hedef Azure SQL veritabanlarına ve sysadmin rolünün bir üyesi olduğundan emin olun.
+- Yönetilen örnek bir Azure SQL veritabanı'na geçirme, hedef Azure SQL veritabanı örneğine bağlanmak için kullanılan kimlik bilgileri CONTROL DATABASE izninizin hedef Azure SQL veritabanlarına ve sysadmin rolünün bir üyesi olduğundan emin olun.
 - Kaynak RDS SQL Server sürümünün SQL Server 2012 olmalıdır ve üstü. SQL Server örneğinizin sürümünü belirlemek için [SQL Server ve bileşenlerinin sürümünü ve güncelleştirme düzeyini belirleme](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an) başlıklı makaleye bakın.
 - Değişiklik verilerini yakalama (CDC) RDS SQL Server veritabanı ve geçiş için seçilen tüm kullanıcı tablolarını etkinleştirin.
     > [!NOTE]
@@ -227,8 +236,8 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
     | Ayar | Açıklama |
     | ------------- | ------------- |
     | **En fazla paralel olarak yüklemek için tablo sayısı** | DMS, geçiş sırasında paralel olarak yürütülen tablo sayısını belirtir. Varsayılan değer 5'tir, ancak her POC geçişleri dayalı belirli bir geçiş gereksinimlerini karşılamak için en uygun bir değere da ayarlanabilir. |
-    | **Zaman kaynak tablosu kesilmiş** | DMS, geçiş sırasında hedef tablosu keser olup olmadığını belirtir. Bu, geçiş işleminin bir parçası bir veya daha fazla tablosu kesilmiş istediğinizde yararlı olabilir. |
-    | **Büyük nesne (LOB) verileri ayarlarını yapılandır** | DMS sınırsız LOB verileri geçirir ya da belirli bir boyuta sınırları LOB veri geçişi belirtir.  Olduğunda bir sınır LOB veri geçişi, bu sınırı ötesinde herhangi bir LOB veri kesilir. Üretim geçişleri için seçilecek önerilir **LOB boyut izin** veri kaybını önlemek için. Sınırsız LOB boyutunun belirtirken seçin **LOB boyutu (KB) küçük olduğunda tek bir blok LOB geçirme verilerinde belirtilen** performansını artırmak için onay kutusunu işaretleyin. |
+    | **Zaman kaynak tablosu kesilmiş** | DMS, geçiş sırasında hedef tablosu keser olup olmadığını belirtir. Bu ayar, geçiş işleminin bir parçası bir veya daha fazla tablosu kesilmiş istediğinizde yararlı olabilir. |
+    | **Büyük nesne (LOB) verileri ayarlarını yapılandır** | DMS sınırsız LOB verileri geçirir ya da belirli bir boyuta sınırları LOB veri geçişi belirtir.  Bir sınır yoktur, LOB veri geçişi, bu sınırı ötesinde herhangi bir LOB veri kesilmiş. Üretim geçişleri için seçilecek önerilir **LOB boyut izin** veri kaybını önlemek için. Sınırsız LOB boyutunun belirtirken seçin **LOB boyutu (KB) küçük olduğunda tek bir blok LOB geçirme verilerinde belirtilen** performansını artırmak için onay kutusunu işaretleyin. |
     
     ![Gelişmiş çevrimiçi geçiş ayarlarını belirleme](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-advanced-online-migration-settings.png)
 
@@ -267,4 +276,4 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
 - Bilinen sorunlar ve Azure SQL DatabaseL çevrimiçi geçişi gerçekleştirirken sınırlamalar hakkında daha fazla bilgi için bkz [bilinen sorunlar ve geçici çözümler ile Azure SQL veritabanı çevrimiçi geçişlerini](known-issues-azure-sql-online.md).
 - Azure Veritabanı Geçiş Hizmeti hakkında bilgi için [What is the Azure Database Migration Service? (Azure Veritabanı Geçiş Hizmeti nedir?)](https://docs.microsoft.com/azure/dms/dms-overview) başlıklı makaleye bakın.
 - Azure SQL veritabanı hakkında daha fazla bilgi için bkz [Azure SQL veritabanı hizmeti nedir?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
-- Azure SQL veritabanı yönetilen örneği hakkında daha fazla bilgi için bkz: sayfa [Azure SQL veritabanı yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index).
+- Yönetilen örnek, Azure SQL veritabanı hakkında bilgi için bu sayfaya bakın [Azure SQL veritabanı yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index).

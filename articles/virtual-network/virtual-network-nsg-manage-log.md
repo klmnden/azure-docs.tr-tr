@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 20c103c19de203d7598484b8f1d160256cb253e9
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 6cc75a70dfc7022efa8577234cc67659d53b2f88
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648872"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194426"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Bir ağ güvenlik grubu tanılama günlüğüne kaydetme
 
@@ -78,7 +78,7 @@ $Oms=Get-AzOperationalInsightsWorkspace `
 
 Mevcut bir çalışma alanı yoksa, biriyle oluşturabilirsiniz [yeni AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-Günlüğe kaydetme için günlükleri etkinleştirebilirsiniz iki kategorisi vardır. Daha fazla bilgi için [günlük kategorileri](#log-categories). NSG'yi için tanılama günlüğünü etkinleştirme [kümesi AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting). Aşağıdaki örnekte olay hem sayaç kategorisi verileri, kimlikleri NSG ve daha önce aldığınız çalışma alanı için kullanarak, bir NSG için çalışma alanına kaydeder:
+Günlüğe kaydetme için günlükleri etkinleştirebilirsiniz iki kategorisi vardır. Daha fazla bilgi için [günlük kategorileri](#log-categories). NSG'yi için tanılama günlüğünü etkinleştirme [kümesi AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). Aşağıdaki örnekte olay hem sayaç kategorisi verileri, kimlikleri NSG ve daha önce aldığınız çalışma alanı için kullanarak, bir NSG için çalışma alanına kaydeder:
 
 ```azurepowershell-interactive
 Set-AzDiagnosticSetting `

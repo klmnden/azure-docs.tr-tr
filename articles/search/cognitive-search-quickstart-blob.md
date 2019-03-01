@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 191cff21cdaa6a4e94358ed0b9c63cd942f71a6e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 70ccee4c69ba04206e4a7fe74c3bf158ae11a7b4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564570"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989890"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Hızlı Başlangıç: Bilişsel arama yetenekleri ve örnek verileri kullanarak işlem hattı oluşturma
 
@@ -53,7 +53,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 > [!NOTE]
 > 21 aralık 2018 tarihinden itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirmek mümkün olmayacak. Bu beceri yürütmesi için ücretlendirme başlatmak için bize izin verir. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için başlayacağız. Belgelerden metin ayıklama işlemi ek masraf olmadan sağlanmaya devam edecektir.
 >
-> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
+> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). [Daha fazla bilgi](cognitive-search-attach-cognitive-services.md) edinin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -86,7 +86,7 @@ Bu senaryoda özel olarak Azure hizmetleri kullanılır. İhtiyaç duyduğunuz h
   ![Portaldaki hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service2.png "Portaldaki hizmet tanımı sayfası")
 
   > [!NOTE]
-  > Bilişsel arama genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. Ücretli bir Bilişsel hizmetler kaynağı ilişkilendirmeden zenginleştirmelerinin sınırlı sayıda gerçekleştirmek mümkün olacaktır. Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
+  > Bilişsel arama genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. Ücretli bir Bilişsel hizmetler kaynağı ilişkilendirmeden zenginleştirmelerinin sınırlı sayıda gerçekleştirmek mümkün olacaktır. [Daha fazla bilgi](cognitive-search-attach-cognitive-services.md) edinin.
 
 1. Hizmet bilgilerine hızlı erişim için hizmeti panoya sabitleyin.
 
@@ -98,7 +98,9 @@ Zenginleştirme işlem hattı, [Azure Search dizin oluşturucuları](search-inde
 
 1. Farklı türlerden oluşan küçük bir dosya kümesini içeren [örnek verileri indirin](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). 
 
-1. Azure Blob Depolama için kaydolun, depolama hesabı oluşturma, Blob Hizmetleri sayfalarını açın ve bir kapsayıcı oluşturun. Genel erişim düzeyini ayarlayın, kapsayıcıdaki **kapsayıcı**. Daha fazla bilgi için ["bir kapsayıcı oluşturma" bölümünde](../storage/blobs/storage-unstructured-search.md#create-a-container) içinde *yapılandırılmamış verileri arama* öğretici.
+1. Azure Blob Depolama için kaydolun, depolama hesabı oluşturma, Blob Hizmetleri sayfalarını açın ve bir kapsayıcı oluşturun. 
+
+1. Genel erişim düzeyini ayarlayın, kapsayıcıdaki **kapsayıcı (kapsayıcılar ve bloblar için anonim okuma erişimi)**. Daha fazla bilgi için ["bir kapsayıcı oluşturma" bölümünde](../storage/blobs/storage-unstructured-search.md#create-a-container) içinde *yapılandırılmamış verileri arama* öğretici.
 
 1. Oluşturduğunuz kapsayıcıya tıklayın **karşıya** önceki bir adımda indirdiğiniz örnek dosyalarını karşıya yüklemek için.
 

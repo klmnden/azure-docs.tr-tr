@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 41eed6bc878bff4c9d847f9a449ca693274bf234
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564451"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195515"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
@@ -75,12 +75,11 @@ Kullanılacak `Test-NetConnection` cmdlet'i, AzureRM PowerShell Modülü yüklü
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
     Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-  
     
 Bağlantı başarılı olursa şu çıktıyı görmeniz gerekir:
     
   
-    ComputerName     : <storage-account-host-name>
+    ComputerName     : <your-storage-account-name>
     RemoteAddress    : <storage-account-ip-address>
     RemotePort       : 445
     InterfaceAlias   : <your-network-interface>
@@ -93,7 +92,19 @@ Bağlantı başarılı olursa şu çıktıyı görmeniz gerekir:
 
 ### <a name="solution-for-cause-1"></a>Çözüm nedeni 1 için
 
-Bağlantı noktası 445'in giden açmak için BT Departmanınızla birlikte çalışma [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
+#### <a name="solution-1---use-azure-file-sync"></a>Çözüm 1 - kullanımı Azure dosya eşitleme
+Azure dosya eşitleme dönüştürür şirket içi Windows Server'ınızın Azure dosya paylaşımınızın hızlı bir önbelleğine. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Azure dosya eşitleme, bağlantı noktası 443 üzerinden çalışır ve böylece geçici bir çözüm olarak Azure dosyaları bağlantı noktası 445'in engellenen istemcilerden erişmek için kullanılabilir. [Azure dosya eşitleme ayarlamayı öğrenin](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers).
+
+#### <a name="solution-2---use-vpn"></a>2 - kullanım VPN çözümü
+Bir VPN belirli depolama hesabınıza ayarlayarak, trafik olarak güvenli bir tünel aracılığıyla internet üzerinden geçer. İzleyin [VPN ayarlamaya ilişkin yönergeler](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) Windows Azure dosyalarına erişmek için.
+
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>3 - çözüm ISS yardımıyla 445 numaralı bağlantı noktasının engelini kaldırmak / BT yöneticisi
+İş ile BT departmanına ya da bağlantı noktası 445'in giden açmak için ISS [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
+
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>4 - çözüm tabanlı REST API kullanma araçları gibi Depolama Gezgini/Powershell
+Azure dosyaları SMB yanı sıra REST da destekler. REST erişim bağlantı noktası 443 (standart tcp) üzerinde çalışır. Zengin UI deneyimi sağlayan REST API kullanılarak yazılan çeşitli araçları vardır. [Depolama Gezgini](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) , bunlardan biridir. [İndirme ve yükleme, Depolama Gezgini](https://azure.microsoft.com/en-us/features/storage-explorer/) ve Azure dosyaları tarafından desteklenen dosya paylaşımına bağlanın. Ayrıca [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell) , ayrıca kullanıcı REST API.
+
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>2. neden: NTLMv1 etkin
 

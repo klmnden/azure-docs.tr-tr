@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: sogup
-ms.openlocfilehash: 0e05bf71c1689015be0b8e3a4be1b37447ba6eb8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: b08e8ea6a8768510177f1ea664f3036813e1a890
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961253"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009928"
 ---
 # <a name="manage-azure-vm-backups"></a>Azure VM yedeklemelerini yönetme
 
@@ -74,20 +74,23 @@ Panoyu kullanarak yedeklemeleri yönetebilir ve tek tek sanal makineleri aşağ�
 Koruma için yapılandırıldıktan sonra isteğe bağlı bir sanal makinenin yedekleme oluşturabilirsiniz.
 - İlk yedekleme beklemede, isteğe bağlı yedekleme kurtarma Hizmetleri kasasında sanal makinenin tam bir kopyasını oluşturur.
 - İlk Yedekleme tamamlandıktan, isteğe bağlı yedekleme yalnızca değişiklikler önceki anlık görüntüden kurtarma Hizmetleri Kasası'na gönderir. Diğer bir deyişle, sonraki yedeklemeler her zaman artımlı.
-- İsteğe bağlı yedekleme bekletme aralığı günlük yedekleme noktası ilkesinde belirtilen bekletme değerdir. Sonra hiçbir günlük yedekleme noktası seçtiyseniz haftalık yedekleme noktası kullanılır.
+- İsteğe bağlı yedekleme bekletme aralığı, yedekleme işini tetikleme sırasında belirtilen bekletme değerdir.
 
 İsteğe bağlı yedekleme tetiklemek için:
 
-1. Üzerinde [kasa öğesi panosunda](#view-vms-in-the-dashboard), tıklayın **Şimdi Yedekle**.
+1. Üzerinde [kasa öğesi panosunda](#view-vms-in-the-dashboard), tıklayın **yedekleme öğesi** altında **korumalı öğesi** bölümü.
 
     ![Yedekleme şimdi düğmesi](./media/backup-azure-manage-vms/backup-now-button.png)
 
- 2. Tıklayın **Evet** yedekleme işini başlatmak için.
+2. Tıklayın **Azure sanal makine** gelen **yedekleme Yönetim türü**. **Yedekleme öğesi (Azure sanal makine)** dikey penceresi görünür.
+3. Bir VM seçin ve tıklayın **artık yedekleme** isteğe bağlı yedekleme oluşturmak için. **Şimdi Yedekle dikey** görünür.
+4. İçinde **tut** seçeneğinde, tutulacak yedekler için bir tarih belirtin.
 
     ![Yedekleme şimdi düğmesi](./media/backup-azure-manage-vms/backup-now-check.png)
 
+5. Tıklayın **Tamam**, yedekleme işini çalıştırmak için.
 
- Yedekleme işi bir kurtarma noktası oluşturur. Kurtarma noktası bekletme aralığını sanal makineyle ilişkilendirilmiş ilkesinde belirtilen bekletme aralığı ile aynıdır. Kasa panosunda, işin ilerleme durumunu izlemek için tıklatın **yedekleme işleri** Döşe.  
+Kasa panosunda, işin ilerleme durumunu izlemek için tıklatın **yedekleme işleri** Döşe.
 
 ## <a name="stop-protecting-a-vm"></a>Bir VM'yi korumayı durdurursanız
 

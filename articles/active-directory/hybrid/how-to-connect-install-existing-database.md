@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8254766568c54748ee3646dd627a102ffc86e743
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d34b416fd8c9e87006a0fe5d7a7e30521ef03e2b
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191359"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193696"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Mevcut bir ad eşitleme veritabanını kullanarak Azure AD Connect'i yükleme
 Azure AD Connect, verileri depolamak için SQL Server veritabanı gerektirir. SQL Server 2012 Express LocalDB Azure AD Connect ile yüklenen varsayılan kullanabilir veya kendi tam SQL sürümü kullanın. Daha önce Azure AD Connect yüklendiğinde, her zaman ADSync adlı yeni bir veritabanı oluşturuldu. Azure AD Connect sürümü 1.1.613.0 (veya sonra), mevcut bir ad eşitleme veritabanına işaret ederek Azure AD Connect'i yükleme seçeneğiniz vardır.
@@ -62,7 +62,7 @@ Devam etmeden önce gerçekleştirilecek önemli notlar dikkat edin:
 3.  Yeni bir komut istemi veya PowerShell oturumu başlatın. <drive>\program files\Microsoft Azure AD Connect klasörüne gidin. Azure AD Connect sihirbazını "Var olan veritabanını kullan" modunda başlatmak için .\AzureADConnect.exe /useexistingdatabase komutunu çalıştırın.
 
 > [!NOTE]
-> Anahtarını kullanarak **/useexistingdatabase** yalnızca veritabanı zaten daha önceki bir Azure AD Connect yükleme verilerini içerdiğinde. Örneğin, ne zaman tam SQL Server veritabanına yerel bir veritabanından taşıyan ve Azure AD Connect sunucusu ne zaman yeniden oluşturuldu ve Azure AD Connect'in önceki bir yüklemeden ADSync veritabanı yedeğini SQL geri. Boş bir veritabanı oluşturulur ve yükleme için kullanın, bu adımı atlayın.
+> Anahtarını kullanarak **/useexistingdatabase** yalnızca veritabanı zaten daha önceki bir Azure AD Connect yükleme verilerini içerdiğinde. Örneğin, ne zaman tam SQL Server veritabanına yerel bir veritabanından taşıyan ve Azure AD Connect sunucusu ne zaman yeniden oluşturuldu ve Azure AD Connect'in önceki bir yüklemeden ADSync veritabanı yedeğini SQL geri. Veritabanı boş ise, diğer bir deyişle, bu olmayan herhangi bir önceki Azure AD Connect yüklemesi verileri içeren, bu adımı atlayın.
 
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 4.  Azure AD Connect'e Hoş Geldiniz ekranı açılır. Lisans koşullarını ve gizlilik bildirimini kabul ettikten sonra **Devam**'a tıklayın.

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5496be93a5241621cd4dc5e873e4386f8ed6c992
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700749"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195226"
 ---
 # <a name="public-ip-address-prefix"></a>Genel IP adresi ön eki
 
 Ayrılmış IP adresleri azure'da genel uç noktalarınız için genel bir IP adresi ön eki var. Azure aboneliğinize kaç belirttiğiniz üzerinde temel adres bitişik aralığını ayırır. Ortak adres bilmiyorsanız bkz [genel IP adresleri.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 
-Genel IP adresleri, her bir Azure bölgesinde adresi havuzundan atanır. Yapabilecekleriniz [indirme](https://www.microsoft.com/download/details.aspx?id=41653) Azure kullanan her bir bölge için aralıklarının listesi. Örneğin, 40.121.0.0/16 Azure kullanan Doğu ABD bölgesinde 100'den fazla aralıkları biridir. 40.121.0.1 - kullanılabilir adresleri aralığı içeren 40.121.255.254.
+Genel IP adresleri, her bir Azure bölgesinde adresi havuzundan atanır. Yapabilecekleriniz [indirme](https://www.microsoft.com/download/details.aspx?id=56519) Azure kullanan her bir bölge için aralıklarının listesi. Örneğin, 40.121.0.0/16 Azure kullanan Doğu ABD bölgesinde 100'den fazla aralıkları biridir. 40.121.0.1 - kullanılabilir adresleri aralığı içeren 40.121.255.254.
 
 Genel bir IP adresi ön eki bir Azure bölgesi ve abonelikte bir ad belirterek oluşturun ve ön ek dahil etmek istediğiniz kaç adresi. 28 genel bir IP adresi ön eki oluşturursanız, örneğin, Azure 16 adresleri, aralıkları birinden sizin için ayırır. Aralığın oluşturana kadar Azure atar aralığı bilmiyorsanız, ancak bitişik adresleridir. Genel IP adresi ön eklerini bir ücreti vardır. Ayrıntılar için bkz [genel IP adresi fiyatlandırması](https://azure.microsoft.com/pricing/details/ip-addresses).
 

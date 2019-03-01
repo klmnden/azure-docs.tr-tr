@@ -10,13 +10,13 @@ ms.reviewer: estfan, LADocs
 manager: carmonm
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 10/16/2018
-ms.openlocfilehash: 04fb86f9b8f8be2c013f9bd7449dd5a4b2bcf90c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 02/26/2019
+ms.openlocfilehash: 9b5452f112c6325dafd5edbe693b90ec2a94abc0
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854127"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990246"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps fiyatlandırma modeli
 
@@ -33,12 +33,12 @@ Daha fazla bilgi için [Logic Apps fiyatlandırma](https://azure.microsoft.com/p
 
 ## <a name="fixed-pricing-model"></a>Sabit fiyatlandırma modeli
 
-İçinde çalıştırılır ve yeni mantıksal uygulamalar için bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), yerleşik Eylemler ve standart ISE etiketli bağlayıcılar için aylık sabit fiyata ödeme yaparsınız. Bir işe bir Azure sanal ağdaki kaynaklara erişebilen yalıtılmış mantıksal uygulama oluşturma ve çalıştırma bir yol sağlar.  
+İçinde çalıştırılır ve yeni mantıksal uygulamalar için bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), yerleşik Eylemler ve standart bağlayıcılar için aylık sabit fiyata ödeme yaparsınız. Bir işe bir Azure sanal ağdaki kaynaklara erişebilen yalıtılmış mantıksal uygulama oluşturma ve çalıştırma bir yol sağlar. 
 
-İstediğiniz kadar çok bağlantısı içeren bir ücretsiz Kurumsal bağlayıcı, işe içerir. Kullanımı için ek Kurumsal bağlayıcılar ücretlendirilir Kurumsal tüketim fiyatı temel alınarak temel. 
+ISE temel birim kapasitesi, sabit daha fazla performans gerekiyorsa, bu nedenle [daha fazla ölçek birimi ekleme](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), oluşturma sırasında veya daha sonra. İstediğiniz kadar çok bağlantısı içeren bir ücretsiz Kurumsal bağlayıcı, işe içerir. Kullanımı için ek Kurumsal bağlayıcılar ücretlendirilir Kurumsal tüketim fiyatı temel alınarak temel. 
 
 > [!NOTE]
-> Tümleştirme hizmeti ortamı bulunduğu *özel Önizleme*. Erişim talep etmek [burada katılma isteğiniz oluşturma](https://aka.ms/iseprivatepreview). Daha fazla bilgi için [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
+> ISE bulunduğu [ *genel Önizleme*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Daha fazla bilgi için [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
 

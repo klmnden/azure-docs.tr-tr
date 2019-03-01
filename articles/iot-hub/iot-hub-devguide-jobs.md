@@ -1,19 +1,19 @@
 ---
 title: Azure IOT hub'ı işleri anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - birden fazla cihazda çalıştırılacak işleri zamanlama, IOT hub'ınıza bağlı. İşler, etiketler ve istenen özelliklerini güncelleştirmek ve birden fazla cihazda doğrudan metotları çağırma.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: dobett
-ms.openlocfilehash: b9ad7a0e1947c9ca95b343a443688e976c306f95
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884233"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011373"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Birden fazla cihazda işleri zamanlama
 
@@ -119,22 +119,22 @@ Aşağıdaki liste, sorgulanırken işleri veya iş sonuçları için kullanıla
 | **startTime** |Uygulama, işin başlangıç saati (ISO 8601) sağlanır. |
 | **endTime** |IOT Hub, iş tamamlandığında (ISO 8601) tarihi sağlanır. Yalnızca iş 'Tamamlandı' durumuna ulaştıktan sonra geçerli. |
 | **type** |İşleri türleri: |
-| | **scheduledUpdateTwin**: İstenen özellikleri veya etiketleri güncelleştirmek için kullanılan bir proje. |
-| | **scheduledDeviceMethod**: cihaz çiftleri kümesi üzerinde bir cihaz yöntemini çağırmak için kullanılan bir proje. |
+| | **scheduledUpdateTwin**: Bir dizi istenen özellikleri veya etiketleri güncelleştirmek için kullanılan bir proje. |
+| | **scheduledDeviceMethod**: Cihaz ikizlerini kümesi üzerinde bir cihaz yöntemini çağırmak için kullanılan bir proje. |
 | **Durumu** |İşin geçerli durumu. Durum için olası değerler: |
 | | **Bekleyen**: Zamanlanmış ve iş hizmeti tarafından işlenmek üzere bekleniyor. |
-| | **Zamanlanmış**: gelecekteki bir zamanı için zamanlandı. |
-| | **çalışan**: şu anda etkin iş. |
-| | **İptal**: işi iptal edildi. |
-| | **başarısız**: işi başarısız oldu. |
-| | **Tamamlanan**: İş tamamlandı. |
+| | **Zamanlanmış**: Gelecekteki bir zamanı için zamanlandı. |
+| | **Çalışan**: Şu anda etkin iş. |
+| | **İptal**: İş iptal edildi. |
+| | **Başarısız**: İş başarısız oldu. |
+| | **Tamamlanan**: İşi tamamlandı. |
 | **deviceJobStatistics** |İşin yürütme hakkındaki istatistiklerdir. |
 | | **deviceJobStatistics** özellikleri: |
-| | **deviceJobStatistics.deviceCount**: iş cihazların sayısı. |
-| | **deviceJobStatistics.failedCount**: iş başarısız olduğu cihaz sayısı. |
-| | **deviceJobStatistics.succeededCount**: Burada iş başarılı cihaz sayısı. |
-| | **deviceJobStatistics.runningCount**: işi çalışmakta olan cihaz sayısı. |
-| | **deviceJobStatistics.pendingCount**: işlemi çalıştırmak için bekleyen cihaz sayısı. |
+| | **deviceJobStatistics.deviceCount**: İşteki cihaz sayısı. |
+| | **deviceJobStatistics.failedCount**: İş başarısız olduğu cihaz sayısı. |
+| | **deviceJobStatistics.succeededCount**: İş yeri başarılı cihazların sayısı. |
+| | **deviceJobStatistics.runningCount**: İşi çalışmakta olan cihazların sayısı. |
+| | **deviceJobStatistics.pendingCount**: İşi çalıştırmak için bekleyen cihaz sayısı. |
 
 ### <a name="additional-reference-material"></a>Ek başvuru malzemesi
 

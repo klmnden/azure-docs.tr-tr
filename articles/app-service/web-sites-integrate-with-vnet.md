@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: cddc6ccd8360ef88c95cd33c0bc8e141d721042d
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273366"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010523"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı bir Azure sanal ağı ile tümleştirme
 Bu belge, Azure App Service sanal ağ tümleştirme özelliğini açıklar ve uygulamalar ile ayarlama işlemi gösterilmektedir [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure sanal ağları] [ VNETOverview] (Vnet'ler) birçok Azure kaynaklarınızın bir internet olmayan routeable ağında yerleştirin izin verir. Bu ağlar VPN'si teknolojileri kullanarak, şirket içi ağlara bağlanabilirsiniz. 
@@ -51,7 +51,7 @@ VNet tümleştirmesi dahil olmak üzere desteklemiyor bazı şeyler vardır:
 
 * bir sürücü bağlama
 * AD tümleştirmesi 
-* NetBIOS
+* NetBios
 * Özel site erişimi
 * ExpressRoute kaynaklara erişme 
 * Hizmet uç noktaları arasında kaynaklara erişme 
@@ -82,7 +82,7 @@ Bir ağ geçidi oluşturmak için:
 * Bir IP adres aralığından 172.16.0.0 172.31.255.255 için yani 172.16.0.0/12- 
 * Bir IP adres aralığından 192.168.0.0 192.168.255.255 için yani 192.168.0.0/16-
 
-App Service VNet tümleştirmesi sonra ile kullanmak için bir ağ geçidi oluşturma yalnızca olduğunuz bir sertifikayı karşıya yüklemek ihtiyacınız yoksa. Ağ geçidi oluşturma, 30 dakika sürebilir. Ağ geçidi sağlanana kadar uygulamanız, sanal ağ ile tümleştirmek mümkün olmayacaktır. 
+Yalnızca varsa ağ geçidi oluşturma App Service ile VNet tümleştirmesi kullanın, ardından bir sertifikayı karşıya yüklemek gerekmez. Ağ geçidi oluşturma, 30 dakika sürebilir. Ağ geçidi sağlanana kadar uygulamanız, sanal ağ ile tümleştirmek mümkün olmayacaktır. 
 
 ### <a name="configure-vnet-integration-with-your-app"></a>VNet Tümleştirmesi ile uygulamanızı yapılandırın ###
 

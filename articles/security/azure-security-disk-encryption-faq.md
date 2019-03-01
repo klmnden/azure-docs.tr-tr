@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda7d6d3fddf2f4529a983ce2d4991797a5c8448
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a1b045ecf10399ca2297e4d9d010d5c973c40f4e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661845"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193288"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -72,6 +72,14 @@ Başlamak için okuma [Azure Disk Şifrelemesi'ne genel bakış](azure-security-
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Ben Azure Disk şifrelemesi ile hem önyükleme hem de veri birimleri şifreleyebilir mi?
 
 Evet, Windows ve Linux Iaas Vm'leri için önyükleme ve veri birimlerini şifreleyebilirsiniz. Windows VM'ler için işletim sistemi birimi şifrelemeden verileri şifreleyemez. Linux VM'ler için işletim sistemi birimi ilk şifrelemek gerek kalmadan veri hacmi şifrelemek mümkündür. Linux için işletim sistemi birimi şifreli sonra bir işletim sistemi birimi Linux Iaas Vm'leri için şifreleme devre dışı bırakma desteklenmiyor.
+
+## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Nasıl miyim gizli dizileri veya şifreleme anahtarlarını döndürme?
+
+Gizli dizileri döndürmek için yalnızca ilk disk şifrelemeyi etkinleştirmek için kullanılan aynı komut çağırın. Anahtar şifreleme anahtarı döndürmek için ilk olarak disk şifrelemeyi etkinleştirmek için yeni anahtar şifreleme belirtme kullanılan aynı komut çağırın. 
+
+## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Nasıl eklerim veya kullanırsanız başlangıçta alamadık, anahtar şifreleme anahtarı Kaldır?
+
+Anahtar şifreleme anahtarı eklemek, yeniden anahtar şifreleme anahtarı parametre geçirerek enable komutunu çağırın. Anahtar şifreleme anahtarı kaldırmak için anahtar şifreleme anahtar parametresi olmadan tekrar enable komutunu çağırın.
 
 ## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>Azure Disk şifrelemesi kendi anahtarını getir (BYOK) izin veriyor mu?
 

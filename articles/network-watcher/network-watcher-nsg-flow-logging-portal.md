@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 09d43386b994ffc046f8c3e22c82f13ec15acd38
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 124ac79971ca2ee1e7b5ad085a73aceb8f5d8841
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428980"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191399"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir sanal makine gelen ve giden ağ trafiğini günlüğe kaydetme
 
@@ -100,7 +100,10 @@ NSG akış günlüğü kaydı için **Microsoft.Insights** sağlayıcısı gerek
 
 6. NSG listesinden **myVm-nsg** adlı NSG’yi seçin.
 7. **Akış günlükleri ayarları** bölümünde **Açık** seçeneğini belirleyin.
-8. Akış günlüğü sürümünü seçin. Sürüm 2, flow oturumu istatistikleri (bayt ve paketleri) içeren bir. ![Akış günlükleri sürümü seçin](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+8. Akış günlüğü sürümünü seçin. Flow oturumu istatistikleri (bayt ve paketleri) sürüm 2 içerir
+
+   ![Akış günlükleri sürümü seçin](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+
 9. 3. adımda oluşturduğunuz depolama hesabını seçin.
 10. **Bekletme (gün)** değerini 5 olarak ayarlayın ve **Kaydet**’i seçin.
 
@@ -109,17 +112,13 @@ NSG akış günlüğü kaydı için **Microsoft.Insights** sağlayıcısı gerek
 1. Ağ İzleyicisinden, portalda **GÜNLÜKLER** bölümündeki **NSG akış günlükleri**’ni seçin.
 2. Aşağıdaki resimde gösterildiği gibi **Yapılandırılan depolama hesaplarından akış günlüklerini indirebilirsiniz** seçeneğini belirleyin:
 
-  ![Akış günlüklerini indirme](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
+   ![Akış günlüklerini indirme](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. [NSG akış günlüğünü etkinleştirme](#enable-nsg-flow-log) bölümünün 2. adımında yapılandırdığınız depolama hesabını seçin.
-4. **Kapsayıcılar**’ı seçin, aşağıdaki resimde gösterildiği gibi **BLOB HİZMETİ** bölümünde **insights-logs-networksecuritygroupflowevent** kapsayıcısını seçin:
+4. Altında **Blob hizmeti**seçin **Blobları**ve ardından **ınsights günlükleri networksecuritygroupflowevent** kapsayıcı.
+5. PT1H.json dosyasına gelene kadar kapsayıcıda, aşağıdaki resimde gösterildiği gibi klasör hiyerarşisinde gezinebilir. Günlük dosyaları aşağıdaki adlandırma kuralını izleyen bir klasör hiyerarşisi yazılır: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/ RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.Network/NETWORKSECURITYGROUPS/{nsgName}/y={Year}/m={Month}/d={Day}/h={Hour}/m=00/macAddress={macAddress}/PT1H.JSON
 
-    ![Kapsayıcı seçme](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
-5. Klasör hiyerarşisine gidin ve aşağıdaki resimde gösterildiği gibi bir PT1H.json dosyasına ulaşın:
-
-    ![Günlük dosyası](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
-
-    Günlük dosyaları, şu ad kuralını izleyen bir klasör hiyerarşisine yazılır:  https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+   ![Akış günlüğü](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. PT1H.json dosyasının sağındaki **...** öğesini seçin ve **İndir** seçeneğini belirleyin.
 
@@ -195,7 +194,6 @@ Aşağıdaki json, verileri günlüğe kaydedilen her akış için PT1H.json dos
     }
 }
 ```
-
 
 Önceki çıktıda yer alan **mac** değeri, sanal makine oluşturulurken oluşturulan ağ arabiriminin MAC adresidir. **flowTuples** için virgülle ayrılmış bilgiler aşağıdaki gibidir:
 

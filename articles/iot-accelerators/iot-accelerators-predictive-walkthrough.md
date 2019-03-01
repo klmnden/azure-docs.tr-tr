@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: bdb9b48549d24565fdafb9ac1c3215029445793c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: ffa85a1a14434e638e76e699650a0be8e31ade00
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100524"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010965"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış
 
@@ -27,7 +27,7 @@ Aşağıdaki diyagram, çözüm hızlandırıcısının mantıksal bileşenlerin
 
 ![Mantıksal mimari][img-architecture]
 
-Mavi öğeler, çözüm hızlandırıcısını dağıttığınız bölgede sağlanan Azure hizmetleridir. Çözüm hızlandırıcısını dağıtabileceğiniz bölgelerin listesi, [sağlama sayfasında][lnk-azureiotsuite] görüntülenir.
+Mavi öğeler, çözüm hızlandırıcısını dağıttığınız bölgede sağlanan Azure hizmetleridir. Çözüm hızlandırıcısını dağıtabileceğiniz bölgelerin listesi, [sağlama sayfasında][lnk-azureiotsolutions] görüntülenir.
 
 Yeşil öğe uçak sanal altyapısıdır. [Sanal cihazlar](#simulated-devices) bölümde bu sanal cihazlarla ilgili daha fazla bilgiye ulaşabilirsiniz.
 
@@ -39,7 +39,7 @@ Azure portalda sağlanan kaynaklarınızı görüntülemek için seçtiğiniz ç
 
 ![Hızlandırıcı kaynakları][img-resource-group]
 
-Çözüm hızlandırıcısını sağladığınızda, Machine Learning çalışma alanına bağlantısı da olan bir e-posta alırsınız. Machine Learning çalışma alanına gidebilirsiniz [Microsoft Azure IOT Çözüm Hızlandırıcıları] [ lnk-azureiotsuite] sayfası. Çözüm **Hazır** durumda olduğunda bu sayfada bir kutucuk kullanılabilir.
+Çözüm hızlandırıcısını sağladığınızda, Machine Learning çalışma alanına bağlantısı da olan bir e-posta alırsınız. Machine Learning çalışma alanına gidebilirsiniz [Microsoft Azure IOT Çözüm Hızlandırıcıları] [ lnk-azureiotsolutions] sayfası. Çözüm **Hazır** durumda olduğunda bu sayfada bir kutucuk kullanılabilir.
 
 ![Machine learning modeli][img-machine-learning]
 
@@ -71,7 +71,7 @@ IoT hub'ı cihaz komut bildirim sağlar.
 **Olay işleyicisi konağı** bir Azure Web İşi’nde çalıştırır. **Olay işlemcisi**, tamamlanan bir döngü için ortalama algılayıcı değerlerini alır. Ardından motor için RUL hesaplar eğitilen bir modeli için bu değerleri geçirir. Bir API, çözümün bir parçası olan Machine Learning çalışma alanı modelde erişim sağlar.
 
 ## <a name="machine-learning"></a>Machine Learning
-Machine Learning bileşeni gerçek uçak motorlarından toplanan verilerden türetilmiş bir model kullanır. [Azureiotsuite.com][lnk-azureiotsuite] sayfasındaki çözümün kutucuğundan Machine Learning çalışma alanına gidebilirsiniz. Çözüm **Hazır** durumda olduğunda kutucuk kullanılabilir.
+Machine Learning bileşeni gerçek uçak motorlarından toplanan verilerden türetilmiş bir model kullanır. Üzerinde çözümün kutucuğundan Machine Learning çalışma alanına gidebilirsiniz [azureiotsolutions.com] [ lnk-azureiotsolutions] sayfası. Çözüm **Hazır** durumda olduğunda kutucuk kullanılabilir.
 
 Machine Learning modeli, IOT Çözüm Hızlandırıcısı hizmetleriyle toplanan telemetri ile nasıl çalışılacağını gösteren bir şablon olarak kullanılabilir. Microsoft oluşturduğu bir [regresyon modeli] [ lnk_regression_model] herkese verilerini temel alarak uçak motorunun<sup>\[1\]</sup>ve adım adım kılavuzu modelin nasıl kullanılacağını üzerinde.
 
@@ -93,7 +93,7 @@ IOT Çözüm Hızlandırıcıları diğer özelliklerinden bazılarını da keş
 
 [lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
+[lnk-azureiotsolutions]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

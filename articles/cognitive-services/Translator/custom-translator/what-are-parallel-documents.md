@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: fc3e545db0529739659c1019cbed6d434b586f8f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 10f34a24668981da5629bd9d03652aa76081bd44
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726967"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194121"
 ---
 # <a name="what-are-parallel-documents"></a>Paralel belgeleri nelerdir?
 
@@ -23,7 +23,7 @@ Hangi dil "kaynak" olarak işaretlenmiş ve hangi dil "hedef" olarak işaretlenm
 
 ## <a name="requirements"></a>Gereksinimler
 
-En az bir sistem eğitmek için 10.000 paralel cümleler gerekir. En iyi uygulama, daha fazla paralel içerik sürekli olarak ekleyebilirsiniz ve sisteminizin çeviri kalitesini artırmak için retrain.
+En az bir sistem eğitmek için 10.000 benzersiz paralel cümleler gerekir. En iyi uygulama, daha fazla paralel içerik sürekli olarak ekleyebilirsiniz ve sisteminizin çeviri kalitesini artırmak için retrain.
 
 Microsoft, belgeler için özel Translator karşıya bir üçüncü tarafın telif hakkını veya fikri özellikleri ihlal etmemek gerektirir. Daha fazla bilgi için lütfen bkz [kullanım](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Portalı kullanarak belgeyi karşıya yükleme, fikri mülkiyet belgede sahipliğini değiştirmez.

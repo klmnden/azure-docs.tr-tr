@@ -1,19 +1,19 @@
 ---
 title: Azure IOT Hub fiyatlandırması anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - örnekler ölçüm ve works fiyatlandırma dahil olmak üzere IOT Hub ile nasıl çalıştığı hakkında bilgi.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: 247c12fb15fe8aa82c3a29c4c2d1e704db40e424
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 54336de291d01f3741c288756095e40a43800a7f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141518"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009996"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IOT Hub fiyatlandırma bilgileri
 

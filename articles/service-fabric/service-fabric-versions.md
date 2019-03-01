@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: ac25ad0e43930555153abdba19bb81baaee40305
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879246"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191656"
 ---
 # <a name="supported-service-fabric-versions"></a>Service Fabric desteklenen sürümler
 
@@ -43,5 +43,5 @@ Desteklenen Service Fabric sürümlerinin listesini ve bunların destek bitiş t
 | 6.0.* | 5.6.205.* |Sürüm 2.8 küçüktür veya eşittir |30,2018 Mart     |
 | 6.1.* | 5.7.221.* |Sürüm 3.0 küçüktür veya eşittir |Temmuz 15,2018      |
 | 6.2.* | 6.0.232.* |Sürüm 3.1 küçüktür veya eşittir |Ekim 26,2018   |
-| 6.3.* | 6.1.480.* |Sürüm 3.2 küçüktür veya eşittir |Şubat 28,2019  |
+| 6.3.* | 6.1.480.* |Sürüm 3.2 küçüktür veya eşittir |31,2019 Mart  |
 | 6.4.* | 6.2.301.* |Sürüm 3.3 küçüktür veya eşittir |Geçerli sürümü ve bu nedenle bitiş tarihi |

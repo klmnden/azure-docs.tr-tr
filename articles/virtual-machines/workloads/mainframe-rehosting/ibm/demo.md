@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: f366b9eee3104527fb9e974b51f339494b552e3b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f8af19056a343abdbafcd4ead8b072330cb41fd9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739700"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192081"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Yedekleme bir uygulama geliştiricilerin denetlenen dağıtım (ADCD) IBM zD & T v1 ayarlayın
 
@@ -89,7 +89,7 @@ Paket olduğuna göre sanal makinenizde Azure için yüklemeniz gerekir.
         gunzip \*.gz
     ```
     
-![](media/01-gunzip.png)
+![Dosya Gezgini gösteren gz birimleri açıldı](media/01-gunzip.png)
 
 ## <a name="configure-the-image-storage"></a>Resim depolama yapılandırma
 
@@ -105,11 +105,11 @@ Sonraki adım, zD & T, karşıya yüklenen paket kullanılacak yapılandırmakt�
      >
      > Unutmayın, bağlantı noktası 9443, web access kullanır. Web sunucusuna oturum açmak için bunu kullanın. Kullanıcı Kimliği ZD & T **zdtadmin** ve parola **parola**.
 
-    ![](media/02-welcome.png)
+    ![IBM zD & T Enterprise Edition Hoş Geldiniz ekranı](media/02-welcome.png)
 
 3. Üzerinde **Hızlı Başlangıç** sayfasındaki **yapılandırma**seçin **resim depolama**.
 
-     ![](media/03-quickstart.png)
+     ![IBM zD & T Enterprise Edition hızlı başlangıç ekranı](media/03-quickstart.png)
 
 4. Üzerinde **resim depolama yapılandırma** sayfasında **SSH Dosya Aktarım Protokolü**.
 
@@ -133,7 +133,7 @@ Sonraki adım, zD & T hedef ortam yapılandırmaktır. Bu benzetilmiş barındı
 
 5. İçinde **hedef ortam etiketi** kutusunda, aşağıdaki gibi bir etiket girin **MyCICS.**
 
-     ![](media/04-add-target.png)
+     ![Hedef ortam ekranı ekleme](media/04-add-target.png)
 
 ## <a name="configure-adcd-and-deploy"></a>ADCD yapılandırın ve dağıtın
 
@@ -143,7 +143,7 @@ Sonraki adım, zD & T hedef ortam yapılandırmaktır. Bu benzetilmiş barındı
 
 2. Tıklatın doğru dizinleri için tüm görüntüleri karşıya yüklendi varsayılarak **ADCD GÖRÜNTÜDEN** (7. adım aşağıdaki ekran görüntüsünde gösterilen) sağ alt köşesinde görüntülenen bağlantı.
 
-     ![](media/05-adcd.png)
+     ![IBM zD & T Enterprise Edition - yapılandırma ADCD ekranı](media/05-adcd.png)
 
 ## <a name="create-the-image"></a>Görüntü oluşturma
 
@@ -157,7 +157,7 @@ Sonraki adım, zD & T hedef ortam yapılandırmaktır. Bu benzetilmiş barındı
 
 4. Seçin **görüntü oluşturma** sağ alt düğmesi.
 
-     ![](media/06-adcd.png)
+     ![IBM zD & T Enterprise Edition - ADCD bileşenleri ekranı'nı kullanarak görüntü oluşturma](media/06-adcd.png)
 
 5. Görüntülenen penceresinde görüntü belirten başarıyla dağıtıldı öğesini **görüntülerini**.
 
@@ -169,7 +169,7 @@ Sonraki adım, zD & T hedef ortam yapılandırmaktır. Bu benzetilmiş barındı
 
 9. Emin olun kutusunun seçili için **sorunu IPL komut z/OS için otomatik olarak Dağıt**.
 
-     ![](media/07-properties.png)
+     ![Özellikleri ekran](media/07-properties.png)
 
 10. Seçin **tam**.
 
@@ -194,5 +194,5 @@ Tebrikler! Şimdi, Azure üzerinde bir IBM ana bilgisayar ortamı çalışıyor.
 [microfocus-setup]: /microfocus/set-up-micro-focus-on-azure.md
 [microfocus-demo]: /microfocus/demo.md
 [ibm-get-started]: /ibm/get-started.md
-[ibm-install-z]: /ibm/install-ibm-z-environment.md
+[ibm-install-z]: install-ibm-z-environment.md
 [ibm-demo]: /ibm/demo.md

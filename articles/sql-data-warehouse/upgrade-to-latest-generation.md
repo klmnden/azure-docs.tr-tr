@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3e877733d473993a5acd2f44e088b8b0b4fe130
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 70a59ddc1b15693cb2a50c1dc2da6dd9233e0811
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447268"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990026"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Veri Ambarı’nı yükselterek performansı iyileştirme
 Azure SQL veri ambarı, yeni nesil Azure donanım ve depolama mimarisi için yükseltin.
@@ -55,7 +55,7 @@ Artık sorunsuz bir şekilde Azure portalında SQL veri ambarı işlem için iyi
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Desteklenen bir bölgede Azure portalını kullanarak yükseltme
 
 > [!NOTE]
-> GEN1 Azure portalı üzerinden geçiş Gen2'ye kalıcıdır. İçin GEN1 döndürmek için bir işlem yoktur.  
+> Gen1 Azure portalı üzerinden geçiş Gen2'ye kalıcıdır. İçin Gen1 döndürmek için bir işlem yoktur.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 

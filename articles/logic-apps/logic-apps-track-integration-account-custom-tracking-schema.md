@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 68c5d6e68562d4027c102e1bde42c775648e58c4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f919e9a7cca210fa5920bcc6bed05a9a41fba8bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124852"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192393"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Azure Logic Apps iş akışlarında uçtan uca izleme özel izleme şemaları oluşturma
 
@@ -60,14 +60,14 @@ Bu makalede, mantıksal uygulamanızı dışında Katmanlar kullanabileceğiniz 
 | --- | --- | --- |
 | Kaynak türü |   | Çalıştırma kaynağı türü. İzin verilen değerler **Microsoft.Logic/workflows** ve **özel**. (Zorunlu) |
 | Kaynak |   | Kaynak türü ise **Microsoft.Logic/workflows**, kaynak bilgileri bu şemayı izlemesi gerekir. Kaynak türü ise **özel**, bir JToken şemadır. (Zorunlu) |
-| Systemıd | Dize | Mantıksal uygulama sistem kimliği (Zorunlu) |
-| Runıd | Dize | Mantıksal uygulama çalıştırması kimliği. (Zorunlu) |
-| operationName | Dize | (Örneğin, bir eylem veya tetikleyici) işlemin adı. (Zorunlu) |
-| repeatItemScopeName | Dize | Eylem içinde ise öğe adı yineleyin bir `foreach` / `until` döngü. (Zorunlu) |
+| systemId | String | Mantıksal uygulama sistem kimliği (Zorunlu) |
+| runId | String | Mantıksal uygulama çalıştırması kimliği. (Zorunlu) |
+| operationName | String | (Örneğin, bir eylem veya tetikleyici) işlemin adı. (Zorunlu) |
+| repeatItemScopeName | String | Eylem içinde ise öğe adı yineleyin bir `foreach` / `until` döngü. (Zorunlu) |
 | repeatItemIndex | Tamsayı | Eylem içinde olup olmadığını bir `foreach` / `until` döngü. Yinelenen öğe dizini belirtir. (Zorunlu) |
-| trackingId | Dize | İletileri ilişkilendirmek için izleme kimliği. (İsteğe bağlı) |
-| correlationId | Dize | İletileri ilişkilendirmek için bağıntı kimliği. (İsteğe bağlı) |
-| Clientrequestıd'ye | Dize | İstemci iletileri ilişkilendirmek için doldurabilirsiniz. (İsteğe bağlı) |
+| trackingId | String | İletileri ilişkilendirmek için izleme kimliği. (İsteğe bağlı) |
+| correlationId | String | İletileri ilişkilendirmek için bağıntı kimliği. (İsteğe bağlı) |
+| clientRequestId | String | İstemci iletileri ilişkilendirmek için doldurabilirsiniz. (İsteğe bağlı) |
 | eventLevel |   | Olay düzeyi. (Zorunlu) |
 | eventTime |   | Etkinliğin UTC biçiminde YYYY-AA-DDTHH:MM:SS.00000Z saati. (Zorunlu) |
 | RecordType |   | İzleme kayıt türü. Değer izin verilen **özel**. (Zorunlu) |
@@ -84,4 +84,4 @@ B2B protokol şemaları izleme hakkında daha fazla bilgi için bkz:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Daha fazla bilgi edinin [B2B iletilerini izleme](logic-apps-monitor-b2b-message.md)
-* Hakkında bilgi edinin [Log analytics'te B2B iletilerini izleme](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
+* Hakkında bilgi edinin [Azure İzleyici günlüklerine B2B iletilerini izleme](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 9577e2c8eea153b38475bf5126a41641b3642ae9
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416199"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991334"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -176,7 +176,7 @@ Bu özellikler yalnızca performans tabanlı boyutlandırma için geçerlidir. A
 
 ### <a name="what-is-dependency-visualization"></a>Bağımlılık görselleştirmesi nedir?
 
-Bağımlılık görselleştirmesi kapsamında bir değerlendirmeyi çalıştırmadan önce makine bağımlılıklarını arası denetimi tarafından daha büyük bir güvenle geçiş için VM grupları değerlendirmek sağlar. Bağımlılık görselleştirmesi hiçbir şey arkasında, Azure'a geçiş yaptığınızda, beklenmeyen kesintilerin önleme bırakılır emin olmak için yardımcı olur. Azure geçişi, bağımlılık görselleştirmesi etkinleştirmek için Log analytics'te hizmet eşlemesi çözümü yararlanır.
+Bağımlılık görselleştirmesi kapsamında bir değerlendirmeyi çalıştırmadan önce makine bağımlılıklarını arası denetimi tarafından daha büyük bir güvenle geçiş için VM grupları değerlendirmek sağlar. Bağımlılık görselleştirmesi hiçbir şey arkasında, Azure'a geçiş yaptığınızda, beklenmeyen kesintilerin önleme bırakılır emin olmak için yardımcı olur. Azure geçişi, hizmet eşlemesi çözümünü bağımlılık görselleştirmesi etkinleştirmek için Azure İzleyici günlüklerine yararlanır.
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Bağımlılık görselleştirmesi özelliğini kullanmak için ücret ödemem gerekiyor mu?
 
@@ -217,7 +217,7 @@ Bağımlılık aracısı tarafından desteklenen Windows işletim sistemleri lis
 Bağımlılık aracısı tarafından desteklenen Linux işletim sistemleri listesi [burada](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Bağımlılıklar Azure Geçişi'ndeki bir saat süresinden daha fazla bilgi için görselleştirebilirsiniz?
-Hayır, Azure geçişi, en fazla bir saatlik süre için bağımlılıkları görselleştirme sağlar. Azure geçişi belirli bir tarihe kadar son bir ay için geçmişte dönün sağlar, ancak için bağımlılıkları görselleştirebilirsiniz en fazla süre 1 saate kadar uzun. Örneğin, Dün için bağımlılıkları görüntülemek için bağımlılık Haritası saati süresi işlevleri kullanabilirsiniz ancak yalnızca bir için bir saat penceresinde görüntüleyebilirsiniz. Ancak, Log Analytics'e kullanabilirsiniz [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) üzerinden uzun bir süre.
+Hayır, Azure geçişi, en fazla bir saatlik süre için bağımlılıkları görselleştirme sağlar. Azure geçişi belirli bir tarihe kadar son bir ay için geçmişte dönün sağlar, ancak için bağımlılıkları görselleştirebilirsiniz en fazla süre 1 saate kadar uzun. Örneğin, Dün için bağımlılıkları görüntülemek için bağımlılık Haritası saati süresi işlevleri kullanabilirsiniz ancak yalnızca bir için bir saat penceresinde görüntüleyebilirsiniz. Ancak, Azure İzleyici günlüklerine kullanabilirsiniz [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) üzerinden uzun bir süre.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Bağımlılık görselleştirmesi 10'dan fazla Vm'leri gruplar için destekleniyor mu?
 Yapabilecekleriniz [grupları için bağımlılıkları görselleştirme](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) en fazla 10 sanal sahip. 10'dan fazla vm'lerle grubunuz varsa, grupta küçük kullanıcı gruplarına bölün ve bağımlılıkları görselleştirme öneririz.

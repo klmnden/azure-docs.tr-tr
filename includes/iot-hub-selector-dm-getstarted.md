@@ -1,21 +1,21 @@
 ---
-author: dominicbetts
+author: wesmc7777
+ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: dobett
-ms.openlocfilehash: 13eddced155eab6dedfbce77330e7a178ecfb3cb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 19331f35ea2fa773325ec61e728677e37767ab54
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164884"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011824"
 ---
 > [!div class="op_single_selector"]
-> * [Cihaz: Node.js Service: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
-> * [Cihaz: C# hizmeti:C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
+> * [Cihaz: Node.js hizmeti: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [Cihaz: C#Hizmet: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
 > * [Cihaz: Java hizmeti: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
-> * [Cihaz: Python Service: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
+> * [Cihaz: Python hizmeti: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
 Arka uç uygulamaları kullanabileceğiniz Azure IOT hub'ı temelleri gibi [cihaz ikizi] [ lnk-devtwin] ve [doğrudan yöntemler][lnk-c2dmethod], uzaktan başlatın ve izleme cihazda yönetim eylemleri. Bu öğretici, bir arka uç uygulaması ve bir cihaz uygulaması birlikte nasıl başlatmak ve IOT hub'ı kullanarak uzak cihazı yeniden başlatma izlemek için çalışabileceğini gösterir.
 

@@ -1,19 +1,20 @@
 ---
 title: Azure IOT Hub cihaz ikizlerini (Java) kullanmaya başlama | Microsoft Docs
 description: Azure IOT Hub cihaz ikizlerini etiketler ekleyin ve ardından IOT Hub sorgu kullanma Cihaz uygulaması ve Azure IOT hizmeti etiketleri ekler ve IOT Hub sorgu çalışan bir hizmet uygulaması uygulamak için Java SDK'sını uygulamak için Azure IOT cihaz SDK'sı için Java kullanın.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.author: dobett
-ms.openlocfilehash: a938e5d872d2c1602f7ce898f0d14e3e04feb759
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 75acacdd36b7e0829f347f23652128ed07544eff
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312577"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011084"
 ---
 # <a name="get-started-with-device-twins-java"></a>Cihaz ikizlerini (Java) kullanmaya başlama
 

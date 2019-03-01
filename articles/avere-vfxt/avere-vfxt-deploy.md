@@ -4,29 +4,27 @@ description: Azure'da Avere vFXT kümesi dağıtma adımları
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 972ba937ad15fa9a6d2eb74e3e4c9e6e8f3923a4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 7081d46af335f29e5723ef8d471814a1564907c2
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745444"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990213"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT kümesini dağıtma
 
-Bu yordamı, Azure Marketi'nde kullanılabilir Dağıtım Sihirbazı kullanarak adımları açıklanmaktadır. Sihirbaz, bir Azure Resource Manager şablonu kullanarak küme otomatik olarak dağıtır. Parametreleri girin ve tıklayın sonra **Oluştur**, Azure, otomatik olarak aşağıdaki adımları gerçekleştirir: 
+Bu yordamı, Azure Marketi'nde kullanılabilir Dağıtım Sihirbazı kullanarak adımları açıklanmaktadır. Sihirbaz, bir Azure Resource Manager şablonu kullanarak küme otomatik olarak dağıtır. Parametreleri girin ve tıklayın sonra **Oluştur**, Azure, otomatik olarak aşağıdaki adımları gerçekleştirir:
 
-* Kümeyi yönetmek ve dağıtmak için gereken yazılımları içeren temel bir VM kümesi denetleyiciyi oluşturun.
-* Kaynak grubunu ve gerekirse yeni öğeler oluşturma dahil, sanal ağ altyapısı ayarlayın.
-* Küme düğümü sanal makineleri oluşturun ve bunları Avere kümesi olarak yapılandırın.
-* İstenirse, yeni bir Azure Blob kapsayıcısı oluşturmak ve bir küme çekirdek dosyalayıcı yapılandırın.
+* Kümeyi yönetmek ve dağıtmak için gereken yazılımları içeren temel bir VM kümesi denetleyiciyi oluşturur.
+* Kaynak grubunu ve sanal ağ altyapısı, yeni öğeler oluşturma gibi ayarlar.
+* Küme düğümü sanal makineleri oluşturur ve bunları Avere kümesi olarak yapılandırır.
+* İstenirse, yeni bir Azure Blob kapsayıcısı oluşturur ve küme çekirdek dosyalayıcı yapılandırır.
 
-Bu belgedeki yönergeleri uyguladıktan sonra bir sanal ağ, bir alt ağ, bir denetleyici ve aşağıdaki çizimde gösterildiği gibi bir vFXT küme olacaktır:
+Bu belgedeki yönergeleri uyguladıktan sonra bir sanal ağ, bir alt ağ, bir denetleyici ve aşağıdaki çizimde gösterildiği gibi bir vFXT küme olacaktır. Bu diyagram bir yeni Blob Depolama kapsayıcısında (gösterilmez yeni bir depolama hesabı,) ve alt ağ içinde Microsoft depolama için hizmet uç noktası içeren isteğe bağlı Azure Blob çekirdek dosyalayıcı gösterir. 
 
-![İsteğe bağlı bir blob depolama ve üç içeren bir alt ağ içeren sanal ağ gösteren diyagram vFXT düğümleri/vFXT kümesi ve bir VM etiketli küme denetleyicisi etiketlenmiş Vm'lere gruplandırılmış](media/avere-vfxt-deployment.png)
-
-Küme oluşturulduktan sonra yapmanız gerekenler [depolama uç noktası oluşturma](#create-a-storage-endpoint-if-using-azure-blob) Blob Depolama kullanıyorsanız, sanal ağınızda. 
+![üç Eşmerkezli dikdörtgenler Avere küme bileşenleri gösteren diyagram. Dış dikdörtgen 'Kaynak grubu' ve '(isteğe bağlı) depolama Blob' etiketli bir Altıgene içeriyor. Sonraki dikdörtgende etiketli ' sanal ağ: 10.0.0.0/16' ve herhangi bir benzersiz bileşeni içermiyor. En içteki dikdörtgen 'Subnet:10.0.0.0/24' ve 'Küme denetleyici', 'vFXT düğümleri (vFXT küme)' olarak etiketlenen üç VM ve 'Hizmet uç noktası' etiketli bir Altıgene yığınını etiketli bir sanal makine içeriyor. Hizmet uç noktası (aynı alt ağ içinde) ve (aynı kaynak grubunda bir sanal ağ ve alt ağ dışında) blob depolama bağlama bir ok mevcuttur. Ok, sanal ağ sınırlarını ve alt ağ geçirir.](media/avere-vfxt-deployment.png)  
 
 Oluşturma şablonu kullanmadan önce şu önkoşulların giderdik emin olun:  
 
@@ -34,6 +32,7 @@ Oluşturma şablonu kullanmadan önce şu önkoşulların giderdik emin olun:
 1. [Abonelik sahibi izinleri](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Kota vFXT kümesi için](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 1. [Özel erişim rolleri](avere-vfxt-prereqs.md#create-access-roles) -küme düğümlerine atamak için rol tabanlı erişim denetimine rol oluşturmanız gerekir. Ayrıca küme denetleyicisi için özel erişim rol oluşturma seçeneğiniz vardır, ancak çoğu kullanıcı için bir kaynak grubu sahibi karşılık gelen denetleyicisi ayrıcalıklar verir varsayılan sahip rolü götürür. Okuma [Azure kaynakları için yerleşik roller](../role-based-access-control/built-in-roles.md#owner) daha fazla ayrıntı için.
+1. [(Gerekirse) depolama hizmet uç noktası](avere-vfxt-prereqs.md#optional-create-a-storage-service-endpoint-in-your-virtual-network) - için gerekli kullanarak mevcut bir sanal ağ ve blob depolama oluşturma dağıtır
 
 Küme dağıtım adımları ve planlama hakkında daha fazla bilgi için okuma [Avere vFXT sisteminizi planlama](avere-vfxt-deploy-plan.md) ve [dağıtımına genel bakış](avere-vfxt-deploy-overview.md).
 
@@ -105,13 +104,13 @@ Dağıtım şablonu ikinci sayfasında, küme boyutu, düğüm türü, önbellek
 
 * **Avere vFXT küme adı** -küme benzersiz bir ad verin. 
 
-* **Boyutu** -küme düğümleri oluşturulurken kullanılacak VM türü belirtin. 
+* **Boyutu** -Bu bölümde küme düğümleri için kullanılacak VM türü gösterilmektedir. Yalnızca bir önerilen seçenek olmakla **değiştirme boyutu** bağlantı, bu örnek türü ve fiyatlandırma hesaplayıcısını yönelik bağlantı ayrıntılarını içeren bir tablo açar.  <!-- old: Specify the VM type to use when creating the cluster nodes.  -->
 
 * **Önbellek boyutu düğüm başına** -toplam önbellek boyutunu Avere vFXT kümenizdeki düğümleri sayı ile çarpılan düğüm başına önbellek boyutu böylece küme önbellek küme düğümleri arasında yayılır. 
 
-  Önerilen yapılandırma Standard_D16s_v3 küme düğümleri kullanıyorsanız, düğüm başına 1 TB kullanın ve Standard_E32s_v3 düğümleri kullanarak, düğüm başına 4 TB kullanılacak sağlamaktır.
+  Önerilen yapılandırma, Standard_E32s_v3 düğüm için düğüm başına 4 TB kullanmaktır.
 
-* **Sanal ağ** - küme barındırmak için var olan bir vnet seçin veya yeni bir vnet oluşturmak için tanımlayın. 
+* **Sanal ağ** - küme barındırmak için yeni bir vnet tanımlayın veya açıklanan önkoşulları karşılayan mevcut bir vnet seçin [Avere vFXT sisteminizi planlama](avere-vfxt-deploy-plan.md#resource-group-and-network-infrastructure). 
 
   > [!NOTE]
   > Yeni bir vnet oluşturun, yeni özel ağa erişebilmesi için küme denetleyicisi bir genel IP adresi gerekir. Mevcut bir sanal ağı seçerseniz, küme denetleyicisi bir genel IP adresi olmadan yapılandırılır. 
@@ -121,17 +120,21 @@ Dağıtım şablonu ikinci sayfasında, küme boyutu, düğüm türü, önbellek
   >  * Genel bir IP adresi denetleyicisinde ayarlamazsanız, kümeye erişmek için başka bir atlama konak, bir VPN bağlantısı veya ExpressRoute kullanmanız gerekir. Örneğin, önceden yapılandırılmış bir VPN bağlantısı olan bir sanal ağ içindeki denetleyiciyi oluşturun.
   >  * Genel bir IP adresi ile bir denetleyici oluşturursanız, bir ağ güvenlik grubuyla denetleyicisi VM'SİNİN korumanız gerekir. Varsayılan olarak Avere vFXT Azure dağıtımı için bir ağ güvenlik grubu oluşturur ve yalnızca bağlantı noktası 22 genel IP adresleri ile denetleyicileri için gelen erişimi kısıtlar. Sistem kilitleyerek daha iyi koruyabilirsiniz, IP kaynak adresi aralığı - erişim tuşunu diğer bir deyişle, yalnızca gelen bağlantılara makineler kümeye erişim için kullanmayı düşündüğünüz izin verin.
 
+  Dağıtım şablonu, ayrıca Küme alt ağdan yalnızca IP'ler için kilitli ağ erişim denetimi ile Azure Blob Depolama için depolama hizmet uç noktası ile yeni vnet'in yapılandırır. <!-- xxx make sure this is accurate --> <!-- do I need to say that this only happens if you choose to create storage? -->
+
 * **Alt ağ** - var olan sanal ağınızdan bir alt ağ seçin veya yeni bir tane oluşturun. 
 
-* **BLOB Depolama kullanma** -seçin **true** yeni bir Azure Blob kapsayıcısı oluşturmak ve bunu yeni Avere vFXT küme için arka uç depolama olarak yapılandırmak için. Bu seçenek ayrıca küme ile aynı kaynak grubunda yeni bir depolama hesabı oluşturur. 
+* **Oluşturma ve blob depolama kullanma** -seçin **true** yeni bir Azure Blob kapsayıcısı oluşturmak ve bunu yeni Avere vFXT küme için arka uç depolama olarak yapılandırmak için. Bu seçenek ayrıca küme ve Küme alt ağı içinde Microsoft Depolama hizmet uç noktası olarak aynı kaynak grubunda yeni bir depolama hesabı oluşturur. 
+  
+  Bir sanal ağınız sağlarsanız, kümeyi oluşturmadan önce depolama hizmet uç noktası olmalıdır. (Daha fazla bilgi için okuma [Avere vFXT sisteminizi planlama](avere-vfxt-deploy-plan.md).)
 
   Bu alan kümesine **false** yeni bir kapsayıcı oluşturmak istemiyorsanız. Bu durumda, ekleme ve Küme oluşturulduktan sonra depolama yapılandırmanız gerekir. Okuma [depolamayı yapılandırma](avere-vfxt-add-storage.md) yönergeler için. 
 
-* **Depolama hesabı** : yeni bir Azure Blob kapsayıcısı oluşturma girin, yeni depolama hesabı için bir ad. 
+* **(Yeni) Depolama hesabı** : yeni bir Azure Blob kapsayıcısı oluşturma girin, yeni depolama hesabı için bir ad. 
 
 ## <a name="validation-and-purchase"></a>Doğrulama ve satın alma
 
-Sayfa üç yapılandırma özetini sunar ve parametrelerini doğrular. Doğrulama başarılı olduktan sonra tıklayın **Tamam** devam etmek için düğmesine. 
+Sayfa üç yapılandırma özetler ve parametrelerini doğrular. Doğrulama başarılı olduktan sonra tıklayın **Tamam** devam etmek için düğmesine. 
 
 ![Üçüncü sayfasında, dağıtım şablonu - doğrulama](media/avere-vfxt-deploy-3.png)
 
@@ -159,20 +162,6 @@ Bu bilgileri bulmak için bu yordamı izleyin:
 1. Sol taraftaki **çıkışları**. Her alan değerleri kopyalayın. 
 
    ![etiketleri sağındaki alanları sayfasını gösteren SSHSTRING, RESOURCE_GROUP, konum, NETWORK_RESOURCE_GROUP, ağ, alt ağ, SUBNET_ID, VSERVER_IPs ve MGMT_IP değerleri çıkarır](media/avere-vfxt-outputs-values.png)
-
-
-## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>Depolama uç noktası (Azure Blob kullanıyorsanız) oluşturma
-
-Arka uç veri depolama için Azure Blob Depolama kullanıyorsanız, sanal ağınızda bulunan bir depolama hizmet uç noktası oluşturmanız gerekir. Bu [hizmet uç noktası](../virtual-network/virtual-network-service-endpoints-overview.md) Azure Blob trafiği sanal ağ dışında yönlendirme yerine yerel tutar getirin.
-
-1. Portalda, **sanal ağlar** soldaki.
-1. Sanal ağ denetleyiciniz için seçin. 
-1. Tıklayın **hizmet uç noktalarını** soldaki.
-1. Tıklayın **Ekle** en üstünde.
-1. Hizmet olarak bırakın ``Microsoft.Storage`` ve denetleyicinin alt ağ seçin.
-1. Alt kısmında tıklayın **Ekle**.
-
-  ![Hizmet uç noktası oluşturma adımları için ek açıklamalar ile Azure portal ekran görüntüsü](media/avere-vfxt-service-endpoint.png)
 
 ## <a name="next-step"></a>Sonraki adım
 

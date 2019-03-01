@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 8c60e7dec2d2a9bc3e063adfee0ffaff63417265
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: bdc479c6cc91c3ebba343a8423a73fb2e0404a73
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960172"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992711"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Yönetimi'nde Azure Active Directory B2C kullanarak Geliştirici hesaplarını yetkilendirme nasıl
 
@@ -38,7 +38,7 @@ Azure Active Directory B2C, tüketicilere yönelik web ve mobil uygulamalar içi
    > [!NOTE]
    > Henüz bir API Management hizmet örneği oluşturmadıysanız, bkz. [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] içinde [Azure API Yönetimi Öğreticisi ile çalışmaya başlama] [Get started with Azure API Management].
 
-2. Altında **güvenlik**seçin **kimlikleri**. Tıklayın **+ Ekle** en üstünde.
+2. Altında **kimlikleri**. Tıklayın **+ Ekle** en üstünde.
 
    **Ekle kimlik sağlayıcısı** bölmesi sağ tarafta görüntülenir. Seçin **Azure Active Directory B2C**.
     

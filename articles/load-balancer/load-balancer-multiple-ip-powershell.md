@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.openlocfilehash: b06213b253b6a289513d5cc1b8fcf0f2e25897f5
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 1b130dff9d290dcce566570fd015d227d44a1310
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594806"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191910"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>PowerShell kullanarak birden çok IP yapılandırmalarında Yük Dengelemesi
 
@@ -143,4 +143,4 @@ Bu makalede açıklanan senaryo elde etmek için aşağıdaki adımları izleyin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Yük Dengeleme hizmetlerini Azure kapsamında birleştirme hakkında daha fazla bilgi [Azure'da Yük Dengeleme hizmetlerini kullanarak](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Günlükleri farklı türde Azure'da yönetmek ve yük dengeleyicide sorunlarını gidermek için nasıl kullanacağınızı öğrenin [Azure Load Balancer için Log analytics](../load-balancer/load-balancer-monitor-log.md).
+- Günlükleri farklı türde Azure'da yönetmek ve yük dengeleyicide sorunlarını gidermek için nasıl kullanacağınızı öğrenin [Azure İzleyici, Azure Load Balancer için günlükleri](../load-balancer/load-balancer-monitor-log.md).

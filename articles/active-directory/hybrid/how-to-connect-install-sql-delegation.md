@@ -16,12 +16,12 @@ ms.date: 02/26/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41859195474f19906118dbe94503bcbe04d0ac65
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 31cfcc6d2309b90565f71a7827fb7057145323c3
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960369"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192421"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>SQL yönetici temsilcisi izinlerini kullanarak Azure AD Connect'i yükleme
 En son Azure AD Connect derleme önce SQL, gerekli yapılandırmaları dağıtırken yönetim temsilcisi seçme desteklenmiyor.  Azure AD Connect'i yüklemek isteyen kullanıcılar, SQL Server'da Sistem Yöneticisi (SA) izinlerine sahip gerekmiyor.
@@ -59,9 +59,9 @@ Bant dışı veritabanını sağlamak ve veritabanı sahibi izinleriyle Azure AD
  3. Azure AD Connect yükleme sırasında kullanılacak SQL sunucusunu ve örnek adı gösteren Azure AD Connect Yöneticisi için bir e-posta gönderin.
 
 ## <a name="additional-information"></a>Ek bilgiler
-Veritabanı oluşturulduktan sonra Azure AD Connect Yöneticisi yükleyebilir ve şirket içi eşitleme sırasında kolaylık yapılandırın.  
+Veritabanı oluşturulduktan sonra Azure AD Connect Yöneticisi yükleyebilir ve şirket içi eşitleme sırasında kolaylık yapılandırın.
 
-Mevcut bir veritabanı ile Azure AD Connect yükleme hakkında daha fazla bilgi için bkz. [var olan bir ad eşitleme veritabanını kullanarak Azure AD Connect'i yükleme](how-to-connect-install-existing-database.md)
+SQL yönetici ADSync veritabanı önceki bir Azure AD Connect yedeklemeden geri olması durumunda, yeni Azure AD Connect sunucusu, var olan bir veritabanını kullanarak yüklemek gerekir. Mevcut bir veritabanı ile Azure AD Connect yükleme hakkında daha fazla bilgi için bkz. [var olan bir ad eşitleme veritabanını kullanarak Azure AD Connect'i yükleme](how-to-connect-install-existing-database.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama](how-to-connect-install-express.md)

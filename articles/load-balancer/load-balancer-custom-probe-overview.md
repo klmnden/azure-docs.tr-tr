@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: fb8b3ac69797400af962ae40816943d6a32b8ec6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: dc22f1392d14529c2944dde67315a278fca4fa73
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245557"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195345"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer sistem durumu araştırmaları
 
@@ -214,7 +214,7 @@ Etkinleştirmeyin [TCP zaman damgaları](https://tools.ietf.org/html/rfc1323).  
 
 Hem genel hem de iç [Standard Load Balancer](load-balancer-standard-overview.md) uç ve arka uç örnek araştırma durumu Azure İzleyicisi üzerinden çok boyutlu ölçümler olarak kullanıma sunar. Bu ölçümler, diğer Azure Hizmetleri veya üçüncü arty uygulamalar tarafından tüketilebilir. 
 
-Genel Load Balancer temel sistem durumu araştırma durumu Log Analytics aracılığıyla arka uç havuzu başına özetlenen kullanıma sunar.  Log Analytics, iç temel yük Dengeleyiciler için kullanılamaz.  Kullanabileceğiniz [günlük analizi](load-balancer-monitor-log.md) herkese açık yük dengeleyici araştırması durumunu denetleyin ve yoklama sayısı. Günlüğe kaydetme, Power BI veya Azure operasyonel İçgörüler ile yük dengeleyici sistem durumu hakkındaki istatistiklerdir sağlamak için kullanılabilir.
+Genel Load Balancer temel sistem durumu araştırma durumu Azure İzleyici günlüklerine aracılığıyla arka uç havuzu başına özetlenen kullanıma sunar.  Azure İzleyici günlüklerine iç temel yük Dengeleyiciler için kullanılabilir değil.  Kullanabileceğiniz [Azure İzleyici günlükleri](load-balancer-monitor-log.md) herkese açık yük dengeleyici araştırması durumunu denetleyin ve yoklama sayısı. Günlüğe kaydetme, Power BI veya Azure operasyonel İçgörüler ile yük dengeleyici sistem durumu hakkındaki istatistiklerdir sağlamak için kullanılabilir.
 
 ## <a name="limitations"></a>Sınırlamalar
 

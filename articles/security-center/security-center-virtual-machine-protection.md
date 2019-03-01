@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2019
+ms.date: 2/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 0b548acc92ab1efedab963e9bd3318e8525ffee4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 73a88ec0280728b4a485bd095096e90bbc43ef40
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649569"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990960"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma
 Azure Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur. Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler) ve bilgisayarlar, uygulamalar, ağ, SQL ve kimlik ve erişim.
@@ -226,7 +226,11 @@ Ayarlamak istiyorsanız Yeni ölçeği otomatik olarak Microsoft Monitoring Agen
 |Makine|30|Sanal makinelerinize bir güvenlik açığı değerlendirme çözümü yükleyin|Sanal makinelerinize bir güvenlik açığı değerlendirme çözümü yükleyin|
 |Makine|1|Yeni Azure Resource Manager kaynaklarına sanal makineleri geçirme|Azure Resource Manager sanal makineleriniz için gibi güvenlik geliştirmeleri sağlamak için kullanın: yönetilen kimlik, anahtar kasası için erişim gizli dizileri, daha güçlü erişim denetimi (RBAC), daha iyi denetim, Resource Manager tabanlı bir dağıtım ve yönetim erişim Azure AD tabanlı kimlik doğrulaması ve etiketleri için destek ve daha kolay güvenlik yönetimi için kaynak grupları. |
 |Makine|30|Bir güvenlik açığı değerlendirme çözümü kullanarak güvenlik açıklarını düzeltin|Kendisi için bir güvenlik açığı değerlendirme 3 taraf çözümü dağıtılan sanal makinelerin sürekli olarak uygulama ve işletim sistemi güvenlik açıklarını karşı incelenen. Tür güvenlik açıklarına bulunduğunda, bunlar öneri bir parçası olarak daha fazla bilgi için kullanılabilir.|
-
+|Sanal makine ölçek kümesi |4|Sanal Makine Ölçek Kümelerinde tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunlar için bir yıla kadar Beklet. Bu, araştırma amacıyla etkinlik kayıtlarını yeniden oluşturmanıza olanak sağlar. Bu bir güvenlik olayı ortaya veya ağınızın tehlikeye yararlı olur.|
+|Sanal makine ölçek kümesi|35|Sanal makine ölçek kümelerinizin güvenlik yapılandırmasındaki güvenlik açıklarını düzeltme|Sanal makine ölçek kümelerinizi saldırılardan korumak için güvenlik yapılandırmasındaki güvenlik açıklarını düzeltin. |
+|Sanal makine ölçek kümesi|5|Sanal makine ölçek kümelerinde uç nokta koruması sistem durumu hatalarını düzeltme|Sanal makine ölçek kümelerinizi tehdit ve güvenlik açıklarından korumak için uç nokta koruma sistem durumu hatalarını düzeltin. |
+|Sanal makine ölçek kümesi|10|Sanal makine ölçek kümelerine uç nokta koruma çözümü yükleme|Tehditleri ve güvenlik açıklarından korumak için sanal makine ölçek kümeleri, bir uç nokta koruma çözümüne yükleyin. |
+|Sanal makine ölçek kümesi|40|Sanal makine ölçek kümelerine sistem güncelleştirmelerini yükleme|Windows ve Linux sanal makine ölçek kümelerinizi korumak için eksik sistem güvenliği güncelleştirmelerini ve diğer kritik güncelleştirmeleri yükleyin. |
  
 
 

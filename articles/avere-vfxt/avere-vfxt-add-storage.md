@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 13084ac21315d725df3f0913583fff3e64ee5c4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: cda95b8f7cbf1da85f080c7ea53306f48375db32
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813237"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992354"
 ---
 # <a name="configure-storage"></a>Depolama alanını yapılandırma
 
@@ -72,7 +72,7 @@ Ardından, devam [bir birleşim oluşturma](#create-a-junction).
 VFXT kümenizin arka uç depolama alanı olarak Azure Blob Depolama kullanmak için boş bir kapsayıcı bir çekirdek dosyalayıcı eklemeniz gerekir.
 
 > [!TIP] 
-> Bir blob kapsayıcısı Avere vFXT küme oluşturma aynı anda oluşturmayı seçerseniz, dağıtım şablonu veya betik bir depolama kapsayıcısı oluşturur, bir çekirdek dosyalayıcı tanımlar ve ad alanı birleşim vFXT kümesi oluşturmanın bir parçası oluşturur. 
+> Bir blob kapsayıcısı Avere vFXT küme oluşturma aynı anda oluşturmayı seçerseniz, dağıtım şablonu veya betik bir depolama kapsayıcısı oluşturur, bir çekirdek dosyalayıcı tanımlar ve ad alanı birleşim vFXT kümesi oluşturmanın bir parçası oluşturur. Şablon, ayrıca kümenin sanal ağ içindeki depolama hizmet uç noktası oluşturur. 
 
 BLOB Depolama, kümeye ekleme, bu görevleri gerektirir:
 

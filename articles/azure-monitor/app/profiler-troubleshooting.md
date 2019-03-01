@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: e5e80ac2229c3a2962702527dc3162229c25a5c5
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 7d0743c09adf1c50d888d2e279ba85a8369bf286
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750880"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991640"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Etkinleştirme veya Application Insights Profiler ' ı görüntüleme sorunlarını giderme
 
@@ -135,15 +135,19 @@ Profiler Azure tanılama tarafından doğru şekilde yapılandırılıp yapılan
 
 Azure Tanılama'yı yapılandırmak için kullanılan ayarları denetlemek için:
 
-1. Sanal makine (VM) oturum açın ve ardından bu konumdaki günlük dosyasını açın: 
+1. Sanal makine (VM) oturum açın ve ardından bu konumdaki günlük dosyasını açın. (C: sürücüsüne olabilir veya d: ve eklenti sürüm farklı olabilir.)
 
     ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
+    ```
+    or
+    ```
+    c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
 1. Dosyada dize için arama yapabilirsiniz **WadCfg** Azure Tanılama'yı yapılandırmak için VM geçirilen ayarları bulunamıyor. Profiler havuzu tarafından kullanılan iKey doğru olup olmadığını kontrol edebilirsiniz.
 
-1. Profiler'ı başlatmak için kullanılan komut satırını denetleyin. Aşağıdaki dosya Profiler'ı başlatmak için kullanılan bağımsız değişkenleri şunlardır:
+1. Profiler'ı başlatmak için kullanılan komut satırını denetleyin. Aşağıdaki dosya Profiler'ı başlatmak için kullanılan bağımsız değişkenler. (Sürücü c: veya d: olabilir)
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json

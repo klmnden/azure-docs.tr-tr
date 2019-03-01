@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6e57979e2c43cc47504495cce23947b93abb4020
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: d09f03aed8a739eaaaf8c60c379a746551d3b6f8
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414942"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009894"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway sıfırlama
 
@@ -56,7 +56,7 @@ Azure portalını kullanarak Resource Manager VPN ağ geçidi sıfırlayabilirsi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Bir ağ geçidini sıfırlamayı cmdlet'i **sıfırlama AzVirtualNetworkGateway**. Sıfırlama gerçekleştirmeden önce en son sürümüne sahip olduğunuzdan emin olun [Resource Manager PowerShell cmdlet'lerinin](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.0.0). Aşağıdaki örnek TestRG1 kaynak grubunda VNet1GW adlı bir sanal ağ geçidi sıfırlar:
+Bir ağ geçidini sıfırlamayı cmdlet'i **sıfırlama AzVirtualNetworkGateway**. Sıfırlama gerçekleştirmeden önce en son sürümüne sahip olduğunuzdan emin olun [Az PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/az.network). Aşağıdaki örnek TestRG1 kaynak grubunda VNet1GW adlı bir sanal ağ geçidi sıfırlar:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1

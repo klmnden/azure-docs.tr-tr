@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0467f131ab4300ba3217ed01f37ebb7f4b8dbe5e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e8028bc9a4a6f3245dca61d6dd30db22dc295a7f
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732781"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992456"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack'e bir App Service kaynak sağlayıcısı ekleme
 
@@ -30,7 +30,7 @@ ms.locfileid: "56732781"
 Azure Stack'te App Service'e dağıtım yapmak, bu makaledeki yönergeleri kullanın.
 
 > [!IMPORTANT]  
-> Azure Stack tümleşik sisteminize 1809 güncelleştirmeyi veya Azure App Service 1.4 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
+> Azure Stack tümleşik sisteminize 1901 güncelleştirmesini veya Azure App Service 1.5 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
 
 Kullanıcılarınız, web ve API uygulamaları oluşturma olanağı verebilirsiniz. Kullanıcıların bu uygulamaları oluşturmak için gerekir:
 
@@ -38,7 +38,7 @@ Kullanıcılarınız, web ve API uygulamaları oluşturma olanağı verebilirsin
  - App Service kaynak Sağlayıcısı'nı yükledikten sonra teklifler ve planlar içerebilir. Kullanıcıların hizmete almak ve uygulamalar oluşturmaya başlamak için abone olabilirsiniz.
 
 > [!IMPORTANT]  
-> ' Deki yönergeleri izlediğinizden emin olun, kaynak sağlayıcı yükleyicisini çalıştırmadan önce [başlamadan önce](azure-stack-app-service-before-you-get-started.md).
+> ' Deki yönergeleri izlediğinizden emin olun, kaynak sağlayıcı yükleyicisini çalıştırmadan önce [başlamadan önce](azure-stack-app-service-before-you-get-started.md) ve okuma [sürüm notları](azure-stack-app-service-release-notes-update-five.md), yeni hakkında bilgi edinmek için 1.5 sürümünü eşlik işlevi, düzeltmeler ve dağıtımınızı etkileyebilecek tüm bilinen sorunlar.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>App Service kaynak sağlayıcısı yükleyiciyi çalıştırın
 
@@ -99,7 +99,7 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 
    ![Uygulama hizmeti yükleyicisi][4]
 
-8. Dosya paylaşımınızın bilgilerini girin ve ardından **sonraki**. Dosya Paylaşımı adresi, tam etki alanı adı (FQDN) veya dosya sunucunuzun IP adresini kullanmanız gerekir. Örneğin, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, veya \\\10.0.0.1\websites.
+8. Dosya paylaşımınızın bilgilerini girin ve ardından **sonraki**. Dosya Paylaşımı adresi, tam etki alanı adı (FQDN) veya dosya sunucunuzun IP adresini kullanmanız gerekir. Örneğin, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, veya \\\10.0.0.1\websites.  Etki alanına katılmış olan bir dosya sunucusu kullanıyorsanız, etki alanı, örneğin, myfileserverdomain\FileShareOwner dahil olmak üzere tam kullanıcı adı sağlamalısınız.
 
    >[!NOTE]
    >Yükleyici, devam etmeden önce dosya paylaşımına bağlantısını test etmek çalışır. Ancak, bir sanal ağınız dağıtıyorsanız, bu bağlantı testi başarısız olabilir. Size bir uyarı ve bir komut istemi devam etmek için verilir. Dosya Paylaşımı bilgilerin doğru olduğundan, dağıtımın devam edin.
@@ -184,6 +184,11 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 
     ![Uygulama hizmeti yükleyicisi][17]
 
+## <a name="post-deployment-steps"></a>Dağıtım sonrası adımlar
+
+> [!IMPORTANT]  
+> Bir SQL her zaman şirket örneği App Service RP'ye sağladıysanız gerekir [appservice_hosting ve appservice_metering veritabanlarını bir kullanılabilirlik grubuna ekleme](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) ve hizmette kaybını önlemek için veritabanlarını eşitleme Olay veritabanı yük devretme.
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Yükleme Azure Stack üzerinde App Service'te doğrula
 
 1. Azure Stack Yönetim Portalı'nda Git **yönetim - App Service**.
@@ -192,12 +197,12 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 
     ![App Service Yönetimi](media/azure-stack-app-service-deploy/image12.png)
 
-    Mevcut bir sanal ağa dağıtma ve da dosya için bağlanmak için bir iç IP adresi kullanarak, bir giden güvenlik kuralı eklemeniz gerekir. Bu kural, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği sağlar.  Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
+    Mevcut bir sanal ağa dağıtma ve da dosya sunucunuza bağlanmak için bir iç IP adresi kullanarak, bir giden güvenlik kuralı eklemeniz gerekir. Bu kural, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği sağlar.  Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
 
     - Kaynak: Herhangi biri
     - Kaynak bağlantı noktası aralığı: *
     - Hedef: IP Adresleri
-    - Hedef IP adresi aralığı: Dosya için IP aralığı
+    - Hedef IP adresi aralığı: Dosya sunucusu için IP aralığı
     - Hedef bağlantı noktası aralığı: 445
     - Protokol: TCP
     - Eylem: İzin Ver

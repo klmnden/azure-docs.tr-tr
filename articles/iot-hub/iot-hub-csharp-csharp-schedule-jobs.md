@@ -1,19 +1,19 @@
 ---
 title: Azure IOT hub'ı (.NET/.NET) ile işleri zamanlama | Microsoft Docs
 description: Birden fazla cihazda doğrudan yöntem çağırmak için bir Azure IOT hub'ı işini zamanlamak nasıl. Sanal cihaz uygulamaları ve işi çalıştırmak için bir hizmet uygulaması'nı uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
-ms.author: dobett
-ms.openlocfilehash: 4089ee74b44bc17324c7cd33b1bbd734a651d75f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.author: robin.shahan
+ms.openlocfilehash: b39d7d4af4c476778665e844f647beecf20e3d9f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514817"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008891"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>İşleri (.NET/.NET) zamanlama ve yayınlama
 
@@ -29,9 +29,9 @@ Bir iş, aşağıdaki eylemlerden birini sarmalar ve bir cihaz ikizi sorgu taraf
 
 Bu özelliklerin her biri hakkında daha fazla bilgi için bkz:
 
-* Cihaz ikizi ve özellikleri: [cihaz ikizlerini kullanmaya başlama](iot-hub-csharp-csharp-twin-getstarted.md) ve [öğretici: cihaz ikizi özelliklerini kullanma](tutorial-device-twins.md)
+* Cihaz ikizi ve özellikleri: [Cihaz ikizlerini kullanmaya başlama](iot-hub-csharp-csharp-twin-getstarted.md) ve [Öğreticisi: Cihaz ikizi özelliklerini kullanma](tutorial-device-twins.md)
 
-* Doğrudan yöntemler: [IOT Hub Geliştirici Kılavuzu - doğrudan yöntemler](iot-hub-devguide-direct-methods.md) ve [Öğreticisi: doğrudan yöntemler kullanma](quickstart-control-device-dotnet.md)
+* Doğrudan yöntemler: [IOT Hub Geliştirici Kılavuzu - doğrudan yöntemler](iot-hub-devguide-direct-methods.md) ve [Öğreticisi: Doğrudan yöntemler kullanma](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -291,6 +291,6 @@ Bu bölümde, çağırmak için işleri kullanır (C# kullanarak) bir .NET konso
 
 Bu öğreticide, bir işi bir doğrudan yöntem bir cihaz ve cihaz ikizinin özelliklerini güncelleştirme için zamanlamak için kullanılır.
 
-IOT Hub ve cihaz yönetim modellerini uzaktan gibi hava üretici yazılımı güncelleştirme kullanmaya başlama devam etmek için okuma [öğretici: bir üretici yazılımı güncelleştirme yapmak nasıl](tutorial-firmware-update.md).
+IOT Hub ve cihaz yönetim modellerini uzaktan gibi hava üretici yazılımı güncelleştirme kullanmaya başlama devam etmek için okuma [Öğreticisi: Üretici yazılımlarını güncelleştirme nasıl](tutorial-firmware-update.md).
 
 Yapay ZEKA ile Azure IOT Edge uç cihazlarına dağıtma hakkında bilgi edinmek için [IOT Edge'i kullanmaya başlama](../iot-edge/tutorial-simulate-device-linux.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: d2d62dea683d3e42411d526fe002596e6473b4a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 21e7406d566be5be73342d530a4ad66b80a1d23f
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736677"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990450"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Yönetimi'nde rol tabanlı erişim denetimi kullanma
 Azure API Management hakkında Azure rol tabanlı erişim denetimi (API Management Hizmetleri ve varlıkları (örneğin, API'leri ve ilkeleri) ayrıntılı erişim yönetimini etkinleştirmek için RBAC) kullanır. Bu makalede, API Yönetimi'nde yerleşik ve özel roller genel bir bakış sağlar. Azure portalında erişim yönetimi hakkında daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -47,6 +47,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Azu
 
 ## <a name="custom-roles"></a>Özel roller
 Yerleşik rollerden hiçbiri gereksinimlerinize uygun değilse, API Management varlıklar için daha ayrıntılı erişim yönetimi sağlamak için özel roller oluşturabilirsiniz. Örneğin, bir API Management hizmeti salt okunur erişimi vardır, ancak yalnızca belirli bir API'yi yazma erişimi olan özel bir rol oluşturabilirsiniz. Özel roller hakkında daha fazla bilgi için bkz: [Azure rbac'de özel roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
+
+> [!NOTE]
+> Azure portalında bir API Management örneği görebilmeniz için özel bir rol içermesi gerekir ```Microsoft.ApiManagement/service/read``` eylem.
 
 Özel bir rol oluşturduğunuzda, yerleşik rollerden biri ile başlamak kolaydır. Öznitelikleri eklemek için Düzenle **eylemleri**, **NotActions**, veya **AssignableScopes**ve sonra değişiklikleri yeni bir rolü olarak kaydedebilirsiniz. Aşağıdaki örnek "Azure API Management hizmet okuyucusu" rolüne sahip başlar ve "hesaplayıcı API'si Düzenleyici." adlı özel bir rol oluşturur Belirli bir API'ye özel rol atayabilirsiniz. Sonuç olarak, bu rol, bu API'ye erişim yalnızca sahiptir. 
 

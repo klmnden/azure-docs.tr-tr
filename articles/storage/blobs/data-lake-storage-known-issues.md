@@ -6,22 +6,22 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: abc20d8ef51f94e25d0e46ec199ca715bf6cce22
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736796"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194717"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar
 
 Bu makale, Data Lake depolama Gen2 geçici ilişkin sınırlamalar ve bilinen sorunları içerir.
 
-## <a name="data-lake-storage-gen2-apis"></a>Data Lake depolama Gen2 API'leri
+## <a name="sdk-support-for-data-lake-storage-gen2-accounts"></a>Data Lake depolama Gen2 hesapları için SDK desteği
 
-API'leri, Data Lake depolama Gen2 hesapları için henüz kullanılamamaktadır.
+Data Lake depolama Gen2 hesaplarıyla çalışır SDK'lar değildir.
 
 ## <a name="blob-storage-apis"></a>BLOB Depolama API'leri
 

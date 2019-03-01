@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3fe549a63f0fb4662ba5beb2e28f1ca72fcc1ee4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55855893"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193747"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Öğretici: Ortak desen şablon utterance biçimleri ekleme
 
@@ -221,22 +221,7 @@ Bir desenin bir konuşmayla eşleştirilebilmesi için ilk konuşmadaki varlıkl
 
 **Desenler daha az örnek konuşma sağlamanızı mümkün kılsa da varlıkların algılanmaması durumunda desen eşleşmez.**
 
-Bu öğreticide iki yeni amaç ekleyin: `OrgChart-Manager` ve `OrgChart-Reports`. 
-
-|Amaç|İfade|
-|--|--|
-|OrgChart-Manager|Who does Jill Jones report to? (Jill Jones kime rapor veriyor?)|
-|OrgChart-Reports|Who reports to Jill Jones? (Jill Jones'a kim rapor veriyor?)|
-
-LUIS istemci uygulamasına tahmin döndürdükten sonra amaç adı istemci uygulamasında işlev adı, Employee varlığı da bu işlevin parametresi olarak kullanılabilir.
-
-```javascript
-OrgChartManager(employee){
-    ///
-}
-```
-
-Hatırlayacağınız üzere [Liste varlığı öğreticisinde](luis-quickstart-intent-and-list-entity.md) çalışanlar oluşturulmuştu.
+## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Kuruluş Şeması-yönetici amaç için düzenleri ekleyin
 
 1. Üst menüden **Build** (Derle) öğesini seçin.
 
@@ -259,7 +244,7 @@ Hatırlayacağınız üzere [Liste varlığı öğreticisinde](luis-quickstart-i
 
     [![Amaç için konuşma şablonu girme ekran görüntüsü](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. **OrgChart-Reports** amacını seçip aşağıdaki konuşma şablonlarını girin:
+4. Desenleri sayfasında hala seçin **Kuruluş Şeması-raporları** amacı, ardından aşağıdaki şablon konuşma girin:
 
     |Konuşma şablonları|
     |:--|
@@ -272,11 +257,13 @@ Hatırlayacağınız üzere [Liste varlığı öğreticisinde](luis-quickstart-i
 
 ## <a name="query-endpoint-when-patterns-are-used"></a>Desenler kullanıldığında uç noktayı sorgulama
 
+Desenler, uygulamaya eklenir, eğitme, yayımlama ve tahmini çalışma zamanı uç noktasında uygulama sorgulayabilirsiniz.
+
 1. Uygulamayı yeniden eğitin ve yayımlayın.
 
-2. Tarayıcıda uç nokta URL'si sekmesine geçin.
+1. Tarayıcıda uç nokta URL'si sekmesine geçin.
 
-3. Adres çubuğundaki URL'nin sonuna gidip konuşma olarak `Who is the boss of Jill Jones?` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
+1. Adres çubuğundaki URL'nin sonuna gidip konuşma olarak `Who is the boss of Jill Jones?` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
 
     ```json
     {
@@ -362,11 +349,11 @@ Hatırlayacağınız üzere [Liste varlığı öğreticisinde](luis-quickstart-i
     }
     ```
 
-Amaç tahmini önemli ölçüde daha yüksektir.
+Hedefi tahmin önemli ölçüde daha rahat hareket edebiliyor.
 
 ## <a name="working-with-optional-text-and-prebuilt-entities"></a>İsteğe bağlı metin ve önceden oluşturulmuş varlıklarla çalışma
 
-Bu öğreticinin önceki bölümlerinde kullanılan desen konuşma şablonları s harfinin iyelik olarak kullanılması `'s` ve soru işaretinin kullanılması `?` gibi birkaç isteğe bağlı metin örneğine sahiptir. Uç nokta konuşmalarının, yöneticilerin ve İnsan Kaynakları temsilcilerinin geçmiş verileri aradığını ve ileride şirkette gerçekleştirilmesi planlanan çalışan terfileriyle ilgili bilgi almak istediğini gösterdiğini düşünün.
+Bu öğreticinin önceki bölümlerinde kullanılan desen konuşma şablonları s harfinin iyelik olarak kullanılması `'s` ve soru işaretinin kullanılması `?` gibi birkaç isteğe bağlı metin örneğine sahiptir. Utterance metin mevcut ve gelecekteki tarihlere izin vermek üzere gerektiğini varsayalım.
 
 Örnek konuşmalar şunlardır:
 
@@ -379,23 +366,22 @@ Bu öğreticinin önceki bölümlerinde kullanılan desen konuşma şablonları 
 
 Bu örneklerin her birinde LUIS'in doğru tahmin yapabilmesi için gerekli olan bir fiil çekimi (`was`, `is`, `will be`) ve tarih (`March 3`, `now` ve `in a month`) bulunmaktadır. Son iki örnekte `in` ve `on` haricinde neredeyse aynı metnin kullanıldığına dikkat edin.
 
-Örnek konuşma şablonları:
+Bu isteğe bağlı bilgileri için örnek şablonu konuşma: 
+
 |Amaç|İsteğe bağlı metin ve önceden oluşturulmuş varlıklara sahip örnek konuşmalar|
 |:--|:--|
 |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
 
 Söz diziminde isteğe bağlı köşeli parantez `[]` kullanılması isteğe bağlı metnin konuşma şablonuna eklenmesini kolaylaştırır, ikinci düzeye kadar iç içe yerleştirilebilir `[[]]` ve varlık ya da metin içerebilir.
 
-**Soru: Neden son iki örnekte konuşma bir tek şablon utterance birleştirmek uygulanamadı?** Desten şablonu OR söz dizimini desteklemez. Hem `in` hem de `on` sürümünü yakalamak için ayrı konuşma şablonlarının kullanılması gerekir.
 
 **Soru: Neden tümü `w` harf, küçük harf her şablon utterance ilk harfini? Bunlar isteğe bağlı olarak büyük veya küçük yazılabilir mi?** İstemci uygulaması tarafından sorgu uç noktasına gönderilen konuşma küçük harfe dönüştürülür. Konuşma şablonu ve uç nokta konuşmasında büyük harf veya küçük harf kullanılabilir. Karşılaştırma her zaman küçük harfe dönüştürme sonrasında gerçekleştirilir.
 
 **Soru: Önceden oluşturulmuş numarası'neden olmadığını şablonunun parçası Mart 3 ise utterance hem de sayı olarak tahmin edilen `3` ve tarih `March 3`?** Konuşma şablonu tahmini `March 3` olarak doğrudan veya `in a month` çıkarımıyla bağlamsal olarak kullanmaktadır. Tarih, sayı içerebilir ancak her sayı tarih olmayabilir. Her zaman tahmin JSON sonuçlarında döndürülmesini istediğiniz türü en iyi temsil eden varlığını kullanın.  
 
-**Soru: Hatalı hakkında tümcecik oluşturulmuş konuşma gibi `Who will {Employee}['s] manager be on March 3?`.** `will` ve `be` ifadelerinin ayrılması gereken bunun gibi dilbilgisi açısından farklı fiil çekimlerinin yeni bir konuşma şablonu halinde ayrılması gerekir. Var olan konuşma şablonu bununla eşleşmez. Konuşmanın amacı değişmiş olmasına rağmen konuşmadaki kelime yerleşimleri değişmemiştir. Bu değişiklik LUIS tahminini etkiler.
+**Soru: Hatalı hakkında tümcecik oluşturulmuş konuşma gibi `Who will {Employee}['s] manager be on March 3?`.** `will` ve `be` ifadelerinin ayrılması gereken bunun gibi dilbilgisi açısından farklı fiil çekimlerinin yeni bir konuşma şablonu halinde ayrılması gerekir. Var olan konuşma şablonu bununla eşleşmez. Konuşmanın amacı değişmiş olmasına rağmen konuşmadaki kelime yerleşimleri değişmemiştir. Bu değişiklik LUIS tahminini etkiler. Yapabilecekleriniz [grubu ve](#use-the-or-operator-and-groups) Bu konuşma birleştirmek için fiil zamanlarını. 
 
 **Unutmayın: Önce varlıklar bulunur, ardından desen eşleştirilir.**
 
@@ -403,11 +389,9 @@ Söz diziminde isteğe bağlı köşeli parantez `[]` kullanılması isteğe ba�
 
 1. LUIS web sitesinin üst menüsünden **Build** (Derle) öğesini seçip sol taraftaki menüden **Patterns** (Desenler) öğesini belirleyin. 
 
-2. Var olan konuşma şablonunu (`Who is {Employee}['s] manager[?]`) bulun ve sağ tarafındaki üç noktayı (***...***) seçin. 
+1. Mevcut bir şablonu utterance arayın `Who is {Employee}['s] manager[?]`, üç noktayı seçin (***...*** ) sağa seçip **Düzenle** açılır menüden. 
 
-3. Açılan menüden **Edit** (Düzenle) öğesini seçin. 
-
-4. Konuşma şablonunu şu şekilde değiştirin: `who is {Employee}['s] manager [[on]{datetimeV2}?]]`
+1. Konuşma şablonunu şu şekilde değiştirin: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ## <a name="add-new-pattern-template-utterances"></a>Yeni konuşma şablonu deseni ekleme
 
@@ -416,7 +400,6 @@ Söz diziminde isteğe bağlı köşeli parantez `[]` kullanılması isteğe ba�
     |Amaç|İsteğe bağlı metin ve önceden oluşturulmuş varlıklara sahip örnek konuşmalar|
     |--|--|
     |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
@@ -426,7 +409,7 @@ Söz diziminde isteğe bağlı köşeli parantez `[]` kullanılması isteğe ba�
 
 4. Desenin eşleştirildiğini ve amaç puanının oldukça yüksek olduğunu doğrulamak için birkaç test konuşması girin. 
 
-    İlk konuşmayı girdikten sonra tüm tahmin sonuçlarını görebilmek için sonucun altındaki **Inspect** (İncele) öğesini seçin.
+    İlk konuşmayı girdikten sonra tüm tahmin sonuçlarını görebilmek için sonucun altındaki **Inspect** (İncele) öğesini seçin. Her utterance olmalıdır **Kuruluş Şeması-yönetici** amacı ve çalışan ve datetimeV2 varlıklarının değerlerini ayıklamak.
 
     |İfade|
     |--|
@@ -438,6 +421,51 @@ Söz diziminde isteğe bağlı köşeli parantez `[]` kullanılması isteğe ba�
     |Who will be Jill Jones manager in a month? (Bir ay içinde Jill Jones yöneticisi kim olacak?)|
 
 Bu konuşmaların tümü varlık bulduğundan aynı desenle eşleşir ve yüksek tahmin puanına sahiptir.
+
+## <a name="use-the-or-operator-and-groups"></a>OR işleci ve grupları kullanma
+
+Birkaç önceki şablon konuşma çok yakın. Kullanım **grubu** `()` ve **veya** `|` şablon konuşma azaltmak için söz dizimi. 
+
+Aşağıdaki 2 desenleri kullanarak tek bir modele birleştirebilirsiniz `()` ve `|` söz dizimi.
+
+|Amaç|İsteğe bağlı metin ve önceden oluşturulmuş varlıklara sahip örnek konuşmalar|
+|--|--|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+Yeni şablon utterance olacaktır: 
+
+`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
+
+Bu kullanan bir **grubu** gerekli fiili şimdiki ve isteğe bağlı `in` ve `on` ile bir **veya** aralarında kanal. 
+
+1. Üzerinde **desenleri** sayfasında **Kuruluş Şeması-yönetici** filtre. İçin arama yaparak daraltmak `manager`. 
+
+    ![Kuruluş Şeması-yönetici hedefi desenler arama terimi 'Yönetici' için](./media/luis-tutorial-pattern/search-patterns.png)
+
+1. Şablon utterance (bir sonraki adımı düzenlemek için) bir sürümünü saklamak ve diğer Çeşitlemeler silin. 
+
+1. Şablon utterance için değiştirin: 
+
+    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+
+1. Uygulamayı eğitin.
+
+1. Utterance sürümleri test etmek için Test bölmesini kullanın:
+
+    |Test Bölmesi'nde girmek için konuşma|
+    |--|
+    |`Who is Jill Jones manager this month`|
+    |`Who is Jill Jones manager on July 5th`|
+    |`Who was Jill Jones manager last month`|
+    |`Who was Jill Jones manager on July 5th`|    
+    |`Who will be Jill Jones manager in a month`|
+    |`Who will be Jill Jones manager on July 5th`|
+
+
+## <a name="use-the-utterance-beginning-and-ending-anchors"></a>Utterance başlangıç ve bitiş bağlayıcılarını kullanın
+
+Desen sözdizimi başlayan ve biten bir şapka utterance bağlantı söz dizimini sağlar `^`. Başlangıç ve bitiş utterance bağlayıcılarını hedefi amaçlarını için ayrı olarak kullanılan veya hedef belirli ve büyük olasılıkla sabit utterance birlikte kullanılabilir. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

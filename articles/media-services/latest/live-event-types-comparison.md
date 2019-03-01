@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9671d9f61b610a85cbf2475e045c641a29dac11b
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878366"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010625"
 ---
 # <a name="live-event-types-comparison"></a>Canlı olay türlerini karşılaştırma
 
@@ -33,7 +33,7 @@ Aşağıdaki tabloda, iki canlı olay türlerinin özellikleri karşılaştırı
 | Tekli bit hızı girişi Çoklu bit hızlarında buluta halinde kodlanır |Hayır |Evet |
 | Katkı için en yüksek ekran çözünürlüğü akışı |4K (4096 x 2160 en 60 kare/sn) |1080p (1920 x 1088 en 30 kare/sn)|
 | Önerilen en yüksek katmanlarında akışı katkı|12 adede kadar|Bir ses|
-| En yüksek katmanlarında çıkış| Aynı giriş|En fazla 7|
+| En yüksek katmanlarında çıkış| Aynı giriş|En fazla 6|
 | Akış katkı en fazla toplam bant genişliği|60 Mbps|Yok|
 | Tek bir katman katkısı için maksimum hızı |20 Mbps|20 Mbps|
 | Ses parçalarını birden çok dil desteği|Evet|Hayır|

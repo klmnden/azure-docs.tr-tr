@@ -12,32 +12,32 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 315a96680674636f7cab9d93b362febcb25f9922
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: af3e7528e2312cef1832dc104e83384a91acf263
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447074"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991351"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure Stack ortamına bir App Service kaynak sağlayıcısı ekleme
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!IMPORTANT]
-> Azure Stack tümleşik sisteminize 1809 güncelleştirmesini veya Azure App Service 1.4 dağıtmadan önce en son Azure Stack geliştirme Seti'ni dağıtın.
+> Azure Stack tümleşik sisteminize 1901 güncelleştirmesini veya Azure App Service 1.5 dağıtmadan önce en son Azure Stack geliştirme Seti'ni dağıtın.
 
 Bu makalede bulunan yönergeleri izleyerek yükleyebilirsiniz [App Service kaynak sağlayıcısı](azure-stack-app-service-overview.md) bir Azure Stack ortamı için:
 
 - Internet'e bağlı değil
 - Active Directory Federasyon Hizmetleri (AD FS) tarafından güvenli.
 
- > [!IMPORTANT]
- > Kaynak sağlayıcısını dağıtmadan önce yeni işlevler, düzeltmeler ve dağıtımınızı etkileyebilecek bilinen sorunlar hakkında bilgi edinmek için sürüm notlarını gözden geçirin.
- 
+> [!IMPORTANT]  
+> ' Deki yönergeleri izlediğinizden emin olun, kaynak sağlayıcı yükleyicisini çalıştırmadan önce [başlamadan önce](azure-stack-app-service-before-you-get-started.md) ve okuma [sürüm notları](azure-stack-app-service-release-notes-update-five.md) 1.5 eşlik eden sürüm yeni hakkında bilgi edinin işlevi, düzeltmeler ve dağıtımınızı etkileyebilecek bilinen sorunlar.
+
 App Service kaynak sağlayıcısı çevrimdışı Azure Stack dağıtımınıza eklemek için bu üst düzey görevleri tamamlamanız gerekir:
 
 1. Tamamlamak [önkoşul adımlarını](azure-stack-app-service-before-you-get-started.md) (sertifikaları satın gibi hangi gerçekleştirebileceğiniz almak için birkaç gün).
@@ -105,7 +105,7 @@ App Service bağlantısı kesilmiş bir ortamda dağıtmak için önce Internet'
 
     ![Uygulama hizmeti yükleyicisi][5]
 
-9. Dosya paylaşımınızın bilgilerini girin ve ardından **sonraki**. Dosya Paylaşımı adresi, tam etki alanı adı veya dosya sunucunuzun IP adresini kullanmanız gerekir. Örneğin, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, veya \\\10.0.0.1\websites
+9. Dosya paylaşımınızın bilgilerini girin ve ardından **sonraki**. Dosya Paylaşımı adresi, tam etki alanı adı veya dosya sunucunuzun IP adresini kullanmanız gerekir. Örneğin, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, veya \\\10.0.0.1\websites.  Etki alanına katılmış olan bir dosya sunucusu kullanıyorsanız, etki alanı, örneğin, myfileserverdomain\FileShareOwner dahil olmak üzere tam kullanıcı adı sağlamalısınız.
 
     > [!NOTE]
     > Yükleyici, devam etmeden önce dosya paylaşımını bağlantısını test etmek çalışır.  Bununla birlikte, mevcut bir sanal ağ dağıtmayı seçerseniz, yükleyici dosya paylaşımına bağlanmak mümkün olmayabilir ve devam etmek isteyip istemediğinizi soran bir uyarı görüntüler.  Dosya Paylaşımı bilgileri doğrulayın ve doğru olup olmadıklarını devam edin.
@@ -196,6 +196,11 @@ App Service bağlantısı kesilmiş bir ortamda dağıtmak için önce Internet'
 
     ![Uygulama hizmeti yükleyicisi][18]
 
+## <a name="post-deployment-steps"></a>Dağıtım sonrası adımlar
+
+> [!IMPORTANT]  
+> Bir SQL her zaman şirket örneği App Service RP'ye sağladıysanız gerekir [appservice_hosting ve appservice_metering veritabanlarını bir kullanılabilirlik grubuna ekleme](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) ve hizmette kaybını önlemek için veritabanlarını eşitleme Olay veritabanı yük devretme.
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Yükleme Azure Stack üzerinde App Service'te doğrula
 
 1. Azure Stack Yönetim Portalı'nda Git **yönetim - App Service**.
@@ -205,11 +210,11 @@ App Service bağlantısı kesilmiş bir ortamda dağıtmak için önce Internet'
     ![App Service Yönetimi](media/azure-stack-app-service-deploy/image12.png)
 
 > [!NOTE]
-> Mevcut bir sanal ağ ve dosya için bağlanmak için bir iç IP adresi dağıtmayı seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir.  Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
+> Mevcut bir sanal ağ ve dosya sunucunuza bağlanmak için bir iç IP adresi dağıtmayı seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir.  Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
 > * Kaynak: Herhangi biri
 > * Kaynak bağlantı noktası aralığı: *
 > * Hedef: IP Adresleri
-> * Hedef IP adresi aralığı: Dosya için IP aralığı
+> * Hedef IP adresi aralığı: Dosya sunucusu için IP aralığı
 > * Hedef bağlantı noktası aralığı: 445
 > * Protokol: TCP
 > * Eylem: İzin Ver

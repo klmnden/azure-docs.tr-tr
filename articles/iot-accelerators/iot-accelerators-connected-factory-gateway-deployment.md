@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9208d9949ee68f966087c5e0bb50806ece8a2f60
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599953"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011424"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Bir edge ağ geçidi için Windows veya Linux üzerinde bağlı Fabrika çözüm Hızlandırıcısını dağıtma
 
@@ -39,7 +39,7 @@ Bu makaledeki adımlarda, Windows veya Linux'ta Docker'ı kullanarak bir sınır
 
 ## <a name="choose-a-gateway-device"></a>Bir ağ geçidi cihazını seçin
 
-Bir ağ geçidi cihazı henüz yoksa, Microsoft ticari ağ geçidi ortaklarından birinden satın önerir. Bağlı Fabrika çözümü ile uyumlu bir ağ geçidi cihazlar listesi için ziyaret [Azure IOT cihaz Kataloğu](https://catalog.azureiotsuite.com/?q=opc). Ağ geçidini ayarlamak için aygıtla birlikte gelen yönergeleri izleyin.
+Bir ağ geçidi cihazı henüz yoksa, Microsoft ticari ağ geçidi ortaklarından birinden satın önerir. Bağlı Fabrika çözümü ile uyumlu bir ağ geçidi cihazlar listesi için ziyaret [Azure IOT cihaz Kataloğu](https://catalog.azureiotsolutions.com/?q=opc). Ağ geçidini ayarlamak için aygıtla birlikte gelen yönergeleri izleyin.
 
 Var olan bir ağ geçidi cihazı el ile yapılandırmanız gerekiyorsa, aşağıdaki yönergeleri kullanın.
 

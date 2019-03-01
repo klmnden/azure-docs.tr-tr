@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165039"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194019"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcı barındırma sunucuları ekleme
 
@@ -44,7 +44,9 @@ Sistem Yöneticisi ayrıcalıklarına sahip bir hesabın kimlik bilgilerini sağ
 4. MySQL Server örneğinizi bağlantı ayrıntılarını sağlayın.
 
    * İçin **MySQL barındırma sunucusunun adını**, tam etki alanı adı (FQDN) veya geçerli bir IPv4 adresi sağlayın. Kısa VM adını kullanmayın.
-   * Belirtmek zorunda müşteri varsayılan bir MySQL örneği sağlanmayan **boyut, barındırma sunucusunun GB cinsinden**. Veritabanı sunucusu kapasitesini yakın bir boyutu girin.
+   - Varsayılan yönetici **kullanıcıadı** Bitnami MySQL Azure Stack marketteki görüntüleri için *kök*. 
+   - Kök bilmiyorsanız **parola**, bkz: [Bitnami belgeleri](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) nasıl edinileceğini öğrenmek için. 
+   - Belirtmek zorunda müşteri varsayılan bir MySQL örneği sağlanmayan **boyut, barındırma sunucusunun GB cinsinden**. Veritabanı sunucusu kapasitesini yakın bir boyutu girin.
    * Varsayılan ayarı tutun **abonelik**.
    * İçin **kaynak grubu**, yeni bir tane oluşturun veya varolan bir grubu kullanın.
 

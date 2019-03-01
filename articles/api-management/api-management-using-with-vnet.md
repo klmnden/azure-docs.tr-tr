@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 2770c6a31f0117b96e08eb8a03986f37ebdb7098
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 98d8f530b91c2b2483d00838cd4001be88e18a6c
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733750"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011220"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Azure sanal ağları başlangıç hakkında daha fazla bilgi için: [Azure sanal ağına genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -89,7 +89,7 @@ PowerShell cmdlet'lerini kullanarak VNET bağlantısı da etkinleştirebilirsini
 
 * **Bir sanal ağ içindeki bir API Management hizmeti oluşturma**: Cmdlet'i kullanmak [yeni AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) bir sanal ağ içindeki bir Azure API Management hizmeti oluşturmak için.
 
-* **Bir sanal ağ içinde mevcut bir API Management hizmeti dağıtma**: Cmdlet'i kullanmak [güncelleştirme AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) mevcut bir Azure API Management hizmeti bir sanal ağ içinde taşımak için.
+* **Bir sanal ağ içinde mevcut bir API Management hizmeti dağıtma**: Cmdlet'i kullanmak [güncelleştirme AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) mevcut bir Azure API Management hizmeti bir sanal ağ içinde taşımak için.
 
 ## <a name="connect-vnet"> </a>Bir sanal ağ içinde barındırılan bir web hizmetine bağlanma
 API Yönetimi hizmetiniz sanal ağa bağlandıktan sonra içindeki arka uç hizmetlerine erişme kamu hizmetlerine erişme değerinden farklı değildir. Yerel IP adresi veya ana bilgisayar adı web hizmetinizin (bir DNS sunucusu VNET için yapılandırılmışsa) yazmanız yeterlidir **Web hizmeti URL'si** alan yeni bir API oluştururken veya mevcut bir düzenleme.
@@ -132,7 +132,7 @@ API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşa�
 
 + **DNS erişim**: Giden erişim bağlantı noktası 53, DNS sunucuları ile iletişim için gereklidir. Özel bir DNS sunucusu bir VPN ağ geçidi diğer ucundaki varsa, DNS Sunucusu API Management'ı barındıran alt ağdan erişilebilir olmalıdır.
 
-+ **Ölçümler ve sistem durumu izleme**: Giden ağ bağlantısını aşağıdaki etki alanlarının altında çözmek Azure izleme uç: 
++ **Ölçümler ve sistem durumu izleme**: Giden ağ bağlantısını aşağıdaki etki alanlarının altında çözmek Azure izleme uç:
 
     | Azure ortamı | Uç Noktalar                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -202,7 +202,6 @@ API Management dağıtılabilir alt ağın en küçük boyutu yukarıdaki hesapl
 * [Hizmet etiketleri](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
-[api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-using-with-vnet/api-management-using-vnet-add-api.png
 [api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-internal.png

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: c9e3a98b1073a2b198a341f31a320bba670b0596
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d127a85b3caa5a4db2aa58966763fc8daf7746c4
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117910"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193951"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure veri şifreleme bekleyen
 
@@ -268,7 +268,7 @@ Azure SQL veritabanı verilerinin istemci tarafı şifreleme aracılığıyla de
 | Azure depolama (tablolar, kuyruklar)   | Evet                | -                  | Evet                |
 | Cosmos DB (belge DB)          | Evet                | -                  | -                  |
 | StorSimple                       | Evet                | -                  | Evet                |
-| Backup                           | -                  | -                  | Evet                |
+| Backup                           | Evet                | -                  | Evet                |
 | **Zeka ve analiz**   |                    |                    |                    |
 | Azure Data Factory               | Evet                | -                  | -                  |
 | Azure Machine Learning           | -                  | Önizleme, RSA 2048 bit | -                  |

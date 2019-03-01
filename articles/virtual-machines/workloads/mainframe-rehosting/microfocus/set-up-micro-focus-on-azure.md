@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 2b730179cecee32282b9a79d8b62e3a35ee91048
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 46b135aabaefb3a94e4470927297fb696f216b7a
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739773"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192539"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Micro odak Enterprise Server 4.0 ve kurumsal Geliştirici 4.0 Azure'a yükleme
 
@@ -66,11 +66,11 @@ Başlamadan önce şu önkoşulların denetleyin:
 
 9. Yüklemeyi başlatmak için dosyaya çift tıklayın. İlk penceresinde yükleme konumunu seçin ve son kullanıcı lisans sözleşmesini kabul edin.
 
-     ![](media/01-enterprise-server.png)
+     ![Micro odak Kurumsal Sunucusu Kurulum Ekranı](media/01-enterprise-server.png)
 
      Kurulum tamamlandığında, aşağıdaki ileti görünür:
 
-     ![](media/02-enterprise-server.png)
+     ![Micro odak Kurumsal Sunucusu Kurulum Ekranı](media/02-enterprise-server.png)
 
 ### <a name="check-for-updates"></a>Güncelleştirmeleri denetle
 
@@ -82,11 +82,11 @@ Yükleme sonrasında gibi Kurumsal sunucusu ile birlikte Microsoft C++ yeniden d
 
 2. Tıklayın **Başlat** \> **Micro odak Lisans Yöneticisi'ni** \> **lisans Yönetim**ve ardından **yükleyin** sekmesi. Karşıya yüklemek için lisans biçim türünü seçin: Lisans dosyası veya bir 16 karakterlik lisans kodu. Örneğin, bir dosya içinde **lisans dosyası**, göz atın **mflic** dosya karşıya daha önce seçin ve VM **Lisansları Yükle**.
 
-     ![](media/03-enterprise-server.png)
+     ![Micro odak lisans yönetimi iletişim kutusu](media/03-enterprise-server.png)
 
 3. Kuruluş Sunucusu yüklendiğini doğrulayın. Bu URL'yi kullanarak bir tarayıcı Enterprise Server Yönetim sitesinden başlatmayı deneyin <http://localhost:86/> . Kurumsal sunucu yönetimi sayfasına gösterildiği gibi görüntülenir.
 
-     ![](media/04-enterprise-admin.png)
+     ![Kurumsal Sunucu Yönetimi sayfası](media/04-enterprise-admin.png)
 
 ## <a name="install-enterprise-developer-on-the-developer-machine"></a>Kurumsal Geliştirici Geliştirici makineye yükleyin.
 
@@ -102,17 +102,17 @@ Yükleme sonrasında gibi Kurumsal sunucusu ile birlikte Microsoft C++ yeniden d
 
 4. Çift **edvs2017.exe** yüklemeyi başlatmak için dosya. İlk penceresinde yükleme konumunu seçin ve son kullanıcı lisans sözleşmesini kabul edin. İsterseniz, seçin **yükleme Rumba 9.5** büyük olasılıkla gerekir bu terminal öykünücü yüklemek için.
 
-     ![](media/04-enterprise-server.png)
+     ![Micro odak Kurumsal geliştirici Visual Studio 2017 Kurulum iletişim kutusu](media/04-enterprise-server.png)
 
 5. Kurulum tamamlandıktan sonra aşağıdaki ileti görünür:
 
-     ![](media/05-enterprise-server.png)
+     ![Kurulum başarılı iletisi](media/05-enterprise-server.png)
 
 6. Kuruluş Sunucusu için yaptığınız gibi Micro odak Lisans Yöneticisi'ni başlatın. Seçin **Başlat** \> **Micro odak Lisans Yöneticisi'ni** \> **lisans Yönetim**, tıklatıp **Yükleme**sekmesi.
 
 7. Karşıya yüklemek için lisans biçim türünü seçin: Lisans dosyası veya bir 16 karakterlik lisans kodu. Örneğin, bir dosya içinde **lisans dosyası**, göz atın **mflic** dosya karşıya daha önce seçin ve VM **Lisansları Yükle**.
 
-     ![](/edia/07-enterprise-server.png)
+     ![Micro odak lisans yönetimi iletişim kutusu](/edia/07-enterprise-server.png)
 
 Kurumsal Geliştirici yüklediğinde, Micro odak geliştirme ve test ortamı azure'da dağıtımını tamamlandı!
 

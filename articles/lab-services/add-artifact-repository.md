@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 9a267b48e185e02c1b1217380429453799308bbe
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 393a5c0af5ff7ccaef8aa462391c5c9457aa9c08
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886792"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011131"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs Laboratuvarınızı yapıt deposu ekleme
 DevTest Labs, VM oluşturma veya VM oluşturulduktan sonra sırada bir sanal makineye eklenecek bir yapıt belirtmenizi sağlar. Bu yapıt, bir aracı veya VM üzerinde yüklemek istediğiniz bir uygulama olabilir. Yapıtlar, GitHub veya VSTS Git deposundan yüklenen bir JSON dosyasında tanımlanır. 
@@ -172,7 +172,7 @@ Bu makalede kullanılan örnek şablon parametreleri aracılığıyla aşağıda
 - [Kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Kaynakları Resource Manager şablonları ve Resource Manager REST API’si ile dağıtma](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-Yeni bir ubuntu ve PowerShell'de şablonu dağıtmak bkz. Şablonu dağıtmak için kullanılan cmdlet'ler bağlam özgü olduğundan geçerli Kiracı ve geçerli aboneliğin kullanılır. Kullanım [kümesi AzContext](/powershell/module/az.profile/set-azcontext) gerekirse bağlamı değiştirmek için şablonu dağıtmadan önce.
+Yeni bir ubuntu ve PowerShell'de şablonu dağıtmak bkz. Şablonu dağıtmak için kullanılan cmdlet'ler bağlam özgü olduğundan geçerli Kiracı ve geçerli aboneliğin kullanılır. Kullanım [kümesi AzContext](/powershell/module/az.accounts/set-azcontext) gerekirse bağlamı değiştirmek için şablonu dağıtmadan önce.
 
 İlk olarak kullanarak bir kaynak grubu oluşturun. [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Zaten kullanmak istediğiniz kaynak grubu varsa, bu adımı atlayın.
 
@@ -375,7 +375,7 @@ if ($ArtifactRepositoryName -eq $null){
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Bu komut, konumu gibi Laboratuvar hakkında bilgi almak için kullanılır. |
 | [Yeni AzResource](/powershell/module/az.resources/new-azresource) | Yapıt deposu ekleme için belirli bir komut yoktur. Genel [yeni AzResource](/powershell/module/az.resources/new-azresource) cmdlet işi yapar. Bu cmdlet ya da gereken **ResourceId** veya **ResourceName** ve **ResourceType** oluşturmak için kaynak türünü bilmeniz çifti. Bu örnek betik, kaynak adı ve kaynak türü çifti kullanır. <br/><br/>Yapıt deposu kaynağı ile aynı konumda ve Laboratuvar aynı kaynak grubunda oluşturduğunuzu dikkat edin.|
 
-Betik yeni bir kaynak mevcut aboneliğe ekler. Kullanım [Get-AzContext](/powershell/module/az.profile/get-azcontext) bu bilgileri görmek için. Kullanım [kümesi AzContext](/powershell/module/az.profile/set-azcontext) geçerli Kiracı ve abonelik ayarlamak için.
+Betik yeni bir kaynak mevcut aboneliğe ekler. Kullanım [Get-AzContext](/powershell/module/az.accounts/get-azcontext) bu bilgileri görmek için. Kullanım [kümesi AzContext](/powershell/module/az.accounts/set-azcontext) geçerli Kiracı ve abonelik ayarlamak için.
 
 Kaynak adı ve kaynak türü bilgilerini bulmak için en iyi yolu kullanmaktır [Test sürücü Azure REST API'leri](https://azure.github.io/projects/apis/) Web sitesi. Kullanıma [DevTest Labs: 2016-05-15](http://aka.ms/dtlrestapis) REST API'leri için DevTest Labs sağlayıcısı görmek için sağlayıcı. Betik kullanıcılar aşağıdaki kaynak kimliği. 
 

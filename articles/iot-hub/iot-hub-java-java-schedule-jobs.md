@@ -1,19 +1,20 @@
 ---
 title: Azure IOT hub'ı (Java) ile işleri zamanlama | Microsoft Docs
 description: Bir doğrudan yöntem çağırma ve birden çok cihazda istenen bir özelliği ayarlamak için bir Azure IOT hub'ı işini zamanlamak nasıl. Sanal cihaz uygulamalarını hem de Azure IOT hizmeti işi çalıştırmak için bir hizmet uygulaması uygulamak için Java SDK'sını uygulamak için Azure IOT cihaz SDK'sı için Java kullanın.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
-ms.author: dobett
-ms.openlocfilehash: 52c5e1a2166c2c609b2edc486bd451f01b3395fa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: d2d92c05e54bc78d5b01e73b586e5c25fc431255
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515803"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011407"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Zamanlama ve yayınlama işleri (Java)
 
@@ -29,9 +30,9 @@ Bir iş, aşağıdaki eylemlerden birini sarmalar ve yürütmeyi bir dizi cihazd
 
 Bu özelliklerin her biri hakkında daha fazla bilgi için bkz:
 
-* Cihaz ikizi ve özellikleri: [cihaz ikizlerini kullanmaya başlama](iot-hub-java-java-twin-getstarted.md)
+* Cihaz ikizi ve özellikleri: [Cihaz ikizlerini kullanmaya başlama](iot-hub-java-java-twin-getstarted.md)
 
-* Doğrudan yöntemler: [IOT Hub Geliştirici Kılavuzu - doğrudan yöntemler](iot-hub-devguide-direct-methods.md) ve [Öğreticisi: doğrudan yöntemler kullanma](quickstart-control-device-java.md)
+* Doğrudan yöntemler: [IOT Hub Geliştirici Kılavuzu - doğrudan yöntemler](iot-hub-devguide-direct-methods.md) ve [Öğreticisi: Doğrudan yöntemler kullanma](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

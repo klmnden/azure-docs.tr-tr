@@ -16,12 +16,12 @@ ms.date: 10/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91dd25eadd3842cf1a94608a6f0ad9cfcd25039a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b55a7016ec0068234dfc6110d9d4afc04119ccdd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197241"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194070"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](how-to-connect-install-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
@@ -365,7 +365,7 @@ Hazırlama modu ile paralel olarak yeni bir eşitleme sunucusu ayarlanabilir. Bi
 
 Hazırlama modundayken, eşitleme altyapısında gerekli değişiklikleri yapabilir ve dışarı aktarılacak öğeleri gözden geçirebilirsiniz. Yapılandırmayla ilgili bir sorun yoksa yükleme sihirbazını tekrar çalıştırın ve hazırlama modunu devre dışı bırakın. Veriler artık Azure AD'ye bu sunucudan aktarılır. Yalnızca bir sunucunun etkin şekilde dışarı aktarma işlemi gerçekleştirmesini sağlamak için, diğer sunucuyu devre dışı bıraktığınızdan emin olun.
 
-Daha fazla bilgi için bkz. [Hazırlama modu](how-to-connect-sync-operations.md#staging-mode).
+Daha fazla bilgi için bkz. [Hazırlama modu](how-to-connect-sync-staging-server.md).
 
 ### <a name="verify-your-federation-configuration"></a>Federasyon yapılandırmanızı doğrulama
 Doğrula düğmesine tıkladığınızda Azure AD Connect sizin için DNS ayarlarını doğrular.

@@ -8,19 +8,19 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: a0e643397372e5b132119a7c23f251ecec876916
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346586"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990909"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Bir paket dosyasından, Azure işlevleri'ni çalıştırma
 
 > [!NOTE]
-> Bu makalede açıklanan işlevler, Linux üzerinde işlevler kullanılamaz.
+> Bu makalede açıklanan işlevler, Linux üzerinde çalıştırılan işlev uygulamaları için kullanılabilir değil. bir [App Service planı](functions-scale.md#app-service-plan).
 
 Azure'da işlevlerinizin işlev uygulamanızda doğrudan bir dağıtım paketi dosyasından çalıştırabilirsiniz. Dosyalarınızı dağıtmak için diğer seçenek olan `d:\home\site\wwwroot` işlev uygulamanızın dizin.
 
@@ -44,8 +44,11 @@ Bir paketinden çalıştırılacak işlev uygulamanızı etkinleştirmek için a
 
 | Değer  | Açıklama  |
 |---------|---------|
+| **`1`**  | Windows üzerinde çalıştırılan işlev uygulamaları için önerilir. Paket dosyasından çalıştırın `d:\home\data\SitePackages` işlev uygulamanızın klasör. Aksi takdirde [zip ile dağıtmak] (#integration-ile-zip-dağıtım], bu seçenek adlı bir dosya de klasöre gerektirir `packagename.txt`. Bu dosya, yalnızca tüm boşluk olmadan klasöründeki paket dosya adını içerir. |
 |**`<url>`**  | Çalıştırmak istediğiniz belirli paket dosyasının konumu. BLOB Depolama kullanırken, özel bir kapsayıcı ile kullanması gereken bir [paylaşılan erişim imzası (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) işlevler çalışma zamanı paketi erişmek etkinleştirmek için. Kullanabileceğiniz [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) paket dosyaları Blob Depolama hesabınıza yüklemek için.         |
-| **`1`**  | Paket dosyasından çalıştırın `d:\home\data\SitePackages` işlev uygulamanızın klasör. Bu seçenek adlı bir dosya de klasöre gerektirir `packagename.txt`. Bu dosya, yalnızca tüm boşluk olmadan klasöründeki paket dosya adını içerir. |
+
+> [!CAUTION]
+> Bir işlev uygulaması, Windows üzerinde çalışırken, dış URL seçeneği daha da kötüsü soğuk başlangıç performansı verir. İşlev uygulamanız için Windows Dağıtım yaparken, ayarlamalısınız `WEBSITE_RUN_FROM_PACKAGE` için `1` ve zip dağıtımı ile yayımlayın.
 
 Aşağıda, Azure Blob Depolama alanında barındırılan bir .zip dosyasından çalışacak şekilde yapılandırılmış bir işlev uygulaması gösterilmiştir:
 

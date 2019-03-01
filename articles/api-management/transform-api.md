@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: fc22babe6bc052ff2e746185d6ccec059aad7331
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417339"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992048"
 ---
-# <a name="transform-and-protect-your-api"></a>API’nizi dönüştürme ve koruma 
+# <a name="transform-and-protect-your-api"></a>API’nizi dönüştürme ve koruma
 
 Öğreticide, özel bir arka uç bilgisini açığa çıkarmaması için API’nizin nasıl dönüştürüleceği gösterilmektedir. Örneğin, arka uçta çalıştırılan teknoloji yığını hakkındaki bilgileri gizlemek isteyebilirsiniz. API’lerin HTTP yanıt gövdesinde görüntülenen özgün URL’leri gizlemek ve bunları APIM ağ geçidine yeniden yönlendirmek isteyebilirsiniz.
 
@@ -30,19 +30,20 @@ Bu öğreticide size Azure API Yönetimi ile hız sınırı yapılandırarak ark
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Yanıt üst bilgilerini gizlemek için API’yi dönüştürme
-> * API yanıt gövdesindeki özgün URL’leri, APIM ağ geçidi URL’leri ile değiştirme
-> * Hız sınırı ilkesi ekleyerek (azaltma) bir API’yi koruma
-> * Dönüştürmeleri test etme
+>
+> -   Yanıt üst bilgilerini gizlemek için API’yi dönüştürme
+> -   API yanıt gövdesindeki özgün URL’leri, APIM ağ geçidi URL’leri ile değiştirme
+> -   Hız sınırı ilkesi ekleyerek (azaltma) bir API’yi koruma
+> -   Dönüştürmeleri test etme
 
 ![İlkeler](./media/transform-api/api-management-management-console.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-+ [Azure API Management terminolojisini](api-management-terminology.md) öğrenin.
-+ [Azure API Management'ta ilke kavramını](api-management-howto-policies.md) anlayın.
-+ Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-+ Ayrıca şu öğreticiyi tamamlayın: [İçeri aktarma ve ilk API'nizi yayımlama](import-and-publish.md).
+-   [Azure API Management terminolojisini](api-management-terminology.md) öğrenin.
+-   [Azure API Management'ta ilke kavramını](api-management-howto-policies.md) anlayın.
+-   Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
+-   Ayrıca şu öğreticiyi tamamlayın: [İçeri aktarma ve ilk API'nizi yayımlama](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -50,8 +51,8 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu bölümde, kullanıcılarınıza göstermek istemediğiniz HTTP üst bilgilerinin nasıl gizleneceği gösterilmektedir. Bu örnekte, aşağıdaki üst bilgiler HTTP yanıtında silinir:
 
-* **X-Destekleyen:**
-* **X-AspNet-Sürümü**
+-   **X-Destekleyen:**
+-   **X-AspNet-Sürümü**
 
 ### <a name="test-the-original-response"></a>Özgün yanıtı test etme
 
@@ -71,22 +72,23 @@ Bu bölümde, kullanıcılarınıza göstermek istemediğiniz HTTP üst bilgiler
 
 ![Giden ilkesini ayarlama](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png)
 
-1. **Tanıtım Konferansı API’si** seçeneğini belirleyin.
-2. Ekranın üst kısmında **Tasarım** sekmesini seçin.
-3. **Tüm işlemler**’i seçin.
-4. **Giden işleme** bölümünde **</>** simgesine tıklayın.
-5. İmleci **&lt;giden&gt;** öğesinin içine konumlandırın.
-6. Sağ pencerede **Dönüştürme ilkeleri** bölümünde **+ HTTP üst bilgisini ayarla** seçeneğine iki defa tıklayın (iki ilke kod parçacığı eklemek için).
+1.  **Tanıtım Konferansı API’si** seçeneğini belirleyin.
+2.  Ekranın üst kısmında **Tasarım** sekmesini seçin.
+3.  **Tüm işlemler**’i seçin.
+4.  **Giden işleme** bölümünde **</>** simgesine tıklayın.
+5.  İmleci **&lt;giden&gt;** öğesinin içine konumlandırın.
+6.  Sağ pencerede **Dönüştürme ilkeleri** bölümünde **+ HTTP üst bilgisini ayarla** seçeneğine iki defa tıklayın (iki ilke kod parçacığı eklemek için).
 
     ![İlkeler](./media/transform-api/transform-api.png)
-7. **<outbound>** kodunuzu aşağıdaki gibi görünecek şekilde değiştirin:
+
+7.  **<outbound>** kodunuzu aşağıdaki gibi görünecek şekilde değiştirin:
 
         <set-header name="X-Powered-By" exists-action="delete" />
         <set-header name="X-AspNet-Version" exists-action="delete" />
 
     ![İlkeler](./media/transform-api/set-policy.png)
 
-8. **Kaydet** düğmesine tıklayın.
+8.  **Kaydet** düğmesine tıklayın.
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>API yanıt gövdesindeki özgün URL’leri, APIM ağ geçidi URL’leri ile değiştirme
 
@@ -99,7 +101,7 @@ Bu bölümde, API’lerin HTTP yanıt gövdesinde görüntülenen özgün URL’
 1. **Tanıtım Konferansı API’si** seçeneğini belirleyin.
 2. Ekranın üst kısmındaki **Test** sekmesine tıklayın.
 3. **GetSpeakers** işlemini seçin.
-4. Ekranın alt kısmındaki **Gönder** düğmesine basın. 
+4. Ekranın alt kısmındaki **Gönder** düğmesine basın.
 
     Gördüğünüz gibi özgün yanıt şuna benzer:
 
@@ -107,13 +109,13 @@ Bu bölümde, API’lerin HTTP yanıt gövdesinde görüntülenen özgün URL’
 
 ### <a name="set-the-transformation-policy"></a>Dönüştürme ilkesi ayarlama
 
-1. **Tanıtım Konferansı API’si** seçeneğini belirleyin.
-2. **Tüm işlemler**’i seçin.
-3. Ekranın üst kısmında **Tasarım** sekmesini seçin.
-4. **Giden işleme** bölümünde **</>** simgesine tıklayın.
-5. İmleci **&lt;giden&gt;** öğesinin içine konumlandırın.
-6. Sağ pencerede **Dönüştürme ilkeleri** bölümünde **+ Gövdedeki dizeyi bul ve değiştir** seçeneğine tıklayın.
-7. URL’yi APIM ağ geçidinizle eşleşecek şekilde değiştirmek için **find-and-replace** kodunuzu (**\<giden\>** öğesinde) değiştirin. Örneğin:
+1.  **Tanıtım Konferansı API’si** seçeneğini belirleyin.
+2.  **Tüm işlemler**’i seçin.
+3.  Ekranın üst kısmında **Tasarım** sekmesini seçin.
+4.  **Giden işleme** bölümünde **</>** simgesine tıklayın.
+5.  İmleci **&lt;giden&gt;** öğesinin içine konumlandırın.
+6.  Sağ pencerede **Dönüştürme ilkeleri** bölümünde **+ Gövdedeki dizeyi bul ve değiştir** seçeneğine tıklayın.
+7.  URL’yi APIM ağ geçidinizle eşleşecek şekilde değiştirmek için **find-and-replace** kodunuzu (**\<giden\>** öğesinde) değiştirin. Örneğin:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -123,18 +125,18 @@ Bu bölümde, hız sınırları yapılandırılarak arka uç API’niz için nas
 
 ![Gelen ilkesi ayarlama](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
 
-1. **Tanıtım Konferansı API’si** seçeneğini belirleyin.
-2. **Tüm işlemler**’i seçin.
-3. Ekranın üst kısmında **Tasarım** sekmesini seçin.
-4. İçinde **gelen işlem** bölümünde **</>** simgesi.
-5. İmleci **&lt;gelen&gt;** öğesinin içine konumlandırın.
-6. Sağ pencerede **Erişim kısıtlama ilkeleri** bölümünde **+ Anahtar başına çağrıyı sınırla** seçeneğine tıklayın.
-7. **rate-limit-by-key** kodunuzu (**\<gelen\>** öğesinde) aşağıdaki kodla değiştirin:
+1.  **Tanıtım Konferansı API’si** seçeneğini belirleyin.
+2.  **Tüm işlemler**’i seçin.
+3.  Ekranın üst kısmında **Tasarım** sekmesini seçin.
+4.  İçinde **gelen işlem** bölümünde **</>** simgesi.
+5.  İmleci **&lt;gelen&gt;** öğesinin içine konumlandırın.
+6.  Sağ pencerede **Erişim kısıtlama ilkeleri** bölümünde **+ Anahtar başına çağrıyı sınırla** seçeneğine tıklayın.
+7.  **rate-limit-by-key** kodunuzu (**\<gelen\>** öğesinde) aşağıdaki kodla değiştirin:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
 ## <a name="test-the-transformations"></a>Dönüştürmeleri test etme
-        
+
 Bu noktada kod düzenleyicisinde koda bakarsanız, ilkeleriniz şöyle görünür:
 
     <policies>
@@ -148,6 +150,7 @@ Bu noktada kod düzenleyicisinde koda bakarsanız, ilkeleriniz şöyle görünü
         <outbound>
             <set-header name="X-Powered-By" exists-action="delete" />
             <set-header name="X-AspNet-Version" exists-action="delete" />
+            <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
             <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
             <base />
         </outbound>
@@ -202,10 +205,11 @@ Bu bölümün geri kalanında, bu makalede ayarladığınız ilke dönüştürme
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Yanıt üst bilgilerini gizlemek için API’yi dönüştürme
-> * API yanıt gövdesindeki özgün URL’leri, APIM ağ geçidi URL’leri ile değiştirme
-> * Hız sınırı ilkesi ekleyerek (azaltma) bir API’yi koruma
-> * Dönüştürmeleri test etme
+>
+> -   Yanıt üst bilgilerini gizlemek için API’yi dönüştürme
+> -   API yanıt gövdesindeki özgün URL’leri, APIM ağ geçidi URL’leri ile değiştirme
+> -   Hız sınırı ilkesi ekleyerek (azaltma) bir API’yi koruma
+> -   Dönüştürmeleri test etme
 
 Sonraki öğreticiye ilerleyin:
 

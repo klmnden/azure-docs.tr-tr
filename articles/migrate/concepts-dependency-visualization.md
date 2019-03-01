@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b266ff100d2573ce547564a52ec0efda6ec53458
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257989"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991861"
 ---
 # <a name="dependency-visualization"></a>Bağımlılık görselleştirme
 
@@ -26,7 +26,7 @@ Azure Geçişi'ndeki bağımlılık görselleştirmesi geçiş değerlendirmeler
 
 ## <a name="how-does-it-work"></a>Nasıl çalışır?
 
-Azure geçişi kullanan [hizmet eşlemesi](../operations-management-suite/operations-management-suite-service-map.md) çözümde [Log Analytics](../log-analytics/log-analytics-overview.md) bağımlılık görselleştirmesi için.
+Azure geçişi kullanan [hizmet eşlemesi](../operations-management-suite/operations-management-suite-service-map.md) çözümde [Azure İzleyici günlükleri](../log-analytics/log-analytics-overview.md) bağımlılık görselleştirmesi için.
 - Bağımlılık görselleştirmesi yararlanmak için yeni veya var olan, Log Analytics çalışma alanı yeniden eşlemeniz gerekir ile bir Azure geçişi projesi.
 - Yalnızca oluşturma veya geçiş projesi oluşturulduğu aynı Abonelikteki bir çalışma alanı ekleyin.
 - Bir Log Analytics çalışma alanı için bir proje eklemek için Git **Essentials** projenin bölümünü **genel bakış** sayfasında ve tıklayın **yapılandırma gerektirir**

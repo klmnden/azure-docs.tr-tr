@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: c9d8dd366ecabe9eb508998d526ddfe7b1da300d
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: afec42551f124890dd2cc7b03cce48c359fc88c4
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960533"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194104"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault günlüğü
 
@@ -306,11 +306,11 @@ Aşağıdaki tabloda **operationName** değerler ve ilgili REST API komutları:
 | **SecretList** |[Bir kasadaki gizli anahtarları listeleme](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Bir gizli anahtarın sürümlerini listeleme](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a id="loganalytics"></a>Log Analytics'i kullanma
+## <a id="loganalytics"></a>Azure İzleyici günlüklerine kullanın
 
-Key Vault gözden geçirmek için Azure Log Analytics'te Key Vault çözümünü kullanabilirsiniz **AuditEvent** günlükleri. Log Analytics'te günlük sorguları verileri analiz etmek ve ihtiyacınız olan bilgileri almak için kullanın. 
+Key Vault gözden geçirmek için Azure İzleyici günlüklerine Key Vault çözümünü kullanabilirsiniz **AuditEvent** günlükleri. Azure İzleyici günlüklerine verileri analiz etmek ve ihtiyacınız olan bilgileri almak için günlük sorguları kullanın. 
 
-Kurulum adımları ve daha fazla bilgi için bkz. [Log Analytics'te Azure Key Vault çözümü](../azure-monitor/insights/azure-key-vault.md). Bu makale, ayrıca, ilk Azure depolama hesabınız için günlüklerinizi yönlendirilir ve Log Analytics, konumdan okuyacak şekilde yapılandırılmış Log Analytics Önizleme sırasında sunulan eski Key Vault çözümünden geçmeniz gerekiyorsa yönergeleri içerir.
+Bu, nasıl ayarlanacağı dahil olmak üzere daha fazla bilgi için bkz. [Azure Key Vault çözümü Azure İzleyici günlüklerine](../azure-monitor/insights/azure-key-vault.md). Azure İzleyici günlüklerine sırasında önizleme, Azure depolama hesabınız için günlüklerinizi ilk yönlendirilen burada ve konumdan okuyacak şekilde yapılandırılmış Azure İzleyici günlüklerini sunulan eski Key Vault çözümünden geçmeniz gerekiyorsa bu makalede yönergeler de içerir.
 
 ## <a id="next"></a>Sonraki adımlar
 

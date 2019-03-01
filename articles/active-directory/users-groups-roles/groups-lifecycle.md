@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0df176185bde104a2beb34ea64d54e4069643f69
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d26cd97a248172955dcfcf2662424d1e782793bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190103"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192336"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 grupları için süre sonu ilkesi yapılandırma
 
@@ -30,6 +30,8 @@ Bir grubu süresi dolacak şekilde ayarladıktan sonra:
 -   Grubun sahipleri Grup süre sonu yaklaştığında yenilemek için bildirim
 -   Değil yenilenene herhangi bir grubu silindi
 -   Grup sahipleri veya yönetici tarafından 30 gün içinde silinmiş herhangi bir Office 365 grubu döndürülebilir
+
+Şu anda bir kiracıdaki Office 365 grupları için yalnızca bir süre sonu ilkesi yapılandırılabilir.
 
 > [!NOTE]
 > Yapılandırma ve Office 365 grupları için süre sonu ilkesi kullanma taraftan süre sonu ilkesinin uygulandığı grupların tüm üyeleri için Azure AD Premium lisansına sahip olmanız gerekir.
@@ -61,6 +63,10 @@ Silinen bir grubu geri yüklemek için izinler hakkında daha fazla bilgi için 
   * Office 365 grupları sona seçin. Süre sonu için etkinleştirebilirsiniz **tüm** Office 365 grupları seçebilirsiniz yalnızca etkinleştirmek **seçili** veya Office 365 grupları seçin **hiçbiri**  tüm grupları için sona erme devre dışı bırakmak için.
   * Seçerek işiniz bittiğinde, ayarlarınızı kaydetmek **Kaydet**.
 
+> [!NOTE]
+> * İlk süre sonlarını ayarlama, zaman aşımı aralığından daha eski olan tüm gruplar dolmasına 30 gün için ayarlanır. Bir gün içinde ilk yenileme bildirim e-posta gönderilir. Örneğin, A grubunun 400 gün önce oluşturuldu ve sona erme aralığını 180 gün olarak ayarlanır. Sona erme tarihi geçerli olduğunda, sahibi, yeniler sürece gruba silinmeden önce 30 gün vardır.
+> * Bir dinamik grup silinip geri yüklendiğinde yeni bir grup olarak kabul edilir ve kurala göre yeniden doldurulur. Bu işlem 24 saat kadar sürebilir.
+
 ## <a name="email-notifications"></a>E-posta bildirimleri
 
 Bunun gibi e-posta bildirimleri 30 gün, 15 gün ve 1 gün grubun sona erme tarihinden önce Office 365 grup sahiplerine gönderilir. E-posta dili grupları sahibinin tercih edilen dil veya Kiracı dil tarafından belirlenir. Grup sahibi tercih edilen bir dil tanımlanmış veya aynı tercih edilen dili birden fazla sahibe sahip, dil kullanılır. Diğer tüm durumlarda için Kiracı dili kullanılır.
@@ -77,11 +83,12 @@ Grup silme işlemi, 30 gün içinde seçerek geri yüklenebilir **grubu geri yü
     
 Grubun, geri belgeleri, SharePoint siteleri veya diğer kalıcı nesneler içeriyorsa, tam olarak grubu ve içeriğini geri yüklemek için 24 saat sürebilir.
 
+## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Office 365 grubu sona erme tarihi alma
+Erişim kullanıcı grubu ayrıntıları sona erme tarihini ve son yenilenen tarihi dahil olmak üzere görüntüleyebileceğiniz panele ek olarak, bir Office 365 grubu sona erme tarihini, Microsoft Graph REST API Beta'dan alınabilir. Microsoft Graph Beta expirationDateTime grubu özelliği etkinleştirildi. Bir GET isteğiyle alınabilir. Daha fazla ayrıntı için lütfen başvurmak [Bu örnek](https://docs.microsoft.com/en-us/graph/api/group-get?view=graph-rest-beta#example).
+
 > [!NOTE]
-> * İlk süre sonlarını ayarlama, zaman aşımı aralığından daha eski olan tüm gruplar dolmasına 30 gün için ayarlanır. Bir gün içinde ilk yenileme bildirim e-posta gönderilir. 
->   Örneğin, A grubunun 400 gün önce oluşturuldu ve sona erme aralığını 180 gün olarak ayarlanır. Sona erme tarihi geçerli olduğunda, sahibi, yeniler sürece gruba silinmeden önce 30 gün vardır.
-> * Şu anda bir kiracıdaki Office 365 grupları için yalnızca bir süre sonu ilkesi yapılandırılabilir.
-> * Bir dinamik grup silinip geri yüklendiğinde yeni bir grup olarak kabul edilir ve kurala göre yeniden doldurulur. Bu işlem 24 saat kadar sürebilir.
+> Erişim paneli grup üyeliklerini yönetmek için "Erişim Paneli'nde gruplara erişimi kısıtlama" Azure Active Directory grupları genel ayarını "Hayır" ayarlanması gerekir.
+
 
 ## <a name="how-office-365-group-expiration-works-with-a-mailbox-on-legal-hold"></a>Office 365 Grup süre sonu bir posta kutusuyla yasal tutmada nasıl çalışır
 Bir grubun süresi dolmadan 30 gün sonra silinir olduğunda ve grubun verilerini uygulamalardan Planner, siteleri gibi veya ekipler kalıcı olarak silinir ancak yasal tutmada grubu posta kutusu saklanır ve kalıcı olarak silinmez. Yönetici verileri getirmek için posta kutusunu geri Exchange cmdlet'lerini kullanabilirsiniz. 

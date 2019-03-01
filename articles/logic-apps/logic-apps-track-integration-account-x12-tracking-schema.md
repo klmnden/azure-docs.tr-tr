@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
-ms.openlocfilehash: cfd195f2f812c8b2e09058d325d0dbb6f7a60d59
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125610"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195192"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Oluşturma X12 izleme şemaları tümleştirme hesapları Azure Logic Apps için iletileri
 
@@ -59,19 +59,19 @@ Yardımcı olması için İzleyici başarı, hataları ve işletmeler arası (B2
 
 | Özellik | Tür | Açıklama |
 | --- | --- | --- |
-| senderPartnerName | Dize | Gönderen iş ortağı adı X12 ileti. (İsteğe bağlı) |
-| receiverPartnerName | Dize | Alıcı iş ortağı adı X12 ileti. (İsteğe bağlı) |
-| senderQualifier | Dize | İş ortağı niteleyicisi gönderin. (Zorunlu) |
-| Senderıdentifier | Dize | İş ortağı tanımlayıcısı gönderin. (Zorunlu) |
-| receiverQualifier | Dize | İş ortağı niteleyicisi alırsınız. (Zorunlu) |
-| Receiverıdentifier | Dize | İş ortağı tanımlayıcısını alır. (Zorunlu) |
-| agreementName | Dize | X12 adını, iletileri çözümlenen sözleşme. (İsteğe bağlı) |
+| senderPartnerName | String | Gönderen iş ortağı adı X12 ileti. (İsteğe bağlı) |
+| receiverPartnerName | String | Alıcı iş ortağı adı X12 ileti. (İsteğe bağlı) |
+| senderQualifier | String | İş ortağı niteleyicisi gönderin. (Zorunlu) |
+| Senderıdentifier | String | İş ortağı tanımlayıcısı gönderin. (Zorunlu) |
+| receiverQualifier | String | İş ortağı niteleyicisi alırsınız. (Zorunlu) |
+| Receiverıdentifier | String | İş ortağı tanımlayıcısını alır. (Zorunlu) |
+| agreementName | String | X12 adını, iletileri çözümlenen sözleşme. (İsteğe bağlı) |
 | yön | Sabit listesi | İleti akışı yönünü almak veya göndermek. (Zorunlu) |
-| interchangeControlNumber | Dize | Değişim denetim numarası. (İsteğe bağlı) |
-| functionalGroupControlNumber | Dize | İşlevsel denetim numarası. (İsteğe bağlı) |
-| transactionSetControlNumber | Dize | İşlem kümesi denetim numarası. (İsteğe bağlı) |
-| CorrelationMessageId | Dize | Bağıntı ileti kimliği. {AgreementName} birleşimi {*GroupControlNumber*} {TransactionSetControlNumber}. (İsteğe bağlı) |
-| MessageType | Dize | İşlem kümesi veya belge türü. (İsteğe bağlı) |
+| interchangeControlNumber | String | Değişim denetim numarası. (İsteğe bağlı) |
+| functionalGroupControlNumber | String | İşlevsel denetim numarası. (İsteğe bağlı) |
+| transactionSetControlNumber | String | İşlem kümesi denetim numarası. (İsteğe bağlı) |
+| CorrelationMessageId | String | Bağıntı ileti kimliği. {AgreementName} birleşimi {*GroupControlNumber*} {TransactionSetControlNumber}. (İsteğe bağlı) |
+| messageType | String | İşlem kümesi veya belge türü. (İsteğe bağlı) |
 | isMessageFailed | Boole | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
 | isTechnicalAcknowledgmentExpected | Boole | Teknik Bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
 | isFunctionalAcknowledgmentExpected | Boole | İşlev bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
@@ -115,30 +115,30 @@ Yardımcı olması için İzleyici başarı, hataları ve işletmeler arası (B2
 
 | Özellik | Tür | Açıklama |
 | --- | --- | --- |
-| senderPartnerName | Dize | Gönderen iş ortağı adı X12 ileti. (İsteğe bağlı) |
-| receiverPartnerName | Dize | Alıcı iş ortağı adı X12 ileti. (İsteğe bağlı) |
-| senderQualifier | Dize | İş ortağı niteleyicisi gönderin. (Zorunlu) |
-| Senderıdentifier | Dize | İş ortağı tanımlayıcısı gönderin. (Zorunlu) |
-| receiverQualifier | Dize | İş ortağı niteleyicisi alırsınız. (Zorunlu) |
-| Receiverıdentifier | Dize | İş ortağı tanımlayıcısını alır. (Zorunlu) |
-| agreementName | Dize | X12 adını, iletileri çözümlenen sözleşme. (İsteğe bağlı) |
+| senderPartnerName | String | Gönderen iş ortağı adı X12 ileti. (İsteğe bağlı) |
+| receiverPartnerName | String | Alıcı iş ortağı adı X12 ileti. (İsteğe bağlı) |
+| senderQualifier | String | İş ortağı niteleyicisi gönderin. (Zorunlu) |
+| Senderıdentifier | String | İş ortağı tanımlayıcısı gönderin. (Zorunlu) |
+| receiverQualifier | String | İş ortağı niteleyicisi alırsınız. (Zorunlu) |
+| Receiverıdentifier | String | İş ortağı tanımlayıcısını alır. (Zorunlu) |
+| agreementName | String | X12 adını, iletileri çözümlenen sözleşme. (İsteğe bağlı) |
 | yön | Sabit listesi | İleti akışı yönünü almak veya göndermek. (Zorunlu) |
-| interchangeControlNumber | Dize | Değişim denetim numarası, işlev bildirim. Değer doldurur burada işlevsel bildirim alındığında gönderilen iletileri gönderme tarafı için iş ortağı için. (İsteğe bağlı) |
-| functionalGroupControlNumber | Dize | İşlev bildirim işlevsel Grup denetim numarası. Değer doldurur burada işlevsel bildirim alındığında gönderilen iletileri gönderme tarafı için iş ortağı için. (İsteğe bağlı) |
-| isaSegment | Dize | ISA segmenti iletinin. Değer doldurur burada işlevsel bildirim alındığında gönderilen iletileri gönderme tarafı için iş ortağı için. (İsteğe bağlı) |
-| gsSegment | Dize | İletinin GS kesimi. Değer doldurur burada işlevsel bildirim alındığında gönderilen iletileri gönderme tarafı için iş ortağı için. (İsteğe bağlı) |
-| respondingfunctionalGroupControlNumber | Dize | Değişim denetim numarası yanıt. (İsteğe bağlı) |
-| respondingFunctionalGroupId | Dize | İçinde bildirim için AK101 eşleştiren işlevsel Grup Kimliği yanıt. (İsteğe bağlı) |
-| respondingtransactionSetControlNumber | Dize | Yanıt veren işlem kümesi denetim numarası. (İsteğe bağlı) |
-| respondingTransactionSetId | Dize | Yanıt veren işlem AK201 için bildirim içinde eşleştiren kimliği ayarlayın. (İsteğe bağlı) |
+| interchangeControlNumber | String | Değişim denetim numarası, işlev bildirim. Değer doldurur burada işlevsel bildirim alındığında gönderilen iletileri gönderme tarafı için iş ortağı için. (İsteğe bağlı) |
+| functionalGroupControlNumber | String | İşlev bildirim işlevsel Grup denetim numarası. Değer doldurur burada işlevsel bildirim alındığında gönderilen iletileri gönderme tarafı için iş ortağı için. (İsteğe bağlı) |
+| isaSegment | String | ISA segmenti iletinin. Değer doldurur burada işlevsel bildirim alındığında gönderilen iletileri gönderme tarafı için iş ortağı için. (İsteğe bağlı) |
+| gsSegment | String | İletinin GS kesimi. Değer doldurur burada işlevsel bildirim alındığında gönderilen iletileri gönderme tarafı için iş ortağı için. (İsteğe bağlı) |
+| respondingfunctionalGroupControlNumber | String | Değişim denetim numarası yanıt. (İsteğe bağlı) |
+| respondingFunctionalGroupId | String | İçinde bildirim için AK101 eşleştiren işlevsel Grup Kimliği yanıt. (İsteğe bağlı) |
+| respondingtransactionSetControlNumber | String | Yanıt veren işlem kümesi denetim numarası. (İsteğe bağlı) |
+| respondingTransactionSetId | String | Yanıt veren işlem AK201 için bildirim içinde eşleştiren kimliği ayarlayın. (İsteğe bağlı) |
 | statusCode | Boole | Onay durum kodunu işlem kümesi. (Zorunlu) |
 | segmentsCount | Sabit listesi | Onay durum kodunu. İzin verilen değerler **kabul edilen**, **reddedildi**, ve **AcceptedWithErrors**. (Zorunlu) |
 | processingStatus | Sabit listesi | İşlem durumu alındı. İzin verilen değerler **alınan**, **oluşturulan**, ve **gönderilen**. (Zorunlu) |
-| CorrelationMessageId | Dize | Bağıntı ileti kimliği. {AgreementName} birleşimi {*GroupControlNumber*} {TransactionSetControlNumber}. (İsteğe bağlı) |
+| CorrelationMessageId | String | Bağıntı ileti kimliği. {AgreementName} birleşimi {*GroupControlNumber*} {TransactionSetControlNumber}. (İsteğe bağlı) |
 | isMessageFailed | Boole | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
-| ak2Segment | Dize | Bildirim için bir işlem içinde alınan işlevsel grup kümesi. (İsteğe bağlı) |
-| ak3Segment | Dize | Veri segmenti hataları bildirir. (İsteğe bağlı) |
-| ak5Segment | Dize | İşlem AK2 segment tanımlanan kümesi kabul ya da reddedilen ve neden bildirir. (İsteğe bağlı) |
+| ak2Segment | String | Bildirim için bir işlem içinde alınan işlevsel grup kümesi. (İsteğe bağlı) |
+| ak3Segment | String | Veri segmenti hataları bildirir. (İsteğe bağlı) |
+| ak5Segment | String | İşlem AK2 segment tanımlanan kümesi kabul ya da reddedilen ve neden bildirir. (İsteğe bağlı) |
 ||||
 
 ## <a name="x12-interchange-tracking-schema"></a>X12 değişim izleme şeması
@@ -173,25 +173,25 @@ Yardımcı olması için İzleyici başarı, hataları ve işletmeler arası (B2
 
 | Özellik | Tür | Açıklama |
 | --- | --- | --- |
-| senderPartnerName | Dize | Gönderen iş ortağı adı X12 ileti. (İsteğe bağlı) |
-| receiverPartnerName | Dize | Alıcı iş ortağı adı X12 ileti. (İsteğe bağlı) |
-| senderQualifier | Dize | İş ortağı niteleyicisi gönderin. (Zorunlu) |
-| Senderıdentifier | Dize | İş ortağı tanımlayıcısı gönderin. (Zorunlu) |
-| receiverQualifier | Dize | İş ortağı niteleyicisi alırsınız. (Zorunlu) |
-| Receiverıdentifier | Dize | İş ortağı tanımlayıcısını alır. (Zorunlu) |
-| agreementName | Dize | X12 adını, iletileri çözümlenen sözleşme. (İsteğe bağlı) |
+| senderPartnerName | String | Gönderen iş ortağı adı X12 ileti. (İsteğe bağlı) |
+| receiverPartnerName | String | Alıcı iş ortağı adı X12 ileti. (İsteğe bağlı) |
+| senderQualifier | String | İş ortağı niteleyicisi gönderin. (Zorunlu) |
+| Senderıdentifier | String | İş ortağı tanımlayıcısı gönderin. (Zorunlu) |
+| receiverQualifier | String | İş ortağı niteleyicisi alırsınız. (Zorunlu) |
+| Receiverıdentifier | String | İş ortağı tanımlayıcısını alır. (Zorunlu) |
+| agreementName | String | X12 adını, iletileri çözümlenen sözleşme. (İsteğe bağlı) |
 | yön | Sabit listesi | İleti akışı yönünü almak veya göndermek. (Zorunlu) |
-| interchangeControlNumber | Dize | Değişim denetim numarası. (İsteğe bağlı) |
-| isaSegment | Dize | İleti ISA segmenti. (İsteğe bağlı) |
+| interchangeControlNumber | String | Değişim denetim numarası. (İsteğe bağlı) |
+| isaSegment | String | İleti ISA segmenti. (İsteğe bağlı) |
 | isTechnicalAcknowledgmentExpected | Boole | Teknik Bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
 | isMessageFailed | Boole | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
-| isa09 | Dize | X12 belge değişim tarih. (İsteğe bağlı) |
-| isa10 | Dize | Değişim zaman X12 belgeleyin. (İsteğe bağlı) |
-| ısa11 | Dize | X12 Değişim Denetimi standartları tanımlayıcısı. (İsteğe bağlı) |
-| ısa12 | Dize | X12 değişim denetim sürüm numarası. (İsteğe bağlı) |
-| isa14 | Dize | X12 bildirim istendi. (İsteğe bağlı) |
-| ısa15 | Dize | Test veya üretim için göstergesi. (İsteğe bağlı) |
-| isa16 | Dize | Öğe ayırıcı. (İsteğe bağlı) |
+| isa09 | String | X12 belge değişim tarih. (İsteğe bağlı) |
+| isa10 | String | Değişim zaman X12 belgeleyin. (İsteğe bağlı) |
+| ısa11 | String | X12 Değişim Denetimi standartları tanımlayıcısı. (İsteğe bağlı) |
+| ısa12 | String | X12 değişim denetim sürüm numarası. (İsteğe bağlı) |
+| isa14 | String | X12 bildirim istendi. (İsteğe bağlı) |
+| ısa15 | String | Test veya üretim için göstergesi. (İsteğe bağlı) |
+| isa16 | String | Öğe ayırıcı. (İsteğe bağlı) |
 ||||
 
 ## <a name="x12-interchange-acknowledgement-tracking-schema"></a>X12 değişim bildirim izleme şeması
@@ -224,23 +224,23 @@ Yardımcı olması için İzleyici başarı, hataları ve işletmeler arası (B2
 
 | Özellik | Tür | Açıklama |
 | --- | --- | --- |
-| senderPartnerName | Dize | Gönderen iş ortağı adı X12 ileti. (İsteğe bağlı) |
-| receiverPartnerName | Dize | Alıcı iş ortağı adı X12 ileti. (İsteğe bağlı) |
-| senderQualifier | Dize | İş ortağı niteleyicisi gönderin. (Zorunlu) |
-| Senderıdentifier | Dize | İş ortağı tanımlayıcısı gönderin. (Zorunlu) |
-| receiverQualifier | Dize | İş ortağı niteleyicisi alırsınız. (Zorunlu) |
-| Receiverıdentifier | Dize | İş ortağı tanımlayıcısını alır. (Zorunlu) |
-| agreementName | Dize | X12 adını, iletileri çözümlenen sözleşme. (İsteğe bağlı) |
+| senderPartnerName | String | Gönderen iş ortağı adı X12 ileti. (İsteğe bağlı) |
+| receiverPartnerName | String | Alıcı iş ortağı adı X12 ileti. (İsteğe bağlı) |
+| senderQualifier | String | İş ortağı niteleyicisi gönderin. (Zorunlu) |
+| Senderıdentifier | String | İş ortağı tanımlayıcısı gönderin. (Zorunlu) |
+| receiverQualifier | String | İş ortağı niteleyicisi alırsınız. (Zorunlu) |
+| Receiverıdentifier | String | İş ortağı tanımlayıcısını alır. (Zorunlu) |
+| agreementName | String | X12 adını, iletileri çözümlenen sözleşme. (İsteğe bağlı) |
 | yön | Sabit listesi | İleti akışı yönünü almak veya göndermek. (Zorunlu) |
-| interchangeControlNumber | Dize | Değişim denetim numarası, iş ortaklarından alınan Teknik Bildirim. (İsteğe bağlı) |
-| isaSegment | Dize | İş ortaklarından alınan Teknik Bildirim için ISA segmenti. (İsteğe bağlı) |
-| respondingInterchangeControlNumber |Dize | Değişim denetim numarası için iş ortaklarından alınan Teknik Bildirim. (İsteğe bağlı) |
+| interchangeControlNumber | String | Değişim denetim numarası, iş ortaklarından alınan Teknik Bildirim. (İsteğe bağlı) |
+| isaSegment | String | İş ortaklarından alınan Teknik Bildirim için ISA segmenti. (İsteğe bağlı) |
+| respondingInterchangeControlNumber |String | Değişim denetim numarası için iş ortaklarından alınan Teknik Bildirim. (İsteğe bağlı) |
 | isMessageFailed | Boole | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
 | statusCode | Sabit listesi | Onay durum kodunu değişimi. İzin verilen değerler **kabul edilen**, **reddedildi**, ve **AcceptedWithErrors**. (Zorunlu) |
 | processingStatus | Sabit listesi | Bildirim durumu. İzin verilen değerler **alınan**, **oluşturulan**, ve **gönderilen**. (Zorunlu) |
-| ta102 | Dize | Tarih değişimi. (İsteğe bağlı) |
-| ta103 | Dize | Zaman değişimi. (İsteğe bağlı) |
-| ta105 | Dize | Not kod değişim. (İsteğe bağlı) |
+| ta102 | String | Tarih değişimi. (İsteğe bağlı) |
+| ta103 | String | Zaman değişimi. (İsteğe bağlı) |
+| ta105 | String | Not kod değişim. (İsteğe bağlı) |
 ||||
 
 ## <a name="x12-functional-group-tracking-schema"></a>X12 işlevsel Grup izleme şeması
@@ -277,27 +277,27 @@ Yardımcı olması için İzleyici başarı, hataları ve işletmeler arası (B2
 
 | Özellik | Tür | Açıklama |
 | --- | --- | --- |
-| senderPartnerName | Dize | Gönderen iş ortağı adı X12 ileti. (İsteğe bağlı) |
-| receiverPartnerName | Dize | Alıcı iş ortağı adı X12 ileti. (İsteğe bağlı) |
-| senderQualifier | Dize | İş ortağı niteleyicisi gönderin. (Zorunlu) |
-| Senderıdentifier | Dize | İş ortağı tanımlayıcısı gönderin. (Zorunlu) |
-| receiverQualifier | Dize | İş ortağı niteleyicisi alırsınız. (Zorunlu) |
-| Receiverıdentifier | Dize | İş ortağı tanımlayıcısını alır. (Zorunlu) |
-| agreementName | Dize | X12 adını, iletileri çözümlenen sözleşme. (İsteğe bağlı) |
+| senderPartnerName | String | Gönderen iş ortağı adı X12 ileti. (İsteğe bağlı) |
+| receiverPartnerName | String | Alıcı iş ortağı adı X12 ileti. (İsteğe bağlı) |
+| senderQualifier | String | İş ortağı niteleyicisi gönderin. (Zorunlu) |
+| Senderıdentifier | String | İş ortağı tanımlayıcısı gönderin. (Zorunlu) |
+| receiverQualifier | String | İş ortağı niteleyicisi alırsınız. (Zorunlu) |
+| Receiverıdentifier | String | İş ortağı tanımlayıcısını alır. (Zorunlu) |
+| agreementName | String | X12 adını, iletileri çözümlenen sözleşme. (İsteğe bağlı) |
 | yön | Sabit listesi | İleti akışı yönünü almak veya göndermek. (Zorunlu) |
-| interchangeControlNumber | Dize | Değişim denetim numarası. (İsteğe bağlı) |
-| functionalGroupControlNumber | Dize | İşlevsel denetim numarası. (İsteğe bağlı) |
-| gsSegment | Dize | İleti GS kesimi. (İsteğe bağlı) |
+| interchangeControlNumber | String | Değişim denetim numarası. (İsteğe bağlı) |
+| functionalGroupControlNumber | String | İşlevsel denetim numarası. (İsteğe bağlı) |
+| gsSegment | String | İleti GS kesimi. (İsteğe bağlı) |
 | isTechnicalAcknowledgmentExpected | Boole | Teknik Bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
 | isFunctionalAcknowledgmentExpected | Boole | İşlev bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
 | isMessageFailed | Boole | Olmadığını X12 ileti başarısız oldu. (Zorunlu)|
-| gs01 | Dize | İşlev tanımlayıcı kod. (İsteğe bağlı) |
-| gs02 | Dize | Uygulama gönderen kodu. (İsteğe bağlı) |
-| gs03 | Dize | Uygulama alıcının kodu. (İsteğe bağlı) |
-| gs04 | Dize | İşlevsel Grup tarih. (İsteğe bağlı) |
-| gs05 | Dize | İşlevsel Grup süre. (İsteğe bağlı) |
-| gs07 | Dize | Sorumlu Ajans kodu. (İsteğe bağlı) |
-| gs08 | Dize | Sürüm/yayın/sektör tanımlayıcı kod. (İsteğe bağlı) |
+| gs01 | String | İşlev tanımlayıcı kod. (İsteğe bağlı) |
+| gs02 | String | Uygulama gönderen kodu. (İsteğe bağlı) |
+| gs03 | String | Uygulama alıcının kodu. (İsteğe bağlı) |
+| gs04 | String | İşlevsel Grup tarih. (İsteğe bağlı) |
+| gs05 | String | İşlevsel Grup süre. (İsteğe bağlı) |
+| gs07 | String | Sorumlu Ajans kodu. (İsteğe bağlı) |
+| gs08 | String | Sürüm/yayın/sektör tanımlayıcı kod. (İsteğe bağlı) |
 ||||
 
 ## <a name="x12-functional-group-acknowledgement-tracking-schema"></a>İzleme şeması bildirim X12 işlevsel Grup
@@ -333,26 +333,26 @@ Yardımcı olması için İzleyici başarı, hataları ve işletmeler arası (B2
 
 | Özellik | Tür | Açıklama |
 | --- | --- | --- |
-| senderPartnerName | Dize | Gönderen iş ortağı adı X12 ileti. (İsteğe bağlı) |
-| receiverPartnerName | Dize | Alıcı iş ortağı adı X12 ileti. (İsteğe bağlı) |
-| senderQualifier | Dize | İş ortağı niteleyicisi gönderin. (Zorunlu) |
-| Senderıdentifier | Dize | İş ortağı tanımlayıcısı gönderin. (Zorunlu) |
-| receiverQualifier | Dize | İş ortağı niteleyicisi alırsınız. (Zorunlu) |
-| Receiverıdentifier | Dize | İş ortağı tanımlayıcısını alır. (Zorunlu) |
-| agreementName | Dize | X12 adını, iletileri çözümlenen sözleşme. (İsteğe bağlı) |
+| senderPartnerName | String | Gönderen iş ortağı adı X12 ileti. (İsteğe bağlı) |
+| receiverPartnerName | String | Alıcı iş ortağı adı X12 ileti. (İsteğe bağlı) |
+| senderQualifier | String | İş ortağı niteleyicisi gönderin. (Zorunlu) |
+| Senderıdentifier | String | İş ortağı tanımlayıcısı gönderin. (Zorunlu) |
+| receiverQualifier | String | İş ortağı niteleyicisi alırsınız. (Zorunlu) |
+| Receiverıdentifier | String | İş ortağı tanımlayıcısını alır. (Zorunlu) |
+| agreementName | String | X12 adını, iletileri çözümlenen sözleşme. (İsteğe bağlı) |
 | yön | Sabit listesi | İleti akışı yönünü almak veya göndermek. (Zorunlu) |
-| interchangeControlNumber | Dize | İş ortaklarından Teknik Bildirim alındığında için gönderme tarafı doldurur değişim denetim numarası. (İsteğe bağlı) |
-| functionalGroupControlNumber | Dize | İş ortaklarından Teknik Bildirim alındığında için gönderme tarafı doldurur Teknik Bildirim işlevsel Grup denetim numarası. (İsteğe bağlı) |
-| isaSegment | Dize | Değişim aynı numarası, ancak yalnızca belirli durumlarda doldurulmuş denetler. (İsteğe bağlı) |
-| gsSegment | Dize | İşlevsel Grup aynı numarası, ancak yalnızca belirli durumlarda doldurulmuş denetler. (İsteğe bağlı) |
-| respondingfunctionalGroupControlNumber | Dize | Özgün işlevsel Grup denetim numarası. (İsteğe bağlı) |
-| respondingFunctionalGroupId | Dize | AK101 eşlenir bildirim işlevsel grubun kimliği. (İsteğe bağlı) |
+| interchangeControlNumber | String | İş ortaklarından Teknik Bildirim alındığında için gönderme tarafı doldurur değişim denetim numarası. (İsteğe bağlı) |
+| functionalGroupControlNumber | String | İş ortaklarından Teknik Bildirim alındığında için gönderme tarafı doldurur Teknik Bildirim işlevsel Grup denetim numarası. (İsteğe bağlı) |
+| isaSegment | String | Değişim aynı numarası, ancak yalnızca belirli durumlarda doldurulmuş denetler. (İsteğe bağlı) |
+| gsSegment | String | İşlevsel Grup aynı numarası, ancak yalnızca belirli durumlarda doldurulmuş denetler. (İsteğe bağlı) |
+| respondingfunctionalGroupControlNumber | String | Özgün işlevsel Grup denetim numarası. (İsteğe bağlı) |
+| respondingFunctionalGroupId | String | AK101 eşlenir bildirim işlevsel grubun kimliği. (İsteğe bağlı) |
 | isMessageFailed | Boole | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
 | statusCode | Sabit listesi | Onay durum kodunu. İzin verilen değerler **kabul edilen**, **reddedildi**, ve **AcceptedWithErrors**. (Zorunlu) |
 | processingStatus | Sabit listesi | İşlem durumu alındı. İzin verilen değerler **alınan**, **oluşturulan**, ve **gönderilen**. (Zorunlu) |
-| ak903 | Dize | Alınan işlem kümesi sayısı. (İsteğe bağlı) |
-| ak904 | Dize | İşlem kümesi sayısı içinde tanımlanan işlevsel Grup kabul edildi. (İsteğe bağlı) |
-| ak9Segment | Dize | AK1 kesimdeki tanımlanan işlevsel Grup kabul ya da reddedilen ve neden. (İsteğe bağlı) |
+| ak903 | String | Alınan işlem kümesi sayısı. (İsteğe bağlı) |
+| ak904 | String | İşlem kümesi sayısı içinde tanımlanan işlevsel Grup kabul edildi. (İsteğe bağlı) |
+| ak9Segment | String | AK1 kesimdeki tanımlanan işlevsel Grup kabul ya da reddedilen ve neden. (İsteğe bağlı) |
 |||| 
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B Protokolü izleme şemaları
@@ -365,4 +365,4 @@ B2B protokol şemaları izleme hakkında daha fazla bilgi için bkz:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Daha fazla bilgi edinin [B2B iletilerini izleme](logic-apps-monitor-b2b-message.md).
-* Hakkında bilgi edinin [Log analytics'te B2B iletilerini izleme](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Hakkında bilgi edinin [Azure İzleyici günlüklerine B2B iletilerini izleme](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).

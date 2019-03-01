@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1509f40b88e3dc9c51bd00ed379c5b0130230a99
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b1c69705131cfea4e5ace9b5b9e829b3fdfa87e4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178847"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991657"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory kimlik koruması, risk olayları başvurusu
 
@@ -83,6 +83,7 @@ Bu risk olayı türünü etkin bir bot sunucusuyla iletişim kurmak için biline
 **Algılama türü:** Gerçek zamanlı  
 **Eski adı:** Alışılmadık konumlardan oturum açma işlemleri
 
-Oturum açma işlemleri tanıdık özellikleriyle belirlemek için oturum açma özellikleri (örneğin, cihaz, konum, ağ) Bu risk olayı türünü göz önünde bulundurur. Sistem, önceki konumlara bir kullanıcı tarafından kullanılan özellikleri depolar ve bunlar "tanıdık" olarak değerlendirir. Risk olayı, zaten alışık olduğunuz özelliklerinin listesini özellikleri ile oturum açma meydana geldiğinde tetiklenir. Sistem, bu sırada, tüm yeni algılamalar işaretlemez 30 günlük bir öğrenme dönemi sahiptir.
+Bu risk olayı türünü oturum açma geçmişini göz önünde bulundurur (IP, enlem / boylam ve ASN) anormal oturum açma için aranacak. Sistem, bir kullanıcı tarafından kullanılan önceki konumları hakkında bilgi depolar ve bu "tanıdık" konumlar göz önünde bulundurur. Risk olayı bilinen konumları listesinde olmayan bir konumdan oturum açma meydana geldiğinde tetiklenir. Yeni oluşturulan kullanıcılar "öğrenme modunda", bir süre için kullanıcının davranışını algoritmalarınızı öğrenmenin yanı sıra hangi alışılmadık oturum açma özelliklerinde risk olaylarını devre dışı olması. Öğrenme modu süresi dinamiktir ve bağlıdır üzerinde ne kadar süre sürer algoritması kullanıcının oturum açma düzenleri hakkında yeterli bilgi toplayın. En düşük süre beş gündür. Bir kullanıcı modu uzun bir süre etkin olmayıp öğrenme moduna geri dönebilirsiniz. Tanıdık cihazlardan ve coğrafi olarak bilinen bir konuma yakın olan konumlardan oturum açma işlemleri de yoksayar. 
+
 Ayrıca bu algılama için temel kimlik doğrulaması (veya eski protokolleri) çalıştırıyoruz. Bu protokollerin istemci kimliği gibi modern özellikleri olmadığı için hatalı pozitif sonuçları azaltmak için sınırlı telemetri yoktur. Müşterilerimize modern kimlik doğrulaması için taşımanız önerilir.
 

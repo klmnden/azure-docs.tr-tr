@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: e948ee943db646ca83d39510485849b3c9956e90
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: df3ae6fbeceb85df6d6e5245a5bbad517179733c
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697458"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991368"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso geçişi: Şirket içi iş yüklerini, Azure’a geçişe yönelik olarak değerlendirme
 
@@ -90,7 +90,7 @@ Teknoloji | Açıklama | Maliyet
 --- | --- | ---
 [Veri Geçiş Yardımcısı](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso değerlendirmek ve azure'daki veritabanı işlevselliğini etkileyebilecek uyumluluk sorunlarını algılamak için veri geçiş Yardımcısı'nı kullanır. Data Migration Yardımcısı SQL kaynaklar ve hedefler arasında özellik eşliği değerlendirir. Bu, performans ve güvenilirlik iyileştirmeleri önerir. | Data Migration Yardımcısı bir ücretsiz ve indirilebilir bir araçtır.
 [Azure Geçişi](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso, VMware Vm'lerini değerlendirmek için Azure geçişi hizmeti kullanır. Azure geçişi, makinelerin geçiş uygunluğunu değerlendirir. Bu, Azure'da çalıştırmak için boyutlandırma ve maliyet tahminleri sağlar.  | Mayıs 2018'den itibaren Azure geçişi ücretsiz bir hizmettir.
-[Hizmet Eşlemesi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure geçişi, şirket geçmek istediği makineler arasındaki bağımlılıkları göstermek için hizmet eşlemesini kullanır. | Hizmet Eşlemesi, Azure Log Analytics’in bir parçasıdır. Şu anda, Contoso, hizmet eşlemesi 180 gün için kullanabilirsiniz.
+[Hizmet Eşlemesi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure geçişi, şirket geçmek istediği makineler arasındaki bağımlılıkları göstermek için hizmet eşlemesini kullanır. | Hizmet eşlemesi, Azure İzleyici günlüklerine bir parçasıdır. Şu anda, Contoso, hizmet eşlemesi 180 gün için kullanabilirsiniz.
 
 Bu senaryoda Contoso indirir ve kendi seyahat uygulaması için şirket içi SQL Server veritabanını değerlendirmek için veri geçiş Yardımcısı çalıştırılır. Contoso Azure Geçişi ' % s'uygulama sanal makinelerini azure'a geçiş işleminden önce değerlendirmek için bağımlılık eşlemesi ile kullanır.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a9839d636ba582c5006a260aeb6a17ac1a12e9b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdd4ecb1bfc9385ea3fa23756fcbf8fb20b6d87c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986014"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193254"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Önizleme: Azure AD parola koruması dağıtma
 
@@ -57,6 +57,7 @@ Bu tercihen Windows Update aracılığıyla makine tam olarak düzeltme eki uygu
 * Azure AD parola koruması Proxy Hizmeti ve orman Azure AD'ye kaydetmeniz için bir genel yönetici hesabı.
 * Azure AD ile Windows Server Active Directory orman kaydetmek için orman kök etki alanındaki Active Directory etki alanı yönetici ayrıcalıklarına sahip bir hesap.
 * DC çalıştıran herhangi bir Active Directory etki alanı Aracı hizmeti yazılımı DFSR sysvol çoğaltma için kullanmanız gerekir.
+* Tüm Windows Server 2012 ve sonraki etki alanı denetleyicileri etki alanındaki Microsoft anahtar dağıtım hizmeti etkinleştirilmelidir (el ile tetikleyici başlangıç bu hizmeti varsayılan durumu etkindir).
 
 ## <a name="single-forest-deployment"></a>Tek ormanlı dağıtımı
 
@@ -278,7 +279,7 @@ Azure AD parola koruması birden çok orman içinde dağıtmak için ek gereksin
 
 Parola changes\sets hiçbir zaman işlenir ve salt okunur etki alanı denetleyicileri (RODC);'üzerinde kalıcı Bunun yerine, bu yazılabilir etki alanı denetleyicilerine iletilir. Bu nedenle RODC üzerinde DC Aracısı yazılımı yüklemek için gerek yoktur.
 
-## <a name="high-availability"></a>Yüksek oranda kullanılabilirlik
+## <a name="high-availability"></a>Yüksek kullanılabilirlik
 
 Bir ormandaki etki alanı denetleyicilerinin yeni ilkeler veya diğer verileri Azure'dan yüklemeye çalışırken ile Azure AD parola koruması yüksek kullanılabilirliğini sağlama kaygısı proxy sunucuların bir kullanılabilirlik kümesidir. Her bir DC aracı proxy sunucusunu çağrısı ve atlar, yanıt vermeyen proxy sunucuları verirken basit hepsini bir kez deneme stil algoritması kullanır. İki (2) proxy sunucuları tam olarak bağlı Active Directory dağıtımların çoğunluğu için sağlıklı çoğaltması (durumunun hem directory ve sysvol'de), kullanılabilirlik ve bu nedenle zamanında yüklemeleri yeni ilkeleri ve diğer verileri emin olmak yeterli olur. İstenen. ek proxy sunucuları olarak dağıtılabilir.
 

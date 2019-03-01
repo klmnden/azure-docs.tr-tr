@@ -1,24 +1,20 @@
 ---
 title: 'Öğretici: Azure Stream Analytics JavaScript kullanıcı tanımlı işlevleri | Microsoft Docs '
 description: Bu öğreticide JavaScript kullanıcı tanımlı işlevleri ile gelişmiş sorgu mekanizmalarını uygulayacaksınız
-keywords: javascript, kullanıcı tanımlı işlevler, udf
 services: stream-analytics
 author: rodrigoamicrosoft
-manager: kfile
-ms.assetid: ''
+ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.workload: data-services
-ms.author: rodrigoa
-ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088886"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192284"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Öğretici: Azure Stream Analytics JavaScript kullanıcı tanımlı işlevleri
  
@@ -50,12 +46,19 @@ Stream Analytics’te bir JavaScript kullanıcı tanımlı işlevi ile yapamayac
 **Date.GetDate()** veya **Math.random()** gibi işlevler işlev tanımında engellenmese de bunları kullanmaktan kaçınmanız gerekir. Bu işlevler her çağırdığınızda aynı sonucu **vermezler** ve Azure Stream Analytics hizmeti, işlev çağrılarının ve döndürülen sonuçların kaydını tutmaz. Bir işlev aynı olaylar üzerinde farklı sonuçlar döndürürse, siz veya Stream Analytics hizmeti tarafından bir iş yeniden başlatıldığında tekrarlanabilirlik garanti edilmez.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Azure portalına JavaScript kullanıcı tanımlı işlevi ekleme
-Var olan bir Stream Analytics işi altında basit bir JavaScript kullanıcı tanımlı işlevi oluşturmak için şu adımları uygulayın:
+Basit bir JavaScript kullanıcı tanımlı işlevi altında var olan bir Stream Analytics işi oluşturmak için bu adımları izleyin:
+
+> [!NOTE]
+> Bu adımlar, bulutta çalışacak şekilde yapılandırılmış Stream Analytics işlerinde geçerlidir. Stream Analytics işinizi Azure IOT Edge üzerinde çalıştırmak için yapılandırılmışsa, bunun yerine Visual Studio kullanın ve [kullanarak kullanıcı tanımlı işlev yazma C# ](stream-analytics-edge-csharp-udf.md).
 
 1.  Azure portalında Stream Analytics işinizi bulun.
-2.  **İŞ TOPOLOJİSİ** altında işlevinizi seçin. Boş bir işlevler listesi görüntülenir.
-3.  Yeni bir kullanıcı tanımlı işlev oluşturmak için **Ekle**’yi seçin.
+
+2. Altında **iş topolojisi** başlığı seçin **işlevleri**. Boş bir işlevler listesi görüntülenir.
+
+3.  Yeni bir kullanıcı tanımlı işlev oluşturmak için Seç **+ Ekle**.
+
 4.  **Yeni İşlev** dikey penceresinde **İşlev Türü** olarak **JavaScript**’i seçin. Düzenleyicide varsayılan bir işlev şablonu görüntülenir.
+
 5.  **UDF diğer adı** için **hex2Int** girin ve işlev uygulamasını aşağıdaki gibi değiştirin:
 
     ```javascript
@@ -70,7 +73,7 @@ Var olan bir Stream Analytics işi altında basit bir JavaScript kullanıcı tan
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Bir sorguda JavaScript kullanıcı tanımlı işlevi çağırma
 
-1. Sorgu düzenleyicisindeki **İŞ TOPOLOJİSİ** altında **Sorgu**’yu seçin.
+1. Sorgu Düzenleyicisi'nde altında **iş topolojisi** başlığı seçin **sorgu**.
 2.  Sorgunuzu düzenleyin ve sonra aşağıdaki gibi kullanıcı tanımlı işlevi çağırın:
 
     ```SQL

@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 474148289bb03088bbf92eeadc4049ce19625e3e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 06f1a2b33b177cf667fc2d3c5932f7ff117d2bdc
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115955"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195481"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 
@@ -55,7 +55,7 @@ Birkaç Key Vault oluşturduktan sonra anahtarlarınıza ve gizli dizilerinize n
 
 - Bir depolama hesabına arşivleme.
 - Bir olay hub'ına akış yapma.
-- Günlükleri Log Analytics’e gönderme.
+- Azure İzleyici günlüklerine günlükleri gönderin.
 
 Günlükleriniz üzerinde denetime sahip olursunuz ve erişimi kısıtlayarak günlükleri güvenli hale getirebilir ve artık gerekli olmayan günlükleri de silebilirsiniz.
 

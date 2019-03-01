@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 5c791dc8216a4c905b4147f59a42d52091f14aae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 93e1904862af7eaad395bf14b0d09555d9d1d2ab
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465988"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990144"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Tasarım Kılavuzu, Azure SQL veri ambarı'nda çoğaltılmış tablolar'ı kullanma
 Bu makalede, SQL veri ambarı şema çoğaltılmış tablolarda tasarlamaya yönelik öneriler sunar. Veri taşıma ve sorgu karmaşıklığı azaltarak sorgu performansını artırmak için bu önerileri kullanın.
@@ -58,7 +58,7 @@ Tabloya karşı çalıştırmayı planladığınız sorgu türleri, dağıtmak v
 
 İş işlem düğümlerinin tamamında yeniden dağıtıldığında CPU yoğunluklu sorguları en iyi şekilde çalışır. Örneğin, tablonun her satırında üzerinde hesaplamalar çalışan sorguları daha çoğaltılmış tablolar dağıtılmış tablolar üzerinde daha iyi gerçekleştirin. Çoğaltılmış bir tabloda, her işlem düğümünde tam depolandığından, çoğaltılmış bir tabloda CPU-yoğun sorgu karşı tüm tablo her işlem düğümünde çalışır. Ek hesaplama sorgu performansını yavaşlatabilir.
 
-Örneğin, bu sorgu, karmaşık bir koşul vardır.  Tedarikçi çoğaltılmış bir tabloda yerine dağıtılmış bir tablo olduğunda daha hızlı çalışır. Bu örnekte, tedarikçi hepsini dağıtılmış olabilir.
+Örneğin, bu sorgu, karmaşık bir koşul vardır.  Çoğaltılmış bir tabloda yerine dağıtılmış bir tablodaki verileri olduğunda daha hızlı çalışır. Bu örnekte, veriler hepsini dağıtılmış olabilir.
 
 ```sql
 
@@ -69,7 +69,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Çoğaltılmış tablolar için mevcut hepsini bir kez deneme tabloları Dönüştür
-Hepsini bir kez deneme tabloları zaten varsa, bunları çoğaltılmış tablolar için bu makalede açıklanan ölçütlerle karşılıyorsanız dönüştürmenizi öneririz. Bunlar veri taşıma gereksinimini ortadan kaldırdığı için çoğaltılmış tablolar hepsini bir kez deneme tabloları performansını iyileştirin.  Hepsini bir kez deneme tablo, veri taşıma birleştirmeler için her zaman gerektirir. 
+Hepsini bir kez deneme tabloları zaten varsa, bunlar bu makalede ana hatlarıyla belirtilen ölçütleri karşıladığı durumlarda bunları çoğaltılmış tablolar için dönüştürmenizi öneririz. Bunlar veri taşıma gereksinimini ortadan kaldırdığı için çoğaltılmış tablolar hepsini bir kez deneme tabloları performansını iyileştirin.  Hepsini bir kez deneme tablo, veri taşıma birleştirmeler için her zaman gerektirir. 
 
 Bu örnekte [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) DimSalesTerritory tablosu için çoğaltılmış bir tabloda değiştirmek için. Bu örnek, DimSalesTerritory karma dağıtılmış veya hepsini bir kez deneme bağımsız olarak çalışır.
 

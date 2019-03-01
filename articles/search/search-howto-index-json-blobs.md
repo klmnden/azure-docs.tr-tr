@@ -1,7 +1,7 @@
 ---
 title: JSON bloblarını dizine ekleme gelen tam metin arama - Azure Search için Azure Blob dizin oluşturucu
 description: Azure Search Blob Dizin Oluşturucu kullanarak metin içeriği için Azure JSON bloblarını gezinin. Dizin oluşturucular veri alımı Azure Blob Depolama gibi seçili veri kaynakları için otomatik hale getirin.
-ms.date: 12/21/2018
+ms.date: 02/28/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,22 +10,19 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: cafb48f28e38794ce0757d50a5d87432b237e17c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3fcac10e32d6510510dc3a069c754a6f482e75eb
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467172"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194852"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Azure Search Blob Dizin Oluşturucu ile JSON bloblarını dizine ekleme
-Bu makalede bir Azure Search blob dizin oluşturucu JSON BLOB'ları Azure Blob storage'da yapılandırılmış içeriği ayıklamak için yapılandırma gösterilmektedir.
+Bu makalede, Azure Search aranabilir hale getirin ve JSON belgeleri olarak Azure Blob depolama alanından yapılandırılmış içeriği ayıklamak için bir Azure Search blob dizin oluşturucu yapılandırma gösterilmektedir. Bu iş akışı, bir Azure Search dizini oluşturur ve JSON bloblarından ayıklanan mevcut metinle yükler. 
 
-Kullanabileceğiniz [portalı](#json-indexer-portal), [REST API'leri](#json-indexer-rest), veya [.NET SDK'sı](#json-indexer-dotnet) dizin JSON içeriği. Tüm yaklaşımları ortak bir Azure depolama hesabındaki bir blob kapsayıcısında yer alan JSON belgeleri olan. Diğer Azure dışı platformlardan JSON belgelerini dağıtmaya ilişkin yönergeler için bkz. [Azure Search'te verileri içeri](search-what-is-data-import.md).
+Kullanabileceğiniz [portalı](#json-indexer-portal), [REST API'leri](#json-indexer-rest), veya [.NET SDK'sı](#json-indexer-dotnet) dizin JSON içeriği. JSON belgeleri bir Azure depolama hesabındaki bir blob kapsayıcısında bulunan tüm yaklaşımları ortak olur. Diğer Azure dışı platformlardan JSON belgelerini dağıtmaya ilişkin yönergeler için bkz. [Azure Search'te verileri içeri](search-what-is-data-import.md).
 
 Azure Blob Depolama alanında JSON bloblarını genellikle tek bir JSON belge ya da bir JSON dizisi cihazlardır. Azure Search blob dizin oluşturucu nasıl belirlediği ayarlara bağlı olarak ya da yapı ayrıştırabilirsiniz **parsingMode** istek parametresi.
-
-> [!IMPORTANT]
-> JSON dizin kullanıma sunulacaktır, ancak JsonArray ayrıştırma genel Önizleme aşamasındadır ve üretim ortamlarında kullanılmamalıdır. Daha fazla bilgi için [REST API Sürüm 2017-11-11-Preview =](search-api-2017-11-11-preview.md). 
 
 <a name="json-indexer-portal"></a>
 
@@ -33,13 +30,20 @@ Azure Blob Depolama alanında JSON bloblarını genellikle tek bir JSON belge ya
 
 JSON belgelerini için en kolay yöntem Sihirbazı'nda kullanmaktır [Azure portalında](https://portal.azure.com/). Azure blob kapsayıcısı meta verilerinde ayrıştırma tarafından [ **verileri içeri aktarma** ](search-import-data-portal.md) Sihirbazı varsayılan bir dizin oluşturmak, kaynak alanları hedef dizin alanlarına eşleme ve tek bir işlemde dizini yükleme. Boyutu ve kaynak verilerin karmaşıklığına bağlı olarak birkaç dakika içinde bir işletimsel tam metin arama dizinini olabilir.
 
+Azure Search, hem de Azure depolama, tercihen aynı bölgede aynı Azure aboneliği kullanmanızı öneririz.
+
 ### <a name="1---prepare-source-data"></a>1 - kaynak verileri hazırlama
 
 Bir JSON belge kapsayıcısı ve Blob Depolama ile Azure depolama hesabınız olmalıdır. Tüm bu görevlerin alışkın değilseniz, "Azure Blob hizmeti ve yük örnek veri kümesi" önkoşulları gözden geçirin [bilişsel arama-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
 
+> [!Important]
+> Kapsayıcı üzerinde olduğundan emin olun **genel erişim düzeyi** "Container (kapsayıcılar ve bloblar için anonim okuma erişimi)" olarak ayarlanmış.
+
 ### <a name="2---start-import-data-wizard"></a>2 - Veri Alma Sihirbazını Başlat
 
 Yapabilecekleriniz [Sihirbazı başlatın](search-import-data-portal.md) Azure arama hizmeti sayfasını veya tıklayarak komut çubuğundan **Azure Search Ekle** içinde **Blob hizmeti** depolama hesabınızın bölümünü Sol gezinti bölmesi.
+
+   ![İçeri aktarma Portalı'nda veri komut](./media/search-import-data-portal/import-data-cmd2.png "veri içeri aktarma Sihirbazını Başlat")
 
 ### <a name="3---set-the-data-source"></a>3 - veri kaynağı ayarla
 
@@ -61,7 +65,13 @@ Yapabilecekleriniz [Sihirbazı başlatın](search-import-data-portal.md) Azure a
 
 Bilişsel beceriler ekleme JSON belgesi almak için gerekli değildir. Belirli bir gerek olmadığı sürece [Bilişsel hizmetler API'leri ve dönüştürmeler dahil](cognitive-search-concept-intro.md) , dizinleme işlem hattına bu adımı atlayın.
 
-Bu adımı atlamak için sonraki sayfaya tıklayın **hedef dizini Özelleştir**.
+İlk adımı atlamak için bir sonraki sayfasına gidin.
+
+   ![Bilişsel arama için sonraki sayfa düğmesi](media/search-get-started-portal/next-button-add-cog-search.png)
+
+Bu sayfadan dizini özelleştirme, İleri atlayabilirsiniz.
+
+   ![Bilişsel beceri adımını atlama](media/search-get-started-portal/skip-cog-skill-step.png)
 
 ### <a name="5---set-index-attributes"></a>5 - dizin öznitelikleri Ayarla
 
@@ -85,15 +95,26 @@ Dizin oluşturucular ile aşina değilseniz bir *dizin oluşturucu* aranabilir i
 
 Tıklayın **Tamam** Sihirbazı'nı çalıştırın ve tüm nesneleri oluşturmak için. Dizin oluşturma hemen başlar.
 
-Portal sayfalarında veri içeri aktarma izleyebilirsiniz. İlerleme durumu bildirimlerine, dizin oluşturma durumunu ve kaç belgeler karşıya gösterir. Dizin oluşturma tamamlandığında, kullanabileceğiniz [arama Gezgini](search-explorer.md) dizininizi sorgulama için.
+Portal sayfalarında veri içeri aktarma izleyebilirsiniz. İlerleme durumu bildirimlerine, dizin oluşturma durumunu ve kaç belgeler karşıya gösterir. 
+
+Dizin oluşturma tamamlandığında, kullanabileceğiniz [arama Gezgini](search-explorer.md) dizininizi sorgulama için.
+
+> [!NOTE]
+> Beklediğiniz verileri görmüyorsanız, daha fazla öznitelik ayarlama hakkında daha fazla alan gerekebilir. Yalnızca oluşturuldu ve 5. adımında dizin öznitelikleri için yaptığınız seçimleri değiştirme Sihirbazı yeniden adım dizin oluşturucu ve dizini silin. 
 
 <a name="json-indexer-rest"></a>
 
 ## <a name="use-rest-apis"></a>REST API'lerini kullanma
 
-JSON bloblarını dizine ekleme benzer bir iş akışında üç bölümlü ortak normal belge ayıklama Azure Search'te tüm dizin oluşturucular için: bir veri kaynağı oluşturun, dizin oluşturma, dizin oluşturucu oluşturma.
+Azure Search'te tüm dizin oluşturucular için üç bölümü iş akışı ortak aşağıdaki JSON bloblarını dizine için REST API kullanabilirsiniz: bir veri kaynağı oluşturun, dizin oluşturma, dizin oluşturucu oluşturma. Blob depolamadan/depolamaya veri ayıklama, dizin oluşturucu oluşturma isteği gönderirseniz oluşur. Bu istek tamamlandıktan sonra sorgulanabilir bir dizine sahip. Üç tüm nesneleri oluşturma örneği isteklerini görmek için bkz: [REST örnek](#rest-example) bu bölümün sonunda.
 
-Kod tabanlı JSON dizinleme için REST API için API'leri ile kullanabileceğiniz [dizin oluşturucular](https://docs.microsoft.com/rest/api/searchservice/create-indexer), [veri kaynakları](https://docs.microsoft.com/rest/api/searchservice/create-data-source), ve [dizinleri](https://docs.microsoft.com/rest/api/searchservice/create-index). Bir dizin yerinde, JSON belgelerini gönderdiğiniz sırada kabul etmeye hazır olduğunuzdan emin portal sihirbazın farklı olarak, kodu bir yaklaşım gerektirir **dizin oluşturucu oluşturma** isteği.
+Kod tabanlı JSON dizin oluşturma için kullanmak [Postman](search-fiddler.md) ve bu nesneler oluşturmak için REST API:
+
++ [Dizin](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [Veri kaynağı](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
++ [Dizin Oluşturucu](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
+
+Bir dizin yerinde, JSON belgelerini gönderdiğiniz sırada kabul etmeye hazır olduğunuzdan emin portal sihirbazın farklı olarak, kodu bir yaklaşım gerektirir **dizin oluşturucu oluşturma** isteği.
 
 Azure Blob Depolama alanında JSON bloblarını genellikle tek bir JSON belge ya da bir JSON dizisi cihazlardır. Azure Search blob dizin oluşturucu nasıl belirlediği ayarlara bağlı olarak ya da yapı ayrıştırabilirsiniz **parsingMode** istek parametresi.
 
@@ -102,14 +123,34 @@ Azure Blob Depolama alanında JSON bloblarını genellikle tek bir JSON belge ya
 | Bir blob başına | `json` | JSON BLOB'ları, tek bir metin parçası ayrıştırır. Her bir JSON blob tek bir Azure Search belge olur. | Hem de genel kullanıma [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) ve [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API'leri. |
 | Birden çok blob başına | `jsonArray` | Burada dizideki her öğe ayrı bir Azure Search belge olur ve blob'daki bir JSON dizisi ayrıştırır.  | Hem de genel kullanıma [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) ve [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API'leri. |
 
+### <a name="1---assemble-inputs-for-the-request"></a>1 - giriş istek için bir araya getirin
 
-### <a name="step-1-create-a-data-source"></a>1. Adım: Veri kaynağı oluşturma
+Her istek için hizmet adını ve yönetici anahtarını Azure arama (POST üstbilgisinde) ve depolama hesabı adı ve blob depolama anahtarı sağlamanız gerekir. Kullanabileceğiniz [Postman](search-fiddler.md) Azure Search için HTTP istekleri göndermek için.
 
-İlk adım, dizin oluşturucu tarafından kullanılan veri kaynağı bağlantı bilgilerini sağlamaktır. Veri kaynağı türü, belirtilen olarak burada `azureblob`, hangi veri ayıklama davranışları Dizin Oluşturucu tarafından çağrılan belirler. JSON blob dizin oluşturma işlemi için veri kaynağı tanımını hem JSON belgeleri ve diziler için aynıdır. 
+Bir istek yapıştırabilmek aşağıdaki dört değerleri Not Defteri'ne kopyalayın:
+
++ Azure arama hizmeti adı
++ Azure arama yönetici anahtarı
++ Azure depolama hesabı adı
++ Azure depolama hesabı anahtarı
+
+Bu değerleri portalda bulabilirsiniz:
+
+1. Azure Search portal sayfalarında arama hizmeti URL'si genel bakış sayfasından kopyalayın.
+
+2. Sol gezinti bölmesinden **anahtarları** ve ardından (bunlar eşdeğerdir) ya da birincil veya ikincil anahtarı kopyalayın.
+
+3. Depolama hesabınız için portal sayfalarına geçin. Sol gezinti bölmesindeki altında **ayarları**, tıklayın **erişim anahtarlarını**. Bu sayfa hesap adı ve anahtarı sağlar. Depolama hesabı adı ve anahtarlarından birini Not Defteri'ne kopyalayın.
+
+### <a name="2---create-a-data-source"></a>2 - bir veri kaynağı oluşturma
+
+Bu adım, dizin oluşturucu tarafından kullanılan veri kaynağı bağlantı bilgileri sağlar. Veri kaynağı bağlantı bilgilerini devam eden bir Azure Search adlandırılmış bir nesnedir. Veri kaynağı türü, `azureblob`, hangi veri ayıklama davranışları Dizin Oluşturucu tarafından çağrılan belirler. 
+
+Hizmet adı, yönetici anahtarı, depolama hesabı için geçerli değerler yerine ve önemli yer tutucuları hesap.
 
     POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
-    api-key: [admin key]
+    api-key: [admin key for Azure Search]
 
     {
         "name" : "my-blob-datasource",
@@ -118,7 +159,7 @@ Azure Blob Depolama alanında JSON bloblarını genellikle tek bir JSON belge ya
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
 
-### <a name="step-2-create-a-target-search-index"></a>2. Adım: Bir hedef search dizini oluşturma 
+### <a name="3---create-a-target-search-index"></a>3 - bir hedef arama dizini oluşturma 
 
 Dizin oluşturucular bir dizin şeması ile eşleştirilmelidir. API (portal yerine) kullanıyorsanız, dizin dizin oluşturucu işlemi belirtebilirsiniz böylece önceden hazırlayın.
 
@@ -128,7 +169,7 @@ Aşağıdaki örnekte gösterildiği bir [Create Index](https://docs.microsoft.c
 
     POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
-    api-key: [admin key]
+    api-key: [admin key for Azure Search]
 
     {
           "name" : "my-target-index",
@@ -139,15 +180,37 @@ Aşağıdaki örnekte gösterildiği bir [Create Index](https://docs.microsoft.c
     }
 
 
-### <a name="step-3-configure-and-run-the-indexer"></a>3. Adım: Yapılandırma ve dizin oluşturucuyu çalıştırma
+### <a name="4---configure-and-run-the-indexer"></a>4 - yapılandırın ve dizin oluşturucuyu çalıştırma
 
-Şimdiye kadar veri kaynağı ve dizin tanımlarını parsingMode belirsiz olmuştur. Ancak, adım 3'te dizin oluşturucu yapılandırmasını için JSON blob ayrıştırılır ve bir Azure Search dizini içinde yapılandırılmış içerik nasıl istediğinizi bağlı olarak yol kareninkinden. Seçenekler şunlardır `json` veya `jsonArray`:
+Dizin ile bir veri kaynağı ve dizin oluşturucu olduğu gibi aynı zamanda adlandırılmış bir nesne oluşturun ve Azure Search Hizmeti üzerinde yeniden kullanın. Bir dizin oluşturucu oluşturmak için tam olarak belirtilen bir istek gibi görünebilir:
+
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    Content-Type: application/json
+    api-key: [admin key for Azure Search]
+
+    {
+      "name" : "my-json-indexer",
+      "dataSourceName" : "my-blob-datasource",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "parameters" : { "configuration" : { "parsingMode" : "json" } }
+    }
+
+Dizin Oluşturucu, istek gövdesinde yapılandırmadır. Bir veri kaynağı ve Azure arama'yı zaten var olan boş hedef dizin gerektirir. 
+
+Zamanlama ve parametreler isteğe bağlıdır. Bunları atlarsanız, dizin oluşturucu hemen kullanarak çalışır `json` ayrıştırma modu.
+
+Bu belirli bir dizin oluşturucu içermemesi [alan eşlemeleri](#field-mappings). Dizin Oluşturucu tanımı içinde bırakabilirsiniz **alan eşlemeleri** kaynak JSON belge özelliklerini hedef arama dizininizin alanlarıyla eşleşiyorsa. 
+
+### <a name="parsing-modes"></a>Ayrıştırma modları
+
+Şimdiye kadar veri kaynağı ve dizin tanımlarını parsingMode belirsiz olmuştur. Ancak, dizin oluşturucu yapılandırmasını için bir adımda nasıl JSON blob ayrıştırılır ve bir Azure Search dizini içinde yapılandırılmış içerik istediğinize bağlı olarak yol kareninkinden. Seçenekler şunlardır `json` veya `jsonArray`:
 
 + Ayarlama **parsingMode** için `json` her blob olarak tek bir belge dizini oluşturmak için.
 
 + Ayarlama **parsingMode** için `jsonArray` JSON dizileri bloblarınızın oluşur ve Azure Search'te ayrı bir belge olmak dizinin her öğesi gerekir. Bir belgenin, arama sonuçlarındaki tek öğe olarak düşünebilirsiniz. Bağımsız bir öğe olarak arama sonuçlarında görünmesini dizideki her öğe istiyorsanız, ardından kullanmak `jsonArray` seçeneği.
 
-Dizin Oluşturucu tanımı içinde isteğe bağlı olarak kullanabileceğiniz **alan eşlemeleri** hedef arama dizininizi doldurmak için kullanılan kaynak JSON belgesinin hangi özellikleri seçmek için. JSON dizileri için alt düzey özelliği olarak, dizi varsa, dizi içinde blob nereye yerleştirileceğini gösteren bir belge kökü ayarlayabilirsiniz.
+JSON dizileri için alt düzey özelliği olarak, dizi varsa, dizi içinde blob nereye yerleştirileceğini gösteren bir belge kökü ayarlayabilirsiniz.
 
 > [!IMPORTANT]
 > Kullanırken `json` veya `jsonArray` ayrıştırma modu, Azure Search içeren JSON veri kaynağındaki tüm blobları varsayar. Aynı veri kaynağındaki JSON ve JSON olmayan bloblar bir karışımını desteklemeniz gerekiyorsa, üzerinde bize [UserVoice sitemizi](https://feedback.azure.com/forums/263029-azure-search).
@@ -166,22 +229,6 @@ Varsayılan olarak, [Azure Search blob dizin oluşturucu](search-howto-indexing-
     }
 
 Blob dizin oluşturucu, tek bir Azure Search belgeye JSON belgesini ayrıştırır. Dizin oluşturucunun, dizin "metin", "datePublished" ve "aynı şekilde adlandırılmış ve yazılmış hedef dizin alanları karşı kaynak etiketleri" eşleştirerek yükler.
-
-Yapılandırma, bir dizin oluşturucu işlemi gövdesinde sağlanır. Veri kaynağı nesnesi, önceden tanımlanmış, geri çağırma veri kaynağı türü ve bağlantı bilgilerini belirtir. Ayrıca, hedef dizin hizmetinizde boş bir kapsayıcı olarak da bulunmalıdır. Zamanlama ve parametreler isteğe bağlıdır, ancak bunları atlarsanız, dizin oluşturucu hemen kullanarak çalışır `json` ayrıştırma modu.
-
-Tam olarak belirtilen bir istek gibi görünebilir:
-
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      "name" : "my-json-indexer",
-      "dataSourceName" : "my-blob-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "parameters" : { "configuration" : { "parsingMode" : "json" } }
-    }
 
 Alan eşlemelerini belirtildiği gibi gerekli değildir. Dizin ile "metin" verilen "datePublished ve"etiketleri"alanları, blob dizin oluşturucu tanım Çıkarsama doğru eşleme olmadan bir alan istekteki eşleme.
 
@@ -234,7 +281,7 @@ Ne bir JSON nesne dizisi, ancak bu diziyi dizine eklemek istediğiniz yere belge
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
 
-### <a name="using-field-mappings-to-build-search-documents"></a>Search belgeleri oluşturmak için alan eşlemelerini kullanma
+### <a name="field-mappings"></a>Alan eşlemeleri
 
 Kaynak ve hedef alanlarını mükemmel bir şekilde hizalanmış değil, açık alan alanını ilişkileri için istek gövdesinde bir alan eşleme bölümüne tanımlayabilirsiniz.
 
@@ -269,13 +316,52 @@ Ayrıca, sıfır tabanlı dizinini kullanarak tek bir dizi öğelerine başvurab
 >
 >
 
-### <a name="rest-example-indexer-request-with-field-mappings"></a>REST örnek: Alan eşlemelerini istekle dizin oluşturucu
+### <a name="rest-example"></a>REST örneği
 
-Aşağıdaki örnek, alan eşlemelerini de dahil olmak üzere tam olarak belirtilen dizin oluşturucu yüktür:
+Bu bölüm, nesneleri oluşturmak için kullanılan tüm isteklerin yeniden anımsamak yöneliktir. Bu makalenin önceki bölümlerinde bileşen parçalarına tartışma için bkz.
+
+### <a name="data-source-request"></a>Veri kaynağı isteği
+
+Tüm dizin oluşturucular, var olan veri bağlantı bilgilerini sağlayan bir veri kaynağı nesnesi gerektirir. 
+
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    Content-Type: application/json
+    api-key: [admin key for Azure Search]
+
+    {
+        "name" : "my-blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
+        "container" : { "name" : "my-container", "query" : "optional, my-folder" }
+    }  
+
+
+### <a name="index-request"></a>Dizin isteği
+
+Tüm dizin oluşturucular veri alan bir hedef dizin gerektirir. İstek gövdesi, arama yapılabilir bir dizin istenen davranışları desteklemek için öznitelikli alanlar, oluşan dizin şemasını tanımlar. Dizin Oluşturucu çalıştırdığınızda bu dizini boş olmamalıdır. 
+
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    Content-Type: application/json
+    api-key: [admin key for Azure Search]
+
+    {
+          "name" : "my-target-index",
+          "fields": [
+            { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+            { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
+          ]
+    }
+
+
+### <a name="indexer-request"></a>Dizin Oluşturucu isteği
+
+Bu istek tam olarak belirtilen bir dizin oluşturucuyu gösterir. İçerdiği [alan eşlemeleri](#field-mappings), önceki örneklerde atlandı. Bu "zamanlama", "parameters" geri çağırma ve kullanılabilir bir varsayılan var olduğu sürece "fieldMappings" isteğe bağlıdır. "Zamanlama" atlama hemen çalıştırmak için dizin oluşturucuyu neden olur. "ParsingMode" atlama "json" varsayılan dizin neden olur.
+
+Azure Search'te dizin oluşturucuyu oluşturma, veri alma işlemi tetikler. Bir sağlamışsanız hemen ve bundan sonra bir zamanlamaya göre çalıştırır.
 
     POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
-    api-key: [admin key]
+    api-key: [admin key for Azure Search]
 
     {
       "name" : "my-json-indexer",
@@ -289,6 +375,7 @@ Aşağıdaki örnek, alan eşlemelerini de dahil olmak üzere tam olarak belirti
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
         ]
     }
+
 
 <a name="json-indexer-dotnet"></a>
 

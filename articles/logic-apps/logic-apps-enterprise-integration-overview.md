@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.openlocfilehash: c9733346d091a6829bd5b42c80201df3a1357fe3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8c0e47f5bed0799b8536cecb38a85ed76185d0cd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243119"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194937"
 ---
 # <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Genel Bakış: Azure Logic Apps Enterprise Integration Pack ile B2B Kurumsal tümleştirme senaryolarında
 
@@ -70,5 +70,5 @@ Enterprise Integration bu endüstri standartları destekler:
 * [Enterprise Integration bağlayıcıları](../connectors/apis-list.md "enterprise Integration pack bağlayıcıları hakkında bilgi edinin")
 * [Tümleştirme hesabı meta verileri](../logic-apps/logic-apps-enterprise-integration-metadata.md "tümleştirme hesabı meta veriler hakkında bilgi edinin")
 * [B2B iletilerini izleme](logic-apps-monitor-b2b-message.md "B2B iletilerini izleme hakkında daha fazla bilgi edinin")
-* [Azure Log analytics'te B2B iletilerini izleme](logic-apps-track-b2b-messages-omsportal.md "Azure Log analytics'te B2B iletilerini izleme hakkında daha fazla bilgi edinin")
+* [Azure İzleyici günlüklerine B2B iletilerini izleme](logic-apps-track-b2b-messages-omsportal.md "Azure İzleyici günlüklerine B2B iletilerini izleme hakkında daha fazla bilgi edinin")
 

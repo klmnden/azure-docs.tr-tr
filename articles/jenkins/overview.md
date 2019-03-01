@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: 69e9a49bf83be5b58faf3e71ab0ffbfb6c6f11a1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 86d32726280cce12888f125c65254a7b02166704
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329731"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194759"
 ---
 # <a name="azure-and-jenkins"></a>Azure ve Jenkins
 
@@ -29,7 +29,7 @@ Derleme otomasyonunuzu tek merkezden yönetmek ve yazılım projelerinizin gerek
 - [Azure sanal makineleri](/azure/virtual-machines/linux/overview). VM üzerinde Jenkins örneği oluşturma [öğreticisine](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) bakın.
 - [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough) üzerinde çalışan bir Kubernetes kümesinde, ayrıntılar için [Nasıl yapılır?](/azure/container-service/kubernetes/container-service-kubernetes-jenkins) makalesine göz atın.
 
-Azure Jenkins dağıtımınızı [Log Analytics](/azure/log-analytics/log-analytics-overview) ve [Azure CLI](/cli/azure) kullanarak izleyebilir ve yönetebilirsiniz.
+İzleyin ve Azure Jenkins kullanarak dağıtımı yönetin [Azure İzleyici günlükleri](/azure/log-analytics/log-analytics-overview) ve [Azure CLI](/cli/azure).
 
 ## <a name="scale-your-build-automation-on-demand"></a>Derleme otomasyonunuzu isteğe bağlı olarak ölçeklendirme
 

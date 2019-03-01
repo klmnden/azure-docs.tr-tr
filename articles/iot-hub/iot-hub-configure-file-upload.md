@@ -1,19 +1,19 @@
 ---
 title: Karşıya dosya yüklemeyi yapılandırma için Azure portalını kullanma | Microsoft Docs
 description: Bağlı cihazlardan dosya yüklemeleri etkinleştirmek için IOT hub'ınızı yapılandırmak için Azure portalını kullanma ' % S'hedef Azure depolama hesabı yapılandırma hakkında bilgi içerir.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: dobett
-ms.openlocfilehash: a9f9eeaed2716c5d492099568fd6f90080471af2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.author: robin.shahan
+ms.openlocfilehash: 04f3f05c8c18a3356c282144cda62d1f980362fe
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42061095"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008450"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Azure portalını kullanarak dosya yüklemeleri IOT hub'ı yapılandırma
 
@@ -29,13 +29,13 @@ Kullanılacak [dosya karşıya yükleme işlevselliği IOT Hub'ında](iot-hub-de
 
    ![Portalda depolama kapsayıcıları karşıya dosya yükleme için görüntüleme](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
 
-* **Karşıya yüklenen dosyalar için bildirimlerin**: etkinleştirmek veya devre dışı dosya karşıya yükleme bildirimleri aracılığıyla Aç/Kapat.
+* **Karşıya yüklenen dosyalar için bildirimlerin**: Etkinleştirmek veya dosya karşıya yükleme bildirimleri aracılığıyla iki durumlu düğme devre dışı.
 
-* **SAS TTL**: zaman yaşam IOT Hub tarafından cihaza verilen SAS URI'ın bu ayardır. Bir saat için varsayılan olarak ayarlanmış, ancak kaydırıcıyı kullanarak diğer değerleri için özelleştirilebilir.
+* **SAS TTL**: Bu ayar, zaman yaşam IOT Hub tarafından cihaza verilen SAS URI'ın desteklenir. Bir saat için varsayılan olarak ayarlanmış, ancak kaydırıcıyı kullanarak diğer değerleri için özelleştirilebilir.
 
-* **Dosya bildirim ayarları varsayılan TTL**: geçerlilik süresi doluncaya kadar önce bildirim zaman yaşam dosyasının karşıya. Bir gün için varsayılan olarak ayarlanmış, ancak kaydırıcıyı kullanarak diğer değerleri için özelleştirilebilir.
+* **Dosya bildirim ayarları varsayılan TTL**: Geçerlilik süresi doluncaya kadar önce zaman yaşam dosyasının bildirim karşıya yükleyin. Bir gün için varsayılan olarak ayarlanmış, ancak kaydırıcıyı kullanarak diğer değerleri için özelleştirilebilir.
 
-* **Dosya bildirim en yüksek teslimat sayısı**: IOT hub'ı bir dosyayı teslim etmek için kaç deneme sayısı bildirim karşıya yükleyin. Varsayılan olarak 10'a ayarlanmış ancak kaydırıcıyı kullanarak diğer değerleri için özelleştirilebilir.
+* **Dosya bildirim en yüksek teslimat sayısı**: IOT hub'ı bir dosyayı teslim girişiminde sayısı bildirim karşıya yükleyin. Varsayılan olarak 10'a ayarlanmış ancak kaydırıcıyı kullanarak diğer değerleri için özelleştirilebilir.
 
    ![Portalda IOT hub'ı dosya yüklemeyi yapılandırma](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
 

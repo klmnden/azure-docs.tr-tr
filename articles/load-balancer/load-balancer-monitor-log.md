@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d6b5a8b31b78e21868a7f81c481c4fce1cd4e6f5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164135"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192454"
 ---
-# <a name="log-analytics-for-public-basic-load-balancer"></a>Genel temel Load Balancer için log analytics
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Genel temel yük dengeleyici için Azure izleme günlükleri
 
 >[!IMPORTANT] 
 >Azure Load Balancer iki farklı türü destekler: Temel ve Standart. Bu makalede Temel Yük Dengeleyici anlatılmaktadır. Standard Load Balancer hakkında daha fazla bilgi için bkz: [standart Load Balancer'a genel bakış](load-balancer-standard-overview.md) telemetri üzerinden çok boyutlu ölçümler Azure İzleyici'de kullanıma sunar.
@@ -32,7 +32,7 @@ Günlükleri farklı türde, yönetme ve sorun giderme temel yük Dengeleyiciler
 * **Sistem durumu araştırma günlükleri:** Bu günlük, arka uç havuzundaki istekleri sistem durumu araştırma hatası nedeniyle yük dengeleyiciden almıyor örneklerinin gibi sistem durumu araştırması tarafından algılanan sorunları görüntülemek üzere kullanabilirsiniz. Sistem durumu araştırması durumundaki bir değişiklik olduğunda bu günlüğe yazılır.
 
 > [!IMPORTANT]
-> Günlük analizi şu anda yük Dengeleyiciler yalnızca ortak temel çalışır. Günlükleri yalnızca Resource Manager dağıtım modelinde dağıtılan kaynaklar için kullanılabilir. Klasik dağıtım modelinde kaynakların günlükleri'ni kullanamazsınız. Dağıtım modelleri hakkında daha fazla bilgi için bkz. [anlama Resource Manager dağıtımını ve klasik dağıtımı](../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure İzleyici şu anda yalnızca genel temel yük Dengeleyiciler çalışır günlüğe kaydeder. Günlükleri yalnızca Resource Manager dağıtım modelinde dağıtılan kaynaklar için kullanılabilir. Klasik dağıtım modelinde kaynakların günlükleri'ni kullanamazsınız. Dağıtım modelleri hakkında daha fazla bilgi için bkz. [anlama Resource Manager dağıtımını ve klasik dağıtımı](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Günlü kaydını etkinleştir
 

@@ -16,12 +16,12 @@ ms.date: 07/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 437577ec68ee825bd0815735fef08e8297dad756
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180548"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193764"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Önceki bir sürümden en son sürüme yükseltme
 Bu konuda, Azure Active Directory (Azure AD) Connect yüklemenizi en son sürüme yükseltmek için kullanabileceğiniz farklı yöntemler açıklanır. Kendi Azure AD Connect'in sürümlerinde geçerli tutmanızı öneririz. Ayrıca adımlarda kullandığınız [Swing geçişi](#swing-migration) bölümünde önemli bir yapılandırma değişikliği yaptığınızda.
@@ -62,7 +62,7 @@ Bu senaryolar için önerilen yöntem, swing geçişi kullanmaktır. (En az) iki
 ![Hazırlama sunucusu](./media/how-to-upgrade-previous-version/stagingserver1.png)
 
 > [!NOTE]
-> Bazı müşteriler bu senaryo için üç veya dört sunucu tercih edebilirsiniz. Hazırlama sunucusu yükseltildiğinde, bir yedekleme sunucusu yoksa [olağanüstü durum kurtarma](how-to-connect-sync-operations.md#disaster-recovery). Üç veya dört sunucularıyla birincil/bekleme sunucularıyla olduğunu her zaman almaya hazır bir hazırlık sunucusu sağlar. yeni sürümü, bir dizi hazırlayabilirsiniz.
+> Bazı müşteriler bu senaryo için üç veya dört sunucu tercih edebilirsiniz. Hazırlama sunucusu yükseltildiğinde, bir yedekleme sunucusu yoksa [olağanüstü durum kurtarma](how-to-connect-sync-staging-server.md#disaster-recovery). Üç veya dört sunucularıyla birincil/bekleme sunucularıyla olduğunu her zaman almaya hazır bir hazırlık sunucusu sağlar. yeni sürümü, bir dizi hazırlayabilirsiniz.
 
 Bu adımlar, Azure AD eşitleme veya FIM + Azure AD Bağlayıcısı ile bir çözüm taşıma için de geçerlidir. Bu adımlar için bir DirSync çalışmaz, ancak (paralel dağıtım olarak da bilinir) aynı swing geçişi yöntem adımlarla için bir DirSync [yükseltme Azure Active Directory eşitleme (DirSync)](how-to-dirsync-upgrade-get-started.md).
 
@@ -71,8 +71,8 @@ Bu adımlar, Azure AD eşitleme veya FIM + Azure AD Bağlayıcısı ile bir çö
 2. Özel yapılandırma yaptığınız ve hazırlama sunucunuzu bu gerekli değildir, altındaki adımları [özel bir yapılandırma için hazırlık sunucusu active sunucudan taşıma](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
 3. Azure AD Connect'in önceki bir sürümden yükseltiyorsanız, hazırlık sunucusu en son sürüme yükseltin. Azure AD eşitleme'den taşıyorsanız, Azure AD Connect'i hazırlama sunucunuza yükleyin.
 4. Tam içeri aktarma ve tam eşitleme hazırlama sunucunuzda çalışması eşitleme altyapısı sağlar.
-5. "Doğrula" bölümündeki adımları kullanarak beklenmeyen değişiklikleri yeni yapılandırmayı neden olduğunu siz olun [bir sunucu yapılandırmasını doğrulamak](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server). Bir şey beklendiği gibi değilse, bunu düzeltmek için alma ve eşitleme ve adımları izleyerek iyi gösterilene kadar verileri doğrulayın.
-6. Active server hazırlama sunucuya geçiş. Bu son adım "Anahtar etkin sunucu" bileşenidir [bir sunucu yapılandırmasını doğrulamak](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server).
+5. "Doğrula" bölümündeki adımları kullanarak beklenmeyen değişiklikleri yeni yapılandırmayı neden olduğunu siz olun [bir sunucu yapılandırmasını doğrulamak](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server). Bir şey beklendiği gibi değilse, bunu düzeltmek için alma ve eşitleme ve adımları izleyerek iyi gösterilene kadar verileri doğrulayın.
+6. Active server hazırlama sunucuya geçiş. Bu son adım "Anahtar etkin sunucu" bileşenidir [bir sunucu yapılandırmasını doğrulamak](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server).
 7. Azure AD Connect yükseltiyorsanız, artık en son sürüm için hazırlama modunda sunucusunu yükseltin. Yükseltme yapılandırma ve verileri almak için önce aynı adımları izleyin. Azure AD eşitleme'den yükseltilmiş ise, artık devre dışı bırakmak ve eski sunucunuzun yetkisini alma.
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Özel bir yapılandırma için hazırlık sunucusu active sunucudan taşıma

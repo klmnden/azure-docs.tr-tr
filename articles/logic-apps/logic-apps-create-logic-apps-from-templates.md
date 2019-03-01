@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
-ms.openlocfilehash: 554171e02a369905bcf9cd4aa7bfa2e59ab46336
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229766"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193458"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Mantıksal uygulama iş akışları önceden oluşturulmuş şablonlardan oluşturma
 
@@ -52,7 +52,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı için k
    | **Abonelik** | *Azure-aboneliğinizin-adı* | Kullanmak istediğiniz Azure aboneliğini seçin. | 
    | **Kaynak grubu** | *Azure-kaynak-grubunuzun-adı* | Oluşturma veya seçme bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) bu mantıksal uygulamanın ve bu uygulamayla ilişkili tüm kaynakları düzenlemek için. | 
    | **Konum** | *Azure-veri-merkezi-bölgeniz* | Batı ABD gibi mantıksal uygulamanızın dağıtılacağı veri merkezi bölgesini seçin. | 
-   | **Log Analytics** | **Kapalı** (varsayılan) veya **üzerinde** | Açma [tanılama günlüğüne kaydetme](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) mantıksal uygulamanızın [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Zaten bir Log Analytics çalışma alanı olmasını gerektirir. | 
+   | **Log Analytics** | **Kapalı** (varsayılan) veya **üzerinde** | Açma [tanılama günlüğüne kaydetme](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) mantıksal uygulamanızın [Azure İzleyicisi](../log-analytics/log-analytics-overview.md). Zaten bir Log Analytics çalışma alanı olmasını gerektirir. | 
    |||| 
 
 4. Hazır olduğunuzda **Panoya sabitle**'yi seçin. Bu şekilde mantıksal uygulamanız otomatik olarak Azure panonuzda görüntülenir ve dağıtımdan sonra açılır. **Oluştur**’u seçin.

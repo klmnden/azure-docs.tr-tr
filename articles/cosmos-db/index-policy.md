@@ -4,14 +4,14 @@ description: Azure Cosmos DB'de dizinleme nasıl çalıştığını anlayın. Ya
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 3/1/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6c145b58a1f0eaaf93fb5797028e11ba8338d6be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2b46638a7e0fa3dc80fa4d2fa23d49b37b8885ec
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460242"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193168"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizin İlkesi
 
@@ -23,9 +23,9 @@ Varsayılan dizinleme ilkesinin bir Azure Cosmos kapsayıcısı üzerinde aşağ
 
 * **Dizin modu yapılandırma**: Bir kapsayıcı dizin oluşturma ilkesini kullanarak, farklı bir dizin oluşturma modu gibi yapılandırabileceğiniz *Consistent* veya *hiçbiri*.
 
-## <a name="indexing-modes"></a>Dizin oluşturma modları 
+## <a name="indexing-modes"></a>Dizin oluşturma modları
 
-Azure Cosmos DB, bir Azure Cosmos kapsayıcısını yapılandırabileceğiniz iki dizin oluşturma modunu destekler. Aşağıdaki iki dizin oluşturma modları üzerinden dizin oluşturma ilkesini yapılandırabilirsiniz: 
+Azure Cosmos DB, bir Azure Cosmos kapsayıcısını yapılandırabileceğiniz iki dizin oluşturma modunu destekler. Aşağıdaki iki dizin oluşturma modları üzerinden dizin oluşturma ilkesini yapılandırabilirsiniz:
 
 * **Tutarlı**: Bir Azure Cosmos kapsayıcının ilkesi için Consistent ayarlarsanız, sorgular belirli bir kapsayıcıda noktası okuma için belirtmiş aynı tutarlılık düzeyi izleyin (örneğin, güçlü, bağımlı eskime, oturum veya son). 
 
@@ -37,6 +37,9 @@ Azure Cosmos DB, bir Azure Cosmos kapsayıcısını yapılandırabileceğiniz ik
   > Dizin oluşturma modu None yapılandırma yan etkisi, mevcut tüm dizinleri bırakmayı vardır. Erişim desenleri ID gerektir ya da yalnızca kendi bağlantı varsa bu seçeneği kullanmanız gerekir.
 
 Sorgu tutarlılık düzeyleri benzer normal okuma işlemleri için korunur. Azure Cosmos veritabanı, bir dizin oluşturma modu yok kapsayıcı sorgularsanız bir hata döndürür. Açık aracılığıyla taramaları olarak sorguları yürütebilir **x-ms-documentdb-enable-tarama** üst bilgisinde REST API veya **EnableScanInQuery** seçeneği .NET SDK kullanarak istek. ORDER BY şu anda desteklenmiyor ile gibi bazı sorgu özellikleri **EnableScanInQuery**, bunlar karşılık gelen bir dizin zorunlu kılabilir.
+
+> [!NOTE]
+> Azure Cosmos DB, yavaş bir dizin oluşturma modu üçüncü sahiptir. Sorgu performansı ve maliyet tahmin edilemez bu nedenle ancak bunu serbest vurgulanmış yapılıyor. Tutarlı bir dizin oluşturma modu kullanmanızı öneririz.
 
 ## <a name="modifying-the-indexing-policy"></a>Dizin oluşturma ilkesini değiştirme
 

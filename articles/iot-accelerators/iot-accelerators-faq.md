@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608758"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009702"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IOT Çözüm Hızlandırıcıları için sık sorulan sorular
 
@@ -71,9 +71,9 @@ Uzaktan izleme çözüm Hızlandırıcısını önceki sürümünü IOT paketi u
 
 Evet, yeni Uzaktan izleme aynı coğrafi bölgelerde kullanılabilir.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Azure portalında bir kaynak grubu silmek ile azureiotsuite.com'da bir çözüm Hızlandırıcı üzerinde delete tuşuna basarak arasındaki fark nedir?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Azure portalında bir kaynak grubu silme ve bir çözüm Hızlandırıcı azureiotsolutions.com'silme ' ı tıklatarak arasındaki fark nedir?
 
-* Çözüm Hızlandırıcısını içinde silerseniz [azureiotsuite.com](https://www.azureiotsolutions.com/), çözüm Hızlandırıcısını oluşturduğunuzda dağıtılan tüm kaynakları silin. Bir kaynak grubuna ek kaynaklar eklediyseniz, bu kaynaklar da silinir.
+* Çözüm Hızlandırıcısını içinde silerseniz [azureiotsolutions.com](https://www.azureiotsolutions.com/), çözüm Hızlandırıcısını oluşturduğunuzda dağıtılan tüm kaynakları silin. Bir kaynak grubuna ek kaynaklar eklediyseniz, bu kaynaklar da silinir.
 * Kaynak grubunu silerseniz [Azure portalında](https://portal.azure.com), yalnızca bu kaynak grubundaki kaynakları silin. Ayrıca çözüm Hızlandırıcı ile ilişkili Azure Active Directory uygulamasını silmek gerekir.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Azure IOT Çözüm Hızlandırıcıları olarak my mevcut yatırımlardan yararlanma devam edebilir?

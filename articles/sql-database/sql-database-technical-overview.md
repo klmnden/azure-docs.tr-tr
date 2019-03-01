@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c11dc2b24e3cf5d201a73c1ed405ba4b7c09978b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982276"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992609"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti nedir?
 
@@ -101,7 +101,15 @@ Performans değerlendirmeleriyle birlikte [yerleşik performans izleme](sql-data
 
 ## <a name="availability-capabilities"></a>Kullanılabilirlik özellikleri
 
-Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafından desteklenen ve endüstri lideri niteliğinde %99,99'luk bir kullanılabilirlik oranı sunan hizmet düzeyi sözleşmesi [(SLA)](https://azure.microsoft.com/support/legal/sla/), uygulamanızın 7/24 kesintiye uğramamasına yardımcı olur. Azure platformu, tam olarak her veritabanı yöneten ve hiçbir veri kaybı ve yüksek miktarda veri kullanılabilirliği garanti eder. Azure düzeltme eki uygulama, yedekleme, çoğaltma, hata algılama, arka plandaki potansiyel donanım, yazılım veya ağ arızaları, hata giderme, yük devretme, veritabanı yükseltmesi ve diğer bakım görevlerini otomatik olarak gerçekleştirir. Standart kullanılabilirlik düzeyine ulaşmak için işlem ve depolama katmanları ayrılır. Premium kullanılabilirliği, işlem ve depolama performansı için tek bir düğümde tümleştirme ve ardından perde Always On kullanılabilirlik grupları için benzer teknoloji uygulayarak elde edilir. Azure SQL veritabanı yüksek kullanılabilirlik özellikleri tam bir irdelemesi için bkz: [SQL veritabanı kullanılabilirlik](sql-database-high-availability.md). SQL Veritabanı ayrıca aşağıdakiler dahil olmak üzere yerleşik [iş sürekliliği ve global ölçeklenebilirlik](sql-database-business-continuity.md) özelliklerine sahiptir:
+Geleneksel bir SQL Server ortamında yerel olarak tam (zaman uyumlu olarak tutulan) (AlwaysOn Kullanılabilirlik grupları veya yük devretme kümeleme örnekleri gibi özellikleri kullanarak) verilerin kopyaları karşı korumak için ayarlayın (en az) 2 makine genellikle olurdu bir tek bir makine/bileşen hatası.  Bu, yüksek düzeyde kullanılabilirlik sağlar ancak yok etme veri merkezinizin doğal afetler karşı korumaz.
+ 
+Olağanüstü durum kurtarma varsayar bir felaket coğrafi olarak olacağını başka bir makine/makineler ile verilerinizin bir kopyasının uzakta kümeniz için yeterli yerelleştirilmiş.  SQL Server Always On kullanılabilirlik zaman uyumsuz modda çalışan grupları bu özellik almak için kullanabilirsiniz.  Açık sorunlar hızına genellikle kişiler uzakta yani olası veri kaybı, planlanmamış yük devretmeler yaptığınızda, bir işlem yapmadan önce gerçekleşen çoğaltmanın bekleyin istemediğiniz anlamına gelir.
+
+Premium ve iş kritik hizmeti veritabanlarında katmanlarını zaten [çok benzer bir şey](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) bir kullanılabilirlik grubunda eşitleme. Daha düşük hizmet katmanlarındaki veritabanları depolama aracılığıyla yedeklilik sağlayan bir [farklı, ancak eşdeğer bir mekanizma](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). Tek makine hatasına karşı koruyan mantığı yoktur.  Etkin coğrafi çoğaltma özelliği burada tüm bölge yok olağanüstü durum karşı koruma olanağı verir.
+
+Azure kullanılabilirlik alanları, yüksek kullanılabilirlik sorunu Yürüt ' dir.  Tek bir bölgede oluşturma tek bir veri merkezi kesintisi karşı korumak çalışır.  Bu nedenle, güç veya bir yapı için ağ kaybına karşı koruma sağlamak istiyor. SQL Azure bu farklı kopyaya farklı kullanılabilirlik alanlarında yerleştirerek çalışır (farklı binalar, etkili bir şekilde) ve aksi takdirde önceki gibi çalışmaya. 
+
+Aslında, Azure'nın sektörde lider % 99,99 kullanılabilirlik hizmet düzeyi sözleşmesi [(SLA)](https://azure.microsoft.com/support/legal/sla/), Microsoft tarafından yönetilen veri merkezlerinden oluşan küresel bir ağı tarafından desteklenen, uygulamanızın 7/24 çalışan uğramamasına yardımcı olur. Azure platformu, tam olarak her veritabanı yöneten ve hiçbir veri kaybı ve yüksek miktarda veri kullanılabilirliği garanti eder. Azure düzeltme eki uygulama, yedekleme, çoğaltma, hata algılama, arka plandaki potansiyel donanım, yazılım veya ağ arızaları, hata giderme, yük devretme, veritabanı yükseltmesi ve diğer bakım görevlerini otomatik olarak gerçekleştirir. Standart kullanılabilirlik düzeyine ulaşmak için işlem ve depolama katmanları ayrılır. Premium kullanılabilirliği, işlem ve depolama performansı için tek bir düğümde tümleştirme ve ardından perde Always On kullanılabilirlik grupları için benzer teknoloji uygulayarak elde edilir. Azure SQL veritabanı yüksek kullanılabilirlik özellikleri tam bir irdelemesi için bkz: [SQL veritabanı kullanılabilirlik](sql-database-high-availability.md). SQL Veritabanı ayrıca aşağıdakiler dahil olmak üzere yerleşik [iş sürekliliği ve global ölçeklenebilirlik](sql-database-business-continuity.md) özelliklerine sahiptir:
 
 - **[Otomatik yedeklemeler](sql-database-automated-backups.md)**:
 

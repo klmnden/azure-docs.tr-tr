@@ -1,5 +1,5 @@
 ---
-title: Azure geliştirme boşluklarla ile CI/CD | Microsoft Docs
+title: Azure geliştirme boşluklarla ile CI/CD
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -7,16 +7,16 @@ ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: 12/17/2018
-ms.topic: article
+ms.topic: conceptual
 manager: yuvalm
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kapsayıcılar
-ms.openlocfilehash: 0abe2902248c8203046cfe891d136ca7d5d0a75b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b614a517874363be95ff17d802995a927a15af2f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666901"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194641"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure geliştirme alanları ile CI/CD kullanın
 

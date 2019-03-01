@@ -6,14 +6,14 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 11/02/2018
+ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 4246259445cf096b5353ab87a9ed83f87332dc78
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: df4fcb505cce17663334d9b80245f5c981cdbe1e
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299335"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989646"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Azure işlevleri'nde bağlantılarını yönetme
 
@@ -21,13 +21,13 @@ Bir işlev uygulaması işlevlerde kaynakları paylaşma ve bu paylaşılan kayn
 
 ## <a name="connections-limit"></a>Bağlantı sayısı sınırı
 
-Bir işlev uygulaması kısmen çalıştığı için kullanılabilir bağlantı sayısı sınırlıdır [Azure App Service korumalı](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Korumalı alan kodunuza uygular kısıtlamaları biri bir [bağlantısı, şu anda 300 sayısı için üst sınır](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits). Bu sınıra ulaştığınızda, İşlevler çalışma zamanı şu iletiyle bir günlük oluşturur: `Host thresholds exceeded: Connections`.
+Bir işlev uygulaması kısmen çalıştığı için kullanılabilir bağlantı sayısı sınırlı bir [korumalı ortamda](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Korumalı alan kodunuza uygular kısıtlamaları biri bir [(şu anda 600 etkin bağlantı, toplam 1200 bağlantıları) bağlantı sayısı için üst sınır](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) örnek başına. Bu sınıra ulaştığınızda, İşlevler çalışma zamanı şu iletiyle bir günlük oluşturur: `Host thresholds exceeded: Connections`.
 
-Sınırı aşan olasılığını zaman giden [ölçek denetleyicisi ekler işlevi uygulama örneği](functions-scale.md#how-the-consumption-plan-works) daha fazla isteklerini işlemek için. Her işlev uygulaması örneğinin, tümü 300 sınırından sayılır bağlantıları kullanarak birçok işlev aynı anda çalışabilir.
+Örnek başına sınırdır.  Zaman [ölçek denetleyicisi ekler işlevi uygulama örneği](functions-scale.md#how-the-consumption-plan-works) daha fazla isteklerini işlemek için her örnek, bir bağımsız bağlantı sınırı vardır.  Genel bağlantı sınırı yoktur ve toplam 600'den çok daha etkin bağlantı tüm etkin örnekler olabilir anlamına gelir.
 
 ## <a name="use-static-clients"></a>Statik istemciler
 
-Daha fazla gerekli bağlantı bulunduran önlemek için her işlev Çağırma ile yenilerini oluşturmak yerine istemci örnekleri yeniden kullanın. .NET istemcileri ister [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
+Daha fazla gerekli bağlantı bulunduran önlemek için her işlev Çağırma ile yenilerini oluşturmak yerine istemci örnekleri yeniden kullanın.  İstemci bağlantıları yeniden işlevinizi yazabilir herhangi bir dilde önerilir. Örneğin, .NET istemcileri gibi [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
 ), ve statik, tek bir istemci kullanıyorsanız, Azure depolama istemci bağlantıları yönetebilir.
 
 Azure işlevleri uygulamada bir hizmete özgü istemcisi kullanarak izlenmesi gereken bazı Kılavuzlar şunlardır:

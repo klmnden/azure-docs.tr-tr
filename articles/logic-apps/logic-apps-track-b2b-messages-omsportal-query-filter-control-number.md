@@ -1,5 +1,5 @@
 ---
-title: Log Analytics - Azure Logic Apps B2B iletileri için izleme sorguları oluşturma | Microsoft Docs
+title: Azure İzleyici günlüklerine - Azure Logic Apps B2B iletileri için izleme sorguları oluşturma | Microsoft Docs
 description: AS2, X 12 ve EDIFACT iletileri Azure Log analytics'te Azure Logic Apps için izleme sorguları oluşturma
 services: logic-apps
 ms.service: logic-apps
@@ -9,19 +9,21 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 5cfab07e19e543b7a46fcce8f449a46395c144d6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: d4a94e75de34bbafd3bc8f1c1a0d1a6817245e5f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995313"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194920"
 ---
-# <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>B2B iletileri için izleme sorguları, Azure Log Analytics'te Azure Logic Apps için oluşturun.
+# <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>B2B iletileri için izleme sorguları, Azure Logic Apps için Azure İzleyici günlüklerine oluşturma
 
-AS2 bulmak için X12 veya EDIFACT ile takip ettiğiniz iletileri [Azure Log Analytics](../log-analytics/log-analytics-overview.md), filtre eylemleri belirli ölçütlere göre sorgular oluşturabilirsiniz. Örneğin, belirli bir değişim denetimi sayısına göre iletileri bulabilirsiniz.
+AS2 bulmak için X12 veya EDIFACT ile takip ettiğiniz iletileri [Azure İzleyici günlükleri](../log-analytics/log-analytics-overview.md), filtre eylemleri belirli ölçütlere göre sorgular oluşturabilirsiniz. Örneğin, belirli bir değişim denetimi sayısına göre iletileri bulabilirsiniz.
 
 > [!NOTE]
 > Bu sayfa, Microsoft Operations Management Suite (olan OMS ile), bu görevleri gerçekleştirmek adımlar daha önce açıklanan [Ocak 2019 ' devre dışı bırakma](../azure-monitor/platform/oms-portal-transition.md), bu adımlar, bunun yerine Azure Log Analytics ile değiştirir. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -29,7 +31,7 @@ AS2 bulmak için X12 veya EDIFACT ile takip ettiğiniz iletileri [Azure Log Anal
 
 * İzleme ve günlüğe kaydetme ile ayarlanmış bir tümleştirme hesabı. Bilgi [tümleştirme hesabı oluşturma işlemini](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) ve [izleme ve günlüğe kaydetme için bu hesabı ayarlamak nasıl](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Henüz kaydolmadıysanız [Log Analytics için tanılama verilerini yayımlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) ve [ileti Log Analytics'te izleme ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Henüz kaydolmadıysanız [tanılama verilerini Azure İzleyici günlüklerine yayımlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) ve [ileti Azure İzleyici günlüklerine izleme ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## <a name="create-queries-with-filters"></a>Filtrelerle sorguları oluşturma
 
@@ -53,7 +55,7 @@ Belirli özellikler veya değerleri temel alan iletileri bulmak için filtreleri
 1. Sorgu düzenleme kutusu, bulmak istediğiniz alan adını yazmaya başlayın. Yazmaya başladığınızda, sorgu Düzenleyicisi'ni kullanabilirsiniz işlemleri ve olası eşleşmeler gösterir. Sorgunuzu oluşturduktan sonra seçin **çalıştırma** veya Enter tuşuna basın.
 
    Bu örnek üzerinde eşleşmeleri arar **LogicAppB2B**. 
-   Daha fazla bilgi edinin [Log Analytics'te veri bulma](../log-analytics/log-analytics-log-searches.md).
+   Daha fazla bilgi edinin [Azure İzleyici günlüklerine veri bulma](../log-analytics/log-analytics-log-searches.md).
 
    ![Sorgu dizesi yazmaya başlayın](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
 

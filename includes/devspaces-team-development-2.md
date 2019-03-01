@@ -10,12 +10,12 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 7dddf7e48913aea9d84e0f8b66c2c9d29449ee6f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5d66dcaccc6ca2e40fbd516f535ec56c1baf6b17
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825421"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195617"
 ---
 ### <a name="run-the-service"></a>Hizmeti çalıştırma
 
@@ -81,7 +81,7 @@ Başlangıç kılavuzunu tamamladınız! Şunları öğrendiniz:
 > * Kodunuzu bir ekip ortamında verimli bir şekilde geliştirip test edin.
 > * Temel bir kolayca daha büyük bir mikro hizmet uygulaması bağlamında izole edilmiş değişiklikleri test etmek için geliştirme alanları'nı kullanarak işlevler oluşturun
 
-Artık Azure Dev Spaces'i öğrendiğinize göre, [Dev Space'inizi bir takım üyesiyle paylaşın](../articles/dev-spaces/how-to/share-dev-spaces.md) ve onların birlikte işbirliği yapmasının ne kadar kolay olduğunu görmelerine yardımcı olun.
+Azure geliştirme alanları incelediniz göre [geliştirme alanınızın bir ekip üyesiyle paylaşmak](../articles/dev-spaces/how-to/share-dev-spaces.md) ve İşbirliği yapmaya başlayın.
 
 ## <a name="clean-up"></a>Temizleme
 Geliştirme alanları ve içinde çalışan hizmetler dahil olmak üzere bir kümedeki Azure Dev Spaces örneğini tamamen silmek için `az aks remove-dev-spaces` komutunu kullanın. Bu eylemin geri alınamayacağını unutmayın. İleride kümeye yeniden Azure Dev Spaces desteği ekleyebilirsiniz ancak sıfırdan başlamış gibi olursunuz. Eski hizmetleriniz ve alanlarınız geri yüklenmez.

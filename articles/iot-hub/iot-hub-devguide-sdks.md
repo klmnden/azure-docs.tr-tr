@@ -1,19 +1,19 @@
 ---
 title: Azure IOT SDK'ları anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - ilgili bilgiler ve cihaz uygulamalarını hem de arka uç uygulamaları oluşturmak için kullanabileceğiniz çeşitli Azure IOT cihaz ve hizmet SDK'ları için bağlantılar.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: dobett
-ms.openlocfilehash: 3bdb09de04ec5041d671f5af709a1a1e7133d141
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: fcb6f564c97632e4d62f7f052ec5ecc35a9e479a
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199519"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011254"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Anlama ve Azure IOT Hub SDK'ları kullanın
 
@@ -37,7 +37,7 @@ Hakkında bilgi edinin [avantajları, Azure IOT SDK'larını kullanarak gelişti
 
 SDK'ları için desteklenen platformları bulunabilir [Azure IOT SDK'ları Platform Desteği](iot-hub-device-sdk-platform-support.md).
 
-Belirli donanım cihazlarına SDK uyumluluğu hakkında daha fazla bilgi için bkz. [IOT cihaz kataloğu için Azure sertifikalı](https://catalog.azureiotsuite.com/) veya tek tek depo.
+Belirli donanım cihazlarına SDK uyumluluğu hakkında daha fazla bilgi için bkz. [IOT cihaz kataloğu için Azure sertifikalı](https://catalog.azureiotsolutions.com/) veya tek tek depo.
 
 ## <a name="azure-iot-hub-device-sdks"></a>Azure IOT Hub cihaz SDK'ları
 

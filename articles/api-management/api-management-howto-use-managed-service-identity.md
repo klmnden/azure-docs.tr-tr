@@ -1,6 +1,6 @@
 ---
-title: Azure'daki yönetilen hizmet kimliği Azure API Management | Microsoft Docs
-description: API Yönetimi'nde Azure yönetilen hizmet kimliği kullanmayı öğrenin
+title: Azure API Yönetimi'nde yönetilen kimlikleri kullanmak | Microsoft Docs
+description: API Yönetimi'nde yönetilen kimlikleri kullanmayı öğrenin
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -11,27 +11,27 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 54c4d58dc881ffc7c1f5ecc2242b64e5b61fa68f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 750403c18a6eaa36cdc05ece2de1222ad050ba1b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730756"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989549"
 ---
-# <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure API Yönetimi'nde Azure yönetilen hizmet kimliğini kullanma
+# <a name="use-managed-identities-in-azure-api-management"></a>Azure API Yönetimi'nde yönetilen kimlikleri kullanmak
 
-Bu makalede, bir API Management hizmet örneği için bir yönetilen hizmet kimliği oluşturma ve diğer kaynaklarına erişmek nasıl gösterir. API Management örneğinizin Azure AD ile korunan gibi başka kaynaklar Azure anahtar kasası kolayca ve güvenli bir şekilde erişmek Azure Active Directory (Azure AD) tarafından oluşturulan bir yönetilen hizmet kimliği sağlar. Bu yönetilen hizmet kimliği Azure tarafından yönetilen ve sağlama veya herhangi bir gizli anahtar döndürme gerektirmez. Azure yönetilen hizmet kimliği hakkında daha fazla bilgi için bkz: [Azure kaynakları için Yönetilen hizmet kimliği](../active-directory/msi-overview.md).
+Bu makalede, bir API Management hizmet örneği için bir yönetilen kimlik oluşturma ve diğer kaynaklarına erişmek nasıl gösterir. API Management örneğinizin Azure AD ile korunan gibi başka kaynaklar Azure anahtar kasası kolayca ve güvenli bir şekilde erişmek Azure Active Directory (Azure AD) tarafından oluşturulan bir yönetilen kimlik sağlar. Bu kimlik, Azure tarafından yönetilen ve sağlama veya herhangi bir gizli anahtar döndürme gerektirmez. Yönetilen kimlikler hakkında daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikleri nedir](../active-directory/managed-identities-azure-resources/overview.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="create-a-managed-service-identity-for-an-api-management-instance"></a>Yönetilen hizmet kimliği için bir API Management örneği oluşturma
+## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Yönetilen bir kimlik için bir API Management örneği oluşturma
 
 ### <a name="using-the-azure-portal"></a>Azure portalını kullanma
 
-Portalda bir yönetilen hizmet kimliği ayarlamak için önce normal olarak API Management örneği oluşturma ve ardından özelliği etkinleştirmek.
+Portalda yönetilen bir kimlik ayarlamak için önce normal olarak API Management örneği oluşturma ve ardından özelliği etkinleştirmek.
 
 1. Normalde yaptığınız gibi portalda API Management örneği oluşturma. İçin portalda gidin.
-2. Seçin **yönetilen hizmet kimliği**.
+2. Seçin **yönetilen hizmet kimlikleri**.
 3. Azure Active Directory ile kayıt açık konuma geçin. Kaydet’e tıklayın.
 
 ![MSI etkinleştir](./media/api-management-msi/enable-msi.png)
@@ -80,7 +80,7 @@ Bu, oluşturmak ve API Management örneğinizin kimlik yönetmek için Azure bil
 ## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Diğer kaynaklarına erişmek için Yönetilen hizmet kimliğini kullanma
 
 > [!NOTE]
-> Şu anda, yönetilen hizmet kimliği sertifikaları Azure Key Vault'tan API Management için özel etki alanı adlarını almak için kullanılabilir. Daha fazla senaryo aktarılması yakında desteklenecek.
+> Şu anda yönetilen kimlikleri sertifikaları Azure Key Vault'tan API Management için özel etki alanı adlarını almak için kullanılabilir. Daha fazla senaryo aktarılması yakında desteklenecek.
 >
 >
 
@@ -110,7 +110,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 Aşağıdaki örnek, aşağıdaki adımları içeren bir Azure Resource Manager şablonu gösterir:
 
-1. Yönetilen hizmet kimliği ile API Management örneği oluşturma.
+1. API Management örneği ile yönetilen bir kimlik oluşturun.
 2. Azure Key Vault örneği erişim ilkeleri güncelleştirmek ve API Management örneği sırlarını elde izin verin.
 3. API Management örneği, Key Vault örnek bir özel etki alanı adı ile bir sertifika ayarlayarak güncelleştirin.
 
@@ -238,7 +238,7 @@ Aşağıdaki örnek, aşağıdaki adımları içeren bir Azure Resource Manager 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure yönetilen hizmet kimliği hakkında daha fazla bilgi edinin:
+Azure kaynakları için yönetilen kimlikleri hakkında daha fazla bilgi edinin:
 
-* [Azure kaynakları için Yönetilen hizmet kimliği](../active-directory/msi-overview.md)
+* [Azure kaynakları için yönetilen kimlikleri nedir](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure Resource Manager şablonları](https://github.com/Azure/azure-quickstart-templates)

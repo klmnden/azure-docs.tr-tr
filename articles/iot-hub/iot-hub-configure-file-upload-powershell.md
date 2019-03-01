@@ -1,18 +1,19 @@
 ---
 title: Karşıya dosya yüklemeyi yapılandırma için Azure PowerShell'i kullanma | Microsoft Docs
 description: Dosya etkinleştirmek için IOT hub'ınızı yapılandırmak için Azure PowerShell cmdlet'lerini kullanmak nasıl bağlı cihazlardan karşıya yükler. ' % S'hedef Azure depolama hesabı yapılandırma hakkında bilgi içerir.
-author: dominicbetts
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 7d63cc4e57ba3c1b962c893bf8c8bd03664dac6f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: robin.shahan
+ms.openlocfilehash: 9754fe2bedae9c1eaf6b18614014485dbe8051f2
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729263"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010486"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>PowerShell kullanarak dosya yüklemeleri IOT hub'ı yapılandırma
 

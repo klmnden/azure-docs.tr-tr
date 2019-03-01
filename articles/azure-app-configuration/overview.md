@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 11dd91039bb352e86800982d0a294f82622a56fe
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8207c9bb4cce3d793a5030febc532b869f54dd3f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884833"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195141"
 ---
 # <a name="what-is-azure-app-configuration"></a>Azure Uygulama Yapılandırması nedir
 
 Azure uygulama yapılandırması, uygulama ayarlarını yönetmek için bir hizmet sağlar merkezi olarak. Özellikle de bir bulutta çalışan modern programlar genellikle doğası gereği dağıtılmış birçok bileşen sahiptir. Yapılandırma ayarlarını bu bileşenler genelinde yaymak bir uygulama dağıtımı sırasında sabit giderme hatalarına neden olabilir. Uygulama yapılandırması, uygulamanız için tüm ayarları depolar ve bunların erişim tek bir yerde güvenli olanak tanır.
+
+Uygulama yapılandırma hizmetin içinde bulunduğu **özel Önizleme**. Önizleme dönemi boyunca ücretsiz olarak kullanılabilir.
 
 ## <a name="why-use-app-configuration"></a>Neden uygulama yapılandırmasını kullanma
 
@@ -44,6 +46,12 @@ Uygulama yapılandırması aşağıdaki avantajları sunar:
 * Azure tarafından yönetilen kimlikleri ile gelişmiş güvenlik sağlar.
 * Bekleyen veri veya Aktarımdaki verileri şifrelemeler tamamlayın.
 * Popüler çerçeveleri ile yerel tümleştirme.
+
+Uygulama yapılandırmasını tamamlar [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) uygulama parolalarını depolamak için kullanılır. Uygulama yapılandırması senaryolarda uygulama kolaylaştırır:
+
+* Merkezi Yönetim ve dağıtım hiyerarşik yapılandırma verileri farklı ortamları ve coğrafyalar için.
+* Bir uygulamayı yeniden başlatma veya yeniden dağıtmaya gerek olmadan dinamik yapılandırma değişiklikleri'ni kullanın.
+* Özellik Yönetimi.
 
 ## <a name="how-to-use-app-configuration"></a>Uygulama yapılandırmasını kullanma hakkında
 

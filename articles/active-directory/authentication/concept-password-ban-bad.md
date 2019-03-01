@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96e2c3cfd509c9b0b77d0db00add31b58a07ce6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ca079fa2ec41f85c365102fbd81ffde23e97e2c4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206557"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990501"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Hatalı parola kuruluşunuzdaki ortadan kaldırın
 
@@ -96,7 +96,7 @@ Sonraki iki örnek için Contoso Azure AD parola koruması kullanarak ve "contos
 
 Normalleştirme sonra bu parola, "contosoblank12" olur. Bu parola iki yasaklı parola içeren eşleştirme işlemi bulur: contoso ve boş. Bu parolayı daha sonra bir puan verilmiştir:
 
-[contoso] + [boş] [1] = + [2] = 4 nokta bu parolayı 5 noktaları altında olduğundan, reddedilir.
+[contoso] + [boş] + [1] + [2] = 4 nokta bu parolayı 5 noktaları altında olduğundan, reddedilir.
 
 Örnek: bir kullanıcı için parola değişiklikleri "ContoS0Bl@nkf9!".
 

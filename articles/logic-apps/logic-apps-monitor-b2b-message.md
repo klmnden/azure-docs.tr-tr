@@ -1,6 +1,6 @@
 ---
-title: Log Analytics - Azure Logic Apps B2B iletilerini izleme | Microsoft Docs
-description: AS2, X 12 ve EDIFACT iletileri tümleştirme hesapları ve Azure Logic Apps için izleme ve tanılama günlüklerini Azure Log Analytics ile ayarlayın
+title: Azure İzleyici günlükleri - Azure Logic Apps ile B2B iletilerini izleme | Microsoft Docs
+description: AS2, X 12 ve EDIFACT iletileri tümleştirme hesapları ve Azure Logic Apps için izleme ve tanılama günlüklerini Azure İzleyici günlükleri ile ayarlayın
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,25 +9,27 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 12799a308157c3c0e19de1f82c0fe3df44fad37e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818303"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195175"
 ---
-# <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Azure Log Analytics'te Azure Logic Apps ile B2B iletilerini izleme
+# <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Azure İzleyici günlüklerine Azure Logic Apps ile B2B iletilerini izleme
 
-Tümleştirme hesabı ticari ortaklar arasında B2B iletişim kurduktan sonra iş ortakları birbirleriyle iletiler gönderip alabilir. Bu iletişim beklediğiniz gibi çalışır, AS2, X12, izleyebilir ve EDIFACT iletileri ve tümleştirme hesabınız için günlüğe kaydetme tanılama ayarlama denetlemek için [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Bu hizmet, Bulut ve şirket içi ortamlarını, kullanılabilirlik ve performansı korumak ve çalışma zamanı Ayrıntılar ve daha zengin hata ayıklama olaylarını toplar izler. Bu veriler, Azure depolama ve Azure Event Hubs gibi diğer hizmetlerle de kullanabilirsiniz.
+Tümleştirme hesabı ticari ortaklar arasında B2B iletişim kurduktan sonra iş ortakları birbirleriyle iletiler gönderip alabilir. Bu iletişim beklediğiniz gibi çalışır, AS2, X12, izleyebilir ve EDIFACT iletileri ve tümleştirme hesabınız için günlüğe kaydetme tanılama ayarlama denetlemek için [Azure İzleyicisi](../log-analytics/log-analytics-overview.md). Bu hizmet, Bulut ve şirket içi ortamlarını, kullanılabilirlik ve performansı korumak ve çalışma zamanı Ayrıntılar ve daha zengin hata ayıklama olaylarını toplar izler. Bu veriler, Azure depolama ve Azure Event Hubs gibi diğer hizmetlerle de kullanabilirsiniz.
 
 > [!NOTE]
 > Bu sayfa, başvurular için Microsoft Operations Management Suite (olan OMS), yine de olabilir [Ocak 2019 ' devre dışı bırakma](../azure-monitor/platform/oms-portal-transition.md), ancak bu adımlar, mümkün olduğunda Azure Log Analytics ile değiştirir. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Tanılama günlük kaydı ile ayarlanmış bir mantıksal uygulama. Bilgi [bir mantıksal uygulama oluşturma işlemini](quickstart-create-first-logic-app-workflow.md) ve [nasıl ayarlanacağı, mantıksal uygulama için günlüğe kaydetmeyi](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* Önceki gereksinimlerini sonra izleme ve Log Analytics aracılığıyla B2B iletişimi izlemek için kullandığınız bir Log Analytics çalışma alanı da gerekir. Bir Log Analytics çalışma alanınız yoksa, bilgi [bir Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md).
+* Önceki gereksinimlerini sonra izleme ve Azure İzleyici günlüklerine aracılığıyla B2B iletişimi izlemek için kullandığınız bir Log Analytics çalışma alanı da gerekir. Bir Log Analytics çalışma alanınız yoksa, bilgi [bir Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md).
 
 * Mantıksal uygulamanıza bağlı olan tümleştirme hesabı. Bilgi [mantıksal uygulamanızın bağlantısını içeren bir tümleştirme hesabı oluşturma](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -71,9 +73,9 @@ Doğrudan tümleştirme hesabınızdan ya da oturum açın veya [Azure İzleyici
 
    Örneğin: 
 
-   ![Tanılama verilerini günlüğe gönderebilmek için Log Analytics'i ayarlama](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![Azure İzleyici günlüklerini tanılama verilerini günlüğe gönderebilmemiz ayarlayın](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-1. Artık [için Log analytics'te B2B iletilerinizi izleme ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+1. Artık [için Azure İzleyici günlüklerine B2B iletilerinizi izleme ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 <a name="azure-monitor-service"></a>
 
@@ -113,13 +115,13 @@ Doğrudan tümleştirme hesabınızdan ya da oturum açın veya [Azure İzleyici
 
    Örneğin: 
 
-   ![Tanılama verilerini günlüğe gönderebilmek için Log Analytics'i ayarlama](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![Azure İzleyici günlüklerini tanılama verilerini günlüğe gönderebilmemiz ayarlayın](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-1. Artık [için Log analytics'te B2B iletilerinizi izleme ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+1. Artık [için Azure İzleyici günlüklerine B2B iletilerinizi izleme ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## <a name="use-diagnostic-data-with-other-services"></a>Tanılama verileri diğer hizmetleri ile kullanma
 
-Azure Log Analytics ile birlikte mantıksal uygulamanızın tanılama verilerini diğer Azure hizmetleriyle örneğin kullanma genişletebilirsiniz: 
+Azure İzleyici günlüklerine yanı sıra, mantıksal uygulamanızın tanılama verilerini diğer Azure hizmetleriyle örneğin kullanma genişletebilirsiniz: 
 
 * [Azure depolama alanında Azure tanılama günlüklerini arşivleme](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Azure Event hubs'a Stream Azure tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -144,6 +146,6 @@ Azure tüm şemalar dışında özel türü sabit şema türü izlemeyi destekle
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Log analytics'te B2B iletilerini izleme](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Azure Log analytics'te izlemek B2B iletileri")
+* [Azure İzleyici günlüklerine B2B iletilerini izleme](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Azure İzleyici günlüklerine izlemek B2B iletileri")
 * [Enterprise Integration Pack hakkında daha fazla bilgi](../logic-apps/logic-apps-enterprise-integration-overview.md "Enterprise Integration Pack hakkında bilgi edinin")
 

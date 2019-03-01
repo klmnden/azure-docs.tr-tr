@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737493"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990544"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack üzerinde App Service ile çalışmaya başlamadan önce
 
@@ -30,7 +30,7 @@ ms.locfileid: "56737493"
 Azure Stack'te Azure App Service'ı dağıtmadan önce bu makalede bölümündeki önkoşul adımlarını tamamlamanız gerekir.
 
 > [!IMPORTANT]
-> Azure Stack tümleşik sisteminize 1809 güncelleştirmeyi veya Azure App Service 1.4 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
+> Azure Stack tümleşik sisteminize 1901 güncelleştirmesini veya Azure App Service 1.5 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Yükleyici ve yardımcı betikleri indirin
 
@@ -49,15 +49,7 @@ Azure Stack'te Azure App Service'ı dağıtmadan önce bu makalede bölümündek
 
 ## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Marketten özel betik uzantısı entegratörlerine dağıtın
 
-Azure Stack'te Azure App Service özel betik uzantısı v1.9.0 gerektirir.  Uzantı olmalıdır [marketten dağıtılmış](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) Azure Stack'te Azure App Service'in yükseltme ve dağıtım başlamadan önce
-
-## <a name="high-availability"></a>Yüksek kullanılabilirlik
-
-Azure Stack 1802 güncelleştirme, hata etki alanları için destek eklendi. Azure Stack'te Azure App Service'in yeni dağıtımlar hata etki alanlarına dağıtılmış ve hataya dayanıklılık sağlar.
-
-1802 güncelleştirmeden önce dağıtılan var olan dağıtımlar Azure Stack'te Azure App Service'in için bkz. [bir App Service kaynak sağlayıcısı, hata etki alanları arasında yeniden dengelemeniz](azure-stack-app-service-fault-domain-update.md) makalesi.
-
-Ayrıca, gerekli bir dosya sunucusu ve SQL Server örneklerini yüksek oranda kullanılabilir bir yapılandırmada dağıtın.
+Azure Stack'te Azure App Service özel betik uzantısı v1.9.1 gerektirir.  Uzantı olmalıdır [marketten dağıtılmış](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) Azure Stack'te Azure App Service'in yükseltme ve dağıtım başlamadan önce
 
 ## <a name="get-certificates"></a>Sertifikaları Al
 

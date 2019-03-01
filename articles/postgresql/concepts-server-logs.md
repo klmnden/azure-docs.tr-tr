@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: a7f4d10e3273fb2b4e17ff0a55c3a3ed6294833d
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.date: 02/28/2019
+ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961287"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195107"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda sunucu günlüklerini 
 PostgreSQL için Azure veritabanı oluşturur, sorgu ve hata günlükleri. Sorgu ve Hata günlüklerini belirlemek, sorun giderme ve yapılandırma hatalarını ve performansın onarmak için kullanılabilir. (İşlem günlükleri için erişim dahil değildir). 
@@ -30,6 +30,8 @@ Günlükleri etkinleştirdiyseniz, bunları günlük depolama kullanılarak Post
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 PostgreSQL için Azure veritabanı Azure İzleyici tanılama günlükleri ile tümleştirilir. PostgreSQL sunucunuzda günlükleri etkinleştirdikten sonra bunları için yayılan sahip olmayı seçebilirsiniz [Azure İzleyici günlükleri](../azure-monitor/log-query/log-query-overview.md), Event Hubs veya Azure depolama. Tanılama günlüklerini etkinleştirme hakkında daha fazla bilgi için nasıl yapılır bölümüne bakın [tanılama günlükleri belgeleri](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
+> [!IMPORTANT]
+> Sunucu günlükleri için tanılama bu özellik yalnızca genel amaçlı ve bellek için iyileştirilmiş kullanılabilir [fiyatlandırma katmanları](concepts-pricing-tiers.md).
 
 Aşağıdaki tabloda, her oturum açma yenilikler açıklanır. Seçtiğiniz çıkış uç noktası, yer alan alanlar ve değişebilir göründükleri sırayla bağlı olarak. 
 

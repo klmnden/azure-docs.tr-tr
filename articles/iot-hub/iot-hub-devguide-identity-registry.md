@@ -1,19 +1,19 @@
 ---
 title: Azure IOT Hub kimlik kayıt defteri anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - IOT Hub kimlik kayıt defteri ve cihazlarınızı yönetmek için kullanma açıklaması. Toplu olarak içeri veya dışarı cihaz kimlikleri hakkında bilgi içerir.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: dobett
-ms.openlocfilehash: 6291350cab41c123b41f7fee811bf72a21d9ff35
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319141"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010269"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IOT hub'ınızdaki kimlik kayıt defterinde anlama
 
@@ -101,16 +101,16 @@ Daha karmaşık bir uygulama bilgileri içerebilir [Azure İzleyici](../azure-mo
 
 Kimlikteki oluşturulduğunda veya yaşam döngüsü bildirimleri göndererek silindi, IOT Hub, IOT çözümünüzün bildirebilir. Bunu yapmak için IOT çözümünüzün yönlendirme oluşturma ve veri kaynağı eşit ayarlamak için gereken *DeviceLifecycleEvents* veya *ModuleLifecycleEvents*. Varsayılan olarak, hiçbir yaşam döngüsü bildirimleri gönderilir, diğer bir deyişle, bu tür bir yol önceden mevcut. Bildirim iletisi, özellikleri ve gövde içerir.
 
-Özellikler: İleti sistemi özellikleri ile ön ekli `$` simgesi.
+Özellikler: İleti sistemi özellikleri önekiyle `$` simgesi.
 
 Cihaz için bildirim iletisi:
 
 | Ad | Değer |
 | --- | --- |
-|$content-türü | uygulama/json |
+|$content-type | uygulama/json |
 |$iothub-enqueuedtime |  Bildirim zaman gönderildiği zaman |
 |$iothub-message-kaynak | deviceLifecycleEvents |
-|$content-kodlama | UTF-8 |
+|$content-encoding | UTF-8 |
 |opType | **createDeviceIdentity** veya **deleteDeviceIdentity** |
 |HubName | IOT hub'ı adı |
 |deviceId | Cihaz kimliği |
@@ -143,10 +143,10 @@ Bildirim iletisi modülü için:
 
 | Ad | Değer |
 | --- | --- |
-$content-türü | uygulama/json |
+$content-type | uygulama/json |
 $iothub-enqueuedtime |  Bildirim zaman gönderildiği zaman |
 $iothub-message-kaynak | moduleLifecycleEvents |
-$content-kodlama | UTF-8 |
+$content-encoding | UTF-8 |
 opType | **createModuleIdentity** veya **deleteModuleIdentity** |
 HubName | IOT hub'ı adı |
 Modül kimliği | Modül kimliği |
@@ -185,7 +185,7 @@ Cihaz kimliklerini aşağıdaki özelliklerle JSON belgeleri olarak temsil edili
 | --- | --- | --- |
 | deviceId |gerekli, salt okunur güncelleştirmeleri |ASCII 7 bit alfasayısal karakterlerin yanı sıra belirli özel karakterler büyük küçük harfe duyarlı bir dize (en çok 128 karakterden uzun): `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | Generationıd |gerekli, salt okunur |Bir IOT hub tarafından oluşturulan, büyük küçük harfe duyarlı dize en fazla 128 karakter. Bu değer aynı cihazlar ayrım yapmak için kullanılan **DeviceID**silinmesi ve yeniden oluşturulacak. |
-| ETag |gerekli, salt okunur |Bir cihaz kimliği için zayıf bir ETag başına olarak temsil eden bir dize [RFC7232](https://tools.ietf.org/html/rfc7232). |
+| Etag |gerekli, salt okunur |Bir cihaz kimliği için zayıf bir ETag başına olarak temsil eden bir dize [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | kimlik doğrulama |isteğe bağlı |Kimlik bilgileri ve güvenlik malzemeleri içeren bir bileşik nesne. |
 | auth.symkey |isteğe bağlı |Base64 biçiminde depolanan birincil ve ikincil bir anahtar içeren bir bileşik nesne. |
 | durum |gerekli |Bir erişim göstergesi. Olabilir **etkin** veya **devre dışı bırakılmış**. Varsa **etkin**, cihaz bağlanmasına izin verilir. Varsa **devre dışı bırakılmış**, bu cihaz herhangi bir cihaz'e yönelik uç noktaya erişilemiyor. |
@@ -210,7 +210,7 @@ Modül kimlikleri, aşağıdaki özelliklere sahip JSON belgeleri olarak temsil 
 | deviceId |gerekli, salt okunur güncelleştirmeleri |ASCII 7 bit alfasayısal karakterlerin yanı sıra belirli özel karakterler büyük küçük harfe duyarlı bir dize (en çok 128 karakterden uzun): `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | Modül kimliği |gerekli, salt okunur güncelleştirmeleri |ASCII 7 bit alfasayısal karakterlerin yanı sıra belirli özel karakterler büyük küçük harfe duyarlı bir dize (en çok 128 karakterden uzun): `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | Generationıd |gerekli, salt okunur |Bir IOT hub tarafından oluşturulan, büyük küçük harfe duyarlı dize en fazla 128 karakter. Bu değer aynı cihazlar ayrım yapmak için kullanılan **DeviceID**silinmesi ve yeniden oluşturulacak. |
-| ETag |gerekli, salt okunur |Bir cihaz kimliği için zayıf bir ETag başına olarak temsil eden bir dize [RFC7232](https://tools.ietf.org/html/rfc7232). |
+| Etag |gerekli, salt okunur |Bir cihaz kimliği için zayıf bir ETag başına olarak temsil eden bir dize [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | kimlik doğrulama |isteğe bağlı |Kimlik bilgileri ve güvenlik malzemeleri içeren bir bileşik nesne. |
 | auth.symkey |isteğe bağlı |Base64 biçiminde depolanan birincil ve ikincil bir anahtar içeren bir bileşik nesne. |
 | durum |gerekli |Bir erişim göstergesi. Olabilir **etkin** veya **devre dışı bırakılmış**. Varsa **etkin**, cihaz bağlanmasına izin verilir. Varsa **devre dışı bırakılmış**, bu cihaz herhangi bir cihaz'e yönelik uç noktaya erişilemiyor. |

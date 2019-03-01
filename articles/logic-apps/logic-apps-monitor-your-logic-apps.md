@@ -10,18 +10,20 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: e06bf20a04c6a57ae5988d4cc334ec7a3cdd4bf1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6a8c4583d86b41e767e8a2057bae4cef8943a1c1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543865"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193427"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Azure Logic Apps için uyarılarını Aç durumunu izleme ve tanılama günlük kaydını ayarlama
 
 Çalıştırdıktan sonra [oluşturma ve bir mantıksal uygulama çalıştırma](../logic-apps/quickstart-create-first-logic-app-workflow.md), çalıştırma geçmişi, tetikleyici geçmişi, durumunu ve performansını denetleyebilirsiniz. Gerçek zamanlı Olay izleme ve daha zengin hata ayıklama için ayarlanmış [tanılama günlüğünü](#azure-diagnostics) mantıksal uygulamanız için. Bu şekilde, aşağıdakileri yapabilirsiniz [bulma ve görüntüleme olayları](#find-events)olayları tetiklemeyi, çalışma olayları ve eylem olayları gibi. Bu da kullanabilirsiniz [diğer hizmetlerle veri tanılama](#extend-diagnostic-data), Azure depolama ve Azure Event Hubs gibi. 
 
 Hataları veya diğer olası sorunlar hakkında bildirim almak için ayarlama [uyarılar](#add-azure-alerts). Örneğin, "bir saat içinde beşten fazla çalıştırma başarısız olduğunda." algılarsa bir uyarı oluşturabilirsiniz. İzleme, izleme ve program aracılığıyla kullanarak günlüğe kaydetme ayarlayabilirsiniz [Azure Tanılama Olay ayarları ve özellikleri](#diagnostic-event-properties).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Çalıştırmalarını görüntüle ve mantıksal uygulamanızın tetikleyici geçmişi
 
@@ -72,7 +74,7 @@ Hataları veya diğer olası sorunlar hakkında bildirim almak için ayarlama [u
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Tanılama mantıksal uygulamanız için oturum açın
 
-Daha zengin çalışma zamanı ayrıntılarını ve olayları ile hata ayıklama için ile günlüğe kaydetme tanılama ayarlayabilirsiniz [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics, bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı sürdürmek amacıyla azure'da bir hizmettir. 
+Daha zengin çalışma zamanı ayrıntılarını ve olayları ile hata ayıklama için ile günlüğe kaydetme tanılama ayarlayabilirsiniz [Azure İzleyicisi](../log-analytics/log-analytics-overview.md). Azure İzleyici, bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı sürdürmek amacıyla bir Azure hizmetidir. 
 
 Başlamadan önce Log Analytics çalışma alanına sahip olmanız gerekir. Bilgi [bir Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -125,7 +127,7 @@ Bulma ve mantıksal uygulamanızda olayları görüntüleme gibi olaylar, olayla
 
    ![Arama dizesi girin](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   Daha fazla bilgi edinin [Log Analytics'te veri bulma](../log-analytics/log-analytics-log-searches.md).
+   Daha fazla bilgi edinin [Azure İzleyici günlüklerine veri bulma](../log-analytics/log-analytics-log-searches.md).
 
 5. Sonuçları sayfasında sol çubuğunda, görüntülemek istediğiniz zaman çerçevesini seçin.
 Bir filtre ekleyerek sorgunuzu iyileştirmek için seçin **+ Ekle**.
@@ -153,7 +155,7 @@ Bir filtre ekleyerek sorgunuzu iyileştirmek için seçin **+ Ekle**.
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Nasıl ve tanılama verilerini diğer hizmetleri ile kullandığınız genişletin
 
-Azure Log Analytics ile birlikte mantıksal uygulamanızın tanılama verilerini diğer Azure hizmetleriyle örneğin kullanma genişletebilirsiniz: 
+Azure İzleyici günlüklerine yanı sıra, mantıksal uygulamanızın tanılama verilerini diğer Azure hizmetleriyle örneğin kullanma genişletebilirsiniz: 
 
 * [Azure depolama alanında Azure tanılama günlüklerini arşivleme](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Azure Event hubs'a Stream Azure tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -176,7 +178,7 @@ Ayarlamak istediğiniz seçenekleri bağlı olarak, emin olun, ilk [bir Azure de
 
 Belirli ölçümleri veya mantıksal uygulamanızın aşıldı eşikleri izlemek üzere ayarlanan sahte [azure'daki uyarıları](../azure-monitor/platform/alerts-overview.md). Hakkında bilgi edinin [ölçümleri azure'da](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
-Uyarılar olmadan ayarlamak için [Azure Log Analytics](../log-analytics/log-analytics-overview.md), şu adımları izleyin. Daha gelişmiş uyarı ölçütleri ve eylemleri için [Log Analytics'i ayarlama](#azure-diagnostics) çok.
+Uyarılar olmadan ayarlamak için [Azure İzleyici günlükleri](../log-analytics/log-analytics-overview.md), şu adımları izleyin. Daha gelişmiş uyarı ölçütleri ve eylemleri için [Azure İzleyici günlüklerini ayarlamak](#azure-diagnostics) çok.
 
 1. Mantıksal uygulama dikey penceresinde menüsünde altında **izleme**, seçin **tanılama** > **uyarı kuralları** > **uyarısı Ekle**burada gösterildiği gibi:
 

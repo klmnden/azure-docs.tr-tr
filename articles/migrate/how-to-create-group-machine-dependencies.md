@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: e62a792e7503e65ebe008a52430f86f1f3a00006
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f04b4dd473f98889b895fa3536c652fb6e3eb01a
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456026"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990808"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşlemesi kullanan Grup makineleri
 
@@ -21,7 +21,7 @@ Bu makalede bu makine için bir grup oluşturmak nasıl [Azure geçişi](migrate
 > Bağımlılık görselleştirme işlevini Azure Kamu'da kullanılabilir değil.
 
 ## <a name="prepare-for-dependency-visualization"></a>Bağımlılık görselleştirmesi için hazırlama
-Azure geçişi, hizmet eşlemesi çözümünü'makineler için bağımlılık görselleştirme etkinleştirmek için Log analytics'te yararlanır.
+Azure geçişi, hizmet eşlemesi çözümünü'makineler için bağımlılık görselleştirme etkinleştirmek için Azure İzleyici günlüklerine yararlanır.
 
 ### <a name="associate-a-log-analytics-workspace"></a>Log Analytics çalışma alanını ilişkilendir
 Bağımlılık görselleştirmesi yararlanmak için yeni veya var olan, Log Analytics çalışma alanı yeniden eşlemeniz gerekir ile bir Azure geçişi projesi. Yalnızca oluşturma veya geçiş projesi oluşturulduğu aynı Abonelikteki bir çalışma alanı ekleyin.
@@ -106,7 +106,7 @@ Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../azure-
 4. Zaman aralığı etikette süre tıklayarak için farklı süreler sırasında bağımlılıkları bakabilirsiniz. Varsayılan olarak aralığı bir saattir. Zaman aralığı değiştirmek veya başlangıç ve bitiş tarihlerini ve süresini belirtin.
 
     > [!NOTE]
-      Şu anda, bağımlılık görselleştirmesi UI bir saatten uzun bir zaman aralığı seçimini desteklemez. Log Analytics'i [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) üzerinden uzun bir süre.
+      Şu anda, bağımlılık görselleştirmesi UI bir saatten uzun bir zaman aralığı seçimini desteklemez. Azure İzleyicisi'ni oturumu [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) üzerinden uzun bir süre.
 
 5. Gruplamak istediğiniz bağımlı makineler tanımladıktan sonra harita üzerinde birden çok makine seçin ve Ctrl + tıklama kullanın **Grup makineleri**.
 6. Bir grup adı belirtin. Bağımlı makinelere Azure geçişi tarafından bulunduğundan emin olun.
@@ -119,19 +119,19 @@ Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../azure-
 
 Grup oluşturulduktan sonra grubun tüm makinelerde aracıları yüklemek ve tüm Grup bağımlılığı görselleştirerek grubu geliştirmek için önerilir.
 
-## <a name="query-dependency-data-from-log-analytics"></a>Log Analytics sorgu bağımlılık verileri
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Azure İzleyici günlüklerine bağımlılık verileri Sorgulama
 
-Hizmet eşlemesi tarafından yakalanan bağımlılık verileri sorgulamak için Azure geçişi projenizle ilişkili Log Analytics çalışma alanında kullanılabilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) Log Analytics'te sorgu hizmet eşlemesi veri tabloları hakkında. 
+Hizmet eşlemesi tarafından yakalanan bağımlılık verileri sorgulamak için Azure geçişi projenizle ilişkili Log Analytics çalışma alanında kullanılabilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) hizmet eşlemesi veri tabloları, Azure İzleyici'de sorgulamak için ilgili günlüğe kaydeder. 
 
-Log Analytics sorguları çalıştırmak için:
+Kusto sorguları çalıştırmak için:
 
 1. Aracıları yükledikten sonra portal ve tıklayın Git **genel bakış**.
 2. İçinde **genel bakış**Git **Essentials** yanındaki sağlanan çalışma alanı adına tıklayın ve proje bölümünü **OMS çalışma alanı**.
 3. Log Analytics çalışma alanı sayfasında tıklayın **genel** > **günlükleri**.
-4. Log Analytics kullanarak bağımlılık veri toplamak üzere sorgunuzu yazın. Bağımlılık verileri toplamak için örnek sorgular kullanılabilir [burada](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Azure İzleyici günlüklerine kullanarak bağımlılık veri toplamak üzere sorgunuzu yazın. Bağımlılık verileri toplamak için örnek sorgular kullanılabilir [burada](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 5. Sorguyu Çalıştır'ı tıklayarak çalıştırın. 
 
-[Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) Log Analytics sorguları yazma hakkında. 
+[Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) Kusto sorguları yazma hakkında. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,20 +1,20 @@
 ---
 title: Azure IOT hub'ı modül kimlik ve modül ikizi ile (Node.js) kullanmaya başlayın | Microsoft Docs
 description: Modül kimliği oluşturma ve Node.js için IOT SDK'ları kullanarak modül ikizi güncelleştirme hakkında bilgi edinin.
-author: chrissie926
-manager: ''
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.author: menchi
-ms.openlocfilehash: ae798ecf2ba5f53cdfdef45b74677615d2e0a06d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9ce17044bac09c1b3741b296f7af1129bca21f46
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447012"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008704"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Node.js arka ucu ile Node.js cihaz IOT hub'ı modül kimlik ve modül ikizi ile çalışmaya başlama
 
