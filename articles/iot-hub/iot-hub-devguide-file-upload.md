@@ -1,19 +1,19 @@
 ---
 title: Azure IOT hub'ı dosya karşıya yükleme anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - karşıya yükleme yönetmek için IOT Hub'ın karşıya dosya yükleme özelliğiyle bir CİHAZDAN bir Azure depolama blob kapsayıcısına dosyaları kullanın.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.author: dobett
-ms.openlocfilehash: 724f655229347aa73747476e6bb4837b30e0fc4f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7678c50cbda0ea112c737e8230586081efe61081
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839016"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008568"
 ---
 # <a name="upload-files-with-iot-hub"></a>IOT Hub ile dosyaları karşıya yükleme
 
@@ -125,7 +125,7 @@ Her IOT hub aşağıdaki yapılandırma seçeneklerinin bildirimleri karşıya d
 
 | Özellik | Açıklama | Aralığı ve varsayılan |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Dosya karşıya yükleme bildirim dosyası bildirimleri uç noktaya yazılıp yazılmayacağını denetler. |Bool. Varsayılan: True. |
+| **enableFileUploadNotifications** |Dosya karşıya yükleme bildirim dosyası bildirimleri uç noktaya yazılıp yazılmayacağını denetler. |Bool. Varsayılan: TRUE. |
 | **fileNotifications.ttlAsIso8601** |Varsayılan TTL dosya karşıya yükleme bildirimleri. |ISO_8601 aralığı ' 48 saat kadar (en az 1 dakika). Varsayılan: 1 saat. |
 | **fileNotifications.lockDuration** |Kilit süresi için dosya karşıya yükleme bildirim sırası. |5 ile 300 saniye (en az 5 saniye). Varsayılan: 60 saniye. |
 | **fileNotifications.maxDeliveryCount** |En fazla teslim sayısı bildirim sırası karşıya yükleyin. |1-100. Varsayılan: 100. |

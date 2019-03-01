@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2105919e0c21ef57ae2cd19450110df384252e97
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 43d28cde7e4287b5394087000b5e730a94748713
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730945"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010642"
 documentType: LandingData
 title: Bing Otomatik Öneri Belgeleri
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: Bing Otomatik Öneri Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
   description: Kısmı bir sorguyu temel alarak önerilen sorguları edinmek için Bing Otomatik Öneri API’sini kullanmayı öğrenin. Öğreticilerde bu hizmeti kullanan uygulamaların nasıl derleneceği gösterilmektedir.
   services: cognitive-services
-  author: v-jaswel
-  manager: kamrani
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jaswel
+  ms.date: 02/20/2019
+  ms.author: aahi
 abstract:
-  description: Bing Otomatik Öneri API’si Bing’e kısmi arama sorgusu terimi gönderip diğer kullanıcıların aradığı, önerilen sorguların bulunduğu bir liste almanıza olanak sağlar.  Örneğin kullanıcı, arama teriminin her karakterini girdikçe siz bu API’yi çağırıp arama kutusunun açılan listesini önerilen sorgu dizeleriyle doldurursunuz. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle Otomatik Öneri API’sini kullanmayı öğrenin.
+  description: Bing Otomatik Öneri API’si Bing’e kısmi arama sorgusu terimi gönderip diğer kullanıcıların aradığı, önerilen sorguların bulunduğu bir liste almanıza olanak sağlar.  Örneğin kullanıcılar, arama teriminin her karakterini girdikçe siz bu API’yi çağırıp arama kutusunun açılan listesini önerilerle doldurabilirsiniz. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle Otomatik Öneri API’sini kullanmayı öğrenin.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-autosuggest/overview
+      html: <p>Bing Otomatik Öneri API’si hakkında bilgi edinin</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Bing Otomatik Öneri API’si nedir?
+    - href: /azure/cognitive-services/bing-autosuggest/concepts/get-suggestions
+      html: <p>Gerçek zamanlı arama önerileri almayı öğreninsaat</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Bing Otomatik Öneri API’sinden öneri alma
+    - href: /azure/cognitive-services/bing-autosuggest/language-support
+      html: <p>API’nin desteklediği dilleri öğrenin.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Desteklenen Diller
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 'Bing Otomatik Öneri API’sini kullanarak uygulama geliştirmeyi öğrenin:'
   - type: paragraph
-    text: <a href="tutorials/autosuggest.md">Tek sayfalı web uygulaması</a> &#124; <a href="tutorials/autosuggest-source.md">Kaynak kodu</a>
+    text: <a href="tutorials/autosuggest.md">Tek sayfalı web uygulaması</a>
 - title: Başvuru
   items:
   - type: list

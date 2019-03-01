@@ -1,19 +1,19 @@
 ---
 title: Azure IOT hub'ı terimler sözlüğü | Microsoft Docs
 description: Geliştirici Kılavuzu - Azure IOT Hub'ına ilişkin sık kullanılan terimleri.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: dobett
-ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d79485fa7587a6cf8783f2e5779fa0a1d593aea7
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817397"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011441"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan yaygın terimlerin bazıları listelenmektedir.
@@ -97,7 +97,7 @@ Bağlamında bir [cihaz ikizi](iot-hub-devguide-device-twins.md), istenen özell
 Bağlı bir CİHAZDAN gönderilen iletileri başvurduğu [IOT hub'ı](#iot-hub). Bu iletiler olabilir [veri noktası](#data-point-message) veya [etkileşimli](#interactive-message) iletileri. Daha fazla bilgi için [göndermek ve IOT Hub ile ileti alma](iot-hub-devguide-messaging.md).
 
 ## <a name="device"></a>Cihaz
-IOT bağlamında, bir cihaz genellikle veri toplayabilir veya diğer cihazları denetlemek, bir küçük ölçekli, tek başına bilgi işlem cihazıdır. Örneğin, çevre bir izleme cihaz ya da denetleyiciye bir greenhouse kullanmak ve havalandırma sistemleri için bir cihaz olabilir. [Cihaz Kataloğu](https://catalog.azureiotsuite.com/) ile çalışmak üzere onaylandığını donanım cihazlarının bir listesini sağlar [IOT hub'ı](#iot-hub).
+IOT bağlamında, bir cihaz genellikle veri toplayabilir veya diğer cihazları denetlemek, bir küçük ölçekli, tek başına bilgi işlem cihazıdır. Örneğin, çevre bir izleme cihaz ya da denetleyiciye bir greenhouse kullanmak ve havalandırma sistemleri için bir cihaz olabilir. [Cihaz Kataloğu](https://catalog.azureiotsolutions.com/) ile çalışmak üzere onaylandığını donanım cihazlarının bir listesini sağlar [IOT hub'ı](#iot-hub).
 
 ## <a name="device-app"></a>Cihaz uygulaması
 Bir cihaz uygulamanın çalıştığı, [cihaz](#device) ve ile iletişimi gerçekleştirir, [IOT hub'ı](#iot-hub). Genellikle, birini [Azure IOT cihaz SDK'ları](#azure-iot-device-sdks) bir cihaz uygulaması uyguladığınızda. Çoğu IOT öğreticiler kullandığınız bir [sanal cihazı](#simulated-device) kolaylık sağlamak için.
