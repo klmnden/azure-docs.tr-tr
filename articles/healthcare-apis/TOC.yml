@@ -1,0 +1,56 @@
+items:
+- name: FHIR için Azure API'si
+  href: index.yml
+- name: Genel Bakış
+  items:
+  - name: FHIR için Azure API'si hakkında
+    href: overview.md
+  - name: Azure için FHIR Sunucusu hakkında
+    href: overview-open-source-server.md
+- name: Hızlı Başlangıçlar
+  items:
+  - name: FHIR için Azure API'sini dağıtma - Portal
+    href: fhir-paas-portal-quickstart.md
+  - name: FHIR için Azure API'sini dağıtma - PowerShell
+    href: fhir-paas-powershell-quickstart.md
+  - name: FHIR için Azure API'sini dağıtma - CLI
+    href: fhir-paas-cli-quickstart.md
+  - name: Azure için FHIR Sunucusu'nu dağıtma - Portal
+    href: fhir-oss-portal-quickstart.md
+  - name: Azure için FHIR Sunucusu'nu dağıtma - PowerShell
+    href: fhir-oss-powershell-quickstart.md
+  - name: Azure için FHIR Sunucusu'nu dağıtma - CLI
+    href: fhir-oss-cli-quickstart.md
+  expanded: true
+- name: Öğreticiler
+  items:
+  - name: Postman ile FHIR API'ye erişme
+    href: access-fhir-postman-tutorial.md
+  expanded: false
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Kaynak uygulamasını kaydetme
+    href: register-resource-azure-ad-client-app.md
+  - name: Gizli istemci uygulamasını kaydetme
+    href: register-confidential-azure-ad-client-app.md
+  - name: Genel istemci uygulamasını kaydetme
+    href: register-public-azure-ad-client-app.md
+  - name: Hizmet istemci uygulamasını kaydetme
+    href: register-service-azure-ad-client-app.md
+  - name: FHIR için Azure API'sine yönelik belirteç alma - CLI
+    href: get-healthcare-apis-access-token-cli.md
+  - name: Kimlik nesnesi kimliklerini bulma
+    href: find-identity-object-ids.md
+  expanded: false
+- name: Kaynaklar
+  items:
+  - name: SSS
+    href: fhir-faq.md
+  - name: Desteklenen özellikler
+    href: fhir-features-supported.md
+ms.openlocfilehash: 60d0d4b8368a64b9ef66608de6824cec9876b8be
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958125"

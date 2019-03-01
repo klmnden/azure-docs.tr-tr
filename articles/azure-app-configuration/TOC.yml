@@ -1,5 +1,5 @@
 items:
-- name: Azure Uygulama Yapılandırması Belgeleri
+- name: Azure Uygulama Yapılandırması (Önizleme) Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
@@ -26,8 +26,6 @@ items:
     href: integrate-azure-managed-service-identity.md
 - name: Örnekler
   items:
-  - name: Kod örnekleri
-    href: https://github.com/Azure/AppConfiguration/samples
   - name: Azure CLI
     href: cli-samples.md
 - name: Kavramlar
@@ -51,10 +49,14 @@ items:
   - name: Java Spring yapılandırma oluşturucusu
     href: https://go.microsoft.com/fwlink/?linkid=2074659
   - name: REST
-    href: https://docs.microsoft.com/rest/api/azure-app-configuration
-ms.openlocfilehash: c35296a6923e464ca20a873de4165ea20c08278f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+    href: https://go.microsoft.com/fwlink/?linkid=2078296
+- name: Kaynaklar
+  items:
+  - name: Ürün geri bildirimi sağlama
+    href: https://github.com/Azure/AppConfiguration
+ms.openlocfilehash: 6723ea35f6cc674c0e2776260c2077d781a5014c
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884143"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989781"

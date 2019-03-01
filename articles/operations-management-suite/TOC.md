@@ -2,7 +2,7 @@
 ## [Aracı İzleme](../monitoring/index.md)
 
 # başlarken
-## [Log Analytics](../log-analytics/log-analytics-get-started.md)
+## [Azure İzleyici günlükleri](../log-analytics/log-analytics-get-started.md)
 ## [Otomasyon](/azure/automation/)
 ## [Backup](../backup/backup-introduction-to-azure-backup.md)
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
@@ -11,7 +11,7 @@
 # Nasıl yapılır
 
 ## Çözümleme
-### [Log Analytics](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Azure İzleyici günlükleri](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Otomatikleştirme
 ### [Azure Otomasyonu’na genel bakış](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
