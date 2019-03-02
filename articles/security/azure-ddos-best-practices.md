@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 9f837a5dbea15b159a226b12c034add1dcf69834
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117859"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247350"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS koruması: En iyi yöntemler ve başvuru mimarileri
 
@@ -126,7 +126,7 @@ Temel Azure DDoS koruması hizmeti, müşterilere korumak ve diğer müşteriler
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS koruması telemetri, izleme ve uyarı
 
-DDoS koruması standart sunan zengin telemetri aracılığıyla [Azure İzleyici](../azure-monitor/overview.md) bir DDoS saldırısının süresi. DDoS koruması kullanan Azure İzleyici ölçümleri hiçbiri için uyarıları yapılandırabilirsiniz. Azure İzleyici tanılama arabirimi aracılığıyla Gelişmiş analiz için Splunk (Azure Event Hubs), Azure Log Analytics ve Azure depolama ile günlüğe kaydetme tümleştirebilirsiniz.
+DDoS koruması standart sunan zengin telemetri aracılığıyla [Azure İzleyici](../azure-monitor/overview.md) bir DDoS saldırısının süresi. DDoS koruması kullanan Azure İzleyici ölçümleri hiçbiri için uyarıları yapılandırabilirsiniz. Azure İzleyici tanılama arabirimi aracılığıyla Gelişmiş analiz için Splunk (Azure Event Hubs), Azure İzleyici günlüklerine ve Azure depolama ile günlüğe kaydetme tümleştirebilirsiniz.
 
 ##### <a name="ddos-mitigation-policies"></a>DDoS riskini azaltma ilkeleri
 

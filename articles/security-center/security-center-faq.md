@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 5fd885acc4294ae9f370d3becd0ad8cfb7935193
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 312e6c3c102946bcd19247f0730369dc7d0c8aba
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992371"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247435"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -54,8 +54,8 @@ Bkz: [Azure Güvenlik Merkezi'nde izinler](security-center-permissions.md) rolle
 ## <a name="data-collection-agents-and-workspaces"></a>Veri toplama aracıları ve çalışma alanları
 Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve Azure harici bilgisayarları güvenlik açıklarını ve tehditleri izlemek için veri toplar. Veriler, makineden güvenlikle ilgili çeşitli yapılandırmaları ve olay günlüklerini okuyup verileri analiz için çalışma alanınıza kopyalayan Microsoft Monitoring Agent kullanılarak toplanır.
 
-### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Log Analytics temelinde Güvenlik Merkezi tarafından oluşturulan çalışma alanları için Faturalandırılacak mıyım?
-Hayır. Güvenlik Merkezi tarafından oluşturulan çalışma alanları faturalandırma, düğüm başına Log Analytics için yapılandırılmış ancak Log Analytics ücretleri uygulanmaz. Güvenlik Merkezi her zaman, Güvenlik Merkezi güvenlik ilkesi ve bir çalışma alanına yüklenmiş çözümlere göre faturalandırılır:
+### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Azure İzleyici açtığında, Güvenlik Merkezi tarafından oluşturulan çalışma alanları için Faturalandırılacak mıyım?
+Hayır. Güvenlik Merkezi tarafından oluşturulan çalışma alanları başına düğüm faturalandırma, Azure İzleyici günlük için yapılandırılmış olsa Azure İzleyici günlüklerine ücretleri uygulanmaz. Güvenlik Merkezi her zaman, Güvenlik Merkezi güvenlik ilkesi ve bir çalışma alanına yüklenmiş çözümlere göre faturalandırılır:
 
 - **Ücretsiz katmanı** – Güvenlik Merkezi için varsayılan çalışma alanı 'SecurityCenterFree' çözümü sağlar. Ücretsiz katmanı için faturalandırılmaz.
 - **Standart katman** – Güvenlik Merkezi için varsayılan çalışma alanı 'Güvenlik' çözümü sağlar.
@@ -63,9 +63,11 @@ Hayır. Güvenlik Merkezi tarafından oluşturulan çalışma alanları faturala
 Fiyatlandırma hakkında daha fazla bilgi için bkz. [Güvenlik Merkezi fiyatlandırma](https://azure.microsoft.com/pricing/details/security-center/). Fiyatlandırma sayfası, güvenlik verileri depolama ve Haziran 2017'den itibaren eşit olarak bölünmüş faturalandırma değişiklikleri yöneliktir.
 
 > [!NOTE]
-> Fiyatlandırma katmanı Güvenlik Merkezi tarafından oluşturulan çalışma alanları, Log Analytics, Güvenlik Merkezi faturalandırma etkilemez.
+> Fiyatlandırma katmanı Güvenlik Merkezi tarafından oluşturulan çalışma alanları, log analytics, Güvenlik Merkezi faturalandırma etkilemez.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>Hangi, bir VM'nin Microsoft Monitoring Agent yüklemesi otomatik sağlama için niteliği taşır?
 Windows veya Linux Iaas sanal makineleri, uygun:
@@ -217,7 +219,7 @@ Aracı, sistem kaynaklarının nominal bir miktarını kullanıyor ve performans
 ### <a name="where-is-my-data-stored"></a>Verilerim nerede depolanır?
 Bu Aracıdan toplanan veriler, aboneliğinizle ilişkili mevcut bir Log Analytics çalışma alanı veya yeni bir çalışma alanı içinde depolanır. Daha fazla bilgi için [veri güvenliği](security-center-data-security.md).
 
-## Mevcut Log Analytics müşterileri<a name="existingloganalyticscust"></a>
+## Azure İzleyici mevcut müşteriler günlüğe kaydeder<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Güvenlik Merkezi, Vm'leri ve çalışma alanları arasında herhangi bir mevcut bağlantı geçersiz kılmaz?
 Güvenlik Merkezi bir VM zaten Microsoft Monitoring Agent yüklüyse Azure uzantı olarak varsa, varolan bir çalışma alanı bağlantıyı geçersiz kılmaz. Bunun yerine, Güvenlik Merkezi, varolan bir çalışma alanını kullanır.

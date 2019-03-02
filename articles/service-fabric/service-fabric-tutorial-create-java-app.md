@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 2ef38e34403a9c04eac5132c66682a045a589cf8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3309690212f8c2e92c4a2328721624a83928f315
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733070"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247486"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Öğretici: Service Fabric üzerinde uygulama ile bir Java web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti oluşturun
 
@@ -29,14 +29,6 @@ Bu öğretici, bir dizinin birinci bölümüdür. Bitirdiğinizde, oylama sonuç
 
 ![Yerel Oylama Uygulaması](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
-Serinin birinci bölümünde şunları öğrenirsiniz:
-
-> [!div class="checklist"]
-> * Durum bilgisi olan güvenilir Java hizmeti oluşturma
-> * Durum bilgisi olmayan Java web uygulaması hizmeti oluşturma
-> * Durum bilgisi olan hizmetle iletişim kurmak için hizmet uzaktan iletişimini kullanma
-> * Yerel bir Service Fabric kümesinde uygulamayı dağıtma
-
 Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
 > * Java Service Fabric Güvenilir Hizmetler uygulaması derleme
@@ -44,6 +36,15 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [Azure kümesine uygulama dağıtma](service-fabric-tutorial-java-deploy-azure.md)
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-java-elk.md)
 > * [CI/CD ayarlama](service-fabric-tutorial-java-jenkins.md)
+
+
+Serinin birinci bölümünde şunları öğrenirsiniz:
+
+> [!div class="checklist"]
+> * Durum bilgisi olan güvenilir Java hizmeti oluşturma
+> * Durum bilgisi olmayan Java web uygulaması hizmeti oluşturma
+> * Durum bilgisi olan hizmetle iletişim kurmak için hizmet uzaktan iletişimini kullanma
+> * Yerel bir Service Fabric kümesinde uygulamayı dağıtma
 
 ## <a name="prerequisites"></a>Önkoşullar
 

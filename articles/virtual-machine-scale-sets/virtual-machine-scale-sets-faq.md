@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 924ed7c2a253ab74a4807559d190218d3125b92c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 8627f5bb704c963b628fb3dab29b6d2cfee0789b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978604"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247333"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek kümeleri hakkında SSS
 
@@ -374,9 +374,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 ExtensionName değerini bulabilirsiniz `$vmss`.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Log Analytics ile tümleşen örnek şablonu bir sanal makine ölçek kümesi mı?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Azure İzleyici günlükleri ile tümleştirilir şablon örneği bir sanal makine ölçek kümesi mı?
 
-Log Analytics ile tümleşen örnek şablonu bir sanal makine ölçek kümesi için ikinci örneğe bakın [bir Azure Service Fabric kümesi dağıtmayı ve Log Analytics kullanarak izlemeyi etkinleştirin](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Azure İzleyici günlükleri ile tümleştirilir şablon örneği bir sanal makine ölçek kümesi için ikinci örneğe bakın [bir Azure Service Fabric kümesi dağıtmayı ve Azure İzleyici günlüklerine kullanarak izlemeyi etkinleştirin](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Sanal makine ölçek kümeleri üzerinde paralel olarak çalıştırmak için uzantıları gibi görünüyor. Bu benim özel betik uzantısı başarısız olmasına neden olur. Bu sorunu gidermek için ne yapabilirim?
 
@@ -658,7 +658,7 @@ Evet, bir VM görüntüsü değiştirmeden sıfırlama işlemi reimage kullanabi
 
 Daha fazla bilgi için [bir sanal makine ölçek kümesindeki tüm sanal makineleri yönetme](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Ölçek kümeleri Azure Log Analytics ile tümleştirmek mümkündür?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Ölçek kümeleri Azure İzleyici günlüklerine ile tümleştirmek mümkündür?
 
 Evet, Log Analytics uzantısı ölçeğini yükleyerek Vm'leri ayarlayabilirsiniz. Azure CLI örnek aşağıda verilmiştir:
 ```
@@ -666,7 +666,10 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 Azure portalında Log Analytics çalışma alanı gerekli Workspaceıd ve workspaceKey bulabilirsiniz. Genel bakış sayfasında, ayarları kutucuğa tıklayın. Üstteki bağlı kaynaklar sekmesine tıklayın.
 
-Not: ölçek kümenizi ayarlarsanız _upgradePolicy_ ayarlanır el ile olarak yükseltme bunlara çağrı yaparak kümedeki tüm sanal makineler için uzantının uygulanması gerekir. CLI'daki bu olacaktır _az vmss update-instances_.
+> [!NOTE]
+> Ölçek kümenizi ayarlarsanız _upgradePolicy_ ayarlanır el ile olarak yükseltme bunlara çağrı yaparak kümedeki tüm sanal makineler için uzantının uygulanması gerekir. CLI'daki bu olacaktır _az vmss update-instances_.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veritabanı yönetilen örneği bağlantı mimarisi | Microsoft Docs
-description: Bu makalede, Azure SQL veritabanı yönetilen örneği iletişimine genel bakış ve bağlantı mimarisi yönetilen örnek trafiği yönlendirmek için farklı bileşenleri işlev nasıl açıklar sağlar.
+title: Azure SQL veritabanı yönetilen örneği için bağlantı mimarisi | Microsoft Docs
+description: Bileşenleri doğrudan trafiğe yönetilen örneğe nasıl Azure SQL veritabanı yönetilen örneği iletişim ve bağlantı mimarisi hakkında bilgi edinin.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,90 +12,88 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 64e0444c85440a017872aa32017e7d1c47e44e89
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 6ef020ff1054416e2b9af5af824b9aa27f0b1e64
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889790"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247248"
 ---
-# <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL veritabanı yönetilen örneği bağlantı mimarisi
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL veritabanı yönetilen örneği için bağlantı mimarisi 
 
-Bu makalede, Azure SQL veritabanı yönetilen örneği iletişimine genel bakış ve bağlantı mimarisi yönetilen örnek trafiği yönlendirmek için farklı bileşenleri işlev nasıl açıklar sağlar.  
+Bu makalede, Azure SQL veritabanı yönetilen örneği'nde iletişim açıklanmaktadır. Ayrıca, bağlantı mimarisi ve bileşenleri doğrudan yönetilen örnek için trafiği nasıl açıklar.  
 
-Azure SQL veritabanı yönetilen örneği, Azure sanal ağı ve yönetilen örnekleri için ayrılmış alt ağ içinde yer alır. Bu dağıtım aşağıdaki senaryolara olanak tanır:
+SQL veritabanı yönetilen örneği, Azure sanal ağı ve yönetilen örnekleri için ayrılmış bir alt ağ içinde yer alır. Bu dağıtım sağlar:
 
-- Özel IP adresini güvenli hale getirin.
-- Yönetilen örnek için bir şirket içi ağdan doğrudan bağlanma.
-- Bağlantılı bir sunucu veya başka bir yönetilen örnek bağlanan veri deposu şirket içi.
-- Yönetilen örnek, Azure kaynaklarına bağlama.
+- Güvenli özel IP adresi.
+- Yönetilen örnek için bir şirket içi ağ bağlanma özelliği.
+- Bağlantılı bir sunucu veya başka bir yönetilen örnek bağlanmak için veri deposu şirket içi.
+- Yönetilen örnek Azure kaynaklarına bağlama yeteneği.
 
 ## <a name="communication-overview"></a>İletişimine genel bakış
 
-Yönetilen örnek kaynaklar yanı sıra yönetilen örneğe bağlanma varlıkları sahip düzgün çalışması için ulaşmak Aşağıdaki diyagramda gösterilmiştir.
+Aşağıdaki diyagramda, yönetilen bir örneğine bağlanmak varlıkları gösterir. Ayrıca, yönetilen örneği ile iletişim kurmak için gereken kaynaklar gösterilmektedir. Diyagramın alt kısmındaki iletişim sürecinde müşteri uygulama ve veri kaynağı olarak yönetilen örneğe bağlanma araçların temsil eder.  
 
-![bağlantı mimari varlıkları](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
+![Bağlantı mimari varlıkları](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
 
-Diyagramın alt düzenlenmiş iletişim, müşteri uygulama ve araçların veri kaynağı olarak yönetilen örneğe bağlanma temsil eder.  
+Yönetilen örnek bir platform, olarak bir hizmet (PaaS) teklifidir. Microsoft Otomatik aracıları (Yönetim, dağıtım ve bakım) telemetri veri akışları üzerinde bu hizmeti yönetmek için kullanır. Microsoft yönetiminden sorumlu olduğu için müşteriler yönetilen örnek küme sanal makineleri Uzak Masaüstü Protokolü (RDP) üzerinden erişilemiyor.
 
-Yönetilen örnek, bir platform olarak-a-sunan hizmetler (PaaS) olduğundan, Microsoft tabanlı telemetri veri akışları üzerinde otomatik aracıları (Yönetim, dağıtım ve bakım) kullanarak bu hizmeti yönetir. Yönetilen örnek Yönetimi yalnızca Microsoft'un sorumluluk, müşteriler RDP yönetilen örnek küme sanal makinelere erişmek mümkün değildir.
+Son kullanıcılar veya uygulamalar tarafından başlatılan işlemleri gerektirebilir bazı SQL Server yönetilen platformuyla etkileşim kurmak için örnekler. Yönetilen örnek veritabanı oluşturulmasını bir durumdur. Bu kaynak, Azure portalı, PowerShell, Azure CLI ve REST API kullanıma sunulur.
 
-Yönetilen platformuyla etkileşim kurmak için örnekler bazı SQL Server Son kullanıcılar veya uygulamalar tarafından başlatılan işlemleri gerektirebilir. Yönetilen örnek veritabanı - Azure portalı, PowerShell, Azure CLI ve REST API kullanıma sunulan bir kaynak oluşturulmasını bir durumdur.
+Azure depolama için yedeklemeleri, telemetri için Azure Service Bus, Azure Active Directory gibi Azure Hizmetleri için kimlik doğrulaması ve Azure anahtar kasası yönetilen örnekleri saydam veri şifrelemesi (TDE) bağlıdır. Yönetilen örnekleri, bu hizmetlere yönelik bağlantı kurun.
 
-Yönetilen örnek, diğer Azure Hizmetleri, kendi düzgün çalışması için (örneğin, Azure depolama için yedeklemeleri, telemetri için Azure Service Bus, Azure AD kimlik doğrulaması, Azure anahtar kasası için TDE vb.) bağlıdır ve bağlantıları onlara uygun şekilde başlatır.
-
-Yukarıda belirtilen tüm iletişimler şifrelenir ve sertifika kullanılarak imzalanmış. İletişim kuran güvenildiğinden emin olmak için yönetilen örneği sürekli olarak bu sertifikaları bir sertifika yetkilisi ile iletişim kurarak doğrular. Sertifikaları iptal edilir ya da yönetilen örnek bunları doğrulanamadı, verileri korumak için bağlantıları kapatır.
+Tüm iletişimler, imzalama ve şifreleme için sertifikalar kullanır. Taraflar, yönetilen iletişim güvenilirliğini denetlemek için örnekleri sürekli olarak bu sertifikaları bir sertifika yetkilisi ile iletişim kurarak doğrulayın. Sertifikaları iptal edilir ya da doğrulanamıyor, yönetilen örnek verileri korumak için bağlantıları kapatır.
 
 ## <a name="high-level-connectivity-architecture"></a>Üst düzey bağlantı mimarisi
 
-Yüksek düzeyde, bir yönetilen örnek adanmış bir müşteri sanal ağ alt ağ içinde çalışan ve bir sanal küme oluşturacak yalıtılmış sanal makine kümesi üzerinde barındırılan, hizmet bileşenleri kümesidir.
+Yüksek düzeyde, bir yönetilen örnek hizmet bileşenleri kümesidir. Bu bileşenler, müşterinin sanal ağ alt ağı içinde çalışan yalıtılmış sanal makineleri özel bir dizi üzerinde barındırılır. Bu makineler, sanal bir küme oluşturacak.
 
-Birden çok yönetilen örneği, tek bir sanal kümede barındırılabilir. Küme otomatik olarak genişletilmiş veya müşteri alt sağlanan örnek sayısını değiştiğinde gerekirse sözleşmeleri yapılır.
+Bir sanal kümede birden fazla yönetilen örneği barındırabilir. Gerekirse, küme otomatik olarak genişletir veya müşteri alt sağlanan örnek sayısını değiştiğinde daraltır.
 
-Müşteri uygulamaları için yönetilen örnekleri bağlanabileceği, sorgu ve güncelleştirme, yalnızca sanal ağ içinde çalıştırırsanız veritabanları veya sanal ağ veya VPN eşlenmiş / Express Route ağ uç noktası ile özel IP adresini kullanarak bağlı.  
+Müşteri uygulamaları için yönetilen örnekleri yeniden bağlanabilir ve sorgulayabilirsiniz ve güncelleştirme veritabanları yalnızca sanal ağ içinde çalıştırırsanız eşlenen sanal ağ veya VPN veya Azure ExpressRoute ile bağlı ağ. Bu ağ, bir uç nokta ve özel IP adresi kullanmanız gerekir.  
 
 ![bağlantı mimarisi diyagramı](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
-Yönetilen örnek ve Microsoft Hizmetleri arasında bağlantılar gelecek şekilde uç noktaları ile genel IP adresleri üzerinden sanal ağ dışında Microsoft Yönetim ve dağıtım hizmetlerini çalıştırın. Yönetilen örnek giden bağlantı oluşturduğunda, bu genel IP ağ adresi çevirisi (NAT) nedeniyle gelen son alınmasına görülüyor.
+Microsoft Yönetim ve dağıtım hizmeti, sanal ağ dışında çalıştırın. Yönetilen örnek ve Microsoft Hizmetleri genel IP adreslerine sahip uç noktaları bağlanır. Ne zaman bir yönetilen örnek bağlantı görünümlü, bu genel bir IP adresinden gelen ağ adresi çevirisi (NAT) yapar alan tarafta bir giden bağlantı oluşturur.
 
-Yönetim trafiği, müşteri sanal ağı üzerinden akar. Bu sanal ağ altyapısının öğeleri etkiler ve potansiyel olarak zarar yönetim trafiğini neden hatalı durumuna girmesini ve kullanılamaz hale gelmesi örneği anlamına gelir.
+Yönetim trafiği, müşterinin sanal ağ üzerinden akar. Bu, başarısız ve kullanılamaz hale örneği sağlayarak yönetim trafiği sanal ağın altyapı öğelerini zarar emin anlamına gelir.
 
 > [!IMPORTANT]
-> Müşteri deneyimini iyileştirmek ve hizmet kullanılabilirliği için Microsoft Ağ hedefi ilke yönetilen örnek çalışmasını etkileyebilecek Azure sanal ağ altyapısı öğelerde uygulanır. Bu, ağ yanlış yapılandırılmasının önlemek ve normal yönetilen örnek işlemleri sağlamak için asıl amacı olan son kullanıcılar için saydam bir şekilde ağ gereksinimlerini iletişim kurmak için bir platform mekanizmadır. Yönetilen örnek silme işlemi sırasında Ağ hedefi İlkesi de kaldırılır.
+> Müşteri deneyimini iyileştirmek ve hizmet kullanılabilirliği için Microsoft Azure sanal ağ altyapısı öğelerde Ağ hedefi ilkesi uygulanır. İlke yönetilen örnek nasıl çalıştığını etkileyebilir. Bu platform mekanizması kullanıcılara ağ gereksinimlerine saydam bir şekilde iletişim kurar. İlkenin ana ağ yanlış yapılandırılmasının önlemek ve normal yönetilen örnek işlemlere hedeftir. Yönetilen örnek sildiğinizde, Ağ hedefi İlkesi de kaldırılır.
 
 ## <a name="virtual-cluster-connectivity-architecture"></a>Sanal küme bağlantı mimarisi
 
-Yönetilen örnek bağlantı mimaride daha yakından bakın alalım. Sanal küme kavramsal düzeni Aşağıdaki diyagramda gösterilmiştir.
+Derin Dalış bağlantı mimarisi yönetilen örnekleri için içine alalım. Sanal küme kavramsal düzeni Aşağıdaki diyagramda gösterilmiştir.
 
-![bağlantı mimarisi diyagramı sanal küme](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
+![Sanal küme bağlantı mimarisi](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-İstemciler bir biçimde konak adını kullanarak yönetilen örneğe bağlanma `<mi_name>.<dns_zone>.database.windows.net`. Genel DNS bölgesinde kaydedilir ve genel olarak çözümlenebilen rağmen bu ana bilgisayar adı için özel IP adresine çözümler. `zone-id` Küme oluşturulduğunda otomatik olarak oluşturulur. Yeni oluşturulan küme, ikincil bir yönetilen örnek barındırma, kendi bölge kimliği birincil küme ile paylaşır. Daha fazla bilgi için [otomatik yük devretme grupları](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
+İstemciler, biçiminde olan bir ana bilgisayar adını kullanarak yönetilen bir örneğine bağlanır `<mi_name>.<dns_zone>.database.windows.net`. Bir ortak etki alanı adı sistemi (DNS) bölgesinde kaydedilir ve genel olarak çözümlenebilen rağmen bu ana bilgisayar adı için özel bir IP adresi çözümler. `zone-id` Kümeyi oluşturduğunuzda otomatik olarak oluşturulur. Yeni oluşturulan bir küme ikincil bir yönetilen örnek barındırıyorsa, kendi bölge kimliği birincil küme ile paylaşır. Daha fazla bilgi için [birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için autofailover grupları kullanma](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
-Özel IP adresi, yönetilen örnek (GW) ağ geçidi trafiği yönlendiren yönetilen örnek iç yük dengeleyici (ILB) aittir. Birden çok yönetilen örnekleri aynı küme içinde potansiyel olarak çalıştırabileceğiniz gibi GW yönetilen örnek ana bilgisayar adı için doğru SQL altyapısı hizmet trafiği yönlendirmek için kullanır.
+Özel IP adresi yönetilen örneğin iç load balancer'a ait. Yük Dengeleyici yönetilen örneğin ağ geçidi trafiği yönlendirir. Birden çok yönetilen örnek içinde aynı kümede çalıştığından ağ geçidi yönetilen örneğin ana bilgisayar adı için doğru SQL Altyapısı hizmeti trafiği yönlendirmek için kullanır.
 
-Yönetim ve dağıtım hizmetlerini bağlama kullanarak bir yönetilen örnek bir [yönetim uç noktası](#management-endpoint) yük dengeleyici dış eşlenir. Trafik, yalnızca önceden tanımlanmış birtakım özel olarak yönetilen örnek yönetim bileşenleri tarafından kullanılan bağlantı noktaları üzerinde aldıysanız düğümlere yönlendirilir. Düğümlerde yerleşik güvenlik duvarı, yalnızca belirli IP aralıkları Microsoft gelen trafiğe izin verecek şekilde yapılandırılır. Yönetim bileşenler ve yönetim düzlemi arasındaki tüm iletişim karşılıklı kimlik doğrulaması sertifikadır.
+Yönetim ve dağıtım hizmetlerini kullanarak bir yönetilen örneğe bağlanma bir [yönetim uç noktası](#management-endpoint) yük dengeleyici dış eşlenir. Yalnızca önceden tanımlanmış bir yönetilen örneğin Yönetimi bileşenlerini kullanan bağlantı noktalarının alınırsa düğümlere trafik yönlendirilir. Düğümlerde yerleşik bir güvenlik duvarı yalnızca Microsoft IP aralığını gelen trafiğe izin verecek şekilde ayarlanır. Sertifika Yönetimi bileşenlerini ve yönetim düzlemi arasındaki tüm iletişim karşılıklı kimlik doğrulaması.
 
 ## <a name="management-endpoint"></a>Yönetim uç noktası
 
-Yönetilen örnek sanal küme, Microsoft'un yönetilen örnek yönetmek için kullandığı bir yönetim uç noktası içerir. Yönetim uç noktası, ağ düzeyinde ve karşılıklı sertifika doğrulamayı uygulama düzeyinde yerleşik güvenlik duvarı ile korunur. Yapabilecekleriniz [yönetim uç noktası IP adresini bulmak](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+Microsoft, yönetim uç noktasını kullanarak yönetilen örnek yönetir. Bu uç nokta örneğinin sanal kümesi içinde var. Yönetim uç noktası, ağ düzeyinde yerleşik bir güvenlik duvarı tarafından korunur. Uygulama düzeyi, onu karşılıklı sertifika doğrulama ile korunuyor. Uç noktanın IP adresini bulmak için bkz: [yönetim uç noktasının IP adresini belirlemek](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-Bağlantılar içinde yönetilen örnek (Yedekleme, Denetim günlüğü) başlatılır, trafiği yönetim uç noktası genel IP adresinden kaynaklanan görünür. Güvenlik duvarı kurallarını yalnızca yönetilen örnek IP adreslerine izin verecek şekilde ayarlayarak yönetilen örneğinden kamu hizmetleri için erişimi sınırlayabilirsiniz. Gerçekleştirebileceğiniz yöntemi hakkında daha fazla bilgi [yönetilen örnek yerleşik güvenlik duvarı doğrulayın](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+Zaman bağlantıları içinde yönetilen örnek (yedeklemeler ve Denetim günlükleri'te olduğu gibi ile) Başlat, trafiği görünür yönetim uç noktanın genel IP adresi başlatmak için. Güvenlik duvarı kurallarını yalnızca yönetilen örneğin IP adreslerine izin verecek şekilde ayarlayarak bir yönetilen örneğinden kamu hizmetleri için erişimi sınırlayabilirsiniz. Daha fazla bilgi için [yönetilen örneğin yerleşik güvenlik duvarı doğrulayın](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Bu, Azure platformu birlikte bulunan hizmetler arasında trafiğinin yönelik bir iyileştirme olarak, yönetilen örnek ile aynı bölgede bulunan Azure Hizmetleri için güvenlik duvarı kurallarını ayarlamak geçerli değildir.
+> İçinde yönetilen örneğinizi bağlantıları için güvenlik duvarı, bu hizmetler arasında giden trafik için iyileştirilmiş bir güvenlik duvarı yönetilen örneğin bölgesi içinde Azure hizmetleri vardır.
 
 ## <a name="network-requirements"></a>Ağ gereksinimleri
 
-Aşağıdaki gereksinimlere uygun bir sanal ağ içinde ayrılmış bir alt ağ (yönetilen örnek alt ağ) yönetilen bir örneğinde dağıtın:
+Yönetilen örnek sanal ağ içinde ayrılmış bir alt ağ içinde dağıtın. Alt ağ, şu özelliklere sahip olmanız gerekir:
 
-- **Ayrılmış alt**: Yönetilen örnek alt ağ ile ilişkilendirilmiş diğer bulut hizmeti içermemesi gerekir ve bir ağ geçidi alt ağı olmamalıdır. Yönetilen örnek haricinde kaynaklar içeren bir alt ağdaki yönetilen örnek oluşturma mümkün olmayacaktır ve daha sonra diğer kaynaklar alt ağdaki ekleyebilirsiniz değil.
-- **Ağ güvenlik grubu (NSG)**: Sanal ağ ile ilişkilendirilmiş bir NSG bu tanımlı zorunlu içermelidir [gelen güvenlik kuralları](#mandatory-inbound-security-rules) ve [giden güvenlik kuralları](#mandatory-outbound-security-rules) önüne başka kurallar. 1433 numaralı bağlantı noktasında trafiği filtreleyerek, tam olarak yönetilen örnek veri uç noktası erişimi denetlemek için bir NSG kullanabilirsiniz.
-- **Kullanıcı tanımlı yol tablosu (UDR)**: Bu sanal ağ ile ilişkilendirilmiş bir kullanıcı tanımlı yol tablosu olmalıdır [girişleri](#user-defined-routes) bir kullanıcı tanımlı yol tablosundaki.
-- **Hizmet uç noktası yok**: Yönetilen örnek alt ağ ile ilişkili bir hizmet uç noktası olmaması gerekir. Hizmet uç noktaları seçeneğini sanal ağ oluştururken, devre dışı emin olun.
-- **Yeterli IP adresi**: Yönetilen örnek alt en az 16 IP adresi olmalıdır (en az 32 IP adresleri önerilir). Daha fazla bilgi için [yönetilen örnekleri için alt ağ boyutunu belirlemek](sql-database-managed-instance-determine-size-vnet-subnet.md). Yönetilen örnekleri dağıtabilirsiniz [mevcut ağ](sql-database-managed-instance-configure-vnet-subnet.md) karşılamak için yapılandırdıktan sonra [yönetilen örnek ağ gereksinimlerini](#network-requirements), veya oluşturma bir [yeni ağ ve alt ağ](sql-database-managed-instance-create-vnet-subnet.md).
+- **Ayrılmış alt ağı:** Yönetilen örneğin alt ağ ile ilişkili herhangi bir bulut hizmeti içeremez ve bir ağ geçidi alt ağı olamaz. Herhangi bir kaynağa ancak yönetilen örnek alt içeremez ve daha sonra alt ağdaki kaynakları ekleyemezsiniz.
+- **Ağ güvenlik grubu (NSG):** Sanal ağ ile ilişkilendirilmiş bir NSG tanımlamalıdır [gelen güvenlik kuralları](#mandatory-inbound-security-rules) ve [giden güvenlik kuralları](#mandatory-outbound-security-rules) herhangi diğer kurallardan önce. 1433 numaralı bağlantı noktasında trafiği filtreleyerek yönetilen Örneğin veri uç noktası erişimi denetlemek için bir NSG kullanabilirsiniz.
+- **Kullanıcı tanımlı yol (UDR) tablo:** Sanal ağ ile ilişkili bir UDR tablo belirli içermelidir [girişleri](#user-defined-routes).
+- **Hizmet uç noktası yok:** Uç nokta yönetilen örneğin alt ağ ile ilişkili olmalıdır. Sanal ağ oluşturduğunuzda, hizmet uç noktaları seçeneğini devre dışı bırakıldığından emin olun.
+- **Yeterli IP adresi:** Yönetilen örnek alt ağı, en az 16 IP adresleri olması gerekir. Önerilen en az 32 IP adresleri aralığıdır. Daha fazla bilgi için [yönetilen örnekleri için alt ağ boyutunu belirlemek](sql-database-managed-instance-determine-size-vnet-subnet.md). Yönetilen örnekleri dağıtabilirsiniz [mevcut ağ](sql-database-managed-instance-configure-vnet-subnet.md) karşılamak için yapılandırdıktan sonra [yönetilen örnekleri için ağ gereksinimleri](#network-requirements). Aksi takdirde, oluşturun bir [yeni ağ ve alt ağ](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
-> Hedef alt ağ, tüm bu gereksinimler ile uyumlu değilse, yeni bir yönetilen örnek dağıtmak mümkün olmayacaktır. Yönetilen bir örneği oluşturulduğunda bir *Ağ hedefi İlkesi* alt ağ yapılandırmasını uyumlu değişiklikleri önlemek için uygulanır. Son örnek bir alt ağdan kaldırıldıktan sonra *Ağ hedefi İlkesi* de kaldırılır
+> Hedef alt şu özelliklere sahip değilse yeni bir yönetilen örnek dağıtamazsınız. Yönetilen örnek oluşturma, ağ kurulumu için uyumsuz değişiklikleri önlemek için alt ağda bir ağ hedefi ilke uygulanır. Son örneğini alt ağdan kaldırıldıktan sonra Ağ hedefi İlkesi de kaldırılır.
 
 ### <a name="mandatory-inbound-security-rules"></a>Zorunlu bir gelen güvenlik kuralları
 
@@ -112,16 +110,17 @@ Aşağıdaki gereksinimlere uygun bir sanal ağ içinde ayrılmış bir alt ağ 
 |yönetim  |80, 443, 12000|TCP     |Herhangi biri              |Internet   |İzin Ver |
 |mi_subnet   |Herhangi biri           |Herhangi biri     |Herhangi biri              |MI ALT *  |İzin Ver |
 
-\* Form 10.x.x.x/y alt ağ için IP adresi aralığı mı alt ifade eder. Bu bilgiler (alt ağ özelliklerini) aracılığıyla Azure portalında bulunabilir.
+\* Form 10.x.x.x/y alt ağ için IP adresi aralığı mı alt ifade eder. Bu bilgi, alt ağ özelliklerini Azure portalında bulabilirsiniz.
 
 > [!IMPORTANT]
-> Zorunlu bir gelen güvenlik kuralları, gelen trafiğe izin verse de _herhangi_ bağlantı noktalarını 9000, 9003, kaynak 1438, 1440, 1452 Bu bağlantı noktaları, yerleşik güvenlik duvarı tarafından korunur. Bu [makale](sql-database-managed-instance-find-management-endpoint-ip-address.md) yönetim uç noktası IP adresi Bul ve güvenlik duvarı kurallarını doğrulayın nasıl gösterir.
+> Gerekli gelen güvenlik kuralları, gelen trafiğe izin verse de _herhangi_ 9000 noktalarındaki kaynak, bu bağlantı noktaları 9003, 1438 1440 ve 1452, yerleşik bir güvenlik duvarı tarafından korunur. Daha fazla bilgi için [yönetim uç nokta adresini belirlemek](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+
 > [!NOTE]
-> Yönetilen örnek işlemsel çoğaltma kullanarak ve herhangi bir örnek veritabanı bir yayımcı ya da bir dağıtıcı olarak kullanılır, bağlantı noktası 445 (TCP Giden) ayrıca Azure dosya paylaşımına erişmek için alt ağ güvenliği kurallarının açılması gerekir.
+> Yönetilen örnek işlem çoğaltma kullanma ve herhangi bir örnek veritabanı bir yayımcı ya da bir dağıtıcı olarak kullanıyorsanız, bağlantı noktası 445 (TCP Giden) alt ağ güvenliği kurallarının açın. Bu bağlantı noktası, Azure dosya paylaşımına erişim sağlar.
 
 ### <a name="user-defined-routes"></a>Kullanıcı tanımlı yollar
 
-|Ad|Adres ön eki|NET atlama|
+|Ad|Adres ön eki|Sonraki atlama|
 |----|--------------|-------|
 |subnet_to_vnetlocal|[mi_subnet]|Sanal ağ|
 |mi-0-5-Next-Hop-internet|0.0.0.0/5|Internet|
@@ -157,17 +156,17 @@ Aşağıdaki gereksinimlere uygun bir sanal ağ içinde ayrılmış bir alt ağ 
 |mı-8-7-nexthop-Internet|8.0.0.0/7|Internet|
 ||||
 
-Ayrıca, bir hedef sanal ağ geçidi veya sanal ağ Gereci (NVA) üzerinden şirket içi özel IP aralıklarına sahip trafiği yönlendirmek için rota tablosu girdileri ekleyebilirsiniz.
+Ayrıca, sanal ağ geçidi veya sanal ağ Gereci (NVA) üzerinden bir hedef olarak şirket içi özel IP aralıkları içeren trafiği yönlendirmek için rota tablosu girdileri ekleyebilirsiniz.
 
-- **İsteğe bağlı bir özel DNS**: Sanal ağda özel DNS belirtilirse, Azure'nın yinelemeli çözümleyici IP adresi (örneğin, 168.63.129.16) listeye eklenmelidir. Daha fazla bilgi için [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md). Özel DNS sunucusunun ana bilgisayar adlarını aşağıdaki etki alanları ve bunların alt çözümleyebilmesi gerekir: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, ve *microsoftonline-p.com*.
+Sanal ağ özel DNS içeriyorsa (168.63.129.16 gibi) Azure özyinelemeli çözümleyici IP adresi için bir giriş ekleyin. Daha fazla bilgi için [özel bir DNS ayarlamalısınız](sql-database-managed-instance-custom-dns.md). Özel DNS sunucusunun ana bilgisayar adlarını bu etki alanları ve bunların alt çözümleyebilmesi gerekir: *microsoft.com*, *windows.net*, *windows.com*,  *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, ve *microsoftonline-p.com*.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Genel bakış için bkz. [yönetilen örnek nedir](sql-database-managed-instance.md)
-- Bilgi nasıl [yeni sanal ağ yapılandırma](sql-database-managed-instance-create-vnet-subnet.md) veya [var olan bir sanal ağ yapılandırma](sql-database-managed-instance-configure-vnet-subnet.md) yönetilen örnekleri dağıtabileceğiniz.
-- [Alt ağ boyutunu hesaplamak](sql-database-managed-instance-determine-size-vnet-subnet.md) yönetilen örnekleri dağıtacağınız.
-- Yönetilen örnek oluşturma için hızlı başlangıçlar, bakın:
-  - Gelen [Azure portalı](sql-database-managed-instance-get-started.md)
-  - kullanarak [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)
-  - kullanarak [Azure Resource Manager şablonu](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)
-  - kullanarak [Azure Resource Manager şablonu (Sıçrama kutusu dahil SSMS ile)](https://portal.azure.com/)
+- Genel bakış için bkz. [SQL veritabanı veri güvenliği Gelişmiş](sql-database-managed-instance.md).
+- Bilgi nasıl [yeni bir Azure virtual Network ayarlama](sql-database-managed-instance-create-vnet-subnet.md) veya [mevcut Azure sanal ağına](sql-database-managed-instance-configure-vnet-subnet.md) yönetilen örnekleri dağıtabileceğiniz.
+- [Alt ağ boyutunu hesaplamak](sql-database-managed-instance-determine-size-vnet-subnet.md) yönetilen örnekleri'ni dağıtmak istediğiniz.
+- Yönetilen örnek oluşturma işlemleri gerçekleştirmeyi öğreneceksiniz:
+  - Gelen [Azure portalında](sql-database-managed-instance-get-started.md).
+  - Kullanarak [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+  - Kullanarak [bir Azure Resource Manager şablonu](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
+  - Kullanarak [(Sıçrama kutusu, dahil edilen SSMS ile kullanarak) bir Azure Resource Manager şablonu](https://portal.azure.com/).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: f615c4ca9ffc56daafcedd711f27672e0855e4fa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 22160a46b0c1d8fe53abe20b3d8a1b83891de5da
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883956"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247588"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikler
 
@@ -398,19 +398,19 @@ Ayrıca, Denetim listesi:
 
 Azure çalışma Güvenliği aracılığıyla edinilen Microsoft Security Development Lifecycle (SDL), programın Microsoft Güvenlik Yanıt Merkezi dahil Microsoft'a özgü bir çeşitli özellikleri bilgi içeren bir framework üzerine inşa edilmiştir ve siber güvenlik tehditleri hakkındaki ayrıntılı tanıma.
 
-### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure günlük analizi
+### <a name="microsoft-azure-monitor"></a>Microsoft Azure İzleyicisi
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) hibrit bulut BT yönetimi çözümüdür. Tek başına kullanılan veya mevcut System Center dağıtımınızı genişletmek için Log Analytics size maksimum esneklik ve denetim için bulut tabanlı yönetim altyapınızın sağlar.
+[Azure İzleyici](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) hibrit bulut BT yönetimi çözümüdür. Tek başına kullanılan veya mevcut System Center dağıtım, Azure İzleyici günlüklerine genişletmek için size maksimum esneklik ve denetim için bulut tabanlı yönetim altyapınızın sağlar.
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Azure İzleyici](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Log Analytics ile rekabet çözümlerine göre daha düşük bir maliyetle, şirket içi, Azure, AWS, Windows Server, Linux, VMware ve OpenStack, dahil, herhangi bir buluttaki herhangi bir örneğine yönetebilirsiniz. Log Analytics, bulut öncelikli dünyada için oluşturulmuş, yeni iş sorunlarını karşılamak ve uygulamaları ve bulut ortamları yeni iş yüklerine uyum sağlamak için en hızlı ve en ekonomik yolu olan Kurumsal yönetmek için yeni bir yaklaşım sunar.
+Azure İzleyici ile rekabet çözümlerine göre daha düşük bir maliyetle, şirket içi, Azure, AWS, Windows Server, Linux, VMware ve OpenStack, dahil, herhangi bir buluttaki herhangi bir örneğine yönetebilirsiniz. Azure İzleyici, bulut öncelikli dünyada için oluşturulmuş, yeni iş sorunlarını karşılamak ve uygulamaları ve bulut ortamları yeni iş yüklerine uyum sağlamak için en hızlı ve en ekonomik yolu olan Kurumsal yönetmek için yeni bir yaklaşım sunar.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure izleme günlükleri
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) yönetilen kaynaklardan toplanan verileri merkezi bir depoya toplayarak izleme hizmetleri sağlar. Bu verilere olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler dahil olabilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir.
+[Azure İzleyici günlüklerine](https://azure.microsoft.com/documentation/services/log-analytics) yönetilen kaynaklardan toplanan verileri merkezi bir depoya toplayarak izleme hizmetleri sağlar. Bu verilere olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler dahil olabilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir.
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+![Azure izleme günlükleri](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
 Bu yöntem, çeşitli kaynaklardan gelen verileri birleştirmenize olanak tanır, böylece birleştirebilirsiniz Azure hizmetlerinizi mevcut olan verileri şirket içi ortamınızdaki. Ayrıca, veri toplama işlemini veriler üzerinde gerçekleştirilen eylemden ayırarak tüm eylemlerin her tür veri üzerinde kullanılabilmesini mümkün kılar.
 

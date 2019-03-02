@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 38a69327e5aaa758dc70ca950956d0bdc8001a4f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6fd25bbf6910140a338267c51955a817d0195939
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818094"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247197"
 ---
 # <a name="azure-network-security-overview"></a>Azure ağ güvenliğine genel bakış
 
@@ -324,7 +324,7 @@ Microsoft olarak bilinen DDoS koruması sağlar **temel** Azure platformunun bir
 * **Uyarlamalı ayarlama:** Akıllı trafik profil oluşturma uygulamanızdaki trafiği zamanla öğrenir seçer ve hizmetiniz için en uygun profili güncelleştirir. Trafiği zamanla olan değişimini profilinin ayarlar. Katman 7 koruması için Katman 3: Tam yığın DDoS koruması, web uygulaması güvenlik duvarı ile kullanıldığında sağlar.
 * **Kapsamlı azaltma Ölçek:** En büyük bilinen DDoS saldırılarına karşı korumaya yönelik genel kapasiteyle 60'tan fazla farklı saldırı türleri azaltılabilir.
 * **Saldırı ölçümleri:** Her saldırılara karşı özetlenmiş ölçümler, Azure İzleyici erişilebilir.
-* **Saldırı Uyarı:** Uyarılar, başlatma ve durdurma bir saldırı sırasında yapılandırılabilir ve saldırı'nın süresi boyunca yerleşik saldırı ölçümleri kullanarak. Uyarıları operasyonel yazılımınızı Microsoft Azure Log Analytics, Splunk, Azure depolama, e-posta ve Azure portalı gibi tümleştirin.
+* **Saldırı Uyarı:** Uyarılar, başlatma ve durdurma bir saldırı sırasında yapılandırılabilir ve saldırı'nın süresi boyunca yerleşik saldırı ölçümleri kullanarak. Uyarıları operasyonel yazılımınızı Microsoft Azure İzleyicisi günlükleri, Splunk, Azure depolama, e-posta ve Azure portalı gibi tümleştirin.
 * **Maliyet garantisi:**  Veri aktarımı ve uygulama ölçeklendirme hizmet iadeleri belgelenmiş bir DDoS saldırıları için.
 * **DDoS hızlı yanıt veren** DDoS koruması standart müşterileri artık etkin bir saldırı sırasında hızlı yanıt takım erişime sahiptir. DRR saldırı araştırma, bir saldırı ve saldırı sonrası analiz sırasında özel azaltmaları yardımcı olabilir.
 
@@ -401,4 +401,4 @@ Ağ düzeyinde günlüğe kaydetme, herhangi bir ağ güvenlik senaryo için tem
 Ayrıca [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), görüntülemek ve bu günlükleri analiz etmek için güçlü veri görselleştirme aracı.
 Daha fazla bilgi edinin:
 
-* [Ağ güvenlik grupları (Nsg'ler) için log Analytics](../virtual-network/virtual-network-nsg-manage-log.md)
+* [Ağ güvenlik grupları (Nsg'ler) için Azure izleme günlükleri](../virtual-network/virtual-network-nsg-manage-log.md)

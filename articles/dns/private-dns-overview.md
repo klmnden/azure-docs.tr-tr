@@ -5,18 +5,20 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/25/2019
+ms.date: 3/1/2019
 ms.author: victorh
-ms.openlocfilehash: f1e92c8581f8528b3622ad88f086d3f66619b996
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7f5f377f34a43dfb01ea516e023bb98f118d0dd4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823493"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247231"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Özel etki alanları için Azure DNS kullanma
 
 DNS veya etki alanı adı sistemi çevirmek için sorumludur (veya çözümleme) bir hizmet adı, IP adresi. Bir barındırma hizmeti DNS etki alanları için Microsoft Azure altyapısı kullanarak Azure DNS ad çözümlemesi sağlar. İnternet'e yönelik DNS etki alanlarınızı hizmetinin yanı sıra, Azure DNS artık ayrıca özel DNS etki alanı bir önizleme özelliği olarak destekler.
+
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 Azure DNS, yönetmek ve özel bir DNS çözümü ekleme gerek kalmadan bir sanal ağdaki etki alanı adlarını çözümlemek için güvenilir, güvenli DNS hizmeti sağlar. Özel DNS bölgelerini kullanarak, Azure tarafından sağlanan mevcut adların yerine kendi özel etki alanı adlarını kullanabilirsiniz. Özel etki alanı adlarını kullanarak, sanal ağ Mimarinizi en iyi karşılayacak şekilde uyarlamak için kuruluşunuzun gereksinimlerine yardımcı olur. Sanal makineler (VM) bir sanal ağdaki ve sanal ağlar arasında ad çözümleme sağlar. Ayrıca, bölge adlarını özel ve Genel DNS bölgelerinin adı paylaşmasına izin veren bir split-horizon görünümünde ile yapılandırabilirsiniz.
 
@@ -26,7 +28,8 @@ Kayıt sanal ağı belirtirseniz, özel bölgeye kaydedilen Vm'lerden söz konus
 
 ![DNS'ye genel bakış](./media/private-dns-overview/scenario.png)
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+> [!NOTE]
+> En iyi uygulama, .local etki alanı için özel DNS bölgenizi kullanmayın. Tüm işletim sistemleri bu destekler.
 
 ## <a name="benefits"></a>Avantajlar
 

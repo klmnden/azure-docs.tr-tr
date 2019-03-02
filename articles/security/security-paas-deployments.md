@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 497fc1dd5691b5aa33207c6a3943a51c473d2f6c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117809"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247214"
 ---
 # <a name="securing-paas-deployments"></a>PaaS dağıtımlarının güvenliğini sağlama
 
@@ -153,7 +153,7 @@ Web uygulamaları, bilinen yaygın güvenlik açıklarından yararlanan kötü a
 
 Kullanım [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) bulutta veya şirket içinde barındırılan, kullanılabilirlik, performans ve, uygulamanızın kullanımını izlemek için. Application Insights'ı kullanarak, hızlı bir şekilde tanımlamak ve bunları rapor bir kullanıcının bildirmesini beklemeden uygulamanızdaki hataları tanılayın. Topladığınız bilgilerle, uygulamanızın bakımı ve iyileştirmeleri ile ilgili bilinçli kararlar alabilirsiniz.
 
-Application Insights, topladığı verilerle etkileşim kurmak için kapsamlı araçlara sahiptir. Application Insights, verilerini genel bir depoda saklar. Log Analytics sorgu diliyle ayrıntılı analiz, uyarılar ve panolar gibi paylaşılan işlevlerden yararlanabilir.
+Application Insights, topladığı verilerle etkileşim kurmak için kapsamlı araçlara sahiptir. Application Insights, verilerini genel bir depoda saklar. Bu uyarılar, panolar ve Kusto sorgu dili ile ayrıntılı analiz gibi paylaşılan işlevselliği yararlanabilirsiniz.
 
 
 

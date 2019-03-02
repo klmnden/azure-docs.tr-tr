@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 25aeb1f0f82be2ad575164d78106fd799d59c96d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 338f495a23a926fd11ff14996181069698e03a51
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003643"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247299"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy-legacy"></a>Dinamik şifreleme: (Eski) bir içerik anahtarı yetkilendirme ilkesini yapılandırma
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dinamik şifreleme: Bir içerik anahtarı yetkilendirme ilkesini yapılandırma  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Genel Bakış

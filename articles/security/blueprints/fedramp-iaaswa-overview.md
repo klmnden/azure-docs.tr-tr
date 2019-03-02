@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6dd413a6b6550e18551db1105d306f8a0bdaf9c2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: daa81f4ec14a0e022ea22948324478b8e9cc3ce3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106758"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247367"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure güvenlik ve uyumluluk planı: FedRAMP için Iaas Web uygulaması
 
@@ -72,8 +72,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Dağıtım mimarisi ayr�
 - Azure Key Vault
 - Azure Active Directory (Azure AD)
 - Azure Resource Manager
-- Log Analytics
-- Azure İzleyici
+- Azure İzleyici (günlük)
 
 ## <a name="deployment-architecture"></a>Dağıtım mimarisi
 
@@ -148,11 +147,11 @@ Aşağıdaki teknolojileri kimlik yönetimi özellikleri Azure ortamında sağla
 
 ### <a name="logging-and-auditing"></a>Günlüğe kaydetme ve Denetim
 
-Log Analytics sistem durumu yanı sıra sistem ve kullanıcı etkinliğini, ayrıntılı günlük kaydını sağlar. [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) çözüm toplar ve Azure içinde kaynaklar tarafından oluşturulan verileri analiz eder ve şirket içi Ortamlarınızdaki.
+Azure İzleyici günlüklerine sistem durumu yanı sıra sistem ve kullanıcı etkinliğini, ayrıntılı günlük kaydını sağlar. [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) çözüm toplar ve Azure içinde kaynaklar tarafından oluşturulan verileri analiz eder ve şirket içi Ortamlarınızdaki.
 
 - **Etkinlik günlükleri:**  [Etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bir Abonelikteki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlükleri bir işlemin Başlatıcı belirlemek yardımcı olabilir, oluşumunu ve durum zaman.
 - **Tanılama günlükleri:**  [Tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) olan her kaynak tarafından bir günlüklerdir. Bu günlükler, Windows olayı sistem günlükleri, Azure depolama günlükleri, anahtar kasası denetim günlüklerini ve Application Gateway erişim ve güvenlik duvarı günlükleri içerir.
-- **Arşivleme günlük:**  Tüm tanılama günlükleri için merkezi ve şifrelenmiş Azure depolama hesabına arşivleme yazın. Bekletme kuruluşa özgü saklama gereksinimlerini karşılamak için kullanıcı-730 gün için yapılandırılabilir,. Bu günlükler, işleme, depolama ve Panosu raporlama için Azure Log Analytics'e bağlayın.
+- **Arşivleme günlük:**  Tüm tanılama günlükleri için merkezi ve şifrelenmiş Azure depolama hesabına arşivleme yazın. Bekletme kuruluşa özgü saklama gereksinimlerini karşılamak için kullanıcı-730 gün için yapılandırılabilir,. Azure İzleyici günlüklerine işlenmesi, depolanması ve Panosu raporlama için bu günlükleri bağlanın.
 
 Ayrıca, aşağıdaki izleme çözümleri Bu mimarinin bir parçası olarak yüklenir. FedRAMP güvenlik denetimleriyle hizalamak için bu çözümleri yapılandırmak için müşteri sorumluluk olduğuna dikkat edin:
 -   [AD değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory sistem durumu denetimi çözümü risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir ve öneriler için dağıtılan sunucu altyapısı belirli öncelikli bir listesini sağlar.

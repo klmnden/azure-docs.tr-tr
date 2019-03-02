@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 4da18fffc98367f24ec95bd27617e7638e3d5705
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/01/2019
+ms.openlocfilehash: 3e31842cf4b6afa2117ea71c644b0376e8434bd0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003678"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247316"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL veritabanı istemci uygulamaları için SQL hata kodları: Veritabanı bağlantı hataları ve diğer sorunlar
 
@@ -58,7 +58,7 @@ Aşağıdaki hatalar geçicidir ve uygulama mantığını yeniden denenmesi gere
 | 4060 |16 |Veritabanı açılamıyor. "%.&#x2a;ls" oturum açma tarafından istenen. Oturum açma başarısız. |
 | 40197 |17 |Hizmet isteğinizi işlerken bir hatayla karşılaştı. Lütfen yeniden deneyin. Hata kodu %d.<br/><br/>Hizmetin kapalı yazılım veya donanım yükseltmeleri, donanım arızaları veya başka bir yük devretme sorunları nedeniyle olduğunda bu hatayı alırsınız. Hata 40197 ileti içinde gömülü hata kodu (%d) hatası oluştu, yük devretme veya türü hakkında ek bilgi sağlar. Bazı kodları 40197 hata iletisi içinde gömülü hata 40020, 40143 40166 ve 40540 örnekleridir.<br/><br/>SQL veritabanı sunucusuna otomatik olarak yeniden bağlanmayı veritabanınızı sağlıklı bir kopyasına bağlanır. Uygulamanızı hata 40197, günlük sorun giderme iletisi içinde katıştırılmış bir hata kodu (%d) catch ve kaynakların kullanılabilir olduğundan ve, bağlantı yeniden kurulana kadar SQL veritabanı'na yeniden bağlanmayı deneyin. |
 | 40501 |20 |Hizmet şu anda meşgul. İsteği 10 saniye sonra yeniden deneyin. Olay Kimliği: %ls. Kodu: %d.<br/><br/>Daha fazla bilgi için bkz.<br/>• [Azure SQL veritabanı kaynak limitleri](sql-database-service-tiers-dtu.md). |
-| 40613 |17 |Veritabanı '%.&#x2a;ls' sunucusundaki '%.&#x2a;ls' şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin '%.&#x2a;ls'. |
+| 40613 |17 |Veritabanı '%.&#x2a;ls' sunucusundaki '%.&#x2a;ls' şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin '%.&#x2a;ls'.<br/><br/> Veritabanına kurulan bir varolan adanmış yönetici bağlantısı (DAC) zaten varsa, bu hata oluşabilir. |
 | 49918 |16 |İstek işleme alınamıyor. İsteği işlemek için yeterli kaynak yok.<br/><br/>Hizmet şu anda meşgul. Lütfen istek daha sonra yeniden deneyin. |
 | 49919 |16 |İşlem oluşturamaz veya güncelleştirme isteği. Çok fazla sayıda oluşturma veya güncelleştirme işlemleri sürüyor abonelik için "% ld".<br/><br/>Hizmet meşgul oluşturmak veya güncelleştirmek için abonelik veya sunucu istekleri birden çok işleme. İstek için kaynak iyileştirme şu anda engelleniyor. Sorgu [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) için bekleyen işlemler. Bekleyen oluşturma veya güncelleştirme istekleri tamamlanana veya, bekleyen isteklerden birini silip isteğinizi daha sonra yeniden deneyin kadar bekleyin. |
 | 49920 |16 |İstek işleme alınamıyor. Abonelik için çok sayıda işlem devam eden "% ld".<br/><br/>Bu abonelik için birden çok isteklerin işlenmesiyle meşgul hizmetidir. İstek için kaynak iyileştirme şu anda engelleniyor. Sorgu [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) işlem durumu. Bekleyen istekler kadar bekleyin, tamamlandı veya bekleyen isteklerinizden birini silin ve isteğinizi daha sonra yeniden deneyin. |

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d07e11d005ac05c9bf048a48c5865885813707cb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d6644cf923d439a9f6ef13b53a84ff6626f04ade
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874554"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247469"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Büyük veri analiz çözümlerinizi Azure Data Lake depolama 2. nesil için Azure Data Lake depolama Gen1 ' yükseltme
 
@@ -45,7 +45,7 @@ Ayrıca, sağlama, yönetme ve bu bileşenleri izlemek için çapraz kesme bile�
 
 **Şekil 2** belirli teknolojileri kullanılarak bu bileşenlerin nasıl uygulanacak bir örnek gösterilmektedir.
 
-Depolama işlevindeki **Şekil 1** Data Lake depolama Gen1 tarafından sağlanan (**Şekil 2**). Çeşitli veri akışı bileşenleri REST API'leri veya Java SDK'sını kullanarak Data Lake depolama Gen1 ile nasıl etkileşime unutmayın. Ayrıca, çapraz kesme işlevleri bileşenleri Data Lake depolama Gen1 ile nasıl etkileşimde bulunduğunu unutmayın. Data Lake depolama Gen1 gelen işletimsel verileri Log Analytics kullanan İzleme bileşeni kullanır ancak sağlama bileşen Azure kaynak şablonlarını kullanır.
+Depolama işlevindeki **Şekil 1** Data Lake depolama Gen1 tarafından sağlanan (**Şekil 2**). Çeşitli veri akışı bileşenleri REST API'leri veya Java SDK'sını kullanarak Data Lake depolama Gen1 ile nasıl etkileşime unutmayın. Ayrıca, çapraz kesme işlevleri bileşenleri Data Lake depolama Gen1 ile nasıl etkileşimde bulunduğunu unutmayın. Azure İzleyici günlüklerine kullanan İzleme bileşeni Data Lake depolama Gen1 gelen işletimsel verileri kullanan Azure kaynak şablonlarını sağlama bileşeni kullanır.
 
 Bir çözüm kullanarak Data Lake depolama Gen1 Data Lake depolama Gen2'ye yükseltmek için ihtiyacınız olacak meta verileri ve veri kopyalamak bir veri akışı yeniden bağlayın ve ardından, tüm bileşenlerin Data Lake depolama 2. nesil ile çalışabilmek gerekir.
 

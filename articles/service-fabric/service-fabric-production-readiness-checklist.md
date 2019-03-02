@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo
-ms.openlocfilehash: 963587415e1060997b4f90e822c6c57a05610544
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: c6b923808b7d1a1e29fa6847f3a975785ad7e798
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807176"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247503"
 ---
 # <a name="production-readiness-checklist"></a>Üretim hazırlığı denetim listesi
 
@@ -42,9 +42,9 @@ Uygulama ve küme üretim trafiği almaya hazır mı? Çalıştırma ve test, uy
 6. Anlama ve ayarlama [dayanıklılık düzeyi](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Gümüş veya daha yüksek bir dayanıklılık düzeyi, durum bilgisi olan iş yükleri çalıştıran düğümü türleri için önerilir. Birincil düğüm türü, Gümüş veya daha yüksek bir dayanıklılık düzeyine sahip olmalıdır.
 7. Anlama ve çekme [güvenilirlik düzeyi](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) düğümü türü. Gümüş veya daha yüksek güvenilirlik önerilir.
 8. Yük ve ölçeklendirme testi tanımlamak için iş yüklerinizi [kapasite gereksinimlerini](service-fabric-cluster-capacity.md) kümenizin. 
-9. Hizmet ve uygulamalarınızı izlenir ve uygulama günlüklerini güncellenmekte oluşturulan ve depolanan, uyarı ile. Örneğin, [Service Fabric uygulamanızı günlük ekleme](service-fabric-how-to-diagnostics-log.md) ve [Log Analytics ile kapsayıcıları izlemek](service-fabric-diagnostics-oms-containers.md).
-10. Küme, uyarı ile izlenir (örneğin, [Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)). 
-11. Sanal makine ölçek kümesi altyapının uyarı ile izlenir (örneğin, [Log Analytics](service-fabric-diagnostics-oms-agent.md).
+9. Hizmet ve uygulamalarınızı izlenir ve uygulama günlüklerini güncellenmekte oluşturulan ve depolanan, uyarı ile. Örneğin, [Service Fabric uygulamanızı günlük ekleme](service-fabric-how-to-diagnostics-log.md) ve [Azure İzleyici günlüklerine ile kapsayıcıları izlemek](service-fabric-diagnostics-oms-containers.md).
+10. Küme, uyarı ile izlenir (örneğin, [Azure İzleyici günlükleri](service-fabric-diagnostics-event-analysis-oms.md)). 
+11. Sanal makine ölçek kümesi altyapının uyarı ile izlenir (örneğin, [Azure İzleyicisi](service-fabric-diagnostics-oms-agent.md).
 12. Küme sahip [birincil ve ikincil sertifikaları](service-fabric-cluster-security-update-certs-azure.md) her zaman (, kilitli dolayısıyla).
 13. Geliştirme, hazırlama ve üretim için ayrı küme korur. 
 14. [Uygulama yükseltmeleri](service-fabric-application-upgrade.md) ve [Küme yükseltme](service-fabric-tutorial-upgrade-cluster.md) geliştirme test ve ilk kümeleri hazırlama. 

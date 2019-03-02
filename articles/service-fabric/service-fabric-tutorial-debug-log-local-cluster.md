@@ -15,21 +15,16 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c1a8b18062f61be9eb020beefd3ad741c41b55f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: abcc317233d7304365f8687de3c9bec2d09f7b33
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652711"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247418"
 ---
-# <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Öğretici: Yerel Service Fabric kümesinde dağıtılan bir Java uygulamasının hatasını ayıklama
+# <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Öğretici: Yerel bir Service Fabric kümesinde dağıtılan bir Java uygulamasının hatasını ayıklama
 
 Bu öğretici, bir dizinin ikinci bölümüdür. Eclipse for the Service Fabric uygulaması kullanılarak uzak bir hata ayıklayıcının nasıl ekleneceğini öğreneceksiniz. Ayrıca çalıştırılan uygulamalardaki günlüklerin geliştirici için uygun bir konuma nasıl yeniden yönlendirileceğini de öğreneceksiniz.
-
-Serinin ikinci bölümünde şunları öğrenirsiniz:
-> [!div class="checklist"]
-> * Eclipse kullanarak Java uygulamasının hatasını ayıklama
-> * Günlükleri yapılandırılabilir bir konuma yeniden yönlendirme
 
 Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
@@ -39,7 +34,14 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-java-elk.md)
 > * [CI/CD ayarlama](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Ön koşullar
+
+Serinin ikinci bölümünde şunları öğrenirsiniz:
+> [!div class="checklist"]
+> * Eclipse kullanarak Java uygulamasının hatasını ayıklama
+> * Günlükleri yapılandırılabilir bir konuma yeniden yönlendirme
+
+
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce:
 
@@ -89,13 +91,15 @@ Uygulamayı derleyin ve yerel geliştirme kümesine [dağıtın](service-fabric-
 
 10. Eclipse IDE’de **Çalıştır -> Hata Ayıklama Yapılandırmaları -> Uzak Java Uygulaması** seçeneklerini belirleyin, oluşturduğunuz **Oylama** yapılandırmasına ve sonra **Hata Ayıklama**’ya tıklayın.
 
-11. Web tarayıcınıza gidip **localhost:8080** adresine erişerek kesme noktasına basın ve Eclipse’te **Hata ayıklama perspektifi** girin.
+11. Web tarayıcısı ve erişim Git **8080**. Bu kesme noktasını otomatik olarak ulaşırsınız ve Eclipse girin **hata ayıklama perspektifi**.
+
+Artık herhangi bir Service Fabric Eclipse uygulamada hata ayıklamak için aynı adımları uygulayabilirsiniz.
 
 ## <a name="redirect-application-logs-to-custom-location"></a>Uygulama günlüklerini özel konuma yeniden yönlendirme
 
 Aşağıdaki adımlarda, varsayılan */var/log/syslog* konumundaki uygulama günlüklerinin özel bir konuma nasıl yeniden yönlendirileceği gösterilmektedir.
 
-1. Şu anda Service Fabric Linux kümelerinde çalıştırılan uygulamalar tek bir günlük dosyasının seçilmesini destekler. Sonuç olarak günlükler her zaman */tmp/mysfapp0.0.log* adresine gider. *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* konumunda logging.properties adlı bir dosya oluşturun ve aşağıdaki içeriği ekleyin.
+1. Şu anda yalnızca Service Fabric Linux kümelerinde çalıştırılan uygulamalar tek bir günlük dosyasının seçilmesini destekler. Uygulama günlükleri her zaman Git şekilde ayarlamak için */tmp/mysfapp0.0.log*, voting/votingapplication/votingwebpkg/Code/Logging.Properties konumunda Logging.Properties adlı bir dosya oluşturun *Voting/VotingApplication/VotingWebPkg/Code/logging.properties*  ve aşağıdaki içeriği ekleyin.
 
     ```
     handlers = java.util.logging.FileHandler
@@ -103,7 +107,8 @@ Aşağıdaki adımlarda, varsayılan */var/log/syslog* konumundaki uygulama gün
     java.util.logging.FileHandler.level = ALL
     java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 
-    # This value specifies your custom location. You will have to ensure this path has read and write access by the process running the SF Application
+    # This value specifies your custom location.
+    # You will have to ensure this path has read and write access by the process running the SF Application
     java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
     ```
 
@@ -113,7 +118,7 @@ Aşağıdaki adımlarda, varsayılan */var/log/syslog* konumundaki uygulama gün
     -Djava.util.logging.config.file=logging.properties
     ```
 
-    Aşağıdaki örnekte, örnek bir yürütme gösterilmektedir:
+    Aşağıdaki örnek, önceki bölümde örnek bir yürütme hata ayıklayıcısı ile bağlanmış, yürütme benzer gösterir.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar

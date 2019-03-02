@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/14/2019
+ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c648d5f46fc046fd2f1d5a716f6f1df55a27bf0
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: baaf7a6eff05cac9dce69c85b102182aca791a55
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991997"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247520"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk şifrelemesi önkoşulları (önceki sürüm)
 
@@ -350,6 +350,8 @@ Kullanım [az keyvault update](/cli/azure/keyvault#az-keyvault-update) anahtar k
 
 ## <a name="bkmk_KEK"></a> Bir anahtar şifreleme anahtarı (isteğe bağlı) ayarlama
 Bir ek şifreleme anahtarları için güvenlik katmanı için bir anahtar şifreleme anahtarı (KEK) kullanmak istiyorsanız bir KEK anahtar kasanızı ekleyin. Kullanım [Add-AzureKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey) anahtar şifreleme anahtarı anahtar kasasını oluşturmak için cmdlet'i. Ayrıca, şirket içi Anahtar Yönetimi'nden HSM bir KEK içeri aktarabilirsiniz. Daha fazla bilgi için [Key Vault belgeleri](../key-vault/key-vault-hsm-protected-keys.md). Anahtar şifreleme anahtarı belirtildiğinde, Azure Disk şifrelemesi anahtar Kasası'na yazmadan önce şifreleme parolaları sarmalamak için bu anahtarı kullanır. 
+
+* Anahtarları oluşturulurken bir RSA anahtar türü kullanın. Azure Disk şifrelemesi, Eliptik Eğri anahtarlar kullanılarak henüz desteklemiyor.
 
 * Anahtar kasası gizli dizi ve KEK URL'leri tutulan olmalıdır. Azure, sürüm oluşturma bu kısıtlamayı zorlar. Geçerli bir gizli dizi ve KEK URL'ler için aşağıdaki örneklere bakın:
 

@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 02/12/2019
-ms.openlocfilehash: 61c4edc5ec9c690944047ce67f619f0f69f62f6c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 03/01/2019
+ms.openlocfilehash: 033b853537ade927e4bb7e47c92efe1acff226d9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236745"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247401"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Hızlı Başlangıç: Machine Learning Hizmetleri (R ile) Azure SQL veritabanı (Önizleme) kullanma
 
@@ -29,8 +29,12 @@ Machine Learning Hizmetleri ile Kurumsal R paketleri Microsoft gelen yayılan r,
 
 Azure aboneliğiniz yoksa, [hesap oluşturma](https://azure.microsoft.com/free/) başlamadan önce.
 
-> [!NOTE]
-> Machine Learning Hizmetleri (R ile) Azure SQL veritabanı'nda, şu anda genel Önizleme aşamasındadır. [Önizleme için kaydolun](sql-database-machine-learning-services-overview.md#signup).
+> [!IMPORTANT]
+> Azure SQL veritabanı Machine Learning Hizmetleri şu anda genel Önizleme aşamasındadır.
+> Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir.
+> Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> [Önizleme için kaydolun](sql-database-machine-learning-services-overview.md#signup).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
