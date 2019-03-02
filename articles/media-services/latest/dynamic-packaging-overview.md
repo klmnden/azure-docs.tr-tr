@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: juliako
-ms.openlocfilehash: cd4eacc918acdf50bb256077030b86e121f663f0
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: c16a3ff28eff18b1638fbdbac2282b690093783e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985810"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244936"
 ---
 # <a name="dynamic-packaging"></a>Dinamik paketleme
 
@@ -26,13 +26,13 @@ Microsoft Azure Media Services, birçok medya kaynak dosya biçimleri akış bi�
 
 [Akış uç noktaları](streaming-endpoint-concept.md) istemci oyuncular medya içeriği teslim etmek için kullanılan Media Services dinamik paketleme hizmetidir. Dinamik paketleme, tüm standart gelen bir özelliktir **akış uç noktalarını** (standart veya Premium). Hiçbir ek yok. Bu özellik, Media Services v3 ile ilişkili maliyeti. 
 
-Yararlanmak için **dinamik paketleme**, ihtiyacınız bir **varlık** Uyarlamalı bit hızı MP4 dosyaları ve bildirim dosyalarında bir dizi. Dosyaları almak için bir ara (kaynak) dosyanızı Media Services ile kodlanacak yoludur. Oluşturmak zorunda video kayıttan yürütme için istemciler tarafından kullanılabilir varlık (ile kodlanmış MP4 ve sunucu ve istemci bildirimlerini) sağlamak için bir **akış Bulucu** ve daha sonra akış URL'lerini oluşturabilirsiniz. Ardından, istemci bildirimi belirtilen biçime bağlı olarak, akışın seçtiğiniz protokolde alırsınız.
+Yararlanmak için **dinamik paketleme**, ihtiyacınız bir **varlık** Uyarlamalı bit hızı MP4 dosyaları ve akış yapılandırma dosyalarını, Media Services dinamik paketleme tarafından gereken bir dizi. Dosyaları almak için bir ara (kaynak) dosyanızı Media Services ile kodlanacak yoludur. Oluşturmak zorunda video kodlanmış varlıkta kayıttan yürütme için istemcilere kullanabilmek için bir **akış Bulucu** ve akış URL'lerini oluşturun. Ardından, akış istemci bildirimi (HLS, DASH veya kesintisiz) belirtilen biçime bağlı olarak, akışın seçtiğiniz protokolde alırsınız.
 
 Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar. 
 
 Media Services'de, dinamik paketleme, Canlı veya isteğe bağlı Akış olup olmadığını kullanılır. Aşağıdaki diyagram, talep üzerine akış dinamik paketleme iş akışıyla gösterir.
 
-![Dinamik kodlama](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Dinamik paketleme](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 ## <a name="common-video-on-demand-workflow"></a>Video isteğe bağlı ortak iş akışı
 
@@ -75,33 +75,95 @@ Dinamik paketleme ile kodlanmış bir ses içeren MP4 dosyalarını destekler [A
 > [!NOTE]
 > Dinamik paketleme içeren dosyaları desteklemez [Dolby dijital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) ses (eski codec olmadığı).
 
-## <a name="manifest-files-overview"></a>Bildirim dosyaları genel bakış
+## <a name="manifests"></a>Bildirimler 
+ 
+Media Services, HLS, MPEG DASH, kesintisiz akış protokolleri destekler. Bir parçası olarak **dinamik paketleme**, akış istemci bildirimlerinin (HLS ana çalma listesi, DASH medya sunu açıklaması (MPD) ve kesintisiz akış), URL biçimi seçicide göre dinamik olarak oluşturulur. İçinde teslim protokollerine bkz [Bu bölümde](#delivery-protocols). 
 
-A **bildirim** (çalma listesi) dosyası (metin tabanlı veya XML tabanlı) içeren meta verileri gibi akış: izleme türü (ses, video veya metin), izleme adı, başlangıç ve bitiş zamanı, bit hızı (kalitelerini), izleme dil (kayan sunu penceresi pencerenin sabit süre), video codec (FourCC). Sonraki yürütülebilir video parçalar kullanılabilir ve bulundukları konumlar ilgili bilgi sağlayarak bir sonraki parça almak için player talimatı verir. Parçaları (veya parçaları) gerçek "" bir video içeriğinizi öbekleridir.
+Bir bildirim dosyası meta verileri gibi akış içerir: izleme türü (ses, video veya metin), izleme adı, başlangıç ve bitiş zamanı, bit hızı (kalitelerini), izleme dilleri Sunu penceresini (sabit süre kayan pencere), video codec bileşeni (FourCC). Sonraki yürütülebilir video parçalar kullanılabilir ve bulundukları konumlar ilgili bilgi sağlayarak bir sonraki parça almak için player talimatı verir. Parçaları (veya parçaları) gerçek "" bir video içeriğinizi öbekleridir.
+
+### <a name="hls-master-playlist"></a>HLS ana çalma listesi
 
 HLS bildirim dosyasının bir örnek aşağıda verilmiştir: 
 
 ```
+#EXTM3U
+#EXT-X-VERSION:4
 #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="aac_eng_2_128041_2_1",LANGUAGE="eng",DEFAULT=YES,AUTOSELECT=YES,URI="QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)"
-#EXT-X-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d,mp4a.40.2",AUDIO="audio"
-QualityLevels(380658)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d",URI="QualityLevels(380658)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=884474,RESOLUTION=480x270,CODECS="avc1.640015,mp4a.40.2",AUDIO="audio"
-QualityLevels(721426)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=884474,RESOLUTION=480x270,CODECS="avc1.640015",URI="QualityLevels(721426)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=1327838,RESOLUTION=640x360,CODECS="avc1.64001e,mp4a.40.2",AUDIO="audio"
-QualityLevels(1155246)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=1327838,RESOLUTION=640x360,CODECS="avc1.64001e",URI="QualityLevels(1155246)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=2414544,RESOLUTION=960x540,CODECS="avc1.64001f,mp4a.40.2",AUDIO="audio"
-QualityLevels(2218559)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=2414544,RESOLUTION=960x540,CODECS="avc1.64001f",URI="QualityLevels(2218559)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=3805301,RESOLUTION=1280x720,CODECS="avc1.640020,mp4a.40.2",AUDIO="audio"
-QualityLevels(3579378)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=3805301,RESOLUTION=1280x720,CODECS="avc1.640020",URI="QualityLevels(3579378)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=536608,RESOLUTION=320x180,CODECS="avc1.64000d,mp4a.40.2",AUDIO="audio"
+QualityLevels(381048)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=536608,RESOLUTION=320x180,CODECS="avc1.64000d",URI="QualityLevels(381048)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=884544,RESOLUTION=480x270,CODECS="avc1.640015,mp4a.40.2",AUDIO="audio"
+QualityLevels(721495)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=884544,RESOLUTION=480x270,CODECS="avc1.640015",URI="QualityLevels(721495)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=1327398,RESOLUTION=640x360,CODECS="avc1.64001e,mp4a.40.2",AUDIO="audio"
+QualityLevels(1154816)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=1327398,RESOLUTION=640x360,CODECS="avc1.64001e",URI="QualityLevels(1154816)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=2413312,RESOLUTION=960x540,CODECS="avc1.64001f,mp4a.40.2",AUDIO="audio"
+QualityLevels(2217354)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=2413312,RESOLUTION=960x540,CODECS="avc1.64001f",URI="QualityLevels(2217354)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=3805760,RESOLUTION=1280x720,CODECS="avc1.640020,mp4a.40.2",AUDIO="audio"
+QualityLevels(3579827)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=3805760,RESOLUTION=1280x720,CODECS="avc1.640020",URI="QualityLevels(3579827)/Manifest(video,format=m3u8-aapl,type=keyframes)"
 #EXT-X-STREAM-INF:BANDWIDTH=139017,CODECS="mp4a.40.2",AUDIO="audio"
 QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 ```
 
+### <a name="dash-media-presentation-description-mpd"></a>DASH medya sunu açıklaması (MPD)
+
+Bir tire bildiriminin bir örnek aşağıda verilmiştir:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" mediaPresentationDuration="PT1M10.315S" minBufferTime="PT7S">
+   <Period>
+      <AdaptationSet id="1" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.2" lang="en">
+         <SegmentTemplate timescale="10000000" media="QualityLevels($Bandwidth$)/Fragments(aac_eng_2_128041_2_1=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(aac_eng_2_128041_2_1=i,format=mpd-time-csf)">
+            <SegmentTimeline>
+               <S d="60160000" r="10" />
+               <S d="41386666" />
+            </SegmentTimeline>
+         </SegmentTemplate>
+         <Representation id="5_A_aac_eng_2_128041_2_1_1" bandwidth="128041" audioSamplingRate="48000" />
+      </AdaptationSet>
+      <AdaptationSet id="2" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.640020" maxWidth="1280" maxHeight="720" startWithSAP="1">
+         <SegmentTemplate timescale="10000000" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+            <SegmentTimeline>
+               <S d="60060000" r="10" />
+               <S d="42375666" />
+            </SegmentTimeline>
+         </SegmentTemplate>
+         <Representation id="1_V_video_1" bandwidth="3579827" width="1280" height="720" />
+         <Representation id="1_V_video_2" bandwidth="2217354" codecs="avc1.64001F" width="960" height="540" />
+         <Representation id="1_V_video_3" bandwidth="1154816" codecs="avc1.64001E" width="640" height="360" />
+         <Representation id="1_V_video_4" bandwidth="721495" codecs="avc1.640015" width="480" height="270" />
+         <Representation id="1_V_video_5" bandwidth="381048" codecs="avc1.64000D" width="320" height="180" />
+      </AdaptationSet>
+   </Period>
+</MPD>
+```
+### <a name="smooth-streaming"></a>Kesintisiz Akış
+
+Kesintisiz akış bildirimin bir örnek aşağıda verilmiştir:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="703146666" TimeScale="10000000">
+   <StreamIndex Chunks="12" Type="audio" Url="QualityLevels({bitrate})/Fragments(aac_eng_2_128041_2_1={start time})" QualityLevels="1" Language="eng" Name="aac_eng_2_128041_2_1">
+      <QualityLevel AudioTag="255" Index="0" BitsPerSample="16" Bitrate="128041" FourCC="AACL" CodecPrivateData="1190" Channels="2" PacketSize="4" SamplingRate="48000" />
+      <c t="0" d="60160000" r="11" />
+      <c d="41386666" />
+   </StreamIndex>
+   <StreamIndex Chunks="12" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="5">
+      <QualityLevel Index="0" Bitrate="3579827" FourCC="H264" MaxWidth="1280" MaxHeight="720" CodecPrivateData="0000000167640020ACD9405005BB011000003E90000EA600F18319600000000168EBECB22C" />
+      <QualityLevel Index="1" Bitrate="2217354" FourCC="H264" MaxWidth="960" MaxHeight="540" CodecPrivateData="000000016764001FACD940F0117EF01100000303E90000EA600F1831960000000168EBECB22C" />
+      <QualityLevel Index="2" Bitrate="1154816" FourCC="H264" MaxWidth="640" MaxHeight="360" CodecPrivateData="000000016764001EACD940A02FF9701100000303E90000EA600F162D960000000168EBECB22C" />
+      <QualityLevel Index="3" Bitrate="721495" FourCC="H264" MaxWidth="480" MaxHeight="270" CodecPrivateData="0000000167640015ACD941E08FEB011000003E90000EA600F162D9600000000168EBECB22C" />
+      <QualityLevel Index="4" Bitrate="381048" FourCC="H264" MaxWidth="320" MaxHeight="180" CodecPrivateData="000000016764000DACD941419F9F011000003E90000EA600F14299600000000168EBECB22C" />
+      <c t="0" d="60060000" r="11" />
+      <c d="42375666" />
+   </StreamIndex>
+</SmoothStreamingMedia>
+```
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Karşıya yükleme, kodlama, video akışı](stream-files-tutorial-with-api.md)

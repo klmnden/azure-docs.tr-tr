@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 1c79b7966a98946673d1a8f9daec42717dc27575
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 8792873407a6103134300f11b4dae002e4df107a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193050"
+ms.locfileid: "57216229"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanıza gerçek bir cihaz ekleme
 
@@ -52,11 +52,11 @@ Uygulamanıza gerçek bir cihaz eklemek için, [Yeni bir cihaz türü belirleme]
 
    **Device Explorer**, **Bağlı Klima** cihaz şablonunu ve oluşturucu cihaz şablonunu oluşturduğunda otomatik olarak eklenen simülasyon cihazını gösterir.
 
-2. Gerçek bir bağlı klima cihazını bağlamaya başlamak için, **Yeni** ve ardından **Gerçek** seçeneklerini belirleyin:
+2. Gerçek bağlı bir klima cihaz bağlanma başlatmak için tıklatın **+**, ardından **gerçek**:
 
    ![Yeni, gerçek bir klima cihazı eklemeye başlama](media/tutorial-add-device-experimental/newreal.png)
 
-3. Cihaz Kimliğini (**küçük harfli olmalıdır**) girin veya önerilen Cihaz Kimliğini kullanın. Ayrıca yeni cihazınız için ad da girebilirsiniz. Ardından **Oluştur**'u seçin.  
+3. (Küçük olmalıdır) cihaz kimliği girin veya önerilen cihaz kimliğini kullanması Ayrıca yeni cihazınız için ad da girebilirsiniz. Ardından **Oluştur**'u seçin.
 
    ![Cihazı yeniden adlandırma](media/tutorial-add-device-experimental/rename.png)
 
@@ -64,7 +64,7 @@ Uygulamanıza gerçek bir cihaz eklemek için, [Yeni bir cihaz türü belirleme]
 
 Gerçek cihaz **Bağlı Klima** cihaz şablonundan oluşturulur. Cihazınızı yapılandırmak ve cihazınız hakkında bilgileri kaydetmek üzere özellik değerlerini ayarlamak için **Ayarlar**’ı kullanabilirsiniz.
 
-1. **Ayarlar** sayfasında, **Sıcaklık Ayarla** ayar durumunun **güncelleştirme yok** olduğuna dikkat edin. Gerçek cihaz uygulamaya bağlanıp bu ayar üzerine işlem gerçekleştirdiğini tanıyana kadar bu durumda kalır. 
+1. **Ayarlar** sayfasında, **Sıcaklık Ayarla** ayar durumunun **güncelleştirme yok** olduğuna dikkat edin. Gerçek cihaz uygulamaya bağlanıp bu ayar üzerine işlem gerçekleştirdiğini tanıyana kadar bu durumda kalır.
 
     ![Ayarları gösterme eşitleniyor](media/tutorial-add-device-experimental/settingssyncing.png)
 
@@ -74,7 +74,7 @@ Gerçek cihaz **Bağlı Klima** cihaz şablonundan oluşturulur. Cihazınızı y
 
 3. Gerçek cihazınız için **Ölçüler**, **Kurallar** ve **Pano** sayfalarını görüntüleyebilirsiniz.
 
-## <a name="generate-connection-string-for-real-device-from-application"></a>Gerçek cihaz için uygulamadan bağlantı dizesi oluşturma
+## <a name="generate-connection-string"></a>Bağlantı dizesi oluştur
 
 Bir cihaz geliştiricisinin gerçek cihazınız için *bağlantı dizesini* cihazda çalışan kodda eklemesi gerekir. Bağlantı dizesi cihazın Azure IoT Central uygulamanıza güvenli bir şekilde bağlanmasını sağlar. Sonraki adımlarda Node.js ile yazılmış istemci kodunu hazırlama sırasında bağlantı dizesini oluşturacaksınız. Node.js uygulaması, bağlantılı gerçek klimayı temsil eder. 
 
@@ -119,7 +119,7 @@ Aşağıdaki adımlar [Node.js](https://nodejs.org/) örneğinin nasıl hazırla
 1. Komut satırı ortamına dönün ve şunu çalıştırarak bağlantı dizenizi oluşturun:
 
     ```cmd/sh
-    dps_keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
+    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
     ```
 
    Çıktıyı kopyalayın ve yeni bir dosyaya (örneğin, connection.txt) kaydedin.
@@ -161,7 +161,7 @@ Aşağıdaki adımlar [Node.js](https://nodejs.org/) örneğinin nasıl hazırla
 
 1. Şu ana kadar yaptığınız değişiklikleri kaydedin ancak dosyayı açık tutun.
 
-## <a name="understand-how-client-code-maps-to-the-application"></a>İstemci kodunun uygulamaya nasıl eşlendiğini anlama
+## <a name="review-client-code"></a>İstemci kodu gözden geçirin
 
 Önceki bölümde, Azure IoT Central uygulamanıza bağlanan bir uygulama için bir çatı Node.js projesi oluşturdunuz. Bu bölümde şunun için kodu eklersiniz:
 
@@ -298,7 +298,7 @@ Aşağıdaki adımlar [Node.js](https://nodejs.org/) örneğinin nasıl hazırla
 
 1. Şu ana kadar yaptığınız değişiklikleri kaydedin ancak dosyayı açık tutun.
 
-## <a name="configure-client-code-for-the-real-device"></a>Gerçek cihaz için istemci kodu yapılandırma
+## <a name="configure-client-code"></a>İstemci kodu yapılandırma
 
 <!-- Add the connection string to the sample code, build, and run --> İstemci kodunuzu Azure IoT Central uygulamanıza bağlanmak için yapılandırmak üzere, gerçek cihazınız için bu öğreticinin başında not ettiğiniz bağlantı dizesini eklemeniz gerekir.
 
@@ -327,7 +327,7 @@ Aşağıdaki adımlar [Node.js](https://nodejs.org/) örneğinin nasıl hazırla
 
 1. 30 saniyeden sonra, cihaz **Ölçüm** sayfasında telemetriyi görürsünüz:
 
-   ![Gerçek telemetri](media/tutorial-add-device-experimental/realtelemetry.png)
+   ![Real ~~telemetry](media/tutorial-add-device-experimental/realtelemetry.png)
 
 1. **Ayarlar** sayfasında, ayarın şimdi eşitlenmiş olduğunu görebilirsiniz. Cihaz ilk bağlandığında, ayar değerini aldı ve değişikliği onayladı:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: bc72fe2492d2eb38d60c6e96dcca35af5fb825ec
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 17bcb9efbf28901f241d44231bc5c71ae20380b5
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808710"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241621"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory'de yürütme veri akışı etkinliği
 Yürütme veri akışı etkinliği hattının hata ayıklama (sanal) ve tetiklenen işlem hattı çalıştırmaları, ADF veri akışı çalıştırmak için kullanın.
@@ -37,9 +37,7 @@ Yürütme veri akışı etkinliği hattının hata ayıklama (sanal) ve tetiklen
       },
         "compute": {
           "computeType": "General",
-          "dataTransformationUnits": 4,
           "coreCount": 8,
-          "numberOfNodes": 0
       }
 }
 
@@ -49,6 +47,7 @@ Yürütme veri akışı etkinliği hattının hata ayıklama (sanal) ve tetiklen
 
 * ```dataflow``` yürütmek istediğiniz veri akışını varlık adı
 * ```compute``` Spark yürütme ortamını açıklar
+* ```coreCount``` Veri akışınız için bu etkinliği yürütme atamak için çekirdek sayısı
 
 ![Veri akışını yürütecek](media/data-flow/activity-data-flow.png "veri akışını yürütecek")
 

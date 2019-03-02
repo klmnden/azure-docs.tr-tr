@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric - performans Log Analytics ile izleme | Microsoft Docs
+title: Azure Service Fabric - Azure İzleyici ile performans izleme günlükleri | Microsoft Docs
 description: Kapsayıcıları ve Azure Service Fabric kümeleriniz için performans sayaçlarını izlemek için Log Analytics aracısını ayarlama konusunda bilgi edinin.
 services: service-fabric
 documentationcenter: .net
@@ -14,19 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 36402b7dc9c5ee801dd59b03f99b45d6428de187
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3d35075c768855ebd907b96de2ded82757d5e525
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816003"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242913"
 ---
-# <a name="performance-monitoring-with-log-analytics"></a>Performans log Analytics ile izleme
+# <a name="performance-monitoring-with-azure-monitor-logs"></a>Azure İzleyici günlüklerine ile performans izleme
 
 Bu makalede, bir sanal makine ölçek kümesi uzantısını kümeniz için Log Analytics aracısını ekleyin ve mevcut Azure Log Analytics çalışma alanınıza bağlamak için ilgili adımları içermektedir. Bu kapsayıcı, uygulamaları ve performans izleme hakkında tanılama veri toplama sağlar. Bu uzantı olarak sanal makine ölçek kümesi kaynağına ekleyerek, Azure Resource Manager her düğümde yükleneceğini bile kümenin ne zaman ölçeklendirme sağlar.
 
 > [!NOTE]
-> Bu makalede daha önce ayarlamış bir Azure Log Analytics çalışma alanı sahibi olduğunuzu varsayar. Bunu yapmazsanız, attıktan [Azure Log Analytics'i ayarlama](service-fabric-diagnostics-oms-setup.md)
+> Bu makalede daha önce ayarlamış bir Azure Log Analytics çalışma alanı sahibi olduğunuzu varsayar. Bunu yapmazsanız, attıktan [günlüklerini Azure Azure İzleyicisi'ni ayarlayın](service-fabric-diagnostics-oms-setup.md)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Azure CLI aracılığıyla Aracı Uzantısı Ekle
 
@@ -34,9 +36,9 @@ Log Analytics aracısını kümenize eklemek için en iyi yolu, Azure CLI ile AP
 
 1. Cloud Shell istendikten sonra kaynak ile aynı abonelikte çalıştığından emin olun. Bu kontrol `az account show` ve "name" değeri, kümenizin abonelik eşleştiğinden emin olun.
 
-2. Portalda Log Analytics çalışma alanınızın bulunduğu bir kaynak grubuna gidin. Log Analytics kaynağını (kaynak türünü Log Analytics olacaktır) tıklayın. Kaynak genel bakış sayfasında olduktan sonra tıklayarak **Gelişmiş ayarlar** sol menüdeki Ayarlar bölümünde.
+2. Portalda Log Analytics çalışma alanınızın bulunduğu bir kaynak grubuna gidin. Log analytics kaynağını (kaynak türünü Log Analytics çalışma alanı olacaktır) tıklayın. Kaynak genel bakış sayfasında olduktan sonra tıklayarak **Gelişmiş ayarlar** sol menüdeki Ayarlar bölümünde.
 
-    ![Log Analytics Özellikler sayfası](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
+    ![Log analytics Özellikler sayfası](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
  
 3. Tıklayarak **Windows sunucuları** bir Windows kümesi, bekliyor durumunda ve **Linux sunucuları** bir Linux kümesi oluşturuyorsanız. Bu sayfa size gösterecektir, `workspace ID` ve `workspace key` (birincil anahtar olarak portalda listelenen). Sonraki adım için her ikisi de gerekir.
 
@@ -99,5 +101,5 @@ Log Analytics aracısını, head üzerinde eklediğinize göre hangi performans 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Toplama ilgili [performans sayaçları](service-fabric-diagnostics-event-generation-perf.md). Belirli bir performans sayaçları toplamak için Log Analytics aracısını yapılandırmak için gözden [veri kaynakları yapılandırılarak](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Log Analytics'i yapılandırma [otomatik uyarı verme](../log-analytics/log-analytics-alerts.md) algılama ve tanılama konusunda yardımcı olmak için
+* Azure İzleyici günlüklerine ayarlamak için yapılandırma [otomatik uyarı verme](../log-analytics/log-analytics-alerts.md) algılama ve tanılama konusunda yardımcı olmak için
 * Alternatif olarak, performans sayaçları aracılığıyla toplayabilirsiniz [Azure tanılama uzantısı ve bunları Application Insights'a gönderme](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

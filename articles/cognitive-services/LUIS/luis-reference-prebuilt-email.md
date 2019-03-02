@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 02/28/2018
 ms.author: diberry
-ms.openlocfilehash: 51e6a5da0d757023bd7cd1f61c77387a77b77de4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 82c4f82e047892d1b1093aff8cbfefa8f6d5d22f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869068"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213144"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>Bir LUIS uygulaması için önceden oluşturulmuş varlık e-posta
 Bir utterance tüm e-posta adresinden e-posta ayıklama içerir. Bu varlık zaten eğitildi çünkü içeren e-posta uygulaması hedefleri için örnek Konuşma ekleme gerekmez. E-posta varlık içerisinde desteklendiği `en-us` yalnızca kültür. 
@@ -42,7 +42,10 @@ Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.email** varlık.
       "entity": "patti.owens@microsoft.com",
       "type": "builtin.email",
       "startIndex": 31,
-      "endIndex": 55
+      "endIndex": 55,
+      "resolution": {
+        "value": "patti.owens@microsoft.com"
+      }
     }
   ]
 }

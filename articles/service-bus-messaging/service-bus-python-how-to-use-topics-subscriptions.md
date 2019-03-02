@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: aschhab
-ms.openlocfilehash: 4726143559a91c1b8b911d8538efa32c6bf19c2e
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 476c51d1835a1be0178faf28e6dd8a3c95371929
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587591"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240975"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Service Bus konuları ve abonelikleri ile Python kullanma
 
@@ -39,7 +39,7 @@ Bu makale, Service Bus konu başlıklarını ve aboneliklerini kullanmayı açı
 **ServiceBusService** nesnesi konuları ile çalışmanıza olanak sağlar. Service Bus programlı olarak erişmek istiyorsanız, herhangi bir Python dosyasının en üstüne yakın aşağıdaki kodu ekleyin:
 
 ```python
-from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
+from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
 Aşağıdaki kod oluşturur bir **ServiceBusService** nesne. Değiştirin `mynamespace`, `sharedaccesskeyname`, ve `sharedaccesskey` gerçek, ad alanı ile paylaşılan erişim imzası (SAS) anahtar adını ve anahtar değeri.

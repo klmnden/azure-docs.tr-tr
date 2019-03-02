@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 02/27/2019
 ms.author: juliako
-ms.openlocfilehash: 7d40a29a0d9d708deb5485b18327d809ded0022d
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5290901348bb139140f1ad6d2ee50b9ddd88b297
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959553"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214444"
 ---
 # <a name="dynamic-manifests"></a>Dinamik bildirimler
 
@@ -32,39 +32,15 @@ Aşağıdaki tabloda, filtrelerle URL'leri bazı örnekler gösterilmektedir:
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Kesintisiz Akış|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
-
 > [!NOTE]
 > Olan dinamik bildirimler, varlık ve bu varlık için varsayılan bildirimi değiştirmeyin. İstemci, bir akış ile veya olmadan filtreleri istemek seçebilirsiniz. 
 > 
 
 Bu konu ile ilgili kavramları açıklar **dinamik bildirimlerini** istediğiniz bu özelliği kullanmak senaryo örnekleri sağlar.
 
-## <a name="manifest-files-overview"></a>Bildirim dosyaları genel bakış
+## <a name="manifests-overview"></a>Bildirimlere genel bakış
 
-A **bildirim** (çalma listesi) dosyası (metin tabanlı veya XML tabanlı) içeren meta verileri gibi akış: izleme türü (ses, video veya metin), izleme adı, başlangıç ve bitiş zamanı, bit hızı (kalitelerini), izleme dil (kayan sunu penceresi pencerenin sabit süre), video codec (FourCC). Sonraki yürütülebilir video parçalar kullanılabilir ve bulundukları konumlar ilgili bilgi sağlayarak bir sonraki parça almak için player talimatı verir. Parçaları (veya parçaları) gerçek "" bir video içeriğinizi öbekleridir.
-
-HLS bildirim dosyasının bir örnek aşağıda verilmiştir: 
-
-```
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="aac_eng_2_128041_2_1",LANGUAGE="eng",DEFAULT=YES,AUTOSELECT=YES,URI="QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)"
-#EXT-X-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d,mp4a.40.2",AUDIO="audio"
-QualityLevels(380658)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d",URI="QualityLevels(380658)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=884474,RESOLUTION=480x270,CODECS="avc1.640015,mp4a.40.2",AUDIO="audio"
-QualityLevels(721426)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=884474,RESOLUTION=480x270,CODECS="avc1.640015",URI="QualityLevels(721426)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=1327838,RESOLUTION=640x360,CODECS="avc1.64001e,mp4a.40.2",AUDIO="audio"
-QualityLevels(1155246)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=1327838,RESOLUTION=640x360,CODECS="avc1.64001e",URI="QualityLevels(1155246)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=2414544,RESOLUTION=960x540,CODECS="avc1.64001f,mp4a.40.2",AUDIO="audio"
-QualityLevels(2218559)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=2414544,RESOLUTION=960x540,CODECS="avc1.64001f",URI="QualityLevels(2218559)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=3805301,RESOLUTION=1280x720,CODECS="avc1.640020,mp4a.40.2",AUDIO="audio"
-QualityLevels(3579378)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=3805301,RESOLUTION=1280x720,CODECS="avc1.640020",URI="QualityLevels(3579378)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=139017,CODECS="mp4a.40.2",AUDIO="audio"
-QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
-```
+Media Services, HLS, MPEG DASH, kesintisiz akış protokolleri destekler. Bir parçası olarak [dinamik paketleme](dynamic-packaging-overview.md), akış istemci bildirimlerinin (HLS ana çalma listesi, DASH medya sunu açıklaması (MPD) ve kesintisiz akış), URL biçimi seçicide göre dinamik olarak oluşturulur. İçinde teslim protokollerine bkz [Bu bölümde](dynamic-packaging-overview.md#delivery-protocols). 
 
 ### <a name="get-and-examine-manifest-files"></a>Almak ve bildirim dosyalarını inceleyin
 

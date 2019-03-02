@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f57e793278af7eb03fe49fd657e45b0846db8b1c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3a8ee51656b5521916e68ee34edda91c34ea0c35
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817924"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216051"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory-preview"></a>Erişim için Azure BLOB'ları ve kuyrukları (Önizleme) Azure Active Directory'yi kullanarak kimlik doğrulaması
 
@@ -57,9 +57,11 @@ Bir RBAC rolü için bir Azure AD güvenlik sorumlusu atandığında, Azure veri
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
+Azure portalında yerleşik bir rol atama hakkında bilgi edinmek için [Azure kapsayıcıları ve RBAC ile kuyrukları (Önizleme) Azure portalında erişim ver](storage-auth-aad-rbac.md).
+
 ### <a name="access-permissions-granted-by-rbac-roles"></a>RBAC rolleri tarafından verilen erişim izinleri 
 
-Kapsam bağlı olarak, yerleşik rolleri tarafından verilen erişim hakları aşağıdaki tabloda özetlenmiştir:
+Aşağıdaki tabloda, farklı kapsam düzeylerinde yerleşik rolleri tarafından verilen erişim hakları özetlenmektedir:
 
 |Kapsam|BLOB veri sahibi|BLOB verileri katkıda bulunan|BLOB veri okuyucusu|Kuyruk verileri katkıda bulunan|Kuyruk verileri okuyucu|
 |---|---|---|---|---|---|

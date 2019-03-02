@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: f2b5089f1ec334f80ccb4ce80ba9b512f3305859
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a03770f58f057fe7cbc2601e400b678c60a19cad
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861128"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217113"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Bir soru ile Bilgi Bankası'tan sorulara yanıtlar alınC#
 
-Bu hızlı başlangıçta, program aracılığıyla yayımlanan bir soru-cevap Oluşturucu Bilgi Bankası yanıt getirmenizde size yol gösterir. Soru-Cevap Oluşturma, [veri kaynaklarından](../Concepts/data-sources-supported.md) ve SSS gibi yarı yapılandırılmış içerikten soru ve cevapları otomatik olarak ayıklar. JSON biçiminde soru API istek gövdesinde gönderilir. 
+Bu hızlı başlangıçta, program aracılığıyla yayımlanan bir soru-cevap Oluşturucu Bilgi Bankası yanıt getirmenizde size yol gösterir. Bilgi Bankası sorular ve gelen yanıtları [veri kaynakları](../Concepts/data-sources-supported.md) SSS gibi. [Soru](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) soru-cevap Oluşturucu hizmetine gönderilir. [Yanıt](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) ilk tahmin edilen yanıt içerir. 
 
 
 ## <a name="prerequisites"></a>Önkoşullar

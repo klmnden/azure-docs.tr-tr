@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1d6f43b23bddf2d1ff7a2a41a11b4a2c8623d372
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c8cba4006d1112ccc1529fc1769e046fe45468a7
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768633"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214189"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir telemetri kuralı oluşturabilir ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
@@ -27,12 +27,7 @@ Cihazlar, sayısal veriler CİHAZDAN göndermek için telemetri ölçüm kullana
 
 Telemetri kuralı oluşturmak için cihaz şablonu en az bir telemetri ölçüm tanımlanmış olmalıdır. Bu örnek, sıcaklık ve nem telemetrisini gönderen bir refrigerated satış makine cihaz kullanır. Kural, cihaz tarafından bildirilen sıcaklık izler ve 80 derecenin üzerinde olduğunda bir e-posta gönderir.
 
-1. Device Explorer ' ı kullanarak, cihaz şablon kural ekleme gidin.
-
-1. Seçilen şablonun altında var olan bir cihaza tıklayın. 
-
-    >[!TIP]
-    >Bir şablon yoksa, herhangi bir cihaza daha sonra yeni bir cihaz ilk ekleyin.
+1. Kullanarak **cihaz şablonları** sayfasında, kural ekleme cihaz şablonu gidin.
 
 1. Herhangi bir kural henüz oluşturmadıysanız, aşağıdaki ekranı görürsünüz:
 
@@ -60,11 +55,11 @@ Koşul, kural tarafından izlenen ölçütleri tanımlar.
 
 1. İzlemek istediğiniz telemetri seçin **ölçüm** açılır.
 
-   ![Koşul](media/howto-create-telemetry-rules-experimental/Aggregate_Condition_Filled_Out.png)
-
 1. Ardından, **toplama**, **işleci**ve bir **eşiği** değeri.
-    - Toplama isteğe bağlıdır. Toplama, koşulu karşılayan her telemetri veri noktası için kural tetiklendiğinde. Kuralın ne zaman tetiklemek için yapılandırılmışsa, örneğin, sıcaklık 80 olduğu sonra cihaz sıcaklık > 80 raporlarına zaman hemen instantly kural tetikler.
+    - Toplama isteğe bağlıdır. Toplama, koşulu karşılayan her telemetri veri noktası için kural tetiklendiğinde. Kural neredeyse anında sıcaklık 80 ise tetikleyici sonra kural Tetikleyiciler için yapılandırılmışsa, örneğin, ne zaman cihaz sıcaklık > 80 bildirir.
     - Bir toplama işlevi, ortalama, Min, maks gibi sayısı daha sonra seçilen kullanıcı sağlamalıdır bir **toplama zaman penceresi** üzerinden hangi koşulun değerlendirilmesi gerekir. Örneğin, ayarlarsanız "5 dakika" olarak döneme ve kural arar 80 ortalama sıcaklık en az 5 dakika boyunca 80 olduğunda kural tetiklendiğinde yukarıda ortalama sıcaklık. Kuralı değerlendirme sıklığı aynıdır **toplama zaman penceresi**, yani, bu örnekte, kural her 5 dakikada bir kez değerlendirilir.
+
+    ![Koşul](media/howto-create-telemetry-rules-experimental/Aggregate_Condition_Filled_Out.png)
 
     >[!NOTE]
     >Birden fazla telemetri Ölçüm altında eklenebilir **koşul**. Birden çok koşulu belirtildiğinde, kural tetiklemek tüm koşulların karşılanması gerekir. Her koşulu, bir 'Ve' yan tümcesi tarafından örtük olarak katıldı. Her ölçü, toplam kullanırken toplanmalıdır.

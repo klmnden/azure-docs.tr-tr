@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471207"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217878"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Çok kiracılı SaaS veritabanı kiracılı desenleri
 
@@ -99,7 +99,7 @@ Aynı kaynak grubunda dağıtılan veritabanları, elastik havuzları halinde gr
 
 ![Çok kiracılı uygulaması ile veritabanı-elastik havuz kullanımının Kiracı başına, tasarım.][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL veritabanı, yapılandırmayı, izlemeyi ve şirket dışı paylaşımı yönetme için gereken araçları sağlar.  Her iki havuz ve veritabanı düzeyinde performans ölçümleri, Log Analytics ve Azure portalında kullanılabilir.  Ölçümleri toplar ve kiracıya özgü performans harika Öngörüler verebilirsiniz.  Tek veritabanları havuzlar, belirli bir kiracıya ayrılan kaynakları sağlamak üzere arasında taşınabilir.  Bu araçlar, uygun maliyetli bir şekilde iyi performansı elde etmeyi sağlar.
+Azure SQL veritabanı, yapılandırmayı, izlemeyi ve şirket dışı paylaşımı yönetme için gereken araçları sağlar.  Her iki havuz ve veritabanı düzeyinde performans ölçümleri, Azure İzleyici günlüklerine ve Azure portalında kullanılabilir.  Ölçümleri toplar ve kiracıya özgü performans harika Öngörüler verebilirsiniz.  Tek veritabanları havuzlar, belirli bir kiracıya ayrılan kaynakları sağlamak üzere arasında taşınabilir.  Bu araçlar, uygun maliyetli bir şekilde iyi performansı elde etmeyi sağlar.
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Kiracı başına veritabanı için ölçeklendirme işlemleri
 

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 0bcc49df6540b73b8feb5bb1ec4312e680572797
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 75057f6bd92fbdc805da2e0e36dc2bff7b069f26
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617877"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243338"
 ---
 # <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>Düğümleri Azure Kubernetes Service (AKS) için geçerli güvenlik ve çekirdek güncelleştirmeleri
 
@@ -27,7 +27,7 @@ Bu makalede, açık kaynaklı kullanmayı gösterir [kured (KUbernetes yeniden a
 
 Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
 
-Ayrıca Azure CLI Sürüm 2.0.49 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
+Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="understand-the-aks-node-update-experience"></a>AKS düğümü güncelleştirme deneyimini anlama
 
@@ -78,15 +78,15 @@ Kullanarak düğümlerin durumunun izleyebilirsiniz [kubectl alma düğümleri] 
 
 ```
 NAME                       STATUS                     ROLES     AGE       VERSION
-aks-nodepool1-79590246-2   Ready,SchedulingDisabled   agent     1h        v1.9.11
+aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-Güncelleştirme işlemi tamamlandıktan sonra kullanarak düğümlerin durumunun görüntüleyebileceğiniz [kubectl alma düğümleri] [ kubectl-get-nodes] komutunu `--output wide` parametresi. Bu ek çıkış bir fark görmenizi sağlayan *çekirdek sürümü* aşağıdaki örnek çıktıda gösterildiği gibi temel alınan düğümleri. *Aks nodepool1 79590246 2* bir önceki adımda ve gösterir çekirdek sürümü güncelleştirildiği *4.15.0-1025-azure*. Düğüm *aks nodepool1 79590246 1* , güncelleştirilmiş gösterir çekirdek sürümü olmamıştır *4.15.0-1023-azure*.
+Güncelleştirme işlemi tamamlandıktan sonra kullanarak düğümlerin durumunun görüntüleyebileceğiniz [kubectl alma düğümleri] [ kubectl-get-nodes] komutunu `--output wide` parametresi. Bu ek çıkış bir fark görmenizi sağlayan *çekirdek sürümü* aşağıdaki örnek çıktıda gösterildiği gibi temel alınan düğümleri. *Aks nodepool1 28993262 0* bir önceki adımda ve gösterir çekirdek sürümü güncelleştirildiği *4.15.0-1039-azure*. Düğüm *aks nodepool1 28993262 1* , güncelleştirilmiş gösterir çekirdek sürümü olmamıştır *4.15.0-1037-azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.11   10.240.0.6    <none>        Ubuntu 16.04.5 LTS   4.15.0-1023-azure   docker://1.13.1
-aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.11   10.240.0.4    <none>        Ubuntu 16.04.5 LTS   4.15.0-1025-azure   docker://1.13.1
+aks-nodepool1-28993262-0   Ready     agent     1h        v1.11.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS   4.15.0-1039-azure   docker://3.0.4
+aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5    <none>        Ubuntu 16.04.6 LTS   4.15.0-1037-azure   docker://3.0.4
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

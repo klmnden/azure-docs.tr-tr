@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: c420b1b5fc15f89bd14b8ae42919f24de97da4fc
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 25349593bd45949f662581160fa23d30b4682710
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894165"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214206"
 ---
 # <a name="marketplace-faqs"></a>Market SSS
 
@@ -66,10 +66,11 @@ Azure Marketi ile müşterilere teknik uygulamalar için oluşturulmuş veya Azu
 
 Azure Market tekliflerini aracılığıyla satın alınabilir:
 
-* [Web tabanlı vitrin](https://azuremarketplace.microsoft.com/marketplace/apps).
-* [Microsoft Azure yönetim portalında](https://portal.azure.com/), veya aracılığıyla [Azure Market komut satırı arabirimi (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* [Web tabanlı vitrini](https://azuremarketplace.microsoft.com/marketplace/apps)
+* [Microsoft Azure yönetim portalında](https://portal.azure.com/), veya aracılığıyla [Azure Market komut satırı arabirimi (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-Not: Ön ödemeli krediler ve diğer parasal taahhüt formları, yazılım lisansı ücretlerini ödemek için kullanılamaz, ancak ilişkili Azure kullanım ücretlerini ödemek için kullanılabilir.  Özel durumlar listelenir [Azure parasal taahhüt](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
+>[!Note]
+>Ön ödemeli krediler ve diğer parasal taahhüt formları, yazılım lisansı ücretlerini ödemek için kullanılamaz, ancak ilişkili Azure kullanım ücretlerini ödemek için kullanılabilir.  Özel durumlar listelenir [Azure parasal taahhüt](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
 **Azure Market satın alımımın dağıtılacağı hangi Microsoft Azure alımımın seçebilir miyim?**
 
@@ -93,9 +94,11 @@ Bağımlılıklar Azure Marketi teklifleri için otomatik olarak yönetilmez. Ç
 
 **Uygulamaları ve Hizmetleri Azure Marketi üzerinden satılan/sağlanan satın aldığınız için hangi ülkeler destekleniyor mu?**
 
-Azure marketi, Microsoft Azure müşterileri aşağıdaki ülkelerde kullanılabilir:
+Azure Market, Microsoft Azure müşterileri listelenen ülkelerde kullanılabilir [katılım ilkeleri](https://docs.microsoft.com/legal/marketplace/participation-policy).
 
-Cezayir, Arjantin, Avustralya, Avusturya, Bahreyn, Belarus, Belçika, Brezilya, Bulgaristan, Kanada, Şili, Kolombiya, Kosta Rika, Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Dominik Cumhuriyeti, Ekvador, Mısır, El Salvador, Estonya, Finlandiya, Fransa, Almanya, Yunanistan, Guatemala, Hong Kong, Macaristan, İzlanda, Hindistan, Endonezya, İrlanda, İsrail, İtalya, Japonya, Ürdün, Kazakistan, Kenya, Kuveyt, Letonya, Liechtenstein, Litvanya, Lüksemburg, Makedonya, Malezya, Malta, Meksika, Karadağ, Fas, Hollanda, Yeni Zelanda, Nijerya, Norveç, Umman, Pakistan, Panama, Paraguay, Peru, Filipinler, Polonya, Portekiz, Porto Riko, Katar, Romanya, Rusya, Suudi Arabistan, Sırbistan, Singapur, Slovakya, Slovenya, Güney Afrika, Güney Kore, İspanya, Sri Lanka, İsveç, İsviçre, Tayvan, Tayland, Trinidad ve Tobago, Tunus, Türkiye, Ukrayna, Birleşik Arap Emirlikleri, Birleşik Krallık, Amerika Birleşik Devletleri, Uruguay, Venezuela.
+**Hangi para birimleri, Azure Marketi tarafından destekleniyor mu?**
+
+Aşağıdaki 17 farklı para biriminde işlem yürütülebilecek: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, RUB, SEK, TWD, USD, RMB.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Azure Market’ten çözüm dağıtma
 
@@ -180,17 +183,17 @@ Hayır. Azure Marketi'ndeki çözüm sahip yayımcı fiyatlandırma ayarlayabili
 
 **Bu abonelikler için nasıl ödeme yapabilirim? Azure Marketi satın alımlarım Azure faturanızda görünür veya başka bir fatura vardır?**
 
-Azure Marketi satın alma işlemleri, Azure aboneliğinizle aynı ödeme yöntemini devralır.  Parasal taahhüt kullanmak üzere etkinleştirilmediği sürece Azure kullanımından ayrı olarak faturalandırılır.
+MOSP - [Microsoft çevrimiçi abonelik programı](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (yani doğrudan web) müşterileri, açık, Azure abonelik profillerindeki aynı kayıtlı kredi kartından ücretlendirilir. Dosya kayıtlı bir kredi kartınız yoksa, Azure Marketi'nden satın alamazsınız. Bu durumda, Azure ücretlerinizin size özel bir feragat aldığınız.
 
-MOSP - Microsoft çevrimiçi abonelik programı (doğrudan web) müşterileri, açık, Azure abonelik profillerindeki aynı kayıtlı kredi kartından ücretlendirilir. Ardından, müşteri (Azure ücretler fatura ilgili özel bir feragat) dosya kayıtlı bir kredi kartınız yoksa, bunlar Azure Marketi'nden satın alamazsınız.
-
-Kurumsal Sözleşme (EA) müşterileri EA'ya göre ücretlendirilir. Listelenen belirli Azure Market tekliflerini [Azure parasal taahhüt](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) ilk kullanılabilir tüm taahhütten çıkarılmış kullanıyorsa bir faturada tek bir kapasite aşımı olarak faturalandırılır. EA dolaylı, eğitim ve kamu müşterileri lisanslama çözümü sağlayıcıları (LSP tarafından) faturalandırılırsınız.
+Kurumsal Sözleşme (EA) müşterileri EA'ya göre ücretlendirilir. Burada listelenen belirli Azure Market tekliflerini ilk kullanılabilir tüm taahhütten çıkarılmış ve ardından bir faturada tek bir kapasite aşımı olarak faturalandırılır. EA dolaylı, eğitim ve kamu müşterileri lisanslama çözümü sağlayıcıları (LSP tarafından) faturalandırılırsınız.
 
 **My Azure Marketi aboneliğimin ayrıntılarını ve fatura bilgilerimi nerede görüntüleyebilirim?**
 
-MOSP - Microsoft çevrimiçi abonelik programı (doğrudan web) müşterileri Azure fatura portalındaki 'Market' menüsünün altında Market abonelik ayrıntılarını görüntüleyebilirsiniz. Sanal Makineler'i Market'ten satın alan müşteriler, tahmini ücretleri Microsoft Azure Yönetim Portalı'nda görüntüleyebilirsiniz.
+MOSP - [Microsoft çevrimiçi abonelik programı](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) faturalar sekmesinde maliyet Yönetimi + faturalandırma bölümünde Azure Yönetim Portalı'nın içindeki (doğrudan web) müşterileri Market satın alma ayrıntılarını görüntüleyebilirsiniz.
 
-Kurumsal Sözleşme (EA) müşterileri, Market abonelik ayrıntılarını Enterprise portalındaki faturalama ve hesap yönetimi görünümünde yer alan ‘Azure Marketi’ sekmesinden görüntüleyebilir. Not: Doğrudan olmayan EA müşterileri yalnızca teklif ve kullanım görebilir bilgileri. Fiyatlandırma ayrıntılarını Enterprise Portal'daki kullanılabilir değil.
+Kurumsal Sözleşme (EA) müşterileri Market satın alma ayrıntılarını faturalar sekmesinde maliyet Yönetimi + faturalandırma bölümünde Azure Yönetim Portalı'nın içinde görüntüleyebilirsiniz.
+
+Bulut çözümü sağlayıcısı (CSP) iş ortakları Market satın alma ayrıntıları her iş ortağı merkezi müşteri siparişi geçmişi sekme içinde bir şirket içinde müşteriler görünümü seçtikten sonra görüntüleyebilirsiniz.
 
 **Azure VM için bir Azure Market eklentisini nasıl iptal ederim?**
 
@@ -198,9 +201,9 @@ Eklenti, Azure sanal makine (VM) ile ilişkili olduğundan, Azure Market'ten yap
 
 **Azure Marketi satın alımlarım için ne sıklıkla faturalandırılırım?**
 
-Kurumsal Anlaşma müşterileri için [ana hatlarıyla belirtilen belirli hizmetler](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/), öncelikle, toplam bu hizmetler için tüketilen aydaki maliyeti sınırlı kullanılabilir parasal taahhüt fonlarından olması. Parasal taahhütten değil, aylık olarak tehirli olarak faturalandırılır tüm Azure Market teklifleri.
+Ana hatlarıyla belirtilen, belirli hizmetler için Kurumsal Anlaşma müşterileri, toplam bu hizmetler için kullanıldığı durumlar ay içinde maliyeti kullanılabilir parasal taahhüt fonlarından ilk azaltıldı. Parasal taahhütten değil, aylık olarak tehirli olarak faturalandırılır tüm Azure Market teklifleri. Yıllık SaaS abonelikler, tam bir yılın Hizmetleri için bir kez faturalandırılır.
 
-Doğrudan web müşterileri olan MOSP ücretlendirilir aylık açık, Azure abonelik profillerindeki aynı kayıtlı kredi kartından.
+MOSP - [Microsoft çevrimiçi abonelik programı](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (doğrudan web) müşterileri ücretlendirilir aylık açık, Azure abonelik profillerindeki aynı kayıtlı kredi kartından. Yıllık SaaS abonelikler, tam bir yılın Hizmetleri için bir kez faturalandırılır.
 
 **Azure Marketi MOSP Aboneliğimi doğrudan Kurumsal Sözleşme (EA) aboneliğime satın alımlarım nasıl taşıyabilirim?**
 
@@ -246,7 +249,7 @@ Tüm Teknik ürün desteğini yayımcı sağlayıcısına başvurun. Yayımcı i
 
 **Memnun değilim, satın aldığım öğeyi iade?**
 
-Azure Market’ten gerçekleştirilen satın alımlar iade edilemez ancak iptal edilebilir/silinebilir. Bir aboneliği iptal edildi/silindikten sonraki aylarda sizden ücret değil.
+Yapılan satın alma işlemleri [Azure Marketi](https://azuremarketplace.microsoft.com/) iade edilemez ancak iptal edildi/silinebilir. Durdurulduğunda, tüketim tabanlı teklifleri kullanım göre faturalandırılır şekilde durdurma de uygular. Abonelikleri iptal edilir ve geçerli fatura dönemi faturalandırılmazsınız. Bir abonelik satın alma (aylık ve yıllık için 14 gün 24 saat) kısa bir süre sonra iptal edilirse, tam bir para iadesi sağlanır.
 
 Müşteriler, yayımcının, Market hizmeti veya satın alma ile ilgili teknik sorunlar için doğrudan başvurmalıdır. Yayımcı iletişim bilgilerini ve/veya Azure marketi'ndeki çözüm Ayrıntıları sayfasında Destek Web sitesi bağlantısı bulunabilir.
 
@@ -336,6 +339,10 @@ Bir liste, deneme veya KLG (kendi lisansını Getir) karşıya yüklenirken yay�
 
 Azure Market aracılığıyla çözüm lisansı satın alındığında, yazılım lisansı gelirleri yayımcı ve Microsoft arasında bölünür.  Bu koşulları anlaşmalara uygun şekilde gerçekleştirilir ve koşulları [Market yayımcı anlaşması](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Ayrıca, çözümler KLG (kendi lisansını Getir) yayımcı ile işlem ücretleri alınmasına neden olmayacağını değil.
 
+**Bir standart sözleşmesi nedir?**
+
+Bir yayımcı yararlanmak için seçebilirsiniz ve böylece müşterilerin Basitleştirilmiş tedarik ve yasal gözden geçirme sürecini sahip Microsoft teklifleri standart sözleşme koşulları.
+
 **Uygulamamı Azure Active Directory (AAD) ile tümleştirmek için yönergelerini nerede bulabilirim?**
 
 Microsoft AAD ile tüm Market kullanıcılarının kimliğini doğrular.  Doğrudan bir deneme ek bir oturum açma adımına gerek kalmadan sağlanabilir.  Örneğin, kimliği doğrulanmış bir kullanıcı Market'teki deneme listesini aracılığıyla tıkladığında ve için bir deneme ortamı yönlendirilir.
@@ -374,7 +381,7 @@ Teklif tamamladıktan sonra bir müşteri adayı hedef ayarını listenin düzg�
 
 **Azure Marketi kullanarak satış yapabilir yayımcılar hangi ülkelerde/bölgelerde misiniz?**
 
-Şu ülkelerde bulunan yayımcılar şu anda Azure Marketi'nde satış: Afganistan, Arnavutluk, Cezayir, Angola, Antigua ve Barbuda, Arjantin, Ermenistan, Avustralya, Avusturya, Azerbaycan, Bahreyn, Bangladeş, Belarus, Belçika, Benin, Bolivya, Bosna-Hersek, Botsvana, Brezilya, Bulgaristan, Burkina Faso, Burundi, Kamboçya, Kamerun, Kanada, Orta Afrika Cumhuriyeti, Çad, Şili, Kolombiya, Komorolar, Kongo, Kongo Cumhuriyeti (KDC), Kosta Rika, Fildişi Sahili (Côte d’Ivoire), Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Dominika, Dominik Cumhuriyeti, Ekvador, Mısır, El Salvador, Eritre, Estonya, Etiyopya, Fiji Adaları, Finlandiya, Fransa, Gürcistan, Almanya, Gana, Yunanistan, Guatemala, Gine, Haiti, Honduras, Hong Kong ÖİB, Macaristan, İzlanda, Hindistan, Endonezya, Irak, İrlanda, İsrail, İtalya, Jamaika, Japonya, Ürdün, Kazakistan, Kenya, Kore (Güney), Kuveyt, Laos, Letonya, Lübnan, Liberya, Liechtenstein, Litvanya, Lüksemburg, Madagaskar, Malavi, Malezya, Mali, Malta, Mauritius, Meksika, Monako, Moğolistan, Karadağ, Fas, Mozambik, Nepal, Hollanda, Yeni Zelanda, Nikaragua, Nijer, Nijerya, Norveç, Umman, Pakistan, Panama, Paraguay, Peru, Filipinler, Polonya, Portekiz, Katar, Romanya, Rusya, Ruanda, Suudi Arabistan, Senegal, Sırbistan, Sierra Leone, Singapur, Slovakya, Slovenya, Somali, Güney Afrika, İspanya, Sri Lanka, İsveç, İsviçre, Tacikistan, Tanzanya, Tayland, Timor-Leste, Togo, Tonga, Trinidad ve Tobago, Tunus, Türkiye, Türkmenistan, Uganda, Ukrayna, Birleşik Arap Emirlikleri, Birleşik Krallık, Amerika Birleşik Devletleri, Uruguay, Özbekistan, Venezuela, Vietnam, Zambiya ve Zimbabve.
+Şu ülkelerde bulunan yayımcılar şu anda Azure Marketi'nde satış: Afganistan, Arnavutluk, Cezayir, Angola, Antigua ve Barbuda, Arjantin, Ermenistan, Avustralya, Avusturya, Azerbaycan, Bahreyn, Bangladeş, Belarus, Belçika, Benin, Bolivya, Bosna-Hersek, Botsvana, Brezilya, Bulgaristan, Burkina Faso, Burundi, Kamboçya, Kamerun, Kanada, Orta Afrika Cumhuriyeti, Çad, Şili, Kolombiya, Komorolar, Kongo, Kongo Cumhuriyeti (KDC), Kosta Rika, Fildişi Sahili, Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Dominika, Dominik Cumhuriyeti, Ekvador, Mısır, El Salvador, Eritre, Estonya, Etiyopya, Fiji Adaları, Finlandiya, Fransa, Gürcistan, Almanya, Gana, Yunanistan, Guatemala, Gine, Haiti, Honduras, Hong Kong ÖİB, Macaristan, İzlanda, Hindistan, Endonezya, Irak, İrlanda, İsrail, İtalya, Jamaika, Japonya, Ürdün, Kazakistan, Kenya, Kore (Güney), Kuveyt, Laos, Letonya, Lübnan, Liberya, Liechtenstein, Litvanya, Lüksemburg, Madagaskar, Malavi, Malezya, Mali, Malta, Mauritius, Meksika, Monako, Moğolistan, Karadağ, Fas, Mozambik, Nepal, Hollanda, Yeni Zelanda, Nikaragua, Nijer, Nijerya, Norveç, Umman, Pakistan, Panama, Paraguay, Peru, Filipinler, Polonya, Portekiz, Katar, Romanya, Rusya, Ruanda, Suudi Arabistan, Senegal, Sırbistan, Sierra Leone, Singapur, Slovakya, Slovenya, Somali, Güney Afrika, İspanya, Sri Lanka, İsveç, İsviçre, Tacikistan, Tanzanya, Tayland, Timor-Leste, Togo, Tonga, Trinidad ve Tobago, Tunus, Türkiye, Türkmenistan, Uganda, Ukrayna, Birleşik Arap Emirlikleri, Birleşik Krallık, Amerika Birleşik Devletleri, Uruguay, Özbekistan, Venezuela, Vietnam, Zambiya ve Zimbabve.
 
 **Azure Marketi'nden nasıl listesini silinsin mi?**
 
@@ -490,6 +497,35 @@ Bağımlılıklar Azure Marketi teklifleri için otomatik olarak yönetilmez. Ku
 Azure Marketi, aşağıdaki ülkelerde bulunan Microsoft Azure müşterileri tarafından kullanılabilir:
 
 Cezayir, Arjantin, Avustralya, Avusturya, Bahreyn, Belarus, Belçika, Brezilya, Bulgaristan, Kanada, Şili, Kolombiya, Kosta Rika, Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Dominik Cumhuriyeti, Ekvador, Mısır, El Salvador, Estonya, Finlandiya, Fransa, Almanya, Yunanistan, Guatemala, Hong Kong, Macaristan, İzlanda, Hindistan, Endonezya, İrlanda, İsrail, İtalya, Japonya, Ürdün, Kazakistan, Kenya, Kuveyt, Letonya, Liechtenstein, Litvanya, Lüksemburg, Makedonya, Malezya, Malta, Meksika, Karadağ, Fas, Hollanda, Yeni Zelanda, Nijerya, Norveç, Umman, Pakistan, Panama, Paraguay, Peru, Filipinler, Polonya, Portekiz, Porto Riko, Katar, Romanya, Rusya, Suudi Arabistan, Sırbistan, Singapur, Slovakya, Slovenya, Güney Afrika, Güney Kore, İspanya, Sri Lanka, İsveç, İsviçre, Tayvan, Tayland, Trinidad ve Tobago, Tunus, Türkiye, Ukrayna, Birleşik Arap Emirlikleri, Birleşik Krallık, Amerika Birleşik Devletleri, Uruguay, Venezuela.
+
+**Farklı ülkelerde satış etkinleştirmek için benim coğrafi kullanılabilirlik nasıl tanımlarım?**
+
+1.  Bulut iş ortağı Portalı'nda yeni ülkede eklemek istediğiniz SKU'yu gidin.  "SKU Ayrıntıları" içinde "Ülke/bölge kullanılabilirliği için" gidin ve "Bölgelerde."
+
+    ![Bölgeleri seçin](media/marketplace-publishers-guide/FAQ-choose-geo.png)
+
+1.  Bir liste ile satış için kullanılabilir tüm ülkeler açılır.  Bu SKU, kullanılabilir hale getirmek istediğiniz her bir ülkede yanındaki onay kutusuna tıklayın. "Tamam" düğmesini tıklatın.
+
+    ![Ülke listesi seçin](media/marketplace-publishers-guide/FAQ-select-countries.png)
+
+1.  Son olarak Canlı teklifinizi uygulanacak değişiklikler için "Yayımla" tıklayın  
+
+>[!Note]
+>Değişikliklerin etkili olması 24 saat sürer.
+
+<!---    ![Publish offer](media/marketplace-publishers-guide/FAQ-publish-offer.png) -->
+
+**Nasıl bir yayımcı, mevcut bir teklif için coğrafi kullanılabilirlik değiştirebilir miyim?**
+
+Yayımcı, var olan bir teklif düzenleme, yeni olduğu ülkeleri seçin ve fiyatlandırma ayarlamak için elektronik tabloyu karşıdan yükleme/yükleme işlevini kullanın.
+
+**Hangi ülkede müşteriler Azure Marketi teklifleri satın alabilir?**
+
+Azure Market satın alma yapan 141 coğrafyalar müşterinin fatura adresini tarafından tanımlandığı şekilde destekler. Bkz: [katılım ilkeleri](https://docs.microsoft.com/legal/marketplace/participation-policy) ülkelerin listesi için.
+
+**Hangi para birimleri, Azure Marketi tarafından destekleniyor mu?**
+
+Aşağıdaki 17 farklı para biriminde işlem yürütülebilecek: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, RUB, SEK, TWD, USD.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Azure Market’ten çözüm dağıtma
 

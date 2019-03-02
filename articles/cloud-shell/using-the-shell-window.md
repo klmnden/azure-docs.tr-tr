@@ -1,9 +1,9 @@
 ---
-title: Azure bulut Kabuğu penceresini kullanarak | Microsoft Docs
-description: Azure bulut Kabuk penceresinin nasıl kullanılacağını genel bakış.
+title: Azure Cloud Shell penceresini kullanarak | Microsoft Docs
+description: Azure Cloud Shell penceresini kullanma genel bakış.
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,56 +13,56 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
-ms.author: juluk
-ms.openlocfilehash: 43da2bf5b66ff7db03a6fb5c2e1ceaebe322bcbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: damaerte
+ms.openlocfilehash: a02642540e6eb39f35b9cc0d38d187a7afa36b7a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28920003"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243457"
 ---
-# <a name="using-the-azure-cloud-shell-window"></a>Azure bulut Kabuğu penceresini kullanma
+# <a name="using-the-azure-cloud-shell-window"></a>Azure Cloud Shell penceresini kullanma
 
-Bu belge bulut Kabuk penceresinin nasıl kullanılacağını açıklar.
+Bu belge, Cloud Shell penceresini kullanmayı açıklar.
 
 ## <a name="swap-between-bash-and-powershell-environments"></a>Bash ve PowerShell ortamlar arasında değiştirme
 ![](media/using-the-shell-window/env-selector.png)
 
-Bash ve PowerShell ortamlar arasında takas için bulut Kabuk araç çubuğunda ortamı seçiciyi kullanın.
+Ortam Seçici Cloud Shell araç çubuğundaki Bash ve PowerShell ortamlar arasında takas etmek için kullanın.
 
 ## <a name="restart-cloud-shell"></a>Cloud Shell'i yeniden başlat
 ![](media/using-the-shell-window/restart.png)
 > [!WARNING]
-> Bulut Kabuk yeniden makine durumunu sıfırlamak ve tüm dosyalar, Azure tarafından kalıcı olmayan dosya paylaşımı kaybolacak.
+> Cloud Shell'i yeniden başlatmak makinenin durumu sıfırlanır ve tüm dosyaları, Azure tarafından kalıcı değil dosya paylaşımı kaybolacak.
 
-* Makine durumunu sıfırlamak için bulut Kabuk araç çubuğunda yeniden başlatma simgesine tıklayın.
+* Makine durumunu sıfırlamak için Cloud Shell araç çubuğundaki yeniden simgeye tıklayın.
 
-## <a name="minimize--maximize-cloud-shell-window"></a>Simge Durumuna Küçült & Bulut Kabuk penceresinin ekranı kaplamasını sağlayın
+## <a name="minimize--maximize-cloud-shell-window"></a>Simge Durumuna Küçült & Cloud Shell Ekranı Kapla
 ![](media/using-the-shell-window/minmax.png)
-* Üst simge durumuna küçült simgesine gizlemek için pencerenin sağ. Yeniden göstermek için bulut Kabuk simgesine tıklayın.
-* Max yüksekliğini penceresini ayarlamak için Ekranı Kapla simgesine tıklayın. Pencere önceki durumuna döndürmek için Geri Yükleme'yi tıklatın.
+* Üst simge durumuna küçült simgesine tıklayın gizlemek için pencerenin sağ. Yeniden göstermek için Cloud Shell simgesine tıklayın.
+* Yükseklik üst sınırı penceresini ayarlamak için Ekranı Kapla simgesine tıklayın. Pencere önceki durumuna döndürmek için Geri Yükleme'ye tıklayın.
 
-## <a name="concurrent-sessions"></a>Eşzamanlı oturum
-Bulut Kabuk ayrı bir Bash işlem olarak bulunmasını her oturum vererek tarayıcı sekmelerde birden fazla eşzamanlı oturum sağlar.
-Bir oturum çıkmadan, her işlem aynı makine üzerinde çalışsa bağımsız olarak çalışan her oturum penceresinden çıkmak emin olun.
+## <a name="concurrent-sessions"></a>Eş zamanlı oturum
+Cloud Shell, her bir oturum ayrı bir Bash işlem vererek tarayıcı sekmeler arasında birden fazla eşzamanlı oturum sağlar.
+Bir oturumundan çıkılıyor yaparsanız, bunlar aynı makine üzerinde çalıştırmasına rağmen her işlem bağımsız olarak çalışırken her oturum penceresinden çıkmak emin olun.
 
 ## <a name="copy-and-paste"></a>Kopyala ve Yapıştır
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-## <a name="resize-cloud-shell-window"></a>Bulut Kabuğu penceresini yeniden boyutlandırın
-* ' I tıklatın ve araç üst kenarı yukarı veya aşağı boyutlandırma bulut Kabuğu penceresini sürükleyin.
+## <a name="resize-cloud-shell-window"></a>Cloud Shell penceresini yeniden boyutlandırın
+* Tıklayın ve yukarı veya aşağı Cloud Shell penceresini yeniden boyutlandırma araç çubuğunun üst kenarı sürükleyin.
 
-## <a name="scrolling-text-display"></a>Kayan metin görüntüleme
-* Fare veya terminal metni taşımak için dokunmatik ile kaydırın.
+## <a name="scrolling-text-display"></a>Kaydırma metin görüntüleme
+* Fare veya terminal metni taşımak için dokunmatik kaydırın.
 
 ## <a name="changing-the-text-size"></a>Metin boyutunu değiştirme
 ![](media/using-the-shell-window/text-size.png)
-* Pencerenin üst ayarlar simgesine sol tıklayın sonra "Metin boyutu" seçenek üzerine getirin ve istenen metin boyutu seçin. Seçiminiz oturumlarında kalıcı.
+* Pencerenin üst ayarlar simgesine sol tıklayın ardından "Metin boyutu" seçenek üzerine gelin ve istenen metin boyutunuzu seçin. Seçiminizi oturumu arasında kalıcıdır.
 
 ## <a name="exit-command"></a>Çıkış komutu
-Çalışan `exit` etkin oturum sona erer. Bu davranışı varsayılan olarak etkileşimi olmadan 20 dakika sonra gerçekleşir.
+Çalışan `exit` etkin oturum sona erer. Bu davranış, etkileşim olmadan 20 dakika sonra varsayılan olarak gerçekleşir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bulut Kabuk hızlı başlangıcı bash](quickstart.md)
-[PowerShell içinde bulut Kabuk hızlı başlangıç](quickstart-powershell.md)
+[Bash cloud Shell hızlı başlangıçta](quickstart.md)
+[PowerShell Cloud Shell hızlı başlangıç](quickstart-powershell.md)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: acfe5590edf5a3d04c44d7e3d8034e761a85cb86
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9403855949e87a287f543c2ac41738e92238303
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728967"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217215"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Sanal makine teklifi yayımlama Kılavuzu
 
@@ -67,6 +67,9 @@ Müşteriniz ile ilişkili bir abonelik için bir sanal gereç dağıttığını
 |:--- |:--- | 
 | Faturalama ve ölçüm | Sanal makinenizin KLG ya da Kullandıkça Öde aylık faturalandırma desteklemesi gerekir. |  
 | Azure ile uyumlu sanal sabit disk (VHD) | Windows veya Linux Vm'leri oluşturulmalıdır. <ul> <li>Linux VHD'si oluşturma hakkında daha fazla bilgi için bkz. [Azure'da desteklenen Linux dağıtımı](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Bir Windows VHD oluşturma hakkında daha fazla bilgi için bkz. [Azure ile uyumlu bir VHD oluşturma](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
+
+>[!Note]
+>Bulut çözümü sağlayıcıları (CSP) iş ortağı kanalı katılımı kullanıma sunuldu.  Lütfen [bulut çözüm sağlayıcıları](./cloud-solution-providers.md) teklifinizi Microsoft CSP aracılığıyla pazarlama hakkında daha fazla bilgi için iş ortağı kanalı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

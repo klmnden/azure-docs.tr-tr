@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 93a4595ce0b36c8d0f447177bda69d2d8cab12c8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a8b792ee7731a9994ded76ef1614fc3966d033d0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117537"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243814"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure tanılama günlüğünü ve Windows Olay iletme'yi Azure günlük tümleştirmesi
 
@@ -248,5 +248,5 @@ Azure günlük tümleştirmesi hakkında daha fazla bilgi edinmek için aşağı
 * [Azure günlük tümleştirmesine giriş](security-azure-log-integration-overview.md). Bu makalede Azure günlük tümleştirmesi, önemli işlevleri ve nasıl çalıştığını tanıtılmaktadır.
 * [İş ortağı yapılandırma adımları](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Bu blog gönderisini Splunk, HP ArcSight ve IBM QRadar iş ortağı çözümleri ile çalışmak için Azure günlük tümleştirmesi yapılandırma gösterilmektedir. Bu, SIEM bileşenleri yapılandırma hakkında geçerli kılavuzumuzu açıklar. Ek ayrıntılar için SIEM satıcınıza başvurun.
 * [Azure günlük tümleştirmesi hakkında sık sorulan sorular (SSS)](security-azure-log-integration-faq.md). Bu SSS, Azure günlük tümleştirmesi hakkında sık sorulan sorular yanıtlanmaktadır.
-* [Azure günlük Tümleştirmesi ile Azure Güvenlik Merkezi uyarılarını tümleştirme](../security-center/security-center-integrating-alerts-with-log-integration.md). Bu makalede, Güvenlik Merkezi uyarıları ve Azure tanılama ve Azure etkinlik tarafından toplanan sanal makine güvenlik olaylarını eşitleme işlemini göstermektedir günlükleri. Günlükleri, Azure Log Analytics veya SIEM çözümünüzü kullanarak eşitleyin.
+* [Azure günlük Tümleştirmesi ile Azure Güvenlik Merkezi uyarılarını tümleştirme](../security-center/security-center-integrating-alerts-with-log-integration.md). Bu makalede, Güvenlik Merkezi uyarıları ve Azure tanılama ve Azure etkinlik tarafından toplanan sanal makine güvenlik olaylarını eşitleme işlemini göstermektedir günlükleri. Günlükleri, Azure İzleyici günlüklerine veya SIEM çözümünden kullanarak eşitleyin.
 * [Yeni özellikler için Azure tanılama ve Azure denetim günlükleri](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). Bu blog gönderisinde size Azure denetim günlükleri tanıtır ve yardımcı olabilecek diğer özellikleri, Azure kaynaklarınızın işlemleri öngörü.

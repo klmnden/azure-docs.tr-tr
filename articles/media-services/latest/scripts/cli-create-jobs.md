@@ -12,18 +12,18 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/25/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 04bcdd2bf5a2f1ca7cd1ea10784ac72ef130bc70
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 63d036ea4faaf7e24f337fa3956986d165c84854
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104521"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244357"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>CLI örneği: Bir işi oluşturma ve gönderme
 
-Bu makaledeki Azure CLI betiği, HTTPS URL’sini kullanarak bir İşi oluşturup basit bir kodlama Dönüşümüne göndermeyi gösterir.
+Media Services v3 sürümünde kullanarak videolarınızı işleyin işleri gönderdiğinizde Media Services giriş videosunun nerede bulacağını söylemeniz gerekir. Seçeneklerden birini (Bu makalede gösterilen şekilde) giriş işi bir HTTPS URL'si belirtmek içindir. 
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
@@ -33,7 +33,57 @@ Bu makaledeki Azure CLI betiği, HTTPS URL’sini kullanarak bir İşi oluşturu
 
 ## <a name="example-script"></a>Örnek betik
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/create-jobs/Create-Jobs.sh "Create and submit jobs")]
+Çalıştırdığınızda `az ams job start`, bir etiket işin çıktı olarak ayarlayın. Etiket, daha sonra bu çıktı varlığına ne olduğunu belirlemek için kullanılabilir. 
+
+- Etiket için bir değer atadığınız verilirse '--çıktı-varlıklarına "assetname label ="
+- Etiket için bir değer atamayın verilirse '--çıktı-varlıklarına "assetname =".
+  Eklediğiniz "=" için fark `output-assets`. 
+
+```azurecli
+az ams job start \
+  --name testJob001 \
+  --transform-name testEncodingTransform \
+  --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' \
+  --files 'Ignite-short.mp4' \
+  --output-assets testOutputAssetName= \
+  -a amsaccount \
+  -g amsResourceGroup 
+```
+
+Bir yanıt şuna benzer alın:
+
+```
+{
+  "correlationData": {},
+  "created": "2019-02-15T05:08:26.266104+00:00",
+  "description": null,
+  "id": "/subscriptions/<id>/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/transforms/testEncodingTransform/jobs/testJob001",
+  "input": {
+    "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
+    "files": [
+      "Ignite-short.mp4"
+    ],
+    "label": null,
+    "odatatype": "#Microsoft.Media.JobInputHttp"
+  },
+  "lastModified": "2019-02-15T05:08:26.266104+00:00",
+  "name": "testJob001",
+  "outputs": [
+    {
+      "assetName": "testOutputAssetName",
+      "error": null,
+      "label": "",
+      "odatatype": "#Microsoft.Media.JobOutputAsset",
+      "progress": 0,
+      "state": "Queued"
+    }
+  ],
+  "priority": "Normal",
+  "resourceGroup": "amsResourceGroup",
+  "state": "Queued",
+  "type": "Microsoft.Media/mediaservices/transforms/jobs"
+}
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

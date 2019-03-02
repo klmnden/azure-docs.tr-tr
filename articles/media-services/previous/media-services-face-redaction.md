@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako;
-ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: eee0d5365c515f8a7764b9d5636ae3d1b34cb934
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004902"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240856"
 ---
-# <a name="redact-faces-with-azure-media-analytics-legacy"></a>Azure medya analizi (eski) ile yüzleri özgürlüğü
+# <a name="redact-faces-with-azure-media-analytics"></a>Azure medya Analizi ile yüzleri özgürlüğü 
 ## <a name="overview"></a>Genel Bakış
 **Azure Media Redactor** olduğu bir [Azure medya analizi](media-services-analytics-overview.md) medya işlemci (MP) bulutta ölçeklenebilir yüz flulaştırma sunar. Yüz flulaştırma seçilen kişilerin yüzlerini bulanıklaştıran için videonuzu değiştirmenize olanak sağlar. Yüz flulaştırma hizmet kamu güvenliği ve haber medya senaryolarında kullanmak isteyebilirsiniz. El ile özgürlüğü saat birden fazla yüzeye içeren görüntülerini, birkaç dakika sürebilir, ancak bu hizmet ile yalnızca birkaç basit adımda yüz flulaştırma işlemi gerektirir. Daha fazla bilgi için [bu](https://azure.microsoft.com/blog/azure-media-redactor/) blogu.
 

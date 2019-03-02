@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1629e08d4ba1a7fd7cedb40b1e46d1bfd2766497
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002383"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215549"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Çok kiracılı SaaS uygulamasında parçalı çok kiracılı Azure SQL veritabanının performansını izleyin ve yönetin
 
@@ -52,7 +52,7 @@ Veritabanı performans yönetimi, performans verilerini derleyip çözümlemeyi 
 
 [Azure portalı](https://portal.azure.com), çoğu kaynak üzerinde yerleşik izleme ve uyarı özelliği sağlar. SQL veritabanı için izleme ve uyarı veritabanlarında kullanılabilir. Bu yerleşik izleme ve uyarı özellikleri kaynağa özeldir, az sayıda kaynak için kullanılması kolaydır ancak çok sayıda kaynakla çalışırken kullanışlı olmaz.
 
-Burada çalıştığınızı çok sayıda kaynakla, yüksek hacimli senaryolar için [Log Analytics](https://azure.microsoft.com/services/log-analytics/) kullanılabilir. Yayınlanan tanılama günlükleri ve log analytics çalışma alanında toplanan telemetri üzerinden analizler sağlayan ayrı bir Azure hizmeti budur. Log Analytics, birçok hizmetten telemetri toplayabilir ve sorgu ve uyarıları ayarlamak için kullanılabilir.
+Burada çalıştığınızı çok sayıda kaynakla, yüksek hacimli senaryolar için [Azure İzleyici günlükleri](https://azure.microsoft.com/services/log-analytics/) kullanılabilir. Yayınlanan tanılama günlükleri ve Log Analytics çalışma alanında toplanan telemetri üzerinden analizler sağlayan ayrı bir Azure hizmeti budur. Azure İzleyici günlüklerine birçok hizmetten telemetri toplayabilir ve sorgu ve uyarıları ayarlamak için kullanılabilir.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip bilet SaaS çok kiracılı veritabanı uygulama kaynak kodu ve betikleri Al
 

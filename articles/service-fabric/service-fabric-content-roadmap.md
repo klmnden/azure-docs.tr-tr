@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 12c5ba06eed37072d4c122be9e47a80ce94a5f1b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8beac9d4a84fdee4e8fa7689d60cb51c20acd671
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872837"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241842"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle, Service Fabric hakkında öğrenmek ister misiniz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, Service Fabric, büyük bir yüzey alanı vardır ve öğreneceğiniz çok şey yoktur.  Bu makale, Service fabric'in bir özeti sağlar ve programlama modellerini, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme temel kavramları açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro hizmetler nedir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro hizmetler oluşturmak için nasıl kullanılabilir. Bu makalede, kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve Service Fabric için her bir alanı Başlarken makaleleri bağlantı. 
@@ -119,7 +119,7 @@ Gerçek anlamda bulut ölçekli hizmetler oluşturmak için uygulamalarınızı 
 Windows Server veya Linux çalıştıran sanal veya fiziksel makinelere Service Fabric kümeleri oluşturulabilir. Dağıtmak ve Service Fabric uygulamaları birbirlerine bağlanış Windows Server veya Linux bilgisayarlar kümesi sahip olduğu herhangi bir ortamda çalıştırmak için: şirket içi, Microsoft Azure üzerinde veya tüm bulut sağlayıcıları.
 
 ### <a name="clusters-on-azure"></a>Azure’da kümeler
-Service Fabric kümeleri Azure üzerinde çalışan işlemleri ve küme yönetimi daha kolay ve daha güvenilir olmasını sağlayan diğer Azure özellikleri ve Hizmetleri ile tümleştirme sağlar. Bir kümenin bir Azure Resource Manager kaynağı olduğundan kümeleri gibi azure'daki diğer kaynakları modelleyebilirsiniz. Kaynak Yöneticisi, ayrıca tek bir birim olarak küme tarafından kullanılan tüm kaynakları kolay yönetim sağlar. Azure'da kümeler, Log Analytics ve Azure Tanılama ile tümleştirilmiştir. Küme düğümü türleri [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/index), otomatik ölçeklendirme işlevine oluşturulmuştur.
+Service Fabric kümeleri Azure üzerinde çalışan işlemleri ve küme yönetimi daha kolay ve daha güvenilir olmasını sağlayan diğer Azure özellikleri ve Hizmetleri ile tümleştirme sağlar. Bir kümenin bir Azure Resource Manager kaynağı olduğundan kümeleri gibi azure'daki diğer kaynakları modelleyebilirsiniz. Kaynak Yöneticisi, ayrıca tek bir birim olarak küme tarafından kullanılan tüm kaynakları kolay yönetim sağlar. Azure'da kümeler Azure Tanılama ile tümleştirilir ve Azure İzleyici günlüğe kaydeder. Küme düğümü türleri [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/index), otomatik ölçeklendirme işlevine oluşturulmuştur.
 
 Azure'da bir küme oluşturabilirsiniz [Azure portalında](service-fabric-cluster-creation-via-portal.md), gelen bir [şablon](service-fabric-cluster-creation-via-arm.md), veya [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 

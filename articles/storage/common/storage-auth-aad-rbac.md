@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 622a7bc870aba58205c1811de2fcdcabffd177e5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 19a4f8fc41ed4d6850f114e19f49f239befe08d0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869692"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242658"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Azure kapsayıcılar ve RBAC ile kuyrukları (Önizleme) Azure portalında erişim izni ver
 
@@ -88,14 +88,12 @@ Azure depolama için yerleşik veya özel bir rol bir güvenlik sorumlusu atadı
 
 Ancak, bir blob, Azure portalında görüntülemek Mary istiyorsa, ardından **depolama Blob verileri katkıda bulunan (Önizleme)** rolü kendisi tarafından görüntülemek için blob portalda gezinmek için yeterli izinlere sağlamaz. Ek portal üzerinden gidin ve orada görünür olan diğer kaynakları görüntülemek için Azure AD izinleri gereklidir.
 
-Azure portalında bloblara erişmek ve bunları ek bir RBAC rolü atamak, kullanıcılarınızın gerekiyorsa [okuyucu](../../role-based-access-control/built-in-roles.md#reader) rolüne kullanıcılar. **Okuyucu** depolama hesabı kaynaklarına görüntüleyebilir, ancak bunları değiştirmek için kullanıcılara izin veren bir Azure Resource Manager rol rolüdür. Azure Depolama'daki verilere, ancak hesap yönetimi kaynakları için yalnızca Okuma izinleri sağlamaz.
+Azure portalında bloblara erişmek ve bunları ek bir RBAC rolü atamak, kullanıcılarınızın gerekiyorsa [okuyucu](../../role-based-access-control/built-in-roles.md#reader) depolama hesabının veya üzeri düzeyinde bu kullanıcı rolüne. **Okuyucu** depolama hesabı kaynaklarına görüntüleyebilir, ancak bunları değiştirmek için kullanıcılara izin veren bir Azure Resource Manager rol rolüdür. Azure Depolama'daki verilere, ancak hesap yönetimi kaynakları için yalnızca Okuma izinleri sağlamaz.
 
-Atamak için şu adımları izleyin **okuyucu** rolüne bir kullanıcı blobları Azure portalından erişebilmesi için. Bu durumda, kapsayıcıya atama kapsamı:
+Atamak için şu adımları izleyin **okuyucu** rolüne bir kullanıcı blobları Azure portalından erişebilmesi için. Bu örnekte, depolama hesabına atama kapsamı:
 
-1. İçinde [Azure portalında](https://portal.azure.com), depolama hesabınıza gidin ve görüntüleme **genel bakış** hesabı.
-1. Hizmetler altında **Blobları**. 
-1. Rol atamak istediğiniz kapsayıcıyı bulun ve kapsayıcının ayarları görüntüleyin. 
-1. Seçin **erişim denetimi (IAM)** kapsayıcısı için erişim denetimi ayarlarını görüntülemek için. Seçin **rol atamaları** rol atamaları listesini görmek için sekmesinde.
+1. İçinde [Azure portalında](https://portal.azure.com), depolama hesabınıza gidin.
+1. Seçin **erişim denetimi (IAM)** depolama hesabı için erişim denetimi ayarlarını görüntülemek için. Seçin **rol atamaları** rol atamaları listesini görmek için sekmesinde.
 1. İçinde **rol ataması Ekle** penceresinde **okuyucu** rol. 
 1. Gelen **erişim Ata** açılan listesinde, select **Azure AD kullanıcı, Grup veya hizmet sorumlusu**.
 1. Rol atamak istediğiniz güvenlik sorumlusu bulmak üzere arama yapın.

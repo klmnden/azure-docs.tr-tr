@@ -12,16 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: a2b4f85ac9c62c93e06f73090b6b144ff79319d1
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561884"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217045"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent ınsights'ı Azure SQL veritabanı performans tanılama günlüğünü kullanma
 
-Bu sayfa, Azure SQL veritabanı performans tanılama günlüğü oluşturan kullanma hakkında bilgi sağlar. [Intelligent Insights](sql-database-intelligent-insights.md), biçimi ve özel geliştirme gereksinimleriniz için veriler. Bu tanılama günlüğüne gönderdiğiniz [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure depolama](sql-database-metrics-diag-logging.md#stream-into-storage), veya bir üçüncü taraf çözümü için uyarı ve raporlama özel DevOps özellikleri.
+Bu sayfa, Azure SQL veritabanı performans tanılama günlüğü oluşturan kullanma hakkında bilgi sağlar. [Intelligent Insights](sql-database-intelligent-insights.md), biçimi ve özel geliştirme gereksinimleriniz için veriler. Bu tanılama günlüğüne gönderebilirsiniz [Azure İzleyici günlükleri](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure depolama](sql-database-metrics-diag-logging.md#stream-into-storage), veya bir üçüncü taraf çözümü için uyarı ve raporlama özel DevOps özellikleri.
 
 ## <a name="log-header"></a>Günlük üst bilgisi
 
@@ -135,7 +135,7 @@ Akıllı Öngörüler performans günlüğü son kısmını tanımlanan performa
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Akıllı Öngörüler performans günlüğü ile kullanabileceğiniz [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) veya bir üçüncü taraf çözümü uyarılar ve raporlama özellikleri özel DevOps için.
+Akıllı Öngörüler performans günlüğü ile kullanabileceğiniz [Azure İzleyici günlükleri]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) veya bir üçüncü taraf çözümü uyarılar ve raporlama özellikleri özel DevOps için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Hakkında bilgi edinin [Intelligent Insights](sql-database-intelligent-insights.md) kavramları.

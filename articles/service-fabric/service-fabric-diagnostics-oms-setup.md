@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - kümesi Log Analytics ile izleme | Microsoft Docs
-description: Olay çözümleme ve görselleştirme için bir Azure Service Fabric kümeleriniz izlemek için log Analytics'i ayarlama ayarlama konusunda bilgi edinin.
+title: Azure Service Fabric - kümesi ile Azure İzleyici günlüklerine izleme | Microsoft Docs
+description: Azure Service Fabric kümeleriniz izlemek için Azure İzleyici günlüklerine olayları analiz ve görselleştirme için ayarlama konusunda bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,19 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: 5567b774171a63cc4d329daf6429cfc78e140dd3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 33984b084023a3a2c31b6f6a0a7fc8a95c2d7689
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455084"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242862"
 ---
-# <a name="set-up-log-analytics-for-a-cluster"></a>Bir kümesi için log Analytics'i ayarlama
+# <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Azure İzleyici günlüklerine kümesi için ayarlayın
 
-Log Analytics, küme düzeyi olayları izlemek için Bizim önerimiz. Azure Resource Manager, PowerShell veya Azure Market üzerinden Log Analytics çalışma alanı kurabilir. Güncelleştirilmiş bir Resource Manager şablonu gelecekte kullanım için dağıtımınızın korumak, Log Analytics ortamı oluşturmanız için aynı şablonu kullanın. Tanılamayı ile dağıtılan bir küme zaten varsa, Market aracılığıyla dağıtımı çok kolaydır. Abonelik düzeyinde erişimi için dağıttığınız hesabı yoksa, PowerShell veya Resource Manager şablonu kullanarak dağıtın.
+Azure İzleyici günlüklerine küme düzeyi olayları izlemek için Bizim önerimiz olur. Azure Resource Manager, PowerShell veya Azure Market üzerinden Log Analytics çalışma alanı kurabilir. Güncelleştirilmiş bir Resource Manager şablonu gelecekte kullanım için dağıtımınızın korumak, Azure İzleyici günlüklerine ortamınızı ayarlamak üzere aynı şablonu kullanın. Tanılamayı ile dağıtılan bir küme zaten varsa, Market aracılığıyla dağıtımı çok kolaydır. Abonelik düzeyinde erişimi için dağıttığınız hesabı yoksa, PowerShell veya Resource Manager şablonu kullanarak dağıtın.
 
 > [!NOTE]
-> Kümenizi izlemek için log Analytics'i ayarlama ayarlamak için küme düzeyi veya platform düzeyi olayları görüntülemek için tanılamayı etkinleştirmeniz gerekir. Başvurmak [tanılama Windows kümelerinde kurma](service-fabric-diagnostics-event-aggregation-wad.md) ve [Linux kümelerinde tanılama kurma](service-fabric-diagnostics-event-aggregation-lad.md) daha fazla bilgi için
+> Kümenizi izlemek için Azure İzleyici günlüklerini ayarlamak için küme düzeyi veya platform düzeyi olayları görüntülemek için tanılamayı etkinleştirmeniz gerekir. Başvurmak [tanılama Windows kümelerinde kurma](service-fabric-diagnostics-event-aggregation-wad.md) ve [Linux kümelerinde tanılama kurma](service-fabric-diagnostics-event-aggregation-lad.md) daha fazla bilgi için
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Azure Marketi kullanarak Log Analytics çalışma alanı dağıtma
 
@@ -44,7 +46,7 @@ Bir küme dağıttıktan sonra bir Log Analytics çalışma alanı eklemek istiy
 
 5. İşiniz bittiğinde seçin **Oluştur** Service Fabric analizi oluşturma penceresinin altındaki yeniden. Yeni çalışma alanı altında gösterildiğini doğrulayın **OMS çalışma alanı**. Bu eylem, oluşturduğunuz çalışma alanına çözüme ekler.
 
-Windows kullanıyorsanız, Log Analytics, küme olayları depolandığı depolama hesabına bağlanmak için aşağıdaki adımlarla devam edin. 
+Windows kullanıyorsanız, Azure İzleyici günlüklerine küme olaylarınızı depolandığı depolama hesabına bağlanmak için aşağıdaki adımlarla devam edin. 
 
 >[!NOTE]
 >Bu deneyimini Linux kümeleri için henüz kullanılamıyor. 
@@ -65,14 +67,14 @@ Windows kullanıyorsanız, Log Analytics, küme olayları depolandığı depolam
 
 7. Seçin **Tamam** kümenizin günlükleri için çalışma alanınızı bağlamak için.
 
-    ![Depolama hesabı günlükleri Log Analytics'e eklemek](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
+    ![Depolama hesabı günlükleri, Azure İzleyici günlüklerine Ekle](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
 Depolama hesabınızın parçası çalışma alanınızın veri kaynaklarında oturum gibi hesap artık gösterilir.
 
 Service Fabric analizi çözümü, artık doğru kümenizin platform ve Uygulama günlüğünü tabloya bağlandığından bir Log Analytics çalışma alanında ekledik. Ek kaynaklar aynı şekilde çalışma alanına ekleyebilirsiniz.
 
 
-## <a name="deploy-log-analytics-with-azure-resource-manager"></a>Log Analytics'i Azure Resource Manager ile dağıtma
+## <a name="deploy-azure-monitor-logs-with-azure-resource-manager"></a>Azure İzleyici günlüklerine Azure Resource Manager ile dağıtma
 
 Resource Manager şablonu kullanarak bir küme dağıttığınızda, şablonun yeni bir Log Analytics çalışma alanı oluşturur, Service Fabric çözümü çalışma alanına ekler ve uygun depolama tablolardan verileri okumak için yapılandırır.
 
@@ -93,9 +95,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -Tem
 
 Azure Resource Manager, bu komut bir güncelleştirme var olan bir kaynak olduğunu algılar. Yalnızca, mevcut dağıtım sürüş şablonu ve sağlanan yeni şablonu arasındaki değişiklikleri işler.
 
-## <a name="deploy-log-analytics-with-azure-powershell"></a>Log Analytics'i Azure PowerShell ile dağıtma
+## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Azure İzleyici günlüklerine Azure PowerShell ile dağıtma
 
-Kullanarak Log Analytics kaynağınızı PowerShell aracılığıyla dağıtabilirsiniz `New-AzureRmOperationalInsightsWorkspace` komutu. Bu yöntemi kullanmak için yüklediğinizden emin olun [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.1.1). Yeni bir Log Analytics çalışma alanı oluşturma ve Service Fabric çözümü eklemek için bu betiği kullanın: 
+Kullanarak log analytics kaynağınızı PowerShell aracılığıyla dağıtabilirsiniz `New-AzureRmOperationalInsightsWorkspace` komutu. Bu yöntemi kullanmak için yüklediğinizden emin olun [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.1.1). Yeni bir Log Analytics çalışma alanı oluşturma ve Service Fabric çözümü eklemek için bu betiği kullanın: 
 
 ```PowerShell
 
@@ -121,11 +123,11 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-İşiniz bittiğinde, Log Analytics uygun bir depolama hesabına bağlanmak için önceki bölümdeki adımları izleyin.
+İşiniz bittiğinde, Azure İzleyici günlüklerine uygun bir depolama hesabına bağlanmak için önceki bölümdeki adımları izleyin.
 
-Ayrıca, diğer çözümler ekleyin veya PowerShell kullanarak Log Analytics çalışma alanınıza diğer değişiklikleri yapın. Daha fazla bilgi için bkz. [Log Analytics PowerShell kullanarak yönetme](../azure-monitor/platform/powershell-workspace-configuration.md).
+Ayrıca, diğer çözümler ekleyin veya PowerShell kullanarak Log Analytics çalışma alanınıza diğer değişiklikleri yapın. Daha fazla bilgi için bkz. [Azure İzleyici'yi yönetmek, PowerShell kullanarak günlüklerini](../azure-monitor/platform/powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Log Analytics aracısını dağıtmayı](service-fabric-diagnostics-oms-agent.md) üzerine düğümlerinizi performans sayaçları toplamak ve docker istatistikleri ve kapsayıcılarınızı için günlükleri toplamak için
-* Analytics'in [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri Log Analytics kapsamında sunulan
-* [Log Analytics'te özel görünümlerini oluşturma için Görünüm Tasarımcısı'nı kullanın](../azure-monitor/platform/view-designer.md)
+* Analytics'in [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri, Azure İzleyici günlüklerine bir parçası olarak sunulan
+* [Azure İzleyici günlüklerine özel görünümlerini oluşturma için Görünüm Tasarımcısı'nı kullanın](../azure-monitor/platform/view-designer.md)

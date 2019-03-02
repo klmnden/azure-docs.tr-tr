@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56f59a76ac3d11677d5b1f76904cf74e933fa7f6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3d1ee0b25fbbf0ef895bdf6ff8afad71ff82de25
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753345"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217181"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Bağlantı ilişkilerini ve Azure uzamsal yer işaretleri, şekilde bulma
 
@@ -77,4 +77,4 @@ Uygulamanın yakındaki bağlantıları için bir sorgu yayınlayarak iki çıpa
 
 ### <a name="sample-code"></a>Örnek kod
 
-Yer işaretleri bağlanın ve sorguların yakındaki bağlantıların nasıl oluşturulduğunu gösteren örnek kodunu görebilirsiniz. Github'da Azure uzamsal bağlayıcılarını örnek uygulamaları'na bakın.
+Yer işaretleri bağlanın ve sorguların yakındaki bağlantıların nasıl oluşturulduğunu gösteren örnek kodunu görebilirsiniz. Başvurmak [Azure uzamsal bağlayıcılarını örnek uygulamalar](https://github.com/Azure/azure-spatial-anchors-samples) GitHub üzerinde.

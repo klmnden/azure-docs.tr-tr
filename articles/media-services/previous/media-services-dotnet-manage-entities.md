@@ -2,7 +2,7 @@
 title: Varlıkları ve Media Services .NET SDK'sı ile ilgili öğeleri yönetme
 description: .NET, varlıkları ve Media Services SDK'sı ile ilgili öğeleri yönetmeyi öğrenin.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 7cab21919eca9ba62fa57e1c6b2089c0b8e115dc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f9f4dacc8aac2fc47002b65798c8367e354bb69c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979981"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240550"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Varlıkları ve Media Services .NET SDK'sı ile ilgili öğeleri yönetme
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "55979981"
 > 
 > 
 
-Bu konuda, .NET (eski) ile Azure Media Services varlıkları yönetme işlemi gösterilmektedir
+Bu konuda, .NET ile Azure Media Services varlıkları yönetme gösterilmektedir.
 
 >[!NOTE]
 > 1 Nisan 2017’den itibaren, hesabınızdaki 90 günden eski olan tüm İş kayıtları, toplam kayıt sayısı üst kota sınırının altında olsa bile ilişkili Görev kayıtlarıyla birlikte otomatik olarak silinecektir. Örneğin, 1 Nisan 2017'de hesabınızda 31 Aralık 2016'dan daha eski olan tüm iş kayıtları otomatik olarak silinir. İş/görev bilgilerini arşivlemeniz gerekiyorsa, bu konuda açıklanan kodu kullanabilirsiniz.

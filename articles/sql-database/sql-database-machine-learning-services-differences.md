@@ -1,5 +1,5 @@
 ---
-title: Temel farklılıklar (R ile) Machine Learning Hizmetleri için Azure SQL veritabanı (Önizleme) genel bakış
+title: Azure SQL veritabanı Machine Learning Hizmetleri (Önizleme) için temel farklılıklar
 description: Bu konuda, Azure SQL veritabanı Machine Learning Hizmetleri (R ile) ve SQL Server Machine Learning Hizmetleri arasındaki önemli farklılıkları açıklar.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,22 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: 4350fb0e75f140e120ba6cd2f074ffa1816a8fce
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 03/01/2019
+ms.openlocfilehash: c750942f8f0f2727d1d11945a84bffb434a01193
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237493"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242132"
 ---
-# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-and-sql-server"></a>Azure SQL veritabanı'nda Machine Learning Hizmetleri ve SQL Server arasındaki farklar
+# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Machine Learning Hizmetleri (Önizleme) Azure SQL veritabanında SQL Server arasındaki temel farklılıklar
 
-Azure SQL Veritabanı'nda sunulan Machine Learning Services (R ile) işlevleri, [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning) ile benzerdir. Bunlar arasındaki bazı temel farklar aşağıda verilmiştir.
+Azure SQL veritabanı Machine Learning Hizmetleri (R ile) işlevselliğini (önizlemede) benzer [SQL Server Machine Learning Hizmetleri](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Bazı temel farklar aşağıda verilmiştir.
+
+> [!IMPORTANT]
+> Azure SQL veritabanı Machine Learning Hizmetleri şu anda genel Önizleme aşamasındadır.
+> Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir.
+> Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="language-support"></a>Dil desteği
 
@@ -41,7 +46,19 @@ SQL veritabanı ve SQL Server arasındaki farklı iş R paket yönetimi ve yükl
 
 ## <a name="resource-governance"></a>Kaynak idaresi
 
-R kaynaklarında sınırlamak mümkün değildir [kaynak İdarecisi](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) ve dış kaynak havuzu. R kaynakları SQL veritabanı kaynaklarının yüzdesi ve bağlıdır, hangi hizmet katmanı seçin. Daha fazla bilgi için [Azure SQL veritabanı'nın satın alma modeli](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+R kaynaklarında sınırlamak mümkün değildir [kaynak İdarecisi](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) ve dış kaynak havuzu.
+
+Genel Önizleme sırasında R kaynakları en fazla %20 SQL veritabanı kaynaklarının ayarlanır ve bağımlı, hangi hizmet katmanı seçin. Daha fazla bilgi için [Azure SQL veritabanı'nın satın alma modeli](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+
+### <a name="insufficient-memory-error"></a>Yetersiz bellek hatası
+
+R için kullanılabilir bellek yetersiz ise bir hata iletisi alırsınız. Genel hata iletileri şunlardır:
+
+- İstek Kimliği için 'R' betiği için çalışma zamanı ile iletişim kurulamıyor: ***. Lütfen 'R' çalışma zamanı gereksinimlerini kontrol edin
+- HRESULT 0x80004004 ile 'sp_execute_external_script' yürütülürken 'R' betik hatası oluştu. ... Dış betik hatası oluştu: "... C işlev 'R_AllocStringBuffer' (0 Mb) bellek ayrılamadı."
+- Dış betik hatası oluştu: Hata: boyutunun vektör ayrılamıyor.
+
+Bellek kullanımı üzerinde ne kadar bağımlı R betikleriniz ve paralel sorgular çalıştırılmasını sayısı kullanılır. Yukarıdaki hataları alırsanız, bu sorunu çözmek için daha yüksek bir hizmet katmanına veritabanına ölçeklendirebilirsiniz.
 
 ## <a name="security-isolation"></a>Güvenlik yalıtımı
 

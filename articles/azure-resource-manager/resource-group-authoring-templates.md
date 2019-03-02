@@ -10,18 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 34f34545e4511c4f8bc4af95f906f2871480bd47
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 7819dc62d766a6b35f5c2efe1179cb0adb0ab933
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310175"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243559"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, söz dizimi ve yapısı anlama
 
-Bu makalede, Azure Resource Manager şablon yapısını açıklar. Bu, bir şablon ve bu bölümlerdeki kullanılabilir olan özellikleri farklı bölümlerini sayısını gösterir. Şablonda, JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler bulunur. Şablon oluşturmanın adım adım öğretici için bkz: [ilk Azure Resource Manager şablonunuzu oluşturma](resource-manager-create-first-template.md).
+Bu makalede, Azure Resource Manager şablon yapısını açıklar. Bu, bir şablon ve bu bölümlerdeki kullanılabilir olan özellikleri farklı bölümlerini sayısını gösterir. Şablonda, JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler bulunur.
+
+Bu makalede, Resource Manager şablonları ile bazı tanıdık olmayan kullanıcılar için tasarlanmıştır. Şablonun söz dizimi ve yapısı hakkında ayrıntılı bilgilere yer verilmiştir. Bir şablon oluşturmak için bir Tanıtıma ihtiyacınız varsa bkz [ilk Azure Resource Manager şablonunuzu oluşturma](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Şablon biçimi
 
@@ -197,15 +199,106 @@ Parametreleri tanımlama hakkında daha fazla bilgi için bkz: [parametreleri b�
 
 Değişkenler bölümünde kullanılabilir değerler, şablonun tamamında oluşturun. Değişkenleri tanımlamanız gerekmez, ancak bunlar karmaşık ifadeleri azaltarak genellikle şablonunuzu basitleştirin.
 
-Aşağıdaki örnek, basit bir değişken tanımı gösterilmektedir:
+### <a name="available-definitions"></a>Kullanılabilen tanımlar
+
+Aşağıdaki örnek bir değişkeni tanımlamak için kullanılabilir seçenekleri gösterir:
 
 ```json
 "variables": {
-  "webSiteName": "[concat(parameters('siteNamePrefix'), uniqueString(resourceGroup().id))]",
+    "<variable-name>": "<variable-value>",
+    "<variable-name>": { 
+        <variable-complex-type-value> 
+    },
+    "<variable-object-name>": {
+        "copy": [
+            {
+                "name": "<name-of-array-property>",
+                "count": <number-of-iterations>,
+                "input": <object-or-value-to-repeat>
+            }
+        ]
+    },
+    "copy": [
+        {
+            "name": "<variable-array-name>",
+            "count": <number-of-iterations>,
+            "input": <object-or-value-to-repeat>
+        }
+    ]
+}
+```
+
+Kullanma hakkında bilgi için `copy` değerlerden bir değişken oluşturmak için bkz [değişken yineleme](resource-group-create-multiple.md#variable-iteration).
+
+### <a name="define-and-use-a-variable"></a>Tanımlama ve değişken kullanma
+
+Aşağıdaki örnek, bir değişken tanımı gösterilmektedir. Bir depolama hesabı adı için bir dize değeri oluşturur. Bir parametre değeri almak için birkaç şablon işlevleri kullanır ve benzersiz bir dizeye art arda ekler.
+
+```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 },
 ```
 
-Değişkenleri tanımlama hakkında daha fazla bilgi için bkz: [değişkenler bölümü Azure Resource Manager şablonlarının](resource-manager-templates-variables.md).
+Kaynak tanımlarken değişkeni kullanın.
+
+```json
+"resources": [
+  {
+    "name": "[variables('storageName')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    ...
+```
+
+### <a name="configuration-variables"></a>Yapılandırma değişkenleri
+
+Karmaşık JSON türleri, bir ortam için ilgili değerleri tanımlamak için kullanabilirsiniz.
+
+```json
+"variables": {
+    "environmentSettings": {
+        "test": {
+            "instanceSize": "Small",
+            "instanceCount": 1
+        },
+        "prod": {
+            "instanceSize": "Large",
+            "instanceCount": 4
+        }
+    }
+},
+```
+
+Parametreleri kullanmak için yapılandırma değerlerini gösteren bir değeri oluşturun.
+
+```json
+"parameters": {
+    "environmentName": {
+        "type": "string",
+        "allowedValues": [
+          "test",
+          "prod"
+        ]
+    }
+},
+```
+
+Geçerli ayarlarla aldığınız:
+
+```json
+"[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
+```
+
+### <a name="variables-example-templates"></a>Değişkenleri örnek şablonları
+
+Bu örnek şablon değişkenleri kullanmakla bazı senaryolar gösterilmektedir. Değişkenleri farklı senaryolarda nasıl işleneceğini test etmek için bunları dağıtın. 
+
+|Şablon  |Açıklama  |
+|---------|---------|
+| [değişken tanımları](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Farklı türde değişkenleri gösterir. Şablon kaynakları dağıtmaz. Bu değişken değerlerini oluşturur ve bu değerleri döndürür. |
+| [yapılandırma değişkeni](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Yapılandırma değerlerini tanımlayan bir değişken kullanımını gösterir. Şablon kaynakları dağıtmaz. Bu değişken değerlerini oluşturur ve bu değerleri döndürür. |
+| [Ağ güvenlik kuralından](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) ve [parametre dosyası](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Bir ağ güvenlik grubu güvenlik kuralları atamak için doğru biçimde bir dizi oluşturur. |
+
 
 ## <a name="functions"></a>İşlevler
 
@@ -214,7 +307,7 @@ Değişkenleri tanımlama hakkında daha fazla bilgi için bkz: [değişkenler b
 Bir kullanıcı işlevi tanımlanırken, bazı kısıtlamalar vardır:
 
 * İşlev değişkenleri erişemez.
-* İşlev, yalnızca işlev içinde tanımlanan parametrelerini kullanabilirsiniz. Kullanırken [parametreleri işlevi](resource-group-template-functions-deployment.md#parameters) kullanıcı tanımlı bir işlev içinde bu işlevin parametreleri kısıtlanır.
+* İşlev, yalnızca işlev içinde tanımlanan parametrelerini kullanabilirsiniz. Kullanırken [parametreleri işlevi](resource-group-template-functions-deployment.md#parameters) kullanıcı tanımlı bir işlev içinde bu işlevin parametreleri için sınırlı.
 * İşlev diğer kullanıcı tanımlı işlevleri çağrılamaz.
 * İşlev kullanamazsınız [başvuru işlevi](resource-group-template-functions-resource.md#reference).
 * İşlev parametrelerini varsayılan değerlere sahip olamaz.
@@ -282,18 +375,91 @@ Kaynaklar bölümünde, dağıtılan veya güncelleştirilen kaynakları tanıml
 Koşullu olarak dahil edin veya bir kaynak dağıtım sırasında hariç tutmak için kullanın [koşul öğesi](resource-manager-templates-resources.md#condition). Kaynaklar bölümü hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları, kaynaklar bölümü](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Çıkışlar
-Çıkış bölümünde dağıtımdan döndürülen değerlerini belirtin. Örneğin, dağıtılmış bir kaynağa erişmek için URI döndürebilir.
+
+Çıkış bölümünde dağıtımdan döndürülen değerlerini belirtin. Genellikle, dağıtılan kaynakları değerleri döndürür.
+
+### <a name="available-properties"></a>Kullanılabilir özellikler
+
+Aşağıdaki örnek, bir çıkış tanımı yapısını gösterir:
 
 ```json
 "outputs": {
-  "newHostName": {
+    "<outputName>" : {
+        "condition": "<boolean-value-whether-to-output-value>",
+        "type" : "<type-of-output-value>",
+        "value": "<output-value-expression>"
+    }
+}
+```
+
+| Öğe adı | Gerekli | Açıklama |
+|:--- |:--- |:--- |
+| outputName |Evet |Çıkış değeri adı. Geçerli bir JavaScript tanımlayıcı olmalıdır. |
+| koşul |Hayır | Bu değeri çıktı olup olmadığını gösteren Boole değeri döndürülür. Zaman `true`, değer çıktısı için dağıtım dahildir. Zaman `false`, çıkış değeri bu dağıtım için atlandı. Belirtilmediğinde varsayılan değer: `true`. |
+| type |Evet |Çıkış değeri türü. Çıkış değerleri şablon giriş parametreleri aynı türlerini destekler. |
+| değer |Evet |Değerlendirilen ve çıkış değeri döndürülen şablon dili ifadesi. |
+
+### <a name="define-and-use-output-values"></a>Tanımlama ve çıkış değerlerini kullanma
+
+Aşağıdaki örnek, kaynak kimliği için bir genel IP adresi döndürülecek gösterilmektedir:
+
+```json
+"outputs": {
+  "resourceID": {
     "type": "string",
-    "value": "[reference(variables('webSiteName')).defaultHostName]"
+    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
   }
 }
 ```
 
-Daha fazla bilgi için [çıktısını alır, Azure Resource Manager şablonları bölümünü](resource-manager-templates-outputs.md).
+Sonraki örnek, yeni bir olup bir dağıtıldığı kaynak kimliği için bir genel IP adresi göre koşullu olarak döndürülecek gösterilmektedir:
+
+```json
+"outputs": {
+  "resourceID": {
+    "condition": "[equals(parameters('publicIpNewOrExisting'), 'new')]",
+    "type": "string",
+    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+  }
+}
+```
+
+Koşullu çıktıyı basit bir örnek için bkz: [koşullu çıktıyı şablon](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
+
+Dağıtımdan sonra değeri betiğiyle alabilirsiniz. PowerShell için şunu kullanın:
+
+```powershell
+(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
+```
+
+Azure CLI için şunu kullanın:
+
+```azurecli-interactive
+az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
+```
+
+Çıkış değeri kullanarak bağlantılı bir şablondan alabilirsiniz [başvuru](resource-group-template-functions-resource.md#reference) işlevi. Bağlantılı bir şablondan bir çıkış değeri almak için özellik değeri gibi bir söz dizimi ile Al: `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+Bir çıkış özelliği bağlı şablonundan alınırken, özellik adı bir tire içeremez.
+
+Aşağıdaki örnek, IP adresi bir yük dengeleyicideki bağlantılı bir şablondan bir değer alarak ayarlamak gösterilmektedir.
+
+```json
+"publicIPAddress": {
+    "id": "[reference('linkedTemplate').outputs.resourceID.value]"
+}
+```
+
+Kullanamazsınız `reference` çıktılar bölümünü işlevinde bir [iç içe geçmiş şablon](resource-group-linked-templates.md#link-or-nest-a-template). Dönüş değerleri dağıtılan kaynağın içinde iç içe geçmiş bir şablon için iç içe geçmiş şablon bağlantılı şablona dönüştürebilirsiniz.
+
+### <a name="output-example-templates"></a>Örnek çıktı
+
+|Şablon  |Açıklama  |
+|---------|---------|
+|[Değişkenleri kopyalayın](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Karmaşık değişkenler oluşturur ve bu değerleri çıkarır. Tüm kaynakları dağıtmaz. |
+|[Genel IP adresi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Genel bir IP adresi oluşturur ve kaynak kimliği çıkarır |
+|[Yük Dengeleyici](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Yukarıdaki şablonu bağlar. Kaynak Kimliği, yük dengeleyici oluştururken çıktısında kullanır. |
+
 
 <a id="comments" />
 

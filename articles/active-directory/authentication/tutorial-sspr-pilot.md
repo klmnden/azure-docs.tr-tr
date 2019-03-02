@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe472a45d99f966c851934ea44a346326cb4201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b85284a5c2c3017e7ccc0a7e06a712e41c2a9561
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175158"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215600"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Öğretici: Pilot dağıtım eksiksiz bir Azure AD Self Servis parola sıfırlama
 
@@ -42,8 +42,8 @@ Self servis parola sıfırlama özelliğinin yönetici olmayan hesaplarla test e
       * Seçtiğiniz gruptaki kullanıcıların gerekli lisanslara sahip olduğundan emin olun.
    * **Kaydet**’e tıklayın
 1. **Kimlik doğrulama yöntemleri** sayfasında
-   * **Sıfırlama için gereken yöntemlerin sayısı** için **2** değerini ayarlayın
-   * **Kullanıcıların yararlanabileceği yöntemler** bölümünde kuruluşunuzun izin vermek istediği yöntemleri seçin. Bu öğretici için **E-posta**, **Cep telefonu** ve **Ofis telefonu** seçeneklerini etkinleştirin.
+   * Ayarlama **sıfırlamak için gereken yöntemlerin sayısı** için **1**
+   * **Kullanıcıların yararlanabileceği yöntemler** bölümünde kuruluşunuzun izin vermek istediği yöntemleri seçin. Bu öğretici için etkinleştirmek için onay kutularını işaretleyin **e-posta** ve **mobil uygulama kodu (Önizleme)**.
    * **Kaydet**’e tıklayın
 1. **Kayıt** sayfasında
    * **Kullanıcılardan oturum açarken kaydolmalarını iste** için **Evet**'i seçin.

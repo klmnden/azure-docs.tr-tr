@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: be55fcd7bb4baab218f739094b91fc734c2fb70d
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: f9d431fe0ee76edf5d41c1ce7831f335128402a8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985568"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244749"
 ---
 # <a name="media-services-concepts"></a>Media Services kavramları
 
@@ -30,13 +30,13 @@ Yönetme, şifreleme, kodlama, çözümleme ve azure'da medya içeriği akışı
 - [Bulut karşıya yükleme ve depolama](storage-account-concept.md)
 - [Varlıklar kavramı](assets-concept.md)
 
-## <a name="encoding"></a>Kodlama
+## <a name="encoding"></a>Encoding
 
 Yüksek kaliteli dijital medya dosyalarınızın varlıklarına karşıya yükledikten sonra çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimlere şifreleyebilirsiniz. 
 
 Media Services v3 ile kodlanacak oluşturmanız gerekir **dönüştüren** ve **işleri**.
 
-![Dönüşümler](./media/concepts/transforms-jobs.png)
+![Dönüştürmeler](./media/encoding/transforms-jobs.png)
 
 - [Dönüşümler ve işler](transforms-jobs-concept.md)
 - [Media Services ile kodlama](encoding-concept.md)
@@ -55,7 +55,7 @@ Oluştururken **akış Bulucu**, varlığın adı ek olarak belirtmeniz gerekir.
 
 Dinamik paketleme, Canlı veya isteğe bağlı içerik akışı olmadığını kullanılır. Aşağıdaki diyagram, talep üzerine akış dinamik paketleme iş akışıyla gösterir.
 
-![Dinamik kodlama](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Dinamik paketleme](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 Media Services ile dinamik olarak Gelişmiş Şifreleme Standardı ile (AES-128) şifrelenmiş canlı ve isteğe bağlı içerik teslim edebilirsiniz veya / ve üç ana dijital hak yönetimi (DRM) sistemlerinden: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere.
 
@@ -63,11 +63,13 @@ Akışınız şifreleme seçeneklerini belirterek, oluşturma **içerik anahtar�
 
 Aşağıdaki resimde Media Services content protection iş akışı gösterilmektedir: 
 
-![İçerik koruma](./media/concepts/content-protection.png)
+![İçerik koruma](./media/content-protection/content-protection.svg)
+
+&#42;* dinamik şifreleme, AES-128 "şifresiz anahtar" ve CBCS CENC destekler. 
 
 Media Services kullanabileceğiniz **dinamik bildirimlerini** yalnızca belirli bir işleme veya subclips videonuzun akışını yapmak. Aşağıdaki örnekte, bir kodlayıcı, yedi ISO MP4 video yorumlama (Başlangıç 180 p 1080 p) mezzanine varlık kodlayın için kullanıldı. Kodlanmış varlık dinamik olarak şu protokolden herhangi birini akış paketlenmiş: HLS, MPEG DASH ve kesintisiz.  Diyagramın üstünde filtre varlıkla HLS bildirimi gösterilir (tüm yedi önayarda içerir).  Alt sol, "ott" adlı bir filtre uygulandığı HLS bildirimde gösterilir. Yanıtta çıkartılır alt iki kalite düzeyi sonuçlandı 1 MB/sn altındaki tüm bit hızlarına dönüştürme kaldırmak için "ott" filtresini belirtir. Sağ alt "mobil" adlı bir filtre uygulandığı HLS bildirimde gösterilir. Çözüm olduğu iki sonuçlandı 720 p büyük yorumlama kaldırmak için "mobil" filtresi belirtir 1080 p yorumlama çıkartılır devre dışı.
 
-![İşleme filtreleme](./media/concepts/media-services-rendition-filter.png)
+![İşleme filtreleme](./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png)
 
 - [Dinamik paketleme](dynamic-packaging-overview.md)
 - [Akış uç noktaları](streaming-endpoint-concept.md)
@@ -84,14 +86,14 @@ Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağ�
 
 Aşağıdaki görüntüde, doğrudan türü iş akışı gösterilmektedir:
 
-![geçiş](./media/concepts/pass-through.png)
+![geçiş](./media/live-streaming/pass-through.svg)
 
 - [Canlı akış genel bakış](live-streaming-overview.md)
 - [Canlı etkinlikler ve canlı çıkışları](live-events-outputs-concept.md)
 
 ## <a name="monitoring"></a>İzleme
 
-### <a name="event-grid"></a>Olay Kılavuzu
+### <a name="event-grid"></a>Event Grid
 
 İşinin ilerleme durumunu görmek için kullanmalısınız **Event Grid**. Media Services, canlı olay türleri de gösterir. Event Grid ile uygulamalarınız neredeyse tüm Azure hizmetleri ve özel kaynaklardan gelen olayları takip edip bu olaylara yanıt verebilir. 
 

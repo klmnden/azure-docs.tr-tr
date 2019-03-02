@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 377b41f6ea011c06457fb6550ddd8d448574835e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 355b859428712b2e7b086fdfc152044814695b7b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881347"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243950"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Yaygın senaryolar ile Service Fabric'i tanılama
 
-Bu makalede izleme ve Tanılama ile Service Fabric'i alanında kullanıcıların karşılaştığı yaygın senaryolar gösterilmektedir. Service fabric'in tüm 3 katmanları sunulan senaryoları kapsar: Uygulama, küme ve altyapı. Her çözüm, her senaryonun tamamlanması için Application Insights ve Log Analytics, Azure izleme araçları kullanır. Her çözüm adımları kullanıcılar, Service Fabric bağlamında Application Insights ve Log Analytics kullanımı hakkında giriş bilgileri sağlar.
+Bu makalede izleme ve Tanılama ile Service Fabric'i alanında kullanıcıların karşılaştığı yaygın senaryolar gösterilmektedir. Service fabric'in tüm 3 katmanları sunulan senaryoları kapsar: Uygulama, küme ve altyapı. Her çözüm her senaryonun tamamlanması için izleme araçları, Azure Application Insights ve Azure İzleyici günlüklerine kullanır. Her çözüm adımları kullanıcılar Application Insights'ı kullanma hakkında giriş bilgileri sağlar ve Azure İzleyici, Service Fabric bağlamında günlüğe kaydeder.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites-and-recommendations"></a>Önkoşullar ve öneriler
 
@@ -31,7 +33,7 @@ Bu makalede çözümleri aşağıdaki araçları kullanır. Bu küme up ve yapı
 
 * [Application Insights ile Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
 * [Kümenizde Azure tanılamayı etkinleştirme](service-fabric-diagnostics-event-aggregation-wad.md)
-* [Log Analytics çalışma alanı ayarlama](service-fabric-diagnostics-oms-setup.md)
+* [Bir Log Analytics çalışma alanını ayarlama](service-fabric-diagnostics-oms-setup.md)
 * [Analytics aracısını performans sayaçlarını izlemek için oturum açın](service-fabric-diagnostics-oms-agent.md)
 
 ## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>İşlenmeyen özel durumları uygulamamda nasıl görebilirim?
@@ -63,7 +65,7 @@ Bu makalede çözümleri aşağıdaki araçları kullanır. Bu küme up ve yapı
 1. Düğüm olayları, Service Fabric kümeniz tarafından izlenir. Adlı Service Fabric analizi çözümü kaynağına gidin **ServiceFabric(NameofResourceGroup)**
 2. Graf üzerinde "Özet" başlıklı dikey pencerenin altında tıklayın
 
-    ![Log Analytics çözümü](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Azure İzleyici çözüm günlüğe kaydeder.](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
 3. Burada, birçok grafikleri ve çeşitli ölçümleri görüntüleme kutucukları vardır. Grafikler birine tıklayın ve günlük araması için sizi yönlendirir. Burada herhangi bir küme olayları veya performans sayaçları için sorgulayabilirsiniz.
 4. Aşağıdaki sorguyu girin. Bu olay kimlikleri bulunan [düğümü etkinlik başvurusu](service-fabric-diagnostics-event-generation-operational.md#application-events)
@@ -75,7 +77,7 @@ Bu makalede çözümleri aşağıdaki araçları kullanır. Bu küme up ve yapı
 
 5. Üst kısmında "Yeni uyarı kuralı" tıklayın ve bu sorgu tabanlı bir olay ulaşan her zaman, artık bir uyarı iletişim seçtiğiniz yöntemi elde edersiniz.
 
-    ![Log Analytics yeni uyarı](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Azure İzleyici yeni uyarı günlüğe kaydeder](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Nasıl miyim uygulama yükseltme düzeyine uyarısını alabilir?
 
@@ -143,7 +145,7 @@ Güvenilir performans sayaçlarını tam listesi için bu bağlantıları kontro
 
 * [Yapay ZEKA uyarıları ayarlama](../azure-monitor/app/alerts.md) performans ya da kullanım değişiklikler hakkında bildirim almak için
 * [Akıllı algılama Application ınsights'ta](../azure-monitor/app/proactive-diagnostics.md) yapay ZEKA, olası performans sorunları sizi uyarabilmek için gönderilen telemetri bir öngörülü analiz gerçekleştirir
-* Log Analytics hakkında daha fazla bilgi [uyarı](../log-analytics/log-analytics-alerts.md) algılama ve tanılama konusunda yardımcı olacak.
-* Şirket içi kümeleri için Log Analytics verilerini Log Analytics'e göndermek için kullanılan bir ağ geçidi (HTTP İleri Proxy) sunar. Uygulamasında hakkında daha fazla [Internet erişimi olmayan bilgisayarları Log Analytics ağ geçidini kullanarak Log Analytics'e bağlanma](../azure-monitor/platform/gateway.md)
-* Analytics'in [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri Log Analytics kapsamında sunulan
-* Log Analytics ve hangi sunduğu daha ayrıntılı bir genel bakış edinme, okuma [Log Analytics nedir?](../operations-management-suite/operations-management-suite-overview.md)
+* Azure İzleyici günlüklerine hakkında daha fazla bilgi [uyarı](../log-analytics/log-analytics-alerts.md) algılama ve tanılama konusunda yardımcı olacak.
+* Azure İzleyici günlüklerine, şirket içi kümeleri için Azure İzleyici günlüklerine veri göndermek için kullanılan bir ağ geçidi (HTTP İleri Proxy) sunar. Uygulamasında hakkında daha fazla [Internet erişimi olmayan bilgisayarları Log Analytics ağ geçidi'ni kullanarak Azure İzleyici günlüklerine bağlanma](../azure-monitor/platform/gateway.md)
+* Analytics'in [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri, Azure İzleyici günlüklerine bir parçası olarak sunulan
+* Azure İzleyici günlüklerine ve hangi sunduğu daha ayrıntılı bir genel bakış edinme, okuma [Azure İzleyici günlüklerine nedir?](../operations-management-suite/operations-management-suite-overview.md)

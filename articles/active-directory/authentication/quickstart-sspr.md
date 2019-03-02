@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6cd463a728d8362221aaf7789258d7815566b23
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 285c8a9c34d13b6c2696481e813d27943169e559
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176263"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214920"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Hızlı Başlangıç: Self servis parola sıfırlama
 
@@ -42,8 +42,8 @@ Bu hızlı başlangıçta BT uzmanlarının kullanıcılara parolalarını sıf�
 3. **Kimlik doğrulama yöntemleri** sayfasında aşağıdaki seçimleri yapın:
    * Sıfırlama için gereken yöntem sayısı: **1**
    * Kullanıcıların yararlanabileceği yöntemler:
-      * **Cep telefonu**
-      * **Ofis telefonu**
+      * **E-posta**
+      * **Mobil uygulama kodu (Önizleme)**
    * **Kaydet**’e tıklayın.
 
     ![Kimlik doğrulaması][Authentication]

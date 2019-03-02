@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1b045ecf10399ca2297e4d9d010d5c973c40f4e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 305a5c5d4f82c732dd796f5c5140c0da04fe7b13
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193288"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245225"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -73,9 +73,13 @@ Başlamak için okuma [Azure Disk Şifrelemesi'ne genel bakış](azure-security-
 
 Evet, Windows ve Linux Iaas Vm'leri için önyükleme ve veri birimlerini şifreleyebilirsiniz. Windows VM'ler için işletim sistemi birimi şifrelemeden verileri şifreleyemez. Linux VM'ler için işletim sistemi birimi ilk şifrelemek gerek kalmadan veri hacmi şifrelemek mümkündür. Linux için işletim sistemi birimi şifreli sonra bir işletim sistemi birimi Linux Iaas Vm'leri için şifreleme devre dışı bırakma desteklenmiyor.
 
+## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Ben Azure Disk şifrelemesi ile kaldırılan bir birim şifreleyebilir mi?
+
+Hayır, Azure Disk şifrelemesi yalnızca takılan birimler şifreler.
+
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Nasıl miyim gizli dizileri veya şifreleme anahtarlarını döndürme?
 
-Gizli dizileri döndürmek için yalnızca ilk disk şifrelemeyi etkinleştirmek için kullanılan aynı komut çağırın. Anahtar şifreleme anahtarı döndürmek için ilk olarak disk şifrelemeyi etkinleştirmek için yeni anahtar şifreleme belirtme kullanılan aynı komut çağırın. 
+İlk disk şifrelemeyi etkinleştirmek için kullanılan komutla aynı çağrı gizli dizileri döndürmek için farklı bir Key Vault belirtme. Anahtar şifreleme anahtarı döndürmek için ilk olarak disk şifrelemeyi etkinleştirmek için yeni anahtar şifreleme belirtme kullanılan aynı komut çağırın. 
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Nasıl eklerim veya kullanırsanız başlangıçta alamadık, anahtar şifreleme anahtarı Kaldır?
 
@@ -145,6 +149,10 @@ Windows üzerinde ADE BitLocker AES256 şifreleme yöntemini kullanır. (Windows
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>EncryptFormatAll kullanın ve tüm birim türlerini belirtmek, bu verileri zaten şifrelenmiş veri sürücülerinde silecek?
 Hayır, veri zaten Azure Disk şifrelemesi kullanılarak şifrelenmiş veri sürücülerden silinmesi gerekmez. Benzer şekilde nasıl EncryptFormatAll işletim sistemi sürücüsünü yeniden şifrele siz, bunu zaten şifrelenmiş veri sürücüsü yeniden şifrele olmaz. Daha fazla bilgi için [EncryptFormatAll ölçütleri](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Yedekleme ve miyim şifrelenmiş bir sanal Makineyi geri yükleme mi? 
+
+Azure Backup, yedekleme ve geri yükleme şifrelenmiş sanal makinenin içinde aynı abonelik ve bölge için bir mekanizma sağlar.  Yönergeler için lütfen bkz [yedekleme ve Azure Backup ile şifrelenmiş sanal makineleri geri yükleme](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  Farklı bir bölgeye şifrelenmiş bir sanal Makineyi geri yükleme şu anda desteklenmiyor.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Soru sormak veya geri bildirim sağlamak için nereye miyim?
 

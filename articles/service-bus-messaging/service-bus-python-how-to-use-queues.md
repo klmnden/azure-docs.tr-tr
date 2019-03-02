@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: aschhab
-ms.openlocfilehash: 172fee19de77deb4ecf679d6884dfcea2a4968be
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2c28ae3bf05a994293a8bf2af0675280d818fdde
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865969"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242607"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Python ile Service Bus kuyruklarını kullanma
 
@@ -38,7 +38,7 @@ Bu makalede, Service Bus kuyruklarının nasıl kullanılacağı açıklanır. P
 
 
 ## <a name="create-a-queue"></a>Bir kuyruk oluşturma
-**ServiceBusService** nesnesi kuyrukları ile çalışmanıza olanak sağlar. Service Bus programlı olarak erişmek istiyorsanız, herhangi bir Python dosyasının en üstüne yakın aşağıdaki kodu ekleyin:
+**ServiceBusClient** nesnesi kuyrukları ile çalışmanıza olanak sağlar. Service Bus programlı olarak erişmek istiyorsanız, herhangi bir Python dosyasının en üstüne yakın aşağıdaki kodu ekleyin:
 
 ```python
 from azure.servicebus import ServiceBusClient
@@ -69,7 +69,7 @@ sb_client.create_queue("taskqueue", queue_options)
 Daha fazla bilgi için [Azure Service Bus Python belgeleri](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="send-messages-to-a-queue"></a>Kuyruğa ileti gönderme
-Uygulama çağrılarınızı, bir Service Bus kuyruğuna bir ileti göndermek için `send_queue_message` metodunda **ServiceBusService** nesne.
+Uygulama çağrılarınızı, bir Service Bus kuyruğuna bir ileti göndermek için `send` metodunda `ServiceBusClient` nesne.
 
 Aşağıdaki örnekte adlı kuyruk için bir test iletisi göndermek nasıl gösterir `taskqueue` kullanarak `send_queue_message`:
 
@@ -89,7 +89,7 @@ Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) m
 Daha fazla bilgi için [Azure Service Bus Python belgeleri](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="receive-messages-from-a-queue"></a>Bir kuyruktan ileti alma
-İletilerin kullanarak bir sıraya alındığı `receive_queue_message` metodunda **ServiceBusService** nesnesi:
+İletilerin kullanarak bir sıraya alındığı `get_receiver` metodunda `ServiceBusService` nesnesi:
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -97,9 +97,12 @@ from azure.servicebus import QueueClient, Message
 # Create the QueueClient 
 queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE NAME>")
 
-# Send a test message to the queue
-msg = Message(b'Test Message')
-queue_client.send(Message("Message"))
+## Receive the message from the queue
+with queue_client.get_receiver() as queue_receiver:
+    messages = queue_receiver.fetch_next(timeout=3)
+    for message in messages:
+        print(message)
+        message.complete()
 ```
 
 Daha fazla bilgi için [Azure Service Bus Python belgeleri](/python/api/overview/azure/servicebus?view=azure-python).

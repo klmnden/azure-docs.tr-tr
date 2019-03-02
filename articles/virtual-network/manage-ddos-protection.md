@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: 360c0d9a96b8dac2f08b89caa8c1fd36e8a54b3f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 32c4516c7dc68b04826b362d34841160936d682d
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020430"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244528"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS koruması Azure portalını kullanarak standart yönetme
 
@@ -31,7 +31,7 @@ Bu öğreticide herhangi tamamlama adımları önce adresinden Azure portalında
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="create-a-ddos-protection-plan"></a>Bir DDoS koruma planı oluşturma
+## <a name="create-a-ddos-protection-plan"></a>Bir DDoS koruması planı oluşturma
 
 Bir DDoS koruma planı DDoS koruma standardını, abonelikler arasında etkin olan sanal ağlar kümesi tanımlar. Bir DDoS koruma planı kuruluşunuz ve bağlantı aynı planı için birden çok aboneliklerden Sanal Ağları için yapılandırabilirsiniz. DDoS koruma planı kendisi de plan oluşturma sırasında seçtiğiniz abonelik ile ilişkilidir. Korumalı genel IP adresi sayısı 100 değerini aşmasına durumunda abonelik planı doğurur için fazla kullanım ücretleri, yanı sıra planı için yinelenen aylık fatura ilişkilidir. DDoS fiyatlandırması hakkında daha fazla bilgi için bkz. [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
@@ -159,7 +159,7 @@ Saldırı azaltma raporlarını kaynağınızda saldırı hakkında ayrıntılı
 
     - **Bir depolama hesabında arşivle**: Veriler bir Azure depolama hesabına yazılır. Bu seçenek hakkında daha fazla bilgi için bkz. [tanılama günlüklerini arşivleme](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Olay hub'ına Stream**: Günlük alıcı günlüklerini kullanarak bir Azure olay hub'ı seçmenizi sağlar. Event hubs Splunk veya diğer SIEM sistemleriyle tümleştirme olanak tanır. Bu seçenek hakkında daha fazla bilgi için bkz. [Stream tanılama günlükleri Olay hub'ına](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Log Analytics'e gönderme**: Günlükleri, Azure Log Analytics hizmetine yazar. Bu seçenek hakkında daha fazla bilgi için bkz. [Log analytics'teki kullanım ait günlükleri toplayın](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Log Analytics'e gönderme**: Günlükleri Azure İzleyici'hizmetine yazar. Bu seçenek hakkında daha fazla bilgi için bkz. [kullanımı Azure İzleyici günlüklerine ait günlükleri toplayın](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Artımlı ve sonrası saldırı azaltma raporları aşağıdaki alanları içerir.
 - Saldırı vektörlerinin
@@ -181,7 +181,7 @@ Saldırı azaltma akış günlükleri trafiğin bırakılmasına gözden geçirm
 
     - **Bir depolama hesabında arşivle**: Veriler bir Azure depolama hesabına yazılır. Bu seçenek hakkında daha fazla bilgi için bkz. [tanılama günlüklerini arşivleme](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Olay hub'ına Stream**: Günlük alıcı günlüklerini kullanarak bir Azure olay hub'ı seçmenizi sağlar. Event hubs Splunk veya diğer SIEM sistemleriyle tümleştirme olanak tanır. Bu seçenek hakkında daha fazla bilgi için bkz. [Stream tanılama günlükleri Olay hub'ına](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Log Analytics'e gönderme**: Günlükleri, Azure Log Analytics hizmetine yazar. Bu seçenek hakkında daha fazla bilgi için bkz. [Log analytics'teki kullanım ait günlükleri toplayın](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Log Analytics'e gönderme**: Günlükleri Azure İzleyici'hizmetine yazar. Bu seçenek hakkında daha fazla bilgi için bkz. [kullanımı Azure İzleyici günlüklerine ait günlükleri toplayın](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Azure analiz panosunda akış günlükleri verilerini görüntülemek için örnek panoyu içeri aktarabilirsiniz https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Akış günlükleri aşağıdaki alanları olacaktır: 

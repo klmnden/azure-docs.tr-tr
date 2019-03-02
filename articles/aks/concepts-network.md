@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 7de97097e9678410537895c3bafc48d67809331e
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 360caaec0033136ffa250d636864fbed8359b8ef
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594177"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244256"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ağ kavramları
 
@@ -23,7 +23,7 @@ Bu makalede aks'deki uygulamalarınıza ağ sağlayan temel kavramlar açıklanm
 - [Hizmetler](#services)
 - [Azure sanal ağları](#azure-virtual-networks)
 - [Giriş denetleyicileri](#ingress-controllers)
-- Ağ ilkeleri
+- [Ağ ilkeleri](#network-policies)
 
 ## <a name="kubernetes-basics"></a>Kubernetes hakkında temel bilgiler
 
@@ -68,7 +68,7 @@ AKS, aşağıdaki iki ağ modelleri birini kullanan bir küme dağıtabilirsiniz
 
 *Kubernetes* olan AKS kümesi oluşturma için varsayılan yapılandırma seçeneği ağ. İle *kubernetes*, düğümler, Azure sanal ağ alt ağından bir IP adresi alın. Pod'ların, düğümler Azure sanal ağ alt ağına mantıksal olarak farklı adres alanından bir IP adresi alır. Ağ adresi çevirisi (NAT), ardından pod'ları Azure sanal ağındaki kaynaklara erişebilmesi için yapılandırılır. Trafiği kaynak IP adresini, NAT düğümün birincil IP başvuracağını ' dir.
 
-Düğümleri kullanma [kubernetes] [ kubenet] Kubernetes eklentisi. Azure platformu oluşturun ve sanal ağları yapılandırmanız veya varolan bir sanal ağ alt ağı, AKS kümesi dağıtmayı tercih izin verebilirsiniz. Yeniden yönlendirilebilir bir IP adresi ve pod'ları alma yalnızca NAT AKS kümesi dışında diğer kaynaklarla iletişim kurmak için kullanın. Bu yaklaşım ağ alanınıza kullanmak pod'ları ayırmanız gerekir IP adresi sayısını önemli ölçüde azaltır.
+Düğümleri kullanma [kubernetes] [ kubenet] Kubernetes eklentisi. Azure platformu oluşturun ve sanal ağları yapılandırmanız veya varolan bir sanal ağ alt ağı, AKS kümesi dağıtmayı tercih izin verebilirsiniz. Yeniden yönlendirilebilir bir IP adresi yalnızca alır ve AKS küme dışındaki diğer kaynaklarla iletişim için NAT pod'ları kullanın. Bu yaklaşım ağ alanınıza kullanmak pod'ları ayırmanız gerekir IP adresi sayısını önemli ölçüde azaltır.
 
 Daha fazla bilgi için [kubernetes AKS kümesi için ağ yapılandırma][aks-configure-kubenet-networking].
 
@@ -104,8 +104,6 @@ Başka bir ortak giriş SSL/TLS sonlandırma özelliğidir. Giriş kaynağı yer
 
 Bir ağ güvenlik grubu, AKS düğümleri gibi VM'ler için trafiği filtreler. Bir yük dengeleyici gibi hizmetleri oluştururken Azure platformu, gerekli olan tüm ağ güvenlik grubu kuralları otomatik olarak yapılandırır. El ile bir AKS kümesi pod'ların trafiğini filtrelemek için ağ güvenlik grubu kuralları yapılandırmayın. Tüm gerekli bağlantı noktaları ve iletme Kubernetes hizmeti bildirimlerinizi bir parçası olarak tanımlayın ve Azure platform oluşturma veya güncelleştirme olarak uygun kuralları sağlar. Ağ ilkeleri, sonraki bölümde açıklandığı gibi otomatik olarak pod'ların trafik filtresi kuralları uygulamak için kullanabilirsiniz.
 
-Varsayılan olarak ağ güvenlik grubu kuralları gibi SSH trafiği için mevcut. Bu varsayılan kuralları küme yönetimi ve erişim sorunlarını giderme içindir. Bu varsayılan kuralların silinmesi AKS yönetim sorunlara neden olabilir ve hizmet düzeyi hedefi (SLO) keser.
-
 ## <a name="network-policies"></a>Ağ ilkeleri
 
 Varsayılan olarak, bir AKS kümesindeki tüm pod'ların gönderebilir ve trafiği kısıtlama olmadan alabilirsiniz. Gelişmiş güvenlik için trafik akışını denetleyen kuralları tanımlamak isteyebilirsiniz. Arka uç uygulamaları genellikle yalnızca gerekli ön uç Hizmetleri için sunulan ve veritabanı bileşenlerini yalnızca bunlara uygulama katmanları tarafından erişilebilir.
@@ -117,6 +115,8 @@ Daha fazla bilgi için [güvenli ağ ilkelerini Azure Kubernetes Service (AKS) k
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Ağ AKS ile çalışmaya başlama, oluşturun ve kendi IP adresi aralıkları kullanarak bir AKS kümesi yapılandırma [kubernetes] [ aks-configure-kubenet-networking] veya [Azure CNI] [ aks-configure-advanced-networking].
+
+İlişkili en iyi yöntemler için bkz: [en iyi uygulamalar için ağ bağlantısını ve güvenlik aks'deki][operator-best-practices-network].
 
 Çekirdek Kubernetes hakkında daha fazla bilgi ve AKS kavramlar için aşağıdaki makalelere bakın:
 
@@ -148,3 +148,4 @@ Ağ AKS ile çalışmaya başlama, oluşturun ve kendi IP adresi aralıkları ku
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
 [use-network-policies]: use-network-policies.md
+[operator-best-practices-network]: operator-best-practices-network.md

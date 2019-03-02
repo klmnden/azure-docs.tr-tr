@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/28/2018
 ms.author: diberry
-ms.openlocfilehash: b8bff1ecce7a50f819d00db243eb3e7868c9982e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cd6a63d4e41c31f91511b208265684fb2fc9e419
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869069"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213356"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>anahtar cümlesi LUIS uygulaması için önceden oluşturulmuş varlık
 anahtar cümlesi, anahtar ifadeleri çeşitli bir utterance ayıklar. Uygulamaya anahtar cümlesi içeren örnek Konuşma ekleme gerekmez. anahtar cümlesi varlık içerisinde desteklendiği [çok kültür](luis-language-support.md#languages-supported) parçası olarak [metin analizi](../text-analytics/overview.md) özellikleri. 

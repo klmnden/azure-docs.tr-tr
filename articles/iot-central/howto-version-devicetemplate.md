@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e6148a35540b08916a4f0468af39e0f088453286
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3889aa1e8b19e203a3f6354c2d26fb82afe2b922
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958875"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214291"
 ---
 # <a name="create-a-new-device-template-version"></a>Yeni bir cihaz şablon sürümü oluşturma
 
@@ -56,7 +56,7 @@ Bir sürüm değişikliği olduğunda kuralları ve cihaz panolar için ne olur?
 
 Birden çok sürümünü cihaz şablonu oluşturabilirsiniz. Zamanla, bu cihaz şablonlarını kullanarak birden çok bağlı cihazlar gerekir. Cihazları başka bir cihaz şablonunuzu bir sürümden diğerine geçirebilirsiniz. Aşağıdaki adımlar, bir cihaz geçirileceği açıklanır:
 
-1. Git **Gezgini** sayfası.
+1. Git **Device Explorer** sayfası.
 1. Başka bir sürüme geçirmek istediğiniz cihazı seçin.
 1. Seçin **cihaz geçirme**.
 1. İstediğiniz cihaza geçmek ve aboneliği seçin sürüm numarasını seçin **geçirme**.

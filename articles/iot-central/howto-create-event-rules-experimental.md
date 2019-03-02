@@ -3,17 +3,17 @@ title: Oluşturma ve Azure IOT Central uygulamanızdaki olay kuralları yönetme
 description: Azure IOT Central olay kuralları cihazlarınızı neredeyse gerçek zamanlı izleme ve otomatik olarak kural tetiklendiğinde, bir e-posta gönderme gibi eylemleri çağırmak için etkinleştirin.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8655265f5f793741c2d563d1e79d4565700e0128
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 937f8fe09cae6284b318201657cf112138ac17c7
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768537"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217232"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir olayı kuralı oluşturun ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
@@ -27,29 +27,21 @@ Cihazlar, cihaz önemli veya bilgi olayları göndermek için olay ölçümü ku
 
 Olay kuralı oluşturmak için cihaz şablonu en az bir olay ölçümü tanımlanmış olmalıdır. Bu örnekte, fan motor hata olayı raporları bir refrigerated satış makine cihaz kullanır. Kural, cihaz tarafından bildirilen olay izler ve olay bildirilen her bir e-posta gönderir.
 
-1. Device Explorer ' ı kullanarak, cihaz şablon kural ekleme gidin.
-
-1. Seçilen şablonun altında var olan bir cihaza tıklayın.
-
-    >[!TIP] 
-    >Bir şablon yoksa, herhangi bir cihaza daha sonra yeni bir cihaz ilk ekleyin.
+1. Kullanarak **cihaz şablonları** sayfasında, kural ekleme cihaz şablonu gidin.
 
 1. Herhangi bir kural henüz oluşturmadıysanız, aşağıdaki ekranı görürsünüz:
 
     ![Henüz hiçbir kural](media/howto-create-event-rules-experimental/Rules_Landing_Page.png)
 
+1. Üzerinde **kuralları** sekmesinde **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
 
-1. Üzerinde **kuralları** sekmesini tıklatın, **şablonu Düzen** ardından **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
-
-
-1. Tıklayarak **olay** izleme kuralı bir olay oluşturmak için bir kutucuk.
+1. Seçin **olay** izleme kuralı bir olay oluşturmak için bir kutucuk.
 
     ![Kural türü](media/howto-create-event-rules-experimental/Rule_Types.png)
 
-    
 1. Bu cihaz şablonu kuralında tanımlamanıza yardımcı olacak bir ad girin.
 
-1. Kural bu şablondan oluşturulan tüm cihazlar için hemen etkinleştirmek için geçiş **Bu şablon için tüm cihazlar için etkinleştirme kuralı**.
+1. Kural bu şablondan oluşturulan tüm cihazlar için hemen etkinleştirmek için geçiş **Bu şablon, tüm cihazlar için etkinleştirme kuralı**.
 
     ![Kural Ayrıntıları](media/howto-create-event-rules-experimental/Rule_Detail.png)
 
@@ -65,18 +57,17 @@ Koşul, kural tarafından izlenen ölçütleri tanımlar.
 
    ![Koşul](media/howto-create-event-rules-experimental/Condition_Filled_Out.png)
 
-
 1. İsteğe bağlı olarak da ayarlayabilirsiniz **sayısı** olarak **toplama** ve karşılık gelen eşiği sağlayın.
 
-    - Toplama, koşulu karşılayan her bir olay veri noktası için kural tetiklenir. Örneğin, bir 'Fan Motor Error' olayı gerçekleştiğinde tetiklemek için kuralın koşuluyla yapılandırırsanız cihaz bu olay raporları ne zaman hemen hemen kural tetikler.
+    - Toplama, koşulu karşılayan her bir olay veri noktası için kural tetiklenir. Kuralın yapılandırırsanız, örneğin, ne zaman tetiklemek için koşul bir **Fan Motor hata** olayı kuralı cihaz bu olay raporları ne zaman hemen hemen harekete sonra oluşur.
     - Bir toplama işlevi kullanılan sayısı sonra sağlamanız gereken bir **eşiği** ve **toplama zaman penceresi** üzerinden hangi koşulun değerlendirilmesi gerekir. Bu durumda, olay sayısı toplanır ve yalnızca, toplanan olay sayısı eşiği eşleşiyorsa kural tetikler.
- 
-    Örneğin, 5 dakika içinde üçten fazla cihaz olayları olduğunda uyar isterseniz, olay'ı seçin ve "count" olarak toplama işlevi, işleci olarak "büyüktür" ve "eşik" 3 olarak ayarlayın. "5 dakika" olarak "toplama süre" olarak ayarlayın. Kural üçten fazla olayları 5 dakika içinde cihaz tarafından gönderildiğinde tetiklenir. Kuralı değerlendirme sıklığı aynıdır **toplama zaman penceresi**, yani, bu örnekte, kural her 5 dakikada bir kez değerlendirilir. 
+
+    Örneğin, 5 dakika içinde üçten fazla cihaz olayları olduğunda uyar isterseniz, olay'ı seçin ve "count" olarak toplama işlevi, işleci olarak "büyüktür" ve "eşik" 3 olarak ayarlayın. "5 dakika" olarak "toplama süre" olarak ayarlayın. Kural üçten fazla olayları 5 dakika içinde cihaz tarafından gönderildiğinde tetiklenir. Kuralı değerlendirme sıklığı aynıdır **toplama zaman penceresi**, yani, bu örnekte, kural her 5 dakikada bir kez değerlendirilir.
 
     ![Olay koşulu Ekle](media/howto-create-event-rules-experimental/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE] 
-    >Birden fazla olay ölçümü altında eklenebilir **koşul**. Birden çok koşulu belirtildiğinde, kural tetiklemek tüm koşulların karşılanması gerekir. Her koşulu, bir 'Ve' yan tümcesi tarafından örtük olarak katıldı. Her ölçü, toplam kullanırken toplanmalıdır.
+    >[!NOTE]
+    >Birden fazla olay ölçümü altında eklenebilir **koşul**. Birden çok koşulu belirtildiğinde, kural tetiklemek tüm koşulların karşılanması gerekir. Her koşul, bir 'Ve' yan tümcesi tarafından örtük olarak katıldı. Her ölçü, toplam kullanırken toplanmalıdır.
 
 ### <a name="configure-actions"></a>Eylemleri Yapılandır
 

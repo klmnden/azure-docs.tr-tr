@@ -16,18 +16,18 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 2e75ff08acdda03c0080f49c6616274a4b031075
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 161b2054d690a2e609085852aa7caf2f02366f69
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903732"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215668"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux’ta Azure App Service’e Giriş
 
 [Azure App Service](../overview.md) Web siteleri ve web uygulamalarını barındırmak için iyileştirilmiş tam olarak yönetilen bir işlem platformudur. Müşteriler Linux’ta App Service’i kullanarak desteklenen uygulama yığınları için Linux’ta yerel olarak web uygulamaları barındırabilir. [Dilleri](#languages) bölümde şu anda desteklenen uygulama yığınları listelenmiştir.
 
-## <a name="languages"></a>Diller
+## <a name="languages"></a>Languages
 
 Linux’ta App Service, geliştirici üretkenliğini artırmaya yönelik çeşitli Yerleşik görüntüleri destekler. Yerleşik görüntülerde uygulamanızın gerektirdiği çalışma zamanı desteklenmiyorsa, [kendi Docker görüntünüzü](tutorial-custom-docker-image.md) oluşturarak Kapsayıcılar için Web App’e dağıtmaya yönelik yönergeler sunulmaktadır.
 
@@ -71,9 +71,7 @@ Linux’ta App Service, geliştirici üretkenliğini artırmaya yönelik çeşit
 
 Azure portalı, yalnızca şu anda Kapsayıcılar için Web App ile kullanılabilen özellikleri gösterir. Yeni özellikler etkinleştirildikçe portalda görünmeye başlayacaktır.
 
-Sanal ağ tümleştirme, Azure Active Directory/üçüncü taraf kimlik doğrulaması veya Kudu site uzantıları gibi bazı özellikler henüz kullanılamamaktadır. Bu özellikler kullanıma sunulduğunda belgelerimizi ve blogumuzu güncelleştireceğiz.
-
-Linux’ta App Service yalnızca [Temel, Standart ve Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) uygulama hizmeti planlarıyla desteklenir ve [Ücretsiz veya Paylaşılan](https://azure.microsoft.com/pricing/details/app-service/plans/) katman içermez. Zaten Linux dışı Web App’ler barındıran bir App Service planında Kapsayıcılar için Web App oluşturamazsınız. 
+Linux’ta App Service yalnızca [Temel, Standart ve Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) uygulama hizmeti planlarıyla desteklenir ve [Ücretsiz veya Paylaşılan](https://azure.microsoft.com/pricing/details/app-service/plans/) katman içermez. Zaten Linux dışı Web App’ler barındıran bir App Service planında Kapsayıcılar için Web App oluşturamazsınız.  
 
 Ayrıca, geçerli bir sınırlama bağlı olarak, Windows ve Linux uygulamaları aynı kaynak grubunda karıştırmayın.
 

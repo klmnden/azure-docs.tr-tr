@@ -4,7 +4,7 @@ description: Azure Gözcü, önemli işlevleri ve nasıl çalıştığı hakkın
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: dccbfea0fd26b9d9673ff7652ba6fc4ee632cc46
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 2859df94b1418cfa9fbfaa341e6bf08b257875bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992799"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245302"
 ---
 # <a name="what-is-azure-sentinel-preview"></a>Azure Gözcü önizlemesi nedir?
 
@@ -90,11 +90,11 @@ Azure Sentinel [derin araştırma](tutorial-investigate-cases.md) araçları anl
 ![Araştırma](./media/overview/investigation.png)
 
 
-## <a name="hunting"></a>Avcılık
+## <a name="hunting"></a>Avlanma
 
 Azure Gözcü'nın kullanın [güçlü arama sorgusu araçları avcılık](hunting.md)göre MITRE framework, bir uyarının tetiklenmesinden önce güvenlik tehditleri için kuruluşunuzun veri kaynaklarında proaktif olarak hunt olanak sağlar. Hangi avcılık sorgu olası saldırıları yüksek değerli Öngörüler sağlar bulduktan sonra sorguyu temel alan özel algılama kuralları oluşturma da bu Öngörüler, güvenlik olay Yanıtlayıcı uyarıları yüzey. Aramaya çalışırken, bunları daha sonra geri, bunları başkalarıyla paylaşmanızı ve araştırma için ilgi çekici bir çalışmasının ilişkilendirilmesini diğer olaylarla gruplamak olanak sağlayan ilgi çekici olayları için yer işaretleri oluşturabilirsiniz.
 
-![Avcılık](./media/overview/hunting.png)
+![Avlanma](./media/overview/hunting.png)
 
 ## <a name="community"></a>Topluluk
 

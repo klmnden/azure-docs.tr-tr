@@ -1,6 +1,6 @@
 ---
-title: Log Analytics ile Azure Service Fabric olay analizi | Microsoft Docs
-description: Log Analytics, izleme ve Tanılama, Azure Service Fabric kümeleri kullanarak olayları analiz ve görselleştirme hakkında bilgi edinin.
+title: Azure İzleyici ile Azure Service Fabric olay analizi günlükleri | Microsoft Docs
+description: İzleme ve Tanılama, Azure Service Fabric kümeleri için Azure İzleyici günlüklerine kullanarak olayları analiz ve görselleştirme hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,28 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: e8719b071bf2e836ed92fa4f6dcddc5f1865b320
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2f3106b33ab0cbea95efe2ac42c05a8543719190
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668803"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246925"
 ---
-# <a name="event-analysis-and-visualization-with-log-analytics"></a>Olay çözümleme ve görselleştirme Log Analytics ile
- Log Analytics toplar ve uygulamalardan ve bulut üzerinde barındırılan hizmetlerden daha fazla telemetri analiz eder ve kullanılabilirliği ve performansı en üst düzeye çıkarmanıza yardımcı olması için analiz araçları sağlar. Bu makalede, Öngörüler ve neler kümenizde sorun giderme için Log analytics'te sorgu çalıştırma açıklanmaktadır. Aşağıdaki yaygın sorular ele alınmıştır:
+# <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Olay çözümleme ve görselleştirme ile Azure izleme günlükleri
+ Azure izleme günlükleri toplar ve uygulamalardan ve bulut üzerinde barındırılan hizmetlerden daha fazla telemetri analiz eder ve kullanılabilirliği ve performansı en üst düzeye çıkarmanıza yardımcı olması için analiz araçları sağlar. Bu makalede, Azure İzleyici günlüklerine Öngörüler edinin ve neler kümenizde sorun giderme için sorguları çalıştırmak nasıl özetlenmektedir. Aşağıdaki yaygın sorular ele alınmıştır:
 
 * Sistem durumu olaylarını sorunlarını nasıl giderebilirim?
 * Ne zaman bir düğüm arıza olduğunu nasıl öğrenebilirim?
 * My uygulamanın hizmetlerine başlatıldığı veya durdurulduğu nasıl anlarım?
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview-of-the-log-analytics-workspace"></a>Log Analytics çalışma alanına genel bakış
 
 >[!NOTE] 
 >Tanılama depolama, küme oluşturma sırasında varsayılan olarak etkindir, ancak tanılama depolama alanından okuma yine de Log Analytics çalışma alanını ayarlamanız gerekir.
 
-Log Analytics, Azure depolama tablosu veya bir aracı gibi yönetilen kaynaklardan veri toplar ve merkezi bir depoya tutar. Veriler daha sonra analiz, uyarı ve görselleştirme için kullanılan ya da daha fazla dışa aktarma olabilir. Log Analytics, olaylar, performans verisi veya herhangi bir özel veri destekler. Kullanıma [olayları tanılama uzantısını yapılandırma adımları](service-fabric-diagnostics-event-aggregation-wad.md) ve [depolama olayları okumak için bir Log Analytics çalışma alanı oluşturmak için adımları](service-fabric-diagnostics-oms-setup.md) verileri Log Analytics'e akan emin olmak için .
+Azure İzleyici, bir Azure depolama tablosu veya bir aracı gibi yönetilen kaynaklardan toplanan veri günlükleri ve merkezi bir depoya tutar. Veriler daha sonra analiz, uyarı ve görselleştirme için kullanılan ya da daha fazla dışa aktarma olabilir. Azure İzleyicisi'ni destekleyen olayları, performans verisi veya herhangi bir özel veri kaydeder. Kullanıma [olayları tanılama uzantısını yapılandırma adımları](service-fabric-diagnostics-event-aggregation-wad.md) ve [depolama olayları okumak için bir Log Analytics çalışma alanı oluşturmak için adımları](service-fabric-diagnostics-oms-setup.md) veri Azure İzleyici ile akan emin olmak için günlüğe kaydeder.
 
-Verilerin Log Analytics tarafından alındıktan sonra Azure vardır *yönetim çözümleri* olan önceden paketlenmiş bir çözüm ya da birkaç senaryo için özelleştirilmiş, gelen verileri izlemek için işletimsel panolar. Bunlar bir *Service Fabric analizi* çözüm ve *kapsayıcıları* tanılama ve Service Fabric kümeleri kullanılırken izleme iki en uygun ayarlara olan çözüm. Bu makalede, çalışma alanı ile oluşturulmuş Service Fabric analizi çözümü kullanmayı açıklar.
+Azure İzleyici günlüklerine tarafından verilerin alındıktan sonra Azure vardır *izleme çözümleri* olan önceden paketlenmiş bir çözüm ya da birkaç senaryo için özelleştirilmiş, gelen verileri izlemek için işletimsel panolar. Bunlar bir *Service Fabric analizi* çözüm ve *kapsayıcıları* tanılama ve Service Fabric kümeleri kullanılırken izleme iki en uygun ayarlara olan çözüm. Bu makalede, çalışma alanı ile oluşturulmuş Service Fabric analizi çözümü kullanmayı açıklar.
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Service Fabric analizi çözümü erişim
 
@@ -110,7 +112,7 @@ Kusto sorgu güçlü bir dildir. Başka bir değerli sorgu çalıştırabilir, e
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Yani performans sayaçlarını izleme altyapı etkinleştirmek için attıktan [Log Analytics aracısını ekleme](service-fabric-diagnostics-oms-agent.md). Aracı, performans sayaçlarını toplar ve bunları, mevcut bir çalışma alanına ekler.
-* Şirket içi kümeleri için Log Analytics verilerini Log Analytics'e göndermek için kullanılan bir ağ geçidi (HTTP İleri Proxy) sunar. Uygulamasında hakkında daha fazla [Internet erişimi olmayan bilgisayarları Log Analytics ağ geçidini kullanarak Log Analytics'e bağlanma](../azure-monitor/platform/gateway.md).
+* Azure İzleyici günlüklerine, şirket içi kümeleri için Azure İzleyici günlüklerine veri göndermek için kullanılan bir ağ geçidi (HTTP İleri Proxy) sunar. Uygulamasında hakkında daha fazla [Internet erişimi olmayan bilgisayarları Log Analytics ağ geçidi'ni kullanarak Azure İzleyici günlüklerine bağlanma](../azure-monitor/platform/gateway.md).
 * Yapılandırma [otomatik uyarı verme](../log-analytics/log-analytics-alerts.md) algılama ve tanılama konusunda yardımcı olacak.
-* Log Analytics’in bir parçası olarak sunulan [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri hakkında bilgi sahibi olun.
-* Log Analytics ve hangi sunduğu daha ayrıntılı bir genel bakış edinme, okuma [Log Analytics nedir?](../operations-management-suite/operations-management-suite-overview.md).
+* Analytics'in [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri Azure İzleyici günlüklerine bir parçası olarak sunulmaktadır.
+* Azure İzleyici günlüklerine ve hangi sunduğu daha ayrıntılı bir genel bakış edinme, okuma [Azure İzleyici günlüklerine nedir?](../operations-management-suite/operations-management-suite-overview.md).

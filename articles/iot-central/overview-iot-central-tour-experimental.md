@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 80fe2fb2998ed129098a99f004da9c9e5e88e474
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6865a90a46c5614c5735f9766194c40dfd3e2e4f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815039"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216960"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-new-ui-design"></a>Azure IOT Central kullanıcı Arabirimi (yeni kullanıcı Arabirimi tasarımı) ilişkin tura katılın
 
@@ -37,11 +37,11 @@ _Operatör_ olarak, Azure IoT Central kullanıcı arabirimini kullanarak Azure I
 
 ## <a name="use-the-left-navigation-menu"></a>Sol gezinti menüsünü kullanma
 
-Uygulamanın farklı alanlarına erişmek için sol gezinti menüsünü kullanın:
+Sol gezinti menüsünde, uygulamanın farklı alanlara erişmek için kullanın. Genişlet veya tıklayarak gezinti çubuğunu Daralt **<** veya **>**:
 
 | Menü | Açıklama |
 | ---- | ----------- |
-| ![Sol gezinti menüsü](media/overview-iot-central-tour-experimental/navigationbar.png) | <ul><li>**Giriş** düğmesi, uygulamanızın giriş sayfasını gösterir. Oluşturucu olarak, bu giriş sayfasını operatörleriniz için özelleştirebilirsiniz.</li><li>**Device Explorer** düğmesi, uygulamadaki her bir cihaz şablonuyla ilişkili sanal ve gerçek cihazları listeler. Operatör olarak, **Device Explorer**’ı kullanarak bağlı cihazlarınızı yönetebilirsiniz.</li><li>**Cihaz Kümeleri** düğmesi, cihaz kümelerini görüntüleyip oluşturmanızı sağlar. Operatör olarak, bir sorgu tarafından belirtilen cihazların mantıksal bir koleksiyonu olarak cihaz kümeleri oluşturabilirsiniz.</li><li>**Analiz** düğmesi, cihazlar ve cihaz kümeleri için cihaz telemetrisinden türetilen analizleri gösterir. Operatör olarak, uygulamanızdan içgörüler türetmek için cihaz verileri üzerinde özel görünümler oluşturabilirsiniz.</li><li>**İşler** düğmesi, uygun ölçekte güncelleştirmeler gerçekleştirmek için iş oluşturmanız ve çalıştırmanız gerekmeden toplu cihaz yönetimi sağlar.</li><li>**Cihaz şablonları** düğmesini gösteren bir oluşturucu kullanan cihaz şablonları oluşturmak ve yönetmek için Araçlar.</li><li>**Verileri sürekli dışarı aktarma** depolama ve kuyruk gibi diğer Azure Hizmetleri için sürekli dışarı aktarma yapılandırmak için yönetici düğmesi.</li><li>**Yönetim** düğmesi, bir yöneticinin uygulama ayarlarını, kullanıcıları ve rolleri yönetebildiği uygulama yönetimi sayfalarını gösterir.</li></ul> |
+| ![Sol gezinti menüsü](media/overview-iot-central-tour-experimental/navigationbar.png) | <ul><li>**Pano** düğmesi uygulama Panonuzda görüntüler. Bir oluşturucu, işleçleri için panoyu özelleştirebilirsiniz. Kullanıcılar ayrıca kendi panolarınızı oluşturabilirsiniz.</li><li>**Device Explorer** düğmesi, uygulamadaki her bir cihaz şablonuyla ilişkili sanal ve gerçek cihazları listeler. Operatör olarak, **Device Explorer**’ı kullanarak bağlı cihazlarınızı yönetebilirsiniz.</li><li>**Cihaz Kümeleri** düğmesi, cihaz kümelerini görüntüleyip oluşturmanızı sağlar. Operatör olarak, bir sorgu tarafından belirtilen cihazların mantıksal bir koleksiyonu olarak cihaz kümeleri oluşturabilirsiniz.</li><li>**Analiz** düğmesi, cihazlar ve cihaz kümeleri için cihaz telemetrisinden türetilen analizleri gösterir. Operatör olarak, uygulamanızdan içgörüler türetmek için cihaz verileri üzerinde özel görünümler oluşturabilirsiniz.</li><li>**İşler** düğmesi, uygun ölçekte güncelleştirmeler gerçekleştirmek için iş oluşturmanız ve çalıştırmanız gerekmeden toplu cihaz yönetimi sağlar.</li><li>**Cihaz şablonları** düğmesini gösteren bir oluşturucu kullanan cihaz şablonları oluşturmak ve yönetmek için Araçlar.</li><li>**Verileri sürekli dışarı aktarma** depolama ve kuyruk gibi diğer Azure Hizmetleri için sürekli dışarı aktarma yapılandırmak için yönetici düğmesi.</li><li>**Yönetim** düğmesi, bir yöneticinin uygulama ayarlarını, kullanıcıları ve rolleri yönetebildiği uygulama yönetimi sayfalarını gösterir.</li></ul> |
 
 ## <a name="search-help-and-support"></a>Arama, yardım ve destek
 
@@ -49,22 +49,22 @@ Uygulamanın farklı alanlarına erişmek için sol gezinti menüsünü kullanı
 
 ![Araç Çubuğu](media/overview-iot-central-tour-experimental/toolbar.png)
 
-- Cihaz şablonlarını ve cihazları aramak için **Arama** simgesini seçin.
-- Kullanıcı Arabirimi dilini değiştirmek için seçin **dil** simgesi.
+- Cihaz şablonlarını ve cihazlar için arama yapmak için girin bir **arama** değeri.
+- Kullanıcı Arabirimi dilini veya tema değiştirme tercih **ayarları** simgesi.
+- Uygulamadaki oturumunu oturum açmayı tercih **hesabı** simgesi.
 - Yardım ve destek almak için, kaynak listesinden **Yardım** açılır listesini seçin.
-- Kullanıcı Arabirimi temasını değiştirme veya uygulamadaki oturumunu oturum açmak için seçin **hesabı** simgesi.
 
 Kullanıcı arabirimi için açık renkli tema veya koyu renkli temayı seçebilirsiniz:
 
 ![Kullanıcı arabirimi için tema seçme](media/overview-iot-central-tour-experimental/themes.png)
 
-## <a name="home-page"></a>Giriş sayfası
+## <a name="dashboard"></a>Pano
 
-![Giriş sayfası](media/overview-iot-central-tour-experimental/homepage.png)
+![Pano](media/overview-iot-central-tour-experimental/homepage.png)
 
-Giriş sayfası, Azure IoT Central uygulamanızda oturum açtığınızda gördüğünüz birinci sayfadır. Oluşturucu olarak, uygulamaya kutucuklar ekleyerek uygulamanın diğer kullanıcıları için giriş sayfasını özelleştirebilirsiniz. Daha fazla bilgi almak için [Azure IoT Central operatör görünümünü özelleştirme](tutorial-customize-operator-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) öğreticisine bakın.
+Azure IOT Central uygulamanıza oturum açtığınızda gördüğünüz ilk sayfa panodur. Bir oluşturucu, diğer kullanıcılar için uygulama Panosu döşemeler ekleyerek özelleştirebilirsiniz. Daha fazla bilgi almak için [Azure IoT Central operatör görünümünü özelleştirme](tutorial-customize-operator-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) öğreticisine bakın. Kullanıcılar aynı zamanda [kendi kişisel panolar oluşturma](howto-personalize-dashboard-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
-## <a name="device-explorer"></a>Device explorer
+## <a name="device-explorer"></a>Device Explorer
 
 ![Gezgin sayfası](media/overview-iot-central-tour-experimental/explorer.png)
 

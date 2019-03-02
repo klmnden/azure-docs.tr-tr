@@ -1,6 +1,6 @@
 ---
-title: Azure Service fabric'te Log Analytics ile kapsayıcıları izlemek | Microsoft Docs
-description: Log Analytics, Azure Service Fabric kümelerinde çalışan kapsayıcıları izlemek üzere kullanın.
+title: İzleme günlüklerini Azure İzleyici ile Azure Service Fabric kapsayıcıları | Microsoft Docs
+description: Azure İzleyici günlüklerine, Azure Service Fabric kümelerinde çalışan kapsayıcıları izlemek üzere kullanın.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,25 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2123cf0eb575d632e871e23513128e67d5433c9d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d5840db718191c9b67a8b28a2efccd55146ae510
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820186"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246942"
 ---
-# <a name="monitor-containers-with-log-analytics"></a>Log Analytics ile kapsayıcıları izleme
+# <a name="monitor-containers-with-azure-monitor-logs"></a>Azure İzleyici günlüklerine ile kapsayıcıları izleme
  
-Bu makalede kapsayıcı olayları görüntülemek için Azure Log Analytics kapsayıcı izleme çözümünü için gerekli adımları ele alınmaktadır. Kapsayıcı olayları toplamak için kümenizi ayarlamak için bu bkz [adım adım öğretici](service-fabric-tutorial-monitoring-wincontainers.md). 
+Bu makalede kapsayıcı olayları görüntülemek için Azure İzleyici günlüklerine kapsayıcı izleme çözümünü için gerekli adımları ele alınmaktadır. Kapsayıcı olayları toplamak için kümenizi ayarlamak için bu bkz [adım adım öğretici](service-fabric-tutorial-monitoring-wincontainers.md). 
 
 [!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="set-up-the-container-monitoring-solution"></a>Kapsayıcı izleme çözümünü ayarlama
 
 > [!NOTE]
-> Yanı sıra kümeniz için Log Analytics ayarlanmış sahip Log Analytics aracısını düğümlerinizi üzerinde dağıtılmış olması gerekir. Adımları izlerseniz yoksa [Log Analytics'i ayarlama](service-fabric-diagnostics-oms-setup.md) ve [Log Analytics aracısını bir kümeye ekleme](service-fabric-diagnostics-oms-agent.md) ilk.
+> Azure İzleyicisi'ni günlükleri kümeniz için ayarlanmış yanı sıra, düğümlerde dağıtılan Log Analytics aracısını sahip olması gerekir. Adımları izlerseniz yoksa [Azure İzleyici günlüklerini ayarlamak](service-fabric-diagnostics-oms-setup.md) ve [Log Analytics aracısını bir kümeye ekleme](service-fabric-diagnostics-oms-agent.md) ilk.
 
-1. Log Analytics aracısını Log Analytics ile kümenizi ayarlandıktan kapsayıcılarınızı dağıtın. Sonraki adıma geçmeden önce dağıtılacak kapsayıcılarınızı bekleyin.
+1. Azure İzleyici günlüklerine ve Log Analytics aracısını ile kümenizi ayarlandıktan kapsayıcılarınızı dağıtın. Sonraki adıma geçmeden önce dağıtılacak kapsayıcılarınızı bekleyin.
 
 2. Azure Market'te arama *kapsayıcı izleme çözümü* tıklayın **kapsayıcı izleme çözümü** izleme + Yönetim altında gösterilir kaynak kategorisi.
 
@@ -42,7 +44,7 @@ Bu makalede kapsayıcı olayları görüntülemek için Azure Log Analytics kaps
 
     ![Temel Log Analytics Panosu](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 
-Log Analytics'te sorgulanan veya performans göstergelerini görselleştirmek için kullanılan birden fazla kapsayıcı özgü günlük koleksiyonu aracı sağlar. Toplanan günlük türleri şunlardır:
+Azure İzleyici günlüklerine sorgulanan veya performans göstergelerini görselleştirmek için kullanılan birden fazla kapsayıcı özgü günlük koleksiyonu aracı sağlar. Toplanan günlük türleri şunlardır:
 
 * ContainerInventory: kapsayıcı konumunu ve adını görüntüleri ile ilgili bilgileri gösterir.
 * ContainerImageInventory: bilgi kimliği veya boyutları da dahil olmak üzere dağıtılan görüntüler hakkında
@@ -53,7 +55,7 @@ Log Analytics'te sorgulanan veya performans göstergelerini görselleştirmek i�
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinin [Log Analytics kapsayıcılar çözümü](../azure-monitor/insights/containers.md).
+* Daha fazla bilgi edinin [Azure İzleyici günlükleri kapsayıcılar çözümü](../azure-monitor/insights/containers.md).
 * -Service fabric'te kapsayıcı düzenleme hakkında daha fazla bilgiyi [Service Fabric ve kapsayıcılar](service-fabric-containers-overview.md)
-* Analytics'in [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri Log Analytics kapsamında sunulan
-* Log Analytics'i yapılandırma [otomatik uyarı verme](../log-analytics/log-analytics-alerts.md) algılama ve tanılama konusunda yardımcı olmak için kurallar
+* Analytics'in [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri, Azure İzleyici günlüklerine bir parçası olarak sunulan
+* Azure İzleyici günlüklerine ayarlamak için yapılandırma [otomatik uyarı verme](../log-analytics/log-analytics-alerts.md) algılama ve tanılama konusunda yardımcı olmak için kurallar

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 2d36b10adbe277331eafdf1b68d0f5711508cc05
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c794326c9832308cac519617e46b05e311106802
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992221"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240431"
 ---
-#  <a name="manage-speed-and-concurrency-of-your-encoding-legacy"></a>Hız ve (eski) kodlama eşzamanlılığı yönetme
+#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Hız ve tutarlılık, kodlama yönetme  
 
 Bu makalede, hız ve kodlama işleri/görevleri eşzamanlılığı nasıl yönetebileceğinizi kısa genel bakış sağlar.
 

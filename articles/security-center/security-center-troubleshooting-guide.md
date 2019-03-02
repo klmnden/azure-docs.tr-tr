@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: af85600593e725f1d90d5fbb3aae2aab6dd3f367
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 658f38e32c2680e7c538147154a004359e431027
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114459"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246755"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Güvenlik Merkezi Sorun Giderme Kılavuzu
 Bu kılavuz, kuruluşları Azure Güvenlik Merkezi'ni kullanmayı planlayan ve Güvenlik Merkezi ile ilgili sorunları gidermeye ihtiyaç duyan bilgi teknolojisi (BT) uzmanları, bilgi güvenlik analizi uzmanları ve bulut yöneticileri içindir.
@@ -40,7 +40,7 @@ Bu kılavuzda Güvenlik Merkezi ile ilgili sorunların nasıl giderildiği açı
 Denetim günlüğü, kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE) içerir, ancak okuma işlemlerini (GET) içermez.
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-Güvenlik Merkezi, Azure sanal makinelerinizden güvenlik verilerini toplamak için Microsoft Monitoring Agent’ı (Log Analytics hizmeti tarafından kullanılan aracının aynısı) kullanır. Veri toplama etkinleştirilip aracı hedef makineye doğru şekilde yüklendikten sonra, aşağıdaki işlem yürütülmelidir:
+Güvenlik Merkezi, Microsoft Monitoring Agent kullanır: Azure sanal makinelerinizden güvenlik verilerini toplamak için Azure İzleyici hizmeti tarafından kullanılan aracının aynısı budur. Veri toplama etkinleştirilip aracı hedef makineye doğru şekilde yüklendikten sonra, aşağıdaki işlem yürütülmelidir:
 
 * HealthService.exe
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: da58737314012255f26d344f279d855244f0c1ba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116482"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241094"
 ---
 # <a name="azure-operational-security-overview"></a>Azure operasyonel güvenliğine genel bakış
 
@@ -29,13 +29,13 @@ ms.locfileid: "56116482"
 
 Bir BT operasyon ekibinin, veri merkezi altyapı, uygulamaları ve verileri kararlılığını ve bu sistemlerin güvenliğini de dahil olmak üzere, yönetmekten sorumludur. Ancak, karmaşık BT ortamları arasında genellikle artan güvenlik öngörü kuruluşların verileri birden çok güvenlik ve yönetim sistemlerinden birlikte cobble gerektirir.
 
-[Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan bir bulut tabanlı BT yönetimi çözümüdür. Çekirdek işlevselliğini, Azure'da çalışan aşağıdaki hizmetleri tarafından sağlanır. Azure içeren birden çok yardımcı hizmetler yönetmek ve korumak şirket içi ve bulut altyapısı. Her hizmet belirli bir yönetim işlevi sağlar. Farklı yönetim senaryoları elde etmek için Hizmetleri birleştirebilirsiniz. 
+[Microsoft Azure İzleyici günlüklerine](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan bir bulut tabanlı BT yönetimi çözümüdür. Çekirdek işlevselliğini, Azure'da çalışan aşağıdaki hizmetleri tarafından sağlanır. Azure içeren birden çok yardımcı hizmetler yönetmek ve korumak şirket içi ve bulut altyapısı. Her hizmet belirli bir yönetim işlevi sağlar. Farklı yönetim senaryoları elde etmek için Hizmetleri birleştirebilirsiniz. 
 
 ### <a name="azure-monitor"></a>Azure İzleyici
 
 [Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/overview) merkezi veri depolarına yönetilen kaynaklardan veri toplar. Bu veriler, olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler içerebilir. Veriler toplandıktan sonra uyarı, analiz ve dışarı aktarma için kullanılabilir. 
 
-Çeşitli kaynaklardan gelen verileri birleştirmenize ve mevcut şirket içi ortamınızla verileri birleştirerek Azure hizmetlerinizden. Tüm eylemlerin her tür veri için kullanılabilir olacak şekilde log Analytics veri koleksiyonu bu verilerin üzerinde gerçekleştirilen eylemden de açıkça ayırır.
+Çeşitli kaynaklardan gelen verileri birleştirmenize ve mevcut şirket içi ortamınızla verileri birleştirerek Azure hizmetlerinizden. Azure İzleyici günlüklerine de açıkça ayıran veri koleksiyonunu bu verilerin üzerinde gerçekleştirilen eylemden tüm eylemlerin her tür veri için kullanılabilir olmasını sağlamak.
 
 ### <a name="automation"></a>Otomasyon
 
@@ -93,7 +93,7 @@ Güvenlik Merkezi, güvenlik sorunlarını ve güvenlik açıklarını tanımlam
 >[!Note]
 >Roller hakkında daha fazla bilgi ve Güvenlik Merkezi'nde eylemlerine izin görmek için [Azure Güvenlik Merkezi'nde izinler](https://docs.microsoft.com/azure/security-center/security-center-permissions).
 
-Güvenlik Merkezi Microsoft Monitoring Agent'ı kullanır. Log Analytics hizmetinin kullandığı aynı aracı budur. Bu Aracıdan toplanan veriler, herhangi bir mevcut Log Analytics'te depolanır [çalışma](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) coğrafi konum VM'nin hesaba katılarak Azure aboneliğiniz veya yeni bir çalışma alanı ile ilişkili.
+Güvenlik Merkezi Microsoft Monitoring Agent'ı kullanır. Azure İzleyici hizmeti kullanan aracının budur. Bu Aracıdan toplanan veriler, herhangi bir mevcut Log Analytics'te depolanır [çalışma](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) coğrafi konum VM'nin hesaba katılarak Azure aboneliğiniz veya yeni bir çalışma alanı ile ilişkili.
 
 ## <a name="azure-monitor"></a>Azure İzleyici
 

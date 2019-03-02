@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/28/2018
 ms.author: diberry
-ms.openlocfilehash: 88a6c25d5b9cc2697482c400c9672d41102aa35b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ceed37a8482051bb0fae14c2fe1fe8a366c6a6f3
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879792"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215345"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Bir LUIS uygulaması için önceden oluşturulmuş varlık boyut
 Önceden oluşturulmuş boyut varlık LUIS uygulama kültürü ne olursa olsun, Boyutlar çeşitli türlerde algılar. Bu varlık zaten eğitildi çünkü uygulama ıntents boyutlar içeren örnek Konuşma ekleme gerekmez. Boyut varlık içerisinde desteklendiği [çok kültür](luis-reference-prebuilt-entities.md). 

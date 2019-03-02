@@ -4,7 +4,7 @@ description: Azure Gözcü çalışmalarıyla araştırmak öğrenmek için bu �
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: a493cd67-dc70-4163-81b8-04a9bc0232ac
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 424f7eeacf5ca3317462fa63cf684c0d5d1bac9e
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 8d44c1448296df16e9dd58a486d4cfb21bb053de
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993254"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244211"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Öğretici: Azure Önizleme Gözcü çalışmalarıyla araştırın
 
@@ -33,10 +33,10 @@ Bu öğretici Azure Gözcü ile tehditleri algılamanıza yardımcı olur.
 
 > [!div class="checklist"]
 > * Çalışmaları oluşturma
-> * Durumları araştırın
-> * Tehditlere yanıt verin
+> * Durumları inceleme
+> * Tehditlere yanıt verme
 
-## <a name="investigate-cases"></a>Durumları araştırın
+## <a name="investigate-cases"></a>Durumları inceleme
 
 Bir durum, birden çok uyarı içerebilir. Bu, belirli bir araştırma için tüm kanıt bir toplama olur. Servis talebi, tanımladığınız uyarılar temel alınarak oluşturulur **Analytics** sayfası. Uyarıları önem ve durum gibi ilgili özellikleri büyük/küçük harf düzeyinde ayarlanır. Azure, bildiğiniz aradığınız tehditleri ve bunları nasıl bulacağınıza ilişkin ne tür Gözcü izin sonra durumlarda araştırma tarafından algılanan tehditleri izleyebilirsiniz. 
 
@@ -60,7 +60,7 @@ Bir durum, birden çok uyarı içerebilir. Bu, belirli bir araştırma için tü
 
 
 
-## <a name="respond-to-threats"></a>Tehditlere yanıt verin
+## <a name="respond-to-threats"></a>Tehditlere yanıt verme
 
 Azure Sentinel playbook'ları kullanarak tehditlerine yanıt verme için iki birincil seçenek sunar. Playbook bir uyarı tetiklenir ya da bir uyarıya yanıt olarak bir playbook el ile çalıştırabilirsiniz otomatik olarak çalışacak şekilde ayarlayabilirsiniz.
 

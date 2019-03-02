@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 66fc5c92410118f4e0042738d2107b272d68f9bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456512"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240346"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Uygulama ve kümelerin Azure Kubernetes Service (AKS) için güvenlik kavramları
 
@@ -28,13 +28,13 @@ Bu makalede aks'deki uygulamalarınızı güvenli bir temel kavramlar tanıtıl�
 
 ## <a name="master-security"></a>Güvenlik Yöneticisi
 
-AKS, Kubernetes ana bileşenleri Microsoft tarafından sağlanan bir yönetilen hizmet bir parçasıdır. API sunucusu, Zamanlayıcı vb. sağlamak için kendi tek kiracılı, adanmış Kubernetes Yöneticisi her bir AKS kümesi vardır. Bu ana yönetilen ve Microsoft tarafından yönetilen
+AKS, Kubernetes ana bileşenleri Microsoft tarafından sağlanan bir yönetilen hizmet bir parçasıdır. API sunucusu, Zamanlayıcı vb. sağlamak için kendi tek kiracılı, adanmış Kubernetes Yöneticisi her bir AKS kümesi vardır. Bu ana yönetilir ve Microsoft tarafından korunur.
 
 Varsayılan olarak Kubernetes API sunucusuna bir genel IP adresini kullanır ve ile tam etki alanı adı (FQDN). Kubernetes rol tabanlı erişim denetimlerine ve Azure Active Directory kullanarak API sunucusu için erişimi denetleyebilirsiniz. Daha fazla bilgi için [AKS ile Azure AD tümleştirme][aks-aad].
 
 ## <a name="node-security"></a>Düğüm güvenliği
 
-AKS, yönetmek ve korumak Azure sanal makineleri düğümlerdir. Düğümlerin en iyi duruma getirilmiş bir Ubuntu Linux dağıtımı ile Docker kapsayıcı çalışma zamanı çalıştırın. Bir AKS kümesi oluşturduğunuz ya da yukarı ölçeklendirilemez düğümlerin en son işletim sistemi güvenlik güncelleştirmelerini ve yapılandırmaları ile otomatik olarak dağıtılır.
+AKS, yönetmek ve korumak Azure sanal makineleri düğümlerdir. Düğümleri Moby kapsayıcı çalışma zamanı kullanılarak en iyi duruma getirilmiş bir Ubuntu Linux dağıtımını çalıştırın. Bir AKS kümesi oluşturduğunuz ya da yukarı ölçeklendirilemez düğümlerin en son işletim sistemi güvenlik güncelleştirmelerini ve yapılandırmaları ile otomatik olarak dağıtılır.
 
 Azure platformunun işletim sistemi güvenlik yamaları düğümlerine gecelik temelinde otomatik olarak uygular. Bir işletim sistemi güvenlik güncelleştirmesi ana bilgisayar yeniden başlatma gerektirirse, yeniden başlatma otomatik olarak gerçekleştirilmez. Düğümleri el ile yeniden başlatılabilir ya da ortak bir yaklaşım kullanmaktır [Kured][kured], Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet] [ aks-daemonsets] ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. Yeniden başlatma, aynı kümede yönetilir [kordon altına alma ve boşaltma işlemi](#cordon-and-drain) olarak bir küme yükseltmesi.
 
@@ -65,7 +65,7 @@ Bağlantı ve şirket içi ağlar ile güvenlik için mevcut Azure sanal ağ alt
 
 ### <a name="azure-network-security-groups"></a>Azure ağ güvenlik grupları
 
-Sanal ağlarda trafik akışını filtre uygulamak için Azure ağ güvenlik grubu kuralları kullanır. Bu kurallar, kaynak ve hedef IP aralıkları, bağlantı noktaları ve protokollere izin verilen ya da kaynaklara erişimi reddedildi tanımlayın. Varsayılan kuralları, Kubernetes API sunucusuna ve SSH erişimini düğümleri için TLS trafiğine izin verecek şekilde oluşturulur. Yük Dengeleyiciler, bağlantı noktası eşlemelerini veya giriş yollar ile Hizmetleri oluştururken, AKS trafiği için ağ güvenlik grubu akış uygun şekilde otomatik olarak değiştirir.
+Sanal ağlarda trafik akışını filtre uygulamak için Azure ağ güvenlik grubu kuralları kullanır. Bu kurallar, kaynak ve hedef IP aralıkları, bağlantı noktaları ve protokollere izin verilen ya da kaynaklara erişimi reddedildi tanımlayın. Varsayılan kuralları, Kubernetes API sunucusuna TLS trafiğine izin verecek şekilde oluşturulur. Yük Dengeleyiciler, bağlantı noktası eşlemelerini veya giriş yollar ile Hizmetleri oluştururken, AKS trafiği için ağ güvenlik grubu akış uygun şekilde otomatik olarak değiştirir.
 
 ## <a name="kubernetes-secrets"></a>Kubernetes gizli dizileri
 
@@ -76,6 +76,8 @@ Pod ya da hizmet bildirimi YAML içinde tanımlanan hassas bilgileri gizli dizil
 ## <a name="next-steps"></a>Sonraki adımlar
 
 AKS kümelerinizi güvenliğini kullanmaya başlamak için bkz. [AKS kümesini yükseltme][aks-upgrade-cluster].
+
+İlişkili en iyi yöntemler için bkz: [küme güvenliği ve AKS yükseltmeler için en iyi yöntemler][operator-best-practices-cluster-security].
 
 Çekirdek Kubernetes hakkında daha fazla bilgi ve AKS kavramlar için aşağıdaki makalelere bakın:
 
@@ -99,3 +101,4 @@ AKS kümelerinizi güvenliğini kullanmaya başlamak için bkz. [AKS kümesini y
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9671d9f61b610a85cbf2475e045c641a29dac11b
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010625"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243899"
 ---
 # <a name="live-event-types-comparison"></a>Canlı olay türlerini karşılaştırma
 
@@ -33,7 +33,7 @@ Aşağıdaki tabloda, iki canlı olay türlerinin özellikleri karşılaştırı
 | Tekli bit hızı girişi Çoklu bit hızlarında buluta halinde kodlanır |Hayır |Evet |
 | Katkı için en yüksek ekran çözünürlüğü akışı |4K (4096 x 2160 en 60 kare/sn) |1080p (1920 x 1088 en 30 kare/sn)|
 | Önerilen en yüksek katmanlarında akışı katkı|12 adede kadar|Bir ses|
-| En yüksek katmanlarında çıkış| Aynı giriş|En fazla 6|
+| En yüksek katmanlarında çıkış| Aynı giriş|En fazla 6 (sistem önayarlarını aşağıya bakın)|
 | Akış katkı en fazla toplam bant genişliği|60 Mbps|Yok|
 | Tek bir katman katkısı için maksimum hızı |20 Mbps|20 Mbps|
 | Ses parçalarını birden çok dil desteği|Evet|Hayır|
@@ -54,6 +54,30 @@ Aşağıdaki tabloda, iki canlı olay türlerinin özellikleri karşılaştırı
 | Tekdüzen olmayan giriş GOPs desteği|Evet|Hayır-giriş GOP süresi sabit olmalıdır|
 | Değişken kare hızı girişi için destek|Evet|Yok – giriş kare hızı düzeltilmesi gerekir. Küçük farklılıklar, örneğin, yüksek bir hareket sahneler sırasında izin verilir. Ancak, katkı akış kare hızını (örneğin, 15 çerçeveler/sn) bırakılamıyor.|
 | Otomatik akışı kapatmaya Canlı zaman giriş olayının kaybolur|Hayır|12 çalışan hiçbir LiveOutput ise saat sonra|
+
+## <a name="system-presets"></a>Sistem önayarlarını
+
+Live encoding kullanıldığında (canlı olay kümesine **standart**), Çoklu bit hızlarında veya katmanları gelen nasıl kodlandığını kodlama Önayarı tanımlar. Şu anda yalnızca izin verilen değer için hazır *Default720p* (varsayılan).
+
+**Default720p** video aşağıdaki 6 katmanlara kodlar.
+
+### <a name="output-video-stream"></a>Çıkış Video Stream
+
+| Bit hızı | Genişlik | Yükseklik | MaxFPS | Profil | Çıkış Stream adı |
+| --- | --- | --- | --- | --- | --- |
+| 3500 |1280 |720 |30 |Yüksek |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Yüksek |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Yüksek |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Yüksek |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Yüksek |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Yüksek |Video_340x192_200kbps |
+
+> [!NOTE]
+> Özel bir canlı kodlama Önayarı kullanmanız gerekiyorsa, lütfen başvurun amshelp@microsoft.com. İstediğiniz tabloyu çözünürlük ve bit hızlarına dönüştürme belirtmeniz gerekir. 720 p yalnızca bir katmanında ve en fazla 6 katmanları olduğundan emin olun.
+
+### <a name="output-audio-stream"></a>Ses çıkış Stream
+
+128 Kb/sn, 48 kHz örnekleme hızı anda stereo AAC-LC ses kodlanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

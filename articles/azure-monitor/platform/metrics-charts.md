@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e5c7d019a34736cfbc26e245dc54a93374aada9c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310952"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242437"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini
 
@@ -76,16 +76,16 @@ Boyutlarla ölçümleri gösteren grafikler için filtre uygulayabilirsiniz. "İ
 
 5. Aynı grafikleri birden fazla filtre uygulamak için 1-4 arası adımları tekrarlayabilirsiniz.
 
-## <a name="segment-a-chart"></a>Bir grafik segmentlere ayırın.
+## <a name="apply-splitting-to-a-chart"></a>Bir grafiği bölme Uygula
 
 Bir ölçüm bölme ölçütü: ölçüm karşılaştırma birbirleriyle nasıl farklı parçalarını görselleştirmek için boyut ve boyutun harici segmentleriyle. 
 
-### <a name="to-segment-a-chart"></a>Bir grafik segmentlere ayırmak için
+### <a name="to-apply-splitting"></a>Bölme uygulamak için
 
 1. Tıklayarak **uygulamak bölme** grafiğin üstünde.
  
    > [!NOTE]
-   > Herhangi bir tek grafikte birden çok filtre ancak yalnızca bir bölme/Segment değeri olabilir.
+   > Bölme sahip birden çok ölçüm grafikleri ile kullanılamaz. Ayrıca, birden çok filtre ancak yalnızca bir bölme boyutu tek bir grafiğe uygulanmış olabilir.
 
 2. Grafiğinizi segmentlere ayırmak istediğiniz bir boyut seçin:
 

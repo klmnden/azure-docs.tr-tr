@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 13d446f9f2aa651c766f250e551a97a97cf4d5d8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 6cab76a1169469853a4eb82a934bdc665e07ef8d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195243"
+ms.locfileid: "57217521"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Hub çalışma ve projeleri için özel Translator geçirme
 
@@ -27,7 +27,7 @@ Bu Eylemler, geçiş sırasında gerçekleştirilir:
 * Herhangi bir noktada, eğitim, "Bleu puan" MT hub'ında modelinde TrainingDetails sayfasında bulunabilir Hub'ından BLEU puanı geçişi başlığı.
 
 >[!Note]
->Bir eğitim işleminin başarılı olması 10.000 benzersiz ayıklanan cümleler en az özel Translator gerektirir. Özel Translator daha az ayıklanan cümleler eğitimlerle gerçekleştir olamaz [önerilen minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
+Bir eğitim işleminin başarılı olması 10.000 benzersiz ayıklanan cümleler en az özel Translator gerektirir. Özel Translator kısa eğitimlerle gerçekleştir olamaz [önerilen minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
 ## <a name="enable-account-migration"></a>Hesap geçişi etkinleştir
 

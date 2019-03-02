@@ -4,110 +4,105 @@ description: Azure Active Directory ve birleştirme Online arasında çoklu otur
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 5c5e8c6f-e4fb-43fe-8841-e371f568ebed
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/26/2018
+ms.topic: tutorial
+ms.date: 02/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27a7a792c297d45f81efbda406761f3f4467be9d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a36a5b0e932321d3a7a27cbe580a2544b2cb9b63
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205809"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Öğretici: Birleştirme Online ile Azure Active Directory Tümleştirmesi
 
 Bu öğreticide, montaj çevrimiçi Azure Active Directory (Azure AD) ile tümleştirme konusunda bilgi edinin.
-
 Birleştirme çevrimiçi Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Birleştirme Online'a erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak imzalanan birleştirme Online'a (çoklu oturum açma) açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Birleştirme Online'a erişimi, Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak birleştirme Online'a (çoklu oturum açma) oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi birleştirme Online ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Bir birleştirme çevrimiçi çoklu oturum açma abonelik etkin.
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Birleştirme çevrimiçi çoklu oturum açma abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Birleştirme çevrimiçi galeriden ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Birleştirme çevrimiçi destekler **SP** tarafından başlatılan
 
 ## <a name="adding-montage-online-from-the-gallery"></a>Birleştirme çevrimiçi galeriden ekleme
+
 Azure AD'de birleştirme Online'nın tümleştirmesini yapılandırmak için birleştirme çevrimiçi galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Birleştirme çevrimiçi Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **birleştirme çevrimiçi**seçin **birleştirme çevrimiçi** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Çevrimiçi sonuçlar listesinde birleştirme](./media/montageonline-tutorial/tutorial_montageonline_addfromgallery.png)
+4. Arama kutusuna **birleştirme çevrimiçi**seçin **birleştirme çevrimiçi** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Çevrimiçi sonuçlar listesinde birleştirme](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve birleştirme "Britta Simon" adlı bir test kullanıcı tabanlı Online ile Azure AD çoklu oturum açma testi.
-
-Tek iş için oturum açma için Azure AD birleştirme çevrimiçi karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmesi gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve ilgili kullanıcı birleştirme Online arasında bir bağlantı ilişki kurulması gerekir.
+Bu bölümde, yapılandırma ve birleştirme adlı bir test kullanıcı tabanlı Online ile Azure AD çoklu oturum açmayı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve ilgili kullanıcı birleştirme Online arasında bir bağlantı ilişki kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma birleştirme Online ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Birleştirme çevrimiçi bir test kullanıcısı oluşturma](#create-a-montage-online-test-user)**  - birleştirme kullanıcı Azure AD gösterimini bağlı olan çevrimiçi bir karşılığı Britta simon'un sağlamak için.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Birleştirme çevrimiçi çoklu oturum açmayı yapılandırma](#configure-montage-online-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Birleştirme çevrimiçi test kullanıcısı oluşturma](#create-montage-online-test-user)**  - birleştirme kullanıcı Azure AD gösterimini bağlı olan çevrimiçi bir karşılığı Britta simon'un sağlamak için.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve birleştirme çevrimiçi uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma birleştirme Online ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma birleştirme Online ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında üzerinde **birleştirme çevrimiçi** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **birleştirme çevrimiçi** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/montageonline-tutorial/tutorial_montageonline_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **birleştirme çevrimiçi etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Birleştirme çevrimiçi etki alanı ve URL'ler tek oturum açma bilgileri](./media/montageonline-tutorial/tutorial_montageonline_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
+
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
+
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    ![Birleştirme çevrimiçi etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:
 
@@ -122,113 +117,92 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve b
     Test ortamı için: `MOL_Azure_Build`
 
     > [!NOTE] 
-    > Oturum açma URL değeri, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [birleştirme çevrimiçi istemci Destek ekibine](https://www.montage.co.nz/contact-us/) değeri alınamıyor. 
- 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    > Oturum açma URL değeri, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [birleştirme çevrimiçi istemci Destek ekibine](https://www.montage.co.nz/contact-us/) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-    ![Sertifika indirme bağlantısı](./media/montageonline-tutorial/tutorial_montageonline_certificate.png) 
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-1. Tıklayın **Kaydet** düğmesi.
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/montageonline-tutorial/tutorial_general_400.png)
+6. Üzerinde **birleştirme çevrimiçi kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-1. Üzerinde **birleştirme çevrimiçi yapılandırma** bölümünde **birleştirme çevrimiçi yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    ![Birleştirme çevrimiçi yapılandırma](./media/montageonline-tutorial/tutorial_montageonline_configure.png) 
+    a. Oturum Açma URL'si:
 
-1. Çoklu oturum açmayı yapılandırma **birleştirme çevrimiçi** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64), oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** için [birleştirme Çevrimiçi Destek ekibine](https://www.montage.co.nz/contact-us/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+    b. Azure AD Tanımlayıcısı
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-montage-online-single-sign-on"></a>Birleştirme çevrimiçi çoklu oturum açmayı yapılandırın
+
+Çoklu oturum açmayı yapılandırma **birleştirme çevrimiçi** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)** ve uygun kopyalanan URL'ler için Azure portalından [birleştirme çevrimiçi destek ekibi ](https://www.montage.co.nz/contact-us/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/montageonline-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/montageonline-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/montageonline-tutorial/create_aaduser_03.png)
-
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/montageonline-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="create-a-montage-online-test-user"></a>Birleştirme çevrimiçi bir test kullanıcısı oluşturma
-
-Bu bölümde, Britta Simon birleştirme Online'da adlı bir kullanıcı oluşturun. Çalışmak [birleştirme Çevrimiçi Destek ekibine](https://www.montage.co.nz/contact-us/) birleştirme çevrimiçi platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, montaj çevrimiçi erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **birleştirme çevrimiçi**.
 
-**Britta Simon birleştirme çevrimiçi olarak atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **birleştirme çevrimiçi**.
 
-    ![Kullanıcı Ata][201] 
+    ![Uygulamalar listesinde birleştirme çevrimiçi bağlantı](common/all-applications.png)
 
-1. Uygulamalar listesinde **birleştirme çevrimiçi**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Uygulamalar listesinde birleştirme çevrimiçi bağlantı](./media/montageonline-tutorial/tutorial_montageonline_app.png)  
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Atama Ekle bölmesi][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-montage-online-test-user"></a>Birleştirme çevrimiçi test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+Bu bölümde, Britta Simon birleştirme Online'da adlı bir kullanıcı oluşturun. Çalışmak [birleştirme Çevrimiçi Destek ekibine](https://www.montage.co.nz/contact-us/) birleştirme çevrimiçi platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli birleştirme çevrimiçi kutucuğa tıkladığınızda, size otomatik olarak birleştirme çevrimiçi uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli birleştirme çevrimiçi kutucuğa tıkladığınızda, size otomatik olarak birleştirme çevrimiçi SSO'yu ayarlamak için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/montageonline-tutorial/tutorial_general_01.png
-[2]: ./media/montageonline-tutorial/tutorial_general_02.png
-[3]: ./media/montageonline-tutorial/tutorial_general_03.png
-[4]: ./media/montageonline-tutorial/tutorial_general_04.png
-
-[100]: ./media/montageonline-tutorial/tutorial_general_100.png
-
-[200]: ./media/montageonline-tutorial/tutorial_general_200.png
-[201]: ./media/montageonline-tutorial/tutorial_general_201.png
-[202]: ./media/montageonline-tutorial/tutorial_general_202.png
-[203]: ./media/montageonline-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

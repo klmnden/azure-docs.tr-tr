@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: bd6c592f0d3d073ec2a05c8f4636086df01ddb06
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: b653b0276cedea1e3b45adf7a9dc390b24f0d03f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450754"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213628"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS uygulamaları sunma yayımlama Kılavuzu
 
@@ -143,6 +143,9 @@ Microsoft commerce işlemi'ni barındırır. Microsoft, müşterinizin sizin ad�
 |İptal etme | Teklifinizi istediğiniz zaman müşteri tarafından iptal edilebilir. |  
 |İşlem giriş sayfası | Kullanıcılar nerede oluşturabilir ve SaaS hizmet hesaplarını yönetmek bir Azure ortak markalı işlem giriş sayfası barındırabileceğiniz. |   
 | Abonelik API | Oluşturmak, güncelleştirmek ve bir kullanıcı hesabı ve hizmet planını silmek için SaaS abonelikle etkileşime hizmet kullanıma sunar. 24 saat içinde kritik API değişiklikleri desteklenmesi gerekir. Kritik olmayan API değişiklikleri düzenli olarak kullanıma sunulacaktır. |  
+
+>[!Note]
+>Bulut çözümü sağlayıcıları (CSP) iş ortağı kanalı katılımı kullanıma sunuldu.  Lütfen [bulut çözüm sağlayıcıları](./cloud-solution-providers.md) teklifinizi Microsoft CSP aracılığıyla pazarlama hakkında daha fazla bilgi için iş ortağı kanalı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Zaten yapmadıysanız,

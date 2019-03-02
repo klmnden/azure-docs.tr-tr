@@ -3,7 +3,7 @@ title: Azure Cloud Shell'i ekleme | Microsoft Docs
 description: Azure Cloud Shell'i ekleme hakkında bilgi alın.
 services: cloud-shell
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
-ms.author: juluk
-ms.openlocfilehash: 37ad0adf01172fadc6d9845576045a4542bdae19
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.author: damaerte
+ms.openlocfilehash: 4cd6eeb37eb441528e411377cf175cd950d50b04
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497799"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245804"
 ---
 # <a name="embed-azure-cloud-shell"></a>Azure Cloud Shell'i ekleme
 
@@ -52,8 +52,8 @@ Belirli bir kabuk deneyimi URL'nizi geliştirerek ayarlayın.
 |Deneyimi   |URL'si   |
 |---|---|
 |Son kullanılan Kabuğu   |[shell.azure.com](https://shell.azure.com)           |
-|Bash                       |[Shell.Azure.com/bash](https://shell.azure.com/bash)       |
-|PowerShell                 |[Shell.Azure.com/PowerShell](https://shell.azure.com/powershell) |
+|Bash                       |[shell.azure.com/bash](https://shell.azure.com/bash)       |
+|PowerShell                 |[shell.azure.com/powershell](https://shell.azure.com/powershell) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Bash cloud Shell hızlı başlangıçta](quickstart.md)<br>

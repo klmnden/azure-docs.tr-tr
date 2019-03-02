@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: 98b2c0bc27336e9ee5fe9aaf6332d9854e9af4de
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5689cdb2e9f8028f8e1e05a9b43cc00719701fce
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650300"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213917"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -231,6 +231,26 @@ VNet eşlemesi (veya sanal ağ eşlemesi) sanal ağları bağlamanıza olanak sa
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Farklı bir bölgede bir VNet eşleme bağlantısı oluşturabilir miyim?
 Evet. Küresel VNet eşlemesi, farklı bölgelerdeki sanal ağları eşlemenize olanak sağlar. Küresel VNet eşlemesi tüm genel Azure bölgeleri ve Çin bulut bölgelerinde kullanılabilir. Ulusal bulut bölgeleri için Azure ortak bölgelerden genel eş olamaz. Genel eşleme kamu bulutunda şu anda kullanılamıyor.
+
+### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Genel sanal ağ eşleme ve yük Dengeleyiciler ile ilgili sınırlamalar nelerdir?
+İki sanal ağ farklı bölgede (genel sanal ağ eşleme), temel yük dengeleyici kullanan kaynaklara bağlanamıyor. Standard Load Balancer kullanan kaynaklara bağlanabilir.
+Küresel VNet eşlemesi bunlara kuramayan anlamına temel yük dengeleyicileri aşağıdaki kaynakları kullanın:
+- Temel yük dengeleyici arkasındaki VM'ler
+- Temel yük Dengeleyiciler ile sanal makine ölçek kümeleri 
+- Redis Cache 
+- Uygulama ağ geçidi (v1) SKU
+- Service Fabric
+- SQL her zaman açık
+- SQL MI
+- API yönetimini
+- EKLER
+- Logic Apps
+- HD Insight
+-   Azure Batch
+- AKS
+- App Service Ortamı
+
+Bu kaynağı ExpressRoute veya VNet-VNet VNet ağ geçitleri aracılığıyla aracılığıyla bağlanabilirsiniz.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>My sanal ağlar farklı Azure Active Directory Kiracı içindeki aboneliklere ait sanal ağ eşlemesi etkinleştirebilirim?
 Evet. Farklı Azure Active Directory kiracıları için aboneliklerinizi aitse (yerel veya genel olup olmadığını) VNet eşlemesini oluşturmak mümkündür. PowerShell veya CLI bunu yapabilirsiniz. Portal henüz desteklenmiyor.

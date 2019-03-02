@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/28/2018
 ms.author: diberry
-ms.openlocfilehash: 0e06857fe45b81bcb6696c29b6a3e07a6587a95b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7f2808913178eb1d9a3de78b9f4948ee8031e4f4
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874677"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214427"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Yüzde bir LUIS uygulaması için önceden oluşturulmuş varlık
 Yüzde numaraları kesir olarak görünebilir `3 1/2`, veya yüzde olarak `2%`. Bu varlık zaten eğitildi çünkü uygulama ıntents percentage içeren örnek Konuşma ekleme gerekmez. Yüzde varlık içerisinde desteklendiği [çok kültür](luis-reference-prebuilt-entities.md). 

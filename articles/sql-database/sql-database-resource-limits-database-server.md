@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 670ca1b8ba16122d4e969a41f8679e1a6d1b27c6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/01/2019
+ms.openlocfilehash: 011aa97d44a92feced7328b2bd014395d2c5b765
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990113"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246707"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL veritabanı sunucusu için SQL veritabanı kaynak limitleri
 
@@ -73,6 +73,29 @@ Oturum veya çalışan yüksek kullanım ile karşılaşıldığında, risk azal
 
 - Artan hizmet katmanı veya boyutu veritabanınız veya elastik havuzun işlem. Bkz: [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) ve [ölçeğini elastik havuz kaynakları](sql-database-elastic-pool-scale.md).
 - İşlem kaynakları için Çekişme nedeniyle artan çalışan kullanımı nedenini ise, her sorgu, kaynak kullanımını azaltmak için en iyi duruma getirme sorgular. Daha fazla bilgi için [sorgu ayarlama/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+
+### <a name="transaction-log-rate-governance"></a>İşlem günlüğü oranı idare 
+İşlem günlüğü oranı idare ekleme bir işlem toplu gibi iş yükleri için yüksek alma oranlarını sınırlamak için kullanılan Azure SQL veritabanında SELECT INTO ve dizin oluşturur ' dir. Bu limitler izlenir ve günlük kaydı oluşturma hızı için saniyeden düzeyinde zorunlu, kaç tane IOs bakılmaksızın sınırlama aktarım hızı, veri dosyalarını karşı verilebilir.  İşlem günlüğü nesil hızları şu anda doğrusal olarak donanım bağımlı olduğu bir noktaya kadar ölçeklendirme, en büyük günlük ile oranı ile satın alma modeli vcore değeri, 48 MB/sn olan izin. 
+
+> [!NOTE]
+> İşlem günlüğü dosyaları gerçek fiziksel IOs kapsamındadır veya sınırlı değildir. 
+
+Günlük oranlarını elde edilebilmeleri ve genel sistem, kullanıcı yükü simge durumuna küçültülmüş etkisi işlevselliğini tutabilirsiniz ancak senaryoları, çeşitli Sürdürülen şekilde ayarlanır. Günlük oran idare, işlem günlüğü yedeklemeleri yayımlanan kurtarılabilirliği SLA'lar içinde kalmasını sağlar.  Bu idare aşırı bir biriktirme listesi üzerinde ikincil çoğaltmaları ayrıca önler.
+
+Günlük kayıtlarının oluşturulma gibi her işlem değerlendirilir ve olup olmadığı, en çok istenen günlük fiyatı (MB/sn / saniye) sürdürmek için geciktirileceğini için değerlendirilen. Günlük kayıtlarını yerine depolama alanına Temizlenen olduğunda gecikmeleri günlük oran idare günlüğü oranı oluşturma işlemi sırasında kendisini uygulanan eklenmez.
+
+Gerçek günlük oluşturma zamanında uygulanan ücretler sistemin sabitlenmesini için geçici olarak izin verilen günlük oranlar azaltma geri bildirim mekanizmaları tarafından etkilenebilir. İçine çoğaltma mekanizması günlük alanı koşulu ve kullanılabilirlik grubu dışında çalışan önleme, günlük dosyası alanı yönetimi, genel sistem sınırları geçici olarak düşürebilir. 
+
+Aşağıdaki bekleme türleri günlük oran İdarecisi, trafik şekillendirme yapılandırmalarla kullanıma (içinde kullanıma sunulan [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+
+| Tür bekleyin | Notlar |
+| :--- | :--- |
+| LOG_RATE_GOVERNOR | Veritabanı sınırlama |
+| POOL_LOG_RATE_GOVERNOR | Havuz sınırlama |
+| INSTANCE_LOG_RATE_GOVERNOR | Örnek düzeyi sınırlama |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Geri bildirim denetimi, kullanılabilirlik grubu fiziksel Çoğaltmada Premium/iş kritik tutmaktan değil |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Günlük alanı koşulu dışı önlemek için oranları sınırlama, geri bildirim denetimi |
+||||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

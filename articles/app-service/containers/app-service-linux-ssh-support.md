@@ -4,8 +4,8 @@ description: Linux üzerinde Azure App Service ile SSH kullanma hakkında bilgi 
 keywords: Azure app service, web uygulaması, linux, oss
 services: app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: wesmc
+ms.date: 02/25/2019
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 9a05769b4cfd4bcaca0df9e1af1816d99f78bc62
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3b3a4b6767855fa2f7ba595072b187b7a8bff400
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984486"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216008"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service için SSH desteği
 
@@ -111,18 +111,6 @@ TCP, tünel kullanarak bir geliştirme makineniz ve kapsayıcılar için Web uyg
 
 Başlamak için yüklemeniz gerekir [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI'yı yüklemeden nasıl çalıştığını görmek için [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Çalıştırarak en son uygulama hizmeti uzantısı Ekle [az uzantısı ekleme](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
-
-```azurecli-interactive
-az extension add --name webapp
-```
-
-Zaten çalıştırırsanız, `az extension add` önce çalıştırmak [az uzantı güncelleştirmesinin](/cli/azure/extension?view=azure-cli-latest#az-extension-update) bunun yerine:
-
-```azurecli-interactive
-az extension update --name webapp
-```
-
 Uygulamayı kullanarak uzak bir bağlantı açmak [az webapp uzaktan bağlantı oluşturma](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) komutu. Belirtin  _\<abonelik\_kimliği >_,  _\<grubu\_adı >_ ve \_< app\_adı > _ uygulamanız için.
 
 ```azurecli-interactive
@@ -167,7 +155,7 @@ A P P   S E R V I C E   O N   L I N U X
 0e690efa93e2:~#
 ```
 
-Şimdi, Bağlayıcınızı bağlanır. 
+Şimdi, Bağlayıcınızı bağlanır.  
 
 Çalıştırmayı deneyin [üst](https://ss64.com/bash/top.html) komutu. İşlem, uygulamanızın işlem görebilmeniz gerekir. Aşağıdaki örnek çıktıda, sahip olduğu `PID 263`.
 

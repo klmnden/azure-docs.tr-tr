@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: a4f84d6e61d3a100f952908883e6eb70d81f66b2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: f79ba9ae60454d4e73c914fc1c8af675a6d07d5d
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998812"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245837"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Azure güvenlik ve uyumluluk planı - 800-171 NIST SP için veri analizi
 
@@ -50,9 +50,8 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Daha fazla bilgi için [
 - Azure Event Grid
 - Azure İşlevleri
 - Azure Key Vault
-- Azure Log Analytics
 - Azure Machine Learning
-- Azure İzleyici
+- Azure İzleyici (günlük)
 - Azure Güvenlik Merkezi
 - Azure SQL Database
 - Azure Storage
@@ -65,26 +64,26 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Daha fazla bilgi için [
 ## <a name="deployment-architecture"></a>Dağıtım mimarisi
 Aşağıdaki bölümde dağıtım ve uygulama öğeleri ayrıntılı olarak açıklanmaktadır.
 
-**Azure Event Grid**: ile [Event Grid](https://docs.microsoft.com/azure/event-grid/overview), müşterilerin kolayca olay tabanlı mimariler ile uygulama oluşturun. Kullanıcılar, abone olmak istediğiniz Azure kaynağını seçin. Ardından, olay işleyicisi veya Web kancası olayı göndermek için bir uç nokta sağlar. Müşteriler, bir olay aboneliği oluşturmak için Web kancası URL'si sorgu parametreleri ekleyerek Web kancası uç noktalarını güvenli hale getirebilirsiniz. Event Grid yalnızca HTTPS Web kancası uç noktaları destekliyor. Event Grid ile müşteriler, çeşitli yönetim işlemlerini yapmak için farklı kullanıcılara verilen erişim düzeyini denetleyebilirsiniz. Kullanıcılar, olay abonelikleri listesi, yenilerini oluşturabilir ve anahtarları oluşturun. Event Grid, Azure RBAC kullanır.
+**Azure Event grid'i**: İle [Event Grid](https://docs.microsoft.com/azure/event-grid/overview), müşterilerin kolayca olay tabanlı mimariler ile uygulama oluşturun. Kullanıcılar, abone olmak istediğiniz Azure kaynağını seçin. Ardından, olay işleyicisi veya Web kancası olayı göndermek için bir uç nokta sağlar. Müşteriler, bir olay aboneliği oluşturmak için Web kancası URL'si sorgu parametreleri ekleyerek Web kancası uç noktalarını güvenli hale getirebilirsiniz. Event Grid yalnızca HTTPS Web kancası uç noktaları destekliyor. Event Grid ile müşteriler, çeşitli yönetim işlemlerini yapmak için farklı kullanıcılara verilen erişim düzeyini denetleyebilirsiniz. Kullanıcılar, olay abonelikleri listesi, yenilerini oluşturabilir ve anahtarları oluşturun. Event Grid, Azure RBAC kullanır.
 
 **Azure işlevleri**: [Azure işlevleri](https://docs.microsoft.com/azure/azure-functions/functions-overview) kod üzerine çalışan bir sunucusuz işlem hizmetidir. Açıkça sağlamak veya altyapıyı yönetmek zorunda değilsiniz. Çok çeşitli olaylara yanıt olarak bir komut dosyası veya kod parçası çalıştırmak için Azure İşlevleri’ni kullanın.
 
-**Azure Machine Learning hizmeti**: [Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) mevcut verileri gelecekteki davranışları, sonuçları ve eğilimleri öngörmelerini sağlayan bir veri bilimi tekniğidir.
+**Azure Machine Learning hizmeti**: [Makine öğrenimi](https://docs.microsoft.com/azure/machine-learning/service/) mevcut verileri gelecekteki davranışları, sonuçları ve eğilimleri öngörmelerini sağlayan bir veri bilimi tekniğidir.
 
-**Azure veri Kataloğu**: [veri Kataloğu](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) veri kaynaklarını bulma ve verileri yöneten kullanıcılar tarafından anlamak daha kolay hale getirir. Genel veri kaynakları, etiketlenmiş ve veriler için Aranan kayıtlı. Veri kalırken, meta veri kopyası mevcut konumunda, veri Kataloğu'na eklenir. Veri kaynağı konumuna yönelik bir başvuru bulunur. Meta veriler, her veri kaynağı arama yoluyla bulmasını kolaylaştırmak üzere dizine alınır. Dizin oluşturma anlaşılır bulan kullanıcılar için kolaylaştırır.
+**Azure veri Kataloğu**: [Veri Kataloğu](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) veri kaynaklarını bulma ve verileri yöneten kullanıcılar tarafından anlamak daha kolay hale getirir. Genel veri kaynakları, etiketlenmiş ve veriler için Aranan kayıtlı. Veri kalırken, meta veri kopyası mevcut konumunda, veri Kataloğu'na eklenir. Veri kaynağı konumuna yönelik bir başvuru bulunur. Meta veriler, her veri kaynağı arama yoluyla bulmasını kolaylaştırmak üzere dizine alınır. Dizin oluşturma anlaşılır bulan kullanıcılar için kolaylaştırır.
 
 ### <a name="virtual-network"></a>Sanal ağ
 Bu başvuru mimarisi, özel bir sanal ağ ile bir 10.0.0.0/16 adres alanı tanımlar.
 
-**Ağ güvenlik grupları**: [ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) izin veren veya bir sanal ağ içinde trafiği reddeden erişim denetim listeleri (Nsg'ler) içerir. Nsg bir alt ağ veya tek tek sanal makine düzeyinde trafiği güvenli hale getirmek için kullanılabilir. Aşağıdaki Nsg'ler mevcuttur:
+**Ağ güvenlik grupları**: [Ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) izin veren veya bir sanal ağ içinde trafiği reddeden erişim denetim listeleri (Nsg'ler) içerir. Nsg bir alt ağ veya tek tek sanal makine düzeyinde trafiği güvenli hale getirmek için kullanılabilir. Aşağıdaki Nsg'ler mevcuttur:
   - Active Directory için bir NSG
   - İş yükü için bir NSG
 
 Her nsg belirli bağlantı noktalarına sahiptir ve çözüm güvenli bir şekilde ve doğru bir şekilde çalışabilmek protokollerini açın. Ayrıca, aşağıdaki yapılandırmalar her NSG için etkinleştirilir:
   - [Tanılama günlüklerini ve olayları](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) etkinleştirilir ve bir depolama hesabında depolanmış
-  - Log Analytics'e bağlı olduğu [NSG'ın tanılama](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Azure İzleyici günlüklerine bağlı olduğu [NSG'ın tanılama](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
-**Alt ağlar**: her alt ağ, karşılık gelen NSG ile ilişkilidir.
+**Alt ağlar**: Her alt ağ, karşılık gelen NSG ile ilişkilidir.
 
 ### <a name="data-in-transit"></a>Aktarımdaki verileri
 Azure, Azure veri merkezleri gelen ve giden tüm iletişimi varsayılan olarak şifreler. Tüm depolama için Azure portalı üzerinden HTTPS gerçekleşir.
@@ -124,7 +123,7 @@ Mimarisi, bekleyen veri şifrelemesi, Denetim veritabanı ve diğer ölçüler v
 - Key Vault için tanılama günlükleri ile 365 gün en az bir saklama süresi etkinleştirilir.
 - Anahtarlar için izin verilen şifreleme işlemleri gerekli olanlarla sınırlıdır.
 
-**Azure Güvenlik Merkezi**: ile [Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro), müşterilerin merkezi olarak uygulama ve iş yüklerinizde güvenlik ilkelerini yönetme, sınırlama, tehditlere maruz kalma riskinizi ve algılayabilir ve saldırılara karşılık vermek. Güvenlik Merkezi, yapılandırma ve güvenlik duruşunu ve verilerin korunmasına yardımcı olmak için hizmet öneriler sağlamak üzere Azure hizmetlerinin mevcut yapılandırmaları da erişir.
+**Azure Güvenlik Merkezi**: İle [Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro), müşterilerin merkezi olarak uygulama ve iş yüklerinizde güvenlik ilkelerini yönetme, sınırlama, tehditlere maruz kalma riskinizi ve algılayabilir ve saldırılara karşılık vermek. Güvenlik Merkezi, yapılandırma ve güvenlik duruşunu ve verilerin korunmasına yardımcı olmak için hizmet öneriler sağlamak üzere Azure hizmetlerinin mevcut yapılandırmaları da erişir.
 
  Güvenlik Merkezi algılama özellikleri çeşitli ortamlarını hedefleyen potansiyel saldırılar müşteriler uyarmak için kullanır. Bu uyarılar uyarıyı neyin tetiklediği, hedeflenen kaynaklar ve saldırının kaynağı hakkındaki değerli bilgileri içerir. Güvenlik Merkezi'nde bulunan bir dizi [güvenlik uyarıları önceden tanımlanmış](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) bir tehdit veya şüpheli etkinlik başladığında tetiklenir. Müşteriler [özel uyarı kuralları](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) kendi ortamından toplanmış veriler üzerinde yeni güvenlik uyarıları tanımlamak için.
 
@@ -133,16 +132,16 @@ Mimarisi, bekleyen veri şifrelemesi, Denetim veritabanı ve diğer ölçüler v
 ### <a name="logging-and-auditing"></a>Günlüğe kaydetme ve Denetim
 
 Azure Hizmetleri, sistem ve kullanıcı etkinliğini yanı sıra, sistem durumu kapsamlı bir şekilde oturum:
-- **Etkinlik günlükleri**: [etkinlik günlüklerini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bir Abonelikteki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlükleri bir işlemin Başlatıcı belirlemek yardımcı olabilir, oluşumunu ve durum zaman.
-- **Tanılama günlükleri**: [tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) her kaynak tarafından oluşturulan tüm günlükleri içerir. Bu günlükler, Windows olayı sistem günlükleri, depolama günlükleri, anahtar kasası denetim günlüklerini ve Azure Application Gateway erişim ve güvenlik duvarı günlükleri içerir. Tüm tanılama günlükleri için merkezi ve şifrelenmiş Azure depolama hesabına arşivleme yazın. Kullanıcılar saklama süresi 730 gün belirli gereksinimleri karşılamak için en fazla yapılandırabilirsiniz.
+- **Etkinlik günlükleri**: [Etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bir Abonelikteki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlükleri bir işlemin Başlatıcı belirlemek yardımcı olabilir, oluşumunu ve durum zaman.
+- **Tanılama günlükleri**: [Tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) her kaynak tarafından oluşturulan tüm günlükleri içerir. Bu günlükler, Windows olayı sistem günlükleri, depolama günlükleri, anahtar kasası denetim günlüklerini ve Azure Application Gateway erişim ve güvenlik duvarı günlükleri içerir. Tüm tanılama günlükleri için merkezi ve şifrelenmiş Azure depolama hesabına arşivleme yazın. Kullanıcılar saklama süresi 730 gün belirli gereksinimleri karşılamak için en fazla yapılandırabilirsiniz.
 
-**Log Analytics**: günlükleri birleştirilmiş içinde [Log Analytics](https://azure.microsoft.com/services/log-analytics/) işleme, depolama ve Panosu raporlama. Veriler toplandıktan sonra Log Analytics çalışma alanları içindeki her bir veri türü için ayrı tablolar halinde düzenlenir. Bu şekilde, tüm veri ve böylece özgün kaynağına bakılmaksızın birlikte çözümlenebilir. Güvenlik Merkezi, Log Analytics ile tümleştirilebilir. Müşteriler, güvenlik olay verilerine erişmek ve diğer hizmetlerden gelen verilerle birleştirmek için Log Analytics sorgularını kullanabilirsiniz.
+**Azure İzleyici günlüklerine**: Günlükleri birleştirilmiş [Azure İzleyici günlükleri](https://azure.microsoft.com/services/log-analytics/) işleme, depolama ve Panosu raporlama. Veriler toplandıktan sonra Log Analytics çalışma alanları içindeki her bir veri türü için ayrı tablolar halinde düzenlenir. Bu şekilde, tüm veri ve böylece özgün kaynağına bakılmaksızın birlikte çözümlenebilir. Güvenlik Merkezi, Azure İzleyici günlükleri ile tümleştirilir. Müşteriler, güvenlik olay verilerine erişmek ve diğer hizmetlerden gelen verilerle birleştirmek için Kusto sorguları kullanabilirsiniz.
 
-Aşağıdaki Log Analytics [yönetim çözümleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Bu mimarinin bir parçası olarak dahil edilir:
--   [Active Directory değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory sistem durumu denetimi çözümü risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir. Bu, Önceliklendirilmiş öneriler için dağıtılan sunucu altyapısı belirli listesini sağlar.
-- [SQL değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL sistem durumu denetimi çözümü risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir. Müşteriler, Önceliklendirilmiş öneriler için dağıtılan sunucu altyapısı belirli listesini sağlar.
-- [Aracı sistem durumu](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): aracı durumu çözümü, kaç aracının dağıtılır ve kullanıcıların coğrafi dağılımı raporlar. Ayrıca, kaç aracının yanıt vermeyen ve işletimsel verileri gönderme aracı sayısını raporlar.
--   [Etkinlik günlüğü analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Activity Log Analytics çözümünü, bir müşteri için tüm Azure abonelikleri arasında Azure etkinlik günlüklerini analiziyle destekler.
+Aşağıdaki Azure [izleme çözümleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Bu mimarinin bir parçası olarak dahil edilir:
+-   [Active Directory değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory sistem durumu denetimi çözümü, risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir. Bu, Önceliklendirilmiş öneriler için dağıtılan sunucu altyapısı belirli listesini sağlar.
+- [SQL değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL sistem durumu denetimi çözümü, risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir. Müşteriler, Önceliklendirilmiş öneriler için dağıtılan sunucu altyapısı belirli listesini sağlar.
+- [Aracı sistem durumu](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): Aracı durumu çözümü, kaç aracının dağıtılır ve kullanıcıların coğrafi dağılımı bildirir. Ayrıca, kaç aracının yanıt vermeyen ve işletimsel verileri gönderme aracı sayısını raporlar.
+-   [Etkinlik günlüğü analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Etkinlik günlüğü analizi çözümü, bir müşteri için tüm Azure abonelikleri arasında Azure etkinlik günlüklerini analiziyle yardımcı olur.
 
 **Azure Otomasyonu**: [Otomasyon](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) runbook'ları yöneten depolar ve çalıştırır. Bu çözümde, SQL veritabanı'ndan günlüklerini toplama runbook'ları yardımcı olur. Müşteriler, Otomasyon kullanabileceğiniz [değişiklik izleme](https://docs.microsoft.com/azure/automation/automation-change-tracking) ortamındaki değişiklikler kolayca belirlemek için çözüm.
 

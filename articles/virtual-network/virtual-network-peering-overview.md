@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c1693b6e5ef9abbd1c72c10581a9f36325cf6478
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958193"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244001"
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
 
-Sanal ağ eşlemesi sayesinde iki Azure [sanal ağına](virtual-networks-overview.md) sorunsuz bir şekilde bağlanabilirsiniz. Eşleme yapıldıktan sonra, bağlantı açısından sanal ağlar tek bir sanal ağ gibi görünür. Eşlenen sanal ağlarda bulunan sanal makineler arasındaki trafik, Microsoft omurga altyapısı aracılığıyla tıpkı sanal ağdaki sanal makineler arasında olduğu gibi yalnızca *özel* IP adresleri üzerinden yönlendirilir. Azure’ın destekledikleri:
+Sanal Ağ eşlemesi sayesinde Azure sorunsuz bir şekilde bağlanmak [sanal ağlar](virtual-networks-overview.md). Eşleme yapıldıktan sonra, bağlantı açısından sanal ağlar tek bir sanal ağ gibi görünür. Eşlenen sanal ağlarda bulunan sanal makineler arasındaki trafik, Microsoft omurga altyapısı aracılığıyla tıpkı sanal ağdaki sanal makineler arasında olduğu gibi yalnızca *özel* IP adresleri üzerinden yönlendirilir. Azure’ın destekledikleri:
 * Sanal ağ eşleme - aynı Azure bölgesindeki sanal ağları bağlama
 * Genel sanal ağ eşleme - Azure bölgeleri arasında sanal ağları bağlama
 
@@ -78,7 +78,7 @@ Ayrıca deneyebilirsiniz [sanal ağ eşleme sorunları için sorun giderici](htt
 ## <a name="requirements-and-constraints"></a>Gereksinimler ve kısıtlamalar
 
 Yalnızca, sanal ağlar genel olarak eşlenmiş aşağıdaki kısıtlamalar uygulanır:
-- Bir sanal ağ içindeki kaynaklar, genel olarak eşlenen sanal ağın Azure iç yük dengeleyicisinin ön uç IP adresiyle iletişim kuramaz. Yük dengeleyiciyle iletişim kuran kaynakların aynı bölgede olması gerekir.
+- Bir sanal ağ içindeki kaynaklarla genel olarak eşlenmiş sanal ağdaki bir iç temel yük dengeleyicinin ön uç IP adresi ile iletişim kuramıyor. Temel yük dengeleyici desteği yalnızca aynı bölge içinde bulunmaktadır. Standard Load Balancer için destek her ikisi için de genel sanal ağ eşleme ve VNet eşlemesi yok. 
 - Uzak ağ geçitlerini kullanamaz veya ağ geçidi geçişine izin veremezsiniz. Uzak ağ geçitlerini kullanmak veya ağ geçidi geçişine izin vermek için eşlenen sanal ağların aynı bölgede olması gerekir.
 
 Gereksinimler ve kısıtlamalar hakkında daha fazla bilgi edinmek için bkz. [Sanal ağ eşleme gereksinimleri ve kısıtlamaları](virtual-network-manage-peering.md#requirements-and-constraints). Bir sanal ağ için oluşturabileceğiniz eşleme sayısı sınırları hakkında bilgi edinmek için bkz. [Azure ağ sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 

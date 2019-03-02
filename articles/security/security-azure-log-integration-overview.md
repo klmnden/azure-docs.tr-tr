@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 7b06d7bb85e7445f50956a003e46542062b09165
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c644d81b647fc1151b10a94fb636e3eeaba1ce5c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118284"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245055"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Azure günlük tümleştirmesine giriş
 
@@ -61,7 +61,7 @@ Diğer bir seçenek kullanılabilir Azure günlük tümleştirmesi kullanmayı d
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | Geçiş başlamak [Splunk için Azure İzleyici eklentisi](https://splunkbase.splunk.com/app/3534/). | Kullanım [Splunk bağlayıcı](https://splunkbase.splunk.com/app/3534/). |
 |**QRadar** | Geçiş veya son kısmında belgelenen QRadar bağlayıcıyı kullanmaya başlamak [Stream dış bir araç tarafından izleme verileri tüketim için olay hub'ına Azure](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). | Son bölümde belgelenen QRadar bağlayıcıyı kullanmak [Stream dış bir araç tarafından izleme verileri tüketim için olay hub'ına Azure](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). |
-|**ArcSight** | Azure günlük Tümleştiricisini bağlayıcı kullanılabilir hale gelene kadar kullanmaya devam edin ve ardından bağlayıcı tabanlı bir çözüm geçirin.  | Alternatif olarak Azure Log Analytics kullanmayı düşünün. Yerleşik bağlayıcı kullanıma sunulduğunda geçiş sürecinde Git iradeye sahip değilseniz Azure günlük tümleştirmesi için kullanmayın. |
+|**ArcSight** | Azure günlük Tümleştiricisini bağlayıcı kullanılabilir hale gelene kadar kullanmaya devam edin ve ardından bağlayıcı tabanlı bir çözüm geçirin.  | Alternatif olarak Azure İzleyici günlüklerine kullanmayı düşünün. Yerleşik bağlayıcı kullanıma sunulduğunda geçiş sürecinde Git iradeye sahip değilseniz Azure günlük tümleştirmesi için kullanmayın. |
 
 > [!NOTE]
 > Azure günlük tümleştirmesi ücretsiz bir çözüm olsa da, günlük dosya bilgileri depolama ile ilişkili Azure depolama maliyeti yoktur.

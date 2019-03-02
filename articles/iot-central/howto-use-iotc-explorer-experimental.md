@@ -3,17 +3,17 @@ title: Cihaz bağlantısı Azure IOT Central Gezgini'ni kullanarak izleme
 description: Cihaz iletileri izlemeye ve IOT Central Explorer CLI aracılığıyla cihaz ikizi değişiklikleri gözlemleyin.
 author: viv-liu
 ms.author: viviali
-ms.date: 09/12/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e510cfbd89ab8dcd8dccd9a8b95a49a057c9b54f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ace8eedf4b6f03c839fc2da7469e5e9c36bc5cae
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824299"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213339"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Cihaz bağlantısı Azure IOT Central Gezgini'ni kullanarak izleme
 
@@ -21,59 +21,61 @@ ms.locfileid: "55824299"
 
 Cihazlarınızı IOT Central göndermek ve IOT hub'ı ikizindeki değişiklikleri gözlemlemek iletilerini görmek için IOT Central Explorer CLI kullanın. Cihaz bağlantısı durumunu daha derin bir anlayış kazanmak ve bulutta veya cihaz ikizi değişiklikleri vermiyor ulaşmasını değil cihaz iletilerini sorunları tanılamak için bu açık kaynaklı araç kullanabilirsiniz.
 
-## <a name="visit-the-iotc-explorer-repo-in-githubhttpsakamsiotciotcexplorercligithub"></a>[GitHub iotc Gezgini depoda ziyaret edin](https://aka.ms/iotciotcexplorercligithub)
+[GitHub iotc Gezgini depoda ziyaret edin.](https://aka.ms/iotciotcexplorercligithub)
 
 ## <a name="prerequisites"></a>Önkoşullar
-+ Node.js sürümü 8.x veya üzeri - https://nodejs.org
-+ İotc Gezgini'nde kullanabilmeniz için bir erişim belirteci oluşturmak için bir yönetici, uygulamanızın almanız gerekir
 
-## <a name="installing-iotc-explorer"></a>İotc Gezgini yükleniyor
++ Node.js sürümü 8.x veya üzeri - https://nodejs.org
++ Yönetici, uygulamanızın iotc Gezgini'nde kullanabilmeniz için bir erişim belirteci oluşturmanız gerekir
+
+## <a name="install-iotc-explorer"></a>İotc Gezgini'ni yükleyin
 
 Yüklemek için komut satırından aşağıdaki komutu çalıştırın:
 
-```
+```cmd/sh
 npm install -g iotc-explorer
 ```
 
 > [!NOTE]
-> Genellikle birlikte yükleme komutunu çalıştırmanız gerekir `sudo` Unix benzeri ortamlarda.
+> Genellikle install komutuyla çalıştırmanız gereken `sudo` Unix benzeri ortamlarda.
 
-## <a name="running-iotc-explorer"></a>Çalışan iotc Gezgini
+## <a name="run-iotc-explorer"></a>İotc explorer'ı çalıştırın
 
-Bazı komutlar ve kullanırken çalıştırmak üzere ortak seçenekler aşağıda belirtilmiştir `iotc-explorer`. Eksiksiz bir listesi komutları ve seçenekleri görüntülemek için geçirebilirsiniz `--help` için `iotc-explorer` veya herhangi bir alt komutları.
+Aşağıdaki bölümlerde, sık kullanılan komutlar ve çalıştırdığınızda kullanabileceğiniz seçenekler açıklanmaktadır `iotc-explorer`. Eksiksiz bir listesi komutları ve seçenekleri görüntülemek için geçirmek `--help` için `iotc-explorer` veya herhangi bir alt komutları.
 
 ### <a name="login"></a>Oturum Aç
 
 Kullanmaya başlamanıza, IOT Central uygulamanızın kullanabilmeniz için bir erişim belirteci almak için bir yönetici olması gerekir. Yönetici, aşağıdaki adımları gerçekleştirir:
-1. Git **yönetim/erişim belirteçleri**. 
-1. Tıklayın **oluşturmak**.
+
+1. Gidin **Yönetim** ardından **erişim belirteçlerini**.
+1. Tıklayın **belirteç üretmek**.
     ![Erişim belirteci sayfası ekran görüntüsü](media/howto-use-iotc-explorer-experimental/accesstokenspage.png)
 
-1. Belirteç adı girip tıklayın **sonraki**, ve **belirteç değeri kopyalayın**.
+1. Belirteç adı girip tıklayın **sonraki**, ardından **kopyalama**.
     > [!NOTE]
-    > İletişim kutusunu kapatmadan önce kopyalanmalıdır için belirteç değeri yalnızca bir kez gösterilecektir. İletişim kutusu kapatıldıktan sonra hiçbir zaman yeniden gösterilir.
+    > İletişim kutusunu kapatmadan önce kopyalanmalıdır için belirteç değeri yalnızca bir kere gösterilir. İletişim kutusu kapatıldıktan sonra hiçbir zaman yeniden gösterilir.
 
     ![Erişim belirteci iletişim ekran görüntüsünü Kopyala](media/howto-use-iotc-explorer-experimental/copyaccesstoken.png)
 
-Ardından, çalıştırarak CLI için oturum açmak için bu belirteci kullanabilirsiniz:
+Belirteç için CLI'yı şu şekilde oturum açmak için kullanabilirsiniz:
 
-```sh
+```cmd/sh
 iotc-explorer login "<Token value>"
 ```
 
-Siz değil olurdu belirteç, kabuk geçmişine kalıcı, belirteç bırakabilirsiniz bulun ve bunun yerine, istendiğinde sağlayın:
+Sahip tercih ederseniz, kabuk geçmişine belirteç kalıcı, belirteç bırakabilirsiniz bulun ve bunun yerine, istendiğinde sağlayın:
 
-```
+```cmd/sh
 iotc-explorer login
 ```
 
 ### <a name="monitor-device-messages"></a>İzleyici cihaz iletileri
 
-Belirli bir cihaz veya uygulama kullanarak tüm cihazlar gelen iletileri izleyebilirsiniz `monitor-messages` komutu. Bu, gelen yeni iletiler sürekli olarak çıkarır bir izleyici başlatır.
+Belirli bir cihaz veya uygulama kullanarak tüm cihazlar gelen iletileri izleyebilirsiniz `monitor-messages` komutu. Bu komut geldikçe veren sürekli olarak yeni iletiler İzleyicisi'ni başlatır:
 
 Uygulamanızdaki tüm aygıtları izlemek için aşağıdaki komutu çalıştırın:
 
-```
+```cmd/sh
 iotc-explorer monitor-messages
 ```
 
@@ -81,13 +83,13 @@ iotc-explorer monitor-messages
 
 ![izleme iletileri komut çıktısı](media/howto-use-iotc-explorer-experimental/monitormessages.png)
 
-Belirli bir cihazdaki izlemek için yalnızca cihaz Kimliğini komutunun sonuna ekleyin:
+Belirli bir cihazdaki izlemek için yalnızca cihaz kimliğini komutunun sonuna ekleyin:
 
-```
+```cmd/sh
 iotc-explorer monitor-messages <your-device-id>
 ```
 
-Komut bir makine kullanımı daha kolay biçimde ekleyerek çıktısını bulundurabilirsiniz `--raw` komut seçeneği:
+Ekleyerek bir makine kullanımı daha kolay biçimde çıkarabilirsiniz `--raw` komut seçeneği:
 
 ```
 iotc-explorer monitor-messages --raw
@@ -97,7 +99,7 @@ iotc-explorer monitor-messages --raw
 
 Kullanabileceğiniz `get-twin` için bir IOT Central cihaz ikizi içeriğini almak için komutu. Bunu yapmak için aşağıdaki komutu çalıştırın:
 
-```
+```cmd/sh
 iotc-explorer get-twin <your-device-id>
 ```
 
@@ -107,9 +109,10 @@ iotc-explorer get-twin <your-device-id>
 
 Olduğu gibi `monitor-messages`, çıktı geçirerek daha fazla makine-kolay alabilirsiniz `--raw` seçeneği:
 
-```
+```cmd/sh
 iotc-explorer get-twin <your-device-id> --raw
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-IOT Central Gezgini'ni kullanma hakkında bilgi edindiniz, önerilen sonraki keşfetmek için adımdır [cihazları IOT Central](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+
+IOT Central Gezgini'nin nasıl kullanılacağı öğrendiniz, önerilen sonraki keşfetmek için adımdır [cihazları IOT Central](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).

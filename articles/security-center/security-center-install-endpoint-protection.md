@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1ce1faa13c541939335d188866e15c683b6ffc28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2065381063058eb59dd5896e12c1aa34184148bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110277"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247010"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Azure Güvenlik Merkezi ile uç nokta koruma sorunları yönetme
 Azure Güvenlik Merkezi, kötü amaçlı yazılımdan korunma durumunu izler ve bu uç nokta koruma sorunları dikey penceresi bildirir. Güvenlik Merkezi, algılanan tehditlere ve sanal makinelerinizi (VM) ve bilgisayarları kötü amaçlı yazılım tehditlerine karşı savunmasız hale getirebilirsiniz yetersiz koruma gibi sorunlar vurgular. Altında verilen bilgileri kullanarak **uç nokta koruma sorunları**, tanımlanan tüm sorunların ele almak için bir plan belirleyebilirsiniz.
@@ -84,13 +84,13 @@ Bu örnekte, kullanacağız **işlem**.  Azure sanal makinelerinde ve Azure hari
 
    ![Azure olmayan bilgisayarlarda yüklü olmayan Endpoint protection seçin][4]
 
-2. Altında **Endpoint protection yüklenmedi Azure dışı bilgisayarlara**, bir çalışma alanı seçin. Çalışma alanına filtrelenmiş bir Log Analytics arama sorgu açılır ve kötü amaçlı yazılımdan koruma eksik bilgisayarları listeler. Daha fazla bilgi için listeden bir bilgisayar seçin.
+2. Altında **Endpoint protection yüklenmedi Azure dışı bilgisayarlara**, bir çalışma alanı seçin. Çalışma alanına filtrelenmiş bir Azure İzleyici günlüklerine arama sorgusu açılır ve kötü amaçlı yazılımdan koruma eksik bilgisayarları listeler. Daha fazla bilgi için listeden bir bilgisayar seçin.
 
-   ![Log Analytics arama][5]
+   ![Azure İzleyici arama günlüğe kaydeder.][5]
 
 Bu bilgisayar için yalnızca filtrelenen bilgilerle başka bir arama sonucu açılır.
 
-  ![Log Analytics arama][6]
+  ![Azure İzleyici arama günlüğe kaydeder.][6]
 
 > [!NOTE]
 > Tüm VM'ler ve bilgisayarlar için belirlenmesi ve virüslerin, casus yazılımların ve diğer kötü amaçlı yazılım kaldırılmasına yardımcı olmak uç nokta koruma sağlanması öneririz.

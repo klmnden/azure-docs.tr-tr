@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7419baf99e4c508806361b408968dbf851a7f76c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 80c6e3cc29bdd6502640723385273328739d6ebb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343332"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245273"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Güvenlik Merkezi planlama ve işlemler kılavuzu
 Bu kılavuz, kurumları Azure Güvenlik Merkezi'ni kullanmayı planlayan bilgi teknolojisi (BT) uzmanları, BT mimarları, bilgi güvenlik çözümleyicileri ve bulut yöneticilerine yöneliktir.
@@ -139,7 +139,7 @@ Güvenlik Merkezi, Azure aboneliklerinizin her biri için otomatik olarak varsay
 Güvenlik ilkelerini yapılandırmadan önce her bir [güvenlik önerisini](https://docs.microsoft.com/azure/security-center/security-center-recommendations) gözden geçirip bu ilkelerin sahip olduğunuz çeşitli abonelikler ve kaynak grupları için uygun olup olmadığını belirleyin. Güvenlik Önerilerini ele almak için hangi eylemlerde bulunulacağını ve kuruluşunuzda yeni önerileri izlemekten ve gerekli adımların atılmasından kimin sorumlu olacağını anlamak da önemlidir.
 
 ## <a name="data-collection-and-storage"></a>Veri koleksiyonu ve depolama
-Azure Güvenlik Merkezi, sanal makinelerinizden güvenlik verilerini toplamak için Microsoft Monitoring Agent’ı (Log Analytics hizmeti tarafından kullanılan aracının aynısı) kullanır. Bu aracıdan [toplanan veriler](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection), Log Analytics çalışma alanlarınızda depolanır.
+Azure Güvenlik Merkezi, Microsoft Monitoring Agent kullanır: sanal makinelerinizden güvenlik verilerini toplamak için Azure İzleyici hizmeti tarafından kullanılan aracının aynısı budur. Bu aracıdan [toplanan veriler](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection), Log Analytics çalışma alanlarınızda depolanır.
 
 ### <a name="agent"></a>Aracı
 

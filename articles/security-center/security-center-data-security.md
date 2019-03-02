@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: af3cc229482021fe6d5e5c988bc98afe6f7f97ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 165617270bef58f7a92fab0adc75c916129ef317
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114170"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242709"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Güvenlik Merkezi Veri Güvenliği
 Müşterilerin tehditleri önlemesine, algılamasına ve yanıt vermesine yardımcı olmak amacıyla Azure Güvenlik Merkezi, güvenlikle ilgili veriler, meta veriler, olay günlükleri, kilitlenme dökümü dosyaları ve diğer verileri toplar ve işler. Microsoft kodlamadan hizmet çalıştırma konularına kadar her alanda uyumluluk ve güvenlik yönergelerine kesin olarak bağlı kalmaktadır.
@@ -76,7 +76,7 @@ Azure Güvenlik Merkezi Ücretsiz sürümünü kullanıyorsanız Güvenlik İlke
 Müşteriler, farklı veri akışlarındaki Güvenlik Merkezi ile ilişkili verileri aşağıda gösterildiği gibi kullanabilir:
 
 * **Azure Etkinliği**: Tüm güvenlik uyarıları, onaylı Güvenlik Merkezi [uyarlamalı uygulama denetimleri](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) tarafından oluşturulan [zamanında](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) istekler ve tüm uyarılar.
-* **Log Analytics**: Tüm güvenlik uyarıları.
+* **Azure İzleyici günlüklerine**: tüm güvenlik uyarıları.
 
 
 > [!NOTE]

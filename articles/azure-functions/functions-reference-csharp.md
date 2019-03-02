@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 0a0d003f3d78c6d18938e9c87dd4862f7429d55b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4ef16a932eb50294ff3d1596873295d82f8d894e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728701"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241486"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure işlevleri C# betiği (.csx) Geliştirici Başvurusu
 
@@ -376,7 +376,7 @@ Bölümüne bakın işlevi klasörünüze dosyaları karşıya yükleme hakkınd
 İşlev komut dosyasını içeren dizine otomatik olarak değişiklikler derlemeler için izlenen. Diğer dizinlerde derleme değişiklikleri izlemek üzere bunları Ekle `watchDirectories` listesinde [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>NuGet paketlerini kullanma
-NuGet paketlerini kullanmak için bir C# işlev, karşıya bir *function.proj* işlevin klasörüne işlevi uygulamanın dosya sisteminde dosya. İşte bir örnek *function.proj* bir başvuru ekler dosya *Microsoft.ProjectOxford.Face* sürüm *1.1.0*:
+NuGet paketlerini bir 2.x kullanacak şekilde C# işlev, karşıya bir *function.proj* işlevin klasörüne işlevi uygulamanın dosya sisteminde dosya. İşte bir örnek *function.proj* bir başvuru ekler dosya *Microsoft.ProjectOxford.Face* sürüm *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -390,19 +390,36 @@ NuGet paketlerini kullanmak için bir C# işlev, karşıya bir *function.proj* i
 </Project>
 ```
 
-Akışta bir özel NuGet akışı kullanmak için belirtin bir *Nuget.Config* işlev uygulaması kök dosyasında. Daha fazla bilgi için [yapılandırma NuGet davranışını](/nuget/consume-packages/configuring-nuget-behavior).
+Akışta bir özel NuGet akışı kullanmak için belirtin bir *Nuget.Config* işlev uygulaması kök dosyasında. Daha fazla bilgi için [yapılandırma NuGet davranışını](/nuget/consume-packages/configuring-nuget-behavior). 
 
-### <a name="using-a-extensionscsproj-file"></a>Extensions.csproj dosyası kullanma
+> [!NOTE]
+> 1.x içinde C# İşlevler, NuGet paketlerini başvurulan bir *project.json* yerine dosya bir *function.proj* dosya.
+
+1.x işlevleri için bir *project.json* bunun yerine dosya. İşte bir örnek *project.json* dosyası: 
+
+```json
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "Microsoft.ProjectOxford.Face": "1.1.0"
+      }
+    }
+   }
+}
+```
+
+### <a name="using-a-functionproj-file"></a>Function.proj dosyası kullanma
 
 1. İşlevi Azure portalında açın. Günlükleri sekmesi, paket yükleme çıkış görüntüler.
-2. Karşıya yüklenecek bir *extensions.csproj* dosya, açıklanan yöntemlerden birini kullanın [işlevi uygulama dosyalarını nasıl güncelleştireceğinizi](functions-reference.md#fileupdate) Azure işlevleri Geliştirici Başvurusu konusunda.
-3. Sonra *extensions.csproj* dosyası, işlevinizde aşağıdaki örnekte olduğu gibi çıkış günlüğü akış bakın:
+2. Karşıya yüklenecek bir *function.proj* dosya, açıklanan yöntemlerden birini kullanın [işlevi uygulama dosyalarını nasıl güncelleştireceğinizi](functions-reference.md#fileupdate) Azure işlevleri Geliştirici Başvurusu konusunda.
+3. Sonra *function.proj* dosyası, işlevinizde aşağıdaki örnekte olduğu gibi çıkış günlüğü akış bakın:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
 2018-12-14T22:00:48.681 [Information] Starting packages restore
 2018-12-14T22:00:57.064 [Information] Restoring packages for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj...
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\function.proj...
 2018-12-14T22:01:00.844 [Information] Installing Newtonsoft.Json 10.0.2.
 2018-12-14T22:01:01.041 [Information] Installing Microsoft.ProjectOxford.Common.DotNetStandard 1.0.0.
 2018-12-14T22:01:01.140 [Information] Installing Microsoft.ProjectOxford.Face.DotNetStandard 1.0.0.

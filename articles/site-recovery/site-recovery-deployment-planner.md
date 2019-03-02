@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/01/2019
 ms.author: mayg
-ms.openlocfilehash: 4d4ddcdd025a040c84be66b1a36803645c839121
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 55ccfd17a39a19bec01924e263d8f4892bd6101d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206230"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216756"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery dağıtım planlayıcısı hakkında vmware'den azure'a
 Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.

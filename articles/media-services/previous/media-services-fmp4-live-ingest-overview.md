@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/03/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6de31da1809173fb5fae1abcde47861ed7542f31
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984843"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240278"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>Azure Media Services bölünmüş MP4 Canlı içe alma belirtimi (eski)
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services bölünmüş MP4 Canlı içe alma belirtimi 
 
 Bu belirtim protokolü ve parçalanmış MP4 tabanlı canlı akış alımı için Azure Media Services için biçimini açıklar. Media Services müşterileri, etkinliklerin canlı akış ve bulut platformu olarak Azure'u kullanarak gerçek zamanlı olarak içerik yayın için kullanabileceğiniz bir canlı akış hizmeti sağlar. Bu belge, ayrıca en iyi anlatılmaktadır Canlı düzeyde yedekli ve sağlam oluşturmaya yönelik yöntemler alma mekanizmaları.
 

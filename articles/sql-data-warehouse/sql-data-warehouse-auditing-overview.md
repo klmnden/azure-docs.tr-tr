@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: d2093c5b4c07e6e62df4d1f52a7fbe6e12a91ea0
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342313"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217062"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda denetleme
 
@@ -131,7 +131,7 @@ Blob günlükleri denetleme görüntülemek için kullanabileceğiniz birkaç y�
 
     4. Ssms'de, burada, görüntülemek ve analiz edin, yapabilir XEL'e bakın veya CSV dosyasına veya bir tabloya dışarı birleştirilmiş dosyayı açar.
 
-* Kullanım [eşitleme uygulama](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) , oluşturduk. Bu, Azure'da çalışan ve SQL denetim günlüklerini Log Analytics'e göndermek için Log Analytics genel API'leri kullanır. Eşitleme uygulama SQL denetim günlüklerini Log Analytics'e tüketimi için Log Analytics Panosu iter.
+* Kullanım [eşitleme uygulama](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) , oluşturduk. Azure'da çalışan ve log analytics kullanan Azure İzleyici günlüklerine SQL göndermek için ortak API'ler denetim günlükleri. Eşitleme uygulama SQL denetim günlüklerini log analytics Panosu tüketim için Azure İzleyici günlüklerine içine iter.
 
 * Power BI'ı kullanın. Görüntüleyebilir ve denetim günlüğü verilerini Power bı'da çözümleyin. Daha fazla bilgi edinin [Power BI ve indirilebilir bir şablon erişim](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 

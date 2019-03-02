@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 81bd34cdbe35f3e12d5afddc929b0fac7631f4cc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bec9be627937913c268d65bb6cdadcf68c7a3fb4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113082"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244307"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Azure Güvenlik Merkezi soruşturma bulunan kullanıcı verilerini yönetme
-Bu makalede, Azure Güvenlik Merkezi'nin araştırma özelliği bulunan kullanıcı verilerini yönetme hakkında bilgi sağlar. Veri araştırma depolanan [Azure Log Analytics](../log-analytics/log-analytics-overview.md) ve Güvenlik Merkezi'nde gösterilen. Kullanıcı verileri yönetmek, silme veya verileri dışarı aktarma özelliğini içerir.
+Bu makalede, Azure Güvenlik Merkezi'nin araştırma özelliği bulunan kullanıcı verilerini yönetme hakkında bilgi sağlar. Veri araştırma depolanan [Azure İzleyici günlükleri](../log-analytics/log-analytics-overview.md) ve Güvenlik Merkezi'nde gösterilen. Kullanıcı verileri yönetmek, silme veya verileri dışarı aktarma özelliğini içerir.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
@@ -58,4 +58,4 @@ Güvenlik Merkezi kullanıcı sahibi, katkıda bulunan rolü atanmış veya Hesa
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kullanıcı verileri yönetme hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde kullanıcı verilerini yönetme](security-center-privacy.md).
-Log analytics'te özel verileri silme hakkında daha fazla bilgi edinmek için [dışarı aktarın ve özel veri silme](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).
+Azure İzleyici günlüklerine içerisindeki özel verilere silme hakkında daha fazla bilgi edinmek için [dışarı aktarın ve özel veri silme](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).

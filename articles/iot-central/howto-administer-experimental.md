@@ -3,17 +3,17 @@ title: Azure IOT Central bir uygulamayı yönetme | Microsoft Docs
 description: Bir yönetici olarak Azure IOT Central uygulamanızı yönetme
 author: viv-liu
 ms.author: viviali
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b43e496323da75dfc63f889283257fac41f48abf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8989d6ef54961f5f8eea7c6d8c9d941319bd917a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117740"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215415"
 ---
 # <a name="administer-your-iot-central-application"></a>IOT Central uygulamanızı yönetme
 
@@ -44,7 +44,7 @@ Erişimi ve kullanımı **Yönetim** bölümünde olmanız gerekir **yönetici**
 Uygulama görüntüsü değiştirmek için bkz [hazırlama ve karşıya yükleme görüntüleri, Azure IOT Central uygulamasına](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ### <a name="copy-an-application"></a>Bir uygulamayı kopyalama
-Tüm cihaz örnekleri, cihaz verileri geçmişi ve kullanıcı verileri hariç herhangi bir uygulamanın bir kopyasını oluşturabilirsiniz. Kopyalama için ücret ödersiniz bir Kullandıkça Öde uygulama olacaktır. Bu şekilde deneme uygulama oluşturulamıyor.
+Tüm cihaz örnekleri, cihaz verileri geçmişi ve kullanıcı verileri hariç herhangi bir uygulamanın bir kopyasını oluşturabilirsiniz. Kopyalama için ücret ödersiniz bir Kullandıkça Öde uygulamasıdır. Bu şekilde deneme uygulama oluşturulamıyor.
 
 Tıklayın **kopyalama** düğmesi. İletişim kutusunda, yeni bir Kullandıkça Öde uygulama için ayrıntıları girin. Ardından **kopyalama** düğmesini devam etmek istediğinizi onaylayın. Bu formdaki alanları hakkında daha fazla bilgi [uygulama oluşturma](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) hızlı başlangıç.
 
@@ -62,7 +62,7 @@ Uygulama kopyalama işlemi başarılı olduktan sonra görünen bağlantıyı ku
 > [!Note]
 > Bir uygulamayı silmek için de kaynakları silmek için izinleri olmalıdır uygulama oluştururken seçtiğiniz Azure aboneliğinde. Daha fazla bilgi için bkz. [Azure abonelik kaynaklarınıza erişimi yönetmek için rol tabanlı erişim denetimini kullanma](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-Kullanım **Sil** IOT Central uygulamanız kalıcı olarak silmek için düğmeyi. Bunun yapılması, bu uygulamayla ilişkili tüm verileri kalıcı olarak siler.
+Kullanım **Sil** IOT Central uygulamanız kalıcı olarak silmek için düğmeyi. Kalıcı olarak bunu, uygulama ile ilişkili tüm verileri siler.
 
 ## <a name="manage-users"></a>Kullanıcıları yönetme
 
@@ -95,7 +95,7 @@ Kullanıcıları silmek için üzerinde bir veya daha fazla onay kutularını i�
 
 ## <a name="manage-roles"></a>Rolleri yönetme
 
-Rol, kuruluşunuzda kimlerin IOT Central çeşitli görevleri gerçekleştirebilirsiniz sağlar. Üç rol, uygulamanızın kullanıcılara atayabileceğiniz vardır. 
+Rol, kuruluşunuzda kimlerin IOT Central çeşitli görevleri gerçekleştirebilirsiniz sağlar. Üç rol, uygulamanızın kullanıcılara atayabileceğiniz vardır.
 
 ### <a name="administrator"></a>Yönetici
 
@@ -111,7 +111,6 @@ Kullanıcıların **uygulama Oluşturucusu** rolü bir uygulamada uygulamayı y�
 
 Kullanıcıların **uygulama işleci** rolü cihaz şablonlarda değişiklik yapılamıyor ve uygulamayı yönetemezsiniz. Bu işleçler eklemeyi ve silmeyi cihazları, cihaz kümeleri yönetebilir ve analiz ve işleri çalıştırma anlamına gelir. İşleçler, erişim sahibi olmaz **uygulama Oluşturucusu** ve **Yönetim** sayfaları.
 
-
 ## <a name="view-your-bill"></a>Faturanızı görüntüleyin
 
 Faturanızı görmek için Git **faturalama** sayfasını **Yönetim** bölümü. Azure faturalama sayfasını fatura uygulamaların her biri, Azure IOT Central için görebileceğiniz yeni bir sekmede açılır.
@@ -124,14 +123,14 @@ Deneme uygulamanız için bir Kullandıkça Öde uygulama dönüştürebilirsini
 - **Kullandıkça Öde** uygulamaları, ilk 5 cihaz ücretsiz olmak üzere cihaz başına ücretlendirilir.
 
 [Azure IoT Central fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/iot-central/), fiyatlar hakkında daha fazla bilgi edinin.
-    
+
 Bu Self Servis işlemi tamamlamak için aşağıdaki adımları izleyin:
 
-1. Git **faturalama** sayfasını **Yönetim** bölümü. 
+1. Git **faturalama** sayfasını **Yönetim** bölümü.
 
     ![Deneme durumu](media/howto-administer-experimental/freetrialbilling.png)
 
-1. Tıklayın **Kullandıkça Öde aboneliğine dönüştürmek**. 
+1. Tıklayın **Kullandıkça Öde aboneliğine dönüştürmek**.
 
     ![Deneme Dönüştür](media/howto-administer-experimental/convert.png)
 

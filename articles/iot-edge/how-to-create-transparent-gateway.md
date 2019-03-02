@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 7e196a912db723d5d118b0aadc98f73f1c7271e0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556229"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243763"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak görev yapacak bir IOT Edge cihazı yapılandırma
 
@@ -45,7 +45,10 @@ Bir ağ geçidi olarak yapılandırmak için Azure IOT Edge cihazı. Geliştirme
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
-Herhangi bir makine sertifikalarını oluşturmak için kullanın ve ardından bunları IOT Edge cihazınıza kopyalayabilirsiniz. 
+Herhangi bir makine sertifikalarını oluşturmak için kullanın ve ardından bunları IOT Edge cihazınıza kopyalayabilirsiniz.
+
+>[!NOTE]
+>"Bu yönergesinde sertifikaları oluşturmak için kullanılan ağ geçidi adı" adıyla aynı kullanılan IOT Edge config.yaml dosyanızdaki ana bilgisayar adı ve bağlantı dizesinde aşağı akış cihazın GatewayHostName olarak olması gerekir. "Ağ geçidi adının" IP DNS veya ana işlem dosya girdisi kullanarak bir adresine çözülebilir olması gerekir. İletişim tabanlı kullanılan protokol (MQTTS:8883 / AMQPS:5671 / HTTPS:433) aşağı akış cihaz ile IOT Edge transparant arasında mümkün olması gerekir. Bir güvenlik duvarı arasında ise, ilgili bağlantı noktasının açık olması gerekir.
 
 ## <a name="generate-certificates-with-windows"></a>Windows ile sertifikalar oluşturma
 

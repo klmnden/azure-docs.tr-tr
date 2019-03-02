@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: b05a8bfd46800c5b0b0126adcf2acb4852bb6683
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339765"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240176"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Algılama ve giderme Azure IOT Hub ile bağlantısını keser
 
@@ -54,7 +54,7 @@ Daha fazla bilgi için bkz. [Microsoft azure'da Klasik uyarılar nedir?](../azur
 
 ## <a name="resolve-connectivity-errors"></a>Bağlantı hataları çözün
 
-Tanılama günlükleri ve uyarılar bağlı cihazlar için etkinleştirdiğinizde, hata oluştuğunda uyarı alın. Bu bölümde, bir uyarı aldığınızda, sık karşılaşılan sorunları çözmek açıklar. Aşağıdaki adımları, Azure Log Analytics'i ayarlama tanılama günlükleriniz için ayarlamış olduğunuz varsayılır.
+Tanılama günlükleri ve uyarılar bağlı cihazlar için etkinleştirdiğinizde, hata oluştuğunda uyarı alın. Bu bölümde, bir uyarı aldığınızda, sık karşılaşılan sorunları çözmek açıklar. Aşağıdaki adımları, Azure İzleyici günlüklerini tanılama günlükleriniz için ayarlamış olduğunuz varsayılır.
 
 1. Çalışma alanınızı gitmek **Log Analytics** Azure portalında.
 1. Seçin **günlük arama**.

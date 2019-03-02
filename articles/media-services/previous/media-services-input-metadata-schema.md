@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 42e3464a190f296675b544e0087b664ff256f2fa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7ba5287b6214564a7be7e4b183aa8fe397bd24b8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003253"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243746"
 ---
-# <a name="input-metadata-legacy"></a>Giriş meta verileri (eski)
+# <a name="input-metadata"></a>Giriş meta verileri 
 
 Bir kodlama işi Giriş bir varlık (veya varlıklar) ile ilişkilendirilen kodlama bazı görevleri gerçekleştirmek istediğiniz üzerinde.  Bir görev tamamlandığında, çıktı varlık oluşturulur.  Çıktı varlığı video, ses, küçük resimler, bildirimi, vb. içerir. Çıktı varlığına giriş varlığı hakkındaki meta veriler içeren bir dosya da içerir. Meta veri XML dosyasının adı şu biçimdedir: &lt;asset_id&gt;_metadata.xml (örneğin, 41114ad3 eb5e - 4c 57 8d 92-5354e2b7d4a4_metadata.xml), burada &lt;asset_id&gt; AssetID değeri Giriş varlığı.  
 

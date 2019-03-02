@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0d1c2a35a6ad246eea593990c485181aa776594
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 76af36de833bc496df7c24ddb1cbfd75c91c7976
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175124"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214767"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Nasıl çalışır? Azure AD Self Servis parola sıfırlama
 
@@ -59,7 +59,7 @@ Sıfırlama sayfası parola ardındaki mantığı hakkında bilgi edinmek için 
 
 ## <a name="authentication-methods"></a>Kimlik doğrulama yöntemleri
 
-SSPR etkinleştirilirse, kimlik doğrulama yöntemleri için aşağıdaki seçeneklerden en az birini seçmeniz gerekir. Bu seçenekler "kapılarını" anılan bazen işittiğiniz Yüksek oranda olmasını öneririz, **iki veya daha fazla kimlik doğrulama yöntemlerini seçmesine** böylece kullanıcılarınız, gerektiğinde bunlar bir erişim oluşturulamıyor olması durumunda, daha fazla esnekliğine sahip olursunuz.
+SSPR etkinleştirilirse, kimlik doğrulama yöntemleri için aşağıdaki seçeneklerden en az birini seçmeniz gerekir. Bu seçenekler "kapılarını" anılan bazen işittiğiniz Yüksek oranda olmasını öneririz, **iki veya daha fazla kimlik doğrulama yöntemlerini seçmesine** böylece kullanıcılarınız, gerektiğinde bunlar bir erişim oluşturulamıyor olması durumunda, daha fazla esnekliğine sahip olursunuz. Aşağıda listelenen yöntemleri hakkında ek bilgi makalesinde bulunabilir [kimlik doğrulama yöntemleri nelerdir?](concept-authentication-methods.md).
 
 * Mobil uygulama bildirimi (önizleme)
 * Mobil uygulama kodu (önizleme)
@@ -69,6 +69,9 @@ SSPR etkinleştirilirse, kimlik doğrulama yöntemleri için aşağıdaki seçen
 * Güvenlik soruları
 
 Bunlar yönetici etkinleştirilmiş kimlik doğrulama yöntemleri mevcut verileriniz varsa, kullanıcılar yalnızca parolasını sıfırlayabilirsiniz.
+
+> [!IMPORTANT]
+> Telefon araması seçenekleri 2019'ın Mart başlangıç MFA ve SSPR kullanıcıları Azure AD ücretsiz/deneme kiracıları için kullanılabilir olmayacak. SMS iletileri, bu değişiklikten etkilenmez. Telefon Araması'nda kullanıcılara kullanılabilir Ücretli Azure AD kiracılarıyla devam eder. Bu değişiklik, yalnızca Azure AD ücretsiz/deneme kiracıları etkiler.
 
 > [!WARNING]
 > Azure yönetici rolleri atanan hesaplar bölümünde tanımlanan yöntemleri kullanmak için gerekli olacak [yönetici sıfırlama İlkesi farklar](concept-sspr-policy.md#administrator-reset-policy-differences).

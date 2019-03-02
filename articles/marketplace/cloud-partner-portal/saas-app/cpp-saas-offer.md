@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74f6d5989d86cc92371b060caf164f895b75511f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 9d8b425ff73672ce8989e235c4a2c130c763716c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263637"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213560"
 ---
 # <a name="azure-saas-application-offer"></a>SaaS uygulaması için Azure teklifi
 
@@ -36,6 +36,9 @@ Uygulamalarınızı Microsoft Marketi'nde listeleme avantajlarından bazıları 
 - Satış ekibinize genişletme: Dünya çapındaki iş kullanıcılarına ulaşmak ve ilgilenir. son kullanıcılar, müşteri adayları oluşturmanıza yardımcı olur ve yeni müşteriler olan sektörler arasında başlatan bir satış kanalını elde edin.
 
 - Eyleme dönüştürülebilir Öngörüler alınıyor: biz uygulamanızı Appsource'ta nasıl performans gösterdiğini, ne kadar iyi çalışır ve satış yordamlarınızın daha da geliştirmek nasıl Öngörüler paylaşır.
+ 
+>[!Note]
+>Bulut çözümü sağlayıcıları (CSP) iş ortağı kanalı katılımı kullanıma sunuldu.  Lütfen [bulut çözüm sağlayıcıları](../../cloud-solution-providers.md) teklifinizi Microsoft CSP aracılığıyla pazarlama hakkında daha fazla bilgi için iş ortağı kanalı.
 
 ## <a name="publishing-process-workflow"></a>Yayımlama işlemi iş akışı 
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 121011555d0ba6fdae392275495b89a9759f3978
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490390"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244273"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager şablonu en iyi uygulamaları
 
@@ -131,7 +131,7 @@ Bu bölümdeki bilgiler ile çalışırken yararlı olabilir [parametreleri](res
 
 ## <a name="variables"></a>Değişkenler
 
-İle çalışırken aşağıdaki bilgiler yararlı olabilir [değişkenleri](resource-manager-templates-variables.md):
+İle çalışırken aşağıdaki bilgiler yararlı olabilir [değişkenleri](resource-group-authoring-templates.md#variables):
 
 * Bir şablonda birden çok kez kullanmanız gereken değerler için değişkenleri kullanın. Değer yalnızca bir kez kullanılırsa, bir sabit kodlu değer şablonunuzu okuma kolaylaştırır.
 
@@ -277,7 +277,7 @@ Ne verirken [bağımlılıkları](resource-group-define-dependencies.md) ayarlam
 
 ## <a name="outputs"></a>Çıkışlar
 
-Genel IP adresleri oluşturmak için bir şablon kullanırsanız, içeren bir [çıkarır bölüm](resource-manager-templates-outputs.md) IP adresi ve tam etki alanı adı (FQDN) ayrıntılarını döndürür. Çıkış değerleri, bir kolayca dağıtımdan sonra genel IP adresleri ve FQDN'ler hakkında ayrıntıları almak için kullanabilirsiniz.
+Genel IP adresleri oluşturmak için bir şablon kullanırsanız, içeren bir [çıkarır bölüm](resource-group-authoring-templates.md#outputs) IP adresi ve tam etki alanı adı (FQDN) ayrıntılarını döndürür. Çıkış değerleri, bir kolayca dağıtımdan sonra genel IP adresleri ve FQDN'ler hakkında ayrıntıları almak için kullanabilirsiniz.
 
 ```json
 "outputs": {

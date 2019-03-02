@@ -1,10 +1,10 @@
 ---
-title: Görüntüleme, kuruluşunuz için Azure fiyatlandırması | Microsoft Docs
-description: Görüntüleyin ve fiyatlandırma indirin veya Kurumsal Anlaşma fiyatlandırması ile maliyetleri tahmin öğrenin.
+title: Görüntüleyin ve indirin, kuruluşunuzun Azure fiyatlandırması | Microsoft Docs
+description: Görüntüleyin ve fiyatlandırma indirin veya kuruluşunuzun fiyatlandırma ile maliyetleri tahmin öğrenin.
 services: ''
 documentationcenter: ''
 author: adpick
-manager: dougeby
+manager: jureid
 editor: ''
 tags: billing
 ms.service: billing
@@ -12,29 +12,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: c34b25be622cb04a2e9b8f571f60bd57d8331726
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 88d94492cb6ed3191e146f117a648293bc9e50f9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904242"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243729"
 ---
-# <a name="view-your-organizations-azure-enterprise-agreement-pricing"></a>Kuruluşunuzun Azure Kurumsal anlaşmasına fiyatlandırmayı görüntüleyin 
+# <a name="view-and-download-your-organizations-azure-pricing"></a>Görüntüleyin ve indirin, kuruluşunuzun Azure fiyatlandırması
 
-Azure müşterileri bir Kurumsal Anlaşma'ile (EA) görüntüleyebilir ve Azure portalından fiyatlandırma EA'ya indirin. Kuruluşunuzun Kurumsal Anlaşma Azure fiyatlandırma hesaplayıcısı'nı kullanarak maliyetlerini tahmin etmek için fiyatlandırma de kullanabilirsiniz.
-
-Kuruluşunuz için Kurumsal yönetici tarafından belirlenen politikalara bağlı olarak, yalnızca belirli yönetim rolleri kuruluşunuzun EA fiyatlandırma bilgilerine erişim sağlar. Daha fazla bilgi için [azure'da yönetim rolleri Azure Kurumsal anlaşmasına anlamak](billing-understand-ea-roles.md).
+Azure müşterileri bir Kurumsal Anlaşma'ile (EA) veya [Microsoft Müşteri sözleşmesi](#check-your-access-to-a-microsoft-customer-agreement) görüntüleyin ve fiyatlandırma, Azure portalından indirin. Bir Microsoft Müşteri Sözleşmemiz var olmadığını [görüntüleme ve yükleme için Microsoft Müşteri sözleşmenizi fiyatlandırma](#View-and-download-pricing-for-your-billing-profile).
 
 ## <a name="view-and-download-ea-pricing"></a>Görüntülemenize ve indirmenize EA fiyatlandırması
 
- 
-1. Bir kuruluş yöneticisi olarak oturum açın [Azure portalında](https://portal.azure.com/). 
+Kuruluşunuz için Kurumsal yönetici tarafından belirlenen politikalara bağlı olarak, yalnızca belirli yönetim rolleri kuruluşunuzun EA fiyatlandırma bilgilerine erişim sağlar. Daha fazla bilgi için [azure'da yönetim rolleri Azure Kurumsal anlaşmasına anlamak](billing-understand-ea-roles.md).
+
+1. Bir kuruluş yöneticisi olarak oturum açın [Azure portalında](https://portal.azure.com/).
 1. Arama **maliyet Yönetimi + faturalandırma**.
 
-   ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-ea-pricing/portal-cm-billing-search.png) 
+   ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-ea-pricing/portal-cm-billing-search.png)
 
 1. Faturalama hesap altında seçin **kullanım ve Ücret**.
 
@@ -45,7 +44,37 @@ Kuruluşunuz için Kurumsal yönetici tarafından belirlenen politikalara bağl�
 
    ![Fiyat listesini gösteren ekran görüntüsü csv düğmesi indirin](./media/billing-ea-pricing/download-ea-price-sheet.png)
 
-## <a name="estimate-costs-with-ea-pricing"></a>EA fiyatlandırması ile maliyetleri tahmin etme
+## <a name="view-and-download-pricing-for-your-microsoft-customer-agreement"></a>Görüntüleyin ve Microsoft Müşteri sözleşmenizi fiyatlandırma indirin
+
+Fatura Profil sahibi, katkıda bulunan, okuyucu veya fatura Yöneticisi görüntülemenizi ve indirmenizi fiyatlandırma olması gerekir. Microsoft Müşteri sözleşmesi için fatura rolleri hakkında daha fazla bilgi edinmek için bkz. [faturalama profili rolleri ve görevleri](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+### <a name="download-price-sheets-for-the-current-billing-period"></a>Geçerli fatura dönemi için fiyat listeleri indirin
+
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
+1. Faturalandırma profili seçin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir.
+1. İçinde **genel bakış** dikey penceresinde, indirme bağlantıları ay başından bu yana ücretleri altında bulabilirsiniz.
+1. Seçin **Azure fiyat**.
+![Genel Bakış'tan indirmeyi gösteren ekran görüntüsü](./media/billing-ea-pricing/open-pricing.png)
+
+### <a name="download-price-sheets-for-billed-charges"></a>Fiyat listeleri faturalandırılan ücretler indirin
+
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
+1. Faturalandırma profili seçin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir.
+1. Seçin **faturalar**.
+1. Fatura kılavuzunda fatura indirmek istediğiniz fiyat listesine karşılık gelen satırı bulur.
+1. Üç noktaya tıklayın (`...`) satırın sonunda.
+![Seçili nokta gösteren ekran görüntüsü](./media/billing-ea-pricing/billingprofile-invoicegrid.png)
+
+1. Seçili fatura'ndaki hizmet fiyatları görmek istiyorsanız, seçin **fatura fiyat**.
+1. Belirli bir fatura dönemi için tüm Azure Hizmetleri için fiyatları görmek isteyip istemediğinizi seçin **Azure fiyat**.
+
+![Fiyat listeleri ile bağlam menüsünü gösteren ekran görüntüsü](./media/billing-ea-pricing/contextmenu-pricesheet.png)
+
+## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Azure fiyatlandırma hesaplayıcısı ile kullanımı tahmini maliyetinizi hesaplayın
+
+Azure fiyatlandırma hesaplayıcısı ile maliyetleri tahmin etme, kuruluşunuzun fiyatlandırma de kullanabilirsiniz.
 
 1. Git [Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator).
 1. Sağ üst kısımdaki seçin **oturum**.
@@ -59,7 +88,22 @@ Kuruluşunuz için Kurumsal yönetici tarafından belirlenen politikalara bağl�
 1. Arayın ve ürünleri tahmininize ekleyin.
 1. Tahmini fiyatlar kuruluş için seçtiğiniz fiyatlandırma temel alır.
 
+## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi erişiminizi kontrol edin
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure için fatura bilgilerini erişimi yönetme](billing-manage-access.md)
-- [Bir kurumsal anlaşma kapsamında olan Azure müşterileri için faturanızı anlayın](billing-understand-your-bill-ea.md)
+Bir EA müşterisiyseniz bakın:
+
+- [Azure için Kurumsal Anlaşma fatura bilgilerinizi erişimi yönetme](billing-manage-access.md)
+- [Görüntüleyin ve Microsoft Azure faturanızı indirin](billing-download-azure-invoice.md)
+- [Microsoft Azure kullanım ve Ücret görüntülemenize ve indirmenize](billing-download-azure-daily-usage.md)
+- [Kurumsal Anlaşma müşterileri için faturanızı anlayın](billing-understand-your-bill-ea.md)
+
+Microsoft Müşteri sözleşmesi varsa, bkz:
+
+- [Bir Microsoft Müşteri sözleşmesi, fiyat koşullarını anlama](billing-mca-understand-pricesheet.md)
+- [Görüntüleyin ve Microsoft Azure faturanızı indirin](billing-download-azure-invoice.md)
+- [Microsoft Azure kullanım ve Ücret görüntülemenize ve indirmenize](billing-download-azure-daily-usage.md)
+- [Görüntüleyin ve fatura profiliniz için vergi belgelerini indirin](billing-mca-download-tax-document.md)
+- [Faturadaki fatura profil ücretlerini anlama](billing-mca-understand-your-bill.md)

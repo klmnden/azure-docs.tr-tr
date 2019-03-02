@@ -16,17 +16,20 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 2ff32bf5a8e3c5c31b13e2e8a1594f94647ed689
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d52e710cadbc37b8ad6c1de61f75df3b96704daa
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695398"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243916"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>CLI ile bir yönetilen diskin anlık görüntüsünü aynı veya farklı aboneliğe kopyalama
 
-Bu betik bir yönetilen diskin anlık görüntüsünü aynı veya farklı bir aboneliğe kopyalar. Bir anlık görüntüyü aynı bölgedeki farklı bir aboneliğe üst anlık görüntü olarak taşımak için bu betiği kullanın.
+Bu betik bir yönetilen diskin anlık görüntüsünü aynı veya farklı bir aboneliğe kopyalar. Aşağıdaki senaryolar için bu betiği kullanın:
 
+1. Premium depolama (Premium_LRS) bir anlık görüntü (Standard_LRS veya Standard_ZRS) maliyetlerinizi azaltmak için standart Depolama'ya geçirin.
+1. Anlık görüntü, bölgesel olarak yedekli depolama (ZRS depolama daha yüksek güvenilirliği yararlanmak için Standard_ZRS) için yerel olarak yedekli depolama alanından (Premium_LRS, Standard_LRS) geçirin.
+1. Anlık görüntü, aynı bölgede daha uzun bekletme süresi için farklı bir aboneliğe taşıyın.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -48,7 +51,7 @@ Bu betik, kaynak anlık görüntünün kimliğini kullanarak hedef abonelikte bi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Anlık görüntüden sanal makine oluşturma](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Anlık görüntüden sanal makine oluşturma](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).
 

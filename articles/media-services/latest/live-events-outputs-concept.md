@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: c4be56b3ee32a5177c66353ba45c6b3647c732f2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894071"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240091"
 ---
 # <a name="live-events-and-live-outputs"></a>Canlı Etkinlikler ve Canlı Çıkışlar
 
@@ -42,7 +42,7 @@ A [canlı olay](https://docs.microsoft.com/rest/api/media/liveevents) iki türde
 
 ### <a name="pass-through"></a>Geçiş
 
-![geçiş](./media/live-streaming/pass-through.png)
+![geçiş](./media/live-streaming/pass-through.svg)
 
 Doğrudan kullanırken **canlı olay**, Çoklu bit hızı video akışı oluşturmak ve katkı Canlı (RTMP ya da parçalı MP4 protokolü kullanılarak) olay için akışı göndermek için şirket içi Canlı Kodlayıcı dayanır. Canlı olay ardından gelen video akışları herhangi başka bir işlemeye olmadan taşır. 24 x 365 doğrusal canlı akış ya da doğrudan bir Livestream uzun süre çalışan Canlı etkinlikler için optimize edilmiştir. Bu canlı olay türünü oluştururken yok (LiveEventEncodingType.None) belirtin.
 
@@ -56,11 +56,16 @@ Bir .NET kod örneğinde bkz [MediaV3LiveApp](https://github.com/Azure-Samples/m
 
 ### <a name="live-encoding"></a>Live encoding  
 
-![live Encoding](./media/live-streaming/live-encoding.png)
+![live Encoding](./media/live-streaming/live-encoding.svg)
 
 Media Services ile Live encoding kullanıldığında, tek bit hızlı Canlı (RTMP veya parçalanmış Mp4 protokolünü kullanarak) olay için akışı katkı olarak video göndermek için şirket içi Canlı Kodlayıcı yapılandırırsınız. Bu gelen tek bit hızlı canlı olay kodlar için akış bir [birden çok hızlı video akışına](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), MPEG-DASH, HLS ve kesintisiz akış gibi protokolleri aracılığıyla cihazları kayıttan yürütmek teslim için kullanılabilir hale getirir. Bu canlı olay türünü oluştururken, kodlama türü olarak belirtin **standart** (LiveEventEncodingType.Standard).
 
 En 30 kare/saniye, H.264/AVC video codec ve AAC kare hızı 1080 p çözünürlükte en fazla akış katkı gönderebilirsiniz (AAC-LC, HE-AACv1 veya HE-AACv2) ses kodek bileşeni. Bkz: [canlı olay türlerini karşılaştırma](live-event-types-comparison.md) makale daha fazla ayrıntı için.
+
+Live encoding kullanıldığında (canlı olay kümesine **standart**), Çoklu bit hızlarında veya katmanları gelen nasıl kodlandığını kodlama Önayarı tanımlar. Bilgi için [sistem önayarlarını](live-event-types-comparison.md#system-presets).
+
+> [!NOTE]
+> Standart canlı olay türü için şu anda yalnızca hazır değer izin verilen maksimum *Default720p*. Özel bir canlı kodlama Önayarı kullanmanız gerekiyorsa, lütfen başvurun amshelp@microsoft.com. İstediğiniz tabloyu çözünürlük ve bit hızlarına dönüştürme belirtmeniz gerekir. 720 p yalnızca bir katmanında ve en fazla 6 katmanları olduğundan emin olun.
 
 ## <a name="live-event-creation-options"></a>Canlı olay oluşturma seçenekleri
 

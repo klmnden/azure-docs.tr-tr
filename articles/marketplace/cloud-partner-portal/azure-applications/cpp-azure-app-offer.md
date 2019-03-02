@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 82d072cc6f86ae758bd0fdd4d02b68b1ac1de53a
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 6d86d4c03a41834322c98438958c0b9e87e6025c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097159"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213534"
 ---
 # <a name="azure-application-offer"></a>Azure uygulama teklifi
 
@@ -44,6 +44,9 @@ Azure uygulamaları iki tür vardır: yönetilen uygulamaları ve çözüm şabl
 
 Azure Marketi ek olarak, hizmet Kataloğu yönetilen uygulamalarda sunabilir. Hizmet kataloğu, bir kuruluştaki kullanıcılar için onaylı çözümleri içeren bir dahili katalogdur. Katalog grupları bir kuruluşta çözümleri sunmaya devam ederken kuruluş standartları karşılamak üzere kullanın. Çalışanlar, kataloğu kullanarak BT bölümleri tarafından önerilen ve onaylanan uygulamaları kolayca bulabilir.
 
+>[!Note]
+>Bulut çözümü sağlayıcıları (CSP) iş ortağı kanalı katılımı kullanıma sunuldu.  Lütfen [bulut çözüm sağlayıcıları](../../cloud-solution-providers.md) teklifinizi Microsoft CSP aracılığıyla pazarlama hakkında daha fazla bilgi için iş ortağı kanalı.
+
 Avantajları ve yönetilen uygulama türleri hakkında daha fazla bilgi için bkz: [Azure yönetilen uygulamalara genel bakış](https://docs.microsoft.com/azure/managed-applications/overview).
 
 
@@ -64,7 +67,6 @@ Bir Azure uygulaması teklif yayımlamak için üst düzey adımlar şunlardır:
 3. [SKU oluşturma](./cpp-skus-tab.md) -teklifle ilgili fiyatlarını oluşturun. Yayımlama planlıyorsanız her görüntü için benzersiz bir SKU gereklidir.
 
 4. Onayla ve [teklifi yayımlama](./cpp-publish-offer.md) -teklif ve teknik varlıkları tamamlandıktan sonra teklifi gönderebilirsiniz. Bu gönderi, yayımlama işlemi başlar. Bu işlem sırasında çözümü, doğrulanmış sertifikalı, ardından "Azure Marketi'nde etkin hale gelir" test edilir.
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

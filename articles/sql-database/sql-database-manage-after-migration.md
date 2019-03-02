@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417644"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216943"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı'nda, tek ve havuza alınmış veritabanlarını yönetme
 
@@ -261,9 +261,9 @@ Sorgulayabilirsiniz [sys.dm_db_resource_stats](/sql/relational-databases/system-
 
 ![Sorgu Performansı İçgörüleri](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-log-analytics"></a>Log analytics'te Azure SQL Analytics (Önizleme)
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure İzleyici günlüklerine Azure SQL Analytics (Önizleme)
 
-[Azure Log Analytics](../azure-monitor/insights/azure-sql.md) destekleyen en fazla 150.000 SQL veritabanları ve çalışma alanı başına 5.000 SQL elastik havuzları toplamanıza ve anahtar Azure SQL Azure performans ölçümleri görselleştirmenize olanak tanır. İzleme ve bildirimler almak için kullanabilirsiniz. Bir uygulama yığınının her katmanında sorunları belirlemek için kullanılabilir ve SQL veritabanı ve elastik havuz ölçümleri birden çok Azure abonelikleri ve elastik havuzlar arasında izleyebilirsiniz.
+[Azure İzleyici günlüklerine](../azure-monitor/insights/azure-sql.md) destekleyen en fazla 150.000 SQL veritabanları ve çalışma alanı başına 5.000 SQL elastik havuzları toplamanıza ve anahtar Azure SQL Azure performans ölçümleri görselleştirmenize olanak tanır. İzleme ve bildirimler almak için kullanabilirsiniz. Bir uygulama yığınının her katmanında sorunları belirlemek için kullanılabilir ve SQL veritabanı ve elastik havuz ölçümleri birden çok Azure abonelikleri ve elastik havuzlar arasında izleyebilirsiniz.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Performans sorunlarını bildirimde bulunmadan: SQL veritabanı benim sorun giderme Metodoloji SQL Server'dan farkı nedir
 

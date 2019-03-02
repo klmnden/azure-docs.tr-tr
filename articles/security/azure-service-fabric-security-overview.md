@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 3e7717d4ee07a1f3bfebb5e09b983af68aa4ea31
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c5b5f80a43530fe6d0b90e65c3aef89a815157e4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116229"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241400"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric güvenliğine genel bakış
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) paketlemeyi, dağıtmayı ve ölçeklenebilir ve güvenilir mikro hizmetleri sağlayan bir dağıtılmış sistemler platformudur. Service Fabric, bulut uygulamalarını geliştirme ve yönetme, sorunlarını ele alır. Geliştiriciler ve Yöneticiler, karmaşık altyapı sorunlarını çözmeye ve ölçeklenebilir ve güvenilir bir iş açısından kritik, zorlu iş yüklerini uygulamaya odaklanmasına.
@@ -87,7 +87,7 @@ Güvenlik açısından bakıldığında, başlıca amaçlarından biri, izleme v
 
 2.  **Olay toplama**: Oluşturulan olayları toplanacak ve bunlar görüntülenebilmesi toplanan gerekir. Genellikle kullanmanızı öneririz [Azure tanılama](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (aracı tabanlı günlük toplama benzer) veya [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (işlem içi günlük toplama).
 
-3.  **Analiz**: Olayları görselleştirilmiş ve analiz ve görüntüleme için izin vermek için bazı biçiminde erişilebilir olması gerekir. İzleme ve Tanılama verileri görselleştirmesini ve analiz için çeşitli platformları vardır. Öneririz [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) ve [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) çünkü bunlar da Service Fabric ile tümleştirme.
+3.  **Analiz**: Olayları görselleştirilmiş ve analiz ve görüntüleme için izin vermek için bazı biçiminde erişilebilir olması gerekir. İzleme ve Tanılama verileri görselleştirmesini ve analiz için çeşitli platformları vardır. Öneririz [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) ve [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) çünkü bunlar da Service Fabric ile tümleştirme.
 
 Ayrıca [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) bir Service Fabric kümesi oluşturulan Azure kaynaklarını birçoğu izlemek için.
 

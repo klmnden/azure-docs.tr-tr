@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 07592c6852a7fce057381cb9086baedc9d2b1bd6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111756"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57239836"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Güvenlik uyarıları haritası ve tehdit bilgileri
 Bu makalede Azure Güvenlik Merkezi'nde güvenlik uyarıları harita ve güvenlik olay-tabanlı tehdit bilgileri Haritası güvenlikle ilgili sorunları gidermek üzere kullanmanıza yardımcı olur.
@@ -62,7 +62,7 @@ Tehdit bilgileri Haritası ham güvenlik etkinliklere göre görüntülemek içi
 4. Haritanın üstünde seçin **görüntülemek Klasik tehdit zekası**. **Tehdit bilgileri** panosu açılır.
 
    > [!NOTE]
-   > En sağdaki sütunda **PLANI YÜKSELT** görünüyorsa çalışma alanı ücretsiz aboneliği kullanmaktadır. Bu özelliği kullanmak için Standart sürüme yükseltin. En sağdaki sütunda **YÜKSELTME GEREKİYOR** görünüyorsa bu özelliği kullanmak için [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)'i yükseltin. Fiyatlandırma planı hakkında daha fazla bilgi için Azure Güvenlik Merkezi fiyatlandırma sayfasını inceleyin.
+   > En sağdaki sütunda **PLANI YÜKSELT** görünüyorsa çalışma alanı ücretsiz aboneliği kullanmaktadır. Bu özelliği kullanmak için Standart sürüme yükseltin. En sağdaki sütunda **yükseltme gerekiyor**, güncelleştirme [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bu özelliği kullanmak için. Fiyatlandırma planı hakkında daha fazla bilgi için Azure Güvenlik Merkezi fiyatlandırma sayfasını inceleyin.
    >
 5. Araştırmanız gereken birden fazla çalışma alanı varsa **Kötü Amaçlı IP** sütununa göre araştırmada öncelik belirleyin. Bu alan çalışma alanındaki güncel kötü amaçlı IP sayısını gösterir. Kullanmak istediğiniz çalışma alanını seçtiğinizde **Tehdit bilgileri** panosu açılır.
 

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 759adf95604e66209cf3ec5083246d16e952114a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8c2fe8d42ded5a072a2211b102736326554bc4f4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884198"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57239895"
 ---
 # <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>Azure Cosmos DB’de bir veritabanı için aktarım hızını sağlama
 
-Bu makalede Azure Cosmos DB’de bir veritabanına nasıl aktarım hızı sağlandığı açıklanır. Tek bir [kapsayıcıya](how-to-provision-container-throughput.md) aktarım hızı sağlayabilir veya aktarım hızını veritabanına sağlayıp içindeki kapsayıcılar arasında paylaştırabilirsiniz. Azure portal veya Azure Cosmos DB SDK'ları kullanarak veritabanı düzeyinde verimliliği sağlayabilirsiniz.
+Bu makalede Azure Cosmos DB’de bir veritabanına nasıl aktarım hızı sağlandığı açıklanır. Tek bir [kapsayıcıya](how-to-provision-container-throughput.md) aktarım hızı sağlayabilir veya aktarım hızını veritabanına sağlayıp içindeki kapsayıcılar arasında paylaştırabilirsiniz. Ne zaman kapsayıcı düzeyinde ve veritabanı düzeyinde aktarım hızı kullanılacağını öğrenmek için bkz [aktarım hızı kapsayıcılar ve veritabanları hakkında sağlamaya yönelik kullanım](set-throughput.md) makalesi. Azure portal veya Azure Cosmos DB SDK'ları kullanarak veritabanı düzeyinde verimliliği sağlayabilirsiniz.
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Azure portalını kullanarak hazırlama aktarım hızı
 

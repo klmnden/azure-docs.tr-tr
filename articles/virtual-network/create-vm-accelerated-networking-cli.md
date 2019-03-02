@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 4adc4bc743192832689d5bf6ff8448ed679775fd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b06bc6b41081f05a7067f82f46affc37d21f50b1
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728514"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213305"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir Linux sanal makinesi oluşturma
 
@@ -55,7 +55,7 @@ Azure Galerisi hazır aşağıdaki dağıtımlar desteklenir:
 ### <a name="supported-vm-instances"></a>Desteklenen sanal makine örnekleri
 Hızlandırılmış ağ en genel amaçlı ve işlem için iyileştirilmiş örnek boyutları Vcpu, 2 veya daha fazla ile desteklenir.  Bu desteklenen serisi şunlardır: D/DSv2 ve F/Fs
 
-Hiper iş parçacığı destek örneklerinde, hızlandırılmış ağ ile Vcpu, 4 veya daha fazla VM örneklerinde desteklenir. Desteklenen serisi şunlardır: D/DSv3, E/ESv3, Fsv2 ve Ms/Mms.
+Hiper iş parçacığı destek örneklerinde, hızlandırılmış ağ ile Vcpu, 4 veya daha fazla VM örneklerinde desteklenir. Desteklenen serisi şunlardır: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms ve Ms/Mmsv2.
 
 Sanal makine örnekleri hakkında daha fazla bilgi için bkz. [Linux VM boyutları](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

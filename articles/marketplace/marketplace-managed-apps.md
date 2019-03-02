@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 432a65771727b68dab23fbaeee1e3a08f7759420
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 15c559bb8b357b7776c101f88db8316b05edb677
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733087"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213169"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure uygulamaları için: Yönetilen uygulama teklifi yayımlama Kılavuzu
 
@@ -46,6 +46,8 @@ Getirin-kendi lisansını söz konusu olduğunda, Microsoft Müşteri aboneliği
 >[!NOTE]
 > Yönetilen uygulamalar Market aracılığıyla dağıtılabilir olmalıdır. Müşteri iletişimi önemliyse, müşteri paylaşımı etkinleştirdikten sonra sonra isteyen müşterilere ulaşmanızı.  
 
+>[!Note]
+>Bulut çözümü sağlayıcıları (CSP) iş ortağı kanalı katılımı kullanıma sunuldu.  Lütfen [bulut çözüm sağlayıcıları](./cloud-solution-providers.md) teklifinizi Microsoft CSP aracılığıyla pazarlama hakkında daha fazla bilgi için iş ortağı kanalı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Zaten yapmadıysanız, 

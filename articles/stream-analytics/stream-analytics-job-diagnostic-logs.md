@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818940"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247163"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics, tanılama günlükleri kullanarak sorun giderme
 
-Bazen, bir Azure Stream Analytics işi beklenmedik bir şekilde işlemeyi durdurur. Bu tür bir olayın sorunlarını giderebilmek önemlidir. Hataları beklenmeyen sorgu sonucu olarak, bağlantı cihazlara veya bir beklenmeyen hizmet kesintisi neden olabilir. Stream analytics'te tanılama günlükleri yardımcı olabilecek oluşur ve kurtarma süresini kısaltmak, sorunların nedenini tanımlayın.
+Bazen, bir Azure Stream Analytics işi beklenmedik bir şekilde işlemeyi durdurur. Bu tür bir olayın sorunlarını giderebilmek önemlidir. Hatalara beklenmedik bir sorgu sonucu, cihazların bağlantısı veya beklemedik bir hizmet kesintisi neden olmuş olabilir. Stream analytics'te tanılama günlükleri yardımcı olabilecek oluşur ve kurtarma süresini kısaltmak, sorunların nedenini tanımlayın.
 
 ## <a name="log-types"></a>Günlük türü
 
@@ -29,7 +29,9 @@ Stream Analytics, günlükleri iki tür sunar:
 * [Tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (yapılandırılabilir), her şeyin daha zengin Öngörüler sağlayan bir işlemle olur. İş silindiğinde tanılama iş oluşturulduğunda başlangıç ve bitiş günlüğe kaydeder. Bunlar, iş güncelleştirildiğinde ve çalışırken olayları kapsar.
 
 > [!NOTE]
-> Azure depolama, Azure Event Hubs ve Azure Log Analytics gibi hizmetler, uyumsuz verileri çözümlemek için kullanabilirsiniz. Bu hizmetler için fiyatlandırma modeline göre ücretlendirilirsiniz.
+> Azure depolama, Azure Event Hubs gibi hizmetleri kullanabilirsiniz ve uyumsuz verileri çözümlemek için Azure İzleyici günlüğe kaydeder. Bu hizmetler için fiyatlandırma modeline göre ücretlendirilirsiniz.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="debugging-using-activity-logs"></a>Etkinlik kullanarak hata ayıklama günlükleri
 
@@ -51,11 +53,11 @@ Etkinlik günlükleri, varsayılan olarak etkindir ve Stream Analytics işinizi 
 
 5. JSON hata iletisinde göre düzeltici eylemleri gerçekleştirebilirsiniz. Bu örnekte, enlem-90 derece arasında değerdir ve 90 derece sorguya eklenmesi gerekir emin olmak için denetler.
 
-6. Etkinlik günlükleri hata iletisinde kök nedeni tanımlanmasına yardımcı olmadı, tanılama günlüklerini etkinleştirme ve Log Analytics kullanın.
+6. Etkinlik günlükleri hata iletisinde kök nedeni tanımlanmasına yardımcı olmadı, tanılama günlüklerini etkinleştirme ve Azure İzleyici günlüklerine kullanın.
 
-## <a name="send-diagnostics-to-log-analytics"></a>Log Analytics için Tanılama verileri gönderme
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>Azure İzleyici günlüklerine Tanılama verileri gönderme
 
-Tanılama günlüklerini kapatarak ve Log Analytics'e göndererek önemle tavsiye edilir. Tanılama günlükleri **kapalı** varsayılan olarak. Tanılama günlüklerini etkinleştirmek için aşağıdaki adımları tamamlayın:
+Tanılama günlüklerini kapatılması ve Azure İzleyici günlüklerine göndererek önemle tavsiye edilir. Tanılama günlükleri **kapalı** varsayılan olarak. Tanılama günlüklerini etkinleştirmek için aşağıdaki adımları tamamlayın:
 
 1.  Azure portalında oturum açın ve Stream Analytics işinize gidin. Altında **izleme**seçin **tanılama günlükleri**. Ardından **tanılamayı Aç**.
 
@@ -67,7 +69,7 @@ Tanılama günlüklerini kapatarak ve Log Analytics'e göndererek önemle tavsiy
 
 3. Stream Analytics işinizi başladığında, tanılama günlükleri Log Analytics çalışma alanınıza yönlendirilir. Log Analytics çalışma alanına gidin ve seçin **günlükleri** altında **genel** bölümü.
 
-   ![Log Analytics genel altında bölümünde kaydeder.](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Azure İzleyici günlüklerine genel bölümünün altında](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. Yapabilecekleriniz [kendi sorgunuzu yazma](../azure-monitor/log-query/get-started-portal.md) terimleri aramak için eğilimlerini, biçimlerini çözümleme ve verilerinizi temel alan ayrıntılı bilgiler sağlar. Örneğin, iletiyi olan tanılama günlükleri filtrelemek için sorgu "iş akışında başarısız oldu." yazabileceğiniz Azure Stream Analytics'ten gelen tanılama günlükleri depolanır **AzureDiagnostics** tablo.
 

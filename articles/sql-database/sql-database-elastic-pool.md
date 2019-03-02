@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/28/2019
+ms.openlocfilehash: dd06ae6046ab96d95cf1c1907c74d0b4d9a843bb
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963854"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214342"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastik havuzlar, yönetmenize ve birden çok Azure SQL veritabanını ölçeklendirme Yardım
 
@@ -90,7 +90,7 @@ Tek veritabanları için kaynakları toplam miktarı 1,5 havuz için gerekli kay
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Eşzamanlı olarak en üst seviyeye çıkan en fazla veritabanı sayısı
 
-Kaynakları paylaşarak, bir havuzdaki tüm veritabanlarının aynı anda mevcut olan sınıra kadar kaynakları tek veritabanları için kullanabilirsiniz. Daha az sayıda eşzamanlı olarak en üst seviyeye, alt kaynakları ayarlanabileceği ve havuz daha uygun maliyetli hale gelir. Genel olarak havuzdaki veritabanlarının 2/3'ten çok (veya % 67) kaynak sınırlarını eşzamanlı olarak ulaşmalıdır.
+Kaynakları paylaşarak, bir havuzdaki tüm veritabanlarının aynı anda mevcut olan sınıra kadar kaynakları tek veritabanları için kullanabilirsiniz. Daha az sayıda eşzamanlı olarak en üst seviyeye, alt kaynakları ayarlanabileceği ve havuz daha uygun maliyetli hale gelir. Genel, fazla 2/3 (veya % 67) havuzdaki veritabanları, aynı anda kaynakları sınırlarını ulaşmalıdır.
 
 ***DTU tabanlı satın alma modeli örnek***
 
@@ -200,6 +200,20 @@ Varsayılan olarak, grafikte **veritabanı kaynak kullanımı** dikey penceresin
 Daha fazla ölçümleri görüntülemek yan yana veritabanları performansınızı daha eksiksiz bir görünümünü elde etmek için bu veritabanı tablosunda de seçebilirsiniz.
 
 Daha fazla bilgi için [Azure portalında SQL veritabanı uyarıları oluşturma](sql-database-insights-alerts-portal.md).
+
+## <a name="customer-case-studies"></a>Müşteri örnek olay incelemeleri
+
+- [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
+
+  SnelStart, ayda 1.000 yeni Azure SQL veritabanı bir hızda Kurumsal hizmetlerini hızla genişletmek için Azure SQL veritabanı ile elastik havuzları kullanılır.
+
+- [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
+
+  Umbraco, hızlı sağlama ve ölçeklendirme hizmetlerine kiracılar bulutta binlerce ile Azure SQL veritabanı elastik havuzları kullanır.
+
+- [Daxko/CSI](http://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+
+  Daxko/CSI kendi geliştirme döngüsünü hızlandırmalarına ve müşteri hizmet ve performansı artırmak için Azure SQL veritabanı ile elastik havuzları kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

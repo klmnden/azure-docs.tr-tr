@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 04bdbd6c6af1f0e3a479920bc7f286343052281e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 307449a24555fed48899d67196114cb24f0bb572
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192165"
+ms.locfileid: "57216858"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanıza gerçek bir cihaz ekleme
 
@@ -111,27 +111,27 @@ Aşağıdaki adımlar [Node.js](https://nodejs.org/) örneğinin nasıl hazırla
 
 1. Uygulamanızdaki bir cihaz örneğinin bağlantı dizesi, IoT Central tarafından sağlanan cihaz bilgilerine göre oluşturulur.
 
-   IoT Central portalına dönün. Gerçek bağlı klima cihazınızın ekranında **Bağlan**'ı seçin.
+    IoT Central portalına dönün. Gerçek bağlı klima cihazınızın ekranında **Bağlan**'ı seçin.
 
-   ![Bağlantı bilgilerini görüntüleme bağlantısını gösteren cihaz sayfası](media/tutorial-add-device/connectionlink.png)
+    ![Bağlantı bilgilerini görüntüleme bağlantısını gösteren cihaz sayfası](media/tutorial-add-device/connectionlink.png)
 
 1. Cihaz Bağlantısı sayfasındaki Kapsam Kimliği, Cihaz Kimliği ve Birincil Anahtar değerlerini kopyalayıp bir metin düzenleyiciye yapıştırın ve kaydedin. Bu değerleri bir sonraki adımda kullanacaksınız.
 
-   ![Bağlantı ayrıntıları](media/tutorial-add-device/device-connect.png)
+    ![Bağlantı ayrıntıları](media/tutorial-add-device/device-connect.PNG)
 
 1. Komut satırı ortamına dönün ve şunu çalıştırarak bağlantı dizenizi oluşturun:
 
     ```cmd/sh
-    dps_keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
+     dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
     ```
 
-   Çıktıyı kopyalayın ve yeni bir dosyaya (örneğin, connection.txt) kaydedin.
+    Çıktıyı kopyalayın ve yeni bir dosyaya (örneğin, connection.txt) kaydedin.
 
 1. Node.js projenizi başlatmak için, tüm varsayılanları kabul ederek aşağıdaki komutu çalıştırın:
 
-   ```cmd/sh
+    ```cmd/sh
     npm init
-   ```
+    ```
 
 1. Gerekli paketleri yüklemek için, aşağıdaki komutu çalıştırın:
 

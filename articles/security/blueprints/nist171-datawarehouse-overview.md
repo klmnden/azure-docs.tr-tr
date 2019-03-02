@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: ec608964190c65d8d064582920e53545b9ee62a6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a1850ecfbb21eb9495bb0e6de362dc8dee3026a2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404011"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242369"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-warehouse-for-nist-sp-800-171"></a>Azure güvenlik ve uyumluluk planı - 800-171 NIST SP için veri ambarı
 
@@ -51,11 +51,10 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Daha fazla bilgi için [
 - Azure Active Directory
 - Azure Veri Kataloğu
 - Azure Key Vault
-- Azure İzleyici
+- Azure İzleyici (günlük)
 - Azure Güvenlik Merkezi
 - Azure Load Balancer
 - Azure Storage
-- Azure Log Analytics
 - Azure Sanal Makineler
     - (1) Burcu ana bilgisayarı
     - (2) active Directory etki alanı denetleyicisi
@@ -67,18 +66,18 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Daha fazla bilgi için [
     - (4) ağ güvenlik grupları
 - Kurtarma Hizmetleri kasası
 - SQL Veri Ambarı
-- SQL Server Raporlama Hizmetleri
+- SQL Server Reporting Services
 
 ## <a name="deployment-architecture"></a>Dağıtım mimarisi
 Aşağıdaki bölümde dağıtım ve uygulama öğeleri ayrıntılı olarak açıklanmaktadır.
 
 **Azure SQL veri ambarı**: [SQL veri ambarı](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) hızlıca petabaytlarca veri üzerinde karmaşık sorgular çalıştırmak için yüksek düzeyde paralel işleme yararlanır bir kurumsal veri ambarıdır. Kullanıcılar, büyük veri, SQL veri ambarı'na içeri aktarma ve yüksek performanslı bir analiz çalıştırmak için yüksek düzeyde paralel işleme gücünü kullanın & basit PolyBase T-SQL sorguları kullanabilir.
 
-**SQL Server Reporting Services**: [SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs) tabloları, grafikler, haritalar, ölçerler, matrisler ve SQL veri ambarı için daha hızlı oluşturulmasını raporlar sağlar.
+**SQL Server Raporlama Hizmetleri**: [SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs) tabloları, grafikler, haritalar, ölçerler, matrisler ve SQL veri ambarı için daha hızlı oluşturulmasını raporlar sağlar.
 
-**Azure veri Kataloğu**: [veri Kataloğu](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) veri kaynaklarını bulma ve verileri yöneten kullanıcılar tarafından anlamak daha kolay hale getirir. Genel veri kaynakları, etiketlenmiş ve veriler için Aranan kayıtlı. Veri kalırken, meta veri kopyası mevcut konumunda, veri Kataloğu'na eklenir. Veri kaynağı konumuna yönelik bir başvuru bulunur. Meta veriler, her veri kaynağı arama yoluyla bulmasını kolaylaştırmak üzere dizine alınır. Dizin oluşturma anlaşılır bulan kullanıcılar için kolaylaştırır.
+**Azure veri Kataloğu**: [Veri Kataloğu](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) veri kaynaklarını bulma ve verileri yöneten kullanıcılar tarafından anlamak daha kolay hale getirir. Genel veri kaynakları, etiketlenmiş ve veriler için Aranan kayıtlı. Veri kalırken, meta veri kopyası mevcut konumunda, veri Kataloğu'na eklenir. Veri kaynağı konumuna yönelik bir başvuru bulunur. Meta veriler, her veri kaynağı arama yoluyla bulmasını kolaylaştırmak üzere dizine alınır. Dizin oluşturma anlaşılır bulan kullanıcılar için kolaylaştırır.
 
-**Kale ana bilgisayarı**: Burcu ana bilgisayarı tek kullanıcı bu ortama dağıtılan kaynaklara erişmek için kullanabileceğiniz giriş noktasıdır. Kale ana bilgisayarı, güvenli bir listede yalnızca genel IP adreslerinden gelen uzak trafiğe izin vererek dağıtılan kaynaklara güvenli bir bağlantı sağlar. Uzak Masaüstü trafiğine izin vermek için trafik kaynağı ağ güvenlik grubunda tanımlanmış olması gerekir.
+**Kale ana bilgisayarı**: Kale ana bilgisayarı, kullanıcıların bu ortama dağıtılan kaynaklara erişmek için kullanabileceği girişinin tek noktasıdır. Kale ana bilgisayarı, güvenli bir listede yalnızca genel IP adreslerinden gelen uzak trafiğe izin vererek dağıtılan kaynaklara güvenli bir bağlantı sağlar. Uzak Masaüstü trafiğine izin vermek için trafik kaynağı ağ güvenlik grubunda tanımlanmış olması gerekir.
 
 Bu çözüm aşağıdaki yapılandırmaları olan bir etki alanına katılmış Burcu ana bilgisayarı olarak bir VM oluşturur:
 -   [Kötü amaçlı yazılımdan koruma uzantısını](https://docs.microsoft.com/azure/security/azure-security-antimalware).
@@ -90,7 +89,7 @@ Bu çözüm aşağıdaki yapılandırmaları olan bir etki alanına katılmış 
 ### <a name="virtual-network"></a>Sanal ağ
 Bu başvuru mimarisi, özel bir sanal ağ ile bir 10.0.0.0/16 adres alanı tanımlar.
 
-**Ağ güvenlik grupları**: [ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) izin veren veya bir sanal ağ içinde trafiği reddeden erişim denetim listeleri (Nsg'ler) içerir. Nsg bir alt ağ veya tek tek VM düzeyinde trafiği güvenli hale getirmek için kullanılabilir. Aşağıdaki Nsg'ler mevcuttur:
+**Ağ güvenlik grupları**: [Ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) izin veren veya bir sanal ağ içinde trafiği reddeden erişim denetim listeleri (Nsg'ler) içerir. Nsg bir alt ağ veya tek tek VM düzeyinde trafiği güvenli hale getirmek için kullanılabilir. Aşağıdaki Nsg'ler mevcuttur:
   - Veri katmanı (SQL Server kümelerini, SQL Server tanığı ve SQL yük dengeleyici) için bir NSG
   - Yönetim Burcu ana bilgisayarı için bir NSG
   - Active Directory için bir NSG
@@ -98,9 +97,9 @@ Bu başvuru mimarisi, özel bir sanal ağ ile bir 10.0.0.0/16 adres alanı tanı
 
 Her nsg belirli bağlantı noktalarına sahiptir ve çözüm güvenli bir şekilde ve doğru bir şekilde çalışabilmek protokollerini açın. Ayrıca, aşağıdaki yapılandırmalar her NSG için etkinleştirilir:
   - [Tanılama günlüklerini ve olayları](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) etkinleştirilir ve bir depolama hesabında depolanır.
-  - Log Analytics'e bağlı olduğu [NSG'ın tanılama](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
+  - Azure İzleyici günlüklerine bağlı olduğu [NSG'ın tanılama](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
 
-**Alt ağlar**: her alt ağ, karşılık gelen NSG ile ilişkilidir.
+**Alt ağlar**: Her alt ağ, karşılık gelen NSG ile ilişkilidir.
 
 ### <a name="data-at-rest"></a>Bekleyen veriler
 Mimari, verileri birden çok ölçü kullanılmadıkları korur. Bu ölçüler, şifreleme ve veritabanı denetimi içerir.
@@ -138,11 +137,11 @@ Mimari, verileri birden çok ölçü kullanılmadıkları korur. Bu ölçüler, 
 - Key Vault için tanılama günlükleri ile 365 gün en az bir saklama süresi etkinleştirilir.
 - Anahtarlar için izin verilen şifreleme işlemleri gerekli olanlarla sınırlıdır.
 
-**Düzeltme Eki Yönetimi**: Windows Vm'leri varsayılan olarak Windows Update hizmetinden otomatik güncelleştirmeleri almak için yapılandırılmış olan bu başvuru mimarisinin bir parçası olarak dağıtılabilir. Bu çözüm ayrıca içerir [Azure Otomasyonu](https://docs.microsoft.com/azure/automation/automation-intro) hizmeti üzerinden güncelleştirilmiş dağıtımları oluşturulabilir düzeltme eki Vm'lere gerektiğinde.
+**Düzeltme Eki Yönetimi**: Bu başvuru mimarisinin bir parçası olarak dağıtılan Windows Vm'leri, Windows Update hizmetinden otomatik güncelleştirmeleri almak için varsayılan olarak yapılandırılır. Bu çözüm ayrıca içerir [Azure Otomasyonu](https://docs.microsoft.com/azure/automation/automation-intro) hizmeti üzerinden güncelleştirilmiş dağıtımları oluşturulabilir düzeltme eki Vm'lere gerektiğinde.
 
 **Kötü amaçlı yazılımdan koruma**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) VM'ler için yardımcı tanımlamak ve virüslerin, casus yazılımların ve diğer kötü amaçlı yazılım kaldırma gerçek zamanlı koruma özelliği sağlar. Müşteriler, bilinen kötü amaçlı veya istenmeyen yazılım yükleme veya korumalı Vm'leri çalıştırma girişiminde oluşturmasını uyarıları yapılandırabilirsiniz.
 
-**Azure Güvenlik Merkezi**: ile [Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro), müşterilerin merkezi olarak uygulama ve iş yüklerinizde güvenlik ilkelerini yönetme, sınırlama, tehditlere maruz kalma riskinizi ve algılayabilir ve saldırılara karşılık vermek. Güvenlik Merkezi, yapılandırma ve güvenlik duruşunu ve verilerin korunmasına yardımcı olmak için hizmet öneriler sağlamak üzere Azure hizmetlerinin mevcut yapılandırmaları da erişir.
+**Azure Güvenlik Merkezi**: İle [Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro), müşterilerin merkezi olarak uygulama ve iş yüklerinizde güvenlik ilkelerini yönetme, sınırlama, tehditlere maruz kalma riskinizi ve algılayabilir ve saldırılara karşılık vermek. Güvenlik Merkezi, yapılandırma ve güvenlik duruşunu ve verilerin korunmasına yardımcı olmak için hizmet öneriler sağlamak üzere Azure hizmetlerinin mevcut yapılandırmaları da erişir.
 
 Güvenlik Merkezi algılama özellikleri çeşitli ortamlarını hedefleyen potansiyel saldırılar müşteriler uyarmak için kullanır. Bu uyarılar uyarıyı neyin tetiklediği, hedeflenen kaynaklar ve saldırının kaynağı hakkındaki değerli bilgileri içerir. Güvenlik Merkezi'nde bulunan bir dizi [güvenlik uyarıları önceden tanımlanmış](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) bir tehdit veya şüpheli etkinlik başladığında tetiklenir. Müşteriler [özel uyarı kuralları](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) kendi ortamından toplanmış veriler üzerinde yeni güvenlik uyarıları tanımlamak için.
 
@@ -151,23 +150,23 @@ Güvenlik Merkezi, öncelikli güvenlik uyarıları ve olayları sağlar. Güven
 Bu başvuru mimarisi de kullanır [güvenlik açığı değerlendirmesi](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) Güvenlik Merkezi'nde yeteneği. Yapılandırıldıktan sonra (örneğin, Qualys) iş ortağı Aracısı, güvenlik açığı verilerini iş ortağının yönetim platformuna bildirir. Buna karşılık, iş ortağının yönetim platformu da güvenlik açığı ve durum izleme verilerini Güvenlik Merkezi’ne geri gönderir. Müşteriler, güvenlik açığından etkilenen sanal makineleri hızlı bir şekilde tanımlamak için bu bilgileri kullanabilirsiniz.
 
 ### <a name="business-continuity"></a>İş sürekliliği
-**Yüksek kullanılabilirlik**: sunucu iş yükleri gruplanır bir [kullanılabilirlik kümesi](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) azure'da VM'ler yüksek kullanılabilirliğini sağlamak için. En az bir sanal makine % 99,95 oranında karşılayan planlı veya Plansız bakım olayı sırasında kullanılabilir Azure SLA'sı.
+**Yüksek kullanılabilirlik**: Sunucu iş yükleri gruplanır bir [kullanılabilirlik kümesi](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) azure'da VM'ler yüksek kullanılabilirliğini sağlamak için. En az bir sanal makine % 99,95 oranında karşılayan planlı veya Plansız bakım olayı sırasında kullanılabilir Azure SLA'sı.
 
-**Kurtarma Hizmetleri kasası**: [kurtarma Hizmetleri kasası](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) yedekleme verileri barındırır ve sanal makinelerin bu mimaride tüm yapılandırmalar korur. Bir kurtarma Hizmetleri kasası ile müşterilerin dosya ve klasörleri bir Iaas VM'den tüm VM'yi geri yüklemeden geri yükleyebilirsiniz. Bu işlem geri yükleme sürelerini hızlandırır.
+**Kurtarma Hizmetleri kasası**: [Kurtarma Hizmetleri kasası](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) yedekleme verileri barındırır ve sanal makinelerin bu mimaride tüm yapılandırmalar korur. Bir kurtarma Hizmetleri kasası ile müşterilerin dosya ve klasörleri bir Iaas VM'den tüm VM'yi geri yüklemeden geri yükleyebilirsiniz. Bu işlem geri yükleme sürelerini hızlandırır.
 
 ### <a name="logging-and-auditing"></a>Günlüğe kaydetme ve Denetim
 
 Azure Hizmetleri, sistem ve kullanıcı etkinliğini yanı sıra, sistem durumu kapsamlı bir şekilde oturum:
-- **Etkinlik günlükleri**: [etkinlik günlüklerini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bir Abonelikteki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlükleri bir işlemin Başlatıcı belirlemek yardımcı olabilir, oluşumunu ve durum zaman.
-- **Tanılama günlükleri**: [tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) her kaynak tarafından oluşturulan tüm günlükleri içerir. Bu günlükler, Windows olayı sistem günlükleri, depolama günlükleri, anahtar kasası denetim günlüklerini ve Azure Application Gateway erişim ve güvenlik duvarı günlükleri içerir. Tüm tanılama günlükleri için merkezi ve şifrelenmiş Azure depolama hesabına arşivleme yazın. Kullanıcılar saklama süresi 730 gün belirli gereksinimleri karşılamak için en fazla yapılandırabilirsiniz.
+- **Etkinlik günlükleri**: [Etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bir Abonelikteki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlükleri bir işlemin Başlatıcı belirlemek yardımcı olabilir, oluşumunu ve durum zaman.
+- **Tanılama günlükleri**: [Tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) her kaynak tarafından oluşturulan tüm günlükleri içerir. Bu günlükler, Windows olayı sistem günlükleri, depolama günlükleri, anahtar kasası denetim günlüklerini ve Azure Application Gateway erişim ve güvenlik duvarı günlükleri içerir. Tüm tanılama günlükleri için merkezi ve şifrelenmiş Azure depolama hesabına arşivleme yazın. Kullanıcılar saklama süresi 730 gün belirli gereksinimleri karşılamak için en fazla yapılandırabilirsiniz.
 
-**Log Analytics**: Bu günlükler, birleştirilmiş [Log Analytics](https://azure.microsoft.com/services/log-analytics/) işleme, depolama ve Panosu raporlama. Veriler toplandıktan sonra Log Analytics çalışma alanları içindeki her bir veri türü için ayrı tablolar halinde düzenlenir. Bu şekilde, tüm veri ve böylece özgün kaynağına bakılmaksızın birlikte çözümlenebilir. Güvenlik Merkezi, Log Analytics ile tümleştirilebilir. Müşteriler, güvenlik olay verilerine erişmek ve diğer hizmetlerden gelen verilerle birleştirmek için Log Analytics sorgularını kullanabilirsiniz.
+**Azure İzleyici günlüklerine**: Bu günlükler, birleştirilmiş [Azure İzleyici günlükleri](https://azure.microsoft.com/services/log-analytics/) işleme, depolama ve Panosu raporlama. Veriler toplandıktan sonra Log Analytics çalışma alanları içindeki her bir veri türü için ayrı tablolar halinde düzenlenir. Bu şekilde, tüm veri ve böylece özgün kaynağına bakılmaksızın birlikte çözümlenebilir. Güvenlik Merkezi, Azure İzleyici günlükleri ile tümleştirilir. Müşteriler, güvenlik olay verilerine erişmek ve diğer hizmetlerden gelen verilerle birleştirmek için Kusto sorguları kullanabilirsiniz.
 
-Aşağıdaki Log Analytics [yönetim çözümleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Bu mimarinin bir parçası olarak dahil edilir:
--   [Active Directory değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory sistem durumu denetimi çözümü risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir. Bu, Önceliklendirilmiş öneriler için dağıtılan sunucu altyapısı belirli listesini sağlar.
-- [SQL değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL sistem durumu denetimi çözümü risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir. Müşteriler, Önceliklendirilmiş öneriler için dağıtılan sunucu altyapısı belirli listesini sağlar.
-- [Aracı sistem durumu](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): aracı durumu çözümü, kaç aracının dağıtılır ve kullanıcıların coğrafi dağılımı raporlar. Ayrıca, kaç aracının yanıt vermeyen ve işletimsel verileri gönderme aracı sayısını raporlar.
--   [Etkinlik günlüğü analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Activity Log Analytics çözümünü, bir müşteri için tüm Azure abonelikleri arasında Azure etkinlik günlüklerini analiziyle destekler.
+Aşağıdaki Azure [izleme çözümleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Bu mimarinin bir parçası olarak dahil edilir:
+-   [Active Directory değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory sistem durumu denetimi çözümü, risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir. Bu, Önceliklendirilmiş öneriler için dağıtılan sunucu altyapısı belirli listesini sağlar.
+- [SQL değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL sistem durumu denetimi çözümü, risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir. Müşteriler, Önceliklendirilmiş öneriler için dağıtılan sunucu altyapısı belirli listesini sağlar.
+- [Aracı sistem durumu](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): Aracı durumu çözümü, kaç aracının dağıtılır ve kullanıcıların coğrafi dağılımı bildirir. Ayrıca, kaç aracının yanıt vermeyen ve işletimsel verileri gönderme aracı sayısını raporlar.
+-   [Etkinlik günlüğü analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Etkinlik günlüğü analizi çözümü, bir müşteri için tüm Azure abonelikleri arasında Azure etkinlik günlüklerini analiziyle yardımcı olur.
 
 **Azure Otomasyonu**: [Otomasyon](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) runbook'ları yöneten depolar ve çalıştırır. Bu çözümde, SQL veritabanı'ndan günlüklerini toplama runbook'ları yardımcı olur. Müşteriler, Otomasyon kullanabileceğiniz [değişiklik izleme](https://docs.microsoft.com/azure/automation/automation-change-tracking) ortamındaki değişiklikler kolayca belirlemek için çözüm.
 

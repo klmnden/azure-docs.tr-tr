@@ -5,27 +5,25 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/5/2019
+ms.date: 3/1/2019
 ms.author: victorh
-ms.openlocfilehash: bc1176ea97d1c2d4fc17487c0589fb4235163b46
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c3ad62dd5f8af52ae9aed1f9469d4b00c4795fa7
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446520"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215863"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi (genel Önizleme)
 
 Uygulama ağ geçidi ve Web uygulaması Güvenlik Duvarı (WAF) artık performans geliştirmeleri sunar ve otomatik ölçeklendirme, bölge artıklığı ve statik VIP'ler için destek gibi önemli yeni özellikleri için destek ekleyen yeni bir v2 SKU altında genel önizlemede kullanıma sunuldu. Genel olarak kullanılabilen SKU altında var olan özellikler ile ilgili bilinen kısıtlamaların bölümünde listelenen bazı özel durumlar yeni v2 SKU desteklemeye devam eder. Yeni v2 SKU'ları aşağıdaki geliştirmeler şunları içerir:
 
-- **Otomatik ölçeklendirme**: Uygulama ağ geçidi veya WAF dağıtımlar altında SKU otomatik ölçeklendirme ölçeğini artırabilir veya trafik yük düzenleri değişen aşağı dayalı. Otomatik ölçeklendirme ayrıca sağlama sırasında dağıtım boyutu veya örnek sayısı seçme gereksinimini de ortadan kaldırır. Bu nedenle, SKU true esneklik sunar. Yeni bir SKU'da Application Gateway hem de sabit kapasite (otomatik ölçeklendirmeyi devre dışı) otomatik ölçeklendirme etkin modda çalışabilir. Sabit kapasite modu, tutarlı ve öngörülebilir iş yüklerine sahip senaryolar için kullanışlıdır. Otomatik ölçeklendirme modu, uygulama trafiği'deki çok sayıda bkz uygulamalarda yararlıdır.
+- **Otomatik ölçeklendirme**: Uygulama ağ geçidi veya WAF dağıtımlar altında SKU otomatik ölçeklendirme ölçeğini artırabilir veya trafik yük düzenleri değişen aşağı dayalı. Otomatik ölçeklendirme ayrıca sağlama sırasında dağıtım boyutu veya örnek sayısı seçme gereksinimini de ortadan kaldırır. Bu SKU, doğru esneklik sunar. Yeni bir SKU'da Application Gateway hem de sabit kapasite (otomatik ölçeklendirmeyi devre dışı) otomatik ölçeklendirme etkin modda çalışabilir. Sabit kapasite modu, tutarlı ve öngörülebilir iş yüklerine sahip senaryolar için kullanışlıdır. Otomatik ölçeklendirme modu, uygulama trafiği'deki çok sayıda bkz uygulamalarda yararlıdır.
 
-   > [!NOTE]
-   > WAF SKU'su için otomatik ölçeklendirme şu anda kullanılamıyor. Otomatik ölçeklendirme modu yerine sabit kapasite moduyla WAF yapılandırın.
 - **Bölge yedekliliği**: Bir uygulama ağ geçidi veya WAF dağıtım, birden çok kullanılabilirlik alanı, sağlama ve döndürme ayrı Application Gateway örneğinden gereğini ortadan kaldıran bir Traffic Manager ile her bölgedeki yayılabilir. Tek bir bölge veya uygulama ağ geçidi örneklerinin dağıtıldığı birden çok bölge böylece kalmasını sağlama bölge hata dayanıklılığı seçebilirsiniz. Uygulamalar için arka uç havuzu kullanılabilirlik alanları genelinde benzer şekilde dağıtılabilir.
 - **Performans iyileştirmeleri**: En fazla 5 X daha iyi SSL SKU sunar otomatik ölçeklendirme, genel olarak kullanılabilen SKU karşılaştırıldığında performans yük boşaltma.
 - **Daha hızlı dağıtım ve güncelleştirme zamanı** genel olarak kullanılabilen SKU karşılaştırıldığında daha hızlı dağıtım ve güncelleştirme zamanı SKU otomatik ölçeklendirme sağlar.
-- **Statik VIP**: Uygulama ağ geçidi VIP artık statik VIP türü özel olarak destekler. Bu da Application Gateway ile ilişkilendirilmiş VIP değerinin yeniden başlatma sonrasında dahi aynı kalmasını sağlar.
+- **Statik VIP**: Uygulama ağ geçidi VIP artık statik VIP türü özel olarak destekler. Bu, uygulama ağ geçidiyle ilişkili VIP yeniden başlatmadan sonra bile değişmez sağlar.
 
 > [!IMPORTANT]
 > Otomatik ölçeklendirme yapan ve alanlar arası yedekli uygulama ağ geçidi SKU'su şu anda genel önizleme aşamasındadır. Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -38,7 +36,7 @@ Otomatik ölçeklendirme SKU aşağıdaki bölgelerde kullanılabilir: Kuzey Ort
 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Önizleme süresince ücretsizdir. Key Vault, sanal makineler, vb. gibi uygulama ağ geçidi dışındaki kaynaklar için faturalandırılırsınız.
+Önizleme süresince ücretsizdir. Key Vault, sanal makineler gibi uygulama ağ geçidi dışındaki kaynaklar için faturalandırılırsınız ve benzeri.
 
 ## <a name="known-issues-and-limitations"></a>Bilinen sorunlar ve sınırlamalar
 
@@ -52,7 +50,7 @@ Otomatik ölçeklendirme SKU aşağıdaki bölgelerde kullanılabilir: Kuzey Ort
 |Faturalandırma|Şu anda hiçbir ödeme yoktur.|
 |FIPS modundayken, WebSocket|Bunlar şu anda desteklenmemektedir.|
 |ILB yalnızca modu|Bu şu anda desteklenmiyor. Genel ve ILB modu birlikte desteklenir.|
-|Web uygulaması Güvenlik Duvarı'nı otomatik ölçeklendirme|WAF, otomatik ölçeklendirme modu desteklemez. Sabit kapasite modu desteklenir.|
+|Web uygulaması Güvenlik Duvarı'nı otomatik ölçeklendirme|Otomatik ölçeklendirme modu, WAF'yi desteklemiyor. Sabit kapasite modu desteklenir.|
 |Netwatcher tümleştirme|Genel Önizleme sürümünde desteklenmiyor.|
 
 ## <a name="next-steps"></a>Sonraki adımlar

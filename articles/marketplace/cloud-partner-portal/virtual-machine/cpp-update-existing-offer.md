@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: b48910b74d90072a360bad504e2b826402dceea5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ee828c908cb3b103befa3890b43bb2c1f04f7cf0
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639880"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214053"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Azure Marketi'nde mevcut bir VM teklifi güncelleştirme
 
@@ -35,6 +35,8 @@ Teklifiniz, güncelleştirmenizi sıradan nedenlerle birçok dahil olmak üzere:
 
 Bu değişiklikler yardımcı olmak için portal sunar **karşılaştırma** ve **geçmişi** özellikleri.  
 
+>[!Note]
+>Bulut çözümü sağlayıcıları (CSP) iş ortağı kanalı katılımı kullanıma sunuldu.  Lütfen [bulut çözüm sağlayıcıları](../../cloud-solution-providers.md) teklifinizi Microsoft CSP aracılığıyla pazarlama hakkında daha fazla bilgi için iş ortağı kanalı.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>VM teklifi veya SKU unpermitted değişiklikler
 
@@ -149,12 +151,12 @@ Bir fiyat düşüşü sırasında oluşan döngüsü için önceden faturalandı
 
 1 Eylül 2018'den başlayarak, yeni bir bölüm adı verilen **Basitleştirilmiş para birimi fiyatlandırma** portalına eklenmesi. Microsoft Azure Marketi iş daha öngörülebilir fiyatlandırma ve müşterilerinizin koleksiyonları dünya genelindeki etkinleştirerek hızlandırma. Bu hızlandırma biz müşterilerinizin Fatura para birimi sayısını azaltmayı içerir.
 
-Yeni bir bölüm bu yeni para biriminde fiyatlandırmayı kazanır. Bu yeni bir kapatma para tüm müşterilerin geçişi tamamlandıktan sonra özgün fiyatlandırma bölümünde kullanımdan kaldırılacak ve yalnızca Basitleştirilmiş para birimi fiyatlandırma bölümünde kalır.
+Yeni bir bölüm bu yeni para biriminde fiyatlandırmayı kazanır. Bu yeni bir kapatma para tüm müşterilerin geçişi tamamlandıktan sonra özgün fiyatlandırma bölümünde kullanımdan kaldırılacak ve yalnızca Basitleştirilmiş para birimi fiyatlandırma bölümünde kalır.
 
 Kasım 1 yeni fiyat bölgeleri için kapatma para birimi gibi ayarlanacak 2018 ile değişiyor kadar olacaktır. Burada görüntülerle kapatma para birimi değişmiyor bölgeleri için fiyat artırmanın mümkün olmayacaktır.
 
 > [!NOTE] 
-> Teklifinizi yayımlamaya API'leri kullanan yeni bir bölüm teklif JSON içinde görebilirsiniz. Bu olarak açıklamalı `virtualMachinePricingV2` veya `monthlyPricingV2`teklif türüne bağlı olarak. 
+> Teklifinizi yayımlamaya API'leri kullanan yeni bir bölüm teklif JSON içinde görebilirsiniz. Bu olarak açıklamalı `virtualMachinePricingV2` veya `monthlyPricingV2`teklif türüne bağlı olarak. 
 
 Bu değişiklik hakkında sorularınız varsa, kişi [Azure Marketi Destek](../../support-azure-marketplace.md).
 

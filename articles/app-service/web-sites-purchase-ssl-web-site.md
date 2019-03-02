@@ -4,7 +4,7 @@ description: Bir App Service sertifikası satın alma ve App Service uygulamanı
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: cfowler
+manager: jpconnoc
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b569165153ce713846be5e836a26f48e500be1fc
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594143"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216586"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Satın alma ve Azure App Service için SSL sertifikası yapılandırma
 
@@ -121,28 +121,35 @@ Bağlamasında yapılandırmanıza yardımcı olması için aşağıdaki tabloyu
 
 Kullanıp uygulamanızın ziyaret `HTTPS://<domain_name>` yerine `HTTP://<domain_name>` sertifika doğru şekilde yapılandırıldığını doğrulayın.
 
-## <a name="rekey-and-sync-certificate"></a>Yeniden anahtarlama ve eşitleme sertifika
+## <a name="rekey-certificate"></a>Sertifikayı yeniden anahtarla
 
-Sertifika, sertifikayı yeniden anahtarla gerekiyorsa, seçin [App Service sertifikaları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sayfasında ve ardından **yeniden anahtarlama ve eşitleme** sol gezinti bölmesinden.
+Sertifikanızı özel düşünüyorsanız anahtarının güvenliği, sertifikanız yeniden anahtarlama. Sertifikayı seçin [App Service sertifikaları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sayfasında ve ardından **yeniden anahtarla ve Eşitle** sol gezinti bölmesinden.
 
-Tıklayın **yeniden anahtarlama** işlemini başlatmak için düğme. Bu işlemin tamamlanması 1-10 dakika sürebilir.
+Tıklayın **yeniden anahtarlama** işlemini başlatmak için. Bu işlemin tamamlanması 1-10 dakika sürebilir.
 
 ![yeniden anahtarlama SSL görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 Sertifikanız yeniden anahtarlama için izine sahip sertifika yetkilisinden verilen yeni bir sertifika yapar.
 
+Yeniden anahtarlama işlemi tamamlandıktan sonra tıklayın **eşitleme**. Eşitleme işlemi, uygulamalarınıza kapalı kalma süresi neden olmadan konak adı bağlamaları App Service sertifika için otomatik olarak güncelleştirir.
+
+> [!NOTE]
+> Yoksa tıklarsanız **eşitleme**, App Service otomatik olarak 48 saat içinde sertifikanıza eşitler.
+
 ## <a name="renew-certificate"></a>Sertifikayı yenile
 
-Sertifikayı, sertifikanın otomatik yenilenmesini üzerinde istediğiniz zaman açmak için seçin [App Service sertifikaları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sayfasında'a tıklayın **otomatik yenileme ayarları** sol gezinti bölmesinde. 
+Sertifikayı, sertifikanın otomatik yenilenmesini üzerinde istediğiniz zaman açmak için seçin [App Service sertifikaları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sayfasında'a tıklayın **otomatik yenileme ayarları** sol gezinti bölmesinde.
 
 Seçin **üzerinde** tıklatıp **Kaydet**. Sertifika süresi dolmadan önce 60 gün açık olarak otomatik yenileme varsa otomatik olarak yenileme başlayabilirsiniz.
 
-![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+![Sertifika otomatik olarak Yenile](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
 Sertifikayı bunun yerine el ile yenilemek için tıklayın **el ile yenileme**. Sertifikanızın süresi dolmadan önce 60 gün el ile yenilemek için istekte bulunabilir.
 
+Yenileme işlemi tamamlandıktan sonra tıklayın **eşitleme**. Eşitleme işlemi, uygulamalarınıza kapalı kalma süresi neden olmadan konak adı bağlamaları App Service sertifika için otomatik olarak güncelleştirir.
+
 > [!NOTE]
-> Yenilenen sertifikanın otomatik olarak uygulamanıza el ile yenilenmesi ya da otomatik olarak yenilendiğinde bağlı değil. Uygulamanıza bağlamak için bkz: [sertifikaları yenileme](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+> Yoksa tıklarsanız **eşitleme**, App Service otomatik olarak 48 saat içinde sertifikanıza eşitler.
 
 ## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 

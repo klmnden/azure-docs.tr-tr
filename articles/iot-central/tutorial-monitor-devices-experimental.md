@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 9480565643887b5a9a4d644ba3173b365eaea29c
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 03e0826d306328ce9a7293d26289f04a012c447f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767782"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216467"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Öğretici: Azure IoT Central kullanarak cihazlarınızı izleme
 
@@ -55,7 +55,7 @@ Cihaza ilişkin bilgileri görmek için **Pano** görünümünü seçin.
 
 ![Cihaz panosu](media/tutorial-monitor-devices-experimental/initial_screen.png)
 
-Panodaki grafik, cihaz sıcaklığının bir çizimini gösterir. Cihazın geçerli hedef sıcaklığını da **Ayarlanmış hedef sıcaklık** kutucuğunda görebilirsiniz. Hedef sıcaklığın çok yüksek olmasına karar verdiniz.
+Panodaki grafik, cihaz sıcaklığının bir çizimini gösterir. Cihazın geçerli hedef sıcaklık atabilirsiniz **cihaz özelliklerini** Döşe. Hedef sıcaklığın çok yüksek olmasına karar verdiniz.
 
 ## <a name="remediate-an-issue"></a>Sorunu düzeltme
 

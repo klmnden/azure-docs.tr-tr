@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b8f2df14e0aa0246d794bd56f4187002cfdeee02
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ba5a8cc09a098e58c39d42475d18e92e45222937
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194477"
+ms.locfileid: "57216790"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
 
@@ -93,7 +93,7 @@ Cihaz şablona tabloda gösterildiği gibi tam olarak alan adı girin. İlgili c
 
 ## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
-Azure IOT Central uygulamanızı oluşturun ve cihaz bağlantı dizesini not edin cihaz şablonundan gerçek bir cihaz ekleyin. IOT Central bir Node.js uygulaması bağlanma ile ilgili adım adım yönergeler için bkz. [uygulamasından gerçek cihaz bağlantı dizesi oluştur](tutorial-add-device-experimental.md#generate-connection-string-for-real-device-from-application) ve [istemci kodu hazırlama](tutorial-add-device-experimental.md#prepare-the-client-code) öğreticilerde > Bir cihaz ekleyin.
+Azure IOT Central uygulamanızı oluşturun ve cihaz bağlantı dizesini not edin cihaz şablonundan gerçek bir cihaz ekleyin. IOT Central bir Node.js uygulaması bağlanma ile ilgili adım adım yönergeler için bkz. [uygulamasından gerçek cihaz bağlantı dizesi oluştur](tutorial-add-device-experimental.md#generate-connection-string) ve [istemci kodu hazırlama](tutorial-add-device-experimental.md#prepare-the-client-code) öğreticilerde > Bir cihaz ekleyin.
 
 ### <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
 
@@ -268,11 +268,11 @@ Azure IOT Central, uygulamanızdaki bir operatör olarak, gerçek cihazınız i�
 
     ![Telemetri görüntüleme](media/howto-connect-nodejs-experimental/viewtelemetry.png)
 
-* Cihazınızın gönderen cihazın özellik değerlerini görüntülemek **özellikleri** sayfası. Bağlantı başarılı olursa cihaz özellikleri kutucukları güncelleştirilir. 
+* Cihazınızın gönderen cihazın özellik değerlerini görüntülemek **özellikleri** sayfası. Bağlantı başarılı olursa cihaz özellikleri kutucukları güncelleştirmesi.
 
     ![Cihaz özelliklerini görüntüleme](media/howto-connect-nodejs-experimental/viewproperties.png)
 
-* Fan hız ve hedef sıcaklık gelen ayarlamak **ayarları** sayfası. Bağlantı başarılı olursa ayarları değerlerini eşitler. 
+* Fan hız ve hedef sıcaklık gelen ayarlamak **ayarları** sayfası. Bağlantı başarılı olursa ayarları değerlerini eşitleyin.
 
     ![Fan hızı ayarlama](media/howto-connect-nodejs-experimental/setfanspeed.png)
 

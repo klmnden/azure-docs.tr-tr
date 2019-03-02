@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: afd6ded48bc330032b77be4bc8cd186a6f71ee5f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9c2d6c48b9bf51062181886c8a9ef789b1c2b359
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105136"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240839"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde sistem güncelleştirmelerini uygulayın
 Azure Güvenlik Merkezi günlük Windows ve Linux sanal makineleri (VM'ler) ve işletim sistemi güncelleştirmeleri eksik bilgisayarlar izler. Güvenlik Merkezi bir Windows bilgisayarda yapılandırılmış hizmet bağlı olarak Windows Update veya Windows Server Update Services (WSUS) kullanılabilir güvenlik güncelleştirmeleri ve kritik güncelleştirmeler listesini alır. Güvenlik Merkezi, ayrıca Linux sistemlerinde en son güncelleştirmeleri denetler. Sistem Güncelleştirmesi VM'de veya bilgisayarda bulunmuyorsa, Güvenlik Merkezi sistem güncelleştirmelerini uygulayın önerir.
@@ -63,13 +63,13 @@ Bu örnekte, kullanacağız **işlem**.
 
    ![Eksik güvenlik güncelleştirmesi][3]
 
-4. Seçin **arama** üstteki Şeritte simgesi.  Log Analytics arama sorgu güncelleştirmenin eksik olan bilgisayarlar için filtrelenmiş açılır.
+4. Seçin **arama** üstteki Şeritte simgesi.  Azure İzleyici günlüklerine arama sorgusuyla güncelleştirmenin eksik olan bilgisayarlar için filtrelenmiş açılır.
 
-   ![Log Analytics arama][4]
+   ![Azure İzleyici arama günlüğe kaydeder.][4]
 
 5. Daha fazla bilgi için listeden bir bilgisayar seçin. Bu bilgisayar için yalnızca filtrelenen bilgilerle başka bir arama sonucu açılır.
 
-    ![Log Analytics arama][5]
+    ![Azure İzleyici arama günlüğe kaydeder.][5]
 
 ## <a name="reboot-after-system-updates"></a>Sistem güncelleştirmelerinden sonra yeniden başlatın
 1. Geri dönüp **önerileri** dikey penceresi. Sistem güncelleştirmeleri, adlı uyguladıktan sonra yeni bir girişin üretildiği **sistem güncelleştirmelerinden sonra yeniden**. Bu giriş, sistemi güncelleştirmelerini uygulama işlemini tamamlamak için VM yeniden başlatma yapmanız bilmenizi sağlar.

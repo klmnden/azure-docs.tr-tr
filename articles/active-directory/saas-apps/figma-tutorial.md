@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfdd76e171ed237e3e87c98f6596634784faea1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2ad8c5a6064c332438b82ea5692fe8e6d0777fa0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865323"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241993"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Öğretici: Figma ile Azure Active Directory Tümleştirme
 
@@ -32,14 +31,16 @@ Azure AD ile Figma tümleştirme ile aşağıdaki avantajları sağlar:
 * Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile Figma yapılandırmak için aşağıdaki öğeler gerekir:
 
 * Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
-* Abonelik Figma çoklu oturum açma etkin
+* Figma kuruluş planı
+
+>[!NOTE]
+>Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz. Yeni müşteriler ve etkin aboneler Figma Professional Team aboneliğine yükseltme Figma başvurun [Figma kuruluş planlayın.](https://www.figma.com/pricing/)
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
@@ -107,20 +108,20 @@ Azure AD çoklu oturum açma ile Figma yapılandırmak için aşağıdaki adıml
 
     ![Figma etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
 
-    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>`
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.figma.com/saml/<TENANT ID>`
 
-    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/consume`
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.figma.com/saml/<TENANT ID>/consume`
 
 5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
     ![Figma etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/start`
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://www.figma.com/saml/<TENANT ID>/start`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Figma istemci Destek ekibine](mailto:support@figma.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Erişmenizi sağlayacak `TENANT ID` gelen Figma'nın makalenin #11 adım [yapılandırma Azure Active Directory SAML SSO işlem](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
 
-6. Figma uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Öznitelikleri eklemek için Düzenle simgesine tıklayın.
+6. Figma uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayarak **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
 
     ![image](common/edit-attribute.png)
 
@@ -129,9 +130,6 @@ Azure AD çoklu oturum açma ile Figma yapılandırmak için aşağıdaki adıml
     | Ad | Kaynak özniteliği|
     | ---------------| --------- |
     | `externalId` | `user.mailnickname` |
-    | `displayName` | `user.displayname` |
-    | `title` | `user.jobtitle` |
-    | `emailaddress` | `user.mail` |
     | `familyName` | `user.surname` |
     | `givenName` | `givenName` |
     | `userName` | `user.userprincipalname` |
@@ -154,13 +152,29 @@ Azure AD çoklu oturum açma ile Figma yapılandırmak için aşağıdaki adıml
 
     g. **Kaydet**’e tıklayın.
 
-8. Üzerinde **Kurulum çoklu oturum açma SAML ile** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
+8. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
 
     ![Sertifika indirme bağlantısı](common/copy-metadataurl.png)
-
+  
 ### <a name="configure-figma-single-sign-on"></a>Figma tek oturum açmayı yapılandırın
 
-Çoklu oturum açma Figma tarafında yapılandırmak için lütfen bu formu doldurun: [ https://goo.gl/forms/XkRB1z5ed4eVUzXn2 ](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Kabul eder, **uygulama Federasyon meta verileri URL'sini** adım 8'den.
+1. Farklı bir web tarayıcı penceresinde açın Figma'nın site [burada](https://goo.gl/forms/XkRB1z5ed4eVUzXn2) yönetici olarak.
+
+2. Üzerinde **Figma SAML SSO Yapılandırması** sayfasında, aşağıdaki adımları gerçekleştirin:
+
+    ![Çoklu oturum açmayı yapılandırın](./media/figma-tutorial/configure01.png)
+
+    a. İçinde **e-posta adresi** metin kutusuna, kullanıcının gibi e-posta girin **brittasimon@contoso.com**.
+
+    b. İçinde **adınız** metin kutusunda, gibi kullanıcı adını girin **Brittasimon**.
+
+    c. Seçeneğinizi Figma kuruluş göre seçin.
+
+    d. İçinde **Figma kuruluşunuzun adına** metin kutusuna kuruluşunuzun adını yazın.
+
+    e. İçinde **kimlik sağlayıcısı (IDP) meta veri URL'si** metin kutusu, yapıştırma **uygulama Federasyon meta verileri URL'sini** hangi Azure portaldan kopyaladığınız.
+
+    f. Tıklayın **Gönder**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -230,3 +244,4 @@ Erişim paneli Figma kutucuğa tıkladığınızda, size otomatik olarak SSO'yu 
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

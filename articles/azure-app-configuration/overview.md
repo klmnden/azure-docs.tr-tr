@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 8207c9bb4cce3d793a5030febc532b869f54dd3f
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 0d78536173fd87e046a882314d6f94a92092fd9e
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195141"
+ms.locfileid: "57215889"
 ---
 # <a name="what-is-azure-app-configuration"></a>Azure Uygulama Yapılandırması nedir
 
 Azure uygulama yapılandırması, uygulama ayarlarını yönetmek için bir hizmet sağlar merkezi olarak. Özellikle de bir bulutta çalışan modern programlar genellikle doğası gereği dağıtılmış birçok bileşen sahiptir. Yapılandırma ayarlarını bu bileşenler genelinde yaymak bir uygulama dağıtımı sırasında sabit giderme hatalarına neden olabilir. Uygulama yapılandırması, uygulamanız için tüm ayarları depolar ve bunların erişim tek bir yerde güvenli olanak tanır.
 
-Uygulama yapılandırma hizmetin içinde bulunduğu **özel Önizleme**. Önizleme dönemi boyunca ücretsiz olarak kullanılabilir.
+Uygulama yapılandırma hizmetin içinde bulunduğu **özel Önizleme**. Önizleme dönemi boyunca ücretsiz olarak kullanılabilir. Lütfen [kaydetme](https://aka.ms/azconfig/register) denediğiniz yer ilgileniyorsanız Önizleme aşamasında.
 
 ## <a name="why-use-app-configuration"></a>Neden uygulama yapılandırmasını kullanma
 

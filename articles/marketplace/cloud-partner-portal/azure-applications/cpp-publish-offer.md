@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: cafda8a48f9160c80edb02c3452035f912958bc7
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: fdca47877d4cb2192eef0a26448cd21e8afe4b77
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098230"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217946"
 ---
 # <a name="publish-azure-application-offer"></a>Azure uygulama teklifi yayımlama
 
@@ -52,6 +52,8 @@ Yayımlama işlemini izleyebilirsiniz **durumu** bulut iş ortağı Portalı'nda
 
 Yayımlama işlemini tamamladıktan sonra teklifinizi listelenir [Microsoft Azure Marketi'nde uygulama kategorisi](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
+>[!Note]
+>Bulut çözümü sağlayıcıları (CSP) iş ortağı kanalı katılımı kullanıma sunuldu.  Lütfen [bulut çözüm sağlayıcıları](../../cloud-solution-providers.md) teklifinizi Microsoft CSP aracılığıyla pazarlama hakkında daha fazla bilgi için iş ortağı kanalı.
 
 ## <a name="errors-and-review-feedback"></a>Hatalar ve gözden geçirme geri bildirimi
 

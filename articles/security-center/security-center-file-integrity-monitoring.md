@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: bb987bcc38dee1f3d4ea2fce19e5e546ebfc8f7c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310749"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240244"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Dosya bütünlüğünü Azure Güvenlik Merkezi'nde izleme
 Dosya bütünlüğünü izleme (FIM), Azure Güvenlik Merkezi'nde bu kılavuzu kullanarak yapılandırmayı öğrenin.
@@ -37,7 +37,7 @@ Güvenlik Merkezi üzerinde FIM kolayca etkinleştirebilirsiniz izlemek için va
 
 > [!NOTE]
 > Dosya bütünlüğünü izleme (FIM) özelliği, Windows ve Linux bilgisayarlar ve Vm'leri için çalışır ve Güvenlik Merkezi'nin standart katmanında kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
-FIM, verilerini Log Analytics çalışma alanına yükler. Karşıya yüklediğiniz veri miktarına göre veri ücretleri uygulanır. Bkz: [Log Analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) daha fazla bilgi için.
+FIM, verilerini Log Analytics çalışma alanına yükler. Karşıya yüklediğiniz veri miktarına göre veri ücretleri uygulanır. Bkz: [log analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) daha fazla bilgi için.
 >
 >
 

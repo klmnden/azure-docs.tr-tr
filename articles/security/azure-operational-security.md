@@ -1,6 +1,6 @@
 ---
 title: Azure operasyonel güvenlik | Microsoft Docs
-description: Microsoft Azure Log Analytics, hizmetlerinin ve nasıl çalıştığı hakkında bilgi edinin.
+description: Microsoft Azure İzleyici günlüklerine, hizmetlerinin ve nasıl çalıştığı hakkında bilgi edinin.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: cc820d0e8a19ae3905fbd26a1b9a98e948ecfb63
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2f68156e593281acb46dbeb132f0f45db4b3dfb9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107298"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244783"
 ---
 # <a name="azure-operational-security"></a>Azure çalışma güvenliği
 ## <a name="introduction"></a>Giriş
@@ -53,36 +53,36 @@ Bu teknik incelemeyi Microsoft'un Azure işletimsel güvenlik için Microsoft Az
 6.  [Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="microsoft-azure-log-analytics"></a>Microsoft Azure günlük analizi
+## <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure izleme günlükleri
 
-Microsoft Azure Log Analytics için hibrit bulut BT yönetimi çözümüdür. Tek başına kullanılan veya mevcut System Center dağıtımınızı genişletmek için Log Analytics size maksimum esneklik ve denetim için bulut tabanlı yönetim altyapınızın sağlar.
+Hibrit bulut BT yönetim çözümü olan Microsoft Azure İzleyici günlüklerine. Tek başına kullanılan veya mevcut System Center dağıtım, Azure İzleyici günlüklerine genişletmek için size maksimum esneklik ve denetim için bulut tabanlı yönetim altyapınızın sağlar.
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Azure izleme günlükleri](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-Log Analytics ile rekabet çözümlerine göre daha düşük bir maliyetle, şirket içi, Azure, AWS, Windows Server, Linux, VMware ve OpenStack, dahil, herhangi bir buluttaki herhangi bir örneğine yönetebilirsiniz. Log Analytics, bulut öncelikli dünyada için oluşturulmuş, yeni iş sorunlarını karşılamak ve uygulamaları ve bulut ortamları yeni iş yüklerine uyum sağlamak için en hızlı ve en ekonomik yolu olan Kurumsal yönetmek için yeni bir yaklaşım sunar.
+Azure İzleyici günlüklerine ile rekabet çözümlerine göre daha düşük bir maliyetle, şirket içi, Azure, AWS, Windows Server, Linux, VMware ve OpenStack, dahil, herhangi bir buluttaki herhangi bir örneğine yönetebilirsiniz. Bulut öncelikli dünyada için tasarlanan Azure İzleyici günlüklerine yeni iş sorunlarını karşılamak ve uygulamaları ve bulut ortamları yeni iş yüklerine uyum sağlamak için en hızlı ve en ekonomik yolu olan Kurumsal yönetmek için yeni bir yaklaşım sunar.
 
-### <a name="log-analytics-services"></a>Log Analytics Hizmetleri
+### <a name="azure-monitor-services"></a>Azure izleme Hizmetleri
 
-Log analytics'in temel işlevleri Azure'da çalışan hizmetleri kümesi tarafından sağlanır. Her hizmet belirli bir yönetim işlevi sağlar ve farklı hizmetleri birleştirerek farklı yönetim senaryoları elde edebilirsiniz.
+Azure İzleyici günlüklerine temel işlevlerini, Azure'da çalışan hizmetleri kümesi tarafından sağlanır. Her hizmet belirli bir yönetim işlevi sağlar ve farklı hizmetleri birleştirerek farklı yönetim senaryoları elde edebilirsiniz.
 
 | Hizmet  | Açıklama|
 | :------------- | :-------------|
-| Log Analytics | Fiziksel ve sanal makineler dahil olmak üzere çeşitli kaynakların kullanılabilirliğini ve performansını izleyin ve analiz edin. |
+| Azure izleme günlükleri | Fiziksel ve sanal makineler dahil olmak üzere çeşitli kaynakların kullanılabilirliğini ve performansını izleyin ve analiz edin. |
 |Otomasyon | El ile gerçekleştirilen işlemleri otomatikleştirin; fiziksel ve sanal makinelere yapılandırma uygulayın. |
 | Backup | Yedekleme ve kritik veri geri yükleme. |
 | Site Recovery | Kritik uygulamalar için yüksek kullanılabilirlik sağlayın. |
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure izleme günlükleri
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) yönetilen kaynaklardan toplanan verileri merkezi bir depoya toplayarak izleme hizmetleri sağlar. Bu verilere olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler dahil olabilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir.
+[Azure İzleyici günlüklerine](https://azure.microsoft.com/documentation/services/log-analytics) yönetilen kaynaklardan toplanan verileri merkezi bir depoya toplayarak izleme hizmetleri sağlar. Bu verilere olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler dahil olabilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir.
 
 
 Bu yöntem, çeşitli kaynaklardan gelen verileri birleştirmenize olanak tanır, birleştirebildiğiniz şekilde Azure hizmetlerinizi mevcut olan verileri şirket içi ortamınızdaki. Ayrıca, veri toplama işlemini veriler üzerinde gerçekleştirilen eylemden ayırarak tüm eylemlerin her tür veri üzerinde kullanılabilmesini mümkün kılar.
 
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig2.png)
+![Azure izleme günlükleri](./media/azure-operational-security/azure-operational-security-fig2.png)
 
-Log Analytics hizmetine aşağıdaki yöntemleri kullanarak buluttaki verilerinizi güvenli bir şekilde yönetir:
+Azure İzleyici hizmeti aşağıdaki yöntemleri kullanarak buluttaki verilerinizi güvenli bir şekilde yönetir:
 -   veriler arasında ayrım yapma
 -   veri saklama
 -   fiziksel güvenlik
@@ -92,22 +92,22 @@ Log Analytics hizmetine aşağıdaki yöntemleri kullanarak buluttaki verilerini
 
 ### <a name="azure-backup"></a>Azure Backup
 
-[Azure yedekleme](https://azure.microsoft.com/documentation/services/backup) veri yedekleme ve Hizmetleri geri yükleme ve ürün ve hizmetlerinin Log Analytics Suite'in bir parçası olan sağlar.
+[Azure yedekleme](https://azure.microsoft.com/documentation/services/backup) veri yedekleme ve Hizmetleri geri yükleme ve ürün ve hizmetlerini Azure İzleyici Suite'in bir parçası olan sağlar.
 Uygulama verilerinizi korur ve herhangi bir sermaye yatırımı olmadan en düşük işletim giderleriyle yıllar boyunca saklar. Bu SQL Server ve SharePoint gibi uygulama iş yüklerinin yanı sıra fiziksel ve sanal Windows sunucularındaki verileri yedekleyebilirsiniz. Tarafından da kullanılabilir [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) yedeklilik ve uzun vadeli depolama için korumalı verilerin Azure'a çoğaltmak için.
 
 
 Azure Backup'ta korunan veriler belirli bir coğrafi bölgede yer alan bir yedekleme kasasında depolanır. Veriler aynı bölge içinde çoğaltılır ve kasa türüne bağlı olarak, daha fazla dayanıklılık için başka bir bölgede de çoğaltılabilir.
 
 ### <a name="management-solutions"></a>Yönetim Çözümleri
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan Microsoft'un bulut tabanlı BT yönetim çözümüdür.
+[Azure İzleyici](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan Microsoft'un bulut tabanlı BT yönetim çözümüdür.
 
 
-[Yönetim çözümleri](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) logics bir veya daha fazla Log Analytics hizmeti kullanarak belirli bir yönetim senaryosunu uygulayan önceden paketlenmiş kümeleridir. Microsoft ve iş ortakları, kolayca Log analytics'te yatırımınızın değerini artırmak için Azure aboneliğinize ekleyebileceğinizi farklı çözümler vardır. Bir iş ortağı olarak, uygulamalarınızı ve hizmetlerinizi desteklemek ve bunları Azure Market veya hızlı başlangıç şablonları aracılığıyla kullanıcılara sağlamak için kendi çözümlerinizi oluşturabilir.
+[Yönetim çözümleri](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) logics bir veya daha fazla Azure izleme hizmetlerini kullanarak belirli bir yönetim senaryosunu uygulayan önceden paketlenmiş kümeleridir. Microsoft ve iş ortakları, kolayca Azure İzleyicisi'nde yatırımınızın değerini artırmak için Azure aboneliğinize ekleyebileceğinizi farklı çözümler vardır. Bir iş ortağı olarak, uygulamalarınızı ve hizmetlerinizi desteklemek ve bunları Azure Market veya hızlı başlangıç şablonları aracılığıyla kullanıcılara sağlamak için kendi çözümlerinizi oluşturabilir.
 
 
 ![Yönetim Çözümleri](./media/azure-operational-security/azure-operational-security-fig4.png)
 
-Ek işlevsellik sağlamak için birden fazla hizmet kullanan bir çözüm için iyi bir örnek [güncelleştirme yönetimi çözümünü](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). Bu çözümü kullanan [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) hakkında bilgi toplamak, Windows ve Linux için aracı her bir aracı güncelleştirmeleri gerekiyor. Bu veriler, dahil olan bir panoyla analiz edilebilecekleri Log Analytics deposuna yazılır.
+Ek işlevsellik sağlamak için birden fazla hizmet kullanan bir çözüm için iyi bir örnek [güncelleştirme yönetimi çözümünü](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). Bu çözümü kullanan [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) hakkında bilgi toplamak, Windows ve Linux için aracı her bir aracı güncelleştirmeleri gerekiyor. Bu veriler, burada dahil olan bir panoyla çözümleyebilirsiniz Azure İzleyici günlükleri deposuna yazar.
 
 Runbook'ları bir dağıtım oluşturduğunuzda [Azure Otomasyonu](https://docs.microsoft.com/azure/automation/automation-intro) gerekli güncelleştirmeleri yüklemek için kullanılır. Bu işlemi baştan sona portalda yönetirsiniz ve altyapısal ayrıntılar konusunda endişelenmeniz gerekmez.
 
@@ -312,7 +312,7 @@ Bu makalede özetleri gizliliğinizi ve yazılım ve yardımcı hizmetler sunark
 
 Bu makalede açıklanır
 
--   Nasıl veri toplanan, işlenen ve Log Analytics paketindeki güvenli.
+-   Nasıl veri toplanan, işlenen ve Azure İzleyici paketindeki güvenli.
 
 -   Birden çok veri kaynağında olayları hızla çözümleyin. Güvenlik ihlalinden doğabilecek zararları azaltmak için güvenlik risklerini tanımlayın, tehdit ve saldırıların kapsamını ve etkisini anlayın.
 
@@ -335,7 +335,7 @@ Bu makalede açıklanır
 
 Microsoft, Microsoft'un bulut altyapısının dayanıklı ve saldırılara karşı korunuyor olduğundan emin olun yardımcı olmak için güvenlikten ödün yazılım ve Hizmetleri tasarlar.
 
-- [Log Analytics | Güvenlik ve uyumluluk](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Azure İzleyici günlüklerine | Güvenlik ve uyumluluk](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Microsoft güvenlik veri ve analiz daha akıllı ve etkili tehdit algılama gerçekleştirmek için kullanın.
 

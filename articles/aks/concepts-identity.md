@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 0af3133a1f9a903874c25bf34af0fbf99da8af14
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 64150438560d48575b4b65db4cdaf61aa0ada240
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381293"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243840"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) için erişim ve kimlik seçenekleri
 
@@ -75,6 +75,8 @@ Bir ClusterRoleBinding roller kullanıcılara bağlamak için aynı şekilde ça
 
 Azure AD ile kullanmaya başlamak için ve Kubernetes RBAC [Azure Active Directory Tümleştirme ile AKS][aks-aad].
 
+İlişkili en iyi yöntemler için bkz: [en iyi uygulamalar için kimlik doğrulama ve yetkilendirme aks'deki][operator-best-practices-identity].
+
 Çekirdek Kubernetes hakkında daha fazla bilgi ve AKS kavramlar için aşağıdaki makalelere bakın:
 
 - [Kubernetes / AKS kümesi ve iş yükleri][aks-concepts-clusters-workloads]
@@ -98,3 +100,4 @@ Azure AD ile kullanmaya başlamak için ve Kubernetes RBAC [Azure Active Directo
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-identity]: operator-best-practices-identity.md

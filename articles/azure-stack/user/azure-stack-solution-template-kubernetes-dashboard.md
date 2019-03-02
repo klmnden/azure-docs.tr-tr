@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 197e79c2674d314c178444cc1f0d685503425031
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdc1be0c0274977fe14ef704fbb74fa955ad7e11
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986929"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242420"
 ---
 # <a name="enable-the-kubernetes-dashboard-in-azure-stack"></a>Azure Stack'te Kubernetes panosunu etkinleştir 
 
@@ -107,7 +107,6 @@ Kümenizde ana düğüm Panosu URL'sini alabilirsiniz.
 3. Dosya konumları not edin. Betik konumlar ile güncelleştirin ve PowerShell ile yükseltilmiş bir istemi açın. Güncelleştirilmiş betiği çalıştırın:  
 
     ```PowerShell   
-    Import  /etc/kubernetes/certs/ca.crt -CertStoreLocation cert:\LocalMachine\Root 
     Import-Certificate -Filepath "ca.crt" -CertStoreLocation cert:\LocalMachine\Root 
     $pfxpwd = Get-Credential -UserName 'Enter password below' -Message 'Enter password below' 
     Import-PfxCertificate -Filepath "client.pfx" -CertStoreLocation cert:\CurrentUser\My -Password $pfxpwd.Password 
@@ -121,9 +120,11 @@ Kümenizde ana düğüm Panosu URL'sini alabilirsiniz.
 3.  İstemci sertifikası seçin.
 4.  Belirteci girin. 
 5. Ana düğüm üzerinde bash komut satırını yeniden ve izin vermek `kubernetes-dashboard`. Şu komutu çalıştırın:
-    ```Bash   
+
+    ```Bash  
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
     ``` 
+
     Komut dosyası sağlar `kubernetes-dashboard` bulut yönetici ayrıcalıkları. Daha fazla bilgi için [kümeleri için RBAC özellikli](https://docs.microsoft.com/azure/aks/kubernetes-dashboard).
 
 Panoyu kullanabilirsiniz. Kubernetes panosunu hakkında daha fazla bilgi için bkz. [Kubernetes Web kullanıcı Arabirimi Panosu](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 

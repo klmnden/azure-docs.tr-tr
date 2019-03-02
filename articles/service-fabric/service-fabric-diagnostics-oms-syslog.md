@@ -14,23 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 25452d3d65518511c47087d1cb712d0a512416fc
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297676"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245565"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux kümesi Syslog olayları
 
 Service Fabric platform olaylarını kümenizdeki önemli etkinlik hakkında bilgilendirmek için bir dizi kullanıma sunar. Kullanıma sunulan olayların tam listesi kullanılabilir [burada](service-fabric-diagnostics-event-generation-operational.md). Çeşitli şekillerde bu olayları tüketilebilir vardır. Bu makalede, Service Fabric, bu olayları için Syslog yazmak için yapılandırma tartışmak için kullanacağız.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="introduction"></a>Giriş
 
 Syslog ile Linux kümeleri için Service Fabric platform olaylarına gönderilecek SyslogConsumer 6.4 sürümde sunulmuştur. Etkinleştirildikten sonra olayları otomatik olarak toplanan ve Log Analytics aracı tarafından gönderilen Syslog akar.
 
 Her bir Syslog olayının 4 bileşenleri olan
-* Tesis
+* Özellik
 * Kimlik
 * İleti
 * Severity
@@ -93,8 +95,8 @@ Duyurmak için değişiklikler aşağıda belirtilmiştir
     }
 ```
 
-## <a name="log-analytics-integration"></a>Log Analytics tümleştirmesi
-Bu Syslog olayları Log Analytics gibi izleme aracında okuyabilir. Bu [yönergeleri] kullanarak Azure Marketi'nde kullanarak Log Analytics çalışma alanı oluşturabilirsiniz. (.. / azure-monitor/learn/quick-create-workspace.md) de Log Analytics aracısını toplayıp bu verileri çalışma alanına gönderme kümenize eklemeniz gerekir. Performans sayaçları toplamak için kullanılan aracının aynısı budur. 
+## <a name="azure-monitor-logs-integration"></a>Azure İzleyici tümleştirmesi günlüğe kaydeder.
+Bu Syslog olayları Azure İzleyici günlükleri gibi bir izleme Aracı'nda okuyabilirsiniz. Bu [yönergeleri] kullanarak Azure Marketi'nde kullanarak Log Analytics çalışma alanı oluşturabilirsiniz. (.. / azure-monitor/learn/quick-create-workspace.md) de Log Analytics aracısını toplayıp bu verileri çalışma alanına gönderme kümenize eklemeniz gerekir. Performans sayaçları toplamak için kullanılan aracının aynısı budur. 
 
 1. Gidin `Advanced Settings` dikey penceresi
 
@@ -120,6 +122,6 @@ Yukarıdaki örnekte bir NodeDown olayıdır. Olayların tam listesini görünt�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Log Analytics aracısını dağıtmayı](service-fabric-diagnostics-oms-agent.md) üzerine düğümlerinizi performans sayaçları toplamak ve docker istatistikleri ve kapsayıcılarınızı için günlükleri toplamak için
-* Analytics'in [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri Log Analytics kapsamında sunulan
-* [Log Analytics'te özel görünümlerini oluşturma için Görünüm Tasarımcısı'nı kullanın](../log-analytics/log-analytics-view-designer.md)
-* Nasıl yapılır'için başvuru [Syslog ile Log Analytics tümleştirmesi](../log-analytics/log-analytics-data-sources-syslog.md).
+* Analytics'in [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri, Azure İzleyici günlüklerine bir parçası olarak sunulan
+* [Azure İzleyici günlüklerine özel görünümlerini oluşturma için Görünüm Tasarımcısı'nı kullanın](../log-analytics/log-analytics-view-designer.md)
+* Nasıl yapılır'için başvuru [Azure İzleyici, Syslog ile tümleştirme günlükleri](../log-analytics/log-analytics-data-sources-syslog.md).

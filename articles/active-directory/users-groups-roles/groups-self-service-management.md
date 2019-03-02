@@ -10,25 +10,35 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: get-started-article
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 059746d0e3a277016f5d6b98fe0d0f90c9ee2b96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 211c519668d26a9972f7c34fbe8cce766936df96
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217998"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215141"
 ---
-# <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Self servis grup yönetimi için Azure Active Directory'yi ayarlama
+# <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Self Servis Grup Yönetimi Azure Active Directory'de ayarlama 
 
-Kullanıcılarınız Azure Active Directory'de (Azure AD) güvenlik gruplarını veya Office 365 gruplarını oluşturup yönetebilir. Kullanıcılar ayrıca güvenlik grubu veya Office 365 grubu üyelikleri ister ve grubun sahibi üyeliği onaylayabilir ya da reddedebilir. Grup üyeliği günlük denetimi o üyeliğe ilişkin iş bağlamını bilen kişilere atanabilir. Self servis grup yönetimi özellikleri yalnızca güvenlik grupları ve Office 365 grupları için kullanılabilir, ancak posta etkin güvenlik grupları veya dağıtım listeleri için kullanılamaz.
+Kullanıcılar kendi güvenlik grupları veya Office 365 grupları Azure Active Directory'de (Azure AD) oluşturmak ve yönetmek etkinleştirebilirsiniz. Grubun sahibi onaylayabilir veya üyelik istekleri reddetme ve için temsilci grup üyeliği denetimi. Self Servis Grup Yönetimi özellikleri, posta etkin güvenlik grupları veya dağıtım listeleri için kullanılamaz. 
 
-İki senaryo Self Servis Grup Yönetimi Hizmetleri: 
+## <a name="self-service-group-membership-defaults"></a>Self Servis grup üyeliği Varsayılanları
 
-* **Temsilcili grup yönetimi** Şirketinin kullandığı SaaS uygulamasına erişimi yöneten bir yönetici, bu senaryoya örnek olarak verilebilir. Bu erişim haklarını yönetmek sıkıcı bir hal alabilir; bu durumda yönetici, işletme sahibinden yeni bir grup oluşturmasını ister. Yönetici, uygulamanın erişimini yeni gruba atar ve ardından uygulamaya zaten erişimi olan tüm kişileri gruba ekler. Ardından işletme sahibi daha fazla kullanıcı ekleyebilir ve bu kullanıcılar uygulamaya otomatik olarak sağlanır. İşletme sahibinin, yöneticinin kullanıcılar için erişimi yönetmesini beklemesi gerekmez. Yönetici farklı iş grubundaki bir yöneticiye aynı izin verirse söz konusu kişi kendi kullanıcılar için de erişimi yönetebilir. İşletme sahibi ve yönetici birbirlerinin kullanıcılarını görüntüleyemez veya yönetemez. Yönetici uygulamaya erişimi olan tüm kullanıcıları görebilir ve gerekirse erişim haklarını engelleyebilir.
+Ne zaman Azure portalında güvenlik grupları oluşturulur veya Azure AD PowerShell kullanarak, yalnızca grubun sahipleri üyeliği güncelleştirebilirsiniz. Oluşturduğunuz güvenlik gruplarını [erişim paneli](https://account.activedirectory.windowsazure.com/r#/joinGroups) ve tüm Office 365 grupları sahibi tarafından onaylanan ya da otomatik olarak onaylanan tüm kullanıcılar için katılmak kullanılabilir. Erişim Paneli'nde grup oluşturduğunuzda, üyeliği seçenekleri değiştirebilirsiniz.
+
+Oluşturulan gruplar | Güvenlik grubu varsayılan davranışı | Office 365 grubu varsayılan davranışı
+------------------ | ------------------------------- | ---------------------------------
+[Azure AD PowerShell](groups-settings-cmdlets.md) | Yalnızca sahipleri üyelerini ekleyebilirsiniz.<br>Erişim Paneli'nde katılmak kullanılabilir ancak görünür | Tüm kullanıcılar katılabilir Aç
+[Azure portal](https://portal.azure.com) | Yalnızca sahipleri üyelerini ekleyebilirsiniz.<br>Erişim Paneli'nde katılmak kullanılabilir ancak görünür<br>Sahip grubu oluşturma sırasında otomatik olarak atanmamış | Tüm kullanıcılar katılabilir Aç
+[Erişim paneli](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Tüm kullanıcılar katılabilir Aç<br>Grup oluşturulduğunda, üyelik seçenekleri değiştirilebilir | Tüm kullanıcılar katılabilir Aç<br>Grup oluşturulduğunda, üyelik seçenekleri değiştirilebilir
+
+## <a name="self-service-group-management-scenarios"></a>Self Servis Grup Yönetimi senaryoları
+
+* **Temsilcili grup yönetimi** Şirketinin kullandığı SaaS uygulamasına erişimi yöneten bir yönetici, bu senaryoya örnek olarak verilebilir. Bu erişim haklarını yönetmek sıkıcı bir hal alabilir; bu durumda yönetici, işletme sahibinden yeni bir grup oluşturmasını ister. Yönetici, uygulamanın erişimini yeni gruba atar ve ardından uygulamaya zaten erişimi olan tüm kişileri gruba ekler. Ardından işletme sahibi daha fazla kullanıcı ekleyebilir ve bu kullanıcılar uygulamaya otomatik olarak sağlanır. İşletme sahibinin, yöneticinin kullanıcılar için erişimi yönetmesini beklemesi gerekmez. Yönetici farklı iş grubundaki bir yöneticiye aynı izin verirse sonra söz konusu kişinin de erişim kendi grup üyeleri için yönetebilirsiniz. İşletme sahibinin, ne de Yöneticisi görüntüleyebilir veya diğer kişilerin grup üyeliğini yönetme. Yönetici uygulamaya erişimi olan tüm kullanıcıları görebilir ve gerekirse erişim haklarını engelleyebilir.
 * **Self servis grup yönetimi** SharePoint Online sitelerine sahip olan ve bu siteleri ayrı şekilde ayarlayan iki kullanıcı, bu senaryoya örnek olarak verilebilir. Bunlar birbirlerinin ekiplerine siteleri için erişim vermek ister. Bunun için Azure AD'de bir grup oluşturabilirler ve her biri SharePoint Online'da kendi sitelerine erişim sunmak üzere bu grubu seçerler. Birisi erişim istediğinde Erişim Paneli'nden ister ve onayın ardından otomatik olarak iki SharePoint Online sitesine de erişim sağlanır. Daha sonra bu kişilerden biri, siteye erişen herkesin belirli bir SaaS uygulamasına da erişmesi gerektiğine karar verir. SaaS uygulamasının yöneticisi uygulamanın erişim haklarını SharePoint Online sitesine ekleyebilir. Daha sonra onaylanan tüm istekler, iki SharePoint Online sitesine ve bu SaaS uygulamasına erişim sağlar.
 
 ## <a name="make-a-group-available-for-user-self-service"></a>Bir grubu kullanıcı self servisi için kullanıma sunma

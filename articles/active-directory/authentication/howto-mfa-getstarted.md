@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbfade56ff12aa719927d496606a6ce4b4fe5a38
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 07e98d5a93b8576c06e9be8274a974b1b574da4b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167159"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217759"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Bulut tabanlı Azure Multi-Factor Authentication'ı dağıtın
 
@@ -42,6 +42,9 @@ Başlamadan önce aşağıdaki önkoşulların karşılandığından emin olun:
 ## <a name="choose-authentication-methods"></a>Kimlik doğrulama yöntemi seçin
 
 Kuruluşunuzun gereksinimlerine göre kullanıcılarınız için en az bir kimlik doğrulama yöntemini etkinleştirin. Microsoft Authenticator uygulamasını kullanıcılar için etkin olduğunda en iyi kullanıcı deneyimi sağlar buluyoruz. Hangi yöntemler kullanılabilir ve bunların nasıl ayarlanacağını anlamak ihtiyacınız varsa bkz [kimlik doğrulama yöntemleri nelerdir](concept-authentication-methods.md).
+
+> [!IMPORTANT]
+> Telefon araması seçenekleri 2019'ın Mart başlangıç MFA ve SSPR kullanıcıları Azure AD ücretsiz/deneme kiracıları için kullanılabilir olmayacak. SMS iletileri, bu değişiklikten etkilenmez. Telefon Araması'nda kullanıcılara kullanılabilir Ücretli Azure AD kiracılarıyla devam eder. Bu değişiklik, yalnızca Azure AD ücretsiz/deneme kiracıları etkiler.
 
 ## <a name="get-users-to-enroll"></a>Kullanıcıların kaydolmalarına Al
 

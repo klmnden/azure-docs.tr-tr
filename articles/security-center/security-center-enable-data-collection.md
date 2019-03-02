@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0afc507a49ae7cc54fb0daa5c7ae71c3a40ee637
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 09abb8fa2c8d08b27b83a2510b4c1133458b8363
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731115"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240738"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde veri toplamayı
 Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve Azure harici bilgisayarları güvenlik açıklarını ve tehditleri izlemek için veri toplar. Güvenlik-ilgili çeşitli yapılandırmaları ve olay günlüklerini makineden okur ve verileri analiz için çalışma alanınıza kopyalayan Log Analytics aracısını kullanarak verileri toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri) çalışan işlemler, makine adı, IP adresleri ve kullanıcı oturum. Log Analytics aracısını, ayrıca kilitlenme bilgi dökümü dosyalarını çalışma alanınıza kopyalar.
@@ -87,11 +87,11 @@ Güvenlik Merkezi tarafından oluşturulan bir çalışma alanı seçmek için:
 -   Güvenlik Merkezi bir Güvenlik Merkezi çözüm çalışma alanının fiyatlandırma katmanını ayarlamak için abonelik başına otomatik olarak etkinleştirir. 
 
 > [!NOTE]
-> Log Analytics fiyatlandırma katmanında, Güvenlik Merkezi tarafından oluşturulan çalışma alanları, Güvenlik Merkezi faturalandırma etkilemez. Güvenlik Merkezi her zaman, Güvenlik Merkezi güvenlik ilkesi ve bir çalışma alanına yüklenmiş çözümlere göre faturalandırılır. Güvenlik Merkezi'nin ücretsiz katmanı için etkinleştirir *SecurityCenterFree* çözüm için varsayılan çalışma alanı. Güvenlik Merkezi standart katmanı için etkinleştirir *güvenlik* çözüm için varsayılan çalışma alanı.
+> Log analytics fiyatlandırma katmanında, Güvenlik Merkezi tarafından oluşturulan çalışma alanları, Güvenlik Merkezi faturalandırma etkilemez. Güvenlik Merkezi her zaman, Güvenlik Merkezi güvenlik ilkesi ve bir çalışma alanına yüklenmiş çözümlere göre faturalandırılır. Güvenlik Merkezi'nin ücretsiz katmanı için etkinleştirir *SecurityCenterFree* çözüm için varsayılan çalışma alanı. Güvenlik Merkezi standart katmanı için etkinleştirir *güvenlik* çözüm için varsayılan çalışma alanı.
 
 Fiyatlandırma hakkında daha fazla bilgi için bkz. [Güvenlik Merkezi fiyatlandırma](https://azure.microsoft.com/pricing/details/security-center/).
 
-Mevcut Log Analytics hesapları hakkında daha fazla bilgi için bkz. [mevcut Log Analytics müşterileri](security-center-faq.md#existingloganalyticscust).
+Mevcut log analytics hesabı hakkında daha fazla bilgi için bkz: [mevcut log analytics müşterileri](security-center-faq.md#existingloganalyticscust).
 
 ### <a name="using-an-existing-workspace"></a>Mevcut bir çalışma alanını kullanma
 
@@ -149,7 +149,7 @@ Tüm aboneliklerinizdeki tüm çalışma alanları, verilerinizin depolanacağı
 ## <a name="data-collection-tier"></a>Veri koleksiyonu katmanı
 Azure Güvenlik Merkezi'nde veri koleksiyonunu katmanı seçerek yalnızca Log Analytics çalışma alanınızda, güvenlik olaylarının depolama etkiler. Log Analytics aracısını hala toplamak ve Log Analytics çalışma alanınızda (varsa) depolamak seçtiğiniz hangi güvenlik olayları katmanı bağımsız olarak Azure Güvenlik Merkezi'nin tehdit algılamaları için gereken güvenlik olayları analiz edin. Çalışma alanınızda güvenlik olayları depolamak seçme araştırma, arama ve çalışma alanınızda bu olayların denetimini etkinleştirir. 
 > [!NOTE]
-> Log Analytics'te veri depolama, veri depolama için ek ücret, daha fazla ayrıntı için fiyatlandırma sayfasına bakın.
+> Log analytics'te veri depolama, veri depolama için ek ücret, daha fazla ayrıntı için fiyatlandırma sayfasına bakın.
 >
 Çalışma alanınızda depolanmış Abonelikleriniz ve çalışma alanlarından olayların dört kümesi için ilke filtreleme hakkı seçebilirsiniz: 
 
@@ -212,8 +212,8 @@ Daha fazla bilgi için [SCOM veya OMS Aracısı VM üzerinde zaten yüklü doğr
 
 -   Önceden var olan VM uzantısı yok<br>
     - Güvenlik Merkezi, mevcut uzantı yüklemeleri destekler ve mevcut bağlantıları geçersiz kılmaz. Güvenlik Merkezi, çalışma alanındaki VM'den veri zaten bağlı ve çalışma alanınızda etkin çözüm göre koruma sağlayan güvenlik depolar.   
-    - Hangi çalışma alanına mevcut uzantı test çalıştırmak için veri gönderdiğini görmek için [Azure Güvenlik Merkezi ile bağlantısı doğrulama](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Alternatif olarak, Log Analytics'i açın, bir çalışma alanı seçin, sanal Makineyi seçin ve Log Analytics aracısını bağlantısını arayın. 
-    - Bir ortamınız varsa, burada Log Analytics aracısını istemci iş istasyonları üzerinde yüklü olduğundan ve mevcut bir Log Analytics çalışma alanına raporlama listesini gözden geçirin [Azure Güvenlik Merkezi tarafından desteklenen işletim sistemleri](security-center-os-coverage.md) emin olmak için işletim sisteminiz desteklenir ve bkz [mevcut Log Analytics müşterileri](security-center-faq.md#existingloganalyticscust) daha fazla bilgi için.
+    - Hangi çalışma alanına mevcut uzantı test çalıştırmak için veri gönderdiğini görmek için [Azure Güvenlik Merkezi ile bağlantısı doğrulama](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Alternatif olarak, Log Analytics çalışma alanları'nı açın, bir çalışma alanı seçin, sanal Makineyi seçin ve Log Analytics aracısını bağlantısını arayın. 
+    - Bir ortamınız varsa, burada Log Analytics aracısını istemci iş istasyonları üzerinde yüklü olduğundan ve mevcut bir Log Analytics çalışma alanına raporlama listesini gözden geçirin [Azure Güvenlik Merkezi tarafından desteklenen işletim sistemleri](security-center-os-coverage.md) emin olmak için işletim sisteminiz desteklenir ve bkz [mevcut log analytics müşterileri](security-center-faq.md#existingloganalyticscust) daha fazla bilgi için.
  
 ### Otomatik sağlamayı etkinleştirmek <a name="offprovisioning"></a>
 Otomatik kaynaklardan herhangi bir zamanda bu güvenlik ilkesi ayarı devre dışı bırakarak sağlamayı kapatın kapatabilirsiniz. 

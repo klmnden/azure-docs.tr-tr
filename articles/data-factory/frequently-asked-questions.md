@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: 112ff38ad4e35ac284501c5dd3881c4f340b5f9b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdd5c7592ebbc092c8e7be01a0fdd16e9c78aeaf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984654"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240805"
 ---
 # <a name="azure-data-factory-faq"></a>Azure veri fabrikası ile ilgili SSS
 Bu makalede Azure Data Factory hakkında sık sorulan soruların yanıtlarını sağlar.  
@@ -195,7 +195,7 @@ Artık kendi Databricks kümeleri getirmek gerekir. Küme oluşturma ve kapatmay
 Microsoft Yardım veya veri akışları ile sorun giderme sağladığında, lütfen "DSL kod planı" belirtin. Bunu yapmak için şu adımları uygulayın:
 
 * Veri Akışı Tasarımcısı'ndan sağ üst köşedeki "Code"'a tıklayın. Bu veri akışı için düzenlenebilir JSON kodunu görüntüler.
-* Kod görünümünden üzerinde sağ üst köşedeki "Plan"'a tıklayın. Biçimlendirilmiş DSL betik planına json'dan planı anahtarı.
+* Kod görünümünden üzerinde sağ üst köşedeki "Plan"'a tıklayın. Planı Değiştir JSON'dan salt okunur biçimlendirilmiş DSL betik plana geçiş yapar.
 * Kopyalayın ve bu betiği yapıştırın veya bir metin dosyasına kaydedin.
 
 ### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>Diğer 80 veri kümesi türlerini kullanarak ADF içinde verileri nasıl erişim sağlanır?

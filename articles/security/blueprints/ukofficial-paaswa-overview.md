@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7f67b7363719f544c485503e0f8207bb1f1078ce
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301810"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244715"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: UK resmi iş yükleri için barındırma PaaS Web uygulaması
 
@@ -57,9 +57,8 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Ayrıntılar için bkz d
 - API App
 - Azure DNS
 - Key Vault
-- Azure İzleyici
+- Azure İzleyici (günlük)
 - Application Insights
-- Log Analytics
 - Azure Resource Manager
 - Azure Güvenlik Merkezi
 - Azure SQL Database
@@ -169,11 +168,11 @@ Azure depolama güvenliğini sağlama hakkında ayrıntılı bilgi bulunabilir [
 
 ### <a name="monitoring-logging-and-audit"></a>İzleme, günlüğe kaydetme ve Denetim
 
-#### <a name="log-analytics"></a>Log Analytics
+#### <a name="azure-monitor-logs"></a>Azure izleme günlükleri
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) ve şirket içi Ortamlarınızdaki bulutunuzdaki kaynaklar tarafından oluşturulan verileri toplayıp analiz yardımcı olan bir Azure hizmetidir.
+[Azure İzleyici günlüklerine](https://azure.microsoft.com/services/log-analytics/) ve şirket içi Ortamlarınızdaki bulutunuzdaki kaynaklar tarafından oluşturulan verileri toplayıp analiz yardımcı olan bir Azure hizmetidir.
 
-#### <a name="log-analytics-in-this-blueprint"></a>Log Analytics'te bu şema
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>Azure İzleyici, bu blueprint'te günlüğe kaydeder
 
 - SQL Değerlendirmesi
 - Anahtar kasası tanılama

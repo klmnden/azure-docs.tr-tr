@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: caa2ef878100394fe4bb3282024958bb9dcb46aa
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 7aa3bdeb40f5e6905f261fde78b4a6545e12bff4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977092"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246840"
 ---
-# <a name="manage-streaming-endpoints-with-net-sdk-legacy"></a>.NET SDK (eski) ile akış uç noktalarını yönetme
+# <a name="manage-streaming-endpoints-with-net-sdk"></a>.NET SDK'sı ile akış uç noktalarını yönetme  
 
 >[!NOTE]
 >Gözden geçirdiğinizden emin olun [genel bakış](media-services-streaming-endpoints-overview.md) makalesi. Ayrıca, gözden [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).

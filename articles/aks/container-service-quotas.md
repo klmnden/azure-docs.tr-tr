@@ -3,17 +3,16 @@ title: Azure Kubernetes Hizmeti (AKS) kotaları ve bölge kullanılabilirliği
 description: Azure Kubernetes Hizmeti’nin (AKS) varsayılan kotaları ve bölge kullanılabilirliği.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: overview
-ms.date: 08/01/2018
+ms.topic: conceptual
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9fbc769ef428c41f0e133ec1e139ba9900025dc4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c8a2c0cac963fcc0622cff547e85593a13aa076a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879365"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243848"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti’nin (AKS) kotaları ve bölge kullanılabilirliği
 
@@ -32,12 +31,14 @@ Tüm diğer ağ, işlem ve depolama sınırları, sağlanan altyapıya uygulanı
 Azure Kubernetes Hizmeti (AKS), aşağıdaki bölgelerde kullanıma sunulmuştur:
 
 - Avustralya Doğu
+- Avustralya Güneydoğu
 - Orta Kanada
 - Doğu Kanada
 - Orta ABD
 - Doğu Asya
 - Doğu ABD
 - Doğu ABD 2
+- Fransa Orta
 - Japonya Doğu
 - Kuzey Avrupa
 - Güneydoğu Asya

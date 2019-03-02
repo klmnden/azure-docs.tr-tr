@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: a41599194d6dd6230c80aa078375b798c3002adf
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9e4c4e8c8d7aa89e2a27efc2c2deebd4863be23e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824020"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242964"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Olay toplama ve Linux Azure Tanılama'yı kullanarak koleksiyon
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "56824020"
 
 Bir Azure Service Fabric kümesi çalıştırırken, merkezi bir konumda tüm düğümlerden günlükleri toplamak için iyi bir fikirdir. Günlükleri sahip merkezi bir konumda, kümenizdeki sorunları veya uygulamalar ve hizmetler, kümede çalışan sorunları gidermek ve çözümlemenize yardımcı olur.
 
-Karşıya yükleme ve günlükleri toplamak için bir yolu, günlükleri, Azure Depolama'ya yükler ve ayrıca Azure Application Insights veya olay hub'larına günlükleri gönderme seçeneği olan Linux Azure tanılama (LAD) uzantısı kullanmaktır. Olayları depolamadan okuyun ve bunları bir analiz platformu ürün gibi yerleştirmek için bir dış işlem kullanabilirsiniz [Log Analytics](../log-analytics/log-analytics-service-fabric.md) veya başka bir günlük ayrıştırma çözümü.
+Karşıya yükleme ve günlükleri toplamak için bir yolu, günlükleri, Azure Depolama'ya yükler ve ayrıca Azure Application Insights veya olay hub'larına günlükleri gönderme seçeneği olan Linux Azure tanılama (LAD) uzantısı kullanmaktır. Olayları depolamadan okuyun ve bunları bir analiz platformu ürün gibi yerleştirmek için bir dış işlem kullanabilirsiniz [Azure İzleyici günlükleri](../log-analytics/log-analytics-service-fabric.md) veya başka bir günlük ayrıştırma çözümü.
 
 ## <a name="log-and-event-sources"></a>Günlük ve olay kaynakları
 

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 4361ec72f5f9cff924900ddd712aa1aa029c5ef4
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 5203ebff606ebaf77feab614090fa70b8bc8015c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509029"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213815"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Azure dosya paylaşımını Windows'da kullanma
 [Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Azure dosya paylaşımları, Windows ve Windows Server’da sorunsuz bir şekilde kullanılabilir. Bu makalede Azure dosya paylaşımını Windows ve Windows Server ile kullanma konusunda dikkat edilmesi gerekenler anlatılmaktadır.
@@ -45,7 +45,9 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 
 * **Depolama hesabı anahtarı**: Bir Azure dosya paylaşımını bağlayabilmeniz için birincil (veya ikincil) depolama anahtarı gerekir. SAS anahtarları şu an bağlama için desteklenmemektedir.
 
-* **Bağlantı noktası 445'in açık olduğundan emin olun**: SMB protokolü TCP bağlantı noktası 445'in açık olmasını gerektirir; bağlantı noktası 445 engellenirse bağlantıları başarısız olur. `Test-NetConnection` cmdlet'ini kullanarak 445 numaralı bağlantı noktasının güvenlik duvarınız tarafından engellenip engellenmediğini görebilirsiniz. Aşağıdaki PowerShell kodunda AzureRM PowerShell modülünü yüklediğiniz varsayılır. Daha fazla bilgi için bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps). `<your-storage-account-name>` ile `<your-resource-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
+* **Bağlantı noktası 445'in açık olduğundan emin olun**: SMB protokolü TCP bağlantı noktası 445'in açık olmasını gerektirir; bağlantı noktası 445 engellenirse bağlantıları başarısız olur. `Test-NetConnection` cmdlet'ini kullanarak 445 numaralı bağlantı noktasının güvenlik duvarınız tarafından engellenip engellenmediğini görebilirsiniz. Hakkında bilgi edinebilirsiniz [engellenen geçici çözüm için çeşitli yollar burada 445 bağlantı noktası](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+
+    Aşağıdaki PowerShell kodunda AzureRM PowerShell modülünü yüklediğiniz varsayılır. Daha fazla bilgi için bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps). `<your-storage-account-name>` ile `<your-resource-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"

@@ -1,6 +1,6 @@
 ---
 title: Azure Güvenlik Merkezi araması | Microsoft Docs
-description: Log Analytics arama Azure Güvenlik Merkezi güvenlik verilerinizi analiz edin ve almak için nasıl kullandığını öğrenin.
+description: Azure İzleyici günlüklerine arama Azure Güvenlik Merkezi güvenlik verilerinizi analiz edin ve almak için nasıl kullandığını öğrenin.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: c02a9f61a4a8b88f8b6c4d861f1a6cbe904ad70d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7fae267b74677e93527b4e185c5b52d421ef149e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110549"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244953"
 ---
 # <a name="azure-security-center-search"></a>Azure Güvenlik Merkezi arama
-Azure Güvenlik Merkezi kullanan [Log Analytics arama](../log-analytics/log-analytics-log-searches.md) almak ve güvenlik verilerinizi analiz edin. Log Analytics, hızlı bir şekilde verileri almak ve birleştirmek için bir sorgu dili içerir. Güvenlik Merkezi'nden Log Analytics arama sorguları oluşturma ve toplanan verileri çözümlemek için yararlanabilirsiniz.
+Azure Güvenlik Merkezi kullanan [Azure İzleyici, arama günlüklerini](../log-analytics/log-analytics-log-searches.md) almak ve güvenlik verilerinizi analiz edin. Azure İzleyici günlüklerine hızlı bir şekilde verileri almak ve birleştirmek için bir sorgu dili içerir. Güvenlik Merkezi'nde Azure İzleyici günlüklerine arama sorguları oluşturma ve toplanan verileri çözümlemek için yararlanabilirsiniz.
 
 Arama, ücretsiz katman ve Güvenlik Merkezi'nin standart katmanında kullanılabilir.  Günlük aramalarınızı kullanılabilir verileri çalışma alanınıza uygulanan katman düzeyi bağlıdır.  Güvenlik Merkezi'ni [fiyatlandırma sayfası](../security-center/security-center-pricing.md) daha fazla bilgi için.
 
@@ -49,15 +49,15 @@ Arama, ücretsiz katman ve Güvenlik Merkezi'nin standart katmanında kullanıla
 
   ![Arama sonuçları][3]
 
-Bkz: [Log Analytics sorgu diline](../log-analytics/log-analytics-search-reference.md) seçilen çalışma alanı altında verileri için sorgulama hakkında daha fazla bilgi için.
+Bkz: [Kusto sorgu dili](../log-analytics/log-analytics-search-reference.md) seçilen çalışma alanı altında verileri için sorgulama hakkında daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede Güvenlik Merkezi'ndeki arama erişim öğrendiniz. Güvenlik Merkezi, Log Analytics arama kullanır. Log Analytics arama hakkında daha fazla bilgi için bkz:
+Bu makalede Güvenlik Merkezi'ndeki arama erişim öğrendiniz. Güvenlik Merkezi, Azure İzleyici günlüklerine arama kullanır. Azure İzleyici günlüklerine arama hakkında daha fazla bilgi için bkz:
 
-- [Log Analytics nedir?](../log-analytics/log-analytics-overview.md) – Log Analytics'e genel bakış
-- [Günlük aramalarını anlama Log Analytics'te](../log-analytics/log-analytics-log-search-new.md) - Log Analytics'te günlük aramaları nasıl kullanıldığını açıklar ve bir günlük araması oluşturmadan önce anlaşılması kavramlar sağlar
-- [Log Analytics'te günlük aramaları kullanarak veri bulmalarına](../log-analytics/log-analytics-log-searches.md) – günlük araması kullanma Öğreticisi
-- [Log Analytics Arama başvurusu](../log-analytics/log-analytics-search-reference.md) – Log Analytics sorgu dilinde tanımlar
+- [Azure İzleyici günlüklerine nedir?](../log-analytics/log-analytics-overview.md) – Azure İzleyici günlüklerine genel bakış
+- [Günlük aramalarını anlama Azure İzleyici günlüklerine](../log-analytics/log-analytics-log-search-new.md) - günlük aramaları Azure İzleyici günlüklerine nasıl kullanıldığını açıklar ve bir günlük araması oluşturmadan önce anlaşılması kavramlar sağlar
+- [Azure İzleyici günlüklerine günlük aramaları kullanarak veri bulmalarına](../log-analytics/log-analytics-log-searches.md) – günlük araması kullanma Öğreticisi
+- [Kusto Arama başvurusu](../log-analytics/log-analytics-search-reference.md) – Azure İzleyici günlüklerine sorgu dilinde tanımlar
 
 Güvenlik Merkezi hakkında daha fazla bilgi için bkz:
 

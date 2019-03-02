@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 7b1d7c50970107300676213707368f9f16e04812
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: b22d719a25a93e1dffdba848e18f732b31e6e67d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194810"
+ms.locfileid: "57214529"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
 
@@ -269,11 +269,11 @@ Azure IOT Central, uygulamanızdaki bir operatör olarak, gerçek cihazınız i�
 
     ![Telemetri görüntüleme](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Cihazınızın gönderen cihazın özellik değerlerini görüntülemek **özellikleri** sayfası. Bağlantı başarılı olursa cihaz özellikleri kutucukları güncelleştirilir. 
+* Cihazınızın gönderen cihazın özellik değerlerini görüntülemek **özellikleri** sayfası. Bağlantı başarılı olursa cihaz özellikleri kutucukları güncelleştirilir.
 
     ![Cihaz özelliklerini görüntüleme](media/howto-connect-nodejs/viewproperties.png)
 
-* Fan hız ve hedef sıcaklık gelen ayarlamak **ayarları** sayfası. Bağlantı başarılı olursa ayarları değerlerini eşitler. 
+* Fan hız ve hedef sıcaklık gelen ayarlamak **ayarları** sayfası. Bağlantı başarılı olursa ayarları değerlerini eşitleyin.
 
     ![Fan hızı ayarlama](media/howto-connect-nodejs/setfanspeed.png)
 

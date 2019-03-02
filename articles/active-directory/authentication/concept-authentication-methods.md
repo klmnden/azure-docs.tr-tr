@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 185dfbcee7ab352a73e4a998cbd0d8c36cb92ff5
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: b9d90407dab29f431f5a592e077c859aea997c4c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588050"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214104"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -196,6 +196,9 @@ SMS doğrulama kodu içeren bir cep telefonu numarası için gönderilir. Devam 
 
 Otomatik bir sesli çağrıyla belirttiğiniz telefon numarasına yapılır. Aramayı yanıtlamalı ve telefon tuş kimliğini doğrulamak için # tuşuna basın
 
+> [!IMPORTANT]
+> Telefon araması seçenekleri 2019'ın Mart başlangıç MFA ve SSPR kullanıcıları Azure AD ücretsiz/deneme kiracıları için kullanılabilir olmayacak. SMS iletileri, bu değişiklikten etkilenmez. Telefon Araması'nda kullanıcılara kullanılabilir Ücretli Azure AD kiracılarıyla devam eder. Bu değişiklik, yalnızca Azure AD ücretsiz/deneme kiracıları etkiler.
+
 ## <a name="office-phone"></a>Ofis telefonu
 
 Otomatik bir sesli çağrıyla belirttiğiniz telefon numarasına yapılır. Aramayı yanıtlamalı ve telefon tuş kimliğini doğrulamak için # tuşuna basar.
@@ -203,6 +206,9 @@ Otomatik bir sesli çağrıyla belirttiğiniz telefon numarasına yapılır. Ara
 Düzgün çalışması için telefon numaraları biçiminde olmalıdır *+ CountryCode PhoneNumber*, örneğin, + 1 4255551234.
 
 Office telefon özniteliğinin yöneticiniz tarafından yönetilir.
+
+> [!IMPORTANT]
+> Telefon araması seçenekleri 2019'ın Mart başlangıç MFA ve SSPR kullanıcıları Azure AD ücretsiz/deneme kiracıları için kullanılabilir olmayacak. SMS iletileri, bu değişiklikten etkilenmez. Telefon Araması'nda kullanıcılara kullanılabilir Ücretli Azure AD kiracılarıyla devam eder. Bu değişiklik, yalnızca Azure AD ücretsiz/deneme kiracıları etkiler.
 
 > [!NOTE]
 > Orada ülke kodunu ve telefon numarası arasına bir boşluk olması gerekir.

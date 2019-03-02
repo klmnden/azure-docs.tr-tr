@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa43a6f1f7c757366e321e7da0fb1e47d4928cee
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 551f2bbc4846a1b47dafaa03cca08b424572ebf5
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639921"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214886"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Sanal makine Marketi sekmesi
 
-**Market** sekmesinde **yeni teklif** sayfası, pazarlama, satış ve yasal bilgileri ve sözleşmeleri, müşteri adaylarınıza sağlamak ve oluşturulan müşteri adayları yönetmenize olanak tanır Market. Bu uzun biçimi dört bölümlere ayrılmıştır: **genel bakış**, **pazarlama Yapıtları**, **sağlama Yönetim**, ve **yasal**. 
+**Market** sekmesinde **yeni teklif** sayfası, pazarlama, satış ve yasal bilgileri ve sözleşmeleri, müşteri adaylarınıza sağlamak ve oluşturulan müşteri adayları yönetmenize olanak tanır Market. Bu uzun biçimi dört bölümlere ayrılmıştır: **Genel Bakış**, **Yapıtları pazarlama**, **sağlama Yönetim**, ve **yasal**. 
 
 ## <a name="overview-section"></a>Genel Bakış bölümünde
 Bu bölümde, Azure Market teklifi hakkında genel bilgileri girin.  Alan adı eklenmiş bir yıldız (*) gerekli olduğunu gösterir.
@@ -38,15 +38,17 @@ Aşağıdaki tabloda, amacı ve bu alanların içeriğini açıklar.
 | **Özet**               | Brief amaçlı veya çözümün işlevi.  En fazla 100 karakter uzunluğunda. |
 | **Uzun özeti**          | Amaç veya çözümün işlevi.  En fazla 256 karakter uzunluğunda. |
 | **Açıklama**           | Çözüm açıklaması.  En fazla 3000 karakter uzunluğunda basit HTML biçimlendirmeyi destekler. |
+| **Microsoft CSP satıcısı kanal** | Bulut çözümü sağlayıcıları (CSP) iş ortağı kanalı katılımı kullanıma sunuldu.  Lütfen [bulut çözüm sağlayıcıları](../../cloud-solution-providers.md) teklifinizi Microsoft CSP aracılığıyla pazarlama hakkında daha fazla bilgi için iş ortağı kanalı. |
 | **Pazarlama tanımlayıcısı**  | Bu teklif için ilişkilendirmek için benzersiz bir URL, kuruluşunuz ve çözüm adı, en fazla uzunluğu 50 karakterden genellikle içerir.  Örneğin: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Önizleme abonelik kimlikleri** | Bir ila 100 abonelik tanımlayıcıları nizleyicileri ekleyin. Canlı geçmeden önce yayımlandıktan sonra bu teknik listelenen abonelikler teklif erişebilir. |
-| **Faydalı bağlantılar**          | İş ve teknik teklif kategorilerini çoklu seçim ile ilişkili en iyi olabilir.  En fazla beş izin verilir.  |
+| **Faydalı bağlantılar**          | URL'leri, belgeler, sürüm notları, SSS ve benzeri ekleyin. |
+| **Önerilen kategorileri (en fazla 5)** | İş ve teknik teklif kategorilerini çoklu seçim ile ilişkili en iyi olabilir.  En fazla beş izin verilir.  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Pazarlama Yapıtları bölümü
 
-Bu ikinci bölüm içinde üç alt bölümlere ayrılmıştır: **logoları**, **ekran**, ve **videoları**. Logo yalnızca tüm için en iyi müşteri ilgi çekecek şiddetle tavsiye edilir ancak yapıtlar, pazarlama gereklidir.
+Bu ikinci bölümde üç alt bölümlere ayrılmıştır: **Logo**, **ekran**, ve **videoları**. Logo yalnızca tüm için en iyi müşteri ilgi çekecek şiddetle tavsiye edilir ancak yapıtlar, pazarlama gereklidir.
 
 ![Sanal makineler için yeni teklifi formdaki Market sekmesinin Yapıtları bölümündeki pazarlama](./media/publishvm_009.png)
 
@@ -120,7 +122,7 @@ Teklifinizi başarıyla yayımladıktan sonra müşteri adayı bağlantı doğru
 
 ## <a name="legal-section"></a>Yasal bölümü
 
-Bu son bölümde her teklif için gereken iki yasal belgeler girmenize olanak tanır: gizlilik ilkesini ve kullanım koşulları.
+Bu son bölümde her teklif için gereken iki yasal belgeler girmenize olanak tanır: Gizlilik İlkesi ve kullanım koşulları.
 
 |  **Alan**                |     **Açıklama**                                                          |
 |  ---------                |     ---------------                                                          |

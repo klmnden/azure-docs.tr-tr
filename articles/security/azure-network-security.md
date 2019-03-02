@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 857672e8dee4dbe8d586db0cd80b206ec6ecb7df
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111297"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244579"
 ---
 # <a name="azure-network-security"></a>Azure ağ güvenliği
 
@@ -393,7 +393,7 @@ Ayrıca, Application Gateway WAF ile tümleştirilen ve gerçek zamanlı bir WAF
 
 JSON biçimli günlük müşterinin depolama hesabına doğrudan gider. Bu günlükler üzerinde tam denetime sahiptir ve kendi bekletme ilkeleri uygulayabilirsiniz.
 
-Kendi Analytics'i kullanarak sistem bu günlükleri alabilen [Azure günlük tümleştirmesi](https://aka.ms/AzLog). WAF günlükleri ile tümleştirilerek ayrıca [Log Analytics](../log-analytics/log-analytics-overview.md) Log Analytics Gelişmiş ayrıntılı sorguları yürütmek için kullanabilirsiniz.
+Kendi Analytics'i kullanarak sistem bu günlükleri alabilen [Azure günlük tümleştirmesi](https://aka.ms/AzLog). WAF günlükleri ile tümleştirilerek ayrıca [Azure İzleyici günlükleri](../log-analytics/log-analytics-overview.md) Gelişmiş ayrıntılı sorguları yürütmek için Azure İzleyici günlüklerine kullanabilirsiniz.
 
 #### <a name="azure-web-application-firewall-waf"></a>Azure web uygulaması Güvenlik Duvarı (WAF)
 
@@ -507,7 +507,7 @@ Azure izleme, önleyin, algılayın ve ağ güvenlik olaylarına yanıt vermek i
 
 -   Ağ kaynak düzeyi izleme
 
--   Log Analytics
+-   Azure izleme günlükleri
 
 ### <a name="network-watcher"></a>Ağ izleyicisi
 
@@ -547,7 +547,7 @@ Belirler [sonraki atlama](https://docs.microsoft.com/azure/network-watcher/netwo
 
 Sonraki atlama, ayrıca sonraki atlama ile ilişkili yol tablosuna döndürür. Yol, kullanıcı tanımlı bir yol tanımlanırsa, bir sonraki atlama sorgulanırken yönlendiren döndürülür. Aksi takdirde sonraki atlama "Sistem yolu" döndürür.
 
-#### <a name="security-group-view"></a>güvenlik grubu görünümü
+#### <a name="security-group-view"></a>Güvenlik grubu görünümü
 
 Bir VM'de uygulanan etkili ve uygulanan güvenlik kuralları alır. Ağ güvenlik grupları, bir alt ağ düzeyinde veya bir NIC düzeyinde ilişkilendirilir. Bir alt ağ düzeyinde ilişkilendirilmiş, alt ağdaki tüm VM örnekleri için geçerlidir. Ağ [güvenlik grubu görünümü](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) yapılandırılan Nsg'ler ve yapılandırma hakkında Öngörüler sağlayan bir sanal makine için NIC'te veya alt ağ düzeyinde ilişkilendirilmiş kuralları döndürür. Ayrıca, geçerli güvenlik kuralları, her bir sanal makinede NIC döndürülür. Kullanarak ağ güvenlik grubu görünümü, ağ güvenlik açıklarını açık bağlantı noktaları gibi sanal Makineyi değerlendirebilirsiniz. Siz de doğrulayabilir, ağ güvenlik grubu temel alarak beklendiği gibi çalışıp çalışmadığını bir [yapılandırılmış ve geçerli güvenlik kuralları arasında karşılaştırma](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
 
@@ -597,17 +597,17 @@ Performans ölçümleri ve bir süre içinde toplanan sayaçları ölçümleridi
 
 #### <a name="diagnostic-logs"></a>Tanılama günlükleri
 
-Düzenli ve spontaneous olaylar ağ kaynaklar tarafından oluşturulan ve depolama hesaplarında, bir olay hub'ı veya Log Analytics'e gönderilen günlüğe kaydedilir. Bu günlükler bir kaynak durumu hakkında ayrıntılı bilgiler sağlar. Bu günlükler, Power BI ve Log Analytics gibi Araçları'nda görüntülenebilir. Tanılama günlükleri görüntüleme hakkında bilgi edinmek için [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Düzenli ve spontaneous olayları ağ kaynaklar tarafından oluşturulan ve depolama hesaplarında, bir olay Hub'ına gönderilen oturum veya Azure İzleyici günlüğe kaydeder. Bu günlükler bir kaynak durumu hakkında ayrıntılı bilgiler sağlar. Bu günlükler, Power BI ve Azure İzleyici günlükleri gibi Araçları'nda görüntülenebilir. Tanılama günlükleri görüntüleme hakkında bilgi edinmek için [Azure İzleyicisi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 Tanılama günlükleri için kullanılabilir [yük dengeleyici](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), yollar ve [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
 Ağ İzleyicisi, bir tanılama günlüklerine yönelik görünüm sağlar. Bu görünüm, tanılama günlük kaydını destekleyen tüm ağ kaynakları içerir. Bu görünümde, etkinleştirin ve ağ kaynakları kolayca ve hızlı bir şekilde devre dışı bırakın.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure izleme günlükleri
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bir bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı korumak için bir Azure hizmetidir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.
+[Azure İzleyici günlüklerine](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bir bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı korumak için bir Azure hizmetidir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.
 
-Log Analytics ağlarınızı izlemek için aşağıdaki çözümleri sunar:
+Azure İzleyici günlüklerine ağlarınızı izlemek için aşağıdaki çözümleri sunar:
 
 -   Ağ Performansı İzleyicisi'ni (NPM)
 
@@ -627,7 +627,7 @@ Arasındaki bağlantıyı izlemek için kullanılır:
 -   Çok katmanlı bir uygulamanın çeşitli katmanları barındıran alt ağlar.
 
 
-#### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Log analytics'te Azure uygulama ağ geçidi analizi
+#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Azure İzleyici günlüklerine Azure uygulama ağ geçidi analizi
 
 Uygulama ağ geçitleri için aşağıdaki günlüklere desteklenir:
 
@@ -641,7 +641,7 @@ Aşağıdaki ölçümler Application Gateway'ler için desteklenir:
 
 -   5 dakikalık aktarım hızı
 
-#### <a name="azure-network-security-group-analytics-in-log-analytics"></a>Log analytics'te Azure ağ güvenlik grubu analizi
+#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Azure İzleyici günlüklerine Azure ağ güvenlik grubu analizi
 
 İçin aşağıdaki günlüklere desteklenen [ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
 
@@ -652,7 +652,7 @@ Aşağıdaki ölçümler Application Gateway'ler için desteklenir:
 ## <a name="next-steps"></a>Sonraki adımlar
 Güvenlik hakkında daha fazla müşterilerimize kapsamlı güvenlik konuları okuyarak öğrenin:
 
--   [Ağ güvenlik grupları (Nsg'ler) için log Analytics](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Ağ güvenlik grupları (Nsg'ler) için Azure izleme günlükleri](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
 -   [Bulut kesintisi sürücü ağ yenilikleri](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

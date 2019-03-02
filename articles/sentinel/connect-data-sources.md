@@ -4,7 +4,7 @@ description: Azure Gözcü için veri kaynaklarına bağlanmayı öğreneceksini
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a
 ms.service: sentinel
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2ef41cba4fc63ec2dee42f08f66fd9fdabb3ef0c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d0f9002da3efd19625928a1e1f58d66f468c748f
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992815"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240686"
 ---
-# <a name="connect-data-sources"></a>Veri kaynağına bağlanın
+# <a name="connect-data-sources"></a>Veri kaynaklarını bağlama
 
 > [!IMPORTANT]
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.

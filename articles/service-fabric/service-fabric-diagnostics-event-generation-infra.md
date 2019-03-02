@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 58bad793ba44ae91d75324257f55648cf3207cd0
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 90ec06b01b11b5cbe119f41483eaf794af4e991b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291462"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243100"
 ---
 # <a name="monitoring-the-cluster"></a>Küme izleme
 
@@ -90,13 +90,13 @@ Service Fabric kullanırken toplamak için performans sayaçları listesi için 
 Kümeniz için performans verilerini toplama yukarı ayarlayabilirsiniz iki genel yolu vardır:
 
 * **Bir aracı kullanarak**  
-Bu, bir makineden performans toplama aracıları genellikle toplanabilir olası performans ölçümlerinin listesi olduğundan, tercih edilen yoludur ve ölçümleri toplamak veya değiştirmek istediğiniz seçmek için görece kolay bir işlemdir. Service Fabric'in Log Analytics'te sunan Azure İzleyici hakkında okuma [Log Analytics tümleştirmesi](service-fabric-diagnostics-event-analysis-oms.md) ve [Log Analytics aracısını ayarlama ayarlama](../log-analytics/log-analytics-windows-agent.md) bir Log Analytics aracısını hakkında daha fazla bilgi edinmek için Küme Vm'leri için performans verilerini almak ve kapsayıcıları dağıtılan gibi İzleme Aracısı.
+Bu, bir makineden performans toplama aracıları genellikle toplanabilir olası performans ölçümlerinin listesi olduğundan, tercih edilen yoludur ve ölçümleri toplamak veya değiştirmek istediğiniz seçmek için görece kolay bir işlemdir. Service Fabric'in Azure İzleyici sunan Azure İzleyici hakkında okuma günlükleri [Azure İzleyici tümleştirmesi günlükleri](service-fabric-diagnostics-event-analysis-oms.md) ve [Log Analytics aracısını ayarlama ayarlama](../log-analytics/log-analytics-windows-agent.md) Log Analytics aracısını hakkında daha fazla bilgi için Küme Vm'leri için performans verileri seçebilir ve kapsayıcıları dağıttığınız bir tür izleme aracısıdır.
 
 * **Azure tablo depolaması için performans sayaçları**  
 Tablo depolama birimine olayları performans ölçümlerini gönderebilir. Bu, kümenizdeki VM'lerin uygun performans sayaçlarını alacak şekilde Azure Tanılama yapılandırmasını değiştirme ve tüm kapsayıcı dağıtımı, docker istatistiği ' çekme için etkinleştirme gerektirir. Yapılandırma hakkında okuyun [WAD performans sayaçları](service-fabric-diagnostics-event-aggregation-wad.md) performans sayacı toplama ayarlamanız, Service fabric'te.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Service Fabric'in hakkında okuyun [Log Analytics tümleştirmesi](service-fabric-diagnostics-event-analysis-oms.md) küme tanılama toplamak ve özel sorgular ve Uyarılar oluşturmak için
+* Service Fabric'in hakkında okuyun [Azure İzleyici tümleştirmesi günlükleri](service-fabric-diagnostics-event-analysis-oms.md) küme tanılama toplamak ve özel sorgular ve Uyarılar oluşturmak için
 * Yerleşik tanılama deneyimi, Service Fabric'in hakkında bilgi edinin [Eventstore'a](service-fabric-diagnostics-eventstore.md)
 * Bazı yol [tanılama senaryoları](service-fabric-diagnostics-common-scenarios.md) Service fabric'te

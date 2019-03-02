@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3fbbf688f6de7c3fceb6695a6b085f917dbec242
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1019c06afbdab0a6b0e172133da316aea01a5504
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197223"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216909"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Mevcut bir Azure uygulama teklifi güncelleştirme
 
@@ -75,6 +75,9 @@ Teklifinizle ilişkili Market meta verilerini güncelleştirmek için aşağıda
 2. Altında **tüm teklifleri**, güncelleştirmek istediğiniz teklif bulun.
 3. Git **Market** sekmesi. Yönergeleri kullanın [Azure yayımlama uygulaması teklif](./cpp-publish-offer.md) meta veri değişiklikleri yapma.
 4. Seçin **Yayımla** yaptığınız değişiklikleri yayımlamak için iş akışını başlatmak için.
+ 
+>[!Note]
+>Bulut çözümü sağlayıcıları (CSP) iş ortağı kanalı katılımı kullanıma sunuldu.  Lütfen [bulut çözüm sağlayıcıları](../../cloud-solution-providers.md) teklifinizi Microsoft CSP aracılığıyla pazarlama hakkında daha fazla bilgi için iş ortağı kanalı.
 
 ## <a name="deleting-an-existing-offer"></a>Var olan bir teklif siliniyor
 

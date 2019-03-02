@@ -3,7 +3,7 @@ title: BitLocker'ı Azure sanal makinesinde önyükleme hatalarını giderme | M
 description: Azure VM'de BitLocker önyükleme hatalarını giderme hakkında bilgi edinin
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+authors: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: bb284813ca5d0897b109547c1e7cc21e9e560863
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 13a45593509deb0cb9578c5ea6ed83aab3e008a4
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733994"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216569"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker'ı Azure sanal makinesinde önyükleme hataları
 

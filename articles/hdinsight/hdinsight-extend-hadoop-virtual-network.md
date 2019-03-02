@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e752302baab14505e71c3f0f65840156833b8976
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bf9d8e6d3aa8d1995c705ecdec95b6f3dea028ff
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194614"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242352"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -284,6 +284,7 @@ Ağ güvenlik grupları kullanırsanız, HDInsight kümeleri bağlantı noktası
     | &nbsp; | Çin Kuzey 2 | 40.73.37.141</br>40.73.38.172 | 443 | Gelen |
     | Avrupa | Kuzey Avrupa | 52.164.210.96</br>13.74.153.132 | 443 | Gelen |
     | &nbsp; | Batı Avrupa| 52.166.243.90</br>52.174.36.244 | 443 | Gelen |
+    | Fransa | Fransa Orta| 20.188.39.64</br>40.89.157.135 | 443 | Gelen |
     | Almanya | Almanya Orta | 51.4.146.68</br>51.4.146.80 | 443 | Gelen |
     | &nbsp; | Almanya Kuzeydoğu | 51.5.150.132</br>51.5.144.101 | 443 | Gelen |
     | Hindistan | Orta Hindistan | 52.172.153.209</br>52.172.152.49 | 443 | Gelen |

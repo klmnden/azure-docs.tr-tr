@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 23a676c64ec2788ec4a9b3d61f86529fa437079f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: c0ef7ce7520886787f4df8d3998cb464d477a2c3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580391"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244545"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Öğretici: Apache Kafka üretici ve tüketici API'lerini kullanma
 
@@ -133,6 +133,8 @@ Bu kodda tüketici, konu başlangıcından okumak üzere yapılandırılmıştı
 [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) dosyası, üretici veya tüketici kodunu çalıştıran bir komut satırı arabirimi sağlar. Kafka aracı konağı bilgilerini bir parametre olarak sağlamanız gerekir. İsteğe bağlı olarak, tüketici işlemi tarafından kullanılan bir grup kimliği değeri ekleyebilirsiniz. Aynı grup kimliğini kullanarak birden fazla tüketici örneği oluşturursanız, bu örnekler konudan okuma yük dengelemesi yapar.
 
 ## <a name="build-and-deploy-the-example"></a>Örnek derleme ve dağıtma
+
+1. ve 2 için derleme adımları atlayın ve önceden oluşturulmuş jars(kafka-producer-consumer.jar) dan indirin [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars). Ardından, bu jar dosyası HDInsight kümenize kopyalayabilirsiniz.
 
 1. [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) adresinden örnekleri indirin.
 

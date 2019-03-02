@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 51a334557ddfb57ceab318963e319fd046d3a703
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6aec4e4bbf0abcfb6201da50381b6697a47716fa
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820051"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244596"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric olayları listesi 
 
-Service Fabric kümenizi durumunu bildirmek üzere küme olayları birincil bir dizi kullanıma sunan [Service Fabric olayları](service-fabric-diagnostics-events.md). Bunlar düğümlerinizi ve kümenizin Service Fabric tarafından gerçekleştirilen eylemler veya tarafından küme sahibi/işleci yönetim kararlara dayanır. Bu olayları, yapılandırma dahil olmak üzere bir sayı yapılandırarak erişilebilir [Log Analytics ile kümenizi](service-fabric-diagnostics-oms-setup.md), veya sorgulama [Eventstore'a](service-fabric-diagnostics-eventstore.md). Service Fabric olayları Olay Görüntüleyicisi'nde gördüğünüz Windows makinelerde bu olayları olay günlüğüne - beslenir. 
+Service Fabric kümenizi durumunu bildirmek üzere küme olayları birincil bir dizi kullanıma sunan [Service Fabric olayları](service-fabric-diagnostics-events.md). Bunlar düğümlerinizi ve kümenizin Service Fabric tarafından gerçekleştirilen eylemler veya tarafından küme sahibi/işleci yönetim kararlara dayanır. Bu olayları, yapılandırma dahil olmak üzere bir sayı yapılandırarak erişilebilir [Azure İzleyici ile kümenizi günlükleri](service-fabric-diagnostics-oms-setup.md), veya sorgulama [Eventstore'a](service-fabric-diagnostics-eventstore.md). Service Fabric olayları Olay Görüntüleyicisi'nde gördüğünüz Windows makinelerde bu olayları olay günlüğüne - beslenir. 
 
 Bu olayların özelliklerinden bazıları şunlardır
 * Her olay küme içindeki belirli bir varlığa bağlıdır örneğin uygulama, hizmet, düğüm, çoğaltma.

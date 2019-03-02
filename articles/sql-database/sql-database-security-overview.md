@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235997"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213934"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -84,7 +84,7 @@ Azure SQL veritabanı izinleri genel bakış için bkz. [oturumlar ve kullanıc�
 
 SQL veritabanı denetim ve tehdit algılama özellikleri sağlayarak müşteri verilerini korur.
 
-### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>Log Analytics ve olay hub'ları SQL denetimi
+### <a name="sql-auditing-in-azure-monitor-logs-and-event-hubs"></a>Azure İzleyici günlüklerine ve Event Hubs SQL denetimi
 
 SQL veritabanı denetimi veritabanı etkinliklerini izler ve veritabanı olaylarını bir denetim kaydı tarafından güvenlik standartlarıyla uyumluluğu sürdürmesine yardımcı olur, müşteriye ait Azure depolama hesabında oturum. Denetim, kullanıcıların devam eden veritabanı etkinliklerini izleme yanı sıra analiz ve olası tehditleri veya kötüye kullanım ve güvenlik ihlallerini tespit edildiğinde alınan önlemlerin belirlemek için geçmiş etkinlikleri araştırın sağlar. Daha fazla bilgi için bkz: ile çalışmaya başlama [SQL Database Auditing](sql-database-auditing.md).  
 

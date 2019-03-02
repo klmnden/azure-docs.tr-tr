@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 3500463cc57fb236de2a591181a5dc7054780404
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338606"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240703"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Öğretici: Media Services v3 ile canlı Stream .NET kullanma
 
@@ -81,9 +81,9 @@ Bu bölümde, *MediaV3LiveApp* projesinin [Program.cs](https://github.com/Azure-
 
 ### <a name="create-a-live-event"></a>Canlı etkinlik oluşturma
 
-Bu bölüm nasıl oluşturulacağını gösterir. bir **doğrudan** canlı olay (LiveEventEncodingType hiçbiri olarak ayarlayın) türü. Bir Live LiveEventEncodingType kümesi gerçek zamanlı kodlama için etkinleştirilen olay oluşturmak istiyorsanız **standart**. 
-
-Canlı etkinliği oluştururken belirtmek isteyebileceğiniz bazı başka şeyler:
+Bu bölüm nasıl oluşturulacağını gösterir. bir **doğrudan** canlı olay (LiveEventEncodingType hiçbiri olarak ayarlayın) türü. Canlı olay kullanılabilir türleri hakkında daha fazla bilgi için bkz. [canlı olay türleri](live-events-outputs-concept.md#live-event-types). 
+ 
+Canlı etkinliği oluştururken belirtmek isteyebileceğiniz bazı gerekenler şunlardır:
 
 * Media Services konumu 
 * Canlı olay için Akış Protokolü (şu anda RTMP ve kesintisiz akış protokollerini desteklenmektedir).<br/>Canlı olay veya kendi ilişkili Canlı çıkış çalışıyor durumdayken protokol seçeneğini değiştiremezsiniz. Farklı protokollere ihtiyacınız varsa, her bir akış protokolü için ayrı canlı olay oluşturmanız gerekir.  

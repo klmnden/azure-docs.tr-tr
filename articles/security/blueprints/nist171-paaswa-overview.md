@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: e7851b39327e61f1676ae0cf1c3bff3de75b56bd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f9773c3b372ab22cbcd99828e147d23c185c4eb6
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409280"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244630"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure güvenlik ve uyumluluk planı - NIST özel yayını 800-171 için PaaS Web uygulaması
 
@@ -36,7 +36,7 @@ Gelişmiş güvenlik için bu çözümdeki tüm kaynaklar bir kaynak grubuyla Az
 
 SQL veritabanı, yaygın olarak SQL Server Management Studio yönetilir. SQL veritabanına güvenli bir VPN veya Azure ExpressRoute bağlantısı üzerinden erişmek için yapılandırılmış bir yerel makineden çalıştırır.
 
-Application Insights, gerçek zamanlı uygulama performansı yönetimi ve Azure Log Analytics aracılığıyla analiz sağlar. *Microsoft, yönetim ve veri alma başvuru mimarisi alt ağa bir VPN veya ExpressRoute bağlantısı yapılandırma önerir.*
+Application Insights sağlayan gerçek zamanlı uygulama performansı yönetimi ve Azure İzleyici günlükleri aracılığıyla analiz *Microsoft'un önerdiği Başvurusu'na yönetimi ve veri aktarma için bir VPN veya ExpressRoute bağlantısı yapılandırma Mimari alt ağı.*
 
 ![PaaS Web uygulaması başvuru mimarisi diyagramı NIST SP 800-171 için](images/nist171-paaswa-architecture.png "PaaS Web uygulaması için NIST SP 800-171 başvuru mimarisi diyagramı")
 
@@ -60,21 +60,20 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Daha fazla bilgi için [
 - Azure DNS
 - Azure Key Vault
 - Azure Load Balancer
-- Azure İzleyici
+- Azure İzleyici (günlük)
 - Azure Resource Manager
 - Azure Güvenlik Merkezi
 - Azure SQL Database
 - Azure Storage
-- Azure Log Analytics
 - Azure Otomasyonu
 - Azure Web Apps
 
 ## <a name="deployment-architecture"></a>Dağıtım mimarisi
 Aşağıdaki bölümde dağıtım ve uygulama öğeleri ayrıntılı olarak açıklanmaktadır.
 
-**Azure Resource Manager**: [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kaynakları bir grup çözümünde çalışmak için müşteriler tarafından kullanılabilir. Müşteriler dağıtma, güncelleştirme veya tek ve eşgüdümlü bir işlemle çözüm için tüm kaynakları silin. Müşteriler, dağıtım için bir şablon kullanabilirsiniz. Şablon test, hazırlık ve üretim gibi farklı ortamlarda çalışabilir. Resource Manager Güvenlik, denetleme ve etiketleme müşteriler kaynaklarını dağıttıktan sonra yönetmenize yardımcı olacak özellikler sunar.
+**Azure Resource Manager**: [Kaynak Yöneticisi'ni](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kaynakları bir grup çözümünde çalışmak için müşteriler tarafından kullanılabilir. Müşteriler dağıtma, güncelleştirme veya tek ve eşgüdümlü bir işlemle çözüm için tüm kaynakları silin. Müşteriler, dağıtım için bir şablon kullanabilirsiniz. Şablon test, hazırlık ve üretim gibi farklı ortamlarda çalışabilir. Resource Manager Güvenlik, denetleme ve etiketleme müşteriler kaynaklarını dağıttıktan sonra yönetmenize yardımcı olacak özellikler sunar.
 
-**Kale ana bilgisayarı**: Burcu ana bilgisayarı tek kullanıcı bu ortama dağıtılan kaynaklara erişmek için kullanabileceğiniz giriş noktasıdır. Kale ana bilgisayarı, güvenli bir listede yalnızca genel IP adreslerinden gelen uzak trafiğe izin vererek dağıtılan kaynaklara güvenli bir bağlantı sağlar. Uzak Masaüstü trafiğine izin vermek için NSG'de kaynak trafiği tanımlanmalıdır.
+**Kale ana bilgisayarı**: Kale ana bilgisayarı, kullanıcıların bu ortama dağıtılan kaynaklara erişmek için kullanabileceği girişinin tek noktasıdır. Kale ana bilgisayarı, güvenli bir listede yalnızca genel IP adreslerinden gelen uzak trafiğe izin vererek dağıtılan kaynaklara güvenli bir bağlantı sağlar. Uzak Masaüstü trafiğine izin vermek için NSG'de kaynak trafiği tanımlanmalıdır.
 
 Bu çözüm aşağıdaki yapılandırmaları olan bir etki alanına katılmış Burcu ana bilgisayarı olarak bir VM oluşturur:
 -   [Kötü amaçlı yazılımdan koruma uzantısını](https://docs.microsoft.com/azure/security/azure-security-antimalware).
@@ -83,7 +82,7 @@ Bu çözüm aşağıdaki yapılandırmaları olan bir etki alanına katılmış 
 -   Bir [otomatik kapatma ilke](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) kullanımda olmadığında VM kaynaklarının kullanımını azaltmak için.
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) kimlik bilgilerini ve diğer gizli dizileri çalışan işletim sisteminden yalıtılmış korumalı bir ortamda çalıştırın böylece etkinleştirilir.
 
-**Web uygulamaları**: [Web Apps](https://docs.microsoft.com/azure/app-service/) bir Azure App Service özelliğidir. Müşteriler, derleme ve altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde web uygulamaları barındırmak için kullanabilirsiniz. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar. Bu, Windows ve Linux'ı destekler ve GitHub, Azure DevOps ya da herhangi bir Git deposundan otomatik dağıtımlar sağlar.
+**Web uygulamaları**: [Web uygulamaları](https://docs.microsoft.com/azure/app-service/) bir Azure App Service özelliğidir. Müşteriler, derleme ve altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde web uygulamaları barındırmak için kullanabilirsiniz. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar. Bu, Windows ve Linux'ı destekler ve GitHub, Azure DevOps ya da herhangi bir Git deposundan otomatik dağıtımlar sağlar.
 
 **App Service ortamı**: [App Service ortamı](https://docs.microsoft.com/azure/app-service/environment/intro) bir App Service özelliğidir. Bu App Service uygulamalarını yüksek ölçekte güvenli bir şekilde çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlar.
 
@@ -111,13 +110,13 @@ Bu mimari için App Service ortamı kullanımı, aşağıdaki denetimleri ve yap
 
 Her nsg belirli bağlantı noktalarına sahiptir ve çözüm güvenli bir şekilde ve doğru bir şekilde çalışabilmek protokollerini açın. Ayrıca, aşağıdaki yapılandırmalar her NSG için etkinleştirilir:
   - [Tanılama günlüklerini ve olayları](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) etkinleştirilir ve bir depolama hesabında depolanır.
-  - Log Analytics'e bağlı olduğu [NSG'ın tanılama](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
+  - Azure İzleyici günlüklerine bağlı olduğu [NSG'ın tanılama](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
 
-**Alt ağlar**: her alt ağ, karşılık gelen NSG ile ilişkilidir.
+**Alt ağlar**: Her alt ağ, karşılık gelen NSG ile ilişkilidir.
 
-**Azure DNS**: etki alanı adı sistemi (DNS) çevirmek için sorumlu (veya çözümleme) IP adresini bir Web sitesi veya hizmet adı. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) Azure altyapısı kullanılarak ad çözümlemesi sağlayan bir barındırma hizmeti DNS etki alanları için. Etki alanlarını azure'da barındırarak kullanıcılar, aynı kimlik bilgileri, API'ler, Araçlar ve diğer Azure hizmetlerinde faturalama tarafından DNS kayıtlarınızı yönetebilirsiniz. Azure DNS özel DNS etki alanları da destekler.
+**Azure DNS**: Etki alanı adı sistemi (DNS) çevirmek için sorumludur (veya çözümleme) IP adresini bir Web sitesi veya hizmet adı. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) Azure altyapısı kullanılarak ad çözümlemesi sağlayan bir barındırma hizmeti DNS etki alanları için. Etki alanlarını azure'da barındırarak kullanıcılar, aynı kimlik bilgileri, API'ler, Araçlar ve diğer Azure hizmetlerinde faturalama tarafından DNS kayıtlarınızı yönetebilirsiniz. Azure DNS özel DNS etki alanları da destekler.
 
-**Azure Load Balancer**: [yük dengeleyici](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) uygulamalarını ölçeklendirme ve yüksek kullanılabilirlik hizmetleri oluşturmak için müşteriler tarafından kullanılabilir. Yük Dengeleyici, gelen ve giden senaryolarını destekler. Düşük gecikme süresi ve yüksek aktarım hızı sağlar ve en fazla akışlar tüm TCP ve UDP uygulamaları için milyonlarca ölçeklendirir.
+**Azure yük dengeleyici**: [Yük Dengeleyici](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) uygulamalarını ölçeklendirme ve yüksek kullanılabilirlik hizmetleri oluşturmak için müşteriler tarafından kullanılabilir. Yük Dengeleyici, gelen ve giden senaryolarını destekler. Düşük gecikme süresi ve yüksek aktarım hızı sağlar ve en fazla akışlar tüm TCP ve UDP uygulamaları için milyonlarca ölçeklendirir.
 
 ### <a name="data-in-transit"></a>Aktarımdaki verileri
 Azure, Azure veri merkezleri gelen ve giden tüm iletişimi varsayılan olarak şifreler. Tüm Azure Depolama'ya Azure portalı üzerinden HTTPS gerçekleşir.
@@ -157,13 +156,13 @@ Mimarisi, bekleyen veri şifrelemesi, Denetim veritabanı ve diğer ölçüler v
 - Key Vault için tanılama günlükleri ile 365 gün en az bir saklama süresi etkinleştirilir.
 - Anahtarlar için izin verilen şifreleme işlemleri gerekli olanlarla sınırlıdır.
 
-**Azure Güvenlik Merkezi**: ile [Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro), müşterilerin merkezi olarak uygulama ve iş yüklerinizde güvenlik ilkelerini yönetme, sınırlama, tehditlere maruz kalma riskinizi ve algılayabilir ve saldırılara karşılık vermek. Güvenlik Merkezi, yapılandırma ve güvenlik duruşunu ve verilerin korunmasına yardımcı olmak için hizmet öneriler sağlamak üzere Azure hizmetlerinin mevcut yapılandırmaları da erişir.
+**Azure Güvenlik Merkezi**: İle [Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro), müşterilerin merkezi olarak uygulama ve iş yüklerinizde güvenlik ilkelerini yönetme, sınırlama, tehditlere maruz kalma riskinizi ve algılayabilir ve saldırılara karşılık vermek. Güvenlik Merkezi, yapılandırma ve güvenlik duruşunu ve verilerin korunmasına yardımcı olmak için hizmet öneriler sağlamak üzere Azure hizmetlerinin mevcut yapılandırmaları da erişir.
 
 Güvenlik Merkezi algılama özellikleri çeşitli ortamlarını hedefleyen potansiyel saldırılar müşteriler uyarmak için kullanır. Bu uyarılar uyarıyı neyin tetiklediği, hedeflenen kaynaklar ve saldırının kaynağı hakkındaki değerli bilgileri içerir. Güvenlik Merkezi'nde bulunan bir dizi [güvenlik uyarıları önceden tanımlanmış](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) bir tehdit veya şüpheli etkinlik başladığında tetiklenir. Müşteriler [özel uyarı kuralları](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) kendi ortamından toplanmış veriler üzerinde yeni güvenlik uyarıları tanımlamak için.
 
 Güvenlik Merkezi, öncelikli güvenlik uyarıları ve olayları sağlar. Güvenlik Merkezi'ni keşfedin ve olası güvenlik sorunlarını çözmek, müşteriler için daha basit hale getirir. A [tehdit zekası raporu](https://docs.microsoft.com/azure/security-center/security-center-threat-report) her tehdit algılanan için oluşturulur. Bunlar tehdit araştırma ve düzeltme olay yanıt ekiplerinin raporları kullanabilirsiniz.
 
-**Azure Application Gateway**: Mimari etkin OWASP kural kümesi ile yapılandırılmış bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi kullanarak güvenlik açıklarını riskini azaltır. Ek özellikler şunlardır:
+**Azure uygulama ağ geçidi**: Mimari, yapılandırılmış bir web uygulaması Güvenlik Duvarı etkin OWASP kural kümesi ile bir uygulama ağ geçidi kullanarak güvenlik açıklarını riskini azaltır. Ek özellikler şunlardır:
 
 - [SSL uç son](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 - Etkinleştirme [SSL yük boşaltmasını](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal).
@@ -177,16 +176,16 @@ Güvenlik Merkezi, öncelikli güvenlik uyarıları ve olayları sağlar. Güven
 ### <a name="logging-and-auditing"></a>Günlüğe kaydetme ve Denetim
 
 Azure Hizmetleri, sistem ve kullanıcı etkinliğini yanı sıra, sistem durumu kapsamlı bir şekilde oturum:
-- **Etkinlik günlükleri**: [etkinlik günlüklerini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bir Abonelikteki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlükleri bir işlemin Başlatıcı belirlemek yardımcı olabilir, oluşumunu ve durum zaman.
-- **Tanılama günlükleri**: [tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) her kaynak tarafından oluşturulan tüm günlükleri içerir. Bu günlükler, Windows olayı sistem günlükleri, depolama günlükleri, anahtar kasası denetim günlüklerini ve Application Gateway erişim ve güvenlik duvarı günlükleri içerir. Tüm tanılama günlükleri için merkezi ve şifrelenmiş Azure depolama hesabına arşivleme yazın. Kullanıcılar saklama süresi 730 gün belirli gereksinimleri karşılamak için en fazla yapılandırabilirsiniz.
+- **Etkinlik günlükleri**: [Etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bir Abonelikteki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlükleri bir işlemin Başlatıcı belirlemek yardımcı olabilir, oluşumunu ve durum zaman.
+- **Tanılama günlükleri**: [Tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) her kaynak tarafından oluşturulan tüm günlükleri içerir. Bu günlükler, Windows olayı sistem günlükleri, depolama günlükleri, anahtar kasası denetim günlüklerini ve Application Gateway erişim ve güvenlik duvarı günlükleri içerir. Tüm tanılama günlükleri için merkezi ve şifrelenmiş Azure depolama hesabına arşivleme yazın. Kullanıcılar saklama süresi 730 gün belirli gereksinimleri karşılamak için en fazla yapılandırabilirsiniz.
 
-**Azure Log Analytics**: günlükleri birleştirilmiş içinde [Log Analytics](https://azure.microsoft.com/services/log-analytics/) işleme, depolama ve Panosu raporlama. Veriler toplandıktan sonra Log Analytics çalışma alanları içindeki her bir veri türü için ayrı tablolar halinde düzenlenir. Bu şekilde, tüm veri ve böylece özgün kaynağına bakılmaksızın birlikte çözümlenebilir. Güvenlik Merkezi, Log Analytics ile tümleştirilebilir. Müşteriler, güvenlik olay verilerine erişmek ve diğer hizmetlerden gelen verilerle birleştirmek için Log Analytics sorgularını kullanabilirsiniz.
+**Azure İzleyici günlüklerine**: Günlükleri birleştirilmiş [Azure İzleyici günlükleri](https://azure.microsoft.com/services/log-analytics/) işleme, depolama ve Panosu raporlama. Veriler toplandıktan sonra Log Analytics çalışma alanları içindeki her bir veri türü için ayrı tablolar halinde düzenlenir. Bu şekilde, tüm veri ve böylece özgün kaynağına bakılmaksızın birlikte çözümlenebilir. Güvenlik Merkezi, Azure İzleyici günlükleri ile tümleştirilir. Müşteriler, güvenlik olay verilerine erişmek ve diğer hizmetlerden gelen verilerle birleştirmek için Kusto sorguları kullanabilirsiniz.
 
-Aşağıdaki Log Analytics [yönetim çözümleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Bu mimarinin bir parçası olarak dahil edilir:
--   [Active Directory değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory sistem durumu denetimi çözümü risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir. Bu, Önceliklendirilmiş öneriler için dağıtılan sunucu altyapısı belirli listesini sağlar.
-- [SQL değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL sistem durumu denetimi çözümü risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir. Müşteriler, Önceliklendirilmiş öneriler için dağıtılan sunucu altyapısı belirli listesini sağlar.
-- [Aracı sistem durumu](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): aracı durumu çözümü, kaç aracının dağıtılır ve kullanıcıların coğrafi dağılımı raporlar. Ayrıca, kaç aracının yanıt vermeyen ve işletimsel verileri gönderme aracı sayısını raporlar.
--   [Etkinlik günlüğü analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Activity Log Analytics çözümünü, bir müşteri için tüm Azure abonelikleri arasında Azure etkinlik günlüklerini analiziyle destekler.
+Aşağıdaki Azure [izleme çözümleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Bu mimarinin bir parçası olarak dahil edilir:
+-   [Active Directory değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory sistem durumu denetimi çözümü, risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir. Bu, Önceliklendirilmiş öneriler için dağıtılan sunucu altyapısı belirli listesini sağlar.
+- [SQL değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL sistem durumu denetimi çözümü, risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir. Müşteriler, Önceliklendirilmiş öneriler için dağıtılan sunucu altyapısı belirli listesini sağlar.
+- [Aracı sistem durumu](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): Aracı durumu çözümü, kaç aracının dağıtılır ve kullanıcıların coğrafi dağılımı bildirir. Ayrıca, kaç aracının yanıt vermeyen ve işletimsel verileri gönderme aracı sayısını raporlar.
+-   [Etkinlik günlüğü analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Etkinlik günlüğü analizi çözümü, bir müşteri için tüm Azure abonelikleri arasında Azure etkinlik günlüklerini analiziyle yardımcı olur.
 
 **Azure Otomasyonu**: [Otomasyon](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) runbook'ları yöneten depolar ve çalıştırır. Bu çözümde, SQL veritabanı'ndan günlüklerini toplama runbook'ları yardımcı olur. Müşteriler, Otomasyon kullanabileceğiniz [değişiklik izleme](https://docs.microsoft.com/azure/automation/automation-change-tracking) ortamındaki değişiklikler kolayca belirlemek için çözüm.
 

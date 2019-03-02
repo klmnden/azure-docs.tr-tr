@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: f9db156562692107a5603e15340f01ecf9f9d52c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: afc833775894a01e8061401fe7601267f09edded
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823425"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243253"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyon
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "56823425"
 
 Bir Azure Service Fabric kümesi çalıştırırken, merkezi bir konumda tüm düğümlerden günlükleri toplamak için iyi bir fikirdir. Günlükleri sahip merkezi bir konumda, kümenizdeki sorunları veya uygulamalar ve hizmetler, kümede çalışan sorunları gidermek ve çözümlemenize yardımcı olur.
 
-Karşıya yükleme ve günlükleri toplamak için bir yolu, günlükleri, Azure Depolama'ya yükler ve ayrıca Azure Application Insights veya olay hub'larına günlükleri gönderme seçeneği olan Windows Azure tanılama (WAD) uzantısı kullanmaktır. Olayları depolamadan okuyun ve bunları bir analiz platformu ürün gibi yerleştirmek için bir dış işlem kullanabilirsiniz [Log Analytics](../log-analytics/log-analytics-service-fabric.md) veya başka bir günlük ayrıştırma çözümü.
+Karşıya yükleme ve günlükleri toplamak için bir yolu, günlükleri, Azure Depolama'ya yükler ve ayrıca Azure Application Insights veya olay hub'larına günlükleri gönderme seçeneği olan Windows Azure tanılama (WAD) uzantısı kullanmaktır. Olayları depolamadan okuyun ve bunları bir analiz platformu ürün gibi yerleştirmek için bir dış işlem kullanabilirsiniz [Azure İzleyici günlükleri](../log-analytics/log-analytics-service-fabric.md) veya başka bir günlük ayrıştırma çözümü.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede aşağıdaki araçları kullanılır:
@@ -57,7 +57,7 @@ Kümenizi, küme yapılandırma adımında oluştururken, isteğe bağlı ayarla
 
 ![Küme şablonu](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-Azure depolama, olayları toplayarak göre [Log Analytics'i ayarlama](service-fabric-diagnostics-oms-setup.md) Öngörüler edinin ve bunları Log Analytics portalında sorgulamak için
+Göre olayları Azure depolama, toplama işlemlerinden [Azure İzleyici günlüklerini ayarlamak](service-fabric-diagnostics-oms-setup.md) Öngörüler edinin ve bunları Azure'da sorgulamak için portalı izleme günlükleri
 
 >[!NOTE]
 >Şu anda filtreleyin veya tablolara gönderilen olayların temizleme işlemi yapamazsınız. Olayları tablodan kaldırmak için bir işlem uygulamayıp, tablonun büyümeye devam edecektir (varsayılan cap 50 GB'tır). Bu olan değiştirmek yönergeler [bu makalede daha aşağıda](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Buna ek olarak, çalışan bir veri temizleme hizmeti örneği yok [izleme örnek](https://github.com/Azure-Samples/service-fabric-watchdog-service), ve bir 30 veya 90 günlük süre günlükleri depolamak için geçerli bir nedeniniz yoksa kendiniz için bir tane de yazma önerilir.
@@ -340,11 +340,11 @@ Her iki önceki kod parçacıklarında, adı "Applicationınsights" havuz tanım
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure tanılama doğru şekilde yapılandırdıktan sonra ETW ve EventSource günlükleri depolama tablolardaki verileri görebilirsiniz. Log Analytics, Kibana ya da Resource Manager şablonunda doğrudan yapılandırılmamış başka bir veri analizi ve görselleştirme platform kullanmayı tercih ederseniz, bu depolama tablolardaki verileri okumak için tercih ettiğiniz platforma ayarlayın emin olun. Bunu yapmak için Log Analytics görece basit ve açıklanan [olay ve günlük analizi](service-fabric-diagnostics-event-analysis-oms.md). Application Insights, bu bağlamda bir özel durum biraz, tanılama uzantı yapılandırmasını bir parçası olarak yapılandırılmış olduğundan, bu nedenle bakın [uygun makale](service-fabric-diagnostics-event-analysis-appinsights.md) AI kullanmayı seçerseniz.
+Azure tanılama doğru şekilde yapılandırdıktan sonra ETW ve EventSource günlükleri depolama tablolardaki verileri görebilirsiniz. Azure İzleyici günlüklerine, Kibana ya da Resource Manager şablonunda doğrudan yapılandırılmamış başka bir veri analizi ve görselleştirme platform kullanmayı tercih ederseniz, bu depolama tablolardan veri okumak için tercih ettiğiniz platform'kurmak ayarladığınızdan emin olun. Azure İzleyici günlüklerini için bunu görece basit ve açıklanan [olay ve günlük analizi](service-fabric-diagnostics-event-analysis-oms.md). Application Insights, bu bağlamda bir özel durum biraz, tanılama uzantı yapılandırmasını bir parçası olarak yapılandırılmış olduğundan, bu nedenle bakın [uygun makale](service-fabric-diagnostics-event-analysis-appinsights.md) AI kullanmayı seçerseniz.
 
 >[!NOTE]
 >Şu anda filtreleyin veya tabloya gönderilen olayların temizleme işlemi yapamazsınız. Olayları tablodan kaldırmak için bir işlem uygulamayıp, tablonun büyümeye devam edecektir. Şu anda çalışan bir veri temizleme hizmeti örneği yok [izleme örnek](https://github.com/Azure-Samples/service-fabric-watchdog-service), ve bir 30 veya 90 günlük süre günlükleri depolamak için geçerli bir nedeniniz yoksa kendiniz için bir tane de yazma önerilir.
 
 * [Tanılama uzantısını kullanarak performans sayaçlarını veya günlük toplamayı öğrenin](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Olay analizi ve Application Insights ile Görselleştirme](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Olay çözümleme ve görselleştirme Log Analytics ile](service-fabric-diagnostics-event-analysis-oms.md)
+* [Olay çözümleme ve görselleştirme ile Azure izleme günlükleri](service-fabric-diagnostics-event-analysis-oms.md)

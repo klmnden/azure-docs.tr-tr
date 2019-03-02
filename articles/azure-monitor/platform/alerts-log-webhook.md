@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 24e159ea2cccfdaab9c732835506a1a22abab134
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 68fb7678fac2a0a32278e813d03a0eebd20565ec
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869165"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216059"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Günlük uyarı kuralları için Web kancası eylemleri
 Olduğunda bir [günlük uyarı Azure'da oluşturulan](alerts-log.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](action-groups.md) bir veya daha fazla eylem gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntıları ve mevcut olan farklı bir Web kancası eylemleri açıklar.
@@ -78,9 +78,6 @@ Bu örnek yükü Web kancası'na gönderildiğinde aşağıdaki gibi bir şey ç
 ## <a name="sample-payloads"></a>Örnek yükler
 Bu bölümde, yükü standart olduğunda ve ne zaman gibi günlük uyarıları için Web kancası için örnek yük gösterilir, özel.
 
-> [!NOTE]
-> Geriye dönük uyumluluk sağlamak için Azure Log Analytics kullanarak uyarıları için standart bir Web kancası yükü aynı [Log Analytics uyarı Yönetim](alerts-metric.md). Ancak kullanarak günlük uyarıları için [Application Insights](../../azure-monitor/app/analytics.md), standart bir Web kancası yükü eylem grubu şemasını temel alır.
-
 ### <a name="standard-webhook-for-log-alerts"></a>Günlük uyarıları için standart bir Web kancası 
 Bu örneklerin her ikisi, yalnızca iki sütun ve iki satır işlevsiz bir yükü açıklamıştır.
 
@@ -118,7 +115,11 @@ Standart Web kancası eylemi için bir örnek yük aşağıdadır *özel Json se
     "Description": null,
     "Severity": "Warning"
  }
- ```   
+ ```
+
+> [!NOTE]
+> Önem derecesi alanını değeri varsa değişebilir [API tercihinizi anahtarlı](alerts-log-api-switch.md) Log Analytics günlük uyarıları için.
+
 
 #### <a name="log-alert-for-azure-application-insights"></a>Azure Application Insights için günlük Uyarısı
 Bir örnek yük için standart bir Web kancası aşağıdadır *özel Json seçeneği olmadan* application ınsights tabanlı günlük-uyarılar için kullanıldığında.
@@ -154,7 +155,7 @@ Bir örnek yük için standart bir Web kancası aşağıdadır *özel Json seçe
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error",
+    "Severity": "3",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
 }

@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 11736b978242416bcfb95d3025975028e4148e98
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 44fc096fa95be3a469ada7c7dc212ce4fc04e83b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486547"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218065"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Depolama: Farklılıklar ve dikkat edilmesi gerekenler
 
@@ -44,6 +44,7 @@ Bu makalede, Azure depolama hizmetlerinde bilinen Azure Stack depolama farklar �
 |Blok blobu en büyük boyutu|4,75 TB (100 MB X 50.000 blok)|1802 güncelleştirme veya yeni bir sürümü için 4,75 TB (100 MB x 50.000 blok). Önceki sürümler için 50.000 x 4 MB (yaklaşık 195 GB).
 |Sayfa blob anlık görüntü kopyalama|Desteklenen çalışan bir VM'ye bağlı yedekleme Azure yönetilmeyen VM diskleri|Henüz desteklenmiyor.
 |Sayfa blob artımlı anlık görüntü kopyalama|Premium ve standart Azure sayfa blobları desteklenir|Henüz desteklenmiyor.
+|Sayfa blob faturalandırma|Blob veya anlık görüntü olup benzersiz sayfaları için ücret geçerli olur. Temel blob güncelleştirilmesini kadar blob ile ilişkili anlık görüntüler için ek ücretleri ödemesi gerekir değil.|Temel blob ve assiociated anlık görüntüler için ücret geçerli olur. Tek tek her anlık görüntü için ek ücretleri ödemesi gerekir.
 |Blob depolama için depolama katmanları|Sık erişimli, seyrek erişimli ve Arşiv depolama katmanları.|Henüz desteklenmiyor.
 |Blob depolama için geçici silme|Genel kullanımda|Henüz desteklenmiyor.
 |Sayfa blob en büyük boyutu|8 TB|1 TB

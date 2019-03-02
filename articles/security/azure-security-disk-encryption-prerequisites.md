@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/14/2019
+ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8dbdf3126b084b46d1b1bf30a5bb0a41a18d818
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: c6ba74b47272c58861a161016eca492157a317b8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992405"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243389"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk şifrelemesi önkoşulları
 
@@ -60,7 +60,9 @@ Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kulla
 **Grup İlkesi:**
  - Azure Disk şifrelemesi çözümü, BitLocker dış anahtar koruyucusu Windows Iaas Vm'leri için kullanır. Etki alanına katılmış sanal makineleri, TPM koruyucusu zorlamak için tüm grup ilkeleri anında iletme yok. "Uyumlu TPM'siz BitLocker izin ver" için Grup İlkesi hakkında bilgi için bkz: [BitLocker Grup İlkesi başvurusu](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
 
--  Özel Grup İlkesi ile etki alanına katılmış sanal makinelerde BitLocker'ı İlkesi şu ayar eklemeniz gerekir: [Kullanıcı depolama alanını yapılandırmak bitlocker kurtarma bilgilerinin -> izin 256 bitlik kurtarma anahtarı](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk şifrelemesi, BitLocker için özel Grup İlkesi ayarları uyumsuz olduğunda başarısız olur. Doğru ilkeyi gerekmedi makinelerde yeni ilkeyi uygulamak, (gpupdate.exe/Force) güncelleştirmek için yeni ilke zorlayın ve daha sonra yeniden başlatmak gerekli olabilir.  
+-  Özel Grup İlkesi ile etki alanına katılmış sanal makinelerde BitLocker'ı İlkesi şu ayar eklemeniz gerekir: [Kullanıcı depolama alanını yapılandırmak bitlocker kurtarma bilgilerinin -> izin 256 bitlik kurtarma anahtarı](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk şifrelemesi, BitLocker için özel Grup İlkesi ayarları uyumsuz olduğunda başarısız olur. Doğru ilkeyi gerekmedi makinelerde yeni ilkeyi uygulamak, (gpupdate.exe/Force) güncelleştirmek için yeni ilke zorlayın ve daha sonra yeniden başlatmak gerekli olabilir.
+
+- Azure Disk şifrelemesi, Bitlocker tarafından kullanılan AES-CBC algoritması etki alanı düzeyi Grup İlkesi engelliyorsa, başarısız olur.
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -244,7 +246,9 @@ Kullanım [az keyvault update](/cli/azure/keyvault#az-keyvault-update) anahtar k
 
 
 ## <a name="bkmk_KEK"></a> Bir anahtar şifreleme anahtarı (isteğe bağlı) ayarlama
-Bir ek şifreleme anahtarları için güvenlik katmanı için bir anahtar şifreleme anahtarı (KEK) kullanmak istiyorsanız bir KEK anahtar kasanızı ekleyin. Kullanım [Add-AzureKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey) anahtar şifreleme anahtarı anahtar kasasını oluşturmak için cmdlet'i. Ayrıca, şirket içi Anahtar Yönetimi'nden HSM bir KEK içeri aktarabilirsiniz. Daha fazla bilgi için [Key Vault belgeleri](../key-vault/key-vault-hsm-protected-keys.md). Anahtar şifreleme anahtarı belirtildiğinde, Azure Disk şifrelemesi anahtar Kasası'na yazmadan önce şifreleme parolaları sarmalamak için bu anahtarı kullanır. 
+Bir ek şifreleme anahtarları için güvenlik katmanı için bir anahtar şifreleme anahtarı (KEK) kullanmak istiyorsanız bir KEK anahtar kasanızı ekleyin. Kullanım [Add-AzureKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey) anahtar şifreleme anahtarı anahtar kasasını oluşturmak için cmdlet'i. Ayrıca, şirket içi Anahtar Yönetimi'nden HSM bir KEK içeri aktarabilirsiniz. Daha fazla bilgi için [Key Vault belgeleri](../key-vault/key-vault-hsm-protected-keys.md). Anahtar şifreleme anahtarı belirtildiğinde, Azure Disk şifrelemesi anahtar Kasası'na yazmadan önce şifreleme parolaları sarmalamak için bu anahtarı kullanır.
+
+* Anahtarları oluşturulurken bir RSA anahtar türü kullanın. Azure Disk şifrelemesi, Eliptik Eğri anahtarlar kullanılarak henüz desteklemiyor.
 
 * Anahtar kasası gizli dizi ve KEK URL'leri tutulan olmalıdır. Azure, sürüm oluşturma bu kısıtlamayı zorlar. Geçerli bir gizli dizi ve KEK URL'ler için aşağıdaki örneklere bakın:
 
@@ -255,6 +259,7 @@ Bir ek şifreleme anahtarları için güvenlik katmanı için bir anahtar şifre
 
   * Kabul edilebilir bir key vault URL'si  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
   * Kabul edilebilir bir key vault URL'si:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+
 
 ### <a name="bkmk_KEKPSH"></a> Azure PowerShell ile bir anahtar şifreleme anahtarı ayarlama 
 PowerShell betiğini kullanmadan önce betiği adımları anlamak için Azure Disk şifrelemesi önkoşulları hakkında bilgi sahibi olmalıdır. Örnek betik, ortamınız için değişiklikleri gerekebilir. Bu betik, tüm Azure Disk şifrelemesi önkoşulları oluşturur ve disk şifreleme anahtarı bir anahtar şifreleme anahtarı kullanılarak sarmalama var olan bir Iaas VM, şifreler. 

@@ -3,7 +3,7 @@ title: Azure Cloud Shell fiyatlandırması | Microsoft Docs
 description: Azure Cloud Shell fiyatlandırma, genel bakış
 services: ''
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: juluk
-ms.openlocfilehash: 16f7327659a0f5fe542375a4b7e3232ee14bb17c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.author: damaerte
+ms.openlocfilehash: 2834bc7d9456c1177bdd2c235b8211a1edde6e42
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158659"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244987"
 ---
 # <a name="pricing"></a>Fiyatlandırma
 Cloud Shell'de bash ve PowerShell Cloud shell'de aşağıdaki bilgileri konu.

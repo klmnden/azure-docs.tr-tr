@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: fd301967800f67d95c12f1689981b2dfd8eb2d80
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452772"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243780"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için Depolama Seçenekleri
 
@@ -121,6 +121,8 @@ spec:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+İlişkili en iyi yöntemler için bkz: [en iyi uygulamalar için depolama ve yedekleme aks'deki][operator-best-practices-storage].
+
 Azure diskleri veya Azure dosyaları'nı kullanan dinamik ve statik birimleri oluşturma hakkında bilgi için aşağıdaki yapılır makalelerine bakın:
 
 - [Azure diskleri kullanarak statik bir birim oluşturun][aks-static-disks]
@@ -148,3 +150,4 @@ Azure diskleri veya Azure dosyaları'nı kullanan dinamik ve statik birimleri ol
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-storage]: operator-best-practices-storage.md

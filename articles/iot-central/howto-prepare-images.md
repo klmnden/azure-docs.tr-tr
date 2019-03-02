@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9d4de2a8be13718f7989f064b76b586407ca3a48
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0e4d1badd0ed992c96f6624813e575d0f286d8b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198618"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216807"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Hazırlama ve Azure IOT Central uygulamanıza görüntüleri karşıya yükleme
 
@@ -34,9 +34,9 @@ Bir Azure IOT Central uygulamasına aşağıdaki konumlarda özel görüntüleri
 
     ![Uygulama Yöneticisi sayfasında görüntüsü](media/howto-prepare-images/applicationmanager.png)
 
-* Giriş sayfası
+* Uygulama Panosu
 
-    ![Giriş sayfasında görüntüsü](media/howto-prepare-images/homepage.png)
+    ![Uygulama Panoda resim](media/howto-prepare-images/homepage.png)
 
 * Bir cihaz şablonu
 
@@ -60,7 +60,7 @@ Aşağıdaki tabloda kullanabileceğiniz resim boyutları özetlenmektedir:
 | -------- | ------ |
 | Uygulama Yöneticisi | 268 x 160 piksel |
 | Cihaz şablonu | 64 x 64 piksel |
-| Giriş sayfası ve Pano kutucukları | En küçük boyutlu 200 x 200 kutucuğudur piksel, daha büyük kutucukları küçük kutucuk kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 px, 400 x 200 piksel veya 400 x 400 px |
+| Pano kutucukları | En küçük boyutlu 200 x 200 kutucuğudur piksel, daha büyük kutucukları küçük kutucuk kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 px, 400 x 200 piksel veya 400 x 400 px |
 
 Uygulamada en iyi görüntü için yukarıdaki tabloda gösterilen boyutları eşleşen görüntüleri oluşturmanız gerekir.
 
@@ -76,11 +76,11 @@ Bir görüntüyü karşıya yükleme için **Uygulama Yöneticisi**, gitmek **uy
 
 Hazırlanan görüntünüzü karşıya yüklemek için uygulama görüntüsü kutucuğa tıklayın (268 x 160 piksel) yerel makinenizden.
 
-### <a name="home-page"></a>Giriş sayfası
+### <a name="application-dashboard"></a>Uygulama panosu
 
-Giriş sayfasında bir görüntüyü karşıya yükleme için gidin **giriş sayfası** uygulamanızın ve tıklayarak **Düzenle**. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
+Uygulama Panosu üzerinde bir görüntüyü karşıya yükleme için gidin **Pano** uygulamanızın ve tıklayarak **Düzenle**. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
 
-![Giriş sayfası görüntüsünü karşıya yükleme](media/howto-prepare-images/uploadhomepage.png)
+![Uygulama Panosu resmi karşıya yükle](media/howto-prepare-images/uploadhomepage.png)
 
 Resim kutucuğunda hazırlanmış görüntünüzü yerel makinenizden karşıya yüklenecek yapılandırma görüntü altında tıklayın. En küçük boyutlu 200 x 200 kutucuğudur piksel, daha büyük kutucukları küçük kutucuk kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 px, 400 x 200 piksel veya 400 x 400 px.
 

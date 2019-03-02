@@ -9,25 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 02/27/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ccf298c99851dc2418da894431c5c86adafe59b3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959451"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243628"
 ---
 # <a name="encoding-with-media-services"></a>Media Services ile kodlama
 
-Azure Media Services, içeriğinizi çok çeşitli tarayıcılar ve cihazlar üzerinde çalınabilir şekilde yüksek kaliteli dijital medya dosyalarınızın Uyarlamalı bit hızı MP4 dosyaları olarak kodlayın sağlar. Başarılı bir Media Services kodlama işinin bir çıktı oluşturur varlık kümesiyle Uyarlamalı bit hızlı MP4'ler göndermenizi ve bildirim dosyaları (sunucu ve istemci). Bu noktada, avantajlarından yararlanabilirsiniz [dinamik paketleme](dynamic-packaging-overview.md).
+Azure Media Services, içeriğinizi çok çeşitli tarayıcılar ve cihazlar üzerinde çalınabilir şekilde yüksek kaliteli dijital medya dosyalarınızın Uyarlamalı bit hızı MP4 dosyaları olarak kodlayın sağlar. Başarılı bir Media Services kodlama işinin bir çıktı oluşturur Uyarlamalı bit hızlı MP4'ler göndermenizi ve yapılandırma dosyalarını akış kümesi ile varlık. Yapılandırma dosyalarını .ism, .ismc, .mpi ve değiştirmemeniz gereken diğer dosyaları içerir. Kodlama işi tamamlandıktan sonra avantajlarından yararlanabilirsiniz [dinamik paketleme](dynamic-packaging-overview.md) ve akış'ı başlatın.
 
-Video çıkış yapmak için varlık kayıttan yürütme için istemciler tarafından kullanılabilir, sahip olduğunuz oluşturmak bir **akış Bulucu** ve daha sonra akış URL'lerini oluşturabilirsiniz. Ardından, bildirimde belirtilen biçime bağlı olarak, istemcilerinizin seçmiş oldukları protokolünde akış alırsınız.
+Video çıkış yapmak için varlık kayıttan yürütme için istemciler tarafından kullanılabilir, sahip olduğunuz oluşturmak bir **akış Bulucu** ve akış URL'lerini oluşturun. Ardından, bildirimde belirtilen biçime bağlı olarak, istemcilerinizin seçmiş oldukları protokolünde akış alırsınız.
 
 Aşağıdaki diyagram, talep üzerine akış dinamik paketleme iş akışıyla gösterir.
 
-![Dinamik kodlama](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Dinamik paketleme](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 Bu konuda içeriğinizi Media Services v3 ile kodlama konusunda rehberlik sağlar.
 

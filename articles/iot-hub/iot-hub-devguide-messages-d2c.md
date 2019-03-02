@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: cabfe4381f7f941f2a5e049eed73be546902f6ae
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: dd811a48d6f3f1061bad49a81b7e833dcb40e1e3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55485356"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241298"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Farklı uç noktalar için CİHAZDAN buluta iletileri göndermek için ileti yönlendirme kullanın
 
@@ -101,7 +101,7 @@ CİHAZDAN buluta telemetri iletilerini yerleşik uç noktalarını kullanarak y�
 
 Uç nokta ilgili ölçümleri size gönderilen iletiler ve hub'a durumunu genel bakış sağlayacak ve çeşitli yönlendirme IOT hub'ı sağlar. Sorunların kök nedenini belirlemek için birden çok Ölçüm bilgilerini birleştirebilirsiniz. Örneğin ölçümünü kullanın **yönlendirme: telemetri iletilerini bırakılan** veya **d2c.telemetry.egress.dropped** yolların herhangi birine sorgular ile eşleşmedi, bırakılan ileti sayısını belirlemek için ve geri dönüş rota devre dışı bırakıldı. [IOT hub'ı ölçümleri](iot-hub-metrics.md) IOT Hub'ınız için varsayılan olarak etkin olan tüm ölçümleri listeler.
 
-Kullanarak **yollar** tanılama günlüklerine yönelik Azure İzleyicisi'nde [tanılama ayarları](../iot-hub/iot-hub-monitor-resource-health.md), örneğin IOT Hub tarafından algılanan gibi yönlendirme sorgu ve uç nokta sistem durumu değerlendirmesi sırasında oluşan parçaları hataları olabilir ne zaman bir uç nokta etkin değil. Bu tanılama günlüklerini Log Analytics, Event Hubs veya Azure depolama için özel işleme gönderilebilir.
+Kullanarak **yollar** tanılama günlüklerine yönelik Azure İzleyicisi'nde [tanılama ayarları](../iot-hub/iot-hub-monitor-resource-health.md), örneğin IOT Hub tarafından algılanan gibi yönlendirme sorgu ve uç nokta sistem durumu değerlendirmesi sırasında oluşan parçaları hataları olabilir ne zaman bir uç nokta etkin değil. Bu tanılama günlüklerini Azure İzleyici günlüklerine, Event Hubs veya Azure depolama için özel işleme gönderilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

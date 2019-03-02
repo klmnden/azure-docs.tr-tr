@@ -12,27 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/01/2019
 ms.author: alleonar
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 567ea09a50edc043f2022a47d08576720550e750
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 47233d593e9539e5755daf331ce9dbff73207942
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448101"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213492"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API'si
 
 > [!IMPORTANT]
 >
-> Şubat 2019 tarihinde Azure Active Directory Graph API'si yerine Microsoft Graph API'sini kullanımdan kaldırılıyor.  
+> Şubat 2019 tarihinde Azure Active Directory Graph API'si yerine Microsoft Graph API önceki bazı sürümlerinde kullanımdan kaldırmaya sürecini başlattık. 
 >
-> Geçişi kolaylaştırmak için daha yeni olanlardan önce Azure AD Graph API'sinin önceki sürümlerinde kullanımdan.  
->
-> Ayrıntılar, güncelleştirmeleri ve zaman çerçevelerini [Microsoft Graph veya Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog gönderisinde Office Geliştirici Merkezi.
+> Ayrıntılar, güncelleştirmeleri ve zaman çerçevelerine görmek [Microsoft Graph veya Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) Office geliştirici Merkezi'ndeki.
 >
 > İlerletme, uygulamaları Microsoft Graph API'si kullanmanız gerekir. 
 

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 74f89778ffa1715c5434b6bfe8191b3373a311ca
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4d00d3f12f0baf1bb63b3ff3c803e591be45ac8c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452354"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215260"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>PowerShell kullanarak bir SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme
 
@@ -399,7 +399,7 @@ SQL Data Sync hakkında daha fazla bilgi için bkz.:
         -  [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](sql-database-sync-data-between-sql-databases.md)
 -   Veri Eşitleme Aracısı - [veri Aracısı Azure SQL Data Sync için eşitleme](../sql-database-data-sync-agent.md)
 -   En iyi uygulamalar - [en iyi uygulamalar için Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   İzleyici - [SQL Data Sync'i Log Analytics ile izleme](../sql-database-sync-monitor-oms.md)
+-   İzleyici - [SQL Data Sync'i Azure İzleyici ile izleme günlükleri](../sql-database-sync-monitor-oms.md)
 -   Sorun giderme - [Azure SQL Data Sync ile ilgili sorunları giderme](../sql-database-troubleshoot-data-sync.md)
 -   Eşitleme şemasını güncelleştirmek
     -   Transact-SQL ile- [Azure SQL Data Sync şema değişikliklerinin çoğaltmayı otomatik hale getirme](../sql-database-update-sync-schema.md)

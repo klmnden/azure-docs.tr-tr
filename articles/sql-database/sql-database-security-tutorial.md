@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2b528892d2046f590d979d1646583e028fe4a834
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004606"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218082"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Öğretici: Tek veya havuza alınmış veritabanını koruma
 
@@ -90,7 +90,7 @@ Artık sunucuda belirtilen IP adresine veya IP adresi aralığına sahip herhang
 
 ### <a name="setup-database-firewall-rules"></a>Veritabanı güvenlik duvarı kuralları ayarla
 
-Veritabanı düzeyinde güvenlik duvarı kuralları yalnızca tek tek veritabanları için geçerlidir. Bu kurallar, taşınabilir ve veritabanı sunucusu yük devretme sırasında takip eder. Veritabanı düzeyinde güvenlik duvarı kuralları yalnızca Transact-SQL (T-SQL) deyimleri kullanılarak yapılandırılabilir ve sonra yalnızca sunucu düzeyinde güvenlik duvarı kuralı yapılandırdınız.
+Veritabanı düzeyinde güvenlik duvarı kuralları yalnızca tek tek veritabanları için geçerlidir. Veritabanı bu kurallar, bir sunucu yük devretme sırasında korur. Veritabanı düzeyinde güvenlik duvarı kuralları yalnızca Transact-SQL (T-SQL) deyimleri kullanılarak yapılandırılabilir ve sonra yalnızca sunucu düzeyinde güvenlik duvarı kuralı yapılandırdınız.
 
 Veritabanı düzeyinde güvenlik duvarı kuralı ayarlamak için:
 
@@ -264,7 +264,7 @@ Anormal etkinlikler algılanırsa, olayla ilgili bilgileri içeren bir e-posta a
 
 ### <a name="auditing"></a>Denetim
 
-Denetim özelliği, veritabanı olaylarını izler ve bir denetim günlüğüne ya da bir Azure depolama, log analytics'e veya olay hub'ına olayları yazar. Denetim mevzuatla uyumluluk, veritabanı etkinliğini anlama ve tutarsızlıklar ve olası güvenlik ihlallerini işaret edebilecek anomalileri kavramanıza yardımcı olur.
+Denetim özelliği, veritabanı olaylarını izler ve bir denetim günlüğüne ya da bir Azure depolama, Azure İzleyici günlüklerine veya olay hub'ına olayları yazar. Denetim mevzuatla uyumluluk, veritabanı etkinliğini anlama ve tutarsızlıklar ve olası güvenlik ihlallerini işaret edebilecek anomalileri kavramanıza yardımcı olur.
 
 Denetimi etkinleştirmek için:
 
@@ -286,7 +286,7 @@ Denetimi etkinleştirmek için:
         - **Log Analytics**, sorgu ya da daha fazla analiz için olayları otomatik olarak depolayan
 
             > [!NOTE]
-            > A **Log analytics çalışma alanı** analiz, özel uyarı kuralları ve Excel veya Power BI dışarı aktarma gibi gelişmiş özellikleri desteklemek için gereklidir. Sorgu Düzenleyicisi, bir çalışma alanı kullanılabilir.
+            > A **Log Analytics çalışma alanı** analiz, özel uyarı kuralları ve Excel veya Power BI dışarı aktarma gibi gelişmiş özellikleri desteklemek için gereklidir. Sorgu Düzenleyicisi, bir çalışma alanı kullanılabilir.
 
         - **Olay hub'ı**, olaylar, diğer uygulamalarda kullanmak için yönlendirilmesini sağlar
 

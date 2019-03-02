@@ -5,24 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352147"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217300"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Genel amaçlı v2 depolama hesabı için yükseltme
 
 Genel amaçlı v2 depolama hesabı için en son Azure depolama özelliklerini desteklemek ve tüm işlevleri, genel amaçlı v1 ve Blob Depolama hesapları dahil edilip derecelendirilir. Genel amaçlı v2 hesapları çoğu depolama senaryoları için önerilir. Genel amaçlı v2 hesapları Azure depolama, ek olarak sektörde rekabetçi işlem fiyatları düşük gigabayt başına kapasite fiyatlar sunar.
 
-Genel amaçlı v2 depolama hesabı, genel amaçlı v1'den veya Blob Depolama hesapları için yükseltme basit bir işlemdir. Azure portal, PowerShell veya Azure CLI kullanarak yükseltebilirsiniz. 
+Genel amaçlı v2 depolama hesabı, genel amaçlı v1'den veya Blob Depolama hesapları için yükseltme basit bir işlemdir. Azure portal, PowerShell veya Azure CLI kullanarak yükseltebilirsiniz.
 
-> [!NOTE]
-> Depolama hesabınıza bir genel amaçlı v2 hesabına yükseltmek ücretsizdir.
-> Depolama erişim katmanının değiştirilmesi, faturanıza değişikliklerine neden olabilir. Daha fazla bilgi için [Fiyatlandırma ve faturalandırma](#pricing-and-billing) bölümüne bakın.
+> [!IMPORTANT]
+> V1 depolama hesabı genel amaçlı v2'ye yükseltme kalıcıdır ve geri alınamaz.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Azure portalını kullanarak yükseltme
 
@@ -68,8 +67,10 @@ Varsayılan olarak, sık erişimli erişim katmanında yeni bir depolama hesabı
 
 Her iki durumda da birinci öncelik depolanması, erişimi ve bir genel amaçlı v2 depolama hesabında depolanan verileriniz üzerinde işletim maliyetini tahmin etmek ve bu maliyetin mevcut maliyetlerinizle karşılaştırmak için olan.
 
-
 ## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
+
+V1 depolama hesabı genel amaçlı v2 hesabına yükseltmek ücretsizdir. Ancak, depolama erişim katmanını değiştirme değişiklikleri faturanıza neden olabilir. 
+
 Tüm depolama hesapları, blob depolama için her blobun katmanını temel alan bir fiyatlandırma modelini kullanır. Bir depolama hesabını kullanırken aşağıdaki fatura değerlendirmeleri geçerlidir:
 
 * **Depolama maliyetleri**: Depolanan veri miktarına ek olarak, veri depolamanın maliyeti depolama erişim katmanına bağlı olarak değişir. Katmanın erişim sıklığı düştükçe gigabayt başına ücret de azalır.

@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bbf04104d70ecb6ea8d83c6167b5b9b0dfe2c2dc
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339796"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217453"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -30,6 +30,8 @@ Azure için Denetim [SQL veritabanı](sql-database-technical-overview.md) ve [SQ
 
 > [!NOTE] 
 > Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
 ## <a id="subheading-1"></a>Azure SQL veritabanı denetimi genel bakış
@@ -85,7 +87,7 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
 
     ![Gezinti bölmesi][3]
 
-5. **Yeni** -denetim günlükleri yazılacağı şimdi yapılandırmak için birçok seçeneğiniz vardır. Bir Azure depolama hesabına, Log Analytics tarafından kullanımı için bir Log Analytics çalışma alanına veya olay hub'ına olay hub'ı kullanarak tüketimi için günlükleri yazabilirsiniz. Her denetim günlüklerine yazılır ve bu seçenekleri herhangi bir birleşimini yapılandırabilirsiniz.
+5. **Yeni** -denetim günlükleri yazılacağı şimdi yapılandırmak için birçok seçeneğiniz vardır. Bir Azure depolama hesabına, Azure İzleyici günlüklerine tüketimi için bir Log Analytics çalışma alanına veya olay hub'ına olay hub'ı kullanarak tüketimi için günlükleri yazabilirsiniz. Her denetim günlüklerine yazılır ve bu seçenekleri herhangi bir birleşimini yapılandırabilirsiniz.
 
     ![Depolama Seçenekleri](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -95,7 +97,7 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
 
 7. Yazma denetim yapılandırmak için bir Log Analytics çalışma alanına, select günlükleri **Log Analytics (Önizleme)** açın **Log Analytics ayrıntıları**. Seçin veya burada günlüklerine yazılır ve ardından Log Analytics çalışma alanı **Tamam**.
 
-    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics çalışma alanı](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Yazma denetim yapılandırmak için bir olay hub'ına select günlükleri **olay hub'ı (Önizleme)** açın **olay hub'ı ayrıntılarını**. Burada günlüklerine yazılır ve ardından olay hub'ı seçin **Tamam**. Olay hub'ı veritabanı ve sunucu aynı bölgede olduğundan emin olun.
 
@@ -112,7 +114,7 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
 
 ## <a id="subheading-3"></a>Denetim günlüklerini ve raporları analiz edin
 
-Denetim günlüklerini Log Analytics'e yazmak isterseniz:
+Azure İzleyici günlüklerine denetim günlüklerini yazma izni seçerseniz:
 
 - Kullanım [Azure portalında](https://portal.azure.com).  İlgili veritabanı açın. Veritabanının üst kısmındaki **denetim** sayfasında **denetim günlüklerini görüntüle**.
 
@@ -123,7 +125,7 @@ Denetim günlüklerini Log Analytics'e yazmak isterseniz:
     ![Log Analytics'i Aç](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
 - Alternatif olarak, denetim günlüklerini Log Analytics dikey penceresinden de erişebilirsiniz. Log Analytics çalışma alanınızın açın ve altında **genel** bölümünde **günlükleri**. Gibi basit bir sorgu başlatın: *"SQLSecurityAuditEvents" arama* denetim görüntülemek üzere günlüğe kaydeder.
-    Buradan ayrıca kullanabileceğiniz [Log Analytics](../log-analytics/log-analytics-log-search.md) Gelişmiş aramaları, Denetim günlüğü verileri temelinde çalıştırılacak. Log Analytics, tüm iş yüklerinizde ve sunucularınızda milyonlarca kaydı kolayca analiz etmek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı operasyonel içgörüler sunar. Log Analytics arama dili ve komutlar hakkında başka yararlı bilgiler için bkz. [Log Analytics Arama başvurusu](../log-analytics/log-analytics-log-search.md).
+    Burada da kullanabilirsiniz [Azure İzleyici günlükleri](../log-analytics/log-analytics-log-search.md) Gelişmiş aramaları, Denetim günlüğü verileri temelinde çalıştırılacak. Azure İzleyici günlüklerine tüm iş yüklerinizde ve sunucularınızda milyonlarca kaydı kolayca analiz etmek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı operasyonel içgörüler sunar. Azure İzleyici günlüklerine arama dili ve komutlar hakkında başka yararlı bilgiler için bkz. [Azure İzleyici günlüklerini Arama başvurusu](../log-analytics/log-analytics-log-search.md).
 
 Denetim günlükleri Olay Hub'ına yazma seçerseniz:
 
@@ -187,7 +189,7 @@ Birincil veritabanında Denetimi etkinleştirdiğinizde, coğrafi olarak çoğal
     >[!IMPORTANT]
     >Veritabanı düzeyi denetimi ile ikincil veritabanı için depolama ayarlarını bölgeler arası trafik neden birincil veritabanı için aynı olacaktır. Yalnızca sunucu düzeyi denetimi etkinleştirin ve devre dışı tüm veritabanları için veritabanı düzeyi denetimi bırakın öneririz.
     > [!WARNING]
-    > Sunucu düzeyinde denetim günlükleri için hedef olay hub'ı veya log analytics kullanarak ikincil coğrafi çoğaltmalı veritabanı şu anda desteklenmiyor.
+    > Olay hub'ı veya Azure İzleyici günlüklerine sunucu düzeyinde denetim günlükleri için hedef kullanarak ikincil coğrafi çoğaltmalı veritabanı şu anda desteklenmiyor.
 
 ### <a id="subheading-6">Depolama anahtarını yeniden üretme</a>
 
@@ -256,7 +258,7 @@ Burada yan tümcesi destek ek filtreleme ile genişletilmiş İlkesi:
 Kullanarak Azure SQL veritabanı denetimi yönetebileceğiniz [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) Bu örneklerde gösterildiği gibi şablonları:
 
 - [Denetim günlükleri, Azure Blob Depolama hesabına yazma etkinleştirilmiş denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Denetim günlüklerini Log Analytics'e yazmak için etkin bir denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Azure İzleyici günlüklerine denetim günlükleri yazmak için etkin bir denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Denetim günlükleri Olay hub'ları yazmak için etkin bir denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
 <!--Anchors-->

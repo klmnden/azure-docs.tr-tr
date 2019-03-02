@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: de89e0a30f39ba97379b4d55914338702aef5c32
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: c60022d43af1601359ab5de8b4d3e4eb06dd239a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990417"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243236"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure Iaas iş yükleri için en iyi güvenlik uygulamaları
 
@@ -128,7 +128,7 @@ Güvenlik açısından duruşunu izlemek için [Windows](../security-center/secu
 
 Güvenlik Merkezi, tehditleri etkin bir şekilde izleyebilir ve olası tehditleri Güvenlik Uyarıları ' kullanıma sunulur. Bağıntılı tehditleri adlı bir güvenlik olayı, tek bir görünümde toplanır.
 
-Güvenlik Merkezi veri depolar [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics, uygulamalarınızın ve kaynaklarınızın çalışmasını öngörülerin bir sorgu dili ve analiz altyapısı sağlar. Veri öğesinden toplanan ayrıca [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md), yönetim çözümleri ve bulutta veya şirket içi sanal makinelerde yüklü aracıları. Bu paylaşılan işlevsellik, ortamınızın eksiksiz bir resmini oluşturmanıza yardımcı olur.
+Güvenlik Merkezi veri depolar [Azure İzleyicisi](../log-analytics/log-analytics-overview.md). Azure İzleyici günlüklerine uygulamalarınızın ve kaynaklarınızın çalışmasını öngörülerin bir sorgu dili ve analiz altyapısı sağlar. Veri öğesinden toplanan ayrıca [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md), yönetim çözümleri ve bulutta veya şirket içi sanal makinelerde yüklü aracıları. Bu paylaşılan işlevsellik, ortamınızın eksiksiz bir resmini oluşturmanıza yardımcı olur.
 
 Güçlü güvenlik kendi Vm'leri için zorlamaz; kuruluşların, güvenlik denetimleri sağlamasına olası girişimleri yetkisiz kullanıcılar tarafından farkında kalır.
 

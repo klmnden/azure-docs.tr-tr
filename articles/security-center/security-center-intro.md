@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 16473b7814763d80f7e850acf44839f5ef640a18
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109053"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242046"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Güvenlik Merkezi nedir?
 
@@ -128,7 +128,7 @@ Güvenlik Merkezi yardımcı olan özellikler içeren Azure SQL'de verileriniz o
 
 ## <a name="get-secure-faster"></a>Daha hızlı, güvenli alın
 
-Microsoft Cloud App Security ve Windows Defender Gelişmiş tehdit koruması gibi güvenlik çözümlerini güvenlik emin olmak için diğer Microsoft ile sorunsuz tümleştirme (Azure İlkesi ve Log Analytics de dahil olmak üzere) yerel Azure tümleştirme birlikte Çözüm, kapsamlı olarak eklemek için basit ve kullanıma.
+Microsoft Cloud App Security ve Windows Defender Gelişmiş tehdit koruması emin olmaya yardımcı olmak gibi diğer Microsoft Güvenlik çözümleriyle sorunsuz tümleştirme birlikte (Azure İlkesi ve Azure İzleyici günlüklerine dahil) yerel Azure tümleştirmesi, güvenlik çözümü kapsamlı olarak eklemek için basit ve alma.
 
 Ayrıca, şirket içi veri merkezleri ve diğer bulutlarda çalışan iş yükleri için Azure dışında tam çözüm genişletebilirsiniz.
 

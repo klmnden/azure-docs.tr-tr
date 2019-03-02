@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/28/2018
 ms.author: diberry
-ms.openlocfilehash: 576acb0c03d6701018cefa26118a334d3b9c83b8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3061ddd2e94fbe6ec97355a42a6319dc1a489095
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869611"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213543"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Bir LUIS uygulaması kullanım dışı önceden oluşturulmuş varlıklar
 Aşağıdaki önceden oluşturulmuş varlıklar kullanım dışıdır ve yeni LUIS uygulamalara eklenemez.

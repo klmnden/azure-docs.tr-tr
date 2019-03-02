@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 89e75afd3b9001f7a0b8a027744ef71c8bb69690
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 1f51aee41937c531a987482a6a367970305e6594
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299573"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218031"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack için PowerShell'i yükleme
 
@@ -106,8 +106,8 @@ Geliştirme iş istasyonunuzda bu modülleri yüklemek için aşağıdaki PowerS
     ```
 
     > [!Note]  
-    > Azure Stack Modül sürümü 1.7.0 bölünmesi farklıdır. Azure yığını geçirme 1.6.0 Lütfen başvurmak için [Geçiş Kılavuzu](https://aka.ms/azspshmigration170).
-
+    > Azure Stack Modül sürümü 1.7.0 bir önemli değişiklik yayınıdır. Azure yığını geçirme 1.6.0 Lütfen başvurmak için [Geçiş Kılavuzu](https://aka.ms/azspshmigration170).
+    > AzureRm modülü sürümü 2.4.0, Remove-AzureRmStorageAccount cmdlet'ini için bir değişiklik ile birlikte gelir. Bu cmdlet bekliyor - Force prameter onaysız depolama hesabını kaldırmak için belirtilmelidir.
 - Azure Stack 1811:
 
     ```PowerShell
@@ -216,6 +216,12 @@ Yükleme dört adım vardır:
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+    ```
+
+    > [!NOTE]  
+    >Internet bağlantısı olmadan makinelerde telemetri veri koleksiyonunu devre dışı bırakmak için aşağıdaki cmdlet'i yürütme öneririz. Telemetri veri koleksiyonunu devre dışı bırakmadan cmldets performans düşüşü karşılaşabilirsiniz. Bu yalnızca internet bağlantısı olmayan makineler için geçerlidir
+    ```PowerShell
+    Disable-AzureRmDataCollection
     ```
 
 ### <a name="enable-additional-storage-features"></a>Ek depolama alanı özelliklerini etkinleştirme

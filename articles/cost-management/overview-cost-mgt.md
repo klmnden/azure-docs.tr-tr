@@ -10,20 +10,20 @@ ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6e9eb5709882cc084da8fe02ebb23b70852185d3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768666"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240108"
 ---
 # <a name="what-is-azure-cost-management"></a>Azure Maliyet Yönetimi nedir?
 
-Maliyet yönetimi, işlerinizle ilişkili maliyetleri etkili bir şekilde planladığınız ve denetlediğiniz bir işlemdir. Maliyet yönetimi görevleri normalde finans, yönetim ve uygulama takımları tarafından gerçekleştirilir. Azure maliyet yönetimi, kuruluşların aklınızda maliyetiyle planlamak için yardımcı olur. Ayrıca, maliyetleri etkili bir şekilde analiz etmeye ve bulut harcamalarını iyileştirmek için gerçekleştirilecek eylemlere de katkı sağlar. Kuruluş olarak maliyet yönetimine nasıl yaklaşmak gerektiği hakkında daha fazla bilgi edinmek için, [Azure Maliyet Yönetimi en iyi yöntemleri](cost-mgt-best-practices.md) makalesini gözden geçirin.
+Maliyet yönetimi etkin bir şekilde planlama ve işinizde ilgili maliyetleri denetleme işlemidir. Maliyet yönetimi görevleri normalde finans, yönetim ve uygulama takımları tarafından gerçekleştirilir. Azure maliyet yönetimi, kuruluşların aklınızda maliyetiyle planlama yardımcı olur. Ayrıca maliyetleri etkin bir şekilde analiz etmek ve bulut en iyi duruma getirme amacıyla eyleme geçmek için yardımcı olur harcama. Kuruluş olarak maliyet yönetimine nasıl yaklaşmak gerektiği hakkında daha fazla bilgi edinmek için, [Azure Maliyet Yönetimi en iyi yöntemleri](cost-mgt-best-practices.md) makalesini gözden geçirin.
 
 Faturalandırma, maliyet yönetimiyle ilgili olsa da aynı şey değildir. Faturalandırma, müşterilere mal veya hizmetler karşılığı fatura hazırlama ve ticari ilişkileri yönetme işlemidir.  Faturalandırma görevleri genellikle tedarik ve finans takımları tarafından yürütülür.
 
-Maliyet yönetimi, gelişmiş analizle kurumsal maliyet ve kullanım düzenlerini gösterir. Maliyet Yönetimi'ndeki raporlar Azure maliyetini, kullanımını, ayrılmış örneğini ve Azure Hibrit Avantajı kullanımını gösterir. Raporlar hep birlikte, kullanımla ilişkili iç ve dış maliyetlerinizi ve Azure Market ücretlerinizi ortaya koyar. Rezervasyon satın almaları, destek ve vergiler gibi diğer ücretler henüz raporlarda gösterilmemektedir. Raporlar, harcamalarınızı ve kaynak kullanımınızı anlamanıza, ayrıca harcama anomalilerini bulmanıza yardımcı olur. Tahmine dayalı analiz de sağlanır. Maliyet Yönetimi harcamalarınızın nasıl düzenlendiğini ve maliyetleri nasıl düşürebileceğinizi net bir şekilde göstermek için Azure yönetim gruplarını, bütçelerini ve önerilerini kullanır.
+Maliyet yönetimi, gelişmiş analizle kurumsal maliyet ve kullanım düzenlerini gösterir. Maliyet Yönetimi'nde raporları, Azure hizmetlerini ve Market teklifleri üçüncü taraf tarafından tüketilen kullanım tabanlı maliyetleri gösterir. Maliyetleri anlaşma fiyatları temel alır ve ayırma ve Azure hibrit avantajı indirimleri faktörü. Raporlar hep birlikte, kullanımla ilişkili iç ve dış maliyetlerinizi ve Azure Market ücretlerinizi ortaya koyar. Rezervasyon satın almaları, destek ve vergiler gibi diğer ücretler henüz raporlarda gösterilmemektedir. Raporlar, harcamalarınızı ve kaynak kullanımınızı anlamanıza, ayrıca harcama anomalilerini bulmanıza yardımcı olur. Tahmine dayalı analiz de sağlanır. Maliyet Yönetimi harcamalarınızın nasıl düzenlendiğini ve maliyetleri nasıl düşürebileceğinizi net bir şekilde göstermek için Azure yönetim gruplarını, bütçelerini ve önerilerini kullanır.
 
 Azure portalı veya çeşitli API'leri kullanarak dışarı aktarma otomasyonu yapabilir ve bu yolla maliyet verilerini dış sistemler ve süreçlerle tümleştirebilirsiniz. Otomatik faturalandırma verilerini dışarı aktarma özelliği ve zamanlanmış raporlar da sağlanır.
 

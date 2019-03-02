@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ed4b581cb962c7db706a71ab995963a3c445af55
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7acf4a0f937817b131763e040d452366c520fa6f
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998233"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247605"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders-legacy"></a>Genel bakış ve karşılaştırma Azure üzerinde isteğe bağlı medya kodlayıcılarına (eski)
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Genel bakış ve Azure üzerinde isteğe bağlı medya kodlayıcılarına karşılaştırma 
 
 ## <a name="encoding-overview"></a>Encoding'e genel bakış
 Azure Media Services, bulutta medya kodlama için birden fazla seçenek sağlar.

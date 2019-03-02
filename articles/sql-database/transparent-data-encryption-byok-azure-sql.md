@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: c8c2c58250b6f806b48241ad1bb2a85202b9b67a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: bccf79cea88890d02e2e1bfeb952ca9e754705cb
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456886"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217385"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL saydam veri şifrelemesi ile Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar: Destek kendi anahtarını Getir
 
@@ -72,7 +72,7 @@ TDE varsayılan TDE koruyucusu Key vault'tan kullanmak için yapılandırıldı�
  > [!NOTE]
  > TDE şifrelenmiş güvenlik duvarı atlama olamaz çünkü SQL veritabanları anahtar kasası erişimi kaybedersiniz, veritabanlarını 24 saat içinde erişilebilir durumda değil.
 
-- Denetim ve tüm şifreleme anahtarlarını raporlama etkinleştir: Key Vault, diğer güvenlik bilgileri ve Olay yönetimi (SIEM) araçları eklenmek üzere kolay günlüklerini sunar. Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) zaten tümleşik bir hizmet örneğidir.
+- Denetim ve tüm şifreleme anahtarlarını raporlama etkinleştir: Key Vault, diğer güvenlik bilgileri ve Olay yönetimi (SIEM) araçları eklenmek üzere kolay günlüklerini sunar. Operations Management Suite (OMS) [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) zaten tümleşik bir hizmet örneğidir.
 - Şifreli veritabanlarına yüksek kullanılabilirlik sağlamak için farklı bölgelerde bulunan iki Azure anahtar kasaları her SQL veritabanı sunucusunu yapılandırın.
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>(Asimetrik anahtar) TDE koruyucusuna yapılandırma yönergeleri

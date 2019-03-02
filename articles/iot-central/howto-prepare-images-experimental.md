@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b975d7dccc85973a42408d87e3c03a91aaf1c450
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b0262ecbcc5a7f512c8779c230b2e2d4bb039842
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812762"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216688"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Hazırlama ve Azure IOT Central uygulamanıza görüntüleri karşıya yükleme
 
@@ -30,13 +30,13 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 Bir Azure IOT Central uygulamasına aşağıdaki konumlarda özel görüntüleri ekleyebilirsiniz:
 
-* **Uygulama Yöneticisi** sayfası
+* **Uygulamalarım** sayfası
 
     ![Uygulama Yöneticisi sayfasında görüntüsü](media/howto-prepare-images-experimental/applicationmanager.png)
 
-* Giriş sayfası
+* Uygulama Panosu
 
-    ![Giriş sayfasında görüntüsü](media/howto-prepare-images-experimental/homepage.png)
+    ![Uygulama Panoda resim](media/howto-prepare-images-experimental/homepage.png)
 
 * Bir cihaz şablonu
 
@@ -60,7 +60,7 @@ Aşağıdaki tabloda kullanabileceğiniz resim boyutları özetlenmektedir:
 | -------- | ------ |
 | Uygulama Yöneticisi | 268 x 160 piksel |
 | Cihaz şablonu | 64 x 64 piksel |
-| Giriş sayfası ve Pano kutucukları | En küçük boyutlu 200 x 200 kutucuğudur piksel, daha büyük kutucukları küçük kutucuk kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 px, 400 x 200 piksel veya 400 x 400 px |
+| Pano kutucukları | En küçük boyutlu 200 x 200 kutucuğudur piksel, daha büyük kutucukları küçük kutucuk kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 px, 400 x 200 piksel veya 400 x 400 px |
 
 Uygulamada en iyi görüntü için yukarıdaki tabloda gösterilen boyutları eşleşen görüntüleri oluşturmanız gerekir.
 
@@ -70,21 +70,21 @@ Aşağıdaki bölümlerde farklı konumlarda görüntüleri karşıya yükleme a
 
 ### <a name="application-manager"></a>Uygulama Yöneticisi
 
-Bir görüntüyü karşıya yükleme için **Uygulama Yöneticisi**, gitmek **uygulama ayarları** sayfasını **Yönetim** bölümü. Bu görevi tamamlamak için yönetici olmanız gerekir:
+Üzerinde kullanılacak bir görüntü karşıya yüklemek için **uygulamalarım** sayfasında, gitmek **uygulama ayarları** sayfasını **Yönetim** bölümü. Bu görevi tamamlamak için yönetici olmanız gerekir:
 
 ![Uygulama görüntüsünü karşıya yükleme](media/howto-prepare-images-experimental/uploadapplicationmanager.png)
 
 Hazırlanan görüntünüzü karşıya yüklemek için uygulama görüntüsü kutucuğa tıklayın (268 x 160 piksel) yerel makinenizden.
 
-### <a name="home-page"></a>Giriş sayfası
+### <a name="application-dashboard"></a>Uygulama panosu
 
-Giriş sayfasında bir görüntüyü karşıya yükleme için gidin **giriş sayfası** uygulamanızın ve tıklayarak **Düzenle**. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
+Uygulama Panosu üzerinde bir görüntüyü karşıya yükleme için gidin **Pano** tıklayın ve uygulama sayfasının **Düzenle**. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
 
-![Giriş sayfası görüntüsünü karşıya yükleme](media/howto-prepare-images-experimental/uploadhomepage.png)
+![Pano görüntüsünü karşıya yükleme](media/howto-prepare-images-experimental/uploadhomepage.png)
 
 Resim kutucuğunda hazırlanmış görüntünüzü yerel makinenizden karşıya yüklenecek yapılandırma görüntü altında tıklayın. En küçük boyutlu 200 x 200 kutucuğudur piksel, daha büyük kutucukları küçük kutucuk kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 px, 400 x 200 piksel veya 400 x 400 px.
 
-**Kaydet** karşıya yüklenen görüntüyü. Düzenleme modundayken yeniden boyutlandırabilirsiniz. Tıklayın **Bitti** bittiğinde. 
+**Kaydet** karşıya yüklenen görüntüyü. Düzenleme modundayken yeniden boyutlandırabilirsiniz. Tıklayın **Bitti** bittiğinde.
 
 ### <a name="device-template"></a>Cihaz şablonu
 
@@ -92,7 +92,7 @@ Bir cihaz şablonu bir görüntüyü karşıya yükleme için gidin **cihaz şab
 
 ![Cihaz şablon görüntüsünü karşıya yükleme](media/howto-prepare-images-experimental/uploaddevicetemplate.png)
 
-Hazırlanan görüntünüzü karşıya resim kutucuğa tıklayın (64 x 64 piksel) yerel makinenizden. 
+Hazırlanan görüntünüzü karşıya resim kutucuğa tıklayın (64 x 64 piksel) yerel makinenizden.
 
 ### <a name="device-dashboard"></a>Cihaz panosu
 

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/4/2018
 ms.custom: seodec18
-ms.openlocfilehash: d4bef53a21e6ab7b55c16e27083b818929fbd47c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3f1dd0921153d6b65bdc257f91019483adbb18fa
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879263"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213679"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Machine learning işlem hatlarını Azure Machine Learning hizmeti ile derleme
 
@@ -54,7 +54,7 @@ Farklı adımları kullanarak, yalnızca ince ve test iş akışınızı, gereke
 
 İşlem hattı tasarlandıktan sonra genellikle işlem hattının eğitim döngüsü daha ince ayar yoktur. Ne zaman bir işlem hattı, bir güncelleştirilmiş bir eğitim betiği gibi yeniden çalıştırmanız adımları çalışma atlar yeniden çalıştırın ve hangi değişmediğinden atlar. Aynı paradigma adımının yürütülmesi için kullanılan aynı komut için geçerlidir. 
 
-Azure Machine Learning sayesinde, işlem hattındaki her adım için çeşitli araç setleri ve Microsoft Bilişsel Araç Seti veya TensorFlow, gibi çerçeveleri kullanabilirsiniz. Çeşitli arasında Azure koordinatları [hedefleri işlem](concept-azure-machine-learning-architecture.md) aşağı akış işlem hedefleriyle Ara verilerinizi kolayca paylaşılabilir böylece, kullanın. 
+Azure Machine Learning sayesinde, işlem hattındaki her adım için çeşitli araç setleri ve PyTorch veya TensorFlow, gibi çerçeveleri kullanabilirsiniz. Çeşitli arasında Azure koordinatları [hedefleri işlem](concept-azure-machine-learning-architecture.md) aşağı akış işlem hedefleriyle Ara verilerinizi kolayca paylaşılabilir böylece, kullanın. 
 
 Yapabilecekleriniz [Ölçümleriyle için işlem hattı denemelerinizi](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) doğrudan Azure portalında. 
 

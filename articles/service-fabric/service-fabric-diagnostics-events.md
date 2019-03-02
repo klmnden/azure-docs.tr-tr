@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 936a47593b9db6e4989c30b2df37dfd82c286c59
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: c4ce8e01b1dc819453610f68d044cc268e27eed7
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290527"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242760"
 ---
 # <a name="service-fabric-events"></a>Service Fabric olayları 
 
@@ -40,12 +40,12 @@ Kümenizde olayları görmelisiniz senaryoları bazı örnekleri aşağıda veri
 * Uygulama/hizmet dağıtımı / silme: her uygulama, hizmet ve kapsayıcı, veya örneğin çoğaltmaları sayısının artırılması dışa ölçeklendirme oluşturulan veya silinen ve kullanışlı olan bir olay
 * Bölüm taşır (yeniden): durum bilgisi olan bir bölümü yeniden yapılandırma (çoğaltma kümesi bir değişiklik) geçer her bir olay kaydedilir. Bu, ne sıklıkta bölüm çoğaltma kümenizi değiştirme veya yük devretmeyi anlama çalıştığınız ya da hangi düğümün zaman içinde herhangi bir noktada birincil çoğaltma çalıştığı izlemek yararlı olur.
 * Kaos olayları: Service Fabric'in kullanırken [Chaos](service-fabric-controlled-chaos.md) hizmet, hizmet başlatılmış veya durdurulmuşsa her zaman veya sistemdeki bir hata ekler olayları görürsünüz.
-* Sistem durumu olayları: Service Fabric her zaman bir uyarı veya hata sistem durumu raporu oluşturulur, bir varlığın bir Tamam sistem durumuna döner veya bir sistem durumu raporu süresi sistem durumu olaylarını kullanıma sunar. Bu olayları bir varlık için geçmiş sağlık istatistikleri izlemek çok yararlı olur. 
+* Sistem durumu olayları: Service Fabric, her zaman bir uyarı veya hata sistem durumu raporu oluşturulur, bir varlığın bir Tamam sistem durumuna döner veya bir sistem durumu raporu süresi sistem durumu olayları gösterir. Bu olayları bir varlık için geçmiş sağlık istatistikleri izlemek çok yararlı olur. 
 
 ## <a name="how-to-access-events"></a>Olayları erişme
 
 Service Fabric olayları erişilebilen birkaç farklı yolu vardır:
-* Olayları ETW/Windows olay günlükleri gibi standart kanallar aracılığıyla günlüğe kaydedilir ve bu Log Analytics gibi destekleyen herhangi bir izleme aracı tarafından görselleştirilebilir. Varsayılan olarak, kümeler portalda oluşturulan tanılama açıkken varsa ve Azure tablo depolama birimine olayları gönderen Windows Azure tanılama aracısını, ancak yine de bu Log Analytics kaynağınızı tümleştirme gerekiyorsa. Yapılandırma hakkında daha fazla okuma [Azure tanılama aracısını](service-fabric-diagnostics-event-aggregation-wad.md) kümenizi daha fazla günlük veya performans sayaçlarını alacak şekilde Tanılama yapılandırmasını değiştirmek için ve [Log Analytics tümleştirmesi](service-fabric-diagnostics-event-analysis-oms.md)
+* Olayları ETW/Windows olay günlükleri gibi standart kanallar aracılığıyla günlüğe kaydedilir ve bunları Azure İzleyici günlükleri gibi destekleyen herhangi bir izleme aracı tarafından görselleştirilebilir. Varsayılan olarak, kümeler portalda oluşturulan tanılama açıkken varsa ve Azure tablo depolama birimine olayları gönderen Windows Azure tanılama aracısını, ancak yine de bu log analytics kaynağınızı ile tümleştirme gerekiyorsa. Yapılandırma hakkında daha fazla okuma [Azure tanılama aracısını](service-fabric-diagnostics-event-aggregation-wad.md) kümenizi daha fazla günlük veya performans sayaçlarını alacak şekilde Tanılama yapılandırmasını değiştirmek için ve [Azure İzleyici günlükleri tümleştirme](service-fabric-diagnostics-event-analysis-oms.md)
 * Doğrudan veya Service Fabric istemci kitaplığı aracılığıyla küme sorgu olanak tanıyan Eventstore'a hizmetin Rest API'ler. Bkz: [küme olayları için sorgu EventStore API'leri](service-fabric-diagnostics-eventstore-query.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar

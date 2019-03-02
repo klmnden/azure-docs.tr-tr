@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 2c8e71a058b2c770741c38f07c6c440fea90f2b2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ab9bf868191238d933ae301b9a7df293842e8e36
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998442"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247061"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs-legacy"></a>MPEG-DASH Uyarlamalı Akış videosunu bir HTML5 uygulamasına DASH.js (eski) ile ekleme
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>MPEG-DASH Uyarlamalı Akış videosunu bir HTML5 uygulamasına DASH.js ile ekleme  
 
 ## <a name="overview"></a>Genel Bakış
 MPEG-DASH Uyarlamalı akış yüksek kaliteli, Uyarlamalı video çıkışının akışını teslim isteyen geliştiriciler için önemli avantajlar sunan video içeriğinin bir ISO standardıdır. Ağ Tıkanıklığı olur, MPEG-DASH ile video akışı için daha düşük bir tanımı otomatik olarak ayarlar. Bu, "duraklatılmış" video oynatıcı (arabelleğe alma olarak da bilinir) yürütmek için sonraki birkaç saniye indirirken görmeye Görüntüleyicisi olasılığını azaltır. Ağ Tıkanıklığı azaltır gibi video oynatıcı sırayla daha yüksek kaliteli akışına döndürür. Gereken bant genişliği uyarlama olanağı da video için daha hızlı bir başlangıç saati sonuçlanır. Bu, ilk birkaç saniyede bir hızlı indirme daha düşük kaliteli kesimde yürütülebilecek ve sonra adım daha yüksek kaliteli bir kez yeterli içerik kadar arabelleğe alındı anlamına gelir.

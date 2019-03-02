@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 56d18b7ec44e979bee48c3598286a461199e1005
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7de085766ae700b5c76d9eca49c1127aabdddb9b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958210"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244653"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Güvenlik Merkezi Hazırlığı Yol Haritası
 Bu belge, Azure Güvenlik Merkezi ile çalışmaya başlamanıza yardımcı olacak bir hazırlık yol haritası sağlar.
@@ -118,7 +118,7 @@ Makaleler
 * [Ağ güvenliği için en iyi uygulamalar](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [PaaS önerileri](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Uyumluluk](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
-* [Log Analytics müşterileri artık karma bulut iş yüklerini korumak için Azure Güvenlik Merkezi kullanabilirsiniz](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Log analytics müşterileri artık karma bulut iş yüklerini korumak için Azure Güvenlik Merkezi kullanabilirsiniz](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Topluluk Kaynakları
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: b82961d2446cf1e97e10dce2dc44525ea1d3d9bd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3f3c7523bfc800a74da56b1b3241ac5756c68d14
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733257"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215515"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım attribution
 
@@ -27,16 +27,19 @@ Bir yazılım iş ortağı Azure çözümlerinizi Azure bileşenlerini gerektiri
 
 Microsoft artık ortakları Azure kullanımınızın müşteri dağıtımları yazılımlarını Azure üzerinde daha iyi izlemek için bir yöntem sunar. Azure Hizmetleri dağıtımını düzenlemek için Azure Resource Manager yeni yöntemi kullanır.
 
-Microsoft iş ortağı olarak, Azure kullanımı, bir müşterinin adıma sağlamanız tüm Azure kaynakları ile ilişkilendirebilirsiniz. Azure marketi, hızlı başlangıç depo, özel GitHub depoları ve bire bir müşteri katılımı ile ilişki kurabilir. İzlemeyi etkinleştirmek için iki yaklaşım kullanılabilir:
+Microsoft iş ortağı olarak, Azure kullanımı, bir müşterinin adıma sağlamanız tüm Azure kaynakları ile ilişkilendirebilirsiniz. Azure marketi, hızlı başlangıç depo, özel GitHub depoları ve bire bir müşteri katılımı ile ilişki kurabilir. Müşteri kullanım attribution üç dağıtım seçeneklerini destekler:
 
-- Azure Resource Manager şablonları: Resource Manager şablonları ya da iş ortağının yazılımlarını çalıştırmak üzere Azure hizmetlerini dağıtmak için çözüm şablonları. İş ortakları, altyapı ve bunların Azure çözüm yapılandırmasını tanımlamak için bir Resource Manager şablonu oluşturabilirsiniz. Siz ve müşterilerinizin yaşam döngüsü boyunca çözümünüzü dağıtmak Resource Manager şablonu sağlar. Kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. 
+- Azure Resource Manager şablonları: İş ortakları, iş ortağının yazılımlarını çalıştırmak üzere Azure hizmetlerini dağıtmak için Resource Manager şablonlarını kullanabilirsiniz. İş ortakları, altyapı ve bunların Azure çözüm yapılandırmasını tanımlamak için bir Resource Manager şablonu oluşturabilirsiniz. Siz ve müşterilerinizin yaşam döngüsü boyunca çözümünüzü dağıtmak Resource Manager şablonu sağlar. Kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. 
 - Azure Resource Manager API'leri: İş ortakları, doğrudan bir Resource Manager şablonu dağıtma veya doğrudan Azure hizmetleri sağlamak için API çağrıları oluşturmak için Resource Manager API'leri çağırabilirsiniz. 
+- Terraform: İş ortakları, Terraform gibi bulut orchestrator, Resource Manager şablonu dağıtma veya doğrudan Azure hizmetlerini dağıtmak için kullanabilirsiniz. 
 
-Müşteri kullanım attribution gerekli [Azure uygulaması teklif](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) Azure Market'te yayımlanan.
+Müşteri kullanım attribution için yeni dağıtım ve zaten dağıtılmış var olan kaynakları etiketleme desteklemez.
+
+Müşteri kullanım attribution gerekli [Azure uygulama](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): Çözüm şablonu teklif, Azure Market'te yayımlanan.
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager şablonlarını kullanma
 
-İş ortağı çözümlerinin çoğu, Resource Manager şablonlarını kullanarak bir müşterinin aboneliğini üzerinde dağıtılır. Azure marketi, GitHub üzerinde veya bir hızlı başlangıç olarak kullanılabilir bir Resource Manager şablonu varsa yeni izleme yöntemini etkinleştirmek için şablonunuzu değiştirme işlemi oldukça olmalıdır.
+İş ortağı çözümlerinin çoğu, Resource Manager şablonlarını kullanarak bir müşterinin aboneliğini üzerinde dağıtılır. Azure marketi, GitHub üzerinde veya bir hızlı başlangıç olarak kullanılabilir bir Resource Manager şablonu varsa müşteri kullanım attribution etkinleştirmek için şablonunuzu değiştirme işlemi oldukça olmalıdır.
 
 Oluşturma ve çözüm şablonları yayımlama hakkında daha fazla bilgi için bkz.
 
@@ -93,7 +96,7 @@ Resource Manager şablonu kullanıyorsanız, daha önce açıklanan yönergeleri
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Resource Manager API'leri ile bir dağıtım etiketi
 
-Bu izleme yaklaşımı için bir GUID, API çağrıları tasarlarken isteğindeki kullanıcı aracısını üst bilgisindeki içerir. Her teklif için GUID'i veya SKU ekleyin. Biçim dizesi ile **PID -** önek ve iş ortağı tarafından oluşturulan GUID içerir. Kullanıcı Aracısı içine eklenmek için GUID biçimi örneği aşağıda verilmiştir: 
+Atıf, API çağrıları tasarlarken, müşteri kullanımını etkinleştirmek için istekte kullanıcı aracısının üst bilgisindeki bir GUID içerir. Her teklif için GUID'i veya SKU ekleyin. Biçim dizesi ile **PID -** önek ve iş ortağı tarafından oluşturulan GUID içerir. Kullanıcı Aracısı içine eklenmek için GUID biçimi örneği aşağıda verilmiştir: 
 
 ![Örnek GUID biçimi](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
@@ -124,13 +127,31 @@ Azure CLI, GUID eklenecek kullandığınızda, **AZURE_HTTP_USER_AGENT** ortam d
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+## <a name="use-terraform"></a>Terraform kullanarak
+
+Terraform destek Azure sağlayıcısının 1.21.0 kullanılabilir sürüm: [ https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019 ](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Bu destek Terraform ile çözüm dağıtan tüm iş ortakları için geçerlidir ve tüm kaynaklar dağıtılır ve Azure sağlayıcısı tarafından ölçülen (1.21.0 sürümü veya üzeri).
+
+Azure Terraform sağlayıcısı adlı yeni bir isteğe bağlı alan eklendiğinde [ *partner_id* ](https://www.terraform.io/docs/providers/azurerm/#partner_id) olduğu izleme çözümünüz için kullandığınız GUID belirttiğiniz yerdir. Bu alanın değeri de kaynağı *ARM_PARTNER_ID* ortam değişkeni.
+
+```
+provider "azurerm" { 
+          subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+          client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+          …… 
+          # new stuff for ISV attribution
+          partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
+```
+Müşteri kullanım attribution tarafından izlenen Terraform üzerinden kendi dağıtımını almak isteyen iş ortakları, aşağıdakileri yapmanız gerekir:
+
+* (GUID, her teklif veya SKU için eklenmelidir) bir GUID oluştur
+* Değerini ayarlamak için Azure sağlayıcısı güncelleştirme *partner_id* GUID'e (GUID ile "PID-", yalnızca bunu gerçek GUID yok ön düzeltme)
 
 ## <a name="create-guids"></a>GUID oluştur
 
 Bir GUID 32 onaltılık basamak olan bir başvuru benzersiz sayıdır. İzleme için GUID'leri oluşturmak için bir GUID Oluşturucu kullanmanız gerekir. Azure depolama ekibi oluşturan bir [GUID generator form](https://aka.ms/StoragePartners) bir GUID biçimi, e-posta gönderilir ve farklı izleme sistemleri arasında yeniden kullanılabilir. 
 
 > [!Note]
-> Yüksek oranda kullanmanızı öneririz. olduğu [Azure Depolama'nın GUID generator form](https://aka.ms/StoragePartners) , GUID oluşturmak için. Daha fazla bilgi için müşterilerimize [SSS](#faq).
+> Kullanmanızı önemle tavsiye edilir [Azure Depolama'nın GUID generator form](https://aka.ms/StoragePartners) , GUID oluşturmak için. Daha fazla bilgi için müşterilerimize [SSS](#faq).
 
 Her bir teklif ve dağıtım kanalı her ürün için benzersiz bir GUID oluşturun öneririz. Bölünecek raporlama istemiyorsanız ürünün birden çok dağıtım kanalları için tek bir GUID kullanmayı tercih edebilirsiniz. 
 
@@ -145,7 +166,7 @@ Ayrıca, GUID'leri SKU'ları bir teklifini türevlerini nerede SKU gibi daha ayr
 
 ## <a name="register-guids-and-offers"></a>YAZMAÇ GUID'leri ve teklifler
 
-Bir GUID de bizim izleme dahil etmek için GUID kayıtlı olması gerekir.  
+Müşteri kullanım attribution GUID'leri kaydedilmesi gerekir.
 
 Tüm kayıtlar için şablon GUID'leri Azure Market bulut iş ortağı portalı (CPP) aracılığıyla gerçekleştirilir. 
 
@@ -226,9 +247,17 @@ foreach ($deployment in $deployments){
 }
 ```
 
+## <a name="report"></a>Rapor
+
+İş ortağı merkezi analiz Panonuzda müşteri kullanım attribution için raporu bulabilirsiniz. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+
+İzlenen şablonu raporu görmek için iş ortağı ilişkilendirme türü açılan listesinde seçin.
+
+![Müşteri kullanım attribution raporu](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+
 ## <a name="notify-your-customers"></a>Müşterilerinizin bildir
 
-İş ortakları, müşterilerine Resource Manager izleme GUID kullanan dağıtımlar hakkında bilgilendirmek. Microsoft iş ortağı için bu dağıtımları ile ilişkili Azure kullanım bildiriyor. Aşağıdaki örnekler, müşterileriniz bu dağıtımlar hakkında bilgilendirmek üzere kullanabileceğiniz içerik ekleyin. Örneklerde değiştirin \<iş ortağı > şirket adınızı ile. İş ortakları, bildirim izlemede hariç tutulacak müşteriler için seçenekleri dahil olmak üzere, gizlilik ve koleksiyon ilkeleri, tüm verilerini sahip hizalar emin olmanız gerekir. 
+İş ortakları, müşterilerine müşteri kullanım attribution kullanan dağıtımlar hakkında bilgilendirmek. Microsoft iş ortağı için bu dağıtımları ile ilişkili Azure kullanım bildiriyor. Aşağıdaki örnekler, müşterileriniz bu dağıtımlar hakkında bilgilendirmek üzere kullanabileceğiniz içerik ekleyin. Örneklerde değiştirin \<iş ortağı > şirket adınızı ile. İş ortakları, bildirim izlemede hariç tutulacak müşteriler için seçenekleri dahil olmak üzere, gizlilik ve koleksiyon ilkeleri, tüm verilerini sahip hizalar emin olmanız gerekir. 
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Resource Manager şablon dağıtımları için bildirim
 
@@ -240,7 +269,7 @@ Dağıtırken \<iş ortağı > yazılım, Microsoft yüklenmesini tanımlayamaya
 
 ## <a name="get-support"></a>Destek alın
 
-Yardıma ihtiyacınız varsa, bu adımları izleyin.
+Market ekleme ve/veya müşteri kullanım attribution yardıma ihtiyacınız varsa, bu adımları izleyin.
 
 1. Git [destek sayfasını](https://go.microsoft.com/fwlink/?linkid=844975). 
 
@@ -266,44 +295,66 @@ Yardıma ihtiyacınız varsa, bu adımları izleyin.
 
 1. Formu doldurun ve ardından **Gönder**.
 
+Bir Microsoft iş ortağı teknik anlamak ve müşteri kullanım attribution birleştirmek için Danışmanı teknik satış öncesi, dağıtım ve uygulama geliştirme senaryoları için teknik Rehber de alabilir.
+
+### <a name="how-to-submit-a-technical-consultation-request"></a>Teknik danışmanlığı talebinizi nasıl
+
+1. Ziyaret [ http://aka.ms/TechnicalJourney ](http://aka.ms/TechnicalJourney).
+1. Teknik yolculuğunuza görüntülemek için bulut altyapısı seçin ve yönetim ve yeni bir sayfa açılır.
+1. Dağıtım hizmetler gönderme isteği düğmesine tıklayın.
+1. MSA (MPN hesabı) veya AAD'nizi (iş ortağı Pano hesap) kullanarak oturum açın oturum açma kimlik bağlı olarak, bir çevrimiçi istek formunu açar: 
+    * Tamamlamak/kişi bilgilerini gözden geçirin.
+    * Danışmanlığı ayrıntılarını önceden doldurulmuş ya da açılan menüden seçin.
+    * Bir başlık ve sorunun açıklamasını girin (sağlamak mümkün olduğunca çok ayrıntı).
+1. Gönder'e tıklayın
+
+Görüntüleme ekran görüntüleri içeren yönergeler [ http://aka.ms/TechConsultInstructions ](http://aka.ms/TechConsultInstructions).
+
+### <a name="whats-next"></a>Yenilikler
+
+Bir Microsoft iş ortağı teknik gereksinimlerinizi kapsamını belirlemek için aramayı ayarlamak için Danışman tarafından kurulur.
+
 ## <a name="faq"></a>SSS
 
 **Şablona GUID ekleme avantajı nedir?**
 
-Microsoft iş ortakları kendi şablonlarını ve ınsights müşteri dağıtımları görünümünü influenced kullanımlarına sağlar. Hem Microsoft hem de iş ortağı satış ekipleri arasında daha yakından engagement sürücüsü için bu bilgileri kullanabilirsiniz. Hem Microsoft hem de iş ortağı verileri tek bir ortağın etkisi daha tutarlı bir görünüm Azure büyüme üzerinde almak için kullanabilirsiniz. 
-
-**Kimin bir GUID bir şablona ekleyebilir miyim?**
-
-İzleme kaynak iş ortağı çözümünün müşterinin Azure kullanımına bağlanmak için tasarlanmıştır. Kullanım verileri, bir iş ortağının Microsoft iş ortağı ağı kimliğini (MPN kimliği) bağlıdır. Raporlama, CPP iş ortakları için kullanılabilir.
+Microsoft iş ortaklarına kendi çözümlerini ve ınsights müşteri dağıtımları görünümünü influenced kullanımlarına sağlar. Hem Microsoft hem de iş ortağı satış ekipleri arasında daha yakından engagement sürücüsü için bu bilgileri kullanabilirsiniz. Hem Microsoft hem de iş ortağı verileri tek bir ortağın etkisi daha tutarlı bir görünüm Azure büyüme üzerinde almak için kullanabilirsiniz. 
 
 **Bir GUID eklendikten sonra değiştirilebilir mi?**
  
-Evet, müşteri veya uygulama iş ortağı şablonu özelleştirmek ve değiştirebilir veya GUID kaldırabilirsiniz. İş ortaklarının müşterileri ve iş ortakları kaldırma veya düzenleme izleme GUID önlemek için kaynak GUID ve role proaktif olarak açıklamak öneririz. GUID değiştirilmesi, yalnızca yeni, var olmayan dağıtımlar ve kaynakları etkiler.
-
-**Ne zaman raporlama kullanıma sunulacak?**
-
-Raporlama bir beta sürümünü hemen kullanılabilir olması gerekir. Raporlama CPP tümleştirilecektir.
+Evet, müşteri veya uygulama iş ortağı şablonu özelleştirmek ve değiştirebilir veya GUID kaldırabilirsiniz. İş ortaklarının müşterileri ve iş ortakları kaldırma veya düzenleme GUID önlemek için kaynak GUID ve role proaktif olarak açıklamak öneririz. GUID değiştirilmesi, yalnızca yeni, var olmayan dağıtımlar ve kaynakları etkiler.
 
 **Ben bir GitHub gibi Microsoft dışı deposundan dağıtılan şablonları izleyebilir miyim?**
 
-Evet, GUID şablon dağıtıldığında mevcut olduğu sürece, kullanım izlenir. İş ortakları, Azure Marketi dışında yayımlanan ilgili şablonları kaydetmek için CPP profil sağlamak için gereklidir. 
-
-**Şablonu Azure Market'ten GitHub gibi başka depolar ve dağıtılması durumunda bir fark var mı?**
-
-Evet, teklifleri Azure Market'te yayımlama iş ortakları, Azure Market'ten dağıtımları hakkında daha ayrıntılı veri alabilirsiniz. İş ortakları, müşteriler Azure Marketi portalı hem de Azure portalında, teklif açıklamanızı yararlanır. Azure Marketi'ndeki teklif ayrıca iş ortağı için adayları.
-
-**Peki bireysel müşteri katılımı için özel bir şablon oluşturabilirim?**
-
-GUID şablona eklemek hala Hoş Geldiniz. Mevcut bir kayıtlı GUID kullanırsanız, raporlama dahil edilir. Yeni bir GUID oluşturursanız, izleme dahil etmek için yeni bir GUID'ı kaydetmeniz gerekir.
+Evet, GUID şablon dağıtıldığında mevcut olduğu sürece, kullanım izlenir. İş ortakları, Azure Marketi dışında dağıtım için kullanılan GUID'leri kaydetmek için CPP profil sağlamak için gereklidir. 
 
 **Müşteri de raporlama alıyor?**
 
 Müşteriler kullanımlarını kaynakların veya müşteri tarafından tanımlanan kaynak grupları Azure portalında izleyebilirsiniz.   
 
-**Bu izleme Metodoloji dijital iş ortağı, kaydı (DPOR için) benzer?**
+**Bu Metodoloji dijital iş ortağı, kaydı (DPOR için) benzer?**
 
 Bu yeni kullanım ve dağıtım için bir iş ortağı çözümünün bağlanma yöntemini Azure kullanımı için bir iş ortağı çözümü bağlamak için bir mekanizma sağlar. Aboneliğe DPOR danışmanlık (sistem tümleştiricisi) ya da Yönetim (yönetilen hizmet sağlayıcısı) ortak bir müşterinin Azure aboneliğiyle ilişkilendirmek için tasarlanmıştır.   
 
 **Azure Depolama'nın GUID Oluşturucu form kullanmanın avantajı nedir?**
 
 Azure Depolama'nın GUID Oluşturucu formunu gerekli biçiminde bir GUID oluşturun garanti edilir. Ayrıca, herhangi bir Azure Depolama'nın veri düzlemi izleme yöntemlerini kullanıyorsanız, Market denetim düzlemi izleme için aynı GUID yararlanabilirsiniz. Bu, iş ortağı attribution için tek bir birleştirilmiş GUID ayrı GUID'ler korumak zorunda kalmadan yararlanmanıza olanak sağlar.
+
+**Azure Marketi'nde bir çözüm şablonu teklifi için özel, özel bir VHD kullanabilir miyim?**
+
+Hayır. Sanal makine görüntüsünü Azure Marketi'nde gelir, bkz: [ https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines ](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines). 
+
+Markette özel VHD'nizi kullanarak bir VM teklifi oluşturma ve böylece kimse görebilirsiniz özel olarak işaretleyin. Ardından bu VM için çözüm şablonunda başvuru.
+
+**Güncelleştirilemedi *contentVersion* ana şablonunun?**
+
+Olası bir hatayı herhangi bir nedenden dolayı eski contentVersion bekleyen başka bir şablondan bir TemplateLink kullanarak şablon dağıtıldığında bazı durumlarda. Geçici çözüm, meta veri özelliğini kullanmaktır:
+
+```
+"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "contentVersion": "1.0.1.0"
+    },
+    "parameters": {
+```

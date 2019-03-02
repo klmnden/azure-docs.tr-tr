@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b8844e6ca9effe78f8d98571af2ce59b4e0abee8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5e8e634bfb69d7c274322d34d26ff614f75905af
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465325"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215940"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
@@ -228,7 +228,7 @@ Bir eşitleme grubunda bir veritabanının şemasını güncelleştirmek zorunda
 
 SQL Data Sync beklendiği gibi çalışıyor mu? Etkinlik izleme ve sorunlarını gidermek için aşağıdaki makalelere bakın:
 
-- [Azure SQL Data Sync’i Log Analytics ile izleme](sql-database-sync-monitor-oms.md)
+- [Azure İzleyici günlüklerine ile Azure SQL Data Sync izleme](sql-database-sync-monitor-oms.md)
 - [Azure SQL Data Sync ile ilgili sorun giderme](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>SQL Veritabanı hakkında daha fazla bilgi edinin.

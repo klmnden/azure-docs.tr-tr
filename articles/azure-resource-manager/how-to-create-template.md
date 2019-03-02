@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: abfc7ce78e8676e9560621be1ec9a81717d958e5
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a802b12f34c5fe16202f55416a698823e55c01bb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994292"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245908"
 ---
 # <a name="create-azure-resource-manager-template"></a>Azure Resource Manager şablonu oluşturma
 
@@ -40,13 +40,13 @@ Resource Manager araçları uzantısını ve VS Code kullanma hakkında döşenm
 
 * [Parametreleri](resource-manager-templates-parameters.md) bölümünde, dağıtılan altyapıyı özelleştirmek için dağıtım sırasında belirtebileceğiniz değerleri gösterir. 
 
-* [Değişkenleri](resource-manager-templates-variables.md) bölümü şablonun tamamında yeniden kullanılan değerleri gösterir.
+* [Değişkenleri](resource-group-authoring-templates.md#variables) bölümü şablonun tamamında yeniden kullanılan değerleri gösterir.
 
 * [İşlevleri](resource-group-authoring-templates.md#functions) bölümünde, özelleştirilmiş şablonunuzda kullanılan şablon ifadeleri hangi gösterir.
 
 * [Kaynakları](resource-manager-templates-resources.md) bölümünde, aboneliğinizde dağıtılmış Azure kaynaklarını gösterir.
 
-* [Çıkarır](resource-manager-templates-outputs.md) bölümünde, dağıtım tamamlandıktan sonra döndürülen değerleri gösterir.
+* [Çıkarır](resource-group-authoring-templates.md#outputs) bölümünde, dağıtım tamamlandıktan sonra döndürülen değerleri gösterir.
 
 ## <a name="look-for-similar-templates"></a>Benzer şablonları arayın
 

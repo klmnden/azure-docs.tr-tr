@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 267a619fe32a8d4af0ee9cc8a5001d7a321c3098
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 0494e9ef2a4f7adddd615dbf7882c9f2b4b81982
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765164"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213220"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>Öğretici: Azure IOT Central işlecin görünümü (yeni kullanıcı Arabirimi tasarımı) özelleştirme
 
@@ -28,8 +28,8 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Cihaz ayarları düzeninizi yapılandırma
 > * Cihaz özellikleri düzeninizi yapılandırma
 > * Bir operatör olarak cihazın önizlemesini görme
-> * Varsayılan giriş sayfanızı yapılandırma
-> * Bir operatör olarak varsayılan giriş sayfasının önizlemesini görme
+> * Varsayılan uygulama panonuza yapılandırın
+> * Önizleme operatör olarak varsayılan uygulama Panosu
 
 [!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
@@ -93,7 +93,7 @@ Pano ve ayarlara ek olarak cihaz özelliklerinin operatör görünümünü de ya
 
     ![Özellikler düzenini değiştirme](media/tutorial-customize-operator-experimental/propertieslayout.png)
 
-## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>Operatör olarak bağlı klima cihazının önizlemesini görme
+## <a name="preview-the-device"></a>Cihaz önizlemesi
 
 Kullandığınız **cihaz şablonları** Pano, ayarları ve özellikleri sekme için bir işleç özelleştirmek için sayfa. Kullandığınız **Device Explorer** sayfasını görüntüleyin ve cihaz şablonu kullanın.
 
@@ -115,30 +115,33 @@ Kullandığınız **cihaz şablonları** Pano, ayarları ve özellikleri sekme i
 
     ![Cihaz panosunun operatör görünümü](media/tutorial-customize-operator-experimental/operatordashboard.png)
 
-## <a name="configure-the-default-home-page"></a>Varsayılan giriş sayfasını yapılandırma
+## <a name="configure-the-default-dashboard"></a>Varsayılan Pano yapılandırın
 
-Oluşturucu veya operatör bir Azure IoT Central uygulamasında oturum açtığında bir giriş sayfası görür. Oluşturucu olarak, bu giriş sayfasının içeriğini operatör için en yararlı ve ilgili içeriği dahil edecek şekilde yapılandırabilirsiniz.
+Bir oluşturucu veya işleci bir Azure IOT Central uygulamasına oturum açtığında, uygulama Panosu görürler. Bir oluşturucu, bir işleç için en faydalı ve ilgili içerik için varsayılan Pano içeriğini yapılandırabilirsiniz.
 
-1. Varsayılan giriş sayfasını özelleştirmek için gezinme **giriş** sayfasında ve düzenleme **Düzenle** üst sayfanın sağ. Bir panel kaydırılır ekleyebilirsiniz nesneler listesiyle soldan **giriş** sayfası:
+> [!NOTE]
+> Kullanıcılar ayrıca kendi kişisel panolar oluşturabilir ve varsayılan olarak seçin.
 
-    ![Uygulama Oluşturucu sayfası](media/tutorial-customize-operator-experimental/builderhome.png)
+1. Varsayılan uygulama Panosu özelleştirmek için gezinme **Pano** sayfasında ve tıklayın **Düzenle** üst sayfanın sağ. Panoya ekleyebilirsiniz nesnelerin bir kitaplığı ile bir paneli görüntülenir.
 
-2. Özelleştirme için **giriş** sayfasında, kutucukları eklemek **Kitaplığı**. **Bağlantı**’yı seçin ve kuruluşunuzun web sitesinin ayrıntılarını ekleyin. Ardından **Kaydet**:
+    ![Pano sayfası](media/tutorial-customize-operator-experimental/builderhome.png)
 
-    ![Giriş sayfasına bağlantı ekleme](media/tutorial-customize-operator-experimental/addlink.png)
+2. Pano özelleştirmek için kutucukları ekleme **Kitaplığı**. **Bağlantı**’yı seçin ve kuruluşunuzun web sitesinin ayrıntılarını ekleyin. Ardından **Kaydet**'i seçin:
+
+    ![Bağlantıyı panoya ekleme](media/tutorial-customize-operator-experimental/addlink.png)
 
     > [!NOTE]
     > Azure IoT Central uygulamanızdaki sayfalara bağlantılar da ekleyebilirsiniz. Örneğin, bir cihazın panosuna ya da ayarlar sayfasına bağlantı ekleyebilirsiniz.
 
-3. İsteğe bağlı olarak, **Görüntü**’yü seçin ve giriş sayfanızda gösterilecek bir görüntü yükleyin. Görüntünün, üzerine tıkladığınızda gidebileceğiniz bir URL’si olabilir:
+3. İsteğe bağlı olarak, **görüntü** ve Panonuzda görüntülemek için bir görüntü yükleyin. Bir görüntü olduğu ulaşmanıza tıkladığınızda bir URL olabilir:
 
-    ![Giriş sayfasına görüntü ekleme](media/tutorial-customize-operator-experimental/addimage.png)
+    ![Panoya resim ekleme](media/tutorial-customize-operator-experimental/addimage.png)
 
     Daha fazla bilgi için bkz. [Görüntüleri hazırlama ve Azure IoT Central uygulamanıza yükleme](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
-## <a name="preview-the-default-home-page-as-an-operator"></a>Bir operatör olarak varsayılan giriş sayfasının önizlemesini görme
+## <a name="preview-the-dashboard"></a>Pano Önizleme
 
-Operatör olarak giriş sayfasını görmek için tıklatın **Bitti** üst sayfanın sağ:
+Uygulama Panosu operatör olarak önizlemesini görüntülemek için seçin **Bitti** üst sayfanın sağ.
 
 ![Tasarım Modunu Açma/Kapatma](media/tutorial-customize-operator-experimental/operatorviewhome.png)
 

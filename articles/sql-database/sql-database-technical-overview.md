@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: c11dc2b24e3cf5d201a73c1ed405ba4b7c09978b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 29a0d0679adc51cf1493d241273e3b572a7fd57d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992609"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214308"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti nedir?
 
@@ -95,7 +95,7 @@ Performans değerlendirmeleriyle birlikte [yerleşik performans izleme](sql-data
 
 - **Azure depolama**: Maliyetlerle çok sayıda küçük için telemetri arşivleme için
 - **Azure olay hub'ı**: SQL veritabanı telemetrisini özel izleme çözümünüz veya yoğun işlem hatlarıyla tümleştirmek için
-- **Azure Log Analytics**: Raporlama, uyarı ve azaltma özelliklerine sahip yerleşik izleme çözümü için.
+- **Azure İzleyici günlüklerine**: Raporlama, uyarı ve azaltma özelliklerine sahip yerleşik izleme çözümü için.
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 

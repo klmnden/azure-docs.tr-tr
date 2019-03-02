@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/01/2019
 ms.author: raynew
-ms.openlocfilehash: 960d1df7c89383efc976fed959c1a39fae461c52
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2225c978eade3af12e910d7f403ca06287cabbef
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875820"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214240"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
@@ -230,6 +230,26 @@ FC diski | Desteklenmiyor. | Onay desteklenmeyen başarısız olur.
 BitLocker | Desteklenmiyor. | Bir makine için çoğaltmayı etkinleştirmeden önce BitLocker'ı devre dışı bırakılması gerekir. |
 VM adı | 1 63 karakter.<br/><br/> Harfler, sayılar ve kısa çizgilerden oluşabilir.<br/><br/> Makine adı başlamalı ve bir harf veya sayı ile bitmelidir. |  Site recovery'de makine özellikleri değerini güncelleştirin.
 
+## <a name="azure-site-recovery-churn-limits"></a>Azure Site Recovery karmaşıklığı sınırları
+
+Aşağıdaki tablo, Azure Site Recovery sınırlarını sağlar. Bu limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. En iyi sonuçlar için kesinlikle öneririz [dağıtım Planlayıcısı aracını çalıştırma](site-recovery-deployment-planner.md) ve uygulamanın gerçek performans görüntüsünü elde etmek üzere kapsamlı uygulama testleri bir test yük devretmesi göndererek gerçekleştirin.
+
+**Çoğaltma depolama hedefi** | **Ortalama kaynak disk G/Ç boyutu** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
+---|---|---|---
+Standart depolama | 8 KB | 2 MB/sn | Disk başına 168 GB
+Premium P10 veya P15 disk | 8 KB  | 2 MB/sn | Disk başına 168 GB
+Premium P10 veya P15 disk | 16 KB | 4 MB/sn |  Disk başına 336 GB
+Premium P10 veya P15 disk | 32 KB veya daha büyük | 8 MB/sn | Disk başına 672 GB
+Premium P20 veya P30 veya P40 veya P50 disk | 8 KB    | 5 MB/sn | Disk başına 421 GB
+Premium P20 veya P30 veya P40 veya P50 disk | 16 KB veya daha büyük |10 MB/sn | Disk başına 842 GB
+
+**Kaynak veri değişim sıklığı** | **Üst Sınır**
+---|---
+VM başına ortalama veri değişim sıklığı| 25 MB/sn
+VM üzerindeki tüm disklerde en yüksek veri değişim sıklığı | 54 MB/sn
+İşlem Sunucusu tarafından desteklenen günlük en fazla veri değişim sıklığı | 2 TB
+
+Bunlar yüzde 30 G/Ç çakışmasını varsayan ortalama sayılardır. Site Recovery; çakışma oranı, büyük yazma boyutları ve gerçek iş yükü G/Ç davranışına göre daha yüksek aktarım hızını işleyebilir. Yukarıdaki sayılar yaklaşık beş dakikalık tipik bir kapsamı varsayar. Diğer bir deyişle, veriler karşıya yüklendikten sonra işlenir ve beş dakika içinde kurtarma noktası oluşturulur.
 
 ## <a name="vault-tasks"></a>Kasa görevleri
 

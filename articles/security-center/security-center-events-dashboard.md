@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: f1a3268fcacd4083b767a3fe89d6ab9b41b6cceb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2b9426043619887d99003677fd6e8488cb56cce2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114068"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241077"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>İzleme ve Azure Güvenlik Merkezi'nde güvenlik olaylarını işleme
 Olaylar Panosu, zaman ve ilgilenmenizi gerektiren önemli olayların bir listesi üzerinden toplanan güvenlik olay sayısı için genel bir bakış sağlar.  
@@ -28,6 +28,8 @@ Olaylar Panosu, zaman ve ilgilenmenizi gerektiren önemli olayların bir listesi
 > Bu özelliği kullanmak için çalışma alanınızı Log Analytics sürüm 2 çalıştırıyor olması ve Güvenlik Merkezi'nin standart katmanında olmanız gerekir. Güvenlik Merkezi'ni [fiyatlandırma sayfası](security-center-pricing.md) standart katman hakkında daha fazla bilgi.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>Bir güvenlik olayı nedir?
 Güvenlik Merkezi kullanan çeşitli güvenlik toplamak için Microsoft Monitoring Agent, makinelerinizden yapılandırmaları ve olayları ilgili ve bu olayları, çalışma Alanlarınızda depolanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi günlükleri (Windows olay günlükleri), çalışan işler ve güvenlik çözümlerinden gelen olayları Güvenlik Merkezi ile tümleşiktir. Microsoft Monitoring Agent ayrıca kilitlenme bilgi dökümü dosyalarını da çalışma alanlarınıza kopyalar.
@@ -70,7 +72,7 @@ Size erişim **olayları** Güvenlik Merkezi ana menüsünde veya Güvenlik Merk
   ![Günlük araması][6]
 
 ## <a name="add-a-notable-event"></a>Önemli olay Ekle
-Güvenlik Merkezi, Giden kutusu önemli olayları sağlar. Kendi sorgu kullanımına dayalı önemli olayları ekleyebilirsiniz [Log Analytics sorgu diline](../log-analytics/log-analytics-search-reference.md). İçin getireceğiz **olaylar Panosu** önemli bir olay eklemek için.
+Güvenlik Merkezi, Giden kutusu önemli olayları sağlar. Kendi sorgu kullanımına dayalı önemli olayları ekleyebilirsiniz [Kusto sorgu dili](../log-analytics/log-analytics-search-reference.md). İçin getireceğiz **olaylar Panosu** önemli bir olay eklemek için.
 
 1. Seçin **önemli olay Ekle**.
 
@@ -94,7 +96,7 @@ Güvenlik Merkezi, Giden kutusu önemli olayları sağlar. Kendi sorgu kullanım
 - Boş - çalışma alanınız gereksinimlerini karşıladığından ve bir çalışma alanını seçmeyi alır, panoya
 
 > [!NOTE]
-> Altında **olaylar Panosu**, **olayları** sütunu her çalışma olayları miktarını gösterir.  Bu sütun, Güvenlik Merkezi'nin ücretsiz katmanı, bu çalışma alanına uygulandığından bazı çalışma alanları için boştur. Ücretsiz katmanı altında Güvenlik Merkezi olayları toplar ancak olayları Log Analytics'te kaydedilmez ve Pano kullanılabilir değil.
+> Altında **olaylar Panosu**, **olayları** sütunu her çalışma olayları miktarını gösterir.  Bu sütun, Güvenlik Merkezi'nin ücretsiz katmanı, bu çalışma alanına uygulandığından bazı çalışma alanları için boştur. Ücretsiz katmanı altında Güvenlik Merkezi olayları toplar ancak olayları Azure İzleyici günlüklerine kaydedilmez ve Pano kullanılabilir değil.
 >
 >
 
@@ -119,9 +121,9 @@ Güvenlik Merkezi, Giden kutusu önemli olayları sağlar. Kendi sorgu kullanım
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede Güvenlik Merkezi'nin olay panonun nasıl kullanılacağı hakkında bilgi edindiniz. Pano nasıl çalıştığı hakkında daha fazla bilgi edinin ve kendi olay sorguları yazma bakın:
 
-- [Log Analytics nedir?](../log-analytics/log-analytics-overview.md) – Log Analytics'e genel bakış
-- [Günlük aramalarını anlama Log Analytics'te](../log-analytics/log-analytics-log-search-new.md) - Log Analytics'te günlük aramaları nasıl kullanıldığını açıklar ve bir günlük araması oluşturmadan önce anlaşılması kavramlar sağlar
-- [Log Analytics Arama başvurusu](../log-analytics/log-analytics-search-reference.md) – günlüğünde sorgu dilini kullanarak kendi olay sorguları yazmayı öğrenin
+- [Azure İzleyici günlüklerine nedir?](../log-analytics/log-analytics-overview.md) – Azure İzleyici günlüklerine genel bakış
+- [Günlük aramalarını anlama içinde Kusto](../log-analytics/log-analytics-log-search-new.md) - günlük aramaları Azure İzleyici günlüklerine nasıl kullanıldığını açıklar ve bir günlük araması oluşturmadan önce anlaşılması kavramlar sağlar
+- [Kusto Arama başvurusu](../log-analytics/log-analytics-search-reference.md) – günlüğünde sorgu dilini kullanarak kendi olay sorguları yazmayı öğrenin
 
 Güvenlik Merkezi hakkında daha fazla bilgi için bkz:
 

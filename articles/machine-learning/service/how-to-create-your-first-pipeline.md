@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5d453fbacb44105c491c9e69085a219099943fa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b1544d73478f30c7501e76a8e20975f975f9708d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326917"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215056"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Oluşturma ve Azure Machine Learning SDK'sını kullanarak bir makine öğrenimi işlem hattı çalıştırma
 
@@ -234,7 +234,7 @@ except ComputeTargetException:
 
 ## <a id="steps"></a>İşlem hattı adımlarınızı oluşturun
 
-Oluşturma ve bir işlem hedefine çalışma alanınıza eklemek sonra bir işlem hattı adımı tanımlamak hazır olursunuz. Azure Machine Learning SDK üzerinden sunulan birçok yerleşik adım vardır. Bu adımlar temel bir en iyi bir [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), belirtilen işlem hedefte bir Python betiği çalıştırır.
+Oluşturma ve bir işlem hedefine çalışma alanınıza eklemek sonra bir işlem hattı adımı tanımlamak hazır olursunuz. Azure Machine Learning SDK üzerinden sunulan birçok yerleşik adım vardır. Bu adımlar temel bir en iyi bir [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), belirtilen işlem hedefte bir Python betiği çalıştırır:
 
 ```python
 trainStep = PythonScriptStep(
@@ -281,6 +281,8 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
+Daha fazla bilgi için [azure işlem hattı adımları paket](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) ve [sınıfı'işlem hattı](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) başvuru.
+
 ## <a name="submit-the-pipeline"></a>İşlem hattı gönderin
 
 İşlem hattı gönderdiğinizde, Azure Machine Learning hizmeti her adım için bağımlılıkları denetler ve belirtilen kaynak dizini anlık görüntüsünü yükler. Kaynak dizin belirtilirse, geçerli yerel dizine yüklenir.
@@ -302,6 +304,8 @@ pipeline_run1.wait_for_completion()
 * Günlüklerine, stdout ve stderr, ölçümleri ve adımı tarafından belirtilen çıkış gibi yapılarını oluşturur. Bu yapılar ardından karşıya ve kullanıcının varsayılan veri deposunda saklanır.
 
 ![Bir deney bir işlem hattı çalıştırma diyagramı](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
+
+Daha fazla bilgi için [deneme sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) başvuru.
 
 ## <a name="publish-a-pipeline"></a>Bir işlem hattı yayımlama
 

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: eac0c1f2f7ded35cf09eec12f0406c754621f49c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dce19e750c5546ddd5cac18411dcbb4a603e5c45
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465471"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216110"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Azure Search blob dizin oluşturucu ile CSV bloblarını dizine ekleme
 Varsayılan olarak, [Azure Search blob dizin oluşturucu](search-howto-indexing-azure-blob-storage.md) ayrıştırıyor sınırlandırılmış metin BLOB'ları tek bir metin parçası. Ancak, CSV verileri içeren BLOB'ları ile genellikle her satır ayrı bir belge olarak blob işlemesi gerektiğini istersiniz. Örneğin, aşağıdaki sınırlandırılmış metin göz önünde bulundurulduğunda, iki belgelere ayrıştırmak isteyebilirsiniz "id", "datePublished" ve "tags" alanlar içeren her: 
@@ -26,9 +26,8 @@ Varsayılan olarak, [Azure Search blob dizin oluşturucu](search-howto-indexing-
 
 Bu makalede, bir Azure Search blob dizin oluşturucu ile CSV bloblarını ayrıştırma öğreneceksiniz. 
 
-> [!IMPORTANT]
-> CSV blob dizin oluşturma, şu anda genel Önizleme aşamasındadır ve üretim ortamlarında kullanılmamalıdır. Daha fazla bilgi için [REST API Sürüm 2017-11-11-Preview =](search-api-2017-11-11-preview.md). 
-> 
+> [!NOTE]
+> Dizin Oluşturucu yapılandırma önerileri izleyin [bire çok dizin](search-howto-index-one-to-many-blobs.md) birden çok arama belgeden bir Azure blob çıktı olarak.
 
 ## <a name="setting-up-csv-indexing"></a>CSV Dizin oluşturma ayarlama
 CSV bloblarını dizine oluşturun veya bir dizin oluşturucu tanımı ile güncelleştirmek için `delimitedText` ayrıştırma modu:  

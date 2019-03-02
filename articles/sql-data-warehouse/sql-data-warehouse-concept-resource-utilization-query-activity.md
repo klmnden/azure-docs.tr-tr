@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 11/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4613a16ee27168dd5c00435ee04fa5a7f95f4d97
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dda3725be7549d90223b33608939c392bdf66852
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460429"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217980"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda kaynak kullanımı ve sorgu etkinliğini izleme
-Azure SQL veri ambarı, Azure Portal, veri ambarı iş yükü için içgörüleri için zengin bir izleme deneyimi sağlar. Azure portalı, ölçüm ve günlükleri için yapılandırılabilir saklama süreleri, uyarıları, öneriler ve özelleştirilebilir grafikler ve panolar sağladığı gibi veri Ambarınızı izlerken önerilen araç winres.exe'dir. Portal Ayrıca, diğer Azure izleme Hizmetleri gibi Operations Management Suite (OMS) ile tümleştirmenize olanak tanır / Log Analytics ve Azure İzleyici bütünsel bir izleme sağlamak için yalnızca veri ambarınızın aynı zamanda tüm Azure için deneyimi tümleşik bir izleme deneyimi için analiz platformu. Bu belgede, izleme hangi özellikleri en iyi duruma getirmek ve SQL veri ambarı ile analiz platformunuz yönetmek kullanılabilen açıklanmaktadır. 
+Azure SQL veri ambarı, Azure Portal, veri ambarı iş yükü için içgörüleri için zengin bir izleme deneyimi sağlar. Azure portalı, ölçüm ve günlükleri için yapılandırılabilir saklama süreleri, uyarıları, öneriler ve özelleştirilebilir grafikler ve panolar sağladığı gibi veri Ambarınızı izlerken önerilen araç winres.exe'dir. Portal Ayrıca, yalnızca veri ambarınızın aynı zamanda tüm Azure analiz için bütünsel bir izleme deneyimi sağlamak için Operations Management Suite (OMS) ve Azure İzleyici (günlükleri) gibi diğer Azure izleme hizmetleriyle tümleştirmenize olanak sağlar tümleşik bir izleme deneyimi için Platform. Bu belgede, izleme hangi özellikleri en iyi duruma getirmek ve SQL veri ambarı ile analiz platformunuz yönetmek kullanılabilen açıklanmaktadır. 
 
 ## <a name="resource-utilization"></a>Kaynak kullanımı 
 Aşağıdaki ölçümler, Azure portalında SQL veri ambarı için kullanılabilir. Bu ölçümler üzerinden çıkmış [Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
@@ -46,11 +46,8 @@ SQL veri ambarı T-SQL aracılığıyla izlerken bir programlama deneyimi için 
 SQL veri ambarı sağlayan Dmv'leri listesini görüntülemek için şuna başvurun [belgeleri](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Ölçümleri ve tanılama günlükleri
-Hem ölçüm ve günlükleri dışarı aktarılabilir için Azure İzleyici, özellikle [Log analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bileşeni ve programlı olarak erişilebilir [günlük araması](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
+Hem ölçüm ve günlükleri dışarı aktarılabilir için Azure İzleyici, özellikle [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bileşeni ve programlı olarak erişilebilir [günlük araması](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
 
-
-> [!NOTE]
-> Kasım 2018'den itibaren günlükleri şu anda SQL veri ambarı için dağıtılır
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki nasıl yapılır kılavuzları, ortak senaryolar açıklanmaktadır ve izleme ve veri Ambarınızı yönetme Kullanım:

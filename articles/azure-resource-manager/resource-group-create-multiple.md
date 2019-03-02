@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: c343dfa3c0eac4aeabaa9244c6675b235fc95552
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9914943cc5b3ef9e95f12c6890cb8e1646f7e335
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311725"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244248"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Bir kaynağa veya Azure Resource Manager şablonları özelliğinde birden fazla örneğini dağıtma
 
@@ -272,6 +272,8 @@ Kaynak ve özellik yineleme birlikte kullanabilirsiniz. Ada göre özellik yinel
 
 Bir değişken birden çok örneğini oluşturmak için kullanın `copy` değişkenler bölümünde özelliği. Bir dizi değeri oluşturulan öğeleri oluşturma `input` özelliği. Kullanabileceğiniz `copy` özelliği içinde bir değişken veya en üst düzeyinde değişkenler bölümü. Kullanırken `copyIndex` içinde değişken bir yineleme, yinelemede adı sağlamanız gerekir.
 
+Dize değerlerini bir dizi oluşturma basit örneği için bkz [kopyalama bir dizi şablon](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+
 Aşağıdaki örnekte, dizi değişkenleri ile dinamik olarak oluşturulan öğeleri oluşturmak için çeşitli yollar gösterir. Bu, bir değişken içinde kopyalama nesneleri dizeleri ve diziler oluşturmak için nasıl kullanılacağını gösterir. Ayrıca, kopyalama en üst düzeyinde nesneler, dizeler ve tamsayılar diziler oluşturmak için nasıl kullanılacağını gösterir.
 
 ```json
@@ -344,6 +346,50 @@ Aşağıdaki örnekte, dizi değişkenleri ile dinamik olarak oluşturulan öğe
     }
   }
 }
+```
+
+Oluşturulan değişkeninin türü giriş nesneye bağlıdır. Örneğin, adlı değişken **top-düzey-nesne-dizisi** önceki örnekte döndürür:
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
+]
+```
+
+Ve, adlı değişken **top-düzey-dize-dizisi** döndürür:
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>Kaynakları bir döngüye bağlıdır

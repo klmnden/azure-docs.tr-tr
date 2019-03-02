@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 2506137e03e8677827bb1e2a3914ee10ae24f368
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2e3e790ac33f7c93bc5fe6deb705425b0e958def
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810125"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214503"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>Öğretici: Azure IOT Central, uygulamanızda (yeni kullanıcı Arabirimi tasarımı) yeni bir cihaz türünü tanımlayın
 
@@ -87,7 +87,7 @@ Yeni bir cihaz şablonu uygulamanıza eklemek için Git gerekir **cihaz şablonl
 
 Aşağıdaki adımlar, uygulamanıza sıcaklık telemetrisi gönderen cihazlar için yeni bir **Bağlı Klima** cihaz şablonunu nasıl oluşturacağınızı gösterir:
 
-1. Üzerinde **cihaz şablonları** sayfasında **+ yeni**:
+1. Üzerinde **cihaz şablonları** sayfasında **+**:
 
     ![Cihaz şablonlarını, cihaz şablonu oluştur](./media/tutorial-define-device-type-experimental/newtemplate.png)
 
@@ -397,7 +397,7 @@ Tanımladınız artık, **bağlı bir klima** cihaz şablonunu özelleştirebili
     | Zaman Aralığı   | Son 30 dakika |
     | Ölçüler     | Fan Motor hata (tıklayın **görünürlük** yanındaki **Fan Motor hata**) |
 
-    ![Çizgi grafik ayarları](./media/tutorial-define-device-type-experimental/dashboardeventchartsetting.png)
+    ![Olay grafiği ayarları](./media/tutorial-define-device-type-experimental/dashboardeventchartsetting.png)
 
     Daha sonra **Kaydet**'e tıklayın.
 

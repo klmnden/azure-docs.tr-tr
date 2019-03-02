@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 6cc75a70dfc7022efa8577234cc67659d53b2f88
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ed611eeeffa77aa42ab017ee97c6b1a0b7f7822e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194426"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240669"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Bir ağ güvenlik grubu tanılama günlüğüne kaydetme
 
@@ -131,7 +131,7 @@ Görüntüleyebilir ve günlüklerini analiz edin. Daha fazla bilgi için [gör�
 Tanılama verilerini olabilir:
 - [Bir Azure depolama hesabına yazılan](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), denetim ya da el ile İnceleme. Kaynak tanılama ayarlarını kullanarak elde tutma süresi (gün cinsinden) belirtebilirsiniz.
 - [Olay hub'ına akış](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) alımı bir üçüncü taraf hizmeti veya Power BI gibi özel analiz çözümü için.
-- [Azure Log Analytics'e yazılan](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Azure, Azure İzleyici günlüklerine yazılan](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>Günlük kategorileri
 
@@ -198,7 +198,7 @@ Kural sayacın kaynaklara uygulanan her bir kural hakkındaki bilgileri içerir.
 ## <a name="view-and-analyze-logs"></a>Görüntüleme ve günlüklerini çözümleme
 
 Tanılama günlük verilerini görüntüleme hakkında bilgi edinmek için [Azure tanılama günlüklerine genel bakış](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Tanılama verileri göndermek istediğinizde:
-- **Log Analytics**: Kullanabileceğiniz [ağ güvenlik grubu analizi](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
+- **Azure İzleyici günlüklerine**: Kullanabileceğiniz [ağ güvenlik grubu analizi](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) Gelişmiş ınsights çözümü. Çözüm izin veren veya reddeden trafik, bir sanal makine ağ arabiriminin MAC adresi başına NSG kuralları için görsel öğeler sağlar.
 - **Azure depolama hesabı**: Veriler bir PT1H.json dosyasına yazılır. Bulabilirsiniz:
   - Olay günlüğünde aşağıdaki yolu: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`

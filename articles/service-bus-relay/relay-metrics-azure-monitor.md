@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
-ms.openlocfilehash: eb71161c9191e29d3248b2c64fd9cc0fa76c92a2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ebff47dc4007ab265b43d32c9f956eb73d5ba1ac
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545153"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213424"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme), Azure geçişi ölçümleri
 Azure geçişi ölçümleri, Azure aboneliğinizdeki kaynakları durumunu sağlar. Zengin ölçüm verileri ile genel Relay kaynakları, yalnızca ad alanı düzeyinde, aynı zamanda varlık düzeyinde durumunu değerlendirebilirsiniz. Bu istatistikler Azure geçişi durumunu izlemek için yardımcı önemli olabilir. Ölçümler, Azure desteğine başvurun gerek kalmadan kök neden sorunlarını da yardımcı olabilir.
@@ -47,7 +47,7 @@ Boyutlar destekleyen ölçümler için istenen boyut değeri ile filtrelemesi ge
 
 ## <a name="billing"></a>Faturalandırma
 
-Ölçümleri kullanarak Azure İzleyici'de önizleme şu an ücretsizdir. Ölçüm verilerini alma, ek çözümleri kullanırsanız, ancak bu çözümler tarafından faturalandırılırsınız. Örneğin, ölçüm verileri bir Azure depolama hesabına arşivleme, Azure Depolama tarafından faturalandırılır. Gelişmiş analiz için ölçüm verileri Log analytics'e akış sahipse Log Analytics tarafından ayrıca faturalandırılır.
+Ölçümleri kullanarak Azure İzleyici'de önizleme şu an ücretsizdir. Ölçüm verilerini alma, ek çözümleri kullanırsanız, ancak bu çözümler tarafından faturalandırılırsınız. Örneğin, ölçüm verileri bir Azure depolama hesabına arşivleme, Azure Depolama tarafından faturalandırılır. Ölçüm verilerini Gelişmiş analiz için Azure İzleyici günlüklerine akış sahipse Azure İzleyici günlüklerine göre ayrıca faturalandırılır.
 
 Aşağıdaki ölçümler size sistem hizmetinizin genel bakış sunar. 
 

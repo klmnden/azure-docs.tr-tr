@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 09/06/2018
+ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d2c7fbba8184fba81be5e93eae1dd816687ecb4
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e9cf4fd448527e8104883e1c23c8c4b64fde3f0d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992677"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213645"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Yedekleme ve geri yükleme Azure SQL veri ambarı
 
@@ -97,6 +97,10 @@ Geri yüklenen veri ambarı ve geçerli tutun veya bunlardan birini silin. Geçe
 Bir veri ambarını geri yüklemek için bkz: [Azure portalını kullanarak bir veri ambarını geri yükleme](sql-data-warehouse-restore-database-portal.md), [PowerShell kullanarak bir veri ambarını geri yükleme](sql-data-warehouse-restore-database-powershell.md), veya [RESTAPI'lerinikullanarakbirveriambarınıgeriyükleme](sql-data-warehouse-restore-database-rest-api.md).
 
 Silinmiş ya da duraklatılmış veri ambarını geri yükleme için [bir destek bileti oluşturma](sql-data-warehouse-get-started-create-support-ticket.md).
+
+## <a name="cross-subscription-restore"></a>Çapraz abonelik geri yükleme
+
+Doğrudan abonelik üzerinden geri yüklemeniz gerekirse, bu özellik için oy [burada](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Farklı bir mantıksal sunucuya geri yüklemek ve ['Taşıma'](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) sunucu çapraz aboneliği geri yüklemeyi gerçekleştirmek için abonelikler arasında. 
 
 ## <a name="geo-redundant-restore"></a>Coğrafi olarak yedekli geri yükleme
 

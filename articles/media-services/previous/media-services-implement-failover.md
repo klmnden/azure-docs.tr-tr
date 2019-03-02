@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: f367d6e1b1c545bcad0faf030a56fdec2ffafca2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1ea11c44806e2375a272fe8f5e256d8ffde7affb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989074"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240414"
 ---
-# <a name="implement-failover-streaming-with-media-services-legacy"></a>Akış medya hizmetlerindeki (eski) ile yük devredilmesini
+# <a name="implement-failover-streaming-with-media-services"></a>Media Services ile akış yük devretme uygulayan 
 
 Bu yönerge (BLOB) içeriğini kopyalamak nasıl bir varlığından diğerine isteğe bağlı akış için yedeklilik işlemek için gösterir. Bu senaryo, bir veri merkezinde bir kesinti durumunda iki veri merkezleri arasında yük devretme için Azure Content Delivery Network ayarlamak istiyorsanız yararlıdır. Bu izlenecek yol aşağıdaki görevleri göstermek için Azure Media Services SDK'sı, Azure Media Services REST API ve Azure depolama SDK'sını kullanır:
 

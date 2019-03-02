@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bf34d7e85632999056388eb74816140ce667ce10
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: b1a39016907e697ab03a8a6962fb1e75e4433675
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382357"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218048"
 ---
 # <a name="openshift-in-azure"></a>Azure'da OpenShift
 
@@ -46,7 +46,7 @@ Bu makalede ele alınan beş sürümünü yalnızca iki bugün müşterilerin Az
 
 Bir kapsayıcı platformudur Kurumsal kullanıma hazır [ticari sürümü](https://www.openshift.com) gelen ve Red Hat tarafından desteklenir. Bu sürümü ile müşteriler OpenShift kapsayıcı platformu için gerekli yetkilendirmeleri satın alma ve yükleme ve yönetimini tüm altyapının sorumludur.
 
-Tüm platform müşteriler "sahip"olduğundan, bunlar kendi şirket içi veri merkezinde veya genel bulut (örneğin, Azure, AWS ve Google) yükleyebilirsiniz.
+Tüm platform müşteriler "sahip"olduğundan, bunlar kendi şirket içi veri merkezinde veya genel bulut (Azure gibi) yükleyebilirsiniz.
 
 ## <a name="openshift-on-azure"></a>Azure üzerinde OpenShift
 
@@ -58,7 +58,7 @@ OKD olduğu bir [açık kaynaklı](https://www.okd.io/) desteklenen topluluğu, 
 
 ## <a name="openshift-dedicated"></a>OpenShift dedicated
 
-Red Hat tarafından yönetilen adanmış *tek kiracılı* OpenShift kapsayıcı platformu kullanan OpenShift. Red Hat tüm altyapının (ağ, depolama vb. VM'ler, OpenShift küme.) yönetir. Küme, tek bir müşteriye özel ve genel bulut (örneğin, AWS veya Google) çalıştırır. Dört uygulama düğüm başlangıç kümesi içerir ve tüm maliyetler, ön maliyet yıllık ve Ücretli.
+Red Hat tarafından yönetilen adanmış *tek kiracılı* OpenShift kapsayıcı platformu kullanan OpenShift. Red Hat tüm altyapının (ağ, depolama vb. VM'ler, OpenShift küme.) yönetir. Küme, tek bir müşteriye özel ve genel bulut (Azure gibi) çalışır. Dört uygulama düğüm başlangıç kümesi içerir ve tüm maliyetler, ön maliyet yıllık ve Ücretli.
 
 ## <a name="openshift-online"></a>OpenShift Online
 

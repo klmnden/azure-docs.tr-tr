@@ -8,18 +8,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
-ms.openlocfilehash: 214f52e8c9d2803b6e33c9347c87d0cc1cf7f7e9
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 0a230ff1c4d5c6bb36003f07cc1c411f7e2c3629
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991130"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241009"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın
 
 Azure IOT hub'ı uygulayan işletmelerin kaynaklarını güvenilir performans bekler. İşlemlerinizi Kapat bir saatin sürdürmenize yardımcı olmak için IOT hub'ı tam olarak tümleşiktir [Azure İzleyici](../azure-monitor/index.yml) ve [Azure kaynak durumu](../service-health/resource-health-overview.md). IOT çözümlerinizi ve sağlıklı bir durumda çalışır durumda tutmak için ihtiyacınız olan verileri sağlamak için bu iki hizmet çalışır. 
 
-Azure İzleyici, izleme ve günlüğe kaydetme için tüm Azure Hizmetleri tek bir kaynaktır. Özel işleme için Log Analytics, Event Hubs veya Azure depolama için Azure İzleyici oluşturan tanılama günlüklerini gönderebilirsiniz. Azure İzleyicisi'nin ölçümleri ve tanılama ayarları, kaynaklarınızın performansını görünürlük sağlar. Bilgi edinmek için bu makaleyi okumaya devam edin nasıl [kullanımı Azure İzleyici](#use-azure-monitor) IOT hub'ınızla. 
+Azure İzleyici, izleme ve günlüğe kaydetme için tüm Azure Hizmetleri tek bir kaynaktır. Özel işleme için Azure İzleyici günlükleri, Event Hubs veya Azure depolama için Azure İzleyici oluşturan tanılama günlüklerini gönderebilirsiniz. Azure İzleyicisi'nin ölçümleri ve tanılama ayarları, kaynaklarınızın performansını görünürlük sağlar. Bilgi edinmek için bu makaleyi okumaya devam edin nasıl [kullanımı Azure İzleyici](#use-azure-monitor) IOT hub'ınızla. 
 
 > [!IMPORTANT]
 > Azure İzleyici tanılama günlüklerini kullanarak IOT Hub hizmeti tarafından oluşturulan olayları güvenilir ya da sıralı olmasını garanti edilmez. Bazı olayları kaybolabilir veya düzensiz teslim. Tanılama günlükleri de gerçek zamanlı olacak şekilde tasarlanmış değildir ve hedef ettiğiniz için günlüğe kaydedilecek olayları için birkaç dakika sürebilir.

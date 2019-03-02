@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2018
+ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 11b29a1639be5bf6a7820b872cbc2ce78f002b4f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 1f172035acceb75e4dc37d2f6e7e80d439f7e837
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565204"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240567"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik alanları nedir?
 Kullanılabilirlik alanları, veri merkezi arızasına karşı uygulamalarınızı ve verilerinizi koruyan sunan bir yüksek kullanılabilirlik olur. Kullanılabilirlik, bir Azure bölgesi içinde benzersiz fiziksel konumlara bölgeleridir. Her bölge, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Bir bölge içinde kullanılabilirlik alanlarının fiziksel olarak ayrılması, uygulamaları ve verileri veri merkezi arızasına karşı korur. Bölgesel olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-ın-arızasına karşı korumak için kullanılabilirlik alanları genelinde çoğaltın. Kullanılabilirlik alanları ile Azure, sektördeki en iyi % 99,99 VM çalışma SLA'sı sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
@@ -40,6 +40,7 @@ Azure üzerinde kapsamlı iş sürekliliği elde etmek için uygulama mimarinizi
 ## <a name="regions-that-support-availability-zones"></a>Kullanılabilirlik alanlarını destekleyen bölgeler
 
 - Orta ABD
+- Doğu ABD
 - Doğu ABD 2
 - Fransa Orta
 - Kuzey Avrupa

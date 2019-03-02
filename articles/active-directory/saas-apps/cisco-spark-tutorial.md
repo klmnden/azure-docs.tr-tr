@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef0638afd162dc179a2a7dec54b60bfb1f89144
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1650976c3718f189321683a95b497dc6cbdf2383
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869777"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247078"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Öğretici: Cisco Webex ile Azure Active Directory Tümleştirme
 
@@ -46,6 +46,8 @@ Azure AD Tümleştirmesi ile Cisco Webex yapılandırmak için aşağıdaki öğ
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
 * Cisco Webex destekler **SP** tarafından başlatılan
+
+* Cisco Webex destekler **otomatik** kullanıcı sağlama
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>Cisco Webex galeri ekleme
 
@@ -120,7 +122,7 @@ Azure AD çoklu oturum açma ile Cisco Webex yapılandırmak için aşağıdaki 
     
     | Ad |  Kaynak özniteliği|
     | ---------------|--------- |
-    | UID | User.userPrincipalName |
+    | Kullanıcı Kimliği | User.userPrincipalName |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
@@ -150,7 +152,7 @@ Azure AD çoklu oturum açma ile Cisco Webex yapılandırmak için aşağıdaki 
 
     a. Oturum Açma URL'si:
 
-    b. Azure Ad tanımlayıcısı
+    b. Azure AD Tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
@@ -257,8 +259,10 @@ Erişim paneli Cisco Webex kutucuğa tıkladığınızda, size otomatik olarak S
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Kullanıcı sağlamayı yapılandırma](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial) 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 3a21fe180dca4cc0b678624e775b67c3868f57ab
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 11e60469c6c023228bdac9058d956d1e7089bf29
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992371"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243151"
 ---
-# <a name="h264-multiple-bitrate-1080p-audio-51-legacy"></a>H264 Çoklu bit hızı 1080p ses 5.1 (eski)
+# <a name="h264-multiple-bitrate-1080p-audio-51"></a>H264 Çoklu bit hızı 1080p ses 5.1 
 
 `Media Encoder Standard` kodlama işi oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine medya dosyanızı kodlamak istediğiniz belirtmek için. Veya kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından kodlayıcıya hazır özel geçirmeniz gerekir. Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` Kodlayıcı bkz [Media Encoder Standard için görev ön ayarları](media-services-mes-presets-overview.md).  
   

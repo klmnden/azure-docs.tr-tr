@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: fda6ca26c39d49c0d16c9933cc0a14f0bfea90a9
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e16b523a366cabd04a5f12441874aa60460d508f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857123"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213989"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure Service Bus ölçümleri
 
@@ -28,7 +28,7 @@ Azure İzleyici, çeşitli Azure Hizmetleri genelinde izleme için birleştirilm
 
 ## <a name="access-metrics"></a>Erişim ölçümleri
 
-Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Ya da erişim ölçümleri ile yapabilecekleriniz [Azure portalında](https://portal.azure.com), veya Azure İzleyici API'leri (REST ve .NET) ve Log Analytics ve Event Hubs gibi analiz çözümleri kullanın. Daha fazla bilgi için [İzleme verilerine Azure İzleyicisi tarafından toplanan](../azure-monitor/platform/data-collection.md).
+Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Ya da erişim ölçümleri ile yapabilecekleriniz [Azure portalında](https://portal.azure.com), veya Azure İzleyici API'leri (REST ve .NET) ve Azure İzleyici günlüklerine ve Event Hubs gibi analiz çözümleri kullanın. Daha fazla bilgi için [İzleme verilerine Azure İzleyicisi tarafından toplanan](../azure-monitor/platform/data-collection.md).
 
 Ölçümler, varsayılan olarak etkindir ve en son 30 Günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu değeri yapılandırılan [tanılama ayarları](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) Azure İzleyici'de.
 
@@ -46,7 +46,7 @@ Boyutlar destekleyen ölçümler için istenen boyut değeri ile filtrelemesi ge
 
 ## <a name="billing"></a>Faturalandırma
 
-Ölçümleri kullanarak Azure İzleyici'de, Önizleme boyunca ücretsizdir. Ölçüm verilerini alma, ek çözümleri kullanırsanız, ancak bu çözümler tarafından faturalandırılırsınız. Örneğin, ölçüm verileri bir Azure depolama hesabına arşivleme, Azure Depolama tarafından faturalandırılır. Gelişmiş analiz için ölçüm verileri Log analytics'e akış sahipse Log Analytics tarafından ayrıca faturalandırılır.
+Ölçümleri kullanarak Azure İzleyici'de, Önizleme boyunca ücretsizdir. Ölçüm verilerini alma, ek çözümleri kullanırsanız, ancak bu çözümler tarafından faturalandırılırsınız. Örneğin, ölçüm verileri bir Azure depolama hesabına arşivleme, Azure Depolama tarafından faturalandırılır. Ölçüm verilerini Gelişmiş analiz için Azure İzleyici günlüklerine akış sahipse Azure İzleyici günlüklerine göre ayrıca faturalandırılır.
 
 Aşağıdaki ölçümler size sistem hizmetinizin genel bakış sunar. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: cf16a01ef1003b73740c05ff45f703a65aaf0acc
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 8c344999839b3dcde98536b3d8d196a434f4cde8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961202"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244919"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Windows Server ve Linux kümeleri, Azure ve tek başına Service Fabric karşılaştırması
 Service Fabric kümesi bir ağa bağlı, mikro hizmetlerin dağıtıldığı ve yönetildiği sanal veya fiziksel makine kümesidir. Bir makine ya da bir kümenin parçası olan sanal makine bir küme düğümü adı verilir. Kümeler binlerce düğümde için ölçeklendirme yapabilir. Kümeye yeni düğümler eklerseniz, Service Fabric örnekleri ve hizmet bölüm çoğaltmaları sayısının artması düğümleri arasında yeniden dengeler. Genel uygulama performansını artıran ve bellek erişim çekişmesini azaltır. Kümedeki düğümler verimli bir şekilde kullanılmayan, kümedeki düğümlerin sayısını azaltabilirsiniz. Service Fabric yeniden örnekleri ve bölüm çoğaltmalarını azalan her düğümde donanım daha iyi kullanabilmesine için düğüm sayısını arasında yeniden dengeler.
@@ -33,7 +33,7 @@ Azure'da tümleştirme diğer Azure özellikleri ve operasyon ve küme yönetimi
 * **Azure Resource Manager:** Azure Resource Manager kullanımı, bir birim olarak küme tarafından kullanılan tüm kaynakları kolay yönetilmesini sağlar ve maliyet izleme ve faturalandırma basitleştirir.
 * **Service Fabric kümesi bir Azure kaynağı olarak** bir Service Fabric kümesi olan bir Azure kaynağı azure'daki diğer kaynakları olduğu gibi modelini oluşturabilir.
 * **Azure altyapı tümleştirmesi** kullanılabilirliği ve güvenilirliği iyileştirmek işletim sistemi, ağ ve diğer yükseltme işlemleri için temel alınan Azure altyapısı sayesinde Service Fabric düzenler.  
-* **Tanılama:** Azure'da tümleştirme Log Analytics ve Azure Tanılama ile sunuyoruz.
+* **Tanılama:** Azure'da, Azure Tanılama ile tümleştirme sunuyoruz ve Azure İzleyici günlüğe kaydeder.
 * **Otomatik ölçeklendirme:** Azure'da kümeler için yerleşik otomatik ölçeklendirmeyi işlevselliği nedeniyle sanal makine ölçek kümeleri sunuyoruz. Şirket içinde ve diğer bulut ortamları, kendi otomatik ölçeklendirme özelliği veya el ile kümeleri ölçeklendirme için Service Fabric sunan API'lerini kullanarak ölçek oluşturmak gerekir.
 
 ## <a name="benefits-of-standalone-clusters"></a>Tek başına kümeler avantajları

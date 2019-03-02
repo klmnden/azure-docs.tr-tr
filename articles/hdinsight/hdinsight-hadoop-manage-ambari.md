@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 738ef5df0b2e2a7f31a7316a1d2ef4395168d41e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5e2a9ae474aaacbf688103efce3cd5ae9b96acde
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722031"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216926"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web kullanıcı arabirimini kullanarak HDInsight kümelerini yönetme
 
@@ -53,7 +53,7 @@ Ambari Web kullanıcı Arabirimine bağlanırken sayfasına kimlik doğrulaması
 
 Sayfa açıldığında, üst çubuk unutmayın. Bu çubuk, aşağıdaki bilgileri ve denetimler içerir:
 
-![ambari nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
+![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
 * **Ambari logosu** -kümesini izlemek için kullanılan Pano açılır.
 
@@ -85,6 +85,48 @@ Aşağıdaki liste, Ambari tarafından kullanılan ortak uyarı durumları içer
 * **BİLİNMİYOR**
 
 Dışında uyarıları **Tamam** neden **# uyarıları** uyarıların sayısını görüntülemek için sayfanın üst kısmındaki girişi. Bu girişi seçerseniz, uyarıları ve durumlarını görüntüler.
+
+Ambari, önceden tanımlanmış çeşitli uyarılar sağlar. Aşağıdaki uyarılar, bir kümenin kullanılabilirliğini izlemek yardımcı olur:
+
+| Uyarı Adı                               | Açıklama                                                                                                                                                                                  |
+|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ölçüm İzleyici durumu                    | Bu uyarı izleme durumu komut dosyası tarafından belirlenen şekilde ölçümleri izleme işleminin durumunu gösterir.                                                                                   |
+| Ambari aracı sinyali                   | Sunucu bir aracı kişiyle kaybederse, bu uyarı tetiklenir.                                                                                                                        |
+| ZooKeeper sunucusu işlemi                 | ZooKeeper sunucu işlemi kadar belirlenen ve ağ üzerinde dinleme yoksa, bu konak düzeyinde uyarı tetiklenir.                                                               |
+| IOCache meta verileri sunucu durumu           | IOCache meta veri sunucusu belirlenen kadar ve istemci isteklerine yanıt yoksa, bu konak düzeyinde uyarı tetiklenir                                                            |
+| JournalNode Web UI                       | JournalNode Web kullanıcı arabirimini ulaşılamaz durumdaysa bu konak düzeyinde uyarı tetiklenir.                                                                                                                 |
+| Spark2 Thrift sunucusu                     | Spark2 Thrift sunucusu kadar belirlenemiyorsa, bu konak düzeyinde uyarı tetiklenir.                                                                                                |
+| Geçmiş sunucu işlemi                   | Geçmiş sunucu işlemi kadar oluşturulmuş ve ağ üzerinde dinleme yoksa, bu konak düzeyinde uyarı tetiklenir.                                                                |
+| Geçmiş sunucu Web kullanıcı Arabirimi                    | Geçmiş sunucu Web kullanıcı arabirimini ulaşılamaz durumdaysa bu konak düzeyinde uyarı tetiklenir.                                                                                                              |
+| ResourceManager Web kullanıcı Arabirimi                   | ResourceManager Web kullanıcı arabirimini ulaşılamaz durumdaysa bu konak düzeyinde uyarı tetiklenir.                                                                                                             |
+| NodeManager sistem durumu özeti               | Sağlıksız NodeManagers varsa bu hizmet düzeyi uyarı tetiklenir                                                                                                                    |
+| Uygulama zaman çizelgesi Web kullanıcı Arabirimi                      | Uygulama zaman çizelgesi sunucusu Web kullanıcı arabirimini ulaşılamaz durumdaysa bu konak düzeyinde uyarı tetiklenir.                                                                                                         |
+| DataNode sistem durumu özeti                  | Sağlıksız DataNodes varsa bu hizmet düzeyi uyarı tetiklenir                                                                                                                       |
+| NameNode Web kullanıcı Arabirimi                          | NameNode Web kullanıcı arabirimini ulaşılamaz durumdaysa bu konak düzeyinde uyarı tetiklenir.                                                                                                                    |
+| ZooKeeper yük devretme denetleyicisi işlemi    | ZooKeeper yük devretme denetleyicisi işlemi kadar Onaylandı ve ağ üzerinde dinleme yoksa, bu konak düzeyinde uyarı tetiklenir.                                                   |
+| Oozie Server Web UI                      | Web kullanıcı arabirimini Oozie sunucu ulaşılamaz durumdaysa bu konak düzeyinde uyarı tetiklenir.                                                                                                                |
+| Oozie sunucu durumu                      | Oozie sunucunun kadar belirlenen ve istemci isteklerine yanıt yoksa, bu konak düzeyinde uyarı tetiklenir.                                                                      |
+| Hive meta veri deposu işlemi                   | Hive meta veri deposu işlemi kadar belirlenen ve ağ üzerinde dinleme yoksa, bu konak düzeyinde uyarı tetiklenir.                                                                 |
+| HiveServer2 işlemi                      | HiveServer kadar belirlenen ve istemci isteklerine yanıt yoksa, bu konak düzeyinde uyarı tetiklenir.                                                                        |
+| WebHCat sunucu durumu                    | Templeton da sunucu durumu iyi değilse, bu konak düzeyinde uyarı tetiklenir.                                                                                                            |
+| Yüzde ZooKeeper sunucusu yok      | Kümedeki sunucuların ZooKeeper aşağı sayısı kritik yapılandırılan eşik değerinden büyükse, bu uyarı tetiklenir. Bu, ZooKeeper işlem denetimlerin sonuçlarını toplar.     |
+| Spark2 Livy sunucusu                       | Livy2 sunucunun kadar belirlenemiyorsa, bu konak düzeyinde uyarı tetiklenir.                                                                                                        |
+| Spark2 geçmiş sunucusu                    | Spark2 geçmiş sunucusu kadar belirlenemiyorsa, bu konak düzeyinde uyarı tetiklenir.                                                                                               |
+| Ölçüm toplama işlemi                | Ölçümleri Toplayıcı üzerinde yapılandırılan bağlantı noktası için eşik eşit saniye sayısı kadar Onaylandı ve dinleme yoksa, bu uyarı tetiklenir.                                 |
+| Ölçümleri Toplayıcı - HBase ana işlem | Ölçümleri Toplayıcı'nın HBase master işlemleri kadar Onaylandı ve saniyeler içinde verilen yapılandırılmış bir kritik eşik için ağda dinleme yoksa, bu uyarı tetiklenir. |
+| Yüzde ölçümleri izleyiciler kullanılabilir       | Ölçümleri izleme işlemleri yukarı değildir ve yapılandırılmış uyarı ve kritik eşiklerini için ağda dinleme yüzdesi değilse bu uyarı tetiklenir.                             |
+| Yüzde NodeManagers kullanılabilir           | Sayısını NodeManagers aşağı kümedeki kritik yapılandırılan eşik değerinden büyükse, bu uyarı tetiklenir. Bunu NodeManager işlem denetimlerin sonuçlarını toplar.        |
+| NodeManager sistem durumu                       | Bu konak düzeyinde uyarı NodeManager bileşeninden kullanılabilir düğüm durumu özelliği denetler.                                                                                              |
+| NodeManager Web UI                       | NodeManager Web kullanıcı arabirimini ulaşılamaz durumdaysa bu konak düzeyinde uyarı tetiklenir.                                                                                                                 |
+| NameNode yüksek kullanılabilirlik sistem durumu        | Etkin NameNode ya da bekleme NameNode çalışmıyorsa, bu hizmet düzeyi uyarısı tetiklenir.                                                                                     |
+| DataNode işlemi                         | Bağımsız DataNode işlemlere kadar oluşturulmuş ve ağ üzerinde dinleme yoksa, bu konak düzeyinde uyarı tetiklenir.                                                         |
+| DataNode Web kullanıcı Arabirimi                          | DataNode Web kullanıcı arabirimini ulaşılamaz durumdaysa bu konak düzeyinde uyarı tetiklenir.                                                                                                                    |
+| Yüzde JournalNodes kullanılabilir           | Sayısını JournalNodes aşağı kümedeki kritik yapılandırılan eşik değerinden büyükse, bu uyarı tetiklenir. Bunu JournalNode işlem denetimlerin sonuçlarını toplar.        |
+| Yüzde DataNodes kullanılabilir              | Sayısını DataNodes aşağı kümedeki kritik yapılandırılan eşik değerinden büyükse, bu uyarı tetiklenir. Bunu DataNode işlem denetimlerin sonuçlarını toplar.              |
+| Zeppelin sunucu durumu                   | Zeppelin sunucunun kadar belirlenen ve istemci isteklerine yanıt yoksa, bu konak düzeyinde uyarı tetiklenir.                                                                   |
+| HiveServer2 etkileşimli işlem          | HiveServerInteractive kadar belirlenen ve istemci isteklerine yanıt yoksa, bu konak düzeyinde uyarı tetiklenir.                                                             |
+| LLAP uygulama                         | LLAP uygulama kadar belirlenen ve isteklere yanıt yoksa, bu uyarı tetiklenir.                                                                                    |
+
 
 Uyarıları görüntülenebilir birkaç varsayılan gruplar halinde düzenlenir **uyarılar** sayfası.
 
@@ -132,7 +174,7 @@ Bir hizmeti seçtiğinizde, hizmette daha ayrıntılı bilgileri görüntüler.
 Bazı hizmetler görünen bir **hızlı bağlantılar** sayfanın üstündeki bağlantısı. Bu, hizmete özgü web kullanıcı arabirimleri, gibi erişmek için kullanılabilir:
 
 * **İş Geçmişi** -MapReduce iş geçmişi.
-* **Kaynak Yöneticisi'ni** -YARN ResourceManager kullanıcı Arabirimi.
+* **Resource Manager** - YARN ResourceManager UI.
 * **NameNode** -Hadoop dağıtılmış dosya sistemi (HDFS) NameNode kullanıcı Arabirimi.
 * **Oozie Web kullanıcı Arabirimi** -Oozie kullanıcı Arabirimi.
 

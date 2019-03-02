@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 2a3c26c6a815cf934724fba4e8e0f9637803a4ce
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f53df953d0a879d029a1cae3819a0e3154bd8f75
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562394"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213866"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
@@ -244,6 +244,12 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
    Azure dosyaları Azure depolama alanındaki diğer depolama hizmetlerindeki kullanılan aynı depolama mimarisi üzerinde çalışır. Azure dosyaları, diğer Azure depolama hizmetleri içinde kullanılan aynı veri uyumluluk ilkelerini uygular. Azure depolama veri uyumluluğu hakkında daha fazla bilgi için başvurabilirsiniz [Azure depolama uyumluluk teklifi](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)ve Git [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Şirket içi erişim
+
+* <a id="port-445-blocked"></a>
+**ISS veya Azure dosyaları başarısız BT blokları bağlantı noktası 445'cihazımı bağlayın. Ne yapmalıyım?**
+
+    Hakkında bilgi edinebilirsiniz [engellenen geçici çözüm için çeşitli yollar burada 445 bağlantı noktası](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Azure dosyaları yalnızca sağlar (şifreleme desteği ile) SMB 3.0 kullanarak bağlantıları gelen bölge veya veri merkezinin dışında. SMB 3.0 protokolü, internet üzerinden kullanmak için çok güvenli kanal şifrelemesini dahil olmak üzere birçok güvenlik özelliği kullanıma sundu. Ancak, 445 bağlantı noktası olası geçmiş nedeniyle daha düşük SMB sürümlerinde bulunan güvenlik açığı nedeniyle engellendi. İdeal durumda, bağlantı noktası için yalnızca SMB 1.0 trafiği engellenmesi gerektiğini ve tüm istemcilerde SMB 1.0 kapatılmalıdır.
+
 * <a id="expressroute-not-required"></a>
 **Azure dosya eşitleme kullanmak için şirket içi veya Azure ExpressRoute, Azure dosyaları'na bağlanmak zorunda?**  
 

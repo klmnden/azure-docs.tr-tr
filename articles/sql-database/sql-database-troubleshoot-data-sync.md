@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: d9e1eee9ab45e9f3a74f296e555c8f91802f36ab
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4ab26891a98418fae75c3be18f17f1d8e02d8b36
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563193"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216722"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL Data Sync ile ilgili sorunları giderme
 
@@ -58,7 +58,7 @@ SQL Data Sync'deki bir eşitleme grubuna uzun bir süre içinde işleme durumu k
 
 Aşağıdaki koşullardan herhangi biri işleme durumunda takılması bir eşitleme grubu neden olabilir:
 
-- **Neden**. İstemci Aracısı çevrimdışı.
+- **Neden**. İstemci aracısı çevrimdışı
 
 - **Çözüm**. İstemci aracısının çevrimiçi olduğundan emin olun ve işlemi yeniden deneyin.
 
@@ -250,7 +250,7 @@ SQL Data Sync hakkında daha fazla bilgi için bkz:
         -  [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Veri Eşitleme Aracısı - [veri Aracısı Azure SQL Data Sync için eşitleme](sql-database-data-sync-agent.md)
 -   En iyi uygulamalar - [en iyi uygulamalar için Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   İzleyici - [SQL Data Sync'i Log Analytics ile izleme](sql-database-sync-monitor-oms.md)
+-   İzleyici - [SQL Data Sync'i Azure İzleyici ile izleme günlükleri](sql-database-sync-monitor-oms.md)
 -   Eşitleme şemasını güncelleştirmek
     -   Transact-SQL ile- [Azure SQL Data Sync şema değişikliklerinin çoğaltmayı otomatik hale getirme](sql-database-update-sync-schema.md)
     -   PowerShell ile- [var olan bir eşitleme grubunda eşitleme şemasını güncelleştirmek için PowerShell kullanma](scripts/sql-database-sync-update-schema.md)

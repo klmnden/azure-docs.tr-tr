@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ead303257b0b5a4b56803abe57a0101b8f031c0
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 9623cf727998348c313b7184c29e968afd33c6cc
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589115"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214155"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Birleştirilmiş etkinleştir güvenlik bilgileri kayıt (Önizleme)
 
@@ -38,6 +38,9 @@ Birleşik kaydını etkinleştirmek için aşağıdaki adımları tamamlayın:
 3. Altında **kullanıcılar Önizleme özellikleri kaydediliyor ve güvenlik bilgilerinizi yönetmek için - yenileme**, için etkinleştirmeyi seçerseniz bir **seçili** için kullanıcı ve grup **tüm** kullanıcılar.
 
 ![Azure AD portalında tüm kullanıcıları için birleşik güvenlik bilgisi Önizleme deneyimini etkinleştirmek](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+
+> [!IMPORTANT]
+> Telefon araması seçenekleri 2019'ın Mart başlangıç MFA ve SSPR kullanıcıları Azure AD ücretsiz/deneme kiracıları için kullanılabilir olmayacak. SMS iletileri, bu değişiklikten etkilenmez. Telefon Araması'nda kullanıcılara kullanılabilir Ücretli Azure AD kiracılarıyla devam eder. Bu değişiklik, yalnızca Azure AD ücretsiz/deneme kiracıları etkiler.
 
 > [!NOTE]
 > Bir kez birleşik kayıt kaydetmek veya telefon numarası ya da yeni deneyim aracılığıyla mobil uygulama bunları MFA ve SSPR, kullanabileceğiniz bu yöntemler MFA ve SSPR ilkelerinde etkinleştirilip etkinleştirilmediğini onaylayın kullanıcıları etkinleştirin. Bu deneyim devre dışı bırakırsanız, önceki SSPR kaydı için Git Kullanıcılar sayfasında [https:/aka.ms/ssprsetup](https:/aka.ms/ssprsetup) sayfa erişebilmeniz için önce çok faktörlü kimlik doğrulaması gerçekleştirmek için gerekli.

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: f6874b1d97c36d22e60606ad8c8a356baec53b85
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6f8dd8611e5e2120bdfa0ae111bf6e248ca0f3cb
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893605"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214758"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
 
@@ -76,7 +76,7 @@ Aşağıdaki tanılama telemetrisi toplamak için Azure SQL veritabanlarını ay
 
 ### <a name="azure-portal"></a>Azure portal
 
-Kullandığınız **tanılama ayarları** menüsünü her, havuza alınmış, tek veya Azure SQL veritabanları için tanılama telemetrisi akışını yapılandırmak için Azure portalında veritabanı örneği. Aşağıdaki hedefleri ayarlayabilirsiniz: Azure depolama, Azure Event Hubs'a ve Azure Log Analytics.
+Kullandığınız **tanılama ayarları** menüsünü her, havuza alınmış, tek veya Azure SQL veritabanları için tanılama telemetrisi akışını yapılandırmak için Azure portalında veritabanı örneği. Aşağıdaki hedefleri ayarlayabilirsiniz: Azure depolama, Azure Event Hubs ve Azure İzleyici günlükleri.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-pooled-or-instance-databases"></a>Tek tanılama telemetrisi akışını yapılandırın, bir havuzda veya örnek veritabanları
 
@@ -100,7 +100,7 @@ Tanılama telemetrisi tek etkinleştirme akışı için bir havuzda, veya örnek
    ![Tek tanılamayı yapılandırmak, havuza alınmış veya örnek veritabanları](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> Güvenlik Denetim günlüklerini veritabanı tanılama ayarları etkinleştirilemez. Denetim günlüğü akışını etkinleştirmek için bkz: [veritabanınız için denetimi ayarlamanız](sql-database-auditing.md#subheading-2), ve [Azure Log Analytics ve Azure Event Hubs'a günlükler denetim](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Güvenlik Denetim günlüklerini veritabanı tanılama ayarları etkinleştirilemez. Denetim günlüğü akışını etkinleştirmek için bkz: [veritabanınız için denetimi ayarlamanız](sql-database-auditing.md#subheading-2), ve [Azure İzleyici günlüklerine ve Azure Event Hubs'a günlükler denetim](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 > [!TIP]
 > İzlemek istediğiniz her Azure SQL veritabanı bu adımları yineleyin.
 
@@ -152,7 +152,7 @@ Bir elastik havuz kaynak için tanılama telemetrisi akışını etkinleştirmek
 
 1. Kendi başvuru için bir ayar adı girin.
 1. Tanılama veri akışı için bir hedef kaynak seçin: **Depolama hesabında arşivle**, **Stream olay hub'ına**, veya **Log Analytics'e gönderme**.
-1. Log Analytics için seçin **yapılandırma** ve seçerek yeni bir çalışma alanı oluşturma **+ oluştur yeni çalışma alanı**, ya da mevcut bir çalışma alanını seçin.
+1. Log analytics için seçin **yapılandırma** ve seçerek yeni bir çalışma alanı oluşturma **+ oluştur yeni çalışma alanı**, ya da mevcut bir çalışma alanını seçin.
 1. Elastik havuz tanılama telemetrisi için onay kutusunu seçin: **AllMetrics**.
 1. **Kaydet**’i seçin.
 
@@ -181,7 +181,7 @@ Yönetilen örnek kaynak için tanılama telemetrisi akışını etkinleştirmek
 
 1. Kendi başvuru için bir ayar adı girin.
 1. Tanılama veri akışı için bir hedef kaynak seçin: **Depolama hesabında arşivle**, **Stream olay hub'ına**, veya **Log Analytics'e gönderme**.
-1. Log Analytics için seçin **yapılandırma** ve seçerek yeni bir çalışma alanı oluşturma **+ oluştur yeni çalışma alanı**, veya varolan bir çalışma alanını kullanın.
+1. Log analytics için seçin **yapılandırma** ve seçerek yeni bir çalışma alanı oluşturma **+ oluştur yeni çalışma alanı**, veya varolan bir çalışma alanını kullanın.
 1. Tanılama telemetrisi örneği için onay kutusunu seçin: **ResourceUsageStats**.
 1. **Kaydet**’i seçin.
 
@@ -288,7 +288,7 @@ Azure SQL Analytics, Azure SQL veritabanları, elastik havuzlar ve uygun ölçek
 
 ![Azure SQL Analytics genel bakış](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-SQL veritabanı ölçümleri ve tanılama günlükleri akışa Azure SQL Analytics içinde yerleşik kullanarak **Log Analytics'e gönderme** portalında tanılama ayarlar sekmesindeki seçeneği. Log Analytics PowerShell cmdlet'leri, Azure CLI veya Azure İzleyici REST API aracılığıyla bir tanılama ayarını kullanarak da etkinleştirebilirsiniz.
+SQL veritabanı ölçümleri ve tanılama günlükleri akışa Azure SQL Analytics içinde yerleşik kullanarak **Log Analytics'e gönderme** portalında tanılama ayarlar sekmesindeki seçeneği. Ayrıca, PowerShell cmdlet'lerini, Azure CLI veya Azure İzleyici REST API aracılığıyla bir tanılama ayarını kullanarak log analytics'e de etkinleştirebilirsiniz.
 
 ### <a name="installation-overview"></a>Yüklemeye genel bakış
 
@@ -379,7 +379,7 @@ Bilgi edinmek için nasıl [depolamadan ölçümleri ve tanılama günlüklerini
 
 ## <a name="data-retention-policy-and-pricing"></a>Veri bekletme ilkesi ve fiyatlandırma
 
-Olay hub'ları veya bir depolama hesabı seçerseniz, bekletme ilkesi belirtebilirsiniz. Bu ilke, seçilen zaman süresinden daha eski olan verileri siler. Log Analytics belirtirseniz, bekletme ilkesi seçili fiyatlandırma katmanına bağlıdır. Bu durumda, veri alımı, sağlanan ücretsiz birimleri her ay ücretsiz çeşitli veritabanları izlemeyi etkinleştirebilirsiniz. Herhangi bir tanılama telemetrisi ücretsiz birimleri aşan tüketiminin ücrete neden olabilir. Etkin veritabanları daha ağır iş yükleri ile boştaki veritabanlarının daha fazla veri alma dikkat edin. Daha fazla bilgi için [Log Analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/monitor/).
+Olay hub'ları veya bir depolama hesabı seçerseniz, bekletme ilkesi belirtebilirsiniz. Bu ilke, seçilen zaman süresinden daha eski olan verileri siler. Log Analytics belirtirseniz, bekletme ilkesi seçili fiyatlandırma katmanına bağlıdır. Bu durumda, veri alımı, sağlanan ücretsiz birimleri her ay ücretsiz çeşitli veritabanları izlemeyi etkinleştirebilirsiniz. Herhangi bir tanılama telemetrisi ücretsiz birimleri aşan tüketiminin ücrete neden olabilir. Etkin veritabanları daha ağır iş yükleri ile boştaki veritabanlarının daha fazla veri alma dikkat edin. Daha fazla bilgi için [Log analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/monitor/).
 
 Azure SQL Analytics kullanıyorsanız, veri alımı tüketiminiz çözümdeki seçerek izleyebilirsiniz **OMS çalışma alanı** Azure SQL Analytics ve ardından Gezinti menüsünde **kullanım** ve **tahmini maliyetleri**.
 

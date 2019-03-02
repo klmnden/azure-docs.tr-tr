@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 492beba1040cef3d5a910cc9db3fe16b41c33cd6
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: eb2f42b690099002f2f14aa4e782906a76c01d4c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301596"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241519"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlük kaydı ve denetim
 
@@ -50,7 +50,7 @@ Aşağıdaki tablo, en önemli Azure'da kullanılabilen günlük türlerini list
 |[Azure depolama analizi](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Depolama günlüğü, depolama hesabı için ölçüm verileri sağlar|İzleme istekleri hakkında Öngörüler sağlar, kullanım eğilimlerini analiz eder ve depolama hesabınızla ilgili sorunlar tanılar.|   REST API veya [istemci kitaplığı](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Ağ güvenlik grubu (NSG) akış günlükleri](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON biçiminde bir kural başına temelinde giden ve gelen akışları gösterir|Bir ağ güvenlik grubu üzerinden giriş ve çıkış IP trafiğini hakkındaki bilgileri görüntüler.|[Azure Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Günlükler, özel durumlar ve özel tanılama|   Bir uygulama performansı izleme (APM) hizmeti birden çok platformda web geliştiricileri için sağlar.| REST API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|Verileri / güvenlik uyarıları|    Azure Güvenlik Merkezi uyarıları, Azure Log Analytics uyarıları|   Güvenlik bilgileri ve uyarılar sağlar.|  REST API'ler, JSON|
+|Verileri / güvenlik uyarıları|    Azure Güvenlik Merkezi uyarıları, Azure İzleyici günlükleri ve Uyarıları|    Güvenlik bilgileri ve uyarılar sağlar.|  REST API'ler, JSON|
 
 ### <a name="activity-logs"></a>Etkinlik günlükleri
 
@@ -78,7 +78,7 @@ Tümleştirme senaryoları için bir etkinlik günlüğü olayında:
 
 * PowerShell cmdlet, Azure CLI veya REST API sorgulayın.
 
-* Günlük profilleri ile Etkinlik günlüğünü dışarı aktarma [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
+* Günlük profilleri ile Etkinlik günlüğünü dışarı aktarma [Azure İzleyicisi](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 Bir depolama hesabı kullanabilir veya [olay hub'ı ad alanı](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) olmayan günlük yayma biri ile aynı abonelikte. Kişi ayarı yapılandırır uygun olmalıdır [rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) iki abonelik erişimi.
 
@@ -96,15 +96,15 @@ Azure tanılama günlükleri, Azure portalı, PowerShell, Azure CLI ve REST API 
 
 * [Bunları event hubs'a Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) üçüncü taraf hizmeti veya özel bir analiz çözümü, alımı için gibi [Powerbı](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
-* Bunları analiz [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
+* Bunları analiz [Azure İzleyicisi](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 **Desteklenen hizmetler, tanılama günlükleri ve desteklenen günlük kategorileri her kaynak türü için şema**
 
 
 | Hizmet | Şema ve belgeler | Kaynak türü | Kategori |
 | ------- | ------------- | ------------- | -------- |
-|Azure Load Balancer| [Load Balancer (Önizleme) için log Analytics](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers| LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
-|Ağ Güvenlik Grupları|[Ağ güvenlik grupları için log Analytics](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
+|Azure Load Balancer| [Azure İzleyici günlüklerine yük dengeleyici (Önizleme)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
+|Ağ Güvenlik Grupları|[Ağ güvenlik grupları için Azure izleme günlükleri](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
 |Azure Application Gateway|[Uygulama ağ geçidi için tanılama günlüğünü](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog<br>ApplicationGatewayPerformanceLog<br>ApplicationGatewayFirewallLog|
 |Azure Key Vault|[Anahtar kasası günlükleri](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Azure Search|[Etkinleştirme ve arama trafiği analizi kullanma](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
@@ -112,7 +112,7 @@ Azure tanılama günlükleri, Azure portalı, PowerShell, Azure CLI ve REST API 
 |Azure Data Lake Analytics|[Data Lake Analytics için tanılama günlüklerine erişme](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts<br>Microsoft.DataLakeAnalytics/accounts|Denetim<br>İstekler|
 |Azure Logic Apps|[Logic Apps B2B özel izleme şeması](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows<br>Microsoft.Logic/integrationAccounts|İş akışı WorkflowRuntime<br>IntegrationAccountTrackingEvents|
 |Azure Batch|[Azure Batch tanılama günlükleri](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
-|Azure Otomasyonu|[Azure otomasyonu için log Analytics](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
+|Azure Otomasyonu|[Azure otomasyonu için Azure izleme günlükleri](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
 |Azure Event Hubs|[Event Hubs tanılama günlükleri](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces<br>Microsoft.EventHub/namespaces|ArchiveLogs<br>OperationalLogs|
 |Azure Stream Analytics|[İş tanılama günlükleri](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs<br>Microsoft.StreamAnalytics/streamingjobs|Yürütme<br>Yazma|
 |Azure Service Bus|[Service Bus tanılama günlükleri](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
@@ -216,7 +216,7 @@ Akış günlüklerini diğer günlüklerini görülen aynı bekletme ilkeleri uy
 
 **Tanılama günlükleri**
 
-Düzenli ve spontaneous olaylar ağ kaynaklar tarafından oluşturulan ve depolama hesaplarında oturum ve bir olay hub'ı veya Log Analytics'e gönderilir. Günlükleri, kaynak durumu hakkında Öngörüler sağlar. Power BI ve Log Analytics gibi Araçları'nda görüntülenebilir. Tanılama günlükleri görüntüleme hakkında bilgi edinmek için [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Düzenli ve spontaneous olaylar ağ kaynaklar tarafından oluşturulan ve depolama hesaplarında oturum ve bir olay hub'ı veya Azure İzleyici günlüklerine gönderilir. Günlükleri, kaynak durumu hakkında Öngörüler sağlar. Power BI ve Azure İzleyici günlükleri gibi Araçları'nda görüntülenebilir. Tanılama günlükleri görüntüleme hakkında bilgi edinmek için [Azure İzleyicisi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 ![Tanılama günlükleri](./media/azure-log-audit/azure-log-audit-fig5.png)
 
@@ -302,29 +302,31 @@ Güvenlik Merkezi, imza tabanlı yaklaşımların ötesine geçen gelişmiş gü
 
 * **anomali algılama**: Geçmiş taban çizgisi oluşturmak için istatistiksel profil oluşturmayı kullanır. Olası bir saldırı vektörüne uygun olan yerleşik taban çizgilerinden sapmalar konusunda uyarır.
 
-Birçok güvenlik işlemleri ve olay yanıt ekiplerinin bir SIEM çözüm üzerinde güvenlik uyarılarının ve önceliklendirmek için başlangıç noktası olarak kullanır. Azure günlük Tümleştirmesi ile Güvenlik Merkezi uyarıları ve sanal makine, Azure tanılama ve Denetim günlükleri, Log Analytics veya SIEM çözümünüze neredeyse gerçek zamanlı ile tarafından toplanan güvenlik olaylarını eşitleyebilirsiniz.
+Birçok güvenlik işlemleri ve olay yanıt ekiplerinin bir SIEM çözüm üzerinde güvenlik uyarılarının ve önceliklendirmek için başlangıç noktası olarak kullanır. Azure günlük Tümleştirmesi ile Güvenlik Merkezi uyarıları ve sanal makine, Azure tanılama ve Denetim günlükleri, Azure İzleyici günlüklerine veya neredeyse gerçek zamanlı SIEM çözüm tarafından toplanan güvenlik olaylarını eşitleyebilirsiniz.
 
-## <a name="log-analytics"></a>Log Analytics
+## <a name="azure-monitor-logs"></a>Azure izleme günlükleri
 
-Log Analytics bulut kaynaklar tarafından oluşturulan ve şirket içi Ortamlarınızdaki verileri toplayıp analiz yardımcı olan bir Azure hizmetidir. Bu işlem, tüm iş yüklerinizde ve sunucular, fiziksel konumlarından milyonlarca kaydı kolayca analiz etmek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı Öngörüler sağlar.
+Azure İzleyici günlüklerine, azure'da bulut kaynaklar tarafından oluşturulan ve şirket içi Ortamlarınızdaki verileri toplayıp analiz yardımcı olan bir hizmettir. Bu işlem, tüm iş yüklerinizde ve sunucular, fiziksel konumlarından milyonlarca kaydı kolayca analiz etmek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı Öngörüler sağlar.
 
-![Log Analytics diyagramı](./media/azure-log-audit/azure-log-audit-fig8.png)
+![Azure İzleyici günlüklerine diyagramı](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-Center Log Analytics'in merkezinde, Log Analytics çalışma alanında, Azure'da barındırılan ' dir. Log Analytics çalışma alanındaki veri veri kaynakları yapılandırılarak ve aboneliğinize çözümler ekleyerek bağlı kaynaklardan toplar. Veri kaynaklarını ve çözümlerini her oluşturun farklı kayıt türleri, her biri kendi özellikler kümesini. Ancak, kaynakları ve çözümleri birlikte çalışma alanına sorgularda analiz edilebilir. Bu özellik, çeşitli çeşitli kaynaklardan toplanan veriler ile çalışmak için aynı araçları ve yöntemleri kullanın olanak tanır.
+Log Analytics çalışma alanında, Azure'da barındırılan Azure İzleyici merkezi günlükleridir. Azure İzleyici günlüklerine veri kaynakları yapılandırılarak ve aboneliğinize çözümler ekleyerek bağlı kaynaklardan çalışma alanındaki veri toplar. Veri kaynaklarını ve çözümlerini her oluşturun farklı kayıt türleri, her biri kendi özellikler kümesini. Ancak, kaynakları ve çözümleri birlikte çalışma alanına sorgularda analiz edilebilir. Bu özellik, çeşitli çeşitli kaynaklardan toplanan veriler ile çalışmak için aynı araçları ve yöntemleri kullanın olanak tanır.
 
-Bağlı kaynaklar, bilgisayarları ve Log Analytics tarafından toplanan verileri oluşturan diğer kaynakları ' dir. Kaynakları, yüklü aracıları içerebilir [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) ve [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) doğrudan bağlanan bilgisayarlar veya aracıları [bağlı bir System Center Operations Manager yönetim grubu](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Log Analytics, verileri de toplayabilir bir [Azure depolama hesabı](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage).
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+Bağlı kaynaklar, bilgisayarları ve Azure İzleyici günlüklerine tarafından toplanan verileri oluşturan diğer kaynakları ' dir. Kaynakları, yüklü aracıları içerebilir [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) ve [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) doğrudan bağlanan bilgisayarlar veya aracıları [bağlı bir System Center Operations Manager yönetim grubu](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Azure İzleyici günlüklerine Ayrıca verileri toplayın bir [Azure depolama hesabı](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage).
 
 [Veri kaynakları](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) çeşitli bağlı her kaynaktan toplanan veri türleridir. Kaynakları dahil olayları ve [performans verilerini](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters) gelen [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) ve Linux aracılarından gibi kaynakları [IIS günlükler](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs) ve [özelmetingünlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs). Toplamak istediğiniz her veri kaynağını yapılandırabilirsiniz. Yapılandırma, otomatik olarak bağlı her kaynağa dağıtılır.
 
 İçin dört yolla [günlükleri ve Azure Hizmetleri için ölçümleri toplamak](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage):
 
-* Azure tanılama verilerini doğrudan Log Analytics'e (**tanılama** aşağıdaki tabloda)
+* Azure tanılama doğrudan Azure İzleyici günlüklerine (**tanılama** aşağıdaki tabloda)
 
-* Log Analytics için Azure depolama için Azure tanılama (**depolama** aşağıdaki tabloda)
+* Azure İzleyici için Azure depolama için Azure tanılama günlükleri (**depolama** aşağıdaki tabloda)
 
 * Azure Hizmetleri için bağlayıcılar (**bağlayıcı** aşağıdaki tabloda)
 
-* Toplamak ve daha sonra Log Analytics (aşağıdaki tabloda ve listelenmeyen Hizmetleri boş hücreler) içine veri göndermek için komut dosyaları
+* Toplamak ve daha sonra Azure İzleyici günlüklerine (aşağıdaki tabloda ve listelenmeyen Hizmetleri boş hücreler) içine veri göndermek için komut dosyaları
 
 | Hizmet | Kaynak türü | Günlükler | Ölçümler | Çözüm |
 | :------ | :------------ | :--- | :------ | :------- |
@@ -369,7 +371,7 @@ Günlük tümleştirme, Windows sanal makineleri, Azure etkinlik günlükleri, A
 
 Windows olay günlükleri, Azure aboneliği, Azure Güvenlik Merkezi uyarıları, Azure tanılama günlükleri ve Azure AD ile Windows sanal makinelerden denetim günlükleri, günlük tümleştirmesi şu anda Azure etkinlik günlüklerini tümleştirmesini destekler.
 
-| Günlük türü | Log Analytics'i (Splunk ArcSight ve IBM QRadar) JSON destekleme |
+| Günlük türü | Azure İzleyici (Splunk ArcSight ve IBM QRadar) destekleyen JSON günlüğe kaydeder. |
 | :------- | :-------------------------------------------------------- |
 |Azure AD denetim günlükleri|   Evet|
 |Etkinlik günlükleri| Evet|
@@ -385,7 +387,7 @@ Tümleştirme senaryoları için SIEM:
 
 * [Azure günlük tümleştirmesi SSS](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): Bu makalede, Azure günlük tümleştirmesi hakkında sorular yanıtlanmaktadır.
 
-* [Azure günlük Tümleştirmesi ile Güvenlik Merkezi uyarılarını tümleştirme](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): Bu makalede, Güvenlik Merkezi uyarıları, Azure tanılama günlükleri tarafından toplanan sanal makine güvenlik olaylarını eşitlenecek anlatılmaktadır ve Log Analytics veya SIEM çözümünüzle birlikte Azure denetim günlükleri.
+* [Azure günlük Tümleştirmesi ile Güvenlik Merkezi uyarılarını tümleştirme](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): Bu makalede, Güvenlik Merkezi uyarıları, Azure tanılama günlükleri tarafından toplanan sanal makine güvenlik olaylarını eşitlenecek anlatılmaktadır ve Azure İzleyici günlüklerine ya da SIEM çözümünden ile Azure denetim günlükleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Data Sync'i Log Analytics ile izleme | Microsoft Docs
-description: Log Analytics kullanarak Azure SQL Data Sync izleme hakkında bilgi edinin
+title: Azure İzleyici günlüklerine ile Azure SQL Data Sync izleme | Microsoft Docs
+description: Azure İzleyici günlüklerine kullanarak Azure SQL Data Sync izleme hakkında bilgi edinin
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -12,16 +12,18 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 75bbae000fa0fbbf783b3df43bd51ed2f8a73e96
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a1f2b0e3095718caad7c35a20bf7e91c88568364
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561425"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213475"
 ---
-# <a name="monitor-sql-data-sync-with-log-analytics"></a>SQL Data Sync'i Log Analytics ile izleme 
+# <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>SQL Data Sync'i Azure İzleyici ile izleme günlükleri 
 
 SQL Data Sync Etkinlik günlüğünü denetleyin ve hataları ve Uyarıları algılamak için daha önce SQL Data Sync, Azure portalında el ile iade etmeniz veya PowerShell veya REST API'sini kullanmanız gerekiyordu. Data Sync izleme deneyimini geliştiren özel bir çözümü yapılandırmak için bu makaledeki adımları izleyin. Bu çözüm, senaryonuza uyacak şekilde özelleştirebilirsiniz.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](sql-database-sync-data.md).
 
@@ -30,27 +32,27 @@ SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync ile birden
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tüm eşitleme grupları için izleme Panosu 
 
-Artık, tek tek sorunlar için aramak için her eşitleme grubunun günlükleri göz gerekmez. Özel bir Log Analytics görünümünü kullanarak tek bir yerde aboneliklerinizin herhangi birinden gelen tüm eşitleme gruplarını izleyebilirsiniz. Bu görünüm, SQL Data Sync müşteriler için önemli bilgilerin ortaya çıkarır.
+Artık, tek tek sorunlar için aramak için her eşitleme grubunun günlükleri göz gerekmez. Bir özel log analytics görünümü kullanarak tek bir yerde aboneliklerinizin herhangi birinden gelen tüm eşitleme gruplarını izleyebilirsiniz. Bu görünüm, SQL Data Sync müşteriler için önemli bilgilerin ortaya çıkarır.
 
 ![Veri Eşitleme izleme Panosu](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Otomatik e-posta bildirimleri
 
-Artık Azure portalında el ile veya PowerShell veya REST API aracılığıyla günlüğünü denetlemek gerekir. İle [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), hata oluştuğunda görmeniz gereken kişilerin e-posta adreslerini doğrudan Git uyarılar oluşturabilirsiniz.
+Artık Azure portalında el ile veya PowerShell veya REST API aracılığıyla günlüğünü denetlemek gerekir. İle [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), hata oluştuğunda görmeniz gereken kişilerin e-posta adreslerini doğrudan Git uyarılar oluşturabilirsiniz.
 
 ![Veri Eşitleme e-posta bildirimleri](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>Bu izleme özellikleri nasıl ayarlayabilirim? 
 
-Özel bir Log Analytics çözümü, aşağıdaki işlemleri yaparak bir saatten az SQL Data Sync için izleme uygulayın:
+Uygulama özel bir Azure İzleyici izleme çözümü SQL Data Sync için bir saatten az aşağıdaki işlemleri yaparak kaydeder:
 
 Üç bileşeni yapılandırma yapmanız gerekir:
 
--   SQL Data Sync günlük verileri Log Analytics'e akışı için bir PowerShell runbook.
+-   Azure İzleyici günlüklerine SQL Data Sync'i log veri akışı için bir PowerShell runbook.
 
--   E-posta bildirimleri için bir Log Analytics uyarısı.
+-   E-posta bildirimleri için log analytics uyarısı.
 
--   Bir Log Analytics izleme görünümü.
+-   İzleme için bir log analytics görünümü.
 
 ### <a name="samples-to-download"></a>Örnekleri indir
 
@@ -66,11 +68,11 @@ Aşağıdaki işlemleri ayarladığınızdan emin olun:
 
 -   Azure Otomasyonu hesabı
 
--   Log Analytics Çalışma Alanı
+-   Log Analytics çalışma alanı
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>SQL veri eşitleme günlüğü almak için PowerShell Runbook'u 
 
-SQL Data Sync'i log veri çekme ve Log Analytics'e göndermek için Azure Otomasyonu'nda barındırılan bir PowerShell runbook'ı kullanın. Örnek bir betik dahil edilir. Bir önkoşul olarak, Azure Otomasyonu hesabı olması gerekir. Ardından, bir runbook oluşturmak ve çalıştırmak için zamanlamak gerekir. 
+SQL Data Sync'i log veri çekme ve Azure İzleyici günlüklerine göndermek için Azure Otomasyonu'nda barındırılan bir PowerShell runbook'ı kullanın. Örnek bir betik dahil edilir. Bir önkoşul olarak, Azure Otomasyonu hesabı olması gerekir. Ardından, bir runbook oluşturmak ve çalıştırmak için zamanlamak gerekir. 
 
 ### <a name="create-a-runbook"></a>Runbook oluşturma
 
@@ -100,7 +102,7 @@ Bir runbook oluşturma hakkında daha fazla bilgi için bkz. [ilk PowerShell run
 
     2.  Eşitleme grubu bilgileri.
 
-    3.  Analytics bilgileri günlüğe kaydet. Azure Portalı'nda bu bilgi | Ayarları | Bağlı kaynaklar. Verileri Log Analytics'e gönderme hakkında daha fazla bilgi için bkz. [HTTP veri toplayıcı API'sini (Önizleme) ile Log Analytics veri Gönder](../azure-monitor/platform/data-collector-api.md).
+    3.  Azure izleme bilgilerini kaydeder. Azure Portalı'nda bu bilgi | Ayarları | Bağlı kaynaklar. Azure İzleyici günlüklerine veri gönderme hakkında daha fazla bilgi için bkz. [HTTP veri toplayıcı API'sini (Önizleme) ile Azure İzleyici günlüklerine veri gönderme](../azure-monitor/platform/data-collector-api.md).
 
 11. Runbook'u Test Bölmesi'nde çalıştırın. Başarılı olup olmadığını denetleyin.
 
@@ -120,7 +122,7 @@ Runbook zamanlama için:
 
 4.  Seçin **yeni bir zamanlama oluşturun.**
 
-5.  Ayarlama **yinelenme** yinelenen ve küme için istediğiniz zaman aralığını. Burada, aynı aralık, betik ve Log Analytics kullanın.
+5.  Ayarlama **yinelenme** yinelenen ve küme için istediğiniz zaman aralığını. Burada, aynı aralık, betik ve Azure İzleyici günlüklerine kullanın.
 
 6.  **Oluştur**’u seçin.
 
@@ -130,7 +132,7 @@ Otomasyon altında beklendiği gibi çalışıp çalışmadığını izlemek iç
 
 ## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>E-posta bildirimleri için bir Log Analytics okuyucusu uyarısı oluşturma
 
-Log Analytics kullanan bir uyarı oluşturmak için aşağıdaki işlemleri yapabilirsiniz. Bir önkoşul olarak Log Analytics, Log Analytics çalışma alanı ile bağlantılı olması gerekir.
+Azure İzleyici günlüklerine kullanan bir uyarı oluşturmak için aşağıdaki işlemleri yapın. Bir önkoşul olarak, Azure İzleyici günlüklerine Log Analytics çalışma alanıyla bağlantılı olması gerekir.
 
 1.  Azure portalında **günlük araması**.
 
@@ -152,7 +154,7 @@ Log Analytics kullanan bir uyarı oluşturmak için aşağıdaki işlemleri yapa
 
 ## <a name="create-a-log-analytics-view-for-monitoring"></a>İzleme için bir Log Analytics görünümü oluşturma
 
-Bu adım, tüm belirtilen eşitleme gruplarını görsel olarak izlemek için Log Analytics görünümünü oluşturur. Görünüm çeşitli bileşenleri içerir:
+Bu adım, tüm belirtilen eşitleme gruplarını görsel olarak izlemek için log analytics görünümü oluşturur. Görünüm çeşitli bileşenleri içerir:
 
 -   Tüm eşitleme gruplarını kaç hatalar, başarılar ve uyarılar sahip gösteren bir genel bakış kutucuğu.
 
@@ -160,9 +162,9 @@ Bu adım, tüm belirtilen eşitleme gruplarını görsel olarak izlemek için Lo
 
 -   Her grup için grubu Eşitleme hataları, başarı ve uyarıları ve en son hata iletileri sayısını gösteren bir kutucuk.
 
-Log Analytics görünümü yapılandırmak için şunları yapın:
+Log analytics görünümü yapılandırmak için şunları yapın:
 
-1.  Log Analytics'e giriş sayfasında, artı açmak için sol taraftaki seçin **Görünüm Tasarımcısı**.
+1.  Log analytics giriş sayfasında, artı açmak için sol taraftaki seçin **Görünüm Tasarımcısı**.
 
 2.  Seçin **alma** Görünüm Tasarımcısı'nın üst çubukta. Ardından "DataSyncLogOMSView" örnek dosyasını seçin.
 
@@ -186,7 +188,7 @@ Log Analytics görünümü yapılandırmak için şunları yapın:
 
 **Azure Otomasyonu:** Kullanımınıza bağlı olarak bir Azure Otomasyonu hesabı ile gerçekleştirilen bir maliyeti olabilir. İlk 500 dakikalık iş çalıştırma zamanı aylık ücretsizdir. Çoğu durumda, bu çözüm başına aylık 500 dakikadan kısa bir sürede kullanmak için bekleniyor. Ücretlerden kaçınmak için iki saat veya daha fazla aralıklarla çalıştırılmak üzere bir runbook'u zamanlayın. Daha fazla bilgi için bkz. [Otomasyon fiyatlandırması](https://azure.microsoft.com/pricing/details/automation/).
 
-**Log Analytics:** Kullanımınıza bağlı Log Analytics ile ilişkili bir maliyeti olabilir. Ücretsiz katmanda günlük içe alınan veri 500 MB içerir. Çoğu durumda, bu çözüm, günde 500 MB alma beklenir. Kullanımını azaltmak için yalnızca hata runbook'ta dahil filtrelemeyi kullanın. 500 MB günlük kullanıyorsanız, sınırlama ulaşıldığında durdurma analytics riskini önlemek için ücretli katmana yükseltin. Daha fazla bilgi için bkz. [Log Analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Azure İzleyici günlüklerine:** Kullanımınıza bağlı olarak Azure İzleyici günlükleri ile ilişkili bir maliyeti olabilir. Ücretsiz katmanda günlük içe alınan veri 500 MB içerir. Çoğu durumda, bu çözüm, günde 500 MB alma beklenir. Kullanımını azaltmak için yalnızca hata runbook'ta dahil filtrelemeyi kullanın. 500 MB günlük kullanıyorsanız, sınırlama ulaşıldığında durdurma analytics riskini önlemek için ücretli katmana yükseltin. Daha fazla bilgi için bkz. [Azure İzleyici günlükleri fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Kod örnekleri
 

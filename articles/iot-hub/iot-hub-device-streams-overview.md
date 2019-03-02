@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 7b436acb937216ad02289282f4a7ac5f88df2eea
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770797"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245158"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IOT Hub cihaz akışları (Önizleme)
 
@@ -117,16 +117,16 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Etkinlik günlükleri cihaz akışları sorunlarını giderme
 
-Azure Log Analytics'i ayarlama, IOT hub'ına cihaz akışları etkinlik günlüğü toplamak üzere ayarlayabilirsiniz. Bu sorun giderme senaryoları çok yararlı olabilir.
+IOT hub'ına cihaz akışları etkinlik günlüğü toplamak için Azure İzleyici günlüklerini ayarlayabilirsiniz. Bu sorun giderme senaryoları çok yararlı olabilir.
 
-Azure Log Analytics için IOT Hub'ınızın cihaz akış etkinlikleri yapılandırmak için aşağıdaki adımları izleyin:
+IOT Hub'ınızın cihaz akış etkinlikleri için Azure İzleyici günlüklerine yapılandırmak için aşağıdaki adımları izleyin:
 
 1. Gidin *tanılama ayarları* sekmesinde IOT hub'ına ve tıklayarak *tanılamayı Aç* bağlantı.
 
   ![Alternatif metin](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "disgnostics günlüklerini etkinleştirme")
 
 
-2. Tanılama ayarlarınızı için bir ad girin ve seçin *Log Analytics'e gönderme* seçeneği. Mevcut bir Log Analytics kaynağını seçin veya yeni bir tane oluşturmak için yönlendirilecektir. Ayrıca, kontrol *DeviceStreams* listeden.
+2. Tanılama ayarlarınızı için bir ad girin ve seçin *Log Analytics'e gönderme* seçeneği. Mevcut bir Log Analytics çalışma alanı kaynağı seçin veya yeni bir tane oluşturmak için yönlendirilecektir. Ayrıca, kontrol *DeviceStreams* listeden.
 
     ![Alternatif metin](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG "etkin cihaz günlükleri akışları")
 

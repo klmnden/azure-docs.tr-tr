@@ -10,18 +10,27 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 60a76df6360ca66e8f55b03d5914283f669eb402
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 045a8fc3723c7bae176f0b99a83965bb2bef721d
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118114"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242947"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Denemeler ve bir Azure sanal ağ içindeki çıkarım güvenli bir şekilde çalıştırın
 
 Bu makalede, denemeleri ve sanal ağ içindeki çıkarım nasıl çalıştırılacağını öğrenin. Bir sanal ağ, Azure kaynaklarınızın genel internet'ten yalıtarak bir güvenlik sınırı görevi görür. Şirket içi ağınızı bir Azure sanal ağı da katılabilirsiniz. Güvenli bir şekilde, modelleri eğitme ve çıkarım için dağıtılan Modellerinizi erişim sağlar.
 
 İşlem kaynakları için diğer Azure hizmetleriyle Azure Machine Learning hizmeti kullanır. İşlem kaynakları (hedef işlem), modelleri eğitme ve kullanılır. Bu işlem, hedef sanal ağ içinde oluşturulabilir. Örneğin, Microsoft Veri bilimi sanal makinesi bir modeli eğitmek ve sonra model Azure Kubernetes Service (AKS) dağıtmak için kullanabilirsiniz. Sanal ağlar hakkında daha fazla bilgi için bkz. [Azure sanal ağına genel bakış](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+
+## <a name="prerequisites"></a>Önkoşullar
+
+Bu belge, Azure sanal ağları ve IP genel ağ ile ilgili bilgi sahibi olduğunuz varsayılır. Bu belge, ayrıca bir sanal ağ ve işlem kaynaklarınızı ile kullanılacak alt ağı oluşturmuş olduğunuzu varsayar. Azure sanal ağları ile ilgili bilgi sahibi değilseniz, hizmeti hakkında bilgi edinmek için bu makaleleri okuyun:
+
+* [IP adresleme](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
+* [Güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [Hızlı Başlangıç: Sanal ağ oluşturma](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Ağ trafiğini filtreleme](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 ## <a name="storage-account-for-your-workspace"></a>Çalışma alanınız için depolama hesabı
 
