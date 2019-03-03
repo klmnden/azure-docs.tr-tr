@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 646ebc79e3615b289b60e47c0a38595e7892d8cc
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 609eaa25640e74ffe3b39606051edd7048f72497
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55084792"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57251875"
 ---
 | Kaynak | Sınır |
 | --- | --- |
@@ -23,7 +23,8 @@ ms.locfileid: "55084792"
 | Eş zamanlı arka uç bağlantı<sup>3</sup> HTTP yetkilisi başına | Birim başına 2048<sup>4</sup> |
 | Önbelleğe alınan en büyük yanıt boyutu | 2MB |
 | En fazla ilke belge boyutu | 256KB<sup>5</sup> | 
-| Hizmet örneği başına en fazla özel ağ geçidi etki alanı<sup>6</sup> | 20 | 
+| Hizmet örneği başına en fazla özel ağ geçidi etki alanı<sup>6</sup> | 20 |
+| Ca sertifikaları hizmet örneği başına en fazla sayısı | 10 | 
 | Hizmet örnekleri abonelik başına en fazla sayısını<sup>7</sup> | 20 | 
 | Hizmet örneği başına abonelik sayısı<sup>7</sup> | 500 |
 | İstemci sertifikaları hizmet örneği başına en fazla sayısını<sup>7</sup> | 50 | 

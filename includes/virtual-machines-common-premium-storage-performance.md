@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a04a9f225d46ae3dc51381f01984a4ac2af3448f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5f97c2997711c30ad52e5209ba86e0d1bfe30ea8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890970"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57251834"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium Depolama: yüksek performans tasarımı
 
@@ -69,11 +69,11 @@ Uygulamanıza daha yüksek IOPS ve aktarım hızı alma iyileştirirken, uygulam
 
 Aşağıdaki denetim düzlemi işlemleri yönetilen diskler üzerindeki bir depolama konumundan diske hareketini gerektirebilir. Bu, genellikle 24 saatten az disklerde veri miktarına bağlı olarak birkaç saat sürebilir veri arka plan kopyalama aracılığıyla yönetilir. Bu sırada bazı okuma konumuna yönlendirildi ve tamamlanması uzun sürebilir, uygulamanızın normal okuma gecikme süresi daha yüksek oluşabilir. Bu süre boyunca yazma gecikmesi üzerinde hiçbir etkisi yoktur.
 
-1. [Depolama türü güncelleştirme](../articles/virtual-machines/windows/convert-disk-storage.md).
-1. [Bir VM'den bir diski ekleme ve ayırma](../articles/virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
-1. [Bir VHD'den yönetilen disk oluşturma](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md).
-1. [Anlık görüntüden yönetilen disk oluşturma](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-1. [Yönetilmeyen diskleri yönetilen disklere dönüştürme](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
+- Depolama türü güncelleştirin.
+- Ayırma ve bir sanal makineden bir disk ekleyin.
+- Bir VHD'den yönetilen disk oluşturun.
+- Anlık görüntüden yönetilen disk oluşturun.
+- Yönetilmeyen diskleri yönetilen disklere dönüştürme.
 
 # <a name="performance-application-checklist-for-disks"></a>Diskler için performans uygulama Denetim
 
