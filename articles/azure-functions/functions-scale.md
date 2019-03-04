@@ -10,15 +10,15 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/09/2018
+ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d2d171235a23d3e41fda6172efe29b3bb358f0e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 1d385fd8c8388e3ce54b89ff2ac863cd5a1aa0df
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804187"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216144"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevlerini ölçeklendirme ve barındırma
 
@@ -125,7 +125,8 @@ Azure işlevleri kullanan adlı bir bileşen *ölçek denetleyicisi* olayların�
 Ölçeklendirme faktörleri ve farklı şekilde tetikleyici ve seçili dil göre ölçeği sayısına farklılık gösterebilir. Öte yandan, ölçeklendirmenin bugün sistemli çalışan birkaç yönü vardır:
 
 * Tek bir işlev uygulaması en fazla 200 örneğe ölçeklendirilebilir. Hiç için eş zamanlı yürütme sayısı bir set sınır tek bir örneği birden fazla ileti veya isteği aynı anda yine de işleyebilir.
-* Yeni örnekleri yalnızca 10 saniyede en fazla bir kez ayrılır.
+* HTTP Tetikleyicileri için yeni örnekleri yalnızca 1 saniyede en fazla bir kez ayrılır.
+* HTTP olmayan Tetikleyiciler için yeni örnekleri yalnızca her 30 saniyede en fazla bir kez ayrılır.
 
 Ayrıca farklı ölçeklendirme limitleri yanı sıra aşağıda belgelenmiş farklı tetikleyicilere sahip olabilir:
 

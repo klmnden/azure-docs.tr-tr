@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 301dd9357bc1585d96eda216d7e47601e488665b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871812"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245265"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure Gelişmiş tehdit algılama
 
-Azure Active Directory (Azure AD), Azure Log Analytics ve Azure Güvenlik Merkezi gibi hizmetler aracılığıyla Gelişmiş tehdit algılama işlevselliği yerleşik azure sunar. Güvenlik Hizmetleri ve özellikler bu koleksiyonu, Azure dağıtımlarınızı içinde neler olduğunu anlamak için basit ve hızlı bir yol sağlar.
+Azure Active Directory (Azure AD), Azure İzleyici günlüklerine ve Azure Güvenlik Merkezi gibi hizmetler aracılığıyla Gelişmiş tehdit algılama işlevselliği yerleşik azure sunar. Güvenlik Hizmetleri ve özellikler bu koleksiyonu, Azure dağıtımlarınızı içinde neler olduğunu anlamak için basit ve hızlı bir yol sağlar.
 
 Azure, bir çeşit uygulama dağıtımlarınıza ilişkin gereksinimleri karşılamak için güvenlik özelliklerini ve yapılandırma seçenekleri sağlar. Bu makalede, bu gereksinimleri karşılayan anlatılmaktadır.
 
@@ -75,17 +75,17 @@ PIM size yardımcı olur:
 
 -   Ayrıcalıklı bir role erişimi hakkında uyarı alın.
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Azure izleme günlükleri
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan bir Microsoft bulut tabanlı BT yönetimi çözümüdür. Log Analytics, bulut tabanlı bir hizmet olarak uygulandığından, çalışmaya hızlıca altyapı hizmetleri için çok az yatırım ile sağlayabilirsiniz. Yeni güvenlik özellikleri otomatik olarak devam eden bakım tasarruf sağlarsınız ve yükseltme maliyetlerinden.
+[Azure İzleyici günlüklerine](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan bir Microsoft bulut tabanlı BT yönetimi çözümüdür. Bulut tabanlı bir hizmet olarak Azure İzleyici günlüklerine gerçekleştirilir olduğundan, çalışmaya hızlıca altyapı hizmetleri için çok az yatırım ile sağlayabilirsiniz. Yeni güvenlik özellikleri otomatik olarak devam eden bakım tasarruf sağlarsınız ve yükseltme maliyetlerinden.
 
-Değerli hizmetleri, kendi sağlamanın yanı sıra Log Analytics System Center bileşenleriyle gibi tümleştirebilirsiniz [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), mevcut güvenlik yönetimi yatırımlarınızı buluta genişletin. System Center ve Log Analytics tam karma yönetim deneyimi sağlamak için birlikte çalışabilir.
+Değerli hizmetler kendi, Azure İzleyici hakkında sağlamaya ek olarak günlükleri System Center bileşenleriyle gibi tümleştirebilirsiniz [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), mevcut güvenlik yönetimi yatırım genişletmek için bulut. System Center ve Azure İzleyici günlüklerine tam karma yönetim deneyimi sağlamak için birlikte çalışır.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Bütünsel bir güvenlik ve uyumluluk duruşunu
 
-[Log Analytics güvenlik ve Denetim Panosu](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) kuruluşunuzun kapsamlı bir görünüm sağlar, ilgilenmenizi gerektiren önemli sorunlar için şirket içi arama sorgularıyla de IT güvenlik duruşuna. Güvenlik ve Denetim Panosu, Log analytics'te güvenlik ile ilgili her şey için giriş ekranıdır. Bu pano, size bilgisayarlarınızın güvenlik durumuyla ilgili yüksek düzeyde öngörü sağlar. Ayrıca, tüm son 24 saat, 7 gün, olaylarından veya herhangi bir özel süre görüntüleyebilirsiniz.
+[Log Analytics güvenlik ve Denetim Panosu](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) kuruluşunuzun kapsamlı bir görünüm sağlar, ilgilenmenizi gerektiren önemli sorunlar için şirket içi arama sorgularıyla de IT güvenlik duruşuna. Güvenlik ve denetim günlüklerini Azure İzleyici'deki güvenlik ilgili her şeyi için giriş ekranı panodur. Bu pano, size bilgisayarlarınızın güvenlik durumuyla ilgili yüksek düzeyde öngörü sağlar. Ayrıca, tüm son 24 saat, 7 gün, olaylarından veya herhangi bir özel süre görüntüleyebilirsiniz.
 
-Log Analytics, size hızlıca Yardım ve kolayca herhangi bir ortamın genel güvenlik duruşunu anlamak, yazılımlar dahil olmak üzere, BT işlemleri bağlamında tüm değerlendirmesi, kötü amaçlı yazılımdan koruma değerlendirmesi ve yapılandırma temellerini güncelleştirin. Güvenlik günlüğü verileri, güvenlik ve uyumluluk denetim işlemlerini kolaylaştırmak için kolayca erişilebilir.
+Azure İzleyici, her türlü ortamda, tüm yazılım güncelleştirme değerlendirmesi, kötü amaçlı yazılımdan koruma değerlendirmesi ve yapılandırma temelleri dahil olmak üzere, BT işlemleri bağlamında, genel güvenlik duruşunu hızla ve kolayca anlamanıza yardım günlüğe kaydeder. Güvenlik günlüğü verileri, güvenlik ve uyumluluk denetim işlemlerini kolaylaştırmak için kolayca erişilebilir.
 
 ![Log Analytics güvenlik ve Denetim Panosu](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
@@ -102,25 +102,25 @@ Log Analytics güvenlik ve Denetim Panosu dört ana kategoride düzenlenmiştir:
 -   **Ortak Güvenlik sorguları**: Ortamınızı izlemek için kullanabileceğiniz en sık kullanılan güvenlik sorguları listeler. Herhangi bir sorguyu seçtiğinizde, arama bölmesini açar ve bu sorgu için sonuçları görüntüler.
 
 ### <a name="insight-and-analytics"></a>İçgörü ve analiz
-Merkezine [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) Azure tarafından barındırılan deposu bulunur.
+Merkezine [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) Azure tarafından barındırılan deposu bulunur.
 
 ![İçgörü ve analiz diyagramı](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Veri deposuna bağlı kaynaklardan veri kaynakları yapılandırılarak ve aboneliğinize çözümler ekleyerek toplayın.
 
-![Log Analytics Panosu](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Azure izleme günlükleri Panosu](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Veri kaynakları ve çözümleri kendi özellik kümesine sahip ayrı bir kayıt türleri oluşturma, ancak yine de bunları birlikte depoya sorgularda analiz gerçekleştirebilirsiniz. Çeşitli çeşitli kaynaklar tarafından toplanan veriler ile çalışmak için aynı araçları ve yöntemleri kullanın.
 
 
-Log Analytics ile etkileşim çoğunu olan herhangi bir tarayıcıda çalışan ve yapılandırma ayarlarını erişmenizi ve çok sayıda araç çözümlemenizi ve kullanmanızı sağlayacak toplanan verilerin sağlayan Azure portalı üzerinden. Portaldan şunları kullanabilirsiniz:
+Azure İzleyici günlüklerine etkileşiminizi çoğunu olan herhangi bir tarayıcıda çalışan ve yapılandırma ayarlarını erişmenizi ve çok sayıda araç çözümlemenizi ve kullanmanızı sağlayacak toplanan verilerin sağlayan Azure portalı üzerinden. Portaldan şunları kullanabilirsiniz:
 * [Günlük aramaları](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) oluşturmak burada toplanan verileri analiz etmek için sorgular.
 * [Panolar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), en değerli Aramalarınızın grafik görünümleriyle özelleştirebileceğiniz.
 * [Çözümleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), ek işlevlerle analiz araçları sağlar.
 
 ![Analiz Araçları](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-Çözümler, Log Analytics’e işlevler ekler. Bunlar birincil bulutta çalıştırın ve Log Analytics deposunda toplanan verilerin analizi sağlar. Günlük aramaları veya Log Analytics panosunda çözüm sağlayan bir ek kullanıcı arabirimi kullanılarak çözümlenebilecek toplanacak yeni kayıt türlerinin çözümleri de tanımlayabilirsiniz.
+Çözümleri, Azure İzleyici günlüklerine işlevsellik ekler. Bunlar birincil bulutta çalıştırın ve log analytics deposunda toplanan verilerin analizi sağlar. Günlük aramaları veya log analytics panosunda çözüm sağlayan bir ek kullanıcı arabirimi kullanılarak çözümlenebilecek toplanacak yeni kayıt türlerinin çözümleri de tanımlayabilirsiniz.
 
 Güvenlik ve Denetim Panosu, bu tür çözümler örneğidir.
 

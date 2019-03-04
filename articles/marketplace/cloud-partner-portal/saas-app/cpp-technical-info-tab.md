@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f0f6bbf5f235d6ae3e86114e583d55c502296470
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 383f65ea925a3575afd988e07784be643201c6b8
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895406"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214512"
 ---
 # <a name="saas-application-technical-info-tab"></a>SaaS uygulaması teknik bilgileri sekmesi
 
@@ -73,6 +73,9 @@ Eylem alanı çağrısı ürününüzün edinme düğme üzerinde görünen ilet
 - Benimle iletişim kurun
 
 Yayımlama seçeneği çağrı eylem seçenekleri hakkında daha fazla bilgi için bkz.
+
+>[!Note]
+>Bulut çözümü sağlayıcıları (CSP) iş ortağı kanalı katılımı kullanıma sunuldu.  Lütfen [bulut çözüm sağlayıcıları](../../cloud-solution-providers.md) teklifinizi Microsoft CSP aracılığıyla pazarlama hakkında daha fazla bilgi için iş ortağı kanalı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
