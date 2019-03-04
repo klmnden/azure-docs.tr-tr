@@ -14,6 +14,7 @@
 #### [Müşteri adayı yönetimi](./lead-management-for-cloud-marketplace.md)
 #### [Azure Market'te işlem yapma](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 #### [Özel Teklifler](./private-offers.md)
+#### [Standart Sözleşme](./standard-contract.md)
 
 ### [Teklif türüne göre yayımlama kılavuzu](./publisher-guide-by-offer-type.md)
 #### [Sanal Makineler](./marketplace-virtual-machines.md)
@@ -30,13 +31,16 @@
 #### [En iyi teklif listeleme deneyimleri](./gtm-offer-listing-best-practices.md)
 #### [Ürünü öne çıkarma](./gtm-how-to-get-featured.md)
 #### [Market içerik doğrulaması](./marketplace-criteria-content-validation.md)
+#### [Bulut Çözüm Sağlayıcıları](./cloud-solution-providers.md)
 
 ### [Market avantajlarınız](./gtm-your-marketplace-benefits.md)
 #### [Microsoft ile işletmenizi tanıtma](./gtm-promote-your-business.md)
 #### [Tercih edilen çözümler](./preferred-solutions.md) 
+#### [Tümleşik çözümler](./integrated-solutions.md)
 
 ### [Azure Market ve AppSource desteği](./support-azure-marketplace.md)
 #### [Market hakkında SSS](./marketplace-faq-publisher-guide.md)
+#### [Coğrafi kullanılabilirlik ve para birimleri](./marketplace-geo-availability-currencies.md)
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 

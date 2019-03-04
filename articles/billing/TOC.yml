@@ -7,21 +7,35 @@ items:
     href: billing-understand-your-bill.md
   - name: EA faturanızı anlama
     href: billing-understand-your-bill-ea.md
-  - name: Fatura ve kullanım verilerini alma
-    href: billing-download-azure-invoice-daily-usage-date.md
+  - name: Faturanızı anlama - yalnızca Microsoft Müşteri Sözleşmesi
+    href: billing-mca-understand-your-bill.md
+  - name: Microsoft Azure faturanızı görüntüleme ve indirme
+    href: billing-download-azure-invoice.md
+  - name: Microsoft Azure kullanımınızı ve ücretleri görüntüleme ve indirme
+    href: billing-download-azure-daily-usage.md
+  - name: Microsoft Müşteri Sözleşmeniz için vergi belgelerini görüntüleme ve indirme
+    href: billing-mca-download-tax-document.md
   - name: Üçüncü taraf hizmet değişiklikleri
     href: billing-understand-your-azure-marketplace-charges.md
   - name: Kullanım koşulları açıklandı
     href: billing-understand-your-usage.md
+  - name: Kullanım koşulları açıklandı - yalnızca Microsoft Müşteri Sözleşmesi
+    href: billing-mca-understand-your-usage.md
   - name: Fatura koşulları açıklandı
     href: billing-understand-your-invoice.md
+  - name: Fatura koşulları açıklandı - yalnızca Microsoft Müşteri Sözleşmesi
+    href: billing-mca-understand-your-invoice.md
+  - name: Microsoft Müşteri Sözleşmesi için ödeme hesapları
+    href: billing-mca-overview.md
   expanded: true
 - name: Maliyetleri yönetme
   items:
   - name: Beklenmeyen maliyetleri engelleme
     href: billing-getting-started.md
-  - name: EA fiyatlandırmasını görüntüleme
+  - name: Kuruluşunuzun fiyatlandırmasını görüntüleme ve indirme
     href: billing-ea-pricing.md
+  - name: Fiyat listesi koşulları açıklandı - yalnızca Microsoft Müşteri Sözleşmesi
+    href: billing-mca-understand-pricesheet.md
   - name: Kaynak etiketlerini kullanma
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Maliyet analizini başlatın
@@ -30,6 +44,8 @@ items:
     href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
   - name: Önerileri iyileştirme
     href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: Microsoft Müşteri Sözleşmesi için kredileri izleme
+    href: billing-mca-check-azure-credits-balance.md
   - name: Fiyatlandırmayı hesaplama
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Harcama limitini anlama
@@ -90,12 +106,20 @@ items:
     href: billing-manage-access.md
   - name: Azure'da EA rolleri
     href: billing-understand-ea-roles.md
+  - name: Azure’da Microsoft Müşteri Sözleşmesi rolleri
+    href: billing-understand-mca-roles.md
   - name: İş ortağı kimliğini bağlama
     href: billing-partner-admin-link-started.md
   - name: Fatura hesaplarını görüntüleme
     href: billing-view-all-accounts.md
+  - name: Maliyetleri fatura bölümleriyle düzenleme
+    href: billing-mca-section-invoice.md
+  - name: Microsoft Müşteri Sözleşmesi’ndeki EA görevleri
+    href: billing-mca-enterprise-operations.md
   - name: Vadesi geçmiş bakiye sorunlarını çözme
     href: billing-azure-subscription-past-due-balance.md
+  - name: Microsoft Müşteri Sözleşmesi için ödeme hesabı ayarlama
+    href: billing-mca-setup-account.md
   - name: Office 365 hesabıyla kaydolma
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Azure hesabı ile Office 365 için kaydolma
@@ -106,6 +130,8 @@ items:
     href: billing-subscription-become-disable.md
   - name: Sahipliği devretme
     href: billing-subscription-transfer.md
+  - name: Sahiplik isteme - Microsoft Müşteri Sözleşmesi
+    href: billing-mca-request-billing-ownership.md
   - name: Aboneliği iptal etme
     href: billing-how-to-cancel-azure-subscription.md
   - name: Kredi kartını değiştirme
@@ -122,6 +148,8 @@ items:
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: Ek abonelik oluşturma
     href: billing-create-subscription.md
+  - name: Ek abonelik oluşturma - Microsoft Müşteri Sözleşmesi
+    href: billing-mca-create-subscription.md
   - name: Program aracılığıyla Kurumsal abonelikler oluşturma
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Abonelik bilgilerini dışarı aktarma
@@ -190,9 +218,9 @@ items:
     items:
     - name: Kurumsal raporlama REST API’si
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 156f9f2ebb293855d541c779c7a2e3ba83cffc07
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 5d56504730be60d872c9d1345850925a645c664e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447710"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241655"
