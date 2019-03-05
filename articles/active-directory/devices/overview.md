@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3711f2b2901ddbe49b4d6a49cabef12ac5dab3e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f3c1dae656e91fab91878ca2411f6cad0fc0431
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192481"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315155"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Azure Active Directory’de cihaz yönetimi nedir?
 
@@ -89,7 +89,7 @@ Aşağıdaki yöntemlerden birini kullanarak Azure AD'ye Katılım dağıtımı 
 
 Azure AD’ye katılmış cihazların uygulanması aşağıdaki avantajları sağlar:
 
-- Azure yönetimli SaaS uygulamalarınızda ve hizmetlerinizde **Çoklu Oturum Açma (SSO)**. Kullanıcılarınız, iş kaynaklarına erişirken ek kimlik doğrulama istemleri görmez. Kullanılabilir etki alanı ağına bağlı olmasalar bile SSO işlevseldir.
+- Azure yönetimli SaaS uygulamalarınızda ve hizmetlerinizde **Çoklu Oturum Açma (SSO)**. Kullanıcılarınız, iş kaynaklarına erişirken ek kimlik doğrulama istemleri görmez. SSO işlevselliğini bile, kullanıcılar etki alanı ağına bağlı olduğunda kullanılabilir.
 
 - Katılan cihazlar arasında kullanıcı ayarlarına ilişkin **Kuruluşa uyumlu dolaşım**. Kullanıcıların cihazlar arasındaki ayarları görüntülemek için bir Microsoft hesabına (örneğin, Hotmail) bağlı olması gerekmez.
 

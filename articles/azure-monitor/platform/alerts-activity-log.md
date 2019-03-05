@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: da7556b909ec4eb544a6b4e4fab7af4a0919a158
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234246"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308185"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Etkinlik günlüğü Uyarıları yönetme  
 
@@ -204,13 +204,26 @@ Yukarıdaki örnek json (örneğin) sampleActivityLogAlert.json amacıyla bu kı
 
 ## <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="deploy-resource-manager-template-with-powershell"></a>PowerShell ile Resource Manager şablonu dağıtma
+Örnek kaynak önceki bir [kaynak şablonu bölüm] içinde gösterilen şablonu dağıtmak için PowerShell kullanma (#resource-manager-şablonu, aşağıdaki komutu kullanın:
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+```
+
+Burada sampleActivityLogAlert.parameters.json uyarı kuralı oluşturmak için gereken parametreleri için sağlanan değerler içerir.
+
+### <a name="use-activity-log-powershell-cmdlets"></a>Etkinlik günlüğü PowerShell cmdlet'lerini kullanın
+
 Etkinlik günlüğü uyarıları adanmış PowerShell cmdlet'leri kullanılabilir:
 
-- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert): Yeni veya mevcut etkinlik günlük uyarı kuralı kaynağı güncelleştirmek için
-- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert): Bir veya daha fazla etkinlik günlük uyarı kuralı kaynakları almak için
-- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert): Kullanıcı onayı ile etkinlik günlüğü uyarı kuralı kaynak silinemedi
-- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert): Mevcut bir etkinlik günlük uyarı kuralı kaynağı etkinleştirmek için
-- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert): Mevcut bir etkinlik günlük uyarı kuralı kaynağı devre dışı bırakmak için
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Yeni bir oluşturur veya mevcut bir etkinlik günlüğü uyarısını güncelleştirin.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Bir veya daha fazla etkinlik günlük uyarı kaynakları alır.
+- [Etkinleştir-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Mevcut bir etkinlik günlüğü uyarısını sağlar ve kendi etiketleri ayarlar.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Mevcut bir etkinlik günlüğü uyarısını devre dışı bırakır ve kendi etiketleri ayarlar.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0) : Bir etkinlik günlüğü uyarısı kaldırır.
 
 ## <a name="cli"></a>CLI
 

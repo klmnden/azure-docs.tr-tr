@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7819dc62d766a6b35f5c2efe1179cb0adb0ab933
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 024a622484a83957c9ab5f4a684a346a55787ccf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243559"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313370"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, söz dizimi ve yapısı anlama
 
@@ -31,13 +31,13 @@ En basit yapısına bir şablon aşağıdaki öğelere sahiptir:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "",
-    "parameters": {  },
-    "variables": {  },
-    "functions": [  ],
-    "resources": [  ],
-    "outputs": {  }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "",
+  "parameters": {  },
+  "variables": {  },
+  "functions": [  ],
+  "resources": [  ],
+  "outputs": {  }
 }
 ```
 
@@ -55,106 +55,106 @@ Her öğesinin özellikleri ayarlayabilirsiniz. Aşağıdaki örnek, bir şablon
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "",
-    "parameters": {  
-        "<parameter-name>" : {
-            "type" : "<type-of-parameter-value>",
-            "defaultValue": "<default-value-of-parameter>",
-            "allowedValues": [ "<array-of-allowed-values>" ],
-            "minValue": <minimum-value-for-int>,
-            "maxValue": <maximum-value-for-int>,
-            "minLength": <minimum-length-for-string-or-array>,
-            "maxLength": <maximum-length-for-string-or-array-parameters>,
-            "metadata": {
-                "description": "<description-of-the parameter>" 
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "",
+  "parameters": {  
+    "<parameter-name>" : {
+      "type" : "<type-of-parameter-value>",
+      "defaultValue": "<default-value-of-parameter>",
+      "allowedValues": [ "<array-of-allowed-values>" ],
+      "minValue": <minimum-value-for-int>,
+      "maxValue": <maximum-value-for-int>,
+      "minLength": <minimum-length-for-string-or-array>,
+      "maxLength": <maximum-length-for-string-or-array-parameters>,
+      "metadata": {
+        "description": "<description-of-the parameter>" 
+      }
+    }
+  },
+  "variables": {
+    "<variable-name>": "<variable-value>",
+    "<variable-object-name>": {
+      <variable-complex-type-value>
+    },
+    "<variable-object-name>": {
+      "copy": [
+        {
+          "name": "<name-of-array-property>",
+          "count": <number-of-iterations>,
+          "input": <object-or-value-to-repeat>
         }
+      ]
     },
-    "variables": {
-        "<variable-name>": "<variable-value>",
-        "<variable-object-name>": {
-            <variable-complex-type-value>
-        },
-        "<variable-object-name>": {
-            "copy": [
-                {
-                    "name": "<name-of-array-property>",
-                    "count": <number-of-iterations>,
-                    "input": <object-or-value-to-repeat>
-                }
-            ]
-        },
-        "copy": [
-            {
-                "name": "<variable-array-name>",
-                "count": <number-of-iterations>,
-                "input": <object-or-value-to-repeat>
-            }
-        ]
-    },
-    "functions": [
+    "copy": [
       {
-        "namespace": "<namespace-for-your-function>",
-        "members": {
-          "<function-name>": {
-            "parameters": [
-              {
-                "name": "<parameter-name>",
-                "type": "<type-of-parameter-value>"
-              }
-            ],
-            "output": {
-              "type": "<type-of-output-value>",
-              "value": "<function-expression>"
+        "name": "<variable-array-name>",
+        "count": <number-of-iterations>,
+        "input": <object-or-value-to-repeat>
+      }
+    ]
+  },
+  "functions": [
+    {
+      "namespace": "<namespace-for-your-function>",
+      "members": {
+        "<function-name>": {
+          "parameters": [
+            {
+              "name": "<parameter-name>",
+              "type": "<type-of-parameter-value>"
             }
+          ],
+          "output": {
+            "type": "<type-of-output-value>",
+            "value": "<function-expression>"
           }
         }
       }
-    ],
-    "resources": [
-      {
-          "condition": "<boolean-value-whether-to-deploy>",
-          "apiVersion": "<api-version-of-resource>",
-          "type": "<resource-provider-namespace/resource-type-name>",
-          "name": "<name-of-the-resource>",
-          "location": "<location-of-resource>",
-          "tags": {
-              "<tag-name1>": "<tag-value1>",
-              "<tag-name2>": "<tag-value2>"
-          },
-          "comments": "<your-reference-notes>",
-          "copy": {
-              "name": "<name-of-copy-loop>",
-              "count": "<number-of-iterations>",
-              "mode": "<serial-or-parallel>",
-              "batchSize": "<number-to-deploy-serially>"
-          },
-          "dependsOn": [
-              "<array-of-related-resource-names>"
-          ],
-          "properties": {
-              "<settings-for-the-resource>",
-              "copy": [
-                  {
-                      "name": ,
-                      "count": ,
-                      "input": {}
-                  }
-              ]
-          },
-          "resources": [
-              "<array-of-child-resources>"
-          ]
-      }
-    ],
-    "outputs": {
-        "<outputName>" : {
-            "condition": "<boolean-value-whether-to-output-value>",
-            "type" : "<type-of-output-value>",
-            "value": "<output-value-expression>"
-        }
     }
+  ],
+  "resources": [
+    {
+      "condition": "<boolean-value-whether-to-deploy>",
+      "apiVersion": "<api-version-of-resource>",
+      "type": "<resource-provider-namespace/resource-type-name>",
+      "name": "<name-of-the-resource>",
+      "location": "<location-of-resource>",
+        "tags": {
+          "<tag-name1>": "<tag-value1>",
+          "<tag-name2>": "<tag-value2>"
+        },
+        "comments": "<your-reference-notes>",
+        "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": "<number-of-iterations>",
+          "mode": "<serial-or-parallel>",
+          "batchSize": "<number-to-deploy-serially>"
+        },
+        "dependsOn": [
+          "<array-of-related-resource-names>"
+        ],
+        "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+            {
+              "name": ,
+              "count": ,
+              "input": {}
+            }
+          ]
+        },
+        "resources": [
+          "<array-of-child-resources>"
+        ]
+    }
+  ],
+  "outputs": {
+    "<outputName>" : {
+      "condition": "<boolean-value-whether-to-output-value>",
+      "type" : "<type-of-output-value>",
+      "value": "<output-value-expression>"
+    }
+  }
 }
 ```
 
@@ -170,7 +170,7 @@ Aşağıdaki örnek, bir değer oluştururken çeşitli işlevler kullanma işle
 
 ```json
 "variables": {
-    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 }
 ```
 
@@ -180,20 +180,179 @@ Aşağıdaki örnek, bir değer oluştururken çeşitli işlevler kullanma işle
 
 Şablon parametreleri bölümünde kaynakları dağıtırken giriş değerleri belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uygun değerleri sağlayarak bir dağıtımı özelleştirmek etkinleştirin. Şablonunuzdaki parametrelerle sağlamanıza gerek yoktur, ancak parametre olmadan, şablonunuzu her zaman aynı adları, konumları ve özellikleri ile aynı kaynakları dağıtmak için kullanacağınız.
 
-Aşağıdaki örnek, bir basit parametre tanımı gösterilmektedir:
+Şablonda 256 parametreleri ile sınırlıdır. Bu makalede gösterilen şekilde birden çok özelliği içeren nesneleri kullanarak parametre sayısını azaltabilir.
+
+### <a name="available-properties"></a>Kullanılabilir özellikler
+
+Bir parametre için kullanılabilir özellikler şunlardır:
 
 ```json
 "parameters": {
-  "siteNamePrefix": {
-    "type": "string",
+  "<parameter-name>" : {
+    "type" : "<type-of-parameter-value>",
+    "defaultValue": "<default-value-of-parameter>",
+    "allowedValues": [ "<array-of-allowed-values>" ],
+    "minValue": <minimum-value-for-int>,
+    "maxValue": <maximum-value-for-int>,
+    "minLength": <minimum-length-for-string-or-array>,
+    "maxLength": <maximum-length-for-string-or-array-parameters>,
     "metadata": {
-      "description": "The name prefix of the web app that you wish to create."
+      "description": "<description-of-the parameter>" 
+    }
+  }
+}
+```
+
+| Öğe adı | Gerekli | Açıklama |
+|:--- |:--- |:--- |
+| parameterName |Evet |Parametrenin adı. Geçerli bir JavaScript tanımlayıcı olmalıdır. |
+| type |Evet |Parametre değeri türü. İzin verilen türleri ve değerleri **dize**, **securestring**, **int**, **bool**, **nesne**, **secureObject**, ve **dizi**. |
+| defaultValue |Hayır |Parametresi, parametre için hiçbir değer sağlanmışsa varsayılan değeri. |
+| izin verilen değerler |Hayır |Doğru değeri sağlandığından emin olmak parametresi için izin verilen değerler dizisi. |
+| minValue |Hayır |İnt türü parametreleri için en düşük değer, bu değer büyük/küçük harf dahildir. |
+| maxValue |Hayır |İnt türü parametreleri için maksimum değeri, bu değeri de dahildir. |
+| minLength |Hayır |Dize, güvenli dize ve dizi tür parametreleri için minimum uzunluğu, bu değer büyük/küçük harf dahildir. |
+| maxLength |Hayır |Dize, güvenli dize ve dizi tür parametreleri için en fazla uzunluk, bu değer büyük/küçük harf dahildir. |
+| açıklama |Hayır |Portal aracılığıyla kullanıcılara görüntülenen parametre açıklaması. Daha fazla bilgi için [şablonlarında yorum](#comments). |
+
+### <a name="define-and-use-a-parameter"></a>Tanımlamak ve bir parametre kullanın
+
+Aşağıdaki örnek, bir basit parametre tanımı gösterilmektedir. Parametrenin adını tanımlar ve bir dize değeri aldığını belirtir. Parametresi yalnızca kullanım amacı için anlamlı değerleri kabul eder. Dağıtım sırasında hiçbir değer sağlandığında varsayılan bir değer belirtir. Son olarak, parametre kullanımı açıklamasını içerir.
+
+```json
+"parameters": {
+  "storageSKU": {
+    "type": "string",
+    "allowedValues": [
+      "Standard_LRS",
+      "Standard_ZRS",
+      "Standard_GRS",
+      "Standard_RAGRS",
+      "Premium_LRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+      "description": "The type of replication to use for the storage account."
+    }
+  }   
+}
+```
+
+Şablonda, aşağıdaki söz dizimi ile parametresinin değeri başvurusu:
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "sku": {
+      "name": "[parameters('storageSKU')]"
+    },
+    ...
+  }
+]
+```
+
+### <a name="template-functions-with-parameters"></a>Parametrelerle şablon işlevleri
+
+Bir parametre için varsayılan değer belirtirken, çoğu şablon işlevleri kullanabilirsiniz. Başka bir parametre değeri, varsayılan bir değer oluşturmak için kullanabilirsiniz. Aşağıdaki şablonu varsayılan değer işlevlerinde kullanımını gösterir:
+
+```json
+"parameters": {
+  "siteName": {
+    "type": "string",
+    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]",
+    "metadata": {
+      "description": "The site name. To use the default value, do not specify a new value."
     }
   },
+  "hostingPlanName": {
+    "type": "string",
+    "defaultValue": "[concat(parameters('siteName'),'-plan')]",
+    "metadata": {
+      "description": "The host name. To use the default value, do not specify a new value."
+    }
+  }
+}
+```
+
+Kullanamazsınız `reference` parametreleri bölümünde işlevi. Parametreleri, dağıtım öncesinde değerlendirilir böylece `reference` işlevi, bir kaynak çalışma zamanı durumu alınamıyor. 
+
+### <a name="objects-as-parameters"></a>Parametre olarak nesne
+
+Bunları bir nesne olarak geçirerek ilgili değerlerini düzenlemek daha kolay olabilir. Bu yaklaşım da şablon parametrelerinde sayısını azaltır.
+
+Şablonunuzda parametreyi tanımlayın ve dağıtım sırasında bir JSON nesnesi yerine tek bir değer belirtin. 
+
+```json
+"parameters": {
+  "VNetSettings": {
+    "type": "object",
+    "defaultValue": {
+      "name": "VNet1",
+      "location": "eastus",
+      "addressPrefixes": [
+        {
+          "name": "firstPrefix",
+          "addressPrefix": "10.0.0.0/22"
+        }
+      ],
+      "subnets": [
+        {
+          "name": "firstSubnet",
+          "addressPrefix": "10.0.0.0/24"
+        },
+        {
+          "name": "secondSubnet",
+          "addressPrefix": "10.0.1.0/24"
+        }
+      ]
+    }
+  }
 },
 ```
 
-Parametreleri tanımlama hakkında daha fazla bilgi için bkz: [parametreleri bölümünde Azure Resource Manager şablonları](resource-manager-templates-parameters.md).
+Daha sonra alt parametresinin nokta işlecini kullanarak başvuru.
+
+```json
+"resources": [
+  {
+    "apiVersion": "2015-06-15",
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[parameters('VNetSettings').name]",
+    "location": "[parameters('VNetSettings').location]",
+    "properties": {
+      "addressSpace":{
+        "addressPrefixes": [
+          "[parameters('VNetSettings').addressPrefixes[0].addressPrefix]"
+        ]
+      },
+      "subnets":[
+        {
+          "name":"[parameters('VNetSettings').subnets[0].name]",
+          "properties": {
+            "addressPrefix": "[parameters('VNetSettings').subnets[0].addressPrefix]"
+          }
+        },
+        {
+          "name":"[parameters('VNetSettings').subnets[1].name]",
+          "properties": {
+            "addressPrefix": "[parameters('VNetSettings').subnets[1].addressPrefix]"
+          }
+        }
+      ]
+    }
+  }
+]
+```
+
+### <a name="parameter-example-templates"></a>Parametre örnek şablonları
+
+Bu örnek şablon parametrelerini kullanarak bazı senaryolar gösterilmektedir. Farklı senaryolarda parametreleri nasıl işleneceğini test etmek için bunları dağıtın.
+
+|Şablon  |Açıklama  |
+|---------|---------|
+|[Parametreler için varsayılan değerlere işlevler ile](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Parametrelerinin varsayılan değerleri tanımlarken şablon işlevleri nasıl yapılacağı açıklanır. Şablon kaynakları dağıtmaz. Bu parametre değerlerini oluşturur ve bu değerleri döndürür. |
+|[Parametre nesnesi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Bir nesne parametresi için kullanmayı gösterir. Şablon kaynakları dağıtmaz. Bu parametre değerlerini oluşturur ve bu değerleri döndürür. |
 
 ## <a name="variables"></a>Değişkenler
 
@@ -205,26 +364,26 @@ Aşağıdaki örnek bir değişkeni tanımlamak için kullanılabilir seçenekle
 
 ```json
 "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-name>": { 
-        <variable-complex-type-value> 
-    },
-    "<variable-object-name>": {
-        "copy": [
-            {
-                "name": "<name-of-array-property>",
-                "count": <number-of-iterations>,
-                "input": <object-or-value-to-repeat>
-            }
-        ]
-    },
+  "<variable-name>": "<variable-value>",
+  "<variable-name>": { 
+    <variable-complex-type-value> 
+  },
+  "<variable-object-name>": {
     "copy": [
-        {
-            "name": "<variable-array-name>",
-            "count": <number-of-iterations>,
-            "input": <object-or-value-to-repeat>
-        }
+      {
+        "name": "<name-of-array-property>",
+        "count": <number-of-iterations>,
+        "input": <object-or-value-to-repeat>
+      }
     ]
+  },
+  "copy": [
+    {
+      "name": "<variable-array-name>",
+      "count": <number-of-iterations>,
+      "input": <object-or-value-to-repeat>
+    }
+  ]
 }
 ```
 
@@ -256,16 +415,16 @@ Karmaşık JSON türleri, bir ortam için ilgili değerleri tanımlamak için ku
 
 ```json
 "variables": {
-    "environmentSettings": {
-        "test": {
-            "instanceSize": "Small",
-            "instanceCount": 1
-        },
-        "prod": {
-            "instanceSize": "Large",
-            "instanceCount": 4
-        }
+  "environmentSettings": {
+    "test": {
+      "instanceSize": "Small",
+      "instanceCount": 1
+    },
+    "prod": {
+      "instanceSize": "Large",
+      "instanceCount": 4
     }
+  }
 },
 ```
 
@@ -273,13 +432,13 @@ Parametreleri kullanmak için yapılandırma değerlerini gösteren bir değeri 
 
 ```json
 "parameters": {
-    "environmentName": {
-        "type": "string",
-        "allowedValues": [
-          "test",
-          "prod"
-        ]
-    }
+  "environmentName": {
+    "type": "string",
+    "allowedValues": [
+      "test",
+      "prod"
+    ]
+  }
 },
 ```
 
@@ -289,7 +448,7 @@ Geçerli ayarlarla aldığınız:
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-### <a name="variables-example-templates"></a>Değişkenleri örnek şablonları
+### <a name="variable-example-templates"></a>Değişken örnek şablonları
 
 Bu örnek şablon değişkenleri kullanmakla bazı senaryolar gösterilmektedir. Değişkenleri farklı senaryolarda nasıl işleneceğini test etmek için bunları dağıtın. 
 
@@ -384,11 +543,11 @@ Aşağıdaki örnek, bir çıkış tanımı yapısını gösterir:
 
 ```json
 "outputs": {
-    "<outputName>" : {
-        "condition": "<boolean-value-whether-to-output-value>",
-        "type" : "<type-of-output-value>",
-        "value": "<output-value-expression>"
-    }
+  "<outputName>" : {
+    "condition": "<boolean-value-whether-to-output-value>",
+    "type" : "<type-of-output-value>",
+    "value": "<output-value-expression>"
+  }
 }
 ```
 
@@ -446,7 +605,7 @@ Aşağıdaki örnek, IP adresi bir yük dengeleyicideki bağlantılı bir şablo
 
 ```json
 "publicIPAddress": {
-    "id": "[reference('linkedTemplate').outputs.resourceID.value]"
+  "id": "[reference('linkedTemplate').outputs.resourceID.value]"
 }
 ```
 
@@ -471,24 +630,24 @@ Ekleyebileceğiniz bir `metadata` şablonunuzda neredeyse her yerden nesne. Kayn
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "comments": "This template was developed for demonstration purposes.",
+    "author": "Example Name"
+  },
 ```
 
 İçin **parametreleri**, ekleme bir `metadata` nesnesi ile bir `description` özelliği.
 
 ```json
 "parameters": {
-    "adminUsername": {
-      "type": "string",
-      "metadata": {
-        "description": "User name for the Virtual Machine."
-      }
-    },
+  "adminUsername": {
+    "type": "string",
+    "metadata": {
+      "description": "User name for the Virtual Machine."
+    }
+  },
 ```
 
 Şablonu portal aracılığıyla dağıtım yaparken, metnin bir açıklama sağlayın, otomatik olarak bir ipucu olarak bu parametre için kullanılır.
@@ -525,13 +684,13 @@ Ekleyebileceğiniz bir `metadata` şablonunuzda neredeyse her yerden nesne. Kayn
 
 ```json
 "outputs": {
-    "hostname": {
-      "type": "string",
-      "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
-      "metadata": {
-        "comments": "Return the fully qualified domain name"
-      }
-    },
+  "hostname": {
+    "type": "string",
+    "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
+    "metadata": {
+      "comments": "Return the fully qualified domain name"
+    }
+  },
 ```
 
 Kullanıcı tanımlı işlevler için bir meta veri nesnesi ekleyemezsiniz.
@@ -545,8 +704,8 @@ Satır içi yorumlar için kullanabileceğiniz `//` ancak bu sözdizimi ile tüm
   "location": "[parameters('location')]", //defaults to resource group location
   "apiVersion": "2018-10-01",
   "dependsOn": [ // storage account and network interface must be deployed first
-      "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
-      "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
 ```
 

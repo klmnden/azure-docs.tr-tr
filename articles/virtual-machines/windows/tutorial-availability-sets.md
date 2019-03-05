@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3ee9740f9ef7e364c47bb205315683d1e4ea9294
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f71bfa39e4ded0ea300cc2d329c442fdc6ddec37
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977140"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309086"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Öğretici: Azure PowerShell ile yüksek oranda kullanılabilir sanal makineler oluşturup dağıtma
 
@@ -38,7 +38,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="availability-set-overview"></a>Kullanılabilirlik kümesine genel bakış
 
-Bir kullanılabilirlik kümesi dağıtıldıkları VM kaynaklarını birbirinden yalıtmak için bir mantıksal gruplama yeteneğidir. Azure VM'ler, birden çok fiziksel sunucuda çalıştırma bir kullanılabilirlik kümesi içinde eklediğinden emin olur, raflar, depolama birimi ve ağ anahtarları işlem. Bir donanım veya yazılım hatası oluşursa yalnızca sanal makinelerinizin bir alt etkilenir ve genel çözümünüzün işletimsel kalır. Kullanılabilirlik kümeleri, güvenilir bulut çözümleri oluşturmak için gereklidir.
+Bir kullanılabilirlik kümesi dağıtıldıkları VM kaynakları birbirinden yalıtmak için bir mantıksal gruplama yeteneğidir. Azure VM'ler, birden çok fiziksel sunucuda çalıştırma bir kullanılabilirlik kümesi içinde eklediğinden emin olur, raflar, depolama birimi ve ağ anahtarları işlem. Bir donanım veya yazılım hatası oluşursa yalnızca sanal makinelerinizin bir alt etkilenir ve genel çözümünüzün işletimsel kalır. Kullanılabilirlik kümeleri, güvenilir bulut çözümleri oluşturmak için gereklidir.
 
 Dört adet ön uç web sunucusuna ve iki adet arka uç sanal makineye sahip olabileceğiniz tipik bir sanal makine tabanlı çözümü düşünelim. Azure ile sanal makinelerinizi dağıtmadan önce iki kullanılabilirlik kümesi tanımlamak istersiniz: bir web katmanı ve geri katmanı için bir tane. Yeni bir VM oluşturduğunuzda, kullanılabilirlik kümesi parametre olarak belirtin. Azure Vm'lerini birden fazla fiziksel donanım kaynağı arasında yalıtılır emin olur. Sunucularınızın birini çalıştıran fiziksel donanımı bir sorun varsa, bunlar farklı bir donanım üzerinde olduğundan diğer örneklerin sunucularınızın çalışmaya devam edeceği bildirin.
 

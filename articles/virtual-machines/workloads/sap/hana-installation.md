@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 03/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc63eb792e58d960ae67138b5e58e6b705945030
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 2d81207195eb19a386d0d98fd4bfa6ba53ca972e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446401"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316651"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Yükleme ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırın
 
@@ -50,7 +50,7 @@ Microsoft'un sunduğu HANA büyük örneği birim aldıktan sonra aşağıdaki a
 
 HANA büyük örneği birim bu SMT örneğe bağlanabilir. (Daha fazla bilgi için [SMT sunucusu kurmak için SUSE Linux nasıl](hana-setup-smt.md)). Alternatif olarak, Red Hat işletim sisteminizi Red Hat abonelik bağlanmak için gereken Yöneticisi ile kayıtlı olması gerekir. Daha fazla bilgi için konusundaki yorumlara bakın [SAP HANA (büyük örnekler) azure'da nedir?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-Bu adım ayrıca müşterinin sorumluluğundadır işletim sistemi düzeltme eki uygulama için gerekli değildir. SUSE için yükleme ve yapılandırma bu sayfada hakkında SMT belgelere [SMT yükleme](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+Bu adım, müşterinin sorumluluğundadır işletim sistemi düzeltme eki uygulama için gereklidir. SUSE için yükleme ve yapılandırma bu sayfada hakkında SMT belgelere [SMT yükleme](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 **İkinci adım** yeni yamaları ve düzeltmeler belirli işletim sistemi sürümünün sürüm/denetlemek için. HANA büyük örneği düzeltme eki düzeyini en son durumunda olduğundan emin olun. En son düzeltme eklerinin burada eklenmeyen durumlar olabilir. Bir HANA büyük örneği birimi üzerinde aldıktan sonra düzeltme eki uygulanması gerekli olup olmadığını denetlemek için zorunludur.
 
@@ -80,6 +80,7 @@ Daha fazla örnek kiracınızda oturum sipariş, yeni teslim edilen örnekler sa
 
 **Beşinci adım** etc/hosts denetlemektir. Dikey pencereleri devredildiği gibi farklı amaçlar için atanmış farklı IP adreslerini sahiptirler. Etc/hosts dosyasını kontrol edin. Birimler mevcut bir kiracınız eklendiğinde, vb./konak sistemlerini, daha önce sunulan IP adresleriyle doğru tutulan yeni dağıtılan sistemler, sahip olmayı beklediğiniz yok. Yeni dağıtılan örnek etkileşim ve kiracınıza daha önce dağıttığınız birimlerinin adlarını çözmek için müşteri xenapp'i gibi sizin sorumluluğunuzdur. 
 
+
 ## <a name="operating-system"></a>İşletim sistemi
 
 > [!IMPORTANT] 
@@ -105,7 +106,7 @@ SAP HANA SLES 12 uygulama için geçerli olan SAP destek notları şunlardır:
 - [Destek Not #171356 – SAP yazılım Linux üzerinde SAP:  Genel bilgiler](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP destek Not #1391070 – Linux UUID çözümleri](https://launchpad.support.sap.com/#/notes/1391070)
 
-[SAP HANA için Red Hat Enterprise Linux](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) HANA büyük örnekler üzerinde SAP HANA çalıştırmayı için başka bir tekliftir. RHEL 6.7 ve 7.2 sürümlerinde kullanılabilir. Yerel Azure yalnızca RHEL 7.2 ve daha yeni sürümlerde desteklendiği durumlarda Vm'leri aksine, HANA büyük örnekleri RHEL 6.7 de desteklediğini unutmayın. Ancak, bir RHEL 7.x sürümü kullanmanızı öneririz.
+[SAP HANA için Red Hat Enterprise Linux](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) HANA büyük örnekler üzerinde SAP HANA çalıştırmayı için başka bir tekliftir. RHEL 6.7 ve 7.2 sürümlerinde kullanılabilir. HANA büyük örnekleri RHEL 6.7 de destekler, burada yalnızca RHEL 7.2 ve daha yeni sürümlerde desteklenir, yerel Azure Vm'leri ters yönde dikkat edin. Ancak, bir RHEL 7.x sürümü kullanmanızı öneririz.
 
 Red Hat ilgili bağlantılar üzerinde ek yararlı SAP aşağıda verilmiştir:
 - [Red Hat Linux site üzerinde SAP HANA](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
@@ -200,6 +201,16 @@ SAP HANA altında kullanılan depolama alanı için en iyi duruma getirme, aşa�
 SPS12 kadar SAP HANA 1.0 sürümleri için bu parametreleri SAP HANA veritabanı yüklemesi sırasında açıklanan şekilde ayarlanabilir ['lu SAP notuna #2267798 - SAP HANA veritabanı yapılandırmasını](https://launchpad.support.sap.com/#/notes/2267798).
 
 Parametreleri SAP HANA veritabanı yükleme sonrasında hdbparam çerçevesi kullanılarak da yapılandırabilirsiniz. 
+
+HANA büyük örnekleri kullanılan depolama alanı dosya boyutu sınırlaması vardır. [Boyut sınırlaması 16TB'tır](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) dosya başına. Farklı durumlarda EXT3 dosya sistemleri gibi dosya boyutu sınırlamaları, HANA örtük olarak HANA büyük örnekleri depolaması tarafından zorlanan depolama sınırlama farkında değil. Sonuç olarak 16 TB'lık dosya boyutu sınırını ulaşıldığında HANA'ya yeni bir veri dosyası otomatik olarak oluşturmaz. HANA 16 TB ötesinde dosya büyütme girişiminde HANA sonunda, hataları ve dizin sunucusu çöker rapor eder.
+
+> [!IMPORTANT]
+> Veri büyür ve HANA büyük Örnek Depolama 16 TB dosya boyutu sınırını aşan çalışılırken HANA önlemek için aşağıdaki parametreleri HANA global.ini yapılandırma dosyasında ayarlamanız gerekir
+> 
+- datavolume_striping = true
+- datavolume_striping_size_gb 15000 =
+- Ayrıca SAP bkz Not [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+
 
 SAP HANA 2.0 ile hdbparam framework kullanım dışıdır. Sonuç olarak, SQL komutlarını kullanarak parametreler ayarlanmalıdır. Daha fazla bilgi için [#2399079 SAP notuna göz atın: HANA 2 hdbparam saydamlığından](https://launchpad.support.sap.com/#/notes/2399079).
 

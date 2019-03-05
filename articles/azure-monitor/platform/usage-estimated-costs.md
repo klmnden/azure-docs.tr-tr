@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: e6207c44fbac63163d125a109cbdc1c6f08e9860
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1ae35c30e0379ed7a0f1fac16c279651e3bcd8fd
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734513"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315886"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve Tahmini maliyetler izleme
 
@@ -23,6 +23,8 @@ ms.locfileid: "55734513"
 > - [Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme](../../azure-monitor/platform/manage-cost-storage.md) veri saklama döneminizin değiştirerek maliyetlerinizi denetlemek nasıl açıklar.
 > - [Log analytics'te veri kullanımını çözümleme](../../azure-monitor/platform/data-usage.md) analiz ve veri kullanımınızı uyarı açıklar.
 > - [Application ınsights fiyatlandırma ve veri hacmini yönetme](../../azure-monitor/app/pricing.md) Application ınsights'ta veri kullanımını çözümleme açıklar.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure portal'ın İzleyici hub'ında **kullanım ve Tahmini maliyetler** sayfası izleme özellikleri gibi Çekirdek kullanımını açıklar [bildirimleri ölçümleri, uyarılar](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics ](https://azure.microsoft.com/pricing/details/log-analytics/), ve [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Nisan 2018 tarihinden önce kullanılabilir fiyatlandırma planları müşteriler, bu öngörüleri satın alınan Log Analytics kullanımı da içerir ve analizi sunar.
 
@@ -112,14 +114,14 @@ Bir aboneliği yeni fiyatlandırma modeline taşımak için yalnızca kutusunu i
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeline taşıma otomatikleştirin
 
-Aşağıdaki komut, Azure PowerShell modülünü gerektirir. Bkz. en son sürümü olup olmadığını denetlemek için [Azure PowerShell modülü yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.1.0).
+Aşağıdaki komut, Azure PowerShell modülünü gerektirir. Bkz. en son sürümü olup olmadığını denetlemek için [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps).
 
-Azure PowerShell'in en son sürümünü oluşturduktan sonra ilk kez çalıştırmanız gerekir ``Connect-AzureRmAccount``.
+Azure PowerShell'in en son sürümünü oluşturduktan sonra ilk kez çalıştırmanız gerekir ``Connect-AzAccount``.
 
 ``` PowerShell
 # To check if your subscription is eligible to adjust pricing models.
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action listmigrationdate `
@@ -138,7 +140,7 @@ Geçirmek için bu aboneliği yeni fiyatlandırma modeline çalıştırın:
 
 ```PowerShell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action migratetonewpricingmodel `
@@ -149,7 +151,7 @@ Değişikliği yeniden başarılı olduğunu doğrulamak için:
 
 ```PowerShell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action listmigrationdate `
@@ -170,7 +172,7 @@ Eski fiyatlandırma modeline geri dönmek gerekiyorsa çalıştırırsınız:
 
 ```PowerShell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action rollbacktolegacypricingmodel `
@@ -184,7 +186,7 @@ Aynı kiracısı altında barındırılan, geçirmek istediğiniz birden fazla a
 ```PowerShell
 #Query tenant and create an array comprised of all of your tenants subscription ids
 $TenantId = <Your-tenant-id>
-$Tenant =Get-AzureRMSubscription -TenantId $TenantId
+$Tenant =Get-AzSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
 ```
 
@@ -194,7 +196,7 @@ Kiracınızdaki tüm abonelikleri için yeni fiyatlandırma modeline uygun olup 
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action listmigrationdate `
@@ -212,7 +214,7 @@ Betik daraltılmış üç diziden oluşturan kod oluşturma tarafından daha faz
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-$Result= Invoke-AzureRmResourceAction `
+$Result= Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action listmigrationdate `
@@ -244,7 +246,7 @@ Artık üç diziye bölünmüş aboneliklerinizi sahip olduğunuza göre sonuçl
 Foreach ($id in $Eligible)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action migratetonewpricingmodel `

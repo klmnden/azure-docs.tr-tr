@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: ca7aba3d92542f1b73160c726a555487e17fd8e2
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 34c455b5bf77906d9b6525731c09b62f15e4ccd2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57012038"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313234"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Trafik analizi şema ve veri toplama işlemleri
 
@@ -112,15 +112,15 @@ Trafik Analizi ile donatılmış ve uyarılar aynı veriler üzerinde özel sorg
     
 1. AzurePublic ve ExternalPublic akışlar olması durumunda, müşteri PublicIPs_s alanında genel IP adresleri dolduruluyor sırada Azure VM IP VMIP_s alanında doldurulur ait. Bu iki akış türleri için biz SrcIP_s ve DestIP_s alanları yerine VMIP_s ve PublicIPs_s kullanmalıdır. Müşteri log analytics çalışma alanı için alınan kayıt sayısı çok az olmasını AzurePublic ve ExternalPublicIP adresleri için size daha iyi, toplayın. (Bu alan yakında kullanımdan kaldırılacak ve biz SrcIP_ ve DestIP_s azure VM kaynak veya hedef akışın olmasına bağlı olarak kullanıyor olması gerekir) 
 2. Akış türleri için Ayrıntılar: Akışta kullanılan IP adreslerine bağlı olarak, biz akışlarında aşağıdaki akış türleri için kategorilere ayırın: 
- *  IntraVNet – akıştaki her iki IP adreslerini aynı Azure sanal ağında bulunur. 
- *  Sanal ağlar arası - IP adresleri akış iki farklı Azure sanal ağ içinde yer alır. 
-*   Bir IP adresi, Azure sanal ağ VPN ağ geçidinden veya Expressroute bağlı müşteri ağ (Site) ait olduğu sırada S2S – IP adreslerinin (siteden siteye) bir Azure sanal ağına ait. 
-*   Bir IP adresi, Azure sanal ağ VPN ağ geçidi üzerinden bağlı müşteri ağ (Site) ait olduğu sırada IP adreslerinden birini Azure sanal ağına ait P2S - (noktadan siteye).
-*   Bir IP adresi Microsoft'a ait Azure iç genel IP adreslerine ait olduğu sırada AzurePublic - IP adreslerinden birini Azure sanal ağına ait. Müşterinin sahip olduğu genel IP adresleri, bu akış türü bir parçası olmayacaktır. VM trafik gönderen bir Azure hizmetine (depolama uç noktası), bu akış türü altında kategorilere örneği için tüm müşterilere ait. <br><br>
-*   ExternalPublic - IP adreslerinden birini ait Azure sanal ağ için bir IP adresi Azure'da değil bir genel IP olsa da, kötü amaçlı trafik analizi işleme aralığını için kullandığı ASC akışlardaki olarak bildirilmedi " FlowIntervalStartTime_t"ve"FlowIntervalEndTime_t". 
-*   MaliciousFlow - IP adreslerinden birini ait azure sanal ağına Azure'da değil ve kötü amaçlı trafik analizi işleme aralığını için kullandığı ASC akışlardaki olarak bildirilen bir genel IP olsa da bir IP adresi" FlowIntervalStartTime_t"ve"FlowIntervalEndTime_t". 
-*   UnknownPrivate - IP adreslerinden birini ait Azure sanal ağ için bir IP adresi RFC 1918 ' tanımlanan özel IP aralığına ait ve site veya Azure sanal ağına ait bir müşteriye tarafından trafik analizi eşleştirilemedi.
-*   Bilinmiyor – yanı sıra azure'da müşteri topolojisi akışlardaki IP adresleriyle birini harita şirket içi (site) yüklenemiyor.
+* IntraVNet – akıştaki her iki IP adreslerini aynı Azure sanal ağında bulunur. 
+* Sanal ağlar arası - IP adresleri akış iki farklı Azure sanal ağ içinde yer alır. 
+* Bir IP adresi, Azure sanal ağ VPN ağ geçidinden veya Expressroute bağlı müşteri ağ (Site) ait olduğu sırada S2S – IP adreslerinin (siteden siteye) bir Azure sanal ağına ait. 
+* Bir IP adresi, Azure sanal ağ VPN ağ geçidi üzerinden bağlı müşteri ağ (Site) ait olduğu sırada IP adreslerinden birini Azure sanal ağına ait P2S - (noktadan siteye).
+* Bir IP adresi Microsoft'a ait Azure iç genel IP adreslerine ait olduğu sırada AzurePublic - IP adreslerinden birini Azure sanal ağına ait. Müşterinin sahip olduğu genel IP adresleri, bu akış türü bir parçası olmayacaktır. VM trafik gönderen bir Azure hizmetine (depolama uç noktası), bu akış türü altında kategorilere örneği için tüm müşterilere ait. 
+* ExternalPublic - IP adreslerinden birini ait Azure sanal ağ için bir IP adresi Azure'da değil bir genel IP olsa da, kötü amaçlı trafik analizi işleme aralığını için kullandığı ASC akışlardaki olarak bildirilmedi " FlowIntervalStartTime_t"ve"FlowIntervalEndTime_t". 
+* MaliciousFlow - IP adreslerinden birini ait azure sanal ağına Azure'da değil ve kötü amaçlı trafik analizi işleme aralığını için kullandığı ASC akışlardaki olarak bildirilen bir genel IP olsa da bir IP adresi" FlowIntervalStartTime_t"ve"FlowIntervalEndTime_t". 
+* UnknownPrivate - IP adreslerinden birini ait Azure sanal ağ için bir IP adresi RFC 1918 ' tanımlanan özel IP aralığına ait ve site veya Azure sanal ağına ait bir müşteriye tarafından trafik analizi eşleştirilemedi.
+* Bilinmiyor – yanı sıra azure'da müşteri topolojisi akışlardaki IP adresleriyle birini harita şirket içi (site) yüklenemiyor.
 
 ### <a name="next-steps"></a>Sonraki Adımlar
 Sık sorulan sorulara yanıtlar almak için bkz. [trafik Analizi ile ilgili SSS](traffic-analytics-faq.md) işlevleri hakkında daha fazla ayrıntı için bkz: [trafik analizi belgeleri](traffic-analytics.md)

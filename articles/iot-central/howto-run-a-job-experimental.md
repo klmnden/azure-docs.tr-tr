@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 02/04/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: e418ec7d22622c341abd972763d78ac2f0df46d9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 8667b7747a8874451e21fbf8aea19f51b6b6252f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773911"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314237"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Oluşturma ve Azure IOT Central uygulamanızda bir işi çalıştırma
 
@@ -25,7 +25,7 @@ Bu bölümde, oluşturup bir iş çalıştırmak gösterilir. Her adım fanı su
 
 1. Gezinti bölmesinden işlerini gidin.
 
-1. Tıklayın **+ yeni** yeni bir proje oluşturmaya başlamak için.
+1. Seçin **+ yeni** yeni bir proje oluşturmaya başlamak için.
 
     ![Yeni proje oluşturma](./media/howto-run-a-job-experimental/createnewjob.png)
 
@@ -33,11 +33,11 @@ Bu bölümde, oluşturup bir iş çalıştırmak gösterilir. Her adım fanı su
 
 1. İşinizi uygulanmasını istediğiniz cihaz kümesini seçin. Cihaz seçilerek ayarladıktan sonra seçili cihaz kümesi içinde cihazlarla doldurma sağ tarafı görürsünüz. Bozuk bir cihaz kümesi seçerseniz, hiçbir cihazlar olarak görüntülenir ve cihaz kümenizi bozuk olduğunu açıklayan bir ileti görürsünüz.
 
-1. Ardından, olacak iş türünü (bir ayar, özelliği veya komutu) tanımlanan seçin. Tıklayın **+** işin türü yanındaki seçilen ve istenen işlemlerinizi ekleyin.
+1. Ardından, olacak iş türünü (bir ayar, özelliği veya komutu) tanımlanan seçin. Seçin **+** işin türü yanındaki seçilen ve istenen işlemlerinizi ekleyin.
 
     ![Proje yapılandırma](./media/howto-run-a-job-experimental/configurejob.png)
 
-1. Sağ tarafta seçin ve işi çalıştırmak istediğiniz cihazları seçin. Tüm cihazlar üst onay kutusuna tıklayarak tüm cihaz kümesinde seçilir. Adının yanında onay kutusunu tıklatarak, geçerli sayfadaki tüm cihazlar seçilir.
+1. Sağ tarafta seçin ve işi çalıştırmak istediğiniz cihazları seçin. Üstteki onay kutusunu seçerek, tüm cihazlar cihazın tamamını kümesinde seçilir. Adının yanında onay kutusunu seçerek, geçerli sayfadaki tüm cihazlar seçilir.
 
 1. İstenen cihazlarınızı seçtikten sonra Seç **çalıştırma**. İş üzerinde ana artık görünecek **işleri** sayfası. Bu görünümü, çalışmakta olan iş ve tüm daha önce işleri çalıştırma geçmişini görebilirsiniz. Çalışan iş her zaman listenin en üstünde gösterilir.
 
@@ -46,19 +46,19 @@ Bu bölümde, oluşturup bir iş çalıştırmak gösterilir. Her adım fanı su
     > [!NOTE]
     > En çok 30 gün önceden çalıştırılmış işlerinizi geçmişini mümkün olacaktır.
 
-1. İşinizi genel bakışını almak için listeden görüntülemek istediğiniz iş adına tıklayın. Bu genel bakışta, iş ayrıntılarını, cihazları ve cihaz durumları içerir.
+1. İşinizi genel bakışını almak için listeden görüntülemek istediğiniz iş adı seçin. Bu genel bakışta, iş ayrıntılarını, cihazları ve cihaz durumları içerir.
 
     ![Cihaz durumunu görüntüle](./media/howto-run-a-job-experimental/viewdevicestatus.png)
 
 ### <a name="stop-a-running-job"></a>Bir çalışan işi Durdur
 
-Çalışmakta olan bir işi durdurmak istiyorsanız, durdurmak istediğiniz çalışan iş adına tıklayın. Seçin **Durdur** panelinde düğmesini. İş durumu, iş durduruldu yansıtacak şekilde değişti görürsünüz.
+Çalışmakta olan bir işi durdurmak istiyorsanız, durdurmak istediğiniz bir çalışan işi adını seçin. Seçin **Durdur** panelinde düğmesini. İş durumu, iş durduruldu yansıtacak şekilde değişti görürsünüz.
 
    ![İşi Durdur](./media/howto-run-a-job-experimental/stopjob.png)
 
 ### <a name="run-a-stopped-job"></a>Durdurulan bir işi çalıştırma
 
-Durdurulmuş bir iş çalıştırmak istiyorsanız, çalıştırmak istediğiniz durdurulmuş iş adına tıklayın. Seçin **çalıştırma** panelinde düğmesini. İş durumu işi yeniden çalıştığını yansıtacak şekilde değiştiğini görürsünüz.
+Durdurulmuş bir iş çalıştırmak istiyorsanız, çalıştırmak istediğiniz durdurulmuş iş adını seçin. Seçin **çalıştırma** panelinde düğmesini. İş durumu işi yeniden çalıştığını yansıtacak şekilde değiştiğini görürsünüz.
 
    ![Sürdürülen işi](./media/howto-run-a-job-experimental/resumejob.png)
 
@@ -83,7 +83,7 @@ Durum iletisi iş içindeki cihazlar için genel bir bakış tarafından izlenir
 
 ### <a name="view-the-device-status"></a>Cihaz durumunu görüntüleme
 
-İşin içinde her cihazın durumunu görüntülemek için iş adına tıklayın. Burada, iş ve bu belirli bir işin bir parçası olan cihazların tüm ayrıntılarını görürsünüz. Her bir cihaz adının yanında, aşağıdaki durum iletileri birini görürsünüz:
+İşin içinde her cihazın durumunu görüntülemek için iş adını seçin. Burada, iş ve bu belirli bir işin bir parçası olan cihazların tüm ayrıntılarını görürsünüz. Her bir cihaz adının yanında, aşağıdaki durum iletileri birini görürsünüz:
 
 | Durum iletisi       | Durum anlama                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |

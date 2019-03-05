@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
-ms.date: 12/06/2018
-ms.openlocfilehash: 45cd4e884530836d515e0c6cce8a6fc9be109d88
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/04/2019
+ms.openlocfilehash: 05398f98bb92da8bf8436f2421beacdde3fd91c9
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992016"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336573"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell kullanarak saydam veri şifrelemesi (TDE) koruyucu Döndür
 
@@ -35,13 +35,43 @@ Bu kılavuz, sunucuda TDE koruyucusuna döndürmek için iki seçenek açıklan�
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Bu nasıl yapılır kılavuzunda, zaten Azure Key vault'tan bir anahtar TDE koruyucusu olarak bir Azure SQL veritabanı veya veri ambarı için kullandığınızı varsayar. Bkz: [Azure Key Vault tümleştirmesi - BYOK destekli saydam veri şifrelemesi](transparent-data-encryption-byok-azure-sql.md).
-- Azure PowerShell sürüm 3.7.0 olmalıdır veya üzerinin yüklü ve çalışıyor. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+- Bu nasıl yapılır kılavuzunda, zaten Azure Key vault'tan bir anahtar TDE koruyucusu olarak bir Azure SQL veritabanı veya veri ambarı için kullandığınızı varsayar. Bkz: [BYOK destekli saydam veri şifrelemesi](transparent-data-encryption-byok-azure-sql.md).
+- Azure PowerShell yüklenmiş ve çalışıyor olması gerekir.
 - [İsteğe bağlı ancak önerilen] Bir donanım güvenlik modülü (HSM) anahtar malzemesi için TDE koruyucusu oluşturun veya yerel anahtarı ilk depolamak ve anahtar malzemesi Azure anahtar Kasası'na içeri aktarın. İzleyin [bir donanım güvenlik modülü (HSM) ve anahtar kasası kullanmaya yönelik yönergeler](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) daha fazla bilgi için.
 
 ## <a name="manual-key-rotation"></a>El ile anahtar döndürme
 
-El ile anahtar döndürme kullanan [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey), [Ekle AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey), ve [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) Yeni bir anahtar adı veya hatta başka bir anahtar kasası altında tamamen yeni bir anahtar eklemek için cmdlet'ler. Bu yaklaşımı kullanarak, aynı anahtarı yüksek oranda kullanılabilir ve coğrafi-dr senaryoları desteklemek için farklı anahtar kasalarına eklenmesini destekler.
+El ile anahtar döndürme kullanan [Ekle AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [Ekle AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), ve [kümesi AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet'leri eklemek için bir tamamen yeni anahtarı altında yeni bir anahtar adı veya hatta başka bir anahtar kasası olabilir. Bu yaklaşımı kullanarak, aynı anahtarı yüksek oranda kullanılabilir ve coğrafi-dr senaryoları desteklemek için farklı anahtar kasalarına eklenmesini destekler.
+
+>[!NOTE]
+>Birleşik anahtar adını ve anahtar kasası adı için 94 karakter uzunluğunda olabilir.
+
+   ```powershell
+   # Add a new key to Key Vault
+   Add-AzKeyVaultKey `
+   -VaultName <KeyVaultName> `
+   -Name <KeyVaultKeyName> `
+   -Destination <HardwareOrSoftware>
+
+   # Add the new key from Key Vault to the server
+   Add-AzSqlServerKeyVaultKey `
+   -KeyId <KeyVaultKeyId> `
+   -ServerName <LogicalServerName> `
+   -ResourceGroup <SQLDatabaseResourceGroupName>
+  
+   <# Set the key as the TDE protector for all resources under the server #>
+   Set-AzSqlServerTransparentDataEncryptionProtector `
+   -Type AzureKeyVault `
+   -KeyId <KeyVaultKeyId> `
+   -ServerName <LogicalServerName> `
+   -ResourceGroup <SQLDatabaseResourceGroupName>
+   ```
+
+## <a name="option-2-manual-rotation"></a>2. seçenek: El ile döndürme
+
+Seçeneği kullandığı [Ekle AzKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey), [Ekle AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), ve [kümesi AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) eklemek için cmdlet'leri bir tamamen Yeni anahtarı altında yeni bir anahtar adı veya hatta başka bir anahtar kasası olabilir. 
 
 >[!NOTE]
 >Birleşik anahtar adını ve anahtar kasası adı için 94 karakter uzunluğunda olabilir.
@@ -49,20 +79,20 @@ El ile anahtar döndürme kullanan [Add-AzureKeyVaultKey](/powershell/module/azu
 
    ```powershell
    # Add a new key to Key Vault
-   Add-AzureKeyVaultKey `
+   Add-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName> `
    -Destination <HardwareOrSoftware>
 
    # Add the new key from Key Vault to the server
-   Add-AzureRmSqlServerKeyVaultKey `
+   Add-AzSqlServerKeyVaultKey `
    -KeyId <KeyVaultKeyId> `
    -ServerName <LogicalServerName> `
    -ResourceGroup <SQLDatabaseResourceGroupName>   
   
    <# Set the key as the TDE protector for all resources 
    under the server #>
-   Set-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Set-AzSqlServerTransparentDataEncryptionProtector `
    -Type AzureKeyVault `
    -KeyId <KeyVaultKeyId> `
    -ServerName <LogicalServerName> `
@@ -71,20 +101,20 @@ El ile anahtar döndürme kullanan [Add-AzureKeyVaultKey](/powershell/module/azu
   
 ## <a name="other-useful-powershell-cmdlets"></a>Diğer kullanışlı PowerShell cmdlet'leri
 
-- Microsoft tarafından yönetilen gelen TDE koruyucusuna BYOK moduna geçiş yapmak için kullanın [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) cmdlet'i.
+- Microsoft tarafından yönetilen gelen TDE koruyucusuna BYOK moduna geçiş yapmak için kullanın [kümesi AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet'i.
 
    ```powershell
-   Set-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Set-AzSqlServerTransparentDataEncryptionProtector `
    -Type AzureKeyVault `
    -KeyId <KeyVaultKeyId> `
    -ServerName <LogicalServerName> `
    -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
-- İçin Microsoft tarafından yönetilen, BYOK modundan TDE koruyucusuna geçiş yapmak için kullanın [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) cmdlet'i.
+- İçin Microsoft tarafından yönetilen, BYOK modundan TDE koruyucusuna geçiş yapmak için kullanın [kümesi AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet'i.
 
    ```powershell
-   Set-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Set-AzSqlServerTransparentDataEncryptionProtector `
    -Type ServiceManaged `
    -ServerName <LogicalServerName> `
    -ResourceGroup <SQLDatabaseResourceGroupName> 

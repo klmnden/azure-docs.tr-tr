@@ -12,14 +12,16 @@ ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 3a937af5fba2c534e291a51c33c50434ab166ee0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5401c852decf0bcae3e86d1914b7cb6b47b4422a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868774"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317518"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Yük Dengeleme (Önizleme) salt okunur sorgu iş yükleri için salt okunur çoğaltmalar kullanın
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **Okuma ölçeği genişletme** , bir salt okunur çoğaltma kapasitesini kullanarak Azure SQL veritabanı salt okunur dengelemeye sağlar.
 
@@ -29,7 +31,7 @@ Her bir veritabanında Premium katman ([DTU tabanlı satın alma modeli](sql-dat
 
 Bu çoğaltmaların normal veritabanı bağlantıları tarafından kullanılan okuma-yazma çoğaltma olarak aynı işlem boyutu ile sağlanır. **Okuma ölçeği genişletme** özelliği okuma-yazma çoğaltma paylaşmak yerine kapasitesi salt okunur çoğaltmalarından birini kullanarak SQL veritabanı salt okunur dengelemeye yüklemenizi sağlar. Bu şekilde salt okunur iş yükü ana okuma-yazma iş yükünden yalıtılmış ve performansını etkilemez. Özellik içeren mantıksal uygulamalar, salt okunur gibi iş yükleri, analiz, ayrılmış ve bu nedenle bu ek kapasite olmaksızın kullanarak performans avantajlarının geçirebilir öngörülmüştür ek bir maliyet.
 
-Okuma ölçeği genişletme özelliği ile belirli bir veritabanını kullanmak için açık bir şekilde veritabanı oluşturulurken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [ Yeni-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri veya Azure Resource Manager REST API aracılığıyla [veritabanları - oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) yöntemi.
+Okuma ölçeği genişletme özelliği ile belirli bir veritabanını kullanmak için açık bir şekilde veritabanı oluşturulurken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [kümesi AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) veya [Yeni AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet'leri veya Azure Resource Manager REST API aracılığıyla [veritabanları - oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) yöntemi.
 
 Bir veritabanı için okuma ölçeği genişletme etkinleştirildikten sonra o veritabanına bağlanan uygulamalar okuma-yazma çoğaltmaya veya salt okunur bir çoğaltmaya göre veritabanının yönlendirilirsiniz `ApplicationIntent` uygulamanın yapılandırılmış özelliği bağlantı dizesi. Hakkında bilgi için `ApplicationIntent` özelliğine bakın [belirterek uygulama amacı](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
@@ -82,24 +84,24 @@ Okuma ölçeği genişletme, varsayılan olarak etkindir [yönetilen örneği](s
 
 Azure PowerShell'de okuma ölçeği genişletilmiş yönetmek, aralık 2016 gerektirir Azure PowerShell sürümü veya daha yeni. En yeni PowerShell sürümüyle bkz [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Etkinleştirmek veya Azure PowerShell okuma genişleme çağırarak devre dışı [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) cmdlet'i ve istenen değer: geçen `Enabled` veya `Disabled` --için `-ReadScale` parametresi. Alternatif olarak, kullanabilir [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ile yeni bir veritabanı oluşturmak için cmdlet Genişleme etkin okuyun.
+Etkinleştirmek veya Azure PowerShell okuma genişleme çağırarak devre dışı [kümesi AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet'i ve istenen değer: geçen `Enabled` veya `Disabled` --için `-ReadScale` parametresi. Alternatif olarak, kullanabilir [yeni AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) ile yeni bir veritabanı oluşturmak için cmdlet Genişleme etkin okuyun.
 
 Mevcut bir veritabanı için (açılı ayraçlar içindeki öğeler, ortamınız için doğru değerlerle değiştirerek ve açılı ayraçlar bırakarak) gibi etkinleştirmek için ölçek genişletme okuyun:
 
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
 ```
 
 Okuma ölçeği genişletme (açılı ayraçlar içindeki öğeler, ortamınız için doğru değerlerle değiştirerek ve açılı ayraçlar bırakarak) mevcut bir veritabanı için devre dışı bırakmak için:
 
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
 ```
 
 Okuma ölçeği genişletme ile yeni bir veritabanı oluşturmak için (açılı ayraçlar içindeki öğeler, ortamınız için doğru değerlerle değiştirerek ve açılı ayraçlar bırakarak) etkin:
 
 ```powershell
-New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
+New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
 ### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST API: Enable ve disable okuma ölçeği genişletme
@@ -129,5 +131,5 @@ Yük Dengeleme salt okunur iş yükleri coğrafi olarak yedekli (örneğin bir b
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Okuma ölçeği genişletme ayarlamak için PowerShell kullanma hakkında daha fazla bilgi için bkz: [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri.
+- Okuma ölçeği genişletme ayarlamak için PowerShell kullanma hakkında daha fazla bilgi için bkz: [kümesi AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) veya [yeni AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet'leri.
 - Okuma ölçeği genişletme ayarlamak için REST API kullanma hakkında daha fazla bilgi için bkz: [veritabanları - oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).

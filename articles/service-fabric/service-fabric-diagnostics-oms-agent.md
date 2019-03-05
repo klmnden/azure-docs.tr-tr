@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 3d35075c768855ebd907b96de2ded82757d5e525
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6562156432a86c346a0fee382af50f210e3cf6dc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242913"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308525"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Azure İzleyici günlüklerine ile performans izleme
 
 Bu makalede, bir sanal makine ölçek kümesi uzantısını kümeniz için Log Analytics aracısını ekleyin ve mevcut Azure Log Analytics çalışma alanınıza bağlamak için ilgili adımları içermektedir. Bu kapsayıcı, uygulamaları ve performans izleme hakkında tanılama veri toplama sağlar. Bu uzantı olarak sanal makine ölçek kümesi kaynağına ekleyerek, Azure Resource Manager her düğümde yükleneceğini bile kümenin ne zaman ölçeklendirme sağlar.
 
 > [!NOTE]
-> Bu makalede daha önce ayarlamış bir Azure Log Analytics çalışma alanı sahibi olduğunuzu varsayar. Bunu yapmazsanız, attıktan [günlüklerini Azure Azure İzleyicisi'ni ayarlayın](service-fabric-diagnostics-oms-setup.md)
+> Bu makalede daha önce ayarlamış bir Azure Log Analytics çalışma alanı sahibi olduğunuzu varsayar. Bunu yapmazsanız, attıktan [günlüklerini Azure İzleyicisi'ni ayarlayın](service-fabric-diagnostics-oms-setup.md)
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -39,13 +39,13 @@ Log Analytics aracısını kümenize eklemek için en iyi yolu, Azure CLI ile AP
 2. Portalda Log Analytics çalışma alanınızın bulunduğu bir kaynak grubuna gidin. Log analytics kaynağını (kaynak türünü Log Analytics çalışma alanı olacaktır) tıklayın. Kaynak genel bakış sayfasında olduktan sonra tıklayarak **Gelişmiş ayarlar** sol menüdeki Ayarlar bölümünde.
 
     ![Log analytics Özellikler sayfası](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
- 
+
 3. Tıklayarak **Windows sunucuları** bir Windows kümesi, bekliyor durumunda ve **Linux sunucuları** bir Linux kümesi oluşturuyorsanız. Bu sayfa size gösterecektir, `workspace ID` ve `workspace key` (birincil anahtar olarak portalda listelenen). Sonraki adım için her ikisi de gerekir.
 
 4. Kümenizi, Log Analytics aracısını yüklemek için komutu çalıştırmak kullanarak `vmss extension set` API, Cloud shell'de:
 
     Bir Windows kümesi için:
-    
+
     ```sh
     az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
@@ -59,7 +59,7 @@ Log Analytics aracısını kümenize eklemek için en iyi yolu, Azure CLI ile AP
     Bir Windows kümesine eklenen Log Analytics aracısını örneği aşağıda verilmiştir.
 
     ![Analiz aracı CLI komutunu oturum](media/service-fabric-diagnostics-oms-agent/cli-command.png)
- 
+
 5. Bu aracı için düğümlerinizin başarıyla eklemek için az 15 dakika sürer. Aracıları kullanarak eklendiğini doğrulayabilirsiniz `az vmss extension list` API:
 
     ```sh
@@ -74,7 +74,7 @@ Bir Azure Log Analytics çalışma alanı dağıtma ve her düğümleriniz bir a
 
 ## <a name="view-performance-counters"></a>Performans sayaçları görüntüleyin
 
-Log Analytics aracısını, head üzerinde eklediğinize göre hangi performans sayaçlarını seçin için Log Analytics portalı üzerinden toplamak ister misiniz? 
+Log Analytics aracısını, head üzerinde eklediğinize göre hangi performans sayaçlarını seçin için Log Analytics portalı üzerinden toplamak ister misiniz?
 
 1. Azure portalında Service Fabric analizi çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
 
@@ -92,7 +92,7 @@ Log Analytics aracısını, head üzerinde eklediğinize göre hangi performans 
 
 8. Her bir Service Fabric için de dahil olmak üzere etkin çözüm için bir grafik biçiminde kutucuklar görürsünüz. Tıklayın **Service Fabric** Service Fabric analizi çözümü devam etmek için bir grafik.
 
-9. İşlevsel kanal ve güvenilir hizmetler olayları grafikleriyle birkaç kutucuk görürsünüz. Seçtiğiniz sayaçları içeriye veri grafik gösterimi düğüm ölçümlerini altında görünür. 
+9. İşlevsel kanal ve güvenilir hizmetler olayları grafikleriyle birkaç kutucuk görürsünüz. Seçtiğiniz sayaçları içeriye veri grafik gösterimi düğüm ölçümlerini altında görünür.
 
 10. Ek ayrıntıları görmek için bir kapsayıcı ölçüsünü grafiğe tıklayın. Ayrıca küme olayları ve düğümler, performans sayaç adı ve Kusto sorgu dilini kullanarak değerleri bir filtreye benzer şekilde, performans sayacı verileri sorgulayabilirsiniz.
 

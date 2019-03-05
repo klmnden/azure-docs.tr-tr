@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e5c7d019a34736cfbc26e245dc54a93374aada9c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 576a7948d4df7957d934fb4c8888712fa94cb202
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242437"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337085"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini
 
@@ -21,7 +21,7 @@ Azure İzleyici ölçüm Gezgini'ni çizim grafikleri, görsel olarak eğilimler
 
 ## <a name="metrics-in-azure"></a>Azure ölçümleri
 
-[Azure İzleyicisi'nde ölçümler](data-collection.md#metrics) ölçülen değerleri ve toplanan ve zaman içinde depolanmış olan sayıları dizi. Standart (veya "platformu") ölçüm ve özel ölçüm vardır. Standart ölçümler, Azure platformu tarafından kendisi sağlanır. Standart ölçümler, Azure kaynaklarınızın durumunu ve kullanım istatistikleri yansıtır. Özel ölçüm kullanarak uygulamalarınızı tarafından Azure'a gönderilir ancak [özel olaylar için Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Özel ölçümler Application Insights kaynakları diğer uygulama belirli ölçümleri birlikte depolanır.
+[Azure İzleyicisi'nde ölçümler](data-collection.md#metrics) ölçülen değerleri ve toplanan ve zaman içinde depolanmış olan sayıları dizi. Standart (veya "platformu") ölçüm ve özel ölçüm vardır. Standart ölçümler, Azure platformu tarafından kendisi sağlanır. Standart ölçümler, Azure kaynaklarınızın durumunu ve kullanım istatistikleri yansıtır. Özel ölçüm kullanarak uygulamalarınızı tarafından Azure'a gönderilir ancak [özel olaylar ve ölçümler için Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [Windows Azure tanılama (WAD) uzantısı](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), ya da [Azure REST API izleme](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
 ## <a name="create-a-new-chart"></a>Yeni bir grafik oluşturun
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: sashan,moslake
+ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
-ms.openlocfilehash: 011aa97d44a92feced7328b2bd014395d2c5b765
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 00b20b3f144a2e98fb028e3db7c50af61330d721
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246707"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316464"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL veritabanı sunucusu için SQL veritabanı kaynak limitleri
 
@@ -74,7 +74,7 @@ Oturum veya çalışan yüksek kullanım ile karşılaşıldığında, risk azal
 - Artan hizmet katmanı veya boyutu veritabanınız veya elastik havuzun işlem. Bkz: [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) ve [ölçeğini elastik havuz kaynakları](sql-database-elastic-pool-scale.md).
 - İşlem kaynakları için Çekişme nedeniyle artan çalışan kullanımı nedenini ise, her sorgu, kaynak kullanımını azaltmak için en iyi duruma getirme sorgular. Daha fazla bilgi için [sorgu ayarlama/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="transaction-log-rate-governance"></a>İşlem günlüğü oranı idare 
+## <a name="transaction-log-rate-governance"></a>İşlem günlüğü oranı idare 
 İşlem günlüğü oranı idare ekleme bir işlem toplu gibi iş yükleri için yüksek alma oranlarını sınırlamak için kullanılan Azure SQL veritabanında SELECT INTO ve dizin oluşturur ' dir. Bu limitler izlenir ve günlük kaydı oluşturma hızı için saniyeden düzeyinde zorunlu, kaç tane IOs bakılmaksızın sınırlama aktarım hızı, veri dosyalarını karşı verilebilir.  İşlem günlüğü nesil hızları şu anda doğrusal olarak donanım bağımlı olduğu bir noktaya kadar ölçeklendirme, en büyük günlük ile oranı ile satın alma modeli vcore değeri, 48 MB/sn olan izin. 
 
 > [!NOTE]

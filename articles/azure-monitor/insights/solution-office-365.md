@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 92ba185ce3c271284ae20981408b2b12f516e3c8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 003d5da137c88097d9555a9884286251af92d6f0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999309"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311010"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -30,6 +30,8 @@ Office 365 yönetim çözümü, Azure İzleyici'de, Office 365 ortamı izlemeniz
 - Algılama ve kuruluş gereksinimlerinize özelleştirilebilen istenmeyen kullanıcı davranışı araştırın.
 - Denetim ve uyumluluk gösterir. Örneğin, dosya erişim işlemleri ve denetim ve uyumluluk işlemiyle size gibi gizli bilgiler içeren dosyaları üzerinde izleyebilirsiniz.
 - Kullanarak işletimsel sorun giderme işlemleri uygulayabilirsiniz [oturum sorguları](../log-query/log-query-overview.md) kuruluşunuzun Office 365 etkinlik verileri üzerinde.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 Yüklenmiş ve yapılandırılmış bu çözüm olan önce gerekli verilmiştir.
@@ -123,10 +125,10 @@ Office 365 aboneliğinize:
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
     
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $WorkspaceLocation= $Workspace.Location
     $WorkspaceLocation
     
@@ -190,11 +192,11 @@ Son adım Log Analytics çalışma alanınıza uygulama abone olmaktır. Ayrıca
     $line='#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
     $line
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     $OfficeClientSecret =[uri]::EscapeDataString($OfficeClientSecret)
@@ -365,12 +367,12 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 Geçersiz parametre değerleri sağlanırsa, aşağıdaki hatayı görebilirsiniz.
 
 ```
-Select-AzureRmSubscription : Please provide a valid tenant or a valid subscription.
+Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
-+ ... cription = (Select-AzureRmSubscription -SubscriptionId $($Subscriptio ...
++ ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
 +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzureRmContext], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzureRMContextCommand
+    + CategoryInfo          : CloseError: (:) [Set-AzContext], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzContextCommand
 
 ```
 
@@ -390,11 +392,11 @@ Bağlantısındaki işlemi kullanarak Office 365 yönetim çözümü kaldırabil
     
     $line
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     

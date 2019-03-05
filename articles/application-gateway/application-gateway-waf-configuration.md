@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: 24cb5d7ddb1bfbb64796d871aa79109dfdfa94be
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 3e8014a9cb2353ef65482aa35a1e686567ca6e35
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492938"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315053"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web uygulaması güvenlik duvarı istek boyutu sınırları ve hariç tutma listeleri
 
@@ -58,19 +58,21 @@ Her durumda eşleştirme büyük küçük harfe duyarlı değildir ve normal ifa
 
 ### <a name="examples"></a>Örnekler
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Aşağıdaki Azure PowerShell kod parçacığı dışlamaları kullanımını gösterir:
 
 ```azurepowershell
 // exclusion 1: exclude request head start with xyz
 // exclusion 2: exclude request args equals a
 
-$exclusion1 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
+$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
 
-$exclusion2 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
+$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
 
 // add exclusion lists to the firewall config
 
-$firewallConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+$firewallConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
 ```
 
 Aşağıdaki json kod parçacığında dışlamaları kullanımını gösterir:

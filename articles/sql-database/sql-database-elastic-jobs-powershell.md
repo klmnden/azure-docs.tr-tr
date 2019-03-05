@@ -12,20 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dc9b58402ed0fcc48d60b51d30f891ffcadddbe0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472662"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315631"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell (Önizleme) kullanarak SQL veritabanı esnek işler oluşturma ve yönetme
 
-
-[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
-
 İçin PowerShell API'lerini **elastik veritabanı işleri** (Önizleme), komut dosyaları çalıştırılacağı karşı veritabanlarından oluşan bir grupta tanımlamanıza olanak sağlar. Bu makale oluşturmak ve yönetmek nasıl **elastik veritabanı işleri** PowerShell cmdlet'lerini kullanarak. Bkz: [esnek işler genel bakış](sql-database-elastic-jobs-overview.md). 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Azure aboneliği. Ücretsiz deneme için bkz: [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).
@@ -34,9 +32,9 @@ ms.locfileid: "55472662"
 * **Elastik veritabanı işleri** PowerShell paketi: Bkz: [yükleme elastik veritabanı işleri](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Azure aboneliğinizi seçin
-Aboneliği seçmek için abonelik kimliği gerekir. (**- Subscriptionıd**) veya abonelik adı (**- SubscriptionName**). Birden fazla aboneliğiniz varsa çalıştırabileceğiniz **Get-AzureRmSubscription** cmdlet ve kopyalama sonuç istenen abonelik bilgilerini ayarlayın. Abonelik bilgilerinizi aldıktan sonra Bu abonelik, işleri oluşturmaya ve yönetmeye için hedef özelliği varsayılan olarak ayarlamak için aşağıdaki cmdlet'i çalıştırın:
+Aboneliği seçmek için abonelik kimliği gerekir. (**- Subscriptionıd**) veya abonelik adı (**- SubscriptionName**). Birden fazla aboneliğiniz varsa çalıştırabileceğiniz **Get-AzSubscription** cmdlet ve kopyalama sonuç istenen abonelik bilgilerini ayarlayın. Abonelik bilgilerinizi aldıktan sonra Bu abonelik, işleri oluşturmaya ve yönetmeye için hedef özelliği varsayılan olarak ayarlamak için aşağıdaki cmdlet'i çalıştırın:
 
-    Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
+    Select-AzSubscription -SubscriptionId {SubscriptionID}
 
 [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) geliştirin ve elastik veritabanı işleri PowerShell betiklerini yürütmek kullanım için tavsiye edilir.
 

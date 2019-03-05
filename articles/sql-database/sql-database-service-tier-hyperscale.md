@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2c32ef84c1016d0058ee07220729a291aff19b70
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7097c3852ad903e9d8f7c8786ea7fd616706f108
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868077"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317331"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>En fazla 100 TB için hiper ölçekli hizmet Katmanı (Önizleme)
 
@@ -112,7 +112,7 @@ Hızlı bir şekilde ek salt okunur işlem düğümleri Yukarı/Aşağı Döndü
 
 ## <a name="create-a-hyperscale-database"></a>Hiper ölçekli bir veritabanı oluşturma
 
-Kullanılarak bir hiper ölçekli veritabanı oluşturulabilir [Azure portalında](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) veya [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Hiper ölçekli veritabanları yalnızca kullanılabilir [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
+Kullanılarak bir hiper ölçekli veritabanı oluşturulabilir [Azure portalında](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) veya [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Hiper ölçekli veritabanları yalnızca kullanılabilir [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
 Aşağıdaki T-SQL komutu, Hiper ölçekli bir veritabanı oluşturur. Hem sürüm hem de hizmet hedef belirtmelisiniz `CREATE DATABASE` deyimi.
 
@@ -124,7 +124,7 @@ GO
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Hiper ölçekli hizmet katmanı için mevcut bir Azure SQL veritabanını geçirme
 
-Hiper ölçekli kullanarak, mevcut Azure SQL veritabanlarınızı taşıyabilirsiniz [Azure portalında](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Genel önizlemede, tek yönlü bir geçiş budur. Başka bir hizmet katmanı için hiper ölçekli veritabanları taşıyamazsınız. Üretim veritabanlarınızı bir kopyasını alın ve (kanıtları) kavram kanıtı için hiper ölçekli için geçirme öneririz.
+Hiper ölçekli kullanarak, mevcut Azure SQL veritabanlarınızı taşıyabilirsiniz [Azure portalında](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) veya [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Genel önizlemede, tek yönlü bir geçiş budur. Başka bir hizmet katmanı için hiper ölçekli veritabanları taşıyamazsınız. Üretim veritabanlarınızı bir kopyasını alın ve (kanıtları) kavram kanıtı için hiper ölçekli için geçirme öneririz.
 
 Aşağıdaki T-SQL komutu, Hiper ölçekli hizmet katmanına bir veritabanı taşır. Hem sürüm hem de hizmet hedef belirtmelisiniz `ALTER DATABASE` deyimi.
 

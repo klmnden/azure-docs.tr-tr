@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/07/2019
-ms.openlocfilehash: 3657844d5dd4c4dcf9b9729aaeea6c9af3ed6519
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3594ff05e0f58671e8566b3b69972de32a58855a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894896"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308457"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL veritabanı uzun vadeli yedekleme bekletmeyi yönetme
 
@@ -74,13 +74,10 @@ LTR İlkesi ve bu yedeklerden geri yükleme ile belirli bir veritabanı saklanı
 
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Uzun vadeli bekletme ilkelerini yapılandırma ve yedeklemeleri geri yüklemek için PowerShell'i kullanma
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Aşağıdaki bölümlerde, PowerShell'in uzun süreli yedek saklama yapılandırma, Azure SQL depolama ve Azure SQL depolama alanındaki bir yedekten geri yükleme yedekleri görüntülemek için nasıl kullanılacağı gösterilmektedir.
 
-> [!IMPORTANT]
-> LTR V2 API'si aşağıdaki PowerShell sürümlerinde desteklenir:
-- [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) or newer
-- [AzureRM 6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) ya da daha yeni
-> 
 
 ### <a name="rbac-roles-to-manage-long-term-retention"></a>Uzun süreli saklama yönetmek için RBAC rolleri
 
@@ -91,11 +88,11 @@ LTR yedekleme yönetmek için olması gerekecektir
 
 Daha ayrıntılı bir denetim gerekiyorsa, özel bir RBAC rolleri oluşturabilir ve bunları atama **abonelik** kapsam. 
 
-İçin **Get-AzureRmSqlDatabaseLongTermRetentionBackup** ve **Restore-AzureRmSqlDatabase** rolü aşağıdaki izinleri olması gerekir:
+İçin **Get-AzSqlDatabaseLongTermRetentionBackup** ve **geri yükleme-AzSqlDatabase** rolü aşağıdaki izinleri olması gerekir:
 
 Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/ longTermRetentionBackups/okuma
  
-İçin **Remove-AzureRmSqlDatabaseLongTermRetentionBackup** rolü aşağıdaki izinleri olması gerekir:
+İçin **Remove-AzSqlDatabaseLongTermRetentionBackup** rolü aşağıdaki izinleri olması gerekir:
 
 Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -109,17 +106,17 @@ Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/long
 # $resourceGroup = “{resource-group-name}” 
 # $dbName = ”{database-name}”
 
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId $subId
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId $subId
 
 # get the server
-$server = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroup
+$server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroup
 
 # create LTR policy with WeeklyRetention = 12 weeks. MonthlyRetention and YearlyRetention = 0 by default.
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W 
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W 
 
 # create LTR policy with WeeklyRetention = 12 weeks, YearlyRetention = 5 years and WeekOfYear = 16 (week of April 15). MonthlyRetention = 0 by default.
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
 ```
 
 ### <a name="view-ltr-policies"></a>LTR ilkeleri görüntüle
@@ -127,16 +124,16 @@ Bu örnekte bir sunucu içinde LTR ilkeleri listesinde gösterilmiştir
 
 ```powershell
 # Get all LTR policies within a server
-$ltrPolicies = Get-AzureRmSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | Get-AzureRmSqlDatabaseLongTermRetentionPolicy -Current 
+$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | Get-AzSqlDatabaseLongTermRetentionPolicy -Current 
 
 # Get the LTR policy of a specific database 
-$ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
+$ltrPolicies = Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
 ```
 ### <a name="clear-an-ltr-policy"></a>LTR İlkesi Temizle
 Bu örnek, bir veritabanı LTR İlkesi temizleme gösterir.
 
 ```powershell
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
 ```
 
 ### <a name="view-ltr-backups"></a>LTR yedekleri görüntüleme
@@ -148,20 +145,20 @@ Bu örnek, bir sunucu içinde LTR yedekleme listesinde gösterilmiştir.
 # The backups are grouped by the logical database id.
 # Within each group they are ordered by the timestamp, the earliest
 # backup first.  
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location 
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location 
 
 # Get the list of LTR backups from the Azure region under 
 # the named server. 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
 
 # Get the LTR backups for a specific database from the Azure region under the named server 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
 
 # List LTR backups only from live databases (you have option to choose All/Live/Deleted)
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
 
 # Only list the latest LTR backup for each database 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
 ```
 
 ### <a name="delete-ltr-backups"></a>LTR yedeklerini silme
@@ -171,7 +168,7 @@ Bu örnek bir LTR silme yedeklemeleri listesinden yedekleme gösterir.
 ```powershell
 # remove the earliest backup 
 $ltrBackup = $ltrBackups[0]
-Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
+Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 > [!IMPORTANT]
 > Silme LTR yedekleme çevrilemez. Her silme hakkında bildirimler Azure İzleyici'de işlem için filtreleyerek 'uzun süreli bekletme yedeklemesi siler' ayarlayabilirsiniz. Etkinlik günlüğü istek yapıldığında ve kimin hakkında bilgi içerir. Bkz: [etkinlik günlüğü uyarıları oluşturma](../azure-monitor/platform/alerts-activity-log.md) ayrıntılı yönergeler için.
@@ -182,7 +179,7 @@ Bu örnek, bir LTR yedekten geri yükleme gösterilmektedir. Not: Bu arabirim de
 
 ```powershell
 # Restore LTR backup as an S3 database
-Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName S3
+Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName S3
 ```
 
 > [!NOTE]

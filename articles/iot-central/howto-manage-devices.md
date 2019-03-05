@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 21c29d90d8ed149062f24b470603b0e0e03cc6ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658123"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315614"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızdaki cihazları yönetme
 
@@ -67,7 +67,7 @@ Toplu kaydı uygulamanızdaki cihazlar için:
  >   [!NOTE] 
     Bir cihaz şablonuna sahip olmayan henüz altında cihazları içeri aktarabilirsiniz **ilişkili değil, cihazları** ve bunları herhangi bir şablonu kaydedin. Cihazları içe aktardıktan sonra sonra bunları bir şablonu ile bir sonraki adım olarak ilişkilendirebilirsiniz.
 
-1. **İçeri Aktar**’a tıklayın.
+1. Seçin **alma**.
 
     [![Alma eylemi](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
@@ -79,7 +79,7 @@ Toplu kaydı uygulamanızdaki cihazlar için:
 
     [![İçeri aktarma başarılı](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
-Aygıt alma işlemi başarısız olursa cihaz Kılavuzu'nun bir hata iletisi görürsünüz. Tüm hataları yakalamaya bir günlük dosyası oluşturulur ve hata iletisini tıklayarak indirilebilir.
+Aygıt alma işlemi başarısız olursa cihaz Kılavuzu'nun bir hata iletisi görürsünüz. Tüm hataları yakalamaya bir günlük dosyası oluşturulur ve hata iletisini seçerek indirilebilir.
 
 
 **Cihazlar bir şablon ile ilişkilendirme**
@@ -89,9 +89,9 @@ Cihazları içeri aktarma altında başlatarak kaydederseniz **ilişkili değil,
 1. Sol panelde seçin **ilişkili değil, cihazları**.
     [![İlişkilendirilmemiş cihazlar](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
 1. Şablon ile ilişkilendirmek istediğiniz cihazları seçin.
-1. Tıklayın **ilişkilendirmek** seçeneği.
+1. Seçin **ilişkilendirmek** seçeneği.
     [![Cihaz ilişkilendirme](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
-1. Şablonu kullanılabilir şablonlar listesinden seçim yapın ve tıklayın **ilişkilendirmek** düğmesi.
+1. Şablonu kullanılabilir şablonlar listesinden seçip **ilişkilendirmek**.
 1. Seçili cihazların ilgili cihaz taslağı altından taşınır.
 
  >   [!NOTE] 
@@ -114,7 +114,7 @@ Uygulamanızdan dışarı aktarma cihazları toplu olarak:
 
 1. Dışarı aktarma işlemi tamamlandıktan sonra bir başarı iletisi oluşturulan dosyasını indirmek için bir bağlantı ile birlikte gösterilir.
 
-1. Tıklayarak **başarılı iletisi** disk üzerindeki yerel bir klasöre dosya indirilemedi.
+1. Seçin **başarılı iletisi** disk üzerindeki yerel bir klasöre dosya indirilemedi.
 
     [![Dışarı aktarma başarılı](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 

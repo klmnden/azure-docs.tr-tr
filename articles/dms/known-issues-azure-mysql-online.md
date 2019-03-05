@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/05/2019
+ms.openlocfilehash: be6c31840abcf2503293c381aad2848afebe3d9b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721657"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337133"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>MySQL için Azure DB online geçişleri ile bilinen sorunları/geçiş sınırlamaları
 
@@ -80,7 +80,7 @@ Büyük nesne (LOB) sütunları boyutu büyük büyüyebilir sütunlarıdır. My
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Geçici çözüm**: 32 KB'den büyük LOB nesne varsa, mühendislik ekibiyle iletişime geçin. [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com). 
+    **Geçici çözüm**: 32 KB'den büyük LOB nesne varsa, mühendislik ekibiyle iletişime geçin. [isteyin Azure veritabanı geçişlerini](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
 
 ## <a name="other-limitations"></a>Diğer sınırlamalar
 - Açma ve kapatma küme parantezleri {} başlangıcına ve sonuna kadar parola dizesi olan bir parola dizesi desteklenmiyor. Bu sınırlama, her iki bağlanmaya MySQL kaynak ve hedef Azure veritabanını MySQL için geçerlidir.

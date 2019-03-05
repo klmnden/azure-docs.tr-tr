@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 8f4b39141a9509990525769833e2cd193419752c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469381"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309324"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Log analytics'e Azure tanılama günlükleri
 
@@ -65,10 +65,13 @@ Log Analytics çalışma ayarı yapılandıran kullanıcının her iki abonelik 
 Birkaç dakika sonra yeni ayar, bu kaynak için ayarların listesi görüntülenir ve tanılama günlükleri, yeni olay verilerini oluşturulan hemen sonra bu çalışma alanına aktarılır. Beş dakika arasında bir olay olduğunda yayılır ve Log Analytics'te görüntülendiğinde olabileceğini unutmayın.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell cmdlet'leri
-Aracılığıyla akışını etkinleştirmek için [Azure PowerShell cmdlet'leri](../../azure-monitor/platform/powershell-quickstart-samples.md), kullanabileceğiniz `Set-AzureRmDiagnosticSetting` cmdlet şu parametrelerle:
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Aracılığıyla akışını etkinleştirmek için [Azure PowerShell cmdlet'leri](../../azure-monitor/platform/powershell-quickstart-samples.md), kullanabileceğiniz `Set-AzDiagnosticSetting` cmdlet şu parametrelerle:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
 ```
 
 Tam Azure kaynak kimliği değil çalışma alanı kimliği/anahtarı Log Analytics Portalı'nda gösterilen çalışma alanının çalışma alanı kimliği özelliği aldığını unutmayın.

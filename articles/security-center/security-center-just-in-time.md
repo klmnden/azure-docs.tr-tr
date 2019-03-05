@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde tam zamanında sanal makine erişimini | Micr
 description: Bu belge Azure Güvenlik Merkezi yardımcı nasıl tam zamanında VM erişimini denetim gösterir, Azure sanal makinelerine erişim.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
-ms.author: rkarlin
-ms.openlocfilehash: 2bfa3b6001d714da39ebeb709600504f9d7331c5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 2/28/2019
+ms.author: monhaber
+ms.openlocfilehash: 9cdcfbc6074f8e343e2571063cc5dafe54072753
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733666"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314781"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında kullanarak sanal makine erişimini yönetme
 
@@ -144,11 +144,11 @@ Bu, aşağıdaki ayarları kullanarak sanal makine için tam zamanında erişim 
 - Windows sunucuları:
     - RDP bağlantı noktası 3389
     - izin verilen en fazla erişim 3 saat
-    - İzin verilen kaynak IP adresleri her istek için ayarlanır
+    - İzin verilen kaynak IP adresleri için ayarlanır
 - Linux sunucuları:
     - SSH bağlantı noktası 22
     - izin verilen en fazla erişim 3 saat
-    - İzin verilen kaynak IP adresleri her istek için ayarlanır
+    - İzin verilen kaynak IP adresleri için ayarlanır
      
 Bir VM yalnızca kendi yapılandırma sayfasına gittiğinizde, etkin zamanında zaten varsa, just-ın-time etkinleştirildiğini ve bağlantı ayarlarını görüntülemek ve değiştirmek için Azure Güvenlik Merkezi'nde İlkesi'ni açmak için kullanabileceğiniz olduğunu görmek mümkün olacaktır.
 

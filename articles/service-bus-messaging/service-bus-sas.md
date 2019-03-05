@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895865"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308865"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile Service Bus erişim denetimi
 
@@ -84,7 +84,7 @@ Karma hesaplama, aşağıdaki sözde koda benzer ve 256 bit/32 bayt karma değer
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-Alıcı karma aynı parametrelere sahip geçerli bir imzalama anahtarı elinde veren doğrulanıyor yeniden oynatmanız, böylece belirteç karma olmayan değerler içeriyor. 
+Alıcı karma aynı parametrelere sahip geçerli bir imzalama anahtarı elinde veren doğrulanıyor yeniden oynatmanız, böylece belirteç karma olmayan değerler içeriyor.
 
 URI tam erişim talep edildikten Service Bus kaynağın URI'sini bir kaynaktır. Örneğin, `http://<namespace>.servicebus.windows.net/<entityPath>` veya `sb://<namespace>.servicebus.windows.net/<entityPath>`; diğer bir deyişle, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. Bir URI olmalıdır [yüzde olarak kodlanmış](https://msdn.microsoft.com/library/4fkewx0t.aspx).
 
@@ -156,7 +156,7 @@ helloMessage.MessageId = "SAS-Sample-Message";
 sendClient.Send(helloMessage);
 ```
 
-Belirteç sağlayıcı doğrudan belirteçlerini vermek için diğer istemcilere geçirmek için kullanabilirsiniz. 
+Belirteç sağlayıcı doğrudan belirteçlerini vermek için diğer istemcilere geçirmek için kullanabilirsiniz.
 
 Bağlantı dizeleri, kural adı içerebilir (*SharedAccessKeyName*) ve kuralın anahtarı (*SharedAccessKey*) veya daha önce verilmiş bir belirteç (*SharedAccessSignature*). Bu herhangi bir oluşturucu veya bir bağlantı dizesi kabul Üreteç yöntemi geçirilen bağlantı dizesinde mevcut olduğunda, SAS belirteci sağlayıcısı otomatik olarak oluşturulan doldurulur ve.
 
@@ -171,7 +171,7 @@ POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
 Content-Type: application/json
 Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
-``` 
+```
 
 Bunun için her şeyin çalıştığını unutmayın. Bir kuyruk, konu veya abonelik için SAS oluşturabilirsiniz.
 
@@ -183,7 +183,7 @@ Bir gönderici veya istemci bir SAS belirteci izni verirseniz anahtarı doğruda
 
 Service Bus veri göndermeye başlamadan önce yayımcı adlı iyi tanımlanmış bir AMQP düğüm için SAS belirteci bir AMQP iletisi içinde göndermelisiniz **$cbs** (almak ve tüm SAS doğrulamak için hizmet tarafından kullanılan bir "özel" sırası olarak görebileceğiniz belirteci). Yayımcı belirtmelisiniz **ReplyTo** AMQP ileti içinde alan; bu, hizmet yanıt (Basit istek/yanıt desen yayımcı ve hizmet arasında belirteç doğrulama sonucu olan yayımcıyla düğümü ). Bu yanıt düğümü oluşturulur "hareket halindeyken"dinamik oluşturma uzak düğümün hakkında"AMQP 1.0 belirtimi tarafından açıklandığı gibi". Yayımcı, SAS belirtecinin geçerli olup olmadığını denetleyerek sonra İleri gidin ve veri hizmetine göndermek başlatın.
 
-Aşağıdaki adımlar ile AMQP protokolünü kullanarak SAS belirteci gönderme işlemini gösterir [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) kitaplığı. Resmi Service Bus SDK'sı kullanamıyorsanız kullanışlıdır (örneğin üzerinde WinRT, .net Compact Framework, .net mikro çerçevesi ve Mono) C geliştirme\#. Elbette, bu kitaplığı nasıl talep tabanlı güvenlik anlamanıza yardımcı olması kullanışlıdır (ile bir HTTP POST isteği ve "Yetkilendirme" üst bilgisi içinde gönderilen SAS belirteci) HTTP düzeyinde şekli gördüğünüz gibi AMQP düzeyinde çalışır. AMQP gibi ayrıntılı bilgileri gerekmiyorsa, .net ile resmi hizmet veri yolu SDK'sını kullanabilirsiniz. sizin için yapacak Framework uygulamaları.
+Aşağıdaki adımlar ile AMQP protokolünü kullanarak SAS belirteci gönderme işlemini gösterir [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) kitaplığı. C'de resmi (örneğin üzerinde WinRT, .NET Compact Framework, .NET mikro Framework ve Mono) hizmet veri yolu SDK'sı geliştirme kullanamıyorsanız kullanışlıdır\#. Elbette, bu kitaplığı nasıl talep tabanlı güvenlik anlamanıza yardımcı olması kullanışlıdır (ile bir HTTP POST isteği ve "Yetkilendirme" üst bilgisi içinde gönderilen SAS belirteci) HTTP düzeyinde şekli gördüğünüz gibi AMQP düzeyinde çalışır. AMQP gibi ayrıntılı bilgileri gerekmiyorsa, sizin için yapacak .NET Framework uygulamaları ile resmi hizmet veri yolu SDK'sını kullanabilirsiniz.
 
 ### <a name="c35"></a>C&#35;
 
@@ -236,12 +236,12 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-`PutCbsToken()` Yöntemi alır *bağlantı* (AMQP bağlantısı sınıf örneği tarafından sağlanan [AMQP .NET Lite Kitaplığı](https://github.com/Azure/amqpnetlite)) TCP bağlantısını temsil eden hizmete ve *sasToken* parametresine SAS belirteci göndermek için. 
+`PutCbsToken()` Yöntemi alır *bağlantı* (AMQP bağlantısı sınıf örneği tarafından sağlanan [AMQP .NET Lite Kitaplığı](https://github.com/Azure/amqpnetlite)) TCP bağlantısını temsil eden hizmete ve *sasToken* parametresine SAS belirteci göndermek için.
 
 > [!NOTE]
 > Bağlantı ile oluşturduğunuz önemlidir **SASL kimlik doğrulama mekanizmasını ayarlamak için anonim** (ve varsayılan DÜZ kullanıcı adını ve SAS belirteci göndermek ihtiyacınız kalmadığında kullanılan parola ile değil).
-> 
-> 
+>
+>
 
 Ardından, yayımcı, SAS belirteci gönderme ve hizmetten yanıt (belirteç doğrulama sonucu) almak için iki AMQP bağlantıları oluşturur.
 
@@ -295,7 +295,7 @@ Aşağıdaki tablo, Service Bus kaynakları üzerinde çeşitli işlemler için 
 | **kuralları** | | |
 | Kural oluşturma |Yönetme |../myTopic/Subscriptions/mySubscription |
 | Kuralı silme |Yönetme |../myTopic/Subscriptions/mySubscription |
-| Kuralları listeleme |Dinlemek veya yönetme |../myTopic/Subscriptions/mySubscription/Rules 
+| Kuralları listeleme |Dinlemek veya yönetme |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

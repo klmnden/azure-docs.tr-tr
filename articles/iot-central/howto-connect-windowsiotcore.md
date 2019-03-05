@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bd2f675fe646395b60aeb687f67269b0184563bd
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 85fba27c856561eb1270e719dcf24b88d2d5a01f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193407"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309919"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızı Windows IOT Core cihazı bağlayın
 
@@ -72,10 +72,10 @@ Bunu hazırlamak için istemci uygulamasına önceki adımdan gelen Windows 10 I
 Bunu yaptıktan sonra açmanız gerekir [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) http://[device-IP-address]:8080 içinde herhangi bir tarayıcıda yazarak.
 
 Orada ve gerekirse gösterildiği gibi, şunları yapmanız gerekir:
-1. Sol taraftaki "Uygulamalar" düğümünü genişletin.
-2. "Hızlı çalıştırma örnekler"'i tıklatın.
-3. "Azure IOT Hub istemci"'yi tıklatın.
-4. "Dağıtma ve çalıştırma" seçeneğine tıklayın.
+1. Genişletin **uygulamaları** soldaki düğümü.
+2. Seçin **Hızlı çalıştırma örnekleri**.
+3. Seçin **Azure IOT Hub istemci**.
+4. Seçin **dağıtma ve çalıştırma**.
 
 ![Azure IOT Hub istemci Windows Device Portal üzerinde GIF'i](./media/howto-connect-windowsiotcore/iothubapp.gif)
 

@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: bfceb8feacdad428a6e4c23272fd9092a356f107
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1cd5e3708297d3b00849b35e7ca9c1387673413d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453333"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316974"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL veritabanı ve veri ambarı için saydam veri şifrelemesi
 
@@ -83,6 +83,8 @@ Sunucu düzeyinde saydam veri şifrelemesi ana anahtarı olarak da bilinen sayda
 
 ## <a name="manage-transparent-data-encryption-by-using-powershell"></a>Saydam veri şifrelemesi, PowerShell kullanarak yönetme
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Saydam veri şifrelemesi PowerShell üzerinden yapılandırmak için Azure sahibi, katkıda bulunan veya SQL Güvenlik Yöneticisi bağlanması gerekir.
 
 ### <a name="cmdlets-for-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı için cmdlet'leri
@@ -91,14 +93,14 @@ Azure SQL veritabanı ve veri ambarı için aşağıdaki cmdlet'leri kullanın:
 
 | Cmdlet | Açıklama |
 | --- | --- |
-| [Set-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) |Etkinleştirir veya bir veritabanı için saydam veri şifrelemesi devre dışı bırakır|
-| [Get-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) |Bir veritabanı için saydam veri şifreleme durumunu alır |
-| [Get-AzureRmSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) |Bir veritabanı şifreleme ilerleme durumunu denetler |
-| [Add-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |Bir Key Vault anahtarı bir SQL Server örneğine ekler. |
-| [Get-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) |Azure SQL veritabanı sunucusu için anahtar kasası anahtarlarını alır  |
-| [Set-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) |Saydam veri şifrelemesi koruyucu bir SQL Server örneği için ayarlar |
-| [Get-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) |Saydam veri şifrelemesi koruyucu alır |
-| [Remove-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserverkeyvaultkey) |Bir Key Vault anahtarı bir SQL Server örneğinden kaldırır. |
+| [Set-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Etkinleştirir veya bir veritabanı için saydam veri şifrelemesi devre dışı bırakır|
+| [Get-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Bir veritabanı için saydam veri şifreleme durumunu alır |
+| [Get-AzSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) |Bir veritabanı şifreleme ilerleme durumunu denetler |
+| [Add-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/add-azsqlserverkeyvaultkey) |Bir Key Vault anahtarı bir SQL Server örneğine ekler. |
+| [Get-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverkeyvaultkey) |Azure SQL veritabanı sunucusu için anahtar kasası anahtarlarını alır  |
+| [Set-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) |Saydam veri şifrelemesi koruyucu bir SQL Server örneği için ayarlar |
+| [Get-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) |Saydam veri şifrelemesi koruyucu alır |
+| [Remove-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) |Bir Key Vault anahtarı bir SQL Server örneğinden kaldırır. |
 |  | |
 
 > [!IMPORTANT]

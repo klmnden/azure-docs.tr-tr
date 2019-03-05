@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fd83a8304e8548087178aba50cf1b30320f58f0
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 06c878d3b3ad2fe3144d5e55c1a01880ddcab62c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593735"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312214"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Azure PowerShell ile bir Log Analytics çalışma alanı oluşturma
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure PowerShell modülü, PowerShell komut satırından veya betik içinden Azure kaynakları oluşturmak ve yönetmek için kullanılır. Bu hızlı başlangıçta Azure İzleyici'de bir Log Analytics çalışma alanı dağıtmak için Azure PowerShell modülünü kullanmayı gösterir. Bir Log Analytics çalışma alanı, Azure İzleyici günlük verileri için benzersiz bir ortamdır. Kendi veri deposu ve yapılandırma her çalışma alanına sahiptir ve veri kaynakları ve çözümleri belirli bir çalışma alanında, verilerini depolamak için yapılandırılır. Aşağıdaki kaynaklardan veri toplama işlemini düşünüyorsanız, Log Analytics çalışma gerektirir:
+
 
 * Aboneliğinizdeki Azure kaynakları  
 * Şirket içi bilgisayarlar System Center Operations Manager tarafından izlenen  
@@ -39,10 +42,10 @@ Azure aboneliğiniz yoksa, oluşturma [ücretsiz bir hesap](https://azure.micros
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz, bu öğretici Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici Azure PowerShell modülü sürüm 5.7.0 AzureRM veya Az modül sürüm 1.0.0 gerektirir veya üzeri. Sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 
 ## <a name="create-a-workspace"></a>Çalışma alanı oluşturma
-Bir çalışma alanı ile [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Aşağıdaki örnekte adlı bir çalışma alanı oluşturur *TestWorkspace* kaynak grubundaki *Laboratuvar* içinde *eastus* yerel bir Resource Manager şablonu kullanarak konumu Makine. JSON şablonunu, çalışma alanının adı için yalnızca isteyecek şekilde yapılandırılmış ve büyük olasılıkla ortamınızdaki standart bir yapılandırma olarak kullanılacak diğer parametreler için varsayılan bir değer belirtir. 
+Bir çalışma alanı ile [yeni AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Aşağıdaki örnekte adlı bir çalışma alanı oluşturur *TestWorkspace* kaynak grubundaki *Laboratuvar* içinde *eastus* yerel bir Resource Manager şablonu kullanarak konumu Makine. JSON şablonunu, çalışma alanının adı için yalnızca isteyecek şekilde yapılandırılmış ve büyük olasılıkla ortamınızdaki standart bir yapılandırma olarak kullanılacak diğer parametreler için varsayılan bir değer belirtir. 
 
 Aşağıdaki parametreleri varsayılan değeri ayarlayın:
 
@@ -116,7 +119,7 @@ Aşağıdaki parametreleri varsayılan değeri ayarlayın:
 4. Bu şablonu dağıtmaya hazırsınız. Şablonu içeren klasörden aşağıdaki komutları kullanın:
 
     ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
     ```
 
 Dağıtımın tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonuç içeren aşağıdakine benzer bir ileti görürsünüz:

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 640abdd533a6c0b0ec448076c713aaf754baf2b6
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: e4a2bb6d68562781592e1dfe5ad820044e8da708
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011305"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313948"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Öğretici: Azure Notification hubs'ı kullanarak iOS uygulamaları için anında iletme bildirimleri
 
@@ -113,11 +113,29 @@ Bildirim hub'ınızı APNS ile birlikte çalışacak şekilde yapılandırdını
      > [!NOTE]
      > Gibi bir hata görürseniz ```[!] Unable to find a specification for `AzureNotificationHubs-iOS` ``` çalışırken `pod install`, lütfen çalıştırma `pod repo update` Cocoapods depodan en son pod'ları almak ve daha sonra çalıştırmak için `pod install`.
 
+   - Carthage aracılığıyla tümleştirmesi
+
+     Aşağıdaki bağımlılıkları ekleyin, `Cartfile` Azure Notification Hubs SDK'sı uygulamanıza dahil etmek için.
+
+     ```ruby
+     github "Azure/azure-notificationhubs-ios"
+     ```
+
+     Ardından, güncelleştirin ve bağımlılıkları derleyin:
+
+     ```shell
+     $ carthage update
+     ```
+
+     Carthage kullanma hakkında daha fazla bilgi için bkz. [Carthage GitHub deposu](https://github.com/Carthage/Carthage).
+
    - İkili dosyaları projenize kopyalayarak tümleştirme
 
-     [Windows Azure Messaging Framework] paketini indirip açın. Xcode'da projenize sağ tıklayın ve **WindowsAzureMessaging.framework** klasörünü Xcode projenize eklemek için **Add Files to** (Dosyaları Şuraya Ekle) seçeneğine tıklayın. **Options** (Seçenekler) seçeneğine tıklayıp **Copy items if needed** (Gerekirse verileri kopyala) öğesinin seçili olduğundan emin olduktan sonra **Add** (Ekle) öğesine tıklayın.
+       1. İndirme [Azure Notification Hubs SDK'sı](https://github.com/Azure/azure-notificationhubs-ios/releases) framework zip dosyası olarak sağlanan ve sıkıştırmasını açın.
 
-     ![Azure SDK'nın sıkıştırmasını açma][10]
+       2. Xcode'da projenize sağ tıklayın ve **WindowsAzureMessaging.framework** klasörünü Xcode projenize eklemek için **Add Files to** (Dosyaları Şuraya Ekle) seçeneğine tıklayın. **Options** (Seçenekler) seçeneğine tıklayıp **Copy items if needed** (Gerekirse verileri kopyala) öğesinin seçili olduğundan emin olduktan sonra **Add** (Ekle) öğesine tıklayın.
+
+       ![Azure SDK'nın sıkıştırmasını açma][10]
 
 6. Projenize `HubInfo.h` adlı yeni bir üst bilgi dosyası ekleyin. Bu dosya, bildirim hub’ınız için sabitleri tutar. Aşağıdaki tanımları ekleyin ve dize sabiti yer tutucularını, daha önce not ettiğiniz *hub adınız* ve *DefaultListenSharedAccessSignature* ile değiştirin.
 

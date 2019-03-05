@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d10e0b48da497dafe9bb841c68746328e8334c91
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 0f03cdb7f407e0f568b543cc09527bb6a6e4c25a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215736"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317229"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Öğretici: Azure IOT Central işlecin görünümünü özelleştirme
 
@@ -79,7 +79,7 @@ Oluşturucu olarak, bir cihaz panosunda hangi bilgilerin gösterileceğini tanı
 
     ![Pano düzenini düzenleme](media/tutorial-customize-operator/dashboardlayout.png)
 
-7. Değişiklik yapmayı tamamladığınızda **Bitti**’yi tıklatın.
+7. Seçin **Bitti** değişiklikleri yapmayı tamamladığınızda.
 
 ## <a name="configure-your-settings-layout"></a>Ayar düzeninizi değiştirme
 
@@ -93,7 +93,7 @@ Oluşturucu olarak, cihaz ayarlarının operatör görünümünü de yapılandı
 
     ![Ayarlar düzenini değiştirme](media/tutorial-customize-operator/settingslayout.png)
 
-3. Değişiklik yapmayı tamamladığınızda **Bitti**’yi tıklatın.
+3. Seçin **Bitti** değişiklikleri yapmayı tamamladığınızda.
 
 > [!NOTE]
 > **Şablonu Düzenle**’de ayarların değerlerini düzenleyemezsiniz.
@@ -110,7 +110,7 @@ Pano ve ayarlara ek olarak cihaz özelliklerinin operatör görünümünü de ya
 
     ![Özellikler düzenini değiştirme](media/tutorial-customize-operator/propertieslayout.png)
 
-3. Değişiklik yapmayı tamamladığınızda **Bitti**’yi tıklatın.
+3. Seçin **Bitti** değişiklikleri yapmayı tamamladığınızda.
 
 > [!NOTE]
 > **Şablonu Düzenle** modunda özelliklerin değerlerini düzenleyemezsiniz.
@@ -119,7 +119,7 @@ Pano ve ayarlara ek olarak cihaz özelliklerinin operatör görünümünü de ya
 
 **Şablonu Düzenle** modunda bir işlecin pano, ayarlar ve özellikler sayfalarını özelleştirebilirsiniz. **Şablonu Düzenle** modunda değilseniz, uygulamayı bir işleç olarak görüntüleyebilirsiniz.
 
-1. Bağlı klima cihazınızı operatör olarak görüntülemek isterseniz, şablonu düzenlemeyi durdurmak için **Bitti**’ye tıklayın ve cihazın operatör görünümüne dönün.
+1. Bağlı yapının klimaları Cihazınızı operatör olarak görüntülemek için seçin **Bitti** şablonu düzenlemeyi durdurmak ve cihazın işlecin görünümüne dönmek için.
 
 2. Bu cihazın konumunu güncelleştirmek için konum kutucuğundaki değeri düzenleyin ve **Kaydet**’i seçin:
 
@@ -142,7 +142,7 @@ Bir oluşturucu veya işleci bir Azure IOT Central uygulamasına oturum açtığ
 > [!NOTE]
 > Kullanıcılar ayrıca kendi kişisel panolar oluşturabilir ve varsayılan olarak seçin.
 
-1. Varsayılan uygulama Panosu özelleştirmek için gezinme **Pano** sayfasında ve tıklayın **Düzenle** üst sayfanın sağ. Panoya ekleyebilirsiniz nesnelerin bir kitaplığı ile bir paneli görüntülenir.
+1. Varsayılan uygulama Panosu özelleştirmek için gezinme **Pano** sayfasından seçim yapıp **Düzenle** üst sayfanın sağ. Panoya ekleyebilirsiniz nesnelerin bir kitaplığı ile bir paneli görüntülenir.
 
     ![Pano sayfası](media/tutorial-customize-operator/builderhome.png)
 
@@ -153,7 +153,7 @@ Bir oluşturucu veya işleci bir Azure IOT Central uygulamasına oturum açtığ
     > [!NOTE]
     > Azure IoT Central uygulamanızdaki sayfalara bağlantılar da ekleyebilirsiniz. Örneğin, bir cihazın panosuna ya da ayarlar sayfasına bağlantı ekleyebilirsiniz.
 
-3. İsteğe bağlı olarak, **görüntü** ve Panonuzda görüntülemek için bir görüntü yükleyin. Bir görüntü olduğu ulaşmanıza tıkladığınızda bir URL olabilir:
+3. İsteğe bağlı olarak, **görüntü** ve Panonuzda görüntülemek için bir görüntü yükleyin. Görüntü ulaşmanıza olduğu için bu seçeneği belirlediğinizde bir URL olabilir:
 
     ![Panoya resim ekleme](media/tutorial-customize-operator/addimage.png)
 
@@ -165,7 +165,7 @@ Uygulama Panosu operatör olarak önizlemesini görüntülemek için seçin **Bi
 
 ![Tasarım Modunu Açma/Kapatma](media/tutorial-customize-operator/operatorviewhome.png)
 
-Oluşturucu olarak ayarladığınız URL’lere gitmek için bağlantıya ve görüntü kutucuklarına tıklayabilirsiniz.
+Bir oluşturucu olarak ayarladığınız URL'leri gitmek için bağlantı ve resim kutucukları seçebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

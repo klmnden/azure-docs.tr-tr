@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/10/2019
-ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 25959b277e8cb97eea9ee0f44fa7c0b43821e3d8
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750350"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312367"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Öğretici: Coğrafi olarak dağıtılmış bir veritabanı uygulama
 
@@ -31,6 +31,8 @@ Bir Azure SQL veritabanı ve uzak bir bölgeye yük devretme için uygulama yap�
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bu öğreticiyi tamamlamak için aşağıdaki öğeler yüklediğiniz emin olun:
 
@@ -72,14 +74,14 @@ Bir yük devretme grubu oluşturmak için aşağıdaki betiği çalıştırın:
     $myfailovergroupname = "<your globally unique failover group name>"
 
     # Create a backup server in the failover region
-    New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
+    New-AzSqlServer -ResourceGroupName $myresourcegroupname `
        -ServerName $mydrservername `
        -Location $mydrlocation `
        -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
           -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
     # Create a failover group between the servers
-    New-AzureRMSqlDatabaseFailoverGroup `
+    New-AzSqlDatabaseFailoverGroup `
        –ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -PartnerServerName $mydrservername  `
@@ -88,11 +90,11 @@ Bir yük devretme grubu oluşturmak için aşağıdaki betiği çalıştırın:
        -GracePeriodWithDataLossHours 2
 
     # Add the database to the failover group
-    Get-AzureRmSqlDatabase `
+    Get-AzSqlDatabase `
        -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -DatabaseName $mydatabasename | `
-     Add-AzureRmSqlDatabaseToFailoverGroup `
+     Add-AzSqlDatabaseToFailoverGroup `
        -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -FailoverGroupName $myfailovergroupname
@@ -300,7 +302,7 @@ Bir yük devretme benzetimini gerçekleştirmek ve uygulama sonuçlarını gözl
 Aşağıdaki komutla test sırasında olağanüstü durum kurtarma sunucusu rolünü de göz atabilirsiniz:
 
    ```powershell
-   (Get-AzureRMSqlDatabaseFailoverGroup `
+   (Get-AzSqlDatabaseFailoverGroup `
       -FailoverGroupName $myfailovergroupname `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $mydrservername).ReplicationRole
@@ -311,7 +313,7 @@ Bir yük devretme testi için:
 1. Yük devretme grubunun el ile bir yük devretme başlatın:
 
    ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
+   Switch-AzSqlDatabaseFailoverGroup `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $mydrservername `
       -FailoverGroupName $myfailovergroupname
@@ -320,7 +322,7 @@ Bir yük devretme testi için:
 1. Yük devretme grubu için birincil sunucuya geri dönmek:
 
    ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
+   Switch-AzSqlDatabaseFailoverGroup `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $myservername `
       -FailoverGroupName $myfailovergroupname

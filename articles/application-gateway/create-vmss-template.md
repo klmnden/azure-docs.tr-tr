@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: f7050514d5f0de0cade09c6be672d7dfd3568da3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0f3bdaaa038dcd0ef2a0ad6466cbb7a09ec7c2bc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037421"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312452"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonunu kullanarak uygulama ağ geçidi oluşturma
 
@@ -27,6 +27,8 @@ Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirke
 Bu makalede indiriliyor ve var olan bir değiştirme için size [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) GitHub ve şablonu GitHub, PowerShell ve Azure CLI'yı dağıtma.
 
 Yalnızca şablon herhangi bir değişiklik yapmadan doğrudan github'dan dağıtıyorsanız, github'dan şablon dağıtma bölümüne atlayın.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Senaryo
 
@@ -123,13 +125,13 @@ Azure PowerShell'i hiç kullanmadıysanız, ziyaret edin: [Azure PowerShell'i y�
 1. PowerShell oturum açın
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Hesapla ilişkili abonelikleri kontrol edin.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.
@@ -137,19 +139,19 @@ Azure PowerShell'i hiç kullanmadıysanız, ziyaret edin: [Azure PowerShell'i y�
 1. Hangi Azure aboneliğinizin kullanılacağını seçin.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. Gerekirse, **New-AzureResourceGroup** cmdlet’ini kullanarak bir kaynak grubu oluşturun. Aşağıdaki örnekte Doğu ABD konumunda AppgatewayRG adlı yeni bir kaynak grubu oluşturacaksınız.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Önceden indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni sanal ağı dağıtmak için, **New-AzureRmResourceGroupDeployment** cmdlet’ini çalıştırın.
+1. Çalıştırma **yeni AzResourceGroupDeployment** indirdiğiniz ve değiştirdiğiniz şablonu ve parametre kullanarak yeni sanal ağı dağıtmak için cmdlet dosyaları.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -215,7 +217,7 @@ Bu makalede oluşturulan tüm kaynakları silmek için aşağıdaki adımlardan 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### <a name="azure-cli"></a>Azure CLI

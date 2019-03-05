@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: 0028f183276eb93b5c71330ec650eaf178523bdd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a9bff2ab8569a6e070ce5ea4c02b022a172450a3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428929"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310616"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Application gateway, Azure PowerShell kullanarak HTTPS yeniden yönlendirmesi için HTTP ile oluşturma
 
@@ -33,7 +33,9 @@ Bu makalede şunları öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-Bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). Bu öğreticideki komutları çalıştırmak için de çalışmasına ihtiyacınız `Login-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Bu öğretici Azure PowerShell modülü sürüm 1.0.0 gerektirir veya üzeri. Sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps). Bu öğreticideki komutları çalıştırmak için de çalışmasına ihtiyacınız `Login-AzAccount` Azure ile bir bağlantı oluşturmak için.
 
 ## <a name="create-a-self-signed-certificate"></a>Otomatik olarak imzalanan sertifika oluşturma
 
@@ -67,30 +69,30 @@ Export-PfxCertificate `
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Adlı bir Azure kaynak grubu oluşturma *myResourceGroupAG* kullanarak [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Adlı bir Azure kaynak grubu oluşturma *myResourceGroupAG* kullanarak [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
+New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 
-[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) komutunu kullanarak *myBackendSubnet* ve *myAGSubnet* alt ağ yapılandırmalarını oluşturun. Alt ağ yapılandırmaları ile [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) komutunu kullanarak *myVNet* adlı sanal ağı oluşturun. Son olarak da [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun. Bu kaynaklar, uygulama ağ geçidi ve ilişkili kaynakları ile ağ bağlantısı sağlamak için kullanılır.
+Alt ağ yapılandırmalarını oluşturma *myBackendSubnet* ve *myAGSubnet* kullanarak [yeni AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Adlı sanal ağ oluşturma *myVNet* kullanarak [yeni AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) alt ağ yapılandırmalarını ile. Ve son olarak, adlı ortak IP adresi oluşturma *myAGPublicIPAddress* kullanarak [yeni AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Bu kaynaklar, uygulama ağ geçidi ve ilişkili kaynakları ile ağ bağlantısı sağlamak için kullanılır.
 
 ```powershell
-$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -AddressPrefix 10.0.1.0/24
-$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$agSubnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name myAGSubnet `
   -AddressPrefix 10.0.2.0/24
-$vnet = New-AzureRmVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $backendSubnetConfig, $agSubnetConfig
-$pip = New-AzureRmPublicIpAddress `
+$pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
@@ -101,32 +103,32 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP yapılandırmaları ve ön uç bağlantı noktası oluşturma
 
-[New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) komutunu kullanarak, daha önce oluşturduğunuz *myAGSubnet* alt ağını uygulama ağ geçidiyle ilişkilendirin. [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) komutunu kullanarak *myAGPublicIPAddress* adresini uygulama ağ geçidiyle ilişkilendirin. Ve ardından HTTPS bağlantı noktası kullanarak oluşturabilirsiniz [yeni AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport).
+İlişkilendirme *myAGSubnet* uygulama ağ geçidi kullanarak daha önce oluşturduğunuz [yeni AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Ata *myAGPublicIPAddress* kullanarak uygulama ağ geçidi [yeni AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). Ve ardından HTTPS bağlantı noktası kullanarak oluşturabilirsiniz [yeni AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
 $subnet=$vnet.Subnets[0]
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+$gipconfig = New-AzApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
   -Subnet $subnet
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig `
   -Name myAGFrontendIPConfig `
   -PublicIPAddress $pip
-$frontendPort = New-AzureRmApplicationGatewayFrontendPort `
+$frontendPort = New-AzApplicationGatewayFrontendPort `
   -Name myFrontendPort `
   -Port 443
 ```
 
 ### <a name="create-the-backend-pool-and-settings"></a>Arka uç havuzu ve ayarları oluşturma
 
-[New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) komutunu kullanarak uygulama ağ geçidi için *appGatewayBackendPool* adlı arka uç havuzunu oluşturun. [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings) komutunu kullanarak arka uç havuzunun ayarlarını yapılandırın.
+Adlı arka uç havuzu oluşturun *appGatewayBackendPool* kullanarak uygulama ağ geçidi için [yeni AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Kullanarak arka uç havuzu için ayarları yapılandırma [yeni AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
 
 ```powershell
-$defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
+$defaultPool = New-AzApplicationGatewayBackendAddressPool `
   -Name appGatewayBackendPool 
-$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+$poolSettings = New-AzApplicationGatewayBackendHttpSettings `
   -Name myPoolSettings `
   -Port 80 `
   -Protocol Http `
@@ -138,24 +140,24 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 Uygulama ağ geçidinin trafiği arka uç havuzuna uygun şekilde yönlendirmesini sağlamak içn bir dinleyici gereklidir. Bu örnekte, kök URL’deki HTTPS trafiğini dinleyen temel bir dinleyici oluşturacaksınız. 
 
-Nesnesi kullanarak bir sertifika oluşturma [yeni AzureRmApplicationGatewaySslCertificate](/powershell/module/azurerm.network/new-azurermapplicationgatewaysslcertificate) ve adlı bir dinleyici oluşturup *appGatewayHttpListener* kullanarak [ Yeni AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) ön uç yapılandırması, ön uç bağlantı noktası ve önceden oluşturduğunuz sertifika. Dinleyicinin gelen trafik için kullanacağı arka uç havuzunu bilmesi için bir kural gerekir. [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) komutunu kullanarak *rule1* adlı temel bir kural oluşturun.
+Nesnesi kullanarak bir sertifika oluşturma [yeni AzApplicationGatewaySslCertificate](/powershell/module/az.network/new-azapplicationgatewaysslcertificate) ve adlı bir dinleyici oluşturup *appGatewayHttpListener* kullanarak [ Yeni AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) ön uç yapılandırması, ön uç bağlantı noktası ve önceden oluşturduğunuz sertifika. Dinleyicinin gelen trafik için kullanacağı arka uç havuzunu bilmesi için bir kural gerekir. Adlı bir temel kuralı oluşturun *bağlanma1* kullanarak [yeni AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```powershell
 $pwd = ConvertTo-SecureString `
   -String "Azure123456!" `
   -Force `
   -AsPlainText
-$cert = New-AzureRmApplicationGatewaySslCertificate `
+$cert = New-AzApplicationGatewaySslCertificate `
   -Name "appgwcert" `
   -CertificateFile "c:\appgwcert.pfx" `
   -Password $pwd
-$defaultListener = New-AzureRmApplicationGatewayHttpListener `
+$defaultListener = New-AzApplicationGatewayHttpListener `
   -Name appGatewayHttpListener `
   -Protocol Https `
   -FrontendIPConfiguration $fipconfig `
   -FrontendPort $frontendPort `
   -SslCertificate $cert
-$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+$frontendRule = New-AzApplicationGatewayRequestRoutingRule `
   -Name rule1 `
   -RuleType Basic `
   -HttpListener $defaultListener `
@@ -165,14 +167,14 @@ $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Gerekli destekleyici kaynakları oluşturduktan sonra, [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) komutunu kullanarak *myAppGateway* adlı uygulama ağ geçidinin parametrelerini belirtin ve sonra sertifikayla [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) komutunu kullanarak uygulama ağ geçidini oluşturun.
+Gerekli destekleyici kaynakları oluşturduğunuz, adlı uygulama ağ geçidi için parametreleri belirtin *myAppGateway* kullanarak [yeni AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)ve ardından kullanarakoluşturun[Yeni AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) sertifika ile.
 
 ```powershell
-$sku = New-AzureRmApplicationGatewaySku `
+$sku = New-AzApplicationGatewaySku `
   -Name Standard_Medium `
   -Tier Standard `
   -Capacity 2
-$appgw = New-AzureRmApplicationGateway `
+$appgw = New-AzApplicationGateway `
   -Name myAppGateway `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
@@ -191,13 +193,13 @@ $appgw = New-AzureRmApplicationGateway `
 
 ### <a name="add-the-http-port"></a>HTTP bağlantı noktası Ekle
 
-HTTP bağlantı noktası kullanarak uygulama ağ geçidi ekleyin [Ekle AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/add-azurermapplicationgatewayfrontendport).
+HTTP bağlantı noktası kullanarak uygulama ağ geçidi ekleyin [Ekle AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport).
 
 ```powershell
-$appgw = Get-AzureRmApplicationGateway `
+$appgw = Get-AzApplicationGateway `
   -Name myAppGateway `
   -ResourceGroupName myResourceGroupAG
-Add-AzureRmApplicationGatewayFrontendPort `
+Add-AzApplicationGatewayFrontendPort `
   -Name httpPort  `
   -Port 80 `
   -ApplicationGateway $appgw
@@ -205,16 +207,16 @@ Add-AzureRmApplicationGatewayFrontendPort `
 
 ### <a name="add-the-http-listener"></a>HTTP dinleyicisi Ekle
 
-Adlı bir HTTP dinleyicisi Ekle *myListener* kullanarak uygulama ağ geçidi [Ekle AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/add-azurermapplicationgatewayhttplistener).
+Adlı bir HTTP dinleyicisi Ekle *myListener* kullanarak uygulama ağ geçidi [Ekle AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
 
 ```powershell
-$fipconfig = Get-AzureRmApplicationGatewayFrontendIPConfig `
+$fipconfig = Get-AzApplicationGatewayFrontendIPConfig `
   -Name myAGFrontendIPConfig `
   -ApplicationGateway $appgw
-$fp = Get-AzureRmApplicationGatewayFrontendPort `
+$fp = Get-AzApplicationGatewayFrontendPort `
   -Name httpPort `
   -ApplicationGateway $appgw
-Add-AzureRmApplicationGatewayHttpListener `
+Add-AzApplicationGatewayHttpListener `
   -Name myListener `
   -Protocol Http `
   -FrontendPort $fp `
@@ -224,13 +226,13 @@ Add-AzureRmApplicationGatewayHttpListener `
 
 ### <a name="add-the-redirection-configuration"></a>Yeniden yönlendirme yapılandırması Ekle
 
-HTTP, HTTPS yeniden yönlendirmesi yapılandırma kullanarak uygulama ağ geçidi eklemek [Add-AzureRmApplicationGatewayRedirectConfiguration](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration).
+HTTP, HTTPS yeniden yönlendirmesi yapılandırma kullanarak uygulama ağ geçidi eklemek [Ekle AzApplicationGatewayRedirectConfiguration](/powershell/module/az.network/add-azapplicationgatewayredirectconfiguration).
 
 ```powershell
-$defaultListener = Get-AzureRmApplicationGatewayHttpListener `
+$defaultListener = Get-AzApplicationGatewayHttpListener `
   -Name appGatewayHttpListener `
   -ApplicationGateway $appgw
-Add-AzureRmApplicationGatewayRedirectConfiguration -Name httpToHttps `
+Add-AzApplicationGatewayRedirectConfiguration -Name httpToHttps `
   -RedirectType Permanent `
   -TargetListener $defaultListener `
   -IncludePath $true `
@@ -240,22 +242,22 @@ Add-AzureRmApplicationGatewayRedirectConfiguration -Name httpToHttps `
 
 ### <a name="add-the-routing-rule"></a>Yönlendirme kuralı Ekle
 
-Uygulama ağ geçidi kullanarak yeniden yönlendirme yapılandırması ile yönlendirme kuralı Ekle [Ekle AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/add-azurermapplicationgatewayrequestroutingrule).
+Uygulama ağ geçidi kullanarak yeniden yönlendirme yapılandırması ile yönlendirme kuralı Ekle [Ekle AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
 
 ```powershell
-$myListener = Get-AzureRmApplicationGatewayHttpListener `
+$myListener = Get-AzApplicationGatewayHttpListener `
   -Name myListener `
   -ApplicationGateway $appgw
-$redirectConfig = Get-AzureRmApplicationGatewayRedirectConfiguration `
+$redirectConfig = Get-AzApplicationGatewayRedirectConfiguration `
   -Name httpToHttps `
   -ApplicationGateway $appgw
-Add-AzureRmApplicationGatewayRequestRoutingRule `
+Add-AzApplicationGatewayRequestRoutingRule `
   -Name rule2 `
   -RuleType Basic `
   -HttpListener $myListener `
   -RedirectConfiguration $redirectConfig `
   -ApplicationGateway $appgw
-Set-AzureRmApplicationGateway -ApplicationGateway $appgw
+Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi oluşturma
@@ -263,40 +265,40 @@ Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 Bu örnekte uygulama ağ geçidinde arka uç havuzu için sunucu sağlayan bir sanal makine ölçek kümesi oluşturacaksınız. IP ayarlarını yapılandırırken ölçek kümesini arka uç havuzuna atayın.
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
-$appgw = Get-AzureRmApplicationGateway `
+$appgw = Get-AzApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
-$backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+$backendPool = Get-AzApplicationGatewayBackendAddressPool `
   -Name appGatewayBackendPool `
   -ApplicationGateway $appgw
-$ipConfig = New-AzureRmVmssIpConfig `
+$ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
   -SubnetId $vnet.Subnets[1].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
-$vmssConfig = New-AzureRmVmssConfig `
+$vmssConfig = New-AzVmssConfig `
   -Location eastus `
   -SkuCapacity 2 `
   -SkuName Standard_DS2 `
   -UpgradePolicyMode Automatic
-Set-AzureRmVmssStorageProfile $vmssConfig `
+Set-AzVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
   -ImageReferenceVersion latest
   -OsDiskCreateOption FromImage
-Set-AzureRmVmssOsProfile $vmssConfig `
+Set-AzVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
   -AdminPassword "Azure123456!" `
   -ComputerNamePrefix myvmss
-Add-AzureRmVmssNetworkInterfaceConfiguration `
+Add-AzVmssNetworkInterfaceConfiguration `
   -VirtualMachineScaleSet $vmssConfig `
   -Name myVmssNetConfig `
   -Primary $true `
   -IPConfiguration $ipConfig
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName myResourceGroupAG `
   -Name myvmss `
   -VirtualMachineScaleSet $vmssConfig
@@ -307,14 +309,14 @@ New-AzureRmVmss `
 ```powershell
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+$vmss = Get-AzVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
   -TypeHandlerVersion 1.8 `
   -Setting $publicSettings
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName myResourceGroupAG `
   -Name myvmss `
   -VirtualMachineScaleSet $vmss
@@ -322,10 +324,10 @@ Update-AzureRmVmss `
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-Uygulama ağ geçidinin genel IP adresini almak için [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) komutunu kullanabilirsiniz. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Örneğin, http://52.170.203.149
+Kullanabileceğiniz [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) uygulama ağ geçidinin genel IP adresini almak için. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Örneğin, http://52.170.203.149
 
 ```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
+Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
 ![Güvenli uyarı](./media/redirect-http-to-https-powershell/application-gateway-secure.png)

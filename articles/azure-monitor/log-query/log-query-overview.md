@@ -2,22 +2,17 @@
 title: Azure İzleyici'de günlük verilerini analiz edin | Microsoft Docs
 description: Azure İzleyici'den günlük verilerini almak için günlük sorgusu gerektirir.  Bu makalede, Azure İzleyici'de kullanılan sorguları nasıl yeni bir günlük açıklar ve bir oluşturmadan önce anlamanız gereken kavramlar sağlar.
 services: log-analytics
-documentationcenter: ''
 author: bwren
-manager: carmonm
-editor: ''
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 259a792acb4d2fb8f9695f0f5a856bdf5069f2cd
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3e0cc41b2bb9b5c8193e64ccec767e551b3525e1
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749758"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307404"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Azure İzleyici'de günlük verilerini çözümleme
 
@@ -34,14 +29,19 @@ Azure İzleyici'deki herhangi bir günlük veri almak için günlük sorgusu ger
 
 ## <a name="where-log-queries-are-used"></a>Günlük sorguları kullanıldığı
 
-Azure İzleyici'de günlük sorguları kullanacağını farklı yollar şunlardır:
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Azure İzleyicisi'nde sorgular kullanacağını farklı yollar şunlardır:
+
 
 - **Portalı.** Günlük veri etkileşimli analiz gerçekleştirebilir [Azure portalında](portals.md).  Bu, sorgunuzu düzenleyin ve çeşitli biçimlerde ve görselleştirmeler sonuçları analiz etmek sağlar.  
 - **Uyarı kuralları.** [Uyarı kuralları](../platform/alerts-overview.md) çalışma alanınızdaki veri sorunları proaktif olarak belirleyin.  Her uyarı kuralı otomatik olarak düzenli aralıklarla çalışan bir günlük araması temel alır.  Sonuçları bir uyarının oluşturulması gerektiğini belirlemek için incelenir.
 - **Panolar.** Herhangi bir sorgu sonuçlarını sabitleyebilirsiniz bir [Azure panosuna](../learn/tutorial-logs-dashboards.md) olan izin, günlük ve ölçüm verileri bir araya görselleştirip, isteğe bağlı olarak diğer Azure kullanıcıları ile paylaşın. 
 - **Görünümler.**  Kullanıcı panolarla dahil edilecek veri görselleştirmeleri oluşturabilirsiniz [Görünüm Tasarımcısı](../platform/view-designer.md).  Günlük sorguları tarafından kullanılan verileri sağlar [kutucukları](../platform/view-designer-tiles.md) ve [görselleştirme bölümleri](../platform/view-designer-parts.md) her görünümde.  
+
 - **Dışarı aktarın.**  Aktardığınızda günlük verilerini Azure İzleyici'den Excel'e veya [Power BI](../platform/powerbi.md), dışarı aktarmak için verileri tanımlamak için bir günlük sorgusu oluşturun.
-- **PowerShell.** Bir komut satırı veya kullanan bir Azure Otomasyonu runbook'u bir PowerShell Betiği çalıştırabilirsiniz [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) günlük verilerini Azure İzleyici'den alınamadı.  Bu cmdlet, alınacak verileri belirlemek üzere bir sorgu gerektirir.
+- **PowerShell.** Bir komut satırı veya kullanan bir Azure Otomasyonu runbook'u bir PowerShell Betiği çalıştırabilirsiniz [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) günlük verilerini Azure İzleyici'den alınamadı.  Bu cmdlet, alınacak verileri belirlemek üzere bir sorgu gerektirir.
 - **Azure İzleyici günlüklerine API.**  [Azure İzleyici günlüklerine API](../platform/alerts-overview.md) çalışma alanından günlük verilerini almak herhangi bir REST API istemcisi sağlar.  API isteği almak için verileri belirlemek için Azure İzleyici'karşı çalışan bir sorgu içerir.
 
 ![Günlük aramaları](media/log-query-overview/queries-overview.png)

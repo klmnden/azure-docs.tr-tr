@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 1ef779e64995c6996538b68b892cb45f11788067
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477473"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314087"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Olay hub'ına Stream Azure tanılama günlükleri
 **[Azure tanılama günlükleri](diagnostic-logs-overview.md)**  portalında veya Azure aracılığıyla bir tanılama ayarını olay hub'ı yetkilendirme kuralı kimliği etkinleştirerek yerleşik "Dışarı aktarmak için Event Hubs" seçeneğini kullanarak herhangi bir uygulama için neredeyse gerçek zamanlı akış PowerShell cmdlet'leri veya Azure CLI.
@@ -83,10 +83,12 @@ Birkaç dakika sonra yeni ayar, bu kaynak için ayarların listesi görüntülen
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell cmdlet'leri
 
-Aracılığıyla akışını etkinleştirmek için [Azure PowerShell cmdlet'leri](../../azure-monitor/platform/powershell-quickstart-samples.md), kullanabileceğiniz `Set-AzureRmDiagnosticSetting` cmdlet şu parametrelerle:
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Aracılığıyla akışını etkinleştirmek için [Azure PowerShell cmdlet'leri](../../azure-monitor/platform/powershell-quickstart-samples.md), kullanabileceğiniz `Set-AzDiagnosticSetting` cmdlet şu parametrelerle:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
 Olay hub'ı yetkilendirme kuralı kimliği şu biçime sahip bir dizedir: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, örneğin, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Şu anda PowerShell belirli bir olay hub'ı adıyla seçemezsiniz.

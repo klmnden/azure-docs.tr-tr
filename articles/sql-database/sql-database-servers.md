@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: db82c109e6ae807addafd4d188a24609c4066cd9
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 1968c0ee44458cdef47f6118c50e876d52a74f24
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100706"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316549"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL veritabanı sunucuları ve bunların yönetimi
 
@@ -82,24 +82,26 @@ Varolan bir veritabanını yönetmek için gidin **SQL veritabanları** sayfası
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Azure SQL sunucularını, veritabanlarını ve güvenlik duvarları PowerShell kullanarak yönetme
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Azure SQL server, veritabanları ve Azure PowerShell ile güvenlik duvarları oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps). Oluşturma ve elastik havuzları yönetme için bkz: [elastik havuzlar](sql-database-elastic-pool.md).
 
 | Cmdlet | Açıklama |
 | --- | --- |
-|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Bir veritabanı oluşturur |
-|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Bir veya daha fazla veritabanını alır|
-|[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Bir veritabanı özelliklerini ayarlar veya varolan bir veritabanını esnek havuza taşır.|
-|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Bir veritabanı kaldırır|
-|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Bir kaynak grubu oluşturur|
-|[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Bir sunucu oluşturur|
-|[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Sunucuları hakkında bilgi döndürür|
-|[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Bir sunucu özelliklerini değiştirir|
-|[Remove-AzureRmSqlServer](/powershell/module/azurerm.sql/remove-azurermsqlserver)|Bir sunucuyu kaldırır|
-|[New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule)|Bir sunucu düzeyinde güvenlik duvarı kuralı oluşturulmaktadır. |
-|[Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|Bir sunucu için güvenlik duvarı kuralları alır|
-|[Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule)|Sunucu bir güvenlik duvarı kuralı değiştirir|
-|[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|Bir güvenlik duvarı kuralı, bir sunucudan siler.|
-| New-AzureRmSqlServerVirtualNetworkRule | Oluşturur bir [ *sanal ağ kuralı*](sql-database-vnet-service-endpoint-rule-overview.md)bağlı olarak bir sanal ağ hizmet uç noktası olan bir alt ağ. |
+|[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Bir veritabanı oluşturur |
+|[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|Bir veya daha fazla veritabanını alır|
+|[Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)|Bir veritabanı özelliklerini ayarlar veya varolan bir veritabanını esnek havuza taşır.|
+|[Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase)|Bir veritabanı kaldırır|
+|[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Bir kaynak grubu oluşturur|
+|[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Bir sunucu oluşturur|
+|[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Sunucuları hakkında bilgi döndürür|
+|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Bir sunucu özelliklerini değiştirir|
+|[Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Bir sunucuyu kaldırır|
+|[Yeni AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Bir sunucu düzeyinde güvenlik duvarı kuralı oluşturulmaktadır. |
+|[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Bir sunucu için güvenlik duvarı kuralları alır|
+|[Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule)|Sunucu bir güvenlik duvarı kuralı değiştirir|
+|[Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule)|Bir güvenlik duvarı kuralı, bir sunucudan siler.|
+| New-AzSqlServerVirtualNetworkRule | Oluşturur bir [ *sanal ağ kuralı*](sql-database-vnet-service-endpoint-rule-overview.md)bağlı olarak bir sanal ağ hizmet uç noktası olan bir alt ağ. |
 
 > [!TIP]
 > PowerShell için hızlı başlangıç için bkz: [PowerShell kullanarak Azure SQL tek veritabanı oluşturma](sql-database-single-database-get-started.md). PowerShell örnek komut dosyaları için bkz: [tek bir Azure SQL veritabanı oluşturun ve bir güvenlik duvarı kuralı yapılandırmak için PowerShell kullanma](scripts/sql-database-create-and-configure-database-powershell.md) ve [İzleyici ve ölçek bir Azure SQL veritabanını PowerShell kullanarak tek](scripts/sql-database-monitor-and-scale-database-powershell.md).

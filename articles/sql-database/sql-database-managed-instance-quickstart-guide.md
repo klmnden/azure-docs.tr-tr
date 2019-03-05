@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 3bf0f62b0a8d909231ad747435ce363e6686fe80
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 44ea6db1c31f0ebfbe2abe2f9f6eea165a3ff4e0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874758"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306774"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Yönetilen örnek Azure SQL veritabanı ile çalışmaya başlama
 
@@ -28,6 +28,7 @@ ms.locfileid: "56874758"
 Şu hızlı başlangıçlarda hızlı bir şekilde yönetilen örnek oluşturma, bir sanal makineyi yapılandırmak veya konuma VPN bağlantısı için istemci uygulaması işaret olanak sağlar ve yeni, kullanarak yönetilen örnek bir veritabanı geri bir `.bak` dosya.
 
 ### <a name="configure-environment"></a>Ortamı yapılandırma
+
 İlk adım, ilk yönetilen Örneğinize nereye yerleştirilir ve bilgisayar veya sanal makine nerede yönetilen örnek sorguları çalıştırma bağlantısını etkinleştirme ağ ortamı oluşturmak gerekir. Aşağıdaki kılavuzlarda kullanabilirsiniz:
 
 - [Azure portalını kullanarak yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md). Azure portalında, gerekli parametreleri (kullanıcı adı/parola, en fazla depolama alanı miktarı ve çekirdek sayısı) yapılandırma ve otomatik olarak Azure ağ ortamında Ağ ayrıntıları ve altyapı gereksinimleri hakkında bilmek zorunda kalmadan oluşturun. Yalnızca sahip olduğunuzdan emin olun bir [abonelik türü](sql-database-managed-instance-resource-limits.md#supported-subscription-types) , şu anda izin verilmiştir yönetilen örnek oluşturma. Kullanmak istediğiniz kendi ağ varsa veya istediğiniz ağ özelleştirmek bkz [Azure SQL veritabanı yönetilen örneği için mevcut bir sanal ağ yapılandırma](sql-database-managed-instance-configure-vnet-subnet.md) veya [Azure SQL veritabanı için sanal ağ oluşturma Yönetilen örnek](sql-database-managed-instance-create-vnet-subnet.md).
@@ -39,10 +40,11 @@ ms.locfileid: "56874758"
   > [!NOTE]
   > Express route veya siteden siteye bağlantı yerel ağınızdan de kullanabilirsiniz, ancak bu yaklaşımların şu hızlı başlangıçlardan biriyle kapsamı dışında olan.
 
-### <a name="migrate-your-databases"></a>Veritabanlarınızı geçirme 
+### <a name="migrate-your-databases"></a>Veritabanlarınızı geçirme
+
 Yönetilen örnek oluşturma ve erişim'ı yapılandırdıktan sonra şirket içi SQL Server ya da Azure Vm'lerini veritabanlarınızı geçirme başlayabilirsiniz. Geçirmek istediğiniz kaynak veritabanında desteklenmeyen bazı özellikler varsa, geçiş başarısız olur. Uyumluluğu denetlemek ve hatalarını önlemek için yükleyebilirsiniz [Data Migration Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) , SQL Server veritabanlarınızı analiz eder ve bulduğu aşağıdakilerden sorunu varlığınıgibibiryönetilenörneğegeçişengelleyin[FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) veya birden çok günlük dosyası. Bu sorunları çözmek, veritabanlarınızı yönetilen örneğe geçiş hazır olursunuz. [Veritabanı deneme Yardımcısı](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) iş yükünüze dayalı bir yönetilen örnek üzerinde tanımlayabilirsiniz böylece oraya giden bir yönetilen örneğe geçiş herhangi bir performans sorunu olarak SQL Server ve yeniden yürütme kaydedebilen başka yararlı bir araçtır.
 
-Yönetilen örnek için veritabanınızı geçirebileceğiniz emin olduktan sonra yönetilen bir örneğinden içine bir veritabanını geri yüklemek için yerel SQL Server geri yükleme özelliklerini kullanabilir bir `.bak` dosya. Veritabanlarını SQL Server veritabanı altyapısı yüklü şirket içi ya da Azure sanal geçirmek için bu yöntemi kullanabilirsiniz. Hızlı Başlangıç için bkz: [yedekten bir yönetilen örneğine geri](sql-database-managed-instance-get-started-restore.md). Bu hızlı başlangıçta, geri bir `.bak` Azure Blob Depolama kullanarak depolanan dosya `RESTORE` Transact-SQL komutu. 
+Yönetilen örnek için veritabanınızı geçirebileceğiniz emin olduktan sonra yönetilen bir örneğinden içine bir veritabanını geri yüklemek için yerel SQL Server geri yükleme özelliklerini kullanabilir bir `.bak` dosya. Veritabanlarını SQL Server veritabanı altyapısı yüklü şirket içi ya da Azure sanal geçirmek için bu yöntemi kullanabilirsiniz. Hızlı Başlangıç için bkz: [yedekten bir yönetilen örneğine geri](sql-database-managed-instance-get-started-restore.md). Bu hızlı başlangıçta, geri bir `.bak` Azure Blob Depolama kullanarak depolanan dosya `RESTORE` Transact-SQL komutu.
 
 > [!TIP]
 > Kullanılacak `BACKUP` Transact-SQL komutu, Azure Blob Depolama alanında veritabanınızın bir yedeği oluşturmak için bkz. [URL'ye SQL Server Yedekleme](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
@@ -51,7 +53,9 @@ Bu hızlı başlangıçlar, hızlı bir şekilde oluşturmanızı, yapılandırm
 
 ## <a name="customize-network-environment"></a>Ağ ortamını özelleştirin
 
-VNet/alt ağ, Azure portalını kullanarak örneği oluşturulduğunda otomatik olarak yapılandırılabilir olsa da, VNet ve alt ağ parametrelerini yapılandırabilirsiniz. böylece yönetilen örnek oluşturma başlatmadan önce VNet/alt ağ oluşturmak isteyebilirsiniz. Kullanılacak oluşturmak ve ağ ortamını yapılandırmak için en kolay yolu olan bir [Azure kaynak dağıtımı](sql-database-managed-instance-create-vnet-subnet.md) şablonu, ağ ve alt ağ için yönetilen örnek oluşturma ve yapılandırma. Azure Resource Manager tuşuna basmanız yeterlidir Dağıt düğmesi ve parametrelerle formu doldurun. 
+VNet/alt ağ kullanarak örneği oluşturulduğunda otomatik olarak yapılandırılabilir ancak [Azure portalında](sql-database-managed-instance-get-started.md), önce VNet parametreleriyle yapılandırabileceğinizden yönetilen örnek oluşturma başlangıç oluşturmak iyi olabilir ve alt ağ. Oluşturun ve ağ ortamını yapılandırmak için en kolay yolu kullanmaktır [Azure kaynak dağıtımını](sql-database-managed-instance-create-vnet-subnet.md) oluşturur ve, ağ ve alt ağ örneği nereye yerleştirilir yapılandırma şablonu. Azure Resource Manager tuşuna basmanız yeterlidir Dağıt düğmesi ve parametrelerle formu doldurun.
+
+Alternatif olarak, kullandığınız [PowerShell Betiği](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) ağ oluşturulmasını otomatik hale getirmek için.
 
 Alternatif olarak, bu kullanabilirsiniz [PowerShell Betiği](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) ağ oluşturulmasını otomatik hale getirmek için.
 
@@ -72,5 +76,5 @@ Bu hızlı başlangıç makalelerinde hızlı bir şekilde bir yönetilen örne�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bulma bir [üst düzey burada yönetilen örneğinde desteklenen özellikler listesini](sql-database-features.md) ve [ayrıntıları ve bilinen sorunlar](sql-database-managed-instance-transact-sql-information.md).
-- Hakkında bilgi edinin [yönetilen örnek Teknik Özellikleri](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits). 
-- Nasıl daha gelişmiş bulma-için kullanıcının [Azure SQL veritabanı'nda bir yönetilen örnek kullanmayı](sql-database-howto-managed-instance.md). 
+- Hakkında bilgi edinin [yönetilen örnek Teknik Özellikleri](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+- Nasıl daha gelişmiş bulma-için kullanıcının [Azure SQL veritabanı'nda bir yönetilen örnek kullanmayı](sql-database-howto-managed-instance.md).

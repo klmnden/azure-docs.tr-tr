@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 757d7e039b24beb170545d8055bad16410cf7883
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: ce5635c97d91514f3fca63162f5356cdf89a7ca6
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415893"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307488"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL veritabanını BACPAC dosyasına dışarı aktarma
 
@@ -60,7 +60,7 @@ Arşivleme veya başka bir platformuna geçmek için bir veritabanı dışarı a
 
 Bir SQL veritabanını kullanarak dışarı aktarmak için [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) komut satırı yardımcı programını bkz [dışarı parametreleri ve özellikleri](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). SQLPackage yardımcı programı en son sürümleri ile birlikte gelen [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ve [Visual Studio için SQL Server veri Araçları](https://msdn.microsoft.com/library/mt204009.aspx), veya en son sürümünü indirebilirsiniz [SqlPackage ](https://www.microsoft.com/download/details.aspx?id=53876) doğrudan Microsoft İndirme Merkezi'nden.
 
-SQLPackage yardımcı programının kullanımı ölçek ve performans çoğu üretim ortamlarında öneririz. BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+SQLPackage yardımcı programının kullanımı ölçek ve performans çoğu üretim ortamlarında öneririz. BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
 Bu örnek, bir veritabanını SqlPackage.exe Active Directory Evrensel kimlik doğrulaması kullanarak dışarı aktarma işlemini gösterir:
 
@@ -77,23 +77,23 @@ SQL Server Management Studio en yeni sürümleri, Azure SQL veritabanını BACPA
 > [!NOTE]
 > [Yönetilen örnek](sql-database-managed-instance.md) bir veritabanı, Azure PowerShell kullanarak BACPAC dosyasına dışarı aktarma şu anda desteklemiyor. Yönetilen örnek bir BACPAC dosyasına dışarı aktarmak için SQL Server Management Studio veya SQLPackage kullanın.
 
-Kullanım [yeni AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet'i bir Azure SQL veritabanı hizmet verme veritabanı isteğini göndermek için. Veritabanınızın boyutuna bağlı olarak, dışarı aktarma işleminin tamamlanması biraz zaman alabilir.
+Kullanım [yeni AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) cmdlet'i bir Azure SQL veritabanı hizmet verme veritabanı isteğini göndermek için. Veritabanınızın boyutuna bağlı olarak, dışarı aktarma işleminin tamamlanması biraz zaman alabilir.
 
 ```powershell
-$exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+$exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
   -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 ```
 
-Dışarı aktarma isteği durumunu denetlemek için kullanmak [Get-Azurermsqldatabaseımportexportstatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet'i. Bu istekten sonra hemen döndürür genellikle çalıştıran **durumu: Inprogress**. Gördüğünüzde **durumu: Başarılı** verme tamamlandı.
+Dışarı aktarma isteği durumunu denetlemek için kullanmak [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet'i. Bu istekten sonra hemen döndürür genellikle çalıştıran **durumu: Inprogress**. Gördüğünüzde **durumu: Başarılı** verme tamamlandı.
 
 ```powershell
-$exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
+$exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 [Console]::Write("Exporting")
 while ($exportStatus.Status -eq "InProgress")
 {
     Start-Sleep -s 10
-    $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
+    $exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
     [Console]::Write(".")
 }
 [Console]::WriteLine("")

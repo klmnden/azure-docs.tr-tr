@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 15481706d56af6cd9565e8c475b4770e432c1838
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998629"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337376"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Uygulama ağ geçidi sistem durumu izlemeye genel bakış
 
@@ -22,6 +22,8 @@ Varsayılan olarak Azure Application Gateway, arka uç havuzunda tüm kaynaklar�
 ![Uygulama ağ geçidi araştırma örneği][1]
 
 Varsayılan sistem durumu izleme yoklaması kullanmanın yanı sıra durum yoklaması, uygulamanızın gereksinimlerine uyacak şekilde özelleştirebilirsiniz. Bu makalede, hem varsayılan hem de özel sistem durumu araştırmaları ele alınmaktadır.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-health-probe"></a>Varsayılan durum araştırması
 
@@ -33,20 +35,20 @@ Bir sunucu için varsayılan araştırma denetimi başarısız olursa, applicati
 
 ### <a name="probe-matching"></a>Eşleşen araştırma
 
-Varsayılan olarak, 200 durum kodu ile bir HTTP (S) yanıtı sağlıklı olarak değerlendirilir. Özel sistem durumu araştırmaları, ayrıca iki eşleştirme ölçütü destekler. Ölçütlerle eşleşen isteğe bağlı olarak sağlıklı bir yanıt nelerden varsayılan yorumlama değiştirmek için kullanılabilir.
+Varsayılan olarak, bir HTTP (S) yanıt durum kodu 200 399 arasındaki sağlıklı olarak değerlendirilir. Özel sistem durumu araştırmaları, ayrıca iki eşleştirme ölçütü destekler. Ölçütlerle eşleşen isteğe bağlı olarak sağlıklı bir yanıt nelerden varsayılan yorumlama değiştirmek için kullanılabilir.
 
 Şu ölçütlerle eşleşen: 
 
 - **HTTP yanıtı durum kodu eşleşme** - araştırma eşleştirme ölçütü kabul etmek için kullanıcı belirtilen http yanıt kodu veya yanıt kodu aralığı. Virgülle ayrılmış tek bir yanıt durum kodları veya durum kodu aralığı desteklenir.
 - **HTTP yanıt gövdesi eşleşme** - eşleştirme ölçütü HTTP yanıt gövdesinde ve bir eşleşme bakar dizesi belirtilen araştırma. Kullanıcı tarafından belirtilen varlığını yalnızca eşleşme arar, yanıt gövdesi içinde dize ve tam normal ifade eşleştirmesi değildir.
 
-Eşleşme ölçütlerini kullanılarak belirtilebilir `New-AzureRmApplicationGatewayProbeHealthResponseMatch` cmdlet'i.
+Eşleşme ölçütlerini kullanılarak belirtilebilir `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet'i.
 
 Örneğin:
 
-```powershell
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```azurepowershell
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
 Eşleşme ölçütlerini belirtilen sonra bu yapılandırmayı kullanarak araştırma iliştirilebilir bir `-Match` PowerShell parametresi.
 
@@ -57,7 +59,7 @@ Eşleşme ölçütlerini belirtilen sonra bu yapılandırmayı kullanarak araşt
 | Yoklama URL'si |http://127.0.0.1:\<port\>/ |URL yolu |
 | Interval |30 |Sonraki durum araştırması önce beklenecek saniye cinsinden süreyi gönderilir.|
 | Zaman aşımı |30 |Süreyi saniye cinsinden, uygulama ağ geçidi araştırma sağlıksız olarak işaretlemek için bir araştırma yanıt bekler. Bir araştırma sağlıklı olarak döndürürse, karşılık gelen arka uç hemen sağlıklı olarak işaretlenir.|
-| Sağlıksız durum eşiği |3 |Kaç yoktur normal durum yoklaması bir arıza durumunda gönderilecek araştırmaları yönetir. Bu ek sistem durumu araştırmaları, sayfayı hızlı bir şekilde arka uç durumunu hızlı bir şekilde belirlemek için gönderilir ve araştırma aralığı için beklemez. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
+| İyi durumda olmayan eşik |3 |Kaç yoktur normal durum yoklaması bir arıza durumunda gönderilecek araştırmaları yönetir. Bu ek sistem durumu araştırmaları, sayfayı hızlı bir şekilde arka uç durumunu hızlı bir şekilde belirlemek için gönderilir ve araştırma aralığı için beklemez. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
 
 > [!NOTE]
 > Bağlantı noktasını arka uç HTTP ayarları olarak aynı bağlantı noktasıdır.
@@ -86,7 +88,7 @@ Aşağıdaki tabloda, bir özel durum araştırması özelliklerini tanımların
 | Yol |Araştırma göreli yolu. Geçerli yol başlatılır '/'. |
 | Interval |Aralık saniye cinsinden araştırma. İki ardışık araştırmaları arasındaki zaman aralığını değerdir. |
 | Zaman aşımı |Zaman aşımını saniye cinsinden araştırma. Bu zaman aşımı süresi içinde geçerli bir yanıt alınmazsa, araştırma başarısız olarak işaretlenir.  |
-| Sağlıksız durum eşiği |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
+| İyi durumda olmayan eşik |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
 
 > [!IMPORTANT]
 > Application Gateway için tek bir site yapılandırdıysanız, varsayılan olarak ana bilgisayar adı '127.0.0.1' özel araştırma aksi şekilde yapılandırılmadıkça belirtilmelidir.

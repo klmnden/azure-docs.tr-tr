@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 220c419142f31261a193795da85eedd841183db9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 999d4de1b63884d86fa646ca6cd0d4683678990c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202715"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312231"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Öğretici: Azure Depolama’ya erişmek için Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
@@ -30,8 +30,8 @@ Bu öğreticide, Azure Depolama'ya erişmek amacıyla, Windows sanal makinesi (V
 
 > [!div class="checklist"]
 > * Depolama hesabında bir blob kapsayıcı oluşturma
-> * Windows VM’nizin sistem tarafından atanan yönetilen kimliğine depolama hesabı için erişim izni verin 
-> * Erişim elde edin ve bu erişimi Azure Depolama’yı çağırmak için kullanın 
+> * Windows VM’nizin sistem tarafından atanan yönetilen kimliğine depolama hesabı için erişim izni verin
+> * Erişim elde edin ve bu erişimi Azure Depolama’yı çağırmak için kullanın
 
 > [!NOTE]
 > Azure Depolama için Azure Active Directory kimlik doğrulaması genel önizlemeye sunuldu.
@@ -40,14 +40,14 @@ Bu öğreticide, Azure Depolama'ya erişmek amacıyla, Windows sanal makinesi (V
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
+## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Bu bölümde bir depolama hesabı oluşturursunuz. 
+Bu bölümde bir depolama hesabı oluşturursunuz.
 
 1. Azure portalın sol üst köşesinde bulunan **+ Kaynak oluştur** düğmesine tıklayın.
 2. **Depolama**’ya ve sonra **Depolama hesabı - blob, dosya, tablo, kuyruk** öğesine tıklayın.
-3. **Ad**’ın altında, depolama hesabı için bir ad girin.  
-4. **Dağıtım modeli** ve **Hesap türü**, **Kaynak yöneticisi** ve **Depolama (genel amaçlı v1)** olarak ayarlanmalıdır. 
+3. **Ad**’ın altında, depolama hesabı için bir ad girin.
+4. **Dağıtım modeli** ve **Hesap türü**, **Kaynak yöneticisi** ve **Depolama (genel amaçlı v1)** olarak ayarlanmalıdır.
 5. **Abonelik** ve **Kaynak Grubu** değerlerinin, önceki adımda VM'nizi oluştururken belirttiklerinizle eşleştiğinden emin olun.
 6. **Oluştur**’a tıklayın.
 
@@ -64,22 +64,22 @@ Dosyalar blob depolama alanı gerektirdiğinden dosyasının depolanacağı bir 
 
     ![Depolama kapsayıcısı oluşturma](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-5. Tercih ettiğiniz bir düzenleyiciyi kullanarak yerel makinenizde *hello world.txt* başlıklı bir dosya oluşturun.  Dosyayı açıp (tırnak işaretleri olmadan) "Hello world! :)" metnini ekleyin ve sonra kaydedin. 
+5. Tercih ettiğiniz bir düzenleyiciyi kullanarak yerel makinenizde *hello world.txt* başlıklı bir dosya oluşturun. Dosyayı açıp (tırnak işaretleri olmadan) "Hello world! :)" metnini ekleyin ve sonra kaydedin.
 6. Kapsayıcı adına ve ardından **Karşıya yükle**’ye tıklayarak dosyayı yeni oluşturulan kapsayıcıya yükleyin
 7. **Blobu karşıya yükle** bölmesinde **Dosyalar**’ın altında, klasör simgesine tıklayıp yerel makinenizde **hello_world.txt** dosyasına göz atın, dosyayı seçin ve ardından **Karşıya yükle**’ye tıklayın.
     ![Metin dosyasını karşıya yükleme](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>VM'nize Azure Depolama kapsayıcısı için erişim izni verme 
+## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>VM'nize Azure Depolama kapsayıcısı için erişim izni verme
 
-Azure depolama blobundaki verileri almak için VM’nin sistem tarafından atanan yönetilen kimliğini kullanabilirsiniz.   
+Azure depolama blobundaki verileri almak için VM’nin sistem tarafından atanan yönetilen kimliğini kullanabilirsiniz.
 
-1. Yeni oluşturulan depolama hesabınıza geri gidin.  
-2. Sol bölmedeki **Erişim denetimi (IAM)** bağlantısına tıklayın.  
+1. Yeni oluşturulan depolama hesabınıza geri gidin.
+2. Sol bölmedeki **Erişim denetimi (IAM)** bağlantısına tıklayın.
 3. Tıklayın **+ rol ataması Ekle** VM'niz için yeni bir rol ataması eklemek için sayfanın en üstünde.
-4. **Rol**’ün altında, açılan listeden **Depolama Blob Verileri Okuyucusu (Önizleme)** seçeneğini belirleyin. 
-5. Sonraki açılan listede **Erişimin atanacağı hedef** öğesinin altında **Sanal Makine**’yi seçin.  
-6. Ardından, uygun aboneliğin **Abonelik**’te listelendiğinden emin olun ve sonra **Kaynak Grubu**’nu **Tüm kaynak grupları** olarak ayarlayın.  
-7. **Seçin**’in altında, VM'nizi belirleyin ve ardından **Kaydet**’e tıklayın. 
+4. **Rol**’ün altında, açılan listeden **Depolama Blob Verileri Okuyucusu (Önizleme)** seçeneğini belirleyin.
+5. Sonraki açılan listede **Erişimin atanacağı hedef** öğesinin altında **Sanal Makine**’yi seçin.
+6. Ardından, uygun aboneliğin **Abonelik**’te listelendiğinden emin olun ve sonra **Kaynak Grubu**’nu **Tüm kaynak grupları** olarak ayarlayın.
+7. **Seçin**’in altında, VM'nizi belirleyin ve ardından **Kaydet**’e tıklayın.
 
     ![İzin atama](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
@@ -87,7 +87,7 @@ Azure depolama blobundaki verileri almak için VM’nin sistem tarafından atana
 
 Azure Depolama, Azure AD kimlik doğrulamasını yerel olarak desteklediğinden yönetilen kimlik kullanılarak alınan erişim belirteçlerini doğrudan kabul eder. Bu, Azure Depolama’nın Azure AD tümleştirmesi kapsamındadır ve bağlantı dizesinde kimlik bilgileri sağlama işleminden farklıdır.
 
-Bir erişim belirteci kullanarak Azure Depolama’ya bağlantı açma ve ardından daha önce oluşturduğunuz dosyanın içeriklerini okumaya yönelik .Net kod örneği aşağıda verilmiştir. Bu kodun, VM’nin yönetilen kimlik uç noktasına erişebilmesi için VM üzerinde çalıştırılması gerekir. Erişim belirteci yöntemini kullanmak için .Net Framework 4.6 veya üzeri bir sürüm gereklidir. `<URI to blob file>` değerini uygun şekilde değiştirin. Blob depolama alanına oluşturup yüklediğiniz dosyaya giderek ve **Özellikler**’in altındaki **URL**’yi **Genel bakış** sayfasına kopyalayarak bu değeri alabilirsiniz.
+Bir erişim belirteci kullanarak Azure Depolama’ya bağlantı açma ve ardından daha önce oluşturduğunuz dosyanın içeriklerini okumaya yönelik .Net kod örneği aşağıda verilmiştir. Bu kodun, VM’nin yönetilen kimlik uç noktasına erişebilmesi için VM üzerinde çalıştırılması gerekir. .NET framework 4.6 veya üzerini, erişim belirteci yöntemini kullanmak için gereklidir. `<URI to blob file>` değerini uygun şekilde değiştirin. Blob depolama alanına oluşturup yüklediğiniz dosyaya giderek ve **Özellikler**’in altındaki **URL**’yi **Genel bakış** sayfasına kopyalayarak bu değeri alabilirsiniz.
 
 ```csharp
 using System;
@@ -97,7 +97,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Net;
-using System.Web.Script.Serialization; 
+using System.Web.Script.Serialization;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -109,7 +109,7 @@ namespace StorageOAuthToken
         {
             //get token
             string accessToken = GetMSIToken("https://storage.azure.com/");
-           
+
             //create token credential
             TokenCredential tokenCredential = new TokenCredential(accessToken);
 
@@ -120,7 +120,7 @@ namespace StorageOAuthToken
 
             //create block blob using storage credentials
             CloudBlockBlob blob = new CloudBlockBlob(blobAddress, storageCredentials);
-        
+
             //retrieve blob contents
             Console.WriteLine(blob.DownloadText());
             Console.ReadLine();
@@ -152,7 +152,7 @@ namespace StorageOAuthToken
                 string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
                 return accessToken;
             }
-        }            
+        }
     }
 }
 ```
@@ -167,6 +167,3 @@ Bu öğreticide Azure Depolama’ya erişmek için Windows VM sistem tarafından
 
 > [!div class="nextstepaction"]
 > [Azure Depolama](/azure/storage/common/storage-introduction)
-
-
-

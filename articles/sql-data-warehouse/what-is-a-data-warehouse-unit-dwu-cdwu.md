@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 7da813022527830a5ede62c9f4ce98645fe63d4b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 32a3ec7146e4dd43e0c5f522187856132745b539
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871621"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307098"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Veri ambarı birimi (Dwu) ve işlem veri ambarı birimi (cDWUs)
 Veri ambarı birimi (dwu'ları, cDWUs) fiyat ve performans ve birim sayısını değiştirmek nasıl en iyi duruma getirmek için ideal sayısını seçme önerileri. 
@@ -124,10 +124,13 @@ Dwu'lar veya cDWUs değiştirmek için:
 3. **Kaydet**’e tıklayın. Bir onay iletisi görüntülenir. Onaylamak için **evet**’e, iptal etmek için **hayır**’a tıklayın.
 
 ### <a name="powershell"></a>PowerShell
-Dwu'lar veya cDWUs değiştirmek için kullanın [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet'i. Aşağıdaki örnek, DW1000 için MyServer sunucuda barındırılan MySQLDW veritabanı için hizmet düzeyi hedefi ayarlar.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Dwu'lar veya cDWUs değiştirmek için kullanın [kümesi AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet'i. Aşağıdaki örnek, DW1000 için MyServer sunucuda barındırılan MySQLDW veritabanı için hizmet düzeyi hedefi ayarlar.
 
 ```Powershell
-Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
 Daha fazla bilgi için [SQL veri ambarı için PowerShell cmdlet'leri](sql-data-warehouse-reference-powershell-cmdlets.md)

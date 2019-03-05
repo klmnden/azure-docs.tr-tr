@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c71528ed8453bcde05e29eb609ca2cde64bad8de
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817538"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309426"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD etki alanı Hizmetleri - sorun giderme uyarıları
 Bu makalede, yönetilen etki alanınızda karşılaşabileceğiniz herhangi bir uyarı için sorun giderme kılavuzları sağlar.
@@ -42,10 +42,10 @@ Karşılık gelen sorun giderme adımlarını kimliği veya ileti uyarıyı seç
 | AADDS108 | *Azure AD Domain Services tarafından kullanılan abonelik başka bir dizinine taşındı. Azure AD Domain Services'in düzgün çalışması için aynı dizinde etkin bir aboneliğiniz olmalıdır.* | [Abonelik, taşınan dizinleri](#aadds108-subscription-moved-directories) |
 | AADDS109 | *Yönetilen etki alanınız için kullanılan bir kaynağı sildi. Bu kaynak için Azure AD Domain Services düzgün çalışması gereklidir.* | [Bir kaynağı sildi](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *Azure AD Domain Services dağıtımı için seçilen alt ağda dolu ve oluşturulması gereken ek bir etki alanı denetleyicisi alan yok.* | [Alt ağ dolu](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | * Bir hizmet sorumlusu Azure AD Domain Services'ı kullanan hizmet etki alanınız için Azure aboneliğinde kaynakları yönetmek için yetkili değil. Yönetilen etki alanınıza hizmet izni kazanmak hizmet sorumlusu gerekir. * | Hizmet sorumlusu yetkisiz |
+| AADDS111 | *Azure AD Domain Services'ı kullanan hizmet etki alanınız için bir hizmet sorumlusu Azure aboneliğinde kaynakları yönetmek için yetkili değil. Yönetilen etki alanınıza hizmet izni kazanmak hizmet sorumlusu gerekir.* | [Hizmet sorumlusu yetkisiz](#aadds111-service-principal-unauthorized) |
 | AADDS112 | *Bu etki alanındaki sanal ağın alt ağında yeterli IP adresi olmayabilir olduğunu belirledik. Azure AD Domain Services, en az iki kullanılabilir IP adresi, etkin alt ağ içinde olmalıdır. Sahip en az 3-5 yedek IP adresi alt ağ içinde öneririz. Böylece kullanılabilir IP adresleri veya alt ağdaki kullanılabilir IP adresi sayısı bir kısıtlama olup olmadığını tüketme alt ağda dağıtılan diğer sanal makineler varsa bu oluşmuş olabilir.* | [Yeterli IP adresleri](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *Azure AD Domain Services tarafından kullanılan kaynakları beklenmeyen bir durumda algılandı ve geri alınamaz.* | [Kaynakları kurtarılamaz olarak kabul edilir](#aadds113-resources-are-unrecoverable) |
-| AADDS114 | * Azure AD Domain Services'ın dağıtım için seçtiğiniz alt ağ geçerli değil ve kullanılamaz. * | [Geçersiz alt ağ](#aadds114-subnet-invalid) |
+| AADDS114 | *Azure AD Domain Services dağıtımı için seçilen alt ağda geçerli değil ve kullanılamaz.* | [Geçersiz alt ağ](#aadds114-subnet-invalid) |
 | AADDS115 | *Hedef kapsamı kilitli bir veya daha fazla yönetilen etki alanı tarafından kullanılan ağ kaynakları üzerinde çalışılamıyor.* | [Kaynak kilitli](#aadds115-resources-are-locked) |
 | AADDS116 | *Bir veya daha fazla yönetilen etki alanı tarafından kullanılan ağ kaynakları üzerinde nedeniyle ilke restriction(s) çalışılamıyor.* | [Kaynak kullanılamıyor](#aadds116-resources-are-unusable) |
 | AADDS500 | *Yönetilen etki alanı [date] üzerinde Azure AD ile son eşitlendiği zaman. Kullanıcılar yönetilen etki alanında oturum açamıyor veya grup üyeliklerini Azure AD ile eşitlenmiş olmayabilir.* | [Eşitleme, bir süredir oldu henüz](#aadds500-synchronization-has-not-completed-in-a-while) |

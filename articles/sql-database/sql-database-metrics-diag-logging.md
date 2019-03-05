@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 6f8dd8611e5e2120bdfa0ae111bf6e248ca0f3cb
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8b8f7aa559fa8b9adc805636c377f31dd252687b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214758"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309613"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
 
@@ -192,12 +192,14 @@ Yönetilen örnek kaynak için tanılama telemetrisi akışını etkinleştirmek
 
 ### <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 PowerShell kullanarak, ölçümleri ve tanılama günlük kaydını etkinleştirebilirsiniz.
 
 - Tanılama günlükleri bir depolama hesabında depolama etkinleştirmek için bu komutu kullanın:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
    Depolama hesabı kimliği hedef depolama hesabı için kaynak kimliğidir.
@@ -205,7 +207,7 @@ PowerShell kullanarak, ölçümleri ve tanılama günlük kaydını etkinleştir
 - Tanılama günlükleri Olay hub'ına akışını etkinleştirmek için bu komutu kullanın:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
    Azure Service Bus kural kimliği şu biçime sahip bir dizedir:
@@ -217,20 +219,20 @@ PowerShell kullanarak, ölçümleri ve tanılama günlük kaydını etkinleştir
 - Log Analytics çalışma alanına gönderme tanılama günlüklerini etkinleştirmek için bu komutu kullanın:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
 - Log Analytics çalışma alanınızın kaynak Kimliğini aşağıdaki komutu kullanarak elde edebilirsiniz:
 
    ```powershell
-   (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+   (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
 Birden çok çıkış seçeneği etkinleştirmek için şu parametreleri birleştirebilirsiniz.
 
 ### <a name="to-configure-multiple-azure-resources"></a>Birden çok Azure kaynaklarını yapılandırmak için
 
-Birden çok abonelik desteklemek için PowerShell betiğini kullanın. [kaynak ölçümleri günlük kaydı etkinleştirmek için Azure PowerShell kullanarak](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+Birden çok abonelik desteklemek için PowerShell betiğini kullanın. [kaynak ölçümleri günlük kaydı etkinleştirmek için Azure PowerShell kullanarak](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/).
 
 Çalışma alanı kaynak Kimliğini sağlamanız \<$WSID\> betiği yürütülürken, bir parametre olarak `Enable-AzureRMDiagnostics.ps1` çalışma alanına birden çok kaynaklardan Tanılama verileri göndermek.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: c93434f060525f2f53f24c511bfa748a31d1fd61
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453315"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309137"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway
 
@@ -23,6 +23,8 @@ Azure Application Gateway kullanarak kaynakları aşağıdaki şekillerde izleye
 * [Günlükleri](#diagnostic-logging): Günlükleri, performans, erişim ve kaydedilen ya da bir kaynaktan izleme amacıyla kullanılan diğer verileri için izin verin.
 
 * [Ölçümleri](#metrics): Application Gateway şu anda performans sayaçlarını görüntülemek için yedi ölçümleri sahiptir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="back-end-health"></a>Arka uç sistem durumu
 
@@ -47,10 +49,10 @@ Portalda, arka uç sistem durumu otomatik olarak sağlanır. Mevcut bir applicat
 
 ### <a name="view-back-end-health-through-powershell"></a>PowerShell aracılığıyla arka uç durumunu görüntüle
 
-Aşağıdaki PowerShell kod kullanarak arka uç sistem durumu görüntülemek nasıl gösterir `Get-AzureRmApplicationGatewayBackendHealth` cmdlet:
+Aşağıdaki PowerShell kod kullanarak arka uç sistem durumu görüntülemek nasıl gösterir `Get-AzApplicationGatewayBackendHealth` cmdlet:
 
 ```powershell
-Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
+Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
 ### <a name="view-back-end-health-through-azure-cli"></a>Azure CLI aracılığıyla arka uç durumunu görüntüle
@@ -121,7 +123,7 @@ Etkinlik günlüğü tüm Kaynak Yöneticisi kaynakları için otomatik olarak e
 3. Tanılama günlüğüne kaydetmeyi etkinleştirmek için aşağıdaki PowerShell cmdlet'ini kullanın:
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
     
 > [!TIP] 
@@ -164,7 +166,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 
 |Değer  |Açıklama  |
 |---------|---------|
-|InstanceId     | Hizmet isteği uygulama ağ geçidi örneği.        |
+|instanceId     | Hizmet isteği uygulama ağ geçidi örneği.        |
 |Clientıp     | İsteğin kaynak IP.        |
 |clientPort     | İstek için kaynak bağlantı noktası.       |
 |HttpMethod     | İstek tarafından kullanılan HTTP yöntemi.       |
@@ -208,7 +210,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 
 |Değer  |Açıklama  |
 |---------|---------|
-|InstanceId     |  Uygulama ağ geçidi örneği performans verileri oluşturulur. Çok örnekli application gateway için örnek başına bir satır var.        |
+|instanceId     |  Uygulama ağ geçidi örneği performans verileri oluşturulur. Çok örnekli application gateway için örnek başına bir satır var.        |
 |HealthyHostCount     | Arka uç havuzundaki sağlıklı konakların sayısı.        |
 |unHealthyHostCount     | Arka uç havuzunda iyi durumda olmayan konak sayısı.        |
 |RequestCount     | Hizmet isteklerinin sayısı.        |
@@ -245,7 +247,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 
 |Değer  |Açıklama  |
 |---------|---------|
-|InstanceId     | Uygulama ağ geçidi örneği için hangi güvenlik duvarı veri oluşturuluyor. Çok örnekli application gateway için örnek başına bir satır var.         |
+|instanceId     | Uygulama ağ geçidi örneği için hangi güvenlik duvarı veri oluşturuluyor. Çok örnekli application gateway için örnek başına bir satır var.         |
 |Clientıp     |   İsteğin kaynak IP.      |
 |clientPort     |  İstek için kaynak bağlantı noktası.       |
 |requestUri     | Alınan istek URL'si.       |

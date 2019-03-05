@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 41ffd7229383f1006bb846f975aeccf83256032a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807737"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314679"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>İnternet erişimi olmayan bilgisayarları Log Analytics ağ geçidini kullanarak bağlan
 
@@ -154,29 +154,39 @@ Bir ağ geçidi yüklemek için aşağıdaki adımları izleyin.  (Log Analytics
 
 
 ## <a name="configure-network-load-balancing"></a>Ağ Yükü Dengeleme yapılandırma 
-Ağ geçidi yüksek kullanılabilirlik için Ağ Yükü Dengeleme (NLB) kullanarak yapılandırın. Microsoft Azure Load Balancer'ı veya donanım tabanlı yük Dengeleyiciler kullanın.  Yük dengeleyicinin trafiği istenen bağlantılar Log Analytics aracılardan veya Operations Manager yönetim sunucuları arasında düğümlerini yönlendirerek yönetir. Bir ağ geçidi sunucusu kalırsa, trafiğin diğer düğümlere yönlendirilir.
+Ağ geçidi Ağ Yükü Dengeleme (NLB kullanarak ya da Microsoft) kullanarak yüksek kullanılabilirlik için yapılandırabileceğiniz [Ağ Yükü Dengeleme (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), veya donanım tabanlı yük Dengeleyiciler. Yük dengeleyicinin trafiği istenen bağlantılar Log Analytics aracılardan veya Operations Manager yönetim sunucuları arasında düğümlerini yönlendirerek yönetir. Bir ağ geçidi sunucusu kalırsa, trafiğin diğer düğümlere yönlendirilir.
+
+### <a name="microsoft-network-load-balancing"></a>Microsoft Ağ Yükü Dengeleme
+Tasarım ve bir Windows Server 2016 Ağ Yükü Dengeleme kümesi dağıtma hakkında bilgi edinmek için [Ağ Yükü Dengeleme](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). Aşağıdaki adımlar, Microsoft Ağ Yükü Dengeleme kümesini yapılandırın açıklanmaktadır.  
+
+1. Bir yönetim hesabıyla NLB kümesinin bir üyesi olan Windows sunucuya oturum açın.  
+2. Sunucu Yöneticisi'nde Ağ Yükü Dengeleme Yöneticisi'ni açın, **Araçları**ve ardından **Ağ Yükü Dengeleme Yöneticisi**.
+3. Microsoft izleme aracısının yüklü olduğu bir Log Analytics Ağ Geçidi sunucusuna bağlanmak için kümenin IP adresine sağ tıklayın ve ardından **konak kümesine Ekle**. 
+
+    ![Ağ Yükü Dengeleme Yöneticisi – kümeye konak Ekle](./media/gateway/nlb02.png)
+ 
+4. Bağlamak istediğiniz ağ geçidi sunucusu IP adresini girin. 
+
+    ![Ağ Yükü Dengeleme Yöneticisi – konak kümesine ekleyin: Bağlan](./media/gateway/nlb03.png) 
+
+### <a name="azure-load-balancer"></a>Azure Load Balancer
+Tasarım ve bir Azure yük dengeleyici dağıtma hakkında bilgi edinmek için [Azure Load Balancer nedir?](../../load-balancer/load-balancer-overview.md). Temel yük dengeleyici dağıtmak için bu konuda özetlenen adımları izleyin. [hızlı](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) bölümünde özetlenen adımları hariç **arka uç sunucular oluşturma**.   
+
+> [!NOTE]
+> Kullanarak Azure Load Balancer yapılandırma **temel SKU**, Azure sanal makineleri bir kullanılabilirlik kümesine ait olmasını gerektirir. Kullanılabilirlik kümeleri hakkında daha fazla bilgi için bkz. [azure'daki Windows sanal makinelerin kullanılabilirliğini yönetme](../../virtual-machines/windows/manage-availability.md). Mevcut sanal makinelerin bir kullanılabilirlik kümesine eklenecek başvurmak [Azure Resource Manager VM kullanılabilirlik Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> 
+
+Yük Dengeleyiciyi oluşturduktan sonra bir arka uç havuzu oluşturulması için bir veya daha fazla ağ geçidi sunucuları trafiği dağıtır gerekir. Hızlı Başlangıç makale bölümünde açıklanan adımları [yük dengeleyici kaynakları oluşturma](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
 
 >[!NOTE]
->Tasarım ve bir Windows Server 2016 NLB kümesine dağıtma hakkında bilgi edinmek için [Ağ Yükü Dengeleme](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing). 
+>Durum yoklaması yapılandırırken ağ geçidi sunucusu TCP bağlantı noktasını kullanacak şekilde yapılandırılmalıdır. Durum yoklaması, dinamik olarak ekler veya ağ geçidi sunucularının sistem durumu denetimleri verdikleri yanıtlara göre yük dengeleyici rotasyonuna kaldırır. 
 >
 
-Bir Microsoft yük dengeleyici kümesi yapılandırmak için aşağıdaki adımları izleyin:  
-
-1. Yük Dengeleyici küme üyesi olan Windows Server için oturum açmak için bir yönetici hesabı kullanın.
-1. Sunucu Yöneticisi'nde açın **Ağ Yükü Dengeleme Yöneticisi**seçin **Araçları**ve ardından **Ağ Yükü Dengeleme Yöneticisi**.
-1. Microsoft Monitoring Agent yüklüyse bir Log Analytics Ağ Geçidi sunucusuna bağlanmak için kümenin IP adresine sağ tıklayın ve ardından **konak kümesine Ekle**.
-
-   ![Ekran görüntüsü, Ağ Yükü Dengeleme Yöneticisi, ile seçilen kümeye konak Ekle](./media/gateway/nlb02.png)
-
-1. Bağlamak istediğiniz ağ geçidi sunucusu IP adresini girin.
-
-   ![Ekran görüntüsü, Ağ Yükü Dengeleme konak kümesine Ekle sayfasını gösteren Yöneticisi: Bağlan](./media/gateway/nlb03.png)
-    
 ## <a name="configure-the-log-analytics-agent-and-operations-manager-management-group"></a>Log Analytics aracısını ve Operations Manager yönetim grubu yapılandırma
 Bu bölümde, Azure Otomasyonu veya Log Analytics ile iletişim kurmak için Log Analytics ağ geçidi ile doğrudan bağlı Log Analytics aracılarını, bir Operations Manager yönetim grubu veya Azure Otomasyon karma Runbook çalışanlarını yapılandırma görürsünüz.  
 
 ### <a name="configure-a-standalone-log-analytics-agent"></a>Tek başına Log Analytics aracısını yapılandırma
-Log Analytics aracısını yapılandırırken bir proxy sunucusu değeri Log Analytics ağ geçidi sunucusu ve bağlantı noktası numarası, IP adresi ile değiştirin. Birden çok ağ geçidi sunucularının bir NLB arkasında dağıttıysanız, Log Analytics Aracısı Ara sunucu yapılandırmasını NLB sanal IP adresi ' dir.  
+Log Analytics aracısını yapılandırırken bir proxy sunucusu değeri Log Analytics ağ geçidi sunucusu ve bağlantı noktası numarası, IP adresi ile değiştirin. Bir yük dengeleyicinin arkasına birden çok ağ geçidi sunucusu dağıttıysanız, Log Analytics aracı proxy yapılandırması yük dengeleyicinin sanal IP adresi ' dir.  
 
 >[!NOTE]
 >Ağ geçidi ve Windows bilgisayarları doğrudan Log Analytics'e bağlama Log Analytics aracısını yüklemek için bkz [Azure Log Analytics hizmetine bağlama Windows bilgisayarlara](agent-windows.md). Linux bilgisayarları bağlamak için bkz: [karma bir ortamda, Linux bilgisayarlar için bir Log Analytics Aracısını Yapılandırma](../../azure-monitor/learn/quick-collect-linux-computer.md). 
@@ -200,7 +210,7 @@ Operations Manager'ı desteklemek için OMS ağ geçidi kullanmak için şunlara
 > Ağ geçidi için bir değer belirtirseniz, boş değerler için tüm aracılar itilir.
 >
 
-Operations Manager yönetim grubunuzun bir Log Analytics çalışma alanı ile ilk kez kaydediyor proxy yapılandırması yönetim grubunun işletim konsolunda belirtme seçeneği görmeyeceksiniz.  Bu seçenek, yalnızca yönetim grubu ile hizmeti kaydedilmişse kullanılabilir.  
+Operations Manager yönetim grubunuzun bir Log Analytics çalışma alanı ile ilk kez kaydediyor proxy yapılandırması yönetim grubunun işletim konsolunda belirtme seçeneği görmeyeceksiniz. Bu seçenek, yalnızca yönetim grubu ile hizmeti kaydedilmişse kullanılabilir.  
 
 Tümleştirmesini yapılandırmak için Netsh nerede işletim konsolunu çalıştırdığınız sistem üzerinde ve yönetim grubundaki tüm yönetim sunucularında kullanarak sistem proxy yapılandırması'nı güncelleştirin. Şu adımları uygulayın:
 
@@ -220,7 +230,7 @@ Log Analytics ile tümleştirmesini tamamladıktan sonra değişiklik çalışt�
 
    ![Ekran Operations Proxy sunucusunu yapılandır seçimi gösteren Manager'ın,](./media/gateway/scom01.png)
 
-1. Seçin **Operations Management Suite erişimi için bir proxy sunucusunu kullanmak** ve Log Analytics ağ geçidi sunucusu IP adresini veya NLB sanal IP adresini girin. Ön ekine sahip özen `http://`.
+1. Seçin **Operations Management Suite erişimi için bir proxy sunucusunu kullanmak** ve Log Analytics ağ geçidi sunucusu IP adresini veya yük dengeleyicinin sanal IP adresi girin. Ön ekine sahip özen `http://`.
 
    ![Ekran Operations proxy sunucu adresi gösteren Manager'ın,](./media/gateway/scom02.png)
 

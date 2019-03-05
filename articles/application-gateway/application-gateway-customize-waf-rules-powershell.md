@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: 1e1638d69915f16b9f30acc5b6a0265b25c2c561
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f96395a54f66b787878faeee057f02818f956ade
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728888"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317008"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>PowerShell aracılığıyla Web uygulaması güvenlik duvarı kurallarını özelleştirme
 
@@ -26,7 +26,7 @@ Aşağıdaki kod örnekleri, kuralları ve yapılandırılabilir bir WAF özelli
 Aşağıdaki örnek, kural gruplarını görüntülemek gösterilmektedir:
 
 ```powershell
-Get-AzureRmApplicationGatewayAvailableWafRuleSets
+Get-AzApplicationGatewayAvailableWafRuleSets
 ```
 
 Aşağıdaki çıktı, önceki örnekte kesilmiş bir yanıt.
@@ -86,9 +86,9 @@ OWASP (Ver. 3.0):
 Aşağıdaki örnek, kuralları devre dışı bırakır `911011` ve `911012` bir uygulama ağ geçidi:
 
 ```powershell
-$disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
-Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+$disabledrules=New-AzApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
+Set-AzApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ## <a name="mandatory-rules"></a>Zorunlu kuralları

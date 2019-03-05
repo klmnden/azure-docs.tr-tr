@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: c5f90776cb0e8617f0e524bd6b1701f4bf20d0a1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 06c74aa85bda13ccd6849056ccc031ae6f1c12c2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415720"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315563"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Hızlı Başlangıç: BACPAC dosyasını Azure SQL veritabanında bir veritabanı için içeri aktarma
 
@@ -58,6 +58,8 @@ SQL Server veritabanını kullanarak içeri aktarmak için [SqlPackage](https://
 
 Ölçek ve performans için Azure portalını kullanarak yerine çoğu üretim ortamlarında SqlPackage kullanarak öneririz. Kullanarak geçirme hakkında bir SQL Server Müşteri danışmanlık ekibi blogu için `BACPAC` dosyaları görmek [SQL Server'dan Azure SQL veritabanına BACPAC dosyalarını kullanarak geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
+Ölçek ve performans için çoğu üretim ortamlarında SqlPackage kullanmanızı öneririz. BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+
 Aşağıdaki komut SqlPackage alır **AdventureWorks2008R2** adlı bir Azure SQL veritabanı sunucusu yerel depodan veritabanına **mynewserver20170403**. Adlı yeni bir veritabanı oluşturur **myMigratedDatabase** ile bir **Premium** hizmet katmanı ve bir **P6** hizmet hedefi. Bu değerleri ortamınız için uygun şekilde değiştirin.
 
 ```cmd
@@ -80,16 +82,18 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [Yönetilen örnek](sql-database-managed-instance.md) şu anda Azure PowerShell kullanarak BACPAC dosyasından bir örneği veritabanına bir veritabanını geçirme desteklemiyor]. Yönetilen örneğine almak için SQL Server Management Studio veya SQLPackage kullanın.
 
 
-Kullanım [New-Azurermsqldatabaseımport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) cmdlet'i bir Azure SQL veritabanı hizmetini alma veritabanı isteğini göndermek için. Veritabanı boyutuna bağlı olarak içeri aktarma tamamlanması biraz zaman alabilir.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Kullanım [yeni AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet'i bir Azure SQL veritabanı hizmetini alma veritabanı isteğini göndermek için. Veritabanı boyutuna bağlı olarak içeri aktarma tamamlanması biraz zaman alabilir.
 
  ```powershell
- $importRequest = New-AzureRmSqlDatabaseImport
+ $importRequest = New-AzSqlDatabaseImport 
     -ResourceGroupName "<your_resource_group>" `
     -ServerName "<your_server>" `
     -DatabaseName "<your_database>" `
     -DatabaseMaxSizeBytes "<database_size_in_bytes>" `
     -StorageKeyType "StorageAccessKey" `
-    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
+    -StorageKey $(Get-AzStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
     -StorageUri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
     -Edition "Standard" `
     -ServiceObjectiveName "P6" `
@@ -98,14 +102,14 @@ Kullanım [New-Azurermsqldatabaseımport](/powershell/module/azurerm.sql/new-azu
 
  ```
 
- Kullanabileceğiniz [Get-Azurermsqldatabaseımportexportstatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) alma işleminin ilerleme durumunu denetlemek için cmdlet'i. Cmdlet hemen sonra istek genellikle döndürür çalıştıran **durumu: Inprogress**. Gördüğünüzde, içeri aktarma tamamlandıktan **durumu: Başarılı**.
+ Kullanabileceğiniz [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) alma işleminin ilerleme durumunu denetlemek için cmdlet'i. Cmdlet hemen sonra istek genellikle döndürür çalıştıran **durumu: Inprogress**. Gördüğünüzde, içeri aktarma tamamlandıktan **durumu: Başarılı**.
 
 ```powershell
-$importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+$importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
 [Console]::Write("Importing")
 while ($importStatus.Status -eq "InProgress")
 {
-    $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+    $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
     [Console]::Write(".")
     Start-Sleep -s 10
 }

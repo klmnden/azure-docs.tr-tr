@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c8cba4006d1112ccc1529fc1769e046fe45468a7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: f8af115824ec48492d0f53297a6e697f7011ff55
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214189"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316430"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir telemetri kuralı oluşturabilir ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
@@ -35,7 +35,7 @@ Telemetri kuralı oluşturmak için cihaz şablonu en az bir telemetri ölçüm 
 
 1. Üzerinde **kuralları** sekmesinde **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
 
-1. Tıklayın **Telemetri** cihaz telemetrisi izlemek için bir kural oluşturmak için.
+1. Seçin **Telemetri** cihaz telemetrisi izlemek için bir kural oluşturmak için.
 
     ![Kural türü](media/howto-create-telemetry-rules-experimental/Rule_Types.png)
 
@@ -51,7 +51,7 @@ Telemetri kuralı oluşturmak için cihaz şablonu en az bir telemetri ölçüm 
 
 Koşul, kural tarafından izlenen ölçütleri tanımlar.
 
-1. Tıklayın **+** yanındaki **koşullar** yeni bir koşul ekleme.
+1. Seçin **+** yanındaki **koşullar** yeni bir koşul ekleme.
 
 1. İzlemek istediğiniz telemetri seçin **ölçüm** açılır.
 

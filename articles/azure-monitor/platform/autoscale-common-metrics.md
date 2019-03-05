@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461102"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312061"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure İzleyici otomatik ölçeklendirme ortak ölçümleri
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure İzleyici otomatik ölçeklendirmesini (ölçüler) telemetri verilerini temel alarak çalışan örnek sayısı yukarı veya aşağı ölçeklendirmenize olanak tanıyor. Bu belgede kullanmak isteyebileceğiniz ortak ölçümler açıklanmıştır. Azure portalında göre ölçeklendirmek için kaynak ölçüm seçebilirsiniz. Ancak, göre ölçeklendirmek için farklı bir kaynaktan herhangi bir ölçüm seçebilirsiniz.
 
 Azure İzleyici otomatik ölçeklendirme için yalnızca geçerlidir [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), ve [APIManagementHizmetleri](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Diğer Azure Hizmetleri farklı ölçeklendirme yöntemlerini kullanın.
@@ -43,7 +46,7 @@ Azure'da bir VM oluşturduğunuzda, tanılama tanılama uzantısını kullanarak
 PowerShell'de aşağıdaki komutu kullanarak, ölçümlerin bir listesini oluşturabilirsiniz.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 Aşağıdaki ölçümler için bir uyarı oluşturabilirsiniz:
@@ -84,7 +87,7 @@ Azure'da bir VM oluşturduğunuzda, tanılama tanılama uzantısını kullanarak
 PowerShell'de aşağıdaki komutu kullanarak, ölçümlerin bir listesini oluşturabilirsiniz.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
  Aşağıdaki ölçümler için bir uyarı oluşturabilirsiniz:
@@ -137,7 +140,7 @@ Ayrıca, Http kuyruk uzunluğu gibi yaygın web sunucusu ölçümleri temel alan
 PowerShell'de aşağıdaki komutu kullanarak, Web Apps ölçümlerin bir listesini oluşturabilirsiniz.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 Uyarı veya ölçeklendirme bu ölçümlere göre.

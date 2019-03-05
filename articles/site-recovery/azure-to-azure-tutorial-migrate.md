@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: c1171a6b118797c2aafda137ec532259921c0713
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ae1e65162ffab35e6d3ef3bf84c1eb6bbe75c65f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880555"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314305"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye taşıma
 
@@ -122,7 +122,7 @@ Site Recovery, abonelik ve kaynak grubu ile ilişkili VM’lerin listesini alır
 3. ' % S'hedef Azure seçin yapılandırmasını test etmek için Azure Vm'lerini taşımak istediğiniz sanal ağ. 
 
 > [!IMPORTANT]
-> Test hatası ve üretim ağdaki Vm'lerinizi sonunda taşımak istediğiniz hedef VM'de için ayrı bir Azure VM ağını kullanmanızı öneririz. çoğaltmayı etkinleştirdiğinizde, ayarlanmıştır.
+> Test yük devretmesi ve değil çoğaltmayı etkinleştirdiğinizde ayarlanmış, Vm'leri sonunda taşımak istediğiniz üretim ağı için ayrı bir Azure VM ağını kullanmanızı öneririz.
 
 4. Taşıma testi başlatmak için tıklatın **Tamam**. İlerleme durumunu izlemek için, VM’ye tıklayarak özelliklerini açın. Ya da kasa adı > **Ayarlar** > **İşler** > **Site Recovery işleri** bölümünde **Yük Devretme Testi** işine tıklayabilirsiniz.
 5. Yük devretme bittikten sonra, çoğaltma Azure VM, Azure portalı > **Sanal Makineler** bölümünde görünür. VM’nin çalıştığından, uygun şekilde boyutlandırıldığından ve uygun ağa bağlı olduğundan emin olun.

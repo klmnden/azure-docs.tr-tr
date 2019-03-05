@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 785ccba6766b6a4f7400f3fdacf7ac24a234adf5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: c3148ebe11ba0e23cbded5965234ece9fb6082aa
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192779"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317705"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log analytics'te Azure Key Vault Analytics çözümü
 
 ![Key Vault simgesi](media/azure-key-vault/key-vault-analytics-symbol.png)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure Key Vault AuditEvent günlüklerini incelemek için Log Analytics içindeki Azure Key Vault çözümünü kullanabilirsiniz.
 
@@ -55,13 +57,13 @@ Yükleme ve Azure anahtar kasası çözümü yapılandırmak için aşağıdaki 
 8. Tıklayın *Kaydet* Log Analytics için tanılama günlüğünü etkinleştirme
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>PowerShell kullanarak Key Vault tanılamayı etkinleştirme
-Aşağıdaki PowerShell betiğini nasıl kullanılacağına ilişkin bir örnektir `Set-AzureRmDiagnosticSetting` Key Vault için tanılama günlük kaydını etkinleştirmek için:
+Aşağıdaki PowerShell betiğini nasıl kullanılacağına ilişkin bir örnektir `Set-AzDiagnosticSetting` Key Vault için tanılama günlük kaydını etkinleştirmek için:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+$kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 
@@ -103,7 +105,7 @@ Azure Key Vault çözümü bir tür olan kayıtları çözümler **KeyVaults** g
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Tür |*AzureDiagnostics* |
+| Type |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
 | callerIpAddress |İsteği yapan istemcinin IP adresi |
 | Kategori | *AuditEvent* |
@@ -118,7 +120,7 @@ Azure Key Vault çözümü bir tür olan kayıtları çözümler **KeyVaults** g
 | Kaynak |Anahtar kasasının adı |
 | ResourceGroup |Anahtar kasasının kaynak grubu |
 | ResourceId |Azure Resource Manager Kaynak Kimliği. Anahtar kasası günlükleri için bu anahtar kasası kaynak kimliğidir. |
-| ResourceProvider |*MICROSOFT. ANAHTAR KASASI* |
+| ResourceProvider |*MICROSOFT.KEYVAULT* |
 | ResourceType | *KASALARI* |
 | resultSignature |HTTP durumu (örneğin, *Tamam*) |
 | resulttype'ı |REST API'si isteğinin sonucunu (örneğin, *başarı*) |

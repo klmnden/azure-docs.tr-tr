@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2019
 ms.custom: mvc
-ms.openlocfilehash: d613526cd6c1adc277ba3bd58a40f757a9c7b729
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 5163f2596e9ba08754cd3a5e49040a9d95764192
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009418"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312962"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -59,7 +59,7 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip adres
 
 Bu öğreticiyi tamamlayabilmeniz için Azure aboneliğinizin cihaz kimliği kayıt defterine cihaz eklenmiş bir IOT hub içermesi gerekir. Cihaz kimliği kayıt defterindeki giriş, bu öğreticide çalıştırdığınız simülasyon cihazının hub’ınıza bağlanmasına imkan tanır.
 
-Aboneliğinizde zaten ayarlanmış bir IoT hub yoksa aşağıdaki CLI betiğiyle bir IoT hub ayarlayabilirsiniz. Bu betikte IoT hub için **tutorial-iot-hub** adı kullanılır ve betiği çalıştırırken bu adı kendi benzersiz adınızla değiştirmeniz gerekir. Betik, kaynak grubunu ve hub’ı **Orta ABD** bölgesinde oluşturur ve bunu size daha yakın bir konum olacak şekilde değiştirebilirsiniz. Betik, IoT hub hizmetinizin arka uç örneğinde IoT hub’ınıza bağlanmak için kullanacağınız bağlantı dizesini döndürür:
+Aboneliğinizde ayarlanmış bir IOT hub'ı zaten sahip değilseniz, birini aşağıdaki CLI betiği ile ayarlayabilirsiniz. Bu betikte IoT hub için **tutorial-iot-hub** adı kullanılır ve betiği çalıştırırken bu adı kendi benzersiz adınızla değiştirmeniz gerekir. Betik, kaynak grubunu ve hub’ı **Orta ABD** bölgesinde oluşturur ve bunu size daha yakın bir konum olacak şekilde değiştirebilirsiniz. Betik, IoT hub hizmetinizin arka uç örneğinde IoT hub’ınıza bağlanmak için kullanacağınız bağlantı dizesini döndürür:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub

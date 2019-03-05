@@ -10,21 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: be1249969fc50f5305dc5844f2578f8a24a6a220
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 22d7da30602bd83c7194cd7e016a0d4a2b9093ed
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817958"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310072"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Öğretici: Bağımlı kaynaklarla Azure Resource Manager şablonları oluşturma
 
-Birden fazla kaynağı dağıtmak için kullanabileceğiniz bir Azure Resource Manager şablonu oluşturmayı öğrenin.  Şablonu oluşturduktan sonra Azure portaldan Cloud Shell kullanarak dağıtacaksınız.
+Birden çok kaynak dağıtma ve dağıtım düzeni yapılandırmak için bir Azure Resource Manager şablonunun nasıl oluşturulacağını öğrenin. Şablonu oluşturduktan sonra Azure portaldan Cloud Shell kullanarak dağıtacaksınız.
 
 Bu öğreticide bir depolama hesabı, bir sanal makine, bir sanal ağ ve ek birkaç bağımlı kaynak oluşturacaksınız. Kaynakların bazıları başka bir kaynak var olana kadar dağıtılamaz. Örneğin depolama hesabı ve ağ arabirimi oluşturulmadan sanal makineyi oluşturamazsınız. Bu ilişkiyi, kaynakların birini diğer kaynaklara bağımlı hale getirerek tanımlarsınız. Resource Manager, kaynaklar arasındaki bağımlılıkları değerlendirir ve bunları bağımlılık sırasına göre dağıtır. Resource Manager, birbirine bağımlı olmayan kaynakları paralel olarak dağıtır. Daha fazla bilgi için bkz. [Azure Resource Manager şablonlarındaki kaynakları dağıtma sırasını belirleme](./resource-group-define-dependencies.md).
+
+![Kaynak Yöneticisi şablonu bağımlı kaynaklar dağıtım sırasını diyagramı](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 Bu öğretici aşağıdaki görevleri kapsar:
 

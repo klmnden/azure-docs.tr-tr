@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/01/2019
-ms.openlocfilehash: 07e530a30898e57916b91632c4bf49d43d69471a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 2d7b692880810f4ac54d383c5cf48072cff17b0e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564859"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317756"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL Veritabanı için Azure PowerShell örnekleri
 
@@ -65,7 +65,7 @@ Aşağıdaki tabloda, Azure SQL veritabanı - yönetilen örnek için örnek Azu
 | |  |
 |---|---|
 |**Oluşturma ve yönetilen örnekleri yapılandırma**||
-| [Yönetilen Örnek oluşturma ve yönetme](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Bu PowerShell betiği, Azure PowerShell kullanarak Yönetilen Örnek oluşturmayı ve yönetmeyi göstermektedir |
+| [Yönetilen Örnek oluşturma ve yönetme](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Bu PowerShell betiği, Azure PowerShell kullanarak Yönetilen Örnek oluşturmayı ve yönetmeyi göstermektedir |
 | [Oluşturma ve Azure Resource Manager şablonu kullanarak bir yönetilen örnek yönetme](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell Betiği oluşturma ve yönetme Azure PowerShell ve Azure Resource Manager şablonu kullanarak bir yönetilen örnek gösterilmektedir.|
 | **Saydam veri şifrelemesi (TDE) yapılandırma**||
 | [Saydam veri şifrelemesi kullanarak kendi anahtarınızı Azure anahtar Kasası'ndaki bir yönetilen örneğinde yönetme](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell Betiği kullanarak Azure SQL yönetilen Azure Key vault'tan bir anahtar örneği, kendi anahtarını Getir senaryosunda saydam veri şifrelemesi (TDE) yapılandırır|

@@ -8,12 +8,12 @@ ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 47e34596c37463be92b0d995440173f2426a182a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 77737db30c7a2c5c6350e4ae1ab70310036bd0e5
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216620"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311364"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-azure-logic-apps"></a>IOT Central Bağlayıcısı Azure Logic apps'te iş akışları oluşturun
 
@@ -32,13 +32,13 @@ Microsoft Flow IOT Central Bağlayıcısı'nı kullanabilirsiniz. Hem Azure Logi
 
 Bu bölümde bir kuralı tetiklendiğinde Microsoft Teams için bir ileti göndermek nasıl gösterir. Akışınıza bir olay, olay hub'ına gönderme gibi şeyler, yeni Azure DevOps iş öğesi oluşturma veya SQL Server'da yeni bir satır eklemek için diğer bağlayıcıları kullanmak için yapılandırabilirsiniz.
 
-1. Başlayın [IOT Central içinde bir kural oluşturma](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Kural koşulları kaydettikten sonra tıklayın **Azure Logic Apps** döşeme yeni bir eylem. Tıklayın **Azure portalında oluşturma**. Yeni bir mantıksal uygulama oluşturmak için Azure portalına yönlendirilirsiniz. Azure hesabınızda oturum açmanız gerekebilir.
+1. Başlayın [IOT Central içinde bir kural oluşturma](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Kural koşulları kaydettikten sonra seçin **Azure Logic Apps** döşeme yeni bir eylem. Seçin **Azure portalında oluşturma**. Yeni bir mantıksal uygulama oluşturmak için Azure portalına yönlendirilirsiniz. Azure hesabınızda oturum açmanız gerekebilir.
 
-1. Yeni bir mantıksal uygulama oluşturmak için gerekli bilgileri girin. Yeni mantıksal uygulamanızı sağlamak için bir Azure aboneliği seçebilirsiniz. IOT Central uygulamanızı oluşturulduğu aynı abonelik yok. **Oluştur**’a tıklayın.
+1. Yeni bir mantıksal uygulama oluşturmak için gerekli bilgileri girin. Yeni mantıksal uygulamanızı sağlamak için bir Azure aboneliği seçebilirsiniz. IOT Central uygulamanızı oluşturulduğu aynı abonelik yok. **Oluştur**’u seçin.
 
     ![Azure portalında mantıksal uygulama oluşturma](./media/howto-build-azure-logic-apps-experimental/createinazureportal.png)
 
-1. Mantıksal uygulamanızı başarıyla oluşturulduktan sonra otomatik olarak Logic Apps Tasarımcısı için gitme. Tıklayın **boş mantıksal uygulama**. 
+1. Mantıksal uygulamanızı başarıyla oluşturulduktan sonra otomatik olarak Logic Apps Tasarımcısı için gitme. Seçin **boş mantıksal uygulama**. 
 
     ![Boş mantıksal uygulama oluşturma](./media/howto-build-azure-logic-apps-experimental/blanklogicapp.png)
 
@@ -54,11 +54,11 @@ Bu bölümde bir kuralı tetiklendiğinde Microsoft Teams için bir ileti gönde
 
 1. Eylem seçin **takım** ve **kanal**. Doldurun **ileti** her ileti söylemek istediğiniz alanı. Ekleyebileceğiniz *dinamik içerik* , IOT Central kuraldan boyunca cihaz adı ve zaman damgası gibi önemli bilgiler için bildirim geçirme.
     > [!NOTE]
-    > Ölçüm ve kuralını tetikleyen özellik değerlerini almak için dinamik içerik penceresi "daha fazla" metni'ı tıklatın.
+    > Seçin **daha fazla bilgi bkz** kuralını tetikleyen ölçüm ve özellik değerlerini almak için dinamik içerik penceresindeki metin.
 
     ![Mantıksal uygulama düzenleme eylemi dinamik bölmesini açın](./media/howto-build-azure-logic-apps-experimental/buildworkflow.png)
 
-1. İşiniz bittiğinde eyleminizi düzenleme, tıklayın **Kaydet**.
+1. İşiniz bittiğinde, eyleminiz düzenleme seçin **Kaydet**.
 
 1. IOT Central uygulamanıza geri dönün, bu kural, bir Azure Logic Apps eylem eylemleri alanında içeriyor. görürsünüz.
 

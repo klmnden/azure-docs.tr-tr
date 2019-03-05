@@ -1,7 +1,7 @@
 ---
 title: Bağlanmak ve Azure SQL veritabanı dizin oluşturucuları - Azure Search kullanarak içerik dizini
 description: Azure Search'te tam metin arama için dizin oluşturucuları kullanarak Azure SQL veritabanı'nda veri gezinme hakkında bilgi edinin. Bu makale, bağlantılar, dizin oluşturucu yapılandırmasını ve veri alımı kapsar.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752901"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315223"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Bağlanmak ve Azure SQL veritabanı kullanarak Azure Search dizin oluşturucularında içerik dizini
 
@@ -305,7 +305,7 @@ SQL dizin oluşturucu, çeşitli yapılandırma ayarlarını kullanıma sunar:
 
 | Ayar | Veri türü | Amaç | Varsayılan değer |
 | --- | --- | --- | --- |
-| queryTimeout |dize |SQL sorgusu yürütme zaman aşımı süresi ayarlar |5 dakika ("00: 05:00") |
+| queryTimeout |string |SQL sorgusu yürütme zaman aşımı süresi ayarlar |5 dakika ("00: 05:00") |
 | disableOrderByHighWaterMarkColumn |bool |ORDER BY yan tümcesi atlamak için yüksek su işareti ilke tarafından kullanılan SQL sorgusunun neden olur. Bkz: [yüksek su işareti İlkesi](#HighWaterMarkPolicy) |false |
 
 Bu ayarlar kullanılan `parameters.configuration` dizin oluşturucu tanımı nesnesi. Örneğin, sorgu zaman aşımı 10 dakika olarak ayarlamak için oluşturma veya dizin oluşturucu aşağıdaki yapılandırma ile güncelleştir:

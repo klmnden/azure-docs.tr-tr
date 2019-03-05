@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/19/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5bc8a408ce247ad2980983c3eb32807074af599f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 62e35a361f2fcf9d6f484b699084a78f66121957
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820833"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310106"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group"></a>Öğretici: Azure kaynakları için başka bir kaynak grubuna taşıma
 
 Azure kaynaklarını bir kaynak grubundan başka bir kaynak grubuna taşımayı öğreneceksiniz. Ayrıca, Azure kaynaklarını bir Azure aboneliğine ait başka bir Azure aboneliğine taşıyabilirsiniz. Bu öğreticide, iki kaynak grubu ve bir depolama hesabı dağıtmak için bir resource manager şablonu kullanın. Ardından, depolama hesabını bir kaynak grubundan diğerine taşıyın.
+
+![Azure Resource Manager'a taşıma kaynakları diyagramı](./media/resource-manager-tutorial-move-resources/resource-manager-template-move-resources.png)
 
 Bu öğretici aşağıdaki görevleri kapsar:
 

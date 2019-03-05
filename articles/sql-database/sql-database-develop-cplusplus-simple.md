@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755161"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316498"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C ve C++ kullanarak SQL veritabanına bağlanma
 
@@ -37,7 +37,7 @@ Azure SQL, Microsoft SQL Server'da yerleşik olarak bulunur ve yüksek kullanıl
 Azure, şu anda SQL server iş yüklerini barındırmak için iki seçenek vardır: Azure SQL veritabanı, SQL server üzerinde sanal makineleri (VM) ve hizmet olarak veritabanı. Biz bu ikisi arasındaki farklar hakkında daha fazla ayrıntıya, en iyi sonucu maliyet tasarruflarından faydalanmak yeni bulut tabanlı uygulamalar için Azure SQL veritabanı olan ve bulut Hizmetleri performans iyileştirmesinden almazsınız. Geçiş veya şirket içi uygulamalarınızı buluta genişletme düşünüyorsanız, Azure sanal makinesinde SQL server için size daha iyi kullanıma işe yarayabilir. Bu makale için basit bir anlatım gözetildiği için bir Azure SQL veritabanı oluşturalım.
 
 ## <a id="ODBC"></a>Veri erişim teknolojileri: ODBC ve OLE DB
-Azure SQL DB'ye bağlanmanın farklı değildir ve şu anda veritabanlarına bağlanmak için iki yolu vardır: ODBC (açık veritabanı bağlantısı) ve OLE DB (nesne bağlama ve katıştırma veritabanı). Son yıllarda Microsoft birlikte hizalanır [yerel ilişkisel veri erişimi için ODBC](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC görece basit ve ayrıca hızlıdır OLE DB ' dir. Burada yalnızca uyarı ODBC eski C stili API kullanmasıdır.
+Azure SQL DB'ye bağlanmanın farklı değildir ve şu anda veritabanlarına bağlanmak için iki yolu vardır: ODBC (açık veritabanı bağlantısı) ve OLE DB (nesne bağlama ve katıştırma veritabanı). Son yıllarda Microsoft birlikte hizalanır [yerel ilişkisel veri erişimi için ODBC](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC görece basit ve ayrıca hızlıdır OLE DB ' dir. Burada yalnızca uyarı ODBC eski C stili API kullanmasıdır.
 
 ## <a id="Create"></a>1. adım:  Azure SQL veritabanınızı oluşturma
 Bkz: [Başlarken sayfası](sql-database-single-database-get-started.md) örnek veritabanını oluşturma hakkında bilgi edinmek için.  Alternatif olarak, bu izleyebilirsiniz [kısa iki dakikalık video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) Azure portalını kullanarak bir Azure SQL veritabanı oluşturmak için.
@@ -78,7 +78,7 @@ Alternatif olarak, komut satırı bağımsız değişkenlerini sağlandığında
 Tebrikler! Şimdi başarıyla Windows üzerinde C++ ve ODBC kullanarak Azure SQL bağlı. Linux platformu için de aynısını yapın için okumaya devam edebilirsiniz.
 
 ## <a id="Linux"></a>5. adım: Bir Linux C/C++ uygulamasından bağlanma
-Haber henüz heard kullanmadığınız durumda Visual Studio artık, C++ Linux uygulama geliştirmenize olanak tanır. Bu yeni senaryoda okuyabilirsiniz [Linux geliştirme için Visual C++](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blogu. Linux için derleme, Linux distro çalıştığı bir uzak makine gerekir. Yoksa, kullanılabilir bir kolayca kullanarak ayarlayabilirsiniz [Linux Azure sanal makineleri](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Haber henüz heard kullanmadığınız durumda Visual Studio artık, C++ Linux uygulama geliştirmenize olanak tanır. Bu yeni senaryoda okuyabilirsiniz [Linux geliştirme için Visual C++](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) blogu. Linux için derleme, Linux distro çalıştığı bir uzak makine gerekir. Yoksa, kullanılabilir bir kolayca kullanarak ayarlayabilirsiniz [Linux Azure sanal makineleri](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Bu öğretici için bize ayarlanmış bir Ubuntu 16.04 Linux dağıtım sahip olduğunuzu varsaymaktadır. Buradaki adımları da 15.10 Ubuntu, Red Hat 6 ve Red Hat 7'yi uygulamanız gerekir.
 

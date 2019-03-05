@@ -10,15 +10,15 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: cede105f0bff9a65f88e06467e4d13419d389f04
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 795facc6148d33592ff8eac5083a273dc3d5cb26
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461568"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314917"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı için kural sayfası
-Bu kural sayfası, Azure SQL Veri Ambarı çözümlerinizi oluşturmak için yardımcı ipuçları ve en iyi uygulamalar sağlar. Başlamadan önce, SQL Veri Ambarının ne olup ne olmadığını açıklayan [Azure SQL Veri Ambarı İş Yükü Düzenleri ve Anti Düzenleri](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) bölümünü okuyarak her bir adım hakkında daha ayrıntılı bilgi edinin.
+Bu kural sayfası, Azure SQL Veri Ambarı çözümlerinizi oluşturmak için yardımcı ipuçları ve en iyi uygulamalar sağlar. Başlamadan önce, SQL Veri Ambarının ne olup ne olmadığını açıklayan [Azure SQL Veri Ambarı İş Yükü Düzenleri ve Anti Düzenleri](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns) bölümünü okuyarak her bir adım hakkında daha ayrıntılı bilgi edinin.
 
 Aşağıdaki grafikte, veri ambarı tasarlama işlemi gösterilmektedir:
 
@@ -129,7 +129,7 @@ Azure İşlevleri ile istediğiniz anda otomatik ölçeklendirme yapın:
 
 Hub ve bağlı bileşen mimarisindeki SQL Database ve Azure Analysis Services’in dikkate alınmasını öneririz. Bu çözüm, bir yandan SQL Database ve Azure Analysis Services’teki gelişmiş güvenlik özelliklerini kullanırken diğer yandan farklı kullanıcı grupları arasında iş yükü yalıtımı sağlayabilir. Bu, kullanıcılarınıza sınırsız eşzamanlılık sağlamanın da bir yoludur.
 
-[SQL Veri Ambarı’ndan yararlanan tipik mimariler](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/) hakkında daha fazla bilgi edinin.
+[SQL Veri Ambarı’ndan yararlanan tipik mimariler](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/) hakkında daha fazla bilgi edinin.
 
 SQL Veri Ambarı’ndan SQL veritabanlarındaki bağlı bileşenlerinizden birine tıklayarak dağıtım gerçekleştirin:
 
@@ -155,9 +155,9 @@ SQL Veri Ambarı’ndan SQL veritabanlarındaki bağlı bileşenlerinizden birin
 
 
 <!--Other Web references-->
-[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
-[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[veri geçişi]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
+[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
+[veri geçişi]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 [Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql

@@ -12,20 +12,22 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/12/2018
-ms.openlocfilehash: 95a86dafc4705d58ac459ff57e4f221d19fb7a37
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4a3677dc5402948fc0105190d1891d709291d0f7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990300"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317739"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell kullanarak bir saydam veri şifrelemesi (TDE) koruyucusu Kaldır
 
 ## <a name="prerequisites"></a>Önkoşullar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - Bir Azure aboneliğiniz varsa ve bu abonelik bir yönetici olması gerekir
-- Azure PowerShell sürümü 4.2.0 olmalıdır veya üzerinin yüklü ve çalışıyor. 
-- Bu nasıl yapılır kılavuzunda, zaten Azure Key vault'tan bir anahtar TDE koruyucusu olarak bir Azure SQL veritabanı veya veri ambarı için kullandığınızı varsayar. Bkz: [Azure Key Vault tümleştirmesi - BYOK destekli saydam veri şifrelemesi](transparent-data-encryption-byok-azure-sql.md) daha fazla bilgi için.
+- Azure PowerShell yüklenmiş ve çalışıyor olması gerekir. 
+- Bu nasıl yapılır kılavuzunda, zaten Azure Key vault'tan bir anahtar TDE koruyucusu olarak bir Azure SQL veritabanı veya veri ambarı için kullandığınızı varsayar. Bkz: [BYOK destekli saydam veri şifrelemesi](transparent-data-encryption-byok-azure-sql.md) daha fazla bilgi için.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -45,34 +47,34 @@ Bu nasıl yapılır kılavuzunda sonra olay yanıtı istenen sonuca bağlı olar
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Şifrelenmiş kaynakları erişilebilir tutmak için
 
 1. Oluşturma bir [anahtar Kasası'nda yeni anahtar](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Erişim denetimi bir kasa düzeyinde sağlandığı bu yeni anahtar riskli olabilecek TDE koruyucusuna'ndan ayrı bir anahtar kasasındaki oluşturulduğundan emin olun. 
-2. Yeni anahtarı kullanarak sunucuya ekleme [Ekle AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) ve [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) cmdlet'leri ve sunucunun yeni TDE koruyucusu güncelleştirin.
+2. Yeni anahtarı kullanarak sunucuya ekleme [Ekle AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) ve [kümesi AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet'leri ve sunucunun yeni TDE koruyucusu güncelleştirin.
 
    ```powershell
    # Add the key from Key Vault to the server  
-   Add-AzureRmSqlServerKeyVaultKey `
+   Add-AzSqlServerKeyVaultKey `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -KeyId <KeyVaultKeyId>
 
    # Set the key as the TDE protector for all resources under the server
-   Set-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Set-AzSqlServerTransparentDataEncryptionProtector `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -Type AzureKeyVault -KeyId <KeyVaultKeyId> 
    ```
 
-3. Sunucu emin olun ve tüm çoğaltmaları kullanarak yeni TDE koruyucusuna güncelleştirilmiş [Get-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) cmdlet'i. 
+3. Sunucu emin olun ve tüm çoğaltmaları kullanarak yeni TDE koruyucusuna güncelleştirilmiş [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet'i. 
 
    >[!NOTE]
    > Bu, tüm veritabanlarına ve ikincil veritabanları sunucusu altında yaymak yeni TDE koruyucusuna birkaç dakika sürebilir.
 
    ```powershell
-   Get-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Get-AzSqlServerTransparentDataEncryptionProtector `
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-4. Ele bir [yeni anahtar yedekleme](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey) anahtar Kasası'nda.
+4. Ele bir [yeni anahtar yedekleme](/powershell/module/az.keyvault/backup-azurekeyvaultkey) anahtar Kasası'nda.
 
    ```powershell
    <# -OutputFile parameter is optional; 
@@ -82,18 +84,18 @@ Bu nasıl yapılır kılavuzunda sonra olay yanıtı istenen sonuca bağlı olar
    -Name <KeyVaultKeyName> `
    -OutputFile <DesiredBackupFilePath>
    ```
-
-5. Key Vault kullanarak güvenliği aşılan anahtar Sil [Remove-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/remove-azurekeyvaultkey) cmdlet'i. 
+ 
+5. Key Vault kullanarak güvenliği aşılan anahtar Sil [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azurekeyvaultkey) cmdlet'i. 
 
    ```powershell
-   Remove-AzureKeyVaultKey `
+   Remove-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName>
    ```
-
-6. Gelecekte kullanarak Key Vault için bir anahtarı geri [geri yükleme-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey) cmdlet:
+ 
+6. Gelecekte kullanarak Key Vault için bir anahtarı geri [geri yükleme-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azurekeyvaultkey) cmdlet:
    ```powershell
-   Restore-AzureKeyVaultKey `
+   Restore-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -InputFile <BackupFilePath>
    ```

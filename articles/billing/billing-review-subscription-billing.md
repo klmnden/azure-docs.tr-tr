@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: a4e5307a151439dde5ac41cb5b1bbb80f43ad71c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3a487b56c3ce81f3a13add767a9bf7ad59cf79cd
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112759"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315954"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Abonelik faturalama REST API'lerini kullanarak gözden geçirin
 
-Gözden geçirin ve Azure maliyetlerinizi yönetin, azure API'leri raporlama Yardımı.  
+Gözden geçirin ve Azure maliyetlerinizi yönetin, azure API'leri raporlama Yardımı.
 
 Filtre sonuçlarını gereksinimlerinizi karşılayacak şekilde özelleştirmek yardımcı olur.
 
@@ -31,26 +31,26 @@ Burada, aboneliğe ait fatura ayrıntılarını belirli bir tarih aralığındak
 
 ``` http
 GET https://management.azure.com/subscriptions/${subscriptionID}/providers/Microsoft.Billing/billingPeriods/${billingPeriod}/providers/Microsoft.Consumption/usageDetails?$filter=properties/usageEnd ge '${startDate}' AND properties/usageEnd le '${endDate}'
-Content-Type: application/json   
+Content-Type: application/json
 Authorization: Bearer
 ```
 
-## <a name="build-the-request"></a>Derleme isteği  
+## <a name="build-the-request"></a>Derleme isteği
 
 `{subscriptionID}` Parametresi gereklidir ve hedef abonelik tanımlar.
 
 `{billingPeriod}` Parametresi gereklidir ve bir geçerli belirtir [fatura döneminde](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod).
 
-`${startDate}` Ve `${endDate}` parametreleri, bu örnek için gerekli, ancak uç noktası için isteğe bağlıdır.  Bunlar YYYY-AA-GG biçiminde bir dize olarak tarih aralığını belirtin (örnek: `'20180501'` ve `'20180615'`). 
+`${startDate}` Ve `${endDate}` parametreleri, bu örnek için gerekli, ancak uç noktası için isteğe bağlıdır. Bunlar YYYY-AA-GG biçiminde bir dize olarak tarih aralığını belirtin (örnek: `'20180501'` ve `'20180615'`).
 
-Aşağıdaki üst bilgiler gereklidir: 
+Aşağıdaki üst bilgiler gereklidir:
 
-|İstek üstbilgisi|Açıklama|  
-|--------------------|-----------------|  
-|*İçerik türü:*|Gereklidir. Kümesine `application/json`.|  
-|*Yetkilendirme:*|Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|İstek üstbilgisi|Açıklama|
+|--------------------|-----------------|
+|*İçerik türü:*|Gereklidir. Kümesine `application/json`.|
+|*Yetkilendirme:*|Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
-## <a name="response"></a>Yanıt  
+## <a name="response"></a>Yanıt
 
 Durum kodu 200 (Tamam) ayrıntılı maliyetlerin hesabınız için bir listesini içeren başarılı bir yanıt döndürdü.
 
@@ -67,47 +67,47 @@ Durum kodu 200 (Tamam) ayrıntılı maliyetlerin hesabınız için bir listesini
         "usageStart": "${startDate}}",
         "usageEnd": "${endDate}",
         "currency": "USD",
-        "usageQuantity": ${usageQuantity},
-        "billableQuantity": ${billableQuantity},
-        "pretaxCost": ${cost},
+        "usageQuantity": "${usageQuantity}",
+        "billableQuantity": "${billableQuantity}",
+        "pretaxCost": "${cost}",
         "meterId": "${meterID}",
-        "meterDetails": ${meterDetails}
+        "meterDetails": "${meterDetails}"
       }
     }
-    ],
-    "nextLink": "${nextLinkURL}"
-} 
-```  
+  ],
+  "nextLink": "${nextLinkURL}"
+}
+```
 
 Her öğe **değer** hizmet kullanımına ilişkin bir ayrıntı temsil eder:
 
 |Yanıt özelliği|Açıklama|
 |----------------|----------|
-|**subscriptionGuid** | Abonelik için genel olarak benzersiz kimliği. | 
+|**subscriptionGuid** | Abonelik için genel olarak benzersiz kimliği. |
 |**startDate** | Başlatılan kullanımı tarih. |
 |**endDate** | Sona erdi kullanımı tarih. |
-|**useageQuantity** | Kullanılan miktar. | 
+|**useageQuantity** | Kullanılan miktar. |
 |**billableQuantity** | Miktar gerçekten faturalandırılır. |
-|**pretaxCost** | , Vergileri önce Faturalanan Maliyet. | 
+|**pretaxCost** | , Vergileri önce Faturalanan Maliyet. |
 |**meterDetails** | Kullanımı hakkında ayrıntılı bilgi sağlar. |
-|**nextLink**| Ne zaman ayarlama, sonraki "sayfasının" Ayrıntıları URL'sini belirtir. Sonuncu sayfanın olduğunda boş. |  
-||
-  
-Bu örnekte kadar kısaltılmıştır; bkz: [listesinde kullanım ayrıntıları](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) her yanıt alan eksiksiz bir açıklaması. 
+|**nextLink**| Ne zaman ayarlama, sonraki "sayfasının" Ayrıntıları URL'sini belirtir. Sonuncu sayfanın olduğunda boş. |
+
+Bu örnekte kadar kısaltılmıştır; bkz: [listesinde kullanım ayrıntıları](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) her yanıt alan eksiksiz bir açıklaması.
 
 Diğer durum kodları hata koşulları belirtin. Bu gibi durumlarda, isteğin neden başarısız yanıt nesnesini açıklar.
 
 ``` json
-{  
-  "error": [  
-    { "code": "Error type." 
-      "message": "Error response describing why the operation failed."  
-    }  
-  ]  
-}  
-```  
+{
+  "error": [
+    {
+      "code": "Error type.",
+      "message": "Error response describing why the operation failed."
+    }
+  ]
+}
+```
 
-## <a name="next-steps"></a>Sonraki adımlar 
+## <a name="next-steps"></a>Sonraki adımlar
 - Gözden geçirme [Kurumsal raporlama genel bakış](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Araştırma [Kurumsal faturalama REST API'si](https://docs.microsoft.com/rest/api/billing/)   
-- [Azure REST API'si ile çalışmaya başlama](https://docs.microsoft.com/rest/api/azure/)   
+- Araştırma [Kurumsal faturalama REST API'si](https://docs.microsoft.com/rest/api/billing/)
+- [Azure REST API'si ile çalışmaya başlama](https://docs.microsoft.com/rest/api/azure/)

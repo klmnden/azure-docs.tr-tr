@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b4eb3fe8132aafc3d673234dc1b4123f20f9e569
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822721"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312741"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -173,6 +173,8 @@ Veri toplama ve kullanım hakkında daha fazla bilgi için bkz. [Microsoft Onlin
 
 ## <a name="installation"></a>Yükleme
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### <a name="azure-vm-extension"></a>Azure VM uzantısı
 Bir uzantı (DependencyAgentWindows) Windows ve Linux (DependencyAgentLinux) için kullanılabilir ve bağımlılık Aracısı'nı kullanarak Azure sanal makinelerini kolayca dağıtım yapabilir bir [Azure VM uzantısı](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Azure VM uzantısı ile Windows ve Linux bir PowerShell Betiği kullanılarak veya doğrudan sanal Makineye bir Azure Resource Manager şablonu kullanarak sanal makine için bağımlılık Aracısı'nı dağıtabilirsiniz.  Azure VM uzantısı aracıyla dağıtırsanız, aracılarınızı en son sürüme otomatik olarak güncelleştirilir.
 
@@ -188,7 +190,7 @@ $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
 
-Get-AzureRmVM -ResourceGroupName $rmgroup |
+Get-AzVM -ResourceGroupName $rmgroup |
 ForEach-Object {
     ""
     $name = $_.Name
@@ -198,7 +200,7 @@ ForEach-Object {
     "${name}: ${os} (${location})"
     Date -Format o
     $ext = $OsExtensionMap.($os.ToString())
-    $result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+    $result = Set-AzVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
     -Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
     $result.IsSuccessStatusCode
 }

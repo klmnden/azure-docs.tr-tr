@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 23b627d480acf7bbbff7ade2ba6e596a57a15327
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 53c816ee8fa670c8a4dde3212325524a17d25aab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993349"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314441"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Bir uygulama ağ geçidi ile birden çok site barındırma Azure portalını kullanarak oluşturma
 
@@ -96,6 +96,8 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
 
 ### <a name="install-iis"></a>IIS yükleme
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Etkileşimli kabuğu açın ve **PowerShell**’e ayarlandığından emin olun.
 
     ![Özel uzantıyı yükleme](./media/application-gateway-create-multisite-portal/application-gateway-extension.png)
@@ -104,7 +106,7 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -115,7 +117,7 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
       -Settings $publicSettings
     ```
 
-3. İkinci sanal makine oluşturun ve yalnızca tamamlanmış adımları kullanarak IIS yükleyin. Adlarını girin *fabrikamVM* adı ve Set-AzureRmVMExtension içinde VMName değeri.
+3. İkinci sanal makine oluşturun ve yalnızca tamamlanmış adımları kullanarak IIS yükleyin. Adlarını girin *fabrikamVM* adı ve Set-AzVMExtension içinde VMName değeri.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Arka uç havuzları ile sanal makineleri oluşturma
 

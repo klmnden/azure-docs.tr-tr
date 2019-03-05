@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 44427183b6cc785af33daf92bda050336eec5284
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 35d5e5d76dbcb4f1d995a9da13a81ef8b184150c
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245295"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337354"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux ve Windows için Azure Veri Bilimi Sanal Makinesi’ne Giriş
 
@@ -38,7 +38,7 @@ Veri Bilimi Sanal Makinesi çok çeşitli kullanım senaryoları ile birlikte ç
 Bu bölümde, Veri Bilimi Sanal Makinesinin dağıtılabileceği bazı önemli senaryolar önerilir.
 
 ### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Bulutta önceden yapılandırılmış analiz masaüstü
-Veri Bilimi Sanal Makinesi, yerel masaüstlerini yönetilen bir bulut masaüstü ile değiştirmek isteyen veri bilimi ekipleri için bir temel yapılandırma sağlar. Bu temel, bir ekipteki tüm veri bilimcilerinin denemeleri doğrulamak ve iş birliğini desteklemek üzere tutarlı bir kuruluma sahip olmasını sağlar. Ayrıca, sysadmin yükünü azaltarak ve ileri analizler yapmak için gereken çeşitli yazılım paketlerini değerlendirmek, yüklemek ve bakımını yapmak üzere gereken süreyi azaltarak maliyetleri düşürür.  
+Veri Bilimi Sanal Makinesi, yerel masaüstlerini yönetilen bir bulut masaüstü ile değiştirmek isteyen veri bilimi ekipleri için bir temel yapılandırma sağlar. Bu temel, bir ekipteki tüm veri bilimcilerinin denemeleri doğrulamak ve iş birliğini desteklemek üzere tutarlı bir kuruluma sahip olmasını sağlar. Ayrıca, sysadmin yükünü azaltarak ve ileri analizler yapmak için gereken çeşitli yazılım paketlerini değerlendirmek, yüklemek ve bakımını yapmak üzere gereken süreyi azaltarak maliyetleri düşürür.
 
 ### <a name="data-science-training-and-education"></a>Veri bilimi eğitimi
 Veri bilimi dersleri veren kurumsal eğitmenler genellikle öğrencilerinin tutarlı bir kuruluma sahip olduğundan ve örneklerin öngörülebilir bir şekilde çalıştığından emin olmak üzere bir sanal makine görüntüsü sağlar. Veri Bilimi Sanal Makinesi, destek ve uyumsuzluk sorunlarını kolaylaştıran tutarlı bir kurulumla isteğe bağlı bir ortam oluşturur. Başta daha kısa eğitim sınıfları olmak üzere bu ortamların sıklıkla oluşturulması gereken durumlar önemli ölçüde avantajlıdır.
@@ -50,7 +50,7 @@ Veri bilimi yazılım yarışmaları/müsabakaları veya büyük ölçekli veri 
 Veri Bilimi Sanal Makinesi; Microsoft ML Server, SQL Server, Visual Studio araçları, Jupyter, derin öğrenme / ML araç setleri gibi araçları ve toplulukta popüler olan yeni araçları çok az kurulum çabasıyla değerlendirmek veya öğrenmek için kullanılabilir. Veri Bilimi Sanal Makinesi hızlıca kurulabildiğinden, yayımlanmış denemeleri çoğaltma, tanıtımları uygulama, çevrimiçi oturumlarda ve konferans öğreticilerinde kılavuzları takip etme gibi diğer kısa süreli kullanım senaryolarında uygulanabilir.
 
 ### <a name="deep-learning"></a>Derin öğrenme
-Veri bilimi sanal makinesi, GPU (Grafik işleme birimleri) tabanlı donanımlar üzerinde derin öğrenme algoritmalarını kullanan eğitim modelleri için kullanılabilir. Azure bulutunun VM ölçeklendirme özelliklerinden yararlanan DSVM, gereksinime göre bulutta GPU tabanlı donanımlar kullanmanıza yardımcı olur. Büyük modellerin eğitimi veya aynı işletim sistemi diskini tutarken yüksek hızlı hesaplamalara ihtiyaç duyulması halinde GPU tabanlı bir sanal makineye geçiş yapılabilir.  DSVM’nin Windows Server 2016 sürümünde GPU sürücüleri, çerçeveleri ve derin öğrenme çerçevelerinin GPU sürümleri önceden yüklenmiş olarak gelir. Linux sürümünde, GPU üzerinde derin öğrenme hem CentOS hem de Ubuntu DSVM’leri üzerinde etkindir. Veri Bilimi Sanal Makinesinin Ubuntu, CentOS veya Windows 2016 sürümünü GPU tabanlı olmayan bir Azure sanal makinesine dağıtabilirsiniz; bu durumda tüm derin öğrenme çerçeveleri CPU moduna geri döner. 
+Veri bilimi sanal makinesi, GPU (Grafik işleme birimleri) tabanlı donanımlar üzerinde derin öğrenme algoritmalarını kullanan eğitim modelleri için kullanılabilir. Azure bulutunun VM ölçeklendirme özelliklerinden yararlanan DSVM, gereksinime göre bulutta GPU tabanlı donanımlar kullanmanıza yardımcı olur. Büyük modellerin eğitimi veya aynı işletim sistemi diskini tutarken yüksek hızlı hesaplamalara ihtiyaç duyulması halinde GPU tabanlı bir sanal makineye geçiş yapılabilir.  DSVM’nin Windows Server 2016 sürümünde GPU sürücüleri, çerçeveleri ve derin öğrenme çerçevelerinin GPU sürümleri önceden yüklenmiş olarak gelir. Linux sürümünde, GPU üzerinde derin öğrenme hem CentOS hem de Ubuntu DSVM’leri üzerinde etkindir. Veri Bilimi Sanal Makinesinin Ubuntu, CentOS veya Windows 2016 sürümünü GPU tabanlı olmayan bir Azure sanal makinesine dağıtabilirsiniz; bu durumda tüm derin öğrenme çerçeveleri CPU moduna geri döner.
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Veri Bilimi Sanal Makinesi’ne neler dahildir?
 Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan çok sayıda popüler veri bilimi ve derin öğrenme aracı içerir. Ayrıca tahmine dayalı model derlemek için Microsoft ML Server (R, Python) veya büyük ölçekli veri kümeleriyle araştırma yapmak için SQL Server 2017 gibi çeşitli Azure veri ve analiz ürünleriyle çalışmayı kolaylaştıran araçlar da içerir. Açık kaynak topluluğundan ve Microsoft’tan bir dizi başka aracın yanı sıra örnek kod ve not defterleri de sunulmaktadır. Aşağıdaki tabloda Veri Bilimi Sanal Makinesi’nin Windows ve Linux sürümlerine dahil olan ana bileşenler maddeler halinde verilmiş ve karşılaştırılmıştır.
@@ -86,7 +86,7 @@ Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim ve Emacs | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git ve GitBash | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | E | E |
-| &nbsp;&nbsp;&nbsp;&nbsp;* .Net Framework | E | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* .NET framework | E | N |
 | PowerBI Masaüstü | E | N |
 | Azure ve Cortana Intelligence Hizmet paketine erişim SDK’ları | E | E |
 | **Veri Taşıma ve yönetim araçları** | | |

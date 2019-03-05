@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97508c05ea26df1aaae7f41738835380767c81d2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200505"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312724"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -235,6 +235,7 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 |--------|---------------------|
 | Avustralya Doğu | New South Wales |
 | Avustralya Güneydoğu | Victoria |
+| Güney Brezilya | Sao Paolo durumu |
 | Orta Kanada | Toronto |
 | Doğu Kanada | Quebec City |
 | Orta Hindistan | Pune |
@@ -242,6 +243,8 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 | Doğu Asya | Hong Kong |
 | Doğu ABD | Virginia |
 | Doğu ABD 2 | Virginia |
+| Japonya Doğu | Tokyo, Saitama |
+| Japonya Batı | Osaka |
 | Orta Kuzey ABD | Illinois |
 | Kuzey Avrupa | İrlanda |
 | Orta Güney ABD | Texas |

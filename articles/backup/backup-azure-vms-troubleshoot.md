@@ -6,14 +6,14 @@ author: srinathv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/7/2018
+ms.date: 03/04/2019
 ms.author: srinathv
-ms.openlocfilehash: 057057b155c6c48dabd0b97b3f6a57f3ee4c7cc1
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 8e49abb224cf37c875b0c071ea7c461879c08fc9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888959"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312775"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında karşılaşılan hataları giderebilirsiniz:
@@ -58,7 +58,7 @@ Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında k
 
 | Hata Ayrıntıları | Geçici çözüm |
 | --- | --- |
-| Geri yükleme, bir bulut iç hatayla başarısız oldu. |<ol><li>Geri yükleme çalıştığınız bulut hizmeti DNS ayarlarıyla yapılandırılır. Kontrol edebilirsiniz: <br>**$deployment = get-AzureDeployment - ServiceName "ServiceName"-yuvası "Üretim" Get-AzureDns - DnsSettings $deployment. DnsSettings**.<br>Varsa **adresi** DNS ayarlarını yapılandırıldıysa, yapılandırılır.<br> <li>Yapılacak çalıştığınız geri yüklemek bulut hizmeti ile yapılandırılmış **ReservedIP**, ve bulut hizmetindeki var olan VM'ler durdurulmuş durumda. Bir bulut hizmeti aşağıdaki PowerShell cmdlet'lerini kullanarak bir IP ayırdığı denetleyebilirsiniz: **$deployment = Get-AzureDeployment - ServiceName "servicename"-"Üretim" $yuvası DEP Reservedıpname**. <br><li>Bir sanal makineyle aynı bulut hizmetine aşağıdaki özel ağ yapılandırmalarını geri yüklemek çalışıyorsunuz: <ul><li>Sanal makineleri yük dengeleyici yapılandırmasını, iç ve dış altında.<li>Birden çok ayrılmış IP ile sanal makineler. <li>Birden çok NIC içeren sanal makineler. </ul><li>Kullanıcı Arabirimi veya bkz: yeni bir bulut hizmeti seçin [konuları geri](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) özel ağ yapılandırmaları olan VM'ler için.</ol> |
+| Geri yükleme, bir bulut iç hatayla başarısız oldu. |<ol><li>Geri yükleme çalıştığınız bulut hizmeti DNS ayarlarıyla yapılandırılır. Kontrol edebilirsiniz: <br>**$deployment = get-AzureDeployment - ServiceName "ServiceName"-yuvası "Üretim" Get-AzureDns - DnsSettings $deployment. DnsSettings**.<br>Varsa **adresi** DNS ayarlarını yapılandırıldıysa, yapılandırılır.<br> <li>Yapılacak çalıştığınız geri yüklemek bulut hizmeti ile yapılandırılmış **ReservedIP**, ve bulut hizmetindeki var olan VM'ler durdurulmuş durumda. Bir bulut hizmeti aşağıdaki PowerShell cmdlet'lerini kullanarak bir IP ayırdığı denetleyebilirsiniz: **$deployment = Get-AzureDeployment - ServiceName "servicename"-"Üretim" $yuvası DEP Reservedıpname**. <br><li>Bir sanal makineyle aynı bulut hizmetine aşağıdaki özel ağ yapılandırmalarını geri yüklemek çalışıyorsunuz: <ul><li>Sanal makineleri yük dengeleyici yapılandırmasını, iç ve dış altında.<li>Birden çok ayrılmış IP ile sanal makineler. <li>Birden çok NIC içeren sanal makineler. </ul><li>Kullanıcı Arabirimi veya bkz: yeni bir bulut hizmeti seçin [konuları geri](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) özel ağ yapılandırmaları olan VM'ler için.</ol> |
 | Seçilen DNS adı zaten alınmış: <br>Farklı bir DNS adı belirtip yeniden deneyin. |Bu DNS adı genellikle ile biten bulut hizmeti adı başvurduğu **. cloudapp.net**. Bu adın benzersiz olması gerekir. Bu hatayı alırsanız, geri yükleme sırasında farklı bir VM adı seçmeniz gerekir. <br><br> Bu hata, yalnızca Azure portalı kullanıcılarına gösterilir. Yalnızca diskleri geri yükler ve VM'yi oluşturmak değildir çünkü PowerShell aracılığıyla geri yükleme işlemi başarılı olur. Diski geri yükleme işleminden VM açıkça sizin tarafınızdan oluşturulduğunda hata karşılaştığı. |
 | Belirtilen sanal ağ yapılandırması doğru değil: <br>Farklı sanal ağ yapılandırması belirtin ve yeniden deneyin. |None |
 | Belirtilen bulut hizmeti, geri yüklenen sanal makine yapılandırmasını eşleşmeyen bir ayrılmış IP kullanıyor: <br>Ayrılmış IP kullanmıyor farklı bir bulut hizmeti belirtin. Veya geri yükleme için başka bir kurtarma noktası seçin. |None |

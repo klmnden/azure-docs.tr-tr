@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/11/2019
-ms.openlocfilehash: b066c7f6c32b6e9fe1c1f63b5db88b4deaa2edae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.date: 03/05/2019
+ms.openlocfilehash: a5f44e5f7f19507723eeb75518a9a573d6563e2b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231827"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337218"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Bilinen sorunları/geçiş sınırlamalarıyla birlikte Azure SQL DB'ye online geçişleri
 
@@ -89,7 +89,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **Geçici çözüm**
 
-32 KB'den daha büyük bir LOB sütunu varsa, mühendislik ekibiyle iletişime geçin. [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+32 KB'den daha büyük bir LOB sütunu varsa, mühendislik ekibiyle iletişime geçin. [isteyin Azure veritabanı geçişlerini](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="issues-with-timestamp-columns"></a>Zaman damgası sütunları ile ilgili sorunlar
 
@@ -99,7 +99,7 @@ DMS, kaynak zaman damgası değeri geçirmediğini; Bunun yerine, DMS, hedef tab
 
 **Geçici çözüm**
 
-DMS kaynak tablosunda depolanan tam zaman damgası değeri geçirmek için gerekiyorsa, mühendislik ekibi ile iletişime geçin [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+DMS kaynak tablosunda depolanan tam zaman damgası değeri geçirmek için gerekiyorsa, mühendislik ekibi ile iletişime geçin [isteyin Azure veritabanı geçişlerini](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Veri Geçiş hataları veritabanı ayrıntılı durum dikey penceresinde ek bilgiler sağlamaz.
 

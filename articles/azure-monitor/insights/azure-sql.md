@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5f4589e9423beb932e1192d44291315331884eba
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884790"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314798"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
@@ -146,14 +146,16 @@ Azure SQL Analytics kullanmak için kullanıcıların azure'daki okuyucu rolün�
 
 ### <a name="creating-a-custom-role-in-portal"></a>Portalda özel rol oluşturma
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Bazı kuruluşların azure'daki katı izin denetimleri zorunlu tanıma, en düşük Azure portalıyla "SQL Analytics izleme operatörü" okuma ve yazma izinleri için gereken özel bir rol oluşturulmasını etkinleştirme aşağıdaki PowerShell Betiği bulma Azure SQL Analytics tam boyutuna kullanın.
 
 "{Subscriptionıd}" Değiştir aşağıdaki betiği, Azure abonelik kimliği ile bir Azure sahibi veya katkıda bulunan rolü olarak günlüğe bu betiği yürütün.
 
    ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription {SubscriptionId}
-    $role = Get-AzureRmRoleDefinition -Name Reader
+    Connect-AzAccount
+    Select-AzSubscription {SubscriptionId}
+    $role = Get-AzRoleDefinition -Name Reader
     $role.Name = "SQL Analytics Monitoring Operator"
     $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
     $role.IsCustom = $true
@@ -172,7 +174,7 @@ Bazı kuruluşların azure'daki katı izin denetimleri zorunlu tanıma, en düş
     $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
     $role.Actions.Add("Microsoft.Resources/deployments/write");
     $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
-    New-AzureRmRoleDefinition $role
+    New-AzRoleDefinition $role
    ```
 
 Yeni rol oluşturulduktan sonra Azure SQL Analytics kullanmak için özel izinleri vermek için gereken her kullanıcıya bu rolü atayın.

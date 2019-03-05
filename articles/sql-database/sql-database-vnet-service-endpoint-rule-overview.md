@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 6ded590ac5a9c30655d8ed19c370ce476d1c9631
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 15ca464e8e44183b445bfdabe9abf5dd560a4f70
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456291"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312273"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Veritabanı sunucuları için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
@@ -174,6 +174,8 @@ PolyBase, verileri Azure depolama hesaplarını Azure SQL Data Warehouse'a yükl
 
 #### <a name="prerequisites"></a>Önkoşullar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1.  Bunu kullanarak Azure PowerShell'i yükleyin [Kılavuzu](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Genel amaçlı v1 veya blob depolama hesabı varsa, genel amaçlı v2'ye yükseltmeniz gerekir bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Olmalıdır **güvenilen Microsoft hizmetlerinin bu depolama hesabına erişmesine izin ver** Azure depolama hesabı altında açık **güvenlik duvarları ve sanal ağları** ayarlar menüsü. Bu [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) daha fazla bilgi için.
@@ -182,9 +184,9 @@ PolyBase, verileri Azure depolama hesaplarını Azure SQL Data Warehouse'a yükl
 1.  PowerShell'de, **SQL veritabanı sunucunuza kaydetmek** ile Azure Active Directory (AAD):
 
     ```powershell
-    Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-    Set-AzureRmSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+    Connect-AzAccount
+    Select-AzSubscription -SubscriptionId your-subscriptionId
+    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
     ```
     
  1. Oluşturma bir **genel amaçlı v2 depolama hesabı** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
@@ -273,7 +275,7 @@ Bu bölümde, nasıl kullanabileceğinizi gösteren [Azure portalında] [ http-a
 
 ## <a name="powershell-alternative"></a>PowerShell alternatif
 
-Bir PowerShell Betiği, sanal ağ kuralları oluşturabilirsiniz. Önemli cmdlet **New-AzureRmSqlServerVirtualNetworkRule**. İlgileniyorsanız, bkz. [Azure SQL veritabanı için bir sanal ağ hizmet uç noktası ve kuralı oluşturmak için PowerShell][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Bir PowerShell Betiği, sanal ağ kuralları oluşturabilirsiniz. Önemli cmdlet **yeni AzSqlServerVirtualNetworkRule**. İlgileniyorsanız, bkz. [Azure SQL veritabanı için bir sanal ağ hizmet uç noktası ve kuralı oluşturmak için PowerShell][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="rest-api-alternative"></a>REST API alternatif
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 3ffc361421f57b405c284742b662a833b178f9da
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 9b66e4160dc78286f393257136dbf9375c6f61fb
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260332"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306740"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Azure IoT Central uygulaması oluşturma
 
@@ -53,7 +53,7 @@ Yeni bir Azure IoT Central uygulaması oluşturmak için:
     > [!Note]
     > Bölgeyi bir kez seçtiğinizde, uygulamanızı daha sonra başka bir bölgeye taşıyamazsınız.
 
-1. **Oluştur**’a tıklayın.
+1. **Oluştur**’u seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

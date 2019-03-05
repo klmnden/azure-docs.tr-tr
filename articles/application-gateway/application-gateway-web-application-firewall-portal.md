@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d89e5d6fd21fdc37bffcc730fb20bae30ecc4f7c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453265"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315036"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Azure portalını kullanarak bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturma
 
@@ -30,6 +30,8 @@ Bu makalede şunları öğreneceksiniz:
 > * Bir depolama hesabı oluşturma ve tanılamaları yapılandırma
 
 ![Web uygulaması güvenlik duvarı örneği](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -103,7 +105,7 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
 2. Sanal makineye IIS yüklemek için aşağıdaki komutu çalıştırın: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -114,7 +116,7 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
       -Location EastUS
     ```
 
-3. İkinci bir sanal makine oluşturun ve yeni tamamladığınız adımları kullanarak IIS yükleyin. Ad olarak ve VMName için Set-AzureRmVMExtension komutuna *myVM2* girin.
+3. İkinci bir sanal makine oluşturun ve yeni tamamladığınız adımları kullanarak IIS yükleyin. Girin *myVM2* adını ve Set-AzVMExtension içinde VMName.
 
 ### <a name="add-backend-servers"></a>Arka uç sunucuları ekleme
 

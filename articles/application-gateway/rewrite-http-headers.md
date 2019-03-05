@@ -7,14 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 176e6804e6c98a1b9e9ffe4af04f02748c80928b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103437"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310922"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Uygulama ağ geçidi (genel Önizleme) ile yeniden yazma HTTP üstbilgileri
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 HTTP üstbilgileri, istemci ve sunucu istek veya yanıt ek bilgilerle geçmesine izin verin. Güvenlikle ilgili üstbilgi ekleme gibi birkaç önemli senaryoları görevi bu HTTP üstbilgileri yardımcı yeniden yazma alanları HSTS gibi / X XSS koruma veya yanıt üstbilgi alanlarını kaldırma, hangi arka uç sunucu adı gibi hassas bilgileri açığa.
 
@@ -27,7 +29,7 @@ Application Gateway, gelen HTTP isteklerini, hem de giden HTTP yanıt üst bilgi
 Uygulama ağ geçidi üstbilgi yeniden yazma desteği sunar:
 
 - **Genel üstbilgi yeniden yazma**: Tüm isteklerin ve yanıtların siteye ilişkin belirli üstbilgileri yazabilirsiniz.
-- **Üst bilgi yol tabanlı yeniden yazma**: Bu tür bir yeniden yazma yalnızca istekleri ve sadece belirli site alanını üzerinde/Sepeti/bir alışveriş sepeti alanı örneğin gösterilen ilgilidir yanıtlar için üstbilgi yeniden yazma sağlar *.
+- **Üst bilgi yol tabanlı yeniden yazma**: Bu tür bir yeniden yazma yalnızca istekleri ve yalnızca bir belirli site alanı, örneğin bir alışveriş sepeti alanı /cart/ tarafından belirtilen ilgili yanıtlar için üstbilgi yeniden etkinleştirir\*.
 
 Bu değişiklik, şunları yapmanız gerekir:
 
@@ -48,7 +50,7 @@ Birden çok http üst bilgisi yeniden yazma kuralı kümesi oluşturabilir ve he
   *Örnek:* 
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
+  $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
   ```
 
 - Başka bir üst bilgisinden değeri. 
@@ -56,7 +58,7 @@ Birden çok http üst bilgisi yeniden yazma kuralı kümesi oluşturabilir ve he
   *Örnek 1:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
+  $requestHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
   ```
 
   > [!Note] 
@@ -65,7 +67,7 @@ Birden çok http üst bilgisi yeniden yazma kuralı kümesi oluşturabilir ve he
   *Örnek 2*:
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+  $responseHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
   ```
 
   > [!Note] 
@@ -76,7 +78,7 @@ Birden çok http üst bilgisi yeniden yazma kuralı kümesi oluşturabilir ve he
   *Örnek:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
+  $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
   ```
 
   > [!Note] 

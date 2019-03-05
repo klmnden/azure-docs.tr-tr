@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5d9952581049198131e30cd7d0ba0ebf6a14cc54
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 852f181ff0bb84bc3bcdb6d674ecf72eca900d7d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098877"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312588"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL veritabanı yönetilen örnekleri için yönetilen API Başvurusu
 
@@ -29,21 +29,23 @@ Bir Azure SQL veritabanı yönetilen örneği oluşturmayı gösteren Hızlı Ba
 
 ## <a name="powershell-create-and-manage-managed-instances"></a>PowerShell: Yönetilen örnekleri oluşturma ve yönetme
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Azure PowerShell ile yönetilen örnekleri oluşturma ve yönetme hakkında bilgi için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> PowerShell örnek komut dosyaları için bkz: [hızlı başlangıç betiği: Azure SQL yönetilen örneği PowerShell kitaplığını kullanarak oluşturma](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+> PowerShell örnek komut dosyaları için bkz: [hızlı başlangıç betiği: Azure SQL yönetilen örneği PowerShell kitaplığını kullanarak oluşturma](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/).
 
 | Cmdlet | Açıklama |
 | --- | --- |
-|[New-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Bir Azure SQL veritabanı yönetilen örneği oluşturur. |
-|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|Azure SQL yönetilen örneği hakkında bilgi döndürür|
-|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|Azure SQL veritabanı yönetilen örneği için özellikleri ayarlar|
-|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|Bir Azure SQL veritabanı yönetilen örneği kaldırır|
-|[New-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|Bir Azure SQL veritabanı yönetilen örneği veritabanı oluşturur|
-|[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|Azure SQL yönetilen örnek veritabanı hakkındaki bilgileri döndürür|
-|[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Bir Azure SQL veritabanı örneği yönetilen veritabanı kaldırır|
-|[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Bir Azure SQL veritabanı örneği yönetilen veritabanı geri yükler|
+|[Yeni AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)|Bir Azure SQL veritabanı yönetilen örneği oluşturur. |
+|[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Azure SQL yönetilen örneği hakkında bilgi döndürür|
+|[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Azure SQL veritabanı yönetilen örneği için özellikleri ayarlar|
+|[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Bir Azure SQL veritabanı yönetilen örneği kaldırır|
+|[Yeni AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Bir Azure SQL veritabanı yönetilen örneği veritabanı oluşturur|
+|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Azure SQL yönetilen örnek veritabanı hakkındaki bilgileri döndürür|
+|[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Bir Azure SQL veritabanı örneği yönetilen veritabanı kaldırır|
+|[Geri yükleme-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Bir Azure SQL veritabanı örneği yönetilen veritabanı geri yükler|
 
 ## <a name="azure-cli-create-and-manage-managed-instances"></a>Azure CLI: Yönetilen örnekleri oluşturma ve yönetme
 

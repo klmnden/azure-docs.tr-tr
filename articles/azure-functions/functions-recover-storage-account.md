@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: bddfccaf0749bbb5eaf206e5961c713efa5eea17
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732167"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311908"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>"İşlevler çalışma zamanı erişilemiyor" sorunlarını giderme
 
@@ -66,7 +66,7 @@ Bir depolama hesabı bağlantı dizesi yoksa önceki adımda, silinmiş veya üz
 ### <a name="guidance"></a>Rehber
 
 * "Yuva ayarı" Bu ayarlardan herhangi birini için denetlemez. Dağıtım yuvalarını değiştirme, işlev çalışmamasına neden olur.
-* Bu ayarlar otomatik dağıtımlar kullanırken ayarlamayın.
+* Otomatik dağıtım bir parçası olarak bu ayarları değiştirmeyin.
 * Bu ayarlar, oluşturma zamanında belirtilen ve geçerli olması gerekir. Ayarları olaydan sonra eklenen olsa bile, bu ayarları içermeyen bir otomatik dağıtım işlevsel olmayan bir uygulamada neden olur.
 
 ## <a name="storage-account-credentials-invalid"></a>Depolama hesabı kimlik bilgileri geçersiz

@@ -12,15 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3fe6a89073da731332a91ece40a6ea6f667d150a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 91790f372dce4322d316b42c4bfa7ad36625c91d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003772"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315580"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Application Insights kaynağı oluşturmak için PowerShell betiği
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Ne zaman yeni bir uygulama - veya bir uygulamanın yeni bir sürümü - izlemek istediğiniz ile [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), Microsoft azure'da yeni bir kaynak ayarlayabilirsiniz. Bu, burada uygulamanızdan alınan telemetri verilerini analiz görüntülenir ve kaynaktır. 
 
@@ -36,8 +37,8 @@ PowerShell kullanarak yeni bir kaynak oluşturulmasını otomatik hale getirebil
 ## <a name="script-to-create-an-application-insights-resource"></a>Application Insights kaynağı oluşturmak için betiği
 İlgili cmdlet özelliklerine bakın:
 
-* [New-AzureRmResource](https://msdn.microsoft.com/library/mt652510.aspx)
-* [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
+* [Yeni AzResource](https://msdn.microsoft.com/library/mt652510.aspx)
+* [New-AzRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
 
 *PowerShell Betiği*  
 
@@ -51,7 +52,7 @@ PowerShell kullanarak yeni bir kaynak oluşturulmasını otomatik hale getirebil
 # If running manually, uncomment before the first 
 # execution to login to the Azure Portal:
 
-# Connect-AzureRmAccount / Connect-AzureRmAccount
+# Connect-AzAccount / Connect-AzAccount
 
 # Set the name of the Application Insights Resource
 
@@ -75,7 +76,7 @@ Select-AzureSubscription -SubscriptionName "MySubscription"
 # Create the App Insights Resource
 
 
-$resource = New-AzureRmResource `
+$resource = New-AzResource `
   -ResourceName $appInsightsName `
   -ResourceGroupName $resourceGroupName `
   -Tag @{ applicationType = "web"; applicationName = $applicationTagName} `
@@ -86,7 +87,7 @@ $resource = New-AzureRmResource `
 
 # Give owner access to the team
 
-New-AzureRmRoleAssignment `
+New-AzRoleAssignment `
   -SignInName "myteam@fabrikam.com" `
   -RoleDefinitionName Owner `
   -Scope $resource.ResourceId 

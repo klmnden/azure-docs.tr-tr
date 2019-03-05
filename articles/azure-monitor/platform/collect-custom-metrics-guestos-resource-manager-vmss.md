@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 2b032405a2fb3b8b608228d8a739bf91dcf439ef
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: afe1214299b7f1ecd741f992af75abedcfe77b84
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895950"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308712"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Bir Windows sanal makine ölçek kümesi için bir Azure Resource Manager şablonu kullanarak konuk işletim sistemi ölçümler Azure İzleyici ölçüm depoya gönder
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure İzleyicisi'ni kullanarak [Windows Azure tanılama (WAD) uzantısı](diagnostics-extension-overview.md), bir sanal makine, bulut hizmeti veya Azure Service Fabric kümesi bir parçası olarak çalıştırılan ölçümleri ve konuk işletim sistemi (konuk OS) günlüklerini toplayabilir. Uzantı, daha önce bağlı makalede listelenen birçok farklı konumlara telemetri gönderebilir.  
 
@@ -27,7 +29,7 @@ Resource Manager şablonları yeniyseniz öğrenin [şablon dağıtımları](../
 
 - Aboneliğiniz ile kaydedilmelidir [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- İhtiyacınız [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) yüklü veya [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- İhtiyacınız [Azure PowerShell](/powershell/azure) yüklü veya [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Veri havuzu olarak Azure İzleyicisi'ni ayarlayın 
@@ -236,17 +238,17 @@ Kaydet ve her iki dosyayı kapatın.
 Resource Manager şablonu dağıtmak için Azure PowerShell kullanın:  
 
 1. PowerShell'i başlatın. 
-1. Oturum açmak için Azure kullanarak `Login-AzureRmAccount`.
-1. Aboneliklerinizin listesi almak `Get-AzureRmSubscription`.
+1. Oturum açmak için Azure kullanarak `Login-AzAccount`.
+1. Aboneliklerinizin listesi almak `Get-AzSubscription`.
 1. Abonelik oluşturmak veya sanal makineyi güncelleştirmek ayarlayın: 
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Dağıtılan VM için yeni bir kaynak grubu oluşturun. Şu komutu çalıştırın: 
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
@@ -258,7 +260,7 @@ Resource Manager şablonu dağıtmak için Azure PowerShell kullanın:
    > Mevcut bir ölçek kümesini güncelleştirmek istiyorsanız, ekleme **-artımlı modu** sonuna kadar komutu. 
  
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
 1. Dağıtım başarılı olduktan sonra Azure portalında sanal makine ölçek kümesi bulmanız gerekir. Bu, Azure İzleyici ölçümlerine yayma. 

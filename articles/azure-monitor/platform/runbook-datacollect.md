@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 75ed69d749e23f39c03afb09f70a18cc1aed600b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5de5191ee616f38404e2423c23f4e8b363240b0e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078584"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308338"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u Log analytics'te verileri toplama
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../../azure-monitor/platform/agent-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../../azure-monitor/platform/collect-azure-metrics-logs.md). Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır. Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için. Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.
 
 Bu öğreticide oluşturma ve Log Analytics'e veri yazmak için Azure Otomasyonu'nda runbook zamanlama işleminde size yol gösterir.
@@ -63,7 +66,7 @@ PowerShell Galerisi rağmen Bu öğretici için bu seçeneği kullanabilmeniz i�
 | Özellik | Çalışma alanı kimliği değeri | Çalışma alanı anahtarı değeri |
 |:--|:--|:--|
 | Ad | Çalışma alanı kimliği | WorkspaceKey |
-| Tür | Dize | Dize |
+| Type | String | String |
 | Değer | Log Analytics çalışma alanınızın çalışma alanı Kimliğini yapıştırın. | Yapıştır oturum birincil veya ikincil anahtar Log Analytics çalışma alanınızın. |
 | Şifreli | Hayır | Evet |
 
@@ -92,7 +95,7 @@ Azure Otomasyonu, düzenlemek ve runbook'unuzu test portalda bir düzenleyici i�
     # Code copied from the runbook AzureAutomationTutorial.
     $connectionName = "AzureRunAsConnection"
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -109,7 +112,7 @@ Azure Otomasyonu, düzenlemek ve runbook'unuzu test portalda bir düzenleyici i�
     $logType = "AutomationJob"
     
     # Get the jobs from the past hour.
-    $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
+    $jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
     
     if ($jobs -ne $null) {
         # Convert the job data to json

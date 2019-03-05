@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a817e3681f6b94b1b9ad7d5a2d2a1369935ee064
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 8e9208981dd54fef1f56ee552d34bab78210b96d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651785"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316566"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -69,7 +69,7 @@ Bir eylem grubu oluşturduktan sonra görünür **Eylem grupları** bölümünü
 > [!NOTE]
 > Bkz: [izleme için abonelik hizmeti limitleri](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) sayısal sınırlar aşağıdaki öğelerin her biri için.  
 
-**Azure uygulaması anında iletme** -sınırlı sayıda Azure uygulaması eylemleri bir eylem grubu içinde olabilir. Şu anda Azure uygulama eylemi yalnızca ServiceHealth uyarıları da destekler. Başka bir uyarı zaman göz ardı edilir. Bkz: [hizmet durumu bildirimi gönderilen her uyarıları yapılandırma](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+**Azure uygulaması anında iletme** -sınırlı sayıda Azure uygulaması eylemleri bir eylem grubu içinde olabilir. Şu anda Azure uygulama eylemi yalnızca ServiceHealth uyarıları da destekler. Herhangi bir uyarı türünü göz ardı edilir. Bkz: [hizmet durumu bildirimi gönderilen her uyarıları yapılandırma](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 **E-posta** -aşağıdaki e-posta adreslerinden e-postalar gönderilecek. E-posta filtreleme uygun şekilde yapılandırıldığından emin olun
    - azure-noreply@microsoft.com

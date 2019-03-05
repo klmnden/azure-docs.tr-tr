@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e3f2b60af574bc1d4e6633ce47b6cdf51e8e6d3e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447795"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308423"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -80,7 +80,7 @@ Tüm Azure ilkesi örnekleri altındadır [ilkesi örnekleri](../samples/index.m
 
 Ayarlamanızı öneririz **modu** için `all` çoğu durumda. Portalı kullanarak oluşturulan tüm ilke tanımlarını `all` modu. PowerShell veya Azure CLI kullanıyorsanız, belirtebilmeniz için **modu** parametresi el ile. İlke tanımı içermiyorsa bir **modu** değeri, varsayılan olarak için `all` Azure PowerShell ve çok `null` Azure clı'daki. A `null` modu kullanarak aynı olup `indexed` geriye dönük uyumluluğunu desteklemek için.
 
-`indexed` etiketleri veya konumları zorunlu ilkeleri oluştururken kullanılmalıdır. Gerekli olmasa da, etiketler ve konumları olarak uyumluluk sonuçları uyumlu olmayan gösteren gelen desteklemeyen kaynakları engeller. Özel durum **kaynak grupları**. Konum veya bir kaynak grubu etiketleri takım politikaları ayarlamalıdır **modu** için `all` ve özellikle hedef `Microsoft.Resources/subscriptions/resourceGroups` türü. Bir örnek için bkz. [kaynak grubu etiketleri zorunlu](../samples/enforce-tag-rg.md).
+`indexed` etiketleri veya konumları zorunlu ilkeleri oluştururken kullanılmalıdır. Gerekli olmasa da, etiketler ve konumları olarak uyumluluk sonuçları uyumlu olmayan gösteren gelen desteklemeyen kaynakları engeller. Özel durum **kaynak grupları**. Konum veya bir kaynak grubu etiketleri takım politikaları ayarlamalıdır **modu** için `all` ve özellikle hedef `Microsoft.Resources/subscriptions/resourceGroups` türü. Bir örnek için bkz. [kaynak grubu etiketleri zorunlu](../samples/enforce-tag-rg.md). Etiketleri destekleyen kaynaklar listesi için bkz. [etiket Azure kaynakları için destek](../../../azure-resource-manager/tag-support.md).
 
 ## <a name="parameters"></a>Parametreler
 

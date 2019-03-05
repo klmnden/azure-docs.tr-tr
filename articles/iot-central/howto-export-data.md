@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: cba0bad2e81ffddedfc4ca04e82e17e4286b389b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ecfd9671587c0544cf82aa7ddbccef975e1fe5c6
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312128"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310429"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IOT Central verilerinizi dışarı aktarma
 
@@ -28,13 +28,13 @@ Bu makalede sürekli veri dışa aktarma Özelliği Azure IOT Central verilerini
 
 - IOT Central uygulamanızda yönetici olmanız gerekir
 
-## <a name="export-to-blob-storage"></a>BLOB depolamaya dışarı aktarma
+## <a name="export-to-blob-storage"></a>Blob Depolama'ya aktarma
 
 Depolama hesabınıza bir kez dakikada ölçümleri, cihazları ve cihaz şablonları verileri son dosyasına dışarı aktardığınız beri toplu değişiklikler içeren her bir dosya ile aktarılır. Dışarı aktarılan veriler [Apache AVRO](https://avro.apache.org/docs/current/index.html) biçimi.
 
 Daha fazla bilgi edinin [Blob depolamaya aktarmak](howto-export-data-blob-storage.md).
 
-## <a name="export-to-event-hubs-and-service-bus"></a>Olay hub'ları ve hizmet veri yolu dışarı aktarma
+## <a name="export-to-event-hubs-and-service-bus"></a>Event Hubs ve Service Bus'a aktarma
 
 Ölçümler, cihazları ve cihaz şablonları verileri, olay hub'ı veya Service Bus kuyruğuna veya konusuna dışarı aktarılır. Dışarı aktarılan ölçümleri verileri neredeyse gerçek zamanlı olarak ulaşır ve iletinin tamamen IOT Central için gönderilen cihazlarınızı yalnızca ölçüleri değerlerini içerir. Dışarı aktarılan cihazlar verileri toplu olarak dakikada ulaşır ve değişiklikleri tüm cihazların ayarları ve özellikleri içerir ve dışarı aktarılan cihaz şablonları tüm cihaz şablonlarına yapılan değişiklikleri içerir.
 
@@ -88,7 +88,7 @@ Verileri dışarı aktarmak için bir depolama/olay hub'ları / Service Bus hede
 
     ![Yeni değerinde olay hub'ı oluşturma](media/howto-export-data/export_menu.PNG)
 
-3. Tıklayın **+ yeni** sağ üst köşesindeki düğme. Birini **Azure Blob Depolama**, **Azure Event Hubs**, veya **Azure Service Bus** dışarı aktarma hedefi olarak. 
+3. Seçin **+ yeni** sağ üst köşesindeki düğme. Birini **Azure Blob Depolama**, **Azure Event Hubs**, veya **Azure Service Bus** dışarı aktarma hedefi olarak. 
 
     > [!NOTE] 
     > Dışarı aktarmalar uygulama başına en fazla sayısı beştir. 
@@ -107,10 +107,10 @@ Verileri dışarı aktarmak için bir depolama/olay hub'ları / Service Bus hede
 
 5. (İsteğe bağlı) Seçerseniz, **bir bağlantı dizesi girin**, bağlantı dizenizi yapıştırmak için yeni kutusu görünür. Bağlantı dizesini almak için:
     - Depolama hesabı, Azure portalında depolama hesabı'na gidin.
-        - Altında **ayarları**, tıklayın **erişim anahtarları**
+        - Altında **ayarları**seçin **erişim anahtarları**
         - Key1 bağlantı dizesini veya key2 bağlantı dizesini kopyalayın.
     - Olay hub'ları veya Service Bus, Azure Portalı'nda ad alanına gidin.
-        - Altında **ayarları**, tıklayın **paylaşılan erişim ilkeleri**
+        - Altında **ayarları**seçin **paylaşılan erişim ilkeleri**
         - Varsayılan seçin **RootManageSharedAccessKey** veya yeni bir tane oluşturun
         - Birincil veya ikincil bağlantı dizesini kopyalayın
  

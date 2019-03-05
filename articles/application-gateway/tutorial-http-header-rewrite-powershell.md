@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 4784ac8ac619a1b9a00f2e869d796d05dd9658df
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4747d824dcf531ed883d476a0daad182ea081c39
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434419"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314458"
 ---
 # <a name="tutorial-create-an-application-gateway-and-rewrite-http-headers"></a>Öğretici: Application gateway oluşturma ve HTTP üst bilgilerini yeniden yazma
 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğretici için Azure PowerShell’i yerel olarak çalıştırmanız gerekir. Sonraki bir sürümünün yüklü veya modülü sürüm 1.0.0 Az olmalıdır. Çalıştırma `Import-Module Az` ardından`Get-Module Az` sürümü bulmak için. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). PowerShell sürümünü doğruladıktan sonra, Azure ile bağlantı oluşturmak için `Login-AzAccount` komutunu çalıştırın.
+Bu öğretici için Azure PowerShell’i yerel olarak çalıştırmanız gerekir. Sonraki bir sürümünün yüklü veya modülü sürüm 1.0.0 Az olmalıdır. Çalıştırma `Import-Module Az` ardından`Get-Module Az` sürümü bulmak için. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps). PowerShell sürümünü doğruladıktan sonra, Azure ile bağlantı oluşturmak için `Login-AzAccount` komutunu çalıştırın.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
@@ -162,7 +162,7 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 -Resource
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-Uygulama ağ geçidinin genel IP adresini almak için get-Azurermpublicıpaddress kullanın. Genel IP adresini veya DNS adını kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
+Uygulama ağ geçidinin genel IP adresini almak için get-AzPublicIPAddress kullanın. Genel IP adresini veya DNS adını kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
 
 ```azurepowershell
 Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP

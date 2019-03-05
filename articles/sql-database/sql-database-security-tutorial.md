@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 2b528892d2046f590d979d1646583e028fe4a834
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 4fc1b4d4d0d7f215f8fee1de01e171c3fdc5aae5
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57218082"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308797"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Öğretici: Tek veya havuza alınmış veritabanını koruma
 
@@ -142,7 +142,7 @@ Yapılandırma Azure AD hakkında daha fazla bilgi için bkz:
 
 - [Şirket içi kimliklerinizi Azure AD ile tümleştirme](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure artık Windows Server AD ile Federasyonu destekliyor](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure artık Windows Server AD ile Federasyonu destekliyor](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Azure AD dizininizi yönetme](../active-directory/fundamentals/active-directory-administer.md)
 - [PowerShell kullanarak Azure AD'yi yönetme](/powershell/azure/overview?view=azureadps-2.0)
 - [Karma kimlik için gereken bağlantı noktaları ve protokoller](../active-directory/hybrid/reference-connect-ports.md)

@@ -10,22 +10,25 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 70a59ddc1b15693cb2a50c1dc2da6dd9233e0811
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990026"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314849"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Veri Ambarı’nı yükselterek performansı iyileştirme
+
 Azure SQL veri ambarı, yeni nesil Azure donanım ve depolama mimarisi için yükseltin.
 
 ## <a name="why-upgrade"></a>Neden yükseltilsin mi?
+
 Artık sorunsuz bir şekilde Azure portalında SQL veri ambarı işlem için iyileştirilmiş 2. nesil katmana yükseltebilirsiniz [desteklenen bölgeler](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Bölgenizde, kendi kendine yükseltme desteklemiyorsa yükseltme için desteklenen bir bölge ya da kendi Bölgenizde kullanılabilir olması için yükseltme bekleyin. Artık en yeni nesil Azure donanım ve daha hızlı performans, daha yüksek ölçeklenebilirlik ve sınırsız sütunlu depolama gibi gelişmiş depolama mimarisi yararlanmak için yükseltin. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>Uygulandığı öğe
+
 İşlem için iyileştirilmiş Gen1 katmanı veri ambarında bu yükseltmenin uygulanabileceği [desteklenen bölgeler](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
@@ -49,10 +52,15 @@ Artık sorunsuz bir şekilde Azure portalında SQL veri ambarı işlem için iyi
    |           DW2000            |           DW2000c           |
    |           DW3000            |           DW3000c           |
    |           DW6000            |           DW6000c           |
->[!Note]
->Önerilen performans düzeyleri doğrudan dönüştürme değildir. Örneğin, DW500c için DW600 geçmesini öneririz.
+
+> [!Note]
+> Önerilen performans düzeyleri doğrudan dönüştürme değildir. Örneğin, DW500c için DW600 geçmesini öneririz.
 
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Desteklenen bir bölgede Azure portalını kullanarak yükseltme
+
+## <a name="before-you-begin"></a>Başlamadan önce
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
 > Gen1 Azure portalı üzerinden geçiş Gen2'ye kalıcıdır. İçin Gen1 döndürmek için bir işlem yoktur.  
@@ -73,13 +81,13 @@ Artık sorunsuz bir şekilde Azure portalında SQL veri ambarı işlem için iyi
    Özgün Gen1 PowerShell komutunu:
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
    ```
 
    Değiştirilmiş için:
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
    > [!NOTE] 
@@ -100,8 +108,6 @@ Artık sorunsuz bir şekilde Azure portalında SQL veri ambarı işlem için iyi
    > [!NOTE] 
    > Servıce_objectıve = 'DW300' servıce_objectıve için değiştirilen = ' DW300**c**'
 
-
-
 ## <a name="start-the-upgrade"></a>Yükseltmeyi başlatın
 
 1. Azure portalında en iyi duruma getirilmiş Gen1 işlem katmanı veri ambarınıza gidin. Yükseltilecek en iyi duruma getirilmiş Gen1 işlem katmanı veri ambarı duraklatıldığında [veri ambarı sürdürme](pause-and-resume-compute-portal.md). 
@@ -110,7 +116,6 @@ Artık sorunsuz bir şekilde Azure portalında SQL veri ambarı işlem için iyi
     > [!NOTE]
     > Görmüyorsanız, **yükseltmek için 2. nesil** kart görevleri sekmesindeki abonelik türü geçerli bölgede sınırlıdır.
     > [Bir destek bileti gönderin](sql-data-warehouse-get-started-create-support-ticket.md) , abonelik beyaz listeye almak için.
-
 
 3. İş yükünüz çalışıyor ve sessiz modda yükseltmeden önce tamamlandı emin olun. Veri ambarınızın işlem için iyileştirilmiş Gen2 katmanı veri ambarı olarak yeniden çevrimiçi önce birkaç dakika kapalı kalma süresi deneyeceksiniz. **Yükseltme seçin**:
 
@@ -173,6 +178,7 @@ FROM   sys.indexes idx
                        AND idx.object_id = part.object_id 
 WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
 ```
+
 ## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Azure Portalı aracılığıyla geri yükleme kullanarak bir Azure coğrafi bölgesinde sürümünden yükseltme
 
 ## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Azure portalını kullanarak bir kullanıcı tanımlı bir geri yükleme noktası oluştur
@@ -190,6 +196,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![Geri yükleme noktası adı](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Azure portalını kullanarak etkin ya da duraklatılmış bir veritabanı geri yükleme
+
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Öğesinden geri yüklemek istediğiniz SQL veri ambarı gidin.
 3. Genel Bakış bölümünde üstüne seçin **geri**.
@@ -205,11 +212,13 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![Kullanıcı tanımlı bir geri yükleme noktaları](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>PowerShell kullanarak bir Azure coğrafi bölgesinden geri yükleme
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bir veritabanını kurtarmak için kullanmak [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet'i.
 
 > [!NOTE]
 > Gen2'ye coğrafi geri yükleme bir gerçekleştirebileceğiniz! Bunu yapmak için bir Gen2 ServiceObjectiveName belirtin (örneğin DW1000**c**) isteğe bağlı bir parametre olarak.
->
 
 1. Windows PowerShell'i açın.
 2. Azure hesabınıza bağlanın ve hesabınızla ilişkili tüm abonelikleri listeleyin.
@@ -235,7 +244,6 @@ $GeoRestoredDatabase.status
 
 > [!NOTE]
 > Geri yükleme tamamlandıktan sonra veritabanını yapılandırmak için bkz: [kurtarma işleminden sonra veritabanını yapılandırma](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
->
 
 Kaynak veritabanı TDE etkinse kurtarılmış veritabanını TDE etkin olacaktır.
 
@@ -243,4 +251,5 @@ Kaynak veritabanı TDE etkinse kurtarılmış veritabanını TDE etkin olacaktı
 Veri Ambarınızda sorunla karşılaşırsanız, oluşturun bir [destek isteği](sql-data-warehouse-get-started-create-support-ticket.md) ve "Gen2'ye yükseltme" olası nedeni olarak başvuru.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Yükseltilen veri Ambarınızı çevrimiçidir. Gelişmiş mimari yararlanmak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md).

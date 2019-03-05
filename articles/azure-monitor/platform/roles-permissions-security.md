@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4ca5803ca410e3250e025eb60b5c1ff9fc7216b1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55a7a26815dac1140d100c05a47057f8d5000f9d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465250"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317824"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Birçok ekip verilerini ve ayarlarını izlemeye erişim kesinlikle düzenleyen gerekir. Özel İzleme (destek mühendisleri, devops mühendislerine) üzerinde çalışan takım üyeleri sahipseniz veya yönetilen hizmet sağlayıcısı kullanıyorsanız, bunları oluşturmak için kendi yeteneği sınırlandırırken yalnızca izleme verilerine erişimi vermek isteyebilirsiniz, örneğin, değiştirme, veya kaynakları silin. Bu makalede, azure'da bir kullanıcı için bir yerleşik izleme RBAC rolü uygulamak veya izleme sınırlı izinlere ihtiyaç duyan bir kullanıcı için kendi özel rol oluşturma gösterilmektedir. Ardından, Azure İzleyici ile ilgili kaynaklarınızı ve içerdikleri verilere erişimi nasıl sınırlamak için güvenlik konuları açıklanmaktadır.
 
 ## <a name="built-in-monitoring-roles"></a>İzleme yerleşik roller
@@ -49,8 +52,8 @@ Azure İzleyicisi'nin yerleşik roller yardımcı olmak için tasarlanmıştır 
 Kişilerin izleme katılımcı rolü, bir Abonelikteki tüm izleme verilerini görüntüleyebilir ve oluşturma veya izleme ayarlarını değiştirebilir, ancak diğer tüm kaynakları değiştiremezsiniz. Bu rolü izleme okuyucusu rolü bir üst kümesidir ve bir kuruluşun izleme takım ya da yukarıdaki izinlere ek olarak, oluşturabilmek için ayrıca ihtiyaç duyan yönetilen hizmet sağlayıcıları için uygundur:
 
 * İzleme panoları, paylaşılan bir panoyu yayımlayın.
-* Ayarlama [tanılama ayarları](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) bir resource.* için
-* Ayarlama [günlük profili](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) bir subscription.* için
+* Ayarlama [tanılama ayarları](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) bir kaynak için.\*
+* Ayarlama [günlük profili](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) aboneliği.\*
 * Ayarlama etkinliği uyarı kuralları ve ayarları aracılığıyla [Azure uyarıları](../../azure-monitor/platform/alerts-overview.md).
 * Application Insights web testleri ve bileşenler oluşturun.
 * Log Analytics çalışma alanı paylaşılan anahtarlarını listele.
@@ -58,7 +61,7 @@ Kişilerin izleme katılımcı rolü, bir Abonelikteki tüm izleme verilerini g�
 * Oluşturun ve silin ve Log Analytics kayıtlı aramalar yürütün.
 * Oluşturma ve Log Analytics depolama yapılandırması Sil.
 
-* Kullanıcı ayrıca bir günlük profilini veya tanılama ayarını belirlemek için hedef kaynak (depolama hesabına veya olay hub'ı ad alanı) Listkeys'i izni verilmesi gerekir.
+\*Kullanıcı ayrıca bir günlük profilini veya tanılama ayarını belirlemek için hedef kaynak (depolama hesabına veya olay hub'ı ad alanı) Listkeys'i izni verilmesi gerekir.
 
 > [!NOTE]
 > Bu rol, bir olay hub'ına akış veya bir depolama hesabında depolanan günlük verilerine okuma erişimi sağlamaz. [Aşağıya bakın](#security-considerations-for-monitoring-data) bu kaynaklara erişimini yapılandırma hakkında bilgi için.
@@ -98,7 +101,7 @@ Yukarıdaki yerleşik roller tam ekibinizin ihtiyaçlarını karşılamıyorsa, 
 Örneğin, bir "etkinlik günlük okuyucusu" şunun gibi özel bir RBAC rolü oluşturabilirsiniz yukarıdaki tabloyu kullanarak:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Activity Log Reader"
 $role.Description = "Can view activity logs."
@@ -106,7 +109,7 @@ $role.Actions.Clear()
 $role.Actions.Add("Microsoft.Insights/eventtypes/*")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 ## <a name="security-considerations-for-monitoring-data"></a>Veri izleme güvenlik konuları
@@ -127,8 +130,8 @@ Bu veri türlerini üç bir depolama hesabında depolanmış veya olay ikisi iç
 Bir kullanıcı veya uygulama izleme verileri bir depolama hesabındaki erişim gerektiğinde, aşağıdakileri yapmalısınız [hesap SAS oluşturma](https://msdn.microsoft.com/library/azure/mt584140.aspx) izleme verileri blob depolama için hizmet düzeyi salt okunur erişimli bir depolama hesabına. PowerShell'de aşağıdaki gibi görünebilir:
 
 ```powershell
-$context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
-$token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
+$context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
+$token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
 Ardından belirteci, depolama alanından okuma hesabı, liste ve o depolama hesabındaki tüm bloblar okuma, varlığa verebilirsiniz.
@@ -136,7 +139,7 @@ Ardından belirteci, depolama alanından okuma hesabı, liste ve o depolama hesa
 Alternatif olarak, RBAC bu izinle denetlemek gerekiyorsa, bu varlık, belirli bir depolama hesabına Microsoft.Storage/storageAccounts/listkeys/action izin verebilirsiniz. Bu, bir tanılama ayarı veya bir depolama hesabına arşivleme profili oturum açabilmesi için gereken kullanıcılar için gereklidir. Örneğin, aşağıdaki özel RBAC rolü için kullanıcı veya yalnızca bir depolama hesabından diğerine okumak için gereken bir uygulama oluşturabilirsiniz:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Monitoring Storage Account Reader"
 $role.Description = "Can get the storage account keys for a monitoring storage account."
@@ -145,7 +148,7 @@ $role.Actions.Add("Microsoft.Storage/storageAccounts/listkeys/action")
 $role.Actions.Add("Microsoft.Storage/storageAccounts/Read")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myMonitoringStorageAccount")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 > [!WARNING]
@@ -160,7 +163,7 @@ Event hubs ile benzer bir desen gelebilir, ancak öncelikle bir adanmış dinlem
 2. Tüketici anahtarı geçici getirebilmesi gerekiyorsa, kullanıcının bu olay hub'ı Listkeys'i eylemi verin. Bu, aynı zamanda tanılama ayarı veya profili event hubs'a akış oturum açabilmesi için gereken kullanıcılar için de gereklidir. Örneğin, bir RBAC kuralı oluşturabilirsiniz:
    
    ```powershell
-   $role = Get-AzureRmRoleDefinition "Reader"
+   $role = Get-AzRoleDefinition "Reader"
    $role.Id = $null
    $role.Name = "Monitoring Event Hub Listener"
    $role.Description = "Can get the key to listen to an event hub streaming monitoring data."
@@ -169,7 +172,7 @@ Event hubs ile benzer bir desen gelebilir, ancak öncelikle bir adanmış dinlem
    $role.Actions.Add("Microsoft.ServiceBus/namespaces/Read")
    $role.AssignableScopes.Clear()
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
-   New-AzureRmRoleDefinition -Role $role 
+   New-AzRoleDefinition -Role $role 
    ```
 
 ## <a name="monitoring-within-a-secured-virtual-network"></a>Güvenli bir sanal ağ içindeki izleme

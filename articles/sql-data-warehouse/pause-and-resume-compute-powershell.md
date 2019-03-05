@@ -10,42 +10,42 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6e4b754c02e21954efaab03b942b6994fd1b7b4d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aefb9b9f5da0f8fef5295b49fe0ee1431556e89f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472210"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308882"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Hızlı Başlangıç: PowerShell ile Azure SQL veri ambarı'nda işlem duraklatma ve sürdürme
 Maliyetlerden tasarruf etmek için Azure SQL veri ambarı'nda duraklatma işlem PowerShell kullanın. [İşlem devam](sql-data-warehouse-manage-compute-overview.md) veri ambarı kullanılmaya hazır olduğunuzda.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-Bu öğretici için Azure PowerShell modülünün 5.1.1 veya daha sonraki bir sürümü gerekir. Şu anda kullandığınız sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
-
 ## <a name="before-you-begin"></a>Başlamadan önce
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bu hızlı başlangıçta, duraklatma ve sürdürme SQL data warehouse henüz varsayar. Bir oluşturmanız gerekiyorsa, kullanabileceğiniz [oluşturma ve bağlanma - portal](create-data-warehouse-portal.md) adlı bir veri ambarı oluşturmak için **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-[Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) komutunu kullanarak Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri uygulayın.
+Kullanarak Azure aboneliği için oturum açın [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) izleyin ve komut ekrandaki yönergeleri izleyin.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
-Kullanmakta olduğunuz aboneliği görmek için [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) komutunu çalıştırın.
+Kullanmakta olduğunuz aboneliği görmek için çalıştırma [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
-Varsayılandan farklı bir abonelik kullanmanız gerekiyorsa, çalıştırma [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Varsayılandan farklı bir abonelik kullanmanız gerekiyorsa, çalıştırma [kümesi AzContext](/powershell/module/az.profile/set-azcontext).
 
 ```powershell
-Set-AzureRmContext -SubscriptionName "MySubscription"
+Set-AzContext -SubscriptionName "MySubscription"
 ```
 
 ## <a name="look-up-data-warehouse-information"></a>Veri ambarı bilgilerini arama
@@ -67,38 +67,38 @@ Veri ambarınız için konum bilgilerini bulmak amacıyla aşağıdaki adımlar�
 ## <a name="pause-compute"></a>Duraklatma işlem
 Maliyetlerden tasarruf etmek için duraklatma ve sürdürme işlem kaynaklarını isteğe bağlı. Örneğin, gece ve hafta sonları veritabanı kullanmıyorsanız, bu saatlerde duraklatabilir ve gün boyunca devam. Veritabanı duraklatılmış durumdayken işlem kaynakları için ücret alınmaz. Ancak, depolama için ücret ödemeye devam.
 
-Bir veritabanı duraklatmak için kullanmak [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase) cmdlet'i. Aşağıdaki örnekte adlı bir veri ambarı duraklatır **mySampleDataWarehouse** adlı bir sunucuda barındırılan **newserver-20171113**. Adlı bir Azure kaynak grubunda sunucusudur **myResourceGroup**.
+Bir veritabanı duraklatmak için kullanmak [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase) cmdlet'i. Aşağıdaki örnekte adlı bir veri ambarı duraklatır **mySampleDataWarehouse** adlı bir sunucuda barındırılan **newserver-20171113**. Adlı bir Azure kaynak grubunda sunucusudur **myResourceGroup**.
 
 
 ```Powershell
-Suspend-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
 ```
 
-Bir değişim bu sonraki örnekte veritabanı $database nesnesine alır. Ardından nesneye kanallar [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase). Sonuçlar nesne resultDatabase içinde depolanır. Son komut sonuçları gösterilmektedir.
+Bir değişim bu sonraki örnekte veritabanı $database nesnesine alır. Ardından nesneye kanallar [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase). Sonuçlar nesne resultDatabase içinde depolanır. Son komut sonuçları gösterilmektedir.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+$database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
-$resultDatabase = $database | Suspend-AzureRmSqlDatabase
+$resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
 
 ## <a name="resume-compute"></a>İşlem devam et
-Bir veritabanına başlamak için kullanmak [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) cmdlet'i. Aşağıdaki örnek newserver-20171113 adlı bir sunucuda barındırılan mySampleDataWarehouse adlı bir veritabanı başlatır. MyResourceGroup adlı bir Azure kaynak grubunda sunucusudur.
+Bir veritabanına başlamak için kullanmak [sürdürme AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) cmdlet'i. Aşağıdaki örnek newserver-20171113 adlı bir sunucuda barındırılan mySampleDataWarehouse adlı bir veritabanı başlatır. MyResourceGroup adlı bir Azure kaynak grubunda sunucusudur.
 
 ```Powershell
-Resume-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+Resume-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
 ```
 
-Bir değişim bu sonraki örnekte veritabanı $database nesnesine alır. Ardından nesneye kanallar [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) ve sonuçları $resultDatabase içinde depolar. Son komut sonuçları gösterilmektedir.
+Bir değişim bu sonraki örnekte veritabanı $database nesnesine alır. Ardından nesneye kanallar [sürdürme AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) ve sonuçları $resultDatabase içinde depolar. Son komut sonuçları gösterilmektedir.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+$database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
-$resultDatabase = $database | Resume-AzureRmSqlDatabase
+$resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
 ```
 

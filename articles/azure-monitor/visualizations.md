@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: b903d20136beb306d3f38fbebdb70562b3634d31
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 55aed5d1133756789c3ed8979f0a9599f465e5d9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749792"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315104"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
 Bu makalede, günlük ve ölçüm verilerini Azure İzleyici'de depolanan görselleştirmek için kullanılabilen yöntemler bir özetini sağlar.
@@ -71,9 +71,8 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 - Sorgular, yanıt boyutu 110 saniye 8 MB ve sorgu yürütme süresini sınırlıdır.
 
 
-
-## <a name="application-insights-workbooks"></a>Application Insights çalışma kitapları
-[Çalışma kitapları](../application-insights/app-insights-usage-workbooks.md) , veri araştırma ve ekip içindeki işbirliğini derin Öngörüler sağlayan etkileşimli belgelerdir. Çalışma kitapları kullanışlı olduğu belirli örnekler, Kılavuzlar ve olay postmortem giderirken.
+## <a name="workbooks"></a>Çalışma Kitapları
+[Çalışma kitapları](../azure-monitor/app/usage-workbooks.md) , veri araştırma ve ekip içindeki işbirliğini derin Öngörüler sağlayan etkileşimli belgelerdir. Çalışma kitapları kullanışlı olduğu belirli örnekler, Kılavuzlar ve olay postmortem giderirken.
 
 ![Çalışma kitabı](media/visualizations/workbook.png)
 
@@ -122,7 +121,6 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 - Parametreleri destekler.
 
 ### <a name="limitations"></a>Sınırlamalar
-- Ölçümleri destekliyor, ancak oturum yok.
 - Azure tümleştirme yoktur. Panolar ve Azure Resource Manager aracılığıyla modelleri yönetemez.
 - Grafana bulut için ek Grafana altyapı veya ek bir maliyet desteklemek için maliyet.
 
@@ -142,6 +140,7 @@ Kendi özel Web siteleri ve uygulamalar oluşturmanıza olanak sağlayan bir RES
 - Hakkında bilgi edinin [Azure İzleyici tarafından toplanan veriler](platform/data-collection.md).
 - Hakkında bilgi edinin [Azure panoları](../azure-portal/azure-portal-dashboards.md).
 - Hakkında bilgi edinin [Azure İzleyici görünümlerde](platform/view-designer.md).
-- Hakkında bilgi edinin [Application Insights çalışma kitaplarında](app/usage-workbooks.md).
-- Hakkında bilgi edinin [günlük verilerini Power BI'a aktarma](platform/powerbi.md).
-- Hakkında bilgi edinin [Grafana Azure İzleyicisi veri kaynağı eklentisi](platform/grafana-plugin.md).
+- Hakkında bilgi edinin [çalışma kitapları](../azure-monitor/app/usage-workbooks.md).
+- Hakkında bilgi edinin [günlük verilerini Power BI'a aktarma](../azure-monitor/platform/powerbi.md).
+- Hakkında bilgi edinin [Grafana Azure İzleyicisi veri kaynağı eklentisi](../azure-monitor/platform/grafana-plugin.md).
+

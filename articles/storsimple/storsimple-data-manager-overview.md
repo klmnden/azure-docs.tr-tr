@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158826"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312500"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple veri Yöneticisi çözümüne genel bakış
 
@@ -68,7 +68,9 @@ Olmasını öneririz:
  - Kaynak depolama hesabınıza (StorSimple Cihazınızı ile ilişkili bir) ve (istediğiniz verileri yerel biçiminde) hedef depolama hesabı aynı Azure bölgesinde olmalıdır.
  - StorSimple depolama hesabının bulunduğu bölgede veri yöneticiniz ve iş tanımını oluşturan duruma getirin. Bu mümkün değilse, Yukarı en yakın Azure bölgesine veri Yöneticisi getirin ve ardından StorSimple depolama hesabınız ile aynı bölgede iş tanımı oluşturun. 
 
-    StorSimple depolama hesabınız iş tanımı oluşturmayı destekleyen 26 bölgede değilse, uzun gecikme süreleri ve yüksek çıkış ücretlerini gördüğünüz gibi StorSimple veri Yöneticisi çalıştırmamanızı öneririz.
+    StorSimple depolama hesabınız iş tanımı oluşturmayı destekleyen 26 bölgede değilse, uzun gecikme süreleri ve olası çıkış ücretlerini gördüğünüz gibi StorSimple veri Yöneticisi çalıştırmamanızı öneririz.
+    
+Microsoft Azure hizmetlerini her zaman tüm bölgelerde kullanılabilir olmasını sağlamak çalışır. Ancak, belirli bir bölgede kısa sürelerle plansız bir hizmet kesintileri ortaya çıkabilir. Böyle durumlarda veri yöneticiniz ve iş tanımını oluşturan bir bölgede kesintiden etkilenmezler Getir ve dönüştürme işlemini çalıştırın. Böyle bir senaryoda ek gecikme sürelerine karşılaşabilirsiniz, ancak bu nadir bölgesel bir kesinti kurtarma stratejinize olabilir.
 
 ## <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
 

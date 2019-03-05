@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2a719fcbe2180e366060fba11bf64ad9770aa672
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e35de707abe04702201969fdfd008fc9713fc391
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756130"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309749"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuzları oluşturma ve yönetme
 
@@ -39,6 +39,8 @@ Buradan tüm bir toplu işlemde herhangi bir birleşimini kaydetmek ve aşağıd
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Elastik havuzlara ve havuza alınmış veritabanlarını yönetme
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 SQL veritabanı elastik havuzları ve Azure PowerShell ile havuza alınan veritabanları oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps). Oluşturma ve elastik havuzlar için SQL veritabanı sunucularını yönetmek için bkz: [oluşturma ve SQL veritabanı sunucularını yönetme](sql-database-servers.md). Oluşturma ve güvenlik duvarı kurallarını yönetmek için bkz: [oluşturma ve PowerShell kullanarak güvenlik duvarı kurallarını yönetme](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell).
 
 > [!TIP]
@@ -47,15 +49,15 @@ SQL veritabanı elastik havuzları ve Azure PowerShell ile havuza alınan verita
 
 | Cmdlet | Açıklama |
 | --- | --- |
-|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Elastik havuz oluşturur.|
-|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Elastik havuzlar ve özellik değerlerini alır.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Örneğin, kullanım elastik havuz özelliklerini değiştirir **StorageMB** özelliği en fazla depolama alanı, bir elastik havuzun değiştirilecek.|
-|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Elastik havuz siler.|
-|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Elastik havuz üzerinde işlem durumunu alır|
-|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Mevcut havuzlardan veya tek bir veritabanı olarak yeni bir veritabanı oluşturur. |
-|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Bir veya daha fazla veritabanını alır.|
-|[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Bir veritabanı özelliklerini ayarlar veya mevcut bir veritabanı içine, dışı ya da elastik havuzlar arasında taşır.|
-|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Bir veritabanı kaldırır.|
+|[New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool)|Elastik havuz oluşturur.|
+|[Get-AzSqlElasticPool](/powershell/module/az.sql/get-azsqlelasticpool)|Elastik havuzlar ve özellik değerlerini alır.|
+|[Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool)|Örneğin, kullanım elastik havuz özelliklerini değiştirir **StorageMB** özelliği en fazla depolama alanı, bir elastik havuzun değiştirilecek.|
+|[Remove-AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool)|Elastik havuz siler.|
+|[Get-AzSqlElasticPoolActivity](/powershell/module/az.sql/get-azsqlelasticpoolactivity)|Elastik havuz üzerinde işlem durumunu alır|
+|[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Mevcut havuzlardan veya tek bir veritabanı olarak yeni bir veritabanı oluşturur. |
+|[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|Bir veya daha fazla veritabanını alır.|
+|[Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)|Bir veritabanı özelliklerini ayarlar veya mevcut bir veritabanı içine, dışı ya da elastik havuzlar arasında taşır.|
+|[Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase)|Bir veritabanı kaldırır.|
 
 > [!TIP]
 > Çok sayıda veritabanını bir elastik havuzdaki oluşturulmasını, portal veya aynı anda yalnızca tek bir veritabanı oluşturma PowerShell cmdlet'leri kullanılarak bittiğinde zaman alabilir. Bir elastik havuzun içine oluşturmayı otomatikleştirmek için bkz: [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).

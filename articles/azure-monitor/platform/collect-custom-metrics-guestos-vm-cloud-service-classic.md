@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1e322c9bd6f78c4801c14e9982cc170b3af1971a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: dba1f66be91d8fa8e151a2771bad70b721af02dc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893587"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313081"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Klasik bulut Hizmetleri için Azure İzleyici ölçüm ölçümleri konuk işletim sistemi göndermek 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure İzleyici ile [tanılama uzantısını](diagnostics-extension-overview.md), ölçüm ve günlükleri bir sanal makine, bulut hizmeti veya Service Fabric kümesinin bir parçası olarak çalışan konuk işletim sistemi (konuk OS) toplayabilir. Uzantı için telemetri gönderebilir [birçok farklı konumlarda.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -31,7 +33,7 @@ Bu makalede geliştirilme yalnızca Azure bulut Hizmetleri'nde performans sayaç
 
 - Aboneliğiniz ile kaydedilmelidir [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Ya da gerek [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) veya [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) yüklü.
+- Ya da gerek [Azure PowerShell](/powershell/azure) veya [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) yüklü.
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Bir bulut hizmeti ve depolama hesabı sağlayın 
 
@@ -141,7 +143,7 @@ Bu tanılama dosyasını yerel olarak kaydedin.
 PowerShell'i başlatın ve Azure'da oturum açın. 
 
 ```PowerShell
-Login-AzureRmAccount 
+Login-AzAccount 
 ```
 
 Daha önce oluşturduğunuz depolama hesabı ayrıntılarını depolamak için aşağıdaki komutları kullanın. 

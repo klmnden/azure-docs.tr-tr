@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 5ad04c52da4709a7097ff7915d7af7404d6725eb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4dc98fc3912f9d9c659ecfcaa3df253d30bfcc78
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109510"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306978"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>PowerShell ile bir Log Analytics çalışma alanı oluşturma
 
@@ -31,6 +31,8 @@ Bu betik, çalışmaya hızlıca üzerinde veri toplama, çözümleme ve alma ey
 
 ## <a name="sample-script"></a>Örnek betik
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/log-analytics/log-analytics-create-new-resource/log-analytics-create-new-resource.ps1 "Create new Log Analytics workspace")]
 
 ## <a name="script-explanation"></a>Betik açıklaması
@@ -39,8 +41,8 @@ Bu betik, aboneliğinizde yeni bir Log Analytics çalışma alanı oluşturmak i
 
 | Komut | Notlar |
 |---|---|
-| [Get-Azurermoperationalınsightsworkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace) | Mevcut bir çalışma alanı hakkında bilgi alır. |
-| [Yeni-Azurermoperationalınsightsworkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace) | Belirtilen kaynak grubu ve konumda bir çalışma alanı oluşturur. |
+| [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace) | Mevcut bir çalışma alanı hakkında bilgi alır. |
+| [Yeni AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace) | Belirtilen kaynak grubu ve konumda bir çalışma alanı oluşturur. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: b1f6024538c6807fd68a0d7b0b7ae2776938055b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888206"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307828"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights'tan telemetriyi dışarı aktarma
 Telemetrinizi standart saklama süresinden daha uzun süre tutmak mı istiyorsunuz? Veya özel bir şekilde işlemek? Sürekli dışarı aktarma için idealdir. Application Insights portalında gördüğünüz olayları için Microsoft Azure Depolama'da JSON biçiminde dışarı aktarılabilir. Buradan verilerinizi indirin ve, kod yazma, işlemeniz gerekir.  
@@ -29,7 +29,7 @@ Sürekli dışarı aktarmayı ayarlamadan önce bazı alternatifleri düşünün
 * [Analytics](../../azure-monitor/app/analytics.md) telemetri için güçlü bir sorgu dili sağlar. Ayrıca sonuçlarını dışarı aktarabilirsiniz.
 * İçin arıyorsanız [verilerinizi Power bı'da araştırma](../../azure-monitor/app/export-power-bi.md ), sürekli dışarı aktarma dosyası olmadan bunu yapabilirsiniz.
 * [Veri erişimi REST API](https://dev.applicationinsights.io/) , telemetrinizi programlı bir şekilde erişmenize olanak tanır.
-* Kurulum da erişebilirsiniz [Powershell aracılığıyla sürekli dışarı aktarma](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
+* Kurulum da erişebilirsiniz [Powershell aracılığıyla sürekli dışarı aktarma](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 Sürekli dışarı aktarma (burada, kalarak için istediğiniz sürece) depolama alanına veri kopyaladıktan sonra her zamanki için Application Insights'da hala kullanılabilir [saklama süresi](../../azure-monitor/app/data-retention-privacy.md).
 

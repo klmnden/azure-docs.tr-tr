@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1f6ce2e51255ddf43b6c123585866117d76f8d0b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234757"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313659"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -60,6 +60,9 @@ Orchestration düzeltme eki uygulama aşağıdaki bileşenleri oluşur:
 > Düzeltme eki düzenleme uygulama devre dışı bırakın veya düğüm etkinleştirmek ve sistem durumu denetimleri gerçekleştirmek için Service Fabric onarım Yöneticisi sistem hizmeti kullanır. Onarım görevi düzeltme eki düzenleme uygulama tarafından oluşturulan her düğüm için Windows güncelleştirme ilerleme durumunu izler.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+> [!NOTE]
+> Gerekli en düşük .NET framework sürümünü 4.6 ' dir.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>(Bunu zaten çalışmıyorsa) onarım Yöneticisi hizmetini etkinleştirme
 
@@ -152,7 +155,7 @@ Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi kar�
 |MaxResultsToCache    |Uzun                              | Önbelleğe alınan Windows Update sonuçlarının maksimum sayısı. <br>Varsayılan değer: 3000 varsayılarak: <br> -Düğüm sayısı 20'dir. <br> -Bir düğüm / ay üzerinde gerçekleştirilecek güncelleştirme sayısı beştir. <br> -İşlem başına sonuç sayısı 10 olabilir. <br> -Son üç ay için sonuçları depolanması gerekir. |
 |TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Windows güncelleştirme yüklü tek bir düğüm bir kerede olur. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update, aynı anda yüklü bir yükseltme etki alanıdır. (En bir yükseltme etki alanına ait olan tüm düğümleri için Windows Update gidebilirsiniz.)<br> Başvurmak [SSS](#frequently-asked-questions) , uygun ilke kümeniz için en iyi olduğuna karar vermeye yönelik bölümü.
 |LogsDiskQuotaInMB   |Uzun  <br> (Varsayılan: 1024)               |Yerel olarak düğümlerinde kalıcı MB, düzeltme eki düzenleme uygulama en büyük boyutunu kaydeder.
-| WUQuery               | dize<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmeleri almak için sorgulayın. Daha fazla bilgi için [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| WUQuery               | string<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmeleri almak için sorgulayın. Daha fazla bilgi için [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: false)                 | Hangi güncelleştirmelerin indirilmesi ve yüklenmesi denetlemek için bu bayrağı kullanın. Aşağıdaki değerlerine izin verilir. <br>TRUE - yalnızca Windows işletim sistemi güncelleştirmeleri yükler.<br>false - makinede sağlanan tüm güncelleştirmeleri yükler.          |
 | WUOperationTimeOutInMinutes | Int <br>(Varsayılan: 90)                   | (Arama ya da indirme veya yükleme) herhangi bir Windows güncelleştirme işlemi için zaman aşımını belirtir. İşlemi belirtilen süre içinde tamamlanmazsa, iptal edildi.       |
 | WURescheduleCount     | Int <br> (Varsayılan: 5)                  | Bir işlem kalıcı olarak başarısız olması durumunda en fazla kaç kez Windows hizmeti tarih değiştirdiğinde güncelleştirin.          |

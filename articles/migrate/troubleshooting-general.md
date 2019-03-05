@@ -4,14 +4,14 @@ description: Azure geçişi hizmeti ve sorun giderme ipuçları için sık karş
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: cb1bed847f5b7afe7c1eff0243c64e8c25ddb814
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e85608c411c0aea7b7bf71be19939f6859139c56
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992575"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314382"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -163,10 +163,34 @@ Bu sorun, VMware powerclı'yı yükleme ile ilgili bir sorun nedeniyle oluşabil
         C:\Program Files (x86)\WindowsPowerShell\Modules
 
    d. 'Azure geçişi Toplayıcısı' hizmeti, Windows Hizmet Yöneticisi'nde (Windows Hizmet Yöneticisi'ni açmak için Aç 'Çalışma' ve türü services.msc) yeniden başlatın. Azure geçişi Toplayıcısı hizmeti üzerinde sağ tıklatın ve Başlat'a tıklayın.
-   
-   e. Masaüstü kısayolu 'Toplayıcıyı Çalıştır' a çift tıklayın Toplayıcı uygulamasını başlatmak için. Toplayıcı uygulamasını otomatik olarak indirip gerekli sürümü yüklemeniz gerekir fo Powerclı.
 
-3. Yukarıdaki sorunu çözmezse, el ile yükleme [VMware powerclı'yı 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) ve sorunun çözülüp çözülmediğini denetleyin.
+   e. Masaüstü kısayolu 'Toplayıcıyı Çalıştır' a çift tıklayın Toplayıcı uygulamasını başlatmak için. Toplayıcı uygulamasını otomatik olarak indirmek ve Powerclı'nın gerekli sürümü yüklemeniz gerekir.
+
+3. Yukarıdaki sorunu çözmezse, adımları izleyin. bir c yukarıdaki ve Powerclı Gereci aşağıdaki adımları kullanarak el ile yükleyin:
+
+   a. Temiz tüm eksik Powerclı adımları izleyerek yükleme dosyalarını #a yukarıdaki #2. adımda #c için.
+
+   b. Başlat'a gidin > Çalıştır > açık Windows PowerShell(x86) yönetici modunda
+
+   c. Komutu çalıştırın:  Install-Module "VMWare.VimAutomation.Core" - RequiredVersion "6.5.2.6234650" (tür 'onay sorduğunda A')
+
+   d. 'Azure geçişi Toplayıcısı' hizmeti, Windows Hizmet Yöneticisi'nde (Windows Hizmet Yöneticisi'ni açmak için Aç 'Çalışma' ve türü services.msc) yeniden başlatın. Azure geçişi Toplayıcısı hizmeti üzerinde sağ tıklatın ve Başlat'a tıklayın.
+
+   e. Masaüstü kısayolu 'Toplayıcıyı Çalıştır' a çift tıklayın Toplayıcı uygulamasını başlatmak için. Toplayıcı uygulamasını otomatik olarak indirmek ve Powerclı'nın gerekli sürümü yüklemeniz gerekir.
+
+4. Güvenlik Duvarı sorunları nedeniyle gereç modülünde indirme bulamıyorsanız, indirin ve aşağıdaki adımları kullanarak internet erişimi olan bir makinede modülünü yükleyin:
+
+    a. Temiz tüm eksik Powerclı adımları izleyerek yükleme dosyalarını #a yukarıdaki #2. adımda #c için.
+
+    b. Başlat'a gidin > Çalıştır > açık Windows PowerShell(x86) yönetici modunda
+
+    c. Komutu çalıştırın:  Install-Module "VMWare.VimAutomation.Core" - RequiredVersion "6.5.2.6234650" (tür 'onay sorduğunda A')
+
+    d. "C:\Program Files (x86) \WindowsPowerShell\Modules" "VMware" ile başlayan tüm modüller Toplayıcı VM üzerinde aynı konuma kopyalayın.
+
+    e. 'Azure geçişi Toplayıcısı' hizmeti, Windows Hizmet Yöneticisi'nde (Windows Hizmet Yöneticisi'ni açmak için Aç 'Çalışma' ve türü services.msc) yeniden başlatın. Azure geçişi Toplayıcısı hizmeti üzerinde sağ tıklatın ve Başlat'a tıklayın.
+
+    f. Masaüstü kısayolu 'Toplayıcıyı Çalıştır' a çift tıklayın Toplayıcı uygulamasını başlatmak için. Toplayıcı uygulamasını otomatik olarak indirmek ve Powerclı'nın gerekli sürümü yüklemeniz gerekir.
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 

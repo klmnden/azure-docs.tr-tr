@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1eaf73e1d8b3c60ea32fa7d4aaf51a212d24a18c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6e79aba5ae6d06c207b0070fd7741471db7d820c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894607"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316923"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Azure İzleyici ölçüm için konuk işletim sistemi ölçümleri Resource Manager şablonu kullanarak bir Windows sanal makinesi için depolama Gönder
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure İzleyicisi'ni kullanarak [tanılama uzantısını](diagnostics-extension-overview.md), konuk işletim sisteminden sanal makine, bulut hizmeti veya Service Fabric kümesinin bir parçası olarak çalıştırılan (konuk OS) ölçümlerini ve günlüklerini toplayabilir. Uzantı için telemetri gönderebilir [birçok farklı konumlarda.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -29,7 +31,7 @@ Resource Manager şablonları yeniyseniz öğrenin [şablon dağıtımları](../
 
 - Aboneliğiniz ile kaydedilmelidir [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- Ya da gerek [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) veya [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) yüklü.
+- Ya da gerek [Azure PowerShell](/powershell/azure) veya [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) yüklü.
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Veri havuzu olarak Azure İzleyicisi'ni ayarlayın
@@ -237,17 +239,17 @@ Kaydet ve her iki dosyayı kapatın.
 Resource Manager şablonu dağıtmak için Azure PowerShell biz yararlanın.
 
 1. PowerShell'i başlatın.
-1. Azure kullanarak oturum açın `Login-AzureRmAccount`.
-1. Aboneliklerinizin listesi almak `Get-AzureRmSubscription`.
+1. Azure kullanarak oturum açın `Login-AzAccount`.
+1. Aboneliklerinizin listesi almak `Get-AzSubscription`.
 1. Sanal makineyi oluşturma/güncelleştirme için kullanmakta olduğunuz aboneliği ayarlayın:
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>"
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. Dağıtılan VM için yeni bir kaynak grubu oluşturmak için aşağıdaki komutu çalıştırın:
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
+    New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
    > Unutmayın [özel ölçümler için etkin bir Azure bölgesi kullanın](metrics-custom-overview.md).
@@ -257,7 +259,7 @@ Resource Manager şablonu dağıtmak için Azure PowerShell biz yararlanın.
    > Varolan bir VM'yi güncelleştirmek isterseniz, eklemeniz yeterlidir *-artımlı modu* sonuna aşağıdaki komutu.
 
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
+   New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
 1. Dağıtım başarılı olduktan sonra VM için Azure İzleyici ölçümleri yayma Azure portalında olması gerekir.

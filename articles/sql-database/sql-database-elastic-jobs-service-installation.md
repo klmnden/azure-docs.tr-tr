@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 67b9be6f7788acd44ac60fe0c71133d69a2c122e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565488"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313846"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Yükleme esnek veritabanı işlerine genel bakış
 
@@ -90,13 +90,13 @@ Bu örnek çağrıda sağlanan parametreleri için istenen ayarlarınız değiş
 </tr>
     <tr>
     <td>ServiceVmSize</td>
-    <td>Bulut hizmeti dahilinde kullanım için VM boyutu sağlar. Bu parametre için A0 varsayar. A0/A1/A2/A3 parametre değerlerini sırasıyla bir çok küçük/küçük/Orta/büyük boyut kullanmak çalışan rolü neden kabul edilir. FO çalışan rolü boyutları hakkında daha fazla bilgi [elastik veritabanı işleri bileşenleri ve fiyatlandırma](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Bulut hizmeti dahilinde kullanım için VM boyutu sağlar. Bu parametre için A0 varsayar. Parametre değerlerini... /.. / A3 kabul edildiği bir çok küçük/küçük/Orta/büyük boyutu sırasıyla kullanılacak çalışan rolü neden. FO çalışan rolü boyutları hakkında daha fazla bilgi [elastik veritabanı işleri bileşenleri ve fiyatlandırma](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>İşlem boyutu Standard bir sürümü sağlar. Bu parametre için S0 varsayar. Parametre değerlerini S0/S1/S2/S3/S4/S6/S9/S12 ilgili işlem boyutu kullanmak Azure SQL veritabanı neden kabul edilir. SQL veritabanı işlem boyutları hakkında daha fazla bilgi için bkz. [elastik veritabanı işleri bileşenleri ve fiyatlandırma](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>İşlem boyutu Standard bir sürümü sağlar. Bu parametre için S0 varsayar. Parametre değerlerini... /.. /.. /.. / S9/S12 kabul edildiği ilgili işlem boyutu kullanmak Azure SQL veritabanı neden. SQL veritabanı işlem boyutları hakkında daha fazla bilgi için bkz. [elastik veritabanı işleri bileşenleri ve fiyatlandırma](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
@@ -148,7 +148,7 @@ Bir yükleme VM boyutunu güncelleştirmek için seçtiğiniz değerlere güncel
 
     <tr>
     <td>ServiceVmSize</td>
-    <td>Bulut hizmeti dahilinde kullanım için VM boyutu sağlar. Bu parametre için A0 varsayar. A0/A1/A2/A3 parametre değerlerini sırasıyla bir çok küçük/küçük/Orta/büyük boyut kullanmak çalışan rolü neden kabul edilir. FO çalışan rolü boyutları hakkında daha fazla bilgi [elastik veritabanı işleri bileşenleri ve fiyatlandırma](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Bulut hizmeti dahilinde kullanım için VM boyutu sağlar. Bu parametre için A0 varsayar. Parametre değerlerini... /.. / A3 kabul edildiği bir çok küçük/küçük/Orta/büyük boyutu sırasıyla kullanılacak çalışan rolü neden. FO çalışan rolü boyutları hakkında daha fazla bilgi [elastik veritabanı işleri bileşenleri ve fiyatlandırma](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </table>

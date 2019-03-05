@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: aee31f54ddf4e71dd9b9391ec93d0f2319addc3f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964824"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307970"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir telemetri kuralı oluşturabilir ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
@@ -29,18 +29,18 @@ Telemetri kuralı oluşturmak için cihaz şablonu en az bir telemetri ölçüm 
 
 1. Device Explorer ' ı kullanarak, cihaz şablon kural ekleme gidin.
 
-1. Seçilen şablonun altında var olan bir cihaza tıklayın. 
+1. Seçilen şablonun altında var olan bir cihaz seçin.
 
-    >[!TIP] 
+    >[!TIP]
     >Bir şablon yoksa, herhangi bir cihaza daha sonra yeni bir cihaz ilk ekleyin.
 
 1. Herhangi bir kural henüz oluşturmadıysanız, aşağıdaki ekranı görürsünüz:
 
     ![Henüz hiçbir kural](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
-1. Üzerinde **kuralları** sekmesini tıklatın, **şablonu Düzen** ardından **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
+1. Üzerinde **kuralları** sekmesinde **Şablonu Düzenle** ardından **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
 
-1. Tıklayın **Telemetri** cihaz telemetrisi izlemek için bir kural oluşturmak için.
+1. Seçin **Telemetri** cihaz telemetrisi izlemek için bir kural oluşturmak için.
 
     ![Kural türü](media/howto-create-telemetry-rules/Rule_Types.png)
 
@@ -57,7 +57,7 @@ Telemetri kuralı oluşturmak için cihaz şablonu en az bir telemetri ölçüm 
 
 Koşul, kural tarafından izlenen ölçütleri tanımlar.
 
-1. Tıklayın **+** yanındaki **koşullar** yeni bir koşul ekleme.
+1. Seçin **+** yanındaki **koşullar** yeni bir koşul ekleme.
 
 1. İzlemek istediğiniz telemetri seçin **ölçüm** açılır.
 

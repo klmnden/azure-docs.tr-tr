@@ -10,23 +10,25 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: cae02627c539e543d27ea188d521605f187ea8a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: accb2b730d5b165e29a1ff050cbb2c0ffa2f379d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475355"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317178"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Haziran 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Haziran 2018'de sunulan değişiklikler ve yeni özellikleri açıklar. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="user-defined-restore-points"></a>Kullanıcı tanımlı geri yükleme noktaları
 SQL veri ambarı, veri ambarınızın anlık görüntüleri otomatik olarak her 8 saatte bir sekiz saatlik kurtarma noktası hedefi (RPO) güvence altına almak alır. Bu anlık görüntüler bir kolayca veri Ambarınızı çalışan yönetim yükünü otomatik karşın, iş gereksinimlerinize göre kritik zamanlarda anlık gerek yoktur. Örneğin, önemli veri yüklemesi ya da dağıtımı yeni komut dosyaları hemen önce bir anlık görüntü işlemi hemen önce geri yükleme noktası etkinleştirmek için veri ambarı'na yönlendiriliyorsunuz. 
 
-SQL veri ambarı destekler [kullanıcı tanımlı bir geri yükleme noktaları](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) aracılığıyla [yeni AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) cmdlet'i.
+SQL veri ambarı destekler [kullanıcı tanımlı bir geri yükleme noktaları](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) aracılığıyla [yeni AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet'i.
 
 ```PowerShell
-New-AzureRmSqlDatabaseRestorePoint
+New-AzSqlDatabaseRestorePoint
     -ResourceGroupName $ResourceGroupName
     -ServerName $ServerName
     -DatabaseName $DatabaseName

@@ -4,17 +4,17 @@ description: Azure Search HTTP REST API'leri kullanarak kod içinde dizin için 
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 7bd7bcf66f0d91a87519a5d5bff7df7c73e2603f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: dcecb98d5e254e3fadd114c227e783a60fc6fa4e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310887"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316158"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Azure Search ile Blob deposu arama
 
@@ -38,7 +38,7 @@ Herhangi bir içerik türü bir blob'un üzerinden sıralamak kolaylaştıran s�
 ## <a name="image-search"></a>Resim arama
 Azure Search'ün tam metin araması, çok yönlü gezinme ve sıralama özellikleri artık meta veri blob'larda depolanan görüntülerin uygulanabilir.
 
-Bu görüntüleri kullanarak önceden işlenir [görüntü işleme API'si](https://www.microsoft.com/cognitive-services/computer-vision-api) Microsoft Bilişsel Hizmetler'in sunduğu ardından OCR ve el yazısı tanıma dahil olmak üzere her bir resimde bulunan görsel içerik dizine eklemek mümkündür. OCR eklemeye çalışıyoruz ve bu yeteneklerin ilgileniyorsanız diğer görüntü işleme özelliklerini doğrudan Azure Search, bir istek üzerinde iletin. bizim [UserVoice](https://aka.ms/azsuv) veya [bize e-posta](mailto:azscustquestions@microsoft.com).
+Bilişsel arama içeren görüntü işleme becerileri gibi [optik karakter tanıma (OCR)](cognitive-search-skill-ocr.md) tanımlama ve [görsel özellikleri](cognitive-search-skill-image-analysis.md) olun, her bulunan görsel içerik dizinleme olanağı görüntü.
 
 ## <a name="index-and-search-through-json-blobs"></a>Dizin ve JSON BLOB'ları ile arama
 Azure Search, JSON içeren bloblar bulundu yapılandırılmış içeriği ayıklamak için yapılandırılabilir. Azure Search, JSON BLOB'ları okuyun ve bir Azure Search belgesinin uygun alanlara yapılandırılmış içeriği ayrıştırılamıyor. Azure arama, bir JSON nesne dizisi içerir ve her öğe için ayrı bir Azure Search belge harita blobları da yararlanabilirsiniz.

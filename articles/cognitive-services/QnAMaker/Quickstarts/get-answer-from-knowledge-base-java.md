@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 1eaafd1817264add9b0231ac85feb9a90fccc325
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 9b80222acfc1104c184fc9cfb4711c16e7bb8dd2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216654"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312996"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Java ile Bilgi Bankası'tan bir soru sorulara yanıtlar alın
 
@@ -71,6 +71,8 @@ Aşağıdaki kod, Bilgi Bankası'na soru göndermek için soru-cevap Oluşturucu
 [!code-java[Add a POST request to send question to knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=44-72 "Add a POST request to send question to knowledge base")]
 
 `Authorization` Üst bilginin değeri içeren dize `EndpointKey `. 
+
+Daha fazla bilgi edinin [isteği](../how-to/metadata-generateanswer-usage.md#generateanswer-request) ve [yanıt](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 
 ## <a name="build-and-run-the-program"></a>Programı derleme ve çalıştırma
 

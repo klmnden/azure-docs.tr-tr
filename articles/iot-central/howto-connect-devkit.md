@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6d2cb95efbff223aecf1f0525dbb93698639d41a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5412e0a7bae3667ceb29085da566ef3b73c82c35
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198737"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316634"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -45,14 +45,14 @@ Yapılandırması hakkında tam Ayrıntılar için bkz [MXChip cihaz şablonu ay
 
 Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz şablonu ve cihaz bağlantı ayrıntılarını not yap (**kapsam kimliği, cihaz kimliği ve birincil anahtarınızı**).
 
-1. Ekleme bir **gerçek cihaz** Device Explorer tıklayarak **+ yeni > gerçek** gerçek bir cihaz eklemek için.
+1. Ekleme bir **gerçek cihaz** Device Explorer seçin **+ yeni > gerçek** gerçek bir cihaz eklemek için.
     * Cihaz kimliğini girebilir **<span style="color:Red">(küçük harf olması gerekir)</span>** veya önerilen cihaz kimliğini kullanması
     * Cihaz adını girin veya önerilen adı kullanın
     
     ![Cihaz Ekleme](media/concepts-connectivity/add-device.png)
 
 
-1. Bağlantı ayrıntıları gibi almak **kapsam kimliği, cihaz kimliği ve birincil anahtarınızı** tıklayarak eklenen bir cihazı için **Connect** cihaz sayfasında.
+1. Bağlantı ayrıntıları gibi almak **kapsam kimliği, cihaz kimliği ve birincil anahtarınızı** seçerek eklenen bir cihazı için **Connect** cihaz sayfasında.
  
     ![Bağlantı ayrıntıları](media/concepts-connectivity/device-connect.PNG)
 
@@ -189,7 +189,7 @@ Değiştirmek için derleme ve örnek kod, cihazınıza karşıya yükleme hakk�
 | Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
 | -------------- | ------ | ------- | ------- | -------------- |
 | Nem oranı       | %      | 0       | 100     | 0              |
-| Temp           | ° C     | -40     | 120     | 0              |
+| Temp           | °C     | -40     | 120     | 0              |
 | basınç       | hPa    | 260     | 1260    | 0              |
 | magnetometerX  | mgauss | -1000   | 1000    | 0              |
 | magnetometerY  | mgauss | -1000   | 1000    | 0              |
@@ -203,7 +203,7 @@ Değiştirmek için derleme ve örnek kod, cihazınıza karşıya yükleme hakk�
 
 
 #### <a name="states"></a>Durumlar 
-| Ad          | Görünen ad   | NORMAL | UYARI | TEHLİKE | 
+| Ad          | Görünen ad   | NORMAL | UYARI | DANGER | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Cihaz durumu   | Yeşil  | Orange  | Kırmızı    | 
 
@@ -230,7 +230,7 @@ Geçiş ayarları
 
 ### <a name="properties"></a>Özellikler
 
-| Tür            | Görünen ad | Alan adı | Veri türü |
+| Type            | Görünen ad | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
 | Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
 | Cihaz özelliği | Cihaz konumu   | location  | location    |

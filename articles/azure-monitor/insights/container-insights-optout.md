@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: f54240148ae0eabacb267044c0dd864b4377ca1d
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 16abcd2130e92f182dc129c2d7f5cd07ac04a766
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56982767"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313540"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Azure Kubernetes Service (AKS) kapsayıcıları için Azure İzleyici ile izleme durdurma
 
@@ -134,12 +134,14 @@ ProvisioningState       : Succeeded
 
 ### <a name="remove-the-solution-using-powershell"></a>PowerShell kullanarak çözümünü Kaldır
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Çözüm kaldırın ve AKS kümenizi yapılandırmasından temizlemek için şablonu içeren klasörde şu PowerShell komutlarını yürütün.    
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
-New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
 ```
 
 Yapılandırma değişikliğinin tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonuçları içeren aşağıdakine benzer bir ileti döndürülür:

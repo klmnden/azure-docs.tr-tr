@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7bf672715b45233807ab848c78aeb1bed2d352e9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699355"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307998"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>IOT Edge cihazları, modülleri ve alt cihazlar (Önizleme) genişletilmiş çevrimdışı özelliklerini anlama
 
@@ -73,7 +73,7 @@ Sağlamlığını artırmak için ortamınızda kullanılan DNS sunucusu adresle
 
 ```json
 {
-    "dns": [“1.1.1.1”]
+    "dns": ["1.1.1.1"]
 }
 ```
 
@@ -136,7 +136,7 @@ Azure portalında ortam değişkenlerini ve IOT Edge hub'ı modülü oluşturma 
 
 Değiştirin `<HostStoragePath>` ve `<ModuleStoragePath>` konak ve modül depolama ile yolu; hem konak hem modülü depolama yolu mutlak bir yol olmalıdır. Oluşturma seçeneklerinde konak ve modül depolama yollarını birbirine bağlayın. Ardından, modül depolama yolunu işaret eden bir ortam değişkeni oluşturun.  
 
-Örneğin, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` dizin anlamına gelir **/etc/iotedge/storage** konağınız üzerinde sistem dizine eşlenmiş **/iotedge/depolama/** kapsayıcısı üzerinde. Veya Windows sistemleri için başka bir örnek `"Binds":["C:\\temp:C:\\contemp]"` dizin anlamına gelir **C:\\temp** konağınız üzerinde sistem dizine eşlenmiş **C:\\contemp** kapsayıcısı üzerinde. 
+Örneğin, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` dizin anlamına gelir **/etc/iotedge/storage** konağınız üzerinde sistem dizine eşlenmiş **/iotedge/depolama/** kapsayıcısı üzerinde. Veya Windows sistemleri için başka bir örnek `"Binds":["C:\\temp:C:\\contemp"]` dizin anlamına gelir **C:\\temp** konağınız üzerinde sistem dizine eşlenmiş **C:\\contemp** kapsayıcısı üzerinde. 
 
 Oluşturma seçenekleri hakkında daha fazla ayrıntı bulabilirsiniz [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 

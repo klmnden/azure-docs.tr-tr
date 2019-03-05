@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 34e4371902095c5802bf4fc180e09ce189c110fc
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214019"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316065"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Öngörüler sayesinde Azure SQL veritabanı performans sorunlarını giderme
 
@@ -73,7 +73,7 @@ Tanılama Günlüğü performans ve kaynak tüketimi yüzdeleri etkilenen sorgu 
 
 Kullanılabilir oturum sınırları ulaştıysanız, veritabanında yapılan oturum açma sayısını azaltarak uygulamalarınızı en iyi duruma getirebilirsiniz. Oturumlarının veritabanına uygulamalarınızdan azaltmak yapamıyorsanız, artan veritabanı fiyatlandırma katmanı göz önünde bulundurun. Bölme ve veritabanınızı daha dengeli bir iş yükü dağıtımı için birden çok veritabanı içine taşıyın.
 
-Oturum sınırları çözümleme hakkında daha fazla öneri için bkz. [ile SQL veritabanı en fazla oturum açma bilgileri sınırlarını başa çıkma](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Bkz: [kaynak bakış sınırlayan bir SQL veritabanı sunucusunda](sql-database-resource-limits-database-server.md) sunucu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
+Oturum sınırları çözümleme hakkında daha fazla öneri için bkz. [ile SQL veritabanı en fazla oturum açma bilgileri sınırlarını başa çıkma](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Bkz: [kaynak bakış sınırlayan bir SQL veritabanı sunucusunda](sql-database-resource-limits-database-server.md) sunucu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
 
 ## <a name="workload-increase"></a>İş yükü artışı
 
@@ -109,7 +109,7 @@ En iyi duruma getirme veya elemanı en yüksek bellek kullanımı ile ilgili sor
 
 En iyi duruma getirme veya birden çok veritabanı dağıtma iş yükünü de azaltabilir. Veya iş yükünüz birden fazla veritabanı arasında dağıtabilirsiniz. Bu çözümler mümkün değilse, fiyatlandırma katmanını veritabanına kullanılabilir bellek kaynaklarının miktarını artırmak için SQL veritabanı aboneliğinizi çıkartabilirsiniz.
 
-Ek sorun giderme önerileri için bkz. [bellek meditasyon verir: Gizemli SQL Server bellek tüketici birçok adlarla](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+Ek sorun giderme önerileri için bkz. [bellek meditasyon verir: Gizemli SQL Server bellek tüketici birçok adlarla](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## <a name="locking"></a>Kilitleniyor
 
@@ -259,7 +259,7 @@ Plan gerileme üç farklı durumlarda bu algılanabilir performans desen birleş
 
 Yeni plan regresyon koşul içinde SQL veritabanı eski planı kadar verimli olmayan yeni bir sorgu yürütme planı Yürütülüyor başladığı bir durumu gösterir. SQL veritabanı kullanarak yeni ve daha verimli bir planından yeni plan kadar verimli olmayan eski plana geçiş yaptığında eski planı regresyon koşul durumuna ifade eder. Var olan planları değiştirilen iş yükü regresyon, eski ve yeni planlar sürekli olarak, daha düşük performanslı planı doğru gidip Bakiye alternatif durumu ifade eder.
 
-Plan gerilemeleri hakkında daha fazla bilgi için bkz. [planı gerileme SQL Server nedir?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/06/09/what-is-plan-regression-in-sql-server/). 
+Plan gerilemeleri hakkında daha fazla bilgi için bkz. [planı gerileme SQL Server nedir?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/). 
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
@@ -267,7 +267,7 @@ Tanılama Günlüğü sorgu karmaları, iyi bir plan kimliği, hatalı planı ki
 
 Hangi planı için sağlanan sorgu karmalarıyla tanımlayabilirsiniz, belirli sorgularınızı gerçekleştirmek daha iyidir çözümleyebilirsiniz. Hangi planı sorgularınızı daha iyi çalışır belirledikten sonra el ile zorlayabilirsiniz. 
 
-Daha fazla bilgi için [nasıl SQL Server planı gerilemeyi önler öğrenin](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
+Daha fazla bilgi için [nasıl SQL Server planı gerilemeyi önler öğrenin](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
 
 > [!TIP]
 > SQL veritabanı'nın yerleşik zekası, en yüksek performansa sorgu yürütme planlarını veritabanlarınız için otomatik olarak yönetebilirsiniz biliyor muydunuz?

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: aaaec6e02c9280801fbf7e3b5a8eaa1ae4a1ff43
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3d4c1029315e754410f31b13042d1d6acb105da1
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429778"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309698"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure etkinlik günlüğünün Event Hubs'a Stream
 Akış [Azure etkinlik günlüğü](../../azure-monitor/platform/activity-logs-overview.md) neredeyse gerçek zamanlı olarak ya da herhangi bir uygulama için:
@@ -58,21 +58,24 @@ Etkinlik günlüğü günlük profilini akış içerecek şekilde güncelleştir
 6. Birden fazla aboneliğiniz varsa, bu eylemi yineleyin ve tüm verileri aynı olay hub'ına gönderir.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell cmdlet'leri
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Günlük profilini zaten varsa önce mevcut günlük profilini kaldırın ve ardından yeni bir günlük profili oluşturmak gerekir.
 
-1. Kullanım `Get-AzureRmLogProfile` günlük profili var olmadığını belirleyin.  Günlük profilini mevcut değilse bulun *adı* özelliği.
-2. Kullanım `Remove-AzureRmLogProfile` değerini kullanarak günlük profilini kaldırmak için *adı* özelliği.
+1. Kullanım `Get-AzLogProfile` günlük profili var olmadığını belirleyin.  Günlük profilini mevcut değilse bulun *adı* özelliği.
+2. Kullanım `Remove-AzLogProfile` değerini kullanarak günlük profilini kaldırmak için *adı* özelliği.
 
     ```powershell
     # For example, if the log profile name is 'default'
-    Remove-AzureRmLogProfile -Name "default"
+    Remove-AzLogProfile -Name "default"
     ```
-3. Kullanım `Add-AzureRmLogProfile` yeni bir günlük profili oluşturmak için:
+3. Kullanım `Add-AzLogProfile` yeni bir günlük profili oluşturmak için:
 
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"
-   $locations = (Get-AzureRmLocation).Location
+   $locations = (Get-AzLocation).Location
    $locations += "global"
    $subscriptionId = "<your Azure subscription Id>"
    $resourceGroupName = "<resource group name your event hub belongs to>"
@@ -81,7 +84,7 @@ Günlük profilini zaten varsa önce mevcut günlük profilini kaldırın ve ard
    # Build the service bus rule Id from the settings above
    $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
-   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
 
 ### <a name="via-azure-cli"></a>Via Azure CLI

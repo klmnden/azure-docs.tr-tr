@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: f02b17ff4e83c3300973c86f26db76ebff5a8d0a
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 5328173090bce3e3adf51a1503e18c8da5532b0e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750897"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310918"
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure Etkinlik günlüğünü arşivleme
 Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri veya platformlar arası CLI nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](../../azure-monitor/platform/activity-logs-overview.md) bir depolama hesabında. Etkinlik günlüğünüzü 90 günden uzun (ile bekletme ilkesini üzerinde tam denetim) denetim, statik analiz veya yedekleme korumak istiyorsanız, bu seçenek kullanışlıdır. Yalnızca olaylarınızı 90 gün boyunca Beklet gerekir ya da daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden Azure platformunda 90 gün boyunca bekletilir olduğundan bir depolama hesabına arşivleme ayarlamak ihtiyacınız yoktur.
@@ -44,10 +44,12 @@ Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğünü arşivleme 
 
 ## <a name="archive-the-activity-log-via-powershell"></a>PowerShell aracılığıyla Etkinlik günlüğünü arşivleme
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"
-   $locations = (Get-AzureRmLocation).Location
+   $locations = (Get-AzLocation).Location
    $locations += "global"
    $subscriptionId = "<your Azure subscription Id>"
    $resourceGroupName = "<resource group name your storage account belongs to>"
@@ -56,13 +58,13 @@ Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğünü arşivleme 
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
    ```
 
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
 | StorageAccountId |Evet |Etkinlik günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
-| Konumlar |Evet |Etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin virgülle ayrılmış listesi. Tüm bölgelerin listesi için aboneliği kullanarak görüntüleyebileceğiniz `(Get-AzureRmLocation).Location`. |
+| Konumlar |Evet |Etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin virgülle ayrılmış listesi. Tüm bölgelerin listesi için aboneliği kullanarak görüntüleyebileceğiniz `(Get-AzLocation).Location`. |
 | Retentionındays |Hayır |Hangi olayların tutulacağını, 1 ile 2147483647 arasında bir gün sayısı. Sıfır değeri günlükler süresiz olarak depolar (sonsuz). |
 | Kategoriler |Hayır |Virgülle ayrılmış liste toplanması gereken olay kategorileri. Olası değerler şunlardır: yazma, silme ve eylem.  Sağlanmazsa, ardından tüm olası değerler kabul edilir |
 

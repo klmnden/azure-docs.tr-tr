@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 754bd06e6033b49d24112cb20686e1c9b200d0d0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0a6c894b08fd76a018035a824b463e41e31c2f2f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875489"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310208"
 ---
 # <a name="indexers-in-azure-search"></a>Azure Search'te dizin oluşturucular
 
@@ -48,14 +48,16 @@ Dizin oluşturucular veri depoları Azure'da gezinin.
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Depolama](search-howto-indexing-azure-blob-storage.md)
 * [Azure Tablo Depolama](search-howto-indexing-azure-tables.md) 
-    * Azure tablo depolaması için desteklenmediğini unutmayın [bilişsel arama](cognitive-search-concept-intro.md)
 
+> [!Note]
+> Azure tablo depolama için desteklenmez [bilişsel arama](cognitive-search-concept-intro.md).
+>
 
 ## <a name="basic-configuration-steps"></a>Temel yapılandırma adımları
 Dizin oluşturucular veri kaynağına özgü özellikler sunabilir. Bu bakımdan, dizin oluşturucu veya veri kaynağı yapılandırmasının bazı boyutları dizin oluşturucu türüne göre farklılık gösterir. Bununla birlikte, tüm dizin oluşturucuların temel birleşimi ve gereksinimleri aynıdır. Tüm dizin oluşturucularda ortak olan adımlar aşağıda ele alınmıştır.
 
 ### <a name="step-1-create-a-data-source"></a>1. Adım: Veri kaynağı oluşturma
-Dizin oluşturucu, bağlantı dizesi ve muhtemelen kimlik bilgileri gibi bilgileri içeren bir *veri kaynağından* veri çeker. Çağrı [veri kaynağı oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-data-source) REST API veya [veri kaynağı sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) kaynak oluşturmak için.
+Bir dizin oluşturucu veri kaynağı bağlantısından alır bir *veri kaynağı* nesne. Veri kaynağı tanımını bir bağlantı dizesi ve muhtemelen kimlik bilgileri sağlar. Çağrı [veri kaynağı oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-data-source) REST API veya [veri kaynağı sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) kaynak oluşturmak için.
 
 Veri kaynakları, bunları kullanan dizin oluşturuculardan bağımsız olarak yapılandırılır ve yönetilir. Bu da bir veri kaynağının, bir seferde birden çok dizin yüklemek amacıyla birden çok dizin oluşturucu tarafından kullanılabileceği anlamına gelir.
 
@@ -67,6 +69,59 @@ Dizin oluşturucu veri alımıyla ilgili bazı görevleri otomatikleştirir, anc
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>3. Adım: Oluşturma ve zamanlama dizin oluşturucu
 Dizin oluşturucu tanımı dizini, veri kaynağını ve bir zamanlamayı belirten bir yapıdır. Bir dizin oluşturucu, aynı abonelikten olduğu sürece başka bir hizmetteki bir veri kaynağına başvurabilir. Bir dizin oluşturucuyu yapılandırma konusunda daha fazla bilgi için bkz. [Dizin Oluşturucu Oluşturma (Azure Search REST API’si)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+
+<a id="RunIndexer"></a>
+
+## <a name="run-indexers-on-demand"></a>Dizin oluşturucular isteğe bağlı çalıştırın
+
+Dizin oluşturma zamanlamak için yaygın olsa da, Çalıştır komutunu kullanarak isteğe bağlı bir dizin oluşturucu da çağrılabilir:
+
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
+    api-key: [Search service admin key]
+
+> [!NOTE]
+> Çalıştırma API başarıyla geri döndüğünde, dizin oluşturucu çağrı zamanlandı, ancak gerçek işleme zaman uyumsuz olarak gerçekleşir. 
+
+Portalı veya alma dizin oluşturucu durumu sonraki açıklayan API'sini kullanarak dizin oluşturucu durumunu izleyebilirsiniz. 
+
+<a name="GetIndexerStatus"></a>
+
+## <a name="get-indexer-status"></a>Dizin Oluşturucu durumunu Al
+
+REST API aracılığıyla Dizin Oluşturucu durumu ve yürütme geçmişini alabilirsiniz:
+
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
+    api-key: [Search service admin key]
+
+Yanıt, genel dizin oluşturucu durumu, son (veya devam eden) dizin oluşturucuyu çağırmayı ve son dizin oluşturucu çağrılarını geçmişini içerir.
+
+    {
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2014-11-26T03:37:18.853Z",
+            "endTime":"2014-11-26T03:37:19.012Z",
+            "errors":[],
+            "itemsProcessed":11,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+         },
+        "executionHistory":[ {
+            "status":"success",
+             "errorMessage":null,
+            "startTime":"2014-11-26T03:37:18.853Z",
+            "endTime":"2014-11-26T03:37:19.012Z",
+            "errors":[],
+            "itemsProcessed":11,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+        }]
+    }
+
+Bu nedenle (en son yürütme yanıtta önce gelirse), ters kronolojik sırada saklanıyor 50 en son tamamlanan yürütme, en fazla yürütme geçmişini içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Artık temel fikri anladığınıza göre, atmanız gereken bir sonraki adım her bir veri kaynağı türüne özgü gereksinimleri ve görevleri incelemektir.

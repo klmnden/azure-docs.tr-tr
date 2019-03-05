@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 0494e9ef2a4f7adddd615dbf7882c9f2b4b81982
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 5fac49c3c1e99421ec3ff25514950d9b9bc3b0bd
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213220"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314696"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>Öğretici: Azure IOT Central işlecin görünümü (yeni kullanıcı Arabirimi tasarımı) özelleştirme
 
@@ -48,7 +48,7 @@ Oluşturucu olarak, bir cihaz panosunda hangi bilgilerin gösterileceğini tanı
 
     ![Cihaz şablonlarını](media/tutorial-customize-operator-experimental/devicetemplates.png)
 
-2. Cihaz panonuzu özelleştirmek için tıklatın **bağlı klima (1.0.0)** oluşturduğunuz cihaz şablonu cihaz [uygulamanızda yeni bir cihaz türü tanımlayan](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) öğretici.
+2. Cihaz panonuzu özelleştirebilir için seçin **bağlı klima (1.0.0)** oluşturduğunuz cihaz şablonu cihaz [uygulamanızda yeni bir cihaz türü tanımlayan](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) öğretici.
 
 3. Pano düzenlemek için seçin **Pano** sekmesi.
 
@@ -67,7 +67,7 @@ Oluşturucu olarak, bir cihaz panosunda hangi bilgilerin gösterileceğini tanı
 
     ![KPI ekleme](media/tutorial-customize-operator-experimental/addkpi.png)
 
-5. **Kaydet**’e tıklayın. Artık KPI kutucuğunu panoda görebilirsiniz:
+5. **Kaydet**’i seçin. Artık KPI kutucuğunu panoda görebilirsiniz:
 
     ![KPI kutucuğu](media/tutorial-customize-operator-experimental/temperaturekpi.png)
 
@@ -122,7 +122,7 @@ Bir oluşturucu veya işleci bir Azure IOT Central uygulamasına oturum açtığ
 > [!NOTE]
 > Kullanıcılar ayrıca kendi kişisel panolar oluşturabilir ve varsayılan olarak seçin.
 
-1. Varsayılan uygulama Panosu özelleştirmek için gezinme **Pano** sayfasında ve tıklayın **Düzenle** üst sayfanın sağ. Panoya ekleyebilirsiniz nesnelerin bir kitaplığı ile bir paneli görüntülenir.
+1. Varsayılan uygulama Panosu özelleştirmek için gezinme **Pano** sayfasından seçim yapıp **Düzenle** üst sayfanın sağ. Panoya ekleyebilirsiniz nesnelerin bir kitaplığı ile bir paneli görüntülenir.
 
     ![Pano sayfası](media/tutorial-customize-operator-experimental/builderhome.png)
 
@@ -133,7 +133,7 @@ Bir oluşturucu veya işleci bir Azure IOT Central uygulamasına oturum açtığ
     > [!NOTE]
     > Azure IoT Central uygulamanızdaki sayfalara bağlantılar da ekleyebilirsiniz. Örneğin, bir cihazın panosuna ya da ayarlar sayfasına bağlantı ekleyebilirsiniz.
 
-3. İsteğe bağlı olarak, **görüntü** ve Panonuzda görüntülemek için bir görüntü yükleyin. Bir görüntü olduğu ulaşmanıza tıkladığınızda bir URL olabilir:
+3. İsteğe bağlı olarak, **görüntü** ve Panonuzda görüntülemek için bir görüntü yükleyin. Görüntü ulaşmanıza olduğu için bu seçeneği belirlediğinizde bir URL olabilir:
 
     ![Panoya resim ekleme](media/tutorial-customize-operator-experimental/addimage.png)
 
@@ -145,7 +145,7 @@ Uygulama Panosu operatör olarak önizlemesini görüntülemek için seçin **Bi
 
 ![Tasarım Modunu Açma/Kapatma](media/tutorial-customize-operator-experimental/operatorviewhome.png)
 
-Oluşturucu olarak ayarladığınız URL’lere gitmek için bağlantıya ve görüntü kutucuklarına tıklayabilirsiniz.
+Bir oluşturucu olarak ayarladığınız URL'leri gitmek için bağlantı ve resim kutucukları seçebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

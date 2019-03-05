@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 5e3ef7782f805e07e24783a987f2753e4e889946
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 1c145f100e22dbb268a7cd491eb8a43b51988c69
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313042"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315818"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan soruların listesini içerir. Log Analytics hakkında ek sorularınız varsa, Git [tartışma forumuna](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
 
 
@@ -168,7 +171,7 @@ Log analytics'e trafiği, genel eşleme ExpressRoute bağlantı hattı kullanır
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>S. Mevcut bir Log Analytics çalışma alanını başka bir Log Analytics çalışma alanı/Azure aboneliğine taşımak için basit ve kolay bir yolu var mı?
 
-A. `Move-AzureRmResource` Cmdlet'i bir Log Analytics çalışma alanı ve Otomasyon hesabı bir Azure aboneliğine ait taşıma olanak tanır. Daha fazla bilgi için [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
+A. `Move-AzResource` Cmdlet'i bir Log Analytics çalışma alanı ve Otomasyon hesabı bir Azure aboneliğine ait taşıma olanak tanır. Daha fazla bilgi için [taşıma AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Bu değişiklik, ayrıca Azure portalında yapılabilir.
 
@@ -196,7 +199,7 @@ Altında **Azure Log Analytics (OMS)**, listelenen tüm çalışma alanlarını 
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>S: Çalışma Alanım'ı bir Azure aboneliğine ait diğerine taşımak çalıştığınızda bir hata neden alıyorum?
 
-C: Bir çalışma alanı farklı bir abonelik veya kaynak grubuna taşımak için önce çalışma alanındaki Otomasyon hesabının bağlantısını kaldırmanız gerekir. Çalışma alanında yüklediyseniz, bir Otomasyon hesabının bağlantısını kaldırma aşağıdaki çözümlerden birini gerektirir: Güncelleştirme yönetimi, değişiklik izleme veya Vm'leri çalışma saatleri dışında başlatma/durdurma kaldırılır. Bu çözümleri kaldırdıktan sonra seçerek Otomasyon hesabının bağlantısını kaldırmanız **bağlı çalışma alanları** tıklayın ve sol bölmede Otomasyon hesabı kaynak **çalışma alanının bağlantısını Kaldır** Şerit üzerindeki.
+C: Bir çalışma alanı farklı bir abonelik veya kaynak grubuna taşımak için önce çalışma alanındaki Otomasyon hesabının bağlantısını kaldırmanız gerekir. Otomasyon hesabının bağlantısını kaldırmak için, şu çözümler çalışma alanında yüklüyse kaldırılmaları gerekir: Güncelleştirme yönetimi, değişiklik izleme veya Vm'leri çalışma saatleri dışında başlatma/durdurma kaldırılır. Bu çözümleri kaldırdıktan sonra seçerek Otomasyon hesabının bağlantısını kaldırmanız **bağlı çalışma alanları** tıklayın ve sol bölmede Otomasyon hesabı kaynak **çalışma alanının bağlantısını Kaldır** Şerit üzerindeki.
  > Çözümler çalışma alanında yüklenmesi gerek kaldırıldı ve çalışma alanı Otomasyon bağlantısını taşımadan sonra açıklandı gerekir.
 
 Hem Azure aboneliklerinde izninizin olduğundan emin olun.

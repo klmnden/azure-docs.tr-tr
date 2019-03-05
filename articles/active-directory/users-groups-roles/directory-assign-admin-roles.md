@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35927b038ee8caa7e826c4edfb7803a2bc0177c8
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 31b65dc7a73d24066bee8088b3177a1300186eba
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750693"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316668"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory'de Yönetici rolü izinleri
 
@@ -42,7 +42,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[Uygulama geliştiricisi](#application-developer)**: Bu roldeki kullanıcılar, uygulama kayıtları oluşturabilir, "Kullanıcılar uygulamaları kaydedebilir" ayarı Hayır olarak ayarlayın Bu rolü üyelerinin kendi adınıza onay de sağlar. zaman "Kullanıcı izni verebilir uygulamalara kendileri adına şirket verilerine erişme" ayarı Hayır olarak ayarlayın Yeni uygulama kaydı veya kurumsal uygulamalar oluştururken, bu rolün üyeleri, sahip olarak eklenir.
 
-* **[Kimlik doğrulaması yönetici](#authentication-administrator)**: Bu role sahip kullanıcılar, ayarlayın ya da parolası olmayan kimlik bilgilerini sıfırlayın. Kimlik doğrulaması yöneticileri, kullanıcıların mevcut olmayan bir parola kimlik bilgisi karşı (örneğin, MFA veya FIDO) yeniden kaydedin ve iptal etmesine gerektirebilirsiniz **cihazda MFA unutmayın**, sonraki oturum açma olan kullanıcıların üzerinde pwhich rompts mfa Yönetici olmayanlar veya yalnızca aşağıdaki rollerinin üyeleri:
+* **[Kimlik doğrulaması yönetici](#authentication-administrator)**: Bu role sahip kullanıcılar, ayarlayın ya da parolası olmayan kimlik bilgilerini sıfırlayın. Kimlik doğrulaması yöneticileri, kullanıcıların mevcut olmayan bir parola kimlik bilgisi karşı (örneğin, MFA veya FIDO) yeniden kaydedin ve iptal etmesine gerektirebilirsiniz **cihazda MFA unutmayın**, hangi ister MFA için bir sonraki oturum açma olan kullanıcıların Yönetici olmayanlar veya yalnızca aşağıdaki rollerinin üyeleri:
   * Kimlik Doğrulaması Yöneticisi
   * Dizin Okuyucular
   * Konuk Davet Eden

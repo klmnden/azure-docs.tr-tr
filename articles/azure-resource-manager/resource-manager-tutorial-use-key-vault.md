@@ -10,22 +10,24 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/26/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 1390a3be20dd1fc66bb04939f9ce41139db3cb2e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4027982479b2db315ed47f0eb1cb51977f6374b1
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873279"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310786"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Öğretici: Resource Manager şablon dağıtımı Azure anahtar kasası tümleştirme
 
 Azure Key Vault'tan gizli dizileri almak ve gizli dizileri, Resource Manager dağıtım sırasında parametre olarak geçirmeniz hakkında bilgi edinin. Anahtar kasası kimliğini yalnızca başvuru değeri hiçbir zaman sunulur Daha fazla bilgi için bkz. [Dağıtım sırasında gizli parametre değeri geçirmek için Azure Key Vault'u kullanma](./resource-manager-keyvault-parameter.md)
 
 [Kaynak dağıtım sırasını ayarlama](./resource-manager-tutorial-create-templates-with-dependent-resources.md) öğreticisinde bir sanal makine ve bir sanal ağ dahil olmak üzere ek birkaç bağımlı kaynak oluşturmuştunuz. Bu öğreticide, sanal makine yöneticisi parolası anahtar kasasından almak için bu şablonu özelleştirin.
+
+![Resource Manager şablon anahtar kasası tümleştirme diyagramı](./media/resource-manager-tutorial-use-key-vault/resource-manager-template-key-vault-diagram.png)
 
 Bu öğretici aşağıdaki görevleri kapsar:
 

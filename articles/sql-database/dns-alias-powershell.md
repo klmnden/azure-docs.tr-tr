@@ -1,6 +1,6 @@
 ---
 title: DNS diğer adı, Azure SQL için PowerShell | Microsoft Docs
-description: PowerShell cmdlet'leri gibi New-AzureRMSqlServerDNSAlias yeni istemci bağlantılarını herhangi bir istemci yapılandırma touch gerek kalmadan, farklı bir Azure SQL veritabanı sunucusuna yeniden yönlendirmek sağlar.
+description: PowerShell cmdlet'leri gibi yeni AzSqlServerDNSAlias yeni istemci bağlantılarını herhangi bir istemci yapılandırma touch gerek kalmadan, farklı bir Azure SQL veritabanı sunucusuna yeniden yönlendirmek sağlar.
 keywords: DNS sql veritabanı
 services: sql-database
 ms.service: sql-database
@@ -12,25 +12,25 @@ ms.author: moslake
 ms.reviewer: genemi,amagarwa,maboja, jrasnick
 manager: craigg
 ms.date: 01/17/2019
-ms.openlocfilehash: 115c4a290bc6dfba049e0ce49498877c1a2466b6
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: f75bb4f46ea6d6d2c8bb00ef2ece1d80634fff92
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388798"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316035"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell için Azure SQL veritabanı için DNS diğer adı
 
 Bu makalede, Azure SQL veritabanı için bir DNS diğer adı nasıl yönetebileceğinizi gösteren bir PowerShell Betiği sağlanır. Aşağıdaki işlemleri yapar, aşağıdaki cmdlet komut dosyasını çalıştırır:
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Aşağıdaki kod örneğinde kullanılan cmdlet'ler şunlardır:
 
-- [New-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Azure SQL veritabanı hizmet sistemde yeni bir DNS diğer ad oluşturur. Diğer ad, 1 Azure SQL veritabanı sunucusuna ifade eder.
-- [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Alın ve SQL DB sunucusu 1 atanmış olan tüm DNS diğer adları listesi.
-- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Diğer adı için yapılandırılmış bir sunucu adı değiştirir, SQL veritabanı sunucusuna 2 1 sunucusundan bakın.
-- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): DNS diğer adı, diğer adı kullanarak, 2, SQL DB sunucusundan kaldırın.
-
-Önceki PowerShell cmdlet'leri eklenmiştir **Azurerm.SQL'e** modülü 5.1.1 sürümünden itibaren.
+- [Yeni AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias?view=azurermps-5.1.1): Azure SQL veritabanı hizmet sistemde yeni bir DNS diğer ad oluşturur. Diğer ad, 1 Azure SQL veritabanı sunucusuna ifade eder.
+- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias?view=azurermps-5.1.1): Alın ve SQL DB sunucusu 1 atanmış olan tüm DNS diğer adları listesi.
+- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias?view=azurermps-5.1.1): Diğer adı için yapılandırılmış bir sunucu adı değiştirir, SQL veritabanı sunucusuna 2 1 sunucusundan bakın.
+- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias?view=azurermps-5.1.1): DNS diğer adı, diğer adı kullanarak, 2, SQL DB sunucusundan kaldırın.
 
 ## <a name="dns-alias-in-connection-string"></a>Bağlantı dizesinde DNS diğer adı
 
@@ -43,9 +43,9 @@ Belirli bir Azure SQL veritabanı sunucusuna bağlanmak için SQL Server Managem
 Bu makalede verilen PowerShell Betiği tanıtım çalıştırmak istiyorsanız, aşağıdaki önkoşulları geçerlidir:
 
 - Bir Azure aboneliği ve hesabı. Ücretsiz deneme için tıklatın [ https://azure.microsoft.com/free/ ] [ https://azure.microsoft.com/free/].
-- Cmdlet ile Azure PowerShell Modülü **New-AzureRMSqlServerDNSAlias**.
-  - Yüklemek veya yükseltmek için bkz: [Azure PowerShell modülü yükleme][install-azurerm-ps-84p].
-  - Çalıştırma `Get-Module -ListAvailable AzureRM;` PowerShell'de\_sürümü bulmak için ise.exe.
+- Cmdlet ile Azure PowerShell Modülü **yeni AzSqlServerDNSAlias**.
+  - Yüklemek veya yükseltmek için bkz: [Azure PowerShell modülü yükleme][install-Az-ps-84p].
+  - Çalıştırma `Get-Module -ListAvailable Az;` PowerShell'de\_sürümü bulmak için ise.exe.
 - İki Azure SQL veritabanı sunucuları.
 
 ## <a name="code-example"></a>Kod örneği
@@ -76,10 +76,10 @@ Write-Host " ";
 $yesno = Read-Host '[yes/no]  Do you need to log into Azure now?';
 if ('yes' -eq $yesno)
 {
-    Connect-AzureRmAccount -SubscriptionName $SubscriptionName;
+    Connect-AzAccount -SubscriptionName $SubscriptionName;
 }
 
-$SubscriptionGuid_Get = Get-AzureRmSubscription `
+$SubscriptionGuid_Get = Get-AzSubscription `
     -SubscriptionName $SubscriptionName;
 
 ################################################################
@@ -87,18 +87,18 @@ $SubscriptionGuid_Get = Get-AzureRmSubscription `
 ################################################################
 
 Write-Host '[1] Assign a DNS alias to SQL DB server 1.';
-New-AzureRMSqlServerDNSAlias `
+New-AzSqlServerDNSAlias `
     –ResourceGroupName  $1ResourceGroupName `
     -ServerName         $1SqlServerName `
     -ServerDNSAliasName $SqlServerDnsAliasName;
 
 Write-Host '[2] Get and list all the DNS aliases that are assigned to SQL DB server 1.';
-Get-AzureRMSqlServerDNSAlias `
+Get-AzSqlServerDNSAlias `
     –ResourceGroupName $1ResourceGroupName `
     -ServerName        $1SqlServerName;
 
 Write-Host '[3] Move the DNS alias from 1 to SQL DB server 2.';
-Set-AzureRMSqlServerDNSAlias `
+Set-AzSqlServerDNSAlias `
     –ResourceGroupName  $2ResourceGroupName `
     -NewServerName      $2SqlServerName `
     -ServerDNSAliasName $SqlServerDnsAliasName `
@@ -110,10 +110,10 @@ Set-AzureRMSqlServerDNSAlias `
 # by using "$SqlServerDnsAliasName" in the server name.
 # For example, server:  "any-unique-alias-name.database.windows.net".
 
-# Remove-AzureRMSqlServerDNSAlias  - would fail here for SQL DB server 1.
+# Remove-AzSqlServerDNSAlias  - would fail here for SQL DB server 1.
 
 Write-Host '[4] Remove the DNS alias from SQL DB server 2.';
-Remove-AzureRMSqlServerDNSAlias `
+Remove-AzSqlServerDNSAlias `
     –ResourceGroupName  $2ResourceGroupName `
     -ServerName         $2SqlServerName `
     -ServerDNSAliasName $SqlServerDnsAliasName;
@@ -160,6 +160,6 @@ Bir tam açıklaması DNS diğer adı özelliği için SQL veritabanı için bkz
 
 [https://azure.microsoft.com/free/]: https://azure.microsoft.com/free/
 
-[install-azurerm-ps-84p]: https://docs.microsoft.com/powershell/azure/install-az-ps
+[install-Az-ps-84p]: https://docs.microsoft.com/powershell/azure/install-az-ps
 
 [dns-alias-overview-37v]: dns-alias-overview.md

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 17bdd362a3dad4e10acc8ab16eee5b335593e311
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: dff0f9eae28e38b7049a51b1cb873991cc41999f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562870"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310225"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL veritabanı için DNS diğer adı
 
@@ -87,6 +87,8 @@ Ayrıca, REST API'leri github'da görülebilir:
 
 #### <a name="powershell-for-managing-your-dns-aliases"></a>Kendi DNS diğer adları yönetmek için PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 PowerShell cmdlet'leri kullanılabilir REST API'larını çağırma.
 
 DNS diğer adları yönetmek için kullanılan PowerShell cmdlet'lerini bir kod örneği, konumunda belgelenmiştir:
@@ -95,12 +97,10 @@ DNS diğer adları yönetmek için kullanılan PowerShell cmdlet'lerini bir kod 
 
 Aşağıdaki kod örneğinde kullanılan cmdlet'ler şunlardır:
 
-- [New-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Azure SQL veritabanı hizmet sistemde yeni bir DNS diğer ad oluşturur. Diğer ad, 1 Azure SQL veritabanı sunucusuna ifade eder.
-- [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Alın ve SQL DB sunucusu 1 atanmış olan tüm DNS diğer adları listesi.
-- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Diğer adı için yapılandırılmış bir sunucu adı değiştirir, SQL veritabanı sunucusuna 2 1 sunucusundan bakın.
-- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): DNS diğer adı, diğer adı kullanarak, 2, SQL DB sunucusundan kaldırın.
-
-Önceki cmdlet'ler eklenmiştir **Azurerm.SQL'e** modülü 5.1.1 modül sürümünden itibaren.
+- [Yeni AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias?view=azurermps-5.1.1): Azure SQL veritabanı hizmet sistemde yeni bir DNS diğer ad oluşturur. Diğer ad, 1 Azure SQL veritabanı sunucusuna ifade eder.
+- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias?view=azurermps-5.1.1): Alın ve SQL DB sunucusu 1 atanmış olan tüm DNS diğer adları listesi.
+- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias?view=azurermps-5.1.1): Diğer adı için yapılandırılmış bir sunucu adı değiştirir, SQL veritabanı sunucusuna 2 1 sunucusundan bakın.
+- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias?view=azurermps-5.1.1): DNS diğer adı, diğer adı kullanarak, 2, SQL DB sunucusundan kaldırın.
 
 ## <a name="limitations-during-preview"></a>Önizleme süresince sınırlamaları
 

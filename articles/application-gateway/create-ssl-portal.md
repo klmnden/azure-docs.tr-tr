@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 33e24a8d8715dd6f2b37ed566a1479dffd93c466
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159426"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308100"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Azure portalını kullanarak SSL sonlandırma ile bir uygulama ağ geçidi yapılandırma
 
@@ -29,6 +29,8 @@ Bu makalede şunları öğreneceksiniz:
 > * Arka uç sunucular olarak kullanılan sanal makine oluşturma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -132,7 +134,7 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
 2. Sanal makineye IIS yüklemek için aşağıdaki komutu çalıştırın: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -143,7 +145,7 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
       -Location EastUS
     ```
 
-3. İkinci bir sanal makine oluşturun ve yeni tamamladığınız adımları kullanarak IIS yükleyin. Ad olarak ve VMName için Set-AzureRmVMExtension komutuna *myVM2* girin.
+3. İkinci bir sanal makine oluşturun ve yeni tamamladığınız adımları kullanarak IIS yükleyin. Girin *myVM2* adını ve Set-AzVMExtension içinde VMName.
 
 ### <a name="add-backend-servers"></a>Arka uç sunucuları ekleme
 

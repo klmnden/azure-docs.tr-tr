@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 7e688abbe1b8188cb85e5762086009522b5b7d39
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 02cec7f3696a43e8effe9d551c1f3e3fddc25ec8
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332090"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317212"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL veritabanı'nda JSON özelliklerini kullanmaya başlama
 Azure SQL veritabanı sağlar ayrıştırma ve JavaScript nesne gösterimi ' gösterilen veri sorgulama [(JSON)](http://www.json.org/) biçimlendirmek ve JSON metni olarak, ilişkisel verilerinizi dışarı aktarın. Azure SQL veritabanı'nda aşağıdaki JSON senaryolarda kullanılabilir:
@@ -190,7 +190,7 @@ Sipariş koleksiyonunu bir JSON dizisi olarak biçimlendirilmiş ve saklı yorda
 ## <a name="next-steps"></a>Sonraki adımlar
 JSON uygulamanızla tümleştirme öğrenmek için şu kaynaklara bakın:
 
-* [TechNet blogu](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
+* [TechNet blogu](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
 * [MSDN belgeleri](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Kanal 9 videosu](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 

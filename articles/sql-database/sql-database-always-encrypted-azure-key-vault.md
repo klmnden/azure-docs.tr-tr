@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 670bdd43a4a581f349ca84c17ead67975fa0232e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 27d25c0b7007489dbb3db3b44497268ad33e9b37
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110175"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309851"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Her zaman şifreli: Hassas verilerin korunmasına ve şifreleme anahtarları Azure Key Vault'ta depolama
 
@@ -37,13 +37,16 @@ Bu makaledeki adımları izleyin ve her zaman şifreli için bir Azure SQL verit
 * Ekler, seçer ve şifrelenmiş sütundaki verileri görüntüleyen bir uygulama oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bu öğreticide, şunları yapmanız gerekir:
 
 * Bir Azure hesabı ve aboneliği Yoksa, oturum açmak için bir [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 13.0.700.242 sürümü veya üzeri.
 * [.NET framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) veya üzeri (istemci bilgisayarda).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [Azure PowerShell](/powershell/azure/overview), sürüm 1.0 veya üzeri. Tür **(Get-Module - ListAvailable azure). Sürüm** hangi PowerShell sürümünü çalıştırdığınızı öğrenmek.
+* [Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>İstemci uygulamanızın SQL veritabanı hizmetine erişim
 İstemci uygulamanızı Azure Active Directory (AAD) uygulama ayarını ve kopyalama SQL veritabanı hizmetine erişim etkinleştirmelisiniz *uygulama kimliği* ve *anahtarı* için ihtiyacınız olacak Uygulamanızın kimlik doğrulaması.
@@ -65,15 +68,15 @@ Aşağıdaki betiği çalıştırarak, bir anahtar kasası hızlıca oluşturabi
     $vaultName = 'AeKeyVault'
 
 
-    Connect-AzureRmAccount
-    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
-    Set-AzureRmContext -SubscriptionId $subscriptionId
+    Connect-AzAccount
+    $subscriptionId = (Get-AzSubscription -SubscriptionName $subscriptionName).Id
+    Set-AzContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
+    Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 ```
 
 

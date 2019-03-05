@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 962f394607d20869bf00db624533996b0060eaf2
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 39359054818b81c0f5f2cdc9413ae2a0c1dc8c65
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986311"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310276"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Cihaz bağlantısı Azure IOT Central Gezgini'ni kullanarak izleme
 
@@ -46,10 +46,10 @@ Bazı komutlar ve kullanırken çalıştırmak üzere ortak seçenekler aşağı
 
 Kullanmaya başlamanıza, IOT Central uygulamanızın kullanabilmeniz için bir erişim belirteci almak için bir yönetici olması gerekir. Yönetici, aşağıdaki adımları gerçekleştirir:
 1. Git **yönetim/erişim belirteçleri**. 
-1. Tıklayın **oluşturmak**.
+1. Seçin **oluşturmak**.
 ![Erişim belirteci sayfası ekran görüntüsü](media/howto-use-iotc-explorer/accesstokenspage.png)
 
-1. Belirteç adı girip tıklayın **sonraki**, ve **belirteç değeri kopyalayın**.
+1. Belirteç adı girin, seçin **sonraki**, ve **belirteç değeri kopyalayın**.
     > [!NOTE]
     > İletişim kutusunu kapatmadan önce kopyalanmalıdır için belirteç değeri yalnızca bir kez gösterilecektir. İletişim kutusu kapatıldıktan sonra hiçbir zaman yeniden gösterilir.
 

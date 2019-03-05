@@ -1,5 +1,5 @@
 ---
-title: Uyumsuzluk nedenleri belirlemek
+title: Uyumsuzluk nedenlerini belirleme
 description: Uyumlu olmayan bir kaynak olduğunda, çok sayıda olası nedeni vardır. Uyumsuzluk neyin neden olduğunu bulmak öğrenin.
 services: azure-policy
 author: DCtheGeek
@@ -8,14 +8,14 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bdc7e635537eb4f836f0d4b5e2c18cc62b7fd310
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890484"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314135"
 ---
-# <a name="determine-causes-of-non-compliance"></a>Uyumsuzluk nedenleri belirlemek
+# <a name="determine-causes-of-non-compliance"></a>Uyumsuzluk nedenlerini belirleme
 
 Bir Azure kaynağı için bir ilke kuralı uyumlu olmadığı belirlendiğinde kaynağı ile uyumlu değil kural hangi kısmının anlamak yararlıdır. Hangi değişiklik uyumlu hale getirmek için daha önce uyumlu bir kaynak değiştirilmiş anlamak kullanışlıdır. Bu bilgileri bulmanın iki yolu vardır:
 

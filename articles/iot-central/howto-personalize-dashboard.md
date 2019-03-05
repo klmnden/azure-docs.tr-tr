@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: ae89d5a59dfbc7e2ab5fdd4de030665874b5e1e1
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: fb74669dcaa802ad06a9c4dff3ffdf25726f518c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220497"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316074"
 ---
 # <a name="create-and-manage-personal-dashboards"></a>Oluşturma ve kişisel panoları Yönet
 
@@ -21,15 +21,15 @@ ms.locfileid: "57220497"
 
 ## <a name="create-dashboard"></a>Pano oluşturma
 
-Aşağıdaki ekran görüntüsünde oluşturulan uygulamada gösteren panoyu **örnek Contoso** şablonu. Varsayılan uygulama Panosu kişisel bir pano ile değiştirebilirsiniz. Bunu yapmak için tıklatın **+ yeni** üst sayfanın sağ.
+Aşağıdaki ekran görüntüsünde oluşturulan uygulamada gösteren panoyu **örnek Contoso** şablonu. Varsayılan uygulama Panosu kişisel bir pano ile değiştirebilirsiniz. Bunu yapmak için **+ yeni** üst sayfanın sağ.
 
 !["Örnek Contoso" şablonu temel alan uygulamalar için Pano](media/howto-personalize-dashboard/defaultdashboard.png)
 
-Tıklayarak **+ yeni**, Pano Düzenleyicisi açılır. Düzenleyicisinde, panonuzu bir ad verebilir ve kitaplıktan öğe seçti. Kitaplık kutucuk ve Pano özelleştirmek için kullanabileceğiniz Pano temelleri içerir.
+Seçme **+ yeni**, Pano Düzenleyicisi açılır. Düzenleyicisinde, panonuzu bir ad verebilir ve kitaplıktan öğe seçti. Kitaplık kutucuk ve Pano özelleştirmek için kullanabileceğiniz Pano temelleri içerir.
 
 ![Pano kitaplığı](media/howto-personalize-dashboard/dashboardeditor.png)
 
-Örneğin, ekleyebileceğiniz bir **cihaz ayarlarını ve özelliklerini** biri, yönettiğiniz cihazları için ayarları ve özellikleri değerlerini gösterecek şekilde kutucuk. Bunu yapmak için önce seçin bir **cihaz şablonu** seçip bir **cihaz örneği**. Ardından kutucuğu bir başlık ve select vermek bir **ayarı** veya **özelliği** görüntülenecek. Aşağıdaki ekran görüntüsü gösterildiği **Fan hızı** ayarı için bir kutucuk eklemek için seçili. Tıklayın **Bitti** panonuza yapılan değişiklik kaydedilemiyor.
+Örneğin, ekleyebileceğiniz bir **cihaz ayarlarını ve özelliklerini** biri, yönettiğiniz cihazları için ayarları ve özellikleri değerlerini gösterecek şekilde kutucuk. Bunu yapmak için önce seçin bir **cihaz şablonu** seçip bir **cihaz örneği**. Ardından kutucuğu bir başlık ve select vermek bir **ayarı** veya **özelliği** görüntülenecek. Aşağıdaki ekran görüntüsü gösterildiği **Fan hızı** ayarı için bir kutucuk eklemek için seçili. Seçin **Bitti** panonuza yapılan değişiklik kaydedilemiyor.
 
 !["Cihaz ayrıntıları Yapılandır" form ayarlarına ve özelliklerine ilişkin ayrıntılı](media/howto-personalize-dashboard/dashboardsetting.png)
 

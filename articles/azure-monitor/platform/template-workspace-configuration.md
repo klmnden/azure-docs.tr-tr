@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: d6933d5fd72a3a6c945d3afc3fdd3512be5b28d1
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7654de7041b2aa7a5b72f551893c3e0fb60bbd40
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591610"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309868"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics, Azure Resource Manager şablonlarını kullanarak yönetme
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Kullanabileceğiniz [Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve Log Analytics çalışma alanları yapılandırmak için. Şablonlar ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
 
 * Fiyatlandırma katmanını ayarlama dahil olmak üzere bir çalışma alanı oluşturma 
@@ -122,7 +125,7 @@ Aşağıdaki parametreleri varsayılan değeri ayarlayın:
    * PowerShell için şablonu içeren klasörden aşağıdaki komutları kullanın:
    
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
         ```
 
    * Komut satırı için şablonu içeren klasörden aşağıdaki komutları kullanın:
@@ -500,7 +503,7 @@ Aşağıdaki örnek şablonu göstermektedir nasıl yapılır:
 
 #### <a name="powershell"></a>PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>Komut satırı

@@ -12,14 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: f929c58d38cbae4ba5f8aea73a2acf30d8bbe7d2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 3c0decaa89b4ecc503157a32fcb1e5b4d249ccfb
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121439"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317790"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Bir Azure web uygulaması için Application Insights’ı kurmak üzere PowerShell’i kullanma
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [Microsoft Azure](https://azure.com), [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)'a [Azure Tanılama verileri gönderecek şekilde yapılandırılabilir.](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) Tanılama verileri Azure Cloud Services ve Azure VM’leriyle ilişkilidir. Uygulama içinde Application Insights SDK’sı kullanarak gönderdiğiniz telemetriyi tamamlar. Azure’da yeni kaynaklar oluşturma işlemini otomatikleştirmenin bir parçası olarak tanılamayı PowerShell kullanarak yapılandırabilirsiniz.
 
 ## <a name="azure-template"></a>Azure şablonu
@@ -56,9 +59,9 @@ web uygulaması Azure’deyse ve Azure Resource Manager şablonu kullanarak kayn
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
     $workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
-    $primary_storagekey = (Get-AzureStorageKey `
+    $primary_storagekey = (Get-AzStorageKey `
      -StorageAccountName "$diagnostics_storagename").Primary
-    $storage_context = New-AzureStorageContext `
+    $storage_context = New-AzStorageContext `
        -StorageAccountName $diagnostics_storagename `
        -StorageAccountKey $primary_storagekey
 
@@ -90,9 +93,9 @@ Mevcut bir hizmet üzerinde `Set-AzureServiceDiagnosticsExtension` kullanma
     $diagnostics_storagename = "myservicediagnostics"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
     $workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
-    $primary_storagekey = (Get-AzureStorageKey `
+    $primary_storagekey = (Get-AzStorageKey `
          -StorageAccountName "$diagnostics_storagename").Primary
-    $storage_context = New-AzureStorageContext `
+    $storage_context = New-AzStorageContext `
         -StorageAccountName $diagnostics_storagename `
         -StorageAccountKey $primary_storagekey
 

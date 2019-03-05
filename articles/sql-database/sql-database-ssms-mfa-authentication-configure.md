@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 98d48659225d89f476ca1e3cc437245bc9e9f753
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 453a048bc9e7c2878c0730b9002b10bdeb8c22fa
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564825"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316226"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio ve Azure AD için çok faktörlü kimlik doğrulamasını yapılandırma
 
@@ -28,7 +28,7 @@ Bu konuda, SQL Server Management Studio ile Azure Active Directory'ye multi fact
 
 ## <a name="configuration-steps"></a>Yapılandırma adımları
 
-1. **Azure Active Directory'yi yapılandırma** - daha fazla bilgi için bkz: [Azure AD dizininizi yönetme](https://msdn.microsoft.com/library/azure/hh967611.aspx), [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory/hybrid/whatis-hybrid-identity.md), [ Kendi etki alanı adınızı Azure AD'ye ekleme](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure artık Windows Server Active Directory ile Federasyonu destekliyor](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), ve [Windows PowerShell'i kullanarak Azure AD'yi yönetme](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+1. **Azure Active Directory'yi yapılandırma** - daha fazla bilgi için bkz: [Azure AD dizininizi yönetme](https://msdn.microsoft.com/library/azure/hh967611.aspx), [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory/hybrid/whatis-hybrid-identity.md), [ Kendi etki alanı adınızı Azure AD'ye ekleme](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure artık Windows Server Active Directory ile Federasyonu destekliyor](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), ve [Windows PowerShell'i kullanarak Azure AD'yi yönetme](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 2. **Mfa'yı yapılandırma** - adım adım yönergeler için bkz: [Azure multi-Factor Authentication nedir?](../active-directory/authentication/multi-factor-authentication.md), [koşullu erişim (MFA) ile Azure SQL veritabanı ve veri ambarı](sql-database-conditional-access.md). (Tam koşullu erişim, bir Premium Azure Active Directory (Azure AD) gerektirir. Sınırlı MFA standart bir Azure AD ile kullanılabilir.)
 3. **SQL veritabanı veya SQL veri ambarı için Azure AD kimlik doğrulaması yapılandırma** - adım adım yönergeler için bkz: [SQL veritabanı veya SQL veri ambarı Azure Active Directory kimlik doğrulamasını kullanarak bağlanma](sql-database-aad-authentication.md).
 4. **SSMS'yi indirin** - istemci bilgisayarda, en son SSMS'yi indirin [indirme SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Tüm özellikler için bu konudaki en az Temmuz 2017, sürüm 17,2 kullanın.  

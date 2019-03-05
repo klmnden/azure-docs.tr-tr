@@ -8,20 +8,22 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: 707c04c22e54220f3020b5897c364318b427267b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 2ba0ea64aab67221aa1ee3a87ad35ce7d5516167
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586602"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310055"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure REST API izleme Kılavuzu
 
-Bu makalede kodunuzu kullanabilmeniz için kimlik doğrulaması yapma gösterilmektedir [Microsoft Azure İzleyici REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Bu makalede kodunuzu kullanabilmeniz için kimlik doğrulaması yapma gösterilmektedir [Microsoft Azure İzleyici REST API Başvurusu](https://docs.microsoft.com/rest/api/monitor/).
 
 Azure İzleyici API program aracılığıyla kullanılabilir varsayılan ölçüm tanımları, ayrıntı düzeyi ve ölçüm değerleri almak mümkün kılar. Verileri Azure SQL veritabanı, Azure Cosmos DB veya Azure Data Lake gibi ayrı bir veri deposu olarak kaydedilebilir. Buradan, gerektiği gibi ek çözümleme gerçekleştirilebilir.
 
-Çeşitli ölçüm veri noktalarıyla çalışma yanı sıra, monitör API'si de, uyarı kuralları, etkinlik günlüklerini görüntüleme ve daha fazlasını listesinde mümkün kılar. Kullanılabilir işlemleri tam bir listesi için bkz. [Microsoft Azure İzleyici REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+Çeşitli ölçüm veri noktalarıyla çalışma yanı sıra, monitör API'si de, uyarı kuralları, etkinlik günlüklerini görüntüleme ve daha fazlasını listesinde mümkün kılar. Kullanılabilir işlemleri tam bir listesi için bkz. [Microsoft Azure İzleyici REST API Başvurusu](https://docs.microsoft.com/rest/api/monitor/).
 
 ## <a name="authenticating-azure-monitor-requests"></a>Azure İzleyici kimlik doğrulama istekleri
 
@@ -34,24 +36,24 @@ $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
 
 # Authenticate to a specific Azure subscription.
-Connect-AzureRmAccount -SubscriptionId $subscriptionId
+Connect-AzAccount -SubscriptionId $subscriptionId
 
 # Password for the service principal
 $pwd = "{service-principal-password}"
 $secureStringPassword = ConvertTo-SecureString -String $pwd -AsPlainText -Force
 
 # Create a new Azure AD application
-$azureAdApplication = New-AzureRmADApplication `
+$azureAdApplication = New-AzADApplication `
                         -DisplayName "My Azure Monitor" `
                         -HomePage "https://localhost/azure-monitor" `
                         -IdentifierUris "https://localhost/azure-monitor" `
                         -Password $secureStringPassword
 
 # Create a new service principal associated with the designated application
-New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
 # Assign Reader role to the newly created service principal
-New-AzureRmRoleAssignment -RoleDefinitionName Reader `
+New-AzRoleAssignment -RoleDefinitionName Reader `
                           -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
 ```
@@ -59,9 +61,9 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 Azure İzleyici API sorgulamak için istemci uygulaması daha önce oluşturulan hizmet sorumlusuyla kimlik doğrulaması yapmak için kullanmanız gerekir. Aşağıdaki örnek PowerShell Betiği bir gösterir kullanarak yaklaşımını [Active Directory Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md) JWT kimlik doğrulama belirteci almak için (ADAL). JWT belirteci varsayılan olarak, Azure İzleyici REST API için bir HTTP yetkilendirme parametresi isteklerinde bir parçası olarak geçirilir.
 
 ```PowerShell
-$azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
+$azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
 
-$subscription = Get-AzureRmSubscription -SubscriptionId $subscriptionId
+$subscription = Get-AzSubscription -SubscriptionId $subscriptionId
 
 $clientId = $azureAdApplication.ApplicationId.Guid
 $tenantId = $subscription.TenantId
@@ -630,7 +632,7 @@ Kaynak Kimliği, Azure portalından da alınabilir. Bunu yapmak için istenen ka
 Kaynak Kimliği, Azure PowerShell cmdlet'leri kullanılarak alınabilir. Örneğin, bir Azure mantıksal uygulaması için kaynak Kimliğini almak için aşağıdaki örnekte olduğu gibi Get-AzureLogicApp cmdlet'ini yürütün:
 
 ```PowerShell
-Get-AzureRmLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
+Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 ```
 
 Sonuç, aşağıdaki örneğe benzer olmalıdır:

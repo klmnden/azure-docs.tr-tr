@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4499424ef25e7d2ba32b691cce6d5d3d1face0d0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877954"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308474"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure stack'teki kota türleri
 
@@ -44,7 +44,7 @@ ms.locfileid: "56877954"
 
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
-| Maksimum Kapasite (GB) |2048 |Bu konumda bulunan bir abonelik tarafından tüketilen toplam depolama kapasitesi. |
+| Maksimum Kapasite (GB) |2048 |Bu konumda bulunan bir abonelik tarafından tüketilebilecek (BLOB'lar ve tüm assiociated anlık görüntüleri, tablolar, kuyruklar dahil) toplam depolama kapasitesi. |
 | Toplam depolama hesabı sayısı |20 |Bu konumda bir abonelik oluşturduğunuz depolama hesabı sayısı. |
 
 > [!NOTE]  

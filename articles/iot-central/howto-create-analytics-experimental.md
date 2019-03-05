@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 83225af7cb2cbdff4a264693e30b2a813f6ec9c7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 69b941b97a533740322d9070497de6845e834a16
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214938"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315648"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Cihazınızın verileri analiz etmek için Analytics kullanma
 
@@ -23,7 +23,7 @@ Azure IOT Central, büyük miktarda verileri anlamlı zengin analiz özellikleri
 
 ## <a name="querying-your-data"></a>Verilerinizi sorgulama
 
-Seçmeniz gerekir bir **cihaz kümesi**, ekleme bir **filtre** (isteğe bağlı) seçip bir **süre** kullanmaya başlamak için. İşiniz bittiğinde tıklayarak *sonuçları göster* verilerinizi görselleştirme başlatmak için.
+Seçmeniz gerekir bir **cihaz kümesi**, ekleme bir **filtre** (isteğe bağlı) seçip bir **süre** kullanmaya başlamak için. İşiniz bittiğinde seçin **sonuçları göster** verilerinizi görselleştirme başlatmak için.
 
 * **Cihaz kümeleri:** A [cihaz kümesi](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) cihazlarınızı, kullanıcı tanımlı grubudur. Örneğin, tüm Refrigerators Oakland içinde ya da tüm 2.0 Rüzgar turbines rev.
 

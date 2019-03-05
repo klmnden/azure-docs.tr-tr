@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ae9f4d1ebcb84748b665579104f63dab3ee6f076
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 65940aa07c532ae3bc708d475b2d6ac60cf8d636
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463880"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308933"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Bulut veritabanlarında dağıtılmış işlemler
 
@@ -126,13 +126,15 @@ Yükleyici'den Azure bulut Hizmetleri .NET 4.6 için önyükleme işlemi sıras�
 
 ## <a name="transactions-across-multiple-servers"></a>Birden fazla sunucuya işlemleri
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Elastik veritabanı işlemleri, Azure SQL veritabanı'nda farklı bir SQL veritabanı sunucuları arasında desteklenir. İşlemleri SQL veritabanı sunucusu sınırları geçtiğinde katılan sunucular ilk bir karşılıklı iletişim ilişkisi girilmesi gerekir. İletişim ilişki kurulduktan sonra iki sunucuların herhangi bir veritabanında başka bir sunucudan veritabanları ile elastik işlemler katılabilir. İkiden fazla SQL veritabanı sunucuları kapsayan işlemler ile bir iletişim ilişkisi çiftinde SQL veritabanı sunucuları için yerinde olması gerekir.
 
 Elastik veritabanı işlemleri için çapraz-sunucu iletişimi ilişkileri yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın:
 
-* **New-AzureRmSqlServerCommunicationLink**: Azure SQL veritabanı'nda iki SQL veritabanı sunucuları arasında yeni bir iletişim ilişkisi oluşturmak için bu cmdlet'i kullanın. Her iki sunucuyu diğer sunucu işlemleri başlatabilirsiniz yani simetrik ilişkidir.
-* **Get-AzureRmSqlServerCommunicationLink**: Mevcut iletişim ilişkileri ve özellikleri almak için bu cmdlet'i kullanın.
-* **Remove-AzureRmSqlServerCommunicationLink**: Mevcut bir iletişim ilişkiyi kaldırmak için bu cmdlet'i kullanın. 
+* **New-AzSqlServerCommunicationLink**: Azure SQL veritabanı'nda iki SQL veritabanı sunucuları arasında yeni bir iletişim ilişkisi oluşturmak için bu cmdlet'i kullanın. Her iki sunucuyu diğer sunucu işlemleri başlatabilirsiniz yani simetrik ilişkidir.
+* **Get-AzSqlServerCommunicationLink**: Mevcut iletişim ilişkileri ve özellikleri almak için bu cmdlet'i kullanın.
+* **Remove-AzSqlServerCommunicationLink**: Mevcut bir iletişim ilişkiyi kaldırmak için bu cmdlet'i kullanın. 
 
 ## <a name="monitoring-transaction-status"></a>İşlem durumunu izleme
 

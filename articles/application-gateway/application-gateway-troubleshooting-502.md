@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d50f25fbe10fc5ac4e834141fe7ac45fbed918ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819459"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309035"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway'de hatalı ağ geçidi hatalarını giderme
 
 Application gateway kullanırken alınan hatalı ağ geçidi (502) hatalarında sorun giderme hakkında bilgi edinin.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -50,21 +52,21 @@ Aşağıdaki adımları izleyerek giderek NSG, UDR ve DNS yapılandırmasını d
 * Uygulama ağ geçidi alt ağı ile ilişkili UDR denetleyin. UDR uzağa arka uç alt ağı trafiği yönlendiren değil olun - ağ sanal Gereçleri veya uygulama ağ geçidi alt ağı ExpressRoute/VPN aracılığıyla tanıtılan varsayılan yollar için yönlendirme için örneğin denetleyin.
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
-Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
 * Etkin NSG ve arka uç VM'den yol denetleyin
 
 ```powershell
-Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
-Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
 
 * Sanal ağda özel DNS varlığını denetleyin. DNS, çıkış VNet özellikleri ayrıntılarını bakarak denetlenebilir.
 
 ```json
-Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
 DhcpOptions            : {
                            "DnsServers": [
                              "x.x.x.x"
@@ -84,7 +86,7 @@ Varsa, DNS sunucusu arka uç havuzu ÜYESİNİN doğru çözümleyemiyorsa oldu�
 | Yoklama URL'si |http://127.0.0.1/ |URL yolu |
 | Interval |30 |Saniye cinsinden yoklama aralığı |
 | Zaman aşımı |30 |Saniye cinsinden yoklama zaman aşımı |
-| Sağlıksız durum eşiği |3 |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
+| İyi durumda olmayan eşik |3 |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
 
 ### <a name="solution"></a>Çözüm
 
@@ -109,7 +111,7 @@ Varsa, DNS sunucusu arka uç havuzu ÜYESİNİN doğru çözümleyemiyorsa oldu�
 | Yol |Araştırma göreli yolu. Geçerli yol başlatılır '/'. Yoklama için gönderilen \<Protokolü\>://\<konak\>:\<bağlantı noktası\>\<yolu\> |
 | Interval |Aralık saniye cinsinden araştırma. İki ardışık araştırmaları arasındaki zaman aralığını budur. |
 | Zaman aşımı |Zaman aşımını saniye cinsinden araştırma. Bu zaman aşımı süresi içinde geçerli bir yanıt alınmazsa, araştırma başarısız olarak işaretlenir. |
-| Sağlıksız durum eşiği |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
+| İyi durumda olmayan eşik |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
 
 ### <a name="solution"></a>Çözüm
 
@@ -132,7 +134,7 @@ Bir kullanıcı isteği alındığında, uygulama ağ geçidi isteği için yap�
 Uygulama ağ geçidi aracılığıyla farklı havuzlar için uygulanabilir Backendhttpsetting'de, bu ayarı yapılandırmak kullanıcıların sağlar. Farklı arka uç havuzları farklı Backendhttpsetting'de ve bu nedenle farklı istek zaman aşımı yapılandırılmış olabilir.
 
 ```powershell
-    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
 ## <a name="empty-backendaddresspool"></a>Boş BackendAddressPool
@@ -146,7 +148,7 @@ Uygulama ağ geçidi Vm'leri ya da sanal makine ölçek kümesi arka uç adres h
 Arka uç adres havuzundaki boş olmadığından emin olun. Bu, PowerShell, CLI veya Portalı aracılığıyla yapılabilir.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
 Yukarıdaki cmdlet çıktısından, boş olmayan arka uç adres havuzu içermelidir. Aşağıda, bir örnek Burada, hangi döndürülen iki havuz arka uç sanal makineleri için FQDN veya IP adresleriyle yapılandırılmış. BackendAddressPool sağlama durumu 'başarılı' olması gerekir.

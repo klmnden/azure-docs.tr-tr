@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 16e23f77509d2402f765981b39a30e08a2309f68
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 325e06cadd2593684bc610a0387829541bea30b2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156536"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311806"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Hızlı Başlangıç: Azure Application Gateway - Azure portalı ile doğrudan web trafiği
 
@@ -115,6 +115,8 @@ Bu örnekte, Azure application gateway için arka uç sunucular olarak kullanan 
 
 ### <a name="install-iis"></a>IIS yükleme
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Açık [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Bunu yapmak için **Cloud Shell** Azure portal ve ardından üst gezinti çubuğundan **PowerShell** aşağı açılan listeden. 
 
     ![Özel uzantıyı yükleme](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
@@ -122,7 +124,7 @@ Bu örnekte, Azure application gateway için arka uç sunucular olarak kullanan 
 2. Sanal makineye IIS yüklemek için aşağıdaki komutu çalıştırın: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -133,7 +135,7 @@ Bu örnekte, Azure application gateway için arka uç sunucular olarak kullanan 
       -Location EastUS
     ```
 
-3. İkinci sanal makine oluşturma ve daha önce tamamladığınız adımları kullanarak IIS yükleyin. Kullanım *myVM2* ve sanal makine adı için **VMName** ayarıyla **Set-AzureRmVMExtension** cmdlet'i.
+3. İkinci sanal makine oluşturma ve daha önce tamamladığınız adımları kullanarak IIS yükleyin. Kullanım *myVM2* ve sanal makine adı için **VMName** ayarıyla **kümesi AzVMExtension** cmdlet'i.
 
 ### <a name="add-backend-servers"></a>Arka uç sunucuları ekleme
 

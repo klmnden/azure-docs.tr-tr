@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/29/2018
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 73c3c57df215a66d914f5ea75475f74eff05a1f0
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 22e9954e66c05bfb2e425a01ffa6f9e3b93b761e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200301"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313727"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Bir CSP olarak oluşturun ve bir Azure IOT Central uygulamasına, müşteri adına yönetmek 
 
@@ -25,7 +25,7 @@ Başlamak için hesabınızı bir Microsoft iş ortağı portalı için oturum a
 
 ![Microsoft Partner Center, müşteri görünümü](media/howto-create-application-asCSP/image1.png)
 
-Azure IOT Central yönetmek kullanılabilir hizmet olarak listelenir. Sayfasında, yeni uygulamalar oluşturabilir veya bu müşteri için mevcut uygulamaları yönetmek için Azure IOT Central bağlantıya tıklayın.
+Azure IOT Central yönetmek kullanılabilir hizmet olarak listelenir. Sayfasında, yeni uygulamalar oluşturabilir veya bu müşteri için mevcut uygulamaları yönetmek için Azure IOT Central bağlantıyı seçin.
 
 ![Azure IOT Central yönetmek kullanılabilir](media/howto-create-application-asCSP/image2.png)
 
@@ -33,7 +33,7 @@ Azure IOT Central Uygulama Yöneticisi sayfasına gelirsiniz. Azure IOT Central,
 
 ![CSP'ler için Yöneticisi oluşturma](media/howto-create-application-asCSP/image3.png)
 
-Azure IOT Central bir uygulama oluşturmak için tıklayın **yeni uygulama** Döşe. Bu uygulama oluşturma sayfası yüklenir. Bu sayfadaki tüm alanları doldurun ve ardından **Oluştur**. Aşağıdaki alanların her biri hakkında daha fazla bilgi bulabilirsiniz.
+Azure IOT Central bir uygulama oluşturmak için Seç **yeni uygulama** Döşe. Bu uygulama oluşturma sayfası yüklenir. Bu sayfadaki tüm alanları doldurun ve ardından **Oluştur**. Aşağıdaki alanların her biri hakkında daha fazla bilgi bulabilirsiniz.
 
 ![CSP'ler için uygulama sayfası oluşturma](media/howto-create-application-asCSP/image4.png)
 

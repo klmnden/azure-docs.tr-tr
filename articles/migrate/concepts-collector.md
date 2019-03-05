@@ -4,15 +4,15 @@ description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3d9106fb682a370e18fc78d35ca31662bae44524
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813339"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310650"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -111,7 +111,7 @@ Bağlantı denetimi URL'lerin bir listesini bağlanarak doğrulanır.
 --- | --- | ---
 *.portal.azure.com | Azure genel uygulanabilir. Zaman eşitleme ve Azure hizmet bağlantısını denetler. | Erişim URL'si gereklidir.<br/><br/> Bağlantı yoksa Önkoşul denetimi başarısız olur.
 *.portal.azure.us | Yalnızca Azure devlet kurumları için geçerlidir. Zaman eşitleme ve Azure hizmet bağlantısını denetler. | Erişim URL'si gereklidir.<br/><br/> Bağlantı yoksa Önkoşul denetimi başarısız olur.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| VCenter Powerclı PowerShell modülünü yüklemek için kullanılır. | İsteğe bağlı URL'lere erişim.<br/><br/> Önkoşul denetimi başarısız olmaz.<br/><br/> Toplayıcı VM üzerinde otomatik Modül yükleme başarısız olur. Modül el ile yüklemeniz gerekir.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| VCenter Powerclı PowerShell modülünü yüklemek için kullanılır. | URL'lere erişim gereklidir.<br/><br/> Önkoşul denetimi başarısız olmaz.<br/><br/> Toplayıcı VM üzerinde otomatik Modül yükleme başarısız olur. Modül internet bağlantısı olan bir makinede el ile yükleyin ve ardından modülleri gerecine kopyalamak gerekir. [Bu sorun giderme Kılavuzu'nda #4. adıma giderek daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>VMware Powerclı modülünü el ile yükleme

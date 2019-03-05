@@ -12,18 +12,20 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: cdd709fa446ffe769c8c57aeb44fe592b12e92d4
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: f68097f7b97814bc24926b6fc1b0bb2a750855a2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416125"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311279"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-posta bildirimlerini otomatik ayarlama
 
 SQL veritabanı ayarlama önerileri Azure SQL veritabanı tarafından oluşturulan [otomatik ayarlama](sql-database-automatic-tuning.md). Bu çözümü sürekli olarak izler ve SQL veritabanları sağlama iş yükleri önerilerinde dizin oluşturma, dizin silinmesi ve sorgu yürütme planlarını iyileştirilmesi için ilgili tek tek her veritabanı için özelleştirilmiş çözümler.
 
-SQL veritabanı otomatik ayarlama önerileri içinde görüntülenebilir [Azure portalında](sql-database-advisor-portal.md), birlikte alınan [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) kullanarak veya çağıran [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) ve [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) komutları. Bu makalede, otomatik ayarlama önerileri almak için bir PowerShell betiğini kullanarak temel alır.
+SQL veritabanı otomatik ayarlama önerileri içinde görüntülenebilir [Azure portalında](sql-database-advisor-portal.md), birlikte alınan [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) kullanarak veya çağıran [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) ve [ PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) komutları. Bu makalede, otomatik ayarlama önerileri almak için bir PowerShell betiğini kullanarak temel alır.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>E-posta bildirimlerini otomatik ayarlama önerileri için otomatik hale getirin
 
@@ -55,7 +57,7 @@ Aynı Otomasyon oluşturmak istediğiniz birden fazla Azure aboneliğiniz varsa,
 
 ## <a name="update-azure-automation-modules"></a>Azure Automation modülleri güncelleştirme
 
-Otomatik ayarlama öneri almak için PowerShell betiğini kullanır [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) ve [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) hangi Azure modüllerine güncelleştirme komutları sürüm 4 veya sonraki sürümleri gereklidir.
+Otomatik ayarlama öneri almak için PowerShell betiğini kullanır [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) ve [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) hangi Azure modüllerini güncelleştirme 4 sürüm komutları ve sonraki sürümleri gereklidir.
 
 Azure PowerShell modüllerini güncelleştirme için şu adımları izleyin:
 
@@ -85,7 +87,7 @@ Oluşturulan runbook içindeki bir PowerShell Betiği yüklemek için aşağıda
 - İçinde "**PowerShell Runbook'u Düzenle**"bölmesinde"**runbook'ları**" menüsünde ağaç ve görünümü, runbook adı görene kadar genişletin (Bu örnekte " **AutomaticTuningEmailAutomation**"). Bu runbook'u seçin.
 - "PowerShell (numarası 1 ile başlayan) Runbook'unu Düzenle" ilk satırında kopyala-yapıştır aşağıdaki PowerShell komut dosyası kodu. Bu PowerShell Betiği olarak sağlanan-başlamanıza yardımcı olmaktır. Komut dosyasını Suite gereksinimlerinizi değiştirin.
 
-PowerShell betiğini üst bilgisinde değiştirmeniz gerekiyor. `<SUBSCRIPTION_ID_WITH_DATABASES>` Azure abonelik kimliğinizi Azure abonelik Kimliğinizi almak nasıl öğrenmek için bkz. [başlama, Azure abonelik GUİD'i](https://blogs.msdn.microsoft.com/mschray/2016/03/18/getting-your-azure-subscription-guid-new-portal/).
+PowerShell betiğini üst bilgisinde değiştirmeniz gerekiyor. `<SUBSCRIPTION_ID_WITH_DATABASES>` Azure abonelik kimliğinizi Azure abonelik Kimliğinizi almak nasıl öğrenmek için bkz. [başlama, Azure abonelik GUİD'i](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/).
 
 Birkaç abonelikleri olması durumunda bunları virgülle ayrılmış komut dosyasının üst bilgisindeki "$subscriptions" özelliğine ekleyebilirsiniz.
 
@@ -104,7 +106,7 @@ $subscriptions = ("<SUBSCRIPTION_ID_WITH_DATABASES>", "<SECOND_SUBSCRIPTION_ID_W
 
 # Get credentials
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
 # Define the resource types
 $resourceTypes = ("Microsoft.Sql/servers/databases")
@@ -113,8 +115,8 @@ $results = @()
 
 # Loop through all subscriptions
 foreach($subscriptionId in $subscriptions) {
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
-    $rgs = Get-AzureRmResourceGroup
+    Select-AzSubscription -SubscriptionId $subscriptionId
+    $rgs = Get-AzResourceGroup
 
     # Loop through all resource groups
     foreach($rg in $rgs) {
@@ -122,7 +124,7 @@ foreach($subscriptionId in $subscriptions) {
 
         # Loop through all resource types
         foreach($resourceType in $resourceTypes) {
-            $resources = Get-AzureRmResource -ResourceGroupName $rgname -ResourceType $resourceType
+            $resources = Get-AzResource -ResourceGroupName $rgname -ResourceType $resourceType
 
             # Loop through all databases
             # Extract resource groups, servers and databases
@@ -151,7 +153,7 @@ foreach($subscriptionId in $subscriptions) {
 
                 # Loop through all Automatic tuning recommendation types
                 foreach ($advisor in $advisors) {
-                    $recs = Get-AzureRmSqlDatabaseRecommendedAction -ResourceGroupName $ResourceGroupName -ServerName $ServerName  -DatabaseName $DatabaseName -AdvisorName $advisor
+                    $recs = Get-AzSqlDatabaseRecommendedAction -ResourceGroupName $ResourceGroupName -ServerName $ServerName  -DatabaseName $DatabaseName -AdvisorName $advisor
                     foreach ($r in $recs) {
                         if ($r.State.CurrentValue -eq "Active") {
                             $object = New-Object -TypeName PSObject

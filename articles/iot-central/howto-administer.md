@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: feaedff2cb9f8eae30fd17c497b4a2f6de490b07
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d325c30173955ff7c08099a125094ffe620c7ee3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822604"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313387"
 ---
 # <a name="administer-your-iot-central-application"></a>IOT Central uygulamanızı yönetme
 
@@ -46,7 +46,7 @@ Uygulama görüntüsü değiştirmek için bkz [hazırlama ve karşıya yükleme
 ### <a name="copy-an-application"></a>Bir uygulamayı kopyalama
 Tüm cihaz örnekleri, cihaz verileri geçmişi ve kullanıcı verileri hariç herhangi bir uygulamanın bir kopyasını oluşturabilirsiniz. Kopyalama için ücret ödersiniz bir Kullandıkça Öde uygulama olacaktır. Bu şekilde deneme uygulama oluşturulamıyor.
 
-Tıklayın **kopyalama** düğmesi. İletişim kutusunda, yeni bir Kullandıkça Öde uygulama için ayrıntıları girin. Ardından **kopyalama** düğmesini devam etmek istediğinizi onaylayın. Bu formdaki alanları hakkında daha fazla bilgi [uygulama oluşturma](quick-deploy-iot-central.md) hızlı başlangıç.
+Seçin **kopyalama**. İletişim kutusunda, yeni bir Kullandıkça Öde uygulama için ayrıntıları girin. Ardından **kopyalama** devam etmek istediğinizi onaylayın. Bu formdaki alanları hakkında daha fazla bilgi [uygulama oluşturma](quick-deploy-iot-central.md) hızlı başlangıç.
 
 ![Uygulama Ayarları sayfası](media/howto-administer/appCopy2.png)
 
@@ -131,13 +131,13 @@ Bu Self Servis işlemi tamamlamak için aşağıdaki adımları izleyin:
 
     ![Deneme durumu](media/howto-administer/freetrialbilling.png)
 
-1. Tıklayın **Kullandıkça Öde aboneliğine dönüştürmek**. 
+1. Seçin **Kullandıkça Öde aboneliğine dönüştürmek**. 
 
     ![Deneme Dönüştür](media/howto-administer/convert.png)
 
 1. Uygun Azure Active Directory seçin ve sonra Azure aboneliği Kullandıkça Öde uygulamanız için kullanılacak.
 
-1. Tıkladıktan sonra **dönüştürme**, uygulamanız artık Kullandıkça Öde uygulamasıdır ve faturalandırılan başlatın.
+1. Seçtikten sonra **dönüştürme**, uygulamanız artık Kullandıkça Öde uygulamasıdır ve faturalandırılan başlatın.
 
 ## <a name="export-data"></a>Verileri dışarı aktarma
 

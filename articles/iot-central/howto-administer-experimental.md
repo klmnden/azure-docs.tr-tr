@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8989d6ef54961f5f8eea7c6d8c9d941319bd917a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8a3e90488558335ca5d186e6ff1dbab6abf5aaee
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215415"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313183"
 ---
 # <a name="administer-your-iot-central-application"></a>IOT Central uygulamanızı yönetme
 
@@ -46,7 +46,7 @@ Uygulama görüntüsü değiştirmek için bkz [hazırlama ve karşıya yükleme
 ### <a name="copy-an-application"></a>Bir uygulamayı kopyalama
 Tüm cihaz örnekleri, cihaz verileri geçmişi ve kullanıcı verileri hariç herhangi bir uygulamanın bir kopyasını oluşturabilirsiniz. Kopyalama için ücret ödersiniz bir Kullandıkça Öde uygulamasıdır. Bu şekilde deneme uygulama oluşturulamıyor.
 
-Tıklayın **kopyalama** düğmesi. İletişim kutusunda, yeni bir Kullandıkça Öde uygulama için ayrıntıları girin. Ardından **kopyalama** düğmesini devam etmek istediğinizi onaylayın. Bu formdaki alanları hakkında daha fazla bilgi [uygulama oluşturma](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) hızlı başlangıç.
+Seçin **kopyalama**. İletişim kutusunda, yeni bir Kullandıkça Öde uygulama için ayrıntıları girin. Ardından **kopyalama** devam etmek istediğinizi onaylayın. Bu formdaki alanları hakkında daha fazla bilgi [uygulama oluşturma](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) hızlı başlangıç.
 
 ![Uygulama Ayarları sayfası](media/howto-administer-experimental/appCopy2.png)
 
@@ -130,13 +130,13 @@ Bu Self Servis işlemi tamamlamak için aşağıdaki adımları izleyin:
 
     ![Deneme durumu](media/howto-administer-experimental/freetrialbilling.png)
 
-1. Tıklayın **Kullandıkça Öde aboneliğine dönüştürmek**.
+1. Seçin **Kullandıkça Öde aboneliğine dönüştürmek**.
 
     ![Deneme Dönüştür](media/howto-administer-experimental/convert.png)
 
 1. Uygun Azure Active Directory seçin ve sonra Azure aboneliği Kullandıkça Öde uygulamanız için kullanılacak.
 
-1. Tıkladıktan sonra **dönüştürme**, uygulamanız artık Kullandıkça Öde uygulamasıdır ve faturalandırılan başlatın.
+1. Seçtikten sonra **dönüştürme**, uygulamanız artık Kullandıkça Öde uygulamasıdır ve faturalandırılan başlatın.
 
 ## <a name="export-data"></a>Verileri dışarı aktarma
 

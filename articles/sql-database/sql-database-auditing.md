@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: bbf04104d70ecb6ea8d83c6167b5b9b0dfe2c2dc
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 38a5434d4b6f27aacdf1861fa0b005501ad1e28b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217453"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308899"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -160,7 +160,7 @@ Denetim günlükleri bir Azure depolama hesabına yazma seçerseniz, günlükler
 
     4. Ssms'de, burada, görüntülemek ve analiz edin, yapabilir XEL'e bakın veya CSV dosyasına veya bir tabloya dışarı birleştirilmiş dosyayı açar.
 
-- Power BI'ı kullanın. Görüntüleyebilir ve denetim günlüğü verilerini Power bı'da çözümleyin. Daha fazla bilgi ve indirilebilir bir şablon erişmek için bkz: [Çözümle denetim günlüğü verilerini Power bı'da](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+- Power BI'ı kullanın. Görüntüleyebilir ve denetim günlüğü verilerini Power bı'da çözümleyin. Daha fazla bilgi ve indirilebilir bir şablon erişmek için bkz: [Çözümle denetim günlüğü verilerini Power bı'da](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 - Azure depolama blob kapsayıcısını Portalı aracılığıyla ya da bir aracı gibi kullanarak günlük dosyalarını indirin [Azure Depolama Gezgini](http://storageexplorer.com/).
   - Günlük dosyasını yerel olarak indirdikten sonra ssms'de günlüklerini çözümleme açmak ve görüntülemek için dosyaya çift tıklayın.
   - Ayrıca, Azure Depolama Gezgini aracılığıyla aynı anda birden çok dosyayı indirebilirsiniz. Bunu yapmak için belirli bir alt klasörü sağ tıklatın ve seçin **Kaydet** yerel bir klasöre kaydedin.
@@ -170,8 +170,8 @@ Denetim günlükleri bir Azure depolama hesabına yazma seçerseniz, günlükler
   - Çeşitli dosyalar veya günlük dosyaları içeren alt indirdikten sonra bunları yerel olarak daha önce açıklanan SSMS birleştirme Denetim dosyalarını yönergelerinde açıklandığı birleştirebilirsiniz.
   - Blob görünümü denetimi programlı olarak kaydeder:
 
-    - Kullanım [genişletilmiş olaylar okuyucu](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C# Kitaplığı.
-    - [Sorgu genişletilmiş olaylar dosyaları](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) PowerShell kullanarak.
+    - Kullanım [genişletilmiş olaylar okuyucu](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C# Kitaplığı.
+    - [Sorgu genişletilmiş olaylar dosyaları](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) PowerShell kullanarak.
 
 ## <a id="subheading-5"></a>Üretim uygulamaları
 

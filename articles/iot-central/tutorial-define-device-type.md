@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 1ed1790d9fe1cdaa8d00b45e0684531984906c7f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0e872509b7971adce871daf6967c0fcd1a87e9bc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661828"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311048"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Öğretici: Azure IOT Central, uygulamanızda yeni bir cihaz türünü tanımlayın
 
@@ -118,7 +118,7 @@ Aşağıdaki adımlar, uygulamanıza sıcaklık telemetrisi gönderen cihazlar i
     ![Klima ölçümleri](./media/tutorial-define-device-type/airconmeasurements.png)
 
     > [!NOTE]
-    > Cihazın veya cihaz şablonunun adını değiştirmek için, sayfanın en üstündeki metne tıklayın.
+    > Cihaz veya cihaz şablon adını değiştirmek için sayfanın üst kısmındaki metni seçin.
 
 5. Sıcaklık telemetri ölçümünü eklemek için **Yeni Ölçüm**'ü seçin. Ardından ölçüm türü olarak **Telemetri** seçin:
 
@@ -187,7 +187,7 @@ Cihaz tarafından bir hata veya bileşen arızası gibi önemli bir duruma işar
 
     ![Olay simülasyonunu görüntüleme](./media/tutorial-define-device-type/eventview.png)
 
-1. Olay hakkındaki diğer ayrıntıları görmek için grafikte olaya tıklayın:
+1. Olayı hakkındaki ek ayrıntıları görmek için grafikteki bir olay seçin:
 
     ![Olay Ayrıntılarını Görüntüleme](./media/tutorial-define-device-type/eventviewdetail.png)
 
@@ -228,7 +228,7 @@ Belirli bir zaman süresince cihazın veya bileşeninin durumunu tanımlamak ve 
 
     ![Durum simülasyonunu görüntüleme](./media/tutorial-define-device-type/stateview.png)
 
-4. Kısa bir süre içinde cihazdan çok fazla veri noktası gönderildiği olursa, durum ölçümü aşağıda gösterildiği gibi farklı bir görselle görüntülenir. Grafiğe tıklarsanız, söz konusu süre içindeki tüm veri noktaları kronolojik sırada görüntülenir. Ayrıca zaman aralığını daraltarak ölçümü daha ayrıntılı bir şekilde de görebilirsiniz.
+4. Kısa bir süre içinde cihazdan çok fazla veri noktası gönderildiği olursa, durum ölçümü aşağıda gösterildiği gibi farklı bir görselle görüntülenir. Ardından grafik seçerseniz, bu süre içinde tüm veri noktalarına kronolojik sırada görüntülenir. Ayrıca zaman aralığını daraltarak ölçümü daha ayrıntılı bir şekilde de görebilirsiniz.
 
     ![Durum ayrıntılarını görüntüleme](./media/tutorial-define-device-type/stateviewdetail.png)
 
@@ -367,7 +367,7 @@ Operatörün doğrudan cihazda komut çalıştırabilmesi için _komutları_ kul
 
 1. Şablonu düzenlemek için **Bağlı Klima** cihaz şablonunuzun **Komutlar** sayfasına gidin. 
 
-1. Cihazınıza komut eklemek ve yeni komutu yapılandırmaya başlamak için **Yeni Komut**'a tıklayın.
+1. Seçin **yeni komut** cihazınıza komut ekleneceğini ve yeni komutunuz yapılandırmaya başlamak için.
 
    Gereksinimlerinize bağlı olarak farklı türde komutlar oluşturabilirsiniz. 
 
@@ -381,7 +381,7 @@ Operatörün doğrudan cihazda komut çalıştırabilmesi için _komutları_ kul
     | Görüntüleme Türü         | metin            |
     | Açıklama          | Cihaz Komutu  |  
 
-    **Giriş Alanları** bölümündeki **+** öğesine tıklayarak komutunuza başka girişler ekleyebilirsiniz.
+    Komut için ek girişler seçerek ekleyebilirsiniz **+** için **giriş alanları**.
 
     ![Ayar eklemeye hazırlanma](media/tutorial-define-device-type/commandsecho1.png)
 
@@ -439,7 +439,7 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     Ardından **Kaydet**'i seçin.
 
-1. Panoya sıcaklık ayarlama ayarını eklemek için **Ayarlar ve Özellikler**'i seçin. Panoda görmek istediğiniz ayarları veya özellikleri eklemek için **Ekle/Kaldır**'a tıklayın. 
+1. Panoya sıcaklık ayarlama ayarını eklemek için **Ayarlar ve Özellikler**'i seçin. Seçin **Ekle/Kaldır** ayarları veya Panoda görmek istediğiniz özellikleri eklemek için. 
 
     ![Pano bileşenleri](./media/tutorial-define-device-type/dashboardcomponents4.png)
 

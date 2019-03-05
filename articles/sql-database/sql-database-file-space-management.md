@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b537dd8360c39a744cf9963376387a4c89e33838
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110158"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311653"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Azure SQL veritabanı'nda tek ve havuza alınmış veritabanları için dosya alanı yönetme
 
@@ -27,6 +27,8 @@ Bu makalede Azure SQL veritabanı ve dosya alanı veritabanları için ayrılan 
 > Bu makalede, Azure SQL veritabanı yönetilen örnek dağıtım seçeneği için geçerli değildir.
 
 ## <a name="overview"></a>Genel Bakış
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Azure SQL veritabanı'nda tek ve havuza alınmış veritabanları ile vardır iş yükü düzenleri ayırma veritabanları için temel alınan veri dosyaları burada kullanılan veri sayfaları tutardan daha büyük olabilir. Bu durum kullanılan alanın artması ve sonrasında verilerin silinmesi durumunda ortaya çıkabilir. Bunun nedeni, veri silindiğinde ayrılmış dosya alanı otomatik olarak alınmaz olmasıdır.
 
@@ -40,7 +42,7 @@ Aşağıdaki senaryolarda dosya alanı kullanımının izlenmesi ve veri dosyala
 
 Azure portalı ve aşağıdaki API'leri gösterilen Çoğu depolama alanı ölçümleri yalnızca kullanılan veri sayfaların boyutu ölçü:
 
-- Azure Resource Manager tabanlı ölçümleri API'leri PowerShell dahil olmak üzere [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
+- Azure Resource Manager tabanlı ölçümleri API'leri PowerShell dahil olmak üzere [get-metrics](https://docs.microsoft.com/powershell/module/az.insights/get-azmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Ancak aşağıdaki API'leri veritabanları ve elastik için ayrılan alanı boyutu da ölçüm havuzları:
@@ -162,7 +164,7 @@ $userName = "name"
 $password = "password"
 
 # Get list of databases in elastic pool
-$databasesInPool = Get-AzureRmSqlElasticPoolDatabase `
+$databasesInPool = Get-AzSqlElasticPoolDatabase `
     -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -ElasticPoolName $poolName

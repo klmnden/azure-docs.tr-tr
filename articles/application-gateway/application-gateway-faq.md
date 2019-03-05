@@ -8,14 +8,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: a65aabc7b56c4dd5f2d22974756f5f3e54cebb31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5552ca80059b4aa7ef96caf7984b4c15ec177d38
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867720"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316600"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway için sık sorulan sorular
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general"></a>Genel
 
@@ -41,10 +43,10 @@ HTTP/2 protokolü desteği, yalnızca uygulama ağ geçidi dinleyicileri bağlan
 
 Varsayılan olarak, HTTP/2 desteği devre dışıdır. Aşağıdaki Azure PowerShell kod parçacığı örneği nasıl olanak sağlayabileceğiniz gösterir:
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+```azurepowershell
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Hangi kaynakların arka uç havuzunun bir parçası bugün destekleniyor mu?
@@ -70,6 +72,10 @@ Dinleyiciler, gösterilen sırada işlenir. Temel dinleyici gelen bir istekle e�
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>Uygulama ağ geçidinin IP ve DNS nerede bulabilirim?
 
 Genel bir IP adresi bir uç nokta kullanırken, bu bilgileri genel IP adresi kaynağı veya genel bakış sayfasında application Gateway portalında bulunabilir. İç IP adresleri için bu genel bakış sayfasında bulunabilir.
+
+### <a name="what-is-keep-alive-timeout-and-tcp-idle-timeout-setting-on-application-gateway"></a>Tutma zaman aşımı ve TCP boşta kalma zaman aşımı ayarını Application Gateway nedir?
+
+V1 SKU tutma zaman aşımını v2 SKU zaman aşımı süresi 120 sec. tutma 4 dakika varsayılandır Application Gateway VIP ön uç üzerinde 75 sec. TCP boşta kalma zaman aşımı şeklindedir.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>IP veya DNS adını uygulama ağ geçidi ömrü boyunca ile değişiyor mu?
 
@@ -126,7 +132,7 @@ Ağ güvenlik grupları (Nsg'ler), uygulama ağ geçidi alt ağının aşağıda
 
 * Özel durumlar için gelen trafiği 65503 65534 noktalarına v1 SKU ve bağlantı noktaları 65200-65535 Application Gateway için v2 SKU için yerleştirilmesi gereken. Bu bağlantı noktası aralığı, Azure altyapı iletişimi için gereklidir. Bunlar Azure sertifikaları tarafından korunur (kilitlenir). Uygun sertifikaları olmadan, bu ağ geçitlerinin müşterileri dahil dış varlıklar, bu uç noktalarında herhangi bir değişiklik başlatmak mümkün değildir.
 
-* Giden internet bağlantısı engellenemez.
+* Giden internet bağlantısı engellenemez. Giden kuralları NSG varsayılan internet bağlantısı zaten izin verin. Giden varsayılan kuralları kaldırmayın ve giden internet bağlantısı Reddet diğer giden kuralları oluşturmayın öneririz.
 
 * AzureLoadBalancer etiketini gelen trafiğe izin verilmesi gerekir.
 
@@ -342,7 +348,7 @@ Application Gateway için kullanılabilen üç günlükleri vardır. Bu günlük
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>My arka uç havuzu üyelerine sağlıklı olup olmadığını nasıl anlarım?
 
-PowerShell cmdlet'ini kullanabilirsiniz `Get-AzureRmApplicationGatewayBackendHealth` veya sistem durumu Portalı aracılığıyla ziyaret ederek [uygulama ağ geçidi tanılama](application-gateway-diagnostics.md)
+PowerShell cmdlet'ini kullanabilirsiniz `Get-AzApplicationGatewayBackendHealth` veya sistem durumu Portalı aracılığıyla ziyaret ederek [uygulama ağ geçidi tanılama](application-gateway-diagnostics.md)
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Tanılama günlükleri ile ilgili bekletme ilkesi nedir?
 

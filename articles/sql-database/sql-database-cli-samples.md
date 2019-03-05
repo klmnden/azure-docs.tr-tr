@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 3b98214da259e9e429c938f8ca7963c9f525e862
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 74d322c9e7d45a26f9e095bd7ae9f2bbe506ba49
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560830"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306944"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure SQL Veritabanı için Azure CLI örnekleri
 
@@ -51,9 +51,9 @@ Aşağıdaki tabloda, Azure SQL veritabanı - yönetilen örnek için Azure CLI 
 
 | |  |
 |---|---|
-| [Yönetilen Örnek oluşturma](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | Bu CLI betiği, bir yönetilen örneğin nasıl oluşturulacağını gösterir. |
-| [Yönetilen örnek güncelleştirme](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | Bu CLI betik, yönetilen bir örneği gösterilmektedir. |
-| [Bir veritabanını başka bir yönetilen örneğine taşıyabilirsiniz](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Bu CLI betiği, bir örnekten bir veritabanının bir yedeğini geri yükleme gösterir. |
+| [Yönetilen Örnek oluşturma](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/) | Bu CLI betiği, bir yönetilen örneğin nasıl oluşturulacağını gösterir. |
+| [Yönetilen örnek güncelleştirme](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/) | Bu CLI betik, yönetilen bir örneği gösterilmektedir. |
+| [Bir veritabanını başka bir yönetilen örneğine taşıyabilirsiniz](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Bu CLI betiği, bir örnekten bir veritabanının bir yedeğini geri yükleme gösterir. |
 |||
 
 Daha fazla bilgi edinin [yönetilen örnek Azure CLI API](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) ve bulma [ek örnekler](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).

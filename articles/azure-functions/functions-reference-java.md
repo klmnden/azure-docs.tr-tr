@@ -11,22 +11,26 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 96b22a6e44142fef8d47dc228d5491c31c65478f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 14a9e369f3366fc103cde2f0faafb570de409de7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823068"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311874"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Java işlevleri Geliştirici Kılavuzu
 
 Azure işlevleri çalışma zamanı destekler [Java SE 8 LTS (zulu8.31.0.2 jre8.0.181 win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/).
 
-## <a name="programming-model"></a>Programlama modeli
+Bu kılavuzda, Azure işlevleri ile Java yazma ayrıntılı olarak incelenmektedir hakkında bilgi içerir.
+
+Bir Java işlev, bir `public` yöntemi ek ile donatılmış `@FunctionName`. Bu yöntem, bir java işlev girişini tanımlar ve belirli bir paket içinde benzersiz olmalıdır. 
+
+Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md). Ayrıca ilk oluşturma işlevler hızlı başlangıcı tamamlamanız gereken kullanarak işlev [Visual Studio Code](functions-create-first-function-vs-code.md) veya [maven kullanarak](functions-create-first-java-maven.md).
+
+## <a name="programming-model"></a>Programlama modeli 
 
 Kavramlarını [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md) Azure işlevleri için zorunludur. Tetikleyiciler, kodunuzu yürütmeye başlayın. Bağlamaları, verileri aktarmak ve özel veri erişim kodu yazmak zorunda kalmadan bir işlevden dönüş verileri için bir yol sağlar.
-
-Bir işlev giriş ve çıkış üretmek için durum bilgisi olmayan bir yöntem olmalıdır. İşlevinizi sınıfının örneği alanlara bağlı olmaması gerekir. Tüm işlev yöntemleri olmalıdır `public` ve ek açıklama yöntemiyle @FunctionName yöntemi adını tanımlayan bir işlev için giriş olarak benzersiz olması gerekir.
 
 ## <a name="folder-structure"></a>klasör yapısı
 

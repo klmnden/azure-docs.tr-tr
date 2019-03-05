@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 704c12bc2ea16fcad5672dde4181f63495fbe967
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870848"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310191"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -113,12 +113,14 @@ Kiracı tanılama ayarları yalnızca Kiracı hizmeti - portal dikey penceresind
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Kaynak tanılama günlükleri PowerShell aracılığıyla koleksiyonunu etkinleştir
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure PowerShell aracılığıyla kaynak tanılama günlükleri toplamayı etkinleştirmek için aşağıdaki komutları kullanın:
 
 Tanılama günlükleri bir depolama hesabında depolama etkinleştirmek için bu komutu kullanın:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 Depolama hesabı kimliği günlükleri göndermek istediğiniz depolama hesabı için kaynak kimliğidir.
@@ -126,7 +128,7 @@ Depolama hesabı kimliği günlükleri göndermek istediğiniz depolama hesabı 
 Olay hub'ına tanılama günlüklerinin akışını etkinleştirmek için bu komutu kullanın:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 Service bus kural kimliği şu biçime sahip bir dizedir: `{Service Bus resource ID}/authorizationrules/{key name}`.
@@ -134,13 +136,13 @@ Service bus kural kimliği şu biçime sahip bir dizedir: `{Service Bus resource
 Tanılama günlüklerinin bir Log Analytics çalışma alanına gönderilmesine izin vermek için bu komutu kullanın:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 Aşağıdaki komutu kullanarak Log Analytics çalışma alanınızın kaynak kimliği elde edebilirsiniz:
 
 ```powershell
-(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+(Get-AzOperationalInsightsWorkspace).ResourceId
 ```
 
 Birden çok çıkış seçeneği etkinleştirmek için şu parametreleri birleştirebilirsiniz.

@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9925f2ed9f5b24a4113c30f1d00eb3a5bbed8eb5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d21fe7c70c09ad41faf628db45d82b995c8f2515
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205350"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311449"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -117,7 +117,7 @@ Bağlantı sorunlarınız olduğunda, daha fazla bilgi için bkz. [bağlantı so
 * İsteğe bağlı: Eşitleme doğrulamak için bir test kullanıcı hesabı.
 
 ## <a name="component-prerequisites"></a>Bileşen önkoşulları
-### <a name="powershell-and-net-framework"></a>PowerShell ve .net Framework
+### <a name="powershell-and-net-framework"></a>PowerShell ve .NET Framework
 Azure AD Connect, Microsoft PowerShell ve .NET Framework 4.5.1 bağlıdır. Bu sürümü veya sonraki bir sürümü sunucuda yüklü ihtiyacınız var. Windows Server sürümüne bağlı olarak, aşağıdakileri yapın:
 
 * Windows Server 2012R2
@@ -133,16 +133,16 @@ Sürüm 1.1.614.0 önce Azure AD Connect varsayılan olarak TLS 1.0 eşitleme al
 
 1. TLS 1.2, önce Windows Server 2008 R2 veya üzeri etkinleştirilemez. İşletim sisteminiz için .net 4.5.1 düzeltme Bkz emin [Microsoft Güvenlik Danışma 2960358](https://technet.microsoft.com/security/advisory/2960358). Bu düzeltme veya sonraki bir sürümü sunucuda zaten yüklü olabilir.
 2. Windows Server 2008 R2 kullanıyorsanız, TLS 1.2 etkin olduğundan emin olun. Sunucu Windows Server 2012 ve sonraki sürümlerinde, TLS 1.2 zaten etkinleştirilmiş olmalıdır.
-   ```
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-   ```
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    ```
 3. Tüm işletim sistemleri için bu kayıt defteri anahtarını ayarlayın ve sunucuyu yeniden başlatın.
-   ```
-   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
-   "SchUseStrongCrypto"=dword:00000001
-   ```
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
+    "SchUseStrongCrypto"=dword:00000001
+    ```
 4. Ayrıca eşitleme altyapısı sunucusu ve uzak bir SQL Server arasında TLS 1.2 etkinleştirmek istediğiniz sonra emin gerekli sürümler için yüklü olan [Microsoft SQL Server için TLS 1.2 desteği](https://support.microsoft.com/kb/3135244).
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>Federasyon yükleme ve yapılandırma için Önkoşullar

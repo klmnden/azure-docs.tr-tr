@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 9755e624e244abd77709544bb7340d4ef88af629
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e7424af894070b320cde9d4d0922dd6a3fb680c3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872429"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316872"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları
 
@@ -27,6 +27,8 @@ DTU tabanlı satın alma modeli kaynak sınırları için elastik havuzlar için
 
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>Tek veritabanı: Depolama boyutlarına ve işlem boyutları
 
@@ -86,12 +88,12 @@ Aşağıdaki tablolarda her hizmet katmanında tek bir veritabanı için kullan�
 ## <a name="single-database-change-storage-size"></a>Tek veritabanı: Depolama boyutunu değiştir
 
 - Belirli miktarda bir ek maliyet olmadan depolama tek veritabanı DTU ücretini içerir. Dahil edilen miktarın üzerinde ek depolama alanı 1 TB'kurmak 250 GB'lık artışlarla ve 1 TB ötesinde 256 GB'lık artışlarla maksimum boyut sınırına kadar ek bir maliyet sağlanabilir. Dahil edilen depolama alanı miktarları ve en büyük boyutu sınırlar için bkz: [tek veritabanı: Depolama boyutlarına ve bilgi işlem boyutlarına](#single-database-storage-sizes-and-compute-sizes).
-- En büyük boyutu kullanarak artırarak tek bir veritabanı için ek depolama alanı sağlanabilir [Azure portalında](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-storage-size), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- En büyük boyutu kullanarak artırarak tek bir veritabanı için ek depolama alanı sağlanabilir [Azure portalında](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-storage-size), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 - Ek depolama alanı için tek bir veritabanının hizmet katmanı ek depolama alanı birim fiyatı ile çarpılan ek depolama alanı miktarı fiyatıdır. Ek depolama alanının fiyatı hakkında daha fazla bilgi için bkz: [SQL veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="single-database-change-dtus"></a>Tek veritabanı: Dtu değiştirme
 
-Başlangıçta bir hizmet katmanı, işlem boyutu ve depolama alanı miktarı seçtikten sonra tek bir veritabanının ölçeğini artırıp dinamik olarak gerçek deneyime kullanımına dayalı ölçekleme yapabilirsiniz [Azure portalında](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [ PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+Başlangıçta bir hizmet katmanı, işlem boyutu ve depolama alanı miktarı seçtikten sonra tek bir veritabanının ölçeğini artırıp dinamik olarak gerçek deneyime kullanımına dayalı ölçekleme yapabilirsiniz [Azure portalında](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [ PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 Aşağıdaki video gösterildiği hizmet dinamik olarak değiştirme katmanı ve tek bir veritabanı için kullanılabilir Dtu'lar artırmak için boyutu işlem.
 
@@ -104,7 +106,7 @@ Tüm ölçek artırma işleminin süresi hem veritabanı boyutuna hem de değiş
 
 > [!TIP]
 > Devam eden işlemleri izlemek için bkz: [İşlemleri SQL REST API kullanarak yönetmek](https://docs.microsoft.com/rest/api/sql/databaseoperations/listbydatabase
-), [CLI kullanarak işlemlerini yönetmek](/cli/azure/sql/db/op), [T-SQL kullanarak işlemlerini izleyin](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) ve bu iki PowerShell komutları: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) ve [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
+), [CLI kullanarak işlemlerini yönetmek](/cli/azure/sql/db/op), [T-SQL kullanarak işlemlerini izleyin](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) ve bu iki PowerShell komutları: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) ve [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 - Daha yüksek bir hizmet katmanına yükseltme veya boyutu işlem, veritabanı boyutu üst sınırını (maxsıze) daha büyük bir boyut, açıkça belirtmediğiniz sürece artırmaz.
 - Bir veritabanını indirgemek için kullanılan veritabanı boş alanı hedef hizmet katmanı boyutu ve işlem boyutu izin verilen üst sınırdan küçük olması gerekir.

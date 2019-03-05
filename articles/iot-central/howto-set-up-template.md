@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 99fce821c903a9638575eba9fe4a17d294bcbd60
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657748"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310514"
 ---
 # <a name="set-up-a-device-template"></a>Cihaz şablonu ayarlama
 
@@ -125,7 +125,7 @@ Seçtikten sonra **Bitti**, **fanı modu** durumu ölçüm ölçümleri listesin
 
 ![Durum ölçüm grafiği](./media/howto-set-up-template/statemeasurementschart.png)
 
-Cihaz küçük bir süre içinde çok fazla veri noktasının gönderirse, durumu ölçümü ile farklı bir görsel, aşağıdaki ekran görüntüsünde gösterildiği gibi görünür. Grafikte tıklarsanız, bu süre içinde tüm veri noktalarına kronolojik sırada görüntülenir. Grafiği çizilen ölçüm görmek için zaman aralığını da daraltabilirsiniz.
+Cihaz küçük bir süre içinde çok fazla veri noktasının gönderirse, durumu ölçümü ile farklı bir görsel, aşağıdaki ekran görüntüsünde gösterildiği gibi görünür. Grafik seçerseniz, bu süre içinde tüm veri noktalarına kronolojik sırada görüntülenir. Grafiği çizilen ölçüm görmek için zaman aralığını da daraltabilirsiniz.
 
 > [!NOTE]
   Veri türü durumu ölçümü dizedir.
@@ -241,7 +241,7 @@ Bir komutu bir ayardan farklı mı?
 * **Komut**: Anında bir komutu cihazda uzaktan IOT Central ' çalıştırma için komutları kullanın. Bir cihazı bağlı değilse, komut zaman aşımına uğrar ve başarısız olur. Örneğin, bir cihazı yeniden başlatmak istiyor.  
 
 
-Örneğin, yeni bir ekleyebilirsiniz **Yankı** komutunu seçerek **şablon düzenleme**, ardından **+ yeni komut**ve yeni komutu girerek:
+Örneğin, yeni bir ekleyebilirsiniz **Yankı** komutunu seçerek **şablon düzenleme**, ardından seçerek **+ yeni komut**ve yeni komutu girerek:
 
 | Görünen Ad  | Alan Adı | Varsayılan Zaman Aşımı | Veri Türü |
 | --------------| -----------|---------------- | --------- | 

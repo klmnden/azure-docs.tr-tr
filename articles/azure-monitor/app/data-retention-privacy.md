@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1de12f2dd2e31c3f5413424793f3bf78fdc8ff27
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 8218da62eb8c3d8c454ca1dca1bd1071e0de67b0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300270"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308763"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -118,9 +118,7 @@ Bunlar, hesabınıza ek telemetri web sayfalarınıza kodda bulunabilir izleme a
 Diğer projeleri ile kod paylaşın, izleme anahtarınızı kaldırmayı unutmayın.
 
 ## <a name="is-the-data-encrypted"></a>Veriler şifrelenir?
-Mevcut sunucularda içinde değil.
-
-Veri merkezleri arasında hareket ettikçe tüm veriler şifrelenir.
+Tüm veriler bekleme durumundayken şifrelenir ve merkezi olarak arasında veri taşır.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Application Insights sunucularına gelen Aktarımdaki veriler şifrelenir?
 Evet, biz web sunucuları, cihazlar ve HTTPS web sayfaları dahil olmak üzere neredeyse tüm Sdk'lardan portala veri göndermek için https kullanır. Bunun tek istisnası, düz HTTP web sayfalarından gönderilen verilerdir.

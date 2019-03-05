@@ -8,35 +8,34 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 55d0269aaa330f928a9d037eec6a3445825a5ed3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4d82cc59eb1098451a263957aa028b66996bb072
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470350"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307199"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Azure uyarıları yönetim olayları etkinlik günlüğü uyarılarına geçirme
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
 > Tarihinde veya sonrasında 1 Ekim yönetim olayları ile ilgili uyarılar kapatılır. Bu uyarılar ve bu durumda geçiş anlamak için aşağıdaki yönergeleri kullanın.
->
-> 
 
 ## <a name="what-is-changing"></a>Ne değişiyor
 
 Azure İzleyici (eski adıyla Azure öngörüleri) yönetimi olaylarını dışına tetiklenir ve bir Web kancası URL'si veya e-posta adreslerine bildirim oluşturulan bir uyarı oluşturmak için bir özellik sunuluyor. Oluşturmuş olabileceğiniz bunlardan birine uyarılarını şu adımlardan herhangi birini:
 * Bazı kaynak türleri için Azure portalında izleme bölümünden -> Uyarılar -> Ekle "Uyarısı" ayarlandığı "Olaylar" için uyarı,
-* Add-AzureRmLogAlertRule PowerShell cmdlet'ini çalıştırarak
+* Add-AzLogAlertRule PowerShell cmdlet'ini çalıştırarak
 * Doğrudan kullanarak [uyarı REST API'si](https://docs.microsoft.com/rest/api/monitor/alertrules) odata.type ile "ManagementEventRuleCondition" ve dataSource.odata.type = "RuleManagementEventDataSource" =
  
 Aşağıdaki PowerShell betiğini tüm uyarıların bir listesi, aboneliğinizin yanı sıra her bir uyarı koşullara sahip yönetim olayları döndürür.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 $alerts = $null
-foreach ($rg in Get-AzureRmResourceGroup ) {
-  $alerts += Get-AzureRmAlertRule -ResourceGroup $rg.ResourceGroupName
+foreach ($rg in Get-AzResourceGroup ) {
+  $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
 }
 foreach ($alert in $alerts) {
   if($alert.Properties.Condition.DataSource.GetType().Name.Equals("RuleManagementEventDataSource")) {

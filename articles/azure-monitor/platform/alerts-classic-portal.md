@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 6b74d83de0495e3436c9bef623a827e8a1496767
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3e5fa15bbd6890bc6f36c97aadf3aeaa980b5031
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343317"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310327"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Klasik ölçüm uyarılarını yönetme
 
@@ -85,6 +85,8 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 ## <a name="with-powershell"></a>PowerShell ile
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Bu bölüm, komutları oluşturun, görüntüleyin ve klasik ölçüm uyarılarını yönetme PowerShell'in nasıl kullanılacağı gösterilmektedir. Makaledeki örnekler, Azure İzleyici cmdlet'leri için Klasik ölçüm uyarıları nasıl kullanabileceğinizi gösterir.
 
 1. Henüz yapmadıysanız, bilgisayarınızda çalıştırmak için PowerShell'i ayarlayın. Daha fazla bilgi için [yükleme ve yapılandırma PowerShell](/powershell/azure/overview). Ayrıca Azure İzleyici PowerShell cmdlet'leri listesini gözden geçirebilirsiniz [Azure İzleyici (Öngörüler) cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.insights).
@@ -92,40 +94,40 @@ Bu bölüm, komutları oluşturun, görüntüleyin ve klasik ölçüm uyarılar�
 2. İlk olarak, Azure aboneliğinizde oturum açın.
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. Oturum açma ekranı görürsünüz. Hesabınızdaki Tenantıd, bir kez oturum açmak ve varsayılan abonelik kimliği görüntülenir. Tüm Azure cmdlet'lerini varsayılan aboneliğinizi bağlamında çalışır. Erişiminiz Aboneliklerin listesini görüntülemek için aşağıdaki komutu kullanın:
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
 4. Çalışma Bağlamınızı farklı bir aboneliğe değiştirmek için aşağıdaki komutu kullanın:
 
     ```PowerShell
-    Set-AzureRmContext -SubscriptionId <subscriptionid>
+    Set-AzContext -SubscriptionId <subscriptionid>
     ```
 
 5. Tüm Klasik ölçüm uyarı kuralları bir kaynak grubu üzerinde alabilirsiniz:
 
     ```PowerShell
-    Get-AzureRmAlertRule -ResourceGroup montest
+    Get-AzAlertRule -ResourceGroup montest
     ```
 
 6. Klasik bir ölçüm uyarısı kuralının ayrıntılarını görüntüleyebilirsiniz.
 
     ```PowerShell
-    Get-AzureRmAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
+    Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
     ```
 
 7. Bir hedef kaynak için uyarı kurallarının tümünü alabilir. Örneğin, bir VM'de tüm uyarı kuralları ayarlayın.
 
     ```PowerShell
-    Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
+    Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Klasik bir uyarı kuralları artık PowerShell oluşturulabilir. Yeni kullanması gereken bir uyarı kuralı oluşturmak için ['AzureRmMetricAlertRule Ekle'](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-6.13.0) komutu.
+8. Klasik bir uyarı kuralları artık PowerShell oluşturulabilir. Yeni kullanması gereken bir uyarı kuralı oluşturmak için ['AzMetricAlertRule Ekle'](https://docs.microsoft.com/powershell/module/az.insights/add-azmetricalertrule?view=azurermps-6.13.0) komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

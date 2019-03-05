@@ -1,6 +1,6 @@
 ---
-title: Azure geçersiz şablonu hataları | Microsoft Docs
-description: Geçersiz şablon hatalarını çözümlemeyi açıklar.
+title: Azure geçersiz şablon hataları | Microsoft Docs
+description: Geçersiz şablon hataları gidermek nasıl açıklar.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 59f07b9ba8116cb1a4b5ab50382d89d01a78853b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ee4bce38e0fcde93ba0417617ae90dab2eefda67
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357699"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316209"
 ---
-# <a name="resolve-errors-for-invalid-template"></a>Geçersiz şablon için hataları çözümleyin
+# <a name="resolve-errors-for-invalid-template"></a>Geçersiz şablon hataları çözün
 
-Bu makalede, geçersiz şablon hatalarını çözümlemeyi açıklar.
+Bu makalede, geçersiz şablon hataları gidermek açıklar.
 
 ## <a name="symptom"></a>Belirti
 
@@ -33,38 +33,38 @@ Code=InvalidTemplate
 Message=<varies>
 ```
 
-Hata iletisi hata türüne bağlıdır.
+Hata iletisi, hatanın türüne bağlıdır.
 
 ## <a name="cause"></a>Nedeni
 
-Bu hata, birkaç farklı türlerinden hataları neden olabilir. Bunlar genellikle bir söz dizimi veya yapısal hatası şablondaki içerir.
+Bu hata birçok farklı tür hataları neden olabilir. Bunlar genellikle bir şablon söz dizimi veya yapısal hata içerir.
 
 <a id="syntax-error" />
 
-## <a name="solution-1---syntax-error"></a>Çözüm 1 - sözdizimi hatası
+## <a name="solution-1---syntax-error"></a>Çözüm 1 - söz dizimi hatası
 
-Şablon başarısız doğrulama bildiren bir hata iletisi alırsanız, şablonunuzun söz dizimi sorunu olabilir.
+Şablon doğrulama belirten bir hata iletisi alırsanız, şablonunuzun söz dizimi sorunu olabilir.
 
 ```
 Code=InvalidTemplate
 Message=Deployment template validation failed
 ```
 
-Bu hata, şablon ifadeleri karmaşık olabileceğinden yapmak kolaydır. Örneğin, aşağıdaki ad ataması bir depolama hesabı için bir dizi köşeli ayraçlar, üç işlevi, parantez üç kümesi, tek tırnak bir dizi ve bir özelliğine sahiptir:
+Bu hata, şablon ifadeleri karmaşık olabileceğinden yapmak kolaydır. Örneğin, bir depolama hesabı için aşağıdaki ad atama bir kümesini parantez, üç işlev, üç ayarlar parantez, tek tırnak bir dizi ve bir özellik vardır:
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 ```
 
-Eşleştirme sözdizimi sağlamazsanız, şablon amacınız farklı bir değer oluşturur.
+Eşleme sözdizimi sağlamazsanız, şablon amacınız farklı bir değer üretir.
 
-Bu tür hatalara aldığınızda, ifade sözdizimini dikkatle gözden geçirin. Bir JSON Düzenleyicisi gibi kullanmayı [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) veya [Visual Studio Code](resource-manager-vs-code.md), hangi uyar, söz dizimi hataları hakkında.
+Bu tür bir hata iletisini aldığınızda ifadesi söz dizimi dikkatle gözden geçirin. Gibi bir JSON düzenleyicisini kullanmayı [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) veya [Visual Studio Code](resource-manager-vs-code.md), hangi uyar, sözdizimi hataları hakkında.
 
 <a id="incorrect-segment-lengths" />
 
-## <a name="solution-2---incorrect-segment-lengths"></a>Çözüm 2 - yanlış segment uzunluklarına
+## <a name="solution-2---incorrect-segment-lengths"></a>Çözüm 2 - yanlış segment uzunlukları
 
-Kaynak adı doğru biçimde değil başka bir geçersiz şablon hata oluşur.
+Kaynak adı doğru biçimde değil. başka bir geçersiz şablon hata oluşur.
 
 ```
 Code=InvalidTemplate
@@ -72,7 +72,7 @@ Message=Deployment template validation failed: 'The template resource {resource-
 for type {resource-type} has incorrect segment lengths.
 ```
 
-Kök düzeyinde kaynak daha az bir kesim adından kaynak türünde olması gerekir. Her segmentinde bir eğik çizgiyle Ayrıştırılan. Aşağıdaki örnekte, iki bölümü türünde ve bu nedenle bir kesim adına sahip bir **geçerli ad**.
+Kök düzeyi kaynak adından kaynak türü, daha az bir segmente sahip olmaldır. Her segmentinde bir eğik çizgi Ayrıştırılan. Aşağıdaki örnekte, iki Segment türünde ve bunun için bir segment adına sahip bir **geçerli ad**.
 
 ```json
 {
@@ -82,7 +82,7 @@ Kök düzeyinde kaynak daha az bir kesim adından kaynak türünde olması gerek
 }
 ```
 
-Ancak sonraki örnek **geçerli bir ad değil** türü aynı sayıda Segment içerdiğinden.
+Ancak bir sonraki örnekte **geçerli bir ad** türü aynı sayıda Segment içerdiğinden.
 
 ```json
 {
@@ -92,7 +92,7 @@ Ancak sonraki örnek **geçerli bir ad değil** türü aynı sayıda Segment iç
 }
 ```
 
-Alt kaynakları için kesimleri ile aynı sayıda türü ve ada sahip. Tam adı ve alt türü içerdiği için üst adını ve türünü Segment sayısı mantıklıdır. Bu nedenle, tam adı, tam türünü daha küçük bir kesim hala vardır.
+Alt kaynaklar için tür ve ad kesimleri ile aynı sayıda sahip. Bu Segment sayısı tam adını ve alt türü içerdiği için üst adını ve türünü mantıklıdır. Bu nedenle, tam adı, yine de tam türünden daha az bir segmente vardır.
 
 ```json
 "resources": [
@@ -111,7 +111,7 @@ Alt kaynakları için kesimleri ile aynı sayıda türü ve ada sahip. Tam adı 
 ]
 ```
 
-Segment sağ alma kaynak sağlayıcıları uygulanan Resource Manager türleriyle zor olabilir. Örneğin, bir web sitesi için bir kaynak kilidi uygulama dört kesimine sahip bir türü gerektirir. Bu nedenle, üç kesimleri adıdır:
+Segmentleri doğru başlama kaynak sağlayıcıları uygulanan Resource Manager türleriyle zor olabilir. Örneğin, bir web sitesine bir kaynak kilidi uygulanması, dört segmentleri türüyle gerekir. Bu nedenle, üç Segment adı şöyledir:
 
 ```json
 {
@@ -123,9 +123,9 @@ Segment sağ alma kaynak sağlayıcıları uygulanan Resource Manager türleriyl
 
 <a id="parameter-not-valid" />
 
-## <a name="solution-3---parameter-is-not-valid"></a>Çözüm 3 - parametresi geçerli değil
+## <a name="solution-3---parameter-is-not-valid"></a>3 - çözüm parametresi geçerli değil
 
-İzin verilen değerlerden biri olmayan bir parametre değeri sağlarsanız, aşağıdakine benzer bir ileti alırsınız:
+İzin verilen değerlerden biri değil bir parametre değeri sağlarsanız, aşağıdakine benzer bir ileti alırsınız:
 
 ```
 Code=InvalidTemplate;
@@ -134,40 +134,40 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-Double şablondaki izin verilen değerler denetleyin ve dağıtım sırasında bir sağlayın. İzin verilen parametre değerleri hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları parametreleri bölümünü](resource-manager-templates-parameters.md).
+Çift şablondaki izin verilen değerleri kontrol edin ve dağıtım sırasında bir sağlayın. İzin verilen parametre değerleri hakkında daha fazla bilgi için bkz. [parametreleri bölümünde Azure Resource Manager şablonları](resource-group-authoring-templates.md#parameters).
 
 <a id="too-many-resource-groups" />
 
-## <a name="solution-4---too-many-target-resource-groups"></a>Çözüm 4 - çok sayıda hedef kaynak grupları
+## <a name="solution-4---too-many-target-resource-groups"></a>Çözüm 4 - çok fazla hedef kaynak grubu
 
-Beşten fazla hedef kaynak grupları tek bir dağıtımda belirtirseniz, bu hatayı alırsınız. Dağıtımınızda bulunan kaynak gruplarının sayısını birleştirerek ya da şablon ayrı dağıtımları olarak bazıları dağıtma göz önünde bulundurun. Daha fazla bilgi için bkz: [birden fazla abonelik veya kaynak grubu dağıtma Azure kaynaklarına](resource-manager-cross-resource-group-deployment.md).
+Tek bir dağıtımda beşten fazla hedef kaynak grubu belirtirseniz, bu hatayı alırsınız. Kaynak grubu, dağıtımınızdaki birleştirme veya şablon dağıtımları ayrı olarak bazıları dağıtma göz önünde bulundurun. Daha fazla bilgi için [birden fazla abonelik veya kaynak grubu dağıtma Azure kaynaklarına](resource-manager-cross-resource-group-deployment.md).
 
 <a id="circular-dependency" />
 
 ## <a name="solution-5---circular-dependency-detected"></a>Çözüm 5 - döngüsel bağımlılık algılandı
 
-Birbirine bağımlı kaynakları dağıtım başlatılmasını engelleyen bir şekilde, bu hatayı alırsınız. Ayrıca bekleyen için diğer kaynaklar bekleyin iki veya daha fazla kaynak bağımlılıklarını bileşimini yapar. Örneğin, üzerinde resource3 resource1 bağlıdır, üzerinde resource1 switch2 bağlıdır ve üzerinde switch2 resource3 bağlıdır. Genellikle, gereksiz bağımlılıkları kaldırarak bu sorunu çözebilirsiniz.
+Birbirine bağımlı kaynakları dağıtım başlatılmasını engelleyen bir yolla olduğunda bu hatayı alırsınız. Bağımlılıkları birleşimi, aynı zamanda bekleyen diğer kaynakları beklemek iki veya daha fazla kaynak sağlar. Örneğin, üzerinde resource3 resource1 bağlıdır, resource2 resource1 üzerinde bağlıdır ve resource3 resource2 üzerinde bağlıdır. Genellikle, gereksiz bağımlılıkları ortadan kaldırarak bu sorunu çözebilirsiniz.
 
 Döngüsel bağımlılık çözmek için:
 
-1. Şablonunuzda, döngüsel bağımlılık olarak tanımlanan kaynak bulunamıyor. 
-2. Bu kaynak için inceleyin **dependsOn** özellik ve tüm kullanımlarını **başvuru** işlevi bağımlı hangi kaynaklara bakın. 
-3. Bağlı oldukları kaynakları görmek için bu kaynakları inceleyin. Özgün kaynak bağlı kaynak fark kadar bağımlılıkları izleyin.
-5. Döngüsel bağımlılık olarak ilgili kaynaklar için tüm kullanımını dikkatlice inceleyin **dependsOn** gerekli olmayan tüm bağımlılıkları belirlemek için özellik. Bu bağımlılıkları kaldırın. Bir bağımlılık gerekli olmadığından emin değilseniz, bu kaldırmayı deneyin. 
-6. Şablonunu yeniden dağıtın.
+1. Şablonunuzda, döngüsel bağımlılığa yol tanımlanan kaynağa bulun. 
+2. Bu kaynak için inceleyin **dependsOn** özellik ve tüm kullanımları **başvuru** ölçüye bağımlı olan kaynakları görmek için işlev. 
+3. Bağlı oldukları kaynakları görmek için bu kaynakları inceleyin. Bağımlılıklar, özgün kaynakta olduğu kaynak fark kadar izleyin.
+5. Döngüsel bağımlılığa yol dahil olan kaynaklar için tüm kullanımları dikkatlice inceleyin **dependsOn** gerekmeyen herhangi bir bağımlılığın tanımlamak için özellik. Bu bağımlılıkları kaldırın. Bir bağımlılık gerekli olmadığından emin değilseniz, da kaldırmayı deneyin. 
+6. Şablonu yeniden dağıtın.
 
-Değerleri kaldırma **dependsOn** özelliği şablonu dağıttığınız zaman hataları neden olabilir. Bir hata alırsanız, bağımlılık şablon uygulamasına geri ekleyin. 
+Değerleri kaldırma **dependsOn** özelliği, şablonu dağıttığınızda hatalara neden olabilir. Bir hata alırsanız, bağımlılık şablonu yeniden içine ekleyin. 
 
-Bu yaklaşımı döngüsel bağımlılık çözmezse, alt kaynakları (örneğin, uzantıları veya yapılandırma ayarları), dağıtım mantığının parçası taşınmasını göz önünde bulundurun. Döngüsel bağımlılık olarak dahil edilen kaynakları sonra dağıtmak için bu alt kaynaklarını yapılandırın. Örneğin, iki sanal makine dağıtıyorsunuz ancak diğer başvuran her birine özelliklerini ayarlamalısınız varsayalım. Bunları şu sırayla dağıtabilirsiniz:
+Bu yaklaşım döngüsel bağımlılık çözmezse, alt kaynaklar (örneğin, uzantıları veya yapılandırma ayarları) dağıtım mantığınızın bir parçası taşınmasını göz önünde bulundurun. Döngüsel bağımlılığa yol kaynaklardan sonra dağıtmak için bu alt kaynaklarını yapılandırın. Örneğin, iki sanal makineler dağıtırken, ancak diğer başvuran her birinde özelliklerini ayarlamalısınız varsayalım. Bunları şu sırayla dağıtabilirsiniz:
 
 1. vm1
 2. vm2
-3. Vm1 uzantısı vm1 ve vm2 bağlıdır. Uzantı vm2 alır vm1 değerlerini ayarlar.
-4. Vm2 uzantısı vm1 ve vm2 bağlıdır. Uzantı vm1 alır vm2 değerlerini ayarlar.
+3. Vm1 uzantısı vm1 ve vm2 bağlıdır. Uzantı vm1, vm2 ' alır değerlerini ayarlar.
+4. Vm1 ve vm2 vm2 uzantısı bağlıdır. Uzantı vm1 ' alır vm2 değerlerini ayarlar.
 
-Aynı yaklaşımı uygulama hizmeti uygulamalar için çalışır. Uygulama kaynağı bir alt kaynak yapılandırma değerlerini taşımayı düşünün. İki web uygulamaları aşağıdaki sırayla dağıtabilirsiniz:
+Aynı yaklaşımı, App Service uygulamaları için çalışır. Uygulama kaynak içinde bir alt kaynak yapılandırma değerlerini taşımayı düşünün. Aşağıdaki sırayla iki web uygulaması dağıtabilirsiniz:
 
 1. webapp1
 2. webapp2
-3. config webapp1 için webapp1 ve webapp2 bağlıdır. Uygulama ayarları webapp2 değerlerle içerir.
-4. config webapp2 için webapp1 ve webapp2 bağlıdır. Uygulama ayarları webapp1 değerlerle içerir.
+3. yapılandırma için webapp1 webapp1 ve webapp2 bağlıdır. Uygulama ayarları webapp2 değerleri ile var.
+4. yapılandırma için webapp2 webapp1 ve webapp2 bağlıdır. Uygulama ayarları webapp1 değerleri ile var.

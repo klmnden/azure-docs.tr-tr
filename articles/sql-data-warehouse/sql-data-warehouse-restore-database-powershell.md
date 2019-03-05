@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ba1137c3727182fec4e5e90b0d561b055ef756d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6ad65e5e5d72d32442107a8f645c86f6f89157fd
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243632"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312299"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Bir Azure SQL veri ambarı'nı (PowerShell) geri yükleme
 > [!div class="op_single_selector"]
@@ -29,13 +29,16 @@ ms.locfileid: "55243632"
 Bu makalede, PowerShell kullanarak bir Azure SQL veri ambarı geri yükleme öğreneceksiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 **DTU kapasitenizi doğrulayın.** Her SQL veri ambarı varsayılan DTU kotası olan bir SQL server tarafından (örn. myserver.database.windows.net) barındırılır.  SQL veri ambarı geri yüklemeden önce olduğunu doğrulayın. SQL server'ınızı geri yüklenen veritabanı için yeterli kalan DTU kotası vardır. Gerekli DTU'yu hesaplama veya daha fazla DTU istemek için öğrenmek için bkz: [DTU kota değişiklik isteği][Request a DTU quota change].
 
 ### <a name="install-powershell"></a>PowerShell yükleme
-SQL veri ambarı ile Azure PowerShell'i kullanmak için Azure PowerShell 1.0 veya üzeri bir sürümü yüklemeniz gerekir.  Çalıştırarak sürümünüzü kontrol edebilirsiniz **Get-Module - ListAvailable-Name AzureRM**.  En son sürümü yüklenebilir [Microsoft Web Platformu yükleyicisi][Microsoft Web Platform Installer].  En son sürümü yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma][How to install and configure Azure PowerShell].
+SQL veri ambarı ile Azure PowerShell'i kullanmak için Azure PowerShell yüklemeniz gerekir.  Çalıştırarak sürümünüzü kontrol edebilirsiniz **Get-Module - ListAvailable-Name Az**.  En son sürümü yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma][How to install and configure Azure PowerShell].
 
 ## <a name="restore-an-active-or-paused-database"></a>Etkin ya da duraklatılmış bir veritabanını geri yükleme
-Anlık görüntü kullanılmakta olan bir veritabanını geri yüklemek için [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] PowerShell cmdlet'i.
+Anlık görüntü kullanılmakta olan bir veritabanını geri yüklemek için [geri yükleme-AzSqlDatabase] [ Restore-AzSqlDatabase] PowerShell cmdlet'i.
 
 1. Windows PowerShell'i açın.
 2. Azure hesabınıza bağlanın ve hesabınızla ilişkili tüm abonelikleri listeleyin.
@@ -53,24 +56,24 @@ $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.window
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
 # List the last 10 database restore points
-((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName)).RestorePointCreationDate)[-10 .. -1]
+((Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName)).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
-Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Get the specific database to restore
-$Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+$Database = Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Pick desired restore point using RestorePointCreationDate
 $PointInTime="<RestorePointCreationDate>"  
 
 # Restore database from a restore point
-$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
+$RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -83,7 +86,7 @@ $RestoredDatabase.status
 > 
 
 ## <a name="restore-a-deleted-database"></a>Silinen veritabanını geri yükleme
-Silinen bir veritabanını geri yüklemek için kullanın [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet'i.
+Silinen bir veritabanını geri yüklemek için kullanın [geri yükleme-AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet'i.
 
 1. Windows PowerShell'i açın.
 2. Azure hesabınıza bağlanın ve hesabınızla ilişkili tüm abonelikleri listeleyin.
@@ -99,15 +102,15 @@ $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.window
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
 # Get the deleted database to restore
-$DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+$DeletedDatabase = Get-AzSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Restore deleted database
-$RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $DeletedDatabase.ResourceID
+$RestoredDatabase = Restore-AzSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $DeletedDatabase.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -119,7 +122,7 @@ $RestoredDatabase.status
 > 
 
 ## <a name="restore-from-an-azure-geographical-region"></a>Azure bir coğrafi bölgesinden geri yükleme
-Bir veritabanını kurtarmak için kullanmak [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet'i.
+Bir veritabanını kurtarmak için kullanmak [geri yükleme-AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet'i.
 
 > [!NOTE]
 > İşlem performans katmanı için en iyi duruma getirilmiş için coğrafi geri yükleme bir gerçekleştirebileceğiniz! Bunu yapmak için bir en iyi duruma getirilmiş işlem ServiceObjectiveName için isteğe bağlı bir parametre olarak belirtin. 
@@ -134,15 +137,15 @@ Bir veritabanını kurtarmak için kullanmak [Restore-AzureRmSqlDatabase] [ Rest
 6. Coğrafi geri veritabanının durumunu doğrulayın.
 
 ```Powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
+Connect-AzAccount
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName "<Subscription_name>"
 
 # Get the database you want to recover
-$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
+$GeoBackup = Get-AzSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>"
+$GeoRestoredDatabase = Restore-AzSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>"
 
 # Verify that the geo-restored database is online
 $GeoRestoredDatabase.status
@@ -172,8 +175,7 @@ Azure SQL veritabanı sürümlerini iş sürekliliği özellikleri hakkında bil
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
-[Restore-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase
+[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/restore-Azsqldatabase
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps

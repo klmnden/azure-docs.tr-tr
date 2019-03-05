@@ -8,12 +8,12 @@ ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: ba6b8c76b31f09eb8f04097f935f865728a4e893
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: c2c172dc5f03aee8b167cd65562de3329c54d563
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217504"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313020"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>IOT Central Bağlayıcısı Microsoft Flow ile iş akışları oluşturun
 
@@ -30,24 +30,24 @@ Birçok uygulama ve işletme kullanıcılarının kullandığı hizmetler arası
 
 Bu bölümde, IOT Central bir kural tetiklendiğinde, Flow mobil uygulamasında mobil bildirim tetikleyip gösterilir.
 
-1. Başlayın [IOT Central içinde bir kural oluşturma](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Kural koşulları kaydettikten sonra tıklayın **Microsoft Flow eylem** yeni bir eylem olarak. Microsoft Flow alma, tarayıcınızda yeni bir sekme veya penceresi açmanız gerekir.
+1. Başlayın [IOT Central içinde bir kural oluşturma](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Kural koşulları kaydettikten sonra seçin **Microsoft Flow eylem** yeni bir eylem olarak. Microsoft Flow alma, tarayıcınızda yeni bir sekme veya penceresi açmanız gerekir.
 
     ![Yeni bir Microsoft Flow eylem oluşturun](media/howto-add-microsoft-flow-experimental/createflowaction.png)
 
 1. Microsoft Flow ' nda oturum açın. Bu IOT Central kullandığınız bir hesapla aynı olması gerekmez. Bir IOT Central Bağlayıcısı özel bir eylem bağlama gösteren bir genel bakış sayfasında açmayacaksınız.
 
-1. Oturum IOT Central Connector'a ve tıklatın **devam**. Microsoft Flow tasarımcısına, iş akışınızı oluşturmak için alınır. İş akışı, uygulamanızı ve kural zaten doldurulmuş olan bir IOT Central tetikleyicisine sahiptir.
+1. IOT Central Connector'a açıp seçmek **devam**. Microsoft Flow tasarımcısına, iş akışınızı oluşturmak için alınır. İş akışı, uygulamanızı ve kural zaten doldurulmuş olan bir IOT Central tetikleyicisine sahiptir.
 
 1. Seçin **+ yeni adım** ve **Eylem Ekle**. Bu noktada, akışınız için istediğiniz herhangi bir eylem ekleyebilirsiniz. Örneğin, şimdi mobil bildirim gönder. Arama **bildirim**ve **bildirimler - bana Mobil Bildirim Gönder**.
 
 1. Uygulamada, bildirim söylemek istediğiniz metin alanını doldurun. Ekleyebileceğiniz *dinamik içerik* , IOT Central kuraldan boyunca cihaz adı ve zaman damgası gibi önemli bilgiler için bildirim geçirme.
 
     > [!NOTE]
-    > Ölçüm ve kuralını tetikleyen özellik değerlerini almak için dinamik içerik penceresi "daha fazla" metni'ı tıklatın.
+    > Seçin **daha fazla bilgi bkz** kuralını tetikleyen ölçüm ve özellik değerlerini almak için dinamik içerik penceresindeki metin.
 
     ![Akış eylemi dinamik bölmesi açık düzenleme](./media/howto-add-microsoft-flow-experimental/flowdynamicpane.png)
 
-1. İşiniz bittiğinde eyleminizi düzenleme, tıklayın **Kaydet**. İş akışının genel bakış sayfasına yönlendirilirsiniz. Çalıştırma geçmişini burada görebilirsiniz ve diğer iş arkadaşlarınızla paylaşabilirsiniz.
+1. İşiniz bittiğinde, eyleminiz düzenleme seçin **Kaydet**. İş akışının genel bakış sayfasına yönlendirilirsiniz. Çalıştırma geçmişini burada görebilirsiniz ve diğer iş arkadaşlarınızla paylaşabilirsiniz.
 
     > [!NOTE]
     > Diğer kullanıcıların bu kuralı düzenlemek için IOT Central uygulamanızda istiyorsanız, onlarla Microsoft Flow paylaşmanız gerekir. Microsoft Flow hesaplarında akışınızın sahipler ekleyin.

@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9dc40af397e0d97ac5ddf47901c7da818faf8ae
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 2c3543b217339c39ad79c2125afdef8f087a70b3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957802"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336695"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Azure Active Directory kimlik koruması nedir (yenilenebilecek)?
 
@@ -58,7 +58,7 @@ Bu tehditlere yanıt vermek için Azure AD kimlik koruması sağlar:
 
 Azure AD kimlik koruması, Azure Active Directory Premium, bir kullanıcının kimlik güvenliği aşıldığında otomatik olarak yanıt verecek şekilde ilkelerini yapılandırmanıza olanak sağlayan P2 özelliği veya birisi dışında olduğunda hesap sahibi kullanarak oturum çalışılıyor, kimlik. Diğer koşullu erişim denetimleri ek olarak, bu ilkeler, Azure AD tarafından ya da otomatik olarak erişim veya parola sıfırlama veya çok faktörlü kimlik doğrulaması zorlama gibi başlatma risk azaltma eylemleri engelleyebilirsiniz sağlanır. Ayrıca, kimlik koruması, risk ve olası güvenlik ihlalleri, kuruluşunuzda daha derin bir anlayış kazanmak için izleme ve raporlama yetenekleri sağlar. 
 
-> [!VIDEO https://youtu.be/1REQYdZ6364]
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
 
 ## <a name="risk-events"></a>Risk olayları

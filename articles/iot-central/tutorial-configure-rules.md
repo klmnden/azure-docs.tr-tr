@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: d7269f61579ce1ffd9a686634effd153837a2f25
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f6016d594e4d4c869c5b45275c4c0200f7769724
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663001"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317569"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Öğretici: Kurallar ve Eylemler için Cihazınızı Azure IOT Central yapılandırma
 
@@ -46,11 +46,11 @@ Başlamadan önce, [Uygulamanızda yeni bir cihaz türü tanımlama](tutorial-de
 
     ![Bağlı klima sayfası](media/tutorial-configure-rules/builderdevicelist1.png)
 
-3. **Kurallar** görünümünde bir kural eklemeye başlamak için **Kurallar**’ı seçin ve **Şablonu Düzenle**’ye tıklayın:
+3. Bir kuralda eklemeye başlamak için **kuralları** Görüntüle öğesini **kuralları** seçip **Şablonu Düzenle**:
 
     ![Kurallar görünümü](media/tutorial-configure-rules/builderedittemplate.png)
 
-4. Eşik tabanlı telemetri kuralı oluşturmak için **Yeni Kural**’a ve sonra **Telemetri**‘ye tıklayın.
+4. Eşik tabanlı telemetri kuralı oluşturmak için Seç **yeni kural**, ardından **Telemetri**.
 
     ![Şablon düzenleme](media/tutorial-configure-rules/buildernewrule.png)
 

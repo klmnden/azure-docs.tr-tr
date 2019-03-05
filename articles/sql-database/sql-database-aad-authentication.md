@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1318cd3d1c0c51889cc70b6836d06d6d6ee70c24
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453146"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308389"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>SQL kimlik doğrulaması için Azure Active Directory kimlik doğrulaması kullanın.
 
@@ -81,7 +81,7 @@ Azure SQL veritabanı yönetilen örneği veya SQL veri ambarı bağımsız veri
 - Azure AD aşağıdaki üyeleri, Azure SQL server veya SQL veri ambarı sağlanabilir:
 
   - Yerel Üyeler: Azure AD'de yönetilen etki alanında veya bir müşteri etki alanında oluşturulan bir üyesi. Daha fazla bilgi için [kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-domains-add-azure-portal.md).
-  - Federasyon etki alanı üyeleri: Bir Federasyon etki alanı ile Azure AD'de oluşturulan bir üyesi. Daha fazla bilgi için [Microsoft Azure artık Windows Server Active Directory ile Federasyonu destekliyor](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+  - Federasyon etki alanı üyeleri: Bir Federasyon etki alanı ile Azure AD'de oluşturulan bir üyesi. Daha fazla bilgi için [Microsoft Azure artık Windows Server Active Directory ile Federasyonu destekliyor](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
   - Yerel veya Federasyon etki alanına üye olan içeri aktarılan üyelerinden diğer Azure AD'nin.
   - Active Directory grupları güvenlik grupları oluşturulur.
 

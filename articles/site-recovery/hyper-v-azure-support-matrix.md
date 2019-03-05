@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 15d85d30f73a9880a6a68a62ab208bb0bdbf5402
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 325df38cfea0c87cda8b7fb5ab37dca4a6a529fd
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788047"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315682"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Şirket içi Hyper-V Vm'lerini azure'a olağanüstü durum kurtarması için destek matrisi
 
@@ -33,7 +33,7 @@ Hyper-V olmadan Virtual Machine Manager | Virtual Machine Manager tarafından y�
 
 **Sunucu** | **Gereksinimler** | **Ayrıntılar**
 --- | --- | ---
-(Çalışan Virtual Machine Manager olmadan) Hyper-V | Windows Server 2016 (dahil olmak üzere Sunucu Çekirdeği yüklemesi), en son güncelleştirmeleri içeren Windows Server 2012 R2 | Windows Server 2016 çalıştıran bir konakta bulunan sanal makineler için farklı bir konuma kurtarma desteklenmez.<br/><br/> Windows Server 2012 R2 ile zaten yapılandırdıysanız / veya SCVMM 2012 R2 ile Azure Site Recovery ve işletim sistemi, yükseltmeyi planlıyorsanız, lütfen Kılavuzu izleyin [belgeleri.](upgrade-2012R2-to-2016.md) 
+(Çalışan Virtual Machine Manager olmadan) Hyper-V | Windows Server 2016 (dahil olmak üzere Sunucu Çekirdeği yüklemesi), en son güncelleştirmeleri içeren Windows Server 2012 R2 | Windows Server 2012 R2 ile zaten yapılandırdıysanız / veya SCVMM 2012 R2 ile Azure Site Recovery ve işletim sistemi, yükseltmeyi planlıyorsanız, lütfen Kılavuzu izleyin [belgeleri.](upgrade-2012R2-to-2016.md) 
 (Çalışan Virtual Machine Manager ile) Hyper-V | Virtual Machine Manager 2012 R2 Virtual Machine Manager 2016 | Virtual Machine Manager kullandıysanız, Virtual Machine Manager 2016'da Windows Server 2016 ana yönetilmelidir.<br/><br/>
 
 
@@ -95,7 +95,7 @@ Hızlandırılmış Ağ | Hayır | Hayır
 NFS | NA | NA
 SMB 3.0 | Evet | Evet
 SAN (İSCSI) | Evet | Evet
-Çok yollu (MPIO). Test:<br></br> Microsoft DSM EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM CLARiiON için | Evet | Evet
+Çok yollu (MPIO). Test:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM CLARiiON için | Evet | Evet
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM Konuk depolama
 
@@ -111,7 +111,7 @@ NFS | NA | NA
 SMB 3.0 | Hayır | Hayır
 RDM | NA | NA
 Disk > 1 TB | Evet, 4.095 GB'a kadar | Evet, 4.095 GB'a kadar
-Disk: 4K mantıksal ve fiziksel kesimi | Desteklenmeyen: Gen 1/2. nesil | Desteklenmeyen: Gen 1/2. nesil
+Disk: 4K mantıksal ve fiziksel kesimi | Desteklenmeyen: Gen 1/Gen 2 | Desteklenmeyen: Gen 1/Gen 2
 Disk: 4K mantıksal ve fiziksel 512 baytlık kesim | Evet |  Evet
 Mantıksal birim yönetimi (LVM). LVM'yi veri diskleri üzerinde desteklenir. Azure, yalnızca tek bir işletim sistemi diski sağlar. | Evet | Evet
 Bölüştürülmüş bir disk birimi > 1 TB | Evet | Evet

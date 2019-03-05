@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8792873407a6103134300f11b4dae002e4df107a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: cb457f59cf20f213aaeef6c2d336659c259060ad
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216229"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307250"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanıza gerçek bir cihaz ekleme
 
@@ -52,7 +52,7 @@ Uygulamanıza gerçek bir cihaz eklemek için, [Yeni bir cihaz türü belirleme]
 
    **Device Explorer**, **Bağlı Klima** cihaz şablonunu ve oluşturucu cihaz şablonunu oluşturduğunda otomatik olarak eklenen simülasyon cihazını gösterir.
 
-2. Gerçek bağlı bir klima cihaz bağlanma başlatmak için tıklatın **+**, ardından **gerçek**:
+2. Gerçek bağlı bir klima cihaz bağlanma başlamak için seçim **+**, ardından **gerçek**:
 
    ![Yeni, gerçek bir klima cihazı eklemeye başlama](media/tutorial-add-device-experimental/newreal.png)
 

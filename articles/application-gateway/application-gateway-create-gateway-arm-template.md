@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 6a671744944527b64aab9a7b9afe05d6a9f2f27f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b41fbc3e834c7740d435e30a571d2a00671bfa64
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002087"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316413"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonunu kullanarak uygulama ağ geçidi oluşturma
 
@@ -125,18 +125,20 @@ GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resou
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>PowerShell kullanarak Azure Resource Manager şablonu dağıtma
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Azure PowerShell'i hiç kullanmadıysanız, ziyaret edin: [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview) ve Azure'da oturum açıp aboneliğinizi seçmek için yönergeleri izleyin.
 
 1. PowerShell oturum açın
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 1. Hesapla ilişkili abonelikleri kontrol edin.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.
@@ -144,19 +146,19 @@ Azure PowerShell'i hiç kullanmadıysanız, ziyaret edin: [Azure PowerShell'i y�
 1. Hangi Azure aboneliğinizin kullanılacağını seçin.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. Gerekirse, **New-AzureResourceGroup** cmdlet’ini kullanarak bir kaynak grubu oluşturun. Aşağıdaki örnekte Doğu ABD konumunda AppgatewayRG adlı yeni bir kaynak grubu oluşturacaksınız.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Önceden indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni sanal ağı dağıtmak için, **New-AzureRmResourceGroupDeployment** cmdlet’ini çalıştırın.
+1. Çalıştırma **yeni AzResourceGroupDeployment** indirdiğiniz ve değiştirdiğiniz şablonu ve parametre kullanarak yeni sanal ağı dağıtmak için cmdlet dosyaları.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -222,7 +224,7 @@ Bu makalede oluşturulan tüm kaynakları silmek için aşağıdaki adımlardan 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -233,9 +235,9 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SSL yükü boşaltmayı yapılandırmak istiyorsanız [SSL yükü boşaltma için uygulama ağ geçidi yapılandırma](application-gateway-ssl.md) sayfasını ziyaret edin.
+SSL yük boşaltmayı yapılandırmak istiyorsanız, ziyaret edin: [SSL yük boşaltımı için bir uygulama ağ geçidi](application-gateway-ssl.md).
 
-İç yük dengeleyiciyle kullanacağınız uygulama ağ geçidi yapılandırmak istiyorsanız [İç yük dengeleyici (ILB) ile uygulama ağ geçidi oluşturma](application-gateway-ilb.md) sayfasını ziyaret edin.
+Bir iç yük dengeleyiciyle kullanacağınız uygulama ağ geçidi yapılandırmak istiyorsanız, ziyaret edin: [İç yük dengeleyici (ILB) ile bir uygulama ağ geçidi oluşturma](application-gateway-ilb.md).
 
 Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsanız, bkz.:
 

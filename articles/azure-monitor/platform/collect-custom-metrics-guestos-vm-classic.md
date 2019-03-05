@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: f6bf672905fe7752a6c3d07492861f43af43e1f5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 57212da1a8da7ee6c57faf2413b88a413df04817
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893978"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315138"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Azure İzleyici'veri deposu için bir Windows sanal makine (Klasik) konuk işletim sistemi ölçümleri gönderme
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure İzleyici [tanılama uzantısını](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) ("WAD" veya "Tanılama" olarak bilinir), ölçüm ve günlükleri bir sanal makine, bulut hizmeti veya Service Fabric bir parçası olarak çalışan konuk işletim sistemi (konuk OS) toplamanıza olanak sağlar Küme. Uzantı için telemetri gönderebilir [birçok farklı konumlarda.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -31,7 +33,7 @@ Bu makalede açıklanan işlem, yalnızca Windows işletim sistemi çalıştıra
 
 - Aboneliğiniz ile kaydedilmelidir [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Ya da gerek [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) veya [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) yüklü.
+- Ya da gerek [Azure PowerShell](/powershell/azure) veya [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) yüklü.
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Klasik sanal makine ve depolama hesabı oluşturma
 
@@ -145,7 +147,7 @@ Bu uygulama, ölçümleri karşı yayma istediğiniz kaynağa "İzleme ölçüml
 1. PowerShell'i başlatın ve oturum açın.
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Klasik sanal Makineniz için bağlam ayarlayarak başlatın.
@@ -157,7 +159,7 @@ Bu uygulama, ölçümleri karşı yayma istediğiniz kaynağa "İzleme ölçüml
 1. Sanal makine ile oluşturulan Klasik depolama hesabı bağlamını ayarlayın.
 
     ```powershell
-    $StorageContext = New-AzureStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
+    $StorageContext = New-AzStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
 1.  Tanılama dosya yolu, aşağıdaki komutu kullanarak bir değişkene ayarlayın:

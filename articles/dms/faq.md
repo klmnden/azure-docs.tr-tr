@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: b8001729c85c8447ab22bafffe24a32524a0662a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/05/2019
+ms.openlocfilehash: 99200e521ea844d20ef00ef70ad65ac0ab3bcddd
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714704"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337303"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti kullanma hakkında SSS
 Bu makalede, Azure veritabanı geçiş hizmeti ilgili yanıtları ile birlikte kullanma hakkında sık sorulan soruların listelenmektedir.
@@ -90,7 +90,7 @@ Size bir Azure sanal ağı işleminde yol birden çok Microsoft öğretici sıra
 Kullanıcının Azure veritabanı geçiş hizmeti (DMS) açıkça durdurur veya hizmet 24 saatlik bir süre için etkin değilse, hizmeti durdurulmuş bir olması veya duraklatılmış otomatik. Her durumda, hizmet kullanılamıyor ve durdurulmuş durumda olacaktır.  Etkin geçişlerini devam ettirmek için hizmeti yeniden başlatın.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>S. Azure veritabanı geçiş hizmeti hakkında geri bildirim nereden bırakın?
-Görüşlerinizi almak isteriz. Lütfen Geri bildirimlerinizi gönderin ve / fikirleri sahip kullanıcı sesi aracılığıyla Azure veritabanı geçiş hizmeti hakkında [burada](https://feedback.azure.com/forums/906100-azure-database-migration-service).
+Görüşlerinizi almak isteriz. Lütfen Geri bildirimlerinizi gönderin ve / fikirleri sahip kullanıcı sesi aracılığıyla Azure veritabanı geçiş hizmeti hakkında [burada](https://feedback.azure.com/forums/906100-azure-database-migration-service), veya adresinden ekibine başvurarak [isteyin Azure veritabanı geçişlerini](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bölgesel kullanılabilirlik ve Azure veritabanı geçiş Hizmeti'nin genel bakış için bkz [Azure veritabanı geçiş hizmeti nedir](dms-overview.md). 

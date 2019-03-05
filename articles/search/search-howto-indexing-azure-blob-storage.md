@@ -1,7 +1,7 @@
 ---
 title: Azure Blob Depolama içeriği için tam metin arama - Azure Search dizini
 description: Azure Blob Depolama dizin ve Azure Search belgelerden metni Ayıkla hakkında bilgi edinin.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 56afc933eff2e06df270b17403b767ebaddd4154
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873007"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310888"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Depolama'da belgelerin dizin oluşturma
 Bu makalede, belgelerin dizinini oluşturmak için Azure Search kullanma gösterilmektedir (PDF gibi Microsoft Office belge ve diğer birçok ortak biçimleri) Azure Blob Depolama alanında depolanır. İlk olarak ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, davranışların bir daha ayrıntılı keşfi sunar ve karşılaşabileceğiniz olası senaryolar.
@@ -68,7 +68,7 @@ Veri kaynağı oluşturma API'si hakkında daha fazla bilgi için bkz. [veri kay
 
 Aşağıdaki yöntemlerden biriyle blob kapsayıcısında için kimlik bilgileri sağlayabilirsiniz:
 
-- **Tam erişim depolama hesabı bağlantı dizesi**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Depolama hesabı dikey penceresine giderek bağlantı dizesini Azure portalından alabilirsiniz > Ayarlar > tuşları (Klasik depolama hesapları) ya da ayarlar > erişim anahtarları (için Azure Resource Manager depolama hesaplarında).
+- **Tam erişim depolama hesabı bağlantı dizesi**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Depolama hesabı dikey penceresine giderek bağlantı dizesini Azure portalından alabilirsiniz > Ayarlar > tuşları (Klasik depolama hesapları) ya da ayarlar > erişim anahtarları (için Azure Resource Manager depolama hesaplarında).
 - **Depolama hesabı paylaşılan erişim imzası** (SAS) bağlantı dizesi: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS listesine sahip ve Okuma izinlerine kapsayıcılar ve nesneler (Bu durumda blobları).
 -  **Kapsayıcı paylaşılan erişim imzası**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS listesine sahip ve okuma kapsayıcı üzerindeki izinleri gerekir.
 

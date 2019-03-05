@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3358c415e620165bf07e2810bc8f1873d1dea0d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5ef8c8f32422352c01b8c7ceb4811863faad4e57
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466396"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308780"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Hızlı Başlangıç: Oluşturma ve Azure PowerShell ile Azure SQL veri ambarı sorgulama
 
@@ -23,32 +23,29 @@ Azure PowerShell kullanarak Azure SQL veri ambarı hızlı bir şekilde oluştur
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-Bu öğretici için Azure PowerShell modülünün 5.1.1 veya daha sonraki bir sürümü gerekir. Şu anda kullandığınız sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/azurerm/install-azurerm-ps). 
-
-
 > [!NOTE]
 > Bir SQL Veri Ambarı'nın oluşturulması ek hizmet ücretlerinin alınmasına neden olabilir.  Ayrıntılı bilgi için bkz. [SQL Veri Ambarı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
->
->
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-Oturum açmak için kullanarak Azure aboneliğinizde [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) izleyin ve komut ekrandaki yönergeleri izleyin.
+Oturum açmak için kullanarak Azure aboneliğinizde [Ekle AzAccount](/powershell/module/az.profile/add-azaccount) izleyin ve komut ekrandaki yönergeleri izleyin.
 
 ```powershell
-Add-AzureRmAccount
+Add-AzAccount
 ```
 
-Kullanmakta olduğunuz aboneliği görmek için çalıştırma [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Kullanmakta olduğunuz aboneliği görmek için çalıştırma [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
-Varsayılandan farklı bir abonelik kullanmanız gerekiyorsa, çalıştırma [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Varsayılandan farklı bir abonelik kullanmanız gerekiyorsa, çalıştırma [kümesi AzContext](/powershell/module/az.profile/set-azcontext).
 
 ```powershell
-Set-AzureRmContext -SubscriptionName "MySubscription"
+Set-AzContext -SubscriptionName "MySubscription"
 ```
 
 
@@ -75,17 +72,17 @@ $databasename = "mySampleDataWarehosue"
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanarak yeni bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek `westeurope` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur.
+Oluşturma bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) kullanarak [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek `westeurope` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur.
 
 ```powershell
-New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
+New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Mantıksal sunucu oluşturma
 
-Oluşturma bir [Azure SQL mantıksal sunucusu](../sql-database/sql-database-logical-servers.md) kullanarak [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) komutu. Mantıksal sunucu, grup olarak yönetilen bir veritabanı grubu içerir. Aşağıdaki örnek rastgele olarak adlandırılmış bir sunucu, kaynak grubunuzda adlı yönetici kullanıcı ile oluşturur `ServerAdmin` ve bir parola `ChangeYourAdminPassword1`. Bu önceden tanımlı değerleri istediğiniz gibi değiştirin.
+Oluşturma bir [Azure SQL mantıksal sunucusu](../sql-database/sql-database-logical-servers.md) kullanarak [yeni AzSqlServer](/powershell/module/az.sql/new-azsqlserver) komutu. Mantıksal sunucu, grup olarak yönetilen bir veritabanı grubu içerir. Aşağıdaki örnek rastgele olarak adlandırılmış bir sunucu, kaynak grubunuzda adlı yönetici kullanıcı ile oluşturur `ServerAdmin` ve bir parola `ChangeYourAdminPassword1`. Bu önceden tanımlı değerleri istediğiniz gibi değiştirin.
 
 ```powershell
-New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
+New-AzSqlServer -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -Location $location `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
@@ -93,10 +90,10 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Sunucu güvenlik duvarı kurallarını yapılandırma
 
-Oluşturma bir [Azure SQL sunucu düzeyinde güvenlik duvarı kuralı](../sql-database/sql-database-firewall-configure.md) kullanarak [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) komutu. Sunucu düzeyinde güvenlik duvarı kuralı, SQL veri ambarı SQL veri ambarı hizmeti güvenlik duvarı üzerinden bağlanmak için SQL Server Management Studio veya SQLCMD yardımcı programı gibi bir dış uygulamanın sağlar. Aşağıdaki örnekte, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. Dışarıdan bağlantı kurulabilmesi için IP adresini ortamınız için uygun bir adres olarak değiştirin. Tüm IP adreslerini açmak için başlangıç IP adresi olarak 0.0.0.0’ı, bitiş adresi olaraksa 255.255.255.255’i kullanın.
+Oluşturma bir [Azure SQL sunucu düzeyinde güvenlik duvarı kuralı](../sql-database/sql-database-firewall-configure.md) kullanarak [yeni AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) komutu. Sunucu düzeyinde güvenlik duvarı kuralı, SQL veri ambarı SQL veri ambarı hizmeti güvenlik duvarı üzerinden bağlanmak için SQL Server Management Studio veya SQLCMD yardımcı programı gibi bir dış uygulamanın sağlar. Aşağıdaki örnekte, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. Dışarıdan bağlantı kurulabilmesi için IP adresini ortamınız için uygun bir adres olarak değiştirin. Tüm IP adreslerini açmak için başlangıç IP adresi olarak 0.0.0.0’ı, bitiş adresi olaraksa 255.255.255.255’i kullanın.
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
+New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -FirewallRuleName "AllowSome" -StartIpAddress $startip -EndIpAddress $endip
 ```
@@ -110,7 +107,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 Bu örnekte önceden tanımlanmış değişkenler kullanarak bir veri ambarını oluşturur.  Hizmet hedefi DW400 olan veri ambarınız için daha düşük maliyetli bir başlangıç noktası olarak belirtir. 
 
 ```Powershell
-New-AzureRmSqlDatabase `
+New-AzSqlDatabase `
     -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `
@@ -133,7 +130,7 @@ Gerekli Parametreler şunlardır:
 - **CollationName**: Belirtilmezse, varsayılan harmanlama sql_latin1_general_cp1_cı_as şeklindedir. Bir veritabanı üzerinde harmanlama değiştirilemez.
 - **MaxSizeBytes**: Bir veritabanının varsayılan en büyük boyutu 10 GB'tır.
 
-Parametre seçenekleri hakkında daha fazla bilgi için bkz. [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
+Parametre seçenekleri hakkında daha fazla bilgi için bkz. [yeni AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
@@ -145,7 +142,7 @@ Bu koleksiyondaki diğer hızlı başlangıç öğreticileri, bu hızlı başlan
 >
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

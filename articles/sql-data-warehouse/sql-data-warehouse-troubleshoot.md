@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d94d434f83e1a8507b1a98660e8169ff6be4ee24
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c9d8330e857a8f76e143631f17e29ba44244a88
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244598"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307930"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL veri ambarı sorunlarını giderme
 Bu makalede, genel sorun giderme soru listelenmektedir.
@@ -52,7 +52,7 @@ Bu makalede, genel sorun giderme soru listelenmektedir.
 | Msg 40847: Sunucu 45000 izin verilen veritabanı işlem birimi kotasını aşacağından işlem gerçekleştirilemedi. | Ya da [DWU] [ DWU] oluşturmaya çalıştığınız veritabanının veya [bir kota artırım talebinde][request a quota increase]. |
 | Alan kullanımının araştırılması                              | Bkz: [tablo boyutları] [ Table sizes] sisteminizi alanı kullanımını anlamak için. |
 | Tabloları yönetmek                                    | Bkz: [tabloya genel bakış] [ Overview] makale tablolarınızı yönetme konusunda Yardım.  Bu makalede gibi daha ayrıntılı konuların bağlantıları da içerir [tablo veri türleri][Data types], [tablo dağıtma][Distribute], [Tablo dizin][Index], [bir tablo bölümleme][Partition], [tablo istatistikleri koruma] [ Statistics] ve [geçici tablolar][Temporary]. |
-| Saydam veri şifrelemesi (TDE) ilerleme çubuğu, Azure Portalı'nda güncelleştirilmiyor | TDE durumunu görüntüleyebileceğiniz [powershell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption). |
+| Saydam veri şifrelemesi (TDE) ilerleme çubuğu, Azure Portalı'nda güncelleştirilmiyor | TDE durumunu görüntüleyebileceğiniz [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
 ## <a name="polybase"></a>Polybase
 | Sorun                                           | Çözüm                                                   |

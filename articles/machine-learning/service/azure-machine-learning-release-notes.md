@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: aeda7377a2d5d070a2e36126d53f8f5c203a8256
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d72676d7eaad539fc6e023bc96ccbb16f0958a7a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991402"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311381"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -47,7 +47,6 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
 
 + **Yeni Özellikler**
     + Yeni bir Sürükle ve bırak Düzenleyicisi deneyimi raporlar için tablo. Kullanıcılar bir sütun tablonun önizlemesi nerede görüntülenecek tablo alanı sekme grubundan sürükleyebilirsiniz. Sütunları yeniden.
-    + Çalıştırmaları ScriptRunConfig ile gönderilen yeni Çalıştır düğmesi. Kullanıcılar kendi seçtikleri uzaktan işlem kümesi üzerinde varolan yeniden çalıştırabilirsiniz.
     + Yeni günlük dosyası Görüntüleyici
     + Çalıştırmaları, işlem, modelleri, görüntüleri ve dağıtımları etkinlikleri sekmesinden denemek için bağlantılar
 

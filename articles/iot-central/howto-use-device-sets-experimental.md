@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: b3bd157f06c922d96f71627f885fe6de2537987a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 935c9bbbb3e3d66eeef7258299677b44a32f7a13
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215302"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311050"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızda cihaz kümelerini kullanma
 
@@ -27,7 +27,7 @@ Bir cihaz kümesi oluşturmak için:
 
 1. Seçin **cihaz kümeleri** sol gezinti menüsünde.
 
-1. **+ Yeni** öğesine tıklayın.
+1. Seçin **+ yeni**.
 
     ![Yeni bir cihaz kümesi](media/howto-use-device-sets-experimental/image1.png)
 
@@ -52,7 +52,7 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
 
 1. **Pano** sekmesini seçin.
 
-1. **Düzenle**’ye tıklayın.
+1. **Düzenle**’yi seçin.
 
     ![Tasarım modu](media/howto-use-device-sets-experimental/image3.png)
 
@@ -61,7 +61,7 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
 1. Bağlantı kutucuğu ekleyin:
     1. Seçin **bağlantı** sağ bölmede.
     1. Bağlantı vermek bir **başlık**.
-    1. Bağlantıya tıklandığında açılması için bir URL seçin.
+    1. Bağlantı seçildiğinde açılması için bir URL seçin.
     1. Bağlantınız aşağıda gösteren bir açıklama vermek **başlık**.
     1. **Kaydet**'i seçin.
 
@@ -83,7 +83,7 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
         > [!NOTE]
         > Birden çok resimleri, bağlantılar ve Kılavuzlar ekleyebilirsiniz.
   
-    1. **Bitti**’ye tıklayın.
+    1. **Done** (Bitti) öğesini seçin.
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Pano ayarlar konum eşleme Cihazınızı yapılandırma
 
@@ -97,7 +97,7 @@ Cihaz için bir konum eşleme cihaz şablonunuzda yapılandırılan konum özell
 4. Şimdi Pano cihazın ayarlar bir işleç görünümleri işleci yapılandırdığınız tüm kutucukları görebildiğinden, bir bakışta tüm cihazları konumu görselleştirmek için eşleme konumu dahil olmak üzere!
 
 > [!NOTE]
-> İstenen boyutunuz haritaya yeniden boyutlandırabilirsiniz olacaktır. Eşlem içindeki bir PIN tıklayarak cihaz bilgilerini, adını ve konumunu görüntüler. Cihaz özellik sayfasına gitmek için açılan tıklayabilirsiniz.
+> İstenen boyutunuz haritaya yeniden boyutlandırabilirsiniz olacaktır. PIN haritada seçildiğinde, cihaz bilgilerini, ad ve konum görüntülenir. Cihaz özellik sayfasına gitmek için açılan seçebilirsiniz.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Listenin, cihaz kümesi için yapılandırın
 

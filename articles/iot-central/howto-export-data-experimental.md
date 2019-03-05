@@ -8,12 +8,12 @@ ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: c595627275848de5489fe11e1327a72bf6251199
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 80ba612bf0f76fb0c1e202bec0bf88fa75fb2c98
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213271"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314016"
 ---
 # <a name="export-your-data-from-azure-iot-central"></a>Verilerinizi Azure IOT Central ' dışarı aktarma
 
@@ -92,7 +92,7 @@ Verileri dışarı aktarmak için bir depolama/olay hub'ları / Service Bus hede
 
     ![Yeni olay hub'ı oluşturma](media/howto-export-data-experimental/export_menu.png)
 
-3. Tıklayın **+ yeni** sağ üst köşesindeki düğme. Birini **Azure Blob Depolama**, **Azure Event Hubs**, veya **Azure Service Bus** dışarı aktarma hedefi olarak.
+3. Seçin **+ yeni** sağ üst köşesindeki düğme. Birini **Azure Blob Depolama**, **Azure Event Hubs**, veya **Azure Service Bus** dışarı aktarma hedefi olarak.
 
     > [!NOTE]
     > Dışarı aktarmalar uygulama başına en fazla sayısı beştir.
@@ -111,10 +111,10 @@ Verileri dışarı aktarmak için bir depolama/olay hub'ları / Service Bus hede
 
 5. (İsteğe bağlı) Seçerseniz, **bir bağlantı dizesi girin**, bağlantı dizenizi yapıştırmak için yeni kutusu görünür. Bağlantı dizesini almak için:
     - Depolama hesabı, Azure portalında depolama hesabı'na gidin.
-        - Altında **ayarları**, tıklayın **erişim anahtarları**
+        - Altında **ayarları**seçin **erişim anahtarları**
         - Key1 bağlantı dizesini veya key2 bağlantı dizesini kopyalayın.
     - Olay hub'ları veya Service Bus, Azure Portalı'nda ad alanına gidin.
-        - Altında **ayarları**, tıklayın **paylaşılan erişim ilkeleri**
+        - Altında **ayarları**seçin **paylaşılan erişim ilkeleri**
         - Varsayılan seçin **RootManageSharedAccessKey** veya yeni bir tane oluşturun
         - Birincil veya ikincil bağlantı dizesini kopyalayın
 

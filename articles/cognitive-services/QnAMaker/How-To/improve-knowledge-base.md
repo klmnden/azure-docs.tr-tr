@@ -4,19 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: ''
 author: diberry
 manager: nitinme
-displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 93e735958669dd39deaf88d1d468a9148b7db3d1
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cff4199663bce39353f8c10c68f51f15d6a72a22
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960318"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314832"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Bilgi bankasını geliştirmek için etkin öğrenmeyi kullanma
 
@@ -33,13 +32,13 @@ Soru-cevap Oluşturucu örtük ve açık bir geri bildirim ile soru çeşitlemes
 
 Her iki yöntem derecelendiricisini kümelenir benzer sorgularla sağlar.
 
-Benzer sorguları kümelenir, soru-cevap Oluşturucu kabul etmek veya reddetmek için Bilgi Bankası Tasarımcısı kullanıcı tabanlı sorulara önerir.
-
 ## <a name="how-active-learning-works"></a>Nasıl etkin works öğrenme
 
 Etkin öğrenme herhangi belirli bir sorgu için soru-cevap Oluşturucu tarafından döndürülen ilk birkaç yanıtların puanları temel tetiklenir. Puan farklılıkları küçük bir aralık içinde yer alan sonra olası sorgusu _öneri_ her olası yanıtlar. 
 
 Tüm öneriler birlikte benzerliğe göre kümelenir ve diğer sorular için en çok istenen önerilerden belirli sorgularının sıklığını üzerinde son kullanıcılar tarafından bağlı görüntülenir. Etkin öğrenme makul bir miktar ve çeşitli sorgular kullanım uç noktalar burada alma durumlarda en iyi olası öneriler sağlar.
+
+Sorular soru-cevap Oluşturucu Portalı'nda önerilen sonra gözden geçirip kabul edin ya da bu önerileri Reddet gerekir. 
 
 ## <a name="upgrade-version-to-use-active-learning"></a>Etkin öğrenmeyi kullanma sürüme yükseltme
 
@@ -58,6 +57,8 @@ Algoritma yakınlık belirlemek için basit bir hesaplama değil. Önceki örnek
 ## <a name="turn-on-active-learning"></a>Etkin öğrenmeyi Aç
 
 Varsayılan olarak etkin olarak öğrenmeye kapalıdır. Bu önerilen bu soruları görmek için etkinleştirin. 
+
+1. Seçin **Yayımla** Bilgi Bankası yayımlama. Etkin öğrenme sorguları GenerateAnswer API tahmin uç noktasından yalnızca toplanır. Soru-cevap Oluşturucu Portalı'nda Test bölmesine sorgular, etkin öğrenim etkilemez.
 
 1. Üzerinde öğrenme etkin açmak için tıklayın, **adı**Git [ **hizmet ayarları** ](https://www.qnamaker.ai/UserSettings) sağ üst köşedeki soru-cevap Oluşturucu Portalı'nda.  
 
@@ -88,6 +89,9 @@ Varsayılan olarak etkin olarak öğrenmeye kapalıdır. Bu önerilen bu sorular
 
 1. Seçin **kaydedin ve eğitme** Bilgi Bankası'na değişiklikleri kaydedin.
 
+1. Seçin **Yayımla** GenerateAnswer API'den kullanılabilir olması değişikliklere izin vermek üzere.
+
+    5 veya daha fazla benzer sorguları kümelenir, 30 dakikada kabul etmek veya reddetmek için Bilgi Bankası Tasarımcısı kullanıcı tabanlı soruların soru-cevap Oluşturucu önerir.
 
 ## <a name="determine-best-choice-when-several-questions-have-similar-scores"></a>Benzer puanları birkaç sorularınız olduğunda en iyi seçenek belirleyin
 

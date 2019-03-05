@@ -12,22 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b94136f063f9d4793ce4c8a03c17454df920af26
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1da3b71cbb809c92ba3228676f8a47235829b499
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117563"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309545"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Application Insights uyarıları ayarlamak için PowerShell kullanma
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Yapılandırılmasını otomatikleştirebilirsiniz [uyarılar](../../azure-monitor/app/alerts.md) içinde [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 Ayrıca, aşağıdakileri yapabilirsiniz [ayarlanmış bir uyarı yanıtları otomatik hale getirmek için Web kancaları](../../azure-monitor/platform/alerts-webhooks.md).
 
 > [!NOTE]
 > Kaynaklar ve uyarılar aynı anda oluşturmak isterseniz, göz önünde bulundurun [bir Azure Resource Manager şablonu kullanarak](powershell.md).
->
->
 
 ## <a name="one-time-setup"></a>Bir kerelik Kurulum
 Azure aboneliğiniz önce PowerShell kullanmadıysanız:
@@ -42,15 +43,15 @@ Azure PowerShell'i başlatın ve [aboneliğinize bağlanma](/powershell/azure/ov
 
 ```PowerShell
 
-    Add-AzureRmAccount
+    Add-AzAccount
 ```
 
 
 ## <a name="get-alerts"></a>Uyarılar alın
-    Get-AzureRmAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+    Get-AzAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
 ## <a name="add-alert"></a>Uyarı ekle
-    Add-AzureRmMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
+    Add-AzMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
      -MetricName "{METRIC NAME}" `
@@ -69,7 +70,7 @@ HTTP isteklerini, üzerinde 5 dakika ortalama sunucu yanıtı 1 saniye yavaş is
 
 Abonelik kimliği (değil uygulamanızın izleme anahtarını) GUID'dir.
 
-    Add-AzureRmMetricAlertRule -Name "slow responses" `
+    Add-AzMetricAlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
@@ -83,7 +84,7 @@ Abonelik kimliği (değil uygulamanızın izleme anahtarını) GUID'dir.
 ## <a name="example-2"></a>Örnek 2
 Bir uygulama içinde kullanmam sahibim [TrackMetric()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) "salesPerHour." adlı bir ölçüm bildirmek için "SalesPerHour" 100 düşerse bir e-posta arkadaşlarım 24 saat içinde ortalama gönderin.
 
-    Add-AzureRmMetricAlertRule -Name "poor sales" `
+    Add-AzMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `

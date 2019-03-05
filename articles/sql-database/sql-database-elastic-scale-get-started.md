@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: dbc3b7e2e013dc53a1e2524c44bd2229a6a1b18d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 245cbafb42becc230f5e480cfc8e6fa41c352190
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462979"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309392"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Esnek veritabanı araçlarını kullanmaya başlayın
 
@@ -131,7 +131,7 @@ Esnek veritabanı araçları hakkında daha fazla bilgi için aşağıdaki makal
   * Esnek veritabanı araçlarını ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Azure SQL - Entity Framework tümleştirmesi için esnek veritabanı araçları](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Betik Merkezi'nde parça esnekliği](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
-* Blog: [Esnek ölçek Duyurusu](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+* Blog: [Esnek ölçek Duyurusu](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
 * Kanal 9: [Esnek ölçek genel bakış videosu](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Tartışma forumu: [Azure SQL veritabanının Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * Performansını ölçmek için: [Parça eşleme yöneticisi için performans sayaçları](sql-database-elastic-database-client-library.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 58129099eefeec969083821b448f4b06fd7df7ee
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 5f89077980cc36bb2fd08b100da4625c39302c35
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195447"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311946"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IOT Central, cihaz bağlantısı
 
@@ -90,9 +90,9 @@ Aşağıdaki adımlar, X.509 sertifikaları kullanarak IOT Central için cihazla
       Bir güvenlik ihlali varsa veya birincil sertifikanızın süresi dolacak şekilde ayarlanan kapalı kalma süresini azaltmak için ikincil sertifika'yı kullanın. Birincil sertifika güncelleştirilirken ikincil sertifika kullanarak cihaz sağlamayı devam edebilirsiniz.
 
     - Sertifika sahipliğini doğrulayarak sertifikanın uploader sertifikanın özel anahtarı sahip olmasını sağlar. Sertifikayı doğrulamak için:
-        - İleri düğmesine tıklayın **doğrulama kodu** bir kod oluşturmak için.
+        - Düğmeyi seçin **doğrulama kodu** bir kod oluşturmak için.
         - Önceki adımda oluşturulan doğrulama kodunu içeren bir X.509 doğrulama sertifikası oluşturun. Sertifikayı bir .cer dosyası olarak kaydedin.
-        - İmzalı doğrulama sertifikasını karşıya yükleyin ve tıklatın doğrulayın.
+        - İmzalı doğrulama sertifikasını karşıya yükleyin ve seçin **doğrulama**.
 
           ![Bağlantı ayarları](media/concepts-connectivity/verify-cert.png)
 
@@ -173,7 +173,7 @@ Ne zaman gerçek bir cihaz sağlama durumu değişiklikleri, IOT Central uygulam
 
 Aşağıdaki adımlar, bir bağlantı dizesi için bir cihazı nasıl alabileceğiniz açıklar:
 
-1. Tıklayın **Connect** üzerinde **Device Explorer** sayfasına bağlantı ayrıntılarını almak için: **Kapsam kimliği**, **cihaz kimliği**, ve **cihaz birincil anahtar**:
+1. Seçin **Connect** üzerinde **Device Explorer** sayfasına bağlantı ayrıntılarını almak için: **Kapsam kimliği**, **cihaz kimliği**, ve **cihaz birincil anahtar**:
 
     ![Bağlantı ayrıntıları](media/concepts-connectivity/device-connect.png)
 

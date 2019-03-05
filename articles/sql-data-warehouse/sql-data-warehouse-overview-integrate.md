@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c1bc4265c44f007e794b873d732a06d1e30f324f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 3546dd26ac7d376eed142629ceeeb30e0709e162
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661947"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309885"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>SQL veri ambarı ile diğer Hizmetleri Tümleştirme
 Çekirdek işlevselliğini ek olarak, SQL veri ambarı birçok diğer Azure Hizmetleri ile tümleştirme olanağı sağlar. Bu hizmetlerden bazıları şunlardır:
@@ -33,7 +33,7 @@ Power BI tümleştirmesi, dinamik raporlama ve görselleştirme, Power BI ile SQ
 * **Doğrudan bağlantı**: SQL veri ambarına karşı mantıksal itme ile daha gelişmiş bir bağlantı. İtme daha büyük bir ölçekte daha hızlı analizini sağlar.
 * **Power bı'da Aç**: "Power bı'da Aç" düğmesi Power bı'a bağlamak basitleştirilmiş bir yolu için örnek bilgisi geçirir.
 
-Daha fazla bilgi için [Power BI ile tümleştirme](sql-data-warehouse-get-started-visualize-with-power-bi.md), veya [Power BI belgeleri](https://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
+Daha fazla bilgi için [Power BI ile tümleştirme](sql-data-warehouse-get-started-visualize-with-power-bi.md), veya [Power BI belgeleri](https://blogs.msdn.com/b/powerbi/archive/20../../exploring-azure-sql-data-warehouse-with-power-bi.aspx).
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory, kullanıcılara karmaşık ayıklama oluşturun ve işlem hatlarını yüklemek için yönetilen bir platform sağlar. Azure Data Factory ile SQL veri ambarı'nın tümleştirme içerir:

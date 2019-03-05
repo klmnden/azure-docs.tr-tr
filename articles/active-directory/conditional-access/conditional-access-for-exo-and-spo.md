@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2018
+ms.date: 02/27/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dad650ac1cc7ab8822925a4a9759b68ee0d0088
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b4015f99e9281285c530c6ae40dbda4e97846af8
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186021"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311058"
 ---
 # <a name="how-to-set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Nasıl Yapılır: SharePoint Online ve Exchange Online için Azure Active Directory koşullu erişim ayarlama 
 
@@ -77,7 +77,7 @@ Exchange Online için koşullu erişim ilkeleri ayarlama, aşağıdakileri gözd
 
 Modern kimlik doğrulaması Exchange Active Sync desteklese de, koşullu erişim senaryoları için destek ile ilgili bazı sınırlamalar vardır:
 
-- Yalnızca cihaz platformları koşul yapılandırabilirsiniz  
+- Seçerken **Exchange Active Sync istemcilerinin** ilkenizde, diğer koşulları yapılandıramazsınız.  
 
     ![Cihaz platformları](./media/conditional-access-for-exo-and-spo/05.png)
 
@@ -93,7 +93,7 @@ Etkili bir şekilde erişim Exchange Online için Exchange ActiveSync'ten koruma
 
     ![Koşullu erişim](./media/conditional-access-for-exo-and-spo/04.png)
 
-    b. Seçin **Exchange Active Sync** olarak **istemci uygulaması**ve ardından **ilkeyi yalnızca desteklenen platformlara Uygula**.  
+    b. Seçin **Exchange Active Sync** olarak **istemci uygulaması**.  
 
     ![Cihaz platformları](./media/conditional-access-for-exo-and-spo/03.png)
 

@@ -12,14 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 74da56b5e90512f8b903d5a62f7dde4e903560b8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ea4bc61dec59308b2c2311e8300e44aae78fc041
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817873"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313523"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>PowerShell ile Application Insights kaynakları oluşturma
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Bu makalede oluşturma ve güncelleştirilmesini otomatikleştirmek gösterilmektedir [Application Insights](../../azure-monitor/app/app-insights-overview.md) Azure kaynak yönetimi kullanarak otomatik olarak kaynaklar. Örneğin, bir yapı işleminin parçası olarak bunu olabilir. Temel Application Insights kaynağını yanı sıra, oluşturduğunuz [kullanılabilirlik web testleri](../../azure-monitor/app/monitor-web-app-availability.md), ayarlayın [uyarılar](../../azure-monitor/app/alerts.md)ayarlayın [düzeni fiyatlandırma](pricing.md)ve diğer Azure kaynakları oluşturma .
 
 Bu kaynakları oluşturmak için JSON şablonları anahtardır [Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md). Buna koysalar yordam aynıdır: var olan kaynakların; JSON tanımları indirme adları gibi belirli değerleri Parametreleştirme; ve yeni bir kaynak oluşturmak istediğinizde şablonu çalıştırın. Çeşitli kaynaklar birlikte paket, bunları oluşturmak için tek - Örneğin, bir uygulama İzleyicisi kullanılabilirlik testleri, uyarılar ve depolama için sürekli dışarı aktarma ile gidin. Burada açıklayacağız parameterizations bazılarının bazı ıot'nin vardır.
@@ -154,12 +157,12 @@ Yeni bir .json dosyası oluşturma - adlandıralım `template1.json` Bu örnekte
 ## <a name="create-application-insights-resources"></a>Create Application Insights kaynağı oluşturma
 1. PowerShell'de, Azure'da oturum açın:
    
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 2. Böyle bir komut çalıştırın:
    
     ```PS
    
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
 
@@ -175,8 +178,8 @@ Diğer parametreler ekleyebilirsiniz - açıklamalarını şablon parametreleri 
 Uygulama kaynağı oluşturduktan sonra izleme anahtarını isteyeceksiniz: 
 
 ```PS
-    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
-    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $resource = Find-AzResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
+    $details = Get-AzResource -ResourceId $resource.ResourceId
     $ikey = $details.Properties.InstrumentationKey
 ```
 
@@ -189,7 +192,7 @@ Ayarlayabileceğiniz [fiyat planı](pricing.md).
 Yukarıdaki şablonu kullanarak kurumsal fiyat planı ile bir uygulama kaynak oluşturmak için:
 
 ```PS
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -priceCode 2 `
                -appName myNewApp

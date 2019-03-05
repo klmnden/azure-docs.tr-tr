@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 839a6b3cc90c6a8fcc512c100c8825f9513ded26
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 21f3f9cba6fadb8f3d163fb5a9ed8b214e43c541
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875948"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316379"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme
 
@@ -310,28 +310,29 @@ Yukarıdaki örnek json (örneğin) sampleScheduledQueryRule.json amacıyla bu k
 
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>PowerShell, CLI veya API kullanarak günlük uyarıları yönetme
 
-[Azure İzleyici - zamanlanmış sorgu kuralları API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST API ve Azure Resource Manager REST API'si ile tamamen uyumlu. Bu nedenle Azure CLI yanı sıra, Resource Manager cmdlet'ini kullanarak Powershell kullanılabilir.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Azure İzleyici - zamanlanmış sorgu kuralları API] (https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST API ve Azure Resource Manager REST API'si ile tamamen uyumlu. Bu nedenle Azure CLI yanı sıra, Resource Manager cmdlet'ini kullanarak Powershell kullanılabilir.
+
 
 > [!NOTE]
 > Log Analytics için günlük uyarıları da eski kullanılarak yönetilebilir [Log Analytics uyarı API](../../azure-monitor/platform/api-alerts.md) ve eski şablonları [Log Analytics kayıtlı aramaları ve Uyarıları](../../azure-monitor/insights/solutions-resources-searches-alerts.md) de. Varsayılan olarak burada ayrıntıları yeni ScheduledQueryRules API'sini kullanarak daha fazla bilgi için bkz. [geçiş yapmak için yeni bir API için Log Analytics uyarılarını](alerts-log-api-switch.md).
 
+Günlük uyarıları şu anda adanmış PowerShell veya CLI komutları şu anda yoktur; ancak aşağıda gösterildiği gibi Azure Resource Manager PowerShell cmdlet'i kaynak şablonu (sampleScheduledQueryRule.json) daha önce gösterilen örnek için kullanılabilir [kaynak şablon bölümü](#azure-resource-template-for-application-insights) :
 
-Günlük uyarıları özel PowerShell veya CLI komutları şu anda yoktur; ancak aşağıda gösterildiği gibi Azure Resource Manager PowerShell cmdlet'i kaynak şablonu (sampleScheduledQueryRule.json) daha önce gösterilen örnek için kaynak şablonu bölümünde kullanılabilir:
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
 Aşağıda Azure Resource Manager kaynak şablonu (sampleScheduledQueryRule.json) daha önce gösterilen örnek için Azure CLI komutu aracılığıyla kullanım kaynak şablonu bölümünde gösterilmektedir:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
-```
+On successful operation, 201 will be returned to state new alert rule creation or 200 will be returned if an existing alert rule was modified.
 
-Başarılı bir işlem 201 durum yeni uyarı kuralı oluşturma döndürülecek veya mevcut bir uyarı kuralı değiştirilmişse, 200 döndürülür.
+## Next steps
 
-## <a name="next-steps"></a>Sonraki adımlar
-
-* Hakkında bilgi edinin [oturum uyarılar Azure uyarıları](../../azure-monitor/platform/alerts-unified-log.md)
-* Anlamak [günlük uyarıları için Web kancası eylemleri](../../azure-monitor/platform/alerts-log-webhook.md)
-* Daha fazla bilgi edinin [Application Insights](../../azure-monitor/app/analytics.md)
-* Daha fazla bilgi edinin [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
+* Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
+* Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
+* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).

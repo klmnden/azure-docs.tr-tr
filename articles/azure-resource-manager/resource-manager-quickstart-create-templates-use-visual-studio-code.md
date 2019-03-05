@@ -10,19 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 33bc10bb601fa14a34b6032c54b0c751a3608ccc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c73084b03736a422e5e3b617ec058ade1de0fbb9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823663"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317127"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Hızlı Başlangıç: Visual Studio Code kullanarak Azure Resource Manager şablonları oluşturma
 
 Visual Studio Code ve Azure Resource Manager Araçları uzantısı kullanarak Azure Resource Manager şablonları oluşturmayı ve düzenlemeyi öğrenin. Uzantı olmadan Visual Studio Code'da Resource Manager şablonları oluşturabilirsiniz, ancak uzantı, şablon geliştirmeyi kolaylaştıran otomatik tamamlama seçenekleri sağlar. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md).
+
+Bu öğreticide, bir depolama hesabı dağıtın:
+
+![Resource manager şablonu Hızlı Başlangıç visual studio kodu diyagramı](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -90,15 +94,24 @@ Visual Studio Code'u kullanarak bir şablon düzenleme deneyimi için daha fazla
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 
-Şablonları dağıtmak için birçok yöntem vardır.  Bu hızlı başlangıçta, Azure Cloud Shell'i kullanacaksınız. Cloud Shell'i herhangi bir yapılandırma gerektirmeyen bir web uygulamasıdır. Bu Azure CLI ve Azure PowerShell hem de destekler.
+Şablonları dağıtmak için birçok yöntem vardır. Bu hızlı başlangıçta, Azure Cloud Shell'i kullanılır. Cloud shell, Azure CLI ve Azure PowerShell hem destekler. PowerShell ve CLI arasında seçim için sekmesinde seçiciyi kullanın.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-
 1. [Azure Cloud Shell](https://shell.azure.com)'de oturum açın.
 
+2. Tercih ettiğiniz ortam ya da seçerek **PowerShell** veya **Bash**(CLI) sol üst köşesinde bulunan.  Geçiş yaptığınızda kabuğun yeniden başlatılması gerekir.
+
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+
     ![Azure portal Cloud shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-2. Tercih ettiğiniz ortam ya da seçerek **PowerShell** veya **Bash** sol üst köşesinde bulunan. CLI kullanmak için bir Bash oturumu açmanız gerekir. Azure PowerShell'i çalıştırmak üzere bir PowerShell oturumu açmanız gerekir. Bash ve PowerShell arasında geçiş yapmak için aşağı oku seçin. Önceki ekran görüntüsüne bakın. Geçiş yaptığınızda kabuğun yeniden başlatılması gerekir.
+
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+
+    ![Azure portal Cloud shell'de PowerShell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
+
+    ---
+
 3. **Dosyaları karşıya yükle/indir**'i seçin ve sonra da **Karşıya Yükle**'yi seçin.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)

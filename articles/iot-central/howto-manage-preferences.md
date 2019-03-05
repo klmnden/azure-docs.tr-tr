@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 21814ddf6af5e65725f5e0e6ebdf31206565baa2
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: dd6148d2d817b1f2465b6beaba5fd488b16ead21
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57218014"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315971"
 ---
 # <a name="manage-your-application-preferences"></a>Uygulama tercihlerinizi yönetin
 
@@ -27,7 +27,7 @@ IOT Central, birden çok dil desteklenir. Tercih ettiğiniz dili kullanarak geç
 
 ## <a name="changing-theme"></a>Tema değiştiriliyor
 
-Koyu tema hem de açık tema için destek sunuyoruz. Açık tema varsayılan olsa da, üst gezinti çubuğunda ayarlar simgesine tıklayarak bunu değiştirebilirsiniz.
+Koyu tema hem de açık tema için destek sunuyoruz. Açık tema varsayılan olsa da, üst gezinti çubuğunda ayarlar simgesine seçerek değiştirebilirsiniz.
 
 ![IOT Central tema Seçici](media/howto-manage-preferences/settings.png)
 

@@ -10,21 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 57e71261bad950b409da7a58b53712d84dc1b3df
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f894d9c81162746c2ea66d9a77300fdcc23e7c20
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56815867"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314985"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Öğretici: Azure Resource Manager şablonlarını koşul kullanın
 
 Azure kaynaklarını koşullara bağlı olarak dağıtmayı öğrenin.
 
 [Kaynak dağıtım sırasını ayarlama](./resource-manager-tutorial-create-templates-with-dependent-resources.md) öğreticisinde bir sanal makine, bir sanal ağ ve bir depolama hesabı dahil olmak üzere ek birkaç bağımlı kaynak oluşturmuştunuz. Her defasında yeni depolama hesabı oluşturmak yerine kullanıcıların yeni depolama hesabı oluşturma veya var olan depolama hesabını kullanma arasında seçim yapmasını sağlayacaksınız. Bu hedefe ulaşmak için ek bir parametre tanımlamanız gerekir. Parametrenin değeri "new" olduğunda yeni bir depolama hesabı oluşturulur.
+
+![Resource Manager şablonu kullanım durumu diyagramı](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
 Bu öğretici aşağıdaki görevleri kapsar:
 

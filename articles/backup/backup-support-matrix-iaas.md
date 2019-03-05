@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: a8a1ae3e7a0c866b590c952a2cd4334fd9df800a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: da615d76e9efa0ad8d0952a6d75bc341336a6596
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216841"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312979"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM yedeklemesi için destek matrisi
 Kullanabileceğiniz [Azure Backup hizmeti](backup-overview.md) şirket içi makinelerin ve iş yükleri ve Azure sanal makineleri (VM) yedekleme. Bu makalede, Azure sanal makinelerini Azure Backup ile yedeklediğinizde destek ayarları ve sınırlamaları özetlenmektedir.
@@ -46,10 +46,10 @@ Bu VM kapatma/çevrimdışı/arayan bir VM'yi yedekleme | Destekleniyor.<br/><br
 Yönetilen diskler geçiş sonra diskleri yedekleme | Destekleniyor.<br/><br/> Yedekleme çalışmaya devam eder. İşlem yapmanız gerekmez.
 Kaynak grubu kilidi etkinleştirdikten sonra yönetilen diskleri yedekleme | Desteklenmiyor.<br/><br/> Azure yedekleme, eski kaynak noktaları silinemiyor ve yedekleri geri yükleme noktaları üst sınırına ulaşıldığında başarısız olmaya başlar.
 Bir VM için yedekleme ilkesini değiştirme | Destekleniyor.<br/><br/> VM yeni ilke zamanlama ve bekletme ayarlarını kullanarak yedeklenir. Saklama ayarları uzatıldıysa, var olan kurtarma noktalarının işaretlenmiş ve tutulur. Azaltılmış, mevcut kurtarma noktalarını ayıklama sonraki temizleme işi ve sonunda silinir.
-Bir yedekleme işi iptal et | Anlık görüntü işlemi sırasında desteklenir.<br/><br/> Anlık görüntü kasaya aktarıldığında desteklenmiyor. 
+Bir yedekleme işi iptal et | Anlık görüntü işlemi sırasında desteklenir.<br/><br/> Anlık görüntü kasaya aktarıldığında desteklenmiyor.
 Farklı bir bölgeye veya aboneliğe VM'yi yedekleme |  Desteklenmiyor.
 (Azure VM uzantısı) üzerinden günlük yedekleme | Günde bir zamanlanmış yedekleme.<br/><br/> Günde en fazla dört isteğe bağlı yedekleme yapabilirsiniz.
-Yedeklemeler günde (aracılığıyla, MARS Aracısı) | Günde üç zamanlanmış yedeklemeler. 
+Yedeklemeler günde (aracılığıyla, MARS Aracısı) | Günde üç zamanlanmış yedeklemeler.
 (DPM/MABS) aracılığıyla günlük yedekleme | Günde iki zamanlanmış yedekleme.
 Aylık/yıllık yedekleme   | Azure VM uzantısı ile yedeklerken desteklenmiyor. Yalnızca günlük ve haftalık desteklenir.<br/><br/> Aylık/yıllık Bekletme dönemi için günlük/haftalık yedekleri tutma ilkesi ayarlayabilirsiniz.
 Otomatik saat ayarlama | Desteklenmiyor.<br/><br/> Azure yedekleme otomatik olarak bir VM'yi yedeklerken Yaz Saati değişiklikler için ayarlama değil.<br/><br/>  İlkeyi gereken şekilde el ile değiştirin.
@@ -61,7 +61,7 @@ Aşağıdaki tabloda, Windows Azure Vm'lerini yedeklerken, desteklenen işletim 
 
 **Senaryo** | **İşletim sistemi desteği**
 --- | ---
-Azure VM Aracısı uzantısı ile yedekleme | Windows İstemcisi: Desteklenmiyor<br/><br/> Windows Server için: Windows Server 2008 R2 veya üzeri 
+Azure VM Aracısı uzantısı ile yedekleme | Windows İstemcisi: Desteklenmiyor<br/><br/> Windows Server için: Windows Server 2008 R2 veya üzeri
 MARS Aracısı ile yedekleme | [Desteklenen](backup-support-matrix-mars-agent.md#support-for-direct-backups) işletim sistemleri.
 DPM/MABS ile yedekleme | Desteklenen işletim sistemleri ile yedekleme için [MABS](backup-mabs-protection-matrix.md) ve [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -70,7 +70,7 @@ DPM/MABS ile yedekleme | Desteklenen işletim sistemleri ile yedekleme için [MA
 Linux makineleri yedeklemek istiyorsanız, nelerin desteklendiği aşağıda verilmiştir.
 
 **Eylem** | **Destek**
---- | --- 
+--- | ---
 Linux Azure VM Aracısı ile Linux Azure Vm'lerini yedekleme | Dosya tutarlı yedekleme.<br/><br/> Uygulamayla tutarlı Yedekleme kullanarak [özel betikler](backup-azure-linux-app-consistent.md).<br/><br/> Geri yükleme sırasında yeni bir VM oluşturun, bir diski geri yükleme ve bir sanal makine oluşturun veya bir diski geri yükleme ve var olan bir sanal diski değiştirmek için kullanmak için kullanın. Ayrıca tek dosyalar ve klasörler geri yükleyebilirsiniz.
 MARS Aracısı ile Linux Azure Vm'lerini yedekleme | Desteklenmiyor.<br/><br/> MARS Aracısı, yalnızca Windows makinelerde yüklenebilir.
 DPM/MABS Linux Azure sanal makinelerini yedekleme | Desteklenmiyor.
@@ -87,8 +87,8 @@ Azure VM Linux yedeklemeleri için Azure Backup, Linux listesini destekler [Azur
 
 ## <a name="backup-frequency-and-retention"></a>Yedekleme sıklığı ve bekletme
 
-**Ayar** | **Limitler** 
---- | --- 
+**Ayar** | **Limitler**
+--- | ---
 (Makine/iş yükü) korumalı örnek başına en fazla kurtarma noktası | 9999.
 Bir kurtarma noktası için en fazla süre sonu zamanı | Bir sınırlama yoktur.
 En fazla yedekleme sıklığını kasasına (Azure VM uzantısı) | Günde bir kez.
@@ -100,8 +100,8 @@ DPM/MABS diskteki kurtarma noktaları | dosya sunucuları ve uygulama sunucular�
 
 ## <a name="supported-restore-methods"></a>Desteklenen geri yükleme yöntemleri
 
-**Geri yükleme yöntemi** | **Ayrıntılar** 
---- | --- 
+**Geri yükleme yöntemi** | **Ayrıntılar**
+--- | ---
 Yeni VM oluşturma | Geri yükleme işlemi sırasında bir VM oluşturabilirsiniz. <br/><br/> Bu seçenek, çalışmaya temel VM alır. VM adı, kaynak grubu, sanal ağ, alt ağ ve depolama belirtebilirsiniz.  
 Diski geri yükleme | Bir diski geri yükleme ve bir VM oluşturmak için bunu kullanın.<br/><br/> Bu seçeneği belirlediğinizde, Azure Backup kasasından verileri bir depolama hesabına kopyalar. Geri yükleme işi, bir şablon oluşturur. Bu şablon, özel sanal makine ayarlarını belirtmek için kullanın ve bir VM oluşturun.<br/><br/> Bu seçenek daha fazla ayarları belirtmenize olanak tanır, bir VM oluşturmak için önceki seçeneği.<br/><br/>
 Var olan bir diski Değiştir | Bir diski geri yükleme ve sonra bir sanal makine üzerinde şu anda var olan bir diski değiştirmek için geri yüklenen diski kullanın.
@@ -110,7 +110,7 @@ Dosyaları geri yükleme | Seçilen kurtarma noktasından dosyaları kurtarabili
 ## <a name="support-for-file-level-restore"></a>Dosya düzeyinde geri yükleme desteği
 
 **Geri yükleme** | **Destekleniyor**
---- | --- 
+--- | ---
 İşletim sistemleri arasında dosyaları geri yükleme | Yedeklenen sanal makine olarak aynı (veya uyumlu) işletim sistemi olan herhangi bir makinede dosyaları geri yükleyebilirsiniz. bkz: [uyumlu işletim sistemi tablo](backup-azure-restore-files-from-vm.md#system-requirements).
 Klasik sanal makineleri geri yükleme dosyaları | Desteklenmiyor.
 Şifrelenmiş Vm'leri geri yükleme dosyaları | Desteklenmiyor.
@@ -123,12 +123,12 @@ LVM'yi/RAID dizileri kullanarak Linux VM dosyaları geri yükle | Geri yükleme,
 
 Aşağıdaki tablo, ekleme veya değiştirme VM diskleri gibi sanal makine yönetim görevleri sırasında yedekleme desteği özetler.
 
-**Geri yükleme** | **Destekleniyor** 
---- | --- 
-Bölge/abonelik/bölge geri yükleyin. | Desteklenmiyor. 
+**Geri yükleme** | **Destekleniyor**
+--- | ---
+Bölge/abonelik/bölge geri yükleyin. | Desteklenmiyor.
 Mevcut bir VM'ye geri yükleme | Kullanımı, disk seçeneği değiştirin.
 Azure depolama hizmeti şifrelemesi (SSE) için etkinleştirilmiş depolama hesabıyla diski geri yükleme | Desteklenmiyor.<br/><br/> SSE etkin olmayan bir hesap geri yükleyin.
-Karma depolama hesaplarına geri yükleme | Desteklenmiyor.<br/><br/> Depolama hesabı türüne bağlı olarak, geri yüklenen tüm diskler, premium veya standart ve karışık değil olacaktır. 
+Karma depolama hesaplarına geri yükleme | Desteklenmiyor.<br/><br/> Depolama hesabı türüne bağlı olarak, geri yüklenen tüm diskler, premium veya standart ve karışık değil olacaktır.
 Bölgesel olarak yedekli depolama (ZRS) kullanarak depolama hesabına geri yükleme | Desteklenmiyor.
 VM bir kullanılabilirlik kümesine doğrudan geri yükleme | Yönetilen diskler için disk geri yükleme ve şablonda kullanılabilirlik kümesi seçeneğini kullanın.<br/><br/> Yönetilmeyen diskler için desteklenmiyor. Yönetilmeyen diskler için disk geri yükleme ve sonra kullanılabilirlik kümesine bir VM oluşturun.
 VM'yi yönetilen yükseltme sonra yönetilmeyen VM yedeklemesini geri yükleme| Destekleniyor.<br/><br/> Diskleri geri yükle ve ardından yönetilen bir sanal makine oluşturun.
@@ -139,16 +139,16 @@ Farklı bir sanal ağda VM geri yükleme |   Destekleniyor.<br/><br/> Sanal ağ,
 
 ## <a name="vm-compute-support"></a>VM işlem desteği
 
-**İşlem** | **Destek** 
---- | --- 
-VM boyutu |   Herhangi bir Azure VM boyutu en az 2 CPU Çekirdeği ve 1 GB RAM.<br/><br/> [Daha fazla bilgi edinin.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) 
-Vm'leri yedekleme [kullanılabilirlik kümeleri](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability#availability-sets) | Destekleniyor.<br/><br/> Seçeneğini kullanarak hızla bir VM oluşturmak için kullanılabilir bir veri kümesindeki bir VM'nin geri yükleyemezsiniz. Bunun yerine, VM'yi geri yüklerken disk geri yükleme ve bir VM'yi dağıtmak veya bir diski geri yükleme ve var olan bir diski değiştirmek için kullanmak için kullanın. 
-Vm'leri yedekleme [kullanılabilirlik alanları](https://docs.microsoft.com/azure/availability-zones/az-overview) |  Desteklenmiyor.  
+**İşlem** | **Destek**
+--- | ---
+VM boyutu |   Herhangi bir Azure VM boyutu en az 2 CPU Çekirdeği ve 1 GB RAM.<br/><br/> [Daha fazla bilgi edinin.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
+Vm'leri yedekleme [kullanılabilirlik kümeleri](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability#availability-sets) | Destekleniyor.<br/><br/> Seçeneğini kullanarak hızla bir VM oluşturmak için kullanılabilir bir veri kümesindeki bir VM'nin geri yükleyemezsiniz. Bunun yerine, VM'yi geri yüklerken disk geri yükleme ve bir VM'yi dağıtmak veya bir diski geri yükleme ve var olan bir diski değiştirmek için kullanmak için kullanın.
+Vm'leri yedekleme [kullanılabilirlik alanları](https://docs.microsoft.com/azure/availability-zones/az-overview) |  Desteklenmiyor.
 Geri ile dağıtılan Vm'leri yedekleme [karma kullanım Avantajı'nı (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Destekleniyor.
 Dağıtılan Vm'leri geri oluşturan bir [ölçek kümesi](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |  Desteklenmiyor.
 Geri üzerinden dağıtılan Vm'leri yedekleme [Azure Marketi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Microsoft, üçüncü taraf tarafından yayımlanan) |  Destekleniyor.<br/><br/> Sanal Makineyi desteklenen bir işletim sistemi çalıştırmalıdır.<br/><br/> Sanal makine dosyalarını kurtarırken, yalnızca bir uyumlu işletim sistemine (değil bir önceki veya sonraki işletim sistemi) geri yükleyebilirsiniz.
 Özel görüntüden (üçüncü taraf) dağıtılan Vm'leri yedekleme |   Destekleniyor.<br/><br/> Sanal Makineyi desteklenen bir işletim sistemi çalıştırmalıdır.<br/><br/> Sanal makine dosyalarını kurtarırken, yalnızca bir uyumlu işletim sistemine (değil bir önceki veya sonraki işletim sistemi) geri yükleyebilirsiniz.
-Azure'a geçiş Vm'leri yedekleme  | Destekleniyor.<br/><br/> Sanal makineyi yedeklemek için geçirilen makinede VM Aracısı yüklenmelidir. 
+Azure'a geçiş Vm'leri yedekleme  | Destekleniyor.<br/><br/> Sanal makineyi yedeklemek için geçirilen makinede VM Aracısı yüklenmelidir.
 
 
 
@@ -172,18 +172,18 @@ Korumalı VM diski yeniden boyutlandırma | Destekleniyor.
 **Bileşen** | **Destek**
 --- | ---
 Ağ arabirimlerini (NIC'ler) sayısı | NIC sayısı üst sınırı için belirli bir Azure VM boyutu desteklenen en fazla.<br/><br/> Geri yükleme işlemi sırasında oluşturulan VM NIC oluşturulur.<br/><br/> Koruma etkinleştirildiğinde, geri yüklenen VM üzerindeki NIC sayısı VM üzerindeki NIC sayısını yansıtır. Koruma etkinleştirildikten sonra NIC kaldırma sayısı etkilemez.
-İç/dış yük dengeleyici |   Destekleniyor. <br/><br/> [Daha fazla bilgi edinin](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) özel ağ ayarlarıyla Vm'leri geri yükleme hakkında.
-Birden çok ayrılmış IP adresleri |    Destekleniyor. <br/><br/> [Daha fazla bilgi edinin](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) özel ağ ayarlarıyla Vm'leri geri yükleme hakkında.
-Vm'leri birden fazla ağ bağdaştırıcısı  | Destekleniyor. <br/><br/> [Daha fazla bilgi edinin](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) özel ağ ayarlarıyla Vm'leri geri yükleme hakkında.
+İç/dış yük dengeleyici |   Destekleniyor. <br/><br/> [Daha fazla bilgi edinin](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) özel ağ ayarlarıyla Vm'leri geri yükleme hakkında.
+Birden çok ayrılmış IP adresleri |    Destekleniyor. <br/><br/> [Daha fazla bilgi edinin](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) özel ağ ayarlarıyla Vm'leri geri yükleme hakkında.
+Vm'leri birden fazla ağ bağdaştırıcısı  | Destekleniyor. <br/><br/> [Daha fazla bilgi edinin](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) özel ağ ayarlarıyla Vm'leri geri yükleme hakkında.
 Genel IP adreslerine sahip VM'ler    | Destekleniyor.<br/><br/> Var olan bir genel IP adresini NIC ile ilişkilendirin veya bir adresi oluşturun ve geri yükleme tamamlandıktan sonra NIC ile ilişkilendirin.
 NIC/alt ağ üzerinde ağ güvenlik grubu (NSG). |   Destekleniyor.
 Ayrılmış IP adresi (statik) | Desteklenmiyor.<br/><br/> Ayrılmış IP adresi ve tanımlanmış uç nokta sahip bir VM yedekleyemezsiniz.
 Dinamik IP adresi |    Destekleniyor.<br/><br/> Kaynak NIC VM dinamik IP adresleme kullanıyorsa, varsayılan tarafından geri yüklenen VM üzerindeki NIC, çok kullanır.
-Azure Traffic Manager   | Destekleniyor.<br/><br/>El ile yedeklenen VM'ye trafik Yöneticisi'nde ise, aynı Traffic Manager örneğine geri yüklenen sanal makine ekleyin. 
+Azure Traffic Manager   | Destekleniyor.<br/><br/>El ile yedeklenen VM'ye trafik Yöneticisi'nde ise, aynı Traffic Manager örneğine geri yüklenen sanal makine ekleyin.
 Azure DNS | Destekleniyor.
 Özel DNS |    Destekleniyor.
-HTTP Ara sunucusu üzerinden giden bağlantı | Destekleniyor.<br/><br/> Kimliği doğrulanmış bir ara sunucular desteklenmez. 
-Sanal ağ hizmeti uç noktaları   | Destekleniyor.<br/><br/> Güvenlik Duvarı ve sanal ağ, depolama hesabı ayarlarını tüm ağlardan erişime izin vermelidir. 
+HTTP Ara sunucusu üzerinden giden bağlantı | Destekleniyor.<br/><br/> Kimliği doğrulanmış bir ara sunucular desteklenmez.
+Sanal ağ hizmeti uç noktaları   | Destekleniyor.<br/><br/> Güvenlik Duvarı ve sanal ağ, depolama hesabı ayarlarını tüm ağlardan erişime izin vermelidir.
 
 
 
@@ -197,7 +197,7 @@ Ağ trafiği azure'a:
 - Yedekleme verileri güvenli bir HTTPS bağlantısı üzerinden gönderilir.
 - Yedekleme verileri, şifreli biçimde kurtarma Hizmetleri kasasında depolanır.
 - Yalnızca bu verilerin kilidini açmak için parola gerekir. Microsoft, herhangi bir noktada yedekleme verilerinin şifresini çözemez.
-    
+
   > [!WARNING]
   > Yalnızca kasası ayarlama sonra şifreleme anahtarına erişime sahip olursunuz. Microsoft hiçbir zaman bir kopyasını tutar ve erişim anahtarına sahip değil. Anahtarın kaybedilmesi durumunda Microsoft Yedekleme verilerini kurtaramaz.
 
@@ -211,7 +211,7 @@ Veri güvenliği:
 **Makine** | **Yoldaki** | **Bekleyen**
 --- | --- | ---
 DPM/MABS olmadan şirket içi Windows makineler | ![Evet][green] | ![Evet][green]
-Azure VM’leri | ![Evet][green] | ![Evet][green] 
+Azure VM’leri | ![Evet][green] | ![Evet][green]
 DPM ile şirket içi/Azure Vm'leri | ![Evet][green] | ![Evet][green]
 MABS ile şirket içi/Azure Vm'leri | ![Evet][green] | ![Evet][green]
 
@@ -242,4 +242,3 @@ MABS ile şirket içi/Azure Vm'leri | ![Evet][green] | ![Evet][green]
 [green]: ./media/backup-support-matrix/green.png
 [yellow]: ./media/backup-support-matrix/yellow.png
 [red]: ./media/backup-support-matrix/red.png
-

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d2093c5b4c07e6e62df4d1f52a7fbe6e12a91ea0
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: d9a911dccf3d59bf1159cf8576b95d86ef26657b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217062"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314254"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda denetleme
 
@@ -133,7 +133,7 @@ Blob günlükleri denetleme görüntülemek için kullanabileceğiniz birkaç y�
 
 * Kullanım [eşitleme uygulama](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) , oluşturduk. Azure'da çalışan ve log analytics kullanan Azure İzleyici günlüklerine SQL göndermek için ortak API'ler denetim günlükleri. Eşitleme uygulama SQL denetim günlüklerini log analytics Panosu tüketim için Azure İzleyici günlüklerine içine iter.
 
-* Power BI'ı kullanın. Görüntüleyebilir ve denetim günlüğü verilerini Power bı'da çözümleyin. Daha fazla bilgi edinin [Power BI ve indirilebilir bir şablon erişim](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+* Power BI'ı kullanın. Görüntüleyebilir ve denetim günlüğü verilerini Power bı'da çözümleyin. Daha fazla bilgi edinin [Power BI ve indirilebilir bir şablon erişim](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
 * Azure depolama blob kapsayıcısını Portalı aracılığıyla ya da bir aracı gibi kullanarak günlük dosyalarını indirin [Azure Depolama Gezgini](http://storageexplorer.com/).
     * Günlük dosyasını yerel olarak indirdikten sonra ssms'de günlüklerini çözümleme açmak ve görüntülemek için dosyayı çift tıklayabilirsiniz.
@@ -144,8 +144,8 @@ Blob günlükleri denetleme görüntülemek için kullanabileceğiniz birkaç y�
 
    * Blob görünümü denetimi programlı olarak kaydeder:
 
-     * Kullanım [genişletilmiş olaylar okuyucu](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C# Kitaplığı.
-     * [Sorgu genişletilmiş olaylar dosyaları](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) PowerShell kullanarak.
+     * Kullanım [genişletilmiş olaylar okuyucu](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C# Kitaplığı.
+     * [Sorgu genişletilmiş olaylar dosyaları](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) PowerShell kullanarak.
 
 
 
@@ -169,17 +169,20 @@ Veritabanı düzeyinde denetim günlüklerini toplu Store tablolarla koleksiyonu
 4. UI depolama geri gidin ve **yeniden** *ikincil erişim anahtarı* (sonraki için hazırlık olarak anahtarlarını yenileme döngüsü.
 
 ## <a id="subheading-5"></a>Otomasyon (PowerShell/REST API'si)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Ayrıca, aşağıdaki Otomasyon araçları kullanarak Azure SQL veri ambarı'nda denetim yapılandırabilirsiniz:
 
 * **PowerShell cmdlet'leri**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
-   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
-   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
-   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
-   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
-   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
-   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+   * [Get-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/get-azsqldatabaseauditingpolicy)
+   * [Get-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Get-azSqlServerAuditingPolicy)
+   * [Remove-AzSqlDatabaseAuditing](/powershell/module/az.sql/Remove-azSqlDatabaseAuditing)
+   * [Remove-AzSqlServerAuditing](/powershell/module/az.sql/Remove-azSqlServerAuditing)
+   * [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/Set-azSqlDatabaseAuditingPolicy)
+   * [Set-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Set-azSqlServerAuditingPolicy)
+   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy)
 
 
 ## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Ve dinamik veri maskeleme için alt düzey istemci desteği

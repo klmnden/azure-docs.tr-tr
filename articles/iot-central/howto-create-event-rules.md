@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af85ff8272853be82bae5c79622295fddfc60ade
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 84610c94621e887e20bb903385e2d6ddbe67189d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337283"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307862"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir olayı kuralı oluşturun ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
@@ -29,7 +29,7 @@ Olay kuralı oluşturmak için cihaz şablonu en az bir olay ölçümü tanımla
 
 1. Device Explorer ' ı kullanarak, cihaz şablon kural ekleme gidin.
 
-1. Seçilen şablonun altında var olan bir cihaza tıklayın. 
+1. Seçilen şablonun altında var olan bir cihaz seçin.
 
     >[!TIP] 
     >Bir şablon yoksa, herhangi bir cihaza daha sonra yeni bir cihaz ilk ekleyin.
@@ -39,10 +39,10 @@ Olay kuralı oluşturmak için cihaz şablonu en az bir olay ölçümü tanımla
     ![Henüz hiçbir kural](media/howto-create-event-rules/Rules_Landing_Page.png)
 
 
-1. Üzerinde **kuralları** sekmesini tıklatın, **şablonu Düzen** ardından **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
+1. Üzerinde **kuralları** sekmesinde **Şablonu Düzenle** ardından **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
 
 
-1. Tıklayarak **olay** izleme kuralı bir olay oluşturmak için bir kutucuk.
+1. Seçin **olay** izleme kuralı bir olay oluşturmak için bir kutucuk.
 
     ![Kural türü](media/howto-create-event-rules/Rule_Types.png)
 

@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
 ms.date: 01/17/2019
-ms.openlocfilehash: c6d0d2eec61375760ee3dc4e4b100b24cef2b405
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: f27a5b0deb0dd446d4f05b0a6d6e96d67d24d9e9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388800"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316005"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için sertifika TDE korunan veritabanını geçirme
 
@@ -35,17 +35,19 @@ Tam yönetilen hizmet kullanılarak hem TDE korumalı veritabanının hem de ilg
 
 ## <a name="prerequisites"></a>Önkoşullar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bu makaledeki adımları tamamlayabilmeniz için şu önkoşullar gereklidir:
 
 - Şirket içi sunucuya veya dosya olarak dışarı aktarılan sertifikaya erişimi olan başka bir bilgisayara yüklenmiş [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) komut satırı aracı. Pvk2Pfx aracı, tek başına kendi içinde bir komut satırı ortamı olan [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)'in bir parçasıdır.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) sürüm 5.0 veya üstü yüklenmiş olmalıdır.
-- AzureRM PowerShell modülü [yüklenmiş ve güncelleştirilmiş](https://docs.microsoft.com/powershell/azure/install-az-ps) olmalıdır.
-- [AzureRM.Sql modülünün](https://www.powershellgallery.com/packages/AzureRM.Sql) sürümü 4.10.0 veya üzeri olmalıdır.
+- Azure PowerShell Modülü [yüklü ve güncelleştirilmiş](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- [Az.Sql Modülü](https://www.powershellgallery.com/packages/Az.Sql).
   PowerShell modülünü yüklemek/güncelleştirmek için PowerShell’de şu komutları çalıştırın:
 
    ```powershell
-   Install-Module -Name AzureRM.Sql
-   Update-Module -Name AzureRM.Sql
+   Install-Module -Name Az.Sql
+   Update-Module -Name Az.Sql
    ```
 
 ## <a name="export-tde-certificate-to-a-personal-information-exchange-pfx-file"></a>TDE sertifikasını Kişisel Bilgi Değişimi (.pfx) dosyasında dışarı aktarma
@@ -116,13 +118,13 @@ Sertifika SQL Server’ın yerel makine sertifika depolama alanında tutuluyorsa
 
    ```powershell
    # Import the module into the PowerShell session
-   Import-Module AzureRM
+   Import-Module Az
    # Connect to Azure with an interactive dialog for sign-in
-   Connect-AzureRmAccount
+   Connect-AzAccount
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
-   Get-AzureRmSubscription
+   Get-AzSubscription
    # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
-   Select-AzureRmSubscription Guid_Subscription_Id
+   Select-AzSubscription Guid_Subscription_Id
    ```
 
 2. Tüm hazırlık adımları tamamladıktan sonra, base-64 kodlamalı sertifikayı hedef Yönetilen Örneğe yüklemek için şu komutları çalıştırın:
@@ -133,7 +135,7 @@ Sertifika SQL Server’ın yerel makine sertifika depolama alanında tutuluyorsa
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
-   Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
+   Add-AzSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
 Sertifikaya artık belirtilen Yönetilen Örnekten ulaşılabilir ve buna karşılık gelen TDE korumalı veritabanının yedeği başarılı bir şekilde geri yüklenebilir.

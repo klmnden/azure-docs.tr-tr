@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0d49045eea5a65461b142262bae83b9b8e7f84c8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ff68bfc9cdd13563fa8f938870742e9e9ceac9c2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816598"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313268"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Kullanarak Azure şemaları hatalarıyla ilgili sorunları giderme
 
@@ -65,7 +65,7 @@ Blueprint parametresi geçirmeden kullanan bir işlev gibi `[resourceGroup().tag
 
 #### <a name="resolution"></a>Çözüm
 
-Bir işlev aracılığıyla bir parametre olarak geçirmek için tüm dize ile kaçış `[` blueprint parametresi şuna benzer şekilde `[[resourceGroup().tags.myTag]`. Kaçış karakteri değeri bir dize olarak şema işleme sırasında değerlendirilecek şemaları neden olur. Blueprint beklendiği gibi dinamik olarak izin veren yapıt üzerinde ardından işlev yerleştirir.
+Bir işlev aracılığıyla bir parametre olarak geçirmek için tüm dize ile kaçış `[` blueprint parametresi şuna benzer şekilde `[[resourceGroup().tags.myTag]`. Kaçış karakteri değeri bir dize olarak şema işleme sırasında değerlendirilecek şemaları neden olur. Blueprint beklendiği gibi dinamik olarak izin veren yapıt üzerinde ardından işlev yerleştirir. Daha fazla bilgi için [şablon dosya yapısı - söz dizimi](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

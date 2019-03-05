@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2018
+ms.date: 03/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e692cc1fd8670cc14b42e4714d84356d4d4c53a2
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 364b0bf611581f88fc87f163acbbb7529862d096
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276006"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309579"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>SAP HANA (büyük örnekler) depolama mimarisi
 
@@ -73,9 +73,9 @@ Başvuru [HLI desteklenen senaryoları](hana-supported-scenario.md) senaryonuz i
 
 HANA büyük örneği birimi birden fazla etkin SAP HANA örneğinde barındırmak mümkündür. Depolama anlık görüntüleri ve olağanüstü durum kurtarma özellikleri sağlamak için bu tür bir yapılandırma örneği başına bir birim gerektirir. Şu anda, HANA büyük örneği birimleri gibi alt bölümlere ayrılabilir:
 
-- **S72 S72m, S96 S144, S192**: en düşük başlangıç birim 256 GB ile 256 GB'lık artışlarla. 256 GB ile 512 GB gibi farklı aralıklarla en büyük bellek birimi birleştirilebilir.
-- **S144m ve S192m**: en küçük birim 512 GB ile 256 GB'lık artışlarla. 512 GB ve 768 GB gibi farklı aralıklarla en büyük bellek birimi birleştirilebilir.
-- **Türü II sınıfı**: en düşük başlangıç birim 2 TB ile 512 GB'lık artışlarla. 512 GB, 1 TB ve 1,5 TB'lık gibi farklı aralıklarla en büyük bellek birimi birleştirilebilir.
+- **S72 S72m, S96 S144, S192**: En düşük başlangıç birim 256 GB ile 256 GB artışlarla. 256 GB ile 512 GB gibi farklı aralıklarla en büyük bellek birimi birleştirilebilir.
+- **S144m ve S192m**: En küçük birim 512 GB ile 256 GB artışlarla. 512 GB ve 768 GB gibi farklı aralıklarla en büyük bellek birimi birleştirilebilir.
+- **Türü II sınıfı**: 512 GB'ın katlarıyla artacak en düşük başlangıç birimindeki 2 TB. 512 GB, 1 TB ve 1,5 TB'lık gibi farklı aralıklarla en büyük bellek birimi birleştirilebilir.
 
 Birden çok SAP HANA örnekleri çalışan örneklerde aşağıdaki gibi görünebilir.
 
@@ -93,6 +93,19 @@ Diğer farklılıklar da vardır.
 Disklere depolanan gibi verilerin saydam bir şifrelenmesi HANA büyük örneği için kullanılan depolama alanı sağlar. Bir HANA büyük örneği birim dağıtıldığında, bu tür şifrelemeyi etkinleştirebilirsiniz. Dağıtım gerçekleştirildikten sonra şifrelenmiş birimlere da değiştirebilirsiniz. Şifrelenmemiş taşımak şifrelenmiş birimlere saydamdır ve kapalı kalma süresi gerektirmez. 
 
 Ben türüyle sınıfı SKU, LUN üzerinde depolanan önyükleme birimi şifrelenir. SKU'ları, HANA büyük örneği Type II sınıfı için işletim sistemi yöntemleriyle LUN önyükleme şifrelemeniz gerekir. Daha fazla bilgi için Microsoft Hizmet Yönetimi ekibine başvurun.
+
+## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>HANA büyük örnekler üzerinde daha büyük bir HANA örnekleri için gerekli ayarları
+HANA büyük örnekleri kullanılan depolama alanı dosya boyutu sınırlaması vardır. [Boyut sınırlaması 16TB'tır](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) dosya başına. Farklı durumlarda EXT3 dosya sistemleri gibi dosya boyutu sınırlamaları, HANA örtük olarak HANA büyük örnekleri depolaması tarafından zorlanan depolama sınırlama farkında değil. Sonuç olarak 16 TB'lık dosya boyutu sınırını ulaşıldığında HANA'ya yeni bir veri dosyası otomatik olarak oluşturmaz. HANA 16 TB ötesinde dosya büyütme girişiminde HANA sonunda, hataları ve dizin sunucusu çöker rapor eder.
+
+> [!IMPORTANT]
+> Veri büyür ve HANA büyük Örnek Depolama 16 TB dosya boyutu sınırını aşan çalışılırken HANA önlemek için aşağıdaki parametreleri HANA global.ini yapılandırma dosyasında ayarlamanız gerekir
+> 
+- datavolume_striping = true
+- datavolume_striping_size_gb 15000 =
+- Ayrıca SAP bkz Not [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+
+
+
 
 **Sonraki adımlar**
 - Başvuru [HANA büyük örnekler için desteklenen senaryolar](hana-supported-scenario.md)

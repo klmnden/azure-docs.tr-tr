@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: d8a5ca6285624720e23a4986917ab5e715f6ebfa
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 5c414e4398ef280b0d04d0a384722ee923c4cefa
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768022"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316039"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central-new-ui-design"></a>Öğretici: Kurallar ve Eylemler için Cihazınızı Azure IOT Central (yeni kullanıcı Arabirimi tasarımı) yapılandırma
 
@@ -36,15 +36,15 @@ Başlamadan önce, [Uygulamanızda yeni bir cihaz türü tanımlama](tutorial-de
 
 ## <a name="create-a-telemetry-based-rule"></a>Telemetri tabanlı kural oluşturma
 
-1. Sol gezinti menüsünde, uygulamanıza, telemetri tabanlı yeni bir kural eklemek için **cihaz şablonları**:
+1. Sol gezinti menüsünde, uygulamanıza, telemetri tabanlı yeni bir kural eklemek için seçin **cihaz şablonları**:
 
     ![Cihaz şablonlarını](media/tutorial-configure-rules-experimental/templatespage1.png)
 
     Gördüğünüz **bağlı klima (1.0.0)** önceki öğreticide oluşturduğunuz cihaz şablonu.
 
-2. Cihaz şablonunuzu özelleştirme için tıklatın **bağlı bir klima** önceki öğreticide oluşturduğunuz şablonu.
+2. Cihaz şablonunuzu özelleştirme için seçin **bağlı bir klima** önceki öğreticide oluşturduğunuz şablonu.
 
-3. Telemetri tabanlı bir kural eklemek için **kuralları** Görüntüle öğesini **kuralları**, tıklayın **+ yeni kural**ve ardından **Telemetri**:
+3. Telemetri tabanlı bir kural eklemek için **kuralları** görüntülenecek **kuralları**seçin **+ yeni kural**ve ardından **Telemetri**:
 
     ![Kurallar görünümü](media/tutorial-configure-rules-experimental/newrule.png)
 
@@ -59,7 +59,7 @@ Başlamadan önce, [Uygulamanızda yeni bir cihaz türü tanımlama](tutorial-de
 
     ![Sıcaklık kural koşulu](media/tutorial-configure-rules-experimental/temperaturerule.png)
 
-    Daha sonra **Kaydet**'e tıklayın.
+    Daha sonra **Kaydet**’e tıklayın.
 
 ## <a name="add-an-action"></a>Eylem ekleme
 
@@ -81,7 +81,7 @@ Bir kural tanımladığınızda, kural koşulları yerine getirildiği zaman ça
 
     ![Sıcaklık eylemi](media/tutorial-configure-rules-experimental/temperatureaction.png)
 
-3. **Kaydet**’e tıklayın. Kural listelenir **kuralları** sayfası.
+3. **Kaydet**’i seçin. Kural listelenir **kuralları** sayfası.
 
 ## <a name="test-the-rule"></a>Kuralı test etme
 

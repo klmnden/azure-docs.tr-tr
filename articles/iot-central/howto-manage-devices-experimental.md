@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 69c7da1a529e46c054d9c824c2aee71fa67bd8ff
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 8fbad5350170d0e5434dfc2db3c85c04c2807726
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768651"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311483"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-new-ui-design"></a>Azure IOT Central uygulamanızda (yeni kullanıcı Arabirimi tasarımı) cihazları yönetme
 
@@ -66,7 +66,7 @@ Toplu kaydı uygulamanızdaki cihazlar için:
     > [!NOTE]
     > Bir cihaz şablonuna sahip olmayan henüz altında cihazları içeri aktarabilirsiniz **ilişkili değil, cihazları** ve bunları bir şablonu kaydedin. Cihazlar içeri aktardıktan sonra bunları daha sonra şablon ile ilişkilendirebilirsiniz.
 
-1. **İçeri Aktar**’a tıklayın.
+1. Seçin **alma**.
 
     ![Alma eylemi](./media/howto-manage-devices-experimental/BulkImport1.png)
 
@@ -92,11 +92,11 @@ Cihazları içeri aktarma altında başlatarak kaydederseniz **ilişkili değil,
 
 1. Şablon ile ilişkilendirmek istediğiniz cihazları seçin:
 
-1. Tıklayın **ilişkilendirmek**:
+1. Seçin **ilişkilendirmek**:
 
     ![Cihazları İlişkilendir](./media/howto-manage-devices-experimental/UnassociatedDevices2.png)
 
-1. Şablonu kullanılabilir şablonlar listesinden seçim yapın ve tıklayın **ilişkilendirmek** düğmesi.
+1. Şablonu kullanılabilir şablonlar listesinden seçip **ilişkilendirmek**.
 
 1. Seçili cihazların, seçtiğiniz cihaz şablonuyla ilişkilendirilir.
 
@@ -121,7 +121,7 @@ Uygulamanızdan dışarı aktarma cihazları toplu olarak:
 
 1. Dışarı aktarma tamamlandığında, bir başarı iletisi oluşturulan dosyasını indirmek için bir bağlantı ile birlikte gösterilir.
 
-1. Tıklayarak **başarılı iletisi** disk üzerindeki yerel bir klasöre dosya indirilemedi.
+1. Seçin **başarılı iletisi** disk üzerindeki yerel bir klasöre dosya indirilemedi.
 
     ![Dışarı aktarma başarılı](./media/howto-manage-devices-experimental/Export2.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b5ec8df9ff08aace69680c188f9ab05e944ce891
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 80c98d151c1b42b0c6106d4fa1af921bbb5ef55f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734581"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308406"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Bir cihaz şablonu (yeni kullanıcı Arabirimi tasarımı) ayarlama
 
@@ -46,7 +46,7 @@ Bu cihaz şablondan operatörün oluşturabilir ve gerçek fanı adlarla gibi ba
 
 1. Gidin **cihaz şablonları** sayfası.
 
-2. Boş bir şablon oluşturmak için tıklayın **+** ve ardından gibi bir ad girin **buzdolabı** cihaz şablonunuza. Ardından **Oluştur**:
+2. Boş bir şablon oluşturmak için Seç **+** ve ardından gibi bir ad girin **buzdolabı** cihaz şablonunuza. Ardından **Oluştur**:
 
    ![Şablon adı olarak "buzdolabı" cihaz Ayrıntıları sayfası](./media/howto-set-up-template-experimental/devicedetailspage.png)
 
@@ -64,7 +64,7 @@ Aşağıdaki bölümlerde sekmelerin her birinde üzerinde açıklanmıştır **
 
 ### <a name="create-a-telemetry-measurement"></a>Telemetri ölçü oluşturma
 
-Yeni bir telemetri ölçüm eklemek için tıklatın **+ yeni ölçüm**, seçin **Telemetri** ölçüm yazın ve formda ayrıntılarını girin.
+Yeni bir telemetri ölçüm eklemek için seçin **+ yeni ölçüm**, seçin **Telemetri** ölçüm yazın ve formda ayrıntılarını girin.
 
 > [!NOTE]
 > Cihaz şablonu alan adlarını, karşılık gelen cihaz kodu sırada gerçek bir cihaz bağlandığında uygulamada görüntülenecek telemetri ölçüm için özellik adları eşleşmelidir. Aşağıdaki bölümlerde cihaz şablonlarını tanımlamak devam ederken ayarları, cihaz özellikleri ve komutları yapılandırırken de aynısını yapın.
@@ -77,14 +77,14 @@ Yeni bir telemetri ölçüm eklemek için tıklatın **+ yeni ölçüm**, seçin
 
 !["Telemetri oluşturma" form sıcaklık ölçüm için Ayrıntılar](./media/howto-set-up-template-experimental/measurementsform.png)
 
-Tıkladıktan sonra **Kaydet**, **sıcaklık** ölçüm ölçümleri listesinde görünür. Kısa bir süre içinde bir sanal CİHAZDAN sıcaklık verilerini görselleştirme bakın.
+Seçtikten sonra **Kaydet**, **sıcaklık** ölçüm ölçümleri listesinde görünür. Kısa bir süre içinde bir sanal CİHAZDAN sıcaklık verilerini görselleştirme bakın.
 
 > [!NOTE]
 > Veri telemetri ölçü bir kayan türüdür nokta sayısı.
 
 ### <a name="create-an-event-measurement"></a>Bir olay ölçü oluşturma
 
-Yeni bir olay ölçüm eklemek için tıklatın **+ yeni ölçüm** seçip **olay** ölçüm türü. Ayrıntıları girin **olay oluşturma** formu.
+Yeni bir olay ölçüm eklemek için seçin **+ yeni ölçüm** seçip **olay** ölçüm türü. Ayrıntıları girin **olay oluşturma** formu.
 
 Sağlamak **görünen ad**, **alan adı**, ve **önem derecesi** olayla ilgili ayrıntıları. Önem derecesi kullanılabilir üç düzeyi arasından seçim yapabilirsiniz: **Hata**, **uyarı**, ve **bilgi**.
 
@@ -96,9 +96,9 @@ Sağlamak **görünen ad**, **alan adı**, ve **önem derecesi** olayla ilgili a
 
 !["Olay oluşturma" form fan motor olayla ilgili ayrıntıları](./media/howto-set-up-template-experimental/eventmeasurementsform.png)
 
-Tıkladıktan sonra **Kaydet**, **Fan Motor hata** ölçüm ölçümleri listesinde görünür. Kısa bir süre içinde bir sanal CİHAZDAN olay verilerini görselleştirme bakın.
+Seçtikten sonra **Kaydet**, **Fan Motor hata** ölçüm ölçümleri listesinde görünür. Kısa bir süre içinde bir sanal CİHAZDAN olay verilerini görselleştirme bakın.
 
-Bir olay hakkında daha fazla ayrıntı görüntülemek için grafik olay simgesine tıklayın:
+Bir olay hakkında daha fazla ayrıntı görüntülemek için grafik olay simgesini seçin:
 
 !["Fan Motor Error" olayla ilgili ayrıntıları](./media/howto-set-up-template-experimental/eventmeasurementsdetail.png)
 
@@ -107,7 +107,7 @@ Bir olay hakkında daha fazla ayrıntı görüntülemek için grafik olay simges
 
 ### <a name="create-a-state-measurement"></a>Bir durum ölçü oluşturma
 
-Yeni bir durum ölçüm eklemek için tıklatın **+ yeni ölçüm** düğmesini tıklatın ve seçin **durumu** ölçüm türü. Ayrıntıları girin **oluşturma durumu** formu.
+Yeni bir durum ölçüm eklemek için seçin **+ yeni ölçüm** düğmesini tıklatın ve seçin **durumu** ölçüm türü. Ayrıntıları girin **oluşturma durumu** formu.
 
 İçin ayrıntıları sağlayın **görünen ad**, **alan adı**, ve **değerleri** durumu. Her değer, değer grafikleri ve tabloları göründüğünde kullanılacak bir görünen ad da sahip olabilirsiniz.
 
@@ -119,9 +119,9 @@ Yeni bir durum ölçüm eklemek için tıklatın **+ yeni ölçüm** düğmesini
 
 ![Fan modu için Ayrıntıları "Düzenleme durumu" formu](./media/howto-set-up-template-experimental/statemeasurementsform.png)
 
-Tıkladıktan sonra **Kaydet**, **fanı modu** durumu ölçüm ölçümleri listesinde görünür. Kısa bir süre içerisinde, sanal cihaz durumu verileri görselleştirme görürsünüz.
+Seçtikten sonra **Kaydet**, **fanı modu** durumu ölçüm ölçümleri listesinde görünür. Kısa bir süre içerisinde, sanal cihaz durumu verileri görselleştirme görürsünüz.
 
-Cihaz, küçük bir süre içinde çok fazla veri noktasının gönderirse, durumu ölçümü ile farklı bir görsel görünür. Grafiği kronolojik sırada bu süre içinde tüm veri noktalarına görüntülemek için tıklayın. Grafiği çizilen ölçüm görmek için zaman aralığını da daraltabilirsiniz.
+Cihaz, küçük bir süre içinde çok fazla veri noktasının gönderirse, durumu ölçümü ile farklı bir görsel görünür. Grafiği kronolojik sırada bu süre içinde tüm veri noktalarına görüntülemeyi seçin. Grafiği çizilen ölçüm görmek için zaman aralığını da daraltabilirsiniz.
 
 > [!NOTE]
 > Veri türü durumu ölçümü dizedir.
@@ -138,7 +138,7 @@ Ayarları üç durumdan birinde olabilir. Cihaz bu durumu bildirir.
 
 - **Hata**: Cihazı bir hata döndürdü.
 
-Tıklayarak yeni bir fanı hızı ayarı gibi ekleyebilirsiniz **ayarları** ve yeni girerek **numarası** ayarı:
+Seçerek yeni bir fanı hızı ayarı gibi ekleyebilirsiniz **ayarları** ve yeni girerek **numarası** ayarı:
 
 | Görünen Ad  | Alan Adı    |  Birimler  | Ondalık sayı |İlk|
 | --------------| ------------- |---------| ---------|---- |
@@ -198,7 +198,7 @@ IOT Central uygulamanızda Azure haritalar'ı kullanarak bir uygulama özelliği
    - **Adresi olarak konumu**
    - **Koordinatları olarak konumu**
 
-4. **Kaydet**’e tıklayın. Bir işleç konum değeri güncelleştirebilirsiniz **Device Explorer**.
+4. **Kaydet**’i seçin. Bir işleç konum değeri güncelleştirebilirsiniz **Device Explorer**.
 
 #### <a name="add-location-as-a-device-property"></a>Konumu bir cihaz özelliği Ekle
 
@@ -231,7 +231,7 @@ Bir komutu bir ayardan farklı mı?
 
 * **Komut**: Anında bir komutu cihazda uzaktan IOT Central ' çalıştırma için komutları kullanın. Bir cihazı bağlı değilse, komut zaman aşımına uğrar ve başarısız olur. Örneğin, bir cihazı yeniden başlatmak istiyor.
 
-Örneğin, yeni bir ekleyebilirsiniz **Yankı** komutunu seçerek **komutları** sekmesini, ardından **+ yeni komut**ve yeni komut ayrıntıları girerek:
+Örneğin, yeni bir ekleyebilirsiniz **Yankı** komutunu seçerek **komutları** sekmesini seçip, **+ yeni komut**ve yeni komut ayrıntıları girerek:
 
 | Görünen Ad  | Alan Adı | Varsayılan Zaman Aşımı | Veri Türü |
 | --------------| -----------|---------------- | --------- |

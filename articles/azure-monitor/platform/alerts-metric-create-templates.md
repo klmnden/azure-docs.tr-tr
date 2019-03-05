@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 9f8d6488d12b5550c3390699b9c34380b51b60f9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 29267fbdfa7a57296d626926d5b247f309dc597d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112606"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308015"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile ölçüm uyarısı oluşturma
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Bu makalede nasıl kullanabileceğinizi gösteren bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-authoring-templates.md) yapılandırmak için [yeni ölçüm uyarılarının](../../azure-monitor/platform/alerts-metric-near-real-time.md) Azure İzleyici'de. Resource Manager şablonları, program aracılığıyla uyarıları ortamlarınızda tutarlı ve tekrarlanabilir bir şekilde ayarlamak etkinleştirin. Yeni ölçüm uyarılarının şu anda kullanılabilir [bu kaynak türleri kümesini](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
@@ -235,11 +237,11 @@ PowerShell veya Azure CLI kullanarak şablonu ve parametre dosyalarını kullana
 Azure PowerShell’i kullanma
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile simplestaticmetricalert.json -TemplateParameterFile simplestaticmetricalert.parameters.json
 ```
 
@@ -493,11 +495,11 @@ PowerShell veya Azure CLI kullanarak şablonu ve parametre dosyalarını kullana
 Azure PowerShell’i kullanma
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile simpledynamicmetricalert.json -TemplateParameterFile simpledynamicmetricalert.parameters.json
 ```
 
@@ -710,11 +712,11 @@ Kaydet ve advancedstaticmetricalert.parameters.json amacıyla bu kılavuz olarak
 
 Azure PowerShell’i kullanma
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile advancedstaticmetricalert.json -TemplateParameterFile advancedstaticmetricalert.parameters.json
 ```
 
@@ -911,11 +913,11 @@ Kaydet ve advanceddynamicmetricalert.parameters.json amacıyla bu kılavuz olara
 
 Azure PowerShell’i kullanma
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile advanceddynamicmetricalert.json -TemplateParameterFile advanceddynamicmetricalert.parameters.json
 ```
 
@@ -1223,11 +1225,11 @@ Geçerli çalışma dizininizden PowerShell veya Azure CLI kullanarak şablonu v
 Azure PowerShell’i kullanma
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-resource-group-static.json -TemplateParameterFile all-vms-in-resource-group-static.parameters.json
 ```
 
@@ -1545,11 +1547,11 @@ Kaydet ve aşağıdaki json'u amacıyla bu kılavuzda all-vms-in-resource-group-
 Azure PowerShell’i kullanma
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-resource-group-dynamic.json -TemplateParameterFile all-vms-in-resource-group-dynamic.parameters.json
 ```
 
@@ -1837,11 +1839,11 @@ Kaydet ve tüm-VM-içinde-abonelik-static.parameters.json amacıyla bu kılavuz 
 Azure PowerShell’i kullanma
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-subscription-static.json -TemplateParameterFile all-vms-in-subscription-static.parameters.json
 ```
 
@@ -2156,11 +2158,11 @@ Kaydet ve tüm-VM-içinde-abonelik-dynamic.parameters.json amacıyla bu kılavuz
 Azure PowerShell’i kullanma
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-subscription-dynamic.json -TemplateParameterFile all-vms-in-subscription-dynamic.parameters.json
 ```
 
@@ -2451,11 +2453,11 @@ Kaydet ve liste-,-VM-static.parameters.json amacıyla bu kılavuz olarak aşağ�
 Azure PowerShell’i kullanma
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile list-of-vms-static.json -TemplateParameterFile list-of-vms-static.parameters.json
 ```
 
@@ -2773,11 +2775,11 @@ Kaydet ve liste-,-VM-dynamic.parameters.json amacıyla bu kılavuz olarak aşağ
 Azure PowerShell’i kullanma
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile list-of-vms-dynamic.json -TemplateParameterFile list-of-vms-dynamic.parameters.json
 ```
 

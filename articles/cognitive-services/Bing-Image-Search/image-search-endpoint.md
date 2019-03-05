@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 03/04/2019
 ms.author: v-gedod
-ms.openlocfilehash: 5e5cf9fcf6f70449fef8237fc004332e36bcd3b4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fcae25ea0ef3f48beac6c221a11ca8a91443f7ce
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860278"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336149"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Bing resim arama API'si için uç noktalar
 
 **Resim arama API'si** üç uç noktaları içerir.  Uç nokta 1 görüntüleri bir sorguyu temel alan Web döndürür. Uç nokta 2 döndürür [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Uç nokta 3 popüler resimlerden döndürür.
+
 ## <a name="endpoints"></a>Uç Noktalar
+
 Bing API'si kullanarak görüntü sonuçlarını almak için aşağıdaki uç noktaların biri için bir istek gönderin. Daha fazla özellikleri tanımlamak için başlık ve URL parametrelerini kullanın.
 
 **Uç nokta 1:** Tarafından tanımlanan kullanıcı arama sorgusu için uygun olan görüntüleri döndürür `?q=""`.

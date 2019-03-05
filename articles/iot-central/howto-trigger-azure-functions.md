@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8d638743b3cb07b0d060e754ecb76e74bd02719d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 512956d2de0f9a838cc6378345a334e489d1d120
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215022"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306876"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Tetikleyici Azure işlevleri Azure IOT Central Web kancalarını kullanma
 
@@ -31,7 +31,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
     ![Azure Portalı'nda yeni bir işlev uygulaması oluşturma](media/howto-trigger-azure-functions/createfunction.png)
 
-2. İşlev uygulamanızı genişletin ve tıklayın **+ düğmesini** işlevleri yanında. Bu işlev, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir.
+2. İşlev uygulamanızı genişletin ve seçin **+ düğmesini** işlevleri yanında. Bu işlev, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir.
 
     ![Özel işlev işlev uygulaması seçin](media/howto-trigger-azure-functions/customfunction.png)
 
@@ -39,7 +39,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
     ![Genel Web kancası tetikleyicisini seçin](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 
-4. Yeni işlevinizde, **</> İşlev URL’sini al**’a tıklayın, sonra da değeri kopyalayın ve kaydedin. Bu değeri, web kancasını yapılandırmak için kullanırsınız.
+4. Yeni işlevinizde seçin **<> / işlev URL'sini Al**değeri kaydetmek ve kopyalayıp. Bu değeri, web kancasını yapılandırmak için kullanırsınız.
 
     ![İşlev URL'sini Al](media/howto-trigger-azure-functions/getfunctionurl.png)
 
@@ -49,7 +49,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
     ![Geri çağırma URL'si alanına işlev URL'sini girin](media/howto-trigger-azure-functions/configurewebhook.PNG)
 
-6. Kural kaydedin. Artık kuralı tetiklendiğinde çalıştırılacak bir işlev uygulaması Web kancasını çağırır. İşlev uygulamanızda tıklayabilirsiniz **İzleyici** işlev çağırma geçmişini görmek için. App Insights ya da Klasik Görünüm geçmişinize aramak için kullanabilirsiniz.
+6. Kural kaydedin. Artık kuralı tetiklendiğinde çalıştırılacak bir işlev uygulaması Web kancasını çağırır. İşlev uygulamanızda seçtiğiniz **İzleyici** işlev çağırma geçmişini görmek için. App Insights ya da Klasik Görünüm geçmişinize aramak için kullanabilirsiniz.
 
     ![İşlev çağırma geçmişini izleme](media/howto-trigger-azure-functions/monitorfunction.PNG)
 

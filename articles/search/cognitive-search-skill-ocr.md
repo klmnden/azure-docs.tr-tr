@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 6fa316452b5b9f56c33de00b96c2cf57c40edfcc
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: a978e1054367620f25043ab810c3fb78c45d9f72
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429664"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310684"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR bilişsel beceri
 
@@ -67,32 +67,32 @@ Parametreler büyük/küçük harfe duyarlıdır.
 
 ```json
 {
-    "skills": [
-      {
-        "description": "Extracts text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": null,
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text",
-            "targetName": "myText"
-          },
-          {
-            "name": "layoutText",
-            "targetName": "myLayoutText"
-          }
-        ]
-      }
-    ]
- }
+  "skills": [
+    {
+      "description": "Extracts text (plain and structured) from image.",
+      "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": null,
+      "detectOrientation": true,
+      "inputs": [
+        {
+          "name": "image",
+          "source": "/document/normalized_images/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "targetName": "myText"
+        },
+        {
+          "name": "layoutText",
+          "targetName": "myLayoutText"
+        }
+      ]
+    }
+  ]
+}
 ```
 <a name="sample-output"></a>
 
@@ -136,9 +136,9 @@ Parametreler büyük/küçük harfe duyarlıdır.
 
 ## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Örnek: Metin belgesinin içeriği ile katıştırılmış görüntüler ayıklanan birleştiriliyor.
 
-Metin birleştirme için yaygın bir kullanım örneği görüntülerini (OCR beceri veya görüntünün bir açıklamalı alt yazı metni) değerinin metinsel gösterimini birleştirmek için bir belge içerik alanına olanağıdır. 
+Metin birleştirme için yaygın bir kullanım örneği görüntülerini (OCR beceri veya görüntünün bir açıklamalı alt yazı metni) değerinin metinsel gösterimini birleştirmek için bir belge içerik alanına olanağıdır.
 
-Aşağıdaki örnek becerilerine oluşturur bir *merged_text* alan. Bu alan, belge ve bu belgeye görüntülerin her OCRed metin metinsel içeriği içerir. 
+Aşağıdaki örnek becerilerine oluşturur bir *merged_text* alan. Bu alan, belge ve bu belgeye görüntülerin her OCRed metin metinsel içeriği içerir.
 
 #### <a name="request-body-syntax"></a>İstek Gövdesi Sözdizimi
 ```json
@@ -147,22 +147,22 @@ Aşağıdaki örnek becerilerine oluşturur bir *merged_text* alan. Bu alan, bel
   "skills":
   [
     {
-        "description": "Extract text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": "en",
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text"
-          }
-        ]
+      "description": "Extract text (plain and structured) from image.",
+      "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": "en",
+      "detectOrientation": true,
+      "inputs": [
+        {
+          "name": "image",
+          "source": "/document/normalized_images/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text"
+        }
+      ]
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
@@ -178,7 +178,7 @@ Aşağıdaki örnek becerilerine oluşturur bir *merged_text* alan. Bu alan, bel
           "name": "itemsToInsert", "source": "/document/normalized_images/*/text"
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+          "name":"offsets", "source": "/document/normalized_images/*/contentOffset"
         }
       ],
       "outputs": [
@@ -193,14 +193,14 @@ Aşağıdaki örnek becerilerine oluşturur bir *merged_text* alan. Bu alan, bel
 Yukarıdaki standartlarındaki şu örnek, bir normalleştirilmiş görüntüleri alan olduğunu varsayar. Bu alan oluşturmak üzere *imageAction* yapılandırma için dizin oluşturucu Tanımınızda *generateNormalizedImages* aşağıda gösterildiği gibi:
 
 ```json
-{  
-   //...rest of your indexer definition goes here ... 
-  "parameters":{  
-      "configuration":{  
-         "dataToExtract":"contentAndMetadata",
-         "imageAction":"generateNormalizedImages"
-      }
-   }
+{
+  //...rest of your indexer definition goes here ...
+  "parameters": {
+    "configuration": {
+      "dataToExtract":"contentAndMetadata",
+      "imageAction":"generateNormalizedImages"
+    }
+  }
 }
 ```
 

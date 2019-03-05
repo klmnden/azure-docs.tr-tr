@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: c62581447cd395bd48a787fa7dc89659d5172486
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a1071bb690fc5714890116c757c3036916bf1700
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192301"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314104"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Kopyalayın veya Azure Data Factory bir veri fabrikasında kopyalama
 
@@ -35,6 +35,8 @@ Bu makalede, kopyalama veya Azure Data Factory bir veri fabrikasında kopyalama 
 1. Azure portalında Data Factory kullanıcı Arabiriminde tüm yüküne veri fabrikanızın fabrikanızı kopyaladığınızda değiştirmek istediğiniz herhangi bir değeri değiştirmenize olanak sağlayan bir parametre dosyasıyla birlikte bir Resource Manager şablonunu dışarı aktarmanıza olanak tanır.
 
 1. Bir önkoşul olarak hedef data factory'nizi Azure portalından oluşturmanız gerekir.
+
+1. Kaynak fabrikanızı SelfHosted IntegrationRuntime varsa, hedef fabrikasında aynı ada sahip önceden oluşturmak gerekir. SelfHosted IRS farklı fabrikaları arasında paylaşmak istiyorsanız, yayımlanan desenini kullanabilirsiniz [burada](author-visually.md#best-practices-for-git-integration).
 
 1. Portaldan yayımladığınız her zaman GIT modunda iseniz, fabrikasının Resource Manager şablonu GIT deposunun adf_publish dalındaki kaydedilir.
 
