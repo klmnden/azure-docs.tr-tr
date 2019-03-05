@@ -1314,7 +1314,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                         <li>
                                             <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>IoT Temel Konuları</p>
+                                                <p>Azure IoT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3929,12 +3929,12 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iothub.svg" alt="" />
+                                                        <img src="media/index/question-mark-grey.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Temel Konuları</h3>
-                                                    <p>Cihazlarınız arasında bağlantı kurmaya başlayın</p>
+                                                    <h3>Azure IoT’de yeni misiniz?</h3>
+                                                    <p>İhtiyaçlarınızı karşılayan hizmetleri öğrenmeye buradan başlayın</p>
                                                 </div>
                                             </div>
                                         </div>

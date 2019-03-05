@@ -1,30 +1,12 @@
 items:
-- name: Azure IoT Temel Konuları
-  href: index.yml
+- name: Azure Nesnelerin İnterneti
+  href: index.md
 - name: Genel Bakış
   items:
   - name: Giriş
     href: iot-introduction.md
   - name: Azure IoT hizmetleri ve teknolojileri
     href: iot-services-and-technologies.md
-- name: Hizmetler
-  items:
-  - name: IoT Hub
-    href: /azure/iot-hub
-  - name: IoT Hub Cihazı Sağlama Hizmeti
-    href: /azure/iot-dps
-  - name: IoT çözüm hızlandırıcıları
-    href: /azure/iot-suite
-  - name: IoT Central
-    href: /azure/iot-central
-  - name: IoT Edge
-    href: /azure/iot-edge
-  - name: Azure Digital Twins
-    href: /azure/digital-twins
-  - name: Azure Haritalar
-    href: /azure/azure-maps
-  - name: Time Series Insights
-    href: /azure/time-series-insights
 - name: Güvenlik
   items:
   - name: Güvenlik mimarisi
@@ -35,15 +17,9 @@ items:
     href: iot-security-deployment.md
   - name: Baştan sona güvenlik
     href: iot-security-ground-up.md
-- name: SDK’lar
-  items:
-  - name: Hizmet SDK'ları
-    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-  - name: IoT Cihaz SDK'ları
-    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: 82b04e5f6db3142180b1a10264342862793740eb
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: dc5c08ea2a3376b4213e83495ff1dce697338d82
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287175"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336725"

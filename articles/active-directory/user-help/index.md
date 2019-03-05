@@ -51,10 +51,9 @@ Güvenlik bilgilerini ayarlayıp kullanma, iki aşamalı doğrulama, kendi parol
                         <p>
                         <a href="/azure/active-directory/user-help/myprofile-portal-overview">Genel Bakış</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-security-info-overview">Güvenlik bilgilerinizi yönetme</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-recent-activity-page">Son oturum açma etkinliğini görüntüleme</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-organizations-page">Kuruluşlarınızı yönetme</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-devices-page">Bağlı cihazlarınızı yönetme</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">Gizlilikle ilgili bilgilerinizi görüntüleme</a><br/>                       
+                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">Gizlilikle ilgili bilgilerinizi görüntüleme</a>
                         </p>
                     </div>
                 </div>
