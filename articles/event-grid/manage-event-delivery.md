@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a15797e9b181aa877b6dfa3350e69b210af5885e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 69c26ab522a925032c5a255d07489de0052756c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731776"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340867"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Atılacak Mektubu ve yeniden deneme ilkeleri
 
@@ -21,6 +21,9 @@ Bir olay aboneliği oluştururken, olay teslimi için ayarları özelleştirebil
 ## <a name="set-dead-letter-location"></a>Teslim edilemeyen konumunu ayarla
 
 Atılacak Mektubu konumunu ayarlamak için bir uç noktaya sağlanamamıştır olayları tutmak için bir depolama hesabı gerekir. Örnekler, mevcut bir depolama hesabı kaynak Kimliğini alın. Bunlar, bu depolama hesabında edilemeyen uç nokta için bir kapsayıcı kullanan bir olay aboneliği oluşturur.
+
+> [!NOTE]
+> Bir depolama hesabı ve bir blob kapsayıcısı depolamada bu makaledeki komutları çalıştırmadan önce oluşturun.
 
 ### <a name="azure-cli"></a>Azure CLI
 

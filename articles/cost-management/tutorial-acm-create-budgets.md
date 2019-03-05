@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1db3fbbd39418504f98469c7b4999c5a91b5d6de
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814053"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342199"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Öğretici: Oluşturma ve Azure bütçelerini yönetin
 
@@ -39,7 +39,7 @@ Bütçe çeşitli Azure hesap türleri için desteklenir. Desteklenen bir hesap 
 
  Azure EA abonelikleri için bütçeler görüntülemek için okuma erişimi olmalıdır. Oluşturma ve bütçelerini yönetmek için katkıda bulunan izni olmalıdır. EA aboneliklerinde ve kaynak gruplarınız için ayrı ayrı bütçeden oluşturabilirsiniz. Ancak, EA hesapları faturalama bütçelerini oluşturulamıyor.
 
-Aşağıdaki Azure izinleri bütçelerini için abonelik başına kullanıcı ve grup tarafından desteklenir:
+Aşağıdaki Azure izinleri veya kapsamlar, bütçeler için abonelik başına kullanıcı ve grup tarafından desteklenir. Kapsamlar hakkında daha fazla bilgi için bkz: [anlayın ve kapsamlı iş](understand-work-scopes.md).
 
 - Sahip – Bir abonelik için bütçe oluşturabilir, değiştirebilir veya silebilir.
 - Katkıda bulunan ve maliyet Yönetimi katkıda bulunan – oluşturmak, değiştirmek veya kendi bütçelerini silin. Başkaları tarafından oluşturulan bütçelerin miktarlarını değiştirebilir.
@@ -53,7 +53,7 @@ Maliyet Yönetimi verilerine izin atama hakkında daha fazla bilgi için bkz. [m
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure portalında bir bütçe oluşturun
 
-Aylık, üç aylık veya yıllık bir dönem için bir Azure aboneliği bütçe oluşturabilirsiniz. Azure portalında gezinme içerik için bir abonelik veya kaynak grubu için bütçe oluşturun belirler. Azure portalında, örneğin gidin **abonelikleri** &gt; bir abonelik seçin &gt; **bütçelerini**. Bu örnekte, seçili abonelik için oluşturduğunuz bütçe olacaktır. Bir kaynak grubu için bütçe oluşturmak istiyorsanız, gitmek **kaynak grupları** > bir kaynak grubu seçin > **bütçelerini**.
+Aylık, üç aylık veya yıllık bir dönem için bir Azure aboneliği bütçe oluşturabilirsiniz. Azure portalında gezinme içerik için bir abonelik veya kaynak grubu için bütçe oluşturun belirler. Azure portalında, örneğin gidin **abonelikleri** &gt; bir abonelik seçin &gt; **bütçelerini**. Bu örnekte, seçili abonelik için oluşturduğunuz bütçe olacaktır. Bir kaynak grubu için bütçe oluşturmak istiyorsanız, gitmek **kaynak grupları** > bir kaynak grubu seçin > **bütçelerini**...
 
 Bütçe oluşturduktan sonra bunlar geçerli bunlara karşı harcamalarınızı basit bir görünümü gösterir.
 
@@ -85,6 +85,28 @@ Sahip olduğunuz erişim düzeyine bağlı olarak, bir bütçe özelliklerini de
 
 ![Örneği, çeşitli özelliklerini değiştirmek için bir bütçe düzenleme](./media/tutorial-acm-create-budgets/edit-budget.png)
 
+## <a name="trigger-an-action-group"></a>Tetikleyici bir eylem grubu
+
+Oluşturduğunuzda veya düzenlediğinizde bir abonelik veya kaynak grubu kapsamı için bütçe, bir eylem grubu çağıracak şekilde yapılandırabilirsiniz. Bütçe eşiğine karşılandığında eylem grubu çeşitli farklı eylemler gerçekleştirebilirsiniz. Eylem grupları hakkında daha fazla bilgi için bkz. [oluştur ve Eylem grupları Azure portalında yönetmek](../azure-monitor/platform/action-groups.md). Bütçe tabanlı otomasyon ile Eylem grupları kullanma hakkında daha fazla bilgi için bkz. [Azure bütçe ile maliyetleri yönetme](../billing/billing-cost-management-budget-scenario.md).
+
+Eylem grupları oluştur veya güncelleştir için tıklatın **Eylem grupları yönetme** oluşturma ya da bir bütçe düzenleme.
+
+![Eylem grupları yönetme gösterilecek bir bütçe oluşturma örneği](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+
+Ardından, **eylem grubu Ekle** ve eylem grubu oluşturun.
+
+
+![Eylem grubu Ekle kutusunun görüntüsü](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+
+Sonra eylem grubu oluşturulur, bütçenizi için döndürülecek kutusunu kapatın.
+
+Bütçenizi bir bireysel eşiğine ulaşıldığında, Eylem grubunu kullanmak üzere yapılandırın. En fazla beş farklı eşikler desteklenir.
+
+![Eylem grubu seçimi için bir uyarı durumu gösteren örnek](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+
+Aşağıdaki örnek, % 50, %75 ve % 100 olarak ayarlayın, bütçe eşikleri gösterir. Her, belirtilen eylem grubu içinde belirtilen eylemleri tetiklemek için yapılandırılır.
+
+![Çeşitli eylem grupları ve eylem türü ile yapılandırılmış uyarı koşullarına gösteren örnek](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

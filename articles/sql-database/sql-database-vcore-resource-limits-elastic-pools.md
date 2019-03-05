@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/15/2019
-ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.date: 03/04/2019
+ms.openlocfilehash: a372a955578f3621c1b8a9226809671927c9bfd3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328682"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342760"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Sanal çekirdek tabanlı satın alma modeli sınırlarını kullanarak elastik havuzlar için kaynak sınırları
 
@@ -50,7 +50,9 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |Hedef IOPS (64 KB)|500|1000|1500|2000|2500|3000|
+|Günlük oran sınırları (MBps)|2,5|5|7.5|10|12,5|15|
 |Maks. eş zamanlı çalışan (istek) havuz başına * |210|420|630|840|1050|1260|
+|Havuz başına maks. eş zamanlı oturum * |210|420|630|840|1050|1260|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|100|200|300|500|500|500|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
@@ -76,7 +78,9 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |Hedef IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
+|Günlük oran sınırları (MBps)|17.5|20|20|20|20|20|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|1470|1680|1890|2100|3360|5040|
+|En fazla eşzamanlı oturum açma havuzu (istek) *|1470|1680|1890|2100|3360|5040|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|200|500|500|500|500|500|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
@@ -102,7 +106,9 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |Hedef IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
+|Günlük oran sınırları (MBps)|2,5|56|7.5|10|12,5|15|17.5|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|210|420|630|840|1050|1260|1470|
+|(İstek) havuz başına maks. eş zamanlı oturum *|210|420|630|840|1050|1260|1470|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|200|500|500|500|500|500|500|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
@@ -128,7 +134,9 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |Hedef IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
+|Günlük oran sınırları (MBps)|20|20|20|20|20|20|20|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|1680|1890|2100|2520|33600|4200|8400|
+|(İstek) havuz başına maks. eş zamanlı oturum *|1680|1890|2100|2520|33600|4200|8400|
 |Havuz başına en fazla veritabanı|500|500|500|500|500|500|500|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1.|1|
@@ -146,16 +154,18 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |:--- | --: |--: |--: |--: |--: |--: |
 |S/W oluşturma|4|4|4|4|4|4|
 |Sanal çekirdekler|1|2|3|4|5|6|
-|Bellek (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
-|Columnstore desteği|Yok|Yok|Yok|Yok|Yok|Yok|
+|Bellek (GB)|7|14|21|28|35|42|
+|Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|
 |Bellek içi OLTP depolama alanı (GB)|1|2|3|4|5|6|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
-|En yüksek veri boyutu (GB)|1024|1024|1024|1024|1024|1024|
-|Maksimum günlük boyutu (GB)|307|307|307|307|307|307|
+|En yüksek veri boyutu (GB)|650|650|650|650|650|650|
+|Maksimum günlük boyutu (GB)|195|195|195|195|195|195|
 |TempDB boyutu (GB)|32|64|96|128|160|192|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
+|Günlük oran sınırları (MBps)|6|12|18|24|30|36|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|210|420|630|840|1050|1260|
+|(İstek) havuz başına maks. eş zamanlı oturum *|210|420|630|840|1050|1260|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|Yalnızca tek veritabanları için bu işlem boyutu desteklenir|50|100|100|100|100|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|Yok|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
@@ -176,12 +186,14 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Columnstore desteği|Yok|Yok|Yok|Yok|Yok|Yok|
 |Bellek içi OLTP depolama alanı (GB)|7|8|9.5|11|20|36|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
-|En yüksek veri boyutu (GB)|1024|1024|1024|1024|1024|1024|
-|Maksimum günlük boyutu (GB)|307|307|307|307|307|307|
+|En yüksek veri boyutu (GB)|650|650|650|650|1024|1024|
+|Maksimum günlük boyutu (GB)|195|195|195|195|307|307|
 |TempDB boyutu (GB)|224|256|288|320|384|384|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
+|Günlük oran sınırları (MBps)|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|1470|1680|1890|2100|3360|5040|
+|(İstek) havuz başına maks. eş zamanlı oturum *|1470|1680|1890|2100|3360|5040|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|100|100|100|100|100|100|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
@@ -201,13 +213,15 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Bellek (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Bellek içi OLTP depolama alanı (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
-|En yüksek veri boyutu (GB)|1024|1024|1024|1536|1536|1536|1536|
-|Maksimum günlük boyutu (GB)|307|307|307|461|461|461|461|
+|En yüksek veri boyutu (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Maksimum günlük boyutu (GB)|307|307|307|461|461|922|922|
 |TempDB boyutu (GB)|64|128|192|256|320|384|384|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
+|Günlük oran sınırları (MBps)|48|48|48|48|48|48|48|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|210|420|630|840|1050|1260|1470|
+|(İstek) havuz başına maks. eş zamanlı oturum *|210|420|630|840|1050|1260|1470|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|Yalnızca tek veritabanları için bu işlem boyutu desteklenir|50|100|100|100|100|100|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|Yok|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
@@ -233,12 +247,14 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
+|Günlük oran sınırları (MBps)|48|48|48|48|48|48|48|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|1680|1890|2100|2520|3360|4200|8400|
+|(İstek) havuz başına maks. eş zamanlı oturum *|1680|1890|2100|2520|3360|4200|8400|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|100|100|100|100|100|100|100|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Çoğaltma sayısı|4|4|4|4|4|4|4|
-|Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|
+|Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 

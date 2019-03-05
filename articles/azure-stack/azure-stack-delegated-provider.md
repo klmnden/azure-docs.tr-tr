@@ -15,12 +15,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: a075fdceaf57625280ef73499d868d5c3724426c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1211edde43d802a4c48cbd936473b1a6f83af705
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236490"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342097"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Azure Stack’te teklifleri yetkilendirme
 
@@ -78,7 +78,7 @@ Bu anlatımda kullanmak için iki Azure AD hesaplarının yanı sıra Azure Stac
 | Kullanıcı |Kullanıcı |
 
  > [!NOTE]
-   > Bir CSP satıcısı söz konusu olduğunda bu sağlayıcı temsilcisi oluşturmak için bu kullanıcılar Kiracı-Directory (AAD kullanıcı) gerektirir. Azure Stack operatörü gerekecektir [yerleşik ilk](https://docs.microsoft.com/azure/azure-stack/azure-stack-enable-multitenancy) izleyerek kullanım ve faturalandırma yapılandırın ve AAD Kiracı [adımları](https://docs.microsoft.com/azure/azure-stack/azure-stack-csp-howto-register-tenants).
+ > Bir CSP satıcısı söz konusu olduğunda bu sağlayıcı temsilcisi oluşturmak için bu kullanıcılara (kullanıcı AAD) Kiracı dizinini gerekir. Azure Stack operatörü gerekir [yerleşik ilk](azure-stack-enable-multitenancy.md) AAD Kiracı ve takip ederek kullanım ve faturalandırma yapılandırma [adımları](azure-stack-csp-howto-register-tenants.md).
 
 ### <a name="identify-the-delegated-provider"></a>Sağlayıcı temsilcisi tanımlayın
 

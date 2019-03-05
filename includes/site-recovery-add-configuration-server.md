@@ -2,19 +2,19 @@
 title: include dosyası
 description: include dosyası
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 09/06/2018
-ms.author: raynew
+ms.date: 02/28/2019
+ms.author: mayg
 ms.custom: include file
-ms.openlocfilehash: 2ca4916d48da6fe8a2c061056a1ea0fed9a78bb6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7c682105113dac7c1d457489cf926210ead77993
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44058499"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57343573"
 ---
 1. Birleşik Kurulum yükleme dosyasını çalıştırın.
 2. İçinde **başlamadan önce**seçin **yapılandırma sunucusu ve işlem sunucusunu yükle**.
@@ -43,7 +43,7 @@ ms.locfileid: "44058499"
 9. **Yükleme Konumu** alanında ikili dosyaları yüklemek ve önbelleği depolamak istediğiniz konumu seçin. Seçtiğiniz sürücü en az 5 GB kullanılabilir disk alanına sahip olmalıdır, ancak en az 600 GB boş alanı olan bir önbellek sürücüsü seçmeniz önerilir.
 
     ![Yükleme konumu](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. **Ağ Seçimi** menüsünde, yapılandırma sunucusunun çoğaltma verilerini gönderip aldığı dinleyiciyi (ağ bağdaştırıcısı ve SSL bağlantı noktası) seçin. Bağlantı noktası 9443, çoğaltma trafiğini gönderip almak için kullanılan varsayılan bağlantı noktasıdır, ancak bu bağlantı noktası numarasını ortamınızın gereksinimlerine uyacak şekilde değiştirebilirsiniz. Bağlantı noktası 9443’e ek olarak, çoğaltma işlemlerini düzenlemek için web sunucusu tarafından kullanılan bağlantı noktası 443 de açılır. Bağlantı noktası 443, gönderme veya çoğaltma trafiğini gönderip almak için kullanmayın.
+10. İçinde **Ağ Seçimi**ilk Keşif ve anında iletme kaynak makinede mobility hizmeti yüklemesi için yerleşik bir işlem sunucusunu kullanan NIC'yi seçin ve ardından yapılandırma sunucusu için bağlantı kullanan NIC'yi seçin Azure ile. Bağlantı noktası 9443, çoğaltma trafiğini gönderip almak için kullanılan varsayılan bağlantı noktasıdır, ancak bu bağlantı noktası numarasını ortamınızın gereksinimlerine uyacak şekilde değiştirebilirsiniz. Bağlantı noktası 9443’e ek olarak, çoğaltma işlemlerini düzenlemek için web sunucusu tarafından kullanılan bağlantı noktası 443 de açılır. Bağlantı noktası 443, gönderme veya çoğaltma trafiğini gönderip almak için kullanmayın.
 
     ![Ağ seçimi](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 

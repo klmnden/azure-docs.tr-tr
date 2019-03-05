@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67a8c4d4fe5476d00677c08bef9668066c4ec4f3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458066"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339751"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Kuruluşunuzun Profilim (Önizleme) portaldan yönetme
 Kuruluşlardan yönetebileceğiniz **kuruluşlar** sayfasının **Profilim** portalı.
@@ -35,7 +35,7 @@ Kuruluşların gösterilen iki tür vardır **kuruluşlar** sayfası:
 
 2. Seçin **kuruluşlar** seçin ya da sol gezinti bölmesinde **kuruluşları yönetmeyi** bağlantı **kuruluşlar** blok.
 
-    ![Vurgulanan kuruluşların bağlantıları gösteren profili sayfam](media/myprofile-portal/myprofile-portal-organizations-links.png)
+    ![Vurgulanan kuruluşların bağlantıları gösteren profili sayfam](media/myprofile-portal/myprofile-portal-organizations.png)
 
 3. Bilgilerini gözden geçirin, **ev kuruluş**. 
 
@@ -57,4 +57,4 @@ Giriş kuruluşunuz olmayan herhangi bir kuruluş bırakabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Son oturum açma etkinlik izledikten sonra yönetmek veya görüntülemek için seçebileceğiniz, [güvenlik bilgisi](user-help-security-info-overview.md), [son oturum açma etkinliği](myprofile-portal-recent-activity-page.md), bağlı [cihazları](myprofile-portal-devices-page.md), veya görüntülemek için nasıl, Kuruluş [verilerinizi kullanan](myprofile-portal-privacy-page.md).
+- Kuruluşunuzun izledikten sonra yönetmek veya görüntülemek için seçebileceğiniz, [güvenlik bilgisi](user-help-security-info-overview.md), bağlı [cihazları](myprofile-portal-devices-page.md), ya da görünüm nasıl Kuruluşunuz [verilerinizi kullanır](myprofile-portal-privacy-page.md).

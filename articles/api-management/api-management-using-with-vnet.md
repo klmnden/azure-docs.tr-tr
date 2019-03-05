@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 98d8f530b91c2b2483d00838cd4001be88e18a6c
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 6ace19339eb3f89c3b0cde6f5b9b0ecc783e2597
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011220"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341621"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Azure sanal ağları başlangıç hakkında daha fazla bilgi için: [Azure sanal ağına genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -140,26 +140,25 @@ API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşa�
     | Azure Kamu  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul>                                                                                                                                                                                                                                                |
     | Azure Çin       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul>                                                                                                                                                                                                                                                |
 
-+ **SMTP geçiş**: Giden ağ bağlantısını altında konak çözümler SMTP geçiş `ies.global.microsoft.com`.
++ **SMTP geçiş**: Giden ağ bağlantısını altında konak çözümler SMTP geçiş `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` ve `ies.global.microsoft.com`
 
 + **Geliştirici Portalı CAPTCHA**: Giden ağ bağlantısını için konak altında gideren Geliştirici portal'ın CAPTCHA `client.hip.live.com`.
 
 + **Azure portalı tanılama**: Giden erişim için bir sanal ağ içinde API Management uzantısını kullanarak Azure Portal'dan tanılama günlüklerinin akışını etkinleştirmek için `dc.services.visualstudio.com` bağlantı noktası 443 gereklidir. Bu, uzantısı kullanırken karşılaştığınız sorunları gidermeye yardımcı olur.
 
-+ **Hızlı rota Kurulum**: Yaygın müşteri giden Internet trafiğini şirket içi yerine akış zorlar, kendi varsayılan yolun (0.0.0.0/0) tanımlamak için bir yapılandırmadır. Bu trafik akışını neredeyse şaşmaz biçimde ya da engellenen şirket içi giden trafiği olduğundan veya tanınmayan bir artık çeşitli Azure uç noktaları ile çalışma adresleri kümesi NAT istersiniz Azure API Management ile bağlantısını keser. Çözüm bir (veya daha fazla) kullanıcı tanımlı yollar tanımlamaktır ([Udr'ler][UDRs]) Azure API Management'ı içeren alt ağda. Varsayılan yol yerine getirilmez alt özel yollar UDR tanımlar.
++ **Zorlamalı tünel Express Route veya ağ sanal Gereci kullanarak şirket içi güvenlik duvarının trafiği**: Yaygın müşteri tüm trafiğin API Management'tan zorlar, kendi varsayılan yolun (0.0.0.0/0) tanımlamak için alt ağ bir ağ sanal gerecine veya bir şirket içi güvenlik duvarı üzerinden flow'a temsilci bir yapılandırmadır. Bu trafik akışını neredeyse şaşmaz biçimde ya da engellenen şirket içi giden trafiği olduğundan veya tanınmayan bir artık çeşitli Azure uç noktaları ile çalışma adresleri kümesi NAT istersiniz Azure API Management ile bağlantısını keser. Çözüm birkaç şey yapmanızı gerektirir:
 
-    Mümkün olduğunda, aşağıdaki yapılandırmayı kullanın önerilir:
+    * API Management hizmeti dağıtıldığı alt ağdaki hizmet uç noktalarını etkinleştirin. [Hizmet uç noktaları] [ ServiceEndpoints] Azure Sql, Azure depolama, Azure Event Hubs'a ve Azure Service Bus için etkinleştirilmesi gerekir. API Management hizmeti trafiği için en iyi yönlendirmeyi sağlayan Microsoft Azure omurga ağı kullanmak bu hizmetlere yönelik temsilci alt veren doğrudan uç noktaları etkinleştiriliyor. Hizmet uç noktaları ile zorlamalı tünel API Management kullanıyorsanız, yukarıdaki Azure hizmetlerine trafiğine zorlamalı tünel uygulanmaz. Hizmet bağımlılık trafiğine zorlamalı diğer API Management tünelli ve kaybedilemez veya API Management hizmeti düzgün çalışmaz.
+    
+    * Tüm denetim düzlemi trafiği Internet'ten yönetim uç noktası, API Management hizmetiniz için API Management tarafından barındırılan IP'ler gelen belirli bir dizi aracılığıyla yönlendirilir. Yanıtları simetrik trafiğe zorlamalı olduğunda bu gelen kaynağına geri IP'ler eşleştirmez. Sınırlamanın üstesinden gelmek için aşağıdaki kullanıcı tanımlı yollar eklemeniz gerekir ([Udr'ler][UDRs]) trafiği azure'a geri bu konak yolları "Internet" hedefini ayarlayarak faaliyetidir için. Gelen IP'ler kümesini denetim düzlemi trafiği için aşağıdaki gibidir:
+    
+    > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-     * ExpressRoute yapılandırması 0.0.0.0/0 tanıtır ve varsayılan olarak, tüm giden trafiği şirket içi zorla tünel oluşturur.
-     * Azure API Management'ı içeren alt ağa uygulanan UDR 0.0.0.0/0 sonraki atlama türü internet ile tanımlar.
-
-    Bu adımların etkilerini, alt düzey UDR tünel, zorlamalı ExpressRoute üzerinden bu nedenle Azure API Management'ı giden Internet erişimini sağlama öncelikli olacağını ' dir.
-
-+ **Ağ sanal Gereçleri üzerinden yönlendirme**: UDR, İnternet'e yönlendirmek için bir varsayılan yolun (0.0.0.0/0) kullanan yapılandırmalar hedefleyen trafiği API Management Azure'da çalışan bir ağ sanal Gereci üzerinden alt ağ için API Management hizmeti Internet'ten gelen yönetim trafiği engeller sanal ağ alt ağı içinde dağıtılan örneği. Bu yapılandırma desteklenmez.
-
->[!WARNING]
->Azure API Management, ExpressRoute yapılandırmaları ile desteklenmez, **yanlış çapraz-yolları genel eşleme yolundan özel eşleme yoluna tanıtmak**. Genel eşlemesi yapılandırılmış, olan ExpressRoute yapılandırmaları alacağı yol tanıtımları Microsoft çok sayıda Microsoft Azure IP adresi aralığı için. Bu adres aralıkları yanlış çapraz-özel eşleme yolunda tanıtılırsa, sonuç tüm giden ağ paketlerinin Azure API Management örneğinin alt ağdan hatalı bir müşterinin şirket içi ağ için zorlamalı olmasıdır Altyapı. Bu ağ akışı, Azure API Management keser. Bu sorunun çözümü, genel eşleme yolundan özel eşleme yoluna çapraz tanıtımını durdurmaktır yolları önlemektir.
-
+    * Diğer API Management hizmet zorlamalı, olan bağımlılıkları kendi ana bilgisayar adını çözümleyemiyor ve uç noktaya ulaşmak için bir yol olmalıdır. Bunlar
+        - Ölçümler ve sistem durumu izleme
+        - Azure portalı tanılama
+        - SMTP geçiş
+        - Geliştirici Portalı CAPTCHA
 
 ## <a name="troubleshooting"> </a>Sorun giderme
 * **İlk kurulum**: API Management hizmeti bir alt ağa ilk dağıtımı başarısız olduğunda, aynı alt ağa bir sanal makine dağıtmanız önerilir. Sanal makineye sonraki Uzak Masaüstü ve azure aboneliğinizde her bir kaynaktan bir bağlantı olduğunu doğrulayın
@@ -170,7 +169,7 @@ API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşa�
  > [!IMPORTANT]
  > Bağlantı doğrulandıktan sonra API Management alt ağa dağıtmadan önce alt ağda dağıtılan tüm kaynakları kaldırmak emin olun.
 
-* **Artımlı güncelleştirmeler**: Ağınızda değişiklikler yaparken başvurmak [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), API Management hizmeti bağlıdır, kritik kaynaklara erişimini kaybetti değil olduğunu doğrulayın. Bağlantı durumu, her 15 dakikada güncelleştirilmelidir.
+* **Artımlı güncelleştirmeler**: Ağınızda değişiklikler yaparken, başvurmak [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), API Management hizmeti bağlıdır, kritik kaynaklara erişimi kesildi değil doğrulayın. Bağlantı durumu, her 15 dakikada güncelleştirilmelidir.
 
 * **Kaynak Gezinti Bağlantıları**: API Management Resource Manager stili vnet alt ağa dağıtırken, kaynak Gezinti bağlantısı oluşturarak alt ayırır. Alt ağ zaten farklı bir sağlayıcı kaynaktan içeriyorsa, dağıtım olacak **başarısız**. Benzer şekilde, bir API Management hizmeti farklı bir alt ağa taşıyın veya silin, o kaynak Gezinti bağlantısı kaldıracağız.
 
@@ -179,7 +178,7 @@ Azure her alt ağ içinde bazı IP adreslerini ayırır ve bu adresi kullanılam
 
 Azure sanal ağ altyapısı tarafından kullanılan IP adresleri ek olarak, alt ağdaki her bir API Management örneği için geliştirici SKU Premium SKU'ların birim başına iki IP adresi veya bir IP adresi kullanır. Her örnek, dış yük dengeleyici için ek bir IP adresi ayırır. İç sanal ağ ile dağıtırken iç yük dengeleyici için ek bir IP adresi gerektirir.
 
-API Management dağıtılabilir alt ağın en küçük boyutu yukarıdaki hesaplama verilen 3 IP adreslerini sağlayan /29 olur.
+API Management dağıtılabilir alt ağın en küçük boyutu yukarıdaki hesaplama verilen üç IP adresini sağlayan /29 olur.
 
 ## <a name="routing"> </a> Yönlendirme
 + Tüm hizmet uç noktalarına erişimi sağlamak için yük dengeli genel IP adresi (VIP) ayrılacaktır.
@@ -213,3 +212,5 @@ API Management dağıtılabilir alt ağın en küçük boyutu yukarıdaki hesapl
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/security-overview.md
+[ServiceEndpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
+[ServiceTags]: ../virtual-network/security-overview.md#service-tags

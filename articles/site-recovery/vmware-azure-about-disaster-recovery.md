@@ -1,18 +1,18 @@
 ---
 title: Azure'a VMware vm'lerinin olağanüstü durum kurtarma hakkında Azure Site Recovery kullanarak | Microsoft Docs
 description: Bu makalede, Azure Site Recovery hizmetini kullanarak azure'a VMware vm'lerinin olağanüstü durum kurtarma için genel bir bakış sağlar.
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
-ms.author: raynew
-ms.openlocfilehash: 38f344ef9e24816a17975c60a5863be46da1364b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 3/3/2019
+ms.author: mayg
+ms.openlocfilehash: aa7ea43f3c41c6200e4cf796b0f09dca995791df
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210344"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339683"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Azure'da olağanüstü durum kurtarma VMware vm'lerinin hakkında
 
@@ -34,7 +34,7 @@ Bir iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejisine işlet
     - Ayrıntıya yardımcı olur, yük devretme gerçek ihtiyaç duyduğunuzda beklendiği gibi çalıştığından emin olun.
     - Ayrıntıya üretim ortamınızı etkilemeden test yük devretme gerçekleştirir.
 5. Bir kesinti oluşursa, Azure'a bir tam yük devretme çalıştırın. Tek bir makine üzerinden başarısız olabilir veya aynı anda birden çok makinede yük gerçekleştiren bir kurtarma planı oluşturabilirsiniz.
-6. Yük devretmede, Azure Vm'leri, Azure Depolama'daki VM verilerden oluşturulur. Kullanıcılar uygulamaları ve iş yüklerini Azure VM'den erişmeye devam etmek
+6. Yük devretmede, yönetilen diskler veya depolama hesapları VM verilerden Azure Vm'leri oluşturulur. Kullanıcılar uygulamaları ve iş yüklerini Azure VM'den erişmeye devam etmek
 7. Şirket içi siteniz yeniden kullanılabilir olduğunda, Azure'dan yeniden çalışma.
 8. İlk duruma döndürme ve birincil çalışan bir kez daha sonra tekrar şirket içi Vm'leri Azure'a çoğaltmaya başlayın.
 
@@ -56,13 +56,12 @@ Site Recovery, desteklenen bir VMware VM veya fiziksel sunucu üzerinde çalış
 Azure'da aşağıdaki hazırlamanız gerekir:
 
 1. Azure hesabınızı kullanarak Azure'da VM oluşturmak için gerekli izinlere sahip olduğunu doğrulayın.
-2. Çoğaltılan makinelerin görüntüleri tutmak için bir depolama hesabı oluşturun.
-3. Yük devretmeden sonra depolamadan oluşturulduğunda Azure Vm'lerinin katılacağı bir Azure ağı oluşturun.
-4. Site Recovery için bir Azure kurtarma Hizmetleri kasası ayarlama. Kasa, Azure portalında bulunan ve dağıtmak, yapılandırmak, düzenleyin, izleme ve sorun giderme, Site Recovery dağıtımı için kullanılır.
+2. Yük depolama hesapları ya da yönetilen diskler yük devretme sonrasında oluşturulan Azure Vm'lerinin katılacağı bir Azure ağı oluşturun.
+3. Site Recovery için bir Azure kurtarma Hizmetleri kasası ayarlama. Kasa, Azure portalında bulunan ve dağıtmak, yapılandırmak, düzenleyin, izleme ve sorun giderme, Site Recovery dağıtımı için kullanılır.
 
 *Daha fazla yardıma mı ihtiyacınız var?*
 
-Azure tarafından ayarlama konusunda bilgi [Hesap doğrulama](tutorial-prepare-azure.md#verify-account-permissions), oluşturma bir [depolama hesabı](tutorial-prepare-azure.md#create-a-storage-account) ve [ağ](tutorial-prepare-azure.md#set-up-an-azure-network), ve [bir kasası ayarlama](tutorial-prepare-azure.md#create-a-recovery-services-vault).
+Azure tarafından ayarlama konusunda bilgi [Hesap doğrulama](tutorial-prepare-azure.md#verify-account-permissions), oluşturma bir [ağ](tutorial-prepare-azure.md#set-up-an-azure-network), ve [bir kasası ayarlama](tutorial-prepare-azure.md#create-a-recovery-services-vault).
 
 
 
@@ -94,10 +93,10 @@ Azure ve şirket içi altyapınızı aldıktan sonra olağanüstü durum kurtarm
     - Tek şirket içi makineyi yapılandırma sunucusudur. VMware olağanüstü durum kurtarma için indirilebilir bir OVF şablondan dağıtılabilir bir VMware VM olarak dağıtılmasını öneririz.
     - Yapılandırma sunucusu şirket içi ve Azure arasındaki iletişimleri koordine eder.
     - Birkaç diğer bileşenlerin configuration server makinesinde çalıştırın.
-        - İşlem sunucusu alır, en iyi duruma getirir ve çoğaltma verileri Azure depolamaya gönderir. Aynı zamanda çoğaltmak istediğiniz makinelere Mobility hizmetinin otomatik olarak yüklenmesini işleyen ve VMware sunucuları üzerinde sanal makineleri otomatik olarak bulunmasını gerçekleştirir.
+        - İşlem sunucusu alır, en iyi duruma getirir ve önbellek depolama hesabına azure'da çoğaltma verilerini gönderir. Aynı zamanda çoğaltmak istediğiniz makinelere Mobility hizmetinin otomatik olarak yüklenmesini işleyen ve VMware sunucuları üzerinde sanal makineleri otomatik olarak bulunmasını gerçekleştirir.
         - Ana hedef sunucu, Azure'dan yeniden çalışma sırasında çoğaltma verilerini işler.
     - Otomatik bulma ve Mobility hizmeti yüklemesi için oluşturulan hesapları belirtme ve yapılandırma sunucusunun MySQL Server ve VMware powerclı'yı indirme kasaya kaydetme ayarlama içerir.
-4. **Hedef ortam**: Azure aboneliğiniz, depolama ve ağ ayarlarını belirterek hedef Azure ortamı ayarlayın.
+4. **Hedef ortam**: Azure aboneliğinizi ve ağ ayarlarını belirterek hedef Azure ortamı ayarlayın.
 5. **Çoğaltma İlkesi**: Çoğaltma nasıl gerçekleşeceğini belirtin. Ayarları dahil ne sıklıkta kurtarma noktaları oluşturulur ve depolanır ve mi uygulamayla tutarlı anlık görüntü oluşturulmalıdır.
 6. **Çoğaltmayı etkinleştirme**. Şirket içi makineler için çoğaltma işlemini etkinleştirirsiniz. Mobility hizmetini yükleme için bir hesabı oluşturduysanız, bir makine için çoğaltmayı etkinleştirdiğinizde, sonra yüklenir. 
 

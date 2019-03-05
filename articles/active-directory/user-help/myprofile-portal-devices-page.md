@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd6db6b8dbbe051dba129b0d9f3e87f293d6706
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: bea9a987078799436c9dcad650ee56d5d6d81512
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458073"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341350"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Bağlı cihazlarınızın (Önizleme) Profilim portaldan yönetme
 Bağlı olduğunuz iş veya Okul hesabınızı kullanarak artık sahip olduğunuz, tüm devre dışı bırakma cihazları yönetmek gelen **cihazları** sayfasının **Profilim** portalı.
@@ -29,7 +29,7 @@ Bağlı olduğunuz iş veya Okul hesabınızı kullanarak artık sahip olduğunu
 
 2. Seçin **cihazları** seçin ya da sol gezinti bölmesinde **cihazları yönetme** bağlantı **cihazları** blok.
 
-    ![Vurgulanan cihazları bağlantıları gösteren profili sayfam](media/myprofile-portal/myprofile-portal-devices-links.png)
+    ![Vurgulanan cihazları bağlantıları gösteren profili sayfam](media/myprofile-portal/myprofile-portal-devices.png)
 
 3. Tüm bunları tanımak emin bağlı cihazlarınızın bilgilerini gözden geçirin. 
 
@@ -49,4 +49,4 @@ Herhangi bir bağlı cihazlarınızın dilediğiniz zaman devre dışı bırakab
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Son oturum açma etkinlik izledikten sonra yönetmek veya görüntülemek için seçebileceğiniz, [güvenlik bilgisi](user-help-security-info-overview.md), [son oturum açma etkinliği](myprofile-portal-recent-activity-page.md), uygulamanızın bağlı [kuruluşlar](myprofile-portal-organizations-page.md), veya görüntülemek için nasıl Kuruluşunuz [verilerinizi kullanan](myprofile-portal-privacy-page.md).
+- Bağlı cihazlarınızın izledikten sonra yönetmek veya görüntülemek için seçebileceğiniz, [güvenlik bilgisi](user-help-security-info-overview.md), [kuruluşlar](myprofile-portal-organizations-page.md), ya da görünüm nasıl Kuruluşunuz [verilerinizi kullanır](myprofile-portal-privacy-page.md).

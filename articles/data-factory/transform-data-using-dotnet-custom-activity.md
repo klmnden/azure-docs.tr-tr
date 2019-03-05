@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 408776b0b0053b2b2d45112568a2e28467123768
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ba59ca4ac9a200c4579a4f71ff94be6bd554f180
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805384"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341570"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -107,12 +107,13 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özel
 | folderPath            | Özel uygulama ve tüm bağımlılıklarını klasörünün yolu<br/><br/>Hiyerarşik klasör yapısı altında alt klasörlerinde - diğer bir deyişle, depolanan bağımlılıkları varsa *folderPath* -klasör yapısı şu anda Azure Batch'e dosyaları kopyalarken düzleştirilir. Diğer bir deyişle, tüm dosyaları hiçbir alt klasör tek bir klasöre kopyalanır. Bu davranışa geçici bir çözüm için dosyalar sıkıştırılıyor, sıkıştırılmış dosya kopyalamayı ve ardından, istenen konumu özel kodla sıkıştırması açılırken göz önünde bulundurun. | Yok&#42;       |
 | referenceObjects      | Mevcut bağlı hizmetleri ve veri kümeleri dizisi. Data Factory kaynaklarını özel kodunuz başvurabilmeniz başvurulan bağlı hizmetleri ve veri kümeleri JSON biçimindeki özel uygulamaya geçirilir | Hayır       |
 | ExtendedProperties    | Özel kodunuz ek özellikler başvurabilir, böylece JSON biçimindeki özel uygulamaya geçirilen kullanıcı tanımlı Özellikler | Hayır       |
+| retentionTimeInDays | Özel Etkinlik için gönderilen dosyaları için elde tutma süresi. Varsayılan değer 30 gündür. | Hayır |
 
 &#42;Özellikleri `resourceLinkedService` ve `folderPath` gerekir ya da her ikisi de belirtilmesi veya her ikisi de etmeyebilirsiniz.
 
 > [!NOTE]
 > Bağlı hizmetler olarak özel etkinlik referenceObjects geçiriyorsanız, bir Azure Key Vault geçirmek için en iyi güvenlik yöntemi (herhangi bir güvenli dize içermiyor olduğundan) bağlı hizmet ve getirme doğrudan anahtarından gizli dizi adı kullanarak kimlik bilgilerini devre dışı olduğu Koddan kasası. Bir örnek bulabilirsiniz [burada](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) başvuruları AKV bağlı hizmeti, etkin kimlik bilgilerini Key Vault'tan alır ve ardından depolama kodda erişir.  
- 
+
 ## <a name="custom-activity-permissions"></a>Özel Etkinlik izinleri
 
 Azure Batch otomatik kullanıcı hesabı olarak özel etkinlik ayarlar *görev kapsama sahip yönetici olmayan erişim* (varsayılan otomatik kullanıcı belirtimi). Otomatik kullanıcı hesabına izin düzeyini değiştiremezsiniz. Daha fazla bilgi için bkz. [görevleri kullanıcı hesapları altında Batch'de çalıştırma | Otomatik kullanıcı hesaplarını](../batch/batch-user-accounts.md#auto-user-accounts).
@@ -321,7 +322,7 @@ Türü özelliklerine erişmek için *SecureString* özel bir etkinlikten okuma 
 
 ## <a name="compare-v2-v1"></a> V2 özel etkinlik ve sürüm 1 (özel) karşılaştırma DotNet etkinliği
 
-Azure Data Factory sürüm 1, (özel) DotNet etkinliği bir .net oluşturarak uygulamanız uygulayan bir sınıf olan sınıf kitaplığı projesi `Execute` yöntemi `IDotNetActivity` arabirimi. Bağlı hizmetler, veri kümeleri ve genişletilmiş özellikler (özel) DotNet etkinliği JSON yükündeki yürütme yöntemin türü kesin olarak belirtilmiş nesneler olarak geçirilir. Sürüm 1 davranışı hakkında daha fazla ayrıntı için bkz: [sürüm 1 (özel) DotNet](v1/data-factory-use-custom-activities.md). Bu uygulamaya nedeniyle .net hedeflemek, sürüm 1 DotNet etkinliği kodu sahip Framework 4.5.2. Sürüm 1 DotNet etkinliği de Windows tabanlı Azure Batch havuzu düğümlerinde yürütülmesi gerekir.
+Azure Data Factory sürüm 1, (özel) DotNet etkinliği bir .net oluşturarak uygulamanız uygulayan bir sınıf olan sınıf kitaplığı projesi `Execute` yöntemi `IDotNetActivity` arabirimi. Bağlı hizmetler, veri kümeleri ve genişletilmiş özellikler (özel) DotNet etkinliği JSON yükündeki yürütme yöntemin türü kesin olarak belirtilmiş nesneler olarak geçirilir. Sürüm 1 davranışı hakkında daha fazla ayrıntı için bkz: [sürüm 1 (özel) DotNet](v1/data-factory-use-custom-activities.md). Bu uygulama nedeniyle, sürüm 1 DotNet etkinliği kodu .NET Framework 4.5.2'yi hedefleyen var. Sürüm 1 DotNet etkinliği de Windows tabanlı Azure Batch havuzu düğümlerinde yürütülmesi gerekir.
 
 Azure Data Factory V2 özel etkinliğinde .net arabirimi uygulamanız gerekmez. Artık doğrudan komutları ve komut yürütülmeye kendi özel kodunuzu çalıştırabilirsiniz. Bu uygulama yapılandırmak için belirttiğiniz `Command` özelliği ile birlikte `folderPath` özelliği. Yürütülebilir dosya ve bağımlılıkları için özel etkinlik yükler `folderpath` ve sizin için komutu çalıştırır.
 
@@ -335,7 +336,7 @@ Data Factory V2 özel etkinliği ve Data Factory sürüm 1 arasındaki farklar (
 |Farkları      | Özel Etkinlik      | Sürüm 1 (özel) DotNet etkinliği      |
 | ---- | ---- | ---- |
 |Nasıl özel mantığı tanımlanır      |Bir yürütülebilir dosya sağlayarak      |Bir .net DLL uygulayarak      |
-|Yürütme Ortamı özel mantığı      |Windows veya Linux      |Windows (.Net Framework 4.5.2)      |
+|Yürütme Ortamı özel mantığı      |Windows veya Linux      |Windows (.NET Framework 4.5.2)      |
 |Betikleri çalıştırma      |Doğrudan komut dosyaları (örneğin "cmd /c Yankı hello world" Windows VM'de) yürütme destekler      |DLL .net uygulamasında gerektirir      |
 |Veri kümesi gerekiyor      |İsteğe bağlı      |Etkinliği zincirleyebilir, yani ve bilgi geçirmek için gerekli      |
 |Özel mantığı etkinlikten geçiş bilgileri      |ReferenceObjects (LinkedServices ve veri kümeleri) ile ExtendedProperties (Özel Özellikler)      |ExtendedProperties (Özel Özellikler), giriş ve çıkış veri kümeleri      |

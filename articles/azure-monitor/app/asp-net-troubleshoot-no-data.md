@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 532121f4e9a3c658e544a8d322ac0f17fa22a2b0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9b94445d3053f036510baf7945c1086558d28188
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875914"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341689"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
 *Uygulama anlayışları'nda, yalnızca bir kesir uygulamamı tarafından oluşturulan olayların görüyorum.*
 
-* Aynı kesir sürekli görüyorsanız, büyük olasılıkla nedeniyle Uyarlamalı olan [örnekleme](../../azure-monitor/app/sampling.md). Bunu doğrulamak için (genel bakış dikey penceresinden) araması'nı açın ve bir istek veya diğer olay örneğini bakın. Özellikler bölümü altındaki tam özellik ayrıntılarını almak için "..." tıklayın. Varsa sayısı > 1 istek ve örnekleme işlemi olduğundan. 
+* Aynı kesir sürekli görüyorsanız, büyük olasılıkla nedeniyle Uyarlamalı olan [örnekleme](../../azure-monitor/app/sampling.md). Bunu doğrulamak için (genel bakış dikey penceresinden) araması'nı açın ve bir istek veya diğer olay örneğini bakın. Özellikler bölümü altındaki tam özellik ayrıntılarını almak için "..." tıklayın. Varsa sayısı > 1 istek ve örnekleme işlemi olduğundan.
 * Aksi takdirde, aldığınızı olası bir [veri hızı sınırı](../../azure-monitor/app/pricing.md#limits-summary) fiyatlandırma planınız için. Bu sınırlar, dakika başına uygulanır.
 
 ## <a name="no-data-from-my-server"></a>My sunucusundan veri yok
@@ -34,7 +34,7 @@ ms.locfileid: "56875914"
 
 *Ben [Durum İzleyicisi'nin yüklü](../../azure-monitor/app/monitor-performance-live-website-now.md) web sunucuma mevcut uygulamaları izleyin. Herhangi bir sonuç göremiyorum.*
 
-* Bkz: [Durum İzleyicisi sorun giderme](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot). 
+* Bkz: [Durum İzleyicisi sorun giderme](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot).
 
 ## <a name="q01"></a>Visual Studio 'Application Insights Ekle' seçeneği
 *Mevcut bir projeyi Çözüm Gezgini'nde sağ tıkladığımda, herhangi bir Application Insights seçeneği görmüyorum.*
@@ -55,10 +55,10 @@ Olası nedenler:
 
 Düzeltme:
 
-* Oturum açma kimlik bilgileri için doğru Azure hesabını sağlanan denetleyin. 
+* Oturum açma kimlik bilgileri için doğru Azure hesabını sağlanan denetleyin.
 * Tarayıcınızda erişiminiz olduğunu denetleyin [Azure portalında](https://portal.azure.com). Ayarları'nı açın ve herhangi bir kısıtlama olup olmadığına bakın.
 * [Mevcut projenize Application Insights ekleme](../../azure-monitor/app/asp-net.md): Çözüm Gezgini'nde projenize sağ tıklayın ve "Ekle Application Insights."
-* Hala çalışmıyorsa izleyin [el ile yordamı](../../azure-monitor/app/windows-services.md) portalda bir kaynak ekleyin ve SDK'sını projenize ekleyin. 
+* Hala çalışmıyorsa izleyin [el ile yordamı](../../azure-monitor/app/windows-services.md) portalda bir kaynak ekleyin ve SDK'sını projenize ekleyin.
 
 ## <a name="emptykey"></a>"İzleme anahtarını boş bırakılamaz" hatasını alıyorum
 Application Insights veya belki de bir günlük bağdaştırıcısı yüklemekte ederken bir sorun var gibi görünüyor.
@@ -76,7 +76,7 @@ Lütfen [NuGet paketi geri yüklemeyi](https://docs.nuget.org/Consume/Package-Re
 Olası nedenler:
 
 * Application Insights kaynağını el ile oluşturduysanız veya proje için Application Insights araçları tarafından desteklenmeyen bir tür ise.
-* Geliştirici analiz araçları, Visual Studio'da devre dışı bırakıldı. 
+* Geliştirici analiz araçları, Visual Studio'da devre dışı bırakıldı.
 * Visual Studio 2013 güncelleştirme 3 eskidir.
 
 Düzeltme:
@@ -90,13 +90,11 @@ Aksi takdirde, proje türünüzü doğrudan Application Insights araçları tara
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>'Erişim engellendi' Application ınsights'ı Visual Studio'dan açarken
 *'Application ınsights'ı Aç' menü komutu bana Azure portalına götürür, ancak bir 'erişim engellendi' hatası alıyorum.*
 
-Varsayılan tarayıcınızı en son kullanılan Microsoft oturum açma erişimi yok [bu uygulama için Application Insights eklendiğinde, oluşturulan kaynak](../../azure-monitor/app/asp-net.md). İki olası nedeni vardır: 
+Varsayılan tarayıcınızı en son kullanılan Microsoft oturum açma erişimi yok [bu uygulama için Application Insights eklendiğinde, oluşturulan kaynak](../../azure-monitor/app/asp-net.md). İki olası nedeni vardır:
 
-* - Belki de bir iş ve kişisel Microsoft hesabı birden fazla Microsoft hesabınız var mı? Varsayılan tarayıcınızı en son kullanılan oturum açma erişimi olan olandan farklı bir hesap aitti [projeye Application Insights ekleyin](../../azure-monitor/app/asp-net.md). 
-  
+* - Belki de bir iş ve kişisel Microsoft hesabı birden fazla Microsoft hesabınız var mı? Varsayılan tarayıcınızı en son kullanılan oturum açma erişimi olan olandan farklı bir hesap aitti [projeye Application Insights ekleyin](../../azure-monitor/app/asp-net.md).
   * Düzeltme: Adınızı, tarayıcı penceresinin sağ üst ve oturum kapatma. Daha sonra erişimi olan hesapla oturum açın. Sonra sol gezinti çubuğunda Application Insights'ı tıklatın ve uygulamanızı seçin.
-* Başka birinin Application Insights projeye eklenir ve size unuttunuz [kaynak grubuna erişim](../../azure-monitor/app/resources-roles-access-control.md) , oluşturulduğu. 
-  
+* Başka birinin Application Insights projeye eklenir ve size unuttunuz [kaynak grubuna erişim](../../azure-monitor/app/resources-roles-access-control.md) , oluşturulduğu.
   * Düzeltme: Bunlar bir kurumsal hesap kullandıysanız, takıma ekleyebilirsiniz; veya, kaynak grubuna bireysel erişim verebilirsiniz.
 
 ## <a name="asset-not-found-on-opening-application-insights-from-visual-studio"></a>'Varlık bulunamadı' Application ınsights'ı Visual Studio'dan açarken
@@ -105,9 +103,9 @@ Varsayılan tarayıcınızı en son kullanılan Microsoft oturum açma erişimi 
 Olası nedenler:
 
 * Uygulamanız için Application Insights kaynağı silinmiş; veya
-* İzleme anahtarını ayarlayın, veya Applicationınsights.config dosyasında doğrudan proje dosyasına güncelleştirmeden düzenleyerek değiştirildi. 
+* İzleme anahtarını ayarlayın, veya Applicationınsights.config dosyasında doğrudan proje dosyasına güncelleştirmeden düzenleyerek değiştirildi.
 
-İzleme anahtarı telemetrinin gönderildiği yeri Applicationınsights.config denetimlerinde. Proje dosyasındaki bir çizgi Visual Studio'da komutunu kullandığınızda, hangi kaynak açıldığında denetler. 
+İzleme anahtarı telemetrinin gönderildiği yeri Applicationınsights.config denetimlerinde. Proje dosyasındaki bir çizgi Visual Studio'da komutunu kullandığınızda, hangi kaynak açıldığında denetler.
 
 Düzeltme:
 
@@ -117,25 +115,21 @@ Düzeltme:
 ## <a name="where-do-i-find-my-telemetry"></a>Telemetrimi nerede bulabilirim?
 *Ben oturum açtığı [Microsoft Azure Portal'da](https://portal.azure.com), ve Azure Giriş Panosu'nda arayarak. Bu nedenle burada my Application Insights verilerini bulabilirim?*
 
-* Application ınsights'ı ve ardından, uygulama adı sol gezinti çubuğunda Koruma'ya tıklayın. İçin gereken tüm projeleri burada yoksa, [eklemek veya web projenize Application Insights'ı yapılandırın](../../azure-monitor/app/asp-net.md).
-  
-    Burada bazı Özet grafikleri görürsünüz. Daha fazla ayrıntı için bloblarda tıklayabilirsiniz.
+* Application ınsights'ı ve ardından, uygulama adı sol gezinti çubuğunda Koruma'ya tıklayın. İçin gereken tüm projeleri burada yoksa, [eklemek veya web projenize Application Insights'ı yapılandırın](../../azure-monitor/app/asp-net.md).  
+  Burada bazı Özet grafikleri görürsünüz. Daha fazla ayrıntı için bloblarda tıklayabilirsiniz.
 * Uygulamanızı hata ayıklarken, Visual Studio'da Application Insights düğmesine tıklayın.
 
 ## <a name="q03"></a> Hiçbir sunucu verisi (veya hiç veri yok)
 *Uygulamamı çalıştırıldı ve daha sonra Microsoft Azure'da Application Insights hizmetine açılır, ancak '... nasıl toplayacağınızı öğrenin' veya 'Yapılandırılmadı.' tüm grafikleri Göster* Veya, *yalnızca sayfa görünümü ve kullanıcı verilerini ancak sunucu verileri.*
 
-* Uygulamanızı (F5) Visual Studio'da hata ayıklama modunda çalıştırın. Uygulamayı birkaç telemetri oluşturmak için kullanın. Visual Studio çıktı penceresinde kaydedilen olayları gördüğünüzü kontrol edin. 
-  
-    ![](./media/asp-net-troubleshoot-no-data/output-window.png)
+* Uygulamanızı (F5) Visual Studio'da hata ayıklama modunda çalıştırın. Uygulamayı birkaç telemetri oluşturmak için kullanın. Visual Studio çıktı penceresinde kaydedilen olayları gördüğünüzü kontrol edin.  
+  ![](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Application Insights Portalı'nda açmak [tanılama araması](../../azure-monitor/app/diagnostic-search.md). Veriler genellikle burada ilk görünür.
 * Yenile düğmesine tıklayın. Dikey kendisini düzenli aralıklarla yeniler, ancak ayrıca el ile bunu yapabilirsiniz. Daha büyük zaman aralıkları için yenileme aralığını uzun.
-* İzleme anahtarı eşleşen denetleyin. Uygulamanızı Application Insights portalında, ana dikey penceresinde, **Essentials** açılan listesinde, bakmak **izleme anahtarını**. Ardından, Visual Studio projenizde, Applicationınsights.config açın ve Bul `<instrumentationkey>`. İki anahtar eşit olup olmadığını denetleyin. Aksi takdirde:
-  
+* İzleme anahtarı eşleşen denetleyin. Uygulamanızı Application Insights portalında, ana dikey penceresinde, **Essentials** açılan listesinde, bakmak **izleme anahtarını**. Ardından, Visual Studio projenizde, Applicationınsights.config açın ve Bul `<instrumentationkey>`. İki anahtar eşit olup olmadığını denetleyin. Aksi takdirde:  
   * Portalda, Application Insights'ı tıklatın ve uygulama kaynağı için sağ ok tuşu ile bakın. veya
   * Visual Studio Çözüm Gezgini'nde projeye sağ tıklayın ve Application Insights, yapılandırma öğesini seçin. Uygulamanın doğru kaynağa telemetri göndermesine izin sıfırlayın.
   * Eşleşen anahtarları bulamazsanız, aynı oturum açma kimlik bilgileri olarak Visual Studio portalına kullandığınızdan emin olun.
-    
 * İçinde [Microsoft Azure giriş Panosu](https://portal.azure.com), hizmet durumu eşlemeyi bakın. Bazı uyarı göstergelerden varsa, bunlar için Tamam döndürmüş ve ardından kapatın ve, Application Insights uygulama dikey pencereyi yeniden açın kadar bekleyin.
 * Ayrıca [durumu blogumuzu](https://blogs.msdn.microsoft.com/servicemap-status/).
 * Herhangi bir kod yazdınız [sunucu tarafı SDK](../../azure-monitor/app/api-custom-events-metrics.md) izleme anahtarını değişebilir `TelemetryClient` örnekleri veya `TelemetryContext`? Veya, yazdınız bir [filtre veya örnekleme yapılandırma](../../azure-monitor/app/api-filtering-sampling.md) filtrelemesi çok fazla kullanıma?
@@ -167,9 +161,9 @@ Performans verileri (CPU, GÇ oranı vb.) için kullanılabilir [Java web Hizmet
 * Veri noktalarının aylık kota ulaşmış olabilirsiniz? Ayarlar/kota ve fiyatlandırma öğrenmek için açın. Bu durumda, planınızı yükseltin veya ek kapasite için ödeme yaparsınız. Bkz: [düzeni fiyatlandırma](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Bekleniyor verilerini göremiyorum
-Uygulamanız çok miktarda veri gönderir ve ASP.NET sürüm 2.0.0-beta3 veya daha sonra Application Insights SDK kullanıyorsanız [Uyarlamalı örnekleme](../../azure-monitor/app/sampling.md) özellik çalışır ve yalnızca bir yüzdesini telemetrinizi gönderme. 
+Uygulamanız çok miktarda veri gönderir ve ASP.NET sürüm 2.0.0-beta3 veya daha sonra Application Insights SDK kullanıyorsanız [Uyarlamalı örnekleme](../../azure-monitor/app/sampling.md) özellik çalışır ve yalnızca bir yüzdesini telemetrinizi gönderme.
 
-Devre dışı bırakabilirsiniz, ancak bu önerilmemektedir. Örnekleme, ilgili telemetri doğru tanılama amacıyla iletilen şekilde tasarlanmıştır. 
+Devre dışı bırakabilirsiniz, ancak bu önerilmemektedir. Örnekleme, ilgili telemetri doğru tanılama amacıyla iletilen şekilde tasarlanmıştır.
 
 ## <a name="client-ip-address-is-0000"></a>İstemci IP adresi 0.0.0.0 ise
 
@@ -178,7 +172,6 @@ Devre dışı bırakabilirsiniz, ancak bu önerilmemektedir. Örnekleme, ilgili 
 > [!NOTE]
 > IP adresinin ilk 3 sekizlik tabanda gerekiyorsa, kullanabileceğiniz bir [telemetri başlatıcısını](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) özel bir öznitelik eklemek için.
 > Bu, 5 Şubat 2018’den önce toplanan verileri etkilemez.
-
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Kullanıcı telemetri yanlış coğrafi verileri
 Şehir, bölge ve ülke boyutları IP adreslerinden türetilir ve her zaman doğru değil. Bu IP adresleri için konum ilk işlenen ve ardından depolanacak 0.0.0.0 olarak değiştirildi.
@@ -190,27 +183,27 @@ Devre dışı bırakabilirsiniz, ancak bu önerilmemektedir. Örnekleme, ilgili 
 
 Altyapınız için sorun giderme günlükleri tutmak için bu yönergeleri izleyin.
 
-### <a name="net-framework"></a>.NET framework
+### <a name="net-framework"></a>.NET Framework
 
 1. Yükleme [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) NuGet paketi. Yüklemeniz gereken sürüm yüklü geçerli sürümü ile eşleşmelidir `Microsoft.ApplicationInsighs`
 
 2. Şunlar için applicationınsights.config dosyasını değiştirin:
 
-   ```xml
-   <TelemetryModules>
+    ```xml
+    <TelemetryModules>
       <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
         <Severity>Verbose</Severity>
         <LogFileName>mylog.txt</LogFileName>
         <LogFilePath>C:\\SDKLOGS</LogFilePath>
       </Add>
-   </TelemetryModules>
-   ```
-   Uygulamanız için yapılandırılan konuma yazma izinlerine sahip olmalıdır
- 
- 3. Bu yeni ayarları SDK'sı tarafından alınır, böylece işlemini yeniden başlatın.
- 
- 4. İşiniz bittiğinde bu değişiklikleri geri al.
-  
+    </TelemetryModules>
+    ```
+    Uygulamanız için yapılandırılan konuma yazma izinlerine sahip olmalıdır
+
+3. Bu yeni ayarları SDK'sı tarafından alınır, böylece işlemini yeniden başlatın.
+
+4. İşiniz bittiğinde bu değişiklikleri geri al.
+
 ### <a name="net-core"></a>.Net Core
 
 1. Yükleme [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) NuGet paketi. Yüklemeniz gereken sürüm yüklü geçerli sürümü ile eşleşmelidir `Microsoft.ApplicationInsights`
@@ -225,13 +218,11 @@ Altyapınız için sorun giderme günlükleri tutmak için bu yönergeleri izley
         module.Severity = "Verbose";
     } );
     ```
-   Uygulamanız için yapılandırılan konuma yazma izinlerine sahip olmalıdır
- 
- 3. Bu yeni ayarları SDK'sı tarafından alınır, böylece işlemini yeniden başlatın.
- 
- 4. İşiniz bittiğinde bu değişiklikleri geri al.
-  
+    Uygulamanız için yapılandırılan konuma yazma izinlerine sahip olmalıdır
+
+3. Bu yeni ayarları SDK'sı tarafından alınır, böylece işlemini yeniden başlatın.
+
+4. İşiniz bittiğinde bu değişiklikleri geri al.
 
 ## <a name="still-not-working"></a>Yine de çalışmıyor...
 * [Uygulama anlayışları Forumu](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-

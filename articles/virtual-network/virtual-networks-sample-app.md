@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: a8e52af1a1feb8a01ed5556efb6e153c56b25cca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 52058469b531383b32974ccc5bc77b31783583bd
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700596"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339956"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>DMZ'ler ile kullanmak için örnek uygulama
 [Güvenlik sınırı en iyi yöntemler sayfasına geri dönün][HOME]
@@ -42,7 +42,7 @@ Aşağıdaki betikler kullanırsanız, bu güvenlik duvarı kuralı ekleme ilk a
 Bu betik olur:
 
 1. IMCPv4 açın (Ping) daha kolay test edebilmek için yerel sunucu windows güvenlik duvarı
-2. IIS ve .net Framework v4.5
+2. IIS ve .NET Framework v4.5
 3. Bir ASP.NET web sayfası ve bir Web.config dosyası oluşturma
 4. Dosya erişimi kolaylaştırmak için varsayılan uygulama havuzunu Değiştir
 5. Anonim kullanıcı, yönetici hesabı ve parola ayarlayın.
@@ -152,12 +152,12 @@ Bu betik bu basit bir uygulama için arka uç ayarlar. Bu betik olur:
 2. Web sitesi için bir dizin oluşturun
 3. Uzaktan Erişim tarafından web sayfasını olacak şekilde bir metin dosyası oluşturun
 4. Dizin ve dosya anonim erişime izin vermek için izinleri ayarlayın
-5. IE Artırılmış Güvenlik bu sunucudan daha kolay gezinme izin vermek için devre dışı bırakma 
+5. IE Artırılmış Güvenlik bu sunucudan daha kolay gezinme izin vermek için devre dışı bırakma
 
 > [!IMPORTANT]
 > **En iyi yöntem**: IE Artırılmış Güvenlik devre dışı bir üretim sunucusunda hiç kapatma yanı sıra genel olarak üretim sunucudan Web'de gezinmek için kötü bir fikir olduğunu. Ayrıca, dosya paylaşımlarına anonim erişim için açmayı bitti ancak kötü bir fikir kolaylık olması için aşağıdadır.
-> 
-> 
+>
+>
 
 RDP AppVM01 içinde bulunduğu sırada bu PowerShell Betiği yerel olarak çalıştırılmalıdır. Başarılı yürütme emin olmak için yönetici olarak çalıştırılacak PowerShell gereklidir.
 

@@ -1,18 +1,18 @@
 ---
 title: Vmware'den Azure'a olağanüstü durum kurtarma mimaride Azure Site Recovery | Microsoft Docs
 description: Bu makalede Azure'da Azure Site Recovery ile şirket içi VMware vm'lerinin olağanüstü durum kurtarma ayarlama çoğaltırken kullanılan bileşenler ve genel bir bakış sağlar.
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
-ms.author: raynew
-ms.openlocfilehash: 3d91788544c49c260eff051185950bdfd164b802
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 3/3/2019
+ms.author: mayg
+ms.openlocfilehash: 5f9ead8df3d0dfb2695def46087d2ea994b8b75b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217960"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340450"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Vmware'den Azure'a olağanüstü durum kurtarma mimarisi
 
@@ -25,7 +25,7 @@ Aşağıdaki tablo ve grafik Vmware'den azure'a olağanüstü durum kurtarma iç
 
 **Bileşen** | **Gereksinim** | **Ayrıntılar**
 --- | --- | ---
-**Azure** | Bir Azure aboneliği, Azure depolama hesabını ve Azure ağı. | Şirket içi vm'lerden çoğaltılan veriler depolama hesabında depolanır. Şirket içinden Azure'a yük devretme çalıştırdığınızda çoğaltılan verilerle azure Vm'leri oluşturulur. Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
+**Azure** | Bir Azure aboneliği, önbellek, yönetilen Disk ve Azure ağ için Azure depolama hesabı. | Şirket içi VM'den çoğaltılan veriler Azure Depolama'da saklanır. Şirket içinden Azure'a yük devretme çalıştırdığınızda çoğaltılan verilerle azure Vm'leri oluşturulur. Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
 **Configuration server makinesi** | Bir tek şirket içi makine. Bu dağıtılabilir bir VMware VM yüklenen bir OVF şablondan çalıştırmanızı öneririz.<br/><br/> Makine yapılandırma sunucusu, işlem sunucusu ve ana hedef sunucusu içeren tüm şirket içi Site Recovery bileşenlerini çalıştırır. | **Yapılandırma sunucusu**: Şirket içi ile Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir.<br/><br/> **İşlem sunucusu**: Varsayılan olarak yapılandırma sunucusuna yüklenir. Bu çoğaltma verilerini alıp; Bu, önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir; ve Azure depolamaya gönderir. İşlem sunucusu, çoğaltmak istediğiniz Vm'lere de Azure Site Recovery Mobility hizmeti yükler ve şirket içi makineleri otomatik olarak bulunmasını gerçekleştirir. Dağıtımınız büyüdükçe, daha büyük çoğaltma trafiği hacimlerini idare etmek ayrı, ek işlem sunucuları ekleyebilirsiniz.<br/><br/> **Ana hedef sunucusu**: Varsayılan olarak yapılandırma sunucusuna yüklenir. Azure'dan yeniden çalışma sırasında çoğaltma verilerini işler. Büyük dağıtımlar için yeniden çalışma için bir ek, ayrı bir ana hedef sunucusu ekleyebilirsiniz.
 **VMware sunucuları** | VMware Vm'leri, şirket içi vSphere ESXi sunucularında barındırılır. Ana bilgisayarları yönetmek için bir vCenter sunucusu öneririz. | Site Recovery dağıtımı sırasında VMware sunucularını kurtarma Hizmetleri Kasası'na ekleyin.
 **Çoğaltılan makineler** | Mobility hizmeti Çoğalttığınız her VMware sanal makinede yüklü. | İşlem sunucusundan otomatik yükleme izin öneririz. Alternatif olarak, hizmetini el ile yükleme veya System Center Configuration Manager gibi bir otomatik dağıtım yöntemini kullanın.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456818"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341112"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Uygulama parolaları, güvenlik bilgisi (Önizleme) sayfasından yönetin
 Outlook 2010 gibi bazı uygulamalar, iki aşamalı doğrulamayı desteklemez. Bu destek eksikliği kuruluşunuzda iki aşamalı doğrulama kullanıyorsanız, uygulama çalışmıyor anlamına gelir. Bu sorunla karşılaşmamak için normal parolasından ayrı her tarayıcı içi uygulaması ile birlikte kullanmak için otomatik olarak oluşturulan bir parola oluşturabilirsiniz.
@@ -47,11 +47,11 @@ Uygulama parolaları kullanırken unutmamak önemlidir:
 ### <a name="to-create-a-new-app-password"></a>Yeni bir uygulama parolası oluşturmak için
 1. İş veya Okul hesabınızda oturum açın ve ardından Git kullanarak https://myprofile.microsoft.com/ sayfası.
 
-    ![Vurgulanan güvenlik bilgisi bağlantıları gösteren profili sayfam](media/security-info/securityinfo-myprofile.png)
+    ![Vurgulanan güvenlik bilgisi bağlantıları gösteren profili sayfam](media/security-info/securityinfo-myprofile-page.png)
 
 2. Seçin **güvenlik bilgisi** sol gezinti bölmesinden ya da bağlantıyı **güvenlik bilgisi** engelleyebilir ve ardından **yöntemi ekleyin** gelen **güvenlik bilgisi**  sayfası.
 
-    ![Güvenlik bilgileri sayfasını vurgulanan Ekle yöntemi seçeneği](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Güvenlik bilgileri sayfasını vurgulanan Ekle yöntemi seçeneği](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Üzerinde **bir yöntem ekleyin** sayfasında **uygulama parolası** seçin ve açılır listede **Ekle**.
 

@@ -11,16 +11,16 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e5528cdfc2efa2d5c257732c8b6b6df117421839
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4f1c4e7695e0c260b6486b3c3d4d0bd8b3f951f6
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250036"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342624"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile PyTorch modellerini eğitin
 
-PyTorch kullanarak derin sinir ağı (DNN) eğitim için özel bir Azure Machine Learning sağlar `PyTorch` sınıfının `Estimator`. Azure SDK'ın `PyTorch` estimator kolayca Azure işlem hem tek düğümlü hem de dağıtılmış çalıştırmalar için PyTorch eğitim işleri göndermenizi sağlar.
+PyTorch kullanarak derin sinir ağı (DNN) eğitim için özel bir Azure Machine Learning sağlar [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) sınıfının `Estimator`. Azure SDK'ın `PyTorch` estimator kolayca Azure işlem hem tek düğümlü hem de dağıtılmış çalıştırmalar için PyTorch eğitim işleri göndermenizi sağlar.
 
 ## <a name="single-node-training"></a>Tek düğümlü eğitim
 İle eğitim `PyTorch` estimator kullanmaya benzer [temel `Estimator` ](how-to-train-ml-models.md), bu nedenle öncelikle yapılır makaleyi okuyun ve orada tanıtılan kavramları anladığınızdan emin olun.

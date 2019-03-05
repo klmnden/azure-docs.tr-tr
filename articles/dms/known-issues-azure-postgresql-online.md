@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 363a4bd4be5e175aad346486b56c4f6efd877143
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724156"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340533"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>PostgreSQL için Azure DB online geçişleri ile bilinen sorunları/geçiş sınırlamaları
 
@@ -97,7 +97,7 @@ Büyük nesne (LOB) sütunları fazla büyüyebilir sütunlarıdır. PostgreSQL 
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Geçici çözüm**: 32 KB'den büyük LOB nesne varsa, mühendislik ekibiyle iletişime geçin. [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+    **Geçici çözüm**: 32 KB'den büyük LOB nesne varsa, mühendislik ekibiyle iletişime geçin. [isteyin Azure veritabanı geçişlerini](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Sınırlama**: Tablodaki LOB sütunları vardır ve birincil anahtar ödenmez tablo için verileri bu tablo için geçirilmiş olabilir değil.
 

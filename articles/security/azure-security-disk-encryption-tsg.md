@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 02/04/2019
+ms.date: 03/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0202dfa8316caec036b4ad288c2bd32f1c4eaf3
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d4698ad54e08587b223bb65388d399c0cbf3ff63
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56989413"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342522"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk şifrelemesi sorun giderme kılavuzu
 
@@ -60,14 +60,14 @@ Linux işletim sistemi disk şifreleme dizisi, işletim sistemi sürücüsünü 
 Şifreleme durumu denetlemek için yoklama **ProgressMessage** döndürüldüğü alan [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) komutu. İşletim sistemi sürücüsünü şifrelenir, ancak VM hizmet durumu girer ve herhangi bir kesinti devam eden işlemi için SSH devre dışı bırakır. **EncryptionInProgress** şifreleme işlemi devam ederken çoğu zaman raporları iletisi. Birkaç saat sonra bir **VMRestartPending** ileti sanal Makineyi yeniden başlatmanızı ister. Örneğin:
 
 
-```
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName $resourceGroupName -VMName $vmName
+```azurepowershell
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
 OsVolumeEncrypted          : EncryptionInProgress
 DataVolumesEncrypted       : EncryptionInProgress
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
 ProgressMessage            : OS disk encryption started
 
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName $resourceGroupName -VMName $vmName
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
 OsVolumeEncrypted          : VMRestartPending
 DataVolumesEncrypted       : Encrypted
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
@@ -93,7 +93,7 @@ Uygulanan ağ güvenlik grubu ayarlarını belgelenmiş ağ yapılandırmasını
 Şifreleme etkinleştirildiğinde ile [Azure AD kimlik](azure-security-disk-encryption-prerequisites-aad.md), hedef sanal Makineyi hem Azure Active Directory uç noktalarına hem de anahtar kasası uç noktaları bağlanmaya izin vermelidir. Geçerli Azure Active Directory kimlik doğrulama uç noktaları 56 ve 59, bölümlerde tutulan [Office 365 URL'leri ve IP adresi aralıkları](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) belgeleri. Key Vault yönergeler, ilgili belgelerde verilmiştir [bir güvenlik duvarının arkasındaki Azure anahtar kasası](../key-vault/key-vault-access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti 
-VM erişebilir olmalıdır [Azure örnek meta veri hizmetine](../virtual-machines/windows/instance-metadata-service.md) iyi bilinen yönlendirilemeyen bir IP adresi kullanan uç noktası (`169.254.169.254`), erişilebilir yalnızca VM içinden.
+VM erişebilir olmalıdır [Azure örnek meta veri hizmetine](../virtual-machines/windows/instance-metadata-service.md) iyi bilinen yönlendirilemeyen bir IP adresi kullanan uç noktası (`169.254.169.254`), erişilebilir yalnızca VM içinden.  Bu adrese (örneğin, X-iletilen-için üst bilgi ekleme) yerel HTTP trafiğini alter proxy yapılandırmaları desteklenmez.
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Bir güvenlik duvarının arkasında Linux paket Yönetimi
 
@@ -138,6 +138,12 @@ DISKPART> list vol
 
 If the expected encryption state does not match what is being reported in the portal, see the following support article:
 [Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
+
+## <a name="troubleshooting-encryption-status"></a>Şifreleme durumu sorunlarını giderme 
+
+Portal bile VM içinden şifrelenmemiş edildikten sonra bir disk olarak şifrelenmiş görüntüleyebilir.  Alt düzey komutları doğrudan diskten daha yüksek düzey Azure Disk şifrelemesi yönetimi komutları kullanmak yerine VM'de sıfırlamaktır kullanıldığında ortaya çıkabilir.  Daha yüksek düzeyde, yalnızca diskten VM içinde sıfırlamaktır, ancak VM dışında Ayrıca önemli platform düzeyinde şifreleme ayarları ve VM ile ilişkili uzantı ayarları güncelleştirme komutları.  Bu hizalama tutulmazsa, platform şifreleme durumu bildirmek veya VM'yi düzgün şekilde sağlamak mümkün olmayacaktır.   
+
+Düzgün bir şekilde Azure Disk şifrelemesi devre dışı bırakmak için şifreleme ile etkin bilinen bir iyi durumda başlatın ve ardından [Disable-AzureRmVmDiskEncryption](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) ve [Remove-AzureRmVmDiskEncryptionExtension](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/remove-azurermvmdiskencryptionextension) PowerShell komutlarını veya [az vm şifreleme devre dışı](https://docs.microsoft.com/en-us/cli/azure/vm/encryption) CLI komutu. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
