@@ -1,28 +1,28 @@
 ---
-title: Linux üzerinde özel görüntü kullanarak bir işlev oluşturma (önizleme) | Microsoft Docs
+title: Linux üzerinde özel görüntü kullanarak Azure işlevleri oluşturun
 description: Özel bir Linux görüntüsü üzerinde çalışan Azure İşlevleri oluşturmayı öğrenin.
 services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 10/19/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 2c80f988583571f3394a29747a6f452951cea878
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 976bab529dc77621ce92dff0d2ae665777023a01
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978043"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337583"
 ---
-# <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Linux üzerinde özel görüntü kullanarak bir işlev oluşturma (önizleme)
+# <a name="create-a-function-on-linux-using-a-custom-image"></a>Linux üzerinde özel görüntü kullanarak bir işlev oluşturma
 
-Azure İşlevleri, işlevlerinizi Linux’ta kendi özel kapsayıcınızda barındırmanıza olanak sağlar. Ayrıca, [varsayılan bir Azure App Service kapsayıcısı üzerinde barındırabilirsiniz](functions-create-first-azure-function-azure-cli-linux.md). Bu işlevsellik şu anda önizleme aşamasındadır ve [İşlevler 2.0 çalışma zamanını](functions-versions.md) gerektirir.
+Azure İşlevleri, işlevlerinizi Linux’ta kendi özel kapsayıcınızda barındırmanıza olanak sağlar. Ayrıca, [varsayılan bir Azure App Service kapsayıcısı üzerinde barındırabilirsiniz](functions-create-first-azure-function-azure-cli-linux.md). Bu işlevsellik gerektirir [işlevleri 2.x çalışma zamanı](functions-versions.md).
 
-Bu öğreticide işlevlerinizi Azure'a özel bir Docker görüntüsü olarak dağıtmayı öğreneceksiniz. Yerleşik App Service kapsayıcı görüntüsünü özelleştirmeniz gerektiğinde bu desen yararlıdır. İşlevleriniz belirli bir dil sürümüne gereksinim duyduğunda veya yerleşik görüntüde sağlanmayan belirli bir bağımlılık ya da yapılandırma gerektirdiğinde özel görüntü kullanmak isteyebilirsiniz.
+Bu öğreticide işlevlerinizi Azure'a özel bir Docker görüntüsü olarak dağıtmayı öğreneceksiniz. Yerleşik App Service kapsayıcı görüntüsünü özelleştirmeniz gerektiğinde bu desen yararlıdır. İşlevleriniz belirli bir dil sürümüne gereksinim duyduğunda veya yerleşik görüntüde sağlanmayan belirli bir bağımlılık ya da yapılandırma gerektirdiğinde özel görüntü kullanmak isteyebilirsiniz. Azure işlevleri bulunan için temel görüntüleri desteklenen [Azure işlevleri temel görüntüleri depo](https://hub.docker.com/_/microsoft-azure-functions-base). [Python desteği](functions-reference-python.md) şu anda Önizleme aşamasındadır.
 
 Bu öğretici, özel bir Linux görüntüsünde bir işlev oluşturmak için Azure İşlevleri Çekirdek Araçları'nı kullanma adımlarını göstermektedir. Bu görüntüyü Azure CLI kullanılarak oluşturulan Azure'daki bir işlev uygulamasında yayımlayabilirsiniz.
 
@@ -36,6 +36,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Bir Linux App Service planı oluşturun.
 > * Docker Hub’dan bir işlev uygulaması dağıtın.
 > * Uygulama ayarlarını işlevi uygulamasına ekleyin.
+> * Sürekli dağıtımı etkinleştirme
 
 Aşağıdaki adımlar Mac, Windows veya Linux bilgisayarlarda desteklenir.  
 
@@ -67,6 +68,8 @@ func init MyFunctionProj --docker
 * `dotnet`: yeni bir .NET Core sınıf kitaplığı projesi (.csproj) oluşturur.
 * `node`: bir JavaScript projesi oluşturur.
 * `python`: bir Python projesi oluşturur.
+
+[! Python Önizleme Not işlevleri INCLUDE]
 
 Komut yürütüldüğünde, aşağıdaki çıktıya benzer bir şey görürsünüz:
 
@@ -101,7 +104,7 @@ COPY . /home/site/wwwroot
 ```
 
 > [!NOTE]
-> Bir görüntüyü özel bir kapsayıcı kayıt defterinde barındırırken, Dockerfile dosyasındaki **ENV** değişkenlerini kullanarak işlev uygulamasına bağlantı ayarlarını eklemeniz gerekir. Bu öğretici özel bir kayıt defteri kullanmanızı garanti edemediğinden, en iyi güvenlik yöntemi olarak bağlantı ayarları, [dağıtımdan sonra Azure CLI kullanılarak eklenir](#configure-the-function-app).
+> Azure işlevleri için desteklenen temel görüntüleri tam listesini bulabilirsiniz [Azure işlevleri temel görüntü sayfasında](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 ### <a name="run-the-build-command"></a>`build` komutunu çalıştırın
 Kök klasörde [docker derleme](https://docs.docker.com/engine/reference/commandline/build/) komutunu çalıştırın ve bir ad `mydockerimage` ve bir etiket `v1.0.0` sağlayın. `<docker-id>` değerini Docker Hub hesabınızın kimliğiyle değiştirin. Bu komut, kapsayıcı için Docker görüntüsünü derler.
@@ -223,20 +226,20 @@ az functionapp create --name <app_name> --storage-account  <storage_name>  --res
 }
 ```
 
-_deployment-container-image-name_ parametresi, işlev uygulamasını oluşturmak üzere kullanmak için Docker Hub üzerinde barındırılan görüntüyü belirtir.
+_deployment-container-image-name_ parametresi, işlev uygulamasını oluşturmak üzere kullanmak için Docker Hub üzerinde barındırılan görüntüyü belirtir. Kullanım [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) dağıtım için kullanılan görüntü ile ilgili bilgileri görüntülemek için komutu. Kullanım [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) farklı bir görüntüyü dağıtmak için komutu.
 
 ## <a name="configure-the-function-app"></a>İşlev uygulamasını yapılandırma
 
 İşlevin varsayılan depolama hesabına bağlanması için bağlantı dizesi gerekir. Özel görüntünüzü özel bir kapsayıcı hesabında yayımlarken, bu uygulama ayarlarını bunun yerine, [ENV yönergesi](https://docs.docker.com/engine/reference/builder/#env) ya da benzeri ile Dockerfile'da ortam değişkenleri olarak belirlemeniz gerekir.
 
-Bu durumda `<storage_account>`, oluşturduğunuz depolama hesabının adıdır. [az storage account show-connection-string](/cli/azure/storage/account) komutu ile bağlantı dizesini alın. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) komutu ile bu uygulama ayarlarını işlev uygulamasına ekleyin.
+Bu durumda `<storage_name>`, oluşturduğunuz depolama hesabının adıdır. [az storage account show-connection-string](/cli/azure/storage/account) komutu ile bağlantı dizesini alın. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) komutu ile bu uygulama ayarlarını işlev uygulamasına ekleyin.
 
 ```azurecli-interactive
-$storageConnectionString=$(az storage account show-connection-string \
---resource-group myResourceGroup --name <storage_account> \
+storageConnectionString=$(az storage account show-connection-string \
+--resource-group myResourceGroup --name <storage_name> \
 --query connectionString --output tsv)
 
-az functionapp config appsettings set --name <function_app> \
+az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
 --settings AzureWebJobsDashboard=$storageConnectionString \
 AzureWebJobsStorage=$storageConnectionString
@@ -252,6 +255,24 @@ AzureWebJobsStorage=$storageConnectionString
 Artık Azure’da Linux üzerinde çalışan işlevlerinizi test edebilirsiniz.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+## <a name="enable-continuous-deployment"></a>Sürekli dağıtımı etkinleştirme
+
+Kapsayıcıları kullanmanın avantajlarından biri, kapsayıcı kayıt defterinde güncelleştirildiğinde güncelleştirmelerini otomatik dağıtma çağrılabilmesidir. İle sürekli dağıtımı etkinleştirme [az functionapp deployment kapsayıcısı Yapılandırması](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) komutu.
+
+```azurecli-interactive
+az functionapp deployment container config --enable-cd \
+--query CI_CD_URL --output tsv \
+--name <app_name> --resource-group myResourceGroup
+```
+
+Bu komut, sürekli dağıtım etkinleştirildikten sonra dağıtım Web kancası URL'sini döndürür. Ayrıca [az functionapp deployment kapsayıcı show-cd-url](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) bu URL'yi döndürmek için komutu. 
+
+Dağıtım URL'yi kopyalayın ve DockerHub deponuza göz atın, seçin **Web kancaları** yazın bir **Web kancası adı** , URL için Web kancası, Yapıştır **Web kancası URL'si**seçin artı işaretini (**+**).
+
+![DockerHub deponuzda Web kancası Ekle](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
+
+Web kancası kümesiyle bağlantılı resim DockerHub herhangi bir güncelleştirme işlev uygulamasını indirme ve yükleme son görüntü neden.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e418cf8d619b55fde56a4d6d7d7cd9a8b36a112e
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447472"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339241"
 ---
 # <a name="understand-cost-management-data"></a>Maliyet Yönetimi verilerini anlama
 
@@ -62,8 +62,9 @@ Aşağıdaki tabloda, desteklenmeyen teklifler gösterilmektedir.
 | **Destek planları** | Azure kamu profesyonel doğrudan desteği | MS-AZR-USGOV-0042P |
 | **Destek planları** | Azure kamu Geliştirici Desteği | MS-AZR-USGOV-0043P |
 
-Kullandıkça Öde, MSDN ve Visual Studio Teklif kategorileri olan müşteriler için veriler 02/10/2018 başlayarak maliyet Yönetimi'nde kullanılabilir.
+Kullandıkça Öde, MSDN ve Visual Studio Teklif kategorileri olan müşteriler için veriler 02/10/2018 başlayarak maliyet Yönetimi'nde kullanılabilir. 02/10/2018 önce aboneliğinizi verilerine erişmek için kullanabileceğiniz [Azure hesap Merkezi](https://account.azure.com/subscriptions) kullanımınızı indirmek için bir CSV dosyasında ayrıntıları veya kullanabileceğiniz [kullanım ayrıntılarını API'si](/rest/api/consumption/usagedetails).
 
+## <a name="determine-your-offer-type"></a>Teklif türünüz belirleme
 Veriler için bir abonelik göremiyor ve aboneliğinizi desteklenen teklifleri altında kalırsa belirlemek istiyorsanız, aboneliğinizin desteklenip desteklenmediğini doğrulayabilirsiniz. Bir Azure aboneliği desteklendiğini doğrulamak için oturum [Azure portalında](https://portal.azure.com). Ardından **tüm hizmetleri** sol menü bölmesinde. Hizmetler listesinde seçin **abonelikleri**. Abonelik listesi menüde, doğrulamak istediğiniz aboneliğe tıklayın. Aboneliğiniz genel bakış sekmesinde gösterilen ve gördüğünüz **teklif** ve **Teklif kimliği**. Aşağıdaki resimde bir örnek gösterilir.
 
 ![Abonelik genel bakış sekmesinin teklifi ve teklif kimliği gösteren örnek](./media/understand-cost-mgt-data/offer-and-offer-id.png)

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
+ms.date: 02/28/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 6e9eb5709882cc084da8fe02ebb23b70852185d3
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d5ed8e896034341dcc9a776d722144bb5879568b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240108"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337966"
 ---
 # <a name="what-is-azure-cost-management"></a>Azure Maliyet Yönetimi nedir?
 
@@ -41,7 +41,7 @@ Maliyet yönetimi verilerine erişmek veya bu verileri incelemek için dış sis
 
 ## <a name="consider-cloudyn"></a>Cloudyn'i göz önünde bulundurun
 
-[Cloudyn](overview.md), Maliyet Yönetimi ile ilgili bir Azure hizmetidir. Cloudyn ile, Azure kaynaklarınız için bulut kullanımını ve harcamalarını izleyebilirsiniz. Ayrıca AWS ve Google gibi diğer bulut sağlayıcılarını da destekler. Anlaşılması kolay pano raporları, maliyet ayırma ve ücret hesaplama/yansıtma konusunda yardımcı olur. Şu anda, Maliyet Yönetimi'nin geri gösterme/geri ödeme ve diğer bulut hizmeti sağlayıcıları için desteği yoktur. Öte yandan, Cloudyn bunları _destekleyen_ bir seçenektir. Şu anda Maliyet Yönetimi yalnızca Azure EA hesaplarını destekler. Bireysel veya Kullandıkça Öde hesaplarını ya da Microsoft Bulut Hizmeti Sağlayıcısı hesaplarını desteklemez. Oysa Cloudyn bunları destekler. Söz konusu hesaplardan birini kullanıyorsanız, maliyetlerinizin yönetimine yardımcı olması için Cloudyn'den yararlanabilirsiniz.
+[Cloudyn](overview.md), Maliyet Yönetimi ile ilgili bir Azure hizmetidir. Cloudyn ile, Azure kaynaklarınız için bulut kullanımını ve harcamalarını izleyebilirsiniz. Ayrıca AWS ve Google gibi diğer bulut sağlayıcılarını da destekler. Anlaşılması kolay pano raporları, maliyet ayırma ve ücret hesaplama/yansıtma konusunda yardımcı olur. Şu anda, Maliyet Yönetimi'nin geri gösterme/geri ödeme ve diğer bulut hizmeti sağlayıcıları için desteği yoktur. Öte yandan, Cloudyn bunları _destekleyen_ bir seçenektir. Şu anda, maliyet yönetimi, Microsoft bulut hizmeti sağlayıcısı (CSP) hesapları desteklemez ancak Cloudyn yapar. CSP hesabınız varsa veya hesaplama/yansıtma kullanmak istiyorsanız, Cloudyn, maliyetleri yönetmenize yardımcı olmak için kullanabilirsiniz.
 
 ## <a name="additional-azure-tools"></a>Ek Azure araçları
 

@@ -1,5 +1,5 @@
 ---
-title: Bir davetsiz - Azure Active Directory B2B işbirliği kullanıcıları ekleme | Microsoft Docs
+title: Bir davet bağlantısı veya e-posta - Azure Active Directory B2B işbirliği kullanıcıları ekleme | Microsoft Docs
 description: Diğer Konuk kullanıcıları davet Azure Active Directory B2B işbirliği içinde çalışan kuponumu kullanmakta olmadan Azure AD'nize ekleyin. Konuk kullanıcı izin verebilirsiniz.
 services: active-directory
 documentationcenter: ''
@@ -12,14 +12,14 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a75656eec8e2c79c48ab48bd96a504d6e5dbac3a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672245"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337677"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>B2B işbirliği Konuk kullanıcıları davet etmeden ekleme
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>B2B işbirliği Konuk kullanıcıları davet bağlantısı veya e-posta olmayan Ekle
 
 Artık paylaşılan bir uygulamanın doğrudan bağlantısını göndererek Konuk kullanıcılar davet edebilirsiniz. Bu yöntem ile Konuk kullanıcılar artık davet e-posta dışında bazı özel durumlarda kullanmanız gerekir. Konuk kullanıcı uygulama bağlantıya tıklar, inceler ve gizlilik koşullarını kabul eder ve uygulama sorunsuz bir şekilde erişir. Daha fazla bilgi için [B2B işbirliği Davetiyesi kullanımı](redemption-experience.md).   
 

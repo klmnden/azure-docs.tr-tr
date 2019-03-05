@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8927213dc4f1cf01eccdd8f54a946f9dbbaaa04d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869968"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338442"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>Panodaki modeli ve kullanım istatistikleri
 Uygulama Panosu uygulamanız tek bir bakışta izlemenizi sağlar. **Pano** uygulama adını tıklatarak bir uygulamayı açtığınızda görüntüler **uygulamalarım** seçin sayfasında **Pano** üst panelinden. 
@@ -69,21 +69,8 @@ Uygulamanın uç nokta anahtarından tüketilen isabet sayısı. Uç nokta anaht
 
 ![Çözümleme hedefi](./media/luis-how-to-use-dashboard/intent-breakdown.png)
 
-Dökümü etiketli konuşma veya uç noktası İsabeti dayalı olup olmadığını denetlemek için:
-
-1. Tıklayın **ek ayarlar** ![erişim listesine ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aşağıdaki görüntüde gösterildiği gibi listesine erişmek için:
-
-    ![Hedefi çözümleme listesi](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
-2. Listeden bir değer seçin ve ardından geri okunu tıklatın ![Geri oku](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) Grafiğe görüntülenecek.
-
 ## <a name="entity-breakdown"></a>Varlık dökümü
 Pano varlık etiketli konuşma veya uç noktası İsabeti göre dökümünü gösterir. Bu Özet Grafiği, uygulamayı her varlık göreceli önemini gösterir. Bir dilim fare işaretçisini getirdiğinizde, varlık adı ve yüzde olarak etiketlenmiş konuşma/uç noktası İsabeti bakın. 
 
 ![Varlık dökümü](./media/luis-how-to-use-dashboard/entity-breakdown.png)
 
-Dökümü etiketli konuşma veya uç noktası İsabeti dayalı olup olmadığını denetlemek için:
-
-1. Tıklayın **ek ayarlar** ![listesini almak için ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aşağıdaki görüntüde gösterildiği gibi listesine erişmek için:
-
-    ![Varlık çözümleme listesi](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
-2. Listeden bir değer seçin ve ardından geri okunu tıklatın ![Geri oku](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) Grafiği uygun şekilde görüntülemek için.

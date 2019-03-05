@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 66137f01672820584f97273ddca26a66ada781ba
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 92859667e1dc53b9c6ca9e46a2db1c6dc335ae37
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312562"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339020"
 ---
 # <a name="detect-domain-specific-content"></a>Etki alanına özgü içerikleri algılama
 
-Buna ek olarak etiketleme ve üst düzey kategori, görüntü işleme, ayrıca daha fazla veri eğitilen modelleri kullanarak etki alanına özgü analiz destekler. 
+Buna ek olarak etiketleme ve üst düzey kategori, görüntü işleme, ayrıca daha fazla veri eğitilen modelleri kullanarak etki alanına özgü analiz destekler.
 
 Alana özgü modeller kullanmanın iki yolu vardır: tek başına (kapsamlı analizi) veya kategori özelliği için bir geliştirme olarak.
 
 ### <a name="scoped-analysis"></a>Kapsamlı analiz
 
-Yalnızca seçilen etki alanına özgü modeli çağırarak kullanarak görüntü çözümleyebilirsiniz [modelleri /\<modeli\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API. 
+Yalnızca seçilen etki alanına özgü modeli çağırarak kullanarak görüntü çözümleyebilirsiniz [modelleri /\<modeli\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API.
 
 Bir örnek tarafından döndürülen JSON yanıtı aşağıdaki gibidir **modelleri/ünlüleri/analiz** API belirtilen görüntü için:
 
@@ -55,28 +55,28 @@ Bir örnek tarafından döndürülen JSON yanıtı aşağıdaki gibidir **modell
 }
 ```
 
-### <a name="enhanced-categorization-analysis"></a>Kategori Gelişmiş analiz  
+### <a name="enhanced-categorization-analysis"></a>Kategori Gelişmiş analiz
 
-Alana özgü modeller, genel görüntü analizi desteklemek için de kullanabilirsiniz. Bir parçası olarak bunu [üst düzey kategori](concept-categorizing-images.md) etki alanına özgü modeller belirterek *ayrıntıları* parametresinin [Çözümle](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API çağrısı. 
+Alana özgü modeller, genel görüntü analizi desteklemek için de kullanabilirsiniz. Bir parçası olarak bunu [üst düzey kategori](concept-categorizing-images.md) etki alanına özgü modeller belirterek *ayrıntıları* parametresinin [Çözümle](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API çağrısı.
 
-Bu durumda, 86 kategori sınıflandırma sınıflandırıcı önce çağrılır. Eşleşen bir etki alanına özgü modeli algılanan kategorilerden herhangi biri varsa, görüntü de modeli ve sonuçları eklenir üzerinden geçirilir. 
+Bu durumda, 86 kategori sınıflandırma sınıflandırıcı önce çağrılır. Eşleşen bir etki alanına özgü modeli algılanan kategorilerden herhangi biri varsa, görüntü de modeli ve sonuçları eklenir üzerinden geçirilir.
 
 Etki alanına özgü analiz aşağıdaki JSON yanıtı gösterilir olarak dahil edilebilir `detail` daha geniş bir kategori analizi düğümü.
 
 ```json
-"categories":[  
-  {  
+"categories":[
+  {
     "name":"abstract_",
     "score":0.00390625
   },
-  {  
+  {
     "name":"people_",
     "score":0.83984375,
-    "detail":{  
-      "celebrities":[  
-        {  
+    "detail":{
+      "celebrities":[
+        {
           "name":"Satya Nadella",
-          "faceRectangle":{  
+          "faceRectangle":{
             "left":597,
             "top":162,
             "width":248,
@@ -85,8 +85,8 @@ Etki alanına özgü analiz aşağıdaki JSON yanıtı gösterilir olarak dahil 
           "confidence":0.999028444
         }
       ],
-      "landmarks":[  
-        {  
+      "landmarks":[
+        {
           "name":"Forbidden City",
           "confidence":0.9978346
         }
@@ -108,20 +108,20 @@ Görüntü işleme şu anda aşağıdaki alana özgü modeller destekler:
 Çağırma [modelleri](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API her model uygulayabilir kategorileri birlikte bu bilgileri döndürür:
 
 ```json
-{  
-  "models":[  
-    {  
+{
+  "models":[
+    {
       "name":"celebrities",
-      "categories":[  
+      "categories":[
         "people_",
         "人_",
         "pessoas_",
         "gente_"
       ]
     },
-    {  
+    {
       "name":"landmarks",
-      "categories":[  
+      "categories":[
         "outdoor_",
         "户外_",
         "屋外_",

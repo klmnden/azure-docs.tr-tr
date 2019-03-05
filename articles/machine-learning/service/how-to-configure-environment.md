@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: e055ddc49120d77047fa349b7e58c612eb724b41
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6a51e57cfac326663d41b545c9f2883a446467d3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881558"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340771"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -42,7 +42,7 @@ Python 3 ortam zaten var veya yalnızca SDK'yı yüklemek için temel adımlar i
 
 - Bir Azure Machine Learning hizmeti çalışma alanı. Çalışma alanı oluşturmak için bkz: [Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-get-started.md).
 
-- Her iki [Continuum Anaconda](https://www.anaconda.com/download/) veya [Miniconda](https://conda.io/miniconda.html) Paket Yöneticisi.
+- Her iki [Anaconda](https://www.anaconda.com/download/) veya [Miniconda](https://conda.io/miniconda.html) Paket Yöneticisi.
 
     > [!IMPORTANT]
     > Azure not defterleri kullanırken anaconda ve Miniconda gerekli değildir.

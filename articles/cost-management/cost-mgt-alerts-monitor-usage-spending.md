@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: 813ec8f74371b6ae76ac306aea2c462f0beea1fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d6f7a597ff5737bb5e9a3f07122ece313bd432ff
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55774233"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337794"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Kullanımı ve harcamayı izleyin maliyet uyarılarını kullanın
 
@@ -23,7 +23,7 @@ Bu makale anlamak ve Azure'ı izlemek için maliyet Yönetimi uyarılar kullanma
 
 ## <a name="budget-alerts"></a>Bütçe uyarıları
 
-Bütçe uyarılar size bildirir, harcama, kullanım veya maliyet göre ulaşır ya da tanımlanmış aşıyor [Uyarı koşulu bütçenin](tutorial-acm-create-budgets.md). Maliyet Yönetimi bütçeleri, Azure portalını kullanarak oluşturulur veya [Azure tüketim](https://docs.microsoft.com/rest/api/consumption) API. 
+Bütçe uyarılar size bildirir, harcama, kullanım veya maliyet göre ulaşır ya da tanımlanmış aşıyor [Uyarı koşulu bütçenin](tutorial-acm-create-budgets.md). Maliyet Yönetimi bütçeleri, Azure portalını kullanarak oluşturulur veya [Azure tüketim](https://docs.microsoft.com/rest/api/consumption) API.
 
 Azure portalında bütçelerini maliyet tarafından tanımlanır. Azure tüketim API'sini kullanarak, bütçeler, tüketim, kullanım veya maliyet tarafından tanımlanır. Bütçe uyarıları hem maliyeti hem de kullanım tabanlı bütçelerini destekler. Bütçe uyarısı koşullar karşılandığında her bütçe uyarıları otomatik olarak üretilir. Azure portalında tüm maliyet uyarıları görüntüleyebilirsiniz. Bir uyarı oluşturulduğu zaman içinde maliyet uyarılar gösterilmektedir. Uyarı e-posta, bütçe uyarı alıcılarının listesinde kişilere de gönderilir.
 
@@ -34,6 +34,18 @@ Azure kredisi, parasal taahhütler tüketilen kredi uyarılar size bildirir. Kur
 ## <a name="department-spending-quota-alerts"></a>Departman harcama kotası uyarıları
 
 Departman harcama kotası sabit bir eşiğe ulaştığında departmanı harcama kotası uyarılar sizi bilgilendirir. Harcama kotalarını EA Portalı'nda yapılandırılır. Bir eşiği yerine getirildiğinde departmanı sahiplerine e-posta oluşturur ve maliyet uyarılar gösterilir. Örneğin, % 50 veya kotanın %75.
+
+## <a name="supported-alert-features-by-offer-categories"></a>Desteklenen teklif kategorilere göre uyarı özellikleri
+
+Uyarı türleri için destek (Microsoft teklif) sahip bir Azure hesabı türüne bağlıdır. Aşağıdaki tabloda, desteklenen uyarı özellikleri gösterilmektedir. tarafından çeşitli Microsoft sunar. Microsoft teklifleri tam listesini görüntüleyebileceğiniz [anlamak maliyet Yönetimi verilerine](understand-cost-mgt-data.md).
+
+| Uyarı türü | Kurumsal Anlaşma | Microsoft Müşteri Sözleşmesi | Web direct/kullandıkça-As-You-Öde |
+|---|---|---|---|
+| Bütçe | ✔ | ✔ | ✔ |
+| Kredi | ✔ |✘ | ✘ |
+| Departman harcama kotası | ✔ | ✘ | ✘ |
+
+
 
 ## <a name="view-cost-alerts"></a>Uyarıları maliyet görüntüle
 

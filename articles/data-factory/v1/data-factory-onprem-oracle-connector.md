@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 28227ce9ebc5680f68c05cb1296a8ba35eac2c74
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822264"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338357"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Oracle şirket içi veri kopyalayın
 
@@ -183,7 +183,7 @@ Kopya etkinlikteki kaynak olduğunda, **OracleSource** türü, aşağıdaki öze
 | writeBatchTimeout |Batch için bekleme süresi, işlemin zaman aşımına uğramadan önce tamamlanması ekleyin. |**Zaman aralığı**<br/><br/> Örnek: 00:30:00 (30 dakika) |Hayır |
 | writeBatchSize |Arabellek boyutu değerini ulaştığında veri SQL tablosuna ekler **writeBatchSize**. |Tamsayı (satır sayısı) |Hayır (varsayılan: 100) |
 | sqlWriterCleanupScript |Böylece belirli bir dilimle verilerinin temizlenmesini yürütmek kopyalama etkinliği için bir sorguyu belirtir. |Bir sorgu deyimi. |Hayır |
-| sliceIdentifierColumnName |Kopyalama etkinliği'nin bir otomatik olarak oluşturulan dilim tanımlayıcı ile doldurmak için sütun adı belirtir.  Değeri **Sliceıdentifiercolumnname** ne zaman yeniden çalıştırılacağını belirli bir dilimin verileri temizlemek için kullanılır. |Bir sütunun veri türüne sahip sütun adı **binary(32)**. |Hayır |
+| sliceIdentifierColumnName |Kopyalama etkinliği'nin bir otomatik olarak oluşturulan dilim tanımlayıcı ile doldurmak için sütun adı belirtir. Değeri **Sliceıdentifiercolumnname** ne zaman yeniden çalıştırılacağını belirli bir dilimin verileri temizlemek için kullanılır. |Bir sütunun veri türüne sahip sütun adı **binary(32)**. |Hayır |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON örnekler ve Oracle veritabanından veri kopyalamak için
 
@@ -557,7 +557,7 @@ Veri alındığından yeni blobundan saatte (**sıklığı**: **saat**, **aralı
 
 **hata iletisi**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
 
 **Olası nedenler**
 
@@ -568,8 +568,8 @@ Veri alındığından yeni blobundan saatte (**sıklığı**: **saat**, **aralı
 
 * Oracle için .NET sağlayıcısı yüklemediyseniz [yüklemek](http://www.oracle.com/technetwork/topics/dotnet/downloads/)ve senaryoyu yeniden deneyin.
 * Sağlayıcıyı yükledikten sonra bile hata iletisini görürseniz, aşağıdaki adımları tamamlayın:
-   1. .NET 2.0 klasöründen makine yapılandırma dosyasını aç < sistem diski\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-   2. Arama **.NET için Oracle veri sağlayıcısı**. Altında aşağıdaki örnekte gösterildiği gibi bir giriş bulunacak erişebileceğinizi **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
+    1. .NET 2.0 klasöründen makine yapılandırma dosyasını aç < sistem diski\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+    2. Arama **.NET için Oracle veri sağlayıcısı**. Altında aşağıdaki örnekte gösterildiği gibi bir giriş bulunacak erişebileceğinizi **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Aşağıdaki .NET 4.0 klasörü machine.config dosyasında bu girdi kopyalayın: < sistem diski\>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Ardından, sürüm için 4.xxx.x.x değiştirin.
 * Yükleme < ODP.NET yüklü yolu\>çalıştırarak genel derleme önbelleğinde (GAC) \11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll **gacutil /i [sağlayıcı yolu]**.
 

@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a2cf35203c673d6296754360ac4f794241d4c43
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 0fe4da13e8242d858d553e0532b82cf1adca450a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008687"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338768"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Azure API Management hizmeti bir iç sanal ağ ile kullanma
 Azure sanal ağlar ile Azure API Management API'leri değil internet üzerinden erişilebilen yönetebilirsiniz. VPN'si teknolojileri birkaç bağlantı kurmak kullanılabilir. API Management, iki ana modda bir sanal ağ içinde dağıtılabilir:
@@ -59,7 +59,7 @@ Bir iç sanal ağ API Management hizmetinde bir iç yük dengeleyici (ILB) barı
 
 4. **Kaydet**’i seçin.
 
-Dağıtım başarılı olduktan sonra Panoda hizmetinizin iç sanal IP adresi görmeniz gerekir.
+Dağıtım, görmelisiniz başarılı olduktan sonra **özel** sanal IP adresi ve **genel** API Yönetimi hizmetiniz genel bakış dikey penceresinde, sanal IP adresi. **Özel** sanal IP adresine sahip yük API Management dengeli IP adresi temsilci alt ağ üzerinde `gateway`, `portal`, `management` ve `scm` uç noktaları erişilebilir. **Genel** sanal IP adresi kullanılır **yalnızca** denetim düzlemi trafiği için `management` uç nokta üzerinde bağlantı noktası 3443 ve aşağı kilitli [ApiManagement] [ ServiceTags] servicetag.
 
 ![API Yönetimi panosu ile yapılandırılmış bir iç sanal ağ][api-management-internal-vnet-dashboard]
 
@@ -83,25 +83,25 @@ API Management, dış sanal ağ modunda olduğunda, DNS, Azure tarafından yöne
 > API Management hizmeti, IP adreslerinden mi geliyor isteklerini dinlemez. Bu yalnızca, hizmet uç noktaları üzerinde yapılandırılan ana bilgisayar adı için isteklere yanıt verir. Bu uç noktaları, ağ geçidi, Azure portalı ve Geliştirici Portalı, doğrudan yönetim uç noktası ve Git içerir.
 
 ### <a name="access-on-default-host-names"></a>Varsayılan ana bilgisayar adları üzerinde erişim
-Örneğin, "contoso" adlı bir API Management hizmeti oluşturduğunuzda, aşağıdaki hizmet uç noktaları varsayılan olarak yapılandırılır:
+Örneğin, "contosointernalvnet" adlı API Management hizmeti,'ı oluşturduğunuzda, aşağıdaki hizmet uç noktaları varsayılan olarak yapılandırılır:
 
-   * Ağ geçidi veya proxy: contoso.azure-api.net
+   * Ağ geçidi veya proxy: contosointernalvnet.azure-api.net
 
-   * Azure portalı ve Geliştirici Portalı: contoso.portal.azure-api.net
+   * Azure portalı ve Geliştirici Portalı: contosointernalvnet.portal.azure-api.net
 
-   * Doğrudan yönetim uç noktası: contoso.management.azure-api.net
+   * Doğrudan yönetim uç noktası: contosointernalvnet.management.azure-api.net
 
-   * Git: contoso.scm.azure-api.net
+   * Git: contosointernalvnet.scm.azure-api.net
 
-Bu API Management hizmet uç noktalarına erişmek için API Management dağıtıldığı sanal ağa bağlı bir alt ağdaki bir sanal makine oluşturabilirsiniz. 10.0.0.5 hizmetiniz için iç sanal IP adresi olduğunu varsayarsak, ana bilgisayarlar dosyası, % SystemDrive%\drivers\etc\hosts, şu şekilde eşleyebilirsiniz:
+Bu API Management hizmet uç noktalarına erişmek için API Management dağıtıldığı sanal ağa bağlı bir alt ağdaki bir sanal makine oluşturabilirsiniz. Hizmetiniz için iç sanal IP adresi 10.1.0.5 olduğu varsayıldığında, ana bilgisayarlar dosyası, % SystemDrive%\drivers\etc\hosts, şu şekilde eşleyebilirsiniz:
 
-   * 10.0.0.5 contoso.azure-api.net
+   * 10.1.0.5 contosointernalvnet.azure-api.net
 
-   * 10.0.0.5 contoso.portal.azure-api.net
+   * 10.1.0.5 contosointernalvnet.portal.azure-api.net
 
-   * 10.0.0.5     contoso.management.azure-api.net
+   * 10.1.0.5     contosointernalvnet.management.azure-api.net
 
-   * 10.0.0.5 contoso.scm.azure-api.net
+   * 10.1.0.5     contosointernalvnet.scm.azure-api.net
 
 Tüm hizmet uç noktaları, oluşturduğunuz sanal makineden erişebilirsiniz. Bir sanal ağda özel DNS sunucusu kullanıyorsanız, ayrıca bir DNS kayıtları oluşturmak ve bu uç noktalar her yerden erişim sanal ağınızda. 
 
@@ -125,10 +125,12 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 * [Sanal ağ hakkında SSS](../virtual-network/virtual-networks-faq.md)
 * [DNS'de bir kaydı oluşturma](https://msdn.microsoft.com/library/bb727018.aspx)
 
-[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
+[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
+
+[ServiceTags]: ../virtual-network/security-overview.md#service-tags
 

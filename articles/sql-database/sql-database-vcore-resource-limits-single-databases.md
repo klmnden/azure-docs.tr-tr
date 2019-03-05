@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 735c3dc4764f45512386a0c53a389f355f069aa3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/04/2019
+ms.openlocfilehash: f4d6826d13f92db7a430f668c56825926d198235
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998181"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340108"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma
 
@@ -47,6 +47,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |Hedef IOPS (64 KB)|500|1000|1500|2000|2500|3000|
+|Günlük oran sınırları (MBps)|2,5|5|7.5|10|12,5|15|
 |Maks. eş zamanlı çalışan (istek)|200|400|600|800|1000|1200|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1|
@@ -69,6 +70,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)
 |Hedef IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
+|Günlük oran sınırları (MBps)|17.5|20|20|20|20|20|
 |Maks. eş zamanlı çalışan (istek)|1400|1600|1800|2000|3200|4800|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1|
@@ -85,12 +87,13 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Bellek (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Bellek içi OLTP depolama alanı (GB)|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
-|En yüksek veri boyutu (GB)|1024|1024|1024|1536|1536|1536|1536|
+|En yüksek veri boyutu (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Maksimum günlük boyutu (GB)|307|307|307|461|461|461|461|
 |TempDB boyutu (GB)|64|128|192|256|320|384|384|
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |Hedef IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
+|Günlük oran sınırları (MBps)|2,5|56|7.5|10|12,5|15|17.5|
 |Maks. eş zamanlı çalışan (istek)|200|400|600|800|1000|1200|1400|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1.|1|
@@ -113,6 +116,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |Hedef IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
+|Günlük oran sınırları (MBps)|20|20|20|20|20|20|20|
 |Maks. eş zamanlı çalışan (istek)|1600|1800|2000|2400|3200|4000|8000|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1.|1|
@@ -129,15 +133,17 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |S/W oluşturma|4|4|4|4|4|4|
 |Sanal çekirdekler|1|2|3|4|5|6|
 |Bellek (GB)|7|14|21|28|35|42|
-|Columnstore desteği|Yok|Yok|Yok|Yok|Yok|Yok|
+|Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|
 |Bellek içi OLTP depolama alanı (GB)|1|2|3|4|5|6|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
-|En yüksek veri boyutu (GB)|1024|1024|1024|1024|1024|1024|
-|Maksimum günlük boyutu (GB)|307|307|307|307|307|307|
+|En yüksek veri boyutu (GB)|650|650|650|650|650|650|
+|Maksimum günlük boyutu (GB)|195|195|195|195|195|195|
 |TempDB boyutu (GB)|32|64|96|128|160|192|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
+|Günlük oran sınırları (MBps)|6|12|18|24|30|36|
 |Maks. eş zamanlı çalışan (istek)|200|400|600|800|1000|1200|
+|Maks. eş zamanlı oturum|200|400|600|800|1000|1200|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|4|4|4|4|4|4|
 |Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|
@@ -151,15 +157,17 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |S/W oluşturma|4|4|4|4|4|4|
 |Sanal çekirdekler|7|8|9|10|16|24|
 |Bellek (GB)|49|56|63|70|112|168|
-|Columnstore desteği|Yok|Yok|Yok|Yok|Yok|Yok|
+|Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|
 |Bellek içi OLTP depolama alanı (GB)|7|8|9.5|11|20|36|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
-|En yüksek veri boyutu (GB)|1024|1024|1024|1024|1024|1024|
-|Maksimum günlük boyutu (GB)|307|307|307|307|307|307|
+|En yüksek veri boyutu (GB)|650|650|650|650|1024|1024|
+|Maksimum günlük boyutu (GB)|195|195|195|195|307|307|
 |TempDB boyutu (GB)|224|256|288|320|384|384|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
+|Günlük oran sınırları (MBps)|42|48|48|48|48|48|
 |Maks. eş zamanlı çalışan (istek)|1400|1600|1800|2000|3200|4800|
+|En fazla eşzamanlı oturum açma (istek)|1400|1600|1800|2000|3200|4800|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|4|4|4|4|4|4|
 |Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|
@@ -175,13 +183,15 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Bellek (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Bellek içi OLTP depolama alanı (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
-|En yüksek veri boyutu (GB)|1024|1024|1024|1536|1536|1536|1536|
-|Maksimum günlük boyutu (GB)|307|307|307|461|461|461|461|
+|En yüksek veri boyutu (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Maksimum günlük boyutu (GB)|307|307|307|461|461|922|922|
 |TempDB boyutu (GB)|64|128|192|256|320|384|384|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
+|Günlük oran sınırları (MBps)|6|12|18|24|30|36|42|
 |Maks. eş zamanlı çalışan (istek)|200|400|600|800|1000|1200|1400|
+|Maks. eş zamanlı oturum|200|400|600|800|1000|1200|1400|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|4|4|4|4|4|4|4|
 |Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
@@ -203,10 +213,12 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
+|Günlük oran sınırları (MBps)|48|48|48|48|48|48|48|
 |Maks. eş zamanlı çalışan (istek)|1600|1800|2000|2400|3200|4000|8000|
+|Maks. eş zamanlı oturum|1600|1800|2000|2400|3200|4000|8000|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
-|Çoğaltma sayısı|4|4|4|4|4|4|
-|Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|
+|Çoğaltma sayısı|4|4|4|4|4|4|4|
+|Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
@@ -262,7 +274,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 
 - Tek veritabanının DTU kaynak limitleri için bkz. [DTU tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları](sql-database-dtu-resource-limits-single-databases.md)
 - Elastik havuzlar için sanal çekirdek kaynak limitleri için bkz. [sanal çekirdek tabanlı satın alma modeli kullanarak elastik havuzlar için kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md)
-- Elastik havuzlar için DTU kaynak limites için bkz. [DTU tabanlı satın alma modeli kullanarak elastik havuzlar için kaynak sınırları](sql-database-dtu-resource-limits-elastic-pools.md)
+- Elastik havuzlar için DTU kaynak limitleri için bkz. [DTU tabanlı satın alma modeli kullanarak elastik havuzlar için kaynak sınırları](sql-database-dtu-resource-limits-elastic-pools.md)
 - Yönetilen örnek için kaynak limitleri için bkz [yönetilen örnek kaynak sınırları](sql-database-managed-instance-resource-limits.md).
 - Genel Azure sınırları hakkında daha fazla bilgi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
 - Bir veritabanı sunucusunda kaynak sınırları hakkında daha fazla bilgi için bkz [kaynak sınırları üzerinde bir SQL veritabanı sunucusuna genel bakış](sql-database-resource-limits-database-server.md) sunucu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.

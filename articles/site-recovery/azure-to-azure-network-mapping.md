@@ -5,24 +5,24 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 2/28/2018
 ms.author: mayg
-ms.openlocfilehash: b52bdd5948676c09c433cbda249248ce26ce8a48
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c4309b20664520bc1912adadee72d614a085f573
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866037"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338962"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Ağ eşlemesini ve sanal ağlar için IP adresini ayarlama
 
-Bu makalede iki farklı Azure bölgelerinde bulunan Azure sanal ağlar (Vnet'ler) örneğini eşlemeyle ilgili bilgi ve ağlar arasında IP adresini ayarlama konusunda açıklanmaktadır. Ağ eşlemesini sağlar çoğaltılmış bir VM oluşturulur kaynak VM sanal ağa eşlenmiş vnet'teki hedef Azure bölgesi oluşturulur.
+Bu makalede iki farklı Azure bölgelerinde bulunan Azure sanal ağlar (Vnet'ler) örneğini eşlemeyle ilgili bilgi ve ağlar arasında IP adresini ayarlama konusunda açıklanmaktadır. Ağ eşlemesini hedef ağ seçimi çoğaltmayı etkinleştirme sırasında kaynak ağı temel alarak varsayılan davranış sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Ağları Eşle önce olması [Azure sanal ağları](../virtual-network/virtual-networks-overview.md) kaynak ve hedef Azure bölgesi. 
 
-## <a name="set-up-network-mapping"></a>Ağ eşlemesini ayarlama
+## <a name="set-up-network-mapping-manually-optional"></a>Ağı ayarlama (isteğe bağlı), el ile eşleme
 
 Ağları aşağıdaki şekilde eşlenir:
 
@@ -44,8 +44,13 @@ Azure Vm'leri için olağanüstü durum kurtarma yapılandırmadan önce Ağ eş
 
 - Seçtiğiniz hedefe bağlı olarak, Site Recovery otomatik olarak ağ eşlemeleri kaynaktan hedef bölge ve kaynak bölgeye hedeften oluşturur.
 - Varsayılan olarak, Site Recovery, hedef bölgedeki kaynak ağına aynı olan bir ağ oluşturur. Site Recovery ekler **-asr** kaynak ağı adı soneki olarak. Hedef ağ özelleştirebilirsiniz.
-- Ağ eşlemesi zaten oluştuysa, çoğaltmayı etkinleştirdiğinizde, hedef sanal ağ değiştiremezsiniz. Hedef sanal ağ değiştirmek için mevcut ağ eşlemesini değiştirmeniz gerekir.
-- Bir bölgeden bölgeye B bir ağ eşlemesini değiştirirseniz, ayrıca bölgeye A. B bölgeden ağ eşlemesini değiştirmek olun]
+- Kaynak ağ için Ağ eşlemesi zaten oluştuysa, eşlenmiş hedef ağ daha fazla sanal makine için çoğaltma etkinleştirme zaman her zaman varsayılan olur. Hedef sanal ağ, diğer kullanılabilir seçenekler açılır listeden seçerek değiştirmek seçebilirsiniz. 
+- Varsayılan hedef sanal ağ için yeni çoğaltmalar değiştirmek için mevcut ağ eşlemesini değiştirmeniz gerekir.
+- Bir bölgeden bölgeye B bir ağ eşlemesini değiştirmek isterseniz emin olun, ağ eşlemesini B bölgeden bölgeye A. silin Ters eşleme hesabınız silindikten sonra bir bölgeden bölgeye B ağ eşlemesini değiştirmek ve ardından ilgili ters eşleme oluşturun.
+
+>[!NOTE]
+>* Ağ eşlemesini değiştirmek, yalnızca yeni VM çoğaltma için varsayılanları değiştirir. Mevcut çoğaltma için hedef sanal ağ seçimler etkilemez. 
+>* Var olan bir çoğaltma için hedef ağ değiştirmek istiyorsanız, işlem ve ağ ayarlarını çoğaltılan öğenin geçelim.
 
 ## <a name="specify-a-subnet"></a>Bir alt ağ belirtin
 

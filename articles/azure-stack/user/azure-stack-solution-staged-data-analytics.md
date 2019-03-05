@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: be7bf4596989cf8dfd154e0a366f93650546224b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0261dff10e553ecbd39d394eb19e7ad3dd76f0a2
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247366"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340975"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile hazırlanmış veri analizi çözümü oluşturma 
 
@@ -185,7 +185,7 @@ Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stac
 
     | Ayar | Önerilen değer | Açıklama |
     | ------- | ------- | ------- |
-    | Name | İşlev uygulamanızda benzersiz olmalıdır | Blob ile tetiklenen bu işlevin adı. |
+    | Ad | İşlev uygulamanızda benzersiz olmalıdır | Blob ile tetiklenen bu işlevin adı. |
     | Yol | \<depolama konumu yolu > | İzlenmekte olan Blob depolamanın konumu. Blob dosya adı bağlamaya name parametresi olarak geçirilir. |
     | Depolama hesabı bağlantısı | İşlevi uygulama bağlantısı | İşlev uygulamanız tarafından zaten kullanılan depolama hesabı bağlantısı kullanın veya yeni bir tane oluşturun. |
 
@@ -245,7 +245,7 @@ Arşiv depolama olarak başka bir depolama hesabı ve blob kapsayıcısı oluşt
 
     | Ayar | Önerilen değer | Açıklama |
     | ------- | ------- | ------- |
-    | Name | İşlev uygulamanızda benzersiz olmalıdır | Kuyruk tarafından tetiklenen bu işlevin adı. |
+    | Ad | İşlev uygulamanızda benzersiz olmalıdır | Kuyruk tarafından tetiklenen bu işlevin adı. |
     | Yol | \<depolama konumu yolu > | İzlenmekte olan depolama konumu. Kuyruğun dosya adı bağlamaya name parametresi olarak geçirilir. |
     | Depolama hesabı bağlantısı | İşlevi uygulama bağlantısı | İşlev uygulamanız tarafından zaten kullanılan depolama hesabı bağlantısı kullanın veya yeni bir tane oluşturun. |
 

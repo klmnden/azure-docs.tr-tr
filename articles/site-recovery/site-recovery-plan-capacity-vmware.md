@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 29e01177d4b096449cd906a22b47223078c6493e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8325e2d1dccf1184c5297a60161200b41fc1d412
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107829"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338289"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Kapasite ve ölçeklendirme Vmware'den azure'a olağanüstü durum kurtarma için planlama
 
@@ -114,7 +114,7 @@ Site Recovery altyapı Kurulumu ayarlamadan önce aşağıdaki etmenlere ölçme
 1. Bu parametreleri ölçmek için Site Recovery dağıtım Planlayıcısı ortamınızda çalıştırın. Faydalı yönergeleri için bkz. [hakkında Site Recovery dağıtım Planlayıcısı vmware'den azure'a](site-recovery-deployment-planner.md).
 2. Uygun bir yapılandırma sunucusunu dağıtma [yapılandırma sunucusuna yönelik boyut önerileri](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Üretim iş yükünüz 650 sanal makineler aşarsa, başka bir yapılandırma sunucusu dağıtır.
 3. Ölçülen günlük veri değişikliği hızınıza göre dağıtma [genişleme işlem sunucusu](vmware-azure-set-up-process-server-scale.md#download-installation-file) yardımıyla [boyut yönergeleri](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
-4. Veri değişikliği 2 MB/sn, uzun bir disk sanal makinesinin ücretine bekliyorsanız [bir Premium depolama hesabı ayarlama](tutorial-prepare-azure.md#create-a-storage-account). Site Recovery dağıtım Planlayıcısı, belirli bir süre için çalışır. Diğer zamanlarda veri değişim hızı yükündeki raporda yakalanan değil.
+4. Veri değişikliği oranı 2 MB/sn aşmayı disk sanal makineye ilişkin bekliyorsanız, premium yönetilen diskler kullandığınızdan emin olun. Site Recovery dağıtım Planlayıcısı, belirli bir süre için çalışır. Diğer zamanlarda veri değişim hızı yükündeki raporda yakalanan değil.
 5. [Ağ bant genişliğini](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) elde etmek istediğiniz RPO üzerinde temel.
 6. Altyapısını ayarlarken, olağanüstü durum kurtarma iş yükünüz için etkinleştirin. Bilgi edinmek için bkz. nasıl [Azure'a çoğaltma için VMware için kaynak ortamı ayarlama](vmware-azure-set-up-source.md).
 

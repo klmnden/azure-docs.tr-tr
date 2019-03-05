@@ -2,18 +2,18 @@
 title: Azure Site Recovery ile VMware olağanüstü durum kurtarması için yapılandırma sunucusunu dağıtma | Microsoft Docs
 description: Bu makalede Azure Site Recovery ile VMware olağanüstü durum kurtarması için yapılandırma sunucusunu dağıtma
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/05/2018
-ms.author: ramamill
-ms.openlocfilehash: 4260aaf814b344c1a30106651959d4e4e9ad2335
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.date: 02/28/2019
+ms.author: mayg
+ms.openlocfilehash: e7ee8f58e42f99ebc087f21837511979c578fb89
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594228"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340091"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -121,7 +121,7 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
 
 ### <a name="configure-settings"></a>Ayarları yapılandırma
 
-1. Yapılandırma sunucusu yönetim sihirbazında **Bağlantı kurma** seçeneğini belirleyip, VM’lerden çoğaltma trafiğini almak için işlem sunucusunun kullandığı NIC’yi seçin. Daha sonra **Kaydet**’e tıklayın. Yapılandırıldıktan sonra bu ayarı değiştiremezsiniz. Yapılandırma sunucusunun IP adresini değiştirmek için değil kesinlikle önerilir. STATİK IP ve DHCP IP yapılandırma sunucusuna atanan IP olduğundan emin olun.
+1. Yapılandırma sunucusu yönetim Sihirbazı'nda seçin **bağlantı kurma**. Pencerelerden ilk Keşif ve anında iletme kaynak makinede mobility hizmeti yüklemesi için yerleşik bir işlem sunucusunu kullanan NIC'yi seçin ve ardından Azure ile bağlantı için yapılandırma sunucusunu kullanan NIC'yi seçin. Daha sonra **Kaydet**’e tıklayın. Yapılandırıldıktan sonra bu ayarı değiştiremezsiniz. Yapılandırma sunucusunun IP adresini değiştirmek için değil kesinlikle önerilir. STATİK IP ve DHCP IP yapılandırma sunucusuna atanan IP olduğundan emin olun.
 2. İçinde **kurtarma Hizmetleri kasasını seçin**, Microsoft Azure'da oturum aç için kullanılan kimlik bilgileriyle **6. adım** , "[kayıt yapılandırma sunucusu Azure Site kurtarma Hizmetleri ile](#register-the-configuration-server-with-azure-site-recovery-services)" .
 3. Oturum açma işleminden sonra Azure aboneliğinizi ve ilgili kaynak grubu ve kasayı seçin.
 

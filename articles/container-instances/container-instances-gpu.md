@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: adb893a9d37219409f81b2fb402f2d4afd36aa34
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755028"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338867"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU kaynakları kullanan container Instances'ı dağıtma
 
@@ -85,6 +85,10 @@ GPU kaynakları dağıtırken, CPU ve bellek kaynakları aşağıdaki tabloda g�
 
 * **CUDA sürücüleri** - Container Instances GPU kaynaklarla NVIDIA CUDA sürücüleriyle önceden sağlanmış ve kapsayıcı görüntüleri kullanabilmeniz için kapsayıcı çalışma zamanı, geliştirilen için CUDA iş yükleri.
 
+  Bu aşamada CUDA 9.0 destekliyoruz. Örneğin, temel görüntü Docker dosyanız için aşağıdaki kullanabilirsiniz:
+  * [nVidia/Cuda:9.0-Base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+    
 ## <a name="yaml-example"></a>YAML örneği
 
 GPU kaynakları eklemek için bir yol olan bir kapsayıcı grubu kullanarak dağıtmak için bir [YAML dosyası](container-instances-multi-container-yaml.md). Adlı yeni bir dosyaya aşağıdaki YAML'ye kopyalayın *gpu dağıtma aci.yaml*, ardından dosyayı kaydedin. Adlı bir kapsayıcı grubu bu YAML oluşturur *gpucontainergroup* K80 GPU ile bir kapsayıcı örneği belirtme. Örneği, örnek CUDA vektör toplama uygulaması çalışır. İş yükü çalıştırmak için yeterli kaynak isteklerdir.

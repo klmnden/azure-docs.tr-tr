@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 95c495bf3a8ad7b82c42d4071899d045cb49f27b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b45f48289eda9096c84537eaaa7bc2df74c9d05d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247553"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341433"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Bulutta otomatik machine learning ile modellerini eğitin
 
@@ -80,8 +80,8 @@ Bu gibi durumlarda, var olan bir Linux DSVM'sini da işlem hedefi olarak ekleyeb
 
 > [!NOTE]
 >
-> Aşağıdaki kod `RemoteCompute` hedef, işlem hedefi olarak varolan bir VM'yi eklemek için sınıf.
-> `DsvmCompute` Sınıfı kullanımdan kaldırılacaktır gelecek sürümlerde bu tasarım deseni ile değiştiriliyor.
+> Aşağıdaki kod [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) hedef, işlem hedefi olarak varolan bir VM'yi eklemek için sınıf.
+> [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) sınıfı kullanımdan kaldırılacaktır gelecek sürümlerde bu tasarım deseni ile değiştiriliyor.
 
 Önceden var olan bir Linux DSVM'sini işlem hedefi oluşturmak için aşağıdaki kodu çalıştırın.
 

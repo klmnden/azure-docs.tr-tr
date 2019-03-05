@@ -12,24 +12,24 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda3cb2b8d8edd4567440be627a58f576aebcca0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: dbfcab7900a1552a46341ec71b8b0ea4b41b0bce
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458059"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339174"
 ---
 # <a name="view-your-privacy-related-info-from-the-my-profile-preview-portal"></a>(Önizleme) Profilim portalından gizlilikle ilgili bilgilerinizi görüntüleyin
 Kuruluşunuz verilerinizi nasıl kullandığını görebilirsiniz **gizlilik** sayfasının **Profilim** portalı.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
-## <a name="view-your-privacy-related-info"></a>Gizlilikle ilgili bilgilerinizi görüntüleyin
+## <a name="view-your-privacy-related-info"></a>Gizlilikle ilgili bilgilerinizi görüntüleme
 1. İş veya Okul hesabınızda oturum açın ve ardından Git kullanarak https://myprofile.microsoft.com/ sayfası.
 
 2. Seçin **gizlilik** seçin ya da sol gezinti bölmesinde **gözden gizlilik** bağlantı **gizlilik** blok.
 
-    ![Vurgulanan gizlilik bağlantılarını gösteren profili sayfam](media/myprofile-portal/myprofile-portal-privacy-links.png)
+    ![Vurgulanan gizlilik bağlantılarını gösteren profili sayfam](media/myprofile-portal/myprofile-portal-privacy.png)
 
 3. Bilgileri gözden dahil olmak üzere:
 
@@ -39,4 +39,4 @@ Kuruluşunuz verilerinizi nasıl kullandığını görebilirsiniz **gizlilik** s
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Son oturum açma etkinlik izledikten sonra yönetmek veya görüntülemek için seçebileceğiniz, [güvenlik bilgisi](user-help-security-info-overview.md), [son oturum açma etkinliği](myprofile-portal-recent-activity-page.md), bağlı [cihazları](myprofile-portal-devices-page.md) veya [ kuruluşların](myprofile-portal-organizations-page.md).
+- Kuruluşunuz verilerinizi nasıl kullandığını izledikten sonra yönetmek veya görüntülemek için seçebileceğiniz, [güvenlik bilgisi](user-help-security-info-overview.md), bağlı [cihazları](myprofile-portal-devices-page.md), veya [kuruluşlar](myprofile-portal-organizations-page.md).

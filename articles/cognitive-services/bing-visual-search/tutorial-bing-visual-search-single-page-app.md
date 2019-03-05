@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: cf8525d4cc829805532210bf09e9ea9da240405d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e06fd7a4b2d072e5528643c2c8517d7545c36ef3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857758"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338663"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Görsel arama tek sayfa web uygulaması oluşturma 
 
-Bing Görsel Arama API'si, Bing.com/images sayfasında gösterilen resim ayrıntılarına benzer bir deneyim sağlar. Görsel Arama ile bir görüntü belirtebilir ve görüntü hakkında görsel olarak benzer görüntüler, alışveriş kaynakları ve görüntüyü içeren web sayfaları gibi içgörüler alabilirsiniz. 
+Bing görsel arama API'sine Bing.com/images üzerinde gösterilen görüntü ayrıntılarını için benzer bir deneyim sağlar. Görsel Arama ile bir görüntü belirtebilir ve görüntü hakkında görsel olarak benzer görüntüler, alışveriş kaynakları ve görüntüyü içeren web sayfaları gibi içgörüler alabilirsiniz. 
 
 Bu makalede, Bing resim arama API'si için bir tek sayfalı web uygulamasını genişletmek açıklanmaktadır. Bu öğreticiyi görüntüleyin ya da burada kullanılan kaynak kodu alma hakkında bilgi için bkz: [Öğreticisi: Bing resim arama API'si için bir tek sayfalı uygulama oluşturma](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
 

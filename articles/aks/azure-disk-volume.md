@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9c5879474568885d9a705e7bfd16e2a4e2304b96
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 02a863a4ddf59fb36c5f2ae7f3092896d2e1d860
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068194"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338000"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>El ile oluşturma ve birim Azure diskleri Azure Kubernetes Service (AKS) kullanma
 
@@ -21,13 +21,13 @@ Kapsayıcı tabanlı uygulamalar genellikle erişmek ve bir dış veri birimdeki
 > [!NOTE]
 > Bir Azure diskinin aynı anda yalnızca tek bir pod bağlanabilir. Kalıcı hacim birden çok podunuz arasında paylaşmak ihtiyacınız varsa [Azure dosyaları][azure-files-volume].
 
-Kubernetes birimleri hakkında daha fazla bilgi için bkz. [Kubernetes birimleri][kubernetes-volumes].
+Kubernetes birimleri hakkında daha fazla bilgi için bkz. [AKS uygulamalar için Depolama Seçenekleri][concepts-storage].
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
 
-Ayrıca Azure CLI Sürüm 2.0.46 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
+Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Bir Azure diskinin oluşturma
 
@@ -35,7 +35,7 @@ AKS ile kullanmak için bir Azure diskinin oluşturduğunuzda, disk kaynak oluş
 
 Bu makalede, düğüm kaynak grubunda disk oluşturun. İlk olarak, kaynak grubu adını alın [az aks show] [ az-aks-show] komut ve ekleme `--query nodeResourceGroup` sorgu parametresi. Aşağıdaki örnek, düğüm kaynak grubu için AKS kümesinin adını alır. *myAKSCluster* kaynak grubu adında *myResourceGroup*:
 
-```azurecli
+```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
@@ -52,7 +52,7 @@ az disk create \
 ```
 
 > [!NOTE]
-> Azure diskleri için belirli bir boyut SKU tarafından faturalandırılır. Bu SKU'ları aralığından 32GiB S4 veya P4 disk için 8TiB S60 veya P60 diskler için. Aktarım hızı ve IOPS performansı bir Premium yönetilen disk bağlıdır AKS kümesindeki düğümlere örnek boyutu ve SKU. Bkz: [fiyatlandırma ve yönetilen diskler performansını][managed-disk-pricing-performance].
+> Azure diskleri için belirli bir boyut SKU tarafından faturalandırılır. Bu SKU'ları 32GiB S4 veya P4 diskleri ile arasındadır 32TiB S80 veya P80 disklerin (önizlemede). Aktarım hızı ve IOPS performansı bir Premium yönetilen disk bağlıdır AKS kümesindeki düğümlere örnek boyutu ve SKU. Bkz: [fiyatlandırma ve yönetilen diskler performansını][managed-disk-pricing-performance].
 
 Komut başarıyla tamamlandıktan sonra disk kaynak kimliği aşağıdaki örnek çıktıda gösterildiği gibi görüntülenir. Bu disk kimliği, sonraki adımda disk bağlamak için kullanılır.
 
@@ -126,6 +126,8 @@ Events:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+İlişkili en iyi yöntemler için bkz: [en iyi uygulamalar için depolama ve yedekleme aks'deki][operator-best-practices-storage].
+
 AKS hakkında daha fazla bilgi için kümeleri ile Azure disklerini etkileşim, bkz: [Azure diskleri için Kubernetes eklentisi][kubernetes-disks].
 
 <!-- LINKS - external -->
@@ -143,3 +145,5 @@ AKS hakkında daha fazla bilgi için kümeleri ile Azure disklerini etkileşim, 
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-files-volume]: azure-files-volume.md
+[operator-best-practices-storage]: operator-best-practices-storage.md
+[concepts-storage]: concepts-storage.md

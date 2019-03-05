@@ -2,18 +2,18 @@
 title: 'Azure Site Kurtarma: Sık sorulan sorular | Microsoft Docs'
 description: Bu makalede, Azure Site Recovery hakkında sık kullanılan sorular açıklanmaktadır.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
-ms.author: raynew
-ms.openlocfilehash: 1300ac9b6ba0eee8698e268fb9cc613955deb74e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.date: 3/3/2019
+ms.author: mayg
+ms.openlocfilehash: c63a5205f58d014d06b79b075b3d3d9328502e48
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321934"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338051"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
 Bu makale, Azure Site Recovery hakkında sık sorulan sorular içerir. Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -88,10 +88,10 @@ Evet. Bir bölgede Site Recovery kasası oluşturduğunuzda, etkinleştirmek ve 
 ## <a name="replication"></a>Çoğaltma
 
 ### <a name="can-i-replicate-over-a-site-to-site-vpn-to-azure"></a>Bir siteden siteye VPN azure'a çoğaltabilir miyim?
-Azure Site Recovery, Azure depolama hesabınız için genel bir uç nokta verileri çoğaltır. Çoğaltma, siteden siteye VPN üzerinden değildir. Bir Azure sanal ağı ile siteden siteye VPN, oluşturabilirsiniz. Bu, Site Recovery çoğaltma ile engellemez.
+Azure Site Recovery, genel bir uç nokta verileri Azure depolama hesabınız ya da yönetilen diskler, çoğaltır. Çoğaltma, siteden siteye VPN üzerinden değildir. Bir Azure sanal ağı ile siteden siteye VPN, oluşturabilirsiniz. Bu, Site Recovery çoğaltma ile engellemez.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Sanal makinelerini Azure'a çoğaltma için ExpressRoute kullanabilir miyim?
-Evet, [ExpressRoute kullanılabilir](concepts-expressroute-with-site-recovery.md) şirket içi sanal makinelerini Azure'a çoğaltma için. Azure Site Recovery, genel bir uç nokta bir Azure depolama hesabına veri çoğaltır. Kurmanız gerekecektir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) Site Recovery çoğaltması için ExpressRoute kullanmak için. Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır. Sanal makineler üzerinde bir Azure sanal ağı için başarısız olduktan sonra bunları erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering) kurulum ile Azure sanal ağı. Çoğaltma özel eşdüzey hizmet sağlama üzerinden desteklenmiyor. VMware makineleri veya fiziksel makineler koruduğunuz durumda olduğundan emin olun [ağ gereksinimleri](vmware-azure-configuration-server-requirements.md#network-requirements) çoğaltma için de karşılandığından. 
+Evet, [ExpressRoute kullanılabilir](concepts-expressroute-with-site-recovery.md) şirket içi sanal makinelerini Azure'a çoğaltma için. Azure Site Recovery, veri genel bir uç nokta bir Azure depolama alanına çoğaltır. Kurmanız gerekecektir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) Site Recovery çoğaltması için ExpressRoute kullanmak için. Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır. Sanal makineler üzerinde bir Azure sanal ağı için başarısız olduktan sonra bunları erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering) kurulum ile Azure sanal ağı. Çoğaltma özel eşdüzey hizmet sağlama üzerinden desteklenmiyor. VMware makineleri veya fiziksel makineler koruduğunuz durumda olduğundan emin olun [ağ gereksinimleri](vmware-azure-configuration-server-requirements.md#network-requirements) çoğaltma için de karşılandığından. 
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Sanal makinelerin Azure'a çoğaltılması için herhangi bir önkoşul var mı?
 [VMware Vm'lerini](vmware-physical-azure-support-matrix.md#replicated-machines) ve [Hyper-V Vm'lerini](hyper-v-azure-support-matrix.md#replicated-vms) çoğaltmak istediğiniz Azure Azure gereksinimleriyle uyumlu olması gerekir.
@@ -111,8 +111,8 @@ Evet. Rest API'si, PowerShell veya Azure SDK kullanarak Site Recovery iş akış
 * [Azure PowerShell Resource Manager'a VMM olmadan Hyper-V Vm'lerini çoğaltma](hyper-v-azure-powershell-resource-manager.md)
 * [PowerShell Resource Manager ile azure'a VMware çoğaltma](vmware-azure-disaster-recovery-powershell.md)
 
-### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Azure'a çoğaltma yaparsam ne tür bir depolama hesabına sahip olmam gerekir?
-Bir LRS veya GRS depolama hesabı gerekir. Bölgesel bir kesintinin meydana gelmesi veya birincil bölgenin kurtarılamaması durumunda verilerin korunması için GRS'yi tavsiye ederiz. Hesabın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Premium depolama, Azure portalında Site Recovery dağıttığınızda VMware VM, Hyper-V VM ve fiziksel sunucu çoğaltma için desteklenir.
+### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Azure'a çoğaltma, ne tür bir depolama hesabı veya yönetilen disk ihtiyacım var?
+Bir LRS veya GRS depolama gerekir. Bölgesel bir kesintinin meydana gelmesi veya birincil bölgenin kurtarılamaması durumunda verilerin korunması için GRS'yi tavsiye ederiz. Hesabın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Premium depolama, Azure portalında Site Recovery dağıttığınızda VMware VM, Hyper-V VM ve fiziksel sunucu çoğaltma için desteklenir. Yönetilen diskler yalnızca LRS'yi desteklediğini.
 
 ### <a name="how-often-can-i-replicate-data"></a>Verileri ne sıklıkta çoğaltabilirim?
 * **Hyper-V:** Hyper-V Vm'lerini her 30 saniye (hariç, premium depolama), 5 dakika veya 15 dakika çoğaltılabilir. SAN çoğaltması ayarladıysanız çoğaltma uyumludur.
@@ -183,7 +183,7 @@ Azure'da çoğaltma yaparken, uygulama verileri Azure depolama alanına gönderi
 Hayır. Azure'ın faturalama bağlantısı doğrudan hizmet sağlayıcı ile kurulur. Hizmet sağlayıcılar, kiracıları için belirli faturaları oluşturmaktan sorumludur.
 
 ### <a name="if-im-replicating-to-azure-do-we-need-to-run-virtual-machines-in-azure-at-all-times"></a>Azure'a çoğaltma işlemi gerçekleştirirken sanal makinelerin Azure'da sürekli olarak çalışması gerekir mi?
-Hayır, veriler, aboneliğinizdeki Azure depolama hesabına çoğaltılır. Yük devretme testi (DR detayı) veya gerçek bir yük devretme gerçekleştirdiğinizde, Site Recovery otomatik olarak aboneliğinizde sanal makineler oluşturur.
+Hayır, veriler, aboneliğinizdeki Azure depolamaya çoğaltılır. Yük devretme testi (DR detayı) veya gerçek bir yük devretme gerçekleştirdiğinizde, Site Recovery otomatik olarak aboneliğinizde sanal makineler oluşturur.
 
 ### <a name="do-you-ensure-tenant-level-isolation-when-i-replicate-to-azure"></a>Azure'a çoğaltma yaptığımda kiracı düzeyinde yalıtım sağlanır mı?
 Evet.

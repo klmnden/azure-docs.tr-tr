@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 356326c7270bb18cec1fdd37dfc6f7f2638b3839
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: bd3adaee275dbb8a705c7b0a35335385d1026eed
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822061"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337949"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Denemeler ve Azure Machine learning'de eğitim metriklerini izleme
 
@@ -31,7 +31,7 @@ Aşağıdaki ölçümler, bir denemeyi eğitim sırasında çalıştırılacak e
 |----|:----|:----|
 |Skaler değerler |İşlev:<br>`run.log(name, value, description='')`<br><br>Örnek:<br>Run.log ("doğruluğu", 0.95) |Günlük bir sayısal veya dize değeri belirtilen ada sahip farklı çalıştır. Bir ölçüm için bir çalıştırma günlüğe kaydetme, denemeyi çalıştırma kaydı depolanması, ölçüm neden olur.  Bu ölçüm oluşan bir vektörü olarak kabul sonucu bir çalıştırma içinde birden çok kez aynı Ölçüm oturum açabilirsiniz.|
 |Listeler|İşlev:<br>`run.log_list(name, value, description='')`<br><br>Örnek:<br>Run.log_list ("doğruluk" [0,6, 0,7, 0.87]) | Belirtilen ada sahip farklı çalıştır değerlerin bir listesini oturum.|
-|Satır|İşlev:<br>' run.log_row (adı, açıklama = None, ** kwargs)<br>Örnek:<br>Run.log_row ("Y" X üzerinden x = 1, y = 0.4) | Kullanarak *log_row* kwargs içinde anlatıldığı gibi birden çok sütun içeren bir ölçü oluşturur. Her adlandırılmış parametre ile belirtilen değer bir sütun oluşturur.  *log_row* rasgele bir tanımlama grubu ya da birden çok kez bir döngüde tam bir tablo oluşturmak için oturum volat pouze jednou.|
+|Satır|İşlev:<br>' run.log_row (adı, açıklama = None, ** kwargs)<br>Örnek:<br>Run.log_row ("Y" X üzerinden x = 1, y 0.4 =) | Kullanarak *log_row* kwargs içinde anlatıldığı gibi birden çok sütun içeren bir ölçü oluşturur. Her adlandırılmış parametre ile belirtilen değer bir sütun oluşturur.  *log_row* rasgele bir tanımlama grubu ya da birden çok kez bir döngüde tam bir tablo oluşturmak için oturum volat pouze jednou.|
 |Tablo|İşlev:<br>`run.log_table(name, value, description='')`<br><br>Örnek:<br>Run.log_table ("Y" X üzerinden {"x": [1, 2, 3], "y": [0,6, 0,7, 0.89]}) | Sözlük nesnesi, verilen ada sahip farklı çalıştır oturum açın. |
 |Görüntüler|İşlev:<br>`run.log_image(name, path=None, plot=None)`<br><br>Örnek:<br>Run.log_image ("ROC",. sys) | Görüntü çalıştırma kaydı için oturum açın. Bir görüntü dosyası veya bir matplotlib oturum log_image kullanın çizim farklı çalıştır.  Bu görüntüler, görünür ve çalışma kaydındaki benzer olacaktır.|
 |Bir etiketi|İşlev:<br>`run.tag(key, value=None)`<br><br>Örnek:<br>run.tag (","Evet"seçeneği") | Bir dize anahtarı ve isteğe bağlı dize değeri olan çalıştırma etiketleyin.|
@@ -124,7 +124,7 @@ Komut dosyası ile biter ```run.complete()```, tamamlandı olarak çalıştırma
 
 ## <a name="option-2-use-scriptrunconfig"></a>2. seçenek: ScriptRunConfig kullanın
 
-**ScriptRunConfig** betiği için yapılandırmaları ayarlamayı çalıştırmaları için bir sınıftır. Bu seçenekle tamamlanmasından almak veya izlemek için görsel bir pencere öğesi almak için izleme kodu ekleyebilirsiniz.
+[**ScriptRunConfig** ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) betiği için yapılandırmaları ayarlamayı çalıştırmaları için bir sınıftır. Bu seçenekle tamamlanmasından almak veya izlemek için görsel bir pencere öğesi almak için izleme kodu ekleyebilirsiniz.
 
 Bu örnek, yukarıda temel sklearn Ridge modeli genişletir. Alfa değerleri ölçümleri yakalamak için model ve deneme altında çalıştığı eğitilen modeller üzerinde basit bir parametre için tarama Süpürme yapar. Örnek, bir kullanıcı tarafından yönetilen ortamında yerel olarak çalıştırılır. 
 

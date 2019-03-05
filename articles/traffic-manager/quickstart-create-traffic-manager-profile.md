@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.openlocfilehash: f24bcebb04c3cb17b5e0420695504541c54e88f3
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 9a7bdb10c43f9192599f8b65be106597b4770e8e
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198228"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338306"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Hızlı Başlangıç: Yüksek oranda kullanılabilir web uygulaması için bir Traffic Manager profili oluşturma
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir Traffic Manager profili oluşturma
 
 Bu hızlı başlangıçta, web uygulamanız için yüksek kullanılabilirlik sağlayan bir Traffic Manager profilinin nasıl oluşturulacağını açıklar.
 
@@ -100,7 +100,7 @@ Tüm kullanıcı trafiğini yönlendirmek için birincil uç nokta olarak *Doğu
 
     | Ayar | Değer |
     | ------- | ------|
-    | Tür | Seçin **Azure uç noktası**. |
+    | Type | Seçin **Azure uç noktası**. |
     | Ad | Girin *myPrimaryEndpoint*. |
     | Hedef kaynak türü | Seçin **App Service'e**. |
     | Hedef kaynak | Seçin **uygulama hizmeti seçin** > **Doğu ABD**. |
@@ -113,7 +113,7 @@ Tüm kullanıcı trafiğini yönlendirmek için birincil uç nokta olarak *Doğu
 
     | Ayar | Değer |
     | ------- | ------|
-    | Tür | Seçin **Azure uç noktası**. |
+    | Type | Seçin **Azure uç noktası**. |
     | Ad | Girin *myFailoverEndpoint*. |
     | Hedef kaynak türü | Seçin **App Service'e**. |
     | Hedef kaynak | Seçin **uygulama hizmeti seçin** > **Batı Avrupa**. |

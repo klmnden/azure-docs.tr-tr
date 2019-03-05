@@ -3,15 +3,15 @@ title: Azure'da Azure Site Recovery ile VMware olağanüstü durum kurtarma içi
 description: Bu makalede, Azure Site Recovery kullanarak azure'a olağanüstü durum kurtarma için VMware VM çoğaltmayı etkinleştirme açıklar.
 author: mayurigupta13
 ms.service: site-recovery
-ms.date: 1/29/2019
+ms.date: 3/3/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 043a49e679f2b8ec48213e28d229121d3f0e070d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329959"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338646"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Azure'a VMware Vm'leri için çoğaltmayı etkinleştirme
 
@@ -49,26 +49,19 @@ VMware sanal makineleri çoğaltılırken:
 
 6. İçinde **hedef**, abonelik ve devredilen sanal makineler oluşturmak istediğiniz kaynak grubunu seçin. Devredilen sanal makineler için Azure'da kullanmak istediğiniz dağıtım modelini seçin.
 
-7. Verileri çoğaltmak için kullanmak istediğiniz Azure depolama hesabını seçin. 
-
-    > [!NOTE]
-
-    >   * Premium veya standart depolama hesabı seçebilirsiniz. Premium hesabı seçerseniz, devam eden çoğaltma günlükleri için ek standart depolama hesabı belirtmeniz gerekir. Hesapları kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
-    >   * Farklı bir depolama hesabı kullanmak istiyorsanız, aşağıdakileri yapabilirsiniz [oluşturmak](../storage/common/storage-create-storage-account.md). Kaynak Yöneticisi'ni kullanarak bir depolama hesabı oluşturmak için tıklayın **Yeni Oluştur**. 
-
-8. Yük devretme sonrasında çalışmaya başlayan Azure VM'lerinin bağlanacağı Azure ağını ve alt ağını seçin. Ağın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Koruma için seçtiğiniz tüm makinelere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandır**’ı seçin. Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin. Bir ağ yoksa, oluşturmanız gerekir. Kaynak Yöneticisi'ni kullanarak bir ağ oluşturmak için tıklayın **Yeni Oluştur**. Varsa bir alt ağ seçin ve ardından **Tamam**.
+7. Yük devretme sonrasında çalışmaya başlayan Azure VM'lerinin bağlanacağı Azure ağını ve alt ağını seçin. Ağın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Koruma için seçtiğiniz tüm makinelere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandır**’ı seçin. Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin. Bir ağ yoksa, oluşturmanız gerekir. Kaynak Yöneticisi'ni kullanarak bir ağ oluşturmak için tıklayın **Yeni Oluştur**. Varsa bir alt ağ seçin ve ardından **Tamam**.
 
     ![Çoğaltma hedefi ayarı etkinleştir](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. **Sanal Makineler** > **Sanal makineleri seçin** bölümünde, çoğaltmak istediğiniz her makineyi seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın. Görünüm/herhangi belirli bir sanal makineyi seçmek mümkün değildir, tıklayın [burada](https://aka.ms/doc-plugin-VM-not-showing) sorunu çözmek için.
+8. **Sanal Makineler** > **Sanal makineleri seçin** bölümünde, çoğaltmak istediğiniz her makineyi seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın. Görünüm/herhangi belirli bir sanal makineyi seçmek mümkün değildir, tıklayın [burada](https://aka.ms/doc-plugin-VM-not-showing) sorunu çözmek için.
 
     ![Çoğaltma select sanal makineleri etkinleştirme](./media/vmware-azure-enable-replication/enable-replication5.png)
-10. İçinde **özellikleri** > **özelliklerini yapılandırmak**, Mobility hizmetini makineye otomatik olarak yüklemeniz için işlem sunucusu tarafından kullanılan hesabı seçin.  
-11. Varsayılan olarak, tüm diskler çoğaltılır. Diskleri çoğaltmanın dışında tutma için tıklatın **tüm diskleri** çoğaltmak için istemediğiniz tüm diskleri temizleyin.  Daha sonra, **Tamam**'a tıklayın. Daha sonra ek özellikleri ayarlayabilirsiniz. [Daha fazla bilgi edinin](vmware-azure-exclude-disk.md) diskleri dışlama hakkında.
+9. İçinde **özellikleri** > **özelliklerini yapılandırmak**, Mobility hizmetini makineye otomatik olarak yüklemeniz için işlem sunucusu tarafından kullanılan hesabı seçin.  
+10. Varsayılan olarak, tüm diskler çoğaltılır. Diskleri çoğaltmanın dışında tutma için tıklatın **tüm diskleri** çoğaltmak için istemediğiniz tüm diskleri temizleyin.  Daha sonra, **Tamam**'a tıklayın. Daha sonra ek özellikleri ayarlayabilirsiniz. [Daha fazla bilgi edinin](vmware-azure-exclude-disk.md) diskleri dışlama hakkında.
 
     ![Etkinleştirme çoğaltma özellikleri yapılandırma](./media/vmware-azure-enable-replication/enable-replication6.png)
 
-12. **Çoğaltma ayarları** > **Çoğaltma ayarlarını yapılandırma** bölümünde doğru çoğaltma ilkesinin seçilip seçilmediğini doğrulayın. Çoğaltma İlkesi ayarları değiştirebileceğiniz **ayarları** > **çoğaltma ilkeleri** > (ilke adı) > **ayarlarını Düzenle**. Değişiklikleri uygulamak için bir ilke de uygulamak için çoğaltma ve yeni makine.
-13. Etkinleştirme **çoklu VM tutarlılığını** makineler çoğaltma grubuna toplamak istiyorsanız. Grup için bir ad belirtin ve ardından **Tamam**. 
+11. **Çoğaltma ayarları** > **Çoğaltma ayarlarını yapılandırma** bölümünde doğru çoğaltma ilkesinin seçilip seçilmediğini doğrulayın. Çoğaltma İlkesi ayarları değiştirebileceğiniz **ayarları** > **çoğaltma ilkeleri** > (ilke adı) > **ayarlarını Düzenle**. Değişiklikleri uygulamak için bir ilke de uygulamak için çoğaltma ve yeni makine.
+12. Etkinleştirme **çoklu VM tutarlılığını** makineler çoğaltma grubuna toplamak istiyorsanız. Grup için bir ad belirtin ve ardından **Tamam**. 
 
     > [!NOTE]
 
@@ -76,7 +69,7 @@ VMware sanal makineleri çoğaltılırken:
     >    * Böylece bunlar iş yüklerinizi yansıtma Vm'leri ve fiziksel sunucuları araya toplayın. Çoklu VM tutarlılığını etkinleştirmek, iş yükü performansını etkileyebilir. Yalnızca makineler aynı iş yükünü çalıştırıyorsa ve tutarlılık ihtiyacınız varsa bu seçeneği kullanın.
 
     ![Çoğaltmayı etkinleştirme](./media/vmware-azure-enable-replication/enable-replication7.png)
-14. **Çoğaltmayı Etkinleştir**’e tıklayın. **Ayarlar** > **İşler** > **Site Recovery İşleri** bölümünden **Korumayı Etkinleştir** işinin ilerleme durumunu izleyebilirsiniz. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
+13. **Çoğaltmayı Etkinleştir**’e tıklayın. **Ayarlar** > **İşler** > **Site Recovery İşleri** bölümünden **Korumayı Etkinleştir** işinin ilerleme durumunu izleyebilirsiniz. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
 
 
 
@@ -87,17 +80,17 @@ Ardından, kaynak makinenin özelliklerini doğrulayın. Azure VM adının karş
 1. Tıklayın **ayarları** > **çoğaltılan öğeler** > ve ardından makine seçin. **Essentials** sayfa makine ayarları ve durumu hakkında bilgileri gösterir.
 2. **Özellikler** kısmında VM'nin çoğaltma ve yük devretme bilgilerini inceleyebilirsiniz.
 3. İçinde **işlem ve ağ** > **işlem özellikleri**, birden çok VM propoerties değiştirebilirsiniz:
-* Azure VM name - gerekirse Azure gereksinimlerine uymak için adı değiştirin
-* Hedef VM boyutu veya türü - ' % s'varsayılan VM boyutu bağlı kaynak VM boyutu seçilir. Yük devretmeden önce dilediğiniz zaman gereksinimini göre farklı bir VM boyutu seçebilirsiniz. VM disk boyutu Ayrıca kaynak disk boyutu temel alınır ve yalnızca yük devretme sonrasında değişen olabilir unutmayın. Disk boyutları ve IOP cinsinden üzerinde daha fazla bilgi bizim [diskler için ölçeklenebilirlik hedefleri](../virtual-machines/windows/disk-scalability-targets.md) makalesi.
+    * Azure VM name - gerekirse Azure gereksinimlerine uymak için adı değiştirin
+    * Hedef VM boyutu veya VM türü - ' % s'varsayılan VM boyutu bağlı kaynak VM boyutu seçilir. Yük devretmeden önce dilediğiniz zaman gereksinimini göre farklı bir VM boyutu seçebilirsiniz. VM disk boyutu Ayrıca kaynak disk boyutu temel alınır ve yalnızca yük devretme sonrasında değişen olabilir unutmayın. Disk boyutları ve IOP cinsinden üzerinde daha fazla bilgi bizim [diskler için ölçeklenebilirlik hedefleri](../virtual-machines/windows/disk-scalability-targets.md) makalesi.
 
     ![İşlem ve ağ özellikleri](./media/vmware-azure-enable-replication/vmproperties.png)
 
-*  Kaynak grubu - seçebilirsiniz bir [kaynak grubu](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) öğesinden, bir makine yük devretme sonrasında bir parçası haline gelir. Yük devretmeden önce dilediğiniz zaman bu ayarı değiştirebilirsiniz. Farklı kaynak grubuna, bu makine sonu için koruma ayarlarını makineyi geçirirseniz, yük devretme gönderin.
-* Kullanılabilirlik kümesi - seçebilirsiniz bir [kullanılabilirlik kümesi](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) yük devretme sonrasında bir parçası olarak makinenize gerekiyorsa. Bir kullanılabilirlik kümesi seçeneğini belirliyoruz ancak unutmayın:
+    *  Kaynak grubu - seçebilirsiniz bir [kaynak grubu](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) öğesinden, bir makine yük devretme sonrasında bir parçası haline gelir. Yük devretmeden önce dilediğiniz zaman bu ayarı değiştirebilirsiniz. Farklı kaynak grubuna, bu makine sonu için koruma ayarlarını makineyi geçirirseniz, yük devretme gönderin.
+    * Kullanılabilirlik kümesi - seçebilirsiniz bir [kullanılabilirlik kümesi](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) yük devretme sonrasında bir parçası olarak makinenize gerekiyorsa. Bir kullanılabilirlik kümesi seçeneğini belirliyoruz ancak unutmayın:
 
-    * Belirtilen kaynak grubuna ait kullanılabilirlik kümeleri listelenir.  
-    * Farklı sanal ağlar ile makineler aynı kullanılabilirlik kümesinin bir parçası olamaz.
-    * Yalnızca aynı boyutta sanal makineler bir kullanılabilirlik kümesinin bir parçası olabilir.
+        * Belirtilen kaynak grubuna ait kullanılabilirlik kümeleri listelenir.  
+        * Farklı sanal ağlar ile makineler aynı kullanılabilirlik kümesinin bir parçası olamaz.
+        * Yalnızca aynı boyutta sanal makineler bir kullanılabilirlik kümesinin bir parçası olabilir.
 4. Ayrıca, görüntüleyebilir ve hedef ağ, alt ağ ve Azure VM'sine atanan IP adresi hakkında bilgi ekleyin.
 5. İçinde **diskleri**, çoğaltılacak VM'deki işletim sistemi ve veri disklerini görebilirsiniz.
 

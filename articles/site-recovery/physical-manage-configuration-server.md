@@ -2,17 +2,17 @@
 title: Şirket içi fiziksel sunucuları Azure Site Recovery ile azure'a olağanüstü durum kurtarması için yapılandırma sunucusunu yönetme | Microsoft Docs
 description: Bu makalede, Azure'da fiziksel sunucu olağanüstü durum kurtarma için Azure Site Recovery yapılandırma sunucusunu yönetme konusunda açıklanır.
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: d5ce80e44ee1a3a48443b190ea9259fe2dea0dcb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.date: 02/28/2019
+ms.author: mayg
+ms.openlocfilehash: 80fbc84c2284b7078b07040a74566cf1e8d57fb4
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983228"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341094"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -77,7 +77,7 @@ Site Recovery portalında yapılandırma sunucusu yükleme dosyasının en son s
 9. **Yükleme Konumu** alanında ikili dosyaları yüklemek ve önbelleği depolamak istediğiniz konumu seçin. Seçtiğiniz sürücü en az 5 GB kullanılabilir disk alanına sahip olmalıdır, ancak en az 600 GB boş alanı olan bir önbellek sürücüsü seçmeniz önerilir.
 
     ![Yükleme konumu](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. **Ağ Seçimi** menüsünde, yapılandırma sunucusunun çoğaltma verilerini gönderip aldığı dinleyiciyi (ağ bağdaştırıcısı ve SSL bağlantı noktası) seçin. Bağlantı noktası 9443, çoğaltma trafiğini gönderip almak için kullanılan varsayılan bağlantı noktasıdır, ancak bu bağlantı noktası numarasını ortamınızın gereksinimlerine uyacak şekilde değiştirebilirsiniz. Bağlantı noktası 9443’e ek olarak, çoğaltma işlemlerini düzenlemek için web sunucusu tarafından kullanılan bağlantı noktası 443 de açılır. Bağlantı noktası 443, gönderme veya çoğaltma trafiğini gönderip almak için kullanmayın.
+10. İçinde **Ağ Seçimi**ilk Keşif ve anında iletme kaynak makinede mobility hizmeti yüklemesi için yerleşik bir işlem sunucusunu kullanan NIC'yi seçin ve ardından yapılandırma sunucusu için bağlantı kullanan NIC'yi seçin Azure ile. Bağlantı noktası 9443, çoğaltma trafiğini gönderip almak için kullanılan varsayılan bağlantı noktasıdır, ancak bu bağlantı noktası numarasını ortamınızın gereksinimlerine uyacak şekilde değiştirebilirsiniz. Bağlantı noktası 9443’e ek olarak, çoğaltma işlemlerini düzenlemek için web sunucusu tarafından kullanılan bağlantı noktası 443 de açılır. Bağlantı noktası 443, gönderme veya çoğaltma trafiğini gönderip almak için kullanmayın.
 
     ![Ağ seçimi](./media/physical-manage-configuration-server/combined-wiz9.png)
 

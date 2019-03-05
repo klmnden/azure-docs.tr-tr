@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 5c33538513388a4093a205b44a1e049072402179
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100719"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337600"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Öğretici: Oluşturma ve dışarı aktarılan verileri yönetme
 
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Verilerin toplandığını doğrulama
 
 ## <a name="prerequisites"></a>Önkoşullar
-Verileri dışarı aktarma da dahil olmak üzere, Azure hesap türleri için çeşitli kullanılabilir [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşteriler. Desteklenen bir hesap türleri için tam listesini görüntülemek için bkz: [anlamak maliyet Yönetimi verilerine](understand-cost-mgt-data.md). Aşağıdaki Azure izinleri abonelik başına kullanıcı ve grup tarafından yapılan veri dışarı aktarımı için desteklenir:
+Verileri dışarı aktarma da dahil olmak üzere, Azure hesap türleri için çeşitli kullanılabilir [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşteriler. Desteklenen bir hesap türleri için tam listesini görüntülemek için bkz: [anlamak maliyet Yönetimi verilerine](understand-cost-mgt-data.md). Aşağıdaki Azure izinleri veya kapsamlar, verileri dışarı aktarma için abonelik başına kullanıcı ve grup tarafından desteklenir. Kapsamlar hakkında daha fazla bilgi için bkz: [anlayın ve kapsamlı iş](understand-work-scopes.md).
 
 - Sahip – Bir abonelik için zamanlanan dışarı aktarmaları oluşturabilir, değiştirebilir veya silebilir.
 - Katkıda bulunan – Kendi zamanlanan dışarı aktarmalarını oluşturabilir, değiştirebilir veya silebilir. Başkaları tarafından oluşturulan zamanlanmış dışarı aktarmaların adını değiştirebilir.
@@ -47,7 +47,7 @@ Azure Depolama hesapları için:
 
 Maliyet Yönetimi + Faturalama &gt; Maliyet Yönetimi &gt; bir abonelik veya bir abonelikteki kaynak grubunu &gt; seçin &gt; Dışarı Aktar **Ekle**.
 
-Dışarı aktarma için bir ad yazın ve "Günlük ay başından bu yana maliyetlerini ver" seçeneğini belirleyin. **İleri**'ye tıklayın.
+Seçme ve dışarı aktarma için bir ad yazın **günlük ay başından bu yana maliyetleri verilmesini** seçeneği. **İleri**’ye tıklayın.
 
 ![Yeni dışarı aktarma örnek dışarı aktarma türü gösteriliyor](./media/tutorial-export-acm-data/basics_exports.png)
 

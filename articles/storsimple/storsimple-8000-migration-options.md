@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: e3412e31ae976efc8164076b30ad61360a030db4
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ea8a6d604187a25e5186d7200feba6aaab1f676a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511947"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339462"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>5000-7000 Serisi Storsimple'dan verileri geçirmeye seçenekleri 
 
@@ -39,7 +39,7 @@ StorSimple 8000 serisi yükseltin ve bu nedenle StorSimple platformunda devam ed
 
 StorSimple 8000 serisi kullanarak verileri geçirme hakkında daha fazla bilgi için Git [veri Storsimple'dan 5000-7000 Serisi için 8000 serisi cihaz geçirme](storsimple-8000-migrate-from-5000-7000.md).
 
-#### <a name="migrate-to-azure-file-sync"></a>Azure dosya eşitleme geçirme
+#### <a name="migrate-to-azure-file-sync"></a>Azure Dosya Eşitleme’ye Geçiş
 
 Bu yepyeni bir geçiş seçeneği, müşterilerin kendi kuruluşunuzun dosya paylaşımlarını Azure dosyaları depolamak sağlar. Bu dosya paylaşımlarını Azure dosya eşitleme (AFS) kullanarak şirket içi erişim için ardından toplanmıştır. Windows Server ana bilgisayarında AFS dağıtılabilir. Gerçek veri geçişinin ardından konak olarak gerçekleştirilir kopyalama veya Taşıma Aracı'nı kullanma.
 
@@ -54,6 +54,10 @@ StorSimple 5000-7000 müşterilerin kendi verilerini Azure'da korumak için Panz
 #### <a name="migrate-to-cohesity"></a>İçin Cohesity geçirme
 
 Cohesity, veri, geçerli StorSimple 5000-7000 Cohesity veri platformuna azure'da geçirmenize olanak sağlar. Cohesity veri platformu dosyaları, yedeklemeler, nesneleri ve Vm'leri tek bir yerel bulut çözümünün birleştiren bir yazılım tanımlı web ölçeğindeki çözümüdür. Veri platformuna geçişten sonra yönetmek, koruma ve veri ve bulut uygulamaları üzerinden tek bir cam bölmeyle core'a sağlayın. En az üç düğüm olarak Cohesity ile başlayın. Daha fazla bilgi [Cohesity DataPlatform geçiş](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+
+#### <a name="migrate-to-nasuni"></a>Nasuni için geçirme
+
+Nasuni, geçirme ve verilerini Azure'da korumak, StorSimple 5000-7000 müşteriler kolaylaştırır.  Nasuni önde gelen bir NAS Azure tabanlı depolama çözümü, müşterilere bulut ekonomisinden ve ölçek ile şirket içi çözümlerinden bekledikleri güvenlik ve performans sağlıyor.  Yüksek performanslı dosya depolama, Nasuni ve Azure tanıtıcı yedekleme ve DR sağlarken paylaşın ve verilerinizi dünyanın çeşitli yerlerinde merkezi dosya depolama yönetimi ile birlikte üzerinde işbirliği sağlamak yanı sıra. Nasuni, bugün kullanmaya başlayın – geçişinizi kolaylaştırmak için bir deneyimi vardır: https://info.nasuni.com/nasuni-storsimple-migration
 
 ## <a name="migration---frequently-asked-questions"></a>Geçişi - sık sorulan sorular
 

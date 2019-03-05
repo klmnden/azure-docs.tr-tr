@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/05/2019
 ms.author: kuhussai
 ms.subservice: blobs
-ms.openlocfilehash: 3e89f5de247cf18abdb710577ce55c6e2cb5765e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4660a45014e6afdb091fb40b8fe7f03fdb647aab
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251903"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339207"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob Depolama: Premium (Önizleme), sık erişimli, seyrek erişimli ve Arşiv depolama katmanları
 
@@ -56,16 +56,6 @@ BLOB Depolama ve GPv2 hesapları sunmaya **erişim katmanı** varsayılan depola
 Bir Premium erişim katmanı sık erişilen verilerin yüksek performanslı donanıma kullanılabilir hale getirir, önizlemede kullanılabilir. Bu katmanında depolanan veriler, daha düşük gecikme süresi ve geleneksel sabit sürücüler kıyasla daha yüksek işlem hızları için iyileştirilmiş katı hal sürücülerinde depolanır. Blok blobu depolama hesabı türü yalnızca Premium erişim katmanı kullanılabilir.
 
 Bu katman, hızlı ve tutarlı yanıt süreleri gerektiren iş yükleri için idealdir. Etkileşimli video düzenleme, statik web içeriğini, çevrimiçi işlemler ve bunun gibi Premium erişim katmanı için iyi adaylar olduğu gibi son kullanıcılara içeren veriler. Bu katman, telemetri verilerini yakalama, Mesajlaşma ve veri dönüştürme gibi çok sayıda küçük işlemler gerçekleştiren iş yükleri için uyarlanmıştır.
-
-Bu katmanı kullanmak için yeni bir blok blobu depolama hesabı sağlayın ve kapsayıcılar ve bloblar kullanarak oluşturmaya başlamak [Blob hizmeti REST API'si](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), veya [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/).
-
-Önizleme sırasında Premium erişim katmanı:
-
-- Yerel olarak yedekli depolama (LRS) kullanılabilir
-- Yalnızca şu bölgelerde kullanılabilir: ABD Doğu 2, ABD Orta ve ABD Batı
-- Nesne düzeyinde katmanlandırma veya otomatik katmanlama ile veri yaşam döngüsü yönetimini desteklemez
-
-Premium erişim katmanı önizlemesi için kaydetme hakkında bilgi için bkz: [Azure Premium Blob Depolama ile tanışın](https://aka.ms/premiumblob).
 
 ## <a name="hot-access-tier"></a>Sık erişim katmanı
 

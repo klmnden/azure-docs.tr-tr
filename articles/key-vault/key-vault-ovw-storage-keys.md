@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: barbkess
 ms.date: 10/03/2018
-ms.openlocfilehash: 9b1a4e23ed0da0637b44ac52dd4d1baeb22cd6ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 684d6a87b5cf33a3ebed36381d2db21b285a6f0c
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118063"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338816"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure anahtar kasası yönetilen depolama hesabı - CLI
 
@@ -55,42 +55,36 @@ Kavramsal olarak izlendiğini adımları listesidir
 > [!NOTE]
 > Lütfen Azure anahtar kasası yönetilen ayarladıktan sonra depolama hesabı anahtarları, bunlar Not gereken **Hayır** artık değiştirilmesi dışında Key Vault aracılığıyla. Yönetilen depolama hesabı anahtarları Key Vault depolama hesabı anahtarını döndürme yönetmeyi tercih anlamına gelir
 
+> [!IMPORTANT]
+> Azure AD kiracısı ile kayıtlı her uygulama sağlayan bir  **[hizmet sorumlusu](/azure/active-directory/develop/developer-glossary#service-principal-object)**, uygulama kimliği olarak görev yapar. Hizmet sorumlusunun uygulama kimliği, rol tabanlı erişim denetimi (RBAC) diğer Azure kaynaklarına erişmek için yetki verirken kullanılır. Key Vault Microsoft uygulama olduğundan, tüm Azure AD kiracılarıyla aynı uygulama kimliği, her Azure bulut içinde altında önceden kaydedilir:
+> - Azure kamu bulutunda Azure AD kiracıları kullanmak uygulama kimliği `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
+> - Azure genel bulutunda ve diğer tüm Azure AD kiracıları kullanmak uygulama kimliği `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+
+
 1. Depolama hesabının kaynak Kimliğini almak için aşağıdaki komutu çalıştırın, bir depolama hesabı oluşturulduktan sonra yönetmek istediğiniz
 
     ```
     az storage account show -n storageaccountname 
     ```
-    Kopya Kimliği alanı dışında yukarıdaki komutunun sonucu
-    
-2. Azure anahtar kasası nesne kimliği hizmet sorumlusu çalıştırarak alın aşağıdaki komutu
-
+    Kopya Kimliği alanı dışında aşağıdaki gibi görünen yukarıdaki komutunun sonucu
     ```
-    az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+    /subscriptions/0xxxxxx-4310-48d9-b5ca-0xxxxxxxxxx/resourceGroups/ResourceGroup/providers/Microsoft.Storage/storageAccounts/StorageAccountName
     ```
-    
-    Bu komutun işlemin başarıyla tamamlanmasından sonra sonucu nesne Kimliğini bulun:
-    ```console
-        {
-            ...
             "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
-            ...
-        }
+    
+2. Key Vault, depolama hesabınıza erişim kapsamını sınırlamak için "Depolama hesabı anahtarı işleci hizmet rolü" RBAC rolü atayın. Bir Klasik depolama hesabı için "Klasik depolama hesabı anahtarı işleci hizmet rolü." kullanın.
+    ```
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
     ```
     
-3. Azure anahtar kasası kimliği için depolama anahtarı operatörü rolü atayın.
-
-    ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
-    ```
+    '93c27d83-f79b-4cb2-8dd4-4aa716542e74' anahtar Kasası'nda genel bulut için nesne kimliğidir. Anahtar Kasası'nda Ulusal Bulutlar için nesne Kimliğini almak için yukarıdaki önemli bölümüne bakın
     
-4. Anahtar kasası oluşturma yönetilen depolama hesabı.     <br /><br />
+3. Anahtar kasası oluşturma yönetilen depolama hesabı.     <br /><br />
    Aşağıda, bir oluşturma süresini 90 gün ayarlıyorsunuz. 90 günün sonunda, Key Vault yeniden 'anahtar1' ve 'anahtar1' active 'anahtar2' anahtarını değiştirme. Artık etkin anahtar Key1 işaret. 
    
     ```
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
-    Kullanıcı depolama hesabı oluşturmadıysanız ve depolama hesabı için izinlere sahip değil durumunda, aşağıdaki adımları, anahtar Kasası'nda tüm depolama izinleri yönetebilirsiniz emin olmak hesabınız için izinleri ayarlayın.
-    
 
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Key Vault oluşturun ve SAS belirteçleri oluşturmak için kullanımı konusunda adım yönergeleri ile adım
 --------------------------------------------------------------------------------

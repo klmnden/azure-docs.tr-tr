@@ -9,49 +9,37 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a2f243b1a8b891419de7e3ca949e7591f55879
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211368"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337694"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Kimlik Azure Active Directory'de Avrupalı müşteriler için veri depolama
 Azure Active Directory (Azure AD), kullanıcı kimliklerini yönetmenize ve kuruluşunuzun kaynaklarına güvenli hale zeka tabanlı erişim ilkeleri oluşturmak için yardımcı olur. Kimlik verileri, hizmete abone olurken kuruluşunuzun sağladığı adrese göre belirlenen bir konumda depolanır. Örnek olarak Office 365 veya Azure abonelikleri verilebilir. Kimlik verilerinizin depolandığı yer hakkında belirli bilgiler için Microsoft Güven Merkezi'nin [Verileriniz nerede bulunur?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) bölümünü inceleyebilirsiniz.
 
-Azure AD ile ilgili Avrupa kaynaklı kimlik verilerinin çoğu Avrupa veri merkezlerinde depolanıyor olsa da genellikle ABD veri merkezlerinde depolanan beş kullanıcı özniteliği vardır. Bunlar GivenName, Surname, userPrincipalName, Domain, ve PasswordHash özniteliğidir. PasswordHash değerinin Azure AD ile eşitlenmesini durduran şirket içi, federasyon oturumu açma yöntemi kullanıldığında PasswordHash özniteliği özel durum oluşturabilir ve ABD veri merkezlerinde depolanmayabilir. Ayrıca Azure AD'nin normal bir şekilde çalışması için ABD'de depolanan ve kişisel veri içermeyen işleme ve hizmete özgü veriler de bulunur.
+Çoğu Azure AD ile ilgili Avrupa kimlik verilerini Avrupa veri merkezlerinde kalarak, normal için gereken bazı işletimsel, hizmete özgü veriler vardır, ABD'de depolanır ve herhangi bir kişisel veri içermeyen Azure AD'ye işlemi.
 
 ## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>Avrupalı müşteriler için Avrupa veri merkezleri dışında depolanan veriler
 
 Avrupa adresine sahip kuruluşların Azure AD ile ilgili Avrupa kaynaklı kimlik verileri Avrupa veri merkezlerinde kalır. Avrupa veri merkezlerinde depolanır ve aynı zamanda Amerika Birleşik Devletleri veri merkezleri için çoğaltılan azure AD veri içerir:
-
-- **Kimlikle ilgili öznitelikler**
-
-    Aşağıdaki kimlikle ilgili öznitelikler ABD'de çoğaltılır:
-
-    - GivenName
-    - Soyadı
-    - userPrincipalName
-    - Domain
-    - PasswordHash
-    - SourceAnchor
-    - AccountEnabled
-    - PasswordPolicies
-    - StrongAuthenticationRequirement
-    - ApplicationPassword
-    - PUID
 
 - **Microsoft Azure Multi-Factor Authentication (MFA) ve Azure AD self servis parola sıfırlama (SSPR)**
     
     MFA, bekleme durumundaki tüm kullanıcı verilerini Avrupa veri merkezlerinde depolar. Ancak aşağıdakiler dahil olmak üzere MFA hizmetine özgü bazı veriler ABD'de depolanır:
     
     - MFA veya SSPR kullanmanız halinde iki öğeli kimlik doğrulama ve ilgili kişisel veriler ABD'de depolanabilir.
+
         - Telefon araması veya SMS ile gerçekleştirilen iki öğeli kimlik doğrulama işlemlerinin tamamı ABD'li operatörler tarafından gerçekleştirilebilir.
+    
         - Microsoft Authenticator uygulamasını kullanan anında iletme bildirimleri için üreticinin bildirim hizmetinden (Apple veya Google) bildirim gönderilmesi gerekir ve bu da Avrupa dışından gerçekleştirilebilir.
+    
         - OATH kodları her zaman ABD'de doğrulanır. 
+    
     - Kimlik doğrulaması türünden bağımsız olarak bazı MFA ve SSPR günlükleri 30 gün boyunca ABD'de depolanır.
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
@@ -75,7 +63,11 @@ Avrupa adresine sahip kuruluşların Azure AD ile ilgili Avrupa kaynaklı kimlik
 ## <a name="next-steps"></a>Sonraki adımlar
 Özellikler ve İşlevler yukarıda açıklanan ilgili daha fazla bilgi için şu makalelere bakın:
 - [Multi-Factor Authentication nedir?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
+
 - [Azure AD self servis parola sıfırlama](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
+
 - [Azure Active Directory B2C nedir?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+
 - [Azure AD B2B işbirliği nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+
 - [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)

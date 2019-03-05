@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4f89fab47cf07538d1915d359fc29a21deb1e560
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: f402aeb82271d4e0f5023f05b0d61713c4ab73c1
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986099"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338476"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -31,7 +31,7 @@ Modelleri için aşağıdaki işlem hedeflerine dağıtabilirsiniz:
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service'i (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
 | Azure ML işlemi | Batch çıkarımı | Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli Vm'lere destekler. |
-| [Azure Container Instances (ACI)](#aci) | Test ediliyor | Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
+| [Azure Container Instances (ACI)](#aci) | Test Etme | Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |
 | [Alanda programlanabilir kapı dizileri (FPGA)](#fpga) | (Önizleme) Web hizmeti | Gerçek zamanlı çıkarım için son derece düşük gecikme süresi. |
 
@@ -218,7 +218,7 @@ Dağıtıma aldığınızda, dağıttığınız işlem hedef bağlı olarak bira
 > [!NOTE]
 > Zaman **bir web hizmeti olarak dağıtma**, kullanabileceğiniz üç dağıtım yöntemi vardır:
 >
-> | Metot | Notlar |
+> | Yöntem | Notlar |
 > | ----- | ----- |
 > | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | Modeli kaydedin ve bu yöntem kullanmadan önce bir görüntü oluşturmanız gerekir. |
 > | [Dağıtma](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | Bu yöntemi kullanırken, modeli kaydedin veya görüntü oluşturmanız gerekmez. Ancak model veya görüntü adını kontrol edemezsiniz veya ilişkili etiketleri ve açıklamaları. |
@@ -482,7 +482,7 @@ sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationU
 Alternatif olarak, adımları izleyebilirsiniz [dağıtma Azure IOT Edge modülleri Azure portalından](../../iot-edge/how-to-deploy-modules-portal.md) cihazınıza görüntüsünü dağıtmak üzere belge. Yapılandırırken __kayıt defteri ayarları__ aygıtı için __oturum açma sunucusu__, __kullanıcıadı__, ve __parola__ çalışma alanınız için kapsayıcı kayıt defteri.
 
 > [!NOTE]
-> Azure IOT ile bilmiyorsanız, hizmeti ile çalışmaya başlama bilgi için aşağıdaki belgelere bakın:
+> Azure IOT Edge ile bilmiyorsanız, hizmeti ile çalışmaya başlama bilgi için aşağıdaki belgelere bakın:
 >
 > * [Hızlı Başlangıç: İlk IOT Edge modülü bir Linux cihazına dağıtma](../../iot-edge/quickstart-linux.md)
 > * [Hızlı Başlangıç: İlk IOT Edge modülü bir Windows cihazına dağıtma](../../iot-edge/quickstart.md)

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
-ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 8e39734a6f5fa13240d24eb35c431f746e540484
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447540"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342131"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Azure Machine Learning hizmetinde günlüğe kaydetmeyi etkinleştir
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-İşinize yarayacak [belgeleri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) için `Run` ek günlükler işlevler için sınıf.
+Başvuru belgelerine bakın [çalıştırma](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) ek günlükler işlevler için sınıf.
 
 Uygulama durumu yerel olarak günlüğe eğitim ilerleme sırasında etkinleştirmek için `show_output` parametresi. Ayrıntılı günlük kaydını etkinleştirme, eğitim işlem yanı sıra herhangi bir uzak kaynaklar hakkında bilgi ayrıntılarını görmek veya hedef işlem olanak tanır. Denemeyi gönderme sırasında günlük kaydını etkinleştirmek için aşağıdaki kodu kullanın.
 

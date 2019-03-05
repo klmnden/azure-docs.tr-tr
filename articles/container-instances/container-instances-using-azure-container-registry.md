@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727917"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337932"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry'den Azure Container Instances'a dağıtma
 
@@ -33,7 +33,7 @@ Aşağıdaki bölümde, bir Azure anahtar kasası ve hizmet sorumlusu oluşturun
 
 ### <a name="create-key-vault"></a>Anahtar kasası oluşturma
 
-[Azure Key Vault](/azure/key-vault/) içinde henüz bir kasanız yoksa, aşağıdaki komutları kullanarak Azure CLI ile bir kasa oluşturun.
+[Azure Key Vault](../key-vault/key-vault-overview.md) içinde henüz bir kasanız yoksa, aşağıdaki komutları kullanarak Azure CLI ile bir kasa oluşturun.
 
 Güncelleştirme `RES_GROUP` değişkenini, anahtar kasası oluşturmak bir kaynak grubunun adıyla ve `ACR_NAME` kapsayıcı kayıt defterinizin adıyla. Yeni anahtar kasanıza için bir ad belirtin `AKV_NAME`. Kasa adı Azure'da benzersiz olmalı ve 3 ila 24 alfasayısal karakterden uzunluğu, bir başlamalı, harf veya rakam ile başlamalı ve art arda kısa çizgi içeremez.
 

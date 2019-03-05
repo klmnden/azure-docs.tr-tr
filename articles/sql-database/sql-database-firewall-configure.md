@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 03/04/2019
+ms.openlocfilehash: 58eb7729dd0d2dda728d2008d5bb674f5222c08e
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894709"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337847"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL veritabanı ve SQL veri ambarı IP güvenlik duvarı kuralları
 
@@ -82,7 +82,7 @@ Azure’daki uygulamaların Azure SQL sunucunuza bağlanmasına izin verebilmeni
 
 ## <a name="creating-and-managing-ip-firewall-rules"></a>Oluşturma ve IP güvenlik duvarı kurallarını yönetme
 
-İlk sunucu düzeyinde güvenlik duvarı ayarı kullanılarak oluşturulabilir. [Azure portalında](https://portal.azure.com/) veya program aracılığıyla kullanarak [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), veya [ REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Sonraki sunucu düzeyinde IP güvenlik duvarı kuralları oluşturulabilir ve bu yöntemler kullanılarak yönetilen ve Transact-SQL aracılığıyla.
+İlk sunucu düzeyinde güvenlik duvarı ayarı kullanılarak oluşturulabilir. [Azure portalında](https://portal.azure.com/) veya program aracılığıyla kullanarak [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), veya [ REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Sonraki sunucu düzeyinde IP güvenlik duvarı kuralları oluşturulabilir ve bu yöntemler kullanılarak yönetilen ve Transact-SQL aracılığıyla.
 
 > [!IMPORTANT]
 > Veritabanı düzeyinde IP güvenlik duvarı kuralları yalnızca oluşturulabilir ve Transact-SQL kullanılarak yönetilebilir.
@@ -149,17 +149,19 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 ## <a name="manage-server-level-ip-firewall-rules-using-azure-powershell"></a>Azure PowerShell kullanarak sunucu düzeyinde IP güvenlik duvarı kurallarını yönetme
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 | Cmdlet | Düzey | Açıklama |
 | --- | --- | --- |
-| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Sunucu |Geçerli sunucu düzeyinde IP güvenlik duvarı kurallarını döndürür |
-| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Sunucu |Yeni bir sunucu düzeyinde IP güvenlik duvarı kuralı oluşturur. |
-| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |Sunucu |Mevcut bir sunucu düzeyinde IP güvenlik duvarı kuralının özelliklerini güncelleştirir |
-| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |Sunucu |Sunucu düzeyinde IP güvenlik duvarı kurallarını kaldırır |
+| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Sunucu |Sunucu düzeyinde geçerli güvenlik duvarı kurallarını döndürür |
+| [Yeni AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Sunucu |Sunucu düzeyinde yeni bir güvenlik duvarı kuralı oluşturur |
+| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Sunucu |Sunucu düzeyinde mevcut güvenlik duvarı kuralının özelliklerini güncelleştirir |
+| [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Sunucu |Sunucu düzeyinde güvenlik duvarı kurallarını kaldırır |
 
 Aşağıdaki örnek, PowerShell kullanarak sunucu düzeyinde IP güvenlik duvarı kuralı ayarlar:
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
     -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
 ```

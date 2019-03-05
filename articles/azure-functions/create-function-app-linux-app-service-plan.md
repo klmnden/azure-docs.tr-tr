@@ -1,90 +1,122 @@
 ---
-title: Bir işlev uygulaması Azure App Service planı oluşturma
-description: Linux üzerinde çalışan Azure CLI kullanarak bir App Service planında bir işlev uygulaması oluşturmayı öğrenin.
+title: Azure portalında Linux üzerinde bir işlev uygulaması oluşturma | Microsoft Docs
+description: Azure portalını kullanarak sunucusuz yürütme için ilk Azure İşlevinizi oluşturma hakkında bilgi edinin.
 services: functions
-keywords: ''
+documentationcenter: na
 author: ggailey777
-ms.author: glenga
-ms.date: 11/28/2018
-ms.topic: conceptual
-ms.service: azure-functions
-ms.custom: mvc
-ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: ec7b71c7da19ecefc14696c029e63a074b498ec8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.service: azure-functions
+ms.devlang: multiple
+ms.topic: quickstart
+ms.date: 02/28/2019
+ms.author: glenga
+ms.custom: ''
+ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696762"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339820"
 ---
-# <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan-preview"></a>Bir işlev uygulaması, Linux üzerinde Azure App Service planında (Önizleme) oluşturma
+# <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Bir işlev uygulaması Azure App Service planı oluşturma
 
-Azure İşlevleri, işlevlerinizi Linux’ta varsayılan bir Azure App Service kapsayıcısında barındırmanıza olanak sağlar. Bu makale, azure'da çalışan bir Linux barındırılan bir işlev uygulaması oluşturmak için Azure CLI kullanma size bir [App Service planı](functions-scale.md#app-service-plan). Ayrıca [kendi özel kapsayıcınızı getirebilirsiniz](functions-create-function-linux-custom-image.md). Linux barındırma şu anda Önizleme aşamasındadır.
+Azure İşlevleri, işlevlerinizi Linux’ta varsayılan bir Azure App Service kapsayıcısında barındırmanıza olanak sağlar. Bu makalede kullanma hakkında bilgi vermektedir [Azure portalında](https://portal.azure.com) çalışan Linux barındırılan bir işlev uygulaması oluşturmak için bir [App Service planı](functions-scale.md#app-service-plan). Ayrıca [kendi özel kapsayıcınızı getirebilirsiniz](functions-create-function-linux-custom-image.md).
 
-App Service planında bir işlev uygulamanızı ölçeklendirme için sorumlu olursunuz. Azure işlevleri'nin sunucusuz özelliklerinden yararlanmak için ayrıca işlevlerinizi Linux'ta barındırabilir bir [tüketim planı](functions-scale.md#consumption-plan).
-
-Mac, Windows veya Linux bilgisayar kullanarak aşağıdaki adımları izleyebilirsiniz.
-
-## <a name="prerequisites"></a>Önkoşullar
-
-Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
-
-+ Etkin bir Azure aboneliği.
+![Azure portalında işlev uygulaması oluşturma](./media/create-function-app-linux-app-service-plan/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0.21 veya sonraki bir sürümünü kullanmanız gerekir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Azure hesabınızla Azure portalında <https://portal.azure.com> sayfasında oturum açın.
 
-[!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
+## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
-[!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
+Linux’ta işlevlerinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, işlev kodunuzun yürütülmesine yönelik bir ortam sağlar. Kaynakların daha kolay yönetilmesi, dağıtılması ve paylaşılması için işlevleri bir mantıksal birim olarak gruplandırmanıza olanak tanır. Bu makalede, işlev uygulamanızı oluştururken bir App Service planı oluşturun.
 
-## <a name="create-a-linux-app-service-plan"></a>Bir Linux App Service planı oluşturma
+1. Seçin **kaynak Oluştur** düğmesi bulunan Azure portalında, sol üst köşesinde ardından seçin **işlem** > **işlev uygulaması**.
 
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+    ![Azure portalında işlev uygulaması oluşturma](./media/create-function-app-linux-app-service-plan/function-app-create-flow.png)
 
-## <a name="create-a-function-app-on-linux"></a>Linux’ta işlev uygulaması oluşturma
+2. Görüntünün altındaki tabloda belirtilen işlev uygulaması ayarlarını kullanın.
 
-Linux’ta işlevlerinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, işlev kodunuzun yürütülmesine yönelik bir ortam sağlar. Kaynakların daha kolay yönetilmesi, dağıtılması ve paylaşılması için işlevleri bir mantıksal birim olarak gruplandırmanıza olanak tanır. Bir Linux App Service planı ile [az functionapp create](/cli/azure/functionapp#az-functionapp-create) komutunu kullanarak bir işlev uygulaması oluşturun.
+    ![Yeni işlev uygulaması ayarlarını tanımlama](./media/create-function-app-linux-app-service-plan/function-app-create-flow2.png)
 
-Aşağıdaki komutta benzersiz bir işlev uygulamasının adını `<app_name>` yer tutucusunun ve `<storage_name>` depolama hesabı adının yerine ekleyin. `<app_name>`, işlev uygulamasının varsayılan DNS etki alanı olarak kullanılacağı için adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. Ayrıca ayarlamalısınız `<language>` işlev uygulamanız için çalışma zamanı gelen `dotnet` (C#), `node` (JavaScript) veya `python`.
+    | Ayar      | Önerilen değer  | Açıklama                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Uygulama adı** | Genel olarak benzersiz bir ad | Yeni işlev uygulamanızı tanımlayan ad. Geçerli karakterler: `a-z`, `0-9`, ve `-`.  | 
+    | **Abonelik** | Aboneliğiniz | Bu yeni işlev uygulamasının oluşturulduğu abonelik. | 
+    | **[Kaynak Grubu](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | İşlev uygulamanızın oluşturulacağı yeni kaynak grubunun adı. |
+    | **OS** | Linux | İşlev uygulamasını Linux üzerinde çalışır. |
+    | **Yayımlama** | Kod | İçin varsayılan Linux kapsayıcı uygulamanızı **çalışma zamanı yığını** kullanılır. Sağlamak için ihtiyacınız olan işlev uygulaması proje kodunuzu. Özel bir yayımlamak için başka bir seçenektir [Docker görüntüsü](functions-create-function-linux-custom-image.md). |
+    | **[Barındırma planı](functions-scale.md)** | App Service planı | Kaynakların işlev uygulamanıza nasıl ayrılacağını tanımlayan barındırma planı. Bir App Service planında çalıştırdığınızda, denetleyebileceğiniz [işlevi uygulamanızı ölçeklendirme](functions-scale.md).  |
+    | **App Service planı/konumu** | Plan oluşturma | Seçin **Yeni Oluştur** ve tedarik bir **App Service planı** adı. Seçin bir **konumu** içinde bir [bölge](https://azure.microsoft.com/regions/) işlevlerinizi yakınınızdaki veya erişeceği diğer hizmetlere erişim. Öğeleri için istediğiniz değerleri seçin  **[fiyatlandırma katmanı](https://azure.microsoft.com/pricing/details/app-service/linux/)**. <br/>Hem Linux hem de Windows işlev uygulamaları aynı App Service planında çalıştıramazsınız. |
+    | **Çalışma zamanı yığını** | Tercih edilen dil | Tercih ettiğiniz işlev programlama dilini destekleyen bir çalışma zamanı seçin. C# ve F# için **.NET** işlevlerini seçin. [Python desteği](functions-reference-python.md) şu anda Önizleme aşamasındadır. |
+    | **[Depolama](../storage/common/storage-quickstart-create-account.md)** |  Genel olarak benzersiz bir ad |  İşlev uygulamanız tarafından kullanılan bir depolama hesabı oluşturun. Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir. Dilerseniz [depolama hesabı gereksinimlerini](functions-scale.md#storage-account-requirements) karşılayan mevcut bir hesap da kullanabilirsiniz. |
+    | **[Application Insights](functions-monitoring.md)** | Etkin | Application Insights varsayılan olarak devre dışıdır. Artık Application Insights tümleştirmesi etkinleştiriliyor ve, App Service planı konumu yakın barındırma konumu seçme öneririz. Bunu daha sonra yapmak istiyorsanız, bkz. [İzleyici Azure işlevleri](functions-monitoring.md).  |
 
-```azurecli-interactive
-az functionapp create --resource-group myResourceGroup --plan myAppServicePlan \
---name <app_name> --storage-account  <storage_name> --runtime <language>
-```
+3. İşlev uygulamasını sağlamak ve dağıtmak için **Oluştur**'u seçin.
 
-İşlev uygulaması oluşturulduktan ve dağıtıldıktan sonra Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir:
+4. Portalın sağ üst köşesindeki Bildirim simgesini seçin ve **Dağıtım başarılı** iletisini bekleyin.
 
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 1536,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "quickstart.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "quickstart.azurewebsites.net",
-    "quickstart.scm.azurewebsites.net"
-  ],
-   ....
-    // Remaining output has been truncated for readability.
-}
-```
+    ![Yeni işlev uygulaması ayarlarını tanımlama](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
 
-`myAppServicePlan` bir Linux planı olduğu için, Linux üzerinde işlev uygulamasını çalıştıran kapsayıcıyı oluşturmak için yerleşik docker görüntüsü kullanılır.
+5. Yeni işlev uygulamanızı görüntülemek için **Kaynağa git**’i seçin.
 
-[!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources-simple.md)]
+> [!TIP]
+> Portalda işlev uygulamalarınızı bulma konusunda sorun yaşıyorsanız, [Azure portalında İşlev Uygulamalarını sık kullanılanlarınıza eklemeyi](functions-how-to-use-azure-function-app-settings.md#favorite) deneyin.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+Ardından, yeni işlev uygulamasında bir işlev oluşturun. İşlev uygulamanızı bile kullanılabilir olduktan sonra tam olarak başlatılması birkaç dakika sürebilir.
 
-Bu makalede, Azure'da barındırılan Linux işlev uygulaması oluşturma işlemini gösterir. Artık [işlev projesi dağıtma](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) bu işlev uygulaması. Azure işlevleri çekirdek araçları için kullanabileceğiniz [işlevler projesi oluşturma](functions-run-local.md) yerel bilgisayarınızdaki ve yeni Linux işlev uygulamanızı dağıtın.  
+## <a name="create-function"></a>HTTP ile tetiklenen bir işlev oluşturma
 
-> [!div class="nextstepaction"] 
-> [Azure İşlevleri’ni yerel olarak kodlama ve test etme](functions-run-local.md)
+Bu bölümde bir işlev portalında yeni işlev uygulamanızı oluşturmak nasıl gösterir.
+
+> [!NOTE]
+> Portal geliştirme deneyimi için Azure işlevlerini çalışırken yararlı olabilir. Çoğu senaryo için işlevleri yerel olarak geliştirme ve işlev uygulamanızı kullanarak proje yayımlama göz önünde bulundurun [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) veya [Azure işlevleri çekirdek Araçları](functions-run-local.md#create-a-local-functions-project).  
+
+1. Yeni işlev uygulamanızda seçin **genel bakış** sekmesini tıklatın ve tamamen yüklendikten sonra seçin **+ yeni işlev**.
+
+    ![Genel Bakış sekmesinde yeni bir işlev oluşturma](./media/create-function-app-linux-app-service-plan/overview-create-function.png)
+
+1. İçinde **hızlı** sekmesini, **portal**seçip **devam**.
+
+    ![İşlev geliştirme platformunuzu seçin.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-choose-portal.png)
+
+1. **Web Kancası + API**'yi ve ardından **Oluştur**'u seçin.
+
+    ![Azure portalındaki İşlevler hızlı başlangıcı.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-node-webhook.png)
+
+Dile özgü HTTP ile tetiklenen işlev şablonu kullanılarak bir işlev oluşturulur.
+
+Artık bir HTTP isteği göndererek yeni işlevi çalıştırabilirsiniz.
+
+## <a name="test-the-function"></a>İşlevi test etme
+
+1. Yeni işlevinizde sağ üst kısımdaki **</> İşlev URL'sini al**'a tıklayın, **varsayılan (İşlev anahtarı)** seçeneğini belirleyin ve ardından **Kopyala**'ya tıklayın. 
+
+    ![Azure portalından işlev URL’sini kopyalama](./media/create-function-app-linux-app-service-plan/function-app-develop-tab-testing.png)
+
+2. İşlev URL'sini tarayıcınızın adres çubuğuna yapıştırın. `&name=<yourname>` sorgu dizesi değerini bu URL’nin sonuna ekleyin ve isteği yürütmek için klavyenizdeki `Enter` tuşuna basın. İşlev tarafından döndürülen yanıtın tarayıcıda gösterildiğini görürsünüz.  
+
+    Aşağıdaki örnekte tarayıcıdaki yanıt gösterilmektedir:
+
+    ![Tarayıcıdaki işlev yanıtı.](./media/create-function-app-linux-app-service-plan/function-app-browser-testing.png)
+
+    İstek URL’si, işlevinize HTTP üzerinden erişmek için varsayılan olarak gerekli olan bir anahtar içerir.
+
+3. İşleviniz çalıştığında, izleme bilgileri günlüklere yazılır. Önceki yürütme işleminden alınan izleme çıktısını görmek için, portalda işlevinize geri dönün ve ekranın altındaki oka tıklayarak **Günlükler**’i genişletin.
+
+   ![Azure portalında İşlevler günlük görüntüleyicisi.](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+HTTP ile tetiklenen basit bir işlevi kullanarak işlev uygulaması oluşturdunuz.  
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Daha fazla bilgi için bkz. [Azure İşlevleri HTTP bağlamaları](functions-bindings-http-webhook.md).

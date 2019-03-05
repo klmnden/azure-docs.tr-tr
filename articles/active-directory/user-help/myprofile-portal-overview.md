@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 472c39a7220c4e84bff429097fef6d0ed721fd01
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d59bd14b52124282e1e07d60daa4b891c2bab938
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457683"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337830"
 ---
 # <a name="my-profile-preview-portal-overview"></a>My profili (Önizleme) portalına genel bakış
 
@@ -26,8 +26,6 @@ ms.locfileid: "56457683"
 Kullanabileceğiniz **Profilim** iş veya Okul hesabınızı yönetmek için portalı (Önizleme):
 
 - Ayarlayın ve iki aşamalı doğrulama ve parola sıfırlama için güvenlik bilgilerinizi yönetin.
-
-- Oturum açma etkinliği görüntüleyin.
 
 - Bağlı kuruluşlar ve cihazları yönetin.
 
@@ -45,7 +43,7 @@ Ulaşmak için **Profilim** giderek portal https://myprofile.microsoft.com, aşa
 - Firefox
 - Internet Explorer 11
 
-    ![Profilim portal, genel bakış sayfası](media/myprofile-portal/myprofile-portal-overview-page.png)
+    ![Profilim portal, genel bakış sayfası](media/myprofile-portal/myprofile-portal-overview.png)
 
 ## <a name="in-this-section"></a>Bu bölümde
 Hakkında daha fazla bilgi bulabilirsiniz **Profilim** portalı ve sayfalarını, aşağıdaki makalelere göz atın.
@@ -53,7 +51,6 @@ Hakkında daha fazla bilgi bulabilirsiniz **Profilim** portalı ve sayfalarını
 |Makale |Açıklama |
 |------|------------|
 |[Güvenlik bilgilerinizi (Önizleme) yönetme](user-help-security-info-overview.md)|Ayarlama ve güvenlik bilgilerinizi yönetmek açıklar.|
-|[Son oturum açma etkinliğinizi görüntüleyin](myprofile-portal-recent-activity-page.md)|Son oturum açma etkinliği için iş veya Okul hesabınızı görüntülemeyi açıklar.|
-|[Kuruluşunuzun yönetme](myprofile-portal-organizations-page.md)|İş veya Okul hesabınıza bağlı kuruluşların yönetme işlemi açıklanır.|
-|[Bağlı cihazlarınızın yönetme](myprofile-portal-devices-page.md)| İş veya Okul hesabınıza bağlı cihazların nasıl yönetileceğini açıklar.|
-|[Gizlilikle ilgili bilgilerinizi görüntüleyin](myprofile-portal-privacy-page.md)|Kuruluşunuz ile verilerinizi yaptığı görüntülemeyi açıklar.|
+|[Kuruluşlarınızı yönetme](myprofile-portal-organizations-page.md)|İş veya Okul hesabınıza bağlı kuruluşların yönetme işlemi açıklanır.|
+|[Bağlı cihazlarınızı yönetme](myprofile-portal-devices-page.md)| İş veya Okul hesabınıza bağlı cihazların nasıl yönetileceğini açıklar.|
+|[Gizlilikle ilgili bilgilerinizi görüntüleme](myprofile-portal-privacy-page.md)|Kuruluşunuz ile verilerinizi yaptığı görüntülemeyi açıklar.|

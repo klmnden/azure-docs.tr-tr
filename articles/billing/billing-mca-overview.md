@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: c263669d7f74d8abebcd84e818ae2ccf2dcac0f0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249377"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337422"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için fatura hesabınıza ile çalışmaya başlama
 
@@ -28,13 +28,13 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
 ## <a name="understand-billing-account"></a>Fatura hesabı anlama
 
-Microsoft Müşteri sözleşmesi için fatura hesabınıza bir veya daha fazla faturalandırma profili içerir. Her fatura profili kendi fatura ve ödeme yöntemleri vardır. Faturalandırma profili fatura profilin fatura maliyetlerini düzenlemenize olanak tanıyan bir veya daha fazla faturanın bölümler içeriyor.
+Microsoft Müşteri sözleşmesi için fatura hesabınıza faturaları ve ödeme yöntemlerini yönetmenize olanak sağlayan bir veya daha fazla fatura profillerini içerir. Her fatura profili fatura profilin fatura maliyetlerini düzenlemenize olanak sağlayan bir veya daha fazla fatura bölümleri içerir.
 
 Aşağıdaki diyagramda, bir faturalama hesabı, fatura profilleri ve fatura bölümleri arasındaki ilişkiyi gösterir.
 
 ![Microsoft Müşteri sözleşmesi için fatura hiyerarşisini gösteren diyagram](./media/billing-mca-overview/mca-billing-hierarchy.png)
 
-Fatura hesabındaki rolleri, yüksek düzeyde izinlere sahiptir. Bu rolleri, faturaları görüntülemek için gereken kullanıcılara atamak ve Finans veya BT yöneticileri gibi kuruluşunuzun tamamı için maliyetleri izleyin. Daha fazla bilgi için [Faturalama hesabı rolleri ve görevleri](billing-understand-mca-roles.md#billing-account-roles-and-tasks).
+Fatura hesabındaki rolleri, yüksek düzeyde izinlere sahiptir. Varsayılan olarak, yalnızca genel Yöneticiler, kuruluşunuzun Azure Active Directory'de fatura hesap erişim elde edin. Bu rolleri, faturaları görüntülemek ve Finans veya BT yöneticileri gibi kuruluşunuzun tamamı için maliyetleri izlemek için gereken kullanıcılara atanmalıdır. Daha fazla bilgi için [Faturalama hesabı rolleri ve görevleri](billing-understand-mca-roles.md#billing-account-roles-and-tasks).
 
 ## <a name="understand-billing-profiles"></a>Fatura profilleri anlama
 
@@ -50,7 +50,7 @@ Fatura profilleri rollerinde faturaları ve ödeme yöntemlerini görüntülemek
 
 Bir aylık fatura her fatura profili için fatura tarihi üzerinde oluşturulur. Faturanın önceki ay için tüm ücretleri içerir.
 
-Faturayı görüntülemek, belgeleri ve e-posta, Azure portalında, gelecek fatura almak için ayarını değiştirin. Daha fazla bilgi için [faturanızı e-posta ile alın](billing-download-azure-invoice-daily-usage-date.md#get-your-invoice-in-email-pdf).
+Faturayı görüntülemek, belgeleri ve e-posta, Azure portalında, gelecek fatura almak için ayarını değiştirin. Daha fazla bilgi için [bir Microsoft Müşteri sözleşmesi faturaları indirmesine](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
 ### <a name="invoices-paid-through-payment-methods"></a>Fatura ödeme yöntemlerini Ücretli
 
@@ -58,7 +58,7 @@ Her fatura profili, fatura ödemek için kullanılan, kendi ödeme yöntemleri v
 
 | Type             | Tanım  |
 |------------------|-------------|
-|Azure kredileri    |  Krediler, faturayla ödeme yapmam gerekiyor tutarı hesaplamak için toplam faturalandırılan miktar otomatik olarak uygulanır. Daha fazla bilgi için [fatura profiliniz için izleme Azure kredi bakiyesi](billing-mca-check-azure-credits-balance.md). |
+|Azure kredileri    |  Krediler, faturayla ödeme yapmam gerekiyor tutarı hesaplamak için toplam faturalandırılan miktar otomatik olarak uygulanır. Daha fazla bilgi için [fatura profiliniz için Azure kredi bakiyesi izlemek](billing-mca-check-azure-credits-balance.md). |
 |Çek veya havale | Alacak miktarı ödeyebilirsiniz faturası için onay veya kablo üzerinden aktarım. Fatura ödeme yönergeleri verilir. |
 
 ### <a name="control-azure-marketplace-and-reservation-purchases-by-applying-policies"></a>İlkeleri uygulayarak denetimi Azure Market ve rezervasyon satın alma
@@ -72,7 +72,7 @@ Azure planları, faturalandırma profili oluşturduğunuzda otomatik olarak etki
 | Planlama             | Tanım  |
 |------------------|-------------|
 |Microsoft Azure-planı   | Kullanıcıların herhangi bir iş yükünü çalıştırmak üzere abonelik oluşturmasına izin verin. Daha fazla bilgi için [Microsoft Azure planlama](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|Microsoft Azure geliştirme ve Test planlama | Geliştirme için kısıtlı abonelikler oluşturmak Visual Studio aboneleri izin verin veya test iş yükleri. Bu abonelik, Azure portalında daha düşük fiyatlar ve özel sanal makine görüntülerine erişim gibi avantajlardan yararlanabilirsiniz. Daha fazla bilgi için [Microsoft Azure geliştirme ve test için planlama](https://azure.microsoft.com/offers/ms-azr-0148g/)| <!--- TODO - Add the link to plan details page -->
+|Microsoft Azure geliştirme ve Test planlama | Geliştirme için kısıtlı abonelikler oluşturmak Visual Studio aboneleri izin verin veya test iş yükleri. Bu abonelik, Azure portalında daha düşük fiyatlar ve özel sanal makine görüntülerine erişim gibi avantajlardan yararlanabilirsiniz. Daha fazla bilgi için [Microsoft Azure geliştirme ve test için planlama](https://azure.microsoft.com/offers/ms-azr-0148g/)|
 
 ## <a name="understand-invoice-sections"></a>Fatura bölümleri anlama
 
@@ -94,5 +94,5 @@ Yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microso
 Fatura hesabınıza hakkında bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Azure'da Microsoft Müşteri sözleşmesi yönetici rollerini anlama](billing-understand-mca-roles.md)
-- [Azure aboneliğinin faturalandırma hesabınız için Microsoft Müşteri sözleşmesi oluşturma](billing-mca-create-subscription.md)
-- [Fatura bölümleri ile maliyetleri düzenleme](billing-mca-section-invoice.md)
+- [Microsoft Müşteri sözleşmesi için ek bir Azure aboneliği oluşturun](billing-mca-create-subscription.md)
+- [Maliyetlerinizi düzenlemek için fatura bölümler oluşturma](billing-mca-section-invoice.md)

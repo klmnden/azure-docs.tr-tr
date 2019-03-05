@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 03/04/2019
 ms.author: tulasim
-ms.openlocfilehash: 09e01f7705c61bdf110c0bc84cefa396f430f7f8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d41c7a24d72cdafac953e0215a6cbd2d9e8bba01
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884520"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316481"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Veri kaynakları için soru-cevap Oluşturucu içeriği
 
@@ -122,7 +122,7 @@ Yapılandırılmış bir soru-cevap word belgesinin bir örnek aşağıda verilm
 
 Biçiminde Bankalarıyla yapılandırılmış *.txt*, *.tsv* veya *.xls* dosyalar da karşıya yüklenebilir oluşturmak veya bir Bilgi Bankası büyütmek için soru-cevap Oluşturucu.  Bu düz metin olabilir veya RTF veya HTML içeriği sahip olabilir. 
 
-| Soru  | Yanıt  | Meta Veriler                |
+| Soru  | Yanıt  | Meta veri (1 anahtarı: 1 değeri) |
 |-----------|---------|-------------------------|
 | Question1 | Answer1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 |      `Key:Value`           |
@@ -137,7 +137,7 @@ Yapılandırılmış bir soru-cevap örneği aşağıdadır *.xls* dosyasıyla H
 
 Bilgi Bankası içeri aktarma, var olan bir Bilgi Bankası içeriğini değiştirir. İçeri aktarma, veri kaynağı bilgilerini içeren bir yapılandırılmış .tsv dosyası gerektirir. Bu bilgiler soru-cevap soru-cevap çiftlerini gruplandırabilir ve bunları belirli bir veri kaynağı için öznitelik oluşturucu yardımcı olur.
 
-| Soru  | Yanıt  | Kaynak| Meta Veriler                |
+| Soru  | Yanıt  | Kaynak| Meta veri (1 anahtarı: 1 değeri) |          
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Düzenleme|    `Key:Value`       |

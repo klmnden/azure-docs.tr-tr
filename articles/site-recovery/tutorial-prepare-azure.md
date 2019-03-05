@@ -2,18 +2,18 @@
 title: Azure Site Recovery ile şirket içi makineler için Azure'da olağanüstü durum kurtarma hazırlığı yapma | Microsoft Docs
 description: Azure Site Recovery ile şirket içi makinelerin olağanüstü durum kurtarma işlemleri için Azure’ın nasıl hazırlanacağını öğrenin.
 services: site-recovery
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/08/2019
-ms.author: raynew
+ms.date: 03/03/2019
+ms.author: mayg
 ms.custom: MVC
-ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: dd84becdf7043f3ae1c8070bdc1918d377bc3e3b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159018"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337881"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Şirket içi makinelerin olağanüstü durum kurtarma işlemleri için Azure kaynaklarını hazırlama
 
@@ -28,7 +28,6 @@ Bu makale, şirket içi sanal makineleri (Hyper-V veya VMware) veya Windows/Linu
 
 > [!div class="checklist"]
 > * Azure hesabınızın çoğaltma izinlerine sahip olduğunu doğrulayın.
-> * Bir Azure Storage hesabı oluşturun. Çoğaltılan makinelerin görüntüleri burada depolanır.
 > * Kurtarma Hizmetleri kasası oluşturun. Kasada VM'lerin meta veri ve yapılandırma bilgileri ile diğer çoğaltma bileşenleri tutulur.
 > * Bir Azure ağı ayarlayın. Yük devretmeden sonra Azure sanal makineleri oluşturulduğunda sanal makineler bu Azure ağına katılır.
 
@@ -44,27 +43,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 - Seçilen kaynak grubunda sanal makine oluşturma.
 - Seçilen sanal ağda sanal makine oluşturma.
-- Seçilen depolama hesabına yazma.
+- Depolama hesabına yazma.
+- Yönetilen diske yazma.
 
 Bu görevleri tamamlamak için hesabınıza Sanal Makine Katkıda Bulunan yerleşik rolünün atanması gerekir. Ayrıca Site Recovery işlemlerini bir kasada yönetmek için hesabınıza Site Recovery Katkıda Bulunan yerleşik rolünün atanması gerekir.
 
-## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
-
-Çoğaltılan makinelerin görüntüleri Azure depolama alanında tutulur. Şirket içinden Azure’a yük devretme gerçekleştirdiğinizde depolama alanından Azure sanal makineleri oluşturulur. Depolama hesabının, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Bu öğreticide Batı Avrupa'yı kullanıyoruz.
-
-1. [Azure portal](https://portal.azure.com) menüsünde **Kaynak oluştur** > **Depolama** > **Depolama hesabı - blob, dosya, tablo, sorgu**'yu seçin.
-2. **Depolama hesabı oluştur** bölümüne hesap için bir ad girin. Bu öğreticiler için **contosovmsacct1910171607** adını kullanıyoruz. Seçtiğiniz ad, Azure içinde benzersiz olmalı, 3 ila 24 karakter uzunluğunda olmalı ve yalnızca rakamlar ve küçük harfler içermelidir.
-3. **Dağıtım modeli** bölümünde **Kaynak Yöneticisi**’ni seçin.
-4. **Hesap türü** bölümünde **Depolama (genel amaçlı v1)** öğesini seçin. Blob depolamayı seçmeyin.
-5. **Çoğaltma** bölümünde depolama yedeklemesi için **Okuma Erişimli Coğrafi Olarak Yedekli depolama**’yı seçin. **Güvenli aktarım gereklidir** seçeneğini **Devre Dışı** olarak bırakıyoruz.
-6. **Performans**’ta **Standart**’ı seçin ve **Erişim katmanı**’nda varsayılan **Sık erişim** seçeneğini belirleyin.
-7. **Abonelik** bölümünde yeni depolama hesabını oluşturmak istediğiniz aboneliği seçin.
-8. **Kaynak grubu** bölümünde yeni bir kaynak grubu adı girin. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bu öğreticiler için **ContosoRG** kullanıyoruz.
-9. **Konum** bölümünde depolama hesabınız için coğrafi konumu seçin. 
-
-   ![Depolama hesabı oluşturma](media/tutorial-prepare-azure/create-storageacct.png)
-
-9. Depolama hesabını oluşturmak için **Oluştur**’u seçin.
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
@@ -81,7 +64,7 @@ Bu görevleri tamamlamak için hesabınıza Sanal Makine Katkıda Bulunan yerle�
 
 ## <a name="set-up-an-azure-network"></a>Azure ağı ayarlama
 
-Yük devretmeden sonra depolamadan Azure sanal makineleri oluşturulduğunda sanal makineler bu ağa katılır.
+Yük devretme sonrasında oluşturulan Azure Vm'lerinin yönetilen diskleri, bu ağa katılır.
 
 1. [Azure portalında](https://portal.azure.com) **Kaynak oluştur** > **Ağ** > **Sanal ağ** seçeneklerini belirleyin.
 2. Dağıtım modeli olarak **Resource Manager**’ı seçili bırakıyoruz.
@@ -100,8 +83,7 @@ Yük devretmeden sonra depolamadan Azure sanal makineleri oluşturulduğunda san
 ## <a name="useful-links"></a>Yararlı bağlantılar
 
 - Azure ağları [hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
-- Azure depolama türleri [hakkında bilgi edinin](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts).
-- Depolama yedekliği [hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) ve depolama için [güvenli aktarımı](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) öğrenin.
+- [Hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) yönetilen diskler.
 
 
 
