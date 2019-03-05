@@ -11,18 +11,29 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 2e2a388b399ff34e36ab65a734593704cf274dc0
+ms.openlocfilehash: 401cd6b2a78072c8299f32f60f1ac3677f05557c
 ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312095"
+ms.locfileid: "57318750"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
 Azure işlevleri temel araçları, geliştirme ve yerel bilgisayarınızda bir komut istemi veya terminal işlevlerinizi test sağlar. Yerel işlevlerinizi Canlı Azure hizmetlerine bağlanabilir ve tam işlevler çalışma zamanı'nı kullanarak yerel bilgisayarınızda işlevlerinizi hata ayıklaması yapabilirsiniz. Azure aboneliğinizde bir işlev uygulaması da dağıtabilirsiniz.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+Yerel bilgisayarınızda işlevleri geliştirme ve temel araçları ile Azure'a yayımlama temel adımları izler:
+
+> [!div class="checklist"]
+> * [Temel araçları ve bağımlılıkları yükleyin.](#v2)
+> * [Dile özgü şablondan bir işlev uygulaması projesi oluşturun.](#create-a-local-functions-project)
+> * [Tetikleyici ve bağlama uzantıları kaydedin.](#register-extensions)
+> * [Depolama ve diğer bağlantıların tanımlayın.](#local-settings-file)
+> * [Bir işlev, bir tetikleyici ve dile özgü şablon oluşturun.](#create-func)
+> * [İşlevi yerel olarak çalıştırma](#start)
+> * [Projeyi Azure'da yayımlama](#publish)
 
 ## <a name="core-tools-versions"></a>Çekirdek araçları sürümleri
 

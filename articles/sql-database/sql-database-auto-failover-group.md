@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 5afd5020b060961d215b922c9e49466b73f2a69e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 862cc4da99aed02b81b6fd12913736bf30866f72
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889894"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313608"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için otomatik yük devretme grupları kullanma
 
@@ -304,14 +304,16 @@ Otomatik Yük devretme grupları ve etkin daha önce açıklandığı gibi coğr
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: SQL veritabanı yük devretme ile tek veritabanları ve elastik havuzları yönetme
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 | Cmdlet | Açıklama |
 | --- | --- |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Bu komut, bir yük devretme grubu oluşturur ve birincil ve ikincil sunucularda kaydeder|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Yük devretme grubuna sunucudan kaldırır ve tüm siler ikincil veritabanları grubu dahil |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Yük devretme grubu yapılandırmasını alır. |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Yük devretme grubu yapılandırmasını değiştirir |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | İkincil sunucuya Yük devretme grubu yük devretme Tetikleyicileri |
-| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Bir veya daha fazla veritabanı için bir Azure SQL veritabanı yük devretme grubu ekler|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Bu komut, bir yük devretme grubu oluşturur ve birincil ve ikincil sunucularda kaydeder|
+| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Yük devretme grubuna sunucudan kaldırır ve tüm siler ikincil veritabanları grubu dahil |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Yük devretme grubu yapılandırmasını alır. |
+| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Yük devretme grubu yapılandırmasını değiştirir |
+| [Anahtar AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | İkincil sunucuya Yük devretme grubu yük devretme Tetikleyicileri |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Bir veya daha fazla veritabanı için bir Azure SQL veritabanı yük devretme grubu ekler|
 |  | |
 
 > [!IMPORTANT]
@@ -341,11 +343,11 @@ Otomatik Yük devretme grupları ve etkin daha önce açıklandığı gibi coğr
 
 | API | Açıklama |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |Bu komut, bir yük devretme grubu oluşturur ve birincil ve ikincil sunucularda kaydeder|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Yük devretme grubu yapılandırmasını değiştirir|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Yük devretme grubu yapılandırmasını alır.|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |İkincil sunucuya Yük devretme grubu yük devretme Tetikleyicileri|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Bir yük devretme grubunu kaldırır|
+| New-AzSqlDatabaseInstanceFailoverGroup |Bu komut, bir yük devretme grubu oluşturur ve birincil ve ikincil sunucularda kaydeder|
+| Set-AzSqlDatabaseInstanceFailoverGroup |Yük devretme grubu yapılandırmasını değiştirir|
+| Get-AzSqlDatabaseInstanceFailoverGroup |Yük devretme grubu yapılandırmasını alır.|
+| Anahtar AzSqlDatabaseInstanceFailoverGroup |İkincil sunucuya Yük devretme grubu yük devretme Tetikleyicileri|
+| Remove-AzSqlDatabaseInstanceFailoverGroup | Bir yük devretme grubunu kaldırır|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: Tek ve havuza alınmış veritabanları ile SQL veritabanı yük devretme grupları yönetme
 
