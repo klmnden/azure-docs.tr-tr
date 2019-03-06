@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 8c3883ae6dd2928fb6cc4f22510e7992daac7793
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 60d4d9224a6a70c8fa2702dede8721f742fa6256
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015313"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434955"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data factory'deki tümleştirme çalışma zamanı izleme  
 **Integration runtime** , farklı ağ ortamlarında çeşitli veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. Tümleştirme çalışma zamanları Data Factory tarafından sunulan üç tür vardır:
@@ -26,16 +26,18 @@ ms.locfileid: "54015313"
 - Kendinden konak tümleştirme çalışma zamanı
 - Azure SSIS tümleştirmesi çalışma zamanı
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Integration runtime (IR) örneğini durumunu almak için aşağıdaki PowerShell komutunu çalıştırın: 
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
 ``` 
 
 Cmdlet, Integration runtime'nın farklı türleri için farklı bilgi döndürür. Bu makalede, her tür tümleştirme çalışma zamanı durumlarını ve özellikler açıklanmaktadır.  
 
 ## <a name="azure-integration-runtime"></a>Azure tümleştirme çalışma zamanı
-Azure tümleştirme çalışma zamanı için işlem kaynağı, esnek bir şekilde Azure'da tam olarak yönetilir. Aşağıdaki tabloda tarafından döndürülen özellikleri için açıklamalar verilmiştir **Get-AzureRmDataFactoryV2IntegrationRuntime** komutu:
+Azure tümleştirme çalışma zamanı için işlem kaynağı, esnek bir şekilde Azure'da tam olarak yönetilir. Aşağıdaki tabloda tarafından döndürülen özellikleri için açıklamalar verilmiştir **Get-AzDataFactoryV2IntegrationRuntime** komutu:
 
 ### <a name="properties"></a>Özellikler
 Azure tümleştirme çalışma zamanı için cmdlet tarafından döndürülen özelliklerin açıklamaları aşağıdaki tabloda verilmiştir:
@@ -58,7 +60,7 @@ Aşağıdaki tabloda, bir Azure Integration runtime'nın olası durumlar sağlar
 | Çevrimdışı | Azure tümleştirme çalışma zamanının bir iç hata nedeniyle çevrimdışı kalır. |
 
 ## <a name="self-hosted-integration-runtime"></a>Kendinden konak tümleştirme çalışma zamanı
-Bu bölümde Get-AzureRmDataFactoryV2IntegrationRuntime cmdlet'i tarafından döndürülen özellikleri için açıklamalar sağlanır. 
+Bu bölümde Get-AzDataFactoryV2IntegrationRuntime cmdlet'i tarafından döndürülen özellikleri için açıklamalar sağlanır. 
 
 > [!NOTE] 
 > Geri döndürülen özelliklerin ve durumu genel şirket içinde barındırılan tümleştirme çalışma zamanı ve çalışma zamanında her bir düğüm hakkında bilgi içerir.  
@@ -86,7 +88,7 @@ Sınır eşzamanlı iş varsayılan değeri makine boyutuna göre. Bu değer hes
 
 Düğüm sayısını artırarak ölçeği. Eşzamanlı iş sınırı düğüm sayısını artırdığınızda, kullanılabilir tüm düğümlerden eş zamanlı iş sınırı değerlerinin toplamıdır.  Bir düğüm, en fazla on iki eşzamanlı iş çalıştırmanıza olanak tanır, örneğin, sonra üç daha benzer düğüm eklemeyi, en fazla 48 eşzamanlı işler (4 x 12) çalıştırmanıza olanak tanır. Her bir düğümde düşük kaynak kullanımını varsayılan değerlerle gördüğünüzde eşzamanlı iş sınırı artırmak öneririz.
 
-Azure portalında hesaplanan varsayılan değeri geçersiz kılabilirsiniz. Yazar seçin > bağlantılar > tümleştirme çalışma zamanları > Düzenle > düğümleri > düğüm başına eşzamanlı iş değerini değiştirin. PowerShell de kullanabilirsiniz [güncelleştirme azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) komutu.
+Azure portalında hesaplanan varsayılan değeri geçersiz kılabilirsiniz. Yazar seçin > bağlantılar > tümleştirme çalışma zamanları > Düzenle > düğümleri > düğüm başına eşzamanlı iş değerini değiştirin. PowerShell de kullanabilirsiniz [güncelleştirme Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) komutu.
   
 ### <a name="status-per-node"></a>Durum (her düğüm)
 Aşağıdaki tabloda, şirket içinde barındırılan tümleştirme çalışma zamanı düğümü olası durumlar sağlar:
@@ -97,7 +99,7 @@ Aşağıdaki tabloda, şirket içinde barındırılan tümleştirme çalışma z
 | Çevrimdışı | Düğümü çevrimdışı durumda. |
 | Yükseltiliyor | Düğüm, otomatik olarak güncelleştirilir. |
 | Sınırlı | Bir bağlantı sorunundan kaynaklanıyor. HTTP bağlantı noktası 8050 sorunu, service bus bağlantı sorunu veya kimlik bilgisi eşitleme sorunu nedeniyle olabilir. |
-| Devre dışı | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümüdür. |
+| Etkin Değil | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümüdür. |
 
 Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir.
 
@@ -111,10 +113,10 @@ Aşağıdaki tabloda, şirket içinde barındırılan Integration runtime'nın o
 | Çevrimdışı | Hiçbir düğümü çevrimiçi değil. |
 | Sınırlı | Bu şirket içinde barındırılan tümleştirme çalışma zamanındaki tüm düğümleri iyi durumda olan. Bu durum bazı düğümler, çalışmıyor durumda bir uyarıdır. Bu durum, dağıtıcı/çalışan düğümüyle bir kimlik bilgisi eşitleme sorunu nedeniyle olabilir. |
 
-Kullanım **Get-AzureRmDataFactoryV2IntegrationRuntimeMetric** ayrıntılı içeren JSON yükü getirilecek cmdlet'i şirket içinde barındırılan tümleştirme çalışma zamanı özellikleri ve bunların anlık görüntü, yürütme zamanı sırasında değerleri cmdlet'i.
+Kullanım **Get-AzDataFactoryV2IntegrationRuntimeMetric** ayrıntılı içeren JSON yükü getirilecek cmdlet'i şirket içinde barındırılan tümleştirme çalışma zamanı özellikleri ve bunların anlık görüntü cmdlet'inin sırada değerleri.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
+Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
 ```
 
 Örnek çıktı: (Bu şirket içinde barındırılan tümleştirme çalışma zamanı ile ilişkili iki düğüm olduğunu varsayar)
@@ -174,7 +176,7 @@ Azure-SSIS tümleştirme çalışma zamanı SSIS paketlerinizi çalıştırmaya 
 | VNetId | Katılmak için sanal ağ kaynak kimliği, Azure-SSIS tümleştirme çalışma zamanı. |
 | Alt ağ | Katılmak, Azure-SSIS tümleştirme çalışma zamanı için alt ağ adı. |
 | Kimlik | Azure-SSIS tümleştirme çalışma zamanınızın kaynak kimliği. |
-| Tür | Türü (yönetilen/Self-Hosted), Azure-SSIS tümleştirme çalışma zamanı. |
+| Type | Türü (yönetilen/Self-Hosted), Azure-SSIS tümleştirme çalışma zamanı. |
 | ResourceGroupName | Data factory ve Azure-SSIS tümleştirme çalışma zamanı oluşturulduğu, Azure kaynak grubu adı. |
 | DataFactoryName | Azure data factory'nizi adı. |
 | Ad | Azure-SSIS tümleştirme çalışma zamanınızın adını. |
@@ -213,7 +215,7 @@ Aşağıdaki ekran görüntüleri, izlemek ve örnek görüntülenen bilgileri o
 Azure-SSIS IR'yi durumunu denetlemek için aşağıdaki örnekte olduğu gibi bir betik kullan
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
 ```
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı hakkında daha fazla bilgi
@@ -222,7 +224,7 @@ Azure-SSIS tümleştirme çalışma zamanı hakkında daha fazla bilgi için aş
 
 - [Azure-SSIS tümleştirme çalışma zamanı](concepts-integration-runtime.md#azure-ssis-integration-runtime). Bu makalede Azure-SSIS IR'yi genel dahil tümleştirme çalışma zamanları hakkında kavramsal bilgiler sağlar 
 - [Öğretici: SSIS paketlerini Azure’a dağıtma](tutorial-create-azure-ssis-runtime-portal.md). Bu makale bir Azure-SSIS IR oluşturmaya ilişkin adım adım yönergeler sağlar ve SSIS kataloğunu barındırmak için bir Azure SQL veritabanı kullanır. 
-- [Nasıl Yapılır: Bir Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale öğreticiyi genişletip ve Azure SQL veritabanı yönetilen örneği kullanma ve IR'yi bir sanal ağa ekleme hakkında yönergeler sağlar. 
+- [Nasıl yapılır: Bir Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale öğreticiyi genişletip ve Azure SQL veritabanı yönetilen örneği kullanma ve IR'yi bir sanal ağa ekleme hakkında yönergeler sağlar. 
 - [Azure-SSIS IR’yi yönetme](manage-azure-ssis-integration-runtime.md). Bu makale bir Azure-SSIS IR’yi durdurma, başlatma veya kaldırma işlemini gösterir. Ayrıca, IR’ye daha fazla düğüm ekleyerek Azure-SSIS IR’nizi ölçeklendirmeyi gösterir. 
 - [Azure-SSIS IR’yi bir sanal ağa ekleyin](join-azure-ssis-integration-runtime-virtual-network.md). Bu makale Azure-SSIS IR’yi bir Azure sanal ağına ekleme hakkında kavramsal bilgiler sağlar. Ayrıca, Azure-SSIS IR'nin sanal ağa katılmasını sanal ağı yapılandırmak için Azure portalını kullanma adımları sağlar. 
 

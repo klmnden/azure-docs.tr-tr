@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: d0f22360a36105e5bfb877d7478b58c37fcc4353
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 4a1b1a32a488395c6a0b3f19de727802a329930a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213789"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439868"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Hdfs Azure Data Factory kullanarak veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -138,6 +138,7 @@ Verileri HDFS kopyalamak için dataset öğesinin type özelliği ayarlamak **Fi
         },
         "typeProperties": {
             "folderPath": "folder/subfolder/",
+            "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {
@@ -203,7 +204,7 @@ Verileri HDFS sonraki bölümünden verimli bir şekilde kopyalamak için DistCp
 
 Kopyalama etkinliği destek dosyaları olarak kopyalamak için DistCp kullanma-Azure Blob içinde olduğu (dahil olmak üzere [kopyalama aşamalı](copy-activity-performance.md) veya Azure Data Lake Store, bu durumda, tam olarak şirket içinde barındırılan tümleştirme çalışma zamanını çalıştırmak yerine kümenizin power yararlanabilir . Özellikle, kümenizin çok güçlü ise daha iyi kopyalama aktarım hızı sağlar. Azure Data factory'de yapılandırmanıza bağlı olarak, kopyalama etkinliği otomatik olarak distcp komutu oluşturun, Hadoop kümenizi gönderin ve kopya durumunu izleyin.
 
-### <a name="prerequsites"></a>Prerequsites
+### <a name="prerequisites"></a>Önkoşullar
 
 Kopyalamak için DistCp kullanma dosyaları olarak-olan HDFS (hazırlanmış kopya dahil) Azure Blob veya Azure Data Lake Store, Hadoop kümenizi gereksinimleri karşıladığından emin olun:
 

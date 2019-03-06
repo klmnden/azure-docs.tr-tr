@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/05/2019
 ms.author: jowargo
-ms.openlocfilehash: d2de4a4be8838cf696d2d3ed6589e8f154a6ca05
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c4932bcb890770ac3914198e511c3890e29b26cb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959861"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449929"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Öğretici: Azure Notification Hubs ve Google Firebase Cloud Messaging kullanarak Android cihazlarına anında iletme bildirimleri
 
@@ -74,7 +74,7 @@ Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir.
 
 1. Seçin **Google (GCM/FCM)** altında **ayarları** sol menüsünde. 
 2. Yapıştırma **sunucu anahtarı** daha önce kaydettiğiniz FCM projesi. 
-3. Gerçekleştireceğiniz **Kaydet** araç. 
+3. Araç çubuğunda **Kaydet**’i seçin. 
 
     ![Azure Notification Hubs - Google (FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
 4. Notification hubs'ı başarıyla güncelleştirildiğini uyarılar bir ileti görürsünüz. **Kaydet** düğmesi devre dışıdır. 
@@ -531,7 +531,7 @@ Aşağıdaki eylemleri uygulayarak [Azure portal] anında iletme bildirimleri g�
 5. En alttaki listede işlemin **sonucunu** görürsünüz.
 
     ![Azure Notification Hubs - Test Gönderimi](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
-6. Cihazınızda notificaiton iletisini görürsünüz. 
+6. Cihazınızda bildirim iletisini görürsünüz. 
 
     ![Cihazda bildirim iletisi](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-on-device.png)
     

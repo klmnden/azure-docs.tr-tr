@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 046d00eec9fd5a406a1e8bf78e48d4dd913b83fd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816654"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437577"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Tahmine dayalı bakım çözümleri için Azure yapay ZEKA Kılavuzu
 
@@ -432,7 +432,7 @@ Microsoft Azure, PdM teknikleri, içerik ve yapay ZEKA kavramları ve uygulama G
 | [Microsoft yapay ZEKA Okul](https://aischool.microsoft.com/learning-paths) | Genel |
 | [Github'dan Azure yapay ZEKA öğrenme](https://github.com/Azure/connectthedots/blob/master/readme.md) | Genel |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Genel |
-| [Microsoft yapay ZEKA Youtube Web Seminerleri](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Genel |
+| [Microsoft yapay ZEKA YouTube Web Seminerleri](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Genel |
 | [Microsoft yapay ZEKA Göster](http://channel9.msdn.com/Shows/AI-Show) | Genel |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | İş Ortakları |
 | [Microsoft iş ortağı ağı](https://learningportal.microsoft.com) | İş Ortakları |

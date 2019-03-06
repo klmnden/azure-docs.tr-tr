@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0bed75090e82287e1239342884b5acea64e69bf0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338531"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444013"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
 
@@ -188,8 +188,8 @@ SAP HANA için gerekli bağlantı noktaları hakkında daha fazla bilgi için bu
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
-* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]**: Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]**: Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[A]**  Disk düzenini ayarla: **Mantıksal birim Yöneticisi (LVM)**.
 
@@ -349,8 +349,8 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
-* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]**: Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]**: Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[A]**  Güvenlik duvarını yapılandırma
 
@@ -440,8 +440,8 @@ sudo firewall-cmd --zone=public --add-port=30342/tcp
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
-* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]**: Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]**: Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[A]**  Güvenlik duvarını yapılandırma
 
@@ -643,7 +643,7 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 SAP HANA Yöneticisi olarak çalıştığı düğüm ağ arabiriminde devre dışı bırakarak Azure çitlemek aracı Kurulumu test edebilirsiniz.
-Bkz: [Red Hat Bilgi Bankası makalesi 79523](https://access.redhat.com/solutions/79523) ağ hata benzetimi yapma konusunda bir descricption için. Bu örnekte, tüm ağ erişimi engellemek için net_breaker komut dosyasını kullanın.
+Bkz: [Red Hat Bilgi Bankası makalesi 79523](https://access.redhat.com/solutions/79523) ağ hata benzetimi yapma konusunda bir açıklama için. Bu örnekte, tüm ağ erişimi engellemek için net_breaker komut dosyasını kullanın.
 
 <pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>

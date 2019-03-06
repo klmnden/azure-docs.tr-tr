@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d385fd8c8388e3ce54b89ff2ac863cd5a1aa0df
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 5cd3f7f1f1f17d6dedea0157760b03c7e55e3d8a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216144"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410103"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevlerini ölçeklendirme ve barındırma
 
@@ -43,9 +43,6 @@ Bir App Service planında, farklı kaynaklarının miktarını ayırmak için Ka
 
 Bir tüketim planı kullanırken, Azure işlevleri konak örneklerini dinamik olarak eklenir ve gelen olayların sayısına dayalı kaldırıldı. Bu sunucusuz planı otomatik olarak ölçeklenen ve yalnızca işlevlerinizin çalıştırırken işlem kaynakları için ücretlendirilirsiniz. Bir tüketim planında bir işlev yürütmeye yapılandırılabilir bir süre sonunda zaman aşımına uğradı.
 
-> [!NOTE]
-> Tüketim planlarındaki işlevler için varsayılan zaman aşımı, 5 dakikadır. Değer en fazla 10 dakika kadar işlev uygulaması için özelliği değiştirilerek artırılabilir `functionTimeout` içinde [host.json](functions-host-json.md#functiontimeout) proje dosyası.
-
 Faturalandırma, yürütme, yürütme süresini ve kullanılan bellek sayısına göre belirlenmektedir. Faturalandırma, bir işlev uygulaması içindeki tüm işlevleri üzerinden toplanır. Daha fazla bilgi için [Azure işlevleri fiyatlandırması sayfası].
 
 Tüketim planı barındırma planı varsayılandır ve aşağıdaki avantajları sunar:
@@ -62,7 +59,7 @@ Aşağıdaki durumlarda bir App Service planı göz önünde bulundurun:
 * Diğer App Service örneği zaten çalışıyor var olan ve az kullanılan sanal makine var.
 * İşlev uygulamalarınızı sürekli olarak veya sürekli olarak neredeyse çalıştırın. Bu durumda, bir App Service planı daha uygun maliyetli olabilir.
 * Tüketim planı üzerinde sağlanan değerinden daha fazla CPU veya bellek seçenekleri ihtiyacınız vardır.
-* Kodunuzu 10 dakikaya kadar olan tüketim planında, izin verilen en uzun yürütme süresi uzun çalıştırılmamalıdır.
+* Kodunuzu daha uzun çalıştırması gereken [izin verilen en uzun yürütme süresi](#timeout) tüketim planı üzerinde.
 * App Service planı, App Service ortamı VNET/VPN bağlantısı ve büyük VM boyutları için destek gibi şirket yalnızca kullanılabilen özellikleri gerektirir.
 * Linux üzerinde işlev uygulamanızı çalıştırmak istediğiniz veya özel bir görüntüyü işlevlerinizi çalıştırılacağı istiyorsunuz.
 
@@ -77,6 +74,8 @@ JavaScript işlevleri bir App Service planı üzerinde çalışırken, daha az V
 ###<a name="always-on"></a> Her zaman açık
 
 Bir App Service planı üzerinde çalıştırırsanız, etkinleştirmelisiniz **her zaman** işlev uygulamanızın düzgün çalıştığını ayarını. Yalnızca HTTP Tetikleyicileri "işlevlerinizi uyandır şekilde" bir App Service planı üzerinde işlevler çalışma zamanı boşta kalma birkaç dakika sonra gider. Her zaman üzerinde yalnızca bir App Service planı üzerinde kullanılabilir. Bir tüketim planında, platform işlev uygulamaları otomatik olarak etkinleştirir.
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="what-is-my-hosting-plan"></a>Barındırma planı kullandığımı nedir
 

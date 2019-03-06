@@ -10,19 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/27/2018
+ms.date: 03/05/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9f548fbb9611b6d4b16efe5c4d26db73d85c9654
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4fb4989327896a74a33e16635a3ce37d1dbbc889
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882306"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435298"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Öğretici: Resource Manager şablonları (özel Önizleme) ile Azure Deployment Manager'ı kullanın
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [Azure Deployment Manager](./deployment-manager-overview.md)’ı kullanarak uygulamalarınızı birden çok bölgede nasıl dağıtacağınızı öğrenin. Deployment Manager'ı kullanmak için iki şablonu oluşturmak gerekir:
 
@@ -59,6 +57,13 @@ Bu makaleyi tamamlamak için gerekenler:
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
+
+    Azure PowerShell Az Modülü yüklü iki ek anahtarlar gerekir:
+
+    ```powershell
+    Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease -AllowClobber -Force
+    ```
+
 * [Microsoft Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/). Azure Depolama Gezgini gerekli değildir, ancak işinizi kolaylaştırır.
 
 ## <a name="understand-the-scenario"></a>Senaryoyu anlama
@@ -204,9 +209,6 @@ Aşağıdaki ekran görüntüsünde hizmet topolojisinin, hizmetlerin ve hizmet 
 - **dependsOn**: Tüm service topolojisi kaynakları yapıt kaynağı kaynağına bağımlı.
 - **artifacts** şablon yapıtlarını işaret eder.  Burada göreli yollar kullanılır. Tam yol artifactSourceSASLocation (yapıt kaynağında tanımlıdır), artifactRoot (yapıt kaynağında tanımlıdır) ve templateArtifactSourceRelativePath (veya parametersArtifactSourceRelativePath) birleştirilerek oluşturulur.
 
-> [!NOTE]
-> Hizmet birim adları 31 karakterleri içermelidir veya daha az. 
-
 ### <a name="topology-parameters-file"></a>Topoloji parametre dosyası
 
 Topoloji şablonuyla kullanılan bir parametre dosyası oluşturursunuz.
@@ -276,7 +278,7 @@ Piyasaya çıkarma şablonuyla kullanılan bir parametre dosyası oluşturursunu
 2. Parametre değerlerini doldurun:
 
     - **namePrefix**: 4-5 karakter içeren bir dize girin. Bu ön ek, benzersiz Azure kaynağı adları oluşturmak için kullanılır.
-    - **azureResourceLocation**: Şu anda Azure Deployment Manager kaynakları yalnızca Orta ABD veya **Doğu ABD 2**’de oluşturulabilir.
+    - **azureResourceLocation**: Şu anda Azure Deployment Manager kaynakları yalnızca **Orta ABD** veya **Doğu ABD 2**’de oluşturulabilir.
     - **artifactSourceSASLocation**: SAS URI'sini kök dizinine (Blob kapsayıcısı), dağıtım için hizmeti birim şablon ve parametreleri dosyalarının depolandığı yeri girin.  [Yapıtları hazırlama](#prepare-the-artifacts) bölümüne bakın.
     - **binaryArtifactRoot**: Yapıtlar klasör yapısını değiştirmediğiniz sürece, kullanın **binaries/1.0.0.0** bu öğreticideki.
     - **managedIdentityID**: Kullanıcı tarafından atanan bir yönetilen kimlik girin. Bkz. [Kullanıcı tarafından atanmış yönetilen kimlik oluşturma](#create-the-user-assigned-managed-identity). Söz dizimi aşağıdaki gibidir:
@@ -294,13 +296,13 @@ Azure PowerShell şablonları dağıtmak için kullanılabilir.
 
 1. Hizmet topolojisini dağıtmak için betiği çalıştırın.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location "$location"
     
     # Create the service topology
     New-AzureRmResourceGroupDeployment `
@@ -317,7 +319,7 @@ Azure PowerShell şablonları dağıtmak için kullanılabilir.
 
 3. <a id="deploy-the-rollout-template"></a>Dağıtım şablonu dağıtın:
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
@@ -327,19 +329,60 @@ Azure PowerShell şablonları dağıtmak için kullanılabilir.
 
 4. Aşağıdaki PowerShell betiğini kullanarak piyasaya çıkarma ilerleme durumunu kontrol edin:
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
-        -Name $rolloutName
+        -Name $rolloutName `
+        -Verbose
     ```
 
-    Bu cmdlet'in çalıştırılabilmesi için Deployment Manager PowerShell cmdlet'lerinin yüklü olması gerekir. Önkoşullara bakın.
+    Bu cmdlet'in çalıştırılabilmesi için Deployment Manager PowerShell cmdlet'lerinin yüklü olması gerekir. Önkoşullara bakın. Verbose anahtar tamamını görebilmek için kullanılabilir çıktı.
 
     Aşağıdaki örnekte çalışma durumu gösterilmektedir:
     
     ```
+    VERBOSE: 
+    
+    Status: Succeeded
+    ArtifactSourceId: /subscriptions/<AzureSubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
+    BuildVersion: 1.0.0.0
+    
+    Operation Info:
+        Retry Attempt: 0
+        Skip Succeeded: False
+        Start Time: 03/05/2019 15:26:13
+        End Time: 03/05/2019 15:31:26
+        Total Duration: 00:05:12
+    
+    Service: adm0925ServiceEUS
+        TargetLocation: EastUS
+        TargetSubscriptionId: <AzureSubscriptionID>
+    
+        ServiceUnit: adm0925ServiceEUSStorage
+            TargetResourceGroup: adm0925ServiceEUSrg
+    
+            Step: Deploy
+                Status: Succeeded
+                StepGroup: stepGroup3
+                Operation Info:
+                    DeploymentName: 2F535084871E43E7A7A4CE7B45BE06510adm0925ServiceEUSStorage
+                    CorrelationId: 0b6f030d-7348-48ae-a578-bcd6bcafe78d
+                    Start Time: 03/05/2019 15:26:32
+                    End Time: 03/05/2019 15:27:41
+                    Total Duration: 00:01:08
+                Resource Operations:
+    
+                    Resource Operation 1:
+                    Name: txq6iwnyq5xle
+                    Type: Microsoft.Storage/storageAccounts
+                    ProvisioningState: Succeeded
+                    StatusCode: OK
+                    OperationId: 64A6E6EFEF1F7755
+
+    ...
+
     ResourceGroupName       : adm0925rg
     BuildVersion            : 1.0.0.0
     ArtifactSourceId        : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout

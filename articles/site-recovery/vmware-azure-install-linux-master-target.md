@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 28b28dc15809aa5d37eb9347ff3bc7eecccc9a20
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217994"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452717"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Bir Linux ana hedef sunucusu yeniden çalışma için yükleyin
 Sanal makinelerinizi azure'a yük devretme sonra sanal makineleri şirket içi siteye geri dönebilirsiniz. Yeniden çalışma için sanal makine azure'dan şirket içi siteye yeniden korumanız gerekir. Bu işlem için trafiği almak için bir şirket içi ana hedef sunucusu gerekir. 
@@ -62,7 +62,7 @@ Aşağıdaki desteklenen Ubuntu çekirdekler desteklenir.
 
 Aşağıdaki adımlar Ubuntu 16.04.2 64-bit işletim sistemini yüklemek için.
 
-1.   Git [indirme bağlantısı](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), en yakın yansıtma anddownload Ubuntu 16.04.2 en az 64 bit ISO seçin.
+1.   Git [indirme bağlantısı](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), en yakın yansıtma seçin ve bir Ubuntu 16.04.2 en az 64 bit ISO indirin.
 DVD sürücüsüne bir Ubuntu 16.04.2 en az 64 bit ISO tutun ve sistem başlatın.
 
 1.  Seçin **İngilizce** olarak tercih edilen dili ve ardından **Enter**.
@@ -287,7 +287,6 @@ Bekletme diski oluşturmak için aşağıdaki adımları kullanın:
 2. Yapılandırma sunucusunun IP adresini not edin. Ana hedef sunucusu yükleme ve yapılandırma sunucusu ile sunucuyu kaydetmek için aşağıdaki komutu çalıştırın.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 

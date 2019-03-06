@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 1a55a4e3f25bc5afef30e325ccdd38615ba7cc2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: de9c79d09c400aa95775b332580c3658c349ede7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820751"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449096"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing yerel iş arama API'si v7 başvurusu
 
@@ -73,7 +73,7 @@ Aşağıdaki sorgu parametreleri istek içerebilir. Gerekli Parametreler için g
   
 |Ad|Değer|Type|Gerekli|  
 |----------|-----------|----------|--------------|
-|<a name="count" />Sayısı|Sayısını döndürmek için tarafından belirtilen dizin ile başlayan resuts `offset` parametresi.|String|Hayır|   
+|<a name="count" />Sayısı|Sonuçları döndürmek için tarafından belirtilen dizin ile başlayan sayısını `offset` parametresi.|String|Hayır|   
 |<a name="localCategories" />localCategories|Arama iş kategoriye göre tanımlayan seçenekleri listesi.  Bkz: [yerel iş kategorilerde arama](local-categories.md)|String|Hayır|  
 |<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br />Olası Pazar değerler listesi için Pazar kodları bölümüne bakın.<br /><br /> **NOT:** Yerel iş arama API'si şu anda yalnızca tr destekler-bize pazara çıkma sürelerini ve dili.<br /><br />|String|Evet|
 |<a name="offset"/>uzaklık|Tarafından belirtilen sonuçları başlamak için dizini `count` parametresi.|Tamsayı|Hayır|  
@@ -154,7 +154,7 @@ Bir restoran veya otel gibi yerel bir iş hakkında bilgileri tanımlar.
 |Ad|Değer|Type|  
 |----------|-----------|----------|  
 |_type|Tür ipucu, aşağıdakilerden birini ayarlanabilir:<br /><br /><ul><li>Otel</li><li>LocalBusiness<br /></li><li>Restoran</ul><li>|String|  
-|Adresi|Varlığın bulunduğu, posta adresi.|PostalAddress|  
+|adres|Varlığın bulunduğu, posta adresi.|PostalAddress|  
 |entityPresentationInfo|Varlığın türü belirlemek için kullanabileceğiniz ipuçları gibi varlık hakkında ek bilgi. Örneğin, bir restoran veya otel olup. `entityScenario` Alan ListItem için ayarlanır.|entityPresentationInfo|  
 |ad|Varlığın adı.|String|  
 |Telefon|Varlığın telefon numarası.|String|  

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: tulasim
-ms.openlocfilehash: d41c7a24d72cdafac953e0215a6cbd2d9e8bba01
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316481"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433119"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Veri kaynakları için soru-cevap Oluşturucu içeriği
 
@@ -25,7 +25,7 @@ Aşağıdaki tabloda, soru-cevap Oluşturucu tarafından desteklenen içeriği v
 
 |Kaynak Türü|İçerik Türü| Örnekler|
 |--|--|--|
-|URL'si|SSS<br> (Düz, bölümleri veya konuları giriş sayfası ile)<br>Destek sayfaları <br> (Sorun giderme makaleleri vb. tek sayfalı nasıl yapılır makaleleri,.)|[Düz SSS](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[SSS bağlantılarla](https://www.microsoft.com/software-download/faq),<br> [Konuları giriş sayfası ile ilgili SSS](https://support.microsoft.com/products/windows?os=windows-10)<br>[Destek makalesi](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|URL'si|SSS<br> (Düz, bölümleri veya konuları giriş sayfası ile)<br>Destek sayfaları <br> (Sorun giderme makaleleri vb. tek sayfalı nasıl yapılır makaleleri,.)|[Düz SSS](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[SSS bağlantılarla](https://www.microsoft.com/software-download/faq),<br> [Konuları giriş sayfası ile ilgili SSS](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Destek makalesi](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
 |PDF / DOC|Sık sorulan sorular<br> Ürün el ile<br> Broşür<br> Kağıt<br> El İlanı İlkesi<br> Destek Kılavuzu<br> Yapılandırılmış soru-cevap<br> VS.|[QnA.doc yapılandırılmış](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Örnek Ürün Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Örnek Yarı structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Beyaz paper.pdf örneği](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
 |Excel|Yapılandırılmış soru-cevap dosyası<br> (RTF dahil olmak üzere HTML desteği)|[Soru-cevap FAQ.xls örneği](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Yapılandırılmış soru-cevap dosyası|[Örnek chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
