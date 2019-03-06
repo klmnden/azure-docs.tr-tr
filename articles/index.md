@@ -292,7 +292,7 @@ Azure DevOps Projeleri </a>
                                                 <h3>Microsoft Learn ile becerilerinizi geliştirin</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
+                                                        <a class="barLink" href="/learn/modules/tour-azure-portal/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
 Azure hizmetleri ve özellikleri turuna katılın </a>
                                                     </li>
@@ -1021,6 +1021,21 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                             <a href="/azure/migrate/migrate-overview">
                                                 <img src="media/index/azure-migrate.svg" alt="" />
                                                 <p>Azure Geçişi</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Karma Gerçeklik</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/digital-twins/">
+                                                <img src="media/index/digital_twin.svg" alt="" />
+                                                <p>Azure Digital Twins</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/spatial-anchors/">
+                                                <img src="https://azure.microsoft.com/patterns/styles/glyphs-icons/hololens.svg" alt="" />
+                                                <p>Azure Spatial Anchors</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2475,7 +2490,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/databox-family/" data-linktype="absolute-path">
+                                <a href="/azure/databox-family/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2494,7 +2509,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/avere-vfxt/" data-linktype="absolute-path">
+                                <a href="/azure/avere-vfxt/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5788,6 +5803,49 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure Çin 21Vianet</h3>
                                                     <p>Çin hükümeti tarafından belirlenen ilkeler ve veri işleme düzenlemeleriyle uyumlu bir biçimde uygulama oluşturun ve barındırın</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#mixed">Karma Gerçeklik</a>
+                        <ul id="mixed" class="cardsA">
+                            <li>
+                                <a href="/azure/digital-twins/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/digital_twin.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Digital Twins</h3>
+                                                    <p>Yeni nesil IoT uzamsal zeka çözümleri oluşturun</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/spatial-anchors/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://azure.microsoft.com/patterns/styles/glyphs-icons/hololens.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Spatial Anchors</h3>
+                                                    <p>Mekansal farkındalığa dayalı, çok kullanıcılı karma gerçeklik deneyimleri oluşturun</p>
                                                 </div>
                                             </div>
                                         </div>

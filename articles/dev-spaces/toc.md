@@ -25,6 +25,9 @@
 #### [2 - Birden çok hizmetle geliştirme](multi-service-nodejs.md)
 #### [3 - Ekip geliştirme](team-development-nodejs.md)
 
+## Kavramlar
+### [Geliştirme Alanları Nasıl Çalışır?](how-dev-spaces-works.md)
+
 ## Nasıl yapılır
 ### [Azure Cloud Shell kullanarak Kubernetes kümesi oluşturma](how-to/create-cluster-cloud-shell.md)
 ### [Azure Dev Spaces paylaşma](how-to/share-dev-spaces.md)

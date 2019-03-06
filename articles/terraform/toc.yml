@@ -40,6 +40,22 @@ items:
       href: terraform-create-vm-scaleset-network-disks-hcl.md
     - name: Packer özel görüntüsünden sanal makine ölçek kümesi sağlama
       href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: Ağlar
+    items:
+    - name: Hub ve bağlı bileşen topolojisi
+      items:
+      - name: 1. Hub ve bağlı bileşen topolojisi oluşturma
+        href: terraform-hub-spoke-introduction.md
+      - name: 2. Şirket içi sanal ağ oluşturma
+        href: terraform-hub-spoke-on-prem.md
+      - name: 3. Hub sanal ağı oluşturma
+        href: terraform-hub-spoke-hub-network.md
+      - name: 4. Hub sanal ağ gereci oluşturma
+        href: terraform-hub-spoke-hub-nva.md
+      - name: 5. Bağlı bileşen ağı oluşturma
+        href: terraform-hub-spoke-spoke-network.md
+      - name: 6. Ağ topolojisi bağlantısını doğrulama
+        href: terraform-hub-spoke-validation.md
   - name: Araçlar
     items:
     - name: Terraform Visual Studio Code uzantısını yükleme
@@ -72,9 +88,9 @@ items:
     href: https://azure.microsoft.com/solutions/devops/terraform/
   - name: Azure Yol Haritası
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 352b6bcf9bbce9e38ba2b048d1b8997896870f24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f37cb15bccf0fe07ace24d3277015a69b9881091
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750248"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404833"
