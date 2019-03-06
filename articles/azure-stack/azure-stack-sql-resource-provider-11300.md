@@ -16,12 +16,12 @@ ms.date: 1/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 1/09/2019
-ms.openlocfilehash: aaa4dc48f237a4647cfde330e40eda91eeb1388d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 176cf22957725927f9705985bf5471a1c5e4caad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768741"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436332"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL kaynak sağlayıcısı 1.1.30.0 sürüm notları
 
@@ -49,7 +49,7 @@ Azure Stack SQL kaynak Sağlayıcısı'nın bu sürümü, aşağıdaki geliştir
 
 ### <a name="fixes"></a>Düzeltmeleri
 
-- **SQL kaynak sağlayıcısı, Azure Stack PowerShell Uyumluluk**. SQL kaynak sağlayıcısı, AzureRM 1.3.0 uyum sağlamak için Azure Stack 2018-03-01-karma PowerShell profili ile çalışma ve daha sonra güncelleştirildi.
+- **SQL kaynak sağlayıcısı Azure Stack PowerShell Uyumluluk**. SQL kaynak sağlayıcısı, AzureRM 1.3.0 uyum sağlamak için Azure Stack 2018-03-01-karma PowerShell profili ile çalışma ve daha sonra güncelleştirildi.
 
 - **SQL oturum açma değişiklik parola dikey**. Burada parola değişikliği parola dikey pencerede değiştirilemez bir sorun düzeltildi. Parola kaldırılan bağlantılardan değişiklik bildirimleri.
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 220a95f1bc95a8866a459eb878047e7f47920bd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4652f23bdf30e1b9e582cd1e83dc95f7716c8394
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175103"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436417"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C özel bir ilke doğrulama teknik profil tanımlama
 
@@ -52,7 +52,7 @@ Otomatik olarak onaylanan bir teknik profili, bazıları veya tümü, çıkış 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | ReferenceId | Evet | İlke veya üst ilkede zaten tanımlanmış bir teknik profili tanımlayıcısı. |
-|ContinueOnError|Hayır| Herhangi bir sonraki doğrulama teknik profil doğrulama bu validaiton teknik profili, bir hata harekete geçirirse sürmelidir olup olmadığını belirten. Olası değerler: `true` veya `false` (varsayılan, daha fazla doğrulama profilleri işlenmesini durdurur ve bir hata döndürdü). |
+|ContinueOnError|Hayır| Bu doğrulama teknik profili, bir hata harekete geçirirse herhangi bir sonraki doğrulama teknik profil doğrulama sürmelidir olup olmadığını belirten. Olası değerler: `true` veya `false` (varsayılan, daha fazla doğrulama profilleri işlenmesini durdurur ve bir hata döndürdü). |
 |ContinueOnSuccess | Hayır | Herhangi bir sonraki doğrulama profil doğrulama başarılı olursa bu doğrulama teknik profili sürmelidir olup olmadığını belirten. Olası değerler: `true` veya `false`. Varsayılan `true`, daha fazla doğrulama profilleri işlenmesini devam edeceği anlamına gelir. |
 
 **ValidationTechnicalProfile** öğesi aşağıdaki öğeyi içerir:
@@ -65,7 +65,7 @@ Otomatik olarak onaylanan bir teknik profili, bazıları veya tümü, çıkış 
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Tür | Evet | Onay veya için önkoşul gerçekleştirmek için sorgu türü. Her iki `ClaimsExist` kullanıcının geçerli talep kümesinde belirtilen talep varsa, eylemlerin gerçekleştirildiğinden emin olun belirtilen veya `ClaimEquals` belirtilen talep varsa ve değeri eşittir Eylemler gerçekleştirilmelidir belirtilir Belirtilen değer. |
+| Type | Evet | Onay veya için önkoşul gerçekleştirmek için sorgu türü. Her iki `ClaimsExist` kullanıcının geçerli talep kümesinde belirtilen talep varsa, eylemlerin gerçekleştirildiğinden emin olun belirtilen veya `ClaimEquals` belirtilen talep varsa ve değeri eşittir Eylemler gerçekleştirilmelidir belirtilir Belirtilen değer. |
 | ExecuteActionsIf | Evet | Test true veya false olursa önkoşuluna eylemlerin gerçekleştirilmesi gerekip gerekmediğini gösterir. |
 
 **Önkoşulu** öğesi öğeleri içerir:

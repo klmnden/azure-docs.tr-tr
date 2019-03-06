@@ -9,12 +9,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 6444a49a95ee53fb624501bc464f6378423e6e26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2f7de10eeb65b36823d6c4cc84b0032913638889
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863032"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444608"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Öğretici: Bing görsel arama için SDK ile görüntü kırpmaC#
 
@@ -28,7 +28,7 @@ Bu öğreticide gösterilmiştir nasıl yapılır:
 > * Bing görsel arama SDK'sını kullanarak bir istek gönderin
 > * Bir alanı Bing görsel arama aramak için görüntü kırpma
 > * Yanıta işlemek ve alma
-> * Eylem öğeleri URL'lerini resposne içinde Bul
+> * Eylem öğeleri URL'leri yanıtta bulunamadı
 
 ## <a name="prerequisites"></a>Önkoşullar
 

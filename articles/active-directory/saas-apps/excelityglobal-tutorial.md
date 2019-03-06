@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/28/2019
+ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 60d004413fbdf01b271231f754aef5aa46b48763
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: a65f326498427f5180baa677ea3a22d1f5207e36
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196257"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406244"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Öğretici: ExcelityGlobal ile Azure Active Directory Tümleştirme
 
@@ -106,19 +106,19 @@ Azure AD çoklu oturum açma ile ExcelityGlobal yapılandırmak için aşağıda
 
     a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
-    **Üretim Envoronment için** : `https://ess.excelityglobal.com`
+    **Üretim ortamı için** : `https://ess.excelityglobal.com`
 
-    **Korumalı alan Envoronment için** : `https://s6.excelityglobal.com`
+    **Sanal ortam için** : `https://s6.excelityglobal.com`
 
     b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
-    **Üretim Envoronment için** : `https://ess.excelityglobal.com/ACS`
+    **Üretim ortamı için** : `https://ess.excelityglobal.com/ACS`
 
-    **Korumalı alan Envoronment için** : `https://s6.excelityglobal.com/ACS`
+    **Sanal ortam için** : `https://s6.excelityglobal.com/ACS`
 
 5. ExcelityGlobal uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. ExcelityGlobal uygulama bekliyor **NameIdentifier** ile eşlenecek **user.mail**tıklayarak özellik eşlemesi düzenlemeniz gerekir böylece **Düzenle** simgesi ve değişiklik öznitelik eşlemesi.
  
-    ![Görüntü](common/edit-attribute.png)
+    ![Görüntü](common/edit-attribute.png)
 
 6. İçinde **SAML imzalama sertifikası** bölümünde **Düzenle** açmak için düğmeyi **SAML imzalama sertifikası** iletişim.
 
@@ -140,7 +140,7 @@ Azure AD çoklu oturum açma ile ExcelityGlobal yapılandırmak için aşağıda
 
 ### <a name="configure-excelityglobal-single-sign-on"></a>ExcelityGlobal tek oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **ExcelityGlobal** tarafını göndermek için ihtiyacınız **parmak izi değerini** ve uygun Azure portalına kopyalanan URL'lerden [ExcelityGlobal Destek ekibine](mailto:yashwanths@quinnox.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **ExcelityGlobal** tarafını göndermek için ihtiyacınız **parmak izi değerini** ve uygun Azure portalına kopyalanan URL'lerden [ExcelityGlobal Destek ekibine](https://www.excelityglobal.com/contact-us/our-locations/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -195,7 +195,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için ExcelityGlobal erişim v
 
 ### <a name="create-excelityglobal-test-user"></a>ExcelityGlobal test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon ExcelityGlobal içinde adlı bir kullanıcı oluşturun. Çalışmak [ExcelityGlobal Destek ekibine](mailto:yashwanths@quinnox.com) ExcelityGlobal platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon ExcelityGlobal içinde adlı bir kullanıcı oluşturun. Çalışmak [ExcelityGlobal Destek ekibine](https://www.excelityglobal.com/contact-us/our-locations/) ExcelityGlobal platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 

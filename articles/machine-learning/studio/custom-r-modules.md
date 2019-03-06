@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 8115994d1e4ac116a410cfa69824dc800717ab6f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9aebe878be97b489b460fff96001e2908cdb7b87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819263"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432388"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Özel R modülleri Azure Machine Learning Studio'da tanımlayın
 
@@ -123,7 +123,7 @@ Modül öğeleri karakter sınırları için kuralları:
 * İçeriği **açıklama** öğesi 128 karakterden uzun olamaz.
 * İçeriği **sahibi** öğesi 32 karakter uzunluğunda olamaz.
 
-Bir modülün sonuçları belirleyici olabilir veya nondeterministic.* * varsayılan olarak, tüm modüllerin belirlenimci olarak değerlendirilir. Diğer bir deyişle, değişmeyen bir giriş parametreleri ve veri kümesi göz önünde bulundurulduğunda, modül aynı sonuçları eacRAND veya bir functionh çalıştırıldığında döndürmelidir. Bu davranışı göz önünde bulundurulduğunda, Azure Machine Learning Studio, bir parametre, belirlenimci olarak işaretlenmiş Modüller yalnızca yeniden çalıştırır veya giriş veri değişti. Önbelleğe alınan sonuçları döndüren denemeleri kadar daha hızlı bir şekilde yürütülmesini sağlar.
+Bir modülün sonuçları belirleyici olabilir veya nondeterministic.* * varsayılan olarak, tüm modüllerin belirlenimci olarak değerlendirilir. Diğer bir deyişle, değişmeyen bir giriş parametreleri ve veri kümesi göz önünde bulundurulduğunda, modül aynı sonuçları eacRAND veya bir işlevi çalıştırıldığında döndürmelidir. Bu davranışı göz önünde bulundurulduğunda, Azure Machine Learning Studio, bir parametre, belirlenimci olarak işaretlenmiş Modüller yalnızca yeniden çalıştırır veya giriş veri değişti. Önbelleğe alınan sonuçları döndüren denemeleri kadar daha hızlı bir şekilde yürütülmesini sağlar.
 
 RAND veya geçerli bir tarih veya saat döndüren bir işlev gibi belirleyici işlevi vardır. Modülünüzün belirleyici olmayan bir işlev kullanıyorsa, isteğe bağlı olarak ayarlayarak, modülün belirleyici olduğunu belirtebilirsiniz **IsDeterministic** özniteliğini **FALSE**. Deneme çalıştırıldığında, parametreleri ve Giriş modülü değişip değişmediğini bile modülü yeniden çalıştırılır, oluşturmasını sağlar. 
 

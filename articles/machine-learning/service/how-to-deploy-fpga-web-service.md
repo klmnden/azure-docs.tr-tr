@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7403d4f791151b167f03ee79c30623bbd644008
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: a82c3b3aef59ef53e5054f2beb2880e8a01dc8fa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100731"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448669"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile bir FPGA üzerinde bir web hizmeti olarak model dağıtma
 
@@ -51,7 +51,7 @@ Bir model üzerinde bir web hizmeti olarak dağıtabilirsiniz [alan programlanab
 Kolaylık olması için, bu öğretici bir Jupyter notebook olarak sağlanır. Burada veya çalışma kodu izler [Hızlı not defteri](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
 
 ## <a name="create-and-deploy-your-model"></a>Modelinizi oluşturup
-Girdi görüntüsünün, özellik kazandırın ResNet-50 üzerinde bir FPGA kullanarak önceden işleme için işlem hattı oluşturma ve Imagenet veri kümesinde eğitim almış bir sınıflandırıcı aracılığıyla Özellikler'i çalıştırın.
+Girdi görüntüsünün önceden işlenir, ResNet-50 üzerinde bir FPGA kullanarak bir özelliği yapmak için bir işlem hattı oluşturma ve Imagenet veri kümesinde eğitim almış bir sınıflandırıcı aracılığıyla Özellikler'i çalıştırın.
 
 Yönergeleri izleyin:
 

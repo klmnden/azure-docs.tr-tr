@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 798cf405c222a443dbbd3a316d20c482daf4429f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b09282d3e897018aa6d5b2561f08d8eee0757d7a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563261"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455437"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Öğretici: Bir C IOT Edge modülü geliştirme ve sanal Cihazınızı dağıtma
 
@@ -137,7 +137,7 @@ C modülünüze sensör verilerini okumasını, bildirilen makine sıcaklığın
 
    4. **CMakeLists.txt** dosyasını kaydedin.
 
-   5. **modules** > **CModule** > **main.c** dosyasını açın. include deyimlerinin listesinin en altında JSON desteği için `parson.h` eklemek üzere yeni bir giriş oluşturun:
+   5. **modules** > **CModule** > **main.c** dosyasını açın. Listesinin altındaki deyimleri ekleyin, dahil etmek için yeni bir tane `parson.h` JSON desteği:
 
       ```c
       #include "parson.h"

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0760d850bdc6dab84722f00f1061d53f9b95cfcf
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 0d57c65c93ffcd6c4c5249a1e5effeb457ed1736
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912427"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440905"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Birden çok HDInsight kümesi ile bir Azure Data Lake Storage hesabını kullanın.
 
@@ -54,11 +54,11 @@ Dikkate alınması gereken bazı önemli noktalar.
 - İki düzey klasör yapısı (**/kümeleri/Finans/**) oluşturulmalı ve uygun izinlere sahip Data Lake Storage yönetici tarafından sağlanan **önce** kümeleri için depolama hesabı kullanarak. Bu yapı, küme oluşturulurken otomatik olarak oluşturulmaz.
 - Yukarıdaki örnek grubu ayarını önerir **/kümeleri/Finans** olarak **FINGRP** ve sorgulamasına **r-x** başlangıç klasörün tamamını hiyerarşisine FINGRP erişimi kök dizini. Bu, FINGRP üyelerinin kökünden başlayarak klasör yapısını gidebilirsiniz sağlar.
 - Farklı AAD hizmet sorumlusu altında kümeleri oluşturabilir, bu durumda **/kümeleri/Finans**, Yapışkan bit (belirlendiğinde **Finans** klasör) klasörleri bir hizmet sorumlusu tarafından oluşturulan sağlar tarafından silinemiyor.
-- İzinleri ve klasör yapısı yerinde olduğunda, HDInsight kümesi oluşturma işlemi bir kümeye özgü depolama loaction altında oluşturur **/kümeleri/Finans/**. Örneğin, depolama alanı için bir küme adı fincluster01 olabilir **/clusters/finance/fincluster01**. HDInsight kümesi tarafından oluşturulan klasörler için izinleri ve sahiplik tabloda burada gösterilir.
+- İzinleri ve klasör yapısı yerinde olduğunda, HDInsight kümesi oluşturma işlemi bir kümeye özgü depolama konumu altında oluşturur **/kümeleri/Finans/**. Örneğin, depolama alanı için bir küme adı fincluster01 olabilir **/clusters/finance/fincluster01**. HDInsight kümesi tarafından oluşturulan klasörler için izinleri ve sahiplik tabloda burada gösterilir.
 
     |Klasör  |İzinler  |Sahip olan kullanıcı  |Sahip olan grup  | Adlandırılmış kullanıcılar | Adlandırılmış kullanıcı izinleri | Adlandırılmış Grup | Adlandırılmış grup izinleri |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/Clusters/finanace/fincluster01 | rwxr-x---  |Hizmet sorumlusu |FINGRP  |- |-  |-   |-  | 
+    |/Clusters/finanace/fincluster01 | rwxr-x---  |Hizmet Sorumlusu |FINGRP  |- |-  |-   |-  | 
    
 
 

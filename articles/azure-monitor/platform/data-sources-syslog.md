@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: fb59740289caffaf8325aa75aaf8ae649611b347
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fa94bffc05879be9d6bbaaa7cd884c36ffe7e0b8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991642"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451298"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure İzleyici'de Syslog veri kaynakları
 Syslog Linux için ortak olan olay günlüğü protokolüdür.  Uygulamaları, yerel makinede depolanan veya bir Syslog Toplayıcıya teslim olabilir iletileri gönderir.  Linux için Log Analytics aracısını yüklendiğinde, aracıya ileti iletmek için yerel Syslog daemon'u yapılandırır.  Aracı, ardından ilgili kaydın oluşturulduğu Azure İzleyici için ileti gönderir.  
@@ -205,6 +205,6 @@ Aşağıdaki tabloda, Syslog kayıtları almak günlük sorguları farklı örne
 | Syslog &#124; Summarize aggregatedvalue = count() tesis tarafından |Syslog kayıtlarını Say tesis tarafından. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [queriesi oturum](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
+* Hakkında bilgi edinin [oturum sorguları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
 * Kullanım [özel alanlar](../../azure-monitor/platform/custom-fields.md) syslog kayıtları verilerinden ayrı ayrı alanlara ayrıştırılamıyor.
 * [Linux aracıları yapılandırma](../../azure-monitor/learn/quick-collect-linux-computer.md) diğer veri türlerini, toplanacak.

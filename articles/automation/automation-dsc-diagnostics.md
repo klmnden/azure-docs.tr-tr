@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 33b3ed52d198d162af666e0f38066ba936d7874f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7eb841a0f4a34e708734cf433fac82ab35ef35b6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819829"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451306"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Azure Otomasyonu durumu Azure İzleyici günlüklerine veri raporlama yapılandırma ilet
 
@@ -97,7 +97,7 @@ Bir uyarı kuralı oluşturmak için bir günlük araması uyarı çağırması 
 
    Günlüklerini birden fazla Otomasyon hesabını veya aboneliğini çalışma alanınıza ayarladıysanız, uyarılarınızı aboneliği ve Automation hesabı göre gruplandırabilirsiniz.  
    Otomasyon hesabı adı DscNodeStatusData arama kaynak alanından türetilir.  
-1. Açmak için **oluşturma kuralı** ekranında **+ yeni uyarı kuralı** sayfanın üstünde. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz. [bir uyarı rulelert oluşturma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+1. Açmak için **oluşturma kuralı** ekranında **+ yeni uyarı kuralı** sayfanın üstünde. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz. [uyarı kuralı oluşturma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Tüm düğümlerde başarısız DSC kaynakları Bul
 

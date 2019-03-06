@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 85a326c97ecf8476bdd802a718e082d0e5c7a89c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467374"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454111"
 ---
 # <a name="best-practices-for-autoscale"></a>Otomatik ölçeklendirme için en iyi uygulamalar
 Azure İzleyici otomatik ölçeklendirme için yalnızca geçerlidir [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), ve [APIManagementHizmetleri](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -38,7 +38,7 @@ En az olan bir ayarı varsa = 2, en fazla = 2 ve geçerli örnek sayısı, 2, he
 Bir değere üstünde veya altında en fazla örnek sayısını el ile güncelleştirirseniz, otomatik ölçeklendirme altyapısı dön (üstündeyse) en düşük veya en fazla (yüksekse) otomatik olarak ölçeklendirir. Örneğin, 3 ile 6 arasındaki aralığı ayarlayın. Çalışan bir örneği varsa, otomatik ölçeklendirme altyapısı sonraki çalıştırılmasında üç örneğe ölçeklendirir. Sekiz örneklerine el ile ölçek kümesi, benzer şekilde, sonraki çalıştırma otomatik ölçeklendirme geri sonraki çalıştırılmasında altı örneklerinde ölçeklendirir.  Otomatik ölçeklendirme kurallarını da sıfırlama sürece, el ile ölçeklendirme geçicidir.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Her zaman bir artırma ve azaltma gerçekleştiren bir ölçek genişletme ve ölçeklendirme kural bileşimini kullanın
-Birleşimi yalnızca bir parçası kullanıyorsanız, otomatik ölçeklendirme yalnızca tek bir yönde (out veya in Ölçek) maksimum ulaştığında veya profilinde tanımlanan, en düşük örneği sayısı kadar işlem yapar. Bu en iyi değil, ideal olarak, kaynağınızın kullanılabilir olmasını sağlamak için yüksek kullanım zamanlarda ölçeği artırma işleminin istediğiniz. Benzer şekilde, bazen ölçeğini kaynağınızı istediğiniz düşük kullanımını bu nedenle, maliyet tasarrufu sağlayabilir.
+Birleşimi yalnızca bir parçası kullanıyorsanız, otomatik ölçeklendirme yalnızca tek bir yönde (out veya in Ölçek) maksimum ulaştığında veya profilinde tanımlanan, en az örnek sayısı kadar işlem yapar. Bu en iyi değil, ideal olarak, kaynağınızın kullanılabilir olmasını sağlamak için yüksek kullanım zamanlarda ölçeği artırma işleminin istediğiniz. Benzer şekilde, bazen ölçeğini kaynağınızı istediğiniz düşük kullanımını bu nedenle, maliyet tasarrufu sağlayabilir.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Tanılama ölçümünüzün için uygun istatistiği seçin
 Tanılama ölçümlerini arasından seçim yapabilirsiniz *ortalama*, *Minimum*, *maksimum* ve *toplam* göre ölçeklendirmek için bir ölçüm olarak. En yaygın istatistiği *ortalama*.

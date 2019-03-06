@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e01b06b2031da20ee9349588bd4a7ee757fbc22c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d86dc27822c91bd6b2b1cb3ec53b07978061cc7d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173309"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437369"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Öğretici: RingCentral ile Azure Active Directory Tümleştirme
 
@@ -191,7 +191,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
 
     d. **Kaydet**’e tıklayın.
 
-    e. Gelen **2. adım** tıklayın **indirme** indirmek için **hizmet sağlayıcısı meta veri dosyası** ve bunu karşıya **temel SAML yapılandırma** bölümü polulate otomatik olarak **tanımlayıcı** ve **yanıt URL'si** Azure portalında değerleri.
+    e. Gelen **2. adım** tıklayın **indirme** indirmek için **hizmet sağlayıcısı meta veri dosyası** ve bunu karşıya **temel SAML yapılandırma** bölümü otomatik olarak doldurmak için **tanımlayıcı** ve **yanıt URL'si** Azure portalında değerleri.
 
     ![image](./media/ringcentral-tutorial/ringcentral6.png) 
 

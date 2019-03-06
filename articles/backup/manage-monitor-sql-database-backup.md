@@ -1,6 +1,6 @@
 ---
 title: Yönetme ve izleme Azure Backup tarafından yedeklenen bir Azure VM'de SQL Server veritabanlarını | Microsoft Docs
-description: Bu makalede Azure Backup ile desteklenen bir Azure sanal makinesinde çalışan SQL Server veritabanlarını geri yükleme
+description: Bu makalede, Azure Backup tarafından yedeklenir ve bir Azure sanal makinesinde çalışan SQL Server veritabanlarını geri yükleme.
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -8,42 +8,38 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 1c2ce0ba42f0bc3efd1dcc951113b05ab6941b98
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: da4264047830b21b3ac4dae723dd1fd2f9d7a8f4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430804"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432864"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Yönetme ve İzleme SQL Server veritabanlarını desteklenir 
 
 
-Tarafından yönetmek ve izlemek için bir Azure Backup kurtarma Hizmetleri yedeklenen bir Azure sanal makinesinde çalışan SQL Server veritabanlarını kasa için bu makalede, ortak görevler açıklanmaktadır. [Azure Backup](backup-overview.md) hizmeti. Görevler, işlerini ve Uyarıları izleme, durdurma ve veritabanı koruma sürdürülüyor, yedekleme işleri çalıştırma ve yedekleme VM'den kaydını da dahil olmak üzere.
+Tarafından kasası yönetme ve izleme, yedeklenir bir Azure Backup kurtarma Hizmetleri ve bir Azure sanal makine (VM) üzerinde çalışan SQL Server veritabanları için bu makalede, ortak görevler açıklanmaktadır. [Azure Backup](backup-overview.md) hizmeti. İşlerini ve Uyarıları izleme, durdurun ve veritabanını korumayı sürdürmek, yedekleme işlerinin çalıştırılması ve bir sanal makine yedeklemelerinden kaydını öğreneceksiniz.
 
 
 > [!NOTE]
-> Azure Backup ile bir Azure sanal makinesinde çalışan SQl Server veritabanlarının yedekleme şu anda genel Önizleme aşamasındadır.
+> Azure Backup ile bir Azure sanal makinesinde çalışan SQL Server veritabanlarını yedekleme şu anda genel Önizleme aşamasındadır.
 
 
-' Ndaki yönergeleri izleyin, SQL Server veritabanları için yapılandırılmış bir yedekleme henüz yapmadıysanız TIF [bu makalede](backup-azure-sql-database.md)
+SQL Server veritabanlarınız için yedeklemeler henüz yapılandırmadıysanız, bkz. [Azure vm'lerde SQL Server veritabanlarını yedekleme](backup-azure-sql-database.md)
 
-## <a name="monitor-backup-jobs"></a>Yedekleme işleri İzle
+##  <a name="monitor-manual-backup-jobs-in-the-portal"></a>Portalında el ile yedekleme işlerini izleme
 
-###  <a name="monitor-ad-hoc-jobs-in-the-portal"></a>Portalda geçici işlerini izleme
-
-Azure yedekleme el ile tetiklenen tüm işleri gösteren **yedekleme işleri** Portal'da, bulma ve veritabanları ve yedekleme ve geri yükleme işlemleri kaydediliyor.
+Azure yedekleme el ile tetiklenen tüm işleri gösteren **yedekleme işleri** portalı. Bkz. Bu portal INCLUDE veritabanı bulma ve kaydetme ve yedekleme ve geri yükleme işlemlerini işler.
 
 ![Yedekleme işleri portalı](./media/backup-azure-sql-database/jobs-list.png)
 
 > [!NOTE]
-> Zamanlanan yedekleme işlerinin olmayan görünen **yedekleme işleri** portalı. Sonraki bölümde açıklandığı gibi zamanlanmış yedekleme işleri izlemek için SQL Server Management Studio'yu kullanın.
+> **Yedekleme işleri** portalı zamanlanan yedekleme işlerinin Göster değil. Sonraki bölümde açıklandığı gibi zamanlanmış yedekleme işleri izlemek için SQL Server Management Studio'yu kullanın.
 >
 
-### <a name="monitor-backup-jobs-with-sql-server-management-studio"></a>SQL Server Management Studio ile yedekleme işleri İzle 
+## <a name="monitor-scheduled-backup-jobs-in-sql-server-management-studio"></a>SQL Server Management Studio'da zamanlanmış yedekleme işlerini izleme 
 
-Azure Backup, SQL yerel API'lerin tüm yedekleme işlemleri için kullanır.
-
-Tüm iş bilgileri getirmek için yerel API kullanan [SQL yedek kümesi tablo](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) msdb veritabanında.
+Azure Backup, SQL yerel API'lerin tüm yedekleme işlemleri için kullanır. Tüm iş bilgileri getirmek için yerel API kullanan [SQL yedek kümesi tablo](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) msdb veritabanında.
 
 Aşağıdaki örnekte adlı bir veritabanı için tüm yedekleme işleri getiren bir sorgudur **DB1**. Gelişmiş izleme sorgu özelleştirin.
 
@@ -70,21 +66,21 @@ backup_size AS BackupSizeInBytes
 
 ## <a name="view-backup-alerts"></a>Yedekleme Uyarıları görüntüle
 
-15 dakikada bir günlüğü yedeklerini meydana geldiği için yedekleme işlerini izleme can sıkıcı olabilir. Azure yedekleme ile e-posta uyarıları izleme kolaylaştırır.
+15 dakikada bir günlüğü yedeklerini meydana geldiği için yedekleme işlerini izleme can sıkıcı olabilir. Azure Backup e-posta uyarıları göndererek izleme kolaylaştırır. E-posta uyarıları şunlardır:
 
-- Tüm yedekleme hataları için uyarıları tetiklenir.
-- Uyarılar veritabanı düzeyinde hata koduna göre birleştirilir.
-- Yalnızca ilk yedekleme hatası için bir veritabanı için bir e-posta uyarı gönderilir. 
+- Tüm yedekleme hataları için tetiklenir.
+- Veritabanı düzeyinde hata koduna göre birleştirilir.
+- Yalnızca bir veritabanının ilk yedekleme hatası için gönderilir. 
 
-Yedekleme uyarıları izlemek için:
+Veritabanı yedekleme uyarıları izlemek için:
 
-1. Azure aboneliğinizde oturum açın [Azure portalında](https://portal.azure.com) veritabanı uyarıları izlemek için.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Kasa panosunda seçin **uyarıları ve olayları**.
+1. Kasa panosunda seçin **uyarıları ve olayları**.
 
    ![Uyarıları ve olayları seçin](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
 
-4. İçinde **uyarıları ve olayları**seçin **yedekleme uyarıları**.
+1. İçinde **uyarıları ve olayları**seçin **yedekleme uyarıları**.
 
    ![Yedekleme uyarıları seçin](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
 
@@ -93,49 +89,50 @@ Yedekleme uyarıları izlemek için:
 Çeşitli şekillerde SQL Server veritabanında yedekleme durdurabilirsiniz:
 
 * Gelecek tarihli tüm yedekleme işlerini durdurma ve tüm kurtarma noktalarını silin.
-* Gelecek tarihli tüm yedekleme işlerini durdurma ama kurtarma noktaları olduğu gibi bırakır.
+* Gelecek tarihli tüm yedekleme işlerini durdurma ve kurtarma noktalarını olduğu gibi bırakır.
 
-Şunlara dikkat edin:
+Kurtarma noktalarını bırakmak isterseniz bu ayrıntıları göz önünde bulundurun:
 
-Kurtarma noktalarını değiştirmeden bırakırsanız, noktaları yedekleme ilkesine uygun olarak temizlenir. Tüm kurtarma noktalarını temizlenir kadar korumalı örnek ve tüketilen depolama alanı için ücret. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/backup/) fiyatlandırma hakkında daha fazla.
-- Süreleri dolduğunda bekletme ilkesi uyarınca olsa da, Kurtarma noktaları olduğu gibi bırakın, açıkça yedekleme verilerini silene kadar Azure yedekleme her zaman bir son kurtarma noktasını korur.
-- Durdurma yedekleme olmadan bir veri kaynağını silerseniz, yeni yedeklemeler başarısız olmaya başlar. Yine, eski kurtarma noktalarını ilkesine göre dolacak, ancak yedeklemeyi Durdur veriler silinene kadar her zaman bir son kurtarma noktası korunur.
-- Otomatik korumayı devre dışı kadar otomatik koruma için etkin bir veritabanı için yedekleme durdurulamıyor.
+* Yedekleme ilkesine göre tüm kurtarma noktalarını çıkmadan temizlenir. 
+* Tüm kurtarma noktalarını temizlenir kadar korumalı örnek ve tüketilen depolama alanı için ücret ödersiniz. Daha fazla bilgi için [Azure Backup fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/).
+* Yedekleme verilerini silene kadar azure yedekleme, bir son kurtarma noktası her zaman korur. 
+* Yedeklemeleri durdurmadan bir veri kaynağını silerseniz, yeni yedeklemeler başarısız olur. 
+* Veritabanınız için autoprotection etkinleştirilirse, autoprotection devre dışı bırakılmadığı sürece yedeklemeleri durdurulamıyor.
 
 Bir veritabanı için korumayı durdurmak için:
 
 1. Kasa panosunda altında **kullanım**seçin **yedekleme öğeleri**.
 
-    ![Yedekleme öğeleri menüsünü açın](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
-
-2. İçinde **Yedekleme Yönetimi türü**seçin **Azure VM'deki SQL**.
+1. Altında **Yedekleme Yönetimi türü**seçin **Azure VM'deki SQL**.
 
     ![Azure VM'de SQL seçin](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
 
-3. Korumayı durdurmak istediğiniz veritabanını seçin.
+1. Korumayı durdurmak istediğiniz veritabanını seçin.
 
     ![Korumayı durdurmak için veritabanını seçin](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
 
-5. Veritabanı menüsünde **yedeklemeyi Durdur**.
+1. Veritabanı menüsünde **yedeklemeyi Durdur**.
 
     ![Yedeklemeyi Durdur seçin](./media/backup-azure-sql-database/stop-db-button.png)
 
 
-6. İçinde **yedeklemeyi Durdur** menüsünde korumak veya veri silmeyi seçin. İsteğe bağlı olarak, nedeni ve açıklama belirtin.
+1. Üzerinde **yedeklemeyi Durdur** menüsünde korumak veya veri silmeyi seçin. İsterseniz, nedeni ve açıklama sağlayın.
 
-    ![Yedekleme menüsündeki Durdur](./media/backup-azure-sql-database/stop-backup-button.png)
+    ![Tutmak mı yedeklemeyi Durdur menüsünde verilerini sil](./media/backup-azure-sql-database/stop-backup-button.png)
 
-7. Tıklayın **yedeklemeyi Durdur** .
+1. Seçin **yedeklemeyi Durdur**.
 
   
 
-### <a name="resume-protection-for-a-sql-database"></a>SQL veritabanı korumasını sürdürme
+## <a name="resume-protection-for-a-sql-database"></a>SQL veritabanı korumasını sürdürme
 
-Varsa **yedekleme verilerini koru** seçeneği seçildiğinde SQL veritabanı için korumayı durdurduğunuzda, koruma devam edebilir. Koruma, yedekleme verileri korunur değildi, sürdüremezsiniz.
+Ne zaman durdurmanız SQL veritabanı için korumayı seçerseniz **yedekleme verilerini koru** seçeneği, daha sonra korumayı devam edebilirsiniz. Yedekleme verileri korumaz, koruma sürdüremezsiniz.
 
-1. SQL veritabanı için korumayı sürdürmek için yedekleme öğesi açın ve seçin **yedeklemeyi Sürdür**.
+Bir SQL veritabanı için korumayı sürdürmek için:
+
+1. Yedekleme öğesi açın ve seçin **yedeklemeyi Sürdür**.
 
     ![Veritabanı korumayı sürdürmek için yedeklemeyi Sürdür eylemi seçin](./media/backup-azure-sql-database/resume-backup-button.png)
 
@@ -150,11 +147,11 @@ Farklı türde isteğe bağlı yedeklemeler çalıştırabilirsiniz:
 * Değişiklik yedeği
 * Günlük yedekleme
 
-[Daha fazla bilgi edinin](backup-architecture.md#sql-server-backup-types) SQL Server Yedekleme türleri.
+Daha fazla bilgi için [SQL Server Yedekleme türleri](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>SQL Server örneği kaydı
 
-Bir SQL Server örneği, sonra koruma devre dışı bırakıldı, ancak kasayı silmeden önce kaydı:
+Bir SQL Server örneği koruma devre dışı bıraktıktan sonra ancak kasayı silmeden önce kaydı:
 
 1. Kasa panosunda altında **Yönet**seçin **Yedekleme Altyapısı**.  
 
@@ -167,11 +164,11 @@ Bir SQL Server örneği, sonra koruma devre dışı bırakıldı, ancak kasayı 
 
 3. İçinde **korumalı sunucuların**, kaydını kaldırmak için sunucuyu seçin. Kasayı silmek için tüm sunucuların kaydını silmeniz gerekir.
 
-4. Korumalı sunucuya sağ tıklayın > **Sil**.
+4. Korumalı sunucuya sağ tıklayın ve seçin **Sil**.
 
    ![Sil'i seçin](./media/backup-azure-sql-database/delete-protected-server.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Gözden geçirme](backup-sql-server-azure-troubleshoot.md) sorun giderme bilgileri için SQL Server veritabanı yedeği.
+Daha fazla bilgi için [bir SQL Server veritabanında yedekleme sorunlarını giderme](backup-sql-server-azure-troubleshoot.md).

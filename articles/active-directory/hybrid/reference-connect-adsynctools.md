@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8988035d2ef28dfe4da632baca2e11205bc88340
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9a1b8abf15233c06e8ff9e507b315cc8a3703970
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218117"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443343"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  ADSyncTools PowerShell başvurusu
 Aşağıdaki belgeler Azure AD Connect ile birlikte sağlanan ADSyncTools.psm1 PowerShell modülü için başvuru bilgileri sağlar.
@@ -859,7 +859,7 @@ Accept wildcard characters: False
 ## <a name="restore-adsynctoolsexpiredcertificates"></a>Geri yükleme-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>ÖZET
-(YAPMAK İÇİN) AD, UserCertificate özniteliğinin yol açtığı certicate dosyasından geri yükler.
+(YAPMAK İÇİN) AD, UserCertificate özniteliğinin yol açtığı alınan sertifika dosyası geri yükler.
 
 ### <a name="syntax"></a>SÖZ DİZİMİ
 

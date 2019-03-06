@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 7b436acb937216ad02289282f4a7ac5f88df2eea
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b5e42585178505ee4c23ca4054e83f61ee1254b8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245158"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436145"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IOT Hub cihaz akışları (Önizleme)
 
@@ -153,7 +153,7 @@ Genel Önizleme sırasında IOT Hub cihaz akışları Orta ABD ve orta ABD EUAP 
 ## <a name="iot-hub-device-stream-samples"></a>IOT Hub cihaz Stream örnekleri
 
 İki yayımladık [hızlı başlangıç örnekleri](/azure/iot-hub) uygulamalar tarafından cihaz akışları kullanımını göstermek için.
-* *Yankı* örnek (doğrudan, SDK'sı API'nin çağırarak) cihaz akışları programlamalı kullanımını gösterir.
+* *Yankı* örnek (doğrudan, SDK'sı API'nin çağırarak) cihaz akışları programlı kullanımını gösterir.
 * *Yerel Ara* örnek gösterir (örneğin, SSH, RDP veya web) kullanıma hazır istemci/sunucu uygulama trafiği tüneli cihaz akışları.
 
 Bu örnekler, aşağıda daha ayrıntılı olarak ele alınmaktadır.

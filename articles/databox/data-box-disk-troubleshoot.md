@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 02/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 24af2150438d3db13323aaecdfd89302b8152fa9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ed6d567be255fe9b72be564c31d734541a1ffa73
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879131"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453346"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Azure Data Box Disk de sorunlarını giderme
 
@@ -73,7 +73,7 @@ Etkinlik günlükleri 90 gün boyunca saklanır. Başlangıç tarihi 90 günden 
 | Birimlerin kilidi açılamadı veya birimler doğrulanamadı. Microsoft Desteği'ne başvurun.  <br><br>Araç kilitli sürücülerin kilidini açamıyor veya bu sürücüleri doğrulayamıyor. | Araç verilen destek anahtarıyla kilitlenen sürücülerin kilidini açamıyor. Sonraki adımlar için Microsoft Desteği'ne başvurun.                                                |
 | Aşağıdaki birimlerin kilidi açıldı ve bu birimler doğrulandı. <br>Birimin sürücü harflerini: E:<br>Şu destek anahtarlarıyla birimlerin kilidi açılamadı: werwerqomnf, qwerwerqwdfda <br><br>Araç bazı sürücülerin kilidini açar, başarılı ve başarısız olan sürücü harflerini listeler.| Kısmen başarıldı. Kullanılan destek anahtarıyla bazı sürücülerin kilidi açılamadı. Sonraki adımlar için Microsoft Desteği'ne başvurun. |
 | Kilitli birimler bulunamadı. Microsoft'tan alınan diskin düzgün bağlandığından ve kilitli durumda olduğundan emin olun.          | Araç kilitli sürücüleri bulamıyor. Sürücülerden birinin kilidi açılmış veya sürücü bulunamıyor. Sürücülerin bağlı ve kilitli olduğundan emin olun.                                                           |
-| Önemli hata: Geçersiz parametre<br>Parametre adı: invalid_arg<br>KULLANIM:<br>DataBoxDiskUnlock /PassKeys:<noktalı_virgülle_ayrılmış_destek_anahtarı_listesi><br><br>Örnek: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Örnek: DataBoxDiskUnlock /SystemCheck<br>Örnek: DataBoxDiskUnlock/Help<br><br>/ Parolalı:       Bu geçiş, Azure Data Box Disk Siparişiniz alın. Bu destek anahtarı disklerinizin kilidini açar.<br>/ Help:           Bu seçenek, cmdlet kullanım ve örnekleri Yardım sağlar.<br>/ SystemCheck:    Bu seçenek, sisteminizin aracı çalıştırmak için gereksinimleri karşılayıp karşılamadığını denetler.<br><br>Çıkmak için bir tuşa basın. | Geçersiz parametre girildi. İzin verilen parametreler: /SystemCheck, /PassKey ve /Help.                                                                            |
+| Önemli hata: Geçersiz parametre<br>Parametre adı: invalid_arg<br>KULLANIM:<br>DataBoxDiskUnlock /PassKeys:<noktalı_virgülle_ayrılmış_destek_anahtarı_listesi><br><br>Örnek: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Örnek: DataBoxDiskUnlock /SystemCheck<br>Örnek: DataBoxDiskUnlock/Help<br><br>/ Parolalı:       Bu geçiş, Azure Data Box Disk Siparişiniz alın. Bu destek anahtarı disklerinizin kilidini açar.<br>/ Help:           Bu seçenek, cmdlet kullanım ve örnekleri Yardım sağlar.<br>/ SystemCheck:    Bu seçenek, sisteminizin aracı çalıştırmak için gereksinimleri karşılayıp karşılamadığını denetler.<br><br>Çıkmak için bir tuşa basın. | Geçersiz parametre girildi. Yalnızca izin verilen /SystemCheck /PassKey ve/Help parametrelerdir.                                                                            |
 
 ## <a name="data-box-disk-split-copy-tool-errors"></a>Data Box Disk Split Copy aracı hataları
 

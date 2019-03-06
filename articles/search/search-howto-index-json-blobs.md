@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: acbd3c9ed55556ac792c3a98e6dbc1e4f7455fe1
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d70ad65f5bbc4424b4224cf601d903ad7ec10691
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311313"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405122"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Azure Search Blob Dizin Oluşturucu kullanarak JSON bloblarını dizinleme
 Bu makalede bir Azure Search blob yapılandırma işlemi gösterilmektedir [dizin oluşturucu](search-indexer-overview.md) JSON belgeleri olarak Azure Blob depolama alanından yapılandırılmış içeriği ayıklamak ve Azure Search aranabilir hale getirin. Bu iş akışı, bir Azure Search dizini oluşturur ve JSON bloblarından ayıklanan mevcut metinle yükler. 
@@ -288,7 +288,7 @@ Azure Search'te dizin oluşturucuyu oluşturma, veri alma işlemi tetikler. Bir 
 
 <a name="parsing-modes"></a>
 
-### <a name="parsing-modes"></a>Ayrıştırma modları
+## <a name="parsing-modes"></a>Ayrıştırma modları
 
 JSON bloblarını birden çok form varsayabilirsiniz. **ParsingMode** JSON dizin oluşturucu parametresi JSON blob içeriği nasıl ayrıştırılır ve bir Azure Search dizini içinde yapılandırılmış belirler:
 

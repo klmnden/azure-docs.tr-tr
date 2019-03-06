@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: f4559c05a9f3d09feef12b0391e313ecd9a88142
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b03b787e245129e5e51304a2bcc8740ebf3f6196
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241247"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406174"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>İndirme veya Azure fatura ve günlük kullanım verilerini görüntüleme
 
@@ -65,7 +65,7 @@ Faturalar her biri için oluşturulur [profili faturalama](billing-mca-overview.
 5. Üç noktaya tıklayın (`...`) satırın sonunda.
 6. İndirme bağlam menüsünde seçin **fatura**.
 
-Son fatura dönemi için fatura görmüyorsanız bkz [ek bilgiler]() <!-- Fix this -->
+Son fatura dönemi için fatura görmüyorsanız bkz **ek bilgi**. <!-- Fix this -->
 ### <a name="noinvoice"></a> Son fatura dönemi için fatura neden göremiyorum?
 
 Bir faturayı görmemenizin birden fazla nedeni olabilir:
@@ -100,7 +100,7 @@ Adımları tamamladıktan sonra bir e-posta almazsanız, e-posta adresinizi doğ
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>E-posta aboneliğinizin faturalar alma dışında iyileştirilmiş
 
-Yukarıdaki ve tıklayarak adımları izleyerek e-posta ile faturanızı alma dışında iyileştirilmiş **iyileştirilmiş e-postayla faturaların**. Bu seçenek, faturalar içinde e-posta almak için herhangi bir e-posta adresi kaldırır. Geri katılırsanız alıcıların yeniden yapılandırabilirsiniz.
+Yukarıdaki ve tıklayarak adımları izleyerek e-posta ile faturanızı alma dışında iyileştirilmiş **iyileştirilmiş e-postayla faturaların**. Bu seçenek, faturaların e-posta ile gönderilmesi için girilmiş olan e-posta adreslerini kaldırır. Geri katılırsanız alıcıların yeniden yapılandırabilirsiniz.
 
  ![Vazgeçme akışını gösteren ekran görüntüsü](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 

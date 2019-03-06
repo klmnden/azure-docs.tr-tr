@@ -4,14 +4,14 @@ description: Azure için Avere vFXT hakkında sık sorulan sorular
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 83229cdca0ccff68dcdd543495a7a19b6e6c4c5b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 1dda3e379a9dcec9dc48d741c107ee352c4f2033
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990060"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404646"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Azure için Avere vFXT hakkında SSS
 
@@ -216,6 +216,10 @@ Genel koşullarını Avere vFXT Azure çekirdek filtrelerin aşağıdaki sisteml
 
 * Dell EMC Isilon (OneFS 7.1, 7.2, 8.0 ve 8.1) 
 * NetApp ONTAP (kümelenmiş modu 9.4 sürümünden, 9.3, 9.2, 9.1P1, 8.3 8.0) ve (7 modu 7.*, 8.3 8.0) 
+
+  > [!NOTE] 
+  > NetApp Azure dosyaları şu anda desteklenmiyor. 
+
 * Azure blob kapsayıcıları (yalnızca yerel olarak yedekli depolama) 
 * AWS S3 demet 
 * Google Cloud demetlerine

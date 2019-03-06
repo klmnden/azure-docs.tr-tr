@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: d684ec56c7dfcc28d1057d0b20905db49bce9723
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a996703f3719c2be90851241c1fe23c89f24e606
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498082"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447957"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı için güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,6 +51,8 @@ Bu makalede, biz aşağıdaki iki veri taşıma senaryolarda güvenlik konuları
 
 - **Bulut senaryosu**: Bu senaryoda, hem kaynak hem de hedef internet üzerinden genel olarak erişilebilir. Bunlar, Azure depolama, Azure SQL veri ambarı, Azure SQL veritabanı, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce gibi SaaS hizmetlerine ve FTP ve OData gibi web protokolleri gibi yönetilen bulut depolama hizmetleri içerir. Desteklenen veri kaynaklarının tam bir listesi [desteklenen veri depoları ve biçimler](copy-activity-overview.md#supported-data-stores-and-formats).
 - **Karma senaryo**: Bu senaryoda, kaynak veya hedef bir güvenlik duvarı ardında veya bir şirket içi kurumsal ağ içinde olur. Veya veri deposu içinde özel bir ağ veya sanal ağ (genellikle kaynak) ve genel olarak erişilebilir değil. Sanal makinelerde barındırılan veritabanı sunucuları, ayrıca bu senaryoya ayrılır.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Bulut senaryoları
 
@@ -109,9 +111,9 @@ Kimlik bilgileri, şirket içi veri depoları için her zaman şifrelenir ve dep
 
 - **Kimlik bilgileri yerel olarak Store**. Şifreleme ve kimlik bilgilerini şirket içinde barındırılan tümleştirme çalışma zamanını yerel olarak depolamak istiyorsanız, adımları [Azure Data factory'de şirket içi veri depoları için kimlik bilgilerini şifrele](encrypt-credentials-self-hosted-integration-runtime.md). Bu seçenek tüm bağlayıcıları destekler. Şirket içinde barındırılan tümleştirme çalışma zamanı kullanan Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) hassas veri ve kimlik bilgilerini şifrelemek için. 
 
-   Kullanım **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** bağlı hizmet kimlik bilgilerini ve bağlı hizmet hassas ayrıntılarında şifrelemek için cmdlet'i. Ardından döndürülen JSON kullanabilirsiniz (ile **EncryptedCredential** öğesinde bağlantı dizesi) kullanarak bir bağlı hizmetini oluşturmak için **Set-AzureRmDataFactoryV2LinkedService** cmdlet'i.  
+   Kullanım **yeni AzDataFactoryV2LinkedServiceEncryptedCredential** bağlı hizmet kimlik bilgilerini ve bağlı hizmet hassas ayrıntılarında şifrelemek için cmdlet'i. Ardından döndürülen JSON kullanabilirsiniz (ile **EncryptedCredential** öğesinde bağlantı dizesi) kullanarak bir bağlı hizmetini oluşturmak için **kümesi AzDataFactoryV2LinkedService** cmdlet'i.  
 
-- **Azure Data Factory yönetilen depolama Store**. Doğrudan kullanırsanız **Set-AzureRmDataFactoryV2LinkedService** cmdlet ile bağlantı dizeleri ve satır içi olarak JSON kimlik bilgileri, bağlı hizmet şifrelenir ve Azure Data Factory yönetilen depolanan. Hassas bilgilerin hala sertifikası tarafından şifrelenir ve bu sertifikalar Microsoft yönetir.
+- **Azure Data Factory yönetilen depolama Store**. Doğrudan kullanırsanız **kümesi AzDataFactoryV2LinkedService** cmdlet ile bağlantı dizeleri ve satır içi olarak JSON kimlik bilgileri, bağlı hizmet şifrelenir ve Azure Data Factory yönetilen depolanan. Hassas bilgilerin hala sertifikası tarafından şifrelenir ve bu sertifikalar Microsoft yönetir.
 
 
 

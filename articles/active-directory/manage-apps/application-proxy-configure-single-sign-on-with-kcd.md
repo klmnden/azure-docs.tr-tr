@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19ea76f28995dfa7f7dd5a6f280f8319f5b4ca26
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b82f32477efb2e45eb95651dd21ccd2ae3095e7c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180772"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431318"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos kısıtlanmış temsil için çoklu oturum açma uygulamalarınıza uygulama ara sunucusu ile
 
@@ -34,11 +34,11 @@ Bir kullanıcı IWA kullanan şirket içi uygulamaya erişmeyi denediğinde Bu d
 
 ![Microsoft AAD kimlik doğrulaması akışı diyagramı](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. Kullanıcı, uygulama proxy'si aracılığıyla şirket içi uygulamaya erişmek için URL'yi girer.
+1. Kullanıcı, uygulama proxy'si aracılığıyla şirket içi uygulama erişimi için URL'yi girer.
 2. Uygulama Ara sunucusu için Azure AD kimlik doğrulama hizmetleri preauthenticate için istek yönlendirir. Bu noktada, Azure AD, tüm geçerli kimlik doğrulama ve yetkilendirme ilkeleri, çok faktörlü kimlik doğrulaması gibi uygulanır. Kullanıcı doğrulanmış olması durumunda, Azure AD belirteç oluşturulur ve kullanıcıya gönderir.
 3. Kullanıcı belirteci uygulama ara sunucusuna iletir.
 4. Uygulama proxy'si belirteci doğrular ve kullanıcı asıl adı (UPN) alır ve ardından istek, UPN ve hizmet asıl adı (SPN) bağlayıcı dually kimliği doğrulanmış ve güvenli bir kanal üzerinden gönderir.
-5. Bağlayıcıyı şirket içi Kerberos Kısıtlı temsilci (KCD) anlaşmasını gerçekleştirir. AD, uygulama için bir Kerberos belirteci almak için kullanıcının kimliğine bürünme.
+5. Bağlayıcıyı şirket içi AD, uygulama için bir Kerberos belirteci almak için kullanıcının kimliğine bürünmek Kerberos Kısıtlı temsilci (KCD) anlaşmasını gerçekleştirir.
 6. Active Directory Uygulama bağlayıcısı için Kerberos belirteci gönderir.
 7. Bağlayıcı, özgün istek AD'den alınan Kerberos belirteci kullanarak uygulama sunucusuna gönderir.
 8. Uygulama için uygulama proxy'si hizmeti ardından döndürülen bağlayıcı yanıta gönderir ve son kullanıcı.
@@ -118,7 +118,7 @@ Bu özellik, farklı şirket içi ve bulut kimlikleri SSO kullanıcıların fark
 * Dahili olarak birden çok etki alanınız (joe@us.contoso.com, joe@eu.contoso.com) hem de bulutta tek bir etki alanı (joe@contoso.com).
 * Dahili olarak yönlendirilemeyen etki alanı adına sahip (joe@contoso.usa) ve yasal bir bulutta.
 * Etki alanı adları iç kullanmayın (ALi)
-* Şirket farklı diğer adlar kullanın ve bulutta. Örneğin, joe-johns@contoso.com vs. joej@contoso.com  
+* Şirket içindeki ve buluttaki farklı diğer adlar kullanın. Örneğin, joe-johns@contoso.com vs. joej@contoso.com  
 
 Uygulama proxy'si, Kerberos anahtarını almak için kullanılacak kimliği seçebilirsiniz. Bu ayar bir uygulamadır. Bu seçeneklerden bazısı e-posta adresi biçimi kabul sistemler için uygundur, diğer alternatif oturum açma için tasarlanmıştır.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43f2694f597d99edaf127a6afd64376cca33dad2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248324"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448161"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Azure'da bir Always On kullanılabilirlik grubu için bir yük dengeleyici yapılandırma
 Bu makalede, Azure Resource Manager ile çalışan Azure sanal makineler'de SQL Server Always On kullanılabilirlik grubu için yük dengeleyici oluşturma açıklanmaktadır. Azure sanal makinelerinde SQL Server örnekleri olan bir kullanılabilirlik grubu yük dengeleyici gerektirir. Yük Dengeleyici IP adresi için kullanılabilirlik grubu dinleyicisi depolar. Bir kullanılabilirlik grubu birden çok bölgede kapsıyorsa, her bölge bir yük dengeleyicinin gerekir.
@@ -50,7 +50,7 @@ Bu görev bölümünde aşağıdakileri yapın:
 > 
 > 
 
-### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>1. adım: yük dengeleyici oluşturma ve IP adresini yapılandırın
+### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>1. Adım: Yük Dengeleyiciyi oluşturun ve IP adresini yapılandırın
 İlk olarak, Yük Dengeleyiciyi oluşturun. 
 
 1. Azure portalında SQL Server sanal makineleri içeren kaynak grubunu açın. 
@@ -66,8 +66,8 @@ Bu görev bölümünde aşağıdakileri yapın:
    | Ayar | Değer |
    | --- | --- |
    | **Ad** |Yük Dengeleyiciyi temsil eden bir metin adı. Örneğin, **sqlLB**. |
-   | **Tür** |**İç**: çoğu uygulamaları kullanılabilirlik grubuna bağlanmak uygulamaların aynı sanal ağ içinde veren bir iç yük dengeleyici kullanır.  </br> **Dış**: uygulamaların ortak bir Internet bağlantısı üzerinden kullanılabilirlik grubuna bağlanmasına izin verir. |
-   | **Sanal ağ** |SQL Server uygulamalara olan sanal ağı seçin. |
+   | **Tür** |**İç**: Çoğu uygulamalarının kullanılabilirlik grubuna bağlanmak uygulamaların aynı sanal ağ içinde veren bir iç yük dengeleyici kullanın.  </br> **Dış**: Uygulamaların kullanılabilirlik grubuna ortak bir Internet bağlantısı üzerinden bağlanmasına izin verir. |
+   | **Sanal ağ** |SQL Server örnekleri olan sanal ağı seçin. |
    | **Alt ağ** |SQL Server örnekleri olan bir alt ağ seçin. |
    | **IP adresi ataması** |**Statik** |
    | **Özel IP adresi** |Kullanılabilir bir IP adresi alt ağ belirtin. Küme üzerinde bir dinleyici oluşturmak için bu IP adresi kullanabilirsiniz. Bu adres için bu makalenin sonraki bölümlerinde bir PowerShell Betiği kullanmak `$ILBIP` değişkeni. |
@@ -79,7 +79,7 @@ Bu görev bölümünde aşağıdakileri yapın:
 
 Azure yük dengeleyici oluşturur. Yük Dengeleyici, belirli ağ, alt ağ, kaynak grubunu ve konumu için aittir. Azure görev tamamlandıktan sonra Azure yük dengeleyici ayarlarını doğrulayın. 
 
-### <a name="step-2-configure-the-back-end-pool"></a>2. adım: arka uç havuzunu yapılandırma
+### <a name="step-2-configure-the-back-end-pool"></a>2. Adım: Arka uç havuzunu yapılandırma
 Azure arka uç adres havuzu çağırır *arka uç havuzu*. Bu durumda, arka uç havuzu, bir kullanılabilirlik grubunda iki SQL Server örneği adresi olduğu. 
 
 1. Kaynak grubunuzda, oluşturduğunuz yük dengeleyiciye tıklayın. 
@@ -100,7 +100,7 @@ Azure arka uç adres havuzu çağırır *arka uç havuzu*. Bu durumda, arka uç 
 
 Azure arka uç adres havuzu ayarlarını güncelleştirir. Artık iki SQL Server örneği bir havuzu kullanılabilirlik kümeniz vardır.
 
-### <a name="step-3-create-a-probe"></a>3. adım: bir araştırma oluşturma
+### <a name="step-3-create-a-probe"></a>3. Adım: Bir araştırma oluşturma
 Araştırma, Azure'nın hangi SQL Server örneklerinin kullanılabilirlik grubu dinleyicisi şu anda sahip nasıl doğrular tanımlar. Azure, araştırma oluştururken tanımladığınız bir bağlantı noktasında IP adresini temel alarak hizmetin araştırmaları.
 
 1. Yük dengeleyicideki **ayarları** dikey penceresinde tıklayın **sistem durumu araştırmalarının**. 
@@ -126,7 +126,7 @@ Araştırma, Azure'nın hangi SQL Server örneklerinin kullanılabilirlik grubu 
 
 Azure araştırması oluşturur ve bunu test etmek için hangi SQL Server örneği için kullanılabilirlik grubu dinleyici sahip kullanır.
 
-### <a name="step-4-set-the-load-balancing-rules"></a>4. adım: Yük Dengeleme kuralları ayarlama
+### <a name="step-4-set-the-load-balancing-rules"></a>4. Adım: Yük Dengeleme kuralları ayarlayın
 Yük Dengeleme kuralları, yük dengeleyicinin trafiği için SQL Server örneklerini nasıl yönlendirdiğini yapılandırın. Bu yük dengeleyici için iki SQL Server örneği yalnızca bir kullanılabilirlik grubu dinleyicisi kaynağı aynı anda sahibi olduğu için doğrudan sunucu dönüşü sağlar.
 
 1. Yük dengeleyicideki **ayarları** dikey penceresinde tıklayın **Yük Dengeleme kuralları**. 
@@ -142,7 +142,7 @@ Yük Dengeleme kuralları, yük dengeleyicinin trafiği için SQL Server örnekl
    | **Bağlantı Noktası** |*1433* |
    | **Arka uç bağlantı noktası** |*1433*. Bu kural kullandığından, bu değer yoksayılır **kayan IP (doğrudan sunucu dönüşü)**. |
    | **Araştırma** |Bu yük dengeleyici için oluşturduğunuz araştırmayı adını kullanın. |
-   | **Oturum kalıcılığı** |**Yok** |
+   | **Oturum kalıcılığı** |**Yok.** |
    | **Boşta kalma zaman aşımı (dakika)** |*4* |
    | **Kayan IP (doğrudan sunucu dönüşü)** |**Etkin** |
 
@@ -167,7 +167,7 @@ Sonraki adım, küme üzerinde dinleyiciyi yapılandırın ve dinleyiciyi çevri
 
 2. Dinleyici çevrimiçi duruma getirin.
 
-### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>5. adım: yük devretme kümesinde kullanılabilirlik grubu dinleyicisi oluşturma
+### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>5. Adım: Yük devretme kümesinde kullanılabilirlik grubu dinleyicisi oluşturun
 Bu adımda, el ile yük devretme kümesi Yöneticisi'ni ve SQL Server Management Studio kullanılabilirlik grubu dinleyicisi oluşturun.
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]

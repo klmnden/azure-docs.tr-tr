@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 518e14b991aa110a6ed55f984a66cd386a618f0f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a35d1cbd49a55b0c25f5e2b993358130589c125
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228972"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444642"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Azure tablo depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -114,7 +114,7 @@ Aşağıdaki adımlar, bir tablo oluşturma işlemini göstermektedir:
     }
     ```
 
-1. İçinde **CreateTable** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
+1. İçinde **CreateTable** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (Değişiklik  *&lt;depolama hesabı adı >* erişmek için Azure depolama hesabı adı.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -203,7 +203,7 @@ Varlık sınıfı *gerekir* genel bir parametresiz oluşturucu bildirin.
     }
     ```
 
-1. İçinde **AddEntity** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
+1. İçinde **AddEntity** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (Değişiklik  *&lt;depolama hesabı adı >* erişmek için Azure depolama hesabı adı.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -298,7 +298,7 @@ Varlık sınıfı *gerekir* genel bir parametresiz oluşturucu bildirin.
     }
     ```
 
-1. İçinde **AddEntities** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
+1. İçinde **AddEntities** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (Değişiklik  *&lt;depolama hesabı adı >* erişmek için Azure depolama hesabı adı.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -418,7 +418,7 @@ Bu bölümde, varlığın satır anahtarı ve bölüm anahtarı kullanarak bir t
     }
     ```
 
-1. İçinde **GetSingle** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
+1. İçinde **GetSingle** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (Değişiklik  *&lt;depolama hesabı adı >* erişmek için Azure depolama hesabı adı.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -518,7 +518,7 @@ Bölümünde belirtildiği gibi [bir tabloya bir varlık ekleme](#add-an-entity-
     }
     ```
 
-1. İçinde **GetPartition** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
+1. İçinde **GetPartition** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (Değişiklik  *&lt;depolama hesabı adı >* erişmek için Azure depolama hesabı adı.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -628,7 +628,7 @@ Bu bölümde, bir tablodan bir varlığı silme gösterilmektedir.
     }
     ```
 
-1. İçinde **DeleteEntity** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
+1. İçinde **DeleteEntity** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (Değişiklik  *&lt;depolama hesabı adı >* erişmek için Azure depolama hesabı adı.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

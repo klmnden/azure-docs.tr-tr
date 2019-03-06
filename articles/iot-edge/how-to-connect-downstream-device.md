@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d41ec0bc959eb264564d49ae6ac31aa30b3be98a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492768"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445934"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Bir Azure IOT Edge ağ geçidi için bir aşağı akış cihazı bağlayın
 
@@ -40,7 +40,10 @@ Bu makaledeki adımları izlemeden önce iki cihazınız kullanıma hazır olman
 2. IOT Hub'ından bir cihaz kimliği olan bir aşağı akış cihazda. 
     IOT Edge cihazı aşağı akış cihazı olarak kullanamazsınız. Bunun yerine, normal bir IOT cihaz IOT hub'da kayıtlı bir cihaz kullanın. Portalda yeni bir cihaz kaydedebilirsiniz **IOT cihazları** bölümü. Veya Azure CLI'yı kullanabilirsiniz [cihaz kaydetme](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Bağlantı dizesini kopyalayın ve bu sonraki bölümlerde kullanılabilir. 
 
-    Şu anda yalnızca simetrik anahtarlı kimlik doğrulamayı aşağı akış cihazlarıyla IOT Edge ağ geçidi bağlanabilirsiniz. X.509 sertifika yetkililerini ve otomatik olarak imzalanan X.509 sertifikaları şu anda desteklenmiyor. 
+    Şu anda yalnızca simetrik anahtarlı kimlik doğrulamayı aşağı akış cihazlarıyla IOT Edge ağ geçidi bağlanabilirsiniz. X.509 sertifika yetkililerini ve otomatik olarak imzalanan X.509 sertifikaları şu anda desteklenmiyor.
+    
+> [!NOTE]
+> "Bu yönergesinde sertifikaları oluşturmak için kullanılan ağ geçidi adı" adıyla aynı kullanılan IOT Edge config.yaml dosyanızdaki ana bilgisayar adı ve bağlantı dizesinde aşağı akış cihazın GatewayHostName olarak olması gerekir. "Ağ geçidi adının" IP DNS veya ana işlem dosya girdisi kullanarak bir adresine çözülebilir olması gerekir. İletişim tabanlı kullanılan protokol (MQTTS:8883 / AMQPS:5671 / HTTPS:433) aşağı akış cihaz ile IOT Edge transparant arasında mümkün olması gerekir. Bir güvenlik duvarı arasında ise, ilgili bağlantı noktasının açık olması gerekir.
 
 ## <a name="prepare-a-downstream-device"></a>Bir aşağı akış cihazı hazırlama
 

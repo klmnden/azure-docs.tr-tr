@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3eb68c4394afeb4719d92fb56d3ae9028d8566c9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456121"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451204"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Kullanım örneği: Sanal makinelere Otomasyon durum yapılandırması ve Chocolatey kullanarak sürekli dağıtım
 
@@ -51,7 +51,7 @@ Temel özelliklerinden biri Resource Manager şablonu olarak sağlandığından,
 ## <a name="quick-trip-around-the-diagram"></a>Diyagram etrafında hızlı seyahat
 
 Üstten başlayarak, kodunuzu yazma derleme ve test edin, ardından bir yükleme paketi oluşturun.
-Chocolatey yükleme paketleri, MSI, MSU, ZIP gibi çeşitli türlerde başa çıkabilir. Ve Chocolateys yerel özellikleri oldukça, en fazla değilseniz, gerçek yükleme yapmak için PowerShell tam gücünü sahipsiniz. Paket yer erişilebilir – bir paket deposu yerleştirin. Bu kullanım örneği, bir Azure blob depolama hesabındaki ortak klasör kullanır, ancak herhangi bir yerde olabilir. Chocolatey NuGet sunucularını ve birkaç başka Yönetim Paketi meta verileri için yerel olarak çalışır. [Bu makalede](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) seçenekler açıklanmaktadır. Bu kullanım örneği NuGet kullanır. Bir Nuspec, takımınızın paketleriniz hakkındaki meta verilerdir. Nuspec'ın "NuPkg ait derlenmiş" ve bir NuGet sunucusunda depolanan. Yapılandırmanıza bir paket adına göre istekleri ve NuGet sunucusuna başvuran, Chocolatey DSC kaynağı (artık VM) paket Dallarınızla ve sizin için yükler. Ayrıca, belirli bir paket sürümü isteyebilir.
+Chocolatey yükleme paketleri, MSI, MSU, ZIP gibi çeşitli türlerde başa çıkabilir. Ve Chocolateys yerel özellikleri oldukça, en fazla değilseniz, gerçek yükleme yapmak için PowerShell tam gücünü sahipsiniz. Paket bazı yere erişilebilir – bir paket deposu yerleştirin. Bu kullanım örneği, bir Azure blob depolama hesabındaki ortak klasör kullanır, ancak herhangi bir yerde olabilir. Chocolatey NuGet sunucularını ve birkaç başka Yönetim Paketi meta verileri için yerel olarak çalışır. [Bu makalede](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) seçenekler açıklanmaktadır. Bu kullanım örneği NuGet kullanır. Bir Nuspec, takımınızın paketleriniz hakkındaki meta verilerdir. Nuspec'ın "NuPkg ait derlenmiş" ve bir NuGet sunucusunda depolanan. Yapılandırmanıza bir paket adına göre istekleri ve NuGet sunucusuna başvuran, Chocolatey DSC kaynağı (artık VM) paket Dallarınızla ve sizin için yükler. Ayrıca, belirli bir paket sürümü isteyebilir.
 
 Resmin sol alt kısmında bir Azure Resource Manager şablonu yoktur. Bu kullanım örneğinde, VM uzantısı, VM'nin Azure Otomasyonu durumu yapılandırma çekme sunucusuna (diğer bir deyişle, bir çekme sunucusu) bir düğüm olarak kaydeder. Yapılandırma çekme sunucusunda depolanır.
 Aslında, iki kez depolandığını: düz metin olarak ve (için olanlar gibi şeyler hakkında bilmeniz.) bir MOF dosyası olarak derlenmiş sonra bir kez Portalda, MOF bir "düğüm" (aksine sadece "yapılandırma") bir yapılandırmadır. Düğüm yapılandırması bilir, böylece bir düğümle ilişkili yapıdır. Düğüm yapılandırması düğüme atamak nasıl ayrıntılarını aşağıda göstermek.

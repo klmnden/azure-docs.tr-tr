@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 8a711596140340b5e6e69d04959abfef36332869
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ffc8bd21468847a71a44be2244c72af7016cd65f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813803"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432031"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>"Windows Kritik hizmet başarısız" mavi ekranda bir Azure sanal makinesi önyükleme yaparken gösterir
 Bu makalede, Microsoft Azure'da Windows sanal makinesi (VM) önyüklediğinizde karşılaşabileceğiniz "Kritik hizmet başarısız" hatası. Bu sorunları gidermek için sorun giderme adımlarını sağlar. 
@@ -106,7 +106,7 @@ Döküm günlükleri ve seri konsol etkinleştirmek için aşağıdaki betiği �
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>İsteğe bağlı: Kilitlenme bilgi dökümü modunda döküm günlüklerini çözümleme
 
-Kendiniz döküm günlükler analiz için şu adımları izleyin:
+Kendiniz döküm günlükleri analiz etmek için şu adımları izleyin:
 
 1. İşletim sistemi diskini bir kurtarma sanal makinesine ekleyin.
 2. Bağlı işletim sistemi diskinde göz atın **\windows\system32\config**. Bir geri alma gerekli olması durumunda yedek olarak tüm dosyaları kopyalayın.

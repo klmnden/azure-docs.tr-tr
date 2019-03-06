@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: f2ba1a6fef944911c0706ca4e71be6a55bc4b16a
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 9b0a6393d2372c831fdc964dee18acbccfd39a77
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961848"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449385"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Studio 3T kullanma Cosmos hesabına bağlanma
 
@@ -28,10 +28,10 @@ Studio 3T Bağlantı Yöneticisi için Cosmos hesabınızı eklemek için aşağ
 
 1. İçindeki yönergeleri kullanarak MongoDB için Azure Cosmos DB API'si ile yapılandırılan Cosmos hesabınız için bağlantı bilgilerini almak [bir MongoDB uygulamasını Azure Cosmos DB'ye bağlanmak](connect-mongodb-account.md) makalesi.
 
-    ![Bağlantı dizesi sayfası ekran görüntüsü](./media/mongodb-mongochef/ConnectionStringBlade.png)
+    ![Bağlantı dizesi sayfasının ekran görüntüsü](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Tıklayın **Connect** Bağlantı Yöneticisi'ni açmak için ardından **yeni bağlantı**
 
-    ![Studio 3T Bağlantı Yöneticisi ekran görüntüsü](./media/mongodb-mongochef/ConnectionManager.png)
+    ![Studio 3T Bağlantı Yöneticisi'nin ekran görüntüsü](./media/mongodb-mongochef/ConnectionManager.png)
 3. İçinde **yeni bağlantı** penceresi, **sunucu** sekmesinde, Azure Cosmos DB hesabı ana bilgisayar (FQDN) ve bağlantı NOKTASINI girin.
 
     ![Studio 3T Bağlantı Yöneticisi server sekmesinin Ekran görüntüsü](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
@@ -43,14 +43,14 @@ Studio 3T Bağlantı Yöneticisi için Cosmos hesabınızı eklemek için aşağ
     ![Studio 3T Bağlantı Yöneticisi SSL sekmesinin Ekran görüntüsü](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. Tıklayın **Test Bağlantısı** bağlantı bilgilerini doğrulamak için düğmeyi **Tamam** yeni bağlantı penceresine dönün ve ardından **Kaydet**.
 
-    ![Studio 3T test bağlantısı penceresinin ekran görüntüsü](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Studio 3T görüntüsü test bağlantı penceresi](./media/mongodb-mongochef/TestConnectionResults.png)
 
 ## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Bir veritabanı, koleksiyon ve belgelerin oluşturmak için Studio 3t'yi kullanma
 Veritabanı, koleksiyon ve belgelerin Studio 3T kullanma oluşturmak için aşağıdaki adımları gerçekleştirin:
 
 1. İçinde **Bağlantı Yöneticisi**, bağlantı vurgulayıp **Connect**.
 
-    ![Studio 3T Bağlantı Yöneticisi ekran görüntüsü](./media/mongodb-mongochef/ConnectToAccount.png)
+    ![Studio 3T Bağlantı Yöneticisi'nin ekran görüntüsü](./media/mongodb-mongochef/ConnectToAccount.png)
 2. Konağa sağ tıklayın ve seçin **veritabanı ekleme**.  Bir veritabanı adı girin ve tıklatın **Tamam**.
 
     ![Studio 3T veritabanı ekle seçeneğinin ekran görüntüsü](./media/mongodb-mongochef/AddDatabase1.png)
@@ -107,7 +107,7 @@ Veritabanı, koleksiyon ve belgelerin Studio 3T kullanma oluşturmak için aşa�
         }
 7. Örnek sorgu yürütün. Örneğin, Soyadı 'Andersen' aileleriyle arayabilir ve durumu alanları ve üst öğeleri döndürür.
 
-    ![Mongo Chef sorgu sonuçları ekran görüntüsü](./media/mongodb-mongochef/QueryDocument1.png)
+    ![Sorgu sonuçları Mongo Chef ekran görüntüsü](./media/mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

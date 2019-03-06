@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: hning86
-ms.author: haining
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 513df9f68fdd54b5dc90e57bd8389688c46bf615
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 950ea04addb0c88d4c745d2de3d95df787885137
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804255"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403439"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Python SDK'sını kullanma
 
@@ -94,9 +94,9 @@ Bu hızlı başlangıçtaki yönergeler hızlı ve öğretici not defterlerini �
 
 ### <a name="install-the-sdk"></a>SDK yükle
 
-1. Etkinleştirilen conda ortamında, Machine Learning SDK'sı temel bileşenleri ile Jupyter not defteri özellikleri yükleyin.  Yükleme, makinenizin yapılandırmasına göre tamamlanması birkaç dakika sürer.
+1. Etkinleştirilen conda ortamında, Machine Learning SDK'sı temel bileşenleri ile Jupyter not defteri özellikleri yükleyin. Yükleme, makinenizin yapılandırmasına göre tamamlanması birkaç dakika sürer.
 
-  ```shell
+    ```shell
     pip install --upgrade azureml-sdk[notebooks]
     ```
 
@@ -111,6 +111,11 @@ Bu hızlı başlangıçtaki yönergeler hızlı ve öğretici not defterlerini �
     ```shell
     pip install --upgrade azureml-sdk[automl]
     ```
+
+> [!IMPORTANT]
+> Bazı komut satırı araçlarını, tırnak işaretleri gibi eklemeniz gerekebilir: * 'azureml-sdk [Not]' * 'azureml-sdk [automl]'
+>
+
 
 ## <a name="create-a-workspace"></a>Çalışma alanı oluşturma
 

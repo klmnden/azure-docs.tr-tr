@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 1aca53c876b6cc982c141d74cdf727f9c966adfe
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0ca4b3b353dd3985680fbf71afbf5ba6a35644fa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233872"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456287"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Blob depolama alanında SQL veritabanına veri kopyalama
 Bu öğreticide, Azure Data Factory kullanıcı arabirimini (UI) kullanarak bir veri fabrikası oluşturursunuz. Bu veri fabrikasındaki işlem hattı, verileri Azure Blob Depolama alanından SQL veritabanına kopyalar. Bu öğreticideki yapılandırma düzeni, dosya tabanlı bir veri deposundan ilişkisel bir veri deposuna kopyalama için geçerlidir. Kaynak ve havuz olarak desteklenen veri depolarının listesi için [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablosuna bakın.
@@ -176,7 +176,7 @@ Bu öğreticide işlem hattını oluşturmaya başlayacaksınız. Daha sonra iş
 1. **Havuz** sekmesine gidin ve havuz veri kümesi oluşturmak için **+Yeni** seçeneğini belirleyin. 
 
     ![Havuz veri kümesi](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-1. **Yeni Veri Kümesi** penceresinde bağlayıcıları filtrelemek için arama kutusuna "SQL" yazıp **Azure SQL Veritabanı**'nı ve ardından **Son**'u seçin. Bu öğreticide verileri bir SQL veritabanına kopyalayacaksınız. 
+1. İçinde **yeni veri kümesi** penceresinde bağlayıcıları filtrelemenize ve ardından seçmek için arama kutusuna "SQL" Giriş **Azure SQL veritabanı**ve ardından **son**. Bu öğreticide verileri bir SQL veritabanına kopyalayacaksınız. 
 
     ![SQL veritabanı seçimi](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
 1. **Özellikler** penceresinin **Genel** sekmesinde **Ad** bölümüne **OutputSqlDataset** girin. 
@@ -232,7 +232,7 @@ Yapıtları (bağlı hizmetler, veri kümeleri ve işlem hattı) Data Factory'de
 
 1. İşlem hattında hata ayıklamak için araç çubuğunda **Hata Ayıkla**'yı seçin. Pencerenin altındaki **Çıkış** sekmesinde işlem hattı çalıştırmasının durumu görüntülenir. 
 
-1. İşlem hattı başarıyla çalıştırıldıktan sonra araç çubuğunda **Tümünü Yayımla**'yı seçin. Bu eylem, oluşturduğunuz varlıkları (veri kümeleri ve işlem hatları) Data Factory'de yayımlar.
+1. İşlem hattı başarılı bir şekilde, üst araç çubuğunda, çalıştırabilirsiniz belirleyin **tümünü Yayımla**. Bu eylem, oluşturduğunuz varlıkları (veri kümeleri ve işlem hatları) Data Factory'de yayımlar.
 
     ![Yayımlama](./media/tutorial-copy-data-portal/publish-button.png)
 

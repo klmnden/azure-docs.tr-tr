@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 52e0521217fb99bc5fac3fdde8f43f9c80f86ac7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 57bd65006058ab91dcacd4749c1677036f134ff3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194248"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443377"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -730,7 +730,7 @@ if ($fileShare -eq $null) {
 1. Tıklayın **rol atamaları** kullanıcılar ve uygulamalar listesi için sekmesinde (*hizmet sorumluları*), depolama hesabınıza erişimi vardır.
 1. Doğrulama **karma dosya eşitleme hizmeti** listesinde görünür **okuyucu ve veri erişimi** rol. 
 
-    ![Depolama hesabının erişim denetimi sekmesindeki karma dosya eşitleme hizmeti hizmet sorumlusu ekran görüntüsü](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+    ![Depolama hesabının erişim denetimi sekmesindeki karma dosya eşitleme hizmeti hizmet sorumlusunun bir ekran görüntüsü](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
     Varsa **karma dosya eşitleme hizmeti** listede görüntülenmiyorsa, aşağıdaki adımları gerçekleştirin:
 

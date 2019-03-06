@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 52d6781f83262162f261d094d4818f803e5f3866
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8c405941417ad1a4e877cfd8fd0bdb53e186f6d0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670222"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452309"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Ayarlama ve Azure Service Fabric ters proxy ayarlarını yapılandırma
 Ters proxy, bulmak ve http uç noktaları olan diğer hizmetlerle iletişim kurma bir Service Fabric kümesinde çalışan mikro hizmetler yardımcı olan isteğe bağlı bir Azure Service Fabric hizmetidir. Daha fazla bilgi için bkz. [ters proxy Azure Service fabric'te](service-fabric-reverseproxy.md). Bu makalede ayarlama ve kümedeki ters Ara sunucu yapılandırma gösterilmektedir. 
@@ -47,7 +47,7 @@ Yeni bir küme için yapabilecekleriniz [özel bir Resource Manager şablonu olu
 
 Bir Azure kümesinde için güvenli ters proxy ayarlarını yapılandırmanıza yardımcı olabilecek örnek Resource Manager şablonları bulabilirsiniz [güvenli Ters Proxy örnek şablonları](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) GitHub üzerinde. Başvurmak [HTTPS Ters Proxy Yapılandırma güvenli bir küme içinde](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) ve benioku dosyasındaki yönergeleri ve şablonları bir sertifikayla güvenli ters proxy ayarlarını yapılandırma ve sertifika geçişi işlemek için kullanılacak.
 
-Var olan bir küme için küme kaynağı için Resource Manager şablonu dışarı aktarabilirsiniz kullanarak grup [Azure portalında](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell#export-resource-group-as-template), veya [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli#export-resource-group-as-template).
+Var olan bir küme için küme kaynağı için Resource Manager şablonu dışarı aktarabilirsiniz kullanarak grup [Azure portalında](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell), veya [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 
 Resource Manager şablonu oluşturduktan sonra aşağıdaki adımlarla ters proxy etkinleştirebilirsiniz:
 
@@ -334,7 +334,7 @@ Ters proxy aracılığıyla Azure veya tek başına kümeler için ClusterConfig
 
 Yapı ayarları Azure kümeleri için güncelleştirme hakkında daha fazla bilgi için bkz. [Resource Manager şablonlarını kullanarak küme ayarlarını özelleştirme](service-fabric-cluster-config-upgrade-azure.md). Tek başına kümeler için bkz: [tek başına kümeler için küme ayarlarını Özelleştir](service-fabric-cluster-config-upgrade-windows-server.md). 
 
-Birkaç yapı ayarları ters proxy ve hizmetler arasında güvenli iletişim kurmak amacıyla kullanılır. Bu ayarları hakkında ayrıntılı bilgi için bkz: [güvenli hizmet ters proxy ile bağlanma](service-fabric-reverseproxy-configure-secure-communication.md).
+Birkaç yapı ayarları ters proxy ve hizmetler arasında güvenli iletişim kurmak amacıyla kullanılır. Bu ayarlar hakkında ayrıntılı bilgi için bkz. [güvenli hizmet ters proxy ile bağlanma](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Güvenli HTTP hizmetine ileten ters proxy ile ayarlama](service-fabric-reverseproxy-configure-secure-communication.md)

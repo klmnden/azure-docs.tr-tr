@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 62dffffee411519cdcafe80a11404f9e273dd9dd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880793"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451629"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Gelişmiş sorgular Azure İzleyici'de yazma
 
@@ -76,7 +76,7 @@ Event
 ```
 
 ## <a name="print"></a>Yazdırma
-`print` tek bir sütun ve hesaplama sonucunu gösteren tek bir satır içeren bir tablo döndürür. Bu genellikle, bir basit calcuation gereken durumlarda kullanılır. Örneğin, Pasifik saati geçerli zamanı bulup EST sahip bir sütun ekleyin:
+`print` tek bir sütun ve hesaplama sonucunu gösteren tek bir satır içeren bir tablo döndürür. Bu genellikle, basit bir hesaplama gereken durumlarda kullanılır. Örneğin, Pasifik saati geçerli zamanı bulup EST sahip bir sütun ekleyin:
 
 ```Kusto
 print nowPst = now()-8h

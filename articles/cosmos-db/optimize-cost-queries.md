@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: cb85d09a1d5dee6cb54254baac4698cdad093785
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e6814224827aac0da9c6faf5108ecf585bae7c35
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457675"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445390"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Azure Cosmos DB'de sorgu gerçekleştirerek
 
@@ -53,7 +53,7 @@ while (queryable.HasMoreResults)
 
 ## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Bir sorgu için istek birimi ücreti etkileyen faktörler
 
-Sorgular için istek birimleri, bir dizi faktöre bağlıdır. Örneğin, Azure Cosmos öğe sayısını yüklendi/döndürülen, arama ve dizin karşı sayısı sorgu derleme zamanı vb. ayrıntıları. Azure Cosmos DB, aynı veri yürütüldüğünde aynı sorgu her zaman istek birimleri bile tekrar yürütme ile aynı sayıda tüketecektir garanti eder. Sorgu yürütme ölçümleri kullanarak sorguyu profili istek birimleri nasıl harcanan bir iyi fikir verir.  
+Sorgular için istek birimleri, bir dizi faktöre bağlıdır. Örneğin, Azure Cosmos öğe sayısını yüklendi/döndürülen, arama ve dizin sorgu derleme karşı sayısı vb. ayrıntıları zaman. Azure Cosmos DB, aynı veri yürütüldüğünde aynı sorgu her zaman istek birimleri bile tekrar yürütme ile aynı sayıda tüketecektir garanti eder. Sorgu yürütme ölçümleri kullanarak sorguyu profili istek birimleri nasıl harcanan bir iyi fikir verir.  
 
 Bazı durumlarda, 200 ve 429 yanıtları ve değişken istek birimleri cinsinden sorguları kullanılabilir RU'ları üzerinde temel mümkün olduğunca hızlı çalışır çünkü Disk bellekli bir yürütme sorgu, bir dizi görebilirsiniz. Birden çok birden/sunucu ve istemci arasındaki gelişlerin yuvarlak bir sorgu yürütme görebilirsiniz. Örneğin, 10.000 öğeleri döndürülmesi birden çok sayfa her sayfada gerçekleştirilen hesaplama göre ücretlendirilir. Bu sayfada topladığımızda için sorgunun tamamını elde edebileceğiniz gibi aynı sayıda RU almanız gerekir.  
 

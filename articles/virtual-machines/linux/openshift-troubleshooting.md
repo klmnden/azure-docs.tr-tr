@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: f94189e8f39771e0c3d7856ccbb8a23ba81d94aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085857"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447283"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Azure'da OpenShift dağıtım sorunlarını giderme
 
 OpenShift kümesi başarıyla değil dağıtıyorsanız, Azure portalında hata çıktısı sağlar. Çıkış sorunu tanımlamak zorlaştıran okunması zor olabilir. Bu çıktı, çıkış kodu 3, 4 veya 5 için hızlı tarama. Aşağıda, bu üç çıkış kodları bilgileri sağlar:
 
-- Çıkış kodu 3: uygulamanızın Red Hat abonelik kullanıcı adı / parola veya kuruluş kimliği / etkinleştirme anahtarı hatalı
-- Çıkış kodu 4: bilgisayarınızı Red Hat Havuz kimliği yanlış veya hiçbir destek hakları vardır
-- Çıkış kodu 5: açamadığından Docker ölçülü kaynak havuzu birim
+- Çıkış kodu 3: Red Hat aboneliğinizin kullanıcı adı / parola veya kuruluş kimliği / etkinleştirme anahtarı hatalı
+- Çıkış kodu 4: Red Hat Havuz kimliği yanlış veya hiçbir destek hakları vardır
+- Çıkış kodu 5: Docker ölçülü kaynak havuzu birimini açamadığından
 
 Diğer tüm çıkış kodları için konaklarında ssh günlük dosyalarını görüntülemek için bağlanın.
 

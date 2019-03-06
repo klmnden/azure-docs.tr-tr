@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ff214a545023364b09a0e757462a1b3f3d963d44
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 34555ec3315c1fd7322c249e59744cb512ac2d37
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885030"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437489"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Hızlı Başlangıç: Java için bir video arama Bing Video arama SDK ile gerçekleştirme
 
@@ -41,7 +41,7 @@ Bing Video Arama SDK'sı bağımlılık dosyalarını Maven, Gradle veya başka 
   </dependencies> 
 ```
 
-## <a name="create-and-initalize-a-project"></a>Oluşturma ve başlatma bir proje
+## <a name="create-and-initialize-a-project"></a>Proje oluşturma ve başlatma
 
 
 Sık kullandığınız IDE ortamında veya düzenleyicide yeni bir Java projesi oluşturun ve aşağıdaki kitaplıkları içeri aktarın.
@@ -115,7 +115,7 @@ Sık kullandığınız IDE ortamında veya düzenleyicide yeni bir Java projesi 
         //...
         ```
 
-## <a name="send-a-search-request-and-recieve-the-response"></a>Arama isteği gönderme ve yanıt 
+## <a name="send-a-search-request-and-receive-the-response"></a>Arama isteği gönderme ve yanıt 
 
 1. Çağrılan bir işlev oluşturma `VideoSearch()` , abonelik anahtarınız bir dize olarak alır. Daha önce oluşturduğunuz arama istemci örneği oluşturun.
     

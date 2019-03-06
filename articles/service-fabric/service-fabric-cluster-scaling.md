@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: d93ebb01c905be6bf799ed6e4a037e3ddfdc2430
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 527ab4ee0edaf3ac2048403d7063edef8fc58ae8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094181"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451986"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Ölçeklendirme Azure Service Fabric kümeleri
 Service Fabric kümesi bir ağa bağlı, mikro hizmetlerin dağıtıldığı ve yönetildiği sanal veya fiziksel makine kümesidir. Bir makine ya da bir kümenin parçası olan sanal makine bir düğüm denir. Kümeler, potansiyel olarak binlerce düğümde içerebilir. Service Fabric kümesi oluşturduktan sonra küme yatay yönde ölçeklendirebilirsiniz (düğüm sayısını değiştirme) ya da dikey yönde (düğümlerin kaynakları değiştirin).  Kümedeki herhangi bir zamanda iş yükleri küme üzerinde çalışırken bile ölçeklendirebilirsiniz.  Küme ölçekler gibi uygulamalarınızı otomatik olarak da ölçeklendirin.
@@ -81,7 +81,7 @@ Aşağıdaki kılavuz, Azure kümesine ölçeklerken göz önünde bulundurun:
 Düğüm türü ölçeği artırılabilen veya azaltılabilen işlemi, birincil olmayan veya birincil düğüm türü olmasına bağlı olarak farklıdır.
 
 ### <a name="scaling-non-primary-node-types"></a>Birincil olmayan düğüm türleri ölçeklendirme
-Yeni bir düğüm türü, ihtiyacınız olan kaynakları ile oluşturun.  Yeni düğüm türü içerecek şekilde hizmetleri çalıştırma yerleştirme kısıtlamaları güncelleştirin.  Aşamalı olarak (bir kerede), böylece küme güvenilirliğini etkilenmez eski düğüm türü örneği sayısı örnek sayısı sıfıra indirin.  Eski düğüm türü decommisioned olduğu gibi hizmetleri aşamalı olarak yeni düğüm türü geçirin.
+Yeni bir düğüm türü, ihtiyacınız olan kaynakları ile oluşturun.  Yeni düğüm türü içerecek şekilde hizmetleri çalıştırma yerleştirme kısıtlamaları güncelleştirin.  Aşamalı olarak (bir kerede), böylece küme güvenilirliğini etkilenmez eski düğüm türü örneği sayısı örnek sayısı sıfıra indirin.  Eski düğüm türü kullanımdan alındı olarak Hizmetleri aşamalı olarak yeni düğüm türü geçirin.
 
 ### <a name="scaling-the-primary-node-type"></a>Birincil düğüm türü ölçeklendirme
 Birincil düğüm türündeki sanal makine SKU'su değiştirmemenizi öneririz. Daha fazla küme kapasitesine ihtiyacınız varsa, daha fazla örnek eklenmesi önerilir. 

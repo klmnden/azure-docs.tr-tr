@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: e40d8e7c05213e99fc2ef65f5dc05f17ba0d185e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890544"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437251"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>İçeri/dışarı aktarma işi için durum bilgilerini alma
 Çağırabilirsiniz [alma işi](/rest/api/storageimportexport/jobs) hem hakkında bilgi almak için işlemi içeri ve dışarı aktarma işleri. Döndürülen bilgileri içerir:
@@ -45,7 +45,7 @@ Aşağıdaki tabloda, bir işi geçişine her bir durumu açıklar.
 |`Completed`|Projenin hatasız tamamlanırsa müşteri için tüm sürücüleri sevk edilmiş sonra ardından iş ayarlanacak `Completed` durumu. İş otomatik olarak 90 gün sonra silinir `Completed` durumu.|
 |`Closed`|İşin işleme sırasında hataları yapıldı, müşteri için tüm sürücüleri sevk edilmiş sonra ardından iş ayarlanacak `Closed` durumu. İş otomatik olarak 90 gün sonra silinir `Closed` durumu.|
 
-Bir işi yalnızca belirli durumlar iptal edebilirsiniz. Bir işi iptal edildi, veri kopyalama adımı atlar, ancak aynı durumu geçişleri iptal edilmediği işi takip eden Aksi takdirde.
+Bir işi yalnızca belirli durumlar iptal edebilirsiniz. İptal edilen bir işi veri kopyalama adımı atlar, ancak iş iptal olarak aynı durum geçişlerini takip eden Aksi takdirde.
 
 Aşağıdaki tabloda, bir hata oluştuğunda iş üzerindeki etkisini yanı sıra, her iş durumu için oluşabilecek hatalar açıklanmaktadır.
 

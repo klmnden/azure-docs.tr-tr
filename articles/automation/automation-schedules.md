@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c1c36736e9d023ab1bd2ed607638b600bc468f2c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d6677733339babf45e7351e10d6de1c002a6ea93
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437225"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436519"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Azure Otomasyonu’nda runbook zamanlama
 
@@ -52,7 +52,7 @@ Azure portalında veya Windows PowerShell ile runbook'lar için yeni bir zamanla
 1. Üzerinde **yeni zamanlama** bölmesinde bir **adı** ve isteğe bağlı olarak bir **açıklama** yeni zamanlama için.
 1. Zamanlama bir kez olmasından veya yinelenen bir zamanlamaya göre seçerek **kez** veya **yinelenen**. Seçerseniz **kez** belirtin bir **başlangıç zamanı**ve ardından **Oluştur**. Seçerseniz **yinelenen**, belirtin bir **başlangıç zamanı** ve **Yinele her**, ne sıklıkta runbook - göre yinelemek istediğiniz sıklığını seçin **saat**, **gün**, **hafta**, ya da **ay**.
     1. Seçerseniz **hafta**, aralarından seçim yapabileceğiniz haftanın günlerini listesi sağlanır. İstediğiniz kadar çok gün seçin. İlk çalıştırma zamanlama, seçilen başlangıç zamanından sonraki ilk gününde gerçekleşir.
-    2. Seçerseniz **ay**, farklı seçenekler sunulur. İçin **aylık occurrances** seçeneğinde, ya da seçin **ayın günü** veya **haftanın günleri**. Seçerseniz **ayın günü** istediğiniz sayıda gün seçmenize olanak tanıyan bir takvim gösterilir. Geçerli ay içinde oluşmaz 31 gibi bir tarihi seçerseniz, zamanlama çalışmaz. Zamanlamanın son gününde çalıştırmak istiyorsanız seçin **Evet** altında **ayın son gününde Çalıştır**. Seçerseniz **haftanın günleri**, **Yinele her** seçeneği sunulur. Seçin **ilk**, **ikinci**, **üçüncü**, **dördüncü**, veya **son**. Son olarak üzerinde yinelemek için bir günü seçin.
+    2. Seçerseniz **ay**, farklı seçenekler sunulur. İçin **aylık oluşumlar** seçeneğinde, ya da seçin **ayın günü** veya **haftanın günleri**. Seçerseniz **ayın günü** istediğiniz sayıda gün seçmenize olanak tanıyan bir takvim gösterilir. Geçerli ay içinde oluşmaz 31 gibi bir tarihi seçerseniz, zamanlama çalışmaz. Zamanlamanın son gününde çalıştırmak istiyorsanız seçin **Evet** altında **ayın son gününde Çalıştır**. Seçerseniz **haftanın günleri**, **Yinele her** seçeneği sunulur. Seçin **ilk**, **ikinci**, **üçüncü**, **dördüncü**, veya **son**. Son olarak üzerinde yinelemek için bir günü seçin.
 1. Click bittiğinde **Oluştur**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Windows PowerShell ile yeni bir zamanlama oluşturmak için

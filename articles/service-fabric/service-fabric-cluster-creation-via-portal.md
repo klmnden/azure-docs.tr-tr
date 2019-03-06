@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: 71448125d7308ca28e7241fd4019aadba430214e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 80a4014cb371f3c37c01fa1cf2d20041caf17184
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106146"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448230"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure portalını kullanarak Azure'da bir Service Fabric kümesi oluşturma
 > [!div class="op_single_selector"]
@@ -90,7 +90,7 @@ Gidin **Service Fabric kümesi** dikey penceresinde de **Oluştur**.
 **Oluşturma Service Fabric kümesi** dikey penceresinde aşağıdaki dört adım vardır:
 
 ### <a name="1-basics"></a>1. Temel Bilgiler
-![Yeni bir kaynak grubu oluşturma ekran görüntüsü.][CreateRG]
+![Yeni bir kaynak grubu oluşturma işleminin ekran görüntüsü.][CreateRG]
 
 Temel bilgiler dikey penceresinde, kümeniz için temel ayrıntılarını sağlamanız gerekir.
 

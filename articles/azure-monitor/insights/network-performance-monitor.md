@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729804"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452139"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -119,19 +119,13 @@ Ağ Performansı İzleyicisi yapay işlemler, kaynak ve hedef aracılar arası a
 
    **ExpressRoute İzleyicisi**: Seçin **Şimdi Bul** Azure aboneliğindeki sanal ağlara bağlı özel eşlemeler bu Log Analytics çalışma alanıyla bağlantılı tüm ExpressRoute bulunacak. 
 
-   >[!NOTE] 
-   > Çözüm, şu anda yalnızca ExpressRoute özel eşlemesi bulur. 
-
-   >[!NOTE] 
-   > Yalnızca bu Log Analytics çalışma alanıyla bağlantılı aboneliği ile ilişkili sanal ağlara bağlı özel eşlemeler bulunur. ExpressRoute, bu çalışma alanına bağlı abonelik dışında sanal ağlara bağlıysa, bu Aboneliklerde bir Log Analytics çalışma alanı oluşturun. Bu eşlemeler izlemek için Ağ Performansı İzleyicisi'ni kullanın.
-
    ![ExpressRoute İzleyicisi görüntüle](media/network-performance-monitor/npm-express-route.png)
 
-   Bulma tamamlandıktan sonra bulunan özel eşlemeler bir tabloda listelenmiştir. 
+   Bulma tamamlandıktan sonra bulunan devreler ve eşlemeleri bir tabloda listelenmiştir. 
 
    ![Ağ Performansı İzleyicisi Yapılandırması sayfası](media/network-performance-monitor/npm-private-peerings.png)
     
-Bu eşlemeler için izleme, başlangıçta devre dışı durumda olan. İzlemek istediğiniz her eşleme seçin ve sağ taraftaki Ayrıntıları görünümünde izlemesini bunlar için yapılandırın. Seçin **Kaydet** yapılandırmayı kaydetmek için. Daha fazla bilgi için "Yapılandırma ExpressRoute izleme" makalesine bakın. 
+Bu bağlantı hatları ve eşlemeler için izleme, başlangıçta devre dışı durumda olan. İzlemek istediğiniz her bir kaynak seçin ve sağ taraftaki Ayrıntıları görünümünde izlemesini bunlar için yapılandırın. Seçin **Kaydet** yapılandırmayı kaydetmek için. Daha fazla bilgi için "Yapılandırma ExpressRoute izleme" makalesine bakın. 
 
 Kurulum tamamlandıktan sonra veriler doldurmak için bir saat 30 dakika sürer. Çözüm, ağ üzerinden verileri toplar, ancak iletiyi görmek *çözüm ek yapılandırma gerektirir* Ağ Performansı İzleyicisi **genel bakış** kutucuk. Sonra veriler toplanır ve dizinli **genel bakış** kutucuk değişir ve bir Özet olarak, ağ durumunu size bildirir. Ardından, hangi Log Analytics temelinde aracılarının yüklü olduğu düğümlerin yanı sıra ortamınızdaki keşfedilen alt ağlar izlenmesini düzenleyebilirsiniz.
 
@@ -269,7 +263,7 @@ Azure Portalı aracılığıyla bir uyarı oluşturan bir NPM kullanıcı varsa:
 3. Eylem grupları kullanmayı seçerseniz, daha önce oluşturulan eylem grubu seçmeniz gerekecektir. Bir eylem grubu oluşturmak nasıl öğrenebilirsiniz [burada.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Uyarı başarıyla oluşturulduktan sonra Uyarıları Yönet bağlantısına Uyarıları yönetmek için kullanabilirsiniz. 
 
-Her zaman bir uyarı oluşturmak, Azure İzleyicisi'nde NPM sorgu tabanlı günlük uyarı kuralı oluşturur. Bu sorguyu 5 dakikada bir varsayılan triggerred olduğu. Azure İzleyici değil ücret ilk 250 günlük uyarısı kuralları oluşturulan ve 250 günlük uyarı kuralları sınırlamak uyarı kuralları yukarıdaki olarak başına faturalandırılır [uyarılar Azure fiyatlandırma sayfasını İzleyicisi'nde fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Her zaman bir uyarı oluşturmak, Azure İzleyicisi'nde NPM sorgu tabanlı günlük uyarı kuralı oluşturur. Bu sorgu tetiklenen varsayılan olarak 5 dakikada. Azure İzleyici değil ücret ilk 250 günlük uyarısı kuralları oluşturulan ve 250 günlük uyarı kuralları sınırlamak uyarı kuralları yukarıdaki olarak başına faturalandırılır [uyarılar Azure fiyatlandırma sayfasını İzleyicisi'nde fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 Bildirimleri ücretlendirilir olarak başına [Azure fiyatlandırma sayfasını İzleyicisi'nde fiyatlandırma bildirimleri](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 

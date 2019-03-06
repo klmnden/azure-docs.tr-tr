@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 847eddc78f8abc938e68e6fe383a773dadeaf779
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 7f8731f48b96ccbe0e77970af1ccefa1d7a7155f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557844"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438780"
 ---
 # <a name="azure-time-series-insights-preview-overview"></a>Azure zaman serisi İçgörüler Önizleme genel bakış
 
@@ -52,13 +52,13 @@ Geçerli IOT yatay farklı. Müşteriler, üretim, otomotiv, enerji, yardımcı 
 
 Time Series Insights bir kapsamlı, uçtan uca olarak-a-IOT veri keşfi ve operasyonel içgörüler için hizmet olarak platform teklifidir ' dir. Zaman serisi görüşleri, IOT ölçekli zaman serisi verilerini analiz etmek için tam olarak yönetilen bulut hizmeti sunar.
 
-Ham veri bir şemasız, bellek içi depolama alanında depolayabilirsiniz. Ardından, dağıtılmış sorgu altyapısı ve API etkileşimli geçici sorgular gerçekleştirebilirsiniz. Olun milyarlarca olayı saniyeler içinde görselleştirin için zengin kullanıcı deneyimini kullanın. Daha fazla bilgi edinin [veri keşfi özellikleri](./time-series-insights-overview.md).
+Ham veri bir şemasız, bellek içi depolama alanında depolayabilirsiniz. Ardından, bir dağıtılmış sorgu altyapısı ve API etkileşimli geçici sorgular gerçekleştirebilirsiniz. Olun milyarlarca olayı saniyeler içinde görselleştirin için zengin kullanıcı deneyimini kullanın. Daha fazla bilgi edinin [veri keşfi özellikleri](./time-series-insights-overview.md).
 
 Time Series Insights şu anda önizlemede operasyonel içgörüler özellikleri de sunar. Etkileşimli veri keşfi ve operasyonel zeka ile birlikte IOT varlıklarından toplanan verilerinizden daha fazla değer türetmek için Time Series Insights'ı kullanabilirsiniz. Önizleme Teklifi destekler:
 
 * Bir ölçeklenebilir, performans ve maliyet açısından iyileştirilmiş zaman serisi verilerini depolar. Bu bulut tabanlı bir IOT çözümü, saniyeler içinde zaman serisi verilerini tutarında yıllık eğilim.
 * Etki alanı ve varlıkları ve cihazlardan türetilmiş ve türetilmeyen sinyal ile ilişkili meta verileri tanımlayan anlam modeli desteği.
-* Varlık tabanlı veri öngörüleri birleştiren zengin, geçici data analytics ile geliştirilmiş bir kullanıcı deneyimi. Bu birleşim, iş ve operasyonel zeka sürücüleri.
+* Varlık tabanlı veri öngörüleri birleştiren zengin ve geçici data analytics ile geliştirilmiş bir kullanıcı deneyimi. Bu birleşim, iş ve operasyonel zeka sürücüleri.
 * Gelişmiş makine öğrenme ve analiz araçları ile tümleştirme. Azure Databricks, Apache Spark, Azure Machine Learning, Jupyter not defterleri ve Power BI araçları içerir. Bu araçlar zaman serisi verilerini sorunlarını gidermek ve Operasyonel Verimliliği artırmaya yardımcı olur.
 
 Birlikte, operasyonel içgörüler ve veri keşfi, basit bir Kullandıkça Öde fiyatlandırma modeline veri işleme, depolama ve sorgu ile sunulmaktadır. Bu faturalama modeli, değişen iş gereksinimlerinize uygun.

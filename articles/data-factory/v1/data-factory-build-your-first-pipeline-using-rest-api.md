@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2465dd6c22567a3d8b50a7cfad4e26491bbe773e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 10d97b71ca0b52674ccf349f445f5397a08e4c4d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885209"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453108"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Öğretici: İlk Azure data factory’nizi Data Factory REST API’sini kullanarak oluşturma
 > [!div class="op_single_selector"]
@@ -46,6 +46,9 @@ Bu öğreticideki işlem hattı bir etkinlik içerir: **HDInsight Hive etkinliğ
 
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) makalesinin tamamını okuyun ve **ön koşul** adımlarını tamamlayın.
 * [Curl](https://curl.haxx.se/dlwiz/) aracını makinenize yükleyin. Bir veri fabrikası oluşturmak için CURL aracını REST komutlarıyla kullanırsınız.
 * Aşağıdakileri yapmak için [bu makaledeki](../../active-directory/develop/howto-create-service-principal-portal.md) yönergeleri izleyin:
@@ -55,13 +58,13 @@ Bu öğreticideki işlem hattı bir etkinlik içerir: **HDInsight Hive etkinliğ
   4. **ADFGetStartedApp** uygulamasını **Data Factory Katılımcısı** rolüne atayın.
 * [Azure PowerShell](/powershell/azure/overview)'i yükleyin.
 * **PowerShell**’i başlatın ve aşağıdaki komutu çalıştırın. Bu öğreticide sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız komutları yeniden çalıştırmanız gerekir.
-  1. **Connect-AzureRmAccount** komutunu çalıştırın ve Azure portalında oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
-  2. Bu hesapla ilgili tüm abonelikleri görmek için **Get-AzureRmSubscription** komutunu çalıştırın.
-  3. Kullanmak istediğiniz aboneliği seçmek için **Get-AzureRmSubscription - SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** komutunu çalıştırın. **NameOfAzureSubscription** değerini Azure aboneliğinizin adıyla değiştirin.
+  1. Çalıştırma **Connect AzAccount** ve kullanıcı adı ve Azure portalında oturum açmak için kullandığınız parolayı girin.
+  2. Çalıştırma **Get-AzSubscription** bu hesap için tüm abonelikleri görmek için.
+  3. Çalıştırma **AzSubscription Get - SubscriptionName NameOfAzureSubscription | Set-AzContext** çalışmak isteğiniz aboneliği seçmek için. **NameOfAzureSubscription** değerini Azure aboneliğinizin adıyla değiştirin.
 * PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun:
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
    Bu öğreticideki adımlardan bazıları ADFTutorialResourceGroup adlı kaynak grubunu kullandığınızı varsayar. Farklı bir kaynak grubu kullanıyorsanız, bu öğreticide kullanılan ADFTutorialResourceGroup yerine kaynak grubunuzun adını kullanmanız gerekir.
@@ -325,12 +328,12 @@ Aşağıdaki noktalara dikkat edin:
   * Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın:
 
     ```PowerShell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
       Data Factory sağlayıcısının kayıtlı olduğunu onaylamak için aşağıdaki komutu çalıştırabilirsiniz:
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * Azure aboneliğini kullanarak [Azure portalında](https://portal.azure.com) oturum açın ve Data Factory dikey penceresine gidin (ya da) Azure portalında bir data factory oluşturun. Bu eylem sağlayıcıyı sizin için otomatik olarak kaydeder.
 

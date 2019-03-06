@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cc3f7c72acc0723c522b595ea106f72947e9d014
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: df98be4dbb65088951968a16198b41d3d6d0bb67
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728735"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410222"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Öğretici: IOT Hub ile ileti yönlendirmeyi yapılandırma
 
@@ -276,7 +276,7 @@ Simülasyon cihazı tarafından iletiye eklenen özellikler temelinde iletileri 
 
 Şimdi depolama hesabı için yönlendirmeyi ayarlayın. İleti Yönlendirme bölmesine gider ve bir yol eklersiniz. Yolu eklerken, yol için yeni bir uç nokta tanımlayın. Bu ayarlandıktan sonra, **level** özelliği **storage** olarak ayarlanmış olan iletiler otomatik olarak depolama hesabına yazılır. 
 
-Veriler, blob depolama alanına Avro biçiminde yazılır.
+Veriler varsayılan olarak, varsayılan olarak BLOB depolamaya Avro biçiminde yazılır.
 
 1. [Azure portalında](https://portal.azure.com) **Kaynak Grupları**'na tıklayın ve kaynak grubunuzu seçin. Bu öğreticide **ContosoResources** kullanılır. 
 
@@ -301,7 +301,9 @@ Veriler, blob depolama alanına Avro biçiminde yazılır.
    > 
    > Örneğin varsayılan blob dosya adı biçimini kullandığınızda hub adı ContosoTestHub ve tarih/saat 30 Ekim 2018 10:56 ise blob adı şu şekilde olacaktır: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > Bloblar Avro biçiminde yazılır.
+   > Blobları, varsayılan olarak Avro biçiminde yazılır. JSON biçiminde dosyalarını yazmak seçebilirsiniz. IOT hub'ı Doğu ABD, Batı ABD ve Batı Avrupa, kullanılabilir tüm bölgelerde önizleme özelliği JSON biçiminde kodlamak için kullanılabilir. [Blob depolama alanına Yönlendirme Kılavuzu] konusuna bakın (iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > 
+   > BLOB depolamaya yönlendirme, BLOB'ları kaydetme ve ardından tüm kapsayıcıları bölümünün varsayımlar yapmadan okunur emin olmak için bunları üzerinde yineleme öneririz. Bölüm aralığı sırasında olası değişebilir bir [Microsoft tarafından başlatılan bir yük devretme](iot-hub-ha-dr.md#microsoft-initiated-failover) veya IOT hub'ı [el ile yük devretme](iot-hub-ha-dr.md#manual-failover-preview). Blobları bakın listesini numaralandırır öğrenmek için [blob depolama alanına yönlendirme](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
    >
 
 8. Depolama uç noktasını oluşturmak ve yola eklemek için **Oluştur**'a tıklayın. **Yol ekle** bölmesine dönersiniz.

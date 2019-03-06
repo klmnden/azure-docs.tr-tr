@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: e3bfc3d0f444bece0afe7b7f5bcdac343a693a13
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243712"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451884"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure güvenlik ve uyumluluk planı: FedRAMP için analiz
 
@@ -140,7 +140,7 @@ Azure SQL veritabanı güvenlik özelliklerini kullanma hakkında daha fazla bil
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) dağıtımını yöneten ve ortam ile etkileşim personel erişimi sağlama için gereklidir. Mevcut bir Windows Server Active Directory, AAD içinde ile tümleştirilebilir [dört tıklama](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Müşteriler ayrıca dağıtılan Active Directory altyapısı (etki alanı denetleyicileri) için mevcut bir AAD AAD ormandaki bir alt etki alanı dağıtılan Active Directory altyapısı yaparak bağlayabilirsiniz.
 
 ### <a name="additional-services"></a>Ek hizmetler
-#### <a name="iaas---vm-vonsiderations"></a>Iaas - VM vonsiderations
+#### <a name="iaas---vm-considerations"></a>Iaas - VM konuları
 Bu PaaS çözümü herhangi bir Azure Iaas VM dahil değildir. Bir müşteri, çoğu bu PaaS hizmetlerini çalıştırmak için bir Azure VM oluşturabilirsiniz. Bu durumda, belirli özellikler ve hizmetler için iş sürekliliği ve Azure İzleyici günlüklerine yararlanılarak:
 
 ##### <a name="business-continuity"></a>İş sürekliliği

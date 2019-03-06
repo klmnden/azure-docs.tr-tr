@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: ec23d4cec5ec1dbcaba5eca73ae6aba8391f2742
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 55949da97f58f1d8c1670f69d25e92d6bb4e9eef
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242148"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447311"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Syslog kullanarak dış çözümünüzü bağlayın
 
@@ -27,7 +27,7 @@ ms.locfileid: "57242148"
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Syslog ile Azure Gözcü destekleyen herhangi bir şirket içi gereç bağlanabilirsiniz. Bu, bir Linux makineye Gereci ve Azure Gözcü arasında dayalı bir aracı kullanarak gerçekleştirilir. Azure'da Linux makinenizde ise gereç veya uygulamayı Azure'da oluşturun ve bağlayın ayrılmış bir çalışma günlüklerinden akışını yapabilirsiniz. Azure'da Linux makinenizde değilse, bir adanmış şirket içi VM veya makineye Linux için aracıyı yüklemeniz, gereçten günlükleri düzenleyebilir. 
+Syslog ile Azure Gözcü destekleyen herhangi bir şirket içi gereç bağlanabilirsiniz. Bu, bir Linux makineye Gereci ve Azure Gözcü arasında dayalı bir aracı kullanarak gerçekleştirilir. Azure'da Linux makinenizde ise gereç veya uygulamayı Azure'da oluşturun ve bağlayın ayrılmış bir çalışma günlüklerinden akışını yapabilirsiniz. Azure'da Linux makinenizde değilse, günlükler, gereçten ayrılmış bir akışını şirket içi VM veya makine Linux için aracıyı yüklediğiniz. 
 
 > [!NOTE]
 > Gerecinize Syslog CEF destekliyorsa, daha kapsamlı bir bağlantıdır ve bu seçeneği belirleyin ve yönergeleri izleyin, [CEF verileri toplama](connect-common-event-format.md).

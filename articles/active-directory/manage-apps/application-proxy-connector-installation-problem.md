@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75570cb289af7c7b718414974e5770f692233758
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 645ba6e8306b063892babe25fde41d8dd3144fee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210875"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444299"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Uygulama Ara Sunucusu Aracı Bağlayıcısı’nı yüklerken sorun oluşuyor
 
@@ -64,7 +64,7 @@ Bir bağlayıcı yüklemesi başarısız olduğunda, kök nedeni genellikle aşa
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Yönetici Bağlayıcısı'nı yüklemek için kullanılan doğrulayın
 
-**Hedef:** Bağlayıcı yüklemeye çalıştığında kullanıcı doğru kimlik bilgilerine sahip bir yönetici olduğundan emin olun. Şu anda, kullanıcının bir uygulama Yöneticisi veya yüklemesinin başarılı olması için genel yönetici olması gerekir.
+**Hedef:** Bağlayıcı yüklemeye çalıştığında kullanıcı doğru kimlik bilgilerine sahip bir yönetici olduğundan emin olun. Şu anda, kullanıcı bir uygulama Yöneticisi veya yükleme için genel yönetici başarılı olması için olmalıdır.
 
 **Kimlik bilgilerinin doğru olup olmadığını doğrulamak için:**
 

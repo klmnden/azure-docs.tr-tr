@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 1170266ed0b59c53adce4e44fe3e7a0bc62f394e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fa07ebf3dbf3e5d3e5f4e96cdf4b77a3710c1d1e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014871"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448331"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Güvenlik çerçevesi: Kimlik doğrulaması | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
 | **Web uygulaması**    | <ul><li>[Web uygulaması için kimlik doğrulaması için bir standart kimlik doğrulama mekanizması kullanmayı düşünün](#standard-authn-web-app)</li><li>[Uygulamalar başarısız kimlik doğrulama senaryoları güvenli bir şekilde işlemesi gerekir](#handle-failed-authn)</li><li>[Etkinleştirme adım veya uyarlamalı kimlik doğrulaması](#step-up-adaptive-authn)</li><li>[Yönetim arabirimleri uygun şekilde kilitlendiğini emin olun.](#admin-interface-lockdown)</li><li>[Uygulama parolası işlevlerini güvenli bir şekilde unuttum](#forgot-pword-fxn)</li><li>[Parola ve hesap ilkesi uygulandığından emin olun.](#pword-account-policy)</li><li>[Kullanıcı adı numaralandırma önlemek için denetimleri uygulayın](#controls-username-enum)</li></ul> |
 | **Veritabanı** | <ul><li>[Mümkün olduğunda, SQL Server'a bağlanmak için Windows kimlik doğrulaması kullanın](#win-authn-sql)</li><li>[Mümkün olduğunda, Azure Active Directory kimlik doğrulaması için SQL veritabanına bağlanma kullanın](#aad-authn-sql)</li><li>[SQL kimlik doğrulama modu kullanılırken, hesap ve parola ilkesi SQL Server'da zorlandığında emin olun](#authn-account-pword)</li><li>[Kapsanan veritabanlarında SQL kimlik doğrulaması kullanmayın](#autn-contained-db)</li></ul> |
-| **Azure olay hub'ı** | <ul><li>[SaS belirteçleri kullanarak cihaz kimlik doğrulama bilgilerini kullanın](#authn-sas-tokens)</li></ul> |
+| **Azure Event Hub** | <ul><li>[SaS belirteçleri kullanarak cihaz kimlik doğrulama bilgilerini kullanın](#authn-sas-tokens)</li></ul> |
 | **Azure güven sınırı** | <ul><li>[Azure yöneticileri için Azure multi-Factor Authentication'ı etkinleştir](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric güven sınırı** | <ul><li>[Service Fabric kümesi için anonim erişimi kısıtlama](#anon-access-cluster)</li><li>[Service Fabric düğümü için istemci sertifikası düğümden düğüme sertifikasından farklı olduğundan emin olun](#fabric-cn-nn)</li><li>[Service fabric kümeleri istemcilerin kimliğini doğrulamak için AAD kullanın](#aad-client-fabric)</li><li>[Service fabric sertifikaları bir onaylanan sertifika yetkilisi (CA) aldığınız emin olun.](#fabric-cert-ca)</li></ul> |
 | **Kimlik sunucusu** | <ul><li>[Kimlik sunucusu tarafından desteklenen standart kimlik doğrulama senaryoları kullanın](#standard-authn-id)</li><li>[Varsayılan kimlik sunucusu belirteç önbelleği ile ölçeklenebilir alternatif bir geçersiz kılma](#override-token)</li></ul> |
@@ -45,7 +45,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | Ayrıntılar | <p>Kimlik doğrulaması nerede varlığın kimliğini, genellikle bir kullanıcı adı ve parola gibi kimlik bilgileri aracılığıyla kanıtlar işlemidir. Düşünülebilecek birden çok kimlik doğrulama protokolleri kullanılabilir vardır. Bunlardan bazıları aşağıda listelenmiştir:</p><ul><li>İstemci sertifikaları</li><li>Windows tabanlı</li><li>Form tabanlı</li><li>Federasyon - ADFS</li><li>Federasyon - Azure AD</li><li>Federasyon - kimlik sunucusu</li></ul><p>Kaynak işlemi tanımlamak için bir standart kimlik doğrulama mekanizması kullanmayı düşünün</p>|
 
@@ -56,7 +56,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | Ayrıntılar | <p>Açıkça kullanıcıların kimlik doğrulaması yapan uygulamalar başarısız kimlik doğrulama senaryoları güvenli bir şekilde işlemesi gerekir. Kimlik doğrulama mekanizması gerekir:</p><ul><li>Kimlik doğrulama başarısız olduğunda ayrıcalıklı kaynaklara erişimi reddetme</li><li>Başarısız kimlik doğrulamasından sonra genel bir hata iletisi görüntüler ve erişim reddedildi gerçekleşir</li></ul><p>Test için:</p><ul><li>Başarısız oturum açma denemelerinden sonra ayrıcalıklı kaynakları koruma</li><li>Başarısız kimlik doğrulaması genel bir hata iletisi görüntülenir ve olay erişim reddedildi</li><li>Hesapları, aşırı sayıda başarısız girişimden sonra devre dışı bırakılır</li><ul>|
 
@@ -67,7 +67,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | Ayrıntılar | <p>Uygulamanın sahip ek yetkilendirme (adım yukarı gibi ya da OTP SMS, e-posta vb. veya yeniden kimlik doğrulaması için isteyen gönderme gibi çok faktörlü kimlik doğrulaması aracılığıyla Uyarlamalı kimlik doğrulama) doğrulayın kullanıcı erişimi verilmeden önce kimlik doğrulaması için hassas bilgileri. Bu kural için bir hesap veya eylem önemli değişiklikler yapmak için de geçerlidir</p><p>Bu da kimlik doğrulama uyarlama uygulama örneğinde, yetkisiz işleme yoluyla izin vermemek için bağlama duyarlı yetkilendirme doğru zorlar şekilde uygulanması gerektiği anlamına gelir parametresi bozma</p>|
 
@@ -78,7 +78,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | Ayrıntılar | İlk çözümü, bir yönetim arabirimi yalnızca bir belirli kaynak IP aralığından erişim sağlamaktır. Bu çözüm, her zaman daha mümkün olmayacak, uygulamak Yönetim arabirimine oturum açmak için doğrulamayı yükseltme veya uyumlu bir kimlik doğrulaması için önerilen |
 
@@ -89,7 +89,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | Ayrıntılar | <p>İlk şey, doğrulamak için parolanızı mı unuttunuz ve diğer kurtarma yolları parola yerine bir süre sınırlı etkinleştirme belirteci dahil olmak üzere bağlantısı Gönder ' dir. Bağlantı üzerinden gönderilmeden önce ek kimlik doğrulama geçici belirteçleri üzerinde (örn. SMS belirteci, yerel mobil uygulamalar, vb.) göre de gerekli olabilir. Yeni bir parola alma işlemi devam ediyor artırabileceksiniz ikinci, kullanıcı hesabının kilitleneceği değil.</p><p>Bu durum, otomatik bir saldırı kullanıcılarla kullanıma kasıtlı olarak kilitlemek bir saldırgan karar her bir hizmet reddi saldırısı için neden olabilir. Yeni parola isteği devam eden ayarlanmış olduğunda, üçüncü görüntü ileti kullanıcıadı numaralandırma engellemek için genelleştirilerek. Dördüncü, her zaman eski parolaların kullanımına izin verme ve güçlü bir parola ilkesi uygulayın.</p> |
 
@@ -100,9 +100,9 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
-| Ayrıntılar | <p>Parola ve hesap ilkeyle uyumlu kuruluş ilkesi ve en iyi uygulamaları uygulanmalıdır.</p><p>Deneme yanılma ve temel sözlük tahmin karşı korumak için: kullanıcıların karmaşık bir parola (örneğin, en az 12 karakter uzunluğu, alfasayısal ve özel karakterler) oluşturduğunuzdan emin olmak için güçlü bir parola ilkesi uygulanmalı.</p><p>Hesap kilitleme ilkeleri şu şekilde uygulanabilir:</p><ul><li>**Yazılım kilidi genişletme:** bu kullanıcılarınızın deneme yanılma saldırılarına karşı korumaya yönelik iyi bir seçenek olabilir. Yanlış bir parola kullanıcının girdiği her Örneğin, üç kez uygulamanın hesabı için bir dakika kaba devam etmek saldırganın az karlı yaparak kendi parola zorlama işlemi yavaşlatmaz için kilitleme. elde bu örneğin Sabit kilitleme karşı önlemler uygulamak için olsaydı "kalıcı olarak hesapları kilitleme tarafından Dos" a. Alternatif olarak, uygulama bir OTP (bir saat parola) oluştur ve bant dışı Gönder (e-posta, sms vb.) kullanıcı. Başarısız girişim eşiği sayısına ulaşıldıktan sonra CAPTCHA uygulamak için başka bir yaklaşım olabilir.</li><li>**Sabit kilitleme:** uygulamanızı saldırmak kullanıcı algılamak ve ona bir yanıtı ekibi, adli araştırma yapmak için bir süre beklendiğinden kadar kalıcı olarak kendi hesabını kilitlemek yoluyla sayacı bu türde bir kilitleme uygulanmalıdır. Bu işleminden sonra kullanıcıya vermek karar verebilirsiniz hesabını yedekleme veya daha fazla kendisine karşı yasal eylemleri gerçekleştirin. Bu tür bir yaklaşım, uygulamanızın ve altyapınızın daha fazla penetrating gelen saldırgan engeller.</li></ul><p>Varsayılan ve tahmin edilebilir hesapları saldırılarına karşı korumak için tüm anahtarları ve parolaları değiştirilebilir ve olan oluşturulan veya yükleme süre sonra değiştirilmesi doğrulayın.</p><p>Uygulama parolaları otomatik olarak oluşturmak varsa, oluşturulan parolalar rastgele ve yüksek entropi sahip olun.</p>|
+| Ayrıntılar | <p>Parola ve hesap ilkeyle uyumlu kuruluş ilkesi ve en iyi uygulamaları uygulanmalıdır.</p><p>Deneme yanılma ve temel sözlük tahmin karşı korumak için: Kullanıcıların karmaşık bir parola (örneğin, en az 12 karakter uzunluğu, alfasayısal ve özel karakterler) oluşturduğunuzdan emin olmak için güçlü bir parola ilkesi uygulanmalıdır.</p><p>Hesap kilitleme ilkeleri şu şekilde uygulanabilir:</p><ul><li>**Yazılım kilidi çıkışı:** Bu, kullanıcılarınızın deneme yanılma saldırılarına karşı korumaya yönelik iyi bir seçenek olabilir. Yanlış bir parola kullanıcının girdiği her Örneğin, üç kez uygulamanın hesabı için bir dakika kaba devam etmek saldırganın az karlı yaparak kendi parola zorlama işlemi yavaşlatmaz için kilitleme. elde bu örneğin Sabit kilitleme karşı önlemler uygulamak için olsaydı "kalıcı olarak hesapları kilitleme tarafından Dos" a. Alternatif olarak, uygulama bir OTP (bir saat parola) oluştur ve bant dışı Gönder (e-posta, sms vb.) kullanıcı. Başarısız girişim eşiği sayısına ulaşıldıktan sonra CAPTCHA uygulamak için başka bir yaklaşım olabilir.</li><li>**Sabit kilit çıkışı:** Her bir kullanıcı uygulama ve sayaç ona yanıtı ekibi, adli araştırma yapmak için bir süre beklendiğinden kadar kalıcı olarak kendi hesabını kilitlemek yoluyla saldırmak algılamak, bu tür bir kilitleme uygulanmalıdır. Bu işleminden sonra kullanıcıya vermek karar verebilirsiniz hesabını yedekleme veya daha fazla kendisine karşı yasal eylemleri gerçekleştirin. Bu tür bir yaklaşım, uygulamanızın ve altyapınızın daha fazla penetrating gelen saldırgan engeller.</li></ul><p>Varsayılan ve tahmin edilebilir hesapları saldırılarına karşı korumak için tüm anahtarları ve parolaları değiştirilebilir ve olan oluşturulan veya yükleme süre sonra değiştirilmesi doğrulayın.</p><p>Uygulama parolaları otomatik olarak oluşturmak varsa, oluşturulan parolalar rastgele ve yüksek entropi sahip olun.</p>|
 
 ## <a id="controls-username-enum"></a>Kullanıcı adı numaralandırma önlemek için denetimleri uygulayın
 
@@ -111,7 +111,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | **Adımları** | Kullanıcı adı numaralandırma önlemek için tüm hata iletilerini genelleştirilmiş. Ayrıca bazen bir kayıt sayfasına gibi işlevler, sızıntı bilgilerden kaçınmak olamaz. Burada bir saldırgan tarafından otomatik bir saldırıyı engellemek için CAPTCHA gibi hız sınırlaması yöntemleri kullanmanız gerekir. |
 
@@ -122,7 +122,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Şirket içi |
-| **Öznitelikleri**              | SQL sürümü - tüm |
+| **Öznitelikler**              | SQL sürümü - tüm |
 | **Başvuruları**              | [SQL Server - kimlik doğrulama modu seçme](https://msdn.microsoft.com/library/ms144284.aspx) |
 | **Adımları** | Windows kimlik doğrulaması Kerberos güvenlik protokolünü kullanır, parola ilkesi zorlama için güçlü parolalar karmaşıklık doğrulaması onaylamaz sağlar, hesap kilitleme desteği sağlar ve parola süre aşımını destekler.|
 
@@ -133,9 +133,9 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | SQL Azure |
-| **Öznitelikleri**              | SQL sürümü - V12 |
+| **Öznitelikler**              | SQL sürümü - V12 |
 | **Başvuruları**              | [Azure Active Directory kimlik doğrulamasını kullanarak SQL veritabanına bağlanma](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
-| **Adımları** | **En düşük sürüm:** Azure SQL veritabanı V12 Azure SQL veritabanı, Microsoft Directory AAD kimlik doğrulamasını kullanmak izin vermek için gerekli |
+| **Adımları** | **En düşük sürümü:** Azure SQL veritabanı V12 Azure SQL veritabanı, Microsoft Directory AAD kimlik doğrulamasını kullanmak izin vermek için gerekli |
 
 ## <a id="authn-account-pword"></a>SQL kimlik doğrulama modu kullanılırken, hesap ve parola ilkesi SQL Server'da zorlandığında emin olun
 
@@ -144,7 +144,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [SQL Server Parola İlkesi](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
 | **Adımları** | SQL Server kimlik doğrulamasını kullanırken oturum açma bilgileri Windows kullanıcı hesaplarına bağlı olmayan bir SQL Server'da oluşturulur. Hem kullanıcı adı ve parola SQL Server'ı kullanarak oluşturulur ve SQL Server'da depolanan. SQL Server Windows parola ilkesi mekanizmalar kullanabilirsiniz. Aynı karmaşıklığı ve SQL Server içinde kullanılan parolaları Windows içinde kullanılan süre sonu ilkeleri uygulayabilirsiniz. |
 
@@ -155,7 +155,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Şirket içi, SQL Azure |
-| **Öznitelikleri**              | SQL - MSSQL2012, SQL sürüm - sürüm V12 |
+| **Öznitelikler**              | SQL - MSSQL2012, SQL sürüm - sürüm V12 |
 | **Başvuruları**              | [Kapsanan veritabanları ile en iyi güvenlik uygulamaları](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **Adımları** | Bir uygulanan parola ilkesine olmaması kapsanan bir veritabanında kurulmasını zayıf bir kimlik bilgisi olasılığını artırabilir. Windows kimlik doğrulaması yararlanın. |
 
@@ -166,7 +166,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Azure Olay Hub'ı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Event Hubs kimlik doğrulama ve güvenlik modeline genel bakış](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | **Adımları** | <p>Event Hubs güvenlik modeli, olay yayımcıları ve paylaşılan erişim imzası (SAS) belirteç üzerindeki bir birleşimini temel alır. Yayımcı adı belirteci alan DeviceID temsil eder. Bu, ilgili cihazları ile oluşturulan belirteçleri ilişkilendirmek yardımcı olacaktır.</p><p>Tüm iletileri gönderen algılama denemeleri yanıltma yükü kaynak sağlayan hizmet tarafındaki ile etiketlenir. Cihaz kimlik doğrulamasını yaparken, oluşturun bir başına benzersiz bir yayımcı için kapsamlı cihaz SaS belirteci.</p>|
 
@@ -177,7 +177,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Azure güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Azure Multi-Factor Authentication nedir?](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
 | **Adımları** | <p>Çok faktörlü kimlik doğrulaması (MFA), birden fazla doğrulama yöntemi gerektiren ve kullanıcı oturum açmalarına ve işlemlerine önemli bir ikinci güvenlik katmanı ekler kimlik doğrulama yöntemidir. Aşağıdaki doğrulama yöntemlerinden herhangi ikisini veya isteyerek çalışır:</p><ul><li>Bir şey (genellikle parola) bildirin</li><li>(Kolayca, bir telefon gibi kopyalaması değil güvenilir bir cihaz) sahip olduğunuz şey</li><li>Bir şey (Biyometri) olan</li><ul>|
 
@@ -188,7 +188,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Service Fabric güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Ortam - Azure  |
+| **Öznitelikler**              | Ortam - Azure  |
 | **Başvuruları**              | [Service Fabric kümesi güvenlik senaryoları](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
 | **Adımları** | <p>Özellikle de üretim iş yükleri üzerinde çalıştırılan olduğunda, kümeye bağlanma yetkisiz kullanıcıların önlemek için kümeleri her zaman güvenli hale getirilmelidir.</p><p>Service fabric kümesi oluştururken, güvenlik modu "güvenli" ve gerekli X.509 sertifikası yapılandırmak için ayarlandığından emin olun. "Güvenli" bir küme oluşturma, genel İnternet'e yönetim uç noktalarını sunarsa bağlanmak herhangi bir anonim kullanıcı izin verir.</p>|
 
@@ -199,7 +199,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Service Fabric güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Ortam - Azure, ortam - tek başına |
+| **Öznitelikler**              | Ortam - Azure, ortam - tek başına |
 | **Başvuruları**              | [Service Fabric düğümü için istemci sertifikası güvenliği](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#_client-to-node-certificate-security), [istemci sertifikası ile güvenli bir kümeye bağlanma](https://azure.microsoft.com/documentation/articles/service-fabric-connect-to-secure-cluster/) |
 | **Adımları** | <p>İstemci düğümü sertifika güvenliği, kümeyi oluştururken ya da Resource Manager şablonları ya da bir yönetici istemci sertifikası ve/veya bir kullanıcı istemci sertifikası belirterek tek başına JSON şablonu Azure Portalı aracılığıyla yapılandırılır.</p><p>Belirttiğiniz yönetici istemci ve kullanıcı istemci sertifikaları, düğümden düğüme güvenlik için belirttiğiniz birincil ve ikincil sertifikaları farklı olmalıdır.</p>|
 
@@ -210,7 +210,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Service Fabric güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Ortam - Azure |
+| **Öznitelikler**              | Ortam - Azure |
 | **Başvuruları**              | [Küme güvenliği senaryoları - güvenlik önerileri](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#security-recommendations) |
 | **Adımları** | Azure üzerinde çalışan kümelerle ayrıca Azure Active Directory (AAD), istemci sertifikaları dışında kullanarak yönetim uç noktalarına erişimi güvenliğini sağlayabilirsiniz. Azure kümeleri için istemciler ve düğümden düğüme güvenliği için sertifika kimlik doğrulaması için AAD güvenlik kullanmanız önerilir.|
 
@@ -221,7 +221,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Service Fabric güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Ortam - Azure |
+| **Öznitelikler**              | Ortam - Azure |
 | **Başvuruları**              | [X.509 sertifikaları ve Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#x509-certificates-and-service-fabric) |
 | **Adımları** | <p>Service Fabric, kimlik doğrulama, düğümlerin ve istemciler için X.509 sertifikaları kullanır.</p><p>Hizmet dokularda sertifikaları kullanırken dikkate alınması gereken bazı önemli noktalar:</p><ul><li>Üretim iş yükleri çalıştıran kümelerde kullanılan sertifikaları doğru şekilde yapılandırılmış bir Windows Server sertifika hizmeti kullanılarak oluşturulan veya edinilen bir onaylanan sertifika yetkilisi (CA). CA, onaylanan bir dış CA veya bir düzgün bir şekilde yönetilen iç ortak anahtar altyapısı (PKI) olabilir</li><li>Hiçbir zaman herhangi bir geçici kullanın veya sertifikaları MakeCert.exe gibi araçlarla oluşturulan üretimde test</li><li>Kendinden imzalı bir sertifika kullanabilirsiniz, ancak yalnızca test kümeleri için alan ve üretim bunu yapmasını</li></ul>|
 
@@ -232,7 +232,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Kimlik sunucusu | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [IdentityServer3 - büyük resmi](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
 | **Adımları** | <p>Kimlik sunucusu tarafından desteklenen tipik etkileşimler aşağıdadır:</p><ul><li>Tarayıcıları ile web uygulamaları ile iletişim kurar.</li><li>Web uygulamaları, web API'leri (bazen kendi, bazen bir kullanıcı adına) ile iletişim</li><li>Tarayıcı tabanlı uygulamalar, web API'leri ile iletişim kurma</li><li>Yerel uygulamalar, web API'leri ile iletişim</li><li>Sunucu tabanlı uygulamalar, web API'leri ile iletişim kurar</li><li>Web API'leri, web API'leri (bazen kendi, bazen bir kullanıcı adına) ile iletişim</li></ul>|
 
@@ -243,7 +243,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Kimlik sunucusu | 
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Kimlik sunucusu dağıtımı - önbelleğe alma](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
 | **Adımları** | <p>Basit, yerleşik bir bellek içi önbelleği IdentityServer sahiptir. Bu küçük ölçekli yerel uygulamalar için iyi olsa da, aşağıdaki nedenlerden dolayı orta katman ve arka uç uygulamaları için ölçeklenmez:</p><ul><li>Bu uygulamalar, aynı anda birden çok kullanıcı tarafından erişilir. Aynı depodaki tüm erişim belirteçlerini kaydetme yalıtım sorunları oluşturur ve uygun ölçekte çalışırken zorluklar teşkil etmektedir: her uygulamanın kendi adınıza eriştiği kaynaklar gibi çok belirteç içeren fazla kullanıcı, çok büyük sayılar ve çok pahalı arama işlemleri gelebilir.</li><li>Bu uygulamalar genellikle birden çok düğümün aynı önbelleğe erişimi burada olmalıdır, dağıtılmış topolojileri dağıtılmaktadır</li><li>Önbelleğe alınan belirteçleri, işlem geri dönüştürülmeden ve deactivations varlığını sürdürmesini gerekir</li><li>Tüm yukarıdaki nedeniyle, web uygulamaları, uygulama çalışırken, Redis için varsayılan kimlik sunucunun belirteç önbelleği gibi Azure Cache ölçeklenebilir bir alternatif ile geçersiz kılmak için önerilir</li></ul>|
 
@@ -254,7 +254,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | Makine güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | **Adımları** | İkili dosyaların bütünlüğünü doğrulayabilirsiniz, dağıtılan uygulamanın ikili dosyaları dijital olarak imzalandığından emin olun|
 
@@ -265,7 +265,7 @@ ms.locfileid: "53014871"
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, NET Framework 3 |
-| **Öznitelikleri**              | Yok |
+| **Öznitelikler**              | Yok |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
 | **Adımları** | MSMQ sıralara bağlanırken kimlik doğrulamasını etkinleştirmek program başarısız olursa, bir saldırgan, anonim olarak işleme için kuyruğa gönderebilirsiniz. Başka bir programa bir iletiyi teslim etmek için kullanılan bir MSMQ sırası bağlanmak için kimlik doğrulaması kullanılmıyorsa, bir saldırgan kötü amaçlı anonim bir ileti göndermek.|
 
@@ -304,8 +304,8 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
-| **İlgili teknolojiler** | .NET framework 3 |
-| **Öznitelikleri**              | İstemci kimlik bilgisi türü - yok |
+| **İlgili teknolojiler** | .NET Framework 3 |
+| **Öznitelikler**              | İstemci kimlik bilgisi türü - yok |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
 | **Adımları** | Kimlik doğrulaması olmaması, herkesin bu hizmete erişebilmesi için olduğu anlamına gelir. İstemcilerinden kimlik doğrulamasını yapmaz bir hizmet, tüm kullanıcılara erişim izni verir. İstemci kimlik bilgilerini doğrulamak için uygulamayı yapılandırma. Bu, Windows ya da sertifika ileti clientCredentialType ayarlayarak yapılabilir. |
 
@@ -320,8 +320,8 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
-| **İlgili teknolojiler** | Genel, .NET Framework 3 |
-| **Öznitelikleri**              | İstemci kimlik bilgisi türü - yok |
+| **İlgili teknolojiler** | Generic, .NET Framework 3 |
+| **Öznitelikler**              | İstemci kimlik bilgisi türü - yok |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **Adımları** | Kimlik doğrulaması olmaması, herkesin bu hizmete erişebilmesi için olduğu anlamına gelir. İstemcilerinden kimlik doğrulamasını yapmaz bir hizmetin, tüm kullanıcıların işlevselliğini erişmesine izin verir. İstemci kimlik bilgilerini doğrulamak için uygulamayı yapılandırma. Bu, Windows ya da sertifika aktarım clientCredentialType ayarlayarak yapılabilir. |
 
@@ -337,7 +337,7 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Kimlik doğrulama ve yetkilendirme ASP.NET Web API'de](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [ASP.NET Web API ile dış kimlik doğrulama hizmeti (C#)](http://www.asp.net/web-api/overview/security/external-authentication-services) |
 | **Adımları** | <p>Kimlik doğrulaması nerede varlığın kimliğini, genellikle bir kullanıcı adı ve parola gibi kimlik bilgileri aracılığıyla kanıtlar işlemidir. Düşünülebilecek birden çok kimlik doğrulama protokolleri kullanılabilir vardır. Bunlardan bazıları aşağıda listelenmiştir:</p><ul><li>İstemci sertifikaları</li><li>Windows tabanlı</li><li>Form tabanlı</li><li>Federasyon - ADFS</li><li>Federasyon - Azure AD</li><li>Federasyon - kimlik sunucusu</li></ul><p>Başvuruları bölümündeki bağlantıları nasıl her kimlik doğrulama düzeni, bir Web API'SİNİN güvenliğini sağlamak için uygulanabilir üzerinde alt düzey ayrıntıları sağlayın.</p>|
 
@@ -348,9 +348,9 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | **Bileşen**               | Azure AD | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Azure AD için kimlik doğrulama senaryoları](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [Azure Active Directory kod örnekleri](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [Azure Active Directory Geliştirici Kılavuzu](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
-| **Adımları** | <p>Azure Active Directory (Azure AD), OAuth 2.0 ve Openıd Connect gibi endüstri standardı protokoller için desteği olan bir hizmet olarak kimlik sağlayarak geliştiriciler için kimlik doğrulaması kolaylaştırır. Aşağıda Azure AD tarafından desteklenen beş birincil uygulama senaryoları şunlardır:</p><ul><li>Web tarayıcısı Web uygulaması için: bir kullanıcı Azure AD tarafından güvenliği sağlanan bir web uygulamasına oturum açması gerekiyor</li><li>Tek sayfalı uygulama (SPA): Bir kullanıcı Azure AD tarafından güvenliği sağlanan bir tek sayfalı bir uygulamada oturum açması gerekiyor</li><li>Web API'si yerel uygulamaya: telefon, tablet veya PC çalıştıran yerel bir uygulama bir Web API'si Azure AD tarafından güvenli hale getirilen kaynakları almak için bir kullanıcının kimliğini doğrulaması gerektiğinde</li><li>Web uygulaması Web API'si için: bir Web API'si Azure AD tarafından güvenliği sağlanan kaynakları almak bir web uygulaması gerekiyor</li><li>Daemon veya sunucu uygulaması Web API'si için: bir Web API'si Azure AD tarafından güvenliği sağlanan kaynakları almak bir arka plan programı uygulaması veya web kullanıcı arabirimi ile bir sunucu uygulaması gerekiyor</li></ul><p>Alt düzey uygulama ayrıntıları için başvurular bölümündeki bağlantılara başvurun</p>|
+| **Adımları** | <p>Azure Active Directory (Azure AD), OAuth 2.0 ve Openıd Connect gibi endüstri standardı protokoller için desteği olan bir hizmet olarak kimlik sağlayarak geliştiriciler için kimlik doğrulaması kolaylaştırır. Aşağıda Azure AD tarafından desteklenen beş birincil uygulama senaryoları şunlardır:</p><ul><li>Web uygulamasına Web tarayıcısı: Bir kullanıcı Azure AD tarafından güvenliği sağlanan bir web uygulamasına oturum açması gerekiyor</li><li>Tek sayfalı uygulama (SPA): Bir kullanıcı Azure AD tarafından güvenliği sağlanan bir tek sayfalı bir uygulamada oturum açması gerekiyor</li><li>Web API'si yerel uygulamaya: Telefon, tablet veya PC çalıştıran yerel bir uygulama bir Web API'si Azure AD tarafından güvenli hale getirilen kaynakları almak için bir kullanıcının kimliğini doğrulaması gerektiğinde</li><li>Web uygulaması Web API'si için: Bir Web API'si Azure AD tarafından güvenliği sağlanan kaynakları almak bir web uygulaması gerekiyor</li><li>Daemon veya sunucu uygulaması Web API'si için: Azure AD tarafından güvenliği sağlanan bir web API'den kaynakları almak bir arka plan programı uygulaması veya web kullanıcı arabirimi ile bir sunucu uygulaması gerekiyor</li></ul><p>Alt düzey uygulama ayrıntıları için başvurular bölümündeki bağlantılara başvurun</p>|
 
 ## <a id="adal-scalable"></a>Varsayılan ADAL belirteç önbelleğini ölçeklenebilir bir alternatif ile geçersiz kıl
 
@@ -359,7 +359,7 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | **Bileşen**               | Azure AD | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Web uygulamaları için Azure Active Directory ile modern kimlik doğrulaması](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [ADAL belirteç önbelleği olarak Redis kullanma](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
 | **Adımları** | <p>ADAL (Active Directory Authentication Library) kullanan mevcut işlem genelinde bir statik depolama kullanan bir bellek içi önbellek varsayılan önbellek. Bu yerel uygulamalar için çalışırken, aşağıdaki nedenlerden dolayı orta katman ve arka uç uygulamaları için ölçeklenmez:</p><ul><li>Bu uygulamalar, aynı anda birden çok kullanıcı tarafından erişilir. Aynı depodaki tüm erişim belirteçlerini kaydetme yalıtım sorunları oluşturur ve uygun ölçekte çalışırken zorluklar teşkil etmektedir: her uygulamanın kendi adınıza eriştiği kaynaklar gibi çok belirteç içeren fazla kullanıcı, çok büyük sayılar ve çok pahalı arama işlemleri gelebilir.</li><li>Bu uygulamalar genellikle birden çok düğümün aynı önbelleğe erişimi burada olmalıdır, dağıtılmış topolojileri dağıtılmaktadır</li><li>Önbelleğe alınan belirteçleri, işlem geri dönüştürülmeden ve deactivations varlığını sürdürmesini gerekir</li></ul><p>Tüm yukarıdaki nedeniyle, web uygulamaları, uygulama çalışırken, Redis için varsayılan ADAL belirteç önbelleğini Azure önbellek gibi ölçeklenebilir bir alternatif ile geçersiz kılmak için önerilir.</p>|
 
@@ -370,7 +370,7 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | **Bileşen**               | Azure AD | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Web uygulamaları için Azure Active Directory ile modern kimlik doğrulaması](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
 | **Adımları** | <p>TokenReplayCache özelliği, geliştiricilerin belirteçleri, belirteci olmadan birden çok kez kullanılabileceğini doğrulama amacıyla kaydetmek için kullanılan bir depo bir belirteç yeniden yürütme önbellek tanımlamak olanak tanır.</p><p>Bu yaygın bir saldırı, aptly çağrılan belirteç yeniden yürütme saldırıya karşı ölçümüdür: uygulamaya yeniden göndermek oturum açma işleminde gönderilen belirteç kesintiye neden olan bir saldırganın deneyebilirsiniz ("yeni bir oturum oluşturmak için anlayamazsanız"). Örneğin, kullanıcı başarıyla kimlik doğrulamasından sonra OIDC kodu verme akışı, bir istek "/ signin-oıdc" bağlı olan taraf uç noktası ile "id_token", "code" ve "eyalet" parametreleri yapılır.</p><p>Bağlı olan taraf, bu isteği doğrular ve yeni bir oturum oluşturur. Bir saldırganın bu isteği yakalar ve bunu yeniden yürütür, derse başarılı bir oturumu ve kullanıcı sızmasını. Openıd Connect, nonce varlığını, sınırlamak ancak, saldırı başarıyla yapılandırmalara uygun koşullarda çalışıldığından koşullar tamamen ortadan kaldırın. Geliştiriciler uygulamalarını korumak için ITokenReplayCache bir uygulamasını sağlamak ve bir örneği için TokenReplayCache atayın.</p>|
 
@@ -431,7 +431,7 @@ Unutmayın, bu yapılandırma, oturum açma uygulamanıza yerel OIDC korumalı e
 | **Bileşen**               | Azure AD | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
 | **Adımları** | <p>Azure AD authentication Library (ADAL) kolayca buluta kullanıcıların kimliğini doğrulamak istemci uygulaması geliştiricileri sağlar veya şirket içi Active Directory (AD) ve ardından API çağrıları güvenliğini sağlamaya yönelik erişim belirteçleri edinin.</p><p>ADAL sahip birçok özellik yapma kimlik doğrulamanın daha kolay erişim belirteci ve yenileme belirteçleri, bir erişim belirtecinin süresi ve yenileme belirteci kullanılabilir olduğunda otomatik belirteç yenileme depolar yapılandırılabilir bir belirteç önbelleği zaman uyumsuz desteği gibi geliştiriciler için ve Daha fazla.</p><p>ADAL karmaşıklığın çoğunu işleyerek, kendi iş mantığı üzerinde bir geliştirici odaklanmasına yardımcı olmak ve güvenlik uzmanı olmadan kaynakları kolayca güvenli. Ayrı kitaplıkları, .NET, JavaScript (istemci ve Node.js), iOS, Android ve Java için kullanılabilir.</p>|
 
@@ -442,7 +442,7 @@ Unutmayın, bu yapılandırma, oturum açma uygulamanıza yerel OIDC korumalı e
 | **Bileşen**               | IOT alan ağ geçidi | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | **Adımları** | Her cihaz verileri kabul eden ve bulut ağ geçidi ile Yukarı Akış iletişimleri etkinleştirme önce alan ağ geçidi tarafından doğrulandıktan emin olun. Ayrıca, cihazlar ile bağlanma olun bir cihaz başına tek cihazlara benzersiz şekilde tanımlanabilir böylece kimlik bilgisi.|
 
@@ -452,10 +452,10 @@ Unutmayın, bu yapılandırma, oturum açma uygulamanıza yerel OIDC korumalı e
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT bulut ağ geçidi | 
 | **SDL aşaması**               | Oluşturma |  
-| **İlgili teknolojiler** | Genel, C#, Node.JS,  |
-| **Öznitelikleri**              | Yok, ağ geçidi seçim - Azure IOT hub'ı |
-| **Başvuruları**              | Yok, [.NET ile Azure IOT hub](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [olan IOT hub'ı kullanmaya başlama ve düğüm JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [SAS ve sertifikaları güvenli hale getirme IOT](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git deposu](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
-| **Adımları** | <ul><li>**Genel:** Aktarım Katmanı Güvenliği (TLS) veya IPSec kullanarak kimlik doğrulama. Altyapı önceden paylaşılan anahtar (PSK) kullanarak tam asimetrik şifreleme işleyemiyor bu cihazlarda desteklemelidir. Azure AD, Oauth özelliğinden yararlanabilirsiniz.</li><li>**C# ' ta:** bir DeviceClient örneği oluşturulurken varsayılan olarak, Create yöntemi, IOT Hub ile iletişim kurmak için AMQP protokolünü kullanan bir DeviceClient örneği oluşturur. HTTPS protokolünü kullanmak için oluşturma yönteminin Protokolü belirtmenize olanak tanıyan geçersiz kılmasını kullanın. De eklemeniz gerekir, HTTPS protokolünü kullanıyorsanız `Microsoft.AspNet.WebApi.Client` NuGet paketini projenize eklenecek `System.Net.Http.Formatting` ad alanı.</li></ul>|
+| **İlgili teknolojiler** | Generic, C#, Node.JS,  |
+| **Öznitelikler**              | Yok, ağ geçidi seçim - Azure IOT hub'ı |
+| **Başvuruları**              | Yok, [.NET ile Azure IOT hub](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [IOT hub ve düğüm JS ile çalışmaya başlama](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [SAS ve sertifikaları güvenli hale getirme IOT](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git deposu](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **Adımları** | <ul><li>**Genel:** Aktarım Katmanı Güvenliği (TLS) veya IPSec kullanarak cihazın kimliği. Altyapı önceden paylaşılan anahtar (PSK) kullanarak tam asimetrik şifreleme işleyemiyor bu cihazlarda desteklemelidir. Azure AD, Oauth özelliğinden yararlanabilirsiniz.</li><li>**C#:** Oluşturma yöntemi, bir DeviceClient örneği oluşturulurken varsayılan olarak, IOT Hub ile iletişim kurmak için AMQP protokolünü kullanan bir DeviceClient örneği oluşturur. HTTPS protokolünü kullanmak için oluşturma yönteminin Protokolü belirtmenize olanak tanıyan geçersiz kılmasını kullanın. De eklemeniz gerekir, HTTPS protokolünü kullanıyorsanız `Microsoft.AspNet.WebApi.Client` NuGet paketini projenize eklenecek `System.Net.Http.Formatting` ad alanı.</li></ul>|
 
 ### <a name="example"></a>Örnek
 ```csharp
@@ -473,7 +473,7 @@ await deviceClient.SendEventAsync(message);
 ```
 
 ### <a name="example"></a>Örnek
-**Node.JS: kimlik doğrulaması**
+**Node.JS: Kimlik doğrulaması**
 #### <a name="symmetric-key"></a>Simetrik anahtar
 * Azure'da bir IOT hub'ı oluşturma
 * Cihaz kimlik kayıt defterinde girişi oluşturma
@@ -553,7 +553,7 @@ await deviceClient.SendEventAsync(message);
 | **Bileşen**               | IOT bulut ağ geçidi  | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Ağ geçidi seçim - Azure IOT hub'ı |
+| **Öznitelikler**              | Ağ geçidi seçim - Azure IOT hub'ı |
 | **Başvuruları**              | [Azure IOT Hub güvenlik belirteçleri](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
 | **Adımları** | Kullanımı cihaz kimlik doğrulaması kimlik bilgilerini kullanarak SaS belirteçlerini başına cihaz anahtarı veya istemci sertifikasını göre IOT hub'ı düzeyinde yerine paylaşılan erişim ilkeleri. Bu bir başkası tarafından bir cihaz veya alan ağ geçidi kimlik doğrulama belirteçlerinizi kullanılmasını engeller |
 
@@ -564,9 +564,9 @@ await deviceClient.SendEventAsync(message);
 | **Bileşen**               | Azure Storage | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | StorageType - Blob |
-| **Başvuruları**              | [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [paylaşılan erişim imzaları, bölüm 1: SAS modelini anlama](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
-| **Adımları** | <p>Varsayılan olarak, bir kapsayıcı ve içerdiği tüm blobları yalnızca depolama hesabı sahibi tarafından erişilebilir. Anonim kullanıcılar için bir kapsayıcı ve bloblarını Okuma izinleri vermek için genel erişime izin vermek için kapsayıcı izinlerini ayarlayabilirsiniz. Anonim kullanıcılar, istek kimliği doğrulanmadan ortak olarak erişilebilen bir kapsayıcı içindeki blobları okuyabilir.</p><p>Kapsayıcılar, kapsayıcı erişimini yönetmek için aşağıdaki seçenekleri sağlar:</p><ul><li>Tam genel okuma erişimi: Anonim İstek kapsayıcı ve blob verilerini okunabilir. İstemcilerin anonim isteğiyle kapsayıcı içindeki blobları listeleme, ancak depolama hesabında kapsayıcıları numaralandırılamıyor.</li><li>Genel okuma erişimi yalnızca BLOB'lar için: Bu kapsayıcı içinde Blob verilerini anonim istek okunabilir ancak kapsayıcı verileri kullanılamıyor. İstemcilerin anonim isteğiyle kapsayıcı içindeki blobları numaralandırılamıyor</li><li>Hiçbir genel okuma erişimi: kapsayıcı ve blob verileri yalnızca hesap sahibi tarafından okunabilir</li></ul><p>Anonim erişim burada belirli bloblar her zaman için anonim okuma erişimi kullanılabilir olmalıdır senaryolar için idealdir. Daha ayrıntılı denetim için farklı izinlerle Kısıtlanmış temsilci erişimi ve belirtilen zaman aralığında sağlayan bir paylaşılan erişim imzası oluşturmayı seçebilirsiniz. Kapsayıcılar ve bloblar, potansiyel olarak hassas veriler içerebilir, anonim erişim yanlışlıkla verilmez emin olun.</p>|
+| **Öznitelikler**              | StorageType - Blob |
+| **Başvuruları**              | [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [paylaşılan erişim imzaları, 1. Bölüm: SAS modelini anlama](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
+| **Adımları** | <p>Varsayılan olarak, bir kapsayıcı ve içerdiği tüm blobları yalnızca depolama hesabı sahibi tarafından erişilebilir. Anonim kullanıcılar için bir kapsayıcı ve bloblarını Okuma izinleri vermek için genel erişime izin vermek için kapsayıcı izinlerini ayarlayabilirsiniz. Anonim kullanıcılar, istek kimliği doğrulanmadan ortak olarak erişilebilen bir kapsayıcı içindeki blobları okuyabilir.</p><p>Kapsayıcılar, kapsayıcı erişimini yönetmek için aşağıdaki seçenekleri sağlar:</p><ul><li>Tam genel okuma erişimi: Kapsayıcı ve blob verilerini anonim istek okunabilir. İstemcilerin anonim isteğiyle kapsayıcı içindeki blobları listeleme, ancak depolama hesabında kapsayıcıları numaralandırılamıyor.</li><li>Yalnızca BLOB'lar için genel okuma erişimi: Anonim İstek bu kapsayıcıdaki BLOB verilerini okuyabilir, ancak kapsayıcı verileri mevcut değil. İstemcilerin anonim isteğiyle kapsayıcı içindeki blobları numaralandırılamıyor</li><li>Genel okuma erişimi yok: Kapsayıcı ve blob verileri yalnızca hesap sahibi tarafından okunabilir</li></ul><p>Anonim erişim burada belirli bloblar her zaman için anonim okuma erişimi kullanılabilir olmalıdır senaryolar için idealdir. Daha ayrıntılı denetim için farklı izinlerle Kısıtlanmış temsilci erişimi ve belirtilen zaman aralığında sağlayan bir paylaşılan erişim imzası oluşturmayı seçebilirsiniz. Kapsayıcılar ve bloblar, potansiyel olarak hassas veriler içerebilir, anonim erişim yanlışlıkla verilmez emin olun.</p>|
 
 ## <a id="limited-access-sas"></a>SAS veya SAP kullanarak Azure Depolama'daki nesnelere sınırlı erişim
 
@@ -575,6 +575,6 @@ await deviceClient.SendEventAsync(message);
 | **Bileşen**               | Azure Storage | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok |
-| **Başvuruları**              | [Paylaşılan erişim imzaları, bölüm 1: SAS modelini anlama](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [paylaşılan erişim imzaları, bölüm 2: oluşturma ve bir SAS ile Blob Depolama kullanma](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [paylaşılan kullanarak hesabınızdaki nesnelere erişim devretmek nasıl Erişim imzalarını ve depolanan erişim ilkelerini](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
+| **Öznitelikler**              | Yok |
+| **Başvuruları**              | [Paylaşılan erişim imzaları, 1. Bölüm: SAS modelini anlama](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [paylaşılan erişim imzaları, bölüm 2: Oluşturma ve bir SAS ile Blob Depolama kullanma](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [paylaşılan erişim imzalarını ve depolanan erişim ilkelerini kullanarak hesabınızdaki nesnelere erişim devretmek nasıl](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
 | **Adımları** | <p>Paylaşılan erişim imzası (SAS) hesabı erişim anahtarı göstermek zorunda kalmadan diğer istemciler için bir depolama hesabındaki nesnelere sınırlı erişim izni vermek için güçlü bir yol kullanmaktır. SAS sorgu parametrelerini kapsayan bir URI'dir. depolama kaynağı erişimi için gereken bilgilerin tümünü kimlik doğrulaması. SAS ile depolama kaynaklarına erişmek için istemci SAS uygun oluşturucu veya yönteme geçirmek yeterlidir.</p><p>Bir SAS ile hesap anahtarı güvenilir olmayan bir istemci, depolama hesabınızdaki kaynaklara erişimi sağlamak istediğinizde kullanabilirsiniz. Depolama hesabı anahtarlarınızı hem ikisi için de hesabınızda ve tüm kaynakları da yönetici erişim izni birincil ve ikincil bir anahtar içerir. Hesap anahtarlarınızı birini gösterme, kötü amaçlı veya hatalı kullanım olasılığını hesabınıza açılır. Paylaşılan erişim imzaları, okuma, yazma ve depolama hesabınızda göre verilen izinleri ve hesap anahtarı için gerek kalmadan verileri silmek diğer istemcilerin güvenli bir yöntem sağlar.</p><p>Her zaman benzer parametreler mantıksal bir dizi varsa, depolanmış erişim ilkesini (SAP) kullanarak daha iyi bir fikirdir. Depolanan bir erişim ilkesi tarafından türetilmiş bir SAS kullanarak bu SAS hemen iptal etme olanağı sağlar, her zaman mümkün olduğunda depolanan erişim ilkelerini kullanmak için önerilen en iyi uygulama olmasıdır.</p>|

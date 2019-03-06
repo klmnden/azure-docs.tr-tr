@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
-ms.openlocfilehash: 00b20b3f144a2e98fb028e3db7c50af61330d721
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 801b7de4b82c37503f2a14619112cbf46ca60a43
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316464"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447090"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL veritabanı sunucusu için SQL veritabanı kaynak limitleri
 
@@ -96,6 +96,11 @@ Aşağıdaki bekleme türleri günlük oran İdarecisi, trafik şekillendirme ya
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Geri bildirim denetimi, kullanılabilirlik grubu fiziksel Çoğaltmada Premium/iş kritik tutmaktan değil |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Günlük alanı koşulu dışı önlemek için oranları sınırlama, geri bildirim denetimi |
 ||||
+
+İstenen ölçeklenebilirlik hampering günlük oran sınırı ile karşılaşıldığında, aşağıdaki seçenekleri göz önünde bulundurun:
+- Maksimum 48 MB/sn günlük oran alabilmek için daha büyük bir katmana ölçeği artırabilirsiniz. 
+- Geçici veri ise, yani bir ETL işlemi verileri hazırlama, (Bu en düşük düzeyde kaydedilir) tempdb yüklenebilir. 
+- Analitik senaryoları için bir kapsamdaki kümelenmiş columnstore tablosuna yükleyin. Bu, sıkıştırma nedeniyle gerekli günlük oran azaltır. Bu teknik, CPU kullanımı artırmak ve yalnızca kümelenmiş columnstore dizin yararlı veri kümeleri için geçerlidir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

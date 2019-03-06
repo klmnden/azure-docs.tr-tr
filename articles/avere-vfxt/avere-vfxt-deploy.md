@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7081d46af335f29e5723ef8d471814a1564907c2
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 7dbfc39075bb42b1ec13823849eb769e117ddd4a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990213"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409695"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT kümesini dağıtma
 
@@ -32,7 +32,7 @@ Oluşturma şablonu kullanmadan önce şu önkoşulların giderdik emin olun:
 1. [Abonelik sahibi izinleri](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Kota vFXT kümesi için](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 1. [Özel erişim rolleri](avere-vfxt-prereqs.md#create-access-roles) -küme düğümlerine atamak için rol tabanlı erişim denetimine rol oluşturmanız gerekir. Ayrıca küme denetleyicisi için özel erişim rol oluşturma seçeneğiniz vardır, ancak çoğu kullanıcı için bir kaynak grubu sahibi karşılık gelen denetleyicisi ayrıcalıklar verir varsayılan sahip rolü götürür. Okuma [Azure kaynakları için yerleşik roller](../role-based-access-control/built-in-roles.md#owner) daha fazla ayrıntı için.
-1. [(Gerekirse) depolama hizmet uç noktası](avere-vfxt-prereqs.md#optional-create-a-storage-service-endpoint-in-your-virtual-network) - için gerekli kullanarak mevcut bir sanal ağ ve blob depolama oluşturma dağıtır
+1. [(Gerekirse) depolama hizmet uç noktası](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - için gerekli kullanarak mevcut bir sanal ağ ve blob depolama oluşturma dağıtır
 
 Küme dağıtım adımları ve planlama hakkında daha fazla bilgi için okuma [Avere vFXT sisteminizi planlama](avere-vfxt-deploy-plan.md) ve [dağıtımına genel bakış](avere-vfxt-deploy-overview.md).
 
@@ -104,7 +104,7 @@ Dağıtım şablonu ikinci sayfasında, küme boyutu, düğüm türü, önbellek
 
 * **Avere vFXT küme adı** -küme benzersiz bir ad verin. 
 
-* **Boyutu** -Bu bölümde küme düğümleri için kullanılacak VM türü gösterilmektedir. Yalnızca bir önerilen seçenek olmakla **değiştirme boyutu** bağlantı, bu örnek türü ve fiyatlandırma hesaplayıcısını yönelik bağlantı ayrıntılarını içeren bir tablo açar.  <!-- old: Specify the VM type to use when creating the cluster nodes.  -->
+* **Boyutu** -Bu bölümde küme düğümleri için kullanılacak VM türü gösterilmektedir. Yalnızca bir önerilen seçenek olmakla **değiştirme boyutu** bağlantı, bu örnek türü ve fiyatlandırma hesaplayıcısını yönelik bağlantı ayrıntılarını içeren bir tablo açar.  
 
 * **Önbellek boyutu düğüm başına** -toplam önbellek boyutunu Avere vFXT kümenizdeki düğümleri sayı ile çarpılan düğüm başına önbellek boyutu böylece küme önbellek küme düğümleri arasında yayılır. 
 
@@ -120,7 +120,7 @@ Dağıtım şablonu ikinci sayfasında, küme boyutu, düğüm türü, önbellek
   >  * Genel bir IP adresi denetleyicisinde ayarlamazsanız, kümeye erişmek için başka bir atlama konak, bir VPN bağlantısı veya ExpressRoute kullanmanız gerekir. Örneğin, önceden yapılandırılmış bir VPN bağlantısı olan bir sanal ağ içindeki denetleyiciyi oluşturun.
   >  * Genel bir IP adresi ile bir denetleyici oluşturursanız, bir ağ güvenlik grubuyla denetleyicisi VM'SİNİN korumanız gerekir. Varsayılan olarak Avere vFXT Azure dağıtımı için bir ağ güvenlik grubu oluşturur ve yalnızca bağlantı noktası 22 genel IP adresleri ile denetleyicileri için gelen erişimi kısıtlar. Sistem kilitleyerek daha iyi koruyabilirsiniz, IP kaynak adresi aralığı - erişim tuşunu diğer bir deyişle, yalnızca gelen bağlantılara makineler kümeye erişim için kullanmayı düşündüğünüz izin verin.
 
-  Dağıtım şablonu, ayrıca Küme alt ağdan yalnızca IP'ler için kilitli ağ erişim denetimi ile Azure Blob Depolama için depolama hizmet uç noktası ile yeni vnet'in yapılandırır. <!-- xxx make sure this is accurate --> <!-- do I need to say that this only happens if you choose to create storage? -->
+  Dağıtım şablonu, ayrıca Küme alt ağdan yalnızca IP'ler için kilitli ağ erişim denetimi ile Azure Blob Depolama için depolama hizmet uç noktası ile yeni vnet'in yapılandırır. 
 
 * **Alt ağ** - var olan sanal ağınızdan bir alt ağ seçin veya yeni bir tane oluşturun. 
 

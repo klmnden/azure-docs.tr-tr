@@ -13,16 +13,18 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 01ed1b94ffedb273321fa49653a614c659611e6a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024051"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453210"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - sık sorulan sorular
 > [!NOTE]
 > Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [sık sorulan soru - Data Factory](../frequently-asked-questions.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Genel sorular
 ### <a name="what-is-azure-data-factory"></a>Azure Data Factory nedir?
@@ -171,12 +173,12 @@ Bir dilim aşağıdaki yollardan birinde çalıştırabilirsiniz:
 
 * Bir etkinlik penceresi veya dilimi yeniden çalıştırmak için izleme ve yönetme uygulaması'nı kullanın. Bkz: [seçilen yeniden çalıştır etkinliği windows](data-factory-monitor-manage-app.md#perform-batch-actions) yönergeler için.   
 * Tıklayın **çalıştırma** komut çubuğunda **veri DİLİMİ** dilimin Azure portalındaki dikey.
-* Çalıştırma **Set-AzureRmDataFactorySliceStatus** durumu cmdlet'iyle kümesine **bekleyen** dilim için.   
+* Çalıştırma **kümesi AzDataFactorySliceStatus** durumu cmdlet'iyle kümesine **bekleniyor** dilim için.   
 
     ```PowerShell
-    Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
+    Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-Bkz: [Set-AzureRmDataFactorySliceStatus] [ set-azure-datafactory-slice-status] cmdlet'i hakkında daha fazla ayrıntı için.
+Bkz: [kümesi AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] cmdlet'i hakkında daha fazla ayrıntı için.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Ne kadar bir dilimi işlemesi için sürer?
 Veri dilimi işlemesi için ne kadar sürdüğünü öğrenmek için etkinlik penceresi Gezgini'nde izleme ve yönetme uygulamasını kullanın. Bkz: [etkinlik penceresi Gezgini](data-factory-monitor-manage-app.md#activity-window-explorer) Ayrıntılar için.
@@ -191,7 +193,7 @@ Ayrıca Azure portalında aşağıdakileri yapabilirsiniz:
 6. Görmelisiniz **süresi** alan değerine sahip. Bu değer dilimi işlemesi için geçen süredir.   
 
 ### <a name="how-to-stop-a-running-slice"></a>Çalışan bir dilim durdurmak nasıl?
-İşlem hattının yürütülmesini durdurmak gerekiyorsa, kullanabileceğiniz [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) cmdlet'i. Şu anda, işlem hattı askıya sürmekte olan dilim yürütme durdurulmaz. Devam eden yürütmeler tamamladıktan sonra ek dilim çekilir.
+İşlem hattının yürütülmesini durdurmak gerekiyorsa, kullanabileceğiniz [Suspend-AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet'i. Şu anda, işlem hattı askıya sürmekte olan dilim yürütme durdurulmaz. Devam eden yürütmeler tamamladıktan sonra ek dilim çekilir.
 
 Gerçekten tüm yürütmeleri hemen durdurmak istiyorsanız, tek yolu, işlem hattını silip yeniden oluşturmanız olacaktır. İşlem hattı silmeyi seçerseniz, tablolar ve işlem hattı tarafından kullanılan bağlı hizmet silme gerekmez.
 
@@ -199,9 +201,9 @@ Gerçekten tüm yürütmeleri hemen durdurmak istiyorsanız, tek yolu, işlem ha
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: /powershell/module/azurerm.datafactories/
+[adf-powershell-reference]: /powershell/module/az.datafactory/
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: /powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus
+[set-azure-datafactory-slice-status]: /powershell/module/az.datafactory/set-Azdatafactoryslicestatus
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 55a7a26815dac1140d100c05a47057f8d5000f9d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317824"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445492"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama
 
@@ -160,7 +160,7 @@ New-AzRoleDefinition -Role $role
 Event hubs ile benzer bir desen gelebilir, ancak öncelikle bir adanmış dinleme yetkilendirme kuralı oluşturmanız gerekir. Vermek istiyorsanız, yalnızca izleme ile ilgili olay hub'larına dinlemek için gereken bir uygulama için erişim aşağıdakileri yapın:
 
 1. Akış yalnızca dinleme talepleri ile izleme verileri için oluşturulan olay hub(ları) bir paylaşılan erişim ilkesi oluşturun. Bu portalda yapılabilir. Örneğin, "monitoringReadOnly." çağırabilirsiniz Mümkünse, tüketiciye doğrudan bu anahtar verin ve bir sonraki adımı atlayın isteyeceksiniz.
-2. Tüketici anahtarı geçici getirebilmesi gerekiyorsa, kullanıcının bu olay hub'ı Listkeys'i eylemi verin. Bu, aynı zamanda tanılama ayarı veya profili event hubs'a akış oturum açabilmesi için gereken kullanıcılar için de gereklidir. Örneğin, bir RBAC kuralı oluşturabilirsiniz:
+2. Tüketici anahtarı geçici hale getirebileceksiniz gerekiyorsa, kullanıcının bu olay hub'ı Listkeys'i eylemi verin. Bu, aynı zamanda tanılama ayarı veya profili event hubs'a akış oturum açabilmesi için gereken kullanıcılar için de gereklidir. Örneğin, bir RBAC kuralı oluşturabilirsiniz:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"

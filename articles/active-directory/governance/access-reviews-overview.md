@@ -16,12 +16,12 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419a07ff6d423f363d6973da3df00fd4aa3f6278
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d5fa81e564cf28f8b5478abe9ec5bb63d0f11bd3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727273"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449674"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleri nelerdir?
 
@@ -42,12 +42,12 @@ Azure AD, dahili olarak, kuruluşunuz içinde ve iş ortakları gibi dış kurul
 
 ## <a name="when-to-use-access-reviews"></a>Ne zaman kullanılır erişim gözden geçirmeleri?
 
-- **Çok sayıda kullanıcı ayrıcalıklı roller:** Kaç kullanıcının yönetici erişimi denetlemek için iyi bir fikirdir, kaç bunları genel açtığınızdan ve olmadığını davet Konukları veya bir yönetim görevi gerçekleştirmek için atandıktan sonra kaldırılmamış iş ortakları. Rol ataması kullanıcılar onaylayabilirsiniz [Azure AD Dizin rolleri](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) gibi genel Yöneticiler veya [Azure kaynak rolleri](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) gibi kullanıcı erişimi Yöneticisi'nde [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) karşılaşırsınız.
+- **Çok sayıda kullanıcı ayrıcalıklı roller:** Kaç kullanıcının yönetici erişimi denetlemek için iyi bir fikirdir, kaç bunları genel Yöneticiler, konuklar veya bir yönetim görevi gerçekleştirmek için atandıktan sonra kaldırılmamış iş ortakları ve olmadığını davet. Rol ataması kullanıcılar onaylayabilirsiniz [Azure AD Dizin rolleri](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) gibi genel Yöneticiler veya [Azure kaynak rolleri](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) gibi kullanıcı erişimi Yöneticisi'nde [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) karşılaşırsınız.
 - **Ne zaman Otomasyon olanaksız olacaktır:** Güvenlik grupları veya Office 365 gruplarında dinamik üyelik ancak ne ik veri Azure AD'de değil veya kullanıcılar yine de erişim grubu kendi değiştirme eğitmek için bırakarak sonra ihtiyacınız varsa için kurallar oluşturabilir miyim? Yine de erişmesi gereken kişiler erişimi devam etmesi gerekip emin olmak için bu Grup İnceleme oluşturabilirsiniz.
 - **Bir gruba yeni bir amaç için kullanıldığında:** Azure AD ile eşitlenmesi için gittiği bir grubunuz varsa ya da satış ekibi gruptaki herkes için Salesforce uygulama etkinleştirmeyi planlıyorsanız, önce bir farklı risk ortak kullanılan grubun grup üyeliğini gözden geçirmek için Grup sahibi istemek yararlı olacaktır içeriği.
 - **İş kritik veri erişimi:** belirli kaynaklar için onu dışında istemem için gerekli olabilecek düzenli olarak oturumunu kapatmak ve neden erişim denetim amacıyla için ihtiyaç duydukları üzerinde bir gerekçe vermek mümkün KILAR.
 - **Bir ilkenin özel durum listesi tutmak için:** İdeal bir dünyada, tüm kullanıcıların erişimini izlemeniz gerekir ilkeleri, kuruluşunuzun kaynaklarına güvenli erişim için. Ancak, bazı durumlarda özel durumları yapmanızı gerektiren iş durumlar vardır. BT yöneticisi olarak, bu görevi yönetmek, İlkesi özel durumları sözleşmeli önlemek ve bu özel durumlar düzenli olarak gözden kavram ile denetçiler sağlayın.
-- **Grup sahipleri kendi gruplarındaki Konukları çağrılmasına halen ihtiyaçları onaylamanız istenir:** Çalışan erişimi bazı şirket içi IAM ancak değil davet edilen Konuk otomatik. Bir grubu Konukları iş hassas içerik ve ardından onun Konukları onaylamak için Grup sahibinin sorumluluk çözümlenmedi erişim için bir işletme ihtiyaçlarına erişmenizi durumunda.
+- **Grup sahipleri kendi gruplarındaki Konukları çağrılmasına halen ihtiyaçları onaylamanız istenir:** Çalışan erişimi, şirket içi IAM, konuklar davet edilen değil ancak bazı otomatik. Bir grubu Konukları iş hassas içerik ve ardından onun Konukları onaylamak için Grup sahibinin sorumluluk çözümlenmedi erişim için bir işletme ihtiyaçlarına erişmenizi durumunda.
 - **Düzenli aralıklarla yinelenen incelemeleri vardır:** Kümesi frekansları kullanıcıların erişim gözden geçirmeleri yinelenen gibi haftalık, aylık, üç aylık veya yıllık olarak ayarlayabilirsiniz ve gözden geçirenler her İnceleme başlangıcında bildirilir. Gözden geçirenler onaylayabilir veya Yardımı akıllı öneriler ve kullanıcı dostu bir arabirim ile erişimi engelle.
 
 ## <a name="where-do-you-create-reviews"></a>Gözden geçirmeler oluşturduğunuz?

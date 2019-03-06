@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e3632fdb3b4d5c1d2b5465671f36a201c5ff990
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 63fdd60c4c462626cc43a7a453bddc0b020b92cf
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193305"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409899"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Önizleme: Azure AD parola koruması sorunlarını giderme
 
@@ -55,13 +55,13 @@ Proxy makine listelenen uç noktalarına bağlantıyı olduğundan [dağıtım g
 
 Bu sorun belirtileri çeşitli ile bildirilebilir, ancak genellikle bir ortak kök nedeni vardır.
 
-Azure AD parola koruması, Windows Server 2012 çalıştıran etki alanı denetleyicilerinde ve üzeri olan Microsoft anahtar dağıtım hizmeti tarafından sağlanan şifreleme ve şifre çözme işlevselliği kritik bağımlılığı vardır. KDS hizmeti, etkin ve tüm Windows Server 2012 ve sonraki etki alanı denetleyicilerine de bir işlev olmalıdır.  
+Azure AD parola koruması, Windows Server 2012 çalıştıran etki alanı denetleyicilerinde ve üzeri olan Microsoft anahtar dağıtım hizmeti tarafından sağlanan şifreleme ve şifre çözme işlevselliği kritik bağımlılığı vardır. KDS hizmeti, etkin ve tüm Windows Server 2012 ve sonraki etki alanı denetleyicilerine de bir işlev olmalıdır.
 
-KDS varsayılan olarak hizmetin hizmet başlangıç modunu el ile (tetikleyiciyi başlatın) olarak yapılandırılır. Bu yapılandırma, bir istemci hizmeti kullanmayı dener ilk kez üzerine başladığını anlamına gelir. Bu varsayılan hizmet başlangıç modu çalışmak Azure AD parola koruması için kabul edilebilir. 
+KDS varsayılan olarak hizmetin hizmet başlangıç modunu el ile (tetikleyiciyi başlatın) olarak yapılandırılır. Bu yapılandırma, bir istemci hizmeti kullanmayı dener ilk kez üzerine başladığını anlamına gelir. Bu varsayılan hizmet başlangıç modu çalışmak Azure AD parola koruması için kabul edilebilir.
 
 KDS hizmeti başlangıç modu devre dışı olarak yapılandırılmışsa, Azure AD parola koruması düzgün çalışması için önce bu yapılandırmayı düzeltilmesi gerekir.
 
-Bu sorun için basit bir test yoluyla KDS hizmeti el ile başlatmak için olan hizmet yönetim MMC konsolunu veya diğer hizmet Yönetim Araçları (örneğin, "net start kdssvc" bir komut istemi konsoldan çalıştırma) kullanarak. KDS hizmeti başarıyla başlatmak ve çalıştırmak için bekleniyor.
+KDS hizmeti, hizmet yönetim MMC konsolu aracılığıyla ya da el ile başlatmak için bu sorun için basit bir test olduğu veya diğer hizmet Yönetim Araçları (örneğin, "net start kdssvc" bir komut istemi konsoldan çalıştırma) kullanarak. KDS hizmeti başarıyla başlatmak ve çalıştırmak için bekleniyor.
 
 En yaygın kök nedeni, Active Directory etki alanı denetleyicisi nesnesini varsayılan etki alanı denetleyicileri kuruluş dışında bulunan olmasıdır. Bu yapılandırma KDS hizmeti tarafından desteklenmiyor ve Azure AD parola koruması tarafından uygulanan bir kısıtlama değildir. Bu koşul için düzeltme etki alanı denetleyicisi nesnesini varsayılan etki alanı denetleyicileri OU altında bir konuma taşımaktır.
 
@@ -118,7 +118,7 @@ Etki alanı ve orman ilgili tüm durum temizleme ve genel Önizleme yazılımın
 
    Yıldız işareti kullanın ("*") sonunda $keywords değişken değeri.
 
-   Aracılığıyla elde edilen nesne bulundu `Get-ADObject` komutu ardından ayrıştırılabileceği `Remove-ADObject`, veya el ile silindi. 
+   Aracılığıyla elde edilen nesne bulundu `Get-ADObject` komutu ardından ayrıştırılabileceği `Remove-ADObject`, veya el ile silindi.
 
 4. El ile tüm DC aracı bağlantı noktaları, her etki alanı adlandırma içeriği kaldırın. Olabilir bir genel Önizleme yazılımını yaygın olarak nasıl dağıtıldığına bağlı olarak ormandaki etki alanı denetleyicisi başına bu nesneler. Bu nesnenin konumu aşağıdaki Active Directory PowerShell komutuyla bulunan:
 

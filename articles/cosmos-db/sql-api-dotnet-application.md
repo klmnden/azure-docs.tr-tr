@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.openlocfilehash: 138df4aa0a0e23bd97bca960573cc0971b66b869
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 778c5c50e2742dd7436f809be06c625254973b49
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041416"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440854"
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC Öğreticisi: Azure Cosmos DB ile Web uygulaması geliştirme
 
@@ -27,7 +27,7 @@ ms.locfileid: "54041416"
 
 Bu makale, JSON belgelerini depolama ve sorgulama amacıyla Azure Cosmos DB'yi nasıl verimli bir şekilde kullanabileceğinizi vurgulamak için, Azure Cosmos DB kullanarak bir yapılacaklar uygulamasının nasıl oluşturulacağını gösteren uçtan uca bir kılavuz sağlar. Görevler, JSON belgeleri olarak Azure Cosmos DB'de depolanır.
 
-![Bu öğreticiyle oluşturulan yapılacaklar listesi MVC web uygulamasının ekran görüntüsü - adım adım ASP.NET MVC öğreticisi](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
+![Yapılacaklar listesi MVC web uygulaması Bu öğretici - ASP NET MVC adım adım Öğreticisi tarafından oluşturulan ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
 Bu adım adım kılavuz, Azure Cosmos DB hizmetinin, Azure üzerinde barındırılan bir ASP.NET MVC web uygulamasında verileri depolamak ve bunlara erişmek için nasıl kullanılacağını gösterir. ASP.NET MVC bileşenleri yerine yalnızca Azure Cosmos DB'ye odaklanan bir öğretici arıyorsanız bkz. [Azure Cosmos DB C# konsol uygulaması oluşturma](sql-api-get-started.md).
 
@@ -64,14 +64,14 @@ Bu makaledeki tüm ekran görüntüleri, Microsoft Visual Studio Community 2017 
 
 2. **Proje türleri** bölmesinde **Şablonlar**, **Visual C#**, **Web**'i genişletin ve ardından **ASP.NET Web Uygulaması**'nı seçin.
 
-      ![ASP.NET Web Uygulaması proje türü vurgulanmış şekilde Yeni Proje iletişim kutusunun ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+      ![Vurgulanan ASP.NET Web uygulaması proje türü ile yeni proje iletişim kutusunun ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
 3. **Ad** kutusunda projenin adını yazın. Bu öğretici "todo" adını kullanır. Bunun dışında bir şey kullanmayı seçerseniz bu öğreticinin todo ad alanından söz ettiği her yerde sağlanan kod örneklerini uygulamanıza verdiğiniz ada göre ayarlamanız gerekir. 
 4. Projeyi oluşturmak istediğiniz klasöre gitmek için **Gözat**'a tıklayın ve ardından **Tamam**'a tıklayın.
    
       **Yeni ASP.NET Web Uygulaması** iletişim kutusu görüntülenir.
    
-    ![MVC uygulama şablonu vurgulanmış şekilde Yeni ASP.NET Web Uygulaması iletişim kutusunun ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+    ![MVC uygulama şablonu vurgulanmış ile yeni bir ASP.NET Web uygulaması iletişim kutusunun ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 5. Şablonlar bölmesinde **MVC**'yi seçin.
 
 6. **Tamam**'a tıklayarak Visual Studio'nun boş ASP.NET MVC şablonu çevresinde iskele oluşturmasını sağlayın. 
@@ -86,14 +86,14 @@ Bu çözüm için gereken ASP.NET MVC altyapısının çoğunu elde ettiğimize 
 
 1. Azure Cosmos DB .NET SDK’sı, bir NuGet paketi olarak paketlenir ve dağıtılır. NuGet paketini Visual Studio'da almak için, **Çözüm Gezgini**'nde projeye sağ tıklayarak ve ardından **NuGet Paketlerini Yönet**'e tıklayarak Visual Studio'daki NuGet paket yöneticisini kullanın.
    
-    ![NuGet Paketlerini Yönet vurgulanmış şekilde, Çözüm Gezgini'nde web uygulaması projesi için sağ tıklama seçeneklerinin ekran görüntüsü.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
+    ![NuGet paketlerini Yönet vurgulanmış ile Çözüm Gezgini'nde web uygulaması projesi için sağ tıklama seçeneklerinin ekran görüntüsü.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
     **NuGet Paketlerini Yönet** iletişim kutusu görünür.
 2. NuGet **Gözat** kutusunda ***Azure DocumentDB*** yazın. (Paket adı, Azure Cosmos DB olarak güncelleştirilmemiştir.)
    
     Sonuçlardan **Microsoft’a ait Microsoft.Azure.DocumentDB** paketini yükleyin. Bu işlem, Azure Cosmos DB paketini ve aynı zamanda Newtonsoft.Json gibi tüm bağımlılıkları indirir ve yükler. **Önizleme** penceresinde **Tamam**'a tıklayıp **Lisans Kabulü** penceresinde **Kabul Ediyorum**'a tıklayarak yüklemeyi tamamlayın.
    
-    ![Microsoft Azure Cosmos DB İstemci Kitaplığı vurgulanmış şekilde NuGet Paketlerini Yönet penceresinin ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Microsoft Azure Cosmos DB istemci kitaplığı ile NuGet paketlerini Yönet penceresinin Sreenshot](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       Alternatif olarak, paketi yüklemek için Paket Yöneticisi Konsolu'nu kullanabilirsiniz. Bunu yapmak için, **Araçlar** menüsünde **NuGet Paket Yöneticisi**'ne tıklayın ve ardından **Paket Yöneticisi Konsolu**'na tıklayın. İstendiğinde aşağıdakileri yazın.
    
@@ -155,14 +155,14 @@ MVC'de **M** olan modeli oluşturarak başlayalım.
     **İskele Ekle** iletişim kutusu görünür.
 2. **MVC 5 Denetleyici - Boş**'u seçin ve ardından **Ekle**'ye tıklayın.
    
-    ![MVC 5 Denetleyici - Boş seçeneği vurgulanmış şekilde İskele Ekle iletişim kutusunun ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+    ![MVC 5 denetleyici - boş seçeneği vurgulanmış İskele Ekle iletişim kutusunun ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 3. Yeni Denetleyicinize **ItemController** adını verin.
    
     ![Denetleyici Ekle iletişim kutusunun ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
    
     Dosya oluşturulduktan sonra, Visual Studio çözümünüz **Çözüm Gezgini**'nde yeni ItemController.cs dosyasıyla aşağıdakine benzemelidir. Daha önce oluşturduğunuz yeni Item.cs dosyası da gösterilmektedir.
    
-    ![Yeni ItemController.cs dosyası ve Item.cs dosyası vurgulanmış şekilde Visual Studio çözümü - Çözüm Gezgini'nin ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
+    ![Visual Studio çözümünün - yeni Itemcontroller.cs dosyası ve Item.cs dosyası vurgulanmış şekilde çözüm Gezgini'nin ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
    
     ItemController.cs'yi kapatabilirsiniz, buna daha sonra geri döneceğiz. 
 
@@ -176,7 +176,7 @@ MVC'de **M** olan modeli oluşturarak başlayalım.
 #### <a name="AddItemIndexView"></a>Öğe Dizini görünümü ekleme
 1. **Çözüm Gezgini**'nde **Görünümler** klasörünü genişletin, daha önce **ItemController**'ı eklediğinizde Visual Studio'nun sizin için oluşturduğu boş **Öğe** klasörüne sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Görünüm**'e tıklayın.
    
-    ![Görünüm Ekle komutları vurgulanmış şekilde Visual Studio'nun oluşturduğu Öğe klasörünü gösteren Çözüm Gezgini'nin ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
+    ![Çözüm Gezgini'nin ekran görüntüsü Görünüm Ekle komutları vurgulanmış Visual Studio'nun oluşturduğu öğe klasörünü gösteren](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
 2. **Görünüm Ekle** iletişim kutusunda aşağıdakileri yapın:
    
    * **Görünüm adı** kutusunda ***Index*** yazın.
@@ -369,7 +369,7 @@ Uygulamayı şimdi çalıştırırsanız uygulama depo sınıfını çağıran v
 
 Bu projeyi şimdi oluşturur ve çalıştırırsanız buna benzeyen bir şey görürsünüz.    
 
-![Bu veritabanı öğreticisi tarafından oluşturulan yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
+![Bu veritabanı Öğreticisi tarafından oluşturulan Yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
 
 ### <a name="_Toc395637771"></a>Öğeler ekleme
 Boş bir kılavuzdan başka şeyler görmek için veritabanımıza biraz öğe ekleyelim.
@@ -496,7 +496,7 @@ Yerel makinenizde uygulamayı test etmek için aşağıdakileri yapın:
 
 1. Uygulamayı hata ayıklama modunda oluşturmak için Visual Studio'da F5'e basın. Bu işlemin uygulamayı oluşturması ve bir tarayıcıyı daha önce gördüğümüz boş kılavuz sayfasıyla başlatması gerekir:
    
-    ![Bu veritabanı öğreticisi tarafından oluşturulan yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+    ![Bu veritabanı Öğreticisi tarafından oluşturulan Yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
    
      
 2. **Yeni Oluştur** bağlantısına tıklayın ve **Ad** ve **Açıklama** alanlarına değerler ekleyin. **Tamamlandı** onay kutusunu seçmeden bırakın, aksi halde yeni **Öğe** tamamlanmış durumda eklenir ve ilk listede görünmez.
@@ -510,7 +510,7 @@ Yerel makinenizde uygulamayı test etmek için aşağıdakileri yapın:
     
 4. Listedeki bir **Öğe**'nin yanındaki **Düzenle**'ye tıklayın, böylece **Tamamlandı** bayrağı dahil olmak üzere nesnenizin herhangi bir özelliğini güncelleştirebileceğiniz **Düzenle** görünümüne gidersiniz. **Tamamlandı** bayrağını işaretler ve **Kaydet**'e tıklarsanız **Öğe** tamamlanmamış görevler listesinden kaldırılır.
    
-    ![Tamamlandı kutusu işaretlenmiş şekilde Dizin görünümünün ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
+    ![Tamamlandı kutusu işaretlenmiş şekilde dizin görünümünün ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. Uygulamayı test ettikten sonra, uygulamanın hata ayıklamasını durdurmak için Ctrl+F5'e basın. Dağıtıma hazırsınız!
 
 ## <a name="_Toc395637774"></a>7. adım: Uygulamanızı Azure App Service'e dağıtma 

@@ -7,21 +7,21 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2017
+ms.date: 03/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0a6c894b08fd76a018035a824b463e41e31c2f2f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b485b6b7f6ddbdb45d3ca6170c29a9af3c5b63dc
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310208"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407995"
 ---
 # <a name="indexers-in-azure-search"></a>Azure Search'te dizin oluşturucular
 
-Bir *dizin oluşturucu* Azure Search'te dizin ile veri kaynağınız arasında alanın alan eşlemeleri, bir Azure dış veri kaynağından aranabilir verileri ve meta verileri ayıklar ve bir dizini dolduran bir Gezgin dayanır. Bir dizine veri gönderen herhangi bir kodun yazılması gerekmeden hizmetin verileri çekmesi nedeniyle bu yaklaşıma bazen "çekme modeli" de denir.
+Bir *dizin oluşturucu* Azure Search'te dizin ile veri kaynağınız arasında alanın alan eşlemeleri, bir Azure dış veri kaynağından aranabilir verileri ve meta verileri ayıklar ve bir dizini dolduran bir Gezgin dayanır. Hizmeti verileri bir dizine veri ekleyen kod yazmaya gerek kalmadan çekmesi nedeniyle bu yaklaşım bazen 'çekme modeli' adlandırılır.
 
-Dizin oluşturucular veri kaynağı türlerini veya platformlarını temel alır ve Azure'da SQL Server, Cosmos DB, Azure Tablo Depolama ve Blob Depolama gibi ürünler için özel dizin oluşturucular mevcuttur.
+Dizin oluşturucular veri kaynağı türlerini veya platformlarını, SQL Server Azure, Cosmos DB, Azure tablo depolama ve Blob Depolama için ayrı ayrı dizin oluşturucular ile temel alır. BLOB Depolama dizin oluşturucu blob içerik türlerine özgü ek özellikleri vardır.
 
 Bir dizin oluşturucusunu yalnızca veri alımı amacıyla kullanabilir veya dizininize alanların yalnızca bazılarını yüklemek için bir dizin oluşturucu kullanımını içeren bir teknikler birleşimini kullanabilirsiniz.
 
@@ -37,6 +37,9 @@ Dizin oluşturucuları aşağıdaki yaklaşımlarla oluşturabilir ve yönetebil
 
 Başlangıçta, yeni bir dizin oluşturucu bir önizleme özelliği olarak duyurulur. Önizleme özellikleri API'lere (REST ve .NET) eklenir ve ardından genel kullanıma açık hale geldiklerinde portala entegre edilir. Yeni bir dizin oluşturucuyu değerlendiriyorsanız kod yazmayı planlamanız gerekir.
 
+## <a name="permissions"></a>İzinler
+
+Dizin Oluşturucular, durum veya tanımları için GET istekleri dahil olmak üzere ilgili tüm işlemleri gerektiren bir [yöneticinizin api anahtarını](search-security-api-keys.md). 
 
 <a name="supported-data-sources"></a>
 
@@ -62,19 +65,19 @@ Bir dizin oluşturucu veri kaynağı bağlantısından alır bir *veri kaynağı
 Veri kaynakları, bunları kullanan dizin oluşturuculardan bağımsız olarak yapılandırılır ve yönetilir. Bu da bir veri kaynağının, bir seferde birden çok dizin yüklemek amacıyla birden çok dizin oluşturucu tarafından kullanılabileceği anlamına gelir.
 
 ### <a name="step-2-create-an-index"></a>2. Adım: Dizin oluşturma
-Dizin oluşturucu veri alımıyla ilgili bazı görevleri otomatikleştirir, ancak dizin oluşturma genellikle bu görevlerden biri değildir. Bir önkoşul olarak dış veri kaynağınızdaki alanlarla eşleşen alanlara sahip önceden tanımlı bir dizininiz olmalıdır. Dizin yapısı hakkında daha fazla bilgi için bkz. [(Azure Search REST API'si) dizin oluşturma](https://docs.microsoft.com/rest/api/searchservice/Create-Index) veya [dizin sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Alan ilişkilendirme konusunda yardım için bkz. [Azure Search dizin oluşturucularında alan eşlemeleri](search-indexer-field-mappings.md).
+Dizin oluşturucu veri alımıyla ilgili bazı görevleri otomatikleştirir, ancak dizin oluşturma genellikle bu görevlerden biri değildir. Bir önkoşul olarak dış veri kaynağınızdaki alanlarla eşleşen alanlara sahip önceden tanımlı bir dizininiz olmalıdır. Alan adı ve veri türüyle eşleşmesi gerekir. Dizin yapısı hakkında daha fazla bilgi için bkz. [(Azure Search REST API'si) dizin oluşturma](https://docs.microsoft.com/rest/api/searchservice/Create-Index) veya [dizin sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Alan ilişkilendirme konusunda yardım için bkz. [Azure Search dizin oluşturucularında alan eşlemeleri](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Dizin oluşturucular sizin için dizin oluşturamasa da, portaldaki **Verileri içeri aktarma** sihirbazı bu işlem için size yardımcı olabilir. Çoğu durumda, sihirbaz, kaynaktaki mevcut meta verilerden dizin şeması çıkarsayarak, sihirbaz etkin olduğunda satır içinde düzenleyebileceğiniz geçici bir dizin şeması sunar. Hizmet için sihirbaz oluşturulduğunda, portalda yapılabilecek ayrıntılı düzenlemeler, genellikle yeni alanlar eklemeyle sınırlıdır. Sihirbaz dizin oluşturmak için uygun olsa da, düzenlemek için uygun değildir. Uygulama yaparak öğrenmek için, [portal kılavuzundaki](search-get-started-portal.md) adımları izleyin.
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>3. Adım: Oluşturma ve zamanlama dizin oluşturucu
-Dizin oluşturucu tanımı dizini, veri kaynağını ve bir zamanlamayı belirten bir yapıdır. Bir dizin oluşturucu, aynı abonelikten olduğu sürece başka bir hizmetteki bir veri kaynağına başvurabilir. Bir dizin oluşturucuyu yapılandırma konusunda daha fazla bilgi için bkz. [Dizin Oluşturucu Oluşturma (Azure Search REST API’si)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+Dizin Oluşturucu tanımı bir araya getiren bir yapıdır veri alımıyla ilgili tüm öğelere sahiptir. Bir veri kaynağı ve dizin gerekli öğelerini içerir. İsteğe bağlı öğeler, zamanlama ve alan eşlemeleri içerir. Alan eşleme yalnızca kaynağı ve dizin alanları açıkça karşılık geliyorsa isteğe bağlı. Bir dizin oluşturucu, aynı abonelikten olduğu sürece başka bir hizmetteki bir veri kaynağına başvurabilir. Bir dizin oluşturucuyu yapılandırma konusunda daha fazla bilgi için bkz. [Dizin Oluşturucu Oluşturma (Azure Search REST API’si)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 <a id="RunIndexer"></a>
 
 ## <a name="run-indexers-on-demand"></a>Dizin oluşturucular isteğe bağlı çalıştırın
 
-Dizin oluşturma zamanlamak için yaygın olsa da, Çalıştır komutunu kullanarak isteğe bağlı bir dizin oluşturucu da çağrılabilir:
+Dizin oluşturma zamanlamak için yaygın olsa da, dizin oluşturucu ayrıca kullanarak isteğe bağlı olarak çağrılabilir [komutu Çalıştır](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
 
     POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
     api-key: [Search service admin key]
@@ -82,13 +85,14 @@ Dizin oluşturma zamanlamak için yaygın olsa da, Çalıştır komutunu kullana
 > [!NOTE]
 > Çalıştırma API başarıyla geri döndüğünde, dizin oluşturucu çağrı zamanlandı, ancak gerçek işleme zaman uyumsuz olarak gerçekleşir. 
 
-Portalı veya alma dizin oluşturucu durumu sonraki açıklayan API'sini kullanarak dizin oluşturucu durumunu izleyebilirsiniz. 
+Dizin Oluşturucu durumu Portalı'nda veya dizin oluşturucu durumu API'sinden elde izleyebilirsiniz. 
 
 <a name="GetIndexerStatus"></a>
 
 ## <a name="get-indexer-status"></a>Dizin Oluşturucu durumunu Al
 
-REST API aracılığıyla Dizin Oluşturucu durumu ve yürütme geçmişini alabilirsiniz:
+Bir dizin oluşturucu durumu ve yürütme geçmişini alabilirsiniz [dizin oluşturucu durumunu Al komutu](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+
 
     GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
     api-key: [Search service admin key]
@@ -100,8 +104,8 @@ Yanıt, genel dizin oluşturucu durumu, son (veya devam eden) dizin oluşturucuy
         "lastResult": {
             "status":"success",
             "errorMessage":null,
-            "startTime":"2014-11-26T03:37:18.853Z",
-            "endTime":"2014-11-26T03:37:19.012Z",
+            "startTime":"2018-11-26T03:37:18.853Z",
+            "endTime":"2018-11-26T03:37:19.012Z",
             "errors":[],
             "itemsProcessed":11,
             "itemsFailed":0,
@@ -111,8 +115,8 @@ Yanıt, genel dizin oluşturucu durumu, son (veya devam eden) dizin oluşturucuy
         "executionHistory":[ {
             "status":"success",
              "errorMessage":null,
-            "startTime":"2014-11-26T03:37:18.853Z",
-            "endTime":"2014-11-26T03:37:19.012Z",
+            "startTime":"2018-11-26T03:37:18.853Z",
+            "endTime":"2018-11-26T03:37:19.012Z",
             "errors":[],
             "itemsProcessed":11,
             "itemsFailed":0,

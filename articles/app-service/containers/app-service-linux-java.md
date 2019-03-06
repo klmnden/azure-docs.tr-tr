@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 0d24fbe075316e492b638a2877439af270250d70
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b28316242f608fcfc2b368170190a771c4abbc8e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234640"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456117"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -28,7 +28,7 @@ Bu kılavuzu temel kavramları ve Linux için App Service kullanarak Java geliş
 
 ## <a name="deploying-your-app"></a>Uygulamanızı dağıtma
 
-Maven plugin, .jar hem .war dosyaları dağıtmak için kullanabilirsiniz. Lütfen [bu belgeleri](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) Maven plugin hakkında daha fazla bilgi için. 
+Maven plugin, .jar hem .war dosyaları dağıtmak için kullanabilirsiniz. Lütfen [bu belgeleri](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) Maven plugin hakkında daha fazla bilgi için.
 
 Maven kullanmıyorsanız, dağıtım yöntemi, arşiv türüne bağlıdır:
 
@@ -45,9 +45,9 @@ Performans raporları, trafiği görselleştirmeler ve sistem durumu denetlemele
 
 Bkz: [uygulama performansı izleme ile Linux üzerinde Azure App Service'te Java uygulamaları Araçları](how-to-java-apm-monitoring.md) New Relic ve Appdynamics'in ile Linux üzerinde App Service'te çalışan Java uygulamalarını yapılandırmak nasıl yapılır yönergeleri için.
 
-### <a name="ssh-console-access"></a>SSH konsol erişimi 
+### <a name="ssh-console-access"></a>SSH konsol erişimi
 
-SSH bağlantısı, uygulamanızı çalıştıran Linux ortamı tarafından oynatılan ' dir. Bkz: [Linux'ta Azure App Service için SSH desteği](/azure/app-service/containers/app-service-linux-ssh-support) web tarayıcınızı veya yerel terminalde aracılığıyla Linux sistemine bağlanmak tam yönergeler için.
+SSH bağlantısı, uygulamanızı çalıştıran Linux ortamı için kullanılabilir. Bkz: [Linux'ta Azure App Service için SSH desteği](/azure/app-service/containers/app-service-linux-ssh-support) web tarayıcınızı veya yerel terminalde aracılığıyla Linux sistemine bağlanmak tam yönergeler için.
 
 ### <a name="streaming-logs"></a>Akış günlükleri
 
@@ -71,7 +71,7 @@ Daha fazla bilgi için [akış günlükleri Azure CLI ile](../troubleshoot-diagn
 
 Etkinleştirme [uygulama günlüğü](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) Azure portalından veya [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) App Service'nın yerel, uygulamanızın standart konsol çıkışı ve standart konsol hatası akış yazmak için yapılandırmak için dosya sistemi veya Azure Blob Depolama. Yerel App Service dosya sisteminde oturum örnek 12 saat yapılandırıldıktan sonra devre dışı bırakıldı. Daha uzun bekletme süresi gerekiyorsa, bir Blob Depolama kapsayıcısına çıkışını yazmak için uygulamayı yapılandırma.
 
-Uygulamanız kullanıyorsa [Logback](https://logback.qos.ch/) veya [Log4j](https://logging.apache.org/log4j) izleme için günlüğekaydetmeçerçevesiyapılandırmayönergelerikullanarakgözdengeçirmeiçinAzureApplicationInsightsiçindebuizlemeleriniletebilir[Keşfedin Java izleme günlükleri Application Insights'ta](/azure/application-insights/app-insights-java-trace-logs). 
+Uygulamanız kullanıyorsa [Logback](https://logback.qos.ch/) veya [Log4j](https://logging.apache.org/log4j) izleme için günlüğekaydetmeçerçevesiyapılandırmayönergelerikullanarakgözdengeçirmeiçinAzureApplicationInsightsiçindebuizlemeleriniletebilir[Keşfedin Java izleme günlükleri Application Insights'ta](/azure/application-insights/app-insights-java-trace-logs).
 
 ## <a name="customization-and-tuning"></a>Özelleştirme ve ayarlama
 
@@ -91,12 +91,12 @@ Azure portalında altında **uygulama ayarları** adlı yeni bir uygulama ayarı
 Azure App Service Linux Maven plugin uygulama ayarlarını yapılandırmak için Azure eklentisi bölümünde ayarı/değer etiketler ekleyin. Aşağıdaki örnek, belirli bir minimum ve maksimum Java heapsıze ayarlar:
 
 ```xml
-<appSettings> 
-    <property> 
-        <name>JAVA_OPTS</name> 
-        <value>$JAVA_OPTS -Xms512m -Xmx1204m</value> 
-    </property> 
-</appSettings> 
+<appSettings>
+    <property>
+        <name>JAVA_OPTS</name>
+        <value>$JAVA_OPTS -Xms512m -Xmx1204m</value>
+    </property>
+</appSettings>
 ```
 
 Tek bir uygulama, App Service planında bir dağıtım yuvası ile çalışan geliştiriciler, aşağıdaki seçenekleri kullanabilirsiniz:
@@ -104,7 +104,6 @@ Tek bir uygulama, App Service planında bir dağıtım yuvası ile çalışan ge
 - B1 ve S1 örnekleri:-Xms1024m-Xmx1024m
 - B2 ve S2 örnekleri:-Xms3072m-Xmx3072m
 - B3 ve S3 örnekleri:-Xms6144m-Xmx6144m
-
 
 Ne zaman ayar uygulama yığın ayarları, App Service planı bilgilerinizi gözden geçirin ve birden çok uygulama ve dağıtım yuvası dikkate en iyi bellek ayırma bulması gerekir.
 
@@ -115,34 +114,34 @@ Azure portalında web yuvaları için desteği etkinleştirmek **uygulama ayarla
 Web yuvası desteği Azure CLI kullanarak aşağıdaki komutla açın:
 
 ```azurecli-interactive
-az webapp config set -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} --web-sockets-enabled true 
+az webapp config set -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} --web-sockets-enabled true
 ```
 
 Ardından, uygulamanızı yeniden başlatın:
 
 ```azurecli-interactive
-az webapp stop -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} 
+az webapp stop -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}  
 ```
 
-### <a name="set-default-character-encoding"></a>Varsayılan karakter kodlamasını ayarlayın 
+### <a name="set-default-character-encoding"></a>Varsayılan karakter kodlamasını ayarlayın
 
 Azure portalında altında **uygulama ayarları** adlı yeni bir uygulama ayarı için web app oluşturmak `JAVA_OPTS` değerle `$JAVA_OPTS -Dfile.encoding=UTF-8`.
 
-Alternatif olarak, App Service Maven plugin kullanarak uygulama ayarı yapılandırabilirsiniz. Ayar adı ve değeri etiketleri eklentisi yapılandırmasına ekleyin: 
+Alternatif olarak, App Service Maven plugin kullanarak uygulama ayarı yapılandırabilirsiniz. Ayar adı ve değeri etiketleri eklentisi yapılandırmasına ekleyin:
 
 ```xml
-<appSettings> 
-    <property> 
-        <name>JAVA_OPTS</name> 
-        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value> 
-    </property> 
-</appSettings> 
+<appSettings>
+    <property>
+        <name>JAVA_OPTS</name>
+        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value>
+    </property>
+</appSettings>
 ```
 
 ## <a name="secure-applications"></a>Uygulamaları güvenli hale getirin
 
-Linux için App Service'te çalışan Java uygulamalarını kümesinin aynısına sahip [en iyi güvenlik uygulamaları](/azure/security/security-paas-applications-using-app-services) diğer uygulamalar olarak. 
+Linux için App Service'te çalışan Java uygulamalarını kümesinin aynısına sahip [en iyi güvenlik uygulamaları](/azure/security/security-paas-applications-using-app-services) diğer uygulamalar olarak.
 
 ### <a name="authenticate-users"></a>Kullanıcıların kimliklerini doğrulama
 
@@ -150,15 +149,15 @@ Uygulama kimlik doğrulaması ile Azure portalında ayarlama **kimlik doğrulama
 
 Birden çok oturum açma sağlayıcısı etkinleştirmeniz gerekirse, yönergeleri izleyin [App Service kimlik doğrulaması özelleştirme](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) makalesi.
 
-Spring önyükleme geliştiriciler [Azure Active Directory Spring Boot Başlatıcı](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) tanıdık Spring güvenlik açıklamalarını ve API'leri kullanarak uygulamaların güvenliğini sağlamak için. Maksimum boyut olarak artırıldığından emin olun, `application.properties` dosya. Değerini öneririz `16384`. 
+Spring önyükleme geliştiriciler [Azure Active Directory Spring Boot Başlatıcı](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) tanıdık Spring güvenlik açıklamalarını ve API'leri kullanarak uygulamaların güvenliğini sağlamak için. Maksimum boyut olarak artırıldığından emin olun, `application.properties` dosya. Değerini öneririz `16384`.
 
 ### <a name="configure-tlsssl"></a>TLS/SSL'yi yapılandırma
 
 Bölümündeki yönergeleri [var olan özel bir SSL sertifikası bağlama](/azure/app-service/app-service-web-tutorial-custom-ssl) mevcut bir SSL sertifikasını karşıya yüklemek ve uygulamanızın etki alanı adı için bağlama için. Varsayılan olarak, uygulamanızın HTTP bağlantıları-özel SSL ve TLS zorlamak için öğreticinin adımlarını yine de sağlar.
 
-## <a name="tomcat"></a>Tomcat 
+## <a name="data-sources"></a>Veri kaynakları
 
-### <a name="connecting-to-data-sources"></a>Veri kaynaklarına bağlanma
+### <a name="tomcat"></a>Tomcat
 
 >[!NOTE]
 > Uygulamanız Spring Framework veya Spring Boot kullanıyorsa, veritabanı bağlantısı bilgilerini Spring veri JPA [uygulama özellikleri dosyanızda] ortam değişkenleri olarak ayarlayabilirsiniz. Ardından [uygulama ayarları](/azure/app-service/web-sites-configure#app-settings) bu değerler uygulamanız için Azure portal veya CLI tanımlamak için.
@@ -174,19 +173,19 @@ Bu yönergeler, tüm veritabanı bağlantıları için geçerlidir. Yer tutucula
 Tomcat, Java veritabanı bağlantısı (JDBC) veya Java Kalıcılık API (JPA) kullanacak şekilde yapılandırmak için öncelikle özelleştirmek `CATALINA_OPTS` Tomcat başlangıçta tarafından okunan yukarı ortam değişkeni. Bu değerleri bir uygulama ayarı aracılığıyla ayarlamak [App Service Maven plugin](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
 ```xml
-<appSettings> 
-    <property> 
-        <name>CATALINA_OPTS</name> 
-        <value>"$CATALINA_OPTS -Ddbuser=${DBUSER} -Ddbpassword=${DBPASSWORD} -DconnURL=${CONNURL}"</value> 
-    </property> 
-</appSettings> 
+<appSettings>  
+    <property>  
+        <name>CATALINA_OPTS</name>  
+        <value>"$CATALINA_OPTS -Ddbuser=${DBUSER} -Ddbpassword=${DBPASSWORD} -DconnURL=${CONNURL}"</value>  
+    </property>  
+</appSettings>  
 ```
 
 Veya "Uygulama ayarlar" dikey penceresinde Azure portalında ortam değişkenlerini ayarlayın.
 
 Ardından, veri kaynağı bir uygulama veya Tomcat servlet üzerinde çalışan tüm uygulamalar için kullanılabilir olup olmayacağını belirler.
 
-#### <a name="for-application-level-data-sources"></a>Uygulama düzeyi veri kaynakları için: 
+#### <a name="application-level-data-sources"></a>Uygulama düzeyi veri kaynakları
 
 1. Oluşturma bir `context.xml` dosyası `META-INF/` projenizin dizin. Oluşturma `META-INF/` henüz yoksa dizin.
 
@@ -195,11 +194,11 @@ Ardından, veri kaynağı bir uygulama veya Tomcat servlet üzerinde çalışan 
     ```xml
     <Context>
         <Resource
-            name="jdbc/dbconnection" 
+            name="jdbc/dbconnection"
             type="javax.sql.DataSource"
             url="${dbuser}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}" 
+            username="${dbpassword}"
             password="${connURL}"
         />
     </Context>
@@ -214,10 +213,11 @@ Ardından, veri kaynağı bir uygulama veya Tomcat servlet üzerinde çalışan 
     </resource-env-ref>
     ```
 
-#### <a name="for-shared-server-level-resources"></a>Paylaşılan sunucu düzeyinde kaynaklar için:
+#### <a name="shared-server-level-resources"></a>Paylaşılan, sunucu düzeyinde kaynakları
 
 1. İçeriğini kopyalayın `/usr/local/tomcat/conf` içine `/home/tomcat/conf` , App Service Linux üzerinde örnek, bir yapılandırma var. henüz yoksa SSH kullanarak.
-    ```
+
+    ```bash
     mkdir -p /home/tomcat
     cp -a /usr/local/tomcat/conf /home/tomcat/conf
     ```
@@ -229,11 +229,11 @@ Ardından, veri kaynağı bir uygulama veya Tomcat servlet üzerinde çalışan 
     ...
     <Context>
         <Resource
-            name="jdbc/dbconnection" 
+            name="jdbc/dbconnection"
             type="javax.sql.DataSource"
             url="${dbuser}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}" 
+            username="${dbpassword}"
             password="${connURL}"
         />
     </Context>
@@ -250,7 +250,7 @@ Ardından, veri kaynağı bir uygulama veya Tomcat servlet üzerinde çalışan 
     </resource-env-ref>
     ```
 
-#### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Son olarak, sürücü jar dosyaları dışındaki Tomcat sınıf yerleştirin ve App service'inizi yeniden başlatın: 
+#### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Son olarak, sürücü jar dosyaları dışındaki Tomcat sınıf getirin ve App service'inizi yeniden başlatın
 
 1. Bunları yerleştirerek JDBC sürücüsü dosyaları için Tomcat classloader kullanılabilir olduğundan emin olun `/home/tomcat/lib` dizin. (Zaten yoksa, bu dizin oluşturun.) Bu dosyalar, App Service örneğine karşıya yüklemek için aşağıdaki adımları gerçekleştirin:  
     1. Azure App Service webpp uzantıyı yükleyin:
@@ -259,17 +259,36 @@ Ardından, veri kaynağı bir uygulama veya Tomcat servlet üzerinde çalışan 
       az extension add –name webapp
       ```
 
-    2. App Service için yerel sisteminizden SSH tüneli oluşturmaya aşağıdaki CLI komutunu çalıştırın:
+    1. App Service için yerel sisteminizden SSH tüneli oluşturmaya aşağıdaki CLI komutunu çalıştırın:
 
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
 
-    3. SFTP istemcinizi ile yerel tünel bağlantı noktasına bağlanmak ve dosyaları karşıya yükleme `/home/tomcat/lib` klasör.
+    1. SFTP istemcinizi ile yerel tünel bağlantı noktasına bağlanmak ve dosyaları karşıya yükleme `/home/tomcat/lib` klasör.
 
     Alternatif olarak, JDBC sürücüsünü yüklenecek bir FTP istemcisi kullanabilirsiniz. Aşağıdaki adımları [FTP kimlik bilgilerinizi almak için yönergeler](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. Sunucu düzeyinde veri kaynağı oluşturduysanız, App Service Linux uygulamayı yeniden başlatın. Tomcat sıfırlanır `CATALINA_HOME` için `/home/tomcat/conf` ve güncelleştirilmiş yapılandırmayı kullanın.
+
+### <a name="spring-boot"></a>Spring Boot
+
+Spring Boot uygulamalarda veri kaynaklarına bağlanmak için bağlantı dizeleri oluşturmak ve bunları ekleme öneririz, `application.properties` dosya.
+
+1. App Service dikey penceresinde "Uygulama ayarları" bölümünde, dize için bir ad ayarlayın, JDBC bağlantı dizesi değer alanına yapıştırın ve türü "Özel" olarak ayarlayın. İsteğe bağlı olarak, bu bağlantı dizesini yuva ayarı olarak ayarlayabilirsiniz.
+
+    ![Portalda bir bağlantı dizesi oluşturma.][1]
+
+    Bu bağlantı dizesini uygulamamız adlı bir ortam değişkeni olarak erişilebilir `CUSTOMCONNSTR_<your-string-name>`. Örneğin, yukarıda oluşturduğumuz bağlantı dizesini adlandırılacağını `CUSTOMCONNSTR_exampledb`.
+
+2. İçinde `application.properties` dosya, bu ortam değişkeni adı bğlntı dizesiyle başvuru. Bizim örneğimizde, biz kullanırsınız.
+
+    ```yml
+    app.datasource.url=${CUSTOMCONNSTR_exampledb}
+    ```
+
+Lütfen [veri erişimi üzerinde Spring Boot belgeleri](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html
+) ve [yapılandırmaları te dış](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) Bu konu hakkında daha fazla bilgi için.
 
 ## <a name="docker-containers"></a>Docker kapsayıcıları
 
@@ -282,7 +301,7 @@ Linux için App Service, yönetilen Java web uygulamalarını barındırmak içi
 - [Tomcat servlet kapsayıcı](https://tomcat.apache.org/) paketlenmiş uygulamaları çalıştırmak için farklı web arşivi (WAR) dosyaları. Desteklenen sürümler şunlardır: 8,5 ve 9.0 sürümlerine ait.
 - Uygulamaları çalıştırmak için Java SE çalışma zamanı ortamı (JAR) dosyaları Java arşiv paketlendi. Yalnızca desteklenen ana sürüm Java 8 ' dir.
 
-## <a name="java-runtime-statement-of-support"></a>Java Çalışma zamanı destek bildirimi 
+## <a name="java-runtime-statement-of-support"></a>Java Çalışma zamanı destek bildirimi
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK sürümleri ve Bakım
 
@@ -315,3 +334,6 @@ Geliştiriciler şunları yapabilir [bir sorun açın](/azure/azure-supportabili
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Ziyaret [Java geliştiricileri için Azure](/java/azure/) Azure hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve Java başvuru belgeleri bulmak için merkezi.
+
+<!--Image references-->
+[1]: ./media/app-service-linux-java/connection-string.png

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: c8cfa0174d3e3300bdc3cfbc68ca416d9b736300
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cefdc8819162a19a9b73b99a38f7028aa5fbacac
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674914"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438151"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric küme ayarlarını özelleştirme
 Bu makalede, Service Fabric kümenizin özelleştirebileceğiniz çeşitli yapı ayarları açıklanır. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak. Daha fazla bilgi için [Azure kümesine yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-azure.md). Tek başına kümeler için ayarlarını güncelleştirerek özelleştirdiğiniz *ClusterConfig.json* dosyası ve bir yapılandırmasını gerçekleştirmek kümenizde yükseltin. Daha fazla bilgi için [tek başına küme yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -374,7 +374,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |SharedLogId |Varsayılan bir dize ise "" |Statik|Paylaşılan günlük kapsayıcı için benzersiz GUID. Kullanım "" fabric veri kökü altındaki varsayılan yol kullanıyorsanız. |
 |SharedLogPath |Varsayılan bir dize ise "" |Statik|Paylaşılan günlük kapsayıcı yerleştirileceği konum için yolu ve dosya adı. Kullanım "" fabric veri kökü altındaki varsayılan yol kullanma. |
 |SharedLogSizeInMB |Int, 8192 varsayılandır |Statik|Paylaşılan günlük kapsayıcısında ayrılacak MB sayısı. |
-|SharedLogThrottleLimitInPercentUsed|int, varsayılan 0'dır | Statik | Azaltma anlamına paylaşılan günlük kullanım yüzdesi. Değer 0 ile 100 arasında olmalıdır. 0 değeri, varsayılan yüzde değeri kullanarak anlamına gelir. Hiçbir kısıtlama 100 değerini gösterir. 1 ile 99 arasında bir değer yukarıdaki hangi azaltma meydana gelir günlük kullanım yüzdesini belirtir. Paylaşılan günlük 10 GB ve değeri ise örnek 90 için 9 GB kullanımda olduğunda throttleing meydana gelir. Varsayılan değerin kullanılması önerilir.|
+|SharedLogThrottleLimitInPercentUsed|int, varsayılan 0'dır | Statik | Azaltma anlamına paylaşılan günlük kullanım yüzdesi. Değer 0 ile 100 arasında olmalıdır. 0 değeri, varsayılan yüzde değeri kullanarak anlamına gelir. Hiçbir kısıtlama 100 değerini gösterir. 1 ile 99 arasında bir değer yukarıdaki hangi azaltma meydana gelir günlük kullanım yüzdesini belirtir. Paylaşılan günlük 10 GB ve değeri ise 9 GB kullanımda olduğunda, azaltma çıkar örneğin 90 olması nedeniyle. Varsayılan değerin kullanılması önerilir.|
 |WriteBufferMemoryPoolMaximumInKB | int, varsayılan 0'dır |Dinamik|Yazma arabellek belleği havuzu kadar büyümesine izin vermek için KB sayısı. 0 sınır belirtmek için kullanın. |
 |WriteBufferMemoryPoolMinimumInKB |Int, 8388608 varsayılandır |Dinamik|Başlangıçta yazma arabellek belleği havuzu için ayrılacak KB sayısı. Varsayılan sınır belirtmek için 0 kullanın SharedLogSizeInMB aşağıdaki ile tutarlı olmalıdır. |
 
@@ -671,7 +671,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |InvokeInfrastructureCommand |Varsayılan bir dize ise "Yönetici" |Dinamik| Altyapı görev management komutlar için güvenliği yapılandırma. |
 |InvokeInfrastructureQuery |Varsayılan bir dize ise "yönetici\|\|kullanıcı" | Dinamik|Altyapı görevleri sorgulamak için Güvenlik Yapılandırması'nı tıklatın. |
 |Liste |Varsayılan bir dize ise "yönetici\|\|kullanıcı" | Dinamik|Güvenlik Yapılandırması görüntüsü için istemci Dosya listeleme işlemi depolayın. |
-|MoveNextFabricUpgradeDomain |Varsayılan bir dize ise "Yönetici" |Dinamik| Küme yükseltme açıkça ile yükseltme etki alanı sürdürülüyor için Güvenlik Yapılandırması'nı tıklatın. |
+|MoveNextFabricUpgradeDomain |Varsayılan bir dize ise "Yönetici" |Dinamik| Küme yükseltme açık bir yükseltme etki alanı sürdürülüyor için Güvenlik Yapılandırması'nı tıklatın. |
 |MoveNextUpgradeDomain |Varsayılan bir dize ise "Yönetici" |Dinamik| Uygulama yükseltme ile açık bir yükseltme etki alanı sürdürülüyor için Güvenlik Yapılandırması'nı tıklatın. |
 |MoveReplicaControl |Varsayılan bir dize ise "Yönetici" | Dinamik|Çoğaltma taşıyın. |
 |NameExists |Varsayılan bir dize ise "yönetici\|\|kullanıcı" | Dinamik|Güvenlik Yapılandırması adlandırma URI'si bulunup bulunmadığını denetler. |

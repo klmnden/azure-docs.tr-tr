@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: db13064c93381f87f82959ed3386abfc0a8e4593
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c989e53113557219e13dd730ac43621d3824baac
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238671"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434768"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL veri ambarı'nda geçici tablolar
 Bu makalede, geçici tabloları kullanmaya yönelik temel rehberlik içerir ve oturum düzeyi geçici tablolar sürecin prensiplerini vurgular. Bu makalede verilen bilgileri kullanarak, hem çalışmalarında kodunuzun bakım kolaylığı geliştirip kodunuzu modülerleştirmek yardımcı olabilir.
@@ -193,7 +193,7 @@ FROM    t1
 GO
 ```
 
-Bu aşamada bir saklı yordam oluşturma gerçekleşen tek eylem olan bu generatess geçici bir tablo DDL deyimleri ile #stats_ddl.  Bir oturumda birden çok kez çalıştırırsanız başlayabildiğinden emin olmak için zaten varsa bu saklı yordamı #stats_ddl bırakır.  Ancak, olduğundan hiçbir `DROP TABLE` saklı yordam tamamlandığında, saklı yordam dışında okuyun saklı yordamın sonunda, oluşturulmuş bir tabloyu bırakır, böylece.  SQL veri ambarı'nda, diğer SQL Server veritabanlarının, oluşturulduğu yordamı dışında geçici tablo kullanmak mümkündür.  SQL veri ambarı geçici tablolar kullanılabilir **herhangi bir yere** oturumu içinde. Bu aşağıdaki örnekte olduğu gibi daha fazla modüler ve yönetilebilir kod neden olabilir:
+Bu aşamada, gerçekleşen yalnızca geçici bir tablo DDL deyimleri ile #stats_ddl oluşturan bir saklı yordam oluşturma eylemdir.  Bir oturumda birden çok kez çalıştırırsanız başlayabildiğinden emin olmak için zaten varsa bu saklı yordamı #stats_ddl bırakır.  Ancak, olduğundan hiçbir `DROP TABLE` saklı yordam tamamlandığında, saklı yordam dışında okuyun saklı yordamın sonunda, oluşturulmuş bir tabloyu bırakır, böylece.  SQL veri ambarı'nda, diğer SQL Server veritabanlarının, oluşturulduğu yordamı dışında geçici tablo kullanmak mümkündür.  SQL veri ambarı geçici tablolar kullanılabilir **herhangi bir yere** oturumu içinde. Bu aşağıdaki örnekte olduğu gibi daha fazla modüler ve yönetilebilir kod neden olabilir:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;

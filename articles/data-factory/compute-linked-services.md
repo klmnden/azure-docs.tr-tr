@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: 5e620b03f5588369fc73a62f2019d857766596fd
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 490f11b4a35bb7e5669ccf1554c3a73f5156f3c7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321951"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445662"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen ortam işlem
 Bu makalede, işlem veya dönüşüm veri için kullanabileceğiniz farklı işlem ortamlarında açıklanmaktadır. (İsteğe bağlı ve Getir kendi) farklı yapılandırmalar hakkında ayrıntılar bu bağlama bağlı hizmetler yapılandırırken Data Factory tarafından desteklenen bir Azure data factory'ye ortamları işlem sağlar.
@@ -146,7 +146,7 @@ Aşağıdaki JSON, Linux tabanlı bir isteğe bağlı HDInsight bağlı hizmeti 
 
 Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanın:
 
-| Özellik                | Açıklama                              | Gereklidir |
+| Özellik                | Açıklama                              | Gerekli |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Uygulamanın istemci kimliği belirtin.     | Evet      |
 | **serviceprincipalkey değerleri** | Uygulama anahtarını belirtin.           | Evet      |
@@ -156,7 +156,7 @@ Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kull
 
 İsteğe bağlı HDInsight kümesinin ayrıntılı yapılandırma için aşağıdaki özellikleri belirtebilirsiniz.
 
-| Özellik               | Açıklama                              | Gereklidir |
+| Özellik               | Açıklama                              | Gerekli |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Oluşturulacak HDInsight küme için çekirdek yapılandırma parametrelerini (olduğu gibi core-site.xml) belirtir. | Hayır       |
 | hBaseConfiguration     | HDInsight kümesi için HBase yapılandırma parametreleri (hbase-site.xml) belirtir. | Hayır       |
@@ -224,7 +224,7 @@ Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kull
 ### <a name="node-sizes"></a>Düğümü boyutları
 Baş, veri ve zookeeper düğümleri aşağıdaki özellikleri kullanarak boyutunu belirtebilirsiniz: 
 
-| Özellik          | Açıklama                              | Gereklidir |
+| Özellik          | Açıklama                              | Gerekli |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Baş düğüm boyutunu belirtir. Varsayılan değerdir: Standard_D3. Bkz: **düğümü boyutları belirtme** ayrıntıları bölümü. | Hayır       |
 | dataNodeSize      | Veri düğümü boyutunu belirtir. Varsayılan değerdir: Standard_D3. | Hayır       |
@@ -304,13 +304,15 @@ Kendi HDInsight kümenizi Data Factory'ye kaydetmeniz için bir Azure HDInsight 
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch bağlı hizmeti
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Veri Fabrikası için bir Batch havuzu sanal makineler (VM'ler) kaydetmek için bir Azure Batch bağlı hizmeti oluşturabilirsiniz. Azure Batch kullanarak özel etkinliği çalıştırabilirsiniz.
 
 Azure Batch hizmetine yeni başladıysanız, aşağıdaki konularda bakın:
 
 * [Azure Batch temel bilgileri](../batch/batch-technical-overview.md) için Azure Batch hizmetine genel bakış.
-* [Yeni-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) Azure Batch hesabı oluşturmak için cmdlet'i (veya) [Azure portalında](../batch/batch-account-create-portal.md) Azure portalını kullanarak Azure Batch hesabı oluşturmak için. Bkz: [Azure Batch hesabını yönetmek için PowerShell kullanma](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) konu cmdlet kullanma hakkında ayrıntılı yönergeler için.
-* [Yeni-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) bir Azure Batch havuzu oluşturmak için cmdlet'i.
+* [Yeni AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) Azure Batch hesabı oluşturmak için cmdlet'i (veya) [Azure portalında](../batch/batch-account-create-portal.md) Azure portalını kullanarak Azure Batch hesabı oluşturmak için. Bkz: [Azure Batch hesabını yönetmek için PowerShell kullanma](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) konu cmdlet kullanma hakkında ayrıntılı yönergeler için.
+* [Yeni AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) bir Azure Batch havuzu oluşturmak için cmdlet'i.
 
 ### <a name="example"></a>Örnek
 
@@ -378,9 +380,9 @@ Bir Machine Learning batch Puanlama uç noktası bir data factory'ye kaydetmeniz
 ```
 
 ### <a name="properties"></a>Özellikler
-| Özellik               | Açıklama                              | Gereklidir                                 |
+| Özellik               | Açıklama                              | Gerekli                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Tür                   | Type özelliği ayarlanmalıdır: **AzureML**. | Evet                                      |
+| Type                   | Type özelliği ayarlanmalıdır: **AzureML**. | Evet                                      |
 | mlEndpoint             | Toplu işlem Puanlama URL'si.                   | Evet                                      |
 | ApiKey                 | Yayımlanan çalışma alanı modelinin API.     | Evet                                      |
 | updateResourceEndpoint | Tahmine dayalı Web hizmeti ile eğitilmiş model dosyasını güncelleştirmek için kullanılan bir Azure ML Web Hizmeti uç noktası güncelleştirme kaynak URL'si | Hayır                                       |
@@ -481,7 +483,7 @@ Oluşturabileceğiniz **Azure Databricks bağlı hizmeti** Databricks workloads(
 
 ### <a name="properties"></a>Özellikler
 
-| Özellik             | Açıklama                              | Gereklidir                                 |
+| Özellik             | Açıklama                              | Gerekli                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | ad                 | Bağlı hizmetin adı               | Evet   |
 | type                 | Type özelliği ayarlanmalıdır: **AzureDatabricks**. | Evet                                      |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0a9197c8c46cc480f5f096f1d2ef98c0d5823f35
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232989"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455794"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Karma Bağlantıları Oluşturma ve Yönetme
 
@@ -42,7 +42,7 @@ Bu konu, aşağıdaki adımları listeler.
 > Sahte (kod). Örneğin, tanımladığınız **10.4.5.6** şirket içi ana olarak:
 > 
 > **Aşağıdaki senaryoyu çalışır:**  
-> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
 > **Aşağıdaki senaryoda çalışmaz:**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
@@ -55,8 +55,8 @@ Karma bağlantı oluşturulabilir [Azure App Service karma bağlantılar](../app
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 #### <a name="additional"></a>Ek
-* Birden çok karma bağlantıları oluşturulabilir. Bkz: [BizTalk Services: sürümler grafiği](biztalk-editions-feature-chart.md) izin verilen bağlantı sayısı. 
-* Her karma bağlantı, bağlantı dizeleri çifti ile oluşturulur: DİNLEMEK, gönderme ve şirket içi anahtarlar uygulama anahtarları. Her birincil ve ikincil anahtar vardır. 
+* Birden çok karma bağlantıları oluşturulabilir. Bkz: [BizTalk Services: Sürümler grafiği](biztalk-editions-feature-chart.md) izin verilen bağlantı sayısı. 
+* Her karma bağlantı, bağlantı dizeleri çifti ile oluşturulur: Gönder ve şirket içi DİNLEME anahtarlar uygulama anahtarları. Her birincil ve ikincil anahtar vardır. 
 
 ## <a name="LinkWebSite"></a>Azure App Service Web uygulaması veya mobil uygulamanızı bağlayın
 Bir Web uygulaması veya mobil uygulama Azure App Service'te mevcut bir karma bağlantı bağlamak için seçin **var olan bir karma bağlantı kullanmak** karma bağlantılar dikey penceresinde. 
@@ -119,9 +119,9 @@ Kopyalandıktan sonra ilkeyi değiştirmek için Grup İlkesi Düzenleyicisi'ni 
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 [Microsoft Azure’da BizTalk hizmetlerinin yönetilmesi için REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)  
+[BizTalk Services: Sürümler grafiği](biztalk-editions-feature-chart.md)  
 [BizTalk Hizmeti oluşturma](biztalk-provision-services.md)  
-[BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md)
+[BizTalk Services: Pano, İzleyici ve ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md)
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png

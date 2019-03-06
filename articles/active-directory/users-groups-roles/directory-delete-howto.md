@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3f42ccb50496ed53ea9a68b60301f9feccccb16
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 59bfc13053a33b8f29f09a9ab93a108e746ea012
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188503"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431164"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Azure Active Directory kiracısı Sil
 
@@ -36,7 +36,7 @@ Bazı denetimleri geçinceye kadar Azure AD'de bir kiracı silinemiyor. Bu denet
 
 ## <a name="delete-an-azure-ad-tenant"></a>Azure AD kiracısını silme
 
-1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com) Kiracı için genel yönetici olan bir hesapla.
+1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com) kiracının genel yöneticisi olan bir hesapla.
 
 2. **Azure Active Directory**'yi seçin.
 

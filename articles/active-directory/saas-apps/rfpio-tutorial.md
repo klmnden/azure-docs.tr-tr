@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3af5c3d5d92dea804221b2285d4fa5b9cedae665
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c6b8109c8d3834f932ba492eddb8d6332acc1707
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168099"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Öğretici: RFPIO ile Azure Active Directory Tümleştirme
 
@@ -234,7 +234,7 @@ RFPIO söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevd
 
     a. ENTER **e-posta adresi** içinde **her satırda bir e-posta girin** alan.
 
-    b. Kaynakta seçin **rol** gereksinimlerinize göre.
+    b. Lütfen seçin **rol** gereksinimlerinize göre.
 
     c. Tıklayın **ÜYELER Ekle**.
         

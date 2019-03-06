@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 618412f27efb71caf6e044b4768d7be00f0d0f47
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 5213affe953636c46486614ee2a020d7727e1478
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009249"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407545"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager dağıtım modları
 
@@ -26,7 +26,7 @@ Her iki mod için Resource Manager şablonunda belirtilen tüm kaynakları oluş
 
 ## <a name="complete-mode"></a>Tam modda
 
-Tam modda, Resource Manager **siler** kaynak grubunda var, ancak şablonda belirtilmeyen kaynakları. Şablonda belirtilen olan ancak çünkü dağıtılan kaynakları bir [koşul](resource-manager-templates-resources.md#condition) yanlış olarak değerlendirilir, silinmez.
+Tam modda, Resource Manager **siler** kaynak grubunda var, ancak şablonda belirtilmeyen kaynakları. Şablonda belirtilen olan ancak çünkü dağıtılan kaynakları bir [koşul](resource-group-authoring-templates.md#condition) yanlış olarak değerlendirilir, silinmez.
 
 Kaynak türleri tam modda silme işlemlerinin nasıl işleneceğini içinde bazı fark vardır. Bir şablon değil, tam modunda dağıtıldığında üst kaynaklar otomatik olarak silinir. Bazı alt kaynakları değil, şablon, otomatik olarak silinmez. Ancak, bu alt kaynak silinir üst kaynak silinir. 
 

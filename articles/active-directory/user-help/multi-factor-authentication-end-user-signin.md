@@ -1,5 +1,5 @@
 ---
-title: Azure MFA ile oturum açma iki aşamalı doğrulama | Microsoft Docs
+title: Azure MFA ile oturum açma iki aşamalı doğrulama - Azure Active Directory | Microsoft Docs
 description: Bu sayfa üzerinde çeşitli oturum Azure MFA ile kullanılabilecek yöntemleri görmek için yapılması gerekenler Kılavuzu sağlayacaktır.
 keywords: Kullanıcı kimlik doğrulaması, oturum açma deneyimi, cep telefonu ile oturum ofis telefonu ile oturum açın
 services: active-directory
@@ -13,13 +13,14 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
+ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 153b3d61324d504fe260b104bf412913f9692627
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cd109637379f1fd2cdb108fbbb6c6c47224e00a2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957547"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431776"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication ile oturum açma deneyimi
 > [!NOTE]
@@ -32,8 +33,8 @@ Oturum açma deneyimini, ikinci bir faktör olarak kullanmak istediğinize bağl
 | --- |
 | [Mobil veya ofis telefonumu için bir telefon çağrısı ile](#signing-in-with-a-phone-call) |
 | [Cep telefonuma metin ile](#signing-in-with-a-text-message)
-| Microsoft Authenticator uygulamasından ile bildirimleri |
-| Microsoft Authenticator uygulaması ile doğrulama kodları |
+| [Microsoft Authenticator uygulamasından ile bildirimleri](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
+| [Microsoft Authenticator uygulaması ile doğrulama kodları](#to-sign-in-using-a-verification-with-the-microsoft-authenticator-app) |
 | [Alternatif bir yöntem ile tercih edilen yöntemimi şu anda kullanamazsınız çünkü](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Telefonla Oturum imzalama

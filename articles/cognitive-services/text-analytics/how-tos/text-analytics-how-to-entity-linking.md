@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 135b684c67776da7d722074abe185b5ed2a860fa
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5e614d7fc1b45e5a1e1c11d04ed80fbb66bfbd28
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889418"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441619"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Adlandırılmış varlık tanıma, metin analizi (Önizleme) kullanma
 
@@ -23,7 +23,7 @@ ms.locfileid: "56889418"
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Varlık bağlama ve adlandırılmış varlık tanıma
 
-Metin analizi `entities` supprts uç nokta her iki adlandırılmış varlık tanıma (NER) ve varlık bağlama.
+Metin analizi `entities` hem adlandırılmış varlık tanıma (NER) ve varlık bağlama uç noktası destekler.
 
 ### <a name="entity-linking"></a>Varlık Bağlama
 Varlık bağlama metni (örneğin, "Mars" erişebilir veya Latin afetler, war olarak kullanılıp kullanılmadığını belirleme) bulunan bir varlığın kimliğini ayırt etmek üzere yeteneğidir. Bu işlem varlıkların bağlı - Wikipedia Bilgi Bankası'nda olarak kullanılan tanınan için temel bir bilgi gerektirir `entities` uç nokta metin analizi.

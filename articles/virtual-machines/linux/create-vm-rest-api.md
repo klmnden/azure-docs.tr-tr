@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412198"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447855"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API ile SSH kimlik doğrulaması kullanan bir Linux sanal makinesi oluşturma
 
@@ -63,10 +63,10 @@ REST API istekleri ile çalışma hakkında genel bilgi için bkz. [bir REST API
 
 Aşağıdaki ortak tanımları, istek gövdesi oluşturmak için kullanılır:
 
-| Ad                       | Gereklidir | Tür                                                                                | Açıklama  |
+| Ad                       | Gerekli | Tür                                                                                | Açıklama  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | dize                                                                              | Kaynak konumu. |
-| ad                       |          | dize                                                                              | Sanal makinenin adı. |
+| location                   | True     | string                                                                              | Kaynak konumu. |
+| ad                       |          | string                                                                              | Sanal makinenin adı. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Sanal makine için donanım ayarlarını belirtir. |
 | properties.storageProfile  |          | [Datadisks](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Sanal makine diskleri için depolama ayarlarını belirtir. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Sanal makine için işletim sistemi ayarlarını belirtir. |
@@ -127,7 +127,7 @@ Bir örnek istek gövdesi, aşağıda verilmiştir. VM adı belirttiğinizden em
 }
 ```
 
-İstek gövdesinde kullanılabilir tanımlar tam bir listesi için bkz. [sanal makineleri oluşturma veya güncelleştirme istek gövdesi tanımlarını](/rest/api/compute/virtualmachines/createorupdate#definitions).
+İstek gövdesinde kullanılabilir tanımlar tam bir listesi için bkz. [sanal makineleri oluşturma veya güncelleştirme isteği gövdesi tanımları](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ## <a name="sending-the-request"></a>İstek gönderiliyor
 

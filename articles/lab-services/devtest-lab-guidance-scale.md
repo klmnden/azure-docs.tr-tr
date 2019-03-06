@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244888"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431207"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Azure DevTest Labs altyapınızın ölçeğini
 DevTest Labs Kurumsal ölçekte uygulamadan önce birkaç temel karar noktaları vardır. Bu karar noktaları yüksek bir düzeyde anlamak, tasarım kararlarını gelecekte bir kuruluşla yardımcı olur. Ancak, bu noktaları geri bir kavram kanıtı başlatılmasını bir kuruluş tutmak zorunda değil. Ölçek büyütme ilk planlama için ilk üç alanlar şunlardır:
@@ -46,7 +46,7 @@ Ardından, her yaklaşımın olumlu vurgulayın.
 Genellikle bir abonelik yaklaşım büyük bir kuruluşta yönetilebilir değil. Ancak, abonelik sayısını sınırlama aşağıdaki avantajları sağlar:
 
 - **Tahmin** Kurumsal maliyetlerini.  Tüm kaynakları tek bir havuzda olduğundan ödemeyle tek bir abonelikte çok daha kolay olur. Bu yaklaşım, verilen herhangi bir zamanda bir fatura dönemi içinde maliyet denetimi kullanmak için ölçer, daha basit üzerinde kararı sağlar.
-- **Yönetilebilirlik** birçok farklı abonelikler arasında güncelleştirmeler yapma aksine, bir Abonelikteki tüm güncelleştirmeleri yalnızca gerekli olacağından VM'ler, yapıtlar, formüller, ağ yapılandırması, izinler, ilkeleri, vb. daha kolay olur.
+- **Yönetilebilirlik** birçok farklı abonelikler arasında güncelleştirmeler yapma aksine, bir Abonelikteki tüm güncelleştirmeleri yalnızca gerekli olacağından VM'ler, yapıtlar, formüller, ağ yapılandırması, izinler, ilkeleri vb. daha kolay olur.
 - **Ağ** çaba büyük ölçüde kuruluşlar şirket içi bağlantı, bir gereksinim olduğu için tek bir abonelikte basitleştirilmiştir. Sanal ağları bağlama (merkez-uç model) abonelikler arasında ek yapılandırma, yönetim, IP adresi alanları, vb. gerektiren ek aboneliklerle gerekli değildir.
 - **Ekip işbirliği** daha kolay olduğunda herkesin aynı abonelikte çalışma-Örneğin, bir iş arkadaşınız bir VM'ye yeniden atama, paylaşma vb. takım kaynaklarını daha kolay olur.
 

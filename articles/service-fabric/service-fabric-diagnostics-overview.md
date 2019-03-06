@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: bb4ffe959fd3b973f55b08908ea603839222365d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 71bff5473abe9f53804d702625b871f41309a787
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243271"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441840"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric için izleme ve tanılama
 
@@ -73,7 +73,7 @@ Uygulama ve platform tanılamayı ele aldığımız, nasıl biz donanım beklend
 
 Altyapı düzeyinde toplanan performans sayaçları listesini şu yolda bulunabilir: [performans ölçümlerini](service-fabric-diagnostics-event-generation-perf.md). 
 
-Service Fabric alsp performans sayaçları için Reliable Services ve Actors programlama modeli sağlar. Bu modeller herhangi birini kullanıyorsanız, bu performans sayaçlarını, aktör yukarı ve aşağı doğru bir şekilde başlatarak olduğunu veya güvenilir hizmet isteklerinizi işlenen yeterince hızlı emin olmak için bilgileri görüntüleyebilirsiniz. Daha fazla bilgi için [güvenilir hizmet uzaktan iletişim için izleme](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) ve [Reliable Actors için performans izleme](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
+Service Fabric, performans sayaçları için Reliable Services ve Actors programlama modelleri de sağlar. Bu modeller herhangi birini kullanıyorsanız, bu performans sayaçlarını, aktör yukarı ve aşağı doğru bir şekilde başlatarak olduğunu veya güvenilir hizmet isteklerinizi işlenen yeterince hızlı emin olmak için bilgileri görüntüleyebilirsiniz. Daha fazla bilgi için [güvenilir hizmet uzaktan iletişim için izleme](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) ve [Reliable Actors için performans izleme](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
 
 Bunlar toplamak için Azure İzleyici platform düzeyi izleme gibi Azure İzleyici günlüklerine çözümüdür. Kullanmanız gereken [Log Analytics aracısını](service-fabric-diagnostics-oms-agent.md) uygun performans sayaçları toplamak ve bunları Azure İzleyici günlüklerine görüntülemek için.
 

@@ -1,5 +1,5 @@
 ---
-title: Olası nedenleri için Azure Active Directory'de "Buradan oraya ulaşamazsınız" hata iletisi | Microsoft Docs
+title: "\"Buradan oraya ulaşamazsınız\" hata - Azure Active Directory sorunlarını giderme | Microsoft Docs"
 description: "\"Buradan oraya ulaşamazsınız\" hata iletisi karşılaşacağınız olası nedenleri giderin."
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7cd67a9a7027e8567e470acab006fd09748de54
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181720"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452049"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Olası nedenleri "Buradan oraya ulaşamazsınız" hata iletisi
 Kuruluşunuzun iç web uygulamalarına veya hizmetlerine erişirken yazan bir hata iletisi alabilirsiniz **oraya buradan ulaşamazsınız**. Bu ileti, kuruluşunuz cihazınızın, kuruluşunuzun kaynaklarına erişimi engelleyen bir yerde bir ilke getirdi anlamına gelir. Bu sorunu gidermek için yardım masasına başvurmak zorunda son, ancak ilk deneyebileceğiniz birkaç şey aşağıda verilmiştir.

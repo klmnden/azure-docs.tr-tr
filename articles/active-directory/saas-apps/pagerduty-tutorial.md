@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c68fdadcf115f57ba524b1b4dc8a2c800cbfaf8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a48b9e70fe3373b9bc87788ff11fc0a8edc7bdf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177929"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Öğretici: PagerDuty ile Azure Active Directory Tümleştirme
 
@@ -252,7 +252,7 @@ Bu bölümde, PagerDuty için erişim izni verdiğinizde, Azure çoklu oturum a�
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-' A tıkladığınızda erişim Panelyou PagerDuty kutucukta otomatik olarak PagerDuty uygulamanıza açan.
+Erişim paneli PagerDuty kutucuğa tıkladığınızda, otomatik olarak PagerDuty uygulamanıza açan.
 
 Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 

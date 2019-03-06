@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, açık hizmet Aracısı, Azure için açık hizmet Aracısı
-ms.openlocfilehash: 3146d11f33809391d93305d63bad757ed281fb70
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 0655176a044da6b4dd6b7327aedf5eb17d79f04a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977024"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432813"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Mevcut MongoDB uygulamasını Azure Cosmos DB API ile MongoDB ile açık hizmet Aracısı (OSBA) Azure için tümleştirme
 
@@ -189,7 +189,7 @@ Gidin http://localhost:8080 tarayıcınızda. Varsayılan veri geri dikkat edin.
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>AKS kümenizde uygulamanızı çalıştırın
 
-Kullanabileceğiniz [Azure geliştirme alanları](../dev-spaces/azure-dev-spaces.md) AKS kümenizi uygulamayı dağıtmak için. Azure geliştirme alanları Dockefiles ve Helm grafiklerini gibi yapılar oluşturmak, AKS içinde bir uygulamayı çalıştırmak ve ve dağıtmanıza yardımcı olur.
+Kullanabileceğiniz [Azure geliştirme alanları](../dev-spaces/azure-dev-spaces.md) AKS kümenizi uygulamayı dağıtmak için. Azure geliştirme alanları dockerfile'ları ve Helm grafiklerini gibi yapılar oluşturmak, AKS içinde bir uygulamayı çalıştırmak ve ve dağıtmanıza yardımcı olur.
 
 Azure geliştirme alanları AKS kümenizin etkinleştirmek için:
 

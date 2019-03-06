@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ccf6ff75cb041c7d9998f67d579d1b392f83cee9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 39ff70670d628ca672022b84e59ed3cc8a17d925
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476256"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447048"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Kiracılar arası raporlama kullanarak dağıtılmış sorguları
 
@@ -61,7 +61,7 @@ Daha çok ilginizi çeken bir veri kümesi karşı sorguları çalıştırmak i�
 
 1. İçinde *PowerShell ISE*açın... \\Öğrenme modülleri\\işlem analizi\\geçici raporlama\\*tanıtım AdhocReporting.ps1* betik ve aşağıdaki değeri ayarlayın:
    * **$DemoScenario** = 1, **tüm mekanlardaki etkinlikler için bilet satın alma**.
-2. Tuşuna **F5** betiği çalıştırmak ve bilet satışı oluşturmak için. Betik çalıştırılırken adımları Bu öğreticinin devam edin. Bilet verileri içinde sorgulanır *dağıtılmış geçici sorguları çalıştırma* bölümünde, bu nedenle tamamlanması için bilet oluşturucuyu bekleyin.
+2. Tuşuna **F5** betiği çalıştırmak ve bilet satışı oluşturmak için. Betik çalıştırılırken adımları Bu öğreticinin devam edin. Bilet verileri içinde sorgulanır *geçici dağıtılmış sorgular çalıştırma* bölümünde, bu nedenle tamamlanması için bilet oluşturucuyu bekleyin.
 
 ## <a name="explore-the-global-views"></a>Genel görünümler keşfedin
 
@@ -106,7 +106,7 @@ Bu alıştırmada dağıtır _adhocreporting_ veritabanı. Tüm Kiracı veritaba
 
 1. içinde *PowerShell ISE*açın... \\Öğrenme modülleri\\işlem analizi\\geçici raporlama\\*tanıtım AdhocReporting.ps1*. 
 
-1. Ayarlama **$DemoScenario = 2**, _Dağıt geçici Raporlama veritabanı_.
+1. Ayarlama **$DemoScenario = 2**, _Raporlama veritabanı dağıtma geçici_.
 
 1. Tuşuna **F5** betiği çalıştırmak ve oluşturmak için *adhocreporting* veritabanı.
 

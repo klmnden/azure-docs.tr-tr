@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: c95fcd2e6369fae920481db2623124342c34a730
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327859"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447639"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
@@ -60,11 +60,9 @@ Genel amaçlı v1 hesapları, genel amaçlı v2 hesapları çoğu durumda öneri
 
 * 2014-02-14 tarihinden önceki [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) sürümünü veya 4.x’ten düşük bir istemci kitaplığı sürümü ile kullanmanız ve uygulamanızı güncelleştirememeniz.
 
-### <a name="blob-storage-accounts"></a>Blob Storage hesapları
+### <a name="block-blob-storage-accounts"></a>Blok blob depolama hesapları
 
-Blob Depolama hesabı, blok blobları olarak yapılandırılmamış nesne verilerini depolamak için bir özel depolama hesabıdır. BLOB Depolama hesapları, dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve genel amaçlı v2 depolama hesapları ile kullanılabilen performans özellikleri sağlar. BLOB Depolama hesapları depolama blok bloblarını destekler ve blobları ve sayfa bloblarını desteklemez.
-
-BLOB Depolama hesapları, kullanım düzenlerini esas alarak verileri depolamak için birden çok erişim katmanı sunar. Daha fazla bilgi için [erişim katmanları için blok blob verilerine](#access-tiers-for-block-blob-data).
+Bir blok blob depolama hesabı, blok blobları olarak yapılandırılmamış nesne verilerini depolamak için bir özel depolama hesabı veya ekleme blobları. Blok blob depolama hesapları, kullanım düzenlerini esas alarak verileri depolamak için birden çok erişim katmanı sunar. Daha fazla bilgi için [erişim katmanları için blok blob verilerine](#access-tiers-for-block-blob-data).
 
 ## <a name="naming-storage-accounts"></a>Depolama hesabı adlandırma
 

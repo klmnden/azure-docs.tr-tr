@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: f7bf5d521f4bcb5672ff1d710a08bed2e0872545
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 45e6de347cbb3ecfcc45ca20ab03805359207565
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974412"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444676"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric izleme iş ortakları
 
@@ -27,7 +27,7 @@ Bu makalede, nasıl bir, Service Fabric uygulamaları, kümeler ve altyapı iş 
 
 ## <a name="dynatrace"></a>Dynatrace
 
-Dynatrace ile bizim tümleştirme çok Service Fabric kümeleriniz izlemek için kutusunu özellikleri dışında sağlar. Dynatrace OneAgent VMSS örneklerinizin yükleme uygulama düzeye, performans sayaçları ve Service Fabric dağıtımınızın bir topoloji sunar. Dynatrace, şirket içinde izleme için ideal bir tercih de var. Daha fazla listelenen özellikleri kullanıma [duyuruyu](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) ve [yönergeleri](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) Dynatrace kümenizde etkinleştirmek için. 
+Dynatrace ile bizim tümleştirme çok Service Fabric kümeleriniz izlemek için kutusunu özellikleri dışında sağlar. Dynatrace OneAgent VMSS örneklerinizin yükleme uygulama düzeye, performans sayaçları ve Service Fabric dağıtımınızın bir topoloji sunar. Dynatrace, şirket içinde izleme için ideal bir tercih de var. Daha fazla listelenen özellikleri kullanıma [duyuru](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) ve [yönergeleri](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) Dynatrace kümenizde etkinleştirmek için. 
 
 ## <a name="datadog"></a>Datadog
 

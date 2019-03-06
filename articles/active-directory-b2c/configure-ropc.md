@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ce65f71349ae6d7e86ebae1ee2067653a63b89b4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e464787919577b89b1cfec11e579cb17c18e2878
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161078"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404236"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C'de kaynak sahibi parola kimlik bilgileri akışı yapılandırma
 
@@ -40,7 +40,7 @@ Aşağıdaki akışlara ait desteklenmez:
 1.  Azure portalında Azure AD B2C kiracınızın genel Yöneticisi olarak oturum açın.
 2.  Azure AD B2C kiracınıza geçiş yapmak için portalın sağ üst köşedeki B2C dizinini seçin.
 3.  Tıklayın **kullanıcı akışları**seçip **yeni kullanıcı akışı**.
-4.  Tıklayın **tüm** sekmenize **kaynak sahibi**.
+4.  Tıklayın **tüm** sekmenize **ROPC kullanarak oturum**.
 5.  Kullanıcı akışı için bir ad sağlayın *ROPC_Auth*.
 6.  Altında **uygulama taleplerini**, tıklayın **daha fazla Göster**.
 7.  Görünen ad, e-posta adresi ve kimlik sağlayıcısı gibi uygulamanız için gereken uygulama taleplerini seçin.
@@ -83,7 +83,7 @@ API çağrısında oluşturmak için sık kullanılan API geliştirme uygulaman�
 Fiili POST isteği aşağıdaki gibi görünür:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
 Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

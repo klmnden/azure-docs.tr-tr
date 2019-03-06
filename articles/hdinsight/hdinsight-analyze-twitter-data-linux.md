@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a3687a4b8bb4e0d900ee96f52c40352db4e96df6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 270708496fbe13b9061abe5d64d5577193db4027
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635570"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450660"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hive ve Apache Hadoop kullanarak Twitter verilerini çözümleme
 
@@ -70,7 +70,7 @@ Aşağıdaki Python kodu 10.000 tweetleri twitter'dan ve kaydetmek adlı bir dos
 
     Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Yüklemek için aşağıdaki komutları kullanın [Tweepy](https://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2)ve diğer gerekli paketleri:
+3. Yüklemek için aşağıdaki komutları kullanın [Tweepy](https://www.tweepy.org/), [ilerleme çubuğu](https://pypi.python.org/pypi/progressbar/2.2)ve diğer gerekli paketleri:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev

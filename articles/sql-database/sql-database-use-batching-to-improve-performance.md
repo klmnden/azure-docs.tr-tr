@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b94c5f712469183d64704307316f8bbdaa3d5a11
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0ef6d258be0165c7a73ce060879f55f1c7f404f9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751642"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453533"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>SQL veritabanı uygulama performansını artırmak için toplu işlem kullanma
 
@@ -192,7 +192,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 Çoğu durumda, diğer toplu işleme teknikleri daha eşit veya daha iyi performans tablo değerli parametrelere sahip. Diğer seçenekleri daha esnek olduğundan tablo değerli parametre genellikle tercih,. Örneğin, SQL toplu kopyalama gibi başka teknikler yalnızca yeni satırların eklenmesini izin verir. Ancak tablo değerli parametre mantığını saklı yordamda güncelleştirmelerinin hangi satırların belirlemek için kullanabileceğiniz ve hangi ekler. Tablo türünü de belirtilen satırın eklenen, güncelleştirilen veya silinen olup olmadığını gösteren bir "İşlem" sütun içerecek şekilde değiştirilebilir.
 
-Aşağıdaki tabloda, milisaniye cinsinden geçici tablo değerli parametre kullanımı için test sonuçlarını gösterir.
+Aşağıdaki tabloda, milisaniye cinsinden tablo değerli parametre kullanımı için geçici test sonuçlarını gösterir.
 
 | İşlemler | Şirket içinden azure'a (ms) | Aynı Azure veri merkezi (ms) |
 | --- | --- | --- |

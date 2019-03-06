@@ -10,26 +10,27 @@ ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 19e0e5797e05589baa1e104f3e9ab8b4d9cc2d6c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 09084f71eda611c4b638a339d0d837e77e2639b9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267300"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432320"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
 İçinde [Azure portalında](https://portal.azure.com) web uygulamaları, mobil arka uçlar ve API apps için uygulama performans izleme özelliğini ayarlayabilirsiniz [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), uygulamanızı izleyerek uygulama etkinlikleriyle ilgili telemetriyi Application Insights hizmetine gönderir ve telemetri burada depolanıp analiz edilir. Burada, sorunların tanılanmasına, performansın geliştirilmesine ve kullanımın değerlendirilmesine yardımcı olan ölçüm grafikleri ve arama araçları kullanılabilir.
 
-## <a name="run-time-or-build-time"></a>Çalışma zamanı veya derleme zamanı
+## <a name="runtime-or-build-time"></a>Çalışma zamanı veya derleme zamanı
 Uygulamanız için şu iki yoldan biriyle izleme yapılandırabilirsiniz:
 
-* **Çalışma zamanı** -izleme uzantısı app service'inizin zaten yayındayken bir performans seçebilirsiniz. Yeniden oluşturmanız veya uygulamanızı yeniden yüklemeniz gerekmez. Yanıt süreleri, başarı oranları, özel durumlar ve bağımlılıklar gibi değişkenleri izleyen standart bir paket kümesine sahip olursunuz. 
-* **Derleme zamanı**: Geliştirme sırasında uygulamanıza bir paket yükleyebilirsiniz. Bu seçenek daha kullanışlıdır. Aynı standart paketlere ek olarak telemetriyi özelleştirmek için kod yazabilir ya da kendi telemetrinizi gönderebilirsiniz. Uygulama etki alanınızın semantiğine göre belirli etkinlikleri günlüğe kaydedebilir veya olayların kaydını tutabilirsiniz. 
+* **Çalışma zamanı** -izleme uzantısı app service'inizin zaten yayındayken bir performans seçebilirsiniz. Yeniden oluşturmanız veya uygulamanızı yeniden yüklemeniz gerekmez. Yanıt süreleri, başarı oranları, özel durumlar ve bağımlılıklar gibi değişkenleri izleyen standart bir paket kümesine sahip olursunuz.
 
-## <a name="run-time-instrumentation-with-application-insights"></a>Application Insights ile çalışma zamanında izleme
-Azure'da zaten bir app service çalıştırıyorsanız, zaten bazı izleme alırsınız: istek ve hata oranları. Yanıt süreleri gibi almak için Application Insights ekleyin, bağımlılıklar, akıllı algılama ve güçlü yapılan çağrılar Kusto sorgu dili. 
+* **Derleme zamanı**: Geliştirme sırasında uygulamanıza bir paket yükleyebilirsiniz. Bu seçenek daha kullanışlıdır. Aynı standart paketlere ek olarak telemetriyi özelleştirmek için kod yazabilir ya da kendi telemetrinizi gönderebilirsiniz. Uygulama etki alanınızın semantiğine göre belirli etkinlikleri günlüğe kaydedebilir veya olayların kaydını tutabilirsiniz. Bu ayrıca en son kararlı sürüme kısıtlı çalışma zamanını izleme ise beta SDK'ları değerlendirmek seçebileceğiniz gibi Application Insights SDK'SININ en son sürümünü test etme olanağı sağlar.
+
+## <a name="runtime-instrumentation-with-application-insights"></a>Application Insights ile çalışma zamanı izleme
+Bir app service şu anda Azure'da çalıştırıyorsanız, zaten bazı izleme alırsınız: varsayılan olarak istek ve hata oranları. Yanıt süreleri gibi almak, çağrıları izleme bağımlılıklara, akıllı algılama ve güçlü Kusto sorgu diline erişmek için Application Insights ekleyin. 
 
 1. **Application Insights'ı seçin** uygulama hizmetiniz için Azure Denetim Masası'nda.
 
@@ -42,7 +43,7 @@ Azure'da zaten bir app service çalıştırıyorsanız, zaten bazı izleme alır
 
     ![Web uygulamanızı izleme](./media/azure-web-apps/create-resource.png)
 
-2. Hangi kaynağı kullanacağını belirlemesinde belirttikten sonra her platformun uygulamanız için veri toplamak için application ınsights'ı nasıl istediğinizi seçebilirsiniz. (ASP.NET uygulamasını izleme üzerinde varsayılan olarak koleksiyon iki farklı düzeylerine sahip.)
+2. Hangi kaynağı kullanacağını belirlemesinde belirttikten sonra her platformun uygulamanız için veri toplamak için application ınsights'ı nasıl istediğinizi seçebilirsiniz. ASP.NET uygulamasını izleme üzerinde varsayılan olarak koleksiyon iki farklı düzeylerine sahip.
 
     ![Platform başına seçenekleri belirleyin](./media/azure-web-apps/choose-options-new.png)
 
@@ -55,7 +56,7 @@ Azure'da zaten bir app service çalıştırıyorsanız, zaten bazı izleme alır
         * Ana bilgisayar işlemi tarafından işlenmemiş özel durumlar toplar.
         * Örnekleme kullanıldığında yük altında APM ölçümleri doğruluğu artırır.
     
-    .NET core sunar **koleksiyon önerilen** veya .NET Core 2.0 ve 2.1 için devre dışı bırakıldı.
+    .NET core sunar **koleksiyon önerilen** veya **devre dışı bırakılmış** .NET Core 2.0 ve 2.1 için.
 
 3. **App service'inizin izleme** Application Insights yüklendikten sonra.
 
@@ -101,6 +102,65 @@ Application Insights, uygulamanıza bir SDK yükleyerek daha ayrıntılı teleme
 
 * Visual Studio'da projeye sağ tıklayın, seçin **Application ınsights'ı Yapılandır**ve istediğiniz kaynağı seçin. Yeni kaynak oluşturma seçeneğini görürsünüz. Yeniden derleyin ve dağıtın.
 
+## <a name="automate-monitoring"></a>İzlemeyi otomatikleştirin
+
+Application Insights ile telemetri koleksiyonunu etkinleştirmek için yalnızca uygulama ayarlarını ayarlamanız gerekir:
+
+   ![App Service uygulama ayarları kullanılabilir Application Insights ayarlardan](./media/azure-web-apps/application-settings.png)
+
+### <a name="application-settings-definitions"></a>Uygulama ayarları tanımları
+
+|Uygulama ayarı adı |  Tanım | Değer |
+|-----------------|:------------|-------------:|
+|ApplicationInsightsAgent_EXTENSION_VERSION | Ana uzantısı, çalışma zamanını izleme denetler. | `~2` |
+|XDT_MicrosoftApplicationInsights_Mode |  Varsayılan modu yalnızca, temel özelliklerini en iyi performans sağlamak için etkinleştirilir. | `default` veya `recommended`. |
+|InstrumentationEngine_EXTENSION_VERSION | Göndermediğini denetler ikili yeniden yazma motoru `InstrumentationEngine` alınır. Bu ayar, performans şifrelemelerini ve soğuk başlangıç/başlangıç süresini etkileyecek. | `~1` |
+|XDT_MicrosoftApplicationInsights_BaseExtensions | Metin, SQL ve Azure tablo, denetimleri, bağımlılık çağrılarını yakalanan. Performans Uyarısı: Bu gerektirir `InstrumentationEngine`. | `~1` |
+
+### <a name="app-service-application-settings-with-azure-resource-manager"></a>App Service uygulama ayarları ile Azure Resource Manager
+
+Uygulama hizmetleri için uygulama ayarları yönetilen ve yapılandırılmış [Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). Bu yöntem, yeni App Service kaynaklarının mevcut kaynakların ayarlarını değiştirmek için veya Azure Resource Manager otomasyon ile dağıtım yaparken kullanılabilir.
+
+Bir app Service uygulama ayarları JSON temel yapısını aşağıda verilmiştir:
+
+```JSON
+      "resources": [
+        {
+          "name": "appsettings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', variables('webSiteName'))]"
+          ],
+          "tags": {
+            "displayName": "Application Insights Settings"
+          },
+          "properties": {
+            "key1": "value1",
+            "key2": "value2"
+          }
+        }
+      ]
+
+```
+
+Uygulama ayarları şablonuyla bir örnek için bir Azure Resource Manager için Application Insights bu yapılandırılmış [şablon](https://github.com/Andrew-MSFT/BasicImageGallery) özellikle başlangıç bölüm yarayabilir [satır 238](https://github.com/Andrew-MSFT/BasicImageGallery/blob/c55ada54519e13ce2559823c16ca4f97ddc5c7a4/CoreImageGallery/Deploy/CoreImageGalleryARM/azuredeploy.json#L238).
+
+### <a name="automate-the-creation-of-an-application-insights-resource-and-link-to-your-newly-created-app-service"></a>Bir Application Insights kaynağı ve yeni oluşturulan uygulama hizmetiniz için bağlantı oluşturulmasını otomatikleştirin.
+
+Yapılandırılan tüm varsayılan Application Insights ayarları ile bir Azure Resource Manager şablonu oluşturmak için işlem alacağı Application Insights ile yeni bir Web uygulaması oluşturmak için kullanmaya başlayın.
+
+Seçin **Otomasyon seçenekleri**
+
+   ![App Service web uygulaması oluşturma menüsü](./media/azure-web-apps/create-web-app.png)
+
+Bu, yapılandırılan tüm gerekli ayarları ile en son Azure Resource Manager şablonu oluşturur.
+
+  ![App Service web uygulaması şablonu](./media/azure-web-apps/arm-template.png)
+
+> [!NOTE]
+> Şablon "varsayılan" modunda uygulama ayarları oluşturur. Tercih ettiğiniz hangi özelliklerini etkinleştirmek için şablonu değiştirebilirsiniz ancak bu performans için iyileştirilmiş, modudur.
+
 ## <a name="more-telemetry"></a>Daha fazla telemetri
 
 * [Web sayfası yükleme verileri](../../azure-monitor/app/javascript.md)
@@ -108,14 +168,28 @@ Application Insights, uygulamanıza bir SDK yükleyerek daha ayrıntılı teleme
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
+### <a name="do-i-still-need-to-go-to-extensions---add---application-insights-extension-for-new-app-service-apps"></a>Hala ihtiyacım uzantıları için Git-Ekle - yeni App Service uygulamaları için Application Insights uzantısı var?
+
+Hayır, artık uzantıyı el ile eklemeniz gerekmez. Ayarlar dikey penceresi Application Insights'ı etkinleştirme izlemeyi etkinleştirmek için tüm gerekli uygulama ayarları ekler. Daha önce uzantısı tarafından eklenen dosyalar artık olduğundan bu artık, mümkündür [önceden](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) App Service görüntünün bir parçası olarak. Dosyalar bulunur `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`.
+
+### <a name="if-runtime-and-build-time-monitoring-are-both-enabled-do-i-end-up-with-duplicate-data"></a>Çalışma zamanı ve derleme zamanı izleme hem de etkinleştirilip etkinleştirilmediğini miyim yinelenen verilerle düştüğünden?
+
+Hayır, varsayılan derleme zamanı izleme algılanırsa, çalışma zamanı izleme uzantısı veri gönderme durdurur ve izleme yapılandırması derleme zamanı olarak kullanılacaktır. Çalışma zamanını izleme devre dışı bırakılıp bırakılmayacağını belirlenmesi, bu üç dosyayı birinin algılamayı dayanır:
+
+* Microsoft.applicationınsights dll
+* Microsoft.ASP.NET.TelemetryCorrelation dll
+* System.Diagnostics.DiagnosticSource dll
+
+Birçok Visual Studio sürümlerinde, bazılarını veya tümünü bu dosyalar varsayılan olarak ASP.NET ve ASP.NET Core Visual Studio şablon dosyaları eklendiğini unutmayın önemlidir. Application Insights açıkça etkinleştirmediniz bile projenizi şablonlardan birini dışına göre oluşturulmuş olsa bile, dosya bağımlılık varlığını etkinleştirmesini çalışma zamanını izleme engeller.
+
 ### <a name="appinsightsjavascriptenabled-causes-incomplete-html-response-in-net-core-web-applications"></a>APPINSIGHTS_JAVASCRIPT_ENABLED tamamlanmamış HTML yanıtını NET CORE web uygulamaları neden olur.
 
 JavaScript uygulama hizmetleri aracılığıyla etkinleştirme html yanıtları kesiliyor neden olabilir.
 
 * Geçici Çözüm 1: APPINSIGHTS_JAVASCRIPT_ENABLED uygulama ayarını false olarak ayarlayın ya da tamamen kaldırın ve yeniden başlatın
-* Geçici Çözüm 2: kod aracılığıyla SDK'sını ekleyin ve uzantısını kaldırın (Bu yapılandırma ile olmaz Profiler ve anlık görüntü hata ayıklayıcısı)
+* Geçici Çözüm 2: kod aracılığıyla SDK'sını ekleyin ve uzantısını kaldırma (Profiler ve anlık görüntü hata ayıklayıcı bu yapılandırma ile çalışmaz)
 
-Bu sorunu takip ettiğimiz [burada](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
+Bu sorunu izlemek için Git [tamamlanmamış HTML yanıtını neden Azure uzantısı](https://github.com/Microsoft/ApplicationInsights-Home/issues/277).
 
 .NET Core için aşağıdakiler şu anda, **desteklenmiyor**:
 
@@ -134,4 +208,3 @@ Bu sorunu takip ettiğimiz [burada](https://github.com/Microsoft/ApplicationInsi
 * İşletimsel olaylar gerçekleştiğinde ya da ölçümler bir eşiği aştığında [uyarı bildirimleri alın](../../azure-monitor/platform/alerts-overview.md).
 * Bir web sayfasını ziyaret eden tarayıcılardan istemci telemetrisi toplamak istiyorsanız [JavaScript uygulamaları ve web sayfaları için Application Insights](../../azure-monitor/app/javascript.md)’ı kullanın.
 * Sitenizin kapalı olması durumunda uyarı almak istiyorsanız [Kullanılabilirlik web testleri](../../azure-monitor/app/monitor-web-app-availability.md) ayarlayın.
-

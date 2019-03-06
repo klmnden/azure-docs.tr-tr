@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 3/3/2019
 ms.author: mayg
 ms.custom: MVC
-ms.openlocfilehash: 45a0a70aa42449895c5a7e0aba2963e928a4b6f2
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 5b3dca8bd5135581afc12303ed9fa8c532c56258
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340737"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438899"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Şirket içi VMware VM’leri için Azure’da olağanüstü durum kurtarmayı ayarlama
 
@@ -84,7 +84,7 @@ Yapılandırma sunucusunu yüksek kullanılabilirliğe sahip bir VMware VM olara
  >Yapılandırma sunucusu şablonunun en son sürümünü doğrudan [Microsoft Yükleme Merkezi](https://aka.ms/asrconfigurationserver)’nden indirebilirsiniz.
 
 >[!NOTE]
-OVF şablonuyla sunulan lisans, 180 günlük bir değerlendirme lisansıdır. Müşterinin Windows'u satın lisansla etkinleştirmesi gerekir.
+OVF şablonu ile sağlanan lisans 180 gün boyunca geçerli bir değerlendirme lisanstır. Müşteri Windows'u tedarik edilen lisansı gerekir.
 
 ## <a name="import-the-template-in-vmware"></a>VMware’de şablonu içeri aktarma
 

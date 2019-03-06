@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 2bba5d54c2b6298c2dd8059d47e5975ad3f176c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 8ba217cb9ce849e57b15d3e6cc73529c78bf340e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264769"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453780"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Öğretici: Azure DevOps projeleri'ni kullanarak ASP.NET Core uygulamanızı Azure Service Fabric'e dağıtma
 
@@ -39,7 +39,7 @@ Bu öğreticide şunları yapacaksınız:
 
 * Azure aboneliği. [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) aracılığıyla ücretsiz bir abonelik alabilirsiniz.
 
-## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabricc"></a>Bir ASP.NET Core uygulaması oluşturma ve hizmet Fabricc için dağıtmak için DevOps projeleri'ni kullanın
+## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabric"></a>Bir ASP.NET Core uygulaması oluşturma ve Service Fabric'e dağıtma DevOps projeleri'ni kullanın
 
 DevOps projeleri, Azure işlem hatlarında bir CI/CD işlem hattı oluşturur. Yeni bir Azure DevOps kuruluş oluşturun veya mevcut bir kuruluşa kullanın. DevOps projeleri, tercih ettiğiniz bir Azure aboneliği bir Service Fabric kümesi gibi Azure kaynaklarını da oluşturur.
 
@@ -79,7 +79,7 @@ DevOps projeleri, Azure işlem hatlarında bir CI/CD işlem hattı oluşturur. Y
 
 DevOps projeleri, bir CI/CD işlem hattı Azure işlem hatlarında otomatik olarak yapılandırır. İşlem hattını inceleyebilir ve özelleştirebilirsiniz. Kendisiyle tanımak için aşağıdakileri yapın:
 
-1. DevOps Projectss panosuna gidin.
+1. DevOps projesi panosuna gidin.
 
 1. DevOps projeleri panonun üst kısmında seçin **derleme işlem hatlarını**.  
     Derleme işlem hattı yeni projeniz için bir tarayıcı sekmesi görüntülenir.

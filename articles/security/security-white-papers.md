@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 01688c120a8302da4903302ab8bcd2d1fa4ab351
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3fb6e42e55119684ace8547a55297d38dbb9a26e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113422"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57402385"
 ---
 # <a name="azure-security-white-papers"></a>Azure güvenlik teknik incelemeler
 | | |
@@ -42,4 +42,4 @@ ms.locfileid: "56113422"
 |[Azure uyumluluk genel bakış](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Bu indirilebilir belgede, Azure uyumluluk teklifleri, biçimsel sertifikaları, karşıladığımızı, doğrulama, yetkilendirme ve bağımsız üçüncü taraf denetim firmaları yanı sıra tarafından sözleşmeye dayalı tarihli amendments üretilen değerlendirmeleri dahil olmak üzere açıklanır, kendi kendine yapılan değerlendirmelerin ve Microsoft tarafından üretilen müşteri Kılavuzu belgeleri. <br/> Her teklif açıklaması durumları müşterilere yönelik Azure Hizmetleri değerlendirmesi için kapsamda ve kendi uyumluluğunu yükümlülükler ile müşterilerine yardımcı olmak için indirilebilir kaynaklara bağlantılar sağlanmaktadır.|
 |[Azure'da güvenlik yönetimi](azure-security-management.md)|Azure kaynaklarınızın uzaktan erişim sorunları açıklar. Bulut taleplerini uzaktan erişim yönetimi ve bu nedenle, güvenlik doğasını üst düzey öneme sahiptir. Genel güvenlik yönergeleri, istemci yapılandırması, en iyi yöntemler ve işletimsel ilkeleri ve yordamlar yer almaktadır. |
 |[Azure AD veri ve güvenlik](https://aka.ms/aaddatawhitepaper) | İndirilebilir belgede, Azure Active Directory ve bunların birbiriyle etkileşim farklı bileşenleri açıklanmaktadır. Bunu nasıl çeşitli bileşenleri korumak, güvenli, şifrelemek veya bunların Aktarımdaki verileri (örneğin, Internet üzerinden) karma ve bekleme sırasında nasıl korunduğunu açıklar. Bunu çeşitli Azure AD veri merkezi konumlarını ve bunların akışlar yanı sıra şirket içi dizinlere etkileşim için ve Azure AD'den açıklanmaktadır. Son olarak, yönetmek ve hizmeti güvenli hale getirme için Azure AD mühendislik ekibi tarafından kullanılan işletim yordamları açıklar.|
-
+|[Parola olmadan kimlik doğrulamasına genel bakış](https://aka.ms/pwdless-whitepaper)|Bu belge Windows Hello iş, FIDO2 güvenlik anahtarları ve Microsoft Authenticator uygulamasını kullanarak parola olmadan kimlik doğrulaması öne çıkan avantajları bir genel bakıştır. Güvenlik uzmanları ve parolaları gidin ve İleri nesil kimlik doğrulaması kimlik bilgilerini dağıtmak için Microsoft nasıl yardımcı olabileceğini anlamak isteyen CISOs için önerilir.|

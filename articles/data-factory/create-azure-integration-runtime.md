@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: douglasl
-ms.openlocfilehash: f9dfb2dde4c49d9ca167b0f4ea6af28bd1db6872
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 93777a3d9ecbb6c2749594985494975f61cc1948
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013596"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455709"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Oluşturma ve Azure tümleştirme çalışma zamanını yapılandırma
 Integration Runtime (IR) Azure Data Factory tarafından farklı ağ ortamları veri tümleştirme özellikleri sağlamak için kullanılan işlem altyapısıdır. IR hakkında daha fazla bilgi için bkz: [Integration runtime](concepts-integration-runtime.md).
@@ -25,18 +25,20 @@ Azure IR işlem HDInsight gibi hizmetleri için veri taşıma ve dağıtım veri
 
 Bu belge, nasıl oluşturabilir ve Azure Integration Runtime yapılandırma tanıtır. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="default-azure-ir"></a>Varsayılan Azure IR
 Varsayılan olarak, her veri fabrikasının bulut veri depoları ve işlem hizmetlerini ortak ağ işlemleri destekler arka Azure IR vardır. Bu Azure IR konumunu otomatik çözümleme ' dir. Varsa **connectVia** Özelliği Azure IR kullanılır. varsayılan bağlı hizmet tanımında belirtilmedi. Azure IR açıkça IR konumunu tanımlamak istediğiniz zaman ya da Yönetim amaçla farklı IRS üzerinde Etkinlik yürütme neredeyse Grup istiyorsanız açıkça oluşturmanız yeterlidir. 
 
 ## <a name="create-azure-ir"></a>Azure IR oluşturma
-Tümleştirme çalışma zamanı kullanılarak oluşturulabilir **kümesi AzureRmDataFactoryV2IntegrationRuntime** PowerShell cmdlet'i. Azure IR oluşturmak için adını, konumunu ve komut türü belirtin. Azure IR konumunu ayarla "Batı Avrupa'ya" oluşturmak için bir örnek komutu aşağıda verilmiştir:
+Tümleştirme çalışma zamanı kullanılarak oluşturulabilir **kümesi AzDataFactoryV2IntegrationRuntime** PowerShell cmdlet'i. Azure IR oluşturmak için adını, konumunu ve komut türü belirtin. Azure IR konumunu ayarla "Batı Avrupa'ya" oluşturmak için bir örnek komutu aşağıda verilmiştir:
 
 ```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
+Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
 Azure IR için türü ayarlanmalıdır **yönetilen**. Tam olarak esnek bir şekilde bulutta yönetilen işlem ayrıntılarını belirtmeniz gerekmez. İşlem belirtin, Azure-SSIS IR oluşturmak istediğiniz düğüm boyutunu ve düğüm sayısı gibi ayrıntıları Daha fazla bilgi için [oluşturma ve yapılandırma Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
 
-Set-AzureRmDataFactoryV2IntegrationRuntime PowerShell cmdlet'ini kullanarak konumunu değiştirmek için mevcut Azure IR yapılandırabilirsiniz. Azure IR konumu hakkında daha fazla bilgi için bkz: [tümleştirme çalışma zamanı giriş](concepts-integration-runtime.md).
+Set-AzDataFactoryV2IntegrationRuntime PowerShell cmdlet'ini kullanarak konumunu değiştirmek için mevcut Azure IR yapılandırabilirsiniz. Azure IR konumu hakkında daha fazla bilgi için bkz: [tümleştirme çalışma zamanı giriş](concepts-integration-runtime.md).
 
 ## <a name="use-azure-ir"></a>Azure IR kullanın
 

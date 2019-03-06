@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4c39f47169071ceb9430f419a144e11f425d65b0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240735"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456100"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>BLOB'lar ve Kuyruklar (Önizleme) için erişim için bir uygulamadan Azure Active Directory kimlik doğrulaması
 
@@ -39,7 +39,7 @@ Uygulamanızı kaydettiğinizde, Azure AD'ye uygulamanız ile ilgili bilgileri s
 
 Azure Storage uygulamanızı kaydetmek için adımları izleyin. [bir uygulama eklendiğinde](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) konusundaki [uygulamaları Azure Active Directory ile tümleştirme](../../active-directory/active-directory-integrating-applications.md). Uygulamanızı yerel bir uygulama kaydederseniz, için geçerli bir URI belirtebilirsiniz **yeniden yönlendirme URI'si**. Değerin gerçek bir uç nokta olması gerekmez.
 
-![Storage uygulamanızı Azure AD'ye kaydetme işlemini gösteren ekran görüntüsü](./media/storage-auth-aad-app/app-registration.png)
+![Storage uygulamanızı Azure AD'ye kaydetme gösteren ekran görüntüsü](./media/storage-auth-aad-app/app-registration.png)
 
 Uygulamanızı kaydettikten sonra uygulama kimliği (veya istemci kimliği) altında görürsünüz **ayarları**:
 
@@ -57,7 +57,7 @@ Ardından, Azure depolama API'leri çağırmak için uygulama izinleri vermeniz 
 4. İçinde **gerekli izinler** dikey penceresinde tıklayın **Ekle** düğmesi.
 5. Altında **bir API seçin**, "Azure Depolama'ya yönelik" arayın ve seçin **Azure depolama** sonuçlar listesinden.
 
-    ![Depolama için izinleri gösteren ekran görüntüsü](media/storage-auth-aad-app/registered-app-permissions-1.png)
+    ![Depolama için ekran gösterme izinleri](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
 6. Altında **izinleri seçin**, yanındaki kutuyu işaretleyin **Azure depolamaya erişimi**, tıklatıp **seçin**.
 7. **Bitti**’ye tıklayın.

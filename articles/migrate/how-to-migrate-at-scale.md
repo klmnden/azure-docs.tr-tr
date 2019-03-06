@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: snehaa
-ms.openlocfilehash: c0fc4fa0bdd58b8ecdf4f26051d60324118c4b21
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 74dabc49dd3d0e38f43dc758204c35ea1c0efd99
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896720"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438491"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Azure Site Recovery kullanarak bir VM ölçek geçiş
 
@@ -31,7 +31,7 @@ Başlamadan önce aşağıdakileri yapmanız gerekir:
 - Yapılandırma sunucusu ve işlem sunucusu kaynak ortamda yüklü olan ve kasa ortamı bulabilir olduğundan emin olun
 - Bir çoğaltma ilkesi oluşturuldu ve yapılandırma sunucusu ile ilişkili emin olun
 - (Bu, şirket içi sanal makineleri çoğaltmak için kullanılacak) yapılandırma sunucusu sanal makine yönetici hesabı eklediğinizden emin olun
-- Azure'da hedef sorumluluk oluşturduğunuzdan emin olun
+- Azure'da hedef yapıtları oluşturduğunuzdan emin olun
     - Hedef Kaynak Grubu
     - Hedef depolama hesabı (ve kaynak grubu)
     - Hedef yük devretme için sanal ağ (ve kaynak grubu)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: dc22f1392d14529c2944dde67315a278fca4fa73
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195345"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450456"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer sistem durumu araştırmaları
 
@@ -212,7 +212,7 @@ Etkinleştirmeyin [TCP zaman damgaları](https://tools.ietf.org/html/rfc1323).  
 
 ## <a name="monitoring"></a>İzleme
 
-Hem genel hem de iç [Standard Load Balancer](load-balancer-standard-overview.md) uç ve arka uç örnek araştırma durumu Azure İzleyicisi üzerinden çok boyutlu ölçümler olarak kullanıma sunar. Bu ölçümler, diğer Azure Hizmetleri veya üçüncü arty uygulamalar tarafından tüketilebilir. 
+Hem genel hem de iç [Standard Load Balancer](load-balancer-standard-overview.md) uç ve arka uç örnek araştırma durumu Azure İzleyicisi üzerinden çok boyutlu ölçümler olarak kullanıma sunar. Bu ölçümler, diğer Azure Hizmetleri veya iş ortağı uygulamalar tarafından tüketilebilir. 
 
 Genel Load Balancer temel sistem durumu araştırma durumu Azure İzleyici günlüklerine aracılığıyla arka uç havuzu başına özetlenen kullanıma sunar.  Azure İzleyici günlüklerine iç temel yük Dengeleyiciler için kullanılabilir değil.  Kullanabileceğiniz [Azure İzleyici günlükleri](load-balancer-monitor-log.md) herkese açık yük dengeleyici araştırması durumunu denetleyin ve yoklama sayısı. Günlüğe kaydetme, Power BI veya Azure operasyonel İçgörüler ile yük dengeleyici sistem durumu hakkındaki istatistiklerdir sağlamak için kullanılabilir.
 

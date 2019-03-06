@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c3f67cbe422ffe839018f0682fa2de6440de773
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8578cd24b585bb5f0ba4930f005d8d2b2fece7f7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823374"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449691"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure'da bir SQL Server sanal makinesi için lisanslama modelini değiştirme
 Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans modeli değiştirmek nasıl SQL VM kaynak sağlayıcısı - **Microsoft.SqlVirtualMachine**. İki sanal makine (VM) için model barındıran SQL Server - Kullandıkça Öde, lisanslama ve kendi lisansınızı getirin (BYOL). Ve artık, PowerShell veya Azure CLI kullanarak kullanan SQL Server VM'nize hangi lisans modeli değiştirebilirsiniz. 
@@ -32,7 +32,7 @@ Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans mo
 İki lisans modelleri arasında geçiş doğurur **kapalı kalma süresi olmadan**, VM başlatmaz, ekler **ek ücret ödemeden** (aslında AHB etkinleştirme *azaltır* maliyeti) ve **hemen etkili**. 
 
   >[!NOTE]
-  > - Lisanslama modeli dönüştürme yeteneği şu anda yalnızca bir Kullandıkça Öde SQL Server VM görüntüsüyle başlatırken kullanılabilir. Portaldan Getir-kendi lisansını görüntüsü ile başlatırsanız, o yansıma Kullandıkça Öde yöntemine dönüştürmek mümkün olmayacaktır.
+  > - Lisanslama modelini dönüştürme imkanı yalnızca kullandıkça öde SQL Server VM görüntüsünü kullanmaya başladığınızda sunulur. Portaldan kendi lisansını getir görüntüsüyle başlamanız durumunda ilgili görüntüyü kullandıkça öde modeline dönüştüremezsiniz.
   > - CSP müşterileri, öncelikle bir Kullandıkça Öde VM dağıtarak ve ardından getirin-kendi lisansını için dönüştürme AHB avantajı kullanabilir. 
   > - Şu anda bu özellik yalnızca genel bulut yüklemeleri için etkindir.
 
@@ -65,7 +65,7 @@ Aşağıdaki adımlar, Azure portalını kullanarak Azure aboneliğinizde SQL ka
   ![Sağlayıcı değiştirme](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
 ### <a name="with-azure-cli"></a>Azure CLI ile
-Aşağıdaki kod parçacığı SQL kaynak sağlayıcısı, Azure susbcription ile kaydeder. 
+Aşağıdaki kod parçacığı SQL kaynak sağlayıcısı, Azure aboneliğiniz ile kaydeder. 
 
 ```cli
 # Register the new SQL resource provider for your subscription 
@@ -109,7 +109,7 @@ Kaynak sağlayıcısı ile SQL Server VM'nize kaydedildikten Azure portalı, Azu
 
 
   >[!NOTE]
-  >  Lisanslama modeli dönüştürme yeteneği şu anda yalnızca bir Kullandıkça Öde SQL Server VM görüntüsüyle başlatırken kullanılabilir. Portaldan Getir-kendi lisansını görüntüsü ile başlatırsanız, o yansıma Kullandıkça Öde yöntemine dönüştürmek mümkün olmayacaktır. 
+  >  Lisanslama modelini dönüştürme imkanı yalnızca kullandıkça öde SQL Server VM görüntüsünü kullanmaya başladığınızda sunulur. Portaldan kendi lisansını getir görüntüsüyle başlamanız durumunda ilgili görüntüyü kullandıkça öde modeline dönüştüremezsiniz. 
 
 ### <a name="with-the-azure-portal"></a>Azure portal ile
 Lisanslama modeli Portalı'ndan doğrudan değiştirebilirsiniz. 

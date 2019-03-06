@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968456"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437356"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure haritalar kategoriler desteklenir.
 
@@ -45,14 +45,14 @@ Yaparken bir [kategori arama](https://docs.microsoft.com/rest/api/maps/search/ge
 | ÜNİVERSİTE\_UNIVERSITY | alt düzey üniversite/yüksekokul, okul/üniversite, yüksekokula, university hazırlığı okul, university |
 | TİCARİ\_OLUŞTURMA | oluşturma, park headquarters, ticari office oluşturma |
 | TOPLULUK\_MERKEZİ | Topluluk Merkezi |
-| ŞİRKET | Üretim, bilgisayar veri hizmetleri, kamu sağlığını teknolojileri, büyük financials, hayvan korunması, havayolu, ekipman kiralama, hizmet, posta/paket/freight teslim, veri yolu satırlar, ev Gereci onarım, hizmetleri, oem, temizleme, Elektronik vergi Hizmetleri, Petrol doğal gaz, hukuki hizmetler, yapı, uzaktan iletişim, taşıma, otomobil üretim, chemicals, funeral hizmet mortuaries, köprü tünel operations, otomobil, makine Mühendisliği, hizmetler, yatırım danışmanları Reklam /, depolama, tasarruf kurum, sigorta, bilgisayar yazılımı taşıma pazarlama verdiğimiz bisiklet, araştırma, yayımlama Eczacılık, yemek, Evlilik Hizmetleri, Tarım teknolojisi, Emlak, taksi, limousine shuttle hizmet veri yolu teknolojileri, kablo telefon, içeri/dışarı aktarma dağıtım, şirket, asylum, Kömür mine(s), estate(s), brewery, gold mine(s) |
+| ŞİRKET | Üretim, bilgisayar veri hizmetleri, kamu sağlığını teknolojileri, büyük financials, hayvan korunması, havayolu, ekipman kiralama, hizmet, posta/paket/freight teslim, veri yolu satırlar, ev Gereci onarım, hizmetleri, oem, temizleme, Elektronik vergi Hizmetleri, Petrol doğal gaz, hukuki hizmetler, yapı, telekomünikasyon, taşıma, otomobil üretim, chemicals, funeral hizmet mortuaries, köprü tünel operations, otomobil, makine Mühendisliği, hizmetler, yatırım danışmanları Reklam /, depolama, tasarruf kurum, sigorta, bilgisayar yazılımı taşıma pazarlama verdiğimiz bisiklet, araştırma, yayımlama Eczacılık, yemek, Evlilik Hizmetleri, Tarım teknolojisi, Emlak, taksi, limousine shuttle hizmet veri yolu teknolojileri, kablo telefon, içeri/dışarı aktarma dağıtım, şirket, asylum, Kömür mine(s), estate(s), brewery, gold mine(s) |
 | COURTHOUSE | courthouse |
 | KÜLTÜREL\_MERKEZİ | kültür Merkezi |
 | DİŞ | diş |
 | DEPARTMAN\_DEPOSU | Departman deposu |
 | DOKTOR | Genel pratik, Uzman, hastanede |
 | ELEKTRİK\_VEHICLE\_İSTASYON | Elektrik vehicle istasyon |
-| EMBASSY | EMBASSY |
+| EMBASSY | embassy |
 | ACİL DURUM\_TIBBİ\_HİZMETİ | Acil Durum Sağlık Hizmeti |
 | EĞLENCE | Eğlence |
 | EXCHANGE | Gold exchange, döviz kurundaki, borsa, exchange |
@@ -109,7 +109,7 @@ Yaparken bir [kategori arama](https://docs.microsoft.com/rest/api/maps/search/ge
 | RESTORAN\_ALAN | Restoran alanı |
 | REST\_ALAN | REST alanında durdurma Yerleştir |
 | MANZARA\_PANORAMIC\_GÖRÜNTÜLE | İzleme noktası manzara/panoramik görünümü |
-| OKUL | culinary okul, ilköğretim, resim okul, okul dil okul, spor okul, okul öncesi dönem, lise, Orta okul, meslek eğitim, özel okul, alt sağlık tesisi, okul, teknik okul, Askeri Okul sürüş Kıdemli yüksek okul, Tarım Okul |
+| SCHOOL | culinary okul, ilköğretim, resim okul, okul dil okul, spor okul, okul öncesi dönem, lise, Orta okul, meslek eğitim, özel okul, alt sağlık tesisi, okul, teknik okul, Askeri Okul sürüş Kıdemli yüksek okul, Tarım Okul |
 | SATIN ALIN | Fabrika çıkışı, güvenlik ürünleri, Christmas/tatil deposu, opticians, ev bahçesi: aydınlatma, kura Atölye, müzik aletlerinin kuaförü kavrayın, barındırmak bahçesi: boyama dekorasyon, hobi ve ücretsiz saati, newsagents tobacconists, giysi Donatılar: özel, kuru temizleyici var, paketleri leatherwear hayvan kaynakları, Donatılar kıyafetleri: alt yapı malzeme donanım, mücevher özelliklerine, Donatılar kıyafetleri izlemeleri saatler: ayakkabı ayakkabı onarım, ev bahçesi: perdelerini/textiles, elektrikli, office,: tüketici Elektrik ve elektronik, office,: Kamera&#39;s fotoğraf, cd&#39;s, DVD videoları, Çamaşırlar, giysi Donatılar: ADAM, florists, piyonu Atölye, kitap dükkanları, Deniz elektronik donanım, Yemek İçecekler: Gıda pazarlara, ev bahçesi: coverings carpet/kat , fotokopi, kayığı ekipman Donatılar, cep telefonu Atölye, toys oyunlar, özel foods, giysi Donatılar: Genel, Yemek İçecekler: bakers, uyarlama Atölye, hediye, kartlar, novelties souvenirs, hayvan hizmetlerini, spor ekipman giysi, Damga Atölye Elektrik Gereci, elektrikli, office,: ofis malzemeleri, fotoğraf Laboratuvar/geliştirme, Toptan kulüpleri, ev bahçesi: Mobilya Demirbaş, yerel uzmanlık alanları, Yemek İçecekler: butchers, çeşitli depolama, Yemek İçecekler: Gıda dükkanları, Yemek İçecekler: Şarap bilinen, ilaç deposu , mobilyası/giriş mobilyaları, elektrikli, office,: bilgisayar kaynakları, cd/video kiralama, tıbbi malzeme donanım, Tarım kaynakları, koyabileceğiniz kuaförü, ev bahçesi: bahçesi merkezleri Hizmetleri, Yemek İçecekler: kıyafetleri fishmongers, koyabileceğiniz kaynakları Donatılar: women, seyahat aracıları, perakende çıkışı, geri dönüşüm Atölye, ev bahçesi: windows, donanım, gerçek Emlak aracıları, glassware/ceramic, delicatessen, ev bahçesi cam: kitchens özellikleri, istasyon, hairdressers barbers oyunlarda, Yemek İçecekler: grocers, Gıda İçecekler: yeşil grocers, kolaylık depoları, ev bahçesi bottle Atölye sürücü: yazılanları merkezleri, antique/resimler, alışveriş, depolama |
 | ALIŞVERİŞ\_MERKEZİ | küçük, alışveriş merkezi |
 | SPOR\_MERKEZİ | tematik Spor sıkıştırarak mahkeme, uygunluk kulübü Merkezi, spor Merkezi |

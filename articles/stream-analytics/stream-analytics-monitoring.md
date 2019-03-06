@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: f4dbfae4bada77cf882f7249353a17defebf312e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ce6fc0a90ad093a6bba5a4720777e409202c73ea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209358"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439834"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics işi izleme ve sorguları izleme anlama
 
@@ -43,7 +43,7 @@ Penceresinde gösterildiği gibi görünür:
 | Geç Giriş Olayları      | Daha fazla yapılandırılmış geç varış toleransı penceresi gelen olayları. Daha fazla bilgi edinin [Azure Stream Analytics olay sırası konuları](stream-analytics-out-of-order-and-late-events.md) . |
 | Sıra dışı olayları    | Bırakılan veya olay sıralama ilkesine göre ayarlanmış bir zaman damgası, verilen sıranın dışında alınan olay sayısı. Out of toleransı penceresi ayarının yapılandırmasını tarafından etkilenmiş. |
 | Çıkış Olayları          | Çıkış hedefte olayların sayısı Stream Analytics işi tarafından gönderilen veri miktarı. |
-| Çalışma Zamanı Hataları         | Sorgu işleme (başlayan kümeniz, olaylar veya sonuçlar outputing sırasında bulunan hataları hariç) ilişkili hatalarının toplam sayısı |
+| Çalışma Zamanı Hataları         | Sorgu işleme (olayları almak veya sonuç çıktısı bulunan hataları hariç) ilişkili hatalarının toplam sayısı |
 | SU Kullanım Yüzdesi       | Akış birimi kullanımına iş ölçek sekmesinden bir işe atanmış. Bu gösterge % 80 düzeyine ulaşması gerektiğini, yukarıdaki var veya olay işlenmesi gecikebilir veya ilerleme durduruldu yüksek olasılık. |
 | Eşik Gecikmesi       | İşin tüm çıkışları tüm bölümleri arasında en yüksek eşik gecikmesi. |
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 3eff78aa6b13c48868b95bae03a8406a550a42c9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c17f16ce796c9f296facd69c18de4effc7ff5258
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243882"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440990"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure güvenlik ve uyumluluk planı - PaaS Web uygulaması için Avustralya korumalı
 
@@ -30,7 +30,7 @@ Bu çözüm, bir Azure SQL veritabanı arka ucu ile bir PaaS web uygulaması iç
 
 Mimari, kuruluşun özel yerel ağ veya internet'ten şirket kullanıcıları tarafından güvenli bir şekilde erişilmek üzere web tabanlı iş yüklerini izin verme bir şirket içi ağı Azure'a genişleten güvenli bir hibrit ortam sunabilir. Şirket içi çözümler için müşteri sorumlu ve güvenlik, işlemlerini ve uyumluluk tüm boyutlarından sorumlu.
 
-Bu çözümde yer alan Azure kaynaklarını bir şirket içi ağ veya datacentre ortak yerleşim tesisinizden (CDC Kanbera, örneğin) bir VPN ağ geçidini kullanarak IPSec VPN ve ExpressRoute aracılığıyla bağlanabilirsiniz. VPN kullanmasını kararı, iletilen verileri ve göz önünde ağ yolunda sınıflandırmada yapılmalıdır. Büyük veri gereksinimleri olan görev açısından kritik iş yükleri, büyük ölçekli çalıştıran müşteriler, Azure hizmetlerine özel ağ bağlantısı için ExpressRoute kullanarak hibrit ağ mimarisi düşünmelisiniz. Başvurmak [yönerge ve öneriler](#guidance-and-recommendations) bölüm azure'a bağlantı mekanizmaları hakkında daha ayrıntılı bilgi için.
+Bu çözümde yer alan Azure kaynaklarını bir şirket içi ağ veya datacentre ortak yerleşim tesisinizden (CDC Kanbera, örneğin) bir VPN ağ geçidini kullanarak IPSec VPN ve ExpressRoute aracılığıyla bağlanabilirsiniz. Bir VPN kullanmaya karar iletilen verileri ve göz önünde ağ yolunda sınıflandırmada yapılmalıdır. Büyük veri gereksinimleri olan görev açısından kritik iş yükleri, büyük ölçekli çalıştıran müşteriler, Azure hizmetlerine özel ağ bağlantısı için ExpressRoute kullanarak hibrit ağ mimarisi düşünmelisiniz. Başvurmak [yönerge ve öneriler](#guidance-and-recommendations) bölüm azure'a bağlantı mekanizmaları hakkında daha ayrıntılı bilgi için.
 
 Azure Active Directory ile Federasyon, kullanıcıların şirket içi kimlik bilgilerini kullanarak kimlik doğrulaması yapmak ve bir şirket içi Active Directory Federasyon Hizmetleri altyapısını kullanarak buluttaki tüm kaynaklara erişim sağlamak için kullanılmalıdır. Basitleştirilmiş, güvenli Kimlik Federasyonu ve web çoklu oturum açma özellikleri bu hibrit ortamı için Active Directory Federasyon Hizmetleri sağlar. Başvurmak [yönerge ve öneriler](#guidance-and-recommendations) Azure Active Directory Kurulum daha fazla ayrıntı için bölüm.
 
@@ -123,11 +123,11 @@ Sahip ağ güvenlik gruplarının her biri belirli bağlantı noktaları ve prot
 **Azure yük dengeleyici**: [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) müşterilerin uygulamalarını ölçeklendirme ve yüksek kullanılabilirlik hizmetleri oluşturma olanak tanır. Yük Dengeleyici, gelen yanı sıra giden senaryoları destekler ve düşük gecikme süreli, yüksek aktarım hızı sağlar ve akışlar tüm TCP ve UDP uygulamaları için en fazla bir milyonlarca ölçeklendirir.
 
 ### <a name="data-in-transit"></a>Aktarımdaki verileri
-Azure, Azure veri merkezlerine gelen ve giden tüm iletişimi varsayılan olarak şifreler. 
+Azure, Azure veri merkezlerinden tüm iletişimi varsayılan olarak şifreler. 
 
 Ağları ait müşteriden Aktarımdaki korunan veriler için Mimari Azure ExpressRoute ve Internet IPSec ile yapılandırılmış bir VPN ağ geçidi ile kullanır.
 
-Ayrıca, Azure Yönetim Portalı aracılığıyla azure'a tüm işlemleri HTTPS kullanan TLS 1.2 gerçekleştirilir.
+Ayrıca, Azure Yönetim Portalı aracılığıyla azure'a tüm işlemleri TLS 1.2 kullanarak HTTPS gerçekleştirilir.
 
 ### <a name="data-at-rest"></a>Bekleyen veriler
 Mimarisi, bekleyen veri şifrelemesi, Denetim veritabanı ve diğer ölçüler verilerinizi korumanızı sağlar.
@@ -189,7 +189,7 @@ Azure Hizmetleri, sistem ve kullanıcı etkinliğini yanı sıra, sistem durumu 
 - **Etkinlik günlükleri**: [Etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bir Abonelikteki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlükleri bir işlemin Başlatıcı belirlemek yardımcı olabilir, oluşumunu ve durum zaman.
 - **Tanılama günlükleri**: [Tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) her kaynak tarafından oluşturulan tüm günlükleri içerir. Bu günlükler, Windows olayı sistem günlükleri, Azure depolama günlükleri, anahtar kasası denetim günlüklerini ve Application Gateway erişim ve güvenlik duvarı günlükleri içerir. Tüm tanılama günlükleri için merkezi ve şifrelenmiş Azure depolama hesabına arşivleme yazın. Bekletme kuruluşa özgü saklama gereksinimlerini karşılamak için kullanıcı-730 gün için yapılandırılabilir,.
 
-**Azure İzleyici günlüklerine**: Bu günlükler, birleştirilmiş [Azure İzleyici günlükleri](https://azure.microsoft.com/services/log-analytics/) işleme, depolama ve Panosu raporlama. Toplandığında, veriler analysed tüm verilerin birlikte ve böylece özgün kaynağına bakılmaksızın sağlayan her bir veri türü için ayrı tablolar halinde düzenlenir. Ayrıca, Azure Güvenlik Merkezi güvenlik olay verilerine erişmek ve diğer hizmetlerden gelen verilerle birleştirmek için Kusto sorguları kullanmak müşterilerin sağlayan Azure İzleyici günlükleri ile tümleştirilir.
+**Azure İzleyici günlüklerine**: Bu günlükler, birleştirilmiş [Azure İzleyici günlükleri](https://azure.microsoft.com/services/log-analytics/) işleme, depolama ve Panosu raporlama. Toplandığında, veriler her bir veri türü için ayrı tablolar halinde düzenlenir ve böylece özgün kaynağına bakılmaksızın tüm verilerin birlikte analiz edilmesi sağlanır. Ayrıca, Azure Güvenlik Merkezi güvenlik olay verilerine erişmek ve diğer hizmetlerden gelen verilerle birleştirmek için Kusto sorguları kullanmak müşterilerin sağlayan Azure İzleyici günlükleri ile tümleştirilir.
 
 Aşağıdaki Azure [izleme çözümleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Bu mimarinin bir parçası olarak dahil edilir:
 -   [Active Directory değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory sistem durumu denetimi çözümü risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir ve öneriler için dağıtılan sunucu altyapısı belirli öncelikli bir listesini sağlar.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 5c5a42908198b3a8f473efbe4f54bc481e250efa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876003"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431997"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Konuşmayı metne dönüştürme hakkında sık sorulan sorular
 
@@ -63,7 +63,7 @@ Eski veri kümesinin ve yeni veri kümesi, tek bir .zip dosyası (için akustik 
 
 **A**: Dağıtımları otomatik olarak güncelleştirilmez.
 
-Uyarlanmış ve temel V1.0 modeliyle dağıtılan, o dağıtım olduğu gibi kalır. Müşteriler decommision dağıtılan model taban daha yeni sürümünü kullanarak yeniden uyum ve yeniden dağıtın.
+Uyarlanmış ve temel V1.0 modeliyle dağıtılan, o dağıtım olduğu gibi kalır. Müşteriler dağıtılan model yetkisini, temel daha yeni sürümünü kullanarak yeniden uyum ve yeniden dağıtın.
 
 **S: İhtiyacım olursa ne yapabilirim daha yüksek Eş zamanlılık Portalı'nda sunulan daha my dağıtılan modeli için?**
 

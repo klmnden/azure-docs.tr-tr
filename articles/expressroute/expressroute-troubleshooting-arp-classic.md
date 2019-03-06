@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 367a79b04a8736e2eafb6851b682f2c244e80522
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3e49a1da0e8ea83faf5fc5a10d4c01a41d62fa88
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272295"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439647"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>ARP tablolarını Klasik dağıtım modelinde alma
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Aşağıdaki bölümde, ExpressRoute uç yönlendiricileri tarafından görülen
 Devam etmeden önce aşağıdakiler olduğunuzdan emin olun:
 
 * En az bir eşleme ile yapılandırılmış geçerli bir ExpressRoute devresi. Bağlantı hattı, bağlantı sağlayıcı tarafından tam olarak yapılandırılmalıdır. Siz (veya bağlantı sağlayıcınızdan) eşlemeleri (Azure özel, Azure genel veya Microsoft) en az biri bu bağlantı hattındaki yapılandırmanız gerekir.
-* (Azure özel, Azure genel ve Microsoft) eşlikleri yapılandırmak için kullanılan IP adresi aralığı. IP adresi ataması örneklerde gözden [ExpressRoute yönlendirme gereksinimleri sayfasındaki](expressroute-routing.md) arabirimlerine, aise ve ExpressRoute tarafında IP adreslerinin nasıl eşlendiğini bir anlamak için. Gözden geçirerek eşleme yapılandırması hakkında daha fazla bilgi edinebilirsiniz [ExpressRoute eşlemesi yapılandırma sayfası](expressroute-howto-routing-classic.md).
+* (Azure özel, Azure genel ve Microsoft) eşlikleri yapılandırmak için kullanılan IP adresi aralığı. IP adresi ataması örneklerde gözden [ExpressRoute yönlendirme gereksinimleri sayfasındaki](expressroute-routing.md) arabirimlerine, tarafında ve ExpressRoute tarafında IP adreslerinin nasıl eşlendiğini bir anlamak için. Gözden geçirerek eşleme yapılandırması hakkında daha fazla bilgi edinebilirsiniz [ExpressRoute eşlemesi yapılandırma sayfası](expressroute-howto-routing-classic.md).
 * Bu IP adresi ile kullanılan arabirimlerin MAC adresleri hakkında bilgi ağ ekip veya bağlantı sağlayıcınızdan.
 * Azure (sürüm 1,50 veya sonrası) için en son Windows PowerShell modülü.
 

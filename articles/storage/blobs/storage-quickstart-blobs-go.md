@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 5bafceca09cfe5a981365a39e4f3803b5865ce73
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: abe3d79f352ef04abf8f90f50824b6426457c2a1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754824"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445475"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Go kullanarak blobları Listele
 
@@ -208,7 +208,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### <a name="download-the-blob"></a>Blobu indirme
 
-BlobURL'de alt düzey **Download** işlevini kullanarak blobları indirin. Bu bir **DownloadResponse** struct’ı döndürür. Verileri okumak üzere bir **RetryReader** akışı almak için struct’ta **Body** işlevi çalıştırın. Okuma sırasında bir bağlantı başarısız olursa bağlantıyı yeniden oluşturup okumaya devam etmek için ek istekler gerçekleştirir. MaxRetryRequests’i 0 (varsayılan) olarak ayarlanmış bir RetryReaderOption belirtildiğinde orijinal yanıt gövdesi döndürülür ve hiçbir yeniden deneme gerçekleştirilmez. Alternatif olarak kodunuzu basitleştirmek için yüksek düzeyli API’ler olarak **DownloadBlobToBuffer** veya **DownloadBlobToFile**’ı kullanın.
+BlobURL'de alt düzey **Download** işlevini kullanarak blobları indirin. Bu bir **DownloadResponse** struct’ı döndürür. Verileri okumak üzere bir **RetryReader** akışı almak için struct’ta **Body** işlevi çalıştırın. Okuma sırasında bir bağlantı başarısız olursa yeniden bağlantı kurmak ve okuma devam etmek için ek istekler yapar. MaxRetryRequests’i 0 (varsayılan) olarak ayarlanmış bir RetryReaderOption belirtildiğinde orijinal yanıt gövdesi döndürülür ve hiçbir yeniden deneme gerçekleştirilmez. Alternatif olarak kodunuzu basitleştirmek için yüksek düzeyli API’ler olarak **DownloadBlobToBuffer** veya **DownloadBlobToFile**’ı kullanın.
 
 Aşağıdaki kod, **Download** işlevini kullanarak blobu indirir. Blobun içeriği arabelleğe yazılır ve konsolda gösterilir.
 

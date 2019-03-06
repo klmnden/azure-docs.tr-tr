@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 7e5d04f3ead4353c88a6b56ab530f41ff15022d1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005395"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444132"
 ---
-# <a name="computer-groups-in-azure-monitor-log-quereies"></a>Azure izleyici günlüğü quereies bilgisayar grupları
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları bilgisayar grupları
 Azure İzleyici'de bilgisayar grupları kapsamına izin [oturum sorguları](../log-query/log-query-overview.md) bilgisayarlar belirli bir dizi.  Her Grup ya da tanımladığınız bir sorgu kullanarak bilgisayarları veya grupları alarak farklı kaynaktaki doldurulur.  Grup içinde bir günlük sorgu eklendiğinde sonuçları gruptaki bilgisayarların eşleşen kayıtları sınırlıdır.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]

@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fecc3b411211ceb8aa6db5a0e0c0c6b07f19a63f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421956"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442470"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Bir Azure dağıtımında Java'dan SendGrid kullanarak e-posta gönderme
 Aşağıdaki örnek, Azure'da barındırılan bir web sayfasından e-postaları göndermek için Sendgrid'i nasıl kullanabileceğinizi gösterir. Elde edilen uygulama, aşağıdaki ekran görüntüsünde gösterildiği gibi kullanıcıdan e-posta değerlerini ister.
@@ -204,7 +204,7 @@ Emailform.jsp biçiminde tamamladığınızda çağrılır, aşağıdaki kod, e-
     </body>
     </html>
 
-E-posta göndermeye ek olarak emailform.jsp kullanıcı için bir sonuç sağlar; Aşağıdaki ekran görüntüsünde bir örnek verilmiştir:
+E-posta göndermeye ek olarak emailform.jsp kullanıcı için bir sonuç sağlar; Aşağıdaki anlık görüntüde bir örnek verilmiştir:
 
 ![Posta sonucunu gönderin][emailresult]
 

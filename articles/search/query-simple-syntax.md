@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 12589d9fa4623dbb6ebfd12d2e007eb9303ecdbf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008331"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441569"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Azure Search'te Basit Sorgu söz dizimi
 Azure arama, iki Lucene tabanlı sorgu dili uygular: [Basit Sorgu ayrıştırıcı](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) ve [Lucene sorgu ayrıştırıcı](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Azure Search'te belirsiz/slop seçenekleri basit sorgu söz dizimi dahil değildir.  
@@ -46,7 +46,7 @@ Genellikle, büyük olasılıkla kullanıcılar büyük olasılıkla daha fazla 
 
 ## <a name="operators-in-simple-search"></a>Basit Arama işleçleri
 
-Ölçüt karşı eşleşen belgelerin bulunduğu riche kümesi oluşturmak için bir sorgu dizesi işleçleri ekleyebilir. 
+Zengin karşı eşleşen belgelerin bulunduğu bir ölçüt oluşturmak için bir sorgu dizesi işleçleri ekleyebilir. 
 
 ## <a name="and-operator-"></a>AND işleci `+`
 

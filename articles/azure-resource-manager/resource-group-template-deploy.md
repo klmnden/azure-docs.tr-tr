@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 18dc82880830b6f8d14a7fc01930f75e9e61e5b0
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: daeff897cf284df6e820afbcdd35ee54bf88db08
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300559"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405411"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma
 
@@ -34,7 +34,7 @@ Bu makalede kullanılan bu iki aşamalı dağıtım yöntemidir.  Diğer seçene
 
 Kullanmadığınız sürece [Azure Cloud Shell'i](#deploy-templates-from-azure-cloud-shell) şablonlarını dağıtmak için Azure PowerShell'i yükleme ve Azure'a bağlanmak için ihtiyaç duyduğunuz:
 - **Azure PowerShell cmdlet'lerini yerel bilgisayarınıza yükleyin.** Daha fazla bilgi için bkz. [Azure PowerShell kullanmaya başlayın](/powershell/azure/get-started-azureps).
-- **Kullanarak Azure'a bağlanma [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount.md)**. Birden çok Azure aboneliğiniz varsa, aynı zamanda çalıştırmak ihtiyacınız olabilecek [kümesi AzContext](/powershell/module/Az.Accounts/Set-AzContext.md). Daha fazla bilgi için [birden çok Azure aboneliği kullanın](/powershell/azure/manage-subscriptions-azureps).
+- **Kullanarak Azure'a bağlanma [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Birden çok Azure aboneliğiniz varsa, aynı zamanda çalıştırmak ihtiyacınız olabilecek [kümesi AzContext](/powershell/module/Az.Accounts/Set-AzContext). Daha fazla bilgi için [birden çok Azure aboneliği kullanın](/powershell/azure/manage-subscriptions-azureps).
 - * İndirin ve kaydedin bir [Hızlı Başlangıç şablonu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) . Bu makalede kullanılan yerel dosya adı **c:\MyTemplates\azuredeploy.json**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

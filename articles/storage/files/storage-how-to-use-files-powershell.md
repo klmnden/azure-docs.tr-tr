@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 53f2b59032e7e9725b067ef472b2b6dcf94bcb72
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 59d8b9ffa8c0cbeaaa354f2497d279ac8c285ae1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662484"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437131"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Hızlı Başlangıç: Oluşturma ve Azure PowerShell ile bir Azure dosya paylaşımı yönetme 
 Bu kılavuzda, PowerShell kullanarak [Azure dosya paylaşımlarıyla](storage-files-introduction.md) çalışmanın temel bilgileri gösterilmektedir. Azure dosya paylaşımları diğer dosya paylaşımları gibidir, ancak bulutta depolanır ve Azure platformu tarafından desteklenir. Azure dosya paylaşımları endüstri standardı SMB protokolünü destekler ve birden çok makine, uygulama ve örnek arasında dosya paylaşmayı olanaklı kılar. 
@@ -166,7 +166,7 @@ Start-AzStorageFileCopy `
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-`Start-AzStorageFileCopy` cmdlet’i Azure dosya paylaşımları ve Azure Blob depolama kapsayıcıları arasında plansız dosya taşıma işlemlerinde kullanışlı olsa da, daha büyük taşıma işlemleri (taşınan dosyaların sayısı ve boyutu açısından) için AzCopy kullanılmasını öneririz. [Windows için AzCopy](../common/storage-use-azcopy.md) ve [Linux için AzCopy](../common/storage-use-azcopy-linux.md) hakkında daha fazla bilgi edinin. AzCopy yerel olarak yüklenmelidir; Cloud Shell'de kullanılamaz. 
+Sırada `Start-AzStorageFileCopy` cmdlet, Azure dosya paylaşımları ve Azure Blob Depolama kapsayıcıları arasında geçici dosyayı taşır için kullanışlıdır, daha büyük taşır (sayısı veya taşınan dosyaların boyutu açısından) için AzCopy kullanılmasını öneririz. [Windows için AzCopy](../common/storage-use-azcopy.md) ve [Linux için AzCopy](../common/storage-use-azcopy-linux.md) hakkında daha fazla bilgi edinin. AzCopy yerel olarak yüklenmelidir; Cloud Shell'de kullanılamaz. 
 
 ## <a name="create-and-manage-share-snapshots"></a>Paylaşım anlık görüntülerini oluşturma ve yönetme
 Azure dosya paylaşımıyla yerine getirebileceğiniz kullanışlı bir diğer görev de paylaşım anlık görüntüleri oluşturmaktır. Anlık görüntü, Azure dosya paylaşımının zamanın bir noktasındaki durumunu saklar. Paylaşım anlık görüntüleri, aşağıdakiler gibi zaten tanıyor olabileceğiniz işletim sistemi teknolojilerine benzer:

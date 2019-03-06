@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1534a3f010183cd91c444b577d26e3f21e296d27
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016887"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434328"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Gelişmiş Zamanlayıcı Özellikleri Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -151,7 +151,7 @@ Daha fazla bilgi için [benzeşimi'ni ve benzeşim karşıtlığı][k8s-affinity
 
 Mantıksal iş yüklerini yalıtmak Kubernetes Zamanlayıcı için son bir yaklaşım arası pod benzeşim veya benzeşim karşıtlığı kullanıyor. Bu pod'ları ayarları tanımlamak *olmamalıdır* zamanlanmış bir mevcut pod eşleşen bir düğüm veya bu bunlar *gereken* zamanlanmış. Varsayılan olarak, bir yineleme düğümleri arasında kümesini birden çok pod'ların zamanlamak Kubernetes Zamanlayıcı çalışır. Bu davranışı daha belirli kurallar tanımlayabilirsiniz.
 
-İyi bir örnek bir Azure önbelleği için Redis de kullanan bir web uygulamasıdır. Kubernetes Zamanlayıcı çoğaltmaları düğümlere dağıtır istemek için pod benzeşim karşıtlığı kuralları kullanabilirsiniz. Bundan sonra her web uygulaması bileşeni, karşılık gelen bir önbellek olarak aynı ana bilgisayardaki zamanlandı emin olmak için işe benzeşim kuralları de yapabilirsiniz. Pod'ların düğümleri arasında dağıtılması, aşağıdaki örnekteki gibi görünür:
+İyi bir örnek bir Azure önbelleği için Redis de kullanan bir web uygulamasıdır. Kubernetes Zamanlayıcı çoğaltmaları düğümlere dağıtır istemek için pod benzeşim karşıtlığı kuralları kullanabilirsiniz. Sonra her web uygulaması bileşeni, karşılık gelen bir önbellek olarak aynı ana bilgisayardaki zamanlandı emin olmak için benzeşim kuralları kullanabilir. Pod'ların düğümleri arasında dağıtılması, aşağıdaki örnekteki gibi görünür:
 
 | **Düğüm 1** | **Düğüm 2** | **Düğüm 3** |
 |------------|------------|------------|

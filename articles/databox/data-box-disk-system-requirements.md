@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747331"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407638"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Azure Data Box Disk sistem gereksinimleri
 
@@ -52,7 +52,7 @@ Linux istemcisi için aşağıdaki gerekli yazılımı Data Box Disk araç takı
 
 ## <a name="supported-connection"></a>Desteklenen bağlantı
 
-İstemci bilgisayar verilerini içeren bir USB 3.0 veya üzeri bir bağlantı noktası olmalıdır. Diskleri bu istemci tarafından sağlanan kablosu kullanarak bağlanın. 
+İstemci bilgisayar verilerini içeren bir USB 3.0 veya üzeri bir bağlantı noktası olmalıdır. Diskleri bu istemci tarafından sağlanan kablosu kullanarak bağlanın.
 
 ## <a name="supported-storage-accounts"></a>Desteklenen depolama hesapları
 
@@ -62,19 +62,22 @@ Data Box Disk için desteklenen depolama türlerinin bir listesi aşağıda veri
 | --- | --- |
 | Klasik | Standart |
 | Genel Amaçlı  |Standart; V1 ve V2 desteklenir. Sık ve seyrek erişimli katmanları desteklenir. |
+| BLOB Depolama hesabı | |
 
 >[!NOTE]
 > Azure Data Lake depolama Gen 2 hesapları desteklenmez.
 
 
-## <a name="supported-storage-types"></a>Desteklenen depolama türleri
+## <a name="supported-storage-types-for-upload"></a>Karşıya yükleme için desteklenen depolama türleri
 
-Data Box Disk için desteklenen depolama türlerinin bir listesi aşağıda verilmiştir.
+Data Box Disk kullanarak Azure'a karşıya için desteklenen depolama türlerinin bir listesi aşağıda verilmiştir.
 
 | **Dosya biçimi** | **Notlar** |
 | --- | --- |
 | Azure blok blobu | |
 | Azure sayfa blobu  | |
+| Azure Dosyaları  | |
+| Yönetilen Diskler | |
 
 
 ## <a name="next-step"></a>Sonraki adım

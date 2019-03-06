@@ -1,5 +1,5 @@
 ---
-title: 'Bağlantı hattı eşlemesi - sıfırlama ExpressRoute: Azure | Microsoft Docs'
+title: 'Bağlantı hattı eşlemesi - sıfırlama ExpressRoute:  Azure | Microsoft Docs'
 description: Nasıl devre dışı bırakın ve ExpressRoute devre eşlemeleri etkinleştirin.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: ad050e11c98139af00ad752f8960d55a58ca2f34
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f856753ae74b43e257cb222422f4d4eb27ee099c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132601"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404884"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>ExpressRoute devre eşlemeleri Sıfırla
 
@@ -25,6 +25,8 @@ Burada, ExpressRoute eşlemeleri sıfırlama yararlı birkaç senaryo vardır.
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell ile çalışma
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="reset-a-peering"></a>Bir eşleme Sıfırla
@@ -32,22 +34,22 @@ Burada, ExpressRoute eşlemeleri sıfırlama yararlı birkaç senaryo vardır.
 1. PowerShell'i yerel olarak çalıştırıyorsanız, PowerShell Konsolunuzu yükseltilmiş ayrıcalıklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
   ```azurepowershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 2. Birden çok Azure aboneliğiniz varsa, hesabın aboneliklerini denetleyin.
 
   ```azurepowershell-interactive
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
 3. Kullanmak istediğiniz aboneliği belirtin.
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 4. ExpressRoute devreniz almak için aşağıdaki komutları çalıştırın.
 
   ```azurepowershell-interactive
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 5. Devre dışı bırakmak veya etkinleştirmek istediğiniz eşlemeyi tanımlar. *Eşlemeler* bir dizidir. Aşağıdaki örnekte, Azure özel eşdüzey hizmet sağlama ve eşlemeler [1] Microsoft Peering eşlemeleri [0] olduğu.
 
@@ -136,7 +138,7 @@ GatewayManagerEtag               :
 
   ```azurepowershell-interactive
   $ckt.Peerings[0].State = "Disabled"
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 Eşleme, ayarladığınız bir durumda olması gerekir. 
 

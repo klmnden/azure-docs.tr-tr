@@ -8,12 +8,12 @@ ms.workload: storage-backup-recovery
 ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: b281531e76ecb73947597bb97110dc18d4e99c59
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: cf5b994146d84d92cae4591c042ed1cfbb042dee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339768"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437624"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Diskleri VMware vm'lerinin Azure'a çoğaltmanın dışında
 
@@ -38,7 +38,7 @@ Dışarıda tutmak için çok iyi adaylar olan belirli veri değişim sıklığ�
 1. Tek sanal diski iki sanal diske bölün. Bir sanal diskte işletim sistemi ve diğerinde disk belleği dosyası vardır.
 2. Disk belleği dosyasını çoğaltmanın dışında tutun.
 
-Benzer şekilde, Microsoft SQL Server tempdb dosyasına ve sistem veritabanı dosyasına sahip bir diski en iyi duruma getirmek için aşağıdaki adımları kullanabilirsiniz:
+Benzer şekilde, Microsoft SQL Server tempdb dosyasına ve sistem veritabanı dosyasına sahip bir diski en iyi duruma getirmek için aşağıdaki adımlardan yararlanabilirsiniz:
 
 1. Sistem veritabanını ve tempdb dosyasını iki farklı diskte tutabilirsiniz.
 2. Tempdb diskini çoğaltmanın dışında tutabilirsiniz.

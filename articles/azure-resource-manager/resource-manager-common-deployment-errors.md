@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: a5c08536614476de38c7bfde524a12163162bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339272"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405530"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme
 
@@ -37,7 +37,7 @@ Bu makalede bazı genel Azure dağıtım hatalarını açıklar ve hataları ç�
 | AllocationFailed | Küme veya bölge kullanılabilir kaynak yok veya istenen VM boyutu destekleyemez. Daha sonra isteği yeniden deneyin veya farklı bir VM boyutu isteyin. | [Linux için sağlama ve ayırma sorunları](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Windows için sağlama ve ayırma sorunları](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) ve [ayırma hatalarını giderme](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Eş zamanlı işlemin tamamlanmasını bekleyin. | |
 | AuthorizationFailed | Hesabınız veya hizmet sorumlusu dağıtımı tamamlamak için yeterli erişimi yok. Hesabınız için ait rolü ve dağıtım kapsamına erişim kontrol edin.<br><br>Gerekli kaynak sağlayıcısı kayıtlı değilse, bu hatayı alabilirsiniz. | [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md)<br><br>[Kayıt çözümleyin](resource-manager-register-provider-errors.md) |
-| BadRequest | Resource Manager tarafından beklenen eşleşmeyen dağıtım değerler gönderdiğiniz. Sorun giderme konusunda yardım için iç durum iletisini inceleyin. | [Şablon başvurusu](/azure/templates/) ve [desteklenen konumlar](resource-manager-templates-resources.md#location) |
+| BadRequest | Resource Manager tarafından beklenen eşleşmeyen dağıtım değerler gönderdiğiniz. Sorun giderme konusunda yardım için iç durum iletisini inceleyin. | [Şablon başvurusu](/azure/templates/) ve [desteklenen konumlar](resource-group-authoring-templates.md#resource-location) |
 | Çakışma | Kaynağın geçerli durumda izin verilmeyen bir işlem istediği. Örneğin, disk yeniden boyutlandırması yalnızca bir VM oluşturulurken veya VM serbest bırakıldığında izin verilir. | |
 | DeploymentActive | Eşzamanlı dağıtım tamamlamak için bu kaynak grubu için bekleyin. | |
 | DeploymentFailed | Hatayı çözmek için gereken Ayrıntılar sağlamaz genel bir hata DeploymentFailed hatadır. Daha fazla bilgi sağlayan bir hata kodu için hata ayrıntılarına bakın. | [Hata kodu bulun](#find-error-code) |
@@ -58,7 +58,7 @@ Bu makalede bazı genel Azure dağıtım hatalarını açıklar ve hataları ç�
 | InvalidTemplateCircularDependency | Gereksiz bağımlılıkları kaldırın. | [Döngüsel bağımlılıklar çözümleyin](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Hesabınız için dağıtıyorsanız kaynak grubu olarak aynı kiracıya ait olup olmadığını denetleyin. | |
 | LinkedInvalidPropertyId | Kaynak Kimliği bir kaynak için doğru bir şekilde çözme değil. Abonelik kimliği, kaynak grubu adı, kaynak türü, (gerekirse) üst kaynak adı ve kaynak adı da dahil olmak üzere kaynak kimliği için gerekli tüm değerleri sağlayıp sağlamadığını kontrol edebilirsiniz. | |
-| LocationRequired | Kaynağınız için bir konum sağlayın. | [Konum ayarlama](resource-manager-templates-resources.md#location) |
+| LocationRequired | Kaynağınız için bir konum sağlayın. | [Konum ayarlama](resource-group-authoring-templates.md#resource-location) |
 | MismatchingResourceSegments | Kaynak adı ve türü parçaların doğru numarasına sahip olduğundan emin iç içe olun. | [Kaynak segmentleri çözümleyin](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Kaynak sağlayıcısı kayıt durumu ve desteklenen konumlar denetleyin. | [Kayıt çözümleyin](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Aboneliğinizin kaynak sağlayıcısı ile kaydedin. | [Kayıt çözümleyin](resource-manager-register-provider-errors.md) |

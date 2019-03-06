@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 35a041216bf24a4c6ab73f9d5c3e85dff38a4501
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 423db264c8035f9b089524eb4b19a13baccdf2e0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588118"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404714"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Öğretici: Azure Data Box NFS aracılığıyla veri kopyalayın
 
@@ -40,7 +40,8 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 Seçilen depolama hesabına bağlı olarak, Data Box kadar oluşturur:
 - İlişkili her depolama hesabına GPv1 ve GPv2 için üç paylaşım.
-- Premium veya blob depolama hesabı için bir paylaşım. 
+- Premium depolama için bir paylaşım. 
+- Blob depolama hesabı için bir paylaşım. 
 
 Blok blobu ve sayfa blobu paylaşımlarının altında birinci düzeydeki varlıklar kapsayıcılar, ikinci düzeydeki varlıklar ise bloblardır. Azure Dosyaları paylaşımlarında birinci düzeydeki varlıklar paylaşımlar, ikinci düzeydeki varlıklar ise dosyalardır.
 
@@ -125,6 +126,9 @@ Linux ana bilgisayar kullanıyorsanız Robocopy ile benzer bir kopyalama yardım
      Burada j paralelleştirme sayısını, X ise paralel kopya sayısını belirtir
 
      16 paralel kopyayla başlamanızı ve kullanılabilir kaynak durumuna göre iş parçacığı sayısını artırmanızı öneririz.
+
+> [!IMPORTANT]
+> Aşağıdaki Linux dosya türlerinde desteklenmez: sembolik bağlantılar, karakter dosyası, blok dosyaları, yuva ve kanallar. Bu dosya türlerini hatalarda sonuçlanır **göndermeye hazırlama** adım.
 
 - Veri bütünlüğünü sağlamak için sağlama toplamı veri kopyalama sırasında satır içinde hesaplanır. Kopyalama tamamlandıktan sonra cihazınızdaki kullanılan alanı ve boş alanı doğrulayın.
     

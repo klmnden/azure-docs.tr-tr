@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 722fc5366d8f6863d19d09bd6e555fcc9a73d570
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 73c921df493eeda25c50047e861d3d30e6dc52a8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868128"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456491"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: Workday için otomatik kullanıcı sağlamayı yapılandırma
 
@@ -858,7 +858,7 @@ Tüm gerekli bağlantı noktalarını açmak açarak sahip olup olmadığını d
 Aracı size doğru sonuçları emin olmak için emin olun:
 
 * Sağlama Aracısı'nı yüklediğiniz sunucunun bir tarayıcı aracını açın.
-* Herhangi bir proxy veya sağlama aracınızı uygun güvenlik duvarı de bu sayfaya uygulandığından emin olun. Internet Explorer'da bu yapılabilir giderek **ayarlar -> Internet Seçenekleri -> bağlantı Lan Ayarları ->**. Bu sayfada, alanın "Kullanımı bir Proxy sunucusu için bilgisayarınızı LAN" görürsünüz. Bu kutuyu seçin ve "Address" alanına proxy adresi yerleştirin.
+* Herhangi bir proxy veya sağlama aracınızı uygun güvenlik duvarı de bu sayfaya uygulandığından emin olun. Internet Explorer'da bu yapılabilir giderek **ayarlar -> Internet Seçenekleri -> bağlantı LAN Ayarları ->**. Bu sayfada, alanın "Kullanımı bir Proxy sunucusu için bilgisayarınızı LAN" görürsünüz. Bu kutuyu seçin ve "Address" alanına proxy adresi yerleştirin.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Bir aracı sağlama, birden çok AD etki alanı sağlamak için yapılandırılabilir mi?
 
