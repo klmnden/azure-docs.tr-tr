@@ -16,19 +16,19 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d9cedd05e949d9684473d620629314a34802c1fc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a7c6bea1c45cfe704bcff9ad2d4e47a30a9780cb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977312"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439630"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines’de (Resource Manager) SQL Server için Otomatik Düzeltme Eki Uygulama
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 > * [Klasik](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
-Otomatik düzeltme eki uygulama, bir Azure sanal makinesinde SQL Server çalıştıran bir bakım penceresi oluşturur. Otomatik Güncelleştirmeler, yalnızca bu bakım penceresi sırasında yüklenebilir. SQL Server için bu rescriction sistem güncelleştirmelerini ve ilişkili tüm yeniden başlatmalar veritabanı için en iyi olası zaman gerçekleşmemesini sağlar. 
+Otomatik düzeltme eki uygulama, bir Azure sanal makinesinde SQL Server çalıştıran bir bakım penceresi oluşturur. Otomatik Güncelleştirmeler, yalnızca bu bakım penceresi sırasında yüklenebilir. SQL Server için bu kısıtlama sistem güncelleştirmelerini ve ilişkili tüm yeniden başlatmalar veritabanı için en iyi olası zaman gerçekleşmemesini sağlar. 
 
 > [!IMPORTANT]
 > Yalnızca işaretli Windows güncelleştirmelerini **önemli** yüklenir. Toplu güncelleştirmeleri gibi diğer SQL Server güncelleştirmelerini elle yüklenmesi gerekir. 

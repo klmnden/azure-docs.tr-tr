@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 0246b19c0155fe2707ac780c7acb61be424d2caf
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008940"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451000"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IOT Hub Geliştirici Kılavuzu
 
@@ -55,7 +55,7 @@ Bu IOT Hub Geliştirici kılavuzunun aşağıdaki makaleleri içerir:
 
 * [IOT hub'a erişimi denetleme](iot-hub-devguide-security.md) hem cihazlar IOT hub'ı işlevsellik için erişim verin ve bileşenleri bulut için kullanılan güvenlik modeli açıklanır. Makale belirteçleri ve X.509 sertifikaları ve izinleri size verebilir ayrıntılarını kullanma hakkında bilgi içerir.
 
-* [Durum ve yapılandırmaları eşitlemek için cihaz ikizlerini kullanma](iot-hub-devguide-device-twins.md) açıklar *cihaz ikizi* kavramı. Makale ayrıca descibes işlevi cihaz ikizleri, bir cihaz, cihaz ikizi ile eşitleme gibi kullanıma sunar. Makale, bir cihaz ikizinde depolanan veriler hakkında bilgi içerir.
+* [Durum ve yapılandırmaları eşitlemek için cihaz ikizlerini kullanma](iot-hub-devguide-device-twins.md) açıklar *cihaz ikizi* kavramı. Bu makalede, bir cihaz, cihaz ikizi ile eşitleme gibi ikizlerini kullanıma işlevi cihaz de anlatılmaktadır. Makale, bir cihaz ikizinde depolanan veriler hakkında bilgi içerir.
 
 * [Bir cihazda doğrudan yöntem çağırma](iot-hub-devguide-direct-methods.md) yaşam döngüsünü bir doğrudan yöntem açıklar. Bu makalede, arka uç uygulamanızdan bir cihaz üzerinde yöntem çağırmak ve cihazda doğrudan yöntem işlemek açıklanır.
 

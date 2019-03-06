@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b76162606c4d21cb6979d410fbaaaafc539cf403
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: b53e052182e3d775bdd3309bfd1e986c4f5896ed
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668665"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432269"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>ADFS, Azure Active Directory B2C'de özel ilkeleri kullanarak SAML kimlik sağlayıcısı olarak Ekle
 
@@ -167,7 +167,7 @@ Bir tarayıcı açın ve URL'ye gidin. Doğru URL'yi yazın ve XML meta veri dos
 10. İçinde **talep kuralı şablonu**seçin **Gönder LDAP özniteliklerini talep olarak**.
 11. Sağlayan bir **talep kuralı adı**. İçin **öznitelik deposu**seçin **seçin Active Directory**, aşağıdaki talep ekleyin ve ardından tıklayın **son** ve **Tamam**.
 
-    | LDAP attrubute | Giden talep türü |
+    | LDAP özniteliği | Giden talep türü |
     | -------------- | ------------------- |
     | Kullanıcı asıl adı | userPrincipalName |
     | Soyadı | family_name |

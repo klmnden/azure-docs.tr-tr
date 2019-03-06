@@ -16,15 +16,15 @@ ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 9157acc7517aea56f087a3dbff0fe7114f8b4c87
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c69b124f84e87e8f0b937dfa275378c376894f9b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55958814"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447209"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack Geliştirme Seti mimarisi
-Azure Stack geliştirme Seti'ni (ASDK) Azure Stack tek ana bilgisayar üzerinde çalışan tek düğümlü dağıtımıdır. Azure Stack için NAT ve VPN özellikler sağlamak için ana bilgisayarda Edge yönlendirme compontents yüklenir. Azure Stack altyapısını rolleri Hyper-V fiziksel ana bilgisayar katmanındaki çalıştırın.
+Azure Stack geliştirme Seti'ni (ASDK) Azure Stack tek ana bilgisayar üzerinde çalışan tek düğümlü dağıtımıdır. Azure Stack için NAT ve VPN özellikler sağlamak için ana bilgisayarda Edge yönlendirme bileşenleri yüklenir. Azure Stack altyapısını rolleri Hyper-V fiziksel ana bilgisayar katmanındaki çalıştırın.
 
 
 ## <a name="virtual-machine-roles"></a>Sanal makine rolleri

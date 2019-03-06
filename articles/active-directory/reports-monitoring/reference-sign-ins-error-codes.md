@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f3c50a272ef5cc0d4980cb4a623ac043d764dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f1ce786b748fedd1ec4c722b28bc11c28672c2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190917"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443411"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Oturum açma etkinlik raporundaki hata kodları 
 
@@ -79,7 +79,7 @@ Oturum açma verilerini kullanarak programlama yoluyla da erişebilir [raporlama
 |50027|Aşağıdaki nedenlerden dolayı geçersiz JWT belirteci:<ul><li>Bir kerelik anahtar talebi içermiyor, alt talep</li><li>konu tanımlayıcısı uyuşmazlığı</li><li>idToken taleplerinde yinelenen talep</li><li>beklenmeyen veren</li><li>beklenmeyen hedef kitle</li><li>geçerli zaman aralığı içinde değil </li><li>belirteç biçimi doğru değil</li><li>Verenin dış kimlik belirteci imza doğrulaması başarısız oldu.</li></ul>Uygulama sahibine başvurun|
 |50029|Geçersiz URI - etki alanı adı geçersiz karakterler içeriyor. Kiracı yöneticisine başvurun.|
 |50034|Kullanıcı dizinde yok. Kiracı yöneticinizle iletişime geçin.|
-|50042|Sorumluda ikili tanımlayıcı oluşturmak için güvenlik dizisi eklemek gerekiyor. Kiracı yöneticisine başvurun.|
+|50042|İlkesi ikili tanımlayıcısını oluşturmak için gereken güvenlik değeri eksik. Kiracı yöneticisine başvurun.|
 |50048|Konu, istemci onayındaki Veren talebi ile uyuşmuyor. Kiracı yöneticisine başvurun.|
 |50050|İstek yanlış biçimlendirilmiş. Uygulama sahibine başvurun.|
 |50053|Kullanıcı çok fazla kez yanlış kullanıcı kimliği veya parola ile oturum açmaya çalıştığı için hesap kilitlendi.|
@@ -129,7 +129,7 @@ Oturum açma verilerini kullanarak programlama yoluyla da erişebilir [raporlama
 |50180|Windows Tümleşik kimlik doğrulaması gerekli. Sorunsuz SSO için kiracıyı etkinleştirin.|
 |51001|Etki alanı ipucu şirket içi güvenlik tanımlayıcısı - şirket içi UPN ile mevcut değil.|
 |51004|Kullanıcı hesabı dizinde yok.|
-|51006|Windows Tümleşik kimlik doğrulaması gerekli. Kullanıcı, wia talebi eksik olan oturum belirtecini kullanarak oturum açtı. Kullanıcıdan yeniden oturum açmasını isteyin.|
+|51006|Windows Tümleşik kimlik doğrulaması gerekli. Talep eksik Oturum belirteci kullanarak oturum açmış kullanıcı. Kullanıcıdan yeniden oturum açmasını isteyin.|
 |52004|Kullanıcı, LinkedIn kaynaklarına erişim izni sağlamadı. |
 |53000|Koşullu Erişim ilkesi uyumlu bir cihaz gerektiriyor ve cihaz uyumlu değil. Cihazlarını Intune gibi onaylanmış bir MDM sağlayıcısıyla kullanıcı sahip.|
 |53001|Koşullu Erişim ilkesi, etki alanına katılmış bir cihaz gerektiriyor ve cihaz etki alanına katılmamış. Cihaz kullanıcı kullanmak bir etki alanına katıldı.|
@@ -138,7 +138,7 @@ Oturum açma verilerini kullanarak programlama yoluyla da erişebilir [raporlama
 |53004|Kullanıcının bu içeriğe erişmeden önce çok faktörlü kimlik doğrulaması işlemini tamamlaması gerekiyor. Kullanıcının çok faktörlü kimlik doğrulamasına kaydolması gerekir.|
 |65001|X uygulamasının Y uygulamasına erişim izni yok veya erişim izni iptal edildi. Veya Kullanıcı ya da yönetici X kimliğiyle uygulamanın kullanılmasını onaylamadı. Bu kullanıcı veya kaynak için etkileşimli yetkilendirme isteği gönderin. Veya kullanıcı veya yönetici uygulamayı uygulama adına hareket Kiracı yöneticinize bir yetkilendirme isteği kimliği Mac'inizi gönderin ile kullanmak için: Y kaynak için: Z.|
 |65004|Kullanıcı, uygulamaya erişmeyi reddetti. Kullanıcıdan oturum açmayı yeniden denemesini ve uygulamaya izin vermesini isteyin|
-|65005|Uygulamaya gereken kaynak erişim listesi, kaynak tarafından bulunabilen uygulamaları içermiyor veya İstemci uygulaması kendi gerekli kaynak erişim listesinde belirtilmemiş bir kaynağa erişim isteğinde bulundu veya Graph hizmeti hatalı istek döndürdü veya kaynak bulunamadı. Uygulama SAML desteği içeriyorsa, yanlış Tanımlayıcı (Varlık) ile uygulamayı yapılandırmış olabilirsiniz. Aşağıdaki bağlantıyı kullanarak SAML için listelenen çözümü deneyin: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
+|65005|Uygulamaya gereken kaynak erişim listesi, kaynak tarafından bulunabilen uygulamaları içermiyor veya İstemci uygulaması kendi gerekli kaynak erişim listesinde belirtilmemiş bir kaynağa erişim isteğinde bulundu veya Graph hizmeti hatalı istek döndürdü veya kaynak bulunamadı. Uygulama SAML desteği içeriyorsa, yanlış Tanımlayıcı (Varlık) ile uygulamayı yapılandırmış olabilirsiniz. Aşağıdaki bağlantıyı kullanarak SAML için listelenen çözümü deneyin: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|Aşağıdaki nedenlerden dolayı geçersiz izin:<ul><li>İstenen SAML 2.0 onay deyimi geçersiz Konu Onay Yöntemine sahip</li><li>Uygulama OnBehalfOf akışı V2’de desteklenmiyor</li><li>Birincil yenileme belirteci, oturum anahtarı ile imzalanmamış</li><li>Geçersiz dış yenileme belirteci</li><li>Farklı bir kiracı için erişim izni elde edildi.</li></ul>|
 |70001|X adlı uygulama Y adlı kiracıda bulunamadı. Tanımlayıcısı X olan uygulama, kiracının yöneticisi tarafından yüklenmediyse veya kiracıdaki herhangi bir kullanıcı tarafından onaylanmadıysa bu durum ortaya çıkabilir. Uygulama tanımlayıcısı değeri yanlış veya kimlik doğrulaması isteğinizi yanlış kiracıya göndermiş.|
 |70002|Uygulama geçersiz istemci kimlik bilgileri döndürdü. Uygulama sahibine başvurun.|

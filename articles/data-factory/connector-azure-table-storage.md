@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 32fc3f1c93261f6fb19c084f51dea4942310ac47
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7ef8f80f44c921cc1f2524351c8acb78ebd713bf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664157"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434802"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure tablo depolama ve veri kopyalamak
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -25,6 +25,8 @@ ms.locfileid: "55664157"
 > * [Geçerli sürüm](connector-azure-table-storage.md)
 
 Bu makalede, kopyalama etkinliği Azure Data Factory ve Azure tablo Depolama'dan veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliğine genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -114,15 +116,15 @@ Paylaşılan erişim imzası, depolama hesabınızdaki kaynaklara temsilci eriş
 
 > [!TIP]
 > Depolama hesabınız için hizmet paylaşılan erişim imzası oluşturmak için aşağıdaki PowerShell komutlarını yürütebilirsiniz. Yer tutucuları değiştirmeniz ve gerekli izni verin.
-> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
+> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Paylaşılan erişim imzası kimlik doğrulaması kullanmak için aşağıdaki özellikler desteklenir.
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır **AzureTableStorage**. |Evet |
-| sasUri | Paylaşılan erişim imzası URI'si tablo için SAS URI'sini belirtin. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Ayrıca, SAS belirteci leverate otomatik döndürme için Azure anahtar Kasası'nda yerleştirin ve belirteç bölümünü kaldırın. Aşağıdaki örneklere bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. | Evet |
+| sasUri | Paylaşılan erişim imzası URI'si tablo için SAS URI'sini belirtin. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Ayrıca, otomatik döndürme yararlanın ve belirteç bölümünü kaldırmak için Azure Key Vault'ta SAS belirteci koyabilirsiniz. Aşağıdaki örneklere bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. | Evet |
 | connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel bir ağda yer alıyorsa) Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanının kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 >[!NOTE]

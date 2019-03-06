@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: fff484f2ee6722083a34383b8960931cb37b8316
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 206cca95c590a01f69d3664fb87398bc2fcb4ad9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700455"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445798"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure geçişi kimlik doğrulaması ve yetkilendirme
 
@@ -29,7 +29,7 @@ Uygulamaları, Azure geçişi paylaşılan erişim imzası (SAS) kimlik doğrula
 
 [SAS kimlik doğrulaması](../service-bus-messaging/service-bus-sas.md) Azure geçişi kaynakları belirli haklarına sahip bir kullanıcı erişim sağlar. SAS kimlik doğrulaması, bir şifreleme anahtarıyla ilişkili haklar kaynakta yapılandırılmasını içerir. İstemciler bu kaynak için Kaynak URI erişilen oluşan bir SAS belirteci sunarak erişebilir ve bir süre sonu yapılandırılmış anahtarla imzalanmış.
 
-Bir geçiş ad alanı üzerinde için SAS anahtarları yapılandırabilirsiniz. Service Bus Mesajlaşma, aksine [geçişi karma bağlantıları](relay-hybrid-connections-protocol.md) yetkisiz veya anonim gönderenlerin destekler. Oluşturduğunuzda, aşağıdaki ekran görüntüsünde portaldan gösterildiği gibi varlık için anonim erişim etkinleştirebilirsiniz:
+Bir geçiş ad alanı üzerinde için SAS anahtarları yapılandırabilirsiniz. Service Bus Mesajlaşma, aksine [geçişi karma bağlantıları](relay-hybrid-connections-protocol.md) yetkisiz veya anonim gönderenlerin destekler. Oluşturduğunuzda, varlık için anonim erişim Portalı'ndan aşağıdaki ekran görüntüsünde gösterilen şekilde etkinleştirebilirsiniz:
 
 ![][0]
 

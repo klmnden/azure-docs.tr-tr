@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 7b59ab5da89d7ab99560a777f5a685f8b33e31dc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: dbaafca8692b144b0032315c0b40eb02bec0e3ff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201185"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438678"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL Öğreticisi: Bir SQL API Java konsol uygulaması oluşturma
 
@@ -87,7 +87,7 @@ Azure Portal'da Azure Cosmos DB hesabınıza gidin ve ardından **Anahtarlar**�
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![Bir Java konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan Azure Portal’ın ekran görüntüsü. Azure Cosmos DB hesabı dikey penceresinde ANAHTARLAR düğmesi vurgulanmış, ETKİN hub'ı vurgulanmış ve Anahtarlar dikey penceresinde URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir Azure Cosmos DB hesabını gösterir][keys]
+![Bir Java konsol uygulaması oluşturmak için NoSQL Öğreticisi tarafından kullanılan Azure portalının ekran görüntüsü. Azure Cosmos DB hesabı dikey penceresinde ANAHTARLAR düğmesi vurgulanmış, ETKİN hub'ı vurgulanmış ve Anahtarlar dikey penceresinde URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir Azure Cosmos DB hesabını gösterir][keys]
 
 ## <a name="step-4-create-a-database"></a>4. Adım: Veritabanı oluşturma
 Azure Cosmos DB [veritabanınız](databases-containers-items.md#azure-cosmos-databases), **DocumentClient** sınıfının [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) yöntemi kullanılarak oluşturulabilir. Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.

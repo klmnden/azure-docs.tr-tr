@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118984"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437607"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Azure sanal makineler'de yönetirken genel hata iletileri anlama
 
@@ -99,8 +99,8 @@ Bu bölümde, VM'ler yönetirken karşılaşabileceğiniz genel hata iletileri l
 |  InvalidParameter  |  "Sağlanan parola arasında olmalıdır {0}-{1} karakter uzunluğunda ve en az karşılamalıdır {2} şu parola karmaşıklık gereksinimlerinden biri: <ol><li> Bir büyük harf içerir</li><li>Bir küçük harf içerir</li><li>Sayısal hane içerir</li><li>Özel bir karakter içeriyor.</li></ol>  |
 |  InvalidParameter  |  Belirtilen Yönetici Kullanıcı Adı'na izin verilmiyor.  |
 |  InvalidParameter  |  VM bir platform veya kullanıcı görüntüsünden oluşturulduysa var olan bir İşletim Sistemi diski VM'ye bağlanamaz.  |
-|  InvalidParameter  |  Kapsayıcı adı {0} geçersiz. Kapsayıcı adları 3 ila 63 karakter uzunluğunda olmalıdır ve yalnızca küçük harf alfasayısal karakterler ve kısa çizgi içerebilir. Tire çizginin olmalı ve alfasayısal bir karakter.  |
-|  InvalidParameter  |  Kapsayıcı adı {0} URL'de {1} geçersiz. Kapsayıcı adları 3 ila 63 karakter uzunluğunda olmalıdır ve yalnızca küçük harf alfasayısal karakterler ve kısa çizgi içerebilir. Tire çizginin olmalı ve alfasayısal bir karakter.  |
+|  InvalidParameter  |  Kapsayıcı adı {0} geçersiz. Kapsayıcı adları 3 ila 63 karakter uzunluğunda olmalıdır ve yalnızca küçük harf alfasayısal karakterler ve kısa çizgi içerebilir. Kısa çizgiden önce ve bir alfasayısal karakter.  |
+|  InvalidParameter  |  Kapsayıcı adı {0} URL'de {1} geçersiz. Kapsayıcı adları 3 ila 63 karakter uzunluğunda olmalıdır ve yalnızca küçük harf alfasayısal karakterler ve kısa çizgi içerebilir. Kısa çizgiden önce ve bir alfasayısal karakter.  |
 |  InvalidParameter  |  URL'sindeki blob adı {0} bir eğik çizgi içerir. Bu diskler için şu anda desteklenmiyor.  |
 |  InvalidParameter  |  URI {0} doğru blob URI'si gibi görünmüyor.  |
 |  InvalidParameter  |  Adlı disk '{0}' zaten aynı LUN'u kullanan: {1}.  |

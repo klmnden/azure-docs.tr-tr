@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 52b52cce1e93e55563cf695f06bd7821ebcfc585
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653824"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444914"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan Apache HBase kümesi çoğaltma ayarlama
 
@@ -65,7 +65,7 @@ Yardımcı olması için ortamları ayarlama, bazı oluşturduk [Azure Resource 
 
 Şablonu sabit kodlanmış değerler bazıları:
 
-**Sanal ağ 1**
+**VNet 1**
 
 | Özellik | Değer |
 |----------|-------|
@@ -136,7 +136,7 @@ Bağlama yüklemek için aşağıdaki yordamı kullanın:
     sudo apt-get install bind9 -y
     ```
 
-3. Şirket içi DNS sunucunuzun adı çözümlemesi isteklerini iletmek için bağlama yapılandırın. Bunu yapmak için aşağıdaki metni içeriğini kullanın `/etc/bind/named.conf.options` dosyası:
+3. Bağlama üzerinde şirket içi DNS sunucunuzun adı çözümleme istekleri iletecek şekilde yapılandırın. Bunu yapmak için aşağıdaki metni içeriğini kullanın `/etc/bind/named.conf.options` dosyası:
 
     ```
     acl goodclients {
@@ -305,21 +305,21 @@ Gerekli bağımsız değişkenleri:
 |Ad|Açıklama|
 |----|-----------|
 |-s--src-küme | Kaynak HBase küme DNS adını belirtir. Örneğin: -s hbsrccluster, küme içi--src hbsrccluster = |
-|-d--dst küme | Hedef (Çoğaltma) HBase küme DNS adını belirtir. Örneğin: -s dsthbcluster, küme içi--src dsthbcluster = |
-|-sp,--src ambari parolası | Yönetici parolası, Ambari için kaynak HBase kümesi üzerinde belirtir. |
-|-dp,--dst ambari parolası | Yönetici parolası, Ambari için hedef HBase kümesi üzerinde belirtir.|
+|-d, --dst-cluster | Hedef (Çoğaltma) HBase küme DNS adını belirtir. Örneğin: -s dsthbcluster, küme içi--src dsthbcluster = |
+|-sp, --src-ambari-password | Yönetici parolası, Ambari için kaynak HBase kümesi üzerinde belirtir. |
+|-dp, --dst-ambari-password | Yönetici parolası, Ambari için hedef HBase kümesi üzerinde belirtir.|
 
 İsteğe bağlı bağımsız değişkenleri:
 
 |Ad|Açıklama|
 |----|-----------|
-|-su, ambari--src kullanıcı | Ambari için yönetici kullanıcı adı kaynak HBase kümede belirtir. Varsayılan değer **yönetici**. |
-|-,--dst ambari kullanıcı olan du | Ambari için yönetici kullanıcı adı hedef HBase kümede belirtir. Varsayılan değer **yönetici**. |
+|-su, --src-ambari-user | Ambari için yönetici kullanıcı adı kaynak HBase kümede belirtir. Varsayılan değer **yönetici**. |
+|-du, --dst-ambari-user | Ambari için yönetici kullanıcı adı hedef HBase kümede belirtir. Varsayılan değer **yönetici**. |
 |t-,--Tablo listesi | Çoğaltılacak tabloları belirtir. Örneğin:--Tablo listesi = "table1; table2; Tablo3". Tabloları belirtmezseniz, tüm mevcut HBase tablolarını çoğaltılır.|
-|m-,--makine | Betik eylemi çalıştığı baş düğüm belirtir. Değerin geçerli **hn0** veya **hn1** ve seçilen etkin baş düğümü olduğu bağlı olmalıdır. 0 ABD Doları betiği HDInsight portalı ya da Azure PowerShell betik eylemi çalıştırıyorsanız bu seçeneği kullanın.|
+|-m, --machine | Betik eylemi çalıştığı baş düğüm belirtir. Değerin geçerli **hn0** veya **hn1** ve seçilen etkin baş düğümü olduğu bağlı olmalıdır. 0 ABD Doları betiği HDInsight portalı ya da Azure PowerShell betik eylemi çalıştırıyorsanız bu seçeneği kullanın.|
 |-TP, - copydata | Çoğaltma etkin olduğu tablolarda mevcut verilerin geçişini sağlar. |
 |-rpm, - çoğaltma-phoenix-meta | Phoenix tablolarındaki çoğaltmayı etkinleştirir. <br><br>*Bu seçeneği dikkatli kullanın.* Bu betik kullanmadan önce Phoenix tablolarda çoğaltma kümelerini yeniden oluşturmanızı öneririz. |
-|-h,--Yardım | Kullanım bilgilerini görüntüler. |
+|-h, --help | Kullanım bilgilerini görüntüler. |
 
 `print_usage()` Bölümünü [betik](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) parametrelerinin ayrıntılı bir açıklama sahiptir.
 

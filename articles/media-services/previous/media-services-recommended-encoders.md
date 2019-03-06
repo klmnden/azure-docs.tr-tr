@@ -9,15 +9,15 @@ ms.author: johndeu
 ms.date: 02/09/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: f07b2d128bd770854b7c240fd3c964d880029d3c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76c5c5d90045e1697f698895e522ffda47d47565
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999020"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447730"
 ---
 # <a name="recommended-on-premises-encoders"></a>Önerilen şirket içi kodlayıcılar
-Canlı, Azure Media Services ile akış, giriş akışını almak için kanal nasıl istediğinizi belirtebilirsiniz. Canlı kodlama kanal ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, kodlayıcınız çıktı olarak bir yüksek kaliteli tek bit hızında akışa anında iletme. Bir geçiş kanalı üzerinden ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, tüm istenen çıkış kalitelerini çıktı olarak kodlayıcınız Çoklu bit hızında akışa anında. Daha fazla bilgi için [şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md).
+Canlı, Azure Media Services ile akış, giriş akışını almak için kanal nasıl istediğinizi belirtebilirsiniz. Canlı kodlama kanal ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, kodlayıcınız çıktı olarak bir yüksek kaliteli tek bit hızında akışa anında iletme. Bir geçiş kanalı üzerinden ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, tüm istenen çıkış kalitelerini çıktı olarak kodlayıcınız Çoklu bit hızında akışa anında. Daha fazla bilgi için [şirket içi kodlayıcılarda Canlı üzerinde akış](media-services-live-streaming-with-onprem-encoders.md).
 
 Azure Media Services, gerçek zamanlı kodlayıcılar RTMP çıktısı olarak olan aşağıdaki birini kullanarak önerir:
 - Adobe Flash Media Live Encoder 3.2
@@ -44,8 +44,8 @@ Azure Media Services, Çoklu bit hızlı parçalanmış-MP4 (kesintisiz akış) 
 > [!NOTE]
 > Gerçek zamanlı bir kodlayıcı tek bit hızında akışa bir geçiş kanalı üzerinden gönderebilir, ancak bit hızı Uyarlamalı akış için bir istemci için izin vermediğinden bu yapılandırma önerilmez.
 
-## <a name="how-to-become-an-on-prem-encoder-partner"></a>Nasıl bir şirket içi Kodlayıcı iş ortağı
-Bir Azure Media Services şirket içi Kodlayıcı iş ortağı olarak, Media Services, kurumsal müşterilere kodlayıcınız önererek ürününüzü yükseltir. Bir şirket içi Kodlayıcı iş ortağı için Uyumluluk, şirket içi Kodlayıcı, Media Services ile doğrulamanız gerekir. Bunu yapmak için aşağıdaki Doğrulamalar tamamlayın:
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Nasıl bir şirket içi Kodlayıcı iş ortağı olun
+Şirket içi Kodlayıcı ortak bir Azure Media Services Media Services, kurumsal müşterilere kodlayıcınız önererek ürününüzü yükseltir. Bir şirket içi Kodlayıcı iş ortağı olmak için Uyumluluk, şirket içi Kodlayıcı, Media Services ile doğrulamanız gerekir. Bunu yapmak için aşağıdaki Doğrulamalar tamamlayın:
 
 Kanal doğrulama geçirin
 1. Oluşturun veya Azure Media Services hesabınızı ziyaret edin

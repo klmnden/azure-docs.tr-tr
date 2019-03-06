@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3df48fd42ca998e2a64f2fbe685047da16a8bae7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5f6fcc4d2920841c730ef179497f9184b1f6649d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193500"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451969"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Öğretici: Syncplicity ile Azure Active Directory Tümleştirme
 
@@ -206,7 +206,7 @@ AAD kullanıcıları oturum açabilmesi bunlar Syncplicity uygulama sağlanmalı
    
     ![Kullanıcıları Yönet](./media/syncplicity-tutorial/ic769764.png "kullanıcıları yönetme")
 
-1. Tür **e-posta addressess** seçin, sağlamak istediğiniz bir AAD hesabı **kullanıcı** olarak **rol**ve ardından **sonraki**.
+1. Tür **e-posta adreslerini** seçin, sağlamak istediğiniz bir AAD hesabı **kullanıcı** olarak **rol**ve ardından **sonraki**.
    
     ![Hesap bilgileri](./media/syncplicity-tutorial/ic769765.png "hesap bilgileri")
    

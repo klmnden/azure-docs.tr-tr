@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014905"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432711"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Azure Data Factory ile Data Factory sürüm 1'in karşılaştırılması
 Bu makale Data Factory ile Data Factory sürüm 1’i karşılaştırır. Data Factory hakkında giriş bilgileri için bkz. [Data Factory'ye giriş](introduction.md).Data Factory sürüm 1 hakkında giriş bilgileri için bkz. [Azure Data Factory'ye Giriş](v1/data-factory-introduction.md). 
@@ -116,9 +116,9 @@ Daha fazla bilgi için bkz. [Data Factory ve sürüm 1’de özel etkinlikler ar
 ## <a name="sdks"></a>SDK’lar
  Data Factory'nin geçerli sürümü işlem hatlarını yazmak, yönetmek ve izlemek için kullanılabilen daha geniş SDK seçenekleri sunar.
 
-- **.NET SDK'SI**: .NET SDK'ın geçerli sürümünde güncelleştirilir.
+- **.NET SDK**: .NET SDK'ın geçerli sürümünde güncelleştirilir.
 
-- **PowerShell**: Geçerli sürümde PowerShell cmdlet'leri güncelleştirildi. Cmdlet'ler geçerli sürümü için olan **DataFactoryV2** adında, örneğin: Get-AzureRmDataFactoryV2. 
+- **PowerShell**: Geçerli sürümde PowerShell cmdlet'leri güncelleştirildi. Cmdlet'ler geçerli sürümü için olan **DataFactoryV2** adında, örneğin: Get-AzDataFactoryV2. 
 
 - **Python SDK'sı**: Bu SDK'ın geçerli sürümünde yenidir.
 

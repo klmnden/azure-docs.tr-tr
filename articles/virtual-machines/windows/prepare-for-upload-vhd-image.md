@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: b5e3e84ce8f8b4b364b2fa69dda0b0091db25b6d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: f64f2cafb15a6cae71c304282e1fe6bd9231ef71
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329788"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432932"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX yüklemek için hazırlama
 Bir Windows sanal makinelerine (VM) şirket içi Microsoft Azure'ı yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure'un destekledikleri **yalnızca 1. kuşak Vm'leri** VHD dosyası biçiminde ve sabit boyutlu bir diske sahip. VHD için izin verilen boyut 1,023 GB'dir. Nesil 1 VM'den VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [oluşturmalıyım 1 veya 2. nesil Hyper-v VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -338,7 +338,7 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
 ### <a name="install-windows-updates"></a>Windows güncelleştirmeleri yükle
 İdeal Yapılandırması **makineyi en son düzeltme eki düzeyine sahip**. Bu mümkün değilse, aşağıdaki güncelleştirmelerinin yüklendiğinden emin olun:
 
-| Bileşen               | İkili         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8,Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 sürümü 1607Windows Server 2016 sürüm 1607'ye | Windows 10 Sürüm 1703    | Windows 10 1709 Windows Server 2016 sürüm 1709 | Windows 10 1803Windows Server 2016 sürümü 1803 |
+| Bileşen               | İkili         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8,Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 sürüm 1607'ye Windows Server 2016 sürüm 1607'ye | Windows 10 Sürüm 1703    | Windows 10 1709 Windows Server 2016 sürüm 1709 | Windows 10, 1803 Windows Server 2016 sürümü 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Depolama                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | Storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |

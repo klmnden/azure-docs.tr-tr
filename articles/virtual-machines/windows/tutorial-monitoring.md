@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cf39639c6b9e20337412b7b071f6d6840904ba6c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4f10a1ae406ab8a560051ac6305df8f8f9fbbd7b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738224"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438644"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Öğretici: İzleme ve azure'da Windows sanal makinesi güncelleştirme
 
@@ -68,7 +68,7 @@ Kaynakların ve sanal makinenin oluşturulması birkaç dakika sürer.
 
 ## <a name="view-boot-diagnostics"></a>Önyükleme tanılamasını görüntüleme
 
-Windows sanal makinelerinin önyüklemesi yapıldığında, önyükleme tanılama aracısı sorun giderme amacıyla kullanılabilecek bir ekran çıktısı yakalar. Bu özellik varsayılan olarak etkindir. Yakalanan ekran görüntüleri, yine varsayılan olarak oluşturulan bir Azure depolama hesabında depolanır.
+Windows sanal makinelerinin önyüklemesi yapıldığında, önyükleme tanılama aracısı sorun giderme amacıyla kullanılabilecek bir ekran çıktısı yakalar. Bu özellik varsayılan olarak etkindir. Yakalanan ekran görüntüleri de varsayılan olarak oluşturulan bir Azure depolama hesabında depolanır.
 
 Önyükleme tanılama verilerini [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/az.compute/get-azvmbootdiagnosticsdata) komutuyla alırsınız. Aşağıdaki örnekte, önyükleme tanılamaları *c:\* sürücüsünün kök dizinine indirilir.
 

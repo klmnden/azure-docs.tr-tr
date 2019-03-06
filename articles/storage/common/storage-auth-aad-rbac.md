@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 19a4f8fc41ed4d6850f114e19f49f239befe08d0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242658"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431865"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Azure kapsayıcılar ve RBAC ile kuyrukları (Önizleme) Azure portalında erişim izni ver
 
@@ -62,16 +62,16 @@ Burada gösterilen yordam, bir kapsayıcı için kapsamlı bir rolü atar, ancak
 1. Rol atamak istediğiniz kapsayıcıyı bulun ve kapsayıcının ayarları görüntüleyin. 
 1. Seçin **erişim denetimi (IAM)** kapsayıcısı için erişim denetimi ayarlarını görüntülemek için. Seçin **rol atamaları** rol atamaları listesini görmek için sekmesinde.
 
-    ![Ekran görüntüsü kapsayıcı erişim denetimi ayarları](media/storage-auth-aad-rbac/portal-access-control-container.png)
+    ![Kapsayıcı erişim denetimi ayarları gösteren ekran görüntüsü](media/storage-auth-aad-rbac/portal-access-control-container.png)
 
 1. Tıklayın **rol ataması Ekle** düğmesini yeni bir rolü ekleyin.
 1. İçinde **rol ataması Ekle** penceresinde, atamak istediğiniz Azure depolama rolü seçin. Ardından bu role atamak istediğiniz güvenlik sorumlusu bulmak üzere arama yapın.
 
-    ![Bir RBAC rolünün nasıl atanacağını gösteren ekran görüntüsü](media/storage-auth-aad-rbac/add-rbac-role.png)
+    ![Bir RBAC rolü atayın gösteren ekran görüntüsü](media/storage-auth-aad-rbac/add-rbac-role.png)
 
 1. **Kaydet**’e tıklayın. Rol atanmış kimliği bu rolü altında listelenen görünür. Örneğin, aşağıdaki görüntüde eklenen kullanıcı artık adlı kapsayıcıyı verilere Okuma izinleri olmasına gösterilmektedir *örnek kapsayıcı*.
 
-    ![Ekran görüntüsü gösteren bir role atanmış kullanıcıların listesi](media/storage-auth-aad-rbac/container-scoped-role.png)
+    ![Ekran gösteren bir role atanmış kullanıcıların listesi](media/storage-auth-aad-rbac/container-scoped-role.png)
 
 Depolama hesabı, kaynak grubu veya abonelik kapsamında bir rol atamak için benzer adımları izleyebilirsiniz.
 

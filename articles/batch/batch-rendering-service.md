@@ -6,18 +6,18 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bc8c96345aeb1886696326edd230666ac8b6c41d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: dbe3fe59fd2674cf3475fc5b589a2c938e706ab2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542223"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441347"
 ---
 # <a name="rendering-using-azure"></a>Azure ile işleme
 
 İşleme, 3B modelleri almak ve bunları 2B görüntülere dönüştürme işlemidir. 3B Sahne dosyaları yazılan uygulamalardaki gibi Autodesk 3ds Max, Autodesk Maya ve Blender'ı.  Autodesk Maya ve Autodesk Arnold, Chaos Group V-Ray ve Blender döngüleri gibi işleme uygulamalarını 2B görüntüleri oluşturur.  Bazen tek bir görüntü Sahne dosyaları oluşturulur. Ancak, model ve birden çok görüntülerin ve animasyon birleştirip sonra yaygındır.
 
-İşleme iş yükü, medya ve eğlence sektöründe (VFX) özel efekt için yoğun olarak kullanılır. İşleme, reklam, perakende, Petrol ve gaz ve üretim gibi diğer birçok industires da kullanılıyor.
+İşleme iş yükü, medya ve eğlence sektöründe (VFX) özel efekt için yoğun olarak kullanılır. İşleme, reklam, perakende, Petrol ve gaz ve üretim gibi diğer birçok sektörle da kullanılıyor.
 
 İşlem bakımından yoğun işleme işlemidir; üretmek için birçok çerçeve/görüntülerinden olabilir ve her bir görüntü oluşturmak için saatler sürebilir.  İşleme, bu nedenle birçok işleme paralel olarak çalıştırmak için Azure ve Azure Batch yararlanabilen bir mükemmel toplu işleme iş yüküne sahiptir.
 

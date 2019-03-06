@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 094f706878b82956398cd08100b3daf76b9f6cbc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ddde1570534801d394ace23973e4d755a1af7017
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203802"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443224"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux üzerinde ilk Java Service Fabric Reliable Actors uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -243,7 +243,7 @@ Aktörler kendi başına hiçbir şey yapmaz; başka bir hizmet veya istemcinin 
     watch -n 1 ./testclient.sh
     ```
 
-2. Service Fabric Explorer’da actor hizmetinin birincil çoğaltmasını barındıran düğümü bulun. Aşağıdaki ekran görüntüsünde düğüm 3’tür. Birincil hizmet çoğaltması okuma ve yazma işlemlerini işler.  Daha sonra, hizmet durumundaki değişiklikler, aşağıdaki ekran görüntüsünde görülen 0 ve 1 düğümlerinde çalışan ikincil çoğaltmalara çoğaltılır.
+2. Service Fabric Explorer’da actor hizmetinin birincil çoğaltmasını barındıran düğümü bulun. Aşağıdaki ekran görüntüsünde düğüm 3’tür. Birincil hizmet çoğaltması okuma ve yazma işlemlerini işler.  Hizmet durumundaki değişiklikler ardından kullanıma 0 ve aşağıdaki ekran görüntüsünde 1 düğümlerinde çalışan ikincil çoğaltmalara çoğaltılır.
 
     ![Service Fabric Explorer’da birincil çoğaltmayı bulma][sfx-primary]
 

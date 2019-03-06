@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 2/18/2019
-ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bd1cb101a3bf9a4da9c681169d2a5c999e56b1b3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340187"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438423"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure Veri Gezgini veri alımı
 

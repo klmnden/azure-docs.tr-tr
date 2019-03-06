@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 97632ad27a09451f47012dfb7bbc9d406cd37c89
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c26f3d6c3b34ed90a5455bb94ea71d7556b47751
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879267"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441976"
 ---
 # <a name="what-is-language-understanding-luis"></a>Language Understanding (LUIS) nedir?
 
@@ -104,7 +104,7 @@ En çok kullanılan LUIS istemci uygulamaları şunlardır:
 * [Web uygulaması botu](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0), kullanıcıyla metin girişi aracılığıyla konuşmak için hızlıca LUIS destekli bir sohbet botu oluşturur. Eksiksiz bot deneyimi için [Bot Framework][bot-framework] sürüm [3.x](https://github.com/Microsoft/BotBuilder) veya [4.x](https://github.com/Microsoft/botbuilder-dotnet) kullanır.
 
 LUIS'i hızlı ve kolay bir şekilde botla birlikte kullanmanızı sağlayacak uygulamalar:
-* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) NPM paketi tek başına komut satırı saracı olarak veya içeri aktarma aracılığıyla içerik oluşturma ve tahmin özellikleri sunar. 
+* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) NPM paketi, yazma ve içeri aktarma olarak veya bir tek başına komut satırı aracı ile tahmini sağlar. 
 * [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) LUISGen, dışarı aktarılan bir LUIS modelinden ayrıntılı C# ve typescript kaynak kodu yazmak için kullanılan bir araçtır.
 * [Gönderme](https://aka.ms/dispatch-tool), çeşitli LUIS ve Soru-Cevap Oluşturma uygulamalarının gönderme modelini kullanan bir üst uygulamadan kullanılmasını sağlar.
 * [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown, botunuz için dil modellerini yönetmenize yardımcı olan bir komut satırı aracıdır.

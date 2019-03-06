@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c0caece57885dfa3c26d368990a6af8e5b14eed6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824003"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441398"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Bir Azure sanal makinesini stok toplama ile yönetme
 
@@ -105,7 +105,7 @@ Listeden bir makine grubu seçerek makine grupları sayfası açılır. Bu sayfa
 
 Tıklayın **+ kopya** makine grubu kopyalamak için düğme. Burada, gruba yeni bir ad ve diğer grup için vermeniz gerekir. Tanımı, şu anda değiştirilebilir. Sorgu tuşuna değiştirdikten sonra **doğrulama sorgu** seçildikten makineler önizlemek için. Grupla hazır olduğunuzda tıklayın **Oluştur** makine grubu oluşturmak için
 
-Yeni bir mchine grubu oluşturmak istiyorsanız seçin **+ makine grubu oluştur**. Bu düğme açar **bir makine grubu sayfası oluşturma** nerede tanımlayabilirsiniz, yeni grup. Tıklayın **Oluştur** grubu oluşturmak için.
+Yeni bir makine grubu oluşturmak istiyorsanız seçin **+ makine grubu oluştur**. Bu düğme açar **bir makine grubu sayfası oluşturma** nerede tanımlayabilirsiniz, yeni grup. Tıklayın **Oluştur** grubu oluşturmak için.
 
 ![Yeni bir makine grubu oluştur](./media/automation-vm-inventory/create-new-group.png)
 

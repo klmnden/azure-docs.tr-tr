@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 70aa49cf15b095697eb00cc2a0b8e6dfd2e07546
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 62d17670a068304e0764c85d49da0aa9a736c477
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240487"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444448"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Azure’da Ubuntu sanal makinesi hazırlama
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -125,6 +125,16 @@ Bu makalede, bir sanal sabit diske bir Ubuntu Linux işletim sistemi zaten yükl
     >[!Note]
     `walinuxagent` Paketini kaldırmak `NetworkManager` ve `NetworkManager-gnome` yüklenmişlerse paketler.
 
+Azure veri kaynağı için ubuntu 18.04/18.10, güncelleştirme, bu düzen: /etc/cloud/cloud.cfg.d/90-azure.cfg, bu kod dosyasının sonuna ekleyin:
+
+**Önemli: kod alanları dahil olmak üzere, gösterildiği gibi tam olarak eklenmesi gerekir.**
+
+```bash
+datasource:
+   Azure:
+     agent_command: [service, walinuxagent, start]
+```
+
 8. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
    
         # sudo waagent -force -deprovision
@@ -138,7 +148,4 @@ Bu makalede, bir sanal sabit diske bir Ubuntu Linux işletim sistemi zaten yükl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Artık Azure'da yeni sanal makineler oluşturmak için Ubuntu Linux sanal sabit diski kullanmaya hazırsınız. Bu Azure'a .vhd dosyasını karşıya ilk kez kullanıyorsanız, bkz. [bir özel diskten Linux VM oluşturma](upload-vhd.md#option-1-upload-a-vhd).
-
-
-
 

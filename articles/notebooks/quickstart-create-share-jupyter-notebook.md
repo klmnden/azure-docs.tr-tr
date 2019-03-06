@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 96eb6a823299521a071edc87b5bce95409405ffb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3e9850a40d949ce09e9c44a6b4b63a1f58259e7a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096282"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447141"
 ---
-# <a name="quickstart-create-and-share-a-notebook"></a>Hızlı Başlangıç: Oluşturma ve bir not defteri paylaşın
+# <a name="quickstart-create-and-share-a-notebook"></a>Hızlı Başlangıç: Not defteri oluşturma ve paylaşma
 
 1. Git [Azure not defterleri](https://notebooks.azure.com) ve oturum açın. (Ayrıntılar için bkz [hızlı başlangıç - Azure not defterleri için oturum açma](quickstart-sign-in-azure-notebooks.md)).
 
@@ -34,7 +34,7 @@ ms.locfileid: "53096282"
 
 1. İçinde **yeni proje oluştur** görünen açılan girin veya aşağıdaki bilgileri ayarlayın ve ardından **Oluştur**:
 
-    - **Proje adı**: Hello World python'da
+    - **Proje adı**: Python dilinde Merhaba Dünya
     - **Proje kimliği**: hello-world-python
     - **Genel proje**: (Seçili)
     - **Bir Benioku.MD oluşturma**: (Seçili)
@@ -83,7 +83,7 @@ ms.locfileid: "53096282"
     print(msg)
     ```
 
-1. Seçin **çalıştırma** (klavye kısayolu: SHIFT + Enter) kodu çalıştırmak için. Bir hücrede aşağıdaki metne benzer başarılı bir çıktı görmeniz gerekir:
+1. Seçin **çalıştırma** (klavye kısayolu: Shift + kodu çalıştırmak için Enter). Bir hücrede aşağıdaki metne benzer başarılı bir çıktı görmeniz gerekir:
 
     ```output
     Hello, Azure Notebooks! Today is Thursday, 15 November, 2018
@@ -93,7 +93,7 @@ ms.locfileid: "53096282"
 
     ![Jupyter not defteri araç Kaydet simgesine](media/quickstarts/hello-results-save-icon.png)
 
-1. Seçin **dosya** > **durdurmak ve Kapat** tarayıcı penceresini kapatın ve sunucuyu durdurmak için menü komutu.
+1. Seçin **dosya** > **Kapat ve Durdur** tarayıcı penceresini kapatın ve sunucuyu durdurmak için menü komutu.
 
 ## <a name="share-the-notebook"></a>Not defterini paylaşın
 

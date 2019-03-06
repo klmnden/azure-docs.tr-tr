@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 70d1e08b1b81fd3aba159e18de3ee8829bc36548
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 600b2796f1cca5d6ac2c478a5eb30e12f30b670a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331019"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449759"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma
 
@@ -103,7 +103,7 @@ HDInsight Spark kümeleri içerir [Apache Zeppelin](https://zeppelin.apache.org/
     ![Yorumlayıcı başlatma](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive çıkış")
 1. Livy yorumlayıcı ayarlarına gidin ve ardından **yeniden**.
    
-    ![Livy intepreter yeniden](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin intepreter yeniden başlatın")
+    ![Livy yorumlayıcısını yeniden](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin yorumlayıcısını yeniden başlatın")
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Not Defteri ile dış paketleri nasıl kullanabilirim?
 Dahil edilen çıkış,-hazır kümede olmayan harici, topluluk tarafından katkıda bulunulan paketlerini kullanmak için (Linux) HDInsight üzerinde Apache Spark kümesinde Zeppelin not defteri yapılandırabilirsiniz. Arama yapabilirsiniz [Maven deposu](https://search.maven.org/) kullanılabilir paketler tam listesi için. Ayrıca, diğer kaynaklardan kullanılabilir paketler listesini alabilirsiniz. Örneğin, topluluk tarafından katkıda bulunulan paketlerin tam bir listesi kullanılabilir [Spark paketleri](https://spark-packages.org/).
@@ -150,7 +150,7 @@ Böyle bir durumda Zeppelin not defterinden çalışan işler başlamadan önce 
     ![Yorumlayıcı başlatma](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive çıkış")
 1. Livy yorumlayıcı ayarlarına gidin ve ardından **yeniden**.
    
-    ![Livy intepreter yeniden](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin intepreter yeniden başlatın")
+    ![Livy yorumlayıcısını yeniden](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin yorumlayıcısını yeniden başlatın")
 1. Mevcut bir Zeppelin not defterinden bir kod hücresi çalıştırın. Bu, HDInsight kümesinde yeni bir Livy oturumu oluşturur.
 
 ## <a name="seealso"></a>Ayrıca bkz.

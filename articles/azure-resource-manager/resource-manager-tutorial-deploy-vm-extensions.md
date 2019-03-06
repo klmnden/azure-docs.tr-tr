@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9361c8b17d1b43b4ef63aca6ab4660571efddcde
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a1df94c7157823a4d7dcdcf652b1c7c926f4dbba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492812"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406516"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Öğretici: Sanal makine uzantıları Azure Resource Manager şablonları ile dağıtma
 
@@ -108,7 +108,7 @@ Aşağıdaki içeriği kullanarak var olan şablona bir sanal makine uzantısı 
 
 Bu kaynak tanımı hakkında daha fazla bilgi için bkz: [uzantı başvurusu](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Önemli öğeler şunlardır:
 
-* **Ad**: Uzantı kaynak sanal makine nesnesini alt kaynak olduğundan, adın sanal makine adı ön eki olmalıdır. Bkz. [Alt kaynaklar](./resource-manager-templates-resources.md#child-resources).
+* **Ad**: Uzantı kaynak sanal makine nesnesini alt kaynak olduğundan, adın sanal makine adı ön eki olmalıdır. Bkz. [Alt kaynaklar](./resource-group-authoring-templates.md#child-resources).
 * **dependsOn**: Sanal makineyi oluşturduktan sonra uzantı kaynağını oluşturun.
 * **fileUris**: Komut dosyalarının depolandığı konumu. Belirtilen konum kullanmayı tercih ederseniz değerleri güncelleştirmeniz gerekiyor.
 * **commandToExecute**: Bu komut, komut dosyasını çağırır.  

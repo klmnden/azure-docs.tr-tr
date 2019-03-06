@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 76b0d1728b46834270e9a5b53709de62b4a8b3fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cc1a0905c97e76c481283363f095087b5fdcba3f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429387"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455862"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>PowerShell ile Azure Data factory'de bir paylaşılan şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma
 
@@ -30,9 +30,11 @@ Bu adım adım kılavuz, Azure PowerShell kullanarak Azure Data Factory'de bir p
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure aboneliği**. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/). 
 
-- **Azure PowerShell**. Bölümündeki yönergeleri [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.11.0). Diğer veri fabrikaları ile paylaşılabilen bir şirket içinde barındırılan tümleştirme çalışma zamanı oluşturmak için bir betik çalıştırmak için PowerShell kullanın. 
+- **Azure PowerShell**. Bölümündeki yönergeleri [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps). Diğer veri fabrikaları ile paylaşılabilen bir şirket içinde barındırılan tümleştirme çalışma zamanı oluşturmak için bir betik çalıştırmak için PowerShell kullanın. 
 
 > [!NOTE]  
 > Data Factory kullanılabildiği şu anda Azure bölgelerinin listesi için üzerinde ilgilendiğiniz bölgeleri seçin [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -65,8 +67,8 @@ Bu adım adım kılavuz, Azure PowerShell kullanarak Azure Data Factory'de bir p
 1. Oturum açın ve bir abonelik seçin. Açıp Azure aboneliğinizi seçmek için betiğe aşağıdaki kodu ekleyin:
 
     ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Connect-AzAccount
+    Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
 1. Bir kaynak grubu ve veri fabrikası oluşturun.
@@ -74,16 +76,16 @@ Bu adım adım kılavuz, Azure PowerShell kullanarak Azure Data Factory'de bir p
     > [!NOTE]  
     > Bu adım isteğe bağlıdır. Veri Fabrikası zaten varsa bu adımı atlayın. 
 
-    Oluşturma bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) kullanarak [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0) komutu. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnekte adlı bir kaynak grubu oluşturur `myResourceGroup` WestEurope konumda: 
+    Oluşturma bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) kullanarak [yeni AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azurermps-6.11.0) komutu. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnekte adlı bir kaynak grubu oluşturur `myResourceGroup` WestEurope konumda: 
 
     ```powershell
-    New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
+    New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
     ```
 
     Veri fabrikası oluşturmak için aşağıdaki komutu çalıştırın: 
 
     ```powershell
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
                              -Location $DataFactoryLocation `
                              -Name $SharedDataFactoryName
     ```
@@ -96,7 +98,7 @@ Bu adım adım kılavuz, Azure PowerShell kullanarak Azure Data Factory'de bir p
 Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturmak için aşağıdaki komutu çalıştırın:
 
 ```powershell
-$SharedIR = Set-AzureRmDataFactoryV2IntegrationRuntime `
+$SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `
@@ -109,7 +111,7 @@ $SharedIR = Set-AzureRmDataFactoryV2IntegrationRuntime `
 Şirket içinde barındırılan tümleştirme çalışma zamanı için kimlik doğrulama anahtarı almak için aşağıdaki komutu çalıştırın:
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeKey `
+Get-AzDataFactoryV2IntegrationRuntimeKey `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName
@@ -133,7 +135,7 @@ Bu şirket içinde barındırılan tümleştirme çalışma zamanı için kimlik
 > Bu adım isteğe bağlıdır. Paylaşmak istediğiniz bir veri fabrikası zaten varsa bu adımı atlayın.
 
 ```powershell
-$factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+$factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
@@ -145,7 +147,7 @@ Oluşturulan ve kaydettirilen şirket içinde barındırılan tümleştirme çal
 > Bu adımı atlayın değil!
 
 ```powershell
-New-AzureRMRoleAssignment `
+New-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId ` #MSI of the Data Factory with which it needs to be shared
     -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' ` #This is the Contributor role
     -Scope $SharedIR.Id
@@ -156,7 +158,7 @@ New-AzureRMRoleAssignment `
 Bir bağlı şirket içinde barındırılan tümleştirme çalışma zamanı oluşturmak için aşağıdaki komutu çalıştırın:
 
 ```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime `
+Set-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $LinkedDataFactoryName `
     -Name $LinkedIntegrationRuntimeName `
@@ -172,7 +174,7 @@ Artık bu bağlantılı tümleştirme çalışma zamanı içinde herhangi bir ba
 Bir data factory paylaşılan tümleştirme çalışma zamanı tarafından erişim iptal etmek için aşağıdaki komutu çalıştırın:
 
 ```powershell
-Remove-AzureRMRoleAssignment `
+Remove-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId `
     -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' `
     -Scope $SharedIR.Id
@@ -181,7 +183,7 @@ Remove-AzureRMRoleAssignment `
 Mevcut bağlantılı tümleştirme çalışma zamanını kaldırmak için paylaşılan tümleştirme çalışma zamanının karşı aşağıdaki komutu çalıştırın:
 
 ```powershell
-Remove-AzureRmDataFactoryV2IntegrationRuntime `
+Remove-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `

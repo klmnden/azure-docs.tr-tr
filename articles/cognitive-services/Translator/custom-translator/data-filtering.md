@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
-ms.openlocfilehash: 5fab0446fe28cc279a732f48ca7560792f611e86
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 46af936cc479770fe5db8085106c9da310a9717e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731489"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452411"
 ---
 # <a name="data-filtering"></a>Veri filtreleme
 
@@ -23,7 +23,7 @@ ms.locfileid: "56731489"
 ## <a name="sentence-alignment"></a>Tümce hizalama
 Belgenizi XLIFF, TMX veya HİZALA biçiminde değilse, kaynak ve hedef belgelerinizi, birbiriyle tümce tümce cümleleri özel Translator hizalar. Translator belge hizalama gerçekleştirmez: başka bir dilde, eşleşen belge bulmak için belgelerin adlandırma izler. Belgenin içinde özel Translator karşılık gelen cümlenin başka bir dilde bulmayı dener. Belge kullanan katıştırılmış HTML gibi biçimlendirme etiketleri ile aynı doğrultuda yardımcı olmak için.  
 
-Kaynak cümlelerde sayısı arasında büyük bir tutarsızlık bakın ve hedef tarafı belgeleri, belgenizi ilk başta, veya diğer nedenlerle de alignable paralel olmuş olabilir. Belge ile büyük bir fark çiftlerini (> % 10) Her iki taraftaki tümcelerin bunlar gerçekten paralel olduğunuzdan emin olmak için ikinci bir görünüm isteyebilirsiniz. Tümce sayısı gecikmeleri anormal biçimde farklıysa, özel Translator belgenin yanında bir uyarı gösterir.  
+Kaynak cümlelerde sayısı arasında büyük bir tutarsızlık bakın ve hedef tarafı belgeleri, belgenizi ilk başta paralel olmuş olabilir veya diğer nedenlerle hizalı uygulanamadı. Belge ile büyük bir fark çiftlerini (> % 10) Her iki taraftaki tümcelerin bunlar gerçekten paralel olduğunuzdan emin olmak için ikinci bir görünüm isteyebilirsiniz. Tümce sayısı gecikmeleri anormal biçimde farklıysa, özel Translator belgenin yanında bir uyarı gösterir.  
 
 
 ## <a name="deduplication"></a>Yinelenenleri kaldırma

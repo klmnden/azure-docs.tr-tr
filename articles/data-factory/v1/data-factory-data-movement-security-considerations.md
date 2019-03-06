@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 197762255a1a693821b8416227b4abf52755eb31
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0d601df7914b7280de4b3c16c8b00c96cb5427e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015755"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435993"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - veri taşıma için güvenlik konuları
 
@@ -45,6 +45,8 @@ Bu makalede, biz aşağıdaki iki veri taşıma senaryolarda güvenlik konuları
 
 - **Bulut senaryosu**-hem kaynak hem de hedef Bu senaryoda, internet üzerinden genel olarak erişilebilir. Bunlar, Azure depolama, Azure SQL veri ambarı, Azure SQL veritabanı, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce gibi SaaS hizmetlerine ve FTP ve OData gibi web protokolleri gibi yönetilen bulut depolama hizmetleri içerir. Desteklenen veri kaynaklarının tam listesini bulabilirsiniz [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 - **Karma senaryo**- Bu senaryoda, kaynak veya hedef bir güvenlik duvarı ardında kaldığı veya içinde bir şirket içi kurumsal ağ veya veri deposu olan özel bir ağda / sanal ağ (genellikle kaynak) ve genel olarak erişilebilir değil. Sanal makinelerde barındırılan veritabanı sunucuları, ayrıca bu senaryoya ayrılır.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Bulut senaryoları
 ### <a name="securing-data-store-credentials"></a>Güvenliğini sağlama veri deposu kimlik bilgileri
@@ -93,7 +95,7 @@ Kimlik bilgileri, şirket içi veri depoları için yerel olarak depolanır (bul
 - Kullanarak **düz metin** (daha az güvenli) Azure portalından HTTPS üzerinden / Kopyalama Sihirbazı'nı. Kimlik bilgilerini düz metin olarak şirket içi ağ geçidine geçirilir.
 - Kullanarak **JavaScript şifreleme Kopyalama Sihirbazı'nı kitaplıktan**.
 - Kullanarak **tıklayın-kimlik bilgileri Yöneticisi uygulama tabanlı bir kez**. Tıklayarak-sonra uygulama ağ geçidine erişimi olan ve veri deposu için kimlik bilgilerini ayarlar şirket içi makinede yürütür. Bu seçenek ve bir sonraki en güvenli seçenekleri var. Kimlik bilgileri Yöneticisi uygulaması, varsayılan olarak, güvenli iletişim için ağ geçidi makinesine 8050 bağlantı noktasını kullanır.  
-- Kullanım [yeni AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) kimlik bilgilerini şifrelemek için PowerShell cmdlet'i. Cmdlet sertifikayı kullanan kimlik bilgilerini şifrelemek üzere kullanmak için bu ağ geçidi yapılandırılmış. Bu cmdlet'i tarafından döndürülen şifreli kimlik bilgilerini kullanın ve eklemeniz **EncryptedCredential** öğesinin **connectionString** ile kullandığınız JSON dosyasındaki [ Yeni-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) cmdlet'ini veya JSON kod parçacığında Portal'daki Data Factory Düzenleyici. Bu seçenek ve tıklayarak-uygulama sonra en güvenli seçenekleri. 
+- Kullanım [yeni AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) kimlik bilgilerini şifrelemek için PowerShell cmdlet'i. Cmdlet sertifikayı kullanan kimlik bilgilerini şifrelemek üzere kullanmak için bu ağ geçidi yapılandırılmış. Bu cmdlet'i tarafından döndürülen şifreli kimlik bilgilerini kullanın ve eklemeniz **EncryptedCredential** öğesinin **connectionString** ile kullandığınız JSON dosyasındaki [ Yeni AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet'ini veya JSON kod parçacığında Portal'daki Data Factory Düzenleyici. Bu seçenek ve tıklayarak-uygulama sonra en güvenli seçenekleri. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>JavaScript şifreleme kitaplık tabanlı şifreleme
 Veri deposu kimlik bilgilerini kullanarak şifreleyebilirsiniz [JavaScript şifreleme Kitaplığı](https://www.microsoft.com/download/details.aspx?id=52439) gelen [Kopyalama Sihirbazı'nı](data-factory-copy-wizard.md). Bu seçeneği belirlediğinizde, kopyalama Sihirbazı'nı ağ geçidi ortak anahtarını alır ve veri deposu kimlik bilgilerini şifrelemek için kullanır. Kimlik bilgilerini ağ geçidi makinesi tarafından şifresi çözülür ve Windows tarafından korunan [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).

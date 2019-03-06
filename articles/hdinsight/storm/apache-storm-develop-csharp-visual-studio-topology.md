@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf258637311cd22964723da6bad3451dff6cccf6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 1bcb50829dca59f8a467c2c1d2381b5463ef9471
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632026"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437403"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları kullanarak Apache Storm için C# topolojileri geliştirme
 
@@ -433,7 +433,7 @@ return topologyBuilder;
 
 * **Meta verileri önbelleğe alma**: Spout ve böylece veriler alınır ve bir arıza oluşması durumunda yeniden yayılan yayılan veriler hakkında meta veri depolamanız gerekir. Örnek tarafından yayılan veriler küçük olduğundan, her demet için ham verileri yeniden yürütme için bir sözlükte depolanır.
 
-* **ACK**: Topolojide her bolt çağırabilirsiniz `this.ctx.Ack(tuple)` tanımlama grubu başarıyla işlediği anladığınızı belirtmek için. Tüm Cıvatalar demet onaylanan olduğunda `Ack` spout yöntemi çağrılır. `Ack` Spout yeniden yürütme için önbelleğe ilişkili verileri kaldırmak yöntem sağlar.
+* **ACK**: Topolojide her bolt çağırabilirsiniz `this.ctx.Ack(tuple)` tanımlama grubu başarıyla işlediği anladığınızı belirtmek için. Tüm Cıvatalar demet onayladıktan olduğunda `Ack` spout yöntemi çağrılır. `Ack` Spout yeniden yürütme için önbelleğe ilişkili verileri kaldırmak yöntem sağlar.
 
 * **Başarısız**: Her bolt çağırabilirsiniz `this.ctx.Fail(tuple)` işleme bir demet için başarısız olduğunu göstermek için. İçin hata yayar `Fail` burada demet durumdayken kullanarak spout yöntemi önbelleğe alınan meta verileri.
 
@@ -480,7 +480,7 @@ Oluşturma ve gönderme karma bir topolojide aşağıdakileri dikkate alın:
 
 SCP.NET sürüm 0.9.4.203, yeni bir sınıf ve olay hub'ı spout (Event Hubs'dan okuyan bir Java spout) ile çalışmak için özellikle yöntemi içerir. Bir olay hub'ı spout kullanan bir topolojisi oluşturduğunuzda, aşağıdaki yöntemleri kullanın:
 
-* **EventHubSpoutConfig** sınıfı: Spout bileşeni için yapılandırma içeren bir nesne oluşturur.
+* **EventHubSpoutConfig** class: Spout bileşeni için yapılandırma içeren bir nesne oluşturur.
 
 * **TopologyBuilder.SetEventHubSpout** yöntemi: Olay hub'ı spout bileşeni topolojiye ekler.
 

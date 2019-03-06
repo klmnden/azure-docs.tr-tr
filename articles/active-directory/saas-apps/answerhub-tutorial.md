@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d6ff44a8d760150df491b67ee56d62c4daff31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e05f865f0fd76e93b92f3bb09f1babd780074065
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882799"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Öğretici: AnswerHub ile Azure Active Directory Tümleştirme
 
@@ -80,7 +80,7 @@ Yapılandırma ve Azure AD çoklu oturum açma AnswerHub ile test etmek için bu
 2. [AnswerHub çoklu oturum açmayı yapılandırma](#configure-answerhub-single-sign-on) çoklu oturum açma ayarları uygulama tarafında ayarlamak için.
 3. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) Britta Simon adlı.
 4. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
-5. [Bir AnswerHub test kullanıcısı oluşturma](#create-answerhub-test-user) karşılık gelir ve Azure AD test kullanıcıya bağlıdır.
+5. Karşılık gelir ve Azure AD test kullanıcıya bağlı AnswerHub test kullanıcısı oluşturun.
 6. [Çoklu oturum açmayı test](#test-single-sign-on) yapılandırma çalıştığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın

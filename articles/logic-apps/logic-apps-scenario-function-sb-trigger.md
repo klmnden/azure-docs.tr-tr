@@ -9,14 +9,14 @@ ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 08/25/2018
-ms.openlocfilehash: 69a4e4c59038599a7375466c46878bdd017582fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3a72689be1902a05a2df409366bc5caba94d6a77
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231619"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436111"
 ---
-# <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Senaryo: Tetiklenen logic apps ile Azure işlevleri ve Azure Service Bus
+# <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Senaryo: Azure işlevleri ve Azure Service Bus ile tetiklenen logic apps
 
 Bir uzun süre çalışan dinleyici veya görev dağıtmak istediğinizde bir mantıksal uygulama için bir tetikleyici oluşturmak için Azure işlevleri'ni kullanabilirsiniz. Örneğin, bir kuyruğu dinler bir işlev oluşturun ve bir anında iletme tetikleyici olarak bir mantıksal uygulamayı hemen harekete.
 
@@ -34,9 +34,9 @@ Bu örnekte, tetiklenmesi gereken her mantıksal uygulama için çalışan bir i
 
 1. Oturum [Azure portalında](https://portal.azure.com)ve boş mantıksal uygulama oluşturun. 
 
-   Logic apps kullanmaya yeni başladıysanız gözden [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Logic apps kullanmaya yeni başladıysanız gözden [hızlı başlangıç: İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Arama kutusuna "http isteği" girin. Tetikleyiciler listesinde şu tetikleyiciyi seçin: **olduğunda bir HTTP isteği alındığında**
+1. Arama kutusuna "http isteği" girin. Tetikleyiciler listesinde şu tetikleyiciyi seçin: **Bir HTTP isteği alındığında**
 
    ![Tetikleyici seçin](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -98,7 +98,7 @@ Ardından, tetikleyici olarak davranır ve kuyruğa dinleyen bir işlev oluştur
 
 1. Azure portalında açın ve işlev uygulamanızı genişletin, açık değilse. 
 
-1. İşlev uygulaması adınızın altındaki genişletin **işlevleri**. Üzerinde **işlevleri** bölmesinde seçin **yeni işlev**. Bu şablonu seçin: **Service Bus kuyruğu tetikleyicisi - C#**
+1. İşlev uygulaması adınızın altındaki genişletin **işlevleri**. Üzerinde **işlevleri** bölmesinde seçin **yeni işlev**. Bu şablonu seçin: **Service Bus kuyruğu tetikleyicisi-C#**
    
    ![Azure işlevleri portalına seçin](./media/logic-apps-scenario-function-sb-trigger/newqueuetriggerfunction.png)
 
@@ -114,14 +114,14 @@ Ardından, tetikleyici olarak davranır ve kuyruğa dinleyen bir işlev oluştur
    
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/.........";
    
+   // Re-use instance of http clients if possible - https://docs.microsoft.com/en-us/azure/azure-functions/manage-connections
+   private static HttpClient httpClient = new HttpClient();
+   
    public static void Run(string myQueueItem, TraceWriter log)
    {
        log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 
-       using (var client = new HttpClient())
-       {
-           var response = client.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
-       }
+       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
    }
    ```
 

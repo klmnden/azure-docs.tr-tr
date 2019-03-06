@@ -11,18 +11,20 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 51c032aeca3717b126192efc9c83a9de6483cebd
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 605f4c639cfc8c0f9732f7347532e1bd7edc055f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992660"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404663"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Dil algılama bilişsel beceri
 
-İçin en fazla [120 dil](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support), **dil algılama** beceri giriş metin dilini algılar ve istekte gönderilen her belge için bir tek dil kodu bildirir. Dil kodu çözümleme gücünü gösteren bir puanı ile eşleştirilir. Bu yetenek, makine öğrenimi modellerini tarafından sağlanan kullanan [metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) Bilişsel Hizmetler'e gösterdiğiniz.
+**Dil algılama** beceri giriş metin dilini algılar ve istekte gönderilen her belge için bir tek dil kodu bildirir. Dil kodu çözümleme gücünü gösteren bir puanı ile eşleştirilir. Bu yetenek, makine öğrenimi modellerini tarafından sağlanan kullanan [metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) Bilişsel Hizmetler'e gösterdiğiniz.
 
 Metnin dilini diğer becerileri giriş olarak sağlamak, ihtiyacınız olduğunda bu beceri özellikle yararlı olur (örneğin, [yaklaşım analizi beceri](cognitive-search-skill-sentiment.md) veya [metin bölme beceri](cognitive-search-skill-textsplit.md)).
+
+Dil algılama sayıyı aşıyor Bing'in doğal dil işleme kitaplıkları yararlanır, [desteklenen diller ve bölgeler](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) metin analizi için listelenir. Dillerin tam listesini yayımlanmaz, ancak tüm diller, yaygın olarak konuşulan yanı sıra çeşitleri, diyalektler ve Bölgesel ve kültürel dillerden içerir. Daha az sık kullanılan bir dille ifade içeriği varsa [dil algılama API deneyin](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) bir kod döndürür görmek için. Yanıt algılanamayan diller için `unknown`.
 
 > [!NOTE]
 > Yapabilecekleriniz 21 aralık 2018 tarihinden itibaren [Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md) ile bir Azure Search beceri kümesi. Bu beceri yürütmesi için ücretlendirmeye başlarız olanak tanır. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için ücretlendirme başladı. Metin ayıklama belgelerden hiçbir ek ücret ödemeden sunulmaya devam eder.

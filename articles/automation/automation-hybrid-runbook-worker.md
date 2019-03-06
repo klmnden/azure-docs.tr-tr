@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8fb1b5e06e694368cf80029fe5ce2dcf0749cc62
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0e38e921121f9b44356a33641bea4c2666412cca
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818383"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456202"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Veri merkezinde veya bulutta kaynaklarında karma Runbook çalışanı kullanarak otomatik hale getirin.
 
@@ -101,7 +101,7 @@ Karma Runbook bağlanması ve kaydolması ile Azure İzleyici günlüklerine ça
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Azure İzleyici hizmeti ile aracı arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olun. İnternet'e erişimi kısıtlamak için Güvenlik Duvarı'nı kullanıyorsanız erişime izin vermek için güvenlik duvarını yapılandırmanız gerekir. Log Analytics ağ geçidi bir ara sunucu kullanırsanız, karma çalışanları için yapılandırıldığından emin olun. Bunun nasıl yapılacağı hakkında yönergeler için bkz [Otomasyon karma çalışanı için Log Analytics ağ geçidini yapılandırma](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+Azure İzleyici hizmeti ile aracı arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olun. İnternet'e erişimi kısıtlamak için Güvenlik Duvarı'nı kullanıyorsanız erişime izin vermek için güvenlik duvarını yapılandırmanız gerekir. Log Analytics ağ geçidi bir ara sunucu kullanırsanız, karma çalışanları için yapılandırıldığından emin olun. Bunun nasıl yapılacağı hakkında yönergeler için bkz [Otomasyon karma çalışanı için Log Analytics ağ geçidini yapılandırma](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 Aşağıdaki bağlantı noktası ve URL'leri Otomasyonu ile iletişim kurmak karma Runbook çalışanı rolü için gereklidir:
 

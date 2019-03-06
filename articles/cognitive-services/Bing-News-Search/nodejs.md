@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 287a82292994a629bde8255321c7f603fdf00b67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 09e7ea73bc17e3fae97cb83765ee0b6469ba6f9f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869288"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454094"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: Node.js ve Bing haber arama REST API'si kullanarak bir haber arama yapın
 
@@ -71,7 +71,7 @@ Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https:/
         });
         ```
 
-    3. Olduğunda bir **son** bayrak işareti, JSON ve üst bilgileri görüntülenebilir.
+    3. Olduğunda bir **son** bayrağı sinyal, JSON ve üst bilgileri görüntülenebilir.
 
         ```javascript
         response.on('end', function () {

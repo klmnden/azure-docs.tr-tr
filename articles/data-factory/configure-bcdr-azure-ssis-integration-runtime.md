@@ -13,18 +13,20 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2012ccf4d9fd3e62ba248f29f922f868077e4061
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056559"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453040"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Azure SQL veritabanı coğrafi çoğaltma ve yük devretme ile Azure-SSIS tümleştirme çalışma zamanını yapılandırma
 
 Bu makalede, Azure SQL veritabanı SSISDB veritabanı için coğrafi çoğaltma ile Azure-SSIS tümleştirme çalışma zamanı yapılandırma açıklanır. Bir yük devretme işlemi gerçekleştiğinde, Azure-SSIS IR ikincil veritabanı ile çalışmaya devam eder emin olabilirsiniz.
 
-Coğrafi çoğaltma ve yük devretme için SQL veritabanı hakkında daha fazla bilgi için bkz. [genel bakış: etkin coğrafi çoğaltma ve otomatik yük devretme grupları](../sql-database/sql-database-geo-replication-overview.md).
+Coğrafi çoğaltma ve yük devretme için SQL veritabanı hakkında daha fazla bilgi için bkz. [genel bakış: Etkin coğrafi çoğaltma ve otomatik yük devretme grupları](../sql-database/sql-database-geo-replication-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario-1---azure-ssis-ir-is-pointing-to-read-write-listener-endpoint"></a>Senaryo 1 - Azure-SSIS IR işaret okuma-yazma dinleyici uç noktası
 
@@ -87,7 +89,7 @@ Azure-SSIS IR durdurmak, IR için yeni bir bölgeye geçiş ve yeniden başlatma
 2. IR yeni ayarlarla güncelleştirmek için PowerShell'de şu komuta çağrı yapın.
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -Location "new region" `
+    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
                     -CatalogServerEndpoint "Azure SQL Database server endpoint" `
                     -CatalogAdminCredential "Azure SQL Database server admin credentials" `
                     -VNetId "new VNet" `

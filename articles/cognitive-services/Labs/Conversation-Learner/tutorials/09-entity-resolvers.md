@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e6a671470a87f4509e466bcdfe7845b7bf7ec8dc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ebe555bfd7b34efd87d400d786049964665c76e6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209172"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451068"
 ---
 # <a name="entity-resolvers"></a>Varlık çözümleyiciler
 
@@ -80,7 +80,7 @@ Bu öğreticide, genel öğretici bot çalışıyor olması gerekir
 8. Ayrıca "Sunday sonraki hafta" metin "return" etiket
 9. "Puan Eylemler" düğmesine tıklayın.
     - "Bellek" bölmesinde kalkış ve dönüş tarihler nasıl içerdiğine dikkat edin.
-    - Her birinin gelin ve net bir şekilde gerçek calandar tarih aksine, "Sunday" veya "yarın" yakalama tarih nesneleri nasıl varlıklardır gözlemleyin.
+    - Her birinin gelin ve "yarın" ve "Sunday" ın aksine gerçek takvim tarihi açıkça yakalama tarih nesneleri nasıl varlıklardır gözlemleyin.
 10. ", Bırakarak üzerinde..." seçin Bot yanıtı.
 11. "Kaydet" düğmesine tıklayın.
 

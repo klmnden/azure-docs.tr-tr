@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: cff4199663bce39353f8c10c68f51f15d6a72a22
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7281fb15e91195e1dd20095d9fdf80d3d9894a26
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314832"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433068"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Bilgi bankasını geliştirmek için etkin öğrenmeyi kullanma
 
@@ -37,6 +37,8 @@ Her iki yöntem derecelendiricisini kümelenir benzer sorgularla sağlar.
 Etkin öğrenme herhangi belirli bir sorgu için soru-cevap Oluşturucu tarafından döndürülen ilk birkaç yanıtların puanları temel tetiklenir. Puan farklılıkları küçük bir aralık içinde yer alan sonra olası sorgusu _öneri_ her olası yanıtlar. 
 
 Tüm öneriler birlikte benzerliğe göre kümelenir ve diğer sorular için en çok istenen önerilerden belirli sorgularının sıklığını üzerinde son kullanıcılar tarafından bağlı görüntülenir. Etkin öğrenme makul bir miktar ve çeşitli sorgular kullanım uç noktalar burada alma durumlarda en iyi olası öneriler sağlar.
+
+5 veya daha fazla benzer sorguları kümelenir, 30 dakikada kabul etmek veya reddetmek için Bilgi Bankası Tasarımcısı kullanıcı tabanlı soruların soru-cevap Oluşturucu önerir.
 
 Sorular soru-cevap Oluşturucu Portalı'nda önerilen sonra gözden geçirip kabul edin ya da bu önerileri Reddet gerekir. 
 
@@ -77,7 +79,7 @@ Varsayılan olarak etkin olarak öğrenmeye kapalıdır. Bu önerilen bu sorular
 
     [![Hizmet Ayarları sayfasında, iki durumlu önerileri göster düğme](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Bilgi Bankası ile soru ve yanıt çiftleri seçerek önerileri yalnızca göstermek için filtre **önerileri filtreyle**.
+1. Bilgi Bankası ile soru ve yanıt çiftleri seçerek yalnızca önerileri göstermek için filtre **önerileri filtreyle**.
 
     [![Görmek için öneriler tarafından hizmet ayarları sayfasında, filtre yalnızca soru/yanıt çifti](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -162,6 +164,31 @@ Content-Type: application/json
 ```
 
 Etkin öğrenme ile kullanma hakkında daha fazla bilgi edinin bir [Azure Bot C# örneği](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+
+## <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>Etkin öğrenme dışarı aktarılan uygulamanın tsv dosyasına kaydedilir.
+
+Uygulamanız etkin olarak öğrenmeye etkin olan ve uygulamayı dışarı aktarma `SuggestedQuestions` tsv dosyası sütununda etkin olarak öğrenmeye verilerini korur. 
+
+`SuggestedQuestions` Sütundur bilgileri örtük bir JSON nesnesi (`autosuggested`) ve açık (`usersuggested`) [geri bildirim](#active-learning). Bu JSON nesnesinin tek bir kullanıcı tarafından gönderilen soru için örneği `help` olan:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+Bu uygulamayı yeniden içeri aktarın, bilgi toplamak ve öneriler, Bilgi Bankası için önermek etkin olarak öğrenmeye devam eder. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
  

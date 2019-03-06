@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 0e16ea9b7dd4518227adaba0f2797dca3821db45
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4785cb96afafee5b2174c742d6fa6259662cf84d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456644"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447073"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>Azure Data Factory'de PowerShell ile Azure-SSIS Tümleştirme Çalışma Zamanı Sağlama
 Bu öğretici, Azure Data Factory’de bir Azure-SSIS tümleştirme çalışma zamanı (IR) sağlama adımlarını sunar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio'yu (SSMS) kullanarak Azure'da bu çalışma zamanında SQL Server Integration Services (SSIS) paketleri dağıtabilir ve çalıştırabilirsiniz. Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
@@ -35,14 +35,16 @@ Bu öğretici, Azure Data Factory’de bir Azure-SSIS tümleştirme çalışma z
 
 ## <a name="prerequisites"></a>Önkoşullar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure aboneliği**. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun. Azure-SSIS IR hakkında kavramsal bilgiler için bkz. [Azure SSIS tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md#azure-ssis-integration-runtime). 
 - **Azure SQL Veritabanı sunucusu**. Henüz bir veritabanı sunucunuz yoksa, başlamadan önce Azure portalında bir tane oluşturun. Bu sunucu, SSIS Katalog veritabanını (SSISDB) barındırır. Veritabanı sunucusunu tümleştirme çalışma zamanı ile aynı Azure bölgesinde oluşturmanız önerilir. Bu yapılandırma, tümleştirme çalışma zamanının Azure bölgelerinden geçmeden SSISDB’ye yürütme günlüklerini yazmasına olanak tanır. 
     - Seçilen veritabanı sunucusuna göre SSISDB sizin adınıza tek veritabanı, elastik havuzun bir parçası veya Yönetilen Örnek biçiminde oluşturulabilir ve genel ağ üzerinden veya sanal ağa eklenerek erişilebilir. SSISDB'yi barındırmak için veritabanı sunucu türünü seçmek kılavuzluk etmesi için bkz [karşılaştırma Azure SQL veritabanı tek veritabanlarını elastik havuzları ve yönetilen örneği](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). SSISDB barındırmak için Azure SQL Veritabanı'nı sanal ağ hizmet uç noktaları/Yönetilen Örnek ile kullanırsanız veya şirket içi verilere erişmeniz gerekiyorsa Azure-SSIS IR örneğinizi bir sanal ağa eklemeniz gerekir, bkz. [Sanal ağda Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
-    - Veritabanı sunucusunda "**Azure hizmetlerine erişime izin ver**" ayarının **AÇIK** olduğundan emin olun. Bu ayar SSISDB barındırmak için Azure SQL Veritabanı'nı sanal ağ hizmet uç noktaları/Yönetilen Örnek ile birlikte kullandığınızda geçerli değildir. Daha fazla bilgi için bkz. [Azure SQL veritabanınızın güvenliğini sağlama](../sql-database/sql-database-security-tutorial.md#create-firewall-rules). Bu ayarı PowerShell kullanarak etkinleştirmek için bkz. [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1). 
+    - Veritabanı sunucusunda "**Azure hizmetlerine erişime izin ver**" ayarının **AÇIK** olduğundan emin olun. Bu ayar SSISDB barındırmak için Azure SQL Veritabanı'nı sanal ağ hizmet uç noktaları/Yönetilen Örnek ile birlikte kullandığınızda geçerli değildir. Daha fazla bilgi için bkz. [Azure SQL veritabanınızın güvenliğini sağlama](../sql-database/sql-database-security-tutorial.md#create-firewall-rules). PowerShell kullanarak bu ayarı etkinleştirmek için bkz: [yeni AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). 
     - Veritabanı sunucusunun güvenlik duvarı ayarlarındaki istemci IP adresi listesine istemci makinenin IP adresini veya istemci makinenin IP adresini içeren IP adresi aralığını ekleyin. Daha fazla bilgi için bkz. [Azure SQL Veritabanı'nda sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları yapılandırma](../sql-database/sql-database-firewall-configure.md). 
     - Veritabanı sunucusuna bağlanmak için sunucu yöneticisi kimlik bilgilerinizle SQL kimlik doğrulamasını veya Azure Data Factory için yönetilen kimliğinizle Azure Active Directory (AAD) kimlik doğrulamasını kullanabilirsiniz.  İkinci seçenekte ADF için yönetilen kimliğinizi veritabanı sunucusuna erişim izni olan bir AAD grubuna eklemeniz gerekir, bkz. [AAD kimlik doğrulaması ile Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
     - Azure SQL Veritabanı sunucunuzun SSIS Kataloğuna (SSISDB veritabanı) sahip olmadığını doğrulayın. Azure-SSIS IR’nin sağlanması, mevcut bir SSIS Kataloğunun kullanılmasını desteklemez. 
-- **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps) bölümündeki yönergeleri izleyin. Bulutta SSIS paketleri çalıştıran bir Azure-SSIS tümleştirme çalışma zamanı sağlamak üzere betik çalıştırmak için PowerShell kullanıyorsanız. 
+- **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-Az-ps) bölümündeki yönergeleri izleyin. Bulutta SSIS paketleri çalıştıran bir Azure-SSIS tümleştirme çalışma zamanı sağlamak üzere betik çalıştırmak için PowerShell kullanıyorsanız. 
 
 > [!NOTE]
 > - Data Factory ve Azure-SSIS Integration Runtime hizmetlerinin kullanılabildiği Azure bölgelerinin listesi için bkz. [Bölgelere göre ADF + SSIS IR kullanılabilirliği](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
@@ -114,40 +116,40 @@ Betiğin bir parçası olarak bir Azure SQL veritabanı oluşturmak için aşağ
 Önceden tanımlanmamış değişkenlerin değerlerini belirleyin. Örneğin: SSISDBServerName, Firewallıpaddress. 
 
 ```powershell
-New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName `
+New-AzSqlServer -ResourceGroupName $ResourceGroupName `
     -ServerName $SSISDBServerName `
     -Location $DataFactoryLocation `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SSISDBServerAdminUserName, $(ConvertTo-SecureString -String $SSISDBServerAdminPassword -AsPlainText -Force))    
 
-New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
+New-AzSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
     -ServerName $SSISDBServerName `
     -FirewallRuleName "ClientIPAddress_$today" -StartIpAddress $FirewallIPAddress -EndIpAddress $FirewallIPAddress
 
-New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $SSISDBServerName -AllowAllAzureIPs
+New-AzSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $SSISDBServerName -AllowAllAzureIPs
 ```
 
 ## <a name="log-in-and-select-subscription"></a>Oturum açma ve abonelik seçme
 Oturum açıp Azure aboneliğinizi seçmek için betiğe aşağıdaki kodu ekleyin: 
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName $SubscriptionName
 ```
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanarak yeni bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek `westeurope` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur.
+Oluşturma bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) kullanarak [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek `westeurope` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur.
 
 Kaynak grubunuz zaten varsa, bu kodu betiğinize kopyalamayın. 
 
 ```powershell
-New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
+New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 Veri fabrikası oluşturmak için aşağıdaki komutu çalıştırın:
 
 ```powershell
-Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
                          -Location $DataFactoryLocation `
                          -Name $DataFactoryName
 ```
@@ -159,7 +161,7 @@ Azure’da SSIS paketlerini çalıştıran bir Azure-SSIS tümleştirme çalış
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
 $serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
   
-Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
                                            -Name $AzureSSISName `
                                            -Description $AzureSSISDescription `
@@ -176,7 +178,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
 
 if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
 {
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
                                                -SetupScriptContainerSasUri $SetupScriptContainerSasUri
@@ -188,7 +190,7 @@ Azure-SSIS tümleştirme çalışma zamanını başlatmak için aşağıdaki kom
 
 ```powershell
 write-host("##### Starting your Azure-SSIS integration runtime. This command takes 20 to 30 minutes to complete. #####")
-Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
                                              -Force
@@ -218,7 +220,7 @@ Bu bölümdeki PowerShell betiği, bulutta SSIS paketlerini çalıştıran bir A
     ```
 3. Bu bölümde PowerShell betiğini kopyalayıp ISE’ye yapıştırın.
 4. Betiğin başında tüm parametreler için uygun değerleri sağlayın.
-5. Betiği çalıştırın. Betiğin sonundaki `Start-AzureRmDataFactoryV2IntegrationRuntime` komutu **20-30 dakika** boyunca çalışır.
+5. Betiği çalıştırın. Betiğin sonundaki `Start-AzDataFactoryV2IntegrationRuntime` komutu **20-30 dakika** boyunca çalışır.
 
 > [!NOTE]
 > - Betik, SSIS Kataloğu veritabanını (SSISDB) hazırlamak için Azure SQL Veritabanı sunucusuna bağlanır.
@@ -279,17 +281,17 @@ Catch [System.Data.SqlClient.SqlException]
     } 
 }
 
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
-Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
                          -Location $DataFactoryLocation `
                          -Name $DataFactoryName
     
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
 $serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
     
-Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
                                            -Name $AzureSSISName `
                                            -Description $AzureSSISDescription `
@@ -306,14 +308,14 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
 
 if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
 {
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
                                                -SetupScriptContainerSasUri $SetupScriptContainerSasUri
 }
 
 write-host("##### Starting your Azure-SSIS integration runtime. This command takes 20 to 30 minutes to complete. #####")
-Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
                                              -Force

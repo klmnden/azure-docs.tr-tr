@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: fe1993a914ea4d3bd8ab9116748198cbb0c1c43c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d43424e1377f7fa9cb8b272cc4ffbf3e5323f2ba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55904939"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457869"
 ---
 <a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
@@ -23,7 +23,7 @@ ms.locfileid: "55904939"
 | Yerel ağ siteleri |20 |desteğe başvurun |
 | Sanal ağ başına DNS sunucusu sayısı |20 |20 |
 | Sanal ağ başına özel IP Adresi sayısı |4096 |4096 |
-| Bir sanal makine veya rol örneği, bir NIC eş zamanlı TCP veya UDP akışlar |500K |500K |
+| Bir sanal makine veya rol örneği, bir NIC eş zamanlı TCP veya UDP akışlar |İki veya daha fazla NIC için K 1000 kata kadar 500 bin |İki veya daha fazla NIC için K 1000 kata kadar 500 bin |
 | Ağ Güvenlik Grupları (NSG) |100 |200 |
 | NSG başına NSG kuralları |200 |1000 |
 | Kullanıcı tanımlı yol tabloları |100 |200 |

@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: ghogen
-ms.openlocfilehash: a6de5385046918c48b3f606477727ca4623a784c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 098958cd729f1c616a93bbb5264445cb6d877f8b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998634"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441993"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Key Vault, Visual Studio bağlı Hizmetler'i kullanarak web uygulamanıza ekleyin
 
@@ -49,7 +49,7 @@ Bağlı hizmetler anahtar Kasası'nı etkinleştirmek için projenizde yaptığ�
 
    ![Key Vault yeniden adlandırabilir ve bir kaynak grubu seçin](media/vs-key-vault-add-connected-service/KeyVaultConnectedService-Edit.PNG)
 
-1. Mevcut bir kaynak grubunu seçin ya da otomatik olarak oluşturulan benzersiz bir ada sahip yeni bir tane seçin.  Farklı bir adla yeni bir grup oluşturmak istiyorsanız, kullanabileceğiniz [Azure portalı](https://portal.azure.com)ve sonra sayfayı kapatın ve kaynak gruplarının listesi yeniden yüklemek için yeniden başlatın.
+1. Mevcut bir kaynak grubunu seçin ya da otomatik olarak oluşturulan benzersiz bir ad ile yeni bir tane seçin.  Farklı bir adla yeni bir grup oluşturmak istiyorsanız, kullanabileceğiniz [Azure portalı](https://portal.azure.com)ve sonra sayfayı kapatın ve kaynak gruplarının listesi yeniden yüklemek için yeniden başlatın.
 1. Key Vault oluşturulacağı bölgeyi seçin. Web uygulamanızı Azure'da barındırılıyorsa, en iyi performans için web uygulamasını barındıran bölgeyi seçin.
 1. Bir fiyatlandırma modelini seçin. Ayrıntılar için bkz [anahtar kasası fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/).
 1. Yapılandırma seçimlerini kabul etmek için Tamam'ı seçin.

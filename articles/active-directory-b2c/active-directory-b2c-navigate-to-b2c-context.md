@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 4/13/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9522e921b59ddc57a6039c625bf6b0af4c4b4af2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9315b3a5e1641098daf2c7dadf9fa4f09d0cb2a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181818"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438517"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Azure AD B2C kiracınıza geçiş yapma
 
@@ -37,7 +37,7 @@ Azure portalı yenilenir.  Azure Portal'da Azure AD B2C kiracınızın bağlamı
 1. **Tüm hizmetler**’e tıklayın ve ardından sol gezinti bölmesinde `Azure AD B2C` seçeneğini bulun.  (Sol taraftaki başlangıç panonuza sabitlemek için Azure AD B2C’nin solundaki yıldıza tıklayın)
 1. B2C özellikleri bölmesine erişmek için **Azure AD B2C** seçeneğine tıklayın.
    
-    ![B2C özelliklerine göz atma bölmesinin ekran görüntüsü](./media/active-directory-b2c-get-started/b2c-browse.png)
+    ![' In ekran görüntüsü B2C özellikleri bölmesine için Gözat](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
 > B2C özellikleri bölmesine erişebilmek için B2C kiracısının Genel Yöneticisi olmanız gerekir. Başka bir kiracının Genel Yöneticisi veya başka bir kiracıdan gelen bir kullanıcı, dikey pencereye erişemez.  Azure portalının sağ üst köşesindeki kiracı değiştiriciyi kullanarak B2C kiracınıza geçiş yapabilirsiniz.

@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37d34d6df23b22466f3016841685ec2797a5c9ea
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 45983a4aecd61babf4e4262d708ac323f9773546
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177969"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443962"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Sürüm Yayınlama Geçmişi
 Azure Active Directory ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect Health güncelleştirir. Bu makalede sürümleri ve yayımlanan özellikler listelenmektedir.
@@ -39,7 +39,7 @@ Azure AD Connect Health eşitleme için Azure AD Connect yüklemesi ile tümleş
 *   AD FS (sürüm 3.1.24.0) için Azure AD Connect Health Aracısı
 1. Aktarım Katmanı Güvenliği (TLS) Protokolü sürüm 1.2 uyumluluk ve zorlama
 2. Yerelleştirilmiş işletim sistemi ADFSRequestToken Test desteği
-3. Disgnostic Aracısı EventHandler kilitleme sorunu çözüldü
+3. Tanılama Aracısı EventHandler kilitleme sorunu çözüldü
 4. Sistem Durumu Aracısı kayıt hata düzeltmeleri
 
 ## <a name="august-2018"></a>Ağustos 2018 

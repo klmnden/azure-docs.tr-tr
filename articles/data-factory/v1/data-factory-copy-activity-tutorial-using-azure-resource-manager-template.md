@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa99085b04690acd15ec508bcb91d3e500d3e77b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ef07d5c4e7dad82290897ae771fb3046ab5f4f30
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882608"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453522"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Öğretici: Verileri kopyalamak için bir Data Factory işlem hattı oluşturmak için Azure Resource Manager şablonu kullanma 
 > [!div class="op_single_selector"]
@@ -46,6 +46,9 @@ Bir işlem hattında birden fazla etkinlik olabilir. Bir etkinliğin çıkış v
 > Bu öğreticideki veri işlem hattı, bir kaynak veri deposundaki verileri hedef veri deposuna kopyalar. Azure Data Factory kullanarak verileri dönüştürme hakkında bir öğretici için bkz. [Öğreticisi: Hadoop kümesi kullanarak verileri dönüştürmek için bir işlem hattı oluşturma](data-factory-build-your-first-pipeline.md). 
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * [Öğreticiye Genel Bakış ve Ön Koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümünü inceleyin ve **ön koşul** adımlarını tamamlayın.
 * Bilgisayarınıza Azure PowerShell’in en son sürümünü yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview) makalesindeki yönergeleri izleyin. Bu öğreticide PowerShell’i kullanarak Data Factory varlıklarını dağıtırsınız. 
 * (isteğe bağlı) Azure Resource Manager şablonları hakkında bilgi için bkz. [Azure Resource Manager Şablonları Yazma](../../azure-resource-manager/resource-group-authoring-templates.md).
@@ -319,22 +322,22 @@ Azure Resource Manager şablonuna yönelik parametreleri içeren **ADFCopyTutori
    * Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
    
     ```PowerShell
-    Connect-AzureRmAccount      
+    Connect-AzAccount       
     ```  
    * Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.
    
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```   
    * Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın.
     
     ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
+    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
     ```    
 2. 1 Adımda oluşturduğunuz Resource Manager şablonunu kullanarak Data Factory varlıklarını dağıtmak için aşağıdaki komutu çalıştırın.
 
     ```PowerShell   
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
+    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
     ```
 
 ## <a name="monitor-pipeline"></a>İşlem hattını izleme
@@ -576,13 +579,13 @@ Bu öğreticide, Data Factory varlıkları tanımlamaya yönelik bir şablon ve 
 Örnek:  
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
 ```
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Test.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Test.json
 ```
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
 ```
 
 Birinci komut geliştirme ortamına, ikinci komut test ortamına ve üçüncü komut üretim ortamına yönelik parametre dosyasını kullanır.  

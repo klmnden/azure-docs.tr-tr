@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: 4dd9634d5d5e6ce749a4ee563903b07e22bc45ee
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: ddcde2956da774e687c1e587649e65b79003bf3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652341"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448995"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Öğretici: Verileri yüklemek ve Azure HDInsight, Apache Spark kümesinde sorguları çalıştırma
 
@@ -83,7 +83,7 @@ Tablo oluşturulduktan sonra veriler üzerinde etkileşimli bir sorgu çalışt�
 
 10. Not defterindeki **Dosya** menüsünden **Kaydet ve Denetim Noktası**’nı seçin. 
 
-11. [Sonraki öğreticiyi](apache-spark-use-bi-tools.md) şimdi başlatıyorsanız, not defterini açık bırakın. Aksi takdirde, not defterini kapatarak küme kaynaklarını yayınlayın: Not defterindeki **Dosya** menüsünden **Kaydet ve Durdur**’u seçin.
+11. [Sonraki öğreticiyi](apache-spark-use-bi-tools.md) şimdi başlatıyorsanız, not defterini açık bırakın. Aksi takdirde, küme kaynaklarını serbest bırakmak için Not defterini kapatmanız: gelen **dosya** not defterini seçin menüsündeki **Kapat ve Durdur**.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

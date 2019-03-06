@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0a583a75b72286718b34b84e67ee5aff34726be0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 13049018042183a4960c81af65b35fcfa6d4c50d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818247"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447039"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Hızlı Başlangıç: Azure Portal’da SQL Server 2017 Windows sanal makinesi oluşturma
 
@@ -100,7 +100,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. **SQL bağlantısı** açılan listesinde **Genel (İnternet)** öğesini seçin. Bu, İnternet üzerinden SQL Server bağlantılarına olanak tanır.
 
-1. Genel senaryoda iyi tanınan bir bağlantı noktası adı kullanmaktan kaçınmak için **Bağlantı noktası** değerini **1401** olarak değiştirin.
+1. Değişiklik **bağlantı noktası** için **1401** genel senaryoda iyi tanınan bir bağlantı noktası adı kullanmaktan kaçınmak için.
 
 1. **SQL Kimlik Doğrulaması** altında **Etkinleştir**’e tıklayın. SQL Oturum Açma, sanal makine için yapılandırdığınız kullanıcı adı ve parolanın aynısına ayarlanır.
 

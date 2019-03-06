@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d26cd97a248172955dcfcf2662424d1e782793bf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 9e227744864ee7204e29a029b4a479fc2d9e2f3c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192336"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446393"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 grupları için süre sonu ilkesi yapılandırma
 
@@ -140,7 +140,7 @@ Kiracınızda Office 365 grupları için sona erme ayarları yapılandırmak iç
   Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
   ```
   
-Daha ayrıntılı olarak ilkesini yapılandırmak için aşağıdaki cmdlet'leri kullanılabilir. Daha fazla bilgi için bkz: [PowerShell belgeleri](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
+Daha ayrıntılı olarak ilkesini yapılandırmak için aşağıdaki cmdlet'leri kullanılabilir. Daha fazla bilgi için [PowerShell belgeleri](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
 
 * Get-AzureADMSGroupLifecyclePolicy
 * Yeni-AzureADMSGroupLifecyclePolicy

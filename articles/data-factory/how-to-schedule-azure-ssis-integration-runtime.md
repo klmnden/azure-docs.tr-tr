@@ -13,17 +13,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2f08d5b8548b8b7af282356d41c26442edd145b0
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fe38ffd5e9e57c0357417144e733311f3b14ea83
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669590"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448348"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Nasıl bir zamanlamaya göre Azure-SSIS tümleştirme çalışma zamanını durdurmak ve başlatmak
 Bu makalede, Azure Data Factory (ADF) kullanarak zamanlama başlatma ve durdurma Azure-SSIS Integration Runtime (IR) açıklar. Azure-SSIS IR, ADF kaynak SQL Server Integration Services (SSIS) paketlerini yürütmek için adanmış işlem ' dir. Azure-SSIS IR çalıştıran, kendisiyle ilişkili bir maliyeti vardır. Bu nedenle, genellikle, IR, SSIS paketlerini Azure'da yürütmek ve artık ihtiyacınız olmayan olduğunda, IR durdurmak yalnızca ihtiyacınız olduğunda çalıştırmak istediğiniz. Kullanabileceğiniz ADF kullanıcı arabirimi (UI) / uygulama veya Azure PowerShell ile [el ile başlatın veya durdurun, IR](manage-azure-ssis-integration-runtime.md)).
 
 Alternatif olarak, örneğin, sabah günlük ETL iş yüklerinizi yürütme ile öğleden sonra aldıkları durdurmadan önce başlayan, IR zamanlamaya göre Başlat/Durdur için ADF işlem hatları Web etkinliği oluşturabilirsiniz.  Ayrıca, başlatma ve bu nedenle, IR Başlat/Durdur önce/sonra paketi yürütme zamanında isteğe bağlı olarak, IR durdurma iki Web etkinliği arasında bir SSIS paketi yürütme etkinliği zincirleyebilirsiniz. SSIS paketi yürütme etkinliği hakkında daha fazla bilgi için bkz. [ADF işlem hattında SSIS paketi yürütme etkinliği kullanan bir SSIS paketi çalıştırmak](how-to-invoke-ssis-package-ssis-activity.md) makalesi.
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 Azure-SSIS IR zaten sağladığınız değil, konusundaki yönergeleri izleyerek sağlama [öğretici](tutorial-create-azure-ssis-runtime-portal.md). 
@@ -188,19 +190,19 @@ Gece yarısı her gün çalışacak şekilde zamanlanırsa üçüncü bir tetikl
 1. Bir işlem hattı çalıştırma durumunu alın.
 
   ```powershell
-  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+  Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
   ```
 
 2. Bir tetikleyici hakkında bilgi alın.
 
   ```powershell
-  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+  Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
   ```
 
 3. Bir tetikleyici çalıştırma durumunu alın.
 
   ```powershell
-  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+  Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
   ```
 
 ## <a name="create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir"></a>Oluşturma ve Azure-SSIS IR başlatır/durdurur, Azure Otomasyonu runbook zamanlama
@@ -292,7 +294,7 @@ Aşağıdaki bölümde, bir PowerShell runbook'u oluşturmak için adımları sa
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
     
         "Logging in to Azure..."
-        Connect-AzureRmAccount `
+        Connect-AzAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -312,12 +314,12 @@ Aşağıdaki bölümde, bir PowerShell runbook'u oluşturmak için adımları sa
     if($Operation -eq "START" -or $operation -eq "start")
     {
         "##### Starting #####"
-        Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $AzureSSISName -Force
+        Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $AzureSSISName -Force
     }
     elseif($Operation -eq "STOP" -or $operation -eq "stop")
     {
         "##### Stopping #####"
-        Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+        Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
     }  
     "##### Completed #####"    
     ```
@@ -328,7 +330,7 @@ Aşağıdaki bölümde, bir PowerShell runbook'u oluşturmak için adımları sa
 
    ![Runbook düğmesini Başlat](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-button.png)
     
-5. İçinde **Runbook'u Başlat** bölmesinde, aşağıdaki ations yapın: 
+5. İçinde **Runbook'u Başlat** bölmesinde, aşağıdaki eylemleri gerçekleştirin: 
 
     1. İçin **kaynak grubu adı**, Azure-SSIS IR ile ADF olan kaynak grubu adını girin 
     2. İçin **DATA FACTORY adı**, Azure-SSIS IR ile ADF adını girin 

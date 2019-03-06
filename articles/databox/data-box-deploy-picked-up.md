@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 02/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 254ebb9e23a80f71d2c46e6666362d764ff03141
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: e3dc4a3128be7014af0454cf78f2c8c5c86f8d77
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341598"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409754"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box dönün ve verileri karşıya yükleme azure'a doğrulayın
 
@@ -42,10 +42,8 @@ Başlamadan önce emin olun:
 ## <a name="ship-data-box-back"></a>Data Box'ı geri gönderme
 
 1. Cihazın kapalı olduğundan ve kabloların çıkartılmış olduğundan emin olun. Cihaz ile beraber sağlanan güç kablosunu sararak emniyetli şekilde cihazın arkasına yerleştirin.
-2. E-ink ekranda gönderi etiketinin görüntülendiğinden emin olun ve taşıyıcınızdan bir teslim alma randevusu alın. Etiketin zarar görmüş veya kayıp veya E-mürekkep ekranda görüntülenen değil, Microsoft Support başvurun. Destek önerir sonra gidebilirsiniz **genel bakış > Sevkiyat Etiketi indirin** Azure portalında. Sevkiyat Etiketi indirin ve cihaza eklemesi.
-    
+2. E-ink ekranda gönderi etiketinin görüntülendiğinden emin olun ve taşıyıcınızdan bir teslim alma randevusu alın. Etiketin zarar görmüş veya kayıp veya E-mürekkep ekranda görüntülenen değil, Microsoft Support başvurun. Destek önerir sonra gidebilirsiniz **genel bakış > Sevkiyat Etiketi indirin** Azure portalında. Sevkiyat Etiketi indirin ve cihaza eklemesi. 
 3. UPS ile bir toplama cihaz döndüren, zamanlayın. Bir toplama zamanlamak için yerel UPS (ücretsiz ülkelere özgü arama numarası) çağrı yapma veya en yakın bırakma konumu Data Box'devre dışı bırakın.
-
 4. Data Box nakliyeciniz tarafından toplandıktan ve tarandıktan sonra, portaldaki sipariş durumu **Toplandı** olarak güncelleştirilir. Ayrıca bir takip numarası da görüntülenir.
 
 ## <a name="verify-data-upload-to-azure"></a>Azure'a verilerin yüklendiğini doğrulama
@@ -56,16 +54,30 @@ Doğrulama tamamlandıktan sonra Data Box, Azure veri merkezindeki ağa bağlan�
 
 Kopyalama tamamlandıktan sonra, sipariş durumu **Tamamlandı** olarak güncelleştirilir.
 
-Kaynaktan silmeden önce verilerinizin depolama hesaplarında olduğundan emin olun. Data Box'a veri kopyaladığınızda, türlerine bağlı olarak bu veriler Azure Depolama hesabınızda aşağıdaki yollardan birine yüklenir.
+Kaynaktan silmeden önce verilerinizi Azure'a karşıya yüklendiğini doğrulayın. Verilerinizi olabilir:
 
-- Blok blobları ve sayfa blobları için: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-- Azure Dosyaları için: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+- Azure depolama hesabınızda veya hesaplarınızda. Data Box'a veri kopyaladığınızda, türlerine bağlı olarak bu veriler Azure Depolama hesabınızda aşağıdaki yollardan birine yüklenir.
 
-Alternatif olarak Azure portalda Azure depolama hesabınıza gidip oradan ilerleyebilirsiniz.
+    - Blok blobları ve sayfa blobları için: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+    - Azure Dosyaları için: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+    Alternatif olarak Azure portalda Azure depolama hesabınıza gidip oradan ilerleyebilirsiniz.
+
+- Yönetilen disk kaynak grupları. Yönetilen diskler oluştururken VHD'ler sayfa blobları karşıya ve sonra yönetilen disklere dönüştürülmüş. Yönetilen diskler, sipariş oluşturma sırasında belirtilen kaynak gruplarına eklenir. 
+
+    - Azure'da yönetilen disklere kopyanızı başarılı olduysa, gidebilirsiniz **sipariş ayrıntıları** Azure portalı ve kaynak gruplarını Not Yönetilen diskler için belirtilen olun.
+
+        ![Yönetilen disk kaynak gruplarını tanımlayın](media/data-box-deploy-copy-data-from-vhds/order-details-managed-disk-resource-groups.png)
+
+        Belirtilen bir kaynak grubuna gidin ve yönetilen disklerinizi bulun.
+
+        ![Yönetilen kaynak grubuna bağlı disk](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
+
+    - Bir VHDX veya dinamik ve fark VHD kopyaladıysanız, VHDX/VHD bir sayfa blobu ancak VHD dönüştürme yönetilen diski başarısız olarak hazırlama depolama hesabına yüklenir. Git, hazırlama **depolama hesabı > Blobları** ve ardından uygun bir kapsayıcı - standart SSD, HDD standart veya Premium SSD seçin. VHD'ler sayfa BLOB'ları hazırlama depolama hesabınızdaki olarak karşıya yüklenir.
 
 ## <a name="erasure-of-data-from-data-box"></a>Data Box'tan verileri silme
  
-Veriler Azure'a yüklendikten sonra Data Box disklerindeki veriyi [NIST SP 800-88 Revision 1 yönergelerine](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi) uygun şekilde siler. 
+Veriler Azure'a yüklendikten sonra Data Box disklerindeki veriyi [NIST SP 800-88 Revision 1 yönergelerine](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi) uygun şekilde siler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

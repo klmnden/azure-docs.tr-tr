@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 5dc39d2f64aa2cd895cbf57d95100d831a6f4432
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 4e7af92ed0ce04bb14bd49c24de4928baa4f00ec
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159800"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448076"
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -70,13 +70,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gereklidir|
+|Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |JSON xml|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Ad|Açıklama|Gereklidir|Varsayılan|
+|Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |uygula|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -her zaman - her zaman dönüştürme uygulanır.<br />yanıt Content-Type üst bilgisi JSON varlığını gösteriyorsa - içerik-türü-json - Dönüştür.|Evet|Yok|
 |göz önünde bulundurun kabul-üstbilgisi|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -true - JSON Accept üst bilgisi istekte istenirse dönüştürme uygulanır.<br />-yanlış - dönüştürme her zaman geçerlidir.|Hayır|true|
@@ -114,13 +114,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gereklidir|
+|Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |XML-json|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Ad|Açıklama|Gereklidir|Varsayılan|
+|Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |tür|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> javascript-dostu - dönüştürülen JSON, JavaScript geliştiricileri için kolay bir forma sahiptir.<br />-doğrudan - özgün XML belgesinin yapısına dönüştürülen JSON yansıtır.|Evet|Yok|
 |uygula|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -her zaman - her zaman Dönüştür.<br />yanıt Content-Type üst bilgisi XML varlığını gösteriyorsa - içerik-türü-xml - Dönüştür.|Evet|Yok|
@@ -150,13 +150,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gereklidir|
+|Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |Bul ve Değiştir|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Ad|Açıklama|Gereklidir|Varsayılan|
+|Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |başlangıç|Aranacak dize.|Evet|Yok|
 |-|Yeni dize. Arama dizesini kaldırmak için bir sıfır uzunluk değiştirme dizesini belirtin.|Evet|Yok|
@@ -188,7 +188,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gereklidir|
+|Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |yeniden yönlendirme içerik URL'leri|Kök öğe.|Evet|
 
@@ -252,13 +252,13 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gereklidir|
+|Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |set-backend-service|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Ad|Açıklama|Gereklidir|Varsayılan|
+|Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |temel url|Yeni arka uç hizmeti temel URL'si.|Hayır|Yok|
 |arka uç kimliği|Yönlendirmek için arka uç tanımlayıcısı.|Hayır|Yok|
@@ -358,7 +358,7 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 > [!IMPORTANT]
 > Sıvı uygulaması içinde kullanılan `set-body` İlkesi ', C# modu' yapılandırılır. Bu filtreleme gibi şeyler olduğunda özellikle önemlidir. Örnek olarak, bir tarih filtresi kullanarak Pascal kullanılmasını gerektiren büyük/küçük harf ve C# tarih biçimlendirme örn:
 >
-> {{body.foo.startDateTime| Tarih: "yyyyMMddTHH:mm:ddZ"}}
+> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
 
 > [!IMPORTANT]
 > Liquid şablonu kullanarak bir XML gövdesi doğru bir şekilde bağlamak için kullanılması bir `set-header` Content-Type ayarlamak için ilke veya uygulama/xml, metin/xml (veya tüm türü ile biten + xml); bir JSON gövdesi için uygulama/json olmalıdır metin/json (veya herhangi bir türü ile biten + JSON için).
@@ -376,7 +376,7 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 </set-body>
 ```
 
-#### <a name="tranform-json-using-a-liquid-template"></a>Dönüşüm Liquid şablon kullanarak JSON
+#### <a name="transform-json-using-a-liquid-template"></a>Liquid şablon kullanarak JSON dönüştürmesi Uygula
 ```xml
 {
 "order": {
@@ -388,13 +388,13 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gereklidir|
+|Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |gövdeyi Ayarla|Kök öğe. Gövde metni veya bir gövde döndüren bir ifade içeriyor.|Evet|
 
 ### <a name="properties"></a>Özellikler
 
-|Ad|Açıklama|Gereklidir|Varsayılan|
+|Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |şablon|İlkesi ayarlama gövdesi içinde çalışacağı şablon oluşturma modunu değiştirmek için kullanılır. Şu anda desteklenen tek değerdir:<br /><br />-liquid - gövdesi İlkesi ayarlama liquid şablon oluşturma altyapısı da kullanır |Hayır|Sıvı|
 
@@ -497,14 +497,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gereklidir|
+|Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |üst bilgi ayarlama|Kök öğe.|Evet|
 |değer|Ayarlanacak üstbilgi değerini belirtir. Aynı ada sahip birden çok üst bilgi ek eklemek için `value` öğeleri.|Evet|
 
 ### <a name="properties"></a>Özellikler
 
-|Ad|Açıklama|Gereklidir|Varsayılan|
+|Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |Mevcut eylem|Üstbilgi zaten belirtildiğinde gerçekleştirilecek eylemi belirtir. Bu öznitelik aşağıdaki değerlerden birine sahip olmalıdır.<br /><br /> -override - mevcut üstbilgisinin değerini değiştirir.<br />-skip - var olan üstbilgi değeri yerini almaz.<br />-ekleme - değeri var olan üstbilgi değerine ekler.<br />-delete - üstbilgi istekten kaldırır.<br /><br /> Ayarlandığında `override` göre (Bu, birden çok kez listelenir), tüm girişleri ayarlanan üst bilgisindeki sonuçları aynı ada sahip birden çok girişi kaydetme; yalnızca listelenen değerler sonuç ayarlanır.|Hayır|geçersiz kılma|
 |ad|Ayarlanacak üstbilginin adı belirtir.|Evet|Yok|
@@ -557,14 +557,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gereklidir|
+|Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |kümesi sorgu parametresi|Kök öğe.|Evet|
 |değer|Ayarlanacak sorgu parametresi'ünün değerini belirtir. Aynı ada sahip birden çok sorgu parametreleri ek eklemek için `value` öğeleri.|Evet|
 
 ### <a name="properties"></a>Özellikler
 
-|Ad|Açıklama|Gereklidir|Varsayılan|
+|Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |Mevcut eylem|Sorgu parametresi zaten belirtilmiş gerçekleştirilecek eylemi belirtir. Bu öznitelik aşağıdaki değerlerden birine sahip olmalıdır.<br /><br /> -override - mevcut parametresinin değerini değiştirir.<br />-skip - var olan sorgu parametresi değerini değiştirmez.<br />-ekleme - var olan sorgu parametresi değeri değeri ekler.<br />-delete - sorgu parametresi istekte kaldırır.<br /><br /> Ayarlandığında `override` göre (Bu, birden çok kez listelenir), tüm girişleri ayarlanan sorgu parametresi sonuçlarının aynı ada sahip birden çok girişi kaydetme; yalnızca listelenen değerler sonuç ayarlanır.|Hayır|geçersiz kılma|
 |ad|Ayarlanacak sorgu parametresi adını belirtir.|Evet|Yok|
@@ -636,13 +636,13 @@ OriginalUrl.
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gereklidir|
+|Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |URI yeniden yazma|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gereklidir|Varsayılan|
+|Öznitelik|Açıklama|Gerekli|Varsayılan|
 |---------------|-----------------|--------------|-------------|
 |şablon|Herhangi bir sorgu dizesi parametreleri ile gerçek web hizmeti URL'si. İfadeleri kullanırken, tam değeri bir ifade olmalıdır.|Evet|Yok|
 |kopyalama eşleşmeyen-params|Özgün URL şablonunda yok gelen istekteki sorgu parametreleri için URL yeniden yazma şablon tarafından tanımlanan eklenip eklenmeyeceğini belirtir|Hayır|true|
@@ -705,11 +705,11 @@ OriginalUrl.
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gereklidir|
+|Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |XSL Dönüştürme|Kök öğe.|Evet|
 |parametre|Dönüşüm kullanılan değişkenleri tanımlamak için kullanılır|Hayır|
-|stylesheet|Kök stil sayfası öğesi. Tüm öğeleri ve öznitelikleri içinde tanımlanan standarda [XSLT belirtimi](https://www.w3.org/TR/xslt)|Evet|
+|xsl:stylesheet|Kök stil sayfası öğesi. Tüm öğeleri ve öznitelikleri içinde tanımlanan standarda [XSLT belirtimi](https://www.w3.org/TR/xslt)|Evet|
 
 ### <a name="usage"></a>Kullanım
  Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).

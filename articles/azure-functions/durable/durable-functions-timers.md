@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e81e842e059e09f24627138ba9fbf6510a603efe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d225ece7b8a8841d17f20bc27de3aa640fa7d37b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353303"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436434"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) zamanlayıcılar
 
@@ -132,7 +132,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Kullanım bir `CancellationTokenSource` dayanıklı Zamanlayıcı (C#) veya Çağrı iptal etmek için `cancel()` döndürülen üzerinde `TimerTask` (JavaScript), kodunuzu tamamlanmasını beklemeleri gerekir. Dayanıklı görev Framework "tamamlandı" Tüm Bekleyen Görevler tamamlandı veya iptal kadar düzenleme 's durumunu değiştirmez.
+> Kullanım bir `CancellationTokenSource` dayanıklı Zamanlayıcı (C#) veya Çağrı iptal etmek için `cancel()` döndürülen üzerinde `TimerTask` (JavaScript), kodunuzu tamamlanmasını beklemeleri gerekir. Dayanıklı görev Framework "tamamlandı" bekleyen tüm görevlerin tamamlandığını veya iptal kadar düzenleme 's durumunu değiştirmez.
 
 Bu mekanizma Süren etkinlik işlevi yürütme sonlanmamasına. Bunun yerine, yalnızca sonucunu yoksay ve geçmek için orchestrator işlevi sağlar. İşlev uygulamanızın bir tüketim planı kullanılıyorsa, her zaman ve terk edilmiş etkinlik işlevi tarafından kullanılan bellek hala faturalandırılırsınız. Varsayılan olarak, tüketim planında çalıştırmayı işlevleri beş dakikalık bir zaman aşımı vardır. Bu sınır aşılırsa tüm yürütmeyi durdurun ve kaçan bir fatura durumu önlemek için Azure işlevleri konak dönüştürülmeden. [İşlevi zaman aşımı yapılandırılabilir](../functions-host-json.md#functiontimeout).
 

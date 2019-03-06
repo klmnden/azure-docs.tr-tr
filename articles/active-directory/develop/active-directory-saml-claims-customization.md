@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9396fbc470f25e3cf6fad883ab525af1f96e96a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 23ce02bd35d9cd4afd881ec276fabb0720b61c09
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188758"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444047"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Nasıl yapılır: Kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme
 
@@ -82,7 +82,7 @@ Uygulamayı nerede oluştu sorunu çözmek için farklı bir kullanıcı adı ku
 
 ## <a name="adding-claims"></a>Talep ekleme
 
-Bir talep eklerken (kesinlikle bir URI düzeni SAML belirtimi uyarınca izleyin gerekmez) bir öznitelik adı belirtebilirsiniz. Değerini dizinde depolanan tüm kullanıcı özniteliklerini ayarlayın veya bir contant değeri, kuruluşunuzdaki tüm kullanıcılar için statik bir giriş kullanın.
+Bir talep eklerken (kesinlikle bir URI düzeni SAML belirtimi uyarınca izleyin gerekmez) bir öznitelik adı belirtebilirsiniz. Değerini dizinde depolanan tüm kullanıcı özniteliklerini ayarlayın veya bir sabit değer, kuruluşunuzdaki tüm kullanıcılar için statik bir giriş kullanın.
 
 ![Kullanıcı özniteliği Ekle][7]
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: yegu
-ms.openlocfilehash: e5e60e3370cc813685403cc979e6ef8dc043b7ac
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 383ea07005d7dae47cd0ef1da8a4a57d8b20d613
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233277"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435822"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>Coğrafi çoğaltma, Azure önbelleği için Redis için yapılandırma
 
@@ -175,7 +175,7 @@ Genel olarak, eriştiği uygulama ile aynı Azure bölgesinde mevcut bir önbell
 
 ### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>Yük devretme ikincil bağlı önbellek nasıl çalışır?
 
-Coğrafi çoğaltma ilk sürümünde, Azure önbelleği için Redis Azure bölgeleri arasında otomatik yük devretmeyi desteklemez. Coğrafi çoğaltma, öncelikle bir olağanüstü durum kurtarma senaryosunda kullanılır. Distater kurtarma senaryosunda, müşteriler yedekleme bölgesindeki tüm uygulama yığınını koordineli bir şekilde izin vererek, yedeklerini kendi geçmek ne zaman karar tek tek uygulama bileşenleri yerine getirecek. Bu, özellikle Redis için geçerlidir. Redis başlıca avantajlarından biri, çok düşük gecikmeli depolama olmasıdır. Farklı bir Azure bölgesinde bir uygulama tarafından kullanılan Redis devreder ancak bilgi işlem katmanı yok, eklenen gidiş dönüş süresi performans üzerinde fark edilebilir etkisi gerekir. Bu nedenle, Redis başarısız üzerinden otomatik olarak nedeniyle geçici kullanılabilirlik sorunları önlemek istiyoruz.
+Coğrafi çoğaltma ilk sürümünde, Azure önbelleği için Redis Azure bölgeleri arasında otomatik yük devretmeyi desteklemez. Coğrafi çoğaltma, öncelikle bir olağanüstü durum kurtarma senaryosunda kullanılır. Bir olağanüstü durum kurtarma senaryosunda müşteriler yedekleme bölgesindeki tüm uygulama yığınını tek tek uygulama bileşenleri, yedeklerini kendi geçmek ne zaman karar izin vermek yerine koordineli bir şekilde getirecek. Bu, özellikle Redis için geçerlidir. Redis başlıca avantajlarından biri, çok düşük gecikmeli depolama olmasıdır. Farklı bir Azure bölgesinde bir uygulama tarafından kullanılan Redis devreder ancak bilgi işlem katmanı yok, eklenen gidiş dönüş süresi performans üzerinde fark edilebilir etkisi gerekir. Bu nedenle, Redis başarısız üzerinden otomatik olarak nedeniyle geçici kullanılabilirlik sorunları önlemek istiyoruz.
 
 Şu anda yük devretmeyi başlatmak için Azure portalında coğrafi çoğaltma bağlantısını kaldırmak ve bir Redis istemci bağlantı uç noktası (eski adıyla bağlı) ikincil önbellek için birincil bağlı önbellekten değiştirmenizi gerekir. İki önbellekleri ilişkisi, çoğaltma normal bir okuma-yazma önbelleği yeniden haline gelir ve Redis istemcileri doğrudan gelen istekleri kabul eder.
 

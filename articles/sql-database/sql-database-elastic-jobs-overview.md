@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8abb2e3ac4f62a3ea51cc686bbf23260fccc4077
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565250"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441381"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Ölçeği genişletilen bulut veritabanlarını yönetme
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**Elastik veritabanı işleri** bir müşteri barındırılan Azure bulut geçici ve çağrılan zamanlanmış yönetim görevlerini yürütülmesini sağlayan bir hizmettir **işleri**. İşlerle kolayca ve güvenilir bir şekilde yönetim işlemlerini gerçekleştirmek için Transact-SQL betikleri çalıştırarak Azure SQL veritabanı büyük gruplarını yönetin.
+**Elastik veritabanı işleri** bir müşteri barındırılan Azure bulut çağrılan geçici ve zamanlanmış yönetim görevlerinin yürütülmesini sağlayan bir hizmettir **işleri**. İşlerle kolayca ve güvenilir bir şekilde yönetim işlemlerini gerçekleştirmek için Transact-SQL betikleri çalıştırarak Azure SQL veritabanı büyük gruplarını yönetin.
 
 Ölçeği genişletilen parçalı veritabanlarını yönetmek için **elastik veritabanı işleri** özelliği (Önizleme) dahil olmak üzere, veritabanlarından oluşan bir grupta bir Transact-SQL (T-SQL) komut dosyası güvenilir bir şekilde yürütülecek sağlar:
 
@@ -114,7 +114,7 @@ Parça kümesi grupları kullanılarak oluşturulur [esnek veritabanı araçlar�
 
 ## <a name="components-and-pricing"></a>Bileşenleri ve fiyatlandırma
 
-Aşağıdaki bileşenler yönetim işlemleri geçici yürütülmesini sağlayan bir Azure bulut hizmeti oluşturmak için birlikte çalışır. Bileşenler yüklenir ve aboneliğinizdeki kurulumu sırasında otomatik olarak yapılandırılır. Otomatik olarak oluşturulan aynı ada sahip oldukları tüm gibi hizmetleri tanımlayabilirsiniz. Ad benzersiz olduğu ve "21 rastgele oluşturulmuş karakterlerinin izlediği önek edj" oluşur.
+Aşağıdaki bileşenler yönetim işlemleri geçici olarak yürütülmesini sağlayan bir Azure bulut hizmeti oluşturmak için birlikte çalışır. Bileşenler yüklenir ve aboneliğinizdeki kurulumu sırasında otomatik olarak yapılandırılır. Otomatik olarak oluşturulan aynı ada sahip oldukları tüm gibi hizmetleri tanımlayabilirsiniz. Ad benzersiz olduğu ve "21 rastgele oluşturulmuş karakterlerinin izlediği önek edj" oluşur.
 
 - Azure Cloud Service
 

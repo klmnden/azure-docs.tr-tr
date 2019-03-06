@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef9dbe1bb0ed9e5aad545453c409b0959bdd3fd4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7bb9fc806779565581fa7667749402f5608edd80
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207237"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438083"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Uygulamaları Azure AD uygulama proxy'si ile uzaktan erişim için güvenlik konuları
 
@@ -69,7 +69,7 @@ Bağlayıcılar hakkında daha fazla bilgi için bkz. [anlamak Azure AD uygulama
 
 Son teknoloji ürünü güvenlik koruması alın.
 
-Azure Active Directory'nin parçası olduğu için uygulama proxy'si yararlanabilir [Azure AD kimlik koruması](../active-directory-identityprotection.md), dijital Suçlar birimi ve Microsoft Security Response Center verilerle. Birlikte biz belirleyebildiğini ele geçirilen hesaplar ve riskli oturum açma işlemleri karşı koruma sağlar. Biz, yüksek riskli oturum açma hangi onaylamaya belirlemek için çok sayıda etkene dikkate alın. Bu etkenler, bayrak virüs bulaşmış cihazlar, anonymizing ağlara ve alışılmadık veya olasılığı düşük konumu içerir.
+Azure Active Directory'nin parçası olduğu için uygulama proxy'si yararlanabilir [Azure AD kimlik koruması](../active-directory-identityprotection.md), dijital Suçlar birimi ve Microsoft Security Response Center verilerle. Birlikte biz belirleyebildiğini ele geçirilen hesaplar ve riskli oturum açma işlemleri karşı koruma sağlar. Biz, hangi oturum açma denemesi yüksek riskli olduğunu belirlemek için çok sayıda etkene dikkate alın. Bu etkenler, bayrak virüs bulaşmış cihazlar, anonymizing ağlara ve alışılmadık veya olasılığı düşük konumu içerir.
 
 Bu raporlar ve olaylar çoğunu zaten güvenlik bilgileri ve Olay yönetimi (SIEM) sistemlerine ile tümleştirmeye yönelik bir API aracılığıyla kullanılabilir.
 

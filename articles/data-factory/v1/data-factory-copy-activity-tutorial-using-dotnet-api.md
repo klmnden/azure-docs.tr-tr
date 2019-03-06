@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7a3979d9f92526934f074b7a6a122352928abe68
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ac0ef463f05c2f361c75827e300b2866e16dfef1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428418"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446988"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Öğretici: .NET API kullanarak kopyalama Etkinlikli bir işlem hattı oluşturma
 > [!div class="op_single_selector"]
@@ -46,10 +46,13 @@ Bir işlem hattında birden fazla etkinlik olabilir. Bir etkinliğin çıkış v
 > Bu öğreticideki veri işlem hattı, bir kaynak veri deposundaki verileri hedef veri deposuna kopyalar. Azure Data Factory kullanarak verileri dönüştürme hakkında bir öğretici için bkz. [Öğreticisi: Hadoop kümesi kullanarak verileri dönüştürmek için bir işlem hattı oluşturma](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Öğreticiye genel bir bakış atmak ve **ön koşul** adımlarını tamamlamak için [Öğreticiye Genel Bakış ve Ön Koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümündeki adımları tamamlayın.
 * Visual Studio 2012 veya 2013 veya 2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)’yı indirip yükleyin
-* Azure PowerShell. Bilgisayarınıza Azure PowerShell’i yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps) makalesindeki yönergeleri izleyin. Azure PowerShell’i kullanarak bir Azure Active Directory uygulaması oluşturursunuz.
+* Azure PowerShell. Bilgisayarınıza Azure PowerShell’i yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-Az-ps) makalesindeki yönergeleri izleyin. Azure PowerShell’i kullanarak bir Azure Active Directory uygulaması oluşturursunuz.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory’de uygulama oluşturma
 Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sorumlusu oluşturun ve bunu **Data Factory Katılımcısı** rolüne atayın.
@@ -58,17 +61,17 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
 2. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 4. Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **&lt;NameOfAzureSubscription**&gt; değerini Azure aboneliğinizin adıyla değiştirin.
 
     ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
    > [!IMPORTANT]
@@ -77,7 +80,7 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
 5. PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun.
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
     Kaynak grubu zaten varsa bunun güncelleştirileceğini mi (Y) yoksa (N) olarak tutulacağını mı belirtirsiniz.
@@ -86,7 +89,7 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
 6. Bir Azure Active Directory uygulaması oluşturun.
 
     ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    $azureAdApplication = New-AzADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
     ```
 
     Aşağıdaki hatayı alırsanız farklı bir URL belirtip komutu yeniden çalıştırın.
@@ -97,12 +100,12 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
 7. AD hizmet sorumlusunu oluşturun.
 
     ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Hizmet sorumlusunu **Data Factory Katılımcısı** rolüne ekleyin.
 
     ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Uygulama kimliğini alın.
 

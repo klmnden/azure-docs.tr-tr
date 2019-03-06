@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ceaabdd9aa15e5979d8ab163a9b64986a03c8332
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2e91a1e81c3a9906b004047d68c1048f4ba3276a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023112"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445016"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Öğretici: Visual Studio kullanarak veri fabrikası oluşturma
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -60,6 +60,9 @@ Bu izlenecek yolun bir parçası olarak gerçekleştireceğiniz adımlar şunlar
 5. Yayımladıktan sonra, işlem hattını izlemek için Azure portalı dikey pencereleri ile İzleme ve Yönetim Uygulamasını kullanabilirsiniz. 
   
 ### <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) makalesinin tamamını okuyun ve **ön koşul** adımlarını tamamlayın. Ayrıca, üst kısımdaki açılır listede bulunan **Genel bakış ve önkoşullar** seçeneğini belirleyerek makaleye geçiş yapabilirsiniz. Önkoşulları tamamladıktan sonra, açılır listeden **Visual Studio** seçeneğini belirleyerek bu makaleye geri dönün.
 2. Data Factory örnekleri oluşturmak için abonelik/kaynak grubu düzeyinde [Data Factory Katılımcısı](../../role-based-access-control/built-in-roles.md#data-factory-contributor) rolünün üyesi olmanız gerekir.  
 3. Bilgisayarınızda şunların yüklü olması gerekir:
@@ -326,12 +329,12 @@ Dikkat edilmesi gereken önemli noktalar şunlardır:
 - Hatayı alırsanız: **Bu abonelik Microsoft.DataFactory ad alanını kullanacak şekilde kaydedilmemiş**, aşağıdakilerden birini yapın ve yeniden yayımlamayı deneyin:
     - Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın.
         ```PowerShell   
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+        Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Data Factory sağlayıcısının kayıtlı olduğunu onaylamak için aşağıdaki komutu çalıştırabilirsiniz.
 
         ```PowerShell
-        Get-AzureRmResourceProvider
+        Get-AzResourceProvider
         ```
     - Azure aboneliğini kullanarak [Azure portalında](https://portal.azure.com) oturum açın ve Data Factory dikey penceresine gidin (ya da) Azure portalında bir data factory oluşturun. Bu eylem sağlayıcıyı sizin için otomatik olarak kaydeder.
 - Veri fabrikasının adı gelecekte bir DNS adı olarak kaydedilmiş ve herkese görünür hale gelmiş olabilir.

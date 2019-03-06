@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: dc9f24f948e32d1b87745016852a875d440323de
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493601"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443707"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -25,11 +25,13 @@ Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri 
 
 Bu belgede nasıl oluşturabileceğinizi ve şirket içinde barındırılan IR yapılandırma açıklanmaktadır.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>Şirket içinde barındırılan IR yüklemek için üst düzey adımları
 1. Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma. Bu görev için Azure Data Factory kullanıcı Arabirimi kullanabilirsiniz. PowerShell örneği aşağıda verilmiştir:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
   
 2. [İndirme](https://www.microsoft.com/download/details.aspx?id=39717) ve şirket içinde barındırılan tümleştirme çalışma zamanı yerel bir makineye yükleyin.
@@ -37,7 +39,7 @@ Bu belgede nasıl oluşturabileceğinizi ve şirket içinde barındırılan IR y
 3. Kimlik doğrulama anahtarı almak ve şirket içinde barındırılan tümleştirme çalışma zamanı anahtarı ile kaydedin. PowerShell örneği aşağıda verilmiştir:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Bir Azure Resource Manager şablonu (Otomasyonu) kullanarak bir Azure sanal makinesinde kendinden konak IR ayarlama
@@ -96,7 +98,7 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
 9. Azure PowerShell kullanarak kimlik doğrulama anahtarını alın. Kimlik doğrulama anahtarı almak için bir PowerShell örneği aşağıda verilmiştir:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. Üzerinde **Integration Runtime (şirket içinde barındırılan) Kaydet** sayfa Microsoft tümleştirme çalışma zamanı yapılandırma makinenizde çalışan Yöneticisi, aşağıdaki adımları uygulayın:
 
@@ -112,7 +114,7 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
 * BT'nin tek, büyük veri çözümü veya Bulut veri tümleştirme en fazla dört düğüm ile sürekliliğini sağlama, Azure Data Factory ile bir hata noktası artık kullanıcının bu nedenle şirket içinde barındırılan tümleştirme çalışma zamanı yüksek kullanılabilirlik.
 * Geliştirilmiş performans ve aktarım hızını şirket içi ve bulut arasında veri taşıma sırasında veri depoları. Daha fazla bilgi edinin [performans karşılaştırmalar](copy-activity-performance.md).
 
-Şirket içinde barındırılan tümleştirme çalışma zamanı yazılımı yükleyerek birden çok düğüm ilişkilendirebilirsiniz [İndirme Merkezi](https://www.microsoft.com/download/details.aspx?id=39717). Ardından, kimlik doğrulaması anahtarlarını birini kullanarak elde ettiğiniz Kaydet **yeni AzureRmDataFactoryV2IntegrationRuntimeKey** açıklandığı cmdlet'i [öğretici](tutorial-hybrid-copy-powershell.md).
+Şirket içinde barındırılan tümleştirme çalışma zamanı yazılımı yükleyerek birden çok düğüm ilişkilendirebilirsiniz [İndirme Merkezi](https://www.microsoft.com/download/details.aspx?id=39717). Ardından, kimlik doğrulaması anahtarlarını birini kullanarak elde ettiğiniz Kaydet **yeni AzDataFactoryV2IntegrationRuntimeKey** açıklandığı cmdlet'i [öğretici](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > Her düğüm ilişkilendirme için yeni şirket içinde barındırılan tümleştirme çalışma zamanı oluşturmanız gerekmez. Şirket içinde barındırılan tümleştirme çalışma zamanı başka bir makineye yükleyin ve aynı kimlik doğrulama anahtarı kullanarak kaydedin. 
@@ -197,8 +199,6 @@ On iki dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
 * Data factory, bağlı bir IR oluşturulacağı olmalıdır bir [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Varsayılan olarak, Azure portalında veri fabrikaları oluşturulan veya örtük olarak oluşturulmuş bir MSI PowerShell cmdlet'leri vardır. Ancak bir veri fabrikası, bir Azure Resource Manager şablonu veya SDK oluşturulduğunda **kimlik** özelliği ayarlanmalıdır açıkça Azure Resource Manager içeren bir MSI veri fabrikası oluşturduğundan emin olmak için. 
 
 * Bu özelliği destekleyen Azure Data Factory .NET SDK sürümüdür 1.1.0 veya üzeri.
-
-* Bu özelliği destekleyen Azure PowerShell sürümü 6.6.0 olan veya üzeri (AzureRM.DataFactoryV2, 0.5.7 veya üzeri).
 
 * İzin vermek için kullanıcının sahip rolü veya paylaşılan IR bulunduğu data factory'de devralınan sahip rolü olmalıdır.
 
@@ -343,7 +343,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > Kimlik bilgileri Yöneticisi uygulaması henüz Azure Data Factory V2 kimlik bilgilerini şifrelemek için kullanılabilir değil.  
 
-Şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde 8060 bağlantı noktası açık değil seçerseniz, veri deposu kimlik bilgilerini yapılandırmak için kimlik bilgilerini ayarlama uygulama dışında mekanizmaları kullanın. Örneğin, kullanabileceğiniz **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet'i.
+Şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde 8060 bağlantı noktası açık değil seçerseniz, veri deposu kimlik bilgilerini yapılandırmak için kimlik bilgilerini ayarlama uygulama dışında mekanizmaları kullanın. Örneğin, kullanabileceğiniz **yeni AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet'i.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

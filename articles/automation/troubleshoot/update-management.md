@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bdffcdee87c0c5c9c878948797ac7c6be566c7ea
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a8be44201a2181ab252dfba501469719dd675ffa
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818859"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410171"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Güncelleştirme yönetimi ile ilgili sorunları giderme
 
@@ -44,7 +44,7 @@ Bu hata, aşağıdaki nedenlerden kaynaklanabilir:
 
 1. Ziyaret [ağ planlaması](../automation-hybrid-runbook-worker.md#network-planning) hakkında adresler ve bağlantı noktaları çalışacak şekilde güncelleştirme yönetimi için izin verilmesi gereken öğrenin.
 2. Kopyalanmış görüntüsünü kullanıyorsanız:
-   1. Log Analytics çalışma alanınızda kayıtlı arama kapsamı yapılandırması için VM kaldırma `MicrosoftDefaultScopeConfig-Updates`. Kayıtlı aramalar, altında bulunabilir **genel** çalışma alanınızdaki.
+   1. Log Analytics çalışma alanınızda kayıtlı arama kapsamı yapılandırması için VM kaldırma `MicrosoftDefaultScopeConfig-Updates` gösterilen durumunda. Kayıtlı aramalar, altında bulunabilir **genel** çalışma alanınızdaki.
    2. `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force` öğesini çalıştırın
    3. Çalıştırma `Restart-Service HealthService` yeniden `HealthService`. Bu anahtarı yeniden oluşturun ve yeni UUID oluşturur.
    4. Bu işe yaramazsa, görüntü sysprep ilk ve olaydan sonra MMA aracısını yükleyin.

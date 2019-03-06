@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 42246a5d2c8515c26ed399f041476c8ad70decfe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729413"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442146"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için bir içeri aktarma işi oluşturma
 
@@ -33,7 +33,7 @@ Microsoft Azure içeri/dışarı aktarma hizmeti REST API kullanarak içeri akta
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Azure içeri/dışarı aktarma aracı ile sürücüleri hazırlama
 
-Sürücüleri içeri aktarma işine hazırlamak için adımları aynı jobvia portal oluşturma veya REST API aracılığıyla olabilir.
+Proje portalı veya REST API aracılığıyla oluşturmak isteyip sürücüleri için içeri aktarma işine hazırlamak için adımları aynıdır.
 
 Sürücü hazırlık kısa bir genel bakış aşağıda verilmiştir. Başvurmak [Azure içeri aktarma ExportTool başvurusu](storage-import-export-tool-how-to-v1.md) eksiksiz yönergeler için. Azure içeri/dışarı aktarma aracı indirebileceğiniz [burada](https://go.microsoft.com/fwlink/?LinkID=301900).
 

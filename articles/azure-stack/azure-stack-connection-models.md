@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 9760e6b9cdcd6f03f4377277f3426189b1fe0a61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/21/2019
+ms.openlocfilehash: f58d4e4f8b0e095fe64489fb42f78ef82c5af359
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182026"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407825"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack tümleşik sistemleri bağlantı modelleri
 Azure Stack tümleşik sistem satın almak istiyorsanız, anlamanız gereken [birden çok veri merkezinde tümleştirme konuları](azure-stack-datacenter-integration.md) sistem Merkezinizde nasıl sığacak belirlemek Azure Stack dağıtımı için. Ayrıca, Azure Stack, hibrit bulut ortamına nasıl tümleştirilecek karar vermeniz gerekir. Bu makalede, bu önemli kararlar modeli karar fatura ve Azure bağlantısı, kimlik deposu dahil olmak üzere genel bir bakış sağlar.
@@ -38,12 +38,14 @@ Bir tümleşik sistem satın almak karar verirseniz, orijinal ekipman üreticisi
 
 
 |Seçenekler|Azure'a bağlı|Azure'dan bağlantısı kesildi|
-|-----|-----|-----|
+|-----|:-----:|:-----:|
 |Azure AD|![Desteklenen](media/azure-stack-connection-models/check.png)| |
 |AD FS|![Desteklenen](media/azure-stack-connection-models/check.png)|![Desteklenen](media/azure-stack-connection-models/check.png)|
 |Kullanıma dayalı faturalandırma|![Desteklenen](media/azure-stack-connection-models/check.png)| |
 |Kapasite kullanıma dayalı faturalandırma|![Desteklenen](media/azure-stack-connection-models/check.png)|![Desteklenen](media/azure-stack-connection-models/check.png)|
-|Doğrudan Azure Stack için güncelleştirme paketleri indirin|![Desteklenen](media/azure-stack-connection-models/check.png)|  |
+|Lisanslama| Kurumsal Anlaşma ya da bulut çözümü sağlayıcısı | Kurumsal Anlaşma |
+|Düzeltme eki ve güncelleştirme|Güncelleştirme paketini doğrudan Internet'ten Azure Stack'e indirilebilir. |  Gerekli<br><br>Ayrıca çıkarılabilir medya gerektirir<br> ve ayrı bir bağlı cihaz |
+| Kayıt | Otomatik | Gerekli<br><br>Ayrıca çıkarılabilir medya gerektirir<br> ve ayrı bir bağlı cihaz |
 
 Azure bağlantı modelinde Azure Stack dağıtımı için kullanılacak geçirmeye karar verdikten sonra ek olarak, bağlantı bağlı kararları kimlik deposunu ve ödeme yöntemi için yapılması gerekir. 
 

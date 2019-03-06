@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 85edaeab67c7b5164dabbc817429e2ab82f5ea11
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 08c3511b3efc7ee2e21ef5847976357292bf95bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864677"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446869"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma
 
@@ -71,7 +71,7 @@ Yeni bir Azure Data Factory ve bir kaynak grubu oluşturmak için yönergeleri [
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Yükleme ve Azure Data Factory Integration Runtime'ı yapılandırma
 Integration Runtime, Azure Data Factory tarafından farklı ağ ortamları veri tümleştirme özellikleri sağlamak için kullanılan bir müşteri yönetilen veri tümleştirme altyapısıdır. Bu çalışma zamanı, eski adıyla "Veri yönetimi ağ geçidi" olarak adlandırılıyordu.
 
-Ayarlamak için [instrutions bir işlem hattı oluşturmak için izleyin](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Ayarlamak için [bir işlem hattı oluşturmak için yönergeleri izleyin](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Veri kaynaklarına bağlanmak için bağlı hizmetler oluşturma
 Bağlı hizmet için bir veri kaynağına bağlanmak Azure Data Factory'ye gereken bilgileri tanımlar. Bağlı hizmetler için gerekli olan bu senaryoda üç kaynak sunuyoruz:

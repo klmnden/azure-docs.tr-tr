@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 904b5db35281ed07745b33c364c03e3f4c4bfd2b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111331"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449215"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Azure Data Factory varlıkları oluşturmak için şablonları kullanma
 > [!NOTE]

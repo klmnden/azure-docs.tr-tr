@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: e85608c411c0aea7b7bf71be19939f6859139c56
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7479f651a9fce5d65b1faf4113febb6e79c426b2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314382"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439087"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -246,7 +246,7 @@ Bağımlılık aracısı tarafından desteklenen Windows işletim sistemleri lis
 Bağımlılık aracısı tarafından desteklenen Linux işletim sistemleri listesi [burada](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Bir saat süresinden daha fazla bilgi için Azure Geçişi'ndeki bağımlılıkları görselleştirin oluşturamıyorum?
-Azure geçişi en fazla bir saatlik süre için bağımlılıklar görmenize olanak tanır. Azure geçişi belirli bir tarihe kadar son bir ay için geçmişte dönün olanak tanısa da için bağımlılıkları görselleştirebilirsiniz en fazla süre 1 saate kadar ' dir. Örneğin, Dün için bağımlılıkları görüntülemek için bağımlılık Haritası saati süresi işlevleri kullanabilirsiniz ancak yalnızca bir için bir saat penceresinde görüntüleyebilirsiniz. Ancak, Azure İzleyici günlüklerine kullanabilirsiniz [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) üzerinden uzun bir süre.
+Azure geçişi en fazla bir saatlik süre için bağımlılıklar görmenize olanak tanır. Azure geçişi belirli bir tarihe kadar son bir ay için geçmişte dönün olanak tanısa da için bağımlılıkları görselleştirebilirsiniz en fazla süre 1 saate kadar ' dir. Örneğin, Dün için bağımlılıkları görüntülemek için bağımlılık Haritası saati süresi işlevleri kullanabilirsiniz ancak yalnızca bir için bir saat penceresinde görüntüleyebilirsiniz. Ancak, Azure İzleyici günlüklerine kullanabilirsiniz [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) üzerinden uzun bir süre.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>10'dan fazla Vm'leri gruplar için bağımlılıkları görselleştirme oluşturamıyorum?
 Yapabilecekleriniz [grupları için bağımlılıkları görselleştirme](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) sahip yukarı 10 VM için 10'dan fazla vm'lerle grubunuz varsa öneririz, grupta küçük kullanıcı gruplarına bölün ve bağımlılıklarını görselleştirin.

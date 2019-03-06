@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.date: 12/18/2017
-ms.openlocfilehash: 8d0b123045ace223dbea6c8fa98980091cfe73e1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.date: 03/04/2019
+ms.openlocfilehash: 4adcef601ca84b94d88ed65278310a94c7273353
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819999"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433332"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Makine öğrenimi algoritma bilgi sayfasına için Azure Machine Learning Studio
 
@@ -36,7 +36,7 @@ ms.locfileid: "56819999"
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Notlar ve terim tanımları için Machine Learning Studio algoritması kopya sayfası
 
-* Bu algoritma bilgi sayfası içinde sunulan yaklaşık kuralları-ın-thumb önerilerdir. Bazı Eğilmiş ve bazı flagrantly ihlal edildi. Bu bir başlangıç noktası önermek için tasarlanmıştır. Verileriniz üzerinde çeşitli algoritmalar arasındaki head-to-head yarışma çalıştırılacak Korkmayın. Ve her bir algoritmanın prensipleri anlama ve verilerinizi oluşturulan sistemini anlama yalnızca hiçbir yedek yok.
+* Bu algoritma bilgi sayfası içinde sunulan yaklaşık kuralları-ın-thumb önerilerdir. Bazı Eğilmiş ve bazı flagrantly ihlal edildi. Bu bir başlangıç noktası önermek için tasarlanmıştır. Verileriniz üzerinde çeşitli algoritmalar arasındaki head-to-head yarışma çalıştırılacak Korkmayın. İlkeleri her bir algoritmanın ve verilerinizi üreten sisteminin anlamak için sadece hiçbir yedek yok.
 
 * Her makine öğrenimi algoritmasının kendi stilde veya *Endüktif sapması*. Belirli bir sorun için çeşitli algoritmalar uygun olabilir ve bir algoritma diğerlerinden daha uygun olabilir. Ancak, her zaman en uygun olan önceden bilmeniz mümkün değildir. Bu gibi durumlarda, çeşitli algoritmalar kağıdı içinde birlikte listelenir. Uygun bir strateji, bir algoritma deneyebilirsiniz ve sonuçları henüz tatmin edicidir, değilse, diğer deneyin olacaktır. İşte bir örnek [Azure AI Gallery](http://gallery.azure.ai/) aynı verilere karşı çeşitli algoritmalar çalışır ve sonuçları karşılaştıran bir deneme: [Çok sınıflı sınıflandırıcılar karşılaştırın: Harfli tanıma](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
@@ -52,7 +52,7 @@ ms.locfileid: "56819999"
 
 * **Artırılmış karar ağacı regresyonu** özellik örtüşmesi veya özellikler arasındaki etkileşimi avantajlarından yararlanır. Bir özellik değerini herhangi belirli veri noktasına başka bir değeri biraz Tahmine dayalı, anlamına gelir. Örneğin, günlük yüksek/düşük sıcaklık verileri güne ait düşük sıcaklık bilerek en yüksek makul bir tahmin yapmanızı sağlar. İki özellik içinde yer alan bilgileri biraz gereksizdir.
 
-* Veri sınıflandırma ikiden fazla kategoriye yapılabilir bir çok sınıflı kendiliğinden sınıflandırıcı kullanarak veya iki sınıflı sınıflandırıcılar kümesinin birleştirilmesinin bir **topluluğu**. Topluluğu yaklaşımda her sınıf için ayrı iki sınıflı sınıflandırıcı vardır - her biri veri iki kategoriye ayırır: "Bu class" ve "Bu sınıfı değil." Ardından bu sınıflandırıcılar, veri noktasının doğru atamaya oy verin. Bu arkasında işletimsel ilkesidir [veya bir vs tüm çoklu sınıflar][one-vs-all-multiclass].
+* Veri sınıflandırma ikiden fazla kategoriye yapılabilir bir çok sınıflı kendiliğinden sınıflandırıcı veya iki sınıflı sınıflandırıcılar kümesinin birleştirilmesinin bir **topluluğu**. Topluluğu yaklaşımda her sınıf için ayrı iki sınıflı sınıflandırıcı vardır - her biri veri iki kategoriye ayırır: "Bu class" ve "Bu sınıfı değil." Ardından bu sınıflandırıcılar, veri noktasının doğru atamaya oy verin. Bu arkasında işletimsel ilkesidir [veya bir vs tüm çoklu sınıflar][one-vs-all-multiclass].
 
 * Lojistik regresyon ve Bayes noktası makinesi dahil olmak üzere çeşitli yöntemler varsayar **doğrusal sınıfı sınırları**. Diğer bir deyişle, bunlar sınıfları arasındaki sınırları yaklaşık düz çizgileri (veya daha fazla genel durumda hyperplanes) olduğunu varsayar. Genellikle bu, ayrı girişimi yaptınız sonra kadar tanımadığınız verileri bir özelliğidir, ancak önceden görselleştirerek genellikle öğrenilmesi bir şey olduğunu. Sınıf sınırları çok düzensiz bakarsanız, karar ağaçları ile devam edin, harikası karar, vektör makine ya da sinir ağları destekler.
 
@@ -69,7 +69,7 @@ ms.locfileid: "56819999"
 
 
 <!-- Module References -->
-[a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list
-[initialize-model]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model
-[k-means-clustering]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering
-[one-vs-all-multiclass]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-vs-all-multiclass
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass

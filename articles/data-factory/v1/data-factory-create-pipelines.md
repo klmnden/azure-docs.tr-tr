@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f04903cc1ffd16edd951969c86659c8f1f33105f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 65763eb57904210b202fb30b4394deea3a1f7baf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814138"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449572"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>İşlem hatları ve etkinlikler Azure Data factory'de
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,6 +32,8 @@ Bu makale, Azure Data Factory’de işlem hatlarını ve etkinlikleri anlamanız
 
 > [!NOTE]
 > Bu makalede çalıştınız olduğunu varsayar [Azure Data Factory'ye giriş](data-factory-introduction.md). Uygulamalı-on-veri fabrikaları oluşturma deneyimi ile yoksa oluşturulmak [veri dönüştürme öğreticisini](data-factory-build-your-first-pipeline.md) ve/veya [veri taşıma öğreticisini](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bu makalede daha iyi anlamanıza yardımcı.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Genel Bakış
 Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattı, bir araya geldiğinde bir görev gerçekleştiren mantıksal etkinlik grubudur. Bir işlem hattındaki etkinlikler, verilerinizde gerçekleştirilecek eylemleri tanımlar. Örneğin, kopyalama etkinliğini kullanarak şirket içi SQL Server’dan Azure Blob Depolama’ya veri kopyalayabilirsiniz. Ardından bir Azure HDInsight kümesinde Hive betiği çalıştıran bir Hive etkinliği kullanıp blob depolamadaki verileri işleyerek/dönüştürerek çıktı verileri üretebilirsiniz. Son olarak, ikinci bir kopyalama etkinliği kullanarak üzerinde iş zekası (BI) raporlama çözümlerinin oluşturulduğu bir Azure SQL Veri Ambarı’na çıktı verilerini kopyalayabilirsiniz.
@@ -94,10 +96,10 @@ Bir işlem hattının JSON biçiminde nasıl tanımlandığına daha yakından b
 
 | Etiket | Açıklama | Gerekli |
 | --- | --- | --- |
-| ad |İşlem hattının adı. İşlem hattının gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
+| ad |İşlem hattının adı. İşlem hattının gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "\*", "%", "&", ":","\\"</li></ul> |Evet |
 | açıklama | İşlem hattının ne için kullanıldığını açıklayan metni belirtin. |Evet |
 | etkinlikler | **Etkinlikler** bölümünde tanımlanmış bir veya daha fazla etkinlik olabilir. Etkinliklerin JSON öğesi hakkında ayrıntılı bilgi için sonraki bölüme bakın. | Evet |
-| start | İşlem hattının başlangıç tarihi / saati. Olmalıdır [ISO biçimi](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: `2016-10-14T16:32:41Z`. <br/><br/>Yerel saati, örneğin bir Tah belirtmek mümkündür. Bir örnek aşağıda verilmiştir: `2016-02-27T06:00:00-05:00`", 6 AM tahmini olduğu<br/><br/>Başlangıç ve bitiş özellikleri işlem hattının etkin dönemini birlikte belirtin. Çıktı dilimleri yalnızca ile bu etkin dönem içinde oluşturulur. |Hayır<br/><br/>End özelliği için bir değer belirtirseniz, başlangıç özelliği için değer belirtmeniz gerekir.<br/><br/>Başlangıç ve bitiş saatleri hem de bir işlem hattı oluşturmak için boş olabilir. Çalıştırılacak işlem hattının etkin bir süresini ayarlamak için her iki değer belirtmeniz gerekir. Başlangıç ve bitiş zamanı belirtmezseniz, işlem hattını oluştururken, bunları daha sonra Set-AzureRmDataFactoryPipelineActivePeriod cmdlet'ini kullanarak ayarlayabilirsiniz. |
+| start | İşlem hattının başlangıç tarihi / saati. Olmalıdır [ISO biçimi](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: `2016-10-14T16:32:41Z`. <br/><br/>Yerel saati, örneğin bir Tah belirtmek mümkündür. Bir örnek aşağıda verilmiştir: `2016-02-27T06:00:00-05:00`", 6 AM tahmini olduğu<br/><br/>Başlangıç ve bitiş özellikleri işlem hattının etkin dönemini birlikte belirtin. Çıktı dilimleri yalnızca ile bu etkin dönem içinde oluşturulur. |Hayır<br/><br/>End özelliği için bir değer belirtirseniz, başlangıç özelliği için değer belirtmeniz gerekir.<br/><br/>Başlangıç ve bitiş saatleri hem de bir işlem hattı oluşturmak için boş olabilir. Çalıştırılacak işlem hattının etkin bir süresini ayarlamak için her iki değer belirtmeniz gerekir. Başlangıç ve bitiş zamanı belirtmezseniz, işlem hattını oluştururken, bunları daha sonra Set-AzDataFactoryPipelineActivePeriod cmdlet'ini kullanarak ayarlayabilirsiniz. |
 | end | İşlem hattının son tarih-saat. Belirtilen ISO biçiminde olmalıdır. Örneğin, `2016-10-14T17:32:41Z` <br/><br/>Yerel saati, örneğin bir Tah belirtmek mümkündür. Bir örnek aşağıda verilmiştir: `2016-02-27T06:00:00-05:00`, 6 AM tahmini olduğu<br/><br/>İşlem hattını süresiz olarak çalıştırmak için 9999-09-09 son özelliğinin değeri olarak belirtin. <br/><br/> Bir işlem hattı yalnızca kendi başlangıç ve bitiş zamanı arasında etkin değil. Başlangıç zamanından önce veya sonra bitiş saati yürütülmez. İşlem hattı duraklatılmışsa, bağımsız olarak kendi başlangıç ve bitiş zamanı Yürütülmeyen. Çalıştırmak için işlem hattı için duraklatma değil. Bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) zamanlama ve yürütme işleyişi Azure Data Factory'de anlamak için. |Hayır <br/><br/>Başlangıç özellik için bir değer belirtirseniz, end özelliği için değer belirtmeniz gerekir.<br/><br/>İçin Notlar'a bakın **Başlat** özelliği. |
 | isPaused | TRUE olarak işlem hattı çalışmazsa. Bunu duraklatılmış durumda. Varsayılan değer = false. Bu özellik, etkinleştirme veya devre dışı bir işlem hattı kullanabilirsiniz. |Hayır |
 | pipelineMode | İşlem hattı çalıştırmaları zamanlamak için yöntem. İzin verilen değerler: (varsayılan), zamanlanmış onetime.<br/><br/>'Zamanlanmış' işlem hattı, belirtilen zaman aralığı (başlangıç ve bitiş saati) etkin süresinin göre çalıştırıldığını gösterir. 'Onetime' işlem hattı yalnızca bir kez çalıştırıldığını gösterir. Tek seferlik işlem hatları oluşturulduktan sonra değişiklik ve güncelleştirilmiş olamaz. Bkz: [Onetime işlem hattı](#onetime-pipeline) onetime ayarı hakkında ayrıntılı bilgi için. |Hayır |

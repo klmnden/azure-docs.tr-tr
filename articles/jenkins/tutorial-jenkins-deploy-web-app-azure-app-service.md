@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d59a811b09d2c60627f7d506f1f5fd3513c914e8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821312"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408029"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Öğretici: Jenkins sürekli tümleştirme ve dağıtım ile Github'dan Azure App Service'e dağıtma
 
@@ -193,7 +193,7 @@ Jenkins, oluşturma ve uygulamanızı dağıtmak için işlem hattı işinde olu
 
    1. İçinde **özellikleri içerik** kutusu göründüğünde, bu görev değişkenlerine ve değerlerine ekleyin. 
 
-      ```text
+      ```ini
       AZURE_CRED_ID=yourAzureServicePrincipalName
       RES_GROUP=yourWebAppAzureResourceGroupName
       WEB_APP=yourWebAppName
@@ -212,7 +212,7 @@ Ardından, Jenkins için derleme ve dağıtım betikleri oluşturun.
 1. GitHub çatalınızın içinde `src/main/resources/` klasöründe adlı bu uygulama yapılandırma dosyası oluşturma `web.config`, bu XML içeriyor ancak değiştirin `$(JAR_FILE_NAME)` ile `gs-spring-boot-0.1.0.jar`:
 
    ```xml
-   <?xml version="1.0" encoding="UTF-8">
+   <?xml version="1.0" encoding="UTF-8"?>
    <configuration>
       <system.webServer>
          <handlers>
@@ -225,7 +225,7 @@ Ardından, Jenkins için derleme ve dağıtım betikleri oluşturun.
 
 1. GitHub çatalınızın kök klasöründe adlı bu derleme ve dağıtım betiğini oluşturma `Jenkinsfile`, bu metni içeren ([burada kaynak github'da](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se)):
 
-   ```text  
+   ```groovy
    node {
       stage('init') {
          checkout scm

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodc18
-ms.date: 12/18/2017
-ms.openlocfilehash: 0d7210bfd333a5941d25f72dc0af0743ed234f8c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.date: 03/04/2019
+ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818910"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455199"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>İndirilebilir bilgi grafiği: Makine öğrenimi algoritma örnekleri ile temelleri
 
@@ -23,7 +23,7 @@ Machine learning temel bilgileri yaygın machine learning soruları yanıtlamak 
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Machine Learning Studio'da popüler algoritmaları
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) algoritmaları Tahmine dayalı analiz için büyük bir kitaplık ile birlikte gelir. Bilgi grafiğini dört popüler aileleri algoritmaları - regresyon, anomali algılama, kümeleme ve sınıflandırma - tanımlar ve çalışan örnekler için bağlantılar sağlar [Azure AI Gallery](https://gallery.azure.ai/). Galeri, örnek denemeleri ve bu algoritmalar pek çok gerçek dünya çözümleri nasıl uygulanabileceğini gösteren öğreticileri içerir.
+[Azure Machine Learning Studio](https://studio.azureml.net/) algoritmaları Tahmine dayalı analiz için büyük bir kitaplık ile birlikte gelir. Bu bilgi grafiği dört popüler aileleri algoritmaları - regresyon, anomali algılama, kümeleme ve sınıflandırma - tanımlar ve çalışma örnekleri için bağlantılar sağlar [Azure AI Gallery](https://gallery.azure.ai/). Galeri, örnek denemeleri ve bu algoritmalar pek çok gerçek dünya çözümleri nasıl uygulanabileceğini gösteren öğreticileri içerir.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Algoritma örnekleri ile bilgi Grafiği'ni indirin
 
@@ -40,7 +40,7 @@ Machine learning temel bilgileri yaygın machine learning soruları yanıtlamak 
 
 
 <!-- Module References -->
-[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
-[initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
-[k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
-[one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass

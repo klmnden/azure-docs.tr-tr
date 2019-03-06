@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 6062c31d1ec87d7b958feafef5824a5814995541
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888439"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431980"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Azure’a MySQL yükleme
 Bu makalede, yükleme ve Linux çalıştıran Azure sanal makinesinde MySQL yapılandırma öğreneceksiniz.
@@ -51,7 +51,7 @@ Linux VM ile azure'dan Ubuntu burayı kullanacağız.
             #[root@mysqlnode ~]# apt-get update
             #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
   
-    Yükleme sırasında MySQL kök parolası ayarlamanızı ve parola Burada ayarlanan sorun iletişim penceresi poping kadar görürsünüz.
+    Yükleme sırasında MySQL kök parolası ayarlamanıza izin istemek için görünen bir iletişim kutusu penceresi görürsünüz ve buraya parola ayarlamanız gerekir.
   
     ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 

@@ -1,5 +1,5 @@
 ---
-title: RBAC ve REST API - Azure'ı kullanarak Azure resoruces erişimi yönetme | Microsoft Docs
+title: RBAC ve REST API - Azure'ı kullanarak Azure kaynaklarına erişimi yönetme | Microsoft Docs
 description: Kullanıcılar, gruplar ve rol tabanlı erişim denetimi (RBAC) ve REST API kullanarak uygulamalar için Azure kaynaklarına erişimini yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c2ef9b0070cc9ac190b773f023ffc18d1b251a41
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: a66969504dee5ba526cdccbbb39471ef5af971c0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338419"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439341"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>RBAC ve REST API kullanarak Azure kaynaklarına erişimi yönetme
 

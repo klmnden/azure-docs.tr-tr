@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5696c376ad64df01d7f9d43ff59c87402c334c52
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ab066fef4bffe35408fdc5f3ad6d66796b4d0818
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034820"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443979"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Robo 3T API'si ile Azure Cosmos DB'nin MongoDB için kullanın.
 
@@ -33,7 +33,7 @@ Robo 3T Bağlantı Yöneticisi için Cosmos hesabınızı eklemek için aşağı
 
 4. İçinde **bağlantı ayarlarını** penceresinde, bir ad seçin. Ardından, bulma **konak** ve **bağlantı noktası** adım 1'den bağlantı bilgilerinizi ve girmeyi **adresi** ve **bağlantı noktası**sırasıyla.
 
-    ![Robomongo'yu bağlantıları Yönet'ın ekran görüntüsü](./media/mongodb-robomongo/manageconnections.png)
+    ![Robomongo'yu görüntüsü bağlantıları yönetme](./media/mongodb-robomongo/manageconnections.png)
 5. Üzerinde **kimlik doğrulaması** sekmesinde **gerçekleştirme kimlik doğrulaması**. Ardından, veritabanınızın girin (varsayılan değer *yönetici*), **kullanıcı adı** ve **parola**.
 Her ikisi de **kullanıcı adı** ve **parola** bağlantı bilgilerinizi adım 1'de bulunabilir.
 

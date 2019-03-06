@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 44dad6d0a6f11b84c4cd2a4470e9a286e1a9ea36
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a2bf7d018712d311545422b91eac0c6ca4912960
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866092"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439387"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Hızlı başlangıç: Ruby ile Bing Varlık Arama API'si
 
@@ -65,7 +65,7 @@ Bu uygulama, Ruby ile yazılmış olmakla birlikte API, çoğu programlama diliy
     request['Ocp-Apim-Subscription-Key'] = subscriptionKey
     ```
 
-3. İsteği Gönder ve resposne yazdırma
+3. İstek göndermek ve yanıtın yazdırma
 
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f62a87343ea0dc8d5d3818ee8516f0d8e8f607c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 38a8cac6508777abe676e243496c792f87131483
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206727"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432303"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Kullanıcıları ve grupları Azure Active Directory'de bir uygulamaya atama
 Bu makalede bir uygulamayı Azure Active Directory (Azure AD) kullanıcıları veya grupları atama gösterilmektedir. Yöneticinin bunları aşağıdakileri yapmak için erişim izni verebilmeniz için önce kullanıcıların önce uygulamaya atanması gerekir:
@@ -32,7 +32,7 @@ Bu makalede bir uygulamayı Azure Active Directory (Azure AD) kullanıcıları v
 
 -   Görünür bir uygulama bkz kendi [Office 365 uygulama başlatıcısında](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="prerequisties"></a>Prerequisties
+## <a name="prerequisites"></a>Önkoşullar
 Uygulamaya kullanıcıları ve grupları atamadan önce kullanıcı atamasını gerektirir. Kullanıcı ataması gerekli kılmak için:
 
 1. Azure portalı ile bir yönetici hesabıyla oturum açın.

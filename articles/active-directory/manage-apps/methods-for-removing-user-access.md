@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7f3619e345666256a63181eb978506914d55d1e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d2275d1ef3534e6d8e984595a816315b7b74a760
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196544"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439851"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Bir uygulama için kullanıcı erişimi kaldırma
 
@@ -56,7 +56,7 @@ Bir uygulama için tüm kullanıcı oturum açma işlemleri devre dışı bırak
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Herhangi bir uygulama için tüm gelecek kullanıcı onayı işlemleri devre dışı bırakmak istiyorum
 
-Tüm dizininizin engellemek için son kullanıcıların herhangi bir uygulama konusunda çekince kullanıcı onayı devre dışı bırakılıyor. Yöneticiler, yine de kullanıcının behalves üzerinde onay verebilir. Uygulama hakkında daha fazla bilgi için onay ve olabilir ya da bunu yapmak istiyor neden okuma [anlama kullanıcı ve yönetici onayı](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Ayrıca bkz [izinler ve onay](../develop/v2-permissions-and-consent.md).
+Tüm dizininizin engellemek için son kullanıcıların herhangi bir uygulama konusunda çekince kullanıcı onayı devre dışı bırakılıyor. Yöneticiler, yine de kullanıcı adına onay verebilir. Uygulama hakkında daha fazla bilgi için onay ve olabilir ya da bunu yapmak istiyor neden okuma [anlama kullanıcı ve yönetici onayı](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Ayrıca bkz [izinler ve onay](../develop/v2-permissions-and-consent.md).
 
 İçin **tüm dizininizdeki tüm gelecek kullanıcı onayı işlemleri devre dışı**, bu yönergeleri izleyin:
 

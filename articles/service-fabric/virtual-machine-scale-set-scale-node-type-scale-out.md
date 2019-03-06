@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/13/2019
 ms.author: aljo
-ms.openlocfilehash: 01d4af8349d3f5a0f58c4c3fa56b489d739c7b42
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: d732c26fd503f65bbd82bff076873ea5de4edb39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301715"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455607"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi ekleyerek çıkış bir Service Fabric kümesini ölçekleme
 Bu makale, mevcut bir kümeye yeni bir düğüm türü ekleyerek bir Azure Service Fabric kümesini ölçekleme açıklamaktadır. Service Fabric kümesi bir ağa bağlı, mikro hizmetlerin dağıtıldığı ve yönetildiği sanal veya fiziksel makine kümesidir. Bir makine ya da bir kümenin parçası olan sanal makine bir düğüm denir. Sanal makine ölçek kümeleri dağıtmak ve sanal makine koleksiyonunu bir küme olarak yönetmek için kullandığınız bir Azure işlem kaynağıdır. Bir Azure kümesinde tanımlanan her düğüm türü [ayrı ölçek kümesi olarak ayarlanan](service-fabric-cluster-nodetypes.md). Ardından her düğüm türü ayrı olarak yönetilebilir. Service Fabric kümesi oluşturduktan sonra küme yatay olarak mevcut bir kümeye yeni bir düğüm türü (sanal makine ölçek kümesi) ekleyerek ölçeklendirebilirsiniz.  Kümedeki herhangi bir zamanda iş yükleri küme üzerinde çalışırken bile ölçeklendirebilirsiniz.  Küme ölçekler gibi uygulamalarınızı otomatik olarak da ölçeklendirin.
 
 ## <a name="add-an-additional-scale-set-to-an-existing-cluster"></a>Varolan bir kümenin ek bir ölçek ekleyin
-(Bu sanal makine ölçek kümesi tarafından desteklenir) yeni bir düğüm türü var olan bir kümeye ekleme benzer [birincil düğüm türü yükseltme](service-fabric-scale-up-node-type.md)aynı NodeTypeRef; kullanmaz dışında açıkça herhangi etkin olarak kullanılan devre dışı olmaz birincil düğüm türü güncelleştirmezseniz sanal makine ölçek kümeleri ve, paylaşmıyor küme kullanılabilirliği kaybedersiniz. 
+(Bu sanal makine ölçek kümesi tarafından desteklenir) yeni bir düğüm türü var olan bir kümeye ekleme benzer [birincil düğüm türü yükseltme](service-fabric-scale-up-node-type.md)aynı NodeTypeRef; kullanmaz dışında açıkça herhangi etkin olarak kullanılan devre dışı olmaz sanal makine ölçek kümeleri, ve birincil düğüm türü güncelleştirmezseniz küme kullanılabilirlik kaybetmez. 
 
 NodeTypeRef özelliği, sanal makine içinde bildirilmiş ölçek kümesi Service Fabric uzantısı özellikleri:
 ```json

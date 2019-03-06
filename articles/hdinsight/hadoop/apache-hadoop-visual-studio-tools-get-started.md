@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 951bb978ac78529959acbf878a72c22573400f11
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7d93e5777e3456098e1282fd70da55e85e1f80d0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822795"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438254"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Bağlanmak için Azure HDInsight ve Apache Hive sorguları çalıştırmak için Visual Studio için Data Lake Araçları'nı kullanın
 
@@ -113,7 +113,7 @@ Bir kapsayıcıyı açtıktan sonra aşağıdaki düğmeleri kullanarak blob’l
 ## <a name="run-interactive-apache-hive-queries"></a>Etkileşimli Apache Hive sorguları çalıştırma
 [Apache Hive](https://hive.apache.org), Hadoop üzerinde oluşturulmuş bir veri ambarı altyapısıdır. Hive veri özetleme, sorgular ve analiz için kullanılır. Visual Studio’dan Hive sorguları çalıştırmak üzere Visual Studio için Data Lake Araçları’nı kullanabilirsiniz. Hive hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma Apache](hdinsight-use-hive.md).
 
-[Etkileşimli Sorgu](../interactive-query/apache-interactive-query-get-started.md), Apache Hive 2.1 sürümünde [LLAP üzerinde Hive](https://cwiki.apache.org/confluence/display/Hive/LLAP) kullanır. Etkileşimli Sorgu büyük, depolanmış veri kümelerinde karmaşık veri ambarı stili sorgulara etkileşim katar. Etkileşimli Sorgu üzerinde Hive sorgularının çalıştırılması, geleneksel Hive toplu işlerine kıyasla çok daha hızlıdır. Daha fazla bilgi için [Apache Hive toplu işleri çalıştırma](#run-hive-batch-jobs).
+[Etkileşimli Sorgu](../interactive-query/apache-interactive-query-get-started.md), Apache Hive 2.1 sürümünde [LLAP üzerinde Hive](https://cwiki.apache.org/confluence/display/Hive/LLAP) kullanır. Etkileşimli Sorgu büyük, depolanmış veri kümelerinde karmaşık veri ambarı stili sorgulara etkileşim katar. Etkileşimli Sorgu üzerinde Hive sorgularının çalıştırılması, geleneksel Hive toplu işlerine kıyasla çok daha hızlıdır. Apache Hive toplu işleri çalıştırma daha fazla bilgi için bkz.
 
 > [!NOTE]  
 > Etkileşimli Hive sorgularını yalnızca bir [HDInsight Etkileşimli Sorgu](../interactive-query/apache-interactive-query-get-started.md) kümesine bağlandığınızda çalıştırabilirsiniz.

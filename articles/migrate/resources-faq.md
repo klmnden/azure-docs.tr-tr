@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 9577e2c8eea153b38475bf5126a41641b3642ae9
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 26992cfe1c6cb8555a7084075fed4d9c8daed031
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991334"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444388"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -104,7 +104,7 @@ Gereç tabanlı bulma şirket içi sanal makineleri ile ilgili meta verileri top
   - Ağ içine
   - Ağ dışına
 
-Aracı tabanlı bulma, gereç tabanlı bulma ile birlikte kullanılabilecek bir seçenektir ve müşterilerin şirket içi VM'ler üzerindeki [bağımlılıkları görselleştirmesine](how-to-create-group-machine-dependencies.md) yardımcı olur. Bağımlılık aracısı FQDN, işletim sistemi, IP adresi, MAC adresi, VM içinde çalışan işlemler ve VM'den gelen/giden TCP bağlantıları gibi bilgileri toplar. Aracı tabanlı bulma isteğe bağlıdır ve sanal makinelerin bağımlılıklarını görselleştirin istemiyorsanız aracıları yüklememeyi seçebilirsiniz.
+Aracı tabanlı bulma alet tabanlı bulma üzerinde sunulan bir seçenektir ve müşterilere yardımcı [bağımlılıkları görselleştirme](how-to-create-group-machine-dependencies.md) , şirket içi VM'ler. Bağımlılık aracısı FQDN, işletim sistemi, IP adresi, MAC adresi, VM içinde çalışan işlemler ve VM'den gelen/giden TCP bağlantıları gibi bilgileri toplar. Aracı tabanlı bulma isteğe bağlıdır ve sanal makinelerin bağımlılıklarını görselleştirin istemiyorsanız aracıları yüklememeyi seçebilirsiniz.
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Analiz edilen ESXi ana bilgisayar ortamının üzerinde bir performans etkisi olması?
 
@@ -217,7 +217,7 @@ Bağımlılık aracısı tarafından desteklenen Windows işletim sistemleri lis
 Bağımlılık aracısı tarafından desteklenen Linux işletim sistemleri listesi [burada](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Bağımlılıklar Azure Geçişi'ndeki bir saat süresinden daha fazla bilgi için görselleştirebilirsiniz?
-Hayır, Azure geçişi, en fazla bir saatlik süre için bağımlılıkları görselleştirme sağlar. Azure geçişi belirli bir tarihe kadar son bir ay için geçmişte dönün sağlar, ancak için bağımlılıkları görselleştirebilirsiniz en fazla süre 1 saate kadar uzun. Örneğin, Dün için bağımlılıkları görüntülemek için bağımlılık Haritası saati süresi işlevleri kullanabilirsiniz ancak yalnızca bir için bir saat penceresinde görüntüleyebilirsiniz. Ancak, Azure İzleyici günlüklerine kullanabilirsiniz [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) üzerinden uzun bir süre.
+Hayır, Azure geçişi, en fazla bir saatlik süre için bağımlılıkları görselleştirme sağlar. Azure geçişi belirli bir tarihe kadar son bir ay için geçmişte dönün sağlar, ancak için bağımlılıkları görselleştirebilirsiniz en fazla süre 1 saate kadar uzun. Örneğin, Dün için bağımlılıkları görüntülemek için bağımlılık Haritası saati süresi işlevleri kullanabilirsiniz ancak yalnızca bir için bir saat penceresinde görüntüleyebilirsiniz. Ancak, Azure İzleyici günlüklerine kullanabilirsiniz [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) üzerinden uzun bir süre.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Bağımlılık görselleştirmesi 10'dan fazla Vm'leri gruplar için destekleniyor mu?
 Yapabilecekleriniz [grupları için bağımlılıkları görselleştirme](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) en fazla 10 sanal sahip. 10'dan fazla vm'lerle grubunuz varsa, grupta küçük kullanıcı gruplarına bölün ve bağımlılıkları görselleştirme öneririz.

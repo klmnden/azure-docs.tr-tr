@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: df1c0f8256b49e23b720df47c513fba8c62677b5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475212"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449198"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IOT hub'ın Azure Event Grid olay şeması
 
@@ -113,51 +113,51 @@ Tüm olaylar aynı üst düzey veri içerir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| id | dize | Olayın benzersiz tanımlayıcısı. |
-| konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
-| olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
-| eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
+| id | string | Olayın benzersiz tanımlayıcısı. |
+| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
 | veriler | object | IOT Hub olay verileri.  |
-| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
+| dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
+| metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
 Tüm IOT Hub olaylarını veri nesnesinin aşağıdaki özellikleri içerir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| HubName | dize | IOT cihaz nerede oluşturulduğu veya silindiği Hub adı. |
-| deviceId | dize | Cihazın benzersiz tanımlayıcısı. Bu büyük küçük harfe duyarlı dize en fazla 128 karakter uzunluğunda olabilir ve ASCII 7 bit alfasayısal karakterlerin yanı sıra şu özel karakterleri destekler: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| HubName | string | IOT cihaz nerede oluşturulduğu veya silindiği Hub adı. |
+| deviceId | string | Cihazın benzersiz tanımlayıcısı. Bu büyük küçük harfe duyarlı dize en fazla 128 karakter uzunluğunda olabilir ve ASCII 7 bit alfasayısal karakterlerin yanı sıra şu özel karakterleri destekler: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
 Veri nesnesi, içeriğini, her olay yayımcısı için farklıdır. İçin **cihaz bağlı** ve **cihazın bağlantısı** IOT Hub olayları, veri nesnesi, aşağıdaki özellikleri içerir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Modül kimliği | dize | Modülün benzersiz tanımlayıcısı. Çıkış Modülü cihazlar için yalnızca alandır. Bu büyük küçük harfe duyarlı dize en fazla 128 karakter uzunluğunda olabilir ve ASCII 7 bit alfasayısal karakterlerin yanı sıra şu özel karakterleri destekler: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| Modül kimliği | string | Modülün benzersiz tanımlayıcısı. Çıkış Modülü cihazlar için yalnızca alandır. Bu büyük küçük harfe duyarlı dize en fazla 128 karakter uzunluğunda olabilir ve ASCII 7 bit alfasayısal karakterlerin yanı sıra şu özel karakterleri destekler: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | object | Cihaz bağlantı durumu olay bilgilerini
-| sequenceNumber | dize | Yardımcı olan bağlı cihaz veya cihaz sırasını belirten bir sayı olayları bağlantısı kesildi. En son olay, bir sıra numarası olacaktır, önceki olay daha yüksek. Bu sayı tarafından 1'den fazla değiştirebilir, ancak kesin olarak artmaktadır. Bkz: [sıra numarası kullanmayı](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+| sequenceNumber | string | Yardımcı olan bağlı cihaz veya cihaz sırasını belirten bir sayı olayları bağlantısı kesildi. En son olay, bir sıra numarası olacaktır, önceki olay daha yüksek. Bu sayı tarafından 1'den fazla değiştirebilir, ancak kesin olarak artmaktadır. Bkz: [sıra numarası kullanmayı](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
 Veri nesnesi, içeriğini, her olay yayımcısı için farklıdır. İçin **cihaz oluşturulan** ve **cihaz silinmiş** IOT Hub olayları, veri nesnesi, aşağıdaki özellikleri içerir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| ikiz | object | Uygulama cihaz meta verilerini, bulut represenation olan cihaz ikizi hakkında bilgi sağlar. | 
-| cihaz kimliği | dize | Cihaz ikizi benzersiz tanımlayıcısı. | 
-| Etag | dize | Cihaz ikizi güncelleştirmeleri tutarlılık sağlamaya yönelik bir doğrulayıcı. Her bir etag cihaz ikizi benzersiz olması garanti edilir. |  
-| deviceEtag| dize | Bir cihaz kayıt defterine güncelleştirmelerin tutarlılık sağlamaya yönelik bir doğrulayıcı. Her deviceEtag cihaz kayıt defteri başına benzersiz olması garanti edilir. |
-| durum | dize | Olup cihaz ikizinde etkin veya devre dışı. | 
-| statusUpdateTime | dize | Son cihaz ikizi durumu ISO8601 zaman damgası güncelleştirin. |
-| connectionState | dize | Olup cihaz bağlı bağlantısı kesildi veya. | 
-| lastActivityTime | dize | Son Etkinlik ISO8601 zaman damgası. | 
+| ikiz | object | Uygulama cihaz meta verilerini bir bulut gösterimiyse cihaz ikizinde hakkında bilgi sağlar. | 
+| cihaz kimliği | string | Cihaz ikizi benzersiz tanımlayıcısı. | 
+| Etag | string | Cihaz ikizi güncelleştirmeleri tutarlılık sağlamaya yönelik bir doğrulayıcı. Her bir etag cihaz ikizi benzersiz olması garanti edilir. |  
+| deviceEtag| string | Bir cihaz kayıt defterine güncelleştirmelerin tutarlılık sağlamaya yönelik bir doğrulayıcı. Her deviceEtag cihaz kayıt defteri başına benzersiz olması garanti edilir. |
+| durum | string | Olup cihaz ikizinde etkin veya devre dışı. | 
+| statusUpdateTime | string | Son cihaz ikizi durumu ISO8601 zaman damgası güncelleştirin. |
+| connectionState | string | Olup cihaz bağlı bağlantısı kesildi veya. | 
+| lastActivityTime | string | Son Etkinlik ISO8601 zaman damgası. | 
 | cloudToDeviceMessageCount | integer | Bu cihaza gönderilen cihaz iletileri buluta sayısı. | 
-| authenticationType | dize | Bu cihaz için kullanılan kimlik doğrulaması türü: ya da `SAS`, `SelfSigned`, veya `CertificateAuthority`. |
-| X509Thumbprint | dize | Parmak izi, x509 için benzersiz bir değer belirli bir sertifika bir sertifika deposunda bulmak için kullanılan sertifika. Parmak izi SHA1 algoritması kullanılarak dinamik olarak oluşturulur ve fiziksel olarak sertifika mevcut değil. | 
-| primaryThumbprint | dize | Birincil parmak izi x509 için sertifika. |
-| secondaryThumbprint | dize | İkincil parmak izi x509 için sertifika. | 
+| authenticationType | string | Bu cihaz için kullanılan kimlik doğrulaması türü: ya da `SAS`, `SelfSigned`, veya `CertificateAuthority`. |
+| X509Thumbprint | string | Parmak izi, x509 için benzersiz bir değer belirli bir sertifika bir sertifika deposunda bulmak için kullanılan sertifika. Parmak izi SHA1 algoritması kullanılarak dinamik olarak oluşturulur ve fiziksel olarak sertifika mevcut değil. | 
+| primaryThumbprint | string | Birincil parmak izi x509 için sertifika. |
+| secondaryThumbprint | string | İkincil parmak izi x509 için sertifika. | 
 | version | integer | Bir her artırılır tamsayı saat cihaz ikizi güncelleştirilir. |
 | İstenen | object | Yalnızca uygulama arka ucu tarafından yazılmış ve cihaz tarafından okunur özellikleri kısmı. | 
 | bildirilen | object | Yalnızca cihaz tarafından yazılmış ve uygulama arka ucu tarafından okunur özellikleri kısmı. |
-| lastUpdated | dize | ISO8601 zaman damgası son cihaz ikizi özelliğinin güncelleştirin. | 
+| lastUpdated | string | ISO8601 zaman damgası son cihaz ikizi özelliğinin güncelleştirin. | 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

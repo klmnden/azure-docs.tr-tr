@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3ba9d7ab9e05c3c5480e1832cc5ddd0ce91a3ae1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f35ed65b25d469b524e7174affecb45ad7c4735c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094211"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405886"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft eşlemesi üzerinde siteden siteye VPN yapılandırma
 
@@ -23,6 +23,8 @@ Bu makalede, bir ExpressRoute özel bağlantı üzerinden şirket içi ağınız
 >Siteden siteye VPN ayarlamaya, eşleme Microsoft ayarladığınızda VPN ağ geçidi ve VPN çıkışı için ücretlendirilir. Daha fazla bilgi için [VPN Gateway fiyatlandırması](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="architecture"></a>Mimarisi
 
@@ -89,7 +91,7 @@ Bu örnek, bir Cisco IOS-XE komutunu kullanır. Örnekte, bir sanal Yönlendirme
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-68 önekleri komşu tarafından alınan aşağıdaki kısmi çıkış gösterilir *.243.229.34 ASN 12076'ile (MSEE):
+68 önekleri komşu tarafından alınan aşağıdaki kısmi çıkış gösterilir \*.243.229.34 ASN 12076'ile (MSEE):
 
 ```
 ...
@@ -107,7 +109,7 @@ sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 Ön ekleri doğru kümesini aldığını doğrulamak için çapraz-doğrulayabilirsiniz. Aşağıdaki Azure PowerShell komut çıktısı, Microsoft hizmetlerinin her biri için ve her bir Azure bölgesi için eşleme aracılığıyla tanıtılan ön listeler:
 
 ```azurepowershell-interactive
-Get-AzureRmBgpServiceCommunity
+Get-AzBgpServiceCommunity
 ```
 
 ## <a name="vpngateway"></a>3. VPN ağ geçidi yapılandırma ve IPSec tüneli
@@ -482,7 +484,7 @@ Güvenlik duvarını ve gereksinimlerinize göre filtrelemeyi yapılandırın.
 IPSec tünel durumu Azure VPN ağ geçidi Powershell komutlarıyla doğrulanabilir:
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
+Get-AzVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
 ```
 
 Örnek çıktı:
@@ -496,7 +498,7 @@ IngressBytesTransferred : 10538211
 Bağımsız olarak Azure VPN ağ geçidi örneklerinde tüneller durumunu denetlemek için aşağıdaki örneği kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object -ExpandProperty TunnelConnectionStatus
+Get-AzVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object -ExpandProperty TunnelConnectionStatus
 ```
 
 Örnek çıktı:
@@ -618,7 +620,7 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/6 ms
 Azure VPN ağ geçidi, BGP eşi durumunu doğrulayın:
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw -ResourceGroupName SEA-C1-VPN-ER | ft
+Get-AzVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw -ResourceGroupName SEA-C1-VPN-ER | ft
 ```
 
 Örnek çıktı:
@@ -634,7 +636,7 @@ Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw 
 VPN yoğunlaştırıcı şirket eBGP aracılığıyla alınan ağ ön ekleri listesi doğrulamak için "Kaynak" özniteliği tarafından filtreleyebilirsiniz:
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
+Get-AzVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
 ```
 
 Örnek çıktıda, ASN 65010 VPN şirket içi BGP Otonom sistem numarası ' dir.
@@ -649,7 +651,7 @@ AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
 Tanıtılan rotaları listesini görmek için:
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG -Peer 10.2.0.228 | ft
+Get-AzVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG -Peer 10.2.0.228 | ft
 ```
 
 Örnek çıktı:

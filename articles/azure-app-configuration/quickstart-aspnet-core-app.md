@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ce19041b29d567f061dde59fbe041adf61f889a0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 850bb044e5ab9e653bf343b4f222cf21b159bd5d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961491"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446768"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Hızlı Başlangıç: Azure uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma
 
@@ -89,7 +89,7 @@ Ekleyeceksiniz [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/asp
 
     Gizli dizi Yöneticisi, yalnızca web uygulamasını yerel olarak test etmek için kullanılır. Uygulama, dağıtıldığı (örneğin, [Azure App Service](https://azure.microsoft.com/services/app-service/web)), bir uygulama ayarı kullanır (örneğin, **bağlantı dizeleri** App Service'te) yerine gizli dizi ile bağlantı dizesi Yöneticisi.
 
-    Bu gizli diziye yapılandırma API'si ile erişilir. Desteklenen tüm platformlarda, yapılandırma API'lerinin yapılandırma adlarında iki nokta üst üste (:) işareti kullanılabilir [Ortama göre yapılandırma](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment).
+    Bu gizli diziye yapılandırma API'si ile erişilir. Desteklenen tüm platformlarda, yapılandırma API'lerinin yapılandırma adlarında iki nokta üst üste (:) işareti kullanılabilir [Ortama göre yapılandırma](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
 4. Açık *Program.cs* ve güncelleştirme `CreateWebHostBuilder` yöntemi çağırarak uygulama yapılandırmasını kullanma `config.AddAzureAppConfiguration()` yöntemi.
 

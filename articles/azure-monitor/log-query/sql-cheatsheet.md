@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 76c9e143a4127807bfffa879103fca42d2d27e71
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 6a63ddc6b9a1640c8e0986a221c8da6f694b2800
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268337"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454145"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL Azure İzleyici günlük sorgu kopya kağıdı 
 
@@ -42,8 +42,8 @@ Sırala                                    |`SELECT name, timestamp FROM depende
 Farklı                                |`SELECT DISTINCT name, type  FROM dependencies`                                                    |<code>dependencies <br>&#124; summarize by name, type </code>
 Toplama, gruplandırma                   |`SELECT name, AVG(duration) FROM dependencies GROUP BY name`                                       |<code>dependencies <br>&#124; summarize avg(duration) by name </code>
 Sütun diğer adları, Genişlet                  |`SELECT operation_Name as Name, AVG(duration) as AvgD FROM dependencies GROUP BY name`             |<code>dependencies <br>&#124; summarize AvgD=avg(duration) by operation_Name <br>&#124; project Name=operation_Name, AvgD</code>
-Üst n recrods ölçü tarafından                |`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`        |<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
-birleşim                                   |`SELECT * FROM dependencies UNION SELECT * FROM exceptions`                                        |<code>union dependencies, exceptions</code>
+Ölçü göre üst n kayıtlar                |`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`        |<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
+Birleşim                                   |`SELECT * FROM dependencies UNION SELECT * FROM exceptions`                                        |<code>union dependencies, exceptions</code>
 Union: tüm koşullar                  |`SELECT * FROM dependencies WHERE value > 4 UNION SELECT * FROM exceptions value < 5`              |<code>dependencies <br>&#124; where value > 4 <br>&#124; union (exceptions <br>&#124; where value < 5)</code>
 Birleştir                                    |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
 

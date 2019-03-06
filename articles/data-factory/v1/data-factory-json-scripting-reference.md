@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f65b9904b15815c997c1608940109ad296ee6007
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7b32a493dc7dc8aa3ac2bbf1f195a43621c7449a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822876"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447192"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON betik oluşturma başvurusu
 > [!NOTE]
@@ -26,6 +26,8 @@ ms.locfileid: "55822876"
 
 
 Bu makalede, Azure Data Factory varlıklarını (işlem hattı, etkinlik, veri kümesi ve bağlı hizmet) tanımlamak için JSON şemalarının ve örnekler sağlar.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="pipeline"></a>İşlem hattı
 İşlem hattı için üst düzey yapısını aşağıdaki gibidir:
@@ -50,7 +52,7 @@ Aşağıdaki tabloda, işlem hattı JSON tanımını içindeki özellikleri aç�
 | ad | İşlem hattının adı. Eylemi temsil eden bir ad belirtin etkinlik veya işlem hattı yapmak için yapılandırılır<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
 | açıklama |Ne işlem hattı ve etkinlik için kullanıldığını açıklayan metin | Hayır |
 | etkinlikler | Etkinliklerin listesini içerir. | Evet |
-| start |İşlem hattının başlangıç tarihi / saati. Olmalıdır [ISO biçimi](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41. <br/><br/>Yerel saati, örneğin bir Tah belirtmek mümkündür. Bir örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6 AM tahmini olduğu<br/><br/>Başlangıç ve bitiş özellikleri işlem hattının etkin dönemini birlikte belirtin. Çıktı dilimleri yalnızca ile bu etkin dönem içinde oluşturulur. |Hayır<br/><br/>End özelliği için bir değer belirtirseniz, başlangıç özelliği için değer belirtmeniz gerekir.<br/><br/>Başlangıç ve bitiş saatleri hem de bir işlem hattı oluşturmak için boş olabilir. Çalıştırılacak işlem hattının etkin bir süresini ayarlamak için her iki değer belirtmeniz gerekir. Başlangıç ve bitiş zamanı belirtmezseniz, işlem hattını oluştururken, bunları daha sonra Set-AzureRmDataFactoryPipelineActivePeriod cmdlet'ini kullanarak ayarlayabilirsiniz. |
+| start |İşlem hattının başlangıç tarihi / saati. Olmalıdır [ISO biçimi](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41. <br/><br/>Yerel saati, örneğin bir Tah belirtmek mümkündür. Bir örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6 AM tahmini olduğu<br/><br/>Başlangıç ve bitiş özellikleri işlem hattının etkin dönemini birlikte belirtin. Çıktı dilimleri yalnızca ile bu etkin dönem içinde oluşturulur. |Hayır<br/><br/>End özelliği için bir değer belirtirseniz, başlangıç özelliği için değer belirtmeniz gerekir.<br/><br/>Başlangıç ve bitiş saatleri hem de bir işlem hattı oluşturmak için boş olabilir. Çalıştırılacak işlem hattının etkin bir süresini ayarlamak için her iki değer belirtmeniz gerekir. Başlangıç ve bitiş zamanı belirtmezseniz, işlem hattını oluştururken, bunları daha sonra Set-AzDataFactoryPipelineActivePeriod cmdlet'ini kullanarak ayarlayabilirsiniz. |
 | end |İşlem hattının son tarih-saat. Belirtilen ISO biçiminde olmalıdır. Örneğin: 2014-10-14T17:32:41 <br/><br/>Yerel saati, örneğin bir Tah belirtmek mümkündür. Bir örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6 AM tahmini olduğu<br/><br/>İşlem hattını süresiz olarak çalıştırmak için 9999-09-09 son özelliğinin değeri olarak belirtin. |Hayır <br/><br/>Başlangıç özellik için bir değer belirtirseniz, end özelliği için değer belirtmeniz gerekir.<br/><br/>İçin Notlar'a bakın **Başlat** özelliği. |
 | isPaused |İşlem hattı true olarak ayarlanırsa çalışmazsa. Varsayılan değer = false. Bu özelliği etkinleştirmek veya devre dışı bırakmak için kullanabilirsiniz. |Hayır |
 | pipelineMode |İşlem hattı çalıştırmaları zamanlamak için yöntem. İzin verilen değerler: (varsayılan), zamanlanmış onetime.<br/><br/>'Zamanlanmış' işlem hattı, belirtilen zaman aralığı (başlangıç ve bitiş saati) etkin süresinin göre çalıştırıldığını gösterir. 'Onetime' işlem hattı yalnızca bir kez çalıştırıldığını gösterir. Tek seferlik işlem hatları oluşturulduktan sonra değişiklik ve güncelleştirilmiş olamaz. Bkz: [Onetime işlem hattı](data-factory-create-pipelines.md#onetime-pipeline) onetime ayarı hakkında ayrıntılı bilgi için. |Hayır |
@@ -2230,13 +2232,13 @@ SAP Business Warehouse (BW) tanımlamak için bağlı hizmeti, Ayarla **türü**
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP BW örneği yer aldığı sunucunun adı. | dize | Evet
+sunucu | SAP BW örneği yer aldığı sunucunun adı. | string | Evet
 systemNumber | SAP BW sisteminin sistem numarası. | İki basamaklı ondalık sayı bir dize olarak temsil edilir. | Evet
 ClientID | SAP W sisteminde istemcinin istemci kimliği. | Bir dize olarak temsil edilen üç basamaklı ondalık sayı. | Evet
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | dize | Evet
-password | Kullanıcının parolası. | dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidi adı. | dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgisi dizesi. | dize | Hayır
+kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | string | Evet
+password | Kullanıcının parolası. | string | Evet
+gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidi adı. | string | Evet
+encryptedCredential | Şifrelenmiş kimlik bilgisi dizesi. | string | Hayır
 
 #### <a name="example"></a>Örnek
 
@@ -2340,12 +2342,12 @@ SAP HANA tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP HANA örneği yer aldığı sunucunun adı. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa, belirtin `server:port`. | dize | Evet
+sunucu | SAP HANA örneği yer aldığı sunucunun adı. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa, belirtin `server:port`. | string | Evet
 authenticationType | Kimlik doğrulaması türü. | dize. "Temel" veya "Windows" | Evet
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | dize | Evet
-password | Kullanıcının parolası. | dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidi adı. | dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgisi dizesi. | dize | Hayır
+kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | string | Evet
+password | Kullanıcının parolası. | string | Evet
+gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidi adı. | string | Evet
+encryptedCredential | Şifrelenmiş kimlik bilgisi dizesi. | string | Hayır
 
 #### <a name="example"></a>Örnek
 
@@ -2458,7 +2460,7 @@ Aşağıdaki tabloda, SQL Server bağlı hizmeti için özel JSON öğeleri içi
 | kullanıcı adı |Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. Örnek: **domainname\\username**. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
 
-Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncryptValue** cmdlet'i ve bunları aşağıdaki örnekte gösterildiği gibi bağlantı dizesini kullanın (**EncryptedCredential** özellik):
+Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzDataFactoryEncryptValue** cmdlet'i ve bunları aşağıdaki örnekte gösterildiği gibi bağlantı dizesini kullanın (**EncryptedCredential** özellik):
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -3151,7 +3153,7 @@ Amazon S3 tanımlamak için bağlı hizmeti, ayarlayın **türü** bağlı hizme
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| accessKeyID |Gizli erişim anahtarı kimliği. |dize |Evet |
+| accessKeyID |Gizli erişim anahtarı kimliği. |string |Evet |
 | secretAccessKey |Gizli erişim anahtarı kendisi. |Şifrelenmiş gizli dize |Evet |
 
 #### <a name="example"></a>Örnek
@@ -3319,7 +3321,7 @@ Bir Azure data factory ile bir şirket içi dosya sistemine bağlanabilirsiniz *
 | konak |Kopyalamak istediğiniz klasörün kök yolunu belirtir. Çıkış karakterini kullanma ' \ ' dizesinde özel karakterler için. Bağlı örnek hizmet ve veri kümesi tanımları örnekler için bkz. |Evet |
 | Kullanıcı Kimliği |Sunucu erişimi olan kullanıcının kimliği belirtin. |Hayır (encryptedCredential seçerseniz) |
 | password |(Kullanıcı kimliği) kullanıcının parolasını belirtin. |Hayır (encryptedCredential seçin |
-| encryptedCredential |New-AzureRmDataFactoryEncryptValue cmdlet çalıştırılarak elde edebilirsiniz şifrelenmiş kimlik bilgilerini belirtin. |Hayır (kullanıcı kimliği ve parola düz metin olarak belirtmek isterseniz varsa) |
+| encryptedCredential |New-AzDataFactoryEncryptValue cmdlet çalıştırılarak elde edebilirsiniz şifrelenmiş kimlik bilgilerini belirtin. |Hayır (kullanıcı kimliği ve parola düz metin olarak belirtmek isterseniz varsa) |
 | gatewayName |Data Factory şirket içi dosya sunucusuna bağlanmak için kullanması gereken ağ geçidi adını belirtir. |Evet |
 
 #### <a name="sample-folder-path-definitions"></a>Örnek klasör yolu tanımları
@@ -3732,7 +3734,7 @@ Bir HDFS tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin
 | Kullanıcı adı |Kullanıcı adı için Windows kimlik doğrulaması. |Evet (Windows kimlik doğrulaması için) |
 | password |Windows kimlik doğrulaması için parola. |Evet (Windows kimlik doğrulaması için) |
 | gatewayName |Data Factory hizmetinin HDFS'ye bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
-| encryptedCredential |[Yeni AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) erişim kimlik bilgisi çıktısı. |Hayır |
+| encryptedCredential |[Yeni AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) erişim kimlik bilgisi çıktısı. |Hayır |
 
 #### <a name="example-using-anonymous-authentication"></a>Örnek: Anonim kimlik doğrulaması
 
@@ -4272,7 +4274,7 @@ Bir OData tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetini
 | kullanıcı adı |Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
 | authorizedCredential |OAuth kullanıyorsanız **Authorize** Data Factory Kopyalama Sihirbazı'nı veya düzenleyicide düğmesine tıklayın ve sonra da bu özelliğin değeri otomatik olarak oluşturulan kimlik bilgilerinizi girin. |Evet (yalnızca OAuth kimlik doğrulaması kullanıyorsanız) |
-| gatewayName |Data Factory hizmetinin şirket içi OData hizmetine bağlanmak için kullanması gereken ağ geçidi adı. Yalnızca şirket içi OData kaynağından kopyalanan veri belirtin. |Hayır |
+| gatewayName |Data Factory hizmetinin şirket içi OData hizmetine bağlanmak için kullanması gereken ağ geçidi adı. Yalnızca şirket içi OData kaynağı üzerindeki veri kopyalama, belirtin. |Hayır |
 
 #### <a name="example---using-basic-authentication"></a>Temel kimlik doğrulaması kullanan örnek-
 ```json
@@ -4462,7 +4464,7 @@ Bir ODBC tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Şifrelenmiş kimlik bilgileriyle temel kimlik doğrulaması kullanan örnek-
-Kimlik bilgilerini kullanarak şifreleyebilirsiniz [yeni AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (Azure PowerShell 1.0 sürümü) cmdlet'ini veya [yeni AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 veya önceki bir sürümünü Azure PowerShell).
+Kimlik bilgilerini kullanarak şifreleyebilirsiniz [yeni AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet'i.
 
 ```json
 {
@@ -5062,7 +5064,7 @@ Aşağıdaki tabloda, SQL Server bağlı hizmeti için özel JSON öğeleri içi
 | kullanıcı adı |Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. Örnek: **domainname\\username**. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
 
-Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncryptValue** cmdlet'i ve bunları aşağıdaki örnekte gösterildiği gibi bağlantı dizesini kullanın (**EncryptedCredential** özellik):
+Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzDataFactoryEncryptValue** cmdlet'i ve bunları aşağıdaki örnekte gösterildiği gibi bağlantı dizesini kullanın (**EncryptedCredential** özellik):
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5125,7 +5127,7 @@ Bir Hive etkinliği JSON tanımında, aşağıdaki özellikleri belirtebilirsini
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| komut dosyası |Hive betiği satır içi belirtin |Hayır |
+| script |Hive betiği satır içi belirtin |Hayır |
 | betik yolu |Hive betiği bir Azure blob depolama alanında Store ve dosyanın yolunu belirtin. 'Script' veya 'scriptPath' özelliğini kullanın. Her ikisi de birlikte kullanılamaz. Dosya adı büyük/küçük harfe duyarlıdır. |Hayır |
 | tanımlar |Hive betiği 'hiveconf' kullanarak içinde başvurmak için anahtar/değer çiftleri parametrelerini belirtin |Hayır |
 
@@ -5171,7 +5173,7 @@ Pig etkinliği JSON tanımında, aşağıdaki özellikleri belirtebilirsiniz. Et
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| komut dosyası |Pig betiği satır içi belirtin |Hayır |
+| script |Pig betiği satır içi belirtin |Hayır |
 | betik yolu |Pig betiği bir Azure blob depolama alanında Store ve dosyanın yolunu belirtin. 'Script' veya 'scriptPath' özelliğini kullanın. Her ikisi de birlikte kullanılamaz. Dosya adı büyük/küçük harfe duyarlıdır. |Hayır |
 | tanımlar |Pig betiği içinde başvurmak için anahtar/değer çiftleri parametrelerini belirtin |Hayır |
 
@@ -5283,7 +5285,7 @@ Bir Hadoop akış etkinlik JSON tanımında, aşağıdaki özellikleri belirtebi
 | --- | --- |
 | Eşleyici | Yürütülebilir Eşleyici adı. Bu örnekte cat.exe yürütülebilir eşleyicisidir.|
 | Azaltıcı | Yürütülebilir Azaltıcı adı. Bu örnekte wc.exe yürütülebilir Azaltıcı ' dir. |
-| input | (Konum dahil) giriş dosyası Eşleştiricisi için. Örnekte: `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"`: adfsample blob kapsayıcısını, örnek/data/Gutenberg klasördür ve davinci.txt blob. |
+| giriş | (Konum dahil) giriş dosyası Eşleştiricisi için. Örnekte: `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"`: adfsample blob kapsayıcısını, örnek/data/Gutenberg klasördür ve davinci.txt blob. |
 | çıkış | Çıktı dosyası (konum dahil) için Azaltıcı. Hadoop akışı tanımlı işlemin çıktısını, bu özellik için belirtilen konuma yazılır. |
 | filePaths | Yolları Eşleyici ve azaltıcı yürütülebilir dosyalar için. Örnekte: "adfsample/example/apps/wc.exe" adfsample blob kapsayıcısını, örnek/uygulamaları klasördür ve wc.exe çalıştırılabilir. |
 | fileLinkedService | FilePaths bölümünde belirtilen dosyalar içeren bir Azure depolama temsil eden azure depolama bağlı hizmeti. |
@@ -5525,7 +5527,7 @@ U-SQL etkinliği JSON tanımında, aşağıdaki özellikleri belirtebilirsiniz. 
 |:--- |:--- |:--- |
 | ScriptPath |U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harfe duyarlıdır. |Hayır (komut dosyası kullanırsanız) |
 | scriptLinkedService |Bağlantılar için veri komut dosyasını içeren depolama bağlı hizmeti |Hayır (komut dosyası kullanırsanız) |
-| komut dosyası |ScriptPath ve scriptLinkedService belirtmek yerine satır içi betiği belirtin. Örneğin: "betik": "CREATE DATABASE test". |Hayır (scriptPath ve scriptLinkedService kullanıyorsanız) |
+| script |ScriptPath ve scriptLinkedService belirtmek yerine satır içi betiği belirtin. Örneğin: "betik": "CREATE DATABASE test". |Hayır (scriptPath ve scriptLinkedService kullanıyorsanız) |
 | degreeOfParallelism |Aynı anda işi çalıştırmak için kullanılan düğümlerin sayısı. |Hayır |
 | öncelik |Sıraya alınan tüm önce çalıştırılması gerektiğini belirler. Alt sayısı, öncelik o kadar yüksektir. |Hayır |
 | parametreler |U-SQL betiği için parametreler |Hayır |

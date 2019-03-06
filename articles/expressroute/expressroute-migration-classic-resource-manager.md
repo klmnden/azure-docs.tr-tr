@@ -8,18 +8,21 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7b95c8b230714e1ba9306620e58628104cd676c9
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 5fab6c6d6af7b0f7c61fcff269a214aff96c7a1e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401650"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407332"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute ilişkili sanal ağları Klasikten Resource Manager'a geçiş
 
 Bu makalede, sanal ağları ExpressRoute ilişkili ExpressRoute devreniz taşıdıktan sonra Klasik dağıtım modelinden Azure Resource Manager dağıtım modeline geçirme açıklanmaktadır. 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * Azure PowerShell modüllerinin en son sürümüne sahip olduğunuzu doğrulayın. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
 * Geçirdiğinizden emin emin [önkoşulları](expressroute-prerequisites.md), [yönlendirme gereksinimleri](expressroute-routing.md), ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
 * Altında sağlanan bilgileri gözden [bir ExpressRoute bağlantı hattını Klasikten Resource Manager'a taşıma](expressroute-move.md). Tam olarak sınırlar ve sınırlamalar anladığınızdan emin olun.
@@ -61,9 +64,9 @@ Bu bölümde, bir sanal ağ, ağ geçidi ve ExpressRoute bağlantı hattı ile a
 3. Kaynağın geçiş için aboneliğinizi kaydedin. Aboneliğiniz için kaynak geçişi kaydetmek için aşağıdaki PowerShell kod parçacığını kullanın:
 
   ```powershell 
-  Select-AzureRmSubscription -SubscriptionName <Your Subscription Name>
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+  Select-AzSubscription -SubscriptionName <Your Subscription Name>
+  Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+  Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
   ```
 4. Doğrulama, hazırlama ve geçirme. Sanal ağ taşımak için aşağıdaki PowerShell kod parçacığını kullanın:
 

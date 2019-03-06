@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: b4b514350e36e9fe71e7c5cb5cd978764e0108d5
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 90f7ef32a54f257a64942b37938cff5703112d6c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317195"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409879"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 
@@ -141,7 +141,7 @@ Daha önce bahsedildiği gibi Azure portalına ek olarak, veritabanı kurtarma A
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- Tek başına veya havuza alınmış veritabanını geri yüklemek için bkz: [AzSqlDatabase geri yükleme](https://docs.microsoft.com/powershell/module/az.sql/restore-azurermsqldatabase)
+- Tek başına veya havuza alınmış veritabanını geri yüklemek için bkz: [geri yükleme-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet | Açıklama |
   | --- | --- |
@@ -153,7 +153,7 @@ Daha önce bahsedildiği gibi Azure portalına ek olarak, veritabanı kurtarma A
   > [!TIP]
   > Bir veritabanının bir zaman içinde nokta geri yüklemeyi gerçekleştirmek nasıl gösteren bir örnek PowerShell Betiği için bkz: [PowerShell kullanarak bir SQL veritabanını geri](scripts/sql-database-restore-database-powershell.md).
 
-- Yönetilen örnek veritabanını geri yüklemek için bkz: [birveritabanınınAzureSQLyönetilenörneğiAzurerm.SQL'ePowerShellkitaplığınıkullanarak-belirli bir noktaya geri yükleme](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-Az-sql-powershell-library/)
+- Yönetilen örnek veritabanını geri yüklemek için bkz: [-belirli bir noktaya geri yükleme, bir veritabanının Azure SQL yönetilen örneği Azurerm.SQL'e PowerShell kitaplığını kullanarak](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library/).
 
 ### <a name="rest-api"></a>REST API
 

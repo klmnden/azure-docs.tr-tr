@@ -17,12 +17,12 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66506a8abf130f27950fd958ba1a7c291e55a5a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8b113dd3e354e778d2cf16182665afff5440d2e5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674268"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408539"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Cihazlarınızın hibrit Azure AD katılımını denetleme
 
@@ -99,16 +99,16 @@ Aşağıdaki istemci ayarını yapılandırarak geçerli cihazları cihaz kayıt
 
 İstemci ayarını yapılandırmak için:
 
-1.  Açık **Configuration Manager**ve ardından **Cloud Services**.
+1.  Açık **Configuration Manager**seçin **Yönetim**ve ardından **istemci ayarları**.
 
-2.  Altında **cihaz ayarları**, için aşağıdaki ayarlardan birini seçin **yeni Windows 10 etki alanına katılan cihazları Azure Active Directory ile otomatik olarak kaydedilecek**:
+2.  Özelliklerini açın **varsayılan istemci ayarları** seçip **Cloud Services**.
+
+3.  Altında **cihaz ayarları**, için aşağıdaki ayarlardan birini seçin **yeni Windows 10 etki alanına katılan cihazları Azure Active Directory ile otomatik olarak kaydedilecek**:
 
     - **Hayır**: Otomatik cihaz kaydını önlemek için.
     - **Evet**: Otomatik cihaz kaydını etkinleştirmek için.
 
-
-3.  **Tamam**’ı seçin.
-    
+4.  **Tamam**’ı seçin.
 
 Bu istemci ayarı, tercih ettiğiniz bir konuma bağlamak gerekir. Örneğin, kuruluşunuzdaki tüm Windows geçerli cihazlar için bu ayarı yapılandırmak için istemci ayarı etki alanına bağlayın. Denetlenen bir dağıtım yapmak için istemci geçerli bir kuruluş birimi veya güvenlik grubuna ait cihazlar için Windows etki alanına katılmış ayarını yapılandırabilirsiniz.
 

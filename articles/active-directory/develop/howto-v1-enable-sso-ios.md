@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602fba95b3cc69521fe3fe17d8c89cc332131566
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190237"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448688"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Nasıl yapılır: İOS ADAL kullanarak uygulamalar arası SSO'yu etkinleştirin
 
@@ -231,7 +231,7 @@ Varsa doğru kurduktan yetkilendirmeler başlıklı proje dizininizde bir dosya 
 </plist>
 ```
 
-Uygulamalarınızın her etkin Anahtarlık yetkilendirmesini sahip ve SSO kullanıma hazır sonra SDK odentity Anahtarlığınıza hakkında aşağıdakileri kullanarak bilgi ayarı, `ADAuthenticationSettings` aşağıdaki ayar:
+Uygulamalarınızın her etkin Anahtarlık yetkilendirmesini sahip ve SSO kullanıma hazır sonra SDK kimlik bilgilerinizi anahtarlığınızda hakkında aşağıdakileri kullanarak bilgi ayarı, `ADAuthenticationSettings` aşağıdaki ayar:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 262f7f49987dba8340ba4a1f0e6e505b9858e1e5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 71d42f1f7627b7f223f92c264cfb23b829a229dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863882"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444761"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Hızlı Başlangıç: Node.js için Bing haber arama SDK'sı ile haber araması
 
@@ -35,7 +35,7 @@ Bing haber arama SDK'sını kullanarak bir konsol uygulaması ayarlamak için:
 
 ## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
 
-1. `CognitiveServicesCredentials` nesnesinin bir örneğini oluşturun. Susbcription anahtarınız ve bir arama terimi için değişkenler oluşturun.
+1. `CognitiveServicesCredentials` nesnesinin bir örneğini oluşturun. Abonelik anahtarınız ve bir arama terimi için değişkenler oluşturun.
 
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;

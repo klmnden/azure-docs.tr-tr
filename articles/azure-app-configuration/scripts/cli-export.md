@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3310dc5d72284e8d94b95b855fee90d560205fa4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 480e21994846f5b2adb85bcf846df2a7cdda4bda
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884785"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444481"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Bir uygulama yapılandırma Azure Mağazası'ndan dışarı aktarma
 
@@ -52,7 +52,7 @@ Bu betik, bir uygulama yapılandırma deposu dışarı aktarmak için aşağıda
 
 | Komut | Notlar |
 |---|---|
-| [az appconfig dışarı aktarma](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-export) | Uygulama yapılandırması dışarı kaynağını depolayın. |
+| [az appconfig dışarı aktarma](/cli/azure/ext/appconfig/appconfig) | Uygulama yapılandırması dışarı kaynağını depolayın. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

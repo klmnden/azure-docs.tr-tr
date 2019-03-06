@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 1f3168cef503fed0aea09228c9bc11dfb456f2ab
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848485"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443496"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery ile olağanüstü durum kurtarma için çok katmanlı bir SharePoint uygulaması için olağanüstü durum kurtarmayı ayarlama
 
@@ -29,7 +29,7 @@ Bugün, Microsoft SharePoint, herhangi bir kullanıma hazır olağanüstü durum
 
 Bu makalede kullanarak bir SharePoint uygulama koruma konusunda ayrıntılı olarak [Azure Site Recovery](site-recovery-overview.md). Bu makalede ele alınacaktır üç çoğaltmaya yönelik en iyi Azure, olağanüstü durum kurtarma tatbikatı nasıl yapabilirsiniz ve uygulamayı azure'a yük devretme getirmeyi SharePoint uygulama katmanı.
 
-İzleyebilir çok katmanlı uygulaması azure'a kurtarma hakkında videonun altında.
+İzleyebilir çok katmanlı uygulamayı azure'a kurtarma hakkında videonun altında.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
@@ -93,7 +93,7 @@ Uygulamanızda herhangi bir katmanı paylaşılan disk tabanlı küme kullanıyo
 
 ## <a name="networking-configuration"></a>Ağ yapılandırması
 
-### <a name="network-properties"></a>Ağ Özellikleri
+### <a name="network-properties"></a>Ağ özellikleri
 
 * Böylece yük devretme işleminden sonra VM'lerin doğru DR ağa bağlı uygulama ve Web Katmanı VM'ler için ağ ayarları Azure portalında yapılandırın.
 

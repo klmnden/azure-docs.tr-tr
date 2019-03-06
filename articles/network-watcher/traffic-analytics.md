@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 8dd3c6ce7eabdf90c2a84f4d1e52ce3aef2d5c12
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: bc738dd93a43a1a3610323b9dd05abfd5b5c0091
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984647"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408811"
 ---
 # <a name="traffic-analytics"></a>Trafik Analizi
 
@@ -75,6 +75,7 @@ Trafik analizi, aşağıdaki desteklenen bölgelerden'nde Nsg'ler için kullanab
 * Orta Hindistan
 * Güney Hindistan
 * Japonya Doğu 
+* ABD Devleti Virginia
 
 Log Analytics çalışma alanı şu bölgelerde bulunmalıdır:
 * Orta Kanada
@@ -86,6 +87,7 @@ Log Analytics çalışma alanı şu bölgelerde bulunmalıdır:
 * Güneydoğu Asya
 * Orta Hindistan
 * Japonya Doğu
+* ABD Devleti Virginia
 
 ## <a name="prerequisites"></a>Önkoşullar
 

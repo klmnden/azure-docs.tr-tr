@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 69680331bdad0faa36cb3df6117baf8b358da132
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e9b87c19977fe35132d80729810c3a0547c486fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251028"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446121"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server üzerinde çalışan bir tek başına Service Fabric küme düğümleri ekleyebilir veya kaldırabilirsiniz
 Sonra [tek başına Service Fabric kümeniz Windows Server makinelerinde oluşturulan](service-fabric-cluster-creation-for-windows-server.md)(iş) ihtiyaçlarınızı değişebilir ve kümenize düğümleri ekleyebilir veya kaldırabilirsiniz gerekecektir. Bu makalede Bunu başarmak için ayrıntılı adımlar verilmektedir. Ekle/Kaldır düğüm işlev yerel geliştirme kümelerinde desteklenmiyor unutmayın.
@@ -38,7 +38,7 @@ Sonra [tek başına Service Fabric kümeniz Windows Server makinelerinde oluştu
     ```
     Betiğin çalışması tamamlandıktan sonra yeni düğümü çalıştırarak eklenip eklenmediğini denetleyebilirsiniz [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet'i.
 
-7. Farklı kümenin düğümleri arasında tutarlılık sağlamak için bir yapılandırma yükseltmeyi başlatmak gerekir. Çalıştırma [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) en son yapılandırma dosyasını alın ve yeni eklenen düğümü "Düğüm" bölümüne ekleyin. Ayrıca, her zaman aynı yapılandırmaya sahip bir küme için yeniden gerektiğini durumda kullanılabilir en yeni küme yapılandırmasını sağlamak için önerilir.
+7. Farklı kümenin düğümleri arasında tutarlılık sağlamak için bir yapılandırma yükseltmeyi başlatmak gerekir. Çalıştırma [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) en son yapılandırma dosyasını alın ve yeni eklenen düğümü "Düğüm" bölümüne ekleyin. Ayrıca, her zaman aynı yapılandırmaya sahip bir kümeyi yeniden yapmanız durumunda kullanılabilir en son küme yapılandırmasını sağlamak için önerilir.
 
     ```
         {

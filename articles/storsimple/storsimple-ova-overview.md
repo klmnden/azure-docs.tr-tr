@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: decc63ad7ce0b35de41ec53e6b5e02276aa33705
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811214"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456083"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple sanal dizisi giriş
 

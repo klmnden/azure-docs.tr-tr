@@ -3,7 +3,7 @@ title: Ortak parametreler ve üst bilgiler
 description: Key Vault kaynaklarla ilgili bunu tüm işlemler için ortak üst bilgileri ve parametreleri.
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed9400fb15b
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 1ac0f54aa4dfdc9db4724629c4dbfe7a4982838f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.author: mbaldwin
+ms.openlocfilehash: cc6c937e37ebb7919ca271e765ad6460c104e43b
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301239"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405054"
 ---
 # <a name="common-parameters-and-headers"></a>Ortak parametreler ve üst bilgiler
 
@@ -45,8 +45,8 @@ Hizmet, başarıyı veya başarısızlığı göstermek için HTTP durum kodlar�
 
 |Öğe adı | Type | Açıklama |
 |---|---|---|
-| kod | dize | Konusu hatanın türü.|
-| message | dize | Hataya neden olan durum açıklaması. |
+| kod | string | Konusu hatanın türü.|
+| message | string | Hataya neden olan durum açıklaması. |
 
 
 

@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1e61ef59bba56a7cc7271c3b42f4d7986c59c004
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 33dfbe70d75335eca79d32807407b97e32c2dbbf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337796"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440871"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Bing resim arama API'si ile resim Öngörüler elde edin
 
@@ -374,7 +374,7 @@ Yanıt, tanınan bir varlığın gösterir.
 
 ## <a name="finding-visually-similar-products"></a>Görsel olarak benzer ürünleri bulma  
 
-Ürün Orijinal görüntüdeki bulunamadı görsel olarak benzer ürünleri içeren görüntü bulmak için ayarlanmış [modueles](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) sorgu parametresi SimilarProducts için.  
+Ürün Orijinal görüntüdeki bulunamadı görsel olarak benzer ürünleri içeren görüntü bulmak için ayarlanmış [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) sorgu parametresi SimilarProducts için.  
 
 Aşağıdaki isteği, görsel olarak benzer çok ürünlerin görüntülerini alma işlemi gösterilmektedir. Talep kullanan [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) sorgu parametresi özgün tanımlamak için görüntü, önceki bir istekte döndürüldü. İlgi düzeyi artırmak için kullanıcının sorgu dizesi içermelidir.  
 

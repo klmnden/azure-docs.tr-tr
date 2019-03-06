@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7be5331b-0481-48f7-9d6b-619dfec657e1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb6943ef6c75f634cdb68557ed2339574bdc2602
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c2c3318d5c8a2cf25db129cac8587bb424707ddf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878294"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456066"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Öğretici: ADP ile Azure Active Directory Tümleştirme
 
@@ -187,7 +187,7 @@ ADP temsilcinize onayı alındığında ADP hizmete kullanıcı erişimi denetle
 
 5. Azure portalında, üzerinde **ADP** uygulama tümleştirme sayfası, tıklayarak **Özellikleri sekmesi** ve aşağıdaki adımları gerçekleştirin:  
 
-    ![Çoklu oturum açma linkedproperties](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+    ![Çoklu oturum açma bağlı özellikleri](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
     a.  Ayarlama **kullanıcıların oturum açması etkinleştirildi** alan için değer **Evet**.
 

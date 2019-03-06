@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 31959cc1bef6b6434f6d3f586052a845837aa438
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442600"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454516"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API Management örneği kapasitesi
 
@@ -78,7 +78,7 @@ Gerçek Hayatta, yapı nedeniyle **kapasite** tarafından birçok değişkenleri
 4. Yeşil bölümünden seçin **konumu** ölçüm boyutuna göre bölmek için.
 5. İstenen bir zaman çerçevesi bölümün üst çubuğundan seçin.
 
-    Beklenmeyen bir sorun olduğunda oluşmasını bildirmek için ölçüm uyarısı ayarlayabilirsiniz. Örneğin, APIM Örneğinize aşıyor olduğunda 20 dakikadan için kendi beklenen en yüksek kapasite bildirimleri alın.
+    Beklenmeyen bir sorun olduğunda oluşmasını bildirmek için ölçüm uyarısı ayarlayabilirsiniz. Örneğin, APIM Örneğinize 20 dakikadan için beklenen en yüksek kapasitesi aşıldığında bildirimleri alın.
 
     >[!TIP]
     > Uyarılar hizmetinizi kapasite azaldığında bilmenize Azure İzleyici otomatik ölçeklendirme işlevi otomatik olarak bir Azure API Management birim eklemek için izin verecek şekilde yapılandırabilirsiniz. Ölçeklendirme işlemi yaklaşık 30 dakika sürebilir, bu şekilde kurallarınıza uygun şekilde planlamanız gerekir.  

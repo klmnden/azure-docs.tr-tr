@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e70a74be372e4374fac5aaa2bfda8ca955e6d305
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1ee08e4dc2f6a4616c4b427ad7d33f56e135b27a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671871"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442504"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği hakkında SSS
 
@@ -107,7 +107,7 @@ Kullanıcı arabirimini, PowerShell betiklerini kullanarak iş ortağı kuruluş
 B2B ve iş işletmeden müşteriye (B2C) işbirliği açısından kimlikleri desteklenen arasındaki farklar kaldırıyoruz. B2B kullanarak veya B2C kullanma arasında seçim için geçerli bir nedeniniz kullanılan kimliği değil. İşbirliği seçeneğinizi seçme hakkında daha fazla bilgi için bkz: [karşılaştırma B2B işbirliği ve Azure Active Directory B2C](compare-with-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Hangi uygulamaların ve hizmetlerin Azure B2B Konuk kullanıcıları destekliyor?
-Azure B2B Konuk kullanıcı tüm Azure AD tümleşik uygulamaları destekler, ancak konuk kullanıcıların kimliğini doğrulamak için kiralanan bir uç nokta kullanmanız gerekir. Ayrıca gerekebilir [talepleri özelleştirme](claims-mapping.md) uygulamaya Konuk kullanıcı kimliği doğruladığında, verilen SAML belirtecindeki. 
+Azure B2B Konuk kullanıcı tüm Azure AD tümleşik uygulamaları destekler, ancak konuk kullanıcıların kimliğini doğrulamak için Kiracı olarak ayarlanmış bir uç nokta kullanmanız gerekir. Ayrıca gerekebilir [talepleri özelleştirme](claims-mapping.md) uygulamaya Konuk kullanıcı kimliği doğruladığında, verilen SAML belirtecindeki. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>İş Ortaklarımızın çok faktörlü kimlik doğrulaması yoksa, biz B2B Konuk kullanıcılar için çok faktörlü kimlik doğrulamasını zorlayabilir miyim?
 Evet. Daha fazla bilgi için [B2B işbirliği kullanıcıları için koşullu erişim](conditional-access.md).

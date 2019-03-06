@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: barclayn
-ms.openlocfilehash: cd84607f426d8a54ca21302b9a612f5ec09c9a1e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2c77f5abac69a1bade523d2a4b6793c2a9df8cf2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670392"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447872"
 ---
 # <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS)
 
@@ -164,7 +164,7 @@ Evet. Bir syslog sunucusuna HSM Gereci günlüklerini gönderebilirsiniz
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>S: Aynı bölgedeki veya birden çok bölgede yüksek kullanılabilirlik yapılandırmak mümkündür?
 
-Evet. Yüksek kullanılabilirlik yapılandırma ve Kurulum Gemalto tarafından sağlanan HSM istemci yazılımının gerçekleştirilir. HSM'ler aynı sanal AĞDA veya diğer sanal ağlar aynı bölgedeki veya farklı bölgelerdeki veya şirket içi HSM'ler kullanarak siteden siteye bir sanal ağa bağlı veya aynı yüksek kullanılabilirlik yapılandırması için noktadan noktaya VPN eklenebilir.
+Evet. Yüksek kullanılabilirlik yapılandırma ve Kurulum Gemalto tarafından sağlanan HSM istemci yazılımının gerçekleştirilir. Aynı sanal AĞDA veya diğer sanal ağlar aynı bölgedeki veya farklı bölgelerdeki veya şirket içi HSM'ler HSM'ler kullanarak siteden siteye bir sanal ağa bağlı veya aynı yüksek kullanılabilirlik yapılandırması için noktadan noktaya VPN eklenebilir.
 
 ### <a name="can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>HSM'ler my şirket içi ağdan Azure ayrılmış HSM ile yüksek kullanılabilirlik grubuna ekleyebilirim?
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97e294a8b0e34e1fac24d0cbe01791e2eb290a43
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 334f5fa2309c44bebe8583f497fdaa3c7578e5ae
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162587"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433425"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Öğretici: T & E Express ile Azure Active Directory Tümleştirme
 
@@ -134,7 +134,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure yönetim portalında etkinleşt
 
     ![Çoklu oturum açmayı yapılandırın](./media/tyeexpress-tutorial/tye-SAML.png)
 
-1. Seçin **Activar(Activate)** seçeneğini **Hayır** için **SI(Yes)**. İçinde **kimlik sağlayıcısı meta verileri** metin kutusu, sahip olduğunuz bir XML meta veri yapıştırma Azure portalından indirildi.
+1. Seçin **Activar(Activate)** seçeneğini **Hayır** için **SI(Yes)**. İçinde **kimlik sağlayıcısı meta verileri** metin meta veriler, Azure portalından indirdiğiniz XML yapıştırın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/tyeexpress-tutorial/tyeAdmin.png)
 

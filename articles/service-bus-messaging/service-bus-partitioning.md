@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 02/06/2019
 ms.author: aschhab
-ms.openlocfilehash: aaa8615c0358b89c02aad8241262320771e426a8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ea5f0e1ad6af6f301b684337941c7d9bce8590c1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818082"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444489"
 ---
 # <a name="partitioned-queues-and-topics"></a>Bölümlenmiş kuyruklar ve konular
 
@@ -27,9 +27,9 @@ Herhangi bir mevcut kuyruk veya konuda bölümleme seçeneğini değiştirmek m�
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Her bölümlenmiş bir kuyruk veya konu birden çok parçalarını oluşur. Her parça farklı bir Mesajlaşma deposunda depolanır ve farklı ileti aracısı tarafından işlenir. Bir bölümlenmiş kuyruğa veya konuya ileti gönderildiğinde, Service Bus ileti parçalarının birine atar. Seçimi rastgele Service Bus veya gönderen belirtebilirsiniz bir bölüm anahtarı kullanılarak gerçekleştirilir.
+Her bölümlenmiş bir kuyruk veya konu başlığı birden çok bölüm içerir. Her bölüm farklı bir Mesajlaşma deposunda depolanır ve farklı ileti aracısı tarafından işlenir. Bir bölümlenmiş kuyruğa veya konuya ileti gönderildiğinde, Service Bus ileti bölümlerden birine atar. Seçimi rastgele Service Bus veya gönderen belirtebilirsiniz bir bölüm anahtarı kullanılarak gerçekleştirilir.
 
-Daha sonra iletileri tüm parçaları bir ileti bölümlenmiş bir kuyruk veya Service Bus sorguları bölümlenmiş bir konu için bir abonelik almak bir istemcinin istediği zaman, tüm Mesajlaşma depoları, alıcıya elde edilen ilk iletiyi döndürür. Diğer iletiler ve aldığında ek döndürür Service Bus önbellekler isteklerini alır. Bir alıcı istemci bölümleme uyumlu değil; bölümlenmiş bir kuyruk veya konuda istemciye yönelik davranışını (örneğin, okuma, tamamlamak, erteleme, teslim edilemeyen iletiler, önceden getiriliyor) normal bir varlık davranışını aynıdır.
+Ardından tüm bölümleri iletiler için bir ileti bölümlenmiş bir kuyruk veya Service Bus sorguları bölümlenmiş bir konu için bir abonelik almak bir istemci istediği zaman, tüm Mesajlaşma depoları, alıcıya elde edilen ilk iletiyi döndürür. Diğer iletiler ve aldığında ek döndürür Service Bus önbellekler isteklerini alır. Bir alıcı istemci bölümleme uyumlu değil; bölümlenmiş bir kuyruk veya konuda istemciye yönelik davranışını (örneğin, okuma, tamamlamak, erteleme, teslim edilemeyen iletiler, önceden getiriliyor) normal bir varlık davranışını aynıdır.
 
 İleti gönderme veya bir bölümlenmiş bir kuyruk veya konuda, bir iletiyi alan hiçbir ek ücret yoktur.
 
@@ -43,7 +43,7 @@ Standart Mesajlaşma katmanına, Service Bus kuyrukları ve konuları 1, 2, 3, 4
 
 ### <a name="premium"></a>Premium
 
-Premium katman ad alanında varlıkları bölümleme desteklenmiyor. Bununla birlikte, yine de Service Bus kuyrukları ve konuları 1, 2, 3, 4, 5, 10, 20, 40 veya 80 GB boyutları (varsayılan 1 GB'tır) oluşturabilirsiniz. Kuyruk veya konu başlığı boyutu, girdi bakarak gördüğünüz [Azure portalında][Azure portal], **genel bakış** dikey penceresinde söz konusu varlığa ilişkin.
+Premium katman ad alanında bölümleme varlıkları desteklenmez. Bununla birlikte, yine de Service Bus kuyrukları ve konuları 1, 2, 3, 4, 5, 10, 20, 40 veya 80 GB boyutları (varsayılan 1 GB'tır) oluşturabilirsiniz. Kuyruk veya konu başlığı boyutu, girdi bakarak gördüğünüz [Azure portalında][Azure portal], **genel bakış** dikey penceresinde söz konusu varlığa ilişkin.
 
 ### <a name="create-a-partitioned-entity"></a>Bölümlenmiş bir varlık oluşturma
 
@@ -61,11 +61,11 @@ Alternatif olarak, bölümlenmiş bir kuyruk veya konuda oluşturabilirsiniz [Az
 
 ## <a name="use-of-partition-keys"></a>Bölüm anahtarları kullanma
 
-Bölümlenmiş bir kuyruk veya konuda sıraya bir ileti olduğunda, hizmet veri yolu bir bölüm anahtarı olup olmadığını denetler. Bulursa, bu anahtarı temel parça seçer. Bir bölüm anahtarı bulamazsa, bir iç algoritmaya bağlı temel parça seçer.
+Bölümlenmiş bir kuyruk veya konuda sıraya bir ileti olduğunda, hizmet veri yolu bir bölüm anahtarı olup olmadığını denetler. Bulursa, bu anahtarı temel bölüm seçer. Bir bölüm anahtarı bulamazsa, bir iç algoritmaya bağlı bağlı bölüm seçer.
 
 ### <a name="using-a-partition-key"></a>Bir bölüm anahtarının kullanılması
 
-Oturumlar veya işlemler, gibi bazı senaryolarda belirli bir parçasında depolanacak iletileri gerektirir. Tüm bu senaryolar, bir bölüm anahtarı kullanılmasını gerektirir. Aynı bölüm anahtarı kullanan tüm iletiler aynı parçaya atanır. Service Bus, parça geçici olarak kullanılamıyorsa, bir hata döndürür.
+Oturumlar veya işlemler, gibi bazı senaryolarda belirli bir bölümünde depolanacak iletileri gerektirir. Tüm bu senaryolar, bir bölüm anahtarı kullanılmasını gerektirir. Aynı bölüm anahtarı kullanan tüm iletiler aynı bölüme atanır. Bölüm geçici olarak kullanılamıyorsa, Service Bus bir hata döndürür.
 
 Senaryoya bağlı olarak farklı ileti özellikleri bir bölüm anahtarı olarak kullanılır:
 
@@ -77,13 +77,13 @@ Senaryoya bağlı olarak farklı ileti özellikleri bir bölüm anahtarı olarak
 
 ### <a name="not-using-a-partition-key"></a>Bir bölüm anahtarının kullanılması değil
 
-Bir bölüm anahtarı olmaması durumunda, Service Bus iletileri ettirirsiniz bölümlenmiş bir kuyruk veya konuda tüm parçaları için dağıtır. Seçilen parça kullanılabilir durumda değilse, Service Bus ileti için farklı bir parça atar. Bu şekilde, geçici olarak kullanım dışı kalması için Mesajlaşma deposunun rağmen gönderme işlemi başarılı olur. Ancak, garantili bir bölüm anahtarı sağlayan sıralama elde etmez.
+Bir bölüm anahtarı olmaması durumunda, Service Bus iletileri ettirirsiniz bölümlenmiş bir kuyruk veya konuda tüm bölümler için dağıtır. Seçilen bölümün kullanılabilir durumda değilse, Service Bus ileti için farklı bir bölüm atar. Bu şekilde, geçici olarak kullanım dışı kalması için Mesajlaşma deposunun rağmen gönderme işlemi başarılı olur. Ancak, garantili bir bölüm anahtarı sağlayan sıralama elde etmez.
 
 Kullanılabilirlik (bölüm anahtarı) ve tutarlılık (bir bölüm anahtarının kullanılması) arasındaki daha ayrıntılı bir tartışma için bkz: [bu makalede](../event-hubs/event-hubs-availability-and-consistency.md). Bu bilgiler, bölümlenmiş Service Bus varlıklarına eşit oranda geçerlidir.
 
-Service Bus vermek için yeterli kuyruğa ileti farklı bir parça zaman [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) ileti 15 saniyeden daha büyük olmalıdır gönderen istemci tarafından belirtilen değeri. Ayarladığınız önerilir [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) özelliğini varsayılan değer 60 saniye.
+Service Bus vermek için yeterli kuyruğa ileti farklı bir bölüme, zaman [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) ileti 15 saniyeden daha büyük olmalıdır gönderen istemci tarafından belirtilen değeri. Ayarladığınız önerilir [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) özelliğini varsayılan değer 60 saniye.
 
-Bir bölüm anahtarı "belirli bir parçanın ileti sabitler". Service Bus, bu parça tutan ileti deposuna kullanılamıyorsa bir hata döndürür. Bir bölüm anahtarı olmaması, Service Bus, farklı bir parça seçebilirsiniz ve işlemi başarılı olur. Bu nedenle, gerekli olmadığı sürece, bir bölüm anahtarı vermezsiniz önerilir.
+Bir bölüm anahtarı "belirli bir bölüme bir ileti sabitler". Bu bölüm tutan ileti deposuna kullanılamıyorsa, Service Bus bir hata döndürür. Bir bölüm anahtarı olmaması, Service Bus, farklı bir bölüm seçebilirsiniz ve işlemi başarılı olur. Bu nedenle, gerekli olmadığı sürece, bir bölüm anahtarı vermezsiniz önerilir.
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Gelişmiş konular: bölümlenen varlıklar ile işlemleri kullanma
 
@@ -101,7 +101,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 committableTransaction.Commit();
 ```
 
-Bir bölüm anahtarı olarak hizmet özellikleri olarak ayarlamış ise Service Bus ileti belirli bir parçasına sabitler. Bu davranış, bir işlem kullanılır olup olmadığını oluşur. Gerekli değilse bölüm anahtarı belirtmeyin önerilir.
+Bir bölüm anahtarı olarak hizmet özellikleri olarak ayarlamış ise Service Bus ileti belirli bir bölüme sabitler. Bu davranış, bir işlem kullanılır olup olmadığını oluşur. Gerekli değilse bölüm anahtarı belirtmeyin önerilir.
 
 ## <a name="using-sessions-with-partitioned-entities"></a>Bölümlenen varlıklar ile oturumlarını kullanma
 
@@ -126,9 +126,9 @@ committableTransaction.Commit();
 Service Bus, için ya da bölümlenen varlıklar arasında iletme otomatik ileti destekler. Otomatik ileti yönlendirmeyi etkinleştirmek için [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] kaynak kuyruk veya Abonelik özelliği. İleti bir bölüm anahtarı belirtiyorsa ([SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), veya [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid)), bu bölüm anahtarı hedef varlık için kullanılır.
 
 ## <a name="considerations-and-guidelines"></a>Önemli noktalar ve yönergeleri
-* **Yüksek tutarlılık özellikleri**: Bir varlık oturumları, yinelenen algılama veya bölümleme anahtarı, açık denetim gibi özellikleri kullanıyorsa, Mesajlaşma işlemi her zaman için belirli parçalarını yönlendirilir. Tüm parçaları yüksek trafik deneyimi veya alttaki deponun sağlam değil, bu işlemleri başarısız ve kullanılabilirlik azalır. Genel olarak, tutarlılık bölümlenmemiş varlıkları yine de çok daha yüksektir; trafiğin yalnızca bir alt tüm trafiği aksine sorunları yaşıyor. Daha fazla bilgi için bkz. Bu [tartışma kullanılabilirlik ve tutarlılık](../event-hubs/event-hubs-availability-and-consistency.md).
-* **Yönetim**: Varlığın tüm parçaları üzerinde oluşturma, güncelleştirme ve silme gibi işlemleri yapılması gerekir. Herhangi bir parça kötü durumda, bu işlemler için hataları sonuçlanabilir. İleti sayısı gibi alma işlemi için bilgi tüm parçaları toplanması gerekir. Herhangi bir parça kötü durumda, varlık kullanılabilirlik durumunu sınırlı bildirilir.
-* **Birim ileti senaryoları düşük**: Bu senaryolara, HTTP protokolünü kullanırken özellikle birden çok yapmak zorunda kalabilir tüm iletileri almak için alma işlemleri. Alma istekleri için ön uç üzerinde tüm parçaları alma gerçekleştirir ve alınan tüm yanıtlarını önbelleğe kaydeder. Aynı bağlantıda bir sonraki alma isteği ve avantaj bu önbelleğe alınan alma gecikme, daha düşük olacaktır. Ancak, birden çok bağlantı veya HTTP kullanırsanız, her istek için yeni bir bağlantı kurar. Bu nedenle, aynı düğümde kavuşmak bir garanti yoktur. Alma işlemi var olan tüm iletileri kilitlidir ve başka bir ön uç önbelleğe alınmış varsa, döndürür **null**. Sonunda iletilerin süresi dolar ve bunları yeniden alabilir. HTTP Etkin tutmayı önerilir.
+* **Yüksek tutarlılık özellikleri**: Bir varlık oturumları, yinelenen algılama veya bölümleme anahtarı, açık denetim gibi özellikleri kullanıyorsa, Mesajlaşma işlemleri her zaman belirli bir bölüme yönlendirilir. Yüksek trafik bölümlerden hiçbirine deneyimi veya alttaki deponun sağlam değil, bu işlemleri başarısız ve kullanılabilirlik azalır. Genel olarak, tutarlılık bölümlenmemiş varlıkları yine de çok daha yüksektir; trafiğin yalnızca bir alt tüm trafiği aksine sorunları yaşıyor. Daha fazla bilgi için bkz. Bu [tartışma kullanılabilirlik ve tutarlılık](../event-hubs/event-hubs-availability-and-consistency.md).
+* **Yönetim**: Varlığın tüm bölümleri üzerinde oluşturma, güncelleştirme ve silme gibi işlemleri yapılması gerekir. Herhangi bir bölümü iyi durumda olmayan ise, bu işlemler için hataları sonuçlanabilir. İleti sayısı gibi tüm bölümleri alma işlemi için bilgi toplanmalıdır. Varlık kullanılabilirlik durumunu, herhangi bir bölümü iyi durumda olmayan ise, sınırlı bildirilir.
+* **Birim ileti senaryoları düşük**: Bu senaryolara, HTTP protokolünü kullanırken özellikle birden çok yapmak zorunda kalabilir tüm iletileri almak için alma işlemleri. Alma istekleri için ön uç üzerinde tüm bölümleri alma gerçekleştirir ve alınan tüm yanıtlarını önbelleğe kaydeder. Aynı bağlantıda bir sonraki alma isteği ve avantaj bu önbelleğe alınan alma gecikme, daha düşük olacaktır. Ancak, birden çok bağlantı veya HTTP kullanırsanız, her istek için yeni bir bağlantı kurar. Bu nedenle, aynı düğümde kavuşmak bir garanti yoktur. Alma işlemi var olan tüm iletileri kilitlidir ve başka bir ön uç önbelleğe alınmış varsa, döndürür **null**. Sonunda iletilerin süresi dolar ve bunları yeniden alabilir. HTTP Etkin tutmayı önerilir.
 * **Göz atma/gözlem iletileri**: Yalnızca, eski [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) kitaplığı. [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) her zaman belirtilen ileti sayısını döndürmeyen [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) özelliği. Bu davranış için sık karşılaşılan iki nedeni vardır. İletileri koleksiyonu toplanmış boyutu 256 KB'lık boyut sınırını aşıyor, bir nedenidir. Kuyruk veya konu varsa olan başka bir nedenle [EnablePartitioning özelliğinin](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) kümesine **true**, bir bölümün istenen sayıda ileti tamamlamak için yeterli iletileri olmayabilir. Genel olarak, bir uygulama belirli sayıda ileti almak istiyorsa, çağırmalıdır [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) kadar sürekli olarak bu iletilerin sayısını alır veya göz atmak için daha fazla ileti yok. Kod örnekleri dahil olmak üzere daha fazla bilgi için bkz. [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) veya [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API belgeleri.
 
 ## <a name="latest-added-features"></a>En son eklenen özellikler

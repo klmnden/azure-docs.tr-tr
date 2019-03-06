@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1629e08d4ba1a7fd7cedb40b1e46d1bfd2766497
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 731b87d7958bb461466b16f2ff724ea33f234ba8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215549"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439817"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Çok kiracılı SaaS uygulamasında parçalı çok kiracılı Azure SQL veritabanının performansını izleyin ve yönetin
 
@@ -78,10 +78,10 @@ Betik, çok kiracılı veritabanına birkaç dakika içinde 17 Kiracı dağıtı
 
 | Tanıtım | Senaryo |
 |:--|:--|
-| 2 | Normal yoğunlukta yük oluştur (yaklaşık 30 DTU) |
+| 2 | Normal yoğunlukta yük (yaklaşık 30 DTU) oluşturma |
 | 3 | Kiracı başına daha uzun artışları ile yük oluşturma|
-| 4 | Kiracı başına daha yüksek dtu ile yük oluşturma (yaklaşık 70 DTU)|
-| 5 | Yüksek yoğunluk oluşturma (yaklaşık 90 DTU) üzerinde tek bir kiracının artı normal yoğunlukta yük başka tüm kiracılar |
+| 4 | Yük (yaklaşık olarak 70 DTU) Kiracı başına daha yüksek dtu ile oluşturma|
+| 5 | Yüksek yoğunluk (yaklaşık 90 DTU) tek bir kiracının artı tüm diğer kiracıların bir normal yoğunlukta yük oluştur |
 
 Yük oluşturucu her kiracı veritabanına *yapay* bir yalnızca CPU yükü uygular. Oluşturucu her kiracı veritabanı için yükü oluşturan saklı yordamı düzenli olarak çağıran bir iş başlatır. Yük düzeyleri (Dtu), süresi ve aralıkları tüm veritabanlarında öngörülemez Kiracı etkinliğini benzetimi farklılık gösterir.
 
@@ -168,7 +168,7 @@ Tek bir kiracı içinde bir çok kiracılı veritabanı sürekli yüksek bir yü
 Bu alıştırmada Salix biletler satışa popüler bir etkinlik için gittiğinizde, yüksek bir yükle karşılaşan Salsa etkisini benzetimini yapar.
 
 1. Aç... \\ *Demo-PerformanceMonitoringAndManagement.ps1* betiği.
-1. Ayarlama **$DemoScenario = 5**, _normal yük ve tek bir kiracı üzerinde yoğun yük oluşturma (yaklaşık 90 DTU)._
+1. Ayarlama **$DemoScenario = 5**, _normal yük ve yoğun yük (yaklaşık 90 DTU) tek bir kiracı üzerinde oluşturur._
 1. Ayarlama **$SingleTenantName Salix Salsa =**
 1. **F5**’i kullanarak betiği yürütün.
 

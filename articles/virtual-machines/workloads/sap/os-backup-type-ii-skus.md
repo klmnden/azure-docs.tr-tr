@@ -1,6 +1,6 @@
 ---
-title: İşletim sistemi yedekleme ve geri yükleme (büyük örnekler) azure'da SAP HANA yazın II SKU'ları | Microsoft Docs
-description: SAP HANA Azure (büyük örnekler) türü II SKU'ları üzerinde için Operatign sistem yedekleme ve geri yükleme gerçekleştirin.
+title: İşletim sistemi yedekleme ve geri yükleme (büyük örnekler) Azure üzerinde SAP hana yazın II SKU'lara | Microsoft Docs
+description: Type II SKU'lara (büyük örnekler) Azure üzerinde SAP HANA için Operatign sistem yedekleme ve geri yükleme gerçekleştirme
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -14,66 +14,66 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c82c5c74fe13bad99528486be69089df5f477457
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063283"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436349"
 ---
-# <a name="os-backup-and-restore-for-type-ii-skus"></a>İşletim sistemi yedekleme ve geri yükleme türü II SKU'ları için
+# <a name="os-backup-and-restore-for-type-ii-skus"></a>İşletim sistemi yedekleme ve geri yükleme Type II SKU'lara yönelik
 
-Bu belgede bir işletim sistemi dosya düzeyinde yedekleme ve geri yüklemek için gereken adımları açıklar **türü II SKU'ları** HANA büyük örneği. 
+Bu belgede bir işletim sistemi dosya düzeyi yedekleme gerçekleştirir ve geri yüklemek için adımları açıklanmaktadır **Type II SKU'lara** HANA büyük örnekleri. 
 
 >[!NOTE]
->İşletim sistemi yedekleme komut dosyalarını kullanan Server'da önceden yüklenmiş olan arka yazılımı.  
+>İşletim sistemi yedekleme betiklerini sunucuda önceden yüklenmiş olan arka yazılım kullanır.  
 
-Varsayılan olarak, Microsoft Hizmet Yönetimi ekibi tarafından tamamlandıktan sonra sunucu dosya sistemini yedeklemek için iki yedekleme zamanlaması yapılandırılmış işletim sisteminin düzeyi yedekleyin. Aşağıdaki komutu kullanarak yedekleme işinin zamanlamasını denetleyebilirsiniz:
+Varsayılan olarak, Microsoft Hizmet Yönetimi ekibi tarafından tamamlandıktan sonra dosya sistemi yedeklemek için iki yedekleme zamanlama ile yapılandırılmış işletim sisteminin düzeyi yedekleyin. Yedekleme işinin zamanlamasını, aşağıdaki komutu kullanarak denetleyebilirsiniz:
 ```
 #crontab –l
 ```
-Yedekleme zamanlamasını aşağıdaki komutu kullanarak dilediğiniz zaman değiştirebilirsiniz:
+Yedekleme zamanlamasını aşağıdaki komutu kullanarak istediğiniz zaman değiştirebilirsiniz:
 ```
 #crontab -e
 ```
-## <a name="how-to-take-a-manual-backup"></a>El ile yedek almak nasıl?
+## <a name="how-to-take-a-manual-backup"></a>El ile yedekleyin nasıl?
 
-İşletim sistemi dosya sistemi yedeği kullanılarak zamanlanan bir **cron iş** zaten. Ancak, işletim sistemi dosya düzeyinde yedekleme el ile de gerçekleştirebilirsiniz. El ile Yedekleme gerçekleştirmek için aşağıdaki komutu çalıştırın:
+İşletim sistemi dosya sistemi yedeği kullanarak zamanlanmış bir **sıralanmış işin** zaten. Ancak, işletim sistemi dosya düzeyinde yedekleme el ile de gerçekleştirebilirsiniz. El ile Yedekleme gerçekleştirmek için aşağıdaki komutu çalıştırın:
 
 ```
 #rear -v mkbackup
 ```
 Aşağıdaki ekran göster örnek el ile yedekleme gösterir:
 
-![nasıl](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
+![Nasıl](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
 
 
-## <a name="how-to-restore-a-backup"></a>Bir yedekleme geri yükleme mi?
+## <a name="how-to-restore-a-backup"></a>Bir yedekleme geri yükleme
 
-Tek bir dosyayı veya tam yedekleme yedekten geri yükleyebilirsiniz. Geri yüklemek için aşağıdaki komutu kullanın:
+Tam yedekleme veya tek bir dosyayı bir yedekten geri yükleyebilirsiniz. Geri yüklemek için aşağıdaki komutu kullanın:
 
 ```
 #tar  -xvf  <backup file>  [Optional <file to restore>]
 ```
-Geri yüklendikten sonra dosyanın geçerli çalışma dizininde kurtarılır.
+Geçerli çalışma dizininde dosyanın geri yüklemeden sonra kurtarılır.
 
-Aşağıdaki komut dosyasının geri yükleme gösterir */etc/fstabfrom* yedekleme dosyası *backup.tar.gz*
+Aşağıdaki komut bir dosyanın geri gösterir */etc/fstabfrom* yedekleme dosyasını *backup.tar.gz*
 ```
 #tar  -xvf  /osbackups/hostname/backup.tar.gz  etc/fstab 
 ```
 >[!NOTE] 
->Yedeklemeden geri yüklendikten sonra dosyanın istenen konuma kopyalamanız gerekir.
+>Yedeklemeden geri yüklendikten sonra dosyayı istediğiniz konuma kopyalamanız gerekecektir.
 
-Aşağıdaki ekran görüntüsünde bir tam yedekleme, geri yükleme gösterir:
+Aşağıdaki ekran görüntüsünde, bir tam yedekleme geri yükleme gösterilmektedir:
 
 ![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
-## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Arka aracı yükleme ve yapılandırmasını değiştirmek nasıl? 
+## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Arka Aracı'nı yükleme ve yapılandırmasını değiştirmek nasıl? 
 
-Relax-ve-Kurtar (arka) paketleri **önceden yüklenmiş** içinde **türü II SKU'ları** HANA büyük örnekleri ve eylemde bulunmanız gerekmez. Doğrudan işletim sistemi yedekleme için arka kullanarak da başlatabilirsiniz.
-Ancak, paketleri kendi içinde yüklemenize gerek burada durumlarda yükleyip arka Aracı'nı yapılandırmak için listelenen adımları izleyebilirsiniz.
+Relax-ve-Kurtarma (arka) paketleri **önceden yüklenmiş** içinde **Type II SKU'lara** HANA büyük örnekleri ve yapmanız gereken herhangi bir eylemi. Doğrudan işletim sistemi yedekleme için arka kullanarak da başlatabilirsiniz.
+Ancak, kendi içindeki paketleri yüklemek için gerek duyduğunuz durumlarda, yüklemek ve arka Aracı'nı yapılandırmak için listelenen adımları takip edebilirsiniz.
 
-Yüklemek için **arka** yedekleme paketleri, aşağıdaki komutları kullanın:
+Yüklenecek **arka** yedekleme paketleri, aşağıdaki komutları kullanın:
 
 İçin **SLES** işletim sistemi, aşağıdaki komutu kullanın:
 ```
@@ -83,7 +83,7 @@ Yüklemek için **arka** yedekleme paketleri, aşağıdaki komutları kullanın:
 ```
 #yum install rear -y
 ```
-Arka Aracı'nı yapılandırmak için parametreleri güncelleştirmeniz gerekir **OUTPUT_URL** ve **BACKUP_URL** içinde */etc/rear/local.conf dosya*.
+Arka Aracı'nı yapılandırmak için parametreleri güncelleştirmeye gerek duyduğunuz **OUTPUT_URL** ve **BACKUP_URL** içinde */etc/rear/local.conf dosya*.
 ```
 OUTPUT=ISO
 ISO_MKISOFS_BIN=/usr/bin/ebiso
@@ -96,4 +96,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-Aşağıdaki ekran görüntüsünde bir tam yedekleme, geri yükleme gösterir: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+Aşağıdaki ekran görüntüsünde, bir tam yedekleme geri yükleme gösterilmektedir: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
-ms.openlocfilehash: e5910d08cf7ea5e1da094a0313513123d7c7813c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6fbdee71ab1123c258a5191a78e38f51eb41cbab
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567046"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433238"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Bir atlayan pencere üzerinde bir işlem hattı çalıştırmalarını tetiği oluşturma
 Bu makalede, oluşturmak, başlatmak ve bir atlayan pencere tetikleyicisi izlemek için adımları sağlar. Tetikleyiciler ve desteklenen türler hakkında genel bilgi için bkz. [işlem hattı yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
@@ -120,7 +120,7 @@ Kullanabileceğiniz **WindowStart** ve **WindowEnd** atlayan pencere tetikleyici
 Kullanılacak **WindowStart** ve **WindowEnd** sistem değişken değerleri işlem hattı tanımındaki "MyWindowStart" ve "MyWindowEnd" parametreleri uygun şekilde kullanın.
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Windows doldurma senaryoda yürütme sırası
-Yürütme (özellikle bir doldurma senaryosunda) için birden çok windows olduğunda, windows için yürütme sırasını Yeniye aralıkları belirleyici,. Şu anda bu davranışı değiştirilemez.
+Yürütme (özellikle bir doldurma senaryosunda) için birden çok windows olduğunda, windows için yürütme sırasını Yeniye aralıkları belirleyici,. Şu anda bu davranışın değiştirilmesi mümkün değildir.
 
 ### <a name="existing-triggerresource-elements"></a>Varolan TriggerResource öğeleri
 Aşağıdaki noktaları varolan uygulama **TriggerResource** öğeleri:
@@ -129,6 +129,9 @@ Aşağıdaki noktaları varolan uygulama **TriggerResource** öğeleri:
 * Varsa değerini **endTime** zaten işlendi (eklenmiş veya güncelleştirilmiştir) tetikleyici değişikliklerin, Windows'un durumunu öğesidir *değil* sıfırlayın. Tetikleyici yeni geliştirir **endTime** değeri. Varsa yeni **endTime** değerdir zaten çalıştırılan windows önce tetikleyici durdurur. Aksi takdirde, tetikleyici olmadığında duruyor yeni **endTime** değer ile karşılaştı.
 
 ## <a name="sample-for-azure-powershell"></a>Azure PowerShell ile ilgili örnek
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bu bölüm oluşturmak için başlatın ve bir tetikleyici izlemek için Azure PowerShell kullanmayı gösterir.
 
 1. Adlı bir JSON dosyası oluşturun **MyTrigger.json** C:\ADFv2QuickStartPSH\ klasöründe aşağıdaki içeriğe sahip:
@@ -167,34 +170,34 @@ Bu bölüm oluşturmak için başlatın ve bir tetikleyici izlemek için Azure P
     }
     ```
 
-2. Bir tetikleyici kullanarak oluşturma **Set-AzureRmDataFactoryV2Trigger** cmdlet:
+2. Bir tetikleyici kullanarak oluşturma **kümesi AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
     
-3. Tetikleyici durumunu olduğundan emin olun **durduruldu** kullanarak **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+3. Tetikleyici durumunu olduğundan emin olun **durduruldu** kullanarak **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Kullanarak tetikleyiciyi başlatın **Start-AzureRmDataFactoryV2Trigger** cmdlet:
+4. Kullanarak tetikleyiciyi başlatın **başlangıç AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Tetikleyici durumunu olduğundan emin olun **başlatıldı** kullanarak **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+5. Tetikleyici durumunu olduğundan emin olun **başlatıldı** kullanarak **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6. Tetikleyici çalıştırmaları Azure PowerShell kullanarak get **Get-AzureRmDataFactoryV2TriggerRun** cmdlet'i. Tetikleyici çalıştırmaları hakkında bilgi almak için düzenli aralıklarla aşağıdaki komutu yürütün. Güncelleştirme **TriggerRunStartedAfter** ve **TriggerRunStartedBefore** değerleri, tetikleyici tanımında eşleştirmek için değerler:
+6. Tetikleyici çalıştırmaları Azure PowerShell kullanarak get **Get-AzDataFactoryV2TriggerRun** cmdlet'i. Tetikleyici çalıştırmaları hakkında bilgi almak için düzenli aralıklarla aşağıdaki komutu yürütün. Güncelleştirme **TriggerRunStartedAfter** ve **TriggerRunStartedBefore** değerleri, tetikleyici tanımında eşleştirmek için değerler:
 
     ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
+    Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
 Tetikleyici çalıştırmaları ve işlem hattı izlemek için Azure portalında çalışır, bkz: [işlem hattı çalıştırmalarını izleme](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).

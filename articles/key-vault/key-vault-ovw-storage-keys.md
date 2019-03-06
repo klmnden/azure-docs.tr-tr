@@ -8,13 +8,13 @@ ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
 manager: barbkess
-ms.date: 10/03/2018
-ms.openlocfilehash: 684d6a87b5cf33a3ebed36381d2db21b285a6f0c
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/01/2019
+ms.openlocfilehash: dc743f7e8ebaebf2b253a1c2c199133bc4266dd5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338816"
+ms.locfileid: "57404379"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure anahtar kasası yönetilen depolama hesabı - CLI
 
@@ -24,12 +24,25 @@ ms.locfileid: "57338816"
 > - Kullanım bir [Azure AD kimlik yönetilen](/azure/active-directory/managed-identities-azure-resources/) Azure'da çalıştırırken. Kimlikleri Kaldır hep birlikte istemci kimlik doğrulaması için gereken ve depolama kimlik bilgileri veya uygulamanız ile yönetilir.
 > - Key Vault tarafından da desteklenen, yetkilendirme için rol tabanlı erişim denetimi (RBAC) kullanın.
 
-- Azure Key Vault, anahtarları bir Azure depolama hesabı (ASA) yönetir.
-    - Dahili olarak, Azure Key Vault (eşitleme) Azure depolama hesabı anahtarları listeleyebilirsiniz.    
-    - Azure Key Vault oluşturur (döndürür) anahtarlarını düzenli aralıklarla.
-    - Anahtar değerler hiçbir zaman yanıt arayana döndürülür.
-    - Azure Key Vault, depolama hesapları hem de klasik depolama hesapları, anahtarları yönetir.
-    
+Bir [Azure depolama hesabı](/azure/storage/storage-create-storage-account) bir hesap adı ve anahtar oluşan bir kimlik bilgisi kullanır. Bu anahtar, otomatik olarak oluşturulan ve daha farklı bir şifreleme anahtarı "parola" olarak görev yapar. Key Vault depolayarak bunları olarak bu depolama hesabı anahtarları yönetebilir [Key Vault gizli dizileri](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+
+## <a name="overview"></a>Genel Bakış
+
+Key Vault depolama hesabı özelliği birkaç yönetim işlevlerini sizin adınıza gerçekleştirdiği yönetilen:
+
+- Bir Azure depolama hesabı anahtarları listeleri (eşitlemeler).
+- Yeniden oluşturur (döndürür) anahtarlarını düzenli aralıklarla.
+- Depolama hesapları hem de klasik depolama hesapları için anahtarları yönetir.
+- Anahtar değerler hiçbir zaman yanıt arayana döndürülür.
+
+Yönetilen depolama hesabı anahtar özelliğini kullanırken:
+
+- **Yalnızca depolama hesap anahtarlarınızı yönetmek Key Vault izin verir.** Key Vault'un işlemlerle engel şekilde kendiniz yönetmek denemeyin.
+- **Depolama hesabı anahtarları birden fazla anahtar kasası nesne tarafından yönetilecek izin verme**.
+- **Depolama hesabı anahtarlarınızı el ile yeniden yoksa**. Key Vault aracılığıyla bunları yeniden öneririz.
+
+Aşağıdaki örnek, depolama hesabı anahtarlarını yönetmek Key Vault kullanmasının nasıl sağlanacağını gösterir.
+
 > [!IMPORTANT]
 > Azure AD kiracısı ile kayıtlı her uygulama sağlayan bir  **[hizmet sorumlusu](/azure/active-directory/develop/developer-glossary#service-principal-object)**, uygulama kimliği olarak görev yapar. Hizmet sorumlusunun uygulama kimliği, rol tabanlı erişim denetimi (RBAC) diğer Azure kaynaklarına erişmek için yetki verirken kullanılır. Key Vault Microsoft uygulama olduğundan, tüm Azure AD kiracılarıyla aynı uygulama kimliği, her Azure bulut içinde altında önceden kaydedilir:
 > - Azure kamu bulutunda Azure AD kiracıları kullanmak uygulama kimliği `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.

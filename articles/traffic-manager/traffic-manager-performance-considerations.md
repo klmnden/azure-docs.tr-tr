@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1bf2222e09644520bbfc6c5424c7f29d05b3c799
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 454d06912c34a07b0b2617936769888e92adaba1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257706"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453669"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager için performans konuları
 
@@ -28,7 +28,7 @@ WestUS ve ping'in ekran bölgelerinde sitenizin örnekleri var. Örneklerden bir
 
 Traffic Manager sitenizde sahip olabilecek tek performans ilk DNS araması etkisidir. Traffic Manager profilinizin adı için bir DNS istek trafficmanager.net bölgeyi barındıran Microsoft DNS kök sunucu tarafından işlenir. Traffic Manager, doldurur ve düzenli olarak güncelleştirmeleri, Microsoft'un DNS kök sunucuları Traffic Manager ilkesini ve araştırma sonuçları göre. Çağrılarda bile ilk DNS araması sırasında Traffic Manager DNS sorgu gönderilir.
 
-Traffic Manager oluşur çeşitli bileşenlerinin: DNS ad sunucuları, bir API hizmeti, depolama katmanı ve bir uç nokta izleme hizmeti. Traffic Manager hizmeti bileşeni başarısız olursa, Traffic Manager profili ile ilişkili DNS adı üzerinde hiçbir etkisi yoktur. Microsoft DNS sunucuları kayıtlara değişmeden kalır. Ancak, uç nokta izleme ve DNS güncelleştirme durum değil. Bu nedenle, Traffic Manager DNS birincil arızalandığında yük devretme sitenize işaret edecek şekilde güncelleştirmek mümkün değil.
+Traffic Manager çeşitli bileşenlerden oluşur: DNS sunucuları, bir API hizmeti, depolama katmanı ve bir uç nokta izleme hizmeti adı. Traffic Manager hizmeti bileşeni başarısız olursa, Traffic Manager profili ile ilişkili DNS adı üzerinde hiçbir etkisi yoktur. Microsoft DNS sunucuları kayıtlara değişmeden kalır. Ancak, uç nokta izleme ve DNS güncelleştirme durum değil. Bu nedenle, Traffic Manager DNS birincil arızalandığında yük devretme sitenize işaret edecek şekilde güncelleştirmek mümkün değil.
 
 DNS ad çözümlemesi hızlı çalışır ve sonuçları önbelleğe alınır. İstemcinin ad çözümlemesi için kullandığı DNS sunucularını ilk DNS araması hızına bağlıdır. Genellikle, bir istemci bir DNS araması yaklaşık 50 ms içinde tamamlayabilirsiniz. Arama sonuçlarının DNS için-yaşam süresi (TTL) boyunca önbelleğe alınır. Varsayılan TTL Traffic Manager için 300 saniyedir.
 
@@ -58,7 +58,7 @@ Bu siteler ölçü DNS gecikme süreleri ve görüntüleme araçları, istemci k
 
 * [CA uygulama Sentetik izleme](https://asm.ca.com/en/checkit.php)
 
-    Daha önce Watchmouse onay Web sitesi aracı olarak bilinen, bu site Göster, DNS çözümleme süresi birden fazla coğrafi bölgeyi aynı anda. DNS çözümleme süresi, bağlantı süresi ve farklı coğrafi konumlardan hızından görmek için URL'yi girin. Bu test, dünyanın dört bir yanındaki farklı konumlar için hangi barındırılan hizmet döndürülen görmek için kullanın.
+    Daha önce izleme fare onay Web sitesi aracı olarak bilinen, bu site Göster, DNS çözümleme süresi birden fazla coğrafi bölgeyi aynı anda. DNS çözümleme süresi, bağlantı süresi ve farklı coğrafi konumlardan hızından görmek için URL'yi girin. Bu test, dünyanın dört bir yanındaki farklı konumlar için hangi barındırılan hizmet döndürülen görmek için kullanın.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 

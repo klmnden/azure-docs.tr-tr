@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 01c4bcfcea038f3e69620cdce78719c8c5128faf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 6ad8079985925d4b9bf74b22971ca3c387af199a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964806"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455624"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL veritabanı uygulaması geliştirmeye genel bakış
 
@@ -58,7 +58,7 @@ Azure SQL veritabanınızı planlı bakım olayları için hazırlanması hakkı
 - İstemci programınızı barındıran bilgisayarda güvenlik duvarının 1433 numaralı bağlantı noktasından giden TCP iletişimine izin verdiğinden emin olun.  Daha fazla bilgi: [Bir Azure SQL veritabanı güvenlik duvarını](sql-database-configure-firewall-settings.md).
 - İstemciniz bir Azure sanal makine (VM) üzerinde çalışırken istemci programınız SQL veritabanına bağlanır, VM'de belirli bağlantı noktası aralıklarını açmanız gerekir. Daha fazla bilgi: [ADO.NET 4.5 ve SQL veritabanı için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Azure SQL veritabanı istemci bağlantıları, bazen Proxy'yi atlar ve veritabanı ile doğrudan etkileşim. 1433 dışındaki bağlantı noktaları önemli hale gelmiştir. Daha fazla bilgi için [Azure SQL veritabanı bağlantı mimarisi](sql-database-connectivity-architecture.md) ve [ADO.NET 4.5 ve SQL veritabanı için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Yönetilen örnek için ağ configation için bkz: [yönetilen örnekleri için ağ yapılandırması](sql-database-howto-managed-instance.md#network-configuration).
+- Yönetilen örnek için ağ yapılandırma için bkz: [yönetilen örnekleri için ağ yapılandırması](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

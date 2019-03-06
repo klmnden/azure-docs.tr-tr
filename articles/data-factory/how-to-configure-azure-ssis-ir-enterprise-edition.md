@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: c475a9c820e577a321491b87d806ed08ddff8693
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d2b06d044f68972ef72dd9b53401980e84ef779f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013887"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440939"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı için Enterprise Edition sağlama
 
@@ -44,19 +44,21 @@ Bu özelliklerin bazıları Azure-SSIS IR'yi özelleştirmek için ek bileşenle
 
 ## <a name="instructions"></a>Yönergeler
 
-1.  İndirme ve yükleme [Azure PowerShell (sürüm 5.4 veya sonrası)](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-2.  Sağlama veya PowerShell ile Azure-SSIS IR yeniden çalıştırma `Set-AzureRmDataFactoryV2IntegrationRuntime` ile **Kurumsal** değeri olarak **Edition** Azure-SSIS IR'yi başlamadan önce parametresi Örnek bir betik verilmiştir:
+1.  İndirme ve yükleme [Azure PowerShell](/powershell/azure/install-az-ps).
+
+2.  Sağlama veya PowerShell ile Azure-SSIS IR yeniden çalıştırma `Set-AzDataFactoryV2IntegrationRuntime` ile **Kurumsal** değeri olarak **Edition** Azure-SSIS IR'yi başlamadan önce parametresi Örnek bir betik verilmiştir:
 
     ```powershell
     $MyAzureSsisIrEdition = "Enterprise"
 
-    Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
+    Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
                                                -Name $MyAzureSsisIrName
                                                -ResourceGroupName $MyResourceGroupName
                                                -Edition $MyAzureSsisIrEdition
 
-    Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
+    Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
                                                  -Name $MyAzureSsisIrName
                                                  -ResourceGroupName $MyResourceGroupName
     ```

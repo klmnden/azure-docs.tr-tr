@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4537d15f88732d4b0c3c3cf514d6b8528af10f81
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8b8d56befa49b74ba123ff250720ac581604bbd6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737476"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452335"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Stream Analytics yönetilen kimlikleri (Önizleme) kullanarak Azure Data Lake depolama Gen1 için kimlik doğrulaması
 
@@ -172,14 +172,14 @@ Bu makalede yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure port
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Yukarıdaki PowerShell komutu hakkında daha fazla bilgi için bkz [kümesi AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry#optional-parameters) belgeleri.
+   Yukarıdaki PowerShell komutu hakkında daha fazla bilgi için bkz [kümesi AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) belgeleri.
 
 ## <a name="limitations"></a>Sınırlamalar
 Bu özellik, aşağıdakileri desteklemez:
 
 1.  **Çok kiracılı erişim**: Belirli bir Stream Analytics iş için oluşturulan hizmet sorumlusu, Azure Active Directory kiracısı üzerinde iş oluşturuldu ve farklı bir Azure Active Directory kiracısı üzerinde bulunan bir kaynağa karşı kullanılamaz yer alacaktır. Bu nedenle, Azure Stream Analytics işinizi olarak aynı Azure Active Directory kiracısı içinde ADLS Gen 1 kaynaklar üzerinde yalnızca MSI kullanabilirsiniz. 
 
-2.  **[Atanan kullanıcı kimlik](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka/)**: Desteklenmeyen bu kullanıcı, Stream Analytics işi tarafından kullanılmak üzere kendi hizmet sorumlusu girmeniz mümkün değil anlamına gelir. Hizmet sorumlusunu Azure Stream Analytics tarafından oluşturulur. 
+2.  **[Atanan kullanıcı kimlik](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**: Desteklenmeyen bu kullanıcı, Stream Analytics işi tarafından kullanılmak üzere kendi hizmet sorumlusu girmeniz mümkün değil anlamına gelir. Hizmet sorumlusunu Azure Stream Analytics tarafından oluşturulur. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

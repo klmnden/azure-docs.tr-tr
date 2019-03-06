@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: 657b726dc3724637a3099e95d4974840fbb0cc8c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ddf090664b1e5197603dadc26da92a0a1da1a63d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316345"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404952"
 ---
 # <a name="upload-and-index-your-videos"></a>Videolarınızı karşıya yükleme ve dizinleme  
 
@@ -32,6 +32,7 @@ Videonuz karşıya yüklendikten sonra Video Indexer, isteğe bağlı olarak kod
 
 - Videonuzu URL’ye dayalı olarak karşıya yüklerken (tercih edilir) uç noktanın güvenliği TLS 1.2 (veya üzeri) ile sağlanmalıdır
 - URL seçeneği ile karşıya yükleme boyutu 30 GB ile sınırlıdır
+- Çoğu tarayıcıda URL uzunluğu 2000 karakter ile sınırlıdır
 - Bayt dizisi seçeneği ile karşıya yükleme boyutu 2 GB ile sınırlıdır
 - Bayt dizisi seçeneği 30 dakika sonra zaman aşımına uğruyor
 - `videoURL` parametresinde sağlanan URL kodlanmış olmalıdır

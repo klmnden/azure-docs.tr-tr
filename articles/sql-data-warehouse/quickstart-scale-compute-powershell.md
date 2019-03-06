@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4d3374bd046179e72fb0b3cefb89189716991758
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1cfc14379fce1fea346d33e8e29e4385e14f2356
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310701"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409083"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Hızlı Başlangıç: PowerShell'de Azure SQL veri ambarı'nda işlemi ölçeklendirme
 
@@ -31,7 +31,7 @@ Bu hızlı başlangıçta zaten ölçeklendirebileceğiniz bir SQL veri ambarın
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Kullanarak Azure aboneliği için oturum açın [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) izleyin ve komut ekrandaki yönergeleri izleyin.
+Kullanarak Azure aboneliği için oturum açın [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) izleyin ve komut ekrandaki yönergeleri izleyin.
 
 ```powershell
 Connect-AzAccount

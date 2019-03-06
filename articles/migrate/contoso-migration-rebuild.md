@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a4e5087e53d4505d54b5ff4b8d17ad6166c6174b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c0e953434e947703308ff8d796107838df8cc979
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002510"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437323"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso geçişi: Azure'da şirket içi uygulama yeniden oluşturun
 
@@ -154,7 +154,7 @@ Contoso yöneticileri AKS ve Azure Container Registry (ACR) kullanarak yönetile
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-1. Başlamadan önce tüm prerequisitie yazılım dağıtımı için kullanmakta olduğunuz geliştirme makinesindeki yüklü Contoso yöneticileri emin olun.
+1. Başlamadan önce tüm önkoşul yazılım dağıtımı için kullanmakta olduğunuz geliştirme makinesindeki yüklü Contoso yöneticileri emin olun.
 2. Bunlar Git kullanarak geliştirme makinede yerel depoyu kopyalama: **git kopyalama https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
 
@@ -291,7 +291,7 @@ Bunlar gibi dağıtın:
 1. Bunlar, bir geliştirici komut istemi açın ve komut az oturum açma için Azure aboneliği kullanın.
 2. Bunlar aşağıdaki komutu yazarak ContosoRG kaynak grubu ve EUS2 bölgede, Azure kaynakları dağıtmak için deploy.cmd dosyasını kullanın:
 
-    **.\deploy.cmd azuredeploy - c eastus2 ContosoRG**
+    **.\deploy.cmd azuredeploy ContosoRG -c eastus2**
 
     ![Arka ucu dağıtın](./media/contoso-migration-rebuild/backend1.png)
 
@@ -374,15 +374,15 @@ Yönergeler için bu bölümdeki [SmartHotel360 genel web](https://github.com/Mi
 1.  Azure portalında depolama hesabı oluşturuldu ve tıklattığında açtıklarında **Blobları**.
 2.  Bunlar yeni bir kapsayıcı oluşturur (**Evcil Hayvanlar**) kapsayıcıya genel erişim düzeyi ile ayarlayın. Kullanıcılar, bu kapsayıcı için kendi evcil hayvan fotoğrafları yükleyeceksiniz.
 
-    ![Depolama blobu](./media/contoso-migration-rebuild/blob1.png)
+    ![Depolama blob'u](./media/contoso-migration-rebuild/blob1.png)
 
 3. Adlı ikinci yeni bir kapsayıcı oluşturdukları **ayarları**. Tüm ön uç uygulama ayarlarını içeren bir dosya bu kapsayıcıda yer alır.
 
-    ![Depolama blobu](./media/contoso-migration-rebuild/blob2.png)
+    ![Depolama blob'u](./media/contoso-migration-rebuild/blob2.png)
 
 4. Bunlar, gelecekte başvurmak için bir metin dosyasında depolama hesabı için erişim ayrıntılarını yakalayın.
 
-    ![Depolama blobu](./media/contoso-migration-rebuild/blob2.png)
+    ![Depolama blob'u](./media/contoso-migration-rebuild/blob2.png)
 
 ### <a name="provision-a-cosmos-database"></a>Bir Cosmos veritabanı sağlama
 
@@ -460,7 +460,7 @@ Azure portalında işlev uygulaması Contoso yöneticileri sağlayın.
 3. Uygulama dağıtıldıktan sonra başarıyla oluşturulmuş denetlemek için uygulama adresine göz atın.
 
 
-## <a name="step-4-set-up-the-front-end-pipeline"></a>4. adım: Ön uç işlem hattı ayarlayın
+## <a name="step-4-set-up-the-front-end-pipeline"></a>4. Adım: Ön uç işlem hattı ayarlayın
 
 Contoso yöneticileri, ön uç sitesinin iki farklı projeler oluşturun. 
 
@@ -601,7 +601,7 @@ Contoso yöneticileri gibi uygulamayı dağıtın.
 
 11. Bunlar bir yapıt ekleme **yapı**.
 
-    ![Yapıt](./media/contoso-migration-rebuild/petchecker3.png)
+    ![Yapay Nesne](./media/contoso-migration-rebuild/petchecker3.png)
 
 12. Tanırlar **sürekli dağıtım tetikleyicisi**, tıklatıp **Kaydet**.
 13. Simgeye **yeni derlemeyi kuyruğa al** eksiksiz bir CI/CD işlem hattı çalıştırılacak.

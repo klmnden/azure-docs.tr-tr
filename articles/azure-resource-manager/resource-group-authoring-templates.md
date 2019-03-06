@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2019
+ms.date: 03/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 024a622484a83957c9ab5f4a684a346a55787ccf
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f67741417c6d31c4adf1d063aac3bd3ccc310fde
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313370"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440259"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, söz dizimi ve yapısı anlama
 
@@ -33,6 +33,7 @@ En basit yapısına bir şablon aşağıdaki öğelere sahiptir:
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "",
+  "apiProfile": "",
   "parameters": {  },
   "variables": {  },
   "functions": [  ],
@@ -45,120 +46,14 @@ En basit yapısına bir şablon aşağıdaki öğelere sahiptir:
 |:--- |:--- |:--- |
 | $schema |Evet |Şablon dil sürümünü tanımlayan JSON şema dosyasının konumu.<br><br> Kaynak grubu dağıtımı için kullanın: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Abonelik dağıtımları için kullanın: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Evet |Şablon (örneğin, 1.0.0.0) sürümü. Bu öğe için herhangi bir değer sağlayabilirsiniz. Şablonunuzda önemli değişiklikleri belgelemek için bu değeri kullanın. Şablon kullanarak kaynakları dağıtırken, bu değer, en uygun şablonu kullanıldığından emin emin olmak için kullanılabilir. |
-| parametreler |Hayır |Kaynak bir dağıtımı özelleştirmek için dağıtım çalıştırıldığında, sağlanan değerler. |
-| Değişkenleri |Hayır |Şablonda, JSON parçaları olarak şablon dili ifadeleri basitleştirmek için kullanılan değerleri. |
-| işlevler |Hayır |Şablonda kullanılabilir olan kullanıcı tanımlı işlevler. |
-| kaynaklar |Evet |Dağıtılan ya da bir kaynak grubu veya abonelik güncelleştirilmiş kaynak türleri. |
-| çıkışlar |Hayır |Dağıtımdan sonra döndürülen değerleri. |
+| apiProfile |Hayır | API sürümleri için kaynak türleri koleksiyonu olarak görev yapan bir API sürümü. API sürümleri için her kaynak şablonda belirtmek zorunda kalmamak için bu değeri kullanın. Bir API profili sürümü belirttiğinizde ve bu nedenle kaynak türü için bir API sürümü belirtmeyin Resource Manager profilindeki API sürümü, kaynak türü için kullanır. Daha fazla bilgi için [izleme API profillerini kullanarak sürümleri](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| [parametreler](#parameters) |Hayır |Kaynak bir dağıtımı özelleştirmek için dağıtım çalıştırıldığında, sağlanan değerler. |
+| [Değişkenleri](#variables) |Hayır |Şablonda, JSON parçaları olarak şablon dili ifadeleri basitleştirmek için kullanılan değerleri. |
+| [İşlevleri](#functions) |Hayır |Şablonda kullanılabilir olan kullanıcı tanımlı işlevler. |
+| [Kaynakları](#resources) |Evet |Dağıtılan ya da bir kaynak grubu veya abonelik güncelleştirilmiş kaynak türleri. |
+| [çıkışlar](#outputs) |Hayır |Dağıtımdan sonra döndürülen değerleri. |
 
-Her öğesinin özellikleri ayarlayabilirsiniz. Aşağıdaki örnek, bir şablon için tam sözdizimini gösterir:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "",
-  "parameters": {  
-    "<parameter-name>" : {
-      "type" : "<type-of-parameter-value>",
-      "defaultValue": "<default-value-of-parameter>",
-      "allowedValues": [ "<array-of-allowed-values>" ],
-      "minValue": <minimum-value-for-int>,
-      "maxValue": <maximum-value-for-int>,
-      "minLength": <minimum-length-for-string-or-array>,
-      "maxLength": <maximum-length-for-string-or-array-parameters>,
-      "metadata": {
-        "description": "<description-of-the parameter>" 
-      }
-    }
-  },
-  "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-object-name>": {
-      <variable-complex-type-value>
-    },
-    "<variable-object-name>": {
-      "copy": [
-        {
-          "name": "<name-of-array-property>",
-          "count": <number-of-iterations>,
-          "input": <object-or-value-to-repeat>
-        }
-      ]
-    },
-    "copy": [
-      {
-        "name": "<variable-array-name>",
-        "count": <number-of-iterations>,
-        "input": <object-or-value-to-repeat>
-      }
-    ]
-  },
-  "functions": [
-    {
-      "namespace": "<namespace-for-your-function>",
-      "members": {
-        "<function-name>": {
-          "parameters": [
-            {
-              "name": "<parameter-name>",
-              "type": "<type-of-parameter-value>"
-            }
-          ],
-          "output": {
-            "type": "<type-of-output-value>",
-            "value": "<function-expression>"
-          }
-        }
-      }
-    }
-  ],
-  "resources": [
-    {
-      "condition": "<boolean-value-whether-to-deploy>",
-      "apiVersion": "<api-version-of-resource>",
-      "type": "<resource-provider-namespace/resource-type-name>",
-      "name": "<name-of-the-resource>",
-      "location": "<location-of-resource>",
-        "tags": {
-          "<tag-name1>": "<tag-value1>",
-          "<tag-name2>": "<tag-value2>"
-        },
-        "comments": "<your-reference-notes>",
-        "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
-          "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
-        },
-        "dependsOn": [
-          "<array-of-related-resource-names>"
-        ],
-        "properties": {
-          "<settings-for-the-resource>",
-          "copy": [
-            {
-              "name": ,
-              "count": ,
-              "input": {}
-            }
-          ]
-        },
-        "resources": [
-          "<array-of-child-resources>"
-        ]
-    }
-  ],
-  "outputs": {
-    "<outputName>" : {
-      "condition": "<boolean-value-whether-to-output-value>",
-      "type" : "<type-of-output-value>",
-      "value": "<output-value-expression>"
-    }
-  }
-}
-```
-
-Bu makalede daha ayrıntılı şablon bölümlerini açıklar.
+Her öğesinin özellikleri ayarlayabilirsiniz. Bu makalede daha ayrıntılı şablon bölümlerini açıklar.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -515,23 +410,274 @@ Bir kullanıcı işlevi tanımlanırken, bazı kısıtlamalar vardır:
 ```
 
 ## <a name="resources"></a>Kaynaklar
-Kaynaklar bölümünde, dağıtılan veya güncelleştirilen kaynakları tanımlayın. Bu bölümde, doğru değerleri sağlamak üzere dağıtıyorsanız türlerini anlamanız gerekir çünkü karmaşık alabilirsiniz.
+Kaynaklar bölümünde, dağıtılan veya güncelleştirilen kaynakları tanımlayın.
+
+### <a name="available-properties"></a>Kullanılabilir özellikler
+
+Aşağıdaki yapıya sahip kaynakları tanımlarsınız:
 
 ```json
 "resources": [
   {
-    "apiVersion": "2016-08-01",
-    "name": "[variables('webSiteName')]",
-    "type": "Microsoft.Web/sites",
-    "location": "[resourceGroup().location]",
-    "properties": {
-      "serverFarmId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Web/serverFarms/<plan-name>"
-    }
+      "condition": "<true-to-deploy-this-resource>",
+      "apiVersion": "<api-version-of-resource>",
+      "type": "<resource-provider-namespace/resource-type-name>",
+      "name": "<name-of-the-resource>",
+      "location": "<location-of-resource>",
+      "tags": {
+          "<tag-name1>": "<tag-value1>",
+          "<tag-name2>": "<tag-value2>"
+      },
+      "comments": "<your-reference-notes>",
+      "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": <number-of-iterations>,
+          "mode": "<serial-or-parallel>",
+          "batchSize": <number-to-deploy-serially>
+      },
+      "dependsOn": [
+          "<array-of-related-resource-names>"
+      ],
+      "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+              {
+                  "name": ,
+                  "count": ,
+                  "input": {}
+              }
+          ]
+      },
+      "sku": {
+          "name": "<sku-name>",
+          "tier": "<sku-tier>",
+          "size": "<sku-size>",
+          "family": "<sku-family>",
+          "capacity": <sku-capacity>
+      },
+      "kind": "<type-of-resource>",
+      "plan": {
+          "name": "<plan-name>",
+          "promotionCode": "<plan-promotion-code>",
+          "publisher": "<plan-publisher>",
+          "product": "<plan-product>",
+          "version": "<plan-version>"
+      },
+      "resources": [
+          "<array-of-child-resources>"
+      ]
   }
-],
+]
 ```
 
-Koşullu olarak dahil edin veya bir kaynak dağıtım sırasında hariç tutmak için kullanın [koşul öğesi](resource-manager-templates-resources.md#condition). Kaynaklar bölümü hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları, kaynaklar bölümü](resource-manager-templates-resources.md).
+| Öğe adı | Gerekli | Açıklama |
+|:--- |:--- |:--- |
+| koşul | Hayır | Bu dağıtım sırasında kaynak sağlanan olup olmadığını gösteren Boole değeri. Zaman `true`, kaynak dağıtım sırasında oluşturulur. Zaman `false`, bu dağıtım için kaynak atlandı. |
+| apiVersion |Evet |Kaynak oluşturmak için REST API sürümü. Kullanılabilir değerleri belirlemek için bkz: [şablon başvurusu](/azure/templates/). |
+| type |Evet |Kaynak türü. Kaynak sağlayıcıya ve kaynak türü için ad alanı, bu değer oluşur (gibi **Microsoft.Storage/storageAccounts**). Kullanılabilir değerleri belirlemek için bkz: [şablon başvurusu](/azure/templates/). |
+| ad |Evet |Kaynağın adı. Ad URI bileşeni kısıtlamaları RFC3986 içinde tanımlanan izlemelidir. Ayrıca, kaynak adı dışında tarafların emin olmak için adını doğrulamak için kullanıma sunan Azure Hizmetleri başka bir kimlik sızmasını girişimi değildir. |
+| location |Değişir |Sağlanan kaynak coğrafi konumda desteklenmiyor. Mevcut konumlardan birini seçebilirsiniz, ancak genellikle kullanıcılarınıza yakın olan bir çekme mantıklıdır. Genellikle, da aynı bölgede birbiriyle etkileşim kaynakları yerleştirin mantıklıdır. Çoğu kaynak türleri bir konum gerektirme, ancak bazı türleri (örneğin, bir rol ataması) bir konuma gerektirmez. |
+| etiketler |Hayır |Kaynakla ilişkili etiketler. Kaynakları aboneliğiniz arasında mantıksal olarak düzenlemek için etiketler. |
+| Açıklamaları |Hayır |Şablonunuzda kaynaklar belgelemek için notlar. Daha fazla bilgi için [şablonlarında yorum](resource-group-authoring-templates.md#comments). |
+| kopyala |Hayır |Birden fazla örneği gerekiyorsa oluşturmak için kaynak sayısı. Paralel varsayılan moddur. Tüm istemediğinizde seri modu veya aynı anda dağıtmak amacıyla kaynaklarınızı belirtin. Daha fazla bilgi için [Azure Resource Manager'da kaynakları çeşitli örneklerini oluşturmak](resource-group-create-multiple.md). |
+| dependsOn |Hayır |Bu kaynak dağıtılmadan önce dağıtılmalıdır kaynaklar. Resource Manager, kaynaklar arasındaki bağımlılıkları değerlendirir ve bunları doğru sırayla dağıtır. Kaynakları birbirlerine bağımlı olmayan, paralel olarak dağıtılan. Değer bir kaynağa virgülle ayrılmış bir listesini olabilir adlarına veya kaynak benzersiz tanımlayıcıları. Yalnızca bu şablon dağıtılan kaynakları listeler. Bu şablonda tanımlı olmayan kaynakları önceden var olmalıdır. Dağıtımınızı yavaş ve döngüsel bağımlılıklar oluşturma gibi gereksiz bağımlılıkları eklemekten kaçının. Bağımlılıklarını ayarlama hakkında yönergeler için bkz [Azure Resource Manager şablonlarında bağımlılık tanımlama](resource-group-define-dependencies.md). |
+| properties |Hayır |Kaynağa özgü yapılandırma ayarları. Özellikleri için değer, istek gövdesinde bir kaynak oluşturmak REST API işlemi için (PUT yöntemini) sağladığınız değerler ile aynıdır. Ayrıca, bir özelliği birden çok örneği oluşturmak için bir kopya dizisi belirtebilirsiniz. Kullanılabilir değerleri belirlemek için bkz: [şablon başvurusu](/azure/templates/). |
+| sku | Hayır | Bazı kaynaklar dağıtmak için SKU tanımlama değerlerini sağlar. Örneğin, bir depolama hesabı için yedeklilik türünü belirtebilirsiniz. |
+| tür | Hayır | Bazı kaynaklar dağıttığınız kaynak türünü tanımlayan bir değeri sağlar. Örneğin, Cosmos DB, oluşturulacak türünü belirtebilirsiniz. |
+| planı | Hayır | Bazı kaynaklar dağıtmayı planlıyorsunuz tanımlayan değerleri sağlar. Örneğin, bir sanal makine için Market görüntüsüne belirtebilirsiniz. | 
+| kaynaklar |Hayır |Tanımlanan kaynağına bağımlı alt kaynakları. Yalnızca üst kaynak şema tarafından izin verilen kaynak türleri sağlar. Üst kaynak türü gibi tam olarak nitelenmiş tür alt kaynak içerir **Microsoft.Web/sites/extensions**. Üst Kaynak bağımlılığı kapsanan değil. Ayrıca, bu bağımlılık açıkça tanımlamanız gerekir. |
+
+### <a name="condition"></a>Koşul
+
+Kaynak Oluştur gerekip gerekmediğini dağıtım sırasında karar vermelisiniz kullanırsanız `condition` öğesi. Bu öğenin değeri true veya false olarak çözümler. Değer true ise, bir kaynak oluşturulur. Kaynak değeri false olduğunda oluşturulmadı. Değer yalnızca kaynağın tamamını uygulanabilir.
+
+Genellikle, yeni bir kaynak oluşturmak veya mevcut bir istediğinizde bu değeri kullanın. Örneğin, yeni bir depolama hesabı dağıtıldığına veya mevcut bir depolama hesabını belirtmek için kullanılan, kullanın:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+Kullanan bir tam örnek şablonu için `condition` öğesi bkz [yeni veya mevcut bir sanal ağ, depolama ve genel IP ile VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+
+### <a name="resource-names"></a>Kaynak adları
+
+Genel olarak, kaynak adları Kaynak Yöneticisi'nde üç türde çalışır:
+
+* Kaynak adları benzersiz olmalıdır.
+* Kaynak adları benzersiz olması gerekmez, ancak kaynak belirlemenize yardımcı olabilecek bir ad vermek seçin.
+* Genel kaynak adları.
+
+Sağlayan bir **benzersiz kaynak adı** veri erişim uç noktası olan herhangi bir kaynak türü için. Benzersiz bir ad gerektiren bazı yaygın kaynak türleri şunlardır:
+
+* Azure depolama<sup>1</sup> 
+* Azure Uygulama Hizmeti’nin Web Apps özelliği
+* SQL Server
+* Azure Key Vault
+* Redis için Azure Önbelleği
+* Azure Batch
+* Azure Traffic Manager
+* Azure Search
+* Azure HDInsight
+
+<sup>1</sup> depolama hesabı adları da küçük olmalıdır, 24 karakterden daha az veya ve herhangi bir kısa çizgi zorunda kalmazsınız.
+
+Ayar adı, el ile benzersiz bir ad oluşturun veya kullanın [uniqueString()](resource-group-template-functions-string.md#uniquestring) bir ad oluşturmak için işlev. Bir ön ek ekleme veya için soneki isteyebilirsiniz **uniqueString** sonucu. Benzersiz bir ad değiştirerek daha fazla kaynak türü adı, kolayca belirlemenize yardımcı olabilir. Örneğin, aşağıdaki değişkeni kullanarak bir depolama hesabı için benzersiz bir ad oluşturabilirsiniz:
+
+```json
+"variables": {
+  "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
+}
+```
+
+Bazı kaynak türleri için sağlamak isteyebilirsiniz bir **kimlik adı**, ancak bu adın benzersiz olması gerekmez. Bu kaynak türleri için kullanın veya özelliklerini tanımlayan bir ad sağlayın.
+
+```json
+"parameters": {
+  "vmName": { 
+    "type": "string",
+    "defaultValue": "demoLinuxVM",
+    "metadata": {
+      "description": "The name of the VM to create."
+    }
+  }
+}
+```
+
+Kaynak, çoğunlukla farklı bir kaynak aracılığıyla erişim türleri için kullanabileceğiniz bir **genel ad** şablonu sabit kodlanmış olan. Örneğin, bir SQL Server'da Güvenlik duvarı kuralları için standart, genel bir ad ayarlayabilirsiniz:
+
+```json
+{
+  "type": "firewallrules",
+  "name": "AllowAllWindowsAzureIps",
+  ...
+}
+```
+
+### <a name="resource-location"></a>Kaynak konumu
+
+Şablon dağıtırken, her kaynak için bir konum sağlamalısınız. Farklı kaynak türlerinin farklı konumlarda desteklenir. Bir kaynak türü için desteklenen konumlar almak için bkz. [Azure kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md).
+
+Kaynaklar için konumu belirtmek için bir parametre kullanın ve varsayılan değer ayarlamak `resourceGroup().location`.
+
+Aşağıdaki örnek, bir parametre olarak belirtilen bir konuma dağıtılan bir depolama hesabı gösterilmektedir:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('storageAccountName')]"
+    }
+  }
+}
+```
+
+### <a name="child-resources"></a>Alt kaynakları
+
+İçindeki bazı kaynak türleri, bir dizi alt kaynakları tanımlayabilirsiniz. Alt kaynakları yalnızca başka bir kaynak bağlamı içinde mevcut kaynaklardır. Örneğin, veritabanı sunucusunun bir alt, bu nedenle bir SQL veritabanı bir SQL server var olamaz. Veritabanı sunucusu için tanımı içinde tanımlayabilirsiniz.
+
+```json
+{
+  "name": "exampleserver",
+  "type": "Microsoft.Sql/servers",
+  "apiVersion": "2014-04-01",
+  ...
+  "resources": [
+    {
+      "name": "exampledatabase",
+      "type": "databases",
+      "apiVersion": "2014-04-01",
+      ...
+    }
+  ]
+}
+```
+
+İç içe olduğunda tür kümesine `databases` ancak kendi tam kaynak türü `Microsoft.Sql/servers/databases`. Sağlaması gerekmez `Microsoft.Sql/servers/` üst kaynak türünden varsayıldığından. Alt kaynak adı kümesine `exampledatabase` ancak üst adı tam adını içerir. Sağlaması gerekmez `exampleserver` üst kaynak varsayıldığından.
+
+Alt kaynak türünün biçimi şu şekildedir: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+
+Alt kaynak adı biçimi şöyledir: `{parent-resource-name}/{child-resource-name}`
+
+Ancak veritabanı sunucusu içinde tanımlamanız gerekmez. Alt kaynak en üst düzeyde tanımlayabilirsiniz. Üst kaynak aynı şablonun dağıttıysanız değil veya bu yaklaşımı kullanabilirsiniz kullanmak istediğiniz `copy` birden fazla alt kaynak oluşturmak için. Bu yaklaşımda, tam kaynak türü sağlayın ve üst kaynak adı alt kaynak adında gerekir.
+
+```json
+{
+  "name": "exampleserver",
+  "type": "Microsoft.Sql/servers",
+  "apiVersion": "2014-04-01",
+  "resources": [ 
+  ],
+  ...
+},
+{
+  "name": "exampleserver/exampledatabase",
+  "type": "Microsoft.Sql/servers/databases",
+  "apiVersion": "2014-04-01",
+  ...
+}
+```
+
+Tam başvuru için bir kaynak oluşturulurken, yalnızca bir birleştirme iki tür ve ad kesimlerinden birleştirilecek sırası değildir. Bunun yerine, sonra ad alanı, bir dizi kullanın *türü/ad* en az belirli bir çiftlerinden en belirgin için:
+
+```json
+{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
+```
+
+Örneğin:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` doğru `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` doğru değil
 
 ## <a name="outputs"></a>Çıkışlar
 
@@ -716,20 +862,6 @@ VS Code'da JSON yorumlarla dil modunu ayarlayabilirsiniz. Satır içi açıklama
 1. Seçin **açıklamaları olan JSON**.
 
    ![Dil modu Seç](./media/resource-group-authoring-templates/select-json-comments.png)
-
-## <a name="template-limits"></a>Şablon sınırları
-
-Şablonunuza 1 MB ve her 64 KB parametre dosyası boyutunu sınırlama. Yinelemeli Kaynak tanımları ve değişkenler ve parametreler için değerleri genişletildi sonra şablonunun son duruma 1 MB'lık sınırı uygular. 
-
-İçin sınırlama getirilir:
-
-* 256 parametreleri
-* 256 değişkenleri
-* 800 kaynakları (kopya sayısı da dahil olmak üzere)
-* 64 çıkış değerleri
-* bir şablon ifadesi 24.576 karakter
-
-İç içe geçmiş bir şablon kullanarak bazı şablonu sınırlar aşabilir. Daha fazla bilgi için [Azure kaynakları dağıtılırken bağlı şablonları kullanma](resource-group-linked-templates.md). Parametreler, değişkenleri veya çıkış sayısını azaltmak için değerlerden bir nesnesi olarak birleştirebilirsiniz. Daha fazla bilgi için [parametre olarak nesnelerin](resource-manager-objects-as-parameters.md).
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

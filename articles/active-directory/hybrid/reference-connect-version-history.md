@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca5dc106d3a524f9bdd6f2d989ef1189032cd60f
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: fd90cd18be1fdbac5948fb076a3358b070bad8eb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195532"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455081"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -833,7 +833,7 @@ Yayımlanma tarihi: Mart 2017
 Azure AD Connect Eşitleme
 * Azure AD Connect Sihirbazı, Azure AD Bağlayıcısı görünen adını Azure AD kiracısına atanan ilk onmicrosoft.com etki alanınız yoksa başarısız olmasına neden olan sorun düzeltildi.
 * Azure AD Connect Sihirbazı, eşitleme hizmeti hesabının parolasını kesme işareti, virgül ve boşluk gibi özel karakterler içerdiğinde, SQL veritabanı bağlantısı yaparken başarısız olmasına neden olan sorun düzeltildi.
-* "Dimage görüntüden daha farklı bir yer işaretine sahip" hataya neden olan bir sorun düzeltildi, geçici olarak bir şirket içi dışarıda sonra hazırlama modunda, bir Azure AD Connect sunucusu üzerinde gerçekleşmesi için AD nesne eşitlenmesini ve ardından yeniden eşitleme için dahil.
+* "Görüntü görüntüden daha farklı bir yer işaretine sahip" hataya neden olan bir sorun düzeltildi, geçici olarak bir şirket içi dışarıda sonra hazırlama modunda, bir Azure AD Connect sunucusu üzerinde gerçekleşmesi için AD nesne eşitlenmesini ve ardından yeniden eşitleme için dahil.
 * "DN bulunan nesne hayali bir" hataya neden olan bir sorun düzeltildi, geçici olarak bir şirket içi dışarıda sonra hazırlama modunda, bir Azure AD Connect sunucusu üzerinde gerçekleşmesi için AD nesne eşitlenmesini ve ardından yeniden eşitleme için dahil.
 
 AD FS Yönetimi

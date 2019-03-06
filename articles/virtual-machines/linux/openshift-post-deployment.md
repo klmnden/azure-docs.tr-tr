@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 8436b530ac01f03e071604e5023b50f8de6989fd
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b2a2e0ed48004a731ca15b3fb1d985bbee7e0c29
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034816"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440668"
 ---
 # <a name="post-deployment-tasks"></a>Dağıtım sonrası görevler
 
@@ -39,10 +39,10 @@ Azure Active Directory kimlik doğrulaması için kullanmak için önce bir Azur
 
 Bu adımlar, uygulama kaydı ve izinler ayarlamak üzere GUI (portal) oluşturmak için Azure CLI'yı kullanın. Uygulama kaydı oluşturmak için şu beş bilgilere ihtiyacınız vardır:
 
-- Görünen ad: uygulama kaydı adı (örneğin, OCPAzureAD)
-- Giriş sayfası: OpenShift konsol URL'si (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Tanımlayıcı URI'si: OpenShift Konsolu URL'si (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Yanıt URL'si: genel URL ve uygulama kayıt adı (örneğin, ana https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- Görünen ad: Uygulama kayıt adı (örneğin, OCPAzureAD)
+- Giriş sayfası: (Örneğin, OpenShift Konsolu URL'si https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Tanımlayıcı URI'si: (Örneğin, OpenShift Konsolu URL'si https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Yanıt URL'si: Genel URL ve uygulama kayıt adı (örneğin, ana https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Parola: Güvenli parola (güçlü bir parola kullanın)
 
 Aşağıdaki örnek, önceki bilgileri kullanarak bir uygulama kaydı oluşturur:
@@ -87,7 +87,7 @@ Azure portalında:
 
   ![Uygulama kaydı API seçimi](media/openshift-post-deployment/app-registration-select-api.png)
 
-7.  Üzerinde Adım 2: İzinleri seçin, **oturum açın ve kullanıcı profilini okuma** altında **Temsilcili izinler**ve ardından **seçin**.
+7.  Adım 2: İzinleri seçin, **oturum açın ve kullanıcı profilini okuma** altında **Temsilcili izinler**ve ardından **seçin**.
 
   ![Uygulama kaydı erişim](media/openshift-post-deployment/app-registration-access.png)
 

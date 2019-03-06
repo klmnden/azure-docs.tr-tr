@@ -1,5 +1,5 @@
 ---
-title: Kuruluşunuz Azure Active Directory'yi kullanmak için oturum açın | Microsoft Docs
+title: Kuruluşunuz - Azure Active Directory oturum | Microsoft Docs
 description: Kuruluşunuz Azure ve Azure Active Directory kullanmak için imzalama hakkında yönergeler.
 services: active-directory
 author: eross-msft
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91fe15cfbf855f18894ef602c86f780b97d62974
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 937f53ecd60d6bbcc8fbd02f978974ac34f77c00
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205197"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442023"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Kuruluşunuz Azure Active Directory'yi kullanmak için oturum açın
 Azure Active Directory (Azure AD) veya herhangi birini kullanarak yeni bir Microsoft Azure aboneliği için kaydolun:

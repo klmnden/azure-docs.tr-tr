@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 644b9f3ce38b050e57fe234756a2a9a0127727c3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5ee631da550c731007e95944721a129ea883c9ca
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424243"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440310"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory'de Spark etkinliğini kullanarak verileri bulutta dönüştürme
 Bu öğreticide, Azure PowerShell kullanarak verileri Spark Etkinliği ve talep üzerine HDInsight bağlı hizmeti ile dönüştüren bir Data Factory işlem hattı oluşturacaksınız. Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
@@ -31,8 +31,11 @@ Bu öğreticide, Azure PowerShell kullanarak verileri Spark Etkinliği ve talep 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Azure Depolama hesabı**. Bir python betiği ve giriş dosyası oluşturup Azure depolama alanına yükleyin. Spark programının çıktısı bu depolama hesabında depolanır. İsteğe bağlı Spark kümesi, birincil depolama alanıyla aynı depolama hesabını kullanır.  
-* **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps) bölümündeki yönergeleri izleyin.
+* **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-Az-ps) bölümündeki yönergeleri izleyin.
 
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Python betiğini Blob Depolama hesabınıza yükleme
@@ -203,27 +206,27 @@ JSON dosyalarında bağlı hizmet ve işlem hattı tanımları oluşturdunuz. Ş
     Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin:
         
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```        
     Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın:
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
     Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **SubscriptionId**’yi Azure aboneliğinizin kimliği ile değiştirin:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
 3. Kaynak grubunu oluşturun: ADFTutorialResourceGroup. 
 
     ```powershell
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location "East Us" 
+    New-AzResourceGroup -Name $resourceGroupName -Location "East Us" 
     ```
 4. Veri fabrikasını oluşturun. 
 
     ```powershell
-     $df = Set-AzureRmDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+     $df = Set-AzDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
     ```
 
     Çıktıyı görmek için aşağıdaki komutu yürütün: 
@@ -234,17 +237,17 @@ JSON dosyalarında bağlı hizmet ve işlem hattı tanımları oluşturdunuz. Ş
 5. JSON dosyalarını oluşturduğunuz klasöre geçin ve Azure Depolama bağlı hizmetlerini dağıtmak için aşağıdaki komutu çalıştırın: 
        
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
     ```
 6. İsteğe bağlı Spark bağlı hizmetinde aşağıdaki komutu çalıştırın: 
        
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyOnDemandSparkLinkedService" -File "MyOnDemandSparkLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyOnDemandSparkLinkedService" -File "MyOnDemandSparkLinkedService.json"
     ```
 7. Bir işlem hattını dağıtmak için aşağıdaki komutu çalıştırın: 
        
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "MySparkOnDemandPipeline.json"
+    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "MySparkOnDemandPipeline.json"
     ```
     
 ## <a name="start-and-monitor-a-pipeline-run"></a>İşlem hattı çalıştırmasını başlatma ve izleme  
@@ -252,13 +255,13 @@ JSON dosyalarında bağlı hizmet ve işlem hattı tanımları oluşturdunuz. Ş
 1. Bir işlem hattı çalıştırması başlatma. Ayrıca, gelecekte izlemek üzere işlem hattı çalıştırma kimliğini yakalar.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  
+    $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  
     ```
 2. İşlem hattı çalıştırma durumunu tamamlanıncaya kadar sürekli olarak denetlemek için aşağıdaki betiği çalıştırın.
 
     ```powershell
     while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+        $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     
         if(!$result) {
             Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"

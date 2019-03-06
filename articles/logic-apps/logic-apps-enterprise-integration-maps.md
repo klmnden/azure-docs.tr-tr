@@ -11,16 +11,16 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: da5b099a5574d34c3676819c930f3e89610cf4ad
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767444"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455811"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Azure Logic Apps Enterprise Integration Pack ile maps'a ile XML dönüştürme
 
-Daha açık belirtmek gerekirse Genişletilebilir Stil Sayfası Dil Dönüşümleri (XSLT) eşler veya XML verileri Azure Logic Apps Kurumsal tümleştirme senaryoları için biçimler arasında aktarmak için mantıksal uygulamanızı haritalar kullanabilirsiniz. Bir harita verilerini bir XML belgesinden başka bir biçime dönüştürmek üzere açıklayan bir XML belgesidir. 
+Azure Logic Apps Kurumsal tümleştirme senaryoları için biçimler arasında XML veri aktarmak için mantıksal uygulamanızı haritalar ya da daha açık belirtmek gerekirse Genişletilebilir Stil Sayfası Dil Dönüşümleri (XSLT) eşlemeleri kullanabilirsiniz. Bir harita verilerini bir XML belgesinden başka bir biçime dönüştürmek üzere açıklayan bir XML belgesidir. 
 
 Örneğin, düzenli olarak B2B siparişlerini veya faturalarını YYYMMDD tarih biçimini kullanan bir müşteriden alma varsayalım. Ancak, kuruluşunuz MMDDYYY tarih biçimini kullanır. Tanımlayabilir ve sırası veya faturayı ayrıntıları müşteri etkinliği veritabanınızda depolamadan önce MMDDYYY biçimi YYYMMDD tarih biçimine dönüştürür bir haritayı kullanın.
 

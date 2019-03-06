@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156180"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404908"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Öğretici: Bir Azure Data Box Disk sipariş
 
@@ -80,11 +80,25 @@ Data Box Disk sipariş etmek için [Azure portalda](https://aka.ms/azuredataboxf
     |Ad|Siparişi takip etmek için kullanılacak kolay bir ad girin.<br> Ad harf, rakam ve tirelerden oluşan 3-24 karakter arası uzunlukta olabilir. <br> Ad bir harf veya sayıyla başlamalı ve bitmelidir. |
     |Kaynak grubu| Var olan bir taneyi kullanın veya yenisini oluşturun. <br> Kaynak grubu, birlikte yönetilebilen ve ya dağıtılabilen kaynaklardan oluşan mantıksal kapsayıcıdır. |
     |Hedef Azure bölgesi| Depolama hesabınız için bir bölge seçin.<br> Şu anda depolama hesapları ABD, Batı ve Kuzey Avrupa, Kanada ve Avustralya’nın tüm bölgelerinde desteklenmektedir. |
-    |Depolama hesapları|Belirtilen Azure bölgesine göre filtrelenen listeden var olan bir depolama hesabını seçin. <br>Dilerseniz yeni bir Genel amaçlı v1 veya Genel amaçlı v2 hesabı da oluşturabilirsiniz. |
     |TB cinsinden tahmini veri boyutu| TB cinsinden tahmini veri boyutunu girin. <br>Microsoft, veri boyutuna uygun sayıda 8 TB boyuta sahip SSD'ler (7 TB kullanılabilir kapasite) gönderir. <br>5 diskin maksimum kullanılabilir kapasitesi 35 TB olacaktır. |
     |Disk geçiş anahtarı| **Azure tarafından oluşturulan geçiş anahtarı yerine özel anahtar kullanın** seçeneğini işaretlerseniz disk geçiş anahtarını sağlayın. <br> En az bir sayısal ve bir özel karakter olan 12-ile 32 karakter alfasayısal bir anahtar sağlar. İzin verilen karakterler: `@?_+`. <br> Bu seçeneği atlayabilir ve disklerinizin kilidini açmak için Azure tarafından oluşturulan destek anahtarını kullanabilirsiniz.|
+    |Depolama hedefi     | Depolama hesabı veya yönetilen diskleri veya her ikisini de seçin. <br> Belirtilen Azure bölgeye göre mevcut bir depolama hesabını filtrelenmiş listesinden bir depolama hesabı seçin. Data Box en çok 10 depolama hesabına bağlanabilir. <br> Ayrıca yeni bir oluşturabilirsiniz **genel amaçlı v1**, **genel amaçlı v2**, veya **Blob Depolama hesabı**. <br>Yapılandırılmış kurallara sahip depolama hesapları kullanılamaz. Depolama hesapları gereken **tüm ağlardan erişime izin ver** güvenlik duvarları ve sanal ağlar bölümünde.|
 
-13. **İleri**’ye tıklayın. 
+    Depolama hesabı depolama hedefi kullanıyorsanız, aşağıdaki ekran görüntüsüne bakın:
+
+    ![Data Box Disk Siparişiniz için depolama hesabı](media/data-box-disk-deploy-ordered/order-storage-account.png)
+
+    Şirket içi Vhd'lerden yönetilen disk oluşturmak için Data Box Disk kullanıyorsanız, ayrıca aşağıdaki bilgileri vermeniz gerekir:
+
+    |Ayar  |Değer  |
+    |---------|---------|
+    |Kaynak grubu     | Şirket içi Vhd'lerden yönetilen disk oluşturmak istiyorsanız, yeni bir kaynak grubu oluşturun. Yalnızca, yönetilen disk için Data Box Disk Siparişiniz için Data Box hizmeti tarafından oluşturulmuş mevcut bir kaynak grubunu kullanın. <br> Yalnızca bir kaynak grubu desteklenir.|
+
+    ![Data Box Disk Siparişiniz için yönetilen disk](media/data-box-disk-deploy-ordered/order-managed-disks.png)
+
+    Yönetilen diskler için belirtilen depolama hesabı, hazırlama depolama hesabı olarak kullanılır. Data Box hizmeti VHD hazırlama depolama hesabına yükler ve ardından bunları da yönetilen disklere dönüştürür ve kaynak gruplarına taşır. Daha fazla bilgi için [doğrulama verileri Azure'a karşıya](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+
+13. **İleri**’ye tıklayın.
 
     ![Sipariş ayrıntılarını belirtin](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
@@ -102,7 +116,7 @@ Data Box Disk sipariş etmek için [Azure portalda](https://aka.ms/azuredataboxf
  
 ## <a name="track-the-order"></a>Siparişi izleme
 
-Siparişi verdikten sonra durumunu Azure portalından takip edebilirsiniz. Siparişinize gidin ve durumunu görüntülemek için **Genel bakış** sayfasını inceleyin. Portalda işin durumu **Sipariş edildi** olarak görünür. 
+Siparişi verdikten sonra durumunu Azure portalından takip edebilirsiniz. Siparişinize gidin ve durumunu görüntülemek için **Genel bakış** sayfasını inceleyin. Portalda işin durumu **Sipariş edildi** olarak görünür.
 
 ![Data Box Disk durumu, sipariş verildi](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -118,9 +132,9 @@ Microsoft ardından disklerinizi hazırlar ve bölgeye uygun gönderim şirketin
 
 ## <a name="cancel-the-order"></a>Siparişi iptal etme
 
-Bu siparişi iptal etmek için Azure portalında **Genel bakış**'a gidin ve komut çubuğundan **İptal**'e tıklayın. 
+Bu siparişi iptal etmek için Azure portalında **Genel bakış**'a gidin ve komut çubuğundan **İptal**'e tıklayın.
 
-Yalnızca diskler sipariş edildikten ve sipariş gönderim için işleme aşamasındayken iptal edebilirsiniz. Sipariş işleme alındıktan sonra iptal edemezsiniz. 
+Yalnızca diskler sipariş edildikten ve sipariş gönderim için işleme aşamasındayken iptal edebilirsiniz. Sipariş işleme alındıktan sonra iptal edemezsiniz.
 
 ![Siparişi iptal etme](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
@@ -140,5 +154,3 @@ Data Box Disk'inizi ayarlama hakkında bilgi edinmek için sonraki öğreticiye 
 
 > [!div class="nextstepaction"]
 > [Azure Data Box Diskinizi ayarlama](./data-box-disk-deploy-set-up.md)
-
-

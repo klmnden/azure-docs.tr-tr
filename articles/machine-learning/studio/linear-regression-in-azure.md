@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 2c295981621913dc9e744fa7dcb45aa8e5a5f556
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 706fe0afb004109ee591eab0efe99cadf9045d33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870729"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447663"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Analytics, Azure Machine Learning Studio'da Excel'den geçirme
 
@@ -109,7 +109,7 @@ Aşağıda gösterildiği gibi çalışma açık mavi parametresi bölüme önce
 ![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>En iyi duruma getirme ve denemeler daha fazla
-Excel modelimizi temel vardı, önceden sunduğumuz Machine Learning doğrusal regresyon modelinin en iyi duruma getirme geçtiğimizi. Modül kullandık [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] bizim ilk veri seçimine göre iyileştirmek için öğeleri ve bunu bize bir performans geliştirmesinden %4.6 iyi Yardım Mean Absolute Error. İleride gerçekleştirilecek projeler için bize hafta doğru ortaklık modelleme için kullanılacak özellikler kümesi bulmak için veri öznitelikleri üzerinden yineleme tasarruf bu özelliğini kullanacağız. 
+Excel modelimizi temel vardı, önceden sunduğumuz Machine Learning doğrusal regresyon modelinin en iyi duruma getirme geçtiğimizi. Modül kullandık [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] bizim ilk veri seçimine göre iyileştirmek için öğeleri ve bunu bize bir performans geliştirmesinden %4.6 iyi Yardım Mean Absolute Error. İleride gerçekleştirilecek projeler için bize hafta doğru ortaklık model için kullanılacak özellikler kümesi bulmak için veri öznitelikleri üzerinden yineleme tasarruf bu özelliğini kullanacağız. 
 
 Sonraki gibi ek algoritmaları içer planlıyoruz [Bayes] [ bayesian-linear-regression] veya [artırılmış karar ağaçları] [ boosted-decision-tree-regression] bizim denemede karşılaştırmak için performans. 
 

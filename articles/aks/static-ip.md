@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: f1507bc2aebcd29feea7480761cd1b4949439583
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d2e4314948eeda0c82c004414f894dafc4d4cff6
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994496"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408692"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Azure Kubernetes Service (AKS) yük dengeleyiciyle bir statik genel IP adresi kullanın
 
@@ -24,17 +24,17 @@ Bu makalede bir statik genel IP adresi oluşturun ve Kubernetes hizmetinizi atay
 
 Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
 
-Ayrıca Azure CLI sürüm 2.0.46 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
+Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
-Şu anda yalnızca temel IP SKU desteklenir. İş standart IP'ler desteklemeye devam etmektedir.
+Şu anda yalnızca *temel IP SKU*desteklenir. İş devam ederken desteklemek için *standart IP* kaynak SKU. Daha fazla bilgi için [IP adresi türleri ve ayırma yöntemleri azure'da][ip-sku].
 
 ## <a name="create-a-static-ip-address"></a>Statik bir IP adresi oluşturma
 
-AKS ile kullanım için bir statik genel IP adresi oluşturduğunuzda, IP adresi kaynağı oluşturulması gereken **düğüm** kaynak grubu. Kaynakları ayırmak istiyorsanız, bkz. [düğüm kaynak grubu dışında bir statik IP adresi kullanacak](#use-a-static-ip-address-outside-of-the-node-resource-group).
+AKS ile kullanım için bir statik genel IP adresi oluşturduğunuzda, IP adresi kaynağı oluşturulması gereken **düğüm** kaynak grubu. Kaynakları ayırmak istiyorsanız aşağıdaki bölüme bakın [düğüm kaynak grubu dışında bir statik IP adresi kullanacak](#use-a-static-ip-address-outside-of-the-node-resource-group).
 
-Düğüm kaynak grubu adını alın [az aks show] [ az-aks-show] komut ve ekleme `--query nodeResourceGroup` sorgu parametresi. Aşağıdaki örnek, düğüm kaynak grubu için AKS kümesinin adını alır. *myAKSCluster* kaynak grubu adında *myResourceGroup*:
+İlk olarak, düğüm kaynak grubu adını alın [az aks show] [ az-aks-show] komut ve ekleme `--query nodeResourceGroup` sorgu parametresi. Aşağıdaki örnek, düğüm kaynak grubu için AKS kümesinin adını alır. *myAKSCluster* kaynak grubu adında *myResourceGroup*:
 
-```azurecli
+```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
@@ -42,14 +42,14 @@ MC_myResourceGroup_myAKSCluster_eastus
 
 Şimdi bir statik genel IP adresiyle oluşturmak [az ağ genel IP oluşturma] [ az-network-public-ip-create] komutu. Düğüm kaynak grubu adı, önceki komutta alınan ve ardından bir adı IP adresi kaynağı, gibi belirtmek *myAKSPublicIP*:
 
-```azurecli
+```azurecli-interactive
 az network public-ip create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --name myAKSPublicIP \
     --allocation-method static
 ```
 
-Aşağıdaki sıkıştırılmış örneğe çıktıda gösterildiği gibi IP adresi gösterilir:
+IP adresi aşağıdaki sıkıştırılmış örneğe çıktıda gösterildiği gibi görüntülenir:
 
 ```json
 {
@@ -61,11 +61,12 @@ Aşağıdaki sıkıştırılmış örneğe çıktıda gösterildiği gibi IP adr
     "ipAddress": "40.121.183.52",
     [...]
   }
+}
 ```
 
 Genel IP adresini kullanarak daha sonra alabilirsiniz [az ağ genel IP listesi] [ az-network-public-ip-list] komutu. Kaynak grubu düğümü, oluşturduğunuz genel IP adresi ve sorgu için bir ad belirtin *IPADDRESS* aşağıdaki örnekte gösterildiği gibi:
 
-```azurecli
+```azurecli-interactive
 $ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
 
 40.121.183.52
@@ -99,7 +100,7 @@ kubectl apply -f load-balancer-service.yaml
 
 Kubernetes 1.10 veya sonrası, düğüm kaynak grubu dışında oluşturulan statik bir IP adresi kullanabilirsiniz. AKS kümesi tarafından kullanılan hizmet sorumlusunun izinlerini diğer kaynak grubuna aşağıdaki örnekte gösterildiği gibi yetkilerine sahip olmanız gerekir:
 
-```azurecli
+```azurecli-interactive
 az role assignment create\
     --assignee <SP Client ID> \
     --role "Network Contributor" \
@@ -126,7 +127,7 @@ spec:
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-Statik IP adresi olarak tanımlanmışsa *loadBalancerIP* Kubernetes hizmet bildiriminin özelliği mevcut olmadığından veya düğüm kaynak grubunda oluşturulan değil, yük dengeleyici hizmet oluşturma başarısız olur. Sorun gidermek için ile hizmet oluşturma olayları gözden geçirme [kubectl açıklayan] [ kubectl-describe] komutu. YAML bildiriminde belirtilen hizmet adı, aşağıdaki örnekte gösterildiği gibi sağlayın:
+Statik IP adresi olarak tanımlanmışsa *loadBalancerIP* Kubernetes hizmet bildiriminin özelliği mevcut olmadığından veya oluşturulmamış düğüm kaynak grubunu ve yapılandırılan ek temsilci yok, Yük Dengeleyici Hizmeti oluşturma başarısız olur. Sorun gidermek için ile hizmet oluşturma olayları gözden geçirme [kubectl açıklayan] [ kubectl-describe] komutu. YAML bildiriminde belirtilen hizmet adı, aşağıdaki örnekte gösterildiği gibi sağlayın:
 
 ```console
 kubectl describe service azure-load-balancer
@@ -173,3 +174,4 @@ Uygulamalarınıza ağ trafiği üzerinde ek denetim için bunun yerine isteyebi
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[ip-sku]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md#sku

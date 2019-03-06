@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/28/2019
-ms.author: mayg
-ms.openlocfilehash: e7ee8f58e42f99ebc087f21837511979c578fb89
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/06/2019
+ms.author: ramamill
+ms.openlocfilehash: 3f500abe0ea37b35236547824c655adc1a4c4d93
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340091"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448841"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -74,7 +74,7 @@ Birden fazla VMware VM çoğaltma yapıyorsanız okuma [kapasite planlaması kon
 >Ayrıca doğrudan yapılandırma sunucusu şablonunun en son sürümünü indirebilirsiniz [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 >[!NOTE]
-OVA şablonu ile sağlanan lisans bir deneme lisans 180 gün boyunca geçerli olur. POST bu dönem, tedarik edilen lisans ile windows etkinleştirmek müşteri gerekir.
+OVA şablonu ile sağlanan lisans 180 gün boyunca geçerli bir değerlendirme lisanstır. POST bu dönem, tedarik edilen lisansa sahip windows etkinleştirmek müşteri gerekir.
 
 ## <a name="import-the-template-in-vmware"></a>VMware’de şablonu içeri aktarma
 
@@ -113,8 +113,8 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
 3. Yükleme tamamlandıktan sonra VM’de yönetici olarak oturum açın.
 4. İlk kez oturum açarken, birkaç saniye içinde Azure Site Recovery Configuration Tool başlatılır.
 5. Yapılandırma sunucusunu Site Recovery’ye kaydetmek için kullanılacak bir ad girin. Sonra **İleri**’yi seçin.
-6. Araç, VM’nin Azure bağlanıp bağlanamadığını denetler. Bağlantı kurulduktan sonra Azure aboneliğinizde oturum açmak için **Oturum aç** seçeneğini belirleyin.
-    a. Kimlik bilgilerinin, yapılandırma sunucusunu kaydetmek istediğiniz kasaya erişim izni olmalıdır.
+6. Araç, VM’nin Azure bağlanıp bağlanamadığını denetler. Bağlantı kurulduktan sonra Azure aboneliğinizde oturum açmak için **Oturum aç** seçeneğini belirleyin.</br>
+    a. Kimlik bilgilerinin, yapılandırma sunucusunu kaydetmek istediğiniz kasaya erişim izni olmalıdır.</br>
     b. Seçilen kullanıcı hesabı, Azure'da uygulama oluşturma izni olduğundan emin olun. Gerekli izinleri etkinleştirmek için verilen yönergeleri izleyin [burada](#azure-active-directory-permission-requirements).
 7. Araç birkaç yapılandırma görevi gerçekleştirir ve yeniden başlatır.
 8. Makinede tekrar oturum açın. Yapılandırma sunucusu yönetim Sihirbazı başlar **otomatik olarak** birkaç saniye içinde.
@@ -155,7 +155,7 @@ Devam eden çoğaltma kesintileri önlemek için yapılandırma sunucusunu bir k
 
 1. Ne kadar süreyle OVF dağıtılan yapılandırma sunucusunda sağlanan lisans geçerli değil mi? Lisans etkinleştirilmiyor ne olur?
 
-    OVA şablonu ile sağlanan lisans bir deneme lisans 180 gün boyunca geçerli olur. Geçerlilik süresi dolmadan lisans etkinleştirmeniz gerekir. Aksi takdirde, bu yapılandırma sunucusunun sık kapatma neden ve bu nedenle çoğaltma etkinliklere hinderance neden.
+    OVA şablonu ile sağlanan lisans 180 gün boyunca geçerli bir değerlendirme lisanstır. Geçerlilik süresi dolmadan lisans etkinleştirmeniz gerekir. Aksi takdirde, bu yapılandırma sunucusunun sık kapatma neden ve bu nedenle çoğaltma etkinliklere hinderance neden.
 
 2. Yapılandırma sunucusu, farklı amaçlara yönelik yüklendiği VM kullanabilir miyim?
 

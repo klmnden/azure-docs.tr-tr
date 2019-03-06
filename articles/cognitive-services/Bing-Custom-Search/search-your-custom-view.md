@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: e0c1ec55a7f21ad223629d6d478cbd97c7974abb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237986"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448896"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Bing özel arama örneğinizin portalından çağırın
 
 Özel arama deneyiminizi yapılandırdıktan sonra ondan içinde Bing özel arama sınayabilirsiniz [portalı](https://customsearch.ai). 
 
-![bing özel arama Portalı'nın bir ekran görüntüsü](media/portal-search-screen.png)
+![Bing özel arama Portalı'nın bir ekran görüntüsü](media/portal-search-screen.png)
 ## <a name="create-a-search-query"></a>Bir arama sorgusu oluşturun 
 
 Bing özel arama açtıktan sonra [portalı](https://customsearch.ai), arama örneğinizi seçin ve tıklayın **üretim** sekmesi. Altında **uç noktaları**, bir API uç noktası (örneğin, Web API'si) seçin. Aboneliğiniz, hangi uç noktaları gösterileceğini belirler.

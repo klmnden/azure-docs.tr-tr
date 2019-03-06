@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d8059ac4965ce5582b899ebc0d765e00ae9deb35
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7e97983e1316476848eb4a051cd636339b8caff7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892805"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440973"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IOT Edge desteklenen sistemleri
 
@@ -40,7 +40,7 @@ Azure IOT Edge, kapsayıcıları çalıştırmak üzere çoğu işletim sistemi 
     * Otomatikleştirilmiş testlerin bu işletim sistemi içerir
     * bunların yükleme paketleri sağlar
 * Katman 2 sistemleri, Azure IOT Edge ile uyumlu olarak düşünülebilir ve görece bir kolayca kullanılabilir. Bunun anlamı:
-    * Microsoft platformlarda test geçici yaptı veya başarılı bir şekilde Azure IOT Edge platformunda çalışan bir iş ortağının bilir.
+    * Microsoft platformlarında ad hoc testi işlemi yapana veya başarılı bir şekilde Azure IOT Edge platformunda çalışan bir iş ortağının bilir
     * Diğer platformlar için yükleme paketleri bu platformlarda çalışabilir
     
 Konak işletim sistemi ailesi, konuk bir modülün kapsayıcısının içinde kullanılan işletim sistemi ailesi her zaman eşleşmelidir. Diğer bir deyişle, yalnızca Linux kapsayıcıları üzerinde Linux ve Windows kapsayıcıları Windows üzerinde kullanabilirsiniz. Windows kullanırken, yalnızca yalıtılmış işlem desteklenen, olmayan hyper-v yalıtılmış kapsayıcılar kapsayıcılardır.  

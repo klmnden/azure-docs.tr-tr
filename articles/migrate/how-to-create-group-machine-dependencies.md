@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: f04b4dd473f98889b895fa3536c652fb6e3eb01a
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 3938dece92ed133d268fceda746cbe05305e15ae
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990808"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449504"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşlemesi kullanan Grup makineleri
 
@@ -106,7 +106,7 @@ Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../azure-
 4. Zaman aralığı etikette süre tıklayarak için farklı süreler sırasında bağımlılıkları bakabilirsiniz. Varsayılan olarak aralığı bir saattir. Zaman aralığı değiştirmek veya başlangıç ve bitiş tarihlerini ve süresini belirtin.
 
     > [!NOTE]
-      Şu anda, bağımlılık görselleştirmesi UI bir saatten uzun bir zaman aralığı seçimini desteklemez. Azure İzleyicisi'ni oturumu [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) üzerinden uzun bir süre.
+      Şu anda, bağımlılık görselleştirmesi UI bir saatten uzun bir zaman aralığı seçimini desteklemez. Azure İzleyicisi'ni oturumu [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) üzerinden uzun bir süre.
 
 5. Gruplamak istediğiniz bağımlı makineler tanımladıktan sonra harita üzerinde birden çok makine seçin ve Ctrl + tıklama kullanın **Grup makineleri**.
 6. Bir grup adı belirtin. Bağımlı makinelere Azure geçişi tarafından bulunduğundan emin olun.

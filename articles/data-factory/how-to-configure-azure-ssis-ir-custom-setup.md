@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 66f41ffef5d72f5d574bb78d3b810f4a4dc2c4c1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5ade16bbd45203892cd9a3117dd52471884cf700
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098740"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455828"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı Kurulum özelleştirme
 
@@ -42,6 +42,8 @@ Bir komut dosyası ve ilişkili dosyaları hazırlama ve bir Azure depolama hesa
 
 ## <a name="prerequisites"></a>Önkoşullar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
 -   [Azure aboneliği](https://azure.microsoft.com/)
@@ -54,7 +56,7 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
 ## <a name="instructions"></a>Yönergeler
 
-1.  İndirme ve yükleme [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) (5.4 ya da sonraki sürüm).
+1.  İndirme ve yükleme [Azure PowerShell](/powershell/azure/install-az-ps).
 
 1.  Özel Kurulum komut dosyanızı ve ilişkili dosyaları (örneğin, .bat, .cmd, .exe, .dll, .msi veya .ps1 dosyaları) hazırlayın.
 
@@ -103,15 +105,15 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
        ![Paylaşılan erişim imzası girin](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-       Sağlama veya PowerShell ile Azure-SSIS IR, Azure-SSIS IR başlamadan önce yeniden çalıştırma `Set-AzureRmDataFactoryV2IntegrationRuntime` değeri olarak yeni kapsayıcı SAS URI'sini cmdlet'iyle `SetupScriptContainerSasUri` parametresi. Örneğin:
+       Sağlama veya PowerShell ile Azure-SSIS IR, Azure-SSIS IR başlamadan önce yeniden çalıştırma `Set-AzDataFactoryV2IntegrationRuntime` değeri olarak yeni kapsayıcı SAS URI'sini cmdlet'iyle `SetupScriptContainerSasUri` parametresi. Örneğin:
 
        ```powershell
-       Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
+       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
                                                   -Name $MyAzureSsisIrName `
                                                   -ResourceGroupName $MyResourceGroupName `
                                                   -SetupScriptContainerSasUri $MySetupScriptContainerSasUri
 
-       Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
+       Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
                                                     -Name $MyAzureSsisIrName `
                                                     -ResourceGroupName $MyResourceGroupName
        ```
@@ -160,7 +162,7 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
     ![Kullanıcı senaryoları klasöründeki klasörleri](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
-    e. Bu özel kurulum örnekleri denemeye kopyalayın ve seçilen klasördeki içeriği, kapsayıcıya yapıştırın. Sağlama veya PowerShell ile Azure-SSIS IR yeniden çalıştırma `Set-AzureRmDataFactoryV2IntegrationRuntime` değeri olarak yeni kapsayıcı SAS URI'sini cmdlet'iyle `SetupScriptContainerSasUri` parametresi.
+    e. Bu özel kurulum örnekleri denemeye kopyalayın ve seçilen klasördeki içeriği, kapsayıcıya yapıştırın. Sağlama veya PowerShell ile Azure-SSIS IR yeniden çalıştırma `Set-AzDataFactoryV2IntegrationRuntime` değeri olarak yeni kapsayıcı SAS URI'sini cmdlet'iyle `SetupScriptContainerSasUri` parametresi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

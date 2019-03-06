@@ -16,16 +16,16 @@ ms.date: 02/12/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 40b26429cf4e7f218c2b5a276ae936f60bd6abe4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163232"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453244"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Azure Active Directory'de yeni bir Azure Stack Kiracı hesabı Ekle
 
-Sonra [Azure Stack geliştirme Seti'ni dağıtma](azure-stack-run-powershell-script.md), Kiracı portalında keşfedin ve test teklifleri ve planları için bir Kiracı Kullanıcı hesabı gerekir. Bir kiracı hesabı ile oluşturabileceğiniz [Azure portalını kullanarak](#create-an-azure-stack-tenant-account-using-the-azure-portal) ya da [PowerShell kullanarak](#create-an-azure-stack-tenant-account-using-powershell).
+Sonra [Azure Stack geliştirme Seti'ni dağıtma](azure-stack-run-powershell-script.md), Kiracı portalında keşfedin ve test teklifleri ve planları için bir Kiracı Kullanıcı hesabı gerekir. Bir kiracı hesabı ile oluşturabileceğiniz [Azure portalını kullanarak](#create-an-azure-stack-tenant-account-using-the-azure-portal) veya PowerShell'i kullanarak.
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Azure portalını kullanarak bir Azure Stack Kiracı hesabı oluşturun
 

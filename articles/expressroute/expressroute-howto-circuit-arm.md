@@ -1,19 +1,19 @@
 ---
-title: 'ExpressRoute devre - PowerShell oluşturma ve değiştirme: Azure | Microsoft Docs'
+title: 'Oluşturma ve bir ExpressRoute bağlantı hattı - PowerShell değiştirin: Azure | Microsoft Docs'
 description: Oluşturma, sağlama, doğrulayın, güncelleştirme, silme ve bir ExpressRoute bağlantı hattının sağlamasını Kaldır.
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 02/20/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: ff86c87690f5dd4a919929f0deef4af739cbe4d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2b32c97f636cc6b918a883ea3e2a2b540890084f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105011"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409882"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Oluşturma ve PowerShell kullanarak ExpressRoute devresi değiştirme
 > [!div class="op_single_selector"]
@@ -31,37 +31,23 @@ Bu makalede, PowerShell cmdlet'leri ve Azure Resource Manager dağıtım modeli 
 Başlamadan önce gözden [önkoşulları](expressroute-prerequisites.md) ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell ile çalışma
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="create"></a>Oluşturma ve bir ExpressRoute bağlantı hattı sağlama
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure hesabınızda oturum açın ve aboneliğinizi seçin
-Yapılandırmanızı başlamak için Azure hesabınızda oturum açın. Bağlanmanıza yardımcı olması için aşağıdaki örnekleri kullanın:
 
-Azure CloudShell kullanıyorsanız, otomatik olarak bağlanacak şekilde Connect-AzureRmAccount çalıştırmak ihtiyacınız yok.
-
-```azurepowershell
-Connect-AzureRmAccount
-```
-
-Hesabın aboneliklerini denetleyin:
-
-```azurepowershell-interactive
-Get-AzureRmSubscription
-```
-
-Bir ExpressRoute bağlantı hattı için oluşturmak istediğiniz aboneliği seçin:
-
-```azurepowershell-interactive
-Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
-```
+[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Desteklenen sağlayıcılar, konumları ve bant genişlikleri listesini alın
 Bir ExpressRoute bağlantı hattı oluşturmadan önce desteklenen bağlantı sağlayıcıları ve konumları bant genişliği seçenekleri listesi gerekir.
 
-PowerShell cmdlet **Get-AzureRmExpressRouteServiceProvider** , sonraki adımlarda kullanacağınız bu bilgileri döndürür:
+PowerShell cmdlet **Get-AzExpressRouteServiceProvider** , sonraki adımlarda kullanacağınız bu bilgileri döndürür:
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteServiceProvider
+Get-AzExpressRouteServiceProvider
 ```
 
 Bağlantı sağlayıcınız listelenip listelenmediğini denetleyin. Bir devreyi oluşturduğunuzda, daha sonra ihtiyacınız aşağıdaki bilgileri not edin:
@@ -70,20 +56,19 @@ Bağlantı sağlayıcınız listelenip listelenmediğini denetleyin. Bir devreyi
 * PeeringLocations
 * BandwidthsOffered
 
-Bir ExpressRoute bağlantı hattı oluşturmak artık hazırsınız.   
+Bir ExpressRoute bağlantı hattı oluşturmak artık hazırsınız.
 
 ### <a name="3-create-an-expressroute-circuit"></a>3. ExpressRoute bağlantı hattı oluşturma
 Bir kaynak grubu zaten sahip değilseniz, ExpressRoute devreniz oluşturmadan önce bir oluşturmanız gerekir. Aşağıdaki komutu çalıştırarak bunu yapabilirsiniz:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
+New-AzResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
-
 
 Aşağıdaki örnek, 200 MB/sn, Silikon vadisi ExpressRoute bağlantı hattı üzerinden Equinix oluşturma işlemi gösterilmektedir. Farklı bir sağlayıcı ve farklı ayarlar kullanıyorsanız, bu bilgileri, isteğinde bulunduğunda değiştirin. Yeni bir hizmet anahtarı istemek için aşağıdaki örneği kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
+New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
 ```
 
 SKU ailesi ve SKU katmanı doğru belirttiğinizden emin olun:
@@ -99,15 +84,15 @@ SKU ailesi ve SKU katmanı doğru belirttiğinizden emin olun:
 Yanıt hizmet anahtarı içerir. Aşağıdaki komutu çalıştırarak tüm parametrelerin ayrıntılı açıklamaları alabilirsiniz:
 
 ```azurepowershell-interactive
-get-help New-AzureRmExpressRouteCircuit -detailed
+get-help New-AzExpressRouteCircuit -detailed
 ```
 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Tüm ExpressRoute devreleri listesi
-Oluşturduğunuz tüm ExpressRoute devreleri listesini almak için çalıştırın **Get-AzureRmExpressRouteCircuit** komutu:
+Oluşturduğunuz tüm ExpressRoute devreleri listesini almak için çalıştırın **Get-AzExpressRouteCircuit** komutu:
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
 Yanıt aşağıdaki örneğe benzer:
@@ -134,10 +119,10 @@ Yanıt aşağıdaki örneğe benzer:
     ServiceKey                        : **************************************
     Peerings                          : []
 
-Dilediğiniz zaman bu bilgileri kullanarak alabilirsiniz `Get-AzureRmExpressRouteCircuit` cmdlet'i. Parametresiz çağrıyı yapan tüm devreler listeler. Hizmet anahtarınız listelenen *Servicekey'ini* alan:
+Dilediğiniz zaman bu bilgileri kullanarak alabilirsiniz `Get-AzExpressRouteCircuit` cmdlet'i. Parametresiz çağrıyı yapan tüm devreler listeler. Hizmet anahtarınız listelenen *Servicekey'ini* alan:
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit
+Get-AzExpressRouteCircuit
 ```
 
 
@@ -166,12 +151,6 @@ Yanıt aşağıdaki örneğe benzer:
     Peerings                         : []
 
 
-Aşağıdaki komutu çalıştırarak tüm parametrelerin ayrıntılı açıklamaları alabilirsiniz:
-
-```azurepowershell-interactive
-get-help Get-AzureRmExpressRouteCircuit -detailed
-```
-
 ### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Hizmet anahtarı sağlamak için bağlantı sağlayıcınıza gönderin.
 *ServiceProviderProvisioningState* hizmet sağlayıcı tarafında sağlama geçerli durumu hakkında bilgi sağlar. Durum Microsoft tarafında durumu sağlar. Bağlantı hattı sağlama durumları hakkında daha fazla bilgi için bkz. [iş akışları](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
@@ -196,7 +175,7 @@ Bir ExpressRoute bağlantı hattı kullanabilmek için şu durumda olmalıdır:
 Durum ve bağlantı hattı tuşunun durumunu denetleme, sağlayıcınız bağlantı hattınızın etkin olduğunda bilmenizi sağlar. Bağlantı hattı yapılandırıldıktan sonra *ServiceProviderProvisioningState* olarak görünür *sağlanan*, aşağıdaki örnekte gösterildiği gibi:
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
 
@@ -236,10 +215,10 @@ Adım adım yönergeler için bkz: [ExpressRoute bağlantı hattı yönlendirme 
 Ardından, bir sanal ağ, ExpressRoute bağlantı hattına bağlayın. Kullanım [sanal ağları ExpressRoute devresine bağlama](expressroute-howto-linkvnet-arm.md) makale Resource Manager dağıtım modeliyle çalışırken.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>ExpressRoute bağlantı hattının durumunu alma
-Dilediğiniz zaman bu bilgileri kullanarak alabilirsiniz **Get-AzureRmExpressRouteCircuit** cmdlet'i. Parametresiz çağrıyı yapan tüm devreler listeler.
+Dilediğiniz zaman bu bilgileri kullanarak alabilirsiniz **Get-AzExpressRouteCircuit** cmdlet'i. Parametresiz çağrıyı yapan tüm devreler listeler.
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit
+Get-AzExpressRouteCircuit
 ```
 
 
@@ -271,7 +250,7 @@ Yanıt aşağıdaki örneğe benzer:
 Kaynak grubu adı ve bağlantı hattı adı çağrısına parametre olarak geçirerek belirli bir ExpressRoute bağlantı hattı hakkında bilgi alabilirsiniz:
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
 
@@ -322,12 +301,12 @@ Sınırlar ve sınırlamalar hakkında daha fazla bilgi için bkz. [ExpressRoute
 ExpressRoute premium eklentisi aşağıdaki PowerShell kod parçacığını kullanarak, varolan bağlantı hattınız için etkinleştirebilirsiniz:
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 $ckt.Sku.Tier = "Premium"
 $ckt.sku.Name = "Premium_MeteredData"
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 Bağlantı hattı artık etkin ExpressRoute premium eklenti özellikleri vardır. Komut başarıyla çalıştırıldı hemen sonra için premium eklenti özelliğini fatura başlamadan.
@@ -347,12 +326,12 @@ Aşağıdaki bilgileri not edin:
 Aşağıdaki PowerShell cmdlet'ini kullanarak mevcut bir devreyi için ExpressRoute premium eklentisi devre dışı bırakabilirsiniz:
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 $ckt.Sku.Tier = "Standard"
 $ckt.sku.Name = "Standard_MeteredData"
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="to-update-the-expressroute-circuit-bandwidth"></a>ExpressRoute bağlantı hattı bant genişliğini güncelleştirmek için
@@ -367,11 +346,11 @@ Denetimi sağlayıcınız için desteklenen bir bant genişliği seçenekleri i�
 Gereksinim boyutu karar verdikten sonra bağlantı hattınızı yeniden boyutlandırmak için aşağıdaki komutu kullanın:
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 
@@ -381,12 +360,12 @@ Bağlantı hattınız Microsoft tarafında boyutlandırılıp. Ardından bu değ
 Aşağıdaki PowerShell kod parçacığını kullanarak bir ExpressRoute bağlantı hattı SKU'su değiştirebilirsiniz:
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 $ckt.Sku.Family = "UnlimitedData"
 $ckt.sku.Name = "Premium_UnlimitedData"
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Klasik ve Resource Manager ortamları erişimi denetlemek için
@@ -402,7 +381,7 @@ Aşağıdaki bilgileri not edin:
 Aşağıdaki komutu çalıştırarak, ExpressRoute devreniz silebilirsiniz:
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
+Remove-AzExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

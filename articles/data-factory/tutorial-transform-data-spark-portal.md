@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: be9ed1d840eab5478dee4d212705211c0967bdbd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0f8b2d3040a6fb5aeaa03a9508fbf17393152a9f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427976"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449538"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory'de bir Spark etkinliği kullanarak verileri bulutta dönüştürme
 Bu öğreticide, Azure portalını kullanarak bir Azure Data Factory işlem hattı oluşturursunuz. Bu işlem hattı bir Spark etkinliği ve isteğe bağlı bir Azure HDInsight bağlı hizmetini kullanarak verileri dönüştürür. 
@@ -32,12 +32,15 @@ Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Azure depolama hesabı**. Bir Python betiği ve giriş dosyası oluşturup Azure Depolama hizmetine yüklersiniz. Spark programının çıktısı bu depolama hesabında depolanır. İsteğe bağlı Spark kümesi, birincil depolama alanıyla aynı depolama hesabını kullanır.  
 
 > [!NOTE]
 > HdInsight standart katmanda yalnızca genel amaçlı depolama hesaplarını destekler. Hesabın premium veya yalnızca blob depolama hesabı olmadığından emin olun.
 
-* **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps) bölümündeki yönergeleri izleyin.
+* **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-Az-ps) bölümündeki yönergeleri izleyin.
 
 
 ### <a name="upload-the-python-script-to-your-blob-storage-account"></a>Python betiğini Blob depolama hesabınıza yükleme

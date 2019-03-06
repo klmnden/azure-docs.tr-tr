@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: e7b1b3e3fba04276fc284fd71adabedc01185251
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7daf76605d40495d6c9cb5076f0403a78819adfc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984824"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439172"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Uygun ölçekte Azure İzleyicisi'ni kullanarak izleme
 
@@ -254,7 +254,7 @@ RS kasa burada kaynaktır ve bu nedenle etkinlik günlükleri aracılığıyla b
 
 ***Tüm uyarılar, etkinlik günlüklerinden oluşturulan ve LA çalışma alanları, Azure İzleyicisi'nde sol 'Uyarılar' bölmesinde görüntülenebilir.***
 
-Etkinlik günlükleri aracılığıyla bildirim kullanılabilse ***Azure Backup hizmeti yüksek oranda önerir [LA ölçekli olarak izlemek için kullanın.](#monitoring-at-scale) ve değil etkinlik günlükleri aşağıdaki nedenlerle***.
+Etkinlik günlükleri aracılığıyla bildirim kullanılabilse ***Azure Backup hizmeti yüksek oranda önerir LA ölçek ve değil etkinlik günlüklerine aşağıdaki nedenlerden dolayı izleme için kullanılacak***.
 
 - **Sınırlı sayıda senaryoda:** Yalnızca Azure VM yedeklemeleri için geçerlidir ve her RS kasası için tekrarlanmalıdır.
 - **Uygun tanımı:** Zamanlanmış yedekleme etkinliğin etkinlik günlükleri ile en son tanımlarla sığmayan ve ile uyumludur [tanılama günlükleri](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs). Bu müşteri adayı için etkinlik günlüğü kanalındaki Pompalama verileri aşağıda olarak değiştirildiğinde beklenmeyen etkisi.
