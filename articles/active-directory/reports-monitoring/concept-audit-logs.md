@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f221b815b6800f635c07525fdbd332ac508786
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5895ad1f1452b5a0c13765821c5b623472a0bb1e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171545"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447124"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki denetim etkinliği raporları 
 
@@ -41,7 +41,7 @@ Bu makalede, Denetim raporuna genel bir bakış sağlar.
  
 ## <a name="who-can-access-the-data"></a>Verilere kimler erişebilir?
 
-* Kullanıcıların **güvenlik yönetici**, **güvenlik okuyucusu** veya **genel yönetici** rolleri
+* Kullanıcıların **Güvenlik Yöneticisi**, **güvenlik okuyucusu** veya **genel yönetici** rolleri
 * Ayrıca, tüm kullanıcılar (Yönetici olmayanlar) kendi denetim etkinliklerini görebilir
 
 ## <a name="audit-logs"></a>Denetim günlükleri

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: bfdd2d2f78635f417127632d77b24c48dd6d5b81
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 92b42c54afd06a9ded3e9d9e672ae2d4558ad415
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244511"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442809"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Cisco ASA gerecinize bağlanma 
 
@@ -34,7 +34,7 @@ Herhangi bir Cisco ASA gereç Azure Gözcü bağlanabilirsiniz. Cisco gereciniz 
 
 ## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>1. Adım: Cisco ASA gerecinize bir aracı kullanarak bağlanma
 
-Azure Gözcü için Cisco ASA cihazınıza bağlanmak için adanmış bir makinede (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi destekleyen bir aracı dağıtmak gerekir. Deploly aracıyı otomatik olarak veya elle yapabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
+Azure Gözcü için Cisco ASA cihazınıza bağlanmak için adanmış bir makinede bir aracı dağıtmak gerekir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Deploly aracıyı otomatik olarak veya elle yapabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
 
 Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal makinesinde el ile veya bir şirket içi makinede dağıtabilirsiniz.
 
@@ -74,7 +74,7 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
       2. Bu komutu kullanarak Syslog aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Hiçbir hata aracı günlüğünde şu komutu çalıştırarak onaylayın: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
-### <a name="deploy-the-agent-on-an-on-prem-linux-server"></a>Aracıyı bir şirket içi Linux sunucusunda dağıtma
+### <a name="deploy-the-agent-on-an-on-premises-linux-server"></a>Aracı üzerinde bir şirket içi Linux sunucusunda dağıtma
 
 Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak için Azure Gözcü aracıyı el ile dağıtın.
 

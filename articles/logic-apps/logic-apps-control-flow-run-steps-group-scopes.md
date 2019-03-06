@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: aac59e087ba106bc20d94fea85cb8a3cd9273482
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9e485797dcc40c426b208971c04acffa168e528a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233081"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455913"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Azure Logic apps'te kapsamları Grup durumuyla göre eylemleri çalıştırma
 
@@ -54,7 +54,7 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
 
 1. Oturum <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, henüz yapmadıysanız. Boş bir mantıksal uygulama oluşturma.
 
-1. Ekleme **zamanlama - yinelenme** şu ayarlarla tetikleyici: **aralığı** = "1" ve **sıklığı** "Minute" =
+1. Ekleme **zamanlama - yinelenme** şu ayarlarla tetikleyici: **Aralığı** = "1" ve **sıklığı** "Minute" =
 
    !['Zamanlama – yinelenme"tetikleyicisini ' ayarlayın](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -80,10 +80,10 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
       | Ayar | Değer | Açıklama |
       | ------- | ----- | ----------- |
       | **Güzergah noktası 1** | <*Başlangıç*> | Rotanızın girin. | 
-      | **Güzergah noktası 2** | <*Son*> | Rotanızın hedefi girin. | 
+      | **Güzergah noktası 2** | <*end*> | Rotanızın hedefi girin. | 
       | **Kaçının** | None | Ücretli geçişler, Otoyollar gibi yönlendiricilerin önlemek ve benzeri öğeleri girin. Olası değerler için bkz. [rota hesaplama](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **İyileştir** | timeWithTraffic | Uzaklık, zaman ile geçerli trafik bilgileri vb. gibi Rotanızı iyileştirmeye yönelik bir parametre seçin. Bu örnekte bu değer: "timeWithTraffic" | 
-      | **Mesafe birimi** | <*your-preference*> | Hesaplamak rotanız için mesafe birimi girin. Bu örnekte bu değer: "Mil" | 
+      | **Mesafe birimi** | <*your-preference*> | Hesaplamak rotanız için mesafe birimi girin. Bu örnekte, bu değeri kullanır: "Mil" | 
       | **Seyahat modu** | Sürüş | Rotanız için seyahat modunu girin. Bu örnekte bu değer "Driving" kullanır. | 
       | **Toplu Ulaşım Tarih-Saati** | None | Yalnızca toplu ulaşım modu için geçerlidir. | 
       | **Aktarım türü tarih türü** | None | Yalnızca toplu ulaşım modu için geçerlidir. | 
@@ -91,7 +91,7 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
 
 1. [Koşul Ekle](../logic-apps/logic-apps-control-flow-conditional-statement.md) geçerli seyahat süresi trafik ile belirli bir süre aşıyor olup olmadığını denetler. Bu örnekte, aşağıdaki adımları izleyin:
 
-   1. Koşulu şu açıklama ile yeniden adlandırın: **trafiği zaman belirtilen süreden fazlaysa**
+   1. Koşulu şu açıklama ile yeniden adlandırın: **Trafik zaman belirtilen süreden fazlaysa**
 
    1. En soldaki sütunda içine tıklayın **bir değer seçin** dinamik içerik listesinde görünecek şekilde kutusu. Bu listeden **seyahat süresi trafik** saniyeler içinde alanı. 
 
@@ -99,7 +99,7 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
 
    1. Orta kutusunda şu işleci seçin: **büyüktür**
 
-   1. En sağdaki sütunda equivlent 10 dakika ve saniye içinde bu karşılaştırma değeri girin: **600**
+   1. En sağdaki sütunda eşdeğer 10 dakika ve saniye içinde bu karşılaştırma değeri girin: **600**
 
       İşlem tamamlandığında koşulunuz şu örnekteki gibi görünür:
 
@@ -179,7 +179,7 @@ Ardından, böylece belirli eylemleri grup ve bunların durumunu değerlendirmek
 
    ![Kapsam eklendi](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. Kapsam altında kapsamın durumu denetleyen bir koşul ekleyin. Koşulu şu açıklama ile yeniden adlandırın: **kapsam başarısız olduysa**
+1. Kapsam altında kapsamın durumu denetleyen bir koşul ekleyin. Koşulu şu açıklama ile yeniden adlandırın: **Kapsam başarısız olduysa**
 
    ![Kapsam durumunu denetlemek için koşul Ekle](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   

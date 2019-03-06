@@ -1,5 +1,5 @@
 ---
-title: Azure AD’de silinmiş bir Office 365 grubunu geri yükleme | Microsoft Docs
+title: Silinen bir Office 365 grubu - Azure AD geri yükleme | Microsoft Docs
 description: Silinen bir grubu geri yükleme, geri yüklenebilen gruplarını görüntülemek ve Azure Active Directory'de bir grup kalıcı olarak sil
 services: active-directory
 author: curtand
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cacd4a24becab1dfe797fe29aea125c016527192
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fee8604bece0ae7249b0735f6952bfa35a4590fb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734396"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443173"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Azure Active Directory’de silinmiş bir Office 365 grubunu geri yükleme
 Azure Active Directory’de (Azure AD) bir Office 365 grubunu sildiğinizde, silinen grup görüntülenmez ancak silindiği tarihten itibaren 30 gün boyunca tutulur. Bu davranış sayesinde, gerekirse grup ve içeriği geri yüklenebilir. Bu işlev yalnızca Azure AD’deki Office 365 gruplarına özgüdür. Güvenlik grupları ve dağıtım grupları için kullanılamaz.

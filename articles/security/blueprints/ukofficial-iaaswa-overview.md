@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 68503b399d132aae5a4999e6ce08c51e4542e2e7
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242624"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443479"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure güvenlik ve uyumluluk planı - UK-OFFICIAL için üç katmanlı Iaas Web uygulaması
 
@@ -129,7 +129,7 @@ Depolama
 
 ### <a name="deployment-architecture"></a>Dağıtım mimarisi:
 
-**Şirket içi ağ**: Bir kuruluş içinde uygulanan bir özel yerel ağ.
+**Şirket içi ağ**: Kuruluşta uygulanan bir özel yerel ağ.
 
 **Üretim VNet**: Üretim [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) uygulamayı ve Azure'da çalışan diğer işlem kaynakları (sanal ağ için) barındırır. Her sanal ağ yalıtma ve ağ trafiğini yönetmek için kullanılan çeşitli alt ağlar içeriyor olabilir.
 
@@ -176,7 +176,7 @@ Bu sanal ağ ayrı kaynaklar olarak yönetilmeye devam eder, ancak bu sanal maki
 
 **Güvenlik duvarı günlükleri**: Application Gateway tam tanılama ve erişim günlükleri sağlar. Güvenlik duvarı günlükleri, WAF’nin etkin olduğu application gateway kaynakları için kullanılabilir.
 
-**Günlük arşivleme**: Günlük veri depolama, arşivleme ve tanımlanan saklama süresi denetleyebileceği, merkezi bir Azure depolama hesabı için yazma yapılandırılabilir. Azure İzleyici günlüklerine kullanarak günlükleri işlenebilir veya üçüncü taraf SIEM sistemleri tarafından.
+**Günlük arşivleme**: Günlük veri depolama, arşivleme ve tanımlanan saklama süresi için merkezi bir Azure depolama hesabına yazma için yapılandırılabilir. Azure İzleyici günlüklerine kullanarak günlükleri işlenebilir veya üçüncü taraf SIEM sistemleri tarafından.
 
 ### <a name="identity"></a>Kimlik
 
@@ -208,7 +208,7 @@ Müşteriler de göz önünde bulundurmanız kullanarak bir [Gelişmiş Güvenli
 
 **Erişim denetimi kısıtlamalarını**: Kullanım [rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) kullanarak uygulama kaynaklarınızı yönetmek için [özel roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC, DevOps, her katmanda gerçekleştirebileceği işlemleri kısıtlamak için kullanılabilir. İzin verirken kullanın [en az ayrıcalık ilkesini](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Tüm yapılandırma değişikliklerinin planlı olduğundan emin olmak için yönetim işlemlerinin tümünü günlüğe kaydedin ve normal denetimler gerçekleştirin.
 
-**Internet erişimi**: Bu başvuru mimarisinde utilises [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) internet'e yönelik ağ geçidi ve yük dengeleyici olarak. Alternatif olarak güvenlik ağ ek katmanı için üçüncü taraf ağ sanal Gereçleri kullanarak bazı müşteriler de düşünebilirsiniz [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
+**Internet erişimi**: Bu başvuru mimarisi kullanan [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) internet'e yönelik ağ geçidi ve yük dengeleyici olarak. Alternatif olarak güvenlik ağ ek katmanı için üçüncü taraf ağ sanal Gereçleri kullanarak bazı müşteriler de düşünebilirsiniz [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 
 **Azure Güvenlik Merkezi**: [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro) Abonelikteki kaynakların güvenlik durumu merkezi bir görünümünü sağlar ve tehlike giren kaynakları önlemeye yardımcı öneriler sağlar. Ayrıca, daha ayrıntılı ilkelerini etkinleştirmek için de kullanılabilir. Örneğin, kendi duruşunu risk için uygun hale getirmek Kurumsal sağlayan belirli kaynak gruplarına ilkeler uygulanabilir. Müşteriler Azure Güvenlik Merkezi Azure aboneliklerinde etkinleştirmenizi öneririz.
 
@@ -226,7 +226,7 @@ Ayrıca, bulut güvenliği İttifakı (CSA) bulut denetim matrisi bulut sağlay�
 
 ## <a name="deploy-the-solution"></a>Çözümü dağıtma
 
-Bu şema Otomasyon dağıtmak için dağıtım kullanıcılar kullanabilir iki yöntem vardır. İlk yöntem başvuru mimarisini dağıtmak için Azure portalında ikinci yöntem utilises bir PowerShell Betiği kullanır. Ayrıntılı dağıtım yönergeleri [burada](https://aka.ms/ukofficial-iaaswa-repo).
+Bu şema Otomasyon dağıtmak için dağıtım kullanıcılar kullanabilir iki yöntem vardır. İlk yöntem ikinci yöntem başvuru mimarisini dağıtmak için Azure portalını kullanan bir PowerShell Betiği kullanır. Ayrıntılı dağıtım yönergeleri [burada](https://aka.ms/ukofficial-iaaswa-repo).
 
 ## <a name="disclaimer"></a>Bildirim
 

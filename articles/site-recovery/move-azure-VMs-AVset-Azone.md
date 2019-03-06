@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 77c38089a4f9c6518d9736df7f3020c66ad17b3b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 573eb3a8ae6c9ee7c5b80e9621ebbfd04aaf5354
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877053"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446546"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Kullanılabilirlik alanına Azure sanal makineleri taşıma
 Azure kullanılabilirlik alanları, uygulamalarınızın ve verilerinizin veri merkezi arızasına karşı korur. Her kullanılabilirlik alanları, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Bir bölge içinde kullanılabilirlik alanlarının fiziksel olarak ayrılması, uygulamaları ve verileri veri merkezi arızasına karşı korur. Kullanılabilirlik alanları ile Azure, sektördeki en iyi % 99,99 VM çalışma SLA'sı sunar. Kullanılabilirlik alanı, bölgelerde desteklenir, belirtildiği gibi [burada](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). 
@@ -92,14 +92,14 @@ Aşağıdaki adımlar hedef bölgeye veri çoğaltma işleminin sonunda kullanı
 ![etkinleştir-rep-1. PNG](media/azure-vms-to-zones/enable-rep-1.PNG)
 
 1. Seçin **sonraki: Gelişmiş ayarlar**
-2. Hedef subscriptiom, hedef VM kaynak grubu ve sanal ağ için appropraite değerleri seçin.
+2. Hedef abonelik, hedef VM kaynak grubu ve sanal ağ için uygun değerleri seçin.
 3. İçinde **kullanılabilirlik** bölümünde, istediğiniz sanal Makineyi taşımak kullanılabilirlik bölgesi seçin. 
 > [!NOTE]
 > Kullanılabilirlik kümesi veya kullanılabilirlik bölgesi seçeneğini görmüyorsanız, lütfen emin [önkoşulları](#prepare-the-source-vms) karşılandığından ve [hazırlık](#prepare-the-source-vms) kaynağını Vm'leri getirildiğinden.
 
    ![etkinleştir-rep-2. PNG](media/azure-vms-to-zones/enable-rep-2.PNG)
 
-7. Çoğaltma Etkinleştir'i tıklatın. Bu, sanal makineye yönelik çoğaltmayı etkinleştirmek için bir iş başlatır.
+7. Çoğaltmayı Etkinleştir'e tıklayın. Bu, sanal makineye yönelik çoğaltmayı etkinleştirmek için bir iş başlatır.
 
 ## <a name="verify-settings"></a>Ayarları doğrulama
 

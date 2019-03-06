@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3aa3bbfc0a79e4923f66cc73817ecae1723621eb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9033276c7f3469c356c55fde8861bda2c15ca2d6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872769"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452853"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Öğretici: SAP NetWeaver ile Azure Active Directory Tümleştirme
 
@@ -147,7 +147,7 @@ SAP NetWeaver ile Azure AD çoklu oturum açmayı yapılandırmak için aşağı
 
     b. Tıklayarak **meta verileri**.
 
-    c. Oluşturulan Kaydet **meta verileri XML dosyası** bilgisayarınızdaki ve bunu karşıya **temel SAML yapılandırma** polulate otomatik olarak bölüm **tanımlayıcı** ve  **Yanıt URL'si** Azure portalında değerleri.
+    c. Oluşturulan Kaydet **meta verileri XML dosyası** bilgisayarınızdaki ve bunu karşıya **temel SAML yapılandırma** otomatik olarak doldurmak için bölümü **tanımlayıcı** ve  **Yanıt URL'si** Azure portalında değerleri.
 
 8. İçinde [Azure portalında](https://portal.azure.com/), **SAP NetWeaver** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 

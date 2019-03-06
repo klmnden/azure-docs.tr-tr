@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d980bf28fb9248cc88c4b0802817e85992ef9ee
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4091b20e97ca76629260a7420beecb77412b0d39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869709"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Öğretici: Azure Active Directory için Shmoop okullar ile tümleştirmesi
 
@@ -47,7 +47,7 @@ Azure AD tümleştirmesi için Shmoop okullar ile yapılandırmak için aşağı
 
 Bu öğreticideki adımları test etmek için önerilir:
 
-- Yalnızca gerekli olduğunda, üretim ortamından kullanma.
+- Yalnızca gerekli olduğunda, üretim ortamınızın kullanma.
 - Başlarken bir [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/) bir Azure AD deneme ortam zaten yoksa.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması

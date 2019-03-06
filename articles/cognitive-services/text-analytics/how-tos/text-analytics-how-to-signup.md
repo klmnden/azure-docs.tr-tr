@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 355a144597ce384725d92e64d4a5e4909b18c3d7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 53532a19482a33f8727e71d44ae169225b5b1c98
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246111"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449972"
 ---
 # <a name="how-to-sign-up-for-the-text-analytics-api"></a>Metin analizi API'sine kaydolma
 
@@ -25,7 +25,7 @@ Metin Analizi kaynakları 7/24 bulutta kullanılabilir. İçeriğinizi analiz ed
 
 + [Bilişsel Hizmetler API'si hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) oluşturun ve **Metin Analizi API'sini** seçin. Kaydolduğunuzda anahtarınız oluşturulur.
 
-Metin Analizi için keşfetme ve değerlendirme amacıyla kullanabileceğiniz Ücretsiz katmanın yanı sıra üretim iş yükleri için faturalanabilir katmanlar vardır. Her abonelikte birden fazla hesap oluşturabilir, ücretsiz ve ücretli hesapları birlikte kullanabilirsiniz. İstek hacminizin artması durumunda daha fazla işlem sunan bir katmana geçebilirsiniz.
+Metin Analizi için keşfetme ve değerlendirme amacıyla kullanabileceğiniz Ücretsiz katmanın yanı sıra üretim iş yükleri için faturalanabilir katmanlar vardır. Her abonelikte birden fazla kaydolma olabilir: ücretsiz, ücretli bir ve VS. İstek hacminizin artması durumunda daha fazla işlem sunan bir katmana geçebilirsiniz.
 
 Önizleme veya ücretsiz katmandaki hizmetler için hizmet düzeyi sözleşmesi yoktur. Daha fazla bilgi için bkz. [Bilişsel Hizmetler SLA'sı](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)
 

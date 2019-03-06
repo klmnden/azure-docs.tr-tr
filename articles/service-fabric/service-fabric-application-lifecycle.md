@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 1e714faa04717ac8e6687db3c074b8a77d649fb2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 65104503af2e177f1898d8509c2d82bd9b58c266
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217216"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446973"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric uygulama yaşam döngüsü
 Diğer platformlar ile Azure Service fabric'te uygulama genellikle aşağıdaki aşamaları geçtikçe: tasarım, geliştirme, test, dağıtım, yükseltme, Bakım ve kaldırma. Service Fabric, nihai yetkisinin alınması için bulut uygulamaları, geliştirme, dağıtım, günlük yönetim ve Bakım tam uygulama yaşam döngüsü için birinci sınıf destek sağlar. Hizmet modeli, uygulama yaşam döngüsü içinde bağımsız olarak katılmak birkaç farklı rol sağlar. Bu makalede, API'leri ve Service Fabric uygulama yaşam döngüsünün aşamaları boyunca farklı rolleri tarafından nasıl kullanıldıkları hakkında genel bir bakış sağlar.
@@ -29,7 +29,7 @@ Diğer platformlar ile Azure Service fabric'te uygulama genellikle aşağıdaki 
 ## <a name="service-model-roles"></a>Hizmet modeli rolleri
 Hizmet modeli rolü şunlardır:
 
-* **Servis Geliştirici**: İmkan ve aynı veya farklı türleri, birden çok uygulamada kullanılan modüler ve genel Hizmetleri geliştirir. Örneğin, bir kuyruk hizmeti, bir bilet oluşturma uygulaması (Yardım Masası) veya bir e-ticaret uygulaması (alışveriş sepetini) oluşturmak için kullanılabilir.
+* **Servis Geliştirici**: Başka bir amaçla kullanılması ve aynı veya farklı türleri, birden çok uygulamada kullanılan modüler ve genel Hizmetleri geliştirir. Örneğin, bir kuyruk hizmeti, bir bilet oluşturma uygulaması (Yardım Masası) veya bir e-ticaret uygulaması (alışveriş sepetini) oluşturmak için kullanılabilir.
 * **Uygulama geliştiricisi**: Uygulamaları, belirli özel gereksinimler ya da senaryoları karşılamak için hizmetler koleksiyonu tümleştirerek oluşturur. Örneğin, bir e-ticaret sitesi "JSON durum bilgisi olmayan ön uç hizmeti," tümleşebilen "Artırma durum bilgisi olan hizmet" ve "Sıra durum bilgisi olan hizmet" auctioning çözümünü oluşturmak için.
 * **Uygulama Yöneticisi**: Uygulama Yapılandırma (şablon parametrelerinden yapılandırma doldurma), dağıtım (kullanılabilir kaynaklara eşleme) ve hizmet kalitesi kararlarını verir. Örneğin, bir uygulama Yöneticisi (Amerika Birleşik Devletleri İngilizce) ya da örneğin, Japonya için Japonca dil yerel uygulamanın karar verir. Farklı bir dağıtılmış uygulama farklı ayarlara sahip olabilir.
 * **İşleç**: Uygulama yapılandırmasını temel alan uygulamalar ve uygulama yönetici tarafından belirtilen gereksinimleri dağıtır. Örneğin, operatör sağlar ve uygulamayı dağıtır ve Azure'da çalıştığını sağlar. İşleçler, uygulama sistem durumu ve performans bilgilerini izlemek ve gerektiğinde fiziksel altyapı Bakımı.

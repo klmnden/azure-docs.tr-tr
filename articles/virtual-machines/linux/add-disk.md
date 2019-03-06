@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 453cb838792ff5e80b0dbbe8e90f96792f9c5484
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 81805188c72bce6a7ea89496c8036743b29e9075
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890139"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452768"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM'ye disk ekleme
 Bu makalede verilerinizi - koruyabilmeniz için bile, sanal Makinenizin Bakım veya yeniden boyutlandırma nedeniyle daralıp kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir.
@@ -122,6 +122,10 @@ The partition table has been altered!
 
 Calling ioctl() to re-read partition table.
 Syncing disks.
+```
+Kullanım komut çekirdek güncelleştirmek için aşağıdaki:
+```
+partprobe 
 ```
 
 Artık, bir dosya sistemi bölümü yazma `mkfs` komutu. Dosya sistemi türünüz ve cihaz adı belirtin. Aşağıdaki örnek, oluşturur bir *ext4* dosya sisteminde */dev/sdc1* , önceki adımlarda oluşturulan bölümüne:

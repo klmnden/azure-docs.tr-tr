@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: b9c39b1f6987db045669c821416312f88a590cbb
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: f489abeab0e1374d2d40ade79c4eb55fd633b909
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56982869"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443292"
 ---
 # <a name="access-data-from-your-datastores"></a>Verilere erişmek, veri depoları
 Bu makalede, erişim ve veri depoları aracılığıyla Azure Machine Learning iş akışlarında verilerinizle etkileşim kurmak için farklı yollarını öğrenin.
@@ -25,7 +25,7 @@ Bu nasıl yapılır örnekler için aşağıdaki görevleri gösterir:
 * [Bir veri deposu seçin](#access)
 * [Bir veri deposu alma](#get)
 * [Karşıya yükleme ve verileri veri depoları için indirme](#upload-and-download-data)
-* [Eğitim sırasında erişim veri deposu](#access-datastores-for-training)
+* Eğitim sırasında erişim veri deposu
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -62,7 +62,7 @@ Var olan Azure Depolama'iniz varsa, çalışma alanınızda bir veri deposu olar
 
 Aşağıdaki örnekler, bir veri deposu olarak bir Azure Blob kapsayıcısı veya bir Azure dosya paylaşımı kaydetmenizi gösterir.
 
-+ İçin bir **Azure Blob kapsayıcısı veri deposu**, kullanın [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-:)
++ İçin bir **Azure Blob kapsayıcısı veri deposu**, kullanın [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)
 
   ```Python
   ds = Datastore.register_azure_blob_container(workspace=ws, 

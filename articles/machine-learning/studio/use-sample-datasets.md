@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 22b3480093b85507123cab886340713747433928
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e4e29f4b714fe187622d778db58743ca4f02e84e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818366"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445594"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da örnek veri kümelerini kullanma
 [top]: #machine-learning-sample-datasets
@@ -233,7 +233,7 @@ Desen tanıma belgelerinde bulunacak en iyi bilinen veritabanı belki de budur. 
 <tr>
   <td>Film Tweetleri</td>
   <td>
-Veri kümesi, film Tweetings veri kümesi, genişletilmiş bir sürümüdür. 170 K dereceleri Twitter'da iyi yapılandırılmış tweetleri ayıklanan filmler, bir veri kümesine sahiptir. Her olay bir tweet temsil eder ve bir dizi olan: kullanıcı kimliği, IMDB film kimliği, derecelendirme, zaman damgası, Sık Kullanılanlar bu tweet ve bu tweet'i retweets sayısı numarası. Veri kümesi a Bununla birlikte, S. Dooms, B. Loni ve D. Tikk tarafından öneren sistemleri sınama 2014 için sunulmuştur.
+Veri kümesi, film Tweetings veri kümesi, genişletilmiş bir sürümüdür. 170 K dereceleri Twitter'da iyi yapılandırılmış tweetleri ayıklanan filmler, bir veri kümesine sahiptir. Her olay bir tweet temsil eder ve bir dizi olan: kullanıcı kimliği, IMDB film kimliği, derecelendirme, zaman damgası, Sık Kullanılanlar'Bu tweet sayısı ve bu tweet'i retweets sayısı. Veri kümesi a Bununla birlikte, S. Dooms, B. Loni ve D. Tikk tarafından öneren sistemleri sınama 2014 için sunulmuştur.
   </td>
 </tr>
 

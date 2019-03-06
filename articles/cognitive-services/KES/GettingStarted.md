@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a48fecd910d87af23a9385270878b0d1b6737007
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309650"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452547"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Bilgi Keşfetme Hizmeti'ni kullanmaya başlama
 
@@ -238,7 +238,7 @@ Bu örnekte, şu blob depolama kapsayıcısının oluşturulduğunu varsayabilir
 
 `kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
-Dizin oluşturmak için geçici bir VM sağlama işleminin 5-10 dakika kadar sürebileceğini unutmayın. Hızlı bir prototip oluşturmak için şunları yapabilirsiniz:
+Dizini oluşturmak için geçici bir VM sağlama için 5-10 dakika sürebilir unutmayın. Hızlı bir prototip oluşturmak için şunları yapabilirsiniz:
 - Herhangi bir makinede yerel olarak daha küçük bir veri kümesiyle geliştirme.
 - El ile [bir Azure VM oluşturma](../../../articles/virtual-machines/windows/quick-create-portal.md), Uzak Masaüstü yoluyla [bu VM'ye bağlanma](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine), [Bilgi Keşfetme Hizmeti SDK'sını](https://www.microsoft.com/en-us/download/details.aspx?id=51488) yükleme ve VM'nin içinden [`kes.exe`](CommandLine.md) komutunu çalıştırma.
 

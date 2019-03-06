@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 997727acd1bbaf17577160bb996aad7e21d49c86
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 2ebc0c90d62d1299c076f8d91ba9fed1998a20e5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811423"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450201"
 ---
 <a name="get-customer-leads"></a>Müşteri adayları alma
 ==================
@@ -83,19 +83,19 @@ Bir müşteri adayı kaynağı biçimi **kaynak**-**eylem** |  **sunar**
 
 **Sunar**
 
-Aşağıdaki örnekler bir yayımcı ve belirli bir teklif atanan benzersiz tanımlayıcıların: checkpoint.check-noktası-r77-10sg-klg bitnami.openedxcypress ve docusign.3701c77e-1cfa - 4c 56 91e6 3ed0b622145a.
+Aşağıdaki örnekler bir yayımcı ve belirli bir teklif atanan benzersiz tanımlayıcıları: checkpoint.check-noktası-r77-10sg-klg bitnami.openedxcypress ve docusign.3701c77e-1cfa - 4c 56 91e6 3ed0b622145a.
 
 
 ### <a name="customer-info"></a>Müşteri bilgileri
 
 Alanları aşağıdaki örnekte, bir müşteri adayı bulunan müşteri bilgileri gösterir.
-- FirstName: John
+- Ad: John
 - Soyadı: Smith
 - E-posta: jsmith\@microsoft.com
 - Telefon: 1234567890
 - Ülke: ABD
 - Şirket: Microsoft
-- Başlık: CTO'su
+- Başlık: CTO
 
 >[!Note]
 >Önceki örnekte tüm veriler her zaman her müşteri adayı için kullanılabilir.

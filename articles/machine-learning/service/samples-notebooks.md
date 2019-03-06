@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 12da1b20c5e4e6299445b8ec8ec90eeec6711e2c
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805527"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451799"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Azure Machine Learning hizmeti keşfetmek için Jupyter not defterleri kullanma
 
@@ -82,7 +82,7 @@ Yukarıdaki seçeneklerden herhangi birini kullanabilirsiniz, ancak ortamını y
       + Jupyter not defteri başlatır
       
    >[!NOTE]
-   > Komut dosyası conda ortam adı, isteğe bağlı bir parametre olarak alır. Varsayılan conda ortam adı `azure_automl`. Tam komut, işletim sistemine bağlıdır. Bu, yeni bir ortam oluşturuyorsanız veya yeni bir sürümüne yükseltmeniz yararlı olur. Örneğin, bir ortamından adı azure_automl_sandbox oluşturmak için 'automl_setup.cmd azure_automl_sandbox' kullanabilirsiniz. 
+   > Komut dosyası conda ortam adı, isteğe bağlı bir parametre olarak alır. Varsayılan conda ortam adı `azure_automl`. Tam komut, işletim sistemine bağlıdır. Bu, yeni bir ortam oluşturuyorsanız veya yeni bir sürümüne yükseltmeniz yararlı olur. Örneğin, bir ortam adı azure_automl_sandbox oluşturmak için 'automl_setup.cmd azure_automl_sandbox' kullanabilirsiniz. 
       
 1. Betik tamamlandıktan sonra tarayıcınızda bir Jupyter not defteri giriş sayfasını görürsünüz.
 

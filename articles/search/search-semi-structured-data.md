@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ba9b34dbd9d0959e79c755abc8dad9fe1d358a50
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 44c818cba760fb5cd7d496fd45ea321ef38248f3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632951"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445101"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Öğretici: Azure bulut depolamada yarı yapılandırılmış verileri arama
 
 İki bölümden oluşan öğretici serisinde, Azure Search kullanarak yarı yapılandırılmış ve yapılandırılmamış verilerin nasıl aranacağını öğrenirsiniz. [1. Bölüm](../storage/blobs/storage-unstructured-search.md)’de yapılandırılmamış veriler üzerinde arama yapma adımları verilmiş olup bu öğretici için depolama hesabı oluşturma gibi önemli önkoşullara da yer verilmiştir. 
 
-2. Bölüm’de, Azure bloblarında depolanan JSON gibi yarı yapılandırılmış verilere odaklanılmaktadır. Yarı yapılandırılmış veriler, veriler içindeki içeriği ayıran etiketleri veya işaretleri içerir. Bütünsel olarak dizinlenmesi gereken yapılandırılmamış verileri, alan temelinde gezinilebilen ilişkisel veritabanı şeması gibi bir veri modeline uygun resmi olarak yapılandırılmış verilerden ayırır.
+2. Bölüm’de, Azure bloblarında depolanan JSON gibi yarı yapılandırılmış verilere odaklanılmaktadır. Yarı yapılandırılmış veriler, veriler içindeki içeriği ayıran etiketleri veya işaretleri içerir. Bu tam olarak sıralanması gerekir ve bir alan başına temelinde gezinilebilen ilişkisel veritabanı şeması gibi bir veri modeli için uyar veri resmi olarak yapılandırılmış, yapılandırılmamış verileri birbirinden ayırır.
 
 2. Bölüm’de aşağıdakileri öğreneceksiniz:
 

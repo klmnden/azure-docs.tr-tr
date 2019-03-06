@@ -1,6 +1,6 @@
 ---
-title: Öğretici - Azure anahtar kasası ile bir Azure web uygulamasında .NET - Azure Key Vault | Microsoft Docs
-description: Öğretici - Key vault'tan bir gizli dizi okumak için bir ASP.NET core uygulaması yapılandırma
+title: Öğretici:. NET'te bir Azure web uygulaması ile Azure anahtar kasası | Microsoft Docs
+description: Bu öğreticide, anahtar kasasından gizli dizi okumak için bir ASP.NET core uygulaması yapılandırın.
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: b6dbae0f721983920c2073927fff74100528678e
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 18c95978af3ce1e3451cac84db367f55acd392b4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998804"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455998"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Öğretici: . NET'te bir Azure web uygulaması ile Azure anahtar kasası
 
@@ -25,46 +25,43 @@ Azure Key Vault, API anahtarları gibi gizli dizileri koruyun ve veritabanı ba�
 
 Bu öğreticide, bir Azure anahtar kasası bilgileri okuyabilir bir Azure web uygulaması oluşturmayı öğrenin. İşlem, Azure kaynakları için yönetilen kimlikleri kullanır. Azure web uygulamaları hakkında daha fazla bilgi için bkz. [Azure App Service](../app-service/overview.md).
 
-Makaleyi gösterilmektedir için:
+Öğretici şunların nasıl yapıldığını göstermektedir:
 
 > [!div class="checklist"]
 > * Bir anahtar kasası oluşturma.
-> * Anahtar kasasına bir gizli dizi depolama.
+> * Gizli anahtar Kasası'na ekleyin.
 > * Anahtar kasasından bir gizli dizi alma.
-> * Azure web uygulaması oluşturma.
-> * Web uygulaması için [yönetilen kimliği](../active-directory/managed-identities-azure-resources/overview.md) etkinleştirin.
-> * Web uygulamasının anahtar kasasından verileri okuması için gereken izinleri verme.
-> * Web uygulamasını Azure'da çalıştırmak.
+> * Bir Azure web uygulaması oluşturun.
+> * Web uygulaması için bir yönetilen kimlik etkinleştirin.
+> * Web uygulamasının iznini atayın.
+> * Web uygulamasını Azure'da çalıştırın.
 
-Devam etmeden önce okuma [Key Vault temel kavramlarını](key-vault-whatis.md#basic-concepts).
+Başlamadan önce okumanız [Key Vault temel kavramlarını](key-vault-whatis.md#basic-concepts). 
+
+Azure aboneliğiniz yoksa, oluşturun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Windows'da:
-  * [.NET Core 2.1 SDK veya üzeri](https://www.microsoft.com/net/download/windows)
-
-* Mac'te:
-  * [Mac için Visual Studio](https://visualstudio.microsoft.com/vs/mac/)
-
-* Tüm platformlar:
+* İçin Windows: [.NET Core 2.1 SDK veya üzeri](https://www.microsoft.com/net/download/windows)
+* Mac için: [Mac için Visual Studio](https://visualstudio.microsoft.com/vs/mac/)
+* Windows, Mac ve Linux için:
   * [Git](https://git-scm.com/downloads)
-  * Bir Azure aboneliği <br />(Bir Azure aboneliğiniz yoksa, oluşturun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) başlamadan önce.)
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) sürüm 2.0.4 veya üzeri, Windows, Mac ve Linux için kullanılabilir
+  * Bu öğretici, Azure CLI'yi yerel olarak çalıştırmanızı gerektirir. Sonraki bir sürümünün yüklü veya Azure CLI 2.0.4 sürüm olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’yı yüklemeniz veya yükseltmeniz gerekiyorsa bkz. [Azure CLI 2.0’ı yükleme](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
-## <a name="managed-service-identity-and-how-it-works"></a>Yönetilen hizmet kimliği ve nasıl çalışır?
+## <a name="about-managed-service-identity"></a>Yönetilen Hizmet Kimliği hakkında
 
-Bunlar, kodunuzda kalmayacak azure Key Vault kimlik bilgilerini güvenli bir şekilde depolar. Ancak, Azure Key Vault'a anahtarlarınızı almak için kimlik doğrulaması gerekir. Anahtar Kasası'na kimlik doğrulaması için bir kimlik bilgisi gerekir. Bu, klasik bir önyükleme ikilemle olur. Yönetilen hizmet kimliği (MSI) sağlayarak bu sorunu çözer bir _bootstrap kimlik_ , bu süreci kolaylaştırır.
+Kodunuzda görüntülenmez için azure Key Vault kimlik bilgilerini güvenli bir şekilde, depolar. Ancak, Azure Key Vault'a anahtarlarınızı almak için kimlik doğrulaması gerekir. Anahtar Kasası'na kimlik doğrulaması için bir kimlik bilgisi gerekir. Bu, klasik bir önyükleme ikilemle olur. Yönetilen hizmet kimliği (MSI) sağlayarak bu sorunu çözer bir _bootstrap kimlik_ , bu süreci kolaylaştırır.
 
-Bir Azure hizmeti için MSI etkinleştirdiğinizde (örneğin: Sanal makineler, App Service ve İşlevler), Azure oluşturur bir [hizmet sorumlusu](key-vault-whatis.md#basic-concepts). MSI kimlik bilgileri, söz konusu örneğine hizmet sorumlusu ekler ve bunun için Azure Active Directory (Azure AD) hizmeti örneğini yapar.
+Azure sanal makineler, Azure App Service veya Azure işlevleri gibi bir Azure hizmeti için MSI'yı etkinleştirdiğinizde, Azure oluşturur bir [hizmet sorumlusu](key-vault-whatis.md#basic-concepts). MSI, Azure Active Directory'de (Azure AD) hizmet örneği için bunu yapar ve bu örneğe hizmet sorumlusu kimlik bilgileri ekler.
 
 ![MSI diyagramı](media/MSI.png)
 
-Ardından, kodunuzu bir erişim belirteci almak için Azure kaynak üzerinde kullanılabilir olan bir yerel meta veri hizmeti çağırır. Kodunuz yerel MSI_ENDPOINT'ten aldığı erişim belirtecini kullanarak Azure Key Vault hizmetinde kimlik doğrulaması yapar.
+Ardından, bir erişim belirteci almak için kodunuzu Azure kaynak üzerinde kullanılabilir olan bir yerel meta veri hizmeti çağırır. Kodunuzu yerel MSI uç noktasından bir Azure anahtar kasası hizmetinde kimlik doğrularken alır erişim belirtecini kullanır.
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Azure CLI'yi kullanarak Azure'da oturum açmanız için şunu girin:
+Azure CLI'yi kullanarak Azure'da oturum açmak için, şunları girin:
 
 ```azurecli
 az login
@@ -74,8 +71,9 @@ az login
 
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
-1. [az group create](/cli/azure/group#az-group-create) komutunu kullanarak bir kaynak grubu oluşturun.
-1. Kaynak grubu adı seçin ve yer tutucuyu doldurun. Aşağıdaki örnekte Batı ABD konumunda bir kaynak grubu oluşturulur:
+[az group create](/cli/azure/group#az-group-create) komutunu kullanarak bir kaynak grubu oluşturun.
+
+Ardından, bir kaynak grubu adı seçin ve yer tutucuyu doldurun. Aşağıdaki örnekte Batı ABD konumunda bir kaynak grubu oluşturulur:
 
    ```azurecli
    # To list locations: az account list-locations --output table
@@ -88,49 +86,57 @@ Bu öğretici boyunca bu kaynak grubu kullanırsınız.
 
 Kaynak grubunuzda bir anahtar kasası oluşturmak için aşağıdaki bilgileri sağlayın:
 
-* Anahtar kasası adı: yalnızca sayı, harf ve kısa çizgi içerebilir ve 3-24 karakter dizisi (örneğin: 0-9, a-z, A-Z ve -)
+* Anahtar kasası adı: bir dizenin yalnızca rakam (0-9) içerebilir ve 3-24 karakter harf (a-z, A-Z) ve tire (-)
 * Kaynak grubu adı
 * Konum: **Batı ABD**
 
-Azure CLI içinde aşağıdaki komutu girin:
+Azure CLI, aşağıdaki komutu girin:
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
 
-Bu noktada Azure hesabınız, bu yeni anahtar kasasında herhangi bir işlemi gerçekleştirmeye yetkili olan tek hesaptır.
+Bu noktada Azure hesabınız bu yeni kasa üzerinde işlem gerçekleştirmek için yetkili tek hesaptır.
 
 ## <a name="add-a-secret-to-the-key-vault"></a>Anahtar kasasına gizli dizi ekleme
 
 Artık bir gizli dizi ekleyebilirsiniz. Bir SQL bağlantı dizesi veya güvenli ve uygulamanız için kullanılabilir durumda tutmak için gereken herhangi bir bilgi olabilir.
 
-Anahtar Kasası'nda bir gizli dizi oluşturmak için aşağıdaki komutu adlı türü **AppSecret**. Bu gizli dizinin değerini depolar **ettiyseniz**.
+Anahtar Kasası'nda bir gizli dizi oluşturmak için çağrılan **AppSecret**, aşağıdaki komutu girin: 
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
-Gizli diziyi düz metin olarak yer alan değeri görüntülemek için aşağıdaki komutu girin:
+Bu gizli dizinin değerini depolar **ettiyseniz**.
+
+Bulunan değerin gizli diziyi düz metin olarak görüntülemek için aşağıdaki komutu girin:
 
 ```azurecli
 az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 ```
 
-Bu komut, URI dahil olmak üzere gizli dizi bilgilerini gösterir. Bu adımları tamamladıktan sonra, bir anahtar kasasında gizli dizi URI'sine sahip olmanız gerekir. Bu bilgileri not alın. Daha sonraki bir adımda gerekecektir.
+Bu komut, URI gizli bilgilerini görüntüler. 
+
+Bu adımları tamamladıktan sonra, bir anahtar kasasında gizli dizi URI'sine sahip olmanız gerekir. Bu öğreticide daha sonra kullanmak için bu bilgileri not edin. 
 
 ## <a name="create-a-net-core-web-app"></a>.NET Core web uygulaması oluşturma
 
-İzleyin [öğretici](../app-service/app-service-web-get-started-dotnet.md) bir .NET Core web uygulaması oluşturma ve **yayımlama** Azure için. Şu videoyu da izleyebilirsiniz:
+.NET Core web uygulaması oluşturma ve bunu Azure'a yayımlamak için yönergeleri izleyin. [Azure'da ASP.NET Core web uygulaması oluşturma](../app-service/app-service-web-get-started-dotnet.md). 
+
+Ayrıca şu videoyu izleyebilirsiniz:
 
 >[!VIDEO https://www.youtube.com/embed/EdiiEH7P-bU]
 
 ## <a name="open-and-edit-the-solution"></a>Çözümü açma ve düzenleme
 
-1. Gözat **sayfaları** > **About.cshtml.cs** dosya.
-2. Bu NuGet paketlerini yükleyin:
+1. Git **sayfaları** > **About.cshtml.cs** dosya.
+
+1. Bu NuGet paketlerini yükleyin:
    - [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
-3. Aşağıdaki kodu About.cshtml.cs dosyasında içeri aktarın:
+
+1. Aşağıdaki kodu alma *About.cshtml.cs* dosyası:
 
    ```csharp
     using Microsoft.Azure.KeyVault;
@@ -138,7 +144,7 @@ Bu komut, URI dahil olmak üzere gizli dizi bilgilerini gösterir. Bu adımları
     using Microsoft.Azure.Services.AppAuthentication;
    ```
 
-4. Kodunuzu AboutModel sınıfı aşağıdaki gibi:
+   Kodunuzu AboutModel sınıfı şu şekilde görünmelidir:
 
    ```csharp
     public class AboutModel : PageModel
@@ -152,14 +158,14 @@ Bu komut, URI dahil olmak üzere gizli dizi bilgilerini gösterir. Bu adımları
             bool retry = false;
             try
             {
-                /* The below 4 lines of code shows you how to use AppAuthentication library to fetch secrets from your Key Vault*/
+                /* The next four lines of code show you how to use AppAuthentication library to fetch secrets from your key vault*/
                 AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
                 KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
                 var secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")
                         .ConfigureAwait(false);
                 Message = secret.Value;
 
-                /* The below do while logic is to handle throttling errors thrown by Azure Key Vault. It shows how to do exponential backoff which is the recommended client side throttling*/
+                /* The following *do while* logic is to handle throttling errors thrown by Azure Key Vault. It shows how to do exponential backoff, which is the recommended client side throttling*/
                 do
                 {
                     long waitTime = Math.Min(getWaitTime(retries), 2000000);
@@ -180,14 +186,14 @@ Bu komut, URI dahil olmak üzere gizli dizi bilgilerini gösterir. Bu adımları
             }
         }
 
-        // This method implements exponential backoff incase of 429 errors from Azure Key Vault
+        // This method implements exponential backoff if there are 429 errors from Azure Key Vault
         private static long getWaitTime(int retryCount)
         {
             long waitTime = ((long)Math.Pow(2, retryCount) * 100L);
             return waitTime;
         }
 
-        // This method fetches a token from Azure Active Directory which can then be provided to Azure Key Vault to authenticate
+        // This method fetches a token from Azure Active Directory, which can then be provided to Azure Key Vault to authenticate
         public async Task<string> GetAccessTokenAsync()
         {
             var azureServiceTokenProvider = new AzureServiceTokenProvider();
@@ -197,53 +203,51 @@ Bu komut, URI dahil olmak üzere gizli dizi bilgilerini gösterir. Bu adımları
     }
     ```
 
-## <a name="run-the-app"></a>Uygulamayı çalıştırma
+## <a name="run-the-web-app"></a>Web uygulamasını çalıştırma
 
-1. Visual Studio 2017'in ana menüden seçin **hata ayıklama** > **Başlat** ile veya hata ayıklama olmadan. 
-1. Tarayıcı görüntülendiğinde **Hakkında** sayfasına gidin.
-1. **AppSecret** değeri görüntülenir.
+1. Visual Studio 2017'in ana menüsünde **hata ayıklama** > **Başlat**, ile veya hata ayıklama olmadan. 
+1. Tarayıcıda, Git **hakkında** sayfası.  
+    **AppSecret** değeri görüntülenir.
 
-## <a name="enable-a-managed-identity-for-the-web-app"></a>Web uygulaması için yönetilen kimliği etkinleştirme
+## <a name="enable-a-managed-identity"></a>Yönetilen bir kimlik etkinleştir
 
-Azure Key Vault kimlik bilgileri ve diğer gizli dizileri güvenli bir şekilde depolamak için bir yol sağlar, ancak kodunuzu bunları almak için anahtar Kasası'na kimlik doğrulaması yapması. [Yönetilen Azure kaynaklarına genel bakış için kimlikleri](../active-directory/managed-identities-azure-resources/overview.md) Azure vererek bu sorunu çözmeye yardımcı olur, Azure AD'de otomatik olarak yönetilen bir kimlik Hizmetleri. Bu kimliği kullanarak, Key Vault da dahil olmak üzere Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz.
+Azure Key Vault kimlik bilgileri ve diğer gizli dizileri güvenli bir şekilde depolamak için bir yol sağlar, ancak kodunuzu bunları almak için anahtar Kasası'na kimlik doğrulaması yapması. [Yönetilen Azure kaynaklarına genel bakış için kimlikleri](../active-directory/managed-identities-azure-resources/overview.md) Azure vererek bu sorunu çözmeye yardımcı olur, Azure AD'de otomatik olarak yönetilen bir kimlik Hizmetleri. Bu kimlik, anahtar kasası, kodunuzda kimlik bilgilerini görüntülemek zorunda kalmadan dahil olmak üzere Azure AD kimlik doğrulamasını destekleyen herhangi bir hizmeti kimlik doğrulaması için kullanabilirsiniz.
 
-1. Azure CLI, bu uygulama için kimlik oluşturmak için Ata kimlik komutu çalıştırın:
+Azure CLI, bu uygulama için kimlik oluşturmak için Ata kimlik komutu çalıştırın:
 
-   ```azurecli
+```azurecli
+az webapp identity assign --name "<YourAppName>" --resource-group "<YourResourceGroupName>"
+```
 
-   az webapp identity assign --name "<YourAppName>" --resource-group "<YourResourceGroupName>"
+Değiştirin \<Uygulamanızınadı > azure'da yayımlanan uygulamanın adı.  
+    Örneğin, yayımlanan uygulama adı, **MyAwesomeapp.azurewebsites.net**, değiştirin \<Uygulamanızınadı > ile **MyAwesomeapp**.
 
-   ```
+Not `PrincipalId` uygulamayı azure'a yayımlarken. 1. adımda komutunun çıkışı şu biçimde olmalıdır:
 
-   >[!NOTE]
-   >Değiştirmek zorunda \<Uygulamanızınadı\> azure'da yayımlanan uygulamanın adı. Örneğin, yayımlanan uygulama adı, **MyAwesomeapp.azurewebsites.net**, değiştirin \<Uygulamanızınadı\> ile **MyAwesomeapp**.
-
-1. Not `PrincipalId` uygulamayı azure'a yayımlarken. 1. adımda komutunun çıkışı şu biçimde olmalıdır:
-
-   ```json
-   {
-     "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-     "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-     "type": "SystemAssigned"
-   }
-   ```
+```json
+{
+  "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "type": "SystemAssigned"
+}
+```
 
 >[!NOTE]
->Bu yordamdaki komut, [portala](https://portal.azure.com) gidip web uygulaması özelliklerinde **Kimlik/Sistem tarafından atanan** ayarını **Açık** duruma getirmekle eşdeğerdir.
+>Bu yordamdaki komutu gidip eşdeğerdir [Azure portalında](https://portal.azure.com) ve geçiş **kimlik / sistem atanan** ayarını **üzerinde** web uygulamasındaki özellikleri.
 
-## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>Key Vault gizli dizilerini okumak için uygulamanıza izin atama
+## <a name="assign-permissions-to-your-app"></a>Uygulamanıza izinler atama
 
-Değiştirin \<YourKeyVaultName\> anahtar kasanıza adıyla ve \<Principalıd\> değeriyle **Principalıd** aşağıdaki komutta:
+Değiştirin \<YourKeyVaultName > key vault ile değiştir adıyla \<Principalıd > değeriyle **Principalıd** aşağıdaki komutta:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
 ```
 
-Bu komut, uygulama kimliği (MSI) yapmak için hizmet izinleri verir. **alma** ve **listesi** anahtar kasanıza operations.
+Bu komut kimliği (MSI) yapmak için app service izni verir. **alma** ve **listesi** anahtar kasanıza operations.
 
-## <a name="publish-the-web-application-to-azure"></a>Web uygulamasını Azure’a yayımlama
+## <a name="publish-the-web-app-to-azure"></a>Web uygulamasını Azure’da yayımlama
 
-Web uygulamanızı canlı web uygulamanızın gizli değer getirebilirsiniz yeniden görmek için Azure'a yayımlayın.
+Web uygulamanızı yeniden canlı web uygulamanızın gizli değer getirebilirsiniz doğrulamak için Azure'da yayımlayın.
 
 1. Visual Studio'da **key-vault-dotnet-core-quickstart** projesini seçin.
 2. **Yayımla** > **Başlat** seçeneğini belirleyin.
@@ -251,7 +255,10 @@ Web uygulamanızı canlı web uygulamanızın gizli değer getirebilirsiniz yeni
 
 Uygulamayı çalıştırdığınızda, gizli değer alabilir görmeniz gerekir.
 
-Şimdi, başarılı bir şekilde bir web uygulaması, depolayan ve Key Vault'tan rodcpurgeaccount getirir. NET'te oluşturdunuz.
+Şimdi, depolayan ve key vault'ta rodcpurgeaccount getirir. NET'te başarıyla bir web uygulaması oluşturdunuz.
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+Artık gerekli değilse, sanal makine ve anahtar kasanıza silebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

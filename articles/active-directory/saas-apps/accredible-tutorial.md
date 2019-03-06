@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7284dfb6-df62-41f1-a4a4-1b8322b7ef44
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f816a6629ef561067f5a40ba15064b98b34c99
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8e588dc0e2821a1dcc3e6bb424752b5ce4d7a176
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871443"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448067"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Öğretici: Accredible ile Azure Active Directory Tümleştirme
 
@@ -51,7 +51,7 @@ Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamı
 
 Azure AD'de Accredible tümleştirmesini yapılandırmak için Accredible Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden Accredible eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden Accredible eklemek için aşağıdaki adımları uygulayın:**
 
 1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
@@ -189,7 +189,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Accredible erişim verer
 
 ### <a name="create-accredible-test-user"></a>Accredible test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Accredible içinde adlı bir kullanıcı oluşturun. Kullanıcının emailıd için gönderilmesini [Accredible Destek ekibine](mailto:support@accredible.com), e-posta doğrulama ve kullanıcı accredible platformunda ekleyebilmeniz davet e-posta gönderin.
+Bu bölümde, Britta Simon Accredible içinde adlı bir kullanıcı oluşturun. Kullanıcının e-posta kimliği için gönderilmesini [Accredible Destek ekibine](mailto:support@accredible.com), e-posta doğrulama ve kullanıcı accredible platformunda ekleyebilmeniz davet e-posta gönderin.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
