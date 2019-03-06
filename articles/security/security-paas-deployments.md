@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: terrylan
-ms.openlocfilehash: 497fc1dd5691b5aa33207c6a3943a51c473d2f6c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247214"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404816"
 ---
 # <a name="securing-paas-deployments"></a>PaaS dağıtımlarının güvenliğini sağlama
 
@@ -85,7 +85,7 @@ Modern güvenlik uygulamaları, saldırganın ağ çevresi aşmış varsayılır
 Kimlik çevre yönetmek için en iyi uygulamalar aşağıda verilmiştir.
 
 **En iyi yöntem**: Anahtarları ve PaaS dağıtımınızın güvenliğini sağlamak için kimlik bilgilerini güvenli hale getirin.   
-**Ayrıntı**: Anahtarlar ve kimlik bilgileri kaybetme sık karşılaşılan bir sorundur. Anahtarları ve gizli dizileri donanım güvenlik modüllerinde burada depolanabilir, merkezi bir çözüm kullanabilirsiniz. Azure ile bulutta HSM sağlar [Azure anahtar kasası](../key-vault/key-vault-whatis.md).
+**Ayrıntı**: Anahtarlar ve kimlik bilgileri kaybetme sık karşılaşılan bir sorundur. Anahtarları ve gizli dizileri donanım güvenlik modülleri (HSM'ler) burada depolanabilir, merkezi bir çözüm kullanabilirsiniz. [Azure Key Vault](../key-vault/key-vault-whatis.md) kimlik doğrulaması anahtarları, depolama hesabı anahtarları, veri şifreleme anahtarları, .pfx dosyaları ve Hsm'leri tarafından korunan anahtarları kullanarak parolalar şifreleyerek anahtarlarınızı ve gizli bilgilerinizi korur.
 
 **En iyi yöntem**: Kaynak kodu veya GitHub kimlik bilgilerini ve diğer gizli dizileri yerleştirmeyin.   
 **Ayrıntı**: Gereken tek şey anahtarlarını ve kimlik bilgilerini kaybetme yetkisiz bir tarafın sahip daha da kötüsü onlara yönelik erişimi elde edin. Saldırganlar bot anahtarları ve GitHub gibi kod depoları içinde depolanan gizli bulmak için teknolojileri yararlanabilirsiniz. Anahtar ve gizli anahtarları bu ortak kod depolarında koymayın.

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/22/2018
+ms.date: 03/05/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 56fc3942b82d43273ea39f6075382bcb255fc0f7
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5ce8de675eb398335df6a160213ee01add9ac129
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673828"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440753"
 ---
 # <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir Standard Load Balancer oluşturma
 
@@ -227,7 +227,7 @@ Sanal NIC ile oluşturulan oluşturma [yeni AzNetworkInterface](/powershell/modu
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -237,7 +237,7 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
@@ -245,19 +245,6 @@ $nicVM2 = New-AzNetworkInterface `
 ```
 
 ### <a name="create-virtual-machines"></a>Sanal makineler oluşturma
-Uygulamanızın yüksek oranda kullanılabilir olmasını sağlamak için VM’lerinizi bir kullanılabilirlik kümesine yerleştirin.
-
-Bir kullanılabilirlik kümesi oluşturma [yeni AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). Aşağıdaki örnek *myAvailabilitySet* adında bir kullanılabilirlik kümesi oluşturur:
-
-```azurepowershell-interactive
-$availabilitySet = New-AzAvailabilitySet `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Name "myAvailabilitySet" `
-  -Location "EastUS" `
-  -Sku aligned `
-  -PlatformFaultDomainCount 2 `
-  -PlatformUpdateDomainCount 2
-```
 
 VM’ler için [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) ile bir yönetici kullanıcı adı ve parola ayarlayın:
 
@@ -265,7 +252,7 @@ VM’ler için [Get-Credential](https://msdn.microsoft.com/powershell/reference/
 $cred = Get-Credential
 ```
 
-İle Vm'leri oluşturabilirsiniz artık [New-AzVM](/powershell/module/az.compute/new-azvm). Aşağıdaki örnek, iki VM ve mevcut değilse gerekli olan sanal ağ bileşenlerini oluşturur:
+İle Vm'leri oluşturabilirsiniz artık [New-AzVM](/powershell/module/az.compute/new-azvm). Aşağıdaki örnek, zaten mevcut değilse iki VM ve gerekli olan sanal ağ bileşenlerini oluşturur. Bu örnekte, NIC'ler (*VM1* ve *VM2*) önceki adımda oluşturduğunuz sanal makinelere otomatik olarak atanmasını *VM1* ve *VM2*aynı adlara sahip ve aynı sanal ağda atanır (*myVnet*) ve alt ağ (*mySubnet*). Ayrıca, NIC'ler için yük dengeleyicinin arka uç havuzu ilişkili olduğundan, sanal makineleri otomatik olarak arka uç havuzuna eklenir.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -278,7 +265,6 @@ for ($i=1; $i -le 2; $i++)
         -SubnetName "mySubnet" `
         -SecurityGroupName "myNetworkSecurityGroup" `
         -OpenPorts 80 `
-        -AvailabilitySetName "myAvailabilitySet" `
         -Credential $cred `
         -AsJob
 }

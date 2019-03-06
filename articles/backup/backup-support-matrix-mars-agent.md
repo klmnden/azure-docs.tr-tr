@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure kurtarma Hizmetleri (MARS) aracısı Azure Backup ile çalışan makinelerin yedeklenmesi için destek matrisi
-description: Microsoft Azure kurtarma Hizmetleri (MARS) Aracısı'nı çalıştıran makineleri yedeklemek, bu makalede Azure Backup desteği özetler.
+description: Microsoft Azure kurtarma Hizmetleri (MARS) aracısı çalıştıran makineleri yedeklemek, bu makalede Azure Backup desteği özetler.
 services: backup
 author: rayne-wiselman
 ms.service: backup
@@ -8,53 +8,49 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 61afefb955914c75606c4fff36ebcc05a4ad0057
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: e12ca7561181412318fa594093b047cd95e4e6bc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010914"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448049"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure kurtarma Hizmetleri (MARS) aracısı ile yedekleme destek matrisi
 
-Kullanabileceğiniz [Azure Backup hizmeti](backup-overview.md) şirket içi makineleri ve uygulamaları ve Azure sanal makinelerini yedeklemek için. Bu makalede, destek ayarları ve Microsoft Azure kurtarma Hizmetleri (MARS) aracısı ile makineleri yedeklemeyi sınırlamaları özetlenmektedir.
+Kullanabileceğiniz [Azure Backup hizmeti](backup-overview.md) şirket içi makineleri ve uygulamaları yedeklemek için ve Azure sanal makinelerini (VM) yedekleme. Bu makalede, makineleri yedeklemek için Microsoft Azure kurtarma Hizmetleri (MARS) Aracısı'nı kullandığınızda, destek ayarları ve sınırlamaları özetlenmektedir.
 
-## <a name="about-the-mars-agent"></a>MARS Aracısı hakkında
+## <a name="the-mars-agent"></a>MARS Aracısı
 
-MARS Aracısı Azure Backup tarafından Azure'da şirket içi makinelerin ve Azure sanal makinelerini bir yedekleme kurtarma Hizmetleri verileri başka bir yedekleme kasası için kullanılır. MARS aracısı aşağıdaki gibi kullanılabilir:
-- Böylece bunlar doğrudan Azure yedekleme kurtarma Hizmetleri kasası için Yedekleme aracısı şirket içi Windows makineler üzerinde çalıştırın.
-- Böylece doğrudan bir kasasına yedekleyebilirsiniz aracı Windows Azure Vm'leri üzerinde çalışacak.
-- Bir Microsoft Azure Backup sunucusu (MABS) veya bir System Center Data Protection - Manager (DPM) sunucu Aracısı'nı çalıştırın. Bu senaryoda, MABS/DPM makineler ve iş yüklerini yedeklemek ve ardından MARS Aracısı'nı kullanarak azure'daki bir kasasına yedeklemeye MABS/DPM desteklenir. 
+Azure Backup, verileri şirket içi makinelerin ve Azure sanal makinelerini bir yedekleme Azure kurtarma Hizmetleri kasasına yedeklemek için MARS Aracısı kullanır. MARS Aracısı yapabilirsiniz:
+- Böylece bunlar doğrudan Azure yedekleme kurtarma Hizmetleri kasası için yedekleme, şirket içi Windows makinelerde çalıştırın.
+- Windows sanal makinelerinde çalıştırın, böylece bunlar doğrudan bir kasasına yedekleyebilirsiniz.
+- Microsoft Azure Backup sunucusu (MABS) veya bir System Center Data Protection Manager (DPM) sunucusunda çalıştırın. Bu senaryoda, makine ve iş yüklerini MABS veya DPM sunucusuna yedekleme. MARS Aracısı, bu sunucuyu daha sonra azure'da bir kasaya yedekler. 
 
-Neleri yedekleyebilir, aracının yüklü olduğu bağlıdır.
+Yedekleme seçeneklerinizin, aracının yüklü olduğu bağlıdır. Daha fazla bilgi için [MARS agent'ı kullanarak Azure Backup mimarisi](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders). MABS ve DPM yedekleme mimarisi hakkında daha fazla bilgi için bkz: [DPM veya MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Ayrıca bkz: [gereksinimleri](backup-support-matrix-mabs-dpm.md) yedekleme mimarisi.
 
-- [Daha fazla bilgi edinin](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) MARS Aracısı'nı kullanarak yedekleme mimarisi hakkında.
-- MABS/DPM hakkında daha fazla bilgi [yedekleme mimarisi](backup-architecture.md#architecture-back-up-to-dpmmabs)ve [gereksinimleri](backup-support-matrix-mabs-dpm.md).
-
-
-## <a name="supported-installation"></a>Desteklenen yükleme
+## <a name="supported-installations"></a>Desteklenen yüklemeler
 
 **Yükleme** | **Ayrıntılar**
 --- | ---
-**En yeni MARS Aracısı'nı indirme** | Kasadan, aracının en son sürümünü indirebilirsiniz veya [doğrudan indirin](https://aka.ms/azurebackup_agent).
-**Doğrudan bir makineye yükleyin** | MARS Aracısı doğrudan şirket içi Windows server veya Windows Azure herhangi birini çalıştıran VM yükleyebilirsiniz [desteklenen işletim sistemleri](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
-**Bir yedekleme sunucusuna yükleyin** | Azure'a yedeklemek için DPM veya MABS ayarlamak, indirin ve MARS aracısının sunucuya yükleyin. Aracı ile uyumlu olarak yüklenebilir [desteklenen işletim sistemleri](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) yedek sunucu destek matrisi içinde.
+En yeni MARS Aracısı'nı indirme | Kasadan, aracının en son sürümünü indirebilirsiniz veya [doğrudan indirin](https://aka.ms/azurebackup_agent).
+Doğrudan bir makineye yükleyin | MARS Aracısı doğrudan şirket içi Windows server veya herhangi birini çalıştıran bir Windows VM'de yükleyebilirsiniz [desteklenen işletim sistemleri](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Bir yedekleme sunucusuna yükleyin | Azure'a yedeklemek için DPM veya MABS ayarlamak, indirin ve MARS aracısının sunucuya yükleyin. Aracıyı yükleyebilirsiniz [desteklenen işletim sistemleri](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) yedek sunucu destek matrisi içinde.
 
 > [!NOTE]
-> Varsayılan Azure Vm'leri için yedekleme etkin bir Azure Backup uzantısı yükleme sahip. Bu uzantı, VM'nin tamamını yedekler. Yükleyin ve belirli klasörleri ve dosyaları yerine tam VM yedeklemek istiyorsanız, MARS Aracısı uzantısı yanı sıra Azure sanal makinesinde çalıştırın.
-> Bir Azure sanal makinesinde MARS Aracısı çalıştırdığınızda, geçici depolama VM'de bulunan dosyaların/klasörlerin yedekler. Dosyaları/klasörleri geçici depolama alanından kaldırılırsa veya geçici depolama kaldırılırsa, yedeklemeler başarısız olur.
+> Varsayılan olarak, yedekleme için etkin bir Azure Vm'leri Azure Backup uzantısı yükleme sahiptir. Bu uzantı, VM'nin tamamını yedekler. Yükleyin ve belirli klasörleri ve dosyaları yerine tam VM yedeklemek istiyorsanız, MARS Aracısı uzantısı yanı sıra Azure sanal makinesinde çalıştırın.
+> Bir Azure sanal makinesinde MARS Aracısı çalıştırdığınızda, dosyaları veya klasörleri geçici depolama VM'de bulunan yedekler. Dosya veya klasörleri geçici depolama alanından kaldırılırsa veya geçici depolama kaldırılırsa, yedeklemeleri başarısız olur.
 
 
 ## <a name="cache-folder-support"></a>Önbellek klasör desteği
 
-MARS Aracısı ile yedekleme, aracı verilerin anlık görüntüsünü alır ve Azure'a göndermeden önce bir yerel önbellek klasörüne kaydeder. Önbellek (sıfırdan) klasörü çeşitli gereksinimler vardır.
+Verileri yedeklemek için MARS Aracısı'nı kullandığınızda aracı verilerin anlık görüntüsünü alır ve Azure'a veri göndermeden önce bir yerel önbellek klasörüne kaydeder. Önbellek (sıfırdan) klasörü birkaç gereksinim vardır:
 
 **Önbellek** | **Ayrıntılar**
 --- | ---
-**Önbellek boyutu** |  Yedekleme verilerinizi toplam boyutunu en az 5-%10 önbelleği klasör boyutunu boş alan olmalıdır. 
-**Önbellek konumu** | Önbellek klasörü, yedeklenmekte olan makinenin için yerel olmalıdır ve çevrimiçi olması gerekir.<br/><br/> Önbellek klasörü, bir ağ paylaşımına, çıkarılabilir medya veya çevrimdışı bir birim olmamalıdır. 
-**Önbellek klasörü** | Önbellek klasörü, yinelenenleri kaldırılan bir birimde veya sıkıştırılmış/seyrek/ayrıştırma-noktasıdır bir klasörde şifrelenmelidir
-**Önbellek konumunu değiştirme** | Yedekleme Altyapısı (net stop bengine) durduruluyor ve önbellek klasörü yeni bir sürücüye kopyalanması önbellek konumunu değiştirebilirsiniz (yeterli alana sahip olduğundan emin olun). Ardından yeni konumuna HKLM\SOFTWARE\Microsoft\Windows Azure Backup (Config/ScratchLocation ve CloudBackupProvider/Config/ScratchLocation) altında iki kayıt defteri girdisini güncelleştirin ve altyapısını yeniden başlatın.
+Boyut |  Önbellek klasörü boş alanı, yedekleme verilerinizi toplam boyutunu en az yüzde 5-10 olması gerekir. 
+Konum | Önbellek klasörü, yedeklenen makine üzerinde yerel olarak depolanmalıdır ve çevrimiçi olmalıdır. Önbellek klasörü, bir ağ paylaşımına, çıkarılabilir medya veya çevrimdışı bir birim olmamalıdır. 
+Klasör | Önbellek klasörü, yinelenenleri kaldırılan bir birimde veya, sıkıştırılmış, seyrek olan veya bir yeniden ayrıştırma noktası olan bir klasörde şifrelenmelidir.
+Konum değişiklikleri | Yedekleme Altyapısı durdurarak önbellek konumunu değiştirebilirsiniz (`net stop bengine`) ve önbellek klasörü için yeni bir sürücüye kopyalanması. (Yeni sürücü yeterli boş alan olduğundan emin olun.) Ardından altında iki kayıt defteri girdisini güncelleştirin **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** ve **Config/CloudBackupProvider/ScratchLocation**) yeni konuma ve yeniden başlatma altyapısı.
 
 ## <a name="networking-and-access-support"></a>Ağ ve erişim desteği
 
@@ -65,23 +61,19 @@ MARS Aracısı şu URL'lere erişimi olmalıdır:
 - http://www.msftncsi.com/ncsi.txt
 - *.Microsoft.com
 - *.WindowsAzure.com
-- *.microsoftonline.com
-- *.windows.net
+- *.MicrosoftOnline.com
+- *.Windows.net
 
 ### <a name="throttling-support"></a>Azaltma desteği
 
 **Özellik** | **Ayrıntılar**
 --- | ---
-Bant genişliği denetimi | Desteklenen<br/><br/> Kullanım **özelliklerini değiştirme** bant genişliğini ayarlamak için MARS Aracısı.
-Ağ kapasitesi azaltma | Desteklenen Windows Server 2008 R2, Windows Server 2008 SP2 veya Windows 7 çalıştıran makineleri için kullanılabilir değil.
+Bant genişliği denetimi | Destekleniyor. MARS aracısı kullanmak **özelliklerini değiştirme** bant genişliğini ayarlamak için.
+Ağ kapasitesi azaltma | Windows Server 2008 R2, Windows Server 2008 SP2 veya Windows 7 çalıştıran yedeklenen makine için kullanılamaz.
 
 ## <a name="support-for-direct-backups"></a>Doğrudan yedeklemeler için destek
 
-MARS Aracısı ile azure'a doğrudan şirket içi makinelerin ve Azure Vm'lerinde çalışan hangi işletim sistemleri yedeklenebilir aşağıdaki tabloda özetlenmiştir.
-
-- Tüm işletim sistemlerine, 64-bittir.
-- Tüm işletim sistemlerini en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
-- Hangi DPM ve MABS sunucuları yedeklenebilir MARS Aracısı ile ilgili ayrıntılar için gözden [bu tabloda](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+Şirket içi makinelerin ve Azure Vm'lerinde çalışan bazı işletim sistemlerinde doğrudan Azure'a yedeklemek için MARS Aracısı'nı kullanabilirsiniz. İşletim sistemlerinin 64 bit olmalıdır ve en son hizmet paketleri ve güncelleştirmelerini çalıştırması olması gerekir. Aşağıdaki tabloda, bu işletim sistemleri özetlenmektedir:
 
 **İşletim sistemi** | **Dosyaların/klasörlerin** | **Sistem durumu**
 --- | --- | ---
@@ -94,12 +86,13 @@ Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Evet | E
 Windows Server 2012 (Standard, Datacenter, Foundation) | Evet | Evet
 Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Evet | Evet
 Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Evet | Hayır
-Windows Storage Server 2016/2012 R2'in / 2012 (standart, çalışma grubu | Evet | Hayır
+Windows Storage Server 2016/2012 R2'in / 2012 (standart, çalışma grubu) | Evet | Hayır
 
+Daha fazla bilgi için [desteklenen MABS ve DPM işletim sistemleri](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 
 ## <a name="backup-limits"></a>Yedekleme sınırları
 
-Azure yedekleme yedeklenebilecek dosya/klasör bir veri kaynağı boyutu sınırı yerleştirir. Tek bir birim yedeklemesi için seçilen öğelerin boyutu tabloda özetlenen boyutları aşamaz.
+Azure yedekleme yedeklenebilecek bir dosya veya klasör veri kaynağı boyutu sınırlar. Tek bir biriminden yedeklediğiniz öğeleri bu tabloda özetlenen bir boyutu sınırı:
 
 **İşletim sistemi** | **Boyut sınırı**
 --- | ---
@@ -112,48 +105,48 @@ Windows 7   | 1700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Yedekleme için desteklenen dosya türleri
 
-**Tür** | **Destekleniyor** 
+**Tür** | **Destek** 
 --- | --- 
-Şifreli   | Evet 
-Sıkıştırılmış | Evet
-Seyrek | Evet 
-Sıkıştırılmış ve aralıklı | Evet
-Sabit bağlantılar  | Desteklenmiyor<br/><br/> Atlandı
-Yeniden ayrıştırma noktası   | Desteklenmiyor<br/><br/> Atlandı
-Şifrelenmiş ve aralıklı |  Desteklenmiyor<br/><br/> Atlandı
-Sıkıştırılmış akış   | Desteklenmiyor<br/><br/> Atlandı
-Aralıklı akış   | Desteklenmiyor<br/><br/> Atlandı
-Bir sürücü (eşitlenmiş dosyaları seyrek akışlarıdır)    | Desteklenmiyor 
+Şifreli   | Destekleniyor. 
+Sıkıştırılmış | Destekleniyor.
+Seyrek | Destekleniyor.
+Sıkıştırılmış ve aralıklı | Destekleniyor.
+Sabit bağlantılar  | Desteklenmiyor. Atlandı.
+Yeniden ayrıştırma noktası   | Desteklenmiyor. Atlandı.
+Şifrelenmiş ve aralıklı |  Desteklenmiyor. Atlandı.
+Sıkıştırılmış akış   | Desteklenmiyor. Atlandı.
+Aralıklı akış   | Desteklenmiyor. Atlandı.
+OneDrive (eşitlenmiş dosyaları seyrek akışlarıdır)  | Desteklenmiyor. 
 
-## <a name="supported-drivesvolumes-for-backup"></a>Desteklenen sürücüler/birimler yedekleme
+## <a name="supported-drives-or-volumes-for-backup"></a>Desteklenen sürücüler veya yedekleme birimleri
 
-**Sürücü/birim** | **Destekleniyor** | **Ayrıntılar**
+**Sürücü/birim** | **Destek** | **Ayrıntılar**
 --- | --- | ---
-Salt okunur birimler   | Desteklenmiyor | Toplu iş için VSS yazılabilir olmalıdır.
-Çevrimdışı birimler | Desteklenmiyor |   Birimin çalışması VSS'ye yönelik olarak çevrimiçi olması gerekir.
-Ağ paylaşımı   | Desteklenmiyor |   Birim, yedekleme için sunucuda yerel olmalıdır.
-BitLocker korumalı birimler | Desteklenmiyor |   Birim önce çalışmaya yedekleme için kilidi gerekir.
-Dosya sistemi tanımlaması  | Desteklenmiyor |   Yalnızca NTFS.
-Çıkarılabilir medya | Desteklenmiyor |   Tüm yedekleme öğesi kaynaklarının sabit durumunu olması gerekir.
-Yinelenenleri kaldırılan sürücüler | Destekleniyor.<br/><br/> Azure yedekleme, yinelenenleri kaldırılmış verileri normal verilere dönüştürür. Bu verileri iyileştirir ve şifreler, depolar ve kasaya gönderir.
+Salt okunur birimler   | Desteklenmiyor | Birim kopyalama gölge hizmeti (VSS) birim yazılabilir ise çalışır.
+Çevrimdışı birimler | Desteklenmiyor |   VSS yalnızca birim çevrimiçi ise çalışır.
+Ağ paylaşımı   | Desteklenmiyor |   Birim sunucuda yerel olmalıdır.
+BitLocker korumalı birimler | Desteklenmiyor |   Yedekleme başlamadan önce birimin kilidinin açık olması gerekir.
+Dosya sistemi tanımlaması  | Desteklenmiyor |   Yalnızca NTFS desteklenmiyor.
+Çıkarılabilir medya | Desteklenmiyor |   Tüm yedekleme öğesi kaynaklarının olmalıdır bir *sabit* durumu.
+Yinelenenleri kaldırılan sürücüler | Desteklenen | Azure yedekleme, yinelenenleri kaldırılmış verileri normal verilere dönüştürür. En iyi duruma getirir, şifreler, depolar ve veriler kasaya gönderir.
 
 ## <a name="support-for-initial-offline-backup"></a>Çevrimdışı ilk yedekleme desteği
 
-Azure Backup destekler "Çevrimdışı dengeli dağıtım" diskler kullanarak Azure'a ilk yedekleme verilerini aktarmak için. İlk yedeklemeniz terabayt (TB'a) aralığında olması olasılığı varsa, bu yararlıdır. Çevrimdışı Yedekleme için desteklenir:
+Azure Backup destekler *çevrimdışı dengeli dağıtım* diskleri kullanarak ilk yedek verileri Azure'a aktarmak için. Bu destek, ilk yedekleme terabayt (TB'a) boyutu aralığında olması olasılığı varsa yararlıdır. Çevrimdışı Yedekleme için desteklenir:
 
 - MARS Aracısı çalıştıran şirket içi makineleri üzerindeki dosya ve klasörleri doğrudan yedeğini.
 - İş yükleri ve bir DPM sunucusu veya MABS dosyaları yedekleme.
-- Çevrimdışı Yedekleme sistem durumu dosyaları için kullanılamaz.
+
+Çevrimdışı Yedekleme sistem durumu dosyaları için kullanılamaz.
 
 
-## <a name="support-for-restore"></a>Geri yükleme desteği
+## <a name="support-for-data-restoration"></a>Verileri geri yükleme desteği
 
-- Yeni [anında geri yükleme](backup-instant-restore-capability.md) Azure Backup sürümü kasaya kopyalanmış önce verileri geri yüklemenize olanak sağlar.<br/><br/> Bu özelliği kullanmak için yedeklenen makine .NET Framework 4.5.2 çalıştırılması gerekir ya da daha yüksek.
-- İşletim sisteminin önceki bir sürümü çalıştıran bir hedef makine yedekleri geri yüklenemez. Örneğin, Windows 7 bilgisayarda gerçekleştirilen bir yedekleme Windows 8 veya daha sonra geri yüklenebilir. Ancak, Windows 7 bilgisayara Windows 8 bilgisayarda gerçekleştirilen bir yedekleme geri yüklenemez.
+Kullanarak [anında geri yükleme](backup-instant-restore-capability.md) Özelliği Azure Backup, kasaya kopyalamadan önce verileri geri yükleyebilirsiniz. .NET Framework 4.5.2 yedekleme makine çalıştırılması gerekir ya da daha yüksek.
+
+İşletim sisteminin önceki bir sürümünü çalıştıran bir hedef makine yedekleri geri yüklenemez. Örneğin, Windows 7 çalıştıran bir bilgisayardan gerçekleştirilen bir yedekleme Windows 8 veya daha sonra geri yüklenebilir. Ancak, Windows 7 çalıştıran bir bilgisayarda Windows 8 çalıştıran bir bilgisayardan gerçekleştirilen bir yedekleme geri yüklenemez.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Daha fazla bilgi edinin](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) MARS Aracısı ile yedekleme mimarisi hakkında.
-- [Bilgi](backup-support-matrix-mabs-dpm.md) MARS Aracısı Microsoft Azure Backup sunucusu (MABS) veya System Center DPM üzerinde çalıştırdığınızda ne desteklenir.
-
-
+- Daha fazla bilgi edinin [yedekleme MARS Aracısı kullanan mimarisi](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders).
+- Ne zaman desteklemiştir öğrenin, [MARS Aracısı MABS veya bir DPM sunucusunda çalıştırın](backup-support-matrix-mabs-dpm.md).

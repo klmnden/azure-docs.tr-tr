@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6eb0ce9098b5cc5f66035851c6837e9e46fcf2df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 69aecf3d107000408f98f8ae53968355943c2881
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414882"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440820"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows komutları - CMD ve PowerShell
 
@@ -118,7 +118,7 @@ Varsayılan olarak Windows kullanılabilen yöntemler sınırlıdır, PowerShell
 ### <a name="disable-windows-firewall"></a>Windows Güvenlik Duvarı'nı devre dışı bırak
 `netsh advfirewall set allprofiles state off`
 
-Geçici olarak Windows Güvenlik duvarı kuralı için sorun giderme sırasında bu komutu kullanabilirsiniz. Sonraki yeniden başlatmada etkin olması ya da zaman görüntüler, enaable aşağıdaki komutu kullanarak. Windows Güvenlik Duvarı hizmeti (MPSSVC) veya temel filtre altyapısı (BFE) hizmeti Windows Güvenlik duvarı kuralı şekilde durdurmayın. MPSSVC veya BFE durdurmak, tüm bağlantı engellenme neden olur.
+Geçici olarak Windows Güvenlik duvarı kuralı için sorun giderme sırasında bu komutu kullanabilirsiniz. Bu, sonraki yeniden başlatmada veya aşağıdaki komutu kullanarak etkinleştirdiğinizde etkinleştirme olacaktır. Windows Güvenlik Duvarı hizmeti (MPSSVC) veya temel filtre altyapısı (BFE) hizmeti Windows Güvenlik duvarı kuralı şekilde durdurmayın. MPSSVC veya BFE durdurmak, tüm bağlantı engellenme neden olur.
 ### <a name="enable-windows-firewall"></a>Windows Güvenlik duvarını etkinleştir
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>Kullanıcıları ve grupları yönetme

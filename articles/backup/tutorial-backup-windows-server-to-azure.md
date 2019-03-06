@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
-ms.translationtype: HT
+ms.openlocfilehash: ce18d773d55495a215b9cef9183b497c55976e15
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616198"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453765"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Windows Server’ı Azure’da Yedekleme
 
@@ -26,7 +26,7 @@ Windows Server'ınızı bozulmalara, saldırılara ve olağanüstü durumlara ka
 > [!div class="checklist"]
 > * MARS Aracısını indirip ayarlama
 > * Sunucunuzun yedeklemeleri için yedekleme zamanlarını ve bekletme zamanlamasını yapılandırma
-> * Geçici yedekleme gerçekleştirme
+> * Bir geçici yedekleme gerçekleştirme
 
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
@@ -128,7 +128,7 @@ Windows Server’da, Azure’daki yedeklemelerin ne zaman gerçekleşeceğini za
 
 11. Sihirbaz yedekleme zamanlamasını oluşturduktan sonra **Kapat**'a tıklayın.
 
-## <a name="perform-an-ad-hoc-back-up"></a>Geçici yedekleme gerçekleştirme
+## <a name="perform-an-ad-hoc-back-up"></a>Bir geçici yedekleme gerçekleştirme
 
 Yedekleme işlerinin çalıştırılması için zamanlamayı belirlediniz. Ancak henüz sunucuyu yedeklemediniz. Sunucunuz için veri dayanıklılığını sağlamak amacıyla isteğe bağlı yedekleme çalıştırmak ideal bir olağanüstü durum kurtarma uygulamasıdır.
 

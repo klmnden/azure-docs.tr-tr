@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955176"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456355"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Azure DevOps hizmetlerinde, Azure kaynak grubu dağıtım projeleri kullanarak sürekli tümleştirme
-Azure şablonu dağıtmak için çeşitli aşamalarda görevler: azure'a derleme, Test, kopyalama (aynı zamanda "Hazırlama" olarak adlandırılır) ve şablonu dağıtın. Azure DevOps hizmetler için şablonları dağıtmak için iki farklı yolu vardır. Her iki yöntem de aynı sonuçları sağlar, bu nedenle, iş akışınızı en uygun olanı seçin.
+Azure şablonu dağıtmak için çeşitli aşamalarda görevleri gerçekleştirin: Azure yapı, Test, Kopyala (aynı zamanda "Hazırlama" olarak adlandırılır) ve şablonu dağıtın. Azure DevOps hizmetler için şablonları dağıtmak için iki farklı yolu vardır. Her iki yöntem de aynı sonuçları sağlar, bu nedenle, iş akışınızı en uygun olanı seçin.
 
 1. Azure kaynak grubu dağıtım projesi (AzureResourceGroup.ps1 dağıtma) dahil edilen PowerShell komut dosyasını çalıştırır, derleme işlem hattı için tek bir adım ekleyin. Betik yapıtları kopyalar ve ardından şablon dağıtır.
 2. Birden çok Azure DevOps Hizmetleri derleme adımları, her bir aşama görevi gerçekleştiren ekleyin.
@@ -78,7 +78,7 @@ Aşağıdaki yordamları, Azure DevOps Services projenizde PowerShell Betiği ç
       
       * Abonelik Kimliği
       * Abonelik Adı
-      * Hizmet sorumlusu kimliği
+      * Hizmet Sorumlusu Kimliği
       * Hizmet sorumlusu anahtarı
       * Kiracı Kimliği
    6. İçin tercih ettiğiniz bir ad eklemek **abonelik** adı kutusuna. Bu değer daha sonra da görünür **Azure abonelik** aşağı açılan listeden Azure DevOps Hizmetleri. 
@@ -136,7 +136,7 @@ Aşağıdaki yordamları, Azure DevOps yerleşik görevleri kullanarak Hizmetler
 
 1. İki yeni derleme adımları eklemek için Azure DevOps Hizmetleri derleme işlem hattı düzenleyin. Derleme işlem hattı altında seçin **yapı tanımları** kategori seçip **Düzenle** bağlantı.
    
-   ![Derleme tanımı Düzenle][12]
+   ![Yapı tanımını Düzenle][12]
 2. Yeni derleme adımları kullanarak derleme işlem hattı ekleyin **derleme adımı Ekle...** tıklayın.
    
    ![Derleme adımı ekleme][13]

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a21e300c2540ddefb79fcaf593f752eef7e2c2e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010200"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450677"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory'de gruplar için dinamik Üyelik kuralları
 
@@ -318,7 +318,7 @@ device.objectid -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Uzantı özellikleri ve özel uzantı özellikleri
 
-Uzantı öznitelikleri ve özel extenson özellikleri dinamik Üyelik kuralları dize özellikleri olarak desteklenir. Uzantı öznitelikleri, şirket içi Windows Server AD eşitlenir ve "burada X, 1-15 eşit ExtensionAttributeX" biçiminin gerçekleştirin. Bir özellik olarak uzantısı özniteliği kullanan bir kural, bir örnek aşağıda verilmiştir:
+Uzantı öznitelikleri ve özel uzantı özellikleri, dinamik Üyelik kuralları dize özellikleri olarak desteklenir. Uzantı öznitelikleri, şirket içi Windows Server AD eşitlenir ve "burada X, 1-15 eşit ExtensionAttributeX" biçiminin gerçekleştirin. Bir özellik olarak uzantısı özniteliği kullanan bir kural, bir örnek aşağıda verilmiştir:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")

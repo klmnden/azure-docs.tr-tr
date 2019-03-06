@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0a0712e4985414263d1e90299d78d5e30fe78a3e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 54ef9ac72ffeebbf228a85768f6c2eb4b64862c9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608520"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433408"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Öğretici: HDInsight uygulama öğrenme bir Apache Spark makine oluşturun 
 
@@ -195,5 +195,5 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Spark işleri için IntelliJ IDEA kullanma hakkında bilgi edinmek üzere sonraki öğreticiye ilerleyin. 
 
 > [!div class="nextstepaction"]
-> [IntelliJ kullanarak Scala Maven uygulaması oluşturma](./apache-spark-create-standalone-application.md)
+> [Intellij kullanarak Scala Maven uygulama oluşturma](./apache-spark-create-standalone-application.md)
 

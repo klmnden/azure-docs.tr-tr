@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9122cf5cc908d578d8b781c6fdc49d7b04b0ab58
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2800385581ea3f08fc1013e980f8c133a2f7241e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990351"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443741"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation Tümleştirme Modülleri
 
@@ -227,7 +227,7 @@ Tümleştirme modülleri PowerShell modülleri olsa da devam etmenizi öneririz,
     }
     ```
 
-6. Modülün tamamı Xcopy’ye uygun bir pakette yer almalıdır. Runbook'ların yürütülmesi gerektiğinde azure Automation modülleri Automation korumalı için distributd ' dir. Modüller ister çalışıyor üzerinde konak bağımsız olarak çalışması gerekir. Zip erişebiliyor olmalısınız ve modül paket taşıyın ve sahip başka bir ana bilgisayarın PowerShell ortamına içe aktarıldığında da normal çalışmasını işlev. Gerçekleşmesi için sırayla modülün modül klasörü dışında herhangi bir dosya bağlıdır olmamalıdır. Bu klasör modülü Azure Automation'a içeri aktarıldığında ayarlananlar klasördür. Bir ürün yüklü olduğunda, bu ayarları kümesi gibi modülü de herhangi bir konağa benzersiz kayıt defteri ayarlarını bağlı olmamalıdır. Bu en iyi yönteme uyulmazsa modül Azure Automation'da kullanılamaz.  
+6. Modülün tamamı Xcopy’ye uygun bir pakette yer almalıdır. Runbook'ların yürütülmesi gerektiğinde azure Automation modülleri Automation korumalı alanlarına dağıtılır. Modüller ister çalışıyor üzerinde konak bağımsız olarak çalışması gerekir. Zip erişebiliyor olmalısınız ve modül paket taşıyın ve sahip başka bir ana bilgisayarın PowerShell ortamına içe aktarıldığında da normal çalışmasını işlev. Gerçekleşmesi için sırayla modülün modül klasörü dışında herhangi bir dosya bağlıdır olmamalıdır. Bu klasör modülü Azure Automation'a içeri aktarıldığında ayarlananlar klasördür. Bir ürün yüklü olduğunda, bu ayarları kümesi gibi modülü de herhangi bir konağa benzersiz kayıt defteri ayarlarını bağlı olmamalıdır. Bu en iyi yönteme uyulmazsa modül Azure Automation'da kullanılamaz.  
 
 7. Başvuru değilse [Az Azure Powershell modülleri](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) de başvuru olmayan, modülünüzde olun `AzureRM`. `Az` Modülü ile birlikte kullanılamaz `AzureRM` modüller. `Az` runbook'larında desteklenir, ancak varsayılan olarak içe aktarılmaz. Hakkında bilgi edinmek için `Az` modülleri ve hesaba katmanız gereken noktalar [Az Modül desteği, Azure automation'da](az-modules.md).
 

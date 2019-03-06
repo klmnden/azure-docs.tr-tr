@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 4e56d22dde5fca50d17c055be93db5b91deeb287
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0a03bfe61da6a1de073401fca9c61f3212b9d0bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819182"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440106"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight, Hadoop ile Apache Sqoop'u kullanma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -82,9 +82,9 @@ Küme ve SQL veritabanı oluşturacağınızı öğrenmek için Azure PowerShell
     - **Küme oturum açma adı ve parola**: Varsayılan oturum açma adı, admin’dir.
     - **SSH kullanıcı adı ve parola**.
     - **SQL veritabanı sunucusu oturum açma adı ve parola**.
-    - **_artifacts konumu**: Farklı bir konumda kendi backpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.
+    - **_artifacts konumu**: Farklı bir konumda kendi bacpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.
     - **_artifacts konumu Sas belirteci**: Boş bırakın.
-    - **Bacpac dosyası adı**: Kendi backpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.
+    - **Bacpac dosyası adı**: Kendi bacpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.
      
         Değişkenler bölümünde sabit kodlanmış değerler:
         

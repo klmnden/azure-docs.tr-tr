@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 66ac3cf786abeebc2579a937d8670d639c1af270
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408808"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447005"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Azure VM, Azure SQL veritabanı yönetilen örneğine bağlanmak için yapılandırın
 
@@ -84,7 +84,7 @@ Tüm gerekli araçları ile bir istemci sanal makine oluşturmak için en kolay 
    |**Parola**|Geçerli bir parola|Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.<br>Bu parolayı kullanmak istediğiniz zaman [VM'ye bağlanmak](#connect-to-virtual-machine).|
    | **Sanal makine boyutu** | Herhangi bir geçerli boyut | Bu şablon varsayılan **Standard_B2s** Bu Hızlı Başlangıç için yeterlidir. |
    | **Konum**|[resourceGroup () .location].| Bu değeri değiştirmeyin. |
-   | **Sanal ağ adı**|Yönetilen örneği oluşturulduğu sanal ağ.|
+   | **Sanal ağ adı**|Yönetilen örneğin oluşturulacağı sanal ağı.|
    | **Alt ağ adı**|Önceki yordamda oluşturduğunuz alt ağ adı| Yönetilen örnek oluşturduğunuz alt ağ seçmeyin.|
    | **yapıtları konumu** | [dağıtım.properties.templateLink.uri ()] | Bu değeri değiştirmeyin. |
    | **yapıtları konumu Sas belirteci** | Boş bırakın | Bu değeri değiştirmeyin. |

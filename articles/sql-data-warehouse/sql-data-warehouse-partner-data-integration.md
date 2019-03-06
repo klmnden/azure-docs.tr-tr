@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: c45c40f6244f76f15e98369b89d4c9a5b9e537aa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 95cabaa5fd31eadb5f75ebd3f4e0da31911dcd3f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473757"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445968"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL veri ambarı veri tümleştirme iş ortakları
 Veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin. Bu makalede, Azure SQL veri ambarı destekleyen veri tümleştirme çözümleri ile Microsoft iş ortağı şirketlerden vurgulanır.

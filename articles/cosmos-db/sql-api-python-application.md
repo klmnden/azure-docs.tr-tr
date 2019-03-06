@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: a59de5fad7f457fffcc36ed55fd5862bc9329a1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037166"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431215"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB kullanarak bir Python Flask web uygulaması derleme
 
@@ -36,7 +36,7 @@ Bu veritabanı öğreticisi şunlara değinir:
 
 Bu öğreticiyi izleyerek, bir yoklama için oy kullanmanıza olanak tanıyan basit bir oylama uygulaması oluşturacaksınız.
 
-![Bu veritabanı öğreticisi tarafından oluşturulan oylama uygulamasının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+![Bu veritabanı Öğreticisi tarafından oluşturulan oylama uygulamasının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>Veritabanı öğreticisi önkoşulları
 Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğundan emin olmanız gerekir:
@@ -52,7 +52,7 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
 > [!IMPORTANT]
 > Python 2.7'yi ilk kez yüklüyorsanız Python 2.7.13'i Özelleştirme ekranında **Python.exe'yi yola ekle** seçeneğini belirlediğinizden emin olun.
 > 
-> ![Yola python.exe'yi eklemeyi seçmeniz gereken Python 2.7.11'i Özelleştirme ekranının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-python-install.png)
+> ![Yola Python.exe'yi Ekle seçin gerek duyduğunuz senaryolara Python 2.7.11'i özelleştirme ekranının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-python-install.png)
 > 
 > 
 
@@ -75,13 +75,13 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
    
     Yeni olanlar için bilgi vermek gerekirse Python Flask, Python'da web uygulamalarını daha hızlı oluşturmanıza yardımcı olan bir web uygulaması geliştirme altyapısıdır.
    
-    ![Solda Python vurgulanmış, ortada Python Flask Web Projesi seçilmiş ve Ad kutusunda öğretici adı bulunur şekilde Visual Studio'da Yeni Proje penceresinin ekran görüntüsü](./media/sql-api-python-application/image9.png)
+    ![Orta ve adı öğreticinin ad kutusuna seçili Python Flask Web projesi sol tarafta vurgulanan Python ile Visual Studio'da yeni proje penceresinin ekran görüntüsü](./media/sql-api-python-application/image9.png)
 4. **Visual Studio için Python Araçları** penceresinde **Sanal bir ortama yükleme**'ye tıklayın. 
    
-    ![Veritabanı öğreticisinin ekran görüntüsü - Visual Studio için Python Araçları penceresi](./media/sql-api-python-application/python-install-virtual-environment.png)
+    ![Veritabanı Öğreticisi - penceresi Visual Studio için Python araçları ekran görüntüsü](./media/sql-api-python-application/python-install-virtual-environment.png)
 5. **Sanal Ortam Ekle** penceresinde, Yorumlayıcı seç kutusunda Python 2.7'yi veya Python 3.5'i seçin, diğer varsayılanları kabul edin ve **Oluştur**'u tıklatın. Böylece projeniz için gereken Python sanal ortamı kurulmuş olur.
    
-    ![Veritabanı öğreticisinin ekran görüntüsü - Visual Studio için Python Araçları penceresi](./media/sql-api-python-application/image10_A.png)
+    ![Veritabanı Öğreticisi - penceresi Visual Studio için Python araçları ekran görüntüsü](./media/sql-api-python-application/image10_A.png)
    
     Ortam başarılı bir şekilde yüklendiğinde çıktı penceresi şunu görüntüler: `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`
 
@@ -105,7 +105,7 @@ Projeniz kurulduktan sonra, Azure Cosmos DB SQL API'si için Python paketi olan 
 2. **requirements.txt** dosyasını kaydedin. 
 3. Çözüm Gezgini'nde **env**'e sağ tıklayın ve **requirements.txt'ten yükle**'ye tıklayın.
    
-    ![Listede requirements.txt'ten yükle vurgulanmış şekilde env (Python 2.7) seçildiğini gösteren ekran görüntüsü](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
+    ![Listede vurgulanmış requirements.txt yüklemesiyle seçildiği ekran görüntüsü gösteren env (Python 2.7)](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
    
     Başarılı yüklemeden sonra, çıktı penceresi aşağıdakini görüntüler:
    
@@ -350,16 +350,16 @@ def vote():
 1. **Ctrl**+**Shift**+**B** tuşlarına basarak çözümü oluşturun.
 2. Derleme başarılı olduktan sonra, **F5**'e basarak web sitesini başlatın. Ekranınızda şunu göreceksiniz:
    
-    ![Python + Azure Cosmos DB Oylama Uygulamasının bir web tarayıcısında görüntülenen ekran görüntüsü](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+    ![Python + Azure Cosmos DB oylama bir web tarayıcısında görüntülenen uygulamasının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 3. Veritabanını oluşturmak için **Oylama Veritabanını Oluştur/Temizle**'ye tıklayın.
    
-    ![Web uygulamasının Oluşturma Sayfası'nın ekran görüntüsü - geliştirme ayrıntıları](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
+    ![Ekran görüntüsü-geliştirme ayrıntıları web uygulamasının oluşturma sayfası](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
 4. Ardından **Oy Ver**'e tıklayın ve seçiminizi belirleyin.
    
-    ![Bir oylama sorusu sorulmuş web uygulamasının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-vote.png)
+    ![İle bir oylama sorusu sorulmuş web uygulamasının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-vote.png)
 5. Verdiğiniz her oy için uygun sayaç artırılır.
    
-    ![Oylamanın Sonuçları sayfasını gösteren ekran görüntüsü](./media/sql-api-python-application/cosmos-db-voting-results.png)
+    ![Sonuçları gösterilen oy sayfasının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-voting-results.png)
 6. Shift + F5'e basarak projenin hata ayıklamasını durdurun.
 
 ## <a name="step-5-deploy-the-web-application-to-azure"></a>5. Adım: Web uygulamasını azure'a dağıtma
@@ -388,13 +388,13 @@ Artık uygulamanın tamamının Azure Cosmos DB ile yerel olarak düzgün çalı
 
 5. Dosyaları kaydedin, sonra Çözüm Gezgini'nde projeye sağ tıklayın (projeyi hala yerel olarak çalıştırmadığınızdan emin olun) ve **Yayımla**'yı seçin.  
    
-     ![Yayımla seçeneği vurgulanmış şekilde Çözüm Gezgini'nde öğreticinin seçili olduğu ekran görüntüsü](./media/sql-api-python-application/image20.png)
+     ![Çözüm Gezgini'nde Yayımla seçeneğinin vurgulandığı seçili Öğreticisi ekran görüntüsü](./media/sql-api-python-application/image20.png)
 6. **Yayımla** iletişim kutusunda, **Microsoft Azure App Service**'i, **Yeni Oluştur**'u seçin ve **Yayımla**'ya tıklayın.
    
-    ![Web'i Yayımla penceresinin, Microsoft Azure App Service vurgulanmış olarak ekran görüntüsü](./media/sql-api-python-application/cosmos-db-python-publish.png)
+    ![Microsoft Azure App Service vurgulanmış Web'i Yayımla penceresinin ekran](./media/sql-api-python-application/cosmos-db-python-publish.png)
 7. **Uygulama Hizmeti Oluştur** iletişim kutusunda, Web uygulamanızın adının yanı sıra **Abonelik**, **Kaynak Grubu** ve **App Service Planı** bilgilerinizi girin ve **Oluştur**'a tıklayın.
    
-    ![Microsoft Azure Web Apps Penceresi penceresinin ekran görüntüsü](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
+    ![Microsoft Azure Web Apps penceresi penceresinin ekran görüntüsü](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
 8. Visual Studio birkaç saniye içinde dosyalarınızı sunucuya kopyalamayı bitirir ve "İç sunucu hatası oluştuğundan sayfa görüntülenemiyor." iletisini `http://<your app service>.azurewebsites.net/` sayfasında görüntüler.
 
 9. Azure portalında yeni App Service hesabınızı açın, sonra gezinti menüsünde **Geliştirme Araçları** bölümüne ilerleyin, **Uzantılar**'ı seçin ve **+ Ekle**'ye tıklayın.

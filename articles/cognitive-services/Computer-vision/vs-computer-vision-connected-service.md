@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 4911a872a4b5479abe84c2e06573256092185cf2
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669710"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450955"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Visual Studio'daki Bağlı Hizmetler özelliğini kullanarak Görüntü İşleme API'sine bağlanma
 
@@ -92,7 +92,7 @@ Bu makalede ve beraberindeki destek makalelerinde, Bilişsel Hizmetler Görünt�
       }
    ```
 
-1. Projenizdeki wwwroot klasörüne bir görüntüler klasörü ekleyin ve wwwroot klasörünüz için bir görüntü dosyası ekleyin. Örneğin, bu [Görüntü İşleme API'si sayfasındaki](https://azure.microsoft.com/services/cognitive-services/computer-vision/) görüntülerden birini kullanabilirsiniz. Görüntülerden birine sağ tıklayın, yerel sabit sürücünüze kaydedin, ardından Çözüm Gezgini’nde görüntüler klasörüne sağ tıklayıp **Ekle** > **Mevcut Öğe** seçeneklerini belirleyerek öğeyi projenize ekleyin. Projeniz Çözüm Gezgini’nde aşağıdakine benzer şekilde görünmelidir: 
+1. Projenizdeki wwwroot klasörüne bir görüntüler klasörü ekleyin ve wwwroot klasörünüz için bir görüntü dosyası ekleyin. Örneğin, bu [Görüntü İşleme API'si sayfasındaki](https://azure.microsoft.com/services/cognitive-services/computer-vision/) görüntülerden birini kullanabilirsiniz. Görüntülerden birini sağ tıklayın, Çözüm Gezgini'nde sonra yerel sabit sürücünüze kaydedin, görüntüleri klasörü sağ tıklatın ve seçin **Ekle** > **var olan öğe** projenize eklemek için. Projeniz Çözüm Gezgini’nde aşağıdakine benzer şekilde görünmelidir: 
   
    ![Çözüm Gezgini görünümü seçili bir resim dosyası ile ekran görüntüsü](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 

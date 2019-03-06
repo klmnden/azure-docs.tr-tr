@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: ff1d873b44f91f64a114a6da01091bbd3aa01663
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8131806aa741c3f2c347599f857f45ade392d90e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424821"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451646"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Öğretici: Verileri şirket içi SQL Server veritabanından Azure Blob depolamaya kopyalama
 Bu öğreticide, Azure PowerShell kullanarak verileri şirket içi SQL Server veritabanından bir Azure Blob depolama alanına kopyalayan bir veri fabrikası işlem hattı oluşturacaksınız. Verileri şirket içi ile bulut veri depoları arasında taşıyan, şirket içinde barındırılan bir tümleştirme çalışma zamanı oluşturup kullanabilirsiniz. 
@@ -112,15 +112,10 @@ Bu bölümde, Azure Blob depolama alanınızda **adftutorial** adlı bir blob ka
 ### <a name="windows-powershell"></a>Windows PowerShell
 
 #### <a name="install-azure-powershell"></a>Azure PowerShell'i yükleme
-Makinenizde önceden yüklü değilse Azure PowerShell’in en son sürümünü yükleyin. 
 
-1. [Azure SDK indirmelerine](https://azure.microsoft.com/downloads/) gidin. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. **Komut satırı araçları** altında, **PowerShell** bölümünde, **Windows yüklemesi**’ni seçin. 
-
-1. Azure PowerShell'i yüklemek için MSI dosyasını çalıştırın. 
-
-Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps). 
+Makinenizde önceden yüklü değilse Azure PowerShell’in en son sürümünü yükleyin. Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-Az-ps). 
 
 #### <a name="log-in-to-powershell"></a>PowerShell’de oturum açın
 
@@ -131,13 +126,13 @@ Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandır
 1. Aşağıdaki komutu çalıştırın ve sonra Azure portalında oturum açmak için kullandığınız Azure kullanıcı adını ve parolasını girin:
        
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```        
 
 1. Birden çok Azure aboneliğiniz varsa, birlikte çalışmak istediğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **SubscriptionId**’yi Azure aboneliğinizin kimliği ile değiştirin:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
     ```
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
@@ -151,7 +146,7 @@ Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandır
 1. Azure kaynak grubunu oluşturmak için aşağıdaki komutu çalıştırın: 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName $location
     ``` 
 
     Kaynak grubu zaten varsa, üzerine yazılmasını istemeyebilirsiniz. `$resourceGroupName` değişkenine farklı bir değer atayın ve komutu yeniden çalıştırın.
@@ -171,10 +166,10 @@ Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandır
     $location = "East US"
     ```  
 
-1. Veri fabrikasını oluşturmak için aşağıdaki `Set-AzureRmDataFactoryV2` cmdlet’ini çalıştırın: 
+1. Veri fabrikasını oluşturmak için aşağıdaki `Set-AzDataFactoryV2` cmdlet’ini çalıştırın: 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
 > [!NOTE]
@@ -201,7 +196,7 @@ Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zaman
 1. Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ``` 
     Örnek çıktı aşağıdaki gibidir:
 
@@ -217,7 +212,7 @@ Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zaman
 1. Oluşturulan tümleştirme çalışma zamanının durumunu almak için aşağıdaki komutu çalıştırın:
 
     ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
+   Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
     ```
 
     Örnek çıktı aşağıdaki gibidir:
@@ -242,7 +237,7 @@ Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zaman
 1. Şirket içinde barındırılan tümleştirme çalışma zamanını bulutta Data Factory hizmetine kaydetmek üzere *kimlik doğrulaması anahtarlarını* almak için aşağıdaki komutu çalıştırın. Sonraki adımda makinenize yüklediğiniz şirket içinde barındırılan tümleştirme çalışma zamanını kaydetmek için anahtarların birini (çift tırnak işaretlerini atarak) kopyalayın. 
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
+    Get-AzDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
     ```
     
     Örnek çıktı aşağıdaki gibidir:
@@ -345,10 +340,10 @@ Bu adımda, Azure depolama hesabınızı veri fabrikasına bağlarsınız.
 
 1. PowerShell’de *C:\ADFv2Tutorial* klasörüne geçin.
 
-1. AzureStorageLinkedService adlı bağlı hizmeti oluşturmak için aşağıdaki `Set-AzureRmDataFactoryV2LinkedService` cmdlet’ini çalıştırın: 
+1. AzureStorageLinkedService adlı bağlı hizmeti oluşturmak için aşağıdaki `Set-AzDataFactoryV2LinkedService` cmdlet’ini çalıştırın: 
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
+   Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
    ```
 
    Örnek çıktı aşağıdaki gibidir:
@@ -423,17 +418,17 @@ Bu adımda, şirket içi SQL Server örneğinizi veri fabrikasına bağlarsını
     > - Dosyayı kaydetmeden önce **\<sunucuadı>**, **\<veritabanıadı>**, **\<kullanıcıadı>** ve **\<parola>** değerleri yerine SQL Server örneğinizin değerlerini koyun.
     > - Kullanıcı hesabınızda veya sunucu adında ters eğik çizgi karakteri (\\) kullanmanız gerekirse önüne kaçış karakterini (\\) koyun. Örneğin, *etkialanim\\\\kullanicim* şeklinde kullanın. 
 
-1. Hassas verileri (kullanıcı adı, parola ve benzeri) şifrelemek için `New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential` cmdlet'ini çalıştırın.  
+1. Hassas verileri (kullanıcı adı, parola ve benzeri) şifrelemek için `New-AzDataFactoryV2LinkedServiceEncryptedCredential` cmdlet'ini çalıştırın.  
     Bu şifreleme, kimlik bilgilerinin Veri Koruma Uygulama Programlama Arabirimi (DPAPI) kullanılarak şifrelenmesini sağlar. Şifrelenmiş kimlik bilgileri, şirket içinde barındırılan tümleştirme çalışma zamanı düğümünde (yerel makine) yerel olarak kaydedilir. Çıktı yükü, şifrelenmiş kimlik bilgilerini içeren başka bir JSON dosyasına (bu örnekte *encryptedLinkedService.json*) yönlendirilebilir.
     
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 1. EncryptedSqlServerLinkedService öğesini oluşturan aşağıdaki komutu çalıştırın:
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
+   Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -475,10 +470,10 @@ Bu adımda, SQL Server veritabanı örneğindeki verileri temsil eden bir veri k
     }
     ```
 
-1. SqlServerDataset veri kümesini oluşturmak için `Set-AzureRmDataFactoryV2Dataset` cmdlet'ini çalıştırın.
+1. SqlServerDataset veri kümesini oluşturmak için `Set-AzDataFactoryV2Dataset` cmdlet'ini çalıştırın.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
     ```
 
     Örnek çıktı aşağıdaki gibidir:
@@ -517,10 +512,10 @@ Bağlı hizmet, veri fabrikasının çalışma zamanında Azure depolama hesabı
     }
     ```
 
-1. AzureBlobDataset veri kümesini oluşturmak için `Set-AzureRmDataFactoryV2Dataset` cmdlet'ini çalıştırın.
+1. AzureBlobDataset veri kümesini oluşturmak için `Set-AzDataFactoryV2Dataset` cmdlet'ini çalıştırın.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
     ```
 
     Örnek çıktı aşağıdaki gibidir:
@@ -572,10 +567,10 @@ Bu öğreticide, kopyalama etkinliği ile bir işlem hattı oluşturursunuz. Kop
     }
     ```
 
-1. SqlServerToBlobPipeline işlem hattını oluşturmak için `Set-AzureRmDataFactoryV2Pipeline` cmdlet’ini çalıştırın.
+1. SqlServerToBlobPipeline işlem hattını oluşturmak için `Set-AzDataFactoryV2Pipeline` cmdlet’ini çalıştırın.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
+    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
     ```
 
     Örnek çıktı aşağıdaki gibidir:
@@ -592,7 +587,7 @@ Bu öğreticide, kopyalama etkinliği ile bir işlem hattı oluşturursunuz. Kop
 SQLServerToBlobPipeline işlem hattı için bir işlem hattı çalıştırması başlatın ve gelecekte izlemek üzere işlem hattı çalıştırma kimliğini yakalayın.
 
 ```powershell
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
+$runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
 ```
 
 ## <a name="monitor-the-pipeline-run"></a>İşlem hattı çalıştırmasını izleme
@@ -601,7 +596,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
 
     ```powershell
     while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+        $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
         if (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
             Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"

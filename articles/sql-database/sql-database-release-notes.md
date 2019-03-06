@@ -8,18 +8,18 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/05/2019
 ms.author: carlrab
-ms.openlocfilehash: af0fd591393f9f187a75f79fea980d41085df5cb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9bd330c2be2b543bd7238dd1641df0d092a8a17d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342454"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434915"
 ---
 # <a name="sql-database-release-notes"></a>SQL veritabanı sürüm notları
 
-Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeleri ve yeni özellikleri listeler. Diğer Azure Hizmetleri için geliştirmeler için bkz. [hizmet güncelleştirmeleri](https://azure.microsoft.com/updates).
+Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeleri ve yeni özellikleri listeler. SQL veritabanı hizmet geliştirmeleri için Ayrıca bkz: [SQL veritabanı hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=sql-database). Diğer Azure Hizmetleri için geliştirmeler için bkz. [hizmet güncelleştirmeleri](https://azure.microsoft.com/updates).
 
 ## <a name="march-2019"></a>Mart 2019
 
@@ -27,15 +27,17 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 
 | Hizmet geliştirmeleri | Ayrıntılar |
 | --- | --- |
+| &nbsp; |
 
 ### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri
 
 | Belgeleri geliştirmeleri | Ayrıntılar |
 | --- | --- |
-| Tek veritabanları için eklenen günlük sınırları|Daha fazla bilgi için [tek veritabanı sanal çekirdek kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md)|
-| Elastik havuzlara ve havuza alınmış veritabanlarını eklenen günlük sınırları|Daha fazla bilgi için [elastik havuz sanal çekirdek kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md)|
-| Ek işlem günlüğü oranı idare| Eklenen yeni içerikleri [işlem günlüğü oranı idare](sql-database-resource-limits-database-server.md#transaction-log-rate-governance)|
-| Tek veritabanları ve elastik havuzlar az.sql modülü kullanmak için güncelleştirilmiş PowerShell örnekleri | Daha fazla bilgi için [tek veritabanları ve elastik havuzlar için PowerShell örnekleri](sql-database-powershell-samples.md#single-database-and-elastic-pools).
+| Tek veritabanları için eklenen günlük sınırları|Daha fazla bilgi için [tek veritabanı sanal çekirdek kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md).|
+| Elastik havuzlara ve havuza alınmış veritabanlarını eklenen günlük sınırları|Daha fazla bilgi için [elastik havuz sanal çekirdek kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md).|
+| Ek işlem günlüğü oranı idare| Eklenen yeni içerikleri [işlem günlüğü oranı idare](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|
+| Tek veritabanları ve elastik havuzlar az.sql modülü kullanmak için güncelleştirilmiş PowerShell örnekleri | Daha fazla bilgi için [tek veritabanları ve elastik havuzlar için PowerShell örnekleri](sql-database-powershell-samples.md#single-database-and-elastic-pools).|
+| &nbsp; |
 
 ## <a name="february-2019"></a>Şubat 2019
 
@@ -43,16 +45,24 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 
 | Hizmet geliştirmeleri | Ayrıntılar |
 | --- | --- |
-|Sürdürülebilir bir çevrimiçi dizin oluşturma genel kullanıma sunulmuştur| Daha fazla bilgi için [dizin oluştur](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)|
-|Yönetilen örnek geliştirilmiş rota tabloları desteği| Daha fazla bilgi için [ağ gereksinimleri](sql-database-managed-instance-connectivity-architecture.md#network-requirements)|
+|Sürdürülebilir bir çevrimiçi dizin oluşturma genel kullanıma sunulmuştur| Daha fazla bilgi için [Create Index](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql).|
+|Yönetilen örnek geliştirilmiş rota tabloları desteği| Daha fazla bilgi için [ağ gereksinimleri](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
+|Yönetilen örneğinde desteklenen veritabanını yeniden adlandırma | Daha fazla ayrıntı için [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) ve [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) söz dizimi.|
+|Stream Analytics için başvuru veri kaynağı olarak SQL veritabanı. | Daha fazla bilgi için [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).|
+|Veri geçiş Yardımcısı, yönetilen örnek için destek ekler. |Daha fazla bilgi için [DMA'da yenilikler](https://docs.microsoft.com/sql/dma/dma-whatsnew?view=sql-server-2017).|
+|SQL Server Geçiş Yardımcısı, yönetilen örnek için hedef hazır olma durumu değerlendirmesi için destek ekler. | Daha fazla bilgi için [SQL Server Geçiş Yardımcısı](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
+|Veri geçiş hizmeti Amazon RDS yönetilen örneğine geçişi destekler. | Daha fazla bilgi için [Öğreticisi: RDS SQL Server'ı Azure SQL veritabanı'na geçirme veya Azure SQL veritabanı yönetilen örneği çevrimiçi DMS kullanarak](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
+| &nbsp; |
 
 ### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri
 
 | Belgeleri geliştirmeleri | Ayrıntılar |
 | --- | --- |
-|Örnek dağıtım seçeneği açıklamalar yönetilen ekleme|Yönetilen örnek dağıtım seçenekleri tek veritabanı ve elastik havuz için Uygulanabilirlik açıklamak için birçok makale güncelleştirildi |
-|DTU tabanlı satın alma modeli güncelleştirilmiş tempdb boyutları | Daha fazla bilgi için [SQL veritabanı'nda veritabanı Tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)|
-|Güncelleştirilmiş içeri ve dışarı aktarma bacpac dosyasını yönetilen örnek desteği| Daha fazla bilgi için [BACPAC alma](sql-database-import.md) ve [BACPAC için dışarı aktarma](sql-database-export.md) |
+|Örnek dağıtım seçeneği açıklamalar yönetilen ekleme|Yönetilen örnek dağıtım seçenekleri tek veritabanı ve elastik havuz için Uygulanabilirlik açıklamak için birçok makale güncelleştirildi. |
+|DTU tabanlı satın alma modeli güncelleştirilmiş tempdb boyutları | Daha fazla bilgi için [SQL veritabanı'nda veritabanı Tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).|
+|Güncelleştirilmiş içeri ve dışarı aktarma bacpac dosyasını yönetilen örnek desteği| Daha fazla bilgi için [BACPAC alma](sql-database-import.md) ve [dışarı aktarmak için BACPAC](sql-database-export.md). |
+| &nbsp; |
+
 
 ## <a name="january-2019"></a>Ocak 2019
 
@@ -62,7 +72,7 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 | --- | --- |
 | İşlem kaynakları için ek ayrıntı düzeyi seçenekleri | Genel amaçlı ve iş açısından kritik hizmet katmanları için [tek veritabanları](sql-database-vcore-resource-limits-single-databases.md) ve [elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md) artık daha fazla ayrıntılı işlem seçeneğiniz vardır.|
 | Azure portalında yönetilen örnek için Denetim kayıtlarını görüntüleme | Görüntüleme [Denetim kayıtlarını yönetilen örnekleri için](sql-database-managed-instance-auditing.md) Azure portalı artık desteklenmektedir.|
-| Gelişmiş tehdit algılama özelliği gelişmiş veri güvenliği için yeniden adlandırıldı | Gelişmiş tehdit algılama özelliği olarak yeniden adlandırıldı [gelişmiş veri güvenliği](sql-advanced-threat-protection.md) tek veritabanları, elastik havuzlar ve yönetilen örnekleri |
+| Gelişmiş tehdit algılama özelliği gelişmiş veri güvenliği için yeniden adlandırıldı | Gelişmiş tehdit algılama özelliği olarak yeniden adlandırıldı [gelişmiş veri güvenliği](sql-advanced-threat-protection.md) tek veritabanları, elastik havuzlar ve yönetilen örnekleri. |
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri

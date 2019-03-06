@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387404"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441075"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure sanal makineleri için performans tanılamaları
 
@@ -143,10 +143,10 @@ Araç çubuğunda Ayarlar düğmesini kullanarak depolama hesabı bilgileri gör
 ### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Bu veriler Microsoft müşteri desteği ile nasıl paylaşırım? 
 Tanılama raporu Microsoft ile paylaşmak için birden çok yolu vardır.
 
-**1. seçenek:** otomatik olarak en son rapor paylaşma  
+**1. seçenek:** Otomatik olarak en son rapor paylaşma  
 Microsoft ile bir destek bileti açtığınızda, performans tanılama raporu paylaşmak önemlidir. Tanılama çalıştırırken bu bilgileri Microsoft ile paylaşmak için seçimi yaptıysanız (seçerek "**tanılama bilgileri Microsoft ile paylaşmak kabul ediyorum**" onay kutusu), Microsoft Depolama hesabınızdan rapora erişmek mümkün olacaktır SAS bağlantısı çıkış zip dosyasını çalıştırma tarihten itibaren 30 gün boyunca kullanarak hesabı. Yalnızca en son rapor, destek mühendisine kullanılabilir. 
 
-**2. seçenek:** tanılama raporu sıkıştırılmış dosya için paylaşılan erişim imzası oluşturma  
+**2. seçenek:** Tanılama raporu sıkıştırılmış dosya için paylaşılan erişim imzası oluşturma  
 Paylaşılan erişim imzaları'nı kullanarak raporları sıkıştırılmış dosyanın bir bağlantısını paylaşabilir. Bunu yapmak için şu adımları uygulayın: 
 1.  Azure portalında, tanılama verilerin depolandığı depolama hesabına gidin.
 1.  Seçin **Blobları** altında **Blob hizmeti** bölümü. 
@@ -156,7 +156,7 @@ Paylaşılan erişim imzaları'nı kullanarak raporları sıkıştırılmış do
 1.  Tıklayın **blob SAS belirteci ve URL üretmek**.
 1.  Kopyalama **Blob SAS URL'si**ve Destek mühendisiyle paylaşın. 
 
-**Seçenek 3:** depolama hesabından raporunu indirin
+**Seçenek 3:** Depolama hesabından raporunu indirin
 
 Performans tanılama raporu sıkıştırılmış dosya seçeneği 2'de 1-4 arasındaki adımları kullanarak da bulabilirsiniz. Dosyayı indirin ve ardından e-posta yoluyla paylaşma veya dosyayı karşıya yüklemek yönergeler için destek mühendisinden için seçin.  
 

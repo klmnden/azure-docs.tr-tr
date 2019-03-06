@@ -1,24 +1,26 @@
 ---
-title: Depolama hesabı anahtarı yerine SAS kullanarak iş akışını gönderme | Microsoft Genomiks
+title: Paylaşılan erişim imzaları - Microsoft Genomics kullanarak iş akışı gönderme
 titleSuffix: Azure
-description: Bu hızlı başlangıçta msgen istemcisini yüklediğiniz ve hizmette örnek verileri başarıyla çalıştırdığınız kabul edilmektedir.
+description: Bu makalede, yüklü msgen istemcisini yüklediğiniz ve hizmet aracılığıyla örnek verileri başarıyla çalıştırdığınız varsayılır.
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: db0f18f0e7028f01044cdba8a5d7b719d3fb9e23
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7c51a0934457a2fcc03f9be1535712e97ac91a1e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749033"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451391"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Depolama hesabı anahtarı yerine SAS kullanarak Microsoft Genomiks’e iş akışını gönderme 
 
-Bu hızlı başlangıçta depolama hesabı anahtarları yerine [paylaşılan erişim imzaları (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) içeren bir config.txt dosyası kullanılarak Microsoft Genomiks hizmetine iş akışı gönderme işlemi gösterilmektedir. Config.txt dosyasında görünür depolama hesabı anahtarı olmasıyla ilgili güvenlik endişeleri varsa bu özellik yararlı olabilir. Bu makalede `msgen` istemcisini yükleyip çalıştırdığınız ve Azure Depolama’yı kullanma konusunda bilgi sahibi olduğunuz kabul edilmektedir. Sağlanan örnek verileri kullanarak başarıyla bir iş akışı gönderdiyseniz bu hızlı başlangıca devam etmeye hazırsınız demektir. 
+Bu makalede içeren bir config.txt dosyası kullanılarak Microsoft Genomics hizmetine bir iş akışı gönderme adımları gösterilmektedir [paylaşılan erişim imzaları (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) depolama hesabı anahtarları yerine. Config.txt dosyasında görünür depolama hesabı anahtarı olmasıyla ilgili güvenlik endişeleri varsa bu özellik yararlı olabilir. 
+
+Bu makalede `msgen` istemcisini yükleyip çalıştırdığınız ve Azure Depolama’yı kullanma konusunda bilgi sahibi olduğunuz kabul edilmektedir. Sağlanan örnek verileri kullanarak bir iş akışı başarıyla gönderdiyseniz, bu makalede ile devam etmek hazır olursunuz. 
 
 ## <a name="what-is-a-sas"></a>SAS nedir?
 [Paylaşılan erişim imzası (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), depolama hesabınızdaki kaynaklara temsilci erişimi sağlar. Bir SAS ile hesap anahtarlarınızı paylaşmadan depolama hesabınızdaki kaynaklara erişim verebilirsiniz. Bu, uygulamalarınızda paylaşılan erişim imzaları kullanmanın anahtar noktasıdır. SAS, hesap anahtarlarınızı tehlikeye atmadan depolama kaynaklarınızı paylaşmanın güvenli bir yoludur.
@@ -54,7 +56,7 @@ Giriş dosyaları için SAS kapsamı belirli giriş dosyası (blob) olarak belir
  ![Genomiks SAS Depolama Gezgini](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomiks SAS Depolama Gezgini")
 
 
-### <a name="set-up-create-a-sas-programattically"></a>Ayarlayın: SAS oluşturma
+### <a name="set-up-create-a-sas-programmatically"></a>Ayarlayın: Program aracılığıyla SAS oluşturma
 
 Azure Depolama SDK'sı kullanarak bir SAS oluşturmak için [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) ve [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage) dahil birkaç dilde mevcut olan belgelere bakın. 
 

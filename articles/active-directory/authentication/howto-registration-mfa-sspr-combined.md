@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9623cf727998348c313b7184c29e968afd33c6cc
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: d9d7e6f7505b8af76ff6c42c040918a274d89c3c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214155"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407959"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Birleştirilmiş etkinleştir güvenlik bilgileri kayıt (Önizleme)
 
@@ -43,7 +43,7 @@ Birleşik kaydını etkinleştirmek için aşağıdaki adımları tamamlayın:
 > Telefon araması seçenekleri 2019'ın Mart başlangıç MFA ve SSPR kullanıcıları Azure AD ücretsiz/deneme kiracıları için kullanılabilir olmayacak. SMS iletileri, bu değişiklikten etkilenmez. Telefon Araması'nda kullanıcılara kullanılabilir Ücretli Azure AD kiracılarıyla devam eder. Bu değişiklik, yalnızca Azure AD ücretsiz/deneme kiracıları etkiler.
 
 > [!NOTE]
-> Bir kez birleşik kayıt kaydetmek veya telefon numarası ya da yeni deneyim aracılığıyla mobil uygulama bunları MFA ve SSPR, kullanabileceğiniz bu yöntemler MFA ve SSPR ilkelerinde etkinleştirilip etkinleştirilmediğini onaylayın kullanıcıları etkinleştirin. Bu deneyim devre dışı bırakırsanız, önceki SSPR kaydı için Git Kullanıcılar sayfasında [https:/aka.ms/ssprsetup](https:/aka.ms/ssprsetup) sayfa erişebilmeniz için önce çok faktörlü kimlik doğrulaması gerçekleştirmek için gerekli.
+> Bir kez birleşik kayıt kaydetmek veya telefon numarası ya da yeni deneyim aracılığıyla mobil uygulama bunları MFA ve SSPR, kullanabileceğiniz bu yöntemler MFA ve SSPR ilkelerinde etkinleştirilip etkinleştirilmediğini onaylayın kullanıcıları etkinleştirin. Bu deneyim devre dışı bırakırsanız, önceki SSPR kaydı için Git Kullanıcılar sayfasında `https:/aka.ms/ssprsetup` sayfa erişebilmeniz için önce çok faktörlü kimlik doğrulaması gerçekleştirmek için gerekli.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

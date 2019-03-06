@@ -3,7 +3,7 @@ title: Varolan bir yürütülebilir dosya, Azure Service Fabric'e dağıtma | Mi
 description: Bir Service Fabric kümesine dağıtılabilmesi olarak bir konuk yürütülebilir dosyası, mevcut bir uygulama paketi hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
-ms.author: mfussell
-ms.openlocfilehash: d8b78e42dc5909e6c80f100c9337880b1ad2d9e6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: aljo
+ms.openlocfilehash: 2035ee27aecdf2ec1ab8bf1166f667b5595a7cbb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168422"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439494"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paketleme ve varolan bir yürütülebilir dosya Service Fabric'e dağıtma
 Varolan bir yürütülebilir dosya olarak paketlenirken bir [Konuk yürütülebilir dosyası](service-fabric-guest-executables-introduction.md), Visual Studio Proje şablonu kullanmayı seçebilirsiniz veya [uygulama paketini el ile oluşturmak](#manually). Visual Studio kullanarak, uygulama paketi yapısı ve bildirim dosyalarını yeni bir proje şablonu tarafından sizin için oluşturulur.
@@ -73,7 +73,7 @@ El ile konuk tarafından yürütülebilir bir paketleme işlemi, aşağıdaki ge
 -->
 
 ### <a name="create-the-package-directory-structure"></a>Paket dizin yapısı oluşturma
-Dizin yapısı oluşturarak "Uygulama paketi dosya yapısı" önceki bölümde açıklandığı gibi başlatabilirsiniz
+Dizin yapısı oluşturarak açıklandığı başlatabilirsiniz [Azure Service Fabric uygulama paketini](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Uygulamanın kod ve yapılandırma dosyaları Ekle
 Dizin yapısı oluşturduktan sonra uygulamanın kod ve yapılandırma dosyalarını kodda ve yapılandırma dizinleri altında ekleyebilirsiniz. Ayrıca, ek dizinleri veya kod veya yapılandırma dizin alt dizinler de oluşturabilirsiniz.

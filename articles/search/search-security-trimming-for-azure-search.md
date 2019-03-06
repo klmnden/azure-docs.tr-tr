@@ -9,12 +9,12 @@ author: brjohnstmsft
 ms.author: brjohnst
 manager: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 326a449d3992d22a4be2d365061c99ef8b13aef9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314236"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453499"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Azure Search sonuçlarında kırpma için güvenlik filtreleri
 
@@ -111,7 +111,7 @@ Ekleme veya belgeleri güncelleştirme tüm ayrıntılar için edinebilirsiniz [
    
 ## <a name="apply-the-security-filter"></a>Güvenlik Filtresi Uygula
 
-Trim dayanan belgeler için `group_ids` erişim, bir arama sorgusuyla sorun bir `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filtre, burada 'group_id1 group_id2...' arama isteği gönderene ait olduğu grupları.
+Trim dayanan belgeler için `group_ids` erişim, bir arama sorgusuyla sorun bir `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filtre, burada 'group_id1 group_id2...' Arama isteği gönderene ait olduğu gruplarıdır.
 Bu filtre tüm belgeler için eşleşen `group_ids` alan belirli tanımlayıcılarından birini içerir.
 Kullanarak Azure Search belgeleri arama ile ilgili tam Ayrıntılar için edinebilirsiniz [arama belgeleri](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Bu örnek, bir POST isteği kullanarak belgelerde arama yapmak nasıl gösterdiğine dikkat edin.
@@ -152,7 +152,7 @@ Belgeleri almalısınız geri burada `group_ids` "group_id1" veya "group_id2" i�
 ```
 ## <a name="conclusion"></a>Sonuç
 
-Bu kullanıcı kimliği ve Azure Search göre sonuçları nasıl filtre, `search.in()` işlevi. Bu işlev, her hedef belgeyle ilişkili asıl tanımlayıcıları eşleştirilecek isteyen kullanıcı için asıl tanımlayıcıları olarak geçirmek için kullanabilirsiniz. Arama isteği işlendiğinde `search.in` işlevi filtreler arama sonuçları kullanıcının sorumluları hiçbiri olan okuma erişimi. Asıl tanımlayıcıları, güvenlik grupları, roller ya da kullanıcının kendi kimlik gibi şeyleri temsil edebilir.
+Bu kullanıcı kimliği ve Azure Search göre sonuçları nasıl filtre, `search.in()` işlevi. Bu işlev, her hedef belgeyle ilişkili asıl tanımlayıcıları eşleştirilecek isteyen kullanıcı için İlke tanımlayıcıları olarak geçirmek için kullanabilirsiniz. Arama isteği işlendiğinde `search.in` işlevi filtreler arama sonuçları kullanıcının sorumluları hiçbiri olan okuma erişimi. Asıl tanımlayıcıları, güvenlik grupları, roller ya da kullanıcının kendi kimlik gibi şeyleri temsil edebilir.
  
 ## <a name="see-also"></a>Ayrıca bkz.
 

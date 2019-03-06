@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 03/05/2019
 ms.author: jdial
-ms.openlocfilehash: a71870115c3ea5e64c8b365d6c4aa64920bc6ca3
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 0ae83e56a4ca1e05f5af8229452662f0af7751a6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675050"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433289"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
 
@@ -71,7 +71,7 @@ SKU'ların kullanıma sunulmasından önce oluşturulan tüm genel IP adresleri 
 Standart SKU genel IP adresleri:
 
 - Her zaman statik ayırma yöntemini kullanın.
-- Bir Mimarın gelen kaynaklı ve giden orginated akış boşta kalma zaman aşımı 4-30 dakika, varsayılan değer 4 dakikalık vardır.
+- 4-30 dakika, 4 dakikalık varsayılan zaman aşımı ve sabit giden kaynaklı akış 4 dakikalık boşta kalma zaman aşımı boş bir ayarlanabilir gelen kaynaklı akışı vardır.
 - Varsayılan olarak güvenlidir ve gelen trafiğe kapalıdır. İzin verilen trafiği bir [ağ güvenlik grubu](security-overview.md#network-security-groups) ile özellikle beyaz listeye almanız gerekir.
 - Ağ arabirimleri, ortak standart Load Balancer, uygulama ağ geçitleri veya VPN ağ geçitleri için atanmış. Standard Load Balancer hakkında daha fazla bilgi için bkz: [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - (Bir belirli bir kullanılabilirlik alanı'nda, Bölgesel ve kesin oluşturulabilir) bölge yedekli varsayılan ve isteğe bağlı olarak bölgesel. Kullanılabilirlik alanları hakkında daha fazla bilgi için bkz. [Kullanılabilirlik alanlarına genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Standart Yük Dengeleyici ve Kullanılabilirlik Alanları](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

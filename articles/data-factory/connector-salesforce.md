@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c4d694621e4ac5428256346e3994bc3233d399a2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015092"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441415"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri öğesinden ve salesforce'a kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-salesforce-connector.md)
 > * [Geçerli sürüm](connector-salesforce.md)
 
@@ -291,7 +291,7 @@ Salesforce veri kopyalama yapılırken, SOQL sorgu veya SQL sorgusu kullanabilir
 
 | Sözdizimi | SOQL modu | SQL modu |
 |:--- |:--- |:--- |
-| Sütun Seçimi | Ör sorgusunda kopyalanacak alanları için numaralandırılamadı gerekir `SELECT field1, filed2 FROM objectname` | `SELECT *` Sütun seçimini ek olarak desteklenir. |
+| Sütun Seçimi | Ör sorgusunda kopyalanacak alanları listelemek gerekiyor `SELECT field1, filed2 FROM objectname` | `SELECT *` Sütun seçimini ek olarak desteklenir. |
 | Tırnak işaretleri | Dosyalanmış nesne adları tırnak içine olamaz. | Alan/nesne adları, örneğin tırnak içine `SELECT "id" FROM "Account"` |
 | Tarih/Saat biçimi |  Ayrıntılara bakın [burada](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) ve sonraki bölümdeki örnekler. | Ayrıntılara bakın [burada](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) ve sonraki bölümdeki örnekler. |
 | Boole değerleri | Olarak temsil edilen `False` ve `True`, örneğin `SELECT … WHERE IsDeleted=True`. | Örneğin 0 veya 1 temsil edilen `SELECT … WHERE IsDeleted=1`. |
@@ -311,25 +311,25 @@ Salesforce veri kopyaladığınızda, aşağıdaki eşlemeler Salesforce veri t�
 
 | Salesforce veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
-| Otomatik numarası |Dize |
+| Otomatik numarası |String |
 | Onay kutusu |Boole |
-| Para birimi |Onluk |
+| Para birimi |Decimal |
 | Tarih |DateTime |
 | Tarih/Saat |DateTime |
-| Email |Dize |
-| Kimlik |Dize |
-| Arama ilişkisi |Dize |
-| Çoklu seçim yapılabilen seçim listesi |Dize |
-| Sayı |Onluk |
-| Yüzde |Onluk |
-| Telefon |Dize |
-| Seçim listesi |Dize |
-| Metin |Dize |
-| Metin alanı |Dize |
-| Metin alanı (uzun) |Dize |
-| Metin alanı (zengin) |Dize |
-| Metin (şifrelenmiş) |Dize |
-| URL'si |Dize |
+| Email |String |
+| Kimlik |String |
+| Arama ilişkisi |String |
+| Çoklu seçim yapılabilen seçim listesi |String |
+| Sayı |Decimal |
+| Yüzde |Decimal |
+| Telefon |String |
+| Seçim listesi |String |
+| Metin |String |
+| Metin alanı |String |
+| Metin alanı (uzun) |String |
+| Metin alanı (zengin) |String |
+| Metin (şifrelenmiş) |String |
+| URL'si |String |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Veri fabrikasında kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

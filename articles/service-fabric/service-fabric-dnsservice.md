@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b49df76bc5b9c4d5f469e702b65ffd5762e49a39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035942"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455845"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service fabric'te DNS hizmeti
 DNS hizmeti kümenizde DNS protokolünü kullanarak diğer hizmetleri bulmak için etkinleştirebileceğiniz bir isteğe bağlı sistem hizmetidir. 
@@ -53,7 +53,7 @@ Portalı kullanarak bir küme oluşturduğunuzda, DNS hizmeti varsayılan olarak
 Kümenizi oluşturmak için portalı kullanmıyorsanız veya mevcut bir kümeye güncelleştiriyorsanız şablonunda DNS hizmetini etkinleştirmeniz gerekir:
 
 - Yeni bir kümeye dağıtmak için kullanabilir [örnek şablonlarından](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) veya kendi Resource Manager şablonu oluşturun. 
-- Var olan bir kümeyi güncelleştirmek için küme kaynak grubu portalı tıklayıp gidebilirsiniz **Otomasyon betiği** küme ve diğer kaynakları grubu, geçerli durumunu yansıtan bir şablonu çalışmak için. Daha fazla bilgi için bkz. [şablonu kaynak grubundan dışarı aktarma](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group).
+- Var olan bir kümeyi güncelleştirmek için küme kaynak grubu portalı tıklayıp gidebilirsiniz **Otomasyon betiği** küme ve diğer kaynakları grubu, geçerli durumunu yansıtan bir şablonu çalışmak için. Daha fazla bilgi için bkz. [şablonu kaynak grubundan dışarı aktarma](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
 
 Bir şablonu oluşturduktan sonra DNS hizmeti aşağıdaki adımlarla etkinleştirebilirsiniz:
 

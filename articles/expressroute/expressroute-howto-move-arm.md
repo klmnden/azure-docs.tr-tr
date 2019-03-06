@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: ganesr;cherylmc
+ms.date: 02/25/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 984ccfa9bad99281418ba891ce188536ae13d8e5
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a561ae5d46222ed9da75d0d32948ee3f0b66658d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106775"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408420"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>PowerShell kullanılarak Resource Manager dağıtım modelinde ExpressRoute devreleri Klasikten Taşı
 
@@ -21,7 +21,9 @@ Bir ExpressRoute bağlantı hattı Klasik ve Resource Manager dağıtım modelle
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-* Azure PowerShell modüllerinin en son sürümüne sahip olduğunuzu doğrulayın (en az sürüm 1.0). Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* Hem Klasik hem de Az Azure PowerShell modüllerini yerel olarak bilgisayarınızda yüklü olduğunu doğrulayın. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
 * Geçirdiğinizden emin emin [önkoşulları](expressroute-prerequisites.md), [yönlendirme gereksinimleri](expressroute-routing.md), ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
 * Altında sağlanan bilgileri gözden [bir ExpressRoute bağlantı hattını Klasikten Resource Manager'a taşıma](expressroute-move.md). Tam olarak sınırlar ve sınırlamalar anladığınızdan emin olun.
 * Bağlantı hattı Klasik dağıtım modelinde tam olarak işlevsel olduğunu doğrulayın.
@@ -65,19 +67,19 @@ Resource Manager ortamı için oturum açın ve yeni bir kaynak grubu oluşturun
 1. Azure Resource Manager ortamınız için oturum açın.
 
   ```powershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 
 2. Uygun Azure aboneliğini seçin.
 
   ```powershell
-  Get-AzureRmSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzureRmSubscription
+  Get-AzSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzSubscription
   ```
 
 3. Bir kaynak grubu yoksa, yeni bir kaynak grubu oluşturmak için aşağıdaki kod parçacığında değiştirin.
 
   ```powershell
-  New-AzureRmResourceGroup -Name "DemoRG" -Location "West US"
+  New-AzResourceGroup -Name "DemoRG" -Location "West US"
   ```
 
 ### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>3. Adım: ExpressRoute bağlantı hattı Resource Manager dağıtım modeline taşıma
@@ -87,10 +89,10 @@ ExpressRoute bağlantı hattı Klasik dağıtım modelinden Resource Manager da�
 Bağlantı hattınız taşımak için değiştirin ve aşağıdaki kod parçacığını çalıştırın:
 
 ```powershell
-Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
+Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-Klasik modda bir bölgeye bağlı kavramı bir ExpressRoute bağlantı hattı yok. Ancak, Kaynak Yöneticisi'nde, her kaynak bir Azure bölgesine eşlenmesi gerekir. Taşıma AzureRmExpressRouteCircuit cmdlet'e belirtilen bölge teknik olarak herhangi bir bölgeyi olabilir. Kurumsal amaçlarla yakından eşleme konumunuzu temsil eden bir bölge seçin isteyebilirsiniz.
+Klasik modda bir bölgeye bağlı kavramı bir ExpressRoute bağlantı hattı yok. Ancak, Kaynak Yöneticisi'nde, her kaynak bir Azure bölgesine eşlenmesi gerekir. Taşıma AzExpressRouteCircuit cmdlet'e belirtilen bölge teknik olarak herhangi bir bölgeyi olabilir. Kurumsal amaçlarla yakından eşleme konumunuzu temsil eden bir bölge seçin isteyebilirsiniz.
 
 > [!NOTE]
 > Taşıma tamamlandıktan sonra önceki cmdlet'inde listelenen yeni adı kaynak ele almak için kullanılır. Bağlantı hattı temelde yeniden adlandırılacak.
@@ -105,7 +107,7 @@ Klasik ExpressRoute bağlantı hattı Resource Manager dağıtım modeline taş�
 1. Bağlantı hattı ayrıntılarını alın.
 
   ```powershell
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+  $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
   ```
 
 2. "Klasik işlemlere izin TRUE" olarak ayarlayın.
@@ -117,7 +119,7 @@ Klasik ExpressRoute bağlantı hattı Resource Manager dağıtım modeline taş�
 3. Bağlantı hattı güncelleştirin. Bu işlem başarıyla tamamlandıktan sonra Klasik dağıtım modelinde bağlantı hattına görüntülemeniz mümkün olacaktır.
 
   ```powershell
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
 4. ExpressRoute bağlantı hattı ayrıntılarını almak için aşağıdaki cmdlet'i çalıştırın. Listelenen hizmet anahtarı görebilmeniz gerekir.
@@ -138,7 +140,7 @@ Klasik dağıtım modeline erişimi devre dışı bırakmak için aşağıdaki c
 1. ExpressRoute bağlantı hattı ayrıntılarını alın.
 
   ```powershell
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+  $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
   ```
 
 2. "Klasik işlemlere izin FALSE" olarak ayarlayın.
@@ -150,7 +152,7 @@ Klasik dağıtım modeline erişimi devre dışı bırakmak için aşağıdaki c
 3. Bağlantı hattı güncelleştirin. Bu işlem başarıyla tamamlandıktan sonra bağlantı hattı Klasik dağıtım modelinde görüntülemek üzere mümkün olmayacaktır.
 
   ```powershell
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 55b6e6db14f3847eb659f9bee05b12585a613693
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5cb3a029795dd69c80cfa580aa1bd135c67e609e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477225"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451961"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process'in çalışması - 1 TB veri kümesinde bir Azure HDInsight Hadoop kümesi kullanarak
 
@@ -417,7 +417,7 @@ Derleme sayısı veri sayısı tabloları için klasör ham/sayı verileri kulla
 Oluşturma işlemi Azure Machine learning'de modelimiz, aşağıdaki adımları izler:
 
 1. [Verileri Hive tabloları Azure Machine Learning içine alma](#step1)
-2. [Deneme oluşturma: count tablolarla özellik kazandırın ve verileri temizleme](#step2)
+2. [Deneme oluşturma: yalnızca verileri temizledik ve bir özellik sayısı tablolarla yapın](#step2)
 3. [Oluşturma, eğitme ve modeli Puanlama](#step3)
 4. [Modeli değerlendirme](#step4)
 5. [Modeli web hizmeti olarak yayımlayın.](#step5)
@@ -451,7 +451,7 @@ Bir kez **verileri içeri aktarma** tamamlandığında (gördüğünüz yeşil o
 
 Veri kümeleri kullanılarak kaydedilmiş veri kümesini kullanmak için bir machine learning denemesine seçmek için bulun **arama** aşağıdaki şekilde gösterilen kutusu. Basit tür adı verdiğiniz veri kümesini kısmen erişim ve veri kümesi ana paneline sürükleyin. Ana panelinden bırakmadan kullanılmak üzere machine learning model seçilir.
 
-![Ana bölmesi üzerine Drage veri kümesi](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Veri kümesi ana paneline sürükleyin](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Bu, eğitin ve test veri kümeleri için yapın. Ayrıca, bu amaç için verdiğiniz tablo adları ve veritabanı adını kullandığınızdan emin olun. Şekilde, kullanılan değerler yalnızca gösterim yaratılır * için:

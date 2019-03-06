@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: eba4c70a25cba2e456ed418a98b938f2029c4c1f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301681"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438372"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Veri depolama ve Azure zaman serisi öngörüleri önizlemesinde giriş
 
@@ -116,7 +116,7 @@ Sabit bir özelliği olduğundan, uygun bir zaman serisi kimliği seçmeniz öne
 
 Time Series Insights Kullandıkça Öde ortam oluşturduğunuzda, iki kaynak oluşturma: zaman serisi görüşleri ortamına ve verilerin depolanacağı bir Azure depolama genel amaçlı V1 hesabı. Birlikte çalışabilirlik, fiyat ve Performans nedeniyle varsayılan kaynak Azure depolama genel amaçlı V1 yapmak seçtik. 
 
-Time Series Insights, Azure depolama hesabınızdaki her bir olay en fazla iki kopyasını yayımlar. Diğer hizmetleri kullanarak bunu performantly sorgulayabilmesi ilk kopyanın her zaman korunur. Bu altyapılar temel dosya adı filtreleme desteklediğinden kolayca Spark, Hadoop ve diğer tanıdık araçlar arasında zaman serisi kimlikleri ham Parquet dosyalarını kullanabilirsiniz. Blobları yıl ve aya göre gruplandırma, belirli bir zaman aralığı için bir özel iş içindeki blobları listeleme için kullanışlı bir yoldur. 
+Time Series Insights, Azure depolama hesabınızdaki her bir olay en fazla iki kopyasını yayımlar. Başlangıç kopyası, her zaman hızla diğer hizmetleri kullanarak sorgulayabilmesi korunur. Bu altyapılar temel dosya adı filtreleme desteklediğinden kolayca Spark, Hadoop ve diğer tanıdık araçlar arasında zaman serisi kimlikleri ham Parquet dosyalarını kullanabilirsiniz. Blobları yıl ve aya göre gruplandırma, belirli bir zaman aralığı için bir özel iş içindeki blobları listeleme için kullanışlı bir yoldur. 
 
 Ayrıca, zaman serisi görüşleri, zaman serisi öngörüleri API'leri için en iyi duruma getirme Parquet dosyalarını yeniden bölümlendirir. En son repartitioned dosya da kaydedilir.
 

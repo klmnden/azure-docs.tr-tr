@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 2e6540dd88c2ae3f841aa4cb0d7529b29e28ef14
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 808a423ae6657e560f500611c21bc84d47086b6e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311282"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454485"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Öğretici: Azure SignalR hizmeti kimlik doğrulaması
 
@@ -378,7 +378,7 @@ Bu bölümde, hub sınıfına `Authorize` özniteliğini ekleyerek ve hub yönte
 
 ## <a name="deploy-the-app-to-azure"></a>Uygulamayı Azure’da dağıtma
 
-Bu bölümde, Azure komut satırı arabirimi (CLI) Azure Cloud Shell'den bir yeni wev uygulaması oluşturmak için kullanacağınız [Azure App Service](https://docs.microsoft.com/azure/app-service/) ASP.NET uygulamanızı azure'da barındırmak için. Web uygulaması, yerel Git dağıtımını kullanacak şekilde yapılandırılacak. Web uygulaması ayrıca SignalR bağlantı dizenizle, GitHub OAuth uygulaması parolalarıyla ve dağıtım kullanıcısıyla da yapılandırılacak.
+Bu bölümde, Azure komut satırı arabirimi (CLI) Azure Cloud Shell'den yeni bir web uygulaması oluşturmak için kullanacağınız [Azure App Service](https://docs.microsoft.com/azure/app-service/) ASP.NET uygulamanızı azure'da barındırmak için. Web uygulaması, yerel Git dağıtımını kullanacak şekilde yapılandırılacak. Web uygulaması ayrıca SignalR bağlantı dizenizle, GitHub OAuth uygulaması parolalarıyla ve dağıtım kullanıcısıyla da yapılandırılacak.
 
 Bu bölümdeki adımlarda Azure CLI için *signalr* uzantısı kullanılır. Aşağıdaki komutu yürüterek Azure CLI için *signalr* uzantısını yükleyin:
 

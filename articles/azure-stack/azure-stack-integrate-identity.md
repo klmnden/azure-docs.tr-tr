@@ -6,29 +6,19 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 01/23/19
-ms.openlocfilehash: 86a7f98f8232d4fb3e915efee6d9b53f1fae6e7e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 65e5a678b4619897930873e77208005e14c054d2
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737714"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410290"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack veri merkezi tümleştirmesi - kimlik
-Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. AD FS dağıtımı da bağlantı kesik moddayken Azure Stack dağıtımı olarak adlandırılır.
-
-Aşağıdaki tabloda, iki kimlik seçenekleri arasındaki farklar gösterilmektedir:
-
-||İnternet'ten bağlantısı kesildi|İnternet'e bağlı|
-|---------|---------|---------|
-|Faturalandırma|Kapasite olmalıdır<br> Yalnızca Kurumsal Anlaşma (EA)|Kapasite veya,-kullandıkça<br>Kurumsal Anlaşma veya Bulut çözümü sağlayıcısı (CSP)|
-|Kimlik|AD FS olmalıdır|Azure AD veya AD FS|
-|Market |Desteklenen<br>KLG lisanslama|Desteklenen<br>KLG lisanslama|
-|Kayıt|Gerekli, çıkarılabilir medya gerektirir<br> ve ayrı bağlı bir cihaz.|Otomatik|
-|Düzeltme eki ve güncelleştirme|Gerekli, çıkarılabilir medya gerektirir<br> ve ayrı bağlı bir cihaz.|Güncelleştirme paketini doğrudan indirilebilir<br> Internet'ten Azure yığını.|
+Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. Azure seçebileceğiniz bağlantılı bir senaryoda, AD veya AD FS. Bağlantısı kesilmiş bir senaryo için yalnızca AD FS desteklenir.
 
 > [!IMPORTANT]
 > Azure Stack çözümün tamamını yeniden dağıtmaya gerek kalmadan kimlik sağlayıcısı geçiş yapamazsınız.
@@ -43,7 +33,7 @@ Kimlik doğrulaması, kimlik, bir parçasıdır. Rol tabanlı erişim denetimi (
 
 Var olan AD FS Azure yığını (Kaynak STS) AD FS talep gönderen hesabı güvenlik belirteci hizmeti (STS) ' dir. Otomasyon Azure Stack'te için var olan AD FS Talep sağlayıcı güveni olan meta veri uç noktası oluşturur.
 
-Var olan AD FS bağlı olan taraf güveni yapılandırılması gerekir. Bu adım tarafından Otomasyon yapılmaz ve operatör tarafından yapılandırılması gerekir. Azure Stack meta veri uç noktası AzureStackStampDeploymentInfo.JSON dosyasında ya da ayrıcalıklı uç noktası aracılığıyla komutunu çalıştırarak belgelenen `Get-AzureStackInfo`.
+Var olan AD FS bağlı olan taraf güveni yapılandırılması gerekir. Bu adım tarafından Otomasyon yapılmaz ve operatör tarafından yapılandırılması gerekir. AD FS için Azure Stack VIP uç nokta deseni kullanılarak oluşturulabilir. `https://adfs.<Region>.<ExternalFQDN>/`.
 
 Bağlı olan taraf güveni yapılandırması Microsoft tarafından sağlanan talep dönüştürme kuralları yapılandırmanızı gerektirir.
 

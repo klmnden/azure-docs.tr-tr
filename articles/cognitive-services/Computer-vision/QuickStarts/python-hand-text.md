@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: defe3bb47ad6e6d6f8a7095f7020ad11266cfa23
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 78dfb6a78bff8aaf4fe3cc316a6614c3c4af65d2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649110"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433544"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme Python ve REST API kullanarak resimlerdeki el yazısı metinleri ayıklamak
 
-Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak bir görüntüden el yazısı metni ayıklayacaksınız. [Metin Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) ve [Metin Tanıma İşlemi Sonucunu Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) yöntemleri ile, bir görüntüdeki el yazısı metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
+Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak bir görüntüden el yazısı metni ayıklayacaksınız. İle [Batch okuma](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API ve [okuma işleminin sonucunu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, bir resimdeki resimlerdeki el yazısı algılayabilir, ardından ayıklama tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde.
 
 > [!IMPORTANT]
-> [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) yönteminden farklı olarak [Metin Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) yöntemi zaman uyumsuz olarak çalıştırılır. Bu yöntem, başarılı bir yanıt gövdesinde herhangi bir bilgi döndürmez. Bunun yerine, Metin Tanıma yöntemi, `Operation-Content` yanıt üst bilgisi alanının değerindeki bir URI’yi döndürür. Daha sonra hem durumu denetlemek hem de Metin Tanıma yöntem çağrısının sonuçlarını döndürmek için [Metin Tanıma İşlemi Sonucunu Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) yöntemini temsil eden bu URI’yi çağırırsınız.
+> Farklı [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) yöntemi [Batch okuma](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) yöntemi zaman uyumsuz olarak çalışır. Bu yöntem, başarılı bir yanıt gövdesinde herhangi bir bilgi döndürmez. Bunun yerine, Batch Read yöntemi değerinde bir URI döndürür `Operation-Content` yanıt üstbilgi alanı. Ardından temsil eder Bu URI çağırabilirsiniz [okuma işleminin sonucunu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) hem durumunu denetlemek ve Batch okuma yöntem çağrısının sonuçları döndürmek için API.
 
 [MyBinder](https://mybinder.org) üzerinde bir Jupyter not defteri kullanarak bu hızlı başlangıcı adım adım görüntülenecek şekilde çalıştırabilirsiniz. Bağlayıcıyı başlatmak için aşağıdaki düğmeyi seçin:
 
@@ -72,7 +72,7 @@ assert subscription_key
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
-text_recognition_url = vision_base_url + "recognizeText"
+text_recognition_url = vision_base_url + "read/core/asyncBatchAnalyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" + \

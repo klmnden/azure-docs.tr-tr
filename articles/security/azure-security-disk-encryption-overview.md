@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c07fbccdcf77e68f497fe940fa730f294b5c34a1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 67f1488af330ac666aa3f9fe83e5b5ee42e6df2f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727872"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410052"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Iaas VM'ler için Azure Disk şifrelemesi
 
@@ -72,7 +72,7 @@ Microsoft Azure'da etkin çözüm Iaas Vm'leri için aşağıdaki senaryoları d
    > [!NOTE]
    > Bazı Linux dağıtımlarında için işletim sistemi Sürücü Şifrelemesi desteklenmez. Daha fazla bilgi için [Azure Disk şifrelemesi hakkında SSS](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) makalesi.
    
-* Windows depolama alanları ile yapılandırılmış bir Windows VM üzerinde şifrelemeyi etkinleştirir.
+* Windows Server 2016'dan itibaren Windows depolama alanları ile yapılandırılmış VM üzerinde şifrelemeyi etkinleştirir.
 * Bir mevcut şifrelenmiş Premium ve Premium Storage VM'si için şifreleme ayarlarını güncelleştirin.
 * Yedekleme ve anahtar şifreleme anahtarı (KEK) hem de KEK olmayan senaryolar için şifrelenmiş vm'leri geri yükleme.
 * Tüm Azure genel ve Azure kamu bölgeleri desteklenir.

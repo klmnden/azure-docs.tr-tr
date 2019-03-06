@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05e245bb55747b9415c16386cff48e5ac758f529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fd57b753a4e59f2fb9590f081345d7af0de9124d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177895"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451478"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure portalını kullanarak cihazları yönetme
 
@@ -152,7 +152,7 @@ Bir cihazı devre dışı bırakmak / etkinleştirmek için iki seçeneğiniz va
 **Notlar:**
 
 - Bir cihazı devre dışı bırakmak / etkinleştirmek için Azure AD'de genel yönetici olmanız gerekir. 
-- Bir cihazı devre dışı bırakma başarıyla cihaz CA tarafından korunan, Azure AD kaynaklarına erişmesini veya WH4B kimlik bilgilerinizi kullanarak cihaz engelleme ağa Azure AD ile kimlik doğrulaması, bir cihaz engeller. 
+- Bir cihazı devre dışı bırakma başarıyla böylece cihaz CA tarafından korunan, Azure AD kaynaklarına erişmesini veya WH4B kimlik bilgilerinizi kullanarak cihaz önleme, Azure AD ile kimlik doğrulaması, bir cihaz engeller. 
 
 
 

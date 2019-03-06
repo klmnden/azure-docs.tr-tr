@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: f81a781bf3d1232c0af519b81f38c1d27fa6b2df
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ed149398a1244ad0cb09c3e0fe128973c6caa00d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818400"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408012"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Öğretici: Yüksek oranda kullanılabilir SQL veritabanı teklifi
 
@@ -44,7 +44,7 @@ Bu öğreticide adımları uygulamaya başlamadan önce emin olun [SQL Server Ka
 > Aşağıdakilerin tümü, kullanılacak Azure Stack Hızlı Başlangıç şablonu için gereklidir.
 
 - [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) Market görüntüsü.
-- SQL Server 2016 SP1 veya SP2 (Enterprise, Standard veya Geliştirici) Windows Server 2016 server görüntü üzerinde. Bu öğreticide [Windows Server 2016 üzerinde SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.sqlserver2016sp2enterprisewindowsserver2016) Market görüntüsü.
+- SQL Server 2016 SP1 veya SP2 (Enterprise, Standard veya Geliştirici) Windows Server 2016 server görüntü üzerinde. Bu öğreticide [Windows Server 2016 üzerinde SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) Market görüntüsü.
 - [SQL Server Iaas uzantısı](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) 1.2.30 sürümü veya üzeri. SQL Iaas uzantısı Market SQL Server öğeleri tüm Windows sürümleri için gerekli olan gerekli bileşenleri yükler. Bu SQL sanal makinelerde yapılandırılacak SQL özgü ayarları sağlar. Yerel Market'te uzantı yüklü değilse SQL sağlama başarısız olur.
 - [Windows için özel betik uzantısı](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) 1.9.1 sürümü veya üzeri. Özel betik uzantısı, dağıtım sonrası VM özelleştirme görevlerini otomatik başlatmak için kullanılan bir araçtır.
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) 2.76.0.0 sürümü veya üzeri. DSC, dağıtma ve yazılım hizmetleri için yapılandırma verilerini yönetme ve bu hizmetlerin çalıştırıldığı ortam yönetimi etkinleştiren bir Windows PowerShell içinde bir yönetim platformudur.

@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: e8d91c3149c078e25154217ce9341216dc8acc03
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57457838"
+---
 | Kaynak | Hedef |
 |----------|---------------|
 | Tek bir blob kapsayıcısı en büyük boyutu | En fazla depolama hesabı kapasitesi aynı |

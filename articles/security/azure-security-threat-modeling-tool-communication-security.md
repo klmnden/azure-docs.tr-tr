@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: d451b53868dcd3253aba2a1c3118ddcc140445c3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3f4e87e5602b3c77178ab5bc842705cfedf64af2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883003"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448382"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Güvenlik çerçevesi: İletişim güvenliği | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -67,7 +67,7 @@ ms.locfileid: "56883003"
 | **Bileşen**               | Azure Data Factory | 
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikler**              | Bağlı hizmeti - Azure ve şirket içi türleri |
+| **Öznitelikler**              | Bağlantılı hizmet türleri - Azure ve şirket içi |
 | **Başvuruları**              |[Şirket içi ve Azure Data Factory arasında veri taşıma](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [veri yönetimi ağ geçidi](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **Adımları** | <p>Veri Yönetimi ağ geçidi (DMG) aracı, corpnet veya bir güvenlik duvarıyla korunan veri kaynaklarına bağlanmak için gereklidir.</p><ol><li>Makineyi kilitleme DMG aracı yalıtır ve zarar ya da veri kaynak makinede Gözetimi yapıyor programların engeller. (Örn.) en son güncelleştirmeler yüklü olmalıdır, etkinleştirme en düşük gerekli bağlantı noktaları, sağlama, denetlenen hesapları denetimi etkinse, disk şifreleme etkin vs.)</li><li>Veri ağ geçidi anahtarı sık aralıklarla veya her DMG hizmet hesabı parolası yeniler döndürülmesi gerekir</li><li>Bağlantı hizmeti aracılığıyla veri transits şifrelenmelidir</li></ol> |
 

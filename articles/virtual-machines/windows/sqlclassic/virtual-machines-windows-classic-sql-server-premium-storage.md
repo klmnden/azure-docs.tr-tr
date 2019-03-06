@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b9a668a71b0fb7b2bb57f759cc54a8d1930a0f03
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 8686e2c518bb2dc778c120350657aa54c856aec6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329073"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440327"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Sanal Makineler’de SQL Server ile Azure Premium Depolama kullanma
 
@@ -140,7 +140,7 @@ Her disk için aşağıdaki adımları kullanın:
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-2. LUN ve Diskname unutmayın.
+2. LUN ve DiskName unutmayın.
 
     ![DisknameAndLUN][2]
 3. Uzak Masaüstü VM'yi başlatın. Ardından **Bilgisayar Yönetimi** | **cihaz Yöneticisi** | **Disk sürücüleri**. Her 'Microsoft sanal disklerin' özelliklerine bakmak
@@ -261,7 +261,7 @@ $ipaddr = "192.168.0.8"
 #Remember to change to DS series VM
 $newInstanceSize = "Standard_DS1"
 
-#create new Avaiability Set
+#create new Availability Set
 $availabilitySet = "cloudmigAVAMS"
 
 #Machine User Credentials
@@ -380,7 +380,7 @@ $destcloudsvc = "danregsvcamsxio2"
 #Use to DS Series VM
 $newInstanceSize = "Standard_DS1"
 
-#create new Avaiability Set
+#create new Availability Set
 $availabilitySet = "cloudmigAVAMS3"
 
 #Machine User Credentials
@@ -926,7 +926,7 @@ $ipaddr = "192.168.0.5"
 $newInstanceSize = "Standard_DS13"
 $subnet = "SQL"
 
-#Create new Avaiability Set
+#Create new Availability Set
 $availabilitySet = "cloudmigAVAMS"
 
 #build machine config into object
@@ -1125,7 +1125,7 @@ ForEach ($disk in $diskobjects)
 
 #Check for copy progress
 
-#check induvidual blob status
+#check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
 ```
 
@@ -1152,7 +1152,7 @@ Tüm bu başarılı kaydedilen kadar bekleyin.
 Tek tek bloblar için daha fazla bilgi için:
 
 ```powershell
-#Check induvidual blob status
+#Check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 ```
 
@@ -1176,7 +1176,7 @@ Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageacco
 $ipaddr = "192.168.0.4"
 $newInstanceSize = "Standard_DS13"
 
-#Join to existing Avaiability Set
+#Join to existing Availability Set
 
 #Build machine config into object
 $vmConfig = New-AzureVMConfig -Name $vmNameToMigrate -InstanceSize $newInstanceSize -DiskName $xioDiskName -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
@@ -1223,7 +1223,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #### <a name="step-23-test-failover"></a>23. adım: Yük devretme testi
 
-Always On şirket içi düğümle eşitlemek geçirilen düğümü için bekleyin. Zaman uyumlu çoğaltma moduna ve onu eşitlenene kadar bekleyin. Ardından AFP olduğu bir ilk düğüm yük devretme şirket içinden geçirilmiş. Çalıştıktan sonra son taşınan düğümü için AFP değiştirin.
+Always On şirket içi düğümle eşitlemek geçirilen düğümü için bekleyin. Zaman uyumlu çoğaltma moduna ve onu eşitlenene kadar bekleyin. Ardından, AFP olduğu bir şirket içi yük ilk düğümü geçişi. Çalıştıktan sonra son taşınan düğümü için AFP değiştirin.
 
 Tüm düğümler arasında yük devretme testi ve yük devretme iş olarak emin olmak için chaos testleri beklenen olsa ve zamanında manor çalıştırmak gerekir.
 

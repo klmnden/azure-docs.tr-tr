@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 1/29/2019
+ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 811d75ec2246199662a25afd6b96b23035444211
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207505"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436043"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM veya fiziksel makinenin azure'a yük devri sırasında karşılaşılan sorunları giderme
 
@@ -110,7 +110,50 @@ Varsa **Connect** devredilen VM'nin azure'da düğmesine (gri değil) kullanıla
 
 Bir Windows VM yük devretme sonrasında, kurtarılan bir VM üzerinde bir beklenmeyen şekilde kapanması iletisi alırsanız, önyükleme yaparken, bir VM kapatma durumuna, yük devretme için kullanılan kurtarma noktasında yakalanamadı gösterir. VM tümüyle kapatılmış değil, bir noktaya kurtarma kullandığınızda ortaya çıkar.
 
-Bu, normalde endişeye neden değildir ve planlanmamış yük devretmeler için genellikle yok sayılabilir. Planlı bir yük devretme durumunda makine düzgün bir şekilde yük devretme öncesinde kapatıldığında emin olun ve çoğaltma verileri Azure'a gönderilecek şirket bekleyen yeterli zaman sağlayın. Ardından **son** seçeneğini [yük devretme ekran](site-recovery-failover.md#run-a-failover) böylece sonra VM yük devretmesi için kullanılan bir kurtarma noktasına azure'da bekleyen tüm veriler işlenir.
+Bu, normalde endişeye neden değildir ve planlanmamış yük devretmeler için genellikle yok sayılabilir. Yük devretme planlanmış makine düzgün bir şekilde yük devretme öncesinde kapatıldığında emin olun ve çoğaltma verileri Azure'a gönderilecek şirket bekleyen yeterli zaman sağlamalısınız. Ardından **son** seçeneğini [yük devretme ekran](site-recovery-failover.md#run-a-failover) böylece sonra VM yük devretmesi için kullanılan bir kurtarma noktasına azure'da bekleyen tüm veriler işlenir.
+
+## <a name="unable-to-select-the-datastore"></a>Veri deposu seçmek oluşturulamıyor
+
+Bu sorun, veri deposu Azure portalında bir yük devretmeyle sanal makineyi yeniden korumak çalışırken görmek kaldıramadığınızda gösterilir. Bunun nedeni, asıl hedef, Azure Site Recovery hizmetine eklenen vCenters altında bir sanal makine olarak tanınmıyor.
+
+Bir sanal makine yeniden korunuyor hakkında daha fazla bilgi için bkz. [yeniden koruma ve bir şirket içi siteye geri makineleri, azure'a yük devredildikten sonra başarısız](vmware-azure-reprotect.md).
+
+Bu sorunu çözmek için:
+
+Ana el ile oluşturmanız, kaynak makinenin yöneten vcenter hedef. Veri deposu sonraki vCenter bulma ve yenileme fabric işlemlerinden sonra kullanılabilir.
+
+> [!Note]
+> 
+> Bulma ve yenileme fabric işlemlerinin tamamlanması 30 dakika sürebilir. 
+
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Bir SSL hatası 35 CS ile Linux ana hedef kaydı başarısız 
+
+Yapılandırma sunucusu ile Azure Site Recovery ana hedef kaydını ana hedefte etkinleştiriliyor kimliği doğrulanmış Proxy nedeniyle başarısız olur. 
+ 
+Bu hata, yükleme günlüğünde aşağıdaki dizeleri ile belirtilir: 
+
+RegisterHostStaticInfo karşılaşılan özel durum config/talwrapper.cpp(107) [post] CurlWrapper Post işlemi başarısız oldu: sunucu: 10.38.229.221, bağlantı noktası: 443, phpUrl: request_handler.php güvenli: true, ignoreCurlPartialError: yanlış hata: [curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] başarısız istek göndermek: (35) - SSL bağlantı hatası. 
+ 
+Bu sorunu çözmek için:
+ 
+1. Yapılandırma sunucusundaki sanal makine bir komut istemi açın ve aşağıdaki komutları kullanarak proxy ayarlarını doğrulayın:
+
+    cat /etc/environment Yankı $http_proxy $erişmek echo 
+
+2. Önceki komutların çıktısı http_proxy veya erişmek ayarları tanımlanır gösteriyorsa, yapılandırma sunucusu ile ana hedef iletişim engelini kaldırmak için aşağıdaki yöntemlerden birini kullanın:
+   
+   - İndirme [PsExec aracı](https://aka.ms/PsExec).
+   - Sistem kullanıcı bağlamı erişmek ve proxy adresi yapılandırılıp yapılandırılmadığını belirlemek için Aracı'nı kullanın. 
+   - Proxy yapılandırılmışsa, IE açın PsExec Aracı'nı kullanarak bir sistem kullanıcı bağlamında.
+  
+     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
+
+   - Ana hedef sunucusunun yapılandırma sunucusu ile iletişim kurabildiğinden emin olun için:
+  
+     - Internet Explorer'ın ana hedef sunucu IP adresi proxy üzerinden atlamak için proxy ayarlarını değiştirin.   
+     Veya
+     - Ana hedef sunucusundaki proxy devre dışı bırakın. 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Sorun giderme [Windows VM ile RDP bağlantısı](../virtual-machines/windows/troubleshoot-rdp-connection.md)

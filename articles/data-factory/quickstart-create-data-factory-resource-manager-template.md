@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: douglasl
-ms.openlocfilehash: c3a9864a901d44d0c84c6946c55e5dc2c700cbac
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 7d02dedc6979f1b9b78ef1ec3f74728c67574f56
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447608"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437063"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Öğretici: Azure Resource Manager şablonu kullanarak bir Azure veri fabrikası oluşturma
 
@@ -34,7 +34,9 @@ Bu hızlı başlangıçta, Azure Resource Manager şablonu kullanarak bir Azure 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-[Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-Az-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin.
 
 ## <a name="resource-manager-templates"></a>Resource Manager şablonları
 
@@ -328,7 +330,7 @@ Azure Resource Manager şablonuna yönelik parametreleri içeren **ADFTutorialAR
 PowerShell’de, bu hızlı başlangıcın önceki bölümlerinde oluşturduğunuz Resource Manager şablonunu kullanarak Data Factory varlıklarını dağıtmak için aşağıdaki komutu çalıştırın.
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
 Aşağıdaki örneğe benzer bir çıktı görürsünüz:
@@ -368,9 +370,9 @@ DeploymentDebugLogLevel :
 - Kopyalama etkinliği içeren işlem hattı
 - İşlem hattını tetikleyen tetikleyici
 
-Dağıtılan tetikleyici durdurulmuş durumdadır. Tetikleyici başlatmanın yollarından biri **Start-AzureRmDataFactoryV2Trigger** PowerShell cmdlet’ini kullanmaktır. Aşağıdaki yordamda ayrıntılı adımlar verilmektedir:
+Dağıtılan tetikleyici durdurulmuş durumdadır. Tetikleyici başlatmanın yollarından biri kullanılacak **başlangıç AzDataFactoryV2Trigger** PowerShell cmdlet'i. Aşağıdaki yordamda ayrıntılı adımlar verilmektedir:
 
-1. PowerShell penceresinde kaynak grubunun adını tutacak bir değişken oluşturun. Aşağıdaki komutu PowerShell penceresine kopyalayıp ENTER tuşuna basın. New-AzureRmResourceGroupDeployment komutu için farklı bir kaynak grubu adı belirttiyseniz değeri burada güncelleştirin.
+1. PowerShell penceresinde kaynak grubunun adını tutacak bir değişken oluşturun. Aşağıdaki komutu PowerShell penceresine kopyalayıp ENTER tuşuna basın. Bir yeni AzResourceGroupDeployment komutu için farklı bir kaynak grubu adı belirttiyseniz değeri burada güncelleştirin.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -388,7 +390,7 @@ Dağıtılan tetikleyici durdurulmuş durumdadır. Tetikleyici başlatmanın yol
 4. Veri fabrikanızın ve tetikleyicinin adını belirttikten sonra aşağıdaki PowerShell komutunu çalıştırarak **tetikleyicinin durumunu** alın:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
     Örnek çıktı aşağıdaki gibidir:
@@ -405,7 +407,7 @@ Dağıtılan tetikleyici durdurulmuş durumdadır. Tetikleyici başlatmanın yol
 5. **Tetikleyiciyi başlatın**. Tetikleyici, şablonda tanımlanan işlem hattını belirtilen saatte çalıştırır. Diğer bir deyişle, bu komutu öğleden sonra 2:25’te yürüttüyseniz, tetikleyici işlem hattını ilk kez öğleden sonra 3’te çalıştırır. Ardından, saatlik belirttiğiniz bitiş zamanı tetikleyicisinin kadar işlem hattını çalışır.
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Örnek çıktı aşağıdaki gibidir:
@@ -416,10 +418,10 @@ Dağıtılan tetikleyici durdurulmuş durumdadır. Tetikleyici başlatmanın yol
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Get-AzureRmDataFactoryV2Trigger komutunu tekrar çalıştırarak tetikleyicinin başlatıldığını onaylayın.
+6. Get-AzDataFactoryV2Trigger komutunu tekrar çalıştırarak tetikleyicinin başlatıldığını onaylayın.
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Örnek çıktı aşağıdaki gibidir:
@@ -466,7 +468,7 @@ Dağıtılan tetikleyici durdurulmuş durumdadır. Tetikleyici başlatmanın yol
 8. Başarılı/başarısız çalıştırma gördüğünüzde tetikleyiciyi durdurun. Tetikleyici, işlem hattını saatte bir kez çalıştırır. İşlem hattı her çalıştırma için aynı dosyayı girdi klasöründen çıktı klasörüne kopyalar. Tetikleyiciyi durdurmak için PowerShell penceresinde aşağıdaki komutu çalıştırın.
     
     ```powershell
-    Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
@@ -604,7 +606,7 @@ Verileri bir Azure blob veri kümesinden başka bir Azure blob veri kümesine ko
 
 #### <a name="trigger"></a>Tetikleyici
 
-İşlem hattını saatte bir kez çalıştıran bir tetikleyici tanımlayın. Dağıtılan tetikleyici durdurulmuş durumdadır. **Start-AzureRmDataFactoryV2Trigger** cmdlet’ini kullanarak tetikleyiciyi başlatın. Tetikleyiciler hakkında daha fazla bilgi için [İşlem hattı yürütme ve tetikleyicileri](concepts-pipeline-execution-triggers.md#triggers) makalesine bakın.
+İşlem hattını saatte bir kez çalıştıran bir tetikleyici tanımlayın. Dağıtılan tetikleyici durdurulmuş durumdadır. Kullanarak tetikleyiciyi başlatın **başlangıç AzDataFactoryV2Trigger** cmdlet'i. Tetikleyiciler hakkında daha fazla bilgi için [İşlem hattı yürütme ve tetikleyicileri](concepts-pipeline-execution-triggers.md#triggers) makalesine bakın.
 
 ```json
 {
@@ -647,11 +649,11 @@ Bu öğreticide, Data Factory varlıkları tanımlamaya yönelik bir şablon ve 
 Örnek:
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
 
 Birinci komut geliştirme ortamına, ikinci komut test ortamına ve üçüncü komut üretim ortamına yönelik parametre dosyasını kullanır.

@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 95103ec7438a01e73617587bf919404e2bdcc686
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8e7e72236abdaeb77a6bfe3dd85c9ab0c8fbe40e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567205"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442708"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı ile koşullu erişim (MFA)  
 
@@ -42,7 +42,7 @@ Aşağıdaki adımlarda, SQL veritabanı, bir koşullu erişim ilkesini zorlamak
 
 4.  Seçin **bulut uygulamaları**, tıklayın **uygulamaları Seç**. Tüm uygulamalar için koşullu erişim kullanılabilir görürsünüz. Seçin **Azure SQL veritabanı**, alt tıklatın **seçin**ve ardından **Bitti**.  
   ![SQL veritabanı seçin](./media/sql-database-conditional-access/select-sql-database.png)  
-  Aradığınız bulamıyorsanız **Azure SQL veritabanı** aşağıdaki üçüncü ekran görüntüsünde listelenen, aşağıdaki adımları tamamlayın:   
+  Aradığınız bulamıyorsanız **Azure SQL veritabanı** üçüncü aşağıdaki ekran görüntüsünde listelenen, aşağıdaki adımları tamamlayın:   
   - Azure SQL DB/DW örneğinizin SSMS ile bir AAD yönetici hesabı kullanarak oturum açın.  
   - Yürütme `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
   - AAD için oturum açın ve Azure SQL veritabanı ve veri ambarı, AAD uygulamalarda listelendiğini doğrulayın.  

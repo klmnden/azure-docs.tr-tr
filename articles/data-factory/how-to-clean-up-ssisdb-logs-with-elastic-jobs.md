@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 507aa1485cb039db2c26d0e513af58d67bb9fa58
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 1afc40bd601c06def57ae59797d31a5edf4095bd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381262"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57430926"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Azure elastik veritabanı işleri ile SSISDB günlükleri Temizle
 
@@ -30,6 +30,8 @@ Daha fazla bilgi için bkz. [grupları veritabanları elastik veritabanı işler
 Aşağıdaki bölümlerde nasıl tetikleyeceğinizi saklı yordamı `[internal].[cleanup_server_retention_window_exclusive]`, yöneticiniz tarafından ayarlanan bekletme penceresi dışında SSISDB günlüklerini kaldırır.
 
 ## <a name="clean-up-logs-with-power-shell"></a>Power Shell ile günlükleri Temizle
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 Aşağıdaki örnek PowerShell betikleri, yeni bir esnek SSISDB günlük temizleme için saklı yordam tetiklemek için iş oluşturun. Daha fazla bilgi için bkz. [PowerShell kullanarak bir elastik İş Aracısı oluşturma](../sql-database/elastic-jobs-powershell.md).
 

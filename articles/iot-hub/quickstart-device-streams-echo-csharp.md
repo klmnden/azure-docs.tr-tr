@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 7b3a8ac0500652b8c4250b4bc3b4f5514b62c4aa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 45f0b7deb0e14a398c4f1220e66239c3727e46e1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816952"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444235"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Hızlı Başlangıç: Cihaz uygulamaları kullanıcılara C# aracılığıyla IOT Hub cihaz akışları (Önizleme)
 
@@ -140,7 +140,7 @@ dotnet run "<DeviceConnectionString>"
 dotnet run <DeviceConnectionString>
 ```
 
-Son adımın sonunda, hizmet tarafı program cihazınıza ve kurulan sonra bir akışı başlatacak bir dize arabelleğine akış üzerinden hizmete gönderin. Bu örnekte, hizmet tarafı yalnızca konsola yansıtır geri aynı verileri iki uygulama arasındaki başarılı çift yönlü iletişim gösteren bir cihaz için program. Aşağıdaki şekle bakın.
+Son adımın sonunda, hizmet tarafı program cihazınıza ve kurulan sonra bir akışı başlatacak bir dize arabelleğine akış üzerinden hizmete gönderin. Bu örnekte, hizmet tarafı programı yalnızca geri başarılı çift yönlü iletişim iki uygulama arasındaki gösteren bir cihaza aynı verileri görüntülemektedir. Aşağıdaki şekle bakın.
 
 Konsol çıktısı cihaz tarafında: ![alternatif metin](./media/quickstart-device-streams-echo-csharp/device-console-output.png "konsol çıktısı cihaz tarafında")
 

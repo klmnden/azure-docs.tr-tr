@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 70f8533843668a86607e31a551e6ebf9abeab6c4
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62c9a8e6375f6ac7db86ae81cdd4e5c9eb445770
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016639"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432830"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Bir işlem hattını bir zamanlamaya göre çalışan bir Tetikleyici oluşturma
 Bu makalede, zamanlama tetikleyicisi ve oluşturmak için başlatın ve zamanlama tetikleyicisi izlemek için gereken adımlar hakkında bilgi sağlar. Diğer tetikleyici türleri için bkz: [işlem hattı yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
@@ -66,6 +66,9 @@ Oluşturabileceğiniz bir **zamanlama tetikleyicisi** (saatlik, günlük, vb.) d
     ![Tetikleme çalıştırmalarını izleme](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bu bölümde oluşturmak, başlatmak ve zamanlama tetikleyicisi izlemek için Azure PowerShell kullanmayı gösterir. Örnek nasıl çalıştığını görmek için önce geçtikleri [hızlı başlangıç: Azure PowerShell kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-powershell.md). Ardından, oluşturan ve başlatan her 15 dakikada bir çalışan bir zamanlama tetikleyicisi main yöntemi için aşağıdaki kodu ekleyin. Tetikleyici adlı bir işlem hattı çalıştırmasıyla ilişkili **Adfv2QuickStartPipeline** , bu hızlı başlangıçta bir parçası olarak oluşturun.
 
 1. Adlı bir JSON dosyası oluşturun **MyTrigger.json** C:\ADFv2QuickStartPSH\ klasöründe aşağıdaki içeriğe sahip:
@@ -108,34 +111,34 @@ Bu bölümde oluşturmak, başlatmak ve zamanlama tetikleyicisi izlemek için Az
     - Tetikleyici ilişkili olduğu **Adfv2QuickStartPipeline** işlem hattı. Birden fazla işlem hattını bir tetikleyici ile ilişkilendirmek için daha fazla Ekle **pipelineReference** bölümler.
     - Bu hızlı başlangıçta işlem hattı iki alan **parametreleri** değerleri: **inputPath** ve **outputPath**. Bu nedenle, bu parametrelerin değerleri tetikleyiciden geçirin.
 
-2. Bir tetikleyici kullanarak oluşturma **Set-AzureRmDataFactoryV2Trigger** cmdlet:
+2. Bir tetikleyici kullanarak oluşturma **kümesi AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Tetikleyici durumunu olduğundan emin olun **durduruldu** kullanarak **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+3. Tetikleyici durumunu olduğundan emin olun **durduruldu** kullanarak **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Kullanarak tetikleyiciyi başlatın **Start-AzureRmDataFactoryV2Trigger** cmdlet:
+4. Kullanarak tetikleyiciyi başlatın **başlangıç AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Tetikleyici durumunu olduğundan emin olun **başlatıldı** kullanarak **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+5. Tetikleyici durumunu olduğundan emin olun **başlatıldı** kullanarak **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Tetikleyici çalıştırmaları Azure PowerShell kullanarak get **Get-AzureRmDataFactoryV2TriggerRun** cmdlet'i. Tetikleyici çalıştırmaları hakkında bilgi almak için düzenli aralıklarla aşağıdaki komutu yürütün. Güncelleştirme **TriggerRunStartedAfter** ve **TriggerRunStartedBefore** değerleri, tetikleyici tanımında eşleştirmek için değerler:
+6.  Tetikleyici çalıştırmaları Azure PowerShell kullanarak get **Get-AzDataFactoryV2TriggerRun** cmdlet'i. Tetikleyici çalıştırmaları hakkında bilgi almak için düzenli aralıklarla aşağıdaki komutu yürütün. Güncelleştirme **TriggerRunStartedAfter** ve **TriggerRunStartedBefore** değerleri, tetikleyici tanımında eşleştirmek için değerler:
 
     ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
+    Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
     Tetikleyici izlemek için çalışır ve işlem hattı çalıştırmalarını Azure Portalı'nda, bkz: [işlem hattı çalıştırmalarını izleme](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
@@ -322,12 +325,12 @@ Aşağıdaki tabloda bir tetikleyicinin yinelenmesi ve zamanlanmasıyla ilgili a
 
 ### <a name="schema-defaults-limits-and-examples"></a>Şema varsayılanları, sınırlar ve örnekler
 
-| JSON özelliği | Tür | Gereklidir | Varsayılan değer | Geçerli değerler | Örnek |
+| JSON özelliği | Type | Gerekli | Varsayılan değer | Geçerli değerler | Örnek |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | Dize | Evet | None | ISO-8601 Tarih-Saatleri | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | String | Evet | None | ISO-8601 Tarih-Saatleri | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Nesne | Evet | None | Yinelenme nesnesi | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Sayı | Hayır | 1 | 1-1.000 | `"interval":10` |
-| **endTime** | Dize | Evet | None | Gelecekteki bir zamanı temsil eden Tarih-Saat değeri. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | String | Evet | None | Gelecekteki bir zamanı temsil eden Tarih-Saat değeri. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Nesne | Hayır | None | Zamanlama nesnesi | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime özelliği

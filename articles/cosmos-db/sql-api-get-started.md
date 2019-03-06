@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4b04a1a5805ff11ad51cec53cdcccf2ea34f1c65
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043456"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443258"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: SQL API'yi kullanmaya başlama Öğreticisi
 
@@ -69,7 +69,7 @@ Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zate
 5. **NuGet** sekmesinde **Gözat**'a tıklayın ve arama kutusuna **azure documentdb** yazın.
 6. Sonuçlarda **Microsoft.Azure.DocumentDB**'yi bulun ve **Yükle**'ye tıklayın.
    Azure Cosmos DB SQL API'si İstemci Kitaplığının paket kimliği [Microsoft Azure Cosmos DB İstemci Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)’dır.
-   ![Azure Cosmos DB İstemci SDK'sını bulmak için NuGet Menüsünün ekran görüntüsü](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   ![Azure Cosmos DB istemci SDK'sını bulmak için NuGet menüsünün ekran görüntüsü](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Çözümdeki değişiklikleri gözden geçirme hakkında iletiler alırsanız **Tamam**'a tıklayın. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
 
@@ -108,7 +108,7 @@ Azure portalında Azure Cosmos DB hesabınıza gidin ve ardından **Anahtarlar**
 
 Portaldaki URI’yi kopyalayın ve program.cs dosyasındaki `<your endpoint URL>` içine yapıştırın. Ardından portaldan BİRİNCİL ANAHTARI kopyalayın ve `<your primary key>` içine yapıştırın.
 
-![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan Azure portalının ekran görüntüsü. Azure Cosmos DB hesabı sayfasında ANAHTARLAR düğmesi vurgulanmış, ETKİN hub'ı vurgulanmış ve Anahtarlar sayfasında URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir Azure Cosmos DB hesabını gösterir][keys]
+![Ekran görüntüsü oluşturmak için NoSQL Öğreticisi tarafından kullanılan Azure portalının bir C# konsol uygulaması. Azure Cosmos DB hesabı sayfasında ANAHTARLAR düğmesi vurgulanmış, ETKİN hub'ı vurgulanmış ve Anahtarlar sayfasında URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir Azure Cosmos DB hesabını gösterir][keys]
 
 Ardından **DocumentClient**'ın yeni bir örneğini oluşturarak uygulamayı başlatacağız.
 

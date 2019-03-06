@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: aeffe172fd422f18e2828c5274e9a2ed13cc546a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6612d801804cdd1e092b50977230f24b378e64ba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103369"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407145"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) çıkış trafiği için bir statik genel IP adresi kullanın
 
@@ -24,7 +24,7 @@ Bu makalede oluşturma ve çıkış trafiği bir AKS kümesindeki ile kullanmak 
 
 Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
 
-Ayrıca Azure CLI sürüm 2.0.46 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
+Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="egress-traffic-overview"></a>Çıkış trafiği genel bakış
 
@@ -36,7 +36,7 @@ Bir kez türünde bir Kubernetes hizmet `LoadBalancer` oluşturulur, aracı dü�
 
 AKS ile kullanım için bir statik genel IP adresi oluşturduğunuzda, IP adresi kaynağı oluşturulmalıdır **düğüm** kaynak grubu. Kaynak grubu adını alın [az aks show] [ az-aks-show] komut ve ekleme `--query nodeResourceGroup` sorgu parametresi. Aşağıdaki örnek, düğüm kaynak grubu için AKS kümesinin adını alır. *myAKSCluster* kaynak grubu adında *myResourceGroup*:
 
-```azurecli
+```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
@@ -44,7 +44,7 @@ MC_myResourceGroup_myAKSCluster_eastus
 
 Şimdi bir statik genel IP adresiyle oluşturmak [az ağ genel IP oluşturma] [ az-network-public-ip-create] komutu. Düğüm kaynak grubu adı, önceki komutta alınan ve ardından bir adı IP adresi kaynağı, gibi belirtmek *myAKSPublicIP*:
 
-```azurecli
+```azurecli-interactive
 az network public-ip create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --name myAKSPublicIP \
@@ -67,7 +67,7 @@ Aşağıdaki sıkıştırılmış örneğe çıktıda gösterildiği gibi IP adr
 
 Genel IP adresini kullanarak daha sonra alabilirsiniz [az ağ genel IP listesi] [ az-network-public-ip-list] komutu. Düğüm kaynak grubunun adını belirtin ve ardından sorgu *IPADDRESS* aşağıdaki örnekte gösterildiği gibi:
 
-```azurecli
+```azurecli-interactive
 $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
 
 40.121.183.52
@@ -104,7 +104,7 @@ Statik genel IP adresi kullanılır, DNS Arama hizmeti gibi kullanabileceğinizi
 Başlatma ve ekleme için temel bir *Debian* pod:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian
+kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
 ```
 
 Kapsayıcı içindeki bir web sitesinden erişmek için `apt-get` yüklemek için `curl` kapsayıcıya alın.
@@ -118,7 +118,7 @@ Artık erişmek için curl kullanın *checkip.dyndns.org* site. Aşağıdaki ör
 ```console
 $ curl -s checkip.dyndns.org
 
-<html><head><title>Current IP Check</title></head><body>Current IP Address: 23.101.128.81</body></html>
+<html><head><title>Current IP Check</title></head><body>Current IP Address: 40.121.183.52</body></html>
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

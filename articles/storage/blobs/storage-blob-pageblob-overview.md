@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a61e78ff54cdc2a3db6c166686c2c51a19856a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b03da04c97475dcb9ce15f2ed69d7ca333d6f431
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252320"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456219"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure sayfa blobları genel bakış
 
@@ -29,7 +29,7 @@ Azure sayfa blobları anahtar özellikleri, REST arabirimi, temel alınan depola
 
 Azure Site Recovery, Azure Backup yanı sıra çok sayıda üçüncü taraf geliştiriciler gibi birinci taraf Microsoft hizmetlerine, sayfa blob'ın REST arabirimini kullanarak sektör lideri yeniliklerden uyguladınız. Azure üzerinde uygulanan benzersiz senaryolardan bazıları şunlardır: 
 * Uygulama yönelik artımlı anlık görüntü Yönetimi: Uygulamalar sayfası blob anlık görüntüleri ve REST API'lerinin veri maliyetli çoğaltma olmaksızın uygulama kontrol noktalarını kaydetmek için yararlanabilirsiniz. Azure depolama, tüm blob kopyalama gerektirmeyen sayfa blobları için yerel anlık görüntüleri destekler. Bu genel bir anlık görüntü, API erişme ve anlık görüntü arasındaki farkları kopyalamayı etkinleştirin.
-* Dinamik uygulama ve verileri şirket içinden buluta geçişi: Şirket içi verileri kopyalayın ve şirket içi sanal makine çalışmaya devam ederken, doğrudan bir Azure sayfa blobuna yazmak için REST API'lerini kullanın. Hedef zachytila výjimku sonra hızlı bir şekilde bu verileri kullanarak Azure VM yük devretme gerçekleştirebilirsiniz. Bu şekilde, Vm'lerinizin geçişini yapabilirsiniz ve VM ve yük devretme için gerekli kapalı kalma süresi kullanmaya devam ederken veri geçişi, arka planda gerçekleşir. bu yana en düşük kapalı kalma süresi ile buluta şirket içinden sanal diskleri (dakika) kısa olacaktır.
+* Uygulama ve şirket içi verileri buluta dinamik geçişini: Şirket içi veri kopyalama ve doğrudan şirket içi sanal makine çalışmaya devam ederken bir Azure sayfa blobu yazma için REST API'lerini kullanın. Hedef zachytila výjimku sonra hızlı bir şekilde bu verileri kullanarak Azure VM yük devretme gerçekleştirebilirsiniz. Bu şekilde, Vm'lerinizin geçişini yapabilirsiniz ve şirket içi VM ve yük devretme için gerekli kapalı kalma süresi kullanmaya devam ederken veri geçişi, arka planda gerçekleşir. bu yana en düşük kapalı kalma süresi ile buluta sanal diskleri (dakika) kısa olacaktır.
 * [SAS tabanlı](../common/storage-dotnet-shared-access-signature-part-1.md) paylaşılan erişim, birden çok okuyucu ve eşzamanlılık denetimi desteğiyle tek yazıcı gibi senaryolara olanak sağlar.
 
 ## <a name="page-blob-features"></a>Sayfa blobu özellikleri

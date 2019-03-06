@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: d2c21e82447c4be8b7e0cfaa023f87547277433a
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 541d431c9387d512374047c4cc004e1a237e1ef1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195209"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406533"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Hızlı Başlangıç: Linux üzerinde App Service'te bir Java uygulaması oluşturma
 
@@ -108,7 +108,6 @@ Dağıtım tamamlandıktan sonra, web tarayıcınızda aşağıdaki URL’yi kul
 Bu hızlı başlangıçta, yapılandırılmış bir Java uygulaması oluşturmak için Maven kullanılan [Azure Web Apps için Maven Plugin](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), Linux üzerinde App Service'e paketlenmiş arşiv Java web uygulaması dağıtılıp. Aşağıdaki öğreticiler ve daha fazla bilgi Linux üzerinde App Service'te Java uygulamalarını barındırmak için nasıl yapılır makaleleri bakın.
 
 - [Öğretici: Bir Java dağıtma PostgreSQL ile Kurumsal uygulama](tutorial-java-enterprise-postgresql-app.md)
-- [Tomcat veri kaynağını yapılandırma](app-service-linux-java.md#connecting-to-data-sources)
+- [Tomcat veri kaynağını yapılandırma](app-service-linux-java.md#tomcat)
 - [Jenkins ile CI/CD](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [Uygulama performans izleme araçlarını ayarlama](how-to-java-apm-monitoring.md)
-

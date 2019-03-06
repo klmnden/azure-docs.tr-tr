@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 4b51809585d391cb815c0f61c2ba462809445867
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: dd80095f50aa7bff488ac24e498afc0b41958dc0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009809"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403456"
 ---
 # <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Nesnelerin interneti (IOT) teknolojilerini ve çözümlerini: PaaS ve SaaS
 
@@ -90,7 +90,7 @@ Platform hizmetlerinden oluşan en kapsamlı IoT portföyüyle, Azure platformun
 
 ### <a name="device-support"></a>Cihaz desteği
 
-[Azure IoT Başlangıç Setlerinden](https://catalog.azureiotsolutions.com/kits) yararlanarak veya [cihaz kataloğundaki](http://catalog.azureiotazureiotsolutionssuite.com/) IoT için Sertifikalı yüzlerce cihaz arasından seçim yaparak IoT projenize güvenle başlayın. Tüm cihazlar platformdan bağımsız olarak çalışır ve cihazların IoT Hub’a sorunsuz bir şekilde bağlanması için test edilir.
+[Azure IoT Başlangıç Setlerinden](https://catalog.azureiotsolutions.com/kits) yararlanarak veya [cihaz kataloğundaki](https://catalog.azureiotsolutions.com/) IoT için Sertifikalı yüzlerce cihaz arasından seçim yaparak IoT projenize güvenle başlayın. Tüm cihazlar platformdan bağımsız olarak çalışır ve cihazların IoT Hub’a sorunsuz bir şekilde bağlanması için test edilir.
 Açık kaynak [cihaz SDK’larını](/azure/iot-hub/iot-hub-devguide-sdks) kullanarak tüm cihazlarınızı Azure IoT’ye bağlayın. SDK’lar Linux, Windows ve gerçek zamanlı işletim sistemleri gibi birden çok işletim sisteminin yanı sıra [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) ve [Python](https://github.com/Azure/azure-iot-sdk-python) gibi birden çok programlama dilini destekler.
 
 ### <a name="iot"></a>IoT 

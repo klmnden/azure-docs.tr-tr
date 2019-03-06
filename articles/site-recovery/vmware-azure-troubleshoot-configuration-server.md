@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a81bcf26234f3b7840a75e7134596cb777071e8f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245737"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432800"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Yapılandırma sunucusu sorunlarını giderme
 
@@ -82,7 +82,7 @@ Site Recovery kimlik doğrulaması için gereken sertifika oluşturulamıyor. Ku
 
 ## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Sunucu standart Windows lisans sunucusu standart değerlendirme etkinleştirme hatası
 
-1. OVF ile Configuration server dağıtımının bir parçası olarak, 180 gün boyunca geçerli olduğu bir değerlendirme lisans kullanılır. Bu lisans bu süresi önce etkinleştirmeniz gerekir. Aksi takdirde, bu yapılandırma sunucusunun sık kapatma neden ve bu nedenle çoğaltma etkinliklere hinderance neden.
+1. OVF ile Configuration server dağıtımının bir parçası olarak, 180 gün boyunca geçerli olduğu bir deneme lisansı kullanılır. Bu lisans bu süresi önce etkinleştirmeniz gerekir. Aksi takdirde, bu yapılandırma sunucusunun sık kapatma neden ve bu nedenle çoğaltma etkinliklere hinderance neden.
 2. Windows Lisansı Etkinleştirme bulamıyorsanız, ulaşın [Windows Destek ekibine](https://aka.ms/Windows_Support) sorunu çözmek için.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Kaynak makinenin yapılandırma sunucusuna kaydedin

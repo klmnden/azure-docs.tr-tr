@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: b88d850b708a10d0e0fdff2f54b68cb9b39988f5
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057733"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437114"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Azure özel betik uzantısı sürüm 1 ile Linux sanal makineleri kullanın.
 
@@ -121,15 +121,15 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | tarih |
-| Yayımcı | Microsoft.OSTCExtensions | dize |
-| type | CustomScriptForLinux | dize |
+| apiVersion | 2015-06-15 | date |
+| Yayımcı | Microsoft.OSTCExtensions | string |
+| type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1,5 | int |
 | fileUris (örn.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (örn.) | Python MyPythonScript.py \<param1 my\> | dize |
+| commandToExecute (örn.) | Python MyPythonScript.py \<param1 my\> | string |
 | enableInternalDNSCheck | true | boole |
-| storageAccountName (örn.) | examplestorageacct | dize |
-| storageAccountKey (örn.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | dize |
+| storageAccountName (örn.) | examplestorageacct | string |
+| storageAccountKey (örn.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Özellik değeri ayrıntıları
 
@@ -305,7 +305,7 @@ Sonraki adım bir onay günlük dosyasına gitmek için bu biçimi şu şekilded
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-İnduvidual yürütme için göz önünde bulundurmanız gerekenler, bunun aşağıdaki gibi görünür:
+Tek yürütme için göz önünde bulundurmanız gerekenler, bunun aşağıdaki gibi görünür:
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

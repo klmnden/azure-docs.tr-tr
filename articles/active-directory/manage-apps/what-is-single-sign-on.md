@@ -12,12 +12,12 @@ ms.date: 02/21/2019
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93d5a08d08a67a14d2e78f414fc40e7391653951
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 186bc220778ed669672bfbc689dad6471195f4ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593701"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448569"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 Kullanıcılar uygulamalara, Azure Active Directory'de (Azure AD) oturum çoklu oturum açma (SSO) güvenlik ve kolaylık ekler. Bu makalede tek oturum açma yöntemleri açıklar ve uygulamalarınızı yapılandırırken en uygun SSO yöntemi seçmenize yardımcı olur.
@@ -153,11 +153,11 @@ Bir kullanıcı IWA kullanan şirket içi uygulamaya eriştiğinde, bu diyagramd
 
 ![Microsoft AAD kimlik doğrulaması akışı diyagramı](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. Kullanıcı, uygulama proxy'si aracılığıyla şirket içi uygulamaya erişmek için URL'yi girer.
+1. Kullanıcı, uygulama proxy'si aracılığıyla şirket içi uygulama erişimi için URL'yi girer.
 2. Uygulama Ara sunucusu için Azure AD kimlik doğrulama hizmetleri preauthenticate için istek yönlendirir. Bu noktada, Azure AD, tüm geçerli kimlik doğrulama ve yetkilendirme ilkeleri, çok faktörlü kimlik doğrulaması gibi uygulanır. Kullanıcı doğrulanmış olması durumunda, Azure AD belirteç oluşturulur ve kullanıcıya gönderir.
 3. Kullanıcı belirteci uygulama ara sunucusuna iletir.
 4. Uygulama proxy'si, belirteci doğrular ve belirteçten kullanıcı asıl adı (UPN) alır. Bunu daha sonra istek, UPN ve hizmet asıl adı (SPN) bağlayıcı dually kimliği doğrulanmış ve güvenli bir kanal üzerinden gönderir.
-5. Bağlayıcı, şirket içi ile Kerberos Kısıtlı temsilci (KCD) anlaşma kullanır. AD, uygulama için bir Kerberos belirteci almak için kullanıcının kimliğine bürünme.
+5. Bağlayıcı, şirket içi AD, uygulama için bir Kerberos belirteci almak için kullanıcının kimliğine bürünmek ile Kerberos Kısıtlı temsilci (KCD) anlaşma kullanır.
 6. Active Directory Uygulama bağlayıcısı için Kerberos belirteci gönderir.
 7. Bağlayıcı AD'den alınan Kerberos belirteci kullanarak uygulama sunucusu, özgün istek gönderir.
 8. Uygulama için uygulama proxy'si hizmeti ardından döndürülen bağlayıcı yanıta gönderir ve son kullanıcı.

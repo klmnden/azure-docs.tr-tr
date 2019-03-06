@@ -5,18 +5,20 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: dcae78e507597ae2b7f79cc1d6cbb326ee535696
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d9c607114d6c6c56c25303a88dcc11f4ab804eb4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076602"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404357"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>ExpressRoute için sanal ağ geçitleri hakkında
 Bir sanal ağ geçidi Azure sanal ağları arasında ağ trafiği göndermek için kullanılır ve şirket içi konumlar. Bir sanal ağ geçidi trafiği ExpressRoute veya VPN trafiği için kullanabilirsiniz. Bu makalede, ExpressRoute sanal ağ geçitleri üzerinde odaklanır ve tahmini performans SKU ve ağ geçidi türleri, SKU'ları hakkında bilgiler içerir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="gateway-types"></a>Ağ geçidi türleri
 
@@ -31,7 +33,7 @@ Bir sanal ağın her ağ geçidi türü için yalnızca bir sanal ağ geçidi ol
 ## <a name="gwsku"></a>Ağ Geçidi SKU'ları
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Çoğu durumda, daha güçlü bir ağ geçidi SKU'sunu ağ geçidinize yükseltmek istiyorsanız, 'Yeniden boyutlandırma-AzureRmVirtualNetworkGateway' PowerShell cmdlet'ini kullanabilirsiniz. Bu, standart ve yüksek performanslı SKU'lar yükseltmeleri için çalışır. Ancak, UltraPerformance SKU'su için yükseltmek için ağ geçidini yeniden oluşturmanız gerekecektir. Bir ağ geçidi yeniden kapalı kalma süresi artmasına neden olur.
+Çoğu durumda, daha güçlü bir ağ geçidi SKU'sunu ağ geçidinize yükseltmek istiyorsanız, 'Yeniden boyutlandırma AzVirtualNetworkGateway' PowerShell cmdlet'ini kullanabilirsiniz. Bu, standart ve yüksek performanslı SKU'lar yükseltmeleri için çalışır. Ancak, UltraPerformance SKU'su için yükseltmek için ağ geçidini yeniden oluşturmanız gerekecektir. Bir ağ geçidi yeniden kapalı kalma süresi artmasına neden olur.
 
 ### <a name="aggthroughput"></a>Ağ geçidi SKU'suna göre tahmini performans
 Aşağıdaki tabloda, ağ geçidi türleri ve tahmini performanslarını gösterir. Bu tablo hem Resource Manager, hem de klasik dağıtım modellerine uygulanır.
@@ -62,7 +64,7 @@ Ek teknik kaynaklar ve sanal ağ geçidi yapılandırması için REST API'ler ve
 
 | **Klasik** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network#networking) |
+| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>Sonraki adımlar

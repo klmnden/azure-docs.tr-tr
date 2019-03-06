@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820122"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445645"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Yerel Mod Rapor Sunucusu ile Azure VM Oluşturmak için PowerShell Kullanma
 > [!IMPORTANT] 
@@ -124,7 +124,7 @@ Sanal makine sağlanırken VM'de otomatik olarak imzalanan bir sertifika oluştu
       
        Örneğin, aşağıdaki görüntüde, VM adıdır **ssrsnativecloud** ve kullanıcı adı **testuser**.
       
-       ![oturum açma bilgileri vm adını içerir](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+       ![oturum açma vm adını içerir.](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. MMC.exe çalıştırın. Daha fazla bilgi için [nasıl yapılır: MMC ek bileşeni ile sertifikaları görüntüleme](https://msdn.microsoft.com/library/ms788967.aspx).
    3. Konsol uygulamasında **dosya** menüsünde Ekle **sertifikaları** ek bileşeninde, select **bilgisayar hesabı** istenir ve ardından **sonraki**.
    4. Seçin **yerel bilgisayar** yönetmek ve ardından **son**.
@@ -160,7 +160,7 @@ Rapor sunucusunu yapılandırmak için Windows PowerShell Betiği kullanmak içi
    
     Örneğin, aşağıdaki görüntüde, VM adıdır **ssrsnativecloud** ve kullanıcı adı **testuser**.
    
-    ![oturum açma bilgileri vm adını içerir](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![oturum açma vm adını içerir.](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Sanal makinede açın **Windows PowerShell ISE** yönetici ayrıcalıklarına sahip. PowerShell ISE, Windows server 2012'de varsayılan olarak yüklenir. Bu işlem, betik ISE'ye yapıştırın, komut dosyasını değiştirin ve ardından komut dosyasını çalıştırmak yerine standart bir Windows PowerShell penceresi ISE kullanmanız önerilir.
 3. Windows PowerShell ISE'de tıklayın **görünümü** menüsünü seçin ve ardından **betik bölmesini göster**.
 4. Aşağıdaki betiği kopyalayın ve betiği Windows PowerShell ISE betik bölmesine yapıştırın.
@@ -294,7 +294,7 @@ Rapor sunucusunu yapılandırmak için Windows PowerShell kullanmak için aşağ
    
     Örneğin, aşağıdaki görüntüde, VM adıdır **ssrsnativecloud** ve kullanıcı adı **testuser**.
    
-    ![oturum açma bilgileri vm adını içerir](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![oturum açma vm adını içerir.](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Sanal makinede açın **Windows PowerShell ISE** yönetici ayrıcalıklarına sahip. PowerShell ISE, Windows server 2012'de varsayılan olarak yüklenir. Bu işlem, betik ISE'ye yapıştırın, komut dosyasını değiştirin ve ardından komut dosyasını çalıştırmak yerine standart bir Windows PowerShell penceresi ISE kullanmanız önerilir.
 3. Betiklerin çalıştırılmasını etkinleştirmek için aşağıdaki Windows PowerShell komutunu çalıştırın:
    

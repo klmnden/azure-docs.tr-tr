@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 45e5c43cf5eb8df1df5b26ffae50d2881bb086e4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e966f371f7a308d3981a10e26ecd8c8ee855e6df
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115207"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57402878"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Bir ağ sanal Gerecinin trafik faaliyetidir için sanal Hub yönlendirme tablosu oluşturma
 
@@ -32,6 +32,8 @@ Bu makalede şunları öğreneceksiniz:
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Aşağıdaki ölçütleri karşıladığınızı doğrulayın:
 
 1. Bir ağ sanal Gereci (NVA) sahip ettiğiniz bir sanal ağda Azure Marketi'nden (bağlantı) genellikle sağlandığında bir üçüncü taraf yazılım.
@@ -43,22 +45,22 @@ Aşağıdaki ölçütleri karşıladığınızı doğrulayın:
 
 ## <a name="signin"></a>1. Oturum aç
 
-Resource Manager PowerShell cmdlet'lerinin en son sürümünü yüklediğinizden emin olun. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/azurerm/overview). Bu önemlidir, çünkü cmdlet’lerin daha önceki sürümleri bu alıştırma için gereken geçerli değerleri içermez. Örnek üç rol modülleri olan Azure RM Bu makale için Azure Az gelecekte güncelleştirilecektir.
+Resource Manager PowerShell cmdlet'lerinin en son sürümünü yüklediğinizden emin olun. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-az-ps). Bu önemlidir, çünkü cmdlet’lerin daha önceki sürümleri bu alıştırma için gereken geçerli değerleri içermez. Örnek üç rol modülleri olan Azure RM Bu makale için Azure Az gelecekte güncelleştirilecektir.
 
 1. PowerShell Konsolunuzu yükseltilmiş ayrıcalıklarla açın ve Azure hesabınızda oturum açın. Bu cmdlet, oturum açma kimlik bilgilerini ister. Azure PowerShell için kullanılabilir olacak şekilde oturum açtıktan sonra hesap ayarlarınızı indirir.
 
   ```powershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 2. Azure aboneliklerinizin bir listesini alın.
 
   ```powershell
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
 3. Kullanmak istediğiniz aboneliği belirtin.
 
   ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+  Select-AzSubscription -SubscriptionName "Name of subscription"
   ```
 
 ## <a name="rg"></a>2. Kaynak oluşturma
@@ -66,17 +68,17 @@ Resource Manager PowerShell cmdlet'lerinin en son sürümünü yüklediğinizden
 1. Bir kaynak grubu oluşturun.
 
   ```powershell
-  New-AzureRmResourceGroup -Location "West US" -Name "testRG"
+  New-AzResourceGroup -Location "West US" -Name "testRG"
   ```
 2. Sanal WAN oluşturun.
 
   ```powershell
-  $virtualWan = New-AzureRmVirtualWan -ResourceGroupName "testRG" -Name "myVirtualWAN" -Location "West US"
+  $virtualWan = New-AzVirtualWan -ResourceGroupName "testRG" -Name "myVirtualWAN" -Location "West US"
   ```
 3. Bir sanal hub'ı oluşturun.
 
   ```powershell
-  New-AzureRmVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24"
+  New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24"
   ```
 
 ## <a name="connections"></a>3. Bağlantılar oluşturun
@@ -84,13 +86,13 @@ Resource Manager PowerShell cmdlet'lerinin en son sürümünü yüklediğinizden
 Hub sanal ağ bağlantıları sanal hub'ına dolaylı uç sanal ağ ve DMZ sanal ağ oluşturun.
 
   ```powershell
-  $remoteVirtualNetwork1= Get-AzureRmVirtualNetwork -Name “indirectspoke1” -ResourceGroupName “testRG”
-  $remoteVirtualNetwork2= Get-AzureRmVirtualNetwork -Name “indirectspoke2” -ResourceGroupName “testRG”
-  $remoteVirtualNetwork3= Get-AzureRmVirtualNetwork -Name “dmzvnet” -ResourceGroupName “testRG”
+  $remoteVirtualNetwork1= Get-AzVirtualNetwork -Name “indirectspoke1” -ResourceGroupName “testRG”
+  $remoteVirtualNetwork2= Get-AzVirtualNetwork -Name “indirectspoke2” -ResourceGroupName “testRG”
+  $remoteVirtualNetwork3= Get-AzVirtualNetwork -Name “dmzvnet” -ResourceGroupName “testRG”
 
-  New-AzureRmVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection1” -RemoteVirtualNetwork $remoteVirtualNetwork1
-  New-AzureRmVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection2” -RemoteVirtualNetwork $remoteVirtualNetwork2
-  New-AzureRmVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection3” -RemoteVirtualNetwork $remoteVirtualNetwork3
+  New-AzVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection1” -RemoteVirtualNetwork $remoteVirtualNetwork1
+  New-AzVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection2” -RemoteVirtualNetwork $remoteVirtualNetwork2
+  New-AzVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection3” -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
 ## <a name="route"></a>4. Sanal hub yönlendirme oluşturma
@@ -98,7 +100,7 @@ Hub sanal ağ bağlantıları sanal hub'ına dolaylı uç sanal ağ ve DMZ sanal
 Bu makalede 10.0.2.0/24 ve 10.0.3.0/24 dolaylı uç sanal ağ adres alanları: ve DMZ NVA ağ arabiriminin özel IP adresi 10.0.4.5 olan.
 
 ```powershell
-$route1 = New-AzureRmVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
+$route1 = New-AzVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
 ```
 
 ## <a name="applyroute"></a>5. Sanal hub yönlendirme tablosu oluşturma
@@ -106,7 +108,7 @@ $route1 = New-AzureRmVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/2
 Bir sanal hub yol tablosu oluşturun ve ardından oluşturulan Yönlendirme uygulayabilir.
  
 ```powershell
-$routeTable = New-AzureRmVirtualHubRouteTable -Route @($route1)
+$routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 ```
 
 ## <a name="commit"></a>6. Değişiklikleri
@@ -114,15 +116,15 @@ $routeTable = New-AzureRmVirtualHubRouteTable -Route @($route1)
 Sanal hub'ıyla değişiklikleri uygulayın.
 
 ```powershell
-Update-AzureRmVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub” -RouteTable $routeTable
+Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub” -RouteTable $routeTable
 ```
 
 ## <a name="cleanup"></a>Kaynakları temizleme
 
-Bu kaynaklar artık gerekli değilse, [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanarak kaynak grubunu ve içerdiği tüm kaynakları kaldırabilirsiniz. "myResourceGroup" yerine kaynak grubunuzun adını yazın ve aşağıdaki PowerShell komutunu çalıştırın:
+Bu kaynaklara artık ihtiyacınız olmadığında, kullanabileceğiniz [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için. "myResourceGroup" yerine kaynak grubunuzun adını yazın ve aşağıdaki PowerShell komutunu çalıştırın:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

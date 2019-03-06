@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
-ms.openlocfilehash: 9423fc844e766129ad81a8a286cb5bbdc722e2ca
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3a3e9da66cf9ca6e08bb25b4f4b9d09aa0c5b6e7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989330"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431946"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Microsoft Azure Site Recovery Sağlayıcısını yükseltme hatalarını giderme
 
@@ -42,9 +42,9 @@ Yükseltmek için aşağıdaki adımları kullanın:
 
 1. Birleşik Kurulum yüklediğiniz klasöre geri dönmek ve MicrosoftAzureSiteRecoveryUnifiedSetup.exe yükseltmeyi tamamlamak için çalıştırın. 
 
-## <a name="upgrade-failure-due-to-the-thirdparty-folder-being-renamed"></a>Adlandırılan üçüncü taraf klasör çalıştırılamadığından yükseltme
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Yükseltme hatası nedeniyle adlandırılan 3. taraf klasörü
 
-Yükseltmesinin başarılı olması için üçüncü taraf klasörü kaydedilmelidir değil.
+Yükseltmenin başarılı olması için 3. taraf klasörü kaydedilmelidir değil.
 
 Bu sorunu çözmek için.
 

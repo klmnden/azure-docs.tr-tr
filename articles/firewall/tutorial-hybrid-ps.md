@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3a1edde2f51abbe60370eefee1b0c141f772c547
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815753"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405472"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -25,7 +25,7 @@ Bu öğreticide, üç sanal ağlar oluşturun:
 
 - **VNet-Hub** -bu sanal ağda güvenlik duvarıdır.
 - **VNet-uç** -uç sanal ağ, Azure üzerinde bulunan iş yükünü temsil eder.
-- **VNet-Onprem** -şirket içi sanal ağı şirket içi ağı temsil eder. Gerçek bir dağıtımda bulunan bir VPN ya da Rota bağlantısı yoluyla bağlanabilir. Kolaylık olması için Bu öğretici, bir VPN gateway bağlantısı kullanır ve Azure bulunan bir sanal ağ ile şirket içi ağ temsil etmek için kullanılır.
+- **VNet-Onprem** -şirket içi sanal ağı şirket içi ağı temsil eder. Gerçek bir dağıtımda bulunan bir VPN ya da ExpressRoute bağlantısı yoluyla bağlanabilir. Kolaylık olması için Bu öğretici, bir VPN gateway bağlantısı kullanır ve Azure bulunan bir sanal ağ ile şirket içi ağ temsil etmek için kullanılır.
 
 ![Hibrit ağda güvenlik duvarı](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 

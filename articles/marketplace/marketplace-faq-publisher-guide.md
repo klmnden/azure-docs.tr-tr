@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 25349593bd45949f662581160fa23d30b4682710
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 3ad38b215cf33bda0c9f9d0bcd7403b6201282ee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214206"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437165"
 ---
 # <a name="marketplace-faqs"></a>Market SSS
 
@@ -114,7 +114,7 @@ Azure Marketi sanal makinesi (VM) aboneliğiniz bir kurumsal sözleşmenize taş
 
 **Azure Marketi abonelikleri nasıl fiyatlandırılır?**
 
-Fiyatlandırma ürün türlerine ve yayımcı belirtimlerine göre değişir. Yazılım lisans ücretleri ve Azure kullanım maliyetleri Azure aboneliğinizde ayrı olarak ücretlendirilir.
+Fiyatlandırma, ürün türü ve yayımcı belirtimlerine göre değişiklik gösterir. Yazılım lisans ücretleri ve Azure kullanım maliyetleri Azure aboneliğinizde ayrı olarak ücretlendirilir.
 
 *Unbundled:*
 
@@ -541,7 +541,7 @@ KLG Vm'lerle EA aboneliği taşımak için bunları yeniden gerekmez. MOSP - Mic
 
 **Azure Marketi abonelikleri nasıl fiyatlandırılır?**
 
-Fiyatlandırma ürün türlerine ve yayımcı belirtimlerine göre değişir. Yazılım lisans ücretleri ve Azure kullanım maliyetleri Azure aboneliğinizde ayrı olarak ücretlendirilir. Fiyatlandırma modelleri şunları içerir:
+Fiyatlandırma, ürün türü ve yayımcı belirtimlerine göre değişiklik gösterir. Yazılım lisans ücretleri ve Azure kullanım maliyetleri Azure aboneliğinizde ayrı olarak ücretlendirilir. Fiyatlandırma modelleri şunları içerir:
 
 * **KLG modeli**: Getirme-kendi lisansını. Azure Marketi'nde kullanımı yazılım lisansını doğrudan yayımcı veya bir satıcıdan elde, yazılımla ilgili ek ücretler kullanmak için ücretlendirilmez.
 

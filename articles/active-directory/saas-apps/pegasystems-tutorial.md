@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a6fd51ad14395b3c195ae1ceb5a188dd2c708c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fa3a3dbda3f184b0c2541dc9df6c39afa86458e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162518"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437641"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Öğretici: Pega sistemler ile Azure Active Directory Tümleştirme
 
@@ -170,7 +170,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
     
-1. Aşağıdaki işlemleri gerçekleştirin **Aauthentication hizmet Oluştur** ekran:
+1. Aşağıdaki işlemleri gerçekleştirin **oluşturma kimlik doğrulama hizmeti** ekran:
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 

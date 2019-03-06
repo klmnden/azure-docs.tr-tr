@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 8e4f9e76baf07e6ea2cb4cccb63ed0a9add5d767
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 12ccb4978a8cfbaa7dede8d0093c78da05295fec
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57012052"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410018"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Azure Active Directory (genel Önizleme) ile uygulamalar için Grup talepleri yapılandırma
 
@@ -26,8 +26,8 @@ Azure Active Directory, uygulamalarında kullanılmak belirteçlerinde bir kulla
 - Kendi Azure Active Directory nesne tanımlayıcısını (OID) (genel kullanıma sunuldu) tarafından tanımlanan grupları
 - Gruplar ve kullanıcılar (genel Önizleme), Active Directory (AD) eşitlenen için SAMAccountName veya GrupSID tarafından tanımlanan grupları
 
->[!Note]
->Adları ve şirket içi güvenlik tanımlayıcılarını (SID'ler) kullanımı için destek, mevcut uygulamalarını AD FS'den taşıma sağlamak için tasarlanmıştır.    Bu talep yaymak gerekli öznitelikler Azure AD'de yönetilen grupları içermeyen.
+> [!Note]
+> Adları ve şirket içi güvenlik tanımlayıcılarını (SID'ler) kullanımı için destek, mevcut uygulamalarını AD FS'den taşıma sağlamak için tasarlanmıştır.    Bu talep yaymak gerekli öznitelikler Azure AD'de yönetilen grupları içermeyen.
 
 ## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-idps"></a>AD FS ve diğer Idp'yi geçirme uygulamalar için Grup talepleri
 
@@ -42,8 +42,8 @@ Grup talepleri için desteklenen biçimler:
 - **NetbiosDomain\samAccountName** (Active Directory'nizden eşitlenen gruplar için kullanılabilir)
 - **DNSDomainName\samAccountName** (Active Directory'nizden eşitlenen gruplar için kullanılabilir)
 
->[!NOTE]
->SAMAccountName ve OnPremisesGroupSID öznitelikleri yalnızca Grup nesnelerini Active Directory'den eşitlenen kullanılabilir.   Bunlar, Azure Active Directory veya Office 365 oluşturulan gruplarında kullanılamaz.   Şirket içi Grup özniteliklerinde bağımlı uygulamalar, bunları yalnızca eşitlenmiş grupları alınamadı.
+> [!NOTE]
+> SAMAccountName ve OnPremisesGroupSID öznitelikleri yalnızca Grup nesnelerini Active Directory'den eşitlenen kullanılabilir.   Bunlar, Azure Active Directory veya Office 365 oluşturulan gruplarında kullanılamaz.   Şirket içi Grup özniteliklerinde bağımlı uygulamalar, bunları yalnızca eşitlenmiş grupları alınamadı.
 
 ## <a name="options-for-applications-to-consume-group-information"></a>Grup bilgilerini kullanmak uygulamaları için seçenekleri
 
@@ -57,7 +57,7 @@ Ancak, Azure Active Directory grubu bilgileri belirteçteki talepleri aldığı 
 - Uygulama, Active Directory'den eşitlenen grup öznitelikleri almak için yapılandırılmışsa ve bir grubu özniteliklerle içermiyor Taleplerde dahil edilmeyecektir.
 - İç içe geçmiş gruplar belirteçlerinde grup talepleri içerir.   Bir kullanıcı GroupB bir üyesidir ve GroupB GroupA üyesi ise, kullanıcı için Grup talepleri GroupA hem GroupB içerecektir. İç içe grupların yoğun kullanımı olan Kuruluş ve kullanıcılar çok sayıda grup üyeliklerini belirteç listelenen grubu simge boyutu büyür.   Azure Active Directory grupları için SAML onaylamalarını 150 ve 200 JWT için bir belirteç yayar sayısını sınırlar.
 
->Active Directory'nizden eşitlenen grup öznitelikleri kullanma önkoşulları:   Grupları Azure AD Connect kullanarak Active Directory'den eşitlenmesi gerekir.
+> Active Directory'nizden eşitlenen grup öznitelikleri kullanma önkoşulları:   Grupları Azure AD Connect kullanarak Active Directory'den eşitlenmesi gerekir.
 
 Grup adları Active Directory grupları için yaymak için Azure Active Directory'yi yapılandırma için iki adımı vardır.
 
@@ -100,21 +100,21 @@ Active Directory kullanarak grupları yaymak için öznitelikler Azure AD'ye obj
 
 ![Talep kullanıcı Arabirimi](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
-Bazı uygulamalar 'role' talebi görüntülenecek grup üyeliği bilgileri gerektirir. İsteğe bağlı olarak, 'bir rol talep grupları yayma' kutuyu işaretleyerek kullanıcı grupları rolleri olarak gönderebilir.  
+Bazı uygulamalar 'role' talebi görüntülenecek grup üyeliği bilgileri gerektirir. İsteğe bağlı olarak, 'bir rol talep grupları yayma' kutuyu işaretleyerek kullanıcı grupları rolleri olarak gönderebilir.
 
 ![Talep kullanıcı Arabirimi](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
->[!NOTE]
->Rol olarak Grup verileri Yayımla seçeneğini kullandıysanız, yalnızca gruplar rol talebi görünür.  Kullanıcıya atanan tüm uygulama rolleri, rol talebi görünmez.
+> [!NOTE]
+> Rol olarak Grup verileri Yayımla seçeneğini kullandıysanız, yalnızca gruplar rol talebi görünür.  Kullanıcıya atanan tüm uygulama rolleri, rol talebi görünmez.
 
-## <a name="configure-the-azure-ad-application-registration-for-group-attributes"></a>Grup öznitelikleri için Azure AD uygulaması kaydını yapılandırma  
+## <a name="configure-the-azure-ad-application-registration-for-group-attributes"></a>Grup öznitelikleri için Azure AD uygulaması kaydını yapılandırma
 
 Grup talepleri de yapılandırılabilir [isteğe bağlı bir talep](../../active-directory/develop/active-directory-optional-claims.md) bölümünü [uygulama bildirimi](../../active-directory/develop/reference-app-manifest.md).
 
  1. Portalda Azure Active Directory -> -> Uygulama kayıtları seçin -> uygulama bildirimi ->
 
  2. Grup üyeliğini talep groupMembershipClaim değiştirerek etkinleştir
- 
+
     Geçerli değerler şunlardır:
 
     - "Tüm"
@@ -124,10 +124,10 @@ Grup talepleri de yapılandırılabilir [isteğe bağlı bir talep](../../active
 
     Örneğin:
 
-    ```
+    ```json
     "groupMembershipClaims": "SecurityGroup"
     ```
- 
+
     Grup içinde grup ObjectIDs derleyicisindeki varsayılan talep değeri.  Şirket içi grup öznitelikleri içeren veya rol talep türünü değiştirmek için talep değerini değiştirmek için OptionalClaims yapılandırma şu şekilde kullanın:
 
  3. Grup adı yapılandırması isteğe bağlı talepleri ayarlayın.
@@ -138,12 +138,12 @@ Grup talepleri de yapılandırılabilir [isteğe bağlı bir talep](../../active
     - OAuth/OIDC erişim belirteci için accessToken
     - SAML belirteçleri Saml2Token.
 
-    >[!NOTE]
-    >Biçim belirteçleri Saml2Token türü SAML1.1 hem SAML2.0 için geçerlidir  
+    > [!NOTE]
+    > Biçim belirteçleri Saml2Token türü SAML1.1 hem SAML2.0 için geçerlidir
 
-    İlgili her belirteç türü için değişiklik bildirimi OptionalClaims bölümde kullanmak üzere gruplar talep. OptionalClaims Şeması aşağıdaki gibidir:
+    İlgili her belirteç türü için bildirim OptionalClaims bölümde kullanmak üzere gruplar talep değiştirin. OptionalClaims Şeması aşağıdaki gibidir:
 
- ```
+ ```json
  {
     "name": "groups",
     "source": null,
@@ -163,14 +163,14 @@ Grup talepleri de yapılandırılabilir [isteğe bağlı bir talep](../../active
 
  Bazı uygulamalar, rol talep kullanıcı grup bilgilerini gerektirir.  Bir gruptan bir rol talep için talep için talep türünü değiştirmek için "emit_as_roles" için ek özellikleri ekleyin.  Grubu değerlerini, rol talebi yayılan.
 
- >[!NOTE]
- >"Emit_as_roles" kullanılırsa, kullanıcının atandığı herhangi bir uygulama rolü yapılandırılmış rol talebi görünmüyor
+ > [!NOTE]
+ > "Emit_as_roles" kullanılırsa, kullanıcının atandığı herhangi bir uygulama rolü yapılandırılmış rol talebi görünmüyor
 
 ### <a name="examples"></a>Örnekler
 
 Grup adları dnsDomainName\SAMAccountName biçimde OAuth erişim belirteçleri olarak grupları yayma
 
-```
+```json
 "optionalClaims": {
     "accessToken": [{
         "name": "groups",
@@ -181,7 +181,7 @@ Grup adları dnsDomainName\SAMAccountName biçimde OAuth erişim belirteçleri o
 
 SAML ve OIDC kimlik belirteçlerini rol talebi olarak netbiosDomain\samAccountName biçiminde döndürülecek grubu adları göstermek için:
 
-```
+```json
 "optionalClaims": {
     "saml2Token": [{
         "name": "groups",

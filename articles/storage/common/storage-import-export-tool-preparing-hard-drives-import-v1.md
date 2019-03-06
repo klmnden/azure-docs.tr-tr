@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5ea510d8335437cb43f3e8824ec73175c35dcd03
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454683"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452377"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlama
 Bir veya daha fazla sabit sürücüleri içeri aktarma işine hazırlamak için aşağıdaki adımları izleyin:
@@ -108,7 +108,7 @@ Bir veya daha fazla sabit sürücüleri içeri aktarma işine hazırlamak için 
 |**/csas:**<ContainerSas\>|`Optional`. Kapsayıcı SAS depolama hesabına veri alma için kullanılacak. Ya da içermelidir **/sk:**< StorageAccountKey\> veya **/csas:**< ContainerSas\> komutu.<br /><br /> Bu parametre için değer, ardından bir soru işareti (?) ve SAS belirteci, bir kapsayıcı adı ile başlamalıdır. Örneğin:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> İzinleri URL ya da depolanmış erişim ilkesini belirtilen, okuma, içermelidir olup olmadığını yazma ve dışarı aktarma işleri için içeri aktarma işlerinde ve okuma ve yazma için liste silin.<br /><br /> Bu parametre belirtildiğinde içeri veya dışarı aktarılacak tüm BLOB paylaşılan erişim imzasını belirtilen kapsayıcı içinde olması gerekir.|
 |**/ t:**< TargetDriveLetter\>|`Required.` Sürücü harfini izleyen iki nokta üst üste olmadan geçerli kopyalama oturumu için hedef sabit sürücünün.|
 |**Özetteki**|`Optional.` Sürücünün biçimlendirilmesi gerektiğinde bu parametreyi belirtin; Aksi takdirde, atlayın. Aracı sürücüyü biçimlendiren önce konsolundan bir onay ister. Onay bastırmak için /silentmode parametre belirtin.|
-|**/silentmode**|`Optional.` Targert sürücüyü biçimlendirmek için onay gizlemek için bu parametreyi belirtin.|
+|**/silentmode**|`Optional.` Hedef sürücüyü biçimlendirmek için onay gizlemek için bu parametreyi belirtin.|
 |**/ Şifreleme**|`Optional.` Sürücü henüz BitLocker ile şifrelenmiş değil ve aracı tarafından şifrelenmiş gerektiğinde bu parametre belirtildi. Sürücünün BitLocker ile şifrelenmiş, bu parametreyi atlayın ve belirtin `/bk` parametre, var olan BitLocker anahtarı sağlama.<br /><br /> Belirtirseniz `/format` parametresi, sonra da belirtmeniz gerekir `/encrypt` parametresi.|
 |**/BK:**< BitLockerKey\>|`Optional.` Varsa `/encrypt` olduğundan, belirtilen bu parametreyi atlayın. Varsa `/encrypt` olan atlanırsa ihtiyacınız zaten sürücünün BitLocker ile şifrelenmiş. BitLocker anahtarı belirtmek için bu parametreyi kullanın. İçeri aktarma işleri için tüm sabit sürücüleri BitLocker şifrelemesi gereklidir.|
 |**/ LOGDIR:**< LogDirectory\>|`Optional.` Günlük dizini ayrıntılı günlükleri gibi geçici dosyaları depolamak için kullanılacak bir dizini belirtir. Belirtilmezse, geçerli dizin günlük dizini kullanılır.|

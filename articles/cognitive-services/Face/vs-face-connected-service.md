@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: a8c3bc7a3a659809f1602ffae303f9bd26f2c35a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: aafa115ee1e270b903e958e5b43826dfb4ff8bdb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857792"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435238"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Visual Studio’da Bağlı Hizmetler’i kullanarak Bilişsel Hizmetler Yüz Tanıma API’sine bağlanma
 
@@ -79,7 +79,7 @@ Bu makalede ve beraberindeki destek makalelerinde, Bilişsel Hizmetler Yüz Tan�
       }
    ```
 
-1. Projenizdeki wwwroot klasörüne bir görüntüler klasörü ekleyin ve wwwroot klasörünüz için bir görüntü dosyası ekleyin. Örneğin, bu [Yüz Tanıma API’si sayfasındaki](https://azure.microsoft.com/services/cognitive-services/face/) görüntülerden birini kullanabilirsiniz. Görüntülerden birine sağ tıklayın, yerel sabit sürücünüze kaydedin, ardından Çözüm Gezgini’nde görüntüler klasörüne sağ tıklayıp **Ekle** > **Mevcut Öğe** seçeneklerini belirleyerek öğeyi projenize ekleyin. Projeniz Çözüm Gezgini’nde aşağıdakine benzer şekilde görünmelidir:
+1. Projenizdeki wwwroot klasörüne bir görüntüler klasörü ekleyin ve wwwroot klasörünüz için bir görüntü dosyası ekleyin. Örneğin, bu [Yüz Tanıma API’si sayfasındaki](https://azure.microsoft.com/services/cognitive-services/face/) görüntülerden birini kullanabilirsiniz. Sağ görüntülerden birini tıklayın, Çözüm Gezgini'nde sonra yerel sabit sürücünüze kaydedin, görüntüleri klasörü sağ tıklatın ve seçin **Ekle** > **var olan öğe** projenize eklemek için. Projeniz Çözüm Gezgini’nde aşağıdakine benzer şekilde görünmelidir:
  
    ![görüntü dosyasını içeren görüntüler klasörü](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 

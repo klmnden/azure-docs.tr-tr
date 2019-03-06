@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e27ecc73c19b92f8dcf77849c2f91a5eb57ac8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168055"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442180"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Nasıl yapılır: Android ADAL kullanarak uygulamalar arası SSO'yu etkinleştirin
 
@@ -119,7 +119,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>2. Adım: Yeni bir yeniden yönlendirme URI'si ile URL düzeni oluştur
 
-Doğru uygulama recevies emin olmak için döndürülen kimlik bilgisi, orada belirteçler Android işletim sistemi doğrulayabilirsiniz bir biçimde çağrı uygulamanızı emin olmak için bir gerekli değildir. Android işletim sistemi, Google Play Mağazası'nda sertifika karmasını kullanır. Bu sertifikanın karması, standart dışı bir uygulama tarafından sahte olamaz. Aracı uygulama URI'sini yanı sıra, Microsoft belirteçleri doğru uygulamaya döndürülür sağlar. Benzersiz bir yeniden yönlendirme URI'si uygulamayı kayıtlı olması gerekiyor.
+Doğru uygulama döndürülen aldığından emin olmak için kimlik bilgisi belirteç, orada Android işletim sistemi doğrulayabilirsiniz bir biçimde çağrı uygulamanızı emin olmak için bir gerekli değildir. Android işletim sistemi, Google Play Mağazası'nda sertifika karmasını kullanır. Bu sertifikanın karması, standart dışı bir uygulama tarafından sahte olamaz. Aracı uygulama URI'sini yanı sıra, Microsoft belirteçleri doğru uygulamaya döndürülür sağlar. Benzersiz bir yeniden yönlendirme URI'si uygulamayı kayıtlı olması gerekiyor.
 
 Uygulamanızın yeniden yönlendirme URI'si düzgün biçimde olmalıdır:
 

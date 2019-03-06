@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 777d5cb9449bcf9424e2514b2b8f90a9ca6c479c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c6918126c36e1940daf564ee7eae562e31b280c3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285453"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449113"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Uzaktan Windows 10 veya Windows Server 2016 VM azure'da netvsc.sys nedeniyle bağlanılamıyor
 
@@ -117,6 +117,6 @@ Bağlanma [seri konsolu, PowerShell örneği açın](serial-console-windows.md)v
 
 16. [VM yeniden oluşturma ve sistem diskini](../windows/troubleshoot-recovery-disks-portal.md).
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun
 
 Hala yardıma ihtiyacınız varsa [Azure desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

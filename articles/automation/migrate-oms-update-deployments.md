@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9a897cdb10506939232f667250dfb0dbaf196bc0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6c85060e3ca566cbf9fe51904fa9bf62322075a5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822234"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436230"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>OMS güncelleştirme dağıtımlarınızı Azure'a geçirme
 
@@ -66,7 +66,7 @@ Güncelleştirilecek makineler için mevcut bir OMS dağıtım tarafından kulla
 |Hariç tutulacak güncelleştirmeler|Hariç tutulacak güncelleştirmeler girin. Windows için KB makalesi olmadan girin **KB** önek. Linux için paket adını girin veya bir joker karakterini kullanın.  |
 |Zamanlama ayarları|Başlangıç saati seçin ve ardından ya da **kez** veya **yinelenen** yinelenme.|| Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değer, 30 dakika ve 6 saatten az olamaz. |
 | Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değeri olması olamaz az 30 dakika ve en fazla 6 saat |
-| Denetim yeniden başlatma| Araçtaki nasıl yeniden başlatma yapılması gerekir.</br>Kullanılabilen seçenekler:</br>Gerekirse yeniden başlat (Varsayılan)</br>Her zaman yeniden başlat</br>Hiçbir zaman yeniden başlatma</br>Yalnızca yeniden başlatma - güncelleştirmeleri yüklemez|
+| Denetim yeniden başlatma| Yeniden başlatma işlemlerini nasıl işleneceğini belirler.</br>Kullanılabilen seçenekler:</br>Gerekirse yeniden başlat (Varsayılan)</br>Her zaman yeniden başlat</br>Hiçbir zaman yeniden başlatma</br>Yalnızca yeniden başlatma - güncelleştirmeleri yüklemez|
 
 Tıklayın **zamanlanan güncelleştirme dağıtımları** yeni oluşturulan güncelleştirme dağıtım durumunu görüntülemek için.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 0d9ee24e9ab104fb554033802507f78fcbf38fc3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e3aae5f7936204a7fe4fbce4102fc2727088e025
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170938"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442040"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Seçin, yönetmek ve Service Fabric kümeleri çalışır.
@@ -140,7 +140,7 @@ Service Fabric küme bildirimi alın. Küme bildiriminde farklı bir düğüme t
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl küme işlemi iptal etme
 Bir kullanıcı nedenli hata işlemi iptal eder.
 
-Aşağıdaki API'leri CancelOperation kullanarak iptal edilebileceğini hata operations Başlat\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Zorla false ise, ardından belirtilen kullanıcı nedenli işlemi düzgün biçimde durdurulacak ve temizlenir.  Zorla true ise, komutu iptal edilecek ve bazı iç durumu bırakılmış olabilir.  Zorla true belirten dikkatli kullanılmalıdır. Zorla true olarak ayarlanmış bu API'yi çağıran bu API zaten false öncelikle zorla kümesiyle aynı test komutunda çağrılana kadar veya test komutu, bir OperationState OperationState.RollingBack olmadıkça izin verilmez. 
+Aşağıdaki API'leri CancelOperation kullanarak iptal edilebilir hata operations Başlat\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Zorla false ise, ardından belirtilen kullanıcı nedenli işlemi düzgün biçimde durdurulacak ve temizlenir.  Zorla true ise, komutu iptal edilecek ve bazı iç durumu bırakılmış olabilir.  Zorla true belirten dikkatli kullanılmalıdır. Zorla true olarak ayarlanmış bu API'yi çağıran bu API zaten false öncelikle zorla kümesiyle aynı test komutunda çağrılana kadar veya test komutu, bir OperationState OperationState.RollingBack olmadıkça izin verilmez. 
 
 Açıklama\: sistem olacaktır/iç sisteminizi temizleme OperationState.RollingBack anlamına gelir durumuna neden komutu yürüterek.  Test komutu veri kaybına neden olursa, verileri geri yüklemez.  StartDataLoss çağırın, sonra bu API çağrısı, örneğin, sistem yalnızca dahili durumdan çalıştırarak temizleyin. Komutu, veri kaybına neden için yeteri kadar progressed, hedef bölümün veri geri yüklemez. 
 

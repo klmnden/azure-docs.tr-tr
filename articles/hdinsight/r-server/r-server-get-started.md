@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 46791468e094ffb17a6dc9993b2cf8623a72b9b3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: dce345c39918e7471531710051797c848a3c7cde
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53968817"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444081"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Azure HDInsight'ta ML Services ile çalışmaya başlama
 
@@ -88,7 +88,7 @@ Portaldan:
     ![HDInsight depolama hesabı ayarlarını belirleme](./media/r-server-get-started/r-studio-server-dashboard.png)
 
    > [!IMPORTANT]  
-   > Kullanılan yöntem ne olursa olsun, ilk kez oturum açtığınızda iki kez kimlik doğrulaması yapmanız gerekir.  Birinci kimlik doğrulaması isteminde *kümenin Yönetici kullanıcı kimliğini* ve *parolasını* belirtin. İkinci kimlik doğrulaması isteminde *SSH kullanıcı kimliğini* ve *parolasını* belirtin. Sonraki oturumlarda yalnızca SSH kimlik bilgileri gerekli olacaktır.
+   > Kullanılan yöntem ne olursa olsun, ilk kez oturum açtığınızda iki kez kimlik doğrulaması yapmanız gerekir.  Birinci kimlik doğrulaması isteminde *kümenin Yönetici kullanıcı kimliğini* ve *parolasını* belirtin. İkinci kimlik doğrulaması isteminde *SSH kullanıcı kimliğini* ve *parolasını* belirtin. Sonraki oturum açma işlemleri yalnızca SSH kimlik bilgileri gerektirir.
 
 Bağlandıktan sonra ekranınız aşağıdaki ekran görüntüsüne benzemelidir:
 

@@ -13,20 +13,50 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1fef19c555b9d2e52d4734a8f7bc5e39183e684
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2a1210360690384b07e6d88007ccd118731ecce0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169318"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405445"
 ---
-# <a name="troubleshooting-dynamic-memberships-for-groups"></a>Gruplar için dinamik üyelik sorunlarını giderme
+# <a name="troubleshoot-and-resolve-groups-issues"></a>Sorun giderme ve çözümleme ilgili sorunları gruplandırır
 
-**Bir grubu üzerinde bir kural yapılandırdım ancak hiçbir üyeliklerini grubunda güncelleştirilir**<br/>Kural üzerinde kullanıcı özniteliklerine değerleri doğrulayın: kural karşılayan kullanıcılar vardır? Her şey iyi görünüyor, lütfen grubun doldurulması için bir süre bekleyin. Kiracınızın boyutuna bağlı olarak, ilk seferinde veya kural değişikliğinden sonra grubun doldurulması 24 saat kadar sürebilir.
+## <a name="troubleshooting-group-creation-issues"></a>Grup oluşturma sorunlarını giderme
+**Ben Azure portalında güvenlik grubu oluşturma devre dışı ancak grupları yine de Powershell oluşturulabilir** **kullanıcı, Azure portallarında güvenlik grupları oluşturabilir** Azure portal denetimlerinde ayarlama olup olmadığını yönetici olmayan Kullanıcılar, erişim paneli veya Azure portalında güvenlik grupları oluşturabilir. Güvenlik grubu oluşturma Powershell aracılığıyla denetlemez.
+
+Grup oluşturma Powershell yönetici olmayan kullanıcılar için devre dışı bırakmak için:
+1. Yönetici olmayan kullanıcılar grupları oluşturmak için izin verildiğini doğrulayın:
+   
+  ```
+  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+  ```
+  
+2. Döndürürse `UsersPermissionToCreateGroupsEnabled : True`, sonra da yönetici olmayan kullanıcılar, gruplar oluşturabilirsiniz. Bu özellik devre dışı bırakmak için:
+  
+  ``` 
+  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+  ```
+
+<br/>**PowerShell'de bir dinamik grup oluşturmaya çalışırken hata izin verilen en fazla grupları aldım**<br/>
+İçinde Powershell belirten bir ileti alırsanız _grupların sayısı üst sınırına en büyük izin verilen dinamik grup ilkeleri_, bu, döşemedeki sınırını dinamik gruplar için kiracınızda anlamına gelir. En fazla dinamik gruplar Kiracı başına 5.000 sayısıdır.
+
+Tüm yeni dinamik gruplar oluşturmak için öncelikle var olan bazı dinamik grupları silme gerekecektir. Sınırı artırmak için hiçbir yolu yoktur.
+
+## <a name="troubleshooting-dynamic-memberships-for-groups"></a>Gruplar için dinamik üyelik sorunlarını giderme
+
+**Bir grubu üzerinde bir kural yapılandırdım ancak hiçbir üyeliklerini grubunda güncelleştirilir**<br/>
+1. Kullanıcı veya cihaz özniteliklerine kuralında değerleri doğrulayın. Kural karşılayan kullanıcılar emin olun. Cihazlar için cihaz özellikleri, eşitlenen tüm öznitelikleri beklenen değerleri içeren emin olmak için kontrol edin.<br/>
+2. Tam olup olmadığını onaylamak için işleme durumu üyeliğini denetleyin. Denetleyebilirsiniz [işleme durumu üyelik](\groups-create-rule.md#check-processing-status-for-a-rule) ve son güncelleştirme tarihi üzerinde **genel bakış** grup için sayfa.
+
+Her şey iyi görünüyor, lütfen grubun doldurulması için bir süre bekleyin. Kiracınızın boyutuna bağlı olarak, ilk seferinde veya kural değişikliğinden sonra grubun doldurulması 24 saat kadar sürebilir.
 
 **Bir kural yapılandırdım ancak kuralının var olan üyeleri artık kaldırılır**<br/>Bu beklenen bir davranıştır. Kural etkin veya değiştirildiğinde grubun mevcut üyeleri kaldırılır. Kuralın değerlendirmesinden gelen döndürülen kullanıcıların gruba üye olarak eklenir.
 
 **Ne zaman ekleyin veya neden bir kural, değiştirme instantly üyelikleri de değişir göremiyorum?**<br/>Özel üyelik değerlendirmesi zaman uyumsuz bir planda düzenli gerçekleştirilir. İşlemin ne kadar sürer, dizininizdeki kullanıcı sayısı ve kural sonucu olarak oluşturulan grubu boyutu tarafından belirlenir. Genellikle, kullanıcılar az sayıda dizinlerle grup üyeliği değişikliklerinin küçüktür birkaç dakika içinde görürsünüz. Çok sayıda kullanıcı dizinlerle 30 dakika alabilir veya doldurmak için daha uzun.
+
+**Şimdi işlenecek grubu nasıl zorlayabilir miyim?**<br/>
+Şu anda, otomatik olarak isteğe bağlı olarak işlenmek üzere grubun tetiklemek için hiçbir yolu yoktur. Ancak, sonunda bir boşluk eklemek için üyelik kuralını güncelleştirerek yeniden işlemeyerek el ile tetikleyebilirsiniz.  
 
 **İşleme hatası bir kural karşılaştım**<br/>Aşağıdaki tabloda, sık karşılaşılan dinamik üyelik kuralı hataları ve bunların nasıl düzeltileceği listeler.
 

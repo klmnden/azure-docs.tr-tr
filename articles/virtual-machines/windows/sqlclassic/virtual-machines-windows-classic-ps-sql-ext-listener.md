@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 449df8e49eb63cb6e52cd4ec25dafc2bb0851347
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 89623adbddce07cbc3c3ead811f5174d108c9b0e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241779"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444795"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Azure'da AlwaysOn Kullanılabilirlik grupları için dış dinleyici yapılandırma
 > [!div class="op_single_selector"]
@@ -123,11 +123,11 @@ Kullanılabilirlik grubu dinleyicisi iki adımda oluşturun. İlk olarak, istemc
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>Kullanılabilirlik grubu dinleyicisini (internet üzerinden) test etme
-Sanal ağ dışındaki dinleyicisinden erişmek için (Bu konuda açıklanan) dış/genel Yük Dengeleme ILB yerine aynı VNet içindeki yalnızca erişilebilir olduğu kullanıyor olmanız gerekir. Bağlantı dizesinde, bulut hizmeti adı belirtin. Örneğin, bir bulut hizmeti adı ile olsaydı *mycloudservice*, sqlcmd deyim şu şekilde olacaktır:
+Sanal ağ dışındaki dinleyicisinden erişmek için (Bu konuda açıklanan) dış/genel Yük Dengeleme ILB yerine yalnızca aynı sanal ağ içinde erişilebilir kullanıyor olmanız gerekir. Bağlantı dizesinde, bulut hizmeti adı belirtin. Örneğin, bir bulut hizmeti adı ile olsaydı *mycloudservice*, sqlcmd deyim şu şekilde olacaktır:
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-Çağıran, Internet üzerinden windows kimlik doğrulaması kullanamadığından önceki örnekte farklı olarak, SQL kimlik doğrulaması, kullanılmalıdır. Daha fazla bilgi için [Always On kullanılabilirlik grubu Azure VM içinde: istemci bağlantı senaryoları](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). SQL kimlik doğrulaması kullanırken, hem çoğaltmalarda aynı oturum açma oluşturduğunuzdan emin olun. Kullanılabilirlik grupları ile oturum açma sorunlarını giderme hakkında daha fazla bilgi için bkz. [diğer yinelemeler için bağlanmak ve kullanılabilirlik veritabanlarına eşlemek için SQL veritabanı kullanıcı oturumlarını eşleştirmek veya kullanmak nasıl bulunan](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+Çağıran, Internet üzerinden windows kimlik doğrulaması kullanamadığından önceki örnekte farklı olarak, SQL kimlik doğrulaması, kullanılmalıdır. Daha fazla bilgi için [Always On kullanılabilirlik grubu Azure VM'de: İstemci Bağlantı Senaryoları](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). SQL kimlik doğrulaması kullanırken, hem çoğaltmalarda aynı oturum açma oluşturduğunuzdan emin olun. Kullanılabilirlik grupları ile oturum açma sorunlarını giderme hakkında daha fazla bilgi için bkz. [diğer yinelemeler için bağlanmak ve kullanılabilirlik veritabanlarına eşlemek için SQL veritabanı kullanıcı oturumlarını eşleştirmek veya kullanmak nasıl bulunan](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 İstemciler her zaman açık çoğaltma farklı alt ağlarda olup olmadığını belirtmeniz **MultisubnetFailover = True** bağlantı dizesindeki. Bu, paralel bağlantı denemelerinde de çoğaltmaları, farklı alt ağlarda sonuçlanır. Bu senaryo bölgeler arası Always On kullanılabilirlik grubu dağıtım içerdiğine dikkat edin.
 

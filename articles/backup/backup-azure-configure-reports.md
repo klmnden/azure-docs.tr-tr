@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: 945d8690ccb61916455ba4137f59c67c9a3d9f76
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: dbfe33d062c4609ba29adbaa2d9956687115cb5a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237697"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441007"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup raporlarını yapılandırma
 Bu makalede, bir kurtarma Hizmetleri kasası kullanarak Azure Backup için raporları yapılandırmak için izlemeniz gereken adımlar açıklanır. Ayrıca, Power BI'ı kullanarak raporlara erişmek nasıl gösterir. Bu adımları tamamladıktan sonra doğrudan görüntülemek, özelleştirme ve raporlar oluşturmak için Power BI'da gidebilirsiniz.
@@ -29,7 +29,7 @@ Lütfen bu sorunu önlemek için en son uygulama (sürüm 1.8) indirin.
 - Azure Backup raporları için Azure sanal makine yedekleme ve dosya ve klasör desteklenir Azure kurtarma Hizmetleri Aracısı'nı kullanarak buluta yedekleme.
 - Azure SQL veritabanı, Azure dosya paylaşımları, Data Protection Manager ve Azure Backup sunucusu için raporlar şu anda desteklenmiyor.
 - Aynı depolama hesabını her kasa için yapılandırılmışsa, kasaları ve Aboneliklerde, raporları görüntüleyebilirsiniz. Seçilen depolama hesabına kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
-- Power BI raporları için zamanlanmış yenileme sıklığını 24 saattir. Ayrıca, Power BI'da raporlar bir geçici yenileme gerçekleştirebilirsiniz. Bu durumda, en son verileri müşteri depolama hesabındaki raporları oluşturmak için kullanılır.
+- Power BI raporları için zamanlanmış yenileme sıklığını 24 saattir. Ayrıca, Power BI'da raporlar geçici bir yenileme gerçekleştirebilirsiniz. Bu durumda, en son verileri müşteri depolama hesabındaki raporları oluşturmak için kullanılır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 - Oluşturma bir [Azure depolama hesabı](../storage/common/storage-quickstart-create-account.md) için raporlar yapılandırılamadı. Bu depolama hesabı, raporları ile ilgili verileri depolamak için kullanılır.

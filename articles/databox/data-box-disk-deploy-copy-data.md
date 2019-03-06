@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 75a78e303991e5426c97b8ceb0eb1375e03be2a2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6a008072fc88b9dc800b792c13a6c77c31b31e51
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868196"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410035"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Öğretici: Veri için Azure Data Box Disk kopyalama ve doğrulayın
 
@@ -32,35 +32,53 @@ Başlamadan önce aşağıdakilerden emin olun:
 - Tamamladığınızda [Öğreticisi: Yükleme ve yapılandırma, Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Disklerinizin kilitleri açılır ve diskler bir istemci bilgisayara bağlanır.
 - Disklere veri kopyalamak için kullanılan istemci bilgisayar [Desteklenen işletim sistemi](data-box-disk-system-requirements.md##supported-operating-systems-for-clients) çalıştırmalıdır.
-- Verileriniz için hedeflenen depolama türünün [Desteklenen depolama türleri](data-box-disk-system-requirements.md#supported-storage-types) ile eşleştiğinden emin olun.
+- Verileriniz için hedeflenen depolama türünün [Desteklenen depolama türleri](data-box-disk-system-requirements.md#supported-storage-types-for-upload) ile eşleştiğinden emin olun.
+- Gözden geçirme [yönetilen disk limitleri Azure nesne boyutu sınırları](data-box-disk-limits.md#azure-object-size-limits).
 
 
 ## <a name="copy-data-to-disks"></a>Disklere veri kopyalama
 
+Veri diskleri kopyalamadan önce aşağıdaki konuları gözden geçirin:
+
+- Verilerin uygun dosya biçimine karşılık gelen klasörlere kopyalandığından emin olmak sizin sorumluluğunuzdur. Örneğin blok blobu verilerinin blok blobu klasörlerine kopyalanması gerekir. Veri biçimi uygun klasörle (depolama türü) eşleşmiyorsa veriler Azure'a yüklenemez.
+- Veri kopyalama sırasında veri boyutunun [Azure depolama ve Data Box Disk sınırları](data-box-disk-limits.md) içinde belirtilen boyut sınırlarına uygun olduğundan emin olun.
+- Data Box Disk tarafından yüklenen verilerin Data Box Disk haricinde başka bir uygulama tarafından da yüklenmesi durumunda yükleme işinde hata oluşabilir ve veri bozulması yaşanabilir.
+
+Yönetilen diskler talepte belirtilen aşağıdaki ek konuları gözden geçirin:
+
+- Belirli bir ada sahip bir yönetilen diski yalnızca bir kaynak grubunda ve tüm Data Box Disk precreated tüm klasörler arasında olabilir. Başka bir gelir precreated klasörlere karşıya VHD'ler benzersiz adlara sahip olmalıdır. Belirtilen ada, bir kaynak grubunda zaten mevcut bir yönetilen disk eşleşmiyor emin olun. VHD'leri aynı ada sahipse, bu ada sahip yönetilen disk için yalnızca bir VHD dönüştürülür. Diğer VHD'ler sayfa BLOB'ları hazırlama depolama hesabına yüklenir.
+- Her zaman VHD'lerin precreated klasörlerden birine kopyalayın. VHD'ler, bu klasörleri dışında veya oluşturduğunuz bir klasöre kopyalamak, VHD'ler sayfa blobları Azure depolama hesabına yüklenir ve yönetilen diskler değil.
+- Yönetilen disk oluşturmak için yalnızca sabit VHD'lerin karşıya yüklenebilir. Dinamik VHD, fark kayıt VHD veya VHDX dosyaları desteklenmez.
+
+
 Bilgisayarınızla Data Box Disk arasında bağlantı kurmak ve veri kopyalamak için aşağıdaki adımları gerçekleştirin.
 
-1. Kilidi açılan sürücünün içeriğini görüntüleyin.
+1. Kilidi açılan sürücünün içeriğini görüntüleyin. Precreated klasörler ve alt klasörlerin listesini, sürücü Data Box Disk Siparişiniz yerleştirme sırasında seçilen seçeneklere olarak farklıdır.
 
-    ![Sürücü içeriğini görüntüleme](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
+    |Seçili depolama hedefi  |Depolama hesabı türü|Hazırlama depolama hesabı türü |Klasörler ve alt klasörleri  |
+    |---------|---------|---------|------------------|
+    |Depolama hesabı     |GPv1 veya GPv2                 | NA | BlockBlob <br> PageBlob <br> AzureFile        |
+    |Depolama hesabı     |BLOB Depolama hesabı         | NA | BlockBlob        |
+    |Yönetilen diskler     |NA | GPv1 veya GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
+    |Depolama hesabı <br> Yönetilen diskler     |GPv1 veya GPv2 | GPv1 veya GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+    |Depolama hesabı <br> Yönetilen diskler    |BLOB Depolama hesabı | GPv1 veya GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+
+    GPv2 depolama hesabına burada belirtilen bir siparişin örnek bir ekran görüntüsü aşağıda gösterilmiştir:
+
+    ![Disk sürücüsünün içeriği](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
-2. Blok blobu olarak içeri aktarılması gereken verileri BlockBlob klasörüne kopyalayın. Benzer şekilde VHD/VHDX gibi verileri de PageBlob klasörüne kopyalayın. 
+2. Blok blobları için olarak içeri aktarılması gereken veri kopyalama *BlockBlob* klasör. Benzer şekilde, VHD/VHDX gibi verileri kopyalama *PageBlob* klasör ve içindeki verileri *AzureFile* klasör.
 
     BlockBlob ve PageBlob klasörlerinin altındaki her klasör için Azure depolama hesabında bir kapsayıcı oluşturulur. BlockBlob ve PageBlob klasörlerinin altındaki tüm dosyalar Azure Depolama hesabındaki varsayılan `$root` kapsayıcısına kopyalanır. `$root` kapsayıcısındaki tüm dosyalar her zaman blok blobu olarak yüklenir.
 
+   Bir klasördeki dosyaları kopyalayın *AzureFile* klasör. Bir alt klasörü içinde *AzureFile* klasörüne bir dosya paylaşımını oluşturur. Doğrudan kopyalanan dosya *AzureFile* klasör başarısız olur ve bu blok blobları olarak karşıya yüklendi.
+
     Kök dizinde dosya ve klasörler varsa veri kopyalama işlemine başlamadan önce bunları farklı bir klasöre taşımanız gerekir.
 
-    Kapsayıcı ve blob adlarıyla ilgili Azure adlandırma gereksinimlerine bakın.
+    > [!IMPORTANT]
+    > Tüm kapsayıcıları, blobları ve dosya adları için uyması gereken [Azure adlandırma kurallarına](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Bu kurallara uyulmaması halinde veriler Azure'a yüklenemez.
 
-    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>Kapsayıcı ve blob adları için Azure adlandırma kuralları
-    |Varlık   |Kurallar  |
-    |---------|---------|
-    |Blok blobu ve sayfa blobu için kapsayıcı adları     |Bir harf veya rakamla başlamalıdır ve yalnızca küçük harf, rakam ve kısa çizgi (-) içerebilir. Kısa çizgiden (-) hemen önce ve sonra bir harf veya rakam gelmelidir. Adlarda kısa çizgiler art arda kullanılamaz. <br>3 ila 63 karakter uzunluğunda geçerli bir DNS adı olmalıdır.          |
-    |Blok blobu ve sayfa blobu için blob adları    |Blob adları büyük/küçük harfe duyarlıdır ve karakterler herhangi bir düzende sıralanabilir. <br>Blob adı 1 ila 1024 karakter uzunluğunda olmalıdır.<br>Ayrılmış URL karakterleri doğru şekilde atlanmalıdır.<br>Blob adını oluşturan yolun bölümleri 254 karakterden uzun olamaz. Yol bölümü, arka arkaya gelen sınırlayıcı karakterlerinin (örneğin eğik çizgi "/") arasında yer alan ve bir sanal dizinin adına karşılık gelen dizedir.         |
-
-    > [!IMPORTANT] 
-    > Tüm kapsayıcıların ve blobların [Azure adlandırma kurallarına](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions) uygun olması gerekir. Bu kurallara uyulmaması halinde veriler Azure'a yüklenemez.
-
-3. Dosyaları kopyalarken dosya boyutlarının blok blobları için en fazla ~4,7 TiB, sayfa blobları için ise en fazla ~8 TiB olduğundan emin olun. 
+3. Dosya kopyalarken dosyaları ~4.7 TiB blok blobları, sayfa blobları için ~ 8 TiB ve Azure dosyaları için yaklaşık 1 TiB aşmamasını sağlayın. 
 4. Verileri kopyalamak için Veri Gezgini'nde sürükle ve bırak komutlarını kullanabilirsiniz. Verilerinizi kopyalamak için Robocopy gibi SMB uyumlu herhangi bir dosya kopyalama aracını da kullanabilirsiniz. Aşağıdaki Robocopy komutunu kullanarak birden fazla kopyalama işlemini başlatabilirsiniz:
 
     `Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt` 
@@ -80,7 +98,7 @@ Bilgisayarınızla Data Box Disk arasında bağlantı kurmak ve veri kopyalamak 
     |/FFT                | FAT dosya sürelerini (iki saniyelik duyarlık) kullanır.        |
     |/Log:<Log File>     | Durum çıkışını günlük dosyasına yazar (var olan günlük dosyasının üzerine yazar).         |
 
-    Her birinde birden fazla işin çalıştığı birden fazla disk kullanılabilir. 
+    Her birinde birden fazla işin çalıştığı birden fazla disk kullanılabilir.
 
 6. İş devam ederken kopyalama durumunu kontrol edin. Aşağıdaki örnekte dosyaları Data Box Disk'e kopyalamak için kullanılan Robocopy komutunun çıkışı gösterilmektedir.
 
@@ -163,17 +181,13 @@ Bilgisayarınızla Data Box Disk arasında bağlantı kurmak ve veri kopyalamak 
 
 6. Kopyalanan dosyaları görüntülemek ve doğrulamak için hedef klasörü açın. Kopyalama işlemi sırasında hatayla karşılaşırsanız sorun giderme için günlük dosyalarını indirin. Günlük dosyaları robocopy komutunu belirtildiği yer alır.
  
-> [!IMPORTANT]
-> - Verilerin uygun dosya biçimine karşılık gelen klasörlere kopyalandığından emin olmak sizin sorumluluğunuzdur. Örneğin blok blobu verilerinin blok blobu klasörlerine kopyalanması gerekir. Veri biçimi uygun klasörle (depolama türü) eşleşmiyorsa veriler Azure'a yüklenemez.
-> -  Veri kopyalama sırasında veri boyutunun [Azure depolama ve Data Box Disk sınırları](data-box-disk-limits.md) içinde belirtilen boyut sınırlarına uygun olduğundan emin olun.
-> - Data Box Disk tarafından yüklenen verilerin Data Box Disk haricinde başka bir uygulama tarafından da yüklenmesi durumunda yükleme işinde hata oluşabilir ve veri bozulması yaşanabilir.
-
 ### <a name="split-and-copy-data-to-disks"></a>Verileri bölme ve disklere kopyalama
 
 Birden fazla disk kullanıyorsanız ve bölünerek tüm disklere kopyalanması gereken büyük bir veri kümesine sahipseniz bu isteğe bağlı yordamı kullanabilirsiniz. Data Box Split Copy aracı Windows bilgisayarlarda veri bölme ve kopyalama işlemlerini gerçekleştirmenize yardımcı olur.
 
 >[!IMPORTANT]
 > Veri kutusu bölünmüş kopyalama aracı verilerinizi de doğrular. Verileri kopyalamak için veri kutusu bölünmüş kopyalama aracı kullanmanız durumunda atlayabilirsiniz [doğrulama adımını](#validate-data).
+> Bölünmüş kopyalama aracı ile yönetilen diskleri desteklenmiyor.
 
 1. Data Box Split Copy aracını Windows bilgisayarınıza indirip yerel bir klasöre ayıkladığınızdan emin olun. Bu araç Windows için Data Box Disk araç takımıyla birlikte indirilmiştir.
 2. Dosya Gezgini'ni açın. Veri kaynağı sürücüsünü ve Data Box Disk'e atanmış olan sürücü harflerini not edin. 

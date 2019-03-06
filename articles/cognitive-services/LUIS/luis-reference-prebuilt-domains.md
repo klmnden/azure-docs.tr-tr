@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 964a0e0d4dd7ebae9f2881230fec921c3740ac39
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e1e579233a5ad1af1ef8ee84019cd995959d3b2b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340601"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433782"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS uygulamanızı için önceden oluşturulmuş etki alanı başvurusu
 Bu başvuru, hakkında bilgi sağlar. [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md), önceden oluşturulmuş koleksiyon hedefleri ve LUIS sunan varlıkların olduğu.
@@ -62,7 +62,7 @@ Hedefleri ve takvim girişlerinin ilgili varlıkları Takvim etki alanı sağlar
 | Ekle | Yeni bir kerelik öğe takviminize ekleyin.| Pazar günü Pasifik 2 sırasında Lisa ile bir randevu oluşturun <br/><br/>Toplantı zamanlamak istiyorum<br/><br/>Toplantı ayarlama gerekir|
 | CheckAvailability | Kullanılabilirlik randevu veya kullanıcının takvim veya başka bir kişinin Takvim toplantı bulun.| Jim karşılamak kullanılabilir olduğunda? <br/><br/>Carol yarın kullanılabilir olduğunda göster<br/><br/>Chris Cumartesi günleri ücretsiz mi?|
 | Sil | Bir takvime girişi silme isteği.| Carol ile My randevu iptal edin. <br/><br/>My 09: 00 toplantı Sil<br/>|
-| Düzenle | Bir mevcut toplantı veya Takvim Girişi değiştirme isteği.| 10'da My 09: 00 toplantı taşıyın.<br/><br/>Zamanlamam güncelleştirmek istiyorsunuz.<br/><br/>My toplantı Reschdule Ryan ile.|
+| Düzenle | Bir mevcut toplantı veya Takvim Girişi değiştirme isteği.| 10'da My 09: 00 toplantı taşıyın.<br/><br/>Zamanlamam güncelleştirmek istiyorsunuz.<br/><br/>My toplantı Ryan yeniden zamanlayın.|
 | Bul | Haftalık takviminizde görüntüler.| Bul diş randevu gözden geçirin. <br/><br/>Takvimi Göster<br/>|
 
 ### <a name="entities"></a>Varlıklar
@@ -106,7 +106,7 @@ Hedefleri ve e-posta, iletileri ve telefon aramaları ilgili varlıkları ileti�
 | Onayla| Bir eylemi onaylayın.|Evet<br/>Tamam<br/>Anlaşıldı<br/>Bu e-posta göndermek istediğiniz onaylıyorum.<br/>|
 | Arama| Telefon araması yapın.|Jim çağırın<br/>Lütfen 311 Çevir<br/>|
 | FindContact| Ada göre iletişim bilgilerini bulabilir.|Carol'ın telefon numarası bulun<br/>Carol'ın numarasını göster<br/>|
-| FindSpeedDial| Bir telefon numarası için ve tersi ayarlamak hızlı arama numarası bulun.|Arama numaramı 5 nedir?<br/>Kümesi çevirmek hızı var mı?<br/>941 5555 333 arama numaralı nedir?|
+| FindSpeedDial| Bir telefon numarası için ve tersi ayarlanır hızlı arama numarası bulun.|Arama numaramı 5 nedir?<br/>Kümesi çevirmek hızı var mı?<br/>941 5555 333 arama numaralı nedir?|
 | GetForwardingsStatus| Çağrı iletme geçerli durumunu alın.|My çağrı iletme açık mı?<br/>Çağrı Durumum açık veya kapalı olma bildir<br/>|
 | GoBack| Önceki adıma geri dönün.|Twitter dönün<br/>Bir adıma geri dönün<br/>Geri git|
 | Yoksayma| Gelen bir arama yoksayın.|Yanıt yok<br/>Çağrı yoksay|
@@ -252,7 +252,7 @@ Hedefleri ve ayırtmak için film tiyatro filmleri ilgili varlıkları MovieTick
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Book | Film biletleri satın alın.|Bana iki biletleri lideri Omar ve iki musketeers rezervasyonu<br/>Yarının film için bilet satın almak istiyorum<br/>Bir bilet Captian Omar Kısım 2 için sonraki Çarşamba istiyorum|
+| Book | Film biletleri satın alın.|Bana iki biletleri lideri Omar ve iki musketeers rezervasyonu<br/>Yarının film için bilet satın almak istiyorum<br/>Bir bilet lideri Omar Kısım 2 için sonraki Çarşamba istiyorum|
 |GetShowTime| Showtime filmin alın.|Ne zaman lideri Omar gösteriliyor?|
 
 
@@ -412,7 +412,7 @@ Basamak etki alanı, işletmelerin, kurum, Restoran, ortak alanları ve adresler
 |GetMenu|Bir Restoran için menü öğeleri için isteyin.|Herhangi bir şey Zucca sunmuyor vegan?<br/>Sizzler menüde nedir<br/>Applebee'nın menüsünü göster|
 |GetPhoneNumber| Bir yer için telefon numarası isteyin.|En yakın kahve telefon numarasını nedir?<br/>Sayı giriş deposu için verin| 
 |GetPriceRange| Bir yer fiyat aralığının ister.|Zucca ucuz mi?<br/>Cineplex yarı fiyatına Çarşamba günleri mi?<br/>Ne kadar Sizzler lobster tüm Akşam Yemeği maliyetle?|
-|GetReviews|Bir yerde gözden geçirmeler için isteyin.|Cheesecase fabrikası için gözden geçirmeleri Göster<br/>Yelp Cineplex incelemelerde okuyun|
+|GetReviews|Bir yerde gözden geçirmeler için isteyin.|Cheesecake fabrikası için gözden geçirmeleri Göster<br/>Yelp Cineplex incelemelerde okuyun|
 |GetRoute|Bir yere yönergeleri isteyin.|Bellevue kare yürütmek nasıl<br/>Buradan 8 ve 59th en kısa yolu Göster<br/>Bana Sıradağlar görünümü CA'ya yönergeleri alın|
 |GetStarRating|Bir yer için yıldız derecelendirmesi isteyin.|Nasıl Zucca Yelp göre derecelendirilmiştir?<br/>Kaç yıldızı Fransızca Çamaşırlar var mı?<br/>Aquarium Monterrey içinde iyi mi?|
 |GetTransportationSchedule|Veri yolu zamanlama için bir yer alın.|Ne zaman şehir merkezinde sonraki yoluna nedir?<br/>İçinde King County yollarına Göster|

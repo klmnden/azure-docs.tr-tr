@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 87c624e0fc5eac60b309a2535afc7508f1b6b3ac
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 946af124c5e16620c5052ac32d47ddb5fe4537d2
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986116"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406038"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analizi hakkında sık sorulan sorular
 
@@ -63,8 +63,8 @@ Herhangi bir çıktı görmediğinizden, komutları çalıştırmak için erişi
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>Hangi Azure bölgelerinde trafik analizi kullanılabilir mi?
 
 Trafik analizi, aşağıdaki desteklenen bölgelerden'nde Nsg'ler için kullanabilirsiniz:
-- Kanada Orta
-- Orta Batı ABD
+- Orta Kanada
+- Batı Orta ABD
 - Doğu ABD
 - Doğu ABD 2
 - Orta Kuzey ABD
@@ -74,26 +74,28 @@ Trafik analizi, aşağıdaki desteklenen bölgelerden'nde Nsg'ler için kullanab
 - Batı ABD 2
 - Batı Avrupa
 - Kuzey Avrupa
-- Brezilya Güney
-- BK Batı
-- BK Güney
+- Güney Brezilya
+- Birleşik Krallık Batı
+- Birleşik Krallık Güney
 - Avustralya Doğu
 - Avustralya Güneydoğu 
 - Güneydoğu Asya
 - Orta Hindistan
 - Güney Hindistan
 - Japonya Doğu
+- ABD Devleti Virginia
 
 Log Analytics çalışma alanı şu bölgelerde bulunmalıdır:
-- Kanada Orta
-- Orta Batı ABD
+- Orta Kanada
+- Batı Orta ABD
 - Doğu ABD
 - Batı Avrupa
-- BK Güney
+- Birleşik Krallık Güney
 - Avustralya Güneydoğu
 - Güneydoğu Asya 
 - Orta Hindistan
 - Japonya Doğu
+- ABD Devleti Virginia
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Akış etkinleştirebilirim Nsg'ler için günlükleri için olması çalışma Alanım'dan farklı bölgelerdeki?
 

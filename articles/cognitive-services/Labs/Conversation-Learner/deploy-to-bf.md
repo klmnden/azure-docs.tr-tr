@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bc04afead8742c9f384287ecb8d33c54770456b6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237940"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447396"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Konuşma Öğrenici bot dağıtma
 
@@ -94,7 +94,7 @@ Bot artık yerel olarak çalışıyor.  Bot Framework öykünücü ile erişebil
 
 Konuşma Öğrenici botunuzun benzer şekilde aynı diğer herhangi bir bot yayımlamak istediğiniz yayımlayın. Yüksek bir düzeyde kodunuzu barındırılan bir Web sitesine yükleme, uygun yapılandırma değerleri ayarlayın ve ardından çeşitli kanallarla bot kaydetme. Ayrıntılı yönergeleri kullanarak Azure Bot hizmeti botunuza yayımlama gösteren Bu videoda verilmiştir.
 
-Bot dağıtıldıktan sonra çalıştırdığınız farklı kanallar için bir Azure Bot kanal kaydı kullanarak Facebook, Teams, Skype vb. gibi bağlanabilirsiniz. İşlem bkz hakkında daha fazla bilgi için: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+Bot dağıtıldıktan sonra çalıştırdığınız farklı kanallar için Facebook, Teams, Skype vb. gibi bağlanabilirsiniz. bir Azure Bot kanal kaydı kullanarak. İşlem bkz hakkında daha fazla bilgi için: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 Konuşma Öğrenici Bot Azure'a dağıtmak için adım adım yönergeler aşağıda verilmiştir.  Bu yönergeler, bot kaynağınızı Azure DevOps Services, GitHub, BitBucket veya OneDrive gibi bulut tabanlı bir kaynak kullanılabilir ve botunuzun sürekli dağıtım için yapılandırıp yapılandırmayacağınız varsayar.
 

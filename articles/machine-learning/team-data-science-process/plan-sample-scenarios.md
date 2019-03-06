@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 514242eb759a2349d96b38ebe54bb98cf0e83423
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468827"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454961"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning’de gelişmiş analiz senaryoları
 Bu makalede örnek veri kaynakları ve tarafından işlenebilen hedef senaryoları özetlenmektedir [Team Data Science işlem (TDSP)](overview.md). TDSP ekiplerin akıllı uygulamalar oluşturmaya birlikte çalışması sistematik bir yaklaşım sağlar. Burada sunulan senaryoları veri özelliklerine, kaynak konumları ve hedef Azure depolarında bağlıdır veri işleme iş akışı içinde kullanılabilir seçenekler gösterilmektedir.
@@ -146,7 +146,7 @@ Aşağıdaki bölümlerde, bir örnek senaryo sunar. Her senaryo, olası veri bi
 1. Doğrudan SQL Server kullanarak verileri okumak [verileri içeri aktarma] [ import-data] modülü. Alanları ayıklar, Özellikler oluşturup doğrudan gerekirse veri örnekleri gerekli sorguyu yapıştırın [verileri içeri aktarma] [ import-data] sorgu.
 1. Karşıya yüklenen veri kümesi ile başlayan basit Azure Machine Learning deneme akış
 
-## <a name="largedbtodb"></a>Senaryo \#6: Bir SQL Server veritabanını bir Azure sanal Makine'de SQL Server'ı hedefleyen şirket, büyük veri kümesi
+## <a name="largedbtodb"></a>Senaryo \#6: Bir Azure sanal Makine'de SQL Server'ı hedefleyen, şirket içinde bir SQL Server veritabanında büyük veri kümesi
 ![Büyük SQL DB şirket içinden Azure SQL DB'de][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Ek Azure kaynakları: Azure sanal makinesi (SQL Server / Ipython not defteri sunucusu)
@@ -154,7 +154,7 @@ Aşağıdaki bölümlerde, bir örnek senaryo sunar. Her senaryo, olası veri bi
 1. Veri birini verileri SQL Server'dan döküm dosyalarını dışarı aktarmak için yöntemleri dışarı aktarın.
    
    > [!NOTE]
-   > Şirket içi bir veritabanından tam veritabanı azure'da SQL Server örneğine taşıma için bir alternatif (hızlı) yöntemi tüm verileri taşımaya karar verirseniz. Verileri dışarı aktarma, veritabanı oluşturun ve hedef veritabanına veri yükleme/içeri aktarma ve Alternatif yöntem izleyin adımı atlayın.
+   > Tüm verileri şirket içi veritabanı, azure'da SQL Server örneği için tam veritabanını taşımak için bir alternatif (hızlı) yöntemi taşıma karar verirseniz. Verileri dışarı aktarma, veritabanı oluşturun ve hedef veritabanına veri yükleme/içeri aktarma ve Alternatif yöntem izleyin adımı atlayın.
    > 
    > 
 1. Döküm dosyaları Azure depolama kapsayıcısına karşıya yükleyin.

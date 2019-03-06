@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 43dc9edf715e20c84515d6acf4884e97c3b28184
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 16a3fab1fe2338611823a9ab559826302bd06d13
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451893"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403847"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Öğretici: Azure Data Box'ı sırası
 
@@ -38,7 +38,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 - Data Box hizmeti için kullandığınız aboneliğin aşağıdaki türlerden birinde olduğundan emin olun:
     - Microsoft Kurumsal Anlaşma (EA). [EA abonelikleri](https://azure.microsoft.com/pricing/enterprise-agreement/) hakkındaki yazıları okuyun.
     - Bulut Çözümü Sağlayıcısı (CSP). [Azure CSP programı](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) hakkında daha fazla bilgi edinin.
-    - Microsoft Azure Sponsorluğu. [Azure sponsorluğu programı](https://azure.microsoft.com/offers/ms-azr-0036p/) hakkında daha fazla bilgi edinin. 
+    - Microsoft Azure Sponsorluğu. [Azure sponsorluğu programı](https://azure.microsoft.com/offers/ms-azr-0036p/) hakkında daha fazla bilgi edinin.
 
 - Data Box siparişi oluşturmak için, abonelik üzerinde sahip veya katkıda bulunan erişimine sahip olduğunuzdan emin olun.
 
@@ -68,7 +68,7 @@ Cihaz sipariş etmek için Azure portalında aşağıdaki adımları izleyin.
     |Kaynak ülke     |   Verilerinizin bulunduğu ülkeyi seçin.         |
     |Hedef Azure bölgesi     |     Verileri aktarmak istediğiniz Azure bölgesini seçin.        |
 
-5. **Data Box**'ı seçin. Tek sipariş için en yüksek çözüm kapasitesi 80 TB’dır. Daha büyük veri boyutları için birden fazla sipariş oluşturabilirsiniz.
+5. **Data Box**'ı seçin. Tek bir sipariş için en fazla kullanılabilir kapasite 786 TB'dir. Daha büyük veri boyutları için birden fazla sipariş oluşturabilirsiniz.
 
       [![Data Box seçeneğini belirtin 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
@@ -79,8 +79,22 @@ Cihaz sipariş etmek için Azure portalında aşağıdaki adımları izleyin.
     |Ad     |  Siparişi takip etmek için kullanılacak kolay bir ad girin. <br> Ad harf, rakam ve tirelerden oluşan 3-24 karakter arası uzunlukta olabilir. <br> Ad bir harf veya sayıyla başlamalı ve bitmelidir.      |
     |Kaynak grubu     |   Var olan bir taneyi kullanın veya yenisini oluşturun. <br> Kaynak grubu, birlikte yönetilebilen ve ya dağıtılabilen kaynaklardan oluşan mantıksal kapsayıcıdır.         |
     |Hedef Azure bölgesi     | Depolama hesabınız için bir bölge seçin. <br> Daha fazla bilgi için [bölge kullanılabilirliği](data-box-overview.md#region-availability)’ne gidin.        |
-    |Depolama hesapları     | Belirtilen Azure bölgesine göre filtrelenen listeden var olan bir veya daha fazla depolama hesabı seçin. Data Box en çok 10 depolama hesabına bağlanabilir. <br> Dilerseniz yeni bir **Genel amaçlı v1**, **Genel amaçlı v2** veya **Blob depolama hesabı** da oluşturabilirsiniz. Yapılandırılmış kurallara sahip depolama hesapları kullanılamaz. Depolama hesapları gereken **tüm ağlardan erişime izin ver** güvenlik duvarları ve sanal ağlar bölümünde.|
-    
+    |Depolama hedefi     | Depolama hesabı veya yönetilen diskleri veya her ikisini de seçin. <br> Belirtilen Azure bölgesine göre filtrelenen listeden var olan bir veya daha fazla depolama hesabı seçin. Data Box en çok 10 depolama hesabına bağlanabilir. <br> Ayrıca yeni bir oluşturabilirsiniz **genel amaçlı v1**, **genel amaçlı v2**, veya **Blob Depolama hesabı**. <br>Depolama hesaplarını sanal ağlarla desteklenir. Güvenli Depolama hesapları ile çalışmak Data Box hizmeti izin vermek için depolama hesabı ağ güvenlik duvarı ayarlarını içindeki güvenilir hizmetler sağlar. Daha fazla bilgi için bkz. nasıl [güvenilir bir hizmet olarak Azure Data Box ekleme](../storage/common/storage-network-security.md#exceptions).|
+
+    Depolama hesabı depolama hedefi kullanıyorsanız, aşağıdaki ekran görüntüsüne bakın:
+
+    ![Depolama hesabı için veri kutusu siparişi](media/data-box-deploy-ordered/order-storage-account.png)
+
+    Şirket içi Vhd'lerden yönetilen disk oluşturmak için Data Box'ı kullanıyorsanız, aşağıdaki bilgileri vermeniz gerekir:
+
+    |Ayar  |Değer  |
+    |---------|---------|
+    |Kaynak grupları     | Şirket içi Vhd'lerden yönetilen disk oluşturmak istiyorsanız, yeni kaynak grubu oluşturun. Yalnızca kaynak grubu daha önce bir Data Box Siparişiniz için yönetilen disk oluşturulurken Data Box hizmeti tarafından oluşturulmuşsa, mevcut bir kaynak grubunu kullanabilirsiniz. <br> Noktalı virgülle ayırarak birden fazla kaynak grubu belirtin. En fazla 10 kaynak grubu desteklenir.|
+
+    ![Veri kutusu siparişi için yönetilen disk](media/data-box-deploy-ordered/order-managed-disks.png)
+
+    Yönetilen diskler için belirtilen depolama hesabı, hazırlama depolama hesabı olarak kullanılır. Data Box hizmeti VHD'lerin sayfası olarak, yönetilen disklere dönüştürme ve kaynak grubuna taşımadan önce hazırlama depolama hesabına blobları karşıya yükleme. Daha fazla bilgi için [doğrulama verileri Azure'a karşıya](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+
 7. **Teslimat adresi**’ne adınızı, soyadınızı, şirket adını, posta adresini ve geçerli bir telefon numarasını girin. **Adresi doğrula**'ya tıklayın. Hizmet, teslimat adresinde hizmetin kullanılabilirlik durumunu doğrular. Hizmet belirtilen teslimat adresinde kullanılabilir durumdaysa bu konuda bir bildirim gönderilir. **İleri**’ye tıklayın.
 
 8. **Bildirim ayrıntıları** sayfasında e-posta adresi belirtin. Hizmet, belirtilen e-posta adreslerine sipariş durumundaki güncelleştirmelerle ilgili bilgi gönderir.
@@ -89,7 +103,7 @@ Cihaz sipariş etmek için Azure portalında aşağıdaki adımları izleyin.
 
 9. **Özet** sayfasında sipariş, iletişim, bildirim ve gizlilik koşullarıyla ilgili bilgileri gözden geçirin. Gizlilik koşullarını kabul ettiğinizi belirten kutuyu işaretleyin.
 
-10. **Sipariş**'e tıklayın. Siparişin oluşturulması birkaç dakika sürer. 
+10. **Sipariş**'e tıklayın. Siparişin oluşturulması birkaç dakika sürer.
 
 
 ## <a name="track-the-order"></a>Siparişi izleme
@@ -98,9 +112,9 @@ Siparişi verdikten sonra durumunu Azure portalından takip edebilirsiniz. Data 
 
 Cihaz yoksa bir bildirim alırsınız. Cihaz varsa, Microsoft gönderilecek cihazı belirler ve gönderimi hazırlar. Cihaz hazırlanırken şu eylemler gerçekleştirilir:
 
-- Cihazla ilişkili her depolama hesabı için SMB paylaşımları oluşturulur. 
+- Cihazla ilişkili her depolama hesabı için SMB paylaşımları oluşturulur.
 - Her paylaşım için, kullanıcı adı veya parola gibi erişim kimlik bilgileri oluşturulur.
-- Cihaz kilidinin açılmasına yardımcı olan cihaz parolası da oluşturulur. 
+- Cihaz kilidinin açılmasına yardımcı olan cihaz parolası da oluşturulur.
 - Data Box, herhangi bir noktada cihaza yetkisiz erişimi önlemek için kilitlenmiştir.
 
 Cihazın hazırlanması tamamlandığında portalda sipariş durumu **İşlendi** olarak değişir.

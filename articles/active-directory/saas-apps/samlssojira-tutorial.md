@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 434a22c56e0ac6476138ef258e7d83a2bfecb63f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: df7860361bb785e0f16947a29d25c43fc02f126b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871256"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Öğretici: GmbH çözünürlüğün Jıra için SAML SSO ile Azure Active Directory Tümleştirme
 
@@ -206,7 +206,7 @@ Azure AD çoklu oturum açma SAML SSO için Jıra ile GmbH çözünürlüğüyle
     
     ![Çoklu oturum açmayı yapılandırın](./media/samlssojira-tutorial/addon6b.png)
     
-16. Apprearing iletişim okuma **test yolları atlanıyor...** , tıklayın **Tamam**.
+16. Appearing iletişim okuma **test yolları atlanıyor...** , tıklayın **Tamam**.
     
     ![Çoklu oturum açmayı yapılandırın](./media/samlssojira-tutorial/addon6c.png)
 

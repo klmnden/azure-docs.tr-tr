@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 26eccfd2a144d5bfcb285e6b52af246c3eefde75
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c1343326b6db18608eb6a8994957d560124116ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822043"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450711"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Bir Node.js Mongoose uygulamasını Azure Cosmos DB'ye bağlanma
 
@@ -183,7 +183,7 @@ Varsayılan Mongoose davranışı, her Nesne modeli oluşturduğunuzda bir Mongo
 
 1. Şimdi, Azure Portal'a gittiğinizde, iki koleksiyon oluşturulduğunu Cosmos DB'de dikkat edin.
 
-    ![Node.js öğreticisi - Birden çok koleksiyon adının vurgulandığı Azure Cosmos DB hesabını gösteren Azure Portal ekran görüntüsü - Node veritabanı][multiple-coll]
+    ![Node.js Öğreticisi - birden çok koleksiyon adının vurgulandığı bir Azure Cosmos DB hesabını gösteren Azure portal ekran görüntüsü, - Node veritabanı][multiple-coll]
 
 1. Cosmos DB'den son olarak, verileri okuyalım. Varsayılan Mongoose çalışma modelini kullandığımızdan, okuma işlemleri Mongoose'la yapılan diğer okuma işlemleriyle aynıdır.
 
@@ -288,7 +288,7 @@ Burada temel bir nesne modeli oluşturuyor, ayırt edici anahtar tanımlıyor ve
 
 1. Artık Azure Portal'a dönerseniz, hem 'Family' hem de 'VacationDestinations' verilerini içeren ```alldata``` adlı tek bir koleksiyonunuz olduğunu görürsünüz.
 
-    ![Node.js öğreticisi - Koleksiyon adının vurgulandığı Azure Cosmos DB hesabını gösteren Azure Portal ekran görüntüsü - Node veritabanı][alldata]
+    ![Node.js Öğreticisi - koleksiyon adının vurgulandığı bir Azure Cosmos DB hesabını gösteren Azure portal ekran görüntüsü, - Node veritabanı][alldata]
 
 1. Ayrıca, iki farklı nesne modeli arasında ayırt etmenize yardımcı olmak üzere her nesnenin ```__type``` olarak adlandırılan başka bir özniteliği vardır.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 3254b29ed380b526be6d5fe5f671adeccbd8ea46
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4d97803117a875514fb36f770d551204ece0e55c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54196714"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448960"
 ---
 # <a name="reliable-services-lifecycle"></a>Reliable Services yaşam döngüsü
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Durum bilgisi olmayan hizmetler gibi yaşam döngüsü olayları sırasında kap
 
 1. Bu olaylar, paralel olarak gerçekleşir:
     - Tüm açık dinleyiciler kapatılır. `CommunicationListener.closeAsync()` Her dinleyici adı verilir.
-    - Geçildi iptal belirteci `runAsync()` iptal edildi. Bir iptal belirtecinin çağrı `isCancelled()` yöntemi döndürür `true`ve çağrılırsa, belirtecin `throwIfCancellationRequested()` yöntem bir `OperationCanceledException`.
+    - Geçildi iptal belirteci `runAsync()` iptal edilir. Bir iptal belirtecinin çağrı `isCancelled()` yöntemi döndürür `true`ve çağrılırsa, belirtecin `throwIfCancellationRequested()` yöntem bir `OperationCanceledException`.
 2. Sonra `closeAsync()` her dinleyici tamamlandıktan ve `runAsync()` de tamamlanır, hizmetin `StatefulServiceBase.onChangeRoleAsync()` çağrılır. Bu çağrı hizmette yaygın olarak geçersiz kılınmış değil.
 
    > [!NOTE]  

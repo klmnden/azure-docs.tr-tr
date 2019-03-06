@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 848663c509fd3635b33b8e7735feb940da215bfa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332107"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441823"
 ---
 # <a name="scp-programming-guide"></a>SCP Programlama Kılavuzu
 SCP, güvenilir ve tutarlı, gerçek zamanlı oluşturmak için platform ve yüksek performanslı bilgi işlem uygulama ' dir. Üst kısmındaki yerleşik [Apache Storm](https://storm.incubator.apache.org/) --bir akış işleme sistemi OSS topluluklar göre tasarlanmıştır. Storm Nathan Marz tarafından tasarlanmıştır ve açık Twitter tarafından kaynaklanan oluştu. Bunu yararlanır [Apache ZooKeeper](https://zookeeper.apache.org/), işbirliği ve durum yönetimini son derece güvenilir etkinleştirmek için başka bir Apache projesi dağıtılmış. 
@@ -71,7 +71,7 @@ ISCPSpout işlem olmayan spout arabirimidir.
 
 Zaman `NextTuple()` çağrılır, C\# kullanıcı kodu, bir veya daha fazla tanımlama grubu yayabilir. Varsa yaymak için hiçbir şey, bu yöntem herhangi bir şey yayma olmadan döndürmeniz gerekir. Not edilmesi gereken, `NextTuple()`, `Ack()`, ve `Fail()` tüm C tek bir iş parçacığında sıkı bir döngüde adlandırılır\# işlem. Hiçbir tanımlama grubu yayma için olduğunda, çok fazla CPU boşa değil olarak bu nedenle kısa bir süre (örneğin, 10 milisaniye) için NextTuple uyku sahip courteous.
 
-`Ack()` ve `Fail()` ack mekanizması spec dosyasında yalnızca etkin olduğunda çağrılır. `seqId` Onaylanan veya başarısız olan tanımlama grubu tanımlamak için kullanılır. Bu nedenle işlem olmayan topolojisinde ACK etkinleştirilirse, aşağıdaki emit işlevi Spout içinde kullanılması gerekir:
+`Ack()` ve `Fail()` ack mekanizması spec dosyasında yalnızca etkin olduğunda çağrılır. `seqId` Onaylanır veya başarısız olan tanımlama grubu tanımlamak için kullanılır. Bu nedenle işlem olmayan topolojisinde ACK etkinleştirilirse, aşağıdaki emit işlevi Spout içinde kullanılması gerekir:
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -431,7 +431,7 @@ SCP.NET bağlam nesnesi içindeki iki yöntem sürümüne eklenmiştir. Bunlar, 
 Var olmayan bir akışa yayma, çalışma zamanı özel durumları neden olur.
 
 ### <a name="fields-grouping"></a>Alan gruplandırma
-Yerleşik alanlar gruplandırma Strom SCP.NET düzgün şekilde çalışmıyor. Java Ara sunucu tarafında tüm alanların veri türleri: gerçekten byte [] ve gruplandırma alanları gruplandırma gerçekleştirmek için bayt [] nesnenin karma kodunu kullanır. Bayt [] nesnesi karma kodu bu nesneyi bellek içinde adresidir. Bu nedenle gruplandırma aynı adresi değil, ancak aynı içerik paylaşmak için iki bayt [] nesneleri yanlış olur.
+Storm içindeki yerleşik alanların gruplandırma SCP.NET düzgün şekilde çalışmıyor. Java Ara sunucu tarafında tüm alanların veri türleri: gerçekten byte [] ve gruplandırma alanları gruplandırma gerçekleştirmek için bayt [] nesnenin karma kodunu kullanır. Bayt [] nesnesi karma kodu bu nesneyi bellek içinde adresidir. Bu nedenle gruplandırma aynı adresi değil, ancak aynı içerik paylaşmak için iki bayt [] nesneleri yanlış olur.
 
 SCP.NET özelleştirilmiş gruplandırma yöntemini ekler ve bayt [] içeriğini gruplandırma yapmak için kullanır. İçinde **SPEC** dosyası sözdizimi benzer:
 
@@ -573,7 +573,7 @@ Konak modunda, kullanıcı kodu DLL olarak derlenir ve SCP platformu tarafından
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-ACK etkinleştirilirse, spout onaylanan olan diziler önbelleğe almak için bir sözlük kullanılır. Fail() çağrılırsa, başarısız demet tekrarlanır:
+ACK etkinleştirilirse, spout içinde onaylanmadıkları diziler önbelleğe almak için bir sözlük kullanılır. Fail() çağrılırsa, başarısız demet tekrarlanır:
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {

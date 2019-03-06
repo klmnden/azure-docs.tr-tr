@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: b35bec31035c0219bf34a31cb34e20f7dc3a72c5
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: cac889b83bb0e7a7aab12ff4097556abf60663b6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397038"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449130"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>BLOB depolama alanından Xamarin kullanma
 
@@ -29,7 +29,7 @@ Bu öğreticide, biz Android, iOS ve Windows hedefleyen bir uygulama oluştururs
 Uygulamanızı oluşturmak için aşağıdaki adımları izleyin:
 
 1. Henüz yapmadıysanız, indirme ve yükleme [Visual Studio için Xamarin](https://www.xamarin.com/download).
-2. Visual Studio'yu açın ve boş bir uygulama (yerel taşınabilir) oluşturma: **Dosya > Yeni > Proje > platformlar arası > boş App(Native Portable)**.
+2. Visual Studio'yu açın ve bir boş uygulama (yerel taşınabilir) oluşturun: **Dosya > Yeni > Proje > platformlar arası > boş uygulama (yerel taşınabilir)**.
 3. Çözüm Gezgini bölmesinde, çözümü sağ tıklayıp **çözüm için NuGet paketlerini Yönet**. Arama **WindowsAzure.Storage** ve çözümünüzdeki tüm projeler için en son kararlı sürümünü yükleyin.
 4. Derleme ve projeyi çalıştırın.
 
@@ -155,7 +155,7 @@ namespace XamarinApp.iOS
             public override void DidReceiveMemoryWarning ()
             {
                 base.DidReceiveMemoryWarning ();
-                // Release any cached data, images, etc that aren't in use.
+                // Release any cached data, images, etc. that aren't in use.
             }
         }
     }

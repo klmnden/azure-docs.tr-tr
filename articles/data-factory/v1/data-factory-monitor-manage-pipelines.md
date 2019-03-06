@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77c55657f57af655b5b8154dbcf58472434396a6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015501"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445152"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>İzleme ve Azure portalı ve PowerShell kullanarak Azure Data Factory işlem hatlarını yönetme
 > [!div class="op_single_selector"]
@@ -35,6 +35,8 @@ Bu makalede, izleme, yönetme ve işlem hatlarınızı Azure portal ve PowerShel
 
 > [!IMPORTANT]
 > Azure Data Factory sürüm 1 şimdi kullanan yeni [Azure İzleyici'de altyapı uyarı](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Eski uyarı altyapı kullanım dışı bırakılmıştır. Sonuç olarak, mevcut uyarılarınızı sürüm 1 veri fabrikaları artık çalışmıyor yapılandırılmış. Mevcut uyarılarınızı v1 veri fabrikaları için otomatik olarak geçirilmez. Bu uyarılar yeni uyarı altyapı oluşturmanız gerekebilir. Azure portal ve select oturum **İzleyici** yeni uyarılar ölçümleri (örneğin, başarısız çalıştırmaları veya başarılı çalıştırmalar) sürümünüz için 1 veri fabrikası oluşturmak için.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="understand-pipelines-and-activity-states"></a>İşlem hattı ve etkinlik durumlarını anlama
 Azure portalını kullanarak şunları yapabilirsiniz:
@@ -173,26 +175,26 @@ Dilim başlatılacağı bir **bekleyen** yürütülmeden önce karşılanması g
 > [!NOTE] 
 > Diyagram görünümü, duraklatma ve sürdürme işlem hatları desteklemez. Bir kullanıcı arabirimi kullanmak istiyorsanız, izleme ve yönetme uygulaması kullanın. Uygulamayı kullanma hakkında daha fazla ayrıntı için bkz. [izlemek ve Data Factory işlem hatlarını izleme ve yönetme uygulamasını kullanarak yönetmek](data-factory-monitor-manage-app.md) makalesi. 
 
-Duraklatma/işlem hatları kullanarak askıya alabilirsiniz **Suspend-AzureRmDataFactoryPipeline** PowerShell cmdlet'i. Bu cmdlet, bir sorun düzeltilene kadar işlem hatlarınızı çalıştırmak istemediğiniz zaman yararlıdır. 
+Duraklatma/işlem hatları kullanarak askıya alabilirsiniz **Suspend-AzDataFactoryPipeline** PowerShell cmdlet'i. Bu cmdlet, bir sorun düzeltilene kadar işlem hatlarınızı çalıştırmak istemediğiniz zaman yararlıdır. 
 
 ```powershell
-Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
 Örneğin:
 
 ```powershell
-Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
+Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
 İşlem hattı çalıştırmasıyla sorun çözüldükten sonra aşağıdaki PowerShell komutunu çalıştırarak askıya alınmış işlem hattı devam edebilir:
 
 ```powershell
-Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
 Örneğin:
 
 ```powershell
-Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
+Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
 ## <a name="debug-pipelines"></a>İşlem hatları hata ayıklama
@@ -217,29 +219,29 @@ Bir işlem hattında etkinlik çalıştırma başarısız olursa, işlem hattı 
 
 #### <a name="use-powershell-to-debug-an-error"></a>Bir hata ayıklama için PowerShell kullanma
 1. **PowerShell**’i başlatın.
-2. Çalıştırma **Get-AzureRmDataFactorySlice** dilimleri ve bunların durumlarını görmek için komutu. Durumunu içeren bir dilim görmeniz gerekir **başarısız**.        
+2. Çalıştırma **Get-AzDataFactorySlice** dilimleri ve bunların durumlarını görmek için komutu. Durumunu içeren bir dilim görmeniz gerekir **başarısız**.        
 
     ```powershell   
-    Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+    Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
    Örneğin:
 
     ```powershell   
-    Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+    Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
    Değiştirin **StartDateTime** değerlerini işlem hattınızın başlangıç saatine sahip. 
-3. Şimdi **Get-AzureRmDataFactoryRun** etkinliği hakkında ayrıntılı bilgi almak için cmdlet çalıştırma için dilim.
+3. Şimdi **Get-AzDataFactoryRun** etkinliği hakkında ayrıntılı bilgi almak için cmdlet çalıştırma için dilim.
 
     ```powershell   
-    Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
+    Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
     Örneğin:
 
     ```powershell   
-    Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+    Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
     ```
 
     StartDateTime, önceki adımda not ettiğiniz hata/sorun dilimin başlangıç zamanı değeridir. Tarih-saat çift tırnak içine alınmalıdır.
@@ -267,10 +269,10 @@ Bir işlem hattında etkinlik çalıştırma başarısız olursa, işlem hattı 
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. Çalıştırabileceğiniz **Kaydet AzureRmDataFactoryLog** kimliği değeri çıktısını görmek ve günlük dosyalarını kullanarak karşıdan bir cmdlet'le **- DownloadLogsoption** cmdlet'i için.
+5. Çalıştırabileceğiniz **Kaydet AzDataFactoryLog** kimliği değeri çıktısını görmek ve günlük dosyalarını kullanarak karşıdan bir cmdlet'le **- DownloadLogsoption** cmdlet'i için.
 
     ```powershell
-    Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+    Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
     ```
 
 ## <a name="rerun-failures-in-a-pipeline"></a>İşlem hattındaki hataları yeniden çalıştırma
@@ -288,7 +290,7 @@ Sorun giderme ve hata ayıklama hataları ardışık düzeninde sonra hata dilim
 ![Hataları düzeltin ve doğrulama](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell kullanma
-Kullanarak, hataları yeniden çalıştırabilirsiniz **Set-AzureRmDataFactorySliceStatus** cmdlet'i. Bkz: [Set-AzureRmDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus) konu sözdizimi ve cmdlet ile ilgili diğer ayrıntıları.
+Kullanarak, hataları yeniden çalıştırabilirsiniz **kümesi AzDataFactorySliceStatus** cmdlet'i. Bkz: [kümesi AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) konu sözdizimi ve cmdlet ile ilgili diğer ayrıntıları.
 
 **Örnek:**
 
@@ -297,7 +299,7 @@ Aşağıdaki örnek tablosunun tüm dilimleri durumunu 'DAWikiAggregatedData' 'A
 'Güncelleştirme 'türü, 'tablosu için her bir dilimi ve tüm bağımlı (Yukarı Akış) tabloları durumları 'Bekliyor' ayarlandığından anlamına Upstreamınpipeline için', ayarlanır. Bu parametre için diğer olası değer 'Bireysel' dir.
 
 ```powershell
-Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
 ## <a name="create-alerts-in-the-azure-portal"></a>Azure portalında uyarı oluşturma
 

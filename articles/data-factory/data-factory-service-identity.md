@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: c49cff297404174a6331eaa82ab5efd585a345c4
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: daafac3cd89b2af7f6d7fa9a8ae28eecd334b623
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671821"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438475"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory için yönetilen kimlik
 
 Bu makale, yönetilen kimlik ne olduğunu anlamanıza yardımcı olur (eski adıyla yönetilen hizmet kimliği/MSI olarak da bilinir) Data Factory ve nasıl çalışır.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -54,10 +56,10 @@ Veri fabrikanızın aşağıdaki ilişkili yönetilen bir kimlik yok bulup bulam
 
 ### <a name="generate-managed-identity-using-powershell"></a>PowerShell kullanarak yönetilen kimlik oluşturma
 
-Çağrı **Set-AzureRmDataFactoryV2** "Kimlik" alanları yeni oluşturulan gördüğünüz daha sonra yeniden komutu:
+Çağrı **kümesi AzDataFactoryV2** "Kimlik" alanları yeni oluşturulan gördüğünüz daha sonra yeniden komutu:
 
 ```powershell
-PS C:\WINDOWS\system32> Set-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
+PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
 
 DataFactoryName   : ADFV2DemoFactory
 DataFactoryId     : /subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory
@@ -167,7 +169,7 @@ Bulabilirsiniz yönetilen kimlik bilgileri Azure portalından -> data factory'ni
 Yönetilen kimlik sorumlu kimliği ve Kiracı kimliği, belirli bir veri fabrikası gibi aldığınızda döndürülür:
 
 ```powershell
-PS C:\WINDOWS\system32> (Get-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
+PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
 
 PrincipalId                          TenantId
 -----------                          --------
@@ -177,7 +179,7 @@ PrincipalId                          TenantId
 Sorumlu Kimliği kopyalayın, sonra aşağıdaki komutu Azure Active Directory ile asıl kimlik almak için parametre olarak çalıştırın. **ApplicationId**, hangi erişim vermek için kullanın:
 
 ```powershell
-PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 
 ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
 ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02

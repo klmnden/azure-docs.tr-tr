@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 84c37927eda65be71eb837aef2cb4968a121ee29
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71ffcc420372215a393f560d01d6c08dee03dfbd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426902"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433680"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Azure'da bir Java uygulamasında Twilio kullanarak telefon görüşmesi yapma
 Aşağıdaki örnek, Azure'da barındırılan bir web sayfasından çağrı yapmak için Twilio nasıl kullanabileceğinizi gösterir. Elde edilen uygulama, aşağıdaki ekran görüntüsünde gösterildiği gibi kullanıcıdan telefon araması değerlerini ister.
@@ -162,7 +162,7 @@ Kullanıcı tarafından callform.jsp görüntülenen form tamamladığında ça�
     </body>
     </html>
 
-Çağrıyı yapan yanı sıra makecall.jsp Twilio uç noktası, API sürümü ve çağrı durumunu görüntüler. Aşağıdaki ekran görüntüsünde bir örnek verilmiştir:
+Çağrıyı yapan yanı sıra makecall.jsp Twilio uç noktası, API sürümü ve çağrı durumunu görüntüler. Aşağıdaki anlık görüntüde bir örnek verilmiştir:
 
 ![Twilio ve Java kullanan azure çağrı yanıtı][twilio_java_response]
 

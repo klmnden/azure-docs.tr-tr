@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 53061d4d09ac2769e59269701467a22f292cd919
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959774"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432643"
 ---
 # <a name="aks-troubleshooting"></a>AKS sorunlarını giderme
 
@@ -89,4 +89,4 @@ Küme başarısız durumda birden çok nedenlerle girin. Bu hata oluşur. Daha �
 Küme işlemlerini, etkin yükseltme gibi işlemler gerçekleştiğini veya yükseltmeye çalıştı, ancak sonradan başarısız sınırlıdır. Çalıştırma sorunu tanılamak için `az aks show -g myResourceGroup -n myAKSCluster -o table` kümenizdeki ayrıntılı durumu alınamadı. Sonuca bağlı:
 
 * Kümenin etkin bir şekilde yükseltme işlemi sonlanana kadar bekleyin. Bu başarılı olursa, daha önce başarısız olan işlemi yeniden deneyin.
-* Küme yükseltme başarısız olursa, ana hatlarıyla belirtilen adımları izleyin [yukarıda](#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade-directed-from-httpsakamsaks-pending-upgrade)
+* Küme yükseltme başarısız oldu, yukarıda özetlenen adımları izleyin.

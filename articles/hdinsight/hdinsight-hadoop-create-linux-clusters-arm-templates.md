@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: b8264e4f69a7561865f5d14087bc81bc933a6c59
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cd02930394fd4cd09808a808765e54ff9ea6b4ea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821413"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434310"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak HDInsight Apache Hadoop kümelerini oluşturun
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -30,7 +30,7 @@ Bu makalede bulunan yönergeleri takip etmek için ihtiyacınız vardır:
 * Azure PowerShell ve/veya Azure Klasik CLI.
 
 ### <a name="resource-manager-templates"></a>Resource Manager şablonları
-Resource Manager şablonu tek ve eşgüdümlü bir işlemle uygulamanız için aşağıdaki resoruces oluşturmak daha kolay hale getirir:
+Resource Manager şablonu tek ve eşgüdümlü bir işlemle uygulamanız için aşağıdaki kaynakları oluşturmak üzere kolaylaştırır:
 * HDInsight kümeleri ve bağımlı kaynaklarını (örneğin, varsayılan depolama hesabı).
 * Diğer kaynakları (kullanmak için Azure SQL veritabanı gibi [Apache Sqoop](https://sqoop.apache.org/)).
 

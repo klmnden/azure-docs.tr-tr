@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61603ad5920b6242c3e36429173744125b9eb59e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 41c514706a671f755eb5b0efd5e3eefa5052c6e2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206760"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Öğretici: Palo Alto Networks - açıklık ile Azure Active Directory Tümleştirme
 
@@ -149,7 +149,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     ![Kimlik doğrulama sekmesi](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
 
-    a. Denetleme **etkinleştirme tek oturum-On(Supported SSP Providers are Okta, Onelogin)** gelen **çoklu oturum açma** alan.
+    a. Denetleme **etkinleştirme tek oturum-On(Supported SSP Providers are Okta, One login)** gelen **çoklu oturum açma** alan.
 
     b. İçinde **kimlik sağlayıcı kimliği** metin değerini yapıştırın **SAML varlık kimliği**, hangi Azure Portalı'ndan kopyaladığınız.
 

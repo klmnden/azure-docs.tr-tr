@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d770e091c8786972e3f15a03fc5af9ec9445002
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: da9aec6c449802ee9296ea4e60efe47650176212
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327809"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433357"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB liveCache ve Azure Vm'leri üzerinde içerik sunucusu dağıtımı
 
@@ -440,7 +440,7 @@ Azure üzerinde SAP içerik sunucusu için desteklenen Windows sürümü bulmak 
 Microsoft Windows Server'ın en yeni sürümü kullanmak için önerilir.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure vm'lerde SAP yüklemeleri için SAP içerik sunucusu yapılandırma yönergeleri
-#### <a name="storage-configuration-foir-content-server-in-azure"></a>Depolama yapılandırması foir azure'da içerik sunucusu
+#### <a name="storage-configuration-for-content-server-in-azure"></a>Azure'da içerik sunucusu için depolama yapılandırması
 SAP MaxDB veritabanında depolamak için SAP içerik sunucusu yapılandırırsanız, SAP MaxDB için bu belgede belirtilen tüm Azure depolama en iyi yöntemler öneri ayrıca SAP içerik sunucusu senaryosu için geçerli. 
 
 Dosya sistemindeki dosyaları depolamak için SAP içerik sunucusu yapılandırırsanız, adanmış bir mantıksal sürücü kullanmak için önerilir. Windows depolama alanları kullanarak mantıksal diskin boyut ve IOPS işleme da artırabilirsiniz olanak tanır açıklandığı [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md). 

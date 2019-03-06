@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d05661c131d981538dada988131c39d4fd956ee9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8f333b626fa51fa60f80350547ee53f346d6cc3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016754"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436776"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Oluşturabilir, izleyebilir ve Azure Data Factory .NET SDK kullanarak Azure data factory'leri yönetme
 > [!NOTE]
@@ -31,6 +31,9 @@ Oluşturun, izleme ve program aracılığıyla Data Factory .NET SDK kullanarak 
 > Bu makale, Data Factory .NET API’nin tamamını kapsamaz. Bkz: [Data Factory .NET API Başvurusu](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) Data Factory .NET API hakkında kapsamlı bilgi için. 
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Visual Studio 2012 veya 2013 veya 2015
 * İndirme ve yükleme [Azure .NET SDK'sı](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Bilgisayarınıza Azure PowerShell’i yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview) makalesindeki yönergeleri izleyin. Azure PowerShell’i kullanarak bir Azure Active Directory uygulaması oluşturursunuz.
@@ -42,17 +45,17 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
 2. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 4. Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **&lt;NameOfAzureSubscription**&gt; değerini Azure aboneliğinizin adıyla değiştirin.
 
     ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
    > [!IMPORTANT]
@@ -61,7 +64,7 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
 5. PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun.
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
     Kaynak grubu zaten varsa bunun güncelleştirileceğini mi (Y) yoksa (N) olarak tutulacağını mı belirtirsiniz.
@@ -70,7 +73,7 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
 6. Bir Azure Active Directory uygulaması oluşturun.
 
     ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
+    $azureAdApplication = New-AzADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
     ```
 
     Aşağıdaki hatayı alırsanız farklı bir URL belirtip komutu yeniden çalıştırın.
@@ -81,12 +84,12 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
 7. AD hizmet sorumlusunu oluşturun.
 
     ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Hizmet sorumlusunu **Data Factory Katılımcısı** rolüne ekleyin.
 
     ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Uygulama kimliğini alın.
 
@@ -175,7 +178,7 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
     ```
 
    > [!IMPORTANT]
-   > **resourceGroupName** değerini Azure kaynak grubunuzun adıyla değiştirin. Kullanarak bir kaynak grubu oluşturmanız [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet'i.
+   > **resourceGroupName** değerini Azure kaynak grubunuzun adıyla değiştirin. Kullanarak bir kaynak grubu oluşturmanız [New-AzureResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet'i.
    >
    > Veri fabrikasının adını (dataFactoryName) benzersiz olacak şekilde güncelleştirin. Veri fabrikasının adı genel olarak benzersiz olmalıdır. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
 7. Bir **veri fabrikası** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.

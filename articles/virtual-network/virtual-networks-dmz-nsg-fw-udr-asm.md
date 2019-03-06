@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c3a5cb540843c5ec4ceaf8522e9148cc7171149c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965265"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456474"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Örnek 3: ağları bir güvenlik duvarı, UDR ve NSG ile korunacak bir DMZ oluşturma
 [Güvenlik sınırı en iyi yöntemler sayfasına geri dönün][HOME]
@@ -356,7 +356,7 @@ Bu örnekte tamamlamak için gereken her bir kural ayrıntılarını aşağıda 
   
     Bu geçişi kural her IIS sunucusu AppVM01 ulaşmak için ön uç alt ağda sağlar (IP adresi 10.0.2.5) herhangi bir bağlantı üzerinde web uygulaması tarafından gerekli verilere herhangi bir protokolünü kullanarak.
   
-    Bu ekran görüntüsünde, bir "\<dest açık\>" hedef alanı 10.0.2.5 hedef olarak belirtmek için kullanılır. Bu şunlardan biri olabilir gösterildiği veya açık adlı ağ (DNS sunucusu için Önkoşullar'da yapıldığı gibi) nesne. Hangi yöntemi kullanılacak Güvenlik Duvarı'nın yöneticisine kalmıştır budur. İlk boş satırda altında 10.0.2.5 bir işinizi hedefi eklemek için çift \<dest açık\> ve açılır pencerede adresini girin.
+    Bu ekran görüntüsünde bir "\<dest açık\>" hedef alanı 10.0.2.5 hedef olarak belirtmek için kullanılır. Bu şunlardan biri olabilir gösterildiği veya açık adlı ağ (DNS sunucusu için Önkoşullar'da yapıldığı gibi) nesne. Hangi yöntemi kullanılacak Güvenlik Duvarı'nın yöneticisine kalmıştır budur. İlk boş satırda altında 10.0.2.5 açık bir hedef eklemek için çift \<dest açık\> ve açılır pencerede adresini girin.
   
     Bağlantı yöntemi "No SNAT" için ayarlanabilir bu nedenle bu iç trafik olduğundan geçirmek bu kural, NAT gereklidir.
   
@@ -381,7 +381,7 @@ Bu örnekte tamamlamak için gereken her bir kural ayrıntılarını aşağıda 
   
     ![DNS güvenlik duvarı][15]
   
-    **Not**: Bu ekranda görüntüsü bağlantı yöntemini dahil edilir. Bu kural, iç IP adresi trafik için iç IP için olduğundan, hiçbir NATing gerekli değildir, bu bağlantı yöntemi için bu geçişi kuralı "No SNAT" için ayarlanır.
+    **Not**: Bu ekran görüntüsünde, bağlantı yöntemini dahil edilir. Bu kural, iç IP adresi trafik için iç IP için olduğundan, hiçbir NATing gerekli değildir, bu bağlantı yöntemi için bu geçişi kuralı "No SNAT" için ayarlanır.
 * **Alt ağ için alt kural**: Etkin ve herhangi bir sunucu ön uç alt ağda bulunan herhangi bir sunucuya bağlanmak için arka uç alt ağında izin vermek için değiştirilmiş bir varsayılan kural bu geçişi kuralıdır. Bu kural tüm iç trafik olduğundan bağlantı yöntemi için Hayır SNAT ayarlanabilir.
   
     ![Güvenlik Duvarı içi-sanal ağ kuralı][16]

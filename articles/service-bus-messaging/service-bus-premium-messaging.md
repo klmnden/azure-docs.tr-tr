@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ae35f73e601cfa83fc960c5331f9956863677941
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3c5666922c89819d9959af5cf77a640efb023ad0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855304"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455522"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium ve Standart Mesajlaşma katmanları
 
@@ -54,6 +54,21 @@ Bölümlenmiş kuyruk ve konular Premium Mesajlaşma’da desteklenmez. Bölüml
 Premium mesajlaşma tamamen yalıtılmış bir çalışma zamanı ortamında çalıştığından Premium ad alanlarında ifade varlıkları desteklenmez. İfade özellikleri hakkında daha fazla bilgi için [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) özelliğine bakın.
 
 Standart mesajlaşma altında çalışan bir kodunuz varsa ve Premium katmanı ile bağlantı noktası oluşturmak istiyorsanız, [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) özelliğinin **false** (varsayılan değer) olarak ayarlandığından emin olun.
+
+## <a name="premium-messaging-resource-usage"></a>Premium Mesajlaşma kaynak kullanımı
+Genel olarak, herhangi bir işlem bir varlık üzerindeki CPU ve bellek kullanımı neden olabilir. Bu işlemlerin bazıları şunlardır: 
+
+- Yönetim işlemleri gibi CRUD (oluşturma, alma, güncelleştirme ve silme) işlemleri kuyruklar, konular ve abonelikler üzerinde.
+- Çalışma zamanı işlemleri (iletiler gönderebilir ve alabilir)
+- İşlemler ve Uyarıları izleme
+
+Ek CPU ve bellek kullanımı ayrıca ancak fiyatlandırılır değil. Premium Mesajlaşma katmanı için ileti birimi için tek bir fiyat yoktur.
+
+CPU ve bellek kullanımı izlenir ve size aşağıdaki nedenlerle görüntülenir: 
+
+- Saydamlık sistem iç işlevler halinde sağlayın
+- Satın alınan kaynakların kapasitesini anlayın.
+- Kapasite planlamayı yukarı/aşağı ölçeklendirme karar vermenize yardımcı olur.
 
 ## <a name="get-started-with-premium-messaging"></a>Premium Mesajlaşmayı kullanmaya başlama
 

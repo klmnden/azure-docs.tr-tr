@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2804ebdbeb72bd35c7e63553184157066f9cfd32
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93e33ea311a064058e739bfcf6d63dc2d5462110
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177330"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435074"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Galeri dışı uygulamalar için çoklu oturum açma, Azure Active Directory'de yapılandırma
 
@@ -60,7 +60,7 @@ Azure ad kurulumu için temel bir SAML yapılandırma girin. El ile değerleri g
 
   ![Litware etki alanı ve URL'ler](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **Üzerinde oturum URL'si (SP tarafından başlatılan yalnızca)** – burada kullanıcı bu uygulamaya oturum gider. Bir kullanıcı bu URL'ye gittiğinde, hizmet sağlayıcısı gerekli yönlendirme kimliğini doğrulamak ve kullanıcı oturum için Azure AD'ye ne yapacağını sonra uygulama hizmet sağlayıcısı tarafından başlatılan çoklu oturum açma, gerçekleştirmek için yapılandırılmışsa. Bu alan doldurulursa, Azure AD Office 365 ve Azure AD erişim paneli uygulamasını başlatmak için bu URL'yi kullanır. Bu alan atlanırsa sonra Azure AD kimlik sağlayıcısı yerine gerçekleştirecek-oturum açma, Azure AD erişim paneli, Office 365 veya Azure AD çoklu oturum açma URL'si (Pano sekmesinden kopyalanabilir) uygulama başlatıldığında başlattı.
+- **Üzerinde oturum URL'si (SP tarafından başlatılan yalnızca)** – burada kullanıcı bu uygulamaya oturum gider. Bir kullanıcı bu URL'ye gittiğinde, hizmet sağlayıcısı gerekli yönlendirme kimliğini doğrulamak ve kullanıcı oturum için Azure AD'ye ne yapacağını sonra uygulama hizmet sağlayıcısı tarafından başlatılan çoklu oturum açma, gerçekleştirmek için yapılandırılmışsa. Bu alan doldurulursa, Azure AD Office 365 ve Azure AD erişim paneli uygulamasını başlatmak için bu URL'yi kullanır. Bu alan atlanırsa sonra Azure AD kimlik sağlayıcısı yerine gerçekleştirecek-oturum açma (Pano sekmesinden kopyalanabilir) Azure AD çoklu oturum açma URL'si veya Office 365, Azure AD erişim paneli uygulama başlatıldığında başlattı.
 - **Tanımlayıcı** -uygulama için çoklu oturum açma yapılandırılmış benzersiz şekilde tanımlamalıdır. Bu değer uygulama tarafından gönderilen AuthRequest (SAML isteği) veren öğesi olarak bulabilirsiniz. Bu değer de görünür **varlık kimliği** uygulama tarafından sağlanan herhangi bir SAML meta veri içinde. Varlık kimliği veya hedef kitle değeri nedir ilişkin ayrıntılar için uygulamanın SAML belgelerine bakın. 
 
     Azure AD uygulama tarafından gönderilen SAML isteğindeki veren ve tanımlayıcı nasıl görüneceğini gösteren bir örnek verilmiştir:

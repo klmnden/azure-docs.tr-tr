@@ -1,26 +1,26 @@
 ---
-title: 'Hızlı Başlangıç: BAM dosyası girişini kullanarak iş akışı gönderme | Microsoft Genomiks'
+title: Giriş - bir BAM dosyası Microsoft Genomics kullanarak iş akışı gönderme
 titleSuffix: Azure
-description: Bu hızlı başlangıçta msgen istemcisini yüklediğiniz ve hizmette örnek verileri başarıyla çalıştırdığınız kabul edilmektedir.
+description: Bu makalede, yüklü msgen istemcisini yüklediğiniz ve hizmet aracılığıyla örnek verileri başarıyla çalıştırdığınız varsayılır.
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: 91bc13dbf024df20ac23ca0ff83a73ed246dce28
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 329ac374edbffa65a1b654a05a4934828f25d5de
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729513"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435092"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>BAM dosyası girişini kullanarak iş akışı gönderme
 
-Bu hızlı başlangıçta giriş dosyanız tek bir BAM dosyası olduğunda Microsoft Genomiks hizmetine iş akışı gönderme adımları gösterilmektedir. Bu konu başlığında `msgen` istemcisini yükleyip çalıştırdığınız ve Azure Depolama konusunda bilgi sahibi olduğunuz kabul edilmektedir. Sağlanan örnek verileri kullanarak başarıyla bir iş akışı gönderdiyseniz bu hızlı başlangıca devam etmeye hazırsınız demektir. 
+Bu makalede, giriş dosyanız tek bir BAM dosyası olduğunda Microsoft Genomics hizmetine bir iş akışı gönderme adımları gösterilmektedir. Bu konu başlığında `msgen` istemcisini yükleyip çalıştırdığınız ve Azure Depolama konusunda bilgi sahibi olduğunuz kabul edilmektedir. Sağlanan örnek verileri kullanarak bir iş akışı başarıyla gönderdiyseniz, bu makalede ile devam etmek hazır olursunuz. 
 
-## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Kurulum: BAM dosyanızı Azure depolamaya yükleme
+## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Ayarlayın: BAM dosyanızı Azure depolamaya yükleme
 *reads.bam* adlı tek bir BAM dosyasına sahip olduğunuzu ve bu dosyayı *myaccount* adlı Azure depolama hesabınıza **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>** olarak yüklediğinizi düşünelim. API URL'sine ve erişim anahtarına sahipsiniz. **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** içinde iki çıkış olmasını istiyorsunuz.
 
 

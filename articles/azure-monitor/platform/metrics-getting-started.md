@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: a94e53644b2032af7be1575cd13807e0484eb182
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9d23d4b30ca4d394fb4afd0bb6620be6df179600
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344966"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444948"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Azure ölçüm Gezgini ile çalışmaya başlama
 
@@ -26,7 +26,7 @@ Sistem durumu ve kaynaklarınızın kullanımını araştırmak için ölçüm G
 
 1. Başlayın [kaynak ve bir ölçüm çekme](#creating-your-first-metric-chart) ve temel bir grafik görürsünüz. Ardından [bir zaman aralığı seçin](#picking-time-range) araştırmanızı için ilgili olmasıdır.
 
-1. Temel grafikler hakkında daha fazla edindikten sonra denemek isteyebilirsiniz [boyut filtreleri uygulayarak ve bölme](#applying-dimension-filters-and-splitting). Filtreler ve hangi segmentlerin ölçümün genel ölçüm değerine katkıda analiz etmenize izin vermek ve olası aykırı değerleri tanımlamayı bölme.
+1. Deneyin [boyut filtreleri uygulayarak ve bölme](#applying-dimension-filters-and-splitting). Filtreler ve hangi segmentlerin ölçümün genel ölçüm değerine katkıda analiz etmenize izin vermek ve olası aykırı değerleri tanımlamayı bölme.
 
 1. Kullanım [Gelişmiş ayarlar](#advanced-chart-settings-and-next-steps) panolara sabitlemeden önce grafiği özelleştirme. [Uyarıları Yapılandır](alerts-metric-overview.md) ölçüm değeri aşarsa veya bir eşiğin altına düşünceye bildirimleri almak için.
 
@@ -59,7 +59,7 @@ Varsayılan olarak, en son 24 saat ölçümlerini veri grafik gösterir. Kullan�
 
 [Filtreleme](metrics-charts.md#apply-filters-to-charts) ve [bölme](metrics-charts.md#apply-splitting-to-a-chart) boyutlara sahip ölçümleri için güçlü tanılama araçları. Bu özellik, çeşitli ölçüm parçaları ("boyut değerleri") ölçüm öğenin toplam değeri etkiler ve olası aykırı değerleri tanımlamayı sağlar gösterir.
 
-- **Filtreleme** seçtiğiniz boyut değerlerini grafikte yer sağlar. Örneğin, grafik, başarılı istekler göstermek isteyebilirsiniz *sunucu yanıt süresi* ölçümü. Dosyalayıcı uygulamak gerekir *istek başarısı* boyut. 
+- **Filtreleme** seçtiğiniz boyut değerlerini grafikte yer sağlar. Örneğin, grafik, başarılı istekler göstermek isteyebilirsiniz *sunucu yanıt süresi* ölçümü. Filtre uygulamak gerekir *istek başarısı* boyut. 
 
 - **Bölme** grafik ayrı görüntüler satırları bir boyut için her bir değer veya tek bir satıra değerleri toplar denetim. Örneğin, bir satır için bir ortalama yanıt süresi, tüm sunucu örneklerinde bakın veya her sunucu için ayrı satırlara bakın. Temel bölme uygulanacak gerekir *sunucuyu* ayrı satırlara görmek için boyut.
 

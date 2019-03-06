@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8feee92e9105259bddf45114ac48a54347266cd7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5d1b2718b360a55d9b1510bcfcb2ddb6492e2830
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846008"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436757"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Askıya alma ve mesajlaşma varlıkları (devre dışı bırak) yeniden etkinleştirme
 
@@ -28,7 +28,7 @@ Bir varlık askıya alma, genellikle Acil Yönetim amaçları için gerçekleşt
 
 Kullanıcı veya sistem tarafından askıya alma veya yeniden etkinleştirme gerçekleştirilebilir. Sistem, harcama limiti aboneliği ulaşma gibi grave yönetim nedenlerden dolayı varlıkları yalnızca askıya alır. Sistemi devre dışı varlıklar kullanıcı tarafından yeniden etkinleştirilemez, ancak askıya alınma nedenini ele alındığında geri yüklenir.
 
-Portalda, **özellikleri** ilgili varlığın bölüm etkinleştirir durumunu değiştirme; bir kuyruk için iki durumlu düğme aşağıdaki ekran görüntüsünde gösterilmektedir:
+Portalda, **özellikleri** ilgili varlığın bölüm sağlar durumunu değiştirme; bir kuyruk için iki durumlu düğme aşağıdaki ekran görüntüsünde gösterilmektedir:
 
 ![][1]
 

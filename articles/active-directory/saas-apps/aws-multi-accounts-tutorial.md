@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ceb9c7b18de5262a38fc724aad9605e82a615a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238428"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Öğretici: Birden çok Amazon Web Services (AWS) hesapları ile Azure Active Directory Tümleştirme
 
@@ -215,7 +215,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
   
     d. Tıklayın **sonraki: İzinleri**.
 
-9. Üzerinde **eklemek izinleri ilkeleri** iletişim kutusunda, lütfen uygun ilkeye kuruluşunuza göre bağlayın. Tıklayın **sonraki: Gözden geçirme**.  
+9. Üzerinde **eklemek izinleri ilkeleri** iletişim kutusunda, lütfen uygun İlkesi uyarınca kuruluşunuz bağlayın. Tıklayın **sonraki: Gözden geçirme**.  
 
     ![Çoklu oturum açma ilkesi yapılandırma][33]
 

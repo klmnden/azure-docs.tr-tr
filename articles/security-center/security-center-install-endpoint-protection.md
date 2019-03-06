@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2065381063058eb59dd5896e12c1aa34184148bf
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c2cb4c2f1154be56b7237a6cb12c87fcc3e00467
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247010"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455879"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Azure Güvenlik Merkezi ile uç nokta koruma sorunları yönetme
 Azure Güvenlik Merkezi, kötü amaçlı yazılımdan korunma durumunu izler ve bu uç nokta koruma sorunları dikey penceresi bildirir. Güvenlik Merkezi, algılanan tehditlere ve sanal makinelerinizi (VM) ve bilgisayarları kötü amaçlı yazılım tehditlerine karşı savunmasız hale getirebilirsiniz yetersiz koruma gibi sorunlar vurgular. Altında verilen bilgileri kullanarak **uç nokta koruma sorunları**, tanımlanan tüm sorunların ele almak için bir plan belirleyebilirsiniz.
@@ -60,7 +60,7 @@ Bu örnekte, kullanacağız **işlem**.  Azure sanal makinelerinde ve Azure hari
    - Endpoint protection sağlayıcıları - Güvenlik Merkezi tarafından tanımlanan farklı sağlayıcıları listeler yüklü.
    - Yüklü endpoint protection sistem durumu - Vm'leri ve yüklü bir uç nokta koruma çözümüne sahip bilgisayarların sistem durumunu gösterir. Grafik, VM'ler ve iyi durumda olan bilgisayarların sayısını ve koruması yetersiz olan numarasını gösterir.
    - Kötü amaçlı yazılım algılanan – VM sayısını gösterir ve burada Güvenlik Merkezi raporlama bilgisayarları kötü amaçlı yazılım algıladı.
-   - Saldırılan bilgisayarlar – Vm'leri ve Bilgisayarları Güvenlik Merkezi tarafından kötü amaçlı yazılımların saldırıları burada bildiriyor sayısını gösterir.
+   - Saldırılan bilgisayarlar – Vm'leri ve Bilgisayarları Güvenlik Merkezi tarafından kötü amaçlı yazılım saldırılarına burada bildiriyor sayısını gösterir.
 
    Pano altındaki aşağıdaki bilgileri içeren koruma sorunları uç nokta listesi vardır:  
 

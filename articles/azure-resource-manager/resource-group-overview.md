@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 03/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: d275455f502cf20eaa573c1716c38023f8e7236e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821909"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409866"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
 
@@ -51,7 +51,16 @@ Resource Manager çeşitli avantajlar sunar:
 * Aboneliğinizdeki tüm kaynakları mantıksal olarak düzenlemek için kaynaklarınıza etiketler ekleyebilirsiniz.
 * Aynı etiketi paylaşan bir kaynak grubunun maliyetlerini görüntüleyerek kuruluşunuzun faturalarına açıklık getirebilirsiniz.
 
+## <a name="understand-management-scope"></a>Yönetim kapsamı anlama
+
+Azure, dört yönetim kapsam düzeyleri sağlar: Yönetim grupları, abonelikler, kaynak grupları ve kaynaklar. [Yönetim grupları](../governance/management-groups/index.md) önizleme sürümündedir. Aşağıdaki resimde bu katmanlara ait bir örnek gösterilir.
+
+![Kapsam](./media/resource-group-overview/scope-levels.png)
+
+Yönetim ayarlarını bu kapsam düzeylerinden birinde uygularsınız. Seçtiğiniz düzey, ayarın ne kadar yaygın olarak uygulanacağını belirler. Düşük düzeyler, yüksek düzeylerdeki ayarları devralır. Uyguladığınızda Örneğin, bir [ilke](../governance/policy/overview.md) aboneliğe tüm kaynak grupları ve aboneliğinizdeki kaynaklara ilke uygulanır. Bir ilke uygulandığında ilke kaynak grubunu, kaynak grubunu ve tüm kaynaklarını uygulanır. Ancak, başka bir kaynak grubu, ilke ataması yok.
+
 ## <a name="guidance"></a>Rehber
+
 Çözümleriniz üzerinde çalışırken aşağıdaki önerilerden yararlanarak Resource Manager’dan tam anlamıyla yararlanabilirsiniz.
 
 * Altyapınızı kesinlik temelli komutlar yerine Resource Manager şablonlarındaki bildirim temelli söz dizimini kullanarak tanımlayabilir ve dağıtabilirsiniz.

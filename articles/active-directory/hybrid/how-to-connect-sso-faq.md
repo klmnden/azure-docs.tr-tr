@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c15b42572648f875ac4bda2eae5813f0cf6b17ef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 11ebb8bbeb2a58cad41294b6bba805585127844a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187194"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442402"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: Sık sorulan sorular
 
@@ -49,7 +49,7 @@ Aşağıda listelenen, bu parametreleri Azure AD'ye gönderebilir ve bu nedenle 
 | Web üzerinde Outlook'u | https://outlook.office365.com/contoso.com |
 | Office 365 portalı | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
 
-Ayrıca, diğer bir deyişle, Azure AD'nin kiralanan uç noktalar için - uygulamanın oturum açma isteği gönderirse, sessiz bir oturum açma deneyimi kullanıcıların alma https://login.microsoftonline.com/contoso.com/<..> veya https://login.microsoftonline.com/<tenant_ID>/<..> - Azure AD'nin ortak uç nokta - diğer bir deyişle, yerine https://login.microsoftonline.com/common/<...>. Aşağıda listelenen, oturum açma istekleri bu tür uygulamalar, kapsamlı olmayan bir listesidir.
+Ayrıca, uygulamanın kiracıları olarak - diğer bir deyişle, ayarlama, Azure AD'nin uç noktaları için oturum açma isteği gönderirse sessiz bir oturum açma deneyimi kullanıcıların Al https://login.microsoftonline.com/contoso.com/<..> veya https://login.microsoftonline.com/<tenant_ID>/<..> - Azure AD'nin ortak uç nokta - diğer bir deyişle, yerine https://login.microsoftonline.com/common/<...>. Aşağıda listelenen, oturum açma istekleri bu tür uygulamalar, kapsamlı olmayan bir listesidir.
 
 | Uygulama adı | Kullanılacak uygulama URL'si |
 | -- | -- |

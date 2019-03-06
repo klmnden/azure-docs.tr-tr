@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 204898026dc55e7111d3810d4938101ffaddc3f9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5f6cb29d8fb3fd1c3b75e18330e3ad2711a61aab
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698335"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444931"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Contoso geçişi: Azure sanal makineler için bir şirket içi Linux uygulaması barındırma
 
@@ -408,7 +408,7 @@ Contoso yöneticileri artık kurtarma planında sanal makineleri geçirmek için
 
 ### <a name="connect-the-vm-to-the-database"></a>VM veritabanına bağlanma
 
-Son adım olarak geçiş sürecinin Contoso adins üzerinde çalışan uygulama veritabanına işaret edecek şekilde uygulamanın bağlantı dizesini güncelleştirme **OSTICKETMYSQL** VM. 
+Geçiş işleminin son adımı, Contoso yöneticileri üzerinde çalışan uygulama veritabanına işaret edecek şekilde uygulamanın bağlantı dizesini güncelleştirme **OSTICKETMYSQL** VM. 
 
 1. Bunlar bir SSH bağlantısı **OSTICKETWEB** Putty kullanarak sanal makine veya başka bir SSH istemcisi. Özel IP adresini kullanarak bağlanmak için özel bir vm'dir.
 

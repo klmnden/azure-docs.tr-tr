@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: a0a07a78d36e4c0d11132d0c7d5ff947f7073029
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a48fb0b84e99f01798caabf7e713992af5a04ad9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353575"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441296"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>Öğretici: Spring ve Azure Cosmos DB'yi kullanarak bir Java web uygulaması derleme
 
@@ -45,7 +45,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Bu öğreticide, bir web tarafından yedeklenen bir Spring REST API çağrılarının kullanıcı Arabirimi ile bir örnek Yapılacaklar listesi uygulaması kullanılır. [Spring verilerini Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). Uygulama kodunu kullanılabilir [github'da](https://github.com/Microsoft/spring-todo-app). Spring ve Cosmos DB'yi kullanarak Java uygulamaları yazma hakkında daha fazla bilgi için bkz: [Spring Boot Başlatıcı Azure Cosmos DB SQL API öğreticisiyle](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db ) ve [Spring verilerini Azure Cosmos DB Hızlı Başlangıç](https://github.com/Microsoft/spring-data-cosmosdb#quick-start).
 
 
-Örnek depoyu kopyalamak ve örnek uygulama ortamı ayarlamak için terminalde folllowing komutları çalıştırın.
+Örnek depoyu kopyalamak ve örnek uygulama ortamı ayarlamak için terminalde aşağıdaki komutları çalıştırın.
 
 ```bash
 git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git
@@ -171,7 +171,7 @@ Uygulama başlatıldıktan sonra bu bağlantıyı kullanarak yerel olarak Spring
 
  ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-Özel durumlar instaead "TodoApplication başlatıldı" iletisi görürseniz, bu maddeyi `bash` betik önceki adımda dışarı ortam değişkenlerini doğru ve değerleri Azure Cosmos DB veritabanı için doğru olduğundan emin oluşturdunuz.
+Özel durumlar yerine "TodoApplication başlatıldı" iletisi görürseniz, bu maddeyi `bash` betik önceki adımda dışarı ortam değişkenlerini doğru ve değerleri Azure Cosmos DB veritabanı için doğru olduğundan emin oluşturdunuz.
 
 ## <a name="configure-azure-deployment"></a>Azure dağıtımını yapılandırma
 

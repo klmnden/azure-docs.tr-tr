@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a80ed6af005f04ec48729e918543b2de67810eba
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 16f7dc81d8174e3d8da39d3af95b945f8034cecd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738598"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452038"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Kimlik doğrulaması ve yetkilendirme hata kodları
 
@@ -68,7 +68,7 @@ Azure Active Directory (Azure AD) güvenlik belirteci Hizmeti'nden (STS) döndü
 | AADSTS50032 | WeakRsaKey - hatalı kullanıcı zayıf bir RSA anahtarı kullanma girişimi gösterir. |
 | AADSTS50033 | RetryableError - veritabanı işlemleriyle ilgili değil, geçici bir hata gösterir. |
 | AADSTS50034 | Bu uygulamada oturum açmanız UserAccountNotFound - hesabın dizine eklenmesi gerekir. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - asıl ikili tanımlayıcısını oluşturmak için gereken güvenlik değeri eksik. Kiracı yöneticisine başvurun. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - İlkesi ikili tanımlayıcısını oluşturmak için gereken güvenlik değeri eksik. Kiracı yöneticisine başvurun. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - konu uyuşmazlıkları veren istemci onayı talep edin. Kiracı yöneticisine başvurun. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - bilinmeyen veya geçersiz örneği. |
@@ -140,7 +140,7 @@ Azure Active Directory (Azure AD) güvenlik belirteci Hizmeti'nden (STS) döndü
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - kullanıcı veya yönetici bu kullanıcı ve kaynak için uygulama kimliği x ile bir etkileşimli yetkilendirme isteği gönderin kullanmak için izin yok. |
 | AADSTS65004 | UserDeclinedConsent - kullanıcı, uygulamaya erişmek için onay verme reddetti. Kullanıcıdan oturum açmayı yeniden denemesini ve uygulamaya izin vermesini isteyin|
-| AADSTS65005 | MisconfiguredApplication - uygulamayı gerekli kaynak erişim listesi kaynak tarafından bulunabilen uygulamaları içermiyor veya istemci uygulaması kendi gerekli kaynak erişim listesi veya Graph hizmeti hatalı döndürülen belirtilmedi kaynağa erişim isteğinde bulundu istek veya kaynak bulunamadı. Uygulama SAML destekliyorsa, yanlış tanımlayıcı (varlık) uygulama yapılandırmış olmanız. Aşağıdaki bağlantıyı kullanarak SAML için listelenen çözümü deneyin: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list) |
+| AADSTS65005 | MisconfiguredApplication - uygulamayı gerekli kaynak erişim listesi kaynak tarafından bulunabilen uygulamaları içermiyor veya istemci uygulaması kendi gerekli kaynak erişim listesi veya Graph hizmeti hatalı döndürülen belirtilmedi kaynağa erişim isteğinde bulundu istek veya kaynak bulunamadı. Uygulama SAML destekliyorsa, yanlış tanımlayıcı (varlık) uygulama yapılandırmış olmanız. Aşağıdaki bağlantıyı kullanarak SAML için listelenen çözümü deneyin: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - kimlik doğrulaması başarısız oldu. Yenileme belirteci geçerli değil. Hatanın nedeni şunlar olabilir:<ul><li>Belirteç bağlama üstbilgisi boş</li><li>Belirteç bağlama karma eşleşmiyor</li></ul> |
 | AADSTS70001 | UnauthorizedClient - uygulamayı devre dışı bırakıldı. |

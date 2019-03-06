@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 8967e4b2cce052044abf2e2b0925f162478428d1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bbf619f27c9239ea1b42287c7e81f23da1d43fcb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57203919"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57350450"
 ---
 GPU için iyileştirilmiş sanal makine boyutları olan özel sanal makineler tek veya birden çok NVIDIA GPU'ları ile kullanılabilir. Bu boyutları görselleştirme yoğun işlem gücü kullanımlı ve grafik kullanımlı iş yükleri için tasarlanmıştır. Bu makalede sayısı ve gpu'ları, Vcpu, veri diskleri ve NIC türü hakkında bilgi sağlar. Depolama aktarım hızı ve ağ bant genişliği de bu gruplandırmaki her boyut için dahil edilir. 
 
@@ -52,7 +52,7 @@ Premium Depolama:  Desteklenen
 
 Premium depolama önbelleğe alma:  Desteklenen
 
-NCv2 serisi VM'ler ile desteklenen [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPU'ları. Bu GPU'ları NC serisi işlem performansı x 2'den sağlayabilir. Müşteriler, modellemesi, DNA sıralama, protein analizi, Monte Carlo simülasyonları ve diğerleri gibi geleneksel HPC iş yüklerinde bu güncelleştirilmiş GPU avantajlarından yararlanabilirsiniz. Düşük gecikme süreli, yüksek performanslı ağ arabirimi sıkı bağlı paralel bilgi işlem iş yükleri için en iyi duruma getirilmiş NC24rs v2 yapılandırmasını sağlar.
+NCv2 serisi VM'ler ile desteklenen [NVIDIA Tesla P100](https://www.nvidia.com/data-center/tesla-p100/) GPU'ları. Bu GPU'ları NC serisi işlem performansı x 2'den sağlayabilir. Müşteriler, modellemesi, DNA sıralama, protein analizi, Monte Carlo simülasyonları ve diğerleri gibi geleneksel HPC iş yüklerinde bu güncelleştirilmiş GPU avantajlarından yararlanabilirsiniz. Düşük gecikme süreli, yüksek performanslı ağ arabirimi sıkı bağlı paralel bilgi işlem iş yükleri için en iyi duruma getirilmiş NC24rs v2 yapılandırmasını sağlar.
 
 > [!IMPORTANT]
 > Bu boyut ailesi için aboneliğinizdeki vCPU (çekirdek) kotasını başlangıçta her bölgede 0 olarak ayarlanır. [VCPU kota artışı isteğinde](../articles/azure-supportability/resource-manager-core-quotas-request.md) bu ailesi için bir [kullanılabilir bölge](https://azure.microsoft.com/regions/services/).

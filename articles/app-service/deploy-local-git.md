@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2c547eba931e23b6ffc7cae176e19959d43bcf5e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602503"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405037"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service için Yerel Git Dağıtımı
 
@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-from-local-git-with-kudu-builds"></a>Yerel Git derlemeleri Kudu ile dağıtma
+## <a name="deploy-with-kudu-builds"></a>Kudu yapılarla dağıtma
 
 Kudu derleme sunucusu ile uygulamanıza yönelik yerel Git dağıtımını etkinleştirmek için en kolay yolu, Cloud Shell'i kullanmaktır.
 
@@ -102,7 +102,7 @@ git push azure master
 
 İçerik dağıtıldığını doğrulamak için uygulamanıza göz atın.
 
-## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Azure DevOps Hizmetleri derlemeyle yerel Git dağıtımı
+## <a name="deploy-with-azure-devops-builds"></a>Azure DevOps yapılarla dağıtma
 
 > [!NOTE]
 > App Service'nın Azure DevOps Hizmetleri kuruluşunuzda gerekli Azure işlem hatları oluşturmak rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.
@@ -110,20 +110,18 @@ git push azure master
 
 Kudu derleme sunucusu ile uygulamanıza yönelik yerel Git dağıtımını etkinleştirmek için uygulamanıza gidin: [Azure portalında](https://portal.azure.com).
 
-Uygulaması sayfanızın sol gezinti bölmesinde tıklayın **Dağıtım Merkezi** > **yerel Git** > **devam**. 
+Uygulaması sayfanızın sol gezinti bölmesinde tıklayın **Dağıtım Merkezi** > **yerel Git** > **devam**.
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Tıklayın **Azure DevOps, sürekli teslim Hizmetleri** > **devam**.
+Tıklayın **Azure işlem hatları (Önizleme)** > **devam**.
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-İçinde **yapılandırma** sayfasında, yeni bir Azure DevOps Hizmetleri kuruluş yapılandırın veya mevcut bir kuruluşa belirtin. İşiniz bittiğinde tıklayın **devam**.
+İçinde **yapılandırma** sayfasında, yeni bir Azure DevOps kuruluş yapılandırın veya mevcut bir kuruluşa belirtin. İşiniz bittiğinde tıklayın **devam**.
 
 > [!NOTE]
-> Listede olmayan mevcut bir Azure DevOps Hizmetleri kuruluşa kullanmak istiyorsanız, yapmanız [Azure DevOps hizmetler kuruluşundan Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
-
-İçinde **Test** sayfasında, yük testleri etkinleştirin ve ardından yüklememeyi **devam**.
+> Listede olmayan mevcut bir Azure DevOps kuruluşa kullanmak istiyorsanız, yapmanız [Azure DevOps hizmetler kuruluşundan Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Yapılandırmanıza bağlı olarak [fiyatlandırma katmanı](https://azure.microsoft.com/pricing/details/app-service/plans/) de görebilirsiniz, App Service planı, bir **hazırlama Dağıt** sayfası. Dağıtım yuvalarını etkinleştirin ve ardından yüklememeyi **devam**.
 

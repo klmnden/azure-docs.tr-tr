@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811095"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433442"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data factory'deki veri kümelerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -238,7 +238,7 @@ Aşağıdaki tabloda kullanılabilirlik bölümünde kullanabileceğiniz özelli
 | frequency |Veri kümesi dilim üretim yönelik zaman birimini belirtir.<br/><br/><b>Sıklık desteklenen</b>: Dakika, saat, gün, hafta, ay |Evet |NA |
 | interval |Sıklığı çarpanı belirtir.<br/><br/>"X sıklık aralığı" ne sıklıkta dilim üretilir belirler. Örneğin, veri kümesinin saatlik olarak dilimlenmiş gerekiyorsa, ayarladığınız <b>sıklığı</b> için <b>saat</b>, ve <b>aralığı</b> için <b>1</b>.<br/><br/>Belirttiğiniz gerçekleştiriyorsanız **sıklığı** olarak **dakika**, aralığı en az 15'e ayarlamanız gerekir. |Evet |NA |
 | Stil |Dilim başlangıç veya Bitiş aralığı olarak üretilen belirtir.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Varsa **sıklığı** ayarlanır **ay**, ve **stili** ayarlanır **EndOfInterval**, ayın son gününde dilim üretilir. Varsa **stili** ayarlanır **StartOfInterval**, ayın ilk gününde dilim üretilir.<br/><br/>Varsa **sıklığı** ayarlanır **gün**, ve **stili** ayarlanır **EndOfInterval**, günün son bir saat içinde dilim üretilir.<br/><br/>Varsa **sıklığı** ayarlanır **saat**, ve **stili** ayarlanır **EndOfInterval**, saatin sonunda dilim üretilir. Örneğin, 2 saat 13 - PM dönem için bir dilim için 2 saat dilim üretilir. |Hayır |EndOfInterval |
-| anchorDateTime |Zamanlayıcı tarafından veri kümesi dilim sınırlarını hesaplamak için kullanılan zaman içinde mutlak konum tanımlar. <br/><br/>Not Bu propoerty belirtilen sıklığından daha ayrıntılı tarih kısımlarını varsa, daha ayrıntılı bölümleri göz ardı edilir. Örneğin, varsa **aralığı** olduğu **saatlik** (Sıklık: saat ve aralığı: 1) ve **anchorDateTime** içeren **dakika ve saniye**, ardından dakika ve saniye bölümlerini **anchorDateTime** göz ardı edilir. |Hayır |01/01/0001 |
+| anchorDateTime |Zamanlayıcı tarafından veri kümesi dilim sınırlarını hesaplamak için kullanılan zaman içinde mutlak konum tanımlar. <br/><br/>Bu özellik, belirtilen sıklığından daha ayrıntılı tarih kısımlarını varsa, daha ayrıntılı bölümleri göz ardı edilir unutmayın. Örneğin, varsa **aralığı** olduğu **saatlik** (Sıklık: saat ve aralığı: 1) ve **anchorDateTime** içeren **dakika ve saniye**, ardından dakika ve saniye bölümlerini **anchorDateTime** göz ardı edilir. |Hayır |01/01/0001 |
 | uzaklık |Başlangıç ve bitiş tüm veri kümesi dilim olarak kaydırılan bir TimeSpan değeri. <br/><br/>Her iki unutmayın **anchorDateTime** ve **uzaklığı** belirtilirse, sonuç, birleşik kaydırma. |Hayır |NA |
 
 ### <a name="offset-example"></a>uzaklık örneği

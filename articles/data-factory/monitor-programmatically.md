@@ -12,19 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: e004dc6b7d78849705f8d3fa3545efe7318d3911
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 938392cea3e6fe001e662a60e17b936415e7e4f2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022810"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439290"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Program aracılığıyla bir Azure data factory izleyin
 Bu makalede, farklı yazılım geliştirme setleri (SDK'lar) kullanarak bir veri fabrikasında bir işlem hattı izlemek açıklar. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="data-range"></a>Veri aralığı
 
-Veri Fabrikası işlem hattı 45 gün boyunca veri çalıştırması yalnızca depolar. Sorguladığınızda programlı olarak Data Factory işlem hattı çalıştırmaları - ilgili veriler için örnek PowerShell komutuyla `Get-AzureRmDataFactoryV2PipelineRun` -tarih yok için isteğe bağlı `LastUpdatedAfter` ve `LastUpdatedBefore` parametreleri. Ancak, verileri sorgulamak için önceki yıl, örneğin, sorgu bir hata döndürmez, ancak yalnızca döndürür, son 45 güne ait çalıştırma veri işlem hattı.
+Veri Fabrikası işlem hattı 45 gün boyunca veri çalıştırması yalnızca depolar. Sorguladığınızda programlı olarak Data Factory işlem hattı çalıştırmaları - ilgili veriler için örnek PowerShell komutuyla `Get-AzDataFactoryV2PipelineRun` -tarih yok için isteğe bağlı `LastUpdatedAfter` ve `LastUpdatedBefore` parametreleri. Ancak, verileri sorgulamak için önceki yıl, örneğin, sorgu bir hata döndürmez, ancak yalnızca döndürür, son 45 güne ait çalıştırma veri işlem hattı.
 
 İşlem hattı 45 gün boyunca veri çalıştırması kalıcı hale getirmek isterseniz, kendi tanılama günlüğüne kaydetme ile ayarlama [Azure İzleyici](monitor-using-azure-monitor.md).
 
@@ -119,7 +121,7 @@ Oluşturma ve PowerShell kullanarak bir işlem hattı izlemek üzere izlenecek t
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
@@ -137,7 +139,7 @@ Oluşturma ve PowerShell kullanarak bir işlem hattı izlemek üzere izlenecek t
 
     ```powershell
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result
     
     Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
@@ -147,7 +149,7 @@ Oluşturma ve PowerShell kullanarak bir işlem hattı izlemek üzere izlenecek t
     $result.Error -join "`r`n"
     ```
 
-PowerShell cmdlet'leri hakkında kapsamlı belgeler için bkz. [Data Factory PowerShell cmdlet başvurusu](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
+PowerShell cmdlet'leri hakkında kapsamlı belgeler için bkz. [Data Factory PowerShell cmdlet başvurusu](/powershell/module/az.datafactory).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bkz: [işlem hatlarını izleme Azure İzleyicisi'ni kullanarak](monitor-using-azure-monitor.md) makale, Data Factory işlem hatlarını izlemek için Azure İzleyicisi'ni kullanma hakkında bilgi edinmek için. 

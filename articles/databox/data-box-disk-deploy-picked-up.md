@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 357fa8a34afc8b426d308940462e22895130169f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 4c723ade885474f07d025b10e075edab0383b82e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158780"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439953"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box Disk geri dönün ve verileri karşıya yükleme azure'a doğrulayın
 
@@ -33,7 +33,7 @@ Başlamadan önce tamamladığınızdan emin olun [Öğreticisi: Veri için Azur
 
 1. Veri doğrulama tamamlandıktan sonra diskleri çıkarın. Bağlantı kablolarını çıkarın.
 2. Tüm diskleri ve bağlantı kablolarını kabarcıklı naylona sarın ve bunları sevkiyat kutusuna yerleştirin.
-3. Kutuya yapıştırılmış şeffaf plastik kılıftaki iade sevkiyat etiketini kullanın. Etiket hasar görmüş veya kaybolmuşsa, Azure portalından yeni bir sevkiyat etiketi indirin ve cihaza yapıştırın. **Genel bakış > Sevkiyat etiketi indir** bölümüne gidin. 
+3. Kutuya yapıştırılmış şeffaf plastik kılıftaki iade sevkiyat etiketini kullanın. Etiket hasar görmüş veya kaybolmuşsa, Azure portalından yeni bir sevkiyat etiketi indirin ve cihaza yapıştırın. **Genel bakış > Sevkiyat etiketi indir** bölümüne gidin.
 
     ![Sevkiyat etiketini indirme](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
 
@@ -44,7 +44,7 @@ Başlamadan önce tamamladığınızdan emin olun [Öğreticisi: Veri için Azur
 4. Sevkiyat kutusunu mühürleyin ve iade sevkiyat etiketinin görünür olduğundan emin olun.
 5. Cihazı ABD'de iade ediyorsanız UPS ile bir toplama zamanı ayarlayın. Cihazı Avrupa'da DHL ile iade ediyorsanız, DHL'in web sitesini ziyaret edip bir havayolu fatura numarası belirterek toplama isteğinde bulunun. Ülkenin DHL Ekspres web sitesine gidin ve **Kurye Çağırma Rezervasyonu > eİade Sevkiyatı**'nı seçin.
 
-    ![DHL eiade sevkiyatı](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
+    ![İade Sevk irsaliyesi DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
     Konşimento numarasını belirtin ve toplama ayarlaması yapmak için **Toplama Zamanlama**'ya tıklayın.
 
@@ -66,7 +66,28 @@ Kopyalama tamamlandıktan sonra, sipariş durumu **Tamamlandı** olarak güncell
 
 ![Veri kopyalama tamamlandı](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
-Kaynaktan silmeden önce verilerinizin depolama hesaplarında olduğundan emin olun. Verilerin Azure'a yüklendiğini doğrulamak için aşağıdaki adımları izleyin:
+Kaynaktan silmeden önce verilerinizin depolama hesaplarında olduğundan emin olun. Verilerinizi olabilir:
+
+- Azure depolama hesabınızda veya hesaplarınızda. Data Box'a veri kopyaladığınızda, türlerine bağlı olarak bu veriler Azure Depolama hesabınızda aşağıdaki yollardan birine yüklenir.
+
+    - Blok blobları ve sayfa blobları için: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+    - Azure Dosyaları için: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+    Alternatif olarak Azure portalda Azure depolama hesabınıza gidip oradan ilerleyebilirsiniz.
+
+- Yönetilen disk kaynak grupları. Yönetilen diskler oluştururken VHD'ler sayfa blobları karşıya ve sonra yönetilen disklere dönüştürülmüş. Yönetilen diskler, sipariş oluşturma sırasında belirtilen kaynak gruplarına eklenir.
+
+    - Azure'da yönetilen disklere kopyanızı başarılı olduysa, gidebilirsiniz **sipariş ayrıntıları** Azure portalı ve kaynak grubunu Not Yönetilen diskler için belirtilen olun.
+
+        ![Sipariş ayrıntılarını görüntüle](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
+
+    Belirtilen bir kaynak grubuna gidin ve yönetilen disklerinizi bulun.
+
+        ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
+
+    - Kopyaladığınız bir VHDX veya dinamik ve fark VHD, VHDX/VHD hazırlama depolama hesabına bir blok blobu yüklenir. Git, hazırlama **depolama hesabı > Blobları** ve ardından uygun bir kapsayıcı - StandardSSD, StandardHDD veya PremiumSSD seçin. VHDX/VHD hazırlama depolama hesabındaki blok blobları olarak gösteriliyor olmalıdır.
+
+Verilerin Azure'a yüklendiğini doğrulamak için aşağıdaki adımları izleyin:
 
 1. Disk siparişinizle ilişkilendirilmiş depolama hesabına gidin.
 2. **Blob hizmeti > Bloblara göz atın** seçeneğine gidin. Kapsayıcı listesi gösterilir. *BlockBlob* ve *PageBlob* klasörlerinin altında oluşturduğunuz alt klasöre karşılık olarak, depolama hesabınızda aynı adlı kapsayıcılar oluşturulur.
@@ -78,7 +99,7 @@ Kaynaktan silmeden önce verilerinizin depolama hesaplarında olduğundan emin o
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Data Box Disk'ten verileri silinme
 
-Kopyalama tamamlandıktan ve siz de verilerin Azure depolama hesabında olduğunu doğruladıktan sonra, diskler NIST standardına uygun olarak güvenle silinir. 
+Kopyalama tamamlandıktan ve siz de verilerin Azure depolama hesabında olduğunu doğruladıktan sonra, diskler NIST standardına uygun olarak güvenle silinir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

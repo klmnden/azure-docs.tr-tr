@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: a45ed3ad5360f613a4949799c60ec09f4a30afb9
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 7a02fff5a727bd0a3be762e9e458a71f66b87ba2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427777"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452683"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL veri ambarı iş zekası iş ortakları
 Uçtan uca veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin.  Bu makalede, Azure SQL veri ambarı destekleyen iş zekası (BI) çözümleri ile Microsoft iş ortağı şirketlerden vurgulanır.
@@ -34,7 +34,7 @@ Uçtan uca veri ambarı çözümünüzü oluşturmak için çok çeşitli sektö
 | ![SiSense][9] |**SiSense**<br>SiSense, analiz etmek ve görselleştirmek için bir işletme ihtiyaçları araçları ile birlikte gelen bir tam yığın iş zekası yazılımıdır: yüksek performanslı bir analiz veritabanı, birden çok kaynakları, basit veri ayıklama (ETL) ve web tabanlı bir veri birleştirme olanağı Görselleştirme. Analiz ve büyük veri kümeleri SiSense BI ve analiz ile bugün görselleştirmek başlatın. |[Web sitesi][sisense_website]<br>[Veri sayfası][sisense_datasheet]<br>[Twitter][sisense_twitter]<br>[YouTube][sisense_youtube] |[![video sisense](./media/sql-data-warehouse-partner-business-intelligence/sisense_video.jpg)](https://www.youtube.com/watch?v=6N3mkTWI5R4) |
 | ![Tableau][10] |**Tableau**<br>Tableau'nın Self Servis analizler herkes görebilir ve pek çok veritabanlarına düz dosyalardan veri arasında kendi verilerini anlamanıza yardımcı olur. Tableau, Microsoft Azure SQL veri ambarı için canlı verileri hem de bellek içi analiz destekleyen yerel, en iyi duruma getirilmiş bir bağlayıcı vardır. |[Market][tableau_marketplace]<br>[Web sitesi][tableau_website]<br>[Veri sayfası][tableau_datasheet]<br>[Twitter][tableau_twitter]<br>[YouTube][tableau_youtube] |[![tableau video](./media/sql-data-warehouse-partner-business-intelligence/tableau_video.jpg)](https://www.youtube.com/watch?v=TwbkI3ZzCHE) |
 | ![Targit][11] |**Targit**<br>Targit karar gerçek zamanlı panolar, Self Servis analizler, kullanıcı dostu raporlama, mobil şaşırtıcı özellik ve basit veri bulma teknoloji tek bir çözümde sunar BI ve analiz platformu sağlar. Targit şirketler cesareti davranmasına izin verir. |[Market][targit_marketplace]<br>[Web sitesi][targit_website]<br>[Twitter][targit_twitter]<br>[YouTube][targit_youtube] |[![video targit](./media/sql-data-warehouse-partner-business-intelligence/targit_video.jpg)](https://www.youtube.com/watch?v=A0vET80Ker4) |
-| ![İş][12] |**İş**<br>Bulut BI satıcı tarafından BARC geçici raporlama ve panolar için dereceli bir üst iş olur; BI Survey. Azure SQL veri ambarı'na bağlanın, sonra oluşturun ve güzel raporlar ve panolar işbirliğine dayalı BI ve konum zekası özellikleri ödüllü ile paylaşın. |[Market][yellowfin_marketplace]<br>[Web sitesi][yellowfin_website]<br>[Veri sayfası][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] |[![İş video](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
+| ![İş][12] |**İş**<br>Bulut BI satıcı tarafından BARC ad hoc raporlama ve panolar için dereceli bir üst iş olur; BI Survey. Azure SQL veri ambarı'na bağlanın, sonra oluşturun ve güzel raporlar ve panolar işbirliğine dayalı BI ve konum zekası özellikleri ödüllü ile paylaşın. |[Market][yellowfin_marketplace]<br>[Web sitesi][yellowfin_website]<br>[Veri sayfası][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] |[![İş video](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 

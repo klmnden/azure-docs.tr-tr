@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: a0d782ac1ba14e58e3cc377bb55ea25bb923c5c4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 10565839148eae0db4bb374939eb3725f6262e60
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038917"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452955"
 ---
-# <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB'ye giriş: Gremlin API
+# <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB’ye giriş: Gremlin API
 
 [Azure Cosmos DB](introduction.md), Microsoft'un görev açısından kritik uygulamalar için sunduğu, genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Çok modelli bir veritabanı olan bu hizmet belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler. Grafik verilerini depolamak ve üzerinde çalışmak için Azure Cosmos DB Gremlin API’si kullanılır. Gremlin API, Grafik verilerini modellemeyi destekler ve grafik verilerinde dolaşmak için API’ler sağlar.
 
@@ -94,7 +94,7 @@ Aşağıdaki tabloda Azure Cosmos DB’ye karşı kullanabileceğiniz popüler G
 
 ## <a name="graph-database-design-considerations"></a>Grafik veritabanı tasarımında dikkat edilmesi gerekenler
 
-Grafik tasarım sırasında bir varlığı başka bir köşenin özelliği yerine kendi başına bir köşe olarak modelleme performans ve maliyet açısından belirli etkilere sahiptir. Bu konuda verilecek kararın temel dayanağı, verilerin sorgulanma şekli ile modelin kendisinin ölçeklenebilirlik özelliğidir.
+Grafik tasarımı sırasında bir varlık olarak kendi, başlangıcı yerine sonundan özelliği diğer köşe varlıklar olarak bir köşe modelleme kararı, performans ve maliyet etkilere sahiptir. Bu konuda verilecek kararın temel dayanağı, verilerin sorgulanma şekli ile modelin kendisinin ölçeklenebilirlik özelliğidir.
 
 Varlığın nasıl modelleneceğini planlamadan önce aşağıdaki soruları göz önünde bulundurun:
 

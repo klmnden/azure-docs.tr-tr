@@ -1,19 +1,19 @@
 ---
-title: 'Bir bağlantı hattı için - ExpressRoute eşlemesi yapılandırma: PowerShell: Azure | Microsoft Docs'
+title: 'Bir bağlantı hattı için - ExpressRoute eşlemesi yapılandırın: PowerShell: Azure | Microsoft Docs'
 description: Bu makalede, bir ExpressRoute bağlantı hattı için özel, ortak ve Microsoft eşlemesinin nasıl oluşturulduğu ve sağlandığı adım adım anlatılmaktadır. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 02/26/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: b8e9aadc63af563c47d42ed52445afbc270d98ec
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 1bf2ca22bf97ca1d4b91b52850ebe14225562f92
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141552"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409066"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>PowerShell kullanarak ExpressRoute devresi için eşlemesi oluşturma ve değiştirme
 
@@ -46,6 +46,8 @@ Bir ExpressRoute bağlantı hattı için bir, iki veya üç eşlemenin tamamın�
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell ile çalışma
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="msft"></a>Microsoft eşlemesi
@@ -64,13 +66,13 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
   PowerShell'i yerel olarak yüklü değilse, oturum açın. Azure Cloud Shell kullanıyorsanız bu adımı atlayabilirsiniz.
 
   ```azurepowershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 
   ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
 
   ```azurepowershell-interactive
-Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+Select-AzSubscription -SubscriptionId "<subscription ID>"
   ```
 2. ExpressRoute bağlantı hattı oluşturun.
 
@@ -79,7 +81,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 3. ExpressRoute bağlantı hattının sağlanmış olduğundan ve ayrıca etkin olduğundan emin olmak için kontrol edin. Şu örneği kullanın:
 
   ```azurepowershell-interactive
-  Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
   Yanıt aşağıdaki örneğe benzer:
@@ -113,20 +115,20 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   * Bir/30 veya/126 alt ağı ikincil bağlantı için. Bu size ait ve bir RIR kayıtlı bir geçerli ortak IPv4 veya IPv6 öneki olmalıdır / IRR.
   * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
-  * Tanıtılan önekler: BGP oturumunda tanıtmayı planladığınız tüm öneklerin bir listesini sağlamanız gerekir. Yalnızca ortak IP adresi ön ekleri kabul edilir. Ön ek kümesi göndermeyi planlıyorsanız, virgülle ayrılmış bir liste gönderebilirsiniz. Bu ön ekler size bir RIR / IRR içinde kaydedilmiş olmalıdır. IPv4, IPv6 önekleri tanıtılan ön ekler ve IPv6 BGP oturumları gerektiren tanıtılan IPv4 BGP oturumları gerektirir. 
-  * Yönlendirme Kayıt Defteri Adı: AS numarası ve öneklerinin kaydedildiği RIR / IRR’yi belirtebilirsiniz.
+  * Tanıtılan önekler: BGP oturumunda tanıtmayı planladığınız tüm ön eklerin listesini sağlamanız gerekir. Yalnızca ortak IP adresi ön ekleri kabul edilir. Ön ek kümesi göndermeyi planlıyorsanız, virgülle ayrılmış bir liste gönderebilirsiniz. Bu ön ekler size bir RIR / IRR içinde kaydedilmiş olmalıdır. IPv4, IPv6 önekleri tanıtılan ön ekler ve IPv6 BGP oturumları gerektiren tanıtılan IPv4 BGP oturumları gerektirir. 
+  * Yönlendirme kayıt defteri adı: Belirtebileceğiniz RIR / IRR'yi AS numarası ve öneklerinin kaydedildiği rır.
   * İsteğe bağlı:
-    * Müşteri ASN’si: Eşleme AS numarasına kayıtlı olmayan önekler tanıtıyorsanız, kayıtlı oldukları AS numarasını belirtebilirsiniz.
+    * Müşteri ASN'si: Eşleme AS numarasına kayıtlı olmayan önekler tanıtıyorsanız, kayıtlı oldukları AS numarasını belirtebilirsiniz.
     * Kullanmayı seçerseniz bir MD5 karma değeri.
 
   Microsoft, bağlantı hattı için eşleme yapılandırmak için aşağıdaki örneği kullanın:
 
   ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+  Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+  Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
 ### <a name="getmsft"></a>Microsoft eşlemesi ayrıntılarını almak için
@@ -134,9 +136,9 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 Aşağıdaki örneği kullanarak yapılandırma ayrıntılarını alabilirsiniz:
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="updatemsft"></a>Microsoft eşleme yapılandırmasını güncelleştirmek için
@@ -144,11 +146,11 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRou
 Aşağıdaki örneği kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz:
 
 ```azurepowershell-interactive
-Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="deletemsft"></a>Microsoft eşlemesini silmek için
@@ -156,9 +158,9 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabilirsiniz:
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ## <a name="private"></a>Azure özel eşdüzey hizmet sağlama
@@ -172,32 +174,31 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
   ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](http://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
 
   ```azurepowershell-interactive
-  Install-Module AzureRM
-  Install-AzureRM
+  Install-Module Az
   ```
 
-  Tüm bilinen semantik sürüm aralığı içinde AzureRM.* modüllerini içeri aktarın.
+  Tüm Az. içeri\* modülleri bilinen semantik sürüm aralığı içinde.
 
   ```azurepowershell-interactive
-  Import-AzureRM
+  Import-Module Az
   ```
 
   Yalnızca bilinen semantik sürüm aralığı içinde seçili bir modülü içeri aktarabilirsiniz.
 
   ```azurepowershell-interactive
-  Import-Module AzureRM.Network 
+  Import-Module Az.Network 
   ```
 
   Hesabınızda oturum açın.
 
   ```azurepowershell-interactive
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 
   ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+  Select-AzSubscription -SubscriptionId "<subscription ID>"
   ```
 2. ExpressRoute bağlantı hattı oluşturun.
 
@@ -206,7 +207,7 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 3. ExpressRoute bağlantı hattının sağlanmış olduğundan ve ayrıca etkin olduğundan emin olmak için kontrol edin. Şu örneği kullanın:
 
   ```azurepowershell-interactive
-  Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
   Yanıt aşağıdaki örneğe benzer:
@@ -246,15 +247,15 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
   Bağlantı hattınız için Azure özel eşlemesini yapılandırmak üzere aşağıdaki örneği kullanın:
 
   ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
   Bir MD5 karma değeri kullanmayı seçerseniz, aşağıdaki örneği kullanın:
 
   ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
+  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
   ```
 
   > [!IMPORTANT]
@@ -267,9 +268,9 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 Aşağıdaki örneği kullanarak yapılandırma ayrıntılarını alabilirsiniz:
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="updateprivate"></a>Azure özel eşleme yapılandırmasını güncelleştirmek için
@@ -277,9 +278,9 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Express
 Aşağıdaki örneği kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz. Bu örnekte, bağlantı hattının VLAN kimliği 100'den 500'e güncelleştiriliyor.
 
 ```azurepowershell-interactive
-Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="deleteprivate"></a>Azure özel eşlemeyi silmek için
@@ -292,9 +293,9 @@ Aşağıdaki örnek çalıştırarak eşleme yapılandırmanızı kaldırabilirs
 > 
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ## <a name="public"></a>Azure genel eşdüzey hizmet sağlama
@@ -308,33 +309,31 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
   ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](http://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
 
   ```azurepowershell-interactive
-  Install-Module AzureRM
+  Install-Module Az
+  ```
 
-  Install-AzureRM
-```
-
-  Tüm bilinen semantik sürüm aralığı içinde AzureRM.* modüllerini içeri aktarın.
+  Tüm Az. içeri\* modülleri bilinen semantik sürüm aralığı içinde.
 
   ```azurepowershell-interactive
-  Import-AzureRM
+  Import-Module Az
   ```
 
   Yalnızca bilinen semantik sürüm aralığı içinde seçili bir modülü içeri aktarabilirsiniz.
 
   ```azurepowershell-interactive
-  Import-Module AzureRM.Network
+  Import-Module Az.Network
 ```
 
   Hesabınızda oturum açın.
 
   ```azurepowershell-interactive
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 
   ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+  Select-AzSubscription -SubscriptionId "<subscription ID>"
   ```
 2. ExpressRoute bağlantı hattı oluşturun.
 
@@ -343,7 +342,7 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 3. ExpressRoute bağlantı hattının sağlanmış ve etkin da emin olmak için kontrol edin. Şu örneği kullanın:
 
   ```azurepowershell-interactive
-  Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
   Yanıt aşağıdaki örneğe benzer:
@@ -383,17 +382,17 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
   Bağlantı hattınız için Azure ortak eşlemesini yapılandırmak üzere aşağıdaki örneği çalıştırın
 
   ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
+  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
   Bir MD5 karma değeri kullanmayı seçerseniz, aşağıdaki örneği kullanın:
 
   ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
+  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
   > [!IMPORTANT]
@@ -406,9 +405,9 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını alabilirsiniz:
 
 ```azurepowershell-interactive
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-  Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
+  Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
   ```
 
 ### <a name="updatepublic"></a>Azure ortak eşleme yapılandırmasını güncelleştirmek için
@@ -416,9 +415,9 @@ Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını alabilirsiniz:
 Aşağıdaki örneği kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz. Bu örnekte, bağlantı hattının VLAN kimliği 200'den 600 olarak güncelleştiriliyor.
 
 ```azurepowershell-interactive
-Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600
+Set-AzExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="deletepublic"></a>Azure ortak eşlemesini silmek için
@@ -426,8 +425,8 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 Aşağıdaki örnek çalıştırarak eşleme yapılandırmanızı kaldırabilirsiniz:
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

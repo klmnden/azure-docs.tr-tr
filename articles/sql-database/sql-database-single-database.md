@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: ad164e150b22af7d5a0c91fa0a8a80156952cfd0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099335"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431124"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL veritabanı'nda tek bir veritabanı nedir
 
@@ -28,7 +28,7 @@ Tek veritabanı dağıtım seçeneği, kendi kaynak kümesi ile Azure SQL verita
 > [!NOTE]
 > Bir Azure SQL veritabanı'nda terimler sözlüğü için bkz: [SQL veritabanı terimler sözlüğü](sql-database-glossary-terms.md)
 
-## <a name="dynamic-scalabilty"></a>Dinamik ölçeklenebilirliği
+## <a name="dynamic-scalability"></a>Dinamik ölçeklenebilirlik
 
 Düşük bir maliyetle düşük fiyat/performansından hizmet katmanda aylık küçük, tek bir veritabanı üzerinde ilk uygulamanızı oluşturabilir ve ardından [Hizmet katmanını değiştirebilirsiniz](sql-database-single-database-scale.md) el ile veya programlama yoluyla thehigher fiyat/performansından hizmeti dilediğiniz zaman çözümünüzün gereksinimlerini karşılayacak şekilde katmanı. Performansı uygulamanız veya müşterileriniz kesinti yaşamadan ayarlayabilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
 
@@ -42,7 +42,7 @@ Yerleşik kullandığınız [performansı izleme](sql-database-performance.md) v
 
 ## <a name="availability-capabilities"></a>Kullanılabilirlik özellikleri
 
-Tek veritabanları, elastik havuzlar ve yönetilen örnekleri birçok kullanılabilirlik characterics sağlar. Bilgi için [kullanılabilirlik özelliklerini](sql-database-technical-overview.md#availability-capabilities).
+Tek veritabanları, elastik havuzlar ve yönetilen örnekleri birçok kullanılabilirlik özelliklerini sağlar. Bilgi için [kullanılabilirlik özelliklerini](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Transact-SQL farklılıkları
 

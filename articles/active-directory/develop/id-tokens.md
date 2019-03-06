@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92472d276b3f03e5a3855587de4ca8a045bfec2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 687b25ea5d792edf2f582c9929a0ae5f0c2426db
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234435"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442082"
 ---
 # <a name="id-tokens"></a>Kimlik belirteçleri
 
@@ -68,7 +68,7 @@ Bu v2.0 örnek belirtecinde görüntülemek [jwt.ms](https://jwt.ms/#id_token=ey
 |`aud` |  Dize, bir uygulama kimliği URI'si | Amaçladığınız alıcının belirtecin tanımlar. İçinde `id_tokens`, uygulamanızın uygulama kimliği, Azure portalında uygulamanıza atanan İzleyici olduğu. Uygulamanız bu değeri doğrulamak ve değer eşleşmiyorsa belirteci reddetme. |
 |`iss` |  Dize, bir STS URI | Oluşturur ve belirteci ve kullanıcı kimlik doğrulamasının yapıldığı Azure AD kiracısı döndürür güvenlik belirteci hizmeti (STS) tanımlar. Belirteç v2.0 uç noktası tarafından verildiyse, URI içinde sona erecek `/v2.0`.  Kullanıcının bir Microsoft hesabı tüketici kullanıcıdan olduğunu gösteren GUID `9188040d-6c67-4c5b-b112-36a304b66dad`. Uygulamanız varsa, uygulamaya oturum açabilirsiniz kiracılar kümesini sınırlandırmak için talep GUID kısmını kullanmanız gerekir. |
 |`iat` |  int, UNIX zaman damgası | "Konumunda verilen" kimlik doğrulaması için bu belirteci gerçekleştiği gösterir.  |
-|`idp`|Dize, genellikle bir STS URI | Belirtecin öznesinin kimliğini doğrulayan kimlik sağlayıcısını kaydeder. -Veren olarak aynı kiracıda değil kullanıcı hesabının konukların sürece örneği için bu değer veren talep değeri için aynıdır. Talep mevcut değilse, değeri anlamına `iss` bunun yerine kullanılabilir.  Kişisel hesapları orgnizational bağlamda (bir Azure AD kiracısına davet örneği için bir kişisel hesap) kullanılan `idp` talep 'live.com' veya Microsoft hesabı kiracısının içeren bir STS URI olabilir `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+|`idp`|Dize, genellikle bir STS URI | Belirtecin öznesinin kimliğini doğrulayan kimlik sağlayıcısını kaydeder. -Veren olarak aynı kiracıda değil kullanıcı hesabının konukların sürece örneği için bu değer veren talep değeri için aynıdır. Talep mevcut değilse, değeri anlamına `iss` bunun yerine kullanılabilir.  Bir kuruluş (Azure AD kiracısına davet örneği için bir kişisel hesap) bağlamında kullanılan kişisel hesapları için `idp` talep 'live.com' veya Microsoft hesabı kiracısının içeren bir STS URI olabilir `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, UNIX zaman damgası | "Nbf" (önce değil) talep işlem önüne JWT değil kabul edilmesi gereken zamanı tanımlar.|
 |`exp` |  int, UNIX zaman damgası | "Exp" (süre) talep veya daha sonra JWT gerekir işleme için kabul sona erme zamanı tanımlar.  Kaynak belirteci de - bu süreden önce örneğin kimlik değişikliği gerekli değildir veya belirteç iptali algılandı reddedebilir olduğunu unutmayın. |
 | `c_hash`| String |Yalnızca bir OAuth 2.0 yetkilendirme kodu ile kimlik belirteci verildiğinde kod karma kimlik belirteçleri bulunur. Bir yetkilendirme kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html). |

@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: bb173981e3f06c923fa7357eb64777493bd17b8c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 33169448b5b1e4496f42d157cb77134b90804fa6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958278"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433187"
 ---
 # <a name="what-is-azure-data-explorer"></a>Azure Veri Gezgini nedir?
 
-Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve üst düzeyde ölçeklenebilir veri keşfetme hizmetidir. Modern yazılımlar tarafından oluşturulan birçok veri akışını işleyerek verileri toplamanıza, depolamanıza ve analiz etmenize yardımcı olur. Azure Veri Gezgini web siteleri, uygulamalar, IoT cihazları ve benzeri veri kaynaklarından gelen yüksek miktarlardaki çeşitli verileri analiz etmek için idealdir. Bu veriler tanılama, izleme, raporlama, makine öğrenmesi ve ek analiz özellikleri için kullanılır. Azure Veri Gezgini bu verilerin alınmasını kolaylaştırır ve saniyeler içinde veriler üzerinde karmaşık hızlı sorgular yapabilmenizi sağlar.
+Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve üst düzeyde ölçeklenebilir veri keşfetme hizmetidir. Modern yazılımlar tarafından oluşturulan birçok veri akışını işleyerek verileri toplamanıza, depolamanıza ve analiz etmenize yardımcı olur. Azure Veri Gezgini web siteleri, uygulamalar, IoT cihazları ve benzeri veri kaynaklarından gelen yüksek miktarlardaki çeşitli verileri analiz etmek için idealdir. Bu veriler tanılama, izleme, raporlama, makine öğrenmesi ve ek analiz özellikleri için kullanılır. Azure Veri Gezgini, bu verileri almak basit hale getirir ve saniyeler içinde veri üzerinde karmaşık geçici sorgular gerçekleştirmenizi sağlar.
 
 ## <a name="what-makes-azure-data-explorer-unique"></a>Azure Veri Gezgini'ni benzersiz yapan nedir?
 
@@ -53,7 +53,7 @@ Azure Veri Gezgini'nde çalışma genellikle şu desene uyar:
 
 ## <a name="query-experience"></a>Sorgu deneyimi
 
-Azure Veri Gezgini'nde sorgu, verileri veya meta verileri değiştirmeden verilerin işlenmesine ve bu işlemenin sonuçlarının döndürülmesine yönelik salt okunur bir istektir. Analizinizi tamamlayana kadar sorgularınızı iyileştirmeye devam edersiniz. Azure Veri Gezgini çok hızlı sorgu deneyimi sayesinde bu işlemi kolaylaştırır.
+Azure Veri Gezgini'nde sorgu, verileri veya meta verileri değiştirmeden verilerin işlenmesine ve bu işlemenin sonuçlarının döndürülmesine yönelik salt okunur bir istektir. Analizinizi tamamlayana kadar sorgularınızı iyileştirmeye devam edersiniz. Azure Veri Gezgini bu işlemi nedeniyle, çok hızlı geçici sorgu deneyimi kolay hale getirir.
 
 Azure Veri Gezgini çok büyük miktarlarda yapılandırılmış, yarı yapılandırılmış (JSON benzeri iç içe türler) ve yapılandırılmamış (serbest metin) verileri ayırt etmeden iyi bir şekilde işler. Metinde belirli terimleri aramanıza, belirli olayları bulmanıza, yapılandırılmış veriler üzerinde ölçüm stilinde hesaplamalar yapmanıza olanak tanır. Azure Veri Gezgini, çalışma zamanında serbest biçimli metin alanlarındaki değerleri ayıklayarak, yapılandırılmamış metin günlükleri ile yapılandırılmış sayılar ve boyutlar arasında köprü işlevi görür. Hızlı metin dizinleri oluşturma, sütun deposu ve zaman serisi işlemleri birleştirilerek veri keşfi basitleştirilir.
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 045b010736f8cecf877408f23530022af1f94f14
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 0fedfdbb04dd7aa3ff077c13653a22ed710aff9f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991431"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405326"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT oluşturmaya hazırlanma
 
@@ -152,7 +152,7 @@ Azure kümesine için Avere vFXT oluşturabilmeniz için önce küme düğümü 
 
 Rol adı, kümeyi oluştururken kullanılır. Bu örnekte, addır ``avere-operator``.
 
-## <a name="optional-create-a-storage-service-endpoint-in-your-virtual-network"></a>(İsteğe bağlı) Sanal ağınızda bulunan bir depolama hizmet uç noktası oluşturma
+## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>(Gerekirse) kullanarak sanal ağınızdaki bir depolama hizmet uç noktası oluşturma
 
 A [hizmet uç noktası](../virtual-network/virtual-network-service-endpoints-overview.md) Azure Blob trafiği sanal ağ dışında yönlendirme yerine yerel tutar getirin. Arka uç veri depolama için Azure Blob kullanan Azure küme için tüm Avere vFXT için önerilir. 
 

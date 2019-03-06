@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 495325696dad79a6cc1a77b9a87f6db0af4c1156
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 26f60a6f1796b080df3294737ce93bfb43029bf1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253264"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439135"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer sorunlarını giderme
 
@@ -77,7 +77,7 @@ Araştırma bağlantı noktasını VM üzerindeki güvenlik duvarını engelliyo
     - Hedef arka havuzu sanal makinesi üzerinde eşzamanlı bir Netsh trace ve başka bir test sanal makinesi aynı sanal ağdan çalıştırın. Artık, bir süre için PsPing test çalıştırması, bazı ağ izleri toplamak ve ardından testi durdurma. 
     - Ağ yakalamayı analiz etme ve gelen ve giden paketlerin ping sorgu için ilgili olup olmadığını görebilirsiniz. 
         - Arka uç havuzu sanal makinesi hiçbir gelen paket kullanılıyorsa var. büyük olasılıkla bir ağ güvenlik grupları veya trafiği engelleme UDR yanlış yapılandırma 
-        - Arka uç havuzu sanal makinesi hiçbir giden paketlerin kullanılıyorsa, VM'nin ilgisiz sorunları (örneğin, yoklama bağlantı noktası engelleme uygulama için) denetlenecek gerekir. 
+        - Arka uç havuzu sanal makinesi hiçbir giden paketlerin kullanılıyorsa, VM'nin ilgisiz sorunları (örneğin, yoklama bağlantı noktası engelleme uygulama) için denetlenecek gerekir. 
     - Araştırma paketleri (büyük olasılıkla UDR ayarları aracılığıyla) başka bir hedef için yük dengeleyici ulaşmadan önce isabetten, doğrulayın. Bu, hiçbir zaman arka uç VM'den ulaşmak trafiği neden olabilir. 
 * Araştırma türü (örneğin, HTTP TCP için) değiştirin ve ağ güvenlik grupları ACL ve güvenlik duvarı araştırma yanıt yapılandırmasıyla sorunu olup olmadığını doğrulamak üzere karşılık gelen bağlantı noktasını yapılandırın. Sistem durumu araştırması yapılandırması hakkında daha fazla bilgi için bkz: [Yük Dengeleme uç noktası sistem durumu araştırması Yapılandırması](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 

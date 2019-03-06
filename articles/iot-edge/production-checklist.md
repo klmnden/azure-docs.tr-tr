@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652635"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433459"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IOT Edge çözümünüzü üretim ortamında dağıtmaya hazırlanma
 
@@ -167,7 +167,7 @@ Bu denetim, güvenlik duvarı kuralları için bir başlangıç noktasıdır:
 
    | URL (\* joker =) | Giden TCP bağlantı noktaları | Kullanım |
    | ----- | ----- | ----- |
-   | MCR.microsoft.com  | 443 | Microsoft kapsayıcı kayıt defteri |
+   | mcr.microsoft.com  | 443 | Microsoft kapsayıcı kayıt defteri |
    | Global.Azure cihazları provisioning.net  | 443 | DPS erişim (isteğe bağlı) |
    | \*. azurecr.io | 443 | Kişisel ve 3. taraf kapsayıcı kayıt defterleri |
    | \*.blob.core.windows.net | 443 | Görüntü deltalarını indirin | 
@@ -186,7 +186,7 @@ Cihazlarınızı bir ara sunucu kullanıyorsa bir ağ üzerinde dağıtılıp ku
 
 ### <a name="set-up-logs-and-diagnostics"></a>Günlükleri ve tanılamayı ayarlama
 
-Linux'ta IOT Edge arka plan programı journald varsayılan günlük kaydı sürücüsü kullanır. Komut satırı aracı kullanabilirsiniz `journalctl` arka plan programı'nı sorgulamak için günlüğe kaydeder. Windows üzerinde PowerShell tanılama IOT Edge arka plan programı kullanır. Kullanım `Get-WinEvent` arka planından sorgu günlükleri. IOT Edge modülleri, Docker varsayılan günlük kaydı için JSON sürücüsü kullanın.  
+Linux üzerinde IOT Edge arka plan programının günlüklerini sürücü günlüğü varsayılan kullanır. Komut satırı aracı kullanabilirsiniz `journalctl` arka plan programı'nı sorgulamak için günlüğe kaydeder. Windows üzerinde PowerShell tanılama IOT Edge arka plan programı kullanır. Kullanım `Get-WinEvent` arka planından sorgu günlükleri. IOT Edge modülleri, Docker varsayılan günlük kaydı için JSON sürücüsü kullanın.  
 
 IOT Edge dağıtımı test ederken cihazlarınızı günlüklerini almak ve sorunları gidermek için genellikle erişebilirsiniz. Dağıtım senaryosunda, bu seçeneği olmayabilir. Cihazlarınızı üretimde hakkında bilgi toplamak için nasıl gideceğinizi göz önünde bulundurun. Diğer modüller bilgilerini toplar ve buluta gönderen bir günlük modülü kullanmak bir seçenektir. Bir örneği, bir günlük modülü [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics), ya da kendi tasarlayabilirsiniz. 
 
@@ -194,7 +194,7 @@ Bir kaynak kısıtlı cihazda çok büyük boyutlu hale gelmesini günlükleri h
 
 * Özellikle, Docker cinini içindeki tüm docker logfiles boyutunu sınırlandırabilirsiniz. Linux için arka plan programı, yapılandırma `/etc/docker/daemon.json`. Windows için `C:\ProgramData\docker\confige\daemon.json`. 
 * Her kapsayıcı için günlük dosyası boyutunu ayarlamak istiyorsanız, bunu her modülün CreateOptions yapabilirsiniz. 
-* Ayar journald tarafından günlüklerini sürücü için Docker günlüğü varsayılan olarak otomatik olarak yönetmek için Docker'ı yapılandırın. 
+* Docker günlükleri varsayılan günlük kaydı sürücüsü ayarlayarak için Docker günlüklerini otomatik olarak yönetmek için yapılandırın. 
 * Düzenli aralıklarla eski günlükleri için Docker logrotate aracı yükleyerek cihazınızdan kaldırın. Aşağıdaki dosya belirtimi kullanın: 
 
    ```

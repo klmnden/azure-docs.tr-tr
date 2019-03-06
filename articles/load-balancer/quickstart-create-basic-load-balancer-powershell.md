@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 6b27c21944131d01254e75c7120520a119998132
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 39bfea8e3b04be2a5444945356f2c487ea2423e3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673777"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443309"
 ---
 # <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir genel yük dengeleyici oluşturma
 
@@ -229,7 +229,7 @@ Sanal NIC ile oluşturulan oluşturma [yeni AzNetworkInterface](/powershell/modu
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -239,7 +239,7 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
@@ -268,7 +268,7 @@ VM’ler için [Get-Credential](https://msdn.microsoft.com/powershell/reference/
 $cred = Get-Credential
 ```
 
-İle Vm'leri oluşturabilirsiniz artık [New-AzVM](/powershell/module/az.compute/new-azvm). Aşağıdaki örnek, zaten mevcut değilse iki VM ve gerekli olan sanal ağ bileşenlerini oluşturur. Aynı sanal ağda atanmış olan aşağıdaki örnekteki VM oluşturma sırasında önceden oluşturulmuş NIC ile Vm'leri ilişkili olduğundan (*myVnet*) ve alt ağ (*mySubnet*):
+İle Vm'leri oluşturabilirsiniz artık [New-AzVM](/powershell/module/az.compute/new-azvm). Aşağıdaki örnek, zaten mevcut değilse iki VM ve gerekli olan sanal ağ bileşenlerini oluşturur. Bu örnekte, NIC'ler (*VM1* ve *VM2*) önceki adımda oluşturduğunuz sanal makinelere otomatik olarak atanmasını *VM1* ve *VM2*aynı adlara sahip ve aynı sanal ağda atanır (*myVnet*) ve alt ağ (*mySubnet*). Ayrıca, NIC'ler için yük dengeleyicinin arka uç havuzu ilişkili olduğundan, sanal makineleri otomatik olarak arka uç havuzuna eklenir.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)

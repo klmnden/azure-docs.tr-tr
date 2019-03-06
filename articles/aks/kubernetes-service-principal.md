@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 09/26/2018
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: b8cbeacda98aec639724f30fe3a7e94346f05ba4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: fb3b85ca1ee6a96a45c4cc26953a29d9ad365ae3
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308763"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406278"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS) ile hizmet sorumluları
 
@@ -24,7 +24,7 @@ Bu makalede, AKS kümeleriniz için bir hizmet sorumlusunun nasıl oluşturulaca
 
 Azure AD hizmet sorumlusu oluşturmak için, Azure AD kiracınızla bir uygulamayı kaydetme ve uygulamanızı aboneliğinizdeki bir role atama izinlerinizin olması gerekir. Gerekli izinlere sahip değilseniz Azure AD veya abonelik yöneticinizden gerekli izinleri atamasını istemeniz veya AKS kümesiyle kullanmanız için bir hizmet sorumlusu oluşturma ön işlemlerini tamamlamanız gerekebilir.
 
-Ayrıca Azure CLI sürüm 2.0.46 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
+Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Otomatik olarak bir hizmet sorumlusu oluşturma ve kullanma
 
@@ -33,7 +33,7 @@ Azure portalda bir AKS kümesi oluşturduğunuzda veya [az aks create][az-aks-cr
 Aşağıdaki Azure CLI örneğinde bir hizmet sorumlusu belirtilmemiştir. Bu senaryoda Azure CLI, AKS kümesi için bir hizmet sorumlusu oluşturur. İşlemi başarıyla tamamlamak için Azure hesabınızın gerekli hizmet sorumlusu oluşturma haklarına sahip olması gerekir.
 
 ```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup
 ```
 
 ## <a name="manually-create-a-service-principal"></a>El ile hizmet sorumlusu oluşturma
@@ -49,8 +49,8 @@ az ad sp create-for-rbac --skip-assignment
 ```json
 {
   "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
-  "displayName": "azure-cli-2018-09-25-21-10-19",
-  "name": "http://azure-cli-2018-09-25-21-10-19",
+  "displayName": "azure-cli-2019-03-04-21-35-28",
+  "name": "http://azure-cli-2019-03-04-21-35-28",
   "password": "e763725a-5eee-40e8-a466-dc88d980f415",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
@@ -77,9 +77,9 @@ Azure portalı kullanarak bir AKS kümesi dağıtırsanız, **Kubernetes kümesi
 
 ## <a name="delegate-access-to-other-azure-resources"></a>Diğer Azure kaynakları için temsilci erişimi
 
-Hizmet sorumlusu AKS kümesi, diğer kaynaklarına erişmek için kullanılabilir. Örneğin, Gelişmiş ağ için var olan sanal ağları birbirine bağlama veya Azure Container Registry (ACR) bağlanmak için kullanmak istiyorsanız, hizmet sorumlusu erişimi devretmek gerekir.
+Hizmet sorumlusu AKS kümesi, diğer kaynaklarına erişmek için kullanılabilir. Örneğin, mevcut bir Azure sanal ağ alt ağı, AKS kümesi dağıtmayı veya Azure Container Registry (ACR) bağlanmak istiyorsanız, hizmet sorumlusu için bu kaynaklara temsilci erişimi gerekir.
 
-Temsilci izinleri için rol atama kullanarak oluşturduğunuz [az rol ataması oluşturma] [ az-role-assignment-create] komutu. Atadığınız `appId` bir kaynak grubu ya da sanal ağ kaynağı gibi belirli bir kapsamda. Bir rol, ardından aşağıdaki örnekte gösterildiği gibi kaynak, hizmet sorumlusu sahip izinleri tanımlar:
+Kullanarak bir rol atama izinleri için temsilci seçme için oluşturma [az rol ataması oluşturma] [ az-role-assignment-create] komutu. Ata `appId` bir kaynak grubu ya da sanal ağ kaynağı gibi belirli bir kapsamda. Bir rol, ardından aşağıdaki örnekte gösterildiği gibi kaynak, hizmet sorumlusu sahip izinleri tanımlar:
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -123,6 +123,7 @@ AKS ile tümleştirin ve kaynak grubunda AKS kümesi için ayrı Azure Container
 AKS ve Azure AD hizmet sorumlularını kullanılırken aşağıdaki noktalara dikkat edin.
 
 - Kubernetes için hizmet sorumlusu, küme yapılandırmasının bir parçasıdır. Ancak, kümeyi dağıtmak için kimlik kullanmayın.
+- Varsayılan olarak, hizmet sorumlusu kimlik bilgileri bir yıl süreyle geçerlidir. Yapabilecekleriniz [güncelleştirme veya hizmet sorumlusu kimlik bilgilerini döndürme] [ update-credentials] dilediğiniz zaman.
 - Her hizmet sorumlusunun bir Azure AD uygulamasıyla ilişkilendirilmiş olması gerekir. Bir Kubernetes kümesinin hizmet sorumlusu, geçerli herhangi bir Azure AD uygulama adıyla ilişkilendirilebilir (örneğin: *https://www.contoso.org/example*). Uygulama URL'sinin gerçek bir uç nokta olması gerekmez.
 - Hizmet sorumlusu **İstemci kimliğini** belirttiğinizde `appId` değerini kullanın.
 - Kubernetes kümesinin ana ve düğüm VM’lerinde, hizmet sorumlusu kimlik bilgileri `/etc/kubernetes/azure.json` dosyasında saklanır
@@ -136,7 +137,9 @@ AKS ve Azure AD hizmet sorumlularını kullanılırken aşağıdaki noktalara di
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Active Directory hizmet sorumluları hakkında daha fazla bilgi için, bkz. [Uygulama ve hizmet sorumlusu nesneleri][service-principal]
+Azure Active Directory Hizmet sorumluları hakkında daha fazla bilgi için bkz. [uygulama ve hizmet sorumlusu nesneleri][service-principal].
+
+Kimlik bilgilerini güncelleştirme hakkında daha fazla bilgi için bkz: [güncelleştirin veya aks'deki bir hizmet sorumlusu kimlik bilgilerini döndürme][update-credentials].
 
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
@@ -154,3 +157,4 @@ Azure Active Directory hizmet sorumluları hakkında daha fazla bilgi için, bkz
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
+[update-credentials]: update-credentials.md

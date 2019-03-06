@@ -5,21 +5,27 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: e4b5b6085dbe9a09c90e059a5db8bee5d6d7a004
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a26eab83f567a46f613e3bfda95fd99aba2b79c0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699335"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404323"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) ile iç yük dengeleyici kullanın
 
 Azure Kubernetes Service (AKS) ve uygulamalarınıza erişimi kısıtlamak için oluşturabilir ve iç yük dengeleyici kullanın. İç yük dengeleyici, bir Kubernetes hizmeti yalnızca Kubernetes kümesi aynı sanal ağda çalışan uygulamalar için erişilebilir hale getirir. Bu makalede oluşturma ve Azure Kubernetes Service (AKS) ile iç yük dengeleyici kullanma gösterilmektedir.
 
 > [!NOTE]
-> Azure Load Balancer iki SKU ile - kullanılabilir *temel* ve *standart*. Daha fazla bilgi için [Azure yük dengeleyici SKU karşılaştırma][azure-lb-comparison]. AKS tarafından desteklenen *temel* SKU. Kullanmak istiyorsanız *standart* SKU, kullanabileceğiniz Yukarı Akış [aks altyapısı][aks-engine].
+> Azure Load Balancer iki SKU ile - kullanılabilir *temel* ve *standart*. AKS tarafından desteklenen *temel* SKU. Kullanmak istiyorsanız *standart* SKU, kullanabileceğiniz Yukarı Akış [aks altyapısı][aks-engine]. Daha fazla bilgi için [Azure yük dengeleyici SKU karşılaştırma][azure-lb-comparison].
+
+## <a name="before-you-begin"></a>Başlamadan önce
+
+Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
+
+Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="create-an-internal-load-balancer"></a>İç yük dengeleyici oluşturma
 
@@ -40,9 +46,15 @@ spec:
     app: internal-app
 ```
 
-Dağıtıldıktan sonra ile `kubectl apply -f internal-lb.yaml`, Azure yük dengeleyici oluşturulur ve AKS kümesi ile aynı sanal ağda kullanılabilir.
+Kullanarak iç yük dengeleyici dağıtma [kubectl uygulamak] kubectl-uygulama] ve YAML bildiriminizi adını belirtin:
 
-Hizmet ayrıntılarını görüntülediğinizde, iç yük dengeleyici IP adresi gösterilen *EXTERNAL-IP* sütun. Bir veya değiştirmek IP adresi için iki dakika sürebilir *\<bekleyen\>* gerçek iç IP adresine, aşağıdaki örnekte gösterildiği gibi:
+```console
+kubectl apply -f internal-lb.yaml
+```
+
+Azure load balancer düğüm kaynak grubunda oluşturulur ve AKS kümesi ile aynı sanal ağa bağlanır.
+
+Hizmet ayrıntılarını görüntülediğinizde, iç yük dengeleyici IP adresi gösterilen *EXTERNAL-IP* sütun. Bu bağlamda *dış* yük dengeleyicinin dış arabirimi ile ilgili bir genel, dış IP adresi alan değil. Bir veya değiştirmek IP adresi için iki dakika sürebilir *\<bekleyen\>* gerçek iç IP adresine, aşağıdaki örnekte gösterildiği gibi:
 
 ```
 $ kubectl get service internal-app
@@ -71,7 +83,7 @@ spec:
     app: internal-app
 ```
 
-Hizmet ayrıntılarını görüntülediğinizde, IP adresi *EXTERNAL-IP* sütun belirtilen IP adresiniz yansıtır:
+Dağıtıldığında ve hizmet ayrıntılarını, IP adresini *EXTERNAL-IP* sütun belirtilen IP adresiniz yansıtır:
 
 ```
 $ kubectl get service internal-app
@@ -82,7 +94,7 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 ## <a name="use-private-networks"></a>Özel ağları kullanın
 
-AKS kümenizi yeniden oluşturduğunuzda, Gelişmiş Ağ ayarları belirtebilirsiniz. Bu yaklaşım küme var olan bir Azure sanal ağı ve alt ağlar dağıtmanıza olanak tanır. Şirket içi ortamınıza bağlı özel bir ağ, AKS kümesi dağıtmayı ve hizmetler yalnızca erişilebilir dahili olarak çalıştırmak için tek bir senaryodur. Daha fazla bilgi için [AKS Gelişmiş ağ yapılandırmasında][advanced-networking].
+AKS kümenizi yeniden oluşturduğunuzda, Gelişmiş Ağ ayarları belirtebilirsiniz. Bu yaklaşım küme var olan bir Azure sanal ağı ve alt ağlar dağıtmanıza olanak tanır. Şirket içi ortamınıza bağlı özel bir ağ, AKS kümesi dağıtmayı ve hizmetler yalnızca erişilebilir dahili olarak çalıştırmak için tek bir senaryodur. Daha fazla bilgi için kendi sanal ağ alt ağları ile yapılandırma [Kubernetes] [ use-kubenet] veya [Azure CNI][advanced-networking].
 
 Önceki adımları herhangi bir değişiklik, özel bir ağ kullanan bir AKS kümesi içinde iç yük dengeleyici dağıtmak için gereklidir. Yük Dengeleyici, AKS kümenizin aynı kaynak grubunda oluşturulur, ancak aşağıdaki örnekte gösterildiği gibi özel sanal ağ ve alt ağına bağlı:
 
@@ -135,3 +147,7 @@ Kubernetes hizmetleri hakkında daha fazla bilgi [Kubernetes Hizmetleri belgeler
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
+[use-kubenet]: configure-kubenet.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/27/2018
+ms.date: 02/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 6df44afee26570dbdc5d64b449c4e33d6a0956ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885719"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404051"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Data Box'ınızı yönetmek için yerel web kullanıcı arabirimini kullanma
 
@@ -25,6 +25,7 @@ Bu makale aşağıdaki öğreticileri içerir:
 
 - Destek paketi oluşturma
 - Cihazınızı kapatma ya da yeniden başlatma
+- BOM indirin veya bildirim dosyaları
 - Cihazın kullanılabilir kapasitesini görüntüleme
 - Sağlama toplamı doğrulamasını atlama 
 
@@ -104,6 +105,8 @@ Başlamadan önce Data Box'ınızı tamamlanmış olduğundan emin olun **gönde
     |databoxe2etest_AzFile BOM.txt    |Azure Dosyaları         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest BOM.txt     |Sayfa blobları         |REST        |
     |databoxe2etest_BlockBlock_Rest BOM.txt    |Blok blobları         |REST         |
+    |mydbmdrg1_MDisk BOM.txt    |Yönetilen Disk         |SMB/NFS         |
+    |mydbmdrg2_MDisk BOM.txt     |Yönetilen Disk         |SMB/NFS         |
 
 Data Box, Azure veri merkezi IP'sine döndükten sonra Azure depolama hesabına yüklenmiş dosyalarını doğrulamak için bu listeyi kullanın. Bir örnek bildirim dosyası aşağıda gösterilmiştir.
 

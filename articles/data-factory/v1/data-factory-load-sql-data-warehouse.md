@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 727a503a2fd942e6fbef9009c760a39f90828d2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020158"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433136"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>1 TB 15 dakika Data Factory ile Azure SQL Data Warehouse'a veri yükleme
 > [!NOTE]
@@ -182,13 +182,13 @@ Bu bölümde, hedef yapılandırma işlemini göstermektedir: `lineitem` Azure S
 
 4. Şema eşleme sayfası içinde "Sütun eşlemesi uygulama" seçeneği işaretlemeden bırakıp tıklayın **sonraki**.
 
-## <a name="step-4-performance-settings"></a>4. adım: Performans ayarları
+## <a name="step-4-performance-settings"></a>4. Adım: Performans ayarları
 
 **Polybase izin** varsayılan olarak işaretlidir.  **İleri**’ye tıklayın.
 
 ![Kopyalama Sihirbazı - şema eşleme sayfası](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
-## <a name="step-5-deploy-and-monitor-load-results"></a>5. adım: Dağıtma ve yükleme sonuçları izleme
+## <a name="step-5-deploy-and-monitor-load-results"></a>5. Adım: Dağıtma ve yükleme sonuçları izleme
 1. Tıklayın **son** dağıtmak için düğme.
 
     ![Kopyalama Sihirbazı - Özet sayfası](media/data-factory-load-sql-data-warehouse/summary-page.png)
@@ -199,7 +199,7 @@ Bu bölümde, hedef yapılandırma işlemini göstermektedir: `lineitem` Azure S
 
     Çalıştırma ayrıntıları Kopyala görüntüleyebileceğiniz **etkinlik penceresi Gezgini** kaynağından okumak ve hedef, süre ve ortalama aktarım hızı çalıştırma için yazılan veri hacmi sağ bölmede, dahil.
 
-    Aşağıdaki ekran görüntüsünde görebileceğiniz gibi 1 TB Azure Blob depolama alanından SQL Data Warehouse'a veri kopyalama etkili bir şekilde 1.22 GB/sn aktarım hızı elde 14 dakika sürdü!
+    Aşağıdaki ekran görüntüsünden görebileceğiniz gibi 1 TB Azure Blob depolama alanından SQL Data Warehouse'a veri kopyalama etkili bir şekilde 1.22 GB/sn aktarım hızı elde 14 dakika sürdü!
 
     ![Kopyalama Sihirbazı - başarılı iletişim kutusu](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

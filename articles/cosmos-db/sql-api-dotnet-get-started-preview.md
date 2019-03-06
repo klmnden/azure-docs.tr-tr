@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 2e0dc5c69a6cc875f4e673a494387db79c1dd1fa
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 718a519786f31d796b0cb2e3924c9361ebd65fbc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672562"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433255"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Azure Cosmos DB SQL API hesabı (SDK sürüm 3 Önizleme) verileri yönetmek için bir .NET konsol uygulaması oluşturma
 
@@ -68,7 +68,7 @@ Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zate
 1. İçinde **NuGet** sekmesinde **Gözat**ve türü **Microsoft.Azure.Cosmos** arama kutusuna. Kontrol ettiğinizden emin olun *INCLUDE prelease* Önizleme bulunacak.
 1. Bul sonuçları içinde **Microsoft.Azure.Cosmos** tıklatıp **yükleme**.
    Azure Cosmos DB SQL API'si İstemci Kitaplığının paket kimliği [Microsoft Azure Cosmos DB İstemci Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)’dır.
-   ![Azure Cosmos DB İstemci SDK'sını bulmak için NuGet Menüsünün ekran görüntüsü](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Azure Cosmos DB istemci SDK'sını bulmak için NuGet menüsünün ekran görüntüsü](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     Çözümdeki değişiklikleri gözden geçirme hakkında iletiler alırsanız **Tamam**'a tıklayın. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
 
@@ -331,7 +331,7 @@ Bir öğeyi kullanarak oluşturulabilir [ **Createıtemasync** ](https://docs.mi
 İlk olarak, bu örnekte Azure Cosmos DB içinde depolanan nesneleri temsil edecek bir **Family** sınıfı oluşturmamız gerekir. **Family**'nin içinde kullanılan **Parent**, **Child**, **Pet**, **Address** alt sınıflarını da oluşturacağız. Belgelerin, JSON'da **id** olarak seri hale getirilmiş bir **Id** özelliğine sahip olmaları gerektiğini unutmayın. 
 1. Seçin **Ctrl + Shift + A** açmak için **Yeni Öğe Ekle** iletişim. Yeni bir sınıf ekleyin **Family.cs** projenize. 
 
-    ![Projeye yeni Family.cs sınıf ekleme ekran görüntüsü](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
+    ![Projeye yeni Family.cs sınıf ekleme işleminin ekran görüntüsü](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
 
 1. Kopyalama ve yapıştırma **ailesi**, **üst**, **alt**, **evcil hayvan**, ve **adresi** sınıfına**Family.cs**. 
     ```csharp

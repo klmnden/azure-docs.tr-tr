@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ada0a54f014e4e896c0e91d1eeafb94e6d254d5b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565229"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445096"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Yeni kiracılar sağlama ve bunları kataloğa kaydetme hakkında bilgi edinin
 
@@ -46,7 +46,7 @@ Katalog adı veya uygulama üzerinde minimum etkiyle değiştirilmesi veritaban�
 
 Şema sürümü, hizmet planı veya SLA'lar kiracıları için sunulan gibi ek Kiracı veya veritabanı meta veri, katalog da depolayabilirsiniz. Katalog, uygulama yönetimi, müşteri desteği ve DevOps sağlayan diğer bilgiler depolayabilirsiniz. 
 
-SaaS uygulama dışında veritabanı araçları Kataloğu etkinleştirebilirsiniz. Wingtip bilet SaaS Kiracı başına veritabanı örnek olarak araştırılan kiracılar arası sorgu, etkinleştirmek için katalog kullanılır [geçici raporlama öğretici](saas-tenancy-cross-tenant-reporting.md). Veritabanları arası iş yönetimi içinde keşfedilmemiş [Şema Yönetimi](saas-tenancy-schema-management.md) ve [Kiracı analizleri](saas-tenancy-tenant-analytics.md) öğreticiler. 
+SaaS uygulama dışında veritabanı araçları Kataloğu etkinleştirebilirsiniz. Wingtip bilet SaaS Kiracı başına veritabanı örnek olarak araştırılan kiracılar arası sorgu, etkinleştirmek için katalog kullanılır [öğretici Ad hoc raporlama](saas-tenancy-cross-tenant-reporting.md). Veritabanları arası iş yönetimi içinde keşfedilmemiş [Şema Yönetimi](saas-tenancy-schema-management.md) ve [Kiracı analizleri](saas-tenancy-tenant-analytics.md) öğreticiler. 
 
 Wingtip bilet SaaS örneklerinde Shard Management özelliklerini kullanarak Kataloğu uygulanan [elastik veritabanı istemci kitaplığı (EDCL)](sql-database-elastic-database-client-library.md). EDCL, Java ve .NET Framework içinde kullanılabilir. EDCL, oluşturmak, yönetmek ve bir veritabanı tarafından desteklenen parça eşlemesi kullanmak bir uygulama sağlar. 
 

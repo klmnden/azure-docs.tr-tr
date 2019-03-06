@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0d42ff70bfaebf4d544fd81e6767592198ccef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205605"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431181"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Azure AD Connect eşitleme hizmeti yöneticisiyle bağlayıcıları kullanma
 
@@ -86,7 +86,7 @@ Sorunu çözmek için aşağıdakini kullanarak AD DS kullanıcı hesabı günce
 3. AD DS hesabını kullanmak üzere yapılandırılmış AD bağlayıcısını seçin.
 4. Eylemler altında seçin **özellikleri**.
 5. Açılan iletişim kutusunda, Active Directory ormanına Bağlan'ı seçin:
-6. İlgili şirket içi orman adı belirten AD.
+6. Orman adı, şirket içi AD karşılık gelen gösterir.
 7. Eşitleme için kullanılan AD DS hesabı kullanıcı adını belirtir.
 8. Parola metin kutusuna yeni AD DS hesap parolasını girin ![Azure AD Connect eşitleme şifreleme anahtarı yardımcı programı](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. Eski parola bellek önbelleğinden kaldırmak için eşitleme hizmetini yeniden başlatın ve yeni parolayı kaydetmek için Tamam'a tıklayın.

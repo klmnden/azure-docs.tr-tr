@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/06/2019
 ms.author: kuhussai
 ms.subservice: blobs
-ms.openlocfilehash: 4660a45014e6afdb091fb40b8fe7f03fdb647aab
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: ec024f8f1cd411455a6cbb2a0b12e7b4751af5fe
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339207"
+ms.locfileid: "57405343"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob Depolama: Premium (Önizleme), sık erişimli, seyrek erişimli ve Arşiv depolama katmanları
 
@@ -56,6 +56,8 @@ BLOB Depolama ve GPv2 hesapları sunmaya **erişim katmanı** varsayılan depola
 Bir Premium erişim katmanı sık erişilen verilerin yüksek performanslı donanıma kullanılabilir hale getirir, önizlemede kullanılabilir. Bu katmanında depolanan veriler, daha düşük gecikme süresi ve geleneksel sabit sürücüler kıyasla daha yüksek işlem hızları için iyileştirilmiş katı hal sürücülerinde depolanır. Blok blobu depolama hesabı türü yalnızca Premium erişim katmanı kullanılabilir.
 
 Bu katman, hızlı ve tutarlı yanıt süreleri gerektiren iş yükleri için idealdir. Etkileşimli video düzenleme, statik web içeriğini, çevrimiçi işlemler ve bunun gibi Premium erişim katmanı için iyi adaylar olduğu gibi son kullanıcılara içeren veriler. Bu katman, telemetri verilerini yakalama, Mesajlaşma ve veri dönüştürme gibi çok sayıda küçük işlemler gerçekleştiren iş yükleri için uyarlanmıştır.
+
+Önizleme hakkında daha fazla bilgi için bkz: [Azure Premium Blob Depolama genel Önizleme](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 ## <a name="hot-access-tier"></a>Sık erişim katmanı
 

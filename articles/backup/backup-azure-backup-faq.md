@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 914dcd02f2d35d56b50169967ca1f5c251a6e6f3
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446673"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408624"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -101,7 +101,8 @@ Windows 8.1 64 bit | Enterprise, Pro | Makineler en son hizmet paketleri ve gün
 Windows 8 64 bit | Enterprise, Pro | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
 Windows 7 64-bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
 Sunucu | |
-Windows Server 2016 64 bit | Standard, Datacenter, Essentials | WIT en son hizmet paketleri/güncelleştirmeler.
+Windows Server 2019 64 bit | Standard, Datacenter, Essentials | En son hizmet paketleri/güncelleştirmelerle.
+Windows Server 2016 64 bit | Standard, Datacenter, Essentials | En son hizmet paketleri/güncelleştirmelerle.
 Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | En son hizmet paketleri/güncelleştirmelerle.
 Windows Server 2012 64 bit | Datacenter, Foundation, Standard | En son hizmet paketleri/güncelleştirmelerle.
 Windows Storage Server 2016 64 bit | Standard, Workgroup | En son hizmet paketleri/güncelleştirmelerle.

@@ -1,20 +1,19 @@
 ---
 title: 'Microsoft eşlemesi için-rota filtreleri yapılandırma ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Bu makalede PowerShell kullanarak Microsoft Peering için rota filtreleri yapılandırma
-documentationcenter: na
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 02/25/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: fc2cfcce57ad15d2bbad3242351492e184e7fd33
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 680bd80261e1f8b026f6e885156b2ef090b0764d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415305"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404493"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Microsoft eşlemesi için rota filtreleri yapılandırma: PowerShell
 > [!div class="op_single_selector"]
@@ -75,6 +74,9 @@ Yapılandırmaya başlamadan önce aşağıdaki ölçütleri karşıladığında
 
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell ile çalışma
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ### <a name="log-in-to-your-azure-account"></a>Azure hesabınızda oturum açma
@@ -84,19 +86,19 @@ Bu yapılandırmaya başlamadan önce Azure hesabınızda oturum açmalısınız
 PowerShell konsolunuzu yükseltilmiş ayrıcalıklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın. Azure Cloud Shell kullanıyorsanız, otomatik olarak oturumunuz açılır gibi Bu cmdlet çalıştırmanız gerekmez.
 
 ```azurepowershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Birden çok Azure aboneliğiniz varsa, hesabın aboneliklerini denetleyin.
 
 ```azurepowershell-interactive
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Kullanmak istediğiniz aboneliği belirtin.
 
 ```azurepowershell-interactive
-Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
 ## <a name="prefixes"></a>1. adım: Bir ön ek listesini ve BGP topluluk değerlerini alma
@@ -106,7 +108,7 @@ Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_nam
 Microsoft eşlemesi erişilebilen hizmetler ile ilişkili BGP topluluk değerlerini listesi ve ilişkili önekleri listesini almak için aşağıdaki cmdlet'i kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmBgpServiceCommunity
+Get-AzBgpServiceCommunity
 ```
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Kullanmak istediğiniz değerleri listesi olun
 
@@ -118,10 +120,10 @@ Bir rota filtresinde yalnızca bir kuralınız olabilir ve kural 'İzin ver' tü
 
 ### <a name="1-create-a-route-filter"></a>1. Rota filtresi oluşturma
 
-İlk olarak rota filtresini oluşturun. Komut 'New-AzureRmRouteFilter' yalnızca bir yol filtresi kaynağı oluşturur. Kaynak oluşturduktan sonra ardından bir kural oluşturmak ve rota filtresi nesnesine ekleme gerekir. Rota filtresi kaynak oluşturmak için aşağıdaki komutu çalıştırın:
+İlk olarak rota filtresini oluşturun. Komut 'New-AzRouteFilter' yalnızca bir yol filtresi kaynağı oluşturur. Kaynak oluşturduktan sonra ardından bir kural oluşturmak ve rota filtresi nesnesine ekleme gerekir. Rota filtresi kaynak oluşturmak için aşağıdaki komutu çalıştırın:
 
 ```azurepowershell-interactive
-New-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"
+New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"
 ```
 
 ### <a name="2-create-a-filter-rule"></a>2. Bir filtre kuralı oluşturma
@@ -129,7 +131,7 @@ New-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup
 Örnekte gösterildiği gibi bir dizi BGP toplulukları virgülle ayrılmış bir liste belirtebilirsiniz. Yeni bir kural oluşturmak için aşağıdaki komutu çalıştırın:
  
 ```azurepowershell-interactive
-$rule = New-AzureRmRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList "12076:5010,12076:5040"
+$rule = New-AzRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList "12076:5010,12076:5040"
 ```
 
 ### <a name="3-add-the-rule-to-the-route-filter"></a>3. İçin rota filtresi kuralı Ekle
@@ -137,9 +139,9 @@ $rule = New-AzureRmRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -R
 Filtre kuralı için rota filtresine eklemek için aşağıdaki komutu çalıştırın:
  
 ```azurepowershell-interactive
-$routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+$routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
 $routefilter.Rules.Add($rule)
-Set-AzureRmRouteFilter -RouteFilter $routefilter
+Set-AzRouteFilter -RouteFilter $routefilter
 ```
 
 ## <a name="attach"></a>3. adım: Bir ExpressRoute bağlantı hattı için rota filtresi ekleme
@@ -147,9 +149,9 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 Rota filtresi, yalnızca Microsoft eşlemesi olduğunu varsayarsak ExpressRoute devresine eklemek için aşağıdaki komutu çalıştırın:
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ## <a name="tasks"></a>Genel görevler
@@ -161,12 +163,12 @@ Bir rota filtresinde özelliklerini almak için aşağıdaki adımları kullanı
 1. Rota filtresi kaynak almak için aşağıdaki komutu çalıştırın:
 
   ```azurepowershell-interactive
-  $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+  $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
   ```
 2. Yol, aşağıdaki komutu çalıştırarak, rota filtresi kaynak filtre kuralları alma:
 
   ```azurepowershell-interactive
-  $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+  $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
   $rule = $routefilter.Rules[0]
   ```
 
@@ -175,9 +177,9 @@ Bir rota filtresinde özelliklerini almak için aşağıdaki adımları kullanı
 Rota filtresi zaten bir bağlantı hattına bağlıysa, BGP topluluk listesine güncelleştirmeleri otomatik olarak belirlenen BGP oturumları aracılığıyla uygun önekle tanıtım değişiklikleri yaymak. Aşağıdaki komutu kullanarak, rota filtresi BGP topluluk listesini güncelleştirebilirsiniz:
 
 ```azurepowershell-interactive
-$routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+$routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
 $routefilter.rules[0].Communities = "12076:5030", "12076:5040"
-Set-AzureRmRouteFilter -RouteFilter $routefilter
+Set-AzRouteFilter -RouteFilter $routefilter
 ```
 
 ### <a name="detach"></a>Bir ExpressRoute bağlantı hattı yol filtresinden ayırmak için
@@ -186,7 +188,7 @@ Bir rota filtresinde ExpressRoute bağlantı ayrılmış sonra hiçbir ön ekler
   
 ```azurepowershell-interactive
 $ckt.Peerings[0].RouteFilter = $null
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="delete"></a>Rota filtresi silinemedi
@@ -194,7 +196,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 Tüm işlem hattına bağlı olmayan bir rota filtresinde yalnızca silebilirsiniz. Rota filtresi için herhangi bir bağlantı hattı silmeye çalışmadan önce bağlı olmadığından emin olun. Aşağıdaki komutu kullanarak bir rota filtresinde silebilirsiniz:
 
 ```azurepowershell-interactive
-Remove-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
+Remove-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar

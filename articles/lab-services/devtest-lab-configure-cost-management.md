@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e616df772bf11d1247f96c78bea2392252f5e5d0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d3a02a850059dc96e4e4ba306fed7cded2f7dd7d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259760"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454196"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Azure DevTest Labs'de aylık tahmini Laboratuvar maliyeti eğilimini görüntüleyin
 Maliyet yönetimi özelliği DevTest Labs Laboratuvarınızı maliyetini izlemenize yardımcı olur. Bu makalede nasıl kullanılacağı gösterilmektedir **aylık tahmini maliyet eğilimi** geçerli Takvim ayı boyunca geçerli Takvim ayki tahmini maliyet başından bu yana ve tahmini aylık son maliyet görüntülemek için grafik. Bu makalede ayrıca harcama hedeflere ve eşiklere, erişildiğinde, tetikleyici sonuçları size bildirmek için DevTest Labs ayarlayarak Laboratuvar maliyetlerini daha iyi yönetmek nasıl gösterir.
@@ -76,8 +76,8 @@ DevTest Labs aylık tahmini maliyet eğilimi grafiği daha sonra görüntüleyeb
       - **Sabit**: Maliyet hedefleri, başlangıç tarihi ve bitiş tarihi alanları belirttiğiniz tarih aralığı için izlenir. Genellikle, bu ne kadar süreyle projenizi çalışacak şekilde zamanlanırsa ile karşılık gelebilir.
    - Belirtin bir **hedef maliyet**. Örneğin, bu bu Laboratuvar harcama tanımladığınız dönemdeki planlıyorsanız ne kadar olabilir.
    - Etkinleştirme veya devre dışı herhangi bir eşik seçin, istediğiniz bildirilen – – % 25 artışlarla kadar kaynağının % 125, belirtilen **hedef maliyet**.
-      - **Bildirim**: Bu eşiğine ulaşıldığında, belirttiğiniz bir Web kancası URL'si bildirilir.
-      - **Grafik çizim**: Bu eşiğine ulaşıldığında, sonuçları görüntüleyebilir, maliyet eğilimi grafikte açıklandığı gibi çizilir [aylık tahmini maliyet eğilimi grafiği görüntüleme](#viewing-the-monthly-estimated-cost-trend-chart).
+      - **Bildirim**: Bu eşik geçildikten sonra size belirttiğiniz bir Web kancası URL'si bildirilir.
+      - **Grafik çizim**: Bu eşik geçildikten sonra sonuçları görüntüleyebilir, maliyet eğilimi grafikte açıklandığı gibi çizilir [aylık tahmini maliyet eğilimi grafiği görüntüleme](#viewing-the-monthly-estimated-cost-trend-chart).
    - İsterseniz **bildirim** eşiğine ulaşıldığında, bir Web kancası URL'si belirtmeniz gerekir. Maliyet tümleştirmeler alanında seçin **bir tümleştirme eklemek için burayı tıklatın**.
 
       Yapılandırma bildirim Bölmesi'nde bir Web kancası URL'sini girin ve ardından **Tamam**.

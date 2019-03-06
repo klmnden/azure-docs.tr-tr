@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 87b8543d8cb658b46ab5e589a310a17a69508a47
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 38ef2d9e95bda21b1b348d996b8856213c657fd7
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411399"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410188"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Öğretici: Azure sanal WAN (Önizleme) kullanarak noktadan siteye bağlantı oluşturma
 
@@ -38,11 +38,13 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>Bu özelliği kaydedin
 
-Bu özelliği Azure Cloud Shell kullanarak kolayca kaydetmek için **TryIt** ifadesine tıklayın. Bunun yerine PowerShell yerel olarak çalışır, en son sürümüne sahip ve oturum emin olun **Connect-AzureRmAccount** ve **Select-AzureRmSubscription** komutları.
+Bu özelliği Azure Cloud Shell kullanarak kolayca kaydetmek için **TryIt** ifadesine tıklayın. Bunun yerine PowerShell yerel olarak çalışır, en son sürümüne sahip ve oturum emin olun **Connect AzAccount** ve **seçin AzSubscription** komutları.
 
 >[!NOTE]
 >Kaydettirmezseniz, özelliği kullanamaz veya portalda göremezsiniz.
@@ -52,25 +54,25 @@ Bu özelliği Azure Cloud Shell kullanarak kolayca kaydetmek için **TryIt** ifa
 Azure Cloud Shell'i açmak için **TryIt** ifadesine tıkladıktan sonra aşağıdaki komutları kopyalayıp yapıştırın:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
  
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 Özellik kayıtlı olarak göründükten sonra aboneliği Microsoft.Network ad alanına yeniden kaydedin.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="vnet"></a>1. Sanal ağ oluşturma
@@ -149,7 +151,7 @@ Uzak erişim istemcilerini yapılandırmak için indirilen profili kullanın. He
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Resmi web sitesinden OpenVPN istemcisini indirip yükleyin.
-2.  Ağ geçidinin VPN profilini indirin. Bu, Azure portalında noktadan siteye yapılandırmaları sekme veya yeni AzureRmVpnClientConfiguration PowerShell'de yapılabilir.
+2.  Ağ geçidinin VPN profilini indirin. Bu, Azure portalında noktadan siteye yapılandırmaları sekme veya yeni AzVpnClientConfiguration PowerShell'de yapılabilir.
 3.  Profilin sıkıştırmasını açın. OpenVPN klasöründeki vpnconfig.ovpn yapılandırma dosyasını not defterinde açın.
 4.  P2S istemci sertifikası bölümünü base64’teki P2S istemci sertifikası genel anahtarı ile doldurun. PEM biçimli bir sertifikada .cer dosyasını açıp base64 anahtarını sertifika üst bilgileri arasına kopyalamanız yeterlidir. Kodlanmış ortak anahtarı almak üzere sertifikayı dışarı aktarma işlemi için buraya bakın.
 5.  Özel anahtar bölümünü, base64’teki P2S istemci sertifikası özel anahtarı ile doldurun. Özel anahtarın nasıl ayıklanacağını görmek için buraya bakın.
@@ -168,7 +170,7 @@ Uzak erişim istemcilerini yapılandırmak için indirilen profili kullanın. He
 #### <a name="openvpn"></a>OpenVPN
 
 1.  https://tunnelblick.net/downloads.html sayfasından TunnelBlik gibi bir OpenVPN istemcisi indirip yükleyin 
-2.  Ağ geçidinin VPN profilini indirin. Bu noktadan siteye yapılandırma sekmesinde Azure portalında veya PowerShell New-AzureRmVpnClientConfiguration yapılabilir.
+2.  Ağ geçidinin VPN profilini indirin. Bu noktadan siteye yapılandırma sekmesinde Azure portalında veya PowerShell New-AzVpnClientConfiguration yapılabilir.
 3.  Profilin sıkıştırmasını açın. OpenVPN klasöründeki vpnconfig.ovpn yapılandırma dosyasını not defterinde açın.
 4.  P2S istemci sertifikası bölümünü base64’teki P2S istemci sertifikası genel anahtarı ile doldurun. PEM biçimli bir sertifikada .cer dosyasını açıp base64 anahtarını sertifika üst bilgileri arasına kopyalamanız yeterlidir. Kodlanmış ortak anahtarı almak üzere sertifikayı dışarı aktarma işlemi için buraya bakın.
 5.  Özel anahtar bölümünü, base64’teki P2S istemci sertifikası özel anahtarı ile doldurun. Özel anahtarın nasıl ayıklanacağını görmek için buraya bakın.
@@ -201,10 +203,10 @@ Bir Azure sanal makinesi ile uzak site arasındaki iletişimi izlemek için bir 
 
 ## <a name="cleanup"></a>12. Kaynakları temizleme
 
-Bu kaynaklar artık gerekli değilse, [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanarak kaynak grubunu ve içerdiği tüm kaynakları kaldırabilirsiniz. "myResourceGroup" yerine kaynak grubunuzun adını yazın ve aşağıdaki PowerShell komutunu çalıştırın:
+Bu kaynaklara artık ihtiyacınız olmadığında, kullanabileceğiniz [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için. "myResourceGroup" yerine kaynak grubunuzun adını yazın ve aşağıdaki PowerShell komutunu çalıştırın:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 940a5839fe2c2eea11d9570d3dca48cd514e21af
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417253"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454910"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation runbook türleri
 
@@ -22,10 +22,10 @@ Azure Otomasyonu aşağıdaki tabloda kısaca açıklanmış runbook'ları çeş
 
 | Type | Açıklama |
 |:--- |:--- |
-| [Grafik](#graphical-runbooks) |Windows PowerShell ve Azure portalında oluşturulan ve tamamen düzenlenen grafik düzenleyicisini temel. |
-| [Grafik PowerShell iş akışı](#graphical-runbooks) |Windows PowerShell iş akışına dayalı, oluşturulan ve Azure portalında grafik düzenleyicisinde düzenlenir. |
+| [Grafik](#graphical-runbooks)|Windows PowerShell ve Azure portalında oluşturulan ve tamamen düzenlenen grafik düzenleyicisini temel. |
+| [Grafik PowerShell iş akışı](#graphical-runbooks)|Windows PowerShell iş akışına dayalı, oluşturulan ve Azure portalında grafik düzenleyicisinde düzenlenir. |
 | [PowerShell](#powershell-runbooks) |Windows PowerShell komut dosyasına dayalı metin runbook. |
-| [PowerShell İş Akışı](#powershell-workflow-runbooks) |Windows PowerShell iş akışına dayalı metin runbook. |
+| [PowerShell İş Akışı](#powershell-workflow-runbooks)|Windows PowerShell iş akışına dayalı metin runbook. |
 | [Python](#python-runbooks) |Python tabanlı metin runbook. |
 
 ## <a name="graphical-runbooks"></a>Grafik runbook'ları
@@ -45,6 +45,7 @@ Azure Otomasyonu aşağıdaki tabloda kısaca açıklanmış runbook'ları çeş
 * Azure portal dışında runbook'u düzenleyemez.
 * Karmaşık mantık yürütmek amacıyla PowerShell kodu içeren bir kod etkinliği gerektirebilir.
 * Görüntüleyemez veya doğrudan grafik iş akışı tarafından oluşturulan PowerShell kodu düzenleyin. Herhangi bir kod etkinlik oluşturma kodu görüntüleyebilirsiniz.
+* Olamaz Linux karma Runbook çalışanı üzerinde çalışan olabilir
 
 ## <a name="powershell-runbooks"></a>PowerShell runbook'ları
 
@@ -54,6 +55,7 @@ PowerShell runbook'ları Windows PowerShell üzerinde temel alır.  Doğrudan Az
 
 * PowerShell iş akışı ek karmaşıklığını olmadan PowerShell kod ile tüm karmaşık mantığı uygulayın.
 * Runbook hızlı bir şekilde PowerShell iş akışı runbook'ları çalıştırmadan önce derlenmesi gerekli olmayan bu yana başlatır.
+* Olması çalıştırdığınız azure'da ya da hem Linux hem de Windows karma Runbook çalışanları
 
 ### <a name="limitations"></a>Sınırlamalar
 
@@ -88,6 +90,7 @@ PowerShell iş akışı runbook'ları, dayalı metin runbook'larıdır [Windows 
 * Runbook gerekir işlem PowerShell iş akışı ile ek karmaşıklığı gibi [nesneleri seri durumdan](automation-powershell-workflow.md#code-changes).
 * Runbook çalıştırmadan önce derlenecek sonun PowerShell runbook'ları başlatmak için daha uzun sürer.
 * PowerShell runbook'ları yalnızca yeni bir iş oluşturur başlangıç AzureAutomationRunbook cmdlet'ini kullanarak alt runbook'lar olarak dahil edilebilir.
+* Olamaz Linux karma Runbook çalışanı üzerinde çalışan olabilir
 
 ## <a name="python-runbooks"></a>Python runbook'ları
 
@@ -96,6 +99,7 @@ Python runbook'ları Python 2 kapsamında derleyin.  Azure portalında veya çev
 ### <a name="advantages"></a>Yararları
 
 * Güçlü bir Python kitaplıkları kullanın.
+* Olması çalıştı azure'da ya da hem Linux karma Runbook çalışanları. Windows karma Runbook çalışanları ile desteklenen [python2.7](https://www.python.org/downloads/release/latest/python2) yüklü.
 
 ### <a name="limitations"></a>Sınırlamalar
 

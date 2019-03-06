@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: d0f9002da3efd19625928a1e1f58d66f468c748f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c2d9e83b28ac18f08ca67e9c4f675b1fe9d5d17c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240686"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431793"
 ---
 # <a name="connect-data-sources"></a>Veri kaynaklarını bağlama
 
@@ -70,14 +70,14 @@ Aşağıdaki veri toplama yöntemleri Azure Gözcü tarafından desteklenir:
     
 ## Aracı bağlantı seçenekleri<a name="agent-options"></a>
 
-Azure Gözcü için dış cihazınıza bağlanmak için aracı (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için adanmış bir makinede dağıtılması gerekir. Deploly aracıyı otomatik olarak veya elle yapabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
+Azure Gözcü için dış cihazınıza bağlanmak için aracı adanmış bir makinede dağıtılması gerekir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Deploly aracıyı otomatik olarak veya elle yapabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
 
 
 ![Azure'da CEF](./media/connect-cef/cef-syslog-azure.png)
 
 Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal makinesinde el ile veya bir şirket içi makinede dağıtabilirsiniz.
 
-![CEF şirket içi](./media/connect-cef/cef-syslog-onprem.png)
+![Şirket içi CEF](./media/connect-cef/cef-syslog-onprem.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

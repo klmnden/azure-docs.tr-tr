@@ -1,6 +1,6 @@
 ---
 title: RBAC ve Azure PowerShell kullanarak Azure kaynaklarına erişimi yönetme | Microsoft Docs
-description: Kullanıcılara, gruplara ve uygulamalara rol tabanlı erişim denetimi (RBAC) ve Azure PowerShell kullanarak Azure resoruces için erişimi yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
+description: Kullanıcılar, gruplar ve rol tabanlı erişim denetimi (RBAC) ve Azure PowerShell kullanarak uygulamaları için Azure kaynaklarına erişimini yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7e7d92b2995d8d68b08b78ee02549fe5e713c4dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ace70dea5277b4e9d8c8b0e6e0cdc49da0b674e0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817176"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432235"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>RBAC ve Azure PowerShell kullanarak Azure kaynaklarına erişimi yönetme
 

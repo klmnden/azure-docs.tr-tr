@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72a666db6157300942b966b88d9c3369495b9fd4
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 4c431b149edb0677585da3c84e37d64873478ccf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331243"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432745"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veri ambarı gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,7 +82,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam
 
 TypeProperties bölümünün her tür veri kümesi için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. **TypeProperties** türü için veri kümesi bölümünü **AzureSqlDWTable** aşağıdaki özelliklere sahiptir:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | tableName |Tablo veya Görünüm başvuran bağlı hizmetin Azure SQL veri ambarı veritabanı adı. |Evet |
 
@@ -97,7 +97,7 @@ Oysa etkinliğin typeProperties bölümündeki özellikler her etkinlik türü i
 ### <a name="sqldwsource"></a>SqlDWSource
 Kaynak türü olduğunda **SqlDWSource**, aşağıdaki özellikler kullanılabilir **typeProperties** bölümü:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Hayır |
 | sqlReaderStoredProcedureName |Kaynak tablo verilerini okuyan saklı yordamın adı. |Saklı yordamın adı. Son SQL deyim bir SELECT deyimi saklı yordam içinde olmalıdır. |Hayır |
@@ -143,7 +143,7 @@ GO
 ### <a name="sqldwsink"></a>SqlDWSink
 **SqlDWSink** aşağıdaki özellikleri destekler:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Belirli bir dilimin veri Temizlenen şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. Ayrıntılar için bkz [yinelenebilirliği bölümü](#repeatability-during-copy). |Bir sorgu deyimi. |Hayır |
 | Bulunan'allowpolybase |PolyBase, (uygunsa) yerine BULKINSERT mekanizması kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** Bkz: [Azure SQL veri ambarı'na veri yüklemek için PolyBase kullanma](#use-polybase-to-load-data-into-azure-sql-data-warehouse) kısıtlamaları ve ayrıntıları bölümü. |True <br/>False (varsayılan) |Hayır |
@@ -228,7 +228,7 @@ Gereksinimler karşılanmazsa, Azure Data Factory ayarları denetler ve veri ta�
 Veri kaynağınızı önceki bölümde sunulan ölçütlere uymuyor, geçici hazırlama Azure Blob (Premium depolama olamaz) depolama aracılığıyla veri kopyalamayı etkinleştirebilirsiniz. Bu durumda, Azure Data Factory otomatik olarak dönüştürmeler verileri PolyBase veri biçim gereksinimlerini ve ardından son temizleme ve SQL veri ambarı'na veri yüklemek için PolyBase kullanın, geçici veriler Blob depolama alanından gerçekleştirir. Bkz: [hazırlanmış kopya](data-factory-copy-activity-performance.md#staged-copy) nasıl aracılığıyla hazırlama bir Azure Blob veri kopyalama genel birlikte çalıştığı hakkında bilgi.
 
 > [!NOTE]
-> Ne zaman kopyalama bir şirket içi verileri Azure SQL Data PolyBase kullanarak Warehouse'a veri deposundan ve hazırlama, veri yönetimi ağ geçidi sürümü 2.4 ise, kaynak verilerinizi dönüştürmek için kullanılan, ağ geçidi makinesinde JRE (Java Çalışma zamanı ortamı) gereklidir uygun biçime. Bu bağımlılık önlemek için en son ağ geçidinize yükseltmeniz önerilir.
+> Ne zaman üzerinde bir şirket içi verileri kopyalama verileri Azure SQL Data PolyBase kullanarak Warehouse'a veri depolamak ve hazırlama, veri yönetimi ağ geçidi sürümü 2.4 ise, kaynağınızı dönüştürmek için kullanılan, ağ geçidi makinesinde JRE (Java Çalışma zamanı ortamı) gereklidir doğru biçim verileri. Bu bağımlılık önlemek için en son ağ geçidinize yükseltmeniz önerilir.
 >
 
 Bu özelliği kullanmak için oluşturun bir [Azure depolama bağlı hizmeti](data-factory-azure-blob-connector.md#azure-storage-linked-service) geçici blob depolama alanına sahip Azure depolama hesabına gösterir, ardından belirtin `enableStaging` ve `stagingSettings` gösterildiği gibi kopyalama etkinliği için özellikleri Aşağıdaki kodu:
@@ -307,8 +307,8 @@ Data Factory, kaynak veri deposundaki aynı tablo adı ile hedef depolama tablos
 | Tamsayı | Tamsayı |
 | Mini tamsayı | Mini tamsayı |
 | Bit | Bit |
-| Onluk | Onluk |
-| Sayısal | Onluk |
+| Decimal | Decimal |
+| Sayısal | Decimal |
 | Kayan | Kayan |
 | para | para |
 | Real | Real |

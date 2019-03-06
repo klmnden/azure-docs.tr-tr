@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 898fb12c4e38804cca71be6ef08b078f92633e32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9300e60902b9234af01a64173eefcfb1bc033c61
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240163"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410205"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI sertifikalarını doğrulama
 
@@ -83,7 +83,11 @@ Hazırlama ve dağıtım ve gizli döndürme Azure Stack PKI sertifikalarını d
     ```
     
     > [!Note]  
-    > AD FS ve graf kimlik sisteminizde AD FS kullanıyorsanız gereklidir.
+    > AD FS ve graf kimlik sisteminizde AD FS kullanıyorsanız gereklidir. Örneğin:
+    >
+    > ```PowerShell  
+    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > ```
     
      - Önceki adımda oluşturduğunuz uygun dizinleri sertifikalarınız yerleştirin. Örneğin:  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`

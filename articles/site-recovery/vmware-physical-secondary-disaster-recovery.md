@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 0cc9c8dc214589e03e5a6a5405c07c9f6b3e53e6
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 373d7d4b421b3e679a5bb0f843db47e28eebbcc1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895848"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451935"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Şirket içi VMware sanal makinelerini veya fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarmayı ayarlama
 
@@ -159,7 +159,7 @@ Scout güncelleştirme 7 de yeni yükleme için mevcut aracıları / (yapılan g
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>PHP ve MySQL CS, PS ve RX için el ile yükseltme
 PHP betik platformu, yapılandırma sunucusu, işlem sunucusu ve RX sunucu 7.2.10 sürüme yükseltilmelidir.
 MySQL veritabanı yönetim sistemi, yapılandırma sunucusu, işlem sunucusu ve RX sunucu 5.7.23 sürüme yükseltilmelidir.
-Lütfen el ile verilen adımları izleyin [Hızlı Yükleme Kılavuzu](https://aka.ms/asr-scout-quick-install-guide) PHP ve MySQL sürümlerine yükseltmek için.
+Lütfen verilen adımları el ile uygulamanız [Hızlı Yükleme Kılavuzu](https://aka.ms/asr-scout-quick-install-guide) PHP ve MySQL sürümlerine yükseltmek için.
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 güncelleştirmesi 6 
 Güncelleştirme: 12 Ekim 2017

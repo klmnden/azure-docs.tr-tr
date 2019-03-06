@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: d7d23300936cd512466e5c4b18f1f0922c81ceff
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447183"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408199"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) ağ ilkeleri kullanılarak pod'ları arasındaki trafiğin güvenliğini sağlama
 
 Kubernetes'te modern, mikro hizmet tabanlı uygulamaları çalıştırdığınızda, genellikle hangi bileşenlerin birbirleriyle iletişim kurabilir denetlemek istersiniz. En düşük öncelik ilkesini nasıl trafiği pod'ların bir AKS kümesi arasında akış için uygulanmalıdır. Örneğin, büyük olasılıkla doğrudan arka uç uygulamaları için trafiği engellemek istiyorsunuz. Kubernetes, *Ağ İlkesi* özellik pod'ların bir küme arasında giriş ve çıkış trafiği için kuralları tanımlamanıza olanak sağlar.
 
-Bu makalede aks'deki pod'ları arasındaki trafik akışını denetlemek için ağ ilkeleri kullanmayı gösterir.
+Calico, bir açık kaynak ağ ve ağ güvenliği çözümleri Tigera tarafından kurulan Kubernetes Ağ İlkesi kuralları uygulayan bir ağ ilke altyapısı sunar. Bu makalede aks'deki pod'ları arasındaki trafik akışını denetlemek için Kubernetes ağ ilkeleri oluşturun ve Calico ağ ilke Altyapısı'nı gösterilmektedir.
 
 > [!IMPORTANT]
 > Bu özellik şu anda önizleme sürümündedir. Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.

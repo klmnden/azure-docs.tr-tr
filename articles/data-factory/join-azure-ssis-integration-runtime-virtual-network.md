@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 8693c5e255020e30c2e8ed52a3199712089e4503
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 24e2d7be0dfc32e499bc864f2fdf7e2b1c108969
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119093"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440225"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure-SSIS tümleştirme çalışma zamanını bir sanal ağa katılın
 Bir Azure sanal ağına aşağıdaki senaryolarda, Azure-SSIS Integration runtime (IR) katılın: 
@@ -83,9 +83,9 @@ Azure-SSIS tümleştirme çalışma zamanını oluşturan kullanıcının aşağ
 
 - Bir Azure Resource Manager sanal ağı, SSIS IR birleştirdiğimiz, iki seçeneğiniz vardır:
 
-  - Yerleşik kullanın *ağ Katılımcısı* rol. Bu rol ile birlikte gelen *Microsoft.Network/\**  daha bir çok geniş kapsamı olan izni.
+  - Yerleşik kullanın *ağ Katılımcısı* rol. Bu rol ile birlikte gelen _Microsoft.Network/\*_  daha bir çok geniş kapsamı olan izni.
 
-  - Yalnızca gerekli içeren özel bir rol oluşturun *Microsoft.Network/virtualNetworks/\*/JOIN/eylem* izni. 
+  - Yalnızca gerekli içeren özel bir rol oluşturun _Microsoft.Network/virtualNetworks/\*/JOIN/eylem_ izni. 
 
 - Klasik bir sanal ağa, SSIS IR birleştirdiğimiz, yerleşik kullanmanızı öneririz *Klasik sanal makine Katılımcısı* rol. Aksi takdirde sanal ağ alanına katılma izni içeren özel bir rol tanımlamak gerekir.
 
@@ -115,7 +115,7 @@ Gelen/giden trafik bir ağ güvenlik grubu (NSG), Azure-SSIS tümleştirme çal�
 | Gelen | TCP | AzureCloud<br/>(veya geniş kapsamı Internet gibi) | * | VirtualNetwork | 29876, 29877'numaralı (bir Azure Resource Manager sanal ağı'de IR katılırsanız) <br/><br/>10100, 20100, 30100'numaralı (klasik bir sanal ağ'de IR katılırsanız)| Data Factory hizmetinin bu bağlantı noktaları sanal ağ, Azure-SSIS tümleştirme çalışma zamanı düğümleri ile iletişim kurmak için kullanır. <br/><br/> Veya bir alt ağ düzeyinde NSG oluşturmak ister, Data Factory her zaman bir NSG Azure-SSIS IR'yi barındıran sanal makinelere bağlı ağ arabirim kartı (NIC) düzeyinde yapılandırır Bu NIC düzeyinde NSG tarafından yalnızca belirtilen bağlantı noktalarında veri fabrikası IP adreslerinden gelen trafiğe izin verilir. Alt ağ düzeyinde Internet trafiği için bu bağlantı noktalarını açmanız bile NIC düzeyinde Data Factory IP adresleri olan IP adreslerinden gelen trafik engellenir. |
 | Giden | TCP | VirtualNetwork | * | AzureCloud<br/>(veya geniş kapsamı Internet gibi) | 443 | Sanal ağ, Azure-SSIS tümleştirme çalışma zamanı düğümleri, Azure depolama ve Azure Event Hubs gibi Azure hizmetlerine erişmek için bu bağlantı noktasını kullanın. |
 | Giden | TCP | VirtualNetwork | * | Internet | 80 | Sanal ağ, Azure-SSIS tümleştirme çalışma zamanı düğümleri, Internet'ten sertifika iptal listesini indirmek için bu bağlantı noktasını kullanın. |
-| Giden | TCP | VirtualNetwork | * | Sql<br/>(veya geniş kapsamı Internet gibi) | 11000 11999, 14000 14999 1433 | SSISDB erişmek için bu bağlantı noktaları - Azure SQL veritabanı sunucunuz tarafından barındırılan sanal ağ kullanma, Azure-SSIS tümleştirme çalışma zamanı düğümleri bu amaç yönetilen örneği tarafından barındırılan SSISDB için geçerli değildir. |
+| Giden | TCP | VirtualNetwork | * | Sql<br/>(veya geniş kapsamı Internet gibi) | 1433, 11000-11999, 14000-14999 | SSISDB erişmek için bu bağlantı noktaları - Azure SQL veritabanı sunucunuz tarafından barındırılan sanal ağ kullanma, Azure-SSIS tümleştirme çalışma zamanı düğümleri bu amaç yönetilen örneği tarafından barındırılan SSISDB için geçerli değildir. |
 ||||||||
 
 ### <a name="route"></a> Azure ExpressRoute veya kullanıcı tanımlı yol kullanın
@@ -280,6 +280,8 @@ Sanal ağ için bir Azure-SSIS IR katılabilmesi için önce yapılandırma gere
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### <a name="configure-a-virtual-network"></a>Sanal ağ yapılandırma
 Azure-SSIS IR katılabilir önce bir sanal ağ yapılandırmanız gerekir. Sanal ağa katılmak Azure-SSIS tümleştirme çalışma zamanınızın sanal ağın izinlerini/ayarlarını otomatik olarak yapılandırmak için aşağıdaki betiği ekleyin:
 
@@ -289,16 +291,16 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
     Start-Sleep -s 10
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
         # Assign the VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+        New-AzRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 ```
@@ -326,7 +328,7 @@ $SubnetName = "<the name of subnet in your virtual network>"
 Azure-SSIS tümleştirme çalışma zamanını bir sanal ağa katılmadan önce durdurun. Bu komut, tüm alt düğümleri serbest bırakır ve faturalama durdurur:
 
 ```powershell
-Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Stop-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                             -DataFactoryName $DataFactoryName `
                                             -Name $AzureSSISName `
                                             -Force 
@@ -339,25 +341,25 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
         Start-Sleep -s 10
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
         # Assign VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+        New-AzRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 ```
 
 ### <a name="configure-the-azure-ssis-ir"></a>Azure-SSIS IR'yi yapılandırın
-Sanal ağa katılmak için Azure-SSIS Integration runtime'ı yapılandırmak için çalıştırın `Set-AzureRmDataFactoryV2IntegrationRuntime` komutu: 
+Sanal ağa katılmak için Azure-SSIS Integration runtime'ı yapılandırmak için çalıştırın `Set-AzDataFactoryV2IntegrationRuntime` komutu: 
 
 ```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
                                            -Name $AzureSSISName `
                                            -Type Managed `
@@ -369,7 +371,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
 Azure-SSIS tümleştirme çalışma zamanını başlatmak için aşağıdaki komutu çalıştırın: 
 
 ```powershell
-Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
                                              -Force

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: magoedte
-ms.openlocfilehash: b42eb963e33c14b003c053bb0f7fca6361dbd555
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: d09ce810605055b5be53219f254beb6660addbee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985113"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445713"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Günlük verilerini ve Azure İzleyici'de çalışma alanlarını yönetme
 Azure İzleyici depoları, temelde verileri ve yapılandırma bilgilerini içeren bir kapsayıcı ve Log Analytics çalışma alanında verilerini günlüğe kaydedebilirsiniz. Verileri günlüğe kaydetmek için erişimi yönetmek için çalışma alanları ile ilgili çeşitli yönetim görevlerini gerçekleştirin. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok çalışma alanı kullanabilirsiniz.
@@ -153,7 +153,7 @@ Bir Azure Resource Manager şablonunda erişim modu yapılandırmak için ayarla
 
 
 ## <a name="manage-accounts-and-users"></a>Hesapları ve kullanıcıları yönetme
-Belirli bir kullanıcıya uygulanan çalışma alanı izinleri tarafından tanımlanan kendi [erişim modu](#access-mode) ve [erişim denetim modu](#access-control-mode) çalışma alanının. **Çalışma alanı izinlerini** herhangi bir çalışma alanı kullanarak bir kullanıcının eriştiği uygulanır **çalışma merkezli** içinde [merkezli çalışma modu](#access-modes). **Kaynak izinleri** bir çalışma alanı ile bir kullanıcının eriştiği uygulanır **kaynak veya çalışma alanı izinlerini kullanın** [erişim denetim modu](#access-control-mode) kullanarak [kaynak odaklı modu ](#access-modes).
+Belirli bir kullanıcıya uygulanan izinleri çalışma alanına erişim modlarını tarafından tanımlanır ve [erişim denetim modu](#access-control-mode) çalışma alanının. **Çalışma alanı izinlerini** herhangi bir çalışma alanı kullanarak bir kullanıcının eriştiği uygulanır **çalışma merkezli** içinde [merkezli çalışma modu](#access-modes). **Kaynak izinleri** bir çalışma alanı ile bir kullanıcının eriştiği uygulanır **kaynak veya çalışma alanı izinlerini kullanın** [erişim denetim modu](#access-control-mode) kullanarak [kaynak odaklı modu ](#access-modes).
 
 ### <a name="workspace-permissions"></a>Çalışma alanı izinleri
 Her çalışma alanı kendisiyle ilişkilendirilmiş birden çok hesap içerebilir ve her hesabı birden çok çalışma alanına erişim sahibi olabilir. Erişim aracılığıyla yönetilir [Azure rol tabanlı erişim](../../role-based-access-control/role-assignments-portal.md). 

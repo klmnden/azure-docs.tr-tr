@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6cb9de466410ee2f8bf311183f389c5c86148a8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6e98327fbb0f2d10774b6ccb757a4d7c655031ff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873211"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433204"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Öğretici: GmbH çözünürlüğün Confluence için SAML SSO ile Azure Active Directory Tümleştirme
 
@@ -204,7 +204,7 @@ Azure AD çoklu oturum açma SAML SSO için Confluence ile GmbH çözünürlüğ
     
     ![Çoklu oturum açmayı yapılandırın](./media/samlssoconfluence-tutorial/addon6b.png)
     
-17. Apprearing iletişim okuma **test yolları atlanıyor...** , tıklayın **Tamam**.
+17. Appearing iletişim okuma **test yolları atlanıyor...** , tıklayın **Tamam**.
     
     ![Çoklu oturum açmayı yapılandırın](./media/samlssoconfluence-tutorial/addon6c.png)
 

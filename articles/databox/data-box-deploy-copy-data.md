@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 62675df9f440df77d1098d5c89bd6810349fb3af
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 88ea0fee73441f98734058391e0599cf8e1142a3
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750013"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403881"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Öğretici: SMB üzerinden Azure Data Box için veri kopyalama
 
@@ -41,7 +41,8 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 Seçilen depolama hesabına bağlı olarak, Data Box kadar oluşturur:
 - İlişkili her depolama hesabına GPv1 ve GPv2 için üç paylaşım.
-- Premium veya blob depolama hesabı için bir paylaşım.
+- Premium depolama için bir paylaşım. 
+- Blob depolama hesabı için bir paylaşım. 
 
 Blok blobu ve sayfa blobu paylaşımlarının altında birinci düzeydeki varlıklar kapsayıcılar, ikinci düzeydeki varlıklar ise bloblardır. Azure Dosyaları paylaşımlarında birinci düzeydeki varlıklar paylaşımlar, ikinci düzeydeki varlıklar ise dosyalardır.
 

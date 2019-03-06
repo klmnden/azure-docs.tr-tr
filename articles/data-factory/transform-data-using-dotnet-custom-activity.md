@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: ba59ca4ac9a200c4579a4f71ff94be6bd554f180
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 6947ac5819a8e096f3be4edf6f2891974829e422
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341570"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440464"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,11 +30,13 @@ Kullanabileceğiniz bir Azure Data Factory işlem hattı etkinlikleri iki tür v
 
 Taşımak için veri gönderip buralardan veri Data Factory desteklemiyor veya dönüştürebilen/Data Factory tarafından desteklenmeyen bir yolla veri için oluşturabileceğiniz depolamak bir **özel etkinlik** kendi veri hareketi veya dönüştürme mantığını ve kullanın işlem hattında etkinlik. Özel Etkinlik özelleştirilmiş kod mantığınızı üzerinde çalıştığı bir **Azure Batch** sanal makine havuzu.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Azure Batch hizmetine yeni başladıysanız makalelerini takip bakın:
 
 * [Azure Batch temel bilgileri](../batch/batch-technical-overview.md) için Azure Batch hizmetine genel bakış.
-* [Yeni-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) Azure Batch hesabı oluşturmak için cmdlet'i (veya) [Azure portalında](../batch/batch-account-create-portal.md) Azure portalını kullanarak Azure Batch hesabı oluşturmak için. Bkz: [Azure Batch hesabını yönetmek için PowerShell kullanma](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) makale cmdlet kullanma hakkında ayrıntılı yönergeler için.
-* [Yeni-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) bir Azure Batch havuzu oluşturmak için cmdlet'i.
+* [Yeni AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) Azure Batch hesabı oluşturmak için cmdlet'i (veya) [Azure portalında](../batch/batch-account-create-portal.md) Azure portalını kullanarak Azure Batch hesabı oluşturmak için. Bkz: [Azure Batch hesabını yönetmek için PowerShell kullanma](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) makale cmdlet kullanma hakkında ayrıntılı yönergeler için.
+* [Yeni AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) bir Azure Batch havuzu oluşturmak için cmdlet'i.
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch bağlı hizmeti
 Aşağıdaki JSON örneği bağlı Azure Batch hizmeti tanımlar. Ayrıntılar için bkz [Azure Data Factory tarafından desteklenen ortam işlem](compute-linked-services.md)
@@ -231,13 +233,13 @@ namespace SampleApp
 Aşağıdaki PowerShell komutunu kullanarak bir işlem hattı çalıştırması başlatabilirsiniz:
 
 ```.powershell
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
+$runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
 İşlem hattı çalışırken, aşağıdaki komutları kullanarak yürütme çıktısını denetleyebilirsiniz:
 
 ```.powershell
 while ($True) {
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
     if(!$result) {
         Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"

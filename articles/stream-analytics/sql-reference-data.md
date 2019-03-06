@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cc6e4083ba952eb9799aa91f76cf6e5ab75c7f64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118029"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449589"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Azure Stream Analytics işi (Önizleme) için bir SQL veritabanı başvuru verilerini kullanma
 
@@ -158,7 +158,7 @@ Vardır hiç [akış birimi başına maliyet](https://azure.microsoft.com/pricin
 
 **Başvuru veri anlık görüntü okunuyor nasıl bilebilirim SQL Veritabanından sorgulanabilir ve Azure Stream Analytics işinde kullanılır?**
 
-Mantıksal SQL veritabanı başvuru verilerini giriş durumunu izlemek için kullanabileceğiniz adıyla (altında ölçümleri Azure portalı) filtrelenmiş açabilmesini ölçüm vardır.
+Mantıksal SQL veritabanı başvuru verilerini giriş durumunu izlemek için kullanabileceğiniz adıyla (altında ölçümleri Azure portalı) filtrelenmiş iki ölçüm vardır.
 
    * Inputevents: Bu ölçüm, SQL veritabanı başvuru veri kümesinden yüklenen kayıt sayısını ölçer.
    * InputEventBytes: Bu ölçüm, Stream Analytics işi, belleğe başvuru veri anlık görüntüsünün boyutu ölçer. 

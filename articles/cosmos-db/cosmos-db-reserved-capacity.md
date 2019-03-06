@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 5547186d314f0c8cebf9f08463e4953f9f20ad3c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 80c35d8417fefa2873cbef9886f56ccfa3920624
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957989"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409474"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB'de ayrılmış bir kapasiteyle maliyeti iyileştirin
 
@@ -55,7 +55,7 @@ Rezervasyon boyutu toplam mevcut veya yakında-için--dağıtılması Azure Cosm
    |Ad   |    Ayırma adı. Bu alan otomatik olarak doldurulur `CosmosDB_Reservation_<timeStamp>`. Ayırma oluşturulurken, farklı bir ad sağlayabilirsiniz. Veya ayırma oluşturulduktan sonra yeniden adlandırabilirsiniz.      |
    |Abonelik  |   Azure Cosmos DB için ödeme yapmak üzere kullanılan abonelik kapasite saklıdır. Seçili abonelikte ödeme yöntemini, ön maliyet şarj içinde kullanılır. Abonelik türü aşağıdakilerden biri olmalıdır: <br/><br/>  Kurumsal Anlaşma (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P): Kurumsal aboneliğiniz için ücretler kayıt ait parasal taahhüt bakiyeden kesilen veya kapasite aşımı olarak ücretlendirilir. <br/><br/> Kullandıkça Öde (sayılar sunar: MS-AZR-0003P veya MS-AZR - 0023 P): Bir Kullandıkça Öde aboneliğine ücretleri, aboneliğinizin kredi kartı veya fatura ödeme yöntemi için faturalandırılır.    |
    |Kapsam   |   Kaç aboneliğe ayırma ile ilişkili faturalandırma avantajından yararlanabilirsiniz denetimleri seçeneği. Ayırma belirli abonelikler için nasıl uygulanacağını denetler.   <br/><br/>  Seçerseniz **tek abonelik**, ayırma indirimini seçili Abonelikteki Azure Cosmos DB örneklerine uygulanır. <br/><br/>  Seçerseniz **paylaşılan**, ayırma indirimini herhangi bir abonelik, fatura bağlamı içinde çalışan Azure Cosmos DB örneklerine uygulanır. Fatura bağlamı için Azure kaydolan nasıl dayanır. Kurumsal müşteriler için Paylaşılan kapsam kayıt ve kayıt içinde tüm abonelikleri içerir. Kullandıkça Öde müşterileri için paylaşılan tüm Kullandıkça Öde abonelikleri Hesap Yöneticisi tarafından oluşturulan kapsamdır.  <br/><br/> Ayırma kapsamı ayrılmış kapasite satın sonra değiştirebilirsiniz.  |
-   |Ayrılmış kapasite türü   |  İstek birimi sağlanan aktarım hızı.|
+   |Ayrılmış kapasite türü   |  İstek birimi sağlanan aktarım hızı. Her iki kurulumları için-sağlanan aktarım hızı için bir ayırma satın alabilir tek bölge de olarak birden çok bölgeye yazma yazar.|
    |Ayrılmış kapasite birimleri  |      Ayırmak istediğiniz üretilen iş miktarı. Bölge başına aktarım hızı, Cosmos DB için tüm kaynakları (örneğin, veritabanları veya kapsayıcıları) gerekli belirleyerek bu değeri hesaplayabilirsiniz. Ardından bu Cosmos DB veritabanınıza ile ilişkilendireceksiniz bölge sayısı ile çarpın.  <br/><br/> Örneğin: Beş bölge 1 milyon RU/sn ile her bölgede varsa, 5 milyon RU/sn rezervasyon kapasitesi satın alma için seçin.    |
    |Sözleşme Dönemi  |   Bir yıl veya üç yıl.   |
 

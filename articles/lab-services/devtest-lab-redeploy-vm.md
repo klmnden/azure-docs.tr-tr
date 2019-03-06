@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 273b0f1105d8b71b90a06e2627e201b97f12a754
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 4500fcfa6fbfb346a6e5c7fd045ba0046a901b91
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095404"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454264"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara içinde bir VM'yi yeniden dağıtma
-Bir sanal makineye (VM) bir Uzak Masaüstü bağlantısı aracılığıyla bir laboratuvarda bağlanamıyorsanız, VM'yi yeniden dağıtma ve ona conencting yeniden deneyin. DevTest Labs VM yeniden dağıtırken, VM, Azure altyapısı içinde yeni bir düğüm için çalıştığı düğümünden taşır. Daha sonra tüm yapılandırma seçenekleri ve ilişkili kaynakları korurken VM'yi başlatır. Bu özellik, Uzak Masaüstü Bağlantısı ya da uygulama erişimi için Windows tabanlı Vm'leri Laboratuvardaki sorun giderme için harcanan süre kaydeder. 
+Bir sanal makineye (VM) bir Uzak Masaüstü bağlantısı aracılığıyla bir laboratuvarda bağlanamıyorsanız, VM'yi yeniden dağıtma ve yeniden bağlanmayı deneyin. DevTest Labs VM yeniden dağıtırken, VM, Azure altyapısı içinde yeni bir düğüm için çalıştığı düğümünden taşır. Daha sonra tüm yapılandırma seçenekleri ve ilişkili kaynakları korurken VM'yi başlatır. Bu özellik, Uzak Masaüstü Bağlantısı ya da uygulama erişimi için Windows tabanlı Vm'leri Laboratuvardaki sorun giderme için harcanan süre kaydeder. 
 
 ## <a name="steps-to-redeploy-a-vm-in-a-lab"></a>Bir VM'yi yeniden dağıtma adımları 
 Azure DevTest labs'deki bir laboratuvara VM'nin yeniden dağıtmak için aşağıdaki adımları uygulayın: 

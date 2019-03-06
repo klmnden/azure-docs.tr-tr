@@ -16,12 +16,12 @@ ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 1bfdaef4523a714aed0f1b7bbdb5a600f7775ffb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5934d075378df9f04130b79eb43131d71eaa25af
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244819"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449470"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>MySQL kaynak sağlayıcısı 1.1.30.0 sürüm notları
 
@@ -49,7 +49,7 @@ Azure Stack MySQL kaynak Sağlayıcısı'nın bu sürümü, aşağıdaki gelişt
 
 ### <a name="fixes"></a>Düzeltmeleri
 
-- **MySQL kaynak sağlayıcısı, Azure Stack PowerShell Uyumluluk**. MySQL kaynak sağlayıcısı, AzureRM 1.3.0 uyum sağlamak için Azure Stack 2018-03-01-karma PowerShell profili ile çalışma ve daha sonra güncelleştirildi.
+- **MySQL kaynak sağlayıcı Azure Stack PowerShell Uyumluluk**. MySQL kaynak sağlayıcısı, AzureRM 1.3.0 uyum sağlamak için Azure Stack 2018-03-01-karma PowerShell profili ile çalışma ve daha sonra güncelleştirildi.
 
 - **MySQL oturum açma değişiklik parola dikey**. Burada parola değişikliği parola dikey pencerede değiştirilemez bir sorun düzeltildi. Parola kaldırılan bağlantılardan değişiklik bildirimleri.
 

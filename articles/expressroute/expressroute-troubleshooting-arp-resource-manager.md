@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 1807bda35f6bfcc9dbbb30f054cedb9454a88a7f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 01eac27b63f9eaaf62e863cd023201c3eab4b74e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158579"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432150"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>ARP tablolarını Resource Manager dağıtım modelinde alma
 > [!div class="op_single_selector"]
@@ -28,6 +28,8 @@ Bu makalede ExpressRoute devreniz ARP tablolarını öğrenmek adımlarında siz
 > Bu belge, basit sorunları tanılayın ve giderin yardımcı olması için yöneliktir. Microsoft destek için bir değişiklik olacak şekilde tasarlanmamıştır. Bir destek bileti açmanız gerekir [Microsoft Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) aşağıda açıklanan yönergeleri kullanarak sorunu çözmeyi erişemiyorsanız.
 > 
 > 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Adres Çözümleme Protokolü (ARP) ve ARP tabloları
 Adres Çözümleme Protokolü (ARP) içinde tanımlanan bir katman 2 protokolü olan [RFC 826](https://tools.ietf.org/html/rfc826). ARP Ethernet adresi (MAC adresi) bir IP adresi ile eşleştirmek için kullanılır.
@@ -69,10 +71,10 @@ Azure özel eşleme için aşağıdaki cmdlet'i ARP tabloları sağlar
         $Name = "<Your ExpressRoute Circuit Name Here>"
 
         # ARP table for Azure private peering - Primary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
 
         # ARP table for Azure private peering - Secondary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
 
 Örnek çıktı aşağıdaki yollardan biri için gösterilir
 
@@ -90,10 +92,10 @@ Azure ortak eşleme için aşağıdaki cmdlet'i ARP tabloları sağlar
         $Name = "<Your ExpressRoute Circuit Name Here>"
 
         # ARP table for Azure public peering - Primary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
 
         # ARP table for Azure public peering - Secondary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
 
 
 Örnek çıktı aşağıdaki yollardan biri için gösterilir
@@ -112,10 +114,10 @@ Microsoft eşlemesi için aşağıdaki cmdlet'i ARP tabloları sağlar
         $Name = "<Your ExpressRoute Circuit Name Here>"
 
         # ARP table for Microsoft peering - Primary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
 
         # ARP table for Microsoft peering - Secondary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
 
 
 Örnek çıktı aşağıdaki yollardan biri için gösterilir

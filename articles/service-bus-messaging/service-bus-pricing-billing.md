@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 859add6c9310cf5f18ed7090c8e93d4896b59a0b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852941"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433391"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Fiyatlandırma ve faturalama Service Bus
 
@@ -74,7 +74,7 @@ Standart katman ad alanı başına aracılı bağlantı sınırını kaldırır 
 <br />
 
 > [!NOTE]
-> Faturalandırma, en yüksek eş zamanlı bağlantı sayısına göre yapılır ve ayda 744 saate göre eşit oranda dağıtılır.
+> Faturalandırma, en yüksek eş zamanlı bağlantı sayısına göre yapılır ve ayda 730 saat üzerinden saatlere eşit olarak dağıtılır.
 >
 >
 
@@ -91,12 +91,12 @@ Bir aracılı bağlantı aşağıdakilerden biri olarak tanımlanır:
 1. Bir istemci bir Service Bus kuyruk veya konu/abonelik için bir AMQP bağlantısı.
 2. Sıfırdan büyük alma zaman aşımı değerine sahip bir Hizmet Veri Yolu konusundan veya kuyruktan mesaj almaya yönelik HTTP çağrısı.
 
-Service Bus en yüksek dahil edilen miktarı (standart katmanında 1000) aşan eşzamanlı aracılı bağlantı sayısını ücretlendirir. En yüksek sayılar saatlik olarak ölçülür, ayda 744 saat eşit olarak dağıtılır ve aylık faturalandırma dönemi boyunca toplanır. Dahil edilen miktar (ayda 1.000 aracılı bağlantı), eşit olarak dağıtılan saatlik en yüksek sayıların toplamına göre faturalandırma döneminin sonunda uygulanır.
+Service Bus en yüksek dahil edilen miktarı (standart katmanında 1000) aşan eşzamanlı aracılı bağlantı sayısını ücretlendirir. En yüksek sayılar saatlik olarak ölçülür, ayda 730 saat eşit olarak dağıtılır ve aylık faturalandırma dönemi boyunca toplanır. Dahil edilen miktar (ayda 1.000 aracılı bağlantı), eşit olarak dağıtılan saatlik en yüksek sayıların toplamına göre faturalandırma döneminin sonunda uygulanır.
 
 Örneğin:
 
-1. Her 10.000 cihaz, tek bir AMQP bağlantısı aracılığıyla bağlanır ve bir hizmet veri yolu konusu'ndan komutlar alır. Cihazları, bir olay Hub'ına telemetri olayları gönderir. Tüm cihazlar her gün 12 saat boyunca bağlanıyorsa şu bağlantı ücretini (diğer Service Bus konu ücretlerine ek olarak) geçerlidir: 10.000 bağlantı * 12 saat * 31 gün / 744 = 5.000 aracılı bağlantı. 1.000 aracılı bağlantı içeren aylık kullanım sonra 120 $ toplam aracılı bağlantı başına $0.03 oranı üzerinden 4.000 aracılı bağlantı için ücretlendirilirsiniz.
-2. 10.000 cihaz, sıfır olmayan bir zaman aşımı belirterek HTTP aracılığıyla hizmet veri yolu kuyruğu'ndan mesajlar alır. Tüm cihazlar her gün 12 saat boyunca bağlanırsa, (diğer Service Bus ücretlerine ek olarak) aşağıdaki bağlantı ücretlerini görürsünüz: 10.000 HTTP alma bağlantı * günde 12 saat * 31 gün / 744 saat = 5.000 aracılı bağlantı.
+1. Her 10.000 cihaz, tek bir AMQP bağlantısı aracılığıyla bağlanır ve bir hizmet veri yolu konusu'ndan komutlar alır. Cihazları, bir olay Hub'ına telemetri olayları gönderir. Tüm cihazlar her gün 12 saat boyunca bağlanıyorsa şu bağlantı ücretini (diğer Service Bus konu ücretlerine ek olarak) geçerlidir: 10.000 bağlantı * 12 saat * 30 gün / 730 = 4,931 aracılı bağlantı. 1.000 aracılı bağlantı içeren aylık kullanım sonra 120 $ toplam aracılı bağlantı başına $0.03 oranı üzerinden 4.000 aracılı bağlantı için ücretlendirilirsiniz.
+2. 10.000 cihaz, sıfır olmayan bir zaman aşımı belirterek HTTP aracılığıyla hizmet veri yolu kuyruğu'ndan mesajlar alır. Tüm cihazlar her gün 12 saat boyunca bağlanırsa, (diğer Service Bus ücretlerine ek olarak) aşağıdaki bağlantı ücretlerini görürsünüz: 10.000 HTTP alma bağlantı * günde 12 saat * 730 saat/30 gün = 4,931 aracılı bağlantı.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Aracılı bağlantı ücretleri kuyruklara ve konulara/aboneliklere uygulanır mı?
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3883ddcad1c41e131d52016e4fa94a3e668adcd1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 564cfe0bb0b95d12d91b7d8d4e3f1f0549ec73e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209736"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451765"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Öğretici: Grup üyelerini otomatik olarak ekleyip
 
@@ -36,7 +36,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu özellik için kiracının global yöneticisi olarak bir Azure AD Premium lisansına ihtiyaç duyarsınız. Lisansınız yoksa Azure AD'de **Lisanslar** > **Ürünler** > **Dene/Satın Al**'ı seçin.
+Bu özellik bir Azure AD Premium lisansı kiracının genel Yöneticisi olarak sizin için gerektirir. Lisansınız yoksa Azure AD'de **Lisanslar** > **Ürünler** > **Dene/Satın Al**'ı seçin.
 
 Dinamik gruplara üye olarak ekleyeceğiniz kullanıcılara lisans atamanıza gerek yoktur. Yalnızca kiracıda bu kullanıcıları kapsamaya yeterli sayıda Azure AD Premium P1 lisansına sahip olmanız gerekir. 
 
@@ -44,7 +44,7 @@ Dinamik gruplara üye olarak ekleyeceğiniz kullanıcılara lisans atamanıza ge
 
 Öncelikle tamamı tek bir iş ortağı şirketinize ait olan konuk kullanıcılar için bir grup oluşturmanız gerekir. Bu kullanıcılar özel lisansa ihtiyaç duyduğundan bu amaca yönelik bir grup oluşturmak daha etkili olacaktır.
 
-1. Kiracınızın genel yöneticisi olan bir hesapla Azure portalda (https://portal.azure.com)) oturum açın.
+1. Azure portalında oturum açın (https://portal.azure.com) kiracınız için genel yönetici olan bir hesapla.
 2. **Azure Active Directory** > **Gruplar** > **Yeni grup**'u seçin.
   ![Yeni grup seçme komutu](./media/groups-dynamic-tutorial/new-group.png)
 3. **Grup** dikey penceresinde:

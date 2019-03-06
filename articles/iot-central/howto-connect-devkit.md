@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5412e0a7bae3667ceb29085da566ef3b73c82c35
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6c9f128a046904eb8df90625ce1043b3d42e8be4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316634"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448552"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -31,7 +31,7 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **MXChip** cihaz şablonu aşağıdaki özelliklere sahip: 
 
-- Cihaz için ölçüler içeren telemetri **nem**, **sıcaklık**, **baskısı**, **Magnometer** (X ölçülür. Y, Z ekseni), **Accelorometer** (ölçülen X, Y, Z ekseni) ve **jiroskop** (X, Y ölçülür Z ekseni).
+- Cihaz için ölçüler içeren telemetri **nem**, **sıcaklık**, **baskısı**, **Magnometer** (X ölçülür. Y, Z ekseni), **ivme ölçer** (ölçülen X, Y, Z ekseni) ve **jiroskop** (X, Y ölçülür Z ekseni).
 - Bir örnek ölçüm için içeren durumu **cihaz durumu**.
 - Olay ölçümü ile bir **B düğmesi basılı** olay. 
 - Ayarları gösteren **voltaj**, **geçerli**, **fanı hızı**ve bir **IR** Aç/Kapat.
@@ -56,7 +56,7 @@ Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz �
  
     ![Bağlantı ayrıntıları](media/concepts-connectivity/device-connect.PNG)
 
-3. Bu ayrıntılar kaydettiğinizden emin olun DevKit cihazı hazırlama gibi gibi temporaritly internet'ten bağlantıları kesilir. 
+3. DevKit cihazı hazırlama gibi geçici olarak internet'ten bağlantıları kesilir gibi bu ayrıntıları kaydetmeyi unutmayın. 
 
 
 ### <a name="prepare-the-devkit-device"></a>DevKit cihazı hazırlama

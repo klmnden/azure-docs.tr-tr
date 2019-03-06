@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: c41f03494720c9283bb3ce91fda6e3981f305084
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 053cabfa29bd5e436fecd922e4bcdbca9483d25a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023031"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455692"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Data Factory'de sorun giderme
 > [!NOTE]
 > Bu makale, Azure Data Factory’nin 1. sürümü için geçerlidir. 
 
 Bu makalede Azure Data Factory kullanırken sorunları için sorun giderme ipuçları sağlar. Bu makalede hizmet kullanırken olası tüm sorunları listelenmez, ancak bazı sorunlar ve sorun giderme hakkında genel ipuçları kapsar.   
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="troubleshooting-tips"></a>Sorun giderme ipuçları
 ### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Hata: Abonelik 'Microsoft.DataFactory' ad alanını kullanacak şekilde kaydedilmemiş
@@ -34,20 +36,20 @@ Bu hatayı aldıysanız Azure Data Factory kaynak sağlayıcısı makinenizde ka
 2. Aşağıdaki komutu kullanarak Azure hesabınızda oturum açın.
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. Azure Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın.
 
     ```powershell        
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Sorun: Bir Data Factory cmdlet çalıştırırken yetkilendirilmemiş hatası
 Azure PowerShell ile doğru Azure hesabını veya aboneliğini kullanmıyor olabilirsiniz. Azure PowerShell ile kullanılacak doğru Azure hesabını ve aboneliğini seçmek için aşağıdaki cmdlet’leri kullanın.
 
-1. Connect-AzureRmAccount - doğru kullanıcı Kimliğini kullanın ve parola
-2. Get-AzureRmSubscription - hesap için tüm abonelikleri görüntüleyin.
-3. Select-AzureRmSubscription &lt;abonelik adı&gt; -doğru aboneliği seçin. Azure Portal'da veri fabrikası oluşturmak için kullandığınız aynı kullanın.
+1. Bağlanma-AzAccount - doğru kullanıcı Kimliğini kullanın ve parola
+2. Get-AzSubscription - hesap için tüm abonelikleri görüntüleyin.
+3. Select-AzSubscription &lt;abonelik adı&gt; -doğru aboneliği seçin. Azure Portal'da veri fabrikası oluşturmak için kullandığınız aynı kullanın.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Sorun: Azure Portalı'ndan veri yönetimi ağ geçidi hızlı kurulumunu başlatılamadı
 Veri Yönetimi Ağ Geçidi Hızlı Kurulumu için Internet Explorer veya Microsoft ClickOnce uyumlu bir web tarayıcısı gerekir. Hızlı Kurulum başlatılamıyorsa, aşağıdakilerden birini yapın:

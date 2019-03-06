@@ -4,58 +4,47 @@ description: Azure Active Directory ve ödül noktaları üst alt/üst Ekibim ar
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: a7a08eed-7a6b-4a83-8f8e-0add6d2fb8cf
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/27/2018
+ms.topic: tutorial
+ms.date: 03/01/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19ed1c12768eed0265f65388984a5859b8f0630b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 47e19af1be6d727ca9dd215792899a369fb73694
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210739"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57402419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Öğretici: My ödül noktaları üst alt/üst ekibi ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, My ödül noktaları üst alt/üst ekibi Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
-
 My ödül noktaları üst alt/üst ekibi, Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişebilir ödül noktaları üst alt/üst Ekibim için Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak imzalanan ödül noktaları üst alt/üst Ekibim için (çoklu oturum açma) açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Erişebilir ödül noktaları üst alt/üst Ekibim için Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak ödül noktaları üst alt/üst Ekibim için (çoklu oturum açma) oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md)
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi My ödül noktaları üst alt/üst ekibi ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik bir ödül noktaları üst alt/üst Ekibim çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* My ödül noktaları üst alt/üst ekibi çoklu oturum açma abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
-Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-1. Ödül noktaları üst alt/üst Ekibim galeri ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+* Üst alt/üst ekibinize ödül noktaları destekler **SP** tarafından başlatılan
 
 ## <a name="adding-my-award-points-top-subtop-team-from-the-gallery"></a>Ödül noktaları üst alt/üst Ekibim galeri ekleme
 
@@ -63,159 +52,150 @@ Azure AD'de ödül noktaları üst alt/üst Ekibim tümleştirmesini yapılandı
 
 **Galeriden ödül noktaları üst alt/üst Ekibim eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
 4. Arama kutusuna **ödül noktaları üst alt/üst Ekibim**seçin **ödül noktaları üst alt/üst Ekibim** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Ödül noktaları üst alt/üst Takımım sonuç listesinde](./media/myawardpoints-tutorial/tutorial_myawardpoints_addfromgallery.png)
+     ![Ödül noktaları üst alt/üst Takımım sonuç listesinde](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve ödül noktaları üst alt/üst "Britta Simon" adlı bir test kullanıcı tabanlı Ekibim Azure AD çoklu oturum açmayı sınayın.
-
-Tek çalışmak için oturum açma için Azure AD ne ödül noktaları üst alt/üst Ekibim karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ödül noktaları üst alt/üst Ekibim ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma ödül noktaları üst alt/üst adlı bir test kullanıcı tabanlı Ekibim test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının ödül noktaları üst alt/üst Ekibim ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma My ödül noktaları üst alt/üst ekibi ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[My ödül noktaları üst alt/üst takım test kullanıcısı oluşturma](#create-a-my-award-points-top-subtop-team-test-user)**  - ödül noktaları üst alt/üst kullanıcı Azure AD gösterimini bağlı Ekibim Britta simon'un bir karşılığı vardır.
+2. **[My ödül noktaları üst alt/üst takım çoklu oturum açmayı yapılandırma](#configure-my-award-points-top-sub/top-team-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+5. **[My ödül noktaları üst alt/üst takım test kullanıcısı oluşturma](#create-my-award-points-top-sub/top-team-test-user)**  - ödül noktaları üst alt/üst kullanıcı Azure AD gösterimini bağlı Ekibim Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve ödül noktaları üst alt/üst Ekibim uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma My ödül noktaları üst alt/üst ekibi ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma My ödül noktaları üst alt/üst ekibi ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **ödül noktaları üst alt/üst Ekibim** uygulama tümleştirme sayfası, tıklayın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **ödül noktaları üst alt/üst Ekibim** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açma iletişim kutusu](./media/myawardpoints-tutorial/tutorial_myawardpoints_samlbase.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-3. Üzerinde **My ödül noktaları üst alt/üst takım etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![Ödül noktaları üst alt/üst takım etki alanı ve URL'ler tek oturum açma Bilgilerim](./media/myawardpoints-tutorial/tutorial_myawardpoints_url.png)
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    ![Ödül noktaları üst alt/üst takım etki alanı ve URL'ler tek oturum açma Bilgilerim](common/sp-signonurl.png)
+
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<Azure AD Identifier>`
 
     > [!NOTE]
-    > Erişmenizi sağlayacak `<SAMLENTITYID>` Bu öğreticide sonraki adımlarda değeri.
+    > Değer, gerçek değil. Erişmenizi sağlayacak `<Azure AD Identifier>` Bu öğreticide sonraki adımlarda değeri.
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/myawardpoints-tutorial/tutorial_myawardpoints_certificate.png)
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-5. Tıklayın **Kaydet** düğmesi.
+6. Üzerinde **ödül noktaları üst alt/üst Ekibim kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın. 
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/myawardpoints-tutorial/tutorial_general_400.png)
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-6. İçinde **My ödül noktaları üst alt/üst Team yapılandırma** bölümünden **yapılandırma ödül noktaları üst alt/üst Ekibim** oturum açmayı Yapılandır penceresini açın. SAML varlık kimliği kopyalayın **hızlı başvuru** bölüm ve oturum açma URL'si yerine, SAML varlık kimliği değeriyle ekleme `<SAMLENTITYID>` içinde **My ödül noktaları üst alt/üst takım etki alanı ve URL'ler** Azure portalında bölümü.
+    a. Oturum Açma URL'si:
 
-7. Çoklu oturum açmayı yapılandırma **ödül noktaları üst alt/üst Ekibim** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [ödül noktaları üst alt/üst Ekibim Destek ekibine](mailto:myawardpoints@biworldwide.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+    b. Azure AD Tanımlayıcısı
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+    c. Oturum Kapatma URL'si
+
+    >[!NOTE]
+    >Kopyalanan ekleme ile oturum açma URL'si yerine, Azure AD tanımlayıcı değeri `<Azure AD Identifier>` içinde **temel SAML yapılandırma** bölümünde Azure portalında.
+
+### <a name="configure-my-award-points-top-subtop-team-single-sign-on"></a>Yapılandırma alt/üst takım çoklu oturum açmayı ödül Puanlarım üst
+
+Çoklu oturum açmayı yapılandırma **ödül noktaları üst alt/üst Ekibim** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [My ödül Noktaları üst alt/üst takım Destek ekibine](mailto:myawardpoints@biworldwide.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/myawardpoints-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/myawardpoints-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/myawardpoints-tutorial/create_aaduser_03.png)
-
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/myawardpoints-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
-
-### <a name="create-a-my-award-points-top-subtop-team-test-user"></a>My ödül noktaları üst alt/üst takım test kullanıcısı oluşturma
-
-Bu bölümde, My ödül noktaları üst alt/üst ekibi Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [ödül noktaları üst alt/üst Ekibim Destek ekibine](mailto:myawardpoints@biworldwide.com) ödül noktaları üst alt/üst Ekibim platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, ödül noktaları üst alt/üst Ekibim için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200]
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **ödül noktaları üst alt/üst Ekibim**.
 
-**Britta Simon ödül noktaları üst alt/üst Ekibim için atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 2. Uygulamalar listesinde **ödül noktaları üst alt/üst Ekibim**.
 
-    ![Uygulamalar listesinde ödül noktaları üst alt/üst Ekibim bağlantı](./media/myawardpoints-tutorial/tutorial_myawardpoints_app.png)  
+    ![Uygulamalar listesinde ödül noktaları üst alt/üst Ekibim bağlantı](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Atama Ekle bölmesi][203]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="create-my-award-points-top-subtop-team-test-user"></a>My ödül noktaları üst alt/üst takım test kullanıcısı oluşturma
+
+Bu bölümde, My ödül noktaları üst alt/üst ekibi Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [ödül noktaları üst alt/üst Ekibim Destek ekibine](mailto:myawardpoints@biworldwide.com) ödül noktaları üst alt/üst Ekibim platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde ödül noktaları üst alt/üst Ekibim kutucuğa tıkladığınızda, otomatik olarak ödül noktaları üst alt/üst Ekibim uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
+Erişim paneli ödül noktaları üst alt/üst Ekibim kutucuğa tıkladığınızda, size otomatik olarak ödül noktaları üst alt/üst SSO'yu ayarlama Ekibim için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/myawardpoints-tutorial/tutorial_general_01.png
-[2]: ./media/myawardpoints-tutorial/tutorial_general_02.png
-[3]: ./media/myawardpoints-tutorial/tutorial_general_03.png
-[4]: ./media/myawardpoints-tutorial/tutorial_general_04.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/myawardpoints-tutorial/tutorial_general_100.png
-
-[200]: ./media/myawardpoints-tutorial/tutorial_general_200.png
-[201]: ./media/myawardpoints-tutorial/tutorial_general_201.png
-[202]: ./media/myawardpoints-tutorial/tutorial_general_202.png
-[203]: ./media/myawardpoints-tutorial/tutorial_general_203.png

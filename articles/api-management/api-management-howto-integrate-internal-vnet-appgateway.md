@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: a88ea248f1db90916c5dbcaefc24131eb976e2f6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9e36ac41fb42d7c0e00dca6dc82f2f5daee1278b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728352"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435550"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API yönetimi bir iç sanal ağ'ı Application Gateway ile tümleştirme
 
@@ -49,7 +49,7 @@ Bu makalede açıklanan adımları takip etmek için şunlara sahip olmalısın�
 
 ## <a name="scenario"> </a> Senaryo
 
-Bu makalede, iç ve dış müşteriler için tek bir API Management hizmet ve hem şirket içi için tek bir ön uç işlevi görür ve bulut API'leri nasıl kullanılacağı anlatılmaktadır. Ayrıca, yalnızca bir alt kümesini (yeşil renkte vurgulanmış örnekte) API'leri dış Application Gateway'i kullanılabilir yönlendirme işlevini kullanarak tüketimi için nasıl sunacağınızı öğrenin görürsünüz.
+Bu makalede, iç ve dış müşteriler için tek bir API Management hizmet ve şirket içi hem de tek bir ön uç davranır ve bulut API'leri nasıl kullanılacağı anlatılmaktadır. Ayrıca, yalnızca bir alt kümesini (yeşil renkte vurgulanmış örnekte) API'leri dış Application Gateway'i kullanılabilir yönlendirme işlevini kullanarak tüketimi için nasıl sunacağınızı öğrenin görürsünüz.
 
 İlk kurulum örnekte tüm API'leri yalnızca sanal ağınızdaki yönetilir. İç ve dış tüm Apı'lerinizi iç tüketiciler (vurgulanmış turuncu) erişebilir. Trafik hiçbir zaman bir yüksek performanslı teslim Internet'e Expressroute bağlantı hatları gider.
 
@@ -354,7 +354,7 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ## <a name="summary"> </a> Özeti
-Azure API yönetimi bir sanal ağda yapılandırılmış tek bir ağ geçidi arabirimi için yapılandırılan tüm API'leri, barındırılan şirket içinde olmalarından veya bulutta sağlar. Application Gateway API Management ile tümleştirme, bir ön uç API Management Örneğinize olarak bir Web uygulaması güvenlik duvarı sağlayan yanı sıra belirli API'lerini kullanarak İnternet'ten erişilmesine seçmeli olarak etkinleştirme esnekliği sağlar.
+Şirket içinde veya bulutta barındırılan olup olmadığını bir sanal ağda yapılandırılmış azure API yönetimi için yapılandırılan tüm API'leri, tek bir ağ geçidi arabirimi sağlar. Application Gateway API Management ile tümleştirme, bir ön uç API Management Örneğinize olarak bir Web uygulaması güvenlik duvarı sağlayan yanı sıra belirli API'lerini kullanarak İnternet'ten erişilmesine seçmeli olarak etkinleştirme esnekliği sağlar.
 
 ##<a name="next-steps"> </a> Sonraki adımlar
 * Azure Application Gateway hakkında daha fazla bilgi edinin

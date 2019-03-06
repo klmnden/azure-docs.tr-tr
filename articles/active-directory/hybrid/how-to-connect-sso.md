@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94b027900a3be4a43d6524fa595a5b4dc2909fa7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 00d0332e44b76cc3b883fd0472567f74cfde21b2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186225"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444994"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma
 
@@ -54,7 +54,7 @@ Sorunsuz çoklu oturum açma ile birleştirilebilir [parola karması eşitleme](
 - Oturum açma kullanıcı adı ya da şirket içi varsayılan kullanıcı adı olabilir (`userPrincipalName`) veya Azure AD Connect'e bağlanan yapılandırılmış başka bir öznitelik (`Alternate ID`). Sorunsuz çoklu oturum açma kullandığı için her ikisini de durumları iş kullanmanız `securityIdentifier` Azure AD'de buna karşılık gelen kullanıcı nesnesi aramak için Kerberos anahtarındaki talep.
 - Sorunsuz çoklu oturum açma fırsatçı bir özelliğidir. Herhangi bir nedenle başarısız olursa, kullanıcı oturum açma deneyimini normal davranışını - yani, kullanıcı oturum açma sayfasında parolalarını girmeleri gerekir döner.
 - Bir uygulama bildirimi (örneğin, https://myapps.microsoft.com/contoso.com) ileten bir `domain_hint` (Openıd Connect) veya `whr` (SAML) parametre, kiracınıza belirleme - veya `login_hint` parametre - kullanıcı olup olmadığınızı belirlemek, Azure AD oturum açma isteğinde kullanıcılardır. otomatik olarak onları girme kullanıcı adlarını veya parolaları oturum açmış.
-- Kullanıcıların bir uygulama bildirimi sessiz bir oturum açma deneyimi ayrıca Al (örneğin, https://contoso.sharepoint.com) oturum açma istekleri başka bir deyişle, Azure AD'nin kiralanan uç noktalar için - gönderir https://login.microsoftonline.com/contoso.com/<..> veya https://login.microsoftonline.com/<tenant_ID>/<..> - Azure AD'nin ortak uç nokta - diğer bir deyişle, yerine https://login.microsoftonline.com/common/<...>.
+- Kullanıcıların bir uygulama bildirimi sessiz bir oturum açma deneyimi ayrıca Al (örneğin, https://contoso.sharepoint.com) kiracıları olarak - diğer bir deyişle, ayarlama, Azure AD'nin uç noktaları için oturum açma istekleri gönderir https://login.microsoftonline.com/contoso.com/<..> veya https://login.microsoftonline.com/<tenant_ID>/<..> - Azure AD'nin ortak uç nokta - diğer bir deyişle, yerine https://login.microsoftonline.com/common/<...>.
 - Oturumunuzu desteklenir. Bu, otomatik olarak otomatik olarak sorunsuz SSO kullanarak oturum açmayı yerine oturum açmak için başka bir Azure AD hesabı seçmelerini sağlar.
 - Etkileşimli olmayan bir akış kullanarak Office 365 Win32 istemcileri (Outlook, Word, Excel ve diğerleri) ve üstü sürümleri 16.0.8730.xxxx ile desteklenir. OneDrive için etkinleştirmeniz gerekir [OneDrive sessiz Yapılandırma özelliği](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) sessiz bir oturum açma deneyimi.
 - Azure AD Connect aracılığıyla etkinleştirilebilir.

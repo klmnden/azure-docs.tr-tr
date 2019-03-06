@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bc1212c7ea7425e59da30478dbd58772fa1b748b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083572"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451027"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Öğretici: Cloudyn kullanarak maliyetleri yönetme
 
@@ -23,7 +23,7 @@ Maliyetlerin etiketler temelinde dağıtımını yaparak Cloudyn'de maliyetleri 
 
 Örneğin, mühendislik maliyetleri için geri ödeme almak isteyebilirsiniz. Mühendislik ekibinize, kaynak maliyetleri temelinde belirli bir miktar almanız gerektiğini gösterebilmelisiniz. Tüm tüketilen *mühendislik* etiketli kaynaklar için onlara bir rapor gösterebilirsiniz.
 
-Bu makalede, etiketler ve kategoriler bazen eş anlamlı kullanılmıştır. Kategorileri geniş koleksiyonlardır ve birçok şey olabilir. Bunlar iş birimlerini, maliyet merkezlerini, web hizmetlerini veya etiketlenmiş herhangi bir şeyi içerebilir. Etiketler, birden fazla kaynağa ve kaynak grubuna aynı etiketi uygulayarak kaynakları kategorilere ayırmanızı, birleşik fatura bilgilerini görüntülemenizi ve yönetmenizi sağlayan ad/değer çiftleridir. Azure portalının önceki sürümlerinde *etiket adı*, *anahtar* olarak adlandırılıyordu. Etiketler tek bir Azure aboneliği için oluşturulur ve bu abonelikte depolanır. AWS etiketleri anahtar/değer çiftlerinden oluşur. Hem Azure'da hem de AWS'de kullanıldığından, Cloudyn'de de *anahtar* terimi kullanılır. Kategori Yöneticisi, etiketleri birleştirmek için anahtarları (etiket adları) kullanır.
+Bu makalede, etiketler ve kategoriler bazen eş anlamlı kullanılmıştır. Kategorileri geniş koleksiyonlardır ve birçok şey olabilir. Bunlar iş birimlerini, maliyet merkezlerini, web hizmetlerini veya etiketlenmiş herhangi bir şeyi içerebilir. Birden çok kaynak ve kaynak grubuna aynı etiketi uygulayarak kaynakları kategorilere ayırma ve görüntülemek ve yönetmek sağlayan ad/değer çiftleri faturalandırma bilgileri birleştirilmiş etiketlerdir. Azure portalının önceki sürümlerinde *etiket adı*, *anahtar* olarak adlandırılıyordu. Etiketler tek bir Azure aboneliği için oluşturulur ve bu abonelikte depolanır. AWS etiketleri anahtar/değer çiftlerinden oluşur. Hem Azure'da hem de AWS'de kullanıldığından, Cloudyn'de de *anahtar* terimi kullanılır. Kategori Yöneticisi, etiketleri birleştirmek için anahtarları (etiket adları) kullanır.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 

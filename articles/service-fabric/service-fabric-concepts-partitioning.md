@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 492afcdd5143aa5a6597ba8c296d15059f9c7d64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198223"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453278"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partition Service Fabric güvenilir Hizmetleri
 Bu makalede, Azure Service Fabric güvenilir Hizmetleri bölümleme temel kavramlar tanıtılmaktadır. Makalesinde kullanılan kaynak kodu de kullanılabilir [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -59,7 +59,7 @@ Bir hizmet uygulamadan önce her zaman ölçeğini genişletmek için gerekli ol
 
 İlk adım olarak bölümlenmiş gereken durumu yapısını düşünün iyi bir yaklaşımdır.
 
-Basit bir örneği ele alalım. Countywide yoklama için bir hizmet oluşturmak için olsaydı, her şehir için bir bölüm içinde ilçe oluşturabilirsiniz. Ardından, bu şehir için karşılık gelen bir bölüme şehirde her kişi için oy saklayabilirsiniz. Şekil 3'te kişiler ve bunların bulunduğu şehir kümesi gösterilmektedir.
+Basit bir örneği ele alalım. Ülke genelindeki yoklama için bir hizmet oluşturmak için olsaydı, her şehir için bir bölüm içinde ilçe oluşturabilirsiniz. Ardından, bu şehir için karşılık gelen bir bölüme şehirde her kişi için oy saklayabilirsiniz. Şekil 3'te kişiler ve bunların bulunduğu şehir kümesi gösterilmektedir.
 
 ![Basit bölüm](./media/service-fabric-concepts-partitioning/cities.png)
 

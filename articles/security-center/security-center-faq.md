@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 312e6c3c102946bcd19247f0730369dc7d0c8aba
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: e42deed992496cc28bdf92c01934d74361f2de6f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247435"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444030"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -42,7 +42,7 @@ Güvenlik Merkezi iki katmanda sunulur:
 
 **Ücretsiz katmanı** iş ortaklarının güvenlik ürün ve hizmetleriyle Azure kaynakları, temel güvenlik ilkesi, güvenlik önerileri ve tümleştirme güvenlik durumunu görünürlük sağlar.
 
-**Standart katman** algılama özellikleri dahil olmak üzere, tehdit zekası, davranışsal analiz, anomali algılama, güvenlik olayları ve tehdit attribution raporları Gelişmiş tehdit ekler. Bir standart tierfree deneme süresi başlatabilirsiniz. Yükseltmek için seçin [fiyatlandırma katmanı](https://docs.microsoft.com/azure/security-center/security-center-pricing) güvenlik ilkesinde. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
+**Standart katman** algılama özellikleri dahil olmak üzere, tehdit zekası, davranışsal analiz, anomali algılama, güvenlik olayları ve tehdit attribution raporları Gelişmiş tehdit ekler. Bir standart katman ücretsiz deneme süresi başlatabilirsiniz. Yükseltmek için seçin [fiyatlandırma katmanı](https://docs.microsoft.com/azure/security-center/security-center-pricing) güvenlik ilkesinde. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="permissions"></a>İzinler
 Azure Güvenlik Merkezi, Azure'daki kullanıcılara, gruplara ve hizmetlere atanabilen [yerleşik roller](../role-based-access-control/built-in-roles.md) sağlayan [Rol Tabanlı Erişim Denetimi'ni (RBAC)](../role-based-access-control/role-assignments-portal.md) kullanır.

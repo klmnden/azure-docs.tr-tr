@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 1345a5814faefd4074e7d9548d374bd79d977514
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015594"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453992"
 ---
-# <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Olay tüketicileri ve farklı protokoller kullanan üreticileri arasındaki Değişimi: AMQP, Kafka ve HTTPS
-Azure Event Hubs Tüketicileri ve üreticileri için üç protokollerini destekler: AMQP, Kafka ve HTTPS. Her biri bu protokolleri, bir ileti, bu nedenle doğal olarak aşağıdaki soruyu ortaya temsil eden kendi yolu vardır: bir uygulama bir protokol olan olay Hub'ına olayları gönderir ve bunları farklı bir protokol kullanır, çeşitli bölümlerini ve değerlerini ne yapması Olay aramak gibi tüketici ulaştığında? Bu makalede, üretici ve tüketici olaya içindeki değerleri kullanan uygulama tarafından doğru şekilde yorumlandığından emin olmak için en iyi uygulamalar açıklanmaktadır.
+# <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Tüketiciler ve farklı protokoller kullanan üreticileri arasındaki Exchange olayları: AMQP, Kafka ve HTTPS
+Azure Event Hubs Tüketicileri ve üreticileri için üç protokolden destekler: AMQP, Kafka ve HTTPS. Her biri bu protokolleri, bir ileti, bu nedenle doğal olarak aşağıdaki soruyu ortaya temsil eden kendi yolu vardır: bir uygulama bir protokol olan olay Hub'ına olayları gönderir ve bunları farklı bir protokol kullanır, çeşitli bölümlerini ve değerlerini ne yapması Olay aramak gibi tüketici ulaştığında? Bu makalede, üretici ve tüketici olaya içindeki değerleri kullanan uygulama tarafından doğru şekilde yorumlandığından emin olmak için en iyi uygulamalar açıklanmaktadır.
 
 Bu makalede öneriler bu istemciler, kod parçacıkları geliştirmede kullanılan listelenen sürümler ile özellikle kapsar:
 
@@ -344,5 +344,5 @@ Bu makalede protokol istemcilerinizi değiştirmenize veya kendi kümelerinizi �
 * [Event Hubs hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
 * [Kafka için Event Hubs hakkında bilgi edinin](event-hubs-for-kafka-ecosystem-overview.md)
 * [Kafka için Event Hubs GitHub'ındaki diğer örnekleri keşfedin](https://github.com/Azure/azure-event-hubs-for-kafka)
-* [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) kullanarak [olayları Kafka şirket içinden bulutta Kafka etkin Event Hubs’a akışla aktarın.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Kullanım [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) için [kafka'ya şirket içi kafka'dan akış olayları Event Hubs bulut üzerinde etkin.](event-hubs-kafka-mirror-maker-tutorial.md)
 * Kafka akışı yapmayı öğrenin etkin Event Hubs kullanarak [yerel Kafka uygulamalar](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), veya [Akka akışları](event-hubs-kafka-akka-streams-tutorial.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 4de6e4429543ea4f691cc3a38c15b896b866075b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d692eb471c514015271a688e4660700788f1baaa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980729"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431471"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server için Azure Hibrit Teklifi
 Yazılım Güvencesi olan müşteriler için Windows Server için Azure hibrit avantajı, şirket içi Windows Server lisanslarınızı kullanın ve Windows sanal makineler, düşük bir maliyet karşılığında Azure üzerinde çalıştırmak sağlar. Windows işletim sistemi ile yeni sanal makineleri dağıtmak için Windows Server için Azure hibrit Avantajı'nı kullanabilirsiniz. Bu makale Windows Server için Azure hibrit avantajı ile yeni VM'ler dağıtmayı ve varolan nasıl güncelleştirebilirsiniz adımları üzerinden Vm'leri çalıştıran gider. Windows Server için Azure hibrit Avantajı hakkında daha fazla bilgi için bkz: Lisans ve maliyet tasarrufu [Windows Server için Azure hibrit avantajı lisans sayfası](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -33,7 +33,7 @@ Yazılım Güvencesi olan müşteriler için Windows Server için Azure hibrit a
 >
 
 > [!NOTE]
-> Klasik VM'ler için yalnızca şirket içi özel görüntülerden yeni VM dağıtma desteklenir. Bu makalede desteklenen özelliklerden yararlanmak için Klasik VM'ler için Resource Manager modeli geçirmeniz gerekir.
+> Klasik VM'ler için yalnızca dağıtma yeni VM'den şirket içi özel görüntüleri üzerinde desteklenir. Bu makalede desteklenen özelliklerden yararlanmak için Klasik VM'ler için Resource Manager modeli geçirmeniz gerekir.
 >
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]

@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bc0afcf1ac7d9e7a777d850e1b6df7b915837f3a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956883"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435142"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>İOS mobil uygulamalarla çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -101,7 +101,7 @@ Yerel depo, herhangi bir tablo işlem gerçekleştirilmeden önce başlatılmal�
 
           if error != nil {
               // A real application would handle various errors like network conditions,
-              // server conflicts, etc via the MSSyncContextDelegate
+              // server conflicts, etc. via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
               // We will discard our changes and keep the server's copy for simplicity
@@ -141,9 +141,9 @@ Veri olduğunda uygulama eşitlemeler (Objective-C) değiştirdiğinden ya da uy
 Temel veri çevrimdışı depolama kullandığınızda, belirli tablolar ve alanlar veri modelinizde tanımlamanız gerekir. Örnek uygulamayı zaten doğru biçime sahip bir veri modeli içerir. Bu bölümde, nasıl kullanıldıkları göstermek için bu tablolar inceleyeceğiz.
 
 Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK tarafından kullanılır ve yapılacaklar için kullanılan bir kendilerini öğeleri:
-  * MS_TableOperations: sunucusuyla eşitlenmesi gereken öğeleri izler.
+  * MS_TableOperations: Sunucu ile eşitlenmesi gereken öğeleri izler.
   * MS_TableOperationErrors: Çevrimdışı eşitleme sırasında gerçekleşen hataları izler.
-  * MS_TableConfig: Parçaları zaman tüm çekme işlemleri için son eşitleme işlemi için son güncelleştirildi.
+  * MS_TableConfig: Parçaları son zaman tüm çekme işlemleri için son eşitleme işlemi için güncelleştirildi.
   * Todoıtem: Yapılacaklar öğelerini depolar. Sistem sütunlarıdır **createdAt**, **updatedAt**, ve **sürüm** isteğe bağlı sistem özelliklerdir.
 
 > [!NOTE]
@@ -159,12 +159,12 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK taraf�
 
 ![MS_TableOperations tablo öznitelikleri][defining-core-data-tableoperations-entity]
 
-| Öznitelik | Tür |
+| Öznitelik | Type |
 | --- | --- |
-| id | Tamsayı 64 |
-| öğe kimliği | Dize |
+| id | Integer 64 |
+| itemId | String |
 | properties | İkili veriler |
-| tablo | Dize |
+| tablo | String |
 | tableKind | Tamsayı 16 |
 
 
@@ -172,10 +172,10 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK taraf�
 
  ![MS_TableOperationErrors tablo öznitelikleri][defining-core-data-tableoperationerrors-entity]
 
-| Öznitelik | Tür |
+| Öznitelik | Type |
 | --- | --- |
-| id |Dize |
-| operationId |Tamsayı 64 |
+| id |String |
+| operationId |Integer 64 |
 | properties |İkili veriler |
 | tableKind |Tamsayı 16 |
 
@@ -183,26 +183,26 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK taraf�
 
  ![][defining-core-data-tableconfig-entity]
 
-| Öznitelik | Tür |
+| Öznitelik | Type |
 | --- | --- |
-| id |Dize |
-| anahtar |Dize |
-| KeyType |Tamsayı 64 |
-| tablo |Dize |
-| değer |Dize |
+| id |String |
+| anahtar |String |
+| KeyType |Integer 64 |
+| tablo |String |
+| değer |String |
 
 ### <a name="data-table"></a>Veri tablosu
 
 **Todoıtem**
 
-| Öznitelik | Tür | Not |
+| Öznitelik | Type | Not |
 | --- | --- | --- |
 | id | Dize, gerekli olarak işaretlenmiş |Uzak depoda birincil anahtar |
 | Tamamlayın | Boole | Yapılacak iş öğesi alanı |
-| metin |Dize |Yapılacak iş öğesi alanı |
+| metin |String |Yapılacak iş öğesi alanı |
 | createdAt | Tarih | (isteğe bağlı) Eşlendiği **createdAt** sistem özelliği |
 | updatedAt | Tarih | (isteğe bağlı) Eşlendiği **updatedAt** sistem özelliği |
-| version | Dize | (isteğe bağlı) Çakışmalar, sürüm eşlenir algılamak için kullanılan |
+| version | String | (isteğe bağlı) Çakışmalar, sürüm eşlenir algılamak için kullanılan |
 
 ## <a name="setup-sync"></a>Uygulama eşitleme davranışını değiştirme
 Bu bölümde, uygulama başlangıç veya ne zaman eklemek ve öğeleri güncelleştirme eşitlemez şekilde uygulamayı değiştirin. Yalnızca hareketi Yenile düğmesini gerçekleştirildiğinde, eşitler.

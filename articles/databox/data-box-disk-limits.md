@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 6a7f7943e9d567a953c0e21697dfe4fdedd6e8f0
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 70a611f6a9b52ba6a4c904cc4cfa9bc8f0b4df8e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744798"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409593"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk limitleri
 
 
-Limitler, dağıtmanıza ve Microsoft Azure Data Box Disk çözümünüz olarak düşünün. 
+Limitler, dağıtmanıza ve Microsoft Azure Data Box Disk çözümünüz olarak düşünün.
 
 ## <a name="data-box-service-limits"></a>Veri kutusu hizmeti sınırları
 
- - Veri kutusu hizmeti yalnızca ABD, AB, Kanada ve Avustralya'da Azure genel bulutu için tüm Azure bölgelerinde kullanılabilir durumdadır.
+ - Veri kutusu hizmeti kullanılabilir listelenen Azure bölgelerinde [bölge kullanılabilirliği](data-box-disk-overview.md#region-availability).
  - Tek bir depolama hesabında Data Box Disk ile desteklenir.
 
 ## <a name="data-box-disk-performance"></a>Veri kutusu Disk performansı
@@ -44,12 +44,17 @@ Azure depolama hizmet sınırları ve adlandırma paylaşımları, kapsayıcıla
 
 ## <a name="data-upload-caveats"></a>Uyarılar karşıya veri yükleme
 
-- Veri diskleri doğrudan kopyalamayın. Önceden oluşturulmuş veri kopyalama *BlockBlob* ve *PageBlob* klasörleri.
+- Veri diskleri doğrudan kopyalamayın. Önceden oluşturulmuş veri kopyalama *BlockBlob*,*PageBlob*, ve *AzureFile* klasörleri.
 - Bir klasörü altında *BlockBlob* ve *PageBlob* bir kapsayıcıdır. Örneğin, kapsayıcıları olarak oluşturulur *BlockBlob/kapsayıcı* ve *PageBlob/kapsayıcı*.
 - Data Box Disk, kopyalanan nesne olarak aynı ada sahip bir bulutta mevcut bir Azure nesne (örneğin, bir blobu) varsa, bulutta dosyanın üzerine yazar.
 - Her dosyanın içine yazılmış *BlockBlob* ve *PageBlob* paylaşımları yüklendiği bir blok blobu ve sayfa blobu olarak sırasıyla.
 - Herhangi bir boş (olmadan tüm dosyaları) dizin hiyerarşisi altında oluşturulan *BlockBlob* ve *PageBlob* klasörleri karşıya.
 - Herhangi bir hata varsa verileri Azure'a karşıya yüklenirken bir hata günlüğü hedef depolama hesabında oluşturulur. Bu hata günlük yolunu, karşıya yükleme tamamlandıktan ve düzeltme eylemi için günlüğü gözden geçirebilirsiniz portalda kullanılabilir. Veri kaynağından karşıya yüklenen veriler doğrulamadan silmeyin.
+- Yönetilen diskler talepte belirtilen aşağıdaki ek konuları gözden geçirin:
+
+    - Belirli bir ada sahip bir yönetilen diski yalnızca bir kaynak grubunda ve tüm Data Box Disk precreated tüm klasörler arasında olabilir. Başka bir gelir precreated klasörlere karşıya VHD'ler benzersiz adlara sahip olmalıdır. Belirtilen ada, bir kaynak grubunda zaten mevcut bir yönetilen disk eşleşmiyor emin olun. VHD'leri aynı ada sahipse, bu ada sahip yönetilen disk için yalnızca bir VHD dönüştürülür. Diğer VHD'ler sayfa BLOB'ları hazırlama depolama hesabına yüklenir.
+    - Her zaman VHD'lerin precreated klasörlerden birine kopyalayın. VHD'ler, bu klasörleri dışında veya oluşturduğunuz bir klasöre kopyalamak, VHD'ler sayfa blobları Azure depolama hesabına yüklenir ve yönetilen diskler değil.
+    - Yönetilen disk oluşturmak için yalnızca sabit VHD'lerin karşıya yüklenebilir. Dinamik VHD, fark kayıt VHD veya VHDX dosyaları desteklenmez.
 
 ## <a name="azure-storage-account-size-limits"></a>Azure depolama hesabı boyut sınırları
 
@@ -67,16 +72,26 @@ Azure nesnelerin yazılabilir boyutları aşağıda verilmiştir. Yüklenen tüm
 | Azure nesne türü | Varsayılan limit                                             |
 |-------------------|-----------------------------------------------------------|
 | Blok Blobu        | ~ 4,75 TiB                                                 |
-| Sayfa Blobu         | 8 TiB <br> (Sayfa blobu biçiminde yüklenen her dosya, 512 bayt hizalı (tamsayı katı) olmalıdır, aksi takdirde yükleme başarısız olur. <br> VHD ve VHDX 512 bayt hizalı var.) |
+| Sayfa Blobu         | 8 TiB <br> (Sayfa blobu biçiminde yüklenen her dosya, 512 bayt hizalı olmalıdır, aksi takdirde yükleme başarısız olur. <br> VHD ve VHDX 512 bayt hizalı var.) |
+|Azure Dosyaları        | 1 TiB <br> En çok, Paylaşım 5 TiB boyutudur     |
+| Yönetilen diskler     |4 TiB <br> Boyutu ve sınırları hakkında daha fazla bilgi için bkz: <li>[Yönetilen diskler için ölçeklenebilirlik hedefleri](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)
+</li>|
 
 
-## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Azure blok blobu ve sayfa blob'u adlandırma kuralları
+## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Azure blok blobu, sayfa blobu ve dosya adlandırma kuralları
 
 | Varlık                                       | Kurallar                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Kapsayıcı adları için blok blobu ve sayfa blobu | 3-63 karakter uzunluğunda olan geçerli bir DNS adı olmalıdır. <br>  Bir harf veya sayı ile başlamalıdır. <br> Yalnızca küçük harf, sayı ve tire (-) içerebilir. <br> Kısa çizgiden (-) hemen önce ve sonra bir harf veya rakam gelmelidir. <br> Adlarda kısa çizgiler art arda kullanılamaz. |
+| Kapsayıcı adları için blok blobu ve sayfa blobu <br> Azure dosyaları için dosya paylaşımı adları | 3-63 karakter uzunluğunda olan geçerli bir DNS adı olmalıdır. <br>  Bir harf veya sayı ile başlamalıdır. <br> Yalnızca küçük harf, sayı ve tire (-) içerebilir. <br> Kısa çizgiden (-) hemen önce ve sonra bir harf veya rakam gelmelidir. <br> Adlarda kısa çizgiler art arda kullanılamaz. |
+| Azure dosyaları için dizin ve dosya adları     |<li> Durum koruma, büyük/küçük harfe ve 255 karakterden uzun olmamalıdır. </li><li> (/) İleri eğik çizgiyle bitemez. </li><li>Sağlanırsa, otomatik olarak kaldırılacak. </li><li> Aşağıdaki karakterlere izin yok: ' "\ /: | < > * ?`</li><li> Ayrılmış URL karakterleri doğru şekilde atlanmalıdır. </li><li> Geçersiz URL yolu karakterlere izin verilmez. Kod noktaları \uE000 gibi Unicode karakterler geçerli değil. Bazı ASCII veya Unicode karakterleri gibi denetim karakterleri (0x00 için 0x1F \u0081, vb.), izin verilmeyen de. Unicode yöneten kurallar için HTTP/1.1 dizelerde RFC 2616 ', bölüm 2.2 bakın: Temel kurallar ve RFC 3987. </li><li> Şu dosya adlarına izin verilmez: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, nokta karakteri (.) ve iki nokta karakteri (..).</li>|
 | Blok blobu ve sayfa blobu için blob adları      | Blob adları büyük/küçük harfe duyarlıdır ve karakterler herhangi bir düzende sıralanabilir. <br> Blob adı 1 ila 1024 karakter uzunluğunda olmalıdır. <br> Ayrılmış URL karakterleri doğru şekilde atlanmalıdır. <br>Blob adını oluşturan yolun bölümleri 254 karakterden uzun olamaz. Yol bölümü, arka arkaya gelen sınırlayıcı karakterlerinin (örneğin eğik çizgi "/") arasında yer alan ve bir sanal dizinin adına karşılık gelen dizedir. |
 
+## <a name="managed-disk-naming-conventions"></a>Yönetilen disk adlandırma kuralları
+
+| Varlık | Kurallar                                             |
+|-------------------|-----------------------------------------------------------|
+| Yönetilen disk adları       | <li> Ad 1 ila 80 karakter uzunluğunda olmalıdır. </li><li> Ad, harf veya sayı ile başlamak, bir harf, sayı veya alt çizgi ile bitmelidir. </li><li> Ad yalnızca harf, sayı, alt çizgi, nokta veya kısa çizgi içerebilir. </li><li>   Ad boşluk olmamalıdır veya `/`.                                              |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Gözden geçirme [Data Box sistem gereksinimleri](data-box-system-requirements.md)
+
+- Gözden geçirme [Data Box sistem gereksinimleri](data-box-system-requirements.md)

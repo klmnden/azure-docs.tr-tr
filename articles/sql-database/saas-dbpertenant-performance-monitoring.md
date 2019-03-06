@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 902fbde0eca8db9113dda51e5d912fa9d94644ee
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: df54f9dd4047fffb578a1a95a2edc47cba711ba1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215175"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433527"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Azure SQL veritabanlarının ve havuzların bir çok kiracılı SaaS uygulaması performansını izleme ve yönetme
 
@@ -85,8 +85,8 @@ Bu betik, beş dakikadan daha kısa bir süre içinde 17 kiracı dağıtır.
 |:--|:--|
 | 2 | Normal yoğunlukta yük (yaklaşık 40 DTU) oluşturma |
 | 3 | Veritabanı başına daha uzun ve daha sık artışla yük oluşturma|
-| 4 | Veritabanı başına daha yüksek DTU veri bloğu (yaklaşık 80 DTU) ile yük oluşturma|
-| 5 | Tek bir kiracı üzerinde normal yük ve yoğun yük oluşturma (yaklaşık 95 DTU)|
+| 4 | Yük (yaklaşık 80 DTU) veritabanı başına daha yüksek dtu ile oluşturma|
+| 5 | Normal yük ve yoğun yük (yaklaşık 95 DTU) tek bir kiracı üzerinde oluşturma|
 | 6 | Birden çok havuzda dengesiz yük oluşturma|
 
 Yük oluşturucu her kiracı veritabanına *yapay* bir yalnızca CPU yükü uygular. Oluşturucu her kiracı veritabanı için yükü oluşturan saklı yordamı düzenli olarak çağıran bir iş başlatır. Yük düzeyleri (eDTU cinsinden), süresi ve aralıkları tüm veritabanlarında farklıdır ve öngörülemez kiracı etkinliğini benzetimi gerçekleştirir.
@@ -196,7 +196,7 @@ Bir havuzdaki tek veritabanı, havuz yapılandırmasına bağlı olarak uzun sü
 Bu alıştırmada, popüler bir konser için biletler satışa çıktığında yüksek bir yükle karşılaşan Contoso Konser Salonu etkisinin benzetimi gerçekleştirilmektedir.
 
 1. İçinde **PowerShell ISE**açın... \\ *Demo-PerformanceMonitoringAndManagement.ps1* betiği.
-1. **$DemoScenario = 5, Tek bir kiracı üzerinde normal yük ve yoğun yük oluşturma (yaklaşık 95 DTU)** ayarını yapın.
+1. Ayarlama **$DemoScenario = 5, yanı sıra yüksek yük (yaklaşık 95 DTU) tek bir kiracı üzerinde normal yük oluşturur.**
 1. **$SingleTenantDatabaseName = contosoconcerthall** değerini ayarlayın
 1. **F5**’i kullanarak betiği yürütün.
 

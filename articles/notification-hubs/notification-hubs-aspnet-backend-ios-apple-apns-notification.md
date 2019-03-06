@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 23c532f6c344f8be37c3bf3d77f30effa4ec17e8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d69a2a26fb0b487a3efa4b5376ca6480569aa846
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227718"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450898"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Öğretici: Azure Notification hubs'ı kullanarak belirli kullanıcılara anında iletme bildirimleri
 
@@ -54,7 +54,7 @@ Mobile Apps arka uç hizmetinize kullanmak istiyorsanız, bkz. [Mobile Apps ile 
 
 2. İçinde `Main.storyboard` nesne kitaplığından ekran görüntüsünde gösterilen bileşenleri ekleyin.
 
-    ![Xcode arabirim oluşturucu içinde storybard Düzenle][1]
+    ![Xcode arabirim oluşturucu görsel taslağı Düzenle][1]
 
    * **Kullanıcı adı**: Bir yer tutucu metinle UITextField *kullanıcı adı girin*hemen sonuçları etiket ve sol ve sağ kenar boşlukları kısıtlı Gönder altına ve gönderme sonuçları etiket altında.
    * **Parola**: Bir yer tutucu metinle UITextField *parolasını girin*, hemen altındaki kullanıcı adını metin alanı ve sol ve sağ kenar boşlukları ve username metin alanı altında kısıtlanmış. Denetleme **güvenli metin girişi** özniteliği denetçi'deki altında seçeneği *dönüş anahtar*.

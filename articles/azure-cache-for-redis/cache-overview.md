@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5b2b3a3ec0e9aec603a69211a7493afc31e83283
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236558"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433816"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>Azure önbelleği için Redis nedir
 
@@ -57,7 +57,7 @@ Temel | Tek düğümlü bir önbellek. Bu katman birden fazla bellek boyutunu (2
 
 Önbelleğiniz oluşturulduktan sonra ölçeğini daha yüksek bir katmana artırabilirsiniz. Ölçeğin daha düşük bir katmana indirilmesi desteklenmez. Ölçeklendirme hakkında adım adım yönergeler için bkz: [ölçek Azure Cache, Redis için nasıl](cache-how-to-scale.md) ve [bir ölçeklendirme işlemi otomatik hale getirmek nasıl](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-### <a name="feature-comparision"></a>Özellik Karşılaştırması
+### <a name="feature-comparison"></a>Özellik Karşılaştırması
 
 [Azure önbelleği için Redis fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/) sayfası, her bir katman ayrıntılı bir karşılaştırmasını sağlar. Aşağıdaki tablo, katmana göre desteklenen özelliklerden bazılarını açıklamaya yardımcı olur:
 

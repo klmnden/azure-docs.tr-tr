@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 650696d1eb3979447bffa7312e91b4fe1a57652c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865021"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448008"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Öğretici: Görüntü işleme, Azure Depolama'da görüntü meta verilerini oluşturmak için kullanın
 
@@ -48,7 +48,7 @@ Azure hesabınız için bir görüntü işleme kaynağı oluşturmanız gerekir;
 
 1. "İşleme-api-key" iletişim kutusu penceresinde girin **adı** seçin ve alan **F0** olarak **fiyatlandırma katmanı**. Aynı seçin **konumu** Azure depolama hesabınızı ayarladığınızda, seçtiğiniz. Altında **kaynak grubu**seçin **var olanı kullan** ve de aynı kaynak grubunu seçin. Denetleme **onaylıyorum** kutusuna ve ardından **Oluştur**.
 
-    ![Görüntü işleme API'si için Subcribing](../Images/create-vision-api.png)
+    ![Görüntü işleme API'si abone olma](../Images/create-vision-api.png)
 
 1. Kaynak grubunuz için menüsüne geri dönün ve yeni oluşturduğunuz görüntü işleme API'si aboneliğe tıklayın. URL'nin altına kopyalayın **uç nokta** için bir yere, kolayca birazdan alabileceğiniz. Ardından **erişim anahtarlarını gösterme**.
 

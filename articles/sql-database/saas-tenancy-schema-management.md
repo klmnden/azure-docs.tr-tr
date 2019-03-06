@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 39c4884fcca2b041603305d73526e3310ab99a21
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054855"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441891"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Bir SaaS uygulamasında Kiracı başına veritabanı düzenini Azure SQL veritabanı ile kullanarak şemayı yönetme
  
@@ -73,7 +73,7 @@ Bu öğretici, bir iş aracısı ve yedekleme İş Aracısı veritabanı oluştu
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Tüm kiracılara yeni başvuru verilerini dağıtmak için bir iş oluşturma
 
-Wingtip bilet uygulamada, her Kiracı veritabanı desteklenen mekan türü kümesi içerir. Her mekan türü barındırılabilir ve bu uygulamada kullanılan arka plan resmi belirleyen olayları tanımlayan bir belirli mekan türü değil. Bu uygulamayı yeni tür olay desteklemek eklenen güncelleştirilmiş ve yeni mekan türlerini bu başvuru verileri olmalıdır.  Bu alıştırmada, şu iki ek mekan türünü eklemek için tüm kiracı veritabanlarına yönelik bir güncelleştirmeyi dağıtacaksınız: *Motosiklet Yarışı* ve *Yüzme Kulübü*.
+Wingtip bilet uygulamada, her Kiracı veritabanı desteklenen mekan türü kümesi içerir. Her mekan türü barındırılabilir ve bu uygulamada kullanılan arka plan resmi belirleyen olayları tanımlayan bir belirli mekan türü değil. Bu uygulamayı yeni tür olay desteklemek eklenen güncelleştirilmiş ve yeni mekan türlerini bu başvuru verileri olmalıdır.  Bu alıştırmada, iki ek mekan türünü eklemek için tüm Kiracı veritabanlarına yönelik bir güncelleştirme dağıtın: *Motosiklet yarışı* ve *yüzme kulübü*.
 
 İlk olarak, her bir kiracı veritabanında bulunan mekan türlerini gözden geçirin. Kiracı veritabanlarını SQL Server Management Studio (SSMS) birine bağlanın ve VenueTypes tabloyu inceleyin.  Ayrıca, Azure portalındaki sorgu Düzenleyicisi'nde bu tabloda sorgulayabilirsiniz veritabanı sayfasından erişilebilir. 
 
@@ -86,8 +86,8 @@ Yeni bir proje oluşturmak için işleri sistem saklı yordamlarını oluşturdu
 
 1. SSMS'de, katalog sunucusuna: *Kataloğu-dpt -&lt;kullanıcı&gt;. database.windows.net* sunucusu 
 1. SSMS'de, dosyasını aç... \\Öğrenme modülleri\\Şema Yönetimi\\deployreferencedata.SQL öğesini
-1. Deyimi değiştirin: ayarlayın @wtpUser = &lt;kullanıcı&gt; ve Wingtip bilet SaaS her Kiracı veritabanı uygulamasını dağıtırken kullandığınız kullanıcı değerini yerine koy
-1. Bağlı olduğunuzdan emin olun _jobagent_ veritabanı ve ENTER tuşuna **F5** betiği çalıştırmak için
+1. Deyimi değiştirin: AYARLAMA @wtpUser = &lt;kullanıcı&gt; ve Wingtip bilet SaaS her Kiracı veritabanı uygulamasını dağıtırken kullandığınız kullanıcı değerini yerine koy
+1. Bağlı olduğunuzdan emin olun _jobagent_ veritabanı ve ENTER tuşuna **F5** betiği çalıştırmak için
 
 Aşağıdaki öğeleri inceleyin *deployreferencedata.SQL öğesini* betiği:
 * **SP\_ekleme\_hedef\_grubu** hedef grubu adı Demoservergroup'u oluşturur.
@@ -127,7 +127,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Başvuru tüm Kiracı veritabanlarında verileri güncelleştirme
 > * Tüm kiracı veritabanlarında bir tabloda dizin oluşturma
 
-Ardından, deneyin [geçici raporlama öğretici](saas-tenancy-cross-tenant-reporting.md) dağıtılmış sorgular kiracıda veritabanları çalıştıran keşfetmek için.
+Ardından, deneyin [öğretici Ad hoc raporlama](saas-tenancy-cross-tenant-reporting.md) dağıtılmış sorgular kiracıda veritabanları çalıştıran keşfetmek için.
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar

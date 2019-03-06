@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 6470e2e48854d091c219fb4ec3224e87b1567dd7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300226"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436511"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
@@ -47,7 +47,7 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 
 | Hizmet | Şema ve belgeler |
 | --- | --- |
-| Azure Active Directory | [Genel Bakış](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [denetim günlüğü şeması](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) ve [oturumların şeması](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Genel Bakış](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [denetim günlüğü şeması](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) ve [oturum açma şeması](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API Management tanılama günlükleri](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Uygulama Ağ Geçitleri |[Uygulama ağ geçidi için tanılama günlüğünü](../../application-gateway/application-gateway-diagnostics.md) |
@@ -83,7 +83,7 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 ## <a name="supported-log-categories-per-resource-type"></a>Desteklenen kaynak türü başına günlük kategorileri
 |Kaynak Türü|Kategori|Kategori görünen adı|
 |---|---|---|
-|Microsoft.AnalysisServices/servers|Altyapısı|Altyapısı|
+|Microsoft.AnalysisServices/servers|Altyapı|Altyapı|
 |Microsoft.AnalysisServices/servers|Hizmet|Hizmet|
 |Microsoft.ApiManagement/service|GatewayLogs|ApiManagement ağ geçidine ilgili Günlükler|
 |Microsoft.Automation/automationAccounts|JobLogs|İş günlükleri|
@@ -165,7 +165,7 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 |Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Eşleme yolu tablo günlükleri|
 |Microsoft.Network/frontdoors|FrontdoorAccessLog|Frontdoor erişim günlüğü|
 |Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Frontdoor Web uygulaması güvenlik duvarı günlüğü|
-|Microsoft.PowerBIDedicated/capacities|Altyapısı|Altyapısı|
+|Microsoft.PowerBIDedicated/capacities|Altyapı|Altyapı|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup raporlama verileri|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery işleri|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery etkinlikleri|

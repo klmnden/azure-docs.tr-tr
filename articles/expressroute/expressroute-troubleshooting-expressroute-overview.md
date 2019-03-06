@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: a64aa59b205e8986b80a575c50041f826606e16f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c4b20b4007a4824ee2dea0e1b22f1ea886218885
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272822"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453618"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute bağlantısını doğrulama
 Bu makalede doğrulayın ve ExpressRoute bağlantınızın gidermenize yardımcı olur. Bir şirket içi ağ, bağlantı sağlayıcı tarafından kolaylaştırılan özel bağlantı üzerinden Microsoft bulutuna genişleten, ExpressRoute aşağıdaki üç ayrı ağ alanları içerir:
 
--   Müşteri ağı
+-   Müşteri Ağı
 -   Sağlayıcı ağı
 -   Microsoft Veri merkezinde
 
@@ -28,6 +28,8 @@ Bu belgenin amacı, nereye tanımlamak için kullanıcı yardımcı olmaktır (v
 > Bu belge, basit sorun tanılanıp yardımcı olmak içindir. Microsoft destek için bir değişiklik olacak şekilde tasarlanmamıştır. Bir destek bileti açın [Microsoft Support] [ Support] sağlanan yönergeleri kullanarak sorunu çözmeyi erişemiyorsanız.
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Genel Bakış
 Aşağıdaki diyagramda, mantıksal bir müşteri ağı ExpressRoute kullanarak Microsoft ağına bağlantısı gösterir.
@@ -88,7 +90,7 @@ ExpressRoute essentials'ta *devre durumu* Microsoft tarafında bağlantı hattı
 ### <a name="verification-via-powershell"></a>PowerShell aracılığıyla doğrulama
 Bir kaynak grubundaki tüm ExpressRoute devreleri listelemek için aşağıdaki komutu kullanın:
 
-    Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
+    Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
 >Azure kaynak grubu adınız alabilirsiniz. Bu belgenin önceki alt bölümüne bakın ve örnek ekran görüntüsünde kaynak grubu adı listelendiğine dikkat edin.
@@ -97,7 +99,7 @@ Bir kaynak grubundaki tüm ExpressRoute devreleri listelemek için aşağıdaki 
 
 Bir kaynak grubunda belirli bir ExpressRoute bağlantı hattı seçmek için aşağıdaki komutu kullanın:
 
-    Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
 
 Örnek yanıt şöyledir:
 
@@ -186,8 +188,8 @@ Azure genel ve Microsoft eşleme yönlendirme bağlamları etkin ancak önceki �
 ### <a name="verification-via-powershell"></a>PowerShell aracılığıyla doğrulama
 Azure özel eşlemesi yapılandırma ayrıntılarını almak için aşağıdaki komutları kullanın:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 Bir başarıyla yapılandırıldı özel eşleme, bir örnek, yanıttır:
 
@@ -210,21 +212,21 @@ Bir başarıyla yapılandırıldı özel eşleme, bir örnek, yanıttır:
 
 Azure ortak eşleme yapılandırmasını ayrıntılarını almak için aşağıdaki komutları kullanın:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
 Microsoft eşlemesi yapılandırma ayrıntılarını almak için aşağıdaki komutları kullanın:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+     Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 Bir eşleme yapılandırılmamışsa bir hata iletisi olacaktır. Belirtilen eşleme (Azure Bu örnekte eşlemesi genel) devresi içinde yapılandırılmadığı zaman bir örnek yanıt:
 
-    Get-AzureRmExpressRouteCircuitPeeringConfig : Sequence contains no matching element
+    Get-AzExpressRouteCircuitPeeringConfig : Sequence contains no matching element
     At line:1 char:1
-        + Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
+        + Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
         + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            + CategoryInfo          : CloseError: (:) [Get-AzureRmExpr...itPeeringConfig], InvalidOperationException
+            + CategoryInfo          : CloseError: (:) [Get-AzExpr...itPeeringConfig], InvalidOperationException
             + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
 

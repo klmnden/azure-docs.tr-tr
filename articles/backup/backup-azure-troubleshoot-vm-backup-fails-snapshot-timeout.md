@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c62560d2f80375a725464607f38b9e8adf221d16
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 530bb83d753d27db4869b5725bc6d4c4e020e179
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875608"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446614"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -229,14 +229,14 @@ Bu adımları tamamladıktan sonraki yedekleme sırasında yüklenmesi uzantıs�
 
 ### <a name="clean_up_restore_point_collection"></a> Geri yükleme noktası koleksiyonunu Temizle
 Kilit kaldırdıktan sonra geri yükleme noktalarını temizlenmesi gerekir. Geri yükleme noktaları temizlemek için aşağıdaki yöntemlerden herhangi birini izleyin:<br>
-* [Geri yükleme noktası koleksiyonu çalışan geçici yedekleme tarafından Temizle](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Temiz geri yükleme noktası koleksiyonu geçici yedekleme çalıştırarak](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Temiz geri yükleme noktası koleksiyonu Azure portalından](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Geri yükleme noktası koleksiyonu çalışan geçici yedekleme tarafından Temizle
-Kilit kaldırdıktan sonra bir ad-geçici/el ile yedekleme tetikleyin. Bu, geri yükleme noktalarını otomatik olarak temizlenir garanti eder. Bu ad-geçici/el ile işlem ilk kez başarısız olmasına beklediğiniz; Ancak, bunu el ile silinmesini geri yükleme noktaları yerine otomatik temizleme sağlayacaktır. Temizleme sonrasında, sonraki zamanlanmış yedekleme başarılı olması gerekir.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Temiz geri yükleme noktası koleksiyonu geçici yedekleme çalıştırarak
+Kilit kaldırdıktan sonra bir ad geçici/el ile yedekleme tetikleyin. Bu, geri yükleme noktalarını otomatik olarak temizlenir garanti eder. Bu ad geçici/el ile işlem ilk kez başarısız beklediğiniz; Ancak, bunu el ile silinmesini geri yükleme noktaları yerine otomatik temizleme sağlayacaktır. Temizleme sonrasında, sonraki zamanlanmış yedekleme başarılı olması gerekir.
 
 > [!NOTE]
-    > Otomatik temizleme ad-geçici/el ile yedeklemeyi tetikleme birkaç saat sonra gerçekleşir. Zamanlanmış yedeklemenizi yine başarısız sonra listelenen adımları kullanarak geri yükleme noktası koleksiyonu el ile silmeyi deneyin [burada](#clean-up-restore-point-collection-from-azure-portal).
+    > Otomatik temizleme ad geçici/el ile yedeklemeyi tetikleme birkaç saat sonra gerçekleşir. Zamanlanmış yedeklemenizi yine başarısız sonra listelenen adımları kullanarak geri yükleme noktası koleksiyonu el ile silmeyi deneyin [burada](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Temiz geri yükleme noktası koleksiyonu Azure portalından <br>
 

@@ -12,12 +12,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 2/19/2019
 ms.author: douglasl
-ms.openlocfilehash: 77ee2a0649d5c815fb68a4a40106455839030695
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 159aaf017265c09c2afc4b603ed5172fead9b29d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671531"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438661"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı için Azure Active Directory kimlik doğrulamasını etkinleştirme
 
@@ -27,6 +27,8 @@ Yönetilen kimlik bilgilerinizi ADF için hakkında daha fazla bilgi için bkz. 
 
 > [!NOTE]
 > SQL kimlik doğrulaması kullanarak bir Azure-SSIS IR zaten oluşturduysanız, IR şu anda PowerShell ile Azure AD kimlik doğrulamasını kullanma yapılandırılmadan değil ancak Azure portal/ADF uygulamasında bunu yapabilirsiniz. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="enable-azure-ad-on-azure-sql-database"></a>Azure SQL veritabanı'nda Azure AD etkinleştir
 
@@ -216,7 +218,7 @@ PowerShell ile Azure-SSIS IR sağlamak için şunları yapın:
 2.  Betiğinizde, ayarlamayın `CatalogAdminCredential` parametresi. Örneğin:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
                                                -Description $AzureSSISDescription `
@@ -229,7 +231,7 @@ PowerShell ile Azure-SSIS IR sağlamak için şunları yapın:
                                                -CatalogServerEndpoint $SSISDBServerEndpoint `
                                                -CatalogPricingTier $SSISDBPricingTier
 
-    Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                  -DataFactoryName $DataFactoryName `
                                                  -Name $AzureSSISName
    ```

@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e429d9577b938aea20318aa09a0247e00e4f66b6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819591"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443054"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
@@ -155,6 +155,7 @@ Diğer sınırlamalar:
 Değişiklik izleme çözümü şu anda aşağıdaki sorunlarla karşılaşıyor:
 
 * Düzeltme güncelleştirmelerini, Windows Server 2016 Core RS3 makinelerde toplanmadı.
+* Hiçbir değişiklik yoktu rağmen Linux Daemon'ları değiştirilen durum gösterebilir. Bu nedeniyle nasıl, `SvcRunLevels` alan yakalanır.
 
 ## <a name="change-tracking-data-collection-details"></a>Değişiklik izleme veri koleksiyonu ayrıntıları
 

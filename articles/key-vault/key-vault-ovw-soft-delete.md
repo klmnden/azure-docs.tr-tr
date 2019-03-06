@@ -3,16 +3,16 @@ ms.assetid: ''
 title: Azure Key Vault geçici silmeyi | Microsoft Docs
 ms.service: key-vault
 ms.topic: conceptual
-author: bryanla
-ms.author: bryanla
+author: msmbaldwin
+ms.author: mbaldwin
 manager: barbkess
 ms.date: 09/25/2017
-ms.openlocfilehash: 02d08f4334f1e20a3f635868fb053ffb44388d9c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3ca08f12e3f389265fd3a77b3aa82c086085a10a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108035"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403711"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault geçici silmeyi genel bakış
 

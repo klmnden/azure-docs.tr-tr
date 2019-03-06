@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d8f42b49fe3dbdecec163ab47579346b71f0bf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b4be5087af70e10e5a73ea2a183a25b326aea664
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190509"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Öğretici: ServiceChannel ile Azure Active Directory Tümleştirme
 
@@ -155,7 +155,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure yönetim portalında etkinleşt
 
     ![Çoklu oturum açmayı yapılandırın](./media/servicechannel-tutorial/tutorial_general_400.png)
 
-1. Üzerinde **ServiceChannel yapılandırma** bölümünde **yapılandırma ServiceChannel** açmak için **yapılandırma oturum açma** penceresi. Lütfen unutmayın **SAML Enitity kimliği** gelen **hızlı başvuru** bölümü.
+1. Üzerinde **ServiceChannel yapılandırma** bölümünde **yapılandırma ServiceChannel** açmak için **yapılandırma oturum açma** penceresi. Lütfen unutmayın **SAML varlık kimliği** gelen **hızlı başvuru** bölümü.
 
 1. Çoklu oturum açmayı yapılandırma **ServiceChannel** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)** ve **SAML varlık kimliği** için [ServiceChannel Destek](https://servicechannel.zendesk.com/hc/en-us). Bunlar bu için her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı kurar.
 

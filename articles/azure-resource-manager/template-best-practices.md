@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: d40fcacc4612761b2c43b0dd3658042c38a0df75
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309528"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440481"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager şablonu en iyi uygulamaları
 
@@ -26,7 +26,25 @@ Azure aboneliklerinizi yönetmek nasıl hakkında daha fazla öneri için bkz. [
 
 Tüm Azure bulut ortamında çalışan şablonları oluşturma hakkında daha fazla öneri için bkz. [bulut tutarlılık için geliştirme Azure Resource Manager şablonları](templates-cloud-consistency.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="template-limits"></a>Şablon sınırları
+
+Şablonunuza 1 MB ve her 64 KB parametre dosyası boyutunu sınırlama. Yinelemeli Kaynak tanımları ve değişkenler ve parametreler için değerleri genişletildi sonra şablonunun son duruma 1 MB'lık sınırı uygular. 
+
+İçin sınırlama getirilir:
+
+* 256 parametreleri
+* 256 değişkenleri
+* 800 kaynakları (kopya sayısı da dahil olmak üzere)
+* 64 çıkış değerleri
+* bir şablon ifadesi 24.576 karakter
+
+İç içe geçmiş bir şablon kullanarak bazı şablonu sınırlar aşabilir. Daha fazla bilgi için [Azure kaynakları dağıtılırken bağlı şablonları kullanma](resource-group-linked-templates.md). Parametreler, değişkenleri veya çıkış sayısını azaltmak için değerlerden bir nesnesi olarak birleştirebilirsiniz. Daha fazla bilgi için [parametre olarak nesnelerin](resource-manager-objects-as-parameters.md).
+
+## <a name="resource-group"></a>Kaynak grubu
+
+Kaynakları bir kaynak grubuna dağıttığınızda, kaynak grubu, kaynaklarla ilgili meta verileri depolar. Meta veriler, kaynak grubunun konumda depolanır.
+
+Kaynak grubunun bölge geçici olarak kullanılamıyorsa, kaynak grubundaki kaynaklar meta veriler kullanılamaz durumda olduğundan güncelleştirilemiyor. Diğer bölgelerdeki kaynaklara beklendiği gibi çalışmaya devam eder ancak bunları güncelleştirilemiyor. Riski en aza indirmek için aynı bölgede kaynak grubu ve kaynakları bulun.
 
 ## <a name="parameters"></a>Parametreler
 Bu bölümdeki bilgiler ile çalışırken yararlı olabilir [parametreleri](resource-group-authoring-templates.md#parameters).
@@ -155,7 +173,7 @@ Ne verirken [bağımlılıkları](resource-group-define-dependencies.md) ayarlam
 
 * Alt kaynak kendi üst kaynağına bağımlı olarak ayarlayın.
 
-* Kaynaklarla [koşul öğesi](resource-manager-templates-resources.md#condition) false olarak ayarlanırsa bağımlılık siparişi otomatik olarak kaldırılır. Bağımlılıkları kaynağı her zaman dağıtılırsa olarak ayarlayın.
+* Kaynaklarla [koşul öğesi](resource-group-authoring-templates.md#condition) false olarak ayarlanırsa bağımlılık siparişi otomatik olarak kaldırılır. Bağımlılıkları kaynağı her zaman dağıtılırsa olarak ayarlayın.
 
 * Açıkça ayarlamadan basamaklı bağımlılıkları sağlar. Örneğin, sanal makinenize bir sanal ağ arabiriminde bağlıdır ve sanal ağ arabirimi bir sanal ağ ve genel IP adresleri bağlıdır. Bu nedenle, dağıtılan tüm üç kaynak sanal makine olduğu halde tüm üç kaynaklara bağlı olarak sanal makine açıkça ayarlamanız gerekmez. Bu yaklaşım, bağımlılık sırası açıklar ve daha sonra şablonu değiştirmek kolaylaştırır.
 
@@ -163,7 +181,7 @@ Ne verirken [bağımlılıkları](resource-group-define-dependencies.md) ayarlam
 
 ## <a name="resources"></a>Kaynaklar
 
-İle çalışırken aşağıdaki bilgiler yararlı olabilir [kaynakları](resource-manager-templates-resources.md):
+İle çalışırken aşağıdaki bilgiler yararlı olabilir [kaynakları](resource-group-authoring-templates.md#resources):
 
 * Diğer Katkı Sağlayanlar kaynak amacını anlamalarına yardımcı olmak için belirtin **açıklamaları** şablondaki her bir kaynak için:
    

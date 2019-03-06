@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 53ce82a6e1180d4493e2d4014bf6e26e9bde2466
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a908b00022351b9a91f9381229c773d063390744
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731404"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444166"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services, bulutta kurumsal düzeyde veri modelleri sağlayan, tam yönetilen bir hizmet olarak platformdur (PaaS). Birden fazla veri kaynağından verileri birleştirmek, ölçümleri tanımlamak ve tek, güvenilen bir tablo biçiminde anlam veri modelinde verilerinizin güvenliğini sağlamak için gelişmiş karma ve modelleme özelliklerini kullanın. Veri modeli, kullanıcıların geçici veri analizi için çok büyük miktarlarda verilere göz atmasının daha kolay ve daha hızlı bir yolunu sağlar.
+Azure Analysis Services, bulutta kurumsal düzeyde veri modelleri sağlayan, tam yönetilen bir hizmet olarak platformdur (PaaS). Birden fazla veri kaynağından verileri birleştirmek, ölçümleri tanımlamak ve tek, güvenilen bir tablo biçiminde anlam veri modelinde verilerinizin güvenliğini sağlamak için gelişmiş karma ve modelleme özelliklerini kullanın. Veri modeli oldukça büyük miktardaki verileri özel veri analizi için göz atmak kullanıcılar için daha kolay ve hızlı bir yol sağlar.
 
 ![Veri kaynakları](./media/analysis-services-overview/aas-overview-overall.png)
 

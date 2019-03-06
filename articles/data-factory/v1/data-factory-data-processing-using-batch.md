@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a0d5f42fa6725ba23a89904779040f379f31e59e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822757"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454162"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -26,9 +26,12 @@ ms.locfileid: "55822757"
 
 Bu makalede, bir taşır ve büyük ölçekli veri kümelerini otomatik ve zamanlanmış bir şekilde işleyen örnek bir çözüm mimarisini açıklar. Ayrıca, Data Factory ve Azure Batch kullanarak çözüm uygulamak için bir uçtan uca kılavuz sağlar.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Tüm örnek çözümünü kılavuz içerdiğinden bu tipik bir makale uzun bir makaledir. Bu hizmetler hakkında bilgi edinebilirsiniz Batch ve Data Factory için yeni başladıysanız ve nasıl birlikte çalışır. Hizmetleri ile ilgili bir sorun bildirin ve Tasarım/Çözüm Mimarileri mi oluşturuyorsunuz, makalenin mimarisi bölümüne odaklanabilirsiniz. Bir prototip veya çözüm geliştiriyorsanız, gözden geçirme hakkında adım adım yönergeleri denemek isteyebilirsiniz. Bu içerik ve nasıl kullanacağınız hakkındaki yorumlarınızı davet ediyoruz.
 
 İlk olarak, Data Factory ve Batch hizmetleri size nasıl yardımcı olabilir işlem büyük veri kümelerini bulutta bakalım.     
+
 
 ## <a name="why-azure-batch"></a>Neden Azure Batch?
  Batch, büyük ölçekli paralel ve yüksek performanslı hesaplama (HPC) uygulamalarını bulutta verimli bir şekilde çalıştırmak için kullanabilirsiniz. Bu sanal makinelerin (VM'ler) yönetilen koleksiyonunda çalıştırılacak işlem yoğunluklu işleri zamanlayan bir platform hizmetidir. Ayrıca, işinizin gereksinimlerini karşılayacak şekilde işlem kaynaklarını otomatik olarak ölçeklendirebilirsiniz.
@@ -40,7 +43,7 @@ Batch hizmetiyle, uygulamalarınızı paralel olarak ve ölçekte yürütmek iç
 * [Batch temel bilgileri](../../batch/batch-technical-overview.md)
 * [Batch özelliklerine genel bakış](../../batch/batch-api-basics.md)
 
-İsteğe bağlı olarak Batch hakkında daha fazla bilgi için bkz: [Batch documentatnion](https://docs.microsoft.com/azure/batch/).
+İsteğe bağlı olarak Batch hakkında daha fazla bilgi için bkz: [Batch belgelerini](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Neden Azure Data Factory?
 Data Factory, verilerin taşınmasını ve dönüştürülmesini düzenleyen ve otomatikleştiren bulut tabanlı bir veri tümleştirme hizmetidir. Data Factory, şirket içinden veri taşıma ve merkezi bir veri deposuna veri depolarında bulut yönetilen veri işlem hatları oluşturmak için kullanabilirsiniz. Azure Blob Depolama buna bir örnektir. Data Factory işlem/veri dönüştürme gibi Azure HDInsight ve Azure Machine Learning hizmetlerini kullanarak için kullanabilirsiniz. Ayrıca, zamanlanmış bir şekilde (örneğin, saatlik, günlük ve haftalık) çalıştırmak için veri işlem hatlarını zamanlayabilirsiniz. İzleme ve işlem hatlarını sorunlarını tanımlamak ve eylem için bir bakışta yönetme.
@@ -93,7 +96,7 @@ Azure aboneliğiniz yoksa, ücretsiz bir deneme hesabı hızlıca oluşturabilir
 Bu öğreticide verileri depolamak için bir depolama hesabı kullanın. Bir depolama hesabına sahip değilseniz, bkz. [depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md). Örnek çözüm, blob depolama kullanır.
 
 #### <a name="azure-batch-account"></a>Azure Batch hesabı
-Kullanarak bir Batch hesabı oluşturma [Azure portalında](http://portal.azure.com/). Daha fazla bilgi için [oluşturun ve bir Batch hesabı yönetme](../../batch/batch-account-create-portal.md). Batch hesabı adı ve hesap anahtarını not edin. Ayrıca [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) bir Batch hesabı oluşturmak için cmdlet'i. Bu cmdlet'in nasıl kullanılacağı hakkında yönergeler için bkz [Batch PowerShell cmdlet'leri ile başlama](../../batch/batch-powershell-cmdlets-get-started.md).
+Kullanarak bir Batch hesabı oluşturma [Azure portalında](http://portal.azure.com/). Daha fazla bilgi için [oluşturun ve bir Batch hesabı yönetme](../../batch/batch-account-create-portal.md). Batch hesabı adı ve hesap anahtarını not edin. Ayrıca [yeni AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) bir Batch hesabı oluşturmak için cmdlet'i. Bu cmdlet'in nasıl kullanılacağı hakkında yönergeler için bkz [Batch PowerShell cmdlet'leri ile başlama](../../batch/batch-powershell-cmdlets-get-started.md).
 
 Örnek çözüm (üzerinden dolaylı olarak bir veri fabrikası işlem hattı) Batch havuzunda işlem düğümleri (sanal makineleri yönetilen koleksiyonu) paralel bir şekilde verileri işlemek için kullanır.
 
@@ -201,7 +204,7 @@ Yöntemi anlamanız gereken birkaç önemli bileşenden oluşur:
 1. İçeri aktarma **Azure depolama** NuGet paketini projeye. Bu örnekte, Blob Depolama API'si kullandığından bu paketi gerekir:
 
     ```powershell
-    Install-Package Azure.Storage
+    Install-Package Az.Storage
     ```
 1. Aşağıdakileri ekleyin projesinde kaynak dosyasına yönergeleri kullanarak:
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 488e1adb6d533dc88994e1dc08513870f56bd9c0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433432"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433051"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Azure HDInsight - veri geçişi en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -34,9 +34,9 @@ Verileri şirket içinden Azure ortamına geçirmek için iki ana seçeneğiniz 
 
 Aşağıdaki tabloda veri birimi ve ağ bant genişliğine göre yaklaşık veri aktarım süresi vardır. Bir veri kutusu veri geçişi üç hafta daha uzun sürmesi beklendiğinde kullanın.
 
-|**Veri miktarı**|**Ağ bant genişliği**|||
+|**Data Qty**|**Ağ bant genişliği**|||
 |---|---|---|---|
-|| **45 MB/sn (T3)**|**100 MB/sn**|**1 GB/sn**|**10 GB/sn**
+|| **45 MB/sn (T3)**|**100 MB/sn**|**1 GB/sn**|**10 Gbps**
 |1 TB|2 gün|1 gün| 2 saat|14 dakika|
 |10 TB|22 günü|10 gün|1 gün|2 saat|
 |35 TB|76 gün|34 gün|3 gün|8 saat|
@@ -94,7 +94,7 @@ Hive meta veri deposu, komut dosyalarını kullanarak veya veritabanı çoğaltm
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Hive meta veri deposu geçiş betiklerini kullanma
 
-1. Hive DDLs şirket içi Hive meta veri deposu oluşturur. Bu adım yapılabilir kullanarak bir [sarmalayıcı bash betiğini](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Şirket içi Hive meta veri deposu üzerinde Hive DDLs gelen oluşturur. Bu adım yapılabilir kullanarak bir [sarmalayıcı bash betiğini](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
 1. HDFS url ADLS/WASB/ABFS URL'leri ile değiştirme için oluşturulan DDL düzenleyin.
 1. Güncelleştirilmiş DDL HDInsight küme meta veri deposu üzerinde çalıştırın.
 1. Hive meta veri deposu sürümü şirket içi ile bulut arasında uyumlu olduğundan emin olun.
@@ -111,7 +111,7 @@ Hive meta veri deposu, komut dosyalarını kullanarak veya veritabanı çoğaltm
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - Şirket içi Ranger ilkelerini xml dosyasına dışarı aktarın.
-- Şirket içi belirli HDFS tabanlı yollara WASB/ADLS XSLT gibi bir araç kullanarak dönüştürün.
+- Şirket içi WASB/ADLS XSLT gibi bir araç kullanarak belirli HDFS tabanlı yollara dönüştürün.
 - HDInsight üzerinde çalışan Ranger oturum ilkeleri içeri aktarın.
 
 ## <a name="next-steps"></a>Sonraki adımlar

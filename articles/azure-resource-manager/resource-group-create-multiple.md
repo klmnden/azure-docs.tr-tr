@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9914943cc5b3ef9e95f12c6890cb8e1646f7e335
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c60983dbbe72515fd8f0f4860e169ce1ba69ed45
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244248"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407094"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Bir kaynağa veya Azure Resource Manager şablonları özelliğinde birden fazla örneğini dağıtma
 
-Bu makalede bir kaynağın birden fazla örneğini oluşturmak için Azure Resource Manager şablonunuzda yineleme gösterilmektedir. Belirtmeniz gerekiyorsa olup kaynağın dağıtıldığı tüm bkz [koşul öğesi](resource-manager-templates-resources.md#condition).
+Bu makalede bir kaynağın birden fazla örneğini oluşturmak için Azure Resource Manager şablonunuzda yineleme gösterilmektedir. Belirtmeniz gerekiyorsa olup kaynağın dağıtıldığı tüm bkz [koşul öğesi](resource-group-authoring-templates.md#condition).
 
 Bir öğretici için bkz. [öğretici: Resource Manager şablonlarını kullanarak birden çok kaynak örneğini oluşturma](./resource-manager-tutorial-create-multiple-instances.md).
 

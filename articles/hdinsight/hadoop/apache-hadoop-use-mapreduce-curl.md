@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: ff905f34ab63027e9708082c4690e4275220854f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fc2333b6bd41b9efdd1fcafd6168906525cb537a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406802"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440582"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST kullanarak HDInsight üzerinde Apache Hadoop MapReduce işlerle çalışma
 
@@ -36,7 +36,7 @@ HDInsight kümesi üzerinde bir Apache Hadoop MapReduce işlerini çalıştırma
 >
 > REST API kullanılarak korunmaktadır [temel erişimi kimlik doğrulaması](https://en.wikipedia.org/wiki/Basic_access_authentication). Ayrıca, kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderildiğinden emin olmak için HTTPS kullanarak istekleri her zaman yapmanız gerekir.
 
-1. Bu belgedeki betikler tarafından kullanılan Küme oturum açma ayarlamak için followig komutlardan birini kullanın:
+1. Bu belgedeki betikler tarafından kullanılan Küme oturum açma ayarlamak için aşağıdaki komutlardan birini kullanın:
 
     ```bash
     read -p "Enter your cluster login account name: " LOGIN

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ac36502a67f9deddf14b5eeae64df6f799d25e97
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250824"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446087"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
 
@@ -83,7 +83,7 @@ Aşağıdaki adımlar, bir kuyruk oluşturulacağını göstermektedir:
     }
     ```
 
-1. İçinde **CreateQueue** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
+1. İçinde **CreateQueue** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (Değişiklik  *&lt;depolama hesabı adı >* erişmek için Azure depolama hesabı adı.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -164,7 +164,7 @@ Kaydederler [bir kuyruk oluşturan](#create-a-queue), iletileri bu kuyruğa ekle
     }
     ```
  
-1. İçinde **AddMessage** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
+1. İçinde **AddMessage** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (Değişiklik  *&lt;depolama hesabı adı >* erişmek için Azure depolama hesabı adı.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -253,7 +253,7 @@ Bu bölümde, (ilk ileti okuma kaldırmadan) kuyruğa alınan iletinin peek gös
     }
     ```
  
-1. İçinde **PeekMessage** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
+1. İçinde **PeekMessage** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (Değişiklik  *&lt;depolama hesabı adı >* erişmek için Azure depolama hesabı adı.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -337,7 +337,7 @@ Bu bölümde, okuma ve kuyruktan bir ileti kaldırma konusunda bilgi edinin.
     }
     ```
  
-1. İçinde **ReadMessage** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
+1. İçinde **ReadMessage** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (Değişiklik  *&lt;depolama hesabı adı >* erişmek için Azure depolama hesabı adı.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -428,7 +428,7 @@ Bu bölümde, kuyruk uzunluğu (ileti sayısı) almak nasıl gösterir.
     }
     ```
  
-1. İçinde **ReadMessage** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
+1. İçinde **ReadMessage** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (Değişiklik  *&lt;depolama hesabı adı >* erişmek için Azure depolama hesabı adı.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -515,7 +515,7 @@ Bu bölümde, bir kuyruk silme gösterilmektedir.
     }
     ```
  
-1. İçinde **DeleteQueue** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
+1. İçinde **DeleteQueue** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (Değişiklik  *&lt;depolama hesabı adı >* erişmek için Azure depolama hesabı adı.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

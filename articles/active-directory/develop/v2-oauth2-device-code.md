@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f1f34796a98acb3ed4241edff57e506990479d1a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170203"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443276"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 cihaz kod akışı
 
@@ -32,7 +32,7 @@ ms.locfileid: "56170203"
 Azure AD destekler [cihaz kodu verme](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), giriş kısıtlı cihazları akıllı TV gibi IOT cihaz veya yazıcı oturum açmalarını sağlar.  Bu akış etkinleştirmek için cihaz tarayıcısında oturum açmak için başka bir cihazda kullanıcı bir Web sayfasını ziyaret edin sahiptir.  Kullanıcı oturum açtıktan sonra cihazın erişim belirteci alma ve gerektiğinde yenileme belirteçlerini kullanabilirsiniz.  
 
 > [!Important] 
-> Şu anda v2.0 uç noktası yalnızca Azure AD kiracıları, ancak değil kişisel hesaplar için cihaz akışını destekler.  Başka bir deyişle, kiralanan bir uç nokta veya kuruluşlar uç nokta kullanmanız gerekir.  
+> Şu anda v2.0 uç noktası yalnızca Azure AD kiracıları, ancak değil kişisel hesaplar için cihaz akışını destekler.  Başka bir deyişle, bir kiracı olarak ayarlanmış bir uç nokta veya kuruluşlar uç nokta kullanmanız gerekir.  
 >
 > Bir Azure AD kiracısına davet kişisel hesaplar, cihaz akış grant, ancak yalnızca Kiracı bağlamında kullanmanız mümkün olacaktır.
 

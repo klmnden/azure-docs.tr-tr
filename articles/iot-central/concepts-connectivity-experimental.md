@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 47fde9099ed8172b83f9f12085c5aee219c4716c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 46e8c0185ec94d0ea3429f761b3760dcbccc25aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318028"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432626"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IOT Central, cihaz bağlantısı
 
@@ -33,9 +33,9 @@ DPS kullanarak sağlar:
 Bu nasıl yapılır makalesi aşağıdaki dört kullanım örneklerini açıklar:
 
 1. [SAS kullanarak tek bir cihazı hızlı bir şekilde bağlanın](#connect-a-single-device)
-1. [Cihazları uygun ölçekte SAS kullanarak bağlanma](#connect-devices-at-scale-using-shared-access-signatures)
+1. Cihazları uygun ölçekte SAS kullanarak bağlanma
 1. [Cihazları uygun ölçekte X.509 sertifikaları kullanarak bağlanma](#connect-devices-using-x509-certificates) bu üretim ortamları için önerilen yaklaşımdır.
-1. [İlk kayıt cihazları bağlayın](#connect-without-first-registering-devices) 
+1. İlk kayıt cihazları bağlayın
 
 ## <a name="connect-a-single-device"></a>Tek bir cihazı bağlayın
 
@@ -69,7 +69,7 @@ SAS kullanarak uygun ölçekte IOT Central aygıtlarını bağlamak için kaydet
 İçeri aktarılan cihazlar için bağlantı bilgilerini almak için [IOT Central uygulamanızdan bir CSV dosyasını dışarı](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json#export-devices).
 
 > [!NOTE]
-> İlk bunları IOT Central kayıt olmadan cihazları nasıl bağlayabileceğini bilgi edinmek için [ilk kayıt cihazları olmadan Bağlan](#connect-without-first-registering-devices).
+> İlk bunları IOT Central kayıt olmadan cihazları nasıl bağlayabileceğini bilgi edinmek için ilk kayıt cihazları Connect bakın.
 
 ### <a name="set-up-your-devices"></a>Cihazları ayarlama
 

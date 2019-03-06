@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820845"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439035"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Azure uygulama teslim paketiyle yük dengeleme
 
@@ -59,7 +59,7 @@ Genel Yönlendirme için bir genel yük dengeleyici Traffic Manager ve Azure ön
 | Traffic Manager | Azure Front Door Hizmeti |
 | --------------- | ------------------------ |
 |**Herhangi bir protokolü:** Traffic Manager DNS katmanında çalışır çünkü her türlü ağ trafiği yönlendirebilen; HTTP, TCP, UDP, vs. | **HTTP hızlandırma:** Ön kapısı ile Edge Microsoft'un ağ proxy trafiğidir.  Bu nedenle, HTTP (S) istek gecikme süresi ve aktarım hızı geliştirmeleri SSL anlaşması için gecikme süresini azaltma ve sık erişimli AFD bağlantılarından uygulamanıza kullanarak bakın.|
-|**Yönlendirme şirket içi:** Bir DNS katmanında yönlendirme, trafiği her zaman bir noktadan noktaya gider.  Şirket içi veri Merkezinize şube ofisinizde yönlendirme doğrudan bir yol alabilir; Traffic Manager kullanarak da kendi ağ üzerinde. | **Bağımsız ölçeklenebilirlik:** Ön kapısı HTTP isteği ile çalıştığı için farklı bir URL yolu için istekleri farklı arka uca yönlendirilmiş / bölgesel hizmet kuralları ve her uygulama mikro hizmet durumunu temel alan havuzları (mikro).|
+|**Yönlendirme şirket içi:** Bir DNS katmanında yönlendirme, trafiği her zaman bir noktadan noktaya gider.  Şube ofisinizde, şirket içi veri merkezine yönlendirme doğrudan bir yol alabilir; Traffic Manager kullanarak da kendi ağ üzerinde. | **Bağımsız ölçeklenebilirlik:** Ön kapısı HTTP isteği ile çalıştığı için farklı bir URL yolu için istekleri farklı arka uca yönlendirilmiş / bölgesel hizmet kuralları ve her uygulama mikro hizmet durumunu temel alan havuzları (mikro).|
 |**Faturalandırma biçimi:** DNS kullanıma dayalı faturalandırma Kullanıcılarınızla ve daha fazla kullanıcısı olan hizmetleri ölçeklenen, en yüksek kullanımı maliyetini azaltmak için plateaus. |**Satır içi güvenlik:** Ön kapısı, oran sınırlandırma ve IP trafiği, uygulamanızı ulaşmadan önce uçlarınıza korumanıza olanak acl'sinin gibi kuralları etkinleştirir. 
 
 </br>Performans, çalışabilirlik ve ön kapısı HTTP iş yükleriniz için güvenlik avantajları nedeniyle, müşterilerin ön kapısı, HTTP iş yükleri için kullanmanızı öneririz.    Traffic Manager ve ön kapısı paralel olarak tüm trafiği uygulamanız için hizmet vermek için kullanılabilir. 

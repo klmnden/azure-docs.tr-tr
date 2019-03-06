@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault - CLI ile geçici silmeyi kullanma
 description: Geçici silmeyi CLI kod parçalarını ile büyük/küçük harf örnekleri kullan
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: bryanla
-ms.openlocfilehash: f0c1db2274eea6281bd4a350909b79d048ad21c4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: mbaldwin
+ms.openlocfilehash: 5af9ac4b694eccddacebdf387992226930bf1125
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116732"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450299"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Key Vault geçici silmeyi CLI ile kullanma
 
@@ -195,7 +195,7 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 > [!IMPORTANT]
 > Bir anahtar kasası veya bağımlı nesnelerinin birinin temizleme, yani kurtarılabilir olmayacaktır kalıcı olarak silinir!
 
-Temizleme işlev, bir anahtar kasası nesne ya da daha önce geçici olarak silinen tüm bir key vault, kalıcı olarak silmek için kullanılır. Önceki bölümde gösterildiği gibi geçici silme özelliği etkin, anahtar kasasında depolanan nesnelere birden çok durumlarında gidebilir:
+Temizleme işlevi, bir anahtar kasası nesne ya da daha önce geçici olarak silinen tüm bir key vault, kalıcı olarak silmek için kullanılır. Önceki bölümde gösterildiği gibi geçici silme özelliği etkin, anahtar kasasında depolanan nesnelere birden çok durumlarında gidebilir:
 
 - **Etkin**: silmeden önce.
 - **Geçici olarak silinen**: hesabınız silindikten sonra listelenir ve kurtarılan etkin duruma geri mümkün.

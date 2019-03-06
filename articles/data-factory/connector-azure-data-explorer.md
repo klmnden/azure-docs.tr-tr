@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: orspod
-ms.openlocfilehash: 41cdae310fb9c2fc66ec9ed78ddc21596c9a5ba9
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 94cf153d7d88e0589edfb3c126c18e04e25e2ef2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317858"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431929"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Ya da Azure veri Gezgini'nde Azure Data Factory kullanarak veri kopyalama
 
@@ -29,7 +29,7 @@ Bu makalede, kopyalama etkinliği Azure Data Factory'de gelen veya giden veri ko
 Azure veri Gezgini'ne herhangi bir desteklenen kaynak veri deposundan veri kopyalayabilirsiniz. Ayrıca, Azure veri Gezgini'nden desteklenen havuz veri deposuna veri kopyalayabilirsiniz. Kopyalama etkinliği tarafından kaynak ve havuz desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md) tablo.
 
 >[!NOTE]
->/ İçin şirket içinde barındırılan tümleştirme çalışma zamanını kullanarak şirket içi veri deposuna veri gönderip buralardan Veri Gezgini Azure kopyalama 3.14 sürümünden itibaren desteklenir.
+>/ Azure Veri Gezgini üzerindeki şirket içinde barındırılan tümleştirme çalışma zamanını kullanarak şirket içi veri deposuna/deposundan veri kopyalamayı 3.14 sürümünden itibaren desteklenir.
 
 Azure Veri Gezgini Bağlayıcısı'nı aşağıdakileri sağlar:
 
@@ -181,7 +181,7 @@ Verileri Azure veri Gezgini'ne kopyalamak için kopyalama etkinliği Havuz tür�
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği havuz özelliği ayarlanmalıdır: **AzureDataExplorerSink** | Evet |
-| ingestionMappingName | Önceden oluşturulmuş adını **[CSV eşleme](/azure/kusto/management/mappings#csv-mapping)** Kusto tablosunda. Öğesine uygulanan Azure Veri Gezgini - kaynağından sütunlara eşlemek için **[tüm desteklenen depoları/biçimleri kaynak](copy-activity-overview.md#supported-data-stores-and-formats)** vb. dahil olmak üzere CSV/JSON/Avro biçimlendirir, kopyalama etkinliği kullanabilirsiniz [sütun eşleme](copy-activity-schema-and-type-mapping.md) (örtük olarak ada göre veya açıkça yapılandırılmış gibi) ve/veya Azure Veri Gezgini CSV eşlemeleri. | Hayır |
+| ingestionMappingName | Önceden oluşturulmuş adını **[eşleme](/azure/kusto/management/mappings#csv-mapping)** Kusto tablosunda. Öğesine uygulanan Azure Veri Gezgini - kaynağından sütunlara eşlemek için **[tüm desteklenen depoları/biçimleri kaynak](copy-activity-overview.md#supported-data-stores-and-formats)** vb. dahil olmak üzere CSV/JSON/Avro biçimlendirir, kopyalama etkinliği kullanabilirsiniz [sütun eşleme](copy-activity-schema-and-type-mapping.md) (örtük olarak ada göre veya açıkça yapılandırılmış gibi) ve/veya Azure Veri Gezgini eşlemeleri. | Hayır |
 
 **Örnek:**
 
@@ -196,7 +196,7 @@ Verileri Azure veri Gezgini'ne kopyalamak için kopyalama etkinliği Havuz tür�
             },
             "sink": {
                 "type": "AzureDataExplorerSink",
-                "ingestionMappingName": "<optional csv mapping name>"
+                "ingestionMappingName": "<optional Azure Data Explorer mapping name>"
             }
         },
         "inputs": [

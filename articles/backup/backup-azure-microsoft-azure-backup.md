@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: b94d6bd9cc129d80f3ece82c13df375abecafd26
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f81e7a0008c015c033d30045970fe1bd67597ff9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493453"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452207"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Yükleme ve Azure Backup sunucusu yükseltme
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Bu makalede, Microsoft Azure Backup sunucusu (MABS) kullanarak iş yüklerini ye
 >
 >
 
-Bir Azure sanal Makinesinde dağıtılan MABS sanal makinenin azure'a yedekleyebilirsiniz, ancak yedekleme işlemi etkinleştirmek için aynı etki alanında olması gerekir. Bir Azure VM yedekleme işlemi, sanal makineleri şirket içi yedekleme olarak aynı kalır, ancak azure'da MABS dağıtma bazı sınırlamaları vardır. Sınırlama hakkında daha fazla bilgi için bkz [bir Azure sanal makinesi olarak DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+Bir Azure sanal Makinesinde dağıtılan MABS sanal makinenin azure'a yedekleyebilirsiniz, ancak yedekleme işlemi etkinleştirmek için aynı etki alanında olması gerekir. Bir Azure VM yedekleme işlemi, şirket içi VM'lerin yedeklenmesi olarak aynı kalır, ancak azure'da MABS dağıtma bazı sınırlamaları vardır. Sınırlama hakkında daha fazla bilgi için bkz [bir Azure sanal makinesi olarak DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli vardır: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Resource Manager modeli kullanılarak dağıtılan Vm'leri geri yüklemek için bilgi ve yordamları verilmektedir.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: 08009ca7f9faaa75e593670c22cf864c12236e8b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9fea914fdf9b025fd5d38219a6bfc81b4a9cc584
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414708"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450313"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Azure'da yeni bir Linux sanal makine oluşturma Resource Manager dağıtım sorunlarını giderme
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -43,21 +43,21 @@ Sorun gidermeye başlamak için sorunla ilişkili hatanın tanımlamak için etk
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** genelleştirilmiş, Linux işletim sistemi olan ve karşıya yüklendi ve genelleştirilmiş ayarıyla yakalanan durumunda hataları olmaz. Benzer şekilde, işletim sistemi Linux özelleştirilmiş ve karşıya yüklendi ve özel ayarlarla yakalanan sonra olmayacaktır hataları.
+**Y:** Genelleştirilmiş bir Linux işletim sistemi olan ve karşıya yüklenen ve genelleştirilmiş ayarıyla yakalanan, ardından olmayacaktır hataları. Benzer şekilde, işletim sistemi Linux özelleştirilmiş ve karşıya yüklendi ve özel ayarlarla yakalanan sonra olmayacaktır hataları.
 
 **Karşıya yükleme hataları:**
 
-**N<sup>1</sup>:** işletim Sisteminin Linux genelleştirilmiş olarak karşıya ise VM sağlama aşamasında takılı olduğundan özelleştirilmiş, sağlama bir zaman aşımı hatası alırsınız.
+**N<sup>1</sup>:** İşletim sistemi Linux genelleştirilmiş olarak karşıya ise VM sağlama aşamasında takılı olduğundan özelleştirilmiş, sağlama bir zaman aşımı hatası alırsınız.
 
-**N<sup>2</sup>:** işletim Sisteminin Linux özelleştirilmiş ve genelleştirilmiş olarak yüklenmiş ise, yeni VM özgün bilgisayar adı, kullanıcı adı ve parola ile çalıştığı için sağlama hatası alırsınız.
+**N<sup>2</sup>:** İşletim sistemi Linux özelleştirilmiş ve genelleştirilmiş olarak yüklenmiş ise, yeni VM özgün bilgisayar adı, kullanıcı adı ve parola ile çalıştığı için sağlama hatası alırsınız.
 
 **Çözüm:**
 
-Hem bu hataları gidermek için özgün VHD, mevcut şirket içi, işletim sistemi (genelleştirilmiş/özel) olarak aynı ayarı ile karşıya yükleyin. Çalıştırılacak - genelleştirilmiş olarak yüklemek için unutmayın ilk sağlamasını kaldırma.
+Hem bu hataları gidermek için mevcut şirket içi, işletim sistemi (genelleştirilmiş/özel) olarak aynı ayarı ile özgün VHD karşıya yükleyin. Çalıştırılacak - genelleştirilmiş olarak yüklemek için unutmayın ilk sağlamasını kaldırma.
 
 **Hataları yakalamaya:**
 
-**N<sup>3</sup>:** genelleştirilmiş Linux işletim sistemi ve olarak yakalanır özgün VM genelleştirilmiş olarak işaretlenir kullanılabilir olmadığı için özelleştirilmiş, sağlama bir zaman aşımı hatası alırsınız.
+**N<sup>3</sup>:** İşletim sistemi Linux genelleştirilmiş olarak yakalanır ise özgün VM genelleştirilmiş olarak işaretlenir kullanılabilir olmadığı için özelleştirilmiş, sağlama bir zaman aşımı hatası alırsınız.
 
 **N<sup>4</sup>:** Linux özelleştirilmiş ve genelleştirilmiş olarak yakalanan işletim sistemi ise, yeni VM özgün bilgisayar adı, kullanıcı adı ve parola ile çalıştığı için sağlama hatası alırsınız. İşaretli olduğu için ayrıca orijinal VM kullanılamaz olarak özelleştirilmiş.
 
@@ -68,7 +68,7 @@ Hem bu hataları gidermek için geçerli görüntünün portaldan silin ve [geç
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Sorun: Özel / Galeri / Market görüntüsü; ayırma hatası
 Yeni VM istek, istenen VM boyutu destekleyemiyorsa veya isteği gerçekleştirmek için kullanılabilir boş alan yok bir kümeye sabitlenmiş durumlarda bu hata oluşur.
 
-**1. neden:** küme istenen VM boyutu destekleyemez.
+**1. neden:** Küme, istenen VM boyutu destekleyemez.
 
 **1. çözüm:**
 
@@ -79,7 +79,7 @@ Yeni VM istek, istenen VM boyutu destekleyemiyorsa veya isteği gerçekleştirme
   * Tüm sanal makineleri durdurduktan sonra istenen boyutu yeni bir VM oluşturun.
   * İlk olarak, yeni VM'yi başlatın ve ardından her biri durdurulmuş sanal makineler seçin ve tıklayın **Başlat**.
 
-**2. neden:** küme ücretsiz kaynak yok.
+**2. neden:** Kümenin boş kaynak yok.
 
 **2. çözüm:**
 

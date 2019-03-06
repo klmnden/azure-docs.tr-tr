@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453061"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432116"
 ---
 # <a name="what-is-computer-vision"></a>Görüntü İşleme nedir?
 
@@ -42,12 +42,11 @@ Algılayıp, görsel özelliklerini ve özellikler hakkında bilgiler sağlamak 
 |**[Küçük resim oluşturma](concept-generating-thumbnails.md)**|Görüntülere uygun küçük resimler oluşturmak üzere söz konusu görüntülerin içeriklerini analiz edin. Görüntü işleme ilk yüksek kaliteli bir küçük resim oluşturur ve ardından belirlemek için resim içindeki nesneleri analiz eder *ilgi*. Görüntü işleme, ardından ilgi alanı gereksinimlerini resmi kırpar. Oluşturulan küçük resim, ihtiyaçlarınız doğrultusunda, özgün görüntünün en boy oranından farklı bir en boy oranı kullanılarak sunulabilir.|
 |**[İlgi alanı Al](concept-generating-thumbnails.md#area-of-interest)**|Çözümle koordinatlarını döndürmek için bir görüntü içeriğini *ilgi*. Bu küçük resim oluşturma için kullanılan aynı işlevi, ancak orijinal görüntünün istediğiniz şekilde çağıran uygulama değiştirebilmesi görüntü kırpma yerine, görüntü işleme, bölge sınırlama kutusu koordinatları döndürür.|
 
-
 ## <a name="extract-text-from-images"></a>Metni ayıklayın
 
-Görüntü işleme için kullanabileceğiniz [optik karakter tanıma (OCR) ile metni Ayıkla](concept-extracting-text-ocr.md) görüntüsünden bir makine tarafından okunabilir bir karakter akışı halinde. Gerekirse, OCR tanınan metin döndürmesini düzeltir ve her sözcüğün çerçeve koordinatlarını sağlar. OCR, 25 dilleri desteklemektedir ve tanınan metin dili otomatik olarak algılar.
+Görüntü işleme bir makine tarafından okunabilir bir karakter akışı kullanılarak içine bir görüntüden metin ayıklamak için kullanabileceğiniz [optik karakter tanıma (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Gerekirse, OCR tanınan metin döndürmesini düzeltir ve her sözcüğün çerçeve koordinatlarını sağlar. OCR, 25 dilleri desteklemektedir ve tanınan metin dili otomatik olarak algılar.
 
-Ayrıca [yazdırılan ve el yazısı metinleri tanıma](concept-recognizing-text.md) görüntüdeki. Görüntü İşleme; makbuz, poster, kartvizit, mektup ve beyaz tahtalar gibi farklı yüzeylere ve arka planlara sahip çeşitli nesnelerin görüntülerindeki basılı ve el yazısıyla yazılmış metinleri algılayabilir ve ayıklayabilir. Şu anda, yazdırılan ve el yazısı metinleri tanıma Önizleme aşamasındadır ve yalnızca desteklenen dil İngilizce olarak belirlenmiştir. 
+Ayrıca [okuma API](concept-recognizing-text.md#read-api) görüntü ve metin ağırlıklı belgeleri yazdırılan ve el yazısı metinleri ayıklamak için. Okuma API'si, bir farklı yüzey ve arka planlar, giriş, posterler, kartvizit, harf ve beyaz tahtalar gibi farklı nesneleri için güncelleştirilmiş modelleri ve çalışır kullanır. Şu anda, okuma API Önizleme aşamasındadır ve yalnızca desteklenen dil İngilizce olarak belirlenmiştir.
 
 ## <a name="moderate-content-in-images"></a>Orta içeriklerin
 

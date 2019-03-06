@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4be483994bd7bc5bd97b1e59df230f66e9b4e24e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 034f7f6d8636ced748987c9b0e584790205c0083
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430355"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435312"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup mimarisi
 
@@ -138,7 +138,7 @@ Azure Vm'leri için denetim komutlarını internet erişimi gerektiğini unutmay
     - MARS Aracısı yalnızca Windows sistemi yazma anlık görüntü yakalamak için kullanır.
     - Aracı, herhangi bir uygulama VSS yazıcılarını kullanmaz ve bu nedenle uygulamayla tutarlı anlık görüntüleri yakalamaz.
 3. VSS anlık görüntü aldıktan sonra MARS Aracısı VHD yedekleme yapılandırıldığında, belirtilen önbellek klasöründe oluşturur ve her veri bloğu için sağlama toplamları depolar. 
-4. Geçici yedekleme çalıştırmadığınız sürece artımlı yedeklemeler belirttiğiniz zamanlamaya uygun olarak çalıştırın.
+4. Geçici bir yedekleme çalıştırmadığınız sürece artımlı yedeklemeler belirttiğiniz zamanlamaya uygun olarak çalıştırın.
 5. Artımlı yedeklemeler, değiştirilmiş dosyalar tanımlanır ve yeni bir VHD oluşturulur. Bu sıkıştırılmış ve şifrelenmiş ve kasaya gönderilir.
 6. Artımlı Yedekleme tamamlandıktan sonra yeni VHD için devam eden yedekleme karşılaştırma için kullanılacak en son durumu sağlama ilk çoğaltmadan sonra oluşturulan VHD ile birleştirilir. 
 

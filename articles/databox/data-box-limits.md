@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 5849611ad346fc5ef1f0efd1e262d2ace8097520
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2776433f01cae6c32eddc262ab9d42dad1c3936f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723461"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407264"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box sınırları
 
@@ -22,8 +22,8 @@ Limitler, dağıtmanıza ve Microsoft Azure Data Box'ınızı gibi düşünün. 
 
 ## <a name="data-box-service-limits"></a>Veri kutusu hizmeti sınırları
 
- - Birden çok depolama hesabında Data Box hizmeti ile kullanıyorsanız, tüm depolama hesapları aynı Azure bölgesine yalnızca ait olması gerekir.
- - En fazla üç depolama hesabı kullanmanızı öneririz. Daha fazla depolama hesaplarını kullanarak performans olumsuz etkilenebilir.
+ - Data Box hizmeti ile birden çok depolama hesabı kullanıyorsanız, tüm depolama hesapları aynı Azure bölgesine ait olmalıdır.
+ - En fazla üç depolama hesabı kullanmanızı öneririz. Daha fazla depolama hesaplarının kullanılması, potansiyel olarak performansı etkileyebilir.
 
 ## <a name="data-box-limits"></a>Veri kutusu sınırları
 
@@ -40,17 +40,17 @@ Azure depolama hizmet sınırları ve adlandırma paylaşımları, kapsayıcıla
 - [Blok blobları ve sayfa blob kuralları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
-> Herhangi bir dosya ya da Azure depolama hizmeti limitlerin ya da Azure dosya/Blob adlandırma kurallarına uygun olmayan dizin varsa, ardından bu dosyaları veya dizinleri Data Box hizmeti aracılığıyla Azure Depolama'ya alınan değil.
+> Herhangi bir dosya ya da Azure depolama hizmeti limitlerin ya da Azure dosya/Blob adlandırma kurallarına uygun olmayan dizin varsa, ardından bu dosyaları veya dizinleri Data Box hizmeti aracılığıyla Azure Depolama'ya alınan değildir.
 
 ## <a name="data-upload-caveats"></a>Uyarılar karşıya veri yükleme
 
-- Verileri doğrudan precreated paylaşımları hiçbirini altında kopyalamayın. Paylaşım altında bir klasör oluşturun ve ardından bu klasöre veri kopyalamak gerekir.
+- Dosyaları doğrudan precreated paylaşımları birine bulundurmanıza gerek yoktur. Paylaşım altında bir klasör oluşturun ve bu klasöre kopyalayın gerekir.
 - Bir klasörü altında *StorageAccount_BlockBlob* ve *StorageAccount_PageBlob* bir kapsayıcıdır. Örneğin, kapsayıcıları olarak oluşturulur *StorageAccount_BlockBlob/kapsayıcı* ve *StorageAccount_PageBlob/kapsayıcı*.
 - Doğrudan altında oluşturulan her klasörün *StorageAccount_AzureFiles* bir Azure dosya paylaşımına çevrilir.
 - Data Box, kopyalanan nesne olarak aynı ada sahip bir bulutta (örneğin, bir bloba veya bir dosya) var olan bir Azure nesne varsa, bulutta dosyanın üzerine yazar.
 - Her dosyanın içine yazılmış *StorageAccount_BlockBlob* ve *StorageAccount_PageBlob* paylaşımları yüklendiği bir blok blobu ve sayfa blobu olarak sırasıyla.
-- Azure blob depolama dizinlerini desteklemez. Bir klasörü altında oluşturursanız *StorageAccount_BlockBlob* klasörünü ve ardından sanal klasörler blob adı oluşturulur. Azure dosyaları için gerçek dizin yapısı korunur.
-- Herhangi bir boş (olmadan tüm dosyaları) dizin hiyerarşisi altında oluşturulan *StorageAccount_BlockBlob* ve *StorageAccount_PageBlob* klasörleri karşıya.
+- Azure blob Depolama dizinleri desteklememektedir. Bir klasörü altında oluşturursanız *StorageAccount_BlockBlob* klasörünü ve ardından sanal klasörler blob adı oluşturulur. Azure dosyaları için gerçek dizin yapısı korunur.
+- Herhangi bir boş (olmadan tüm dosyaları) dizin hiyerarşisi altında oluşturulan *StorageAccount_BlockBlob* ve *StorageAccount_PageBlob* değil klasörleri karşıya yüklendi.
 - Herhangi bir hata varsa verileri Azure'a karşıya yüklenirken bir hata günlüğü hedef depolama hesabında oluşturulur. Bu hata günlük yolunu karşıya yükleme tamamlandıktan ve düzeltme eylemi için günlüğü gözden geçirebilirsiniz kullanılabilir. Veri kaynağından karşıya yüklenen veriler doğrulamadan silmeyin.
 
 ## <a name="azure-storage-account-size-limits"></a>Azure depolama hesabı boyut sınırları
@@ -70,13 +70,14 @@ Azure nesnelerin yazılabilir boyutları aşağıda verilmiştir. Yüklenen tüm
 |-------------------|-----------------------------------------------------------|
 | Blok blobu        | ~ 4,75 TiB                                                 |
 | Sayfa blobu         | 8 TiB <br> Sayfa blob biçiminde yüklenen her dosya 512 bayt hizalı (tamsayı katı) olmalıdır, aksi takdirde yükleme başarısız olur. <br> VHD ve VHDX 512 bayt hizalı var. |
-| Azure dosya        | 1 TiB                                                      |
+| Azure Dosyaları        | 1 TiB                                                      |
+| Yönetilen diskler     | 4 TiB <br> Boyutu ve sınırları hakkında daha fazla bilgi için bkz: <li>[Standart SSD ölçeklenebilirlik hedefleri](../virtual-machines/windows/disks-types.md#standard-ssd)</li><li>[Premium SSD ölçeklenebilirlik hedefleri](../virtual-machines/windows/disks-types.md#standard-hdd)</li><li>[Standart hdd'lerin ölçeklenebilirlik hedefleri](../virtual-machines/windows/disks-types.md#premium-ssd)</li><li>[Fiyatlandırma ve faturalama yönetilen diskleri](../virtual-machines/windows/disks-types.md#billing)</li>                                                     |
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Azure blok blobu, sayfa blobu ve dosya adlandırma kuralları
 
 | Varlık                                       | Kurallar                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Kapsayıcı adları için blok blobu ve sayfa blobu | 3-63 karakter uzunluğunda olan geçerli bir DNS adı olmalıdır. <br>  Bir harf veya sayı ile başlamalıdır. <br> Yalnızca küçük harf, sayı ve tire (-) içerebilir. <br> Kısa çizgiden (-) hemen önce ve sonra bir harf veya rakam gelmelidir. <br> Adlarda kısa çizgiler art arda kullanılamaz. |
+| Kapsayıcı adları için blok blobu ve sayfa blobu | 3-63 karakter uzunluğunda olan geçerli bir DNS adı olmalıdır. <br>  Bir harf veya sayı ile başlamalıdır. <br> Yalnızca küçük harf, sayı ve tire (-) içerebilir. <br> Kısa çizgiden (-) hemen önce ve sonra bir harf veya rakam gelmelidir. <br> Art arda kısa çizgi adlarında izin. |
 | Azure dosyaları için paylaşım adları                  | Yukarıdakiyle aynı                                                                                                                                                                                                                                                                                                             |
-| Azure dosyaları için dizin ve dosya adları     |<li> Durum koruma, büyük/küçük harfe ve 255 karakterden uzun olmamalıdır. </li><li> (/) İleri eğik çizgiyle bitemez. </li><li>Sağlanırsa, otomatik olarak kaldırılacak. </li><li> Aşağıdaki karakterlere izin yok: ' "\ /: | < > *?'</li><li> Ayrılmış URL karakterleri doğru şekilde atlanmalıdır. </li><li> Geçersiz URL yolu karakterlere izin verilmez. Kod noktaları \uE000 gibi Unicode karakterler geçerli değil. Bazı ASCII veya Unicode karakterleri gibi denetim karakterleri (0x00 için 0x1F \u0081, vb.), izin verilmeyen de. Unicode yöneten kurallar için HTTP/1.1 dizelerde RFC 2616 ', bölüm 2.2 bakın: Temel kurallar ve RFC 3987. </li><li> Şu dosya adlarına izin verilmez: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, nokta karakteri (.) ve iki nokta karakteri (..).</li>|
+| Azure dosyaları için dizin ve dosya adları     |<li> Durum koruma, büyük/küçük harfe ve 255 karakterden uzun olmamalıdır. </li><li> (/) İleri eğik çizgiyle bitemez. </li><li>Sağlanırsa, otomatik olarak kaldırılacak. </li><li> Şu karakterler izin verilmiyor: ' "\ /: | < > * ?`</li><li> Ayrılmış URL karakterleri doğru şekilde atlanmalıdır. </li><li> Geçersiz URL yolu karakterler izin verilmez. Kod noktaları \uE000 gibi Unicode karakterler geçerli değildir. Bazı ASCII veya Unicode karakterleri gibi denetim karakterleri (0x00 için 0x1F \u0081, vb.), izin verilmeyen de. Unicode yöneten kurallar için HTTP/1.1 dizelerde RFC 2616 ', bölüm 2.2 bakın: Temel kurallar ve RFC 3987. </li><li> Şu dosya adlarına izin verilmez: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, nokta karakteri (.) ve iki nokta karakteri (..).</li>|
 | Blok blobu ve sayfa blobu için blob adları      | </li><li>Blob adları büyük/küçük harfe duyarlıdır ve karakterler herhangi bir düzende sıralanabilir. </li><li>Blob adı 1 ila 1024 karakter uzunluğunda olmalıdır. </li><li>Ayrılmış URL karakterleri doğru şekilde atlanmalıdır. </li><li>Blob adını oluşturan yolun bölümleri 254 karakterden uzun olamaz. Yol bölümü, arka arkaya gelen sınırlayıcı karakterlerinin (örneğin eğik çizgi "/") arasında yer alan ve bir sanal dizinin adına karşılık gelen dizedir.</li> |

@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57f7d72be86a05b9785f7714380363d9c6ddb5c6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205707"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436672"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD connect'teki bağlantı sorunlarını giderme
 Bu makalede, Azure AD Connect ve Azure AD arasındaki bağlantıyı nasıl çalıştığını ve bağlantı sorunlarını gidermek nasıl açıklanmaktadır. Bu proxy sunucusu olan bir ortamda görülebilmesi büyük olasılıkla sorunlardır.
@@ -76,7 +76,7 @@ Bu hata görünür uç nokta **https://secure.aadcdn.microsoftonline-p.com** ula
 
 ### <a name="the-password-cannot-be-verified"></a>Parola doğrulanamıyor
 Yükleme Sihirbazı'nı Azure AD'ye bağlanırken başarılı olduğu halde bu hatayı parola doğrulanamıyor varsa:  
-![badpassword](./media/tshoot-connect-connectivity/badpassword.png)
+![Hatalı parola.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * Parola geçici bir parola ve değiştirilmesi gerekiyor mu? Bu, gerçekten doğru parolayı mi? Oturum açmayı deneyen https://login.microsoftonline.com (başka bir Azure AD Connect sunucusundan bilgisayarda) ve hesabı kullanılabilir olduğunu doğrulayın.
 
@@ -165,7 +165,7 @@ Kimlik bilgilerinizin süresi dolmuş. Parolanızı değiştirin.
 ### <a name="authorization-failure"></a>Yetkilendirme hatası
 Azure AD'de eylemi gerçekleştirmek için kullanıcı yetkisi verilemedi.
 
-### <a name="authentication-cancelled"></a>Kimlik doğrulaması iptal edildi
+### <a name="authentication-canceled"></a>Kimlik doğrulaması iptal edildi
 Çok faktörlü kimlik doğrulaması (MFA) sınama iptal edildi.
 
 <div id="connect-msolservice-failed">

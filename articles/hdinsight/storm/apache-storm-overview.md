@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3bae6d93ffe7ea028d3329dcc69c2f33bdf7aa2a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: ce458328967337976ed713f78ead24e2f1fcdb96
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635468"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451290"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight’ta Apache Storm nedir?
 
@@ -48,7 +48,7 @@ HDInsight üzerinde Storm aşağıdaki özellikleri sunar:
 
 Gerçek zamanlı analiz çözümleri için Apache Storm kullanan şirketlerin listesi için bkz. [Apache Storm Kullanan Şirketler](https://storm.apache.org/documentation/Powered-By.html).
 
-Storm kullanmaya başlamak için bkz: [pache HDInsight üzerinde Storm ile çalışmaya başlama][gettingstarted].
+Storm kullanmaya başlamak için bkz: [HDInsight üzerinde Apache Storm ile çalışmaya başlama][gettingstarted].
 
 ## <a name="how-does-apache-storm-work"></a>Apache Storm nasıl çalışır
 
@@ -142,7 +142,7 @@ Daha fazla bilgi için apache.org sayfasındaki [Veri işleme garantileri](https
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-Bir girdi tanımlama grubunu okuma, sıfır veya daha fazla tanımlama grubu yayma ve yürütme yönteminin hemen sonrasında girdi tanımlama grubunu onaylama deseni yaygındır. Storm bu deseni otomatik hale getirmek için [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) arabirimini kullanır.
+Bir girdi tanımlama okuma, sıfır veya daha fazla tanımlama grubu yayma ve yürütme yönteminin hemen sonrasında girdi tanımlama olumsuz bildirimde bulunmaya deseni yaygındır. Storm bu deseni otomatik hale getirmek için [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) arabirimini kullanır.
 
 ### <a name="joins"></a>Birleştirme
 

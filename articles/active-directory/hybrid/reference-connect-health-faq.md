@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b653ee16864f5076cdad9d1dbc33e63b175ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bf1dc33276c10a9b7fe7c7ebb6619b8c47d66bfb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167618"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447838"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health hakkında sık sorulan sorular
 Bu makale, Azure Active Directory (Azure AD) Connect Health hakkında sık sorulan sorular (SSS) yanıtlarını içerir. Bu SSS, özellik, sınırlamalar ve Destek faturalandırma modeli içeren hizmetin nasıl kullanılacağını hakkında sorular kapsar.
@@ -155,7 +155,7 @@ Azure AD Connect Health AD FS için sistem durumu aracısı tarafından başlat�
 
 Genellikle AD FS grubu adını çözümlemek sistem durumu aracısı silemiyor çünkü bu test başarısız olur. AD FS sunucuları ağ yük dengeleyicilerini istek (aksine, önündeki yük dengeleyici olan normal bir istemci) yük dengeleyicinin arkasındaki olan düğümün başlatıldığı kullanıyorsanız bu durum ortaya çıkabilir. Bu, "AD FS sunucusunun IP adresini veya AD FS grubu adı (örneğin, sts.contoso.com) için bir geri döngü IP adresi (127.0.0.1) içerecek şekilde C:\Windows\System32\drivers\etc" altında bulunan "ana bilgisayarlar" dosyasını güncelleştirerek düzeltilebilir. Ana bilgisayar dosyası ekleme, böylece belirteci almak sistem durumu aracısı izin vererek ağ çağrısı, kısa devre oluşturur.
 
-**S: Son ransomeware saldırıları için makinelerime yama değil belirten bir e-posta aldım. Bu e-postayı neden aldınız mı?**
+**S: İçin son fidye yazılımı saldırılarında makinelerime yama değil belirten bir e-posta aldım. Bu e-postayı neden aldınız mı?**
 
 Azure AD Connect Health hizmeti tüm gerekli düzeltme eklerini emin olmak için izler makinelere yüklenen taranır. En az bir makine kritik düzeltme ekleri yoksa Kiracı yöneticilerine e-posta gönderildi. Aşağıdaki mantık, bunun belirlenmesi için kullanıldı.
 1. Makinede yüklü tüm düzeltmeler bulun.

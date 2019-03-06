@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0699686338a14ed6cc1ddcb076e14de86d0249d9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584403"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438619"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight kümesinde ML Hizmetleri yönetme
 
-Bu makalede, Azure HDInsight'ı uzaktan bir ML hizmetleri kümesine bağlanma birden çok eş zamanlı kullanıcı ekleme, değiştirme işlem bağlamı, vb. gibi görevleri gerçekleştirmek için var olan bir ML Hizmetleri kümede yönetme konusunda bilgi edinin.
+Bu makalede, var olan ML Hizmetleri bir işlem bağlamı, vb. bir ML Hizmetleri kümeye uzaktan bağlanma birden çok eş zamanlı kullanıcılar değiştirme, ekleme gibi görevleri gerçekleştirmek için Azure HDInsight kümesinde yönetme konusunda bilgi edinin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 manager: yuvalm
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kapsayıcılar
-ms.openlocfilehash: b614a517874363be95ff17d802995a927a15af2f
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ba5032e5d52d1fd70d0bfd4f1d677e17df7deffd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194641"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437454"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure geliştirme alanları ile CI/CD kullanın
 
@@ -46,6 +46,17 @@ azds space select -n dev
 
 Bir üst geliştirme alanı seçmeniz istendiğinde seçin  _\<hiçbiri\>_.
 
+Geliştirme alanınız oluşturulduktan sonra ana bilgisayar soneki belirlemeniz gerekir. Kullanım `azds show-context` Azure geliştirme alanları giriş denetleyicisinin ana bilgisayar soneki gösterilecek komutu.
+
+```cmd
+$ azds show-context
+Name   ResourceGroup    DevSpace  HostSuffix
+-----  ---------------  --------  ----------------------
+MyAKS  MyResourceGroup  dev       fedcba098.eus.azds.io
+```
+
+Yukarıdaki örnekte, ana bilgisayar soneki olan _fedcba098.eus.azds.io_. Bu değer daha sonra yayın tanımı oluşturulurken kullanılır.
+
 _Geliştirme_ geliştiriciler oluşturabilmeniz alanı, temel havuzun en son durumu her zaman içerir _alt alanları_ gelen _geliştirme_ kendi yalıtılmış değişiklikleri test etmek için daha büyük uygulama bağlamında. Bu kavram, geliştirme alanları öğreticilerde daha ayrıntılı olarak ele alınmıştır.
 
 ## <a name="creating-the-build-definition"></a>Derleme tanımı oluşturma
@@ -65,17 +76,17 @@ Devre dışı bırakma seçeneği:
 Seçtiğiniz dile bağlı olarak, benzer bir yolda iade YAML işlem hattı olmuştur: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
 Bu dosyadan bir işlem hattı oluşturmak için:
-1. DevOps proje ana sayfanızda, işlem hatlarına gidin > oluşturur
-1. Oluşturma seçeneğini bir **yeni** işlem hattı oluşturma
-1. Seçin **GitHub** gerekli ve seçin, kaynak olarak GitHub hesabınızı yetki _azds_updates_ daldan geliştirme alanları örnek uygulaması depo çatalı sürümünüz
-1. Seçin **yapılandırmayı kod olarak**, veya **YAML**, şablonunuzu olarak
-1. Artık, derleme işlem hattı için bir yapılandırma sayfasıyla da sunulur. Dile özgü yolunu girin yukarıda belirtildiği gibi **YAML dosyası yolu**. Örneğin, `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
-1. Değişkenler sekmesine gidin
+1. DevOps proje ana sayfanızda, işlem hatlarına gidin > oluşturur.
+1. Oluşturma seçeneğini bir **yeni** işlem hattı oluşturma.
+1. Seçin **GitHub** gerekli ve seçin, kaynak olarak GitHub hesabınızı yetki _azds_updates_ geliştirme alanları örnek uygulaması depo çatalı sürümünüz daldan.
+1. Seçin **yapılandırmayı kod olarak**, veya **YAML**, şablonunuzu olarak.
+1. Artık, derleme işlem hattı için bir yapılandırma sayfasıyla da sunulur. Gezinmek için dile özgü yolunu yukarıda belirtildiği gibi **YAML dosyası yolu** kullanarak **...**  düğmesi. Örneğin, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Git **değişkenleri** sekmesi.
 1. El ile eklemeniz _dockerId_ bir değişken olarak olan kullanıcı adını, [Azure Container Registry yönetici hesabı](../../container-registry/container-registry-authentication.md#admin-account). (Makale önkoşullarda belirtildiği)
 1. El ile eklemeniz _dockerPassword_ bir değişken olarak olduğu parolasını, [Azure Container Registry yönetici hesabı](../../container-registry/container-registry-authentication.md#admin-account). Belirttiğinizden emin olun _dockerPassword_ (kilit simgesini seçerek) bir gizli dizi olarak güvenlik amacıyla.
-1. Seçin **Kaydet ve kuyruğa al**
+1. Seçin **Kaydet ve kuyruğa**.
 
-Artık otomatik olarak oluşturacak bir CI çözüm sahip *mywebapi* ve *webfrontend* gönderiliyor herhangi bir güncelleştirme için _azds_updates_ çatalınızın GitHub dal. Docker görüntülerini gönderilen Azure portalında gezinme, Azure Container Registry'nize seçme ve gözatma doğrulayabilirsiniz _depoları_ sekmesinde:
+Artık otomatik olarak oluşturacak bir CI çözüm sahip *mywebapi* ve *webfrontend* gönderiliyor herhangi bir güncelleştirme için _azds_updates_ çatalınızın GitHub dal. Docker görüntülerini gönderilen Azure portalında gezinme, Azure Container Registry'nize seçme ve gözatma doğrulayabilirsiniz **depoları** sekmesi. Bu görüntüleri oluşturmak ve kapsayıcı kayıt defterinizde görünmesi birkaç dakika sürebilir.
 
 ![Azure Container Registry depoları](../media/common/ci-cd-images-verify.png)
 
@@ -83,31 +94,44 @@ Artık otomatik olarak oluşturacak bir CI çözüm sahip *mywebapi* ve *webfron
 
 1. DevOps proje ana sayfanızda, işlem hatlarına gidin > yayınlar
 1. Bir yayın tanımına henüz içermeyen yeni bir DevOps projesi içinde çalışıyorsanız, önce devam etmeden önce bir boş yayın tanımı oluşturmak gerekir. Var olan bir yayın tanımına sahip kadar içeri aktarma seçeneği kullanıcı Arabiriminde görüntülemez.
-1. Sol tarafta, tıklayın **+ yeni** düğmesine ve ardından'a tıklayın **bir işlem hattı içeri aktarma**
-1. .json dosyasını seçin `samples/release.json`
-1. Tamam'a tıklayın. Bildirim ardışık düzen Bölmesi ile yayın tanımı düzenleme sayfası yüklendi. Ayrıca unutmayın, yine de yapılandırılmalıdır kümeye özgü ayrıntıları gösteren bazı kırmızı uyarı simgeleri olur.
+1. Sol tarafta, tıklayın **+ yeni** düğmesine ve ardından'a tıklayın **bir işlem hattı alma**.
+1. Tıklayın **Gözat** seçip `samples/release.json` projenizden.
+1. **Tamam** düğmesine tıklayın. Bildirim ardışık düzen Bölmesi ile yayın tanımı düzenleme sayfası yüklendi. Ayrıca unutmayın, yine de yapılandırılmalıdır kümeye özgü ayrıntıları gösteren bazı kırmızı uyarı simgeleri olur.
 1. Ardışık Düzen bölmesi sol tarafta tıklayın **bir yapıt ekleme** Kabarcık.
-1. İçinde **kaynak** açılır listesinde, bu belgede biraz daha önce oluşturduğumuz derleme işlem hattını seçin.
-1. İçin **varsayılan sürüm**, seçme öneririz **derleme işlem hattı varsayılan daldan en son**. Herhangi bir etiket belirtmeniz gerekmez.
-1. Ayarlama **kaynak diğer adı** için `drop`. Önceden tanımlanmış sürüm görevlerini kullanmak **kaynak diğer adı** ayarlamanız gerekir.
+1. İçinde **kaynak** açılır menüsünde, yapı seçin, daha önce oluşturduğunuz kanal.
+1. İçin **varsayılan sürüm**, seçin **etiketlerle derleme işlem hattı varsayılan daldan en son**.
+1. Bırakın **etiketleri** boş.
+1. Ayarlama **kaynak diğer adı** için `drop`. **Kaynak diğer adı** değeri, önceden tanımlanmış sürüm görevler tarafından kullanılır, ayarlamanız gerekir.
 1. **Ekle**'ye tıklayın.
 1. Şimdi yeni oluşturulan ışık Şimşek simgesine tıklayın `drop` yapıt kaynağı, aşağıda gösterildiği gibi:
 
     ![Yayın yapıtı sürekli dağıtım kurulumu](../media/common/release-artifact-cd-setup.png)
-1. Etkinleştirme **sürekli dağıtım tetikleyicisi**
-1. Artık görev bölmesine gidin. _Geliştirme_ aşama belirlenmiş olmalıdır ve aşağıdaki gibi üç kırmızı açılan menü denetimlerini ile sunulan:
-
-    ![Yayın tanımı Kurulumu](../media/common/release-setup-tasks.png)
-1. Azure aboneliği, kaynak grubu ve Azure geliştirme alanları ile kullandığınız kümesi belirtin.
-1. Bu noktada kırmızı gösteren tek bir bölüm daha olmalıdır; **aracı işi** bölümü. Orada gidin ve belirtin **barındırılan Ubuntu 1604** Bu aşama için aracı havuzu.
-1. Üst, select görevler Seçici üzerine geldiğinizde _prod_.
-1. Azure aboneliği, kaynak grubu ve Azure geliştirme alanları ile kullandığınız kümesi belirtin.
-1. Altında **aracı işi**, yapılandırma **barındırılan Ubuntu 1604** aracı havuzu.
+1. Etkinleştirme **sürekli dağıtım tetikleyicisi**.
+1. Üzerine **görevleri** sonraki için sekmesinde **işlem hattı** tıklatıp _geliştirme_ düzenlemek için _geliştirme_ hazırlama görevleri.
+1. Doğrulama **Azure Resource Manager** altında seçili **bağlantı türü.** ve kırmızı renkte vurgulanmış üç açılan menü denetimlerini görebilirsiniz: ![Yayın tanımı Kurulumu](../media/common/release-setup-tasks.png)
+1. Azure geliştirme alanları ile kullandığınız Azure aboneliğini seçin. Tıklaymanız gerekebilir **Authorize**.
+1. Azure geliştirme alanları ile kullanmakta olduğunuz küme ve kaynak grubu seçin.
+1. Tıklayarak **aracı işi**.
+1. Seçin **barındırılan Ubuntu 1604** altında **aracı havuzu**.
+1. Üzerine **görevleri** en üstte seçiciyi _prod_ düzenlemek için _prod_ hazırlama görevleri.
+1. Doğrulama **Azure Resource Manager** altında seçili **bağlantı türü.** ve Azure aboneliği, kaynak grubu ve Azure Dev alanları ile kullanmakta olduğunuz küme seçin.
+1. Tıklayarak **aracı işi**.
+1. Seçin **barındırılan Ubuntu 1604** altında **aracı havuzu**.
+1. Tıklayın **değişkenleri** sürümünüzü değişkenleri güncelleştirmek için sekmesinde.
+1. Değerini güncelleştirin **DevSpacesHostSuffix** gelen **UPDATE_ME** , ana bilgisayar soneki için. Ana bilgisayar soneki çalıştırdığınızda görüntülenen `azds show-context` önceki komutu.
 1. Tıklayın **Kaydet** üst sağ ve **Tamam**.
 1. Tıklayın **+ yayın** (Kaydet düğmesinin yanındaki), ve **yayınlamaya**.
-1. En son derlemeden, derleme işlem hattı Yapıtlar bölümünde seçili ve isabet doğrulayın **Oluştur**.
+1. Altında **Yapıtları**, en son derlemeden, derleme işlem hattı seçildiğini doğrulayın.
+1. **Oluştur**’a tıklayın.
 
-Dağıtımı, otomatik sürüm işlemi hemen başlar *mywebapi* ve *webfrontend* grafikler için Kubernetes kümesi _geliştirme_ en üst düzey alanı. Azure DevOps web portalında sürümünüzü ilerlemesini izleyebilirsiniz.
+Dağıtımı, otomatik sürüm işlemi hemen başlar *mywebapi* ve *webfrontend* grafikler için Kubernetes kümesi _geliştirme_ en üst düzey alanı. Azure DevOps web portalında sürümünüzün ilerleme durumunu izleyebilirsiniz:
+
+1. Gidin **yayınlar** bölümüne **işlem hatları**.
+1. Sürüm ardışık örnek uygulama için tıklayın.
+1. En son sürüm adına tıklayın.
+1. Üzerine **geliştirme** altında kutusunda **aşamaları** tıklatıp **günlükleri**.
+
+Tüm görevler tamamlandığında yayını gerçekleştirilir.
 
 > [!TIP]
 > Sürümünüzü bir hata iletisi ile başarısız olursa ister *yükseltme başarısız oldu: koşul için beklenirken zaman aşımı oluştu*, kümenizdeki pod'ların inceleyerek deneyin [Kubernetes panosunu kullanarak](../../aks/kubernetes-dashboard.md). Pod'ların testlerden görürseniz hata iletileri ile başlamak istediğiniz *"azdsexample.azurecr.io/mywebapi:122" görüntü çekmek için başarısız oldu: rpc hata: kod = bilinmeyen desc arka plan programı hata yanıttan =: Alma https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: yetkisiz: kimlik doğrulaması gerekli*, kümenizi, Azure Container registry'den yetkilendirilmedi nedeni olabilir. Tamamladığınızdan emin olun [yetkilendirme, Azure Container Registry'den çekmek için AKS kümenizi](../../container-registry/container-registry-auth-aks.md) önkoşul.
@@ -115,31 +139,37 @@ Dağıtımı, otomatik sürüm işlemi hemen başlar *mywebapi* ve *webfrontend*
 Artık geliştirme alanları örnek uygulamaları kendi GitHub çatalınız için bir tam otomatik CI/CD işlem hattı sahipsiniz. Her zaman, işlemeyi ve göndermeyi kod, derleme işlem hattı oluşturacak ve anında iletme *mywebapi* ve *webfrontend* özel ACR Örneğinizdeki görüntüleri. Yayın işlem hattı, her uygulama için Helm grafiği dağıtacağınız sonra _geliştirme_ geliştirme alanları özellikli kümenizdeki alanı.
 
 ## <a name="accessing-your-dev-services"></a>Erişim, _geliştirme_ Hizmetleri
-Dağıtımdan sonra _geliştirme_ sürümünü *webfrontend* gibi genel bir URL ile erişilebilir: `http://dev.webfrontend.<hash>.<region>.aksapp.io`.
+Dağıtımdan sonra _geliştirme_ sürümünü *webfrontend* gibi genel bir URL ile erişilebilir: `http://dev.webfrontend.fedcba098.eus.azds.io`. Bu URL'yi çalıştırarak bulabilirsiniz `azds list-uri` komutu: 
 
-Bu URL'yi kullanarak bulabilirsiniz *kubectl* CLI:
 ```cmd
-kubectl get ingress -n dev webfrontend -o=jsonpath="{.spec.rules[0].host}"
+$ azds list-uris
+
+Uri                                           Status
+--------------------------------------------  ---------
+http://dev.webfrontend.fedcba098.eus.azds.io  Available
 ```
 
 ## <a name="deploying-to-production"></a>Üretim dağıtımı
-Tıklayın **Düzenle** olduğuna dikkat edin ve yayın tanımı üzerinde bir _prod_ tanımlı aşama:
-
-![Üretim aşaması](../media/common/prod-env.png)
 
 El ile belirli bir sürüme yükseltmek için _prod_ Bu öğreticide oluşturulan CI/CD sistemini kullanarak:
-1. Daha önce başarılı bir sürüm DevOps portalında açın
-1. 'Prod' aşaması gelme
-1. Select dağıtma
+1. Gidin **yayınlar** bölümüne **işlem hatları**.
+1. Sürüm ardışık örnek uygulama için tıklayın.
+1. En son sürüm adına tıklayın.
+1. Üzerine **prod** altında kutusunda **aşamaları** tıklatıp **Dağıt**.
+    ![Üretime Yükselt](../media/common/prod-promote.png)
+1. Üzerine **prod** altında yeniden kutusunda **aşamaları** tıklatıp **günlükleri**.
 
-![Üretime Yükselt](../media/common/prod-promote.png)
+Tüm görevler tamamlandığında yayını gerçekleştirilir.
 
-CI/CD işlem hattı Örneğimizdeki kullanır değişkenler için DNS ön ekini değiştirmek için *webfrontend* hangi ortamına bağlı olarak dağıtılır. 'Prod' hizmetlerinizi erişmek için bir URL gibi kullanabilirsiniz: `http://prod.webfrontend.<hash>.<region>.aksapp.io`.
+_Prod_ CI/CD ardışık düzen aşaması erişim sağlamak için geliştirme alanları giriş denetleyicisine yerine yük dengeleyicisini kullanır _prod_ Hizmetleri. Hizmetleri dağıtılan içinde _prod_ aşama, DNS adları yerine IP adresi olarak erişilebilir. Bir üretim ortamında, kendi DNS yapılandırmasına bağlı olarak, hizmetlerini barındırmak için kendi giriş denetleyicisi oluşturmak tercih edebilirsiniz.
 
-Dağıtımdan sonra bu URL'yi kullanarak bulabilirsiniz *kubectl* CLI: <!-- TODO update below to use list-uris when the product has been updated to list non-azds ingresses #769297 -->
+IP webfrontend hizmetinin belirlemek için tıklayın **yazdırma webfrontend genel IP** günlük çıktısını genişletmek için adım. Erişim için çıkış günlüğü görüntülenen IP **webfrontend** uygulama.
 
 ```cmd
-kubectl get ingress -n prod webfrontend -o=jsonpath="{.spec.rules[0].host}"
+...
+2019-02-25T22:53:02.3237187Z webfrontend can be accessed at http://52.170.231.44
+2019-02-25T22:53:02.3320366Z ##[section]Finishing: Print webfrontend public IP
+...
 ```
 
 ## <a name="dev-spaces-instrumentation-in-production"></a>Üretimde geliştirme alanları izleme

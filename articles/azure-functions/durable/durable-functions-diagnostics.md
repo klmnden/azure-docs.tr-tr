@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ac9abaaea7f33627332a9bc7563745b5efdf3d12
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118430"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436257"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Dayanıklı işlevler Azure tanılama
 
-Sorunları tanılamak için birkaç seçenek vardır [dayanıklı işlevler](durable-functions-overview.md). Bu seçeneklerden bazısı için normal işlevleri aynıdır ve bunlardan bazıları dayanıklı işlevler için benzersizdir.
+Sorunları tanılamak için birkaç seçenek vardır [dayanıklı işlevler](durable-functions-overview.md). Bu seçeneklerden bazıları normal işlevlerle aynıdır ve bazıları da Dayanıklı İşlevler için benzersizdir.
 
 ## <a name="application-insights"></a>Application Insights
 

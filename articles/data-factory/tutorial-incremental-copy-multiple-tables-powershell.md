@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 3902e6ae93159266de9f9e9cc0f355a37976a8ed
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2df8b8f201d4d028ac388556a830135f52ead845
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425671"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439460"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server’daki birden fazla tablodan Azure SQL veritabanı’na artımlı olarak veri yükleme
 Bu öğreticide, değişim verileri şirket içi SQL Server’daki birden çok tablodan Azure SQL Veritabanına yükleyen bir Azure veri fabrikası işlem hattı oluşturacaksınız.    
@@ -222,7 +222,10 @@ END
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-Az-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 1. Daha sonra PowerShell komutlarında kullanacağınız kaynak grubu adı için bir değişken tanımlayın. Aşağıdaki komut metnini PowerShell'e kopyalayın [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) için tırnak işaretleri içinde bir ad belirtin ve ardından komutu çalıştırın. `"adfrg"` bunun bir örneğidir. 
@@ -241,7 +244,7 @@ END
 1. Azure kaynak grubunu oluşturmak için aşağıdaki komutu çalıştırın: 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName $location
     ``` 
     Kaynak grubu zaten varsa, üzerine yazılmasını istemeyebilirsiniz. `$resourceGroupName` değişkenine farklı bir değer atayın ve komutu yeniden çalıştırın.
 
@@ -253,10 +256,10 @@ END
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
     ```
-1. Veri fabrikası oluşturmak için aşağıdaki **Set-AzureRmDataFactoryV2** cmdlet’ini çalıştırın: 
+1. Veri Fabrikası oluşturmak için aşağıdaki komutu çalıştırın. **kümesi AzDataFactoryV2** cmdlet: 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
 Aşağıdaki noktalara dikkat edin:
@@ -337,10 +340,10 @@ Bu adımda, şirket içi SQL Server veritabanınızı veri fabrikasına bağlars
 
 1. PowerShell’de C:\ADFTutorials\IncCopyMultiTableTutorial klasörüne geçiş yapın.
 
-1. AzureStorageLinkedService bağlı hizmetini oluşturmak için **Set-AzureRmDataFactoryV2LinkedService** cmdlet’ini çalıştırın. Aşağıdaki örnekte, *ResourceGroupName* ve *DataFactoryName* parametrelerinin değerlerini geçirirsiniz: 
+1. Çalıştırma **kümesi AzDataFactoryV2LinkedService** AzureStorageLinkedService bağlı hizmetini oluşturmak için cmdlet'i. Aşağıdaki örnekte, *ResourceGroupName* ve *DataFactoryName* parametrelerinin değerlerini geçirirsiniz: 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
     ```
 
     Örnek çıktı aşağıdaki gibidir:
@@ -369,10 +372,10 @@ Bu adımda, şirket içi SQL Server veritabanınızı veri fabrikasına bağlars
         }
     }
     ```
-1. PowerShell’de AzureSQLDatabaseLinkedService bağlı hizmetini oluşturmak için **Set-AzureRmDataFactoryV2LinkedService** cmdlet’ini çalıştırın. 
+1. PowerShell'de çalıştırın **kümesi AzDataFactoryV2LinkedService** AzureSQLDatabaseLinkedService bağlı hizmetini oluşturmak için cmdlet'i. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
     ```
 
     Örnek çıktı aşağıdaki gibidir:
@@ -410,10 +413,10 @@ Bu adımda veri kaynağı, veri hedefi ve eşiğin depolanacağı yeri temsil ed
 
     Tablo adı işlevsiz bir addır. İşlem hattındaki Kopyalama etkinliği, tüm tabloyu yüklemek yerine verileri yüklemek için bir SQL sorgusu kullanır.
 
-1. SourceDataset veri kümesini oluşturmak için **Set-AzureRmDataFactoryV2Dataset** cmdlet’ini çalıştırın.
+1. Çalıştırma **kümesi AzDataFactoryV2Dataset** SourceDataset veri kümesini oluşturmak için cmdlet'i.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Cmdlet’in örnek çıktısı aşağıdaki gibidir:
@@ -454,10 +457,10 @@ Bu adımda veri kaynağı, veri hedefi ve eşiğin depolanacağı yeri temsil ed
     }
     ```
 
-1. SinkDataset veri kümesini oluşturmak için **Set-AzureRmDataFactoryV2Dataset** cmdlet’ini çalıştırın.
+1. Çalıştırma **kümesi AzDataFactoryV2Dataset** SinkDataset veri kümesini oluşturmak için cmdlet'i.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Cmdlet’in örnek çıktısı aşağıdaki gibidir:
@@ -490,10 +493,10 @@ Bu adımda üst eşik değerini depolamak için bir veri kümesi oluşturacaksı
         }
     }    
     ```
-1. WatermarkDataset veri kümesini oluşturmak için **Set-AzureRmDataFactoryV2Dataset** cmdlet’ini çalıştırın.
+1. Çalıştırma **kümesi AzDataFactoryV2Dataset** WatermarkDataset veri kümesini oluşturmak için cmdlet'i.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     Cmdlet’in örnek çıktısı aşağıdaki gibidir:
@@ -652,10 +655,10 @@ Bu işlem hattı parametre olarak tablo adları listesini alır. ForEach etkinli
         }
     }
     ```
-1. IncrementalCopyPipeline işlem hattını oluşturmak için **Set-AzureRmDataFactoryV2Pipeline** cmdlet'ini çalıştırın.
+1. Çalıştırma **kümesi AzDataFactoryV2Pipeline** cmdlet'ini kullanarak Incrementalcopypipeline işlem hattını oluşturun.
     
    ```powershell
-   Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
+   Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
    ``` 
 
    Örnek çıktı aşağıdaki gibidir: 
@@ -691,10 +694,10 @@ Bu işlem hattı parametre olarak tablo adları listesini alır. ForEach etkinli
         ]
     }
     ```
-1. **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet’ini kullanarak IncrementalCopyPipeline işlem hattını çalıştırın. Yer tutucuları kendi kaynak grubu ve veri fabrikası adınızla değiştirin.
+1. Kullanarak Incrementalcopypipeline işlem hattını çalıştırın **Invoke-AzDataFactoryV2Pipeline** cmdlet'i. Yer tutucuları kendi kaynak grubu ve veri fabrikası adınızla değiştirin.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
+    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
     ``` 
 
 ## <a name="monitor-the-pipeline"></a>İşlem hattını izleme
@@ -796,7 +799,7 @@ VALUES
 1. Şimdi aşağıdaki PowerShell komutunu çalıştırarak işlem hattını yeniden çalıştırın:
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
+    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
 1. [İşlem hattını izleme](#monitor-the-pipeline) bölümündeki yönergeleri uygulayarak işlem hattı çalıştırmalarını izleyin. İşlem hattı **Sürüyor** durumunda olduğundan, **Eylemler** bölümünde işlem hattını iptal etmenizi sağlayan bir bağlantı daha görürsünüz. 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d325c30173955ff7c08099a125094ffe620c7ee3
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1b79b6870766f9595e731206bae2d4251d294942
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313387"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431335"
 ---
 # <a name="administer-your-iot-central-application"></a>IOT Central uygulamanızı yönetme
 
@@ -149,7 +149,7 @@ Anahtarlar ve sertifikalar buraya kullanarak uygulamanızı bir ölçekte cihazl
 
 ## <a name="use-access-tokens"></a>Erişim belirteçleri kullanma
 
-Geliştirici araçları kullanmaya erişim belirteçleri oluşturun. Şu anda IOT Central Gezgini cihaz iletilerini ve propreties ve ayarlarında yapılan değişiklikleri izlemek için bir geliştirici aracı kullanılabilir yoktur. IOT Central Gezgini hakkında daha fazla bilgi edinin. 
+Geliştirici araçları kullanmaya erişim belirteçleri oluşturun. Şu anda IOT Central Gezgini cihaz iletilerini ve özellikleri ve ayarlarında yapılan değişiklikleri izlemek için bir geliştirici aracı kullanılabilir yoktur. IOT Central Gezgini hakkında daha fazla bilgi edinin. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Denetim düzlemi işlemleri için Azure SDK'ları kullanın
 

@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: e08b38fcea152489455eb4b4f66e56bc609a09db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 725580a01c8dd60003cfc11910a3e5183624b1b1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251733"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437553"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows veri bilimi sanal makinesi üzerinde yapabileceğiniz on işlem
 
@@ -262,7 +262,7 @@ Kodu bir GitHub deposundan karşıdan yüklemek için kullandığınız ```git c
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-Visual Studio'da aynı kopyalama işlemi yapabilirsiniz. Aşağıdaki ekran görüntüsünde, Git ve GitHub araçlarını Visual Studio'da nasıl gösterir.
+Visual Studio'da aynı kopyalama işlemi yapabilirsiniz. Aşağıdaki ekran görüntüsünde, Visual Studio, Git ve GitHub araçlara erişmek gösterilmektedir.
 
 ![Ekran görüntüsü, Visual Studio ile görüntülenen GitHub bağlantısı](./media/vm-do-ten-things/VSGit.PNG)
 

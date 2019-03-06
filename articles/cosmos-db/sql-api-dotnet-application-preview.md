@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: e3ad852246b4b78d5ed7ac938348e59e9b7e6ce0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: fa2657fbc4e5fe734b8e026494351fef2aea1c2a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037132"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454213"
 ---
 # <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Öğretici: .Net Önizleme SDK'sını kullanarak Azure Cosmos DB ile bir ASP.NET MVC web uygulaması geliştirme 
 
@@ -28,7 +28,7 @@ ms.locfileid: "54037132"
 
 Bu öğreticide Azure üzerinde barındırılan bir ASP.NET MVC uygulaması erişim verileri ve depolamak için Azure Cosmos DB kullanmayı gösterir. Bu öğreticide kullandığınız .net SDK'sı V3, şu anda Önizleme. Aşağıdaki resimde, bu makaledeki örnek kullanarak derler web sayfası gösterilmektedir:
  
-![Bu öğreticiyle oluşturulan yapılacaklar listesi MVC web uygulamasının ekran görüntüsü - adım adım ASP.NET MVC öğreticisi](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
+![Yapılacaklar listesi MVC web uygulaması Bu öğretici - ASP NET MVC adım adım Öğreticisi tarafından oluşturulan ekran görüntüsü](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
 Öğreticiyi tamamlayacak zamanınız yoksa konumundan örnek projenin tamamını indirebilirsiniz [GitHub][GitHub]. 
 
@@ -91,7 +91,7 @@ Bu çözüm için gereken ASP.NET MVC çerçevesi kodu çoğunu, Azure Cosmos DB
 
 1. Azure Cosmos DB .NET SDK’sı, bir NuGet paketi olarak paketlenir ve dağıtılır. Visual Studio'da NuGet paketini almak için NuGet Paket Yöneticisi Visual Studio'da projeye sağ tıklayarak kullanmak **Çözüm Gezgini** seçip **NuGet paketlerini Yönet**.
    
-   ![NuGet Paketlerini Yönet vurgulanmış şekilde, Çözüm Gezgini'nde web uygulaması projesi için sağ tıklama seçeneklerinin ekran görüntüsü.](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
+   ![NuGet paketlerini Yönet vurgulanmış ile Çözüm Gezgini'nde web uygulaması projesi için sağ tıklama seçeneklerinin ekran görüntüsü.](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
    
 2. **NuGet Paketlerini Yönet** iletişim kutusu görünür. Nuget **Gözat** kutusuna **Microsoft.Azure.Cosmos**. Sonuçlardan yükleme **Microsoft.Azure.Cosmos** 3.0.0.1-preview sürümü. Bu indirmeleri ve Azure Cosmos DB paketini ve aynı zamanda Newtonsoft.Json gibi bağımlılıkları yükler. Seçin **Tamam** içinde **Önizleme** penceresinde ve **kabul ediyorum** içinde **lisans kabulü** yüklemeyi tamamlamak için penceresi.
    
@@ -129,7 +129,7 @@ Bu çözüm için gereken ASP.NET MVC çerçevesi kodu çoğunu, Azure Cosmos DB
 
 1. Seçin **MVC 5 denetleyici - boş** seçip **Ekle**.
 
-   ![MVC 5 Denetleyici - Boş seçeneği vurgulanmış şekilde İskele Ekle iletişim kutusunun ekran görüntüsü](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
+   ![MVC 5 denetleyici - boş seçeneği vurgulanmış İskele Ekle iletişim kutusunun ekran görüntüsü](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
 1. Yeni denetleyicinize adı ** Itemcontroller ve o dosyasındaki kodu aşağıdaki kodla değiştirin:
 
@@ -151,7 +151,7 @@ Ardından, aşağıdaki üç görünümleri oluşturalım:
 
 1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasör boş sağ **öğesi** eklediğiniz zaman Visual Studio için oluşturduğunuz klasöre  **Itemcontroller** daha önce tıklayın **Ekle**ve ardından **görünümü**.
    
-   ![Görünüm Ekle komutları vurgulanmış şekilde Visual Studio'nun oluşturduğu Öğe klasörünü gösteren Çözüm Gezgini'nin ekran görüntüsü](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
+   ![Çözüm Gezgini'nin ekran görüntüsü Görünüm Ekle komutları vurgulanmış Visual Studio'nun oluşturduğu öğe klasörünü gösteren](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
 
 2. İçinde **Görünüm Ekle** iletişim kutusunda, aşağıdaki değerleri güncelleştirin:
    
@@ -241,7 +241,7 @@ Burada yapılacak ilk şey, bağlanmasına ve Azure Cosmos DB için mantığı i
 
 Bu projeyi şimdi oluşturur ve çalıştırırsanız buna benzeyen bir şey görürsünüz.    
 
-![Bu veritabanı öğreticisi tarafından oluşturulan yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
+![Bu veritabanı Öğreticisi tarafından oluşturulan Yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
 
 
 ## <a name="run-the-application"></a>6. adım: Uygulamayı yerel olarak çalıştırma
@@ -250,7 +250,7 @@ Yerel makinenizde uygulamayı test etmek için aşağıdaki adımları kullanın
 
 1. Uygulamayı hata ayıklama modunda oluşturmak için Visual Studio'da F5 tuşuna basın. Bu işlemin uygulamayı oluşturması ve bir tarayıcıyı daha önce gördüğümüz boş kılavuz sayfasıyla başlatması gerekir:
    
-   ![Bu veritabanı öğreticisi tarafından oluşturulan yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
+   ![Bu veritabanı Öğreticisi tarafından oluşturulan Yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
        
 2. **Yeni Oluştur** bağlantısına tıklayın ve **Ad** ve **Açıklama** alanlarına değerler ekleyin. Bırakın **tamamlandı** onay kutusunu seçili Aksi halde yeni öğe tamamlanmış durumda eklenir ve ilk listede görünmez.
    
@@ -260,7 +260,7 @@ Yerel makinenizde uygulamayı test etmek için aşağıdaki adımları kullanın
   
 4. Listedeki bir **Öğe**'nin yanındaki **Düzenle**'ye tıklayın, böylece **Tamamlandı** bayrağı dahil olmak üzere nesnenizin herhangi bir özelliğini güncelleştirebileceğiniz **Düzenle** görünümüne gidersiniz. **Tamamlandı** bayrağını işaretler ve **Kaydet**'e tıklarsanız **Öğe** tamamlanmamış görevler listesinden kaldırılır.
    
-   ![Tamamlandı kutusu işaretlenmiş şekilde Dizin görünümünün ekran görüntüsü](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-completed-item.png)
+   ![Tamamlandı kutusu işaretlenmiş şekilde dizin görünümünün ekran görüntüsü](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-completed-item.png)
 
 5. Uygulamayı test ettikten sonra, uygulamanın hata ayıklamasını durdurmak için Ctrl+F5'e basın. Dağıtıma hazırsınız!
 

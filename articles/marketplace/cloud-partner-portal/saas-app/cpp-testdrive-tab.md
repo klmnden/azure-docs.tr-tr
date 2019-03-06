@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9d6b72a994b034b0bbc735e5cca2ce987a02af61
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0fa3638ef47fb8cb1d0237a2ab9530ab76d316dc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197474"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449277"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS uygulama Test Sürüşü sekmesi
 
@@ -33,7 +33,7 @@ Test sürüşü, müşterilere ürün uygulamasının temel özellikler ve avant
 
 ## <a name="how-a-test-drive-works"></a>Bir test sürüşüne nasıl çalışır?
 
-Bir müşteri adayını arar ve uygulamanızı Marketi'nde bulur. Müşteri açar ve kullanım koşullarını kabul eder. Bu noktada, müşteri ile takip etmek için yüksek oranda tam bir müşteri adayı alırken saat için sabit sayıda denemek için önceden yapılandırılmış ortamınıza alır. Daha fazla bilgi için [Test Sürüşü nedir?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)
+Bir müşteri adayını arar ve uygulamanızı Marketi'nde bulur. Müşteri açar ve kullanım koşullarını kabul eder. Bu noktada, müşteri ile takip etmek için yüksek oranda tam bir müşteri adayı alırken saat için sabit sayıda denemek için önceden yapılandırılmış ortamınıza alır. Daha fazla bilgi için [Test Sürüşü nedir?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
 ## <a name="publishing-steps"></a>Yayımlama adımları
 
@@ -49,9 +49,9 @@ Bir test sürücü eklemek için ana yayımlama adımlar şunlardır:
 Her ürün, senaryo ve Market üzeresiniz türüne göre kullanılabilir Test Sürüşleri, dört farklı türleri vardır.
 |  **Tür**          |  **Açıklama**  |  **Kurulum yönergeleri**  |
 |  ---------------   |  ---------------  |  ---------------  |
-|     Azure Resource Manager               |    Bir Azure Resource Manager Test Sürüşü yayımcı tarafından oluşturulan bir çözümünü oluşturan tüm Azure kaynaklarını içeren bir dağıtım şablonudur. Bu tür bir Test Sürüşü uygun ürünler, yalnızca Azure kaynakları şunlardır.               |       [Azure Resource Manager Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive)            |
-|       Şirket Dışında Barındırılan             |       Bir barındırılan Test Sürüşü Microsoft barındırma tarafından kurulumun karmaşıklığını ortadan kaldırır ve Test Sürüşü kullanıcı sağlama ve sağlamayı kaldırma gerçekleştiren hizmetin bakımını.             |         [Barındırılan Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive)          |
-|      Logic App              |       Mantıksal uygulamayı Test Sürüşü, tüm karmaşık çözüm mimarileri kapsayacak şekilde tasarlanmıştır bir dağıtım şablonudur. Tüm Dynamics uygulamaları ve özel ürünler bu tür bir Test Sürüşü kullanmanız gerekir.            |      [Mantıksal uygulamayı Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/logic-app-test-drive)             |
+|     Azure Resource Manager               |    Bir Azure Resource Manager Test Sürüşü yayımcı tarafından oluşturulan bir çözümünü oluşturan tüm Azure kaynaklarını içeren bir dağıtım şablonudur. Bu tür bir Test Sürüşü uygun ürünler, yalnızca Azure kaynakları şunlardır.               |       [Azure Resource Manager Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
+|       Şirket Dışında Barındırılan             |       Bir barındırılan Test Sürüşü Microsoft barındırma tarafından kurulumun karmaşıklığını ortadan kaldırır ve Test Sürüşü kullanıcı sağlama ve sağlamayı kaldırma gerçekleştiren hizmetin bakımını.             |         [Barındırılan Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
+|      Logic App              |       Mantıksal uygulamayı Test Sürüşü, tüm karmaşık çözüm mimarileri kapsayacak şekilde tasarlanmıştır bir dağıtım şablonudur. Tüm Dynamics uygulamaları ve özel ürünler bu tür bir Test Sürüşü kullanmanız gerekir.            |      [Mantıksal uygulamayı Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
 |       Power BI             |         Power BI Test Sürüşü özel oluşturulan bir panoya katıştırılmış bir bağlantı içerir. Test Sürüşü bu tür bir etkileşimli Power BI görsel kullanması gereken göstermek istediği herhangi bir ürünü. Karşıya yüklemek için ihtiyacınız olan, katıştırılmış Power BI URL'si.          |        [Power BI Test Sürüşü](#Power-BI-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Power BI test sürüşü
@@ -83,4 +83,4 @@ Bir test sürüşüne yapılandırmak için aşağıdaki adımları kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[StoreFront Ayrıntılar sekmesi](./cpp-storefront-tab.md)
+[Vitrin Ayrıntıları sekmesi](./cpp-storefront-tab.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 03e10497b033fc3d97fde4cd524b358c05fdc943
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648655"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457948"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -347,7 +347,7 @@ Standart SSD ve HDD standart büyük disk boyutlarını disk aktarım hızı eld
 
 **Hangi bölgeler 4 TiB desteklenenden daha büyük bir yönetilen disk boyutları misiniz?**
 
-Şu anda önizlemede yönetilen disk boyutları Batı Orta ABD, Kuzey Avrupa, Batı Avrupa, ABD Batı 2, ABD Doğu 2, ABD Doğu içinde desteklenir.
+Yönetilen disk boyutları 4 TiB ötesinde önizlemesi, kamu, Çin ve Almanya hariç tüm Azure üretim bölgelerde desteklenir. 
 
 **Yeni disk boyutları ana bilgisayar önbelleğe almayı etkinleştirme destekliyor musunuz?**
 

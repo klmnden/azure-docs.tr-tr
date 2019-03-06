@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fd33966a7c7d2ea72cdc98a23f601687d9577dde
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 058ed349e1aeb17dea7d550b9760082b464453f1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825216"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404140"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure VM'de SQL Server Always On kullanılabilirlik grubu yapılandırmak için Azure SQL VM CLI'yı kullanın
 Bu makalede nasıl kullanılacağını [Azure SQL VM CLI](https://docs.microsoft.com/mt-mt/cli/azure/ext/sqlvm-preview/sqlvm?view=azure-cli-2018-03-01-hybrid) Windows Yük devretme kümesi (WSFC) dağıtın ve SQL Server Vm'leri kümeye eklemek, hem de iç Load Balancer ve Always On kullanılabilirlik grubu dinleyicisi oluşturmak için.  Gerçek dağıtım Always On kullanılabilirlik grubu hala el ile SQL Server Management Studio (SSMS) aracılığıyla gerçekleştirilir. 
@@ -151,6 +151,6 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 * [Always On kullanılabilirlik grupları genel bakış &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)   
 * [Sunucu örneği için Always On kullanılabilirlik grupları yapılandırmasını &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/configuration-of-a-server-instance-for-always-on-availability-groups-sql-server)   
 * [Bir kullanılabilirlik grubunun Yönetim &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
-* [Kullanılabilirlik gruplarını izleme &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server.md)
+* [Kullanılabilirlik gruplarını izleme &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
 * [Always On kullanılabilirlik grupları için Transact-SQL deyimlerine genel bakış &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
 * [Always On kullanılabilirlik grupları için PowerShell cmdlet'leri bakış &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  

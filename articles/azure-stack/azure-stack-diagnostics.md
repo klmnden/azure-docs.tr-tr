@@ -11,12 +11,12 @@ ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: bd1994aca3dbbc23977b01d3511f87b5ec08b96d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 41609a75efec6c15d894b61867fb9d3ae727dc8c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251869"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440565"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack tanılama araçları
 
@@ -163,7 +163,7 @@ Get-AzureStackLog bir ASDK ana bilgisayarda çalıştırmak için aşağıdaki a
     -   ACS günlükleri toplanır *depolama* ve *ACS* rolleri.
 
 > [!NOTE]
-> Boyutu ve yaş sınırı, günlükleriyle yığılma katılmaz emin olmak için depolama alanınızı etkili kullanımını sağlamak için temel olarak toplanan günlüklerde uygulanır. Ancak, bir sorun özel durumunda tanılama yaparken, bazen bu limitleri nedeniyle bulunmayabilir günlükleri gerekir. Bu nedenle, **kesinlikle önerilir** günlüklerinizi bir dış depolama alanı (Azure depolama hesabında, ek şirket içi depolama cihazı vb.) için yük boşaltma 8 ila 12 saatte bir ve orada bağlı olarak, 1-3 ay tutun, gereksinimleri. Ayrıca, bu depolama konumu şifrelendiğinden emin olun.
+> Boyutu ve yaş sınırı, günlükleriyle yığılma katılmaz emin olmak için depolama alanınızı etkili kullanımını sağlamak için temel olarak toplanan günlüklerde uygulanır. Ancak, bir sorun özel durumunda tanılama yaparken, bazen bu limitleri nedeniyle bulunmayabilir günlükleri gerekir. Bu nedenle, **kesinlikle önerilir** 8 ila 12 saatte bir dış depolama alanını (azure'da, şirket içi depolama aygıtında vb. ek bir depolama hesabı) günlüklerinizi yük boşaltma ve orada bağlı olarak, 1-3 ay tutun, gereksinimleri. Ayrıca, bu depolama konumu şifrelendiğinden emin olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Microsoft Azure Stack sorunlarını giderme](azure-stack-troubleshooting.md)

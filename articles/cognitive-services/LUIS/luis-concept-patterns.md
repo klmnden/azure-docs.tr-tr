@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1c408a77f0bdd097db1fb462fa06245133773b71
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: af73d78b911d59f68c5e824931b5634d8c69f309
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195396"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449011"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Desenlerini tahmin doğruluğunu artırmak
 Desenler, çeşitli konuşma çok benzer olduğunda doğruluğunu artırmak için tasarlanmıştır.  Bir desen çok daha fazla konuşma sağlamadan bir amaç için daha yüksek doğruluk derecesi elde etmek sağlar. 
@@ -62,7 +62,7 @@ Varlıkları desenleri süslü ayraç tarafından çevrilmiş `{}`. Desenler, va
 
 Desen sözdizimi, aşağıdaki söz dizimini destekler:
 
-|İşlev|Sözdizimi|[İç içe geçme düzeyi](#nesting-syntax)|Örnek|
+|İşlev|Sözdizimi|İç içe geçme düzeyi|Örnek|
 |--|--|--|--|
 |varlık| {} -süslü ayraç|2|{Entity-adı} form nerede?|
 |isteğe bağlı|[] - köşeli ayraç<BR><BR>Bir sınırı isteğe bağlıdır ve gruplandırma herhangi bir birleşimini iç içe geçme düzeyi 3 |2|Soru işareti olan isteğe bağlı [?]|
@@ -167,7 +167,7 @@ Bu özel durumun desen için düzeltmek için ekleme `the man from la mancha` {s
 |İsteğe bağlı metin deseni|Anlamı|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` ve `from {person}` isteğe bağlıdır|
-|' Me [?] Yardım | Noktalama işareti isteğe bağlıdır.|
+|' Me [?] yardımcı olabilir|Noktalama işareti isteğe bağlıdır.|
 
 Noktalama işaretleri (`?`, `!`, `.`) yoksayılıp yoksayılmaması gerektiğini ve desenleri köşeli parantez sözdizimini kullanarak bunların yoksayılması gerekir. 
 

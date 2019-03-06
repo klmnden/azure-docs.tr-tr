@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7f38ef5076472954672cb721874891539802e7f1
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 8417b849ad7589ce6a770eb805c38a13e3c672dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593276"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448773"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL veritabanı veri bulma & sınıflandırma
 
@@ -31,7 +31,7 @@ Bulma ve sınıflandırma en hassas verileriniz (iş, Finans, sağlık hizmeti, 
 Veri bulma & sınıflandırma parçası olan [gelişmiş veri güvenliği](sql-database-advanced-data-security.md) (REKLAM) sunumunun Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Veri bulma & sınıflandırma erişilen ve merkezi SQL REKLAM portalı üzerinden yönetilebilir.
 
 > [!NOTE]
-> Bu belge, Azure SQL veritabanı'na yalnızca ilişkilendirir. SQL Server (şirket içi) için bkz: [SQL veri bulma ve sınıflandırma](https://go.microsoft.com/fwlink/?linkid=866999).
+> Bu belge, Azure SQL veritabanı'na yalnızca ilişkilendirir. (Şirket içi) SQL Server için bkz: [SQL veri bulma ve sınıflandırma](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Veri bulma & sınıflandırma nedir
 

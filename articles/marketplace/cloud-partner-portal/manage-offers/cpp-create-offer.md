@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 9b53a26f5163eae17198302fc26c079185cb7bd8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: af9b34d90098409135020fa8a45ecd0253f25b22
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355747"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454553"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Azure Market ve AppSource teklifler oluşturun
 
@@ -55,7 +55,7 @@ Bir teklifi oluştururken, sol taraftaki dikey sütununda bulunan her sekmede ge
 |      --------       |   -------                                                            |
 | **Teklif ayarları**  | Teklif ve yayımcı kimliği bilgi toplar.                    |
 | **SKU'lar**            | Her teklife stok tutma birimini (STB) sürümü için teknik ve işletmeye özelliklerini tanımlar |
-| **Test Sürüşü**      | İsteğe bağlı bu özelliği destekleyen türleri için bir gösterimi için teklifinizi tanımlar.  Daha fazla bilgi için [Test Sürüşü nedir?](../../cloud-partner-portal-orig/what-is-test-drive.md)  |
+| **Test Sürüşü**      | İsteğe bağlı bu özelliği destekleyen türleri için bir gösterimi için teklifinizi tanımlar.  Daha fazla bilgi için [Test Sürüşü nedir?](../test-drive/what-is-test-drive.md)  |
 | **Market** veya **mağaza** | Metin dizelerinin, belgeler ve teklif Market'te listelemek için kullanılan görüntüler toplar |
 | **Destek**         | Müşteri, mühendislik ve çevrimiçi destek iletişim bilgileri toplar  |
 |  |  |

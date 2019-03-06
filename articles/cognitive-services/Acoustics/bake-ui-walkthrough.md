@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: ce377234cceb22bc2c6979bedd92d800355e75da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f567e66a1e84dccaa18db550f30d6bb34ad8162
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872093"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442945"
 ---
 # <a name="bake-acoustics"></a>Akustik hazırlama
 
@@ -243,7 +243,7 @@ en az 8 çekirdek ve 32 GB RAM veya üzerinin 64 bit Intel işlemci.
 ### <a name="setup-docker"></a>Docker Kurulumu
 Yükleme ve Docker benzetim işleyen bilgisayarda yapılandırma-
 1. Yükleme [Docker araç takımı](https://www.docker.com/products/docker-desktop).
-2. Docker ayarları başlatın, "Gelişmiş" seçeneğine gidin ve 8 GB RAM leat olması için kaynakları yapılandırma. Daha fazla CPU'ları için Docker ayırabilirsiniz, hazırlama daha hızlı tamamlanır. ![Örnek Docker ayarları](media/DockerSettings.png)
+2. Docker ayarları başlatın, "Gelişmiş" seçeneğine gidin ve en az 8 GB RAM'e sahip için kaynakları yapılandırma. Daha fazla CPU'ları için Docker ayırabilirsiniz, hazırlama daha hızlı tamamlanır. ![Örnek Docker ayarları](media/DockerSettings.png)
 3. "Paylaşılan sürücüler için" gidin ve işleme için kullanılan sürücü için paylaşımı etkinleştirin.![DockerDriveSharing](media/DockerSharedDrives.png)
 
 ### <a name="run-local-bake"></a>Yerel çalışma hazırlama

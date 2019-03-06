@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: f0d3641800d8ec2f9fd403b006e81af04444c143
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a6e4f816d3c5be9d3a4f4824ad7ed26d48763034
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813135"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433283"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçlara bağlayın
 
@@ -289,7 +289,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - doğru kullanıcı adı, parola, istemci Kimliğini ve istemci gizli anahtarı bağlantıların her biri için girdiğiniz emin olun.  
     - karşılık gelen ITSM ürününde bağlantı kurmak için yeterli ayrıcalıklara sahip olup olmadığını denetleyin.  
  - Service Manager bağlantıları için  
-    - Web uygulaması başarıyla dağıtılır ve karma bağlantı oluşturuldu emin olun. Service Manager şirket içi makine ile bağlantı kurulur başarıyla doğrulamak için Web uygulaması URL'si için yapma belgelerinde açıklandığı ziyaret [karma bağlantı](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+    - Web uygulaması başarıyla dağıtılır ve karma bağlantı oluşturuldu emin olun. Şirket içi Service Manager makineyle bağlantı kurulan başarıyla doğrulamak için Web uygulaması URL'si için yapma belgelerinde açıklandığı ziyaret [karma bağlantı](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  ServiceNow verileri Log Analytics'e eşitlenmediğinden, ServiceNow örneği değil uyku emin olun. Servicenow'ı geliştirme örnekleri, bazen boştayken uzun bir süre için uyku moduna geçer. Aksi takdirde, sorunu bildirin.
 3.  Log Analytics uyarılarını yangın ancak iş öğeleri ITSM ürününde oluşturulmamış veya yapılandırma öğeleri oluşturulan/herhangi diğer genel bilgi için aşağıdaki konumlarda bakın veya iş öğelerine bağlı değildir:

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory'de uygulama parolaları yönetme | Microsoft Docs
-description: Bu sayfa, kullanıcıların iki aşamalı doğrulama için uygulama parolaları nedir ve ne ile kullanıldıkları Algıla anlamasına yardımcı olur.
+title: Uygulama parolaları - Azure Active Directory yönetme | Microsoft Docs
+description: Uygulama parolaları ve ne olduğu hakkında bilgi edinmek için iki aşamalı doğrulama ile ilgili olarak kullanılır.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,13 +12,14 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdcd078714d8311cf59471492187314183de28b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ee21080fd95815289f73654cc5bc650296c8e8dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187313"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433374"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>İki aşamalı doğrulama için uygulama parolaları yönetme
 

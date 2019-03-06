@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 03/03/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 038716161845e94011688e8af80a5d4830ac1a5b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9e15f2e1b064ec2e64bfa8254075eac5bc801115
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338153"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442622"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -49,7 +49,7 @@ Lisanslama SSS bölümümüzü edinmek [burada](https://aka.ms/asr_pricing_FAQ) 
 
 ### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>Nasıl miyim yaklaşık ücretleri Site Recovery kullanım sırasında hesaplayabilirsiniz?
 
-Kullanabileceğiniz [fiyatlandırma hesaplayıcısını](https://aka.ms/asr_pricing_calculator) Azure Site RECOVERY'yi kullanırken maliyetlerini tahmin etmek için. Maliyetleri ayrıntılı tahmin için dağıtım Planlayıcısı aracını çalıştırın (https://aka.ms/siterecovery_deployment_planner) ve analiz edeceğinizi [maliyet tahmini raporunu](https://aka.ms/asr_DP_costreport).
+Kullanabileceğiniz [fiyatlandırma hesaplayıcısını](https://aka.ms/asr_pricing_calculator) Azure Site RECOVERY'yi kullanırken maliyetlerini tahmin etmek için. Maliyetleri ayrıntılı tahmin için dağıtım Planlayıcısı aracını çalıştırın (https://aka.ms/siterecovery_deployment_planner) ve analiz [maliyet tahmini raporunu](https://aka.ms/asr_DP_costreport).
 
 ### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Bir aydan uzun süredir Azure Site Recovery kullanıcısıyım. Yine de korunan her örnek için ilk 31 gün ücretsiz mi olacak?
 
@@ -165,7 +165,7 @@ Evet, bunlar için çoğaltmayı etkinleştirdiğinizde, mevcut bir çoğaltma g
 
 Azure'a VMware çoğaltma için disk boyutunu değiştirebilirsiniz. Yeni diskler eklemek istiyorsanız disk ekleyin ve VM için korumayı etkinleştirmeniz gerekir.
 
-### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Şirket içi makineler için yeni bir Vcenter sürmekte olan çoğaltmayı etkilemeden geçişini sağlayabilir miyim?
+### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Şirket içi makinede yeni bir Vcenter sürmekte olan çoğaltmayı etkilemeden geçişini sağlayabilir miyim?
 Hayır, Vcenter veya geçiş değişiklik sürmekte olan çoğaltmayı etkiler. ASR ile yeni Vcenter ayarlama ve makineler için çoğaltma etkinleştirmeniz gerekir.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Yapılandırılmış bir Vnet'e (Azure depolama güvenlik duvarları) sahip bir önbellek/hedef depolama hesabına çoğaltabilir miyim?

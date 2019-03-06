@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d976a1c5e9366069b82cff718593ce72d7ad8a08
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588951"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457956"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Azure portalında bir ad alanı oluşturma
 Azure'da Service Bus mesajlaşma varlıklarını kullanmaya başlamak için öncelikle Azure'da benzersiz olan bir ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
@@ -25,7 +25,7 @@ Ad alanı oluşturmak için:
 
     ![Kaynak Oluştur tümleştirme -> Service Bus ->](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
 3. İçinde **ad alanı oluşturma** iletişim kutusunda, aşağıdaki adımları uygulayın: 
-    1. Girin bir **ad alanı adı**. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
+    1. Girin bir **ad alanı adı**. Adın kullanılabilirliği sistem tarafından hemen denetlenir. Namespaces adlandırma kurallarının bir listesi için bkz. [Namespace REST API oluşturma](/rest/api/servicebus/create-namespace).
     2. Ad alanı için fiyatlandırma katmanını (temel, standart veya Premium) seçin. Kullanmak istiyorsanız [konuları ve abonelikleri](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), standart veya Premium seçin. Konular/abonelikler, Temel fiyatlandırma katmanında desteklenmez.
     3. Seçtiyseniz **Premium** fiyatlandırma katmanında, şu adımları izleyin: 
         1. Sayısını **Mesajlaşma birimleri**. Premium katmanı, her iş yükü yalıtımlı şekilde çalışır. böylece CPU ve bellek düzeyinde kaynak yalıtımına sunar. Bu kaynak kapsayıcısı Mesajlaşma birimi olarak adlandırılır. Bir premium ad alanı en az bir Mesajlaşma birimi var. 1, 2 veya 4 Mesajlaşma birimi her Service Bus Premium ad alanı için seçebilirsiniz. Daha fazla bilgi için [Service Bus Premium Mesajlaşma](../articles/service-bus-messaging/service-bus-premium-messaging.md).

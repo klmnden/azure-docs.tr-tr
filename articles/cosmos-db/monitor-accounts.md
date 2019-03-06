@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 9c307bbbef7b9eecc980dc6013c317f1ee231a0c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a12e0f567747b67c67f7bc825df1079d852e2f16
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034310"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448247"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB performans ve depolama ölçümlerini izleyin
 
@@ -50,7 +50,7 @@ Hesap sayfasında, yeni ölçümler sayfası veya Azure İzleyici ölçümleri g
 ## <a name="set-up-alerts-in-the-portal"></a>Portalında uyarıları ayarlama
 1. İçinde [Azure portalında](https://portal.azure.com/), tıklayın **tüm hizmetleri**, tıklayın **Azure Cosmos DB**ve ardından, istediğiniz performansını ayarlamak Azure Cosmos DB hesabının adına tıklayın Ölçüm uyarıları.
 2. Kaynak menüden **uyarı kuralları** uyarı kuralları sayfasını açmak için.  
-   ![Uyarı ekran görüntüsü bölümü seçili kuralları](./media/monitor-accounts/madocdb10.5.png)
+   ![Seçili uyarı kuralları bölümünün ekran görüntüsü](./media/monitor-accounts/madocdb10.5.png)
 3. İçinde **uyarı kuralları** sayfasında **uyarısı Ekle**.  
    ![Uyarı Ekle düğmesi vurgulanmış uyarı kuralları sayfasının ekran görüntüsü](./media/monitor-accounts/madocdb11.png)
 4. İçinde **bir uyarı kuralı Ekle** sayfasında, belirtin:
@@ -61,7 +61,7 @@ Hesap sayfasında, yeni ölçümler sayfası veya Azure İzleyici ölçümleri g
    * Ne zaman uyarı etkinleştirir belirlemek koşulu, eşiği ve dönem. Örneğin, bir sunucu hatası sayısı 5'ten büyük son 15 dakika boyunca.
    * Uyarı tetiklendiğinde olup diğer yöneticiler ve Hizmet Yöneticisi e-posta gönderilir.
    * Uyarı bildirimleri için ek e-posta adresleri.  
-     ![Bir uyarı kuralı sayfasının ekran görüntüsü Ekle](./media/monitor-accounts/madocdb12.png)
+     ![Bir uyarı kuralı Sayfası Ekle ekran görüntüsü](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Azure Cosmos DB program aracılığıyla izleyin
 Hesap düzeyindeki ölçümleri hesap depolama kullanım ve toplam istekleri gibi Portalı'nda SQL API'leri üzerinden kullanılabilir değil. Ancak, SQL API'leri kullanarak koleksiyon düzeyinde kullanım verileri alabilir. Koleksiyon düzeyi verileri almak için aşağıdakileri yapın:

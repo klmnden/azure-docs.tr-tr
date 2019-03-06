@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 67d86ca7ed79f431bf762d4a3679e18a7b4bc373
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7fa2dad124b5ef9e93402d6d4c03d956b00184af
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990232"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442385"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış
 
@@ -45,7 +45,7 @@ Kanal oluşturduğunuzda Media Services 2.10 sürüm ile başlayarak, kanalını
 > [!NOTE]
 > Bu makalede, gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş değil kanallar öznitelikleri açıklanmaktadır. Gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanallar ile çalışma hakkında daha fazla bilgi için bkz: [Çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services'i kullanarak canlı akış](media-services-manage-live-encoder-enabled-channels.md).
 >
->Önerilen şirket içi Kodlayıcıları hakkında daha fazla bilgi için bkz. [şirket içi Kodlayıcıları önerilen](media-services-recommended-encoders.md).
+>Şirket içi Kodlayıcıları, önerilen hakkında bilgi için bkz [şirket içi Kodlayıcıları önerilen](media-services-recommended-encoders.md).
 
 Aşağıdaki diyagramda bir şirket içi Canlı Kodlayıcı, Çoklu bit hızlı RTMP veya parçalanmış MP4 kullanan bir canlı akış bir iş akışını temsil eden çıkış akışlarına (kesintisiz akış).
 

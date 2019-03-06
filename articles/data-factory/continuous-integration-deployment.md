@@ -11,18 +11,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: douglasl
-ms.openlocfilehash: 0d7c8640cb2a3f6d4d1a32a555c03dc2eca48b9a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: bfab3c94892b94eaf1c0585ee47a6dcbdb161776
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901233"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452734"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Sürekli tümleştirme ve teslim (CI/CD) Azure Data factory'de
 
 Sürekli tümleştirme, sistemi, yapılan her değişikliği testin uygulamadır, otomatik olarak ve mümkün olduğunca erken kod tabanı. Sürekli teslim, test sırasında sürekli tümleştirme olur ve değişiklikler bir hazırlık veya üretim sistemine gönderim izler.
 
 Azure Data Factory için sürekli tümleştirme ve teslim taşıma Data Factory işlem hatları (geliştirme, test ve üretim) bir ortamdan diğerine gösterir. Sürekli tümleştirme ve teslim yapmak için Azure Resource Manager şablonları ile tümleştirme Data Factory kullanıcı Arabirimi kullanabilirsiniz. Data Factory kullanıcı arabirimini seçtiğinizde bir Resource Manager şablonu oluşturabilir **ARM şablonu** seçenekleri. Seçtiğinizde, **dışarı ARM şablonu**, portalda Resource Manager şablonu için veri fabrikasını ve tüm bağlantı dizeleri ve diğer parametreleri içeren bir yapılandırma dosyası oluşturur. Ardından, bir yapılandırma dosyası her bir ortamda (geliştirme, test ve üretim) oluşturmanız gerekir. Ana Resource Manager şablon dosyası tüm ortamlar için aynı kalır.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Dokuz dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
 
@@ -161,7 +163,7 @@ Gizli dizileri işlemek için iki yolu vardır:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Azure işlem hatları aracısına izin ver
-Azure Key Vault görev fIntegration Runtimest zaman erişim reddedildi hatası ile başarısız olabilir. Yayın günlükleri indirmek ve bulun `.ps1` Azure işlem hatları aracıya izin vermek için komut dosyası. Komutu doğrudan çalıştırabilirsiniz veya asıl kimliği dosyasından kopyalayın ve erişim ilkesi, Azure portalında el ile ekleyin. (*Alma* ve *listesi* olan gerekli en düşük izinleri).
+Azure Key Vault görev fIntegration çalışma zamanı saati erişim reddedildi hatası ile başarısız olabilir. Yayın günlükleri indirmek ve bulun `.ps1` Azure işlem hatları aracıya izin vermek için komut dosyası. Komutu doğrudan çalıştırabilirsiniz veya asıl kimliği dosyasından kopyalayın ve erişim ilkesi, Azure portalında el ile ekleyin. (*Alma* ve *listesi* olan gerekli en düşük izinleri).
 
 ### <a name="update-active-triggers"></a>Güncelleştirme etkin Tetikleyicileri
 Etkin Tetikleyicileri güncelleştirmeye çalışırsanız, dağıtım başarısız olabilir. Etkin Tetikleyicileri güncelleştirmek için el ile sonlandırmasına ve bunları dağıtımdan sonra başlatmak gerekir. Aşağıdaki örnekte gösterildiği gibi bu amaç için bir Azure Powershell görev ekleyebilirsiniz:
@@ -173,14 +175,14 @@ Etkin Tetikleyicileri güncelleştirmeye çalışırsanız, dağıtım başarıs
 1.  Seçin **satır içi betik** betik olarak yazın ve ardından kodunuzu sağlayın. Aşağıdaki örnek, Tetikleyiciler durdurur:
 
     ```powershell
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-Benzer adımları izleyin ve benzer bir kod kullanın (ile `Start-AzureRmDataFactoryV2Trigger` işlevi) Tetikleyiciler dağıtımdan sonra yeniden başlatmak için.
+Benzer adımları izleyin ve benzer bir kod kullanın (ile `Start-AzDataFactoryV2Trigger` işlevi) Tetikleyiciler dağıtımdan sonra yeniden başlatmak için.
 
 > [!IMPORTANT]
 > Sürekli tümleştirme ve dağıtım senaryoları, tümleştirme çalışma zamanı türü farklı ortamlar genelinde aynı olmalıdır. Örneğin, bir *şirket içinde barındırılan* Integration Runtime (IR) geliştirme ortamında, aynı IR türde olmalıdır *şirket içinde barındırılan* test ve üretim gibi diğer ortamlarda da. Tümleştirme çalışma zamanları arasında birden çok aşama paylaşıyorsanız, benzer şekilde, tümleştirme çalışma zamanları olarak yapılandırmak kullandığınız *bağlı şirket içinde barındırılan* , geliştirme, test ve üretim gibi tüm ortamlarda.
@@ -727,7 +729,7 @@ Azure işlem hatlarında aktarabileceğiniz bir örnek dağıtım şablonu aşa�
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Durdur ve Tetikleyicileri yeniden başlatın ve temizlemek için betik örnek
 
-Dağıtımdan önce Tetikleyicileri durdurmak ve Tetikleyicileri daha sonra yeniden başlatmak için bir örnek betiği aşağıda verilmiştir. Betik ayrıca kaldırılmış olan kaynakları silmek için kod içerir. Azure PowerShell'in en son sürümünü yüklemek için bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.9.0).
+Dağıtımdan önce Tetikleyicileri durdurmak ve Tetikleyicileri daha sonra yeniden başlatmak için bir örnek betiği aşağıda verilmiştir. Betik ayrıca kaldırılmış olan kaynakları silmek için kod içerir. Azure PowerShell'in en son sürümünü yüklemek için bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ```powershell
 param
@@ -745,7 +747,7 @@ $resources = $templateJson.resources
 
 #Triggers 
 Write-Host "Getting triggers"
-$triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+$triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 $triggersTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/triggers" }
 $triggerNames = $triggersTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
 $activeTriggerNames = $triggersTemplate | Where-Object { $_.properties.runtimeState -eq "Started" -and ($_.properties.pipelines.Count -gt 0 -or $_.properties.pipeline.pipelineReference -ne $null)} | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
@@ -757,32 +759,32 @@ if ($predeployment -eq $true) {
     Write-Host "Stopping deployed triggers"
     $triggerstostop | ForEach-Object { 
         Write-host "Disabling trigger " $_
-        Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 else {
     #Deleted resources
     #pipelines
     Write-Host "Getting pipelines"
-    $pipelinesADF = Get-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $pipelinesADF = Get-AzDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $pipelinesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/pipelines" }
     $pipelinesNames = $pipelinesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedpipelines = $pipelinesADF | Where-Object { $pipelinesNames -notcontains $_.Name }
     #datasets
     Write-Host "Getting datasets"
-    $datasetsADF = Get-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $datasetsADF = Get-AzDataFactoryV2Dataset -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $datasetsTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/datasets" }
     $datasetsNames = $datasetsTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40) }
     $deleteddataset = $datasetsADF | Where-Object { $datasetsNames -notcontains $_.Name }
     #linkedservices
     Write-Host "Getting linked services"
-    $linkedservicesADF = Get-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $linkedservicesADF = Get-AzDataFactoryV2LinkedService -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $linkedservicesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/linkedservices" }
     $linkedservicesNames = $linkedservicesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedlinkedservices = $linkedservicesADF | Where-Object { $linkedservicesNames -notcontains $_.Name }
     #Integrationruntimes
     Write-Host "Getting integration runtimes"
-    $integrationruntimesADF = Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $integrationruntimesADF = Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $integrationruntimesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/integrationruntimes" }
     $integrationruntimesNames = $integrationruntimesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedintegrationruntimes = $integrationruntimesADF | Where-Object { $integrationruntimesNames -notcontains $_.Name }
@@ -791,112 +793,182 @@ else {
     Write-Host "Deleting triggers"
     $deletedtriggers | ForEach-Object { 
         Write-Host "Deleting trigger "  $_.Name
-        $trig = Get-AzureRmDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
+        $trig = Get-AzDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
         if ($trig.RuntimeState -eq "Started") {
-            Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force 
+            Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force 
         }
-        Remove-AzureRmDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting pipelines"
     $deletedpipelines | ForEach-Object { 
         Write-Host "Deleting pipeline " $_.Name
-        Remove-AzureRmDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting datasets"
     $deleteddataset | ForEach-Object { 
         Write-Host "Deleting dataset " $_.Name
-        Remove-AzureRmDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting linked services"
     $deletedlinkedservices | ForEach-Object { 
         Write-Host "Deleting Linked Service " $_.Name
-        Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting integration runtimes"
     $deletedintegrationruntimes | ForEach-Object { 
         Write-Host "Deleting integration runtime " $_.Name
-        Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
 
     if ($deleteDeployment -eq $true) {
         Write-Host "Deleting ARM deployment ... under resource group: " $ResourceGroupName
-        $deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName
+        $deployments = Get-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName
         $deploymentsToConsider = $deployments | Where { $_.DeploymentName -like "ArmTemplate_master*" -or $_.DeploymentName -like "ArmTemplateForFactory*" } | Sort-Object -Property Timestamp -Descending
         $deploymentName = $deploymentsToConsider[0].DeploymentName
 
        Write-Host "Deployment to be deleted: " $deploymentName
-        $deploymentOperations = Get-AzureRmResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
+        $deploymentOperations = Get-AzResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
         $deploymentsToDelete = $deploymentOperations | Where { $_.properties.targetResource.id -like "*Microsoft.Resources/deployments*" }
 
         $deploymentsToDelete | ForEach-Object { 
             Write-host "Deleting inner deployment: " $_.properties.targetResource.id
-            Remove-AzureRmResourceGroupDeployment -Id $_.properties.targetResource.id
+            Remove-AzResourceGroupDeployment -Id $_.properties.targetResource.id
         }
         Write-Host "Deleting deployment: " $deploymentName
-        Remove-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
+        Remove-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
     }
 
     #Start Active triggers - After cleanup efforts
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
-        Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 ```
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Özel Parametreler ile Resource Manager şablonu kullanma
 
-Resource Manager şablonuna yönelik özel parametreler tanımlayabilirsiniz. Adlı bir dosya yeterlidir `arm-template-parameters-definition.json` deposunun kök klasörüne. (Dosya adı tam olarak burada gösterilen adı eşleşmelidir.) Veri Fabrikası dosya, çalışmakta olduğunuz hangi daldan, işbirliği dalından yalnızca okumaya çalışır. Dosya bulunamazsa, Data Factory varsayılan parametreleri ve değerleri kullanır.
+GIT modunda olduğunda, şablonu ve sabit kodlanmış özellikler Parametreleştirilen özellikleri ayarlamak için Resource Manager şablonunuzu varsayılan özellikleri geçersiz kılabilirsiniz. Bu senaryolarda varsayılan Parametreleştirme şablonu geçersiz kılmak isteyebilirsiniz:
+
+* Otomatik CI/CD kullanın ve Resource Manager dağıtım sırasında bazı özelliklerini değiştirmek istediğiniz, ancak varsayılan olarak parametreli özellikler değildir.
+* Fabrikanızı parametreleri (256) izin verilen en fazla olduğundan varsayılan Resource Manager şablonu geçersiz kadar büyüktür.
+
+Bu koşullar altında varsayılan Parametreleştirme şablonu geçersiz kılmak için adlı bir dosya oluşturun. *arm şablonu parametreleri definition.json* deposunun kök klasörüne. Dosya adı tam olarak eşleşmelidir. Data Factory, bu dosyayı okuma, şu anda Azure Data Factory Portalı'nda bulunan hangi daldan, yalnızca işbirliği dalından dener. Oluşturma veya test edebileceğiniz değişikliklerinizi kullanarak özel bir dal dosyasından Düzenle **dışarı ARM şablonu** kullanıcı arabiriminde. Ardından, dosyayı işbirliği dala birleştirebilirsiniz. Dosya bulunamazsa, varsayılan şablon kullanılır.
+
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Özel Parametreler dosyasının söz dizimi
 
-Özel parametre dosyasını yazarken kullanmak için bazı yönergeler aşağıda verilmiştir. Bu söz dizimi örneklerini görmek için aşağıdaki bölüme bakın [örnek özel parametreler dosyası](#sample).
+Özel parametre dosyasını yazarken kullanmak için bazı yönergeler aşağıda verilmiştir. Her varlık türü için bir bölüm dosya oluşur: Tetikleyici, işlem hattı, linkedservice, dataset, integrationruntime ve benzeri.
+* İlgili varlık türü altında özellik yolu girin.
+* Bir özellik adı ayarlandığında '\*'', (yalnızca aşağı ilk düzeyi, yinelemeli olarak) altındaki tüm özellikleri parametreleştirmek istediğiniz belirtin. Bu özel durumların de sağlayabilirsiniz.
+* Bir özelliğin değerini bir dize olarak ayarladığınızda, özellik parametreleştirmek istediğiniz gösterir. Biçimini kullanın `<action>:<name>:<stype>`.
+   *  `<action>` şu karakterlerden biri olabilir:
+      * `=` yol geçerli değer parametresi için varsayılan değer olarak tutun.
+      * `-` yol parametresi için varsayılan değer tutma.
+      * `|` Azure Key vault'tan bir gizli bağlantı dizelerini veya anahtarlarının için özel bir durumdur.
+   * `<name>` parametrenin adıdır. Boş ise, özelliğin adını alır. Değer ile başlıyorsa bir `-` karakter adı kısalttık. Örneğin, `AzureStorage1_properties_typeProperties_connectionString` kısaltılmıştır `AzureStorage1_connectionString`.
+   * `<stype>` parametre türüdür. Varsa `<stype>` olan boş, varsayılan türü olduğu `string`. Desteklenen değerleri: `string`, `bool`, `number`, `object`, ve `securestring`.
+* Bir dizi tanım dosyasında belirttiğinizde, şablonda eşleşen özellik dizisi olduğunu belirtir. Veri Fabrikası dizi içindeki tüm nesneler dizisi Integration Runtime nesnesinde belirtilen tanımı kullanarak gezinir. Dize, ikinci nesne, her yineleme için parametre adı olarak kullanılan özelliğin adı olur.
+* Kaynak örneği için belirli bir tanımı mümkün değildir. Herhangi bir tanımı bu türdeki tüm kaynakları için geçerlidir.
+* Varsayılan olarak, Key Vault gizli dizileri ve bağlantı dizeleri, anahtarları ve belirteçleri, gibi güvenli dizeler gibi tüm güvenli dizeleri Parametreleştirilen.
+ 
+## <a name="sample-parameterization-template"></a>Örnek Parametreleştirme şablonu
 
-1. Dizi tanımı dosyasında belirttiğinizde, şablonda eşleşen özellik dizisi olduğunu belirtir. Veri Fabrikası dizinin Integration Runtime nesnesinde belirtilen tanım kullanarak dizi içindeki tüm nesneler gezinir. Dize, ikinci nesne, her yineleme için parametre adı olarak kullanılan özelliğin adı olur.
-
-    ```json
-    ...
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+        "properties": {
+            "activities": [{
+                "typeProperties": {
+                    "waitTimeInSeconds": "-::number",
+                    "headers": "=::object"
+                }
+            }]
+        }
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    },
     "Microsoft.DataFactory/factories/triggers": {
         "properties": {
-            "pipelines": [{
-                    "parameters": {
-                        "*": "="
-                    }
+            "typeProperties": {
+                "recurrence": {
+                    "*": "=",
+                    "interval": "=:triggerSuffix:number",
+                    "frequency": "=:-freq"
                 },
-                "pipelineReference.referenceName"
-            ],
-            "pipeline": {
-                "parameters": {
-                    "*": "="
+                "maxConcurrency": "="
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "secretAccessKey": "|"
+                }
+            }
+        },
+        "AzureDataLakeStore": {
+            "properties": {
+                "typeProperties": {
+                    "dataLakeStoreUri": "="
                 }
             }
         }
     },
-    ...
-    ```
+    "Microsoft.DataFactory/factories/datasets": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    }
+}
+```
 
-2. Bir özellik adı ayarlandığında `*`, o düzeyde açıkça tanımlanmış olanlar dışındaki tüm özellikleri kullanmak için şablon istediğinizi belirtin.
+### <a name="explanation"></a>Açıklama:
 
-3. Bir özelliğin değerini bir dize olarak ayarladığınızda, özellik parametreleştirmek istediğiniz gösterir. `<action>:<name>:<stype>` biçimini kullanın.
-    1.  `<action>` şu karakterlerden biri olabilir: 
-        1.  `=`  yol geçerli değer parametresi için varsayılan değer olarak tutun.
-        2.  `-` yol parametresi için varsayılan değer tutma.
-        3.  `|` Azure Key vault'tan bir gizli bir bağlantı dizesi için özel bir durumdur.
-    2.  `<name>` parametrenin adıdır. Varsa `<name`> olan boş, bu parametrenin adını alır 
-    3.  `<stype>` parametre türüdür. Varsa `<stype>` olan boş, varsayılan türü olduğu bir dizedir.
-4.  Girerseniz bir `-` tam Kaynak Yöneticisi'nin parametre adı için kısaltılmış bir parametre adı başındaki karakter `<objectName>_<propertyName>`.
-Örneğin, `AzureStorage1_properties_typeProperties_connectionString` için kısaltılmış `AzureStorage1_connectionString`.
+#### <a name="pipelines"></a>İşlem hatları
+    
+* Etkinlikler/typeProperties/waitTimeInSeconds yolu herhangi bir özelliği parametreli. Buna herhangi bir etkinliği adlı bir kod düzeyinde özelliğine sahip bir işlem hattı `waitTimeInSeconds` (örneğin, `Wait` etkinliği) varsayılan ada sahip bir sayı olarak parametreli. Ancak, Resource Manager şablonunda bir varsayılan değere sahip olmaz. Bu, Resource Manager dağıtım sırasında bir zorunlu giriş olacaktır.
+* Benzer şekilde, bir özelliğin çağırılır `headers` (örneğin, bir `Web` etkinliği) türüyle parametreli `object` (JObject). Kaynak fabrikası ile aynı değer bir varsayılan değer var.
 
+#### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-### <a name="sample"></a> Örnek özel parametreler dosyası
+* Yalnızca özellikler ve yol altındaki tüm özellikleri `typeProperties` , ilgili varsayılan değerlerinde Parametreleştirilen. Örneğin, bugünün şema itibaren iki özellik yok altında **IntegrationRuntimes** türü özellikleri: `computeProperties` ve `ssisProperties`. Her iki özellik türleri ile ilgili varsayılan değerler ve türler (nesne) oluşturulur.
 
-Aşağıdaki örnek, örnek bir parametreler dosyası gösterir. Bu örnek, kendi özel parametre dosyasını oluşturmak için bir başvuru olarak kullanın. Sağladığınız dosya JSON biçimi doğru değil, Data Factory tarayıcı konsolunu bir hata iletisi verir ve varsayılan parametreleri ve Data Factory kullanıcı Arabiriminde gösterilen değerler döner.
+#### <a name="triggers"></a>Tetikleyiciler
+
+* Altında `typeProperties`, parametreli iki özellikler. İlki `maxConcurrency`, varsayılan değerine sahip olacak şekilde belirtilen ve türü olacaktır `string`. Varsayılan parametre adını taşıyan `<entityName>_properties_typeProperties_maxConcurrency`.
+* `recurrence` Özelliği de parametreli. Bunun altında varsayılan değerleri ve parametre adları içeren bir dize olarak parametre haline getirilip için o düzeydeki tüm özellikleri belirtilir. Bir özel durum `interval` sayı türü olarak parametreli ve parametre adıyla sonekine sahip özellik `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Benzer şekilde, `freq` özelliği bir dize ve dize olarak parametreli. Ancak, `freq` özelliği bir varsayılan değer parametreli. Ad kısalttık ve soneki. Örneğin, `<entityName>_freq`.
+
+#### <a name="linkedservices"></a>linkedServices
+
+* Bağlı hizmetler, benzersiz. Bağlı hizmetleri ve veri kümeleri olası birkaç türde olabileceğinden, türe özgü özelleştirme sağlayabilir. Örneğin, tüm türdeki hizmetlerin bağlı diyebilirsiniz `AzureDataLakeStore`, belirli bir şablon uygulanmış ve diğer tüm olacaktır (aracılığıyla \*) farklı bir şablon uygulanır.
+* Önceki örnekte `connectionString` özellik parametreli olarak bir `securestring` değeri varsayılan değere sahip olmaz ve kısaltılmış parametre adları ile sonekine sahip olacaktır `connectionString`.
+* Özellik `secretAccessKey`, ancak özelleştirmede bir `AzureKeyVaultSecret` (örneğin, bir `AmazonS3` bağlı hizmet). Bu nedenle, otomatik olarak bir Azure Key Vault gizli parametreli ve kaynak fabrikada yapılandırılır anahtar kasasından getirildi. Ayrıca kendi key vault parametreleştirebilirsiniz.
+
+#### <a name="datasets"></a>Veri kümeleri
+
+* Türe özgü özelleştirme veri kümeleri için kullanılabilir olsa bile yapılandırma açıkça zorunda kalmadan sağlanabilir bir \*-düzeyi yapılandırma. Yukarıdaki örnekte, tüm veri kümesi özellikleri altında `typeProperties` Parametreleştirilen.
+
+Varsayılan Parametreleştirme şablonu değiştirebilirsiniz, ancak bu geçerli bir şablonudur. Bu, yeniden oluşturmanız gerekir ve mevcut parameterizations kaybetmek istemiyorsanız, bir ek özellik parametre olarak, aynı zamanda eklemek istediğinizde yararlı olacaktır.
+
 
 ```json
 {
-    "Microsoft.DataFactory/factories/pipelines": {},
-    "Microsoft.DataFactory/factories/integrationRuntimes": {
+    "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes":{
         "properties": {
             "typeProperties": {
                 "ssisProperties": {
@@ -916,7 +988,8 @@ Aşağıdaki örnek, örnek bir parametreler dosyası gösterir. Bu örnek, kend
                 "linkedInfo": {
                     "key": {
                         "value": "-::secureString"
-                    }
+                    },
+                    "resourceId": "="
                 }
             }
         }
@@ -927,14 +1000,18 @@ Aşağıdaki örnek, örnek bir parametreler dosyası gösterir. Bu örnek, kend
                     "parameters": {
                         "*": "="
                     }
-                },
+                },  
                 "pipelineReference.referenceName"
             ],
             "pipeline": {
                 "parameters": {
                     "*": "="
                 }
+            },
+            "typeProperties": {
+                "scope": "="
             }
+
         }
     },
     "Microsoft.DataFactory/factories/linkedServices": {
@@ -957,7 +1034,25 @@ Aşağıdaki örnek, örnek bir parametreler dosyası gösterir. Bu örnek, kend
                     "tenant": "=",
                     "dataLakeStoreUri": "=",
                     "baseUrl": "=",
+                    "database": "=",
+                    "serviceEndpoint": "=",
+                    "batchUri": "=",
+                    "databaseName": "=",
+                    "systemNumber": "=",
+                    "server": "=",
+                    "url":"=",
+                    "aadResourceId": "=",
                     "connectionString": "|:-connectionString:secureString"
+                }
+            }
+        },
+        "Odbc": {
+            "properties": {
+                "typeProperties": {
+                    "userName": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
                 }
             }
         }
@@ -970,8 +1065,7 @@ Aşağıdaki örnek, örnek bir parametreler dosyası gösterir. Bu örnek, kend
                     "fileName": "="
                 }
             }
-        }
-    }
+        }}
 }
 ```
 

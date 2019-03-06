@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1ebe600a305e6dbc2790d50c6e1eafcfda19c9b8
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 75c453c9ac501eea681af32643a40e941555ffbd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749452"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454927"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Görüntü analizi bilişsel beceri
 
@@ -37,7 +37,7 @@ Parametreler büyük/küçük harfe duyarlıdır.
 | Parametre adı     | Açıklama |
 |--------------------|-------------|
 | defaultLanguageCode   |  Döndürülecek dil belirten bir dize. Hizmet, belirli bir dilde tanıma sonuçları döndürür. Bu parametre belirtilmezse, varsayılan değer "en" dir. <br/><br/>Desteklenen diller şunlardır: <br/>*tr* -İngilizce (varsayılan) <br/> *zh* -Basitleştirilmiş Çince|
-|visualFeatures |   Döndürülecek visual özelliği türlerini belirten bir dize dizisi. Geçerli görsel özellik türleri şunlardır:  <ul><li> *kategorileri* -görüntü içeriğini Bilişsel hizmetler tanımlanmış bir taksonomi göre kategorilere ayırır [belgeleri](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *etiketleri* -görüntünün bir kelimelerin görüntü içerikle ilgili ayrıntılı bir liste ile etiketler.</li><li>*Açıklama* -tam İngilizce bir cümle ile içerik görüntüsü açıklar.</li><li>*Yüzleri* -yüzleri mevcut olup olmadığını algılar. Varsa, koordinatları, cinsiyet ve yaş oluşturur.</li><li> *ImageType* -görüntüyü küçük resim veya çizim olup olmadığını algılar.</li><li>   *Renk* -baskın renk, Vurgu rengi belirler ve bir resmin siyah olup olmadığını beyaz.</li><li>*Yetişkin* -görüntü (çıplaklık veya seks Yasası gösterilmektedir) doğası gereği pornografik olup olmadığını algılar. Cinsel müstehcen içerik de algılandı.</li></ul> Görsel özellikleri adları büyük/küçük harfe duyarlıdır.|
+|visualFeatures |   Döndürülecek visual özelliği türlerini belirten bir dize dizisi. Geçerli görsel özellik türleri şunlardır:  <ul><li> *kategorileri* -görüntü içeriğini Bilişsel hizmetler tanımlanmış bir taksonomi göre kategorilere ayırır [belgeleri](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *etiketleri* -görüntünün bir kelimelerin görüntü içerikle ilgili ayrıntılı bir liste ile etiketler.</li><li>*Açıklama* -tam İngilizce bir cümle ile içerik görüntüsü açıklar.</li><li>*Yüzleri* -yüzleri mevcut olup olmadığını algılar. Varsa, koordinatları, cinsiyet ve yaş oluşturur.</li><li> *ImageType* -görüntüyü küçük resim veya çizim olup olmadığını algılar.</li><li>  *Renk* -baskın renk, Vurgu rengi belirler ve bir resmin siyah olup olmadığını beyaz.</li><li>*Yetişkin* -görüntü (çıplaklık veya seks Yasası gösterilmektedir) doğası gereği pornografik olup olmadığını algılar. Cinsel müstehcen içerik de algılandı.</li></ul> Görsel özellikleri adları büyük/küçük harfe duyarlıdır.|
 | ayrıntılar   | Döndürülecek hangi etki alanına özgü ayrıntıları belirten bir dize dizisi. Geçerli görsel özellik türleri şunlardır: <ul><li>*Ünlüleri* -ünlüleri görüntüde algılanırsa tanımlar.</li><li>*Yer işareti* -görüntüde algılanırsa yer işareti tanımlar.</li></ul>
  |
 

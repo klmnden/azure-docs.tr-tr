@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 509d529c7e860f4c46bc3368028a4e8d24812051
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ed43a376dd5bb3279fd7e6aa6522980234db3c5f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242828"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441806"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA
 
@@ -48,7 +48,7 @@ Bu plan, müşterilerin yeni Azure makine öğrenimi denemeleri hem Klinik ve op
 
 -   **Mimari diyagramı.** Şema için kullanılan başvuru mimarisi diyagramı gösterir ve örnek kullanım örneği senaryosu.
 
--   [Iaas uzantısı](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Bu çözüm, şirket içi SQL tabanlı çözümünü Azure'a geçirmek için ve bir ayrıcalıklı erişim bsed bulut Hizmetleri ve çözümleri güvenli bir şekilde yönetmek için iş istasyonu uygulamak için nasıl gösterilecektir. 
+-   [Iaas uzantısı](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Bu çözüm, şirket içi SQL tabanlı çözümünü Azure'a geçirme ve bulut tabanlı hizmet ve çözümler güvenli bir şekilde yönetmek için ayrıcalıklı bir erişim Workstation uygulamak için nasıl gösterilecektir. 
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
 

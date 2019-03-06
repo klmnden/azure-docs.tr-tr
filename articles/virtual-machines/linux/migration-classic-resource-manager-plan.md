@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: ff3fdec2f427e095c748e4a47079d783fa83802d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bd3bd4937bd376c696df98af0b535aeda5027ddc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341343"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437097"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçişini planlama
 Azure Resource Manager çok sayıda harika özellik sunarken, geçiş yolculuğunuza emin sorunsuz şeyler yapmak için planlamak için önemlidir. Harcadığınız zamanı planlama, sorunları geçiş etkinliklerini yürütülürken karşılaşmayacağınızdan emin olursunuz. 
