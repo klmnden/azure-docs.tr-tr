@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 108045c691d711dfdd12df39fe72e536f842f68f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5d9f973926a46e61d83cba6fb52a543bddf26f99
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993205"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315869"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure portalını kullanarak yol tabanlı yönlendirme kurallarıyla bir uygulama ağ geçidi oluşturma
 
@@ -33,6 +33,8 @@ Bu makalede şunları öğreneceksiniz:
 ![URL yönlendirme örneği](./media/application-gateway-create-url-route-portal/scenario.png)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -104,7 +106,7 @@ Bu örnekte, application gateway için arka uç sunucular olarak kullanılacak �
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -115,7 +117,7 @@ Bu örnekte, application gateway için arka uç sunucular olarak kullanılacak �
       -Settings $publicSettings
     ```
 
-3. İki daha fazla sanal makine oluşturur ve yalnızca tamamlanmış adımları kullanarak IIS yükleyin. Adlarını girin *myVM2* ve *myVM3* adlarını ve değerlerini VMName Set-AzureRmVMExtension içinde.
+3. İki daha fazla sanal makine oluşturur ve yalnızca tamamlanmış adımları kullanarak IIS yükleyin. Adlarını girin *myVM2* ve *myVM3* adlarını ve değerlerini VMName AzVMExtension kümesi içinde.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Arka uç havuzları ile sanal makineleri oluşturma
 

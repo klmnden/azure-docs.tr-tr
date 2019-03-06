@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 69ca51776a61b43768ce7cb1565451c4f118de6e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300260"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316532"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL veritabanı çok modelli özellikleri
 
@@ -124,7 +124,7 @@ CREATE TABLE Collection (
 
 Bu anahtar-değer yapısı kısıtlama olmadan kendi gereksinimlerinize uyacak şekilde özelleştirebilirsiniz. Örneğin, değer yerine XML belgesi olabilir `nvarchar(max)` türü, değer JSON belgesini ise, koyabilir `CHECK` JSON içeriği geçerliliğini doğrular kısıtlaması. Herhangi bir sayıda ek sütunlar bir anahtarda ilgili değerleri yerleştirme, hesaplanan sütunlar ekleyip basitleştirmek ve veri erişimini iyileştirmek için dizinler, tablonun vb. daha iyi performans almak için belleği ve iyileştirilmiş yalnızca şema tablo olarak tanımlayın.
 
-Bkz: [BWin benzeri görülmemiş bir performans ve ölçek elde etmek için bellek içi OLTP nasıl kullandığını](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) kendi ASP.NET önbelleğe alma için 1.200.000 elde çözüm toplu işlemleri nasıl ilişkisel bir örnek olarak, saniye başına model etkin olarak kullanılabilir uygulamada bir anahtar-değer çifti çözüm.
+Bkz: [BWin benzeri görülmemiş bir performans ve ölçek elde etmek için bellek içi OLTP nasıl kullandığını](https://blogs.msdn.microsoft.com/sqlcat/20./../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) kendi ASP.NET önbelleğe alma için 1.200.000 elde çözüm toplu işlemleri nasıl ilişkisel bir örnek olarak, saniye başına model etkin olarak kullanılabilir uygulamada bir anahtar-değer çifti çözüm.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure SQL veritabanları, çok modelli özellikleri, ayrıca Azure SQL veritabanı ve SQL Server arasında paylaşılan temel SQL Server veritabanı altyapısı özellikleri değildir. Bu özellikler hakkında daha fazla bilgi edinmek için SQL ilişkisel veritabanı belge sayfaları ziyaret edin:

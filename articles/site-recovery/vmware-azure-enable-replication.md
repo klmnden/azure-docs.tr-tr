@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 3/3/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 043a49e679f2b8ec48213e28d229121d3f0e070d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 47cd1c8e7a8ea02175f1f35eaf8c1658e03a2a53
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338646"
+ms.locfileid: "57403320"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Azure'a VMware Vm'leri için çoğaltmayı etkinleştirme
 
@@ -51,12 +51,15 @@ VMware sanal makineleri çoğaltılırken:
 
 7. Yük devretme sonrasında çalışmaya başlayan Azure VM'lerinin bağlanacağı Azure ağını ve alt ağını seçin. Ağın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Koruma için seçtiğiniz tüm makinelere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandır**’ı seçin. Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin. Bir ağ yoksa, oluşturmanız gerekir. Kaynak Yöneticisi'ni kullanarak bir ağ oluşturmak için tıklayın **Yeni Oluştur**. Varsa bir alt ağ seçin ve ardından **Tamam**.
 
-    ![Çoğaltma hedefi ayarı etkinleştir](./media/vmware-azure-enable-replication/enable-rep3.png)
+>[!NOTE]
+>Yönetilen diskler için tüm yeni çoğaltmalar için doğrudan Azure Site Recovery artık çoğaltır. Mevcut çoğaltmalar etkilenmeyecektir. Yeni bir makine için depolama hesaplarına çoğaltma, yalnızca REST API ve Powershell kullanılabilir. 
+
+    ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
 8. **Sanal Makineler** > **Sanal makineleri seçin** bölümünde, çoğaltmak istediğiniz her makineyi seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın. Görünüm/herhangi belirli bir sanal makineyi seçmek mümkün değildir, tıklayın [burada](https://aka.ms/doc-plugin-VM-not-showing) sorunu çözmek için.
 
     ![Çoğaltma select sanal makineleri etkinleştirme](./media/vmware-azure-enable-replication/enable-replication5.png)
-9. İçinde **özellikleri** > **özelliklerini yapılandırmak**, Mobility hizmetini makineye otomatik olarak yüklemeniz için işlem sunucusu tarafından kullanılan hesabı seçin.  
-10. Varsayılan olarak, tüm diskler çoğaltılır. Diskleri çoğaltmanın dışında tutma için tıklatın **tüm diskleri** çoğaltmak için istemediğiniz tüm diskleri temizleyin.  Daha sonra, **Tamam**'a tıklayın. Daha sonra ek özellikleri ayarlayabilirsiniz. [Daha fazla bilgi edinin](vmware-azure-exclude-disk.md) diskleri dışlama hakkında.
+9. İçinde **özellikleri** > **özelliklerini yapılandırmak**, Mobility hizmetini makineye otomatik olarak yüklemeniz için işlem sunucusu tarafından kullanılan hesabı seçin. Ayrıca, verilerinizi temel alan çoğaltacağınızı istersiniz hedef yönetilen diskin türü desenleri değişim sıklığı seçin.
+10. Varsayılan olarak, kaynak makinenin tüm diskler çoğaltılır. Diskleri çoğaltmanın dışında tutma için işareti kaldırın **INCLUDE** çoğaltmak için istemediğiniz tüm diskleri karşı onay kutusu.  Daha sonra, **Tamam**'a tıklayın. Daha sonra ek özellikleri ayarlayabilirsiniz. [Daha fazla bilgi edinin](vmware-azure-exclude-disk.md) diskleri dışlama hakkında.
 
     ![Etkinleştirme çoğaltma özellikleri yapılandırma](./media/vmware-azure-enable-replication/enable-replication6.png)
 
