@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 785c02a0187cf02df3bb3cf5d248f97a3edf74c6
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: b1b1fd5976189c4c74791bf2e6a80a494a2fccc6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961763"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433306"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
@@ -51,7 +51,7 @@ Bu makalede, dört bölümlere ayrılır:
 * **[Kullanıcı ve Grup şema başvurusu](#user-and-group-schema-reference)**  -galeri dışı uygulamalar için Azure AD SCIM uygulaması tarafından desteklenen kullanıcı ve Grup şemasını açıklar. 
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Kullanıcılar ve gruplar SCIM'yi destekleyen uygulamalar için hazırlama
-Azure AD, otomatik olarak sağlama atanmış kullanıcılara ve gruplara belirli profilini kullanan uygulamalar yapılandırılabilir [SCIM 2.0 protokolünü](https://tools.ietf.org/html/rfc7644). Profil ayrıntılarını bölümünde belgelendirilen [Azure AD SCIM uygulama anlama](#implementing-a-scim-endpoint-that-works-with-azure-ad-user-provisioning).
+Azure AD, otomatik olarak sağlama atanmış kullanıcılara ve gruplara belirli profilini kullanan uygulamalar yapılandırılabilir [SCIM 2.0 protokolünü](https://tools.ietf.org/html/rfc7644). Profil özelliklerini, Azure AD SCIM uygulama anlamak belgelenmiştir.
 
 Uygulama sağlayıcınıza veya bilgilerinin bu gereksinimleri ile uyumluluk için uygulama sağlayıcının belgelerine başvurun.
 
