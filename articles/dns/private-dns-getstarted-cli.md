@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 7/25/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 5559e2fc9b9cce95bd7d5d02a64d134e5eaa03be
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 2758817d58fdd2e80b302b5f833308dbde1a6b63
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100653"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779173"
 ---
 # <a name="create-an-azure-dns-private-zone-using-the-azure-cli"></a>Azure CLI kullanarak Azure DNS'de özel bölge oluşturma
 
@@ -47,7 +47,7 @@ az group create --name MyAzureResourceGroup --location "East US"
 
 ## <a name="create-a-dns-private-zone"></a>DNS özel bölgesi oluşturma
 
-**ZoneType** parametresi için *Özel* değeriyle birlikte `az network dns zone create` komutu kullanılarak bir DNS bölgesi oluşturulur. Aşağıdaki örnek **MyAzureResourceGroup** adlı kaynak grubunda **contoso.local** adlı bir DNS bölgesi oluşturur ve DNS bölgesini **MyAzureVnet** adlı sanal ağda kullanılabilir hale getirir.
+**ZoneType** parametresi için *Özel* değeriyle birlikte `az network dns zone create` komutu kullanılarak bir DNS bölgesi oluşturulur. Aşağıdaki örnekte adlı bir DNS bölgesi oluşturur **private.contoso.com** adlı kaynak grubunda **MyAzureResourceGroup** ve DNS bölgesini adlı sanal ağ için kullanılabilir hale getirir  **MyAzureVnet**.
 
 **ZoneType** parametresi atılırsa bölge bir genel bölge olarak oluşturulur; bu nedenle bir özel bölge oluşturmanız gerekiyorsa bu gereklidir.
 
@@ -61,7 +61,7 @@ az network vnet create \
   --subnet-prefixes 10.2.0.0/24
 
 az network dns zone create -g MyAzureResourceGroup \
-   -n contoso.local \
+   -n private.contoso.com \
   --zone-type Private \
   --registration-vnets myAzureVNet
 ```
@@ -118,12 +118,12 @@ az vm create \
 
 DNS kaydı oluşturmak için `az network dns record-set [record type] add-record` komutunu kullanın. A kaydı ekleme konusunda yardım almak için bkz. `azure network dns record-set A add-record --help`.
 
- Aşağıdaki örnekte, **MyAzureResourceGroup** kaynak grubu içindeki **contoso.local** DNS Bölgesinde göreli adı **db** olan bir kaynak oluşturulmaktadır. **db.contoso.local**, kayıt kümesinin tam adıdır. Kayıt türü "A" ve IP adresi "10.2.0.4" olarak belirlenmiştir.
+ Aşağıdaki örnek, göreli adı ile bir kayıt oluşturur **db** DNS bölgesinde **private.contoso.com**, kaynak grubundaki **MyAzureResourceGroup**. Kayıt kümesinin tam adıdır **db.private.contoso.com**. Kayıt türü "A" ve IP adresi "10.2.0.4" olarak belirlenmiştir.
 
 ```azurecli
 az network dns record-set a add-record \
   -g MyAzureResourceGroup \
-  -z contoso.local \
+  -z private.contoso.com \
   -n db \
   -a 10.2.0.4
 ```
@@ -135,13 +135,13 @@ Bölgenizdeki DNS kayıtlarını listelemek için şu komutu çalıştırın:
 ```azurecli
 az network dns record-set list \
   -g MyAzureResourceGroup \
-  -z contoso.local
+  -z private.contoso.com
 ```
 Test amaçlı oluşturduğunuz iki sanal makine için otomatik olarak oluşturulan A kayıtlarını görmeyeceğinizi unutmayın.
 
 ## <a name="test-the-private-zone"></a>Özel bölgeyi test etme
 
-Şimdi **contoso.local** özel bölgenizin ad çözümlemesini test edebilirsiniz.
+Ad çözümlemesi için test edebilirsiniz artık, **private.contoso.com** özel bölge.
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>Sanal makineleri gelen ICMP paketlerine izin verecek şekilde yapılandırma
 
@@ -160,13 +160,13 @@ myVM02 için yineleyin.
 
 1. myVM02 Windows PowerShell komut isteminden otomatik olarak kaydedilen ana bilgisayar adını kullanarak myVM01 adlı makineye ping gönderin:
    ```
-   ping myVM01.contoso.local
+   ping myVM01.private.contoso.com
    ```
    Şuna benzer bir çıkışla karşılaşmanız gerekir:
    ```
-   PS C:\> ping myvm01.contoso.local
+   PS C:\> ping myvm01.private.contoso.com
 
-   Pinging myvm01.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging myvm01.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time=1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
@@ -180,13 +180,13 @@ myVM02 için yineleyin.
    ```
 2. Şimdi önceden oluşturduğunuz **db** adına ping gönderin:
    ```
-   ping db.contoso.local
+   ping db.private.contoso.com
    ```
    Şuna benzer bir çıkışla karşılaşmanız gerekir:
    ```
-   PS C:\> ping db.contoso.local
+   PS C:\> ping db.private.contoso.com
 
-   Pinging db.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging db.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128

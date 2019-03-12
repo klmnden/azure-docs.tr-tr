@@ -11,15 +11,15 @@ ms.service: service-bus-relay
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 2972d04d1617b755bb6c2ff60d9922accdd09f2a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0dc50da5eb302e2f1b24c265b4675d93f0a2e849
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614846"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768374"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Azure Geçişi'ni kullanarak bir şirket içi WCF hizmeti bir web uygulamasına bulutta kullanıma sunma 
 Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması derleyeceğinizi gösterir. Birden çok Azure kaynakları ve bulutta çalışan kullanan bir uygulama oluşturun.
@@ -185,7 +185,7 @@ Ad alanı oluşturma ve edinmek için ilk adım olan bir [paylaşılan erişim i
         }
     }
     ```
-12. Çözüm Gezgini'nde, **App.config** dosyasına çift tıklayarak dosyayı Visual Studio düzenleyicisinde açın. Sayfanın alt kısmında `<system.ServiceModel>` öğesi (ancak yine de içinde `<system.ServiceModel>`), aşağıdaki XML kodunu ekleyin: değiştirdiğinizden emin olun *yourServiceNamespace* ad alanınızın adıyla ve *yourKey* SAS anahtarı ile daha önce portaldan aldığınız:
+12. Çözüm Gezgini'nde, **App.config** dosyasına çift tıklayarak dosyayı Visual Studio düzenleyicisinde açın. Sayfanın alt kısmında `<system.ServiceModel>` öğesi (ancak yine de içinde `<system.ServiceModel>`), aşağıdaki XML kodunu ekleyin: *yourKey* alanını daha önce portaldan aldığınız SAS anahtarıyla ve *yourServiceNamespace* alanını da ad alanı adınızla değiştirdiğinizden emin olun:
 
     ```xml
     <system.serviceModel>
@@ -350,7 +350,7 @@ Sonraki adım, şirket içi ürünlerin sunucusu ile ASP.NET uygulamasını birl
 
    ![Bir bağlantı olarak ekleme][24]
 
-6. Artık **HomeController.cs** Visual Studio Düzenleyicisi'nde dosya ve ad alanı tanımını aşağıdaki kodla değiştirin: değiştirdiğinizden emin olun *yourServiceNamespace* hizmetinizin adıyla ad alanı ve *yourKey* SAS anahtarınızla. Bu, çağrı sonucunu döndürerek şirket içi hizmetini çağırmak istemci sağlar.
+6. Artık **HomeController.cs** Visual Studio Düzenleyicisi'nde dosya ve ad alanı tanımını aşağıdaki kodla değiştirin: *yourServiceNamespace* alanını hizmet ad alanınızla ve *yourKey* alanını da SAS anahtarınızla değiştirdiğinizden emin olun. Bu, çağrı sonucunu döndürerek şirket içi hizmetini çağırmak istemci sağlar.
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -448,7 +448,7 @@ Uygulamayı bulutta çalıştırmadan önce **ProductsPortal** öğesinin Visual
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-1. Uygulamayı derleyip çalıştırmak için F5'e basın. Şirket içi sunucunun ( **ProductsServer** konsol uygulaması) ilk başlamalıdır sonra **ProductsPortal** uygulaması, bir tarayıcı penceresinde başlamalıdır, aşağıdaki ekran görüntüsünde gösterildiği gibi: Ürün stoğunun ürün hizmeti şirket içi sisteminden alınan veriler listelenir ve bu verileri web uygulamasında gösterdiğini göz önünde bulundurun. **ProductsPortal**'ın bir Azure web uygulaması olarak bulutta çalıştığından emin olmak için URL'yi kontrol edin.
+1. Uygulamayı derleyip çalıştırmak için F5'e basın. Şirket içi sunucunun ( **ProductsServer** konsol uygulaması) ilk başlamalıdır sonra **ProductsPortal** uygulaması, bir tarayıcı penceresinde başlamalıdır, aşağıdaki ekran görüntüsünde gösterildiği gibi: Ürün stoğunun ürün hizmeti şirket içi sisteminden aldığı verileri listelediğini ve bu verileri web uygulamasında gösterdiğini göz önünde bulundurun. **ProductsPortal**'ın bir Azure web uygulaması olarak bulutta çalıştığından emin olmak için URL'yi kontrol edin.
 
    ![Web uygulamasını Azure'da çalıştırın][1]
 

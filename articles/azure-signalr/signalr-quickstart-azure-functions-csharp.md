@@ -5,14 +5,14 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/23/2018
+ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: db54282563acc6afac4dada7a45f6dff0716879a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e3a437d44c557d2ec53182d4f6178cbea3e54eba
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255066"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544989"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Hızlı Başlangıç: SignalR C kullanarak Service ve Azure işlevleri ile sohbet odası oluşturamadı.\#
 
@@ -21,6 +21,8 @@ Azure SignalR hizmeti uygulamanıza kolayca gerçek zamanlı işlevsellik ekleme
 ## <a name="prerequisites"></a>Önkoşullar
 
 Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+
+Bu öğreticide komut satırında (macOS, Windows veya Linux) çalışabilir kullanarak [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing), [.NET Core SDK'sı](https://dotnet.microsoft.com/download)ve en sevdiğiniz Kod Düzenleyici.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +36,7 @@ Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında ot
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Azure İşlev Uygulamasını yapılandırıp çalıştırma
 
-1. Visual Studio'yu başlatın ve kopyalanmış deponun *chat\src\csharp* klasöründeki çözümü açın.
+1. Visual Studio (veya başka bir kod Düzenleyicisi'ni) başlatın ve bir çözüm açın *chat\src\csharp* kopyalanan deponun klasör.
 
 1. Azure portalın açık olduğu tarayıcıda portalın üst kısmındaki arama kutusundan adını arayarak önceden dağıttığınız SignalR Hizmeti örneğinin başarılı bir şekilde oluşturulduğundan emin olun. Açmak için örneği seçin.
 
@@ -53,9 +55,17 @@ Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında ot
     - **GetSignalRInfo** - Geçerli bağlantı bilgileri döndürmek için *SignalRConnectionInfo* giriş bağlamasını kullanır.
     - **SendMessage** - İstek gövdesinde bir sohbet iletisi alır ve iletiyi bağlı olan tüm istemci uygulamalara yaymak için *SignalR* çıkış bağlamasını kullanır.
 
-1. Uygulamayı çalıştırmak için **Hata Ayıklama** menüsünde **Hata Ayıklamayı Başlat**’ı seçin.
+1. Azure işlev uygulaması yerel olarak başlatmak için aşağıdaki seçeneklerden birini kullanın.
 
-    ![Uygulamada hata ayıklama](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
+    - **Visual Studio**: Uygulamayı çalıştırmak için *Hata Ayıklama* menüsünde *Hata Ayıklamayı Başlat*’ı seçin.
+
+        ![Uygulamada hata ayıklama](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
+
+    - **Komut satırı**: İşlev konak başlatmak için aşağıdaki komutu yürütün.
+
+        ```bash
+        func start
+        ```
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
@@ -63,7 +73,7 @@ Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında ot
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, VS Code'da gerçek zamanlı ve sunucusuz bir uygulama oluşturup çalıştırdınız. Bir sonraki adımda Azure İşlevlerini nasıl VS Code’dan dağıtacağınızı öğrenin.
+Bu hızlı başlangıçta, oluşturulan ve gerçek zamanlı bir sunucusuz uygulama Visual Studio'da çalıştı. Bir sonraki adımda Visual Studio ile nasıl Azure İşlevlerini geliştirip dağıtacağınızı öğrenin.
 
 > [!div class="nextstepaction"]
-> [VS Code ile Azure İşlevlerini dağıtma](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [Visual Studio ile Azure İşlevleri geliştirme](../azure-functions/functions-develop-vs.md)

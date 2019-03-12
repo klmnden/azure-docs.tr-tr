@@ -11,20 +11,20 @@ ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332073"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762624"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğreticide ASP.NET MVC ön ucuyla çok katmanlı bir .NET uygulaması oluşturma ve bir [Azure bulut hizmetine](cloud-services-choose-me.md) dağıtma işlemi gösterilmektedir. Uygulama [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), [Azure Blob hizmeti](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) ve [Azure Queue hizmeti](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır. MSDN Kod Galerisi’nden [Visual Studio projesini](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirebilirsiniz.
+Bu öğreticide ASP.NET MVC ön ucuyla çok katmanlı bir .NET uygulaması oluşturma ve bir [Azure bulut hizmetine](cloud-services-choose-me.md) dağıtma işlemi gösterilmektedir. Uygulama [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), [Azure Blob hizmeti](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) ve [Azure Queue hizmeti](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır. MSDN Kod Galerisi’nden [Visual Studio projesini](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirebilirsiniz.
 
 Öğreticide, uygulamayı yerel olarak oluşturup çalıştırma, Azure’a dağıtma ve bulutta çalıştırmanın yanı sıra sıfırdan oluşturma işlemleri de gösterilmektedir. Tercih ederseniz sıfırdan oluşturmaya başlayabilir ve ardından test ve dağıtım adımlarını gerçekleştirebilirsiniz.
 
@@ -33,7 +33,7 @@ Uygulama bir reklam bülteni panosudur. Kullanıcılar metin girerek ve görünt
 
 ![Reklam listesi](./media/cloud-services-dotnet-get-started/list.png)
 
-Uygulama bir arka uç işleminde küçük resim oluşturmaya yönelik CPU yoğunluklu iş yükünü azaltmak üzere [kuyruk merkezli çalışma deseni](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır.
+Uygulama bir arka uç işleminde küçük resim oluşturmaya yönelik CPU yoğunluklu iş yükünü azaltmak üzere [kuyruk merkezli çalışma deseni](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Alternatif mimari: App Service ve WebJobs
 Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl çalıştırılacağı gösterilmektedir. Ön uç çalıştırılması alternatiftir [Azure App Service](/azure/app-service/) ve [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) arka uç için özellik. WebJobs kullanan bir öğretici için bkz. [Azure WebJobs SDK ile Çalışmaya Başlama](https://github.com/Azure/azure-webjobs-sdk/wiki). Senaryonuza en uygun hizmetlerin nasıl seçileceği hakkında daha fazla bilgi için bkz. [Azure App Service, Cloud Services ve virtual machines karşılaştırması](../app-service/overview-compare.md).
@@ -47,7 +47,7 @@ Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl 
 * Katmanlar arasında iletişim için Azure Queue hizmetini kullanma.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Öğretici *web rolü* ve *çalışan rolü* terminolojisi gibi [Azure bulut hizmetleri hakkında temel kavramları](cloud-services-choose-me.md) anladığınızı varsayar.  Ayrıca Visual Studio’da [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) veya [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projeleri ile nasıl çalışılacağını bildiğinizi varsayar. Örnek uygulama MVC kullanır, ancak öğreticinin büyük bölümü Web Forms için de geçerlidir.
+Öğretici *web rolü* ve *çalışan rolü* terminolojisi gibi [Azure bulut hizmetleri hakkında temel kavramları](cloud-services-choose-me.md) anladığınızı varsayar.  Ayrıca Visual Studio’da [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) veya [Web Forms](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projeleri ile nasıl çalışılacağını bildiğinizi varsayar. Örnek uygulama MVC kullanır, ancak öğreticinin büyük bölümü Web Forms için de geçerlidir.
 
 Uygulamayı bir Azure aboneliği olmadan yerel olarak çalıştırabilirsiniz, ancak uygulamayı buluta dağıtmak için bir abonelik gerekecektir. Bir hesabınız yoksa, [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) veya [ücretsiz deneme için kaydolabilirsiniz.](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)
 
@@ -64,7 +64,7 @@ Uygulama, tablolar oluşturmak ve verilere erişmek için Entity Framework Code 
 
 ![Reklam tablosu](./media/cloud-services-dotnet-get-started/adtable.png)
 
-Bir kullanıcı görüntü yüklediğinde bir web rolünde çalışan ön uç görüntüyü bir [Azure blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)’a depolar ve reklam bilgilerini blob’u işaret eden bir URL ile birlikte veritabanına depolar. Aynı zamanda bir Azure kuyruğuna ileti yazar. Bir çalışan rolünde çalışan arka uç işlemi, kuyruğu yeni iletiler için düzenli olarak yoklar. Yeni bir ileti görüntülendiğinde çalışan rolü bu görüntü için bir küçük resim oluşturur ve küçük resim URL'si veritabanı alanını bu reklam için güncelleştirir. Aşağıdaki diyagramda uygulama bölümlerinin nasıl etkileşim kurduğu gösterilmektedir.
+Bir kullanıcı görüntü yüklediğinde bir web rolünde çalışan ön uç görüntüyü bir [Azure blob](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)’a depolar ve reklam bilgilerini blob’u işaret eden bir URL ile birlikte veritabanına depolar. Aynı zamanda bir Azure kuyruğuna ileti yazar. Bir çalışan rolünde çalışan arka uç işlemi, kuyruğu yeni iletiler için düzenli olarak yoklar. Yeni bir ileti görüntülendiğinde çalışan rolü bu görüntü için bir küçük resim oluşturur ve küçük resim URL'si veritabanı alanını bu reklam için güncelleştirir. Aşağıdaki diyagramda uygulama bölümlerinin nasıl etkileşim kurduğu gösterilmektedir.
 
 ![Contoso Ads mimarisi](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
@@ -188,10 +188,10 @@ Gerçek bir uygulamada genellikle uygulama verilerine karşı günlük verileri 
 ### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Çözümünüzü Azure’da çalıştığında Azure SQL veritabanınızı kullanacak şekilde yapılandırma
 Web projesi ve çalışan rolü projelerinin her biri kendi veritabanı bağlantı dizesine sahiptir ve uygulama Azure'da çalıştırıldığında her birinin Azure SQL veritabanına işaret etmesi gerekir.
 
-Web rolü için bir [Web.config dönüşümü](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) ve çalışan rolü için bir bulut hizmet ortamı ayarı kullanacaksınız.
+Web rolü için bir [Web.config dönüşümü](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) ve çalışan rolü için bir bulut hizmet ortamı ayarı kullanacaksınız.
 
 > [!NOTE]
-> Bu ve sonraki bölümde, kimlik bilgilerini proje dosyalarında depolarsınız. [Hassas verileri ortak kaynak kodu depolarına kaydetmeyin](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
+> Bu ve sonraki bölümde, kimlik bilgilerini proje dosyalarında depolarsınız. [Hassas verileri ortak kaynak kodu depolarına kaydetmeyin](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
 >
 >
 
@@ -232,7 +232,7 @@ Hem web rolü projesinin hem de çalışan rolü projesinin Azure Storage hesab�
 1. **Çözüm Gezgini**’nde **ContosoAdsCloudService** projesindeki **Roller** altında **ContosoAdsWeb**’e sağ tıklayın ve ardından **Özellikler**’e tıklayın.
 
     ![Rol özellikleri](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. **Ayarlar** sekmesine tıklayın. Hizmet Yapılandırma açılır kutusunda **Bulut**’u seçin.
+2. **Ayarlar** sekmesine tıklayın. **Hizmet Yapılandırma** açılır kutusunda **Bulut**’u seçin.
 
     ![Bulut yapılandırması](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. **StorageConnectionString** girdisini seçtiğinizde satırın sağ uç kısmında bir üç nokta (**...**) göreceksiniz. **Depolama Hesabı Bağlantı Dizesi Oluştur** iletişim kutusunu açmak için üç nokta düğmesine tıklayın.
@@ -391,7 +391,7 @@ Bu bölümde, yerel olarak test etmek amacıyla Azure Storage ve SQL bağlantı 
 8. Hala **ContosoAdsWorker [Rolü]** özellikler penceresindeyken başka bir bağlantı dizesi ekleyin:
 
    * Ad: ContosoAdsDbConnectionString
-   * Şunu yazın: Dize
+   * Şunu yazın: String
    * Değer: Web rolü projesi kullandığınız bağlantı dizesinin aynısını yapıştırın. (Aşağıdaki örnek Visual Studio 2013 içindir. Bu örneği kopyalarsanız ve Visual Studio 2015 veya sonraki bir sürümü kullanıyorsanız Veri Kaynağını değiştirmeyi unutmayın.)
 
        ```
@@ -417,9 +417,9 @@ Uygulamayı artık öğreticinin önceki bölümlerinde anlatılan şekilde derl
 
 Aşağıdaki bölümlerde Azure ortamı, blob'ları ve kuyrukları ile çalışmayla ilgili kod açıklanmaktadır. Bu öğretici, iskele kurma kullanarak MVC denetleyicilerinin ve görünümlerin nasıl oluşturulacağını, SQL Server veritabanları ile çalışan Entity Framework kodunun nasıl yazılacağını veya ASP.NET 4.5 içinde zaman uyumsuz programlamanın temel bilgilerini açıklamaz. Bu konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-* [MVC 5 kullanmaya başlama](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-* [EF 6 ve MVC 5 kullanmaya başlama](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
-* [.NET 4.5’te zaman uyumsuz programlamaya giriş](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
+* [MVC 5 kullanmaya başlama](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
+* [EF 6 ve MVC 5 kullanmaya başlama](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
+* [.NET 4.5’te zaman uyumsuz programlamaya giriş](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 ### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon - Ad.cs
 Ad.cs dosyası reklam kategorileri için bir numaralandırma ve reklam bilgileri için bir POCO varlık sınıfı tanımlar.
@@ -533,7 +533,7 @@ imagesQueue.CreateIfNotExists();
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 Oluşturucu, *AdController.cs* dosyasında blob’larla ve kuyruklarla çalışmaya yönelik bir API sağlayan Azure Storage İstemci Kitaplığı nesneleri oluşturmak için `InitializeStorage` yöntemini çağırır.
 
-Ardından kod daha önce gördüğünüz gibi *görüntüler* blob kapsayıcısı için *Global.asax.cs* içinde bir başvuru edinir. Bunu yaparken bir web uygulaması için uygun bir varsayılan [yeniden deneme ilkesi](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) ayarlar. Varsayılan üstel geri alma yeniden deneme ilkesi, web uygulamasını geçici bir hata için tekrarlanan yeniden denemelerde bir dakikadan uzun süre askıya alabilir. Burada belirtilen yeniden deneme ilkesi üç denemeye kadar her denemeden sonra en fazla üç saniye bekler.
+Ardından kod daha önce gördüğünüz gibi *görüntüler* blob kapsayıcısı için *Global.asax.cs* içinde bir başvuru edinir. Bunu yaparken bir web uygulaması için uygun bir varsayılan [yeniden deneme ilkesi](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) ayarlar. Varsayılan üstel geri alma yeniden deneme ilkesi, web uygulamasını geçici bir hata için tekrarlanan yeniden denemelerde bir dakikadan uzun süre askıya alabilir. Burada belirtilen yeniden deneme ilkesi üç denemeye kadar her denemeden sonra en fazla üç saniye bekler.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -737,7 +737,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 Bu kod, görüntü URL’sini almak için veritabanını okur, görüntüyü bir küçük resme dönüştürür, küçük resmi bir blob’a kaydeder, veritabanını küçük resim blob URL’si ile güncelleştirir ve kuyruk iletisini siler.
 
 > [!NOTE]
-> `ConvertImageToThumbnailJPG` yöntemindeki kod kolaylık için System.Drawing ad alanındaki sınıfları kullanır. Ancak, bu ad alanındaki sınıflar Windows Forms ile kullanılmak üzere tasarlanmıştır. Bir Windows veya ASP.NET hizmetinde kullanılması desteklenmez. Görüntü işleme seçenekleri hakkında daha fazla bilgi için bkz. [Dinamik Görüntü Oluşturma](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) ve [Görüntü Yeniden Boyutlandırmaya Ayrıntılı Bakış](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+> `ConvertImageToThumbnailJPG` yöntemindeki kod kolaylık için System.Drawing ad alanındaki sınıfları kullanır. Ancak, bu ad alanındaki sınıflar Windows Forms ile kullanılmak üzere tasarlanmıştır. Bir Windows veya ASP.NET hizmetinde kullanılması desteklenmez. Görüntü işleme seçenekleri hakkında daha fazla bilgi için bkz. [Dinamik Görüntü Oluşturma](https://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) ve [Görüntü Yeniden Boyutlandırmaya Ayrıntılı Bakış](https://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 >
 >
 
@@ -762,20 +762,20 @@ Projeyi tam öykünücü kullanacak şekilde değiştirmek için ContosoAdsCloud
 Uygulamayı tam öykünücü ile çalıştırmak için Visual Studio’yu yönetici ayrıcalıklarıyla açmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Contoso Ads uygulaması bir başlangıç öğreticisi için kasıtlı olarak basit tutulmuştur. Örneğin, [bağımlılık ekleme](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) veya [depo ve iş birimi düzenleri](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo) uygulamaz, [günlüğe kaydetme arabirimi yoktur](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), veri modeli değişikliklerini yönetmek için [EF Code First Geçişleri](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) veya geçici ağ hatalarını yönetmek için [EF Bağlantı Dayanıklılığı](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) kullanmaz, vb.
+Contoso Ads uygulaması bir başlangıç öğreticisi için kasıtlı olarak basit tutulmuştur. Örneğin, [bağımlılık ekleme](https://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) veya [depo ve iş birimi düzenleri](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo) uygulamaz, [günlüğe kaydetme arabirimi yoktur](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), veri modeli değişikliklerini yönetmek için [EF Code First Geçişleri](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) veya geçici ağ hatalarını yönetmek için [EF Bağlantı Dayanıklılığı](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) kullanmaz, vb.
 
 Daha gerçek kodlama uygulamalarını gösteren bazı bulut hizmeti örnek uygulamaları en az karmaşık olandan en karmaşığa doğru aşağıda listelenmiştir:
 
 * [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Contoso Ads uygulamasıyla kavram olarak benzerdir, ancak daha fazla özellik ve daha gerçek kodlama uygulamaları kullanır.
 * [Tablolar, Kuyruklar ve Blob’lar ile Azure Cloud Service Çok Katmanlı Uygulaması](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Azure Storage tablolarının yanı sıra blob’ları ve kuyrukları tanıtır. .NET için daha eski bir Azure SDK sürümünü temel alır ve geçerli sürümle çalışmak için bazı değişiklikler gerektirir.
 
-Bulut için geliştirme hakkında genel bilgi için bkz. [Azure ile Gerçek Bulut Uygulamaları Derleme](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
+Bulut için geliştirme hakkında genel bilgi için bkz. [Azure ile Gerçek Bulut Uygulamaları Derleme](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
-Azure Storage’da en iyi yöntemler ve yaklaşımlar hakkında bir tanıtım için bkz. [Microsoft Azure Storage – Yenilikler, En İyi Yöntemler ve Yaklaşımlar](http://channel9.msdn.com/Events/Build/2014/3-628).
+Azure Storage’da en iyi yöntemler ve yaklaşımlar hakkında bir tanıtım için bkz. [Microsoft Azure Storage – Yenilikler, En İyi Yöntemler ve Yaklaşımlar](https://channel9.msdn.com/Events/Build/2014/3-628).
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-* [Azure Cloud Services bölüm 1: Giriş](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Azure Cloud Services bölüm 1: Giriş](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Cloud Services nasıl yönetilir?](cloud-services-how-to-manage-portal.md)
 * [Azure Depolama](https://docs.microsoft.com/azure/storage/)
 * [Bulut hizmeti sağlayıcısı seçme](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

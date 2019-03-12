@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: d79485fa7587a6cf8783f2e5779fa0a1d593aea7
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: ac7043d2967fcf3f083c09622c39f4649f04f6e7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011441"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551679"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan yaygın terimlerin bazıları listelenmektedir.
@@ -191,7 +191,7 @@ Modül kimliği, bir cihaza ait her bir modüle atanan benzersiz tanımlayıcıs
 Cihaz ikizi, modül ikizi meta veriler, yapılandırmalar ve koşullar gibi modülü durum bilgilerini depolayan JSON belgesini benzer. IOT Hub, IOT hub'ınızda bir cihaz kimliği altında sağlamanız her bir modül kimliği için bir modül ikizi'ni kalıcıdır. Modül ikizlerini modülü koşullar ve yapılandırmaları modülü ve çözüm arka ucu arasında eşitleme sağlar. Modül ikizlerini belirli modüller bulun ve uzun süre çalışan işlemlerinin durumunu sorgulamak için sorgu oluşturabilirsiniz.
 
 ## <a name="mqtt"></a>MQTT
-[MQTT](http://mqtt.org/) olduğu bir Mesajlaşma protokolleri [IOT hub'ı](#iot-hub) cihazlarla iletişim için destekler. IOT hub'ın desteklediği Mesajlaşma protokolleri hakkında daha fazla bilgi için bkz. [göndermek ve IOT Hub ile ileti alma](iot-hub-devguide-messaging.md).
+[MQTT](https://mqtt.org/) olduğu bir Mesajlaşma protokolleri [IOT hub'ı](#iot-hub) cihazlarla iletişim için destekler. IOT hub'ın desteklediği Mesajlaşma protokolleri hakkında daha fazla bilgi için bkz. [göndermek ve IOT Hub ile ileti alma](iot-hub-devguide-messaging.md).
 
 ## <a name="operations-monitoring"></a>İşlemleri izleme
 IOT hub'ı [işlem izleme](iot-hub-operations-monitoring.md) gerçek zamanlı IOT hub'ınızdaki işlemlerin durumunu izlemenizi sağlar. [IOT hub'ı](#iot-hub) birkaç işlem kategorisi olayları izler. Olay işleme için bir IOT Hub uç noktası için bir veya daha fazla kategorilerden göndermeye içine seçebilirsiniz. Hatalar için verileri izlemek veya veri modellerini daha karmaşık bir işlem ayarlayın.

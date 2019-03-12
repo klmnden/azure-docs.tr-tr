@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633870"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537253"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Metin arama Azure Search'te tam nasıl çalışır
 
@@ -55,14 +55,14 @@ Aşağıdaki örnek, Azure Search kullanarak gönderebilir arama isteği [REST A
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2017-11-11 
-{  
-    "search": "Spacious, air-condition* +\"Ocean view\"",  
-    "searchFields": "description, title",  
+{
+    "search": "Spacious, air-condition* +\"Ocean view\"",
+    "searchFields": "description, title",
     "searchMode": "any",
-    "filter": "price ge 60 and price lt 300",  
+    "filter": "price ge 60 and price lt 300",
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
- } 
+}
 ~~~~
 
 Bu istek için arama motoru şunları yapar:
@@ -117,7 +117,7 @@ Varsayılan olarak (`searchMode=any`), arama motoru daha geniş yorumu varsayar.
 Artık ayarladığımız varsayalım `searchMode=all`. Bu durumda, alan "ve" bir işlem olarak yorumlanır. Her kalan koşulları hem de bir eşleşme olarak nitelemek için belge içinde bulunmalıdır. Sonuçta elde edilen örnek sorgu şu şekilde yorumlanır: 
 
 ~~~~
-+Spacious,+air-condition*+"Ocean view"  
++Spacious,+air-condition*+"Ocean view"
 ~~~~
 
 Bu sorgu için bir değiştirilen sorguyu ağacı eşleşen bir belge, tüm üç alt sorgular kesişimi olduğu şu şekilde olacaktır: 
@@ -155,7 +155,7 @@ Varsayılan Çözümleyicisi terimi işlediğinde, "Okyanusu görünümü" ve "s
 Bir çözümleyici davranışını kullanılarak sınanabilir [analiz API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Ne Çözümleyicisi verilen koşulları oluşturacak görmek için analiz etmek istediğiniz metni belirtin. Örneğin, standart Çözümleyicisi metin "air-condition" nasıl işleyeceğini görmek için aşağıdaki istek gönderebilir:
 
 ~~~~
-{ 
+{
     "text": "air-condition",
     "analyzer": "standard"
 }
@@ -164,7 +164,7 @@ Bir çözümleyici davranışını kullanılarak sınanabilir [analiz API](https
 Standart Çözümleyicisi, bunları konumlarına (tümcecik eşleştirmek için kullanılır) yanı sıra başlangıç ve bitiş kaydırmalar (isabet vurgulama için kullanılan) gibi özniteliklerle yorumlama aşağıdaki iki belirteçler içine giriş metni keser:
 
 ~~~~
-{  
+{
   "tokens": [
     {
       "token": "air",
@@ -195,11 +195,11 @@ Sözcük temelli analiz tüm koşullar – bir terim sorgu ya da bir deyim sorgu
 Belge alma dizini terimleriyle eşleşen belgeleri bulmak için ifade eder. Bu aşama, en iyi bir örnek anlaşılır. Basit aşağıdaki şemayı içerecek bir Oteller dizinini ile başlayalım: 
 
 ~~~~
-{   
-    "name": "hotels",     
-    "fields": [     
-        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },     
-        { "name": "title", "type": "Edm.String", "searchable": true },     
+{
+    "name": "hotels",
+    "fields": [
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "title", "type": "Edm.String", "searchable": true },
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
@@ -208,28 +208,28 @@ Belge alma dizini terimleriyle eşleşen belgeleri bulmak için ifade eder. Bu a
 Daha fazla bu dizin aşağıdaki dört belgeler içerdiğini varsayın: 
 
 ~~~~
-{ 
+{
     "value": [
-        {         
-            "id": "1",         
-            "title": "Hotel Atman",         
-            "description": "Spacious rooms, ocean view, walking distance to the beach."   
-        },       
-        {         
-            "id": "2",         
-            "title": "Beach Resort",        
-            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
-        },       
-        {         
-            "id": "3",         
-            "title": "Playa Hotel",         
+        {
+            "id": "1",
+            "title": "Hotel Atman",
+            "description": "Spacious rooms, ocean view, walking distance to the beach."
+        },
+        {
+            "id": "2",
+            "title": "Beach Resort",
+            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."
+        },
+        {
+            "id": "3",
+            "title": "Playa Hotel",
             "description": "Comfortable, air-conditioned rooms with ocean view."
-        },       
-        {         
-            "id": "4",         
-            "title": "Ocean Retreat",         
+        },
+        {
+            "id": "4",
+            "title": "Ocean Retreat",
             "description": "Quiet and secluded"
-        }    
+        }
     ]
 }
 ~~~~
@@ -291,7 +291,7 @@ Yalnızca başlık alanında *otel* iki belgelerde gösterilir: 1, 3.
 | - | 1
 | görünüm | 1, 2, 3
 | Yürüyen | 1
-| with | 3
+| ile | 3
 
 
 **Dizini oluşturulan terimler karşı sorgu terimleriyle eşleşen**
@@ -317,7 +317,7 @@ Tüm, söz konusu sorgu için eşleşen belgelerdir 1, 2, 3.
 
 ## <a name="stage-4-scoring"></a>4. Aşama: Puanlama  
 
-Arama sonuç kümesinde her belgenin bir ilgi puanı atanır. İlgi puanı işlevi, en iyi bir kullanıcı arama sorgusu ifade edilen sorusunu bu belgeleri boyut sayısı daha yüksek olduğu. Puan eşleşen terimleri istatistiksel özelliklerine göre hesaplanır. Puanlama formülün temel [TF/IDF (terimi sıklığı ters belge sıklık düzeyi)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). Nadir ve yaygın terimlerin bulunduğu sorgularda sonuçları nadir terimini içeren TF/IDF yükseltir. Örneğin, tüm Wikipedia makalelerde kuramsal bir dizinde belgelerden sorguyla eşleşen *Başkanı*, üzerinde eşleşen belgeler *Başkanı* üzerinde eşleşen belgeler daha fazla ilgili kabul edilip edilmediğini.
+Arama sonuç kümesinde her belgenin bir ilgi puanı atanır. İlgi puanı işlevi, en iyi bir kullanıcı arama sorgusu ifade edilen sorusunu bu belgeleri boyut sayısı daha yüksek olduğu. Puan eşleşen terimleri istatistiksel özelliklerine göre hesaplanır. Puanlama formülün temel [TF/IDF (terimi sıklığı ters belge sıklık düzeyi)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). Nadir ve yaygın terimlerin bulunduğu sorgularda sonuçları nadir terimini içeren TF/IDF yükseltir. Örneğin, tüm Wikipedia makalelerde kuramsal bir dizinde belgelerden sorguyla eşleşen *Başkanı*, üzerinde eşleşen belgeler *Başkanı* üzerinde eşleşen belgeler daha fazla ilgili kabul edilip edilmediğini *.*
 
 
 ### <a name="scoring-example"></a>Örnek Puanlama
@@ -327,7 +327,7 @@ Bizim örnek sorgu eşleşen üç belgeleri Hatırla:
 search=Spacious, air-condition* +"Ocean view"  
 ~~~~
 ~~~~
-{  
+{
   "value": [
     {
       "@search.score": 0.25610128,
