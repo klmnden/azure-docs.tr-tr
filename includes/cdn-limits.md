@@ -4,20 +4,20 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 3c4b9f5b8533e24a5b7cee1d2b4e3a8c65473b6b
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b3a610fd1c4da99d1e98a5caea9e1a4151fc1fea
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279999"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553863"
 ---
 | Kaynak | Varsayılan limit | Üst sınır | 
 | --- | --- | --- |
-| CDN profilleri |25 |25 |
-| Profil başına CDN uç noktası |10 |25 |
+| Azure Content Delivery Network profilleri |25 |25 |
+| Profil başına Content Delivery Network uç noktaları |10 |25 |
 | Uç noktası başına özel etki alanları |10 |25 |
 
-CDN aboneliği bir veya daha fazla CDN profili ve CDN profili bir veya daha fazla CDN uç noktası içerebilir. CDN uç noktalarınızı İnternet etki alanı, web uygulaması veya başka ölçütlere göre düzenlemek için birden çok profil kullanmak isteyebilirsiniz. 
+Content Delivery Network Aboneliği bir veya daha fazla Content Delivery Network profili içerebilir. Content Delivery Network profili bir veya daha fazla Content Delivery Network uç noktası içerebilir. Content Delivery Network uç noktalarınızı internet etki alanı, web uygulaması veya başka ölçütlere göre düzenlemek için birden çok profil kullanmak isteyebilirsiniz. 
 
-Aboneliğinizin varsayılan sınırlarının güncelleştirme isteği için bir destek bileti açın. 
+Aboneliğinizin varsayılan sınırlarının güncelleştirme isteği için bir destek bileti açın.
 

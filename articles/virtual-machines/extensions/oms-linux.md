@@ -1,5 +1,5 @@
 ---
-title: Linux için Azure Log Analytics sanal makine uzantısı | Microsoft Docs
+title: Linux için Azure İzleyici sanal makine uzantısı | Microsoft Docs
 description: Log Analytics aracısını sanal makine uzantısını kullanarak Linux sanal makinesine dağıtın.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,21 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 3bb6bdfa849894547175c5ccf79ee476b4987a97
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: a004182371299e98933d0469e9c85313b29ede3e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408828"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550745"
 ---
-# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux için sanal makine uzantısı Analytics oturum
+# <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Linux için Azure İzleyici sanal makine uzantısı
 
 ## <a name="overview"></a>Genel Bakış
 
-Log Analytics bulut izleme, uyarı ve uyarı düzeltme özellikleri sağlar ve şirket içinde varlıklar. Linux için Log Analytics aracısını sanal makine uzantısı yayımlandı ve Microsoft tarafından desteklenmiyor. Uzantı, Azure sanal makinelerinde Log Analytics aracısını yükler ve sanal makinelerin mevcut bir Log Analytics çalışma alanına kaydeder. Bu belge, desteklenen platformlar, yapılandırmaları ve Linux için Log Analytics VM uzantısı için dağıtım seçenekleri açıklanmaktadır.
+Azure İzleyici günlüklerine, Bulut ve şirket içi varlıkları arasında izleme, uyarı ve uyarı düzeltme özellikleri sağlar. Linux için Log Analytics aracısını sanal makine uzantısı yayımlandı ve Microsoft tarafından desteklenmiyor. Uzantı, Azure sanal makinelerinde Log Analytics aracısını yükler ve sanal makinelerin mevcut bir Log Analytics çalışma alanına kaydeder. Bu belge, desteklenen platformlar, yapılandırmaları ve Linux için Azure İzleyici sanal makine uzantısı için dağıtım seçenekleri açıklanmaktadır.
 
 >[!NOTE]
 >Azure İzleyici devam eden Microsoft Operations Management Suite (OMS) gelen geçiş işleminin bir parçası olarak için OMS aracısını Windows veya Linux için Windows ve Log Analytics aracısını Linux için Log Analytics aracısını olarak adlandırılır.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -52,9 +54,9 @@ Log Analytics aracısını uzantısı bu Linux dağıtımları karşı çalışt
 >
 
 ### <a name="agent-and-vm-extension-version"></a>Aracı ve VM uzantısı sürümü
-Aşağıdaki tabloda, her sürüm için Log Analytics aracısını paket ve Log Analytics VM uzantısı sürümünü bir eşleme sağlar. Log Analytics aracı Paket sürümü için sürüm notları için bir bağlantı bulunur. Sürüm Notları, hata düzeltmeleri ve belirli bir aracı sürüm için yeni özellikler hakkında ayrıntılı bilgi içerir.  
+Aşağıdaki tabloda, her sürüm için Log Analytics aracısını paketi ve Azure İzleyicisi VM uzantısı sürümünü bir eşleme sağlar. Log Analytics aracı Paket sürümü için sürüm notları için bir bağlantı bulunur. Sürüm Notları, hata düzeltmeleri ve belirli bir aracı sürüm için yeni özellikler hakkında ayrıntılı bilgi içerir.  
 
-| Log Analytics Linux VM uzantı sürümü | Log Analytics aracısını Paket sürümü | 
+| Azure İzleyici Linux VM uzantısı sürümü | Log Analytics aracısını Paket sürümü | 
 |--------------------------------|--------------------------|
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
@@ -125,7 +127,7 @@ Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir.
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Şablonları, bir veya daha fazla Log analytics'e ekleme gibi dağıtım sonrası yapılandırma gerektiren sanal makineler dağıtırken idealdir. Log Analytics aracısını VM uzantısı içeren örnek bir Resource Manager şablonu bulunabilir [Azure hızlı başlangıç Galerisine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Şablonları, bir veya daha fazla Azure İzleyici günlüklerine ekleme gibi dağıtım sonrası yapılandırma gerektiren sanal makineler dağıtırken idealdir. Log Analytics aracısını VM uzantısı içeren örnek bir Resource Manager şablonu bulunabilir [Azure hızlı başlangıç Galerisine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 Sanal makine uzantısı için JSON yapılandırma içinde sanal makine kaynağı iç içe geçmiş veya kök veya bir Resource Manager JSON şablonunu üst düzey yerleştirilir. Kaynak adı ve türü değeri JSON yapılandırma yerleşimini etkiler. Daha fazla bilgi için [ayarlamak için alt kaynakları ad ve tür](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 
@@ -220,7 +222,7 @@ Uzantı yürütme çıkış aşağıdaki dosyasına kaydedilir:
 | 19 | OMI paket yükleme hatası | 
 | 20 | SCX paket yükleme hatası |
 | 51 | Bu uzantı sanal makinenin işletim sistemi üzerinde desteklenmiyor | |
-| 55 | Bağlantı kurulamıyor Log Analytics hizmetine veya gerekli paketleri eksik veya dpkg Paket Yöneticisi kilitli| Sistem ya da Internet erişimi veya geçerli bir HTTP proxy'sinin sağlanan sahip olmadığını denetleyin. Ayrıca, çalışma alanı kimliği doğruluğunu denetleyin ve curl ve tar yardımcı programları yüklü olmadığını doğrulayın. |
+| 55 | Bağlantı kurulamıyor Azure İzleyici hizmeti veya gerekli paketleri eksik veya dpkg Paket Yöneticisi kilitli| Sistem ya da Internet erişimi veya geçerli bir HTTP proxy'sinin sağlanan sahip olmadığını denetleyin. Ayrıca, çalışma alanı kimliği doğruluğunu denetleyin ve curl ve tar yardımcı programları yüklü olmadığını doğrulayın. |
 
 Ek bilgiler bulunabilir [Log Analytics aracısı için Linux sorun giderme kılavuzu](../../azure-monitor/platform/vmext-troubleshoot.md).
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 3/2/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 38b60536a05fc726ddcd06b631078c0a5f3d89ce
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249346"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730520"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Azure güvenlik duvarı tehdit zekası tabanlı filtreleme - genel Önizleme
 
@@ -22,8 +22,6 @@ Tehdit zekası tabanlı filtreleme, uyarı ve kötü amaçlı IP adresleri ve et
 
 > [!IMPORTANT]
 > Tehdit zekası tabanlı filtreleme, şu anda genel Önizleme aşamasındadır ve önizleme bir hizmet düzeyi sözleşmesi ile sağlanır. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir.  Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->Tehdit zekası filtreleme tüm ortak bölgelerde kullanılabilir. İlişkili portal Yapılandırması kullanıcı arabirimi bölgelere artımlı olarak eklendiğinden ve tüm bölgelerde yakın gelecekte kullanıma sunulacak.
 
 Tehdit zekası tabanlı filtreleme etkinse, ilişkili kuralların herhangi bir NAT kuralları, ağ kuralları veya uygulama kuralları önce işlenir. Önizleme sırasında yalnızca en yüksek güvenilirlik kayıtları dahil edilir.
 

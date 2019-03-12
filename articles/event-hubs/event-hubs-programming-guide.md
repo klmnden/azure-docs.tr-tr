@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 60c709108da041dc1e54ba69d3b1b153accebc19
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: ab067d09d1e161e463922eeae90fe3b46e887150
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401410"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544299"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure Event hubs Programlama Kılavuzu
 Bu makalede, Azure Event Hubs'ı kullanarak kod yazma bazı yaygın senaryolar açıklanmaktadır. Burada Event Hubs’ın önceden bilindiği varsayılır. Event Hubs’a kavramsal genel bakış için bkz. [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md).
@@ -27,7 +27,7 @@ Olaylar, olay hub'ına ya da HTTP POST kullanılarak veya bir AMQP 1.0 bağlant�
 
 ## <a name="get-started"></a>başlarken
 
-Event Hubs sunulmaktadır destekleyen .NET sınıfları [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet paketi. Visual Studio Çözüm Gezgini'ni kullanarak yükleyebilirsiniz veya [Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) Visual Studio'da. Bunu yapmak için [Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) penceresinde aşağıdaki komutu yürütün:
+Event Hubs sunulmaktadır destekleyen .NET sınıfları [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet paketi. Visual Studio Çözüm Gezgini'ni kullanarak yükleyebilirsiniz veya [Paket Yöneticisi Konsolu](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) Visual Studio'da. Bunu yapmak için [Paket Yöneticisi Konsolu](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) penceresinde aşağıdaki komutu yürütün:
 
 ```shell
 Install-Package Microsoft.Azure.EventHubs

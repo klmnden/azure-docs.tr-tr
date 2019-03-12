@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/30/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ac08a9ab6975039402df44e6a043ee81cf5b222e
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 443db1b4609e62fb7c57de417e42a2b4d0737ada
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988109"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554038"
 ---
-Event Grid sistem konuları ve özel konular için aşağıdaki sınırlar geçerlidir *değil* olay etki alanları.
+Azure Event Grid sistem konuları ve özel konular için aşağıdaki sınırlar geçerlidir *değil* olay etki alanları.
 
 | Kaynak | Sınır |
 | --- | --- |
@@ -29,5 +29,5 @@ Aşağıdaki sınırlar yalnızca olay etki alanları için geçerlidir.
 | --- | --- |
 | Olay etki alanı başına konuları | Genel Önizleme sırasında 1000 |
 | Bir etki alanı içinde konu başına olay aboneliği sayısı | 50 genel Önizleme sırasında |
-| Etki alanı kapsamına olay abonelikleri | 50 genel Önizleme sırasında |
-| Bir olay etki alanı için (giriş) oranı yayımlama | Genel Önizleme sırasında saniye başına 5.000 olayları |
+| Etki alanı kapsamı olay abonelikleri | 50 genel Önizleme sırasında |
+| Bir olay etki alanı (giriş) oranı yayımlama | Genel Önizleme sırasında saniye başına 5.000 olayları |

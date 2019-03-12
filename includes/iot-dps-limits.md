@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 62f5c1a1f6184feddad7f2b57bcfc1c4bb5bc339
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 1ae6c6ee59b66e6c61714c0ece9f306f1a885096
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279995"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553814"
 ---
-Aşağıdaki tabloda, IOT Hub cihazı sağlama hizmeti kaynakları için geçerli olan sınırlar listelenmektedir:
+Aşağıdaki tabloda, Azure IOT Hub cihazı sağlama hizmeti kaynakları için geçerli olan sınırlar listelenmektedir.
 
 | Kaynak | Sınır |
 | --- | --- |
@@ -22,12 +22,12 @@ Aşağıdaki tabloda, IOT Hub cihazı sağlama hizmeti kaynakları için geçerl
 | CAs sayısı | 25 |
 
 > [!NOTE]
-> Sizinle iletişim [Microsoft Support](https://azure.microsoft.com/support/options/) aboneliğinizdeki örneği sayısını artırmak için.
+> Aboneliğinizdeki örneği sayısını artırmak için kişi [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 > [!NOTE]
-> Sizinle iletişim [Microsoft Support](https://azure.microsoft.com/support/options/) kayıtları ve sağlama hizmetinizi kayıtları sayısını artırabilirsiniz.
+> Kayıtlar ve sağlama hizmetinizi kayıtları sayısını artırmak için kişi [Microsoft Support](https://azure.microsoft.com/support/options/).
 
-Aşağıdaki kotalar aşıldığında cihaz sağlama hizmeti istekleri kısıtlar:
+Aşağıdaki kotalar aşıldığında cihaz sağlama hizmeti istekleri kısıtlar.
 
 | Kısıtlama | Birim başına değer |
 | --- | --- |

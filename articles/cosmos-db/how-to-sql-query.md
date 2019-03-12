@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 5833ee3964958437b7834ff25f1bce7837370fb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455968"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550592"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL sorgu örnekleri
 
@@ -160,7 +160,7 @@ Artık Azure Cosmos DB SQL sorgu dili önemli yönlerini bazıları anlamak içi
 
 * Yapılandırılmış sorgu dili, şemasız verileri ile çalışır. Bu nedenle, tür sisteminde dinamik olarak bağlanması gerekir. Farklı türlerde farklı öğeye aynı ifadesi üretebilir. Bir sorgunun sonucu, geçerli bir JSON değer, ancak bir sabit şemasına olması garanti edilmez.  
 
-* Azure Cosmos DB, yalnızca Katı JSON öğelerini destekler. Bu tür sistemi ve ifadeleri yalnızca JSON türleri ile dağıtılacak sınırlı olduğu anlamına gelir. Başvurmak [JSON belirtimi](http://www.json.org/) daha fazla ayrıntı için.  
+* Azure Cosmos DB, yalnızca Katı JSON öğelerini destekler. Bu tür sistemi ve ifadeleri yalnızca JSON türleri ile dağıtılacak sınırlı olduğu anlamına gelir. Başvurmak [JSON belirtimi](https://www.json.org/) daha fazla ayrıntı için.  
 
 * Bir Cosmos DB kapsayıcısında JSON öğelerinin şemasız bir koleksiyondur. Veri varlıkları içinde ve bir kapsayıcıdaki öğeleri arasında ilişkiler, kapsama ve birincil anahtar ve yabancı anahtar ilişkileri tarafından örtük olarak yakalanır. Belirtmemiz bu makalenin sonraki bölümlerinde ele alınan içi öğesi birleştirmeler sonra önemli bir yönüdür.
 

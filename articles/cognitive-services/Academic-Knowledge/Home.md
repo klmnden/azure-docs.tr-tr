@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: 975c36451f0f00ce374a0bbf0a6dd87ec39eb912
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b15ed5e2b31ed817d3f6558858e2b7285f98a70f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871566"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551730"
 ---
 # <a name="academic-knowledge-api"></a>Akademik Bilgi API'si
 
@@ -23,7 +23,7 @@ Akademik Bilgi API'sine hoş geldiniz. Bu hizmet ile kullanıcı sorgularındaki
 
 MAG verileri Bing web dizinine ek olarak Bing tarafından sağlanan şirket içi bir bilgi bankasından toplanır. Bing tarafında dizine ekleme işlemleri sürekli devam ettiğinden bu API'de Bing tarafından yeni keşfedilen ve dizine eklenen Web sayfalarından alınan güncel bilgiler bulunacaktır. Akademik Bilgi API'si bu veri kümesini temel alarak belirli yayınlar ve ilgili varlıklar için reaktif aramayı proaktif öneri deneyimleriyle, zengin araştırma grafı arama sonuçlarıyla ve öznitelik değerlerinin histogram dağıtımlarıyla sorunsuz bir şekilde birleştiren bilgi tabanlı ve etkileşimli bir diyalog sunar.
 
-Microsoft Academic Graph hakkında daha fazla bilgi için bkz. [http://aka.ms/academicgraph](https://aka.ms/academicgraph).
+Microsoft Academic Graph hakkında daha fazla bilgi için bkz. [https://aka.ms/academicgraph](https://aka.ms/academicgraph).
 
 Akademik Bilgi API'si, Bilişsel Hizmetler Önizleme aşamasından Bilişsel Hizmetler Laboratuvarları aşamasına geçmiştir. Proje için yeni ana sayfa: [https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). Var olan API anahtarınız 24 Mayıs 2018 tarihine kadar çalışmaya devam edecektir. Bu tarihten sonra lütfen yeni bir API anahtarı oluşturun. Var olan anahtarınızın kullanım süresi sona erdikten sonra ücretli önizlemenin kullanım dışı olacağını lütfen unutmayın. Ücretsiz API katmanı çalışmalarınız için yeterli değilse lütfen ekibimizle iletişime geçin. 
 

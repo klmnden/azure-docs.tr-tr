@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: dfdc572810cfcfd275faa4502e508b9c8ccec9b6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727850"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546152"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins ve Azure CLI ile Azure App Service'e dağıtım yapma
 Azure'a Java web uygulaması dağıtmak için [Jenkins İşlem Hattı](https://jenkins.io/doc/book/pipeline/)'ndaki Azure CLI'yi kullanabilirsiniz. Bu öğreticide, aşağıdakileri öğrenerek bir Azure sanal makinesinde CI/CD işlem hattı oluşturursunuz:
@@ -117,7 +117,7 @@ Web uygulaması tanımı hazır olduğunda Azure CLI aşağıda yer alan örnekt
 
 [az appservice web config update](/cli/azure/webapp/config) komutunu kullanarak uygulamanız için gerekli Java çalışma zamanı yapılandırmasını ayarlayın.
 
-Aşağıdaki komut web uygulamasını yeni Java 8 JDK ve [Apache Tomcat](http://tomcat.apache.org/) 8.0 üzerinde çalıştırılacak şekilde yapılandırır.
+Aşağıdaki komut web uygulamasını yeni Java 8 JDK ve [Apache Tomcat](https://tomcat.apache.org/) 8.0 üzerinde çalıştırılacak şekilde yapılandırır.
 
 ```azurecli-interactive
 az webapp config set \ 

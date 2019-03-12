@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f9d431fe0ee76edf5d41c1ce7831f335128402a8
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b346ac0ac456b7f6af078496e8dd1cb738caab67
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244749"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530203"
 ---
 # <a name="media-services-concepts"></a>Media Services kavramları
 
@@ -65,7 +65,7 @@ Aşağıdaki resimde Media Services content protection iş akışı gösterilmek
 
 ![İçerik koruma](./media/content-protection/content-protection.svg)
 
-&#42;* dinamik şifreleme, AES-128 "şifresiz anahtar" ve CBCS CENC destekler. 
+&#42;dinamik şifreleme, AES-128 "şifresiz anahtar" ve CBCS CENC destekler. 
 
 Media Services kullanabileceğiniz **dinamik bildirimlerini** yalnızca belirli bir işleme veya subclips videonuzun akışını yapmak. Aşağıdaki örnekte, bir kodlayıcı, yedi ISO MP4 video yorumlama (Başlangıç 180 p 1080 p) mezzanine varlık kodlayın için kullanıldı. Kodlanmış varlık dinamik olarak şu protokolden herhangi birini akış paketlenmiş: HLS, MPEG DASH ve kesintisiz.  Diyagramın üstünde filtre varlıkla HLS bildirimi gösterilir (tüm yedi önayarda içerir).  Alt sol, "ott" adlı bir filtre uygulandığı HLS bildirimde gösterilir. Yanıtta çıkartılır alt iki kalite düzeyi sonuçlandı 1 MB/sn altındaki tüm bit hızlarına dönüştürme kaldırmak için "ott" filtresini belirtir. Sağ alt "mobil" adlı bir filtre uygulandığı HLS bildirimde gösterilir. Çözüm olduğu iki sonuçlandı 720 p büyük yorumlama kaldırmak için "mobil" filtresi belirtir 1080 p yorumlama çıkartılır devre dışı.
 

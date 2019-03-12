@@ -12,12 +12,12 @@ ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16032ec5ba1e613462f92b86281ce93153b70923
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 1f9bd8503c2e8f2aa3c54d41b8585c6fbf81c92b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409726"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542094"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Batch AI hizmet kotaları ve limitleri
 
@@ -77,7 +77,7 @@ Kota isteği için şu adımları artırmak için Batch AI aboneliğinden izleyi
    
     d. **Destek planınız** > Destek planını seçin.
 
-    **İleri**'ye tıklayın.
+    **İleri**’ye tıklayın.
 4. İçinde **sorun**:
    
     a. Seçin bir **önem derecesi** göre [iş etkisi][support_sev].
@@ -86,7 +86,7 @@ Kota isteği için şu adımları artırmak için Batch AI aboneliğinden izleyi
 
     c. İsteğe bağlı - nedeninizi artırmak için ilgili daha fazla bilgi ile ilgili tüm dosyaları karşıya yükleme.
    
-    **İleri**'ye tıklayın.
+    **İleri**’ye tıklayın.
 5. İçinde **iletişim bilgilerini**:
    
     a. Seçin bir **tercih edilen iletişim yöntemi**.
@@ -108,4 +108,4 @@ Kota sınırları ile ilgili bilgi sahibi olma sonra Batch AI'ı kullanmaya baş
 > [Batch AI kaynakları hakkında daha fazla bilgi edinin](resource-concepts.md)
 
 [portal]: https://portal.azure.com
-[support_sev]: http://aka.ms/supportseverity
+[support_sev]: https://aka.ms/supportseverity

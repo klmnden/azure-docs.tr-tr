@@ -1,7 +1,7 @@
 ---
-title: SSL ile güvenli web Hizmetleri
+title: SSL ile web hizmetlerinin güvenliğini sağlama
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning hizmeti ile dağıtılmış bir web hizmeti güvenli hale getirme hakkında bilgi edinin. Web hizmetlerine erişimi kısıtlama ve Güvenli Yuva Katmanı (SSL) kullanan istemciler tarafından gönderilen verilerin güvenliğini sağlamak ve anahtar tabanlı kimlik doğrulaması.
+description: HTTPS'yi etkinleştirerek Azure Machine Learning hizmeti ile dağıtılmış bir web hizmeti güvenli hale getirme hakkında bilgi edinin. HTTPS yerine Güvenli Yuva Katmanı (SSL) için Aktarım Katmanı Güvenliği (TLS) kullanan istemciler tarafından gönderilen verilerin güvenliğini sağlar. Web hizmeti kimliğini doğrulamak için istemciler tarafından da kullanılır.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,27 +11,34 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 91958a76ffb3cafd818949c1475fd13bb978a928
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098111"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731881"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile web hizmetlerinin güvenliğini sağlamak için SSL kullan
 
-Bu makalede, Azure Machine Learning hizmeti ile dağıtılmış bir web hizmeti güvenli hale getirmeyi öğreneceksiniz. Web hizmetlerine erişimi kısıtlama ve Güvenli Yuva Katmanı (SSL) kullanan istemciler tarafından gönderilen verilerin güvenliğini sağlamak ve anahtar tabanlı kimlik doğrulaması.
+Bu makalede, Azure Machine Learning hizmeti ile dağıtılmış bir web hizmeti güvenli hale getirmeyi öğreneceksiniz. Web hizmetlerine erişimi kısıtlama ve kullanan istemciler tarafından gönderilen verilerin güvenliğini [Köprü Metni Aktarım Protokolü güvenli (HTTPS)](https://en.wikipedia.org/wiki/HTTPS).
+
+HTTPS, ikisi arasındaki iletişimleri şifrelemek tarafından web hizmetiniz ile bir istemci arasındaki iletişimin güvenliğini sağlamak için kullanılır. Şifreleme kullanarak işlenir [Aktarım Katmanı Güvenliği (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Bazen bu hala olarak Güvenli Yuva Katmanı (TLS öncülü olan SSL), adlandırılır.
+
+> [!TIP]
+> Azure Machine Learning SDK özelliklerinin ' SSL güvenli iletişim etkinleştirme ile ilgili' terimini kullanır. Bu gelmez TLS web hizmetiniz tarafından kullanılmaz, yalnızca bir SSL birçok okuyucular için daha fazla tanınabilir bir terimdir.
+
+TLS ve SSL hem de bağımlı __dijital sertifikalar__, şifreleme ve kimlik doğrulama gerçekleştirmek için kullanılır. Dijital sertifikalar çalışma hakkında daha fazla bilgi için üzerinde Wikipedia girişine bakın. [ortak anahtar altyapısı (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
 > [!Warning]
-> SSL etkinleştirmezseniz, internet üzerindeki herhangi bir kullanıcı web hizmetine çağrı yapmak mümkün olacaktır.
+> Etmez etkinleştirmek ve web hizmetiniz için HTTPS kullanmak, gönderilen ve alınan hizmet veri İnternette diğer açın görünür olabilir.
+>
+> HTTPS sunucusunun bağlandığı orjinalliği doğrulamak istemci de sağlar. Bu istemciler karşı korur [adam-de-ADAM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) saldırıları.
 
-SSL istemci ve web hizmeti arasında gönderilen verileri şifreler. Bu da sunucunun kimliğini doğrulamak için istemci tarafından kullanılmış. Kimlik doğrulaması, yalnızca bir SSL sertifikası ve anahtar sağladığınız Hizmetleri için etkindir.  SSL'yi etkinleştirirseniz, bir kimlik doğrulama anahtarı web hizmetine erişim gereklidir.
-
-SSL ile etkin bir web hizmetini dağıtma veya mevcut dağıtılan web hizmeti için SSL'yi aynı adımlar şunlardır:
+Yeni bir web hizmeti veya var olan bir güvenli hale getirme işlemi aşağıdaki gibidir:
 
 1. Bir etki alanı adını alın.
 
-2. Bir SSL sertifikası alın.
+2. Bir dijital sertifika alın.
 
 3. Dağıtmak veya web hizmeti SSL ayar etkin güncelleştirin.
 
@@ -45,7 +52,7 @@ Zaten bir etki alanı adına sahip olmadığınız, birinden, satın alabileceğ
 
 ## <a name="get-an-ssl-certificate"></a>Bir SSL sertifikası alma
 
-Bir SSL sertifikası almak için birçok yolu vardır. En sık karşılaşılan bir satın almaktır bir __sertifika yetkilisi__ (CA). Sertifika burada elde bağımsız olarak, aşağıdaki dosyaları gerekir:
+Bir SSL sertifikası (dijital sertifika) almak için birçok yolu vardır. En sık karşılaşılan bir satın almaktır bir __sertifika yetkilisi__ (CA). Sertifika burada elde bağımsız olarak, aşağıdaki dosyaları gerekir:
 
 * A __sertifika__. Sertifikayı tüm sertifika zincirine içermelidir ve PEM kodlu olmalıdır.
 * A __anahtar__. Bu anahtar, PEM kodlu olmalıdır.

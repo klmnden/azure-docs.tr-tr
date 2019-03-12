@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 09/24/2018
+ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2be77cdc4a5ad38a7d8c125fd95256e77cd92019
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202953"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543195"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim için Geliştirici Kılavuzu
 
@@ -44,7 +44,6 @@ Koşullu erişim, en yaygın durumlarda, bir uygulamanın davranışını deği�
 
 Özellikle aşağıdaki senaryolarda, koşullu erişim "zorlukları" işlemek için kod gerektirir:
 
-* Uygulamaları Microsoft Graph erişme
 * Uygulamaları üzerinde-behalf-of akışı gerçekleştirme
 * Birden çok Hizmetleri/kaynaklarına erişen uygulamaları
 * ADAL.js kullanarak tek sayfa uygulamaları
@@ -58,15 +57,28 @@ Kurumsal bir müşteri senaryosuna bağlı olarak, uygulamak ve herhangi bir zam
 
 Bazı senaryolar olduğu gibi diğer iş ise, koşullu erişimi işlemek için kod değişiklikleri gerektirir. Fark bazı Öngörüler sunan çok faktörlü kimlik doğrulaması yapmak için koşullu erişim kullanarak bazı senaryolar aşağıda verilmiştir.
 
-* Tek kiracılı iOS uygulaması oluşturuyorsunuz ve koşullu erişim ilkesi uygula. Uygulama, bir kullanıcı oturum açtığında ve istek API erişimi yoktur. Kullanıcı oturum açtığında ilke otomatik olarak çağrılır ve kullanıcı çok faktörlü kimlik doğrulaması (MFA) gerçekleştirmesine gerek.
-* Diğer hizmetler arasında Exchange'e erişmesine izin Microsoft Graph'ı kullanan çok kiracılı web uygulaması oluşturuyorsunuz. Bu uygulamayı uyarlar bir kurumsal müşteriler, Exchange'de bir ilkesini ayarlar. Web uygulaması MS Graph için bir belirteç isteğinde bulunduğunda, uygulamayı ilkeye uymak için sınanır değil. Son kullanıcı, geçerli belirteçleriyle oturum imzalanır. Uygulama Exchange verilerine erişmek için bu belirteci Microsoft Graph'i kullanmaya çalıştığında, bir talepler "challenge" web uygulaması döndürülür ```WWW-Authenticate``` başlığı. Ardından kullanabilecek ```claims``` yeni bir istekte ve son kullanıcı ile koşullara uyması istenir.
+* Tek kiracılı iOS uygulaması oluşturuyorsunuz ve koşullu erişim ilkesi uygula. Uygulama, bir kullanıcı oturum açtığında ve istek API erişimi yoktur. Kullanıcı oturum açtığında ilke otomatik olarak çağrılır ve kullanıcı çok faktörlü kimlik doğrulaması (MFA) gerçekleştirmesine gerek. 
 * Bir aşağı akış API'ye erişmek için bir orta katman hizmet kullanan yerel bir uygulamayı oluşturuyorsunuz. Bu uygulamayı kullanarak şirket kurumsal bir müşterinin aşağı akış API için bir ilke uygulanır. Son kullanıcı oturum açtığında, yerel uygulama Orta katmanda ister ve belirteci gönderir. Orta katman aşağı akış API erişimi istemek için on-behalf-of akışı gerçekleştirir. Bu noktada, "zor" talepler için Orta katmanda sunulur. Orta katman sınama koşullu erişim ilkesi ile uyum sağlaması gerektiğinde geri yerel uygulamaya gönderir.
+
+#### <a name="microsoft-graph"></a>Microsoft Graph
+
+Koşullu erişim ortamlarda uygulamalar oluştururken, Microsoft Graph özel durumlar vardır. Genel olarak, koşullu erişim mekanikleri aynı şekilde davranır, ancak kullanıcıların görmesi ilkeleri uygulamanızı grafikten isteyen temel alınan verileri temel alır. 
+
+Özellikle, tüm Microsoft Graph kapsamları, ayrı ayrı uygulanan ilkelere sahip bazı veri kümesini temsil eder. Koşullu erişim ilkeleri, belirli veri kümeleri atanmış olduğundan, Azure AD Grafı - arkasında verileri temel alan koşullu erişim ilkelerini zorlamak yerine kendi grafik.
+
+Örneğin, bir uygulama aşağıdaki Microsoft Graph kapsamları isterse,
+
+```
+scopes="Bookings.Read.All Mail.Read"
+```
+
+Uygulama kullanıcılarının Bookings ve Exchange tüm ilkeleri karşılamak üzere bekleyebilirsiniz. Erişim verirse birden fazla veri kümesi için bazı kapsamlar eşlenebilir. 
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Koşullu erişim ilkesi ile uyumlu
 
 Oturum kurulduktan sonra birçok farklı uygulama Topolojileri için koşullu erişim ilkesi değerlendirilir. Koşullu erişim ilkesi ayrıntı düzeyi, uygulamaları ve hizmetleri üzerinde çalıştığı gibi çalışır, hangi çağrılan noktası yoğun bir şekilde gerçekleştirmeye çalıştığınız senaryoya bağlıdır.
 
-Koşullu erişim ilkesi ile ilgili bir hizmete erişmek uygulamanızı çalışır bir koşullu Erişim İtirazı karşılaşabilirsiniz. Bu zorluğu kodlandığını `claims` Azure AD'den bir karşılık gelen parametre ya da Microsoft Graph. Bu sınama parametrenin bir örnek aşağıda verilmiştir:
+Koşullu erişim ilkesi ile ilgili bir hizmete erişmek uygulamanızı çalışır bir koşullu Erişim İtirazı karşılaşabilirsiniz. Bu zorluğu kodlandığını `claims` Azure AD'den bir karşılık gelen parametre. Bu sınama parametrenin bir örnek aşağıda verilmiştir: 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -84,70 +96,15 @@ Azure AD koşullu erişim, eklenen bir özelliktir [Azure AD Premium](https://do
 
 Aşağıdaki bilgiler, yalnızca bu koşullu erişim senaryolarda geçerlidir:
 
-* Uygulamaları Microsoft Graph erişme
 * Uygulamaları üzerinde-behalf-of akışı gerçekleştirme
 * Birden çok Hizmetleri/kaynaklarına erişen uygulamaları
 * ADAL.js kullanarak tek sayfa uygulamaları
 
-Aşağıdaki bölümlerde, daha karmaşık yaygın senaryolar açıklanmaktadır. Koşullu erişim ilkeleri, Microsoft Graph üzerinden erişilen sürece uygulanan bir koşullu erişim ilkesi olan bir hizmete belirteç istediği zaman değerlendirilir İlkesi işletim çekirdeği olur.
-
-## <a name="scenario-app-accessing-microsoft-graph"></a>Senaryo: Uygulama Microsoft Graph erişme
-
-Bu senaryoda, bir web uygulaması Microsoft Graph erişimi nasıl ister öğrenin. Koşullu erişim ilkesi, bu durumda, SharePoint, Exchange veya Microsoft Graph üzerinden bir iş yükü olarak erişilen başka bir hizmet de atanabilir. Bu örnekte, SharePoint Online'da koşullu erişim ilkesi yoktur varsayalım.
-
-![Uygulama Microsoft Graph Akış Diyagramı erişme](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
-
-Uygulama koşullu erişimi olmayan aşağı akış bir iş yüküne erişmeye gerektiren Microsoft Graph yetkilendirme ilk ister. Herhangi bir ilke çağırmadan istek başarılı olur ve uygulama için Microsoft Graph simgeleri alır. Bu noktada, uygulama erişim belirteci bir taşıyıcı istekte istenen uç noktası için kullanabilir. Şimdi, uygulama bir SharePoint Online uç noktası, Microsoft Graph, örneğin erişmesi gerekir: `https://graph.microsoft.com/v1.0/me/mySite`
-
-Yeni istek yeni bir belirteç verilen olmadan gerçekleştirebilmesi için uygulamayı Microsoft Graph için geçerli bir belirteç zaten sahip. Bu isteği başarısız olur ve talep zor Microsoft Graph şeklinde bir HTTP 403 Yasak ile verilen bir ```WWW-Authenticate``` sınaması.
-
-Yanıtın bir örnek aşağıda verilmiştir:
-
-```
-HTTP 403; Forbidden
-error=insufficient_claims
-www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
-```
-
-Talep içinde zorluktur ```WWW-Authenticate``` talep parametresi sonraki istek için ayıklamak üzere ayrıştırılabilecek üst bilgisi. Yeni isteğine eklenir sonra Azure AD koşullu erişim ilkesi kullanıcı oturum açarken değerlendirilecek bilir ve uygulamaya koşullu erişim ilkesine uygun olarak sunulmuştur. SharePoint Online uç noktasına istek yinelenen başarılı olur.
-
-```WWW-Authenticate``` Üstbilgi benzersiz yapısına sahip ve değerlerini ayıklamak için ayrıştırılacak Önemsiz değildir. Yardımcı olmak için kısa bir yöntem aşağıda verilmiştir.
-
-```csharp
-        /// <summary>
-        /// This method extracts the claims value from the 403 error response from MS Graph.
-        /// </summary>
-        /// <param name="wwwAuthHeader"></param>
-        /// <returns>Value of the claims entry. This should be considered an opaque string.
-        /// Returns null if the wwwAuthheader does not contain the claims value. </returns>
-        private String extractClaims(String wwwAuthHeader)
-        {
-            String ClaimsKey = "claims=";
-            String ClaimsSubstring = "";
-            if (wwwAuthHeader.Contains(ClaimsKey))
-            {
-                int Index = wwwAuthHeader.IndexOf(ClaimsKey);
-                ClaimsSubstring = wwwAuthHeader.Substring(Index, wwwAuthHeader.Length - Index);
-                string ClaimsChallenge;
-                if (Regex.Match(ClaimsSubstring, @"}$").Success)
-                {
-                    ClaimsChallenge = ClaimsSubstring.Split('=')[1];
-                }
-                else
-                {
-                    ClaimsChallenge = ClaimsSubstring.Substring(0, ClaimsSubstring.IndexOf("},") + 1);
-                }
-                return ClaimsChallenge;
-            }
-            return null;
-        }
-```
-
-Talep sınama nasıl ele alınacağını gösteren kod örnekleri için başvurmak [On-behalf-of kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) ADAL .NET için.
+Aşağıdaki bölümlerde, daha karmaşık yaygın senaryolar açıklanmaktadır. Koşullu erişim ilkeleri, belirteç istediği zaman uygulanan bir koşullu erişim ilkesi olan hizmetinde değerlendirilir İlkesi işletim çekirdeği olur.
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Senaryo: Uygulama üzerinde-behalf-of akışı gerçekleştirme
 
-Bu senaryoda, yerel bir uygulama bir web hizmetini/API'sini çağıran vakası inceleyeceğiz. Sırayla bu hizmeti [bir aşağı akış hizmeti çağırmak amacıyla he "on-behalf-of" flow. yapar Bizim durumumuzda, bizim koşullu erişim ilkesi aşağı akış hizmetine (Web API 2) uyguladığınız ve bir sunucu/daemon uygulamasının yerine yerel bir uygulama kullanma.
+Bu senaryoda, yerel bir uygulama bir web hizmetini/API'sini çağıran vakası inceleyeceğiz. Sırayla bu hizmeti [bir aşağı akış hizmeti çağırmak amacıyla he "on-behalf-of" flow. yapar Bizim durumumuzda, bizim koşullu erişim ilkesi aşağı akış hizmetine (Web API 2) uyguladığınız ve bir sunucu/daemon uygulamasının yerine yerel bir uygulama kullanma. 
 
 ![Uygulama üzerinde temsili Akış Diyagramı gerçekleştirme](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -217,7 +174,6 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 Yakalamak uygulamamızı ihtiyacı `error=interaction_required`. Uygulama ya da sonra kullanabilir `acquireTokenPopup()` veya `acquireTokenRedirect()` aynı kaynağı. Kullanıcı çok faktörlü kimlik doğrulaması yapmak için zorlanır. Kullanıcı çok faktörlü kimlik doğrulaması tamamlandıktan sonra uygulamayı istenen kaynak için yeni bir belirteç verilir.
 
 Bu senaryo denemek için bkz. bizim [JS SPA'ya On-behalf-of kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Bu kod örneği, web API'si daha önce bu senaryoyu göstermek amacıyla JS SPA'ya ile kayıtlı ve koşullu erişim ilkesi kullanır. Bu, Web API'niz için kullanılabilecek bir erişim belirteci alma ve düzgün bir şekilde talep sınama işlemek nasıl gösterir. Alternatif olarak, genel kullanıma alma [Angular.js kod örneği](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) Angular bir SPA hakkında yönergeler için
-
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

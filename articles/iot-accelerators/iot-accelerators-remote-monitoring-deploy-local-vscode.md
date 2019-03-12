@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6e2fafa398b09d0822c4582e196345b812e6fc52
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 68f82c7e5b66cf94824bde930923f11423046e9a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392248"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544265"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Visual Studio kod dağıtma
 
@@ -34,7 +34,7 @@ Yerel dağıtımını tamamlamak için aşağıdaki araçları, yerel geliştirm
 * [Git](https://git-scm.com/)
 * [.Net Core](https://dotnet.microsoft.com/download)
 * [Docker](https://www.docker.com)
-* [Nginx](http://nginx.org/en/download.html)
+* [Nginx](https://nginx.org/en/download.html)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [VS Code'nın C# uzantısı](https://code.visualstudio.com/docs/languages/csharp)
 * [Node.js v8](https://nodejs.org/) -bu yazılımları Azure kaynaklarını oluşturmayı betiklerini kullanan bilgisayarları CLI önkoşuldur. Node.js v10 kullanmayın
@@ -88,7 +88,7 @@ Yerel makinenizde çalışan mikro hizmetler ve web uygulaması bağlamak için 
 * Kopyalama **nginx.conf** dosya **webui\scripts\localhost** klasörüne **nginx\conf** yükleme dizini.
 * Çalıştırma **ngınx**.
 
-Çalıştırma hakkında daha fazla bilgi için **ngınx**, bkz: [nginx Windows için](http://nginx.org/en/docs/windows.html).
+Çalıştırma hakkında daha fazla bilgi için **ngınx**, bkz: [nginx Windows için](https://nginx.org/en/docs/windows.html).
 
 ### <a name="connect-to-the-dashboard"></a>Panoya bağlanma
 

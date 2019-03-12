@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 85c3c913564dd38ece76ddd7f72b8ea4da52958e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984773"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778833"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory’de Databricks Not Defteri etkinliği ile bir Databricks not defteri çalıştırma
 
@@ -173,13 +173,13 @@ Bu bölümde bir Databricks bağlı hizmetini yazacaksınız. Bu bağlı hizmet,
 
        1. Bu örnekte **Not Defteri Yolu** **/adftutorial/mynotebook** şeklindedir
 
-1.  **Data Factory UI yazma aracına** geri dönün. **Notebook1 Etkinliği** altında **Ayarlar** Sekmesine gidin. 
-    
+1.  **Data Factory UI yazma aracına** geri dönün. **Notebook1 Etkinliği** altında **Ayarlar** Sekmesine gidin.
+
     a.  Not Defteri etkinliğine **Parametre Ekleyin**. Daha önce **işlem hattına** eklediğiniz parametrenin aynısını kullanın.
 
        ![Parametre ekleme](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Parametreyi **input** olarak adlandırın ve değrri **@pipeline().parameters.name** ifadesi olarak sağlayın.
+    b.  Parametre olarak ad **giriş** ve ifade olarak değer sağlayın  **\@().parameters.name işlem hattı**.
 
 1.  İşlem hattını doğrulamak için seçin **doğrulama** araç çubuğunda. Doğrulama penceresini kapatmak için seçin **\>\>** (sağ ok) düğmesini.
 

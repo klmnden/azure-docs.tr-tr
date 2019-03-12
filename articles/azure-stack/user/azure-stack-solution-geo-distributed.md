@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 299ea79a7a344a57bf302aae049ba87234427343
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 857aa71a4812534030ca638fd8bab11f60535ea0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442792"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536955"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile coğrafi olarak dağıtılmış bir uygulama çözümü oluşturma
 
@@ -507,9 +507,9 @@ App Service sertifikanızı karşıya yüklemeyi tamamladığında, görünür *
 
 1.  İçinde **SSL bağlaması Ekle** sayfasında, güvenliğini sağlamak için etki alanı adı seçmek için açılır listeleri ve kullanılacak sertifikayı kullanın.
 
-2.  İçinde **SSL türü**, kullanıp kullanmayacağınızı seçin [ **sunucu adı belirtme (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication)veya IP tabanlı SSL.
+2.  İçinde **SSL türü**, kullanıp kullanmayacağınızı seçin [ **sunucu adı belirtme (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication)veya IP tabanlı SSL.
 
--   **SNI tabanlı SSL**-birden fazla SNI tabanlı SSL bağlaması eklenebilir. Bu seçenek, aynı IP adresi üzerinde birden fazla SSL sertifikası ile birden fazla etki alanının güvenliğini sağlamaya olanak tanır. Çoğu modern tarayıcı (Internet Explorer, Chrome, Firefox ve Opera dahil) SNI’yi destekler (daha kapsamlı tarayıcı desteği bilgilerini [Sunucu Adı Belirtimi](http://wikipedia.org/wiki/Server_Name_Indication) bölümünde bulabilirsiniz).
+-   **SNI tabanlı SSL**-birden fazla SNI tabanlı SSL bağlaması eklenebilir. Bu seçenek, aynı IP adresi üzerinde birden fazla SSL sertifikası ile birden fazla etki alanının güvenliğini sağlamaya olanak tanır. Çoğu modern tarayıcı (Internet Explorer, Chrome, Firefox ve Opera dahil) SNI’yi destekler (daha kapsamlı tarayıcı desteği bilgilerini [Sunucu Adı Belirtimi](https://wikipedia.org/wiki/Server_Name_Indication) bölümünde bulabilirsiniz).
 
 -   **IP tabanlı SSL**-yalnızca bir IP tabanlı SSL bağlaması eklenebilir. Bu seçenek yalnızca bir SSL sertifikası ile ayrılmış bir genel IP adresinin güvenliğini sağlamaya olanak tanır. Birden çok etki alanı güvenliğini sağlamak için bunları tüm kaydettiğiniz SSL sertifikasını kullanarak güvenli hale getirin. SSL bağlaması için geleneksel seçenek budur.
 

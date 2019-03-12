@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 3b367619e2d22754b45e8178a25021a677cab6da
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 7d54e137cbfb35c84173c79e65a1070eabb52e78
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405769"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731635"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Geliştirilmiş yedeği almak ve performansı Azure Backup anında geri yükleme özelliğine sahip geri yükleme
 
@@ -78,7 +78,7 @@ Alternatif olarak, gidebilirsiniz **özellikleri** almak için kasa sayfasının
 
 
 ## <a name="configure-snapshot-retention-using-azure-portal"></a>Azure portalını kullanarak anlık görüntü saklama yapılandırma
-Bu seçenek şu anda kullanılabilir **Batı Orta ABD**, **Hindistan Güney**, **Avustralya Doğu**, **Kuzey Avrupa**,  **Kanada orta**, **Kanada Doğu**, **Fransa orta**, **Fransa Güney**, **Kore orta**,  **Kore Güney**, **UK Güney 2**, **UK Kuzey**, **UK Güney**, **UK Batı**, **Hindistan Orta** , **Avustralya Güneydoğu**, **Doğu Asya**, **Orta ABD**, **Güney Doğu Asya**,  **Kuzey Orta ABD**, **Batı abd2**, **Orta Güney ABD**, **Doğu Japonya**, **Batı Japonya**ve **Doğu ABD 2**.
+Tüm kullanıcıların tüm **genel coğrafi bölgeler** anında geri yükleme için yükseltildi.
 
 Yükseltilen kullanıcıları için Azure portalında bir alan eklediğiniz görebilirsiniz **VM yedekleme İlkesi** altındaki dikey penceresinde **anında geri yükleme** bölümü. Anlık görüntü saklama süresinden değiştirebilirsiniz **VM yedekleme İlkesi** dikey penceresinde tüm sanal makineler için belirli bir yedekleme ilkesiyle ilişkili.
 

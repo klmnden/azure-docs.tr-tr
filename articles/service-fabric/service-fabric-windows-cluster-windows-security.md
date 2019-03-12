@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 1775eb4659ccc71d962d0beab9b605e01eb12f72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: df836d46f244822c8c3dd35be6de08b0c4f34038
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253627"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760523"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Windows güvenliğini kullanarak Windows üzerinde tek başına küme güvenliğini sağlama
 Bir Service Fabric kümesine yetkisiz erişimi önlemek için küme güvenlik altına almanız gerekir. Üretim iş yükleri küme çalıştırdığında, güvenlik özellikle önemlidir. Bu makalede Windows güvenliği kullanarak düğümden düğüme ve düğümden istemci güvenlik yapılandırma *ClusterConfig.JSON* dosya.  İşleme için yapılandırma güvenlik adımı, karşılık gelen [Windows üzerinde çalışan tek başına küme oluşturma](service-fabric-cluster-creation-for-windows-server.md). Service Fabric Windows Güvenlik nasıl kullandığı hakkında daha fazla bilgi için bkz. [küme güvenliği senaryoları](service-fabric-cluster-security.md).
@@ -32,22 +32,22 @@ Bir Service Fabric kümesine yetkisiz erişimi önlemek için küme güvenlik al
 ## <a name="configure-windows-security-using-gmsa"></a>Windows güvenliğini kullanarak gmsa'yı yapılandırma  
 Örnek *ClusterConfig.gMSA.Windows.MultiMachine.JSON* yapılandırma dosyası ile indirilen [Microsoft.Azure.ServiceFabric.WindowsServer.<version> .zip](https://go.microsoft.com/fwlink/?LinkId=730690) tek başına küme paketi içeren Windows güvenliği kullanarak yapılandırmak için bir şablon [Grup yönetilen hizmet hesabı (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
-```  
+```
 "security": {
-            "ClusterCredentialType": "Windows",
-            "ServerCredentialType": "Windows",
-            "WindowsIdentities": {  
-                "ClustergMSAIdentity": "[gMSA Identity]", 
-                "ClusterSPN": "[Registered SPN for the gMSA account]",
-                "ClientIdentities": [  
-                    {  
-                        "Identity": "domain\\username",  
-                        "IsAdmin": true  
-                    }  
-                ]  
-            }  
-        }  
-```  
+    "ClusterCredentialType": "Windows",
+    "ServerCredentialType": "Windows",
+    "WindowsIdentities": {  
+        "ClustergMSAIdentity": "[gMSA Identity]",
+        "ClusterSPN": "[Registered SPN for the gMSA account]",
+        "ClientIdentities": [
+            {
+                "Identity": "domain\\username",
+                "IsAdmin": true
+            }
+        ]
+    }
+}
+```
 
 | **Yapılandırma ayarı** | **Açıklama** |
 | --- | --- |
@@ -60,43 +60,46 @@ Bir Service Fabric kümesine yetkisiz erişimi önlemek için küme güvenlik al
 | Kimlik |İstemci kimliği için etki alanı\kullanıcı adı bir etki alanı kullanıcısı ekleyin. |  
 | IsAdmin |Etki alanı kullanıcı istemci erişim yönetici veya kullanıcı istemci erişimi için yanlış olduğunu belirtmek için true olarak ayarlayın. |  
 
-[Düğüm düğüm güvenlik](service-fabric-cluster-security.md#node-to-node-security) ayarlayarak yapılandırılmış **ClustergMSAIdentity** gerektiğinde service fabric gMSA altında çalıştırın. Düğümler arasındaki güven ilişkileri oluşturmak için bunlar birbirinden haberdar olmanız gerekir. Bu iki farklı yollarla gerçekleştirilebilir: Grup yönetilen hizmet kümedeki tüm düğümleri içeren hesabı veya kümedeki tüm düğümleri içeren etki alanı makine grubu belirtin. Kullanmanızı öneririz [Grup yönetilen hizmet hesabı (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) yaklaşım, özellikle daha büyük kümeleri (10'dan fazla düğümler) veya büyük olasılıkla büyütmesine veya küçültmesine izin kümeleri.  
+> [!NOTE]
+> ClustergMSAIdentity değeri etki alanı adı içermemesi ve Grup yönetilen hizmet hesabı adı yalnızca olabilir. I.E. "mysfgmsa" doğru ve her ikisi de "mydomain / / mysfgmsa" veya "mysfgmsa@mydomain" etki alanı, konak makine tarafından örtük olarak; geçersizdir.
+
+[Düğüm düğüm güvenlik](service-fabric-cluster-security.md#node-to-node-security) ayarlayarak yapılandırılmış **ClustergMSAIdentity** gerektiğinde service fabric gMSA altında çalıştırın. Düğümler arasındaki güven ilişkileri oluşturmak için bunlar birbirinden haberdar olmanız gerekir. Bu, iki farklı yollarla gerçekleştirilebilir: Grup yönetilen hizmet kümedeki tüm düğümleri içeren hesabı veya kümedeki tüm düğümleri içeren etki alanı makine grubu belirtin. Kullanmanızı öneririz [Grup yönetilen hizmet hesabı (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) yaklaşım, özellikle daha büyük kümeleri (10'dan fazla düğümler) veya büyük olasılıkla büyütmesine veya küçültmesine izin kümeleri.  
 Bu yaklaşım, küme yöneticileri için ekleme ve kaldırma üyeleri için erişim hakkı verilmiş bir etki alanı grubu oluşturulmasını gerektirmez. Bu hesaplar otomatik parola yönetimi için de yararlıdır. Daha fazla bilgi için [Grup yönetilen hizmet hesapları ile çalışmaya başlama](https://technet.microsoft.com/library/jj128431.aspx).  
  
-[İstemci düğümü güvenlik](service-fabric-cluster-security.md#client-to-node-security) kullanılarak yapılandırılan **ClientIdentities**. Bir istemci ve küme arasında güven oluşturmak için hangi istemci buna güvenmesi kimlikleri bilmek küme yapılandırmanız gerekir. Bu iki farklı yolla gerçekleştirebilirsiniz: bağlanın veya bağlanabilen etki alanı düğümü kullanıcıları belirtin etki alanı grubu kullanıcıları belirtin. Service Fabric, bir Service Fabric kümesine bağlanan istemciler için iki farklı erişim denetim türlerini destekler: Yönetici ve kullanıcı. Erişim denetimi, belirli türdeki bir küme işlemleri farklı kümeye daha güvenli hale getirme, kullanıcı grupları için erişimi sınırlandırmak Küme Yöneticisi özelliği sunuyor.  Yöneticiler yönetim özellikleri (okuma/yazma özellikleri dahil olmak üzere) tam erişime sahiptir. Kullanıcılar, varsayılan olarak, yalnızca yönetim özelliklerine (örneğin, sorgu işlevleri) okuma erişimi ve uygulamaları ve Hizmetleri çözümlenebilmesi sahiptir. Erişim denetimleri hakkında daha fazla bilgi için bkz. [Service Fabric istemciler için rol tabanlı erişim denetimi](service-fabric-cluster-security-roles.md).  
+[İstemci düğümü güvenlik](service-fabric-cluster-security.md#client-to-node-security) kullanılarak yapılandırılan **ClientIdentities**. Bir istemci ve küme arasında güven oluşturmak için hangi istemci buna güvenmesi kimlikleri bilmek küme yapılandırmanız gerekir. Bu iki farklı yolla gerçekleştirebilirsiniz: Bağlanın veya bağlanabilen etki alanı düğümü kullanıcıları belirtin etki alanı grubu kullanıcıları belirtin. Service Fabric, bir Service Fabric kümesine bağlanan istemciler için iki farklı erişim denetim türlerini destekler: Yönetici ve kullanıcı. Erişim denetimi, belirli türdeki bir küme işlemleri farklı kümeye daha güvenli hale getirme, kullanıcı grupları için erişimi sınırlandırmak Küme Yöneticisi özelliği sunuyor.  Yöneticiler yönetim özellikleri (okuma/yazma özellikleri dahil olmak üzere) tam erişime sahiptir. Kullanıcılar, varsayılan olarak, yalnızca yönetim özelliklerine (örneğin, sorgu işlevleri) okuma erişimi ve uygulamaları ve Hizmetleri çözümlenebilmesi sahiptir. Erişim denetimleri hakkında daha fazla bilgi için bkz. [Service Fabric istemciler için rol tabanlı erişim denetimi](service-fabric-cluster-security-roles.md).  
  
 Aşağıdaki örnek **güvenlik** bölüm Windows güvenliğini kullanarak gmsa'yı yapılandırır ve belirten makinelerinizde *ServiceFabric.clusterA.contoso.com* gMSA kümenin ve o parçasıdır *CONTOSO\usera* yönetici istemci erişimi vardır:  
   
-```  
+```
 "security": {
-    "ClusterCredentialType": "Windows",            
+    "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
-    "WindowsIdentities": {  
-        "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",  
-        "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",  
-        "ClientIdentities": [{  
-            "Identity": "CONTOSO\\usera",  
-            "IsAdmin": true  
-        }]  
-    }  
-}  
-```  
+    "WindowsIdentities": {
+        "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",
+        "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",
+        "ClientIdentities": [{
+            "Identity": "CONTOSO\\usera",
+            "IsAdmin": true
+        }]
+    }
+}
+```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Windows güvenliğini kullanarak bir makine grubu yapılandırma  
 Bu model kullanımdan kaldırılıyor. Yukarıda açıklandığı biçimde gMSA kullanmak için önerilir. Örnek *ClusterConfig.Windows.MultiMachine.JSON* yapılandırma dosyası ile indirilen [Microsoft.Azure.ServiceFabric.WindowsServer.<version> .zip](https://go.microsoft.com/fwlink/?LinkId=730690) tek başına küme paketi, Windows güvenliği yapılandırmak için bir şablonu içerir.  Windows Güvenlik yapılandırılmıştır **özellikleri** bölümü: 
 
 ```
 "security": {
-            "ClusterCredentialType": "Windows",
-            "ServerCredentialType": "Windows",
-            "WindowsIdentities": {
-                "ClusterIdentity" : "[domain\machinegroup]",
-                "ClientIdentities": [{
-                    "Identity": "[domain\username]",
-                    "IsAdmin": true
-                }]
-            }
-        }
+    "ClusterCredentialType": "Windows",
+    "ServerCredentialType": "Windows",
+    "WindowsIdentities": {
+        "ClusterIdentity" : "[domain\machinegroup]",
+        "ClientIdentities": [{
+            "Identity": "[domain\username]",
+            "IsAdmin": true
+        }]
+    }
+}
 ```
 
 | **Yapılandırma ayarı** | **Açıklama** |

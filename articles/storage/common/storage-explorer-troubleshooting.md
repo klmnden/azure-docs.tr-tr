@@ -7,13 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.subservice: common
-ms.openlocfilehash: 15ceaf1a75859ca53ddb946555880b360b29ee58
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: bff1e8c111a8a50e15b6d316e422a641a778c73c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405700"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775178"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Depolama Gezgini sorun giderme kılavuzu
 
@@ -97,13 +96,11 @@ Yukarıdaki adımları kullanarak herhangi bir otomatik olarak imzalanan sertifi
 
 Boş oturum açma iletişim kutuları genellikle AD FS tarafından Depolama Gezgini isteyen Elektron tarafından desteklenmeyen bir yeniden yönlendirme gerçekleştirmek için neden olur. Bu sorunu çözmek için oturum açmak için cihaz kod akış kullanmayı deneyebilirsiniz. Bunu yapmak için aşağıdaki adımları gerçekleştirin:
 
-1. "Deneysel Git", "Cihaz kodunu oturum açma kullan" ->.
+1. "Preview için Git", "Cihaz kodunu oturum açma kullan" ->.
 2. Bağlan iletişim kutusu (ya da sol dikey çubuk Tak simgesine ya da hesabı panosunda "hesabı ekle" aracılığıyla) açın.
 3. Oturum açmak için istediğiniz hangi ortamı seçin.
 4. "Oturum açma" düğmesine tıklayın.
 5. Sonraki panelinde yönergeleri izleyin.
-
-Not: Bu özellik şu anda yalnızca 1.7.0 içinde kullanılabilir Önizleme.
 
 Kendiniz varsayılan tarayıcınızı farklı bir hesap zaten imzalı olduğu için kullanmak istediğiniz hesaba imzalama sorun bulursanız, şunları da yapabilirsiniz:
 
@@ -244,6 +241,14 @@ Ubuntu 16.04 dışında Linux dağıtımları için bazı bağımlılıkları el
 * Güncel GCC
 
 Dağıtımınız bağlı olarak diğer paketleri yüklemeniz gerekiyor olabilir. Depolama Gezgini [sürüm notları](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) bazı dağıtımlar için belirli adımları içerir.
+
+## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Açık olarak Gezgini Azure portalı çalışmıyor
+
+Azure portalında "Gezgini'ni açın," düğmesini sizin için işe yaramazsa, uyumlu bir tarayıcıda kullandığınızdan emin olun. Aşağıdaki tarayıcılardan uyumluluk için test edilmiştir.
+* Microsoft Edge
+* Mozilla Firefox
+* Google Chrome
+* Microsoft Internet Explorer
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

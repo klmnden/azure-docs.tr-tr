@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 6a6f8b47044d36d767721e2d3503d11518dbf5a6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 34b151c14323e7ee22c31f22a63b07a0fb18671e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036129"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536224"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Azure Cosmos DB'de depolama maliyetini en iyi duruma getirme
 
@@ -27,7 +27,7 @@ Azure Cosmos DB öğesi boyutunun 2 MB olmasını bekliyor veya en iyi performan
 
 ## <a name="optimize-cost-with-indexing"></a>Dizin oluşturma ile maliyeti iyileştirin
 
-Varsayılan olarak, veriler otomatik olarak, hangi tüketilen toplam depolama alanı artırabilirsiniz dizine alınır. Ancak, bu ek yükü azaltmak için özel dizin ilkeleri uygulayabilirsiniz. İlke ile ayarlanan değil otomatik dizin oluşturma, öğe boyutunun yaklaşık 10-%20 olur. Kaldırma veya dizin ilkeleri özelleştirme ödemeyin ekstra maliyet yazma ve ek aktarım hızı kapasitesine gerekmez. Bkz: [Azure Cosmos DB'de dizinleme](indexing-policies.md) özel dizin oluşturma ilkeleri yapılandırmak için. Önce ilişkisel veritabanları ile çalıştıysanız, "her şeyi dizine" depolama veya üzeri Katlama anlamına düşünebilirsiniz. Ancak, Azure Cosmos DB'de ORTANCA durumda bu çok daha düşüktür. Bir düşük depolama ayak izini için tasarlanan Azure Cosmos DB'de dizin depolama yükü (10-%20) bile otomatik dizin oluşturma ile genellikle düşük olmasıdır. Dizin oluşturma ilkesini yöneterek artırabilen dizin Ayak izi ve sorgu performansını daha ayrıntılı bir şekilde denetleyebilirsiniz.
+Varsayılan olarak, veriler otomatik olarak, hangi tüketilen toplam depolama alanı artırabilirsiniz dizine alınır. Ancak, bu ek yükü azaltmak için özel dizin ilkeleri uygulayabilirsiniz. İlke ile ayarlanan değil otomatik dizin oluşturma, öğe boyutunun yaklaşık 10-%20 olur. Kaldırma veya dizin ilkeleri özelleştirme ödemeyin ekstra maliyet yazma ve ek aktarım hızı kapasitesine gerekmez. Bkz: [Azure Cosmos DB'de dizinleme](indexing-policies.md) özel dizin oluşturma ilkeleri yapılandırmak için. Önce ilişkisel veritabanları ile çalıştıysanız, "her şeyi dizine" depolama veya üzeri Katlama anlamına düşünebilirsiniz. Ancak, Azure Cosmos DB'de ORTANCA durumda bu çok daha düşüktür. Azure Cosmos DB'de dizin depolama yükü (10-%20) genellikle düşük bir düşük depolama ayak izini için tasarlandığından bile otomatik dizin oluşturma, ile. Dizin oluşturma ilkesini yöneterek artırabilen dizin Ayak izi ve sorgu performansını daha ayrıntılı bir şekilde denetleyebilirsiniz.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Canlı ve değişiklik akışını zaman maliyeti iyileştirin
 
@@ -39,7 +39,7 @@ Zengin medya türleri, örneğin, videolar, resimler, vs. depolamak istiyorsanı
 
 ## <a name="check-storage-consumed"></a>Tüketilen depolama alanını kontrol edin
 
-Bir Azure Cosmos kapsayıcı depolama kullanımını denetlemek için kapsayıcıdaki bir baş veya GET isteği çalıştırın ve incelemek `x-ms-request-quota` ve `x-ms-request-usage` üstbilgileri. Alternatif olarak, .net SDK ile çalışırken kullanabileceğiniz [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), ve [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) tüketilen depolama alanı almak için özellikleri.
+Bir Azure Cosmos kapsayıcı depolama kullanımını denetlemek için kapsayıcıdaki bir baş veya GET isteği çalıştırın ve incelemek `x-ms-request-quota` ve `x-ms-request-usage` üstbilgileri. Alternatif olarak, .net SDK ile çalışırken kullanabileceğiniz [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), ve [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) tüketilen depolama alanı almak için özellikleri.
 
 ## <a name="using-sdk"></a>SDK'sını kullanma
 

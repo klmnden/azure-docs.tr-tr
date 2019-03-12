@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: cb763327eb292feb9d58fb21b1ca808a3f2909aa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e4a86585fbf1e00512e9e8e111a9a259663f8a26
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057737"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536787"
 ---
 # <a name="tpm-attestation"></a>TPM kanıtlama
 
 IOT Hub cihazı sağlama hizmeti, sıfır dokunma cihaz sağlama belirtilen bir IOT hub'ı yapılandırmak için kullandığınız bir IOT Hub için bir yardımcı hizmettir. Cihaz sağlama hizmeti ile güvenli bir şekilde milyonlarca cihaz sağlayabilirsiniz.
 
-Kimlik kanıtlama işlemini, kullanırken bu makalede açıklanır bir [TPM](./concepts-device.md). TPM için Güvenilir Platform Modülü'anlamına gelir ve bir donanım güvenlik modülü (HSM) türüdür. Bu makalede, ayrık bir üretici yazılımı kullanan veya TPM tümleşik varsayılır. Yazılım benzetilmiş TPM'ler prototip oluşturma için çok uygundur, bunlar test aynı güvenlik düzeyine sahip ayrık, üretici yazılımı sağlamak için değil veya veya tümleşik TPM'ler yapın. Üretim ortamında yazılım TPM'ler kullanarak önermiyoruz. Tpm'lerin türleri hakkında daha fazla bilgi için bkz. [TPM kısa bir giriş](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+Kimlik kanıtlama işlemini, kullanırken bu makalede açıklanır bir [TPM](./concepts-device.md). TPM için Güvenilir Platform Modülü'anlamına gelir ve bir donanım güvenlik modülü (HSM) türüdür. Bu makalede, ayrık bir üretici yazılımı kullanan veya TPM tümleşik varsayılır. Yazılım benzetilmiş TPM'ler prototip oluşturma için çok uygundur, bunlar test aynı güvenlik düzeyine sahip ayrık, üretici yazılımı sağlamak için değil veya veya tümleşik TPM'ler yapın. Üretim ortamında yazılım TPM'ler kullanarak önermiyoruz. Tpm'lerin türleri hakkında daha fazla bilgi için bkz. [TPM kısa bir giriş](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
 Bu makalede, yalnızca HMAC anahtar desteği ve onay anahtarları ile TPM 2.0 kullanan cihazlar için geçerlidir. X.509 sertifikaları kullanarak kimlik doğrulaması için cihazlar için değildir. TPM, bir endüstri genelinde, ISO standart Trusted Computing Group ve daha fazla bilgi edinebilirsiniz TPM hakkında [tam TPM 2.0 belirtimi](https://trustedcomputinggroup.org/tpm-library-specification/) veya [ISO/IEC 11889 spec](https://www.iso.org/standard/66510.html). Bu makalede ayrıca genel ve özel anahtar çiftleri ve şifreleme için nasıl kullanıldığı hakkında bilgi sahibi olduğunuz varsayılır.
 
@@ -35,7 +35,7 @@ Bir cihaz ayarlama ve kullanılmaya hazır ayarlandıktan sonra bir EK hem de bi
 
 ![TPM sahipliğini](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-TPM sahipliğini hakkında bir Not: bir TPM sahipliğini TPM üretici, kullanılan TPM araç kümesini ve cihaz işletim sistemi dahil olmak üzere pek çok üzerinde bağlıdır. Sahipliği sisteminize ilgili yönergeleri izleyin.
+TPM sahipliğini hakkında bir Not: TPM sahipliğini TPM üretici, kullanılan TPM araç kümesini ve cihaz işletim sistemi dahil olmak üzere pek çok üzerinde bağlıdır. Sahipliği sisteminize ilgili yönergeleri izleyin.
 
 Cihaz sağlama hizmeti (EK_pub) EK ortak bölümünü tanımlamak ve cihaz kaydetmek için kullanır. Cihaz satıcısı EK_pub son bir test veya üretim sırasında okuyabilir ve böylece cihaz sağlamayı bağlandığında tanınması EK_pub sağlama hizmetine yükleyin. Cihaz sağlama hizmeti SRK ya da sahibi "TPM temizleme" Müşteri verilerini siler ancak EK (ve diğer satıcı verileri) korunur ve sağlamayı bağlandığında, cihazın hala cihaz sağlama hizmeti tarafından tanınması için kontrol yapmaz.
 

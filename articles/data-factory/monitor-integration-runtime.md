@@ -3,21 +3,20 @@ title: Azure Data factory'deki tümleştirme çalışma zamanını izleme | Micr
 description: Azure Data factory'de tümleştirme çalışma zamanı farklı türde izlemeyi öğrenin.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
-ms.author: douglasl
-ms.openlocfilehash: 60d4d9224a6a70c8fa2702dede8721f742fa6256
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434955"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576347"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data factory'deki tümleştirme çalışma zamanı izleme  
 **Integration runtime** , farklı ağ ortamlarında çeşitli veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. Tümleştirme çalışma zamanları Data Factory tarafından sunulan üç tür vardır:

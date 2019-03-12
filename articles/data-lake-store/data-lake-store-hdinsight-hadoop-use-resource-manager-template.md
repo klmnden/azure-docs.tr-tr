@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 5e8aa310d518ff26d2d0224797b2feb0745896d1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5694f8eead2b0fd4be75ee858c3c124dd8c53e03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864915"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540424"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanarak Azure Data Lake depolama Gen1 bir HDInsight kümesi oluşturun
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Resource Manager şablonu yeni bir Data Lake depolama Gen1 hesabı oluşturur ve
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Data Lake depolama Gen1 kullanmak için HDInsight kümesinde test işleri çalıştırma
 Bir HDInsight kümesi yapılandırdıktan sonra kümede HDInsight kümesini Data Lake depolama Gen1 erişebilirsiniz test etmek için test işleri çalıştırabilirsiniz. Bunu yapmak için daha önce Data Lake depolama Gen1 hesabınıza yüklediğiniz örnek verileri kullanarak bir tablo oluşturur bir örnek Hive işi çalıştıracağız.
 
-Bu bölümde, SSH bir HDInsight Linux kümesi ve çalışma halinde olacak bir örnek Hive sorgusu. Bir Windows istemci kullanıyorsanız kullanmanızı öneririz **PuTTY**, hangi nden indirilebilir [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Bu bölümde, SSH bir HDInsight Linux kümesi ve çalışma halinde olacak bir örnek Hive sorgusu. Bir Windows istemci kullanıyorsanız kullanmanızı öneririz **PuTTY**, hangi nden indirilebilir [ https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 PuTTY kullanma hakkında daha fazla bilgi için bkz. [Windows gelen HDInsight üzerinde Linux tabanlı Hadoop ile SSH kullanma](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -124,7 +124,7 @@ PuTTY kullanma hakkında daha fazla bilgi için bkz. [Windows gelen HDInsight ü
 ## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>Data Lake depolama Gen1 erişim HDFS komutları kullanma
 Data Lake depolama Gen1 kullanmak için HDInsight küme yapılandırıldıktan sonra HDFS Kabuk komutları mağazaya erişmek için kullanabilirsiniz.
 
-Bu bölümde bir HDInsight Linux SSH olacak küme ve HDFS komutları çalıştırın. Bir Windows istemci kullanıyorsanız kullanmanızı öneririz **PuTTY**, hangi nden indirilebilir [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Bu bölümde bir HDInsight Linux SSH olacak küme ve HDFS komutları çalıştırın. Bir Windows istemci kullanıyorsanız kullanmanızı öneririz **PuTTY**, hangi nden indirilebilir [ https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 PuTTY kullanma hakkında daha fazla bilgi için bkz. [Windows gelen HDInsight üzerinde Linux tabanlı Hadoop ile SSH kullanma](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 

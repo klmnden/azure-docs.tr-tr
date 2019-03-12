@@ -9,16 +9,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 1/18/2019
 ms.author: mabrigg
 ms.lastreviewed: 1/18/2019
-ms.openlocfilehash: 692fba97a67a7dc9654e307c2b7628dcc89f3ba8
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1d980ec1cac0ecf095adecd4eb6f22f7765ce11f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768683"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779141"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Azure Stack'teki depolama hesapları
 Depolama hesapları, Blob ve Tablo hizmetlerinin yanı sıra depolama verisi nesneleriniz için benzersiz ad alanı içerir. Varsayılan olarak hesabınızdaki veriler, depolama hesabı sahibi olarak sizin kullanımınıza sunulur.

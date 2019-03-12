@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7cc65c0564b6171e66c4337ce02e1c2d6449e101
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: fceca61c5a867fd4142660429bfb83fb7e0322f4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975424"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767134"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server Aracısı uzantısı (Resource Manager) ile Azure sanal Makineler'de yönetim görevlerini otomatikleştirin
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ SQL Server Iaas Aracısı uzantısı, aşağıdaki yönetim görevlerini destekl
 
 | Yönetim özelliği | Açıklama |
 | --- | --- |
-| **SQL otomatik yedekleme** |Tüm veritabanları için yedekleme VM'de SQL Server'ın varsayılan örneğinin zamanlama otomatikleştirir. Daha fazla bilgi için [Azure Virtual Machines'de (Resource Manager) SQL Server için otomatik yedekleme](virtual-machines-windows-sql-automated-backup.md). |
+| **SQL otomatik yedekleme** |Tüm veritabanları için yedekleme için varsayılan örnek zamanlama otomatikleştirir ya da bir [yüklendiğinden](virtual-machines-windows-sql-server-iaas-faq.md#administration) adlı VM üzerinde SQL Server örneği. Daha fazla bilgi için [Azure Virtual Machines'de (Resource Manager) SQL Server için otomatik yedekleme](virtual-machines-windows-sql-automated-backup.md). |
 | **SQL otomatik düzeltme eki uygulama** |İş yükünüz için yoğun saatlerde güncelleştirmeleri kurtulabilirsiniz aşamasında vm'niz önemli Windows güncelleştirmelerini, gerçekleştirilebildiği bir bakım penceresi yapılandırır. Daha fazla bilgi için [otomatik Azure Virtual Machines'de (Resource Manager) SQL Server için düzeltme eki uygulama](virtual-machines-windows-sql-automated-patching.md). |
 | **Azure Anahtar Kasası Tümleştirmesi** |Otomatik olarak yüklemeniz ve SQL Server sanal makinenizde Azure Key Vault yapılandırma sağlar. Daha fazla bilgi için [(Resource Manager) Azure vm'lerde SQL Server için Azure anahtar kasası tümleştirmeyi yapılandırma](virtual-machines-windows-ps-sql-keyvault.md). |
 

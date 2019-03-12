@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/15/2019
-ms.openlocfilehash: b2c3e4067fd8e08440f9fe6e15212160aef002f0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: 6669be82877ae5d9465e23dad3c8b310cf24af89
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312946"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576778"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell ve CLI: Azure Key vault'tan müşteri tarafından yönetilen anahtarla saydam veri şifrelemesini etkinleştirme
 
@@ -175,7 +175,7 @@ Kullanım [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql
 ## <a name="troubleshooting"></a>Sorun giderme
 
 Bir sorun oluşursa aşağıdakileri denetleyin:
-- Anahtar kasası bulunamıyor, doğru aboneliği kullanarak işiniz emin olun [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) cmdlet'i.
+- Anahtar kasası bulunamıyor, doğru aboneliği kullanarak işiniz emin olun [Get-AzSubscription](/powershell/module/az.account/get-azsubscription) cmdlet'i.
 
    ```powershell
    Get-AzSubscription `

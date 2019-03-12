@@ -4,16 +4,16 @@ description: REST API'sini kullanarak bir Azure kaynağı için özel ölçümle
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: ed810726a0709c80034412eba437c05e76f65758
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c9e08cd1daef919fa4bd919c06e402da1c48d5db
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460388"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769932"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>REST API'sini kullanarak bir Azure kaynağı için özel ölçümler Azure İzleyici ölçüm depoya gönder
 
@@ -83,7 +83,7 @@ Erişim belirteci yanıttan kaydedin.
     - **AccessToken**. Önceden edindiğiniz belirteci yapıştırın.
 
     ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+    curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
     ```
 1. Zaman damgası ve JSON dosyasında değerlerini değiştirin. 
 1. Birkaç dakika verileriniz için önceki iki adımı birkaç kez yineleyin.

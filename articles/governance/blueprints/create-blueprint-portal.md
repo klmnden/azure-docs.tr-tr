@@ -4,17 +4,17 @@ description: Azure şemaları oluşturmak, tanımlamak ve yapıtları Azure Port
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7aeb3cf2d56dbe20c85adca2243f5830575693e3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 845d200238c276be3f0d64afb3127864d8d9ae19
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818672"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729927"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Tanımlama ve portalda bir Azure şema Ata
 
@@ -42,7 +42,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
    ![Şema oluşturma](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Sağlayan bir **Blueprint adı** 'MyBlueprint gibi' (harfler ve sayılar--en fazla 48 karakter, ancak boşluk veya özel karakterler) için şema, ancak bırakın **Blueprint açıklaması** şimdilik boş.  İçinde **tanım konumunu** kutusunda, sağ tıklayın, seçin [yönetim grubu](../management-groups/overview.md) veya şema kaydedin ve tıklayın istediğiniz abonelik **seçin**.
+1. Sağlayan bir **Blueprint adı** 'MyBlueprint gibi' (harfler ve sayılar--en fazla 48 karakter, ancak boşluk veya özel karakterler) için şema, ancak bırakın **Blueprint açıklaması** şimdilik boş. İçinde **tanım konumunu** kutusunda, sağ tıklayın, seçin [yönetim grubu](../management-groups/overview.md) veya şema kaydedin ve tıklayın istediğiniz abonelik **seçin**.
 
 1. Bilgilerin doğru olduğunu doğrulayın ( **Blueprint adı** ve **tanım konumunu** alanlar daha sonra değiştirilemez) tıklayıp **sonraki: Yapıtları** sayfanın alt kısmındaki veya **Yapıtları** sayfanın üst kısmındaki sekme.
 
@@ -84,7 +84,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
            },
            "location": {
                "type": "string",
-               "defaultValue": "[resourceGroup().location]",
+               "defaultValue": "[resourceGroups('ResourceGroup').location]",
                "metadata": {
                    "description": "Location for all resources."
                }
@@ -129,7 +129,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
 1. Daha önce oluşturduğunuz bir blueprint'i listesinde sağ tıklayıp **düzenleme şema**.
 
-1. İçinde **Blueprint açıklaması**, şema ve onu oluşturan yapıları hakkında bazı bilgiler sağlamalısınız.  Bu durumda, aşağıdaki gibi girin: "Bu şema etiket ilke ve rol ataması abonelikte ayarlar, bir kaynak grubu oluşturur ve bu kaynak grubu için bir şablon ve rol ataması dağıtır."
+1. İçinde **Blueprint açıklaması**, şema ve onu oluşturan yapıları hakkında bazı bilgiler sağlamalısınız. Bu durumda, aşağıdaki gibi girin: "Bu şema etiket ilke ve rol ataması abonelikte ayarlar, bir kaynak grubu oluşturur ve bu kaynak grubu için bir şablon ve rol ataması dağıtır."
 
 1. Tıklayın **sonraki: Yapıtları** sayfanın alt kısmındaki veya **Yapıtları** sayfanın üst kısmındaki sekme.
 
@@ -186,13 +186,17 @@ Yayımladığınızda şema bir aboneliğe atanmaya hazır hale gelir.
    > [!NOTE]
    > Seçilen her abonelik için bir atama oluşturulur ve daha sonra seçili aboneliklerin geri kalanında değişiklikleri zorlamadan tek bir abonelik atamasında değişiklik yapılmasına izin verir.
 
-1. İçin **atanan adı**, bu atama için benzersiz bir ad belirtin.
+1. İçin **atama adı**, bu atama için benzersiz bir ad belirtin.
 
-1. **Konum** alanında, oluşturulacak yönetilen kimlik için bir bölge seçin. Azure Blueprint bu yönetilen kimliği kullanarak tüm yapıtları atanmış şemaya dağıtır. Daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikler](../../active-directory/managed-identities-azure-resources/overview.md).
+1. İçinde **konumu**, oluşturulması yönetilen kimlik ve abonelik dağıtım nesnesi için bir bölge seçin. Azure Blueprint bu yönetilen kimliği kullanarak tüm yapıtları atanmış şemaya dağıtır. Daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikler](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. **Yayımlanmış** sürümlerin **Şema tanımı sürümü** açılır listesini 'v1' girişinin üzerinde bırakın (en son **Yayımlanmış** sürüm varsayılandır).
+1. Bırakın **şema tanımı sürümü** açılan **yayımlanan** 'v1' giriş sürümlerinde (varsayılan değer en son **yayımlanan** sürüm).
 
 1. **Atamayı Kilitle** seçeneği için varsayılan **Kilitleme** ayarını değiştirmeyin. Daha fazla bilgi için bkz. [şema kaynağı kilitleme](./concepts/resource-locking.md).
+
+   ![Atama - kilitleme ve yönetilen kimlik](./media/create-blueprint-portal/assignment-locking-mi.png)
+
+1. Altında **yönetilen kimliği**, varsayılan değerini bırakın **sistem tarafından atanan**.
 
 1. Abonelik düzeyi rol ataması **[kullanıcı grubu veya uygulama adı]: Katkıda bulunan**, arayın ve bir kullanıcı, uygulama veya grup seçin.
 

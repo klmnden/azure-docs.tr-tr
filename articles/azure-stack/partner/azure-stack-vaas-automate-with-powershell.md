@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d675eb55e7ecda1dcf79859e85821c4e86ccbdd
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 7f9a4ce4f1e16f69a1d8998e24c1bfe955d17d92
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338527"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767116"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>PowerShell ile Azure Stack doğrulamayı otomatikleştirin
 
@@ -29,13 +29,13 @@ Doğrulama (VaaS) hizmet olarak kullanarak testleri başlatma otomatikleştirme 
 > [!NOTE]  
 > Otomasyon, yalnızca Test geçiş iş akışı için kullanılabilir. Paket doğrulaması ve çözüm doğrulama iş akışları yalnızca VaaS portal aracılığıyla desteklenir.
 
-Bu öğreticide, bir komut dosyasının nasıl oluşturulacağını öğrenin:
+Bu betik için kullanılabilir:
 
 > [!div class="checklist"]
-> * Önkoşulları yükler
-> * Yükler ve yerel Aracısı'nı başlatır
-> * Testleri, tümleştirme, işlev, güvenilirlik gibi bir kategori başlatır
-> * Sonuçları test raporları
+> * Ön koşulları yükleme
+> * Yükleme ve yerel aracı başlatma
+> * Testleri, bir kategori gibi başlatma *tümleştirme*, *işlevsel*, *güvenilirlik*
+> * Rapor test sonuçları
 
 ## <a name="launch-the-test-pass-workflow"></a>Test geçiş iş akışını Başlat
 
@@ -89,7 +89,7 @@ Bu öğreticide, bir komut dosyasının nasıl oluşturulacağını öğrenin:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Stack'te PowerShell hakkında daha fazla bilgi için en son modülleri gözden geçirin.
+Azure Stack'te PowerShell hakkında daha fazla bilgi için en yeni modülleri gözden geçirin.
 
 > [!div class="nextstepaction"]
 > [Azure Stack Modülü](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

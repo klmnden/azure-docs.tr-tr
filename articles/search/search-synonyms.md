@@ -10,12 +10,12 @@ ms.date: 04/20/2018
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: cea95756f115e9efd6dc184fc85a0485ab49d1b9
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634669"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570445"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure Search'te eş anlamlıları
 
@@ -52,7 +52,7 @@ Aşağıdaki örnekte olduğu gibi HTTP POST kullanan yeni bir eş anlamlı eşl
     POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
-    {  
+    {
        "name":"mysynonymmap",
        "format":"solr",
        "synonyms": "
@@ -65,7 +65,7 @@ Alternatif olarak, PUT kullanıp URİ'SİNDE eş anlamlı eşlemi adı belirtin.
     PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
-    {  
+    {
        "format":"solr",
        "synonyms": "
           USA, United States, United States of America\n
@@ -81,7 +81,7 @@ USA, United States, United States of America
 
 Yukarıdaki arama sorgusu kuralla "ABD", "ABD" veya "ABD" veya "ABD" genişletilir.
 
-Eşleme açık bir okla gösterilen "= >". Belirtildiğinde, sol tarafında eşleşen bir arama sorgusu terim dizisi "= >" sağ taraftaki alternatifleri değiştirilecektir. Aşağıdaki kuralı göz önünde bulundurulduğunda, arama sorgularından "Washington", "Wash." veya "WA" tüm "WA" için yazılacaktır. Açık bir eşleme, yalnızca belirtilen yönde uygular ve "Washington" için "WA" sorgu bu durumda yeniden değil.
+Eşleme açık bir okla gösterilen "= >". Belirtildiğinde, sol tarafında eşleşen bir arama sorgusu terim dizisi "= >" sağ taraftaki alternatifleri değiştirilecektir. Given the rule below, search queries "Washington", "Wash." veya "WA" tüm "WA" için yazılacaktır. Açık bir eşleme, yalnızca belirtilen yönde uygular ve "Washington" için "WA" sorgu bu durumda yeniden değil.
 ```
 Washington, Wash., WA => WA
 ```

@@ -11,18 +11,18 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.custom: mvc
-ms.date: 01/09/2019
+ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: c57d662d8754353777638137c9ae7e97a5c7de15
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.lastreviewed: 03/07/2019
+ms.openlocfilehash: 00bb17eadfee32e9b0d006ac76bb8e1cd614f13e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980991"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780397"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack eklenti planları
 
@@ -30,16 +30,36 @@ Azure Stack operatör değiştirmek için eklenti planları oluşturmak bir [tem
 
 Her şey tek bir plandaki birleştirme ne zaman uygun olduğu durumlar vardır. Bazen planlamak ve ardından eklenti planı'nı kullanarak ek hizmetler sunan bir temele sahip isteyebilirsiniz. Örneğin, eklenti planı kabul tüm PaaS Hizmetleri ile temel bir plan kapsamında Iaas Hizmetleri sunmaya karar verebilirsiniz.
 
-Eklenti planı'nı kullanmak için başka bir nedenle, kullanıcıların kendi kaynak kullanımını dikkatli olmanızı yardımcı olmaktır. Bunu yapmak için (bağlı olarak gereken hizmetleri) görece küçük kotalar içeren temel bir plan ile başlatabilir. Kullanıcılara kapasiteyi ulaşmanızı gibi daha sonra kullanıcılar, bunlar kendi atanan planına dayanarak kaynakların ayrılması tükettiniz uyarı. Burada, kullanıcıların ek kaynaklar sağlayan bir eklenti planı seçebilirsiniz.
+Eklenti planı'nı kullanmak için başka bir nedeni, kaynak kullanımını izleme yardımcı olmaktır. Bunu yapmak için (bağlı olarak gereken hizmetleri) görece küçük kotalar içeren temel bir plan ile başlatabilir. Kullanıcılara kapasiteyi ulaşmanızı gibi daha sonra kullanıcılar, bunlar kendi atanan planına dayanarak kaynakların ayrılması tükettiniz uyarı. Burada, kullanıcıların ek kaynaklar sağlayan bir eklenti planı seçebilirsiniz.
 
 > [!NOTE]
 > Eklenti planı kota genişletmek için kullanmak istemediğinizde, seçebilirsiniz [kota yapılandırmasını Düzenle](azure-stack-quota-types.md#edit-a-quota).
 
-Kullanıcı mevcut bir teklif aboneliğe bir eklenti planı eklediğinde, ek kaynaklar için bir saat görünmesini kadar sürebilir.
+Eklenti planı için varolan bir teklif aboneliği eklediğinizde, ek kaynaklar için bir saat görünmesini kadar sürebilir.
 
-## <a name="create-an-add-on-plan"></a>Eklenti planı oluşturma
+Eklenti planları, var olan bir teklif değiştirerek oluşturulur.
 
-Eklenti planları, var olan bir teklif değiştirerek oluşturulur:
+## <a name="create-an-add-on-plan-1902-and-later"></a>Eklenti planı (1902 ve üzeri) oluşturma
+
+1. Azure Stack Yönetici portalı'na bir bulutun Yöneticisi olarak oturum açın.
+2. İçin kullanılan aynı adımları izleyerek [yeni bir temel plan oluşturma](azure-stack-create-plan.md) değil daha önce sunulan hizmetleri sunan yeni bir plan oluşturmak için.
+3. Yönetici portalında **sunar** ve ardından bir eklenti planı ile güncelleştirilmesi teklifini seçin.
+
+   ![Eklenti planı oluşturma](media/create-add-on-plan/add-on1.png)
+
+4. Teklif özelliklerinin alt kısma kaydırın ve **eklenti planları**. **Ekle**'ye tıklayın.
+
+    ![Eklenti planı oluşturma](media/create-add-on-plan/add-on2.png)
+
+5. Planı eklemek için seçin. Bu örnekte, plan çağrılır **20 storageaccounts**. Plan seçtikten sonra **seçin** plan teklife eklenecek. Plan teklife başarıyla eklendiğini bir bildirim almanız gerekir.
+
+    ![Eklenti planı oluşturma](media/create-add-on-plan/add-on3.png)
+
+6. Yeni eklenti planı listelendiğini doğrulamak için teklife dahil edilen eklenti planları listesini gözden geçirin.
+
+    [![Eklenti planı oluştur](media/create-add-on-plan/add-on4.png "eklenti planı oluştur")](media/create-add-on-plan/add-on4lg.png#lightbox)
+
+## <a name="create-an-add-on-plan-1901-and-earlier"></a>(1901 ve öncesi) bir eklenti planı oluşturma
 
 1. Azure Stack Yönetici portalı'na bir bulutun Yöneticisi olarak oturum açın.
 2. İçin kullanılan aynı adımları izleyerek [yeni bir temel plan oluşturma](azure-stack-create-plan.md) değil daha önce sunulan hizmetleri sunan yeni bir plan oluşturmak için. Bu örnekte, Key Vault (**Microsoft.KeyVault**) Hizmetleri yeni plana dahil edilir.

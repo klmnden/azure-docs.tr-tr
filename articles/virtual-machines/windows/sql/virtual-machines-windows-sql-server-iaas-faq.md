@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: f308b814da06598b95337708f7a8c84d506eed78
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456665"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781808"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler üzerinde çalışan SQL Server için sık sorulan sorular
 
@@ -50,7 +50,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
    Evet. Azure, yalnızca tek bir görüntü ana sürüm ve sürüm bazında tutar. Örneğin, yeni bir SQL Server hizmet paketi yayımlandığında, Azure galeri için hizmet paketi için yeni bir görüntü ekler. SQL Server görüntüsü önceki hizmet paketi için hemen Azure portalından kaldırılır. Ancak, sonraki üç ay için Powershell'den sağlamak için kullanılabilir durumda kalır. Üç ay sonra önceki hizmet paketi görüntü artık kullanılamıyor. Yaşam döngüsü sonuna ulaştığında bir SQL Server sürümü desteklenmeyen hale gelirse, bu kaldırma İlkesi de geçerli.
 
 
-1. **Bu Azure Portalı'nda görünür olmayan bir SQL Server'ın daha eski bir görüntüsünü dağıtmak mümkün mü?**
+1. **Bu, Azure portalında görünür olmayan bir SQL Server'ın daha eski bir görüntüsünü dağıtmak mümkün mü?**
 
    Evet, PowerShell kullanarak. PowerShell kullanarak SQL Server Vm'leri dağıtma hakkında daha fazla bilgi için bkz. [Azure PowerShell ile SQL Server sanal makineler sağlamak nasıl](virtual-machines-windows-ps-sql-create.md).
 
@@ -82,7 +82,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **Yalnızca bekleme/yük devretme için kullanılıyorsa, Azure VM'deki SQL Server lisansı için ödeme gerekir mi?**
 
-   Yazılım Güvencesi ve lisans taşınabilirliği, sanal makine lisanslama SSS bölümünde anlatıldığı gibi kullanın,] (https://azure.microsoft.com/pricing/licensing-faq/) HA dağıtımında pasif ikincil bir çoğaltma olarak katılan tek bir SQL Server Lisansı ödeme yapmam gerekir mi sonra. Aksi takdirde, lisans için ücret ödemem gerekir.
+   Yazılım Güvencesi ve lisans taşınabilirliği açıklandığı kullanın [sanal makine lisanslama SSS](https://azure.microsoft.com/pricing/licensing-faq/), HA dağıtımında pasif ikincil bir çoğaltma olarak katılan tek bir SQL Server Lisansı ödeme yapmam gerekir mi sonra. Aksi takdirde, lisans için ücret ödemem gerekir.
 
 1. **Kullandıkça Öde galeri görüntülerden birini oluşturulmuşsa, kendi SQL Server Lisansımı kullanmak için bir VM değiştirebilirim?**
 
@@ -121,21 +121,30 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **SQL VM kaynak sağlayıcısı ile şirket içinde dağıtılmış SQL Server Vm'leri kaydetmek mümkündür?**
 
-   Evet. SQL Server'ı kendi medyadan dağıtılan ve SQL Iaas uzantısı yüklü değilse, SQL Server VM'nize SQL Iaas uzantısı tarafından sağlanan yönetilebilirlik avantajlarından yararlanabilmek için kaynak sağlayıcısı ile kaydedebilirsiniz. Ancak, şirket içinde dağıtılan bir SQL VM Kullandıkça Öde aboneliğine dönüştürülemiyor.  
+   Evet. SQL Server'ı kendi medyadan dağıtılan ve SQL Iaas uzantısı yüklü değilse, SQL Server VM'nize SQL Iaas uzantısı tarafından sağlanan yönetilebilirlik avantajlarından yararlanabilmek için kaynak sağlayıcısı ile kaydedebilirsiniz. Ancak, şirket içinde dağıtılan bir SQL VM Kullandıkça Öde aboneliğine dönüştürülemiyor.
 
 ## <a name="administration"></a>Yönetim
 
 1. **Aynı VM'de SQL Server'ın ikinci bir örneğini yükleyebilir miyim? Varsayılan örneği yüklü özelliklerini değiştirebilir miyim?**
 
-   Evet. SQL Server yükleme medyası üzerinde bir klasörde bulunan **C** sürücü. Çalıştırma **Setup.exe** yeni SQL Server örneklerini eklemek için bu konuma veya makine üzerinde SQL Server'ın yüklü değişiklik diğer özellikleri. Otomatik yedekleme, otomatik düzeltme eki uygulama ve Azure anahtar kasası tümleştirmeyi, gibi bazı özellikler yalnızca varsayılan örneğine karşı çalıştığını unutmayın.
+   Evet. SQL Server yükleme medyası üzerinde bir klasörde bulunan **C** sürücü. Çalıştırma **Setup.exe** yeni SQL Server örneklerini eklemek için bu konuma veya makine üzerinde SQL Server'ın yüklü değişiklik diğer özellikleri. Otomatik yedekleme, otomatik düzeltme eki uygulama ve Azure anahtar kasası tümleştirmeyi, gibi bazı özellikler, yalnızca varsayılan örneğine karşı çalışan veya adlandırılmış bir örnek Not düzgün şekilde yapılandırıldı (soru 3 bakın). 
 
 1. **SQL Server varsayılan örneğini kaldırabilirim?**
 
-   Evet, ancak burada noktalardır. Önceki yanıt belirtildiği gibi özellikler, bağımlı [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md) yalnızca varsayılan örnek üzerinde çalışır. Varsayılan örnek kaldırırsanız, uzantı için görünür olmaya devam eder ve olay günlüğünü hatalara neden. Bu hatalar, aşağıdaki iki kaynaktan kaynaklanır: **Microsoft SQL Server kimlik bilgileri yönetimi** ve **Microsoft SQL Server Iaas Aracısı**. Hatalardan biri, aşağıdakine benzer olabilir:
+   Evet, ancak burada noktalardır. Önceki yanıt belirtildiği gibi kullanan özellikler vardır [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).  Varsayılan örnek Iaas uzantısı da kaldırmadan kaldırırsanız, uzantı için görünür olmaya devam eder ve olay günlüğünü hatalara neden. Bu hatalar, aşağıdaki iki kaynaktan kaynaklanır: **Microsoft SQL Server kimlik bilgileri yönetimi** ve **Microsoft SQL Server Iaas Aracısı**. Hatalardan biri, aşağıdakine benzer olabilir:
 
       Bir SQL Server bağlantısı kurulurken ağla ilgili veya örneğe özel bir hata oluştu. Sunucu bulunamadı veya erişilebilir durumda değildi.
 
    Varsayılan örnek kaldırmaya karar verirseniz, ayrıca kaldırma [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md) de.
+
+1. **Iaas uzantısı ile SQL Server'ın adlandırılmış bir örnek kullanabilirsiniz**?
+   
+   Evet, adlandırılmış örnek yalnızca SQL Server örneğiyse ve özgün varsayılan örnek düzgün bir şekilde kaldırıldı. Adlandırılmış bir örnek kullanmak için aşağıdakileri yapın:
+    1. Market'ten bir SQL Server VM dağıtın. 
+    1. Iaas uzantıyı kaldırın.
+    1. SQL Server'ı tamamen kaldırın.
+    1. SQL Server adlandırılmış bir örnekle yükleyin. 
+    1. Iaas uzantıyı yükleyin. 
 
 1. **Bir SQL VM üzerindeki SQL Server tamamen kaldırabilirim?**
 
@@ -143,9 +152,9 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
    
 ## <a name="updating-and-patching"></a>Güncelleştirme ve düzeltme eki uygulama
 
-1. **Azure VM'de SQL Server'ın yeni bir sürümü/yayını için nasıl yükseltebilirim?**
+1. **Azure VM'de SQL Server'ın yeni bir sürümü/yayını için nasıl değiştirebilirim?**
 
-   Şu anda bir Azure sanal makinesinde çalışan SQL Server için yerinde yükseltme mevcut değildir. İstenen SQL Server sürümü ile yeni bir Azure sanal makine oluşturma ve veritabanlarınızı yeni sunucuya standardını kullanarak geçirmenize [veri taşıma tekniklerini](virtual-machines-windows-migrate-sql.md).
+   Yazılım Güvencesine sahip müşteriler yerinde yükseltme toplu lisans portalında yükleme medyasını kullanarak bir Azure sanal makinesinde çalışan kendi SQL Server olanağına sahip olursunuz. Ancak, şu anda, SQL Server örneği sürümünü değiştirmek için hiçbir yolu yoktur. İstenen SQL Server sürümü ile yeni bir Azure sanal makine oluşturma ve veritabanlarınızı yeni sunucuya standardını kullanarak geçirmenize [veri taşıma tekniklerini](virtual-machines-windows-migrate-sql.md).
 
 1. **Güncelleştirmelerin ve hizmet paketlerinin nasıl bir SQL Server sanal makinesinde uygulanır?**
 

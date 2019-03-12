@@ -11,15 +11,15 @@ ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 194b13e889de4bc1c5938a6ce9cfded6fe2c88c8
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 391c5cc3b25d58faeb2615c29a76164d4e5292f2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768296"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759148"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Depolama Gezgini’ni Azure Dosya depolama ile kullanma
 

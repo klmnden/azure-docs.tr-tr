@@ -7,11 +7,11 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ms.openlocfilehash: 263e9205c124b8fefa6ee8426237a0719e76c6de
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57350505"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57786573"
 ---
 Geçerli aylık güncelleştirmesinin uygulandığından emin olun. En son sürümde son sürümü için bkz [Azure Stack operatör belgeleri > genel bakış > Sürüm Notları](https://docs.microsoft.com/azure/azure-stack/).
 

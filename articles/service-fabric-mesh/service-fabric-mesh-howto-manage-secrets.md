@@ -6,15 +6,15 @@ keywords: gizli dizi
 author: aljo-microsoft
 ms.author: aljo
 ms.date: 11/28/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: 06d8519836129a557ec69d59d15eb12129e8099b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f767dfdf96b89344fea18893f7030ea0fd1882ad
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236760"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764279"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh uygulama parolalarını yönetme
 Service Fabric Mesh gizli Azure kaynaklarını destekler. Service Fabric Mesh gizli dizi herhangi bir depolama bağlantı dizeleri, parolalar veya güvenli şekilde iletilmesini ve depolanan gereken diğer değerleri gibi hassas metin bilgi olabilir. Bu makalede, Service Fabric güvenli Store hizmeti dağıtma ve gizli dizileri korumak için nasıl kullanılacağını gösterir.

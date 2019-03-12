@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
-ms.translationtype: HT
+ms.openlocfilehash: e3fcc8be68282f6ce491ff49f0dc5059d79fa98f
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35621288"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730952"
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch nedir?
 
@@ -30,7 +30,7 @@ Geliştiriciler, büyük ölçekli yürütmenin gerekli olduğu SaaS uygulamalar
 
 Batch kullanımından ek ücret alınmaz. Yalnızca sanal makineler, depolama ve ağ gibi kullanılan temel kaynaklar için ödeme yaparsınız.
 
-Azure'daki Batch ve diğer HPC çözüm seçenekleri arasında bir karşılaştırma için bkz. [HPC, Batch ve Big Compute çözümleri](../virtual-machines/linux/high-performance-computing.md).
+Batch ve azure'daki diğer HPC çözüm seçenekleri arasında bir karşılaştırma için bkz. [yüksek performanslı bilgi işlem (HPC) azure'da](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Paralel iş yükleri çalıştırma
 Batch, doğası gereği paralel ("utandırıcı derecede paralel" olarak da bilinir) iş yükleriyle düzgün çalışır. Doğası gereği paralel iş yükleri, uygulamaların birbirinden bağımsız olarak çalışabildiği ve her örneğin işin bir kısmını tamamladığı iş yükleridir. Uygulamalar yürütülürken bazı ortak verilere erişebilir, ancak uygulamanın diğer örnekleri iletişim kurmazlar. Bu nedenle doğası gereği paralel iş yükleri, uygulamaları eşzamanlı çalıştırmak için kullanılabilen işlem kaynaklarının miktarına göre belirlenen büyük bir ölçekte çalışır.

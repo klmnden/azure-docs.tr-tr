@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: e49a3063d6314947c59c5ae863077748d997f2b5
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: ae123638e26c9fb6c82666efddabf06874c7b7a8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515480"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539969"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266 bulutta Azure IOT hub'a bağlanma
 
@@ -27,7 +27,7 @@ ms.locfileid: "51515480"
 Adafruit Feather HUZZAH ESP8266 oluşturduğunuz IOT hub'a bağlayın. Ardından, ESP8266 DHT22 algılayıcıdan sıcaklık ve nem verileri toplamak için örnek uygulamayı çalıştırın. Son olarak, IOT hub'ınıza sensör verilerini gönderin.
 
 > [!NOTE]
-> Diğer ESP8266 panoları kullanıyorsanız, IOT hub'ınıza bağlanmak için aşağıdaki adımları yine de takip edebilirsiniz. Kullanmakta olduğunuz ESP8266 tablosu bağlı olarak, yeniden yapılandırmanız gerekebilir `LED_PIN`. Yapay ZEKA Thinker gelen ESP8266 kullanıyorsanız, örneğin, ondan değişebilir `0` için `2`. Bir paket henüz yok mu? Yararlanabileceğimi [Azure Web sitesi](http://azure.com/iotstarterkits).
+> Diğer ESP8266 panoları kullanıyorsanız, IOT hub'ınıza bağlanmak için aşağıdaki adımları yine de takip edebilirsiniz. Kullanmakta olduğunuz ESP8266 tablosu bağlı olarak, yeniden yapılandırmanız gerekebilir `LED_PIN`. Yapay ZEKA Thinker gelen ESP8266 kullanıyorsanız, örneğin, ondan değişebilir `0` için `2`. Bir paket henüz yok mu? Yararlanabileceğimi [Azure Web sitesi](https://azure.com/iotstarterkits).
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
@@ -89,7 +89,7 @@ Algılayıcı sabitlemek için aşağıdaki bağlantı kullanın:
 | Başlangıç (algılayıcı)           | Bitiş (Pano)            | Kablo rengi   |
 | -----------------------  | ---------------------- | ------------  |
 | VDD (PIN 31F)            | 3v (sabitleme 58H)           | Kırmızı kablosu     |
-| Veri (PIN 32F)           | Bir GPIO'yu 2 (PIN 46A)       | Mavi kablosu    |
+| Veri (PIN 32F)           | GPIO 2 (Pin 46A)       | Mavi kablosu    |
 | GND (PIN 34F)            | GND (PIN 56I)          | Siyah kablo   |
 
 Daha fazla bilgi için [Adafruit DHT22 algılayıcı Kurulum](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) ve [Adafruit Feather HUZZAH Esp8266 no'lu](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts).
@@ -222,7 +222,7 @@ Bu bölümde, dağıtın ve Feather HUZZAH ESP8266 hakkında bir örnek uygulama
 
 1. Visual Studio Code'da tıklayın **<Select Serial Port>** durumunu çubuk ve seri bağlantı noktası için Feather HUZZAH ESP8266'ye tıklayın.
 
-2. Girin `F1`, yazın **Arduino** seçip **Arduino: karşıya** oluşturup Feather HUZZAH ESP8266 için örnek uygulama dağıtırsınız.
+2. Girin `F1`, Anahtar'a **Arduino** seçip **Arduino: Karşıya yükleme** oluşturup Feather HUZZAH ESP8266 için örnek uygulama dağıtırsınız.
 
 ### <a name="enter-your-credentials"></a>Kimlik bilgilerinizi girin
 

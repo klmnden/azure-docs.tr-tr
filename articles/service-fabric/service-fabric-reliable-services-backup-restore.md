@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d01d2f18ed35d1752f97f405ae7f7bfb4708ca0d
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095779"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570054"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Yedekleme ve Reliable Services ve Reliable Actors geri yükleme
 Azure Service Fabric durum bu yüksek kullanılabilirliği sürdürmek için birden fazla düğümde çoğaltan bir yüksek kullanılabilirlik platformudur.  Bu nedenle, kümedeki bir düğümün başarısız olsa bile, hizmetler kullanılabilir olmaya devam. Bazı durumlarda daha bu yerleşik yedeklilik platform tarafından sağlanan bazı için yeterli olmakla birlikte bile hizmeti (bir dış depoya) verileri yedeklemek tercih edilir.
@@ -188,13 +188,13 @@ Reliable Actors Framework Reliable Services üzerinde oluşturulmuştur. Actor(s
 ```csharp
 class MyCustomActorService : ActorService
 {
-     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
-            : base(context, actorTypeInfo)
-     {                  
-     }
+    public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+          : base(context, actorTypeInfo)
+    {
+    }
     
     //
-   // Method overrides and other code.
+    // Method overrides and other code.
     //
 }
 ```
@@ -203,7 +203,7 @@ class MyCustomActorService : ActorService
 
 ```csharp
 ActorRuntime.RegisterActorAsync<MyActor>(
-   (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
+    (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
 ```
 
 Reliable Actors için varsayılan durum sağlayıcısı `KvsActorStateProvider`. Artımlı yedekleme için varsayılan olarak etkin değil `KvsActorStateProvider`. Oluşturarak, artımlı yedeklemeyi etkinleştirebilirsiniz `KvsActorStateProvider` oluşturucusuna uygun ayar ve aşağıdaki kod parçacığında gösterildiği gibi ActorService oluşturucusuna geçirerek:
@@ -211,13 +211,13 @@ Reliable Actors için varsayılan durum sağlayıcısı `KvsActorStateProvider`.
 ```csharp
 class MyCustomActorService : ActorService
 {
-     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
-            : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
-     {                  
-     }
+    public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+          : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
+    {
+    }
     
     //
-   // Method overrides and other code.
+    // Method overrides and other code.
     //
 }
 ```

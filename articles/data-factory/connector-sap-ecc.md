@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: d6a6d9b352db61d98e85c840a3ebc5cb6a832a3f
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ba268806dccb7c2671825c794383396a2ff20299
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352470"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548822"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>SAP ECC Azure Data Factory kullanarak veri kopyalama
 
@@ -88,7 +88,7 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 
 SAP ECC verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **SapEccResource**. Aşağıdaki özellikler desteklenir:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | yol | SAP ECC OData varlık yolu. | Evet |
 
@@ -121,7 +121,7 @@ SAP ECC verileri kopyalamak için kopyalama etkinliği için kaynak türünü ay
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **SapEccSource** | Evet |
-| sorgu | Verilere filtre uygulamak için OData sorgu seçenekleri. Örnek: "$select adı, açıklama ve $top = 10 =".<br/><br/>SAP ECC bağlayıcı birleşik URL'den veri kopyalar: (bağlı hizmette belirtilen url) / (veri kümesinde belirtilen yol)? (sorgu) kopyalama etkinliği kaynağı belirtildi. Başvurmak [OData URL'si bileşenleri](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
+| sorgu | Verilere filtre uygulamak için OData sorgu seçenekleri. Örnek: "$select adı, açıklama ve $top = 10 =".<br/><br/>SAP ECC bağlayıcı birleşik URL'den veri kopyalar: (bağlı hizmette belirtilen url) / (veri kümesinde belirtilen yol)? (sorgu) kopyalama etkinliği kaynağı belirtildi. Başvurmak [OData URL'si bileşenleri](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
 
 **Örnek:**
 
@@ -161,20 +161,20 @@ SAP ECC veri kopyalama işlemi sırasında aşağıdaki eşlemeler OData veri t�
 
 | OData veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |:--- |
-| Edm.Binary | Dize |
-| Edm.Boolean | bool |
-| Edm.Byte | Dize |
+| Edm.Binary | String |
+| Edm.Boolean | Bool |
+| Edm.Byte | String |
 | Edm.DateTime | DateTime |
-| Edm.Decimal | Onluk |
-| Edm.Double | çift |
-| Edm.Single | Tek |
-| Edm.Guid | Dize |
+| Edm.Decimal | Decimal |
+| Edm.Double | Double |
+| Edm.Single | Single |
+| Edm.Guid | String |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Dize |
-| Edm.Time | Zaman aralığı |
+| Edm.String | String |
+| Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]

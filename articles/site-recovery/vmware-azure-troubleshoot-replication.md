@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/7/2019
+ms.date: 03/7/2019
 ms.author: mayg
-ms.openlocfilehash: 71c07d93d75ee372a50ec4ff5fc81e92926d329b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3417a6cb4c9af8c315cc84718330b4ab5255ee6c
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964790"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569272"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için çoğaltma sorunlarını giderme
 
@@ -28,6 +28,8 @@ PS makinede şu hizmetlerin çalıştığından emin olun. Veya çalışmadığ�
 
 **Yerleşik bir işlem sunucusu**
 
+* Dosya
+* ProcessServerMonitor
 * cxprocessserver
 * Inmage Pushınstall
 * Günlük karşıya yükleme hizmeti (LogUpload)
@@ -41,6 +43,8 @@ PS makinede şu hizmetlerin çalıştığından emin olun. Veya çalışmadığ�
 
 **Genişleme işlem sunucusu**
 
+* Dosya
+* ProcessServerMonitor
 * cxprocessserver
 * Inmage Pushınstall
 * Günlük karşıya yükleme hizmeti (LogUpload)
@@ -51,6 +55,8 @@ PS makinede şu hizmetlerin çalıştığından emin olun. Veya çalışmadığ�
 
 **Azure'da yeniden çalışma için işlem sunucusu**
 
+* Dosya
+* ProcessServerMonitor
 * cxprocessserver
 * Inmage Pushınstall
 * Günlük karşıya yükleme hizmeti (LogUpload)

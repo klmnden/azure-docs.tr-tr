@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 7cdd2ce44cfa24b2b6bad2bb45260299bc8eda5f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252379"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554247"
 ---
 | Kategori | Sınır |
 | --- | --- |
-| Kullanıcı tarafından atanmış yönetilen kimlikler | <ul><li>Ne zaman kullanıcı oluşturmaya izin ver atanmış yönetilen kimlikleri yalnızca alfasayısal karakterler (0-9, a-z, A-Z) ve tire (-) desteklenir. Ayrıca, düzgün çalışması için VM/VMSS atamasının adı 24 karakterden uzun olmaması gerekir.</li><li>Yönetilen kimlik sanal makine uzantısı aracılığıyla, desteklenen sınırı 32 kullanıcı tarafından yönetilen kimlikleri atanan olur.  Yönetilen kimlik sanal makine uzantısı, desteklenen sınırı 512 kullanıcı tarafından atanan kimliklerle ' dir.</li>|
+| Kullanıcı tarafından atanan yönetilen kimlikleri | <ul><li>Kullanıcı tarafından atanan oluştururken yönetilen kimlikleri yalnızca alfasayısal karakterler (0-9, a-z ve A-Z) ve tire (-) desteklenir. Bir sanal makine veya sanal makine ölçek kümesi düzgün çalışması için atama için ad 24 karakterle sınırlıdır.</li><li>Yönetilen kimlik sanal makine uzantısı kullanma, desteklenen sınırı 32 kullanıcı tarafından atanan yönetilen kimlikleri olur. Yönetilen kimlik sanal makine uzantısı, desteklenen sınırı 512 kullanıcı tarafından atanan kimlikleri ' dir.</li>|
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 229d1efb-b6a5-4df8-9839-5d551487db4e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c1da22eaf32699ef7afee35cbe7264fe9ae9883
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1291fd221d75eb37639c46ffb0753d516e0a4915
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879994"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Öğretici: HackerOne ile Azure Active Directory Tümleştirme
 

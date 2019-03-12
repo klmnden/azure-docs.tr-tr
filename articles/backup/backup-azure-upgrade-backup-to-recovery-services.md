@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: b4ecebc6bef7f49a23455c7a85f25680df087a95
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313369"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530765"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Bir Backup kasasının kurtarma Hizmetleri kasasına yükseltme
 
@@ -80,7 +80,7 @@ PowerShell Betiği, kimlik bilgilerinizi girmenizi ister. Kimlik bilgilerinizi i
 ### <a name="pre-requisites-checking"></a>Önkoşullar denetleniyor
 Azure kimlik bilgilerinizi girdikten sonra Azure ortamınızın aşağıdaki önkoşulları karşıladığını denetler:
 
-- **En düşük aracı sürümü** -Backup kasaları kurtarma Hizmetleri kasalarına yükseltme gerektirir MARS aracısının en az sürüm 2.0.9083.0. Bir aracıyla, 2.0.9083.0'den önceki bir Backup kasasına kayıtlı öğeler varsa, önkoşul denetimi başarısız olur. Önkoşul denetimi başarısız olursa aracıyı güncelleştirin ve kasa yükseltme işlemini yeniden deneyin. Aracısı'ndan en son sürümünü indirebilirsiniz [ http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **En düşük aracı sürümü** -Backup kasaları kurtarma Hizmetleri kasalarına yükseltme gerektirir MARS aracısının en az sürüm 2.0.9083.0. Bir aracıyla, 2.0.9083.0'den önceki bir Backup kasasına kayıtlı öğeler varsa, önkoşul denetimi başarısız olur. Önkoşul denetimi başarısız olursa aracıyı güncelleştirin ve kasa yükseltme işlemini yeniden deneyin. Aracısı'ndan en son sürümünü indirebilirsiniz [ https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Devam eden yapılandırma işleri**: Birisi iş yükseltilmek üzere ayarlanmış bir yedekleme kasası için yapılandırma veya bir öğe kayıt, önkoşul denetimi başarısız olur. Yapılandırmayı tamamlamak veya öğesi kaydetme tamamlayın ve sonra kasa yükseltme işlemini başlatın.
 - **Depolama tabanlı faturalandırma modeli**: Kurtarma Hizmetleri kasaları örnek tabanlı faturalandırma modeli destekler. Depolama tabanlı faturalandırma modeli kullanan bir Backup kasasının kasa yükseltmesi çalıştırırsanız, faturalandırma modelinizin Kasayla birlikte yükseltme istenir. Faturalandırma modelinizin ilk olarak, aksi takdirde, güncelleştirebilir ve kasa yükseltmesini çalıştırın.
 - Kurtarma Hizmetleri kasası için bir kaynak grubu belirleyin. Resource Manager dağıtım özelliklerden yararlanmak için bir kaynak grubunda bir kurtarma Hizmetleri kasası yerleştirmeniz gerekir. Varsa tanımadığınız kaynak grubunu kullanmak için bir ad sağlayın ve yükseltme işlemi, kaynak grubu oluşturulur. Yükseltme işlemi, yeni kaynak grubu ile kasayı de ilişkilendirir.

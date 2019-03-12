@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244500"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550131"
 ---
-# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Öğretici: Azure BizTalk Services'ı kullanarak EDIFACT işlem faturalar
+# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Öğretici: Azure BizTalk Services’ı kullanarak EDIFACT faturalarını işleme
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -55,13 +55,13 @@ Bu iş senaryosu için Microsoft Azure BizTalk Hizmetleri ile sağlanan özellik
 Bu senaryoyu tamamlamak için Service Bus kuyruklarını fatura Contoso için Northwind gönderip bildirim Northwind kullanırız. Bu kuyruklar bir indirme olarak kullanılabilir ve kullanılabilir örnek paket içerisine dâhil istemci uygulaması kullanılarak oluşturulabilir Bu öğreticinin bir parçası olarak.  
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Service Bus ad alanı olmalıdır. Bir ad alanı oluşturma ile ilgili yönergeler için bkz: [nasıl yapılır: oluşturma veya değiştirme bir Service Bus hizmeti Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Bize sağlanan, bir Service Bus ad alanı zaten sahip olduğunuzu varsaymaktadır adlı **edifactbts**.
+* Service Bus ad alanı olmalıdır. Bir ad alanı oluşturma ile ilgili yönergeler için bkz: [nasıl yapılır: Oluşturma veya değiştirme bir Service Bus hizmeti Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Bize sağlanan, bir Service Bus ad alanı zaten sahip olduğunuzu varsaymaktadır adlı **edifactbts**.
 * Bir BizTalk Hizmetleri aboneliğinizin olması gerekir. Bu öğreticide, bize adlı bir BizTalk Services aboneliği sahip olduğunuz varsayılır **contosowabs**.
 * BizTalk Hizmetleri portalında BizTalk Hizmetleri aboneliğinizi kaydedin. Yönergeler için [BizTalk Hizmetleri portalında BizTalk hizmet dağıtımı kaydediliyor](https://msdn.microsoft.com/library/hh689837.aspx)
 * Visual Studio yüklü olmalıdır.
-* BizTalk Services SDK'sı yüklü olması gerekir. SDK'sından indirebilirsiniz [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
+* BizTalk Services SDK'sı yüklü olması gerekir. SDK'sından indirebilirsiniz [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
-## <a name="step-1-create-the-service-bus-queues"></a>1. adım: hizmet veri yolu Kuyrukları Oluşturma
+## <a name="step-1-create-the-service-bus-queues"></a>1. Adım: Hizmet veri yolu kuyrukları oluştur
 Bu çözüm, hizmet veri yolu kuyrukları ticaret iş ortakları arasında mesaj alışverişi kullanır. Contoso ve Northwind EDI ve/veya EAI köprüleri bunları burada tüketme gelen iletileri kuyruklara gönderir. Bu çözüm için üç hizmet veri yolu kuyrukları gerekir:
 
 * **northwindreceive** – Northwind Contoso fatura bu sıraya alır.
@@ -78,7 +78,7 @@ Bu hizmet veri yolu kuyrukları örnek paket içerisine dâhil bir istemci uygul
 4. Üç kuyrukları, Service Bus ad alanında oluşturulur bir ileti kutusu ister. **Tamam** düğmesine tıklayın.
 5. Öğretici çalıştıran istemci bırakın. Açık öğesini **Service Bus** > ***Service Bus ad alanınızı*** > **kuyrukları**ve üç kuyrukları oluşturulduğunu doğrulayın.  
 
-## <a name="step-2-create-and-deploy-trading-partner-agreement"></a>2. adım: Oluşturma ve ticari ortak sözleşmesi dağıtma
+## <a name="step-2-create-and-deploy-trading-partner-agreement"></a>2. Adım: Oluşturma ve ticari ortak sözleşmesi dağıtma
 Contoso Northwind arasındaki ticari ortak sözleşmesi oluşturma. Ticari ortak sözleşmesi hangi ileti şeması kullanmak için hangi Mesajlaşma protokolü kullanmak için vb. gibi iki iş ortakları arasında ticari sözleşme tanımlar. Ticari ortak sözleşmesi ortaklar için ileti göndermek için iki EDI köprüleri içerir (adlı **EDI gönderme köprüsü**) ve iş ortakları alım-satım iletileri almak için (adlı **EDI alma köprüsü**).
 
 Bu çözüm bağlamında EDI gönderme köprüsü anlaşma Gönder-tarafı için karşılık gelen ve EDIFACT fatura Contoso için Northwind göndermek için kullanılır. Benzer şekilde, EDI alma köprüsü alış tarafı için kabul ettiğiniz sözleşmenin karşılık gelen ve Northwind alma bildirimleri için kullanılır.  
@@ -106,7 +106,7 @@ Ticari ortak sözleşmeleri, ticari iş ortakları, iş profilleri arasında olu
    3. Üzerinde **Protokolü** sekmesindeki **şemaları** bölümünde, karşıya yükleme **EFACT_D93A_INVOIC.xsd** şema. Bu şema örnek paketi ile kullanılabilir.
       
       ![][4]  
-   4. Üzerinde **aktarım** sekmesinde, Service Bus Kuyrukları için ayrıntıları belirtin. Gönderme tarafı sözleşmesi için kullandığımız **northwindreceive** Northwind için EDIFACT fatura göndermek için sıra ve **askıya** işleme sırasında başarısız ve askıya alınan iletileri yönlendirmek için kuyruk. Bu kuyruklardaki oluşturduğunuz **1. adım: hizmet veri yolu Kuyrukları Oluşturma** (Bu konudaki).
+   4. Üzerinde **aktarım** sekmesinde, Service Bus Kuyrukları için ayrıntıları belirtin. Gönderme tarafı sözleşmesi için kullandığımız **northwindreceive** Northwind için EDIFACT fatura göndermek için sıra ve **askıya** işleme sırasında başarısız ve askıya alınan iletileri yönlendirmek için kuyruk. Bu kuyruklardaki oluşturduğunuz **1. adım: Hizmet veri yolu Kuyrukları Oluşturma** (Bu konudaki).
       
       ![][5]  
       
@@ -128,7 +128,7 @@ Ticari ortak sözleşmeleri, ticari iş ortakları, iş profilleri arasında olu
    * Üzerinde **gönderme ayarları** sekmesindeki **gelen URL**, uç nokta unutmayın. EDI gönderme Köprüsü'nü kullanarak Northwind için Contoso ileti göndermek için bu uç noktaya bir ileti göndermeniz gerekir.
    * Üzerinde **alma ayarı** sekmesindeki **aktarım**, uç nokta unutmayın. Contoso için Northwind ileti göndermek için EDI almak kullanarak köprüsü, bu uç noktaya bir ileti göndermeniz gerekir.  
 
-## <a name="step-3-create-and-deploy-the-biztalk-services-project"></a>3. adım: Projesi oluşturma ve BizTalk Hizmetleri dağıtma
+## <a name="step-3-create-and-deploy-the-biztalk-services-project"></a>3. Adım: BizTalk Services projesi oluşturma ve dağıtma
 Önceki adımda EDI Gönder dağıtılan ve anlaşmalar EDIFACT faturalarını ve onayları işlemek için alıyorsunuz. Bu sözleşmeler, standart EDIFACT iletisi şemaya uygun işlem iletileri olabilir. Ancak, senaryo için bu çözüm, Contoso fatura Northwind için bir şirket içi özel şemasında gönderir. EDI gönderme köprüsü için ileti gönderilmeden önce bu nedenle, şirket içi şemadan standart EDIFACT fatura şemaya dönüştürülmesi gerekir. BizTalk Hizmetleri EAI proje yapar.
 
 BizTalk Services projesi **InvoiceProcessingBridge**, dönüşümler iletisi Ayrıca, indirdiğiniz örnek bir parçası olarak yer almaktadır. Proje şu yapıtları içerir:
@@ -223,7 +223,7 @@ BizTalk Services projesi **InvoiceProcessingBridge**, dönüşümler iletisi Ayr
    
    EAI köprüsü dağıtıldığı, örneğin, uç nokta çıkış bölmesinde Kopyala `https://contosowabs.biztalk.windows.net/default/ProcessInvoiceBridge`. Daha sonra Bu uç nokta URL'si gerekir.  
 
-## <a name="step-4-test-the-solution"></a>4. adım: Test çözümü
+## <a name="step-4-test-the-solution"></a>4. Adım: Çözüm test
 Bu konu başlığında, bir çözüm kullanarak test etme atacağız **öğretici istemci** örnek bir parçası olarak sağlanan uygulama.  
 
 1. Visual Studio'da başlatmak için F5 tuşuna basarak **öğretici istemci**.
@@ -246,7 +246,7 @@ Bu konu başlığında, bir çözüm kullanarak test etme atacağız **öğretic
    
    ![][16]  
 
-## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>(İsteğe bağlı) 5. adım: partiler halinde incelemeye gönderme EDIFACT fatura
+## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>(İsteğe bağlı) 5. adım: Toplu olarak EDIFACT faturayı gönderin
 BizTalk Hizmetleri EDI köprüleri de destekler giden iletiler toplu işleme. Bu özellik, toplu iletiler (belirli bir ölçütü karşılayan) yerine tek bir ileti almak için tercih ettiğiniz iş ortakları almak için kullanışlıdır.
 
 Toplu işlemler ile çalışırken en önemli boyut, toplu işlem yayın ölçütü olarak da bilinir, gerçek sürümüdür. Yayın ölçütü nasıl alıcı iş ortağına iletileri almak istediği üzerinde temel alabilir. Toplu işleme etkinse, yayın ölçütü verildikten kadar EDI köprüsü giden ileti alıcı iş ortağına göndermez. Örneğin, bir toplu işleme ölçütlerini ileti boyutu dağıtımları üzerinde bir batch temel yalnızca 'n' iletileri toplu. Bir batch sabit bir zaman her gün gönderilir, batch ölçütleri zamana bağlı da olabilir. Bu çözümde, biz ileti boyutu tabanlı ölçütü deneyin.

@@ -3,20 +3,20 @@ title: Azure IoT Central’da kural ve eylem yapılandırma | Microsoft Docs
 description: Bu öğreticide, bir oluşturucu olarak Azure IoT Central uygulamanızda telemetri tabanlı kural ve eylemleri nasıl yapılandıracağınız gösterilir.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 10/12/2018
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: f6016d594e4d4c869c5b45275c4c0200f7769724
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 096daa28b7548401adc857c3c6c8327ef1d1eb00
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317569"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769413"
 ---
-# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Öğretici: Kurallar ve Eylemler için Cihazınızı Azure IOT Central yapılandırma
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central-new-ui-design"></a>Öğretici: Kurallar ve Eylemler için Cihazınızı Azure IOT Central (yeni kullanıcı Arabirimi tasarımı) yapılandırma
 
 *Bu makale, işleçler, oluşturucular ve yöneticiler için geçerlidir.*
 
@@ -28,31 +28,23 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Telemetri tabanlı kural oluşturma
 > * Eylem ekleme
 
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
-
 ## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce, [Uygulamanızda yeni bir cihaz türü tanımlama](tutorial-define-device-type.md) öğreticisini tamamlayarak birlikte çalışacağınız **Bağlı Klima** cihaz şablonunu oluşturmanız gerekir.
 
 ## <a name="create-a-telemetry-based-rule"></a>Telemetri tabanlı kural oluşturma
 
-1. Uygulamanıza yeni bir telemetri tabanlı kural eklemek için, sol gezinti menüsünde **Device Explorer**’ı seçin:
+1. Sol gezinti menüsünde, uygulamanıza, telemetri tabanlı yeni bir kural eklemek için seçin **cihaz şablonları**:
 
-    ![Device Explorer sayfası](media/tutorial-configure-rules/explorerpage1.png)
+    ![Cihaz şablonlarını](media/tutorial-configure-rules/templatespage1.png)
 
-    **Bağlı Klima (1.0.0)** cihaz şablonunu ve önceki öğreticide oluşturduğunuz **Bağlı Klima-1** cihazını görürsünüz.
+    Gördüğünüz **bağlı klima (1.0.0)** önceki öğreticide oluşturduğunuz cihaz şablonu.
 
-2. Bağlı klima cihazınızı özelleştirmeye başlamak için, önceki öğreticide oluşturduğunuz cihazı seçin:
+2. Cihaz şablonunuzu özelleştirme için seçin **bağlı bir klima** önceki öğreticide oluşturduğunuz şablonu.
 
-    ![Bağlı klima sayfası](media/tutorial-configure-rules/builderdevicelist1.png)
+3. Telemetri tabanlı bir kural eklemek için **kuralları** görüntülenecek **kuralları**seçin **+ yeni kural**ve ardından **Telemetri**:
 
-3. Bir kuralda eklemeye başlamak için **kuralları** Görüntüle öğesini **kuralları** seçip **Şablonu Düzenle**:
-
-    ![Kurallar görünümü](media/tutorial-configure-rules/builderedittemplate.png)
-
-4. Eşik tabanlı telemetri kuralı oluşturmak için Seç **yeni kural**, ardından **Telemetri**.
-
-    ![Şablon düzenleme](media/tutorial-configure-rules/buildernewrule.png)
+    ![Kurallar görünümü](media/tutorial-configure-rules/newrule.png)
 
 5. Kuralınızı tanımlamak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
@@ -60,19 +52,20 @@ Başlamadan önce, [Uygulamanızda yeni bir cihaz türü tanımlama](tutorial-de
     | -------------------------------------------- | ------------------------------    |
     | Ad                                         | Klima sıcaklığı uyarısı |
     | Bu şablonun tüm cihazları için kuralı etkinleştir | Açık                                |
-    | Bu cihazda kuralı etkinleştir                   | Açık                                |
     | Koşul                                    | Sıcaklık 90’dan fazla    |
     | Toplama                                  | None                              |
 
-    ![Sıcaklık kural koşulu](media/tutorial-configure-rules/buildertemperaturerule1.png)
+    ![Sıcaklık kural koşulu](media/tutorial-configure-rules/temperaturerule.png)
+
+    Daha sonra **Kaydet**’e tıklayın.
 
 ## <a name="add-an-action"></a>Eylem ekleme
 
-Bir kural tanımladığınızda, kural koşulları yerine getirildiği zaman çalıştırılacak bir eylem de tanımlarsınız. Bu öğreticide, kuralın tetiklediği bir bildirim olarak e-posta gönderme eylemi eklersiniz.
+Bir kural tanımladığınızda, kural koşulları yerine getirildiği zaman çalıştırılacak bir eylem de tanımlarsınız. Bu öğreticide, bir e-posta bildirimi gönderen bir eylem ile bir kural oluşturun.
 
-1. Bir **Eylem** eklemek için **Kaydet**’e tıklayarak kuralı kaydedin ve sonra **Telemetri Kuralı Yapılandırma** panelini kaydırarak **Eylemler**’in yanındaki **+** seçeneğini belirleyip **E-posta**‘yı seçin:
+1. Eklemek için bir **eylem**, ilk **Kaydet** kuralı ve sonra aşağı üzerinde **Telemetri kuralını yapılandırın** paneli. Seçin **+** yanındaki **eylemleri**ve ardından **e-posta**:
 
-    ![Sıcaklık kuralı eylemi](media/tutorial-configure-rules/builderaddaction1.png)
+    ![Sıcaklık kuralı eylemi](media/tutorial-configure-rules/addaction.png)
 
 2. Eyleminizi tanımlamak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
@@ -84,23 +77,16 @@ Bir kural tanımladığınızda, kural koşulları yerine getirildiği zaman ça
     > [!NOTE]
     > Bir e-posta bildirimi almak için e-posta adresinin [uygulamadaki bir kullanıcı kimliği](howto-administer.md) olması ve bu kullanıcının uygulamada en az bir kez oturum açmış olması gerekir.
 
-    ![Uygulama Oluşturucu Sıcaklık eylemi](media/tutorial-configure-rules/buildertemperatureaction.png)
+    ![Sıcaklık eylemi](media/tutorial-configure-rules/temperatureaction.png)
 
-3. **Kaydet**'i seçin. Kuralınız **Kurallar** sayfasında listelenir:
-
-    ![Uygulama Oluşturucu kuralları](media/tutorial-configure-rules/builderrules1.png)
-
-4. **Bitti**’yi seçerek **Şablonu Düzenle** modundan çıkın.
- 
+3. **Kaydet**’i seçin. Kural listelenir **kuralları** sayfası.
 
 ## <a name="test-the-rule"></a>Kuralı test etme
 
 Kural kaydedildikten kısa bir süre sonra dinamik olur. Kuralda tanımlanan koşullar karşılandığında, uygulamanız eylemde belirtilen e-posta adresine bir ileti gönderir.
 
-![E-posta eylemi](media/tutorial-configure-rules/email.png)
-
 > [!NOTE]
-> Test tamamlandıktan sonra gelen kutunuza uyarı gönderilmemesi için kuralı kapatın. 
+> Test tamamlandıktan sonra gelen kutunuzda uyarıları almayı durdurmak için kural kapatın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -111,7 +97,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Telemetri tabanlı kural oluşturma
 > * Eylem ekleme
 
-Eşik tabanlı bir kural tanımladıktan sonra önerilen adım, [Operatör görünümlerini özelleştirme](tutorial-customize-operator.md) adımıdır.
+Eşik tabanlı bir kural tanımladığınıza göre önerilen sonraki adım olarak [işlecin görünümlerini özelleştirme](tutorial-customize-operator.md).
 
 Azure IoT Central’daki farklı kural türleri ve kural tanımının nasıl parametre haline getirileceği hakkında daha fazla bilgi için bkz.:
 * [Bir telemetri kuralı oluşturun ve bildirimleri ayarlayın](howto-create-telemetry-rules.md).

@@ -3,7 +3,7 @@ title: Azure VM başlatma sırasında Windows Update takılı | Microsoft Docs
 description: Bir Azure VM başlatma sırasında Windows takıldığında sorun gidermeyi öğrenin güncelleştirin.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 7fbf157152bd5c2c35c496b1fd8e707884d0f3da
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7c516781f7d0c80dc7185585a29278820ab9a46e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731472"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777575"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM başlatma sırasında Windows takılı güncelleştir
 

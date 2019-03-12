@@ -3,17 +3,17 @@ title: Kullanımı cihaz Azure IOT Central uygulamanızda ayarlar | Microsoft Do
 description: Operatör cihazı kullanmak nasıl Azure IOT Central uygulamanızda ayarlar.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/21/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: b24c7c6d08b7d7914c7bdef6d2a55eb88689b6ad
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315206"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759824"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızda cihaz kümelerini kullanma
 
@@ -48,9 +48,11 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
 
 1. Seçin **cihaz kümeleri** sol gezinti menüsünde.
 
-1. Seçin **Pano** sekmesi.
+1. Cihaz kümenizi seçin.
 
-1. Seçin **şablonu Düzen**.
+1. **Pano** sekmesini seçin.
+
+1. **Düzenle**’yi seçin.
 
     ![Tasarım modu](media/howto-use-device-sets/image3.png)
 
@@ -69,9 +71,6 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
 
 1. Bir kılavuz ekleyin. Kılavuz, seçtiğiniz sütunlardan cihaz cihazların bir tablodur.
     1. Seçin **kılavuz** sağ bölmede.
-
-        ![Kılavuz seçin](media/howto-use-device-sets/image8.png)
-
     1. Kılavuzunuzun vermek bir **başlık**.
     1. Seçim yaparak gösterilecek sütunları seçin **Ekle/Kaldır**. Açılan bölmede seçin sağ oku seçin ve gösterilen istediğiniz sütunu seçin.
     1. **Tamam**’ı seçin.
@@ -81,31 +80,24 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
 
     1. Sürükle ve bırak, yerleştirmek için kılavuz **Pano**.
 
-    > [!NOTE]
-    > Birden çok resimleri, bağlantılar ve Kılavuzlar ekleyebilirsiniz.
+        > [!NOTE]
+        > Birden çok resimleri, bağlantılar ve Kılavuzlar ekleyebilirsiniz.
   
     1. **Done** (Bitti) öğesini seçin.
 
-    ![Tasarım modunda devre dışı](media/howto-use-device-sets/image10.png)
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Pano ayarlar konum eşleme Cihazınızı yapılandırma
 
-
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Pano ayarlar konum eşleme Cihazınızı yapılandırma 
 Bir haritada cihazlarınızı konumunu görselleştirmek için bir konum eşlemesi ayarlar ekleyebilirsiniz.
 
 Cihaz için bir konum eşleme cihaz şablonunuzda yapılandırılan konum özelliği olmalıdır Pano ayarlar eklemek için bkz: [Azure haritalar tarafından desteklenen bir konum özelliği oluşturma](howto-set-up-template.md).
 
-
 1. Cihaz ayarlayın, panoda kitaplıktan harita seçin.
-
-    ![Pano Maps cihazın ayarlar](media/howto-use-device-sets/LocationMaps1.png)
-
 2. Bir başlık verin ve location özelliği, cihaz özelliği bir parçası olarak daha önce yapılandırdığınız seçin.
 3. Kaydet ve cihaz kümesinde cihazlarınızı konumunu görüntüleme kutucuğuna harita görürsünüz.
-4. Şimdi Pano cihazın ayarlar bir işleç görünümleri işleci yapılandırdığınız tüm kutucukları görebildiğinden, bir bakışta tüm cihazları konumu görselleştirmek için eşleme konumu dahil olmak üzere! 
-    
-> [!NOTE] 
-> İstenen boyutunuz haritaya yeniden boyutlandırabilirsiniz olacaktır. PIN haritada seçildiğinde, cihaz bilgilerini, ad ve konum görüntülenir. Cihaz özellik sayfasına gitmek için açılan seçebilirsiniz.  
+4. Şimdi Pano cihazın ayarlar bir işleç görünümleri işleci yapılandırdığınız tüm kutucukları görebildiğinden, bir bakışta tüm cihazları konumu görselleştirmek için eşleme konumu dahil olmak üzere!
 
+> [!NOTE]
+> Harita, istenen boyuta yeniden boyutlandırabilirsiniz. Haritada PIN'i seçerek, cihaz bilgilerini, adını ve konumunu görüntüler. Cihaz özellik sayfasına gitmek için açılan seçebilirsiniz.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Listenin, cihaz kümesi için yapılandırın
 
@@ -127,7 +119,7 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz **listesi**. **Li
 
 ## <a name="analytics"></a>Analiz
 
-Cihaz kümeleri analytics'te sol gezinti menüsünde ana analiz sekmesinde ile aynıdır. Siz makalede analytics hakkında daha fazla bilgi edinebilirsiniz [analytics oluşturma](howto-create-analytics.md).
+Cihaz kümeleri analytics'te sol gezinti menüsünde ana analiz sekmesinde ile aynıdır. Siz makalede analytics hakkında daha fazla bilgi edinebilirsiniz [analytics oluşturma](howto-use-device-sets.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

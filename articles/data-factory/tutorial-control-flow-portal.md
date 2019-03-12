@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 037dafcfc60c629841e326cecc38bb2b3250d77c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1ee3b3cccd01e4a767a8d1212967b57ff29bea62
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015432"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548107"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory işlem hattında dallanma ve zincirleme etkinlikleri
 Bu öğreticide, bazı denetim akışı özelliklerini gösteren bir Data Factory işlem hattı oluşturacaksınız. Bu işlem hattı, Azure Blob Depolama içindeki kapsayıcıdan aynı depolama hesabındaki başka bir kapsayıcıya basit bir kopyalama işlemi yapar. Kopyalama etkinliği başarılı olursa, işlem hattı başarılı kopyalama işleminin ayrıntılarını (örneğin, yazılan veri miktarı) bir başarı e-postası ile gönderir. Kopyalama etkinliği başarısız olursa, işlem hattı kopyalama hatasının ayrıntılarını (örneğin, hata iletisi) bir hata e-postası ile gönderir. Öğretici boyunca parametreleri nasıl geçireceğinizi göreceksiniz.
@@ -52,7 +52,7 @@ Bu öğreticide Azure Portal kullanılır. Azure Data Factory ile etkileşim kur
     John,Doe
     Jane,Doe
     ```
-2. [Azure Depolama Gezgini](http://storageexplorer.com/) gibi araçları kullanarak aşağıdaki adımları uygulayın: 
+2. [Azure Depolama Gezgini](https://storageexplorer.com/) gibi araçları kullanarak aşağıdaki adımları uygulayın: 
     1. **adfv2branch** kapsayıcısını oluşturun.
     2. **adfv2branch** kapsayıcısında **giriş** klasörünü oluşturun.
     3. **input.txt** dosyasını kapsayıcıya yükleyin.

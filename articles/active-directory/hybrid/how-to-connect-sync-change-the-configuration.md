@@ -16,12 +16,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17f832947e289933fb7cde9513bc6e091aec30ae
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6bf55cef00c0600963f8363e617c24fdc9113eae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206387"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543874"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect eşitleme: Bir varsayılan yapılandırmaya bir değişiklik yapın
 Bu makalenin amacı, Azure Active Directory (Azure AD) Connect eşitleme Varsayılan yapılandırmada değişiklik yapmak nasıl rehberlik etmektir. Bu, bazı yaygın senaryolar için adımları sağlar. Bu bilgiyle, kendi iş kurallarına göre kendi yapılandırmasına basit değişiklikler yapabilir olmalıdır.
@@ -294,7 +294,7 @@ Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi
 
     | Akış türü | Hedef öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
-    | Doğrudan | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), "Üye", "Konuk"), hata ("UserPrincipalName UserType belirlemek için mevcut değil")) | Denetlenmeyen | Güncelleştirme |
+    | İfade | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), "Üye", "Konuk"), hata ("UserPrincipalName UserType belirlemek için mevcut değil")) | Denetlenmeyen | Güncelleştirme |
 
 7. Tıklayın **Ekle** gelen kuralı oluşturmak için.
 

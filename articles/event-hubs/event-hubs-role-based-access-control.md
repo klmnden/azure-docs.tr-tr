@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 1324700445aebe672b2c5ae2b55ad9bc0bab13b2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 549cfb84ff247295e01c800aa41ba265bb8921c7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384267"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540088"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Etkin Directory Role-Based erişim denetimi (Önizleme)
 
@@ -52,7 +52,7 @@ Ad alanı oluşturduktan sonra gidin, **erişim denetimi (IAM)** sayfasında por
 
 Örnek uygulamayı çalıştırmadan önce Azure AD'ye kaydetme ve Event Hubs kendi adına erişmesine izin veren bir onay istemi onaylayın. 
 
-Örnek uygulama bir konsol uygulaması olduğundan yerel bir uygulamayı kaydetme ve API izinlerini eklemeniz gerekir **Microsoft.EventHub** "gerekli izinler" kümesi. Yerel uygulamalar da gereken bir **redırect-URI** ; tanımlayıcı olarak hizmet veren Azure AD'de URI ağ hedef olması gerekmez. Kullanım `http://eventhubs.microsoft.com` kod örneği olduğundan bu örnek için bu URI kullanır.
+Örnek uygulama bir konsol uygulaması olduğundan yerel bir uygulamayı kaydetme ve API izinlerini eklemeniz gerekir **Microsoft.EventHub** "gerekli izinler" kümesi. Yerel uygulamalar da gereken bir **redırect-URI** ; tanımlayıcı olarak hizmet veren Azure AD'de URI ağ hedef olması gerekmez. Kullanım `https://eventhubs.microsoft.com` kod örneği olduğundan bu örnek için bu URI kullanır.
 
 Ayrıntılı kayıt adımları açıklanmıştır [Bu öğreticide](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Kaydetmek için adımları izleyin bir **yerel** uygulama ve ardından eklemek için güncelleştirme talimatları izleyin **Microsoft.EventHub** API için gerekli izinleri. Bu adımları izlediğiniz gibi Not **Tenantıd** ve **ApplicationId**gibi uygulamayı çalıştırmak için bu değerlere ihtiyacınız olur.
 

@@ -1,6 +1,6 @@
 ---
-title: Hızlı Başlangıç - Azure Container Instances'da bir uygulamayı çalıştırma - PowerShell
-description: Bu hızlı başlangıçta, Azure PowerShell ile Azure Container Instances'a dağıtılacak bir Docker kapsayıcı uygulamasını dağıtmak için Azure PowerShell kullanma
+title: Hızlı Başlangıç - Azure Container Instances'a - PowerShell Docker kapsayıcısı dağıtma
+description: Bu hızlı başlangıçta, bir yalıtılmış bir Azure kapsayıcı örneğinde çalışan kapsayıcılı web uygulaması hızlı bir şekilde dağıtmak için Azure PowerShell kullanma
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8cb84523288f45dfb719d69e4f7d227039598a9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 00f5f8e045a2ec78751d115db3d9d75ec76189e8
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806921"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732293"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell ile Azure Container ınstances'da bir kapsayıcı uygulaması çalıştırma
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak azure'da bir kapsayıcı örneği dağıtma
 
-Docker kapsayıcılarınızı kolay ve hızlı bir şekilde Azure'da çalıştırmak için Azure Container Instances hizmetini kullanın. Sanal makine dağıtmanız veya Kubernetes gibi tam kapsamlı bir düzenleme platformu kullanmanız gerekmez. Bu hızlı başlangıçta, Azure portalı kullanarak Azure’da bir Windows kapsayıcı oluşturacak ve bu uygulamayı tam etki alanı adı (FQDN) ile kullanıma sunacaksınız. Tek bir dağıtım komutu yürüttükten birkaç saniye sonra çalışan uygulamaya göz atabilirsiniz:
+Azure Container Instances, kolay ve hızlı ile Azure'da sunucusuz Docker kapsayıcıları çalıştırmak için kullanın. Azure Kubernetes hizmeti gibi bir tam kapsayıcı düzenleme platformunu ihtiyacınız kalmadığında bir kapsayıcı örneği isteğe bağlı bir uygulamayı dağıtın.
+
+Bu hızlı başlangıçta, ayrılmış bir Windows kapsayıcı dağıtın ve uygulamayı bir tam etki alanı adı (FQDN) ile kullanılabilir hale getirmek için Azure PowerShell kullanırsınız. Bir tek dağıtım komutu yürüttükten sonra birkaç saniye kapsayıcıda çalışan uygulamaya göz atabilirsiniz:
 
 ![Azure Container Instances hizmetine dağıtılmış uygulamanın tarayıcıdaki görüntüsü][qs-powershell-01]
 
@@ -45,7 +47,7 @@ Artık bir kaynak grubuna sahip olduğunuza göre Azure'da kapsayıcı çalışt
 
 Açılacak bir veya daha fazla bağlantı noktası, DNS ad etiketi ya da ikisini birden belirterek kapsayıcılarınızı internete açabilirsiniz. Bu hızlı başlangıçta, böylece IIS genel olarak erişilebilir olduğundan bir DNS ad etiketi içeren bir kapsayıcıya dağıtın.
 
-Bir kapsayıcı örneği başlatmak için aşağıdaki komutu yürütün. `-DnsNameLabel` değeri, örneği oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. "DNS ad etiketi kullanılamıyor" hata iletisiyle karşılaşırsanız farklı bir DNS ad etiketi deneyin.
+Bir kapsayıcı örneği başlatmak için aşağıdaki komutu yürütün. Ayarlanmış bir `-DnsNameLabel` örneği oluşturduğunuz Azure bölgesi içinde benzersiz olan değer. "DNS ad etiketi kullanılamıyor" hata iletisiyle karşılaşırsanız farklı bir DNS ad etiketi deneyin.
 
  ```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win

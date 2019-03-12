@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 22203a0e950a59cb255c8864218d4e03988e6634
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: e5e184e6dadfa993e0b758ad32b54ea6ccfcb272
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647572"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546543"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Artımlı olarak veri kopyalama aracını kullanarak LastModifiedDate göre yeni ve değiştirilen dosyaları kopyalama
 
@@ -43,9 +43,9 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
 Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için hazırlama.
 
-1. Adlı bir kapsayıcı oluşturun **kaynak**. Bu görevleri [Azure Depolama Gezgini](http://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
+1. Adlı bir kapsayıcı oluşturun **kaynak**. Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
 
-2. Adlı bir kapsayıcı oluşturun **hedef**. Bu görevleri [Azure Depolama Gezgini](http://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
+2. Adlı bir kapsayıcı oluşturun **hedef**. Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
@@ -174,7 +174,7 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
     
     ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
     
-12. Boş bir metin dosyası oluşturun ve Dosya1.ref adlandırın. Dosya1.ref dosyanın karşıya **kaynak** depolama hesabınızdaki kapsayıcı. Bu görevleri [Azure Depolama Gezgini](http://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.    
+12. Boş bir metin dosyası oluşturun ve Dosya1.ref adlandırın. Dosya1.ref dosyanın karşıya **kaynak** depolama hesabınızdaki kapsayıcı. Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.   
 
     ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
     
@@ -190,13 +190,13 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
     
     ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
     
-15. Başka bir boş metin dosyası oluşturun ve file2.txt adlandırın. File2.txt dosyanın karşıya **kaynak** depolama hesabınızdaki kapsayıcı. Bu görevleri [Azure Depolama Gezgini](http://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.   
+15. Başka bir boş metin dosyası oluşturun ve file2.txt adlandırın. File2.txt dosyanın karşıya **kaynak** depolama hesabınızdaki kapsayıcı. Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.  
     
 16. 13 ve 14. adım ile aynı yapmak ve yalnızca yeni dosya (file2.txt) öğesinden kopyalandı göreceğiniz **kaynak** kapsayıcıya **hedef** sonraki işlem hattı çalıştırması depolama hesabınızdaki kapsayıcı.  
     
     ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
 
-    Azure Depolama Gezgini'ni kullanarak aynı da doğrulayabilirsiniz (http://storageexplorer.com/) dosyaları taramak için.
+    Azure Depolama Gezgini'ni kullanarak aynı da doğrulayabilirsiniz (https://storageexplorer.com/) dosyaları taramak için.
     
     ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
 

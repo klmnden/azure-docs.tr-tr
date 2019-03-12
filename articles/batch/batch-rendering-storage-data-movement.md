@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0d343ff5d7513500fa7803495dd42eb94b772935
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 15f5fe6e74cbe8cbffff31114e8aa588ec4a7ebb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546105"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538009"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Varlık ve Çıkış dosyalarını işlemek için depolama ve veri taşıma seçenekleri
 
@@ -25,7 +25,7 @@ Sahne ve varlık dosyaları Vm'leri havuzu işleme uygulamaları için kullanıl
   * Bu seçenek olarak çok maliyetli olan kullanabilmenizi hiçbir VM dosya sistemi için gerekli olan yanı sıra Vm'lerde blobfuse önbelleğe alma aynı dosyaları birden çok işler ve görevler için yinelenen indirmeleri önler.  Veri taşıma, ayrıca dosyaların yalnızca bloblardır ve standart API'ler ve Araçlar, azcopy gibi bir şirket içi dosya sistemi ve Azure depolama arasında dosya kopyalamak için kullanılabilir olarak basittir.
 * Dosya sistemi veya dosya paylaşımı:
   * VM işletim sistemi ve performans/ölçek gereksinimlerine bağlı olarak, daha sonra seçenekleriniz [Azure dosyaları](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)bağlı diskleri olan kullanarak bir VM için NFS, GlusterFS gibi bir dağıtılmış dosya sistemi için bağlı diskleri olan birden fazla VM kullanarak veya bir üçüncü taraf teklifini kullanarak.
-  * [Avere sistemleri](http://www.averesystems.com/) artık Microsoft'un bir parçası olan ve yakın gelecekte büyük ölçekli, yüksek performanslı işleme için ideal çözüm olacaktır.  Azure tabanlı bir NFS Avere çözüm etkinleştirir veya SMB önbellek, oluşturulacak veya şirket içi NAS cihazları blob depolama ile birlikte çalışır.
+  * [Avere sistemleri](https://www.averesystems.com/) artık Microsoft'un bir parçası olan ve yakın gelecekte büyük ölçekli, yüksek performanslı işleme için ideal çözüm olacaktır.  Azure tabanlı bir NFS Avere çözüm etkinleştirir veya SMB önbellek, oluşturulacak veya şirket içi NAS cihazları blob depolama ile birlikte çalışır.
   * Bir dosya sistemi ile dosyaları okunabilir ve doğrudan dosya sistemine yazılması veya dosya sistemi ve havuzu VM'ler arasında kopyalanabilir.
   * Paylaşılan bir dosya sistemi, çok sayıda projeleri ve işleri arasında paylaşılan varlıklar, yalnızca gerekli olan erişim görevleri rendering'i kullanılmasına olanak sağlar.
 

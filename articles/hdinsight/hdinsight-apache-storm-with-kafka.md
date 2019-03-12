@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 341278237bc18bfbb8f4bb1e5d600e2cab894926
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 39ae76da197db0c2b4f494bd74b3c76e6ff27f8e
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343366"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576812"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Öğretici: Apache Storm'u HDInsight üzerinde Apache Kafka ile kullanma
 
@@ -129,7 +129,7 @@ Bu öğreticide iki topoloji sağlanmaktadır:
     >
     > Storm kümesini oluşturmak için bu belgedeki şablonu kullanmazsanız, betik eylemini kümenize el ile uygulamanız gerekir.
     >
-    > Betik eylemi `https://hdiconfigactions2.blob.core.windows.net/stormextlib/stormextlib.sh` adresinde bulunur ve Storm kümesinin supervisor ve nimbus düğümlerine uygulanır. Betik eylemlerini kullanma hakkında daha fazla bilgi için, [Betik eylemlerini kullanarak HDInsight'ı özelleştirme](hdinsight-hadoop-customize-cluster-linux.md) belgesine bakın.
+    > Betik eylemi `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh` adresinde bulunur ve Storm kümesinin supervisor ve nimbus düğümlerine uygulanır. Betik eylemlerini kullanma hakkında daha fazla bilgi için, [Betik eylemlerini kullanarak HDInsight'ı özelleştirme](hdinsight-hadoop-customize-cluster-linux.md) belgesine bakın.
 
 Topolojiler [Flux](https://storm.apache.org/releases/1.1.2/flux.html) kullanılarak tanımlanır. Flux Storm 0.10.x sürümünde kullanıma sunulmuştur ve topoloji yapılandırmasını koddan ayırmanıza olanak tanır. Flux çerçevesini kullanan Topolojiler için, topoloji YAML dosyasında tanımlanır. YAML dosyası topolojinin bir parçası olarak eklenebilir. Ayrıca, topolojiyi gönderirken kullandığınız tek başına bir dosya da olabilir. Flux, bu örnekte kullanılan çalışma zamanında değişken değiştirme özelliğini de destekler.
 
@@ -518,7 +518,7 @@ Bir Azure Sanal Ağı oluşturmak ve sonra bunun içinde Kafka ve Storm kümeler
 4. `dev.properties` dosyasını kaydedin ve ardından aşağıdaki komutu kullanarak bu dosyayı **Storm** kümesine yükleyin:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
+    scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     **USERNAME** değerini kümenin SSH kullanıcı adıyla değiştirin. **BASENAME** değerini kümeyi oluştururken kullandığınız temel adıyla değiştirin.

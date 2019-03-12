@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 70bae1558860b763d17d04e10d5d926b39300101
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 48a84520a61d19968b467091871459e21898dd5e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321254"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548652"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN ile geliştirmeye başlama
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "54321254"
 
 Kullanabileceğiniz [Node.js için Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn) oluşturma ve CDN profili ve uç noktaları yönetimini otomatikleştirmek için.  Bu öğreticide, birkaç kullanılabilir işlemleri gösteren basit bir Node.js konsol uygulaması oluşturulmasını adım adım göstermektedir.  Bu öğreticide, ayrıntılı olarak Node.js için Azure CDN SDK'sı tüm yönlerini açıklamak için tasarlanmamıştır.
 
-Bu öğreticiyi tamamlamak için zaten olmalıdır [Node.js](http://www.nodejs.org) **4.x.x** veya üzeri yüklü ve yapılandırılmış.  Node.js uygulamanızı oluşturmak istediğiniz herhangi bir metin düzenleyicisi kullanabilirsiniz.  Bu öğreticide yazmak için kullandım [Visual Studio Code](https://code.visualstudio.com).  
+Bu öğreticiyi tamamlamak için zaten olmalıdır [Node.js](https://www.nodejs.org) **4.x.x** veya üzeri yüklü ve yapılandırılmış.  Node.js uygulamanızı oluşturmak istediğiniz herhangi bir metin düzenleyicisi kullanabilirsiniz.  Bu öğreticide yazmak için kullandım [Visual Studio Code](https://code.visualstudio.com).  
 
 > [!TIP]
 > [Projeyi bu öğreticiden](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) MSDN'de indirilebilir.
@@ -363,9 +363,9 @@ Son olarak, bizim profili şimdi silin.
 ## <a name="next-steps"></a>Sonraki Adımlar
 Bu kılavuz, tamamlanan projeden görmek için [örneği indirin](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-Başvuru için Azure CDN SDK'sı için Node.js görmek için görüntüleyin [başvuru](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
+Başvuru için Azure CDN SDK'sı için Node.js görmek için görüntüleyin [başvuru](https://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 
-Ek belgeler Node.js için Azure SDK'sı üzerinde bulmak için görüntüleme [tam başvuru](http://azure.github.io/azure-sdk-for-node/).
+Ek belgeler Node.js için Azure SDK'sı üzerinde bulmak için görüntüleme [tam başvuru](https://azure.github.io/azure-sdk-for-node/).
 
 CDN kaynaklarınızı yönetmek [PowerShell](cdn-manage-powershell.md).
 

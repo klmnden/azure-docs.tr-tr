@@ -14,25 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
 ms.author: barclayn
-ms.openlocfilehash: bfe289e29a6a2bb048d9fd42323f32ce8c12792c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8835c4534b6dab1e8dbfb3546257ae4bc3b9d7af
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110617"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588661"
 ---
-# <a name="pen-testing"></a>Sızma testi
-Uygulamayı test etme ve dağıtım için Azure kullanmanın avantajları oluşturulmuş ortamları hızlıca elde edebilirsiniz biridir.  Requisitioning, alma ve "raflama ve yığınlama" endişelenmek zorunda olmadığınız kendi şirket içi donanım.
+# <a name="penetration-testing"></a>Sızma Testi
+Uygulamayı test etme ve dağıtım için Azure kullanmanın avantajları oluşturulmuş ortamları hızlıca elde edebilirsiniz biridir. Requisitioning, alma ve "raflama ve yığınlama" endişelenmek zorunda olmadığınız kendi şirket içi donanım.
 
-Bu harika –, ancak normal güvenlik gerçekleştirdiğiniz emin olmak yine aksaklıkla. Yapmanız gereken şeylerden biri sızma Azure'da dağıttığınız uygulamaları test etme.
+Bu harika –, ancak normal güvenlik gerçekleştirdiğiniz emin olmak yine aksaklıkla. Büyük olasılıkla yapmak istediğiniz şey biri sızma Azure'da dağıttığınız uygulamaları test etme.
 
 Microsoft gerçekleştireceğini zaten biliyor olabilirsiniz [sızma testi bizim Azure ortamının](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Bu yardımcı, Azure geliştirmeleri yönlendirin.
 
-Kalem yok, uygulamanızı test edin, ancak ve istediğiniz kendi uygulamalarınızı test etme kalem yapmanız gerektiğini biliyoruz. Bunun nedeni, uygulamalarınızın güvenliğini, tüm Azure ekosistemi daha güvenli olmasına yardımcı çok iyi bir şey olmasıdır.
+Biz sizin için uygulamanızı sızma testi yok, ancak ve istediğiniz kendi uygulamalarınızı test etme yapmanız gerektiğini biliyoruz. Bunun nedeni, uygulamalarınızın güvenliğini, tüm Azure ekosistemi daha güvenli olmasına yardımcı çok iyi bir şey olmasıdır.
 
-Ne yapmanız gerekir?
-
-15 Haziran 2017'den itibaren Microsoft artık bir sızma yürütmek için Ön onay gerektirir. Azure kaynaklarına karşı testler. Microsoft Azure karşı angajmanları resmi belge yaklaşan sızma isteyen müşteriler doldurun izlemeleri [Azure hizmet sızma testi bildirimi form](https://portal.msrc.microsoft.com/en-us/engage/pentest). Bu işlem yalnızca Microsoft Azure ve Microsoft bulut hizmeti için diğer uygulanamaz ilişkilidir.
+15 Haziran 2017'den itibaren Microsoft artık Azure kaynaklarına karşı sızma testi yürütmek için Ön onay gerektirir. Microsoft Azure karşı angajmanları resmi belge yaklaşan sızma isteyen müşteriler doldurun izlemeleri [Azure hizmet sızma testi bildirimi form](https://portal.msrc.microsoft.com/en-us/engage/pentest). Bu işlem yalnızca Microsoft Azure ve Microsoft bulut hizmeti için diğer uygulanamaz ilişkilidir.
 
 >[!IMPORTANT]
 >Sızma testi etkinlikleri Microsoft'tan bildiren artık gerekli değildir ancak müşteriler hala uymak zorundadır [Microsoft bulut birleşik sızma testi kuralları of Engagement](https://technet.microsoft.com/mt784683).
@@ -47,4 +45,4 @@ Bir yerine getiremez test türünde herhangi bir [hizmet reddi (DoS)](https://en
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Kalem ile kullanmaya başlamak hazır, Microsoft Azure'da barındırılan uygulamalarınız test ediyorsunuz? Bu nedenle, daha sonra gidin üzerinde [sızma testi kuralları of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) ve sınama bildirim formu doldurun.
+- Resmi Microsoft Azure'da barındırılan uygulamalarınız üzerinde bir gelecek sızma belgelemek istiyorsanız gidin üzerinde [sızma testi kuralları of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) ve sınama bildirim formu doldurun.

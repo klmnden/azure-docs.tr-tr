@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 45e87be071e09a19f1d8164eb9a002909a964201
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: e8b4ba8cddb8298e69ad45016a8e3c335146d226
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960403"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540173"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>ExpressRoute devre oluşturma ve değiştirme
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Bu makalede Azure portalı ve Azure Resource Manager dağıtım modeli kullanara
 
 ## <a name="create"></a>Oluşturma ve bir ExpressRoute bağlantı hattı sağlama
 ### <a name="1-sign-in-to-the-azure-portal"></a>1. Azure portalında oturum açın
-Bir tarayıcıdan [Azure portalına](http://portal.azure.com) gidin ve Azure hesabınızla oturum açın.
+Bir tarayıcıdan [Azure portalına](https://portal.azure.com) gidin ve Azure hesabınızla oturum açın.
 
 ### <a name="2-create-a-new-expressroute-circuit"></a>2. Yeni bir ExpressRoute bağlantı hattı oluşturma
 > [!IMPORTANT]

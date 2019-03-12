@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1cfe7dab907a332f1a38560c39d4f6476cee81aa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7b5d9d483d05ac8225ea4b7497922192be44f1bc
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004769"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731677"
 ---
 # <a name="what-is-azure-policy"></a>Azure İlkesi nedir?
 
@@ -22,7 +22,7 @@ ms.locfileid: "56004769"
 Şirketiniz asla çözülmeyecek gibi görünen önemli sayıda BT sorunlarıyla mi karşılaşıyor?
 İyi bir BT yönetimine sorunların yönetilmesine ve önlenmesine yardımcı olma amacıyla girişimlerinizi planlama ve önceliklerinizi stratejik düzeyde belirleme dahildir. Stratejik bu gereksinim, Azure İlkesi burada devreye girer.
 
-Azure İlkesi, ilkelerinizi oluşturmak, atamak ve yönetmek için kullandığınız bir Azure hizmetidir. Bu ilkeler, kaynaklarınız üzerinden farklı kuralları ve eylemleri uygulatarak kaynaklarınızın kurumsal standartlarınız ve hizmet düzeyi sözleşmelerinizle uyumlu kalmasını sağlar. Azure İlkesi, uyumsuzluk atanan ilkelerle kaynaklarınızı değerlendirerek bu gereksinimini karşılar. Örneğin, ortamınızda yalnızca belirli SKU boyutuna sahip sanal makinelere izin veren bir ilkeniz olabilir. Bu ilke uygulandıktan sonra yeni ve mevcut kaynakları uyumluluk için değerlendirilir. Doğru ilke türü ile var olan kaynakları uyumlu hale getirilebilir. Bu belgede daha sonra oluşturun ve Azure İlkesi ile ilkeleri uygulama hakkında daha fazla ayrıntıyı gideceğiz.
+Azure ilkesi oluşturmak, atamak ve ilkelerini yönetmek için kullandığınız bir Azure hizmetidir. Bu ilkeler, kaynaklarınız üzerinden farklı kuralları ve eylemleri uygulatarak kaynaklarınızın kurumsal standartlarınız ve hizmet düzeyi sözleşmelerinizle uyumlu kalmasını sağlar. Azure İlkesi, uyumsuzluk atanan ilkelerle kaynaklarınızı değerlendirerek bu gereksinimini karşılar. Örneğin, ortamınızda yalnızca belirli SKU boyutuna sahip sanal makinelere izin veren bir ilkeniz olabilir. Bu ilke uygulandıktan sonra yeni ve mevcut kaynakları uyumluluk için değerlendirilir. Doğru ilke türü ile var olan kaynakları uyumlu hale getirilebilir. Bu belgede daha sonra oluşturun ve Azure İlkesi ile ilkeleri uygulama hakkında daha fazla ayrıntıyı gideceğiz.
 
 > [!IMPORTANT]
 > Azure İlkesi’nin uyumluluk değerlendirmesi artık fiyatlandırma katmanından bağımsız olarak tüm atamalara sağlanır. Atamalarınız uyumluluk verilerini göstermezse, lütfen aboneliğin Microsoft.PolicyInsights kaynak sağlayıcısı ile kaydolduğundan emin olun.

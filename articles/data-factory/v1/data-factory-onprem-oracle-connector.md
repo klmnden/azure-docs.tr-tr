@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 28227ce9ebc5680f68c05cb1296a8ba35eac2c74
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1dbac37e8b3bac5ee06ac3bdc3270c04efdcd408
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338357"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536700"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Oracle şirket içi veri kopyalayın
 
@@ -69,7 +69,7 @@ Bu Oracle Bağlayıcısı sürücülerin iki sürümlerini destekler:
     > Şu anda Microsoft sürücüsü Oracle için Oracle yalnızca veri kopyalamayı destekler. Oracle sürücüsü desteklememektedir. Veri Yönetimi ağ geçidi üzerinde test bağlantı özelliği **tanılama** sekme, bu sürücüyü desteklemiyor. Alternatif olarak, bağlantıyı doğrulamak için kopyalama Sihirbazı'nı kullanabilirsiniz.
     >
 
-- **.NET için Oracle veri sağlayıcısı**: Gelen veya Oracle veri kopyalamak için Oracle veri sağlayıcısı'nı kullanabilirsiniz. Bu bileşen yer aldığı [için Oracle veri erişim bileşenleri Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). İlgili sürüm (32 bit veya 64-bit), ağ geçidinin yüklü olduğu bir makineye yükleyin. [Oracle veri sağlayıcısı .NET 12,1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) Oracle veritabanı 10 g sürüm 2 ve üzeri sürümler erişebilirsiniz.
+- **.NET için Oracle veri sağlayıcısı**: Gelen veya Oracle veri kopyalamak için Oracle veri sağlayıcısı'nı kullanabilirsiniz. Bu bileşen yer aldığı [için Oracle veri erişim bileşenleri Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). İlgili sürüm (32 bit veya 64-bit), ağ geçidinin yüklü olduğu bir makineye yükleyin. [Oracle veri sağlayıcısı .NET 12,1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) Oracle veritabanı 10 g sürüm 2 ve üzeri sürümler erişebilirsiniz.
 
     Seçerseniz **XCopy yükleme**, readme.htm dosyasında açıklanan adımları izleyin. Kullanıcı arabirimini (XCopy yükleyici değil) olan yükleyici seçmenizi öneririz.
 
@@ -566,7 +566,7 @@ Veri alındığından yeni blobundan saatte (**sıklığı**: **saat**, **aralı
 
 **Çözümleme**
 
-* Oracle için .NET sağlayıcısı yüklemediyseniz [yüklemek](http://www.oracle.com/technetwork/topics/dotnet/downloads/)ve senaryoyu yeniden deneyin.
+* Oracle için .NET sağlayıcısı yüklemediyseniz [yüklemek](https://www.oracle.com/technetwork/topics/dotnet/downloads/)ve senaryoyu yeniden deneyin.
 * Sağlayıcıyı yükledikten sonra bile hata iletisini görürseniz, aşağıdaki adımları tamamlayın:
     1. .NET 2.0 klasöründen makine yapılandırma dosyasını aç < sistem diski\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Arama **.NET için Oracle veri sağlayıcısı**. Altında aşağıdaki örnekte gösterildiği gibi bir giriş bulunacak erişebileceğinizi **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`

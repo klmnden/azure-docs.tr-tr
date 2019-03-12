@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/25/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cf82a80d0b812ab5540796c8e7758e6ff85952c5
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: fad3d77d15d78ffdaf1afca3675a82242b844778
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804799"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730398"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure automation'da Azure PowerShell modüllerini güncelleştirme
 
@@ -41,7 +41,7 @@ Bu işlem, Azure modüllerini güncelleştir kullanırken dikkate almanız gerek
 
 * Özgün adıyla bu runbook'u içeri aktarırsanız `Update-AutomationAzureModulesForAccount`, bu ada sahip iç runbook geçersiz kılar. Sonuç olarak, içeri aktarılan runbook'un ne zaman çalıştırılır **Azure modüllerini güncelleştirme** düğmesi atıldığında veya ne zaman bu runbook çağrıldığında bu Otomasyon hesabı için Azure Resource Manager API'si aracılığıyla doğrudan.
 
-* Yalnızca `Azure` ve `AzureRM.*` modüller şu anda desteklenmiyor. Yeni [Az Azure PowerShell modülleri](/powershell/azure/new-azureps-module-az) henüz desteklenmiyor.
+* Bu runbook, yalnızca güncelleştirme destekler **Azure** ve **AzureRm** şu anda modüller. [Azure PowerShell Az modülleri](/powershell/azure/new-azureps-module-az) Automation hesaplarında desteklenir, ancak bu runbook'la güncelleştirilemiyor.
 
 * Bu runbook içeren Az modülleri Automation hesapları başlatma kaçının.
 

@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 7b2876f30af23f73be5a53770ac75ef323d90c37
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 80091adaa364289ec9cddf6e259242e376b76b37
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668986"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549621"
 ---
 # <a name="get-started-with-device-management-python"></a>Cihaz yönetimini (Python) kullanmaya başlama
 
@@ -37,8 +37,8 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 * [Python 2.x veya 3.x](https://www.python.org/downloads/). Kurulumunuzun gereksinimine uygun olarak 32 bit veya 64 bit yüklemeyi kullanmaya dikkat edin. Yükleme sırasında istendiğinde, platforma özgü ortam değişkeninize Python’u eklediğinizden emin olun. Python 2.x kullanıyorsanız, [Python paket yönetim sistemi *pip*'yi yüklemeniz veya yükseltmeniz](https://pip.pypa.io/en/stable/installing/) gerekebilir.
     * Yükleme [azure-iothub-cihaz-client](https://pypi.org/project/azure-iothub-device-client/) komutunu kullanarak paketi   `pip install azure-iothub-device-client`
     * Yükleme [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) komutunu kullanarak paketi   `pip install azure-iothub-service-client`
-* Windows işletim sistemi kullanıyorsanız, Python’dan yerel DLL’lerin kullanımına olanak tanımak için [Visual C++ yeniden dağıtılabilir paketi](http://www.microsoft.com/download/confirmation.aspx?id=48145).
-* Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](http://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
+* Windows işletim sistemi kullanıyorsanız, Python’dan yerel DLL’lerin kullanımına olanak tanımak için [Visual C++ yeniden dağıtılabilir paketi](https://www.microsoft.com/download/confirmation.aspx?id=48145).
+* Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 

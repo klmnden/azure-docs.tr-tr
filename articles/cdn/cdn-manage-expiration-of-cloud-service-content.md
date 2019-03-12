@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: 19f928d854618a5e29841dc45d7846faf7fb83b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b070b302917d69e0145c1a10c90685b55aa4dcc2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253134"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540290"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Azure cdn'de web içeriğinin kullanım süresini yönetme
 > [!div class="op_single_selector"]
@@ -106,7 +106,7 @@ Aşağıdaki XML yapılandırma dosyası örneği nasıl ayarlanacağını göst
 </configuration>
 ```
 
-Kullanılacak **cacheControlMaxAge** öznitelik değerini ayarlamalısınız **cacheControlMode** özniteliğini `UseMaxAge`. Bu ayar HTTP üst bilgi ve yönerge neden `Cache-Control: max-age=<nnn>`, yanıta eklenecek. Timespan değeri biçimi **cacheControlMaxAge** özniteliği `<days>.<hours>:<min>:<sec>`. Değeri saniye dönüştürülür ve değeri olarak kullanılan `Cache-Control` `max-age` yönergesi. Hakkında daha fazla bilgi için `<clientCache>` öğesi bkz [istemci önbellek <clientCache> ](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Kullanılacak **cacheControlMaxAge** öznitelik değerini ayarlamalısınız **cacheControlMode** özniteliğini `UseMaxAge`. Bu ayar HTTP üst bilgi ve yönerge neden `Cache-Control: max-age=<nnn>`, yanıta eklenecek. Timespan değeri biçimi **cacheControlMaxAge** özniteliği `<days>.<hours>:<min>:<sec>`. Değeri saniye dönüştürülür ve değeri olarak kullanılan `Cache-Control` `max-age` yönergesi. Hakkında daha fazla bilgi için `<clientCache>` öğesi bkz [istemci önbellek <clientCache> ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Cache-Control üst bilgileri programlı olarak ayarlama
 ASP.NET uygulamaları için programlı olarak ayarlayarak CDN önbelleğe alma davranışını denetleyen **HttpResponse.Cache** .NET API özelliği. Hakkında bilgi için **HttpResponse.Cache** özelliğine bakın [HttpResponse.Cache özelliği](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) ve [HttpCachePolicy sınıfı](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
@@ -128,10 +128,10 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## <a name="testing-the-cache-control-header"></a>Cache-Control üst bilgisi test etme
-Web içeriğinize TTL ayarlarını kolayca doğrulayabilirsiniz. Tarayıcınızın ile [Geliştirici Araçları](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), web içeriği test `Cache-Control` yanıtı üstbilgisi. Gibi bir araç kullanabilirsiniz **wget**, [Postman](https://www.getpostman.com/), veya [Fiddler](http://www.telerik.com/fiddler) yanıt üstbilgileri incelemek üzere.
+Web içeriğinize TTL ayarlarını kolayca doğrulayabilirsiniz. Tarayıcınızın ile [Geliştirici Araçları](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), web içeriği test `Cache-Control` yanıtı üstbilgisi. Gibi bir araç kullanabilirsiniz **wget**, [Postman](https://www.getpostman.com/), veya [Fiddler](https://www.telerik.com/fiddler) yanıt üstbilgileri incelemek üzere.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* [Ayrıntıları okuyun **clientCache** öğesi](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Ayrıntıları okuyun **clientCache** öğesi](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Belgelerini okuyun **HttpResponse.Cache** özelliği](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
 * [Belgelerini okuyun **HttpCachePolicy sınıfı**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
 * [Önbelleğe alma kavramları hakkında bilgi edinin](cdn-how-caching-works.md)

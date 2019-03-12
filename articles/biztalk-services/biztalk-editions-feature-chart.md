@@ -1,6 +1,6 @@
 ---
 title: BizTalk Services sürümleri özellikleri hakkında bilgi edinme| Microsoft Belgeleri
-description: 'BizTalk Services sürümlerinin özelliklerini karşılaştırın: Ücretsiz, Geliştirici, Temel, Standart ve Premium. MABS, WABS.'
+description: 'BizTalk Services sürümlerinin özelliklerini karşılaştırın: Ücretsiz, geliştirici, temel, standart ve Premium. MABS, WABS.'
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -11,15 +11,15 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d16bf73c1d9871e4de8940e4ab9bbd7ed0f39384
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240520"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765637"
 ---
 # <a name="biztalk-services-editions-chart"></a>BizTalk Services: Sürümler grafiği
 
@@ -34,7 +34,7 @@ Karma Bağlantılar oluşturabilir ve yönetebilir. Karma Bağlantı, Azure web 
 
 **Geliştirici**
 
-Karma Bağlantılar, kolay kullanılan ticari ortak yönetim portalıyla EAI ve EDI ileti işleme, ortak EDI şemaları için destek, X12 ve AS2 üzerinde zengin EDI işlemeyi kapsar. İleti okumak ve yazmak için. buluttaki hizmetleri HTTP/S, REST, FTP, WCF ve SFTP protokolleriyle bağlayan ortak EAI senaryoları oluşturabilir.  Şirket içi LOB sistemlerini kullanıma hazır SAP, Oracle eBusiness, Oracle DB, Siebel, ve SQL Sunucusu bağdaştırıcılarıyla bağlantıyı kullanır. Geliştirici merkezli ortamı, kolay geliştirme ve dağıtım için Visual Studio araçlarıyla birlikte kullanın. Geliştirme ve test amaçları Hizmet Düzeyi Sözleşmesi (SLA) olmadıkça sınırlıdır
+Karma Bağlantılar, kolay kullanılan ticari ortak yönetim portalıyla EAI ve EDI ileti işleme, ortak EDI şemaları için destek, X12 ve AS2 üzerinde zengin EDI işlemeyi kapsar. İleti okumak ve yazmak için. buluttaki hizmetleri HTTP/S, REST, FTP, WCF ve SFTP protokolleriyle bağlayan ortak EAI senaryoları oluşturabilir.  Şirket içi LOB sistemlerini kullanıma hazır SAP, Oracle eBusiness, Oracle DB, Siebel, ve SQL Sunucusu bağdaştırıcılarıyla bağlantıyı kullanır. Bir geliştirici merkezli ortamı, kolay geliştirme ve dağıtım için Visual Studio Araçları ile kullanın. Geliştirme ve test amaçları Hizmet Düzeyi Sözleşmesi (SLA) olmadıkça sınırlıdır
 
 **Temel**
 
@@ -239,20 +239,20 @@ Yeni köprüleri dağıtamaz veya yeni sözleşmeler oluşturamazsınız. Daha f
 #### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>BizTalk Services’ın bir katmanından diğerine nasıl geçerim?
 Ücretsiz sürüm başka bir katmana geçemez veya 'yukarı ölçeklendirilemez' ve başka bir katmana yedeklenemez ve geri yüklenemez. Başka bir katman gerekiyorsa, yeni katmanı kullanarak yeni bir BizTalk Hizmeti oluşturun. Karma bağlantılar da dahil, Ücretsiz sürüm kullanılarak oluşturulan yapıtların yeni BizTalk Hizmetinde yeniden oluşturulması gerekir. 
 
-Diğer sürümler için, bir katmandan diğerine yapıtları geçirmek için geçiş için yedeklemeyi ve geri yüklemeyi kullanın. Örneğin, standart katmanındaki yapıtlarınızı yedekleyin, sonra da bunları Premium katmanına geri yükleyin. [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md) desteklenen geçiş yollarını açıklar ve hangi yapıtların yedeklendiğini listeler. Karma Bağlantıların yedeklenmediğini unutmayın. Yeni katmana yedekleyip geri yükledikten sonra karma bağlantıları yeniden oluşturun.  
+Diğer sürümler için, bir katmandan diğerine yapıtları geçirmek için geçiş için yedeklemeyi ve geri yüklemeyi kullanın. Örneğin, standart katmanındaki yapıtlarınızı yedekleyin, sonra da bunları Premium katmanına geri yükleyin. [BizTalk Services: Yedekleme ve geri yükleme](biztalk-backup-restore.md) desteklenen geçiş yolları açıklanmıştır ve hangi yapıtların yedeklendiğini listeler. Karma Bağlantıların yedeklenmediğini unutmayın. Yeni katmana yedekleyip geri yükledikten sonra karma bağlantıları yeniden oluşturun.  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>BizTalk Bağdaştırıcı Hizmeti hizmette mi? Yazılım nasıl alırım?
 Evet, BizTalk Bağdaştırıcı Paketi bulunan BizTalk Bağdaştırıcısı Hizmeti Azure BizTalk Services SDK [indirmede](https://www.microsoft.com/download/details.aspx?id=39087) bulunur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure portalında Azure BizTalk hizmetleri oluşturmak için [BizTalk Services: Azure portalını kullanarak hazırlama](biztalk-provision-services.md)’ya gidin. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
+Azure portalında Azure BizTalk hizmetleri oluşturmak için Git [BizTalk Services: Azure portalını kullanarak hazırlama](biztalk-provision-services.md). Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 * [BizTalk Services: Azure portalını kullanarak hazırlama](biztalk-provision-services.md)<br/>
-* [BizTalk Services: Durum Grafiğini hazırlama](biztalk-service-state-chart.md)<br/>
-* [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md)<br/>
-* [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Durum grafiğini hazırlama](biztalk-service-state-chart.md)<br/>
+* [BizTalk Services: Pano, İzleyici ve ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+* [BizTalk Services: Yedekleme ve geri yükleme](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Azaltma](biztalk-throttling-thresholds.md)<br/>
-* [BizTalk Services: Verenin Adı ve Verenin Anahtarı](biztalk-issuer-name-issuer-key.md)<br/>
+* [BizTalk Services: Verenin adı ve verenin anahtarı](biztalk-issuer-name-issuer-key.md)<br/>
 * [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

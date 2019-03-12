@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: e33606e0b5be0db5306cfd42f87baf59671eb2a8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451738"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569034"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Veri akışı kaynak dönüştürme eşlemesi
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Kaynak dönüşümü, veri akışınız verileri getirmek için kullanmak istediğiniz bir veri kaynağı yapılandırır. Tek bir akış veri birden fazla kaynak dönüştürme olabilir. Her zaman kaynağı ile veri akışları tasarlama başlar.
+Kaynak dönüşümü, veri akışınız verileri getirmek için kullanmak istediğiniz bir veri kaynağı yapılandırır. Tek bir akış veri birden fazla kaynak dönüştürme olabilir. Her zaman, veri akışları ile bir kaynak dönüştürme tasarlama başlar.
 
 > [!NOTE]
-> Her veri akışı en az bir kaynak dönüştürme gerektiriyor. Veri Bağlantılarınızdaki tamamlamak için ihtiyaç duyduğunuz kadar ek kaynakları ekleyin. Bu kaynakları JOIN veya birleşim dönüştürme birlikte katılabilirsiniz.
+> Her veri akışı en az bir kaynak dönüştürme gerektiriyor. Veri Bağlantılarınızdaki tamamlamak için ihtiyaç duyduğunuz kadar ek kaynakları ekleyin. Bu kaynakları JOIN veya birleşim dönüştürme birlikte katılabilirsiniz. Hata ayıklama oturumlarında, veri akışı hata ayıklaması yaparken veri örnekleme ayarı veya hata ayıklama kaynak sınırları kullanarak kaynağından okur. Ancak, bir işlem hattı veri akışı etkinliği, veri akışını yürütecek kadar havuza veri yazılır. 
 
 ![Dönüştürme seçenekleri kaynak](media/data-flow/source.png "kaynak")
 
-Her veri akışı kaynak dönüştürme tam olarak bir veri fabrikası şekil ve verilerinizi okuma veya yazma konumunu tanımlayan veri kümesi, ilişkili olmalıdır. Joker karakterler ve dosya listesi, aynı anda birden fazla dosyayla çalışmak için kaynak kullanabilir.
+Her veri akışı kaynak dönüştürme ile tam olarak bir Data Factory veri kümesi ilişkilendirilmelidir. Veri kümesini, verilerinizin okuma veya yazma konumunu ve şekli tanımlar. Aynı anda birden fazla dosyayla çalışmak için kaynak kodunuzda joker karakterler ve dosya listeleri kullanabilir dosya kaynakları kullanırken.
 
 ## <a name="data-flow-staging-areas"></a>Hazırlama alanları veri akışı
 
@@ -43,7 +43,7 @@ Kaynak sütunları genellikle değiştirirseniz, şema değişikliklerini izin s
 Gelen sürümü kaynak veriler, tanımlı bir şeması eşleşmiyorsa veri akışının yürütme başarısız olur.
 
 ### <a name="sampling"></a>Örnekleme
-Örnekleme kaynağınızdan alınan satır sayısını sınırlamak için kullanın.  Bu, test ve hata ayıklama için yalnızca bir örnek, kaynak verilerin gerektiğinde kullanışlıdır.
+Örnekleme kaynağınızdan alınan satır sayısını sınırlamak için kullanın.  Bu test veya hata ayıklama amacıyla kaynağınızdan veri örnekleme olduğunda yararlıdır.
 
 ## <a name="define-schema"></a>Şema tanımlayın
 

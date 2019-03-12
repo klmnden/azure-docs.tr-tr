@@ -3,22 +3,22 @@ title: Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 description: Özel etkinlikler oluşturur ve bunları bir Azure Data Factory işlem hattında kullanma hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 25592f80abc8aea338679f199f03114c2d0785f6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 6d7aeef415fcc53fda2f5d66d748dd38f6d644fb
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077497"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576744"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Kılavuzda, Azure Batch bir işlem kaynağı kullanarak, özel .NET etkinlikleri
 
 Öğreticide, VM'lerin bir havuzla Azure Batch hesabı oluşturun. Adımlar aşağıdaki gibidir:
 
-1. Oluşturma bir **Azure Batch hesabı** kullanarak [Azure portalında](http://portal.azure.com). Bkz: [oluşturun ve bir Azure Batch hesap] [ batch-create-account] makaledeki yönergelere.
+1. Oluşturma bir **Azure Batch hesabı** kullanarak [Azure portalında](https://portal.azure.com). Bkz: [oluşturun ve bir Azure Batch hesap] [ batch-create-account] makaledeki yönergelere.
 2. Azure Batch hesabı adı, hesap anahtarı, URI ve havuz adı unutmayın. Bir Azure Batch bağlı hizmeti oluşturmak için ihtiyaç.
     1. Azure Batch hesabı için giriş sayfasında, gördüğünüz bir **URL** şu biçimde: `https://myaccount.westus.batch.azure.com`. Bu örnekte, **myaccount** Azure Batch hesabının adıdır. URI bağlı hizmet tanımında kullandığınız hesabın adı olmadan URL'dir. Örneğin: `https://<region>.batch.azure.com`.
     2. Tıklayın **anahtarları** sol menü ve kopyalama **birincil erişim anahtarı**.
@@ -1040,15 +1040,15 @@ namespace DataFactoryAPITestApp
 [azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
 
 
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 [new-azure-batch-account]: https://msdn.microsoft.com/library/mt125880.aspx
 [new-azure-batch-pool]: https://msdn.microsoft.com/library/mt125936.aspx
-[azure-batch-blog]: http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
+[azure-batch-blog]: https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
 
-[nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[nuget-package]: https://go.microsoft.com/fwlink/?LinkId=517478
+[adf-developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md

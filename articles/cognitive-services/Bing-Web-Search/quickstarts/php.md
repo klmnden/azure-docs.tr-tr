@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a02862d3ea2e17cfa25a2a2d96e1454699ae7f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 63e4052a2bce6c620180d682d6713d2f1547c956
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166292"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536768"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web araması API'si çağırmak için PHP kullanma  
 
@@ -25,7 +25,7 @@ Bu hızlı başlangıçta, Bing Web araması API'si, ilk çağrı yapmak ve JSON
 ## <a name="prerequisites"></a>Önkoşullar
 Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız olacaktır:
 
-* [PHP 5.6.x](http://php.net/downloads.php) veya üzeri
+* [PHP 5.6.x](https://php.net/downloads.php) veya üzeri
 * Abonelik anahtarı  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]

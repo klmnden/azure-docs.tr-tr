@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 13495107aff24b868a4188c25768868945e70db8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c6d6fc813a2691e821f3ef8f7c719945851a5001
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658224"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570853"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure hizmet veri yolu AMQP 1.0: istek-yanıt tabanlı işlemler
 
@@ -45,72 +45,72 @@ Bu belgede açıklanan tüm işlemler istek/yanıt deseni izler, bir varlığa k
 
 Yönetim düğümü istekleri göndermek için bir bağlantı oluşturur.  
   
-```  
-requestLink = session.attach(     
-role: SENDER,   
-    target: { address: "<entity address>/$management" },   
-    source: { address: ""<my request link unique address>" }   
-)  
-  
-```  
+```
+requestLink = session.attach(
+role: SENDER,
+    target: { address: "<entity address>/$management" },
+    source: { address: ""<my request link unique address>" }
+)
+
+```
   
 ### <a name="create-link-for-receiving-responses"></a>Yanıtlar almak için bağlantı oluşturma  
 
 Yönetim düğümünden yanıtlar almak için bir bağlantı oluşturur.  
   
-```  
-responseLink = session.attach(    
-role: RECEIVER,   
-    source: { address: "<entity address>/$management" }   
-    target: { address: "<my response link unique address>" }   
-)  
-  
-```  
+```
+responseLink = session.attach(
+role: RECEIVER,
+    source: { address: "<entity address>/$management" }
+    target: { address: "<my response link unique address>" }
+)
+
+```
   
 ### <a name="transfer-a-request-message"></a>Aktarım İsteği iletisi  
 
 Bir istek iletisi aktarır.  
 İşlem durumu, işlem destekleyen işlemleri için isteğe bağlı olarak eklenebilir.
 
-```  
-requestLink.sendTransfer(  
-        Message(  
-                properties: {  
-                        message-id: <request id>,  
-                        reply-to: "<my response link unique address>"  
-                },  
-                application-properties: {  
-                        "operation" -> "<operation>",  
+```
+requestLink.sendTransfer(
+        Message(
+                properties: {
+                        message-id: <request id>,
+                        reply-to: "<my response link unique address>"
+                },
+                application-properties: {
+                        "operation" -> "<operation>",
                 }
         ),
         [Optional] State = transactional-state: {
                 txn-id: <txn-id>
         }
 )
-```  
+```
   
 ### <a name="receive-a-response-message"></a>Bir yanıt iletisi  
 
 Yanıt bağlantıdan yanıt iletisini alır.  
   
-```  
-responseMessage = responseLink.receiveTransfer()  
-```  
+```
+responseMessage = responseLink.receiveTransfer()
+```
   
 Yanıt iletisi aşağıdaki biçimdedir:
   
-```  
-Message(  
-properties: {     
-        correlation-id: <request id>  
-    },  
-    application-properties: {  
-            "statusCode" -> <status code>,  
-            "statusDescription" -> <status description>,  
-           },         
-)  
-  
-```  
+```
+Message(
+properties: {
+        correlation-id: <request id>
+    },
+    application-properties: {
+            "statusCode" -> <status code>,
+            "statusDescription" -> <status description>,
+           },
+)
+
+```
   
 ### <a name="service-bus-entity-address"></a>Service Bus varlık adresi  
 
@@ -134,7 +134,7 @@ Varlık açıklamasında belirtilen süreye göre bir iletinin kilit genişletir
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:renew-lock`|  
+|işlem|string|Evet|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
  İstek iletisi gövdesi aşağıdaki girişlerle eşleme içeren bir amqp değeri bölümü oluşması gerekir:  
@@ -154,7 +154,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde'başarısız oldu.|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi aşağıdaki girişlerle eşleme içeren bir amqp değeri bölümü oluşması gerekir:  
   
@@ -172,7 +172,7 @@ Kilitlemeden iletileri göz atar.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:peek-message`|  
+|işlem|string|Evet|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -189,7 +189,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti yok<br /><br /> 204: Hayır içerik – daha fazla ileti yok|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
@@ -213,7 +213,7 @@ Temsil eden bir ileti eşlemesi, aşağıdaki girişleri içermelidir:
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:schedule-message`|  
+|işlem|string|Evet|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -226,10 +226,10 @@ Temsil eden bir ileti eşlemesi, aşağıdaki girişleri içermelidir:
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|ileti kimliği|dize|Evet|`amqpMessage.Properties.MessageId` dize olarak|  
-|oturum kimliği|dize|Hayır|`amqpMessage.Properties.GroupId as string`|  
-|Bölüm anahtarı|dize|Hayır|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
-|aracılığıyla-bölüm anahtarı|dize|Hayır|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
+|ileti kimliği|string|Evet|`amqpMessage.Properties.MessageId` dize olarak|  
+|oturum kimliği|string|Hayır|`amqpMessage.Properties.GroupId as string`|  
+|Bölüm anahtarı|string|Hayır|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|aracılığıyla-bölüm anahtarı|string|Hayır|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |message|bayt dizisi|Evet|AMQP 1.0 kablo ile kodlanmış ileti.|  
   
 #### <a name="response"></a>Yanıt  
@@ -239,7 +239,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde'başarısız oldu.|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** aşağıdaki girdileri içeren bir harita içeren bölümü:  
   
@@ -257,7 +257,7 @@ Zamanlanmış iletileri iptal eder.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:cancel-scheduled-message`|  
+|işlem|string|Evet|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -273,7 +273,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde'başarısız oldu.|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** aşağıdaki girdileri içeren bir harita içeren bölümü:  
   
@@ -293,14 +293,14 @@ Varlık açıklamasında belirtilen süreye göre bir iletinin kilit genişletir
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:renew-session-lock`|  
+|işlem|string|Evet|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|oturum kimliği|dize|Evet|Oturum kimliği|  
+|oturum kimliği|string|Evet|Oturum kimliği|  
   
 #### <a name="response"></a>Yanıt  
 
@@ -309,7 +309,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti yok<br /><br /> 204: Hayır içerik – daha fazla ileti yok|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** aşağıdaki girdileri içeren bir harita içeren bölümü:  
   
@@ -327,7 +327,7 @@ Kilitlemeden oturumu iletileri atar.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:peek-message`|  
+|işlem|string|Evet|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -336,7 +336,7 @@ Kilitlemeden oturumu iletileri atar.
 |---------|----------------|--------------|--------------------|  
 |gelen dizisi-sayı|uzun|Evet|Sıra numarası gözlem başlayacağı.|  
 |ileti sayısı|int|Evet|En fazla göz atmak için ileti sayısı.|  
-|oturum kimliği|dize|Evet|Oturum kimliği|  
+|oturum kimliği|string|Evet|Oturum kimliği|  
   
 #### <a name="response"></a>Yanıt  
 
@@ -345,7 +345,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti yok<br /><br /> 204: Hayır içerik – daha fazla ileti yok|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** aşağıdaki girdileri içeren bir harita içeren bölümü:  
   
@@ -369,14 +369,14 @@ Oturum durumunu ayarlar.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:set-session-state`|  
+|işlem|string|Evet|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|oturum kimliği|dize|Evet|Oturum kimliği|  
+|oturum kimliği|string|Evet|Oturum kimliği|  
 |oturum durumu|bir bayt dizisi|Evet|Donuk ikili veriler.|  
   
 #### <a name="response"></a>Yanıt  
@@ -386,7 +386,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde'başarısız oldu|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|  
   
 ### <a name="get-session-state"></a>Oturum durumunu alma  
 
@@ -398,14 +398,14 @@ Oturum durumunu alır.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:get-session-state`|  
+|işlem|string|Evet|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|oturum kimliği|dize|Evet|Oturum kimliği|  
+|oturum kimliği|string|Evet|Oturum kimliği|  
   
 #### <a name="response"></a>Yanıt  
 
@@ -414,7 +414,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde'başarısız oldu|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
@@ -432,7 +432,7 @@ Bir Mesajlaşma varlığı oturumları numaralandırır.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:get-message-sessions`|  
+|işlem|string|Evet|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -450,7 +450,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti yok<br /><br /> 204: Hayır içerik – daha fazla ileti yok|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
@@ -469,14 +469,14 @@ Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren b
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:add-rule`|  
+|işlem|string|Evet|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|Kural adı|dize|Evet|Kural adı, abonelik ve konu adı dahil değil.|  
+|Kural adı|string|Evet|Kural adı, abonelik ve konu adı dahil değil.|  
 |Kural açıklaması|map|Evet|Sonraki bölümde belirtilen kural açıklaması.|  
   
 **Kural açıklaması** harita, aşağıdaki girişleri içermelidir burada **sql filtresi** ve **bağıntı filtresi** karşılıklı olarak birbirini dışlar:  
@@ -491,27 +491,27 @@ Sql filtresi eşlemesi aşağıdaki girdileri şunları içermelidir:
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|İfade|dize|Evet|SQL filtresi ifadesi.|  
+|İfade|string|Evet|SQL filtresi ifadesi.|  
   
 **Bağıntı filtresi** eşlemesi aşağıdaki girdileri en az birini içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|Bağıntı Kimliği|dize|Hayır||  
-|ileti kimliği|dize|Hayır||  
-|-|dize|Hayır||  
-|Yanıtla|dize|Hayır||  
-|etiket|dize|Hayır||  
-|oturum kimliği|dize|Hayır||  
-|yanıt için oturum kimliği|dize|Hayır||  
-|içerik türü|dize|Hayır||  
+|Bağıntı Kimliği|string|Hayır||  
+|ileti kimliği|string|Hayır||  
+|-|string|Hayır||  
+|Yanıtla|string|Hayır||  
+|etiket|string|Hayır||  
+|oturum kimliği|string|Hayır||  
+|yanıt için oturum kimliği|string|Hayır||  
+|içerik türü|string|Hayır||  
 |properties|map|Hayır|Service Bus haritalar [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
   
 **Sql kural eylemi** harita, aşağıdaki girişleri içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|İfade|dize|Evet|SQL eylem ifadesi.|  
+|İfade|string|Evet|SQL eylem ifadesi.|  
   
 #### <a name="response"></a>Yanıt  
 
@@ -520,7 +520,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde'başarısız oldu|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|  
   
 ### <a name="remove-rule"></a>Kuralı Kaldır  
   
@@ -530,14 +530,14 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:remove-rule`|  
+|işlem|string|Evet|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|Kural adı|dize|Evet|Kural adı, abonelik ve konu adı dahil değil.|  
+|Kural adı|string|Evet|Kural adı, abonelik ve konu adı dahil değil.|  
   
 #### <a name="response"></a>Yanıt  
 
@@ -546,7 +546,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde'başarısız oldu|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|  
   
 ### <a name="get-rules"></a>Kuralları alma
 
@@ -556,7 +556,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:enumerate-rules`|  
+|işlem|string|Evet|`com.microsoft:enumerate-rules`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
 
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -587,7 +587,7 @@ Dizideki her eşleme girişi aşağıdaki özellikleri içerir:
 |---------|----------------|--------------|--------------------|  
 | 0 | açıklanan nesneler dizisi | Evet | `filter` Aşağıda belirtildiği gibi. |
 | 1 | açıklandığı gibi bir nesne dizisi | Evet | `ruleAction` Aşağıda belirtildiği gibi. |
-| 2 | dize | Evet | kuralın adı. |
+| 2 | string | Evet | kuralın adı. |
 
 `filter` şu türlerden birini olabilir:
 
@@ -602,20 +602,20 @@ Dizideki her eşleme girişi aşağıdaki özellikleri içerir:
 
 |Dizin oluşturma|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-| 0 | dize | Evet | SQL filtresi ifadesi |
+| 0 | string | Evet | SQL filtresi ifadesi |
 
 `com.microsoft:correlation-filter:list` içeren açıklandığı gibi bir dizi şöyledir:
 
 |Dizin (varsa var)|Değer türü|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-| 0 | dize | Bağıntı Kimliği |
-| 1 | dize | İleti Kimliği |
-| 2 | dize | Alıcı |
-| 3 | dize | Yanıtla |
-| 4 | dize | Etiket |
-| 5 | dize | Oturum Kimliği |
-| 6 | dize | Oturum Kimliğini Yanıtla|
-| 7 | dize | İçerik Türü |
+| 0 | string | Bağıntı Kimliği |
+| 1 | string | İleti Kimliği |
+| 2 | string | Alıcı |
+| 3 | string | Yanıtla |
+| 4 | string | Etiket |
+| 5 | string | Oturum Kimliği |
+| 6 | string | Oturum Kimliğini Yanıtla|
+| 7 | string | İçerik Türü |
 | 8 | Eşleme | Uygulama haritasını tanımlanan özellikler |
 
 `ruleAction` şu türlerden biri olabilir:
@@ -639,7 +639,7 @@ Sıra numarası tarafından ertelenmiş ileti alır.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:receive-by-sequence-number`|  
+|işlem|string|Evet|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -656,7 +656,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde'başarısız oldu|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
@@ -681,17 +681,17 @@ Ertelenmiş ileti değerlendirme durumunu güncelleştirir. Bu işlem, işlemler
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|dize|Evet|`com.microsoft:update-disposition`|  
+|işlem|string|Evet|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|Değerlendirme durumu|dize|Evet|completed<br /><br /> Yayını bırakıldı<br /><br /> Askıya alındı|  
+|Değerlendirme durumu|string|Evet|completed<br /><br /> Yayını bırakıldı<br /><br /> Askıya alındı|  
 |Kilit belirteçleri|uuid dizisi|Evet|Değerlendirme durumu güncelleştirmek için ileti kilidi belirteçleri.|  
-|Teslim edilemeyen iletiler açıklaması|dize|Hayır|Değerlendirme durumu ayarlanırsa ayarlanabilir **askıya**.|  
-|Teslim edilemeyen iletiler açıklaması|dize|Hayır|Değerlendirme durumu ayarlanırsa ayarlanabilir **askıya**.|  
+|Teslim edilemeyen iletiler açıklaması|string|Hayır|Değerlendirme durumu ayarlanırsa ayarlanabilir **askıya**.|  
+|Teslim edilemeyen iletiler açıklaması|string|Hayır|Değerlendirme durumu ayarlanırsa ayarlanabilir **askıya**.|  
 |değiştirilecek özellikleri|map|Hayır|Service Bus listesi, ileti özelliklerini değiştirmek için aracılı.|  
   
 #### <a name="response"></a>Yanıt  
@@ -701,7 +701,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde'başarısız oldu|  
-|Durumaçıklaması|dize|Hayır|Durum açıklaması.|
+|Durumaçıklaması|string|Hayır|Durum açıklaması.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

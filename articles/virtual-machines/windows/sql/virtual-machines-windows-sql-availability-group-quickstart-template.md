@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 675933b46a228f636c4907e84d66263dde52f274
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5390885ccb4bbc3e1552d3f5e80c1b451b7bee38
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823340"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570173"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure hızlı başlangıç şablonları, Azure VM'deki SQL Server Always On kullanılabilirlik grubu yapılandırmak için kullanın
 Bu makalede, Azure hızlı başlangıç şablonları kısmen SQL Server sanal makineleri için azure'da bir Always On kullanılabilirlik grubu yapılandırmasının dağıtımını otomatikleştirmek için kullanmayı açıklar. Bu işlemde kullanılan iki Azure hızlı başlangıç şablonları vardır. 
@@ -39,6 +39,13 @@ Hızlı Başlangıç şablonlarını kullanarak bir Always On kullanılabilirlik
 - Bir [Azure aboneliği](https://azure.microsoft.com/free/).
 - Bir etki alanı denetleyicisi ile bir kaynak grubu. 
 - Bir veya daha fazla etki alanına katılmış [Vm'leri Azure çalışan SQL Server 2016 (veya üzeri) Enterprise Edition'da](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) olan aynı kullanılabilirlik kümesi veya kullanılabilirlik bölgesinde [SQL VM kaynak sağlayıcısınakayıtlı](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- (Herhangi bir varlık tarafından kullanılmaz) iki kullanılabilir IP adresleri, bir iç Load Balancer ve kullanılabilirlik Grup dinleyicisinin kullanılabilirlik grubu olarak aynı alt ağ içinde bir. Ardından var olan bir yük dengeleyici kullanılıyorsa yalnızca bir kullanılabilir IP adresi gereklidir.  
+
+## <a name="permissions"></a>İzinler
+Azure hızlı başlangıç şablonlarını kullanarak Always On kullanılabilirlik grubu yapılandırmak aşağıdaki izinler gereklidir: 
+
+- Etki alanında 'Bilgisayar nesnesi oluşturma' iznine sahip bir varolan etki alanı kullanıcı hesabı.  Örneğin, bir etki alanı yönetici hesabı genellikle yeterli izni (örn: account@domain.com). _Bu hesap, kümeyi oluşturmak için her VM'deki yerel yönetici grubunun bir parçası olarak da olmalıdır._
+- SQL Server hizmetini denetler etki alanı kullanıcı hesabı. 
 
 
 ## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>1. adım - WSFC oluşturma ve SQL Server Vm'leri Hızlı Başlangıç şablonu kullanarak kümeye ekleyin. 

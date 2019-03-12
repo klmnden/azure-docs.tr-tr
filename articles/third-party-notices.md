@@ -1,10 +1,18 @@
+---
+ms.openlocfilehash: 7eab9e74cac444671e9ce2a6081359a1f01eabd0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543143"
+---
 # <a name="legal-notices"></a>Yasal uyarılar
 
 Microsoft ve katkıda bulunanların Microsoft belgelerine ve diğer içerikleri kapsamında bu depodaki bir bir lisans verirsiniz [Creative Commons Attribution 4.0 Uluslararası genel lisansı](https://creativecommons.org/licenses/by/4.0/legalcode)ve herhangi bir kod lisansı verme depo altında [MIT lisansı](https://opensource.org/licenses/MIT).
 
 Microsoft, Windows, Microsoft Azure ve/veya diğer Microsoft ürünleri ve belgelerde sözü ticari markalarınızın ya da Microsoft Amerika Birleşik Devletleri ve/veya diğer ülkelerde kayıtlı ticari markaları olabilir.
 Bu proje için bir lisans herhangi bir Microsoft adları, logo veya ticari kullanma hakkı vermeyin.
-Microsoft'un genel ticari marka yönergelerini bulunabilir [ https://go.microsoft.com/fwlink/?LinkID=254653 ](httpss://go.microsoft.com/fwlink/?LinkID=254653).
+Microsoft'un genel ticari marka yönergelerini bulunabilir [ https://go.microsoft.com/fwlink/?LinkID=254653 ](https://go.microsoft.com/fwlink/?LinkID=254653).
 
 Gizlilik bilgileri şu adreste bulunabilir: [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 

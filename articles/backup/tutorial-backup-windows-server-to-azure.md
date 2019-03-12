@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: ce18d773d55495a215b9cef9183b497c55976e15
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0664134e29f1b5a6ea6c4e100db925e9055d836d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453765"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547937"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Windows Server’ı Azure’da Yedekleme
 
@@ -31,7 +31,7 @@ Windows Server'ınızı bozulmalara, saldırılara ve olağanüstü durumlara ka
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-http://portal.azure.com adresinden Azure portalında oturum açın.
+https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 

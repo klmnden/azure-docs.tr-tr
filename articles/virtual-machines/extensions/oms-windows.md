@@ -1,5 +1,5 @@
 ---
-title: Windows için Azure Log Analytics sanal makine uzantısı | Microsoft Docs
+title: Windows için Azure İzleyici sanal makine uzantısı | Microsoft Docs
 description: Log Analytics aracısını sanal makine uzantısı'nı kullanarak Windows sanal makine dağıtın.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,16 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 66240ffebcd98bb8e14fb21bcb5c54b8fceb7a64
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406397"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533706"
 ---
-# <a name="log-analytics-virtual-machine-extension-for-windows"></a>İçin Windows Analytics sanal makine uzantısı oturum
+# <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Windows için Azure İzleyici sanal makine uzantısı
 
-Log Analytics bulut izleme özellikleri sağlar ve şirket içinde varlıklar. Windows için Log Analytics aracısını sanal makine uzantısı yayımlandı ve Microsoft tarafından desteklenmiyor. Uzantı, Azure sanal makinelerinde Log Analytics aracısını yükler ve sanal makinelerin mevcut bir Log Analytics çalışma alanına kaydeder. Bu belge, desteklenen platformlar, yapılandırmaları ve Windows için Log Analytics VM uzantısı için dağıtım seçenekleri açıklanmaktadır.
+Azure İzleyici günlüklerine, Bulut ve şirket içi varlıkları arasında izleme özelliklerini sağlar. Windows için Log Analytics aracısını sanal makine uzantısı yayımlandı ve Microsoft tarafından desteklenmiyor. Uzantı, Azure sanal makinelerinde Log Analytics aracısını yükler ve sanal makinelerin mevcut bir Log Analytics çalışma alanına kaydeder. Bu belge, desteklenen platformlar, yapılandırmaları ve Windows için Azure İzleyici sanal makine uzantısı için dağıtım seçenekleri açıklanmaktadır.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -34,7 +36,7 @@ Windows, Windows Server 2008 R2 karşı çalıştırılabilir için Log Analytic
 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 
-Azure Güvenlik Merkezi, otomatik olarak Log Analytics aracısını sağlar ve Azure aboneliğinin varsayılan log analytics çalışma bağlanır. Azure Güvenlik Merkezi kullanıyorsanız, bu belgedeki adımları çalıştırmayın. Bunun yapılması yapılandırılmış çalışma alanı ve bağlantıyı kesme Azure Güvenlik Merkezi ile üzerine yazar.
+Azure Güvenlik Merkezi, otomatik olarak Log Analytics aracısını sağlar ve Azure aboneliğinin varsayılan Log Analytics çalışma alanıyla bağlanır. Azure Güvenlik Merkezi kullanıyorsanız, bu belgedeki adımları çalıştırmayın. Bunun yapılması yapılandırılmış çalışma alanı ve bağlantıyı kesme Azure Güvenlik Merkezi ile üzerine yazar.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 Windows için Log Analytics Aracısı uzantısı, hedef sanal makineyi internet'e bağlı olduğundan emin gerektirir. 
@@ -85,7 +87,7 @@ Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. 
 
 Sanal makine uzantısı için JSON içinde sanal makine kaynağı iç içe veya kök veya bir Resource Manager JSON şablonunu üst düzey yerleştirilir. Kaynak adı ve türü değeri JSON yerleşimini etkiler. Daha fazla bilgi için [ayarlamak için alt kaynakları ad ve tür](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 
-Aşağıdaki örnek Log Analytics uzantısını sanal makine kaynağı içinde iç içe varsayar. İç içe uzantısı kaynak, JSON yerleştirildi `"resources": []` sanal makinenin nesne.
+Aşağıdaki örnek, Azure İzleyici uzantısı sanal makine kaynağı içinde iç içe varsayar. İç içe uzantısı kaynak, JSON yerleştirildi `"resources": []` sanal makinenin nesne.
 
 
 ```json

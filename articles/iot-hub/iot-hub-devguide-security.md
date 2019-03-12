@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 5d360e0959a61cde763f5aafe62de38f6c03e806
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011186"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534379"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -74,7 +74,7 @@ MQTT, AMQP ve HTTPS gibi desteklenen her protokolü, farklı şekillerde belirte
 
 MQTT kullanırken CONNECT paket ClientID olarak DeviceID sahip `{iothubhostname}/{deviceId}` kullanıcı adı alanı ve parola alanına bir SAS belirteci. `{iothubhostname}` IOT hub'ı (örneğin, contoso.azure-devices.net) tam CName olmalıdır.
 
-Kullanırken [AMQP](https://www.amqp.org/), IOT hub'ın desteklediği [SASL DÜZ](http://tools.ietf.org/html/rfc4616) ve [AMQP talep tabanlı-güvenlikli](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
+Kullanırken [AMQP](https://www.amqp.org/), IOT hub'ın desteklediği [SASL DÜZ](https://tools.ietf.org/html/rfc4616) ve [AMQP talep tabanlı-güvenlikli](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
 
 AMQP talep tabanlı-güvenlikli kullanırsanız, bu belirteçleri iletme nasıl standart belirtir.
 

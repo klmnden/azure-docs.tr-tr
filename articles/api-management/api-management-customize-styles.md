@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3c79e7bd68e7c96b57ea66951c080b7d952ee8c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4ea64b16a9a581683d3b7a44b4b331af435db22c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441766"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762730"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Geliştirici portalı sayfalarının stilini özelleştirme
 
@@ -41,7 +41,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 + [Azure API Management terminolojisini](api-management-terminology.md) öğrenin.
 + Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-+ Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
++ Ayrıca şu öğreticiyi tamamlayın: [İçeri aktarma ve ilk API'nizi yayımlama](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -57,11 +57,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
     **Stilleri**’i kullanarak özelleştirebileceğiniz tüm öğeler sayfada görüntülenir
 5. **Geliştirici portalı görünümünü özelleştirmek için değişken değerleri değiştirin:** alanında "headings-color" değerini girin.
 
-    **@headings-color** öğesi sayfada görüntülenir. Bu değişken metnin rengini denetler.
+     **\@Başlıklarının rengi** öğesi sayfada görüntülenir. Bu değişken metnin rengini denetler.
 
     ![stili özelleştir](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. **@headings-color** değişkeni için alana tıklayın. 
+6. İçin alana tıklayın  **\@başlıklarının rengi** değişkeni. 
     
     Renk seçici açılır menüsü açılır.
 7. Renk seçici açılır menüsünden yeni bir renk seçin.

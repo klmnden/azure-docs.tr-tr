@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
-ms.openlocfilehash: 1319c44dab465ec2d1fa5ead99e7f3cba8965850
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 52612419599ef69e7476c660b52f9e6e36946825
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265643"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535408"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Kurumsal müşteriler için raporlama API'lerini genel bakış
 Raporlama API'lerini program aracılığıyla tercih edilen veri analizi Araçları Kullanım ve faturalandırma veri çekmek Kurumsal Azure müşterilerine etkinleştirin. Kurumsal müşteriler işaretli bir [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) anlaşma parasal taahhütler olun ve Azure kaynakları için özel fiyatlandırma için erişim kazanmak için Azure ile.
@@ -34,7 +34,7 @@ Raporlama API'lerini program aracılığıyla tercih edilen veri analizi Araçla
 |Yetkilendirme| Değeri şu biçimde belirtin: **taşıyıcı {apı_key}** <br/> Örnek: taşıyıcı eyr....09| 
 
 ## <a name="consumption-apis"></a>Tüketim API'leri
-Swagger uç noktası kullanılabilir [burada](https://consumption.azure.com/swagger/ui/index) kolay iç denetim API'si ve istemci SDK'ları kullanarak oluşturma yeteneği etkinleştirmelisiniz API'leri açıklanan yönelik [AutoRest](https://github.com/Azure/AutoRest) veya [Swagger CodeGen](http://swagger.io/swagger-codegen/). 1 Mayıs 2014'ten itibaren veriler, bu API aracılığıyla kullanılabilir. 
+Swagger uç noktası kullanılabilir [burada](https://consumption.azure.com/swagger/ui/index) kolay iç denetim API'si ve istemci SDK'ları kullanarak oluşturma yeteneği etkinleştirmelisiniz API'leri açıklanan yönelik [AutoRest](https://github.com/Azure/AutoRest) veya [Swagger CodeGen](https://swagger.io/swagger-codegen/). 1 Mayıs 2014'ten itibaren veriler, bu API aracılığıyla kullanılabilir. 
 
 * **Bakiye ve Özet** - [bakiyenizi ve Özet API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) aylık bakiyelerini, yeni satın alma işlemleri, Azure Market hizmeti ücreti, ayarlamalar ve fazla kullanım ücretleri bilgilerin özetini sunar.
 

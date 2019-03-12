@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 5d44904d6210dbc9520ae735605699b197f38bef
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f92c8a7cca70dd9de6389c201d9589c7a31ce25f
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804140"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727000"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure dosyaları, birim sürücüsü (Önizleme)
 Azure dosyaları toplu eklentidir bir [Docker birim eklentisi](https://docs.docker.com/engine/extend/plugins_volume/) sağlayan [Azure dosyaları](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) birimleri Docker kapsayıcıları için temel. Bu Docker birim eklentisi, Service Fabric kümelerine dağıtılabilir bir Service Fabric uygulaması olarak paketlenir. Onun amacı, kümeye dağıtılan diğer Service Fabric kapsayıcı uygulamaları için birim tabanlı Azure dosyaları sağlamaktır.
 
 > [!NOTE]
-> Azure dosyaları toplu eklentisi 6.4.571.9494 sürümünü bu belgeyle kullanılabilir olan bir önizleme sürümüdür. Bir önizleme sürümü olduğu **değil** üretim ortamında kullanım için desteklenir.
+> Azure dosyaları toplu eklentisi 6.4.571.9590 sürümünü bu belgeyle kullanılabilir olan bir önizleme sürümüdür. Bir önizleme sürümü olduğu **değil** üretim ortamında kullanım için desteklenir.
 >
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -39,11 +39,11 @@ Azure dosyaları toplu eklentidir bir [Docker birim eklentisi](https://docs.dock
 
 * Hyperv kapsayıcıları kullanıyorsanız, aşağıdaki kod parçacıklarının değeri ClusterManifest (yerel küme) veya ARM şablonu (Azure kümesine) veya ClusterConfig.json (tek başına küme) fabricSettings bölümüne eklenmesi gerekir. Birim adı ve birimin bir kümede dinlediği bağlantı noktası gerekir. 
 
-Değeri ClusterManifest içinde aşağıdaki barındırma bölümünde eklenmesi gerekiyor. Bu örnekte, birim adıdır **sfazurefile** dinleyen için küme üzerinde bağlantı noktası **19300**.  
+Değeri ClusterManifest içinde aşağıdaki barındırma bölümünde eklenmesi gerekiyor. Bu örnekte, birim adıdır **sfazurefile** dinleyen için küme üzerinde bağlantı noktası **19100**.  
 
 ``` xml 
 <Section Name="Hosting">
-  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19100" />
 </Section>
 ```
 
@@ -56,7 +56,7 @@ ARM şablonu (Azure dağıtımları için) ya da (için tek başına dağıtıml
     "parameters": [
       {
           "name": "VolumePluginPorts",
-          "value": "sfazurefile:19300"
+          "value": "sfazurefile:19100"
       }
     ]
   }
@@ -66,7 +66,7 @@ ARM şablonu (Azure dağıtımları için) ya da (için tek başına dağıtıml
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Service Fabric Azure dosyaları uygulamayı dağıtma
 
-Birimleri sağlar, kapsayıcılar için Service Fabric uygulaması aşağıdaki indirilebilir [bağlantı](https://aka.ms/sfvolume6.4). Uygulamayı kümeye dağıtılan [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) veya [FabricClient API'leri](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+Birimleri sağlar, kapsayıcılar için Service Fabric uygulaması aşağıdaki indirilebilir [bağlantı](http://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip). Uygulamayı kümeye dağıtılan [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) veya [FabricClient API'leri](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
 1. Komut satırını kullanarak dizini indirilen uygulama paketi kök dizinine değiştirin.
 
@@ -99,14 +99,14 @@ Birimleri sağlar, kapsayıcılar için Service Fabric uygulaması aşağıdaki 
     sfctl application provision --application-type-build-path [ApplicationPackagePath]
     ```
 
-4. Aşağıdaki uygulama oluşturmak, Not komutta uygulama oluşturma **ListenPort** uygulama parametresi. Bu değer, bu uygulama parametresi için belirtilen Azure dosyaları toplu eklentisi için Docker Daemon programını gelen istekleri dinlediği bağlantı noktasıdır. Uygulamaya verilen bağlantı noktasını kümenin veya uygulamalarınızı kullanın diğer bağlantı noktasıyla çakışmadığından emin olmak önemlidir.
+4. Aşağıdaki uygulama oluşturmak, Not komutta uygulama oluşturma **ListenPort** uygulama parametresi. Bu değer, bu uygulama parametresi için belirtilen Azure dosyaları toplu eklentisi için Docker Daemon programını gelen istekleri dinlediği bağlantı noktasıdır. Bağlantı noktası uygulama eşleşmeyi VolumePluginPorts değeri ClusterManifest içinde sağlanan ve küme veya uygulamalarınızı diğer bağlantı ile çakışmadığından emin olmak önemlidir.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
@@ -118,11 +118,11 @@ Birimleri sağlar, kapsayıcılar için Service Fabric uygulaması aşağıdaki 
 Azure dosyaları toplu eklentisi uygulama için varsayılan hizmet örnek sayısı, kümedeki her düğümde dağıtılan hizmetinin bir örneği olduğu anlamına gelir -1 ' dir. Ancak, bir yerel geliştirme kümesinde Azure dosyaları toplu eklentisi Uygulama dağıtırken, hizmeti örnek sayısını 1 belirtilmelidir. Bu, aracılığıyla yapılabilir **Instancecount** uygulama parametresi. Bu nedenle, bir yerel geliştirme kümesinde Azure dosyaları toplu eklentisi uygulama dağıtmak için komut şöyledir:
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
 ## <a name="configure-your-applications-to-use-the-volume"></a>Uygulamalarınızı birimi kullanmak için yapılandırma
 Aşağıdaki kod parçacığında, bir Azure dosyaları temel birim, uygulamanızın uygulama bildiriminde nasıl belirtilebilir gösterir. İlgilendiğiniz belirli bir öğedir **birim** etiketi:

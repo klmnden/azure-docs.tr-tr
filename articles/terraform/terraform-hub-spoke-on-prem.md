@@ -2,19 +2,19 @@
 title: Azure'da Terraform ile şirket içi sanal ağ oluşturma
 description: Bir şirket içi sanal ağ yerel kaynakları barındıran Azure'da uygulama nasıl bulunacağını gösteren öğretici.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, hub ve bağlı bileşen, ağlar, hibrit ağlar, devops, sanal makine, azure, sanal ağ eşleme, şirket içi
 author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: d8b6142514808213553ba602c8ff6b3af1e4e972
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: fedd83276a0182ecf2d39e43382bc264c6f88de5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57411415"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761694"
 ---
 # <a name="tutorial-create-on-premises-virtual-network-with-terraform-in-azure"></a>Öğretici: Azure'da Terraform ile şirket içi sanal ağ oluşturma
 

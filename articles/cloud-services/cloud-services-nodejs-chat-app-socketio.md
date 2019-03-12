@@ -14,16 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 0fae47f248d5662b69a0d1a12c82b7ded33badd6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6a45d6366ef3c581c00b084b7ea2e4095eaaba3f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001992"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538128"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Bir Azure bulut hizmeti Socket.IO ile Node.js sohbet uygulaması oluşturma
 
-Socket.IO, node.js sunucunuz ile istemcileriniz arasında gerçek zamanlı iletişim sağlar. Bu öğreticide, bir yuva barındırma aracılığıyla açıklanmaktadır. GÇ sohbet uygulaması üzerinde Azure tabanlı. Socket.IO ile ilgili daha fazla bilgi için bkz [socket.io](http://socket.io).
+Socket.IO, node.js sunucunuz ile istemcileriniz arasında gerçek zamanlı iletişim sağlar. Bu öğreticide, bir yuva barındırma aracılığıyla açıklanmaktadır. GÇ sohbet uygulaması üzerinde Azure tabanlı. Socket.IO ile ilgili daha fazla bilgi için bkz [socket.io](https://socket.io).
 
 Tamamlanmış uygulamanın bir ekran görüntüsü aşağıda verilmiştir:
 
@@ -84,11 +84,7 @@ Uygulamayı Azure öykünücüsü'nde test etmeden önce biz bazı küçük değ
          var port = process.env.PORT || 3000;         //Updated
 3. Doğru bağlantı noktası üzerinde dinleyen uygulama sağlamak için Not Defteri'ni veya tercih ettiğiniz düzenleyiciyi server.js açın ve ardından değiştirerek şu satırı değiştirin **3000** ile **process.env.port** aşağıda gösterildiği gibi:
    
-       //app.listen(3000, function () {            //Original
-       app.listen(process.env.port, function () {  //Updated
-         var addr = app.address();
-         console.log('   app listening on http://' + addr.address + ':' + addr.port);
-       });
+       app.Listen (3000, () işlevini {//Original       app.listen (process.env.port, işlevi (') {//Updated var addr app.address(); =       Console.log (' http:// üzerinde dinleme uygulama ' + addr.address + ':' + addr.port);     });
 
 Değişiklikler kaydedildikten sonra **server.js**gerekli modülleri yüklemek için aşağıdaki adımları kullanın ve ardından Azure öykünücüsünde uygulamayı test edin:
 
@@ -109,7 +105,7 @@ Değişiklikler kaydedildikten sonra **server.js**gerekli modülleri yüklemek i
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > Öykünücü, örneğin uygulamasını başlatma sorunları yaşarsanız.: Başlangıç AzureEmulator: beklenmeyen bir hata oluştu.  Ayrıntılar: Karşılaştı, Faulted durumunda olduğundan beklenmeyen bir hata iletişim nesnesi System.ServiceModel.Channels.ServiceChannel iletişim için kullanılamaz.
+   > Öykünücü, örneğin uygulamasını başlatma sorunları yaşarsanız.:      Start-AzureEmulator: Beklenmeyen bir hata oluştu.  Ayrıntılar: Karşılaşılan beklenmeyen bir hata iletişim nesnesi System.ServiceModel.Channels.ServiceChannel Faulted durumunda olduğundan iletişim için kullanılamaz.
    
       AzureAuthoringTools v 2.7.1 ve AzureComputeEmulator v 2.7 yeniden - bu sürümü ile eşleştiğinden emin olun.
    >
@@ -156,7 +152,7 @@ Daha fazla bilgi için Ayrıca bkz: [Node.js Geliştirici Merkezi](https://docs.
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
-[Azure SLA]: http://www.windowsazure.com/support/sla/
+[Azure SLA]: https://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
 [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
 [Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/

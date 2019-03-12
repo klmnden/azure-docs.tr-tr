@@ -5,15 +5,15 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 09/15/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: f08167b4f37193c9a04da02fdd31e066a97aec66
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 142881e0a72ef9db7397276f092a4b7502b61fed
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317671"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781452"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Oluşturma ve Azure IOT Central uygulamanızda bir işi çalıştırma
 
@@ -40,8 +40,6 @@ Bu bölümde, oluşturup bir iş çalıştırmak gösterilir. Her adım fanı su
 1. Sağ tarafta seçin ve işi çalıştırmak istediğiniz cihazları seçin. Üstteki onay kutusunu seçerek, tüm cihazlar cihazın tamamını kümesinde seçilir. Adının yanında onay kutusunu seçerek, geçerli sayfadaki tüm cihazlar seçilir.
 
 1. İstenen cihazlarınızı seçtikten sonra Seç **çalıştırma**. İş üzerinde ana artık görünecek **işleri** sayfası. Bu görünümü, çalışmakta olan iş ve tüm daha önce işleri çalıştırma geçmişini görebilirsiniz. Çalışan iş her zaman listenin en üstünde gösterilir.
-
-    ![İşi çalıştırma](./media/howto-run-a-job/runjob.png)
 
     ![İşi görüntüle](./media/howto-run-a-job/viewjob.png)
 

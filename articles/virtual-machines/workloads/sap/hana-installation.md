@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/03/2019
+ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d81207195eb19a386d0d98fd4bfa6ba53ca972e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5bdf23d1a2142e5c83ceeb72a79ca4fbea65d09c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316651"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534285"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Yükleme ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırın
 
@@ -28,7 +28,7 @@ Bu makalede okumadan önce hakkında bilgi edinin [HANA büyük örnekleri genel
 SAP HANA yüklemesi sizin sorumluluğunuzdur. Azure sanal ağlarınıza ve HANA büyük örneği birimi arasında bağlantı kurduktan sonra yeni bir SAP HANA (büyük örnekler) Azure sunucusuna yüklüyorsanız başlayabilirsiniz. 
 
 > [!Note]
-> Her ilke SAP, SAP HANA yüklemesi kişi kim geçti sınavı teknoloji ilişkilendirmek SAP sertifikalı, SAP HANA yüklemesi sertifika sınavı veya SAP Sertifikalı Sistem entegratörü (sı) kim tarafından gerçekleştirilmesi gerekir.
+> Her ilke SAP, SAP HANA yüklemesi kişi kim geçti sınavı teknoloji ilişkilendirmek SAP sertifikalı, SAP HANA yüklemesi sertifika sınavı ya da bir SAP Sertifikalı Sistem entegratörü (sı) kim tarafından gerçekleştirilmesi gerekir.
 
 HANA 2.0 yükleme planlıyorsanız, bkz. [SAP destek Not #2235581 - SAP HANA: Desteklenen işletim sistemleri](https://launchpad.support.sap.com/#/notes/2235581/E) ile işletim Sisteminin desteklendiğinden emin olmak için SAP HANA sürüm, yüklemekte olduğunuz. Desteklenen işletim sistemi HANA 2.0 için desteklenen işletim sistemi HANA 1.0 için daha kısıtlayıcı. 
 
@@ -202,14 +202,15 @@ SPS12 kadar SAP HANA 1.0 sürümleri için bu parametreleri SAP HANA veritabanı
 
 Parametreleri SAP HANA veritabanı yükleme sonrasında hdbparam çerçevesi kullanılarak da yapılandırabilirsiniz. 
 
-HANA büyük örnekleri kullanılan depolama alanı dosya boyutu sınırlaması vardır. [Boyut sınırlaması 16TB'tır](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) dosya başına. Farklı durumlarda EXT3 dosya sistemleri gibi dosya boyutu sınırlamaları, HANA örtük olarak HANA büyük örnekleri depolaması tarafından zorlanan depolama sınırlama farkında değil. Sonuç olarak 16 TB'lık dosya boyutu sınırını ulaşıldığında HANA'ya yeni bir veri dosyası otomatik olarak oluşturmaz. HANA 16 TB ötesinde dosya büyütme girişiminde HANA sonunda, hataları ve dizin sunucusu çöker rapor eder.
+HANA büyük örnekleri kullanılan depolama alanı dosya boyutu sınırlaması vardır. [Boyut sınırlaması 16 TB'tır](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) dosya başına. Farklı dosya boyutu sınırlamaları EXT3 dosya sistemleri, HANA örtük olarak HANA büyük örnekleri depolaması tarafından zorlanan depolama sınırlama farkında değil. Sonuç olarak 16 TB'lık dosya boyutu sınırını ulaşıldığında HANA'ya yeni bir veri dosyası otomatik olarak oluşturmaz. HANA 16 TB ötesinde dosya büyütme girişiminde HANA sonunda, hataları ve dizin sunucusu çöker rapor eder.
 
 > [!IMPORTANT]
-> Veri büyür ve HANA büyük Örnek Depolama 16 TB dosya boyutu sınırını aşan çalışılırken HANA önlemek için aşağıdaki parametreleri HANA global.ini yapılandırma dosyasında ayarlamanız gerekir
+> Veri büyür ve HANA büyük Örnek Depolama 16 TB dosya boyutu sınırını aşan çalışılırken HANA önlemek için aşağıdaki parametreleri SAP HANA global.ini yapılandırma dosyasında ayarlamanız gerekir
 > 
 - datavolume_striping = true
 - datavolume_striping_size_gb 15000 =
 - Ayrıca SAP bkz Not [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- SAP Not unutmayın [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 SAP HANA 2.0 ile hdbparam framework kullanım dışıdır. Sonuç olarak, SQL komutlarını kullanarak parametreler ayarlanmalıdır. Daha fazla bilgi için [#2399079 SAP notuna göz atın: HANA 2 hdbparam saydamlığından](https://launchpad.support.sap.com/#/notes/2399079).

@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff5b998222f9a7320384edea1ed69e7a65e9139
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171307"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533417"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure portalında Etkinlik raporlarını bulma
 
@@ -48,15 +48,46 @@ Denetim günlükleri raporu, aşağıdaki raporları birleştirir:
 
 ### <a name="filtering-on-audit-logs"></a>Denetim günlüklerini filtreleme
 
-Denetim verilerinin belirli bir kategorisi içinde belirterek erişmek için Denetim raporuna Gelişmiş filtreleme kullanabileceğiniz **etkinlik kategorisi** filtre. Örneğin, Self Servis parola sıfırlama için ilgili tüm etkinlikleri görüntülemek için seçin **Self Servis parola yönetimi** kategorisi. 
+Denetim verilerinin belirli bir kategorisi içinde belirterek erişmek için Denetim raporuna Gelişmiş filtreleme kullanabileceğiniz **kategori** filtre. Örneğin, kullanıcılarla ilgili tüm etkinlikleri görüntülemek için seçin **UserManagement** kategorisi. 
 
-Etkinlik kategorileri şunlardır:
+Kategorileri şunlardır:
 
+- Tümü
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Yetkilendirme
+- İletişim
+- Cihaz
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Diğer
+- İlke
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+Bir hizmete kullanarak filtreleyebilirsiniz **hizmet** filtre açılır. Örneğin, Self Servis parola yönetimi ile ilgili tüm denetim olaylarını almak için seçin **Self Servis parola yönetimi** filtre.
+
+Hizmetlere şunlar dahildir:
+
+- Tümü
+- Erişim Gözden Geçirmeleri
+- Hesap Sağlama 
+- Uygulama SSO
+- Kimlik Doğrulaması Yöntemleri
+- B2C
+- Koşullu Erişim
 - Çekirdek Dizin
-- Self Servis Parola Yönetimi
+- Hak Yönetimi
+- Kimlik Koruması
+- Davetli Kullanıcılar
+- PIM
 - Self Servis Grup Yönetimi
-- Hesap Sağlama
-
+- Self Servis Passord Yönetimi
+- Kullanım Koşulları
 
 ## <a name="sign-ins-report"></a>Oturum açma işlemleri raporu 
 

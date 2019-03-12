@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: f64f2cafb15a6cae71c304282e1fe6bd9231ef71
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 978667dcd3f7bd10192a396ec3e8d097bdb73509
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432932"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57577152"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX yüklemek için hazırlama
 Bir Windows sanal makinelerine (VM) şirket içi Microsoft Azure'ı yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure'un destekledikleri **yalnızca 1. kuşak Vm'leri** VHD dosyası biçiminde ve sabit boyutlu bir diske sahip. VHD için izin verilen boyut 1,023 GB'dir. Nesil 1 VM'den VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [oluşturmalıyım 1 veya 2. nesil Hyper-v VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -415,11 +415,7 @@ Bu Genelleştirme, her rol ya da Windows tabanlı bir bilgisayarda yüklü uygul
 ## <a name="complete-recommended-configurations"></a>Önerilen yapılandırmaları tamamlayın
 Aşağıdaki ayarlar, VHD'yi karşıya etkilemez. Ancak, bunları yapılandırılmış önerilir.
 
-* Yükleme [Azure VM Aracısı](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Ardından, VM uzantılarını etkinleştirebilirsiniz. VM uzantıları, RDP yapılandırma, parola sıfırlama gibi Vm'leriniz ile kullanmak istediğiniz ve benzeri önemli işlevselliğinin büyük kısmını uygulayın. Daha fazla bilgi için bkz.
-
-    - [VM aracısı ve uzantılar – bölüm 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
-    - [VM aracısı ve uzantılar – 2. Bölüm](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-
+* Yükleme [Azure VM Aracısı](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Ardından, VM uzantılarını etkinleştirebilirsiniz. VM uzantıları, RDP yapılandırma, parola sıfırlama gibi Vm'leriniz ile kullanmak istediğiniz ve benzeri önemli işlevselliğinin büyük kısmını uygulayın. Daha fazla bilgi için [Azure sanal makine Aracısı genel bakış](../extensions/agent-windows.md).
 *  Azure'da VM oluşturulduktan sonra performansı artırmak için "Zamana bağlı sürücüsü" birim üzerinde disk belleği dosyası yerleştirme öneririz. Bu gibi ayarlayabilirsiniz:
 
     ```PowerShell

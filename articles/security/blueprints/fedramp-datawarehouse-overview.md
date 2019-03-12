@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 426293dbb3650b5a2bb3809b1e808f640392791d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3c78aed2f30ea85f5bc16a8c0fb270bb1c761be8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241961"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539522"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure güvenlik ve uyumluluk planı: FedRAMP Otomasyon için veri ambarı
 
@@ -83,7 +83,7 @@ Aşağıdaki bölümde, geliştirme ve uygulama öğeleri ayrıntıları.
 
 Bir sanal makine etki alanına katılmış Burcu ana bilgisayarı aşağıdaki yapılandırmaları olan olarak oluşturulmuştur:
 -   [Kötü amaçlı yazılımdan koruma uzantısı](https://docs.microsoft.com/azure/security/azure-security-antimalware)
--   [Log Analytics uzantısı](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [Azure İzleyici uzantı günlükleri](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [Azure tanılama uzantısı](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk şifrelemesi](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) kullanarak Azure anahtar Kasası'nın (Azure kamu, PCI DSS, HIPAA ve diğer gereksinimler Uyar)
 -   Bir [otomatik kapatma ilke](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) kullanımda olmadığında sanal makine kaynakların tüketimini azaltmak için

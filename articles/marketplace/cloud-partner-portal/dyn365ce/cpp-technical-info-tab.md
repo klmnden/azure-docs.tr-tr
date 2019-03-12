@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 214abd64232130dd3fd5fdde510f7545732ac82e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083193"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731489"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Dynamics 365 müşteri katılımı teknik bilgileri sekmesi için
 
@@ -58,7 +58,7 @@ Aşağıdaki tabloda, bu alanlar açıklanır.
 |  Paketinin dosya adı     |  Kullanımınızın paket (.zip) dosya adı.  Bu ad *değil* genel ve Dynamics 365 sertifika ekibi tarafından dahili olarak kullanılır.  |
 |  Url                          |  Karşıya yüklenen paket dosyası içeren bir Azure depolama hesabı URL'si. Bu URL'yi paketiniz için doğrulama alması için ekibimize izin vermek için bir salt okunur SAS anahtarını içermesi gerekir.  |
 | Birden fazla crm paket     | Crm farklı paketleri ile birden çok sürümünü destekleniyorsa Evet sadece'i seçin.  Her sürüm ayrı ayrı oluşturmanız gerekir, karşılık gelen paket dosyası tht sahip olur.  |
-| Senaryo ve kullanım örneği varlık   | Dynamics 365 doğrulama ekibi tarafından kullanılmak üzere uygulamanız için işlev belirtimi belgenin bir karşıya yükleme sağlar.  Bu belirtim tercih edilen biçimi [E2E kullanıcı senaryosu şablonu](http://download.microsoft.com/download/5/1/8/51812AC9-BCD8-489F-937C-5D439C494EC1/E2E%20User%20Scenario%20Template.docx).  |
+| Senaryo ve kullanım örneği varlık   | Dynamics 365 doğrulama ekibi tarafından kullanılmak üzere uygulamanız için işlev belirtimi belgenin bir karşıya yükleme sağlar.  Bu belirtim tercih edilen biçimi [E2E kullanıcı senaryosu şablonu](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
 |  |  |
 
 

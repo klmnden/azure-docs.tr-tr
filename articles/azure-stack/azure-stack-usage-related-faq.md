@@ -15,12 +15,12 @@ ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 00fb888f201f4bb8d211050b288516021d837dc5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9f835382cbfe56c1601267ae994a94b56c0c3692
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888786"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727051"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Sık sorulan sorular, Azure Stack kullanım API'si
 
@@ -197,15 +197,15 @@ Aşağıdaki kaynak sağlayıcıları için kullanımı bildirilir:
 **Birim**: GB\*ay      
 **Notları**: Yönetilen disk gerçek Premium disk boyutu 
 
-**Ölçüm kimliği**: 75d4b707-1027-4403-9986-6ec7c05579c8  
+**Ölçüm kimliği**: 108fa95b-be0d-4cd9-96e8-5b0d59505df1  
 **Ölçüm adı**: ActualStandardSnapshotSize   
 **Birim**: GB\*ay   
 **Notları**: Standart yönetilen anlık görüntü diskte gerçek boyutu.  
 
-**Ölçüm kimliği**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**Ölçüm kimliği**: 578ae51d-4ef9-42f9-85ae-42b52d3d83ac   
 **Ölçüm adı**: ActualPremiumSnapshotSize   
 **Birim**: GB\*ay   
-**Notları**: Premium yönetilen disk üzerinde gerçek boyutu.   
+**Notları**: Premium yönetilen anlık görüntü diskte gerçek boyutu.   
 
 **Ölçüm kimliği**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Ölçüm adı**: S4   
@@ -285,7 +285,11 @@ Aşağıdaki kaynak sağlayıcıları için kullanımı bildirilir:
 **Ölçüm kimliği**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Ölçüm adı**: ActualPremiumSnapshotSize   
 **Birim**: Bayt\*saat   
-**Notları**: Gerçek Boyut diskte yönetilen premium (kullanım dışı) 
+**Notları**: Premium yönetilen anlık görüntü (kullanım dışı) diskte gerçek boyut 
+
+**Ölçüm kimliği**: 75d4b707-1027-4403-9986-6ec7c05579c8 **ölçüm adı**: ActualStandardSnapshotSize **birim**: GB\*ay **notları**: Standart yönetilen anlık görüntü (kullanım dışı) diskte gerçek boyut  
+
+**Ölçüm kimliği**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e **ölçüm adı**: ActualPremiumSnapshotSize **birim**: GB\*ay **notları**: Premium yönetilen anlık görüntü (kullanım dışı) diskte gerçek boyut  
 
 ### <a name="sql-rp"></a>Sql RP
   

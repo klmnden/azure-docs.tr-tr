@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 2/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0fe77a1093bec52c3786a9ae623a2d63e1ba82ce
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: a056f5df12deb50ad64f90c19201942204e774f1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750948"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779377"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Yükleme ve Azure Machine Learning ile veri okuma
 
@@ -45,7 +45,7 @@ Dosya türü belirtmeden verileri otomatik olarak yüklemek için kullanmak `aut
 ```python
 import azureml.dataprep as dprep
 
-dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+dflow = dprep.auto_read_file(path='./data/any-file.txt')
 ```
 
 Bu işlev, dosya türü, kodlama ve diğer ayrıştırma bağımsız değişkenler tek bir kullanışlı giriş noktasından tüm otomatik olarak algılamak için yararlıdır. İşlev da otomatik olarak ayrılmış verileri yüklenirken yaygın olarak gerçekleştirilen aşağıdaki adımları gerçekleştirir:
@@ -61,8 +61,8 @@ Alternatif olarak, önceden yazın ve açıkça bu ayrıştırılır şeklini de
 Bir veri akışı basit metin verileri okumak için kullanın `read_lines()` isteğe bağlı parametreleri belirtmeden.
 
 ```python
-dataflow = dprep.read_lines(path='./data/text_lines.txt')
-dataflow.head(5)
+dflow = dprep.read_lines(path='./data/text_lines.txt')
+dflow.head(5)
 ```
 
 ||Çizgi|
@@ -75,7 +75,7 @@ dataflow.head(5)
 Bir Pandas dataframe veri akışı nesneyi dönüştürmek için aşağıdaki kodu çalıştırın sonra verileri alınır.
 
 ```python
-pandas_df = dataflow.to_pandas_dataframe()
+pandas_df = dflow.to_pandas_dataframe()
 ```
 
 ## <a name="load-csv-data"></a>CSV veri yükleme
@@ -83,8 +83,8 @@ pandas_df = dataflow.to_pandas_dataframe()
 Temel çalışma zamanı, sınırlandırılmış dosyalar okurken, ayrıştırma parametreleri (kodlama, üst bilgiler vb. kullanılacağını ayırıcı.) çıkarabilir. Yalnızca konumunu belirterek bir CSV dosyası okuma girişimi için aşağıdaki kodu çalıştırın.
 
 ```python
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
-dataflow.head(5)
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
+dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -97,9 +97,9 @@ dataflow.head(5)
 Yükleme sırasında satırları tutmak için tanımlama `skip_rows` parametresi. Bu parametre (bir tabanlı bir dizin kullanarak) CSV dosyasında azalan yükleme satırları atlar.
 
 ```python
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1)
-dataflow.head(5)
+dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -110,7 +110,7 @@ dataflow.head(5)
 Sütun veri türlerini görüntülemek için aşağıdaki kodu çalıştırın.
 
 ```python
-dataflow.head(1).dtypes
+dflow.dtypes
 ```
 Çıkış:
 
@@ -126,10 +126,10 @@ dataflow.head(1).dtypes
 Varsayılan olarak, Azure Machine Learning veri hazırlığı SDK'sı, veri türünü değiştirmez. Makaleyi okuduğunuz veri kaynağı bir metin dosyası olduğundan SDK tüm değerleri dize olarak okur. Bu örnekte, sayı olarak sayısal sütunları ayrıştırılması gerekip. Ayarlama `inference_arguments` parametresi `InferenceArguments.current_culture()` otomatik olarak çıkarır ve dosyanın okuma sırasında sütun türlerini dönüştürmek için.
 
 ```
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
-dataflow.head(1).dtypes
+dflow.dtypes
 ```
 Çıkış:
 
@@ -150,8 +150,8 @@ Bazı sütunların düzgün sayısal algılandı ve kendi tür kümesine `float6
 SDK'sını içeren bir `read_excel()` Excel dosyalarını yüklemek için işlevi. Varsayılan olarak, çalışma kitabındaki ilk sayfa işlevi yükler. Yüklemek için belirli bir sayfaya tanımlamak için tanımladığınız `sheet_name` parametresiyle sayfa adı dize değeri.
 
 ```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
-dataflow.head(5)
+dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
+dflow.head(5)
 ```
 
 ||Column1|Column2|Sütun3|Sütun4|Sütun5|Sütun6|Column7|Column8|
@@ -165,7 +165,7 @@ dataflow.head(5)
 Çıktı, ikinci sayfa verileri üç boş satır üstbilgileri önce olduğunu gösterir. `read_excel()` İşlevi satırları ve üst bilgileri kullanmak için isteğe bağlı parametreler içeriyor. İlk üç satırı atlamak için aşağıdaki kodu çalıştırın ve dördüncü satırı başlık olarak kullanma.
 
 ```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
+dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
 ||boyut sayısı|Unvan|Studio|Dünya çapında|Yerel / %|Column1|Deniz aşırı / %|Column2|Yıl ^|
@@ -175,11 +175,11 @@ dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_c
 
 ## <a name="load-fixed-width-data-files"></a>Sabit genişlikte veri dosyalarını yükleme
 
-Loadfixed genişlikli dosyalar için karakter ofsetleri listesini belirtin. İlk sütunda, her zaman sıfır uzaklığında başlatmak için varsayılır.
+Sabit genişlikte dosyaları yüklemek için karakter ofsetleri listesini belirtin. İlk sütunda, her zaman sıfır uzaklığında başlatmak için varsayılır.
 
 ```python
-dataflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
-dataflow.head(5)
+dflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
+dflow.head(5)
 ```
 
 ||010000|99999|SAHTE NORVEÇ|NO|NO_1|ENRS|Column7|Column8|Column9|
@@ -191,7 +191,7 @@ dataflow.head(5)
 Üst bilgi algılama önlemek ve doğru verileri ayrıştırmak için geçirmek `PromoteHeadersMode.NONE` için `header` parametresi.
 
 ```python
-dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
+dflow = dprep.read_fwf('./data/fixed_width_file.txt',
                           offsets=[7, 13, 43, 46, 52, 58, 65, 73],
                           header=dprep.PromoteHeadersMode.NONE)
 ```
@@ -221,8 +221,8 @@ ds = dprep.MSSQLDataSource(server_name="[SERVER-NAME]",
 Bir veri kaynağı nesnesi oluşturduktan sonra Sorgu çıktısı verileri okumak için geçebilirsiniz.
 
 ```python
-dataflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
-dataflow.head(5)
+dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
+dflow.head(5)
 ```
 
 ||ProductID|Ad|ProductNumber|Renk|StandardCost|ListPrice|Boyut|Ağırlık|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|ROWGUID|ModifiedDate|
@@ -246,7 +246,7 @@ Yerel makinenizde aşağıdaki komutu çalıştırın.
 ```azurecli
 az login
 az account show --query tenantId
-dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
+dflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dflow.head(5) head
 ```
 
 > [!NOTE]
@@ -299,8 +299,8 @@ from azureml.dataprep.api.datasources import DataLakeDataSource
 
 ctx = adal.AuthenticationContext('https://login.microsoftonline.com/microsoft.onmicrosoft.com')
 token = ctx.acquire_token_with_client_certificate('https://datalake.azure.net/', servicePrincipalAppId, certificate, certThumbprint)
-dataflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
-dataflow.to_pandas_dataframe().head()
+dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
+dflow.to_pandas_dataframe().head()
 ```
 
 ||FMID|MarketName|Web sitesi|Sokak|city|Vilayet|

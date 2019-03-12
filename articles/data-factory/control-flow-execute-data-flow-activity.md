@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 17bcb9efbf28901f241d44231bc5c71ae20380b5
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 4e661f838cc0b8e52ff72e4e44a43d611fa3355f
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241621"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727391"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory'de yürütme veri akışı etkinliği
 Yürütme veri akışı etkinliği hattının hata ayıklama (sanal) ve tetiklenen işlem hattı çalıştırmaları, ADF veri akışı çalıştırmak için kullanın.
@@ -54,8 +54,6 @@ Yürütme veri akışı etkinliği hattının hata ayıklama (sanal) ve tetiklen
 ### <a name="run-on"></a>Çalıştırma yeri
 
 Bu, veri akışı yürütülmesi için işlem ortamını seçin. Azure otomatik olarak çözülmeli varsayılan Integration Runtime varsayılandır. Bu seçenek veri fabrikası ile aynı bölgede Spark ortamında veri akışını yürütecek. İşlem türü, işlem ortamı için başlatma birkaç dakika sürer anlamına gelir. bir işi küme olacaktır.
-
-Adanmış bir IR seçerseniz tutturulmuş bir bölgeyle yeni bir Azure IR oluşturma ve veri akışı gereksinimlerinizi karşılayacak boyutları işlem kullanabilirsiniz. Döndürme yukarı bu seçeneği hemen ilk işini dağıtıldıktan sonra Başlangıç olacak etkileşimli kümeleri. Bu küme, son iş yürütüldükten sonra TTL süresi dolana kadar geçerli kalır.
 
 ### <a name="compute-type"></a>İşlem türü
 

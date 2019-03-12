@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: b77c21b75147a9bb5203effb20379dc208122d05
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e56ab4d74b54e1da8b07de6081766c8669bfb68a
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819156"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576642"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini dağıtma
 
@@ -225,7 +225,7 @@ Web hizmetini güncelleştirmek için bir model programlama yoluyla yeniden eği
 [Öngörücü bir denemeye dönüştürme]: #convert-the-training-experiment-to-a-predictive-experiment
 [Yeni web hizmeti]: #deploy-it-as-a-new-web-service
 [Klasik web hizmeti]: #deploy-it-as-a-classic-web-service
-[Yeni]: #deploy-the-predictive-experiment-as-a-new-web-service
+[Yeni]: #deploy-it-as-a-new-web-service
 [classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal

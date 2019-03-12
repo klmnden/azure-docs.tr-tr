@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 26865acbf635f07db4799ab197e110d37cbe69e8
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0d40bfa3a4215b671fcd01402a2cbceaea0cd75d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984348"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536292"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Çözümünüz için doğru IOT Hub katmanını seçme
 
@@ -33,7 +33,7 @@ Standart katman IOT Hub'ın tüm özelliklerini etkinleştirir ve devre dışı 
 
 Yalnızca bir tür [edition](https://azure.microsoft.com/pricing/details/iot-hub/) IOT hub'ı bir katman içinde seçilebilir. Örneğin, birden çok S1 birimi olan, ancak bir karışımını birimleri S1 ve B3 ya da S1 ve S2 gibi farklı sürümleri ile değil, bir IOT hub'ı oluşturabilirsiniz.
 
-| Özellik | Temel katman | Standart katman |
+| Özellik | Temel katman | Ücretsiz/standart katmanı |
 | ---------- | ---------- | ------------- |
 | [CİHAZDAN buluta telemetri](iot-hub-devguide-messaging.md) | Evet | Evet |
 | [Cihaz kimliği başına](iot-hub-devguide-identity-registry.md) | Evet | Evet |
@@ -67,7 +67,7 @@ Birim yapılandırması, Temel katmandan standart katmana geçiş yaptığınız
 
 Desteklenen yeteneklerin IOT Hub'ın temel ve standart katmanları arasındaki farkı, bazı API çağrıları, temel katmanı hub'ları ile çalışmaz anlamına gelir. Aşağıdaki tabloda, hangi API'ler kullanılabilir olduğunu gösterir: 
 
-| API | Temel katman | Standart katman |
+| API | Temel katman | Ücretsiz/standart katmanı |
 | --- | ---------- | ------------- |
 | [Cihaz silme](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Evet | Evet |
 | [Aygıt alma](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Evet | Evet |

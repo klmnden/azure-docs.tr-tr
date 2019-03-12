@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: f67741417c6d31c4adf1d063aac3bd3ccc310fde
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5c8ec54df0d578c6d12524a4128b9cc54e6464a0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440259"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781910"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, söz dizimi ve yapısı anlama
 
@@ -46,7 +46,7 @@ En basit yapısına bir şablon aşağıdaki öğelere sahiptir:
 |:--- |:--- |:--- |
 | $schema |Evet |Şablon dil sürümünü tanımlayan JSON şema dosyasının konumu.<br><br> Kaynak grubu dağıtımı için kullanın: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Abonelik dağıtımları için kullanın: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Evet |Şablon (örneğin, 1.0.0.0) sürümü. Bu öğe için herhangi bir değer sağlayabilirsiniz. Şablonunuzda önemli değişiklikleri belgelemek için bu değeri kullanın. Şablon kullanarak kaynakları dağıtırken, bu değer, en uygun şablonu kullanıldığından emin emin olmak için kullanılabilir. |
-| apiProfile |Hayır | API sürümleri için kaynak türleri koleksiyonu olarak görev yapan bir API sürümü. API sürümleri için her kaynak şablonda belirtmek zorunda kalmamak için bu değeri kullanın. Bir API profili sürümü belirttiğinizde ve bu nedenle kaynak türü için bir API sürümü belirtmeyin Resource Manager profilindeki API sürümü, kaynak türü için kullanır. Daha fazla bilgi için [izleme API profillerini kullanarak sürümleri](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| apiProfile |Hayır | API sürümleri için kaynak türleri koleksiyonu olarak görev yapan bir API sürümü. API sürümleri için her kaynak şablonda belirtmek zorunda kalmamak için bu değeri kullanın. Resource Manager API sürümü bir API profili sürümü belirttiğinizde ve bu nedenle kaynak türü için bir API sürümü belirtmeyin profilinde tanımlanan kaynak türü için kullanır.<br><br>API Profil özelliği için Azure Stack ve genel Azure gibi farklı ortamlarda şablonu dağıtırken özellikle yararlıdır. Şablonunuzu otomatik olarak her iki ortamlarda desteklenen sürümleri kullandığından emin olmak için API profil sürümü kullanın. Geçerli API profili sürümleri ve API sürümlerini profilinde tanımlanan kaynaklar listesi için bkz: [API profili](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Daha fazla bilgi için [izleme API profillerini kullanarak sürümleri](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parametreler](#parameters) |Hayır |Kaynak bir dağıtımı özelleştirmek için dağıtım çalıştırıldığında, sağlanan değerler. |
 | [Değişkenleri](#variables) |Hayır |Şablonda, JSON parçaları olarak şablon dili ifadeleri basitleştirmek için kullanılan değerleri. |
 | [İşlevleri](#functions) |Hayır |Şablonda kullanılabilir olan kullanıcı tanımlı işlevler. |
@@ -57,17 +57,38 @@ Her öğesinin özellikleri ayarlayabilirsiniz. Bu makalede daha ayrıntılı ş
 
 ## <a name="syntax"></a>Sözdizimi
 
-Temel söz dizimi şablonu JSON ' dir. Ancak, ifadeler ve İşlevler, şablonda kullanılabilir JSON değerlerinin genişletin.  İfadeleri JSON dize değişmez değerleri içinde ayarlanmış ilk yazılır ve son karakter olan ayraçlar: `[` ve `]`sırasıyla. Şablon dağıtıldığında ifade değeri değerlendirilir. Dize sabit değeri olarak yazılmış olsa da ifade değerlendirme sonucu gibi bir dizi ya da tamsayı, gerçek ifade bağlı olarak farklı bir JSON türünde olabilir.  Bir sabit dize köşeli ayraç ile başlatmak için `[`, ancak değil bir ifade olarak yorumlanır olması, dizesiyle başlatmak için ek bir köşeli ayraç Ekle `[[`.
-
-Genellikle, ifadeleri işlevleri ile dağıtım yapılandırma işlemleri gerçekleştirmek için kullanırsınız. JavaScript'te, işlev çağrıları olarak biçimlendirilmiş gibi yalnızca `functionName(arg1,arg2,arg3)`. Özellikler, nokta ve [dizin] işleçleri kullanarak başvuru.
-
-Aşağıdaki örnek, bir değer oluştururken çeşitli işlevler kullanma işlemini gösterir:
+Temel söz dizimi şablonu JSON ' dir. Ancak, ifadeleri JSON değerlerinin şablonda kullanılabilir genişletmek için kullanabilirsiniz.  İfadeler ve köşeli parantez ile bitmelidir: `[` ve `]`sırasıyla. Şablon dağıtıldığında ifade değeri değerlendirilir. Bir ifade, bir dize, tamsayı, boolean, dizi veya nesne döndürebilir. Aşağıdaki örnek, bir parametrenin varsayılan değeri bir ifade gösterir:
 
 ```json
-"variables": {
-  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
-}
+"parameters": {
+  "location": {
+    "type": "string",
+    "defaultValue": "[resourceGroup().location]"
+  }
+},
 ```
+
+İfade söz dizimi içinde `resourceGroup()` bir Resource Manager şablon içinde kullanmak için sağladığı işlevleri çağırır. JavaScript'te, işlev çağrıları olarak biçimlendirilmiş gibi yalnızca `functionName(arg1,arg2,arg3)`. Söz dizimi `.location` bu işlev tarafından döndürülen nesne bir özelliğini alır.
+
+Şablon işlevleri ve parametreleri büyük/küçük harf duyarsızdır. Örneğin, Resource Manager çözümler **variables('var1')** ve **VARIABLES('VAR1')** olarak aynı. Değerlendirildiğinde, işlevi açıkça (örneğin, toUpper veya toLower) çalışması değiştirir sürece servis talebi işlevi korur. Belirli kaynak türlerine işlevleri nasıl değerlendirilir bağımsız olarak büyük/küçük harf gereksinimlerine sahip olabilir.
+
+Bir sabit dize köşeli ayraç ile başlatmak için `[`, ancak değil bir ifade olarak yorumlanır olması, dizesiyle başlatmak için ek bir köşeli ayraç Ekle `[[`.
+
+Bir dize değeri bir işlev için parametre olarak geçirmek için tek tırnak işareti kullanın.
+
+```json
+"name": "[concat('storage', uniqueString(resourceGroup().id))]"
+```
+
+Şablonda, JSON nesnesi ekleme gibi bir ifadede çift tırnak işareti kaçış ters eğik çizgi kullanın.
+
+```json
+"tags": {
+    "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+},
+```
+
+Bir şablon ifadesi 24.576 karakterden uzun olamaz.
 
 Şablon işlevlerinin tam listesi için bkz. [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md). 
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 634b175ec0b5771e3ff2fa061532106eb124ea4e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 347ee8389677e507e299490d86ae9b51ba4f59a6
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338436"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731588"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>REST API ile Azure Blueprint Tanımlama ve Atama
 
@@ -262,7 +262,7 @@ Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değiş
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroup().location]",
+                     "location": "[resourceGroups('storageRG').location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },
@@ -335,7 +335,7 @@ Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değiş
 - `{YourMG}` -Yönetim grubunuzun kimliği ile değiştirin.
 - `{subscriptionId}` - Abonelik kimliğinizle değiştirin
 
-1. Azure Blueprints hizmet sorumlusuna hedef abonelikte **Sahip** rolünü atayın. AppId değeri statiktir (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`) ancak hizmet sorumlusu kimliği kiracıya göre değişir. Aşağıdaki REST API ile kiracınıza ait ayrıntılı bilgileri isteyebilirsiniz. Farklı bir yetkilendirme sistemine sahip olan [Azure Active Directory Graph API'sini](../../active-directory/develop/active-directory-graph-api.md) kullanır.
+1. Azure Blueprints hizmet sorumlusuna hedef abonelikte **Sahip** rolünü atayın. AppID statiktir (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), ancak Kiracı tarafından hizmet sorumlusu kimliği değişir. Aşağıdaki REST API ile kiracınıza ait ayrıntılı bilgileri isteyebilirsiniz. Farklı bir yetkilendirme sistemine sahip olan [Azure Active Directory Graph API'sini](../../active-directory/develop/active-directory-graph-api.md) kullanır.
 
    - REST API URI'si
 

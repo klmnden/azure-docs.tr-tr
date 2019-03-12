@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 38a5c4f953a70b338989806ae5368c165f5107a4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 4e9abb20e6548d8612bc3b59aba4f7384913d081
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246093"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761557"
 ---
 # <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Azure portalı ile Çoklu bit hızına sahip akışlar oluşturmak üzere Media Services'i kullanarak canlı akış gerçekleştirme  
 > [!div class="op_single_selector"]

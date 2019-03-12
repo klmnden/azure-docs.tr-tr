@@ -9,43 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 7c9f3c72d94955286d05cf68dbe698a46df3cdf3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867040"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781706"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>LUIS uygulamanız ile abonelik anahtarlarını kullanma
 
-Ücretsiz ilk 1000 uç nokta sorgularınızı kullanmak için Abonelik anahtarları oluşturma gerekmez. Bu uç nokta sorgular kullanılan sonra bir Azure kaynağı oluşturma [Azure portalında](http://portal.azure.com), ardından bu kaynak bir LUIS uygulaması atayın [LUIS portalı](https://www.luis.ai).
+Ücretsiz ilk 1000 uç nokta sorgularınızı kullanmak için Abonelik anahtarları oluşturma gerekmez. Bu uç nokta sorgular kullanılan sonra bir Azure kaynağı oluşturma [Azure portalında](https://portal.azure.com), ardından bu kaynak bir LUIS uygulaması atayın [LUIS portalı](https://www.luis.ai).
 
 Alırsanız bir _kotasından_ hata formunda bir HTTP 403 ve 429 gereken bir anahtar oluşturun ve uygulamanıza atayın. 
 
 Test ve yalnızca prototip için ücretsiz katman (F0) kullanın. Üretim sistemleri için bir [Ücretli](https://aka.ms/luis-price-tier) katmanı. Kullanmayın [anahtar yazma](luis-concept-keys.md#authoring-key) için üretim uç noktası sorgular.
 
 <a name="create-luis-service"></a>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>Azure portalını kullanarak konuşma tanıma uç noktası anahtarı oluşturma
+## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Azure portalında tahmin uç çalışma zamanı kaynağı oluşturma
 
-Bu yordam oluşturur bir **Language Understanding** kaynak. Bilişsel hizmetler kullanılabilir bir kaynak istiyorsanız, hepsi bir arada anahtar oluşturma **[Bilişsel hizmet](../cognitive-services-apis-create-account.md)** Language Understanding kaynak yerine. 
-
-Bu anahtar yalnızca, uç nokta tahmin sorguları için kullanılmalıdır. Bu anahtar, değişiklikler model veya uygulama için kullanmayın. 
-
-1. Oturum  **[Azure portalında](https://ms.portal.azure.com/)**. 
-1. Yeşili **+** üst sol panelde oturum ve arama `Language Understanding` Market'te seçin **Language Understanding** izleyin  **deneyimi oluşturmak** LUIS abonelik hesabı oluşturmak için. 
-
-    ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
-
-1. Abonelik ayarları fiyatlandırma katmanları, vb. hesap adı dahil olmak üzere yapılandırın. 
-
-    ![Azure API seçim](./media/luis-azure-subscription/azure-api-choice.png) 
-
-1. Language Understanding kaynak oluşturduktan sonra oluşturulan erişim anahtarlarını görüntüleyebilir **kaynak yönetimi -> anahtarlar**. Sonraki bölümde, bu yeni kaynak LUIS portalında LUIS uygulaması bağlanma gösterilmektedir. 3. adımdaki LUIS kaynağın adına ihtiyacınız vardır.
-
-    ![Azure anahtarları](./media/luis-azure-subscription/azure-keys.png)
+Daha fazla bilgi edinin [uygulama derleme](get-started-portal-build-app.md) hızlı başlangıç.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -63,23 +49,7 @@ Bu anahtar yalnızca, uç nokta tahmin sorguları için kullanılmalıdır. Bu a
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Kaynak anahtarı LUIS Portalı'nda LUIS uygulama atama
 
-1. LUIS portalında oturum açın, ardından seçmek için yeni bir anahtar eklemek için bir uygulama seçin **Yönet** seçip sağ üst menüsünde **anahtarları ve uç noktaları**.
-
-    [![Anahtarlar ve uç noktaları sayfası](./media/luis-manage-keys/keys-and-endpoints.png)](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
-
-1. LUIS eklemek için seçin **Kaynak Ata +**.
-
-    ![Uygulamanıza bir kaynak atayın](./media/luis-manage-keys/assign-key.png)
-
-1. İletişim e-posta ile ilişkili bir kiracı seçin LUIS Web sitesine oturum açmak için kullanılan adres.  
-
-1. Seçin **abonelik adı** eklemek istediğiniz Azure kaynakla ilişkilendirilmiş.
-
-1. Seçin **LUIS kaynak adı**. 
-
-1. Seçin **atama kaynak**. 
-
-1. Tabloya yeni satır bulun ve uç nokta URL'sini kopyalayın. Doğru bir tahmin için LUIS uç noktasına bir HTTP GET isteği yapmak için oluşturulur. 
+Daha fazla bilgi edinin [dağıtım](get-started-portal-deploy-app.md) hızlı başlangıç.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>

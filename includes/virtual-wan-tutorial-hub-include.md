@@ -5,22 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/12/2018
+ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f5560877d48513d5ac0b6a4842f45b2d91873e02
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 34a1ccbfd5214ee528bc26f2afeada322ac6ba78
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47004177"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553003"
 ---
-Yeni bir hub, ağ geçidini içerir ve oluşturması 30 dakika sürer. Hub oluşturulduktan sonra site eklemeseniz bile hub için ücretlendirilirsiniz. 
-1. Hub’lar sayfasını açmak için WAN sayfasında **Sanal WAN mimarisi** altındaki **Hubs** seçeneğine tıklayın.
-2. **Hub’lar** sayfasını açmak için Hub’lar sayfasında **+ Yeni Hub** seçeneğine tıklayın.
-3. Hub’lar sayfasında aşağıdaki alanları doldurun:
+Bir hub ağ geçidi içerir. Hub oluşturulduktan sonra site eklemeseniz bile hub için ücretlendirilirsiniz. Hub ve ağ geçidi oluşturmak için 30 dakika sürer.
+
+1. Sanal oluşturduğunuz WAN bulun. Üzerinde sanal sayfanın altında WAN **sanal WAN mimarisi** bölümünde **Hubs**.
+2. Hub'ları sayfasında tıklayın **+ yeni hub'ı** açmak için **sanal WAN hub** sayfası.
+3. Sanal WAN hub sayfasında, aşağıdaki alanları doldurun:
 
   * Konum
-  * Adı
+  * Ad
   * Hub özel adres alanı
-4. Hub’ı oluşturmak için **Onayla**'ya tıklayın. Hub'lar sayfasında hub’ı görüntülemek için **Yenile**’ye tıklayın.
+4. Hub’ı oluşturmak için **Onayla**'ya tıklayın. Tıklayın **Yenile** hub'ı görüntülemek için **Hubs** sayfası.

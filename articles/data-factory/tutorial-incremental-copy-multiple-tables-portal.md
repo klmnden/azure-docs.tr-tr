@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: e6a24bfe25513b1b4eacd8bc192caa5518c896c6
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 86333e58a1b97d750bd59189850654d93888008d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593208"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776964"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server’daki birden fazla tablodan Azure SQL veritabanı’na artımlı olarak veri yükleme
 Bu öğreticide, değişim verileri şirket içi SQL Server’daki birden çok tablodan Azure SQL Veritabanına yükleyen bir Azure veri fabrikası işlem hattı oluşturacaksınız.    
@@ -382,7 +382,7 @@ Bu adımda veri kaynağı, veri hedefi ve eşiğin depolanacağı yeri temsil ed
    ![Havuz Veri Kümesi - bağlantı](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 1. **Son**'a tıkladıktan sonra tablo adı olarak **@dataset().SinkTableName** ifadesini görürsünüz.
+ 1. ' I tıklattıktan sonra **son**, gördüğünüz  **\@dataset(). SinkTableName** tablo adı.
    
    ![Havuz Veri Kümesi - bağlantı](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 

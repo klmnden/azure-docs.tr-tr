@@ -5,21 +5,23 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 09/26/2018
+ms.date: 03/05/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: db6a02db3a154193a9326e2957038e5daa2faae7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 46d667bc32c5c5f3ccb14cf4a43a3441efe94c31
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992354"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552223"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS)
 
 Azure Kubernetes Service (AKS), Azure'a yönetilen bir Kubernetes kümesi dağıtmayı kolaylaştırır. AKS, sorumluluğun çoğunu Azure'a devrederek Kubernetes yönetiminin karmaşıklığını ve işlemsel yükünü azaltır. Barındırılan bir Kubernetes hizmeti olarak, Azure sistem durumu izleme ve bakım gibi kritik görevleri sizin için gerçekleştirir. Kubernetes ana düğümler Azure tarafından yönetilir. Siz yalnızca aracı düğümlerini yönetir ve sürdürürsünüz. AKS, yönetilen bir Kubernetes servisi olarak ücretsizdir; ana düğümler için değil, yalnızca kümelerinizdeki aracı düğümleri için ücret ödersiniz.
 
 Azure portalda, Azure CLI ile veya Resource Manager şablonları ve Terraform gibi şablon temelli dağıtım seçenekleri ile bir AKS kümesi oluşturabilirsiniz. Bir AKS kümesini dağıttığınızda ana düğümler ve diğer tüm Kubernetes düğümleri sizin yerinize dağıtılır ve yapılandırılır. Gelişmiş ağ özellikleri, Azure Active Directory tümleştirmesi ve izleme gibi ek özellikler de dağıtım işlemi sırasında yapılandırılabilir.
+
+Kubernetes hakkında temel bilgiler hakkında daha fazla bilgi için bkz. [Kubernetes kavramlarını AKS için çekirdek][concepts-clusters-workloads].
 
 Başlamak için, [Azure portalda][aks-portal] veya [ Azure CLI][aks-cli] ile AKS hızlı başlangıcı tamamlayın.
 
@@ -30,6 +32,8 @@ AKS, gelişmiş güvenlik ve yönetim için, Azure Active Directory ile tümleş
 ### <a name="identity-and-security-management"></a>Kimlik ve güvenlik yönetimi
 
 AKS, küme kaynaklarına erişimi sınırlandırmak içi [Kubernetes rol tabanlı erişim denetimini (RBAC)][kubernetes-rbac] desteklemektedir. RBAC, Kubernetes kaynaklarına ve ad alanlarına erişimi ve bu kaynakların izinlerini denetlemenizi sağlar. Bir AKS kümesini Azure Active Directory (AD) ile tümleştirilecek şekilde de yapılandırabilirsiniz. Azure AD tümleştirmesiyle, Kubernetes erişimi var olan kimlik ve grup üyeliklerine göre yapılandırılabilir. Var olan Azure AD kullanıcılarınıza ve gruplarınıza, AKS kaynaklarına erişim hakkı ve tümleşik oturum açma deneyimi sağlanabilir.
+
+Kimlik hakkında daha fazla bilgi için bkz. [AKS için erişim ve kimlik seçeneklerini][concepts-identity].
 
 AKS kümelerinizin güvenliğini sağlamak için, bkz. [Azure Active Directory’yi AKS ile Tümleştirme][aks-aad].
 
@@ -65,13 +69,17 @@ Daha fazla bilgi için bkz. [AKS üzerinde GPU kullanma][aks-gpu].
 
 Uygulama iş yüklerini desteklemek isterseniz, kalıcı veriler için depolama birimleri bağlayabilirsiniz. Statik ve dinamik birimler kullanılabilir. Depolamayla kaç tane bağlı pod’un paylaşılacağına bağlı olarak, tek pod erişimi için Azure Diskleri veya birden çok eş zamanlı pod erişimi için Azure Dosyaları tarafından desteklenen depolamayı kullanabilirsiniz.
 
-[Azure Diskleri][azure-disk] veya [Azure Dosyaları ][azure-files] ile dinamik kalıcı birimlere başlayın.
+Daha fazla bilgi için [AKS uygulamalar için Depolama Seçenekleri][concepts-storage].
+
+Kullanarak dinamik kalıcı birimleri ile çalışmaya başlama [Azure diskleri] [ azure-disk] veya [Azure dosyaları][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Sanal ağlar ve giriş
 
 AKS kümesi var olan bir sanal ağa dağıtılabilir. Bu yapılandırmada kümedeki her pod'a sanal ağda bir IP adresi atanır ve tümü hem kümedeki diğer pod'larla hem de sanal ağdaki diğer düğümlerle doğrudan iletişim kurabilir. Pod'lar ayrıca eş düğümlü bir sanal ağ üzerindeki diğer hizmetlere, ExpressRoute üzerinden şirket içindeki ağlara veya siteden siteye (S2S) VPN bağlantılarına da bağlanabilir.
 
-Daha fazla bilgi için bkz. [AKS ağına genel bakış][aks-networking].
+Daha fazla bilgi için [kavramları aks'deki uygulamalar için ağ][aks-networking].
+
+Giriş trafiği ile başlamak için, bkz. [HTTP uygulama yönlendirmesi][aks-http-routing].
 
 ### <a name="ingress-with-http-application-routing"></a>HTTP uygulama yönlendirmesiyle giriş
 
@@ -112,10 +120,7 @@ Azure CLI hızlı başlangıçları ile AKS dağıtma ve yönetme hakkında daha
 
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine
-[draft]: https://github.com/Azure/draft
-[helm]: https://helm.sh/
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
-[kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
@@ -134,3 +139,7 @@ Azure CLI hızlı başlangıçları ile AKS dağıtma ve yönetme hakkında daha
 [container-health]: ../monitoring/monitoring-container-health.md
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
+[concepts-clusters-workloads]: concepts-clusters-workloads.md
+[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[concepts-identity]: concepts-identity.md
+[concepts-storage]: concepts-storage.md

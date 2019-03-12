@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 0ef6d258be0165c7a73ce060879f55f1c7f404f9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76b53132cca536f66aa2f739b27d74b08a3f16cf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453533"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781400"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>SQL veritabanı uygulama performansını artırmak için toplu işlem kullanma
 
@@ -168,7 +168,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Önceki örnekte, **SqlCommand** nesnesi bir tablo değerli parametresi, satırları ekler **@TestTvp**. Önceden oluşturulmuş **DataTable** nesnesinin ile bu parametreye atandığı **SqlCommand.Parameters.Add** yöntemi. Tek bir çağrıdaki ekler önemli ölçüde toplu işleme sıralı ekler performansını artırır.
+Önceki örnekte, **SqlCommand** nesnesi bir tablo değerli parametresi, satırları ekler  **\@TestTvp**. Önceden oluşturulmuş **DataTable** nesnesinin ile bu parametreye atandığı **SqlCommand.Parameters.Add** yöntemi. Tek bir çağrıdaki ekler önemli ölçüde toplu işleme sıralı ekler performansını artırır.
 
 Önceki örneği daha da geliştirmek için metin tabanlı bir komut yerine bir saklı yordamı kullanın. Aşağıdaki Transact-SQL komutunu isteyen bir saklı yordamı oluşturur **SimpleTestTableType** tablo değerli parametre.
 

@@ -1,24 +1,24 @@
 ---
 title: Azure'da hizmet eşlemesi yapılandırma | Microsoft Docs
 description: Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulan ve hizmetler arasındaki iletişimi eşleyen bir Azure çözümüdür. Bu makalede, ortamınızda hizmet eşlemesi dağıtmak ve çeşitli senaryoları de kullanım için Ayrıntılar sağlanır.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
-ms.author: bwren
-ms.openlocfilehash: b4eb3fe8132aafc3d673234dc1b4123f20f9e569
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/11/2019
+ms.author: magoedte
+ms.openlocfilehash: 65aa561b01fc4950eb007077ba3613e96ccdcacc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312741"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763875"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -28,8 +28,10 @@ Bu makalede hizmet eşlemesi ve onboarding aracıları yapılandırma ayrıntıl
 ## <a name="supported-azure-regions"></a>Desteklenen Azure bölgeleri
 Hizmet eşlemesi aşağıdaki Azure bölgeleri şu anda kullanılabilir:
 - Doğu ABD
-- Batı Avrupa
 - Batı Orta ABD
+- Orta Kanada
+- Birleşik Krallık Güney
+- Batı Avrupa
 - Güneydoğu Asya
 
 ## <a name="supported-windows-operating-systems"></a>Desteklenen Windows işletim sistemleri
@@ -59,17 +61,13 @@ Aşağıdaki bölümde, Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (
 - Yalnızca varsayılan ve SMP Linux çekirdek sürümleri desteklenir.
 - PAE ve Xen gibi standart dışı çekirdek sürümleri hiçbir Linux dağıtımında desteklenmez. Örneğin, "2.6.16.21-0.8-xen" sürüm dizesi sistemiyle desteklenmiyor.
 - Standart çekirdeklerin yeniden derlemeleri de dahil olmak üzere özel çekirdekler desteklenmez.
-- CentOSPlus çekirdeği desteklenmez.
+- CentOSPlus çekirdek desteklenir.
 - Oracle Unbreakable Enterprise Kernel (UEK), bu makalenin sonraki bir bölümünde ele alınmıştır.
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
 | İşletim sistemi sürümü | Çekirdek sürümü |
 |:--|:--|
-| 7.0 | 3.10.0-123 |
-| 7.1 | 3.10.0-229 |
-| 7.2 | 3.10.0-327 |
-| 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
@@ -78,17 +76,14 @@ Aşağıdaki bölümde, Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (
 
 | İşletim sistemi sürümü | Çekirdek sürümü |
 |:--|:--|
-| 6.0 | 2.6.32-71 |
-| 6.1 | 2.6.32-131 |
-| 6.2 | 2.6.32-220 |
-| 6.3 | 2.6.32-279 |
-| 6.4 | 2.6.32-358 |
-| 6.5 | 2.6.32-431 |
-| 6.6 | 2.6.32-504 |
-| 6.7 | 2.6.32-573 |
-| 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+
+### <a name="centosplus"></a>CentOSPlus
+| İşletim sistemi sürümü | Çekirdek sürümü |
+|:--|:--|
+| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
 
@@ -99,28 +94,18 @@ Aşağıdaki bölümde, Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 6 kesilemeyen Enterprise Çekirdeği
-| İşletim sistemi sürümü | Çekirdek sürümü
-|:--|:--|
-| 6.2 | Oracle 2.6.32-300 (UEK R1) |
-| 6.3 | Oracle 2.6.39-200 (UEK R2) |
-| 6.4 | Oracle 2.6.39-400 (UEK R2) |
-| 6.5 | Oracle 2.6.39-400 (UEK R2 i386) |
-| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
-
-### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 5 kesilemeyen Enterprise Çekirdeği
+### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
 
 | İşletim sistemi sürümü | Çekirdek sürümü
 |:--|:--|
-| 5.10 | Oracle 2.6.39-400 (UEK R2) |
-| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+| 11 SP4 | 3.0.* |
 
-## <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 kuruluş sunucusu
+### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 kuruluş sunucusu
 
 | İşletim sistemi sürümü | Çekirdek sürümü
 |:--|:--|
-|12 SP2 | 4.4. * |
-|12 SP3 | 4.4. * |
+| 12 SP2 | 4.4. * |
+| 12 SP3 | 4.4. * |
 
 ## <a name="dependency-agent-downloads"></a>Bağımlılık aracısını yükleme
 

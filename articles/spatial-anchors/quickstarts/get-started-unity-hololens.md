@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b2bfec47bc92ebf5db1561d8fca33940dc376866
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: ede1f031c3c38e714d076b861ba2abdad81c6702
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752332"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726864"
 ---
 # <a name="quickstart-create-a-hololens-unity-app-using-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal bağlayıcılarını kullanarak HoloLens Unity uygulama oluşturma
 
@@ -35,7 +35,7 @@ Bu hızlı başlangıçta, HoloLens Unity kullanarak uygulama oluşturma işlemi
 Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emin olun:
 
 - Bir Windows makineyle <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 +</a> ve <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 +</a> ile yüklenen **Evrensel Windows platformu geliştirme** iş yükü.
-- HoloLens cihazla [Geliştirici modu](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) etkin.
+- HoloLens cihazla [Geliştirici modu](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) etkin. Bu makale gerekir HoloLens cihazla [Windows 10 Ekim 2018 güncelleştirmesi](https://docs.microsoft.com/en-us/windows/mixed-reality/release-notes-october-2018) (RS5 olarak da bilinir). HoloLens üzerinde en son sürümüne güncelleştirmek için **ayarları** uygulama, Git **güncelleştirme ve güvenlik**, ardından **Güncelleştirmeleri denetle** düğmesi.
 - Uygulamanızı ayarlamalısınız **SpatialPerception** özelliği altında **Build Settings**->**Player ayarları**->**yayımlama Ayarları**->**özellikleri**.
 - Uygulamanızı etkinleştirmelisiniz **sanal gerçeklik desteklenen** ile **Windows karma gerçeklik SDK** altında **Build Settings**->**Playerayarları** -> **XR ayarları**.
 
@@ -51,7 +51,7 @@ Açık **Build Settings** seçerek **dosya** -> **Build Settings**.
 
 İçinde **Platform** bölümünden **Evrensel Windows platformu**. Ardından **hedef cihaz** için **HoloLens**.
 
-Seçin **anahtar platformu** platforma değiştirmek için **Evrensel Windows platformu**.
+Seçin **anahtar platformu** platforma değiştirmek için **Evrensel Windows platformu**. Unity UWP desteği bileşenleri eksik iseler yüklemenizi isteyebilir.
 
 ![Unity derleme ayarları](./media/get-started-unity-hololens/unity-build-settings.png)
 

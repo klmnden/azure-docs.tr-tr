@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 862cc4da99aed02b81b6fd12913736bf30866f72
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: 3c65d4360e3a20b7c2228e42fb4b4db1eecc75ff
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313608"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774805"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için otomatik yük devretme grupları kullanma
 
@@ -215,7 +215,7 @@ Uygulamanız, yönetilen örneği, veri katmanı olarak kullanıyorsa, iş süre
   > [!NOTE]
   > Belirli hizmet katmanlarında, Azure SQL veritabanı kullanımını destekler. [salt okunur çoğaltmalar](sql-database-read-scale-out.md) yüklemek ve bir salt okunur çoğaltma kapasitesini kullanmaya Bakiye salt okunur sorgu iş yükleri için `ApplicationIntent=ReadOnly` bağlantı parametresi dize. Coğrafi çoğaltmalı ikincil yapılandırıldığında, ya da salt okunur çoğaltma birincil konumda veya coğrafi olarak çoğaltılmış bir konuma bağlanmak için bu özelliği kullanabilirsiniz.
   > - Salt okunur bir çoğaltması birincil konumda bağlanmasını sağlayan `failover-group-name.zone_id.database.windows.net`.
-  > - Salt okunur bir çoğaltması birincil konumda bağlanmasını sağlayan `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Salt okunur bir çoğaltması ikincil konumdaki bağlanmasını sağlayan `failover-group-name.secondary.zone_id.database.windows.net`.
 
 - **Performans düşüşü için hazırlıklı olmalıdır**
 
@@ -282,7 +282,9 @@ Birincil ve ikincil iki farklı bölgede yönetilen örnekleri arasında bir yü
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Yükseltme veya bir birincil veritabanı önceki sürüme indirme
 
-Yükseltme veya birincil farklı işlem boyuta (aynı hizmet katmanında, genel amaçlı ve iş açısından kritik arasında değil) tüm ikincil veritabanlarını kesmeden düşürebilirsiniz. Yükseltme sırasında ikincil veritabanı yükseltmeniz ve ardından birincil yükseltmeniz önerilir. Önceki sürüme indirirken ters sırada: birincil ilk düşürmek ve ardından ikincil düşürme. Bu öneri, yükseltme ya da farklı bir hizmet katmanına düşürebilirsiniz zorlanır.
+Yükseltme veya birincil farklı işlem boyuta (aynı hizmet katmanında, genel amaçlı ve iş açısından kritik arasında değil) tüm ikincil veritabanlarını kesmeden düşürebilirsiniz. Yükseltme yaparken, tüm ikincil veritabanları yükseltmeniz ve ardından birincil yükseltmeniz önerilir. Önceki sürüme indirirken ters sırada: birincil ilk sürümüne düşürürseniz ve tüm ikincil veritabanları düşürme. Bu öneri, yükseltme ya da farklı bir hizmet katmanına düşürebilirsiniz zorlanır.
+
+Bu sıra özellikle burada daha düşük bir SKU'ya konumunda ikincil aşırı ve bir yükseltme veya düşürme işlemi sırasında yeniden köklü bir sorundan kaçınmak için önerilir. Birincil salt okunur, birincil karşı tüm okuma-yazma iş yükleri etkileyen çoğaltamaz hale getirerek, sorun kaçınmanız. 
 
 > [!NOTE]
 > Yük devretme grubu yapılandırmasının bir parçası olarak ikincil bir veritabanı oluşturduysanız, bu ikincil veritabanını indirgemek için önerilmez. Bu veri katmanınızın yük devretme etkinleştirildikten sonra normal iş yükünü işlemek için yeterli kapasiteye sahip sağlamaktır.
@@ -303,8 +305,6 @@ Belirli bir noktaya geri yükleme ile yük devretme grupları kullanma hakkında
 Otomatik Yük devretme grupları ve etkin daha önce açıklandığı gibi coğrafi çoğaltma ayrıca Azure PowerShell ve REST API'sini kullanarak program aracılığıyla yönetilebilir. Aşağıdaki tabloda kullanılabilir komut kümesi açıklanmaktadır. Etkin coğrafi çoğaltma içeren bir Azure Resource Manager API'leri kümesi yönetimi için de dahil olmak üzere [Azure SQL veritabanı REST API](https://docs.microsoft.com/rest/api/sql/) ve [Azure PowerShell cmdlet'lerini](https://docs.microsoft.com/powershell/azure/overview). Bu API'ler, kaynak gruplarının kullanımı gerektirir ve rol tabanlı güvenlik (RBAC) desteği. Uygulama erişim rolleri hakkında daha fazla bilgi için bkz. [Azure rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: SQL veritabanı yük devretme ile tek veritabanları ve elastik havuzları yönetme
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 | Cmdlet | Açıklama |
 | --- | --- |

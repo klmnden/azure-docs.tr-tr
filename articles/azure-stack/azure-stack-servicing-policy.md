@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0f1eac5b8052d1b96576699d12fc2c6ccd5a5724
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: b358609526c61b5acab83c02bdedd8cc06721425
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960811"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536495"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack hizmet İlkesi
 
@@ -52,10 +52,11 @@ Microsoft, yazılım güncelleştirme paketleri aylık temposu serbest bırakmak
 Planlama ve güncelleştirmeleri yönetme ve geçerli sürümünüzde belirleme belgelere [yönetme genel bakış güncelleştirmeleri](azure-stack-updates.md).
 
 Belirli bir güncelleştirme hakkında daha fazla bilgi için indirin, güncelleştirme sürüm notları için bkz dahil olmak üzere:
-- [Azure Stack 1901 güncelleştirme](azure-stack-update-1901.md) (bkz [önemli yapı Not](azure-stack-update-1901.md#build-reference).)
+
+- [Azure Stack 1902 güncelleştirme](azure-stack-update-1902.md)
+- [Azure Stack 1901 güncelleştirme](azure-stack-update-1901.md)
 - [Azure Stack 1811 güncelleştirme](azure-stack-update-1811.md)
 - [Azure Stack 1809 güncelleştirme](azure-stack-update-1809.md)
-- [Azure Stack 1808 güncelleştirme](azure-stack-update-1808.md)
 
 ## <a name="hotfixes"></a>Düzeltmeler
 

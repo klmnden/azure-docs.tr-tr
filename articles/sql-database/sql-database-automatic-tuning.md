@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b13becf8530f478a5e58b46a1b422593051c95cf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 03/06/2019
+ms.openlocfilehash: e872c29712c3fadca676ec87870bcc5c4eb58565
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478177"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727408"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL veritabanı'nda otomatik ayarlama
 
@@ -66,11 +66,13 @@ Otomatik ayarlama works genel bir bakış ve tipik kullanım senaryoları için 
 
 Azure SQL veritabanı'nda kullanılabilir otomatik ayarlama seçeneklerini şunlardır:
 
- 1. **CREATE INDEX** -İş yükünüzün performansını artırabilir, dizinler oluşturan ve sorguların performansını iyileştirildiğini otomatik olarak doğrular dizinleri tanımlar.
- 2. **DROP INDEX** -yedekli ve yinelenen dizinleri benzersiz ve uzun süre kullanılmamış dizinleri hariç olmak üzere günlük olarak tanımlar. (> 90 gün). Lütfen şu anda seçeneği bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu olmadığını unutmayın.
- 3. **SON iyi planı ZORLA** -önceki iyi planı yavaştır ve azaltılmış planı yerine bilinen son iyi planı kullanan sorgular yürütme planını kullanarak SQL sorguları tanımlar.
+| Otomatik ayarlama seçeneği | Tek veritabanı ve havuza veritabanı desteği | Örnek veritabanı desteği |
+| :----------------------------- | ----- | ----- |
+| **CREATE INDEX** -İş yükünüzün performansını artırabilir, dizinler oluşturan ve sorguların performansını iyileştirildiğini otomatik olarak doğrular dizinleri tanımlar. | Evet | Hayır | 
+| **DROP INDEX** -yedekli ve yinelenen dizinleri benzersiz ve uzun süre kullanılmamış dizinleri hariç olmak üzere günlük olarak tanımlar. (> 90 gün). Lütfen şu anda seçeneği bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu olmadığını unutmayın. | Evet | Hayır |
+| **SON iyi planı ZORLA** - önceki iyi planı yavaştır ve azaltılmış planı yerine bilinen son iyi planı kullanan sorgular yürütme planını kullanarak tanımlayan SQL sorguları. | Evet | Evet |
 
-Otomatik ayarlama tanımlayan **CREATE INDEX**, **DROP INDEX**, ve **ZORLA son iyi planı** veritabanınızın performansı iyileştirebilir ve bunları gösterir önerileri [Azure portalında](sql-database-advisor-portal.md)ve bunları üzerinden kullanıma sunan [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) ve [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+Otomatik ayarlama tanımlayan **CREATE INDEX**, **DROP INDEX**, ve **ZORLA son iyi planı** veritabanınızın performansı iyileştirebilir ve bunları gösterir önerileri [Azure portalında](sql-database-advisor-portal.md)ve bunları üzerinden kullanıma sunan [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) ve [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). 
 
 Ya da portalı kullanarak ayar önerileri el ile uygulayabilirsiniz veya otomatik olarak çalışabilen uygulamak için ayar önerileri ayarlama sağlayabilirsiniz. Otonom olarak ayarlama önerileri için geçerli sistem izin vererek avantajları olduğundan, otomatik olarak var. doğrulama iş yükü performansına olumlu bir kazancı var ve algılanan hiçbir önemli bir performans geliştirmesi ise çalışır otomatik ayarlama önerileri geri al. Sıklıkla yürütülen değil önerilerinde tarafından etkilenen sorgular olması durumunda, en fazla 72 doğrulama aşamasını alabileceğine Lütfen dikkat edin. Tasarım saat. El ile ayarlama uyguladığınızı durumunda öneriler, otomatik performans doğrulama ve ters mekanizmaları kullanılamaz.
 

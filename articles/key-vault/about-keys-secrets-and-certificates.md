@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: dccd685c240d6e007486be6a4f73e0fce0129a82
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: cb18b9063599520ccc6caec44053dc9780969f74
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405241"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532346"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 
@@ -39,7 +39,7 @@ Aşağıdaki bölümlerde, Key Vault hizmeti, uygulama ilgili genel bilgiler sun
 
 JavaScript nesne gösterimi (JSON) ve JavaScript nesne imzalama ve şifreleme (JOSE) belirtimleri önemli bilgiler var.  
 
--   [JSON Web anahtarı (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [JSON Web anahtarı (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JSON Web algoritmalar (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [JSON Web imza (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
@@ -166,7 +166,7 @@ Key Vault, dışa aktarma işlemleri desteklemez. Bir anahtar sistemde sağland�
 
 Kullanıcılar, herhangi bir Key Vault JWK key_ops özelliğini kullanarak anahtarı başına temelinde desteklediği şifreleme işlemleri kısıtlayabilir.  
 
-JWK nesneleri hakkında daha fazla bilgi için bkz. [JSON Web anahtarı (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+JWK nesneleri hakkında daha fazla bilgi için bkz. [JSON Web anahtarı (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
 
 ###  <a name="key-attributes"></a>Anahtar öznitelikleri
 
@@ -189,7 +189,7 @@ Not henüz geçerli ve anahtarlar, dış süresi *nbf* / *exp* penceresinde içi
 
 Veri türleri hakkında daha fazla bilgi için bkz. [veri türleri](#data-types).
 
-Diğer olası öznitelikleri hakkında daha fazla bilgi için bkz. [JSON Web anahtarı (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+Diğer olası öznitelikleri hakkında daha fazla bilgi için bkz. [JSON Web anahtarı (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
 ### <a name="key-tags"></a>Anahtarını etiketleri
 

@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: bdbb9d7c8b129642616a934dcc3d226434e69a03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 0779ca2083691949821999322a3d732aed7b2694
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558983"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760776"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure işlevleri için Zamanlayıcı tetikleyicisi 
 
@@ -50,13 +50,13 @@ Dile özgü örneğe bakın:
 
 ### <a name="c-example"></a>C# örneği
 
-Aşağıdaki örnekte gösterildiği bir [ C# işlevi](functions-dotnet-class-library.md) , yürütüldüğünde dakikanız bir bölünebilen her zaman ile beş (örn işlevi 18:57: 00'da başlar, sonraki performans 19:00: 00'da olacaktır):
+Aşağıdaki örnekte gösterildiği bir [ C# işlevi](functions-dotnet-class-library.md) , yürütüldüğünde dakikanız bir bölünebilen her zaman ile beş (örn işlevi 18:57: 00'da başlar, sonraki performans 19:00: 00'da olacaktır). [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) Nesne işleve geçirilir.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -66,7 +66,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>C# betiği örneği
 
-Aşağıdaki örnek, bir zamanlayıcı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanan. İşlev, bu işlev çağrısını bir eksik zamanlama yinelenme nedeniyle olup olmadığını belirten bir günlüğe yazar.
+Aşağıdaki örnek, bir zamanlayıcı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanan. İşlev, bu işlev çağrısını bir eksik zamanlama yinelenme nedeniyle olup olmadığını belirten bir günlüğe yazar. [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) Nesne işleve geçirilir.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -84,7 +84,7 @@ C# betik kodunu şu şekildedir:
 ```csharp
 public static void Run(TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -94,7 +94,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>F#Örnek
 
-Aşağıdaki örnek, bir zamanlayıcı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [ F# betik işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlev, bu işlev çağrısını bir eksik zamanlama yinelenme nedeniyle olup olmadığını belirten bir günlüğe yazar.
+Aşağıdaki örnek, bir zamanlayıcı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [ F# betik işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlev, bu işlev çağrısını bir eksik zamanlama yinelenme nedeniyle olup olmadığını belirten bir günlüğe yazar. [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) Nesne işleve geçirilir.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -119,7 +119,7 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
 
 ### <a name="javascript-example"></a>JavaScript örneği
 
-Aşağıdaki örnek, bir zamanlayıcı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlev, bu işlev çağrısını bir eksik zamanlama yinelenme nedeniyle olup olmadığını belirten bir günlüğe yazar.
+Aşağıdaki örnek, bir zamanlayıcı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlev, bu işlev çağrısını bir eksik zamanlama yinelenme nedeniyle olup olmadığını belirten bir günlüğe yazar. A [Zamanlayıcı nesne](#usage) işleve geçirilir.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -138,7 +138,7 @@ JavaScript kod aşağıdaki gibidir:
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if(myTimer.isPastDue)
+    if (myTimer.IsPastDue)
     {
         context.log('Node is running late!');
     }
@@ -201,7 +201,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 ## <a name="usage"></a>Kullanım
 
-Bir zamanlayıcı tetikleyicisi işlevi çağrıldığında [Zamanlayıcı nesne](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) işleve geçirilir. Aşağıdaki JSON bir zamanlayıcı nesne örneği gösterimidir. 
+Bir zamanlayıcı tetikleyicisi işlevi çağrıldığında Zamanlayıcı nesne işleve geçirilir. Aşağıdaki JSON bir zamanlayıcı nesne örneği gösterimidir.
 
 ```json
 {
@@ -226,7 +226,7 @@ Azure işlevleri kullanan [NCronTab](https://github.com/atifaziz/NCrontab) sıra
 
 Her bir alan, şu tür değerlerden biri olabilir:
 
-|Tür  |Örnek  |Tetiklendiğinde  |
+|Type  |Örnek  |Tetiklendiğinde  |
 |---------|---------|---------|
 |Belirli bir değer |<nobr>"0 5 * * * *"</nobr>|hh:05:00 hh olduğu her saat (saatte bir)|
 |Tüm değerleri (`*`)|<nobr>"0 * 5 * * *"</nobr>|5:mm adresindeki: her gün 00 mm (60 günde kez) saat, dakika başı olduğu|
@@ -277,7 +277,7 @@ Veya adlı işlev uygulamanız için bir uygulama ayarı oluşturmak `WEBSITE_TI
 
 Kullanırken `WEBSITE_TIME_ZONE`, zaman, gün ışığından yararlanma saatine gibi belirli saat dilimi zaman değişiklikler için ayarlanır. 
 
-## <a name="timespan"></a>Zaman aralığı
+## <a name="timespan"></a>TimeSpan
 
  A `TimeSpan` bir App Service planı üzerinde çalıştırılan bir işlev uygulaması için kullanılabilir.
 

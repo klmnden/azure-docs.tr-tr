@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 03/5/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdbde6eda2bd532b1a26a58e4ca82c9b5fab4e6c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2598bb4deef0c7dae9f5df558ec1054ad02fb2f7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188605"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531122"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>OAuth 2.0 kodu verme akışı kullanarak Azure Active Directory web uygulamalarına erişim yetkisi verme
 
@@ -145,7 +145,7 @@ grant_type=authorization_code
 | client_id |gerekli |Azure AD ile kaydettiğinizde, uygulamanıza atanan uygulama kimliği. Bunu Azure portalında bulabilirsiniz. Uygulama Kimliği uygulama kaydını ayarlarında görüntülenir. |
 | grant_type değeri |gerekli |Olmalıdır `authorization_code` yetkilendirme kod akışı için. |
 | kod |gerekli |`authorization_code` Önceki bölümde aldığınız |
-| redirect_uri |gerekli |Aynı `redirect_uri` almak için kullanılan değer `authorization_code`. |
+| redirect_uri |gerekli | A `redirect_uri`istemci uygulamasında kayıtlı. |
 | client_secret |Genel istemciler için izin verilmiyor, web uygulamaları için gerekli |Azure Portal'da uygulamanızın altında oluşturduğunuz uygulama gizli anahtarı **anahtarları**. Client_secrets güvenilir bir şekilde cihazlarda depolanan olamaz çünkü yerel bir uygulamada (ortak istemci) kullanılamaz. Web uygulamaları ve web API'leri (tüm gizli istemciler) sahip depolama yeteneği için gerekli olan `client_secret` sunucu tarafında güvenli bir şekilde. Client_secret gönderilmeden önce URL kodlamalı olmalıdır. |
 | kaynak | Önerilen |Hedef web API (kaynak güvenli) uygulama kimliği URI'si. Uygulama Kimliği URI'si, Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklayın **uygulama kayıtları**, uygulamanın açın **ayarları** sayfasında ve 'ıtıklatın. **Özellikleri**. Gibi bir dış kaynağa olabilir `https://graph.microsoft.com`. Bu, yetkilendirme veya belirteç isteklerini birinde gereklidir. Daha az kimlik doğrulaması sağlamak için istemleri onay kullanıcıdan alınan emin olmak için yetkilendirme isteği yerleştirin. Yetkilendirme isteği hem de kaynak belirteci isteği ise ' parametreleri eşleşmesi gerekir. | 
 | code_verifier | isteğe bağlı | Authorization_code elde etmek için kullanılan aynı code_verifier. PKCE bir yetkilendirme kodu verme istekte kullanılan gereklidir. Daha fazla bilgi için [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |

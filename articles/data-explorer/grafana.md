@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 5a9684605de9af1cd9006810d595ae846db01661
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 141859d155383b01cfea998c6b7158848517eac2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975161"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531961"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Grafana Azure veri Gezgini'nde verileri görselleştirin
 
@@ -23,11 +23,11 @@ Grafana, sorgu ve veri görselleştirme, ardından oluşturup görselleştirmele
 
 Bu nasıl tamamlamak için şunlara ihtiyacınız vardır:
 
-* [Grafana sürüm 5.3.0 veya sonraki](http://docs.grafana.org/installation/) işletim sisteminiz için
+* [Grafana sürüm 5.3.0 veya sonraki](https://docs.grafana.org/installation/) işletim sisteminiz için
 
 * [Azure Veri Gezgini eklentisini](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) Grafana için
 
-* StormEvents örnek veriler içeren bir kümesi. Daha fazla bilgi için [hızlı başlangıç: bir Azure Veri Gezgini kümesi ile veritabanı oluşturma](create-cluster-database-portal.md) ve [örnek verileri Azure veri Gezgini'ne alma](ingest-sample-data.md).
+* StormEvents örnek veriler içeren bir kümesi. Daha fazla bilgi için [hızlı başlangıç: Bir Azure Veri Gezgini kümesi ile veritabanı oluşturma](create-cluster-database-portal.md) ve [örnek verileri Azure veri Gezgini'ne alma](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
@@ -51,7 +51,7 @@ Hizmet sorumlusu oluşturabilirsiniz [Azure portalında](#azure-portal) veya bu 
 
     1. İçinde [uygulamanızı bir role atama](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) bölümünde, bir rol atamak **okuyucu** Azure Veri Gezgini kümenize.
 
-    1. İçinde [oturum açma için değerleri alma](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) bölümünde, adımları ele üç özellik değerleri kopyalayın: **dizin kimliği** (Kiracı kimliği), **uygulama kimliği**, ve  **Parola**.
+    1. İçinde [oturum açma için değerleri alma](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) bölümünde, adımları ele üç özellik değerleri kopyalayın: **Dizin kimliği** (Kiracı kimliği), **uygulama kimliği**, ve **parola**.
 
 1. Azure portalında **abonelikleri** sonra hizmet sorumlusu oluşturduğunuz abonelik kimliği kopyalayın.
 
@@ -152,7 +152,7 @@ Atanan hizmet sorumlusu ile *görüntüleyiciler* artık rol özellikleri Grafan
 
     ![Bağlantı özellikleri](media/grafana/connection-properties.png)
 
-    | Grafana kullanıcı Arabirimi | Azure portal | Azure CLI |
+    | Grafana UI | Azure portal | Azure CLI |
     | --- | --- | --- |
     | Abonelik Kimliği | ABONELİK KİMLİĞİ | SubscriptionId |
     | Kiracı Kimliği | Dizin Kimliği | kiracı |
@@ -211,4 +211,4 @@ Azure Veri Gezgini, Grafana için veri kaynağı olarak yapılandırma bitirdikt
 
 [Azure Veri Gezgini için sorgu yazma](write-queries.md)
 
-[Öğretici: Power BI Azure veri Gezgini'nde verileri görselleştirin](visualize-power-bi.md)
+[Öğretici: Azure Power BI veri Gezgini'nde verileri görselleştirin](visualize-power-bi.md)

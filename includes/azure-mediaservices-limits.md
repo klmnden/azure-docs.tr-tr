@@ -4,57 +4,57 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 9cd5a63b5b1d7000605f90752be755356d40bb4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e7243c1f0c0bc26b2e77a060b5def6e204835235
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56213245"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554231"
 ---
 >[!NOTE]
->Sabitlenmemiş kaynaklar için bir destek bileti açarak kotaların yükseltilmesini isteyebilirsiniz. Daha yüksek sınırlar elde etmek için başka Azure Media Services hesapları **oluşturmayın**.
+>Sabit olmayan kaynaklar için kotalar bir artış istemek için bir destek bileti açın. Daha yüksek sınırlar elde etmek için ek Azure Media Services hesapları oluşturmayın.
 
-| Kaynak | Varsayılan Sınır | 
+| Kaynak | Varsayılan limit | 
 | --- | --- | 
-| Tek bir abonelikte Azure Media Services (AMS) hesabı sayısı | 25 (sabit) |
-| AMS hesabı başına Medya Ayrılmış Birimleri (RU’lar) |25 (S1)<br/>10 (S2, S3) <sup>(1)</sup> | 
-| AMS hesabı başına iş sayısı | 50,000<sup>(2)</sup> |
+| Tek bir abonelikte Azure Media Services hesapları | 25 (sabit) |
+| Medya ayrılmış birimleri Media Services hesabı başına |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
+| Media Services hesabı başına iş | 50.000<sup>2</sup> |
 | İş başına zincirleme görev sayısı | 30 (sabit) |
-| AMS hesabı başına varlık sayısı | 1.000.000|
+| Media Services hesabı başına varlık sayısı | 1.000.000|
 | Görev başına varlık sayısı | 50 |
 | İş başına varlık sayısı | 100 |
-| Tek seferde bir varlıkla ilişkilendirilen benzersiz bulucu sayısı | 5<sup>(4)</sup> |
-| AMS hesabı başına canlı kanal sayısı |5|
+| Tek seferde bir varlıkla ilişkilendirilen benzersiz bulucu sayısı | 5<sup>4</sup> |
+| Media Services hesabı başına Canlı kanal sayısı |5|
 | Kanal başına durdurulmuş durumdaki program sayısı |50|
 | Kanal başına çalışır durumdaki program sayısı |3|
-| Akış uç noktaları (durduruldu veya çalışıyor) Media Services hesabı başına|2|
+| Media Services hesabı çalışan ya da akış durdurulur uç noktaları|2|
 | Akış uç noktası başına akış birimleri |10 |
-| Depolama hesapları | 1,000<sup>(5)</sup> (sabit) |
-| İlkeler | 1,000,000<sup>(6)</sup> |
+| Depolama hesapları | 1.000<sup>5</sup> (sabit) |
+| İlkeler | 1.000.000<sup>6</sup> |
 | Dosya boyutu| Bazı senaryolarda, Media Services ile işleme için desteklenen en büyük dosya boyutu sınırı yoktur. <sup>7</sup> |
-  
-<sup>1</sup> türünden (örneğin, S2'den S1) değiştirirseniz, en fazla RU sınırları sıfırlanır.
 
-<sup>2</sup> Bu sayı kuyruğa alınan, tamamlanan, etkin ve iptal edilmiş işleri içerir. Silinmiş işleri içermez. **IJob.Delete** veya **DELETE** HTTP isteğini kullanarak eski işleri silebilirsiniz.
+<sup>1</sup>türünü değiştirirseniz, örneğin, S1, S2'den en fazla ayrılmış birim sınırları sıfırlanır.
 
-Toplam kayıt sayısı üst kota sınırının altında olsa bile, 1 Nisan 2017 itibarıyla, hesabınızdaki 90 günden eski olan tüm iş kayıtları otomatik olarak, ilişkili görev kayıtlarıyla birlikte silinecek. İş/görev bilgilerini arşivlemeniz gerekiyorsa, [burada](../articles/media-services/previous/media-services-dotnet-manage-entities.md) açıklanan kodu kullanabilirsiniz.
+<sup>2</sup>bu sayı, sıraya alınan, tamamlanan, etkin ve iptal edilmiş işleri içerir. Bu, silinmiş işleri içermez. Kullanarak eski işleri silebilirsiniz **Ijob.Delete** veya **Sil** HTTP isteği.
 
-<sup>3</sup> istek varlıklar listesine işi yaparken, istek başına en fazla 1.000 işleri döndürülür. Gönderilen tüm işleri izlemeniz gerekiyorsa, [OData sorgu seçeneklerinde](https://msdn.microsoft.com/library/gg309461.aspx) açıklandığı gibi üste/atla seçeneğini kullanabilirsiniz.
+1 Nisan 2017 itibarıyla, hesabınızdaki 90 günden eski olan tüm iş kayıtları otomatik olarak kendi ilişkili görev kayıtlarıyla birlikte silinir. Toplam kayıt sayısı üst kota sınırının altında olsa bile, otomatik silme işlemi gerçekleşir. İş ve görev bilgilerini arşivlemeniz için açıklanan kodu kullanın [Media Services .NET SDK'sı ile varlıkları yönetme](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>4</sup> Bulucular kullanıcı başına erişim denetimini yönetmek için tasarlanmamıştır. Ayrı kullanıcılara farklı erişim hakları vermek için Digital Rights Management (DRM) çözümlerini kullanın. Daha fazla bilgi için [bu](../articles/media-services/previous/media-services-content-protection-overview.md) bölüme bakın.
+<sup>3</sup>listesi iş varlıklarına isteğinde bulunduğunda, istek başına en fazla 1.000 işleri döndürülür. Gönderilen tüm işleri izlemek, üst kullanın veya sorguları açıklandığı atlamak için [OData sorgu seçeneklerinde](https://msdn.microsoft.com/library/gg309461.aspx).
 
-<sup>5</sup> Depolama hesapları aynı Azure aboneliğine ait olmalıdır.
+<sup>4</sup>bulucular kullanıcı başına erişim denetimini yönetmek için tasarlanan değildir. Bireysel kullanıcılara farklı erişim hakları vermek için digital rights management (DRM) çözümleri kullanın. Daha fazla bilgi için [Azure Media Services ile içeriğinizi korumanıza](../articles/media-services/previous/media-services-content-protection-overview.md).
 
-<sup>6</sup> Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu politikası veya ContentKeyAuthorizationPolicy için). 
+<sup>5</sup>depolama hesapları aynı Azure aboneliğine ait olmalıdır.
+
+<sup>6</sup>1.000.000 ilkeleri farklı Media Services ilkeleri için sınır yoktur. Örnek, Bulucu İlkesi veya ContentKeyAuthorizationPolicy için verilebilir. 
 
 >[!NOTE]
-> Kullandığınız günler / erişim izinleri / vb. her zaman aynıysa, aynı ilke kimliğini kullanmanız gerekir. Bilgi ve bir örnek için [bu](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies) bölüme bakın.
+> Her zaman aynı günleri kullanıyorsanız ve erişim izinleri, aynı ilke kimliğini kullanın. Bilgi ve örnek için bkz. [Media Services .NET SDK'sı ile varlıkları yönetme](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
 
-<sup>7</sup>hizmetinde medya işlemcileri biriyle işlemek için Azure Media Services içindeki bir varlığa içerik yüklüyorsunuz varsa (diğer bir deyişle, Media Encoder Standard ve Media Encoder Premium iş akışı veya Analiz motorları gibi kodlayıcılar yüz algılayıcısı ister), Ardından, desteklenen en büyük dosya boyutu kısıtlamalar farkında olmalısınız. 
+<sup>7</sup>hizmetinde medya işlemcileri biriyle işlemek için Media Services içindeki bir varlığa içeriği karşıya yükleme, desteklenen en büyük dosya boyutu unutmayın. Media Encoder Standard gibi kodlayıcılar ve Media Encoder Premium iş akışı veya Analiz motorları Face Detector gibi varlıkları içerir.
 
-Tek bir blob için desteklenen en büyük boyutu şu anda Azure Blob Depolama'da 5 TB ' dir. Ancak, Azure Media Services'ın hizmet tarafından kullanılan VM boyutlarına göre ek sınırlar geçerlidir. Aşağıdaki tablo her medya ayrılmış birimleri (S1, S2, S3) sınırları gösterir Kaynak dosyanız tabloda tanımlanan sınırları daha büyükse, kodlama işi başarısız olur. Uzun süreli 4 K çözümlemesi kaynakları Kodladığınız S3 medya ayrılmış birimi gerekli performansı elde etmek üzere kullanmak için gereklidir. S3 medya ayrılmış birimi 260 GB sınırına değerinden daha büyük 4 K içerik varsa, adresinden bize başvurun amshelp@microsoft.com senaryonuz desteklemek potansiyel risk azaltma işlemleri için.
+Tek bir blob için desteklenen en büyük boyutu şu anda Azure Blob Depolama'da 5 TB ' dir. Media Services'ın hizmet tarafından kullanılan VM boyutlarına göre ek sınırlar geçerlidir. Aşağıdaki tabloda, medya ayrılmış birimleri S1, S2 ve S3 sınırları gösterilir. Kaynak dosyanız tabloda tanımlanan sınırları daha büyükse, kodlama işi başarısız olur. 4 K çözümlemesi kaynakları uzun süreli kodlayın, gerekli performansı elde etmek üzere S3 medya ayrılmış birimi kullanmak için gerekli. S3 medya ayrılmış birimi üzerindeki 260 GB sınırdan daha büyük olan 4 K içerik varsa, adresinden bize başvurun amshelp@microsoft.com senaryonuz desteklemek potansiyel risk azaltma işlemleri için.
 
-| Medya Ayrılmış Birimi türü | En büyük giriş boyutu (GB)| 
+| Medya ayrılmış birimi türü | En büyük giriş boyutu (GB)| 
 | --- | --- | 
 |S1 | 325|
 |S2 | 640|

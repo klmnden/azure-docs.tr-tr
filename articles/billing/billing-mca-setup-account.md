@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 3cd1bbf1852c440172913467c5c8523c520cac2f
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 389a8ac729cf5f4f95aa37654434245d08ecc87e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337524"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533638"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için fatura hesabınızı ayarlama
 
@@ -136,7 +136,7 @@ Aşağıdaki bölümlerde, fatura hesabınızı ayarlama hakkında ek bilgi sağ
 
 ### <a name="no-service-downtime"></a>Hizmet kapalı kalma süresi olmadan
 
-Azure Hizmetleri, aboneliğinizdeki herhangi bir kesinti olmadan çalışmaya devam. Biz yalnızca Azure Abonelikleriniz için fatura ilişkiyi geçiş. Var olan kaynakları, kaynak grubu veya Yönetim grupları bir etki olmayacak.
+Aboneliğinizdeki Azure hizmetleri kesintisiz olarak çalışmaya devam eder. Yalnızca Azure aboneliklerinizin faturalama ilişkisini geçiririz. Mevcut kaynaklar, kaynak grupları veya yönetim grupları üzerinde herhangi bir etki söz konusu olmayacaktır.
 
 ### <a name="user-access-to-azure-resources"></a>Azure kaynaklarına kullanıcının erişimi
 
@@ -144,7 +144,7 @@ Azure RBAC (rol tabanlı erişim denetimi) ile ayarlanmış olan Azure kaynaklar
 
 ### <a name="azure-reservations"></a>Azure Rezervasyonlar
 
-Kurumsal Anlaşma kaydınıza içinde Azure rezervasyon yeni fatura hesabınıza taşınır. Geçiş sırasında aboneliklerinize uygulanmakta olan ayırma indirimleri herhangi bir değişiklik olmayacak.
+Kurumsal Anlaşma kaydınıza içinde Azure rezervasyon yeni fatura hesabınıza taşınır. Geçiş sırasında, aboneliklerinizde uygulanan rezervasyon indirimlerinde herhangi bir değişiklik olmaz.
 
 ### <a name="azure-marketplace-products"></a>Azure Market ürünleri
 
@@ -203,7 +203,7 @@ Kurulumu tamamlamak için yeni bir faturalama hesabı ve Kurumsal Anlaşma kayd�
 
 ### <a name="azure-subscriptions"></a>Azure abonelikleri
 
-1. [Azure Portal](http://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
 2. Arama **maliyet Yönetimi + faturalandırma**.
 
@@ -219,7 +219,7 @@ Kurumsal Anlaşma kaydınıza yeni fatura hesabınıza geçişi yapılır azure 
 
 ### <a name="azure-reservations"></a>Azure Rezervasyonlar
 
-1. [Azure Portal](http://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
 2. Arama **maliyet Yönetimi + faturalandırma**.
 
@@ -239,7 +239,7 @@ Kurumsal Anlaşma kaydınıza yeni fatura hesabınıza taşınır azure ayırmal
 
 ### <a name="access-of-enterprise-administrators-on-the-billing-profile"></a>Kurumsal Yöneticiler fatura profilindeki erişim
 
-1. [Azure Portal](http://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
 2. Arama **maliyet Yönetimi + faturalandırma**.
 
@@ -255,7 +255,7 @@ Kurumsal Yöneticiler, profil okuyucular Fatura olarak profili sahipleri salt ok
 
 ### <a name="access-of-enterprise-administrators-department-administrators-and-account-owners-on-invoice-sections"></a>Kuruluş Yöneticileri, departman yöneticilerinin ve fatura bölümlerde hesap sahipleri erişim
 
-1. [Azure Portal](http://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
 2. Arama **maliyet Yönetimi + faturalandırma**.
 

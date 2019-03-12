@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 073d1b54b1c6da2b1178f482d17b4de7abcc8a51
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: a7976c0798bd78fd51632d3025147526a645b041
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888932"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528805"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir olay hub'ı oluşturma
 Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Olay Hub’larının ayrıntılı genel bakışı için bkz. [Olay Hub’larına genel bakış](event-hubs-about.md) ve [Olay Hub’ları özellikleri](event-hubs-features.md).
@@ -60,7 +60,7 @@ Event Hubs ad alanı, tam etki alanı adının başvurduğu, içinde bir veya da
    ![Araç çubuğu düğmesi ekleme](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Üzerinde **ad alanı oluşturma** sayfasında, aşağıdaki adımları uygulayın:
     1. Ad alanı için bir ad girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
-    2. Shoose fiyatlandırma katmanını (temel veya standart).
+    2. Fiyatlandırma katmanını (temel veya standart) seçin.
     3. Seçin **abonelik** ad alanı oluşturmak istediğiniz.
     4. Seçin bir **konumu** ad alanı.
     5. **Oluştur**’u seçin. Sistemin kaynakları tam olarak sağlaması için birkaç dakika beklemeniz gerekebilir.

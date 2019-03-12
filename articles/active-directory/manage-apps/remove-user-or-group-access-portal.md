@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c622b95572a078d3f5a3e4791f959fd264eddc3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4aac24072bcebb0095c12cee1cfa21cfb9868dc5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182179"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548601"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atamasını kaldırma
 Erişim için Kurumsal uygulamalarınızı Azure Active Directory'de (Azure AD) birini atanmasını bir kullanıcıyı veya grubu kaldırmak kolay bir işlemdir. Kurumsal uygulamasını yönetmek için uygun izinlere sahip olmalıdır ve dizin için genel yönetici olması gerekir.
@@ -51,7 +51,7 @@ Erişim için Kurumsal uygulamalarınızı Azure Active Directory'de (Azure AD) 
     > AzureAD modülüne yüklemeniz gerekir (komutunu `Install-Module -Name AzureAD`). Bir NuGet modül veya yeni Azure Active Directory V2 PowerShell modülünü yüklemeniz istenirse, Y yazın ve ENTER tuşuna basın.
 
 2. Çalıştırma `Connect-AzureAD` ve bir genel yönetici kullanıcı hesabıyla oturum açın.
-3. Uygulamaya kullanıcı ve rol atamak için aşağıdaki betiği kullanın:
+3. Bir uygulamaya ait bir kullanıcı ve rol kaldırmak için aşağıdaki betiği kullanın:
 
     ```powershell
     # Store the proper parameters

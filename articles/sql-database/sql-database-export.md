@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: ce5635c97d91514f3fca63162f5356cdf89a7ca6
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/11/2019
+ms.openlocfilehash: 27a65a871264fa13a42acfb5be2d4b5f99d31adc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307488"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57758701"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL veritabanını BACPAC dosyasına dışarı aktarma
 
@@ -28,6 +28,7 @@ Arşivleme veya başka bir platformuna geçmek için bir veritabanı dışarı a
 - Bir verme işlemsel olarak tutarlı olmasını ya da yazma olmayan emin olmanız gerekir etkinlik dışarı aktarma sırasında gerçekleşen veya dışarı aktarma bir [işlemsel olarak tutarlı bir kopyası](sql-database-copy.md) Azure SQL veritabanınızın.
 - Blob depolama alanına dışa aktarıyorsanız, bir BACPAC dosyasının en büyük boyutu 200 GB'dir. Daha büyük bir BACPAC dosyasına arşivleme için yerel depolama birimine dışarı aktarın.
 - Bu makalede bahsedilen yöntemler kullanarak Azure premium depolama için bir BACPAC dosyasına dışarı aktarma desteklenmiyor.
+- Bir güvenlik duvarının arkasındaki depolama şu anda desteklenmiyor.
 - Azure SQL veritabanı'ndan dışarı aktarma işlemi 20 saat aşarsa, iptal edilebilir. Dışarı aktarma sırasında performansı artırmak için şunları yapabilirsiniz:
 
   - Geçici olarak, işlem boyutunu artırın.

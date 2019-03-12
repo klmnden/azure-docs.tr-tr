@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb5a06aa4eb21ba374344623f9f96ce92a59ff5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39f3f0954a271f3abd30e99e306ebfc940e20a7f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168826"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547818"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir oturum açma raporunu indirin
 
-Bu hızlı başlangıçta, son 24 saat boyunca kiracınız için oturum açma verilerinin nasıl indirileceğini öğreneceksiniz. En fazla 5000 kayıtlarını Azure portalından indirebilirsiniz. Kayıtları çoğu tarafından sıralanır varsayılan olarak, en son 5000 kayıt alabilmeniz son. 
+Bu hızlı başlangıçta, son 24 saat boyunca kiracınız için oturum açma verilerinin nasıl indirileceğini öğreneceksiniz. En fazla 250.000 kayıtlarını Azure portalından indirebilirsiniz. Kayıtları çoğu tarafından sıralanır varsayılan olarak, en son 250.000 kayıtları almak için son. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -41,7 +41,7 @@ Gerekenler:
 2. Sol gezinti bölmesinden **Azure Active Directory**’yi seçin ve **Dizini değiştir** düğmesini kullanarak etkin dizininizi seçin.
 3. Panodan **Azure Active Directory**’yi ve sonra **Oturum açma işlemleri**’ni seçin. 
 4. **Tarih** filtre açılır listesinden **son 24 saat**’i seçin ve sonra **Uygula**’yı seçerek son 24 saatteki oturum açma işlemlerini görüntüleyin. 
-5. **İndir** düğmesini seçerek, filtrelenen kayıtları içeren bir CSV dosyasını indirin. 
+5. Seçin **indirme** düğmesini seçme **CSV** dosyası olarak biçimlendirmek ve filtrelenen kayıtlar içeren bir CSV dosyasını indirmek için bir dosya adı belirtin. 
 
 ![Raporlama](./media/quickstart-download-sign-in-report/download-sign-ins.png)
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 28796c753e32a3c3b18052190618152c7669c93d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6bb37008b6a8b37e575dcf83dffcf57ab08996fd
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437080"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540003"
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -439,7 +439,7 @@ Bu bölümde, taşıma ağ geçidi istemci için başka bir makineye adımları 
 ## <a name="encrypting-credentials"></a>Kimlik bilgilerini şifreleme
 Data Factory Düzenleyicisi'nde kimlik bilgilerini şifrelemek için aşağıdaki adımları uygulayın:
 
-1. Şirket Web tarayıcısını **ağ geçidi makinesi**, gitmek [Azure portalında](http://portal.azure.com). Gerekirse veri fabrikanızı arayın, açın data factory'de **DATA FACTORY** sayfasında ve ardından **geliştir ve Dağıt** Data Factory Düzenleyicisi'ni başlatmak için.
+1. Şirket Web tarayıcısını **ağ geçidi makinesi**, gitmek [Azure portalında](https://portal.azure.com). Gerekirse veri fabrikanızı arayın, açın data factory'de **DATA FACTORY** sayfasında ve ardından **geliştir ve Dağıt** Data Factory Düzenleyicisi'ni başlatmak için.
 2. Mevcut bir tıklayın **bağlı hizmet** JSON tanımına bakın veya bir veri yönetimi ağ geçidi gerektiren bir bağlı hizmet oluşturmak için ağaç görünümünde (örneğin: SQL Server veya Oracle).
 3. JSON Düzenleyicisi için **gatewayName** özelliği, ağ geçidinin adını girin.
 4. Sunucu adı girin **veri kaynağı** özelliğinde **connectionString**.

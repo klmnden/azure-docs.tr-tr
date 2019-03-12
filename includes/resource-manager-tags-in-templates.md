@@ -2,16 +2,16 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5e483ecfcbddfcf5aa7f8a41c1ee75136c86b656
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 104bd13a0cf97a8605670adde479c2a2eeb29c15
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440495"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57786337"
 ---
-Dağıtım sırasında bir kaynağı etiketlemek için `tags` öğesini dağıtmakta olduğunuz kaynağa ekleyin. Etiket adını ve değerini belirtin.
+Dağıtım sırasında bir kaynağı etiketlemek için ekleme `tags` dağıtmakta kaynağa öğesi. Etiket adını ve değerini belirtin.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>Etiket adına değişmez değer uygulama
 Aşağıdaki örnekte değişmez değerlere ayarlanmış iki etiketi (`Dept` ve `Environment`) olan bir depolama hesabı gösterilmektedir:
@@ -39,6 +39,8 @@ Aşağıdaki örnekte değişmez değerlere ayarlanmış iki etiketi (`Dept` ve 
     ]
 }
 ```
+
+Bir tarih saat değeri için bir etiket ayarlamak için kullanın [utcNow işlevi](../articles/azure-resource-manager/resource-group-template-functions-string.md#utcnow).
 
 ### <a name="apply-an-object-to-the-tag-element"></a>Nesne etiketine öğe uygulama
 Birkaç etiketi depolayan bir nesne parametresi tanımlayabilir ve bu nesneyi etiket öğesine uygulayabilirsiniz. Nesnedeki her özellik, kaynak için ayrı bir etiket haline gelir. Aşağıdaki örnekte etiket parametresine uygulanan `tagValues` adlı bir parametre kullanılmaktadır.
@@ -75,7 +77,7 @@ Birkaç etiketi depolayan bir nesne parametresi tanımlayabilir ve bu nesneyi et
 
 ### <a name="apply-a-json-string-to-the-tag-name"></a>Etiket adına JSON dizesi uygulama
 
-Çok sayıda değeri tek bir etikete depolamak için, değerleri temsil eden bir JSON dizesi uygulayın. Tüm JSON dizesi, 256 karakterden uzun olmayan bir etiket olarak depolanır. Aşağıdaki örnekte bir JSON dizesindeki çok sayıda değeri içeren `CostCenter` adlı tek bir etiket kullanılmaktadır:  
+Çok sayıda değeri tek bir etikete depolamak için, değerleri temsil eden bir JSON dizesi uygulayın. Tüm JSON dizesi, 256 karakterden uzun olamaz, bir etiket olarak depolanır. Aşağıdaki örnekte bir JSON dizesindeki çok sayıda değeri içeren `CostCenter` adlı tek bir etiket kullanılmaktadır:  
 
 ```json
 {

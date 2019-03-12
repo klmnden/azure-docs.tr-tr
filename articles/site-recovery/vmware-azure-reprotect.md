@@ -1,18 +1,18 @@
 ---
 title: VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma sırasında Azure Vm'lerinden şirket içi siteye yeniden koruma | Microsoft Docs
 description: Yük devretmeden sonra azure'da VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma sırasında Azure'dan şirket içi siteye yeniden çalışma hakkında bilgi edinin.
-author: rajani-janaki-ram
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/17/2018
-ms.author: rajanaki
-ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 3/12/2019
+ms.author: mayg
+ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791889"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771826"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Yeniden koruma ve bir şirket içi siteye geri makineleri, azure'a yük devredildikten sonra başarısız
 
@@ -114,7 +114,6 @@ Aşağıdaki bilgileri not edin:
 
 ## <a name="common-issues"></a>Genel sorunlar
 
-- Şu anda yalnızca VMFS veya vsan'ı bir veri deposu geri başarısız olan Site Recovery destekler. Bir NFS veri deposu desteklenmez. Bu sınırlama nedeniyle NFS veri depoları için yeniden koruma ekranında veri deposu seçimi Giriş boşsa veya vSAN veri deposu gösterir ancak işi sırasında başarısız oluyor. Yeniden çalışma yapmak istiyorsanız, şirket içi VMFS veri deposu oluşturmak ve yeniden başarısız. Bu yeniden çalışma VMDK tamamını indirmeyi neden olur.
 - Salt okunur kullanıcı vCenter bulma işlemini gerçekleştirmek ve sanal makinelerini koruma, koruma başarılı olur ve yük devretme çalışır. Veri depoları bulunamıyor çünkü yeniden koruma sırasında yük devretme başarısız olur. Veri depoları yeniden koruma sırasında listelenmeyen bir belirtisidir. Bu sorunu çözmek için izinleri olan uygun bir hesap ile vCenter kimlik bilgilerini güncelleştirin ve sonra işi yeniden deneyin. 
 - Linux sanal makinesi yeniden çalışma ve şirket içinde çalıştırın, ağ yöneticisi paketi makineden kaldırıldı görebilirsiniz. Azure'da sanal makine kurtarıldığında ağ yöneticisi paketi kaldırıldığından bu kaldırma gerçekleşir.
 - Bir Linux sanal makine Azure'a yük devretme ve statik IP adresiyle yapılandırılmış olduğunda, IP adresini DHCP alınır. Şirket içine yük devretme, sanal makinenin IP adresini almak için DHCP kullanmaya devam eder. Makinede el ile oturum açın ve ardından geri bir statik adrese gerekiyorsa IP adresini ayarlayın. Bir Windows sanal makinesi statik IP adresini yeniden elde edebilirsiniz.

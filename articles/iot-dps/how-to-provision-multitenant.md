@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 43989ff9dac7cdad76117aaa6e3c862453b24813
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865119"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544452"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Çoklu müşteri mimarisi için sağlama 
 
@@ -86,7 +86,7 @@ Bu bölümde, Kiracı cihazlar için yeni bir kayıt grubu oluşturur.
 
 Kolaylık olması için bu makalede kullanan [simetrik anahtar kanıtı](concepts-symmetric-key-attestation.md) kaydı. Daha güvenli bir çözüm için kullanmayı [X.509 sertifikası kanıtlama](concepts-security.md#x509-certificates) ile bir güven zinciri.
 
-1. Oturum [Azure portalında](http://portal.azure.com), cihaz sağlama hizmeti örneğinizi açın.
+1. Oturum [Azure portalında](https://portal.azure.com), cihaz sağlama hizmeti örneğinizi açın.
 
 2. Seçin **kayıtları Yönet** sekmesine ve ardından **kayıt grubu Ekle** sayfanın üstünde düğme. 
 

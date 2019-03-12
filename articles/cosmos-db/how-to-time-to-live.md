@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018
 ms.author: mjbrown
-ms.openlocfilehash: c9437f69bf337f79c9531a12af6ac7868261f5b1
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: a7fedf0907ecc4c8ced4c5bfe30bb30aeb8f4aca
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992446"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570904"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB'de yaşam süresi yapılandırma
 
@@ -70,6 +70,20 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     UriFactory.CreateDatabaseUri("myDatabaseName"),
     collectionDefinition,
     new RequestOptions { OfferThroughput = 20000 });
+```
+
+### <a id="nodejs-enable-withexpiry"></a>NodeJS SDK'sı
+
+```javascript
+const containerDefinition = {
+          id: "sample container1",
+        };
+
+async function createcontainerWithTTL(db: Database, containerDefinition: ContainerDefinition, collId: any, defaultTtl: number) {
+      containerDefinition.id = collId;
+      containerDefinition.defaultTtl = defaultTtl;
+      await db.containers.create(containerDefinition);
+}
 ```
 
 ## <a name="set-time-to-live-on-an-item"></a>Bir öğe yaşam süresini ayarlama
@@ -138,6 +152,19 @@ SalesOrder salesOrder = new SalesOrder
 };
 ```
 
+### <a id="nodejs-set-ttl-item"></a>NodeJS SDK'sı
+
+```javascript
+const itemDefinition = {
+          id: "doc",
+          name: "sample Item",
+          key: "value", 
+          ttl: 2
+        };
+}
+```
+
+
 ## <a name="reset-time-to-live"></a>Yaşam süresi Sıfırla
 
 Bir öğe üzerinde bir yazma gerçekleştirerek live veya güncelleştirme işlemi ' maddesinde zaman sıfırlayabilirsiniz. Yazma veya güncelleştirme işlemi ayarlayacak `_ts` geçerli saat ve TTL süresi dolacak şekilde öğe için yeniden başlar. Bir öğenin TTL değiştirmek istiyorsanız, herhangi bir alan güncelleştirirken, alanın güncelleştirebilirsiniz.
@@ -177,7 +204,7 @@ response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="disable-time-to-live"></a>Yaşam süresi devre dışı bırak
 
-Bir kapsayıcı canlı ve süresi geçmiş öğeler için denetlemesini arka plan işlemini durdurmak için zaman devre dışı bırakmak için `DefaultTimeToLive` özelliği kapsayıcı üzerindeki silinmelidir. Bu özelliği silme -1 olarak ayarlama özelliğinden farklıdır. -1 olarak ayarlarsanız, kapsayıcıya eklenen yeni öğeleri kapsayıcıdaki belirli öğeleri bu değeri geçersiz kılabilirsiniz ancak sonsuza kadar yaşayacaksa. TTL özelliğine kapsayıcıdan kaldırdığınızda olsa bile önceki varsayılan TTL değeri açıkça geçersiz öğeleri dolacak.
+Bir kapsayıcı canlı ve süresi geçmiş öğeler için denetlemesini arka plan işlemini durdurmak için zaman devre dışı bırakmak için `DefaultTimeToLive` özelliği kapsayıcı üzerindeki silinmelidir. Bu özelliği silme -1 olarak ayarlama özelliğinden farklıdır. -1 olarak ayarlarsanız, kapsayıcıya eklenen yeni öğeleri kapsayıcıdaki belirli öğeleri bu değeri geçersiz kılabilirsiniz ancak sonsuza kadar yaşayacaksa. TTL özelliğine kapsayıcıdan kaldırdığınızda olsa bile önceki varsayılan TTL değeri açıkça geçersiz öğeleri hiçbir zaman, sona erecek.
 
 ### <a id="dotnet-disable-ttl"></a>.NET SDK
 

@@ -4,14 +4,14 @@ description: Azure geçişi hizmeti ve sorun giderme ipuçları için sık karş
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: raynew
-ms.openlocfilehash: 7479f651a9fce5d65b1faf4113febb6e79c426b2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0eede0ae4623d68adf749dc528ac5cc1ce81e024
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439087"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730403"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -80,11 +80,9 @@ esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/conto
 
 4. Rapor indirme işlemi tamamlandığınızda Excel indirilen klasöre göz atın ve dosyayı görüntülemek için Excel'de açmak için kullanın.
 
-### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Sıfır olarak diskler ve ağ bağdaştırıcıları için performans verilerini gösterir
+### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>CPU, bellek ve disk için performans verilerini sıfır olarak gösteriyor
 
-VCenter sunucusundaki istatistik ayarı düzeyini küçüktür üç ayarlanırsa, bu durum oluşabilir. Düzey üç veya daha yüksek, vCenter işlem, depolama ve ağ için VM performans geçmişini saklar. VCenter küçüktür düzeyi üç için depolama ve ağ verileri, ancak yalnızca CPU ve bellek verileri depolar. Bu senaryoda, Azure Geçişi'nde performans verileri gösterildiği gibi sıfır ve Azure geçişi, diskler ve ağ şirket içi makinelerden toplanan meta verileri için boyut önerisi sağlar.
-
-Disk ve ağ performans verileri toplamayı etkinleştirmek için istatistik ayarları düzeyini 3 olarak değiştirin. Ardından, en az ortamınızı keşfedin ve onu değerlendirmek için bir gün bekleyin.
+Azure geçişi, şirket içi VM'lerin performans verilerini toplamak için şirket içi ortamı sürekli olarak profiller. Ortamınızın bulma yeni başlattıysanız, performans verileri toplama yapılacak en az bir gün beklemeniz gerekir. Değerlendirme, bir gün için beklemenize gerek kalmadan oluşturulursa performans ölçümleri sıfır olarak gösterilir. Bir gün bekledikten sonra yeni değerlendirme oluşturun veya değerlendirme raporu 'Yeniden Hesapla' seçeneğini kullanarak mevcut değerlendirme güncelleştirin.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Ben Azure coğrafyası, bir geçiş projesi olduğunu nasıl bulabilirim burada bulunan meta verileri depolanan tam Azure bölgesinde oluşturulurken belirtilen?
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 06c341da73ad8df96d5c97e1cb9da4b7fd5c804e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cc384e9f392aa88342c5b8bd97963bed6d7ee814
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820663"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533333"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Azure Data Lake depolama Gen1 hesap yönetim işlemlerini Python kullanarak
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Data Lake depolama Gen1 ile çalışmak için Python'ı kullanarak, üç modül 
 
 * `azure-mgmt-resource` modülü, Active Directory gibi şeyler için Azure modüllerini içerir.
 * `azure-mgmt-datalake-store` Modülü Azure Data Lake depolama Gen1 hesap yönetim işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [Azure Data Lake depolama Gen1 Yönetimi modül başvurusu](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* `azure-datalake-store` Modülü Azure Data Lake depolama Gen1 dosya sistemi işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [azure-datalake-store dosya sistemi modül başvurusu](http://azure-datalake-store.readthedocs.io/en/latest/).
+* `azure-datalake-store` Modülü Azure Data Lake depolama Gen1 dosya sistemi işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [azure-datalake-store dosya sistemi modül başvurusu](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Modülleri yüklemek için aşağıdaki komutları kullanın.
 
@@ -135,5 +135,5 @@ Aşağıdaki kod parçacığı ilk Data Lake depolama Gen1 hesabı istemcisini o
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Azure-datalake-store Python (dosya sistemi) başvurusu](http://azure-datalake-store.readthedocs.io/en/latest)
+* [Azure-datalake-store Python (dosya sistemi) başvurusu](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Azure Data Lake depolama Gen1 ile uyumlu açık kaynak büyük veri uygulamaları](data-lake-store-compatible-oss-other-applications.md)

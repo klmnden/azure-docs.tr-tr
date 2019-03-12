@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: a48fecd910d87af23a9385270878b0d1b6737007
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ded681b8776343a778f3e9704fe05d43e8d74774
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452547"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550540"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Bilgi Keşfetme Hizmeti'ni kullanmaya başlama
 
@@ -64,7 +64,7 @@ Varsayılan olarak, öznitelikler *equals*, *starts_with* ve *is_between* de dah
 
 ## <a name="generate-data"></a>Verileri oluşturma
 
-Veri dosyası, dizini oluşturulacak yayınlar listesini açıklar. Her satırda çalışmanın öznitelik değerleri [JSON biçiminde](http://json.org/) belirtilir.  Aşağıdaki örnek, *Academic.data* veri dosyasından okunabilir olması için biçimlendirilmiş tek bir satırdır:
+Veri dosyası, dizini oluşturulacak yayınlar listesini açıklar. Her satırda çalışmanın öznitelik değerleri [JSON biçiminde](https://json.org/) belirtilir.  Aşağıdaki örnek, *Academic.data* veri dosyasından okunabilir olması için biçimlendirilmiş tek bir satırdır:
 
 ```
 ...

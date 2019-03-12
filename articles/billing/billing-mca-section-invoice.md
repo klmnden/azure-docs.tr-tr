@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: f903f85dfafb61562698a437465f8421aaf3a3d8
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339496"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551628"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Maliyetlerinizi düzenlemek için fatura bölümler oluşturma
 
@@ -28,7 +28,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
 Olmasına gerek fatura bölüm oluşturmak için bir **fatura Profil sahibi** veya **faturalandırma profili katkıda bulunanı**. Daha fazla bilgi için [yönetmek profili faturalama, fatura bölümleri](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
-1. [Azure Portal](http://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
 2. Arama **maliyet Yönetimi + faturalandırma**.
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: ece3511d0d3c12be13a649385ea9b6dd5c75bfe0
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a6cf2276da463f71f008c4bfb6eee4c232b18308
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303719"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551713"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Nasıl bir bulut hizmeti oluşturma ve dağıtma
-Azure portalında bir bulut hizmeti oluşturma ve dağıtma iki yol sunar: *hızlı Oluştur* ve *özel Oluştur*.
+Azure portalında bir bulut hizmeti oluşturma ve dağıtma iki yol sağlar: *Hızlı oluşturma* ve *özel Oluştur*.
 
 Bu makalede yeni bir bulut hizmeti oluşturma ve sorgulama hızlı oluşturma yöntemini kullanmayı açıklar **karşıya** karşıya yükleme ve Azure'a bir bulut hizmeti paketi dağıtma. Bu yöntemi kullandığınızda, Azure portalında kullandıkça için tüm gereksinimi tamamlamada kullanılabilir bağlantılar sağlar. Oluşturduğunuzda bulut hizmetinizin dağıtmak hazırsanız özel Oluştur kullanarak aynı anda hem de yapabilirsiniz.
 
@@ -90,7 +90,7 @@ Dağıtım paketinizi olduysa [sertifikaları kullanacak şekilde yapılandırı
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
+[TFSTutorialForCloudService]: https://go.microsoft.com/fwlink/?LinkID=251796
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bulut hizmetinizin genel yapılandırma](cloud-services-how-to-configure-portal.md).

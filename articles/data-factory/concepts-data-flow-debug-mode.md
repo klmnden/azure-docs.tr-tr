@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 6bde6e74279fc16237c0c0436296e2d21c3a57c7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 82559c89094649b377dc2a898798ce6aad5fbcc7
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736626"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570496"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Eşleme veri akışı hata ayıklama modu
 
@@ -36,7 +36,7 @@ Hata ayıklama modu arasında geçiş yaptığınızda, etkileşimli Azure Datab
 >Veri akışı, hata ayıklama modunda çalışırken, verileriniz için havuz yazılmayacak dönüştürün. Bir test olarak görev yapacak bir hata ayıklama oturumu kullanılmaya > Bağlantılarınızdaki bandınız. Havuzlar, hata ayıklama sırasında gerekli değildir ve veri akışınızı yoksayılır. Verileri yazma test etmek isterseniz, >, havuz, bir Azure Data Factory işlem hattından yürütme veri akışı ve hata ayıklama yürütmeyi bir işlem hattı kullanın.
 
 ## <a name="debug-settings"></a>Hata ayıklama ayarları
-Hata ayıklama ayarları her kaynaktan veri akışı yan bölmede görünür ve ayrıca "veri akışı tasarımı araç çubuğunda ayarlar kaynağı"'i seçerek düzenlenebilir olabilir. Sınırları ve/veya kaynak dönüşümünüzü burada her biri için kullanılacak dosya kaynağı seçebilirsiniz. Hata ayıklama için kullanmak istediğiniz hangi Databricks kümesini de seçebilirsiniz.
+Hata ayıklama ayarları her kaynaktan veri akışı yan bölmede görünür ve "kaynağı ayarlarından veri akışı Tasarımcısı araç çubuğundan"'i seçerek de düzenlenebilir olabilir. Sınırları ve/veya kaynak dönüşümünüzü burada her biri için kullanılacak dosya kaynağı seçebilirsiniz. Yalnızca geçerli hata ayıklama oturumu için bu ayarı satır limitlerdir. Örnekleme ayarı kaynak satır kaynak transforamtion sınırlamak için de kullanabilirsiniz.
 
 ## <a name="cluster-status"></a>Küme durumu
 Küme hata ayıklama için hazır olduğunda, yeşile döner tasarım yüzeyinde üst küme durum göstergesi yoktur. Kümeniz zaten sıcak ise, yeşil göstergesi neredeyse anında görüntülenir. Hata ayıklama moduna girildiğinde kümeniz zaten çalışmıyorsa, kümenin dönmesi 5-7 dakika beklemeniz gerekecektir. Hazır olana kadar gösterge ışığını sarı olur. Kümenizi veri akışı hata ayıklama için hazır hale geldikten sonra gösterge ışığını yeşile döner.

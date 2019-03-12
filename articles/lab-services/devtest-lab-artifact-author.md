@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e4fd8d226ebe1cb993e11fb5c9617df3eef08bdc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098570"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532585"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs sanal makineniz için özel yapıtlar oluşturma
 
@@ -126,7 +126,7 @@ Aşağıdaki örnek, ifadeler ve İşlevler bir değer oluşturmak için nasıl 
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [DevTest Labs yapıt hatalarını tanılama](devtest-lab-troubleshoot-artifact-failure.md)
-* [DevTest Labs'de bir Resource Manager şablonu kullanarak bir sanal makine mevcut bir Active Directory etki alanına katılın](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [DevTest Labs'de bir Resource Manager şablonu kullanarak bir sanal makine mevcut bir Active Directory etki alanına katılın](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bilgi edinmek için nasıl [laboratuvara Git yapıt deposu ekleme](devtest-lab-add-artifact-repo.md).

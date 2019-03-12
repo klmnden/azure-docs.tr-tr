@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: f721c91c828b5c7c8497c07bb0cfe79646daf0f8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 77e94fd9fc08ad9f7b14e5cf226a6e616b69a37e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868846"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533400"
 ---
 # <a name="speech-synthesis-markup-language"></a>Konuşma sentezi biçimlendirme dili
 
-Konuşma sentezi işaretleme dili (SSML'yi) söylenişi denetlemek için bir yol sağlayan bir XML-tabanlı işaretleme dilidir ve *prosody* metin okuma. Konuşma aralığını ve Ritim prosody ifade eder —, müzik, gerçekleştirir. Sözcükleri fonetik olarak belirtin, sayıları yorumlanması için ipuçları sağlar, duraklatır, Denetim aralık, birim ve oranı ve daha ekleyin. Daha fazla bilgi için [konuşma sentezi işaretleme dili (SSML'yi) sürüm 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
+Konuşma sentezi işaretleme dili (SSML'yi) söylenişi denetlemek için bir yol sağlayan bir XML-tabanlı işaretleme dilidir ve *prosody* metin okuma. Konuşma aralığını ve Ritim prosody ifade eder —, müzik, gerçekleştirir. Sözcükleri fonetik olarak belirtin, sayıları yorumlanması için ipuçları sağlar, duraklatır, Denetim aralık, birim ve oranı ve daha ekleyin. Daha fazla bilgi için [konuşma sentezi işaretleme dili (SSML'yi) sürüm 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
 
 Desteklenen diller, yerel ayarlar ve sesler (sinir ve standart) tam listesi için bkz: [dil desteği](language-support.md#text-to-speech).
 
@@ -31,7 +31,7 @@ Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar
 
 ## <a name="add-a-break"></a>Bir Sonu Ekle
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
     Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
 </voice> </speak>
@@ -39,7 +39,7 @@ Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar
 
 ## <a name="change-speaking-rate"></a>Konuşma hızını değiştirme
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
 <prosody rate="+30.00%">
     Welcome to Microsoft Cognitive Services Text-to-Speech API.
@@ -48,7 +48,7 @@ Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar
 
 ## <a name="pronunciation"></a>Söylenişi
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
     <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
 </voice> </speak>
@@ -56,7 +56,7 @@ Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar
 
 ## <a name="change-volume"></a>Birimi Değiştir
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
 <prosody volume="+20.00%">
     Welcome to Microsoft Cognitive Services Text-to-Speech API.
@@ -65,7 +65,7 @@ Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar
 
 ## <a name="change-pitch"></a>Aralık değiştirme
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
     <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
     Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
 </voice> </speak>
@@ -73,7 +73,7 @@ Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar
 
 ## <a name="change-pitch-contour"></a>Değişiklik aralık dağılımı
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
 <prosody contour="(80%,+20%) (90%,+30%)" >
     Good morning.
@@ -82,7 +82,7 @@ Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar
 
 ## <a name="use-multiple-voices"></a>Birden çok kişilerden daha fazlasını kullanın
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
     Good morning!
 </voice>

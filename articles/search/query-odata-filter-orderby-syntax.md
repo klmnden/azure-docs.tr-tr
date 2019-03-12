@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b709851a0b8b4a095b5b1bf5e0f1008359b1f426
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1f1fbc49a42ec9b72ebe74a96ee099630d7416b1
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317416"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570672"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>OData ifadesi söz dizimi filtreleri ve Azure Search order by yan tümceleri
 
@@ -36,21 +36,21 @@ A **$filter** ifade tek başına tam olarak ifade edilen bir sorgu olarak çalı
 
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11  
-    {  
-      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"  
-    }  
+POST /indexes/hotels/docs/search?api-version=2017-11-11
+    {
+      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
+    }
 ```
 
 Başka bir ortak kullanım örneği filtreleri Birleşik Modelleme, burada sorgu yüzey kullanıcı tabanlı model Gezinti seçime göre filtre azaltır şöyledir:
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11  
-    {  
-      "search": "test",  
-      "facets": [ "tags", "baseRate,values:80|150|220" ],  
-      "filter": "rating eq 3 and category eq 'Motel'"  
-    }  
+POST /indexes/hotels/docs/search?api-version=2017-11-11
+    {
+      "search": "test",
+      "facets": [ "tags", "baseRate,values:80|150|220" ],
+      "filter": "rating eq 3 and category eq 'Motel'"
+    }
 ```
 
 ### <a name="filter-operators"></a>Filtre işleçleri  
@@ -89,9 +89,9 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
     Bu üçüncü parametresi, burada her karakter dizesinin veya bu dizenin alt ayırıcı olarak ikinci parametre değerleri listesi ayrıştırılırken değerlendirilir bir dizedir.
 
     > [!NOTE]   
-    >  Bazı senaryolar, çok sayıda sabit değerler karşı bir alan karşılaştırma gerektirir. Örneğin, güvenlik kırpma filtrelerle uygulama Belge Kimliği alanı kimlikleri okuma erişimi izni isteyen kullanıcı için bir listesiyle karşılaştıran gerektirebilir. Bu gibi senaryolarda kullanarak öneririz `search.in` eşitlik ifadeleridir, daha karmaşık bir ayrım yerine işlevi. Örneğin, `search.in(Id, '123, 456, ...')` yerine `Id eq 123 or Id eq 456 or ....`. 
-
->  Kullanırsanız `search.in`, ikinci parametre, yüzlerce veya binlerce değerlerinin listesini içerdiğinde saniyenin altındaki yanıt süresi bekleyebilirsiniz. Öğe sayısı için geçirebilirsiniz açık sınırsız olduğunu unutmayın `search.in`, ancak yine de en büyük istek boyutuyla sınırlıdır. Ancak, değerler sayısı arttıkça gecikme çıkarılır.
+    > Bazı senaryolar, çok sayıda sabit değerler karşı bir alan karşılaştırma gerektirir. Örneğin, güvenlik kırpma filtrelerle uygulama Belge Kimliği alanı kimlikleri okuma erişimi izni isteyen kullanıcı için bir listesiyle karşılaştıran gerektirebilir. Bu gibi senaryolarda kullanarak öneririz `search.in` eşitlik ifadeleridir, daha karmaşık bir ayrım yerine işlevi. Örneğin, `search.in(Id, '123, 456, ...')` yerine `Id eq 123 or Id eq 456 or ....`. 
+    >
+    > Kullanırsanız `search.in`, ikinci parametre, yüzlerce veya binlerce değerlerinin listesini içerdiğinde saniyenin altındaki yanıt süresi bekleyebilirsiniz. Öğe sayısı için geçirebilirsiniz açık sınırsız olduğunu unutmayın `search.in`, ancak yine de en büyük istek boyutuyla sınırlıdır. Ancak, değerler sayısı arttıkça gecikme çıkarılır.
 
 -   `search.ismatch` İşlevi, arama sorgusu bir filtre ifadesi bir parçası olarak değerlendirir. Arama sorgusuyla eşleşen belgelerin sonuç kümesinde döndürülür. Bu işlevin aşağıdaki aşırı kullanılabilir:
     - `search.ismatch(search)`
@@ -130,106 +130,106 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
  Bir temel ücrete ile tüm hotels $ veya 4 üzerindeki derecelendirilir 100'den daha az bulun:  
 
-```  
-$filter=baseRate lt 100.0 and rating ge 4  
-```  
+```
+$filter=baseRate lt 100.0 and rating ge 4
+```
 
  2010'dan itibaren renovated tüm hotels "Roach Motel" dışında bulun:  
 
-```  
-$filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z  
-```  
+```
+$filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
+```
 
  2012, Pasifik Standart Saati için saat dilimi bilgilerini içeren bir datetime hazır değerinde beri renovated bir temel ücrete $200'den daha az olan tüm hotels bulun:  
 
-```  
-$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00  
-```  
+```
+$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00
+```
 
  Dahil edilen park ve İçilmez izin verme tüm hotels bulun:  
 
-```  
-$filter=parkingIncluded and not smokingAllowed  
-```  
+```
+$filter=parkingIncluded and not smokingAllowed
+```
 
  \- OR-  
 
-```  
-$filter=parkingIncluded eq true and smokingAllowed eq false  
-```  
+```
+$filter=parkingIncluded eq true and smokingAllowed eq false
+```
 
  Lüks veya park içerir ve 5 derecesi sahip tüm hotels bulun:  
 
-```  
-$filter=(category eq 'Luxury' or parkingIncluded eq true) and rating eq 5  
-```  
+```
+$filter=(category eq 'Luxury' or parkingIncluded eq true) and rating eq 5
+```
 
  (Her otel Collection(Edm.String) alanında depolanan etiketleri sahip olduğu) tüm hotels "wifi" etiketiyle bulun:  
 
-```  
-$filter=tags/any(t: t eq 'wifi')  
-```  
+```
+$filter=tags/any(t: t eq 'wifi')
+```
 
  "Motel" etiketi olmayan tüm hotels bulun:  
 
-```  
-$filter=tags/all(t: t ne 'motel')  
-```  
+```
+$filter=tags/all(t: t ne 'motel')
+```
 
  Tüm etiketlere sahip tüm hotels bulun:  
 
-```  
-$filter=tags/any()  
-```  
+```
+$filter=tags/any()
+```
 
 Etiket tüm hotels bulun:  
 
-```  
-$filter=not tags/any()  
-```  
+```
+$filter=not tags/any()
+```
 
 
  (Konum Edm.GeographyPoint türünde bir alan olduğu) belirli bir başvuru noktası 10 kilometre içindeki tüm hotels bulun:  
 
-```  
-$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10  
-```  
+```
+$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
  (Konum Edm.GeographyPoint türünde bir alan olduğu) tüm hotels Çokgen tanımlanan belirli bir görünüm penceresinin içinde bulun. Çokgen kapalı olduğunu unutmayın (ilk ve son noktası kümeleri aynı olmalıdır) ve [noktaları saat yönünün tersi düzende listelenmelidir](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
-```  
-$filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')  
-```  
+```
+$filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
  Ya da "description" alanında değeri olmayan tüm Oteller bulmak veya değeri açıkça olduğunu kümesinde null:  
 
-```  
-$filter=description eq null  
-```  
+```
+$filter=description eq null
+```
 
 Tüm hotels adlı eşit ya da Roach motel Bul ' veya 'Bütçe otel'):  
 
-```  
-$filter=search.in(name, 'Roach motel,Budget hotel', ',') 
+```
+$filter=search.in(name, 'Roach motel,Budget hotel', ',')
 ```
 
 Tüm hotels adlı eşit ya da Roach motel Bul ' veya 'ile ayrılmış bütçe otel' ' |'):  
 
-```  
-$filter=search.in(name, 'Roach motel|Budget hotel', '|') 
+```
+$filter=search.in(name, 'Roach motel|Budget hotel', '|')
 ```
 
 Etiket 'wifi' veya 'havuzu' tüm hotels bulun:  
 
-```  
-$filter=tags/any(t: search.in(t, 'wifi, pool'))  
+```
+$filter=tags/any(t: search.in(t, 'wifi, pool'))
 ```
 
 Etiket 'motel' veya 'kabini' olmadan tüm hotels bulun:  
 
-```  
-$filter=tags/all(t: not search.in(t, 'motel, cabin'))  
-```  
+```
+$filter=tags/all(t: not search.in(t, 'motel, cabin'))
+```
 
 "Rıhtımının" sözcüğüyle belgeleri bulun. Bu filtre sorgusu aynıdır bir [arama isteği](https://docs.microsoft.com/rest/api/searchservice/search-documents) ile `search=waterfront`.
 

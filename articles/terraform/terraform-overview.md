@@ -2,19 +2,19 @@
 title: Terraform'u Azure ile birlikte kullanma
 description: Terraform kullanarak sürümüne giriş ve Azure altyapı dağıtımı.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, genel bakış, planlama, uygulama, otomatikleştirme
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: 962631728f96e0551f9cc18d5d835928e5a7705a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8b5ad3f060e2c8760014d7fc1990b971976388f7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567987"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779207"
 ---
 # <a name="terraform-with-azure"></a>Terraform ve Azure
 

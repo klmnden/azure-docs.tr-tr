@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 3d4be0466f7f91c23666af4b155fe3b69c868d58
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 94c464733d731505cde0327ce9a295d3b4ab68de
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449555"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538706"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma
 > [!NOTE]
@@ -362,7 +362,7 @@ Bu adımda, oluşturduğunuz bir **işlem hattı** biriyle **kopyalama etkinliğ
    * İçinde **typeProperties** bölümünde **SqlSource** olarak belirtilen **kaynak türünü** ve ** BlobSink ** olarak belirtilen **Havuz türü**.
    * SQL sorgusu `select * from emp` için belirtilen **sqlReaderQuery** özelliği **SqlSource**.
 
-   Başlangıç ve bitiş tarih saatleri [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601) olmalıdır. Örneğin: 2014-10-14T16:32:41Z. **End** zamanı isteğe bağlıdır; ancak bu öğreticide bunu kullanacağız.
+   Başlangıç ve bitiş tarih saatleri [ISO biçiminde](https://en.wikipedia.org/wiki/ISO_8601) olmalıdır. Örneğin: 2014-10-14T16:32:41Z. **End** zamanı isteğe bağlıdır; ancak bu öğreticide bunu kullanacağız.
 
    **end** özelliği için değer belirtmezseniz "**start + 48 hours**" olarak hesaplanır. İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9/9/9999** olarak ayarlayın.
 
@@ -407,7 +407,7 @@ Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure Portal k
 6. Tıklayın **X** tüm sayfaları dek kapatmak için
 7. Giriş sayfasına dönmek **ADFTutorialOnPremDF**.
 8. (isteğe bağlı) Tıklayın **işlem hatları**, tıklayın **ADFTutorialOnPremDF**, girdi tablolarında detaya gidin (**tüketilen**) veya çıktı veri kümeleri (**üretilen**).
-9. Gibi araçları kullanın [Microsoft Storage Gezgini](http://storageexplorer.com/) her saat için blob/dosyası oluşturulduğunu doğrulayın.
+9. Gibi araçları kullanın [Microsoft Storage Gezgini](https://storageexplorer.com/) her saat için blob/dosyası oluşturulduğunu doğrulayın.
 
    ![Azure Depolama Gezgini](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 

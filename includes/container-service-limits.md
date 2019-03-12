@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 10/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 23c25953d2f493d2dd799bfd11dbbb69db002d1b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 62eb75ef18d3ac81be65783e57c21c0aefd7a429
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736030"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554734"
 ---
 | Kaynak | Varsayılan limit |
 | --- | :--- |
-| Abonelik başına en fazla küme | 100 |
+| Abonelik başına en fazla kümeleri | 100 |
 | Küme başına en fazla düğüm | 100 |
-| En fazla düğüm başına pod'ları: [Temel ağ] [ basic-networking] ile Kubernetes | 110 |
-| En fazla düğüm başına pod'ları: [Gelişmiş Ağ] [ advanced-networking] Azure CNI ile | Azure CLI dağıtım: 30<sup>1</sup><br />Resource Manager şablonu: 30<sup>1</sup><br />Portal Dağıtım: 30 |
+| Düğüm başına en fazla pod: [Temel ağ] [ basic-networking] ile Kubernetes | 110 |
+| Düğüm başına en fazla pod: [Gelişmiş Ağ] [ advanced-networking] Azure kapsayıcı ağ arabirimi | Azure CLI dağıtım: 30<sup>1</sup><br />Azure Resource Manager şablonu: 30<sup>1</sup><br />Portal Dağıtım: 30 |
 
-<sup>1</sup> Azure CLI veya Resource Manager şablonuyla bir AKS kümesi dağıttığınızda bu değer **düğüm başına 110 pod'a** kadar yapılandırılabilir. Bir AKS kümesini dağıttıktan sonra veya Azure portal ile küme dağıttığınızda düğüm başına maksimum pod sayısını yapılandıramazsınız.<br />
+<sup>1</sup>, Azure CLI veya Resource Manager şablonu ile bir Azure Kubernetes Service (AKS) kümesini dağıtırken, bu değer 110 pod'ların düğüm başına en fazla yapılandırılabilir. Zaten bir AKS kümesi dağıttıktan sonra veya Azure portalını kullanarak bir kümesi dağıtıyorsanız, düğüm başına en fazla pod'ların yapılandıramazsınız.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7281fb15e91195e1dd20095d9fdf80d3d9894a26
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76005b153d7a7feabdc1b335a23c6aa1f1fa99f3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433068"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537907"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Bilgi bankasını geliştirmek için etkin öğrenmeyi kullanma
 
@@ -154,7 +154,7 @@ Soru-cevap Oluşturucu bir soruya yanıt gönderirken birden fazla üst yanıt d
 
 İstemci uygulama, tüm soruları görüntüler çoğu kullanıcının soruyu seçin bir seçenek ile kendi amacınıza temsil eder. 
 
-Kullanıcı mevcut sorulardan birini seçtikten sonra. Kullanıcı geri bildirim, soru-cevap Oluşturucu için 's gönderilen [eğitme](http://www.aka.ms/activelearningsamplebot) geri bildirim etkin olarak öğrenmeye devam etmek için API döngü. 
+Kullanıcı mevcut sorulardan birini seçtikten sonra. Kullanıcı geri bildirim, soru-cevap Oluşturucu için 's gönderilen [eğitme](https://www.aka.ms/activelearningsamplebot) geri bildirim etkin olarak öğrenmeye devam etmek için API döngü. 
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train

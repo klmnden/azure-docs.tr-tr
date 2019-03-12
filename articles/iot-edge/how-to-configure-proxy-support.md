@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d1ad1f34f51adbc177e5b4163d528dbe45ce03af
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 33f5cd6e1d2989a9ca5c26bbcf947bd6eade3831
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339156"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774209"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Bir proxy sunucu üzerinden iletişim kurmak için IOT Edge cihazı yapılandırma
 
@@ -25,23 +25,23 @@ IOT Edge cihazı bir proxy sunucusu ile çalışmak için yapılandırma temel a
 1. IOT Edge çalışma zamanı, Cihazınızda yükleyin. 
 2. Docker daemon'ı ve IOT Edge arka plan programı, Cihazınızda proxy sunucusu kullanacak şekilde yapılandırın.
 3. Cihazınızda config.yaml dosyasındaki edgeAgent özelliklerini yapılandırın.
-4. Ortam değişkenlerini IOT Edge çalışma zamanı ve diğer IOT Edge modülleri dağıtım bildiriminde ayarlayın. 
+4. Ortam değişkenlerini IOT Edge çalışma zamanı ve diğer IOT Edge modülleri dağıtım bildiriminde ayarlayın.
 
 ## <a name="know-your-proxy-url"></a>Proxy URL'nizi bildirin
 
-Docker cinini ve IOT Edge Cihazınızda yapılandırmak için proxy URL'sini de bilmeniz gerekir. 
+Docker cinini ve IOT Edge Cihazınızda yapılandırmak için proxy URL'sini de bilmeniz gerekir.
 
-Ara sunucu URL'leri şu biçimde olması: **Protokolü**://**proxy_host**:**proxy_port**. 
+Ara sunucu URL'leri şu biçimde olması: **Protokolü**://**proxy_host**:**proxy_port**.
 
 * **Protokolü** HTTP veya HTTPS. Docker Daemon programını kapsayıcı kayıt defteri ayarlarınıza bağlı olarak her iki protokolü kullanabilirsiniz ancak arka plan programı ve çalışma zamanı IOT Edge kapsayıcıları her zaman HTTPS kullanmalıdır.
 
-* **Proxy_host** bir proxy sunucusunun adresidir. Ara sunucunuz kimlik doğrulaması gerektiriyorsa, proxy_host biçiminde bir parçası olarak kimlik bilgilerinizi sağlayabilir **kullanıcı**:**parola**@**proxy_host**. 
+* **Proxy_host** bir proxy sunucusunun adresidir. Ara sunucunuz kimlik doğrulaması gerektiriyorsa, proxy_host biçiminde bir parçası olarak kimlik bilgilerinizi sağlayabilir **kullanıcı**:**parola**\@**proxy_host**.
 
-* **Proxy_port** proxy ağ trafiğini yanıt ağ bağlantı noktası. 
+* **Proxy_port** proxy ağ trafiğini yanıt ağ bağlantı noktası.
 
 ## <a name="install-the-runtime"></a>Çalışma zamanını yükleme
 
-Bir Linux cihaza IOT Edge çalışma zamanı'nı yüklüyorsanız, yükleme paketi erişmek için Ara sunucu üzerinden gitmesi için Paket Yöneticisi'ni yapılandırın. Örneğin, [apt-get bir http Ara sunucusunu kullanacak şekilde](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Paket Yöneticisi'ni yapılandırıldıktan sonra yönergeleri izleyin [yükleme Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta](how-to-install-iot-edge-linux-arm.md) veya [(x64) Linux üzerinde Azure IOT Edge çalışma zamanı yükleme](how-to-install-iot-edge-linux.md) zamanki. 
+Bir Linux cihaza IOT Edge çalışma zamanı'nı yüklüyorsanız, yükleme paketi erişmek için Ara sunucu üzerinden gitmesi için Paket Yöneticisi'ni yapılandırın. Örneğin, [apt-get bir http Ara sunucusunu kullanacak şekilde](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Paket Yöneticisi'ni yapılandırıldıktan sonra yönergeleri izleyin [yükleme Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta](how-to-install-iot-edge-linux-arm.md) veya [(x64) Linux üzerinde Azure IOT Edge çalışma zamanı yükleme](how-to-install-iot-edge-linux.md) zamanki.
 
 Bir Windows cihaza IOT Edge çalışma zamanı'nı yüklüyorsanız, yükleyici betik dosyası gerekli bileşenleri yüklemek için yükleme sırasında daha sonra tekrar yüklemek için Ara sunucu üzerinden bir kez gitmeniz gerekiyor. Proxy bilgileri Windows ayarlarında yapılandırdığınız veya proxy bilgilerinizi doğrudan yükleme betiğini içerir. Aşağıdaki powershell betiğini kullanarak bir windows yükleme ilişkin bir örnektir `-proxy` bağımsız değişkeni:
 

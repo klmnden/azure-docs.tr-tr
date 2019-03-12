@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 69ab376e9c4924babcb249a1d80f6f0d0a846f20
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 768cd7de7bc313711b86112c48fbf13601f1c377
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079026"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545116"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Azure portalından Azure Linux VM'de bir Jenkins sunucusu oluşturma
 
@@ -22,7 +22,7 @@ Bu hızlı başlangıç, Ubuntu Linux VM'de araçları ve eklentileri Azure ile 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Bir Azure aboneliği
-* Bilgisayarınızın komut satırından (Bash kabuğu veya [PuTTY](http://www.putty.org/) gibi) SSH’ye erişin.
+* Bilgisayarınızın komut satırından (Bash kabuğu veya [PuTTY](https://www.putty.org/) gibi) SSH’ye erişin.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

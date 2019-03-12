@@ -6,14 +6,14 @@ author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 03/11/2019
 ms.author: dineshm
-ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 422bf9a3fb4e3168857a78f4f50ac771ef80c6a6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585443"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766470"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Öğretici: Spark'ı kullanarak Azure Databricks ile Data Lake depolama Gen2 verilere erişme
 
@@ -171,9 +171,10 @@ Veri kopyalamak için AzCopy kullanın, *.csv* Data Lake depolama Gen2 hesabın�
 2. Verileri kopyalamak için *.csv* hesap, aşağıdaki komutu girin.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
    ```
-   * Değiştirin `<csv-folder-path>` dizin yolu ile yer tutucu değerini *.csv* dosyası (dosya adı hariç).
+
+   * Değiştirin `<csv-folder-path>` yolu ile yer tutucu değerini *.csv* dosya.
 
    * Değiştirin `storage-account-name` yer tutucu değerini, depolama hesabınızın adı.
 
@@ -187,22 +188,22 @@ Daha önce oluşturduğunuz not defterine yeni bir hücresi ekleyin ve bu hücre
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
- flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
- print("Done")
- ```
+flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+print("Done")
+```
 
 ## <a name="explore-data"></a>Verileri inceleme
 
-Yeni bir hücreye AzCopy karşıya CSV dosyaları listesini almak için aşağıdaki kodu yapıştırın. Değiştirin `<csv-folder-path>` yer tutucu değerini, daha önce kullanılan, yer tutucu için aynı değeri.
+Yeni bir hücreye AzCopy karşıya CSV dosyaları listesini almak için aşağıdaki kodu yapıştırın.
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
+display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
 Yeni bir dosya oluşturmak ve *parquet/flights* klasöründeki dosyaları listelemek için şu betiği çalıştırın:
@@ -220,13 +221,11 @@ Bir sonraki adımda depolama hesabınıza yüklediğiniz verileri sorgulamaya ba
 
 Veri kaynaklarınız için veri çerçevelerini oluşturmak için aşağıdaki betiği çalıştırın:
 
-* Değiştirin `<csv-folder-path>` dizin yolu ile yer tutucu değerini *.csv* dosyası (dosya adı hariç).
-
-* Değiştirin `<your-csv-file-name` adıyla bir yer tutucu değerini, *csv* dosya.
+* Değiştirin `<csv-folder-path>` yolu ile yer tutucu değerini *.csv* dosya.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier

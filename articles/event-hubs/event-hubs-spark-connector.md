@@ -14,16 +14,16 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 194898f658c08a3a5a9d8c1d601ea53c817e7649
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 605669a740663040ab7a167bf266fe1940123afc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076824"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551883"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Apache Spark Azure Event Hubs ile tümleştirme
 
-Azure Event Hubs ile sorunsuz bir şekilde tümleştirilir [Apache Spark](https://spark.apache.org/) dağıtılmış akış uygulamalar oluşturma olanağı. Bu tümleştirmeyi desteklemektedir [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark akışı](http://spark.apache.org/docs/latest/streaming-programming-guide.html), ve [yapılandırılmış akış](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). Apache Spark için Event Hubs bağlayıcısını kullanılabilir [GitHub](https://github.com/Azure/azure-event-hubs-spark). Bu kitaplık ayrıca içindeki Maven projelerinde kullanılabilir [Maven Central Repository](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
+Azure Event Hubs ile sorunsuz bir şekilde tümleştirilir [Apache Spark](https://spark.apache.org/) dağıtılmış akış uygulamalar oluşturma olanağı. Bu tümleştirmeyi desteklemektedir [Spark Core](https://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark akışı](https://spark.apache.org/docs/latest/streaming-programming-guide.html), ve [yapılandırılmış akış](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). Apache Spark için Event Hubs bağlayıcısını kullanılabilir [GitHub](https://github.com/Azure/azure-event-hubs-spark). Bu kitaplık ayrıca içindeki Maven projelerinde kullanılabilir [Maven Central Repository](https://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
 
 Bu makalede, sürekli bir uygulamanın nasıl oluşturulacağını [Azure Databricks](https://azure.microsoft.com/services/databricks/). Bu makalede, Azure Databricks kullanırken, Spark kümeleri de kullanılabilen [HDInsight](../hdinsight/spark/apache-spark-overview.md).
 

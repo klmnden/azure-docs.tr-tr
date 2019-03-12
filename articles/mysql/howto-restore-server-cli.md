@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 801f6dddfb3aaea850d76c80d43de93181c3d41c
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: f3850623f5918ea9405131edb1821b941019ac34
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913487"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532342"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Azure CLI kullanarak MySQL için Azure veritabanı'nda bir sunucu geri nasıl
 
@@ -94,14 +94,14 @@ Coğrafi olarak yedekli bir yedeklemesini kullanarak bir sunucu oluşturmak içi
 Coğrafi geri yükleme sunucusundaki Azure CLI komut isteminde aşağıdaki komutu girin:
 
 ```azurecli-interactive
-az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-Bu komut, adı verilen yeni bir sunucu oluşturur. *demosunucum georestored* ait Doğu ABD *myresourcegroup*. Bu, genel amaçlı, 8 sanal çekirdekli 4. nesil sunucusu olur. Sunucu, coğrafi olarak yedekli yedeğini oluşturulan *demosunucum*, olduğu da kaynak grubunda *myresourcegroup*
+Bu komut, adı verilen yeni bir sunucu oluşturur. *demosunucum georestored* ait Doğu ABD *myresourcegroup*. Bu, genel amaçlı, 5. nesil server 8 sanal çekirdekli olur. Sunucu, coğrafi olarak yedekli yedeğini oluşturulan *demosunucum*, olduğu da kaynak grubunda *myresourcegroup*
 
 Mevcut bir sunucudan farklı bir kaynak grubunda yeni sunucuya, ardından oluşturmak istiyorsanız `--source-server` uygun sunucu adını aşağıdaki örnekte olduğu gibi parametre:
 
 ```azurecli-interactive
-az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen5_8
 
 ```
 
@@ -113,7 +113,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 |ad | mydemoserver-georestored | Yeni sunucunun adı. |
 |source-server | mydemoserver | Coğrafi olarak yedekli yedekleri kullanılan mevcut sunucu adı. |
 |location | eastus | Yeni sunucu konumu. |
-|sku-name| GP_Gen4_8 | Bu parametre, fiyatlandırma katmanı, işlem oluşturma ve yeni sunucunun sanal çekirdek sayısını ayarlar. Genel amaçlı, 8 sanal çekirdekli 4. nesil sunucu GP_Gen4_8 eşlenir.|
+|sku-name| GP_Gen5_8 | Bu parametre, fiyatlandırma katmanı, işlem oluşturma ve yeni sunucunun sanal çekirdek sayısını ayarlar. Genel amaçlı, 5. nesil server 8 sanal çekirdekli GP_Gen5_8 eşlenir.|
 
 
 >[!Important]

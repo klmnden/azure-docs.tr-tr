@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 06b917c956507de3eb3b1536356285d7a954fb8b
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5580d67f796efc809ef536818419ab91e8ee54a2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730085"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540020"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Bağlantı olayları Azure Cosmos DB kullanarak Azure IOT hub'a cihaz sipariş
 
@@ -315,7 +315,7 @@ Cosmos DB belge içinde yürütülen saklı yordamının sonuçları görebilirs
 
 ## <a name="use-the-azure-cli"></a>Azure CLI kullanma
 
-Yerine [Azure portalında](http://portal.azure.com), Azure CLI kullanarak IOT hub'ı adımları gerçekleştirebilirsiniz. Azure CLI sayfaları için Ayrıntılar için bkz [bir olay aboneliği oluşturma](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) ve [IOT cihazına oluşturma](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
+Yerine [Azure portalında](https://portal.azure.com), Azure CLI kullanarak IOT hub'ı adımları gerçekleştirebilirsiniz. Azure CLI sayfaları için Ayrıntılar için bkz [bir olay aboneliği oluşturma](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) ve [IOT cihazına oluşturma](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9d441ed408f9c9348ba091178cf6ce84d67abb3a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2dabc331b13bc53a6d8e94d69c64b87c7f175c24
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672942"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762203"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Azure portalını kullanma
 
@@ -25,8 +25,8 @@ Azure Machine Learning çalışma alanı oluşturmak için Azure portalını kul
 Bu hızlı başlangıçta, aşağıdaki eylemleri gerçekleştirin:
 
 * Azure aboneliğinizde çalışma alanı oluşturma.
-* Python ile bir Jupyter not defteri ve günlük değerleri arasında birden çok yineleme deneyin.
-* Günlüğe kaydedilen değerleri çalışma alanınızda görüntüleme.
+* Python ile bir Jupyter not defteri deneyin. Not defterini pi ve günlükleri hataları her yinelemede, tahmin kodunu içerir. 
+* Oturum hata değerlerini çalışma alanınızda görüntüleyin.
 
 Aşağıdaki Azure kaynakları, bölgesel kullanıma sunulduğunda çalışma alanınıza otomatik olarak eklenir:
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7e218cea543b48371647531cf6d62d8c10a07978
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5049e280b65a9f223ea577ee4fde973657682b4c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230759"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544661"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 için Azure depolama Bloblarından veri kopyalama
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 * **Azure depolama BLOB'ları** bazı verileri içeren kapsayıcı.
 * **Bir Azure Data Lake depolama Gen1 hesap**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake depolama Gen1 ile çalışmaya başlama](data-lake-store-get-started-portal.md)
 * **(İsteğe bağlı) Azure Data Lake Analytics hesabı** -bkz [Azure Data Lake Analytics ile çalışmaya başlama](../data-lake-analytics/data-lake-analytics-get-started-portal.md) bir Data Lake Analytics hesabı oluşturmak yönergeler.
-* **AdlCopy aracı**. AdlCopy aracını yükleme [ http://aka.ms/downloadadlcopy ](https://aka.ms/downloadadlcopy).
+* **AdlCopy aracı**. AdlCopy aracını yükleme [ https://aka.ms/downloadadlcopy ](https://aka.ms/downloadadlcopy).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>AdlCopy aracının sözdizimi
 AdlCopy aracı ile çalışmak için aşağıdaki sözdizimini kullanın.

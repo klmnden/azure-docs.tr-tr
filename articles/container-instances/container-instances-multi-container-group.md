@@ -1,6 +1,6 @@
 ---
 title: Azure Container ınstances'da çok kapsayıcılı grupları dağıtma
-description: Birden çok kapsayıcı Azure Container ınstances'da bir kapsayıcı grubu dağıtmayı öğrenin.
+description: Bir kapsayıcı grubu birden çok kapsayıcıda bir Azure Resource Manager şablonu kullanarak Azure Container Instances'a dağıtmayı öğrenin.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adb284772291dc901dd5302124982948c1f37eea
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 2dfe1bbf01b7e1fae8c07602ac4faa40ae74ecc9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856488"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729505"
 ---
-# <a name="deploy-a-container-group"></a>Kapsayıcı grubu dağıtma
+# <a name="deploy-a-multi-container-group-with-a-resource-manager-template"></a>Çok kapsayıcılı bir grup bir Resource Manager şablonu ile dağıtma
 
 Azure Container Instances kullanarak tek bir konak üzerine birden çok kapsayıcı dağıtımını destekleyen bir [kapsayıcı grubu](container-instances-container-groups.md). Günlüğe kaydetme, izleme veya başka bir yapılandırma için bir uygulama sepet oluştururken hizmet ikinci bir bağlı işlem gereken yere kullanışlıdır.
 
@@ -28,6 +28,8 @@ Ek Azure hizmet kaynakları (örneğin, bir Azure dosya paylaşımı) dağıtmak
 
 > [!NOTE]
 > Birden çok kapsayıcı grubunun şu anda Linux kapsayıcılarıyla kısıtlıdır. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Kapsayıcı Örnekleri için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
+
+Ek şablon örnekleri için bkz [Azure Container Instances için Azure Resource Manager şablonları](container-instances-samples-rm.md). 
 
 ## <a name="configure-the-template"></a>Şablon yapılandırma
 
@@ -175,7 +177,7 @@ Kullanarak bir kapsayıcının günlük çıktısını görüntülemek [az kapsa
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 listening on port 80
@@ -190,7 +192,7 @@ Yan araba kapsayıcı için günlükleri görmek için ikinci kapsayıcının ad
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 Every 3s: curl -I http://localhost                          2018-01-09 23:25:11

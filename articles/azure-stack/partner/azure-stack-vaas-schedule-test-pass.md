@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: How to
-ms.date: 03/04/2019
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 4cd94a0d5891c2d34e152dad87d21cbb45a2ec39
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3fb5c3deeddb6f3ee381ca45df76feebf3405b21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336878"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766587"
 ---
 # <a name="scheduling-a-test"></a>Test planlama
 
@@ -53,7 +53,7 @@ Portal, seçin veya bir çözüm oluşturma için oturum açın ve ardından ç�
 
 ![Alternatif metin](media/vaas_test_pass_parameters.png)
 
-Çözümünüz için iş akışını tanımlayın. İş akışı, çözümü test etmek için kullanılan işlem adımları vardır.
+İş akışı içindeki tüm testler için geçerli parametreler belirtin.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
@@ -63,22 +63,23 @@ Portal, seçin veya bir çözüm oluşturma için oturum açın ve ardından ç�
 
 ## <a name="select-tests-to-run"></a>Çalıştırılacak testleri seçin
 
-İş akışınızı çalıştırmak istediğiniz testleri seçin.
+İş akışını oluşturduktan sonra seçtiğiniz testleri zamanlanacak.
 
 1. İş akışınızı çalıştırmak istediğiniz test seçin.
 
     Ortak parametreleri (diğer bir deyişle, önceki bölümde sağlanan parametreleri) herhangi bir test geçersiz kılmak istiyorsanız, seçin **Düzenle** bağlantı sonraki yeni değerleri belirtin.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
 1. Seçin **sonraki** iş akışını gözden geçirmek için.
 
 ## <a name="review-and-submit"></a>Gözden geçir ve Gönder
 
-Gözden geçirin, oluşturun ve sonra iş akışı zamanlayın.
+İş akışı oluşturmayı tamamlayın.
 
 1. Görüntülenen bilgileri gözden geçirin.
 
-    Hizmetleri ile sağlanan bilgiler, iş akışınızı oluşturur ve seçili testleri zamanlanacak.
+    Hizmet, iş akışınızı sağlanan bilgilerle oluşturur ve seçili testleri zamanlanacak.
 
     Herhangi bir şey yanlış görünür kullanırsanız **önceki** önceki bir bölüme gitmek için düğmeler.
 

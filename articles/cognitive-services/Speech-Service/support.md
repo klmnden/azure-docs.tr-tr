@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 88efa6b16e33fe928ad9354b7283f7c651e6710c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b8e6c8b125e8eeaadac2e6864b06d55c42d3b173
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881309"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542011"
 ---
 # <a name="support-and-help-options"></a>Destek ve Yardım seçenekleri
 
@@ -61,11 +61,11 @@ Bir arama ile sorununuzun yanıtını bulamazsanız, yeni Stack Overflow soru g�
 
 |Bileşen/alan  |Etiketler  |
 |---------|---------|
-|Konuşma Tanıma |[[microsoft-bilişsel + Konuşmayı metne dönüştürme]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Konuşma sentezi |[[microsoft-bilişsel + metin okuma için]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Konuşma Çevirisi |[[microsoft-bilişsel + çeviri]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Konuşma amacı |[[microsoft-bilişsel + luıs]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|Genel Speech SDK'sı |[[microsoft-bilişsel + microsoft-konuşma tanıma-API'si]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|Konuşma Tanıma |[[microsoft-bilişsel + Konuşmayı metne dönüştürme]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
+|Konuşma sentezi |[[microsoft-bilişsel + metin okuma için]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Konuşma Çevirisi |[[microsoft-bilişsel + çeviri]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|Konuşma amacı |[[microsoft-bilişsel + luıs]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|Genel Speech SDK'sı |[[microsoft-bilişsel + microsoft-konuşma tanıma-API'si]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > Stack Overflow aşağıdaki gönderilerinden form soruların konusunda ipuçları içerir ve kaynak kodu ekleyin. Bu yönergeler, topluluk üyeleri değerlendirmek ve sorularınıza hızla yanıt şansını artırmak yardımcı olabilir:  

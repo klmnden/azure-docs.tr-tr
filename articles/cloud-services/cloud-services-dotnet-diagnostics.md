@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6a22a3dabf1aa71e0d092c4145523da9b0121c8c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 017461d5b73bb48ce61678fbbd795026cef60bc1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322218"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536859"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure bulut hizmetlerinde Azure tanılamayı etkinleştirme
 Bkz: [Azure tanılama genel bakış](../azure-diagnostics.md) arka plan Azure tanılama.
@@ -113,7 +113,7 @@ namespace WorkerRole1
             ServicePointManager.DefaultConnectionLimit = 12;
 
             // For information on handling configuration changes
-            // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+            // see the MSDN topic at https://go.microsoft.com/fwlink/?LinkId=166357.
 
             return base.OnStart();
         }
@@ -122,7 +122,7 @@ namespace WorkerRole1
 ```
 
 
-### <a name="step-3-deploy-your-worker-role"></a>3. adım: Çalışan rolünüzün dağıtma
+### <a name="step-3-deploy-your-worker-role"></a>3. Adım: Çalışan rolünüzün dağıtma
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
@@ -134,7 +134,7 @@ namespace WorkerRole1
 6. Diğer değiştirme **ayarları** olarak uygun ve tıklayın **Yayımla**.
 7. Dağıtım tamamlandıktan sonra bulut hizmeti olan Azure portalında doğrulamak bir **çalıştıran** durumu.
 
-### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>4. adım: Tanılama yapılandırma dosyanızı oluşturun ve uzantıyı yükleme
+### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>4. Adım: Tanılama yapılandırma dosyanızı oluşturun ve uzantıyı yükleme
 1. Genel yapılandırma dosyası şeması tanımı aşağıdaki PowerShell komutunu çalıştırarak yükleyin:
 
     ```powershell
@@ -170,7 +170,7 @@ namespace WorkerRole1
 </PublicConfig>
 ```
 
-### <a name="step-5-install-diagnostics-on-your-worker-role"></a>5. adım: Tanılama, çalışan rolünde yükleyin
+### <a name="step-5-install-diagnostics-on-your-worker-role"></a>5. Adım: Tanılama, çalışan rolünde yükleyin
 Bir web veya çalışan rolü tanılama yönetmek için PowerShell cmdlet'leri şunlardır: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension ve Remove-AzureServiceDiagnosticsExtension.
 
 1. Azure PowerShell'i açın.
@@ -185,7 +185,7 @@ $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -Sto
 Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
 ```
 
-### <a name="step-6-look-at-your-telemetry-data"></a>6. adım: Telemetri verileriniz arayın
+### <a name="step-6-look-at-your-telemetry-data"></a>6. Adım: Telemetri verileriniz arayın
 Visual Studio **Sunucu Gezgini**, wadexample depolama hesabına gidin. Bulut hizmeti yaklaşık beş (5) dakikalık çalıştırıldıktan sonra tabloları görmelisiniz **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** ve **WADSetOtherTable**. Tabloların toplanan telemetri verilerini görüntülemek için çift tıklayın.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
@@ -199,9 +199,9 @@ Sorun varsa, bkz: [Azure tanılama sorunlarını giderme](../azure-diagnostics-t
 ## <a name="next-steps"></a>Sonraki Adımlar
 [İlgili Azure sanal makinesi tanılama makaleler listesini](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics) toplama verileri değiştirmek için ilgili sorunları giderme veya genel Tanılama hakkında daha fazla bilgi edinin.
 
-[EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
-[Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
-[Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
-[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
+[Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Free Trial]: https://azure.microsoft.com/pricing/free-trial/
+[Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/

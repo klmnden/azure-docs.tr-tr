@@ -1,6 +1,6 @@
 ---
-title: Hızlı Başlangıç - Azure Container Instances'da bir uygulamayı çalıştırma - Portal
-description: Bu hızlı başlangıçta, Azure Container ınstances'da bir yalıtılmış kapsayıcıda çalıştırmak için bir Docker kapsayıcı uygulaması dağıtmak için Azure portalını kullanın
+title: Hızlı Başlangıç - Azure Container Instances'a - Portal Docker kapsayıcısı dağıtma
+description: Bu hızlı başlangıçta, bir yalıtılmış bir Azure kapsayıcı örneğinde çalışan kapsayıcılı web uygulaması hızlı bir şekilde dağıtmak için Azure portalını kullanın
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566128"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729152"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Hızlı Başlangıç: Bir kapsayıcı uygulaması, Azure portalında Azure Container Instances'da çalıştırın
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak azure'da bir kapsayıcı örneği dağıtma
 
-Docker kapsayıcılarınızı kolay ve hızlı bir şekilde Azure'da çalıştırmak için Azure Container Instances hizmetini kullanın. Sanal makine dağıtmanız veya Kubernetes gibi tam kapsamlı bir düzenleme platformu kullanmanız gerekmez. Bu hızlı başlangıçta, Azure portalı kullanarak Azure’da bir kapsayıcı oluşturacak ve bu uygulamasını tam etki alanı adı (FQDN) ile kullanıma sunacaksınız. Birkaç ayarı yapılandırdıktan ve kapsayıcıyı dağıttıktan sonra çalışan uygulamaya göz atabilirsiniz:
+Azure Container Instances, kolay ve hızlı ile Azure'da sunucusuz Docker kapsayıcıları çalıştırmak için kullanın. Azure Kubernetes hizmeti gibi bir tam kapsayıcı düzenleme platformunu ihtiyacınız kalmadığında bir kapsayıcı örneği isteğe bağlı bir uygulamayı dağıtın.
+
+Bu hızlı başlangıçta, yalıtılmış bir Docker kapsayıcısı dağıtma ve uygulamayı bir tam etki alanı adı (FQDN) ile kullanılabilir hale getirmek için Azure portalını kullanın. Birkaç ayarı yapılandırdıktan ve kapsayıcıyı dağıttıktan sonra çalışan uygulamaya göz atabilirsiniz:
 
 ![Azure Container Instances hizmetine dağıtılmış uygulamanın tarayıcıdaki görüntüsü][aci-portal-07]
 
@@ -41,9 +43,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][azure-free-acc
 
 ![Azure portalında yeni bir kapsayıcı örneği için temel ayarları yapılandırma][aci-portal-03]
 
-Bu hızlı başlangıçta, varsayılan ayarını bırakın **genel** dağıtmak için `microsoft/aci-helloworld` görüntü genel Docker Hub kayıt defterinden. Bu görüntü, statik bir HTML sayfası görevi görür node.js'de yazılmış küçük bir web uygulamasını paketler.
+Bu hızlı başlangıçta, varsayılan ayarını bırakın **genel** genel dağıtmak için `microsoft/aci-helloworld` görüntü. Bu görüntü, statik bir HTML sayfası görevi görür node.js'de yazılmış küçük bir web uygulamasını paketler.
 
-**Yapılandırma** altında, kapsayıcınız için bir **DNS ad etiketi** belirtin. Ad, kapsayıcı örneğini oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. Kapsayıcınız `<dns-name-label>.<region>.azurecontainer.io` konumunda genel kullanıma sunulacaktır.
+**Yapılandırma** altında, kapsayıcınız için bir **DNS ad etiketi** belirtin. Ad, kapsayıcı örneğini oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. Kapsayıcınız `<dns-name-label>.<region>.azurecontainer.io` konumunda genel kullanıma sunulacaktır. "DNS ad etiketi kullanılamıyor" hata iletisiyle karşılaşırsanız farklı bir DNS ad etiketi deneyin.
 
 **Yapılandırma**’da diğer ayarları varsayılan değerlerinde bırakın ve yapılandırmayı doğrulamak için **Tamam**’ı seçin.
 

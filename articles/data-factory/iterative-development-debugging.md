@@ -1,9 +1,6 @@
 ---
 title: Yinelemeli geliştirme ve Azure Data Factory'de hata ayıklama | Microsoft Docs
 description: Geliştirme ve Data Factory işlem hattı çalıştırmalarınızı Azure Portalı'nda hata ayıklama hakkında bilgi edinin.
-author: douglaslMS
-ms.author: douglasl
-manager: craigg
 ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
@@ -11,12 +8,15 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.openlocfilehash: c80b67ac5575360a6556befd3fd2a6a5c8e562c0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: a8028fdde93d06f7b25bf9bd8b4ed5a560a35f83
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015772"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575282"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Yinelemeli geliştirme ve Azure Data Factory ile hata ayıklama
 

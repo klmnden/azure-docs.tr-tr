@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 61b3c01683318ff1c686ad9e96a420f8ae5e245e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d7513c4b8ea52b28d138032879f16e5a331853d2
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306672"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574456"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL veritabanı'nda genişletilmiş olaylar için olay dosyası hedef kodu
 
@@ -70,7 +70,7 @@ Betik, olası bir önceki çalıştırma ve rerunnable sonra temizlemek için ko
 
 ### <a name="powershell-code"></a>PowerShell kodu
 
-Bu PowerShell Betiği, önceden AzureRm modülü için Import-Module cmdlet'ini çalıştırdığınız varsayılır. Referans belgeleri için bkz. [PowerShell Modül Tarayıcısı](https://docs.microsoft.com/powershell/module/).
+Bu PowerShell Betiği, Az modül zaten yüklü olduğunu varsayar. Bilgi için [Azure PowerShell modülünü yükleme](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!

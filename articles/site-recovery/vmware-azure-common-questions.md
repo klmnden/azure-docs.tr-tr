@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/03/2019
+ms.date: 03/07/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 9e15f2e1b064ec2e64bfa8254075eac5bc801115
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9e192c736235fcf8b8b5374787ad94aaf87427bf
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442622"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727085"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -123,11 +123,15 @@ Evet, ExpressRoute Vm'lerini Azure'a çoğaltma için kullanılabilir. Site Reco
 
 ### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>Makine korunduktan sonra depolama hesabını nasıl değiştirebilirim?
 
-Devam eden bir çoğaltma için depolama hesabı yalnızca premium sürümüne yükseltilebilir. Standart fiyatlandırma kullanmak istiyorsanız, kaynak makinenin çoğaltmasını devre dışı bırakın ve standart yönetilen disk ile korumayı yeniden etkinleştirmeniz gerekir. Bu dışında koruma etkinleştirildikten sonra depolama hesabı değiştirmek için bir diğer yolu yoktur.
+Devre dışı bırakın ve çoğaltma yükseltin veya depolama hesabı türü düşürmek etkinleştirmeniz gerekir.
 
 ### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>Makine korunduktan sonra yönetilen Disk türünü nasıl değiştirebilirim?
 
-Evet, yönetilen disk türünü kolayca değiştirebilirsiniz. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage).
+Evet, yönetilen disk türünü kolayca değiştirebilirsiniz. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Ancak, yönetilen disk türünü değiştirdikten sonra Yük devretme test etmeniz veya yük devretme sonrası bu etkinlik oluşturulduğunda, yeni kurtarma noktaları için beklemeniz emin olun.
+
+### <a name="can-i-switch-the-replication-from-managed-disks-to-unmanaged-disks"></a>Yönetilmeyen diskleri yönetilen disklere çoğaltma geçiş yapabilir miyim?
+
+Hayır, geçiş için yönetilmeyen yönetilen desteklenmiyor.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN üzerinden neden çoğaltma yapamaz?
 

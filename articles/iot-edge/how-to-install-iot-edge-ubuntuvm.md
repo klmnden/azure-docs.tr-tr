@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: gregman
-ms.openlocfilehash: 7ff7671425e2a2a5dbebe2d09cadb8ef71bc7c97
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 456f7607786bd674cb6ede78d1164db033605799
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896746"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528839"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Azure IOT Edge Ubuntu sanal makineler üzerinde çalıştırın
 
@@ -22,7 +22,7 @@ Azure IOT Edge çalışma zamanı, ne bir cihaz ile IOT Edge cihazı kapatır ' 
 
 IOT Edge çalışma zamanı nasıl çalıştığını ve hangi bileşenler dahildir hakkında daha fazla bilgi için bkz: [Azure IOT Edge çalışma zamanı ve mimarisini anlama](iot-edge-runtime.md).
 
-Azure IOT Edge çalışma zamanı bir Ubuntu 16.04 önceden yapılandırılmış kullanarak sanal makine üzerinde çalıştırmak için adımlar bu makalede listelenmektedir [Ubuntu Azure Market teklifi Azure IOT Edge'de](http://aka.ms/azure-iot-edge-ubuntuvm). 
+Azure IOT Edge çalışma zamanı bir Ubuntu 16.04 önceden yapılandırılmış kullanarak sanal makine üzerinde çalıştırmak için adımlar bu makalede listelenmektedir [Ubuntu Azure Market teklifi Azure IOT Edge'de](https://aka.ms/azure-iot-edge-ubuntuvm). 
 
 İlk önyüklemede Azure IOT Edge çalışma zamanı en son sürümünü Ubuntu sanal makinesi Azure IOT Edge'de çalışmasını engeller. Ayrıca bağlantı dizesini ayarlayalım ve Azure VM portal ya da kolayca yapılandırın ve bir SSH veya uzaktan başlatmadan IOT Edge cihazı bağlamayı olanak tanıyan Azure komut satırı aracılığıyla uzaktan tetiklenebilir çalışma zamanı yeniden için bir betik içerir Masaüstü oturumu. Bu betik, uygulamanızın automation'a oluşturmanıza gerek kalmaz, IOT Edge istemci tam olarak yüklenene kadar bağlantı dizesini ayarlamak için bekler.
 
@@ -60,7 +60,7 @@ Azure IOT Edge çalışma zamanı bir Ubuntu 16.04 önceden yapılandırılmış
     1.  Aboneliklerinizi listeleyin:
     
        ```azurecli-interactive
-       azure account list --output table
+       az account list --output table
        ```
     
     1.  Kopyalama için kullanmak istediğiniz aboneliği Subscriptionıd alanı
@@ -79,7 +79,7 @@ Azure IOT Edge çalışma zamanı bir Ubuntu 16.04 önceden yapılandırılmış
 1.  Yeni bir sanal makine oluşturun:
 
     ```azurecli-interactive
-    az vm create --resource-group IoTEdgeResources --name EdgeVM –image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+    az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
     ```
 
 1.  Cihaz bağlantı dizesini ayarlayalım (izleyebilirsiniz [Azure CLI ile yeni bir Azure IOT Edge cihazı kaydetme](how-to-register-device-cli.md) bu işlemle ilgili bilgi sahibi değilseniz, nasıl yapılır kılavuzunda):

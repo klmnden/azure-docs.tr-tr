@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 272f4cfd4d79ef6d4fca3f3c00afb1c251649db8
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 6dcec5b72be8868a83a5760ef95117d3e751bcc3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010761"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538111"
 ---
 # <a name="get-started-with-device-management-java"></a>Cihaz yönetimini (Java) kullanmaya başlama
 
@@ -57,7 +57,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Maven 3.  <br/> [Geliştirme ortamınızı hazırlama](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) nasıl yüklendiğini açıklar [Maven](https://maven.apache.org/what-is-maven.html) Windows veya Linux üzerinde Bu öğretici için.
 
-* [Node.js sürümü: 0.10.0 veya üzeri](http://nodejs.org).
+* [Node.js sürümü: 0.10.0 veya üzeri](https://nodejs.org).
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -101,7 +101,7 @@ Bu konsol uygulamasını IOT doğrudan yöntem çağırma ve bildirilen özellik
     ```
 
     > [!NOTE]
-    > En son sürümünü kontrol **IOT hizmeti istemcisi** kullanarak [Maven arama](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > En son sürümünü kontrol **IOT hizmeti istemcisi** kullanarak [Maven arama](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 5. Aşağıdaki **derleme** düğümünün sonra **bağımlılıkları** düğümü. Bu yapılandırma, uygulama oluşturmak için Java 1.8 kullanmak için Maven bildirir:
 
@@ -247,7 +247,7 @@ Bu bölümde, bir cihaza benzetim yapan bir Java konsol uygulaması oluşturun. 
     ```
 
     > [!NOTE]
-    > En son sürümünü kontrol **IOT cihaz istemcisi** kullanarak [Maven arama](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > En son sürümünü kontrol **IOT cihaz istemcisi** kullanarak [Maven arama](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Aşağıdaki **derleme** düğümünün sonra **bağımlılıkları** düğümü. Bu yapılandırma, uygulama oluşturmak için Java 1.8 kullanmak için Maven bildirir:
 

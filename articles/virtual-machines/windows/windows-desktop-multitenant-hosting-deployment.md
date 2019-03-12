@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: dc798dc78ed0cdbf11bbe3bc2dd805433b127a4d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 7f43528c55cd22c2649ca0f1208da6f41695b98e
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976935"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569986"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Çok müşterili barındırma hakları ile azure'da Windows 10 dağıtma 
 Müşteriler için Windows 10 Enterprise E3/E5 ile Windows sanal masaüstü erişimi ya da kullanıcı başına kullanıcı (kullanıcı Abonelik lisansı veya eklenti kullanıcı Abonelik Lisansı), çok Kiracılı barındırma hakları Windows 10 için Windows 10 lisanslarınızı buluta getirmenize olanak sağlar ve Windows 10 sanal makineleri başka bir lisans için ödeme yapmadan Azure üzerinde çalıştırın. Daha fazla bilgi için lütfen bkz [Windows 10 için çok Kiracılı barındırma](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -72,11 +72,11 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 
 **Azure Resource Manager şablon dağıtımı kullanarak dağıtın** Resource Manager şablonlarınızı için ek bir parametre içinde `licenseType` belirtilebilir. Daha fazla bilgi edinebilirsiniz [Azure Resource Manager şablonları yazma](../../resource-group-authoring-templates.md). Azure'a yüklenmiş VHD'nizi aldıktan sonra lisans türü işlem Sağlayıcısı'nın bir parçası olarak dahil etmek ve normal olarak, şablonunuzu dağıtmak için Resource Manager Şablonu Düzenle:
 ```json
-"properties": {  
-   "licenseType": "Windows_Client",
-   "hardwareProfile": {
+"properties": {
+    "licenseType": "Windows_Client",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 **PowerShell dağıtma** Windows Server sanal Makinenizi PowerShell aracılığıyla dağıtım yaparken, ek bir parametre için sahip `-LicenseType`. Azure'a yüklenmiş VHD'nizi oluşturduktan sonra kullanarak bir VM oluşturma `New-AzVM` ve lisans türünü aşağıdaki gibi belirtin:
