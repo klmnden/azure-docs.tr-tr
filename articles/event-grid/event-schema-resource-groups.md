@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 2b570fdb42c29c6ad68add32be660ef57f1eec1f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6cbfc06f380d7c4818ca82e858c23bb18849fb7c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468310"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535751"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Kaynak grupları için Azure Event Grid olay şeması
 
@@ -236,29 +236,29 @@ Bir olay aşağıdaki üst düzey veri vardır:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
-| olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
-| eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
-| id | dize | Olayın benzersiz tanımlayıcısı. |
+| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
+| id | string | Olayın benzersiz tanımlayıcısı. |
 | veriler | object | Kaynak grubu olay verileri. |
-| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
+| dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
+| metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
 Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | Yetkilendirme | object | İşlem için istenen yetkilendirme. |
-| Talep | object | Talep özellikleri. Daha fazla bilgi için [JWT belirtimi](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | dize | Sorun giderme için bir işlem kimliği. |
+| Talep | object | Talep özellikleri. Daha fazla bilgi için [JWT belirtimi](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| correlationId | string | Sorun giderme için bir işlem kimliği. |
 | HTTP isteği | object | İşlem ayrıntıları. Bu nesne yalnızca olan mevcut bir kaynağı güncelleştirirken dahil ya da bir kaynak siliniyor. |
-| ResourceProvider | dize | İşlemi kaynak sağlayıcı. |
-| resourceUri | dize | İşlemi kaynak URI'si. |
-| operationName | dize | Alınan işlemi. |
-| durum | dize | İşlemin durumu. |
-| subscriptionId | dize | Kaynak abonelik kimliği. |
-| Kiracı kimliği | dize | Kaynak Kiracı kimliği. |
+| ResourceProvider | string | İşlemi kaynak sağlayıcı. |
+| resourceUri | string | İşlemi kaynak URI'si. |
+| operationName | string | Alınan işlemi. |
+| durum | string | İşlemin durumu. |
+| subscriptionId | string | Kaynak abonelik kimliği. |
+| Kiracı kimliği | string | Kaynak Kiracı kimliği. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

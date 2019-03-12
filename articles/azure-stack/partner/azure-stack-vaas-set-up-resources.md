@@ -15,39 +15,37 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ef46df4d5162a08d9dc4d8674cf5867f863ce332
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: ad97381d983446dfcc32dd1ba82af587a500b9da
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342488"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762152"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Öğretici: Hizmet olarak doğrulama için kaynaklarını ayarlama
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Bir çözüm oluşturmanız gerekir. Bir doğrulama hizmeti (VaaS) çözümü olarak Azure Stack çözümünü belirli donanım ürün reçetesi ile temsil eder. Çözüm çalıştırma Azure Stack, donanım destekleyip desteklemediğini kontrol etmek için kullanır. Hizmet ile çözümünüzü kullanmaya hazır hale getirmek için bu öğreticiden yararlanın.
+Doğrulama (VaaS) hizmet olarak Azure Stack çözümleri piyasadaki destekler ve doğrulamak için kullanılan bir Azure hizmetidir. Bu makalede, çözümünüzü doğrulamak için hizmet kullanmadan önce izleyin.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Azure AD'yi ayarlarken ayarlayarak VaaS kullanmaya hazırlanmanıza (Azure AD) örneği.
+> * Azure Active Directory (AD) ayarlama ayarlayarak VaaS kullanmaya hazır olun.
 > * Depolama hesabı oluşturma.
 
 ## <a name="configure-an-azure-ad-tenant"></a>Azure AD kiracısı yapılandırın
 
-Azure AD kiracısı ile VaaS kaydetme ve kimlik doğrulaması için gereklidir. Kiracı rol tabanlı erişim denetimi (RBAC) iş ortağı tarafından kimlerin ortağı kuruluşundaki VaaS kullanabileceğini yönetmek için kullanılır.
-
-Kuruluş, Azure AD'ye kaydetmeniz Kiracı directory (Azure Stack için kullanılan Azure AD Kiracı dizinini yerine) ve kullanıcı hesaplarını yönetmek için bir ilke oluşturun. Daha fazla bilgi için [Azure AD dizininizi yönetme](https://docs.microsoft.com/azure/active-directory/active-directory-administer).
+Azure AD kiracısı, bir kuruluşun kayıt ve VaaS ile kullanıcıların kimliğini doğrulamak için kullanılır. İş ortağı kimlerin ortağı kuruluşundaki VaaS kullanabileceğini yönetmek için Kiracı rol tabanlı erişim denetimi (RBAC) kullanır. Daha fazla bilgi için bkz. [Azure Active Directory nedir?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis).
 
 ### <a name="create-a-tenant"></a>Kiracı oluşturma
 
-Örneğin, açıklayıcı bir ad ile kullanılmak üzere özel olarak bir kiracı ile VaaS oluşturma `ContosoVaaS@onmicrosoft.com`.
+Kuruluşunuz VaaS hizmetlerine erişmek için kullanacağı bir kiracı oluşturur. Örneğin, açıklayıcı bir ad kullanın `ContosoVaaS@onmicrosoft.com`.
 
 1. Bir Azure AD kiracısında oluşturma [Azure portalında](https://portal.azure.com), ya da mevcut bir kiracıyı kullanın. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
 2. Kuruluşunuzun üyeleri kiracıya ekleyin. Bu kullanıcılar testleri zamanlayın veya görüntülemek için hizmeti kullanmak için sorumlu olursunuz. Kayıt işlemini tamamladıktan sonra kullanıcıların erişim düzeylerini tanımlayacaksınız.
- 
+
     Aşağıdaki rollerden biri atayarak Eylemler VaaS içinde çalıştırmak için kiracınızdaki kullanıcılar izin verirsiniz:
 
     | Rol Adı | Açıklama |
@@ -63,7 +61,7 @@ Kuruluş, Azure AD'ye kaydetmeniz Kiracı directory (Azure Stack için kullanıl
     3. Seçin **kurumsal uygulamalar** > **Azure Stack doğrulama hizmeti** uygulama.
     4. **Kullanıcı ve gruplar**'ı seçin. **Azure Stack doğrulama hizmeti - kullanıcı ve grup** dikey penceresinde uygulamayı kullanmak için izne sahip kullanıcılar listelenir.
     5. Seçin **+ Ekle kullanıcı** kiracınızdan bir kullanıcı ekleyin ve bir rol atayın.
-   
+
     VaaS kaynaklara ve işlemlere bir kuruluştaki farklı gruplar arasında yalıtmak istiyorsanız, birden çok Azure AD Kiracı dizin oluşturabilirsiniz.
 
 ### <a name="register-your-tenant"></a>Kiracınızı kaydetme
@@ -102,10 +100,7 @@ Azure depolama hesabı, Azure Stack ortamınıza değil, Azure genel bulutunda b
 
 3. Altında **kaynak grubu**seçin **Yeni Oluştur**. Yeni kaynak grubunuz için bir ad girin.
 
-4. Depolama hesabınız için bir ad girin. Seçtiğiniz bir adı olması gerekir:
-    - Azure genelinde benzersiz
-    - 3 ila 24 karakter uzunluğunda
-    - Yalnızca sayılar ve küçük harfler içerebilir
+4. Gözden geçirme [adlandırma kuralları](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage) Azure depolama hesapları için. Depolama hesabınız için bir ad girin.
 
 5. Seçin **ABD Batı** depolama hesabınız için bölge.
 
@@ -119,7 +114,7 @@ Azure depolama hesabı, Azure Stack ortamınıza değil, Azure genel bulutunda b
     - **Çoğaltma alanı** ayarlanır **yerel olarak yedekli depolama (LRS)** varsayılan olarak.
     - **Erişim katmanı** varsayılan olarak **Sık erişim**’e ayarlanır.
 
-7. Depolama hesabı ayarlarınızı gözden geçirmek ve hesabı oluşturmak için **Gözden Geçir + Oluştur**’a tıklayın.
+7. Depolama hesabı ayarlarınızı gözden geçirmek ve hesabı oluşturmak için **Gözden Geçir + Oluştur**’u seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

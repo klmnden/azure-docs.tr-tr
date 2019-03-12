@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 530bb83d753d27db4869b5725bc6d4c4e020e179
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3be2ab8bd4be56de945303bec9969f531be77864
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446614"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535606"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -220,7 +220,7 @@ Linux VM, VMSnapshot uzantısı Azure Portalı'nda görünmüyorsa için [Azure 
 Bu adımları tamamladıktan sonraki yedekleme sırasında yüklenmesi uzantısı neden olur.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Kurtarma noktası kaynak grubundan kilidi kaldırın
-1. [Azure Portal](http://portal.azure.com/) oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Git **tüm kaynakları seçeneği**, geri yükleme noktası koleksiyonu kaynak grubunu seçin aşağıdaki biçimde AzureBackupRG_`<Geo>`_`<number>`.
 3. İçinde **ayarları** bölümünden **kilitleri** kilitler görüntülenecek.
 4. Kilidi kaldırmak için üç noktayı seçin ve **Sil**.
@@ -241,7 +241,7 @@ Kilit kaldırdıktan sonra bir ad geçici/el ile yedekleme tetikleyin. Bu, geri 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Temiz geri yükleme noktası koleksiyonu Azure portalından <br>
 
 Noktaları, kaynak grubundaki kilit nedeniyle temizlenmez koleksiyonu geri yüklemeyi el ile temizlemek için aşağıdaki adımları deneyin:
-1. [Azure Portal](http://portal.azure.com/) oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Üzerinde **Hub** menüsünde tıklayın **tüm kaynaklar**, aşağıdaki biçimde AzureBackupRG_ kaynak grubunu seçin`<Geo>`_`<number>` , VM'nin bulunduğu.
 
     ![Kilit silme](./media/backup-azure-arm-vms-prepare/resource-group.png)

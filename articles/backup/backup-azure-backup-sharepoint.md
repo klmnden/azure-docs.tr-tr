@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 35f9b76e27a0977a25f6d060f7362bc417e0568e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7e8043badbc0accd38ad618a7d455729ab6606b2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813866"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541303"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Bir SharePoint grubunu Azure’a yedekleme
 Microsoft Azure'a çok diğer veri kaynaklarını yedekleme aynı şekilde, System Center Data Protection Manager (DPM) kullanarak bir SharePoint grubunu yedekleme. Azure Backup, yedekleme zamanlaması günlük oluşturmak için esneklik sağlar, haftalık, aylık veya yıllık yedekleme işaret ve çeşitli yedekleme noktaları için bekletme ilkesi seçenekleri sunar. DPM, Hızlı Kurtarma süresi hedeflerini (RTO) için yerel disk kopyaları depolamak ve ekonomik, uzun süreli saklama için azure'a kopyaları depolamak için yeteneği sağlar.
@@ -47,7 +47,7 @@ Performans, SharePoint grubu boyutu gibi birçok faktöre bağlıdır, ancak gen
 
 ### <a name="dpm-update-rollup-5"></a>DPM Güncelleştirme Paketi 5
 Bir SharePoint grubunu Azure'da koruma başlamak için DPM Güncelleştirme Paketi 5 veya sonraki bir sürümü yüklemeniz gerekir. Güncelleştirme Paketi 5 SQL Alwayson'u kullanarak Grup yapılandırılmışsa, bir SharePoint grubunu Azure'da koruma olanağı sağlar.
-Daha fazla bilgi için bkz. blog tanıtan post [DPM Güncelleştirme Paketi 5](http://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)
+Daha fazla bilgi için bkz. blog tanıtan post [DPM Güncelleştirme Paketi 5](https://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)
 
 ### <a name="whats-not-supported"></a>Desteklenmeyen durumlar
 * Arama dizinleri veya uygulama hizmeti veritabanları bir SharePoint çiftliğini koruyan DPM korumaz. Bu veritabanlarının korunmasını ayrı yapılandırmanız gerekir.
@@ -240,6 +240,6 @@ Evet, öğe özgün SharePoint sitesine kurtarılabilir.
 SharePoint veritabanlarını SQL AlwaysOn yapılandırıldığından, bunlar kullanılabilirlik grubu kaldırılmadığı sürece değiştirilemez. Sonuç olarak, DPM veritabanını özgün konumuna geri yükleyemezsiniz. Bir SQL Server veritabanını başka bir SQL Server örneğine kurtarabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* SharePoint DPM koruma hakkında daha fazla bilgi - bkz [Video serisi - SharePoint DPM koruma](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
+* SharePoint DPM koruma hakkında daha fazla bilgi - bkz [Video serisi - SharePoint DPM koruma](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
 * Gözden geçirme [sürüm notları System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 * Gözden geçirme [System Center 2012 SP1 Data Protection Manager için sürüm notları](https://technet.microsoft.com/library/jj860394.aspx)

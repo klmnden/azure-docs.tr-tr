@@ -3,17 +3,17 @@ title: Azure IOT Central uygulamanızı DevKit cihaz bağlayın | Microsoft Docs
 description: Bir cihaz geliştirici olarak, Azure IOT Central uygulamanıza MXChip IOT DevKit cihaz bağlanmayı öğreneceksiniz.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/16/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6c9f128a046904eb8df90625ce1043b3d42e8be4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 150f2b9155d5e920a7394e2fa55ce28701497868
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448552"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763019"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -26,19 +26,17 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 1. Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
 1. Bir DevKit cihaz. DevKit cihaz satın almak için ziyaret [MXChip IOT DevKit](http://mxchip.com/az3166).
 
+## <a name="sample-devkits-application"></a>Örnek Devkits uygulaması
 
-## <a name="sample-devkits-application"></a>**Örnek Devkits** uygulama
+Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **MXChip** cihaz şablonu aşağıdaki özelliklere sahip:
 
-Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **MXChip** cihaz şablonu aşağıdaki özelliklere sahip: 
-
-- Cihaz için ölçüler içeren telemetri **nem**, **sıcaklık**, **baskısı**, **Magnometer** (X ölçülür. Y, Z ekseni), **ivme ölçer** (ölçülen X, Y, Z ekseni) ve **jiroskop** (X, Y ölçülür Z ekseni).
+- Cihaz için ölçüler içeren telemetri **nem**, **sıcaklık**, **baskısı**, **Magnetometer** (ölçülür boyunca X, Y, Z ekseni), **ivme ölçer** (ölçülen X, Y, Z ekseni) ve **jiroskop** (X, Y ölçülür Z ekseni).
 - Bir örnek ölçüm için içeren durumu **cihaz durumu**.
 - Olay ölçümü ile bir **B düğmesi basılı** olay. 
 - Ayarları gösteren **voltaj**, **geçerli**, **fanı hızı**ve bir **IR** Aç/Kapat.
 - Cihaz özelliği içeren özellik **sayı öldürmüş** ve **cihaz konumu** olarak de location özelliği olan bir **üretilen içinde** bulut özelliği. 
 
-
-Yapılandırması hakkında tam Ayrıntılar için bkz [MXChip cihaz şablonu ayrıntıları](howto-connect-devkit.md#mxchip-device-template-details)
+Yapılandırması hakkında tam Ayrıntılar için bkz [MXChip cihaz şablonu ayrıntıları](#mxchip-device-template-details)
 
 
 ## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
@@ -46,28 +44,24 @@ Yapılandırması hakkında tam Ayrıntılar için bkz [MXChip cihaz şablonu ay
 Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz şablonu ve cihaz bağlantı ayrıntılarını not yap (**kapsam kimliği, cihaz kimliği ve birincil anahtarınızı**).
 
 1. Ekleme bir **gerçek cihaz** Device Explorer seçin **+ yeni > gerçek** gerçek bir cihaz eklemek için.
+
     * Cihaz kimliğini girebilir **<span style="color:Red">(küçük harf olması gerekir)</span>** veya önerilen cihaz kimliğini kullanması
     * Cihaz adını girin veya önerilen adı kullanın
-    
-    ![Cihaz Ekleme](media/concepts-connectivity/add-device.png)
 
+    ![Cihaz Ekleme](media/howto-connect-devkit/add-device.png)
 
 1. Bağlantı ayrıntıları gibi almak **kapsam kimliği, cihaz kimliği ve birincil anahtarınızı** seçerek eklenen bir cihazı için **Connect** cihaz sayfasında.
- 
-    ![Bağlantı ayrıntıları](media/concepts-connectivity/device-connect.PNG)
 
-3. DevKit cihazı hazırlama gibi geçici olarak internet'ten bağlantıları kesilir gibi bu ayrıntıları kaydetmeyi unutmayın. 
+    ![Bağlantı ayrıntıları](media/howto-connect-devkit/device-connect.png)
 
+1. DevKit cihazı hazırlama gibi geçici olarak internet'ten bağlantıları kesilir gibi bu ayrıntıları kaydetmeyi unutmayın.
 
 ### <a name="prepare-the-devkit-device"></a>DevKit cihazı hazırlama
 
 > [!NOTE]
 > Cihaz daha önce kullandınız ve kimlik bilgileri depolanır ve farklı bir WiFi ağına, bağlantı dizesi veya telemetri ölçüm kullanacak şekilde cihazı yeniden yapılandırmak istediğiniz Wi-Fi varsa, her ikisi de basın **A** ve **B** Pano üzerinde aynı anda düğmeler. Bu işe yaramazsa, basın **sıfırlama** düğmesine tıklayın ve yeniden deneyin.
 
-
-
-#### <a name="to-prepare-the-devkit-device"></a>DevKit cihazı hazırlamak için:
-
+#### <a name="to-prepare-the-devkit-device"></a>DevKit cihazı hazırlamak için
 
 1. MXChip için önceden oluşturulmuş en son Azure IOT Central bellenim indirme [sürümleri](https://aka.ms/iotcentral-docs-MXChip-releases) GitHub sayfasında.
 1. DevKit cihazı bir USB kablosu kullanarak, geliştirme makinenize bağlayın. Windows içinde DevKit cihazdaki depolama alanına eşlenmiş sürücüsünde bir dosya Gezgini penceresi açılır. Örneğin, sürücü olarak adlandırılabilir **AZ3166 (D:)**.
@@ -78,12 +72,12 @@ Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz �
     ```
     Connect HotSpot:
     AZ3166_??????
-    go-> 192.168.0.1 
+    go-> 192.168.0.1
     PIN CODE xxxxx
     ```
 
     > [!NOTE]
-    > Başka bir şey ekran görüntüleri, tuşuna basın ve cihaz sıfırlama **A** ve **B** cihazı yeniden başlatmak için aynı anda cihazda düğme. 
+    > Başka bir şey ekran görüntüleri, tuşuna basın ve cihaz sıfırlama **A** ve **B** cihazı yeniden başlatmak için aynı anda cihazda düğme.
 
 1. Cihaz erişim noktası (AP) modunda sunulmuştur. Bu Wi-Fi erişim noktasına, bilgisayar veya mobil CİHAZDAN bağlanabilirsiniz.
 
@@ -178,7 +172,7 @@ Kodda **iotHubClient.cpp** kaynak dosyası kullanan işlevlerden [ Microsoft Azu
 
 Değiştirmek için derleme ve örnek kod, cihazınıza karşıya yükleme hakkında daha fazla bilgi için bkz. **readme.md** dosyası `AZ3166` klasör.
 
-## <a name="mxchip-device-template-details"></a>MXChip cihaz şablonu ayrıntıları 
+## <a name="mxchip-device-template-details"></a>MXChip cihaz şablonu ayrıntıları
 
 Örnek Devkits uygulama şablondan oluşturulan bir uygulama aşağıdaki özelliklere sahip bir MXChip cihaz şablonu içerir:
 

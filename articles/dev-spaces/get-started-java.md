@@ -3,7 +3,6 @@ title: Java ve VS Code kullanarak bulutta Kubernetes geliştirme alanı oluştur
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
@@ -11,12 +10,12 @@ ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 5d7e86b6c126874cef4bc33f6e17adca8b7f1d5e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 4963bfa9cd54b637b094528a697d5c37c18bfaee
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194223"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762238"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Java ile Azure geliştirme alanlarında çalışmaya başlama
 
@@ -71,7 +70,7 @@ az group create --name MyResourceGroup --location <region>
 Şu komutu kullanarak bir Kubernetes kümesi oluşturun:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.13 --generate-ssh-keys
 ```
 
 Kümenin oluşturulması birkaç dakika sürer.

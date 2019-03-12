@@ -3,17 +3,16 @@ title: Ek - Iaas Vm'leri için Azure Disk şifrelemesi | Microsoft Docs
 description: Bu makale için Microsoft Azure Disk şifrelemesi Windows ve Linux Iaas Vm'leri için ek niteliğindedir.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/14/2019
+ms.date: 03/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d23e6d00b77e69f7f3353938c52b450eebbfd142
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 6632647c7782411d0d124c325f9bf0afff7e699d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990689"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767798"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Ek Azure Disk şifrelemesi 
 
@@ -164,14 +163,6 @@ Aşağıdaki tabloda, PowerShell betik parametreleri kullanılabileceğini göst
 
 - [Bir yeni şifrelenmiş Windows Iaas yönetilen Disk galeri görüntüsünden VM oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
     - Bu şablon, Windows Server 2012 galeri görüntüsü kullanarak yönetilen disklerle şifrelenmiş yeni bir Windows VM oluşturur.
-
-- [Yönetilen disklere sahip tam disk şifrelemesi ile RHEL 7.2 dağıtımı](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - Bu şablon, yönetilen diskleri kullanarak Azure'da tam olarak şifrelenmiş RHEL 7.2 VM oluşturur. Bu, bir şifrelenmiş 30 GB işletim sistemi sürücüsü ve /mnt/raidencrypted oluşturulmuş şifrelenmiş 200 GB dizisi (RAID-0) içerir. Bkz: [SSS](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) desteklenen Linux sunucusu dağıtımları için makale. 
-
-- [Yönetilmeyen diskler içeren tam disk şifrelemesi ile RHEL 7.2 dağıtımı](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
-    - Bu şablon, şifrelenmiş bir 30 GB işletim sistemi sürücüsü ve şifrelenmiş 200 GB dizi (RAID-0) /mnt/raidencrypted takılı azure'da tam olarak şifrelenmiş RHEL 7.2 VM oluşturur. Bkz: [SSS](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) desteklenen Linux sunucusu dağıtımları için makale. 
-
-- [Önceden şifrelenmiş bir VHD için Windows veya Linux üzerinde disk şifrelemesini etkinleştirme](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
 
 - [Önceden şifrelenmiş bir VHD/storage blobundan yeni şifrelenmiş yönetilen disk oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - Önceden şifrelenmiş bir VHD ve karşılık gelen şifreleme ayarları ile sağlanan yeni şifrelenmiş yönetilen disk oluşturur
@@ -555,7 +546,7 @@ Bir Azure AD uygulamasını (önceki sürüm) kullanarak şifreleme, daha önce 
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Disk şifreleme gizli bilgisi bir KEK ile şifrelenmiş değil
-Gizli anahtar kasanızdaki ayarlamak için kullanın [Set-AzureKeyVaultSecret](/powershell/module/az.keyvault/set-azurekeyvaultsecret). Bir Windows sanal makine varsa, bek dosya kodlanmış bir base64 dizesi ve ardından kullanarak anahtar kasası karşıya `Set-AzureKeyVaultSecret` cmdlet'i. Linux için parola base64 dizesi olarak kodlanmış ve daha sonra anahtar kasasına yüklenmiş. Ayrıca, anahtar kasasında gizli dizi oluşturduğunuzda, aşağıdaki etiketleri ayarlandığından emin olun.
+Gizli anahtar kasanızdaki ayarlamak için kullanın [kümesi AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Bir Windows sanal makine varsa, bek dosya kodlanmış bir base64 dizesi ve ardından kullanarak anahtar kasası karşıya `Set-AzureKeyVaultSecret` cmdlet'i. Linux için parola base64 dizesi olarak kodlanmış ve daha sonra anahtar kasasına yüklenmiş. Ayrıca, anahtar kasasında gizli dizi oluşturduğunuzda, aşağıdaki etiketleri ayarlandığından emin olun.
 
 #### <a name="windows-bek-file"></a>Windows BEK dosyası
 ```powershell
@@ -604,7 +595,7 @@ $SecretUrl
 Kullanım `$secretUrl` için sonraki adımda [KEK kullanmadan işletim sistemi diskindeki](#bkmk_URLnoKEK).
 
 ### <a name="bkmk_SecretKEK"></a> Bir KEK ile şifrelenmiş disk şifreleme gizli bilgisi
-Gizli anahtar Kasası'na yüklemeden önce bir anahtar şifreleme anahtarı kullanarak isteğe bağlı olarak şifreleyebilirsiniz. Kaydırma kullanın [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) ilk anahtar şifreleme anahtarı kullanarak şifrelemek için. Bir gizli dizi kullanarak daha sonra karşıya yükleyebilirsiniz base64 URL olarak kodlanmış dize çıktıdır bu kaydırma işleminin [ `Set-AzureKeyVaultSecret` ](/powershell/module/az.keyvault/set-azurekeyvaultsecret) cmdlet'i.
+Gizli anahtar Kasası'na yüklemeden önce bir anahtar şifreleme anahtarı kullanarak isteğe bağlı olarak şifreleyebilirsiniz. Kaydırma kullanın [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) ilk anahtar şifreleme anahtarı kullanarak şifrelemek için. Bir gizli dizi kullanarak daha sonra karşıya yükleyebilirsiniz base64 URL olarak kodlanmış dize çıktıdır bu kaydırma işleminin [ `Set-AzKeyVaultSecret` ](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet'i.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

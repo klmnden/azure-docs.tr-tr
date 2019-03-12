@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ef2d59393902194af3e257ce0fd5bf403b293af1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d9a17bdad0bfa4965d36fbe2a2cf3a7890060e98
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245432"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772577"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Hızlı Başlangıç: Azure Stack portal ile Linux server sanal makinesi oluşturma
 
@@ -43,7 +43,7 @@ Azure Stack portalını kullanarak bir Ubuntu Server 16.04 LTS sanal makine olu�
 
    Azure Stack geliştirme Seti'ni (ASDK) kullanıyorsanız, SSH istemcisi erişimi olmayabilir. Bir istemci gerekiyorsa, bir SSH istemcisi dahil çeşitli paketler vardır. Örneğin, bir SSH istemcisi ve SSH anahtarı Oluşturucu (puttygen.exe) PuTTY içerir. Kullanılabilir paketler hakkında daha fazla bilgi için aşağıdaki Azure makalesini okuyun: [Azure'da Windows ile SSH anahtarlarını kullanma nasıl](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
-   Bu hızlı başlangıçta, PuTTY SSH anahtarları oluşturun ve Linux sunucusu sanal makinesine bağlanmak için kullanılır. Putty'yi indirin ve yükleyin gidin [ http://www.putty.org/ ](http://www.putty.org).
+   Bu hızlı başlangıçta, PuTTY SSH anahtarları oluşturun ve Linux sunucusu sanal makinesine bağlanmak için kullanılır. Putty'yi indirin ve yükleyin gidin [ https://www.putty.org/ ](http://www.putty.org).
 
 ## <a name="create-an-ssh-key-pair"></a>SSH anahtar çifti oluşturma
 

@@ -3,7 +3,7 @@ title: Kritik hizmet bir Azure sanal makinesi önyükleme başarısız oldu | Mi
 description: Önyükleme yaparken oluşan "0x0000005A kritik hizmet başarısız" hatası sorunlarını gidermeyi öğrenin | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: ffc8bd21468847a71a44be2244c72af7016cd65f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d450bc4e05a70ff8c1698dd2760d0f71140db21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432031"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763649"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>"Windows Kritik hizmet başarısız" mavi ekranda bir Azure sanal makinesi önyükleme yaparken gösterir
 Bu makalede, Microsoft Azure'da Windows sanal makinesi (VM) önyüklediğinizde karşılaşabileceğiniz "Kritik hizmet başarısız" hatası. Bu sorunları gidermek için sorun giderme adımlarını sağlar. 

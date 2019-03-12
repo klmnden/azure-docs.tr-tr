@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: af73d78b911d59f68c5e824931b5634d8c69f309
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 42ac75b6ed0d4489ccae014b9cfe3b08269c1218
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449011"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547427"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Desenlerini tahmin doğruluğunu artırmak
 Desenler, çeşitli konuşma çok benzer olduğunda doğruluğunu artırmak için tasarlanmıştır.  Bir desen çok daha fazla konuşma sağlamadan bir amaç için daha yüksek doğruluk derecesi elde etmek sağlar. 
@@ -41,8 +41,11 @@ Desen aşağıdaki durumlarda çözer:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Desenler hedefi garantisi değildir.
 Desenlerini tahmin teknolojilerinin bir karışımını kullanın. Bir desende bir amaç için bir şablon utterance ayarı hedefi tahmin garantisi değil ancak güçlü bir sinyaldir. 
 
-## <a name="patterns-do-not-improve-entity-detection"></a>Desenler varlık algılama geliştirmek değil
-Varlıklar desenleri gerektirir, ancak bir düzeni varlık algılamak yardımcı olmaz. Bir desen, yalnızca hedefleri ve roller ile tahmini için tasarlanmıştır.  
+<a name="patterns-do-not-improve-entity-detection"/>
+
+## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Desenler makine öğrenilen varlık algılama geliştirmek değil
+
+Bir desen, öncelikli olarak tahmin hedefleri ve rol için tasarlanmıştır. Pattern.any varlık, serbest biçimli varlıkları ayıklamak için kullanılır. Desenler varlıkları kullanırken, bir desen bir makine öğrenilen varlık algılamak yardımcı olmaz.  
 
 Tek bir düzen birden çok konuşma daralttığınızda geliştirilmiş varlık tahmin görmek beklemiyoruz. Ateşlenmesine basit varlıklar için Konuşma ekleme veya başka desen değil ateşlenir listesi varlıkları kullanın gerekir.
 

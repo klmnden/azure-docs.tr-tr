@@ -11,15 +11,15 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d47aab9e3d083cd7f51b1c3ba613f421fc1777a6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261970"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764107"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Azure portalını kullanarak BizTalk Services oluşturma
 
@@ -143,8 +143,8 @@ Azure BizTalk Hizmeti oluşturulduğunda, BizTalk hizmeti adını içeren bir HT
 <br/>
 
 <ul>
-<li><strong>Gelişmiş Anahtar Kullanımı</strong>: Azure BizTalk Services için en azından Sunucu Kimlik Doğrulaması gerekir.</li>
-<li><strong>Ortak Ad</strong>: Azure BizTalk Hizmeti URL'nizin tam etki alanı adını (FQDN) girin. Bu makaledeki <a HREF="#CreateService">BizTalk Hizmeti oluşturma</a> bölümüne bakın.</li>
+<li><strong>Gelişmiş anahtar kullanımı</strong>: En azından, Azure BizTalk Services sunucu kimlik doğrulaması gerekir.</li>
+<li><strong>Ortak ad</strong>: Azure BizTalk hizmeti URL'nizin tam etki alanı adını (FQDN) girin. Bu makaledeki <a HREF="#CreateService">BizTalk Hizmeti oluşturma</a> bölümüne bakın.</li>
 </ul>
 <br/>
 BizTalk Hizmeti oluşturulduktan sonra yeni veya farklı bir sertifika eklenebilir.
@@ -165,14 +165,14 @@ Karma Bağlantılar Azure web sitesine veya Azure mobil hizmetinden SQL Sunucusu
  Karma Bağlantıları oluşturma ve yönetme de dahil, daha fazla bilgi için bkz. [Karma Bağlantılar](integration-hybrid-connection-overview.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık bir BizTalk Hizmeti oluşturuldu, şimdi de kendinizi farklı [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md) ile tanışmaya hazırlayın. BizTalk Hizmeti uygulamalarınız için hazır. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
+BizTalk hizmeti oluşturulduktan sonra farklı bilgilenmeli [BizTalk Services: Pano, İzleyici ve ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md). BizTalk Hizmeti uygulamalarınız için hazır. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)<br/>
-* [BizTalk Services: Durum Grafiği](biztalk-service-state-chart.md)<br/>
-* [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Sürümler grafiği](biztalk-editions-feature-chart.md)<br/>
+* [BizTalk Services: Durum grafiği](biztalk-service-state-chart.md)<br/>
+* [BizTalk Services: Yedekleme ve geri yükleme](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Azaltma](biztalk-throttling-thresholds.md)<br/>
-* [BizTalk Services: Verenin Adı ve Verenin Anahtarı](biztalk-issuer-name-issuer-key.md)<br/>
+* [BizTalk Services: Verenin adı ve verenin anahtarı](biztalk-issuer-name-issuer-key.md)<br/>
 * [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Karma Bağlantılar](integration-hybrid-connection-overview.md)
 

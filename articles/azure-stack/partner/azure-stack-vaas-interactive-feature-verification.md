@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 20a48e67a24763af7bcce9e8831e2a1d1846d094
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d3db8ea8639f73f3522ddaa358195e7c9ef2f9a9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594313"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766011"
 ---
 # <a name="interactive-feature-verification-testing"></a>Etkileşimli özellik doğrulama testi  
 
@@ -35,13 +35,13 @@ Bu makalede, basit bir el ile senaryosu açıklanır. Azure stack'teki disk değ
 
 ## <a name="overview-of-interactive-testing"></a>Etkileşimli test genel bakış
 
-Disk değiştirme için bir test sık karşılaşılan bir senaryodur. Bu örnekte, test yedi adım vardır:
+Disk değiştirme için bir test sık karşılaşılan bir senaryodur. Bu örnekte, test beş adımı vardır:
 
-1. Yeni bir **Test geçiş** iş akışı
-1. Seçin **Disk kimliği Test**
-1. İstendiğinde el ile adımı tamamlayın
-1. Senaryo sonucunu denetleyin
-1. Test sonucu Microsoft'a gönder
+1. Yeni bir **Test geçiş** iş akışı.
+2. Seçin **Disk kimliği Test**.
+3. İstendiğinde el ile adımı tamamlayın.
+4. Senaryo sonucunu denetleyin.
+5. Test sonucu Microsoft'a gönderin.
 
 ## <a name="create-a-new-test-pass"></a>Yeni bir test geçişi oluşturma
 

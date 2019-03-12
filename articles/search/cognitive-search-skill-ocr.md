@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a978e1054367620f25043ab810c3fb78c45d9f72
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb7fe0689ce54031880565c0c6409afeab2ff523
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310684"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777900"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR bilişsel beceri
 
@@ -33,6 +33,7 @@ Optik karakter tanıma (OCR) beceri görüntü dosyaları yazdırılan ve el yaz
 + .PNG
 + . BMP
 + .GIF
++ . TIFF
 
 > [!NOTE]
 > Yapabilecekleriniz 21 aralık 2018 tarihinden itibaren [Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md) ile bir Azure Search beceri kümesi. Bu beceri yürütmesi için ücretlendirmeye başlarız olanak tanır. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için ücretlendirme başladı. Metin ayıklama belgelerden hiçbir ek ücret ödemeden sunulmaya devam eder.

@@ -3,23 +3,23 @@ title: Azure Data Factory'de Spark etkinliğini kullanarak verileri dönüştür
 description: Spark programları Spark etkinliğini kullanarak bir Azure data factory işlem hattından çalıştırarak verileri dönüştürme hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2018
-ms.author: douglasl
-ms.openlocfilehash: a25505a976be9d9ae38f562591d86ca9b56b8859
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025629"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576209"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory'de Spark etkinliğini kullanarak verileri dönüştürme
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-spark.md)
 > * [Geçerli sürüm](transform-data-using-spark.md)
 
@@ -60,7 +60,7 @@ Bir Spark etkinliği örnek JSON tanımı aşağıda verilmiştir:
 
 Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmaktadır:
 
-| Özellik              | Açıklama                              | Gereklidir |
+| Özellik              | Açıklama                              | Gerekli |
 | --------------------- | ---------------------------------------- | -------- |
 | ad                  | İşlem hattındaki bir etkinliğin adı.    | Evet      |
 | açıklama           | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
@@ -73,19 +73,19 @@ Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmak
 | bağımsız değişkenler             | Spark programı için komut satırı bağımsız değişkenleri listesi. | Hayır       |
 | Proxyuserpassword             | Spark programının yürütülecek kimliğine bürünmek için kullanıcı hesabı | Hayır       |
 | sparkConfig           | Bu konu başlığı altında listelenen Spark yapılandırma özellikleri için değerleri belirtin: [Spark yapılandırma - uygulama özellikleri](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Hayır       |
-| Getdebugınfo          | HDInsight kümesi tarafından kullanılan Azure depolama için Spark günlük dosyalarının ne zaman kopyalanır belirtir (veya) sparkJobLinkedService belirtilir. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: Yok. | Hayır       |
+| getDebugInfo          | HDInsight kümesi tarafından kullanılan Azure depolama için Spark günlük dosyalarının ne zaman kopyalanır belirtir (veya) sparkJobLinkedService belirtilir. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: Yok. | Hayır       |
 
 ## <a name="folder-structure"></a>klasör yapısı
 Spark işlerinde Pig/Hive işlerini daha fazla genişletilebilir. Spark işleri için çoklu bağımlılıklar gibi sağlayabilirsiniz (java sınıf yolu yerleştirilen) paketleri (ise PYTHONPATH üzerinde yerleştirilen) python dosyaları ve diğer dosyaları jar.
 
 HDInsight bağlı hizmeti tarafından başvurulan Azure Blob Depolama alanında aşağıdaki klasör yapısını oluşturun. Ardından, uygun alt klasörleri tarafından temsil edilen kök klasöründe bağımlı dosya yükleme **entryFilePath**. Örneğin, python dosyaları pyFiles alt ve jar dosyaları kök klasörün jar dosyaları dışındaki alt klasörüne yükleyin. Çalışma zamanında Data Factory hizmetinin Azure Blob Depolama alanında aşağıdaki klasör yapısına bekliyor:     
 
-| Yol                  | Açıklama                              | Gereklidir | Tür   |
+| Yol                  | Açıklama                              | Gerekli | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (kök)            | Spark işi depolama bağlı hizmeti kök yolu | Evet      | Klasör |
 | &lt;Kullanıcı tanımlı &gt; | Spark işi giriş dosyasına işaret eden yolu | Evet      | Dosya   |
 | . / jar'lar                | Bu klasör altındaki tüm dosyaları karşıya yüklenir ve küme java sınıf yolu yerleştirilen | Hayır       | Klasör |
-| . / pyFiles             | Bu klasör altındaki tüm dosyaları karşıya yüklenir ve küme ise PYTHONPATH üzerinde yerleştirilen | Hayır       | Klasör |
+| ./pyFiles             | Bu klasör altındaki tüm dosyaları karşıya yüklenir ve küme ise PYTHONPATH üzerinde yerleştirilen | Hayır       | Klasör |
 | . / dosyaları               | Bu klasör altındaki tüm dosyaları karşıya yüklenir ve yürütücü çalışma dizinine yerleştirilir. | Hayır       | Klasör |
 | . / arşivleri            | Bu klasör altındaki tüm dosyaları sıkıştırılmamış | Hayır       | Klasör |
 | . / günlüğe kaydeder                | Spark kümesi günlükleri içeren klasör. | Hayır       | Klasör |

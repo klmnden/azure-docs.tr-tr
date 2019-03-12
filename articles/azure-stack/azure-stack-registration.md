@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 12edea505ba3b0c8009512a52e3eea9ecea5bb26
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2ed9598ecfb45323505e8527cfb3ab9fe7d8b58e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405207"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764736"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -485,9 +485,16 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 Azure Stack kayıt çalışırken hatalardan birini görebilirsiniz:
 1. $HostName için zorunlu donanım bilgileri alınamadı. Lütfen fiziksel konak ve bağlantı denetleyin ardından kayıt yeniden çalıştırmayı deneyin.
+
 2. Donanım bilgilerini al - Lütfen fiziksel konak ve bağlantı ardından kayıt yeniden çalıştırmayı deneyin $hostName için bağlanamıyor.
 
-Neden: Etkinleştirme girişiminde konaklarından UUID, BIOS ve CPU gibi donanım ayrıntıları edinmeye ve fiziksel konağa bağlanamama nedeniyle mümkün değildi tipik olmasıdır.
+> Neden: etkinleştirme girişiminde konaklarından UUID, BIOS ve CPU gibi donanım ayrıntıları edinmeye ve fiziksel konağa bağlanamama nedeniyle mümkün değildi tipik olmasıdır.
+
+Market yönetim erişmeye çalışırken, ürünleri yayınlamak çalışılırken bir hata oluşur. 
+> Neden: Azure Stack kayıt kaynağa erişmek mümkün olduğunda bu genellikle gerçekleşir. Bunun yaygın nedenlerinden biri, bir Azure aboneliğinin dizin Kiracı değiştiğinde, kayıt sıfırlar ' dir. Aboneliğin Dizin Kiracı değiştirdiyseniz, Market ya da rapor Azure Stack kullanım erişemez. Bu sorunu gidermek için yeniden kaydetmeniz gerekir.
+
+Market yönetim yine de kaydolmanızı ve hatta zaten bağlantısı kesilmiş işlemi kullanarak damganız kaydettiğinize göre Azure Stack etkinleştirmek ister. 
+> Neden: bağlantısı kesilen ortam için bilinen bir sorun budur. Kayıt durumunuzu izleyerek doğrulayabilirsiniz [adımları](azure-stack-registration.md#verify-azure-stack-registration). Market yönetim kullanmak için kullanmanız gerekecektir [çevrimdışı aracı](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

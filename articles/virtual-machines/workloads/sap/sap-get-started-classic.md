@@ -1,5 +1,5 @@
 ---
-title: SAP Linux sanal makineleri kullanma | Microsoft Docs
+title: Linux sanal makinelerinde SAP kullanma | Microsoft Docs
 description: Microsoft Azure’daki Linux sanal makinelerinde (VM) SAP çözümlerini kullanma hakkında bilgi edinin
 services: virtual-machines-linux,virtual-network,storage
 documentationcenter: saponazure
@@ -11,31 +11,31 @@ keywords: ''
 ms.assetid: f9cd93dc-71ad-48a4-8778-4e48aec484a6
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: campaign-page
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-ms.openlocfilehash: 0802816ba45a3d0fb390b64d4308ab2e966d86ce
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e4c4afefe7a4746f2d8138bde7fea152f228a8bc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657188"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773529"
 ---
-# <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Azure'daki Linux sanal makinelerde SAP kullanma
+# <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Azure'da Linux sanal makinelerinde SAP kullanma
 Bulut Bilgi İşlem, BT sektöründeki küçük ölçekli şirketlerden büyük ve çok uluslu kuruluşlara kadar çok geniş ölçekte kullanılan ve her geçen gün daha önemli hale gelen bir terimdir. Microsoft Azure, Microsoft tarafından sunulan ve birçok yeni özelliğe sahip olan Bulut Hizmetleri Platformudur. Bu özellikler sayesinde müşteriler artık teknik veya mali kısıtlamalara takılmadan uygulamalarını Bulut Hizmetleri olarak hazırlayabilir ve kullanımdan kaldırabilir. Şirketler, zamanlarını ve bütçelerini donanım altyapısına harcamak yerine uygulamanın kendisine, iş süreçlerine ve hem müşteriler hem de kullanıcılar için fayda sağlamaya odaklanabilir.
 
-Microsoft Azure sanal makinelerle Microsoft olarak hizmet (Iaas) platform kapsamlı bir altyapı sunar. SAP NetWeaver tabanlı uygulamalar, Azure Sanal Makinelerinde (IaaS) desteklenmektedir. Aşağıdaki teknik incelemeler, planlamanızı ve azure'da Windows sanal makinelerde SAP NetWeaver tabanlı uygulamalar açıklanmaktadır. SAP NetWeaver tabanlı uygulamalar üzerinde uygulayabilirsiniz [Windows sanal makineleri](../../virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Microsoft, Microsoft Azure sanal makineler, hizmet (Iaas) platformu olarak kapsamlı bir altyapı sunar. SAP NetWeaver tabanlı uygulamalar, Azure Sanal Makinelerinde (IaaS) desteklenmektedir. Aşağıdaki teknik incelemeler, planlama ve azure'daki Windows sanal makinelerinde SAP NetWeaver tabanlı uygulamaların uygulama açıklanır. SAP NetWeaver tabanlı uygulamalar üzerinde de uygulayabilirsiniz [Windows sanal makineleri](../../virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-sap-get-started](../../../../includes/virtual-machines-common-classic-sap-get-started.md)]
 
-## <a name="sap-netweaver-on-azure-suse-linux-virtual-machines"></a>SAP NetWeaver Azure SUSE Linux sanal makinelerde
-Başlık: Microsoft Azure SUSE Linux VM'ler üzerinde SAP NetWeaver test etme
+## <a name="sap-netweaver-on-azure-suse-linux-virtual-machines"></a>Azure SUSE Linux sanal makinelerinde SAP NetWeaver
+Başlık: Microsoft Azure SUSE Linux VM’lerde SAP NetWeaver’ı test etme
 
-Özet: Bu anda SAP NetWeaver Azure Linux VM'ler üzerinde çalıştırılan için resmi SAP desteği yoktur. Yine de müşteriler bazı test yapmak isteyebileceğiniz veya SAP destek uzmanıyla gerek yoktur sürece SAP demo veya eğitim sistemleri Azure Linux VM'ler üzerinde çalıştırmak için düşünebilirsiniz. Bu makalede Azure SUSE Linux VM'ler ayarlama SAP çalıştırmak için yardımcı olur ve ortak olası Tuzaklar önlemek için temel bazı ipuçları sağlar.
+Özet: Azure Linux Vm'lerinde SAP NetWeaver çalıştırmak, bu anda resmi SAP desteği yoktur. Yine de müşterilerin bazı testler yapmak isteyebilirsiniz veya SAP destek için gerek yoktur sürece Azure Linux Vm'lerinde SAP demo veya eğitim sistemleri çalıştırmak için göz önünde bulundurabilirsiniz. Bu makalede ayarlama Azure SUSE Linux Vm'lerde SAP çalıştırmak için yardımcı olur ve olası yaygın görülen tehlikeleri önlemek için temel bazı ipuçları sağlar.
 
-Güncelleştirilmiş: Aralık 2015
+Güncelleştirme: Aralık 2015
 
-[Bu makalede burada bulunabilir.](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu makalede buradan ulaşabilirsiniz](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 096bc96558f0fe33f8046622dc2443728674e405
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a9f6dfb0de2cf09b27d08eb6b7dc425c8cd1f17d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876895"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549230"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Konuşma cihaz SDK'sı Lisans Sözleşmesi
 
@@ -52,7 +52,7 @@ e) paylaşma, yayımlama, veya (dışında herhangi bir dağıtılabilir kod ve 
 
 f), yazılımı yalnızca Microsoft Azure Bilişsel hizmetler, konuşma tanıma hizmeti ile birlikte kullanmanız gerekir
 
-**3\. VERİ TOPLAMA.** Bu yazılım, Microsoft'a aktarılan veriler toplamak diğer Microsoft ürünleri ile etkileşimde bulunabilir. Daha fazla bilgi edinmek için nasıl topladığımız, Microsoft işlemleri kişisel verileri Lütfen görmek Microsoft Gizlilik Bildirimi'ni http://go.microsoft.com/fwlink/?LinkId=248681.
+**3\. VERİ TOPLAMA.** Bu yazılım, Microsoft'a aktarılan veriler toplamak diğer Microsoft ürünleri ile etkileşimde bulunabilir. Daha fazla bilgi edinmek için nasıl topladığımız, Microsoft işlemleri kişisel verileri Lütfen görmek Microsoft Gizlilik Bildirimi'ni https://go.microsoft.com/fwlink/?LinkId=248681.
 
 **4\. YAYIN ÖNCESİ SÜRÜM YAZILIMI.** Yazılımın yayın öncesi bir sürümüdür. Doğru çalışmayabilir. Ticari olarak sunulacak sürümünden farklı olabilir.
 

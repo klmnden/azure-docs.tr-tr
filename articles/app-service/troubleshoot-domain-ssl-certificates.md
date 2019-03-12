@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 6f88079c5baac8cef677fd3afc5696cec5c00d92
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653671"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730107"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Etki alanı ve Azure App Service SSL sertifikası sorunlarını giderme
 
@@ -88,13 +88,84 @@ Bu sorun, aşağıdaki nedenlerle oluşabilir:
 - Abonelik satın alma işlemleri bir abonelikte izin verilen sınırına ulaştınız.
 
     **Çözüm**: App Service sertifikaları, Kullandıkça Öde ve EA abonelik türleri için 10 sertifika satın bir sınırı vardır. Diğer abonelik türleri için sınır 3'tür. Sınırı artırmak için kişi [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- App Service sertifikası sahtekarlık işaretlendi. Aşağıdaki hata iletisini aldığınız: "Sertifikanız olası dolandırıcılık için işaretlendi. İstek şu anda incelenmektedir. Sertifika 24 saat içinde kullanılabilir hale gelmezse, lütfen Azure desteğine başvurun."
+- App Service sertifikası sahtekarlık işaretlendi. Aşağıdaki hata iletisini aldığınız: "Sertifikanız olası dolandırıcılık için işaretlendi. İstek şu anda incelenmektedir. Azure desteğine başvurun. sertifika 24 saat içinde kullanılabilir hale gelmezse "
 
     **Çözüm**: Sertifika dolandırıcılık işaretlenir ve 24 saat sonra çözülmüş değildir, bu adımları izleyin:
 
     1. [Azure Portal](https://portal.azure.com) oturum açın.
     2. Git **App Service sertifikaları**ve sertifikayı seçin.
     3. Seçin **sertifika yapılandırma** > **2. adım: Doğrulama** > **etki alanı doğrulaması**. Bu adım, sorunu çözmek için Azure sertifika sağlayıcısı bir e-posta bildirimi gönderir.
+
+## <a name="custom-domain-problems"></a>Özel etki alanı sorunları
+
+### <a name="a-custom-domain-returns-a-404-error"></a>Özel bir etki alanı bir 404 hatası döndürür. 
+
+#### <a name="symptom"></a>Belirti
+
+Özel etki alanı adını kullanarak siteye göz attığınızda, aşağıdaki hata iletisini alıyorsunuz:
+
+"Hata 404-Web uygulaması bulunamadı."
+
+#### <a name="cause-and-solution"></a>Nedeni ve çözümü
+
+**Neden 1** 
+
+Yapılandırdığınız özel bir etki alanı CNAME veya A kaydı eksik. 
+
+**Çözüm nedeni 1 için**
+
+- Bir A kaydı eklediyseniz, bir TXT kaydı da eklendiğinden emin olun. Daha fazla bilgi için [A kaydını oluşturun](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- Uygulamanız için kök etki alanını kullanmak yoksa, bir A kaydı yerine CNAME kaydı kullanmanızı öneririz.
+- Hem bir CNAME kaydı hem de bir A kaydı için aynı etki alanında kullanmayın. Bu sorun, çakışmaya neden ve çözülmüş etki alanı engelle. 
+
+**Neden 2** 
+
+Internet tarayıcısı hala etki alanınızın eski IP adresini önbelleğe alma. 
+
+**Neden 2 çözümü**
+
+Tarayıcı temizleyin. Windows cihazlar için komutu çalıştırabilirsiniz `ipconfig /flushdns`. Kullanım [WhatsmyDNS.net](https://www.whatsmydns.net/) etki alanınız için uygulamanın IP adresini işaret ettiğini doğrulayın. 
+
+### <a name="you-cant-add-a-subdomain"></a>Bir alt etki alanı ekleyemezsiniz. 
+
+#### <a name="symptom"></a>Belirti
+
+Yeni bir ana bilgisayar adı bir alt etki alanı atamak için bir uygulamaya ekleyemezsiniz.
+
+#### <a name="solution"></a>Çözüm
+
+- Uygulamaya bir ana bilgisayar adı eklemek için izinlere sahip olduğunuzdan emin olmak için abonelik yöneticisine başvurun.
+- Daha fazla alt etki alanlarını gerekiyorsa, Azure etki alanı adı hizmeti (DNS) etki alanı barındırma değiştirmenizi öneririz. Azure DNS kullanarak uygulamanıza 500 konak adları ekleyebilirsiniz. Daha fazla bilgi için [bir alt etki alanı ekleme](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+
+### <a name="dns-cant-be-resolved"></a>DNS çözümlenemedi.
+
+#### <a name="symptom"></a>Belirti
+
+Aşağıdaki hata iletisini aldığınız:
+
+"DNS kaydı bulunamadı."
+
+#### <a name="cause"></a>Nedeni
+Bu sorun, aşağıdaki nedenlerden biri için oluşur:
+
+- Canlı (TTL) dönemi süresi doldu değil. TTL değeri belirleyin ve sonra geçmesi gereken süresi için bekleyin etki alanınız için DNS yapılandırmasını denetleyin.
+- DNS yapılandırması doğru değil.
+
+#### <a name="solution"></a>Çözüm
+- Bu sorun kendiliğinden 48 saat bekleyin.
+- DNS yapılandırmanızda TTL ayarını değiştirebilirsiniz, bu sorunu çözer olup olmadığını görmek için 5 dakika değerini değiştirin.
+- Kullanım [WhatsmyDNS.net](https://www.whatsmydns.net/) etki alanınız için uygulamanın IP adresini işaret ettiğini doğrulayın. Seçili değilse uygulamanın doğru IP adresi için A kaydını yapılandırın.
+
+### <a name="you-need-to-restore-a-deleted-domain"></a>Silinen bir etki alanı geri yüklemeniz gereken 
+
+#### <a name="symptom"></a>Belirti
+Etki alanınız artık Azure Portalı'nda görülebilir.
+
+#### <a name="cause"></a>Nedeni 
+Aboneliğin sahibi etki alanı yanlışlıkla silinmiş olabilir.
+
+#### <a name="solution"></a>Çözüm
+Etki alanınızı yedi günden kısa süre önce sildiyseniz etki alanını silme işlemi henüz başlatılmadı. Bu durumda, aynı etki alanında aynı abonelik altında Azure Portal'da yeniden satın alabilirsiniz. (Tam etki alanı adı arama kutusuna emin olun.) Bu etki alanı için yeniden ücret ödemezsiniz. Etki alanı yedi günden daha önce silinmişse, kişi [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) etki alanı geri yükleme konusunda Yardım.
 
 ## <a name="domain-problems"></a>Etki alanı sorunları
 
@@ -196,105 +267,62 @@ Bu sorun, aşağıdaki nedenlerden biri için oluşur:
     |Kayıt türü|Host|Üzerine gelin|
     |------|------|-----|
     |A|@|Bir uygulama için IP adresi|
-    |TXT|@|< Uygulama adı >. azurewebsites.net|
-    |CNAME|www|< Uygulama adı >. azurewebsites.net|
+    |TXT|@|<app-name>.azurewebsites.net|
+    |CNAME|www|<app-name>.azurewebsites.net|
 
-### <a name="dns-cant-be-resolved"></a>DNS çözümlenemedi.
+## <a name="faq"></a>SSS
 
-#### <a name="symptom"></a>Belirti
+**My Web Sitem için'özel bir etki alanı satın almam sonra yapılandırmak zorunda mıyım?**
 
-Aşağıdaki hata iletisini aldığınız:
+Azure portalından bir etki alanı satın aldığınızda, bu özel etki alanınızı kullanmak için App Service uygulama otomatik olarak yapılandırılır. Herhangi bir ek adımlar gerekmez. Daha fazla bilgi için izleme [Azure App Service kendi kendine yardım: Bir özel etki alanı adı ekleme](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) channel9.
 
-"DNS kaydı bulunamadı."
+**Bunun yerine bir Azure VM'ye işaret edecek şekilde Azure Portalı'nda satın alınan bir etki alanı kullanabilir miyim?**
 
-#### <a name="cause"></a>Nedeni
-Bu sorun, aşağıdaki nedenlerden biri için oluşur:
+Evet, bir VM, depolama vb. etki alanını işaret edebilir. Daha fazla bilgi için [bir Windows VM için Azure portalını kullanarak özel bir FQDN oluşturma](../virtual-machines/windows/portal-create-fqdn.md).
 
-- Canlı (TTL) dönemi süresi doldu değil. TTL değeri belirleyin ve sonra geçmesi gereken süresi için bekleyin etki alanınız için DNS yapılandırmasını denetleyin.
-- DNS yapılandırması doğru değil.
+**Etki alanım GoDaddy veya Azure DNS tarafından barındırılıyor?**
 
-#### <a name="solution"></a>Çözüm
-- Bu sorun kendiliğinden 48 saat bekleyin.
-- DNS yapılandırmanızda TTL ayarını değiştirebilirsiniz, bu sorunu çözer olup olmadığını görmek için 5 dakika değerini değiştirin.
-- Kullanım [WhatsmyDNS.net](https://www.whatsmydns.net/) etki alanınız için uygulamanın IP adresini işaret ettiğini doğrulayın. Seçili değilse uygulamanın doğru IP adresi için A kaydını yapılandırın.
+App Service etki alanları, GoDaddy etki alanı kaydı ve Azure DNS etki alanlarınızı için kullanır. 
 
-### <a name="you-need-to-restore-a-deleted-domain"></a>Silinen bir etki alanı geri yüklemeniz gereken 
+**Sahibim otomatik yenileme etkin ancak yine de bir e-posta yoluyla etki alanım için yenileme bildirimi alındı. Ne yapmalıyım?**
 
-#### <a name="symptom"></a>Belirti
-Etki alanınız artık Azure Portalı'nda görülebilir.
+Otomatik yenileme varsa etkinleştirildiğinde, herhangi bir eylemde bulunmanız gerekmez. Bildirim e-posta, etki alanı dolmak ve, el ile yenilemek için otomatik olarak yenilenecek bildirmek için etkin sağlanmaz.
 
-#### <a name="cause"></a>Nedeni 
-Aboneliğin sahibi etki alanı yanlışlıkla silinmiş olabilir.
+**Azure DNS için etki alanım barındırma ücret öder miyim?**
 
-#### <a name="solution"></a>Çözüm
-Etki alanınızı yedi günden kısa süre önce sildiyseniz etki alanını silme işlemi henüz başlatılmadı. Bu durumda, aynı etki alanında aynı abonelik altında Azure Portal'da yeniden satın alabilirsiniz. (Tam etki alanı adı arama kutusuna emin olun.) Bu etki alanı için yeniden ücret ödemezsiniz. Etki alanı yedi günden daha önce silinmişse, kişi [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) etki alanı geri yüklemek Yardım.
+İlk etki alanı satın alma maliyetini yalnızca etki alanı kaydı için geçerlidir. Kayıt maliyete ek olarak, Azure DNS, kullanımınıza göre herhangi bir ücreti yoktur. Daha fazla bilgi için [Azure DNS fiyatlandırma](https://azure.microsoft.com/pricing/details/dns/) daha fazla ayrıntı için.
 
-### <a name="a-custom-domain-returns-a-404-error"></a>Özel bir etki alanı bir 404 hatası döndürür. 
+**Ben etki alanım daha önce Azure Portalı'ndan satın alınan ve Azure DNS barındırma GoDaddy barındırma geçmek istiyorsunuz. Bunu nasıl yapabilirim?**
 
-#### <a name="symptom"></a>Belirti
+Azure DNS barındırma geçirmek için zorunlu değildir. Azure DNS, Azure portalında etki alanı yönetim deneyimi hakkında geçirmek istiyorsanız bilgi taşımak Azure DNS gerekli adımları sağlar. Etki alanı App Service satın alınmış, görece sorunsuz yordamı GoDaddy barındırma için Azure DNS'yi geçişi olur.
 
-Özel etki alanı adını kullanarak siteye göz attığınızda, aşağıdaki hata iletisini alıyorsunuz:
+**My etki alanından App Service etki alanı satın almak istiyorum ancak benim Azure DNS yerine GoDaddy etki alanında barındırmak?**
 
-"Hata 404-Web uygulaması bulunamadı."
+App Service etki alanları satın portalda 24 Temmuz 2017 tarihinden itibaren Azure DNS üzerinde barındırılır. Farklı bir barındırma sağlayıcı kullanmayı tercih ederseniz, bir etki alanı barındırma çözümü elde etmek için kendi Web sitesine gitmeniz gerekir.
 
+**Etki alanım için gizlilik koruması için ödeme yapmam gerekir mi?**
 
-#### <a name="cause-and-solution"></a>Nedeni ve çözümü
+Azure portalı üzerinden bir etki alanı satın aldığınızda, ek ücret ödemeden gizlilik eklemek seçebilirsiniz. Bu, Azure App Service aracılığıyla etki alanınız satın biridir.
 
-**Neden 1** 
+**Ben artık etki alanım istemiyorum karar verirseniz, my para geri alabilirim?**
 
-Yapılandırdığınız özel bir etki alanı CNAME veya A kaydı eksik. 
+Bir etki alanı satın aldığınızda, bu süre içerisinde zaman etki alanı istemediğiniz karar verebilirsiniz beş gün boyunca ücretlendirilmez. Bu beş günlük süre içinde etki alanı istemediğinize karar verirseniz, ücretlendirilmez. (Bu konuda bir özel .uk etki alanlarıdır. ".Uk etki alanı satın alırsanız, hemen ücretlendirilir ve iade edilemez.)
 
-**Çözüm nedeni 1 için**
+**Aboneliğimde etki alanındaki başka bir Azure App Service uygulaması kullanabilir miyim?**
 
-- Bir A kaydı eklediyseniz, bir TXT kaydı da eklendiğinden emin olun. Daha fazla bilgi için [A kaydını oluşturun](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- Uygulamanız için kök etki alanını kullanmak yoksa, bir A kaydı yerine CNAME kaydı kullanmanızı öneririz.
-- Hem bir CNAME kaydı hem de bir A kaydı için aynı etki alanında kullanmayın. Bu, çakışmaya neden ve çözülmüş etki alanı engelle. 
+Evet. Özel etki alanları ve SSL dikey penceresinde Azure portalında erişim, satın aldığınız etki alanlarını görürsünüz. Bu etki alanları birini kullanacak şekilde yapılandırabilirsiniz.
 
-**Neden 2** 
+**Başka bir abonelik için bir etki alanı bir abonelikten aktarabilirim?**
 
-Internet tarayıcısı hala etki alanınızın eski IP adresini önbelleğe alma. 
+Başka bir abonelik/kaynak grubu için kullanılacak bir etki alanı taşıyabilirsiniz [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell cmdlet'i.
 
-**Neden 2 çözümü**
+**Şu anda bir Azure App Service uygulamasına sahip değilseniz özel etki alanım nasıl yönetebilirim?**
 
-Tarayıcı temizleyin. Windows cihazlar için komutu çalıştırabilirsiniz `ipconfig /flushdns`. Kullanım [WhatsmyDNS.net](https://www.whatsmydns.net/) etki alanınız için uygulamanın IP adresini işaret ettiğini doğrulayın. 
+Bir App Service Web uygulaması olmasa bile, etki alanınız yönetebilirsiniz. Etki alanı, sanal makine, depolama vb. gibi Azure Hizmetleri için kullanılabilir. App Service Web Apps için etki alanı kullanmak istiyorsanız, etki alanı, web uygulamanıza bağlamak amacıyla ücretsiz App Service planı üzerinde değil bir Web uygulamasını dahil etmek gerekir.
 
-### <a name="you-cant-add-a-subdomain"></a>Bir alt etki alanı ekleyemezsiniz. 
+**Özel bir etki alanı ile bir web uygulaması başka bir aboneliğe veya App Service ortamı v1'den V2'ye taşıyabilirim?**
 
-#### <a name="symptom"></a>Belirti
+Evet, web uygulamanızı abonelikler arasında taşıyabilirsiniz. Sunulan yönergeleri [kaynaklar Azure'da nasıl taşırım](../azure-resource-manager/resource-group-move-resources.md). Web uygulaması taşırken bazı sınırlamalar vardır. Daha fazla bilgi için [App Service kaynaklarını taşımak için sınırlamalar](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
+).
 
-Yeni bir ana bilgisayar adı bir alt etki alanı atamak için bir uygulamaya ekleyemezsiniz.
-
-#### <a name="solution"></a>Çözüm
-
-- Uygulamaya bir ana bilgisayar adı eklemek için izinlere sahip olduğunuzdan emin olmak için abonelik yöneticisine başvurun.
-- Daha fazla alt etki alanlarını gerekiyorsa, etki alanı barındırma için Azure DNS'yi değiştirmenizi öneririz. Azure DNS kullanarak uygulamanıza 500 konak adları ekleyebilirsiniz. Daha fazla bilgi için [bir alt etki alanı ekleme](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Web uygulaması taşıdıktan sonra konak adı bağlamaları ayarlama özel etki alanları içindeki etki alanlarının aynı kalmalıdır. Konak adı bağlamaları yapılandırmak için ek adımlar gerekir.

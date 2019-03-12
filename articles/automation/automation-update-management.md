@@ -9,18 +9,20 @@ ms.author: gwallace
 ms.date: 03/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 33a01c7bfeacd57d2bea13318d054514daba008c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c8b25c0caf71835ccb5a055956d73a713efa5da0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410256"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541222"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
 Azure, şirket içi ortamlarda veya diğer bulut sağlayıcılarında dağıtılmış Windows ve Linux bilgisayarlarınızın işletim sistemi güncelleştirmelerini yönetmek için Azure Otomasyonu'nda güncelleştirme yönetimi çözümü kullanabilirsiniz. Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızla değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
 
 Doğrudan Azure Otomasyonu hesabınızdan sanal makineler için güncelleştirme yönetimini etkinleştirebilirsiniz. Otomasyon hesabınızdan sanal makineler için güncelleştirme yönetimini etkinleştirme hakkında bilgi için bkz: [birden çok sanal makine için güncelleştirmeleri yönetme](manage-update-multi.md). Ayrıca, sanal makine sayfasından Azure portalında sanal makine için güncelleştirme yönetimini etkinleştirebilirsiniz. Bu senaryo için kullanılabilir [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) ve [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) sanal makineler.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="solution-overview"></a>Çözüme genel bakış
 
@@ -155,12 +157,12 @@ Heartbeat
 | where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-Bir Windows bilgisayarda, Log Analytics ile aracı bağlantısını doğrulamak için aşağıdaki bilgileri gözden geçirebilirsiniz:
+Bir Windows bilgisayarda, Azure İzleyici günlüklerine ile aracı bağlantısını doğrulamak için aşağıdaki bilgileri gözden geçirebilirsiniz:
 
 1. Denetim Masası'nda açın **Microsoft Monitoring Agent**. Üzerinde **Azure Log Analytics** sekmesinde aracı şu iletiyi görüntüler: **Log Analytics'e Microsoft Monitoring Agent başarıyla bağlantı kurdu**.
 2. Windows olay günlüğünü açın. Git **uygulama ve hizmet günlükleri\operations Manager** ve olay kimliği 3000 ve kaynak Olay Kimliği 5002 arama **hizmet Bağlayıcısı**. Bu olaylar bilgisayarın Log Analytics çalışma alanına kaydolduğunu ve yapılandırmayı aldığını gösterir.
 
-Aracının Log Analytics ve aracı ile iletişim kuramıyorsa yapılandırılmış bir güvenlik duvarı veya Ara sunucu üzerinden internet ile iletişim kurmak için güvenlik duvarı veya Ara sunucunun düzgün yapılandırıldığını onaylayın. Güvenlik Duvarı veya Ara sunucunun düzgün yapılandırıldığını doğrulama hakkında bilgi edinmek için [Windows aracısı için ağ yapılandırması](../azure-monitor/platform/agent-windows.md) veya [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md).
+Aracı ile iletişim kuramıyorsa Azure İzleyici günlükleri ve aracı yapılandırılmış bir güvenlik duvarı veya Ara sunucu üzerinden internet ile iletişim kurmak için güvenlik duvarı onaylayın veya proxy sunucusunun düzgün yapılandırıldığından. Güvenlik Duvarı veya Ara sunucunun düzgün yapılandırıldığını doğrulama hakkında bilgi edinmek için [Windows aracısı için ağ yapılandırması](../azure-monitor/platform/agent-windows.md) veya [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Linux sistemleriniz bir ara sunucu ile iletişim kurmak için yapılandırılmış olan veya Log Analytics Gateway ve kullandığınız ekleme, bu çözüm, güncelleştirme *proxy.conf* izinlerini, omi kullanıcı grubuna vermek için okuma izni dosya çubuğunda kullanarak Aşağıdaki komutlar:
@@ -170,7 +172,7 @@ Aracının Log Analytics ve aracı ile iletişim kuramıyorsa yapılandırılmı
 
 Yeni eklenen Linux aracılarında durumunu göster **güncelleştirilmiş** bir değerlendirme yapıldıktan sonra. Bu işlem 6 saat kadar sürebilir.
 
-Bir Operations Manager yönetim grubunu Log Analytics ile iletişim kurduğunu onaylamak için bkz: [Log Analytics ile doğrulama Operations Manager tümleştirme](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
+Bir Operations Manager yönetim grubu ile Azure İzleyici günlüklerine iletişim kurduğunu onaylamak için bkz: [Azure İzleyici günlüklerine doğrulamak Operations Manager entegrasyonunu](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## <a name="data-collection"></a>Veri toplama
 
@@ -182,7 +184,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | --- | --- | --- |
 | Windows aracıları |Evet |Çözüm, Windows aracılarından sistem güncelleştirme bilgilerini toplar ve ardından gerekli güncelleştirmelerin yüklemesini başlatır. |
 | Linux aracıları |Evet |Çözüm, Linux aracılarından sistem güncelleştirme bilgilerini toplar ve ardından desteklenen dağıtımlarda gerekli güncelleştirmelerin yüklemesini başlatır. |
-| Operations Manager yönetim grubu |Evet |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.<br/>Log Analytics için Operations Manager Aracısı'ndan doğrudan bir bağlantı gerekli değildir. Verileri yönetim grubundan Log Analytics çalışma alanına iletilir. |
+| Operations Manager yönetim grubu |Evet |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.<br/>Azure İzleyici günlüklerine Operations Manager Aracısı'ndan doğrudan bir bağlantı gerekli değildir. Verileri yönetim grubundan Log Analytics çalışma alanına iletilir. |
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
 
@@ -192,7 +194,7 @@ Yönetilen her Linux bilgisayarı için 3 saatte bir tarama gerçekleştirilir.
 
 30 dakika ve Panoda yönetilen bilgisayarlardan gelen güncelleştirilmiş verilerin görüntülenmesi için 6 saat arasında sürebilir.
 
-Güncelleştirme Yönetimi'ni kullanarak bir makine için Log Analytics veri kullanımı ortalama yaklaşık 25 MB / ay ' dir. Bu değer yalnızca yaklaşık ve ortamınıza bağlı değiştirilebilir. Ortamınızı sahip olduğunuz tam kullanımını görmek için izlemeniz önerilir.
+Azure İzleyici günlüklerine veri kullanımı güncelleştirme Yönetimi'ni kullanarak bir makine için yaklaşık 25 MB / ay ortalamadır. Bu değer yalnızca yaklaşık ve ortamınıza bağlı değiştirilebilir. Ortamınızı sahip olduğunuz tam kullanımını görmek için izlemeniz önerilir.
 
 ## <a name="viewing-update-assessments"></a>Güncelleştirme değerlendirmelerini görüntüleme
 
@@ -206,7 +208,7 @@ Makine, güncelleştirme veya dağıtım hakkında bilgi döndüren bir günlük
 
 ## <a name="install-updates"></a>Güncelleştirmeleri yükle
 
-Çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için güncelleştirmeleri değerlendirdikten sonra oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz bir *güncelleştirme dağıtım*. Güncelleştirme dağıtımı bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir. Tarih ve saat için dağıtım ve bilgisayar veya bilgisayar grubundaki bir dağıtım kapsamında içerecek şekilde belirt Bilgisayar grupları hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te bilgisayar grupları](../azure-monitor/platform/computer-groups.md).
+Çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için güncelleştirmeleri değerlendirdikten sonra oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz bir *güncelleştirme dağıtım*. Güncelleştirme dağıtımı bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir. Tarih ve saat için dağıtım ve bilgisayar veya bilgisayar grubundaki bir dağıtım kapsamında içerecek şekilde belirt Bilgisayar grupları hakkında daha fazla bilgi için bkz: [bilgisayar grupları Azure İzleyici günlüklerine](../azure-monitor/platform/computer-groups.md).
 
  Güncelleştirme dağıtımınıza bilgisayar gruplarını eklediğinizde, grup üyeliği bir zamanlama oluşturma sırasında yalnızca bir kez değerlendirilir. Sonraki değişiklikler bir grup için geçerli değildir. Bu kullanım almak için [dinamik gruplar](#using-dynamic-groups), bu grupları dağıtım sırasında çözümlenir ve bir sorgu tarafından tanımlanır.
 
@@ -224,7 +226,7 @@ Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme
 | Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
 |İşletim Sistemi| Linux veya Windows|
 | Grupları güncelleştir (Önizleme)|Abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlarsınız. Daha fazla bilgi için bkz: [dinamik gruplar](automation-update-management.md#using-dynamic-groups)|
-| Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../azure-monitor/platform/computer-groups.md) |
+| Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Azure İzleyici günlüklerine bilgisayar grupları oluşturma farklı yöntemleri hakkında bilgi edinmek için bkz: [Azure İzleyici günlüklerine bilgisayar grupları](../azure-monitor/platform/computer-groups.md) |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin|
 |Güncelleştirmeleri Ekle/Dışla|Bu açılır **dahil edin/dışlayın** sayfası. Dahil edilecek veya dışlanacak güncelleştirmeler ayrı sekmelerdedir. Ekleme nasıl ele alındığını daha fazla bilgi için bkz: [ekleme davranışı](automation-update-management.md#inclusion-behavior) |
 |Zamanlama ayarları|Her iki kez başlatın ve saati seçin veya yineleme için yineleme|
@@ -353,7 +355,7 @@ Aşağıdaki bölümlerde, bu çözüm tarafından toplanan güncelleştirme kay
 
 #### <a name="single-azure-vm-assessment-queries-windows"></a>Tek Azure sanal makine değerlendirmesini sorgular (Windows)
 
-VMUUID değeri sorguladığınız sanal makinenin VM GUID ile değiştirin. Log Analytics'te aşağıdaki sorguyu çalıştırarak kullanılması gereken VMUUID bulabilirsiniz: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+VMUUID değeri sorguladığınız sanal makinenin VM GUID ile değiştirin. Azure İzleyici günlüklerine aşağıdaki sorguyu çalıştırarak kullanılması gereken VMUUID bulabilirsiniz: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Eksik güncelleştirmeler özeti
 
@@ -382,7 +384,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>Tek Azure VM değerlendirmesi sorgular (Linux)
 
-Bazı Linux dağıtımları için var olan bir [endianness](https://en.wikipedia.org/wiki/Endianness) Azure Resource Manager ve Log Analytics içinde depolanan geldiği VMUUID değerle eşleşmiyor. Aşağıdaki sorgu ya da endianness bir eşleşme olup olmadığını denetler. VMUUID değerleri büyük endian ve endian GUID'sinin biçimi doğru sonuçları döndürmek için ile değiştirin. Log Analytics'te aşağıdaki sorguyu çalıştırarak kullanılması gereken VMUUID bulabilirsiniz: `Update | where Computer == "<machine name>"
+Bazı Linux dağıtımları için var olan bir [endianness](https://en.wikipedia.org/wiki/Endianness) Azure Resource Manager ve Azure İzleyici günlüklerine depolanan geldiği VMUUID değerle eşleşmiyor. Aşağıdaki sorgu ya da endianness bir eşleşme olup olmadığını denetler. VMUUID değerleri büyük endian ve endian GUID'sinin biçimi doğru sonuçları döndürmek için ile değiştirin. Azure İzleyici günlüklerine aşağıdaki sorguyu çalıştırarak kullanılması gereken VMUUID bulabilirsiniz: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Eksik güncelleştirmeler özeti
@@ -623,7 +625,7 @@ Windows sanal makineleriniz için güncelleştirmeleri yönetme konusunda bilgi 
 > [!div class="nextstepaction"]
 > [Azure Windows Vm'leriniz için güncelleştirme ve yamaları yönetmenize](automation-tutorial-update-management.md)
 
-* Te günlük aramalarını kullanın [Log Analytics](../log-analytics/log-analytics-log-searches.md) ayrıntılı güncelleştirme verilerini görüntülemek için.
+* Te günlük aramalarını kullanın [Azure İzleyici günlükleri](../log-analytics/log-analytics-log-searches.md) ayrıntılı güncelleştirme verilerini görüntülemek için.
 * [Uyarı oluşturma](automation-tutorial-update-management.md#configure-alerts) güncelleştirme dağıtım durumu için.
 
 * Güncelleştirme yönetimi REST API aracılığıyla etkileşim öğrenmek için bkz. [yazılım güncelleştirme yapılandırmaları](/rest/api/automation/softwareupdateconfigurations)

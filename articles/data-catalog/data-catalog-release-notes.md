@@ -8,12 +8,12 @@ ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 12b8161cc5845bca749c34188835cef1d92b299a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 60c5b7b55e417a5703010ea34cf75dcb20146c37
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404560"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531688"
 ---
 # <a name="azure-data-catalog-release-notes"></a>Azure veri Kataloğu sürüm notları
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Azure veri Kataloğu sürüm notları için 20 Kasım 2015
@@ -29,7 +29,7 @@ Her durumda, indirip Power BI Desktop'ın en son sürümünü yükleme sorunu ç
 ### <a name="registering-and-connecting-to-teradata"></a>Kaydetme ve Teradata için bağlanma
 Teradata veri kaynakları bağlanırken kullanılan yazılım bit genişliği (32 bit veya 64-bit) eşleşen doğru Teradata ODBC sürücüsü yüklü olmalıdır.
 
-Bu en son ADC yayın tarihi itibariyle [windows (sürüm 15.10) için Teradata ODBC sürücüsü](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) uyumlu Office 2013, ancak Office 2016 ile değil.
+Bu en son ADC yayın tarihi itibariyle [windows (sürüm 15.10) için Teradata ODBC sürücüsü](https://downloads.teradata.com/download/connectivity/odbc-driver/windows) uyumlu Office 2013, ancak Office 2016 ile değil.
 
 ## <a name="notes-for-the-july-13-2015-release-of-azure-data-catalog"></a>Azure veri Kataloğu sürüm notları için 13 Temmuz 2015
 ### <a name="registering-and-connecting-to-oracle-database"></a>Oracle veritabanına bağlanma ve kaydetme

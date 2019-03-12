@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d1e941e41871de4a11641254f40c53285b096807
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867061"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546320"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama 2. nesil ile Azure Depolama Gezgini'ni kullanarak dosya ve dizin düzeyi izinleri ayarlayın
 
@@ -33,7 +33,7 @@ Bu makalede, Azure Depolama Gezgini'ni kullanarak öğreneceksiniz:
 
 ## <a name="managing-access"></a>Erişimi yönetme
 
-Dosya sistemi kökünde izinleri ayarlayabilirsiniz. Bunu yapmak için dosya sistemi sağ tıklatın ve seçin **yönetme izinleri**, yedekleme yapmak **Manage Permission** iletişim kutusu.
+Dosya sistemi kökünde izinleri ayarlayabilirsiniz. Bunu yapmak için Azure depolama Gezgini'ne (ile bir bağlantı dizesi olarak) bunu haklarıyla bireysel hesabınızla oturum açmış olmanız gerekir. Dosya sistemi sağ tıklayıp **yönetme izinleri**, yedekleme yapmak **Manage Permission** iletişim kutusu.
 
 ![Microsoft Azure Depolama Gezgini - dizin erişimi yönetme](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
@@ -66,4 +66,4 @@ Ayrıntılı erişim denetimi sağlar tek tek dosyaların yanı sıra bireysel d
 Bu nasıl yapılır makalesinde izinler dosyaları ve dizinleri kullanma işleminin nasıl yapılacağını öğrendiniz **Azure Depolama Gezgini**. Varsayılan ACL'ler dahil olmak üzere, ACL'ler hakkında daha fazla bilgi edinmek, ACL'ler, davranışları ve karşılık gelen izinlerini erişim, konu hakkında kavramsal makalemize devam için.
 
 > [!div class="nextstepaction"]
-> [Azure Data Lake depolama Gen2'ye erişim denetimi](data-lake-storage-access-control.md)
+> [Azure Data Lake Storage 2. Nesil'de Erişim Denetimi](data-lake-storage-access-control.md)

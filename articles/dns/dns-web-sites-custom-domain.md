@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 2/19/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9ed0c8763835add485d6c60a43f4e4113ecde12e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 1066a4f602fb3af1f10fc82026870a5b0497896b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429290"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764798"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Öğretici: Bir web uygulaması için özel bir etki alanında DNS kayıtları oluşturma 
 
@@ -47,12 +47,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- [Bir App Service uygulaması oluşturun](../app-service/app-service-web-get-started-html.md) veya başka bir öğretici için oluşturduğunuz bir uygulamayı kullanın.
+* Azure DNS'de barındırabilir test etmek bir etki alanı adı olmalıdır. Bu etki alanı üzerinde tam denetime sahip olmanız gerekir. Tam denetim, etki alanı için ad sunucusu (NS) kayıtlarını ayarlama olanağını kapsar.
+* [Bir App Service uygulaması oluşturun](../app-service/app-service-web-get-started-html.md) veya başka bir öğretici için oluşturduğunuz bir uygulamayı kullanın.
 
-- Azure DNS'de bir DNS bölgesi oluşturun ve bölgeyi kayıt kuruluşunuzda Azure DNS'ye devredin.
+* Azure DNS'de bir DNS bölgesi oluşturun ve bölgeyi kayıt kuruluşunuzda Azure DNS'ye devredin.
 
    1. DNS bölgesi oluşturmak için [DNS bölgesi oluşturma](dns-getstarted-create-dnszone.md) sayfasındaki adımları izleyin.
-   2. Bölgenizi Azure DNS'ye devretmek için [DNS etki alanı devretme](dns-domain-delegation.md) sayfasındaki adımları izleyin.
+   2. Bölgenizi Azure DNS'ye devretmek için [DNS etki alanı devretme](dns-delegate-domain-azure-dns.md) sayfasındaki adımları izleyin.
 
 Bölge oluşturduktan ve Azure DNS'ye devrettikten sonra özel etki alanınız için kayıt oluşturabilirsiniz.
 
@@ -72,7 +73,7 @@ Azure portaldaki Uygulama Hizmetleri sayfasının sol tarafından **Özel etki a
 
 ### <a name="create-the-a-record"></a>A kaydı oluşturma
 
-```powershell
+```azurepowershell
 New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
  -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
@@ -82,7 +83,10 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 
 Uygulama Hizmetleri, bu kaydı yalnızca yapılandırma sırasında, özel etki alanının sahibi olduğunuzu doğrulamak için kullanır. Özel etki alanınız doğrulandıktan ve Uygulama Hizmetleri'nde yapılandırıldıktan sonra, bu TXT kaydını silebilirsiniz.
 
-```powershell
+> [!NOTE]
+> Etki alanı adını doğrulayın, ancak web uygulamasına üretim trafiği yönlendirmek değil istiyorsanız, yalnızca doğrulama adımı TXT kaydını belirtmeniz gerekir.  Doğrulama TXT kaydı yanı sıra bir A veya CNAME kaydı gerektirmez.
+
+```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
  -Name "@" -RecordType "txt" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.azurewebsites.net")
@@ -96,7 +100,7 @@ Azure PowerShell'i açın ve yeni bir CNAME kaydı oluşturun. Bu örnekte CNAME
 
 ### <a name="create-the-record"></a>Kaydı oluşturma
 
-```powershell
+```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
  -Name "www" -RecordType "CNAME" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -cname "contoso.azurewebsites.net")
@@ -158,7 +162,7 @@ contoso.com text =
 
 Artık web uygulamanıza özel ana bilgisayar adları ekleyebilirsiniz:
 
-```powershell
+```azurepowershell
 set-AzWebApp `
  -Name contoso `
  -ResourceGroupName MyAzureResourceGroup `

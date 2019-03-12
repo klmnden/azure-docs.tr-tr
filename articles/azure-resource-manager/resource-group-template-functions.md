@@ -12,23 +12,17 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/03/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: a4a86576b8f9f842c54cfa195305a3e0d0ff4724
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: eb3435d8c7b10e2de55cb0cf1f3ad2548bf2bcef
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527628"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766759"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager şablonu işlevleri
-Bu makalede bir Azure Resource Manager şablonunda kullanabileceğiniz işlevleri açıklanmaktadır.
-
-Köşeli ayraç içinde kapsayan tarafından şablonlarınızın işlevleri ekleyin: `[` ve `]`sırasıyla. Dağıtım sırasında değerlendirilen bir ifade. Dize sabit değeri olarak yazılmış olsa da, bir dizi, nesne veya tamsayı gibi farklı bir JSON türünde ifade değerlendirme sonucu olabilir. JavaScript'te, işlev çağrıları olarak biçimlendirilmiş gibi yalnızca `functionName(arg1,arg2,arg3)`. Özellikler, nokta ve [dizin] işleçleri kullanarak başvuru.
-
-Bir şablon ifadesi 24.576 karakterden uzun olamaz.
-
-Şablon işlevleri ve parametreleri büyük/küçük harf duyarsızdır. Örneğin, Resource Manager çözümler **variables('var1')** ve **VARIABLES('VAR1')** olarak aynı. Değerlendirildiğinde, işlevi açıkça (örneğin, toUpper veya toLower) çalışması değiştirir sürece servis talebi işlevi korur. Belirli kaynak türlerine işlevleri nasıl değerlendirilir bağımsız olarak büyük/küçük harf gereksinimlerine sahip olabilir.
+Bu makalede bir Azure Resource Manager şablonunda kullanabileceğiniz işlevleri açıklanmaktadır. Şablonunuzda işlevleri kullanma hakkında daha fazla bilgi için bkz: [şablon söz dizimi](resource-group-authoring-templates.md#syntax).
 
 Kendi işlev oluşturmak için bkz [kullanıcı tanımlı işlevleri](resource-group-authoring-templates.md#functions).
 
@@ -61,7 +55,7 @@ Resource Manager, nesneleri ve dizileri ile çalışmak için çeşitli işlevle
 * [boş](resource-group-template-functions-array.md#empty)
 * [ilk](resource-group-template-functions-array.md#first)
 * [kesişimi](resource-group-template-functions-array.md#intersection)
-* [JSON](resource-group-template-functions-array.md#json)
+* [json](resource-group-template-functions-array.md#json)
 * [Son](resource-group-template-functions-array.md#last)
 * [Uzunluğu](resource-group-template-functions-array.md#length)
 * [Min](resource-group-template-functions-array.md#min)
@@ -207,6 +201,7 @@ Resource Manager, dizeleri ile çalışmak için aşağıdaki işlevleri sunar:
 * [Son](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
 * [Uzunluğu](resource-group-template-functions-string.md#length)
+* [newGuid](resource-group-template-functions-string.md#newguid)
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [Değiştir](resource-group-template-functions-string.md#replace)
 * [Atla](resource-group-template-functions-string.md#skip)
@@ -222,6 +217,7 @@ Resource Manager, dizeleri ile çalışmak için aşağıdaki işlevleri sunar:
 * [URI](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
+* [utcNow](resource-group-template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bir Azure Resource Manager şablonu olarak bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md)

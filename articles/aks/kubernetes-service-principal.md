@@ -4,15 +4,15 @@ description: Azure Kubernetes Service’te bir küme için Azure Active Director
 services: container-service
 author: iainfoulds
 ms.service: container-service
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: fb3b85ca1ee6a96a45c4cc26953a29d9ad365ae3
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406278"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778561"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS) ile hizmet sorumluları
 

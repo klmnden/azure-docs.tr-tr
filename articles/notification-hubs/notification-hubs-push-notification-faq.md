@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: f2f11abcb3290e1d9459c26167706abc79c1b7fa
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 863b380d4f36e24119e64fbd4a59e8cd66c911e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670341"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779428"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs ile anında iletme bildirimleri: Sık sorulan sorular
 
@@ -205,6 +205,13 @@ Azure Notification hubs'ı, bırakılan bildirimler özellikle en yaygın senary
 ### <a name="what-telemetry-features-are-available"></a>Hangi telemetri özellikleri var mı?
 
 Azure Notification hubs'ı etkinleştirir telemetri verileri görüntüleme [Azure portal]. Ölçüm ayrıntıları bulunur [bildirim hub'ları ölçümleri] sayfası.
+
+Ölçümleri program aracılığıyla da erişebilirsiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
+
+- [.NET ile Azure İzleyici ölçümleri alma](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Bu örnek, kullanıcı adı ve parola kullanır. Bir sertifika kullanmak için gösterildiği gibi bir sertifika sağlamanız FromServicePrincipal yöntemi aşırı yüklemek [Bu örnek](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
+- [Ölçümlere ve etkinlik günlükleri için bir kaynak alma](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
+- [Azure REST API izleme Kılavuzu](../azure-monitor/platform/rest-api-walkthrough.md)
+
 
 > [!NOTE]
 > Başarılı bildirimler yalnızca dış PNS (örneğin, APNS için Apple) veya Google için FCM için anında iletme bildirimleri teslim edilmediği anlamına gelir. Bildirimleri hedef cihazlara teslim PNS sorumluluğundadır. Genellikle PNS teslim ölçümleri üçüncü taraflara kullanıma sunmuyor.  

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 9300e60902b9234af01a64173eefcfb1bc033c61
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1e5154f4f6c77e9a024ced58f3b75a0111a614c3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410205"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769388"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI sertifikalarını doğrulama
 
@@ -75,7 +75,7 @@ Hazırlama ve dağıtım ve gizli döndürme Azure Stack PKI sertifikalarını d
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     
     $destination = 'c:\certificates'
     
@@ -86,7 +86,7 @@ Hazırlama ve dağıtım ve gizli döndürme Azure Stack PKI sertifikalarını d
     > AD FS ve graf kimlik sisteminizde AD FS kullanıyorsanız gereklidir. Örneğin:
     >
     > ```PowerShell  
-    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     > ```
     
      - Önceki adımda oluşturduğunuz uygun dizinleri sertifikalarınız yerleştirin. Örneğin:  
@@ -254,17 +254,17 @@ SQL/MySQL veya uygulama hizmetleri dağıtımları planlı hazırlayıp hizmet (
 
 | Dizin | Sertifika |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\< bölge >\< externalFQDN > |
-| ACSQueue  |  wildcard_queue\< bölge >\< externalFQDN > |
-| ACSTable  |  wildcard_table\< bölge >\< externalFQDN > |
-| Yönetici uzantısı konağı  |  wildcard_adminhosting\< bölge >\< externalFQDN > |
-| Yönetici portalı  |  adminportal\< bölge >\< externalFQDN > |
-| ARM yönetici  |  adminmanagement\< bölge >\< externalFQDN > |
-| ARM genel  |  Yönetim\< bölge >\< externalFQDN > |
-| KeyVault  |  wildcard_vault\< bölge >\< externalFQDN > |
-| KeyVaultInternal  |  wildcard_adminvault\< bölge >\< externalFQDN > |
-| Genel uzantı konak  |  wildcard_hosting\< bölge >\< externalFQDN > |
-| Genel kullanıma açık portala  |  Portal\< bölge > _\< externalFQDN > |
+| acsBlob | wildcard_blob_\<bölge > _\<externalFQDN > |
+| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
+| ACSTable  |  wildcard_table_\<bölge > _\<externalFQDN > |
+| Yönetici uzantısı konağı  |  wildcard_adminhosting_\<bölge > _\<externalFQDN > |
+| Yönetici portalı  |  adminportal_\<bölge > _\<externalFQDN > |
+| ARM yönetici  |  adminmanagement_\<bölge > _\<externalFQDN > |
+| ARM genel  |  management_\<bölge > _\<externalFQDN > |
+| KeyVault  |  wildcard_vault_\<region>_\<externalFQDN> |
+| KeyVaultInternal  |  wildcard_adminvault_\<bölge > _\<externalFQDN > |
+| Genel uzantı konak  |  wildcard_hosting_\<bölge > _\<externalFQDN > |
+| Genel kullanıma açık portala  |  portal_\<bölge > _\<externalFQDN > |
 
 ## <a name="using-validated-certificates"></a>Doğrulanmış bir sertifika kullanma
 

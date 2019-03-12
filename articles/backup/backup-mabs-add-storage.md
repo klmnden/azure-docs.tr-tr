@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: cc76b15c3cb108b5181e22330954dfee789b01ba
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ee62138a56851747e75d75b7a806b2b73ba4fbbb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251122"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544662"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Azure Backup Sunucusu’na depolama alanı ekleme
 
@@ -100,13 +100,13 @@ Modern yedekleme depolama alanı kullanmak için koruma gruplarını güncelleş
 
 1. Yönetici Konsolu'nda seçin **koruma** özelliği. İçinde **koruma grubu üyesi** listesinde üyeye sağ tıklayın ve ardından **üyenin korumasını Durdur**.
 
-  ![Üyenin korumasını Durdur](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+  ![Üyenin korumasını Durdur](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. İçinde **grubundan** iletişim kutusunda, kullanılan disk alanı ve depolama havuzu için kullanılabilir boş alanı gözden geçirin. Diskte kurtarma noktalarını bırakmak ve kendi ilişkilendirildikleri bekletme ilkesine göre sürelerinin dolmasına izin vermek için varsayılandır. **Tamam** düğmesine tıklayın.
 
   Kullanılan disk alanını hemen boş depolama havuzuna döndürülecek istiyorsanız belirleyin **diskteki çoğaltmayı Sil** yedekleme verileri (ve kurtarma noktalarını) silmek için onay kutusunu, bu üye ile ilişkili.
 
-  ![Grup iletişim kutusundan kaldırma](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+  ![Grup iletişim kutusundan kaldırma](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Modern yedekleme depolama alanı kullanan bir koruma grubu oluşturun. Korumasız veri kaynaklarını içerir.
 
@@ -118,7 +118,7 @@ Disk depolama eklemek için:
 
 1. Yönetici Konsolu'nda seçin **Yönetim** > **Disk Depolama** > **Ekle**.
 
-    ![Disk depolama alanı iletişim kutusu Ekle](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    ![Disk depolama alanı iletişim kutusu Ekle](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 4. İçinde **Disk Depolama Ekle** iletişim kutusunda **disk Ekle**.
 

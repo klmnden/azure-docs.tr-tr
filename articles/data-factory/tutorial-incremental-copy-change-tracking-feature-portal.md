@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: af83fe7a750e5dbeb065926f5aed452fdf6e3df6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ce4002ff37de3fcc96b86bcfb8ee9b0239212ef3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438797"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760826"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Değişiklik izleme bilgilerini kullanarak Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme 
 Bu öğreticide, kaynak Azure SQL veritabanındaki **değişiklik izleme** bilgilerine dayanan değişiklik verilerini Azure blob depolamasına yükleyen bir işlem hattına sahip olan bir Azure veri fabrikası oluşturursunuz.  
@@ -260,7 +260,7 @@ Bu adımda, kaynak veri deposundan kopyalanan verileri temsil etmek için bir ve
 
     1. **Bağlı hizmet** için **AzureStorageLinkedService** hizmetini seçin.
     2. **filePath** yolunun **klasör** bölümü için **adftutorial/incchgtracking** yolunu girin.
-    3. **filePath** yolunun **dosya** bölümü için **@CONCAT('Incremental-', pipeline().RunId, '.txt')** dosya adını girin.  
+    3. Girin  **\@CONCAT (' artımlı-', pipeline(). Runıd, '.txt')** için **dosya** parçası **filePath**.  
 
        ![Havuz veri kümesi - bağlantı](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 

@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/16/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a83ded660b56028ea311992ba6161e8a8e43f65d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b8240f69649e9bcb9a705f2c9fcbb819cf119356
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511981"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761421"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS hakkında SSS
 
@@ -239,7 +239,7 @@ Evet. Özel bir bölgeye kayıt sanal ağdan bağlantısını kaldırmak için i
 
 Evet. Bir kayıt veya çözümleme sanal ağ özel bölgesinden ilk bağlantısını olmadan sildiğinizde, silme işlemi başarılı olur. Ancak sanal ağ özel bölgeden varsa otomatik olarak bağlantısız değildir. El ile özel bölge sanal ağdan bağlantısını kaldırmanız gerekir. Bu nedenle, silmeden önce sanal ağınızdan özel bölgenizi bağlantısını Kaldır.
 
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>Hatta özel bir bölgesi (örneğin, contoso.local) bir sanal ağa bağlandığında kullanarak FQDN (internal.cloudapp.net) varsayılan DNS çözümlemesi çalışmaya devam eder mi?
+### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>Hatta özel bir bölgesi (örneğin, private.contoso.com) bir sanal ağa bağlandığında kullanarak FQDN (internal.cloudapp.net) varsayılan DNS çözümlemesi çalışmaya devam eder mi?
 
 Evet. Özel bölgeler için varsayılan DNS çözümleri, Azure tarafından sağlanan internal.cloudapp.net bölge kullanarak yerini almaz. Bir ek özellik veya geliştirme olarak sunulur. Azure tarafından sağlanan internal.cloudapp.net veya kendi özel bölge kullanan, karşı çözümlemek istediğiniz bölgeyi FQDN'sini kullanın. 
 
@@ -262,7 +262,7 @@ Evet. Genel Önizleme sırasında aşağıdaki sınırlamalar bulunmaktadır.
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Herhangi bir kota veya bölgeler ve kayıtlar özel bölgeler için sınırlar var mıdır?
 
-Özel bölgeler için abonelik başına izin verilen bölge sayısı sınırı yoktur. Özel bölgeleri için bölge başına kayıt kümelerinin sayısı sınırı yoktur. Genel ve özel bölgeleri Genel DNS sınırları doğru sayısı. Daha fazla bilgi için [Azure aboneliği ve hizmet sınırlamaları](../azure-subscription-service-limits.md#dns-limits)
+Özel bölgeler için abonelik başına izin verilen bölge sayısı sınırı yoktur. Özel bölgeleri için bölge başına kayıt kümelerinin sayısı sınırı yoktur. Genel ve özel bölgeleri Genel DNS sınırları doğru sayısı. Daha fazla bilgi için [Azure aboneliği ve hizmet sınırlamaları](../azure-subscription-service-limits.md#azure-dns-limits)
 
 ### <a name="is-there-portal-support-for-private-zones"></a>Özel bölgeler için portal destek var mı?
 

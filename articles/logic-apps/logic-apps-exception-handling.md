@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308732"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779156"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hataları ve Azure Logic apps'te özel durumları işleme
 
@@ -23,7 +23,7 @@ Bir challenge, kapalı kalma süresi veya bağımlı sistemleri tarafından nede
 
 <a name="retry-policies"></a>
 
-## <a name="retry-policies"></a>Yeniden deneme ilkelerine
+## <a name="retry-policies"></a>İlkeleri yeniden deneme
 
 En temel özel durum ve hata işleme için kullanabileceğiniz bir *yeniden deneme ilkesi* herhangi bir eylemde veya desteklenen durumlarda tetikleyin. Bir yeniden deneme ilkesi görüntülenip görüntülenmeyeceğini ve nasıl eylem veya tetikleyici özgün istek zaman aşımına uğradığında bir istek veya başarısız olan bir 408, 429 ve 5xx yanıt sonuçlanan tüm istekleri yeniden deneme belirtir. Diğer bir yeniden deneme ilkesi kullanılırsa, varsayılan İlkesi kullanılır. 
 
@@ -223,9 +223,9 @@ Kapsamlar hakkında daha fazla limitleri için bkz [limitler ve yapılandırma](
 
 Bir kapsam hatalarını yakalama kullanışlı olsa da, tam olarak hangi eylemlerin herhangi bir hata veya döndürüldü durum kodları başarısız anlamanıza yardımcı olması için bağlam da isteyebilirsiniz. `@result()` İfade sonucu bir kapsam içindeki tüm eylemleri hakkında bir bağlam sağlar.
 
-`@result()` İfade (kapsamın adı) tek bir parametre kabul eder ve tüm eylem sonuçlarına ilişkin bu kapsam içinde bir dizi döndürür. Bu eylem nesneler aynı özniteliklere içerir  **@actions()** eylemin başlangıç zamanı, bitiş zamanı, durum, girişler, bağıntı kimlikleri ve çıktılar gibi bir nesne. Bir kapsam içinde başarısız olan herhangi bir eylem için bağlamı göndermek için kolayca eşleşebileceğini denetleyebilmesi bir  **@result()** işleviyle bir **runAfter** özelliği.
+`@result()` İfade (kapsamın adı) tek bir parametre kabul eder ve tüm eylem sonuçlarına ilişkin bu kapsam içinde bir dizi döndürür. Bu eylem nesneler aynı özniteliklere içerir  **\@actions()** eylemin başlangıç zamanı, bitiş zamanı, durum, girişler, bağıntı kimlikleri ve çıktılar gibi bir nesne. Bir kapsam içinde başarısız olan herhangi bir eylem için bağlamı göndermek için kolayca eşleşebileceğini denetleyebilmesi bir  **\@result()** işleviyle bir **runAfter** özelliği.
 
-Her eylem için eylem olan bir kapsam içinde çalıştırmak için bir **başarısız** sonucu, ve sonuçları aşağı başarısız Eylemler dizisi filtrelemek için eşleştirilebileceği  **@result()** ile bir **[Filtre dizisi](../connectors/connectors-native-query.md)** eylem ve [ **her** ](../logic-apps/logic-apps-control-flow-loops.md) döngü. Filtrelenmiş Sonuç dizisi alın ve her hata kullanmak için bir eylem gerçekleştirmek **her** döngü. 
+Her eylem için eylem olan bir kapsam içinde çalıştırmak için bir **başarısız** sonucu, ve sonuçları aşağı başarısız Eylemler dizisi filtrelemek için eşleştirilebileceği  **\@result()** ile bir **[ Diziyi filtreleme](../connectors/connectors-native-query.md)** eylem ve [ **her** ](../logic-apps/logic-apps-control-flow-loops.md) döngü. Filtrelenmiş Sonuç dizisi alın ve her hata kullanmak için bir eylem gerçekleştirmek **her** döngü. 
 
 "My_Scope" kapsamında yanıt gövdesi için başarısız olan tüm eylemler ile bir HTTP POST isteği gönderir ayrıntılı bir açıklama, ardından, bir örnek aşağıda verilmiştir:
 
@@ -317,7 +317,7 @@ Başvuru için tek bir örneği aşağıda verilmiştir `@result()` gösteren ö
 }
 ```
 
-Farklı özel durum desenleri işleme gerçekleştirmek için bu makalede daha önce açıklanan ifadeleri kullanabilirsiniz. Eylem tüm filtrelenmiş hata dizisini kabul eden kapsamı dışında işleme tek bir özel durum yürütmek seçin ve Kaldır **her** eylem. Diğer yararlı olan özellikleri de içerebilir  **@result()** daha önce açıklandığı gibi yanıt.
+Farklı özel durum desenleri işleme gerçekleştirmek için bu makalede daha önce açıklanan ifadeleri kullanabilirsiniz. Eylem tüm filtrelenmiş hata dizisini kabul eden kapsamı dışında işleme tek bir özel durum yürütmek seçin ve Kaldır **her** eylem. Diğer yararlı olan özellikleri de içerebilir  **\@result()** daha önce açıklandığı gibi yanıt.
 
 ## <a name="azure-diagnostics-and-metrics"></a>Azure tanılama ve ölçümler
 

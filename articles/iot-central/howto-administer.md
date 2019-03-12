@@ -3,17 +3,17 @@ title: Azure IOT Central bir uygulamayı yönetme | Microsoft Docs
 description: Bir yönetici olarak Azure IOT Central uygulamanızı yönetme
 author: viv-liu
 ms.author: viviali
-ms.date: 04/16/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1b79b6870766f9595e731206bae2d4251d294942
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 29ded279e2a76940049c257b954b1dae75f14836
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431335"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778612"
 ---
 # <a name="administer-your-iot-central-application"></a>IOT Central uygulamanızı yönetme
 
@@ -44,11 +44,11 @@ Erişimi ve kullanımı **Yönetim** bölümünde olmanız gerekir **yönetici**
 Uygulama görüntüsü değiştirmek için bkz [hazırlama ve karşıya yükleme görüntüleri, Azure IOT Central uygulamasına](howto-prepare-images.md).
 
 ### <a name="copy-an-application"></a>Bir uygulamayı kopyalama
-Tüm cihaz örnekleri, cihaz verileri geçmişi ve kullanıcı verileri hariç herhangi bir uygulamanın bir kopyasını oluşturabilirsiniz. Kopyalama için ücret ödersiniz bir Kullandıkça Öde uygulama olacaktır. Bu şekilde deneme uygulama oluşturulamıyor.
+Tüm cihaz örnekleri, cihaz verileri geçmişi ve kullanıcı verileri hariç herhangi bir uygulamanın bir kopyasını oluşturabilirsiniz. Kopyalama için ücret ödersiniz bir Kullandıkça Öde uygulamasıdır. Bu şekilde deneme uygulama oluşturulamıyor.
 
 Seçin **kopyalama**. İletişim kutusunda, yeni bir Kullandıkça Öde uygulama için ayrıntıları girin. Ardından **kopyalama** devam etmek istediğinizi onaylayın. Bu formdaki alanları hakkında daha fazla bilgi [uygulama oluşturma](quick-deploy-iot-central.md) hızlı başlangıç.
 
-![Uygulama Ayarları sayfası](media/howto-administer/appCopy2.png)
+![Uygulama Ayarları sayfası](media/howto-administer/appcopy2.png)
 
 Uygulama kopyalama işlemi başarılı olduktan sonra görünen bağlantıyı kullanarak uygulamanızı kopyalayarak oluşturulan yeni uygulama gidebilirsiniz.
 
@@ -62,7 +62,7 @@ Uygulama kopyalama işlemi başarılı olduktan sonra görünen bağlantıyı ku
 > [!Note]
 > Bir uygulamayı silmek için de kaynakları silmek için izinleri olmalıdır uygulama oluştururken seçtiğiniz Azure aboneliğinde. Daha fazla bilgi için bkz. [Azure abonelik kaynaklarınıza erişimi yönetmek için rol tabanlı erişim denetimini kullanma](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-Kullanım **Sil** IOT Central uygulamanız kalıcı olarak silmek için düğmeyi. Bunun yapılması, bu uygulamayla ilişkili tüm verileri kalıcı olarak siler.
+Kullanım **Sil** IOT Central uygulamanız kalıcı olarak silmek için düğmeyi. Kalıcı olarak bunu, uygulama ile ilişkili tüm verileri siler.
 
 ## <a name="manage-users"></a>Kullanıcıları yönetme
 
@@ -95,7 +95,7 @@ Kullanıcıları silmek için üzerinde bir veya daha fazla onay kutularını i�
 
 ## <a name="manage-roles"></a>Rolleri yönetme
 
-Rol, kuruluşunuzda kimlerin IOT Central çeşitli görevleri gerçekleştirebilirsiniz sağlar. Üç rol, uygulamanızın kullanıcılara atayabileceğiniz vardır. 
+Rol, kuruluşunuzda kimlerin IOT Central çeşitli görevleri gerçekleştirebilirsiniz sağlar. Üç rol, uygulamanızın kullanıcılara atayabileceğiniz vardır.
 
 ### <a name="administrator"></a>Yönetici
 
@@ -111,7 +111,6 @@ Kullanıcıların **uygulama Oluşturucusu** rolü bir uygulamada uygulamayı y�
 
 Kullanıcıların **uygulama işleci** rolü cihaz şablonlarda değişiklik yapılamıyor ve uygulamayı yönetemezsiniz. Bu işleçler eklemeyi ve silmeyi cihazları, cihaz kümeleri yönetebilir ve analiz ve işleri çalıştırma anlamına gelir. İşleçler, erişim sahibi olmaz **uygulama Oluşturucusu** ve **Yönetim** sayfaları.
 
-
 ## <a name="view-your-bill"></a>Faturanızı görüntüleyin
 
 Faturanızı görmek için Git **faturalama** sayfasını **Yönetim** bölümü. Azure faturalama sayfasını fatura uygulamaların her biri, Azure IOT Central için görebileceğiniz yeni bir sekmede açılır.
@@ -124,14 +123,14 @@ Deneme uygulamanız için bir Kullandıkça Öde uygulama dönüştürebilirsini
 - **Kullandıkça Öde** uygulamaları, ilk 5 cihaz ücretsiz olmak üzere cihaz başına ücretlendirilir.
 
 [Azure IoT Central fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/iot-central/), fiyatlar hakkında daha fazla bilgi edinin.
-    
+
 Bu Self Servis işlemi tamamlamak için aşağıdaki adımları izleyin:
 
-1. Git **faturalama** sayfasını **Yönetim** bölümü. 
+1. Git **faturalama** sayfasını **Yönetim** bölümü.
 
     ![Deneme durumu](media/howto-administer/freetrialbilling.png)
 
-1. Seçin **Kullandıkça Öde aboneliğine dönüştürmek**. 
+1. Seçin **Kullandıkça Öde aboneliğine dönüştürmek**.
 
     ![Deneme Dönüştür](media/howto-administer/convert.png)
 
@@ -141,15 +140,15 @@ Bu Self Servis işlemi tamamlamak için aşağıdaki adımları izleyin:
 
 ## <a name="export-data"></a>Verileri dışarı aktarma
 
-Etkinleştirebilirsiniz **verileri sürekli dışarı aktarma** ölçümleri, cihazları ve cihaz şablonları verileri Azure Blob Depolama hesabınıza aktarmak. Verileriniz dışarı aktarma hakkında daha fazla bilgi edinin.
+Etkinleştirebilirsiniz **verileri sürekli dışarı aktarma** ölçümleri, cihazları ve cihaz şablonları verileri Azure Blob Depolama hesabınıza aktarmak. Kullanma hakkında daha fazla bilgi edinin [verilerinizi dışarı](howto-export-data.md).
 
 ## <a name="manage-device-connection"></a>Cihaz bağlantısını yönetme
 
-Anahtarlar ve sertifikalar buraya kullanarak uygulamanızı bir ölçekte cihazları bağlayın. Cihazlar bağlama hakkında daha fazla bilgi edinin.
+Anahtarlar ve sertifikalar buraya kullanarak uygulamanızı bir ölçekte cihazları bağlayın. Daha fazla bilgi edinin [cihazları bağlama](concepts-connectivity.md).
 
 ## <a name="use-access-tokens"></a>Erişim belirteçleri kullanma
 
-Geliştirici araçları kullanmaya erişim belirteçleri oluşturun. Şu anda IOT Central Gezgini cihaz iletilerini ve özellikleri ve ayarlarında yapılan değişiklikleri izlemek için bir geliştirici aracı kullanılabilir yoktur. IOT Central Gezgini hakkında daha fazla bilgi edinin. 
+Geliştirici araçları kullanmaya erişim belirteçleri oluşturun. Şu anda IOT Central Gezgini cihaz iletilerini ve özellikleri ve ayarlarında yapılan değişiklikleri izlemek için bir geliştirici aracı kullanılabilir yoktur. Daha fazla bilgi edinin [IOT Central Gezgini](howto-use-iotc-explorer.md).
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Denetim düzlemi işlemleri için Azure SDK'ları kullanın
 

@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5ade16bbd45203892cd9a3117dd52471884cf700
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 27ebcee961cc81ad088cadfa8980b3bd51b3d7a4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455828"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536938"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı Kurulum özelleştirme
 
@@ -64,7 +64,7 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
     1.  Diğer araçları tarafından oluşturulan ek günlükler istiyorsanız (örneğin, `msiexec.exe`), kapsayıcıya yüklenmek üzere önceden tanımlanmış ortam değişkenini belirtin `CUSTOM_SETUP_SCRIPT_LOG_DIR` betiklerinizi günlük klasöründe olarak (örneğin, `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
-1.  İndirme, yükleme ve başlatma [Azure Depolama Gezgini](http://storageexplorer.com/).
+1.  İndirme, yükleme ve başlatma [Azure Depolama Gezgini](https://storageexplorer.com/).
 
     1.  Altında **(yerel ve eklenmiş)**, sağ tıklayarak seçin **depolama hesapları** seçip **Azure Storage'a Bağlan**.
 
@@ -148,9 +148,9 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
        1. Bir `EXCEL` açık kaynaklı derlemeleri yüklemek için özel bir kurulum içeren klasörü (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, ve `ExcelDataReader.dll`), Azure-SSIS IR, her bir düğümde
 
-       1. Bir `ORACLE ENTERPRISE` özel kurulum betiği içeren klasörü (`main.cmd`) ve sessiz yükleme yapılandırma dosyası (`client.rsp`) Oracle bağlayıcılar ve OCI sürücü, Azure-SSIS IR Enterprise Edition'ın her düğüme yüklenecek. Bu kurulum Oracle Bağlantı Yöneticisi, kaynak ve hedef kullanmanıza olanak sağlar. İlk olarak, Oracle için Microsoft Connectors v5.0 indirin (`AttunitySSISOraAdaptersSetup.msi` ve `AttunitySSISOraAdaptersSetup64.msi`) öğesinden [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) ve en son Oracle istemcisini - Örneğin, `winx64_12102_client.zip` - [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), bunların tümünü birlikte karşıya `main.cmd` ve `client.rsp` kapsayıcınıza. Oracle için bağlanmak için kullandığınız TNS de indirmek gerekirse `tnsnames.ora`, düzenlemek ve böylece Kurulum sırasında Oracle yükleme klasörüne kopyalanabilir, kapsayıcıya yükleyin.
+       1. Bir `ORACLE ENTERPRISE` özel kurulum betiği içeren klasörü (`main.cmd`) ve sessiz yükleme yapılandırma dosyası (`client.rsp`) Oracle bağlayıcılar ve OCI sürücü, Azure-SSIS IR Enterprise Edition'ın her düğüme yüklenecek. Bu kurulum Oracle Bağlantı Yöneticisi, kaynak ve hedef kullanmanıza olanak sağlar. İlk olarak, Oracle için Microsoft Connectors v5.0 indirin (`AttunitySSISOraAdaptersSetup.msi` ve `AttunitySSISOraAdaptersSetup64.msi`) öğesinden [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) ve en son Oracle istemcisini - Örneğin, `winx64_12102_client.zip` - [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), bunların tümünü birlikte karşıya `main.cmd` ve `client.rsp` kapsayıcınıza. Oracle için bağlanmak için kullandığınız TNS de indirmek gerekirse `tnsnames.ora`, düzenlemek ve böylece Kurulum sırasında Oracle yükleme klasörüne kopyalanabilir, kapsayıcıya yükleyin.
 
-       1. Bir `ORACLE STANDARD ADO.NET` özel kurulum betiği içeren klasörü (`main.cmd`), Azure-SSIS IR'yi her düğümde Oracle ODP.NET sürücüsünü yüklenecek Bu kurulum ADO.NET Bağlantı Yöneticisi, kaynak ve hedef kullanmanıza olanak sağlar. İlk olarak, en son Oracle ODP.NET sürücüsünü - Örneğin, indirme `ODP.NET_Managed_ODAC122cR1.zip` - [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)ve ardından ile birlikte karşıya `main.cmd` kapsayıcınıza.
+       1. Bir `ORACLE STANDARD ADO.NET` özel kurulum betiği içeren klasörü (`main.cmd`), Azure-SSIS IR'yi her düğümde Oracle ODP.NET sürücüsünü yüklenecek Bu kurulum ADO.NET Bağlantı Yöneticisi, kaynak ve hedef kullanmanıza olanak sağlar. İlk olarak, en son Oracle ODP.NET sürücüsünü - Örneğin, indirme `ODP.NET_Managed_ODAC122cR1.zip` - [Oracle](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)ve ardından ile birlikte karşıya `main.cmd` kapsayıcınıza.
        
        1. Bir `ORACLE STANDARD ODBC` özel kurulum betiği içeren klasörü (`main.cmd`) Oracle ODBC sürücüsünü yüklemek ve Azure-SSIS IR, her bir düğümde DSN yapılandırmak için Bu kurulum ODBC Bağlantı Yöneticisi/kaynak/hedef veya Power Query Bağlantı Yöneticisi/kaynak Oracle sunucusuna bağlanmak için ODBC veri kaynağı türü ile kullanmanıza olanak sağlar. İlk olarak, en son Oracle anlık istemci (temel paket veya temel Lite paket) ve ODBC Package - Örneğin, 64-bit paketleri indirme [burada](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (temel paket: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, temel Lite paket: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, ODBC paketini : `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) veya 32-bit paketleri [burada](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (temel paket: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, temel Lite paket: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, ODBC paket: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`) ve ardından bunları ile birlikte yüklemek `main.cmd` içine kapsayıcı.
 

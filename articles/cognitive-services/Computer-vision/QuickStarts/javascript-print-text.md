@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 004b7033666dd575c94992b9a099944033680bdf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 53174037aa869965892f8caafc2951eb019f67c1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875138"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535476"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme JavaScript ve REST API kullanarak yazdırılan metin (OCR) ayıklayın
 
@@ -47,7 +47,7 @@ Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonel
 <html>
 <head>
     <title>OCR Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 

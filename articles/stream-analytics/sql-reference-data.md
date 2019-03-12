@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: cc6e4083ba952eb9799aa91f76cf6e5ab75c7f64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: efd450edb87316e75fc240cac80eda93151a22b3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449589"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765093"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Azure Stream Analytics işi (Önizleme) için bir SQL veritabanı başvuru verilerini kullanma
 
@@ -134,19 +134,44 @@ Açık **JobConfig.json** SQL Başvurusu anlık görüntülerini depolamak için
 
 Delta sorgu kullanarak [zamana bağlı tablolarda Azure SQL veritabanı'nda](../sql-database/sql-database-temporal-tables.md) önerilir.
 
-1. Anlık görüntü sorgu yazar. 
+1. Zamana bağlı tablo, Azure SQL veritabanı'nda oluşturun.
+   
+   ```SQL 
+      CREATE TABLE DeviceTemporal 
+      (  
+         [DeviceId] int NOT NULL PRIMARY KEY CLUSTERED 
+         , [GroupDeviceId] nvarchar(100) NOT NULL
+         , [Description] nvarchar(100) NOT NULL 
+         , [ValidFrom] datetime2 (0) GENERATED ALWAYS AS ROW START
+         , [ValidTo] datetime2 (0) GENERATED ALWAYS AS ROW END
+         , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+      )  
+      WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DeviceHistory));  -- DeviceHistory table will be used in Delta query
+   ```
+2. Anlık görüntü sorgu yazar. 
 
-   Kullanım **@snapshotTime** parametresini kullanarak SQL veritabanı zamana bağlı tablo geçerli sistem saatini başvuru veri kümesi almak için Stream Analytics çalışma zamanı isteyin. Bu parametre sağlamazsanız, bir saat farklarından kaynaklanan yanlış temel başvuru veri kümesi alma riski oluşur. Tam bir anlık görüntü sorgu örneği aşağıda gösterilmiştir:
-
-   ![Stream Analytics anlık görüntü sorgusu](./media/sql-reference-data/snapshot-query.png)
+   Kullanım  **\@snapshotTime** parametresini kullanarak SQL veritabanı zamana bağlı tablo geçerli sistem saatini başvuru veri kümesi almak için Stream Analytics çalışma zamanı isteyin. Bu parametre sağlamazsanız, bir saat farklarından kaynaklanan yanlış temel başvuru veri kümesi alma riski oluşur. Tam bir anlık görüntü sorgu örneği aşağıda gösterilmiştir:
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, [Description]
+      FROM dbo.DeviceTemporal
+      FOR SYSTEM_TIME AS OF @snapshotTime
+   ```
  
 2. Delta sorgu yazar. 
    
-   Bu sorgu, eklenen veya silinmiş bir başlangıç saati içinde SQL veritabanınızdaki tüm satırları alır **@deltaStartTime**ve bitiş zamanını **@deltaEndTime**. Delta sorgu anlık görüntü sorgu aynı sütunları yanı sıra, sütun döndürmelidir  **_işlemi_**. Satır eklenmiş veya arasında silinmiş bu sütun tanımlar **@deltaStartTime** ve **@deltaEndTime**. Ortaya çıkan satırlar olarak işaretlenmiş **1** kayıtların eklenme ise veya **2** silinmiş. 
+   Bu sorgu, eklenen veya silinmiş bir başlangıç saati içinde SQL veritabanınızdaki tüm satırları alır  **\@deltaStartTime**ve bitiş zamanını  **\@deltaEndTime**. Delta sorgu anlık görüntü sorgu aynı sütunları yanı sıra, sütun döndürmelidir  **_işlemi_**. Satır eklenmiş veya arasında silinmiş bu sütun tanımlar  **\@deltaStartTime** ve  **\@deltaEndTime**. Ortaya çıkan satırlar olarak işaretlenmiş **1** kayıtların eklenme ise veya **2** silinmiş. 
 
    Güncelleştirilen kayıtları, zamana bağlı tablo ekleme ve silme işleminin yakalayarak muhasebe yapar. Stream Analytics çalışma zamanı, başvuru verileri güncel tutmak için önceki anlık görüntüye delta sorgu sonuçlarını sonra uygulanır. Aşağıdaki show delta sorgu örneğidir:
 
-   ![Stream Analytics delta sorgu](./media/sql-reference-data/delta-query.png)
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      FROM dbo.DeviceTemporal
+      WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
+      UNION
+      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      FROM dbo.DeviceHistory   -- table we created in step 1
+      WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
+   ```
  
   Stream Analytics çalışma zamanı düzenli aralıklarla kontrol noktalarını depolamak için delta sorgu yanı sıra anlık görüntü sorgu çalışabilir unutmayın.
 

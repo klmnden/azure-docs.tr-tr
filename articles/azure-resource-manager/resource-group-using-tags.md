@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 87b6dcb007eaea140b9655c248fdfb356cbc9b5f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: bc89b8d830e364c70fef5a5959d4da85c517a5ee
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817329"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764942"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Azure kaynaklarınızı düzenlemek için etiketleri kullanma
 
@@ -115,7 +115,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-Bir kaynak grubundaki tüm etiketleri *kaynaklardaki mevcut etiketleri korumadan* gruptaki kaynaklara uygulamak için aşağıdaki betiği kullanın:
+Bir kaynak grubundan kaynaklara tüm etiketleri uygulamak ve *kaynaklardaki mevcut etiketleri tutma*, aşağıdaki betiği kullanın:
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -125,7 +125,7 @@ foreach ($g in $groups)
 }
 ```
 
-Bir kaynak grubundaki tüm etiketleri *yinelenmeyen kaynaklardaki mevcut etiketleri koruyarak* gruptaki kaynaklara uygulamak için aşağıdaki betiği kullanın:
+Bir kaynak grubundan kaynaklara tüm etiketleri uygulamak ve *mevcut etiketleri çoğaltmaları olmayan kaynakları tutmak*, aşağıdaki betiği kullanın:
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -222,7 +222,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Bir kaynak grubundaki tüm etiketleri *kaynaklardaki mevcut etiketleri korumadan* gruptaki kaynaklara uygulamak için aşağıdaki betiği kullanın:
+Bir kaynak grubundan kaynaklara tüm etiketleri uygulamak ve *kaynaklardaki mevcut etiketleri tutma*, aşağıdaki betiği kullanın:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -238,7 +238,7 @@ do
 done
 ```
 
-Bir kaynak grubundan kaynaklara tüm etiketleri uygulamak ve *kaynaklardaki mevcut etiketleri korumak*, aşağıdaki betiği kullanın:
+Bir kaynak grubundan kaynaklara tüm etiketleri uygulamak ve *kaynaklardaki mevcut etiketleri tutmak*, aşağıdaki betiği kullanın:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)

@@ -14,12 +14,12 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09914de48df09dabd4069cd33e7acbea328fa89d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 26e94c9b56ba65e3a7c51c1a85e97f7521377bae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193161"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546866"
 ---
 # <a name="start-using-pim"></a>PIM kullanmaya başlama
 
@@ -106,7 +106,6 @@ PIM kurulumundan sonra kimlik yönetimi görevlerini gerçekleştirebilir.
 | --- | --- |
 | **Rollerim**  | Size atanan uygun ve etkin rollerin bir listesini görüntüler. Burada atanan uygun rolleri etkinleştirebilirsiniz. |
 | **İsteklerim** | Uygun rol atamalarını etkinleştirmek için Bekleyen isteklerinizi görüntüler. |
-| **Uygulama erişimi** | Olası gecikmelerini azaltmak ve hemen etkinleştirildikten sonra rol kullanmanıza olanak sağlar. |
 | **İstekleri onaylama** | Uygun rolleri dizininizdeki kullanıcılar tarafından etkinleştirme isteklerini listesini görüntüler onaylanacak atanmış. |
 | **Erişim gözden geçirin** | Erişimi kendiniz veya başka bir kullanıcı için inceliyor olmanızdan bağımsız tamamlamak için atanan beklemedeki erişim gözden geçirmelerini listeler. |
 | **Azure AD rolleri** | Bir Pano ve Azure AD dizini rol atamalarını yönetmek ayrıcalıklı rol yöneticileri ayarlarını görüntüler. Bu pano, ayrıcalıklı rol yöneticisi olmayan kullanıcılar için devre dışıdır. Bu kullanıcılar Görünümüm adlı özel bir panoya erişebilir. Görünümüm panosu, tüm kiracı değil yalnızca panoya erişen kullanıcı hakkında bilgileri görüntüler. |

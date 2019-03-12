@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 83eea565a12ee5201c42b543cdbdad72ddc28ca9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 542db0200229b4fea4ac67ad19c468f2b9dc67d1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346728"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772788"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>Yönetim uç noktanın IP adresine belirleme
 
@@ -29,7 +29,7 @@ Yönetilen örnek konak olduğunu varsayalım `mi-demo.xxxxxx.database.windows.n
 
 ![İç konak adı çözme](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
 
-Şimdi başka yapmak `nslookup` vurgulanan adı kaldırma `.vnet.` kesimi. Bu komut yürütme sonucu olarak genel IP adresi elde edersiniz.
+Şimdi başka yapmak `nslookup` vurgulanan adı kaldırma `.vnet.` kesimi. Bu komutu yürütürken genel IP adresini elde edersiniz.
 
 ![Genel IP adresi çözümleme](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
 

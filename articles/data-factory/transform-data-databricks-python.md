@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: de730004b55f72cb645c6a31c02fd1fe28a52ecd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013188"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541715"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Azure Databricks üzerinde bir Python etkinliği çalıştırarak verileri dönüştürme
 
@@ -62,7 +62,7 @@ Bir Databricks Python etkinliği örnek JSON tanımı aşağıda verilmiştir:
 
 Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmaktadır:
 
-|Özellik|Açıklama|Gereklidir|
+|Özellik|Açıklama|Gerekli|
 |---|---|---|
 |ad|İşlem hattındaki bir etkinliğin adı.|Evet|
 |açıklama|Etkinliğin ne yaptığını açıklayan metin.|Hayır|
@@ -100,7 +100,7 @@ Yukarıdaki Databricks etkinlik tanımında Bu kitaplık türleri belirtin: *jar
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

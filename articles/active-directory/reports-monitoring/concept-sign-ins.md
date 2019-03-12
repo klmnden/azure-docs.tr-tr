@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f47de0544d6d708d3c8b104be4edada86c11551
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190373"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549026"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
 
@@ -149,23 +149,13 @@ Oturum açma görünümüne başka alanlar eklerseniz bu alanlar filtre listesin
 
 ## <a name="download-sign-in-activities"></a>Oturum açma etkinliklerini indirme
 
-Yapabilecekleriniz [oturum açma verilerini indirmek](quickstart-download-sign-in-report.md) dışında Azure portal ile çalışmak istiyorsanız. **İndir**’e tıkladığınızda en son 5 bin kaydı içeren bir CSV dosyası oluşturulur.  İndir düğmesine ek olarak, Azure portalı ayrıca size şu seçeneği sağlar [verilerinizi yüklemek için bir komut dosyası oluşturmayı](tutorial-signin-logs-download-script.md).  
+Yapabilecekleriniz [oturum açma verilerini indirmek](quickstart-download-sign-in-report.md) dışında Azure portal ile çalışmak istiyorsanız. Tıklayarak **indirme** , en son 250.000 kayıtları bir CSV ya da JSCON dosyası oluşturmak için bir seçenek sağlar.  
 
 ![İndir](./media/concept-sign-ins/71.png "İndir")
-
-Daha fazla esneklik gerekiyorsa betik çözümünü kullanabilirsiniz. Tıklayarak **betik** ayarladığınız tüm filtreleri içeren bir PowerShell Betiği oluşturur. Bu betik indirip çalıştırmak **Yönetici modunda** CSV dosyası oluşturmak için. 
 
 > [!IMPORTANT]
 > İndirebilirsiniz kayıt sayısı tarafından sınırlı [Azure Active Directory rapor saklama ilkeleri](reference-reports-data-retention.md).  
 
-### <a name="running-the-script-on-a-windows-10-machine"></a>Komut dosyasını bir Windows 10 makinesi üzerinde çalıştırma
-
-Betiği çalıştırmak istiyorsanız bir **Windows 10** makine, ilk birkaç ek adımları gerçekleştirmek için ihtiyacınız. 
-
-1. Yükleme [Az modül](/powershell/azure/install-az-ps).
-2. Bir PowerShell istemi açmak ve çalıştırarak modülü içeri aktarın **Import-Module Az**.
-3. Çalıştırma **Set-ExecutionPolicy sınırsız** ve **Tümüne Evet**. 
-4. Artık Yönetici modunda bir CSV dosyası oluşturmak için indirilen PowerShell betiğini çalıştırabilirsiniz.
 
 ## <a name="sign-ins-data-shortcuts"></a>Oturum açma verileri kısayolları
 

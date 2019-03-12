@@ -3,7 +3,7 @@ title: Bir Azure sanal makinesi önyükleme yaparken ekran hataları mavi | Micr
 description: Sorun gidermeyi öğrenin, mavi ekran hata önyükleme yaparken alınan | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 3d7bdb3f7d3343c5c165636b131f9a5c3a1458fd
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 7e37d8e732408e70dbcdc86d3e21556f553506cd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674608"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768493"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows mavi ekran hata, bir Azure sanal makinesi önyükleme yaparken gösterir.
 Bu makalede, Microsoft Azure'da Windows sanal makinesi (VM) önyüklediğinizde karşılaşabileceğiniz mavi ekran hataları açıklanır. Bu, bir destek bileti için veri toplamanıza yardımcı olması için adımları sağlar. 

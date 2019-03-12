@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: fa3798a35804998936e0ac166fceff02b01231a0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 9d3a62ec1c9ede1f25f2b53f800642a792b3aa28
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171519"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534404"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Ters DNS ve Azure desteği'na genel bakış
 
@@ -48,9 +48,9 @@ Bir IPv4 geriye doğru arama bölgesi adı şu biçimde olmalıdır: `<IPv4 netw
 
 |Alt ağ sınıfı|Ağ ön eki  |Ters çevrilen ağ ön eki  |Standart soneki  |Geriye doğru arama bölgesi adı |
 |-------|----------------|------------|-----------------|---------------------------|
-|Sınıf A|203.0.0.0/8     | 203        | .devam-addr.arpa   | `203.in-addr.arpa`        |
-|B sınıfı|198.51.0.0/16   | 51.198     | .devam-addr.arpa   | `51.198.in-addr.arpa`     |
-|C sınıfı|192.0.2.0/24    | 2.0.192    | .devam-addr.arpa   | `2.0.192.in-addr.arpa`    |
+|Sınıf A|203.0.0.0/8     | 203        | .in-addr.arpa   | `203.in-addr.arpa`        |
+|B sınıfı|198.51.0.0/16   | 51.198     | .in-addr.arpa   | `51.198.in-addr.arpa`     |
+|C sınıfı|192.0.2.0/24    | 2.0.192    | .in-addr.arpa   | `2.0.192.in-addr.arpa`    |
 
 ### <a name="classless-ipv4-delegation"></a>Sınıfsız IPv4 temsilci seçme
 
@@ -94,8 +94,8 @@ Bir IPv6 geriye doğru arama bölgesi adı şu biçimde olmalıdır: `<IPv6 netw
 
 |Ağ ön eki  |Genişletilmiş ve ters ağ ön eki |Standart soneki |Geriye doğru arama bölgesi adı  |
 |---------|---------|---------|---------|
-|2001:db8:abdc:: / 64    | 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2        | . ip6.arpa        | `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa`       |
-|2001:db8:1000:9102:: / 64    | 2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2        | . ip6.arpa        | `2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2.ip6.arpa`        |
+|2001:db8:abdc::/64    | 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2        | .ip6.arpa        | `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa`       |
+|2001:db8:1000:9102::/64    | 2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2        | .ip6.arpa        | `2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2.ip6.arpa`        |
 
 
 ## <a name="azure-support-for-reverse-dns"></a>Ters DNS için Azure desteği
@@ -109,7 +109,7 @@ Azure DNS için kullanılabilir [, geriye doğru arama bölgeleri barındırma v
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ters DNS hakkında daha fazla bilgi için bkz. [Wikipedia geriye doğru DNS araması](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+Ters DNS hakkında daha fazla bilgi için bkz. [Wikipedia geriye doğru DNS araması](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Bilgi edinmek için nasıl [barındırmak için ISS atanmış IP aralığınızı Azure DNS'de geriye doğru arama bölgesi](dns-reverse-dns-for-azure-services.md).
 <br>

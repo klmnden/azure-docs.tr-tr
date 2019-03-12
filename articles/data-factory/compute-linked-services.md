@@ -3,20 +3,20 @@ title: Azure Data Factory tarafından desteklenen ortam işlem | Microsoft Docs
 description: Dönüştürme veya işlem verileri (örneğin, Azure HDInsight) Azure Data Factory işlem hatlarını kullanabileceğiniz işlem ortamları hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: douglasl
-ms.openlocfilehash: 490f11b4a35bb7e5669ccf1554c3a73f5156f3c7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445662"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576897"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen ortam işlem
 Bu makalede, işlem veya dönüşüm veri için kullanabileceğiniz farklı işlem ortamlarında açıklanmaktadır. (İsteğe bağlı ve Getir kendi) farklı yapılandırmalar hakkında ayrıntılar bu bağlama bağlı hizmetler yapılandırırken Data Factory tarafından desteklenen bir Azure data factory'ye ortamları işlem sağlar.
@@ -91,7 +91,7 @@ Aşağıdaki JSON, Linux tabanlı bir isteğe bağlı HDInsight bağlı hizmeti 
 > [!IMPORTANT]
 > HDInsight kümesi JSON’da belirttiğiniz blob depolamada (**linkedServiceName**) bir **varsayılan kapsayıcı** oluşturur. HDInsight, küme silindiğinde bu kapsayıcıyı silmez. Bu davranış tasarım gereğidir. İsteğe bağlı HDInsight bağlı hizmetiyle, HDInsight kümesi her oluşturulduğunda, burada mevcut canlı bir küme (**timeToLive**) olmadıkça bir dilim gerekir ve işlem bittiğinde silinir. 
 >
-> Daha fazla etkinlik çalıştırmalarını gibi Azure blob depolamanızda çok sayıda kapsayıcı görürsünüz. İşlerin sorunları giderilmesi için bunlara gerek yoksa, depolama maliyetini azaltmak için bunları silmek isteyebilirsiniz. Bu kapsayıcı adları bir düzene sahiptir: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Azure blob depolamada kapsayıcı silmek için [Microsoft Storage Gezgini](http://storageexplorer.com/) gibi araçları kullanın.
+> Daha fazla etkinlik çalıştırmalarını gibi Azure blob depolamanızda çok sayıda kapsayıcı görürsünüz. İşlerin sorunları giderilmesi için bunlara gerek yoksa, depolama maliyetini azaltmak için bunları silmek isteyebilirsiniz. Bu kapsayıcı adları bir düzene sahiptir: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Azure blob depolamada kapsayıcı silmek için [Microsoft Storage Gezgini](https://storageexplorer.com/) gibi araçları kullanın.
 >
 > 
 
@@ -311,7 +311,7 @@ Veri Fabrikası için bir Batch havuzu sanal makineler (VM'ler) kaydetmek için 
 Azure Batch hizmetine yeni başladıysanız, aşağıdaki konularda bakın:
 
 * [Azure Batch temel bilgileri](../batch/batch-technical-overview.md) için Azure Batch hizmetine genel bakış.
-* [Yeni AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) Azure Batch hesabı oluşturmak için cmdlet'i (veya) [Azure portalında](../batch/batch-account-create-portal.md) Azure portalını kullanarak Azure Batch hesabı oluşturmak için. Bkz: [Azure Batch hesabını yönetmek için PowerShell kullanma](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) konu cmdlet kullanma hakkında ayrıntılı yönergeler için.
+* [Yeni AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) Azure Batch hesabı oluşturmak için cmdlet'i (veya) [Azure portalında](../batch/batch-account-create-portal.md) Azure portalını kullanarak Azure Batch hesabı oluşturmak için. Bkz: [Azure Batch hesabını yönetmek için PowerShell kullanma](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) konu cmdlet kullanma hakkında ayrıntılı yönergeler için.
 * [Yeni AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) bir Azure Batch havuzu oluşturmak için cmdlet'i.
 
 ### <a name="example"></a>Örnek

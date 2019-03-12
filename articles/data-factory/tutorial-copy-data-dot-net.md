@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3cbfb29542f2c71f4308b63319e77b37093529d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e855c7c7f7c74ee9c8c30cd618260ad284b1c7f7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445909"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541749"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Blob’dan Azure SQL Veritabanına veri kopyalama
 Bu öğreticide, Azure Blob Depolama alanından Azure SQL Veritabanına veri kopyalayan bir Data Factory işlem hattı oluşturacaksınız. Bu öğreticideki yapılandırma düzeni, dosya tabanlı bir veri deposundan ilişkisel bir veri deposuna kopyalama için geçerlidir. Kaynak ve havuz olarak desteklenen veri depolarının listesi için [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablosuna bakın.
@@ -57,7 +57,7 @@ Aşağıdaki adımları izleyerek Azure Blob ve Azure SQL Veritabanınızı öğ
     Jane|Doe
     ```
 
-2. [Azure Depolama Gezgini](http://storageexplorer.com/) gibi araçları **adfv2tutorial** kapsayıcısı oluşturmak ve **inputEmp.txt** dosyasını kapsayıcıya yüklemek için kullanın.
+2. [Azure Depolama Gezgini](https://storageexplorer.com/) gibi araçları **adfv2tutorial** kapsayıcısı oluşturmak ve **inputEmp.txt** dosyasını kapsayıcıya yüklemek için kullanın.
 
 #### <a name="create-a-sink-sql-table"></a>Havuz SQL tablosu oluşturma
 

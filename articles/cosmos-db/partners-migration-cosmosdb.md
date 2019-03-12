@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 255182fe5e6c5576077dc97831628e4a13dfc026
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 748f4562e1efd613b87dd5ab44a83d3d50171f67
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453537"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539930"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL geçiş ve uygulama geliştirme iş ortakları
 
@@ -22,34 +22,34 @@ Uygulama geliştirme için NoSQL geçiş, Azure Cosmos DB çözümlerinizi deste
 |**İş ortağı**  |**Yeteneklerini ve deneyimini**  |**Desteklenen ülkeler**  |**lgili kişi**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | [Veri geçişi](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) Azure Cosmos DB için MongoDB öğesinden. <br/> Imanis verilerin hızlı ve kolay bir şirket içi geçirmek veya Azure Cosmos DB için MongoDB veritabanları bulut açıdan sağlar. Imanis veri geçişini basitleştirir ve kapalı kalma süresini önemli ölçüde azaltır MongoDB veri depoları için bir bulut aracısız, devamlı artımlı geçiş yaklaşımı sunar.|  ABD  |   [Web sitesi](http://www.imanisdata.com/)      |
-|![Striim][2]    |  [Azure Cosmos DB için gerçek zamanlı veri taşıma](https://www.striim.com/striim-for-azure-cosmos-db/) çeşitli veri kaynakları. <br/> Şirket içi kaynakları, Kurumsal belge ve ilişkisel veritabanları, algılayıcılar ve günlük dosyaları, Azure Cosmos DB'ye dahil olmak üzere çok sayıda farklı veri taşımayı ve gerçek zamanlı koleksiyonu Striim basitleştirir. |   ABD   |  [Web sitesi](http://www.striim.com/)       |
+|![Striim][2]    |  [Azure Cosmos DB için gerçek zamanlı veri taşıma](https://www.striim.com/striim-for-azure-cosmos-db/) çeşitli veri kaynakları. <br/> Şirket içi kaynakları, Kurumsal belge ve ilişkisel veritabanları, algılayıcılar ve günlük dosyaları, Azure Cosmos DB'ye dahil olmak üzere çok sayıda farklı veri taşımayı ve gerçek zamanlı koleksiyonu Striim basitleştirir. |   ABD   |  [Web sitesi](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Sistemleri Tümleştirici iş ortakları
 
 |**İş ortağı**  |**Yeteneklerini ve deneyimini**  |**Desteklenen ülkeler**  |**lgili kişi**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | NoSQL geçiş; Yeni uygulama geliştirme | ABD | [Web sitesi](https://www.10thmagnitude.com/)|
-|![Altoros geliştirme LLC][3]    |  NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme |   ABD, Norveç, Finlandiya, Belarus, Arjantin |  [Web sitesi](http://www.altoros.com/)     |
-|![Attunix Redapt][4]     |   NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme      |    ABD     |  [Web sitesi](http://www.attunix.com/)       |
+|![Altoros geliştirme LLC][3]    |  NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme |   ABD, Norveç, Finlandiya, Belarus, Arjantin |  [Web sitesi](https://www.altoros.com/)     |
+|![Attunix Redapt][4]     |   NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme      |    ABD     |  [Web sitesi](https://www.attunix.com/)       |
 | ![Avanade][26] | Yeni uygulama geliştirme <br/> Uygulama yeniliği (var olan uygulamaları) | Avusturya, Almanya, İsviçre, İtalya, Norveç, İspanya, Birleşik Krallık | [Web sitesi](https://www.avanade.com/)
 |![Bluemetal Architects][5]     |  NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme       |    Kuzey Amerika, Asya Pasifik     |  [Web sitesi](http://www.bluemetal.com/)       |
-|![Capax genel LLC][6]     |  NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme       |    ABD     |  [Web sitesi](http://www.capaxglobal.com/)       |
+|![Capax genel LLC][6]     |  NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme       |    ABD     |  [Web sitesi](https://www.capaxglobal.com/)       |
 | ![Capgemini][14] | NoSQL geçiş; Uygulama yeniliği (var olan uygulamaları); Yeni uygulama geliştirme | ABD, Fransa, Birleşik Krallık, Hollanda, Finlandiya  | [Web sitesi](https://www.capgemini.com/) | 
 |![Coeo][7]     |   Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme |    UK     |  [Web sitesi](http://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL geçiş |ABD, Kanada, Birleşik Krallık, Danimarka, Hollanda, İsviçre, Avustralya, Japonya | [Web sitesi](https://www.cognizant.com/)|
-|![Infosys][8]     |  NoSQL geçiş       |    Genel     |  [Web sitesi](http://www.infosys.com/)       |
+|![Infosys][8]     |  NoSQL geçiş       |    Genel     |  [Web sitesi](https://www.infosys.com/)       |
 | ![Lagash][16] | NoSQL geçiş <br/> Yeni uygulama geliştirme | Arjantin, Şili, Kolombiya, Meksika| [Web sitesi](https://www.lagash.com/)|
 | ![Lambda3 Informatics][17] | NoSQL geçiş <br/> Yeni uygulama geliştirme | Brezilya| [Web sitesi](https://www.lambda3.com.br/)|
-|![Neal Analytics][9]     |     Uygulama geliştirme (yeni uygulamaları)    |    ABD     |  [Web sitesi](http://www.nealanalytics.com/)       |
-|![Pragmatik Works yazılım dahil edilen][10]    |   NoSQL geçiş      |   ABD      |  [Web sitesi](http://www.pragmaticworks.com/)       |
+|![Neal Analytics][9]     |     Uygulama geliştirme (yeni uygulamaları)    |    ABD     |  [Web sitesi](https://www.nealanalytics.com/)       |
+|![Pragmatik Works yazılım dahil edilen][10]    |   NoSQL geçiş      |   ABD      |  [Web sitesi](https://www.pragmaticworks.com/)       |
 | ![Genel Ricoh][18] | NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları)| UK  | [Web sitesi](https://www.ricoh.com/)|
 | ![SNP teknolojileri][19] | NoSQL geçiş| ABD | [Web sitesi](https://www.snp.com/)|
 | ![Solidsoft Yanıtla][20] | NoSQL geçiş | Hırvatistan, İsveç, Danimarka, İrlanda, Bulgaristan, Slovenya, Kıbrıs, Malta, Litvanya, Çek Cumhuriyeti, İzlanda ve İsviçre ve Liechtenstein| [Web sitesi](https://www.reply.com/solidsoft-reply/)|
 | ![İspanyolca noktası teknolojileri][21] | NoSQL geçiş| İrlanda| [Web sitesi](https://www.spanishpoint.ie/)|
 | ![Syone][22] | NoSQL geçiş| Portekiz| [Web sitesi](https://www.syone.com/)|
-|![Tallan][11]    |  NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme       |    ABD     |  [Web sitesi](http://www.tallan.com/)       |
+|![Tallan][11]    |  NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme       |    ABD     |  [Web sitesi](https://www.tallan.com/)       |
 | ![TCS][23] | Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme | ABD, Birleşik Krallık, Fransa, Malezya, Danimarka, Norveç, İsveç| [Web sitesi](https://www.tcs.com/)|
-|![VTeamLabs][12]    | NoSQL geçiş       |  ABD      | [Web sitesi](http://www.vteamlabs.com/)       |
+|![VTeamLabs][12]    | NoSQL geçiş       |  ABD      | [Web sitesi](https://www.vteamlabs.com/)       |
 | ![Beyaz Duck][24] |NoSQL geçiş <br/> Yeni uygulama geliştirme | Almanya | [Web sitesi](https://whiteducksoftware.com/)|
 | ![BT Genişlet][25] | Yeni uygulama geliştirme | Portekiz, Birleşik Krallık| [Web sitesi](https://www.xpand-it.com/)|
 

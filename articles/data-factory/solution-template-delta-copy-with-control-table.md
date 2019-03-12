@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory ile denetim tabloyla veritabanından delta kopya | Microsoft Docs
+title: Azure Data Factory ile denetim tablosunu kullanarak bir veritabanından delta kopya | Microsoft Docs
 description: Artımlı olarak Azure Data Factory ile bir veritabanından yalnızca yeni veya güncelleştirilmiş bir satır kopyalamak için bir çözüm şablonu kullanmayı öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -13,41 +13,42 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
-ms.openlocfilehash: 23e1255013cd5e52166fe0e59a8931dd9ecd81a0
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c32592ce539eeb2dec71792e4a6eb31e7d904eff
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967677"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771166"
 ---
-# <a name="delta-copy-from-database-with-control-table"></a>Veritabanı denetim tablosu ile Delta Kopyala
+# <a name="delta-copy-from-a-database-with-a-control-table"></a>Veritabanı denetim tablosu ile Delta kopya
 
-Artımlı değişiklikleri (yeni veya güncelleştirilmiş satır) bir veritabanındaki bir tablodan yalnızca Azure'a bir dış denetim Tablo üst eşik değerini depolamak yüklemek istediğinizde.  Mevcut bir şablonu, o durum için tasarlanmıştır. 
+Bu makalede, artımlı olarak yeni veya güncelleştirilmiş satırları bir veritabanı tablosundan Azure'a üst eşik değerini depolayan bir dış denetim tablosunu kullanarak yüklemek kullanılabilir olan bir şablon açıklanır.
 
-Kaynak veritabanı şeması yeni veya güncelleştirilmiş satırları tanımlamak için içeren zaman damgası sütunu veya artırılmasının anahtarı gerekir. Bu şablon gerektirir.
+Bu şablon, kaynak veritabanı şemasını yeni veya güncelleştirilmiş satırları tanımlamak için bir zaman damgası sütunu veya artırılmasının anahtar içermesi gerekir.
 
-Yeni veya güncelleştirilmiş satırları tanımlamak için kaynak veritabanında zaman damgası sütununa sahip, ancak delta kopya etkinleştirmek için bir dış denetim tablo oluşturmak istemiyorsanız, bir tetikleyici zamanlanmış süre okumak için bir değişken olarak kullanan bir işlem hattı almak için veri kopyalama aracını kullanabilirsiniz yalnızca kaynak veritabanından yeni satır.
+>[!NOTE]
+> Yeni veya güncelleştirilmiş satırları tanımlamak için kaynak veritabanında bir zaman damgası sütununa sahip ancak delta kopya için kullanmak üzere bir dış denetim tablo oluşturmak istemiyorsanız, bunun yerine kullanabileceğiniz [Azure Data Factory veri kopyalama aracını](copy-data-tool.md) bir işlem hattı alınamıyor. Bu araç, yeni satır kaynak veritabanından okumak için bir değişken olarak bir tetikleyici zamanlanmış süre kullanır.
 
 ## <a name="about-this-solution-template"></a>Bu çözüm şablonu hakkında
 
-Bu şablon, her zaman önce eski eşik değerini alır ve ardından geçerli eşik değeri ile karşılaştırır. Bundan sonra bunu yalnızca değişiklikleri 2 eşik değer arasında karşılaştırma göre kaynak veritabanından kopyalar.  Tamamlandığında, delta veri yükleme sonraki açışınızda bir dış denetim tablosuna yeni üst eşik değeri depolar.
+Bu şablon, önce eski eşik değerini alır ve geçerli eşik değeri ile karşılaştırır. Bundan sonra değişiklikleri yalnızca kaynak veritabanından iki eşik değeri arasında bir karşılaştırma göre kopyalar. Son olarak, delta veri yükleme sonraki açışınızda bir dış denetim tablosuna yeni üst eşik değeri depolar.
 
 Şablon dört etkinlikleri içerir:
--   A **arama** bir dış denetim tablosunda depolanan eski üst eşik değerini almak için etkinlik.
--   A **arama** kaynak veritabanından geçerli üst eşik değerini almak için etkinlik.
--   A **kopyalama** değişiklikleri yalnızca kaynak veritabanından hedef deposuna kopyalamak için etkinlik. Kopyalama etkinliği kaynak veritabanında değişiklikleri tanımlamak için kullanılan sorgu olarak benzer ' seçin * ÖĞESİNDEN Data_Source_Table burada TIMESTAMP_Column > "son üst eşik" ve TIMESTAMP_Column < = "geçerli üst eşik" '.
--   A **SqlServerStoredProcedure** sonraki açışınızda bir delta kopya için dış denetim tabloya geçerli üst eşik değeri yazmak için etkinlik.
+- **Arama** bir dış denetim tablosunda depolanan eski üst eşik değerini alır.
+- Başka bir **arama** etkinlik kaynak veritabanından geçerli üst eşik değerini alır.
+- **Kopyalama** değişiklikleri yalnızca kaynak veritabanından hedef deposuna kopyalar. Kaynak veritabanındaki değişiklikleri tanımlayan sorgu benzer ' seçin * ÖĞESİNDEN Data_Source_Table burada TIMESTAMP_Column > "son üst eşik" ve TIMESTAMP_Column < = "geçerli üst eşik" '.
+- **SqlServerStoredProcedure** sonraki geçerli üst eşik değerini bir delta kopya için dış denetim tabloya yazar.
 
 Şablon beş parametreleri tanımlar:
--   Parametre *Data_Source_Table_Name* istediğiniz verileri yüklemek için kaynak veritabanından tablo adı olduğu.
--   Parametre *Data_Source_WaterMarkColumn* yeni veya güncelleştirilmiş satırları tanımlamak için kullanılan kaynak tablodaki sütun adı. Normalde, bu sütunun türü datetime veya INT vb. olabilir.
--   Parametre *Data_Destination_Folder_Path* veya *Data_Destination_Table_Name* verileri hedef deponuza kopyalanıp burada yerdir.
--   Parametre *Control_Table_Table_Name* üst eşik değerini depolamak için dış denetim tablo adıdır.
--   Parametre *Control_Table_Column_Name* üst eşik değerini depolamak için dış denetim tablodaki sütun adı.
+- *Data_Source_Table_Name* verilerden yüklemek istediğiniz kaynak veritabanında tablo.
+- *Data_Source_WaterMarkColumn* yeni tanımlamak için kullanılan veya satır güncelleştirilmiş olan kaynak tablodaki sütunun adıdır. Bu sütunun türü genellikle *datetime*, *INT*, veya benzer.
+- *Data_Destination_Folder_Path* veya *Data_Destination_Table_Name* nerede verileri kopyalanır hedef deponuzda yerdir.
+- *Control_Table_Table_Name* dış denetim tablo, üst eşik değeri depolar.
+- *Control_Table_Column_Name* üst eşik değerini depolayan dış denetim tablodaki sütundur.
 
 ## <a name="how-to-use-this-solution-template"></a>Bu çözüm şablonu kullanma
 
-1. Yüklemek istediğiniz kaynak tablosu keşfedin ve yeni veya güncelleştirilmiş satırların dilimlemek için kullanılabilen üst eşik sütunu tanımlayın. Normalde, bu sütunun türü datetime veya INT vb. ve yeni satır eklendiğinde artırma tutma verisini olabilir.  Örnek kaynak tablosundan (tablo adı: data_source_table) sütun aşağıda kullanabiliriz *LastModifytime* üst eşik sütunu olarak.
+1. Kaynak keşfedin yüklemek istediğiniz tablo ve yeni veya güncelleştirilmiş satırları tanımlamak için kullanılan üst eşik sütunu tanımlayın. Bu sütunun türü olabilir *datetime*, *INT*, veya benzer. Yeni satırlar eklendikçe bu sütunun değeri artırır. Aşağıdaki örnek kaynak tablosundan (data_source_table) kullanabiliriz *LastModifytime* sütun üst eşik sütunu olarak.
 
     ```sql
             PersonID    Name    LastModifytime
@@ -62,7 +63,7 @@ Bu şablon, her zaman önce eski eşik değerini alır ve ardından geçerli eş
             9   iiiiiiiii   2017-09-09 09:01:00.000
     ```
     
-2. Bir SQL server veya SQL Azure, delta veri yükleme için üst eşik değerini depolamak için bir denetim tablo oluşturun. Örnekte aşağıdaki, Denetim tablonun adı görebileceğiniz *watermarktable*. İçinde üst eşik değerini depolamak için sütun adı olduğu *WatermarkValue* ve kendi türünün *datetime*.
+2. Delta veri yükleme için üst eşik değerini depolamak için SQL Server'ı veya Azure SQL veritabanı denetimi tablo oluşturun. Aşağıdaki örnekte denetim tablo adıdır. *watermarktable*. Bu tabloda *WatermarkValue* üst eşik değerini depolayan bir sütundur ve türünün *datetime*.
 
     ```sql
             create table watermarktable
@@ -73,7 +74,7 @@ Bu şablon, her zaman önce eski eşik değerini alır ve ardından geçerli eş
             VALUES ('1/1/2010 12:00:00 AM')
     ```
     
-3. Aynı SQL Server'da saklı yordam oluşturmak veya SQL Azure denetim tablo oluşturmak için kullanılır. Saklı yordam, delta veri yükleme sonraki için dış denetim tabloya yeni üst eşik değeri yazmak için kullanılır.
+3. Denetim tablo oluşturmak için kullanılan aynı SQL Server veya Azure SQL veritabanı örneğinde bir saklı yordamı oluşturun. Saklı yordam, delta veri yükleme sonraki dış denetim tablosuna yeni üst eşik değeri yazmak için kullanılır.
 
     ```sql
             CREATE PROCEDURE update_watermark @LastModifiedtime datetime
@@ -87,43 +88,43 @@ Bu şablon, her zaman önce eski eşik değerini alır ve ardından geçerli eş
             END
     ```
     
-4. Şablon gidin **Delta kopya veritabanından**, oluşturup bir **yeni bağlantı** Kaynak veritabanınıza verileri nerede olarak kopyalamaktır.
+4. Git **Delta kopya veritabanından** şablonu. Oluşturma bir **yeni** veri kopyalama istediğiniz kaynak veritabanı bağlantısı.
 
     ![Kaynak tablosu için yeni bir bağlantı oluşturun](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png)
 
-5. Oluşturma bir **yeni bağlantı** burada veri kopyalamak için hedef veri deposuna.
+5. Oluşturma bir **yeni** verileri kopyalamak istediğiniz hedef veri deposuna bağlantı.
 
     ![Hedef tablo için yeni bir bağlantı oluşturun](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable5.png)
 
-6. Oluşturma bir **yeni bağlantı** dış denetimine tablo ve saklı yordam.  Burada denetim tablo oluşturduğunuz ve #2 ve #3. adımda saklı yordamı veritabanına bağlanıyor.
+6. Oluşturma bir **yeni** 2 ve 3. adımda oluşturduğunuz saklı yordam ve denetim dış tablo bağlantısı.
 
     ![Denetim tablo veri deposunda yeni bir bağlantı oluşturun](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
-7. Tıklayın **bu şablonu kullan**.
+7. Seçin **bu şablonu kullan**.
 
      ![Bu şablonu kullan](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     
-8. Aşağıdaki örnekte gösterildiği gibi panelinde kullanılabilir işlem hattı bakın:
+8. Aşağıdaki örnekte gösterildiği gibi kullanılabilir işlem hattı bakın:
 
-     ![Gözden geçirme işlem hattı](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+     ![İşlem hattı gözden geçirin](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-9. Saklı yordam etkinliği tıklatın, **saklı yordam adı**, tıklayın **içeri aktarma parametresi** tıklatıp **dinamik içerik Ekle**.  
+9. Seçin **saklı yordamı**. İçin **saklı yordam adı**, seçin **[update_watermark]**. Seçin **parametreyi içeri aktar**ve ardından **dinamik içerik Ekle**.  
 
-     ![Saklı yordam etkinliği](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
+     ![Saklı yordam etkinliği ayarlayın](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
 
-10. İçerik yazma **@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** tıklatıp **son**.  
+10. İçerik yazma  **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** ve ardından **son**.  
 
-     ![Saklı yordam için parametre içeriğini yazma](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
+     ![Saklı yordamın parametreleri için içerik yazma](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
      
-11. Tıklayın **hata ayıklama**, giriş parametreleri ve tıklayın **son**.
+11. Seçin **hata ayıklama**, girin **parametreleri**ve ardından **son**.
 
-    ![Hata ayıklama tıklayın](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    ![Seçin ** hata ayıklama **](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
-12. Aşağıdaki örnekte gösterildiği gibi panelinde kullanılabilir sonuç bakın:
+12. Aşağıdaki örneğe benzer sonuçlar görüntülenir:
 
     ![Sonucu gözden geçir](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png)
 
-13. Kaynak tablosunda yeni satırlar oluşturabilirsiniz.  Yeni satırlar oluşturmak için örnek sql olabilir şu şekilde:
+13. Kaynak tablosunda yeni satırlar oluşturabilirsiniz. Yeni satırlar oluşturmak için örnek SQL dil şu şekildedir:
 
     ```sql
             INSERT INTO data_source_table
@@ -132,16 +133,17 @@ Bu şablon, her zaman önce eski eşik değerini alır ve ardından geçerli eş
             INSERT INTO data_source_table
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
-13. Tıklayarak işlem hattını yeniden çalıştırma **hata ayıklama**, giriş parametreleri ve tıklayın **son**.
+14. İşlem hattını yeniden çalıştırmak için seçin **hata ayıklama**, girin **parametreleri**ve ardından **son**.
 
-    ![Hata ayıklama tıklayın](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    ![Seçin ** hata ayıklama **](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
-14. Yalnızca yeni satırlar hedefe kopyalanan görürsünüz.
+    Yalnızca yeni satırlar hedefe kopyalandığını görürsünüz.
 
-15. (İsteğe bağlı) SQL veri ambarı veri hedef olarak seçerseniz, ayrıca SQL veri ambarı Polybase tarafından gereken bir hazırlık olarak Azure blob depolama bağlantısı giriş gerekir.  Blob depolamadaki bir kapsayıcıda zaten oluşturulduğundan emin olun.  
+15. (İsteğe bağlı:) SQL veri ambarı veri hedefi olarak seçtiyseniz, SQL veri ambarı Polybase tarafından gerekli olan hazırlama için aynı zamanda Azure Blob Depolama için bir bağlantı sağlamanız gerekir. Kapsayıcıya Blob Depolama alanında zaten oluşturulmuş olduğundan emin olun.
     
     ![Polybase yapılandırın](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Data Factory'ye giriş](introduction.md)
+- [Azure Data Factory ile denetim tablosunu kullanarak bir veritabanından toplu kopyalama](solution-template-bulk-copy-with-control-table.md)
+- [Azure Data Factory ile birden çok kapsayıcı dosyaları Kopyala](solution-template-copy-files-multiple-containers.md)

@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: adb893a9d37219409f81b2fb402f2d4afd36aa34
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f35b2cd8d360bd46913eaa34b91e1fd19bc1ba9b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338867"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533604"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU kaynakları kullanan container Instances'ı dağıtma
 
@@ -28,15 +28,7 @@ Bu makalede gösterilen şekilde kullanarak bir kapsayıcı grubu dağıttığı
 
 Önizleme aşamasında olan, GPU kaynakları kapsayıcı grupları kullanılırken aşağıdaki sınırlamalar geçerlidir. 
 
-**Desteklenen bölgeler**:
-
-* Doğu ABD (myresourcegroup)
-* Batı ABD 2 (westus2)
-* Güney Orta ABD (southcentralus)
-* Batı Avrupa (westeurope)
-* Kuzey Avrupa (northeurope)
-* Doğu Asya (ping'in ekran)
-* Orta Hindistan (centralindia)
+[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
 Destek zaman içinde için ek bölgeler eklenecektir.
 
@@ -59,21 +51,9 @@ GPU'ları bir kapsayıcı örneği içinde kullanmak için belirtin bir *GPU kay
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
   | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
 
-### <a name="cpu-and-memory"></a>CPU ve bellek
+[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-GPU kaynakları dağıtırken, CPU ve bellek kaynakları aşağıdaki tabloda gösterilen en yüksek değerleri en fazla iş yükü için uygun olarak ayarlayın. Bu GPU kaynaklar olmadan container Instances, CPU ve bellek sınırları daha büyük değerler.  
-
-| GPU SKU | GPU sayısı | CPU |  Bellek (GB) |
-| --- | --- | --- | --- |
-| K80 | 1 | 6 | 56 |
-| K80 | 2 | 12 | 112 |
-| K80 | 4 | 24 | 224 |
-| P100 | 1 | 6 | 112 |
-| P100 | 2 | 12 | 224 |
-| P100 | 4 | 24 | 448 |
-| V100 | 1 | 6 | 112 |
-| V100 | 2 | 12 | 224 |
-| V100 | 4 | 24 | 448 |
+CPU ve bellek kaynakları GPU kaynakları dağıtırken, yukarıdaki tabloda gösterilen en yüksek değerleri en fazla iş yükü için uygun olarak ayarlayın. Bu GPU kaynaklar olmadan kapsayıcı gruplarındaki kullanılabilir CPU ve bellek kaynakları şu anda büyük değerler.  
 
 ### <a name="things-to-know"></a>Bilmeniz gerekenler
 

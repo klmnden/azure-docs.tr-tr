@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817351"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541936"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Gelen Amazon, Redshift Azure Data Factory ile veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Data Factory şu anda yalnızca Amazon Redshift verileri destekler bir [destekle
 > Büyük miktarlarda verinin Amazon Redshift'ten kopyalama işlemi sırasında en iyi performansı elde etmek için yerleşik Redshift kullanmayı düşünün **kaldırma** Amazon basit depolama hizmeti (Amazon S3 için) üzerinden komutu. Ayrıntılar için bkz [kullanım verileri Amazon Redshift'ten kopyalamak için kaldırma](#use-unload-to-copy-data-from-amazon-redshift).
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Bir şirket içi veri deposuna veri taşıyorsanız, yükleme [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) bir şirket içi makine üzerinde. Şirket içi Makine IP adresi kullanarak, Amazon Redshift küme için bir ağ geçidi için erişim verin. Yönergeler için [kümeye erişim yetkisi](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
+* Bir şirket içi veri deposuna veri taşıyorsanız, yükleme [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) bir şirket içi makine üzerinde. Şirket içi Makine IP adresi kullanarak, Amazon Redshift küme için bir ağ geçidi için erişim verin. Yönergeler için [kümeye erişim yetkisi](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Bir Azure veri deposuna veri taşımak için bkz [işlem IP adresi ve Microsoft Azure veri merkezleri tarafından kullanılan SQL aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ## <a name="getting-started"></a>Başlarken
@@ -100,7 +100,7 @@ Alternatif olarak, **RelationalSource** Amazon Redshift, aşağıdaki özellik i
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Verileri Amazon Redshift'ten kopyalamak için Kaldır'ı kullanın
 
-Amazon Redshift [ **kaldırma** ](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) Amazon S3 bir veya daha fazla dosyaları için bir sorgunun sonuçlarını komutu kaldırır. Bu komut tarafından Amazon Redshift'ten büyük veri kümelerini kopyalamak için önerilir.
+Amazon Redshift [ **kaldırma** ](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) Amazon S3 bir veya daha fazla dosyaları için bir sorgunun sonuçlarını komutu kaldırır. Bu komut tarafından Amazon Redshift'ten büyük veri kümelerini kopyalamak için önerilir.
 
 **Örnek: Azure SQL veri ambarı veri Amazon redshift'ten kopyalama**
 

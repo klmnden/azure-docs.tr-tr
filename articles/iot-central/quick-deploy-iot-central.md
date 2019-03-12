@@ -3,18 +3,18 @@ title: Azure IoT Central uygulaması oluşturma | Microsoft Docs
 description: Yeni bir Azure IoT Central uygulaması oluşturun. Uygulama şablonu kullanarak bir Deneme veya Kullandıkça Öde uygulaması oluşturun.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/31/2018
+ms.date: 02/20/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9b66e4160dc78286f393257136dbf9375c6f61fb
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0844737288abeb8d6ab1043b4c55ba5ef1c4883c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306740"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780262"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Azure IoT Central uygulaması oluşturma
 
@@ -37,6 +37,7 @@ Yeni bir Azure IoT Central uygulaması oluşturmak için:
 1. **Contoso IoT** gibi kolay bir uygulama adı seçin. Azure IoT Central sizin için benzersiz bir URL ön eki oluşturur. Bu URL ön ekini daha akılda kalır bir şeyle değiştirebilirsiniz.
 
 1. Uygulama şablonunu seçin. Uygulama şablonu, başlamanıza yardımcı olacak cihaz şablonları ve panolar gibi önceden tanımlanmış öğeleri içerebilir.
+
     | Uygulama şablonu | Açıklama |
     | -------------------- | ----------- |
     | Contoso Örneği       | Bir Soğutmalı Otomat için önceden oluşturulmuş cihaz şablonunu içeren bir uygulama oluşturur. Azure IoT Central'ı incelemeye başlamak için bu şablonu kullanın. |
@@ -44,7 +45,8 @@ Yeni bir Azure IoT Central uygulaması oluşturmak için:
     | Özel uygulama   | Kendi cihaz şablonlarınız ve cihazlarınızla doldurabileceğiniz boş bir uygulama oluşturur. |
 
 1. **Kullandıkça Öde** uygulaması oluşturuyorsanız, *Dizin*, *Azure Aboneliği* ve *Bölge* bilgilerinizi seçmeniz gerekir. 
-    - *Dizin*, uygulamanızın oluşturulacağı Azure Active Directory'dir. Kullanıcı kimliklerini, kimlik bilgilerini ve diğer kuruluş bilgilerini içerir. AAD'niz yoksa, Azure aboneliğini oluşturduğunuzda sizin için bir AAD oluşturulur.
+
+    - *Dizin* Azure Active Directory (uygulamanızı oluşturmak için ad). Kullanıcı kimliklerini, kimlik bilgilerini ve diğer kuruluş bilgilerini içerir. Azure AD yoksa, bir Azure aboneliği oluşturduğunuzda bir sizin için oluşturulur.
 
     - *Azure Aboneliği*, Azure hizmetlerinin örneklerini oluşturmanıza olanak tanır. IoT Central aboneliğinizde kaynakları sağlayacaktır. Azure aboneliğiniz yoksa, [Azure kayıt sayfasında](https://aka.ms/createazuresubscription) bir abonelik oluşturabilirsiniz. Azure aboneliğini oluşturduktan sonra, **Uygulama Oluştur** sayfasına geri gidin. Yeni aboneliğiniz **Azure Aboneliği** açılan listesinde gösterilir.
 
@@ -60,4 +62,4 @@ Yeni bir Azure IoT Central uygulaması oluşturmak için:
 Bu hızlı başlangıçta bir IoT Central uygulaması oluşturdunuz. Önerilen sonraki adım:
 
 > [!div class="nextstepaction"]
-> [IoT Central'da bir tura katılın](https://docs.microsoft.com/azure/iot-central/overview-iot-central-tour)
+> [IoT Central'da bir tura katılın](overview-iot-central-tour.md)
