@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 4c02df5684036aef078b0f79c70d3b66d60e013b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 739780bedc701cc63747db6100242d0d6cad6085
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881524"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542684"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Özel ayırma ilkelerini kullanma
 
@@ -90,7 +90,7 @@ Bu bölümde, Azure Cloud Shell'i temsil eden iki yeni IOT hub'ları oluşturmak
 
 Bu bölümde, özel ayırma ilkesini kullanan yeni bir kayıt grubu oluşturur. Kolaylık olması için bu makalede kullanan [simetrik anahtar kanıtı](concepts-symmetric-key-attestation.md) kaydı. Daha güvenli bir çözüm için kullanmayı [X.509 sertifikası kanıtlama](concepts-security.md#x509-certificates) ile bir güven zinciri.
 
-1. Oturum [Azure portalında](http://portal.azure.com), cihaz sağlama hizmeti örneğinizi açın.
+1. Oturum [Azure portalında](https://portal.azure.com), cihaz sağlama hizmeti örneğinizi açın.
 
 2. Seçin **kayıtları Yönet** sekmesine ve ardından **kayıt grubu Ekle** sayfanın üstünde düğme. 
 

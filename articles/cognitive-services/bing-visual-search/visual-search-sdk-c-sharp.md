@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 3c6a103d3d4c1890a58b833d29c88eb040ac9810
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a7fc4686ec31b4c3a23d3e0ff72e5e2a270015b0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860703"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532108"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Hızlı Başlangıç: Bing görsel arama için SDK'sı kullanarak görüntü Öngörüler elde edinC#
 
@@ -24,7 +24,7 @@ Bing görsel arama hizmetinden görüntü öngörü alma başlamak için bu hız
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
-* Linux/MacOS kullanıyorsanız bu uygulama, [Mono](http://www.mono-project.com/) kullanılarak çalıştırılabilir.
+* Linux/MacOS kullanıyorsanız bu uygulama, [Mono](https://www.mono-project.com/) kullanılarak çalıştırılabilir.
 * Görsel arama NuGet paketi. 
     - Visual Studio'daki Çözüm Gezgini'nde projenize sağ tıklayıp menüden `Manage NuGet Packages` öğesini seçin. `Microsoft.Azure.CognitiveServices.Search.VisualSearch` paketini yükleyin. NuGet paketlerini yükleme Ayrıca aşağıdakileri yükler:
         - Microsoft.Rest.ClientRuntime

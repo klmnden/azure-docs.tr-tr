@@ -5,14 +5,14 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1bfe0026e52107c85bf2c7e66414e937ad27f715
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 680036dff856eccb85e600128119b5c0cafc5711
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267759"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543687"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Hızlı Başlangıç: Sohbet odası ile SignalR hizmeti oluşturma
 
@@ -267,6 +267,6 @@ Birkaç dakika sonra kaynak grubu ve içerdiği kaynakların tümü silinir.
 Bu hızlı başlangıçta yeni bir Azure SignalR Hizmeti kaynağı oluşturdunuz ve birden fazla bağlı istemciye gerçek zamanlı içerik güncelleştirmeleri göndermek için bir ASP.NET Core Web uygulaması ile birlikte kullandınız. Azure SignalR Hizmeti’ni kullanma hakkında daha fazla bilgi için kimlik doğrulamasını gösteren sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Azure SignalR Hizmeti kimlik doğrulaması](./signalr-authenticate-oauth.md)
+> [Azure SignalR Hizmeti kimlik doğrulaması](./signalr-concept-authenticate-oauth.md)
 
 

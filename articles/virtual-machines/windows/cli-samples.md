@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3c15febed58e5e833bc338b6f27da779409582d9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: abc38d315bc879a06ecd9a9bf7188c15533c018a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247146"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535017"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Azure CLI örnekleri Windows'ı için sanal makineleri
 
@@ -30,7 +30,7 @@ Aşağıdaki tabloda, Windows sanal makineleri dağıtmak için Azure CLI kullan
 | | |
 |---|---|
 |**Sanal makineler oluşturma**||
-| [Sanal makine oluşturma](./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | En düşük yapılandırmayla bir Windows sanal makine oluşturur. |
+| [Sanal makine oluşturun](./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | En düşük yapılandırmayla bir Windows sanal makine oluşturur. |
 | [Tam olarak yapılandırılmış bir sanal makine oluşturun](./../scripts/virtual-machines-windows-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Bir kaynak grubu, sanal makine ve tüm ilgili kaynakları oluşturur.|
 | [Yüksek oranda kullanılabilir sanal makineler oluşturun](./../scripts/virtual-machines-windows-cli-sample-nlb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Birden çok yüksek oranda kullanılabilir sanal makineler ve yük dengeli küme yapılandırması oluşturur. |
 | [VM oluşturma ve yapılandırma betiğini çalıştırın](./../scripts/virtual-machines-windows-cli-sample-create-vm-iis.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Bir sanal makine oluşturur ve IIS yüklemek için Azure özel betik uzantısı'nı kullanır. |
@@ -47,5 +47,5 @@ Aşağıdaki tabloda, Windows sanal makineleri dağıtmak için Azure CLI kullan
 |**Sanal makineler güvenli**||
 | [VM ve veri diskleri şifreleme](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Bir Azure Key Vault, şifreleme anahtarı ve hizmet sorumlusu oluşturur ve ardından VM şifreler. |
 |**Sanal makineleri izleme**||
-| [Bir VM'nin Log Analytics ile izleme](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Bir sanal makine oluşturur, Log Analytics aracısını yükler ve Log Analytics çalışma alanındaki VM kaydeder.  |
+| [Azure İzleyici ile bir VM izleme](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Bir sanal makine oluşturur, Log Analytics aracısını yükler ve Log Analytics çalışma alanındaki VM kaydeder.  |
 | | |

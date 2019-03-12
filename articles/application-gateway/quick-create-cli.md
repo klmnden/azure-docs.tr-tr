@@ -8,24 +8,28 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0ba18b1ef0ba6c0a73759577c83ab80550baa6f8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: eb0f73d31abced8decbed31e5604a2056584eb98
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754753"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549434"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Hızlı Başlangıç: Azure Application Gateway - Azure CLI ile doğrudan web trafiği
 
-Bu hızlı başlangıçta hızlı bir şekilde, arka uç havuzunda iki sanal makine ile bir uygulama ağ geçidi oluşturmak için Azure CLI'yı kullanmayı gösterir. Ardından doğru bir şekilde çalışıp çalışmadığından emin olmak için test edersiniz. Azure Application Gateway ile belirli kaynaklar tarafından uygulama web trafiği doğrudan: dinleyici bağlantı noktalarına atama, kuralları oluşturma ve kaynakları bir arka uç havuzuna ekleme.
+Bu hızlı başlangıçta bir uygulama ağ geçidi oluşturmak için Azure portalını kullanmayı gösterir.  Uygulama ağ geçidi oluşturduktan sonra düzgün çalıştığından emin olmak için test edin. Azure Application Gateway ile bağlantı noktalarına dinleyicileri atama, kuralları oluşturma ve arka uç havuzu için kaynak ekleme, uygulama web trafiği belirli kaynaklara doğrudan. Basitleştirmek amacıyla, bu makalede bir genel ön uç IP ile basit bir Kurulum, konağa tek bir sitede bu uygulama ağ geçidinde temel dinleyiciyi arka uç havuzunu ve temel istek yönlendirme kuralı için kullanılan iki sanal makine kullanılmaktadır.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+## <a name="prerequisites"></a>Önkoşullar
+
+### <a name="azure-powershell-module"></a>Azure PowerShell modülü
+
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0.4 sürüm çalıştırın veya üzeri. Sürümü bulmak için çalıştırın **az--version**. Yükleme veya yükseltme hakkında daha fazla bilgi için bkz: [Azure CLI yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+### <a name="resource-group"></a>Kaynak grubu
 
 Azure'da, bir kaynak grubu için ilgili kaynakları ayırın. Kullanarak bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az-group-create). 
 
@@ -35,9 +39,9 @@ Aşağıdaki örnek *eastus* konumunda *myResourceGroupAG* adlı bir kaynak grub
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Ağ kaynakları oluşturma 
+### <a name="required-network-resources"></a>Gerekli ağ kaynakları 
 
-Uygulama ağ geçidi, bir sanal ağ oluşturduğunuzda, diğer kaynaklarla iletişim kurabilir. Uygulama ağ geçidini oluştururken aynı zamanda bir sanal makine oluşturabilirsiniz. Bu örnekte iki alt ağ oluşturacaksınız: biri uygulama ağ geçidi ve diğer sanal makineler için. Uygulama ağ geçidi alt ağı, yalnızca uygulama ağ geçitleri içerebilir. Başka kaynaklar izin verilir.
+Oluşturduğunuz kaynaklar arasında iletişim kurmak Azure için sanal ağ gerekir.  Uygulama ağ geçidi alt ağı, yalnızca uygulama ağ geçitleri içerebilir. Başka kaynaklar izin verilir.  Application Gateway için yeni bir alt ağ oluşturun veya var olanı kullanın. Bu örnekte, bu örnekte iki alt ağ oluşturun: bir uygulama ağ geçidi ve diğeri arka uç sunucuları için. Kullanım Örneğinize ilişkin genel veya özel olacak şekilde uygulama ağ geçidi ön uç IP'si yapılandırabilirsiniz. Bu örnekte, genel bir ön uç IP seçeceğiz.
 
 Sanal ağ ve alt ağ oluşturmak için kullandığınız [az ağ sanal ağ oluşturma](/cli/azure/network/vnet#az-network-vnet-create). Çalıştırma [az network public-IP oluşturma](/cli/azure/network/public-ip) genel IP adresi oluşturmak için.
 
@@ -59,11 +63,11 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
+### <a name="backend-servers"></a>Arka uç sunucuları
 
-Bu örnekte, Azure application gateway için arka uç sunucular olarak kullanan iki sanal makine oluşturun. 
+Arka uç ağ, sanal makine ölçek kümeleri, genel IP'ler birleştirilebilir, iç IP'ler, tam etki alanı adlarını (FQDN) ve çok kiracılı arka-Azure App Service gibi biter. Bu örnekte, Azure application gateway için arka uç sunucular olarak kullanılacak iki sanal makine oluşturun. Ayrıca Azure uygulama ağ geçidi başarıyla oluşturuldu doğrulamak için sanal makinelere IIS yüklersiniz.
 
-### <a name="create-two-virtual-machines"></a>İki sanal makine oluşturma
+#### <a name="create-two-virtual-machines"></a>İki sanal makine oluşturma
 
 Yükleme [NGINX web sunucusunu](https://docs.nginx.com/nginx/) uygulamayı doğrulamak için sanal makinelerde ağ geçidi başarıyla oluşturuldu. Cloud-init yapılandırma dosyasını kullanarak NGINX'i yükleyebilir ve bir "Merhaba Dünya" Node.js uygulaması bir Linux sanal makinesinde çalıştırmak için kullanabilirsiniz. Cloud-init hakkında daha fazla bilgi için bkz: [azure'da sanal makineler için Cloud-init desteğine](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
 
@@ -169,13 +173,13 @@ az network public-ip show \
   --name myAGPublicIPAddress \
   --query [ipAddress] \
   --output tsv
-``` 
+```
 
 Kopyalama ve genel IP adresi, tarayıcınızın adres çubuğuna yapıştırın.
     
 ![Uygulama ağ geçidini test etme](./media/quick-create-cli/application-gateway-nginxtest.png)
 
-Tarayıcıyı yenileyin, ikinci bir sanal makine adını görmeniz gerekir.
+Tarayıcıyı yenileyin, ikinci bir sanal makine adını görmeniz gerekir. Uygulama ağ geçidi başarıyla oluşturuldu ve arka uç ile başarıyla bağlanabilmek için geçerli bir yanıt doğrular.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -184,7 +188,7 @@ Application gateway ile oluşturduğunuz kaynaklara artık ihtiyacınız olduğu
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG
 ```
- 
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]

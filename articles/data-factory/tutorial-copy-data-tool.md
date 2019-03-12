@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: ebc0f93055a014888d01fa9bffc7702b99380234
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 553e87cacf407da2333da3105647719679feaabf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417474"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544215"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Veri Kopyalama aracını kullanarak Azure Blob depolama alanında SQL veritabanına veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -54,7 +54,7 @@ Bu adımları uygulayarak Blob depolama alanınızı ve SQL veritabanınızı ö
     Jane|Doe
     ```
 
-1. **adfv2tutorial** adlı bir kapsayıcı oluşturun ve inputEmp.txt dosyasını kapsayıcıya yükleyin. Bu görevleri [Azure Depolama Gezgini](http://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
+1. **adfv2tutorial** adlı bir kapsayıcı oluşturun ve inputEmp.txt dosyasını kapsayıcıya yükleyin. Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
 
 #### <a name="create-a-sink-sql-table"></a>Havuz SQL tablosu oluşturma
 

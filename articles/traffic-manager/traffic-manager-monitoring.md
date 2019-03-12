@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 40852b9457e703334350402489feb68ac92832a0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 50ed230993f1df07b463297605a144830476803d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693796"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540320"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager uç nokta izleme
 
@@ -28,7 +28,7 @@ Uç nokta izleme yapılandırmak için aşağıdaki ayarları Traffic Manager pr
 * **Protokol**. HTTP, HTTPS veya TCP Traffic Manager uç noktanızı yoklama zaman sistem durumu denetlemek için kullandığı protokolü olarak seçin. HTTPS izleme SSL sertifikanızı geçerli--olup olmadığını, yalnızca sertifika mevcut olduğunu denetler doğrulamaz.
 * **Bağlantı noktası**. İstek için kullanılan bağlantı noktasını seçin.
 * **Yol**. Bu yapılandırma ayarının hangi yolunu belirtmek için gerekli bir ayardır yalnızca HTTP ve HTTPS protokolleri için geçerlidir. Bu ayar TCP protokolü sonuçları hata izleme için sağlama. HTTP ve HTTPS protokolü için göreli yolunu ve Web sayfası veya izleme erişen dosyanın adını verin. Eğik çizgi (/), göreli yol geçerli bir giriştir. Bu değer, dosyanın kök dizininde (varsayılan) olduğunu gösterir.
-* **Özel üst bilgi ayarları** Traffic Manager uç noktaları bir profili altındaki gönderir, bu yapılandırma, eklemenize yardımcı olur, sistem durumu için belirli HTTP üstbilgileri ayarının denetler. Özel üst bilgiler, bu profildeki tüm uç noktalar için geçerli olacak şekilde, bir profil düzeyinde and / or yalnızca uç noktanın için geçerli bir uç nokta düzeyinde belirtilebilir. Özel üst bilgiler, bir konak üstbilgisi belirterek hedeflerine doğru şekilde yönlendirilmesini sistem durumu denetimleri çok müşterili bir ortamda uç noktalarına sahip olmak için kullanabilirsiniz. Farklı şekilde işler ve bu ayar HTTP (S) istekleri, Traffic Manager tanımlamak için kullanılan benzersiz üst kaynağı ekleyerek de kullanabilirsiniz.
+* **Özel üst bilgi ayarları** Traffic Manager uç noktaları bir profili altındaki gönderir, bu yapılandırma, eklemenize yardımcı olur, sistem durumu için belirli HTTP üstbilgileri ayarının denetler. Özel üst bilgiler, bu profildeki tüm uç noktalar için geçerli olacak şekilde, bir profil düzeyinde and / or yalnızca uç noktanın için geçerli bir uç nokta düzeyinde belirtilebilir. Özel üst bilgiler, bir konak üstbilgisi belirterek hedeflerine doğru şekilde yönlendirilmesini sistem durumu denetimleri çok müşterili bir ortamda uç noktalarına sahip olmak için kullanabilirsiniz. Farklı şekilde işler ve bu ayar HTTP (S) istekleri, Traffic Manager tanımlamak için kullanılan benzersiz üst kaynağı ekleyerek de kullanabilirsiniz. En fazla sekiz başlığı: değer çiftleri seprated virgülle belirtebilirsiniz. Örneğin, "header1:value1, header2:value2". 
 * **Beklenen durum kodu aralığı** Bu ayar 200 299, 301 301 biçiminde birden fazla başarı kodu aralığı belirtmenize olanak sağlar. Traffic Manager, sistem durumu denetimi başlatıldığında bir uç noktasından yanıt olarak bu durum kodları alınır, bu Uç noktalara sağlıklı olarak işaretler. En fazla 8 durum kodu aralığı belirtebilirsiniz. Bu ayar, yalnızca HTTP ve HTTPS protokolü ve tüm uç noktalar için geçerlidir. Bu ayarı Traffic Manager profili düzeyinde ve varsayılan başarılı durum kodu 200 değeri tanımlanır.
 * **Yoklama aralığı**. Bu değer, bir uç nokta Traffic Manager araştırma aracılardan gelen sistem durumu için ne sıklıkla kontrol belirtir. Burada iki değer belirtebilirsiniz: 30 saniye (normal algılama) ve 10 saniye (hızlı algılama). Hiçbir değer sağlanmışsa, profil 30 saniyelik bir varsayılan değere ayarlar. Ziyaret [Traffic Manager fiyatlandırma](https://azure.microsoft.com/pricing/details/traffic-manager) Hızlı Yoklama fiyatlandırması hakkında daha fazla bilgi edinmek için sayfa.
 * **Hatalarının sayısı kaydırmadan kaçınma şansınız**. Bu değer, bu uç nokta iyi durumda olmayan olarak işaretleme önce bir Traffic Manager Araştırma Aracı göstereceği kaç hataları belirtir. Değeri 0 ile 9 arasında değişebilir. 0 değeri tek bir izleme hata sorunlu olarak işaretleneceğini bu endpoint neden olabilir. Hiçbir değer belirtilmemişse, varsayılan değer 3'ün kullanır.

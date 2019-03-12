@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f959a22432e82e1a55f613236ce6370ab638ccab
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 576fe268bec12c16c7c2e2076dfa066c908693d5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245582"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539539"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure sanal makine PowerShell örnekleri
 
@@ -49,5 +49,5 @@ Aşağıdaki tabloda, PowerShell Betiği örnekleri, oluşturmak ve Windows sana
 |**Sanal makineler güvenli**||
 | [Bir VM ile veri disklerini şifreler](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Bir Azure key vault, şifreleme anahtarı ve bir hizmet sorumlusu oluşturur ve ardından VM şifreler. |
 |**Sanal makineleri izleme**||
-| [Bir VM'nin Log Analytics ile izleme](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Bir sanal makine oluşturur, Azure Log Analytics aracısını yükler ve Log Analytics çalışma alanındaki VM kaydeder.  |
+| [Azure İzleyici ile bir VM izleme](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Bir sanal makine oluşturur, Azure Log Analytics aracısını yükler ve Log Analytics çalışma alanındaki VM kaydeder.  |
 | | |

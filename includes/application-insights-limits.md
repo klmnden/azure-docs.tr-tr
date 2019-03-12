@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 06/21/2018
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: 6b9b40c457766573be0d72cb7f4ebe2328a070f5
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d253ed7c5aa971f2fd767a6943eb0117c457fc45
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026273"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554684"
 ---
-Uygulama başına (yani, izleme anahtarı başına) ölçüm ve olay sayısı için bazı limitler mevcuttur. Limitler seçtiğiniz [fiyatlandırma planına](https://azure.microsoft.com/pricing/details/application-insights/) bağlıdır.
+Bununla ilgili bazı sınırlamalar ölçümleri ve uygulama başına olay sayısı diğer bir deyişle, izleme anahtarı başına. Limitler seçtiğiniz [fiyatlandırma planına](https://azure.microsoft.com/pricing/details/application-insights/) bağlıdır.
 
 | Kaynak | Varsayılan limit | Not
 | --- | --- | --- |
 | Günlük toplam veri | 100 GB | Bir uç ayarlayarak verileri azaltabilirsiniz. Daha fazla veri gerekiyorsa, Portalı'nda limiti artırabilirsiniz en fazla 1000 GB. 1.000 GB'den büyük olan kapasiteler için e-posta Gönder AIDataCap@microsoft.com.
-| Azaltma | 32 bin olay/saniye | Sınır bir dakika içinde ölçülür.
+| Azaltma | 32.000 olay/saniye | Sınır bir dakika içinde ölçülür.
 | Veri saklama | 90 gün | Bu kaynak [Search](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/app/analytics.md) ve [Ölçüm Gezgini](../articles/azure-monitor/app/metrics-explorer.md) içindir.
 | [Çok adımlı kullanılabilirlik testi](../articles/azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) ayrıntılı sonuçlarını saklama | 90 gün | Bu kaynak her adımın ayrıntılı sonuçlarını verir.
-| En büyük olay boyutu | 64 K | 
+| En büyük olay boyutu | 64,000 | 
 | Özellik ve ölçüm adı uzunluğu | 150 | Bkz: [yazın şemaları](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
 | Özellik değeri dize uzunluğu | 8,192 | Bkz: [yazın şemaları](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
-| İzleme ve özel durum iletisi uzunluğu | 10 K | Bkz: [yazın şemaları](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
+| İzleme ve özel durum iletisi uzunluğu | 10,000 | Bkz: [yazın şemaları](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
 | Uygulama başına [kullanılabilirlik testi](../articles/azure-monitor/app/monitor-web-app-availability.md) sayısı | 100 |
 | [Profiler](../articles/azure-monitor/app/profiler.md) veri saklama | 5 gün |
 | [Profiler](../articles/azure-monitor/app/profiler.md) günde gönderilen veriler | 10 GB |

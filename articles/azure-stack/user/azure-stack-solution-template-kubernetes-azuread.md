@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a24ba9c0f19ce0a040671e4515dc2e7d2468fb5c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 6e4402be7108f242e1d285ebe91dfece744f0805
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985589"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532159"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Kubernetes Azure Active Directory'yi kullanarak Azure Stack'e dağıtma
 
@@ -53,7 +53,7 @@ Başlamak için doğru izinlere sahip ve Azure Stack hazır olduğundan emin olu
 
 Azure hizmet sorumlusu oluşturun. Hizmet sorumlusu, uygulamanın Azure Stack kaynaklarına erişmenizi sağlar.
 
-1. Oturum açmak için genel [Azure portalında](http://portal.azure.com).
+1. Oturum açmak için genel [Azure portalında](https://portal.azure.com).
 
 1. Azure Stack örneği ile ilişkili Azure AD kiracısı'ı kullanarak oturum açmış denetleyin. Azure araç çubuğundaki filtre simgesine tıklayarak oturum açma işleminiz geçiş yapabilirsiniz.
 
@@ -107,7 +107,7 @@ Asıl kaynakları oluşturabilmesi aboneliğinizde hizmet sorumlusu erişimi ver
 
     ![Çözüm Şablonu Dağıt](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-### <a name="1-basics"></a>1. Temel
+### <a name="1-basics"></a>1. Temel Bilgiler
 
 1. Seçin **Temelleri** Kubernetes kümesi oluşturun.
 

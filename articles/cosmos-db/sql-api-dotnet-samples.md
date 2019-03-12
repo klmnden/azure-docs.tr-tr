@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: sngun
-ms.openlocfilehash: 5d80c0a8464a9672859a3fbd305bbd4ab322b092
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 203bb0d9630ad50b1a80fcd674322524220b3147
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037098"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545252"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API'si için .NET örnekleri
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Ayrıca [Microsoft.Azure.DocumentDB NuGet paketi](https://www.nuget.org/packages
 > 
 
 ## <a name="database-examples"></a>Veritabanı örnekleri
-DatabaseManagement projesinin [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) yönteminde aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir.
+DatabaseManagement projesinin [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) yönteminde aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos veritabanları hakkında bilgi edinmek için [veritabanları, kapsayıcıları ve öğeleri ile çalışma](databases-containers-items.md) kavramsal makale. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -59,7 +59,7 @@ DatabaseManagement projesinin [RunDatabaseDemo](https://github.com/Azure/azure-d
 | [Veritabanı silme](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L118) |[DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx) |
 
 ## <a name="collection-examples"></a>Koleksiyon örnekleri
-Örnek CollectionManagement projesinin [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) yöntemi aşağıdaki görevlerin nasıl yapılacağını gösterir.
+Örnek CollectionManagement projesinin [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) yöntemi aşağıdaki görevlerin nasıl yapılacağını gösterir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos Koleksiyonlar hakkında bilgi edinmek için [veritabanları, kapsayıcıları ve öğeleri ile çalışma](databases-containers-items.md) kavramsal makale. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -71,7 +71,7 @@ DatabaseManagement projesinin [RunDatabaseDemo](https://github.com/Azure/azure-d
 | [Koleksiyonu silme](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L175) |[DocumentClient.DeleteDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync.aspx) |
 
 ## <a name="document-examples"></a>Belge örnekleri
-Örnek DocumentManagement projesinin [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) yöntemi aşağıdaki görevlerin nasıl yapılacağını gösterir.
+Örnek DocumentManagement projesinin [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) yöntemi aşağıdaki görevlerin nasıl yapılacağını gösterir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos belgeler hakkında bilgi edinmek için [veritabanları, kapsayıcıları ve öğeleri ile çalışma](databases-containers-items.md) kavramsal makale. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -87,7 +87,7 @@ DatabaseManagement projesinin [RunDatabaseDemo](https://github.com/Azure/azure-d
 | [Yalnızca belge değiştiğinde belgeyi okuma](https://github.com/Azure/azure-documentdb-dotnet/blob/f2b11dec45a195ddeed333560ebba63055f5ed09/samples/code-samples/DocumentManagement/Program.cs#L442-L470) |[DocumentClient.AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx)<br>[Documents.Client.AccessConditionType](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accessconditiontype.aspx) |
 
 ## <a name="indexing-examples"></a>Dizin oluşturma örnekleri
-IndexManagement projesinin [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) yönteminde aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir.
+IndexManagement projesinin [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) yönteminde aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos DB'de dizinleme hakkında bilgi edinmek için [dizinleme ilkeleri](index-policy.md), [türlerini dizinleme](index-types.md), ve [dizin yolları](index-paths.md) kavramsal makaleler. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -102,7 +102,8 @@ IndexManagement projesinin [RunIndexDemo](https://github.com/Azure/azure-documen
 Dizin oluşturma hakkında daha fazla bilgi için bkz. [Azure Cosmos DB dizin oluşturma ilkeleri](index-policy.md).
 
 ## <a name="geospatial-examples"></a>Jeo-uzamsal örnekler
-Jeo-uzamsal örnek dosyasında ([azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)) aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilmektedir.  
+Jeo-uzamsal örnek dosyasında ([azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)) aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilmektedir.  Aşağıdaki örneği çalıştırmadan önce GeoJSON ve Jeo-uzamsal veriler hakkında bilgi edinmek için [Jeo-uzamsal ve GeoJSON konum verileri kullanma](geospatial.md) kavramsal makale. 
+
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -116,7 +117,7 @@ Jeo-uzamsal örnek dosyasında ([azure-documentdb-dotnet/samples/code-samples/Ge
 Jeo-uzamsal verilerle çalışma hakkında daha fazla bilgi için, bkz. [Azure Cosmos DB’de Jeo-uzamsal verilerle çalışma](geospatial.md).  
 
 ## <a name="query-examples"></a>Sorgu örnekleri
-[azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) sorgu belgesi dosyasında, aşağıdaki görevlerin her birinin SQL sorgu dil bilgisi, sorgu ile LINQ sağlayıcısı ve Lambda kullanılarak nasıl gerçekleştirileceği gösterilmektedir.
+[azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) sorgu belgesi dosyasında, aşağıdaki görevlerin her birinin SQL sorgu dil bilgisi, sorgu ile LINQ sağlayıcısı ve Lambda kullanılarak nasıl gerçekleştirileceği gösterilmektedir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos DB'de SQL sorgu başvurusu hakkında bilgi edinmek için bkz. [SQL sorgu örnekleri](how-to-sql-query.md) kavramsal makale. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -138,7 +139,8 @@ Jeo-uzamsal verilerle çalışma hakkında daha fazla bilgi için, bkz. [Azure C
 Sorgu yazma hakkında daha fazla bilgi için bkz. [Azure Cosmos DB içinde SQL sorgusu](how-to-sql-query.md).
 
 ## <a name="change-feed-examples"></a>Akış örneklerini değiştirme 
-Akış değiştirme örneğinde ([azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)) aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilmektedir. 
+Akış değiştirme örneğinde ([azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)) aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilmektedir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos DB'de akışı değiştirme hakkında bilgi edinmek için bkz. [okumak için seçenekler değişiklik akışı](read-change-feed.md) ve [değişiklik akışı İşlemci](change-feed-processor.md) kavramsal makaleler. 
+
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -148,7 +150,7 @@ Akış değiştirme örneğinde ([azure-documentdb-dotnet/samples/code-samples/C
 Değişiklik akışı işlemci örneği:  [Geçiş aracını akışı](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) başka bir Cosmos DB koleksiyonu için veri çoğaltmak için değişiklik akışı işlemci kitaplığı nasıl yapılacağı açıklanır.   
 
 ## <a name="server-side-programming-examples"></a>Sunucu tarafı programlama örnekleri
-Sunucu tarafı programlama dosyasında ([azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)) aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilmektedir.
+Sunucu tarafı programlama dosyasında ([azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)) aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilmektedir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos DB'de sunucu tarafı programlama hakkında bilgi edinmek için bkz. [saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevleri](stored-procedures-triggers-udfs.md) kavramsal makale. 
 
 | Görev | API başvurusu |
 | --- | --- |

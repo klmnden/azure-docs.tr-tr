@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7d845b0e434f21c6db46cddb26b7f55aeb33d080
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8b5c5f316ff2c3ada035736755c7898270c49dee
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733784"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551832"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs SSS
 Azure DevTest Labs hakkında en yaygın soruların yanıtlarını alın.
@@ -99,8 +99,8 @@ Azure DevOps kullanıyorsanız, kullanabileceğiniz bir [DevTest Labs görevleri
 Aşağıdaki blog teklif rehberlik ve Azure DevOps Hizmetleri Uzantısı kullanma hakkında bilgi gönderir:
 
 * [DevTest Labs ve Azure DevOps uzantısı](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Azure DevOps Services'dan bir DevTest Labs Laboratuvardaki yeni VM dağıtma](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [DevTest Labs'de sürekli dağıtımlar için Azure DevOps Services sürüm Yönetimi'ni kullanma](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [Azure DevOps Services'dan bir DevTest Labs Laboratuvardaki yeni VM dağıtma](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+* [DevTest Labs'de sürekli dağıtımlar için Azure DevOps Services sürüm Yönetimi'ni kullanma](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
 Diğer sürekli tümleştirme (CI) için / sürekli teslim (CD) araç zincirlerinden, aynı senaryoları elde edebileceğiniz dağıtma [Azure Resource Manager şablonları](https://aka.ms/dtlquickstarttemplate) kullanarak [Azure PowerShell cmdlet'lerini](../azure-resource-manager/resource-group-template-deploy.md) ve [.NET SDK'ları](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Ayrıca [için DevTest Labs REST API'leri](https://aka.ms/dtlrestapis) araç zincirinizi ile tümleştirmek için.  
 

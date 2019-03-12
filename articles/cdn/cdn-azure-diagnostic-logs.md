@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: edb2bbee8df24dc9f9747ff13f5e3526192d91b2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5b80dcfa5cef116bb2558f154a54d343e467ae83
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874027"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546662"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
 
@@ -45,11 +45,13 @@ Aşağıdaki diyagram tipik CDN çekirdek analiz verilerinin bir görünümünü
 
 Tanılama günlükleri hakkında daha fazla bilgi için bkz. [tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="enable-logging-with-the-azure-portal"></a>Azure portalı ile günlük kaydını etkinleştirme
 
 Bu adımları etkinleştir CDN çekirdek analiz ile günlüğe kaydetme izleyin:
 
-[Azure Portal](http://portal.azure.com) oturum açın. Akışınız için CDN yoksa zaten etkinleştirdiğiniz varsa [bir Azure CDN profili ve uç noktası oluşturma](cdn-create-new-endpoint.md) devam etmeden önce.
+[Azure Portal](https://portal.azure.com) oturum açın. Akışınız için CDN yoksa zaten etkinleştirdiğiniz varsa [bir Azure CDN profili ve uç noktası oluşturma](cdn-create-new-endpoint.md) devam etmeden önce.
 
 1. Azure portalında gidin **CDN profili**.
 
@@ -168,7 +170,7 @@ Aşağıdaki örnek, Azure PowerShell cmdlet'leri aracılığıyla tanılama gü
 Bu bölümde CDN çekirdek analiz şemasını açıklar nasıl bir Azure depolama hesabı içinde düzenlenir ve bir CSV dosyasında günlükleri indirmek için örnek kod sağlar.
 
 ### <a name="using-microsoft-azure-storage-explorer"></a>Microsoft Azure Depolama Gezgini'ni kullanma
-Temel analiz verileri bir Azure depolama hesabından erişebilmeniz için önce bir depolama hesabı içeriğine erişmek için bir aracı ilk gerekir. Varken çeşitli araçlar kullanılabilir pazarında, Microsoft Azure Depolama Gezgini önerdiğimiz bir bileşendir. Aracı indirmek için bkz: [Azure Depolama Gezgini](http://storageexplorer.com/). İndirme ve yazılım yükleme sonrasında, CDN tanılama günlükleri için hedef olarak yapılandırılan aynı Azure depolama hesabını kullanacak şekilde yapılandırın.
+Temel analiz verileri bir Azure depolama hesabından erişebilmeniz için önce bir depolama hesabı içeriğine erişmek için bir aracı ilk gerekir. Varken çeşitli araçlar kullanılabilir pazarında, Microsoft Azure Depolama Gezgini önerdiğimiz bir bileşendir. Aracı indirmek için bkz: [Azure Depolama Gezgini](https://storageexplorer.com/). İndirme ve yazılım yükleme sonrasında, CDN tanılama günlükleri için hedef olarak yapılandırılan aynı Azure depolama hesabını kullanacak şekilde yapılandırın.
 
 1.  Açık **Microsoft Azure Depolama Gezgini**
 2.  Depolama hesabını bulun
@@ -225,11 +227,11 @@ Azure İzleyicisi'ni kullanmak için şunları yapmanız gerekir [günlüğe kay
 
 Yönetim çözümleri kullanarak çeşitli yollarla verileri görüntüleyebilirsiniz. Yönetim çözümleri elde edebilirsiniz [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
-Yönetim çözümleri seçerek Azure Market'ten yükleyebilirsiniz **şimdi edinin** her çözüm alt kısmındaki bağlantı.
+İzleme çözümleri seçerek Azure Market'ten yükleyebilirsiniz **şimdi edinin** her çözüm alt kısmındaki bağlantı.
 
-### <a name="add-a-azure-monitor-cdn-management-solution"></a>Azure İzleyici CDN yönetim çözümü ekleme
+### <a name="add-a-azure-monitor-cdn-monitoring-solution"></a>Azure İzleyici izleme çözümü CDN ekleme
 
-Azure İzleyici yönetim çözümü eklemek için aşağıdaki adımları izleyin:
+Bir Azure İzleyici ile izleme çözümü eklemek için aşağıdaki adımları izleyin:
 
 1.   Azure aboneliğinizi kullanarak Azure portalında oturum açın ve panonuza gidin.
     ![Azure Panosu](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
@@ -443,7 +445,7 @@ Burada *zaman* istatistikleri raporlanır kendisi için saatlik sınırın başl
 
 * [Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Azure CDN ek portal aracılığıyla temel analiz](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure izleme günlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

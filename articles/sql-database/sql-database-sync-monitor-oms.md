@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: a1f2b0e3095718caad7c35a20bf7e91c88568364
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 1417907bf9472137677a090906fa173c3d1ea571
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213475"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539301"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>SQL Data Sync'i Azure İzleyici ile izleme günlükleri 
 
@@ -32,7 +32,7 @@ SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync ile birden
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tüm eşitleme grupları için izleme Panosu 
 
-Artık, tek tek sorunlar için aramak için her eşitleme grubunun günlükleri göz gerekmez. Bir özel log analytics görünümü kullanarak tek bir yerde aboneliklerinizin herhangi birinden gelen tüm eşitleme gruplarını izleyebilirsiniz. Bu görünüm, SQL Data Sync müşteriler için önemli bilgilerin ortaya çıkarır.
+Artık, tek tek sorunlar için aramak için her eşitleme grubunun günlükleri göz gerekmez. Özel bir Azure İzleyici görünümünü kullanarak tek bir yerde aboneliklerinizin herhangi birinden gelen tüm eşitleme gruplarını izleyebilirsiniz. Bu görünüm, SQL Data Sync müşteriler için önemli bilgilerin ortaya çıkarır.
 
 ![Veri Eşitleme izleme Panosu](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
@@ -50,9 +50,9 @@ Uygulama özel bir Azure İzleyici izleme çözümü SQL Data Sync için bir saa
 
 -   Azure İzleyici günlüklerine SQL Data Sync'i log veri akışı için bir PowerShell runbook.
 
--   E-posta bildirimleri için log analytics uyarısı.
+-   Azure İzleyici uyarı e-posta bildirimi.
 
--   İzleme için bir log analytics görünümü.
+-   Bir Azure İzleyici izleme görünümü.
 
 ### <a name="samples-to-download"></a>Örnekleri indir
 
@@ -60,7 +60,7 @@ Aşağıdaki iki örnekleri indirin:
 
 -   [Veri Eşitleme günlük PowerShell Runbook'u](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Veri Eşitleme Log Analytics görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Veri Eşitleme Azure İzleyici görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>Önkoşullar
 
@@ -130,7 +130,7 @@ Runbook zamanlama için:
 
 Otomasyon altında beklendiği gibi çalışıp çalışmadığını izlemek için **genel bakış** automation hesabınız için **iş istatistikleri** görünümüne **izleme**. Bu görünüm kolay görüntüleme için panonuza sabitleyin. Başarılı çalıştırmalar runbook Göster "Tamamlandı" olarak ve başarısız çalıştırmaları "Başarısız" Göster
 
-## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>E-posta bildirimleri için bir Log Analytics okuyucusu uyarısı oluşturma
+## <a name="create-an-azure-monitor-reader-alert-for-email-notifications"></a>Azure İzleyici okuyucu uyarı e-posta bildirimleri için oluşturma
 
 Azure İzleyici günlüklerine kullanan bir uyarı oluşturmak için aşağıdaki işlemleri yapın. Bir önkoşul olarak, Azure İzleyici günlüklerine Log Analytics çalışma alanıyla bağlantılı olması gerekir.
 
@@ -152,9 +152,9 @@ Azure İzleyici günlüklerine kullanan bir uyarı oluşturmak için aşağıdak
 
 6.  **Kaydet**’e tıklayın. Hatalar oluştuğunda belirtilen alıcılara e-posta bildirimleri artık alırsınız.
 
-## <a name="create-a-log-analytics-view-for-monitoring"></a>İzleme için bir Log Analytics görünümü oluşturma
+## <a name="create-an-azure-monitor-view-for-monitoring"></a>İzleme için bir Azure İzleyici görünümü oluşturma
 
-Bu adım, tüm belirtilen eşitleme gruplarını görsel olarak izlemek için log analytics görünümü oluşturur. Görünüm çeşitli bileşenleri içerir:
+Bu adım, tüm belirtilen eşitleme gruplarını görsel olarak izlemek için bir Azure İzleyici görünümü oluşturur. Görünüm çeşitli bileşenleri içerir:
 
 -   Tüm eşitleme gruplarını kaç hatalar, başarılar ve uyarılar sahip gösteren bir genel bakış kutucuğu.
 
@@ -162,9 +162,9 @@ Bu adım, tüm belirtilen eşitleme gruplarını görsel olarak izlemek için lo
 
 -   Her grup için grubu Eşitleme hataları, başarı ve uyarıları ve en son hata iletileri sayısını gösteren bir kutucuk.
 
-Log analytics görünümü yapılandırmak için şunları yapın:
+Azure İzleyici görünümü yapılandırmak için şunları yapın:
 
-1.  Log analytics giriş sayfasında, artı açmak için sol taraftaki seçin **Görünüm Tasarımcısı**.
+1.  Log Analytics çalışma alanı giriş sayfasında, artı açmak için sol taraftaki seçin **Görünüm Tasarımcısı**.
 
 2.  Seçin **alma** Görünüm Tasarımcısı'nın üst çubukta. Ardından "DataSyncLogOMSView" örnek dosyasını seçin.
 
@@ -196,7 +196,7 @@ Bu makalede aşağıdaki konumlardan açıklanan kod örnekleri indirin:
 
 -   [Veri Eşitleme günlük PowerShell Runbook'u](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Veri Eşitleme Log Analytics görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Veri Eşitleme Azure İzleyici görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 SQL Data Sync hakkında daha fazla bilgi için bkz.:

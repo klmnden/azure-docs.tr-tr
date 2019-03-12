@@ -5,14 +5,14 @@ author: sffamily
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/23/2018
+ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: f0044ca206d15762d44d8d4ea2d58c93950c5e1e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252465"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535657"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Hızlı Başlangıç: SignalR JavaScript kullanarak hizmeti ve Azure işlevleri ile sohbet odası oluşturamadı.
 
@@ -81,7 +81,7 @@ Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında ot
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, Visual Studio'da gerçek zamanlı ve sunucusuz bir uygulama oluşturup çalıştırdınız. Bir sonraki adımda Visual Studio ile nasıl Azure İşlevlerini geliştirip dağıtacağınızı öğrenin.
+Bu hızlı başlangıçta, oluşturulan ve gerçek zamanlı bir sunucusuz uygulama VS Code'da çalıştı. Bir sonraki adımda Azure İşlevlerini nasıl VS Code’dan dağıtacağınızı öğrenin.
 
 > [!div class="nextstepaction"]
-> [Visual Studio ile Azure İşlevleri geliştirme](../azure-functions/functions-develop-vs.md)
+> [VS Code ile Azure İşlevlerini dağıtma](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

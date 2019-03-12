@@ -31,5 +31,5 @@
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Sürüm notları](biztalk-release-notes.md)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=biztalk-services)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/biztalk-services)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)

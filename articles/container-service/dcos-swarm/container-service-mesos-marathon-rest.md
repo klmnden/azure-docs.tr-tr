@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 157d70b628ca3583cb8134ec1cccc185c6ff4c8d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: ec264eb31bd1243f683ab99bf19b871b08253ef7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52991729"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532416"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(KULLANIM DIŞI) Marathon REST API aracılığıyla DC/OS kapsayıcısını yönetme
 
@@ -191,6 +191,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Mesos HTTP uç noktaları hakkında daha fazla bilgi](http://mesos.apache.org/documentation/latest/endpoints/)
+* [Mesos HTTP uç noktaları hakkında daha fazla bilgi](https://mesos.apache.org/documentation/latest/endpoints/)
 * [Marathon REST API hakkında daha fazla bilgi](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 869bee8fcd0d1c2876ac7317fb239a1d5c61cb87
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2c613319e635cf83b171da4975fe384b2ea80a2c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864558"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534932"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak PostgreSQL için Azure veritabanı tasarlama
 
@@ -57,7 +57,7 @@ PostgreSQL için Azure veritabanı sunucusu oluşturmak üzere şu adımları uy
    > [!IMPORTANT]
    > Burada belirttiğiniz sunucu yöneticisi kullanıcı adı ve parolası, bu öğreticinin sonraki bölümlerinde sunucuda ve veritabanlarında oturum açmak için gereklidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin.
 
-4.  Yeni sunucunuza ait fiyatlandırma katmanını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Bu öğretici için, **Genel Amaçlı**, **Gen 4** işlem nesli, 2 **sanal çekirdek**, 5 GB **depolama** ve 7 gün **yedekleme bekletme dönemi** ayarlarını seçin. Sunucunuzun otomatik yedeklemelerini coğrafi olarak yedekli depolamada depolamak için **Coğrafi Olarak Yedekli** yedekleme seçeneğini belirleyin.
+4.  Yeni sunucunuza ait fiyatlandırma katmanını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Bu öğreticide, seçin **genel amaçlı**, **5. nesil** işlem nesli, 2 **sanal çekirdekler**, 5 GB **depolama** ve 7 gün  **Yedekleme bekletme süresi**. Sunucunuzun otomatik yedeklemelerini coğrafi olarak yedekli depolamada depolamak için **Coğrafi Olarak Yedekli** yedekleme seçeneğini belirleyin.
  ![PostgreSQL için Azure Veritabanı - fiyatlandırma katmanını seçme](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 
 5.  **Tamam**’a tıklayın.

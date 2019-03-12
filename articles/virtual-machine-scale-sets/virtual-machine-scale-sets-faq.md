@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 8627f5bb704c963b628fb3dab29b6d2cfee0789b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 610ac10e757ef422ce130c0cfe8253af6ba4b7b9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247333"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542480"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek kümeleri hakkında SSS
 
@@ -660,7 +660,7 @@ Daha fazla bilgi için [bir sanal makine ölçek kümesindeki tüm sanal makinel
 
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Ölçek kümeleri Azure İzleyici günlüklerine ile tümleştirmek mümkündür?
 
-Evet, Log Analytics uzantısı ölçeğini yükleyerek Vm'leri ayarlayabilirsiniz. Azure CLI örnek aşağıda verilmiştir:
+Evet, Azure İzleyici uzantısı ölçeğini yükleyerek Vm'leri ayarlayabilirsiniz. Azure CLI örnek aşağıda verilmiştir:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```

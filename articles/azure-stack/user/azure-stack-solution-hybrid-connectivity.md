@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2530f6f59ef458d5a7c2de5850d8fab322798ba3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a05021255c6226329f1d7a3f0e7fa8c9be756646
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752671"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546730"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile karma bulut bağlantısı yapılandırma
 
@@ -119,7 +119,7 @@ Portalı kullanarak bir sanal ağ oluşturmak için aşağıdaki adımları kull
 
 Azure'da vNet oluşturmak için:
 
-1. Bağlanmak için tarayıcınızı kullanırsınız [Azure portalında](http://portal.azure.com/) ve Azure hesabınızla oturum açın.
+1. Bağlanmak için tarayıcınızı kullanırsınız [Azure portalında](https://portal.azure.com/) ve Azure hesabınızla oturum açın.
 2. Seçin **kaynak Oluştur**. İçinde **markette Ara** alanına `virtual network`''. Bulma **sanal ağ** sonuç listesini ve ardından **sanal ağ**.
 3. Gelen **dağıtım modeli seçin** listesinde, seçin **Resource Manager**ve ardından **Oluştur**.
 4. Üzerinde **sanal ağ oluştur**, sanal ağ ayarlarını yapılandırın. Gerekli alan adları, kırmızı bir yıldızla öneki alır.  Geçerli bir değer girin, yıldız işareti yeşil onay işareti değiştirir.
@@ -132,7 +132,7 @@ Azure Stack'te bir vNet oluşturmak için:
 
 Sanal ağınız için ağ geçidi bağlanmadan önce bağlanmak istediğiniz sanal ağın ağ geçidi alt ağı oluşturmanız gerekir. Ağ geçidi hizmetlerine ağ geçidi alt ağında belirttiğiniz IP adreslerini kullanır.
 
-İçinde [Azure portalında](http://portal.azure.com/), bir sanal ağ geçidini oluşturmak istediğiniz Resource Manager sanal ağına gidin.
+İçinde [Azure portalında](https://portal.azure.com/), bir sanal ağ geçidini oluşturmak istediğiniz Resource Manager sanal ağına gidin.
 
 1. Açmak için bir vNet seçin **sanal ağ** sayfası.
 2. İçinde **ayarları**seçin **alt ağlar**.

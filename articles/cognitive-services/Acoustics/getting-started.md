@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: a9cc8c7b4cdcc05d38bc0d68561fc9d86305b0cb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9569b161dd5c6c79c5333d585f9ab4fcdb55fa97
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879923"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533995"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Proje akustik ile çalışmaya başlama
 Bu Hızlı Başlangıç Kılavuzu, nasıl içinde Unity projenizde eklenti tümleştirme, hazırlama, Sahne ve akustik ses kaynakları için geçerlidir gösterilmektedir. Bu hızlı başlangıçta ilk oluşturmanız gerekecek bir [Azure batch hesabı](create-azure-account.md). Bu kılavuz, Unity bazı bilindiğini varsayar.
@@ -24,7 +24,7 @@ Bu Hızlı Başlangıç Kılavuzu, nasıl içinde Unity projenizde eklenti tüml
 Kayıt [burada](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) Tasarımcısı önizlemeye katılmak için.
 
 ## <a name="supported-platforms-for-quickstart"></a>Hızlı Başlangıç için desteklenen platformlar
-* [Unity 2018.2 +](http://www.unity3d.com)
+* [Unity 2018.2 +](https://www.unity3d.com)
   * Projenizi ayarlamak **.NET 4.x eşdeğer** scripting çalışma zamanı sürümü 
   * Windows tabanlı Unity editor gerektirir
 

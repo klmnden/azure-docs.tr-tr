@@ -3,7 +3,7 @@ title: Bir Windows Azure PowerShell ile sanal makine sorunlarını giderme kulla
 description: İşletim sistemi diskini bir kurtarma için Azure PowerShell kullanarak VM bağlanarak azure'da Windows VM sorunlarını giderme hakkında bilgi edinin
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 27409de144274cde4201937c47df0fd2bbfd788a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 45e595e932c4e7070836372a4fd48791f68c5e08
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984452"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761574"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>İşletim sistemi diskini bir kurtarma için Azure PowerShell kullanarak VM ekleyerek bir Windows sanal makinesinin sorunlarını giderme
 Azure'da Windows sanal makinesi (VM), önyükleme veya disk bir hatasıyla karşılaşırsa, diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Yaygın olarak karşılaşılan örneklerden VM başarıyla önyükleme engelleyen bir uygulamanın güncelleştirme olacaktır. Bu makalede, diski başka bir Windows varsa hataları düzeltin ve ardından orijinal VM'yi onarın VM'ye bağlanmak için Azure PowerShell kullanma işlemi açıklanmaktadır. 

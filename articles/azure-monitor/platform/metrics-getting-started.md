@@ -8,25 +8,21 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 9d23d4b30ca4d394fb4afd0bb6620be6df179600
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444948"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537346"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Azure ölçüm Gezgini ile çalışmaya başlama
 
 ## <a name="where-do-i-start"></a>Nereden başlamalıyım
+Azure İzleyici ölçüm Gezgini'ni çizim grafikleri, görsel olarak eğilimleri ilişkilendirme ve ani araştırma sağlar ve düşüşler ölçümleri değerleri Microsoft Azure portalının bir bileşenidir. Sistem durumu ve kaynaklarınızın kullanımını araştırmak için ölçüm Gezgini'ni kullanın. Aşağıdaki sırayla başlatın:
 
-> [!NOTE]
-> Bu makalede, Azure İzleyici ölçüm Gezgini ile çalışmaya başlama yeni kullanıcılara yardımcı olmak için temel kavramları kapsar. Daha ayrıntılı belgelere ve Gelişmiş grafik ayarlarında ve ölçümlerinde hakkında bilgi için bkz. [Gelişmiş Özellikler, Azure İzleyici ölçüm Gezgini'ni](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts).
+1. [Kaynak ve bir ölçüm seçin](#create-your-first-metric-chart) ve temel bir grafik görürsünüz. Ardından [bir zaman aralığı seçin](#select-a-time-range) araştırmanızı için ilgili olmasıdır.
 
-Sistem durumu ve kaynaklarınızın kullanımını araştırmak için ölçüm Gezgini'ni kullanın. Aşağıdaki sırayla başlatın:
-
-1. Başlayın [kaynak ve bir ölçüm çekme](#creating-your-first-metric-chart) ve temel bir grafik görürsünüz. Ardından [bir zaman aralığı seçin](#picking-time-range) araştırmanızı için ilgili olmasıdır.
-
-1. Deneyin [boyut filtreleri uygulayarak ve bölme](#applying-dimension-filters-and-splitting). Filtreler ve hangi segmentlerin ölçümün genel ölçüm değerine katkıda analiz etmenize izin vermek ve olası aykırı değerleri tanımlamayı bölme.
+1. Deneyin [boyut filtreleri uygulayarak ve bölme](#apply-dimension-filters-and-splitting). Filtreler ve hangi segmentlerin ölçümün genel ölçüm değerine katkıda analiz etmenize izin vermek ve olası aykırı değerleri tanımlamayı bölme.
 
 1. Kullanım [Gelişmiş ayarlar](#advanced-chart-settings-and-next-steps) panolara sabitlemeden önce grafiği özelleştirme. [Uyarıları Yapılandır](alerts-metric-overview.md) ölçüm değeri aşarsa veya bir eşiğin altına düşünceye bildirimleri almak için.
 
@@ -49,7 +45,7 @@ Bir ölçüm grafiği, kaynak, kaynak grubu, abonelik veya Azure İzleyici gör�
 > [!NOTE]
 > Kullanım **ölçüm Ekle** düğmesine tıklayın ve birden çok ölçümleri aynı grafikte çizilen görmek istiyorsanız, bu adımları yineleyin. Tek bir görünümde birden çok grafiklerde seçin **Ekle grafik** üstteki düğmesine.
 
-## <a name="pick-a-time-range"></a>Bir zaman aralığı seçin
+## <a name="select-a-time-range"></a>Bir zaman aralığı seçin
 
 Varsayılan olarak, en son 24 saat ölçümlerini veri grafik gösterir. Kullanım **Saat Seçici** zaman aralığını değiştirmek, yakınlaştırmak veya grafiğinizde uzaklaştırmak için paneli. 
 
@@ -57,7 +53,7 @@ Varsayılan olarak, en son 24 saat ölçümlerini veri grafik gösterir. Kullan�
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Boyut filtreleri ve bölme uygulayın
 
-[Filtreleme](metrics-charts.md#apply-filters-to-charts) ve [bölme](metrics-charts.md#apply-splitting-to-a-chart) boyutlara sahip ölçümleri için güçlü tanılama araçları. Bu özellik, çeşitli ölçüm parçaları ("boyut değerleri") ölçüm öğenin toplam değeri etkiler ve olası aykırı değerleri tanımlamayı sağlar gösterir.
+[Filtreleme](metrics-charts.md#apply-filters-to-charts) ve [bölme](metrics-charts.md#apply-splitting-to-a-chart) boyutlara sahip ölçümleri için güçlü tanılama araçları. Bu özellikler, ölçüm öğenin toplam değeri çeşitli ölçüm parçaları ("boyut değerleri") etkisini göstermek ve olası aykırı değerleri tanımlamayı sağlar.
 
 - **Filtreleme** seçtiğiniz boyut değerlerini grafikte yer sağlar. Örneğin, grafik, başarılı istekler göstermek isteyebilirsiniz *sunucu yanıt süresi* ölçümü. Filtre uygulamak gerekir *istek başarısı* boyut. 
 

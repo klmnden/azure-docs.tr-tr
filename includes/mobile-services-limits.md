@@ -4,25 +4,25 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 4f0cb05214cf391d0ac2a75511473a3ddf9778dd
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 5e58429b6a3e2f7c7c39c13dc65af48b064f9771
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279994"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553927"
 ---
-| KATMAN: | ÜCRETSİZ | TEMEL | STANDART |
+| Katman | Ücretsiz | Temel | Standart |
 | --- | --- | --- | --- |
-| API çağrıları |500 K |1,5 milyon / birim |15 dk / birim |
-| Etkin Cihazlar |500 |Sınırsız |Sınırsız |
+| API çağrıları |500,000 |Birim başına 1,5 milyon |Birim başına 15 milyon |
+| Etkin cihazlar |500 |Sınırsız |Sınırsız |
 | Ölçek |Yok |En fazla 6 birimleri |Sınırsız birim |
-| Anında İletme Bildirimleri  |Bildirim hub'ları ücretsiz katman dahil, en fazla 1 milyon gönderim |Bildirim hub'ları temel katman dahil, en fazla 10 milyon gönderim |Bildirim hub'ları standart katman dahil, en fazla 10 milyon gönderim |
-| Gerçek zamanlı Mesajlaşma /<br/>Web Yuvaları |Sınırlı |350 / mobil hizmet |Sınırsız |
+| Anında iletme bildirimleri |Azure bildirim hub'ları ücretsiz katman dahil, en fazla 1 milyon bildirim |Bildirim hub'ları temel katman dahil, en fazla 10 milyon bildirim |Bildirim hub'ları standart katman dahil, en fazla 10 milyon bildirim |
+| Gerçek zamanlı mesajlaşmayı /<br/>Web Yuvaları |Sınırlı |350 / mobil hizmet |Sınırsız |
 | Çevrimdışı eşitlemeler |Sınırlı |Dahil |Dahil |
 | Zamanlanan işler |Sınırlı |Dahil |Dahil |
-| SQL veritabanı (gerekli) <br/>Ek kapasite için standart ücretler uygulanır |20 MB dahildir |20 MB dahildir |20 MB dahildir |
-| İşlemci kapasitesi |60 dakika / gün |Sınırsız |Sınırsız |
+| Azure SQL veritabanı'nı (gerekli) <br/>Ek kapasite için standart ücretler uygulanır |20 MB dahildir |20 MB dahildir |20 MB dahildir |
+| İşlemci kapasitesi |gün başına 60 dakika |Sınırsız |Sınırsız |
 | Giden veri aktarımı |165 MB / gün (günlük devir) |Dahil |Dahil |
 
-Bu sınırlar hakkında daha fazla ayrıntı ve fiyatlandırma hakkında daha fazla bilgi için bkz: [mobil hizmetler fiyatlandırma](https://azure.microsoft.com/pricing/details/mobile-services/). 
+Sınırlar ve fiyatlandırma hakkında daha fazla bilgi için bkz. [Azure mobil hizmetler fiyatlandırma](https://azure.microsoft.com/pricing/details/mobile-services/). 
 

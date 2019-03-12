@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 033a7207765f2ee6712f8552d5c1585280250d5e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 3168bbbf70c1ffeb3827482459febbcea256eda6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312078"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773155"
 ---
 # <a name="configure-the-application-dashboard"></a>Uygulama Panosu yapılandırın
 
@@ -32,7 +32,7 @@ Seçme **Düzenle**, Pano Kitaplığı paneli açılır. Kitaplık kutucuk ve Pa
 
 ![Pano kitaplığı](media/howto-configure-homepage/image2.png)
 
-Örneğin, ekleyebilirsiniz bir **cihaz ayarlarını ve özelliklerini** seçimi bir cihaz için geçerli ayarları ve özellikleri değerlerini göstermek için bir kutucuk. Bunu yapmak için önce seçin bir **cihaz şablonu** seçip bir **cihaz örneği**. Bir başlık ve seçin, kutucuğu verdikten sonra bir **ayarı** veya **özelliği** görüntülenecek. Aşağıdaki ekran görüntüsü gösterildiği **ayarlamak sıcaklık** ayarı için bir kutucuk eklemek için seçili. Seçin **Bitti** panoya yapılan değişiklik kaydedilemiyor.
+Örneğin, ekleyebilirsiniz bir **cihaz ayarlarını ve özelliklerini** seçimi bir cihaz için geçerli ayarları ve özellikleri değerlerini göstermek için bir kutucuk. Bunu yapmak için önce seçin bir **cihaz şablonu** seçip bir **cihaz örneği**. Bir başlık ve seçin, kutucuğu verdikten sonra bir **ayarı** veya **özelliği** görüntülenecek. Aşağıdaki ekran görüntüsünde, ayarları ve özellikleri için bir kutucuk eklemek için seçili gösterir. Seçin **Bitti** panoya yapılan değişiklik kaydedilemiyor.
 
 !["Cihaz ayrıntıları Yapılandır" form ayarlarına ve özelliklerine ilişkin ayrıntılı](media/howto-configure-homepage/image3.png)
 

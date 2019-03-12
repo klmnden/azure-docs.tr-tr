@@ -7,13 +7,13 @@ ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.openlocfilehash: 54336de291d01f3741c288756095e40a43800a7f
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.date: 03/11/2019
+ms.openlocfilehash: 23b53e852672c129ff148b0b493a44172f9baf9a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009996"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769753"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IOT Hub fiyatlandırma bilgileri
 
@@ -28,8 +28,8 @@ ms.locfileid: "57009996"
 | Kimlik kayıt defteri işlemleri <br/> (oluşturma, Al, Listele, güncelleştirme ve silme) | Ücretsizdir. |
 | Cihazdan buluta iletiler | Başarıyla gönderilen iletileri IOT Hub'ına giriş üzerinde 4 KB'lık parçalar halinde ücretlendirilir. Örneğin, 6-KB'lık mesaj, 2 mesaj ücretlendirilir. |
 | Bulut-cihaz iletilerini | Başarıyla gönderilen iletiler 4 KB'lık parçalar halinde ücretlendirilir, örneğin 6 KB'lık bir ileti 2 ileti ücretlendirilir. |
-| Dosya yüklemeleri | IOT Hub tarafından Azure Depolama'ya dosya aktarımı ölçülen değil. Dosya aktarımı başlangıcını ve tamamlanmasını iletiler 4 KB'lık artışlarla tarifeli messaged olarak ücretlendirilir. Örneğin, 10 MB'lık dosya aktarmak, Azure Storage maliyetinin yanı sıra iki ileti ücretlendirilir. |
-| Doğrudan yöntemler | Başarılı yöntemi istekleri, 4 KB'lık parçalar halinde ücretlendirilir, boş olmayan gövdeleri yanıtlarıyla ek iletiler 4 KB'lık parçalar halinde ücretlendirilir. Bağlantısı kesilmiş cihazlar isteklerine uygunsa iletiler 4 KB'lık parçalar halinde ücretlendirilir. Örneğin, bir CİHAZDAN hiçbir gövdesi ile bir yanıt sonuçlanır bir 6-KB gövdesi olan bir yöntemi iki ileti olarak ücretlendirilir. Bir CİHAZDAN bir 1 KB'lık yanıt sonuçlanır bir 6-KB gövdesi bir yöntemle yanı sıra başka bir ileti yanıtı için istek için iki ileti olarak ücretlendirilir. |
+| Dosya yüklemeleri | IOT Hub tarafından Azure Depolama'ya dosya aktarımı ölçülen değil. Dosya aktarımı başlangıcını ve tamamlanmasını iletiler 4 KB'lık artışlarla tarifeli messaged olarak ücretlendirilir. 10 MB'lık dosya aktarmak, Azure Storage maliyetinin yanı sıra iki ileti olarak gibi ücretlendirilir. |
+| Doğrudan yöntemler | Yöntem başarılı istekleri 4 KB'lık parçalar halinde ücretlendirilir ve yanıt olarak ek iletiler 4 KB'lık parçalar halinde ücretlendirilir. Bağlantısı kesilmiş cihazlar isteklerine uygunsa iletiler 4 KB'lık parçalar halinde ücretlendirilir. Örneğin, hiçbir gövdesi ile bir yanıt CİHAZDAN sonuçlanır bir 4 KB'lık gövdesi olan bir yöntemi, iki ileti olarak ücretlendirilir. Bir CİHAZDAN bir 1 KB'lık yanıt sonuçlanır bir 6-KB gövdesi bir yöntemle yanı sıra başka bir ileti yanıtı için istek için iki ileti olarak ücretlendirilir. |
 | Cihaz ve modül ikizi okumaları | İkiz cihaz veya modül ve çözüm arka uç, iletileri 512 baytlık parçalar halinde ücretlendirilir okur. Örneğin, 6-KB ikizi okuma 12 iletileri olarak ücretlendirilir. |
 | Cihaz ve modül ikizi güncelleştirmeleri (etiketler ve Özellikler) | Ve çözüm arka ucu cihaz veya modül ikizi güncelleştirmeleri iletileri 512 baytlık parçalar halinde ücretlendirilir. Örneğin, 6-KB ikizi okuma 12 iletileri olarak ücretlendirilir. |
 | Cihaz ve modül ikizi sorguları | Sorguları iletileri 512 baytlık öbekler halinde sonucu boyutuna bağlı olarak ücretlendirilir. |

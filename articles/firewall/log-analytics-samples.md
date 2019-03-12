@@ -7,24 +7,26 @@ ms.service: firewall
 ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: f639f47997fc122efde2bc223bc24b5de7630710
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240159"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534012"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure güvenlik duvarı log analytics örnekleri
 
-Aşağıdaki log analytics örnekleri, Azure güvenlik duvarı günlükleri analiz etmek için kullanılabilir. Örnek dosya Log Analytics görünümü Tasarımcısı'nda yerleşik olarak bulunur [Log Analytics Görünüm Tasarımcısı](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) makalede görünüm tasarım kavramları hakkında daha fazla bilgi bulunur.
+Aşağıdaki Azure İzleyici günlüklerine örnekleri, Azure güvenlik duvarı günlükleri analiz etmek için kullanılabilir. Örnek dosyayı Azure İzleyicisi ' nde görünümü Tasarımcısı'nda oluşturulan [Görünüm Tasarımcısı'nda Azure İzleyici](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) makalede görünüm tasarım kavramları hakkında daha fazla bilgi bulunur.
 
-## <a name="log-analytics-view"></a>Log Analytics Görünümü
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-İşte bir örnek log analytics görselleştirme nasıl yapılandırabilirsiniz. Örneğin görselleştirmedeki indirebileceğiniz [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) depo. Bu sayfadaki Köprü sağ tıklayın ve en kolay yoludur *Kaydet* gibi bir ad **AzureFirewall.omsview**. 
+## <a name="azure-monitor-logs-view"></a>Azure İzleyici günlüklerini görüntüle
 
-Görünüm log analytics çalışma alanınıza eklemek için aşağıdaki adımları uygulayın:
+Azure İzleyici günlüklerini görselleştirme örnek nasıl yapılandırabileceğinizi aşağıda verilmiştir. Örneğin görselleştirmedeki indirebileceğiniz [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) depo. Bu sayfadaki Köprü sağ tıklayın ve en kolay yoludur *Kaydet* gibi bir ad **AzureFirewall.omsview**. 
 
-1. Log analytics çalışma alanı, Azure Portalı'nda açın.
+Görünüm Log Analytics çalışma alanınıza eklemek için aşağıdaki adımları uygulayın:
+
+1. Azure portalında Log Analytics çalışma alanını açın.
 2. Açık **görüntülemek Tasarımcısı** aşağıda **genel**.
 3. **İçeri Aktar**’a tıklayın.
 4. Göz atın ve seçim **AzureFirewall.omsview** önce indirmiş olduğunuz dosya.

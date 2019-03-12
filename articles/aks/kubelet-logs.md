@@ -1,22 +1,28 @@
 ---
 title: Görünüm kubelet günlüklerini Azure Kubernetes Service (AKS)
-description: Azure Kubernetes Service (AKS) düğümlerden kubelet günlüklerinde sorun giderme bilgilerini görüntüleme
+description: Azure Kubernetes Service (AKS) düğümlerden kubelet günlüklerinde sorun giderme bilgilerini görüntüle öğrenin
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: aeab24685f3663ba2c50205344d33db3d34676c2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: b381145fef7e6fb399fac3387ab01fdc9a51b154
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42441957"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534029"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Azure Kubernetes Service (AKS) kümesi düğümlerinden kubelet günlüklerini alma
 
-Bazen, almanız gerekebilir *kubelet* sorun giderme amacıyla bir Azure Kubernetes Service (AKS) düğümü günlüklerini. Bu makalede, nasıl kullanabileceğinizi gösterir. `journalctl` görüntülemek için *kubelet* günlükleri.
+Bir AKS kümesi çalışan bir parçası olarak bir sorunu gidermek için günlükleri gözden geçirmek gerekebilir. Günlüklerini görüntüleme yeteneği Azure portalında yerleşiktir [AKS ana bileşenleri] [ aks-master-logs] veya [bir AKS kümesindeki kapsayıcılar][azure-container-logs]. Bazen, almanız gerekebilir *kubelet* bir AKS düğümü sorun giderme amacıyla günlükleri.
+
+Bu makalede, nasıl kullanabileceğinizi gösterir. `journalctl` görüntülemek için *kubelet* bir AKS düğümde günlüğe kaydeder.
+
+## <a name="before-you-begin"></a>Başlamadan önce
+
+Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
 
 ## <a name="create-an-ssh-connection"></a>Bir SSH bağlantısı oluşturun
 
@@ -63,3 +69,7 @@ Kubernetes yöneticisinden ek sorun giderme bilgisi gerekirse bkz [Kubernetes AK
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
 [aks-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-master-logs]: view-master-logs.md
+[azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md

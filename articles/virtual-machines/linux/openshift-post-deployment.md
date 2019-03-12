@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: b2a2e0ed48004a731ca15b3fb1d985bbee7e0c29
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b99490102dd4f2c08a11be066b2ddc5fd6b7ea7b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440668"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535844"
 ---
 # <a name="post-deployment-tasks"></a>Dağıtım sonrası görevler
 
 OpenShift küme dağıtıldıktan sonra ek öğelerini yapılandırabilirsiniz. Bu makalede ele alınmıştır:
 
 - Azure Active Directory (Azure AD) kullanarak çoklu oturum açmayı yapılandırma
-- OpenShift izlemek için log Analytics'i yapılandırma
+- OpenShift izlemek için Azure İzleyici günlüklerine yapılandırma
 - Ölçümler ve günlüğe kaydetme yapılandırma
 - Açık hizmet Aracısı (OSBA) Azure için yükleme
 
@@ -179,11 +179,11 @@ sudo systemctl restart origin-master
 
 OpenShift konsolunda, artık kimlik doğrulaması için iki seçenek görürsünüz: htpasswd_auth ve [uygulama kaydı].
 
-## <a name="monitor-openshift-with-log-analytics"></a>Log Analytics ile izleme OpenShift
+## <a name="monitor-openshift-with-azure-monitor-logs"></a>Azure İzleyici ile izleme OpenShift günlüğe kaydeder
 
 OpenShift için Log Analytics aracısını eklemenin üç yolu vardır.
 - Linux için Log Analytics aracısını doğrudan her OpenShift düğümüne yükleme
-- OpenShift her düğümde log Analytics VM uzantısını etkinleştirme
+- Azure İzleyicisi VM uzantısı her OpenShift düğümde etkinleştir
 - Log Analytics aracısını bir OpenShift arka plan programı kümesi olarak yükleme
 
 Tam yönergeler burada bulunur: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.

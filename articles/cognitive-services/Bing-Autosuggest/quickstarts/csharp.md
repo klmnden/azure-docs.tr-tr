@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 2ef0233898836dc35eb6bdedab4caba16cf8c752
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 10e25797c15a821579cd15333cdd833e491acbd0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011033"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546118"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Hızlı Başlangıç: Bing otomatik öneri REST API'si ile arama sorguları önermek veC#
 
@@ -24,7 +24,7 @@ Bing otomatik öneri API'si ve JSON yanıtını alma yapmaya başlamak için bu 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
-* Linux/MacOS kullanıyorsanız bu uygulama, [Mono](http://www.mono-project.com/) kullanılarak çalıştırılabilir.
+* Linux/MacOS kullanıyorsanız bu uygulama, [Mono](https://www.mono-project.com/) kullanılarak çalıştırılabilir.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 

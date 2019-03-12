@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 57d112cfce00839f1381dc41d24bfb697179b5a4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8276b86df2dc1bc90fc07da262aa0979f7562619
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878689"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548498"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Öğretici: Özel dil modeli oluşturma
 
@@ -59,7 +59,7 @@ Dil verilerinin ana gereksinimleri aşağıdaki tabloda özetlenmiştir.
 | Satır başına konuşma sayısı | 1 |
 | En büyük dosya boyutu | 1,5 GB |
 | Açıklamalar | Karakterleri dörtten fazla kez tekrarlamaktan kaçının; örneğin, 'aaaaa'|
-| Açıklamalar | "\t" gibi özel karakterler veya [Unicode karakter tablosunda](http://www.utf8-chartable.de/) U+00A1'in üzerindeki UTF-8 karakterleri kullanılamaz|
+| Açıklamalar | "\t" gibi özel karakterler veya [Unicode karakter tablosunda](https://www.utf8-chartable.de/) U+00A1'in üzerindeki UTF-8 karakterleri kullanılamaz|
 | Açıklamalar | Bir URI'yi telaffuz etmenin tek bir yöntemi olmadığından URI'ler de reddedilir|
 
 Metin içeri aktarıldığında sistem tarafından işlenebilmesi için normalleştirilmiş metin haline getirilir. Ancak veriler yüklenmeden _önce_ kullanıcı tarafından gerçekleştirilmesi gereken bazı önemli normalleştirme adımları vardır. Dil verilerinizi hazırlarken uygun dili belirlemek için [transkripsiyon yönergelerine](prepare-transcription.md) bakın.

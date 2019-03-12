@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/24/2018
 ms.author: deborahc
-ms.openlocfilehash: 221397030377b80c1c63baa3429610a218c5cd75
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: b5f79fccf040c893d02ed82a397f361ae9bf3fd2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699689"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537550"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js örnekleri
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Azure Cosmos DB kaynaklarında CRUD işlemlerini ve diğer yaygın işlemleri ge
    > 
 
 ## <a name="database-examples"></a>Veritabanı örnekleri
-[DatabaseManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/DatabaseManagement) projesinin [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement/app.js) dosyasında aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir.
+[DatabaseManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/DatabaseManagement) projesinin [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement/app.js) dosyasında aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos veritabanları hakkında bilgi edinmek için [veritabanları, kapsayıcıları ve öğeleri ile çalışma](databases-containers-items.md) kavramsal makale. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -56,7 +56,7 @@ Azure Cosmos DB kaynaklarında CRUD işlemlerini ve diğer yaygın işlemleri ge
 | [Veritabanı silme](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/DatabaseManagement/app.js#L57-L60) |[Database.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/database?view=azure-node-latest) |
 
 ## <a name="container-examples"></a>Kapsayıcı örnekleri
-[ContainerManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) projesinin [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ContainerManagement/app.js) dosyasında aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir.
+[ContainerManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) projesinin [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ContainerManagement/app.js) dosyasında aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos Koleksiyonlar hakkında bilgi edinmek için [veritabanları, kapsayıcıları ve öğeleri ile çalışma](databases-containers-items.md) kavramsal makale. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -66,7 +66,7 @@ Azure Cosmos DB kaynaklarında CRUD işlemlerini ve diğer yaygın işlemleri ge
 | [Kapsayıcı silme](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ContainerManagement/app.js#L54-L55) |[Container.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/container?view=azure-node-latest) |
 
 ## <a name="item-examples"></a>Öğe örnekleri
-[ItemManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) projesinin [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement/app.js) dosyasında aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir.
+[ItemManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) projesinin [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement/app.js) dosyasında aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos belgeler hakkında bilgi edinmek için [veritabanları, kapsayıcıları ve öğeleri ile çalışma](databases-containers-items.md) kavramsal makale. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -80,7 +80,7 @@ Azure Cosmos DB kaynaklarında CRUD işlemlerini ve diğer yaygın işlemleri ge
 | [Öğeyi silme](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ItemManagement/app.js#L162-L164) |[Item.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/item?view=azure-node-latest) |
 
 ## <a name="indexing-examples"></a>Dizin örnekleri
-[IndexManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/IndexManagement) projesinin [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement/app.js) dosyasında aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir.
+[IndexManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/IndexManagement) projesinin [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement/app.js) dosyasında aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir.  Aşağıdaki örneği çalıştırmadan önce Azure Cosmos DB'de dizinleme hakkında bilgi edinmek için [dizinleme ilkeleri](index-policy.md), [türlerini dizinleme](index-types.md), ve [dizin yolları](index-paths.md) kavramsal makaleler. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -92,11 +92,8 @@ Azure Cosmos DB kaynaklarında CRUD işlemlerini ve diğer yaygın işlemleri ge
 | [Dize yolunda bir aralık dizini oluşturma](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/IndexManagement/app.js#L281-L346) |[IndexKind.Range](https://docs.microsoft.com/javascript/api/%40azure/cosmos/indexkind?view=azure-node-latest), [IndexingPolicy](https://docs.microsoft.com/javascript/api/%40azure/cosmos/indexingpolicy?view=azure-node-latest), [Items.query](https://docs.microsoft.com/javascript/api/%40azure/cosmos/items?view=azure-node-latest) |
 | [Varsayılan indexPolicy ile kapsayıcı oluşturma, ardından bunu çevrimiçi güncelleştirme](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/IndexManagement/app.js#L435-L507) |[Containers.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/containers?view=azure-node-latest)
 
-
-Dizin oluşturma hakkında daha fazla bilgi için bkz. [Azure Cosmos DB dizin oluşturma ilkeleri](index-policy.md).
-
 ## <a name="server-side-programming-examples"></a>Sunucu tarafı programlama örnekleri
-[ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) projesinin [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) dosyasında aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir.
+[ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) projesinin [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) dosyasında aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos DB'de sunucu tarafı programlama hakkında bilgi edinmek için bkz. [saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevleri](stored-procedures-triggers-udfs.md) kavramsal makale. 
 
 | Görev | API başvurusu |
 | --- | --- |

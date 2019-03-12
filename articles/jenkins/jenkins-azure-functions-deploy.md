@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 02/23/2019
-ms.openlocfilehash: 1138af0e073f68842861df86acd4d9d6eb467782
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 93504de6384be530ba037f662f7b043729aa3f99
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825044"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536930"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Jenkins Azure işlevleri eklentiyi kullanarak, Azure işlevleri için dağıtma
 
@@ -89,6 +89,14 @@ Aşağıdaki adımlarda, Jenkins sunucusu hazırlama açıklanmaktadır:
 
 1. "Microsoft Azure hizmet sorumlusu" kimlik bilgisi türü, Azure hizmet sorumlusu kullanarak Jenkins ekleyin. Başvurmak [Azure App Service'e dağıtma](./tutorial-jenkins-deploy-web-app-azure-app-service.md#add-service-principal-to-jenkins) öğretici.
 
+## <a name="fork-the-sample-github-repo"></a>Örnek GitHub depo çatalı oluşturma
+
+1. [Oturum açmak için tek veya hatta örnek uygulama için GitHub deposunu](https://github.com/VSChina/odd-or-even-function.git).
+
+1. Github'da sağ üst köşedeki seçin **çatal**.
+
+1. GitHub hesabınızı seçin ve çatal tamamlamak için yönergeleri izleyin.
+
 ## <a name="create-a-jenkins-pipeline"></a>Jenkins işlem hattı oluşturma
 
 Bu bölümde, oluşturduğunuz [Jenkins işlem hattı](https://jenkins.io/doc/book/pipeline/).
@@ -107,7 +115,27 @@ Bu bölümde, oluşturduğunuz [Jenkins işlem hattı](https://jenkins.io/doc/bo
     
 1. İçinde **Ardışık Düzen -> tanımı** bölümünden **işlem hattı SCM betikten**.
 
-1. Sağlanan kullanarak SCM depo URL'si ve komut dosyası yolunu girin [betiği örneği](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
+1. Kullanmak için GitHub çatalınızın URL'sini ve betik yolu ("doc/kaynak/jenkins/JenkinsFile") girin [JenkinsFile örnek](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
+
+   ```
+   node {
+    stage('Init') {
+        checkout scm
+        }
+
+    stage('Build') {
+        sh 'mvn clean package'
+        }
+
+    stage('Publish') {
+        azureFunctionAppPublish appName: env.FUNCTION_NAME, 
+                                azureCredentialsId: env.AZURE_CRED_ID, 
+                                filePath: '**/*.json,**/*.jar,bin/*,HttpTrigger-Java/*', 
+                                resourceGroup: env.RES_GROUP, 
+                                sourceDirectory: 'target/azure-functions/odd-or-even-function-sample'
+        }
+    }
+    ```
 
 ## <a name="build-and-deploy"></a>Derleme ve dağıtma
 

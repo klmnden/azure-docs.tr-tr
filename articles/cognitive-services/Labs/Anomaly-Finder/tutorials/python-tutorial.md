@@ -10,18 +10,18 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2df1e2c261069473a02b40e4a7e45895eadea42d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5a2fb54658599e0500944aaae9225f314277f9da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219405"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539097"
 ---
 # <a name="tutorial-anomaly-detection-with-python-application"></a>Öğretici: Python uygulaması ile anomali algılama
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Bu öğreticide, Python’da Anomali Algılama API’sinin nasıl kullanılacağı ve popüler kitaplıklar kullanılarak sonuçlarınızın nasıl görselleştirileceği gösterilmektedir. Öğreticiyi çalıştırmak için Jupyter kullanın ve kendi abonelik anahtarınızı kullanarak elinizdeki verilerle deneme yapın. Etkileşimli Jupyter notebook’ları nasıl kullanmaya başlayacağınızı öğrenmek için [Jupyter Belgeleri](http://jupyter.readthedocs.io/en/latest/index.html)’ne bakın. 
+Bu öğreticide, Python’da Anomali Algılama API’sinin nasıl kullanılacağı ve popüler kitaplıklar kullanılarak sonuçlarınızın nasıl görselleştirileceği gösterilmektedir. Öğreticiyi çalıştırmak için Jupyter kullanın ve kendi abonelik anahtarınızı kullanarak elinizdeki verilerle deneme yapın. Etkileşimli Jupyter notebook’ları nasıl kullanmaya başlayacağınızı öğrenmek için [Jupyter Belgeleri](https://jupyter.readthedocs.io/en/latest/index.html)’ne bakın. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba454965ff2bb78ebe526e71d9280200b1f4b08b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d7c63503d0e1c142dfc1ef685453b93e24ec52b3
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187203"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730391"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances nedir?
 
@@ -48,9 +48,14 @@ Azure Container Instances ile durum alma ve durumu kalıcı hale getirme işleml
 
 Azure Container Instances, aynı API ile hem Windows hem de Linux kapsayıcıları zamanlayabilir. [Kapsayıcı gruplarınızı](container-instances-container-groups.md) oluştururken işletim sistemi türünü belirmeniz yeterlidir.
 
-Bazı özellikler şu anda Linux kapsayıcılarıyla kısıtlıdır. Özellik eşliğini Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Container Instances için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
+Bazı özellikler şu anda Linux kapsayıcıları için kısıtlanmıştır:
 
-Azure Container Instances, Uzun Süreli Hizmet Kanalı (LTSC) sürümlerini kullanan Windows görüntülerini destekler. 1709 ve 1803 gibi Windows Yarı Yıllık Kanal (SAC) sürümleri desteklenmez.
+* Kapsayıcı grubu başına birden çok kapsayıcı
+* Birim bağlama ([Azure dosyaları](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [gizli](container-instances-volume-secret.md))
+* [Sanal ağ dağıtım](container-instances-vnet.md) (Önizleme)
+* [GPU kaynakları](container-instances-gpu.md) (Önizleme)
+
+Azure Container Instances, uzun süreli bakım kanalı (LTSC) sürüme göre Windows Server 2016 görüntüleri destekler. 1709 ve 1803 gibi Windows Yarı Yıllık Kanal (SAC) sürümleri desteklenmez.
 
 ## <a name="co-scheduled-groups"></a>Birlikte zamanlanmış gruplar
 

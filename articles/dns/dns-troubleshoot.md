@@ -1,6 +1,6 @@
 ---
 title: Azure DNS sorun giderme kılavuzu | Microsoft Docs
-description: Azure DNS ile ilgili genel sorunları giderme
+description: Azure DNS ile ilgili yaygın sorunları giderme
 services: dns
 documentationcenter: na
 author: genlin
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: genli
-ms.openlocfilehash: 816ad6c0079e9272286cdc072ff71bf15313eb8e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069108"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541579"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS sorun giderme kılavuzu
 
-Bu sayfa, ortak Azure DNS sorular için sorun giderme bilgileri sağlar.
+Bu sayfa, Azure DNS genel sorular için sorun giderme bilgileri sağlar.
 
-Bu adımları sorununuzu çözmüyorsa, ayrıca arayın veya sorununuzu ileti bizim [MSDN topluluk Destek Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Alternatif olarak, bir Azure destek isteği açın.
+Bu adımlar sorunu çözmezse ayrıca arayın veya sorununuzu gönderin bizim [MSDN topluluk Destek Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Alternatif olarak, bir Azure destek isteği açın.
 
 
-## <a name="i-cant-create-a-dns-zone"></a>Bir DNS bölgesi oluşturma kullanılamaz
+## <a name="i-cant-create-a-dns-zone"></a>Bir DNS bölgesi oluşturamıyorum
 
 Sık karşılaşılan sorunları çözmek için aşağıdaki adımlardan birini veya daha fazlasını deneyin:
 
@@ -69,11 +69,11 @@ DNS ad çözümlemesi, çeşitli nedenlerle başarısız olabilecek çok adıml�
 
 1.  DNS kayıtlarının Azure DNS'de doğru şekilde yapılandırıldığını onaylayın. Azure portalda DNS kayıtlarını gözden geçirin ve bölge adının, kayıt adının ve kayıt türünün doğru olduğunu kontrol edin.
 2.  DNS kayıtlarının, Azure DNS ad sunucularında doğru şekilde çözümlendiğini onaylayın.
-    - Yerel bilgisayarınızdan DNS sorguları yaparsanız ad sunucularının geçerli durumunu yansıtmayan önbelleğe alınmış sonuçlar görebilirsiniz.  Ayrıca, kurumsal ağlar çoğu zaman DNS sorgularının belirli ad sunucularına yönlendirilmesini önleyen DNS ara sunucuları kullanır.  Bu sorunları önlemek için [digwebinterface](http://digwebinterface.com) gibi web tabanlı ad çözümlemesi hizmeti kullanın.
+    - Yerel bilgisayarınızdan DNS sorguları yaparsanız ad sunucularının geçerli durumunu yansıtmayan önbelleğe alınmış sonuçlar görebilirsiniz.  Ayrıca, kurumsal ağlar çoğu zaman DNS sorgularının belirli ad sunucularına yönlendirilmesini önleyen DNS ara sunucuları kullanır.  Bu sorunları önlemek için [digwebinterface](https://digwebinterface.com) gibi web tabanlı ad çözümlemesi hizmeti kullanın.
     - DNS bölgeniz için Azure portalda gösterildiği gibi doğru ad sunucularını belirttiğinizden emin olun.
     - DNS adının (bölge adı da dahil tam adı belirtmeniz gerekir) ve kayıt türünün doğru olduğunu kontrol edin
 3.  DNS etki alanı adının, [Azure DNS ad sunucularına doğru şekilde atandığını](dns-domain-delegation.md) onaylayın. [DNS temsilci seçme doğrulaması hizmeti sunan birçok 3. taraf web sitesi](https://www.bing.com/search?q=dns+check+tool) vardır. Bu test bir *bölge* temsilcisi seçme testidir, bu nedenle yalnızca DNS bölge adını girmeli, tam kayıt adını girmemelisiniz.
-4.  Yukarıdakiler tamamlandıktan sonra, DNS kaydınızın artık doğru şekilde çözümlenmesi gerekir. Doğrulamak için [digwebinterface](http://digwebinterface.com)’i, bu kez varsayılan ad sunucusu ayarlarından yararlanarak yeniden kullanabilirsiniz.
+4.  Yukarıdakiler tamamlandıktan sonra, DNS kaydınızın artık doğru şekilde çözümlenmesi gerekir. Doğrulamak için [digwebinterface](https://digwebinterface.com)’i, bu kez varsayılan ad sunucusu ayarlarından yararlanarak yeniden kullanabilirsiniz.
 
 
 ### <a name="recommended-documents"></a>**Önerilen belgeler**
@@ -95,7 +95,7 @@ Azure DNS, DNS kayıtlarını kayıt kümeleri olarak yönetir. Bu kümeler, ayn
 
 [DNS bölgeleri ve kayıtları](dns-zones-records.md)
 <br>
-[Azure portal kullanarak DNS kayıt kümelerini ve kayıtları oluşturma](dns-getstarted-create-recordset-portal.md)
+[Azure portalını kullanarak DNS kayıt kümeleri ve kayıtları oluşturma](dns-getstarted-create-recordset-portal.md)
 <br>
 [SRV kayıt türü (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
@@ -103,6 +103,6 @@ Azure DNS, DNS kayıtlarını kayıt kümeleri olarak yönetir. Bu kümeler, ayn
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Hakkında bilgi edinin [Azure DNS bölgeleri ve kayıtları](dns-zones-records.md)
-* Azure DNS kullanmaya başlamak için bilgi nasıl [bir DNS bölgesi oluşturma](dns-getstarted-create-dnszone-portal.md) ve [DNS kayıtlarını oluşturun](dns-getstarted-create-recordset-portal.md).
-* Varolan bir DNS bölgesi geçirmek için bilgi nasıl [içeri ve dışarı aktarma bir DNS bölge dosyasına](dns-import-export.md).
+* Azure DNS kullanmaya başlamak için bilgi nasıl [DNS bölgesi oluşturma](dns-getstarted-create-dnszone-portal.md) ve [DNS kayıtları oluşturma](dns-getstarted-create-recordset-portal.md).
+* Mevcut bir DNS bölgesini geçirmeyi öğrenin nasıl [DNS bölge dosyasını içeri ve dışarı](dns-import-export.md).
 

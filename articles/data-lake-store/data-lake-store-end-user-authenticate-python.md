@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 1ba7dbd9436a15989564a806a7c8f586c01e5243
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2e8859667e3a69f51ae23bab0487bf15d9eeeab6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128078"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537193"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Python kullanarak son kullanıcı kimlik doğrulaması ile Azure Data Lake depolama Gen1
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Data Lake depolama Gen1 ile çalışmak için Python'ı kullanarak, üç modül 
 
 * `azure-mgmt-resource` modülü, Active Directory gibi şeyler için Azure modüllerini içerir.
 * `azure-mgmt-datalake-store` Modülü Azure Data Lake depolama Gen1 hesap yönetim işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [Azure Data Lake depolama Gen1 Yönetimi modül başvurusu](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* `azure-datalake-store` Modülü Azure Data Lake depolama Gen1 dosya sistemi işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [azure-datalake-store dosya sistemi modül başvurusu](http://azure-datalake-store.readthedocs.io/en/latest/).
+* `azure-datalake-store` Modülü Azure Data Lake depolama Gen1 dosya sistemi işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [azure-datalake-store dosya sistemi modül başvurusu](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Modülleri yüklemek için aşağıdaki komutları kullanın.
 

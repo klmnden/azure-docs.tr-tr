@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 03/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 993d3dc065b792cc6d4ca0b1321cb1950cea85d8
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: a5033b9eab637a62c6bea4f95f4e604313125994
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652634"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542056"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight üzerinde üçüncü taraf Apache Hadoop uygulamaları yükleme
 
@@ -24,21 +24,24 @@ Bir HDInsight uygulaması kullanıcıların bir HDInsight kümesine yükleyebile
 
 Aşağıdaki liste, yayımlanan uygulamalara gösterir:
 
-* **AtScale zeka platformu** genişleme OLAP sunucusunun, HDInsight kümenizle kapatır. Uygulama sorgu etkileşimli olarak QlikView Microsoft Excel, Power BI, Tableau Software BI araçları kullanarak veri satırı milyarlarca olanak tanır.
-* **Cask CDAP HDInsight için** % 80 için veri uygulamaları ve veri göllerinin üretim süresini kısalttı büyük veriler için ilk Birleşik tümleştirme platformunu sağlar. Bu uygulama yalnızca Standart HBase 3.4 kümelerini destekler.
-* **HDInsight üzerinde DATAIKU DDS** için prototip oluşturma, veri uzmanları oluşturmanızı ve ham verileri etkili iş tahminlerine dönüştüren yüksek oranda ayrıntılı hizmetler dağıtmanızı sağlar.
-* **Datameer** hazırlama, bir Self Servis ölçeklenebilir platformu keşfetme, ve analiz için verilerinizi düzenleyen hızlandırır karmaşık çok kaynaklı veri değerli çalışma ortamına hazır bilgi, daha hızlı ve daha akıllı içgörüler sunan, oturum açma bir Kurumsal ölçekte.
-* **HDInsight (Beta) için yapay zeka H2O** H2O Sparkling Water aşağıdaki dağıtılmış algoritmaları destekler: GLM Naïve Bayes, dağıtılmış rasgele orman, gradyan artırma makine, derin öğrenme derin sinir ağları, K-ortalamaları, PCA, genelleştirilmiş düşük sıra modelleri, Anomali algılama ve Autoencoders.
-* **Kyligence Kurumsal**, Apache Kylin tarafından desteklenen, anlık Öngörüler, iş kullanıcıları ve veri analistleri için çok büyük veri kümelerinde getirir. Modern makine öğrenimi teknolojisi ve akıllı veri işlevselliği modelleme, büyük veri analizi verimliliğini önemli ölçüde artırır. 
-* **Paxata Self Servis veri hazırlama**
-* **Spark iş sunucusu KNIME Spark Yürütücü için** KNIME Spark Yürütücü için Spark iş sunucusu KNIME analiz platformu HDInsight kümelerine bağlanmak için kullanılır.
-* **Yıldız Yağmuru Presto** Presto bir hızlı ve ölçeklenebilir dağıtılmış SQL sorgu alt yapısıdır. Depolama ve işlem ayrımı için tasarlanmış, Presto Azure Data Lake Storage, Azure Blob Depolama, SQL ve NoSQL veritabanları ve diğer veri kaynaklarından veri sorgulamak için idealdir.
-* **HDnsight için Akış Kümeleri Veri Toplayıcısı**, tam özellikli bir tümleşik geliştirme ortamı (IDE) sağlar. Bu ortam, akış ve toplu işlem verileri arasında ağ oluşturan “herhangi birinden herhangi birine” alma işlem hatlarını tasarlamanıza, test etmenize, dağıtmanıza ve yönetmenize olanak tanır. Üstelik hiçbiri için özel kod yazmanız gerekmez. 
-* **Striim** ("akış" olarak okunur) olan bir uçtan uca akış veri tümleştirme ve sürekli alımı, işleme ve analizi farklı veri akışları etkinleştirme, zeka platformu.
-* **[Trifacta](https://www.trifacta.com/)**  daha verimli bir şekilde keşfedin ve çığır açan bir kullanıcı deneyimi, iş akışı ve mimari sağlamak için makine öğrenimini kullanarak çeşitli veri günümüzün hazırlamak, veri mühendisleri ve analistleri sağlar.
-* **Unifi veri platformu** sorunsuzca tümleştirilen iş kullanıcının veri sorunuyla başa çıkmasına Bu sürücü gelirlerinizi, maliyetler veya işletim karmaşıklığını azaltmak için tasarlanan bir Self Servis veri araçları paketidir. 
-* **WANdisco Fusion HDI uygulama** bulunduğu her yerde veriler değiştikçe verileri tutarlı sürekli bağlantı sağlar. Size erişim verilerinize dilediğiniz zaman ve herhangi bir kapalı kalma süresi olmadan ve hiçbir kesinti ile sağlar.
-* **Waterline** kataloglar, düzenler ve veri iş terimlerini otomatik etiketle verilerle yapay ZEKA kullanarak yönetir. Waterline'nın iş literate Kataloğu, Self Servis analizler, uyumluluk ve idare ve BT yönetimi girişimleri için önemli bir başarı bileşenidir.
+|Uygulama |Küme türleri | Açıklama |
+|---|---|---|
+|AtScale zeka platformu |Hadoop |AtScale sorgu milyarlarca satır etkileşimli olarak zaten biliyorsanız, sahibi ve QlikView için Microsoft Excel, Power BI, Tableau Software – sevdiğiniz BI araçlarını kullanarak veri izin vererek, HDInsight kümenizle genişleme OLAP sunucusunun kapatır. |
+|CDAP 4.2, HDInsight için 4.3 |HBase |CDAP, saat değeri için Self Servis veri sağlamak Hadoop ve BT'nin hızlandırır büyük veriler için ilk Birleşik tümleştirme platformudur. Açık kaynaklı ve Genişletilebilir CDAP yenilik teknolojik avantajların önündeki engelleri kaldırır. Gereksinimler: 4 bölge düğüm, en düşük D3 v2. |
+|Datameer |Hadoop |Hazırlama Datameer'ın Self-Servis ölçeklenebilir platformu, karmaşık çok kaynaklı veri değerli çalışma ortamına hazır bilgi, daha hızlı ve daha akıllı içgörüler sunan bir kurumsal ölçekte oturum kapatma keşfetmeye ve analiz için verilerinizi düzenleyen hızlandırır. |
+|HDInsight üzerinde Dataiku DSS |Hadoop, Spark |Dataiku DSS, veri uzmanları ve veri analistleri sağlayan bir kurumsal veri bilimi platformu işbirliği tasarlamak ve yeni veri ürünleri ve Hizmetleri daha verimli bir şekilde çalıştırmak için ham verileri etkili tahminlerine kapatma. |
+|WANdisco Fusion HDI uygulama - 2.12.3, 2.12.1 2.11.2 |Hadoop, Spark, HBase, Storm, Kafka |Dağıtılmış bir ortamda tutarlı verileri tutmak çok büyük veri işlemleri zordur. WANdisco Fusion, kurumsal düzeyde yazılım platformu, yapılandırılmamış veriler tutarlılık arasında herhangi bir ortam sağlayarak bu sorunu çözer. |
+|HDInsight için H2O SparklingWater |Spark |H2O Sparkling Water aşağıdaki dağıtılmış algoritmaları destekler: GLM, Naïve Bayes, dağıtılmış rasgele orman, gradyan geliştirme makinesi, derin öğrenme, K-ortalamaları, PCA, genelleştirilmiş düşük sıra modelleri, Anomali algılama, Autoencoders derin sinir ağları. |
+|HDInsight için gerçek zamanlı veri tümleştirmesi Striim |Hadoop,HBase,Storm,Spark,Kafka |Bir-akış veri tümleştirmesi + zeka platformu, sürekli alımı, işleme ve analizi farklı veri akışları etkinleştirme uca Striim (okunur "stream") olur. |
+|HDInsight için Jumbune |Hadoop, Spark |Yüksek bir düzeyde Jumbune 1, kuruluşlara yardımcı olur. Tez hızlandırma, MapReduce ve Spark altyapısı yığın, Java, Scala iş yükü performansı temel. 2. İzleme, 3 proaktif Hadoop kümesi. Dağıtılmış dosya sistemi veri kalitesi yönetimini kurma. |
+|Kyligence Enterprise |Hadoop,HBase,Spark |Apache Kylin tarafından desteklenen, Kyligence Kurumsal BI büyük verileri sağlar. Hadoop üzerinde bir kurumsal OLAP altyapısı Kyligence Kurumsal BI metodolojisini ve endüstri standardı veri ambarı ile hadoop'ta BI mimari için iş analisti düşürüyor. |
+|Spark iş sunucusu KNIME Spark Yürütücü için |Spark |Spark iş sunucusu KNIME Spark Yürütücü için KNIME analiz platformu HDInsight kümelerine bağlanmak için kullanılır. |
+|Yıldız Yağmuru Presto üzerindeki Azure HDInsight, Yıldız Yağmuru Presto (v0.213 e) |Hadoop |Bir hızlı ve ölçeklenebilir dağıtılmış SQL sorgu presto altyapısıdır. Depolama ve işlem ayrımı için tasarlanmış, Presto Azure Data Lake Storage, Azure Blob Depolama, SQL ve NoSQL veritabanları ve diğer veri kaynaklarından veri sorgulamak için idealdir. |
+|HDInsight bulut için StreamSets Data Collector |Hadoop,HBase,Spark,Kafka |StreamSets Data Collector, gerçek zamanlı veri akışları basit, güçlü bir altyapısıdır. Veri Toplayıcı, veri akışlarını rota ve işlem verileri için kullanın. Bu, 30 günlük deneme sürümü lisansı ile birlikte gelir. |
+|[Trifacta Wrangler Enterprise](https://www.trifacta.com/) |Hadoop, Spark, HBase |HDInsight için Trifacta Wrangler kurumsal verilerin herhangi bir ölçekte denetimi Kurumsal çapta veri destekler. Trifacta Azure'da çalıştırmanın maliyeti, Trifacta abonelik maliyetleri ve sanal makineler için Azure altyapı maliyetleri birleşimidir. |
+|3.1 Unifi veri platformu |Hadoop,HBase,Storm,Spark |Unifi veri platformu sorunsuz bir şekilde tümleşik bir veri sorunlarını gidermek için iş kullanıcısı bu sürücü gelirlerinizi güç katın, maliyetler veya işletim karmaşıklığını azaltmak üzere tasarlanan bir Self Servis veri araçları paketidir. |
+|Unraveldata APM |Spark |HDInsight Spark kümesi için uygulama verileri aydınlatmak. |
+|Waterline veri Kataloğu |Spark |Waterline kataloglar, düzenler ve veri iş terimlerini otomatik etiketi verilerle yapay ZEKA kullanarak yönetir. Waterline'nın iş literate Kataloğu, Self Servis analizler, uyumluluk ve idare ve BT yönetimi girişimleri için önemli bir başarı bileşenidir. |
 
 Bu makalede verilen yönergeler Azure portalı kullanmaktadır. Ayrıca portaldan Azure Resource Manager şablonunu dışarı aktarabilir veya satıcılardan Resource Manager şablonunun bir kopyasını edinmek ve şablonu dağıtmak için Azure PowerShell ve klasik Azure CLI'yı kullanın.  Bkz: [Apache Hadoop kümeleri oluşturma Resource Manager şablonlarını kullanarak HDInsight üzerinde](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -51,20 +54,20 @@ Aşağıdaki yordamda var olan bir HDInsight kümesine HDInsight uygulamaların�
 **Bir HDInsight uygulaması yükleme**
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Soldaki menüde **HDInsight Kümeleri**’ne tıklayın.
-3. Bir HDInsight kümesine tıklayın.  Henüz yoksa öncelikle bir tane oluşturmanız gerekir.  bkz. [Küme oluşturma](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. **Yapılandırmalar** kategorisinden **Uygulamalar**‘a tıklayın. Yüklü uygulamaların bir listesini görebilirsiniz. Uygulamalar seçeneğini bulamıyorsanız bu, HDInsight kümesinin bu sürümü için bir uygulama olmadığı anlamına gelir.
+2. Sol menüden gidin **tüm hizmetleri** > **Analytics** > **HDInsight kümeleri**.
+3. Bir HDInsight kümesi listeden seçin.  Henüz yoksa öncelikle bir tane oluşturmanız gerekir.  bkz. [Küme oluşturma](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+4. Altında **ayarları** kategorisi, select **uygulamaları**. Ana penceresinde yüklü uygulamaların bir listesini görebilirsiniz. 
    
     ![HDInsight uygulamaları portal menüsü](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
-5. Tıklayın **Ekle** menüsünde. Mevcut HDInsight uygulamalarının listesini görebilirsiniz.
+5. Seçin **+ Ekle** menüsünde. Kullanılabilir uygulamaların listesini görebilirsiniz.  Varsa **+ Ekle** griyse, HDInsight kümesinin bu sürümü için uygulama olduğu anlamına gelir vardır.
    
     ![HDInsight uygulamaları kullanılabilir uygulamalar](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
-6. Kullanılabilir uygulamaları birine tıklayın ve ardından yasal koşulları kabul etmek için yönergeleri izleyin.
+6. Kullanılabilir uygulamaları birini seçin ve ardından yasal koşulları kabul etmek için yönergeleri izleyin.
 
-Yükleme durumunu portal bildirimlerinden görebilirsiniz (portalın üst kısmındaki zil simgesine tıklayın). Uygulama yüklendikten sonra uygulama yüklü uygulamalar listesinde görüntülenir.
+Yükleme durumunu portal bildirimlerinden (portalın üst kısmındaki zil simgesini seçin) görebilirsiniz. Uygulama yüklendikten sonra uygulama yüklü uygulamalar listesinde görüntülenir.
 
 ## <a name="install-applications-during-cluster-creation"></a>Küme oluşturma sırasında uygulama yükleme
-Bir küme oluştururken HDInsight uygulamaları yükleme seçeneğine sahipsiniz. İşlem sırasında, küme oluşturulup çalışır duruma geldikten sonra HDInsight uygulamaları yüklenir. Azure portalını kullanarak küme oluşturma sırasında uygulamaları yüklemek için--özel--seçeneği yerine varsayılan--hızlı kullandığınız seçeneği--oluşturun.
+Bir küme oluştururken HDInsight uygulamaları yükleme seçeneğine sahipsiniz. İşlem sırasında, küme oluşturulup çalışır duruma geldikten sonra HDInsight uygulamaları yüklenir. Azure portalını kullanarak küme oluşturma sırasında uygulamaları yüklemek için kullandığınız **özel** seçeneği varsayılan yerine **hızlı oluşturma** seçeneği.
 
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Yüklü HDInsight uygulamalarını ve özelliklerini listeleme
 Portal bir küme için yüklü HDInsight uygulamalarının listesini ve yüklü olan her bir uygulamanın özelliklerini gösterir.
@@ -72,18 +75,21 @@ Portal bir küme için yüklü HDInsight uygulamalarının listesini ve yüklü 
 **HDInsight uygulamasını listelemek ve özellikleri görüntülemek**
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Soldaki menüde **HDInsight Kümeleri**’ne tıklayın. 
-3. Bir HDInsight kümesine tıklayın.
-4. Gelen **ayarları**, tıklayın **uygulamaları** altında **yapılandırma** kategorisi. Sağ tarafta yüklü uygulamalar listelenir. 
+2. Sol menüden gidin **tüm hizmetleri** > **Analytics** > **HDInsight kümeleri**.
+3. Bir HDInsight kümesi listeden seçin.
+4. Altında **ayarları** kategorisi, select **uygulamaları**. Ana penceresinde yüklü uygulamaların bir listesini görebilirsiniz. 
    
     ![HDInsight uygulamaları yüklü uygulamalar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
-5. Özelliği görüntülemek için yüklü uygulamalardan birine tıklayın. Özellik listeleri:
-   
-   * Uygulama adı: uygulamanın adı.
-   * Durum: uygulamanın durumu. 
-   * Web sayfası: Kenar düğümüne dağıttığınız web uygulamasının URL'si. Kimlik bilgisi, küme için yapılandırdığınız HTTP kullanıcısı kimlik bilgileri ile aynıdır.
-   * HTTP uç noktası: Kimlik bilgisi, küme için yapılandırdığınız HTTP kullanıcısı kimlik bilgileri ile aynıdır. 
-   * SSH uç noktası: Kenar düğümüne bağlanmak için SSH kullanabilirsiniz. SSH kimlik bilgileri, küme için yapılandırdığınız SSH kullanıcısı kimlik bilgileriyle aynıdır. Bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+5. Özelliği görüntülemek için yüklü uygulamalardan birini seçin. Özellik listeleri:
+
+    |Özellik | Açıklama |
+    |---|---|
+    |Uygulama adı |Uygulama adı. |
+    |Durum |Uygulama durumu. |
+    |Web sayfası |Kenar düğümüne dağıttığınız web uygulamasının URL'si. Kimlik bilgisi, küme için yapılandırdığınız HTTP kullanıcısı kimlik bilgileri ile aynıdır. |
+    |SSH uç noktası |Kenar düğümüne bağlanmak için SSH kullanabilirsiniz. SSH kimlik bilgileri, küme için yapılandırdığınız SSH kullanıcısı kimlik bilgileriyle aynıdır. Bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
+    |Açıklama | Uygulama açıklaması. |
+
 6. Bir uygulamayı silmek için uygulamaya sağ tıklayın ve ardından **Sil** bağlam menüsünden.
 
 ## <a name="connect-to-the-edge-node"></a>Kenar düğümüne bağlanma

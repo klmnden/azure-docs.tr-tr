@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: cca6fba401d8673cf97897c24a9d6de2329f19a4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 396c50e6697ed1f111d497f7adeb005e268b80bb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232498"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546424"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Hızlı Başlangıç: PHP ve Bing resim arama REST API'si kullanarak resimler için arama yapın
 
@@ -29,7 +29,7 @@ Bu örneğin kaynak kodu [GitHub](https://github.com/Azure-Samples/cognitive-ser
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [PHP 5.6.x veya üzeri](http://php.net/downloads.php).
+* [PHP 5.6.x veya üzeri](https://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

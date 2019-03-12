@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106850"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531751"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Veri işleme ve kullanıcı tanımlı işlevleri
 
@@ -40,7 +40,7 @@ Azure dijital İkizlerini veri işlemeye oluşur üç nesneleri tanımlama: *mat
 
 ### <a name="matchers"></a>Matchers
 
-Matchers bir dizi hangi işlemlerin zaman gelen algılayıcı telemetrisi göz önünde bulundurularak değerlendirme koşulları tanımlayın. Eşleşme belirlemek için koşullar özelliklerinden algılayıcı, algılayıcının üst cihaz ve algılayıcının üst alanı içerebilir. Koşullar karşılaştırmalar olarak ifade edilir bir [JSON yolu](http://jsonpath.com/) Bu örnekte özetlendiği gibi:
+Matchers bir dizi hangi işlemlerin zaman gelen algılayıcı telemetrisi göz önünde bulundurularak değerlendirme koşulları tanımlayın. Eşleşme belirlemek için koşullar özelliklerinden algılayıcı, algılayıcının üst cihaz ve algılayıcının üst alanı içerebilir. Koşullar karşılaştırmalar olarak ifade edilir bir [JSON yolu](https://jsonpath.com/) Bu örnekte özetlendiği gibi:
 
 - Veri türünün tüm algılayıcılar **sıcaklık** kaçan dize değeri tarafından temsil edilen `\"Temperature\"`
 - Sahip `01` kendi bağlantı noktası

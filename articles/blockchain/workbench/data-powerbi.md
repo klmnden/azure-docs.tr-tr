@@ -10,16 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: e50a82f0f141fec266a8348c0a1a8b5fbdb38b45
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 1e12af686a450d39332c37700b9a14b9eb620307
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329863"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530901"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Azure Blockchain Workbench verilerini Microsoft Power BI ile kullanma
 
-Microsoft Power BI, Power BI Desktop uygulamasını kullanarak SQL DB veritabanlarından kolayca güçlü raporlar oluşturma ve bunları [https://www.powerbi.com](http://www.powerbi.com) üzerinde yayımlama olanağı sağlar.
+Microsoft Power BI, Power BI Desktop uygulamasını kullanarak SQL DB veritabanlarından kolayca güçlü raporlar oluşturma ve bunları [https://www.powerbi.com](https://www.powerbi.com) üzerinde yayımlama olanağı sağlar.
 
 Bu makale, Azure Blockchain Workbench'in SQL Veritabanı’na PowerBI Desktop’ın içinden bağlanma, bir rapor oluşturma ve raporu powerbi.com’a dağıtma sürecine ilişkin adım adım bir kılavuz içerir.
 

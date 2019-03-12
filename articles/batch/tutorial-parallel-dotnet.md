@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9db223075284b02de1cf3de8cfa7a0b5aa35f286
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: a6fe5b0452771cd2e618d1a08cb2f4af52e3cc0d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754229"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538699"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Öğretici: .NET API kullanarak Azure Batch ile paralel iş yükü çalıştırma
 
@@ -31,7 +31,7 @@ Büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HPC) toplu işl
 > * Görev yürütmeyi izleme
 > * Çıkış dosyalarını alma
 
-Bu öğreticide, [ffmpeg](http://ffmpeg.org/) açık kaynak aracını kullanarak MP4 medya dosyalarını MP3 biçimine paralel şekilde dönüştürürsünüz. 
+Bu öğreticide, [ffmpeg](https://ffmpeg.org/) açık kaynak aracını kullanarak MP4 medya dosyalarını MP3 biçimine paralel şekilde dönüştürürsünüz. 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 

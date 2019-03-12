@@ -3,17 +3,16 @@ title: SSS - Iaas Vm'leri için Azure Disk şifrelemesi | Microsoft Docs
 description: Bu makale için Microsoft Azure Disk şifrelemesi Windows ve Linux Iaas sanal makineleri hakkında sık sorulan soruların yanıtlarını sağlar.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14804de1d8507a49cda2ce1dd8ee97dc56c0223b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c082de09cbe17bd31e50d14329cfb8f58b01d8fe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439562"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781332"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -44,12 +43,14 @@ Azure Disk şifrelemesi, aşağıdaki Linux sunucusu dağıtımları ve sürüml
 | --- | --- |--- |
 | Ubuntu | 16.04| İşletim sistemi ve veri diski |
 | Ubuntu | 14.04.5</br>[Azure ile 4.15 veya üzeri için güncelleştirilmiş çekirdek ayarlanmış](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | İşletim sistemi ve veri diski |
+| RHEL | 7.6 | İşletim sistemi ve veri disk * |
 | RHEL | 7.5 | İşletim sistemi ve veri disk * |
 | RHEL | 7.4 | İşletim sistemi ve veri disk * |
 | RHEL | 7.3 | İşletim sistemi ve veri disk * |
 | RHEL | 7.2 | İşletim sistemi ve veri disk * |
 | RHEL | 6.8 | Veri diski * |
 | RHEL | 6.7 | Veri diski * |
+| CentOS | 7.5 | İşletim sistemi ve veri diski |
 | CentOS | 7.4 | İşletim sistemi ve veri diski |
 | CentOS | 7.3 | İşletim sistemi ve veri diski |
 | CentOS | 7.2n | İşletim sistemi ve veri diski |

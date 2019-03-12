@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d3152eb4b2512e05cad60772f8c4c75dd929758a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051706"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535603"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Batch havuzları, RDMA veya GPU örnekleri kullan
 
@@ -100,7 +100,7 @@ Batch'te işlem yoğunluklu boyutları RDMA veya GPU yeteneklerini, yalnızca be
 
 Bir Windows NC düğümleri havuzunda CUDA uygulamalarını çalıştırmak için NVDIA GPU sürücüleri yüklemeniz gerekir. Aşağıdaki örnek adımlarda, NVIDIA GPU sürücülerini yüklemek için bir uygulama paketi kullanın. İş yükünüz belirli bir GPU sürücü sürümü bağlıysa bu seçeneği belirleyebilirsiniz.
 
-1. GPU sürücüleri Windows Server 2016'dan bir Kurulum paketini indirme [NVIDIA Web sitesi](https://www.nvidia.com/Download/index.aspx) - Örneğin, [sürüm 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Yerel olarak gibi kısa ad kullanarak dosyayı kaydedin *GPUDriverSetup.exe*.
+1. GPU sürücüleri Windows Server 2016'dan bir Kurulum paketini indirme [NVIDIA Web sitesi](https://www.nvidia.com/Download/index.aspx) - Örneğin, [sürüm 411.82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Yerel olarak gibi kısa ad kullanarak dosyayı kaydedin *GPUDriverSetup.exe*.
 2. Bir paket zip dosyası oluşturun.
 3. Paket Batch hesabınıza yükleyin. Adımlar için bkz: [uygulama paketleri](batch-application-packages.md) Kılavuzu. Bir uygulama kimliği gibi belirtin *GPUDriver*ve sürümü gibi *411.82*.
 1. Azure portalı ve Batch API'lerini kullanarak, istenen düğüm sayısını ve ölçek ile sanal makine yapılandırması bir havuz oluşturun. Aşağıdaki tablo, bir başlangıç görevi kullanarak sessiz NVIDIA GPU sürücülerini yüklemek için örnek ayarlarını gösterir:
@@ -164,7 +164,7 @@ Azure portalı ve Batch API'lerini kullanarak bu görüntü kullanarak havuz olu
 | ---- | ---- |
 | **Görüntü Türü** | Market (Linux/Windows) |
 | **Yayımcı** | OpenLogic |
-| **Teklif** | CentOS HPC |
+| **Teklif** | CentOS-HPC |
 | **Sku** | 7.4 |
 | **Düğüm boyutu** | H16r standart |
 | **Etkin düğümler arası iletişim** | True |

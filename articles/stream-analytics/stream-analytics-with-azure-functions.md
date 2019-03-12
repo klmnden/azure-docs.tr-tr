@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 8ef1b2a2271106a382faf9e06d57b44ca1bf033b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 80977c13aa9851ea5df9a15f5b9580dd1a931259
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810805"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569204"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics işlerinden Azure İşlevleri’ni çalıştırma 
 
@@ -63,77 +63,77 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
 
 2. **run.csx** işlevine göz atın. Aşağıdaki kodla güncelleştirin. (Değiştirdiğinizden emin olun "\<, Azure önbelleği için Redis bağlantı dizesi buraya\>" Azure Cache önceki bölümde aldığınız Redis birincil bağlantı dizesi ile.)  
 
-   ```csharp
-   using System;
-   using System.Net;
-   using System.Threading.Tasks;
-   using StackExchange.Redis;
-   using Newtonsoft.Json;
-   using System.Configuration;
+    ```csharp
+    using System;
+    using System.Net;
+    using System.Threading.Tasks;
+    using StackExchange.Redis;
+    using Newtonsoft.Json;
+    using System.Configuration;
 
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-   {
-      log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    {
+        log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
     
-      // Get the request body
-      dynamic dataArray = await req.Content.ReadAsAsync<object>();
+        // Get the request body
+        dynamic dataArray = await req.Content.ReadAsAsync<object>();
 
-      // Throw an HTTP Request Entity Too Large exception when the incoming batch(dataArray) is greater than 256 KB. Make sure that the size value is consistent with the value entered in the Stream Analytics portal.
+        // Throw an HTTP Request Entity Too Large exception when the incoming batch(dataArray) is greater than 256 KB. Make sure that the size value is consistent with the value entered in the Stream Analytics portal.
 
-      if (dataArray.ToString().Length > 262144)
-      {        
-         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
-      }
-      var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
-      log.Info($"Connection string.. {connection}");
+        if (dataArray.ToString().Length > 262144)
+        {
+            return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
+        }
+        var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
+        log.Info($"Connection string.. {connection}");
     
-      // Connection refers to a property that returns a ConnectionMultiplexer
-      IDatabase db = connection.GetDatabase();
-      log.Info($"Created database {db}");
+        // Connection refers to a property that returns a ConnectionMultiplexer
+        IDatabase db = connection.GetDatabase();
+        log.Info($"Created database {db}");
     
-      log.Info($"Message Count {dataArray.Count}");
+        log.Info($"Message Count {dataArray.Count}");
 
-      // Perform cache operations using the cache object. For example, the following code block adds few integral data types to the cache
-      for (var i = 0; i < dataArray.Count; i++)
-      {
-        string time = dataArray[i].time;
-        string callingnum1 = dataArray[i].callingnum1;
-        string key = time + " - " + callingnum1;
-        db.StringSet(key, dataArray[i].ToString());
-        log.Info($"Object put in database. Key is {key} and value is {dataArray[i].ToString()}");
+        // Perform cache operations using the cache object. For example, the following code block adds few integral data types to the cache
+        for (var i = 0; i < dataArray.Count; i++)
+        {
+            string time = dataArray[i].time;
+            string callingnum1 = dataArray[i].callingnum1;
+            string key = time + " - " + callingnum1;
+            db.StringSet(key, dataArray[i].ToString());
+            log.Info($"Object put in database. Key is {key} and value is {dataArray[i].ToString()}");
        
-      // Simple get of data types from the cache
-      string value = db.StringGet(key);
-      log.Info($"Database got: {value}");
-      }
+            // Simple get of data types from the cache
+            string value = db.StringGet(key);
+            log.Info($"Database got: {value}");
+        }
 
-      return req.CreateResponse(HttpStatusCode.OK, "Got");
-    }    
+        return req.CreateResponse(HttpStatusCode.OK, "Got");
+    }
 
    ```
 
    Stream Analytics işlevden "HTTP İstek Varlığı Çok Büyük" özel durumunu aldığında İşlevler’e gönderdiği toplu işlerin boyutunu azaltır. İşlevinizde Stream Analytics’in aşırı büyük toplu işler göndermediğinden emin olmak için aşağıdaki kodu kullanın. İşlevde kullanılan en büyük toplu iş sayı ve boyut değerlerinin Stream Analytics portalına girilen değerlerle tutarlı olduğundan emin olun.
 
-   ```csharp
-   if (dataArray.ToString().Length > 262144)
-      {        
-        return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
-      }
+    ```csharp
+    if (dataArray.ToString().Length > 262144)
+        {
+            return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
+        }
    ```
 
 3. Tercih ettiğiniz bir metin düzenleyicisinde **project.json** adlı bir JSON dosyası oluşturun. Aşağıdaki kodu kullanın ve yerel bilgisayarınıza kaydedin. Bu dosya, C# işlevinin gerektirdiği NuGet paket bağımlılıklarını içerir.  
    
-   ```json
-       {
-         "frameworks": {
-             "net46": {
-                 "dependencies": {
-                     "StackExchange.Redis":"1.1.603",
-                     "Newtonsoft.Json": "9.0.1"
-                 }
-             }
-         }
-     }
+    ```json
+    {
+        "frameworks": {
+            "net46": {
+                "dependencies": {
+                    "StackExchange.Redis":"1.1.603",
+                    "Newtonsoft.Json": "9.0.1"
+                }
+            }
+        }
+    }
 
    ```
  
@@ -168,8 +168,8 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
 4. Stream Analytics işinizi açın ve sorguyu aşağıdaki gibi güncelleştirin. (Çıktı havuzunu farklı şekilde adlandırdıysanız “saop1” metnini değiştirmeyi unutmayın.)  
 
    ```sql
-    SELECT 
-            System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1, 
+    SELECT
+            System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1,
             CS2.CallingNum as CallingNum2, CS1.SwitchNum as Switch1, CS2.SwitchNum as Switch2
         INTO saop1
         FROM CallStream CS1 TIMESTAMP BY CallRecTime

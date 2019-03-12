@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 2dd9fc5691c646a72936039b6bcc5949d227c6b5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633733"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545345"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -54,7 +54,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Kaynak grubu, bu öğreticideki tüm kaynakları içerir.
 
-1. [http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın.
+1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 2. Azure portalı giriş sayfasında **Kaynak grupları** > **Ekle**'ye tıklayın.
 3. **Kaynak grubu adı** alanına **Test-FW-RG** yazın.
 4. **Abonelik** bölümünde aboneliğinizi seçin.
@@ -109,8 +109,8 @@ Bir sonraki adımda atlama sunucusu için alt ağlar ve iş yükü sunucuları i
 4. Altında **gelen bağlantı noktası kuralları**, için **ortak gelen bağlantı noktası**, tıklayın **Seçili bağlantı noktalarına izin**.
 5. İçin **seçin gelen bağlantı noktalarının**seçin **RDP (3389)**.
 
-6. Diğer varsayılan değerleri kabul edin ve tıklayın **sonraki: diskleri**.
-7. Disk Varsayılanları kabul edin ve tıklayın **sonraki: ağ**.
+6. Diğer varsayılan değerleri kabul edin ve tıklayın **sonraki: Diskleri**.
+7. Disk Varsayılanları kabul edin ve tıklayın **sonraki: Ağ**.
 8. Emin olun **Test FW VN** sanal ağı ve alt ağ için seçili olduğu **atlama SN**.
 9. İçin **genel IP**, tıklayın **Yeni Oluştur**.
 10. Tür **Srv atlama PIP** genel IP adresi adı ve tıklatın **Tamam**.
@@ -141,9 +141,9 @@ Güvenlik duvarını sanal ağa dağıtın.
    |---------|---------|
    |Ad     |Test-FW01|
    |Abonelik     |\<aboneliğiniz\>|
-   |Kaynak grubu     |**Var olanı kullan**: Test-FW-RG |
+   |Kaynak grubu     |**Var olanı kullan**: Test FW RG |
    |Konum     |Önceden kullandığınız konumu seçin|
-   |Bir sanal ağ seçin     |**Var olanı kullan**: Test-FW-VN|
+   |Bir sanal ağ seçin     |**Var olanı kullan**: Test FW VN|
    |Genel IP adresi     |**Yeni oluşturun**. Genel IP adresinin türü Standart SKU olmalıdır.|
 
 5. **Gözden geçir ve oluştur**’a tıklayın.
@@ -235,12 +235,12 @@ Bu öğreticide birincil ve ikincil DNS adreslerini test amacıyla yapılandır�
 1. Azure portalda **Srv-Work** sanal makinesinin ağ ayarlarını gözden geçirin ve özel IP adresini not edin.
 2. **Srv-Jump** sanal makinesine uzak masaüstü bağlantısı kurun ve oradan da **Srv-Work** özel IP adresine uzak masaüstü bağlantısı açın.
 
-3. Internet Explorer'ı açın ve http://msn.com adresine gidin.
+3. Internet Explorer'ı açın ve https://msn.com adresine gidin.
 4. Güvenlik uyarılarında **Tamam** > **Kapat**'a tıklayın.
 
    MSN Giriş sayfasını görmeniz gerekir.
 
-5. http://www.msn.com adresine gidin.
+5. https://www.msn.com adresine gidin.
 
    Güvenlik duvarının engellemesi gerekir.
 
@@ -256,4 +256,4 @@ Güvenlik duvarı kaynaklarını bir sonraki öğretici için tutabilirsiniz vey
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Öğretici: Azure Güvenlik Duvarı günlüklerini izleme](./tutorial-diagnostics.md)
+> [Öğretici: Azure güvenlik duvarı günlüklerini izleyin](./tutorial-diagnostics.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3672d3f0b62978460720509a72e19d1948a39dc5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b7e3aca133e2e9614ab83be83c20a4dbc2ae5fe2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57402453"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542395"
 ---
 # <a name="key-vault-versions"></a>Key Vault sürümleri
 
@@ -48,7 +48,7 @@ Bu sürümde aşağıdaki değişiklikler yapılmıştır:
 
 ## <a name="2015-02-01-preview"></a>2015-02-01-Önizleme 
 
-İkinci Önizleme sürümü 2015-02-01-preview, 20 Nisan 2015'te duyurdu. Daha fazla bilgi için [REST API güncelleştirme](http://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) blog gönderisi.
+İkinci Önizleme sürümü 2015-02-01-preview, 20 Nisan 2015'te duyurdu. Daha fazla bilgi için [REST API güncelleştirme](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) blog gönderisi.
 
 Aşağıdaki görevleri güncelleştirildi:
 

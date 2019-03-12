@@ -1,6 +1,6 @@
 ---
-title: İstek ve yanıt eylemlerini kullanın | Microsoft Docs
-description: İstek ve yanıt tetikleyici ve bir Azure mantıksal uygulama eylemde genel bakış
+title: İstek ve yanıt eylemleri kullanın | Microsoft Docs
+description: İstek ve yanıt tetikleyici ve eylem, bir Azure mantıksal uygulaması'na genel bakış
 services: ''
 documentationcenter: ''
 author: jeffhollan
@@ -15,100 +15,100 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27960570"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552189"
 ---
-# <a name="get-started-with-the-request-and-response-components"></a>İstek ve yanıt bileşenleriyle çalışmaya başlayın
-Bir mantıksal uygulama içinde istek ve yanıt bileşenleriyle gerçek zamanlı olarak olaylara yanıt verebilir.
+# <a name="get-started-with-the-request-and-response-components"></a>İstek ve yanıt bileşenleri ile çalışmaya başlama
+Mantıksal uygulama içinde istek ve yanıt bileşenleriyle, olaylar için gerçek zamanlı olarak yanıt verebilirsiniz.
 
 Örneğin, şunları yapabilirsiniz:
 
-* Bir mantıksal uygulama yoluyla şirket içi veritabanından verilerle bir HTTP isteğine yanıt.
-* Bir mantıksal uygulama bir dış Web kancası olaydan tetikler.
-* İstek ve yanıt eylemi başka bir mantıksal uygulama içinde ile bir mantıksal uygulama çağırın.
+* Mantıksal uygulama üzerinden şirket içi veritabanından verileri olan bir HTTP isteği yanıt.
+* Bir mantıksal uygulamadan bir dış Web kancası olayı tetikleyin.
+* İstek ve yanıt eylemi içinde başka bir mantıksal uygulama ile bir mantıksal uygulamayı çağırın.
 
-İstek ve yanıt eylemleri bir mantıksal uygulama kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+İstek ve yanıt eylemleri bir mantıksal uygulama çalıştırmasında kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="use-the-http-request-trigger"></a>HTTP isteği tetikleyici kullanın
-Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](connectors-overview.md).
+## <a name="use-the-http-request-trigger"></a>HTTP isteği tetikleyicisini kullanma
+Bir tetikleyici bir mantıksal uygulamada tanımlanan iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](connectors-overview.md).
 
-Burada, örnek dizisi mantığı Uygulama Tasarımcısı'nda bir HTTP isteği ayarlama konusunda verilmiştir.
+Mantıksal Uygulama Tasarımcısı'nda bir HTTP isteği ayarlamak nasıl bir örnek dizisi aşağıda verilmiştir.
 
-1. Tetikleyici eklemek **isteği - olduğunda bir HTTP isteği alındığında** mantığı uygulamanıza. İsteğe bağlı olarak bir JSON şeması sağlayın (gibi bir araç kullanarak [JSONSchema.net](http://jsonschema.net)) istek gövdesi için. Bu HTTP istek özellikleri için belirteçleri oluşturmak tasarımcı sağlar.
-2. Başka bir eylem ekleyebilirsiniz, böylece mantıksal uygulama kaydedebilirsiniz.
-3. Mantıksal uygulama kaydedildikten sonra HTTP istek URL'si istek kartından alabilirsiniz.
-4. Bir HTTP POST (gibi bir araç kullanabilirsiniz [Postman](https://www.getpostman.com/)) mantıksal uygulama URL'sini tetikler.
+1. Tetikleyici ekleme **isteği - zaman bir HTTP isteği alındığında** mantıksal uygulamanızda. İsteğe bağlı olarak bir JSON şeması sağlayın (gibi bir araç kullanarak [JSONSchema.net](https://jsonschema.net)) için istek gövdesi. Bu HTTP isteğinde özellikleri için belirteçleri oluşturmak tasarımcı sağlar.
+2. Mantıksal uygulama kaydedebilir, böylece başka bir eylem ekleme.
+3. Mantıksal uygulamayı kaydettikten sonra istek kartından HTTP istek URL'sini alabilirsiniz.
+4. Bir HTTP POST (gibi bir araç kullanabilirsiniz [Postman](https://www.getpostman.com/)) mantıksal uygulama URL'sine tetikler.
 
 > [!NOTE]
-> Bir yanıt eylemi tanımlarsanız olmayan bir `202 ACCEPTED` yanıtını çağırana hemen döndürülür. Bir yanıt özelleştirmek için yanıt eylemini kullanabilirsiniz.
+> Bir yanıt eylemi tanımlamazsanız bir `202 ACCEPTED` yanıt hemen çağırana döndürülür. Yanıt eylemi, bir yanıt özelleştirmek için kullanabilirsiniz.
 > 
 > 
 
-![Yanıt tetikleyici](./media/connectors-native-reqres/using-trigger.png)
+![Yanıt tetikleyicisi](./media/connectors-native-reqres/using-trigger.png)
 
-## <a name="use-the-http-response-action"></a>HTTP yanıtının eylem kullanın
-HTTP yanıtının eylem, yalnızca bir HTTP isteğiyle tetiklenen bir iş akışında kullanıldığında geçerlidir. Bir yanıt eylemi tanımlarsanız olmayan bir `202 ACCEPTED` yanıtını çağırana hemen döndürülür.  İş akışı içinde herhangi bir adımı sırasında bir yanıt eylemi ekleyebilirsiniz. Mantıksal uygulama yalnızca gelen istek yanıt için bir dakika için açık tutar.  Bir yanıt iş akışını gönderilen (ve bir yanıt eylemi tanımında varsa) dakika sonra bir `504 GATEWAY TIMEOUT` çağırana döndürülür.
+## <a name="use-the-http-response-action"></a>HTTP yanıt eylemi kullanın
+HTTP yanıt eylemi, yalnızca bir HTTP isteği tarafından tetiklenip tetiklenmediğini bir iş akışında kullanıldığında geçerlidir. Bir yanıt eylemi tanımlamazsanız bir `202 ACCEPTED` yanıt hemen çağırana döndürülür.  İş akışı içinde herhangi bir adımı sırasında bir yanıt eylemi ekleyebilirsiniz. Mantıksal uygulama yalnızca gelen isteği bir yanıt için bir dakika açık tutar.  Bir iş akışından hiç yanıt gönderildi (ve bir yanıt eylemi tanımında mevcut değilse) dakika sonra bir `504 GATEWAY TIMEOUT` çağırana döndürülür.
 
-Bir HTTP yanıtının eylem ekleme şöyledir:
+Bir HTTP yanıt eylemi ekleme şöyledir:
 
 1. Seçin **yeni adım** düğmesi.
 2. Seçin **Eylem Ekle**.
-3. Eylem arama kutusuna yazın **yanıt** yanıt eylem listelemek için.
+3. Eylem arama kutusuna **yanıt** yanıt eylemi listelemek için.
    
     ![Yanıt eylemi seçin](./media/connectors-native-reqres/using-action-1.png)
-4. HTTP yanıt iletisi için gerekli olan parametreleri ekleyin.
+4. HTTP yanıt iletisi için gerekli olan herhangi bir parametre ekleyin.
    
-    ![Yanıt eylemi tamamlamak](./media/connectors-native-reqres/using-action-2.png)
-5. Kaydetmek için araç sol üst köşesindeki tıklayın ve mantıksal uygulamanızı kaydetmek yayımlama hem (etkinleştirin).
+    ![Yanıt eylemi tamamlayın](./media/connectors-native-reqres/using-action-2.png)
+5. Kaydetmek için araç çubuğunun sol üst köşesindeki tıklayın ve mantıksal uygulamanızı kaydetmek yayımlama hem (etkinleştir).
 
-## <a name="request-trigger"></a>Tetikleyici isteği
-Aşağıda, bu bağlayıcıyı destekler tetikleyici için Ayrıntılar verilmiştir. Bir tek istek tetikleyici yoktur.
+## <a name="request-trigger"></a>İstek tetikleyicisi
+Bu bağlayıcıyı destekler tetikleyici için Ayrıntılar aşağıda verilmiştir. Tek bir istek tetikleyicisi yoktur.
 
 | Tetikleyici | Açıklama |
 | --- | --- |
-| İstek |Bir HTTP isteği alındığında gerçekleşir |
+| İstek |Bir HTTP isteği alındığında gerçekleşir. |
 
 ## <a name="response-action"></a>Yanıt eylemi
-Aşağıda, bu bağlayıcıyı destekler eylemi için Ayrıntılar verilmiştir. Bir istek tetikleyicisini eşlik yükleyen yalnızca kullanılabilir tek yanıt eylemi yok.
+Bu bağlayıcıyı destekler eylemini ilgili ayrıntıları aşağıda verilmiştir. Bu istek tetikleyicisi ile birlikte, yalnızca bir tek bir yanıt eylemi yoktur.
 
 | Eylem | Açıklama |
 | --- | --- |
-| Yanıt |Bağıntılı HTTP isteği için bir yanıt döndürür |
+| Yanıt |Bağıntılı HTTP isteği bir yanıt döndürür |
 
 ### <a name="trigger-and-action-details"></a>Tetikleyici ve eylem ayrıntıları
-Aşağıdaki tablolar tetikleyici ve eylem için girdi alanlarının açıklar ve ilgili ayrıntıları çıktı.
+Aşağıdaki tablo tetikleyici ve eylem için giriş alanlarını açıklar ve ilgili ayrıntıları çıktı.
 
-#### <a name="request-trigger"></a>Tetikleyici isteği
-Bir gelen HTTP istek tetikleyici için giriş alanını verilmiştir.
+#### <a name="request-trigger"></a>İstek tetikleyicisi
+Gelen HTTP isteği tetikleyicisinden için giriş alanını verilmiştir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
-| JSON şeması |Şema |HTTP isteği gövdesinin JSON şeması |
+| JSON şeması |Şema |HTTP istek gövdesi JSON şeması |
 
 <br>
 
 **Çıkış Ayrıntıları**
 
-İstek için çıkış ayrıntıları verilmiştir.
+İstek için çıkış ayrıntıları aşağıda verilmiştir.
 
 | Özellik adı | Veri türü | Açıklama |
 | --- | --- | --- |
-| Üst bilgiler |nesne |İstek üst bilgileri |
-| Gövde |nesne |İstek nesnesi |
+| Üst bilgiler |object |İstek üst bilgileri |
+| Gövde |object |İstek nesnesi |
 
 #### <a name="response-action"></a>Yanıt eylemi
-HTTP yanıtının eylem için girdi alanlarının verilmiştir. A * gerekli bir alan olduğu anlamına gelir.
+HTTP yanıt eylemi için giriş alanlarını verilmiştir. A * gerekli alan olduğu anlamına gelir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
 | Durum kodu * |statusCode |HTTP durum kodu |
-| Üst bilgiler |headers |Tüm yanıt üstbilgilerini eklemek için bir JSON nesnesi |
+| Üst bilgiler |Üst bilgileri |Tüm yanıt üstbilgilerini eklemek için bir JSON nesnesi |
 | Gövde |body |Yanıt gövdesi |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi, platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Logic apps diğer kullanılabilir bağlayıcılar bakarak keşfedebilirsiniz bizim [API'leri listesi](apis-list.md).
+Şimdi, platformu deneyin ve [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Diğer bağlayıcıları logic apps'teki bakarak keşfedebilirsiniz bizim [API listesi](apis-list.md).
 

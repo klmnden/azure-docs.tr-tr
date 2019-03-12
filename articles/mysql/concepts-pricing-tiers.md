@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: d84e3f834bd598bbd2cf84dfc46f6cd5507f6d8b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 21ddeb9cb0621f0f11ca23a7b12a82df0b7aa8ca
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587132"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546683"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Fiyatlandırma katmanları MySQL için Azure veritabanı
 
@@ -50,30 +50,30 @@ Bir sunucu oluşturduktan sonra sanal çekirdek, donanım oluşturma ve fiyatlan
 |:---|:----------:|:--------------------:|
 | Orta ABD |  | X |
 | Doğu ABD |  | X |
-| Doğu ABD 2 | X | X |
-| Orta Kuzey ABD | X | X |
+| Doğu ABD 2 |  | X |
+| Orta Kuzey ABD |  | X |
 | Orta Güney ABD | X | X |
-| Batı ABD | X | X |
+| Batı ABD |  | X |
 | Batı ABD 2 |  | X |
-| Güney Brezilya | X | X |
-| Orta Kanada | X | X |
-| Doğu Kanada | X | X |
+| Güney Brezilya |  | X |
+| Orta Kanada |  | X |
+| Doğu Kanada |  | X |
 | Kuzey Avrupa | X | X |
 | Batı Avrupa |  | X |
 | Fransa Orta |  | X |
 | Birleşik Krallık Güney |  | X |
 | Birleşik Krallık Batı |  | X |
-| Doğu Asya | X | X |
+| Doğu Asya |  | X |
 | Güneydoğu Asya | X | X |
 | Avustralya Doğu |  | X |
 | Avustralya Orta |  | X |
 | Avustralya Orta 2 |  | X |
 | Avustralya Güneydoğu |  | X |
-| Orta Hindistan | X | X |
+| Orta Hindistan |  | X |
 | Güney Hindistan |  | X |
-| Batı Hindistan | X | X |
+| Batı Hindistan |  | X |
 | Japonya Doğu | X | X |
-| Japonya Batı | X | X |
+| Japonya Batı |  | X |
 | Kore Orta |  | X |
 | Kore Güney |  | X |
 | Çin Doğu 1 | X |  |

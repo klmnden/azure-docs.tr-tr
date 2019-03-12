@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: 937f57190236e3b5d3c92df5f50167880fef4bb4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 56589df6a0135f15eb1b74708a47829e6fec3299
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756725"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547002"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Öğretici: Azure CLI kullanarak PostgreSQL için Azure veritabanı tasarlama 
 Bu öğreticide, şunları nasıl yapacağınızı öğrenmek için Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları kullanırsınız:
@@ -46,12 +46,12 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL için Azure Veritabanı sunucusu oluşturma
 [az postgres server create](/cli/azure/postgres/server) komutunu kullanarak [PostgreSQL sunucusu için Azure SQL Veritabanı ](overview.md) oluşturun. Sunucu, grup olarak yönetilen bir veritabanı grubu içerir. 
 
-Aşağıdaki örnekte, `myresourcegroup` adlı kaynak grubunuzda `myadmin` sunucu yöneticisi oturum adına sahip `mydemoserver` adlı bir sunucu oluşturulur. Bir sunucunun adı DNS adıyla eşleşir ve bu nedenle sunucunun Azure’da genel olarak benzersiz olması gerekir. `<server_admin_password>` değerini kendi değerinizle değiştirin. 2 sanal çekirdek içeren, 4. Nesil, Genel Amaçlı bir sunucudur.
+Aşağıdaki örnekte, `myresourcegroup` adlı kaynak grubunuzda `myadmin` sunucu yöneticisi oturum adına sahip `mydemoserver` adlı bir sunucu oluşturulur. Bir sunucunun adı DNS adıyla eşleşir ve bu nedenle sunucunun Azure’da genel olarak benzersiz olması gerekir. `<server_admin_password>` değerini kendi değerinizle değiştirin. Bu, genel amaçlı, 5. nesil 2 sanal çekirdek sunucusuyla olur.
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 sku-name parametresi değeri aşağıdaki örneklerde gösterildiği gibi {fiyatlandırma katmanı}\_{işlem oluşturma}\_{sanal çekirdek} kuralını kullanır:
-+ `--sku-name B_Gen4_4` Temel, Gen 4 ve 4 sanal çekirdekle eşleşir.
++ `--sku-name B_Gen5_2` Temel ve 5. nesil 2 sanal çekirdek eşlenir.
 + `--sku-name GP_Gen5_32` Genel Amaçlı, Gen 5 ve 32 sanal çekirdekle eşleşir.
 + `--sku-name MO_Gen5_2` Bellek için iyileştirilmiş, Gen 5 ve 2 sanal çekirdekle eşleşir.
 
@@ -98,8 +98,8 @@ Sonuç JSON biçimindedir. **administratorLogin** ve **fullyQualifiedDomainName*
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },

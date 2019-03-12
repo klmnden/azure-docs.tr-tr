@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: b36926365b85c576cbe2927c690a30cc64df23d8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 4ad607ad7ef1ee91ea9c886a76faabb0f304969d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752781"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538077"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure veri kutusu Blob Depolama alanı gereksinimleri
 
@@ -53,7 +53,7 @@ Genel Önizleme sürümü (Azure Data Box 1.8 ve üzeri)
 |     İstemci kitaplığı     |     Veri kutusu Blob Depolama desteklenen sürüm     |     Bağlantı             |     Uç nokta belirtimi         |
 |------------------------|-------------------------------------------------|---------------------------------------------|------------------------------------|
 |    .NET                |    8.7.0 için 6.2.0.                         |    Nuget paketi:   https://www.nuget.org/packages/WindowsAzure.Storage/ <br>GitHub sürüm:   https://github.com/Azure/azure-storage-net/releases                                                                      |    app.config dosyası                 |
-|    Java                |    4.1.0 6.1.0 için                          |    Maven paketi:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-java/releases                                                      |    Bağlantı dizesi kurulumu         |
+|    Java                |    4.1.0 6.1.0 için                          |    Maven paketi:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-java/releases                                                      |    Bağlantı dizesi kurulumu         |
 |    Node.js             |    1.1.0 2.7.0 için                          |    NPM bağlantısı:   https://www.npmjs.com/package/azure-storage   (Örneğin: Çalıştır "npm yükleme azure-storage@2.7.0")   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-node/releases                            |    Hizmet örneği bildirimi    |
 |    C++                 |    2.4.0 3.1.0 için                          |    Nuget paketi:   https://www.nuget.org/packages/wastorage.v140/   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-cpp/releases                                                                            |    Bağlantı dizesi kurulumu         |
 |    PHP                 |    0.15.0 1.0.0 için                         |    GitHub sürüm:   https://github.com/Azure/azure-storage-php/releases   <br>Oluşturucusu yükleyin (aşağıdaki ayrıntılara bakın)                                                                                                   |    Bağlantı dizesi kurulumu         |
@@ -69,7 +69,7 @@ Veri kutusu Blob Depolama için belirli istemci kitaplıkları ve belirli bir u�
 | İstemci kitaplığı     |Veri kutusu Blob Depolama desteklenen sürüm     | Bağlantı   |     Uç nokta belirtimi      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    8.7.0                                           |    Nuget paketi:   https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0    <br>GitHub sürüm:   https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0                                                                                                                                                                                               |    app.config dosyası                 |
-|    Java                |    6.1.0                                           |    Maven paketi:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Bağlantı dizesi kurulumu         |
+|    Java                |    6.1.0                                           |    Maven paketi:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Bağlantı dizesi kurulumu         |
 |    Node.js             |    2.7.0                                           |    NPM bağlantısı:   https://www.npmjs.com/package/azure-storage   (Çalıştırın: npm yükleme azure-storage@2.7.0)   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    Hizmet örneği bildirimi    |
 |    C++                 |    3.1.0                                           |    Nuget paketi:   https://www.nuget.org/packages/wastorage.v140/3.1.0   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0                                                                                                                                                                                                     |    Bağlantı dizesi kurulumu         |
 |    PHP                 |    1.0.0                                           |    GitHub sürüm:<br>Ortak: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>(Daha fazla bilgi edinmek için aşağıdaki ayrıntıları görmek için.), oluşturucu yükleme                                                                                                             |    Bağlantı dizesi kurulumu         |

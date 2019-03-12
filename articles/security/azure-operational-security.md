@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2f68156e593281acb46dbeb132f0f45db4b3dfb9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5a407db97803d3c3be898893b7da6c1cb4aa94bb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244783"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537006"
 ---
 # <a name="azure-operational-security"></a>Azure çalışma güvenliği
 ## <a name="introduction"></a>Giriş
@@ -164,7 +164,7 @@ Azure Güvenlik Merkezi, kilitlenme döküm dosyalarının kısa ömürlü kopya
 
 ## <a name="azure-monitor"></a>Azure İzleyici
 
-[Log Analytics güvenliği](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) ve denetim çözümü, BT'nin güvenlik olayların etkisini en aza yardımcı olabilecek tüm kaynaklar, etkin bir şekilde izlemek için olanak tanır. Log Analytics güvenlik ve denetim kaynakları izlemek için kullanılan güvenlik etki alanları vardır. Güvenlik etki alanı seçenekleri hızlı erişim sağlar, güvenlik izleme için aşağıdaki etki alanları ayrıntılı ele alınmıştır:
+[Azure İzleyici güvenlik günlükleri](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) ve denetim çözümü, BT'nin güvenlik olayların etkisini en aza yardımcı olabilecek tüm kaynaklar, etkin bir şekilde izlemek için olanak tanır. Azure İzleyici günlüklerine güvenlik ve denetim kaynakları izlemek için kullanılan güvenlik etki alanları vardır. Güvenlik etki alanı seçenekleri hızlı erişim sağlar, güvenlik izleme için aşağıdaki etki alanları ayrıntılı ele alınmıştır:
 
 -   Kötü amaçlı yazılım değerlendirmesi
 -   Güncelleştirme değerlendirmesi

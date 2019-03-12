@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 0d9ddbeae3a666d3b3cf56f80ae633a7ecaa650a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e52cf99e3bdd1960ca361ccde50d85dfaa2209c0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294042"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544929"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Azure depolama blobundan Azure Stream Analytics'i kullanarak Azure Data Lake depolama Gen1 Stream veri
 Bu makalede Azure Data Lake depolama Gen1 Azure Stream Analytics işi için çıkış olarak kullanmak öğreneceksiniz. Bu makalede, Azure Storage blobundan (giriş) verileri okur ve verileri için Data Lake depolama Gen1 yazan basit bir senaryo gösterilmektedir (çıktı).
@@ -106,7 +106,7 @@ Bir giriş kaynağı ve bir çıkış hedefini içeren bir Stream Analytics işi
 
     Tıklayın **Başlat** işi başlatmak için. Bu birkaç dakika işi başlatmak için kadar sürebilir.
 
-3. Blob verileri seçmek için bir iş tetiklemek için blob kapsayıcısına örnek veri dosyasını kopyalayın. Bir örnek verileri dosyadan alabilirsiniz [Azure Data Lake Git deposu](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Bu öğreticide, github'dan dosyasını kopyalayın **vehicle1_09142014.csv**. Çeşitli istemciler gibi kullanabileceğiniz [Azure Depolama Gezgini](http://storageexplorer.com/), veriler bir blob kapsayıcısına yükleyin.
+3. Blob verileri seçmek için bir iş tetiklemek için blob kapsayıcısına örnek veri dosyasını kopyalayın. Bir örnek verileri dosyadan alabilirsiniz [Azure Data Lake Git deposu](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Bu öğreticide, github'dan dosyasını kopyalayın **vehicle1_09142014.csv**. Çeşitli istemciler gibi kullanabileceğiniz [Azure Depolama Gezgini](https://storageexplorer.com/), veriler bir blob kapsayıcısına yükleyin.
 
 4. Gelen **genel bakış** sekmesindeki **izleme**, verilerin nasıl işlendiği bakın.
 

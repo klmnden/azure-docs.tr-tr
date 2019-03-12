@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 35ce6a09b77b1cebe00f3ee11f09d526dd9b0b22
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: cf296d8bb494307dbb58b9de522d55a83892c6d5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768618"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537329"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python örnekleri
 
@@ -48,7 +48,7 @@ Ayrıca [Python SDK](sql-api-sdk-python.md)'ya da ihtiyacınız vardır.
    > 
 
 ## <a name="database-examples"></a>Veritabanı örnekleri
-[Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py) dosya [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement) proje, aşağıdaki görevlerin nasıl yapılacağını gösterir:
+[Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py) dosya [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement) proje, aşağıdaki görevlerin nasıl yapılacağını gösterir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos veritabanları hakkında bilgi edinmek için [veritabanları, kapsayıcıları ve öğeleri ile çalışma](databases-containers-items.md) kavramsal makale. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -58,7 +58,7 @@ Ayrıca [Python SDK](sql-api-sdk-python.md)'ya da ihtiyacınız vardır.
 | [Veritabanı silme](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py#L113-L126) |[CosmosClient.DeleteDatabase](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#deletedatabase-database-link--options-none-) |
 
 ## <a name="collection-examples"></a>Koleksiyon örnekleri
-[Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py) dosya [CollectionManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement) proje, aşağıdaki görevlerin nasıl yapılacağını gösterir:
+[Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py) dosya [CollectionManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement) proje, aşağıdaki görevlerin nasıl yapılacağını gösterir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos Koleksiyonlar hakkında bilgi edinmek için [veritabanları, kapsayıcıları ve öğeleri ile çalışma](databases-containers-items.md) kavramsal makale. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -69,7 +69,7 @@ Ayrıca [Python SDK](sql-api-sdk-python.md)'ya da ihtiyacınız vardır.
 | [Koleksiyonu silme](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py#L224-L238) |[CosmosClient.DeleteContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#deletecontainer-collection-link--options-none-) |
 
 ## <a name="document-examples"></a>Belge örnekleri
-[Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py) dosya [DocumentManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement) proje, aşağıdaki görevlerin nasıl yapılacağını gösterir:
+[Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py) dosya [DocumentManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement) proje, aşağıdaki görevlerin nasıl yapılacağını gösterir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos belgeler hakkında bilgi edinmek için [veritabanları, kapsayıcıları ve öğeleri ile çalışma](databases-containers-items.md) kavramsal makale. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -80,7 +80,7 @@ Ayrıca [Python SDK](sql-api-sdk-python.md)'ya da ihtiyacınız vardır.
 | [Koşullu ETag denetimiyle belgeyi değiştirme](https://github.com/Azure/azure-cosmos-python/blob/a21f6fb4bad3f59909ef43558b598f9fb476b7bc/test/crud_tests.py#L1216-L1218) | [CosmosClient.ReplaceItem](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#replaceitem-document-link--new-document--options-none-) |
 
 ## <a name="indexing-examples"></a>Dizin örnekleri
-[Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py) dosya [IndexManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement) proje, aşağıdaki görevlerin nasıl yapılacağını gösterir:
+[Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py) dosya [IndexManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement) proje, aşağıdaki görevlerin nasıl yapılacağını gösterir.  Aşağıdaki örneği çalıştırmadan önce Azure Cosmos DB'de dizinleme hakkında bilgi edinmek için [dizinleme ilkeleri](index-policy.md), [türlerini dizinleme](index-types.md), ve [dizin yolları](index-paths.md) kavramsal makaleler. 
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -92,7 +92,8 @@ Ayrıca [Python SDK](sql-api-sdk-python.md)'ya da ihtiyacınız vardır.
 | [Dizin dönüştürme gerçekleştirme](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L514-L559) |[CosmosClient.ReplaceContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#replacecontainer-collection-link--collection--options-none-) |
 
 ## <a name="query-examples"></a>Sorgu örnekleri
-Örnek projelerine ayrıca aşağıdaki sorgu görevlerin nasıl yapılacağını göster:
+Örnek projeler, ayrıca aşağıdaki sorgu görevlerin nasıl yapılacağını gösterir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos DB'de SQL sorgu başvurusu hakkında bilgi edinmek için bkz. [SQL sorgu örnekleri](how-to-sql-query.md) kavramsal makale. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos DB'de SQL sorgu başvurusu hakkında bilgi edinmek için bkz. [SQL sorgu örnekleri](how-to-sql-query.md) kavramsal makale. 
+
 
 | Görev | API başvurusu |
 | --- | --- |

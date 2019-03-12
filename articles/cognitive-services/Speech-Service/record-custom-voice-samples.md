@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0ca82da43ea53aed3fbcf858b34a3ad94d712661
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864953"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530748"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Özel ses oluşturma kayıt ses örnekleri
 
@@ -150,7 +150,7 @@ Bu nedenle overdriving olmadan dijital kaydı kullanılabilir dinamik aralığı
 
 Burada, çoğu (yükseklik) aralığının kullanılmaktadır, ancak üst veya alt pencerenin en yüksek en yüksek sayılar sinyal erişmez. Sessizlik kayıtta ince bir yatay çizgi yakın düşük gürültü kat belirten atabilirsiniz. Bu kayıt, kabul edilebilir dinamik aralık ve sinyal/gürültü oranına sahiptir.
 
-Kayıtta doğrudan yüksek kaliteli ses arabirimi veya kullanmakta olduğunuz MIC bağlı olarak bir USB bağlantı noktası üzerinden bilgisayara. Ses zinciri analog için basit tutun: MIC, preamp, ses arabirimi, bilgisayar. Her ikisi de lisans [Avid uzmanı araçlarını](http://www.avid.com/en/pro-tools) ve [Adobe Audition](https://www.adobe.com/products/audition.html) makul bir ücret ödemeden aylık. Bütçenizi çok sıkı olması durumunda, ücretsiz olarak deneyin [Audacity](https://www.audacityteam.org/).
+Kayıtta doğrudan yüksek kaliteli ses arabirimi veya kullanmakta olduğunuz MIC bağlı olarak bir USB bağlantı noktası üzerinden bilgisayara. Ses zinciri analog için basit tutun: MIC, preamp, ses arabirimi, bilgisayar. Her ikisi de lisans [Avid uzmanı araçlarını](https://www.avid.com/en/pro-tools) ve [Adobe Audition](https://www.adobe.com/products/audition.html) makul bir ücret ödemeden aylık. Bütçenizi çok sıkı olması durumunda, ücretsiz olarak deneyin [Audacity](https://www.audacityteam.org/).
 
 44,1 kHz 16 bit monophonic (CD kalitede) kaydettiğinizden ya da daha iyi. Geçerli durumu-ürünü 48 kHz 24 bit ise donanımınızın da destekler. Aşağı ses 16 kHz 16 bit için özel sesli portala göndermeden önce örnek. Yine de düzenlemeleri gerekli olayda bir yüksek kaliteli özgün kaydı öder.
 
@@ -204,7 +204,7 @@ Modern kaydı studios bilgisayarlarda çalıştırın. Oturum sonunda, bir veya 
 
 Özel ses portal her sağlanan utterance kendi dosyasında olmasını gerektiriyor. Birden çok konuşma studio tarafından sunulan her bir ses dosyası içerir. Bu nedenle birincil üretim sonrası bölme kayıtlarını ve bunları gönderimi için hazırlamak için bir görevdir. Kayıt mühendisi'ü işaretçileri dosyasına yerleştirilir (veya ayrı işaret sayfası sağlanan) her utterance başladığı belirtmek için.
 
-Notlarınızı tam alan bulmak için istediğiniz ve daha sonra yardımcı programı gibi bir ses kullanmak [Avid uzmanı araçlarını](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), ya da ücretsiz [Audacity](https://www.audacityteam.org/), her kopyalamak için Yeni bir dosyaya utterance.
+Notlarınızı tam alan bulmak için istediğiniz ve daha sonra yardımcı programı gibi bir ses kullanmak [Avid uzmanı araçlarını](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), ya da ücretsiz [Audacity](https://www.audacityteam.org/), her kopyalamak için Yeni bir dosyaya utterance.
 
 Sessizlik başlangıcına ve sonuna ilk dışında her küçük yalnızca yaklaşık 0.2 saniyelik bırakın. Bu dosyanın tam beş saniye sessizlik başlamanız gerekir. Dosya sessiz bölümlerine "sıfır çıkış" bir ses düzenleyiciyi kullanmaz. "Odası sesi" gibi algoritmalar için tüm kalan arka plan gürültüsü dengelemek özel sesli yardımcı olur.
 

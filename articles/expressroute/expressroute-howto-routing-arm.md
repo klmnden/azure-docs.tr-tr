@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1bf2ca22bf97ca1d4b91b52850ebe14225562f92
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1be362a3e829beb6c8bb0a55f5ab02852549fbc3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409066"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537924"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>PowerShell kullanarak ExpressRoute devresi için eşlemesi oluşturma ve değiştirme
 
@@ -171,7 +171,7 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 
 1. ExpressRoute için PowerShell modülünü içeri aktarın.
 
-  ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](http://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
+  ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](https://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
 
   ```azurepowershell-interactive
   Install-Module Az
@@ -306,7 +306,7 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 
 1. ExpressRoute için PowerShell modülünü içeri aktarın.
 
-  ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](http://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
+  ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](https://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
 
   ```azurepowershell-interactive
   Install-Module Az

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: d881a5c0f994b627b4c7c3da362672b3b887cd5e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a094369d467b3b1f3d5fe93f870dccc9eae7519c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996152"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547220"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(KULLANIM DIŞI) Bir Azure Container Service DC/OS kümesini Datadog ile izleme
 
@@ -23,7 +23,7 @@ ms.locfileid: "52996152"
 Bu makalede, Azure Container Service kümenizdeki tüm aracı düğümlere Datadog aracıları dağıtacağız. Bu yapılandırma için Datadog sahip bir hesap gerekir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Azure Container Service tarafından yapılandırılmış bir kümeyi [dağıtın](container-service-deployment.md) ve [bağlayın](../container-service-connect.md). [Marathon Kullanıcı Arabirimi](container-service-mesos-marathon-ui.md)’ni keşfedin. Git [ http://datadoghq.com ](http://datadoghq.com) Datadog hesabı ayarlamak için. 
+Azure Container Service tarafından yapılandırılmış bir kümeyi [dağıtın](container-service-deployment.md) ve [bağlayın](../container-service-connect.md). [Marathon Kullanıcı Arabirimi](container-service-mesos-marathon-ui.md)’ni keşfedin. Git [ https://datadoghq.com ](https://datadoghq.com) Datadog hesabı ayarlamak için. 
 
 ## <a name="datadog"></a>Datadog
 Datadog gelen Azure Container Service kümenizdeki kapsayıcıları izleme verilerini toplayan bir izleme hizmetidir. Datadog Docker tümleştirmesi, kapsayıcılarınızın belirli ölçümleri görebileceğiniz bir Pano vardır. Kapsayıcılardan toplanan ölçümler, CPU, bellek, ağ ve g/ç tarafından düzenlenir. Datadog ölçümleri kapsayıcılar ve görüntüleri halinde böler. Kullanıcı Arabirimi için CPU kullanımını nasıl göründüğüne ilişkin bir örnek aşağıda verilmiştir.

@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: a871048c9d75fc6ea958cfacaa3a47b11765fb0d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: da23d8037f37174826a2b9662c39bb507367a6ae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884452"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537822"
 ---
 # <a name="project-url-preview-v7-reference"></a>Proje URL'si Önizleme v7 başvurusu
 
@@ -77,7 +77,7 @@ Aşağıdaki sorgu parametreleri istek içerebilir. Gerekli Parametreler için g
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br />Olası Pazar değerler listesi için Pazar kodları bölümüne bakın.<br /><br /> **NOT:** URL önizleme API'sı şu anda yalnızca ABD coğrafya ve İngilizce dilini desteklemektedir.<br /><br />|String|Evet|
 |<a name="query" />q|Önizleme URL'si|String|Evet|
-|<a name="responseformat" />responseFormat|Yanıt için kullanılacak medya türü. Büyük küçük harf duyarsız olası değerler şunlardır:<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> JSON varsayılandır. JSON hakkında bilgi yanıt içerdiğini nesneleri için bkz. [yanıt nesneleri](#response-objects).<br /><br />JsonLd belirtirseniz, yanıt gövdesi, arama sonuçlarını içeren JSON-LD nesneler içerir. JSON-LD hakkında daha fazla bilgi için bkz. [JSON-LD](http://json-ld.org/).|String|Hayır|
+|<a name="responseformat" />responseFormat|Yanıt için kullanılacak medya türü. Büyük küçük harf duyarsız olası değerler şunlardır:<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> JSON varsayılandır. JSON hakkında bilgi yanıt içerdiğini nesneleri için bkz. [yanıt nesneleri](#response-objects).<br /><br />JsonLd belirtirseniz, yanıt gövdesi, arama sonuçlarını içeren JSON-LD nesneler içerir. JSON-LD hakkında daha fazla bilgi için bkz. [JSON-LD](https://json-ld.org/).|String|Hayır|
 |<a name="safesearch"/>safeSearch|Geçersiz yetişkinlere yönelik içeriği veya korsan içeriği, 400 ' hata koduyla engellendi ve *isFamilyFriendly* bayrağı alınmadı. <p>Yetişkinlere yönelik içeriği için yasal, aşağıda davranıştır. Durum kodu 200 döndürür ve *isFamilyFriendly* bayrağı false olarak ayarlanır.<ul><li>safeSearch strict =: Başlık, açıklama, URL ve görüntü döndürülmez.</li><li>safeSearch Orta; = Başlık, URL ve açıklama ancak açıklayıcı görüntü alın.</li><li>safeSearch; = Tüm yanıt nesneleri/öğeleri – başlık, URL, açıklama ve resim alın.</li></ul> |String|Gerekli değildir. </br> Varsayılan olarak safeSearch için strict =.|
 
 ## <a name="response-objects"></a>Yanıt nesneleri

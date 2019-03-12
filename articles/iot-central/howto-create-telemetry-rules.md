@@ -3,17 +3,17 @@ title: Oluşturma ve Azure IOT Central, uygulamanızda telemetri kurallarını y
 description: Azure IOT Central telemetri kuralları cihazlarınızı neredeyse gerçek zamanlı izleme ve otomatik olarak kural tetiklendiğinde, bir e-posta gönderme gibi eylemleri çağırmak için etkinleştirin.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 11/02/2018
+ms.date: 02/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: aee31f54ddf4e71dd9b9391ec93d0f2319addc3f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4668ffd30742f81552cd29f6cdba4c0f82549687
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307970"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773512"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir telemetri kuralı oluşturabilir ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
@@ -27,18 +27,13 @@ Cihazlar, sayısal veriler CİHAZDAN göndermek için telemetri ölçüm kullana
 
 Telemetri kuralı oluşturmak için cihaz şablonu en az bir telemetri ölçüm tanımlanmış olmalıdır. Bu örnek, sıcaklık ve nem telemetrisini gönderen bir refrigerated satış makine cihaz kullanır. Kural, cihaz tarafından bildirilen sıcaklık izler ve 80 derecenin üzerinde olduğunda bir e-posta gönderir.
 
-1. Device Explorer ' ı kullanarak, cihaz şablon kural ekleme gidin.
-
-1. Seçilen şablonun altında var olan bir cihaz seçin.
-
-    >[!TIP]
-    >Bir şablon yoksa, herhangi bir cihaza daha sonra yeni bir cihaz ilk ekleyin.
+1. Kullanarak **cihaz şablonları** sayfasında, kural ekleme cihaz şablonu gidin.
 
 1. Herhangi bir kural henüz oluşturmadıysanız, aşağıdaki ekranı görürsünüz:
 
     ![Henüz hiçbir kural](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
-1. Üzerinde **kuralları** sekmesinde **Şablonu Düzenle** ardından **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
+1. Üzerinde **kuralları** sekmesinde **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
 
 1. Seçin **Telemetri** cihaz telemetrisi izlemek için bir kural oluşturmak için.
 
@@ -49,9 +44,8 @@ Telemetri kuralı oluşturmak için cihaz şablonu en az bir telemetri ölçüm 
 1. Bu şablon için oluşturulan tüm cihazlar için kuralın hemen etkinleştirmek için geçiş **Bu şablon için tüm cihazlar için etkinleştirme kuralı**.
 
    ![Kural Ayrıntıları](media/howto-create-telemetry-rules/Rule_Detail.png)
-    
+
     Kural cihaz şablonu altındaki tüm cihazlara otomatik olarak uygulanır.
-    
 
 ### <a name="configure-the-rule-conditions"></a>Kural koşulları yapılandırın
 
@@ -61,16 +55,14 @@ Koşul, kural tarafından izlenen ölçütleri tanımlar.
 
 1. İzlemek istediğiniz telemetri seçin **ölçüm** açılır.
 
-   ![Koşul](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
-
 1. Ardından, **toplama**, **işleci**ve bir **eşiği** değeri.
-    - Toplama isteğe bağlıdır. Toplama, koşulu karşılayan her telemetri veri noktası için kural tetiklendiğinde. Kuralın ne zaman tetiklemek için yapılandırılmışsa, örneğin, sıcaklık 80 olduğu sonra cihaz sıcaklık > 80 raporlarına zaman hemen instantly kural tetikler.
+    - Toplama isteğe bağlıdır. Toplama, koşulu karşılayan her telemetri veri noktası için kural tetiklendiğinde. Kural neredeyse anında sıcaklık 80 ise tetikleyici sonra kural Tetikleyiciler için yapılandırılmışsa, örneğin, ne zaman cihaz sıcaklık > 80 bildirir.
     - Bir toplama işlevi, ortalama, Min, maks gibi sayısı daha sonra seçilen kullanıcı sağlamalıdır bir **toplama zaman penceresi** üzerinden hangi koşulun değerlendirilmesi gerekir. Örneğin, ayarlarsanız "5 dakika" olarak döneme ve kural arar 80 ortalama sıcaklık en az 5 dakika boyunca 80 olduğunda kural tetiklendiğinde yukarıda ortalama sıcaklık. Kuralı değerlendirme sıklığı aynıdır **toplama zaman penceresi**, yani, bu örnekte, kural her 5 dakikada bir kez değerlendirilir.
+
+    ![Koşul](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
     >[!NOTE]
     >Birden fazla telemetri Ölçüm altında eklenebilir **koşul**. Birden çok koşulu belirtildiğinde, kural tetiklemek tüm koşulların karşılanması gerekir. Her koşulu, bir 'Ve' yan tümcesi tarafından örtük olarak katıldı. Her ölçü, toplam kullanırken toplanmalıdır.
-    
-    
 
 ### <a name="configure-actions"></a>Eylemleri Yapılandır
 
@@ -88,8 +80,6 @@ Bu bölümde, kural tetiklendiğinde gerçekleştirilecek eylemleri ayarlamak i�
    ![Eylem yapılandırma](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. Kuralı kaydetmek için seçin **Kaydet**. Kural, birkaç dakika içinde etkin hale gelir ve uygulamanıza gönderilen telemetri izlemeye başlar. Kuralda belirtilen koşul karşılandığında kural yapılandırılan e-posta eylemi tetikler.
-
-1. **Bitti**’yi seçerek **Şablonu Düzenle** modundan çıkın.
 
 Diğer Eylemler gibi Microsoft Flow ve Web kancaları kuralı ekleyebilirsiniz. Kural başına en fazla 5 eylem ekleyebilirsiniz.
 

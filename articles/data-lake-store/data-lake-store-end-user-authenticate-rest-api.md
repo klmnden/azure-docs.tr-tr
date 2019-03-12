@@ -1,5 +1,5 @@
 ---
-title: "Son kullanıcı kimlik doğrulaması: Azure Active Directory'yi kullanarak REST API'si ile Azure Data Lake depolama Gen1 | Microsoft Docs"
+title: 'Son kullanıcı kimlik doğrulaması: REST API kullanarak Azure Active Directory ile Azure Data Lake depolama Gen1 | Microsoft Docs'
 description: REST API kullanarak Azure Active Directory kullanarak son kullanıcı kimlik doğrulaması ile Azure Data Lake depolama Gen1 elde öğrenin
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ea550c0959f5de13f013f135926251bf9f8b450f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1e952e32142672946fa987b763032dad66f564a9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124448"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537890"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Son kullanıcı kimlik doğrulaması REST API kullanarak Azure Data Lake depolama Gen1 ile
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Bu makalede, Azure Data Lake depolama Gen1 son kullanıcı kimlik doğrulaması 
 
 * **Azure Active Directory "Yerel" uygulama oluşturma**. Adımları tamamlamış olmanız gerekir [Azure Active Directory kullanarak son kullanıcı kimlik doğrulaması ile Data Lake depolama Gen1](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](http://curl.haxx.se/)**. Bu makalede, bir Data Lake depolama Gen1 hesabına yönelik REST API çağrılarının nasıl yapılacağını göstermek üzere cURL kullanılmıştır.
+* **[cURL](https://curl.haxx.se/)**. Bu makalede, bir Data Lake depolama Gen1 hesabına yönelik REST API çağrılarının nasıl yapılacağını göstermek üzere cURL kullanılmıştır.
 
 ## <a name="end-user-authentication"></a>Son kullanıcı kimlik doğrulaması
 Uygulamanızı Azure AD kullanarak oturum açmak için kullanıcının istiyorsanız, son kullanıcı kimlik doğrulaması için önerilen yaklaşımdır. Uygulamanızı Azure kaynaklarıyla aynı erişim düzeyini oturum açmış kullanıcı olarak erişebilir. Kullanıcının kimlik bilgilerini düzenli olarak uygulamanızın erişimi sürdürmek sırada olmalıdır.

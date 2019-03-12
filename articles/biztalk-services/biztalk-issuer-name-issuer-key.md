@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5eac98ec88b960956c9a0931673e67f530aef8da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238718"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542191"
 ---
-# <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Verenin Adı ve Verenin Anahtarı
+# <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Verenin adı ve verenin anahtarı
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -38,7 +38,7 @@ Bu konu, verenin adı ve verenin anahtarı alma adımları listeler.
 ## <a name="access-control-issuer-name-and-issuer-key"></a>Erişim denetimi verenin adı ve verenin anahtarı
 Erişim denetimi verenin adı ve verenin anahtarı için aşağıdaki adımları kullanılır:
 
-* Azure BizTalk hizmeti uygulamanızı Visual Studio'da oluşturulan: başarıyla Visual Studio'daki BizTalk hizmeti uygulamanızı Azure'a dağıtmak için erişim denetimi verenin adı ve verenin anahtarı girin. 
+* Azure BizTalk hizmeti uygulamanızı Visual Studio'da oluşturulan: Başarıyla Visual Studio'daki BizTalk hizmeti uygulamanızı Azure'a dağıtmak için erişim denetimi verenin adı ve verenin anahtarı girin. 
 * Azure BizTalk Hizmetleri portalını: BizTalk hizmeti oluşturma ve BizTalk Hizmetleri portalını açın, erişim denetimi verenin adı ve verenin anahtarı otomatik olarak aynı erişim denetimi değerlerle dağıtımlarınız için kaydedilir.
 
 ### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>Erişim denetimi verenin adı ve verenin anahtarı alma
@@ -77,7 +77,7 @@ Daha açık [yeni AzureSBNamespace](https://docs.microsoft.com/powershell/module
 Hizmet veri yolu yayıncı adı ve verenin anahtarı BizTalk bağdaştırıcı Hizmetleri tarafından kullanılır. BizTalk Services projenizde Visual Studio, bir şirket içi iş kolu (LOB) sistemine bağlamak için BizTalk bağdaştırıcı Hizmetleri kullanın. Bağlanmak için LOB geçişi oluşturmak ve LOB sistemi ayrıntılarınızı girin. Bunu yaparken Service Bus verenin adı ve verenin anahtarı da girin.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Service Bus verenin adı ve verenin anahtarı almak için
-1. [Azure Portal](http://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Arama **Service Bus**, ad alanınızı seçin. 
 3. Açık **paylaşılan erişim ilkeleri** özellikler, ilkenizi seçin ve görüntüleme **bağlantı dizesi** adını ve anahtar değerlerini için.  
 
@@ -90,11 +90,11 @@ Ek Azure BizTalk Services konular:
 * [Azure BizTalk Hizmetleri](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [Nasıl yapılır: hizmet kimlikleri yapılandırmak için ACS yönetim hizmeti kullanın](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [Nasıl yapılır: Hizmet kimlikleri yapılandırmak için ACS yönetim hizmeti kullanın](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services: sağlama](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [BizTalk Services: Durum Grafiğini hazırlama](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [BizTalk Services: Yedekleme ve Geri Yükleme](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk Services: Sağlama](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services: Durum grafiğini hazırlama](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [BizTalk Services: Pano, İzleyici ve ölçek sekmeleri](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services: Yedekleme ve geri yükleme](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [BizTalk Services: Azaltma](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

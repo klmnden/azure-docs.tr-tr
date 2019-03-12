@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 266d16311115f788283eadc60ca16f95b433d6b0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015959"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544968"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Öğretici: Hadoop kümesi kullanarak verileri dönüştürmek için ilk işlem hattınızı oluşturma
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Bu öğreticiye başlamadan önce aşağıdaki önkoşullara sahip olmanız gere
 3. İndirin ve Hive sorgu dosyasını gözden geçirin (**HQL**) konumunda bulunan: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Bu sorgu, çıkış verileri üretmek üzere giriş verilerini dönüştürür. 
 4. İndirme ve örnek giriş dosyasını gözden geçirin (**input.log**) konumunda bulunan: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Adlı bir blob kapsayıcısı oluşturursunuz **adfgetstarted** Azure Blob Depolama alanınızda. 
-6. Karşıya yükleme **partitionweblogs.hql** dosyasını **betik** klasöründe **adfgetstarted** kapsayıcı. Gibi araçları kullanın [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/). 
+6. Karşıya yükleme **partitionweblogs.hql** dosyasını **betik** klasöründe **adfgetstarted** kapsayıcı. Gibi araçları kullanın [Microsoft Azure Depolama Gezgini](https://storageexplorer.com/). 
 7. Karşıya yükleme **input.log** dosyasını **inputdata** klasöründe **adfgetstarted** kapsayıcı. 
 
 Önkoşulları tamamladıktan sonra aşağıdaki araçlardan/öğreticiyi uygulamak için Sdk'lardan birini seçin: 

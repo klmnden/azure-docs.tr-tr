@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 39ffe1b71fb002658110c63c825e0515f38e2b9e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537333"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528687"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Oluşturma ve Azure portalını kullanarak MySQL sunucusu için Azure veritabanı'nı yönetme
 Bu konu, yeni bir Azure veritabanını MySQL sunucusu için hızlı bir şekilde nasıl oluşturacağınızı açıklar. Ayrıca Azure portalını kullanarak sunucuyu yönetme hakkında bilgi içerir. Sunucu Yönetimi Sunucusu ayrıntıları ve parola sıfırlama için kaynakların ölçeklendirilmesi ve sunucuyu silmek veritabanları görüntüleme içerir.
@@ -44,7 +44,7 @@ Bu konu, yeni bir Azure veritabanını MySQL sunucusu için hızlı bir şekilde
     | *Konum* | Güneydoğu Asya (Kuzey Avrupa ve Batı ABD arasında seçim) |
     | *Sürüm* | 5.7 (MySQL server sürümü için Azure veritabanı'i seçin) |
 
-4. Tıklayın **fiyatlandırma katmanı** yeni sunucunuz için Hizmet katmanını ve performans düzeyini belirtmek için. Seçin **genel amaçlı** sekmesi. *Gen 4*, *2 sanal çekirdek*, *5 GB* ve *7 gün*; **İşlem Nesli**, **Sanal Çekirdek**, **Depolama** ve **Yedekleme Bekletme Dönemi** için varsayılan değerlerdir. Bu kaydırıcıları olduğu gibi bırakabilirsiniz. Coğrafi olarak yedekli depolamada sunucu yedeklerinizi etkinleştirmek için, **Fazladan Yedek Seçenekleri**’nde **Coğrafi Olarak Yedeklemeli**’yi seçin.
+4. Tıklayın **fiyatlandırma katmanı** yeni sunucunuz için Hizmet katmanını ve performans düzeyini belirtmek için. Seçin **genel amaçlı** sekmesi. *5. Nesil*, *2 sanal çekirdek*, *5 GB* ve *7 gün*; **İşlem Nesli**, **Sanal Çekirdek**, **Depolama** ve **Yedekleme Bekletme Dönemi** için varsayılan değerlerdir. Bu kaydırıcıları olduğu gibi bırakabilirsiniz. Coğrafi olarak yedekli depolamada sunucu yedeklerinizi etkinleştirmek için, **Fazladan Yedek Seçenekleri**’nde **Coğrafi Olarak Yedeklemeli**’yi seçin.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 

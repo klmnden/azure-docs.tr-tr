@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 9aaa5dd2c636f9b5d92e949e1af71eda809cdac7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 20d5c4628d729b8dff8b1d72f80beac0ec2e8f67
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810329"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569757"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Sunucuları kaldırma ve korumayı devre dışı bırakma
 
@@ -55,18 +55,18 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
         pushd .
         try
         {
-             $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
-             $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
-             $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
-             $isAdmin=$principal.IsInRole($administrators)
-             if (!$isAdmin)
-             {
+            $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
+            $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
+            $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
+            $isAdmin=$principal.IsInRole($administrators)
+            if (!$isAdmin)
+            {
                 "Please run the script as an administrator in elevated mode."
                 $choice = Read-Host
-                return;       
-             }
+                return;
+            }
 
-            $error.Clear()    
+            $error.Clear()
             "This script will remove the old Azure Site Recovery Provider related properties. Do you want to continue (Y/N) ?"
             $choice =  Read-Host
 
@@ -95,24 +95,24 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
             {
                 if (Test-Path $registrationPath)
                 {
-                    "Removing registration related registry keys."    
+                    "Removing registration related registry keys."
                     Remove-Item -Recurse -Path $registrationPath
                 }
 
                 if (Test-Path $proxySettingsPath)
-            {
+                {
                     "Removing proxy settings"
                     Remove-Item -Recurse -Path $proxySettingsPath
                 }
 
                 $regNode = Get-ItemProperty -Path $asrHivePath
                 if($regNode.DraID -ne $null)
-                {            
+                {
                     "Removing DraId"
                     Remove-ItemProperty -Path $asrHivePath -Name $draIdValue
                 }
                 if($regNode.IdMgmtCloudContainerId -ne $null)
-                {            
+                {
                     "Removing IdMgmtCloudContainerId"
                     Remove-ItemProperty -Path $asrHivePath -Name $idMgmtCloudContainerId
                 }
@@ -131,7 +131,7 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
                 $store.Remove($cert)
             }
         }catch
-        {    
+        {
             [system.exception]
             Write-Host "Error occurred" -ForegroundColor "Red"
             $error[0]
@@ -158,7 +158,7 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
 
 1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, makineye sağ tıklayın > **çoğaltma devre dışı bırakma**.
 2. İçinde **çoğaltma devre dışı bırakma**, aşağıdaki seçenekleri belirleyebilirsiniz:
-     - **Çoğaltma ve Kaldır (önerilir) devre dışı** - bu seçenek çoğaltılan öğeyi Azure Site Recovery'den kaldırın ve makine için çoğaltma durdurulur. Şirket içi sanal makine çoğaltma yapılandırması temizlenir ve bu korumalı sunucu için Site Recovery Faturalaması durdurulur.
+    - **Çoğaltma ve Kaldır (önerilir) devre dışı** - bu seçenek çoğaltılan öğeyi Azure Site Recovery'den kaldırın ve makine için çoğaltma durdurulur. Şirket içi sanal makine çoğaltma yapılandırması temizlenir ve bu korumalı sunucu için Site Recovery Faturalaması durdurulur.
     - **Kaldırma** -bu seçeneği yalnızca kaynak ortamı (bağlı değil) silindi veya erişilebilir değil ise, kullanılması gereken. Bu işlem çoğaltılan öğeyi Azure Site Kurtarma (faturalandırma sona erdirilir) kaldırır. Şirket içi sanal makine çoğaltma yapılandırması **yapmamayı** temizlenir. 
 
     > [!NOTE]
@@ -208,8 +208,8 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
 
 3. VMM konsolundan (yönetici ayrıcalıkları gereklidir) PowerShell kullanarak kaynak VMM sunucusunda bu betiği çalıştırın. Yer tutucusunu değiştirin **SQLVM1** sanal makinenizin adıyla.
 
-         $vm = get-scvirtualmachine -Name "SQLVM1"
-         Set-SCVirtualMachine -VM $vm -ClearDRProtection
+        $vm = get-scvirtualmachine -Name "SQLVM1"
+        Set-SCVirtualMachine -VM $vm -ClearDRProtection
 4. İkincil VMM sunucusuna, ikincil sanal makine ayarlarını temizlemek için bu betiği çalıştırın:
 
         $vm = get-scvirtualmachine -Name "SQLVM1"

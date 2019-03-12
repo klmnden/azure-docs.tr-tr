@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: 0e668c0b31defd5c945ddf2fec1b00f75d92f174
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e35e669c4abc4815b932e09d369af28e42617e8c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990162"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535708"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IOT DevKit AZ3166 Azure IOT hub'a bağlama
 
@@ -175,9 +175,9 @@ Geliştirme ortamı için DevKit hazırlamak için aşağıdaki adımları izley
 
 ### <a name="install-st-link-drivers"></a>ST bağlantı sürücüleri yükleyin
 
-[ST-bağlantı/V2](http://www.st.com/en/development-tools/st-link-v2.html) geliştirme makinenize ile iletişim kurmak için IOT DevKit kullanır USB arabirimidir. Flash etkinleştirmek için Windows üzerinde derlenmiş deivce kod Devkit'e yüklemeniz gerekir. Cihazınızı makine erişmesine izin vermek için işletim sistemine özgü adımları izleyin.
+[ST-bağlantı/V2](https://www.st.com/en/development-tools/st-link-v2.html) geliştirme makinenize ile iletişim kurmak için IOT DevKit kullanır USB arabirimidir. Flash etkinleştirmek için Windows üzerinde derlenmiş deivce kod Devkit'e yüklemeniz gerekir. Cihazınızı makine erişmesine izin vermek için işletim sistemine özgü adımları izleyin.
 
-* **Windows**: USB sürücüsünden yükleyip [STMicroelectronics Web sitesi](http://www.st.com/en/development-tools/stsw-link009.html).
+* **Windows**: USB sürücüsünden yükleyip [STMicroelectronics Web sitesi](https://www.st.com/en/development-tools/stsw-link009.html).
 * **macOS**: Sürücü, macOS için gereklidir.
 * **Ubuntu**: Terminalde aşağıdaki komutu çalıştırın, oturumu kapatın ve Grup değişikliğin etkili olması için oturum açın:
     ```bash

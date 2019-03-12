@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 7c76f7c5810370fa396b81bcc16e7e2204393bc1
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 934046ac4be6c0e85ee687cefb46b61ec8affca6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247554"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543380"
 ---
 # <a name="introduction-to-azure-security"></a>Azure güvenliğine giriş
 ## <a name="overview"></a>Genel Bakış
@@ -287,7 +287,7 @@ Yönetim Portalı'nda veya ağ yapılandırma dosyasında bir sanal ağda kullan
 
 ### <a name="azure-dns"></a>Azure DNS
 [Etki alanı adı sistemi](https://technet.microsoft.com/library/bb629410.aspx), veya DNS çevirmek için sorumlu (veya çözümleme) IP adresini bir Web sitesi veya hizmet adı. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) DNS etki alanları, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlamak için bir barındırma hizmetidir. Etki alanlarınızı Azure'da barındırarak DNS kayıtlarınızı diğer Azure hizmetlerinde kullandığınız kimlik bilgileri, API’ler, araçlar ve faturalarla yönetebilirsiniz. DNS "CIA" güvenlik Üçlü kullanılabilirlik yönüyle destekler.
-### <a name="log-analytics-nsgs"></a>Log Analytics Nsg'ler
+### <a name="azure-monitor-logs-nsgs"></a>Azure İzleyici Nsg'ler günlüğe kaydeder.
 Nsg'ler için aşağıdaki tanılama günlük kategorileri etkinleştirebilirsiniz:
 -   olay: Vm'lere ve örnek rollerinizin MAC adresini temel alarak için hangi NSG kuralları uygulanır girişler içeriyor. Bu kurallar durumu, 60 saniyede toplanır.
 

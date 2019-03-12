@@ -9,20 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/05/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59bfc13053a33b8f29f09a9ab93a108e746ea012
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3dffcfe7c4c892976a61272a2217226f512b70ed
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431164"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542565"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Azure Active Directory kiracısı Sil
-
 Bir kiracı silindiğinde, kiracıda bulunan tüm kaynaklar da silinir. Kiracı, silmeden önce ilişkili kaynakları en aza indirerek hazırlamanız gerekir. Yalnızca Azure Active Directory (Azure AD) genel yönetici portalından Azure AD kiracısı silebilirsiniz.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Kiracı silme işlemi için hazırlama
@@ -52,7 +51,7 @@ Bazı denetimleri geçinceye kadar Azure AD'de bir kiracı silinemiyor. Bu denet
 
 ## <a name="i-have-an-expired-subscription-but-i-cant-delete-the-tenant"></a>Süresi dolmuş bir Aboneliğim sahibim ancak kiracısını silemiyorum
 
-Azure Active Directory kiracınızın yapılandırıldığında, ayrıca lisans tabanlı abonelikler, kuruluşunuzun Azure Active Directory Premium P2, Office 365 iş ekstra, veya Enterprise Mobility + Security E5 gibi etkinleştirdikten. Tam olarak, yanlışlıkla veri kaybını önlemek için silinmelerinden bu abonelikler dizini silme engelleyin. Abonelik olmalıdır bir **yetki kaldırıldı** Kiracı silinmesine izin vermek için durum. Bir **süresi dolan** veya **iptal** abonelik taşır **devre dışı bırakılmış** durumu ve son aşaması **Deprovisoned** durumu. 
+Azure AD kiracınıza yapılandırıldığında, ayrıca lisans tabanlı abonelikler, kuruluşunuzun Azure AD Premium P2, Office 365 iş ekstra, veya Enterprise Mobility + Security E5 gibi etkinleştirdikten. Tam olarak, yanlışlıkla veri kaybını önlemek için silinmelerinden bu abonelikler dizini silme engelleyin. Abonelik olmalıdır bir **yetki kaldırıldı** Kiracı silinmesine izin vermek için durum. Bir **süresi dolan** veya **iptal** abonelik taşır **devre dışı bırakılmış** durumu ve son aşaması **Deprovisoned** durumu. 
 
 Beklenecekler için deneme Office 365 aboneliği (Ücretli iş ortağı/CSP, Kurumsal Anlaşma veya Toplu Lisanslama dahil değil) süresi dolduğunda, aşağıdaki tabloya bakın. Office 365 veri saklama ve abonelik yaşam döngüsü hakkında daha fazla bilgi için bkz. [Office 365 işletme Aboneliğim sona erdiğinde verilerime ve erişim için ne olur?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
@@ -61,17 +60,19 @@ Abonelik durumu | Veriler | Veri erişimi
 Etkin (deneme sürümü için 30 gün)  | Tüm erişilebilir veri    | <li>Kullanıcıların Office 365 dosyalar veya uygulamalar için normal erişimi<li>Yöneticilerin Office 365 Yönetim merkezine ve kaynaklara normal erişimi 
 Süresi dolan (30 gün)   | Tüm erişilebilir veri    | <li>Kullanıcıların Office 365 dosyalar veya uygulamalar için normal erişimi<li>Yöneticilerin Office 365 Yönetim merkezine ve kaynaklara normal erişimi
 Devre dışı (30 gün) | Verileri yalnızca Yöneticisi için erişilebilir  | <li>Kullanıcılar Office 365 dosyalar veya uygulamalar erişemez.<li>Yöneticileri Office 365 Yönetim Merkezine erişim ancak olamaz lisansları atayabilir veya güncelleştirme
-Sağlaması (30 gün sonra devre dışı) | Silinen verileri (otomatik olarak silinmesini başka bir hizmetler kullanılıyorsa) | <li>Kullanıcılar Office 365 dosyalar veya uygulamalar erişemez.<li>Yöneticiler satın alın ve diğer Aboneliklerini yönetmek için Office 365 Yönetim merkezine erişebilirsiniz
+Sağlaması (30 gün sonra devre dışı) | Silinen verileri (otomatik olarak silinmesini başka bir hizmetler kullanılıyorsa) | <li>Kullanıcılar Office 365 dosyalar veya uygulamalar erişemez.<li>Yöneticiler satın alın ve diğer Aboneliklerini yönetmek için Office 365 Yönetim merkezine erişebilirsiniz 
 
-Bir aboneliğe koyabilirsiniz bir **Deprovisoned** durumu iş Yönetim Merkezi için Microsoft Store kullanarak 3 gün içinde silinecek. Bu özellik, Office 365 Yönetim merkezine yakında kullanıma sunulacaktır.
+## <a name="delete-a-subscription-in-the-microsoft-365-admin-center"></a>Microsoft 365 Yönetim merkezinde aboneliği silme
 
-1. Oturum [iş Yönetim Merkezi için Microsoft Store](https://businessstore.microsoft.com/manage/) kiracısında genel yönetici olan bir hesapla. İlk varsayılan etki alanı contoso.onmicrosoft.com olan "Contoso" kiracısını silmeye çalışıyorsanız, bir UPN ile aşağıdaki gibi oturum admin@contoso.onmicrosoft.com.
+Bir aboneliğe koyabilirsiniz bir **Deprovisoned** durumu Microsoft 365 Yönetim Merkezi aracılığıyla 3 gün içinde silinecek.
 
-2. Git **Yönet** sekmenize **ürünleri ve Hizmetleri**, iptal edin ve istediğiniz aboneliği seçin **Sil**.
+1. Oturum [Microsoft 365 Yönetim merkezini](https://admin.microsoft.com) kiracısında genel yönetici olan bir hesapla. İlk varsayılan etki alanı contoso.onmicrosoft.com olan "Contoso" kiracısını silmeye çalışıyorsanız, bir UPN ile aşağıdaki gibi oturum admin@contoso.onmicrosoft.com.
+
+2. Git **faturalama** sekmenize **ürünleri ve Hizmetleri**, iptal etmek istediğiniz aboneliği seçin. Tıkladıktan sonra **iptal**, sayfayı yenileyin.
   
   ![Aboneliği silmek için bağlantısını Sil](./media/directory-delete-howto/delete-command.png)
   
-3. Seçin **Sil abonelik** hüküm ve koşulları kabul etmek ve aboneliğini silmek için. Tüm verileri kalıcı olarak üç gün içinde silinir. Fikrinizi değiştirirseniz abonelik sonraki üç gün boyunca yeniden etkinleştirebilir.
+3. Seçin **Sil** abonelik silip hüküm ve koşulları kabul edin. Tüm verileri kalıcı olarak üç gün içinde silinir. Fikrinizi değiştirirseniz üç gün boyunca abonelik yeniden etkinleştirebilir.
   
   ![hüküm ve koşullar](./media/directory-delete-howto/delete-terms.png)
 

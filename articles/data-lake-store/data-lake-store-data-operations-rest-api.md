@@ -1,5 +1,5 @@
 ---
-title: 'REST API: Dosya sistemi işlemlerini Azure Data Lake depolama Gen1 | Microsoft Docs'
+title: 'REST API: Azure Data Lake depolama Gen1 gerçekleştirilen dosya sistemi işlemleri | Microsoft Docs'
 description: Azure Data Lake depolama Gen1 dosya sistemi işlemlerini gerçekleştirmek üzere WebHDFS REST API'lerini kullanma
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 62ecf3b1983853629f6bc5fd594231188aa67bcd
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4c61d68a948cbc5638dab30713871d1aaf822f03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391615"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529266"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Azure Data Lake depolama Gen1 REST API kullanılarak gerçekleştirilen dosya sistemi işlemleri
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Bu makalede, Azure Data Lake depolama Gen1 dosya sistemi işlemlerini gerçekle�
 
 * **Azure Data Lake depolama Gen1 hesabı**. Konumundaki yönergeleri [Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure portalını kullanarak](data-lake-store-get-started-portal.md).
 
-* **[cURL](http://curl.haxx.se/)**. Bu makalede, bir Data Lake depolama Gen1 hesabına yönelik REST API çağrılarının nasıl yapılacağını göstermek üzere cURL kullanılmıştır.
+* **[cURL](https://curl.haxx.se/)**. Bu makalede, bir Data Lake depolama Gen1 hesabına yönelik REST API çağrılarının nasıl yapılacağını göstermek üzere cURL kullanılmıştır.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak nasıl kimlik doğrulaması gerçekleştiririm?
 Azure Active Directory'yi kullanarak kimlik doğrulaması gerçekleştirmek üzere iki yaklaşımdan faydalanabilirsiniz:
@@ -44,7 +44,7 @@ Azure Active Directory'yi kullanarak kimlik doğrulaması gerçekleştirmek üze
 
 
 ## <a name="create-folders"></a>Klasör oluşturma
-Bu işlem, [burada](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory) tanımlanan WebHDFS REST API çağrısını temel alır.
+Bu işlem, [burada](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory) tanımlanan WebHDFS REST API çağrısını temel alır.
 
 Aşağıdaki cURL komutunu kullanın. Değiştirin  **\<yourstorename >** , Data Lake depolama Gen1 hesap adına sahip.
 
@@ -57,7 +57,7 @@ Yukarıdaki komutta, \<`REDACTED`\> öğesini daha önce aldığınız yetkilend
     {"boolean":true}
 
 ## <a name="list-folders"></a>Klasörleri listeleme
-Bu işlem, [burada](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory) tanımlanan WebHDFS REST API çağrısını temel alır.
+Bu işlem, [burada](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory) tanımlanan WebHDFS REST API çağrısını temel alır.
 
 Aşağıdaki cURL komutunu kullanın. Değiştirin  **\<yourstorename >** , Data Lake depolama Gen1 hesap adına sahip.
 
@@ -85,7 +85,7 @@ Yukarıdaki komutta, \<`REDACTED`\> öğesini daha önce aldığınız yetkilend
     }
 
 ## <a name="upload-data"></a>Karşıya veri yükleme
-Bu işlem, [burada](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File) tanımlanan WebHDFS REST API çağrısını temel alır.
+Bu işlem, [burada](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File) tanımlanan WebHDFS REST API çağrısını temel alır.
 
 Aşağıdaki cURL komutunu kullanın. Değiştirin  **\<yourstorename >** , Data Lake depolama Gen1 hesap adına sahip.
 
@@ -107,7 +107,7 @@ Yukarıdaki söz diziminde **-T** parametresi karşıya yüklediğiniz dosyanın
     ...
 
 ## <a name="read-data"></a>Verileri okuma
-Bu işlem, [burada](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File) tanımlanan WebHDFS REST API çağrısını temel alır.
+Bu işlem, [burada](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File) tanımlanan WebHDFS REST API çağrısını temel alır.
 
 Bir Data Lake depolama Gen1 verileri okuma hesabı iki adımlı bir işlemdir.
 
@@ -131,7 +131,7 @@ Aşağıdaki kod parçacığına benzer bir çıktı görmeniz gerekir:
     Hello, Data Lake Store user!
 
 ## <a name="rename-a-file"></a>Dosyayı yeniden adlandırma
-Bu işlem, [burada](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory) tanımlanan WebHDFS REST API çağrısını temel alır.
+Bu işlem, [burada](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory) tanımlanan WebHDFS REST API çağrısını temel alır.
 
 Bir dosyayı yeniden adlandırmak için aşağıdaki cURL komutunu kullanın. Değiştirin  **\<yourstorename >** , Data Lake depolama Gen1 hesap adına sahip.
 
@@ -145,7 +145,7 @@ Aşağıdaki kod parçacığına benzer bir çıktı görmeniz gerekir:
     {"boolean":true}
 
 ## <a name="delete-a-file"></a>Dosyayı silme
-Bu işlem, [burada](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory) tanımlanan WebHDFS REST API çağrısını temel alır.
+Bu işlem, [burada](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory) tanımlanan WebHDFS REST API çağrısını temel alır.
 
 Bir dosyayı silmek için aşağıdaki cURL komutunu kullanın. Değiştirin  **\<yourstorename >** , Data Lake depolama Gen1 hesap adına sahip.
 

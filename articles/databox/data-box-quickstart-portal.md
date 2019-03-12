@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 95e2a17407ad7d9e108b4ac38e8ff0ff62abf857
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188569"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529709"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure Data Box'ı dağıtma
 
@@ -43,7 +43,7 @@ Başlamadan önce:
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="order"></a>Sipariş verme
 
@@ -86,7 +86,7 @@ Data Box elinize ulaştığında, cihazı kablolamak, bağlamak ve iade etmek i�
 
 Bu adımın tamamlanması yaklaşık 5-7 dakika sürer.
 
-1. Cihaz parolasını almak için [Azure portalında](http://portal.azure.com) **Genel > Cihaz ayrıntıları**'na gidin.
+1. Cihaz parolasını almak için [Azure portalında](https://portal.azure.com) **Genel > Cihaz ayrıntıları**'na gidin.
 2. Data Box'a bağlanmak için kullandığınız bilgisayardaki Ethernet bağdaştırıcısına 192.168.100.5 statik IP adresini ve 255.255.255.0 alt ağını atayın. Cihazın yerel web kullanıcı arabirimine `https://192.168.100.10` adresinden erişin. Siz cihazı açtıktan sonra bağlantı kurulması 5 dakika kadar sürebilir. 
 3. Azure portalından alınan parolayı kullanarak oturum açın. Web sitesinin güvenlik sertifikasında sorun olduğunu belirten bir hata görürsünüz. Web sayfasına ilerlemek için tarayıcıya özel yönergeleri izleyin.
 4. Varsayılan olarak, 10 Gb/sn (veya 1 Gb/sn) veri arabirimi için ağ ayarları DHCP olarak yapılandırılır. Gerekirse, bu arabirimi statik olarak yapılandırabilir ve bir IP adresi sağlayabilirsiniz. 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 76df7f57f44100a27fbe4583051fa25c61e27ee0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 272ec7298785128caebd850dc488ca01937a3960
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961831"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548516"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Intellij için Azure Araç Seti'ni kullanma
 
@@ -209,7 +209,7 @@ Scala uygulama oluşturduktan sonra küme gönderebilirsiniz.
     |Spark kümeleri (yalnızca Linux)|Uygulamanızı çalıştırmak istiyorsanız HDInsight Spark kümesini seçin.|
     |Göndermek için bir yapı seçin|Varsayılan ayarı değiştirmeyin.|
     |Ana sınıf adı|Seçili dosya ana sınıftan varsayılan değerdir. Sınıfı üç nokta seçerek değiştirebilirsiniz (**...** ) ve başka bir sınıfı seçme.|
-    |Proje yapılandırmaları|Varsayılan anahtarlar ve/veya değerleri değiştirebilirsiniz. Daha fazla bilgi için [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Proje yapılandırmaları|Varsayılan anahtarlar ve/veya değerleri değiştirebilirsiniz. Daha fazla bilgi için [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Komut satırı bağımsız değişkenleri|Gerekirse ana sınıfı için boşluk tarafından ayrılmış bağımsız değişkenleri girebilirsiniz.|
     |Başvurulan jar dosyaları dışındaki ve başvurulan dosyaları|Varsa, başvurulan jar dosyaları dışındaki ve dosyaları için yol girebilirsiniz. Daha fazla bilgi için: [Apache Spark yapılandırma](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Ayrıca bkz [küme kaynaklarını karşıya nasıl](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |İşi karşıya yükleme depolama|Ek seçenekleri görmek için genişletin.|

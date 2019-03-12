@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 04707a747edb7cf26b4e7f4e3251b958f6f11f38
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: df1542d6d20120a9b1e087fadf3743479ecebf07
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56962299"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533842"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Artımlı olarak veri kopyalama aracını kullanarak zaman bölümlenmiş dosya adına göre yeni dosyaları kopyalama
 
@@ -43,14 +43,14 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
 Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için hazırlama.
 
-1. Adlı bir kapsayıcı oluşturun **kaynak**.  Bir klasör yolu olarak oluşturma **2019/02/26/14** kapsayıcınızda. Boş bir metin dosyası oluşturun ve olarak adlandırın **Dosya1.ref**. Klasör yoluna Dosya1.ref karşıya **kaynak/2019/02/26/14** depolama hesabınızda.  Bu görevleri [Azure Depolama Gezgini](http://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
+1. Adlı bir kapsayıcı oluşturun **kaynak**.  Bir klasör yolu olarak oluşturma **2019/02/26/14** kapsayıcınızda. Boş bir metin dosyası oluşturun ve olarak adlandırın **Dosya1.ref**. Klasör yoluna Dosya1.ref karşıya **kaynak/2019/02/26/14** depolama hesabınızda.  Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
     
     ![Dosyaları karşıya yükleme](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
     
     > [!NOTE]
     > Lütfen bir klasör adı, UTC saati ile ayarlayın.  Örneğin, geçerli UTC saat 2: 03'te 26 Şubat 2019 tarihinde ise klasör yolu olarak oluşturabilirsiniz **kaynak/2019/02/26/14/** kuralına göre **kaynak / {Year} / {Month} / {Day} / {Hour} /**.
 
-2. Adlı bir kapsayıcı oluşturun **hedef**. Bu görevleri [Azure Depolama Gezgini](http://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
+2. Adlı bir kapsayıcı oluşturun **hedef**. Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
@@ -175,10 +175,10 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
 
     ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
     
-    Azure Depolama Gezgini'ni kullanarak aynı da doğrulayabilirsiniz (http://storageexplorer.com/) dosyaları taramak için.
+    Azure Depolama Gezgini'ni kullanarak aynı da doğrulayabilirsiniz (https://storageexplorer.com/) dosyaları taramak için.
     
     ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
-12. Yeni ada sahip başka bir boş metin dosyası oluşturun **file2.txt**. Klasör yoluna file2.txt dosyayı karşıya yüklemeyi **kaynak/2019/02/26/15** depolama hesabınızda.   Bu görevleri [Azure Depolama Gezgini](http://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.    
+12. Yeni ada sahip başka bir boş metin dosyası oluşturun **file2.txt**. Klasör yoluna file2.txt dosyayı karşıya yüklemeyi **kaynak/2019/02/26/15** depolama hesabınızda.   Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.   
     
     ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
     
@@ -197,7 +197,7 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
     
     ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs7.png) 
     
-    Azure Depolama Gezgini'ni kullanarak aynı da doğrulayabilirsiniz (http://storageexplorer.com/) dosyaları taramak için **hedef** kapsayıcı
+    Azure Depolama Gezgini'ni kullanarak aynı da doğrulayabilirsiniz (https://storageexplorer.com/) dosyaları taramak için **hedef** kapsayıcı
     
     ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs8.png)
 

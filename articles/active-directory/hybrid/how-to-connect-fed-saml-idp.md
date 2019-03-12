@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09151dee2d458e2ff4fae8a8a3bc93fa466e4efc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7b82c2261e949c724b1310ee43c6f3fe29766945
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167805"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531020"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Çoklu oturum açma için SAML 2.0 kimlik sağlayıcısı (IDP) kullanın
 
@@ -196,7 +196,7 @@ Aşağıdaki yordam, SAML 2.0 SP-Lite'ı kullanarak bir Federasyon etki alanına
 >[!NOTE]
 >Kullanım çalıştırmanız gerekir "$ecpUrl ="https://WS2012R2-0.contoso.com/PAOS"" için kimlik sağlayıcınıza ECP uzantı ayarlarsanız. Outlook Web uygulaması (OWA) hariç olmak üzere, Exchange Online istemcilerin güvendiği bir GÖNDERİ etkin uç noktasına bağlı. Shibboleth'ın ECP uygulamasına yönelik etkin bir uç noktayı benzer bir etkin uç noktası, SAML 2.0 STS uyguluyorsa Exchange Online hizmetiyle etkileşim kurmak bu zengin istemciler mümkün olabilir.
 
-Federasyon yapılandırıldıktan sonra geri "Federasyon olmayan" (veya "yönetilen"), ancak bu değişikliğin tamamlanması iki saat sürer geçebilir ve her kullanıcı için bulut tabanlı oturum açma için yeni rastgele parolalar atama gerektirir. Geri "yönetilen" geçiş hatayla ayarlarınızı sıfırlamak için bazı senaryolarda gerekebilir. Etki alanı dönüştürme hakkında daha fazla bilgi için bkz: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](httpss://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Federasyon yapılandırıldıktan sonra geri "Federasyon olmayan" (veya "yönetilen"), ancak bu değişikliğin tamamlanması iki saat sürer geçebilir ve her kullanıcı için bulut tabanlı oturum açma için yeni rastgele parolalar atama gerektirir. Geri "yönetilen" geçiş hatayla ayarlarınızı sıfırlamak için bazı senaryolarda gerekebilir. Etki alanı dönüştürme hakkında daha fazla bilgi için bkz: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Azure ad kullanıcı asıl adları sağlama / Office 365
 Kullanıcılarınız Office 365 için kimlik doğrulama gerçekleştirmeden önce SAML 2.0 talep onaylama karşılık gelen kullanıcı asıl adları ile Azure AD hazırlamanız gerekir. Bu kullanıcı ilkeleri önceden Azure AD'ye bilinmiyorsa, ardından bunlar Federasyon oturum açmak için kullanılamaz. Azure AD Connect ya da Windows PowerShell, kullanıcı asıl adları sağlamak için kullanılabilir.

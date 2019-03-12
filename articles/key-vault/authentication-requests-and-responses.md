@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: defb351f0efa5264e21928ab90a0dca12454e074
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2d63c14c5eba1a9637cfd5544585e71d2bc86048
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404349"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535170"
 ---
 # <a name="authentication-requests-and-responses"></a>Kimlik doğrulaması, istekler ve yanıtlar
 
@@ -92,7 +92,7 @@ Bu konu, Azure Key Vault hizmeti için özellikleri kapsar. Azure REST arabiriml
 ```  
 
 ## <a name="authentication"></a>Authentication  
- Tüm istekler için Azure anahtar kasası gerekir. kimlik doğrulaması. Azure Key Vault, oauth2'yi kullanarak elde edilebilir Azure Active Directory erişim belirteçleri destekleyen [[RFC6749](http://tools.ietf.org/html/rfc6749)]. 
+ Tüm istekler için Azure anahtar kasası gerekir. kimlik doğrulaması. Azure Key Vault, oauth2'yi kullanarak elde edilebilir Azure Active Directory erişim belirteçleri destekleyen [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Uygulamanızı kaydetmek ve Azure anahtar kasası kullanılacak kimlik doğrulaması hakkında daha fazla bilgi için bkz. [istemci uygulamanızı Azure AD'ye kaydetme](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
  

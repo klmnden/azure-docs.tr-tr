@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: bae35f9e153227ddcca6e0d20ce862317b968eb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275964"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536020"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cloud Cruiser ve API tümleştirmesi faturalandırma Microsoft Azure
 Bu makalede nasıl yeni Microsoft Azure faturalama API'lerinden toplanan bilgiler Cloud Cruiser iş akışı maliyet simülasyon ve analiz için kullanılabileceğini açıklar.
@@ -137,7 +137,7 @@ Yeni Azure kullanım API'si ile Cloud Cruiser kaynak etiketleme bilgileri çekme
 Şarj tarafında Cloud Cruiser hesaplama/yansıtma işlemini otomatikleştiren ve etiket bilgileri kullanım için uygun bir tüketici (departman, bölme, proje, vb.) bağlamak için kullanabilirsiniz. Bu Otomasyon büyük bir geliştirme sağlar ve tutarlı ve denetlenebilir bir şarj işlem emin olabilirsiniz.
 
 ### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>Microsoft Azure üzerinde etiketler ile bir kaynak grubu oluşturma
-Azure portalında bir kaynak grubu oluşturmak için Bu öğreticide ilk adım olan kaynaklarla ilişkilendirmek için yeni etiketler oluşturup. Bu örnek için aşağıdaki etiketlerin oluşturmakta: departmanı, ortam, sahibi, proje.
+Azure portalında bir kaynak grubu oluşturmak için Bu öğreticide ilk adım olan kaynaklarla ilişkilendirmek için yeni etiketler oluşturup. Bu örnekte, aşağıdaki etiketleri oluşturmakta: Departman, ortam, sahibi, proje.
 
 Aşağıdaki ekran görüntüsünde, bir ' % s'örneği kaynak grubu ile ilişkili etiket gösterilmektedir.
 
@@ -200,7 +200,7 @@ Artık şu kullanım verilerini yayımlamak için bir adım eklemek yeterlidir. 
 En iyi tarafı, yalnızca bir kez bu süreçte Git olmasıdır. Çalışma kitabı tamamlandığında, Zamanlayıcı eklemeniz yeterlidir ve saatlik veya günlük zamanlanan saatte çalıştırır. Ardından, yeni rapor oluşturma veya var olanları bulut kullanımınızı anlamlı bilgiler almak için verileri analiz etmek için özelleştirme adımlarından oluşur.
 
 ### <a name="next-steps"></a>Sonraki Adımlar
-* Cloud Cruiser çalışma kitapları ve raporlarınızı oluşturmaya ilişkin ayrıntılı yönergeler için Cloud Cruiser için kullanıcının çevrimiçi başvuruda [belgeleri](http://docs.cloudcruiser.com/) (gerekli geçerli oturum açma).  Cloud Cruiser hakkında daha fazla bilgi için [ info@cloudcruiser.com ](mailto:info@cloudcruiser.com).
+* Cloud Cruiser çalışma kitapları ve raporlarınızı oluşturmaya ilişkin ayrıntılı yönergeler için Cloud Cruiser için kullanıcının çevrimiçi başvuruda [belgeleri](https://docs.cloudcruiser.com/) (gerekli geçerli oturum açma).  Cloud Cruiser hakkında daha fazla bilgi için [ info@cloudcruiser.com ](mailto:info@cloudcruiser.com).
 * Bkz: [Microsoft Azure kaynak tüketiminize öngörü](billing-usage-rate-card-overview.md) Azure kaynak kullanım ve RateCard API'leri genel bakış.
 * Kullanıma [Azure faturalandırma REST API Başvurusu](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) hem API'leri hakkında daha fazla bilgi için Azure Resource Manager tarafından sağlanan API'lerden oluşan bir kümenin parçası olan.
 * Örnek kodun içine doğrudan içine dalmak istiyorsanız, Microsoft Azure faturalama API kod Örneklerimize atın [Azure Kod örnekleri](https://azure.microsoft.com/documentation/samples/?term=billing).

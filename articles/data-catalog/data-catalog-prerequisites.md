@@ -8,12 +8,12 @@ ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 5d05371d9b948dc2f7d6f834eb9431af80fc6365
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 788e7a453e9879d9c901448659ff1c8cfa7201ff
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406881"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548328"
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Azure Veri Kataloğu önkoşulları
 
@@ -30,7 +30,7 @@ Veri Kataloğu'nu ayarlamak için bir Azure Active Directory (Azure AD) kullanı
 Azure AD işletmenizin kimlik ve erişimi hem bulutta hem de şirket içinde yönetmesi için kolay bir yöntem sağlar. Kullanıcılar için çoklu oturum açma için herhangi bir buluttaki kullanabilir tek bir iş veya Okul hesabı ve şirket içi web uygulaması. Veri Kataloğu, oturum açma kimliğini doğrulamak için Azure AD kullanır. Daha fazla bilgi için bkz. [Azure Active Directory nedir?](../active-directory/fundamentals/active-directory-whatis.md).
 
 > [!NOTE]
-> Kullanarak [Azure portalında](http://portal.azure.com/), oturum açmak kişisel bir Microsoft hesabı ya da bir Azure Active Directory ile oturum iş veya Okul hesabı. Azure portalını kullanarak veri Kataloğu ayarlamak için veya [veri Kataloğu portalı](http://www.azuredatacatalog.com), bir kişisel hesap bir Azure Active Directory hesabıyla oturum açmanız gerekir.
+> Kullanarak [Azure portalında](https://portal.azure.com/), oturum açmak kişisel bir Microsoft hesabı ya da bir Azure Active Directory ile oturum iş veya Okul hesabı. Azure portalını kullanarak veri Kataloğu ayarlamak için veya [veri Kataloğu portalı](https://www.azuredatacatalog.com), bir kişisel hesap bir Azure Active Directory hesabıyla oturum açmanız gerekir.
 >
 >
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: f4a2fe4c9307f7e59ca94e47683356143546d090
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 077b3e8b9aac47818b82384584d9b3cb410f9422
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310752"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541392"
 ---
 # <a name="about-azure-vm-backup"></a>Azure VM yedeklemesi hakkında
 
@@ -61,7 +61,7 @@ Azure sanal makinelerini Azure Backup ile yedekleme, sanal makineleri bekleyen d
 Azure yedekleme anlık görüntüleri yedekleme zamanlamasına uygun olarak.
 
 - **Windows Vm'leri**: Windows Vm'leri için yedekleme hizmeti Birim Gölge Kopyası Hizmeti (sanal makine diskleri uygulamayla tutarlı bir anlık görüntüsünü almak için VSS ile) düzenler.
-    - Varsayılan olarak, Azure Backup, VSS tam yedeklemeler alır. [Daha fazla bilgi edinin](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
+    - Varsayılan olarak, Azure Backup, VSS tam yedeklemeler alır. [Daha fazla bilgi edinin](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
     - Azure yedekleme VSS kopyalama yedeklemeleri olabilmesi ayarı değiştirmek istiyorsanız, bir komut isteminden aşağıdaki kayıt defteri anahtarını ayarlayın: **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**.
 - **Linux Vm'leri**: Uygulamayla tutarlı Linux VM anlık isterseniz Linux ön betik kullanma ve tutarlılığını sağlamak için kendi komut dosyalarınızı yazmak için framework sonrası komut dosyası.
     -  Azure yedekleme, yalnızca sizin tarafınızdan yazılan ön/son betiklerini çağırır.

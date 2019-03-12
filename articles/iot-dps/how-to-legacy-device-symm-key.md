@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 963d03db2db811b44b1d89df8254f751ec7d3136
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cf4ee8b1b9d96ad4d32a0ac8b1682968b90653f9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877410"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541499"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Simetrik anahtarlar kullanarak eski cihazları sağlamasını yapma
 
@@ -114,7 +114,7 @@ SDK'sı sanal cihaz için örnek kod içerir. Simülasyon cihazı, cihazın öny
 
 ## <a name="create-a-symmetric-key-enrollment-group"></a>Bir simetrik anahtar kayıt grubu oluşturma
 
-1. Oturum [Azure portalında](http://portal.azure.com), cihaz sağlama hizmeti örneğinizi açın.
+1. Oturum [Azure portalında](https://portal.azure.com), cihaz sağlama hizmeti örneğinizi açın.
 
 2. Seçin **kayıtları Yönet** sekmesine ve ardından **kayıt grubu Ekle** sayfanın üstünde düğme. 
 

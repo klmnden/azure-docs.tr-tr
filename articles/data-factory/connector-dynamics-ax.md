@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 1d20308bb7fcfa2636f10e3990d98dcd6ab05a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 05bd4fdd220b47b11dfed9857dbc8dbe25b236df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238224"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529802"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Dynamics AX'ten veri kopyalama
 
@@ -134,7 +134,7 @@ Dynamics AX'ten veri kopyalamak için ayarlanmış **kaynak** türü için kopya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği kaynak özelliği ayarlanmalıdır **DynamicsAXSource**. | Evet |
-| sorgu | Verileri filtreleme için OData sorgu seçenekleri. Örnek: `"?$select=Name,Description&$top=5"`.<br/><br/>**Not**: Bağlayıcı verileri birleşik URL'den kopyalar: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Daha fazla bilgi için [OData URL'si bileşenleri](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
+| sorgu | Verileri filtreleme için OData sorgu seçenekleri. Örnek: `"?$select=Name,Description&$top=5"`.<br/><br/>**Not**: Bağlayıcı verileri birleşik URL'den kopyalar: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Daha fazla bilgi için [OData URL'si bileşenleri](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
 
 **Örnek**
 

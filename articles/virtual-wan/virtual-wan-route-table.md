@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: e966f371f7a308d3981a10e26ecd8c8ee855e6df
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 02c05bc7d8488a5fd4d0698f13a1ba354dbbb0e8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57402878"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546050"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Bir ağ sanal Gerecinin trafik faaliyetidir için sanal Hub yönlendirme tablosu oluşturma
 
@@ -45,7 +45,7 @@ Aşağıdaki ölçütleri karşıladığınızı doğrulayın:
 
 ## <a name="signin"></a>1. Oturum aç
 
-Resource Manager PowerShell cmdlet'lerinin en son sürümünü yüklediğinizden emin olun. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-az-ps). Bu önemlidir, çünkü cmdlet’lerin daha önceki sürümleri bu alıştırma için gereken geçerli değerleri içermez. Örnek üç rol modülleri olan Azure RM Bu makale için Azure Az gelecekte güncelleştirilecektir.
+Resource Manager PowerShell cmdlet'lerinin en son sürümünü yüklediğinizden emin olun. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-az-ps). Bu önemlidir, çünkü cmdlet’lerin daha önceki sürümleri bu alıştırma için gereken geçerli değerleri içermez.
 
 1. PowerShell Konsolunuzu yükseltilmiş ayrıcalıklarla açın ve Azure hesabınızda oturum açın. Bu cmdlet, oturum açma kimlik bilgilerini ister. Azure PowerShell için kullanılabilir olacak şekilde oturum açtıktan sonra hesap ayarlarınızı indirir.
 
@@ -86,13 +86,13 @@ Resource Manager PowerShell cmdlet'lerinin en son sürümünü yüklediğinizden
 Hub sanal ağ bağlantıları sanal hub'ına dolaylı uç sanal ağ ve DMZ sanal ağ oluşturun.
 
   ```powershell
-  $remoteVirtualNetwork1= Get-AzVirtualNetwork -Name “indirectspoke1” -ResourceGroupName “testRG”
-  $remoteVirtualNetwork2= Get-AzVirtualNetwork -Name “indirectspoke2” -ResourceGroupName “testRG”
-  $remoteVirtualNetwork3= Get-AzVirtualNetwork -Name “dmzvnet” -ResourceGroupName “testRG”
+  $remoteVirtualNetwork1= Get-AzVirtualNetwork -Name "indirectspoke1" -ResourceGroupName "testRG"
+  $remoteVirtualNetwork2= Get-AzVirtualNetwork -Name "indirectspoke2" -ResourceGroupName "testRG"
+  $remoteVirtualNetwork3= Get-AzVirtualNetwork -Name "dmzvnet" -ResourceGroupName "testRG"
 
-  New-AzVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection1” -RemoteVirtualNetwork $remoteVirtualNetwork1
-  New-AzVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection2” -RemoteVirtualNetwork $remoteVirtualNetwork2
-  New-AzVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection3” -RemoteVirtualNetwork $remoteVirtualNetwork3
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection1" -RemoteVirtualNetwork $remoteVirtualNetwork1
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection2" -RemoteVirtualNetwork $remoteVirtualNetwork2
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
 ## <a name="route"></a>4. Sanal hub yönlendirme oluşturma
@@ -116,7 +116,7 @@ $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 Sanal hub'ıyla değişiklikleri uygulayın.
 
 ```powershell
-Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub” -RouteTable $routeTable
+Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
 ```
 
 ## <a name="cleanup"></a>Kaynakları temizleme

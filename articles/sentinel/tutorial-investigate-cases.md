@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8d44c1448296df16e9dd58a486d4cfb21bb053de
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7c4994863f3c145c7095bcc12dd69ff02fab8455
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244211"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540292"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Öğretici: Azure Önizleme Gözcü çalışmalarıyla araştırın
 
@@ -42,7 +42,7 @@ Bir durum, birden çok uyarı içerebilir. Bu, belirli bir araştırma için tü
 
 1. Seçin **çalışmaları**. **Çalışmaları** sayfa, sahip olduğunuz kaç çalışması bilmenizi sağlar, ne kadar kaç ayarladığınız açık olduğunu **sürüyor**, ve kaç kapatılır. Her durumda, gerçekleştiği zaman ve servis talebi durumunu görebilirsiniz. İlk işlemeye karar verirken önem derecesi arayın. İçinde **çalışmaları** sayfasında **uyarılar** olayla ilgili tüm uyarıları görmek için sekmesinde. Durum bölümü görüntülenebilir önceki eşlenen varlıkları **varlıkları** sekmesi.  Durumlarda, örneğin durumu veya önem sırasına göre gerektiği şekilde filtreleyebilirsiniz. Baktığınızda **çalışmaları** sekmesinde tanımlanan algılama kurallarınızı tarafından tetiklenen uyarılar içerir açık durumda görürsünüz **Analytics**. Üst kısmında gördüğünüz etkin servis talepleri, yeni çalışmaları ve ilerleme durumlarda. Önem derecesine göre tüm çalışmalarınızı genel bir bakış da görebilirsiniz.
 
-  ![Uyarı Panosu](./media/tutorial-detect-threats/alert-dashboard.png)
+  ![Uyarı Panosu](./media/tutorial-investigate-cases/cases.png)
 
 2. Bir araştırma başlamak için belirli bir servis talebi üzerinde tıklayın. Sağ tarafta (sizin eşlemesini göre), önem derecesi, Özet ilgili varlıkların sayısı dahil olmak üzere durumu için ayrıntılı bilgileri görebilirsiniz. Her durumda benzersiz bir kimliğe sahiptir. Servis talebi önem durumda dahil en önemli uyarı göre belirlenir.  
 

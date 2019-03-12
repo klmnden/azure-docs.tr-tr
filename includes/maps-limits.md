@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
-ms.openlocfilehash: 1b5991b7e9bb870fdace4418e23c7f8ff9bf8636
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 2bf9f75442ccf57aa28e6a12f415fb6e4ede78ec
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102596"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554086"
 ---
-Azure haritalar hizmet için kullanım sınırı aşağıdadır **fiyatlandırma katmanı S0**. Kullanım sınırı fiyatlandırma katmanına bağlıdır. 
+Azure haritalar S0 fiyatlandırma katmanı için kullanım sınırı aşağıdaki tabloda gösterilmektedir. Kullanım sınırı fiyatlandırma katmanına bağlıdır. 
 
 | Kaynak                              | S0 fiyatlandırma katmanı sınırı |
 |---------------------------------------|:---------------------:|
 | Abonelik başına istek hızı üst sınırı |   Saniyede 50 istek  |
 
 
-Aşağıda Azure haritalar veri hizmeti için veri boyutu sınırı vardır. Azure haritalar veri hizmeti bulunabilir, yalnızca **S1 fiyatlandırma katmanını**.
+Aşağıdaki tablo, Azure haritalar için veri boyut sınırını gösterir. Azure haritalar veri hizmeti yalnızca S1 fiyatlandırma katmanında kullanılabilir.
 
 | Kaynak                              | Sınır |
 |---------------------------------------|:---------------------:|
 | Verilerin maksimum boyutu |   50 MB  |
 
-Fiyatlandırma katmanları Azure haritalar hakkında daha fazla bilgi için bkz. [Azure haritalar'ın fiyatlandırma ayrıntılarına göz](https://azure.microsoft.com/pricing/details/azure-maps/).
+Fiyatlandırma katmanları Azure haritalar hakkında daha fazla bilgi için bkz. [Azure haritalar fiyatlandırma](https://azure.microsoft.com/pricing/details/azure-maps/).

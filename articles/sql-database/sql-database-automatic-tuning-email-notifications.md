@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: f68097f7b97814bc24926b6fc1b0bb2a750855a2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: 8b82955d7a4bdecf71c9cb4545249a423a5b5dd4
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311279"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57577084"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-posta bildirimlerini otomatik ayarlama
 
@@ -65,8 +65,6 @@ Azure PowerShell modüllerini güncelleştirme için şu adımları izleyin:
 - Modüller bölmesinde, tıklayarak "**güncelleştirme Azure modülleri**" üstünde ve "Azure modülleri güncelleştirildi" iletisi görüntülenene kadar bekleyin. Bu işlemin tamamlanması birkaç dakika sürebilir.
 
 ![Azure automation modülleri güncelleştirme](./media/sql-database-automatic-tuning-email-notifications/howto-email-02.png)
-
-Sürüm 4 olacak şekilde AzureRM.Resources ve Azurerm.SQL'e modülleri gereksinimlerinin ve üzeri sürümü gerekli.
 
 ## <a name="create-azure-automation-runbook"></a>Azure Otomasyonu Runbook'u oluşturma
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4c01cf93fe3bb66f9bce73acb3c2f100764d1f46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b008293e06f476109abde5be519489b2e3d4c1e9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872552"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531394"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Konuşma cihaz SDK'sı ile çalışmaya başlama
 
@@ -37,7 +37,7 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
 
 * Gelen bir Android örnek uygulamasını içerir konuşma cihaz SDK'sının en son sürümü Al [konuşma cihazları SDK indirme sitesi](https://shares.datatransfer.microsoft.com/). .Zip dosyasını C:\SDSDK gibi yerel bir klasöre ayıklayın.
 
-* Yükleme [Android Studio](https://developer.android.com/studio/) ve [Vysor](http://vysor.io/download/) PC'nizde.
+* Yükleme [Android Studio](https://developer.android.com/studio/) ve [Vysor](https://vysor.io/download/) PC'nizde.
 
 * Alma bir [konuşma hizmeti abonelik anahtarı](get-started.md). Bir anahtarı, Azure panosundan alma ya da 30 günlük ücretsiz deneme sürümü edinin.
 

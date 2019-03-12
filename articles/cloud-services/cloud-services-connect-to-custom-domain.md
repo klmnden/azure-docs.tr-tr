@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: bb812699795f112023b579352ac3a52bef311d40
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bee2e2038ee39c777e1ca09994ad21872d2029a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232656"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530067"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure Cloud Services rolleri bir özel AD etki alanı denetleyicisi Azure'da barındırılan bağlanma
 İlk sanal ağ (VNet) Azure'da ayarlayacağız. Ardından bir Active Directory etki alanı (bir Azure sanal makinesinde barındırılan) denetleyicisi Vnet'e ekleyeceğiz. Ardından, biz mevcut bulut hizmeti rolleri önceden oluşturulmuş bir sanal ağa ekleyin, sonra bunları etki alanı denetleyicisine bağlanma.
@@ -41,7 +41,7 @@ Azure portal veya PowerShell kullanarak Azure'da bir sanal ağ oluşturabilirsin
 
 $vnetStr =
 @"<?xml version="1.0" encoding="utf-8"?>
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
     <VirtualNetworkConfiguration>
     <VirtualNetworkSites>
         <VirtualNetworkSite name="[your-vnet-name]" Location="West US">

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 0d1d4358789cce4d393143e8a243ee9a3e06bf36
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 56d392a7df2a659cf457631ec5693766fd674f91
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652408"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727204"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen ücretlerden
 
@@ -140,7 +140,7 @@ Daha fazla bilgi için [Advisor maliyet önerileri](../advisor/advisor-cost-reco
 
 ## <a name="reviewing-costs-at-the-end-of-your-billing-cycle"></a>Bir faturalama döneminin sonunda maliyetleri gözden geçirme
 
-Faturalandırma döngünüz sonunda faturanızı kullanılabilir hale gelir. Ayrıca [faturalar indirin ve ayrıntılı kullanım dosyalarını](billing-download-azure-invoice-daily-usage-date.md) herhangi bir ücret doğru emin olmak için. Günlük kullanımınızla faturanızı ile karşılaştırması hakkında daha fazla bilgi için bkz. [Microsoft Azure için faturanızı anlayın bölümü](billing-understand-your-bill.md).
+Faturalandırma döngünüzün sonunda faturanız düzenlenir. Ayrıca [faturalar indirin ve ayrıntılı kullanım dosyalarını](billing-download-azure-invoice-daily-usage-date.md) herhangi bir ücret doğru emin olmak için. Günlük kullanımınızla faturanızı ile karşılaştırması hakkında daha fazla bilgi için bkz. [Microsoft Azure için faturanızı anlayın bölümü](billing-understand-your-bill.md).
 
 ### <a name="billing-api"></a>Faturalama API’si
 
@@ -184,6 +184,26 @@ Hesap Yöneticisi olup olmadığınızı görmek için Git [Azure portalında ab
 Hesap Yöneticisi değilseniz sonra birisi büyük olasılıkla kısmi erişim kullanarak verdiğiniz [Azure Active Directory rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md) (RBAC). Abonelik ve faturalandırma bilgileri, değişiklik yönetmek için [Hesap Yöneticisi Bul](billing-subscription-transfer.md#whoisaa). Hesap Yöneticisi görevleri gerçekleştirmek için isteyin veya [abonelik için aktarım](billing-subscription-transfer.md).
 
 Hesap yöneticiniz, kuruluşunuz artık ise ve faturalandırma, yönetmeniz gereken [bizimle](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+
+### <a name="how-to-request-a-service-level-agreement-credit-for-a-service-incident"></a>Nasıl bir hizmet olayı için bir hizmet düzeyi sözleşmesi kredi isteği
+
+Servis Düzeyi Sözleşmeleri (SLA), Microsoft’un çalışma süresi ve bağlantı hakkındaki taahhütlerini açıklar. Azure Hizmetleri, söz konusu etkileri çalışır durumda kalma süresi veya bağlantı, genellikle "kesinti." adlandırılan bir sorunla karşılaştığınızda, bir hizmet olayı bildirilir Ardından biz değil elde etmek ve hizmet düzeyleri her hizmet için SLA açıklandığı gibi korumak, bir bölümü, aylık Hizmet ücretlerini kredilerimi kullanmaya uygun olabilirsiniz.
+
+Bir kredi istemek için:
+
+1. [Azure Portal](https://portal.azure.com/) oturum açın. Birden çok hesabı varsa, Azure kapalı kalma süresi tarafından etkilenen birini kullandığınızdan emin olun. Bu, gerekli arka plan bilgileri otomatik olarak toplamak ve durum daha hızlı çözün desteği yardımcı olur.
+2. Yeni bir destek isteği oluşturun.
+3. Altında **sorun türü**seçin **faturalama**.
+4. Altında **sorun türü**seçin **iade isteği**.
+5. Bir SLA kredisine isteyen belirtin, etkilenen hizmetler (VM'ler, Web siteleri, vb.) yanı sıra tarih/saat/saat dilimi bahsetmek için Ayrıntılar ekleyin
+6. İletişim bilgilerinizi doğrulayın ve seçin **Oluştur** düğmesi isteğinizi gönderebilirsiniz.
+
+SLA eşik hizmeti tarafından farklılık gösterir. Örneğin, SQL Web Katmanı % 99,9 SLA'ya sahiptir, % 99,95 oranında SLA'sı sanal makinelerinizin ve % 99,99 SLA'sı SQL standart katmanı vardır.
+
+Bazı hizmetler için SLA'sı uygulamak önkoşulları vardır. Örneğin, sanal makineler aynı kullanılabilirlik kümesi'nde dağıtılan bir veya daha fazla örneğe sahip olmalıdır.
+
+Daha fazla bilgi için [hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/en-us/support/legal/sla/) belgeleri ve [Azure Hizmetleri için SLA özeti](https://azure.microsoft.com/en-us/support/legal/sla/summary/) belgeleri.
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 

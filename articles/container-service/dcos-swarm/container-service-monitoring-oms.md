@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 1278c788c0d36b2cadf860e379791ecd823a510b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8ed148dfd6441d05891ef38934123a9cd3827b8b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113858"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538553"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(KULLANIM DIŞI) Log Analytics ile bir Azure Container Service DC/OS kümesini izleme
 
@@ -34,7 +34,7 @@ Bu makalede, bir DC/OS kümesi ve kümede basit web kapsayıcı uygulamaları da
 ### <a name="pre-requisite"></a>Önkoşul
 - [Microsoft Azure aboneliği](https://azure.microsoft.com/free/) -ücretsiz bir abonelik edinebilirsiniz.  
 - Günlük analizi çalışma alanı kurulum - bkz. "3. adım" altında
-- [DC/OS CLI](http://docs.mesosphere.com/1.12/cli) yüklü.
+- [DC/OS CLI](https://docs.mesosphere.com/1.12/cli) yüklü.
 
 1. DC/OS Panoda Evreni ve arama için 'OMS' aşağıda gösterildiği gibi tıklayın.
 

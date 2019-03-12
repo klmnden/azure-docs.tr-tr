@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 03/5/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb2329a2a67e2e54084d2289cb8cb1a18663b329
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 02183abb60fe24b9ee9c769f7af696355966ab24
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593684"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551067"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 protokolleri - OAuth 2.0 yetkilendirme kod akışı
 
@@ -271,7 +271,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | gerekli    | Olmalıdır `refresh_token` yetkilendirme kod akışı, bu oluşturan için. |
 | `scope`         | gerekli    | Kapsamları boşlukla ayrılmış listesi. İçinde bu oluşturan istenen kapsamlar, eşdeğer veya özgün authorization_code isteği oluşturan içinde istenen kapsamları bir alt kümesi olmalıdır. Ardından bu istekte belirtilen kapsamlar birden çok kaynak sunucusu yayılıyorsa, v2.0 uç noktası ilk kapsamında belirtilen kaynak için bir belirteç döndürür. Kapsamlar hakkında daha ayrıntılı açıklaması için başvurmak [izinler ve onay kapsamları](v2-permissions-and-consent.md). |
 | `refresh_token` | gerekli    | Akışın ikinci oluşturan satın aldığınız refresh_token. |
-| `redirect_uri`  | gerekli    | Authorization_code almak için kullanılan aynı redirect_uri değer. |
+| `redirect_uri`  | gerekli    |  A `redirect_uri`istemci uygulamasında kayıtlı. |
 | `client_secret` | Web apps için gerekli | Uygulama kayıt Portalı'nda uygulamanız için oluşturduğunuz uygulama gizli anahtarı. Client_secrets güvenilir bir şekilde cihazlarda depolanan olamaz çünkü yerel bir uygulamada kullanılmamalıdır. Web uygulamaları ve web client_secret güvenli bir şekilde sunucu tarafında depolama yeteneği olan API'leri için gereklidir.                                                                                                                                                    |
 
 #### <a name="successful-response"></a>Başarılı yanıt

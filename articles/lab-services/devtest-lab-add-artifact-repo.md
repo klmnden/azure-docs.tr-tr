@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c7b9921d7eacb9b40e39f8e68d13357ce6bcfd78
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe4134d322c87c199f24cbd7966a8d6fca7256d9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241557"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538876"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Özel yapıtlar ve Resource Manager şablonları depolamak için bir Git deposu ekleme
 
@@ -89,7 +89,7 @@ Laboratuvarınız için bir depo eklemek için ilk olarak, deponuzdan anahtarı 
 
 ### <a name="related-blog-posts"></a>İlgili blog gönderileri
 * [DevTest Labs yapılar başarısız olan ilgili sorunları giderme](devtest-lab-troubleshoot-artifact-failure.md)
-* [DevTest Labs'de bir Resource Manager şablonu kullanarak bir sanal makine mevcut bir Active Directory etki alanına katılın](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [DevTest Labs'de bir Resource Manager şablonu kullanarak bir sanal makine mevcut bir Active Directory etki alanına katılın](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 90f7ef32a54f257a64942b37938cff5703112d6c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.date: 03/07/2019
+ms.openlocfilehash: f54e715f555f01a265ed89ac633f207546a73904
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409879"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576370"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 
@@ -141,7 +141,7 @@ Daha önce bahsedildiği gibi Azure portalına ek olarak, veritabanı kurtarma A
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- Tek başına veya havuza alınmış veritabanını geri yüklemek için bkz: [geri yükleme-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase).
+- Tek başına veya havuza alınmış veritabanını geri yüklemek için bkz: [geri yükleme-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet | Açıklama |
   | --- | --- |
@@ -153,7 +153,13 @@ Daha önce bahsedildiği gibi Azure portalına ek olarak, veritabanı kurtarma A
   > [!TIP]
   > Bir veritabanının bir zaman içinde nokta geri yüklemeyi gerçekleştirmek nasıl gösteren bir örnek PowerShell Betiği için bkz: [PowerShell kullanarak bir SQL veritabanını geri](scripts/sql-database-restore-database-powershell.md).
 
-- Yönetilen örnek veritabanını geri yüklemek için bkz: [-belirli bir noktaya geri yükleme, bir veritabanının Azure SQL yönetilen örneği Azurerm.SQL'e PowerShell kitaplığını kullanarak](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library/).
+- Yönetilen örnek veritabanını geri yüklemek için bkz: [geri yükleme-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
+
+  | Cmdlet | Açıklama |
+  | --- | --- |
+  | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Bir veya daha fazla yönetilen örneğini alır. |
+  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Bir örnek veritabanlarını alır. |
+  | [Geri yükleme-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |Bir örnek veritabanını geri yükler. |
 
 ### <a name="rest-api"></a>REST API
 
@@ -166,7 +172,8 @@ REST API kullanarak bir tek veya havuza alınmış veritabanını geri yüklemek
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI kullanarak tek veya havuza alınmış veritabanını geri yüklemek için bkz: [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
+- Azure CLI kullanarak tek veya havuza alınmış veritabanını geri yüklemek için bkz: [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+- Azure CLI kullanarak bir yönetilen örneğine geri yüklemek için bkz: [az sql ORTAB geri yükleme](/cli/azure/sql/db#az-sql-midb-restore)
 
 ## <a name="summary"></a>Özet
 

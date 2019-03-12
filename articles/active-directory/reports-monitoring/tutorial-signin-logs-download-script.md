@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b134482e571b235b462c027a6d4ae8967fc77413
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aedbc625bedcbe66b43b66ce96e1b17746b9a47c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175481"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531298"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Öğretici: Karşıdan yükleme ve oturum açma günlüklerine erişmek için bir betik kullan
 
@@ -36,7 +36,6 @@ Bu öğreticide, son 24 saat tüm oturum açma günlükleri indirmek ve her gün
 
 * Azure Active Directory kiracısı (ö1/ö2) premium lisansına sahip. Yükseltme öncesinde tüm etkinlikleri veri yoksa, birkaç gün raporlarda görünmesi için bir premium lisansı yükselttikten sonra verilerin gerektiğine dikkat edin. 
 * İçinde olan bir kullanıcı **genel yönetici**, **Güvenlik Yöneticisi**, **güvenlik okuyucusu** veya **rapor okuyucu** kiracının rol. Ayrıca, herhangi bir kullanıcı kendi oturum açma etkinliklerine erişebilir. 
-* İndirdiğiniz betiğin Windows 10 makinenizde çalıştırmak istiyorsanız [Azure PowerShell modülünü kurun ve yürütme İlkesi](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 
 ## <a name="tutorial"></a>Öğretici
 

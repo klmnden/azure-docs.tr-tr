@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 991a50828059d850627e1f8f3f34f65a55fdf3f6
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 22347ce7296dc55d98f1ee6d4458fa6d7c5a21e6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890241"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551301"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -289,8 +289,8 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan iş kayıtlarına ilişki
 
 |Sorgu | Açıklama|
 |----------|----------|
-|Runbook'una ilişkin başarıyla tamamlanmış ScheduledStartStop_Parent Bul | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
-|Runbook'una ilişkin başarıyla tamamlanmış SequencedStartStop_Parent Bul | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Runbook'una ilişkin başarıyla tamamlanmış ScheduledStartStop_Parent Bul | ```search Category == "JobLogs" | Burada (RunbookName_s "ScheduledStartStop_Parent" ==) | Burada (resulttype'ı "Tamamlandı" ==)  | Özetleme |AggregatedValue = count() tarafından resulttype'ı, bin (TimeGenerated, 1 saat) | Sort TimeGenerated desc tarafından '''|
+|Runbook'una ilişkin başarıyla tamamlanmış SequencedStartStop_Parent Bul | ```search Category == "JobLogs" | Burada (RunbookName_s "SequencedStartStop_Parent" ==) | Burada (resulttype'ı "Tamamlandı" ==) | Özetleme |AggregatedValue = count() tarafından resulttype'ı, bin (TimeGenerated, 1 saat) | Sort TimeGenerated desc tarafından '''|
 
 ## <a name="viewing-the-solution"></a>Çözümü görüntüleme
 
@@ -300,7 +300,7 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan iş kayıtlarına ilişki
 
 ![Otomasyon güncelleştirme yönetimi çözümü sayfası](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
-Buradan, halka kutucuğa tıklayarak daha fazla iş kayıtlarıyla analiz gerçekleştirebilirsiniz. Çözüm Panosu, iş geçmişini gösterir ve günlük arama sorguları önceden tanımlanmış. Aramak için günlük Advanced Analytics portalına geçiş, arama sorgularına dayalı.
+Buradan, halka kutucuğa tıklayarak daha fazla iş kayıtlarıyla analiz gerçekleştirebilirsiniz. Çözüm Panosu, iş geçmişini gösterir ve günlük arama sorguları önceden tanımlanmış. Aramak için log analytics Gelişmiş portalı geçin, arama sorgularına dayalı.
 
 ## <a name="configure-email-notifications"></a>E-posta bildirimlerini yapılandırma
 

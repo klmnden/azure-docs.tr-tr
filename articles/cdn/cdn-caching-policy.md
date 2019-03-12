@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: ac94370b1c6a8f48ad55f0e277d93cd2f8388cb1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a747e5064ff0ef99fb43c545c29c2a34535445d0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242613"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540165"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Azure CDN önbelleğe alma İlkesi, Azure Media Services'ı yönetme
-Azure Media Services, Uyarlamalı akış ve aşamalı indirme HTTP tabanlı sağlar. Akışa göre HTTP proxy ve Katmanlar CDN önbelleğe alma yanı sıra istemci tarafı önbelleğe alma avantajları ile yüksek düzeyde ölçeklenebilirdir. Genel akış özellikleri ve ayrıca yapılandırma HTTP önbellek üst bilgiler için akış uç noktaları sağlar. Akış uç noktaları, HTTP Cache-Control ayarlar: en fazla yaş ve Expires üst bilgileri. Üst bilgiler HTTP önbelleği için daha fazla bilgi edinebilirsiniz [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
+Azure Media Services, Uyarlamalı akış ve aşamalı indirme HTTP tabanlı sağlar. Akışa göre HTTP proxy ve Katmanlar CDN önbelleğe alma yanı sıra istemci tarafı önbelleğe alma avantajları ile yüksek düzeyde ölçeklenebilirdir. Genel akış özellikleri ve ayrıca yapılandırma HTTP önbellek üst bilgiler için akış uç noktaları sağlar. Akış uç noktaları, HTTP Cache-Control ayarlar: en fazla yaş ve Expires üst bilgileri. Üst bilgiler HTTP önbelleği için daha fazla bilgi edinebilirsiniz [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
 
 ## <a name="default-caching-headers"></a>Varsayılan önbelleğe alma üstbilgileri
 Varsayılan akış uç noktalarını isteğe bağlı Akış verilerini (gerçek medya parçasının/öbekleri) ve manifest(playlist) için 3 günlük önbellek üstbilgileri uygulayın. Canlı akış için akış uç noktaları (gerçek medya parçasının/öbekleri) veri için 3 günlük önbellek üstbilgileri uygulamak ve üstbilgi manifest(playlist) istekleri için 2 saniye önbelleğe alır. Canlı program isteğe bağlı olarak (Canlı arşiv) açtığında, ardından talep üzerine akış önbellek üstbilgileri uygulayın.

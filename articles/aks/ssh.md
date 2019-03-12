@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: d687467e6bd64363c78f60064c6a17adbc5e0d1f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 680e087e80d3e9891e201e7cb474ccfcf7fcc70b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846140"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538808"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Küme düğümleri Bakımı veya sorun giderme için Azure Kubernetes Service (AKS) için SSH ile bağlanma
 
@@ -20,21 +20,27 @@ Azure Kubernetes Service (AKS) kümenizi yaşam döngüsü boyunca, bir AKS dü�
 
 Bu makalede, özel IP adreslerini kullanarak bir AKS düğümü ile bir SSH bağlantısı oluşturulacağını gösterir.
 
+## <a name="before-you-begin"></a>Başlamadan önce
+
+Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
+
+Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
+
 ## <a name="add-your-public-ssh-key"></a>SSH ortak anahtarınızı ekleme
 
-Bir AKS kümesi oluşturduğunuzda varsayılan olarak, SSH anahtarları oluşturulur. AKS kümenizi oluştururken kendi SSH anahtarları belirtmediyseniz, ortak SSH anahtarları için AKS düğümleri ekleyin. 
+Bir AKS kümesi oluşturduğunuzda varsayılan olarak, SSH anahtarları oluşturulur. AKS kümenizi oluştururken kendi SSH anahtarları belirtmediyseniz, ortak SSH anahtarları için AKS düğümleri ekleyin.
 
 Bir AKS düğümüne SSH anahtarınızı eklemek için aşağıdaki adımları tamamlayın:
 
 1. Kaynak grubu adını kullanarak AKS kümesi kaynaklarınız için alma [az aks show][az-aks-show]. Kendi temel kaynak grubunun ve AKS kümesinin adını sağlayın:
 
-    ```azurecli
+    ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
     ```
 
 1. AKS küme kaynak grubu kullanarak Vm'leri listelemek [az vm listesini] [ az-vm-list] komutu. Bu VM'ler, AKS düğümleri şunlardır:
 
-    ```azurecli
+    ```azurecli-interactive
     az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
     ```
 
@@ -48,7 +54,7 @@ Bir AKS düğümüne SSH anahtarınızı eklemek için aşağıdaki adımları t
 
 1. SSH anahtarlarınız düğüme eklemek için [az vm kullanıcı güncelleştirme] [ az-vm-user-update] komutu. Kaynak grubu adını ve ardından önceki adımda elde edilen AKS düğümleri birini sağlayın. Varsayılan olarak, AKS düğümleri için kullanıcı adı: *azureuser*. Kendi SSH ortak anahtar konumunu, konumunu sağlayın *~/.ssh/id_rsa.pub*, veya SSH ortak anahtarınızı içeriğini yapıştırın:
 
-    ```azurecli
+    ```azurecli-interactive
     az vm user update \
       --resource-group MC_myResourceGroup_myAKSCluster_eastus \
       --name aks-nodepool1-79590246-0 \
@@ -58,11 +64,11 @@ Bir AKS düğümüne SSH anahtarınızı eklemek için aşağıdaki adımları t
 
 ## <a name="get-the-aks-node-address"></a>AKS düğüm adresi alın
 
-AKS düğümleri genel olarak internet'e açık değildir. AKS düğümleri için SSH için özel IP adresini kullanın.
+AKS düğümleri genel olarak internet'e açık değildir. AKS düğümleri için SSH için özel IP adresini kullanın. Sonraki adımda, yardımcı pod olanak sağlayan, AKS kümenizin SSH düğümü için bu özel IP adresi oluşturun.
 
 Bir AKS kümesi düğümü kullanma özel IP adresini görüntüleyin [az vm-IP-adreslerini] [ az-vm-list-ip-addresses] komutu. Önceki elde kendi AKS küme kaynak grubu adı girin [az aks show] [ az-aks-show] . adım:
 
-```azurecli
+```azurecli-interactive
 az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 ```
 
@@ -154,3 +160,6 @@ Ek sorun giderme verilerini gerekiyorsa [kubelet günlüklerini görüntüleme] 
 [az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

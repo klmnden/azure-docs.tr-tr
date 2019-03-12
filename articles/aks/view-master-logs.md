@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 77908e24a19a48bf9b84d5d5b664bf0443159118
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456002"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537771"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Kubernetes Azure Kubernetes Service (AKS) ana düğüm günlüklerini gözden geçirin ve etkinleştirin
 
@@ -88,7 +88,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Toplanan günlükleri görüntüleyin
 
-Bu, Log Analytics çalışma alanında görünür ve etkin tanılama günlükleri için birkaç dakika sürebilir. Azure portalında Log Analytics çalışma alanınız için kaynak grubu gibi seçin *myResourceGroup*, Log Analytics kaynağınızı gibi ardından *myAKSLogs*.
+Bu, Log Analytics çalışma alanında görünür ve etkin tanılama günlükleri için birkaç dakika sürebilir. Azure portalında Log Analytics çalışma alanınız için kaynak grubu gibi seçin *myResourceGroup*, log analytics kaynağınızı gibi ardından *myAKSLogs*.
 
 ![AKS kümenizin Log Analytics çalışma alanını seçin](media/view-master-logs/select-log-analytics-workspace.png)
 

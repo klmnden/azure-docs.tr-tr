@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: fc56fe3a5bdfa0f5e1ef4bc309932cb7f57cf27d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978102"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530969"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Öğretici: Traffic Manager ile tepe etki alanı adlarını desteklemek için diğer ad kaydı yapılandırma 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Öğretici: Bir diğer ad kaydı Apex etki alanı adları ile Traffic Manager'ı destekleyecek şekilde yapılandırma 
 
 Bir Azure Traffic Manager profiline başvurmak üzere etki alanı tepe adı için diğer ad kaydı oluşturabilirsiniz. Örneğin: contoso.com. Yönlendirme hizmeti kullanmak yerine Azure DNS yapılandırması ile Traffic Manager profiline doğrudan bölgenizden başvurabilirsiniz. 
 
@@ -30,16 +30,16 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Birlikte test edilecek Azure DNS içinde barındırabileceğiniz bir etki alanı adınızın olması gerekir. Bu etki alanı üzerinde tam denetime sahip olmanız gerekir. Tam denetim, etki alanı için ad sunucusu (NS) kayıtlarını ayarlama olanağını kapsar.
 
-Azure DNS’te etki alanınızı barındırma yönergeleri için bkz. [Öğretici: Azure DNS’te etki alanınızı barındırma](dns-delegate-domain-azure-dns.md).
+Etki alanınızı Azure DNS'de barındırmak yönergeler için bkz: [Öğreticisi: Etki alanınızı Azure DNS'de konak](dns-delegate-domain-azure-dns.md).
 
 Bu öğreticide örnek olarak contoso.com etki alanı kullanılmaktadır ancak sizin kendi etki alanı adınızı kullanmanız gerekir.
 
 ## <a name="create-the-network-infrastructure"></a>Ağ altyapısını oluşturma
 İlk olarak, web sunucularınızı içine yerleştirmek için bir sanal ağ ve alt ağ oluşturun.
-1. http://portal.azure.com adresinden Azure portalında oturum açın.
+1. https://portal.azure.com adresinden Azure portalında oturum açın.
 2. Portalda sol üst köşeden **Kaynak oluştur**'u seçin. Arama kutusuna *kaynak grubu* yazın ve **RG-DNS-Alias-TM** adlı bir kaynak grubu oluşturun.
 3. **Kaynak oluştur** > **Ağ** > **Sanal Ağ**'ı seçin.
 4. **VNet-Servers** adlı bir sanal ağ oluşturun. Bunu **RG-DNS-Alias-TM** kaynak grubunun içine yerleştirin ve alt ağı **SN-Web** olarak adlandırın.

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 13a1ed626e7741c90cf902c9ed01911985ca8424
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.date: 03/12/2019
+ms.openlocfilehash: 5a0fc99052b18dc1fa837147aa914a473d27d832
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453452"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730017"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>SSL bağlantısı, PostgreSQL için Azure veritabanı'nda yapılandırma
 PostgreSQL için Azure veritabanı sunucunuzla istemci uygulamalarınız için Güvenli Yuva Katmanı (SSL) kullanarak PostgreSQL hizmetine bağlanma tercih eder. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur.
@@ -50,65 +50,21 @@ Bazı durumlarda, uygulamaları güvenli bir şekilde bağlanmak için bir güve
 ### <a name="download-the-certificate-file-from-the-certificate-authority-ca"></a>Sertifika yetkilisi (CA) sertifika dosyasını indirin 
 PostgreSQL sunucusu bulunduğu için Azure veritabanı ile SSL üzerinden iletişim kurması için gereken sertifikayı [burada](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Sertifika dosyası yerel olarak indirin.
 
-### <a name="download-and-install-openssl-on-your-machine"></a>OpenSSL makinenize yükleyin ve indirin 
-Uygulamanızın güvenli bir şekilde veritabanı sunucunuza bağlanmak gerekli sertifika dosyası kodunu çözmek için yerel bilgisayarınıza yüklemeniz gerekir.
+### <a name="install-a-cert-decoder-on-your-machine"></a>Bir sertifika kod çözücü makinenize yükleyin. 
+Kullanabileceğiniz [OpenSSL](https://github.com/openssl/openssl) uygulamanızın güvenli bir şekilde veritabanı sunucunuza bağlanmak gerekli sertifika dosyasının kodu çözülemedi. OpenSSL yüklemek öğrenmek için bkz. [OpenSSL yükleme yönergeleri](https://github.com/openssl/openssl/blob/master/INSTALL). 
 
-#### <a name="for-linux-os-x-or-unix"></a>Linux, OS X veya Unix için
-OpenSSL kitaplıkları doğrudan kaynak kodunda sağlanır [OpenSSL Software Foundation](https://www.openssl.org). Aşağıdaki yönergeler OpenSSL Linux bilgisayarınıza yüklemek gereken adımlarda size kılavuzluk eder. Bu makalede, Ubuntu 12.04 üzerinde çalışmak için bilinen ve daha yüksek komutları kullanır.
-
-Bir terminal oturumu açın ve OpenSSL indirin.
-```bash
-wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
-``` 
-İndirilen paketteki dosyaları ayıklayın.
-```bash
-tar -xvzf openssl-1.1.0e.tar.gz
-```
-Dizin dosyaları ayıkladığınız girin. Varsayılan olarak, aşağıdaki gibi olması gerekir.
-
-```bash
-cd openssl-1.1.0e
-```
-Aşağıdaki komutu yürüterek OpenSSL yapılandırın. Bir klasördeki dosyaları /usr/local/openssl farklı istiyorsanız, aşağıdaki uygun şekilde değiştirmek emin olun.
-
-```bash
-./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl
-```
-OpenSSL'ın düzgün yapılandırıldığından, sertifikanızı dönüştürmek için derlemeniz gerekir. Derlemek için aşağıdaki komutu çalıştırın:
-
-```bash
-make
-```
-Derleme tamamlandıktan sonra aşağıdaki komutu çalıştırarak yürütülebilir olarak OpenSSL yüklemeye hazırsınız:
-```bash
-make install
-```
-Sisteminizde OpenSSL başarıyla yükledikten onaylamak için onay ve aşağıdaki komutu aynı çıktı alacağınızdan emin olmak için çalıştırın.
-
-```bash
-/usr/local/openssl/bin/openssl version
-```
-Başarılı olursa şu iletiyi görmeniz gerekir.
-```bash
-OpenSSL 1.1.0e 7 Apr 2014
-```
-
-#### <a name="for-windows"></a>Windows için
-Bir Windows Bilgisayara OpenSSL yüklemek, aşağıdaki şekillerde yapılabilir:
-1. **(Önerilen)**  Penceresi 10'daki yerleşik Windows Bash işlevi kullanarak ve üzeri, OpenSSL varsayılan olarak yüklenir. Windows 10 için Windows Bash işlevselliğini etkinleştirmek yönergeler bulunabilir [burada](https://msdn.microsoft.com/commandline/wsl/install_guide).
-2. Topluluk tarafından sağlanan bir Win32/64 uygulamasını indirirken size. OpenSSL Software Foundation sağlamaz veya belirli bir Windows Yükleyici gibi bir tavsiyede sırada kullanılabilir yükleyicileri listesini sağladıkları [burada](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Sertifika dosyanız kodunu çözme
 İndirilen kök CA'ın dosya şifrelenmiş biçimindedir. OpenSSL sertifikası dosyanın kodunu çözmek için kullanın. Bunu yapmak için bu OpenSSL komutu çalıştırın:
 
-```dos
+```
 openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ```
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Azure veritabanı'na PostgreSQL için SSL sertifika kimlik doğrulaması ile bağlanma
-Sertifikanızı başarıyla çözülmüş, artık veritabanı sunucusuna güvenli bir şekilde SSL üzerinden bağlanabilirsiniz. Sunucu sertifika doğrulaması izin vermek için sertifika, kullanıcıların giriş dizinine dosya ~/.postgresql/root.crt yerleştirilmesi gerekir. (Microsoft Windows üzerinde dosya % APPDATA%\postgresql\root.crt olarak adlandırılır.). PostgreSQL için Azure veritabanı'na bağlanma yönergeleri sağlar.
+Sertifikanızı başarıyla çözülmüş, artık veritabanı sunucusuna güvenli bir şekilde SSL üzerinden bağlanabilirsiniz. Sunucu sertifika doğrulaması izin vermek için sertifika, kullanıcıların giriş dizinine dosya ~/.postgresql/root.crt yerleştirilmesi gerekir. (Microsoft Windows üzerinde dosya % APPDATA%\postgresql\root.crt olarak adlandırılır.). 
 
-#### <a name="using-psql-command-line-utility"></a>Psql komut satırı yardımcı programını kullanma
+#### <a name="connect-using-psql"></a>Psql kullanarak bağlan
 Aşağıdaki örnek, başarıyla psql komut satırı yardımcı programını kullanarak PostgreSQL sunucunuza bağlanmak gösterilmektedir. Kullanım `root.crt` dosya oluşturulduğunda ve `sslmode=verify-ca` veya `sslmode=verify-full` seçeneği.
 
 PostgreSQL komut satırı arabirimi kullanarak, aşağıdaki komutu yürütün:
@@ -127,11 +83,6 @@ Type "help" for help.
 
 postgres=>
 ```
-
-#### <a name="using-pgadmin-gui-tool"></a>PgAdmin GUI aracını kullanarak
-PgAdmin SSL üzerinden güvenli bir şekilde bağlanmak için 4 yapılandırılması, gerektirir ayarlamanızı `SSL mode = Verify-CA` veya `SSL mode = Verify-Full` şu şekilde:
-
-![PgAdmin - connection - SSL modu görüntüsü gerektirir](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki çeşitli uygulama bağlantı seçenekleri gözden [PostgreSQL için Azure veritabanı için bağlantı kitaplıkları](concepts-connection-libraries.md).

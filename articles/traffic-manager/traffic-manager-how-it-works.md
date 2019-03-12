@@ -3,23 +3,21 @@ title: Azure Traffic Manager nasıl çalışır? | Microsoft Docs
 description: Bu makalede, yüksek performans ve kullanılabilirlik, web uygulamaları için trafik Traffic Manager tarafından nasıl yönlendirdiği anlamanıza yardımcı olur
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: KumudD
 manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2018
+ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 35abc43b60f31d94e8c4221137ad5437366b3489
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567851"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547870"
 ---
 # <a name="how-traffic-manager-works"></a>Traffic Manager nasıl çalışır?
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7c790d03143eece9b0c827a033bdd46bfd1a8f45
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7fcf08c36d8babd0a318ed5b912823c344f4ce64
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024374"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549961"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory kullanarak Amazon Redshift'ten verileri kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Geçerli sürüm](connector-amazon-redshift.md)
 
@@ -38,7 +38,7 @@ Amazon Redshift'ten verileri desteklenen havuz veri deposuna kopyalayabilirsiniz
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Kopyalamakta olduğunuz, şirket içi veriler için veri depolamak kullanarak [şirket içinde barındırılan tümleştirme çalışma zamanı](create-self-hosted-integration-runtime.md), Integration Runtime (makinenin IP adresini kullan) Amazon Redshift kümesine erişim. Bkz: [kümeye erişim yetkisi](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) yönergeler için.
+* Kopyalamakta olduğunuz, şirket içi veriler için veri depolamak kullanarak [şirket içinde barındırılan tümleştirme çalışma zamanı](create-self-hosted-integration-runtime.md), Integration Runtime (makinenin IP adresini kullan) Amazon Redshift kümesine erişim. Bkz: [kümeye erişim yetkisi](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) yönergeler için.
 * Bir Azure veri deposuna veri kopyalama olup [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) işlem IP adresi ve Azure veri tarafından kullanılan SQL aralıkları ortalar.
 
 ## <a name="getting-started"></a>Başlarken
@@ -151,7 +151,7 @@ Verileri verimli bir şekilde bir sonraki bölümden Amazon redshift'ten kopyala
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Verileri Amazon Redshift'ten kopyalamak için Kaldır'ı kullanın
 
-[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) Amazon Redshift, Amazon basit depolama hizmeti (Amazon S3 için) bir veya daha fazla dosyaları için bir sorgunun sonuçlarını kaldırmak tarafından sağlanan bir mekanizma. Tarafından Amazon Redshift'ten büyük veri kümesi kopyalamak için önerilen yoldur.
+[UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) Amazon Redshift, Amazon basit depolama hizmeti (Amazon S3 için) bir veya daha fazla dosyaları için bir sorgunun sonuçlarını kaldırmak tarafından sağlanan bir mekanizma. Tarafından Amazon Redshift'ten büyük veri kümesi kopyalamak için önerilen yoldur.
 
 **Örnek: veri Amazon Redshift'ten Azure SQL kaldırma, hazırlanmış kopya ve PolyBase kullanarak veri ambarı için kopyalama**
 
@@ -210,17 +210,17 @@ Verileri Amazon Redshift'ten kopyalama yapılırken, aşağıdaki eşlemeler Ama
 | Amazon Redshift veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLE DEĞERİ |Dize |
-| CHAR |Dize |
+| BOOLE DEĞERİ |String |
+| CHAR |String |
 | DATE |DateTime |
-| ONDALIK |Onluk |
-| ÇİFT DUYARLIK |çift |
-| TAMSAYI |Int32 |
-| GERÇEK |Tek |
+| DECIMAL |Decimal |
+| ÇİFT DUYARLIK |Double |
+| INTEGER |Int32 |
+| GERÇEK |Single |
 | TAMSAYI |Int16 |
-| METİN |Dize |
+| METİN |String |
 | ZAMAN DAMGASI |DateTime |
-| VARCHAR |Dize |
+| VARCHAR |String |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).

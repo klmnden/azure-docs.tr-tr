@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 164d705a16dd82a1c5f3ff6f5e6982f80eb40dab
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: d2aa05d6648a76b02e09c660d7e6f6f30988db53
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330877"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542174"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI’yı kullanarak özel bir Dockler kapsayıcı kayıt defterine ilk görüntünüzü itme
 
-Azure kapsayıcısı kayıt defteri, [Docker Hub](https://hub.docker.com/)’ın genel Docker görüntülerini depolama yöntemine benzer şekilde özel [Docker](http://hub.docker.com) kapsayıcı görüntülerini depolar ve yönetir. Kullanabileceğiniz [Docker komut satırı arabirimi](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) için [oturum açma](https://docs.docker.com/engine/reference/commandline/login/), [anında iletme](https://docs.docker.com/engine/reference/commandline/push/), [çekme](https://docs.docker.com/engine/reference/commandline/pull/)ve kapsayıcınızı üzerinde başka işlemler kayıt defteri.
+Azure kapsayıcısı kayıt defteri, [Docker Hub](https://hub.docker.com/)’ın genel Docker görüntülerini depolama yöntemine benzer şekilde özel [Docker](https://hub.docker.com) kapsayıcı görüntülerini depolar ve yönetir. Kullanabileceğiniz [Docker komut satırı arabirimi](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) için [oturum açma](https://docs.docker.com/engine/reference/commandline/login/), [anında iletme](https://docs.docker.com/engine/reference/commandline/push/), [çekme](https://docs.docker.com/engine/reference/commandline/pull/)ve kapsayıcınızı üzerinde başka işlemler kayıt defteri.
 
 Aşağıdaki adımlarda indirdiğiniz resmi [Nginx görüntüsü](https://store.docker.com/images/nginx) genel Docker Hub kayıt defterinden nginx özel Azure kapsayıcısı kayıt defteriniz için etiket, kayıt defterinize gönderin ve ardından kayıt defterinden çekme.
 

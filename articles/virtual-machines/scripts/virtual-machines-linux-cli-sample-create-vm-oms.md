@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - Azure izleme ile Linux VM oluşturma | Microsoft Docs
-description: Azure CLI Betik Örneği - Azure izleme ile Linux VM oluşturma
+title: Azure CLI betik örneği - Azure İzleyici ile Linux VM oluşturma | Microsoft Docs
+description: Azure CLI betik örneği - Azure İzleyici ile Linux VM oluşturma
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 70eb7ef93d4802f30bb1343c442c414cda48464b
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6aed5f40d689fc84c82f37760e78fc7c3fe94dd1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732796"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535630"
 ---
-# <a name="monitor-a-vm-with-azure-monitoring"></a>Azure İzleme ile VM izleme
+# <a name="monitor-a-vm-with-azure-monitor"></a>Azure İzleyici ile bir VM izleme
 
 Bu betik bir Azure Sanal Makinesi oluşturur, Log Analytics aracısını yükler ve sistemi bir Log Analytics çalışma alanına kaydeder. Betik çalıştıktan sonra sanal makine konsolda görünür.
 
@@ -51,7 +51,7 @@ Bu betik, bir kaynak grubu, sanal makine ve tüm ilgili kaynakları oluşturmak 
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Sanal makine oluşturur ve ağ kartına, sanal ağa, alt ağa ve NSG’ye bağlar. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini belirtir.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Bir sanal makineye karşı VM uzantısı çalıştırır. Bu örnekte Log Analytics aracısını yüklemek ve VM’yi bir Log Analytics çalışma alanına kaydetmek için Log Analytics aracı uzantısı kullanılır. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Bir sanal makineye karşı VM uzantısı çalıştırır. Bu durumda, Log Analytics aracısını yükleyin ve bir Log Analytics çalışma alanında VM kaydetmek için Azure İzleyici aracı uzantısı kullanılır. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -15,12 +15,12 @@ ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 0261dff10e553ecbd39d394eb19e7ad3dd76f0a2
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1115e11d6bf830afad3746eb41d6368cb89bdbf3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340975"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534387"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile hazırlanmış veri analizi çözümü oluşturma 
 
@@ -54,7 +54,7 @@ Bazı hazırlık, bu çözümü oluşturmak için gereklidir:
 
 -   Azure aboneliği. (Oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
--   [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/)'ni indirip yükleme.
+-   [Microsoft Azure Depolama Gezgini](https://storageexplorer.com/)'ni indirip yükleme.
 
 -   İşlevler tarafından işlenmek üzere kendi veri sağlamanız gerekir. Verileri, oluşturulan ve Azure Stack depolama blob kapsayıcısını karşıya yüklemek kullanılabilir olmalıdır.
 

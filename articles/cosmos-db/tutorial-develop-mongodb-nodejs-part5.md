@@ -12,12 +12,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 4e7aa9931ffb268f787882729341fbe860255f70
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 59ba69f8bf208ab4f38ae326cf4297947f0b844e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767868"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547121"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>MongoDB - kullanım Cosmos DB'ye bağlanmak için Mongoose için Azure Cosmos DB API'si ile Angular uygulama oluşturma
 
@@ -66,7 +66,7 @@ Mongoose MongoDB ve Node.js (ODM) kitaplığı modelleme nesnesi verilerdir. Azu
     const mongoose = require('mongoose');
     /**
      * Set to Node.js native promises
-     * Per http://mongoosejs.com/docs/promises.html
+     * Per https://mongoosejs.com/docs/promises.html
      */
     mongoose.Promise = global.Promise;
 
